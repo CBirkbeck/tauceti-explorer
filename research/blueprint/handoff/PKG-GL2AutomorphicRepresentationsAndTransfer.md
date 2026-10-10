@@ -1,5 +1,238 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Issue: #7901. Worker: Codex, session `codex-gJ1wpQ`. Date: 2026-10-10.
+Continues merged checkpoints #8068, #8149, #8161, #8174, #8190 and #8196.
+Status: **partial; accepted-plan repair required**. This is not a completed
+package and must not be sent upstream as one.
+
+The bot confirmed the claim in
+[comment 6093150000](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6093150000).
+Every issue on the manager's priority list was checked; none was available.
+This available focus package was selected under WORKERS.md. Only this job was
+claimed. The working branch is `codex-gJ1wpQ-gl2-package`.
+
+## What this run establishes
+
+This run changes the handoff only. It preserves the inherited README, Lean
+signatures and tests, and all explicitly named signature omissions. It supplies
+an independently checked, publicly readable source and a concrete construction
+for the first mathematical blocker, rather than repeating an unsupported
+request for a character-extension theorem.
+
+The two consumers are `R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction`. The accepted R17.3 packet records their
+missing local–global extension theorem as a gap without an owning node.
+`R17.5/finite-hecke-extension` instead concerns the torsion-idele quotient;
+Patrikis, Lemma 2.3.6, printed pp. 30–31, does not prescribe a character on a
+full local multiplicative group. Uniformizer values are missing from that
+input. The additional construction below resolves the mathematical source and
+proof-route uncertainty; it does **not** assign an owner or change the plan.
+
+Current GlobalNumberFields Layers 9–10 and current Tau Ceti still provide
+Hecke-character carriers, local components, infinity types, and ray-class
+factorization of an existing character, rather than this simultaneous
+prescription theorem. In particular:
+
+- `HeckeCharacter/Basic.lean`, `isFiniteOrder_iff` and
+  `ofRayClassCharacter`, start with a character or a ray-class character.
+- `HeckeCharacter/FiniteOrder.lean`,
+  `isFiniteOrder_iff_exists_rayClassCharacter`, factors a character already
+  supplied as input; it does not solve the local prescription problem.
+- `HeckeCharacter/FiniteComponent.lean`, `finiteComponent`, extracts an
+  existing character's component.
+- `HeckeCharacter/UnitCompatibility.lean`,
+  `exists_modulus_embeddingCharacter_eq_one` and
+  `isOfFinOrder_embeddingCharacter_units`, take an existing global character
+  and an agreement hypothesis. They establish necessary compatibility, not
+  arbitrary local-component existence.
+
+These files are under Tau Ceti's `NumberTheory/NumberField/Global/` namespace.
+The current ClassFieldTheory scope excludes prescribed local abelian
+extensions and Grunwald–Wang; its existence and Kummer contracts do not state
+the missing result. Searches of the nine newer upstream roadmaps' suggested
+files found no contract that supplies it. No existing roadmap is replanned.
+
+The issue requires the accepted plan to be the source of truth and explicitly
+says to change no packet and describe plan mistakes in the handoff.
+PROTOCOL.md §20 also requires that the README claim nothing unsupported by
+that plan. Consequently the package worker cannot declare this absent
+prerequisite closed by adding an unaccepted theorem or an invented supplier
+citation. The routing/plan repair is the blocking next action; it is not a
+wait for library implementation or exhaustion of this run's time.
+
+## Repair proposal: Chevalley congruences and full local prescription
+
+**Source, read directly:** C. Chevalley, *Deux Théorèmes d'Arithmétique*,
+J. Math. Soc. Japan **3** (1951), 36–44,
+[original publisher PDF](https://www.jstage.jst.go.jp/article/jmath1948/3/1/3_1_36/_pdf/-char/en),
+[DOI](https://doi.org/10.2969/jmsj/00310036).
+Theorem 1 is on printed p. 36; its proof is in Part I, §§1–5, pp. 36–39,
+with the alternative Galois/Chebotarev argument in the following remark,
+pp. 39–40. The page image was checked: the theorem number is **1**, although
+plain-text extraction misreads it as 7. The following is a proposed owner
+contract and our derivation, not a quotation or a source synopsis.
+
+**Congruence contract.** For a number field M, a finitely generated subgroup
+E of M×, a finite set S of finite places outside which every element of E is
+a unit, and a finite-index subgroup E′ of E, there is a nonzero integral ideal
+𝔪 supported outside S such that
+
+`{a ∈ E : a ≡ 1 (mod 𝔪)} ⊆ E′`.
+
+Equivalently, some finite collection of places outside S and positive local
+congruence depths cuts out a subgroup contained in E′. Chevalley's Theorem 1
+supplies the stronger power-subgroup form: for every n > 0 one may force a
+congruent element of E to lie in Eⁿ while avoiding any specified finite set
+of rational primes. Take n to be the exponent of E/E′, and exclude all
+rational primes below S, to obtain the displayed ideal form. The S-unit
+finite-generation input is indispensable; the statement is not about all of
+M×. Rapinchuk–Segev, *Valuation-like maps and the congruence subgroup
+property*, §4, final paragraph on printed p. 582, also records precisely this
+finite-index formulation.
+
+One suitable proof chain, using the alternative argument, is as follows.
+The saturation E₀ of E in M× lies in the same S-unit group, is finitely
+generated, and E₀/E is finite; let d kill that quotient. It suffices to force
+every congruent x ∈ E to have an nd-th root in M: a root y lies in E₀,
+so yᵈ ∈ E and x = (yᵈ)ⁿ. Take a finite Galois splitting field L of the
+nd-th roots of generators of E. For each proper subgroup H of Gal(L/M),
+choose a group element having no fixed point on Gal(L/M)/H. Such an element
+exists by the finite transitive-action fixed-point average: the identity
+fixes more than one point, whereas the average number fixed is one.
+Chebotarev gives a prime outside the excluded finite set, unramified in L
+and away from nd, with this Frobenius class. Impose x ≡ 1 at all these
+finitely many primes. Hensel's lemma then gives an nd-th root locally at
+every chosen prime. If the field generated by a root were nontrivial, its
+corresponding proper subgroup's prime would have no residue-degree-one
+prime by the Frobenius action, contradicting that local root. Thus the root
+lies in M. Required inputs are S-unit finite generation, finite Galois
+theory/splitting fields, the finite-action lemma, Chebotarev, Hensel, and the
+Frobenius/residue-degree correspondence. Do not replace this chain by a
+bare reference to class-field-theoretic existence.
+
+**Finite character contract.** Given M, finite S, and continuous finite-order
+characters ξᵤ : Mᵤ× → ℂ× for every u ∈ S, there exists a continuous
+finite-order Hecke character ξ of M whose full u-component equals ξᵤ.
+It may ramify at auxiliary places outside S. It can be chosen trivial on
+the full archimedean multiplicative group. No assertion that its order equals
+the least common multiple of the prescribed orders is needed or justified.
+
+Here is a construction with the actual subgroup and continuity conditions.
+Let E = O_{M,S}× and let E′ be the kernel of a ↦ ∏_{u∈S} ξᵤ(a).
+This has finite index, so choose 𝔪 from the congruence contract. Inside the
+idele group form the open subgroup
+
+`B = M∞× × ∏_{u∈S} Mᵤ× × ∏_{w∉S} U_w(𝔪)`,
+
+where U_w(𝔪) is the local principal-unit group of the indicated depth at
+w dividing 𝔪, and the full unit group otherwise. Set θ(b) = ∏ ξᵤ(bᵤ).
+The diagonal intersection B ∩ M× consists exactly of S-units satisfying
+the congruences at 𝔪. Hence θ is trivial on it and descends to D, the image
+of B in the idele class group C_M. The subgroup H = image(ker θ) is open.
+It contains the image of a ray congruence subgroup: choose principal-unit
+depths at each u ∈ S on which ξᵤ is trivial and keep the depths at 𝔪.
+Consequently C_M/H is finite by ray-class finiteness. The character of the
+subgroup D/H extends to the finite abelian group C_M/H because ℂ× is
+divisible. Pull it back to C_M. This produces a continuous finite-order
+character and gives the desired values on **every** element of each Mᵤ×,
+including a uniformizer. The full archimedean factors lie in ker θ, so the
+extension is trivial there. This finite quotient construction avoids an
+unproved appeal to topological character extension on an arbitrary quotient.
+
+**Single-place quasi-character consequence.** A continuous character
+α : Mᵤ× → ℂ× has finite-order restriction to Oᵤ×: its compact image is a
+quotient of a profinite group and a closed subgroup of the circle, so is
+finite. Choose a uniformizer π and s ∈ ℂ with qᵤ^(−s) = α(π).
+Then ν = α |·|ᵤ^(−s) is finite order, since it is trivial on π and has
+finite image on units. Extend ν by the finite contract and multiply the
+global extension by |·|_A^s. The product formula makes this a Hecke character
+with full component α. This is the single-place quasi-character clause
+needed for the Tunnell consumer, not an unrestricted simultaneous prescription
+of incompatible complex norm exponents at several places.
+
+For the CM consumer, first retain the infinity-type compatibility criterion
+of Patrikis, Lemma 2.3.1, printed p. 28. Once an initial character with the
+specified infinity type and norm twist is constructed and its selected finite
+component is proved finite order, correct the finite-order discrepancy using
+the finite contract above. Because that correction is trivial at infinity,
+the prescribed infinity type is preserved. This last finite-order property
+must be proved in the Carayol construction; it cannot be inferred merely
+from the global character having type A. The existing handoff's distinction
+between global angular type and finite-component order remains binding.
+
+Recommended interface checks for the repaired plan include: S empty gives
+the trivial character; prescribed unit and uniformizer evaluations both
+hold; and a finite correction trivial at infinity preserves each infinity
+component. A sharp domain test is M = ℚ, S = {2}, and the unramified quadratic
+character of ℚ₂× taking 2 to −1. It is trivial on all local units, including
+torsion, whereas the trivial character takes 2 to 1. A global extension is
+the even quadratic Dirichlet character modulo 5 (whose value at 2 is −1).
+Thus torsion or unit data alone cannot distinguish the two prescriptions,
+and auxiliary ramification really is allowed. Requiring an everywhere
+unramified finite global extension would fail in this example.
+
+## Required next action and inherited work
+
+The maintainer must route the congruence contract and the finite and
+single-place character consequences to one owner compatible with the tier
+order, then repair the accepted prerequisites of both consumers. The accepted
+gap proposes an extension after GlobalNumberFields Layer 9. That is a
+proposed placement, not a citation to an existing target, and no edits to
+GlobalNumberFields are made here. A repair must name exact lower contracts
+for the proof inputs above and the CM compatibility clause, and reconcile
+both consumers with those statements. The full-local contract must remain
+separate from the torsion-domain lemma.
+
+Both accepted packets still have eight gaps apiece and zero closed stages.
+This proof route addresses one of them only. Preserve and discharge the other
+closure requirements and the downward classical-attachment moves listed in
+the inherited record below; in particular, do not count signature omissions
+as declarations or cite the stale assembled arbitrary-carrier signatures.
+
+`metadata.toml` remains absent because `issues.deliverables_complete` regards
+all output files existing as a completed package regardless of the handoff.
+Adding only `topic = "math.NT"` would misclassify this partial work.
+
+## This run's validation and reading receipts
+
+`lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
+completed with exit **0**, **144 warnings, all declaration uses `sorry`**,
+no errors and no other warnings. Memory available before the check was 108 GB.
+The check waited for a shared compilation slot, then elaborated the inherited
+file without changes. The managed pins are Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. This is elaboration, not a
+formal proof of any target. No Lean check from this run remains running.
+
+Both input packet checks returned **zero errors and warnings**, with 55/57
+nodes, eight gaps each, and zero closed stages. The scoped intake file check
+and `git diff --check` pass. The unchanged README is **199,924 bytes**.
+A direct `issues.deliverables_complete` check returns **False**, confirming
+that the checkpoint is not classified as a complete package.
+
+Current read-only TauCetiRoadmap was checked at
+`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are audit revisions,
+separate from the compilation pins. The GlobalNumberFields and ReductiveGroups
+READMEs, relevant GlobalNumberFields/ClassFieldTheory contracts, and the
+Hecke-character declarations above were read. Neither checkout was modified
+or used to run Lake.
+
+Public sources inspected directly on 2026-10-10:
+
+| Source | Locations read | SHA-256 of public PDF |
+| --- | --- | --- |
+| [Chevalley, 1951 publisher version](https://www.jstage.jst.go.jp/article/jmath1948/3/1/3_1_36/_pdf/-char/en) | Theorem 1, p. 36; Part I §§1–5 and alternative proof remark, pp. 36–40. | `c8ca4e2dac91b20836adaf90ac5300f7dd197bb8f7145d5c422791d436358493` |
+| [Rapinchuk–Segev, author-hosted article](https://uva.theopenscholar.com/files/ixqrlw/files/rapinchuk-segev2001_article_valuation-likemapsandthecongru_8.pdf) | §4, final paragraph, p. 582: arbitrary finitely generated multiplicative subgroup and finite-index congruence formulation. | `16c7ac758f17c66cbd91d4a40d7754c8ea70d6f180d3bde8b93b5d9d00edea9f` |
+| [Patrikis, author revision of 31 July 2016](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf) | Lemma 2.3.1, p. 28, and Lemma 2.3.6 with proof, pp. 30–31. | `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81` |
+
+No source files or passages are committed. Downloaded public PDFs and logs
+are disposable; the URLs, exact locators, proof proposal and remaining work
+are recorded here for the next worker. Earlier validation and reading receipts
+below belong to the prior run and are preserved as historical evidence.
+
+## Inherited record from checkpoint #8196
+
 Issue: #7901. Worker: Codex, session `codex-yPoVRs`. Date: 2026-10-10.
 Continues PRs #8068, #8149, #8161, #8174 and #8190.
 Status: **partial; blocked on mathematical prerequisite closure**. Do not send
