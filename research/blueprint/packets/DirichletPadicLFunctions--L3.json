@@ -127572,12 +127572,18 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-10",
       "notes": "Fresh independent scoped review by Codex, codex-O0a12m, following codex-1TGphB and preserved prior evidence. Read Morita Section 1 pp.255–256 as images and Robert Section 4 pp.165–166 as images; signed unit-valued extension, both recurrence branches, dyadic modulus-four exclusion and explicit RD.6 decay boundary remain sound. Full Gross–Koblitz/Ferrero–Greenberg and L3-2 review are outside the live scope. Checker: 0 errors, 26 inherited short-API warnings. Full lean-check fails at the unresolved research import prefix before elaboration; no full compile is claimed. No mathematical contract changed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-10",
+      "notes": "Independent scoped continuation by Codex, codex-hfOgRV, preserving the earlier audit attribution. Freshly read Morita Section 1 pp.255–256 as images and Robert Section 4 pp.165–168 as images, including both decay proofs. Signed natural values, unit/nonunit recurrences and the dyadic congruence exclusion remain correct; RD.6 coefficient decay remains a supplier obligation rather than a formal telescoping argument. L3-2 and its full Gross–Koblitz/Ferrero–Greenberg review remain outside the live issue scope. Checker: 0 errors, 26 inherited short-API warnings. Full lean-check stops at unresolved research imports before elaboration. No mathematical contract or baseline pin changed."
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
     "date": "2026-10-10",
-    "notes": "Independent scoped continuation by Codex, codex-hfOgRV, preserving the earlier audit attribution. Freshly read Morita Section 1 pp.255–256 as images and Robert Section 4 pp.165–168 as images, including both decay proofs. Signed natural values, unit/nonunit recurrences and the dyadic congruence exclusion remain correct; RD.6 coefficient decay remains a supplier obligation rather than a formal telescoping argument. L3-2 and its full Gross–Koblitz/Ferrero–Greenberg review remain outside the live issue scope. Checker: 0 errors, 26 inherited short-API warnings. Full lean-check stops at unresolved research imports before elaboration. No mathematical contract or baseline pin changed."
+    "notes": "Independent fix-scope review by Codex, codex-6EmRVa, following the codex-hfOgRV receipt retained in reviewHistory. Fresh Morita Section 1 pp.255–256 and Robert Section 4 pp.164–168 source reading confirms signed natural interpolation, native unit-valued continuity and recurrences, the modulus-four exception, negative Gauss normalization and the separate dyadic decay proof. The Robert comparison still requires exact RD.6 coefficient and splitting inputs. Read-only preflight of the L3-2 root and Ferrero–Greenberg fixes supports their formulas and identifies the explicit nonvanishing gap; no L3-2 verdict is installed because that packet is omitted from the live issue. This is not a new audit of all 1663 nodes. Checker: 0 errors, 26 inherited short-API warnings. Full lean-check exits 1 at unresolved research imports before elaboration. Mathematical contracts and the baseline remain unchanged. See the report for source hashes and queue blocker."
   }
 }
