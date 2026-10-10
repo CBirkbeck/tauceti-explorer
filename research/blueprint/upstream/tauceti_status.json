@@ -36,17 +36,20 @@
       ]
     },
     "AdicEtaleGeometry": {
-      "stage": "gate"
+      "stage": "gate",
+      "note": "adversarial reads, per-row repairs and the final read done; waits for the part chain build; will stack on Part III"
     },
     "AdicSpacesPartII": {
       "stage": "gate",
-      "note": "split on Tau Ceti into AdicSpacesPartII (R0,R1), AdicSpacesPartIII (F0,R2,R3), AdicSpacesPartIV (R4,R5,F1)"
+      "note": "split on Tau Ceti into AdicSpacesPartII (R0,R1), AdicSpacesPartIII (F0,R2,R3), AdicSpacesPartIV (R4,R5,F1); each part gets its own pull request, stacked II ← III ← IV; per-row repairs after two adversarial reads in progress"
     },
     "DiamondsAndVStacks": {
-      "stage": "gate"
+      "stage": "gate",
+      "note": "adversarial reads, per-row repairs and the final read done; waits for PerfectoidSpaces"
     },
     "PerfectoidSpaces": {
-      "stage": "gate"
+      "stage": "gate",
+      "note": "four adversarial reads done, per-row repairs in progress; P8–P9 depend on DiamondsAndVStacks (import cycle) — split into a towers roadmap proposed"
     }
   }
 }
