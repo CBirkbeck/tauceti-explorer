@@ -13,8 +13,11 @@ This file is not the roadmap and is not exhaustive. README.md is definitive.
 The statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. Every proof here is intentionally admitted.
 
-The JC5 coordinate constructions use native schemes, group objects and fibre
-products. JC5.2 takes the earlier canonical Abel morphism as a typed input;
+The JC2.6 pointed-difference companion and JC5 coordinate constructions use
+native schemes, group objects and fibre products. The pointed companion takes
+the earlier degree-one Abel morphism as an input and preserves the difference
+order, translation invariance and arbitrary-base-change comparison.
+JC5.2 takes the earlier canonical Abel morphism as a typed input;
 JC5.3 takes the earlier section-free difference morphism; JC5.4 takes both.
 JC5.5 represents the triangular coordinate equivalence by a scheme isomorphism.
 JC5.6 states the coordinate factorization given the earlier Abel-difference
@@ -32,6 +35,87 @@ Those unavailable signatures are omitted under the prototyping convention.
 Elaborating this file checks the native portion and its explicit hypotheses;
 it does not check the omitted geometric signatures or prove the admitted laws.
 -/
+
+/-!
+JC2.6: the pointed comparison of the section-free curve difference.
+Yuan, arXiv:2108.05625v4, §2.2.1 p. 29; Theorem 2.10(2), pp. 37–38.
+The geometric map comes from the Pic¹ torsor; this companion takes its earlier
+Abel morphism as an input. Its class interpretation and the section-free
+construction, including the nontrivial genus-one torsor test, remain required.
+The native Hom groups use multiplicative notation: y / x means y − x.
+-/
+noncomputable section
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
+open scoped CategoryTheory.MonObj
+namespace RelativeJacobian.CurveDifference
+open CategoryTheory.MonoidalCategory CategoryTheory.CartesianMonoidalCategory
+universe u
+variable {S : Scheme.{u}} {A X T U : Over S} [GrpObj A]
+
+/-- The pointed comparison built from the earlier degree-one Abel morphism. -/
+def pointedMap (abel : X ⟶ A) : X ⨯ X ⟶ A :=
+  (prod.snd ≫ abel) / (prod.fst ≫ abel)
+
+lemma pointedMap_value (abel : X ⟶ A) (x y : T ⟶ X) :
+    prod.lift x y ≫ pointedMap abel = (y ≫ abel) / (x ≫ abel) := by
+  sorry
+
+lemma pointedMap_diagonal (abel : X ⟶ A) :
+    prod.lift (𝟙 X) (𝟙 X) ≫ pointedMap abel = (1 : X ⟶ A) := by
+  sorry
+
+lemma pointedMap_swap (abel : X ⟶ A) :
+    (prod.braiding X X).hom ≫ pointedMap abel = (pointedMap abel)⁻¹ := by
+  sorry
+
+lemma pointedMap_cocycle [IsCommMonObj A] (abel : X ⟶ A)
+    (x y z : T ⟶ X) :
+    (prod.lift x y ≫ pointedMap abel) * (prod.lift y z ≫ pointedMap abel) =
+      prod.lift x z ≫ pointedMap abel := by
+  sorry
+
+lemma pointedMap_translate [IsCommMonObj A] (abel : X ⟶ A)
+    (b : 𝟙_ (Over S) ⟶ A) :
+    pointedMap ((toUnit X ≫ b) * abel) = pointedMap abel := by
+  sorry
+
+lemma pointedMap_natural (abel : X ⟶ A) (h : U ⟶ T) (x y : T ⟶ X) :
+    h ≫ (prod.lift x y ≫ pointedMap abel) =
+      prod.lift (h ≫ x) (h ≫ y) ≫ pointedMap abel := by
+  sorry
+
+lemma pointedMap_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (abel : X ⟶ A) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (pointedMap abel) =
+      (PreservesLimitPair.iso (Over.pullback f) X X).hom ≫
+        pointedMap ((Over.pullback f).map abel) := by
+  sorry
+
+-- pointedMap.test_equal: zero on the diagonal of every test scheme.
+example (abel : X ⟶ A) (x : T ⟶ X) :
+    prod.lift x x ≫ pointedMap abel = (1 : T ⟶ A) := by
+  sorry
+
+-- pointedMap.test_sign: the identity Abel map has the prescribed orientation.
+example (y : T ⟶ A) :
+    prod.lift (1 : T ⟶ A) y ≫ pointedMap (𝟙 A) = y ∧
+      prod.lift y (1 : T ⟶ A) ≫ pointedMap (𝟙 A) = y⁻¹ := by
+  sorry
+
+-- pointedMap.test_triangle: cancellation retains the order of both differences.
+example [IsCommMonObj A] (x y z : T ⟶ A) :
+    (prod.lift x y ≫ pointedMap (𝟙 A)) *
+      (prod.lift y z ≫ pointedMap (𝟙 A)) =
+        prod.lift x z ≫ pointedMap (𝟙 A) := by
+  sorry
+
+-- pointedMap.test_translation: a base section changes no fibrewise difference.
+example [IsCommMonObj A] (abel : X ⟶ A) (b : 𝟙_ (Over S) ⟶ A)
+    (x y : T ⟶ X) :
+    prod.lift x y ≫ pointedMap ((toUnit X ≫ b) * abel) =
+      prod.lift x y ≫ pointedMap abel := by
+  sorry
+end RelativeJacobian.CurveDifference
 
 -- JC5.5: Yuan, Theorem 4.17(5), proof p. 99 (21 August 2024 manuscript).
 noncomputable section
@@ -621,8 +705,11 @@ For d≠0, i_α:X→J is finite over S. The statement allows negative d and char
 Hypotheses: README.md standing smooth-family conventions.
 -/
 
-/- GEOMETRIC INTERFACE JC2.6
+/- GEOMETRIC IDENTIFICATION JC2.6
 j:X×_S X→J is δ∘(a₁,a₁), with j(x,y)=[O(Γ_y−Γ_x)]; it is defined without a section.
+The native pointedMap above takes the earlier Abel morphism as input.
+Identify it with j after a degree-one normalization; the section-free Pic¹
+construction and its geometric tests remain required.
 Hypotheses: README.md standing smooth-family conventions.
 API RelativeJacobian.CurveDifference.value: j(x,y)=[y]−[x].
 API RelativeJacobian.CurveDifference.diagonal: j∘Δ_X=e∘π.

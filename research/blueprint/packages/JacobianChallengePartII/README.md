@@ -319,6 +319,59 @@ j:X×_S X→J is δ∘(a₁,a₁), with j(x,y)=[O(Γ_y−Γ_x)]; it is defined w
 - `RelativeJacobian.CurveDifference.test_noSection` (non-example): The construction applies to a nontrivial genus-one torsor and must not choose a point of it.
 - `RelativeJacobian.CurveDifference.test_triangle` (computation): For three points x,y,z, j(x,y)+j(y,z)=j(x,z); replacing the order in just one difference fails this identity.
 
+**Pointed comparison in the native scheme API.** Specialize Mathlib's group
+object A over S to J, and let a:X→A be the degree-one Abel morphism supplied
+by JC2.2. Write `RelativeJacobian.CurveDifference.pointedMap` for
+p₂;a / p₁;a, using the native group structure on scheme morphisms into A.
+Multiplicative notation in that API expresses the additive difference
+a(y)−a(x). This is the pointed comparison of j; the section-free construction
+still comes from the Pic¹ torsor in JC0.4 and JC2.1. Its equality with j is
+proved on every test scheme, including nonreduced ones. In particular the
+pointed comparison alone does not supply an Abel morphism for a nontrivial
+genus-one torsor.
+
+Retain the following companion API. Its prerequisites are Mathlib's native
+Hom group operations, binary fibre products and their canonical comparisons
+under pullback, together with the earlier Abel morphism as a typed input.
+The translation and additive-order cocycle identities use commutativity of
+A; evaluation, diagonal, swapping and naturality use its group structure.
+The source for the point formula is [Yuan, arXiv v4](https://arxiv.org/pdf/2108.05625v4),
+§2.2.1 p. 29 and Theorem 2.10(2), pp. 37–38. The following identities follow
+from that formula and the group law; its algebraic comparison does not
+require the metric, variation or genus-greater-than-one assumptions of the
+arithmetic theorem.
+
+- `RelativeJacobian.CurveDifference.pointedMap_value`: on any test scheme T,
+  pointedMap(a)(x,y)=a(y)/a(x).
+- `RelativeJacobian.CurveDifference.pointedMap_diagonal`: the small diagonal
+  followed by pointedMap(a) is the identity-valued morphism X→A.
+- `RelativeJacobian.CurveDifference.pointedMap_swap`: swapping the two
+  factors gives the inverse morphism.
+- `RelativeJacobian.CurveDifference.pointedMap_cocycle`: for every x,y,z:T→X,
+  pointedMap(a)(x,y)·pointedMap(a)(y,z)=pointedMap(a)(x,z).
+- `RelativeJacobian.CurveDifference.pointedMap_translate`: translating a by
+  a base section b:S→A leaves pointedMap(a) unchanged. This is the comparison
+  needed when degree-one normalizations change.
+- `RelativeJacobian.CurveDifference.pointedMap_natural`: precomposition
+  U→T commutes with evaluation at the two T-valued points.
+- `RelativeJacobian.CurveDifference.pointedMap_baseChange`: for any f:S′→S,
+  pulling back pointedMap(a) equals the binary fibre-product comparison
+  followed by pointedMap(f*a). There is no flatness or reducedness condition
+  on f.
+
+The companion has four tests, in addition to the geometric tests above:
+
+- `RelativeJacobian.CurveDifference.pointedMap.test_equal`: two identical
+  T-valued points have identity-valued difference.
+- `RelativeJacobian.CurveDifference.pointedMap.test_sign`: for a=id_A,
+  the pairs (1,y) and (y,1) give y and y⁻¹, respectively. Reversing the
+  difference convention fails this test.
+- `RelativeJacobian.CurveDifference.pointedMap.test_triangle`: for a=id_A,
+  the differences of (x,y) and (y,z) multiply to the difference of (x,z).
+- `RelativeJacobian.CurveDifference.pointedMap.test_translation`: every
+  base-section translate of a gives the same difference on every pair of
+  T-valued points.
+
 ### JC2.7. Difference as the Abel map over X
 
 View X×_S X over the first X-factor. Its diagonal is a section and its Jacobian is X×_S J. The Abel map for O(Δ_X) is (x,y)↦(x,j(x,y)); forgetting the first coordinate gives j.
