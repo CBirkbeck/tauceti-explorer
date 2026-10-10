@@ -37984,8 +37984,9 @@
    ],
    "revisionOf": "BP-AInfCohomology--AI.0",
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6915"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6915",
+   "finishedAt": "2026-10-10T05:13:57Z"
   },
   {
    "priority": 2,
@@ -40955,8 +40956,9 @@
     "BP-LefschetzPencilsAndVanishingCycles--LPV.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles--LPV.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7073"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7073",
+   "finishedAt": "2026-10-10T05:13:58Z"
   },
   {
    "kind": "blueprint",
@@ -46741,8 +46743,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47069,8 +47071,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48191,8 +48193,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48850,8 +48852,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80042,8 +80044,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81351,8 +81353,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
