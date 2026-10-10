@@ -42,6 +42,12 @@ import Mathlib.Topology.Instances.AddCircle.Defs
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.NumberTheory.NumberField.AdeleRing
+import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
+import Mathlib.GroupTheory.Finiteness
+import Mathlib.GroupTheory.Exponent
+import Mathlib.GroupTheory.Index
+import TauCeti.NumberTheory.NumberField.Global.RayClass.Modulus
 import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.RepresentationTheory.Induced
 import Mathlib.NumberTheory.Zsqrtd.Basic
@@ -58,6 +64,13 @@ import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.Algebra.Group.AddChar
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
+import Mathlib.Algebra.BigOperators.Pi
+import Mathlib.GroupTheory.Solvable
+import Mathlib.RingTheory.Localization.AtPrime.Basic
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.RingTheory.DedekindDomain.AdicValuation
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -590,6 +603,16 @@ theorem steinbergParameter (q α : ℂ) (hq : q ≠ 0) (hα : α ≠ 0) :
 -- Missing: A is Frobenius of recπ; the actual Tate rec has this scalar half-twist.
 theorem normalizationBridge (A : Matrix (Fin 2) (Fin 2) ℂ) (u : ℂ) :
     (u • A).det = u ^ 2 * A.det := by sorry
+/- The primitive dyadic test in R16.3/supercuspidal-parameter uses
+A = ((Z₂,Z₂),(2Z₂,Z₂)), α = ((0,-1/2),(1,0)), J = Q₂[α]ˣ U¹_A,
+and π = c-Ind_J Λ. The SR.2 compact-induction and ET.6 LLC carriers are
+required to state its actual tests. Omitted test names:
+TauCeti.GL2Blueprint.primitiveDyadic_conductor_three (Artin conductor 3,
+Swan conductor 1), primitiveDyadic_factor_one (L=1 and N=0), and
+primitiveDyadic_not_quadratic_induced. The quadratic type field does not
+induce the Weil parameter. No arbitrary representation or WD map is substituted.
+-/
+
 /- Signature omissions: The AF.1 archimedean class and parameter carriers (gl2-real-discrete-series, archimedean-llc-gln) and the AL.2 standard factor are absent, so arbitrary maps and functions cannot satisfy these identifications; Mathlib’s Complex.Gammaℝ and Complex.Gammaℂ fix the gamma normalizations used in the true examples below.
 README targets: R16.2/archimedean-classification, R16.3/archimedean-factor-comparison.
 Omitted declaration names: TauCeti.GL2Blueprint.archimedeanClassification, TauCeti.GL2Blueprint.archimedeanFactors.
@@ -774,7 +797,7 @@ end Weight
 
 -- The scalar parameter conversion is actual matrix algebra. The README requires
 -- Frobenius inversion/contragredient and nebentypus agreement before identifying
--- this with R19's determinant ε·χ_cyc^{k−1}; that Galois attachment is omitted.
+-- this with R17.6/classical-higher-weight-attachment and its determinant ε·χ_cyc^{k−1}.
 theorem weightKParameterConversion (α β z : ℂ) :
     z * α + z * β = z * (α + β) ∧
     (z * α) * (z * β) = z ^ 2 * (α * β) := by sorry
@@ -864,8 +887,8 @@ Archimedean classification imports the exact current AF.1/weil-group-real,
 AF.1/gl2-real-discrete-series, AF.1/archimedean-llc-gln and
 AF.1/casselman-wallach-globalization nodes. The factor comparison uses
 AF.1/archimedean-llc-gln and AL.1's gamma/additive-character conventions.
-AF.1b remains a proposed stage split; these exact node imports do not close
-AF's original classification proofs or missing native signature interfaces.
+These are imports from the single AF.1 owner; no proposed AF.1b split is
+required. The native class and factor interfaces must precede these signatures.
 -/
 
 namespace TauCeti.GL2Transfer
@@ -1020,7 +1043,7 @@ Signature omission: TauCeti.GL2Transfer.gl3_recognition.
 The analytic input is AL.3/gln-converse-reduced-rank at n=3: all GL1 twists
 (or twists unramified at the specified finite S), dual entireness, strip bounds
 and the functional equation. Nonempty S gives agreement outside S only.
-The highly ramified T variant requires the separate GJ78 §9.2 contract. The second input is
+The highly ramified T variant is the R17.4 filling-and-twisting corollary. The second input is
 AL.3/rs-global-poles with rs-boundary-nonvanishing and finiteness at s=1 of the
 omitted local factors (AL.2/jacquet-shalika-satake-bound at unramified places; the
 requested AL.3 unitary local convergence bound at ramified and archimedean places), for two unitary cuspidal GL3
@@ -1036,17 +1059,14 @@ induction applications consume the analytic input.
 -- which imports the cubic transfer and Artin automorphy from here; it is not restated.
 end BCTheorems
 
-/- Signature omissions: The torsion-idele character extension needs the idele
-class group of a number field, the quotient μ_n(F)\μ_n(𝔸_F) and the complex-place
-condition. It is not extension with prescribed characters on full F_v×, as
-needed by R17.5/tunnell-primitive-globalization and prescribed-local-induction.
-The latter also requires compatible CM infinity types. Current Tau Ceti has
-HeckeCharacter and finiteComponent, but these carriers are absent at the pin;
-the current library's factorization of an existing finite-order character
-through a ray class group is not the simultaneous prescription theorem.
-Residual lifting needs a totally real field, a continuous absolutely
-irreducible solvable r̄ and an adequate integral coefficient ring; over
-arbitrary groups and rings both existence claims are false.
+/- Signature omissions: The torsion-idele extension needs the quotient
+μ_n(F)\μ_n(𝔸_F) and its complex-place condition. It differs from prescription
+on full F_v×. Mathlib already supplies the idele class group at the pin;
+the arithmetic signatures below reuse it. Current Tau Ceti's HeckeCharacter
+abbreviates this carrier. Full-local prescription is planned below, with its
+Chevalley/ray-quotient proof chain in R16.1/full-local-character-prescription.
+The integral finite-group lifting contract and Brauer character interfaces below
+provide R17.5/odd-residual-lift; the Galois inflation and topology interface is omitted.
 README targets: R17.5/finite-hecke-extension, R17.5/odd-residual-lift.
 Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
 -/
@@ -1128,6 +1148,54 @@ example {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
   intro hext
   exact hne ((finite_character_extension_iff H N hN χ).mp hext h hh)
 
+
+section ArithmeticCharacterPrescription
+open NumberField IsDedekindDomain TauCeti.GlobalNumberFields
+open scoped NumberField
+
+-- Chevalley, Theorem 1, primary proof §§1–5 pp. 36–39: the proof chain is in the README.
+-- These are planned arithmetic theorems; their sorry proofs claim no implementation.
+variable {K : Type*} [Field K] [NumberField K]
+
+theorem fg_of_units_outside_finset (E : Subgroup Kˣ)
+    (S : Finset (HeightOneSpectrum (𝓞 K)))
+    (hE : ∀ x : E, ∀ v : HeightOneSpectrum (𝓞 K), v ∉ S →
+      v.valuation K (((x : Kˣ) : K)) = 1) : E.FG := by
+  sorry
+
+theorem chevalley_power_congruence (E : Subgroup Kˣ) [Group.FG E]
+    (n : ℕ) (hn : 0 < n) (T : Finset (HeightOneSpectrum (𝓞 K))) :
+    ∃ m : Modulus K, m.infinitePart = ∅ ∧ Disjoint m.support T ∧
+      ∀ x : E, IsCongrOne m (x : Kˣ) → ∃ y : E, y ^ n = x := by
+  sorry
+
+theorem chevalley_finiteIndex_congruence (E : Subgroup Kˣ) [Group.FG E]
+    (H : Subgroup E) [H.FiniteIndex] (T : Finset (HeightOneSpectrum (𝓞 K))) :
+    ∃ m : Modulus K, m.infinitePart = ∅ ∧ Disjoint m.support T ∧
+      ∀ x : E, IsCongrOne m (x : Kˣ) → x ∈ H := by
+  obtain ⟨m, hm, hT, hp⟩ := chevalley_power_congruence E
+    (Monoid.exponent (E ⧸ H))
+    (Nat.pos_of_ne_zero (Monoid.exponent_ne_zero_of_finite (G := E ⧸ H))) T
+  refine ⟨m, hm, hT, ?_⟩
+  intro x hx
+  obtain ⟨y, rfl⟩ := hp x hx
+  apply (QuotientGroup.eq_one_iff _).mp
+  change (QuotientGroup.mk' H) (y ^ Monoid.exponent (E ⧸ H)) = 1
+  rw [map_pow, Monoid.pow_exponent_eq_one]
+
+theorem finite_hecke_full_local_prescription
+    (S : Finset (HeightOneSpectrum (𝓞 K)))
+    (χ : ∀ v : S, ContinuousMonoidHom (v.val.adicCompletion K)ˣ ℂˣ)
+    (hχ : ∀ v : S, (Set.range (χ v)).Finite) :
+    ∃ Ψ : ContinuousMonoidHom (IdeleClassGroup (𝓞 K) K) ℂˣ,
+      (Set.range Ψ).Finite ∧
+      (∀ v : S, Ψ.toMonoidHom.comp
+        (IdeleClassGroup.ofAdicCompletion (𝓞 K) K v.val) = (χ v).toMonoidHom) ∧
+      (∀ w : InfinitePlace K, Ψ.toMonoidHom.comp
+        (IdeleClassGroup.ofCompletion (𝓞 K) K w) = 1) := by
+  sorry
+
+end ArithmeticCharacterPrescription
 
 /- A concrete domain test: the unramified quadratic character of ℚ₂× and
 the trivial character agree on integral units and torsion, but differ at 2.
@@ -1284,6 +1352,86 @@ example (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 :=
   characterExtensionOrder_square_ne_one χ hχ
 
 end FullLocalCharacterTests
+
+open Matrix IsDedekindDomain
+open scoped BigOperators NumberField
+
+section ModularCharacters
+variable {Γ k : Type*} [Group Γ] [Finite Γ] [Field k] [IsAlgClosed k]
+variable (p : ℕ) [Fact p.Prime] [CharP k p]
+variable (m : ℕ) (hm : 0 < m) (hmp : Nat.Coprime m p)
+variable (hΓ : ∀ g : Γ, Nat.Coprime (orderOf g) p → orderOf g ∣ m)
+variable (τ : rootsOfUnity m k ≃* rootsOfUnity m ℂ)
+
+/-- Sum of the τ-lifts of the eigenvalues, with algebraic multiplicities;
+defined only on p-regular elements. This is not reduction of the ordinary trace. -/
+def brauerCharacter (p : ℕ) [Fact p.Prime] [CharP k p]
+    (m : ℕ) (hm : 0 < m) (hmp : Nat.Coprime m p)
+    (hΓ : ∀ g : Γ, Nat.Coprime (orderOf g) p → orderOf g ∣ m)
+    (τ : rootsOfUnity m k ≃* rootsOfUnity m ℂ)
+    (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k) :
+    {g : Γ // Nat.Coprime (orderOf g) p} → ℂ := by
+  sorry
+
+lemma brauerCharacter_spectrum (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : Fin n → rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly =
+      ∏ i : Fin n, (Polynomial.X - Polynomial.C ((a i : kˣ) : k))) :
+    brauerCharacter p m hm hmp hΓ τ n r g =
+      ∑ i : Fin n, ((τ (a i) : ℂˣ) : ℂ) := by sorry
+
+lemma brauerCharacter_one (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k) :
+    brauerCharacter p m hm hmp hΓ τ n r ⟨1, by simp⟩ = n := by sorry
+
+lemma brauerCharacter_conjugate (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (g h : {g : Γ // Nat.Coprime (orderOf g) p}) (x : Γ)
+    (hx : h.val = x * g.val * x⁻¹) :
+    brauerCharacter p m hm hmp hΓ τ n r h =
+      brauerCharacter p m hm hmp hΓ τ n r g := by sorry
+
+-- A scalar root is lifted as a root, rather than as an integer representative of its trace.
+example (r : Γ →* GeneralLinearGroup (Fin 1) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly = Polynomial.X - Polynomial.C ((a : kˣ) : k)) :
+    brauerCharacter p m hm hmp hΓ τ 1 r g = ((τ a : ℂˣ) : ℂ) := by sorry
+
+-- Primitive cube roots give -1, including in residual characteristic two.
+example (r : Γ →* GeneralLinearGroup (Fin 2) k)
+    (g : {g : Γ // Nat.Coprime (orderOf g) p}) (a : rootsOfUnity m k)
+    (ha : (r g.val).val.charpoly =
+      (Polynomial.X - Polynomial.C ((a : kˣ) : k)) *
+      (Polynomial.X - Polynomial.C (((a ^ 2) : kˣ) : k)))
+    (hτ : IsPrimitiveRoot ((τ a : ℂˣ) : ℂ) 3) :
+    brauerCharacter p m hm hmp hΓ τ 2 r g = -1 := by sorry
+
+-- The identity detects the rank in characteristic zero, even when p divides it.
+example (r : Γ →* GeneralLinearGroup (Fin p) k) :
+    brauerCharacter p m hm hmp hΓ τ p r ⟨1, by simp⟩ = (p : ℂ) ∧ (p : ℂ) ≠ 0 := by
+  constructor
+  · exact brauerCharacter_one p m hm hmp hΓ τ p r
+  · exact Nat.cast_ne_zero.mpr (Nat.Prime.ne_zero Fact.out)
+
+end ModularCharacters
+
+/-- Fong–Swan with a stable free lattice and the supplied residual module. -/
+theorem solvable_finite_image_integral_lift
+    (Γ : Type*) [Group Γ] [Finite Γ] (hsolv : Group.IsSolvable Γ)
+    (p : ℕ) [Fact p.Prime]
+    (k : Type*) [Field k] [CharP k p] [IsAlgClosed k]
+    (n : ℕ) (r : Γ →* GeneralLinearGroup (Fin n) k)
+    (hirr : Representation.IsIrreducible
+      ((Units.coeHom (Module.End k (Fin n → k))).comp
+        (GeneralLinearGroup.toLin.toMonoidHom.comp r))) :
+    ∃ (E : Type) (_ : Field E) (_ : NumberField E)
+      (v : HeightOneSpectrum (𝓞 E)),
+      letI : v.asIdeal.IsPrime := v.isPrime
+      ∃ (f : Localization.AtPrime v.asIdeal →+* k)
+        (ρ : Γ →* GeneralLinearGroup (Fin n) (Localization.AtPrime v.asIdeal))
+        (P : GeneralLinearGroup (Fin n) k),
+        RingHom.ker f = IsLocalRing.maximalIdeal (Localization.AtPrime v.asIdeal) ∧
+        ∀ g : Γ, r g = P * GeneralLinearGroup.map f (ρ g) * P⁻¹ := by
+  sorry
+
 
 /- Reduction detects oddness once a genuine integral lift and its residual
 comparison have been constructed. This algebraic fragment does not construct
@@ -1486,6 +1634,17 @@ Omitted declaration names: TauCeti.GL2Transfer.q_weight_one, TauCeti.GL2Transfer
 README targets: R17.5/tunnell-primitive-globalization, R17.5/prescribed-local-induction, R17.5/octahedral-mod-three-application.
 Omitted declaration names: TauCeti.GL2Transfer.tunnell_primitive_globalization, TauCeti.GL2Transfer.prescribed_local_induction, TauCeti.GL2Transfer.octahedral_mod_three_application.
 -/
+/- The two additional analytic signatures require the actual admissible GL₃
+restricted tensor representation, its completed twisted factors, and the
+finite-image Artin/automorphic GL₂ carriers of AF, AL, R01 and ET.6.
+README targets: R17.4/highly-ramified-converse and
+R17.5/artin-all-place-upgrade.
+Omitted names: TauCeti.GL2Transfer.highlyRamifiedConverse,
+TauCeti.GL2Transfer.artinAllPlaceUpgrade.
+The README specifies the fill-and-twist construction, the archimedean
+hypothesis, and the local factor cancellation; arbitrary predicates would
+not encode these theorems.
+-/
 section FiniteSection
 
 /-- Reduction modulo λ = (1 + √−2): ℤ[√−2] → F₃, sending √−2 to −1. -/
@@ -1509,9 +1668,11 @@ Omitted declaration names: TauCeti.GL2Transfer.solvable_dihedral, TauCeti.GL2Tra
 /- Signature omissions: The classical attachments in R17.6 require the actual
 modular-curve eigenprojector realization, coefficient descent and integral
 ramified local–global comparison. Good-place trace data alone do not supply them.
-README targets: R17.6/classical-higher-weight-attachment,
+README targets: R17.6/classical-parabolic-realization,
+R17.6/classical-higher-weight-attachment,
 R17.6/classical-weight-one-attachment, R17.6/classical-conductor-comparison.
-Suggested names: TauCeti.GL2Transfer.classical_higher_weight_attachment,
+Suggested names: TauCeti.GL2Transfer.classical_parabolic_realization,
+TauCeti.GL2Transfer.classical_higher_weight_attachment,
 TauCeti.GL2Transfer.classical_weight_one_attachment,
 TauCeti.GL2Transfer.classical_conductor_comparison.
 -/
@@ -1540,7 +1701,7 @@ theorem teichmuller_conductor (D : ℤ) (normF N ν : ℕ) (hN : Odd N)
 
 end CharacteristicTwo
 
-/- Signature omissions: Compatible descent and the potential-modularity interface need the actual cyclic or solvable automorphic descent, Galois invariance, a λ-independent twist and the R23 extension data; existence over an arbitrary class type is false.
+/- Signature omissions: Compatible descent and the potential-modularity interface need the actual cyclic or solvable automorphic descent, Galois invariance, a λ-independent twist and the supplied intermediate Galois attachments; existence over an arbitrary class type is false.
 README targets: R17.6/compatible-descent, R17.6/potential-modularity-interface.
 Omitted declaration names: TauCeti.GL2Transfer.compatible_descent, TauCeti.GL2Transfer.potential_modularity_interface.
 -/
