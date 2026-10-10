@@ -21,6 +21,7 @@ import Mathlib.Algebra.Homology.DerivedCategory.Ext.Linear
 import Mathlib.Algebra.Homology.DerivedCategory.Ext.ExactSequences
 import Mathlib.Algebra.Category.ModuleCat.Projective
 import Mathlib.CategoryTheory.Abelian.Projective.Dimension
+import Mathlib.CategoryTheory.Abelian.Projective.Ext
 import Mathlib.CategoryTheory.Preadditive.Projective.Resolution
 import Mathlib.Algebra.MvPolynomial.Basic
 
@@ -107,6 +108,8 @@ def IsRegularSequenceIdeal (I : Ideal R) : Prop :=
   ∃ f : List R, Ideal.ofList f = I ∧ RingTheory.Sequence.IsRegular R f
 
 namespace IsRegularSequenceIdeal
+lemma exists_list {I : Ideal R} (hI : IsRegularSequenceIdeal I) :
+    ∃ f : List R, Ideal.ofList f = I ∧ RingTheory.Sequence.IsRegular R f := by sorry
 lemma of_list (f : List R) (hf : RingTheory.Sequence.IsRegular R f) :
     IsRegularSequenceIdeal (Ideal.ofList f) := by sorry
 lemma ne_top {I : Ideal R} (hI : IsRegularSequenceIdeal I) : I ≠ ⊤ := by sorry
@@ -355,6 +358,11 @@ def IsLocallyCompleteIntersection (A : Type u) [CommRing A] : Prop :=
   IsNoetherianRing A ∧ ∀ p : PrimeSpectrum A, IsCompleteIntersection (Localization.AtPrime p.asIdeal)
 
 namespace HasRegularSequencePresentation
+lemma of_surjective [IsRegularLocalRing S] (φ : S →+* A)
+    (hφ : Function.Surjective φ) (hker : IsRegularSequenceIdeal (RingHom.ker φ)) :
+    HasRegularSequencePresentation A := by sorry
+lemma isNoetherian (h : HasRegularSequencePresentation A) : IsNoetherianRing A := by sorry
+lemma isLocalRing (h : HasRegularSequencePresentation A) : IsLocalRing A := by sorry
 lemma of_regular [IsRegularLocalRing A] : HasRegularSequencePresentation A := by sorry
 lemma nontrivial (h : HasRegularSequencePresentation A) : Nontrivial A := by sorry
 lemma congr (e : A ≃+* S) : HasRegularSequencePresentation A ↔ HasRegularSequencePresentation S := by sorry
