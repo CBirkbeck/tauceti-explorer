@@ -2,7 +2,8 @@
 This file is not the roadmap and is not exhaustive. README.md is definitive.
 These statements suggest Lean forms so contributors can converge on names and
 signatures. They claim no implementation. The concrete algebraic and analytic
-interfaces below do not supply the missing geometric or completed quantum-group carriers.
+interfaces below include rank-one completed quantum algebras; geometric supplier
+carriers remain missing.
 The handoff records the signatures still requiring those supplier interfaces.
 -/
 import Mathlib.CategoryTheory.Monoidal.Braided.Basic
@@ -44,6 +45,26 @@ import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Topology.Algebra.InfiniteSum.Ring
 import Mathlib.Topology.Algebra.Ring.Basic
 import Mathlib.Topology.UniformSpace.Pi
+
+import Mathlib.Algebra.FreeAlgebra
+import Mathlib.Algebra.Algebra.Subalgebra.Basic
+import Mathlib.Algebra.RingQuot
+import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.Algebra.Lie.Classical
+import Mathlib.Algebra.Lie.UniversalEnveloping
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.LinearAlgebra.Basis.Basic
+import Mathlib.RingTheory.PowerSeries.PiTopology
+import Mathlib.Algebra.Algebra.Subalgebra.Lattice
+import Mathlib.RingTheory.TwoSidedIdeal.Operations
+import Mathlib.RingTheory.Congruence.Hom
+import Mathlib.RingTheory.PiTensorProduct
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.LinearAlgebra.Dual.Basis
+import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 
 noncomputable section
 open Polynomial LaurentPolynomial Finset MeasureTheory
@@ -727,6 +748,1283 @@ example : (colorH 2).map PowerSeries.constantCoeff = !![(2 : ℚ), 0, 0; 0, 0, 0
     (colorF 2).map PowerSeries.constantCoeff = !![(0 : ℚ), 0, 0; 1, 0, 0; 0, 2, 0] := sorry
 
 end FormalColors
+
+namespace QuantumEnveloping
+open scoped PowerSeries.WithPiTopology
+local instance coreRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+/-! Habiro math/0605314v1, §2.2, pp. 7–8. The noncommutative quotient
+at precision p imposes h^p=0. Its Cartan relation is the truncation of
+sinh(hH/2)/sinh(h/2), with the common factor h removed before inversion. -/
+
+abbrev Words := FreeAlgebra ℚ (Fin 3)
+abbrev Presentation := Polynomial Words
+
+def wordH : Words := FreeAlgebra.ι ℚ 0
+def wordE : Words := FreeAlgebra.ι ℚ 1
+def wordF : Words := FreeAlgebra.ι ℚ 2
+
+def cartanNumerator : PowerSeries (Polynomial ℚ) := PowerSeries.mk fun d =>
+  if Even d then Polynomial.C (1 / ((2 : ℚ)^d * (d + 1).factorial)) * X^(d + 1) else 0
+
+def cartanDenominator : PowerSeries (Polynomial ℚ) := PowerSeries.mk fun d =>
+  if Even d then Polynomial.C (1 / ((2 : ℚ)^d * (d + 1).factorial)) else 0
+
+def cartanSeries : PowerSeries (Polynomial ℚ) :=
+  cartanNumerator * PowerSeries.invOfUnit cartanDenominator 1
+
+theorem cartanDenominator_constant : PowerSeries.constantCoeff cartanDenominator = 1 := sorry
+theorem cartanSeries_constant : PowerSeries.constantCoeff cartanSeries = X := sorry
+theorem cartanSeries_odd (r : ℕ) : PowerSeries.coeff (2*r + 1) cartanSeries = 0 := sorry
+theorem cartanSeries_second : PowerSeries.coeff 2 cartanSeries =
+    Polynomial.C (1 / 24 : ℚ) * (X^3 - X) := sorry
+
+def cartanTruncation (p : ℕ) : Presentation :=
+  ∑ d ∈ range p,
+    Polynomial.C (Polynomial.eval₂ (algebraMap ℚ Words) wordH
+      (PowerSeries.coeff d cartanSeries)) * X^d
+
+inductive Relation (p : ℕ) : Presentation → Presentation → Prop
+  | parameter : Relation p (X^p) 0
+  | cartanE : Relation p (Polynomial.C wordH * Polynomial.C wordE -
+      Polynomial.C wordE * Polynomial.C wordH) (2 * Polynomial.C wordE)
+  | cartanF : Relation p (Polynomial.C wordH * Polynomial.C wordF -
+      Polynomial.C wordF * Polynomial.C wordH) (-2 * Polynomial.C wordF)
+  | commutator : Relation p (Polynomial.C wordE * Polynomial.C wordF -
+      Polynomial.C wordF * Polynomial.C wordE) (cartanTruncation p)
+
+abbrev Truncation (p : ℕ) := RingQuot (Relation p)
+def quotientMap (p : ℕ) : Presentation →ₐ[ℚ] Truncation p := RingQuot.mkAlgHom ℚ (Relation p)
+
+theorem transition_respects {p q : ℕ} (hpq : p ≤ q) {x y : Presentation}
+    (hxy : Relation q x y) : quotientMap p x = quotientMap p y := sorry
+
+def transition {p q : ℕ} (hpq : p ≤ q) : Truncation q →ₐ[ℚ] Truncation p :=
+  RingQuot.liftAlgHom ℚ ⟨quotientMap p, fun _ _ hxy => transition_respects hpq hxy⟩
+
+theorem transition_quotient {p q : ℕ} (hpq : p ≤ q) (x : Presentation) :
+    transition hpq (quotientMap q x) = quotientMap p x := by
+  exact RingQuot.liftAlgHom_mkAlgHom_apply ℚ (quotientMap p)
+    (fun _ _ hxy => transition_respects hpq hxy) x
+
+theorem transition_refl (p : ℕ) : transition (le_refl p) = AlgHom.id ℚ (Truncation p) := sorry
+theorem transition_comp {p q r : ℕ} (hpq : p ≤ q) (hqr : q ≤ r) :
+    (transition hpq).comp (transition hqr) = transition (hpq.trans hqr) := sorry
+
+/-- Actual compatible truncations, with their inherited noncommutative product. -/
+def completedAlgebra : Subalgebra ℚ (∀ p, Truncation p) where
+  carrier := {a | ∀ (p q : ℕ) (hpq : p ≤ q), transition hpq (a q) = a p}
+  mul_mem' := by
+    intro a b ha hb p q hpq
+    change transition hpq (a q * b q) = a p * b p
+    rw [map_mul, ha p q hpq, hb p q hpq]
+  add_mem' := by
+    intro a b ha hb p q hpq
+    change transition hpq (a q + b q) = a p + b p
+    rw [map_add, ha p q hpq, hb p q hpq]
+  algebraMap_mem' := by
+    intro c p q hpq
+    exact (transition hpq).commutes c
+
+abbrev Uh : Type := completedAlgebra
+
+instance uhRing : Ring Uh := Algebra.semiringToRing ℚ
+
+def projection (p : ℕ) : Uh →ₐ[ℚ] Truncation p where
+  toFun a := a.val p
+  map_zero' := rfl
+  map_one' := rfl
+  map_add' _ _ := rfl
+  map_mul' _ _ := rfl
+  commutes' _ := rfl
+
+theorem projection_compatible (a : Uh) {p q : ℕ} (hpq : p ≤ q) :
+    transition hpq (projection q a) = projection p a := a.property p q hpq
+
+def fromPresentation : Presentation →ₐ[ℚ] Uh where
+  toFun x := ⟨fun p => quotientMap p x, by
+    intro p q hpq
+    exact transition_quotient hpq x⟩
+  map_zero' := by apply Subtype.ext; funext p; exact map_zero _
+  map_one' := by apply Subtype.ext; funext p; exact map_one _
+  map_add' _ _ := by apply Subtype.ext; funext p; exact map_add _ _ _
+  map_mul' _ _ := by apply Subtype.ext; funext p; exact map_mul _ _ _
+  commutes' _ := by apply Subtype.ext; funext p; exact AlgHom.commutes _ _
+
+def H : Uh := fromPresentation (Polynomial.C wordH)
+def E : Uh := fromPresentation (Polynomial.C wordE)
+def F : Uh := fromPresentation (Polynomial.C wordF)
+def parameter : Uh := fromPresentation X
+
+/-- Evaluate a scalar power series by its finite polynomial at each precision. -/
+def scalarPolynomial (p : ℕ) (a : PowerSeries ℚ) : Presentation :=
+  ∑ d ∈ range p, Polynomial.C (algebraMap ℚ Words (PowerSeries.coeff d a)) * X^d
+
+def scalar : PowerSeries ℚ →ₐ[ℚ] Uh where
+  toFun a := ⟨fun p => quotientMap p (scalarPolynomial p a), sorry⟩
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+  commutes' := sorry
+
+theorem scalar_commutes (a : PowerSeries ℚ) (u : Uh) : scalar a * u = u * scalar a := sorry
+
+instance uhFormalAlgebra : Algebra (PowerSeries ℚ) Uh :=
+  scalar.toRingHom.toAlgebra' scalar_commutes
+
+theorem scalar_parameter : scalar PowerSeries.X = parameter := sorry
+theorem scalar_injective : Function.Injective scalar := sorry
+theorem H_E : H * E - E * H = 2 * E := sorry
+theorem H_F : H * F - F * H = -2 * F := sorry
+theorem E_F (p : ℕ) : projection p (E * F - F * E) =
+    quotientMap p (cartanTruncation p) := sorry
+theorem projection_parameter_pow (p : ℕ) : projection p (parameter^p) = 0 := sorry
+
+/-- Every h-degree has finitely many ordered F/H/E monomials. This is a
+linear equivalence; the polynomial carrier's commutative product is not used. -/
+def pbwCoordinates : Uh ≃ₗ[ℚ] PowerSeries (MvPolynomial (Fin 3) ℚ) := sorry
+
+theorem pbwCoordinates_monomial (i j k : ℕ) :
+    pbwCoordinates (F^i * H^j * E^k) = PowerSeries.C
+      (MvPolynomial.X 0^i * MvPolynomial.X 1^j * MvPolynomial.X 2^k) := sorry
+
+theorem pbwCoordinates_parameter (u : Uh) : pbwCoordinates (parameter * u) =
+    PowerSeries.X * pbwCoordinates u := sorry
+
+/-- The h-adic topology is the inverse-limit topology of discrete quotients. -/
+instance truncationUniformSpace (p : ℕ) : UniformSpace (Truncation p) := ⊥
+instance uhUniformSpace : UniformSpace Uh :=
+  inferInstanceAs (UniformSpace completedAlgebra)
+
+theorem scalar_continuous : Continuous scalar := sorry
+theorem uh_topologicalRing : IsTopologicalRing Uh := sorry
+theorem uh_complete : CompleteSpace Uh := sorry
+theorem uh_t2 : T2Space Uh := sorry
+theorem fromPresentation_dense : DenseRange fromPresentation := sorry
+
+instance pbwCoefficientUniformSpace : UniformSpace (MvPolynomial (Fin 3) ℚ) := ⊥
+
+def pbwHomeomorph : Uh ≃ₜ PowerSeries (MvPolynomial (Fin 3) ℚ) where
+  __ := pbwCoordinates.toEquiv
+  continuous_toFun := sorry
+  continuous_invFun := sorry
+
+/-- Projection at precision one is the actual classical quotient. -/
+def classicalLimit : Truncation 1 ≃ₐ[ℚ]
+    UniversalEnvelopingAlgebra ℚ (LieAlgebra.SpecialLinear.sl (Fin 2) ℚ) := sorry
+
+theorem classicalLimit_kernel (u : Uh) :
+    projection 1 u = 0 ↔ ∃ v : Uh, u = parameter * v := sorry
+
+-- cartan_series_constant: cancellation precedes inversion of the denominator.
+example : PowerSeries.constantCoeff cartanSeries = X := cartanSeries_constant
+-- cartan_series_second: detects the normalization hH/2 rather than hH.
+example : PowerSeries.coeff 2 cartanSeries =
+    Polynomial.C (1 / 24 : ℚ) * (X^3 - X) := cartanSeries_second
+-- classical_limit: the native classical enveloping algebra, not a polynomial ring.
+example : Nonempty (Truncation 1 ≃ₐ[ℚ]
+    UniversalEnvelopingAlgebra ℚ (LieAlgebra.SpecialLinear.sl (Fin 2) ℚ)) :=
+  ⟨classicalLimit⟩
+-- parameter_not_nilpotent: a single finite truncation is not the completed algebra.
+example (p : ℕ) : parameter^p ≠ 0 := sorry
+-- quantum_commutator_second: the h² correction survives at precision three.
+example : projection 3 (E * F - F * E - H) =
+    projection 3 (scalar (PowerSeries.C (1 / 24)) * parameter^2 * (H^3 - H)) := sorry
+-- noncommutative_classical_limit: a PBW coordinate equivalence is not an algebra equivalence.
+example : projection 1 (H * E) ≠ projection 1 (E * H) := sorry
+
+end QuantumEnveloping
+
+
+/-! Habiro math/0605314v1, §§2.3–2.6, pp. 8–11; Lemma 2.1,
+Proposition 2.2. These are subalgebras of the explicit completed U_h.
+The q-version factorial differs from the balanced-v factorial. -/
+namespace QuantumEnveloping
+open scoped PowerSeries.WithPiTopology
+local instance integralRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+def cartanExponentialPolynomial (p : ℕ) (a : ℚ) : Presentation :=
+  ∑ d ∈ range p, Polynomial.C
+    (algebraMap ℚ Words (a^d / d.factorial) * wordH^d) * X^d
+
+def cartanExponential (a : ℚ) : Uh :=
+  ⟨fun p => quotientMap p (cartanExponentialPolynomial p a), sorry⟩
+
+theorem cartanExponential_add (a b : ℚ) :
+    cartanExponential (a+b) = cartanExponential a * cartanExponential b := sorry
+
+def KUnit : Uhˣ where
+  val := cartanExponential (1/2)
+  inv := cartanExponential (-1/2)
+  val_inv := sorry
+  inv_val := sorry
+
+def K : Uh := KUnit
+def Kinv : Uh := ↑KUnit⁻¹
+def e : Uh := scalar (formalVPower 1 - formalVPower (-1)) * E
+
+theorem formalQFactorial_constant (n : ℕ) :
+    PowerSeries.constantCoeff (formalQFactorial n) = (n.factorial : ℚ) := sorry
+
+def factorialUnit (n : ℕ) : ℚˣ :=
+  Units.mk0 (n.factorial : ℚ) (by exact_mod_cast Nat.factorial_ne_zero n)
+
+def inverseQFactorial (n : ℕ) : FormalBase :=
+  PowerSeries.invOfUnit (formalQFactorial n) (factorialUnit n)
+
+def Ftilde (n : ℕ) : Uh := F^n * K^n * scalar (inverseQFactorial n)
+
+theorem Ftilde_zero : Ftilde 0 = 1 := sorry
+theorem Ftilde_one : Ftilde 1 = F*K := sorry
+theorem Ftilde_factorial (n : ℕ) :
+    Ftilde n * scalar (formalQFactorial n) = F^n * K^n := sorry
+
+abbrev QBase := LaurentPolynomial ℤ
+
+/-- The integral variable is q, sent to v²; it is not sent to v. -/
+def qToFormal : QBase →+* FormalBase :=
+  LaurentPolynomial.eval₂ (Int.castRingHom FormalBase) (formalVUnit^2)
+
+def qScalar : QBase →+* Uh := scalar.toRingHom.comp qToFormal
+
+theorem qScalar_commutes (a : QBase) (u : Uh) : qScalar a*u = u*qScalar a :=
+  scalar_commutes (qToFormal a) u
+
+instance uhQAlgebra : Algebra QBase Uh := qScalar.toAlgebra' qScalar_commutes
+
+theorem qToFormal_T (j : ℤ) : qToFormal (LaurentPolynomial.T j) =
+    formalVPower (2*j) := sorry
+
+theorem qScalar_injective : Function.Injective qScalar := sorry
+theorem K_e : K*e = qScalar (LaurentPolynomial.T 1)*e*K := sorry
+theorem K_Ftilde (n : ℕ) : K*Ftilde n =
+    qScalar (LaurentPolynomial.T (-(n : ℤ)))*Ftilde n*K := sorry
+
+/-- The even form has K² and K⁻² among its generators. -/
+def integralForm (even : Bool) : Subalgebra QBase Uh :=
+  Algebra.adjoin QBase ({e, K^(if even then 2 else 1),
+    Kinv^(if even then 2 else 1)} ∪ Set.range Ftilde)
+
+abbrev Uq := integralForm false
+abbrev Uqev := integralForm true
+
+theorem e_mem (even : Bool) : e ∈ integralForm even := by
+  apply Algebra.subset_adjoin
+  simp
+
+theorem Ftilde_mem (even : Bool) (n : ℕ) : Ftilde n ∈ integralForm even := by
+  apply Algebra.subset_adjoin
+  exact Or.inr ⟨n, rfl⟩
+
+theorem K_mem : K ∈ Uq := sorry
+theorem Kinv_mem : Kinv ∈ Uq := sorry
+theorem Uqev_le_Uq : Uqev ≤ Uq := sorry
+
+abbrev PBWIndex := ℕ × ℤ × ℕ
+
+def orderedIntegralMonomial (even : Bool) (a : PBWIndex) : Uh :=
+  Ftilde a.1 * (KUnit ^ ((if even then 2 else 1)*a.2.1) : Uhˣ) * e^a.2.2
+
+theorem orderedIntegralMonomial_mem (even : Bool) (a : PBWIndex) :
+    orderedIntegralMonomial even a ∈ integralForm even := sorry
+
+def basis_Uq (even : Bool) : Module.Basis PBWIndex QBase (integralForm even) := sorry
+
+theorem basis_Uq_apply (even : Bool) (a : PBWIndex) :
+    ((basis_Uq even a : integralForm even) : Uh) = orderedIntegralMonomial even a := sorry
+
+theorem integralParity (u : Uq) : ∃! a : Uqev × Uqev,
+    (u : Uh) = (a.1 : Uh) + K*(a.2 : Uh) := sorry
+
+def integralE (even : Bool) : integralForm even := ⟨e, e_mem even⟩
+
+/-- Native two-sided ideal generated by e^p, not a left ideal or h-adic closure. -/
+def integralIdeal (even : Bool) (p : ℕ) : TwoSidedIdeal (integralForm even) :=
+  TwoSidedIdeal.span {integralE even ^ p}
+
+theorem integralIdeal_antitone (even : Bool) : Antitone (integralIdeal even) := sorry
+
+abbrev IntegralQuotient (even : Bool) (p : ℕ) :=
+  (integralIdeal even p).ringCon.Quotient
+
+def integralQuotientMap (even : Bool) (p : ℕ) :
+    integralForm even →ₐ[QBase] IntegralQuotient even p :=
+  (integralIdeal even p).ringCon.mkₐ QBase
+
+def integralTransition (even : Bool) {p q : ℕ} (hpq : p ≤ q) :
+    IntegralQuotient even q →ₐ[QBase] IntegralQuotient even p :=
+  RingCon.factorₐ QBase
+    ((TwoSidedIdeal.ringCon_le_iff).mp (integralIdeal_antitone even hpq))
+
+def integralInverseLimit (even : Bool) :
+    Subalgebra QBase (∀ p, IntegralQuotient even p) where
+  carrier := {a | ∀ (p q : ℕ) (hpq : p ≤ q), integralTransition even hpq (a q) = a p}
+  mul_mem' := by
+    intro a b ha hb p q hpq
+    change integralTransition even hpq (a q*b q) = a p*b p
+    rw [map_mul, ha p q hpq, hb p q hpq]
+  add_mem' := by
+    intro a b ha hb p q hpq
+    change integralTransition even hpq (a q+b q) = a p+b p
+    rw [map_add, ha p q hpq, hb p q hpq]
+  algebraMap_mem' := by
+    intro c p q hpq
+    exact (integralTransition even hpq).commutes c
+
+def fromIntegral (even : Bool) : integralForm even →ₐ[QBase] integralInverseLimit even where
+  toFun u := ⟨fun p => integralQuotientMap even p u, sorry⟩
+  map_zero' := by apply Subtype.ext; funext p; exact map_zero _
+  map_one' := by apply Subtype.ext; funext p; exact map_one _
+  map_add' _ _ := by apply Subtype.ext; funext p; exact map_add _ _ _
+  map_mul' _ _ := by apply Subtype.ext; funext p; exact map_mul _ _ _
+  commutes' _ := by apply Subtype.ext; funext p; exact AlgHom.commutes _ _
+
+theorem ideal_killed_at_precision (even : Bool) (p : ℕ) :
+    (integralIdeal even p).ringCon ≤
+      RingCon.ker ((projection p).toRingHom.comp (integralForm even).val.toRingHom) := sorry
+
+def integralToTruncation (even : Bool) (p : ℕ) :
+    IntegralQuotient even p →+* Truncation p :=
+  (integralIdeal even p).ringCon.lift
+    ((projection p).toRingHom.comp (integralForm even).val.toRingHom)
+    (ideal_killed_at_precision even p)
+
+/-- The canonical map is defined coordinatewise in the actual h-adic inverse limit. -/
+def integralToUh (even : Bool) : integralInverseLimit even →ₐ[QBase] Uh where
+  toFun a := ⟨fun p => integralToTruncation even p (a.val p), sorry⟩
+  map_zero' := by apply Subtype.ext; funext p; exact map_zero _
+  map_one' := by apply Subtype.ext; funext p; exact map_one _
+  map_add' _ _ := by apply Subtype.ext; funext p; exact map_add _ _ _
+  map_mul' _ _ := by apply Subtype.ext; funext p; exact map_mul _ _ _
+  commutes' := sorry
+
+def completion (even : Bool) : Subalgebra QBase Uh := (integralToUh even).range
+
+theorem integralToUh_fromIntegral (even : Bool) (u : integralForm even) :
+    integralToUh even (fromIntegral even u) = (u : Uh) := sorry
+
+theorem integralForm_le_completion (even : Bool) : integralForm even ≤ completion even := sorry
+theorem evenCompletion_le : completion true ≤ completion false := sorry
+
+-- q_variable_second_coefficient: q=e^h, rather than v=e^(h/2).
+example : PowerSeries.coeff 2 (qToFormal (LaurentPolynomial.T 1)) = 1/2 := sorry
+-- cartan_exponential_zero: the completed Cartan exponential has a genuine unit.
+example : cartanExponential 0 = 1 := sorry
+-- cartan_exponential_inverse: negative Cartan powers use the inverse, not a new generator.
+example : K*Kinv = 1 ∧ Kinv*K = 1 := ⟨KUnit.val_inv, KUnit.inv_val⟩
+-- divided_power_zero: the zeroth divided power is the multiplicative unit.
+example : Ftilde 0 = 1 := Ftilde_zero
+-- divided_power_first: detects the K factor missing from an ordinary F power.
+example : Ftilde 1 = F*K := Ftilde_one
+-- divided_power_product: detects the q-version factorial and the noncommutative order.
+example : Ftilde 1*Ftilde 1 =
+    scalar (formalVPower (-2)*formalQIntUnbalanced 2)*Ftilde 2 := sorry
+-- basis_freeness: all integer Cartan powers occur, with no finite truncation of support.
+example (even : Bool) : LinearIndependent QBase (basis_Uq even) :=
+  (basis_Uq even).linearIndependent
+-- basis_negative_cartan_power: the PBW indexing includes K^{-1}, not only K^j for j≥0.
+example : ((basis_Uq false (0, -1, 0) : Uq) : Uh) = Kinv := sorry
+-- Uqev_ne_Uq: even is a strict subalgebra, although it contains Ftilde(1)=FK.
+example : K ∈ Uq ∧ K ∉ Uqev := sorry
+-- filtration_zero: the ideal generated by e^0 gives the zero precision quotient.
+example (even : Bool) : integralIdeal even 0 = ⊤ := sorry
+-- filtration_power: the prescribed generator vanishes in its own quotient.
+example (even : Bool) (p : ℕ) :
+    integralQuotientMap even p (integralE even)^p = 0 := sorry
+-- filtration_descending: stronger integral precision maps to weaker precision.
+example (even : Bool) (p : ℕ) : integralIdeal even (p+1) ≤ integralIdeal even p :=
+  integralIdeal_antitone even (Nat.le_succ p)
+-- completion_contains_finite_form: completion is the canonical image in U_h.
+example (even : Bool) (u : integralForm even) : (u : Uh) ∈ completion even :=
+  integralForm_le_completion even u.property
+-- completion_compatible_coordinates: its map retains every finite h-adic observation.
+example (even : Bool) (a : integralInverseLimit even) (p : ℕ) :
+    projection p (integralToUh even a) = integralToTruncation even p (a.val p) := rfl
+-- completion_even_inclusion: the integral parity survives passage to the image.
+example : completion true ≤ completion false := evenCompletion_le
+
+end QuantumEnveloping
+
+
+/-! QT.1, Habiro math/0605314v1, §2.2, pp. 7–8 and §3.1, pp. 11–12.
+At each precision all tensor factors share one central parameter h.
+The tensor algebra uses Mathlib's native noncommutative PiTensorProduct. -/
+namespace QuantumEnveloping
+open scoped TensorProduct PowerSeries.WithPiTopology
+local instance tensorRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+abbrev TensorWords (n : ℕ) := ⨂[ℚ] (_ : Fin n), Words
+abbrev TensorPresentation (n : ℕ) := Polynomial (TensorWords n)
+
+def factorPresentation (n : ℕ) (i : Fin n) : Presentation →+* TensorPresentation n :=
+  Polynomial.mapRingHom
+    (PiTensorProduct.singleAlgHom (R := ℚ) (A := fun _ : Fin n => Words) i).toRingHom
+
+inductive TensorRelation (n p : ℕ) : TensorPresentation n → TensorPresentation n → Prop
+  | parameter : TensorRelation n p (X^p) 0
+  | factor (i : Fin n) (x y : Presentation) (hxy : Relation p x y) :
+      TensorRelation n p (factorPresentation n i x) (factorPresentation n i y)
+
+abbrev TensorTruncation (n p : ℕ) := RingQuot (TensorRelation n p)
+
+def tensorQuotientMap (n p : ℕ) : TensorPresentation n →ₐ[ℚ] TensorTruncation n p :=
+  RingQuot.mkAlgHom ℚ (TensorRelation n p)
+
+theorem tensorTransition_respects (n : ℕ) {p q : ℕ} (hpq : p ≤ q)
+    {x y : TensorPresentation n} (hxy : TensorRelation n q x y) :
+    tensorQuotientMap n p x = tensorQuotientMap n p y := sorry
+
+def tensorTransition (n : ℕ) {p q : ℕ} (hpq : p ≤ q) :
+    TensorTruncation n q →ₐ[ℚ] TensorTruncation n p :=
+  RingQuot.liftAlgHom ℚ ⟨tensorQuotientMap n p,
+    fun _ _ hxy => tensorTransition_respects n hpq hxy⟩
+
+def completedTensorAlgebra (n : ℕ) : Subalgebra ℚ (∀ p, TensorTruncation n p) where
+  carrier := {a | ∀ (p q : ℕ) (hpq : p ≤ q), tensorTransition n hpq (a q) = a p}
+  mul_mem' := by
+    intro a b ha hb p q hpq
+    change tensorTransition n hpq (a q*b q) = a p*b p
+    rw [map_mul, ha p q hpq, hb p q hpq]
+  add_mem' := by
+    intro a b ha hb p q hpq
+    change tensorTransition n hpq (a q+b q) = a p+b p
+    rw [map_add, ha p q hpq, hb p q hpq]
+  algebraMap_mem' := by
+    intro c p q hpq
+    exact (tensorTransition n hpq).commutes c
+
+abbrev CompletedTensor (n : ℕ) : Type := completedTensorAlgebra n
+
+instance completedTensorRing (n : ℕ) : Ring (CompletedTensor n) := Algebra.semiringToRing ℚ
+
+def tensorProjection (n p : ℕ) : CompletedTensor n →ₐ[ℚ] TensorTruncation n p where
+  toFun a := a.val p
+  map_zero' := rfl
+  map_one' := rfl
+  map_add' _ _ := rfl
+  map_mul' _ _ := rfl
+  commutes' _ := rfl
+
+def tensorScalarPolynomial (n p : ℕ) (a : FormalBase) : TensorPresentation n :=
+  ∑ d ∈ range p, Polynomial.C (algebraMap ℚ (TensorWords n) (PowerSeries.coeff d a))*X^d
+
+def tensorScalar (n : ℕ) : FormalBase →ₐ[ℚ] CompletedTensor n where
+  toFun a := ⟨fun p => tensorQuotientMap n p (tensorScalarPolynomial n p a), sorry⟩
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+  commutes' := sorry
+
+theorem tensorScalar_commutes (n : ℕ) (a : FormalBase) (u : CompletedTensor n) :
+    tensorScalar n a*u = u*tensorScalar n a := sorry
+
+instance tensorFormalAlgebra (n : ℕ) : Algebra FormalBase (CompletedTensor n) :=
+  (tensorScalar n).toRingHom.toAlgebra' (tensorScalar_commutes n)
+
+def tensorFactorAtPrecision (n p : ℕ) (i : Fin n) :
+    Truncation p →ₐ[ℚ] TensorTruncation n p :=
+  RingQuot.liftAlgHom ℚ
+    ⟨{ (tensorQuotientMap n p).toRingHom.comp (factorPresentation n i) with
+        commutes' := sorry }, sorry⟩
+
+def tensorInsert (n : ℕ) (i : Fin n) : Uh →ₐ[FormalBase] CompletedTensor n where
+  toFun u := ⟨fun p => tensorFactorAtPrecision n p i (projection p u), sorry⟩
+  map_zero' := by apply Subtype.ext; funext p; exact map_zero _
+  map_one' := by apply Subtype.ext; funext p; exact map_one _
+  map_add' _ _ := by apply Subtype.ext; funext p; exact map_add _ _ _
+  map_mul' _ _ := by apply Subtype.ext; funext p; exact map_mul _ _ _
+  commutes' := sorry
+
+theorem tensorInsert_commute (n : ℕ) (i j : Fin n) (hij : i ≠ j) (u v : Uh) :
+    Commute (tensorInsert n i u) (tensorInsert n j v) := sorry
+
+def tensorZeroEquiv : CompletedTensor 0 ≃ₐ[FormalBase] FormalBase := sorry
+def tensorOneEquiv : CompletedTensor 1 ≃ₐ[FormalBase] Uh := sorry
+
+def tensorOfOrdinary (n : ℕ) :
+    (⨂[FormalBase] (_ : Fin n), Uh) →ₐ[FormalBase] CompletedTensor n := sorry
+
+theorem tensorOfOrdinary_tprod (n : ℕ) (u : Fin n → Uh) :
+    tensorOfOrdinary n (PiTensorProduct.tprod FormalBase u) =
+      (List.ofFn fun i => tensorInsert n i (u i)).prod := sorry
+
+instance tensorTruncationUniformSpace (n p : ℕ) : UniformSpace (TensorTruncation n p) := ⊥
+instance completedTensorUniformSpace (n : ℕ) : UniformSpace (CompletedTensor n) :=
+  inferInstanceAs (UniformSpace (completedTensorAlgebra n))
+
+theorem completedTensor_complete (n : ℕ) : CompleteSpace (CompletedTensor n) := sorry
+theorem completedTensor_t2 (n : ℕ) : T2Space (CompletedTensor n) := sorry
+theorem completedTensor_topologicalRing (n : ℕ) : IsTopologicalRing (CompletedTensor n) := sorry
+theorem tensorOfOrdinary_dense (n : ℕ) : DenseRange (tensorOfOrdinary n) := sorry
+theorem tensorInsert_continuous (n : ℕ) (i : Fin n) : Continuous (tensorInsert n i) := sorry
+
+def leftLeg : Uh →ₐ[FormalBase] CompletedTensor 2 := tensorInsert 2 0
+def rightLeg : Uh →ₐ[FormalBase] CompletedTensor 2 := tensorInsert 2 1
+
+def tensorInject {m n : ℕ} (f : Fin m ↪ Fin n) :
+    CompletedTensor m →ₐ[FormalBase] CompletedTensor n := sorry
+
+theorem tensorInject_insert {m n : ℕ} (f : Fin m ↪ Fin n) (i : Fin m) (u : Uh) :
+    tensorInject f (tensorInsert m i u) = tensorInsert n (f i) u := sorry
+
+def legs12 : CompletedTensor 2 →ₐ[FormalBase] CompletedTensor 3 :=
+  tensorInject ⟨Fin.castSucc, Fin.castSucc_injective 2⟩
+
+def legs23 : CompletedTensor 2 →ₐ[FormalBase] CompletedTensor 3 :=
+  tensorInject ⟨Fin.succ, Fin.succ_injective 2⟩
+
+def legs13 : CompletedTensor 2 →ₐ[FormalBase] CompletedTensor 3 :=
+  tensorInject ⟨fun i => (![0,2] : Fin 2 → Fin 3) i, by decide⟩
+
+-- tensor_zero_is_base: empty tensor power retains h-adic scalars.
+example : Nonempty (CompletedTensor 0 ≃ₐ[FormalBase] FormalBase) := ⟨tensorZeroEquiv⟩
+-- tensor_one_is_Uh: a single factor is the noncommutative completed algebra.
+example : Nonempty (CompletedTensor 1 ≃ₐ[FormalBase] Uh) := ⟨tensorOneEquiv⟩
+-- tensor_shared_parameter: two factors do not introduce independent formal parameters.
+example : leftLeg parameter = rightLeg parameter := sorry
+-- tensor_cross_factors_commute: noncommutativity is confined to each individual factor.
+example (u v : Uh) : Commute (leftLeg u) (rightLeg v) :=
+  tensorInsert_commute 2 0 1 (by decide) u v
+-- tensor_same_factor_noncommutative: the completed product is not made commutative.
+example : leftLeg H*leftLeg E ≠ leftLeg E*leftLeg H := sorry
+-- tensor_finite_precision: the shared parameter vanishes at the stated precision.
+example (n p : ℕ) : tensorProjection n p ((tensorScalar n PowerSeries.X)^p) = 0 := sorry
+
+end QuantumEnveloping
+
+
+/-! Habiro math/0605314v1, §2.5, p. 10. The tensor filtration has
+at least one e^p factor. Its zero-fold case has F_0=QBase, F_p=0 for p>0. -/
+namespace QuantumEnveloping
+open scoped TensorProduct
+
+abbrev IntegralTensor (even : Bool) (n : ℕ) :=
+  ⨂[QBase] (_ : Fin n), integralForm even
+
+def integralTensorIdeal (even : Bool) (n p : ℕ) : TwoSidedIdeal (IntegralTensor even n) :=
+  if n = 0 then (if p = 0 then ⊤ else ⊥) else
+    TwoSidedIdeal.span (Set.range fun i : Fin n =>
+      PiTensorProduct.singleAlgHom (R := QBase)
+        (A := fun _ : Fin n => integralForm even) i (integralE even ^ p))
+
+theorem integralTensorIdeal_antitone (even : Bool) (n : ℕ) :
+    Antitone (integralTensorIdeal even n) := sorry
+
+abbrev IntegralTensorQuotient (even : Bool) (n p : ℕ) :=
+  (integralTensorIdeal even n p).ringCon.Quotient
+
+def integralTensorQuotientMap (even : Bool) (n p : ℕ) :
+    IntegralTensor even n →ₐ[QBase] IntegralTensorQuotient even n p :=
+  (integralTensorIdeal even n p).ringCon.mkₐ QBase
+
+def integralTensorTransition (even : Bool) (n : ℕ) {p q : ℕ} (hpq : p ≤ q) :
+    IntegralTensorQuotient even n q →ₐ[QBase] IntegralTensorQuotient even n p :=
+  RingCon.factorₐ QBase
+    ((TwoSidedIdeal.ringCon_le_iff).mp (integralTensorIdeal_antitone even n hpq))
+
+def integralTensorInverseLimit (even : Bool) (n : ℕ) :
+    Subalgebra QBase (∀ p, IntegralTensorQuotient even n p) where
+  carrier := {a | ∀ (p q : ℕ) (hpq : p ≤ q), integralTensorTransition even n hpq (a q) = a p}
+  mul_mem' := by
+    intro a b ha hb p q hpq
+    change integralTensorTransition even n hpq (a q*b q) = a p*b p
+    rw [map_mul, ha p q hpq, hb p q hpq]
+  add_mem' := by
+    intro a b ha hb p q hpq
+    change integralTensorTransition even n hpq (a q+b q) = a p+b p
+    rw [map_add, ha p q hpq, hb p q hpq]
+  algebraMap_mem' := by
+    intro c p q hpq
+    exact (integralTensorTransition even n hpq).commutes c
+
+def tensorQScalar (n : ℕ) : QBase →+* CompletedTensor n :=
+  (tensorScalar n).toRingHom.comp qToFormal
+
+instance completedTensorQAlgebra (n : ℕ) : Algebra QBase (CompletedTensor n) :=
+  (tensorQScalar n).toAlgebra' fun a u => tensorScalar_commutes n (qToFormal a) u
+
+def integralTensorAtPrecision (even : Bool) (n p : ℕ) :
+    IntegralTensor even n →+* TensorTruncation n p := sorry
+
+theorem integralTensorAtPrecision_tprod (even : Bool) (n p : ℕ)
+    (u : Fin n → integralForm even) :
+    integralTensorAtPrecision even n p (PiTensorProduct.tprod QBase u) =
+      (List.ofFn fun i => tensorFactorAtPrecision n p i (projection p (u i))).prod := sorry
+
+theorem integralTensorIdeal_killed (even : Bool) (n p : ℕ) :
+    (integralTensorIdeal even n p).ringCon ≤
+      RingCon.ker (integralTensorAtPrecision even n p) := sorry
+
+def integralTensorQuotientToTruncation (even : Bool) (n p : ℕ) :
+    IntegralTensorQuotient even n p →+* TensorTruncation n p :=
+  (integralTensorIdeal even n p).ringCon.lift
+    (integralTensorAtPrecision even n p) (integralTensorIdeal_killed even n p)
+
+def integralTensorToAmbient (even : Bool) (n : ℕ) :
+    integralTensorInverseLimit even n →ₐ[QBase] CompletedTensor n where
+  toFun a := ⟨fun p => integralTensorQuotientToTruncation even n p (a.val p), sorry⟩
+  map_zero' := by apply Subtype.ext; funext p; exact map_zero _
+  map_one' := by apply Subtype.ext; funext p; exact map_one _
+  map_add' _ _ := by apply Subtype.ext; funext p; exact map_add _ _ _
+  map_mul' _ _ := by apply Subtype.ext; funext p; exact map_mul _ _ _
+  commutes' := sorry
+
+def completedIntegralTensor (even : Bool) (n : ℕ) : Subalgebra QBase (CompletedTensor n) :=
+  (integralTensorToAmbient even n).range
+
+theorem completedIntegralTensor_zero (even : Bool) :
+    completedIntegralTensor even 0 =
+      (Algebra.ofId QBase (CompletedTensor 0)).range := sorry
+
+-- integral_tensor_zero_filtration: an empty tensor is not forced to vanish at positive precision.
+example (even : Bool) : integralTensorIdeal even 0 0 = ⊤ ∧
+    integralTensorIdeal even 0 1 = ⊥ := by simp [integralTensorIdeal]
+-- integral_tensor_one_large_factor: a single e^p factor is already in F_p.
+example (even : Bool) (p : ℕ) :
+    PiTensorProduct.tprod QBase (![integralE even ^ p, 1] : Fin 2 → integralForm even)
+      ∈ integralTensorIdeal even 2 p := sorry
+-- integral_tensor_not_total_degree: e⊗e is not in F_2, although its total e degree is two.
+example : PiTensorProduct.tprod QBase (![integralE false, integralE false] : Fin 2 → Uq)
+    ∉ integralTensorIdeal false 2 2 := sorry
+-- integral_tensor_image_coordinates: the completed integral tensor is an image in the ambient tensor.
+example (even : Bool) (n : ℕ) (a : integralTensorInverseLimit even n) (p : ℕ) :
+    tensorProjection n p (integralTensorToAmbient even n a) =
+      integralTensorQuotientToTruncation even n p (a.val p) := rfl
+-- integral_tensor_even_inclusion: this is an inclusion of images, with no inverse-limit injectivity claim.
+example (n : ℕ) : completedIntegralTensor true n ≤ completedIntegralTensor false n := sorry
+-- integral_tensor_product_closure: the ambient noncommutative product restricts to the actual image.
+example (even : Bool) (n : ℕ) (x y : CompletedTensor n)
+    (hx : x ∈ completedIntegralTensor even n) (hy : y ∈ completedIntegralTensor even n) :
+    x*y ∈ completedIntegralTensor even n := (completedIntegralTensor even n).mul_mem hx hy
+
+end QuantumEnveloping
+
+
+/-! QT.1, Habiro math/0605314v1, §2.2, pp. 7–8; §2.4, p. 9;
+§3.1, pp. 11–12, equations (3.1)–(3.9). Infinite series below are
+specified by finite quotient formulas, so no unqualified tsum is used. -/
+namespace QuantumEnveloping
+open scoped TensorProduct PowerSeries.WithPiTopology
+local instance ribbonRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+def coproduct : Uh →ₐ[FormalBase] CompletedTensor 2 := sorry
+def counit : Uh →ₐ[FormalBase] FormalBase := sorry
+def antipode : Uh →ₐ[FormalBase] Uhᵐᵒᵖ := sorry
+
+theorem coproduct_H : coproduct H = leftLeg H+rightLeg H := sorry
+theorem coproduct_E : coproduct E = leftLeg E+leftLeg K*rightLeg E := sorry
+theorem coproduct_F : coproduct F = leftLeg F*rightLeg Kinv+rightLeg F := sorry
+theorem coproduct_K : coproduct K = leftLeg K*rightLeg K := sorry
+theorem counit_H : counit H = 0 := sorry
+theorem counit_E : counit E = 0 := sorry
+theorem counit_F : counit F = 0 := sorry
+theorem antipode_H : MulOpposite.unop (antipode H) = -H := sorry
+theorem antipode_E : MulOpposite.unop (antipode E) = -Kinv*E := sorry
+theorem antipode_F : MulOpposite.unop (antipode F) = -F*K := sorry
+
+theorem coproduct_continuous : Continuous coproduct := sorry
+theorem counit_continuous : Continuous counit := sorry
+theorem antipode_continuous : Continuous antipode := sorry
+
+def coproductFirst : CompletedTensor 2 →ₐ[FormalBase] CompletedTensor 3 := sorry
+def coproductLast : CompletedTensor 2 →ₐ[FormalBase] CompletedTensor 3 := sorry
+def swapTensor : CompletedTensor 2 ≃ₐ[FormalBase] CompletedTensor 2 := sorry
+
+theorem coproductFirst_left (u : Uh) : coproductFirst (leftLeg u) = legs12 (coproduct u) := sorry
+theorem coproductFirst_right (u : Uh) : coproductFirst (rightLeg u) = tensorInsert 3 2 u := sorry
+theorem coproductLast_left (u : Uh) : coproductLast (leftLeg u) = tensorInsert 3 0 u := sorry
+theorem coproductLast_right (u : Uh) : coproductLast (rightLeg u) = legs23 (coproduct u) := sorry
+theorem swapTensor_left (u : Uh) : swapTensor (leftLeg u) = rightLeg u := sorry
+theorem swapTensor_right (u : Uh) : swapTensor (rightLeg u) = leftLeg u := sorry
+theorem coproduct_coassociative : coproductFirst.comp coproduct = coproductLast.comp coproduct := sorry
+
+def multiplyTensor : CompletedTensor 2 →ₗ[FormalBase] Uh := sorry
+def counitLeft : CompletedTensor 2 →ₐ[FormalBase] Uh := sorry
+def counitRight : CompletedTensor 2 →ₐ[FormalBase] Uh := sorry
+def antipodeLeft : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+def antipodeRight : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+
+theorem multiplyTensor_pure (u v : Uh) : multiplyTensor (leftLeg u*rightLeg v) = u*v := sorry
+theorem counitLeft_pure (u v : Uh) : counitLeft (leftLeg u*rightLeg v) = scalar (counit u)*v := sorry
+theorem counitRight_pure (u v : Uh) : counitRight (leftLeg u*rightLeg v) = u*scalar (counit v) := sorry
+theorem antipodeLeft_pure (u v : Uh) : antipodeLeft (leftLeg u*rightLeg v) =
+    leftLeg (MulOpposite.unop (antipode u))*rightLeg v := sorry
+theorem antipodeRight_pure (u v : Uh) : antipodeRight (leftLeg u*rightLeg v) =
+    leftLeg u*rightLeg (MulOpposite.unop (antipode v)) := sorry
+theorem multiplyTensor_continuous : Continuous multiplyTensor := sorry
+theorem counitLeft_continuous : Continuous counitLeft := sorry
+theorem counitRight_continuous : Continuous counitRight := sorry
+theorem antipodeLeft_continuous : Continuous antipodeLeft := sorry
+theorem antipodeRight_continuous : Continuous antipodeRight := sorry
+
+theorem counitLeft_coproduct : counitLeft.comp coproduct = AlgHom.id FormalBase Uh := sorry
+theorem counitRight_coproduct : counitRight.comp coproduct = AlgHom.id FormalBase Uh := sorry
+theorem antipodeLeft_coproduct (u : Uh) :
+    multiplyTensor (antipodeLeft (coproduct u)) = scalar (counit u) := sorry
+theorem antipodeRight_coproduct (u : Uh) :
+    multiplyTensor (antipodeRight (coproduct u)) = scalar (counit u) := sorry
+
+def cartanTensorAtPrecision (p : ℕ) : TensorTruncation 2 p :=
+  ∑ d ∈ range p, algebraMap ℚ (TensorTruncation 2 p) (1 / ((4 : ℚ)^d*d.factorial))*
+    (tensorProjection 2 p (leftLeg H*rightLeg H))^d *
+    (tensorProjection 2 p (tensorScalar 2 PowerSeries.X))^d
+
+def inverseCartanTensorAtPrecision (p : ℕ) : TensorTruncation 2 p :=
+  ∑ d ∈ range p, algebraMap ℚ (TensorTruncation 2 p) ((-1/4 : ℚ)^d/d.factorial)*
+    (tensorProjection 2 p (leftLeg H*rightLeg H))^d *
+    (tensorProjection 2 p (tensorScalar 2 PowerSeries.X))^d
+
+def balancedFactorial (n : ℕ) : FormalBase := ∏ i ∈ range n, formalQInt (i+1)
+
+def inverseBalancedFactorial (n : ℕ) : FormalBase :=
+  PowerSeries.invOfUnit (balancedFactorial n) (factorialUnit n)
+
+def rCoefficient (n : ℕ) : FormalBase :=
+  formalVPower ((n*(n-1)/2 : ℕ) : ℤ) * (formalVPower 1-formalVPower (-1))^n *
+    inverseBalancedFactorial n
+
+def inverseRCoefficient (n : ℕ) : FormalBase :=
+  (-1)^n * formalVPower (-((n*(n-1)/2 : ℕ) : ℤ)) *
+    (formalVPower 1-formalVPower (-1))^n * inverseBalancedFactorial n
+
+def universalRAtPrecision (p : ℕ) : TensorTruncation 2 p :=
+  cartanTensorAtPrecision p * ∑ n ∈ range p,
+    tensorProjection 2 p (tensorScalar 2 (rCoefficient n)*leftLeg (F^n)*rightLeg (E^n))
+
+def inverseRAtPrecision (p : ℕ) : TensorTruncation 2 p :=
+  (∑ n ∈ range p,
+    tensorProjection 2 p (tensorScalar 2 (inverseRCoefficient n)*leftLeg (F^n)*rightLeg (E^n))) *
+      inverseCartanTensorAtPrecision p
+
+def universalR : (CompletedTensor 2)ˣ where
+  val := ⟨universalRAtPrecision, sorry⟩
+  inv := ⟨inverseRAtPrecision, sorry⟩
+  val_inv := sorry
+  inv_val := sorry
+
+theorem universalR_quasitriangular (u : Uh) :
+    (universalR : CompletedTensor 2)*coproduct u =
+      swapTensor (coproduct u)*(universalR : CompletedTensor 2) := sorry
+
+theorem universalR_coproductFirst : coproductFirst (universalR : CompletedTensor 2) =
+    legs13 (universalR : CompletedTensor 2)*legs23 (universalR : CompletedTensor 2) := sorry
+
+theorem universalR_coproductLast : coproductLast (universalR : CompletedTensor 2) =
+    legs13 (universalR : CompletedTensor 2)*legs12 (universalR : CompletedTensor 2) := sorry
+
+theorem yangBaxter :
+    legs12 (universalR : CompletedTensor 2)*legs13 (universalR : CompletedTensor 2)*
+      legs23 (universalR : CompletedTensor 2) =
+    legs23 (universalR : CompletedTensor 2)*legs13 (universalR : CompletedTensor 2)*
+      legs12 (universalR : CompletedTensor 2) := sorry
+
+def quadraticCartanExponential (a : ℚ) : Uh :=
+  ⟨fun p => quotientMap p (∑ d ∈ range p,
+    Polynomial.C (algebraMap ℚ Words (a^d/d.factorial)*(wordH*(wordH+2))^d)*X^d), sorry⟩
+
+def ribbonAtPrecision (p : ℕ) : Truncation p :=
+  ∑ n ∈ range p, projection p ((-1)^n*Ftilde n*quadraticCartanExponential (-1/4)*e^n)
+
+def inverseRibbonAtPrecision (p : ℕ) : Truncation p :=
+  ∑ n ∈ range p, projection p
+    (scalar (formalVPower ((n : ℤ)*(n-1)))*Ftilde n*
+      (KUnit ^ (-2*(n : ℤ)) : Uhˣ)*quadraticCartanExponential (1/4)*e^n)
+
+def ribbonElement : Uhˣ where
+  val := ⟨ribbonAtPrecision, sorry⟩
+  inv := ⟨inverseRibbonAtPrecision, sorry⟩
+  val_inv := sorry
+  inv_val := sorry
+
+theorem ribbonElement_central (u : Uh) : Commute (ribbonElement : Uh) u := sorry
+theorem ribbonElement_antipode : MulOpposite.unop (antipode (ribbonElement : Uh)) =
+    (ribbonElement : Uh) := sorry
+theorem ribbonElement_counit : counit (ribbonElement : Uh) = 1 := sorry
+theorem ribbonElement_coproduct : coproduct (ribbonElement : Uh) =
+    ↑((Units.map swapTensor.toMonoidHom universalR * universalR)⁻¹) *
+      leftLeg (ribbonElement : Uh)*rightLeg (ribbonElement : Uh) := sorry
+
+def adjointEvaluation : CompletedTensor 2 →ₗ[FormalBase] Uh →ₗ[FormalBase] Uh := sorry
+
+theorem adjointEvaluation_pure (a b x : Uh) :
+    adjointEvaluation (leftLeg a*rightLeg b) x = a*x*MulOpposite.unop (antipode b) := sorry
+
+def adjointAction : Uh →ₗ[FormalBase] Uh →ₗ[FormalBase] Uh :=
+  adjointEvaluation.comp coproduct.toLinearMap
+
+theorem adjointAction_K (u : Uh) : adjointAction K u = K*u*Kinv := sorry
+theorem adjointAction_e (u : Uh) : adjointAction e u = e*u-K*u*Kinv*e := sorry
+theorem adjointAction_one (u : Uh) : adjointAction 1 u = u := sorry
+theorem adjointAction_mul (a b u : Uh) : adjointAction (a*b) u = adjointAction a (adjointAction b u) := sorry
+theorem integralAdjoint_stable (u : Uq) (v : Uqev) : adjointAction u v ∈ Uqev := sorry
+
+/-- Actual finite free modules with the matrices already supplied in QT.2. -/
+def colorRepresentation (n : ℕ) : Uh →ₐ[FormalBase] ColorMatrix n := sorry
+theorem colorRepresentation_H (n : ℕ) : colorRepresentation n H = colorH n := sorry
+theorem colorRepresentation_E (n : ℕ) : colorRepresentation n E = colorE n := sorry
+theorem colorRepresentation_F (n : ℕ) : colorRepresentation n F = colorF n := sorry
+theorem colorRepresentation_K (n : ℕ) : colorRepresentation n K = colorK n := sorry
+theorem colorRepresentation_continuous (n : ℕ) : Continuous (colorRepresentation n) := sorry
+
+def tensorColorRepresentation (m n : ℕ) : CompletedTensor 2 →ₐ[FormalBase]
+    Matrix (Fin (m+1) × Fin (n+1)) (Fin (m+1) × Fin (n+1)) FormalBase := sorry
+
+theorem tensorColorRepresentation_pure (m n : ℕ) (u v : Uh) :
+    tensorColorRepresentation m n (leftLeg u*rightLeg v) =
+      (colorRepresentation m u).kronecker (colorRepresentation n v) := sorry
+
+theorem ribbon_color (n : ℕ) : colorRepresentation n (ribbonElement : Uh) =
+    formalExp (-((n : ℚ)*(n+2))/4) • 1 := sorry
+
+theorem twist_color (n : ℕ) : colorRepresentation n (↑ribbonElement⁻¹ : Uh) =
+    formalExp (((n : ℚ)*(n+2))/4) • 1 := sorry
+
+-- coproduct_cartan: the Cartan generator is primitive.
+example : coproduct H = leftLeg H+rightLeg H := coproduct_H
+-- coproduct_F_inverse_K: detects the opposite coproduct convention.
+example : coproduct F = leftLeg F*rightLeg Kinv+rightLeg F := coproduct_F
+-- antipode_reverses_order: the antipode lands in the opposite algebra.
+example (u v : Uh) : MulOpposite.unop (antipode (u*v)) =
+    MulOpposite.unop (antipode v)*MulOpposite.unop (antipode u) := sorry
+-- R_matrix_classical_limit: the classical braiding degenerates to the symmetry.
+example : tensorProjection 2 1 (universalR : CompletedTensor 2) = 1 := sorry
+-- R_matrix_first_order: the Cartan coefficient is 1/4 and the root order is F⊗E.
+example : tensorProjection 2 2 ((universalR : CompletedTensor 2)-1) =
+    tensorProjection 2 2 (tensorScalar 2 PowerSeries.X*
+      (PowerSeries.C (1/4 : ℚ) • (leftLeg H*rightLeg H)+leftLeg F*rightLeg E)) := sorry
+-- R_matrix_inverse_order: the inverse has its Cartan exponential on the right.
+example : (universalR : CompletedTensor 2)*(↑universalR⁻¹ : CompletedTensor 2) = 1 :=
+  universalR.val_inv
+-- ribbon_unknot_framing: a positive framing uses r⁻¹, with the source's exponent.
+example : colorRepresentation 1 (↑ribbonElement⁻¹ : Uh) = formalExp (3/4) • 1 := sorry
+-- ribbon_negative_framing: r has the opposite scalar; the two twists are distinguished.
+example : colorRepresentation 1 (ribbonElement : Uh) = formalExp (-3/4) • 1 := sorry
+-- ribbon_trivial_color: the zero color has no framing anomaly.
+example : colorRepresentation 0 (ribbonElement : Uh) = 1 := sorry
+-- quantum_dimension_V1: the pivotal trace retains the two formal weights.
+example : quantumTrace 1 (1 : ColorMatrix 1) = formalVPower 1+formalVPower (-1) := sorry
+-- adjoint_even_stability: the nontrivial adjoint action preserves the integral parity.
+example (u : Uq) (v : Uqev) : adjointAction u v ∈ Uqev := integralAdjoint_stable u v
+
+end QuantumEnveloping
+
+
+/-! QT.1, Habiro math/0605314v1, §§3.2–3.3, pp. 12–14,
+equations (3.10)–(3.12), Theorem 3.1 and Proposition 3.3.
+Braided coproducts are linear maps; their products use the braided tensor
+algebra, so they are not asserted to be ordinary tensor-algebra homomorphisms. -/
+namespace QuantumEnveloping
+open scoped TensorProduct PowerSeries.WithPiTopology
+local instance transmutationRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+def tensorAdjoint : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 →ₗ[FormalBase]
+    CompletedTensor 2 := sorry
+
+theorem tensorAdjoint_pure (a b x y : Uh) :
+    tensorAdjoint (leftLeg a*rightLeg b) (leftLeg x*rightLeg y) =
+      leftLeg (adjointAction a x)*rightLeg (adjointAction b y) := sorry
+
+def braidedSwap : CompletedTensor 2 ≃ₗ[FormalBase] CompletedTensor 2 where
+  toFun x := swapTensor (tensorAdjoint (universalR : CompletedTensor 2) x)
+  invFun x := tensorAdjoint (↑universalR⁻¹ : CompletedTensor 2) (swapTensor x)
+  left_inv := sorry
+  right_inv := sorry
+  map_add' := sorry
+  map_smul' := sorry
+
+def transmutationContraction : CompletedTensor 2 →ₗ[FormalBase]
+    CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+
+theorem transmutationContraction_pure (a b u v : Uh) :
+    transmutationContraction (leftLeg a*rightLeg b) (leftLeg u*rightLeg v) =
+      leftLeg (u*MulOpposite.unop (antipode b))*rightLeg (adjointAction a v) := sorry
+
+def braidedCoproduct : Uh →ₗ[FormalBase] CompletedTensor 2 :=
+  (transmutationContraction (universalR : CompletedTensor 2)).comp coproduct.toLinearMap
+
+def antipodeEquiv : Uh ≃ₗ[FormalBase] Uh where
+  toFun u := MulOpposite.unop (antipode u)
+  invFun := sorry
+  left_inv := sorry
+  right_inv := sorry
+  map_add' := sorry
+  map_smul' := sorry
+
+def braidedAntipodeContraction : CompletedTensor 2 →ₗ[FormalBase] Uh →ₗ[FormalBase] Uh := sorry
+def inverseBraidedAntipodeContraction : CompletedTensor 2 →ₗ[FormalBase] Uh →ₗ[FormalBase] Uh := sorry
+
+theorem braidedAntipodeContraction_pure (a b u : Uh) :
+    braidedAntipodeContraction (leftLeg a*rightLeg b) u = b*antipodeEquiv (adjointAction a u) := sorry
+
+theorem inverseBraidedAntipodeContraction_pure (a b u : Uh) :
+    inverseBraidedAntipodeContraction (leftLeg a*rightLeg b) u =
+      antipodeEquiv.symm (adjointAction a u)*b := sorry
+
+def braidedAntipode : Uh ≃ₗ[FormalBase] Uh where
+  toFun := braidedAntipodeContraction (universalR : CompletedTensor 2)
+  invFun := inverseBraidedAntipodeContraction (universalR : CompletedTensor 2)
+  left_inv := sorry
+  right_inv := sorry
+  map_add' := sorry
+  map_smul' := sorry
+
+theorem braidedSwap_continuous : Continuous braidedSwap := sorry
+theorem inverseBraidedSwap_continuous : Continuous braidedSwap.symm := sorry
+theorem braidedCoproduct_continuous : Continuous braidedCoproduct := sorry
+theorem braidedAntipode_continuous : Continuous braidedAntipode := sorry
+theorem inverseBraidedAntipode_continuous : Continuous braidedAntipode.symm := sorry
+
+/-- The middle two factors cross before multiplication in each output factor. -/
+def braidedMultiply : CompletedTensor 2 →ₗ[FormalBase]
+    CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+
+theorem braidedMultiply_pure (x y u v : Uh) :
+    braidedMultiply (leftLeg x*rightLeg y) (leftLeg u*rightLeg v) =
+      leftLeg x * braidedSwap (leftLeg y*rightLeg u) * rightLeg v := sorry
+theorem braidedMultiply_continuous :
+    Continuous (fun z : CompletedTensor 2 × CompletedTensor 2 => braidedMultiply z.1 z.2) := sorry
+theorem braidedMultiply_one_left (x : CompletedTensor 2) : braidedMultiply 1 x = x := sorry
+theorem braidedMultiply_one_right (x : CompletedTensor 2) : braidedMultiply x 1 = x := sorry
+theorem braidedMultiply_associative (x y z : CompletedTensor 2) :
+    braidedMultiply (braidedMultiply x y) z = braidedMultiply x (braidedMultiply y z) := sorry
+theorem braidedCoproduct_mul (x y : Uh) :
+    braidedCoproduct (x*y) = braidedMultiply (braidedCoproduct x) (braidedCoproduct y) := sorry
+theorem braidedCoproduct_one : braidedCoproduct 1 = 1 := sorry
+
+def braidedCoproductFirst : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 3 := sorry
+def braidedCoproductLast : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 3 := sorry
+theorem braidedCoproductFirst_pure (x y : Uh) :
+    braidedCoproductFirst (leftLeg x*rightLeg y) =
+      legs12 (braidedCoproduct x)*tensorInsert 3 2 y := sorry
+theorem braidedCoproductLast_pure (x y : Uh) :
+    braidedCoproductLast (leftLeg x*rightLeg y) =
+      tensorInsert 3 0 x*legs23 (braidedCoproduct y) := sorry
+theorem braidedCoproductFirst_continuous : Continuous braidedCoproductFirst := sorry
+theorem braidedCoproductLast_continuous : Continuous braidedCoproductLast := sorry
+theorem braidedCoproduct_coassociative :
+    braidedCoproductFirst.comp braidedCoproduct = braidedCoproductLast.comp braidedCoproduct := sorry
+theorem counitLeft_braidedCoproduct :
+    counitLeft.toLinearMap.comp braidedCoproduct = LinearMap.id := sorry
+theorem counitRight_braidedCoproduct :
+    counitRight.toLinearMap.comp braidedCoproduct = LinearMap.id := sorry
+
+def braidedAntipodeLeft : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+def braidedAntipodeRight : CompletedTensor 2 →ₗ[FormalBase] CompletedTensor 2 := sorry
+theorem braidedAntipodeLeft_pure (x y : Uh) :
+    braidedAntipodeLeft (leftLeg x*rightLeg y) = leftLeg (braidedAntipode x)*rightLeg y := sorry
+theorem braidedAntipodeRight_pure (x y : Uh) :
+    braidedAntipodeRight (leftLeg x*rightLeg y) = leftLeg x*rightLeg (braidedAntipode y) := sorry
+theorem braidedAntipodeLeft_continuous : Continuous braidedAntipodeLeft := sorry
+theorem braidedAntipodeRight_continuous : Continuous braidedAntipodeRight := sorry
+theorem braidedAntipodeLeft_coproduct (x : Uh) :
+    multiplyTensor (braidedAntipodeLeft (braidedCoproduct x)) = scalar (counit x) := sorry
+theorem braidedAntipodeRight_coproduct (x : Uh) :
+    multiplyTensor (braidedAntipodeRight (braidedCoproduct x)) = scalar (counit x) := sorry
+
+def integralFiltration (even : Bool) (p : ℕ) : Submodule QBase Uh where
+  carrier := {u | ∃ a : integralInverseLimit even, a.val p = 0 ∧ integralToUh even a = u}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def integralTensorFiltration (even : Bool) (n p : ℕ) : Submodule QBase (CompletedTensor n) where
+  carrier := {u | ∃ a : integralTensorInverseLimit even n,
+    a.val p = 0 ∧ integralTensorToAmbient even n a = u}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem braidedSwap_integral (x : CompletedTensor 2) (hx : x ∈ completedIntegralTensor true 2) :
+    braidedSwap x ∈ completedIntegralTensor true 2 := sorry
+theorem inverseBraidedSwap_integral (x : CompletedTensor 2) (hx : x ∈ completedIntegralTensor true 2) :
+    braidedSwap.symm x ∈ completedIntegralTensor true 2 := sorry
+theorem braidedCoproduct_integral (x : Uh) (hx : x ∈ completion true) :
+    braidedCoproduct x ∈ completedIntegralTensor true 2 := sorry
+theorem braidedAntipode_integral (x : Uh) (hx : x ∈ completion true) :
+    braidedAntipode x ∈ completion true := sorry
+theorem inverseBraidedAntipode_integral (x : Uh) (hx : x ∈ completion true) :
+    braidedAntipode.symm x ∈ completion true := sorry
+theorem multiplyTensor_integral (x : CompletedTensor 2) (hx : x ∈ completedIntegralTensor true 2) :
+    multiplyTensor x ∈ completion true := sorry
+theorem counit_integral (x : Uh) (hx : x ∈ completion true) : counit x ∈ Set.range qToFormal := sorry
+
+theorem braidedSwap_filtration (p : ℕ) (x : CompletedTensor 2)
+    (hx : x ∈ integralTensorFiltration true 2 p) :
+    braidedSwap x ∈ integralTensorFiltration true 2 p := sorry
+theorem braidedAntipode_filtration (p : ℕ) (x : Uh) (hx : x ∈ integralFiltration true p) :
+    braidedAntipode x ∈ integralFiltration true p := sorry
+theorem inverseBraidedSwap_filtration (p : ℕ) (x : CompletedTensor 2)
+    (hx : x ∈ integralTensorFiltration true 2 p) :
+    braidedSwap.symm x ∈ integralTensorFiltration true 2 p := sorry
+theorem inverseBraidedAntipode_filtration (p : ℕ) (x : Uh) (hx : x ∈ integralFiltration true p) :
+    braidedAntipode.symm x ∈ integralFiltration true p := sorry
+theorem braidedCoproduct_filtration (p : ℕ) (x : Uh) (hx : x ∈ integralFiltration true p) :
+    braidedCoproduct x ∈ integralTensorFiltration true 2 ((p+1)/2) := sorry
+theorem multiplyTensor_filtration (p : ℕ) (x : CompletedTensor 2)
+    (hx : x ∈ integralTensorFiltration true 2 p) :
+    multiplyTensor x ∈ integralFiltration true p := sorry
+theorem counit_filtration (p : ℕ) (hp : 0 < p) (x : Uh) (hx : x ∈ integralFiltration true p) :
+    counit x = 0 := sorry
+
+-- braided_swap_classical_limit: it specializes to the flip, not the identity.
+example (x y : Uh) : tensorProjection 2 1 (braidedSwap (leftLeg x*rightLeg y)) =
+    tensorProjection 2 1 (leftLeg y*rightLeg x) := sorry
+-- braided_coproduct_unit: transmutation keeps the multiplicative unit.
+example : braidedCoproduct 1 = 1 := sorry
+-- braided_antipode_unit: the transmuted antipode preserves the unit.
+example : braidedAntipode 1 = 1 := sorry
+-- even_requires_transmutation: the ordinary coproduct of FK has an odd K factor.
+example : coproduct (Ftilde 1) ∉ completedIntegralTensor true 2 := sorry
+-- transmuted_coproduct_even: the braided coproduct has the required integral even image.
+example : braidedCoproduct (Ftilde 1) ∈ completedIntegralTensor true 2 :=
+  braidedCoproduct_integral _ (integralForm_le_completion true (Ftilde_mem true 1))
+-- braided_antipode_invertible: an antipode without its continuous inverse is insufficient.
+example (x : Uh) : braidedAntipode.symm (braidedAntipode x) = x := braidedAntipode.symm_apply_apply x
+-- braided_coproduct_precision_loss: input F_5 gives output F_3, rather than a claimed F_5.
+example (x : Uh) (hx : x ∈ integralFiltration true 5) :
+    braidedCoproduct x ∈ integralTensorFiltration true 2 3 := braidedCoproduct_filtration 5 x hx
+
+-- braided_product_crossing: the middle factors use the adjoint braiding.
+example (x y u v : Uh) :
+    braidedMultiply (leftLeg x*rightLeg y) (leftLeg u*rightLeg v) =
+      leftLeg x * braidedSwap (leftLeg y*rightLeg u) * rightLeg v := braidedMultiply_pure x y u v
+-- braided_product_unit: both units are tested, since the product is not commutative.
+example (x : CompletedTensor 2) : braidedMultiply 1 x = x ∧ braidedMultiply x 1 = x :=
+  ⟨braidedMultiply_one_left x, braidedMultiply_one_right x⟩
+-- inverse_braided_antipode_precision: the inverse preserves the same integral precision.
+example (x : Uh) (hx : x ∈ integralFiltration true 2) :
+    braidedAntipode.symm x ∈ integralFiltration true 2 := inverseBraidedAntipode_filtration 2 x hx
+
+end QuantumEnveloping
+
+
+/-! Habiro math/0605314v1, §3.1, pp. 11–12, and §5.1, pp. 18–19.
+Finite free quantum modules form a full subcategory of native ModuleCat U_h.
+Restriction of scalars, ordinary module tensor products and module duals
+are Mathlib constructions; no second generic category of modules is defined. -/
+namespace QuantumEnveloping
+open CategoryTheory CategoryTheory.MonoidalCategory
+open scoped TensorProduct PowerSeries.WithPiTopology
+local instance modulesRationalDiscreteUniformSpace : UniformSpace ℚ := ⊥
+
+def finiteFreeQuantumProperty : ObjectProperty (ModuleCat Uh) := fun M =>
+  Module.Free FormalBase ((ModuleCat.restrictScalars scalar.toRingHom).obj M) ∧
+    Module.Finite FormalBase ((ModuleCat.restrictScalars scalar.toRingHom).obj M)
+
+abbrev FiniteQuantumModule := finiteFreeQuantumProperty.FullSubcategory
+
+def finiteUnderlying (V : FiniteQuantumModule) : ModuleCat FormalBase :=
+  (ModuleCat.restrictScalars scalar.toRingHom).obj V.obj
+
+instance finiteUnderlying_quantumModule (V : FiniteQuantumModule) : Module Uh (finiteUnderlying V) :=
+  inferInstanceAs (Module Uh V.obj)
+
+instance finiteUnderlying_free (V : FiniteQuantumModule) : Module.Free FormalBase (finiteUnderlying V) :=
+  V.property.1
+instance finiteUnderlying_finite (V : FiniteQuantumModule) : Module.Finite FormalBase (finiteUnderlying V) :=
+  V.property.2
+
+def finiteCoordinates (V : FiniteQuantumModule) : finiteUnderlying V ≃ₗ[FormalBase]
+    (Fin (Module.finrank FormalBase (finiteUnderlying V)) → FormalBase) :=
+  (Module.finBasis FormalBase (finiteUnderlying V)).equivFun
+
+instance finiteUnderlyingUniformSpace (V : FiniteQuantumModule) : UniformSpace (finiteUnderlying V) :=
+  UniformSpace.comap (finiteCoordinates V) inferInstance
+
+theorem finiteUnderlying_adicTopology (V : FiniteQuantumModule) :
+    (inferInstance : TopologicalSpace (finiteUnderlying V)) =
+      (Ideal.span {PowerSeries.X} : Ideal FormalBase).adicModuleTopology (finiteUnderlying V) := sorry
+
+theorem finiteUnderlying_t2 (V : FiniteQuantumModule) : T2Space (finiteUnderlying V) := sorry
+theorem finiteUnderlying_complete (V : FiniteQuantumModule) : CompleteSpace (finiteUnderlying V) := sorry
+theorem finiteHom_continuous {V W : FiniteQuantumModule} (f : V ⟶ W) :
+    @Continuous (finiteUnderlying V) (finiteUnderlying W) inferInstance inferInstance (fun x =>
+      ((ModuleCat.restrictScalars scalar.toRingHom).map f.hom x : finiteUnderlying W)) := sorry
+
+def finiteAction (V : FiniteQuantumModule) : Uh →ₐ[FormalBase]
+    Module.End FormalBase (finiteUnderlying V) := sorry
+
+theorem finiteAction_smul (V : FiniteQuantumModule) (u : Uh) (x : finiteUnderlying V) :
+    finiteAction V u x = u • x := sorry
+
+theorem finiteAction_jointContinuous (V : FiniteQuantumModule) :
+    Continuous (fun z : Uh × finiteUnderlying V => finiteAction V z.1 z.2) := sorry
+
+def finiteTensorAction (V W : FiniteQuantumModule) : CompletedTensor 2 →ₐ[FormalBase]
+    Module.End FormalBase (finiteUnderlying V ⊗[FormalBase] finiteUnderlying W) := sorry
+
+theorem finiteTensorAction_pure (V W : FiniteQuantumModule) (u v : Uh) :
+    finiteTensorAction V W (leftLeg u*rightLeg v) =
+      TensorProduct.map (finiteAction V u) (finiteAction W v) := sorry
+
+def finiteTensor (V W : FiniteQuantumModule) : FiniteQuantumModule := sorry
+
+def finiteTensorUnderlying (V W : FiniteQuantumModule) :
+    finiteUnderlying (finiteTensor V W) ≅
+      ModuleCat.of FormalBase (finiteUnderlying V ⊗[FormalBase] finiteUnderlying W) := sorry
+
+theorem finiteTensorAction_coproduct (V W : FiniteQuantumModule) (u : Uh)
+    (x : finiteUnderlying (finiteTensor V W)) :
+    (finiteTensorUnderlying V W).hom (finiteAction (finiteTensor V W) u x) =
+      finiteTensorAction V W (coproduct u) ((finiteTensorUnderlying V W).hom x) := sorry
+
+def finiteUnit : FiniteQuantumModule := sorry
+def finiteUnitUnderlying : finiteUnderlying finiteUnit ≅ ModuleCat.of FormalBase FormalBase := sorry
+
+theorem finiteUnitAction (u : Uh) (x : finiteUnderlying finiteUnit) :
+    finiteUnitUnderlying.hom (finiteAction finiteUnit u x) = counit u*finiteUnitUnderlying.hom x := sorry
+
+def finiteTensorHom {V W X Y : FiniteQuantumModule} (f : V ⟶ W) (g : X ⟶ Y) :
+    finiteTensor V X ⟶ finiteTensor W Y := sorry
+def finiteAssociator (U V W : FiniteQuantumModule) :
+    finiteTensor (finiteTensor U V) W ≅ finiteTensor U (finiteTensor V W) := sorry
+def finiteLeftUnitor (V : FiniteQuantumModule) : finiteTensor finiteUnit V ≅ V := sorry
+def finiteRightUnitor (V : FiniteQuantumModule) : finiteTensor V finiteUnit ≅ V := sorry
+
+instance finiteModuleMonoidalStruct : MonoidalCategoryStruct FiniteQuantumModule where
+  tensorObj := finiteTensor
+  tensorHom := finiteTensorHom
+  whiskerLeft V _ _ f := finiteTensorHom (𝟙 V) f
+  whiskerRight f V := finiteTensorHom f (𝟙 V)
+  tensorUnit := finiteUnit
+  associator := finiteAssociator
+  leftUnitor := finiteLeftUnitor
+  rightUnitor := finiteRightUnitor
+
+instance finiteModuleMonoidal : MonoidalCategory FiniteQuantumModule :=
+  MonoidalCategory.ofTensorHom sorry sorry sorry sorry sorry sorry sorry sorry sorry
+
+def finiteBraiding (V W : FiniteQuantumModule) : finiteTensor V W ≅ finiteTensor W V := sorry
+
+theorem finiteBraiding_formula (V W : FiniteQuantumModule)
+    (x : finiteUnderlying (finiteTensor V W)) :
+    (finiteTensorUnderlying W V).hom
+      ((ModuleCat.restrictScalars scalar.toRingHom).map (finiteBraiding V W).hom.hom x) =
+    TensorProduct.comm FormalBase _ _
+      (finiteTensorAction V W (universalR : CompletedTensor 2) ((finiteTensorUnderlying V W).hom x)) := sorry
+
+instance braidedCategory_modules : BraidedCategory FiniteQuantumModule := sorry
+
+theorem braidedCategory_modules_braiding (V W : FiniteQuantumModule) :
+    (β_ V W) = finiteBraiding V W := sorry
+
+def finiteLeftDual (V : FiniteQuantumModule) : FiniteQuantumModule := sorry
+def finiteRightDual (V : FiniteQuantumModule) : FiniteQuantumModule := sorry
+
+def finiteLeftDualUnderlying (V : FiniteQuantumModule) :
+    finiteUnderlying (finiteLeftDual V) ≅ ModuleCat.of FormalBase (Module.Dual FormalBase (finiteUnderlying V)) := sorry
+def finiteRightDualUnderlying (V : FiniteQuantumModule) :
+    finiteUnderlying (finiteRightDual V) ≅ ModuleCat.of FormalBase (Module.Dual FormalBase (finiteUnderlying V)) := sorry
+
+theorem finiteLeftDualAction (V : FiniteQuantumModule) (u : Uh)
+    (f : finiteUnderlying (finiteLeftDual V)) (x : finiteUnderlying V) :
+    (finiteLeftDualUnderlying V).hom (finiteAction (finiteLeftDual V) u f) x =
+      (finiteLeftDualUnderlying V).hom f (finiteAction V (antipodeEquiv.symm u) x) := sorry
+
+theorem finiteRightDualAction (V : FiniteQuantumModule) (u : Uh)
+    (f : finiteUnderlying (finiteRightDual V)) (x : finiteUnderlying V) :
+    (finiteRightDualUnderlying V).hom (finiteAction (finiteRightDual V) u f) x =
+      (finiteRightDualUnderlying V).hom f (finiteAction V (antipodeEquiv u) x) := sorry
+
+-- Mathlib's right dual evaluates dual⊗V, and therefore uses S.
+def finiteRightEvaluation (V : FiniteQuantumModule) : finiteTensor (finiteRightDual V) V ⟶ finiteUnit := sorry
+def finiteRightCoevaluation (V : FiniteQuantumModule) : finiteUnit ⟶ finiteTensor V (finiteRightDual V) := sorry
+def finiteLeftEvaluation (V : FiniteQuantumModule) : finiteTensor V (finiteLeftDual V) ⟶ finiteUnit := sorry
+def finiteLeftCoevaluation (V : FiniteQuantumModule) : finiteUnit ⟶ finiteTensor (finiteLeftDual V) V := sorry
+
+theorem finiteRightEvaluation_pure (V : FiniteQuantumModule)
+    (f : finiteUnderlying (finiteRightDual V)) (x : finiteUnderlying V) :
+    finiteUnitUnderlying.hom ((ModuleCat.restrictScalars scalar.toRingHom).map
+      (finiteRightEvaluation V).hom ((finiteTensorUnderlying (finiteRightDual V) V).inv (f ⊗ₜ[FormalBase] x))) =
+      (finiteRightDualUnderlying V).hom f x := sorry
+
+theorem finiteLeftEvaluation_pure (V : FiniteQuantumModule)
+    (x : finiteUnderlying V) (f : finiteUnderlying (finiteLeftDual V)) :
+    finiteUnitUnderlying.hom ((ModuleCat.restrictScalars scalar.toRingHom).map
+      (finiteLeftEvaluation V).hom ((finiteTensorUnderlying V (finiteLeftDual V)).inv (x ⊗ₜ[FormalBase] f))) =
+      (finiteLeftDualUnderlying V).hom f x := sorry
+
+theorem finiteRightCoevaluation_basis (V : FiniteQuantumModule) :
+    (finiteTensorUnderlying V (finiteRightDual V)).hom
+      ((ModuleCat.restrictScalars scalar.toRingHom).map (finiteRightCoevaluation V).hom
+        (finiteUnitUnderlying.inv 1)) =
+      ∑ i, (Module.finBasis FormalBase (finiteUnderlying V) i) ⊗ₜ[FormalBase]
+        ((finiteRightDualUnderlying V).inv ((Module.finBasis FormalBase (finiteUnderlying V)).dualBasis i)) := sorry
+
+theorem finiteLeftCoevaluation_basis (V : FiniteQuantumModule) :
+    (finiteTensorUnderlying (finiteLeftDual V) V).hom
+      ((ModuleCat.restrictScalars scalar.toRingHom).map (finiteLeftCoevaluation V).hom
+        (finiteUnitUnderlying.inv 1)) =
+      ∑ i, ((finiteLeftDualUnderlying V).inv ((Module.finBasis FormalBase (finiteUnderlying V)).dualBasis i))
+        ⊗ₜ[FormalBase] (Module.finBasis FormalBase (finiteUnderlying V) i) := sorry
+
+instance finiteRightExact (V : FiniteQuantumModule) : ExactPairing V (finiteRightDual V) where
+  coevaluation' := finiteRightCoevaluation V
+  evaluation' := finiteRightEvaluation V
+  coevaluation_evaluation' := sorry
+  evaluation_coevaluation' := sorry
+
+instance finiteLeftExact (V : FiniteQuantumModule) : ExactPairing (finiteLeftDual V) V where
+  coevaluation' := finiteLeftCoevaluation V
+  evaluation' := finiteLeftEvaluation V
+  coevaluation_evaluation' := sorry
+  evaluation_coevaluation' := sorry
+
+instance finiteHasRightDual (V : FiniteQuantumModule) : HasRightDual V where
+  rightDual := finiteRightDual V
+instance finiteHasLeftDual (V : FiniteQuantumModule) : HasLeftDual V where
+  leftDual := finiteLeftDual V
+
+instance rigidCategory_modules : RigidCategory FiniteQuantumModule where
+  rightDual := finiteHasRightDual
+  leftDual := finiteHasLeftDual
+
+def finiteTwist (V : FiniteQuantumModule) : V ≅ V := sorry
+
+theorem finiteTwist_formula (V : FiniteQuantumModule) (x : finiteUnderlying V) :
+    (ModuleCat.restrictScalars scalar.toRingHom).map (finiteTwist V).hom.hom x =
+      finiteAction V (↑ribbonElement⁻¹ : Uh) x := sorry
+
+def finiteModuleRibbon : RibbonCategory FiniteQuantumModule where
+  twist := NatIso.ofComponents finiteTwist sorry
+  twist_unit := sorry
+  twist_tensor := sorry
+  twist_dual := sorry
+
+def finiteColor (n : ℕ) : FiniteQuantumModule := sorry
+def finiteColorUnderlying (n : ℕ) : finiteUnderlying (finiteColor n) ≅
+    ModuleCat.of FormalBase (sl2Color n) := sorry
+
+theorem finiteColor_action (n : ℕ) (u : Uh) (x : finiteUnderlying (finiteColor n)) :
+    (finiteColorUnderlying n).hom (finiteAction (finiteColor n) u x) =
+      (colorRepresentation n u).mulVec ((finiteColorUnderlying n).hom x) := sorry
+
+-- module_unit_rank: the monoidal unit is the base ring, not the zero module.
+example : Nonempty (finiteUnderlying finiteUnit ≅ ModuleCat.of FormalBase FormalBase) :=
+  ⟨finiteUnitUnderlying⟩
+-- module_tensor_native: the underlying tensor is the existing module tensor product.
+example (V W : FiniteQuantumModule) : Nonempty
+    (finiteUnderlying (V ⊗ W) ≅ ModuleCat.of FormalBase
+      (finiteUnderlying V ⊗[FormalBase] finiteUnderlying W)) := ⟨finiteTensorUnderlying V W⟩
+-- module_braiding_R: the braiding is tied to R rather than an assumed symmetric flip.
+example (V W : FiniteQuantumModule) : (β_ V W) = finiteBraiding V W :=
+  braidedCategory_modules_braiding V W
+-- module_dual_native: duality uses the actual finite module dual.
+example (V : FiniteQuantumModule) : Nonempty (finiteUnderlying (finiteLeftDual V) ≅
+    ModuleCat.of FormalBase (Module.Dual FormalBase (finiteUnderlying V))) := ⟨finiteLeftDualUnderlying V⟩
+-- module_color_carrier: the color object has the source's actual rank-n+1 carrier.
+example (n : ℕ) : Nonempty (finiteUnderlying (finiteColor n) ≅ ModuleCat.of FormalBase (sl2Color n)) :=
+  ⟨finiteColorUnderlying n⟩
+-- module_twist_color_one: positive framing agrees with the scalar matrix test.
+example (x : finiteUnderlying (finiteColor 1)) :
+    (finiteColorUnderlying 1).hom
+      ((ModuleCat.restrictScalars scalar.toRingHom).map (finiteTwist (finiteColor 1)).hom.hom x) =
+      formalExp (3/4) • (finiteColorUnderlying 1).hom x := sorry
+
+end QuantumEnveloping
+
 
 /-! QT.5: concrete principal charts, followed by the full cut cover and
 extended groups. Strong flattenings and geometric cycles require the actual
