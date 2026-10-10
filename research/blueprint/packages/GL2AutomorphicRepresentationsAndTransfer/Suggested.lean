@@ -64,6 +64,7 @@ import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.Algebra.Group.AddChar
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Ring
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Algebra.BigOperators.Pi
@@ -997,6 +998,62 @@ example (α β u : K) (hu : u ≠ 0) :
 -- TauCeti.GL2Transfer.adjoint_not_sym_square_test (matrix component)
 example : adjointSatakeDiagonal (2 : ℚ) 3 ≠ diagonal ![4, 6, 9] := by sorry
 end AdjointMatrix
+
+section PureCubicPhase
+-- R17.4/nonnormal-cubic-base-change: a concrete norm-phase component.
+-- These identities do not assert local matching or automorphic transfer.
+/-- Multiplication by a+b*t+c*t² in the basis (1,t,t²), with t³=2. -/
+def pureCubicMatrix (a b c : ℚ) : Matrix (Fin 3) (Fin 3) ℚ :=
+  !![a, 2*c, 2*b; b, a, 2*c; c, b, a]
+def pureCubicNorm (a b c : ℚ) : ℚ := (pureCubicMatrix a b c).det
+def pureCubicQuadratic (a b c : ℚ) : ℚ :=
+  ((pureCubicMatrix a b c).trace ^ 2 -
+    (pureCubicMatrix a b c * pureCubicMatrix a b c).trace) / 2
+lemma pureCubicNorm_formula (a b c : ℚ) :
+    pureCubicNorm a b c = a^3 + 2*b^3 + 4*c^3 - 6*a*b*c := by
+  simp [pureCubicNorm, pureCubicMatrix, Matrix.det_fin_three]
+  ring
+lemma pureCubicQuadratic_formula (a b c : ℚ) :
+    pureCubicQuadratic a b c = 3*a^2 - 6*b*c := by
+  simp [pureCubicQuadratic, pureCubicMatrix, Matrix.trace_fin_three]
+  ring
+lemma pureCubicPhase_positive (a b c : ℚ) :
+    pureCubicNorm (1+a) b c - 3*(1+a) =
+      -2 + pureCubicQuadratic a b c + pureCubicNorm a b c := by
+  rw [pureCubicNorm_formula, pureCubicNorm_formula, pureCubicQuadratic_formula]
+  ring
+lemma pureCubicPhase_negative (a b c : ℚ) :
+    pureCubicNorm (-1+a) b c - 3*(-1+a) =
+      2 - pureCubicQuadratic a b c + pureCubicNorm a b c := by
+  rw [pureCubicNorm_formula, pureCubicNorm_formula, pureCubicQuadratic_formula]
+  ring
+example : pureCubicMatrix 0 1 0 ^ 3 = (2 : ℚ) • (1 : Matrix (Fin 3) (Fin 3) ℚ) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [pureCubicMatrix, pow_succ, Matrix.mul_apply, Fin.sum_univ_succ]
+example : pureCubicMatrix 1 0 0 = 1 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [pureCubicMatrix]
+example (a b c : ℚ) : pureCubicMatrix a b c 2 1 = b := rfl
+example : pureCubicNorm 0 1 0 = 2 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicNorm 0 0 1 = 4 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicNorm 1 1 1 = 1 := by
+  norm_num [pureCubicNorm_formula]
+example : pureCubicQuadratic 1 1 1 = -3 := by
+  norm_num [pureCubicQuadratic_formula]
+example : pureCubicQuadratic 0 1 0 = 0 := by
+  norm_num [pureCubicQuadratic_formula]
+example : pureCubicQuadratic 1 0 0 = 3 := by
+  norm_num [pureCubicQuadratic_formula]
+example : (Matrix.det (!![3, 0, 0; 0, 0, -3; 0, -3, 0] :
+    Matrix (Fin 3) (Fin 3) ℚ)) = (-108 : ℚ) / 4 := by
+  rw [Matrix.det_fin_three]
+  change (3*0*0 - 3*(-3)*(-3) - 0*0*0 + 0*(-3)*0 + 0*0*(-3) - 0*0*0 : ℚ) = -108/4
+  norm_num
+example : ¬ ∃ x : ZMod 8, x^2 = 5 := by decide
+end PureCubicPhase
 
 /- Signature omissions: Non-normal cubic base change requires an actual separable cubic number-field extension, its places/residue degrees, the weak JPSS automorphic transfer and isobaric uniqueness. Its original construction and the stronger Carayol all-place upgrade remain separate source-proof gaps. No arbitrary function between carriers is a transfer.
 README targets: R17.4/nonnormal-cubic-base-change.
