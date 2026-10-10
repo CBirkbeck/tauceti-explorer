@@ -56,6 +56,16 @@ Required API:
 - `integral_uct_evaluation_exact`: evaluation is onto and has kernel the canonical image of Ext¹_ℤ(Additive(G^ab),A). The Ext carrier is Mathlib's derived `Ext ℤ (ModuleCat ℤ) 1`, evaluated at the indicated modules; the injection is natural. No natural splitting of the short exact sequence is asserted.
 - `integral_uct_evaluation_free`: if Additive(G^ab) is a free ℤ-module, evaluation is bijective for every A. Use `ModuleCat.projective_of_free` and `isZero_Ext_succ_of_projective` for the vanishing Ext term.
 
+Specify this canonical injection as `integral_uct_ext_inclusion` from Ext¹_ℤ(Additive(G^ab),A) into H²(G,A). Its construction identifies H₁ of the integral bar complex with Additive(G^ab), applies the free-chain UCT injection, and compares its Ext group with Mathlib's derived Ext through a projective resolution. This comparison is natural; it does not choose a section of the evaluation map. The two naturality identities below refer to this same injection.
+
+Its API is `integral_uct_ext_inclusion_injective` and `integral_uct_ext_inclusion_range`, stating injectivity and equality of its image with the evaluation kernel; `integral_uct_ext_inclusion_group_map`, stating that pullback along f:G→H agrees with the contravariant Ext map induced by f^ab; and `integral_uct_ext_inclusion_coefficient_map`, stating that pushforward along μ:A→B agrees with the covariant Ext map. The Ext maps use the existing bifunctor, whose first variable is opposite. These identities retain both group and coefficient variance and require no finiteness or injectivity hypotheses.
+
+Three tests cover a nonzero integral Ext class, a vanishing Ext summand, and a torsion-coefficient Ext class:
+
+- `integral_uct_ext_inclusion_test_1`: for G=C₂ and A=ℤ the injection is bijective and has a nonzero value. Both Ext¹(C₂,ℤ) and H²(C₂,ℤ) are C₂, while M(C₂)=0.
+- `integral_uct_ext_inclusion_test_2`: for G=ℤ² and every abelian A the injection is zero, since its source vanishes. This retains the infinite-group case without confusing the zero Ext summand with the nonzero Hom summand.
+- `integral_uct_ext_inclusion_test_3`: for G=C₄ and A=C₂ there is a nonzero Ext class with nonzero image and zero evaluation. Thus a nonzero torsion-coefficient extension class can lie entirely in the evaluation kernel.
+
 Unit tests:
 
 - `integral_uct_evaluation_test_1`: for G=C₂ and A=ℤ, H²(G,A)=C₂ has a nonzero class whose evaluation is zero, since M(C₂)=0. Evaluation cannot be an isomorphism without the hypothesis on G^ab.
@@ -64,7 +74,7 @@ Unit tests:
 
 Needs: Mathlib's native `groupHomology.cycles₂`, `groupHomology.H2π`, `groupCohomology.cocycles₂`, `groupCohomology.H2π` and their functorial maps; the arbitrary-coefficient integral UCT contract. The bar groups are free ℤ-modules. Their ℤ-linear dual into a trivial coefficient representation is precisely the inhomogeneous cochain complex, so the UCT applies without a classifying-space construction. The singular UCT and topological transfer remain in AlgebraicTopology, Stages 6 and 5; these native group interfaces specify the required adapter.
 
-Source: Hatcher, *Algebraic Topology*, [author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1, Theorem 3.2 and the naturality discussion, printed pp.195–196, applied to the free integral bar complex; Löh, *Group Cohomology* (30 July 2019), [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf), Corollary 1.6.9 p.47 for the resolution comparison. The cycle formula and its variance are the explicit bar-complex adapter.
+Source: Hatcher, *Algebraic Topology*, [author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1, Theorem 3.2, the computations Ext¹(ℤ/n,A)=A/nA and Ext¹(F,A)=0 for free F, and the naturality discussion, printed pp.195–196, applied to the free integral bar complex; Löh, *Group Cohomology* (30 July 2019), [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf), Theorem 1.4.1 pp.20–22 for the natural abelianization identification and Corollary 1.6.9 p.47 for resolution comparison. Mathlib's `CategoryTheory.ProjectiveResolution.isoExt` compares the chosen projective resolution with its derived Ext carrier. The cycle formula and its variance are the explicit bar-complex adapter; the three injection tests follow from the displayed Ext computations and M(Cₙ)=0.
 
 ### Extension classes and the five-term map
 
