@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-PKG-DerivedDeRhamCohomology",
-    "date": "2026-10-08",
-    "notes": "Completed independent package review by Codex (GPT-6), session codex-zY4L3n, issue #7511. Checked upstream form, all 132 targets and hypotheses, 191 API items, 151 tests, 608 prerequisites, 46 pinned library declarations, 24 matching public source receipts, supplier boundaries and mathematical source corrections. Corrected Stacks completion and proper-cohomology locators, removed process prose from Suggested.lean, and assigned Witt left Kan extension to DD.4 in four comments. README 184952 bytes; metadata is the fitting single line topic = \"math.AG\". Independent final lean-check passed with exit 0, no errors and exactly 133 sorry warnings only. Preserves the accepted plan's 133 typed names, 341 explicit mathematical omissions and 50 examples; acceptance is of the specification and admitted ordinary views, not proofs or enhanced implementations."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DerivedDeRhamCohomology~adv",
+    "date": "2026-10-09",
+    "notes": "Completed independent fixing/adversarial review by Codex (GPT-6), session codex-tjec76, issue #8078. Audited every one of 132 original targets, 191 API laws and 151 checks, 46 pinned declarations, current upstream/library ownership, all 13 flagged-input groups and a deterministic 15-node public-source sample; all 24 source receipts match. Removed the duplicate Koszul target owned by IntegralHeckeAndGaloisDeterminants Layer 6.4, preserved all other APIs/check names, reordered 13 targets to eliminate own forward references, restored upstream README/Lean form, strengthened characteristic-two, symbol, differential, Hodge/p-completion, Witt and properness controls, and narrowed ordinary signature scope. Final lean-check exits 0 with only 135 sorry warnings; 56 representative examples. Needs changes because 21 prerequisite entries in ten targets cite tier-13 PerfectoidQuotients/AInfCohomology/PadicHodgeTheory from the tier-9 bundle, and general integral powers plus the individually marked local algebra, completion, PD, perfect-effectivity and log proof inputs lack complete permitted supplier/source chains. Nonexhaustive enhanced signatures alone are not a rejection reason. See REV-PKG-DerivedDeRhamCohomology~adv.md for every-target pass table and exact remaining obligations."
   }
 }
