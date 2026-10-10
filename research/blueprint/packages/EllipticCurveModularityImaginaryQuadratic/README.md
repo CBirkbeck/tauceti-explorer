@@ -543,6 +543,16 @@ The definitions must expose the following API.
 | `shortEquationFamily.discriminant` | The associated Mathlib curve has Δ=−16(4a³+27b²), so the family condition is exactly ellipticity in characteristic zero. |
 | `shortEquationFamily.height_count` | The family’s count at X equals the ST.0 unweighted count of its coefficient lattice points of norm ≤X; no curve-isomorphism quotient enters. |
 
+Use the canonical coefficient embedding (a,b) ↦ 1⊗(a,b) in
+ℝ⊗ℤ𝒪F². For any fixed real-vector-space norm and any real bound X,
+the bounded nonsingular coefficient set is finite. Its cardinality equals
+the cardinality of the bounded subtype of `shortEquationFamily F`. At X≤0
+the count is zero. Once the bound contains (0,1), the count is at least one;
+when it also contains (0,64), the count is at least two. These last two
+equations define isomorphic curves, so the distinction tests the specified
+unweighted coefficient count. The norm-height convention and finiteness are
+ZYW §1.1, pp.1–2; the lattice finiteness and counting API come from `ST.0`.
+
 
 Check the definitions with these named examples.
 
@@ -617,6 +627,19 @@ Keep these exact coordinates when forming mixed fiber products. Their projective
 
 
 **`small_curve_models`** — There are ℚ-isomorphisms X(b3), X(b5), X(ns3), X(ns5), X(s3)≅ℙ¹ with j-functions b3J, b5J, ns3J, ns5J, s3J respectively. Under the b5 coordinate the Fricke involution w5 sends x to 125/x. The j-map degrees are respectively 4,6,3,10,6, with the pole multiplicities read from the displayed rational functions. These degrees include infinity and are not RatFunc.intDegree.
+
+For each displayed rational function r, also compute the extension degree
+[ℚ(x):ℚ(r)] on Mathlib's `RatFunc ℚ` and
+`IntermediateField.adjoin ℚ {r}`. The signatures
+`b3J_functionFieldDegree`, `b5J_functionFieldDegree`,
+`ns3J_functionFieldDegree`, `ns5J_functionFieldDegree` and
+`s3J_functionFieldDegree` give respectively 4,6,3,10,6. For a reduced
+nonconstant fraction the extension degree is the maximum of its numerator
+and denominator degrees. Transport this calculation through the stated
+proper-curve isomorphisms to get the geometric j-morphism degrees.
+The coordinate formulas are CN Proposition 7.1.3(1)–(4),(6), p.94;
+the rational-function and degree dictionary belongs to the modular-curve
+and function-field suppliers already named below.
 
 
 The statement includes these cases and distinctions: The b5 coefficient is 250 in this coordinate, not the coefficient 10 of another standard X₀(5) coordinate. The ns5 value at infinity is 8000, so infinity is noncuspidal.
@@ -702,6 +725,13 @@ The literal Weierstrass equation is the baseline algebraic object. Its modular i
 
 
 **`B_mordell_weil`** — B(ℚ) is infinite cyclic, with rank 1 and trivial torsion. A saturated generator D is part of the output; pullback arguments must not silently use an unsaturated nontorsion point as a generator. The source labels B as Cremona 225A1.
+
+State this directly on `B.toAffine.Point`: return a point D for which
+n ↦ nD is a bijection from ℤ to the whole rational point group. This
+specifies saturation as well as rank and torsion. In particular D has
+infinite order, while n ↦ n(2D) fails to be surjective. This is the group
+statement of CN Proposition 7.1.3(5), p.94, in the point convention needed
+by Proposition 7.4.4, p.100.
 
 
 The statement includes these cases and distinctions: Rank 1 alone is not a certificate that a point generates the full group.
