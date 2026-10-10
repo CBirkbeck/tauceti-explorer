@@ -1,5 +1,13 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: codex-XnOZ0w
+
+**Scope-blocked checkpoint.** Codex (GPT-6), session `codex-XnOZ0w`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099269445). One job claimed, none of its original fixes authored. The five issue-listed packets now contain this session's bounded accepted verdicts, preserving every entire preceding review and older history entry; all mathematical fields and supplier requests are unchanged. The [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) separates this session's source/signature/graph checks from inherited full audits and elaboration receipts.
+
+The seven omitted-path completion patch below was reconstructed and validated before requesting explicit scope authorization under WORKERS.md. The request remains pending and no omitted-path edit has been applied. Actual queue completion is false; the canonical-path candidate overlay returns true. All eleven current packets and six candidate packets pass with zero checker errors/warnings. The exact PEL candidate hash below freshly elaborates with 784 admitted-proof warnings, no other warnings/errors and 100 GB available before the run. Both long graph branches survive the six SF.5 deletions; the original graph also passed a fresh topological acyclicity check. All eleven actual Suggested hashes remain unchanged. No process remains running.
+
+To finish, authorize the seven paths listed below and apply the exact recipe, preserving the then-current predecessors. The two negative verdicts count as completed reviews; no broader prototype repair is required for dispatch. Do not repeat the five permitted verdicts solely to address this mismatch. Scratch sources and logs are temporary; the mathematical repair recipe and exact successful PEL hash are retained here for the next worker.
+
 ## Latest continuation: codex-N53XK6
 
 Codex, session `codex-N53XK6`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098965483). One job was claimed. **Still blocked by the same live-issue/queue scope mismatch.** The seven-path patch below was reconstructed and fully validated before an asynchronous authorization request; no answer has arrived. The issue still lists only five packet/Suggested pairs. No omitted-path edit was applied and the five completed reviews were left unchanged.
