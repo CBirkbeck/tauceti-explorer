@@ -47,6 +47,8 @@ import Mathlib.LinearAlgebra.PiTensorProduct.Finite
 import Mathlib.Topology.Algebra.Group.Matrix
 import Mathlib.Topology.Algebra.Group.Quotient
 import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.NumberTheory.LocalField.Basic
+import Mathlib.Algebra.Group.AddChar
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -96,14 +98,20 @@ Omitted declaration names: TauCeti.GL2Blueprint.compactComparison, TauCeti.GL2Bl
 -/
 section LocalRepresentation
 variable {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
-/- Signature omissions: The SR.2/SR.3/SR.2.3 irreducible admissible GL₂(F) class carrier and its K₁(pⁿ) fixed spaces are absent, so an arbitrary representation, module or class map cannot satisfy these classification and newvector statements; conductorExponent with its API and the unramified test remain below as true fragments.
-README targets: R16.2/local-classification, R16.2/newvector-level-exists, R16.2/newvector-conductor, R16.2/casselman-newvector.
-Omitted declaration names: TauCeti.GL2Blueprint.localClassification, TauCeti.GL2Blueprint.newvectorLevelExists, TauCeti.GL2Blueprint.casselmanNewvector.
-Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.conductor_steinberg, TauCeti.GL2Blueprint.conductor_ramified_steinberg.
+/- Signature omissions: The SR.2 principal-series and Steinberg constructions
+and ET.6 classification are absent. The newvector existence and dimension
+statements are given below on Mathlib's actual GL₂(F) and invariant carriers,
+with smoothness and admissibility written explicitly.
+README target: R16.2/local-classification.
+Omitted declaration name: TauCeti.GL2Blueprint.localClassification.
+Full source-level tests awaiting the principal-series and Steinberg carriers:
+TauCeti.GL2Blueprint.conductor_unramified,
+TauCeti.GL2Blueprint.conductor_steinberg,
+TauCeti.GL2Blueprint.conductor_ramified_steinberg.
 -/
 
-/-- Algebraic least-level signature. In GL₂ the subgroups are K₁(pⁿ).
-Under the R16.2/newvector-level-exists hypotheses (omitted above) such an hex exists. -/
+/-- Algebraic least-level signature. The local-field section supplies the
+nonempty level set for the actual last-row subgroups K₁(pⁿ). -/
 def conductorExponent (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     (hex : ∃ n, ∃ v ∈ (Representation.invariants (ρ.comp (K n).subtype)), v ≠ 0) : ℕ := by sorry
 lemma conductor_min (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
@@ -161,6 +169,128 @@ example (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
 -- TauCeti.GL2Blueprint.normalizedNewvector_zero_functional
 example (L : Submodule ℂ V) : ¬ ∃ v : L, (0 : L →ₗ[ℂ] ℂ) v = 1 := by sorry
 end LocalRepresentation
+
+section LocalNewvectors
+open scoped ValuativeRel
+variable {F : Type*} [Field F] [CharZero F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F]
+variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+
+/-- The earlier k1 subgroup over the valuation ring, embedded in GL₂(F).
+This abbreviation introduces neither a local-field carrier nor a second
+congruence subgroup. Level zero is the integral maximal compact subgroup. -/
+abbrev localK1 (F : Type*) [Field F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F] (n : ℕ) :
+    Subgroup (GeneralLinearGroup (Fin 2) F) :=
+  (k1 (𝓂[F] ^ n)).map
+    (GeneralLinearGroup.map (algebraMap 𝒪[F] F))
+
+lemma localK1_zero : localK1 F 0 =
+    (⊤ : Subgroup (GeneralLinearGroup (Fin 2) 𝒪[F])).map
+      (GeneralLinearGroup.map (algebraMap 𝒪[F] F)) := by sorry
+lemma localK1_antitone {m n : ℕ} (h : m ≤ n) :
+    localK1 F n ≤ localK1 F m := by sorry
+lemma localK1_le_integral (n : ℕ) : localK1 F n ≤ localK1 F 0 := by sorry
+
+-- Specialization checks: distinguish the last row from the first row,
+-- and distinguish K₁ from a principal congruence subgroup.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 1; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK1 F 1 := by sorry
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 0; 1, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK1 F 1 := by sorry
+example (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) - 1 ∉ 𝓂[F])
+    (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![(u : 𝒪[F]), 0; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK1 F 1 ∧
+      GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ≠ 1 := by sorry
+
+/-- Casselman, Theorem 1 and its proof, pp. 302–306, in the last-row
+convention of the README. Infinite dimensionality excludes determinant
+characters. No conductor or nonempty-level hypothesis is assumed. -/
+theorem newvectorLevelExists
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V) :
+    ∃ n, ∃ v ∈ Representation.invariants (π.comp (localK1 F n).subtype),
+      v ≠ 0 := by sorry
+
+/-- The complete dimension formula, not an assumption that a fixed line exists.
+Natural subtraction expresses max(0, n-c+1). Casselman, Corollary to the
+Proof, p. 306; apply his top-left convention to the contragredient and twist
+back to obtain the lower-last-row subgroup used here. -/
+theorem casselmanNewvector
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V) (n : ℕ) :
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F n).subtype)) =
+      n + 1 - conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf) := by sorry
+
+/-- The central-character assertion for the minimal K₀-line. For positive
+conductor the lower-right entry of an integral K₀ matrix is a unit; u is that
+unit, rather than an arbitrary value of the determinant. At conductor zero
+the fixed line is spherical. -/
+theorem casselmanNewvector_k0_character
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ω : Fˣ →* ℂˣ)
+    (hcent : ∀ z v, π (GeneralLinearGroup.scalar (Fin 2) z) v = (ω z : ℂ) • v)
+    (hc : 0 < conductorExponent π (localK1 F)
+      (newvectorLevelExists π hsm hadm hinf))
+    (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g ∈ k0 (𝓂[F] ^ conductorExponent π (localK1 F)
+      (newvectorLevelExists π hsm hadm hinf)))
+    (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) = g.val 1 1)
+    (v : Representation.invariants (π.comp (localK1 F
+      (conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf))).subtype)) :
+    π (GeneralLinearGroup.map (algebraMap 𝒪[F] F) g) v.val =
+      (ω (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) : ℂ) • v.val := by sorry
+
+/-- Nonvanishing of the chosen Whittaker functional on the newvector line.
+The second character condition says it is nontrivial on the inverse maximal
+ideal. Equivariance uses actual upper unipotent matrices. Existence of this
+nonzero functional is SR.2.3's genericity theorem, not an assumption about its
+restriction to the newvector line. Casselman, proof of Theorem 1, pp. 303–306. -/
+theorem casselmanNewvector_whittaker_eval
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ψ : AddChar F ℂ) (hψ : Continuous ψ)
+    (hψO : ∀ a : 𝒪[F], ψ (a : F) = 1)
+    (hψp : ∃ x : F, (∀ a : 𝒪[F], a ∈ 𝓂[F] →
+      x * (a : F) ∈ (𝒪[F] : Set F)) ∧ ψ x ≠ 1)
+    (ell : V →ₗ[ℂ] ℂ) (hell : ell ≠ 0)
+    (hwhit : ∀ (x : F) (g : GeneralLinearGroup (Fin 2) F),
+      g.val = !![1, x; 0, 1] → ∀ v, ell (π g v) = ψ x * ell v) :
+    ∃ v : Representation.invariants (π.comp (localK1 F
+      (conductorExponent π (localK1 F)
+        (newvectorLevelExists π hsm hadm hinf))).subtype), ell v.val ≠ 0 := by sorry
+
+end LocalNewvectors
 
 section Spherical
 /-- Complete homogeneous polynomial, given by the nonsingular GL₂ recurrence. -/

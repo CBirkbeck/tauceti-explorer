@@ -73,6 +73,8 @@ K₁(pⁿ)={g∈GL₂(O): g₂₁∈pⁿ and g₂₂−1∈pⁿ}; over R write K
 
 **Sources.** [aky22], §1.2, pp. 3–4, K(n,λ) and generic λπ.
 
+For a nonarchimedean local field, embed this same subgroup into GL₂(F) through the valuation-ring inclusion; write its image as localK1(n). Its level-zero image is GL₂(O), and localK1(n)⊆localK1(m) for m≤n, hence every level lies in the integral maximal compact. These are the specialization API, not another congruence construction. At level one the upper unipotent matrix with entry 1 belongs, while the lower unipotent matrix with entry 1 does not. The diagonal matrix diag(u,1), for an integral unit u not congruent to 1, belongs and is nonidentity. Together these tests distinguish the last-row condition and exclude the principal-congruence interpretation.
+
 <a id="r16-1-local-adelic-compact-comparison"></a>
 
 ### local-adelic-compact-comparison: GL₂ local and adelic compact subgroups
@@ -141,11 +143,13 @@ Over any nonarchimedean characteristic-zero local field F, with ν=|·|F and com
 
 For an irreducible admissible infinite-dimensional complex smooth representation π of GL₂(F), with F a nonarchimedean local field of characteristic zero, there is n≥0 and a nonzero vector fixed by the last-row K₁(pⁿ). This assertion neither uses a conductor exponent nor asserts the dimension formula; it supplies the nonempty level set before its minimum is defined.
 
+Use Mathlib's `IsNonarchimedeanLocalField`, its valuation ring and maximal ideal, and `Representation.invariants` for the embedded subgroup. Smoothness means every vector stabilizer is open; admissibility means the invariant subspace of every compact open subgroup is finite-dimensional. Irreducibility is Mathlib's `Representation.IsIrreducible`. These conditions specialize the SR.3 theory without introducing replacement representation or local-field carriers.
+
 **Hypotheses.** Irreducible admissible infinite-dimensional complex smooth π; K₁ is the last-row subgroup over the valuation ring.
 
 **Prerequisites.** R16.1/k1; R16.2/local-classification; Mathlib `Representation.invariants`; SR `SR.3`; SR `SR.2.3/whittaker-functionals`.
 
-**Sources.** [casselman73], §1 Theorem1 and Kirillov setup, printed p.302; elementary subgroup decomposition, printed p.303.
+**Sources.** [casselman73], §1 Theorem 1, printed p. 302; its proof and subgroup decomposition, printed pp. 303–306.
 
 <a id="r16-2-newvector-conductor"></a>
 
@@ -181,7 +185,7 @@ For π as above and every n≥0, dimℂ π^{K₁(pⁿ)}=max(0,n−c(π)+1). The 
 
 **Prerequisites.** R16.2/newvector-conductor; R16.2/local-classification; R16.1/k0; R16.1/k1; SR `SR.2.3/whittaker-functionals`; AL `AL.2`.
 
-**Sources.** [casselman73], Theorem 1; Corollary to the Proof pp. 302–307.
+**Sources.** [casselman73], Theorem 1, printed p. 302; Corollary to the Proof, printed p. 306; Kirillov construction in the proof, printed pp. 303–306.
 
 <a id="r16-2-normalized-newvector"></a>
 
