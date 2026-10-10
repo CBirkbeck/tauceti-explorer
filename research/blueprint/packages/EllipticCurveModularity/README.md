@@ -186,6 +186,18 @@ almost all **prime** indices is the stronger imported statement from ModularForm
 5. Neither its different domain nor its hypotheses are absorbed into the fixed-level
 reference.
 
+For implementation against later Tau Ceti versions, the elliptic input has concrete
+library realizations: `WeierstrassCurve.torsionGaloisAction` is the coordinate action
+on `AddSubgroup.torsionBy`, and `WeierstrassCurve.tateModuleGaloisRepresentation`
+acts on `TateModule r (E.baseChange (AlgebraicClosure ℚ)).toAffine.Point`.
+`WeierstrassCurve.nonempty_linearEquiv_tateModule` identifies this integral Tate
+module with $\mathbb Z_r^2$ over a separably closed field where $r$ is invertible;
+`TauCeti.det_tateModuleGaloisRepresentation` gives its cyclotomic determinant.
+Use these constructions, extending scalars to $\mathbb Q_r$ for $V_r(E)$,
+when replacing the corresponding typed interfaces in `Suggested.lean`. Their
+construction belongs to EllipticCurves Layer 2. The conductor and local comparison
+contracts remain the arithmetic inputs from R01.6.
+
 Names below are in the namespace `TauCeti.EllipticCurve.Modularity`. They name the
 proposed interface and its mathematical assertions. The accompanying `Suggested.lean`
 fixes possible signatures against the existing curve, newform, representation, and

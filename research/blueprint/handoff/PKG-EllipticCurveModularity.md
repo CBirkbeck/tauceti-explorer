@@ -1,199 +1,79 @@
-# Current checkpoint: codex-4oIQdS — 9 October 2026
+# PKG-EllipticCurveModularity — completed package
 
-Issue #7469; bot-confirmed claim
-[6074194963](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6074194963),
-responding to this session's claim comment 6074193566.
-Base commit: `2712ee98b8af1767c291e29ec4a9fcddacacbb9d`.
-Branch: `codex-4oIQdS-elliptic-curve-modularity-package`.
+Agent: Codex (GPT-6). Session: `codex-GUIptE`. Date: 2026-10-10.
+Issue: #7469. Branch: `codex-GUIptE-elliptic-modularity-package`.
+The bot confirmed the claim in
+[comment 6091344437](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6091344437).
 
-**Blocked checkpoint, not a completed package.** The dependency blocker from
-PR #7783 persists. This run changes only this handoff note; it does not repeat
-or claim the previous workers' mathematical authorship or source checks.
-The README and Suggested.lean are retained unchanged. Metadata remains absent
-because its existence would cause package intake to classify an unelaborated
-package as complete.
+**All four package deliverables are present. The full Suggested.lean elaborates
+at the required pins with zero errors and only sorry warnings.** This completes
+the package job; it does not assert implementation of the roadmap's mathematics
+or closure of the unchanged accepted packet's external supplier requests.
 
-## Fresh checks and exact remaining action
+## Changes and attribution
 
-- `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`
-  exited 1 at the import block: `object file of module
-  TauCeti.NumberTheory.ModularForms.Newforms.Newform does not exist`.
-  The diagnostic's local filesystem path is omitted. Full-file elaboration
-  did not happen, so no claim is made about later signatures. Available
-  memory before the check was 114 GB; no compile was left running.
-- The default shared build still has Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-  `cf386627e9176a3827c1a5fe804989fd94a4d216`. The required Tau Ceti revision is
-  `f790474821cf4256814db967cb154e7af3d0c369`.
-- Read-only inspection of existing Tau Ceti project roots and manifests found
-  no replacement at both pins. The two directly inspected alternative builds
-  with Newform objects use Mathlib `dc4b8d60d5edb3c493c3662126b1b7ccae7d67cf`
-  and `f6090c7095e1e56b3464c1daba5f24631f1290d2`. A further project under the
-  existing GitHub directory has an object but its manifest uses Mathlib
-  `1a547d8a48a8fa7877d2decb69d7294723bb0187`. These observations do not
-  certify compatibility of any alternative object.
-- Re-read the actual Newform and EigenformAwayFromLevel structures at the
-  required Tau Ceti commit. Their inheritance, character, new-subspace and
-  normalization fields match the package's library description. The module
-  imports Composite, Nebentypus.Action and Newforms.Basic; an existing pinned
-  build must provide its transitive imports as well as Newform itself.
-- `python3 scripts/check_blueprint.py
-  research/blueprint/packets/EllipticCurveModularity.json` reports **0 errors,
-  0 warnings**. This is validation of the unchanged accepted input, not proof
-  of package elaboration or mathematical closure.
-- Textual correspondence check, resolving the common
-  `TauCeti.EllipticCurve.Modularity` namespace: all 23 API names and 19 named
-  tests appear in both package files. The six layer headings occur once in
-  order. Suggested.lean has 18 distinct imports and 23 direct examples.
-- Read both short upstream examples ConformalMapping and
-  RepresentationTheory/SemisimpleAlgebras in full, and the worker rules,
-  both protocols, upstream guide and preceding handoff. No fresh full-source
-  audit or mathematical review of the package is claimed.
+The README, unified suggested file and 19 direct definition/construction
+examples were drafted in the earlier `codex-ZSEmbF` checkpoint. Session
+`codex-6PzyiM` corrected Markdown mathematical notation; `codex-4oIQdS` checked
+that the old shared dependency blocker persisted. Those contributions are
+retained. This session read the entire package and accepted inputs, repeated
+source and library checks, completed full-file elaboration in the now available
+pinned build, and added the one-line metadata.
 
-**Resume after the maintainer supplies an existing shared build containing
-both required revisions and the compiled Newform dependency closure.**
-Select that build using lean-check's existing `ATLAS_LEAN_BUILD` mechanism,
-run the complete Suggested.lean, fix any package signature errors, and require
-zero errors and only sorry warnings. Then create metadata.toml with exactly
-`topic = "math.NT"` and record completion. The WORKERS scratch/build rules
-prohibit building the library or setting up a new Lake project; replacing the
-library Newform with a private object would change the accepted interface.
-No edits within this issue's four authorized files can repair the missing
-shared dependency.
+The README now credits the current native elliptic torsion action, Tate-module
+representation, rank-two equivalence and cyclotomic determinant. The Lean
+header explains how those replace the explicitly owned interfaces when moving
+beyond the compilation baseline. Its companion-statement comment now correctly
+credits the pinned abelian-variety and endomorphism-ring types: the missing
+interface there is the conductor and real-multiplication compatible system,
+not the abelian-variety type.
 
-Do not submit further unchanged-input checkpoints merely to repeat this
-blocker. Verify that the shared dependency has become available before
-resuming the compilation task. The earlier handoff below preserves the full
-23-target correspondence, source identities, conventions and mathematical
-boundaries. No disposable scratch file is needed for continuation.
+Only this issue's README, Suggested.lean, metadata and handoff were changed.
+No packet, original reader, original suggested file, audit, library, roadmap
+checkout or other job's deliverable was modified. No library was built or
+copied. The former missing-Newform blocker is resolved.
 
----
+## Validation receipt
 
-# PKG-EllipticCurveModularity — checkpoint
-
-Agent: Codex. Session: `codex-6PzyiM`. Date: 2026-10-09.
-Issue: #7469. Branch: `codex-6PzyiM-elliptic-curve-modularity-package`.
-The bot confirmed this session's claim on
-[claim comment 6074065234](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6074065234).
-
-**Still blocked on the shared build; this is not a completed package.**
-The existing README and Suggested.lean are retained. This continuation fixes
-six README notation-rendering slips: the constant Euler-polynomial values,
-the ring-of-integers math delimiters, and the commands for the twist
-character, divisor-count function and Tate-module dimension. Their mathematical
-values, hypotheses and dependencies are unchanged. Suggested.lean is unchanged.
-
-## Fresh validation
-
-- Ran `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`.
-  It exited 1 at the import block with:
-  `error: object file of module TauCeti.NumberTheory.ModularForms.Newforms.Newform does not exist`.
-  The diagnostic's machine-specific path is omitted. The file did not elaborate;
-  there is no evidence yet about errors after this import.
-- Available memory before this run was 114 GB, so memory did not cause the refusal.
-  No Lean process from this run remains active.
-- Checked the default shared build's revisions: Mathlib is
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`, as required, but Tau Ceti is
-  `cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than
-  `f790474821cf4256814db967cb154e7af3d0c369`.
-- A read-only scan of the existing source/build trees found eleven Tau Ceti
-  object files for the required Newform module. Their builds use one of
-  Mathlib `dc4b8d60d5edb3c493c3662126b1b7ccae7d67cf`,
-  `f6090c7095e1e56b3464c1daba5f24631f1290d2`, or
-  `159df8fb17773d80f548b65a74fecbe90283eb19`. None supplies the required
-  pinned check. An AINTLIB object has a different module name and also cannot
-  supply the Tau Ceti import. No libraries or object files were built, copied,
-  replaced or downloaded.
-- Read the actual Newform structure at the required Tau Ceti commit: it extends
-  EigenformAwayFromLevel with new-subspace membership and first-coefficient
-  normalization, with the nebentypus and underlying cusp form inherited. The
-  package keeps this library type; substituting a private newform structure
-  would not discharge the compilation requirement.
-- Ran `python3 scripts/check_blueprint.py research/blueprint/packets/EllipticCurveModularity.json`:
-  **0 errors, 0 warnings**. The unchanged input has 23 nodes, 23 API items,
-  19 tests, six planned stages, 11 supplier requests and two recorded gaps.
-- Rechecked correspondence: all 23 API names and all 19 named tests occur in
-  both package files; the six layer headings occur once in order; all 18
-  imports are distinct. Suggested.lean has 23 direct examples, including the
-  19 definition/construction tests. This is a textual check, not elaboration.
-- Read both upstream examples ConformalMapping and
-  RepresentationTheory/SemisimpleAlgebras in full, the package README and
-  Suggested.lean, and the relevant R28.6 library-audit and cross-roadmap links.
-  The README has no packet or checkpoint narrative, and no source excerpt
-  was introduced. The source inspection and arithmetic checks reported below
-  belong to the previous session; this continuation does not claim to repeat
-  those checks.
-
-## Resume only when the dependency is available
-
-The remaining prerequisite is an existing shared build with both required pins
-and compiled `TauCeti.NumberTheory.ModularForms.Newforms.Newform` and its
-imports. Supply it through `lean-check`'s existing build selection. The default
-build currently cannot do this; the alternative builds found above have the
-wrong Mathlib. Workers must not build the library to remedy it.
-
-When that build is supplied, run the full package through `lean-check`, fix
-any signature errors in this package only, and require no errors and only
-sorry warnings. Then create `metadata.toml` with `topic = "math.NT"` and
-record completion. Metadata remains absent because package intake infers
-completion from deliverable existence and would otherwise misclassify this
-unelaborated package. No change to a packet, queue, shared build or another
-job's files is needed from the next worker. The prior checkpoint below retains
-the mathematical boundaries, target map and source identities needed to resume.
-
-# Previous checkpoint: codex-ZSEmbF
-
-Agent: Codex. Session: `codex-ZSEmbF`. Date: 2026-10-09.
-Issue: #7469. Branch: `codex-ZSEmbF-elliptic-curve-modularity-package`.
-Claim confirmed by the bot on
-[the session's claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6072178649).
-
-**The package is not complete: full Lean elaboration is blocked by the shared
-build.** The README and unified Suggested file are authored. The metadata is
-deliberately absent from this checkpoint: `issues.deliverables_complete`
-currently treats a package as complete when every output exists, without
-examining its compilation result or this note. Create metadata only after the
-full suggested file passes at both pinned commits. Its entire content is:
-
-```toml
-topic = "math.NT"
-```
-
-No plan, original reader, original suggested file, queue, audit, link map or
-other job's deliverable was changed. No library was built, copied or replaced.
-
-## Work completed
-
-Read WORKERS, both protocols and UPSTREAM_GUIDE. Read the upstream
-ConformalMapping and RepresentationTheory/SemisimpleAlgebras READMEs in full,
-and the ModularForms opening for area-specific conventions. Read the accepted
-EllipticCurveModularity plan and reader, its proposed signatures, relevant
-cross-roadmap links and the related reviewed audit rows for R28.6,
-ModularForms Layers 5 and 8g, and RankZeroOneBSD BSD.0. The audit has no direct
-EllipticCurveModularity layer row; the related rows confirm the boundaries
-preserved in the package.
-
-The README is approximately 79 KB and 10,750 words, with six layers in order.
-It contains all 23 targets, all 23 API items and all 19 named tests. It gives
-definitions, hypotheses, source theorem/section/page locators, exact imported
-contracts and their roadmap IDs. It has no process narrative or source
-excerpts. The major conventions retained are the prime-to-p residual
-conductor, arithmetic Frobenius on homological Tate modules, inertia
-coinvariants for Euler polynomials, trivial character, J₀ versus J₁ quotients,
-and arbitrary geometric level N′ versus the elliptic conductor N.
-
-Suggested.lean joins the single accepted suggested file, removes its reader
-path reference from the opening note, keeps the original declaration names
-and individual imports, and adds the 19 required `example` statements beside
-the named test assertions. All example signatures were checked for exact
-agreement with the corresponding named assertion, including named arguments
-and local `haveI` assignments. Imported objects remain explicitly owned typed
-stand-ins, not invented Prop-valued fields. No newform type was substituted
-for `HeckeRing.GL2.Newform`.
+- `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`:
+  **exit 0, zero errors, 111 warnings, all `declaration uses sorry`**.
+  The complete file, including the Newform import, all 23 direct examples,
+  actual definitions and typed imported interfaces, elaborated. Available
+  memory before the final check was 102 GB. No compiler or language server
+  remains running.
+- Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`;
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+  Mathlib HEAD and the build manifest agree with the pin. The shared Tau Ceti
+  source tree has no Git metadata; all **5,478** source-tree files were compared
+  by Git blob hash with the read-only library's tree at f790474, with **zero
+  mismatches**. No alternate-library or substitute-Newform check was used.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/EllipticCurveModularity.json`:
+  **zero errors, zero warnings**. The unchanged input reports 23 nodes,
+  23 API items, 19 tests, six planned stages, 11 requests and two gaps.
+  Its status remains `partial`; packaging does not silently edit it to closed.
+- Correspondence: all 23 API names and all 19 named tests occur in both
+  package files, and their signatures were read against the accepted inputs.
+  The six layer headings occur once in order. There are 18 distinct imports,
+  one opening header and 23 direct examples: the 19 named definition tests,
+  three elementary norm/pigeonhole checks and the analytic example.
+- Independently recomputed c₄ and Δ for all nine test models, point counts
+  giving a₂(11a1) = −2, a₃(11a1) = −1, a₃(274a1) = −2 and
+  a₃(37a1) = −3, equal traces for 11a1/11a2/11a3 at odd good primes
+  through 43, and the −1 twist trace relation at those primes.
+  Rational Weierstrass addition verifies exact orders 5 and 7 for (5,5)
+  on 11a1 and (1,0) on 26b1. For 162b1, arithmetic in
+  ℚ[x]/(x³−3x²+3) verifies divisibility of the seventh division polynomial,
+  irreducibility of that cubic and the duplication three-cycle on its roots.
+  These are arithmetic checks, not proofs of the sorry-backed declarations.
+- `git diff --check` passed. README is approximately 80 KB and retains the
+  exact targets, source locators, imported contracts and mathematical examples;
+  it has no job, packet, checkpoint or review narrative and no source passages.
 
 ## Target correspondence
 
-The short IDs below follow `EllipticCurveModularity:` in the accepted plan.
+IDs in this table follow `EllipticCurveModularity:`. Suggested.lean carries
+the same target IDs in docstrings; the final scope application is specified
+in prose and explained in its concluding comment, as the accepted input does.
 
 | Target | README location |
 | --- | --- |
@@ -221,111 +101,92 @@ The short IDs below follow `EllipticCurveModularity:` in the accepted plan.
 | R29.6/l-function-continuation | Continuation and the functional equation |
 | R29.6/what-theoreme-4-asserts-and-its-scope | Theorem 4 and the real multiplication boundary |
 
-## Validation and compilation blocker
+## Library and ownership checks
 
-* `python3 scripts/check_blueprint.py research/blueprint/packets/EllipticCurveModularity.json`:
-  **0 errors, 0 warnings**. The unchanged accepted plan reports 23 nodes,
-  23 API items, 19 tests, 11 requests, two gaps and six planned stages. Its
-  `partial` status is not a claim of mathematical closure.
-* Name/signature screen: all 23 API names and 19 test names appear in both
-  the README and Suggested file; all 19 direct examples match the named
-  assertions, all six layers occur once, and imports are unique.
-* Independent arithmetic checks passed for c₄ and Δ of 11a1, 26b1,
-  274a1, 162b1, the CM curve and 37a1; traces at 2 and 3 used in the
-  examples; the -1 twist trace relation at every odd prime through 43
-  except 11; and exact orders 5 and 7 of the displayed points on 11a1
-  and 26b1, using rational Weierstrass addition.
-* A Mathlib-only fragment ran through `lean-check` with exit 0,
-  **0 errors and 41 warnings, all `declaration uses sorry`**. It contained
-  the actual convention definitions through the rational cyclic-subgroup
-  predicate, the imported elliptic conductor/residual/Tate interfaces,
-  all of R29.1 and its seven direct examples, the root-of-unity and norm
-  assertions, and the rational Tate-image span signature. Newform-dependent
-  definitions and assertions were excluded, with no replacement newform.
-  This validates only that independent fragment.
-* `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`
-  stops at its import block with exit 1. Diagnostic, with the machine path
-  removed: `Suggested.lean:24:0: error: object file of module
-  TauCeti.NumberTheory.ModularForms.Newforms.Newform does not exist`.
-  The full file has **not elaborated**; newform-dependent signatures are
-  not certified by the fragment check.
+Read WORKERS, both protocols and UPSTREAM_GUIDE; read the upstream
+ConformalMapping and RepresentationTheory/SemisimpleAlgebras READMEs in full.
+Read the relevant EllipticCurves and ModularForms interfaces in current
+TauCetiRoadmap, including Layer 2 torsion, Layer 5 cross-level multiplicity one
+and Layer 8g coefficient conjugation. Current roadmap revision:
+`618e0b30d21791d6a492ce88ba8602745697b21a`; current Tau Ceti revision:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-The default shared build is TauCeti-adic. Its Mathlib checkout is the
-required `082e2d37e8b0463410cdb532e111cd43d5a66174`, but the required
-`Newform.olean` is absent. Its Tau Ceti checkout HEAD was
-`cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than the required
-`f790474821cf4256814db967cb154e7af3d0c369`; source statements were read
-at the required commit with `git show`. Existing alternative shared builds
-that contain the object use different Mathlib commits (including
-`dc4b8d60d5` and `f6090c7095`). They cannot establish the required baseline
-check. Available memory was 111 GB before the runs. No Lean language server
-or background compile remains running.
+The nine newer roadmaps named by WORKERS were searched in their Suggested
+files (including all eight OperatorTheory files). No duplicate elliptic
+modularity target was found. LocalGaloisGroups' Tate module is its local
+Galois-layer module, a different input, not an elliptic Tate module.
 
-## Preserved plan boundaries and gaps
+Read the EllipticCurveModularity reviewed audit in AUDIT-32 and the related
+R28.6, ModularForms Layers 5/8g and BSD.0 entries in data/library-coverage.json.
+Read all 16 accepted baseline declaration statements in the pinned source,
+including the actual Newform record, fixed-level strong multiplicity one,
+local polynomial and L-function definitions.
 
-1. End_ℚ(E) = ℤ belongs to FaltingsFinitenessAndIsogenyTheorems R28.6.
-   The accepted plan explicitly discloses that its supplier has no node
-   for this statement and its rank-one Hom node points back to R29.1.
-   The README imports the exact contract from R28.6; it does not silently
-   turn that circular attribution into an established prerequisite.
-2. The numerical Mazur bound is an unread refinement in the original
-   plan. The qualitative exceptional-set finiteness uses the R28.6
-   finite-isogeny-class and rank-one Hom route. No claim concerning the
-   sharp constant 163 was added.
+Current native declarations read and credited, rather than replanned:
+
+- `WeierstrassCurve.torsionGaloisAction` in
+  `TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Galois.lean`;
+- `WeierstrassCurve.tateModuleGaloisRepresentation` in
+  `TauCeti/AlgebraicGeometry/EllipticCurve/TateModule/Galois.lean`;
+- `WeierstrassCurve.nonempty_linearEquiv_tateModule` in the corresponding
+  `TateModule/Basic.lean` (separably closed extension, invertible prime);
+- `TauCeti.det_tateModuleGaloisRepresentation` in
+  `TateModule/Determinant.lean` (same hypotheses, cyclotomic determinant).
+
+These postdate the atlas compilation pin. The stand-ins remain explicitly
+owned input signatures at that pin. Current strong multiplicity one also has
+`Newform.level_eq_of_dvd_of_forall_prime_eigenvalue_eq`: it assumes a divisor
+level and agreement at every good prime. It does not supply arbitrary-level
+agreement outside a finite set, so the Layer 5 import is still required.
+Pinned `TauCeti.AlgebraicGeometry.AbelianVariety` and `AbelianVariety.End`
+were read when correcting the companion comment.
+
+## Preserved mathematical contracts
+
+All 11 external requests remain precise supplier contracts; no further result
+is claimed to exist merely because this package compiles. In particular:
+
+1. End_ℚ(E) = ℤ is owned by FaltingsFinitenessAndIsogenyTheorems R28.6
+   under RS-06. The unchanged accepted packet records that its current supplier
+   assumes it and points back to R29.1. This supplier-plan correction still
+   belongs to R28.6; this package imports the exact statement and does not
+   silently resolve the circular attribution or duplicate it here.
+2. The sharp Mazur bound 163 remains an unread refinement of the input.
+   It is not needed: exceptional-set finiteness uses the explicitly cited
+   R28.6 finite-isogeny-class/rank-one-Hom route.
 3. Serre p. 207 states the conductor criterion for p > 5. The accepted
-   signature is for p ≥ 5. The README distinguishes the local argument
-   extending it to 5, where finite additive inertia has order prime to 5,
-   from the source's statement. The existence proof uses only p ≥ 7.
-4. Cross-level prime-agreement strong multiplicity one remains an import
-   from ModularForms Layer 5. The existing fixed-level theorem compares
-   all good indices outside a finite set and cannot supply that contract.
-5. The exhaustive J₀(N′) old/new decomposition, with multiplicity
-   σ₀(N′/M) and all Galois orbits, remains the precise R14.5 supplier
-   contract. The J₁ quotient and a single orbit's comparison cannot
-   replace it. The modularQuotient₀ and quotient-map declaration names
-   remain proposed stand-ins as in the accepted suggested file.
-6. The real multiplication application is specified in the README with
-   K_X = ℚ ⊗ End_ℚ(X) a totally real field of degree dim X. Its existing
-   suggested-file comment is retained: the abelian-variety and conductor
-   interfaces needed to type Theorem 5 are absent. Following PROTOCOL
-   section 13, the unstated condition is not replaced by a fake Prop.
-   The accepted target records the companion's scope, not an elliptic
-   proof of its additional compatible-system assertions.
+   signature is p ≥ 5; the README gives the local argument for 5 rather
+   than attributing that endpoint to the printed statement. Existence uses
+   only p ≥ 7.
+4. The exhaustive J₀(N′) old/new decomposition, with all Galois orbits and
+   divisor-count multiplicities, belongs to ModularCurvesPartII R14.5.
+   An individual J₁ quotient or Tate-module comparison cannot replace it.
+   `modularQuotient₀` and its map remain the explicitly requested J₀ interfaces.
+5. The real multiplication companion retains the precise hypothesis
+   ℚ ⊗ End_ℚ(X) is a totally real field of degree dim X. Its conductor and
+   compatible-system prerequisites exceed the elliptic interfaces in this
+   file; its source statement and scope are in the README, without a fake
+   Prop-valued condition or an asserted elliptic proof of the extension.
+6. Arithmetic Frobenius on homological Tate modules, inertia coinvariants
+   for Euler polynomials, prime-to-p residual conductors, trivial character,
+   J₀ versus J₁ quotients, and arbitrary geometric level N′ versus N_E
+   remain explicit. No general object was reassigned to this package.
 
-All 11 external requests of the accepted plan are retained as contracts in
-the README. This package neither resolves their ownership nor claims that
-any mathematical result is formalized.
+## Sources read in this session
 
-## Sources checked in this run
+Fresh public downloads on 2026-10-10 match the accepted source identities.
+All listed passages were read afresh. No source file or passage is committed.
 
-Fresh public downloads on 2026-10-09 matched the recorded SHA-256 values:
-
-| Source | SHA-256 | Passages read |
+| Source | SHA-256 | Passages read (printed pages) |
 | --- | --- | --- |
-| Serre 1987 | `8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038` | §§1.3, 2.8–2.9, 3.1 lifting, 3.3, 4.6–4.7; pp. 181, 189–192, 194–195, 198, 207–209 |
-| Faltings 1983 | `0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2` | §5, Satz 3–4 and Korollar 1–2, pp. 360–361 |
-| Carayol 1986 | `d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8` | §§0.1–0.9, especially normalization, Theorem (A), and §0.8, pp. 409–411 |
+| Serre 1987 | `8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038` | §1.3 p. 181; §§2.8–2.9 pp. 189–192; §3.1 pp. 194–195; §3.3 p. 198; §§4.6–4.7 pp. 207–210 |
+| Faltings 1983 | `0b7fb3e505d5d63e3e6c5913daf15bd843488e59f80f8d5176b154ac8faa3fc2` | §5, Satz 3–4, Korollar 1–2, pp. 360–361 |
+| Carayol 1986 | `d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8` | §§0.1–0.9, normalization, Theorem (A) and §0.8 corollary, pp. 409–411 |
 | Deligne–Serre 1974 | `65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc` | Lemme 6.11, proof and variant, p. 522 |
-| Cremona 1997 | `432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94` | §§2.6–2.7, pp. 24–26; §2.15.1, p. 47 |
+| Cremona 1997 | `432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94` | §§2.6–2.7 and Lemma 2.7.1 pp. 24–26; §2.15.1 p. 47 |
 
-The README links directly to those public sources. No PDF or source passage
-is committed. Each baseline reference was checked in its source at the pinned
-commit, especially the Newform record and the exact fixed-level
-strong-multiplicity-one hypotheses. The library index of cleared private
-sources was read; this job required none of them.
-
-## Next worker
-
-The remaining task is full elaboration in an existing shared build containing
-the required Tau Ceti modules at both recorded commits. The maintainer must
-provide that build; workers may not build libraries, replace Newform, use a
-different baseline, or start a Lean language server. Once it is available,
-run `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`,
-fix any errors on this job's deliverable, require only sorry warnings, and
-record the actual result. Then create metadata.toml with the exact line at
-the start of this note and update the handoff as a completed package.
-
-The roadmap is authored; retain its 23 targets and the accepted plan's
-boundaries while fixing signatures. Scratch sources and logs are disposable;
-the source identities, observed diagnostic, validation extent, missing file
-and precise continuation steps are all recorded here.
+The package links to those public sources. The cleared-library index was read;
+this job needed no restricted book. Source texts, arithmetic script and logs
+are disposable scratch; the evidence and reproducible mathematical cases are
+recorded above. No continuation of this package job is needed. Its next step
+is the independent package review, by a worker who did none of its authoring.
