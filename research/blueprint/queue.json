@@ -47212,8 +47212,9 @@
     "PKG-ClassicalGroupsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7599"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7599",
+   "finishedAt": "2026-10-10T15:18:02Z"
   },
   {
    "id": "PKG-ClassicalSerreModularity",
@@ -47376,8 +47377,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7535"
+   "state": "external",
+   "note": "claimed on GitHub issue #7535"
   },
   {
    "id": "REV-PKG-ColemanIntegration",
@@ -47537,8 +47538,9 @@
     "PKG-ConformalMappingPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ConformalMappingPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7602"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7602",
+   "finishedAt": "2026-10-10T15:18:05Z"
   },
   {
    "id": "PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -48274,8 +48276,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48392,8 +48394,9 @@
     "PKG-GenericDoublePointInterpolation"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GenericDoublePointInterpolation.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7604"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7604",
+   "finishedAt": "2026-10-10T15:18:07Z"
   },
   {
    "id": "PKG-GeometricSatakeAndFusion",
@@ -48458,7 +48461,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GlobalGaloisDeformations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7540"
   },
   {
    "id": "REV-PKG-GlobalGaloisDeformations",
@@ -49081,8 +49085,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49262,8 +49266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -79973,8 +79977,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80138,8 +80142,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81448,8 +81452,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
