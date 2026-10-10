@@ -1,28 +1,33 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-y1Jgpw`, 10 October 2026.
+Codex (GPT-6), session `codex-DmX2pb`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6095376771).
-Input atlas: `6e7d703c6ed5a297a6bac17ea48622ec66ec82e9`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6095692532).
+Input atlas: `f17a93afb445ef6850058285fadda8bc662ec955`.
 **Blocked checkpoint; no second job claimed. Resolve scope before redispatch.**
 
 The issue-named reviews are finished: L3 accepts the eight selected Gamma
 and Gross–Koblitz fix contracts; PMIA needs coordinated current-native
-Fitting reuse. Their whole preceding codex-dm9OEX receipts are appended to
-`reviewHistory`. All mathematical data, sources, baseline pins, findings,
-requests, gaps and suggested files are unchanged. The report gives six
+Fitting reuse. Their whole preceding codex-y1Jgpw receipts are appended to
+`reviewHistory`. Corrected PMIA L6 `presentation-transpose` test
+`transpose_depends_on_presentation`: the claimed nonzero transpose of
+R² → R requires a nontrivial commutative ring and a scalar-ring isomorphism.
+The existing Lean example at lines 6414–6417 already assumes `[Nontrivial R]`.
+All other mathematical data, sources, baseline pins, findings, requests,
+gaps and suggested files are unchanged. The report gives six
 finding dispositions, fresh public-source receipts and the precise native
 library boundary, retaining the historical full ledgers with authorship.
 
 Fresh packet checkers pass all four packets with zero errors. L3 retains
 26 API warnings; the others have none. Suggested-file hashes match the
 codex-dm9OEX inputs: PMIA, L3-2 and D.1 had original successful checks with
-1,075, 110 and 307 sorry warnings respectively. Standalone L3 had failed
-before its body at repository-local imports. Those results, the earlier
+1,075, 110 and 307 sorry warnings respectively. A fresh `lean-check` of original L3 exited 1
+before its body because the shared pinned build cannot resolve its
+repository-local `research` imports. Those results, the earlier
 conditional L3 body check and finite diagnostics remain attributed in the
-report; no unchanged Lean compile was repeated. Packet, intake-file,
+report; the other unchanged Lean files were not recompiled. Packet, intake-file,
 whitespace and parsed-invariant checks pass. There are no excerpt fields
-and no compiler was started or left running.
+and no compiler remains running.
 
 Read-only current Tau Ceti was
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; roadmap main was
@@ -35,7 +40,7 @@ modified or built, and no restricted book was read or copied.
 ## Dispatch blocker and exact remaining edits
 
 The unchanged queue requires nine outputs and receipts in four packets.
-The live issue names five outputs and only two packets. A second live fetch
+The live issue names five outputs and only two packets. A fresh final live fetch
 confirmed the omission. [WORKERS.md](../WORKERS.md), “Doing the work”, says:
 “Edit only the files the issue names, plus your own scratch space.”
 Explicit authorization was requested while independent work continued;
@@ -72,9 +77,16 @@ Then finish this same review:
    edits need no Lean signature change. Do not modify dispatch metadata to
    force completion.
 
-The source checks and attributed elaborations are already recorded.
-Repeating audits or refreshing the two issue-named receipts cannot repair
-dispatch. Scratch is deleted after the checkpoint PR opens; this handoff
+Both omitted-packet edits were prepared and checked in scratch with the
+original basenames: each draft passes with zero errors/warnings. They were
+not installed, because authorization did not arrive. An initial check under
+`.proposed.json` filenames diagnosed duplicate nodes against the canonical
+packets; this was corrected by using the proper basenames in scratch.
+
+The source checks and elaboration evidence are recorded in the report.
+Fix the issue scope before redispatch: repeated audits or receipt refreshes
+cannot repair dispatch. This checkpoint contributes the missing transpose
+nontriviality hypothesis and fresh source/validation evidence. Scratch is deleted after the checkpoint PR opens; this handoff
 and the report contain everything needed to resume.
 
 ## Properly scoped mathematical follow-up
