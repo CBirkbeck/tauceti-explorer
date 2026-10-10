@@ -50,6 +50,30 @@ In the real weight-two layer separate geometric complex-linear action σ_C, coef
 | Cycle and divisor realizations | `MotivesAndAlgebraicCycles:MC.2`, MC.7. Require the integral real divisor comparison for H.8 separately from its complex rational form. |
 | General topology and analysis | The Tau Ceti `UniversalCovers`, `PDE`, `DGAInfinity` and `GeometricTopology` roadmaps. Import path transport, compact analytic estimates and smooth manifold constructions. Finite-involution fixed manifolds, Morse handle/CW interfaces and dg-Lie deformation theory need their indicated extensions. |
 
+For general sites, reuse the native closed symmetric monoidal structure, not
+only its tensor object. In `TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/`,
+`Monoidal.lean` supplies `TauCeti.SheafOfModules.monoidalCategory` and
+`symmetricCategory`; `Closed.lean` supplies `monoidalClosed` and
+`monoidalPreadditive`. These apply to small sites with a sheaf of commutative
+rings, the stated sheaf-composition instance, weak sheafification of abelian
+groups, and the identification of its inverted maps with locally bijective
+maps. The standard internal-Hom adjunction, evaluation and coevaluation are
+therefore inputs to H.0. The native `SheafOfModules.ihom_obj` identifies
+internal Hom with the sheafification of the presheaf internal Hom. This does
+not identify tensor sections with tensors of global sections.
+
+Finite free charts also have a native exact pairing:
+`TauCeti.SheafOfModules.exactPairingFree`, `ihomFreeIso` and `dualFreeIso`
+in `Dual.lean`. The evaluation on two basis sections is their Kronecker
+pairing and the coevaluation is the sum of their tensor squares. With the
+additional pullback, binary-product and over-site sheafification hypotheses
+of `FiniteLocallyFree.lean`,
+`TauCeti.isFiniteLocallyFree_ihom_chart` supplies closure of internal Hom
+on each finite free source chart. Its conclusion is chartwise. Global
+finite locally free duality, its restriction comparisons, exterior operations
+and compatibility with connection operators still require the corresponding
+supplier interfaces. A free-chart pairing alone does not discharge them.
+
 The p-adic Simpson and Riemann–Hilbert theories consume H.0's algebra and twist conventions. Their correspondence theorems are outside this roadmap. `CartierFlows` and `RigidCompanions` consume H.5's models and arithmetic criteria. `RealSurfacePeriodIndex` consumes H.8 and owns its double-cover families, application-specific vanishings and period-index argument. These consumers are not prerequisites of the objects they use.
 
 ## How to read the build

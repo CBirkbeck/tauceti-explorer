@@ -1,4 +1,142 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-FxDbWE
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-TJMWsx
+
+Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Codex (GPT-6), session `codex-TJMWsx`, 10 October 2026.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095759536).
+Branch: `codex-TJMWsx-hodge-package`. No issue in the manager's priority list
+was available in the available-swarm listing. This focus package was selected
+under WORKERS' fallback ordering. Only this job was claimed.
+
+## Outcome and required intervention
+
+**The package remains blocked by incompatible owner specifications.** This
+session independently read the exact H.0 ordinary-fibre/Rees consumer nodes,
+the CR.1 integrable-connection definition, its hypotheses, proof route, API,
+tests and uses, and DD.1's filtered-module/Rees definitions. Their contracts
+retain the mismatches described below. The issue's statement that the plan is
+complete means a target-level pass was accepted; H.0's review explicitly
+retains seven gaps and four requests and does not assert closure.
+
+Issue #7491 says: "Change no packet; if the plan has a mistake, describe it in
+the handoff note." PROTOCOL §§3, 15 and 20 require exact supplying statements,
+a single owner and a faithful package. Completion requires owner repairs,
+which are outside this issue's deliverables. Widening a citation in the
+package, silently narrowing H.0, or introducing a second Rees/ordinary
+connection carrier would not resolve the accepted contracts.
+
+The decisive pair of comparisons is:
+
+| Consumer | Owner statement actually read | Required repair |
+| --- | --- | --- |
+| `HodgeStructuresPartII:H.0/ordinary-fiber` | `CrystallineCohomology:CR.1/integrable-connection` assumes an affine quotient of Kähler differentials, or the small crystalline site over a PD base with p locally nilpotent. Its Hodge use expressly specializes to ordinary Kähler forms. | Export the same additive operators, exterior extensions, curvature, horizontal morphisms and restriction/descent on arbitrary supplied commutative ringed differential sites. Preserve the affine/crystalline specializations. |
+| `HodgeStructuresPartII:H.0/rees-parameter`, `rees-specialization` | `DerivedDeRhamCohomology:DD.1/filtered-modules`, `rees-description` specify enhanced derived filtrations, derived graded quotients and localization. | Export the ordinary bounded locally split finite module-sheaf Rees construction, its finite local freeness, zero/unit/localized fibres, naturality and descent. H.0 then supplies the connection and operator comparisons on that carrier. |
+
+The nonuniversal-calculus witness is already proved in Suggested.lean:
+O=Q, supplied Ω¹=Q, Ω²=0, d=0 and D=id is flat and nonzero. There is
+no surjective Q-linear map Ω¹_(Q/Q)→Q. Re-read the actual pinned
+`KaehlerDifferential.subsingleton_of_surjective` proof and the inherited
+`NonUniversalDifferentialChecks` proof; neither uses an admitted theorem.
+Thus the missing G1 generality has a concrete obstruction, beyond a name
+search or an unavailable implementation.
+
+## Work completed in this session
+
+The package README now records usable native general-site infrastructure
+more precisely. It names the closed symmetric monoidal and additive tensor
+instances, internal-Hom/sheafification identification, finite free exact
+pairing and dual isomorphisms, and the finite-free-chart internal-Hom closure
+statement, retaining their site/sheafification hypotheses. This narrows what
+G2 still needs and prevents these existing APIs being planned a second time.
+It does not assert global finite locally free duality from a chart statement.
+
+These declaration statements were read in the current native source tree:
+
+- `TauCeti.SheafOfModules.monoidalCategory`, `symmetricCategory`,
+  `monoidalClosed`, `monoidalPreadditive`;
+- `SheafOfModules.ihom_obj` and the native internal-Hom dual;
+- `TauCeti.SheafOfModules.exactPairingFree`, `ihomFreeIso`, `dualFreeIso`,
+  their basis-evaluation/coevaluation laws;
+- `TauCeti.isFiniteLocallyFree_ihom_chart` (a theorem on the over-site,
+  not a global duality theorem).
+
+These modules are ahead of the managed atlas build: that build's source
+snapshot does not contain the inspected `Monoidal.lean`, `Closed.lean`,
+`Dual.lean` or `FiniteLocallyFree.lean` tensor modules. No new import or
+signature is invented at the older pins. The README addition is an inventory
+of existing current APIs for the resuming owner audit, not a claim that the
+managed build contains them. The existing Suggested.lean is unchanged.
+
+Read the full current AlgebraicVectorBundles and DifferentialGeometry READMEs
+and the relevant Suggested.lean interfaces. The first owns scheme-level
+finite locally free dual/exterior/determinant operations; the second's
+curvature carrier is a smooth real bundle-valued form. Neither supplies the
+arbitrary ringed differential-site ordinary connection or finite filtered
+module-sheaf Rees interface. Read the HodgeStructures L0–L3 reviewed audit
+and re-read the native pinned pure/mixed/period-point structure statements.
+Their existing linear algebra remains imported.
+
+Current read-only snapshots are unchanged from the preceding checkpoint:
+TauCetiRoadmap `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`,
+Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Atlas starting commit: `feb04d4533423b11b745e2ea04edc5ac2dadeb3a`.
+No Lake command ran in either read-only tree.
+
+Re-opened [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
+and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on 2026-10-10:
+the connection construction concerns the crystalline site with the PD-base
+and local nilpotence assumptions. Read Bhatt's
+[*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
+Proposition 2.2.6 with its inverse on printed p.16 and Remarks 2.2.7–2.2.8
+on pp.16–17. The ordinary affine finite-projective case is supported by
+Remark 2.2.8; it provides a proof route for the DD.1 extension, without
+supplying the missing ringed-site export. No source passage was copied.
+
+## Fresh validation
+
+- `python3 scripts/check_blueprint.py` on all ten Hodge inputs and the CR.0
+  and DD supplier inputs: all twelve exited 0, with zero errors and warnings.
+  This is structural validation; their recorded mathematical gaps remain.
+- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
+  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, zero
+  other warnings. The managed build uses the atlas Tau Ceti f790474 / Mathlib
+  082e2d3 pins. Suggested.lean was unchanged. This does not prove the missing
+  global comparisons. Memory was checked before compilation; no Lean
+  process remains running.
+- Scoped intake `check-files` on README and this handoff: two files, zero
+  problems. `git diff --check` passed. These are the only changed files.
+- README is 196005 bytes, below the 200 KB limit.
+  No packet, review, suggested signature or metadata was changed.
+
+Current package SHA-256 receipts, relative to `research/blueprint`:
+
+| File | SHA-256 |
+| --- | --- |
+| packages/HodgeStructuresPartII/README.md | `838a32cdbc6e0f85855ec14ddc360cec64235f71b1adb51ffeeece8b6470e2f8` |
+| packages/HodgeStructuresPartII/Suggested.lean | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
+
+
+## Where to resume
+
+1. Repair CR.1 and DD.1 at their owners, with the exact comparisons and
+   witnesses in the inherited record below; reconcile the consuming H.0
+   references. This is the first required external change. Re-running this
+   package job against unchanged contracts cannot complete it.
+2. Use the current native closed/sheaf chart APIs above to audit G2, keeping
+   generic sheaf operators distinct from affine matrix coordinates. Complete
+   G4–G7 and the all-layer target-fidelity audit recorded below.
+3. Finish the reader/signatures against the repaired accepted plan, repeat
+   structural and managed Lean checks, and add `topic = "math.AG"` metadata
+   when the package satisfies §20. Metadata is still absent here: this
+   submission is a checkpoint, never a completed package.
+
+The continuation record below preserves earlier mathematical witnesses,
+omitted signatures and unfinished all-layer work. Its descriptions of changes
+and validation belong to that earlier session, not this run. All necessary
+resumption information is in this note and the repository; scratch is disposable.
+
+---
+
+# Inherited continuation record — codex-FxDbWE
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
 Codex (GPT-6), session `codex-FxDbWE`, 10 October 2026.
