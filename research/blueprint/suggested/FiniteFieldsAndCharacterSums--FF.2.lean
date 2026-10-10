@@ -11,11 +11,15 @@ The arithmetic carriers below exist in that baseline. The final carrier ledger
  names the geometric definitions, API items, tests and theorems whose actual
  scheme / étale E-adic / conductor / Albanese carriers are absent. Section 13
  requires these signatures to be omitted, rather than encoded by opaque Prop
- fields. Their full mathematical contracts remain in the reader and packet.
+ fields. Their full mathematical contracts remain in the packet; the review report lists
+ the reader updates required at assembly. Current Tau Ceti imports the
+ function-field Artin–Schreier displacement and ZMod primitive Gauss product;
+ only the completion/conductor and general finite-ring extensions remain new.
 -/
 import Mathlib.NumberTheory.GaussSum
 import Mathlib.NumberTheory.LegendreSymbol.AddCharacter
 import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.RingTheory.Trace.Basic
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.Data.Fintype.Pi
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
@@ -178,11 +182,14 @@ theorem hyperKloosterman.rank_two {F : Type*} [Field F] [Fintype F]
     (ψ : AddChar F ℂ) (hψ : ψ ≠ 1) (a : F) :
     hyperKloosterman ψ 2 a = unitKloostermanExpression ψ a := by sorry
 
-theorem hyperKloosterman.extension {F K : Type*} [Field F] [Field K]
-    [Fintype F] [Fintype K] (e : F ≃+* K) (ψ : AddChar F ℂ)
-    (k : ℕ) (a : F) :
-    hyperKloosterman (ψ.compAddMonoidHom e.symm.toAddMonoidHom) k (e a) =
-      hyperKloosterman ψ k a := by sorry
+/-- Independence of the extension model, retaining the trace-lift convention. -/
+theorem hyperKloosterman.extension {F K L : Type*} [Field F] [Field K] [Field L]
+    [Fintype F] [Fintype K] [Fintype L] [Algebra F K] [Algebra F L]
+    [FiniteDimensional F K] [FiniteDimensional F L]
+    (e : K ≃ₐ[F] L) (ψ : AddChar F ℂ) (k : ℕ) (a : K) :
+    hyperKloosterman (ψ.compAddMonoidHom (Algebra.trace F L).toAddMonoidHom) k (e a) =
+      hyperKloosterman (ψ.compAddMonoidHom (Algebra.trace F K).toAddMonoidHom) k a := by
+  sorry
 
 -- TauCeti.FiniteFieldSums.FF2.hyper_kloosterman_one
 example {F : Type*} [Field F] [Fintype F] (ψ : AddChar F ℂ) (a : F) :
@@ -318,8 +325,8 @@ Hypotheses: Nontrivial ψ; k positive; finite-field extensions use trace lifts.
 NODE FiniteFieldsAndCharacterSums:FF.2/etale-algebra-gauss-cohomology
 Proposed declaration: TauCeti.FiniteFieldSums.FF2.etaleAlgebraGaussCohomology
 Signature status: omitted pending actual prerequisite carriers / parent series imports.
-Mathematical signature: Let A be a finite étale F_q-algebra of degree N≥1, ψ nontrivial and χ a multiplicative character of A×. On V=Res_{A/F_q}G_m, put L=L_χ⊗L_ψ(Tr_{A/F_q}). Then H^i_c(V_k̄,L)=0 for i≠N and dim H^N_c=1. If χ is nontrivial on each field factor of A, H^N_c→H^N is an isomorphism. Geometric permutations of split factors act on the tensor cohomology with the Koszul sign of the permutation, rather than by ordinary unsigned permutation.
-Hypotheses: Finite étale algebra, not a nonreduced finite ring. No nontriviality assumption for the concentration claim; it is needed for clean extension.
+Mathematical signature: Let A be a finite étale F_q-algebra of degree N≥1, ψ nontrivial and χ a multiplicative character of A×. On V=Res_{A/F_q}G_m, put L=L_χ⊗L_ψ(Tr_{A/F_q}). Then H^i_c(V_k̄,L)=0 for i≠N and dim H^N_c=1. If χ is nontrivial on each field factor of A, H^N_c→H^N is an isomorphism. A permutation of split factors preserving their Kummer-character data acts on H^N_c by its Koszul sign. A general permutation instead identifies the cohomology with that of the permuted character tuple; it need not act on the fixed sheaf.
+Hypotheses: Finite étale algebra, not a nonreduced finite ring. No nontriviality assumption for the concentration claim; it is needed for clean extension. For an automorphism of the fixed split sheaf, the permutation must preserve the character tuple.
 
 NODE FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-sheaf
 Proposed declaration: TauCeti.FiniteFieldSums.FF2.HyperKloostermanSheaf
@@ -369,8 +376,8 @@ Hypotheses: ℓ invertible in the ground field. The N=1 case, not stated in Katz
 NODE FiniteFieldsAndCharacterSums:FF.2/explicit-projective-betti-bound
 Proposed declaration: TauCeti.FiniteFieldSums.FF2.explicitProjectiveBettiBound
 Signature status: omitted pending actual prerequisite carriers / parent series imports.
-Mathematical signature: If X⊂P^N, N≥1, is defined by r≥1 homogeneous equations of degree≤δ≥1, then β(X)=β_c(X)≤1+Σ_{j=1}^N B(j,r,δ)≤8·2^r(rδ+3)^(N+1). This holds in arbitrary characteristic with ℓ invertible, for singular and nonreduced X. For a finite-field model of X, the total reduced numerator/denominator degree τ(X) of Z(X,T)/Z(P^n,T), n=dim X, is at most β(X)+n≤9·2^r(rδ+3)^(N+1).
-Hypotheses: Projective X, N≥1, r,δ≥1. τ counts degrees after cancellations and is nonnegative; the n=0 counting case is handled directly.
+Mathematical signature: If X⊂P^N, N≥1, is defined by r≥1 homogeneous equations of degree≤δ≥1, then β(X)=β_c(X)≤1+Σ_{j=1}^N B(j,r,δ)≤8·2^r(rδ+3)^(N+1). This holds in arbitrary characteristic with ℓ invertible, for singular and nonreduced X. For a nonempty finite-field model of X, the total reduced numerator/denominator degree τ(X) of Z(X,T)/Z(P^n,T), n=dim X, is at most β(X)+n≤9·2^r(rδ+3)^(N+1).
+Hypotheses: Projective X, N≥1, r,δ≥1. τ counts degrees after cancellations and is nonnegative; the n=0 counting case is handled directly. The zeta-quotient assertion assumes X nonempty so that n=dim X is a nonnegative integer; the Betti assertion also covers the empty scheme.
 
 NODE FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound
 Proposed declaration: TauCeti.FiniteFieldSums.FF2.albaneseLinearSectionBound
@@ -393,7 +400,7 @@ Hypotheses: Weight quotient in the algebraic all-conjugate sense. Abelian Froben
 NODE FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-family
 Proposed declaration: TauCeti.FiniteFieldSums.FF2.uniformLangWeilFamily
 Signature status: omitted pending actual prerequisite carriers / parent series imports.
-Mathematical signature: Fix N,r,δ≥1. There is a constant C(N,r,δ) such that for every finite field F_Q and geometrically integral affine V⊂A^N_F_Q defined by r equations of degree≤δ, dimension e≥1, |#V(F_Q)−Q^e|≤C(N,r,δ)Q^(e−1/2). For projective fibers X⊂P^N of degree d and dimension e, the parent’s sharper form holds with (d−1)(d−2)Q^(e−1/2)+9·2^r(rδ+3)^(N+1)Q^(e−1). For a fixed finite-type presentation these constants are uniform over all finite-field fibers and extensions that are geometrically integral.
+Mathematical signature: Fix N,r,δ≥1. There is a constant C(N,r,δ) such that for every finite field F_Q and geometrically integral affine V⊂A^N_F_Q defined by r equations of degree≤δ, dimension e≥1, |#V(F_Q)−Q^e|≤C(N,r,δ)Q^(e−1/2). For geometrically integral projective fibers X⊂P^N, defined by r homogeneous equations of degree≤δ, of degree d and dimension e≥1, the parent’s sharper form holds with (d−1)(d−2)Q^(e−1/2)+9·2^r(rδ+3)^(N+1)Q^(e−1). For a fixed finite-type presentation these constants are uniform over all finite-field fibers and extensions that are geometrically integral.
 Hypotheses: Uniformity is in specified embedding/equation data or a fixed finite-type presentation. Dimension-zero geometrically integral fibers are single rational reduced points and are treated separately.
 
 NODE FiniteFieldsAndCharacterSums:FF.2/constant-coset-twist-count
@@ -430,6 +437,8 @@ API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.mul (structure): Membe
 API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.inv (structure): Membership is closed under inverse.
 API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.conjugate (functoriality): For γ*F the stabilizer is γ⁻¹Aut_geom(F)γ.
 API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.singularSet (compatibility): Every member preserves the intrinsic singular locus and matches local inertia data.
+API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.iso (extensionality): An isomorphism F≅G of middle-extension sheaves induces equality Aut_geom(F)=Aut_geom(G); the subgroup depends only on the geometric isomorphism class.
+API TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.rational (compatibility): For γ∈PGL₂(F_q), membership in the rational stabilizer is equivalent to γ*F_k̄≅F_k̄; an isomorphism over F_q is not required.
 EXAMPLE TauCeti.FiniteFieldSums.FF2.mobius_trivial (degenerate): For the constant sheaf the stabilizer is all PGL₂(k̄).
 EXAMPLE TauCeti.FiniteFieldSums.FF2.mobius_additive_translation (computation): Every translation stabilizes L_ψ(X) geometrically: the added constant gives a geometrically trivial rank-one factor.
 EXAMPLE TauCeti.FiniteFieldSums.FF2.mobius_kummer_inverse (characterisation): Inversion stabilizes the nontrivial Kummer sheaf exactly for a quadratic character.
