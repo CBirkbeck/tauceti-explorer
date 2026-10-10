@@ -12482,6 +12482,54 @@ theorem iff_algebraicIntegers [Group.FG Γ] : IsIntegralRepresentation ρ ↔
     ∃ P : Matrix.GeneralLinearGroup (Fin r) ℂ, ∀ γ i j, IsIntegral ℤ (conjMatrix P ρ γ i j) := by
   sorry
 
+/-- The GL representation form of the projective local-system criterion: a finite projective
+stable ring-of-integers lattice whose scalar extension is the entire complex representation.
+No freeness over the original number field, irreducibility or finite generation of `Γ` is assumed.
+For the reverse direction, principalize the Steinitz class after a finite number-field extension.
+Source: Esnault–Groechenig 2018, §1, pp.1–2. -/
+theorem iff_projectiveLattice : IsIntegralRepresentation ρ ↔
+    ∃ K : IntermediateField ℚ ℂ, FiniteDimensional ℚ K ∧
+      ∃ Λ : Submodule (𝓞 K) (Fin r → ℂ),
+        Module.Finite (𝓞 K) Λ ∧ Module.Projective (𝓞 K) Λ ∧
+        IsBaseChange ℂ Λ.subtype ∧
+        ∀ γ, Λ.map ((matrixRepresentation ρ γ).restrictScalars (𝓞 K)) ≤ Λ := by
+  sorry
+
+-- IsIntegralRepresentation.test_projectiveLattice_trivial
+example : ∃ K : IntermediateField ℚ ℂ, FiniteDimensional ℚ K ∧
+    ∃ Λ : Submodule (𝓞 K) (Fin r → ℂ),
+      Module.Finite (𝓞 K) Λ ∧ Module.Projective (𝓞 K) Λ ∧
+      IsBaseChange ℂ Λ.subtype ∧
+      ∀ γ : Γ, Λ.map ((matrixRepresentation
+        (1 : Γ →* Matrix.GeneralLinearGroup (Fin r) ℂ) γ).restrictScalars (𝓞 K)) ≤ Λ := by
+  sorry
+
+-- IsIntegralRepresentation.test_projectiveLattice_half_not_integral
+example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 1) ℂ)
+    (h : (ρ (Multiplicative.ofAdd 1) : Matrix.GeneralLinearGroup (Fin 1) ℂ) 0 0 = 1 / 2) :
+    ¬ ∃ K : IntermediateField ℚ ℂ, FiniteDimensional ℚ K ∧
+      ∃ Λ : Submodule (𝓞 K) (Fin 1 → ℂ),
+        Module.Finite (𝓞 K) Λ ∧ Module.Projective (𝓞 K) Λ ∧
+        IsBaseChange ℂ Λ.subtype ∧
+        ∀ γ, Λ.map ((matrixRepresentation ρ γ).restrictScalars (𝓞 K)) ≤ Λ := by
+  sorry
+
+-- IsIntegralRepresentation.test_projectiveLattice_zero_does_not_span
+example (K : IntermediateField ℚ ℂ) (hr : 0 < r) :
+    ¬ IsBaseChange ℂ (⊥ : Submodule (𝓞 K) (Fin r → ℂ)).subtype := by
+  sorry
+
+-- IsIntegralRepresentation.test_projectiveLattice_unipotent_conjugate
+example (ρ : Multiplicative ℤ →* Matrix.GeneralLinearGroup (Fin 2) ℂ)
+    (h : ((ρ (Multiplicative.ofAdd 1) : Matrix.GeneralLinearGroup (Fin 2) ℂ) :
+      Matrix (Fin 2) (Fin 2) ℂ) = !![1, 1 / 3; 0, 1]) :
+    ∃ K : IntermediateField ℚ ℂ, FiniteDimensional ℚ K ∧
+      ∃ Λ : Submodule (𝓞 K) (Fin 2 → ℂ),
+        Module.Finite (𝓞 K) Λ ∧ Module.Projective (𝓞 K) Λ ∧
+        IsBaseChange ℂ Λ.subtype ∧
+        ∀ γ, Λ.map ((matrixRepresentation ρ γ).restrictScalars (𝓞 K)) ≤ Λ := by
+  sorry
+
 theorem of_finite (h : (Set.range ρ).Finite) : IsIntegralRepresentation ρ := by
   sorry
 
@@ -12643,6 +12691,40 @@ namespace RigidLocus
 variable {M S : Scheme.{0}} (f : M ⟶ S) [LocallyOfFiniteType f]
 
 theorem mem_iff_isolated (x : M) : x ∈ RigidLocus f ↔ IsOpen {f.asFiber x} := by
+  sorry
+
+/-- Restricting the rigid locus to a scheme-theoretic fibre gives exactly the fibre's
+rigid locus, as an equality of opens in the native fibre scheme; nilpotents are retained.
+Source: Esnault–Groechenig 2020, §3.1, Definition 3.2, pp.121–123. -/
+theorem fibre (s : S) :
+    letI : LocallyOfFiniteType (f.fiberToSpecResidueField s) := by
+      change LocallyOfFiniteType (Limits.pullback.snd f (S.fromSpecResidueField s))
+      infer_instance
+    RigidLocus (f.fiberToSpecResidueField s) = (f.fiberι s) ⁻¹ᵁ RigidLocus f := by
+  sorry
+
+-- RigidLocus.test_fibre_point_membership
+example (s : S) (x : f.fiber s) :
+    letI : LocallyOfFiniteType (f.fiberToSpecResidueField s) := by
+      change LocallyOfFiniteType (Limits.pullback.snd f (S.fromSpecResidueField s))
+      infer_instance
+    x ∈ RigidLocus (f.fiberToSpecResidueField s) ↔ (f.fiberι s) x ∈ RigidLocus f := by
+  sorry
+
+-- RigidLocus.test_finite_fibre_retains_nilpotents
+example [IsFinite f] (s : S) :
+    letI : LocallyOfFiniteType (f.fiberToSpecResidueField s) := by
+      change LocallyOfFiniteType (Limits.pullback.snd f (S.fromSpecResidueField s))
+      infer_instance
+    RigidLocus (f.fiberToSpecResidueField s) = ⊤ := by
+  sorry
+
+-- RigidLocus.test_fibre_outside_rigid_locus
+example (s : S) (h : (f.fiberι s) ⁻¹ᵁ RigidLocus f = ⊥) :
+    letI : LocallyOfFiniteType (f.fiberToSpecResidueField s) := by
+      change LocallyOfFiniteType (Limits.pullback.snd f (S.fromSpecResidueField s))
+      infer_instance
+    RigidLocus (f.fiberToSpecResidueField s) = ⊥ := by
   sorry
 
 instance locallyQuasiFinite : LocallyQuasiFinite ((RigidLocus f).ι ≫ f) := by
@@ -12896,9 +12978,13 @@ HodgeStructuresPartII:H.5/strong-cohomological-rigidity:
 HodgeStructuresPartII:H.5/strong-implies-cohomological:
   IsStronglyCohomologicallyRigid.isCohomologicallyRigid.
 HodgeStructuresPartII:H.5/rigid-locus:
-  RigidLocus, RigidLocus.mem_iff_isolated, RigidLocus.locallyQuasiFinite, RigidLocus.field_isClopen,
+  RigidLocus, RigidLocus.mem_iff_isolated, RigidLocus.fibre, RigidLocus.locallyQuasiFinite, RigidLocus.field_isClopen,
   RigidLocus.comp_openImmersion, RigidLocus.isFinite_of_isProper, RigidLocus.equivariant,
-  RigidLocus.test_fat_point, RigidLocus.test_affine_line, RigidLocus.test_compat_mathlib.
+  RigidLocus.test_fat_point, RigidLocus.test_affine_line, RigidLocus.test_compat_mathlib,
+  RigidLocus.test_fibre_point_membership, RigidLocus.test_finite_fibre_retains_nilpotents,
+  RigidLocus.test_fibre_outside_rigid_locus.
+HodgeStructuresPartII:H.5/rigid-locus-fibre:
+  RigidLocus.fibre.
 HodgeStructuresPartII:H.5/rigidity-conjugate:
   rigidity_conj_aut.
 HodgeStructuresPartII:H.5/rigid-number-field:
@@ -12920,11 +13006,18 @@ HodgeStructuresPartII:H.5/unitary-representation:
   IsUnitaryRepresentation.not_aut_invariant, IsUnitaryRepresentation.test_rank_one,
   IsUnitaryRepresentation.test_unipotent, IsUnitaryRepresentation.test_finite_image,
   IsUnitaryRepresentation.test_unitaryGroup_valued, IsUnitaryRepresentation.test_galois_nonexample.
+HodgeStructuresPartII:H.5/integral-projective-lattice:
+  IsIntegralRepresentation.iff_projectiveLattice,
+  IsIntegralRepresentation.test_projectiveLattice_trivial,
+  IsIntegralRepresentation.test_projectiveLattice_half_not_integral,
+  IsIntegralRepresentation.test_projectiveLattice_zero_does_not_span,
+  IsIntegralRepresentation.test_projectiveLattice_unipotent_conjugate.
 HodgeStructuresPartII:H.5/smooth-arithmetic-model:
   ArithmeticModel, ArithmeticModel.exists, ArithmeticModel.restrict,
   ArithmeticModel.genericFibreIso, ArithmeticModel.test_generic_fibre.
 HodgeStructuresPartII:H.5/integral-representation:
   IsIntegralRepresentation, IntegralRealization, IsIntegralRepresentation.iff_algebraicIntegers,
+  IsIntegralRepresentation.iff_projectiveLattice,
   IsIntegralRepresentation.of_finite, IsIntegralRepresentation.charpoly,
   IsIntegralRepresentation.conj_aut, IsIntegralRepresentation.of_realization,
   IsIntegralRepresentation.test_trivial, IsIntegralRepresentation.test_half_not_integral,
@@ -13133,8 +13226,6 @@ Node HodgeStructuresPartII:H.5/rigid-correspondence
 
 Node HodgeStructuresPartII:H.5/rigid-locus
   Missing carrier: line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules.
-  RigidLocus.fibre: For s ∈ S, the fibre of RigidLocus f over s is the rigid locus of the fibre M_s
-    → Spec κ(s), i.e. the isolated points of M_s.
   RigidLocus.test_line_and_point: For M = Spec ℂ[x,y]/(y(y − 1), xy) → Spec ℂ (the line y = 0 and
     the point (0,1)), the rigid locus is the point (0,1).
   RigidLocus.test_relative_open_not_closed: For f: Spec ℤ[x]/(px) → Spec ℤ, the rigid locus is the
@@ -13471,8 +13562,9 @@ Node HodgeStructuresPartII:H.5/integral-representation
   Missing carrier: projective linear groups PGL_r and projective representations.
   Missing carrier: completions of number fields at finite places, lattices over rings of integers and companions.
   Missing carrier: general split reductive group schemes over ℤ and their adjoint representations.
-  IsIntegralRepresentation.iff_projectiveLattice: For G = GL_r, integral ↔ the local system comes by
-    extension of scalars from a local system of finitely generated projective 𝒪_K-modules.
+  Scope: The representation-level finite projective lattice criterion is native above.
+    Its equivalence with projective-module local systems on a space still needs the
+    monodromy/local-coefficient classification and scalar-extension comparison.
   IsIntegralRepresentation.of_projectivization: For G = GL_r and det ρ of finite order, ρ is
     integral iff its projectivization Γ → PGL_r(ℂ) is integral (Landesman–Litt Lemma 8.3.4: the
     obstruction is a torsor under the finite kernel of G → PGL_r, trivial over a finite extension).
@@ -13646,11 +13738,6 @@ Node HodgeStructuresPartII:H.5/adjoint-base-change
   TraceFreeAdjoint.baseChange: For a field embedding σ: K → L, rep (σ ∘ ρ) ≅ (rep ρ) ⊗_{K,σ} L,
     compatibly with the matrix entries.
 
-Node HodgeStructuresPartII:H.5/rigid-locus-fibre
-  Missing carrier: line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules.
-  RigidLocus.fibre: For s ∈ S, the fibre of RigidLocus f over s is the rigid locus of the fibre M_s
-    → Spec κ(s), i.e. the isolated points of M_s.
-
 Node HodgeStructuresPartII:H.5/hodge-system-scaling
   Missing carrier: the full geometric or coefficient generality described in the scope note.
   Scope: Native scaling is for the finite-free cotangent module chart. The sheaf-valued system and its Higgs isomorphism remain omitted.
@@ -13678,11 +13765,9 @@ Node HodgeStructuresPartII:H.5/relative-stable-complex-fibre
     HodgeStructuresPartII:H.1/hodge-coarse over ℂ.
 
 Node HodgeStructuresPartII:H.5/integral-projective-lattice
-  Missing carrier: projective linear groups PGL_r and projective representations.
-  Missing carrier: completions of number fields at finite places, lattices over rings of integers and companions.
-  Missing carrier: general split reductive group schemes over ℤ and their adjoint representations.
-  IsIntegralRepresentation.iff_projectiveLattice: For G = GL_r, integral ↔ the local system comes by
-    extension of scalars from a local system of finitely generated projective 𝒪_K-modules.
+  Missing carrier: projective-module local systems with scalar-extension comparison.
+  Scope: The representation-level finite projective lattice criterion is native above.
+    The global local-system formulation remains a monodromy-classification comparison.
 
 Node HodgeStructuresPartII:H.5/geometric-origin-summand
   Missing carrier: algebraic flat bundles, Higgs bundles and local systems on smooth complex varieties, with de Rham and Betti cohomology.

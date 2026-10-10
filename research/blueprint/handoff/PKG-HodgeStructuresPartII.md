@@ -1,5 +1,110 @@
 # PKG-HodgeStructuresPartII — checkpoint handoff
 
+Status: partial, blocked on missing supplier interfaces; not a completed package.
+Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Continued by Codex (GPT-6), session `codex-Z9BBS5`, on 10 October 2026, after
+[the bot confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6091583681).
+None of the manager's priority-list issues was available at selection time;
+this was an available focus package in WORKERS' next eligible group.
+Only this job was claimed.
+
+## Changes in this run
+
+Two H.5 components previously listed as unavailable have native signatures now:
+
+- `RigidLocus.fibre` compares the relative rigid open with the rigid open of the
+  actual scheme-theoretic fibre, using `Scheme.Hom.fiberToSpecResidueField` and
+  `fiberι`. The equality is between opens of the fibre scheme, retaining
+  nilpotents. Three examples test point membership, finite fibres and fibres
+  disjoint from the relative rigid locus. This restores the full
+  `H.5/rigid-locus-fibre` signature and the corresponding API of `/rigid-locus`.
+- `IsIntegralRepresentation.iff_projectiveLattice` supplies the GL representation
+  component of `H.5/integral-projective-lattice` and `/integral-representation`.
+  It uses native finite projective submodules over a number field's ring of
+  integers, a native `IsBaseChange` witness for the inclusion into the whole
+  complex representation, and stability under the restricted-scalar action.
+  No free basis over the initial ring of integers is imposed. The reverse
+  direction principalizes the Steinitz class after a finite number-field
+  extension; finite generation of the group is not needed. Four examples test
+  the trivial action, the nonintegral rank-one multiplier 1/2, the zero
+  submodule's failure to span positive rank, and the conjugated unipotent
+  generator with upper-right entry 1/3. The global projective-local-system
+  formulation still needs monodromy classification and scalar-extension
+  comparison; it is explicitly retained as an omission.
+
+The README states these APIs, hypotheses, prerequisites and tests in its H.5
+sections. The native declaration register and omission inventory agree with
+these additions. No packet or supplier file is changed. `metadata.toml` remains
+absent because the complete-package conditions are not satisfied.
+
+## Why completion is blocked
+
+The issue's accepted-plan premise does not supply the interfaces required for
+its remaining global signatures. The following were checked directly again,
+against the current suppliers and current read-only upstream/library:
+
+| Consumer | Existing owner and concrete missing input |
+| --- | --- |
+| H.0 ordinary connections, lambda-connections and operator families | `CrystallineCohomology:CR.1/integrable-connection`, in `CrystallineCohomology--CR.0.json`, is a partial prototype in a `needs_changes` packet. Its affine ring definition and crystalline-site sheaf construction do not give connections on arbitrary commutative ringed differential sites, their restriction/gluing, or ordinary-fibre comparisons. Native module sheaves and tensor products already exist and must be reused. |
+| H.0 ordinary filtered/Rees specialization | `DerivedDeRhamCohomology:DD.1/filtered-modules` and `/rees-description` give enhanced derived coherent diagrams and a derived Rees equivalence. They do not specify the ordinary locally split module-sheaf comparison, local freeness, specialization and localization identifications used by the H.0 operators. |
+| H.2/H.3/H.6/H.8 global variations | `ShimuraData:D3/variation` is in a `needs_changes` packet. In its suggested file, `Supplier.connection` is a pointwise derivative with an explicit missing sheaf/restriction/gluing comparison. `IntegralVariationFibers` explicitly omits agreement of the integral and real fibre Hodge structures and naturality of the lattice comparison. Neither record supplies the single compatible global polarized variation required by these consumers. |
+
+These are missing statement/definition interfaces, not unimplemented proofs of
+otherwise adequate theorem signatures. Completing or changing them requires
+edits at their existing owners, outside this issue's allowed files. Defining
+another connection/variation hierarchy in this package would duplicate those
+owners; admitted type placeholders would violate PROTOCOL §13. The historical
+H.1 and H.6 omission inventories remain unresolved too. This is therefore a
+checkpoint for a demonstrated blocker, not a time-limit checkpoint.
+
+## Verification and reading receipt
+
+- Whole-file command: `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`.
+  Exit 0; zero errors; 1,643 warnings, all `declaration uses sorry`; zero
+  other warnings. All layers reach the end. This checks elaboration of the
+  signatures and admitted bodies, not theorem proofs or full target fidelity.
+- Required Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` matches the shared
+  build HEAD. All 5,489 tracked Lean source blobs at Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369` match the corresponding shared-build
+  files: zero missing, zero differing. This used the existing read-only
+  repository's Git manifest, without copying or building a dependency.
+- All ten unchanged Hodge input packets pass `python3 scripts/check_blueprint.py`:
+  zero errors and warnings each. They contain 885 targets and 113 requests;
+  structural validity is not dependency closure or a completed fidelity audit.
+- README: 184,788 bytes, below 200 KB. The 108-import block is unchanged.
+  `git diff --check` passes; only the two package files and this handoff change.
+  Available memory exceeded 100 GB; no Lean process is left running.
+- Read WORKERS, both protocols, UPSTREAM_GUIDE, the reviewed Hodge library audit,
+  and current Completed/HodgeStructures and Completed/UniversalCovers in full.
+  Inspected relevant current AlgebraicVectorBundles, DifferentialGeometry and
+  library interfaces. Current read-only snapshots: roadmap repository
+  `cb8dda51b498dc00183d100031b631dfb58ea5e1`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran there.
+- Fresh primary reading: [EG18 v3](https://arxiv.org/pdf/1711.06436v3), §1,
+  pp.1–2, for the projective-module integrality criterion; SHA-256
+  `622fb7b327b30b522b23c6d50f23e24b5e252d44f61c3684594a78362d5a64dc`.
+  [EG20 author version v4](https://arxiv.org/pdf/1707.00752v4), §3.1,
+  Definition 3.2, manuscript pp.16–17 (published pp.121–123); SHA-256
+  `bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb`.
+  Read pinned native `IsBaseChange`, number-field rings of integers and
+  class-group finiteness, fibre morphisms and quasi-finite-locus statements.
+  No restricted book was used and no source passage was copied into a deliverable.
+
+## Resume
+
+Resolve the owner interfaces in the table before attempting complete global
+signatures. Preserve the working native imports and the H.5 additions. The
+representation-level lattice criterion does not replace the global
+local-coefficient comparison. Finish the remaining target-by-target semantic,
+source and signature audit; the earlier receipts below describe its prior
+extent and outstanding H.0/H.1/H.6/H.8 work. Add metadata only after the complete
+package requirements hold, and rerun the whole-file check. No scratch artifact
+is needed to resume; disposable logs and public PDFs can be deleted at submission.
+
+---
+
+# Previous continuation receipt (codex-aMGSqn)
+
 Status: partial; the complete file now elaborates at both required pins.
 Completion still requires genuine global supplier signatures and the remaining
 full target-fidelity audit. Issue
