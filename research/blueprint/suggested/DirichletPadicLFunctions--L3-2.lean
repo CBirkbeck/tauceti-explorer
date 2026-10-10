@@ -230,7 +230,7 @@ lemma clearing_independence (Na Nb da db : K) (ha : da ≠ 0) (hb : db ≠ 0)
     (hcross : db*Na = da*Nb) : Na/da = Nb/db := by sorry
 
 /- DirichletPadicLFunctions:L3/rjw2-branch-interpolation
-For a primitive nontrivial θ=χ eta, conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used.
+For a primitive θ=χ eta (including conductor-one θ=1), conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used.
 -/
 -- v is the common algebraic L(ψ,1-k) value from L2, not a cast of a complex value.
 lemma branch_interpolation {M : ℕ} (ψ : DirichletCharacter K M) (k : ℕ)
@@ -443,6 +443,19 @@ example (Γ : C(ℤ_[p],(ℤ_[p])ˣ)) (ℓ : ℚ_[p] → ℚ_[p]) (ι : ℚ_[p] 
 -- Acceptance test DirichletL3Tests.fg_gamma_sum_zero_log
 example (Γ : C(ℤ_[p],(ℤ_[p])ˣ)) (ι : ℚ_[p] →+* K) {N : ℕ} (χ : DirichletCharacter K N) (uN : (ℤ_[p])ˣ) : fg_gamma_sum Γ 0 ι χ uN = 0 := by sorry
 
+-- Acceptance test DirichletL3Tests.fg_gamma_sum_quartic
+-- Formal adapter at level5; the coefficient field contains a square root of -1.
+example (Γ : C(ℤ_[p],(ℤ_[p])ˣ)) (ℓ : ℚ_[p] → ℚ_[p])
+    (ι : ℚ_[p] →+* K) (uN : (ℤ_[p])ˣ)
+    (χ : DirichletCharacter K 5) (i : K) (hi : i^2 = -1)
+    (hχ1 : χ (1 : ZMod 5) = 1) (hχ2 : χ (2 : ZMod 5) = i)
+    (hχ3 : χ (3 : ZMod 5) = -i) (hχ4 : χ (4 : ZMod 5) = -1) :
+    fg_gamma_sum Γ ℓ ι χ uN =
+      ι (ℓ ((Γ (↑(uN⁻¹) : ℤ_[p]) : ℤ_[p]) : ℚ_[p])) +
+      i*ι (ℓ ((Γ ((2 : ℤ_[p])*(↑(uN⁻¹) : ℤ_[p])) : ℤ_[p]) : ℚ_[p])) -
+      i*ι (ℓ ((Γ ((3 : ℤ_[p])*(↑(uN⁻¹) : ℤ_[p])) : ℤ_[p]) : ℚ_[p])) -
+      ι (ℓ ((Γ ((4 : ℤ_[p])*(↑(uN⁻¹) : ℤ_[p])) : ℤ_[p]) : ℚ_[p])) := by sorry
+
 /- DirichletPadicLFunctions:L3/rjw2-fg-count
 For x∈Z_p put C_p(x)=x−1−V(x−1) in Q_p, where V(y)=(y−a0(y))/p and a0(y)=val(toZMod y). Thus C_p(n)=#{1≤m<n:p∤m} for positive n, and C_p(0)=0. V is written through native reduction in the formula; no new Witt-vector object is planned.
 -/
@@ -520,13 +533,24 @@ lemma fg_permutation_injective (B m m' j : ℕ) (hm : m < B) (hm' : m' < B)
 /- DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference
 The continuous function A(x)=log_p Γ_p(x) satisfies A(0)=0 and A(x+1)−A(x)=log_p(x) on units, and0 on nonunits. Therefore it is the unique continuous normalized antidifference of the unit-extended logarithm. At natural n it isΣ_(1≤m<n,p∤m)log_p(m).
 -/
+-- A is the native continuous map obtained by composing the actual Gamma with
+-- the common logarithm on units; hA states that composition explicitly.
+-- The conclusion includes normalization, strict natural sums and uniqueness.
 lemma fg_log_antidifference (Γ : C(ℤ_[p],(ℤ_[p])ˣ)) (ℓ : ℚ_[p] → ℚ_[p])
+    (A : C(ℤ_[p], ℚ_[p]))
+    (hA : ∀ x, A x = ℓ ((Γ x : ℤ_[p]) : ℚ_[p]))
+    (hΓ0 : (Γ 0 : ℤ_[p]) = 1)
     (hℓ : ∀ a b : ℚ_[p], a ≠ 0 → b ≠ 0 → ℓ (a*b) = ℓ a+ℓ b)
     (hminus : ℓ (-1) = 0)
     (hrec : ∀ x : ℤ_[p], (Γ (x+1) : ℤ_[p]) =
-      -(if IsUnit x then x else 1)*(Γ x : ℤ_[p])) (x : ℤ_[p]) :
-    ℓ ((Γ (x+1) : ℤ_[p]) : ℚ_[p])-ℓ ((Γ x : ℤ_[p]) : ℚ_[p]) =
-      if IsUnit x then ℓ (x : ℚ_[p]) else 0 := by sorry
+      -(if IsUnit x then x else 1)*(Γ x : ℤ_[p])) :
+    A 0 = 0 ∧
+    (∀ x : ℤ_[p], A (x+1)-A x = if IsUnit x then ℓ (x : ℚ_[p]) else 0) ∧
+    (∀ n : ℕ, A (n : ℤ_[p]) = ∑ m ∈ Finset.range n,
+      if IsUnit (m : ℤ_[p]) then ℓ (m : ℚ_[p]) else 0) ∧
+    (∀ F : C(ℤ_[p], ℚ_[p]), F 0 = 0 →
+      (∀ x : ℤ_[p], F (x+1)-F x = if IsUnit x then ℓ (x : ℚ_[p]) else 0) →
+      F = A) := by sorry
 
 /- DirichletPadicLFunctions:L3/rjw2-fg-tame-period
 For the actual nontrivial tame χ measure in Zhao’s sign convention, μ_χ(m+p^rZ_p)=N^(-1)Σ_(1≤a<N)χ(m+p^r a)a. When p^r≡1 modN this is B_(1,χ)+Σ_(1≤a<m_N^flat)χ(a), where m_N^flat∈[0,N). Its character integral matches the same RJW L_p(χω,s) with the minus sign in (3.6).
@@ -582,15 +606,20 @@ lemma fg_log_reindex_limit (S : ℕ → ℚ_[p]) (x : ℕ → ℤ_[p])
 The preceding actual sum expression may be differentiated at s=0. Its coefficient limits exist, and on a sufficiently small s-disc the logarithmic Taylor coefficients are uniformly dominated by C δ^k/||k!||, where δ=1/p for odd p and δ=1/4 for2. Therefore L_p′(χω,0)=Σ_(1≤a<N)χ(a)[C_p(a/N)log_p N+log_p Γ_p(a/N)].
 -/
 -- Native coefficient-limit probe. c n k is the k-th coefficient of the
--- actual finite logarithmic sum. The LAD request must establish the analytic
--- sum convergence from the displayed geometric bound; it is not pointwise
--- differentiation. The arithmetic identification supplies heq.
+-- actual finite logarithmic sum. hvalue identifies its pointwise limit with
+-- the actual arithmetic function. The geometric bound and coefficient limits
+-- must establish the expansion; the conclusion is not an input hypothesis.
+-- In the arithmetic application use the function s ↦ -Lp(-s), whose first
+-- derivative at zero is Lp'(0). Choose R inside the factorial-majorant disc.
 lemma fg_differentiation (Lp : K → K) (c : ℕ → ℕ → K) (a : ℕ → K)
     (R C : ℝ) (hR : 0 < R) (hC : 0 < C)
     (hbound : ∀ n k, ‖c n k‖ * R^k ≤ C)
     (hcoeff : ∀ k, Tendsto (fun n => c n k) atTop (𝓝 (a k)))
-    (hseries : HasFPowerSeriesAt Lp (FormalMultilinearSeries.ofScalars K a) 0) :
-    HasDerivAt Lp (a 1) 0 := by sorry
+    (hvalue : ∀ s : K, ‖s‖ < R →
+      Tendsto (fun n => FormalMultilinearSeries.ofScalarsSum (c n) s)
+        atTop (𝓝 (Lp s))) :
+    HasFPowerSeriesAt Lp (FormalMultilinearSeries.ofScalars K a) 0 ∧
+      HasDerivAt Lp (a 1) 0 := by sorry
 
 /- DirichletPadicLFunctions:L3/rjw2-fg-count-character-sum
 For odd primitive χ modulo N with p∤N, Σ_(1≤a<N)χ(a)V(a/N−1)=χ(p)B_(1,χ), and consequently Σχ(a)C_p(a/N)=(1−χ(p))B_(1,χ).
