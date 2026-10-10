@@ -35532,7 +35532,8 @@
    ],
    "followUpOf": "BP-ColemanPowerSeries",
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries--L0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6478"
   },
   {
    "id": "REV-ColemanPowerSeries--L0",
@@ -46517,8 +46518,9 @@
     "PKG-AbelianVarietiesIsogenousToNoJacobian"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7597"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7597",
+   "finishedAt": "2026-10-10T16:41:47Z"
   },
   {
    "id": "PKG-AdelicAlgebraicGroups",
@@ -47500,8 +47502,9 @@
     "PKG-ComputationalNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComputationalNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7601"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7601",
+   "finishedAt": "2026-10-10T16:41:51Z"
   },
   {
    "id": "PKG-ConformalMappingPartII",
@@ -48284,8 +48287,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -49096,8 +49099,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49278,8 +49281,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -79989,8 +79992,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80154,8 +80157,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80377,8 +80380,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5869"
+   "state": "external",
+   "note": "claimed on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -80903,8 +80906,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -81464,8 +81467,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -82358,8 +82361,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6519"
+   "state": "pending",
+   "note": "released on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -83058,8 +83061,8 @@
     "FIX-RT-AREA-ktheory-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5542"
+   "state": "external",
+   "note": "claimed on GitHub issue #5542"
   },
   {
    "id": "RT-AREA-ktheory-2",
