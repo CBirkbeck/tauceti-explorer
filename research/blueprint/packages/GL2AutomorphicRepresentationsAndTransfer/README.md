@@ -1,22 +1,22 @@
 # Modular forms, Part II: GL₂ automorphic representations and transfer
 
-Extends [ModularForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularForms/README.md) to local and adelic GL₂: newvectors, Whittaker models, classical comparisons, Jacquet–Langlands, cyclic/solvable base change, quadratic induction and Artin/residual modularity.
+Extends [ModularForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularForms/README.md) to local/adelic GL₂, newvectors, Whittaker models, classical comparisons, Jacquet–Langlands, base change, induction and Artin/residual modularity.
 
-Owners: ModularForms (classical forms/Hecke algebras), SmoothRepresentationsOfLocalGroups (SR: smooth functors), AdelicAlgebraicGroups (AA: groups/measures), AutomorphicFormsOnReductiveGroups (AF: automorphic classes), AutomorphicLFunctionsAndLocalFactors (AL: factors/converse theorems), AutomorphicSpectralTheory (AS: spectra), EndoscopicTransferAndUnitaryTraceComparison (ET: inner-form/twisted transfer), ArithmeticGaloisRepresentations (R01: Galois/Weil–Deligne parameters). Shimura cohomology, p-adic Banach theory and compatible systems retain their owners.
+Owners: ModularForms (classical forms), SmoothRepresentationsOfLocalGroups (SR), AdelicAlgebraicGroups (AA), AutomorphicFormsOnReductiveGroups (AF), AutomorphicLFunctionsAndLocalFactors (AL), AutomorphicSpectralTheory (AS), EndoscopicTransferAndUnitaryTraceComparison (ET), ArithmeticGaloisRepresentations (R01). Import their carriers; Shimura cohomology, p-adic Banach theory and compatible systems retain their owners.
 
 ## Conventions and existing objects
 
-Reuse Mathlib `Matrix.GeneralLinearGroup (Fin 2) R`, determinant/scalars/coefficient maps, `Matrix.ProjGenLinGroup`, `Representation.invariants` and Haar measure on a positive compact; construct the adelic quotient measure separately. `HeckeRing.GL2.Newform` stores newspace membership, nebentypus, good eigenvalues and first coefficient one; ModularForms Layer 4 supplies bad eigenproperties. `eq_of_forall_notMem_eigenvalue_eq` fixes level and character, whereas adelic strong multiplicity one compares automorphic classes. Hilbert coefficients use `TauCeti.symPowerRep` and Mathlib finite tensors.
+Reuse Mathlib `Matrix.GeneralLinearGroup (Fin 2) R`, determinant/scalars/maps, `Matrix.ProjGenLinGroup`, `Representation.invariants` and Haar measure; construct adelic quotient measure separately. `HeckeRing.GL2.Newform` supplies newspace membership, nebentypus, good eigenvalues and a₁=1; ModularForms4 supplies bad eigenproperties. `eq_of_forall_notMem_eigenvalue_eq` fixes level/character; adelic strong multiplicity one compares classes. Hilbert coefficients use `TauCeti.symPowerRep` and Mathlib finite tensors.
 
-`TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero` gives algebraic lifts; arithmetic vanishing and continuity require proofs. `TauCeti.simple_indFDRep_ofLinearCharacter_iff` requires finite groups and algebraically closed characteristic-zero coefficients, so Weil groups and characteristic two need comparisons. `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two` excludes solvability of full GL₂.
+`TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero` supplies algebraic lifting, with arithmetic vanishing/continuity separate. `TauCeti.simple_indFDRep_ofLinearCharacter_iff` requires finite groups and algebraically closed characteristic-zero coefficients. `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two` excludes solvability of full GL₂.
 
-At finite places write O,p,ϖ,q for the valuation ring, maximal ideal, uniformizer and residue size; ν(ϖ)=q⁻¹. Upper-Borel induction includes δ_B^(1/2), δ_B(diag(a,d))=|a/d|. K₀(pⁿ) constrains the lower-left entry and K₁(pⁿ) fixes the last row; both are GL₂(O) at n=0. Right translation gives the minimal-line K₀-character ω(d); transport Casselman's top-left convention through π∨≅π⊗ω⁻¹det. Fix ψ trivial on O and nontrivial on ϖ⁻¹O, and W(1)=1. SR `SR.2.3/whittaker-functionals` supplies `SmoothRep.whittakerFunctionals=Hom_U(V,ψ)` and `SmoothRep.whittakerMultiplicityOne_gl2`: dimension one for irreducible infinite-dimensional V. Normalization requires irreducibility/genericity; one-dimensional classes have no Whittaker model.
+At finite places O,p,ϖ,q denote valuation ring, maximal ideal, uniformizer and residue size; ν(ϖ)=q⁻¹. Upper-Borel induction includes δ_B^(1/2), δ_B(diag(a,d))=|a/d|. K₀(pⁿ) constrains the lower-left entry; K₁(pⁿ) fixes the last row. Both are GL₂(O) at n=0. Right translation gives K₀-character ω(d); transport Casselman's top-left convention through π∨≅π⊗ω⁻¹det. Fix ψ of conductor O and W(1)=1. SR.2.3/whittaker-functionals supplies `SmoothRep.whittakerFunctionals=Hom_U(V,ψ)` and `SmoothRep.whittakerMultiplicityOne_gl2`, dimension one for irreducible infinite-dimensional V. Normalization requires genericity; one-dimensional classes have no Whittaker model.
 
 Reciprocity sends ϖ to geometric Φ, ν_W(Φ)=q⁻¹. `rec` matches normalized induction; `recᵀ(π)=rec(π)⊗ν_W^(-1/2)` multiplies rank-two Frobenius by √q and preserves N. Factors use (ker N)^I; arithmetic-Frobenius eigenvalues must be inverted with the cohomological dual specified. For unitary Satake α,β, T₁=√q(α+β); weight-k roots are q^((k−1)/2)α and q^((k−1)/2)β. Rationality uses π_alg=π_unitary⊗|det|^(-(k−2)/2).
 
-Use full real O(2) modules: D_k, k≥2, has holomorphic/antiholomorphic constituents of weights ±k; weight one uses the limit with parameter 1⊕sgn. At complex places |z|_ℂ=|z|². Γℝ(s)=π^(-s/2)Γ(s/2), Γℂ(s)=2(2π)^(-s)Γ(s), and Γℝ(s)Γℝ(s+1)=Γℂ(s). Fix the additive character by trace to ℚ, self-dual local measures and additive quotient mass one. Analytic conductor: |Disc(F)|²N(𝔣π). Over ℚ, t=s+(k−1)/2 converts unitary to classical variables and s↔1−s to t↔k−t.
+Use full O(2) modules D_k, k≥2, with weights ±k on the positive-determinant pieces; weight one is the limit with parameter 1⊕sgn. At complex places |z|_ℂ=|z|²; gamma conventions are in R16.3. Fix the additive character by trace to ℚ, self-dual local measures and additive quotient mass one. Analytic conductor is |Disc(F)|²N(𝔣π). Over ℚ, t=s+(k−1)/2 converts s↔1−s to t↔k−t.
 
-Choose quaternion split-place identifications. Cuspidal JL excludes global norm characters; local division-algebra characters match Steinberg twists. Automorphic equality is equality of isomorphism classes. Residual comparisons fix coefficient place, residue embedding, stable lattice and semisimplification. In characteristic two determinant oddness is vacuous and involutions need not be semisimple. Compatible families carry a common coefficient field and common good-place polynomials.
+Fix quaternion split-place identifications. Cuspidal JL excludes norm characters; local division characters match Steinberg twists. Compare automorphic isomorphism classes. Residual comparisons fix coefficient place, residue embedding, lattice and semisimplification. Characteristic-two determinant oddness is vacuous; involutions need not be semisimple. Compatible families have a common coefficient field and good-place polynomials.
 
 AlgebraicModularFormsAndSerreWeights (R15) supplies geometric forms, Hasse invariants and eigenvalue lifting. Namespaces: R16.1–R17.2 `TauCeti.GL2Blueprint`; R17.3–R17.6 and arithmetic character lemmas `TauCeti.GL2Transfer`. Locators use printed pages and the listed editions.
 
@@ -279,7 +279,7 @@ Source: [cg20], §1.3, pp. 805–806; [casselman73], Corollary to the Proof, p. 
 
 ### supercuspidal-kirillov: The supercuspidal Kirillov comparison
 
-For irreducible supercuspidal π with central character ω and nontrivial ψ, restricting the imported Whittaker function W to diag(x,1), x∈F×, identifies its Kirillov realization with C_c^∞(F×,ℂ). For b=(a u;0 d), the action is (π(b)f)(x)=ω(d)ψ(xu/d)f(xa/d). The Weyl action is the imported local functional equation; it is not a freely chosen transform. For the DLB variant, F=ℚp, ω=1 and π is defined over a finite extension L/ℚp. Put L∞=colim_n(L⊗_{ℚp}ℚp(μ_{pⁿ})) and Γ=Gal(ℚp(μ_{p∞})/ℚp), acting on the second factor. Give the smooth mirabolic realization on compactly supported locally constant functions φ:ℚp×→L∞ with φ(ax)=σ_a(φ(x)) for a∈ℤp×, where σ_a is the cyclotomic action. Its extension of scalars to L∞ is the ordinary Kirillov model using a chosen compatible p-power-root additive character. This coefficient-descent statement is additional to complex Whittaker multiplicity one. Locally analytic Kirillov–Colmez theory belongs to R30.
+For irreducible supercuspidal π with central character ω and nontrivial ψ, restricting the imported Whittaker function W to diag(x,1), x∈F×, identifies its Kirillov realization with C_c^∞(F×,ℂ). For b=(a u;0 d), the action is (π(b)f)(x)=ω(d)ψ(xu/d)f(xa/d). The Weyl action is the imported local functional equation; it is not a freely chosen transform. For the DLB variant, F=ℚp, ω=1 and π is defined over a finite extension L/ℚp. Put L∞=colim_n(L⊗_{ℚp}ℚp(μ_{pⁿ})) and Γ=Gal(ℚp(μ_{p∞})/ℚp), acting on the second factor. Give the smooth mirabolic realization on compactly supported locally constant functions φ:ℚp×→L∞ with φ(ax)=σ_a(φ(x)) for a∈ℤp×, where σ_a is the cyclotomic action. After scalar extension to L∞ this is the ordinary Kirillov model for a compatible p-power-root additive character. Coefficient descent is additional to complex multiplicity one; locally analytic Kirillov–Colmez theory belongs to R30.
 
 Smooth characteristic-zero supercuspidal; additive-character and central-character choices visible.
 
@@ -291,7 +291,7 @@ Source: [casselman73], p. 302, equation (1.2). [dlb17], §7.5, Remark 7.10, p. 3
 
 ### henniart-unicity: Henniart’s unicity of supercuspidal types
 
-For the inertial class s of an irreducible supercuspidal π of GL₂(F), there is a unique isomorphism class of irreducible GL₂(O)-representation σ typical for s. It occurs with multiplicity one in every π⊗χdet with χ unramified. If σ occurs in an irreducible admissible π′, then π′≅π⊗χdet for an unramified χ. The type carrier and Bernstein inertial equivalence belong to SR.3/ET.6. No uniqueness is asserted for an arbitrary nonminimal K-constituent.
+A supercuspidal inertial class s of GL₂(F) has a unique irreducible GL₂(O)-type σ, occurring once in every unramified twist π⊗χdet. If σ occurs in an irreducible admissible π′, then π′≅π⊗χdet for unramified χ. Import types/inertial equivalence from SR.3/ET.6; arbitrary nonminimal K-constituents need not be unique.
 
 Characteristic-zero algebraically closed coefficients; nonarchimedean F, including dyadic fields.
 
@@ -357,13 +357,15 @@ Source: [bcgp21], Lemma 2.4.15, pp. 178–179; HKP §4.6 (4.6.1); [hkp10], §2.3
 
 ### archimedean-classification: The explicit archimedean GL₂ cases
 
-Specialize AF.1's Weil groups, LLC and Casselman–Wallach globalizations. Over ℝ, χ₁⊕χ₂ gives the ordered Langlands quotient of normalized induction, including finite-dimensional quotients. Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^(2t)), m≥1, gives full-O(2) D_{m+1}⊗|det|^t, with holomorphic and antiholomorphic positive-determinant pieces. For m=0 the parameter splits at the limit boundary. Over ℂ use the Langlands quotient of two quasicharacters; there is no discrete series modulo centre.
+Specialize AF.1's LLC and Casselman–Wallach globalizations. Over ℝ write χᵢ=sgn^{εᵢ}|·|^{sᵢ}, εᵢ∈{0,1}, and order Re(s₁−s₂)≥0. Normalized induction is reducible exactly when r=s₁−s₂ is a nonzero integer with r−(ε₁−ε₂) odd. For r>0 its submodule is D_{r+1}⊗|det|^{(s₁+s₂)/2} and its Langlands quotient has dimension r; reversing the order reverses the exact sequence. At r=0 with opposite parities, induction is the irreducible full-O(2) weight-one limit, although its positive-determinant restriction splits. The raising/lowering coefficients r+1±n locate the breaks; reflection exchanges the two tails. For m≥1, Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}) gives D_{m+1}⊗|det|^t. For m=0 the parameter splits.
 
-Admissible irreducible Harish–Chandra modules with their Casselman–Wallach globalizations; explicit chamber/order in a Langlands quotient.
+Over ℂ order the real norm exponents likewise. Induction is reducible exactly when χ₁χ₂⁻¹=z^p z̄^q with p,q positive integers, or both negative integers. In the positive case the quotient has dimension pq; the infinite-dimensional submodule has SU(2)-types n≥p+q, n≡p+q mod2. Both constituents are Langlands quotients for suitable character pairs. There is no discrete series modulo centre. Import AF.1's unitary-dual classification separately; ordering alone does not imply unitarity.
 
-Uses: AF `AF.1/weil-group-real`; AF `AF.1/gl2-real-discrete-series`; AF `AF.1/archimedean-llc-gln`; AF `AF.1/casselman-wallach-globalization`.
+Tests: Real ratio |·| gives the one-dimensional quotient and D₂ submodule; ratio sgn gives the irreducible weight-one limit; complex ratio z z̄ gives a one-dimensional quotient, whereas z z̄⁻¹ is irreducible.
 
-Source: [jl70], §5 Lemmas 5.6–5.7; §6 Lemma 6.1, beginning p. 110.
+Uses: AF.1/weil-group-real; AF.1/gl2-real-discrete-series; AF.1/normalized-real-parabolic-induction; AF.1/langlands-classification; AF.1/archimedean-llc-gln; AF.1/vogan-generic-unitary-dual; AF.1/casselman-wallach-globalization.
+
+Source: [jl70-ubc], §5 Lemmas 5.6–10 and Theorem 5.11, pp.83–87; §6 Lemma 6.1 and Theorem 6.2, pp.111–113 (UBC retypeset pagination).
 
 ## R16.3. Local parameters and factors
 
@@ -413,7 +415,7 @@ Every ramified quadratic extension of ℚ₂ has different exponent at least 2. 
 
 ### tate-unitary-normalization: The Tate and unitary normalization bridge
 
-For rank two, recᵀ_F(π)=rec_F(π⊗ν^{-1/2})=rec_F(π)⊗ν_W^{-1/2}. At geometric Φ this multiplies Frobenius by q^{1/2}, multiplies determinant by ν_W^{-1}, preserves N and Artin conductor, and shifts standard factors by L(s,recᵀπ)=L(s−1/2,rec π), likewise epsilon factors with fixed ψ and Haar choices. The rank-two Tate normalization therefore has determinant ωπ·ν_W^{-1}, not ωπ. Frobenius inversion in an arithmetic convention must be applied to the entire WD datum, including the relation for N; it is not this half-twist.
+For rank two recᵀ_F(π)=rec_F(π⊗ν^{-1/2})=rec_F(π)⊗ν_W^{-1/2}. This multiplies geometric Frobenius by √q and determinant by ν_W^{-1}, preserves N and conductor, and shifts L(s,recᵀπ)=L(s−1/2,rec π), likewise epsilon with fixed ψ/measures. Thus det recᵀπ=ωπν_W^{-1}. Arithmetic Frobenius inversion affects the whole WD datum, including its N relation, and differs from this half-twist.
 
 Uses: R16.3/principal-series-parameter; R16.3/steinberg-monodromy; R16.3/supercuspidal-parameter; ET `ET.6`; R01 `R01.2/weil-deligne-representation`; AL `AL.2`.
 
@@ -435,7 +437,7 @@ Source: [casselman73], p. 307 remark following the Corollary to the Proof.
 
 ### archimedean-factor-comparison: The archimedean GL₂ factors
 
-Use Γℝ(s)=π^{−s/2}Γ(s/2), Γℂ(s)=2(2π)^{−s}Γ(s). For a real character sign^ε|·|^u the factor is Γℝ(s+u+ε). For Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), m≥1, the factor is Γℂ(s+t+m/2); thus L(s,D_k)=Γℂ(s+(k−1)/2) for k≥2. At m=0 its split parameter has Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t), without making it an irreducible Weil representation. Over ℂ, a character (z/|z|)^m|z|^{2t} has Γℂ(s+t+|m|/2), and the rank-two factor is the product. With ψℝ(x)=exp(2πix), the real-character epsilon is i^ε and the induced epsilon is i^{m+1}; complex places use ψℂ=ψℝ∘Trℂ/ℝ and AL.1’s convention.
+Use Γℝ(s)=π^{−s/2}Γ(s/2), Γℂ(s)=2(2π)^{−s}Γ(s). For a real character sign^ε|·|^u the factor is Γℝ(s+u+ε). For Ind_{ℂ×}^{Wℝ}((z/|z|)^m|z|^{2t}), m≥1, it is Γℂ(s+t+m/2); thus L(s,D_k)=Γℂ(s+(k−1)/2). At m=0 its split parameter gives Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t). A complex character (z/|z|)^m|z|^{2t} gives Γℂ(s+t+|m|/2); rank-two factors multiply. For ψℝ(x)=exp(2πix), real-character epsilon is i^ε and induced epsilon is i^{m+1}. For ψℂ=ψℝ∘Trℂ/ℝ, complex angular weight m gives i^{|m|}, by AL.2/archimedean-standard-epsilon. Norm twists leave these constants unchanged. Tests: D₂ has epsilon −1; angular weights ±1 both give i; weight zero gives 1, including the complex norm twist.
 
 Archimedean local reciprocity, absolute value |z|ℂ=|z|², gamma and additive-character conventions fixed.
 
@@ -752,13 +754,13 @@ Source: [jl70], §15 special/norm-character correspondence; §16 p. 269.
 
 ### real-quaternionic-comparison: The real quaternionic coefficient comparison
 
-For D=Hamilton quaternions at a real place, an irreducible algebraic D× representation restricts to SU(2) as Sym^{k−2} for k≥2, with its specified positive-real central character. Its local JL image is D_k with the norm twist that gives the same central character. Under the complex splitting, the algebraic representation Sym^{k−2}⊗det^m has scalar action z^{k−2+2m}; comparison with the unitary D_k therefore includes the explicit |det|^{(k−2+2m)/2} twist and the same sign^k on ℝ×. For k=2,m=0 the trivial quaternionic representation transfers to D₂. One does not assert that an arbitrary unitary D_k is itself a finite-dimensional algebraic representation.
+For Hamilton D, the algebraic representation Sym^{k−2}⊗det^m, k≥2, m integer, transfers to D_k⊗|det|^{(k−2+2m)/2}. Both have scalar exponent k−2+2m and sign^k on ℝ×. On SU(2) its character at diag(e^{iθ},e^{-iθ}), sinθ≠0, is sin((k−1)θ)/sinθ, dimension k−1. Summing the two D_k weight tails on the matched elliptic class gives its negative; this checks JL's sign −1 with the same norm twist. Tests: k=2 gives the trivial quaternion type and D₂; k=3 gives dimension two and character 2cosθ; k=1 is excluded since Sym^{-1} is undefined. Unitary D_k itself need not be algebraic.
 
 Real place, k≥2 and m integer; AF.1 supplies the full O(2) representation and archimedean LLC.
 
 Uses: R17.1/local-quaternionic-comparison; R16.2/archimedean-classification; R16.3/archimedean-factor-comparison; R16.6/hilbert-algebraic-weights; AF `AF.1`; QuadraticFormInvariants Layer 2.
 
-Source: [cdn20], §5.2.1 pp. 347–348.
+Source: [cdn20], §5.2.1 pp.347–348; [jl70-ubc], §5 Lemmas 5.6 and 5.10 pp.83–86, §6 Lemma 6.1 pp.111–112 for the weight and SU(2) character calculations.
 
 <a id="r17-1-wild-dyadic-transfer"></a>
 
@@ -887,7 +889,9 @@ Source: [jl70], §16 equation (16.1.7), p.277; preceding Steinberg averaged cons
 
 For matching factorizable functions, prove the ordinary/quaternion and cyclic twisted GL₂ trace identities with the preceding ledger. The cyclic identity is tr R(φ)R(σ)=tr r(f), where R contains d copies of the twisted discrete spectrum and the quadratic exceptional summand, and r excludes one-dimensional and induced continuous constituents as in [langlands80] §11.
 
-**Cyclic proof.** Unfold truncated kernels using AS.6. Match elliptic and scalar terms by the cyclic Hasse norm theorem, centralizer Tamagawa volumes and index d. The singular constants (10.4) and d(10.31) agree. Sum m′/m over the norm fibre to obtain d·m_E′/m_E; this cancels (10.3) against d(10.28). The logarithmic unipotent identity of §9 cancels (10.5) against d(10.32). Adding the exceptional τ trace to d(10.30) cancels (10.2), using M=−1 and the d self-associate norm preimages. The remaining expression is the local B-discrepancy integral (11.1); its good spherical terms vanish by §11's local calculation. Do not assume the bad-place B identity. Vary a split good-place Hecke function: the discrete side gives an absolutely summable atomic measure on the compact unitary Satake set (including complementary parameters), and the induced derivative integral gives an absolutely continuous measure on its unit-circle part. Weyl-invariant Laurent polynomials are dense by Stone–Weierstrass; equality of these measures forces every atom to vanish. Absolute convergence permits fixing and then varying the other finitely many Hecke factors. This proves the trace identity with arbitrary bad-place factors.
+**Cyclic proof.** Use AS.6 truncation. Match elliptic/scalar terms by the cyclic Hasse norm theorem, centralizer volumes and index d. Singular terms (10.4) and d(10.31) agree. Factor the Hecke L-functions over the norm-character fibre; logarithmic differentiation gives ∑m′/m=d·m_E′/m_E, cancelling (10.3) and d(10.28). For the unipotent terms, §9 gives A₃(c,φ)=−θ′(c,0,φ) and θ′(c,0,φ)=dθ′(Nc,0,f), including archimedean logarithmic corrections; this cancels (10.5) and d(10.32). The exceptional τ trace cancels (10.2) against d(10.30), using M=−1 and d self-associate preimages. The remaining B-discrepancy (11.1) vanishes at good spherical places, but its bad-place identity must be proved.
+
+For Hecke separation require ∑|cᵢ|<∞ for the discrete coefficients and ∫|d(it)|dt<∞ for the periodized derivative density of (11.6)–(11.7). AS.6/fine-spectral-expansion supplies absolute convergence at each height, not this joint bound. Establish the rank-two estimate here before exchanging sums: smooth archimedean decay must dominate discrete spectral growth and the Hecke logarithmic derivatives. With these bounds, the two sides define finite measures on the compact unitary Satake set, including complementary parameters. Laurent-polynomial density and atomic/continuous separation kill every atom. Fixing and varying finitely many other factors then gives the identity with arbitrary bad-place functions.
 
 **Quaternion proof.** Use AS.6's convergent trace formula with [jl70] §16's eight-term GL₂ expansion. Put a supercuspidal coefficient or Steinberg projector at every ramified place. Both satisfy (16.1.7), and there are at least two such places. Every split, singular and continuous term therefore has a zero factor, including each local derivative term. Elliptic matching identifies the remaining noncentral geometric terms. Initially retain the possible difference of scalar coefficients: trace separation and [jl70] Lemma 16.1.2 would turn a nonzero difference into a multiple of the regular-representation trace on the away-place group, forcing that noncompact group to be compact. This forces both trace equality and the volume/formal-degree identity. Retain norm characters on both sides until subtracting their equal traces; each Steinberg factor gives −1, whose global product is 1. Character independence gives the cuspidal transfer. AS supplies the analytic justification that the 1970 text explicitly leaves formal; ET.4's unitary transfer does not supply this GL₂ identity.
 
@@ -924,7 +928,7 @@ Tests:
 
 Uses: R16.1; R16.4; R17.1; R17.2; R16.2; AF `AF.2/automorphic-representation`; AF `AF.2/flath-factorization`; AF `AF.3/cuspidal-automorphic-representation`.
 
-Source: [br10], §1.5, definition of discrete series, p. 5; [br10], §18.1, Theorem 18.1(a), p. 44; also Theorem 1.4(a), p. 6; [jl70-global], §14, Theorem 14.4, p. 247; [jl70-global], §16, Theorem 16.1, p. 261; [jl70-global], §16, paragraph after Theorem 16.1, p. 261.
+Source: [br10], §1.5, definition of discrete series, p. 5; §18.1, Theorem 18.1(a), p. 44; also Theorem 1.4(a), p. 6; [jl70-global], §14, Theorem 14.4, p. 247; §16, Theorem 16.1, p. 261; §16, paragraph after Theorem 16.1, p. 261.
 
 <a id="r17-3-norm-exception"></a>
 
@@ -946,7 +950,7 @@ For π=JL_Dπ′, the fixed split-place identifications identify local represent
 
 Uses: R17.3/global-jl; R16.2.
 
-Source: [cdn23], §4.1.3, p. 39; [cdn23], §4.1.4, p. 41; [cdn23], §4.1.2, p. 39.
+Source: [cdn23], §4.1.3, p. 39; §4.1.4, p. 41; §4.1.2, p. 39.
 
 <a id="r17-3-local-factors"></a>
 
@@ -956,7 +960,7 @@ For π=JL_D(π′), compatible ψ and self-dual measures, every local character 
 
 Uses: R17.3/global-jl; R16.3; R17.1; R16.5.
 
-Source: [jl70-global], §14, before Theorem 14.4, p. 247; [jl70-global], §14, proof of Theorem 14.2, p. 241.
+Source: [jl70-global], §14, before Theorem 14.4, p. 247; §14, proof of Theorem 14.2, p. 241.
 
 <a id="r17-3-strong-multiplicity-one"></a>
 
@@ -966,7 +970,7 @@ Let π′ and σ′ be discrete series of D×(A_F): irreducible subrepresentatio
 
 Uses: R17.3/global-jl; R16.4.
 
-Source: [br10], §1.5, Theorem 1.4(c), p. 6; [br10], §18.1, Theorem 18.1(b), second sentence, p. 44; [cdn20-global], §5.2.1, proof of Proposition 5.2, p. 45.
+Source: [br10], §1.5, Theorem 1.4(c), p. 6; §18.1, Theorem 18.1(b), second sentence, p. 44; [cdn20-global], §5.2.1, proof of Proposition 5.2, p. 45.
 
 <a id="r17-3-multiplicity-one"></a>
 
@@ -976,7 +980,7 @@ For a fixed unitary central character ω, every non-one-dimensional discrete ser
 
 Uses: R17.3/global-jl; R17.2; R16.4.
 
-Source: [br10], §1.5, Theorem 1.4(b), p. 6; [br10], §18.1, Theorem 18.1(b), first sentence, p. 44.
+Source: [br10], §1.5, Theorem 1.4(b), p. 6; §18.1, Theorem 18.1(b), first sentence, p. 44.
 
 <a id="r17-3-coefficient-conjugation"></a>
 
@@ -998,7 +1002,7 @@ Let (π′, π) be the cohomological JL pair of coefficient-conjugation, and L �
 
 Uses: R17.3/coefficient-conjugation; R16.4; R17.3/split-hecke; AF `AF.4/rationality-field`; AF `AF.4/clozel-rationality`.
 
-Source: [cdn20-global], §5.2.1, p. 44; [cdn20-global], §5.2.1, footnote 21, p. 44.
+Source: [cdn20-global], §5.2.1, p. 44; §5.2.1, footnote 21, p. 44.
 
 <a id="r17-3-definite-infinity"></a>
 
@@ -1010,13 +1014,13 @@ In Pan's specialization K^p is identified through his main involution, T_S=ℤ_p
 
 Uses: R17.3/global-jl; R17.3/split-hecke; R17.1; R16.6.
 
-Source: [pan26-global], §5.4.10, before Definition 5.4.11, p. 71; [pan26-global], Definition 5.4.11(2), p. 71; [pan26-global], §5.5.5, p. 75; [pan26-global], §5.5.5, p. 76.
+Source: [pan26-global], §5.4.10, before Definition 5.4.11, p. 71; Definition 5.4.11(2), p. 71; §5.5.5, p. 75; §5.5.5, p. 76.
 
 <a id="r17-3-indefinite-parity"></a>
 
 ### indefinite-parity: Indefinite transfer and the parity input
 
-For totally real F of degree d, a quaternion algebra B split at exactly one real place and ramified at the other d−1 has a ramification set of even cardinality, so its number of ramified finite places has the parity of d−1. In CDN20 §5.2.1, B̌ is split at ∞₀, compact modulo the centre at the other real places and ramified at 𝔭; CDN20 puts no degree condition on F, and the parity of the remaining finite ramification is forced by the product formula. Given such B and a cuspidal π of GL₂(A_F) that is square-integrable at every place of Ram(B), the inverse transfer JL_B^{-1}(π) is the automorphic representation used on the associated Shimura curve. It has the same components, hence the same Hecke data, at every split finite place. The geometry and integral/cohomological realization belong to R18/R22. Parity is applied from ClassFieldTheory Layer 14, not reproved.
+For totally real F of degree d, a quaternion B split at one real place has d−1 ramified real places. Its finite ramification has the parity of d−1 by ClassFieldTheory14. CDN20 §5.2.1 prescribes B̌ split at ∞₀, compact modulo centre elsewhere at infinity and ramified at 𝔭; it imposes no degree condition on F. Remaining finite ramification must satisfy parity. For such B and cusp π square-integrable at every ramified place, JL_B^{-1}(π) supplies the Shimura-curve automorphic representation, with unchanged components/Hecke data at split finite places. Geometry and cohomological realization belong to R18/R22.
 
 Allow d=1. B is given, and π is square-integrable at every ramified place, including every ramified real place.
 
@@ -1034,7 +1038,7 @@ Fix the maximal-order identifications (O_{D⁰})_v≅M₂(O_{E_v}) and the away-
 
 Uses: R17.3/global-jl; R17.3/split-hecke; ClassFieldTheory Layer 14; R17.1; GlobalQuadraticForms §4.4 (`exists_hilbertSymbol_eq_neg_one_iff_pair`); QuadraticFormInvariants Layer 2.
 
-Source: [cdn23], §4.1.1, Proposition 4.5, p. 37; [cdn23], §4.1.2, p. 38; [cdn23], §4.1.2, equation (4.6), p. 38; [cdn23], §4.1.2, p. 38.
+Source: [cdn23], §4.1.1, Proposition 4.5, p. 37; §4.1.2, p. 38; §4.1.2, equation (4.6), p. 38; §4.1.2, p. 38.
 
 <a id="r17-3-supercuspidal-globalization"></a>
 
@@ -1042,15 +1046,17 @@ Source: [cdn23], §4.1.1, Proposition 4.5, p. 37; [cdn23], §4.1.2, p. 38; [cdn2
 
 In CDN20 §5.2.1 fix F₀/ℚ_p, a coefficient field L/ℚ_p, C≅Q̄_p, and supercuspidal τ=LL(M) with centre trivial on ϖ. Let E be totally real with E_𝔭≅F₀. B̌ ramifies at 𝔭 and every real place except ∞₀; B exchanges invariants at {𝔭,∞₀}. Construct an automorphic Π̌ with Π̌_𝔭=JL(τ), trivial types at compact real places, and weight-two holomorphic discrete series at ∞₀. Permit the central-character adjustment of footnote 21: twist τ by ηdet and its division partner by ηNrd, and replace L by a finite extension. Global JL then gives Π on B with Π_𝔭=τ and Π_f^𝔭=Π̌_f^𝔭. The latter determines Π̌_𝔭 by strong multiplicity one.
 
-Proof: Since ω_τ has finite image on O× and is trivial on ϖ, extend it by full-local-character-prescription to finite Ψ, trivial at infinity. AA.3 gives compactness modulo centre for B̌×. A normalized JL(τ) matrix coefficient at 𝔭 has trace one only on that class and kills norm characters, since dim JL(τ)>1. Average at compact real places. At ∞₀ use the D₂ pseudo-coefficient, obtained by changing the sign of the AS.6.17 Euler–Poincaré function: full-O(2) H¹ has dimension one and identity value becomes positive formal degree. One-dimensional exceptions are killed at 𝔭. Apply AS.6.16 and Fourier projection on AA.2's compact central idele-class quotient to obtain the fixed-Ψ trace.
+Proof: Extend ω_τ by full-local-character-prescription to finite Ψ, trivial at infinity. AA.3 gives compactness modulo centre for B̌×. A normalized JL(τ) matrix coefficient at 𝔭 has trace one on that class and kills norm characters, since dim JL(τ)>1. Average at compact real places. At ∞₀ balance the split centre and use (sl₂,O(2)). Its tangent representation has weights ±2; D₂ contains that O(2)-type once and has no weight zero. Thus relative cochains vanish in degrees 0,2 and have dimension one in degree 1. The negative AS.6 Euler–Poincaré function has D₂ trace +1 and identity value its positive formal degree. One-dimensional exceptions are killed at 𝔭. Using (gl₂,O(2)) without balancing would instead give zero Euler characteristic.
 
-Fix these supports modulo centre and compact idempotents elsewhere. Shrink an auxiliary split-place level. For rational γ the central invariant Δ=(trd²−4Nrd)/Nrd is bounded on fixed supports and uniformly small at the shrinking place. The product formula forces Δ=0; a repeated characteristic root in a characteristic-zero division algebra forces γ scalar. Only the identity class remains, with positive volume times formal degrees and inverse auxiliary volume. The spectral trace therefore contains the prescribed Π̌ and no norm character. This proves the fixed-centre specialization rather than enlarging a semisimple-group theorem's hypotheses.
+On AA.2's compact central quotient C of mass one, P_Ψ=∫_C Ψ(z)⁻¹R(z)dz projects onto the Ψ-isotypic space by character orthogonality. AS.6 gives trace-class T=R(f) and ‖R(z)T‖₁=‖T‖₁. Trace-norm continuity and AS.0's bounded trace justify tr(P_ΨT)=∫_C Ψ(z)⁻¹tr(R(z)T)dz. Apply this to the compact trace formula with the same centralizer measures.
+
+Fix supports modulo centre and compact idempotents elsewhere; shrink an auxiliary split-place level. The rational central invariant Δ=(trd²−4Nrd)/Nrd is bounded on fixed supports and uniformly small at the shrinking place. The product formula forces Δ=0. A repeated characteristic root in a characteristic-zero division algebra forces γ scalar. Only the identity class remains, with positive volume times formal degrees and inverse auxiliary volume. Hence the spectral trace contains the prescribed Π̌ and no norm character.
 
 Cohomological JL and AF.4 rationality give an actual number-field model after finite extension. Combine its p-adic completion with L, obtaining the allowed coefficient extension. Strong multiplicity one determines the missing 𝔭 component from Π̌_f^𝔭.
 
-Uses: R17.3/global-jl; R17.3/strong-multiplicity-one; R17.3/rational-models; R16.1/full-local-character-prescription; AA.2 central quotient and AA.3/compactness-anisotropic; AS.6.16 compact trace and AS.6.17 Euler–Poincaré functions; AF.1a relative cohomology; AF.4/clozel-rationality.
+Uses: R17.3/global-jl; R17.3/strong-multiplicity-one; R17.3/rational-models; R16.1/full-local-character-prescription; AA.2; AA.3/compactness-anisotropic; AS.0/trace-class; AS.6/compact-trace-specialization; AS.6/general-euler-poincare; AF.1a relative cohomology; AF.1/gl2-real-discrete-series; AF.4/clozel-rationality.
 
-Source: [cdn20-global], §5.2.1 pp.43–44, footnote 21; [clozel86], §3.2 Lemmas 4–5 pp.271–272 for the shrinking-level/product-formula argument, §4.3 Theorem 1B pp.279–280 for prescribed supercuspidal multiplicities. The fixed-centre division-algebra specialization above removes the unipotent terms of Clozel's semisimple proof. The hypotheses of his general theorem are not silently enlarged.
+Source: [cdn20-global], §5.2.1 pp.43–44, footnote 21; [getz15], §6.5 p.34 for the O(2)-types (AF.1 supplies corrected operators); [clozel86], §3.2 Lemmas 4–5 pp.271–272, Lemma 9 p.274, §4.3 Theorem 1B pp.279–280. The fixed-centre division-algebra argument removes unipotent terms; it does not enlarge Clozel's semisimple theorem.
 
 ## R17.4. Cyclic, solvable and cubic base change
 
@@ -1106,7 +1112,7 @@ Tests:
 
 Uses: R17.4/unramified-base-change; R17.2; R16.3; R16.4; GlobalNumberFields Layer 8.
 
-Source: [langlands80], §2, global properties (A),(B), p. 14; proof in §11, Lemma 11.3 and Proposition 11.4, pp. 140–145; [langlands80], §8, split places, p. 93; [ac89], Chapter 3, Theorem 5.1 (with Theorem 4.2(a)–(c)), pp. 202 and 212.
+Source: [langlands80], §2, global properties (A),(B), p. 14; proof in §11, Lemma 11.3 and Proposition 11.4, pp. 140–145; §8, split places, p. 93; [ac89], Chapter 3, Theorem 5.1 (with Theorem 4.2(a)–(c)), pp. 202 and 212.
 
 <a id="r17-4-local-compatibility"></a>
 
@@ -1118,7 +1124,7 @@ Use Frobenius-semisimple Weil–Deligne parameters and the R16.3 arithmetic norm
 
 Uses: R17.4/cyclic-base-change; R16.3.
 
-Source: [ac89], Chapter 3, Definition 1.2 and Theorem 5.1, pp. 199, 212–213; [langlands80], §2, local result (e), p. 10; [langlands80], §7, Lemma 7.6, p. 68; [langlands80], §11, Lemma 11.8, p. 151; [carayol86], §12.2.2, p. 457.
+Source: [ac89], Chapter 3, Definition 1.2 and Theorem 5.1, pp. 199, 212–213; [langlands80], §2, local result (e), p. 10; §7, Lemma 7.6, p. 68; §11, Lemma 11.8, p. 151; [carayol86], §12.2.2, p. 457.
 
 <a id="r17-4-cyclic-descent"></a>
 
@@ -1130,19 +1136,19 @@ A descent is a preimage under strong cyclic base change; norm-kernel characters 
 
 Uses: R17.4/cyclic-base-change; R17.2; ClassFieldTheory Layer 11.
 
-Source: [langlands80], §11, Lemma 11.6(b), p. 151; [langlands80], §2, global property (C), p. 14.
+Source: [langlands80], §11, Lemma 11.6(b), p. 151; §2, global property (C), p. 14.
 
 <a id="r17-4-cuspidality"></a>
 
 ### cuspidality: The exact prime-cyclic cuspidality criterion
 
-Let π be cuspidal GL₂ over F and E/F cyclic of prime degree ℓ; let η be a generator of the order-ℓ group of Hecke characters of F trivial on F^×N_{E/F}(A_E^×). Then BC_{E/F}(π) is noncuspidal if and only if π≅π⊗η. This can occur only for ℓ=2. In that case BC(π)=θ⊞θ^σ for a Hecke character θ with θ≠θ^σ. The identification of π with quadratic automorphic induction is provided by R17.5/quadratic-induction, after this base-change criterion. For prime ℓ>2 the output is always cuspidal. For composite cyclic extensions test each prime step; an odd prime criterion is not a criterion for every composite degree.
+Let π be cuspidal GL₂ over F and E/F cyclic of prime degree ℓ; let η be a generator of the order-ℓ group of Hecke characters of F trivial on F^×N_{E/F}(A_E^×). Then BC_{E/F}(π) is noncuspidal if and only if π≅π⊗η. This can occur only for ℓ=2. In that case BC(π)=θ⊞θ^σ for a Hecke character θ with θ≠θ^σ. The identification of π with quadratic automorphic induction is provided by R17.4/quadratic-induction, after this base-change criterion. For prime ℓ>2 the output is always cuspidal. For composite cyclic extensions test each prime step; an odd prime criterion is not a criterion for every composite degree.
 
 The criterion is independent of the chosen generator η. Reduce Arthur–Clozel's unitary statement by a |det|^s twist for a nonunitary cuspidal π.
 
 Uses: R17.4/cyclic-base-change; R17.4/cyclic-descent; GlobalNumberFields Layer 9.
 
-Source: [ac89], Chapter 3, Theorem 4.2(a),(b), p. 202; [langlands80], §11, Lemma 11.7, p. 151; [langlands80], §11, Lemma 11.3(b), p. 141; Lemma 11.3(a) on p. 140.
+Source: [ac89], Chapter 3, Theorem 4.2(a),(b), p. 202; [langlands80], §11, Lemma 11.7, p. 151; §11, Lemma 11.3(b), p. 141; Lemma 11.3(a) on p. 140.
 
 <a id="r17-4-cyclic-descent-fibers"></a>
 
@@ -1154,7 +1160,7 @@ E/F is prime-cyclic and η generates its order-ℓ norm-kernel character group; 
 
 Uses: R17.4/cyclic-descent; R17.4/cuspidality.
 
-Source: [langlands80], §11, Lemma 11.6(a), p. 150; (b) on p. 151; [langlands80], §2, global property (C), p. 14.
+Source: [langlands80], §11, Lemma 11.6(a), p. 150; (b) on p. 151; §2, global property (C), p. 14.
 
 <a id="r17-4-isobaric-fibers"></a>
 
@@ -1166,7 +1172,7 @@ E/F is prime-cyclic; χ₁,χ₂ need not be unitary. Twisting characters are tr
 
 Uses: R17.4/cyclic-base-change; R17.4/cyclic-descent-fibers; GlobalNumberFields Layer 8; ClassFieldTheory Layer 11; R16.4.
 
-Source: [langlands80], §2, global property (C), first sentence, p. 14; [langlands80], §11, verification of (A)–(G), p. 151; [langlands80], §11, verification of (B), p. 151.
+Source: [langlands80], §2, global property (C), first sentence, p. 14; §11, verification of (A)–(G), p. 151; §11, verification of (B), p. 151.
 
 <a id="r17-4-solvable-base-change"></a>
 
@@ -1202,7 +1208,7 @@ Two prime-cyclic subnormal towers from F to the same solvable Galois E give the 
 
 Uses: R17.4/solvable-base-change; R17.4/unramified-base-change; R17.4/local-compatibility; R16.4.
 
-Source: [ac89], Chapter 3 §7, proof of Theorem 7.3, p. 222; [langlands80], §3, Lemma 3.1, p. 15; [langlands80], §11, verification of (A)–(G), p. 151.
+Source: [ac89], Chapter 3 §7, proof of Theorem 7.3, p. 222; [langlands80], §3, Lemma 3.1, p. 15; §11, verification of (A)–(G), p. 151.
 
 <a id="r17-4-solvable-descent"></a>
 
@@ -1212,7 +1218,7 @@ For a prime-cyclic tower F=F₀⊂⋯⊂F_r=E, an isobaric Π over E descends al
 
 Uses: R17.4/cyclic-descent; R17.4/cyclic-descent-fibers; R17.4/isobaric-fibers; R17.4/solvable-base-change.
 
-Source: [ac89], Chapter 3 §3, Theorem 3.1 and its introduction, p. 201; [ac89], Chapter 3, Theorem 4.2(f) (and (d)), p. 203; [langlands80], §2, global properties (A),(B), p. 14.
+Source: [ac89], Chapter 3 §3, Theorem 3.1 and its introduction, p. 201; Chapter 3, Theorem 4.2(f) (and (d)), p. 203; [langlands80], §2, global properties (A),(B), p. 14.
 
 <a id="r17-4-prescribed-local-base-change"></a>
 
@@ -1222,7 +1228,7 @@ Suppose a solvable normal extension E/F has already been produced by the arithme
 
 Uses: R17.4/solvable-base-change; R17.4/local-compatibility; R17.4/cuspidality.
 
-Source: [carayol86], §12.3.2, p. 459; [carayol86], §12.3.1, pp. 458–459; [langlands80], §8, split places, p. 93.
+Source: [carayol86], §12.3.2, p. 459; §12.3.1, pp. 458–459; [langlands80], §8, split places, p. 93.
 
 <a id="r17-4-highly-ramified-converse"></a>
 
@@ -1264,7 +1270,7 @@ Tests:
 
 Uses: R16.3; AL `AL.3`; AF `AF.2/automorphic-representation`; R01 `G7`; MetaplecticAutomorphicForms `MP.5`; ET `ET.6`; AF `AF.3/cuspidal-automorphic-representation`; R17.4/highly-ramified-converse.
 
-Source: [gj78], Introduction, p. 472; [gj78], §3.1, Definition 3.1.3 and the remark after it, p. 485; [gj78], §3.6, p. 491; [gj78], §9, Theorem 9.3, p. 534; [gj78], Remark 9.9, p. 541; with §3.7, p. 491; [gj78], §5 lead-in, Theorem 8.1, p. 496; proof in §§5–8.
+Source: [gj78], Introduction, p. 472; §3.1, Definition 3.1.3 and the remark after it, p. 485; §3.6, p. 491; §9, Theorem 9.3, p. 534; Remark 9.9, p. 541; with §3.7, p. 491; §5 lead-in, Theorem 8.1, p. 496; proof in §§5–8.
 
 <a id="r17-4-cubic-character-induction"></a>
 
@@ -1276,7 +1282,7 @@ JPSS assumes θ unitary; a quasi-character is reduced by a norm twist. In the in
 
 Uses: AL `AL.3`; AF `AF.2/automorphic-representation`; GlobalNumberFields Layer 9; ClassFieldTheory Layer 11; AL `AL.1/hecke-l-functional-equation`; ET `ET.6`; AF `AF.3/cuspidal-automorphic-representation`; Tau Ceti `TauCeti.simple_indFDRep_ofLinearCharacter_iff`; AL `AL.3/gln-converse-reduced-rank`.
 
-Source: [jpss79], Automorphic forms on GL(3) II, §14.2, Theorem (14.2), pp. 253–254; [jpss79], §14.2, remark on monomial representations after the proof, p. 255; [ac89], Chapter 3 §6, Definition 6.1 and Theorem 6.2, p. 215; [ac89], Chapter 3 §6, Lemmas 6.3–6.4 and Corollary 6.5, pp. 217–218; [langlands80], §3(i), p. 17.
+Source: [jpss79], Automorphic forms on GL(3) II, §14.2, Theorem (14.2), pp. 253–254; §14.2, remark on monomial representations after the proof, p. 255; [ac89], Chapter 3 §6, Definition 6.1 and Theorem 6.2, p. 215; Chapter 3 §6, Lemmas 6.3–6.4 and Corollary 6.5, pp. 217–218; [langlands80], §3(i), p. 17.
 
 <a id="r17-4-gl3-recognition"></a>
 
@@ -1288,7 +1294,33 @@ Require absolute convergence of the Euler product in some right half-plane. S co
 
 Uses: R17.4/highly-ramified-converse; AL `AL.3/gln-converse-reduced-rank`; AL `AL.3/rs-global-poles`; AL `AL.3/rs-boundary-nonvanishing`; R17.4/adjoint-lift; R17.4/cubic-character-induction; AL `AL.2/jacquet-shalika-satake-bound`; AL `AL.3/rs-local-convergence`; AL `AL.3/rs-local-factor`.
 
-Source: [converse], §3, sentence before Theorem 3.3 and Theorem 3.3, p. 9; [converse], §3, applications (iv)–(v), p. 10; [gj78], Introduction, p. 473; §9.2, pp. 532–534; [langlands80], §3(i), p. 18, with (3.1)–(3.2); [cogdell-fields], Lecture 9 §7, Theorem 9.3 proof, pp.74–75.
+Source: [converse], §3, sentence before Theorem 3.3 and Theorem 3.3, p. 9; §3, applications (iv)–(v), p. 10; [gj78], Introduction, p. 473; §9.2, pp. 532–534; [langlands80], §3(i), p. 18, with (3.1)–(3.2); [cogdell-fields], Lecture 9 §7, Theorem 9.3 proof, pp.74–75.
+
+<a id="r17-4-quadratic-induction"></a>
+<a id="r17-5-quadratic-induction"></a>
+
+### quadratic-induction: Quadratic automorphic induction
+
+Let K/F be a quadratic extension of number fields, σ its nontrivial automorphism and θ a Hecke character of K. Quadratic automorphic induction AI_{K/F}(θ) is an isobaric GL₂ automorphic representation with local parameter Ind_{W_{K_w}}^{W_{F_v}}(θ_w), interpreted as the direct sum over w|v at a split place. It is cuspidal exactly when θ≠θ^σ. Its central character is η_{K/F}·θ|_{A_F×}, and L_F(s,AI θ)=L_K(s,θ). Its quadratic base change is θ⊞θ^σ. It commutes with twisting by χ of F using θ·(χ∘N_{K/F}); if θ=χ∘N, it is χ⊞χη, not cuspidal. Import finite-group induction and Mackey formulas.
+
+API:
+
+- `quadraticInduction_local`: Local LLC of AI θ is local induction of θ, with a direct sum at a split place.
+- `quadraticInduction_central`: ω(AI θ)=η_{K/F}·θ|_{A_F×}.
+- `quadraticInduction_baseChange`: BC_{K/F}(AI θ)=θ⊞θ^σ.
+- `quadraticInduction_twist`: AI(θ·χ∘N)=AI(θ)⊗χ.
+- `quadraticInduction_cuspidal`: AI θ is cuspidal if and only if θ≠θ^σ.
+
+Tests:
+
+- θ=χ∘N has output χ⊞χη and is not cuspidal.
+- At v split as w,w′ the local parameter is θ_w⊕θ_w′.
+- For a coset element with induced matrix [[0,a],[b,0]], its determinant is −ab, accounting for the quadratic character.
+- When θ≠θ^σ, replacing AI θ by two F-characters contradicts cuspidality.
+
+Uses: R17.4/cyclic-base-change; R16.3; GlobalNumberFields Layer 9; ClassFieldTheory Layer 11; R16.5; AL `AL.1/hecke-l-functional-equation`; Tau Ceti `TauCeti.simple_indFDRep_ofLinearCharacter_iff`.
+
+Source: [jl70-global], §12, Proposition 12.1, p. 206; §12, paragraph before Proposition 12.1, p. 206; [ac89], Chapter 3 §6, Theorem 6.2, p. 215; Lemmas 6.3–6.4 and Corollary 6.5, pp. 217–218.
 
 <a id="r17-4-nonnormal-cubic-base-change"></a>
 
@@ -1314,36 +1346,11 @@ Tests:
 
 The local norm-phase calculation is a subsidiary target. For K=ℚ[t]/(t³−2), multiplication by a+bt+ct² in (1,t,t²) has matrix M=(a,2c,2b;b,a,2c;c,b,a). Define N=det M and Q=((tr M)²−tr(M²))/2. API: N=a³+2b³+4c³−6abc; Q=3a²−6bc; N(C+a,b,c)−3(C+a)=−2C+CQ(a,b,c)+N(a,b,c) for C=±1. The quadratic Gram determinant is −27=disc(t³−2)/4. Tests: M(0,1,0)³=2I and M(1,0,0)=I; N(0,1,0)=2, N(0,0,1)=4, N(1,1,1)=1; Q(1,1,1)=−3, Q(0,1,0)=0, Q(1,0,0)=3. Over ℚ₂ the discriminant has square class −3; its unit residue 5 has no square root modulo 8. Cubic local fields need not have square discriminant; the critical points have opposite quadratic terms. Stationary phase is separate.
 
-Uses: R17.4/cyclic-base-change; R16.3–4; R17.5/quadratic-induction; GlobalNumberFields Layer 8; AF.5 and AS.3–4 spectral estimates; AA.2–3; AL.0 Fourier theory; MetaplecticAutomorphicForms MP.2 and MP.4. The cubic relative-trace specialization is part of this target.
+Uses: R17.4/cyclic-base-change; R16.3–4; R17.4/quadratic-induction; GlobalNumberFields Layer 8; AF.5 and AS.3–4 spectral estimates; AA.2–3; AL.0 Fourier theory; MetaplecticAutomorphicForms MP.2 and MP.4. The cubic relative-trace specialization is part of this target.
 
-Source: [mr00], Theorem 6 p.195 for weak transfer, §4 pp.185–186 for the norm-phase calculation; [tunnell81], Theorem [4] and following paragraph p.173; [carayol86], §12.2.1, p. 457; [carayol86], §12.2.1(b), p. 457.
+Source: [mr00], Theorem 6 p.195 for weak transfer, §4 pp.185–186 for the norm-phase calculation; [tunnell81], Theorem [4] and following paragraph p.173; [carayol86], §12.2.1, p. 457; §12.2.1(b), p. 457.
 
 ## R17.5. Automorphic induction and solvable Artin representations
-
-<a id="r17-5-quadratic-induction"></a>
-
-### quadratic-induction: Quadratic automorphic induction
-
-Let K/F be a quadratic extension of number fields, σ its nontrivial automorphism and θ a Hecke character of K. Quadratic automorphic induction AI_{K/F}(θ) is an isobaric GL₂ automorphic representation with local parameter Ind_{W_{K_w}}^{W_{F_v}}(θ_w), interpreted as the direct sum over w|v at a split place. It is cuspidal exactly when θ≠θ^σ. Its central character is η_{K/F}·θ|_{A_F×}, and L_F(s,AI θ)=L_K(s,θ). Its quadratic base change is θ⊞θ^σ. It commutes with twisting by χ of F using θ·(χ∘N_{K/F}); if θ=χ∘N, it is χ⊞χη, not cuspidal. The finite-group induction carrier and Mackey formulas are imported, not defined here.
-
-API:
-
-- `quadraticInduction_local`: Local LLC of AI θ is local induction of θ, with a direct sum at a split place.
-- `quadraticInduction_central`: ω(AI θ)=η_{K/F}·θ|_{A_F×}.
-- `quadraticInduction_baseChange`: BC_{K/F}(AI θ)=θ⊞θ^σ.
-- `quadraticInduction_twist`: AI(θ·χ∘N)=AI(θ)⊗χ.
-- `quadraticInduction_cuspidal`: AI θ is cuspidal if and only if θ≠θ^σ.
-
-Tests:
-
-- θ=χ∘N has output χ⊞χη and is not cuspidal.
-- At v split as w,w′ the local parameter is θ_w⊕θ_w′.
-- For a coset element with induced matrix [[0,a],[b,0]], its determinant is −ab, accounting for the quadratic character.
-- When θ≠θ^σ, replacing AI θ by two F-characters contradicts cuspidality.
-
-Uses: R17.4/cyclic-base-change; R16.3; GlobalNumberFields Layer 9; ClassFieldTheory Layer 11; R16.5; AL `AL.1/hecke-l-functional-equation`; Tau Ceti `TauCeti.simple_indFDRep_ofLinearCharacter_iff`.
-
-Source: [jl70-global], §12, Proposition 12.1, p. 206; [jl70-global], §12, paragraph before Proposition 12.1, p. 206; [ac89], Chapter 3 §6, Theorem 6.2, p. 215; Lemmas 6.3–6.4 and Corollary 6.5, pp. 217–218.
 
 <a id="r17-5-dihedral-artin"></a>
 
@@ -1353,7 +1360,7 @@ Let ρ:G_F→GL₂(C) be continuous, irreducible and finite-image, with dihedral
 
 Include projective V₄ (n=2). The inducing character is not invariant under the nontrivial automorphism.
 
-Uses: R17.5/quadratic-induction; R01 `R01.4`; ClassFieldTheory Layer 11; R16.4.
+Uses: R17.4/quadratic-induction; R01 `R01.4`; ClassFieldTheory Layer 11; R16.4.
 
 Source: [jl70-global], §12, Proposition 12.1, p. 206; [langlands80], Introduction, p. 4.
 
@@ -1367,7 +1374,7 @@ Let F be a number field, n≥1, and ω:μ_n(F)\μ_n(A_F)→S¹ a continuous char
 
 Uses: GlobalNumberFields Layer 9; GlobalNumberFields Layer 7; GlobalNumberFields Layer 10.
 
-Source: [patrikis], §2.3, Lemma 2.3.6, first bullet, p. 30; [patrikis], proof of Lemma 2.3.6, pp. 30–31.
+Source: [patrikis], §2.3, Lemma 2.3.6, first bullet, p. 30; proof of Lemma 2.3.6, pp. 30–31.
 
 <a id="r17-5-tate-vanishing"></a>
 
@@ -1377,7 +1384,7 @@ For any number field F, H²_cont(G_F,Q/Z)=0, where Q/Z is discrete with trivial 
 
 Uses: ProfiniteCohomology Layer 10; ClassFieldTheory Layer 10; ClassFieldTheory Layer 11; R17.5/finite-hecke-extension; ClassFieldTheory Layer 5; ClassFieldTheory Layer 6.
 
-Source: [patrikis], §2.1, Theorem 2.1.1 and first line of proof, p. 17; [patrikis], proof of Theorem 2.1.1, p. 18; [patrikis], §2.1, proof of Proposition 2.1.4, p. 19.
+Source: [patrikis], §2.1, Theorem 2.1.1 and first line of proof, p. 17; proof of Theorem 2.1.1, p. 18; §2.1, proof of Proposition 2.1.4, p. 19.
 
 <a id="r17-5-finite-projective-lift"></a>
 
@@ -1387,7 +1394,7 @@ For a number field F and continuous finite-image r:G_F→PGL₂(ℂ), construct 
 
 Uses: R17.5/tate-vanishing; RepresentationTheory/InductionRestriction Layer 7; Tau Ceti `TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero`; Mathlib `Matrix.ProjGenLinGroup`; Mathlib `Matrix.ProjGenLinGroup.mk`; R01 `R01.1`.
 
-Source: [patrikis], §2.1, Proposition 2.1.4, p. 19; [patrikis], proof of Proposition 2.1.4, p. 19; [patrikis], Remark 2.1.5, p. 19.
+Source: [patrikis], §2.1, Proposition 2.1.4, p. 19; proof of Proposition 2.1.4, p. 19; Remark 2.1.5, p. 19.
 
 <a id="r17-5-artin-all-place-upgrade"></a>
 
@@ -1415,7 +1422,7 @@ For continuous finite-image irreducible ρ:G_F→GL₂(ℂ) with projective imag
 
 Uses: R17.5/artin-all-place-upgrade; R17.5/dihedral-artin; R17.4/cyclic-descent; R17.4/cyclic-descent-fibers; R17.4/adjoint-lift; R17.4/cubic-character-induction; R17.4/gl3-recognition; R01 `R01.4`; R16.5; R16.4; R16.3.
 
-Source: [langlands80], §3(i), Theorem 3.3, p. 19; [langlands80], §3(i), pp. 16–17; [langlands80], §3(i), p. 18; [langlands80], §3(i), p. 19; [langlands80], §3 opening, p. 15.
+Source: [langlands80], §3(i), Theorem 3.3, p. 19; §3(i), pp. 16–17; §3(i), p. 18; §3(i), p. 19; §3 opening, p. 15.
 
 <a id="r17-5-octahedral-artin"></a>
 
@@ -1425,7 +1432,7 @@ For continuous finite-image irreducible ρ:G_F→GL₂(ℂ) with projective imag
 
 Uses: R17.5/artin-all-place-upgrade; R17.5/tetrahedral-artin; R17.5/dihedral-artin; R17.4/cyclic-descent-fibers; R17.4/nonnormal-cubic-base-change; R16.5; R01 `R01.4`; R17.4/cyclic-descent; R17.4/cuspidality; R16.4; R16.3.
 
-Source: [tunnell81], p. 173, first paragraph; [tunnell81], p. 173, definition of π(ρ); [tunnell81], Lemma and its proof, p. 174; [tunnell81], Theorem and its proof, pp. 174–175; [langlands80], §3(ii), p. 19.
+Source: [tunnell81], p. 173, first paragraph; p. 173, definition of π(ρ); Lemma and its proof, p. 174; Theorem and its proof, pp. 174–175; [langlands80], §3(ii), p. 19.
 
 <a id="r17-5-solvable-artin"></a>
 
@@ -1435,7 +1442,7 @@ For a number field F and continuous finite-image irreducible ρ:G_F→GL₂(C) w
 
 Uses: R17.5/artin-all-place-upgrade; R17.5/dihedral-artin; R17.5/tetrahedral-artin; R17.5/octahedral-artin; R16.5; R16.6; R01 `R01.4`; R16.3; Tau Ceti `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two`.
 
-Source: [rt83], §4, proof of Proposition 4.3, p. 41; [rt83], §4, p. 40; [langlands80], §3 opening, p. 15; [tunnell81], p. 173, first paragraph.
+Source: [rt83], §4, proof of Proposition 4.3, p. 41; §4, p. 40; [langlands80], §3 opening, p. 15; [tunnell81], p. 173, first paragraph.
 
 <a id="r17-5-q-weight-one"></a>
 
@@ -1455,7 +1462,7 @@ For totally real F and solvable-artin ρ with detρ(c_v)=−1 at every real plac
 
 Uses: R17.5/solvable-artin; R16.6; R01 `R01.1`.
 
-Source: [rt83], §1, definitions (ii) of π₁ and of 'holomorphic of weight k', p. 4; [rt83], Introduction, p. 1.
+Source: [rt83], §1, definitions (ii) of π₁ and of 'holomorphic of weight k', p. 4; Introduction, p. 1.
 
 <a id="r17-5-brauer-character"></a>
 
@@ -1511,7 +1518,7 @@ For odd-residual-lift's F,p,r̄, apply Langlands–Tunnell to its finite totally
 
 Uses: R17.5/odd-residual-lift; R17.5/tr-weight-one; R01 `R01.1`; R01 `R01.5`; R17.5/solvable-artin.
 
-Source: [bcgp21], Proposition 10.1.3, proof, solvable case, p. 474; [bcgp21], Theorem 10.2.6, proof, p. 481.
+Source: [bcgp21], Proposition 10.1.3, proof, solvable case, p. 474; Theorem 10.2.6, proof, p. 481.
 
 <a id="r17-5-tunnell-primitive-globalization"></a>
 
@@ -1539,7 +1546,7 @@ Let F be totally real of degree d, k_i≥2 and w of common parity. Write D_{k,w}
 
 If d is even, v is Carayol's fixed place of Theorem (B); if d is odd it is any auxiliary finite place. The finite-order condition is equivalent to the local central character being |·|^(−w) times a finite-order character. At a split place 𝒲 denotes the principal series of its two characters.
 
-Uses: R17.5/quadratic-induction; R16.2; R16.3; GlobalNumberFields Layer 1; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9; GlobalNumberFields Layer 10. R16.1/full-local-character-prescription supplements these carriers.
+Uses: R17.4/quadratic-induction; R16.2; R16.3; GlobalNumberFields Layer 1; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9; GlobalNumberFields Layer 10. R16.1/full-local-character-prescription supplements these carriers.
 
 **Construction and local finiteness.** Weak approximation gives a CM L/F with the chosen quadratic completion at 𝔭 and nonsplit at v. Let σ be CM conjugation and 𝔓 the unique prime above 𝔭. Patrikis, Lemma 2.3.1, p. 28, gives unitary ψ₀ with infinity components (z/|z|)^(k_i−1). Choose h>0 and a∈L× with (a)=𝔓^h. Since σ𝔓=𝔓, a/σa is an integer unit of absolute value one at every embedding; Mathlib's `NumberField.Units.mem_torsion` makes it torsion. Each phase ι(a)/|ι(a)| has finite order, since its square is ι(a/σa). Thus ψ₀,∞(a) is torsion. At other finite places a is a unit; continuity gives finite character image on units and only finitely many nontrivial factors. The principal-idele relation makes ψ₀,𝔓(a) torsion. As a^ℤ O_𝔓× has index h in L_𝔓×, ψ₀,𝔓 has finite order on the full local group.
 
@@ -1557,7 +1564,7 @@ Arithmetic Frobenius and the reciprocity identification of det ρ agree with q-w
 
 Uses: R17.5/solvable-artin; R17.5/q-weight-one; R01 `R01.1`; R01 `R01.4`; R01 `R01.5`; Mathlib `Matrix.GeneralLinearGroup.map`; Tau Ceti `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two`.
 
-Source: [ddt], §3.2, Theorem 3.14(a), p. 90; [ddt], §3.2, sketch of proof of Theorem 3.14, case (a), p. 90; [ddt], §3.2, Theorem 3.9, p. 89; [ddt], §3.2, Definition 3.12, p. 89.
+Source: [ddt], §3.2, Theorem 3.14(a), p. 90; §3.2, sketch of proof of Theorem 3.14, case (a), p. 90; §3.2, Theorem 3.9, p. 89; §3.2, Definition 3.12, p. 89.
 
 ## R17.6. Characteristic two and residual modularity
 
@@ -1615,16 +1622,18 @@ For p≠ℓ set ν_W(Φ)=p⁻¹; π_p is unitary-normalized. The arithmetic atta
 
 For a semistable model set X=ker(H¹_par(special fibre)→H¹(normalization)). Keep cusp extension by zero in the coefficient nearby-cycle sequence. Picard–Lefschetz surjects generic H¹(1) onto X through the nondegenerate pairing of the node branch-difference cokernel and dual incidence kernel, forcing rank-one N on special summands. Principal series come from the normalized fibre; ordinary supercuspidals use CM induction and good-prime recognition of the same multiplicity.
 
-Prove the ramified Lefschetz specialization for smooth proper curves: c=(c₁,c₂):Y→X×X, constructible ℓ-adic F and c₂*F→c₁!F. At each fixed point let c₁*t=utᵃ and c₂*t=vtᵈ, u,v units, a,d>0 and a≠d. The alternating trace sums stalk traces for d>a and Verdier-dual stalk traces for a>d. Include cusp extension by zero. Langlands Proposition 7.12 leaves this unproved; it is a target here.
+Ramified trace specialization: let c₁,c₂:C→X be maps of smooth proper curves over an algebraically closed field, ℓ invertible. For constructible ℓ-adic F on X and u:c₂*F→c₁!F, suppose every fixed branch has c₁*t=αtᵃ, c₂*t=βtᵈ with units α,β and positive unequal a,d. The alternating cohomological trace is the sum of ordinary stalk traces for d>a and Verdier-dual stalk traces for a>d, including cusp extension by zero.
+
+Proof: use Varshavsky on the **reordered** correspondence (c₂,c₁), with morphism c₁!c₂*F→F. For d>a, pullback ideals (tᵈ),(tᵃ) satisfy d≥a and da≥a(a+1), giving contraction with n=a (`ramification_contraction`). The fixed ideal is (tᵃ) up to a unit. The contracting theorem replaces its local term by the restricted point trace; nonreduced length a adds no factor. For a>d dualize and reverse, using n=d. Evaluation and biduality preserve the alternating local trace under transpose. Proper Lefschetz–Verdier sums these terms. At a cusp j!F has zero stalk, but D(j!F)=Rj*DF can contribute; retain the dual complex.
 
 At odd p every supercuspidal is ordinary, so the ℓ=2 odd-conductor application uses Theorem (B), without cubic transfer. For p=2≠ℓ use Carayol §12.2's strong cubic comparison and field-change identification. Residual inequality gives N|M, hence M=N when M|N.
 API: Ramified Frobenius-semisimple compatibility with N; equality of characteristic-zero conductor and primitive level away from ℓ; independence of stable lattice for the semisimple residual class; residual conductor inequality.
 
-Tests: An unramified Steinberg twist has conductor exponent one despite unramified semisimple Weil action; an ordinary supercuspidal uses its full Swan conductor; residual conductor can drop under reduction, so equality with the characteristic-zero conductor is not asserted.
+Tests: An unramified Steinberg twist has conductor one despite unramified semisimple Weil action; supercuspidals retain Swan conductor; reduction can lower conductor. For trace specialization, (a,d)=(1,pᵐ), m>0, uses the ordinary stalk, (2,3) has a length-two fixed scheme without an extra factor two, and (3,2) uses the dual stalk. Equal orders are excluded: the identity correspondence has a positive-dimensional fixed locus.
 
 Uses: R17.6/classical-higher-weight-attachment; R16.3; R16.6/classical-hecke-and-level; R01.3 and R01.5; R17.5/prescribed-local-induction; R17.4/nonnormal-cubic-base-change. Parabolic comparison, ramified trace and field-change identification are subsidiary targets here.
 
-Source: [ddt], Theorem 3.1(d)–(e), p.86 (weight two); [carayol86], Theorems (A)–(B), pp.409–412; §§2.2, 4.9, 11.1–9, 12.2, pp.419–420, 426, 449–454, 457–458; [langlands73], Proposition 3.1 p.27, Theorems 7.1 and 7.5 pp.67, 70, Proposition 7.12 pp.89–90, Lemma 7.14 pp.94–98 (author pagination); [rt97], pp.302–306.
+Source: [ddt], Theorem 3.1(d)–(e), p.86 (weight two); [carayol86], Theorems (A)–(B), pp.409–412; §§2.2, 4.9, 11.1–9, 12.2, pp.419–420, 426, 449–454, 457–458; [langlands73], Proposition 3.1 p.27, Theorems 7.1 and 7.5 pp.67, 70, Proposition 7.12 pp.89–90, Lemma 7.14 pp.94–98 (author pagination); [varshavsky05], §1.2.2 pp.8–9, Corollary 1.2.6 p.10, §1.5.7 p.16, Definition 2.1.1 and Theorem 2.1.3 pp.17–18; [rt97], pp.302–306.
 
 <a id="r17-6-solvable-dihedral"></a>
 
@@ -1636,7 +1645,7 @@ The coefficient field is discrete, so continuity gives finite image. R01.4 suppl
 
 Uses: R01 `R01.1`; R01 `R01.4`; R17.6/determinant-untwist.
 
-Source: [wiese04], Introduction, p. 123; [rt97], §2, first paragraph, p. 306; [rt97], Introduction, p. 299.
+Source: [wiese04], Introduction, p. 123; [rt97], §2, first paragraph, p. 306; Introduction, p. 299.
 
 <a id="r17-6-determinant-untwist"></a>
 
@@ -1648,7 +1657,7 @@ Global reciprocity identifies ξ with an odd-order Dirichlet character. The modu
 
 Uses: R01 `R01.1`; R01 `R01.3`; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 9.
 
-Source: [wiese04], §4, proof of Theorem 10, p. 131; [wiese04], Introduction, p. 125; [rt97], Introduction, p. 300.
+Source: [wiese04], §4, proof of Theorem 10, p. 131; Introduction, p. 125; [rt97], Introduction, p. 300.
 
 <a id="r17-6-teichmuller-conductor"></a>
 
@@ -1660,7 +1669,7 @@ Fix Q̄⊂ℂ and the prime l above two, with compatible residue embeddings. φ�
 
 Uses: R01 `R01.3`; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9.
 
-Source: [rt97], §2, first paragraph, p. 306; [rt97], §2, second paragraph, p. 306; [rt97], §2, second paragraph, list (i)–(iv), p. 306; [rt97], §2, sentence after the list, p. 307.
+Source: [rt97], §2, first paragraph, p. 306; §2, second paragraph, p. 306; §2, second paragraph, list (i)–(iv), p. 306; §2, sentence after the list, p. 307.
 
 <a id="r17-6-rt-technical-lemma"></a>
 
@@ -1672,7 +1681,7 @@ Fix λ|2 in Q̄⊂ℂ. Let g=Σb(n)q^n∈Prim₁(2^νNr,χ), χ²=1, ν∈{0,2,3
 
 Uses: R15 `R15.5/deligne-serre-eigenvalue-lifting-lemma`; R15 `R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`; R01 `R01.3`; R01 `R01.5`; R17.6/classical-conductor-comparison; R15 `R15.6/residual-modularity-witness`; ModularForms Layer 4; ModularForms Layer 6; R17.6/classical-weight-one-attachment; R17.6/classical-higher-weight-attachment.
 
-Source: [rt97], §1, Lemma, p. 302; [rt97], §1, p. 301; [rt97], §1, proof of the Lemma, step (iii), p. 302; [rt97], §1, preliminary remark, p. 302; [rt97], §1, Case 2 (ν=2), p. 304.
+Source: [rt97], §1, Lemma, p. 302; §1, p. 301; §1, proof of the Lemma, step (iii), p. 302; §1, preliminary remark, p. 302; §1, Case 2 (ν=2), p. 304.
 
 <a id="r17-6-serre-odd-trick"></a>
 
@@ -1682,9 +1691,9 @@ Let r̄₀=Ind_{G_K}^{G_Q}φ, φ̃, N and ν be as in teichmuller-conductor with
 
 Use degree-one primes in the specified narrow ray class modulo 4f(φ̃), by Chebotarev.
 
-Uses: R17.6/teichmuller-conductor; R17.5/dihedral-artin; R17.5/q-weight-one; ClassFieldTheory Layer 11; GlobalNumberFields Layer 7; R01 `R01.3`; R17.5/quadratic-induction; Chebotarev Layer 10; GlobalNumberFields Layer 9.
+Uses: R17.6/teichmuller-conductor; R17.5/dihedral-artin; R17.5/q-weight-one; ClassFieldTheory Layer 11; GlobalNumberFields Layer 7; R01 `R01.3`; R17.4/quadratic-induction; Chebotarev Layer 10; GlobalNumberFields Layer 9.
 
-Source: [rt97], §2, proof of the Theorem, case D>0, p. 307; [rt97], §2, construction of 𝔯 and ξ, p. 308; [rt97], Remark 1, p. 308.
+Source: [rt97], §2, proof of the Theorem, case D>0, p. 307; §2, construction of 𝔯 and ξ, p. 308; Remark 1, p. 308.
 
 <a id="r17-6-rohrlich-tunnell"></a>
 
@@ -1692,9 +1701,9 @@ Source: [rt97], §2, proof of the Theorem, case D>0, p. 307; [rt97], §2, constr
 
 Fix Q̄⊂ℂ and λ|2. For continuous irreducible linear-dihedral r̄₀:G_ℚ→GL₂(F̄₂), use its inducing field K, D=disc K, odd conductor N, Teichmüller induction and dyadic exponent ν. If D is odd or 8|D, construct a normalized newform f of exact level N, trivial character and weight k=2 for ν=0,2, or k=4 for ν=3, whose residual attachment is r̄₀. For D<0 induce the Teichmüller character; for D>0 use serre-odd-trick and the technical lemma to remove the auxiliary prime. Case D≡4 mod8 is outside this theorem; the authors give neither examples nor counterexamples. Projective-dihedral classes with nontrivial determinant require determinant-untwist and recomputed level/character.
 
-Uses: R17.6/teichmuller-conductor; R17.6/serre-odd-trick; R17.6/rt-technical-lemma; R17.5/q-weight-one; R17.5/dihedral-artin; R17.5/quadratic-induction.
+Uses: R17.6/teichmuller-conductor; R17.6/serre-odd-trick; R17.6/rt-technical-lemma; R17.5/q-weight-one; R17.5/dihedral-artin; R17.4/quadratic-induction.
 
-Source: [rt97], §2, Theorem, p. 307; [rt97], §2, paragraph before the Theorem, p. 307; [rt97], §2, proof, case D<0, p. 307; [rt97], Remark 2, p. 308; [rt97], Remark 3, p. 308.
+Source: [rt97], §2, Theorem, p. 307; §2, paragraph before the Theorem, p. 307; §2, proof, case D<0, p. 307; Remark 2, p. 308; Remark 3, p. 308.
 
 <a id="r17-6-wiese-odd-lift"></a>
 
@@ -1704,9 +1713,9 @@ Let r̄=Ind_{G_K}^{G_ℚ}χ over F̄₂, with K quadratic and χ≠χ^σ; its pr
 
 Embed ℤ[ζ_m]/P in F̄₂ compatibly with χ. N is the prime-to-two Artin conductor in the unramified refinement.
 
-Uses: R17.5/quadratic-induction; R01 `R01.1`; R01 `R01.3`; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 7; Chebotarev Layer 10.
+Uses: R17.4/quadratic-induction; R01 `R01.1`; R01 `R01.3`; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 7; Chebotarev Layer 10.
 
-Source: [wiese04], Lemma 2, p. 126; [wiese04], Lemma 2(b), p. 126; [wiese04], Lemma 3 and proof, p. 127; [wiese04], proof of Lemma 2, p. 127.
+Source: [wiese04], Lemma 2, p. 126; Lemma 2(b), p. 126; Lemma 3 and proof, p. 127; proof of Lemma 2, p. 127.
 
 <a id="r17-6-unramified-katz"></a>
 
@@ -1718,7 +1727,7 @@ Katz forms use Wiese's non-compactified Γ₁(N) definition; N is invertible in 
 
 Uses: R17.6/wiese-odd-lift; R17.5/q-weight-one; R15 `R15.1/hodge-bundle-with-tate-curve-normalization`; R15 `R15.1/cusp-ideal-section-forms`; R15 `R15.2/q-expansion-principle-and-its-vanishing-theorem`; R15 `R15.2`; R16.6; R01 `R01.5`; R15 `R15.2/integral-hecke-operators-from-q-expansions`; R15 `R15.6/modularity-formulations-and-determinant`.
 
-Source: [wiese04], Theorem 9, p. 130; [wiese04], proof of Theorem 9, p. 131; [wiese04], Proposition 7, p. 129; [wiese04], Introduction, p. 124.
+Source: [wiese04], Theorem 9, p. 130; proof of Theorem 9, p. 131; Proposition 7, p. 129; Introduction, p. 124.
 
 <a id="r17-6-qualitative-residual-modularity"></a>
 
@@ -1728,7 +1737,7 @@ Every continuous absolutely irreducible r̄:G_ℚ→GL₂(F̄₂) with solvable 
 
 Uses: R17.6/solvable-dihedral; R17.6/wiese-odd-lift; R17.5/q-weight-one; R15 `R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`; R15 `R15.6/residual-modularity-witness`.
 
-Source: [wiese04], proof of Theorem 1, p. 131; [wiese04], Introduction, p. 123; [wiese04], Lemma 3, p. 127.
+Source: [wiese04], proof of Theorem 1, p. 131; Introduction, p. 123; Lemma 3, p. 127.
 
 <a id="r17-6-weight-two-witness"></a>
 
@@ -1740,7 +1749,7 @@ At an odd ℓ the factor ℓ^(k−1) is one modulo two, so the Hasse shift prese
 
 Uses: R17.6/qualitative-residual-modularity; R17.6/unramified-katz; R15 `R15.3/hasse-invariant-as-a-form-of-weight-p-minus-one`; R15 `R15.5/deligne-serre-eigenvalue-lifting-lemma`; R15 `R15.5/reduction-to-weight-at-least-two-and-to-a-true-eigenform`; R15 `R15.6/residual-modularity-witness`; R01 `R01.5`; R15 `R15.2/base-change-for-spaces-of-forms-and-the-weight-one-boundary`; R15 `R15.6/modularity-formulations-and-determinant`; R17.6/classical-higher-weight-attachment.
 
-Source: [wiese04], Introduction, p. 124; [wiese04], proof of Lemma 11, p. 132.
+Source: [wiese04], Introduction, p. 124; proof of Lemma 11, p. 132.
 
 <a id="r17-6-disjoint-irreducibility"></a>
 
@@ -1760,7 +1769,7 @@ For finite-image irreducible r=Ind_{G_K}^{G_F}θ, K/F quadratic, algebraically c
 
 θ is continuous of finite image and θ≠θ^σ. E/F need not be Galois. The characteristic-zero Mackey theorem requiring invertible group order cannot be used for the even-order characteristic-two case.
 
-Uses: R01 `R01.4`; R17.5/quadratic-induction; R17.4/cuspidality; RepresentationTheory/InductionRestriction Layer 3; Tau Ceti `TauCeti.simple_indFDRep_ofLinearCharacter_iff`.
+Uses: R01 `R01.4`; R17.4/quadratic-induction; R17.4/cuspidality; RepresentationTheory/InductionRestriction Layer 3; Tau Ceti `TauCeti.simple_indFDRep_ofLinearCharacter_iff`.
 
 Source: [wiese04], §2, p. 125; [langlands80], §2, p. 13.
 
@@ -1774,7 +1783,7 @@ Each ρ_λ is continuous and semisimple. The P_v lie in M[X] and are λ-independ
 
 Uses: R17.4/solvable-base-change; R17.4/local-compatibility; R17.6/disjoint-irreducibility; R17.6/quadratic-restriction; R01 `R01.1`; R01 `R01.5`.
 
-Source: [langlands80], §2 local lifting, condition (i), p. 9; [langlands80], §2 after properties (A)–(F), p. 14; [ac89], Chapter 3 §1 before Definition 1.1, eq. (1.1), p. 199.
+Source: [langlands80], §2 local lifting, condition (i), p. 9; §2 after properties (A)–(F), p. 14; [ac89], Chapter 3 §1 before Definition 1.1, eq. (1.1), p. 199.
 
 <a id="r17-6-compatible-descent"></a>
 
@@ -1784,7 +1793,7 @@ For prime-cyclic E/F of degree ℓ and invariant cusp Π, its descents are the d
 
 Uses: R17.4/cyclic-descent; R17.4/cyclic-descent-fibers; R17.4/solvable-descent; R01 `R01.5`; ClassFieldTheory Layer 11.
 
-Source: [ac89], Chapter 3 Theorem 4.2(d), p. 202; [ac89], Chapter 3 Theorem 3.1, p. 201; [langlands80], §11 Lemma 11.6(b), p. 151; [bcgp21], proof of Lemma 8.3.2, p. 452.
+Source: [ac89], Chapter 3 Theorem 4.2(d), p. 202; Chapter 3 Theorem 3.1, p. 201; [langlands80], §11 Lemma 11.6(b), p. 151; [bcgp21], proof of Lemma 8.3.2, p. 452.
 
 <a id="r17-6-potential-modularity-interface"></a>
 
@@ -1796,45 +1805,46 @@ For supplied solvable Galois E/F with prescribed completions/disjointness, conti
 
 Uses: R17.4/prescribed-local-base-change; R17.6/disjoint-irreducibility; R17.6/compatible-base-change; R17.6/compatible-descent; R16.4.
 
-Source: [ac89], Chapter 3 Theorem 4.2, p. 202; [ac89], Chapter 3 Theorem 5.1, p. 212; [bcgp21], proof of Lemma 8.3.2, p. 452.
+Source: [ac89], Chapter 3 Theorem 4.2, p. 202; Chapter 3 Theorem 5.1, p. 212; [bcgp21], proof of Lemma 8.3.2, p. 452.
 
 ## Bibliography
 
 [jl70]: https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl_9.pdf "H. Jacquet and R. P. Langlands, Automorphic forms on GL(2). LNM 114 (1970), IAS retypeset (2026)."
+[jl70-ubc]: https://sunsite.ubc.ca/DigitalMathArchive/Langlands/pdf/jl-ps.pdf "H. Jacquet and R. P. Langlands, Automorphic forms on GL(2), LNM 114 (1970); UBC author retypeset pagination."
 [casselman73]: https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf "W. Casselman, On some results of Atkin and Lehner. Math. Ann. 201 (1973), 301–314."
-[nt26]: https://arxiv.org/pdf/2212.03595v2 "J. Newton and J. A. Thorne, Symmetric power functoriality for Hilbert modular forms. Annals 203 (2026); arXiv 2212.03595v2 author version."
-[dlb17]: https://arxiv.org/pdf/1509.00606v2 "G. Dospinescu and A.-C. Le Bras, Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique. Annals 186 (2017); arXiv 1509.00606v2."
-[bz76]: https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/B-Zel-RepsGL-Usp.pdf "I. N. Bernstein and A. V. Zelevinsky, Representations of the group GL(n, F), where F is a non-archimedean local field. Russian Math. Surveys 31:3 (1976), 1–68."
-[bm02]: https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf "C. Breuil, A. Mézard; appendix by G. Henniart, Multiplicités modulaires et représentations de GL₂(ℤp) et de Gal(Q̄p/Qp), Appendix: Sur l’unicité des types pour GL₂. Duke 115 (2002)."
-[cdt99]: https://math.stanford.edu/~conrad/papers/cdtmaster.pdf "B. Conrad, F. Diamond and R. Taylor, Modularity of certain potentially Barsotti–Tate Galois representations. JAMS 12 (1999)."
-[cg18]: https://math.uchicago.edu/~fcale/papers/CG.pdf "F. Calegari and D. Geraghty, Modularity lifting beyond the Taylor–Wiles method. Inventiones (2018), author PDF."
-[cg20]: https://par.nsf.gov/servlets/purl/10184292 "F. Calegari and D. Geraghty, Minimal modularity lifting for nonregular symplectic representations. Duke Math. J. 169 (2020), 801–896."
-[bcgp21]: https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf "G. Boxer, F. Calegari, T. Gee and V. Pilloni, Abelian surfaces over totally real fields are potentially modular. Publ. Math. IHÉS (2021)."
-[hkp10]: https://www.math.umd.edu/~tjh/IHA.apr.09.pdf "T. Haines, R. Kottwitz and A. Prasad, Iwahori–Hecke algebras. J. Ramanujan Math. Soc. 25 (2010), author April 2009 version."
-[aky22]: https://arxiv.org/pdf/2110.09070v4 "H. Atobe, S. Kondo and S. Yasuda, Local newforms for the general linear groups over a non-archimedean local field. Forum Math. Pi (2022); arXiv 2110.09070v4."
-[cdn20]: https://www.ams.org/journals/jams/2020-33-02/S0894-0347-2019-00935-5/S0894-0347-2019-00935-5.pdf "P. Colmez, G. Dospinescu and W. Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1. JAMS 33 (2020)."
-[cdn23]: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf "P. Colmez, G. Dospinescu and W. Nizioł, Factorisation de la cohomologie étale p-adique de la tour de Drinfeld. Forum Math. Pi (2023)."
-[pan26]: https://arxiv.org/pdf/2209.06366 "L. Pan, On locally analytic vectors of the completed cohomology of modular curves II. Annals 203 (2026); arXiv 2209.06366 public version."
+[nt26]: https://arxiv.org/pdf/2212.03595v2 "Newton–Thorne, Symmetric power functoriality for Hilbert modular forms. Annals203 (2026); arXiv2212.03595v2."
+[dlb17]: https://arxiv.org/pdf/1509.00606v2 "Dospinescu–Le Bras, Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique. Annals186 (2017); arXiv1509.00606v2."
+[bz76]: https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/B-Zel-RepsGL-Usp.pdf "Bernstein–Zelevinsky, Representations of GL(n,F), F nonarchimedean. Russian Math. Surveys31:3 (1976),1–68."
+[bm02]: https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf "Breuil–Mézard, Multiplicités modulaires; Henniart appendix, Sur l’unicité des types pour GL₂. Duke115 (2002)."
+[cdt99]: https://math.stanford.edu/~conrad/papers/cdtmaster.pdf "Conrad–Diamond–Taylor, Modularity of certain potentially Barsotti–Tate Galois representations. JAMS12 (1999)."
+[cg18]: https://math.uchicago.edu/~fcale/papers/CG.pdf "Calegari–Geraghty, Modularity lifting beyond the Taylor–Wiles method. Inventiones (2018), author PDF."
+[cg20]: https://par.nsf.gov/servlets/purl/10184292 "Calegari–Geraghty, Minimal modularity lifting for nonregular symplectic representations. Duke169 (2020),801–896."
+[bcgp21]: https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf "Boxer–Calegari–Gee–Pilloni, Abelian surfaces over totally real fields are potentially modular. IHÉS (2021)."
+[hkp10]: https://www.math.umd.edu/~tjh/IHA.apr.09.pdf "Haines–Kottwitz–Prasad, Iwahori–Hecke algebras. JRMS25 (2010); April 2009 author version."
+[aky22]: https://arxiv.org/pdf/2110.09070v4 "Atobe–Kondo–Yasuda, Local newforms for general linear groups over a nonarchimedean local field. Forum Math. Pi (2022); arXiv2110.09070v4."
+[cdn20]: https://www.ams.org/journals/jams/2020-33-02/S0894-0347-2019-00935-5/S0894-0347-2019-00935-5.pdf "Colmez–Dospinescu–Nizioł, Cohomologie p-adique de la tour de Drinfeld: dimension1. JAMS33 (2020)."
+[cdn23]: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf "Colmez–Dospinescu–Nizioł, Factorisation de la cohomologie étale p-adique de la tour de Drinfeld. Forum Math. Pi (2023)."
+[pan26]: https://arxiv.org/pdf/2209.06366 "Pan, On locally analytic vectors of completed cohomology of modular curves II. Annals203 (2026); arXiv2209.06366."
 [converse]: https://people.math.osu.edu/cogdell.1/PSCT-www.pdf "J. W. Cogdell, Piatetski-Shapiro’s work on converse theorems. Author survey, 2013."
 [langlands80]: https://sunsite.ubc.ca/DigitalMathArchive/Langlands/pdf/book-ps.pdf "R. P. Langlands, Base change for GL(2). Annals Studies 96 (1980), author version."
-[ac89]: https://www.claymath.org/library/cw/arthur/pdf/30.pdf "J. Arthur and L. Clozel, Simple algebras, base change, and the advanced theory of the trace formula. Annals Studies 120 (1989), public Clay scan."
-[getz15]: https://sites.math.duke.edu/~jgetz/aut_reps.pdf "J. R. Getz, An introduction to automorphic representations. Author-hosted course notes, 13 March 2015 (89 pages)."
-[cogdell-fields]: https://people.math.osu.edu/cogdell.1/fields-www.pdf "J. W. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n). Fields Institute lecture notes, author PDF."
+[ac89]: https://www.claymath.org/library/cw/arthur/pdf/30.pdf "Arthur–Clozel, Simple algebras, base change, and the advanced theory of the trace formula. Annals Studies120 (1989), Clay scan."
+[getz15]: https://sites.math.duke.edu/~jgetz/aut_reps.pdf "Getz, An introduction to automorphic representations. Author notes,13 March 2015,89pp."
+[cogdell-fields]: https://people.math.osu.edu/cogdell.1/fields-www.pdf "Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n). Fields Institute author notes."
 [jl70-global]: https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2_rpl.pdf "H. Jacquet and R. P. Langlands, Automorphic forms on GL(2). Lecture Notes in Mathematics 114 (1970), author scan."
-[br10]: https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf "A. I. Badulescu, with an appendix by D. Renard, Unitary dual of GL(n) at archimedean places and global Jacquet–Langlands correspondence. Author preprint of Compositio Math. 146 (2010), 1115–1164; preprint pagination."
-[gj78]: https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf "S. Gelbart and H. Jacquet, A relation between automorphic representations of GL(2) and GL(3). Ann. Sci. ÉNS (4) 11 (1978), 471–542."
-[patrikis]: https://people.math.osu.edu/patrikis.1/variationsrevision.pdf "S. Patrikis, Variations on a theorem of Tate. Author revision, 31 July 2016, submitted memoir version."
-[carayol86]: https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf "H. Carayol, Sur les représentations l-adiques associées aux formes modulaires de Hilbert. Ann. Sci. ÉNS (4) 19 (1986), 409–468."
-[rt97]: https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf "D. E. Rohrlich and J. B. Tunnell, An elementary case of Serre’s conjecture. Pacific J. Math. 181, special issue (1997), 299–309."
+[br10]: https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf "Badulescu, Renard appendix, Unitary dual of GL(n) at archimedean places and global Jacquet–Langlands correspondence. Compositio146 (2010),1115–1164; author preprint pagination."
+[gj78]: https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf "Gelbart–Jacquet, A relation between automorphic representations of GL(2) and GL(3). ASENS11 (1978),471–542."
+[patrikis]: https://people.math.osu.edu/patrikis.1/variationsrevision.pdf "Patrikis, Variations on a theorem of Tate. Author revision31 July 2016, submitted memoir."
+[carayol86]: https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf "Carayol, Sur les représentations l-adiques associées aux formes modulaires de Hilbert. ASENS19 (1986),409–468."
+[rt97]: https://msp.org/pjm/1997/181-3/pjm-v181-n3-p16-p.pdf "Rohrlich–Tunnell, An elementary case of Serre’s conjecture. Pacific J. Math.181 special issue (1997),299–309."
 [wiese04]: https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-09/07.pdf "G. Wiese, Dihedral Galois representations and Katz modular forms. Documenta Mathematica 9 (2004), 123–133."
-[cdn20-global]: https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf "P. Colmez, G. Dospinescu and W. Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1. GPW5; JAMS 33 (2020), 311–362; locators below use author pagination."
-[pan26-global]: https://arxiv.org/pdf/2209.06366v1 "L. Pan, On locally analytic vectors of the completed cohomology of modular curves II. arXiv:2209.06366v1; published Annals 203 (2026), 121–281; only v1 used for locators."
-[rt83]: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0074/LOG_0007.pdf "J. D. Rogawski and J. B. Tunnell, On Artin L-functions associated to Hilbert modular forms of weight one. Invent. Math. 74 (1983), 1–42, GDZ scan, pp.1–42."
-[ds74]: https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf "P. Deligne and J.-P. Serre, Formes modulaires de poids 1. Ann. Sci. École Norm. Sup. (4) 7 (1974), 507–530."
+[cdn20-global]: https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf "Colmez–Dospinescu–Nizioł, Cohomologie p-adique de la tour de Drinfeld: dimension1. JAMS33 (2020),311–362; GPW5 author pagination."
+[pan26-global]: https://arxiv.org/pdf/2209.06366v1 "Pan, On locally analytic vectors of completed cohomology of modular curves II. Annals203 (2026),121–281; arXiv2209.06366v1 pagination."
+[rt83]: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0074/LOG_0007.pdf "Rogawski–Tunnell, On Artin L-functions associated to Hilbert modular forms of weight one. Inventiones74 (1983),1–42; GDZ scan."
+[ds74]: https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf "Deligne–Serre, Formes modulaires de poids1. ASENS7 (1974),507–530."
 [tunnell81]: https://www.ams.org/journals/bull/1981-05-02/S0273-0979-1981-14936-3/S0273-0979-1981-14936-3.pdf "J. Tunnell, Artin's conjecture for representations of octahedral type. Bull. Amer. Math. Soc. (N.S.) 5 (1981), no. 2, 173–175."
-[jpss79]: https://www.math.columbia.edu/~hj/Automorphic%20forms%20on%20GL(3)%20II.pdf "H. Jacquet, I. I. Piatetski-Shapiro and J. Shalika, Automorphic forms on GL(3). II. Ann. of Math. (2) 109 (1979), 213–258."
-[tunnell78]: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0046/LOG_0017.pdf "J. B. Tunnell, On the local Langlands conjecture for GL(2). Inventiones Mathematicae 46 (1978), 179–200; GDZ scan of the article, read with the GDZ OCR pages 00000185–00000206 and against the page images of pp. 182–183."
-[ddt]: https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf "H. Darmon, F. Diamond and R. Taylor, Fermat's Last Theorem. Author version dated September 9, 2007 of the article in Elliptic Curves, Modular Forms & Fermat's Last Theorem (Hong Kong, 1993), International Press, 1997, 2–140; theorem numbers as in this version."
+[jpss79]: https://www.math.columbia.edu/~hj/Automorphic%20forms%20on%20GL(3)%20II.pdf "Jacquet–Piatetski-Shapiro–Shalika, Automorphic forms on GL(3),II. Annals109 (1979),213–258."
+[tunnell78]: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0046/LOG_0017.pdf "Tunnell, On the local Langlands conjecture for GL(2). Inventiones46 (1978),179–200; GDZ article scan, OCR00000185–00000206, pp.182–183 image check."
+[ddt]: https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf "Darmon–Diamond–Taylor, Fermat’s Last Theorem. International Press1997,2–140;9 September 2007 author version and theorem numbering."
 
 [chevalley51]: https://www.jstage.jst.go.jp/article/jmath1948/3/1/3_1_36/_pdf/-char/en "Deux théorèmes d’arithmétique"
 [cht08]: https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf "Automorphy for some l-adic lifts of automorphic mod l Galois representations"
@@ -1843,13 +1853,14 @@ Source: [ac89], Chapter 3 Theorem 4.2, p. 202; [ac89], Chapter 3 Theorem 5.1, p.
 [webb16]: https://www-users.cse.umn.edu/~webb/RepBook/RepBookLatex.pdf "P. Webb, A Course in Finite Group Representation Theory, 23 February 2016"
 
 [bh06]: https://doi.org/10.1007/3-540-31511-X "C. J. Bushnell and G. Henniart, The Local Langlands Conjecture for GL(2), Springer 2006"
-[clozel86]: https://backend.production.deepblue-documents.lib.umich.edu/server/api/core/bitstreams/3f8e76bd-61fa-4e50-b374-9c7298d7e482/content "L. Clozel, On limit multiplicities of discrete series representations in spaces of automorphic forms, Invent. Math. 83 (1986), 265–284"
+[clozel86]: https://backend.production.deepblue-documents.lib.umich.edu/server/api/core/bitstreams/3f8e76bd-61fa-4e50-b374-9c7298d7e482/content "Clozel, On limit multiplicities of discrete series representations in spaces of automorphic forms. Inventiones83 (1986),265–284."
 
-[mr00]: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5049F4E78E15635E58E158F1CF1C93FC/S0008414X00008798a.pdf/cubic_base_change_for_textgl2.pdf "Z. Mao and S. Rallis, Cubic Base Change for GL(2), Canadian J. Math. 52 (2000), 172–196"
-[jy96]: https://www.math.columbia.edu/~hj/S0002-9947-96-01549-8.pdf "H. Jacquet and Y. Ye, Distinguished representations and quadratic base change for GL(3), Trans. AMS 348 (1996), 913–939"
-[ag11]: https://www.wisdom.weizmann.ac.il/~dimagur/SmoothTransfer.pdf "A. Aizenbud and D. Gourevitch, Smooth transfer of Kloosterman integrals (the Archimedean case), 1 June 2011 version, 28-page pagination"
+[mr00]: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5049F4E78E15635E58E158F1CF1C93FC/S0008414X00008798a.pdf/cubic_base_change_for_textgl2.pdf "Mao–Rallis, Cubic Base Change for GL(2). Canadian J. Math.52 (2000),172–196."
+[jy96]: https://www.math.columbia.edu/~hj/S0002-9947-96-01549-8.pdf "Jacquet–Ye, Distinguished representations and quadratic base change for GL(3). Trans. AMS348 (1996),913–939."
+[ag11]: https://www.wisdom.weizmann.ac.il/~dimagur/SmoothTransfer.pdf "Aizenbud–Gourevitch, Smooth transfer of Kloosterman integrals (Archimedean case).1 June 2011 version,28pp."
 
-[deligne69]: https://www.numdam.org/article/SB_1968-1969__11__139_0.pdf "P. Deligne, Formes modulaires et représentations ℓ-adiques, Séminaire Bourbaki 355 (1969), pp.139–172."
+[deligne69]: https://www.numdam.org/article/SB_1968-1969__11__139_0.pdf "Deligne, Formes modulaires et représentations ℓ-adiques. Bourbaki355 (1969),139–172."
 
 [langlands73]: https://www.sunsite.ubc.ca/DigitalMathArchive/Langlands/pdf/antwerp-ps.pdf "R. P. Langlands, Modular Forms and ℓ-adic Representations, LNM 349 (1973), 361–500; retypeset pp.1–100."
 [prr23]: https://doi.org/10.1017/9781139017756 "V. Platonov, A. Rapinchuk and I. Rapinchuk, Algebraic Groups and Number Theory, Volume I, second edition, Cambridge 2023."
+[varshavsky05]: https://arxiv.org/pdf/math/0505564v2 "Y. Varshavsky, Lefschetz–Verdier trace formula and a generalization of a theorem of Fujiwara, arXiv:math/0505564v2 (25 November 2005); v2 pagination."

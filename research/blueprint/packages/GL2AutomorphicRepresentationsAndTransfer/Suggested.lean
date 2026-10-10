@@ -62,6 +62,7 @@ import Mathlib.NumberTheory.LocalField.Basic
 import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.Algebra.Group.AddChar
+import Mathlib.Algebra.GroupWithZero.Divisibility
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
@@ -623,10 +624,12 @@ Omitted declaration names: TauCeti.GL2Blueprint.archimedeanClassification, TauCe
 -- test name; the AL.2 factor of D_k itself is omitted above).
 -- Normalization Γℝ(s)=π^{−s/2}Γ(s/2) of the R16.3 statement (Complex.Gammaℝ_def).
 example (s : ℂ) :
-    Complex.Gammaℝ s = (Real.pi : ℂ) ^ (-s / 2) * Complex.Gamma (s / 2) := by sorry
+    Complex.Gammaℝ s = (Real.pi : ℂ) ^ (-s / 2) * Complex.Gamma (s / 2) :=
+  Complex.Gammaℝ_def s
 -- Normalization Γℂ(s)=2(2π)^{−s}Γ(s) of the R16.3 statement (Complex.Gammaℂ_def).
 example (s : ℂ) :
-    Complex.Gammaℂ s = 2 * (2 * (Real.pi : ℂ)) ^ (-s) * Complex.Gamma s := by sorry
+    Complex.Gammaℂ s = 2 * (2 * (Real.pi : ℂ)) ^ (-s) * Complex.Gamma s :=
+  Complex.Gammaℂ_def s
 -- The m=0 boundary: the split parameter has Γℝ(s+t)Γℝ(s+t+1)=Γℂ(s+t).
 example (s t : ℂ) :
     Complex.Gammaℝ (s + t) * Complex.Gammaℝ (s + t + 1) = Complex.Gammaℂ (s + t) :=
@@ -959,10 +962,14 @@ These ownership annotations add no missing native carrier or proof.
 -/
 
 /-
-Archimedean classification imports the exact current AF.1/weil-group-real,
-AF.1/gl2-real-discrete-series, AF.1/archimedean-llc-gln and
-AF.1/casselman-wallach-globalization nodes. The factor comparison uses
-AF.1/archimedean-llc-gln and AL.1's gamma/additive-character conventions.
+Archimedean classification imports AF.1/weil-group-real,
+AF.1/gl2-real-discrete-series, AF.1/normalized-real-parabolic-induction,
+AF.1/langlands-classification, AF.1/vogan-generic-unitary-dual,
+AF.1/archimedean-llc-gln and AF.1/casselman-wallach-globalization.
+The README specifies the real parity/integer and complex z^p bar(z)^q
+boundaries, including the irreducible full-O(2) limit at real ratio sgn.
+Factors use AL.1/canonical-archimedean-factor and
+AL.2/archimedean-standard-epsilon, including complex epsilon i^|m|.
 These are imports from the single AF.1 owner; no proposed AF.1b split is
 required. The native class and factor interfaces must precede these signatures.
 -/
@@ -1137,7 +1144,7 @@ Omitted declaration names: TauCeti.GL2Transfer.cubicBaseChange, TauCeti.GL2Trans
 Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.cubic_split_test, TauCeti.GL2Transfer.cubic_one_two_test, TauCeti.GL2Transfer.cubic_inert_test, TauCeti.GL2Transfer.cubic_not_three_test.
 -/
 /- Signature omissions: Quadratic automorphic induction needs the quadratic K/F, the continuous Hecke-character carrier of K, its Galois conjugation, actual Weil induction and the isobaric and cuspidal GL₂ carriers; a map between arbitrary types, an arbitrary σ or an arbitrary cuspidal subtype does not express the cuspidality criterion.
-README targets: R17.5/quadratic-induction.
+README targets: R17.4/quadratic-induction (accepted R17.5 target moved before the cubic use).
 Omitted declaration names: TauCeti.GL2Transfer.quadraticInduction, TauCeti.GL2Transfer.quadraticInduction_local, TauCeti.GL2Transfer.quadraticInduction_central, TauCeti.GL2Transfer.quadraticInduction_baseChange, TauCeti.GL2Transfer.quadraticInduction_twist, TauCeti.GL2Transfer.quadraticInduction_cuspidal.
 Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.induction_invariant_test, TauCeti.GL2Transfer.induction_split_test, TauCeti.GL2Transfer.induction_determinant_test, TauCeti.GL2Transfer.induction_noninvariant_test.
 -/
@@ -1804,7 +1811,10 @@ ramified local–global comparison. At F=Q the modular-curve tower itself is
 Carayol's parabolic realization (2.2, 4.9); no change to a compact quaternionic
 carrier is involved. The special branch requires the nonzero Picard–Lefschetz
 map onto the normalization kernel (Langlands 7.14), and the ramified trace
-formula includes Langlands 7.12's stalk/dual-stalk local terms. The odd-prime
+formula follows from Varshavsky math/0505564v2, Theorem 2.1.3, applied to
+(c₂,c₁) when d>a and its Verdier-dual transpose when a>d. The ideal lemma
+below proves the contraction exponents; it does not encode the six operations
+or the local trace. Retain D(j!F)=Rj*DF at cusps. The odd-prime
 comparison needed at ell=2 uses the ordinary cases of Carayol's Theorem B;
 extraordinary dyadic compatibility at ell not equal to 2 additionally uses
 strong cubic transfer. Good-place trace data alone do not supply these maps.
@@ -1816,6 +1826,44 @@ TauCeti.GL2Transfer.classical_higher_weight_attachment,
 TauCeti.GL2Transfer.classical_weight_one_attachment,
 TauCeti.GL2Transfer.classical_conductor_comparison.
 -/
+section RamifiedCurveIdeals
+
+/-- The ideal-power test for contraction of the reordered curve correspondence
+with ramification orders a<d. The witness n=a works even when a>1. -/
+theorem ramification_contraction {R : Type*} [CommRing R] (I : Ideal R)
+    {a d : ℕ} (ha : 0 < a) (had : a < d) :
+    I ^ d ≤ I ^ a ∧ ∃ n : ℕ, 0 < n ∧ (I ^ d) ^ n ≤ (I ^ a) ^ (n + 1) := by
+  constructor
+  · exact Ideal.pow_le_pow_right (Nat.le_of_lt had)
+  · refine ⟨a, ha, ?_⟩
+    rw [← pow_mul, ← pow_mul]
+    apply Ideal.pow_le_pow_right
+    have hstep : a + 1 ≤ d := had
+    simpa only [Nat.mul_comm a d] using Nat.mul_le_mul_left a hstep
+
+-- The Frobenius branch is contracting in the ordinary-stalk orientation.
+example {R : Type*} [CommRing R] (I : Ideal R) {d : ℕ} (hd : 1 < d) :
+    I ^ d ≤ I ^ 1 ∧ ∃ n : ℕ, 0 < n ∧ (I ^ d) ^ n ≤ (I ^ 1) ^ (n + 1) :=
+  ramification_contraction I (by decide) hd
+
+-- Both branches may be ramified: n=2 gives (I³)² ⊆ (I²)³.
+example {R : Type*} [CommRing R] (I : Ideal R) : (I ^ 3) ^ 2 ≤ (I ^ 2) ^ 3 := by
+  rw [← pow_mul, ← pow_mul]
+
+-- Equal orders do not satisfy the contraction test for a nonzero proper ideal.
+example : ¬ ∃ n : ℕ, 0 < n ∧
+    ((Ideal.span ({(2 : ℤ)} : Set ℤ)) ^ 1) ^ n ≤
+      ((Ideal.span ({(2 : ℤ)} : Set ℤ)) ^ 1) ^ (n + 1) := by
+  rintro ⟨n, _, h⟩
+  simp only [pow_one, Ideal.span_singleton_pow,
+    Ideal.span_singleton_le_span_singleton] at h
+  have horder : n + 1 ≤ n :=
+    (pow_dvd_pow_iff (by norm_num : (2 : ℤ) ≠ 0)
+      (by norm_num [Int.isUnit_iff] : ¬ IsUnit (2 : ℤ))).mp h
+  exact Nat.not_succ_le_self n horder
+
+end RamifiedCurveIdeals
+
 section CharacteristicTwo
 variable {G : Type*} [Group G] {k : Type*} [Field k] [CharP k 2]
 
