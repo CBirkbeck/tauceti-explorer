@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-CRlLDa`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6093099197).
+Codex (GPT-6), session `codex-ieGe85`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6093397997).
 None of the manager-priority issues was available at selection. This was an
 available focus package under WORKERS' fallback order. Only this job was claimed.
 
@@ -13,7 +13,108 @@ allows only the package files and this handoff, and expressly forbids changing
 packets. The required supplier extensions cannot be made within those edits.
 A further package-only pass cannot resolve these two dependencies.
 
-## Current pass: codex-CRlLDa
+## Current pass: codex-ieGe85
+
+This is a **blocked checkpoint**, not a finished package or a time-limit
+submission. The bot confirmed this session's claim on issue #7491. No issue
+in the manager's priority list was available; this was an available focus
+package in the WORKERS fallback order. No second job was claimed.
+
+### Independent blocker check
+
+Read the parent `ordinary-fiber`, `rees-parameter` and `rees-specialization`
+statements; all seven H.0 continuation gaps and all four requests; the actual
+`CR.1/integrable-connection`, `DD.1/filtered-modules` and
+`DD.1/rees-description` statements and APIs; and the DD package's filtered/Rees
+subsection. G1 and G3 explicitly require owner extensions. The CR owner still
+has review `needs_changes`. The DD owner still states enhanced derived
+filtrations and derived quotient/localization, without the finite ordinary
+sheaf specialization or natural unit-fibre map needed by this consumer.
+Acceptance of the H.0 planning pass does not provide either requested result.
+
+The issue's binding restriction is **“Change no packet; if the plan has a
+mistake, describe it in the handoff note.”** PROTOCOL §§3, 15 and 20 require
+exact dependencies and forbid duplicating another owner's general objects.
+Thus these package-only edits cannot complete the missing supplier targets or
+reconcile their consumer references. This is a specification-scope blocker;
+it does not require waiting for implementation of a specified theorem.
+
+Read upstream AlgebraicVectorBundles and Completed/HodgeStructures READMEs in
+full, the relevant DifferentialGeometry signatures, the current native sheaf
+`tensorProduct`/`tensorProductIso`, and the current ideal-power Rees grading.
+The current roadmap/library commits remain the ones recorded below. A bounded
+search of current Tau Ceti Geometry, AlgebraicGeometry, RingTheory and Algebra,
+and those three roadmap directories found no exact alternate supplier.
+The Rees algebra and blowup results concern ideal powers; the manifold forms
+carry real smooth-bundle assumptions. Neither replaces the requested ordinary
+filtered module-sheaf or arbitrary-site connection contract. This search is
+not an assertion that every library declaration was audited. The reviewed
+library audit has no HodgeStructuresPartII layer; its HodgeStructures entries
+cover the linear-algebraic base, which remains imported.
+
+Read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
+directly: its connection and crystal construction use the crystalline site
+in Situation 60.7.5. Read Bhatt, [*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
+§2.2.1, Proposition 2.2.6 and Remark 2.2.8, pp.16–17, and Remark 2.3.7,
+pp.25–26. Remark 2.2.8 supplies the finite-projective affine specialization;
+Remark 2.3.7 supplies the characteristic-zero smooth-variety coefficient
+interpretation. These support extending the owners, but do not install the
+missing arbitrary-site comparison in their plans. The downloaded PDF has
+SHA-256 `a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`.
+
+### Exact intervention needed to resume
+
+1. In an authorized owner job, extend
+   `CrystallineCohomology:CR.1/integrable-connection` from its affine/crystalline
+   cases to supplied commutative ringed differential sites. State the additive
+   operator, all exterior extensions, curvature, horizontal arrows and
+   restriction/gluing comparisons; retain its existing specializations. Do not
+   impose crystal quasi-nilpotence on ordinary connections.
+2. In an authorized DD.1 job, export the ordinary finite locally split
+   filtration/Rees sheaf specialization, local freeness and the natural maps
+   at t=0, t=1 and t inverted. Include restriction, descent, tensor and quotient
+   compatibility. The operator t∇ and its transported comparisons stay owned
+   by H.0; no connection is to be added to DD.1's generic Rees object.
+3. Reconcile the H.0 references with these exact statements in a job allowed
+   to edit its packets. Exercise the three existing acceptance witnesses below,
+   including the derivative term in the change-of-frame matrix. Then resume
+   the remaining layer and fidelity audits. G2 and G4–G7 also remain open;
+   resolving G1/G3 alone is not a declaration of package closure.
+
+No mathematical deliverable was altered in this pass. The 693 examples,
+existing signatures and omission lists, README, reader and input packets are
+preserved byte for byte. The only submitted change is this handoff. Metadata
+remains absent: adding it would make intake classify an unfinished package as
+complete. Its final topic remains `math.AG`.
+
+### Fresh validation and fingerprints
+
+All ten Hodge input packet validators exited 0 with zero errors and zero
+warnings. These structural checks allow the recorded gaps and do not establish
+closure. The managed `lean-check` of the unchanged package Suggested.lean
+exited **0**: zero errors, **1623 warnings**, all `declaration uses sorry`,
+and zero other warnings. Available memory was 108 GB before compilation.
+The wrapper uses the shared Tau Ceti f790474 / Mathlib 082e2d3 build;
+the Mathlib revision was confirmed from its manifest and checkout. This is
+elaboration evidence only. No Lean process remains running.
+
+The scoped intake `check-files` reported one file and zero problems;
+`git diff --check` passed. The diff contains only this job's handoff.
+
+The exact unchanged contracts checked in this pass have these SHA-256 hashes:
+
+| File (relative to research/blueprint) | SHA-256 |
+| --- | --- |
+| packets/HodgeStructuresPartII--H.0.json | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
+| packets/CrystallineCohomology--CR.0.json | `aa6c94d292f866210a5450fbee909a0c400b5b973638298b5e3a705fe6329f58` |
+| packets/DerivedDeRhamCohomology.json | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
+| packages/DerivedDeRhamCohomology/README.md | `f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5` |
+
+The Hodge package README and Suggested.lean hashes match the codex-CRlLDa
+receipt below. No source passage, restricted file or private path was added.
+Scratch contains no state required for resumption and is removed at submission.
+
+## Previous pass: codex-CRlLDa
 
 - Confirmed the bot awarded this session the claim and re-read the issue.
   None of the manager-priority issues was available. This was an eligible
