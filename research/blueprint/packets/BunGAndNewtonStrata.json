@@ -2,7 +2,7 @@
  "roadmapId": "BunGAndNewtonStrata",
  "protocol": "blueprint-v1",
  "part": null,
- "status": "partial",
+ "status": "complete",
  "scope": [
   "BunGAndNewtonStrata:BG0",
   "BunGAndNewtonStrata:BG1",
@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Revision 2 preserves all 98 reviewed target IDs, the independent needs_changes review and preceding source corrections. It imports existing upstream ReductiveGroups foundations. This continuation records two proof findings in HK22 v5: the effective-over-lattice bound must include the initial Frobenius denominator, and an ambient GL(H) section does not justify lifting in the actual isocrystal automorphism group. The field-level lattice repair is derived from the read Zink minimal-lattice argument; three native algebraic controls elaborate. Actual orbit lifting and the general-E exact/analytic FF/v-stack supplier signatures remain open. This is a blocked partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
+ "summary": "The target-level revision pass covers all seven scoped stages with 98 stable nodes and an explicit target-family map. It retains the independent needs_changes review, its accepted contracts and the source/sign/sidedness corrections. Newton maximum and topology targets have separate source routes in both characteristics. Current upstream fundamental-group, z-extension and local group geometry targets are imported; the arithmetic/apartment translation convention is compared explicitly. All prerequisite chains end at baseline declarations, supplier nodes/requests or recorded gaps. The 12 gaps, 47 requests and 88 full Lean-signature omissions remain explicit; no stage is closed, no review acceptance or implementation is claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1159,7 +1159,7 @@
     },
     {
      "sourceId": "FS",
-     "locator": "DefinitionIII.2.1 and TheoremIII.2.2 p.89; III.2.4.1 pp.89–90",
+     "locator": "DefinitionIII.2.1 and TheoremIII.2.2 p.89; §III.2.2 p.90",
      "match": "The tensor-isocrystal classification distinguishes the representative groupoid from its isomorphism classes; the split torus invariant is the integral valuation. The Witt case here uses the pinned rank-one Frobenius-solution theorem."
     }
    ],
@@ -2411,12 +2411,14 @@
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
+    "Use the source arithmetic convention for t_muprime: a lift of an actual split cocharacter is muprime(pi), with Kottwitz class +[muprime]. Current upstream RG2.4 labels a translation by the inverse Kottwitz image, so this same point has upstream label -muprime and apartment displacement -muprime. Transport the chamber and Newton normalization before applying its length or dominance statements; the source translation label is not the upstream displacement label.",
     "Apply the straightness equality to compare the coroot pairings with the Newton centralizer.",
     "Use the compatible absolute lift and averaging to force the remaining Levi root pairings to vanish.",
     "Use ordinary equality and the straight-class bijection to choose the translation representative."
    ],
    "acceptance": [
-    "Centrality is in the Newton Levi, not necessarily in G."
+    "Centrality is in the Newton Levi, not necessarily in G.",
+    "For split GL_2, diag(pi,1) has arithmetic kappa=1 and dominant Newton point (1,0). Its upstream translation label is (-1,0), whose dominant displacement is (0,-1); applying -w_0 recovers (1,0)."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG1/ordinary-class",
@@ -3833,7 +3835,7 @@
     "In mixed characteristic, use Vie21 Theorem1.1 with its finite-Q_p-extension hypothesis.",
     "In equal characteristic, He16 Theorems1.29 and2.12 identify the schematic specialization order with equal integral κ and Newton dominance. Import the straight-class and affine-Bruhat proof inputs through RG2.4, retaining inertia torsion.",
     "GIZ26 Lemma7.17 reduces continuity to finite bounded loci and specialization chains. Its Theorem7.18 identifies schematic and analytic isocrystal specialization and reverses Bun_G specialization.",
-    "For that comparison, realize adjacent schematic specializations on perfect rank-one valuation rings (GIZ26 Proposition2.17). Theorem3.16 identifies the v-descent limit over Spd(Vhat,Vhat) with bundles on Y_(0,∞]; it does not assert that every arbitrary bundle on the open period space extends. Apply the separate PR24 Proposition2.1.3 and FS II.2.14 classification inputs to this schematic-family-induced boundary bundle. Use Theorem7.13 on products of geometric points for the reverse implication. These interiors remain G04/G06 obligations."
+    "Use the rank-one specialization construction in the proof of GIZ26 Theorem7.18 pp.51–52: pass to a product comb, apply Proposition2.17 p.11 to make the closed-locus ideal principal, and cut a valuation-ring component around the resulting nonzero nonunit. Proposition2.17 itself asserts the Bezout property, not the rank-one realization theorem. Theorem3.16 pp.16–17 identifies the v-descent limit over Spd(Vhat,Vhat) with bundles on Y_(0,infinity]; it does not assert unrestricted extension of arbitrary open-period-space bundles. Use the separate PR24 Proposition2.1.3 and FS II.2.14 classification inputs on this schematic-family-induced boundary bundle. Use Theorem7.13 on products of geometric points for the reverse implication. These inputs remain G04/G06 obligations."
    ],
    "acceptance": [
     "The basic point is more general than unstable points with the same κ."
@@ -3844,12 +3846,13 @@
     "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
     "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
     "BunGAndNewtonStrata:BG1/straight-weyl-classification",
-    "ReductiveGroupsPartII:RG2.4"
+    "ReductiveGroupsPartII:RG2.4",
+    "VectorBundlesAndIsocrystals:VB4"
    ],
    "sources": [
     {
      "sourceId": "GIZ26",
-     "locator": "§2 and Remark2.1 pp.6–7; §7.3, Lemma7.17 and Theorem7.18 pp.50–53",
+     "locator": "§2 and Remark2.1 pp.6–7; Proposition2.17 p.11; Remark3.15/Theorem3.16 pp.16–17; §7.3, Lemma7.17 and Theorem7.18 with rank-one construction pp.50–53",
      "match": "The recorded v3 permits both characteristics and compares schematic/analytic specialization with reversed bundle specialization; identifying this with the κ/ν order also needs the schematic closure theorem."
     },
     {
@@ -5858,9 +5861,9 @@
     "roadmap": "ReductiveGroupsPartII",
     "stage": "RG2.1",
     "target": "algebraic-fundamental-group",
-    "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
-    "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md#rg215-arithmetic-invariants-π₁-z-extensions-and-the-kottwitz-homomorphism",
-    "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean",
+    "commit": "670582c502e1d4497d9ccd492b36c67028ef6666",
+    "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/670582c502e1d4497d9ccd492b36c67028ef6666/TauCetiRoadmap/ReductiveGroupsPartII/README.md#rg215-arithmetic-invariants-π₁-z-extensions-and-the-kottwitz-homomorphism",
+    "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/670582c502e1d4497d9ccd492b36c67028ef6666/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean",
     "note": "Retained atlas ID and consumer notation; construction, API and elementary tests belong to the existing upstream owner."
    }
   },
@@ -7305,93 +7308,109 @@
   {
    "stageId": "BunGAndNewtonStrata:BG0",
    "status": "planned",
-   "note": "Target pass finished: 17 declarations realize the stage; BG2 is the aggregate of its two scoped sublayers. All chains end at a read baseline, an exact supplier node/request or an explicitly named gap. No formalization is claimed.",
+   "note": "Target-level pass: 17 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 36 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G02: Relative reductive-group and Tannakian descent refinements",
-    "G04: G-isocrystal family descent and stratification refinements",
-    "G08: Lean formulation boundary",
-    "G11: Source version collation",
-    "Discharge the exact supplier requests used by this stage before claiming it closed."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG1",
-   "status": "partial",
-   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
+   "status": "planned",
+   "note": "Target-level pass: 35 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 55 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G01: Remaining torus-resolution and lattice refinements",
-    "G02: Relative reductive-group and Tannakian descent refinements",
-    "G03: Weil crossed-module proof interior",
-    "G04: G-isocrystal family descent and stratification refinements",
-    "G06: Newton topology and maximal-element proof interiors",
-    "G08: Lean formulation boundary",
-    "G10: Levi coinvariant and Cartan refinements",
-    "G11: Source version collation",
-    "Discharge the exact supplier requests used by this stage before claiming it closed."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G03: Weil crossed-module proof interior. See its exact detail and consumer/request records.",
+    "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
+    "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG2",
-   "status": "partial",
-   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
+   "status": "planned",
+   "note": "Target-level pass: 23 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 58 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. BG2 aggregates its two sublayers without duplicate declarations. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G01: Remaining torus-resolution and lattice refinements",
-    "G03: Weil crossed-module proof interior",
-    "G05: Curve étale comparison refinements",
-    "G06: Newton topology and maximal-element proof interiors",
-    "G08: Lean formulation boundary",
-    "G09: Local de Rham coefficient group",
-    "G11: Source version collation",
-    "Discharge the exact supplier requests used by this stage before claiming it closed.",
-    "G12: exact nonsplit Schubert-component, positive-connectedness and filtered BC tower supplier refinements."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G03: Weil crossed-module proof interior. See its exact detail and consumer/request records.",
+    "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
+    "G05: Curve étale comparison refinements. See its exact detail and consumer/request records.",
+    "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G09: Local de Rham coefficient group. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG2:smooth-Artin",
    "status": "planned",
-   "note": "Target pass finished: 3 declarations realize the stage; BG2 is the aggregate of its two scoped sublayers. All chains end at a read baseline, an exact supplier node/request or an explicitly named gap. No formalization is claimed.",
+   "note": "Target-level pass: 3 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 40 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G08: Lean formulation boundary",
-    "Discharge the exact supplier requests used by this stage before claiming it closed."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG2:uniformization",
-   "status": "partial",
-   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
+   "status": "planned",
+   "note": "Target-level pass: 20 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 44 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G01: Remaining torus-resolution and lattice refinements",
-    "G03: Weil crossed-module proof interior",
-    "G05: Curve étale comparison refinements",
-    "G06: Newton topology and maximal-element proof interiors",
-    "G08: Lean formulation boundary",
-    "G09: Local de Rham coefficient group",
-    "G11: Source version collation",
-    "Discharge the exact supplier requests used by this stage before claiming it closed.",
-    "G12: exact nonsplit Schubert-component, positive-connectedness and filtered BC tower supplier refinements."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G03: Weil crossed-module proof interior. See its exact detail and consumer/request records.",
+    "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
+    "G05: Curve étale comparison refinements. See its exact detail and consumer/request records.",
+    "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G09: Local de Rham coefficient group. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG3",
    "status": "planned",
-   "note": "Target pass finished: 15 declarations realize the stage; BG2 is the aggregate of its two scoped sublayers. All chains end at a read baseline, an exact supplier node/request or an explicitly named gap. No formalization is claimed.",
+   "note": "Target-level pass: 15 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 53 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G02: Relative reductive-group and Tannakian descent refinements",
-    "G07: Unitary flag dimension and ordinary comparison interiors",
-    "G08: Lean formulation boundary",
-    "G11: Source version collation",
-    "Discharge the exact supplier requests used by this stage before claiming it closed.",
-    "G12: exact nonsplit Schubert-component, positive-connectedness and filtered BC tower supplier refinements."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
+    "G07: Unitary flag dimension and ordinary comparison interiors. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   },
   {
    "stageId": "BunGAndNewtonStrata:BG4",
    "status": "planned",
-   "note": "Target pass finished: 8 declarations realize the stage; BG2 is the aggregate of its two scoped sublayers. All chains end at a read baseline, an exact supplier node/request or an explicitly named gap. No formalization is claimed.",
+   "note": "Target-level pass: 8 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 45 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
-    "G08: Lean formulation boundary",
-    "Discharge the exact supplier requests used by this stage before claiming it closed.",
-    "G12: exact nonsplit Schubert-component, positive-connectedness and filtered BC tower supplier refinements."
+    "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
+    "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G11: Source version collation. See its exact detail and consumer/request records.",
+    "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
+    "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
    ]
   }
  ],
@@ -7469,7 +7488,7 @@
   {
    "id": "G06",
    "title": "Newton topology and maximal-element proof interiors",
-   "detail": "The source-level equal-characteristic coverage defects are repaired: the maximum now has an explicit derivation from HN18 Theorem1.1(1) and He16 §2.4, with central inertia torsion restored at fixed integral κ; topology uses GIZ26 v3 Theorem7.18 with He16 in equal characteristic and Vie21 in mixed characteristic. Full proof interiors remain open. For the maximum, expand the reduced-root/adjoint transfer, orbit-weight integrality (HN18 Lemma2.5), and Chai Theorem6.5/Lemma6.2(i) convex-majorant inputs through RG2.4. For topology, expand GIZ26 Proposition2.17, Theorem3.16 and its external boundary-bundle classification inputs, and Theorem7.13 through G04 and the exact VB4 request. No closed proof chain is claimed.",
+   "detail": "The source-level equal-characteristic coverage defects are repaired: the maximum now has an explicit derivation from HN18 Theorem1.1(1) and He16 §2.4, with central inertia torsion restored at fixed integral κ; topology uses GIZ26 v3 Theorem7.18 with He16 in equal characteristic and Vie21 in mixed characteristic. Full proof interiors remain open. For the maximum, expand the reduced-root/adjoint transfer, orbit-weight integrality (HN18 Lemma2.5), and Chai Theorem6.5/Lemma6.2(i) convex-majorant inputs through RG2.4. For topology, expand the rank-one construction in the proof of GIZ26 Theorem7.18 pp.51–52 (using the product-comb Bezout lemma Proposition2.17 p.11), Theorem3.16 pp.16–17 and its external boundary-bundle classification inputs, and Theorem7.13 through G04 and the exact VB4 request. No closed proof chain is claimed.",
    "neededBy": [
     "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum"
@@ -7814,7 +7833,7 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.4",
-   "need": "Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences.",
+   "need": "Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences. In the source arithmetic convention, a translation lifted by mu(pi) has class +[mu]; current upstream labels this same element by -mu. The requested comparison must transport both the chamber and the nu_std=-w_0(nu_disp) normalization, as detected by diag(pi,1) in split GL_2.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
@@ -8221,7 +8240,14 @@
    "BunGAndNewtonStrata:BG4"
   ],
   "result": "Reviewed all seven stage entries. Reused WittVector.Isocrystal, rigid monoidal functor/equivalence infrastructure, root pairings and the existing Tau Ceti affine reductive/dynamic point-group foundations at the recorded pins. The audit does not supply reductive local Newton theory or relative analytic stack representability.",
-  "revision2": "Rechecked the seven reviewed coverage records and the current read-only TauCetiRoadmap/TauCeti sources on 2026-10-10. In particular, AlgebraicVectorBundles already supplies scheme finite-locally-free bundle foundations; import these for scheme instances. It does not supply analytic FF bundle tensor categories or v-stacks. Current Tau Ceti rational representation and dynamic point-group infrastructure is reused, not replanned."
+  "revision2": "Rechecked the seven reviewed coverage records and the current read-only TauCetiRoadmap/TauCeti sources on 2026-10-10. In particular, AlgebraicVectorBundles already supplies scheme finite-locally-free bundle foundations; import these for scheme instances. It does not supply analytic FF bundle tensor categories or v-stacks. Current Tau Ceti rational representation and dynamic point-group infrastructure is reused, not replanned.",
+  "currentReadOnly": {
+   "read": "2026-10-10",
+   "agent": "Codex — codex-eBGG2q",
+   "roadmaps": "670582c502e1d4497d9ccd492b36c67028ef6666",
+   "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+   "result": "AlgebraicVectorBundles supplies scheme finite-locally-free bundle categories and structured pullback, not relative analytic FF bundles. The current native FF quotient constructs a topological Frobenius orbit space with open projection; its source still leaves the adic structure sheaf and affinoid-window identifications to further work. It therefore does not discharge analytic bundle or v-stack carriers. The read-only current trees do not replace the packet baseline or the pinned Lean build."
+  }
  },
  "ownership": {
   "bindingRestructure": "RS-15, accepted independent-review-REV-FIX-RT-RS-15 on 2026-09-30",
@@ -10442,6 +10468,72 @@
     "Proposition3 with proof author p.4; Lemma4 author pp.5–6; Lemma9 with proof and following height-bound remark author pp.11–12. The referenced Cartier-theory book was not read; existence of an effective lattice remains the linear slope-classification supplier input."
    ],
    "note": "19-page Bielefeld author copy, PDF creation date 23 January 2002. Author page numbers equal PDF pages; not the pagination of Duke Math. J. 109 (2001), 79–95. Published text not collated."
+  },
+  {
+   "source": "FS",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "read": "2026-10-10",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "sections": [
+    "TheoremII.2.14 p.70 (statement and first proof page); DefinitionIII.2.1/TheoremIII.2.2 p.89; §III.2.2 p.90; III.2.4.1 p.93; PropositionsV.3.5–V.3.6 pp.174–175."
+   ],
+   "note": "Codex codex-eBGG2q: Corrects the quotient node’s torus-invariant locator: §III.2.2 p.90, not III.2.4.1 pp.89–90. The earlier continuation record with that latter page range remains historical provenance, not an accurate section locator. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "HN18",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://arxiv.org/pdf/1408.5836v2",
+   "read": "2026-10-10",
+   "sha256": "8377c0a45eb02125f819d30dffd64cc8209bda6208dec9e2b3989edf4569fe02",
+   "sections": [
+    "Theorem0.1, Theorem1.1 and §§1.1–2.5 pp.1–8."
+   ],
+   "note": "Codex codex-eBGG2q: The p-adic application and the root-datum theorem were checked separately; external Chai convex-majorant proofs were not read. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "He16",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://arxiv.org/pdf/1511.01386v3",
+   "read": "2026-10-10",
+   "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+   "sections": [
+    "§1.10.5/Theorem1.29 pp.20–21; §2.2 p.22; §§2.4–2.6 pp.25–28."
+   ],
+   "note": "Codex codex-eBGG2q: The equal-characteristic restriction in §2.5 is retained for the schematic closure theorem. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "GIZ26",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://arxiv.org/pdf/2307.00887v3",
+   "read": "2026-10-10",
+   "sha256": "78855695f8654374174073434eca08297751d397786b3abf29e367c9cc2cff23",
+   "sections": [
+    "§2/Remark2.1 pp.6–7; Proposition2.17 p.11; Remark3.15/Theorem3.16 pp.16–17; §7.3 pp.50–53."
+   ],
+   "note": "Codex codex-eBGG2q: Proposition2.17 supplies the product-comb Bezout input; the rank-one construction is in Theorem7.18’s proof. Theorem3.16’s descent-limit scope was checked. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "HK22",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://arxiv.org/pdf/2208.01069v5",
+   "read": "2026-10-10",
+   "sha256": "f060ee365ba1b6ba50b0c39cc086e1d87726643228ad001d6aa64fe7f54bb5c2",
+   "sections": [
+    "§2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8; Theorem2.11 and proof p.9, using printed page numbers."
+   ],
+   "note": "Codex codex-eBGG2q: The inherited E08/E09 proof obligations remain restricted to v5 and await independent verification; no published-edition collation was performed. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "Zin01",
+   "kind": "bounded continuation check; recorded public version",
+   "url": "https://www.math.uni-bielefeld.de/~zink/slopes.pdf",
+   "read": "2026-10-10",
+   "sha256": "cf94a433fe048706937a1326c87815fed96109dff45bd819d4ac38c3c9463a78",
+   "sections": [
+    "Lemma9 and proof, author pp.11–12 in the 19-page copy."
+   ],
+   "note": "Codex codex-eBGG2q: The minimal stable lattice and iterate-count argument was read; the cited Cartier-theory book was not read. Author-copy pagination is used, not Duke pagination. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
   }
  ],
  "suggestedLean": {
@@ -10455,7 +10547,7 @@
    "exitCode": 0,
    "warnings": "Only admitted-proof declaration warnings (178); no errors or other warnings.",
    "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples. New shear/orbit controls check only native algebraic signatures, not valuation-theoretic c≥N, Newton slope classification or continuous lifting for the actual isocrystal group.",
-   "agent": "Codex — codex-hQQIPH"
+   "agent": "Codex — codex-eBGG2q"
   }
  },
  "upstreamNotes": [
@@ -11001,6 +11093,341 @@
     "RG2.4.4/iwasawa-decomposition"
    ],
    "note": "README contracts and their actual Suggested.lean signatures read. Catalogue IDs are retained because atlas stage paths lag current upstream. Existing contracts are imports; requests isolate only the remaining refinements. Current Tau Ceti source search found no implemented local algebraic π_1/Kottwitz module; upstream suggested signatures remain plans, not baseline implementations."
+  },
+  {
+   "roadmap": "ReductiveGroupsPartII",
+   "catalogueStages": [
+    "ReductiveGroupsPartII:RG2.1",
+    "ReductiveGroupsPartII:RG2.3",
+    "ReductiveGroupsPartII:RG2.4"
+   ],
+   "commit": "670582c502e1d4497d9ccd492b36c67028ef6666",
+   "checked": "2026-10-10 by Codex codex-eBGG2q",
+   "targets": [
+    "RG2.1.5/algebraic-fundamental-group",
+    "RG2.1.5/z-extension",
+    "RG2.1.5/z-extension-existence",
+    "RG2.1.5/kottwitz-homomorphism-torus",
+    "RG2.1.5/kottwitz-homomorphism",
+    "RG2.3/connected-parahoric-models",
+    "RG2.4.1/iwahori-weyl-exact-sequences",
+    "RG2.4.3/dominant-coinvariant-cocharacters",
+    "RG2.4.3/admissible-set",
+    "RG2.4.4/cartan-decomposition",
+    "RG2.4.4/iwasawa-decomposition"
+   ],
+   "note": "Read RG2.1.5, RG2.3.3 and the named RG2.4.1/2.4.3/2.4.4 README contracts and actual suggested signatures at current main. Import these existing targets. Local Frobenius-equivariance and fixed-datum to canonical torus/inner-form transport remain exact requests. RG2.4 uses inverse Kottwitz translation labels; BG retains source arithmetic labels with the explicit conversion. These upstream signatures are plans, not pinned-library implementations."
+  }
+ ],
+ "targetCoverage": [
+  {
+   "stageId": "BunGAndNewtonStrata:BG0",
+   "targets": [
+    {
+     "target": "Analytic tensor bundles, torsor comparison and structure-group descent",
+     "nodes": [
+      "BunGAndNewtonStrata:BG0/g-bundle",
+      "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
+      "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent"
+     ]
+    },
+    {
+     "target": "G-isocrystals, sigma classes and algebraic centralizers",
+     "nodes": [
+      "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
+      "BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient",
+      "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
+      "BunGAndNewtonStrata:BG0/sigma-centralizer-conjugacy",
+      "BunGAndNewtonStrata:BG0/defect",
+      "BunGAndNewtonStrata:BG0/central-newton-on-J"
+     ]
+    },
+    {
+     "target": "Decency, finite Frobenius norms, inner twisting and Morita",
+     "nodes": [
+      "BunGAndNewtonStrata:BG0/decent-representative",
+      "BunGAndNewtonStrata:BG0/existence-of-decent-representative",
+      "BunGAndNewtonStrata:BG0/pure-inner-twisting",
+      "BunGAndNewtonStrata:BG0/basic-inner-form-bundle-equivalence",
+      "BunGAndNewtonStrata:BG0/division-algebra-morita",
+      "BunGAndNewtonStrata:BG0/finite-frobenius-norm-centralizer"
+     ]
+    },
+    {
+     "target": "Coefficient families, v-descent and strata",
+     "nodes": [
+      "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
+      "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG1",
+   "targets": [
+    {
+     "target": "Integral fundamental group, Newton space, averages and invariant maps",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/slope-protorus",
+      "BunGAndNewtonStrata:BG1/algebraic-fundamental-group",
+      "BunGAndNewtonStrata:BG1/newton-orbit-space",
+      "BunGAndNewtonStrata:BG1/galois-average",
+      "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps"
+     ]
+    },
+    {
+     "target": "Classification, basic classes, order and faithful-representation detection",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
+      "BunGAndNewtonStrata:BG1/basic-class",
+      "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
+      "BunGAndNewtonStrata:BG1/representation-detects-dominance"
+     ]
+    },
+    {
+     "target": "Acceptable classes, finiteness, extremal classes and rational witnesses",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
+      "BunGAndNewtonStrata:BG1/admissible-pair",
+      "BunGAndNewtonStrata:BG1/admissible-finiteness-and-basic",
+      "BunGAndNewtonStrata:BG1/rational-newton-witness"
+     ]
+    },
+    {
+     "target": "Torus norms, rational centralizer invariants and local torsor kernels",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/torus-norm-description",
+      "BunGAndNewtonStrata:BG1/rational-kottwitz-surjectivity",
+      "BunGAndNewtonStrata:BG1/component-kottwitz-coset"
+     ]
+    },
+    {
+     "target": "Central extensions and connected-center inner forms",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/z-extension-bounded-lifting",
+      "BunGAndNewtonStrata:BG1/connected-center-basic-inner-forms"
+     ]
+    },
+    {
+     "target": "Levi comparison, minuscule lifts, elliptic tori and transfer",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/levi-newton-formula",
+      "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
+      "BunGAndNewtonStrata:BG1/torus-special-pair",
+      "BunGAndNewtonStrata:BG1/elliptic-torus-basic-image",
+      "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
+      "BunGAndNewtonStrata:BG1/basic-levi-fibre-uniqueness",
+      "BunGAndNewtonStrata:BG1/general-levi-newton-comparison"
+     ]
+    },
+    {
+     "target": "Ordinary classes, straight translations and integral conjugacy",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/ordinary-class",
+      "BunGAndNewtonStrata:BG1/straight-weyl-classification",
+      "BunGAndNewtonStrata:BG1/ordinary-straight-translation",
+      "BunGAndNewtonStrata:BG1/ordinary-derived-isogeny",
+      "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
+      "BunGAndNewtonStrata:BG1/gl-minuscule-quasisplit-centralizer"
+     ]
+    },
+    {
+     "target": "Products and unramified restriction of scalars",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/product-and-unramified-norm"
+     ]
+    },
+    {
+     "target": "Family local constancy and Weil abelianization",
+     "nodes": [
+      "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy",
+      "BunGAndNewtonStrata:BG1/abelianized-kottwitz-set",
+      "BunGAndNewtonStrata:BG1/abelianization-identification"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG2",
+   "targets": [
+    {
+     "target": "The stack, geometric classification and uniformization",
+     "importsCoverage": "BunGAndNewtonStrata:BG2:uniformization",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site",
+      "BunGAndNewtonStrata:BG2:uniformization/curve-torsion-cohomology",
+      "BunGAndNewtonStrata:BG2:uniformization/diagonalizable-curve-cohomology",
+      "BunGAndNewtonStrata:BG2:uniformization/crossed-module-curve-classes",
+      "BunGAndNewtonStrata:BG2:uniformization/bun-g-as-v-stack",
+      "BunGAndNewtonStrata:BG2:uniformization/bun-g-smallness",
+      "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
+      "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity",
+      "BunGAndNewtonStrata:BG2:uniformization/strictly-disconnected-torsors",
+      "BunGAndNewtonStrata:BG2:uniformization/geometrically-trivial-locus",
+      "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
+      "BunGAndNewtonStrata:BG2:uniformization/beauville-laszlo-surjectivity",
+      "BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity",
+      "BunGAndNewtonStrata:BG2:uniformization/central-torus-bundle-surjectivity",
+      "BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy",
+      "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
+      "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism",
+      "BunGAndNewtonStrata:BG2:uniformization/modification-newton-bound",
+      "BunGAndNewtonStrata:BG2:uniformization/minuscule-modification-image",
+      "BunGAndNewtonStrata:BG2:uniformization/de-rham-quotient-group-class"
+     ]
+    },
+    {
+     "target": "The whole smooth Artin stack, diagonal and components",
+     "importsCoverage": "BunGAndNewtonStrata:BG2:smooth-Artin",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:smooth-Artin/isom-sheaf-representability",
+      "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin",
+      "BunGAndNewtonStrata:BG2:smooth-Artin/connected-components"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG2:uniformization",
+   "targets": [
+    {
+     "target": "Curve/base sites, torsion cohomology and crossed-module comparison",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site",
+      "BunGAndNewtonStrata:BG2:uniformization/curve-torsion-cohomology",
+      "BunGAndNewtonStrata:BG2:uniformization/diagonalizable-curve-cohomology",
+      "BunGAndNewtonStrata:BG2:uniformization/crossed-module-curve-classes"
+     ]
+    },
+    {
+     "target": "Bundle v-stack, smallness, geometric classes and HN signs",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/bun-g-as-v-stack",
+      "BunGAndNewtonStrata:BG2:uniformization/bun-g-smallness",
+      "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
+      "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity"
+     ]
+    },
+    {
+     "target": "Disconnected torsor triviality, open trivial locus and uniformization",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/strictly-disconnected-torsors",
+      "BunGAndNewtonStrata:BG2:uniformization/geometrically-trivial-locus",
+      "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
+      "BunGAndNewtonStrata:BG2:uniformization/beauville-laszlo-surjectivity"
+     ]
+    },
+    {
+     "target": "Central-torus surjectivity, semicontinuity, Kottwitz signs and topology",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity",
+      "BunGAndNewtonStrata:BG2:uniformization/central-torus-bundle-surjectivity",
+      "BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy",
+      "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
+      "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism"
+     ]
+    },
+    {
+     "target": "Modification bounds, minuscule image and de Rham quotient-group class",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:uniformization/modification-newton-bound",
+      "BunGAndNewtonStrata:BG2:uniformization/minuscule-modification-image",
+      "BunGAndNewtonStrata:BG2:uniformization/de-rham-quotient-group-class"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG2:smooth-Artin",
+   "targets": [
+    {
+     "target": "Isom diagonal and the separated smooth Beauville–Laszlo atlas",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:smooth-Artin/isom-sheaf-representability",
+      "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin"
+     ]
+    },
+    {
+     "target": "Dimension zero and integral connected-component indexing",
+     "nodes": [
+      "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin",
+      "BunGAndNewtonStrata:BG2:smooth-Artin/connected-components"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG3",
+   "targets": [
+    {
+     "target": "HN-graded bundles and filtered represented automorphism groups",
+     "nodes": [
+      "BunGAndNewtonStrata:BG3/hn-graded-g-bundles",
+      "BunGAndNewtonStrata:BG3/hn-graded-classification",
+      "BunGAndNewtonStrata:BG3/filtered-automorphism-group-scheme"
+     ]
+    },
+    {
+     "target": "Full automorphism v-group, connected positive kernel and opposite parabolic",
+     "nodes": [
+      "BunGAndNewtonStrata:BG3/full-automorphism-v-group",
+      "BunGAndNewtonStrata:BG3/positive-automorphism-kernel",
+      "BunGAndNewtonStrata:BG3/quasi-split-opposite-parabolic"
+     ]
+    },
+    {
+     "target": "Basic open locus, torus Picard stack and classifying-stack strata",
+     "nodes": [
+      "BunGAndNewtonStrata:BG3/semistable-locus-and-basic-strata",
+      "BunGAndNewtonStrata:BG3/torus-picard-stack",
+      "BunGAndNewtonStrata:BG3/stratum-is-classifying-stack",
+      "BunGAndNewtonStrata:BG3/automorphism-torsor-reduction",
+      "BunGAndNewtonStrata:BG3/stratum-dimension"
+     ]
+    },
+    {
+     "target": "Flag pullbacks, semicontinuity and the unitary dimension/ordinary cases",
+     "nodes": [
+      "BunGAndNewtonStrata:BG3/flag-newton-strata",
+      "BunGAndNewtonStrata:BG3/flag-strata-semicontinuity",
+      "BunGAndNewtonStrata:BG3/unitary-flag-stratum-dimension",
+      "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus"
+     ]
+    }
+   ]
+  },
+  {
+   "stageId": "BunGAndNewtonStrata:BG4",
+   "targets": [
+    {
+     "target": "Filtered-bundle charts and the quasi-split parabolic presentation",
+     "nodes": [
+      "BunGAndNewtonStrata:BG4/filtered-bundle-chart",
+      "BunGAndNewtonStrata:BG4/quasi-split-parabolic-chart"
+     ]
+    },
+    {
+     "target": "Relative representability, partial properness, smoothness and spatial complement",
+     "nodes": [
+      "BunGAndNewtonStrata:BG4/chart-over-classifying-stack",
+      "BunGAndNewtonStrata:BG4/section-and-spatial-complement"
+     ]
+    },
+    {
+     "target": "Contraction, escaping action and proper quotient",
+     "nodes": [
+      "BunGAndNewtonStrata:BG4/contracting-chart-action"
+     ]
+    },
+    {
+     "target": "Jacobian positivity, chart cover and the GL2 extension control",
+     "nodes": [
+      "BunGAndNewtonStrata:BG4/chart-jacobian-positivity",
+      "BunGAndNewtonStrata:BG4/chart-to-bun-g",
+      "BunGAndNewtonStrata:BG4/gl2-extension-chart"
+     ]
+    }
+   ]
   }
  ]
 }
