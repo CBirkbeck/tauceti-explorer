@@ -1,5 +1,164 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-riNlhQ`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-riNlhQ-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6097249230).
+Status: **partial; the mathematical supplier chains below remain unresolved**.
+None of the manager's priority issues was available when checked. This was
+an available focus package under WORKERS.md's fallback order. Only one job
+was claimed. Changes are confined to README, Suggested.lean and this handoff;
+metadata remains absent, preventing existence-based completion of this
+unfinished package.
+
+## This continuation: the finite-quotient extension step is supplied
+
+Pinned Mathlib already proves finite abelian subgroup-character extension:
+`MonoidHom.domRestrict_surjective` in
+`Mathlib/GroupTheory/FiniteAbelian/Duality.lean`, lines 104–122. Its statement
+requires enough roots of unity for the ambient group's exponent, supplied
+by ℂ. I read that statement and proof at Mathlib `082e2d37e8`. It must be
+reused, not planned again as a missing divisible-character theorem.
+
+The package now proves `TauCeti.GL2Transfer.finite_character_extension_iff`:
+for a commutative topological group G with continuous group operations,
+subgroups H,N, open finite-index N and a homomorphism χ:H→ℂˣ, the following
+are equivalent:
+
+- there is a continuous homomorphism Ψ:G→ℂˣ restricting to χ on H,
+  killing N, with finite image and Ψ(g)^exponent(G/N)=1 for every g;
+- χ is trivial on H∩N.
+
+The proof descends χ through H→G/N using `liftOfSurjective`, applies the
+existing finite-group restriction-surjectivity theorem, and pulls the
+extension back along the quotient map. Openness makes G/N discrete;
+finite index gives the finite image. The exponent bound follows by mapping
+the power identity in G/N. Neither continuity nor finite order of χ needs
+to be assumed separately: the intersection condition forces factorization
+through a finite discrete quotient. N is supplied data, not an arithmetic
+existence assertion. The bound is the ambient quotient's exponent; it does
+not assert preservation of χ's order.
+
+Three new examples, all proved, check the interface:
+
+1. Trivial data extends to the trivial character even in an infinite ambient
+   group, by choosing N=G. The ambient group need not be finite.
+2. Every subgroup character extends in a finite discrete commutative group,
+   by choosing N={1}. The subgroup need not be the full group.
+3. A nontrivial value at an element of H∩N prevents an extension killing N.
+   The compatibility hypothesis cannot be omitted.
+
+The existing concrete ℚ₂ uniformizer, conductor-five Dirichlet and ℤ/4ℤ
+order-growth examples are preserved. The README adds the finite-quotient
+criterion and its existing-library dependency in the Tunnell target. Its
+compression preserves the original global Weil statement, type cases,
+finite-image clause, auxiliary ramification, source locators and tests.
+All target headings and anchors remain identical to the starting revision.
+No new definition, substitute arithmetic carrier or `sorry` was added.
+
+## Exact arithmetic inputs still needed
+
+Apply the new theorem to G=C_M, with H the image of the prescribed-local
+idele subgroup B and N the image of ker θ, in the preserved construction
+below. The finite-group extension and its topological pullback are now
+proved. The remaining arithmetic bridge must establish these inputs:
+
+1. For E=O_{M,S}× and E′=ker(a↦∏ξ_v(a)), construct a modulus supported
+   outside S with its E-congruence subgroup contained in E′. This is the
+   prime-avoidance form of Chevalley's congruence theorem, not the finite
+   index of a congruence subgroup for an already chosen modulus.
+2. Prove θ kills B∩M× and descend it to the actual image H⊂C_M. The diagonal
+   intersection is exactly the S-units satisfying the chosen congruences.
+3. Show N is open using the open idele subgroup ker θ and the open quotient
+   map. Choose depths killed by ξ_v at v∈S; the resulting ray subgroup lies
+   in N. Ray-class finiteness then gives [C_M:N]<∞.
+4. Check the resulting character on the **full** groups M_v× and at infinity,
+   with auxiliary ramification permitted. The CM application also needs its
+   infinity type and the nonsplit-place finite-order argument already stated
+   in the README. The single-place quasi-character consequence separately
+   uses a global norm twist.
+
+Fresh source reads: Chevalley, *Deux Théorèmes d'Arithmétique*, Theorem 1,
+printed p. 36, its primary proof pp. 36–39; Clozel–Harris–Taylor, Lemma 4.1.1
+and proof, printed p. 116. Their publisher PDFs have the same SHA-256 values
+as the preserved source table below. Chevalley's prime-power cyclotomic
+argument includes the dyadic enlargement; the withdrawn general-splitting
+shortcut remains withdrawn. CHT's printed conclusion states continuity,
+not the finite-image and exponent conclusions of the new quotient lemma.
+No source file or passage is committed.
+
+The current Tau Ceti declarations
+`HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter`,
+`exists_modulus_finitePart_eq_one`, `exists_modulus_finiteComponent_eq_one`,
+`exists_modulus_embeddingCharacter_eq_one`, and
+`unitsCongruenceSubgroup_finiteIndex` were read. They factor/control an
+existing character or start from an existing modulus. None supplies input 1
+or constructs a character from prescribed full-local data. This is a scoped
+statement check, not a general absence claim. Current ClassFieldTheory §1
+excludes prescribed-local abelian extensions; its Layer 12's prime-p S-unit
+Kummer construction and norm descent do not state Chevalley's prime-power
+congruence/avoidance contract. Chebotarev Layer 10 supplies the inert-prime
+selection in the preserved primary-proof route and should be imported.
+
+## Why the package remains partial; where to resume
+
+The accepted packets still contain 16 recorded gaps and no closed stage.
+The full-local congruence bridge above is one substantive gap. The higher
+`R23.1/cht-character-extension` also needs it; tier 22 cannot supply tier-15
+GL2. WORKERS.md already authorizes moving needed mathematics down: no
+permission is required to do that. A single lower owner must give the
+specified arithmetic proof chain and reconcile the GL2, CHT, determinant
+level-shrinking and CM norm-kernel uses. No ownership move is certified here.
+The existing **finite-group** extension is no longer part of that missing
+chain; the next worker should reuse the new theorem and start at input 1.
+
+A separate unresolved chain is the four R19 prerequisite edges: three
+classical attachment/conductor inputs to rt-technical-lemma and the
+higher-weight attachment input to weight-two-witness. The provisional
+R17.6 targets state the conclusions, but the eigenprojector/cohomological
+realization, rank-two and coefficient descent, and ramified integral
+comparison still need exact supplier contracts and proof chains. The
+Fong–Swan alternative likewise still needs its splitting-system/stable
+lattice/Brauer-character-to-module interface. The preserved handoffs contain
+those source receipts and relocation obligations. This continuation does
+not close these gaps by treating matching unramified traces as construction,
+or by presenting algebraic fragments as the missing arithmetic signatures.
+
+The issue prohibits packet edits. This checkpoint records the still-open
+plan obligations rather than marking an unsupported no-gap package complete.
+The blocker is the unfinished mathematical chain, not approval for ownership
+changes or lack of Lean implementations of proposed targets.
+
+## Validation for codex-riNlhQ
+
+- Full package `lean-check`: **exit 0, no errors, 144 warnings, all
+  declaration-uses-sorry**. The new theorem and all three new examples have
+  complete proofs. `#print axioms` on the new theorem reports only
+  `propext`, `Classical.choice` and `Quot.sound`, with no `sorryAx`.
+  Pinned Mathlib `082e2d37e8`, Tau Ceti `f790474`.
+- Both accepted GL2 packets pass `scripts/check_blueprint.py`: **0 errors,
+  0 warnings**. They have 112 nodes, 16 gaps, 67 requests, twelve planned
+  stages and zero closed stages; neither packet changed.
+- The reviewed GL2 library audit and current supplier statements were checked.
+  Fresh read-only revisions: TauCetiRoadmap
+  `e255659f8eb50cd472809d9d565c8f755acffd84`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The roadmap tree advanced two
+  commits during this run, both confined to SmoothRepresentationsOfLocalGroups;
+  the GlobalNumberFields, ClassFieldTheory and Chebotarev statements used above
+  are unchanged from the previously recorded roadmap revision.
+- README: **199,941 bytes**, within 200 KB, with unchanged headings and anchors.
+  Suggested.lean retains one import block and the explicit signature omissions.
+- Scoped `intake.py check-files`: **3 files, 0 problems**;
+  `git diff --check`: **pass**. Only authorized deliverables changed. No private
+  filesystem path or source passage is introduced. No compile is left running.
+
+## Preserved continuation: codex-OfyGfB and earlier repair history
+
+The predecessor's handoff follows unchanged; its status and validation receipts
+are historical. Its mathematical obligations remain unless explicitly supplied
+by the new finite-quotient theorem above.
+
+# PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
+
 Worker: Codex (GPT-6), session `codex-OfyGfB`. Issue: #7901.
 Date: 2026-10-10. Branch: `codex-OfyGfB-gl2-package`.
 [Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096949955).
