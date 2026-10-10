@@ -1,5 +1,125 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-CApqnZ`, issue #7889, 2026-10-10.
+Branch: `codex-CApqnZ-arithmetic-quantum-topology`.
+Continues explorer main `a41c41658bfd2c6e2f71527d2b51f8389b547700` and merged #8316.
+Claim [6095831227](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6095831227)
+was confirmed by bot [6095832366](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6095832366).
+The earlier attempt on #7893 was refused because another worker had claimed it;
+no work on that job was submitted. Only #7889 was successfully claimed.
+
+## Outcome and required action
+
+**The package cannot be completed within this issue's permitted files.** The first
+geometric target imports a framed multi-link interface and the next imports
+actual integral surgery. Their current suppliers still have neither of these
+exact interfaces. The accepted input explicitly preserves this as G1 and two
+open GeometricTopology Part II requests. This is a dependency checkpoint, not
+a time-limit checkpoint. Elaboration of the saved algebra does not close G1.
+
+Issue #7889 says to change no packet and to describe plan mistakes here. WORKERS
+requires importing another roadmap's mathematics rather than rebuilding it.
+The current package therefore cannot construct the missing owner interfaces,
+substitute an arbitrary carrier for them, or claim complete target/API/test
+coverage from the existing algebraic matrix side.
+
+**Maintainer action:** route the two existing GeometricTopology extension
+requests to their owner and provide the resulting precise signatures or a
+scope/ownership revision. Repeating this package job on unchanged suppliers
+cannot discharge G1. No labels, supplier files, packets or library files were
+changed. No new issue was opened and no second job was claimed.
+
+## Fresh contract verification
+
+Current read-only TauCetiRoadmap: `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`.
+Current read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read GeometricTopology and RepresentationTheory/SemisimpleAlgebras READMEs as
+the two upstream examples, and GeometricTopology's Suggested.lean. The latter
+contains schematic comments, with no active link/surgery declarations.
+
+| Accepted consumer | Actual supplier checked | Contract still needed |
+| --- | --- | --- |
+| `QT.0/framed-link-and-linking-matrix` | `KnotTheory/SmoothLink/Basic.lean`, `SmoothLink/Isotopy.lean`, `KnotTheory/Markov.lean` | Framing data transported by a framing-preserving equivalence, pairwise oriented linking numbers and Seifert/blackboard compatibility. `SmoothLinkEmbedding` contains smooth circle components and disjointness, without framing. Its isotopy setoid transports components, without framing data. `FramedMarkovBraid` has component integers, but `MarkovEquiv` is on the unframed braid. |
+| `QT.0/surgery-presentation`, `QT.0/kirby-and-fenn-rourke-moves`, `QT.0/refined-presentation-existence` | `LowDimTopology/DehnSurgery/Slope.lean`, GeometricTopology layer 5 | The link complement, actual filled oriented manifold at slope fμ+λ, its H₁/cokernel comparison and ordinary Kirby/Fenn–Rourke relation and invariance; stable form realization for admissible presentation existence. `FramedBoundaryTorus` supplies a basis of actual torus homology and primitive slopes, not a filled manifold. |
+
+Also read `TubularNeighborhood/NormalFrame.lean`: its local normal-frame theorem
+for an immersion into a real inner-product space does not provide the global
+framed-link equivalence or Seifert linking-number comparison. Searches across
+current `KnotTheory`, `LowDimTopology` and `Geometry/Manifold` found no matching
+filled-manifold/Kirby/linking-number implementation. Re-read
+`FramedMarkovBraid` and `MarkovEquiv` at pinned Tau Ceti `f790474` as well;
+the same framing distinction holds. The reviewed `data/library-coverage.json`
+has no dedicated ArithmeticQuantumTopology entry; it is not evidence that
+these geometric targets are implemented.
+
+## Small package clarification saved
+
+Only the Kirby/Fenn–Rourke target in README.md changes. It now specifies that
+a geometric handle slide involves a chosen band and that different choices may
+give different links with the same matrix congruence. The unchanged matrix
+function `handleSlide` specifies only the algebraic congruence, not a
+geometric slide operation. Its `P=I+E_ji`, `PᵀAP`, symmetry hypothesis and
+`A_ii+A_jj+2A_ij` convention are retained. No new mathematical target, API,
+test, dependency, geometric carrier or Lean assertion is introduced.
+
+Fresh primary source: Kazuo Habiro, *Refined Kirby calculus for integral
+homology spheres*, [arXiv math/0509039v2](https://arxiv.org/pdf/math/0509039v2),
+read 10 October 2026: introduction pp.1285–1287; §2.1 Definition 1 and its
+following distinction between a slide and a determined permutation/reversal,
+p.1289; §2.3 Lemma 2.2, pp.1290–1291; §5 Corollary 5.1 and proof,
+pp.1309–1310. PDF SHA-256:
+`d30d9c69b652aa58539d2398f1a8424c968188d94cc2098ee462dd4e53a13416`.
+The added README locators support the relational slide interface and its matrix
+shadow. Everything saved is in our own words; no source passage was copied.
+The maintainer's library index was read; no restricted book was used.
+
+## Validation in this session
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  exit 0, **0 errors and 0 warnings**. Input remains 106 nodes, 206 API items,
+  159 unit tests, 36 planets, 24 baseline declarations, 8 gaps, 19 requests,
+  8 planned stages and 0 closed stages.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  exit 0, **0 errors, 604 warnings, all `declaration uses sorry`**. Shared
+  checker only, one invocation; available memory before compilation was 109 GB.
+  Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti pin
+  `f790474821cf4256814db967cb154e7af3d0c369`. No Lean process remains running.
+- The unchanged input packet SHA-256 is
+  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
+  The unchanged Suggested.lean SHA-256 is
+  `8f274d69cac271c1da27ddc92dd0f942c5bb791fe6c84ba8485dde0fbe2bf623`.
+- README remains below 200,000 UTF-8 bytes. Its ordered 106 target headings,
+  114 anchors, 75 reference destinations and all inherited API/test names are
+  preserved (405 distinct single-name API/test prefixes; all 54 full API/test blocks
+  unchanged). README: 199,981 bytes. Scoped intake check: **2 files, 0 problems**;
+  `git diff --check`: exit 0. Only README.md and this handoff are changed.
+- `metadata.toml` remains absent: the intake's file-existence completion rule
+  would treat adding it as completing this still-incomplete package. Its final
+  line is `topic = "math.GT"` once all layers meet PROTOCOL §20.
+
+## Resume after the owner contracts change
+
+Obtain the exact framed-link/linking and surgery/H₁/Kirby interfaces first,
+then instantiate the saved matrix/quantum interfaces on them. Preserve the
+band parameter or geometric slide relation; matrix congruence is not a
+replacement. QT owns the admissible band-slide/Hoste refinement and quantum
+invariants, not ordinary surgery foundations.
+
+The other seven layers' remaining work and all prior source receipts are
+preserved below. In particular the geometric NZ/strong-flattening inputs,
+coefficient-field Gaussian bracket, full finite étale Habiro descent and
+spectral/microlocal AK interfaces are still required. This session does not
+re-certify the historical source readings or the whole inherited prototype.
+No mathematics is claimed formalized by a successful elaboration.
+
+## Inherited checkpoint receipts and eight-layer worklist
+
+The following is the prior handoff, retained so no source receipt, convention,
+check limitation or remaining item needed by a successor is lost. Its reports
+refer to the sessions named there, not to fresh checks in `codex-CApqnZ`.
+
+### Prior checkpoint: `codex-Ogf0LN`
+
 Worker: Codex (GPT-6), session `codex-Ogf0LN`, issue #7889, 2026-10-10.
 Claim comment 6095607536 was confirmed by bot comment 6095608646.
 Branch: `codex-Ogf0LN-arithmetic-quantum-topology`. No second job was claimed.
