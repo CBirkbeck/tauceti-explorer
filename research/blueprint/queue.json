@@ -33901,8 +33901,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.3",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6274"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6274",
+   "finishedAt": "2026-10-10T20:24:59Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.4",
@@ -33973,8 +33974,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6324"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6324",
+   "finishedAt": "2026-10-10T20:25:02Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.5",
@@ -36653,8 +36655,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6341"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6341",
+   "finishedAt": "2026-10-10T20:25:04Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -37247,7 +37250,8 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6354"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.2",
@@ -37291,7 +37295,8 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6355"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.3",
@@ -43194,7 +43199,8 @@
     "BP-AnalyticNumberTheory--AN.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6464"
   },
   {
    "kind": "blueprint",
@@ -43638,8 +43644,9 @@
    ],
    "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6517",
+   "finishedAt": "2026-10-10T20:25:05Z"
   },
   {
    "priority": 2,
@@ -49148,8 +49155,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49239,8 +49246,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80206,8 +80213,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81516,8 +81523,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84607,8 +84614,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
