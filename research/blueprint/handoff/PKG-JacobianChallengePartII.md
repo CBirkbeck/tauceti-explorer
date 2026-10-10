@@ -1,22 +1,25 @@
 # PKG-JacobianChallengePartII — blocked package checkpoint
 
-Refs #7593. Worker: Codex (GPT-6), session `codex-89Sxce`,
-10 October 2026. Branch: `codex-89Sxce-jacobian-package`.
-The bot confirmed [claim comment 6101352951](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101352951)
-in [comment 6101354373](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101354373).
+Refs #7593. Worker: Codex (GPT-6), session `codex-m7fMYr`,
+10 October 2026. Branch: `codex-m7fMYr-jacobian-package`.
+The bot confirmed [claim comment 6101496141](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101496141)
+in [comment 6101497337](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101497337).
 This is the only job claimed in this run. None of the manager's listed issues
 was available; this package was the first eligible fallback kind.
 
 ## Result and remaining supplier boundary
 
-**Blocked checkpoint.** This continuation corrects the dependency scheduling
-and review evidence in the handoff. It changes no mathematical deliverable,
-packet, supplier, queue entry or issue label. The saved README and suggested
-file retain their earlier assembly; no new geometric proof or signature is
-certified.
+**Blocked checkpoint with a native JC5.5 improvement.** This continuation adds
+the scheme isomorphism representing the triangular coordinate equivalence,
+its two Hom-coordinate comparisons, an arbitrary-base-change signature and
+three scheme-morphism examples. The README explains the actual fibre-power
+construction and its inverse. These declarations elaborate using native
+schemes, group objects and products at the pinned Mathlib baseline. The other
+47 geometric targets still have honest omission records, rather than native
+signatures. The packet, suppliers, queue and issue labels are unchanged.
 
 Both required supplier packages remain absent from the local directories and
-GitHub main's complete package listing, checked on 10 October 2026 at 19:32 UTC.
+GitHub main's complete package listing, freshly checked on 10 October 2026.
 Neither supplier occurs among the existing upstream roadmaps or as the required
 native interface in the current Tau Ceti library.
 
@@ -75,11 +78,15 @@ missing contract. In JC6 toric rank can jump: semi-abelian does not assert a
 global constant-rank torus extension.
 
 Read the current JacobianChallenge and AlgebraicVectorBundles READMEs in full,
-and StableReduction's supplier table and Layer 2. Pointed field Jacobians stay
-with JacobianChallenge. General finite locally free duals and determinants stay
-with AlgebraicVectorBundles L0B–L0C. Nodal Gorenstein duality, coherent curve
-cohomology/base change and relative ampleness stay with StableReduction Layer 2.
-No existing upstream target is replanned.
+JacobianChallenge's full Suggested.lean, and StableReduction's supplier table
+and Layer 2. Checked AlgebraicVectorBundles' suggested dual/determinant
+interfaces and searched current upstream suggested files for the new coordinate
+construction. Pointed field Jacobians stay with JacobianChallenge. General
+finite locally free duals and determinants stay with AlgebraicVectorBundles
+L0B–L0C. The nodal Gorenstein duality, cohomology/base-change and positivity
+contracts follow StableReduction's shared supplier table and Layer 2; their
+smooth restrictions are not separate constructions. No existing upstream
+target is replanned.
 
 The read-only upstream checkout is
 `81207c7f16d5abf770f13a7d2bdcdb465c030787`. Its local directories are at its
@@ -88,7 +95,7 @@ that layout through GitHub's contents API and retained the README's valid
 public links; local layout does not justify rewriting them.
 
 Current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Read the full `AbelianVariety/Basic.lean`: `AbelianVariety K` requires a field
+Read the full pinned `AbelianVariety/Basic.lean`: `AbelianVariety K` requires a field
 and a group object over Spec K, rather than an arbitrary-base abelian scheme.
 Searching its algebraic-geometry sources found no `AbelianScheme`,
 `RelativePicard`, `PicardScheme`, `DualAbelian` or `PoincareBundle`
@@ -98,46 +105,64 @@ library audit. Neither read-only upstream tree was used to run Lake.
 
 ## Saved deliverables and fresh validation
 
-- README remains 80,142 bytes. Exact-string correspondence finds all 48 accepted
+- README is 81,912 bytes. Exact-string correspondence finds all 48 accepted
   target statements in JC0–JC7, all 60 API names and all 52 test names. Its four
   definitions and thirteen constructions each retain at least three tests.
   Preserve the corrected packet's cohomological Brauer interpretation, negative
   self-Poincaré sign, arbitrary-alpha formulas, stable Hodge scope and arbitrary
   universal-curve pullbacks. The older reader was not regenerated after the
   independent review's 19 contract corrections; the packet governs.
-- Suggested.lean remains 32,408 bytes. JC5.5 is its executable native group-object
+- Suggested.lean is 35,461 bytes. JC5.5 retains its native group-object
   Hom-valued triangular equivalence, with five API lemmas and three examples.
+  `TriangularCoordinateEquivalence.schemeIso` now gives the representing
+  isomorphism of actual finite products in `Over S`, hence fibre-power schemes.
+  Its inverse multiplies by the head on the right, so it needs no commutativity.
+  Two coordinate lemmas compare its forward and inverse maps with the earlier
+  equivalence. `schemeIso_baseChange` uses `PreservesProduct.iso` and the
+  transported `Functor.grpObjObj` instance for any new-base morphism.
+  Three additional examples test the one-factor identity, two-factor inverse
+  and small diagonal; the immutable packet's original tests are unchanged.
   The other **47 geometric targets remain comment records**, with their contracts,
   APIs and tests. Compiling comments does not check those signatures. No empty
   predicate or replacement point-set type was introduced.
-- Read the actual statements of `CategoryTheory.Hom.group` and
-  `CategoryTheory.GrpObj.comp_div` at Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`. They supply groups of actual
-  morphisms to a group object and precomposition preserving division, exactly
-  as used by JC5.5. This is the only baseline portion freshly recertified.
+- Read the actual Hom-group and precomposition laws, finite-product
+  `piObj`/`Pi.π`/`Pi.lift`/`Pi.lift_π`/`Pi.hom_ext`,
+  `PreservesProduct.iso`, `Functor.grpObjObj` and the Cartesian pullback
+  instances at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  These supply actual morphism groups, fibre-power products and transported
+  group objects, rather than a substitute point-set model.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
   **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
   14 gaps and 13 requests; all eight stages planned, none closed.
 - `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
-  **exit 0, nine warnings, all `declaration uses sorry`; no errors or other
+  **exit 0, sixteen warnings, all `declaration uses sorry`; no errors or other
   warnings**. Available memory was 98 GB before this single check. It uses the
   existing shared pinned build; the file imports Mathlib and no Tau Ceti module.
   No language server, new project, build, update or cache download was started,
   and no compile remains running.
+- A separate disposable native sanity check also elaborated with only `sorry`
+  warnings. In it the Hom-equivalence inverse fields and both scheme-isomorphism
+  inverse fields were discharged by group cancellation and `Pi.hom_ext`.
+  The scheme proof reduces projections with `Pi.lift_π`, then uses
+  `MonObj.comp_mul`/`GrpObj.comp_div` and `div_mul_cancel`/
+  `mul_div_cancel_right`; neither proof assumes commutativity. This verifies
+  the coordinate formulas, not the omitted geometry or the admitted API.
+  Suggested.lean intentionally retains admitted roadmap proofs.
 - `metadata.toml` remains absent because this is a blocked, incomplete package.
   Add exactly `topic = "math.AG"` and a newline only when the package contract
   is met. Do not promote this checkpoint as a completed package.
 - `python3 research/blueprint/intake.py check-files` on the saved README,
   Suggested.lean and this handoff: **three files, zero problems**.
-  `git diff --check` is clean; only this issue's handoff changes.
+  `git diff --check` is clean; only this issue's README, Suggested.lean and
+  handoff change.
 
 ## Receipts and inherited source limits
 
 The two supplier packet Git blobs match GitHub main: parent
 `84b26b1831f0e62fdceb7d84a771862c2e1bd63b`, revised StableReductionPartII
 `35c3d433946e096ccaee0b9739a3e249e51507dc`.
-The latter has changed since the preceding checkpoint because its review is
-now accepted. Current SHA-256 receipts follow; paths are relative to
+The revised StableReductionPartII packet retains its accepted review; the
+earlier revision gate is resolved. Current SHA-256 receipts follow; paths are relative to
 `research/blueprint/`.
 
 | File | SHA-256 |
@@ -145,8 +170,8 @@ now accepted. Current SHA-256 receipts follow; paths are relative to
 | `packets/JacobianChallengePartII.json` | `2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275` |
 | `packets/AbelianSchemesAndArithmeticModuli.json` | `768adc69448c575ea3b07e4631d532c5177bc7572d030e3e3420bd8d6f67b3ff` |
 | `packets/StableReductionPartII.json` | `423a7fe842942862b21c2167a1f2791717ac9d972e3b9de5697c6f496370ffaf` |
-| `packages/JacobianChallengePartII/README.md` | `ddfa5c7a605a616d4a507c23c3e1dd656b7345075038b01a5c0ef3e0ca3e3a78` |
-| `packages/JacobianChallengePartII/Suggested.lean` | `ada2203aec5fef3d02a490986708a00641856b98c8338eb9c4b9cac3e03135e0` |
+| `packages/JacobianChallengePartII/README.md` | `103fd6ff777ddaea54abbd12fc3721379f551d9583fcfe7063d1307e52c4501a` |
+| `packages/JacobianChallengePartII/Suggested.lean` | `1ff13b5293256199c0a47d04ce3e9c9bb001cd1f79889f6ee668c8204ef9a42a` |
 
 The following source receipts and limits are inherited from the initial
 assembly, not reading performed by this continuation. DGH arXiv:2001.10276v3
@@ -167,8 +192,9 @@ The initial assembly read the 11 recorded baseline statements at Mathlib
 tensor-product, weighted-divisor-degree and abstract-cohomology boundaries
 remain inherited evidence. `LineBundleClass` is a commutative monoid;
 `CommRing.Pic` concerns ring-module classes, not a relative Picard scheme.
-This run freshly checked only the two native Hom-group statements described
-above. Target-level acceptance does not close the source/proof gaps below.
+This run freshly checked the native group-object, product and base-change
+statements described above, and the field-only abelian-variety boundary.
+Target-level acceptance does not close the source/proof gaps below.
 
 ## Resume after supplier scheduling changes
 
