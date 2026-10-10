@@ -1,5 +1,176 @@
 # PKG-AutomorphicSpectralTheory — blocked checkpoint
 
+Issue #7893. Worker: Codex, session `codex-qYO14p`, 10 October 2026.
+Branch: `codex-qYO14p-pkg-automorphic-spectral-theory`.
+Claim: [6095824859](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095824859),
+confirmed by the bot in [6095825849](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095825849).
+Explorer starting commit: `a41c41658bfd2c6e2f71527d2b51f8389b547700`.
+No manager-listed issue was `state:available`; this focus package was selected
+under WORKERS' package-before-planning rule. This session claimed only #7893.
+
+**Disposition: blocked, not complete.** This checkpoint changes only this
+handoff. It freshly checks the existing package and gives the maintainer a
+contract-level repair worklist. The inherited README and suggested file are
+preserved. The missing metadata file remains missing; completion would require
+resolving the supplier contracts below, not adding a completion marker.
+
+## Fresh blocker verification and minimum repair boundary
+
+The three upward prerequisites reported by the previous checkpoint are still
+present in the authoritative AS packet. `upstream/CaraianiNewton.md`, tiers 13
+and 14, still places AS before ET, outside a common bundle. WORKERS' Upstream
+tiers rule requires the notions needed from a higher roadmap to move down.
+The following are direct `prerequisites` edges, not mere mentions in prose:
+
+| Consuming AS node | Current supplier | Contract that must acquire a permitted owner |
+| --- | --- | --- |
+| `AS.2/generic-normalized-intertwiner` | `EndoscopicTransferAndUnitaryTraceComparison:ET.0` | Relevant classical parameter/packet data, unitary generic members and pure-inner-form conventions for the source-qualified normalized operator. |
+| `AS.6/weighted-orbital-integral` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Ordinary quotient-centralizer orbital integration, semisimple convergence, singular extension and the connected/full centralizer and discriminant conventions. |
+| `AS.6/general-euler-poincare` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Discrete-series/tempered pseudo-coefficient carriers, separated from endoscopic real transfer and stable unitary formulas. |
+
+The packet's ET.0 request explicitly acknowledges that ET.0 supplies conjugacy
+data and no packet carrier. Reading `content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md`
+ET.0–1 confirms the distinction: ET.0 concerns stable conjugacy/endoscopic data;
+ET.1 owns ordinary orbital integration and the real transfer/pseudo-coefficient
+work. Its general scope expressly excludes classifying every packet.
+Therefore replacing the stage citation with an invented ET node would not
+supply the first contract.
+
+There is an additional routing inconsistency useful to the owner-revision job:
+the ET.0 request's `neededBy` lists `AS.2/shahidi-normalization`,
+`AS.2/generic-standard-module` and `AS.2/jiang-zhang-holomorphy`, but omits the
+actual direct consumer `AS.2/generic-normalized-intertwiner`. A repair must
+reconcile that request with the direct edge as well as the three stated uses.
+The Jiang–Zhang node itself imports `generic-normalized-intertwiner`, so changing
+only its prose would leave the upward edge in its prerequisite chain.
+
+The authorized repair needs to update all of the following together:
+
+1. Give the missing packet data a real, source-qualified supplying target in
+   AS, a lower tier, or AS's own bundle; redirect the ET.0 request and all four
+   consumers above. Conjugacy data are not a substitute for packet data.
+2. Move the ordinary orbital-integral contract out of ET.1 into the permitted
+   analytic owner, with the measure/discriminant and singular-extension API.
+   Redirect AS's weighted construction to it and make ET import it. Retain
+   ET's stable/kappa sums, transfer factors and stabilization as ET additions.
+3. Separate ordinary pseudo-coefficients from real transfer. Preserve AF.1's
+   discrete-series and relative-cohomology foundation, place the analytic
+   Paley–Wiener prerequisites before the dependent pseudo-coefficient/EP
+   construction, and redirect both AS and ET. Do not import all of ET.1 back
+   into the early analytic prefix.
+4. Synchronize the moved ownership, requests and exact prerequisites in the
+   supplying and consuming plans, reader documents and suggested interfaces.
+   Then revise the package against those corrected authoritative contracts.
+
+This is a specification/ownership repair, not a demand to implement the
+roadmap's theorems. Issue #7893 explicitly says: **“Change no packet; if the plan
+has a mistake, describe it in the handoff note.”** Its allowed package files
+cannot perform steps 1–4. Its instruction that the accepted plan is the source
+of truth also prevents silently adding unsupported supplier targets to the
+package. User authorization to claim and package this one job does not grant
+edits to those other deliverables. No approval question was sent; the concrete
+blocking boundary is recorded here for the maintainer to route.
+
+## Changed AF input: use the current receipt
+
+The AF packet has changed since the preceding checkpoint. Its current SHA-256
+is `e53bde2f09f2a00a0f39cc49cc0e6bc303bac666df24c48a95d4220960d890b4`;
+the older AF packet receipt later in this note is historical. Its review is
+`needs_changes`, dated 10 October 2026, by
+`independent-review-REV-AutomorphicFormsOnReductiveGroups~3`; that is distinct
+from AS's accepted target-level review.
+
+Fresh reading of `AF.1/normalized-real-parabolic-induction` confirms the
+previous scope correction remains valid: general real parabolics and supplied
+smooth moderate-growth Fréchet Levi realizations, compact picture, covariance
+`a^(rho_P+lambda) sigma(m)`, right translation, functoriality, induction in
+stages, and the good-module globalization comparison are present. Its native
+suggested interfaces include `normalizedInduction.ofLevi`, `ofLeviCarrier`,
+`ofLevi_action`, `restrictK` and `transitivity`. Do not restore the obsolete
+claim that AF only supplies minimal finite-dimensional principal series.
+
+The AS request for a *holomorphic parameter family on one compact-picture
+carrier*, finite-K-type coefficient spaces and parameter-compatible
+operator/differentiated relations is still stronger than that node's stated
+API. Its fixed-parameter construction does not supply those family theorems.
+The two direct affected nodes are `AS.6/real-invariant-paley-wiener` and
+`AS.6/real-operator-paley-wiener`. Resolve this as a precise additional supplier
+contract, preserving the current normalized-induction design. No new source
+reading of Bernstein–Krötz was done in this session; the source receipt below
+is inherited.
+
+The tier-11 AF/ALS bundle also retains imports from AS.4–5. Fresh node inspection
+finds AF `AF.4/coherent-relative-cohomology` and `AF.4/clozel-rationality`, and
+ALS `ALS.5/automorphic-comparison` and `ALS.5/cuspidal-cohomology`, with AS
+prerequisites. AS's `AS.5/gl-sl-cuspidal-diagram` imports the last ALS node.
+These are additional owner-routing obligations for the tier repair; this
+observation is not a claim of a cycle in the exact-node graph. Preserve ALS's
+independent `ALS.5/de-rham-comparison`, which supplies AS's Franke construction;
+do not move the whole ALS.5 bundle as one object.
+
+## Fresh checks and limits
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  exit 0, zero errors and warnings; 190 nodes, 223 API items, 219 unit tests,
+  38 planets, 32 baseline declarations, 52 gaps, 22 requests, seven planned
+  stages and zero closed stages. Validator success does not discharge the
+  upward supplier contracts.
+- `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
+  exit 0, zero errors, **753 warnings, all `declaration uses sorry`**, no other
+  warnings. Memory available before the check: 110 GB. The helper identifies
+  its shared build as Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`;
+  Mathlib's manifest and source HEAD independently match
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The Tau Ceti build directory has
+  no Git metadata, so its pin identification is the helper's provenance rather
+  than an independently read HEAD. No build or library was changed.
+- README inventory: 190 AS target headings, **199,983 UTF-8 bytes**. All 223
+  API labels and 219 unit-test labels are present. This label-presence check
+  is not a fresh certification of every mathematical signature or source.
+- Read the seven AS entries of `data/library-coverage.json`. Read current
+  CompactGroups and OperatorIdeals READMEs in full; inspected the SR scope and
+  ET.0–1. Current read-only TauCetiRoadmap HEAD remains
+  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; current Tau Ceti HEAD remains
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- Searched current upstream roadmaps and Tau Ceti for orbital integration,
+  pseudo-coefficients, pure-inner-form/classical packets, Paley–Wiener and
+  holomorphic inducing families; no exact replacement supplier was located.
+  Read the actual `GL2PrincipalSeries` definition and its section hypotheses:
+  `[Field F] [Fintype F]`, algebraic `indFDRep`. It cannot provide the missing
+  real parameter-family contract. The source search is evidence about the
+  inspected current trees, not a proof that no differently named supplier
+  could exist.
+- Intake file check for this handoff: one allowed file, zero problems.
+  `git diff --check` passes. No mathematical deliverable changed, no source
+  passage was copied, and no restricted book was used.
+
+Unchanged authoritative AS hashes remain those at the end of the inherited
+record. Current package SHA-256 receipts:
+
+```text
+packages/AutomorphicSpectralTheory/README.md
+3d506516a590c4d30bffb15f9ceb9ed0472b27d5c5e6b25999003c9e987719be
+packages/AutomorphicSpectralTheory/Suggested.lean
+122bdb3c3ee09c1947bb08d71c43ed03562f07dc65bcefaddc7dc075fa7279f9
+packets/ArithmeticLocallySymmetricSpaces.json
+07a7fa47da244817c3ada946da98676606379f31851363121ca87c9c113b9293
+```
+
+Resume with the authorized owner/supplier revision, then the inherited signature
+worklist below. Another package-only run against these same contracts remains
+blocked. Scratch logs are disposable; all receipts and continuation requirements
+are in this handoff. This session stops after opening its checkpoint PR and
+claims no second job.
+
+---
+
+# Inherited checkpoint and continuation record — codex-0OeJbF
+
+The remainder preserves the preceding session's mathematical repairs, source
+receipts and signature worklist. They are historical evidence, not fresh source
+verification by `codex-qYO14p`; the AF packet receipt above supersedes its older
+receipt below.
+
+
 Issue #7893. Worker: Codex, session `codex-0OeJbF`, 10 October 2026.
 Branch: `codex-0OeJbF-pkg-automorphic-spectral-theory`.
 Claim: [6095588079](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095588079),
