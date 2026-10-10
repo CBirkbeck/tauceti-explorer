@@ -64,6 +64,7 @@ import Mathlib.Algebra.Polynomial.Derivative
 # Siegel and PEL moduli problems: suggested Lean signatures
 
 Revision BP-PELModuli~2; Codex, codex-Mp65ad.
+Independent review REV-PELModuli~2; Codex, codex-tPhnDV.
 Mathlib baseline: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -605,6 +606,8 @@ def domain (D : RationalPELDatum B V) : Set ((ℝ ⊗[ℚ] V) →ₗ[ℝ] (ℝ �
 theorem domain_indep (D : RationalPELDatum B V) (J' : (ℝ ⊗[ℚ] V) →ₗ[ℝ] (ℝ ⊗[ℚ] V))
     (hsq : J' ∘ₗ J' = -LinearMap.id)
     (hcomm : ∀ b : B, J' ∘ₗ (bAct (V := V) b).baseChange ℝ = (bAct (V := V) b).baseChange ℝ ∘ₗ J')
+    (hadjoint : ∀ x y, LinearMap.BilinForm.baseChange ℝ D.form (J' x) (J' y) =
+      LinearMap.BilinForm.baseChange ℝ D.form x y)
     (hpos : ∀ x, x ≠ 0 → 0 < LinearMap.BilinForm.baseChange ℝ D.form x (J' x)) :
     J' ∈ D.domain := sorry
 
@@ -659,6 +662,7 @@ theorem signature_add (D : RationalPELDatum B V) (F : Type*) [Field F] [Algebra 
     (τ : F →+* ℂ) : (D.signature F τ).1 + (D.signature F τ).2 = D.multiRankAt F τ := sorry
 
 theorem signature_conj (D : RationalPELDatum B V) (F : Type*) [Field F] [Algebra F B]
+    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B))
     (τ : F →+* ℂ) :
     D.signature F (NumberField.ComplexEmbedding.conjugate τ) = (D.signature F τ).swap := sorry
 
@@ -712,19 +716,23 @@ example {V : Type*} [AddCommGroup V] [Module ℚ V] (D : RationalPELDatum ℚ V)
 -- Unit test: signature_picard
 example {V : Type*} [AddCommGroup V] [Module ℚ V] (K : Type*) [Field K] [NumberField K]
     [StarRing K] [Module K V] [IsScalarTower ℚ K V] (D : RationalPELDatum K V) (τ : K →+* ℂ)
+    (hcentre : Set.range (algebraMap K K) = (Subring.center K : Set K))
     (h : D.signature K τ = (2, 1)) :
     D.signature K (NumberField.ComplexEmbedding.conjugate τ) = (1, 2) := by
-  rw [D.signature_conj, h]; rfl
+  rw [D.signature_conj K hcentre, h]; rfl
 -- Unit test: signature_zero
-example {B : Type*} [Ring B] [Algebra ℚ B] [Module.Finite ℚ B] [IsSemisimpleRing B] [StarRing B] {V : Type*} [AddCommGroup V]
-    [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] [Subsingleton V] (D : RationalPELDatum B V)
-    (F : Type*) [Field F] [Algebra F B] (τ : F →+* ℂ) : D.signature F τ = (0, 0) := sorry
+-- Raw zero integral Hodge pieces; no impossible faithful rational datum is assumed.
+example :
+    (Module.finrank ℂ (⊥ : Submodule ℂ (Fin 0 → ℂ)),
+      Module.finrank ℂ (⊥ : Submodule ℂ (Fin 0 → ℂ))) = (0, 0) := by simp
 -- Unit test: signature_not_free
 example {B : Type*} [Ring B] [Algebra ℚ B] [Module.Finite ℚ B] [IsSemisimpleRing B] [StarRing B] {V : Type*} [AddCommGroup V]
     [Module ℚ V] [Module B V] [IsScalarTower ℚ B V] (D : RationalPELDatum B V) (F : Type*)
-    [Field F] [Algebra F B] (τ : F →+* ℂ) (h : D.signature F τ = (2, 0)) :
+    [Field F] [Algebra F B] (τ : F →+* ℂ)
+    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B))
+    (h : D.signature F τ = (2, 0)) :
     D.signature F (NumberField.ComplexEmbedding.conjugate τ) ≠ (2, 0) := by
-  rw [D.signature_conj, h]; decide
+  rw [D.signature_conj F hcentre, h]; decide
 
 /-! ### The determinant polynomial -/
 
@@ -773,8 +781,13 @@ example (r : ℕ) : detPoly (R := ℤ) (M := Fin r → ℤ) (ι := Unit) (fun _ 
 example : detPoly (R := ℂ) (M := ℂ) (ι := Fin 2) ![LinearMap.id, Complex.I • LinearMap.id] =
     MvPolynomial.X 0 + MvPolynomial.C Complex.I * MvPolynomial.X 1 := sorry
 -- Unit test: detPoly_eval_charpoly
-example (f : Module.End ℚ (Fin 2 → ℚ)) :
-    MvPolynomial.eval ![(1 : ℚ)] (detPoly (ι := Fin 1) ![f]) = LinearMap.det f := sorry
+example (r : ℕ) (f : Module.End ℚ (Fin r → ℚ)) :
+    MvPolynomial.eval ![(-1 : ℚ)] (detPoly (ι := Fin 1) ![f]) =
+      (LinearMap.charpoly f).eval 0 := sorry
+-- Odd rank detects a misplaced extra sign in the constant-term comparison.
+example :
+    MvPolynomial.eval ![(-1 : ℚ)]
+      (detPoly (M := Fin 1 → ℚ) (ι := Fin 1) ![LinearMap.id]) = -1 := sorry
 -- Unit test: detPoly_not_trace
 example : ∃ t : Fin 3 → Fin 2 → ZMod 3, (∑ k, t k 1) = 0 ∧
     detPoly (R := ZMod 3) (M := Fin 3 → ZMod 3) (ι := Fin 2)
@@ -1316,8 +1329,9 @@ theorem fixedCenter_totallyReal [IsSimpleRing B] (_h : PositiveInvolution B)
     NumberField.IsTotallyReal F₀ := sorry
 end PositiveInvolution
 
-/-- ProfiniteArithmetic's completed integer ring, expressed by its product-of-Zp API.
-The completed-roadmap comparison with zHat is imported, not planned again here. -/
+/-- Product presentation of ProfiniteArithmetic Layer 0's Additive TauCeti.zHat,
+identified by zHat.nonempty_ringEquiv_pi. CompletedIntegerRing is a local notation,
+not an upstream declaration or a new profinite-integers target. -/
 instance completedPrimeFact (p : Nat.Primes) : Fact p.val.Prime := ⟨p.property⟩
 abbrev CompletedIntegerRing := ∀ p : Nat.Primes, ℤ_[p.val]
 def completedIntegerToAdele : CompletedIntegerRing →+* IsDedekindDomain.FiniteAdeleRing ℤ ℚ := sorry
@@ -3008,7 +3022,10 @@ def quotientAnalyticSpace (D : RationalPELDatum B V) (_i : ker1 D)
     Supplier.ComplexAnalyticSpace.{0} := sorry
 
 /-- The relative complex torus family, with Riemann polarization, order and level,
-constructed over the arithmetic quotient and descended from the domain's lattice family. -/
+constructed over the arithmetic quotient and descended from the domain's lattice family.
+The Riemann form is ε(J) q_g ψ: ε makes it positive on each full-G real component,
+and the positive rational q_g normalizes the finite adelic multiplier on the chosen lattice.
+Under rational γ these change by sign(c(γ)) and |c(γ)|⁻¹, giving polarization equivariance. -/
 def analyticFamily (D : RationalPELDatum B V) (i : ker1 D)
     (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))) :
     Over (quotientAnalyticSpace D i K) := sorry
@@ -3060,7 +3077,8 @@ theorem complexPoints (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
       Σ i : PELModuli.ker1 D, PELModuli.twistedDoubleCoset D i K) := sorry
 
 /-- Algebraization yields an actual open-and-closed scheme immersion whose analytification
-is the comparison. V2/V3 and C0 faithful flatness supply it; proper GAGA is not an input. -/
+is the comparison. V2/V3 apply to the effective Hermitian arithmetic quotient; Sh notation requires SV3.
+C0 faithful flatness supplies the local comparison; proper GAGA is not an input. -/
 theorem algebraizationOfComponents (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
     (D : RationalPELDatum B V) (i : PELModuli.ker1 D)
     (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))) :
@@ -3230,25 +3248,27 @@ theorem twist_mul (P : ModuliParameters.{0}) (D : RationalPELDatum B V)
     (s t st : TwistData D) (ha : st.a = s.a * t.a) (hbeta : st.beta = s.beta * t.beta) :
     twist P D st = twist P D s ≪≫ twist P D t := sorry
 
-/-- A class-zero twist preserves a piece; it is the identity only when its a and beta act
+/-- First transport the complex analytic pieces; their reflex-field descent is proved
+subsequently by CM reciprocity and density. A class-zero twist preserves a piece; it is the identity only when its a and beta act
 trivially. The map on ker1 is the global twisting action supplied by AA.4 Part II. -/
 def twistClass (D : RationalPELDatum B V) (_t : TwistData D) : ker1 D → ker1 D := sorry
 
 theorem twist_maps_piece (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
     (D : RationalPELDatum B V) (t : TwistData D) (i : ker1 D)
     (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
-    (E : CommRingCat.{0}) :
-    Nonempty (moduliPiece P φ D i K E ≅ moduliPiece P φ D (twistClass D t i) K E) := sorry
+    : Nonempty (quotientAnalyticSpace D i K ≅
+      quotientAnalyticSpace D (twistClass D t i) K) := sorry
 end PELModuli
 
-/-- CM reciprocity on the actual PEL points, Milne 14.12/14.14, pp.125–127.
+/-- Assume SV3 for the actual Shimura datum (omitted prototype condition).
+CM reciprocity on the actual PEL points, Milne 14.12/14.14, pp.125–127.
 The chosen automorphism fixes the reflex embedding; that condition is omitted here. -/
 theorem cmPointsReciprocity (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
     (σ : ℂ ≃+* ℂ) (x : PELModuli.specialPoints P φ) :
     PELModuli.galoisAction P φ σ x.val = PELModuli.reciprocityAction P φ σ x := sorry
 
 /-- Each type A/C piece descends and equals its canonical model by CM density and global
-reciprocity (Kottwitz §8, p.400). The type/reflex compatibility conditions are omitted here;
+reciprocity (Kottwitz §8, p.400). SV3 and the type/reflex compatibility conditions are omitted here;
 local triviality in ker1 alone is never the descent argument. -/
 theorem canonicalModelIdentification (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
     (D : RationalPELDatum B V) (i : PELModuli.ker1 D)
@@ -3256,7 +3276,8 @@ theorem canonicalModelIdentification (P : ModuliParameters.{0}) (φ : P.R₀ →
     (E : CommRingCat.{0}) :
     Nonempty (PELModuli.moduliPiece P φ D i K E ≅ Supplier.canonicalPiece D i K E) := sorry
 
-/-- V6's canonical level/Hecke map and the descended moduli map agree. These are the maps
+/-- SV3 and compatibility with actual Shimura data are omitted in this canonical comparison.
+V6's canonical level/Hecke map and the descended moduli map agree. These are the maps
 constructed from the same level inclusion or admissible PEL-data morphism, not arbitrary maps. -/
 def Supplier.canonicalLevelMap (D : RationalPELDatum B V) (i : PELModuli.ker1 D)
     (K K' : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
@@ -3325,7 +3346,7 @@ LTXZZ 3.5.1–3.5.4; agreement of its supplier data is an omitted prototype cond
 def cmParameters {F : Type u} [Field F] [NumberField F] [NumberField.IsCMField F]
     (_Φ : GeneralizedCMType F 1) (_p : ℕ) (_n : ℕ) : ModuliParameters.{u} := sorry
 
-/-- Rank-one CM quasi-isogeny functor T1, on the reflexive-closure p-local base.
+/-- Rank-one CM quasi-isogeny functor T1, on the selected CM-type reflex p-local base.
 Objects have the actual OF action, p-principal positive quasi-polarization, signature Phi
 and prime-to-p adelic level. Morphisms are prime-to-p quasi-isogenies carrying this data. -/
 def cmFamilyFunctor {F : Type u} [Field F] [NumberField F] [NumberField.IsCMField F]
@@ -3518,7 +3539,7 @@ def unitaryTraceForm {K : Type*} [Field K] [NumberField K] [StarRing K] {W : Typ
 
 /-- Complete rational datum from the nondegenerate Hermitian form, totally imaginary delta
 and positive compatible h of the prescribed signature. Those geometric conditions, including
-CM star and the chosen h, are omitted here and explicit in the packet. -/
+CM star, positive finite rank and the chosen h, are omitted here and explicit in the packet. -/
 def unitaryRationalDatum {K : Type*} [Field K] [NumberField K] [NumberField.IsCMField K]
     [StarRing K] {W : Type*} [AddCommGroup W] [Module ℚ W] [Module K W]
     [IsScalarTower ℚ K W] (_H : HermitianSpace K W) (_δ : K) : RationalPELDatum K W := sorry
@@ -3529,13 +3550,13 @@ theorem unitaryDatum_form {K : Type*} [Field K] [NumberField K] [NumberField.IsC
     (unitaryRationalDatum H δ).form x y = unitaryTraceForm H δ x y := sorry
 
 /-- Concrete imaginary-quadratic diagonal form and h with signature (r,s).
-The quadratic degree is explicit. The chosen embedding, delta and integral lattice are omitted prototype inputs. -/
+The quadratic degree and positive rank are explicit. The chosen embedding, delta and integral lattice are omitted prototype inputs. -/
 def imaginaryQuadraticDatum (K : Type*) [Field K] [NumberField K] [NumberField.IsCMField K]
-    [StarRing K] [Fact (Module.finrank ℚ K = 2)] (_r _s : ℕ) : RationalPELDatum K (Fin (_r + _s) → K) := sorry
+    [StarRing K] [Fact (Module.finrank ℚ K = 2)] (_r _s : ℕ) (_hrank : 0 < _r + _s) : RationalPELDatum K (Fin (_r + _s) → K) := sorry
 
 theorem unitaryDatum_reflex (K : Type*) [Field K] [NumberField K] [NumberField.IsCMField K]
-    [StarRing K] [Fact (Module.finrank ℚ K = 2)] (τ : K →ₐ[ℚ] ℂ) (r s : ℕ) :
-    (imaginaryQuadraticDatum K r s).reflexField =
+    [StarRing K] [Fact (Module.finrank ℚ K = 2)] (τ : K →ₐ[ℚ] ℂ) (r s : ℕ) (hrank : 0 < r + s) :
+    (imaginaryQuadraticDatum K r s hrank).reflexField =
       if r = s then ⊥ else τ.fieldRange := sorry
 
 /-- Rank-one definite data have torus adjoint group; definite rank at least two violates SV3.
@@ -3545,14 +3566,14 @@ def Supplier.adjointDatum (_D : SupplierShimuraDatum) : CommHopfAlgCat.{0} ℚ :
 theorem unitaryDatum_definite_rankOne (K : Type*) [Field K] [NumberField K]
     [NumberField.IsCMField K] [StarRing K] [Fact (Module.finrank ℚ K = 2)] :
     ∀ (R : Type*) [CommRing R] [Algebra ℚ R],
-      Subsingleton ((Supplier.adjointDatum (imaginaryQuadraticDatum K 1 0).toShimuraDatum) →ₐ[ℚ] R) := sorry
+      Subsingleton ((Supplier.adjointDatum (imaginaryQuadraticDatum K 1 0 (by norm_num)).toShimuraDatum) →ₐ[ℚ] R) := sorry
 
 /-- U(1,1) has reflex Q and U(2,1) has reflex K; their actual positive PEL data have
 complex domain dimensions one and two. This target is not merely the signature arithmetic. -/
 theorem unitaryExamples (K : Type*) [Field K] [NumberField K] [NumberField.IsCMField K]
     [StarRing K] [Fact (Module.finrank ℚ K = 2)] (τ : K →ₐ[ℚ] ℂ) :
-    (imaginaryQuadraticDatum K 1 1).reflexField = ⊥ ∧
-      (imaginaryQuadraticDatum K 2 1).reflexField = τ.fieldRange := sorry
+    (imaginaryQuadraticDatum K 1 1 (by norm_num)).reflexField = ⊥ ∧
+      (imaginaryQuadraticDatum K 2 1 (by norm_num)).reflexField = τ.fieldRange := sorry
 
 /-- Actual type-(1,d) polarized abelian surface, obtained by taking the product of two
 elliptic curves and scaling the second principal polarization by d. No arbitrary Gram matrix
@@ -4047,6 +4068,8 @@ def MatchesIntegralLattices {P : ModuliParameters.{u}} {S : Over P.base}
     Set.range (fun z : AwayIntegralRing P.box => (r.2 : AwayAdeleRing P.box) *
       Supplier.awayIntegerToAdele P.box z) = Set.range (Supplier.awayIntegerToAdele P.box)
 
+-- Here K is contained in the completed integral group; this future comparison
+-- ensures that integrality is independent of the orbit representative.
 theorem integral_iff {P : ModuliParameters.{u}} {S : Over P.base}
     {ξ : PELModuli.Triple P S} (β : RelativeRationalLevel ξ) :
     (∃! α : IntegralLevel ξ, IntegralLevel.rationalize α = β) ↔ MatchesIntegralLattices β := sorry
@@ -4103,10 +4126,48 @@ def adelicModuli.ofRational (P : ModuliParameters.{u}) (D : RationalPELDatum B V
     (Kf : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
     (S : Over P.base) : ratModuliProblem P D K S ⥤ adelicModuli P D Kf S := sorry
 
+/-- The actual abelian scheme retained by the full adelic family. -/
+def adelicModuli.abelian {P : ModuliParameters.{u}} {D : RationalPELDatum B V}
+    {K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))}
+    {S : Over P.base} (_ξ : adelicModuli P D K S) : AbelianScheme S.left := sorry
+
+namespace Supplier
+/-- A4's inverse limit of all torsion groups at the point, on a characteristic-zero base. -/
+def fullIntegralTate {S : Scheme.{u}} (_A : AbelianScheme S)
+    (_s : GeometricPoint S) : ModuleCat.{u} ℤ := sorry
+/-- A4's full restricted-product finite adelic homology of the same actual abelian scheme. -/
+def fullTate {S : Scheme.{u}} (_A : AbelianScheme S)
+    (_s : GeometricPoint S) : ModuleCat.{u} (IsDedekindDomain.FiniteAdeleRing ℤ ℚ) := sorry
+end Supplier
+
+/-- The full finite adelic level stalk of the actual family, including its multiplier.
+Monodromy, B-linearity, pairings and characteristic-zero base compatibility are as in M1. -/
+def adelicModuli.levelOrbit {P : ModuliParameters.{u}} {D : RationalPELDatum B V}
+    {K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))}
+    {S : Over P.base} (ξ : adelicModuli P D K S) (s : GeometricPoint S.left) :
+    Set (((IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] V) ≃ₗ[IsDedekindDomain.FiniteAdeleRing ℤ ℚ]
+      Supplier.fullTate (adelicModuli.abelian ξ) s) × (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)ˣ) := sorry
+
 def adelicModuli.hecke (P : ModuliParameters.{u}) (D : RationalPELDatum B V)
     (K K' : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
     (_g : PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))
     (S : Over P.base) : adelicModuli P D K' S ⥤ adelicModuli P D K S := sorry
+
+/-- The orbit of (hecke P D K K' g S).obj ξ, transported through its canonical
+underlying-abelian-scheme comparison. K'=gKg^-1 is an omitted level compatibility. -/
+def adelicModuli.heckeOrbit {P : ModuliParameters.{u}} {D : RationalPELDatum B V}
+    {K K' : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))}
+    {S : Over P.base} (g : PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))
+    (ξ : adelicModuli P D K' S) (s : GeometricPoint S.left) :
+    Set (((IsDedekindDomain.FiniteAdeleRing ℤ ℚ ⊗[ℚ] V) ≃ₗ[IsDedekindDomain.FiniteAdeleRing ℤ ℚ]
+      Supplier.fullTate (adelicModuli.abelian ξ) s) × (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)ˣ) := sorry
+
+theorem adelicModuli.hecke_orbit {P : ModuliParameters.{u}} {D : RationalPELDatum B V}
+    {K K' : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))}
+    {S : Over P.base} (g : PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))
+    (ξ : adelicModuli P D K' S) (s : GeometricPoint S.left) :
+    adelicModuli.heckeOrbit (K := K) g ξ s =
+      (fun η => (g.val.1.trans η.1, g.val.2 * η.2)) '' adelicModuli.levelOrbit ξ s := sorry
 
 /-- Composition of actual right translations. The equality of the intermediate level
 with the corresponding conjugate is omitted; e transports that same level functor. -/
@@ -4204,6 +4265,32 @@ end Supplier
 theorem kodairaSpencerDimension (P : ModuliParameters.{u}) (R : CommRingCat.{u}) :
     Nonempty (Supplier.pelKodairaSpencerTensors (PELModuli.representingSpace P).space R ≅
       Supplier.cotangent (PELModuli.representingSpace P).space R) := sorry
+
+
+namespace Supplier
+/-- Relative differentials of the test scheme over P.base, on an affine chart R.
+The chart identification and cotangent local freeness are omitted supplier conditions. -/
+def testCotangent (P : ModuliParameters.{u}) (S : Scheme.{u})
+    (R : CommRingCat.{u}) (_t : Spec R ⟶ S) : ModuleCat.{u} R := sorry
+/-- Actual Hodge tensor quotient on the family pulled back from an etale presentation.
+The test morphism is over P.base; this base compatibility is omitted here. -/
+def pulledBackKSTensors (P : ModuliParameters.{u}) {S : Scheme.{u}}
+    (_f : S ⟶ (spaceAtlas (PELModuli.representingSpace P).space).left)
+    (R : CommRingCat.{u}) (_t : Spec R ⟶ S) : ModuleCat.{u} R := sorry
+def pulledBackKSMap (P : ModuliParameters.{u}) {S : Scheme.{u}}
+    (f : S ⟶ (spaceAtlas (PELModuli.representingSpace P).space).left)
+    (R : CommRingCat.{u}) (t : Spec R ⟶ S) :
+    pulledBackKSTensors P f R t ⟶ testCotangent P S R t := sorry
+end Supplier
+
+/-- M2's criterion on an ordinary etale scheme presentation. Good-base, neatness,
+affine-chart and cotangent local-freeness conditions are as in the packet.
+Unlike vanishing differentials alone, local finite presentation is essential (E6). -/
+theorem kodairaSpencer_etale_iff (P : ModuliParameters.{u}) {S : Scheme.{u}}
+    (f : S ⟶ (Supplier.spaceAtlas (PELModuli.representingSpace P).space).left)
+    [LocallyOfFinitePresentation f] :
+    Etale f ↔ Flat f ∧ ∀ (R : CommRingCat.{u}) (t : Spec R ⟶ S),
+      IsOpenImmersion t → IsIso (Supplier.pulledBackKSMap P f R t) := sorry
 
 namespace Supplier
 /-- A3's actual Hom(A,B) tensor P, with clearing-denominators equivalence. -/
@@ -4505,7 +4592,8 @@ theorem uniformization_hecke (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
 def domainAction (D : RationalPELDatum B V) (γ : PELDatum.similitudeGroup D ℚ)
     (x : D.domain) : D.domain := sorry
 /-- Upstairs polarized complex torus at the specified domain point and adelic lattice.
-A5 supplies relative Riemann theory; AA.4 supplies the locally equivalent twist. -/
+A5 supplies relative Riemann theory; AA.4 supplies the locally equivalent twist.
+Use the positive normalized PEL form ε(x)q_gψ; A5's convention takes its negative. -/
 def upstairsFibre (D : RationalPELDatum B V) (i : ker1 D) (_x : D.domain)
     (_g : PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)) :
     Supplier.ComplexAnalyticSpace.{0} := sorry
@@ -4714,10 +4802,13 @@ end SheafDeterminant
 
 section CMArithmeticContracts
 namespace Supplier
-/-- The actual number field used in the CM base (the reflexive closure of the embedded
-CM field), with the integral p-local base of cmParameters. -/
+/-- The selected CM type’s reflex field, with its integral p-local base in cmParameters
+(LTXZZ published Definition 3.5.4, pp.157–158). This is distinct from reflexiveClosure. -/
 def cmBaseField {F : Type} [Field F] [NumberField F] [NumberField.IsCMField F]
-    (_Φ : GeneralizedCMType F 1) : Subfield ℂ := sorry
+    (Φ : GeneralizedCMType F 1) : Subfield ℂ := Φ.reflexField
+-- Regression: the base uses the selected type, not the separate reflexive closure.
+example {F : Type} [Field F] [NumberField F] [NumberField.IsCMField F]
+    (Φ : GeneralizedCMType F 1) : cmBaseField Φ = Φ.reflexField := rfl
 /-- Geometric Galois action induced by the finite etale CM scheme. -/
 def cmGaloisAction {F : Type} [Field F] [NumberField F] [NumberField.IsCMField F]
     (Φ : GeneralizedCMType F 1) (p n : ℕ)
@@ -4934,10 +5025,10 @@ example : ¬ (∀ i j : Fin 2, i ≤ j → (![2, 1] : Fin 2 → ℤ) i ∣ ![2, 
 
 -- Unit test: unitaryDatum_picard_reflex
 example (K : Type) [Field K] [NumberField K] [NumberField.IsCMField K] [StarRing K] [Fact (Module.finrank ℚ K = 2)]
-    (τ : K →ₐ[ℚ] ℂ) : (imaginaryQuadraticDatum K 2 1).reflexField = τ.fieldRange := sorry
+    (τ : K →ₐ[ℚ] ℂ) : (imaginaryQuadraticDatum K 2 1 (by norm_num)).reflexField = τ.fieldRange := sorry
 -- Unit test: unitaryDatum_U11
 example (K : Type) [Field K] [NumberField K] [NumberField.IsCMField K] [StarRing K] [Fact (Module.finrank ℚ K = 2)] :
-    (imaginaryQuadraticDatum K 1 1).reflexField = ⊥ := sorry
+    (imaginaryQuadraticDatum K 1 1 (by norm_num)).reflexField = ⊥ := sorry
 -- Unit test: unitaryDatum_wrong_delta
 example : ¬ (star (1 : ℂ) = -(1 : ℂ)) := by norm_num
 
@@ -5145,18 +5236,21 @@ example (P : ModuliParameters.{0}) (D : RationalPELDatum B V)
       PELModuli.heckeTranslate P D K g = PELModuli.heckeTranslate P D K (h * g) := sorry
 
 -- Unit test: adelicModuli_coefficient_compare
+-- The inverse limit and restricted product are those of this family's actual abelian scheme.
 example (P : ModuliParameters.{0}) (D : RationalPELDatum B V)
-    (K : Subgroup (PELDatum.similitudeGroup D (AwayAdeleRing P.box)))
-    (Kf : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
-    (S : Over P.base) (ξ : PELModuli.ratModuliProblem P D K S) :
-    PELModuli.adelicModuli P D Kf S := (PELModuli.adelicModuli.ofRational P D K Kf S).obj ξ
+    (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
+    (S : Over P.base) (ξ : PELModuli.adelicModuli P D K S) (s : GeometricPoint S.left) :
+    Nonempty ((ℚ ⊗[ℤ] PELModuli.Supplier.fullIntegralTate (PELModuli.adelicModuli.abelian ξ) s)
+      ≃ₗ[ℚ] ((ModuleCat.restrictScalars (algebraMap ℚ (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))).obj
+        (PELModuli.Supplier.fullTate (PELModuli.adelicModuli.abelian ξ) s))) := sorry
 
 -- Unit test: adelicModuli_actual_hecke
 example (P : ModuliParameters.{0}) (D : RationalPELDatum B V)
     (K K' : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)))
     (g : PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ)) (S : Over P.base)
-    (ξ : PELModuli.adelicModuli P D K' S) : PELModuli.adelicModuli P D K S :=
-  (PELModuli.adelicModuli.hecke P D K K' g S).obj ξ
+    (ξ : PELModuli.adelicModuli P D K' S) (s : GeometricPoint S.left) :
+    PELModuli.adelicModuli.heckeOrbit (K := K) g ξ s =
+      (fun η => (g.val.1.trans η.1, g.val.2 * η.2)) '' PELModuli.adelicModuli.levelOrbit ξ s := sorry
 
 -- Unit test: uniformization_all_pieces
 example (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ) (D : RationalPELDatum B V)
@@ -5246,7 +5340,7 @@ example (Y : Scheme.{0}) [DecidableEq (ConnectedComponents Y)] (d : ℕ) (c c' :
 -- Unit test: unitaryDatum_definite
 example (K : Type) [Field K] [NumberField K] [NumberField.IsCMField K] [StarRing K] [Fact (Module.finrank ℚ K = 2)] :
     ∀ (R : Type*) [CommRing R] [Algebra ℚ R],
-      Subsingleton ((Supplier.adjointDatum (imaginaryQuadraticDatum K 1 0).toShimuraDatum) →ₐ[ℚ] R) := sorry
+      Subsingleton ((Supplier.adjointDatum (imaginaryQuadraticDatum K 1 0 (by norm_num)).toShimuraDatum) →ₐ[ℚ] R) := sorry
 
 section
 variable {k K : Type u} [Field k] [Field K] [Algebra k K]
@@ -5735,6 +5829,22 @@ theorem uniformization_analyticOpenClosed
         e.hom ≫ Supplier.analyticOpenInclusion _ U = uniformization P φ D i K := sorry
 end PELModuli
 
+/-- The direct full-group type-D family comparison, in addition to typeDComparison's
+point bijection. Full-group neatness, rational twists and level/base agreement are omitted
+prototype conditions. SF.2 retains the structure sheaf, including nilpotents. -/
+theorem typeDComparison_analytic
+    {B V : Type} [Ring B] [Algebra ℚ B] [Module.Finite ℚ B] [IsSemisimpleRing B]
+    [StarRing B] [AddCommGroup V] [Module ℚ V] [Module B V] [IsScalarTower ℚ B V]
+    (P : ModuliParameters.{0}) (φ : P.R₀ →+* ℂ)
+    (D : RationalPELDatum B V) (i : PELModuli.ker1 D)
+    (K : Subgroup (PELDatum.similitudeGroup D (IsDedekindDomain.FiniteAdeleRing ℤ ℚ))) :
+    ∃ U : TopologicalSpace.Opens (Supplier.analyticPoints
+        (Supplier.analytification.obj (PELModuli.genericFibre P φ).model)),
+      IsClosed U.carrier ∧
+      ∃ e : PELModuli.quotientAnalyticSpace D i K ≅ Supplier.analyticOpenSubspace
+          (Supplier.analytification.obj (PELModuli.genericFibre P φ).model) U,
+        e.hom ≫ Supplier.analyticOpenInclusion _ U = PELModuli.uniformization P φ D i K := sorry
+
 -- Unit test: gcmType_reflex_imagQuad
 example (F : Type) [Field F] [NumberField F] [NumberField.IsCMField F]
     (_hdim : Module.finrank ℚ F = 2) (Ψ : GeneralizedCMType F 3)
@@ -5937,6 +6047,16 @@ theorem hermitianHomOfAbelianSchemes_complex_pairing
       (hermitianHomOfAbelianSchemes_complex A₀ A C y) =
       Supplier.bettiPolarizedHomPairing 𝒜 A₀ A pol₀ pol C x y := sorry
 end PELFieldContracts
+
+-- Unit test: uniformization_negative_component
+example {B V : Type} [Ring B] [Algebra ℚ B] [Module.Finite ℚ B] [IsSemisimpleRing B]
+    [StarRing B] [AddCommGroup V] [Module ℚ V] [Module B V] [IsScalarTower ℚ B V]
+    (D : RationalPELDatum B V) (x : ℝ ⊗[ℚ] V) (hx : x ≠ 0) :
+    LinearMap.BilinForm.baseChange ℝ D.form x ((-D.J) x) < 0 ∧
+      0 < -(LinearMap.BilinForm.baseChange ℝ D.form x ((-D.J) x)) := by
+  have h := D.pos x hx
+  rw [LinearMap.neg_apply, map_neg]
+  constructor <;> linarith
 
 end TauCeti.PEL
 

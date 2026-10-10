@@ -2,7 +2,7 @@
 
 This roadmap constructs moduli of polarized abelian schemes with an order action and an invariant level structure, identifies their complex fibres, and supplies their integral and arithmetic models. Its objects retain their polarization, action, Tate twist and descent data throughout. The integral isomorphism problem and the rational isogeny problem have different morphisms; their comparison transports the lattice and level.
 
-The seven layers separate linear algebra, relative families, representability, complex comparison, canonical models, examples and arithmetic moduli. They build on the existing scheme, bilinear-form, Hodge and abelian-variety libraries. Relative abelian schemes, ordinary algebraic spaces and stacks, analytic spaces and adelic groups are imported from their designated owners. This document specifies the mathematical targets; the companion suggested file supplies unproved interface forms. Every implementation status is unchecked.
+The seven layers separate linear algebra, relative families, representability, complex comparison, canonical models, examples and arithmetic moduli. They build on the existing scheme, bilinear-form, Hodge and abelian-variety libraries. Relative abelian schemes, ordinary algebraic spaces and stacks, analytic spaces and adelic groups are imported from their designated owners. This document specifies the mathematical targets; the companion suggested file supplies unproved interface forms. Every implementation status is unchecked. Independent target-level review accepted this plan on 2026-10-10 after the corrections recorded in the review report. The suggested file elaborates with only sorry warnings; explicitly documented future supplier identifications remain omitted under PROTOCOL §13, so the mathematical hypotheses below govern every suggested interface and test.
 
 ## Conventions and object dictionary
 
@@ -16,9 +16,9 @@ A set of good primes is denoted by box. Integers prime to box are inverted for p
 
 An integral PEL family has a relative abelian group scheme, an actual prime-to-box polarization and an integral order action satisfying Rosati and the Lie determinant condition. A rational family has a localized action and a positive rational quasi-polarization class, with prime-to-box quasi-isogeny morphisms. Clearing a quasi-polarization uses positive locally constant integer sections. Levels are monodromy-invariant orbits of actual geometric Tate-module similitudes. Principal finite level includes a completed lift and the multiplier isomorphism of Tate twists. A degenerate finite pairing alone cannot recover that multiplier.
 
-Hecke operators act on the right by precomposition of level markings, with the subgroup conjugations and composition order below. Complex uniformization uses the full similitude group and the union indexed by locally-trivial global rational-form classes. The type D comparison retains the possibly disconnected group.
+Hecke operators act on the right by precomposition of level markings, with the subgroup conjugations and composition order below. Complex uniformization uses the full similitude group and the union indexed by locally trivial global rational-form classes. On its full real orbit the Riemann form is ε(h)q_g psi: ε(h) chooses the positive component and the positive rational q_g makes q_gc(g) an integral adelic unit on the selected lattice. For a rational similitude gamma, ε(gamma h)=sign(c(gamma))ε(h) and q_(gamma g)=q_g/|c(gamma)|, so the polarized family is equivariant. The relative Riemann supplier A5 uses the opposite alternating-form convention. The type D comparison retains the possibly disconnected group. A Shimura variety or canonical-model label additionally requires SV3 on every rational simple adjoint factor; the ordinary arithmetic quotient remains available when that condition fails.
 
-For a CM field F, the published reflexive closure is F joined with the intersection of all rank-one CM-type reflex fields. Its conjugation-fixed subfield is its maximal totally real subfield. The older arXiv composite of all reflex fields is a different construction. The auxiliary CM moduli scheme is based on the integer ring of the published reflexive closure localized at p.
+For a CM field F, the published reflexive closure is F joined with the intersection of all rank-one CM-type reflex fields. Its conjugation-fixed subfield is its maximal totally real subfield. The older arXiv composite of all reflex fields is a different construction. The auxiliary CM moduli scheme is based on the integer ring of the selected CM type’s reflex field localized at p (Definition 3.5.4). The reflexive closure is a separate construction.
 
 The Hodge bundle is the sheaf of invariant relative differentials, and the Hodge line its determinant. Ordinary nonneat moduli retain automorphisms in an algebraic stack. A coarse rational point and a family over that field are related through a residual gerbe; neutrality or a rigidifying lift is required to produce a family.
 
@@ -28,11 +28,11 @@ SchemeAndStackFoundations SF.1 supplies ordinary algebraic spaces; DiamondsAndVS
 
 SchemeAndStackFoundations SF.2 Part II supplies complex analytic spaces with nilpotents, open gluing and fibre products, and analytification of finite-type complex schemes. The carrier is locally the quotient of holomorphic functions on an open subset of C to the power n by a finitely generated ideal. ComplexComparisonPartII C0 consumes it and supplies local faithful flatness. Direct carrier consumers are C0, ShimuraVarieties V2, ShimuraCompactifications C2, PELModuli M3 and ModularCurvesPartII R12.3. Agreement with the existing ComplexComparison proposal is part of this single-owner integration.
 
-AdelicAlgebraicGroups AA.4 Part II owns continuous nonabelian absolute Galois cohomology, all-place localization, actual twisting and finite ker1, with reductive and norm-torus comparisons. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 Part II owns polarized O-display deformation and the generic Newton argument used by Wedhorn. The chosen local reflex completion controls ordinary nonemptiness and density.
+The current AdelicAlgebraicGroups AA.4.1 already supplies coordinate torsors, their geometric class comparison, local simply-connected torsor triviality and the simply-connected Hasse principle. Its Part II request adds continuous nonabelian absolute Galois comparison, all-place localization, actual twisting and finite ker1, with reductive and norm-torus comparisons, while reusing those targets. FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 Part II owns polarized O-display deformation and the generic Newton argument used by Wedhorn. The chosen local reflex completion controls ordinary nonemptiness and density.
 
 The Hilbert example in M5 imports ShimuraData D5 and HilbertModularVarietiesAndShimuraCurves H0/H1. M6 is an independent arithmetic-moduli suffix with no M5 dependency. Its quasi-projective realization consumes ShimuraCompactifications C5 directly.
 
-AlgebraicVectorBundles supplies locally finite free modules, ranks and determinant lines; IntegralLattices supplies lattice duality, index and completions; ProfiniteArithmetic supplies completed integral rings; RestrictedProducts supplies adelic topology. OrthogonalSpinGroups supplies its existing symmetric-form group theory. AdicSpaces is used in its stated scope and does not substitute for the ordinary complex analytic carrier.
+AlgebraicVectorBundles supplies locally finite free modules, ranks and determinant lines; IntegralLattices supplies lattice duality, index and completions; ProfiniteArithmetic Layer 0 supplies the ring on Additive TauCeti.zHat and its product-of-Z_l comparison; RestrictedProducts supplies adelic topology. OrthogonalSpinGroups supplies its existing symmetric-form group theory. AdicSpaces is used in its stated scope and does not substitute for the ordinary complex analytic carrier.
 
 ## Layers and acceptance
 
@@ -69,36 +69,52 @@ Let B be a finite-dimensional semisimple ℚ-algebra. An involution of B is a �
 **Construction or proof.**
 
 1. Use the existing StarRing and StarModule carriers. Define reduced trace factorwise by Wedderburn–Artin and the centre field traces, retaining each simple factor’s degree.
+
 2. Compare reduced and left-multiplication traces factorwise; rational positivity extends to real positivity by density and positive definiteness (Milne Proposition 8.10, pp.84–85).
+
 3. Positivity fixes central idempotents. On each simple centre it induces identity on a totally real field or CM conjugation; identify the fixed centre using the actual centre embedding.
 
 **API.**
 
-- **PositiveInvolution** — From a StarRing structure on the ℚ-algebra B and the inequality Trd_{B/ℚ}(x x*) > 0 for x ≠ 0, build the positive involution.
-- **PositiveInvolution.trd_mul_star_pos** — For x ≠ 0 in B, Trd_{B/ℚ}(x x*) > 0.
-- **PositiveInvolution.iff_trace_pos** — Positivity holds for Trd_{B/ℚ} iff it holds for the unreduced trace Tr_{B/ℚ} of left multiplication.
-- **PositiveInvolution.iff_real** — * is positive on B iff its ℝ-linear extension is positive on B ⊗_ℚ ℝ.
-- **PositiveInvolution.center_stable** — A positive involution carries the centre into itself. Central idempotent stability and the totally real/CM classification are the separate classification interfaces of this node.
-- **StarOrder** — A ℤ-order O ⊂ B with star O = O; it inherits the involution.
-- **PositiveInvolution.ofStarRing** — A positive involution is in particular a StarRing structure on B with star (q·x) = q·star x for q ∈ ℚ.
-- **PositiveInvolution.centralIdempotent_fixed** — A central idempotent e of B satisfies star(e)=e.
-- **PositiveInvolution.center_classification** — If B is simple and a number field F is identified with its centre, F is totally real or CM.
-- **PositiveInvolution.fixedCenter_totallyReal** — If F₀ is identified with the star-fixed centre of a simple B, F₀ is totally real.
+- **PositiveInvolution** (constructor) — From a StarRing structure on the ℚ-algebra B and the inequality Trd_{B/ℚ}(x x*) > 0 for x ≠ 0, build the positive involution.
+
+- **PositiveInvolution.trd_mul_star_pos** (characterisation) — For x ≠ 0 in B, Trd_{B/ℚ}(x x*) > 0.
+
+- **PositiveInvolution.iff_trace_pos** (characterisation) — Positivity holds for Trd_{B/ℚ} iff it holds for the unreduced trace Tr_{B/ℚ} of left multiplication.
+
+- **PositiveInvolution.iff_real** (equivalence) — * is positive on B iff its ℝ-linear extension is positive on B ⊗_ℚ ℝ.
+
+- **PositiveInvolution.center_stable** (relation) — A positive involution carries the centre into itself. Central idempotent stability and the totally real/CM classification are the separate classification interfaces of this node.
+
+- **StarOrder** (structure) — A ℤ-order O ⊂ B with star O = O; it inherits the involution.
+
+- **PositiveInvolution.ofStarRing** (coercion) — A positive involution is in particular a StarRing structure on B with star (q·x) = q·star x for q ∈ ℚ.
+
+- **PositiveInvolution.centralIdempotent_fixed** (relation) — A central idempotent e of B satisfies star(e)=e.
+
+- **PositiveInvolution.center_classification** (relation) — If B is simple and a number field F is identified with its centre, F is totally real or CM.
+
+- **PositiveInvolution.fixedCenter_totallyReal** (relation) — If F₀ is identified with the star-fixed centre of a simple B, F₀ is totally real.
 
 **Unit tests.**
 
 - **positiveInvolution_rat** (degenerate) — On B = ℚ with the identity involution, Trd(x·x) = x² > 0 for x ≠ 0, so id is positive.
+
 - **positiveInvolution_transpose** (computation) — On B = M_n(ℚ) with x* = xᵀ, Trd(x xᵀ) = Σ_{i,j} x_{ij}² > 0 for x ≠ 0.
+
 - **not_positiveInvolution_adjugate** (non-example) — On B = M_2(ℚ) with the canonical involution x* = adj(x), x x* = det(x)·1 and Trd(x x*) = 2 det x = −2 for x = diag(1, −1); the involution is not positive.
+
 - **not_positiveInvolution_id_imaginary** (non-example) — On B = ℚ(i) the identity involution is not positive (Trd(i·i) = −2), while complex conjugation is positive (Trd(x x̄) = 2|x|²).
 
 **Acceptance.** (ℚ, id) and (M_n(ℚ), transpose) are positive; (M_2(ℚ), adjugate) and (ℚ(i), id) are not. Positivity on B is equivalent to positivity on B ⊗ ℝ.
 
 **Uses.** Kottwitz 1992, §5, p. 389: the PEL data start from a simple ℚ-algebra B with a positive involution preserving an order O_B. PELModuli:M1/pel-abelian-scheme: Rosati compatibility i(b)^∨ ∘ λ = λ ∘ i(b*) uses the involution. AbelianSchemesAndArithmeticModuli:A6/rosati-positivity: the Rosati involution of a polarization is the source example of a positive involution on End⁰(A). PELModuli:M0/albert-types: the classification of simple factors is a classification of positive involutions.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.2.1, p. 45; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 8.10 and Definition 8.11, pp. 84–85; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.2.1, p. 45; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 8.10 and Definition 8.11, pp. 84–85; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389.
 
 **Direct dependencies.** mathlib:StarRing; mathlib:IsSemisimpleRing; mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing; mathlib:Algebra.trace.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="albert-types"></a>
 
@@ -113,16 +129,22 @@ Let (B, *) be a finite-dimensional semisimple ℚ-algebra with positive involuti
 **Construction or proof.**
 
 1. Reduce to B simple by Wedderburn–Artin and stability of simple factors under * (Lan Lemma 1.2.1.11).
+
 2. F₀ is totally real because the restriction of * to the centre is positive; F is F₀ or a CM quadratic extension of F₀ (Kottwitz §5 p. 391).
+
 3. Classify real and complex semisimple algebras with positive involution: by Milne Proposition 8.10 a positive involution is the adjoint of a positive-definite hermitian form, and the three real division algebras give types C, D, A (Lan Propositions 1.2.1.13–1.2.1.14, Albert).
+
 4. Constancy along a factor: the Galois orbit [τ] determines the factor, and the type is read off from the real factor algebra.
+
 5. The identification with the Dynkin types of G^ad_ℂ follows from the structure of G₁ over ℂ: GL_n (A), Sp_{2n} (C), O_{2n} (D) (Kottwitz §5 p. 391; Lan Remark 1.2.1.16).
 
 **Acceptance.** B = ℚ: type C. B = K imaginary quadratic with complex conjugation: type A. B a definite quaternion algebra over ℚ with its canonical involution: type D (B ⊗ ℝ ≅ ℍ). B an indefinite quaternion algebra with a positive involution x ↦ t⁻¹ x̄ t: type C. I_bad = 2 exactly for data involving a type D factor.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.15, pp. 53–54; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.17, p. 54; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.15, pp. 53–54; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.17, p. 54; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M0/positive-involution; mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing; mathlib:NumberField.IsTotallyReal; mathlib:NumberField.IsCMField.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="order-discriminant"></a>
 
@@ -132,29 +154,40 @@ Let (B, *) be a finite-dimensional semisimple ℚ-algebra with positive involuti
 
 Let B be a finite-dimensional semisimple ℚ-algebra and O ⊂ B a ℤ-order. The discriminant Disc = Disc_{O/ℤ} is the ideal of ℤ generated by det(Trd_{B/ℚ}(x_i x_j))_{1≤i,j≤m} for all m-tuples x_1, …, x_m in O, m = dim_ℚ B; it is generated by det(Trd(e_i e_j)) for any ℤ-basis (e_i) of O. The inverse different is Diff⁻¹ = {x ∈ B : Trd(xO) ⊂ ℤ}. If a prime p does not divide Disc then O ⊗ ℤ_(p) is a maximal order, O ⊗ ℤ_p is a product of matrix algebras over the rings of integers of unramified extensions of ℚ_p, and p is unramified in B and in its centre F.
 
-**Hypotheses.** B finite-dimensional semisimple over ℚ O a ℤ-order in B
+**Hypotheses.** B finite-dimensional semisimple over ℚ; O a ℤ-order in B
 
 **Construction or proof.**
 
 1. On a full integral order use the reduced-trace bilinear form; transport between integral bases by a unimodular matrix. Its determinant generates the discriminant ideal, and its sign is forgotten by taking the absolute ideal.
+
 2. Use the existing dual-submodule and Smith-normal-form APIs to identify the inverse different and its relative index, then compare the commutative case with NumberField.discr.
+
 3. At a prime not dividing the discriminant the trace pairing is perfect; Lan Proposition 1.1.1.17, pp.7–8, gives maximality and the unramified matrix-order decomposition. Import local-field/completion carriers rather than declaring unconstrained factor fields.
 
 **API.**
 
-- **Order.disc** — For an indexed full basis of the order, the signed determinant in Q of its reduced-trace Gram matrix. Its generated integral ideal is the order discriminant; changing an integral basis multiplies the determinant by the square of a unit.
-- **Order.disc_eq_det_basis** — For a full order and an integral basis, the discriminant ideal is generated by the reduced-trace Gram determinant; changing the basis changes it by a unit square.
-- **Order.disc_eq_index_diffInv** — The positive discriminant generator equals the finite relative index of the order in its reduced-trace inverse different.
-- **Order.maximality_of_not_dvd_disc** — For every full integral overorder O′ containing O, p does not divide its relative index over O when p does not divide disc(O); hence the p-adic order O is maximal. O′ need not be star-stable.
-- **Order.matrixOrder_of_not_dvd_disc** — The actual completed order Zp tensor O is a product of matrix orders over integer rings of finite unramified Qp extensions; their scalar extensions identify Qp tensor B with the corresponding matrix algebras.
-- **Order.disc_numberField** — Evaluating the reduced-trace discriminant on the integral basis of the full integer ring of a number field gives its signed NumberField.discr in Q.
-- **Order.map_star** — Star preserves the order and restricts to an involution on it. Inverse-different stability is the separate inverseDifferent_star theorem.
-- **Order.inverseDifferent_star** — Membership in the reduced-trace inverse different of a full star-order is invariant under star.
+- **Order.disc** (data) — For an indexed full basis of the order, the signed determinant in Q of its reduced-trace Gram matrix. Its generated integral ideal is the order discriminant; changing an integral basis multiplies the determinant by the square of a unit.
+
+- **Order.disc_eq_det_basis** (relation) — For a full order and an integral basis, the discriminant ideal is generated by the reduced-trace Gram determinant; changing the basis changes it by a unit square.
+
+- **Order.disc_eq_index_diffInv** (relation) — The positive discriminant generator equals the finite relative index of the order in its reduced-trace inverse different.
+
+- **Order.maximality_of_not_dvd_disc** (other) — For every full integral overorder O′ containing O, p does not divide its relative index over O when p does not divide disc(O); hence the p-adic order O is maximal. O′ need not be star-stable.
+
+- **Order.matrixOrder_of_not_dvd_disc** (other) — The actual completed order Zp tensor O is a product of matrix orders over integer rings of finite unramified Qp extensions; their scalar extensions identify Qp tensor B with the corresponding matrix algebras.
+
+- **Order.disc_numberField** (relation) — Evaluating the reduced-trace discriminant on the integral basis of the full integer ring of a number field gives its signed NumberField.discr in Q.
+
+- **Order.map_star** (relation) — Star preserves the order and restricts to an involution on it. Inverse-different stability is the separate inverseDifferent_star theorem.
+
+- **Order.inverseDifferent_star** (relation) — Membership in the reduced-trace inverse different of a full star-order is invariant under star.
 
 **Unit tests.**
 
 - **Order.disc_numberField_quadratic** (compatibility) — For the full basis (1,i) of Z[i] in Q(i), the signed reduced-trace Gram determinant is minus four, generating the discriminant ideal 4Z.
+
 - **Order.disc_matrix** (degenerate) — For the matrix-unit basis of M_n(Z), the reduced-trace Gram determinant is (-1) to the power n(n-1)/2; its ideal is Z.
+
 - **Order.disc_nonmaximal** (non-example) — The basis (1,2i) of Z[2i] has signed Gram determinant minus sixteen, generating 16Z; at 2 this order is not maximal.
 
 **Acceptance.** For B = F a number field and O = O_F, Disc = disc(F)ℤ (agreement with Mathlib's NumberField.discr). For B = M_n(ℚ), O = M_n(ℤ): Disc = ℤ, every prime is unramified. For B the definite quaternion algebra of discriminant 2 and O a maximal order: Disc = 4ℤ (reduced discriminant 2 squared) and 2 is ramified.
@@ -164,6 +197,8 @@ Let B be a finite-dimensional semisimple ℚ-algebra and O ⊂ B a ℤ-order. Th
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.1.1.6, p. 4; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 1.1.1.17 and proof, pp.7–8.
 
 **Direct dependencies.** mathlib:Algebra.discr; mathlib:NumberField.discr; mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Identification of the completed order and the integer rings of the finite unramified extensions, with their full integral bases, is supplied by the local-field and lattice imports.
 
 <a id="symplectic-o-lattice"></a>
 
@@ -178,36 +213,52 @@ Let (B, *) be as above and O a *-order. A symplectic O-lattice is a pair (L, ⟨
 **Construction or proof.**
 
 1. Record ⟨·,·⟩ as a ℤ(1)-valued alternating form (mathlib LinearMap.BilinForm.IsAlt after the √−1 identification) with b and b* an adjoint pair (mathlib LinearMap.IsAdjointPair).
+
 2. Define L^# with mathlib LinearMap.BilinForm.dualSubmodule on L ⊗ ℚ; it is O-stable because the adjoint of b is b*.
+
 3. Finiteness of [L^# : L] and L^## = L follow from nondegeneracy over ℚ (Tau Ceti LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip, no symmetry needed).
+
 4. The elementary divisors of the Gram matrix (Tau Ceti Matrix.exists_smith_normal_form_of_det_ne_zero) give the polarization type when O = ℤ.
 
 **API.**
 
-- **SymplecticOLattice** — An O-module L, finite free over ℤ, with an alternating ℤ(1)-valued form, nondegenerate over ℚ, for which b and b* are adjoint.
-- **SymplecticOLattice.adjoint** — ⟨b x, y⟩ = ⟨x, b* y⟩ for all b ∈ O.
-- **SymplecticOLattice.dual** — L^# ⊂ L ⊗ ℚ, the dual lattice; an O-submodule.
-- **SymplecticOLattice.le_dual** — The natural integral image of L in Q tensor L lies in the pairing dual. Its finite index is dualIndex; inclusion and index are separate interfaces.
-- **SymplecticOLattice.dual_dual** — (L^#)^# = L.
-- **SymplecticOLattice.IsSelfDualAt** — L ⊗ ℤ_p = L^# ⊗ ℤ_p; holds for all p ∤ [L^# : L].
-- **SymplecticOLattice.multiRank** — The multiplicity of a specified simple B-module W in Q tensor L. The multi-rank tuple is indexed by the simple factors and assembled from these coordinates.
-- **SymplecticOLattice.polarizationType** — For O = ℤ, the elementary divisors d_1 | … | d_g with L ≅ ⊕ (ℤ e_i ⊕ ℤ f_i), ⟨e_i, f_i⟩ = d_i; [L^# : L] = (d_1⋯d_g)².
-- **SymplecticOLattice.baseChange** — Extension of scalars to any ℤ-algebra R gives (L ⊗ R, ⟨·,·⟩) with R(1)-valued form; nondegeneracy is not preserved for non-flat R.
+- **SymplecticOLattice** (structure) — An O-module L, finite free over ℤ, with an alternating ℤ(1)-valued form, nondegenerate over ℚ, for which b and b* are adjoint.
+
+- **SymplecticOLattice.adjoint** (relation) — ⟨b x, y⟩ = ⟨x, b* y⟩ for all b ∈ O.
+
+- **SymplecticOLattice.dual** (data) — L^# ⊂ L ⊗ ℚ, the dual lattice; an O-submodule.
+
+- **SymplecticOLattice.le_dual** (other) — The natural integral image of L in Q tensor L lies in the pairing dual. Its finite index is dualIndex; inclusion and index are separate interfaces.
+
+- **SymplecticOLattice.dual_dual** (simp) — (L^#)^# = L.
+
+- **SymplecticOLattice.IsSelfDualAt** (data) — L ⊗ ℤ_p = L^# ⊗ ℤ_p; holds for all p ∤ [L^# : L].
+
+- **SymplecticOLattice.multiRank** (data) — The multiplicity of a specified simple B-module W in Q tensor L. The multi-rank tuple is indexed by the simple factors and assembled from these coordinates.
+
+- **SymplecticOLattice.polarizationType** (other) — For O = ℤ, the elementary divisors d_1 | … | d_g with L ≅ ⊕ (ℤ e_i ⊕ ℤ f_i), ⟨e_i, f_i⟩ = d_i; [L^# : L] = (d_1⋯d_g)².
+
+- **SymplecticOLattice.baseChange** (functoriality) — Extension of scalars to any ℤ-algebra R gives (L ⊗ R, ⟨·,·⟩) with R(1)-valued form; nondegeneracy is not preserved for non-flat R.
 
 **Unit tests.**
 
 - **SymplecticOLattice.dual_standard** (computation) — A rank-two integral lattice with the standard alternating Gram matrix has dual index one.
+
 - **SymplecticOLattice.index_type** (computation) — For rank four with alternating blocks of weights 1 and d, the actual lattice dual index is d squared.
+
 - **SymplecticOLattice.zero** (degenerate) — The zero lattice has dual index one, so its dual quotient is trivial.
+
 - **SymplecticOLattice.not_symmetric** (non-example) — The symmetric form ⟨x, y⟩ = xy on ℤ is not alternating, so (ℤ, xy) is not a symplectic ℤ-lattice; double duality nevertheless holds there, so it is alternation that must be checked.
 
 **Acceptance.** L = ℤ^{2g} with the standard form: L^# = L. L = ℤ^4 with ⟨e_1,f_1⟩ = 1, ⟨e_2,f_2⟩ = d: [L^# : L] = d².
 
 **Uses.** Lan 2008, Definition 1.2.1.3: a PEL-type O-lattice is a symplectic O-lattice satisfying Condition 1.2.1.2. Kottwitz 1992, §5: a lattice Λ₀ in V_{ℚ_p} self-dual for (·,·) and preserved by O_B is part of the p-integral data. PELModuli:M1/principal-level-structure: level structures are symplectic isomorphisms (L/nL)_S ≅ A[n]. PELModuli:M5/siegel-pel-datum: polarization types (d_1 | … | d_g) are the elementary divisors of L.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.2.1, p. 46; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.1, p. 148; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §1, p. 374.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.2.1, p. 46; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.1, p. 148; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §1, p. 374.
 
 **Direct dependencies.** PELModuli:M0/positive-involution; mathlib:LinearMap.BilinForm.IsAlt; mathlib:LinearMap.IsAdjointPair; mathlib:LinearMap.BilinForm.Nondegenerate; mathlib:LinearMap.BilinForm.dualSubmodule; tauceti:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip; tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero; mathlib:Submodule.IsLattice.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="integral-pel-datum"></a>
 
@@ -217,29 +268,40 @@ Let (B, *) be as above and O a *-order. A symplectic O-lattice is a pair (L, ⟨
 
 An integral PEL datum is a tuple (O, *, L, ⟨·,·⟩, h) where O is a *-order in a finite-dimensional semisimple ℚ-algebra B with positive involution *, (L, ⟨·,·⟩) is a symplectic O-lattice, and h : ℂ → End_{O⊗ℝ}(L ⊗ ℝ) is an ℝ-algebra homomorphism such that (1) ⟨h(z)x, y⟩ = ⟨x, h(z̄)y⟩ for z ∈ ℂ and x, y ∈ L ⊗ ℝ, and (2) for either choice of √−1 the ℝ-bilinear form (x, y) ↦ (1/√−1)⟨x, h(√−1)y⟩ on L ⊗ ℝ is symmetric and positive definite (Lan's Condition 1.2.1.2). Only the existence of h is part of the datum in the moduli problems; any two choices are G(ℝ)-conjugate (M0/hodge-structure-of-datum). Connectedness of the similitude group and the Shimura axioms are not part of the definition.
 
-**Hypotheses.** A full star-order in a finite-dimensional semisimple positive-involution algebra. A finite free integral symplectic lattice; its order action may be nonfaithful and its rank may be zero. An actual real algebra action of C, equivalently an O-linear almost complex structure J with the symplectic adjointness and positive compatibility conditions.
+**Hypotheses.** A full star-order in a finite-dimensional semisimple positive-involution algebra.; A finite free integral symplectic lattice; its order action may be nonfaithful and its rank may be zero.; An actual real algebra action of C, equivalently an O-linear almost complex structure J with the symplectic adjointness and positive compatibility conditions.
 
 **Construction or proof.**
 
 1. Bundle the data; record Condition 1.2.1.2 with the real-symmetric positive-definite form h-paired with ⟨·,·⟩ (compare Tau Ceti SymplecticForm.Compatible for J = h(√−1)).
+
 2. Record that condition (2) forces nondegeneracy of ⟨·,·⟩ over ℝ (Lan, Condition 1.2.1.2 (2)).
 
 **API.**
 
-- **IntegralPELDatum** — Fields: the *-order O, the symplectic O-lattice L with ℤ(1)-valued form, and an ℝ-algebra map h : ℂ → End_{O⊗ℝ}(L⊗ℝ) satisfying adjointness and positivity.
-- **IntegralPELDatum.h_adjoint** — ⟨h(z)x, y⟩ = ⟨x, h(z̄)y⟩.
-- **IntegralPELDatum.pos** — (x, y) ↦ (1/√−1)⟨x, h(√−1)y⟩ is symmetric positive definite on L ⊗ ℝ.
-- **IntegralPELDatum.compatible** — With ω = (1/√−1)⟨·,·⟩ and J = h(√−1), Tau Ceti SymplecticForm.Compatible ω J holds; conversely a compatible J commuting with O ⊗ ℝ defines h(a + b√−1) = a + bJ.
-- **IntegralPELDatum.rationalize** — Given B ≅ Q tensor O, a compatible rationalized star/action and faithful B-action on Q tensor L, promote the form, J and adjointness to a rational PEL datum. Zero or nonfaithful integral data have no promotion to a faithful nonzero rational datum.
-- **IntegralPELDatum.nondegenerate_real** — Condition (2) implies ⟨·,·⟩ is nondegenerate on L ⊗ ℝ.
-- **IntegralPELDatum.ofSubOrder** — Restrict the order action to a full star-stable suborder through its unital ring inclusion, retaining the form and J.
-- **IntegralPELDatum.ofSubOrder_form** — The ofSubOrder constructor preserves the integral pairing and J under the restricted action.
+- **IntegralPELDatum** (structure) — Fields: the *-order O, the symplectic O-lattice L with ℤ(1)-valued form, and an ℝ-algebra map h : ℂ → End_{O⊗ℝ}(L⊗ℝ) satisfying adjointness and positivity.
+
+- **IntegralPELDatum.h_adjoint** (relation) — ⟨h(z)x, y⟩ = ⟨x, h(z̄)y⟩.
+
+- **IntegralPELDatum.pos** (characterisation) — (x, y) ↦ (1/√−1)⟨x, h(√−1)y⟩ is symmetric positive definite on L ⊗ ℝ.
+
+- **IntegralPELDatum.compatible** (compatibility) — With ω = (1/√−1)⟨·,·⟩ and J = h(√−1), Tau Ceti SymplecticForm.Compatible ω J holds; conversely a compatible J commuting with O ⊗ ℝ defines h(a + b√−1) = a + bJ.
+
+- **IntegralPELDatum.rationalize** (relation) — Given B ≅ Q tensor O, a compatible rationalized star/action and faithful B-action on Q tensor L, promote the form, J and adjointness to a rational PEL datum. Zero or nonfaithful integral data have no promotion to a faithful nonzero rational datum.
+
+- **IntegralPELDatum.nondegenerate_real** (other) — Condition (2) implies ⟨·,·⟩ is nondegenerate on L ⊗ ℝ.
+
+- **IntegralPELDatum.ofSubOrder** (relation) — Restrict the order action to a full star-stable suborder through its unital ring inclusion, retaining the form and J.
+
+- **IntegralPELDatum.ofSubOrder_form** (relation) — The ofSubOrder constructor preserves the integral pairing and J under the restricted action.
 
 **Unit tests.**
 
 - **IntegralPELDatum.siegel** (computation) — In every genus there is an actual integral datum with form minus Mathlib J and dual index one. Its compatible complex structure makes the real pairing positive.
+
 - **IntegralPELDatum.zero** (degenerate) — The actual zero-lattice datum has dual index one.
+
 - **IntegralPELDatum.wrong_sign** (non-example) — For the same L and ψ but h(√−1) = J, ψ(x, h(√−1)y) = −xᵀ y is negative definite, so (ℤ, id, ℤ^{2g}, ψ, h) with this h is not a PEL datum.
+
 - **IntegralPELDatum.compatible_iff** (compatibility) — For an actual integral datum and a nonzero real vector x, its pairing with Jx is strictly positive, in the convention used by the Compatible adapter.
 
 **Acceptance.** (ℤ, id, ℤ^{2g}, standard form, h(i) = J) is an integral PEL datum (Siegel case, M5/siegel-pel-datum). A definite hermitian space of rank n≥2 with signature (n,0) at every place gives an integral PEL datum with central h but fails SV3. Rank-one definite data have torus adjoint group and satisfy SV3 vacuously.
@@ -250,6 +312,8 @@ An integral PEL datum is a tuple (O, *, L, ⟨·,·⟩, h) where O is a *-order 
 
 **Direct dependencies.** PELModuli:M0/symplectic-o-lattice; PELModuli:M0/positive-involution; tauceti:TauCeti.SymplecticForm.Compatible; tauceti:TauCeti.SymplecticForm; tauceti:TauCeti.AlmostComplexStructure.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
+
 <a id="rational-pel-datum"></a>
 
 ### Rational and p-integral PEL data
@@ -258,37 +322,49 @@ An integral PEL datum is a tuple (O, *, L, ⟨·,·⟩, h) where O is a *-order 
 
 A rational PEL datum is (B, *, V, ⟨·,·⟩, h): B a finite-dimensional semisimple ℚ-algebra with positive involution, V a finitely generated faithful left B-module, ⟨·,·⟩ a nondegenerate ℚ-valued (equivalently ℚ(1)-valued) alternating form with ⟨bv, w⟩ = ⟨v, b*w⟩, and h : ℂ → End_B(V ⊗ ℝ) as in Condition 1.2.1.2. For a prime p, a p-integral PEL datum (Kottwitz §5) is a rational datum together with a ℤ_(p)-order O_B ⊂ B stable under *, maximal at p, such that B ⊗ ℚ_p is a product of matrix algebras over unramified extensions of ℚ_p, and an O_B ⊗ ℤ_p-stable lattice Λ₀ ⊂ V ⊗ ℚ_p self-dual for ⟨·,·⟩. Provided the O ⊗ ℚ-action on L ⊗ ℚ is faithful, the rationalization map sends an integral datum (O, *, L, ⟨·,·⟩, h) to (O ⊗ ℚ, *, L ⊗ ℚ, ⟨·,·⟩, h); for p ∤ I_bad·Disc·[L^#:L] the restriction (O ⊗ ℤ_(p), L ⊗ ℤ_p) is a p-integral datum.
 
-**Hypotheses.** B is finite-dimensional semisimple over Q with positive rational-linear involution. V is finite-dimensional and faithful over B, with a nondegenerate alternating form and compatible positive J. For the p-integral constructor: full star-order maximal at p, unramified local matrix factors, a finite generated spanning stable Zp-lattice which is self-dual.
+**Hypotheses.** B is finite-dimensional semisimple over Q with positive rational-linear involution.; V is finite-dimensional and faithful over B, with a nondegenerate alternating form and compatible positive J.; For the p-integral constructor: full star-order maximal at p, unramified local matrix factors, a finite generated spanning stable Zp-lattice which is self-dual.
 
 **Construction or proof.**
 
 1. Use Q tensor L and the actual tensor order isomorphism to rationalize a finite free lattice. Extend the order action, star, form and J, and require faithfulness before constructing a rational datum.
+
 2. At a good prime localize the full order and complete the lattice; the order-discriminant theorem gives maximality/unramifiedness and the dual index gives self-duality.
+
 3. Construct the completed adelic lattice as the full product-of-Zp span in Af tensor V, using the imported completed-integer/product comparison. A discrete integral image alone is insufficient.
 
 **API.**
 
-- **RationalPELDatum** — (B, *, V, ⟨·,·⟩, h) with V faithful, ⟨·,·⟩ nondegenerate alternating with b, b* adjoint, and h satisfying Condition 1.2.1.2 over ℝ.
-- **PIntegralPELDatum** — A rational datum with a *-stable ℤ_(p)-order maximal at p, B_{ℚ_p} a product of matrix algebras over unramified extensions, and a self-dual O_B ⊗ ℤ_p-lattice Λ₀.
-- **IntegralPELDatum.toRational** — The bilinear-form helper is the Q scalar extension. The rationalize constructor additionally identifies Q tensor O with B and extends star, action and J faithfully.
-- **IntegralPELDatum.toPIntegral** — At p not dividing I_bad, the order discriminant or dual index, promote the same rationalization to a p-integral datum; its lattice is the completed L, with actual finite generation, spanning, order stability and self-duality.
-- **RationalPELDatum.adelicLattice** — The completed integral lattice is the completed-integer span of L inside Af tensor V, canonically identified with completed Z tensor L under the rationalization, rather than the image of L itself.
-- **RationalPELDatum.centralizer** — C := End_B(V) with the adjoint involution of ⟨·,·⟩; h takes values in C ⊗ ℝ (Kottwitz §5).
+- **RationalPELDatum** (structure) — (B, *, V, ⟨·,·⟩, h) with V faithful, ⟨·,·⟩ nondegenerate alternating with b, b* adjoint, and h satisfying Condition 1.2.1.2 over ℝ.
+
+- **PIntegralPELDatum** (structure) — A rational datum with a *-stable ℤ_(p)-order maximal at p, B_{ℚ_p} a product of matrix algebras over unramified extensions, and a self-dual O_B ⊗ ℤ_p-lattice Λ₀.
+
+- **IntegralPELDatum.toRational** (relation) — The bilinear-form helper is the Q scalar extension. The rationalize constructor additionally identifies Q tensor O with B and extends star, action and J faithfully.
+
+- **IntegralPELDatum.toPIntegral** (relation) — At p not dividing I_bad, the order discriminant or dual index, promote the same rationalization to a p-integral datum; its lattice is the completed L, with actual finite generation, spanning, order stability and self-duality.
+
+- **RationalPELDatum.adelicLattice** (relation) — The completed integral lattice is the completed-integer span of L inside Af tensor V, canonically identified with completed Z tensor L under the rationalization, rather than the image of L itself.
+
+- **RationalPELDatum.centralizer** (data) — C := End_B(V) with the adjoint involution of ⟨·,·⟩; h takes values in C ⊗ ℝ (Kottwitz §5).
 
 **Unit tests.**
 
 - **RationalPELDatum.siegel_pIntegral** (computation) — An actual rank-two datum with unimodular standard Gram matrix is self-dual at every prime.
+
 - **IntegralPELDatum.toPIntegral_type** (non-example) — For the Siegel datum of type (1 | p) (Gram blocks with d = p), L ⊗ ℤ_p is not self-dual, so toPIntegral is not available at p although it is at every ℓ ≠ p.
+
 - **RationalPELDatum.zero** (degenerate) — For nonzero B and zero V, faithfulness prevents any rational PEL datum.
+
 - **IntegralPELDatum.toRational_injective_fails** (non-example) — The lattices ℤ² and 2ℤ ⊕ ℤ (with the standard form restricted) have the same rationalization; the rational datum forgets the lattice.
 
 **Acceptance.** The Siegel datum restricts to a p-integral datum for every p. Two integral data with isomorphic L ⊗ Ẑ and isomorphic rational data have the same p-integral restrictions at all good p (used by M1/change-of-lattice-and-primes).
 
 **Uses.** Kottwitz 1992, §5: the p-integral data define the moduli problem S_{K^p} over O_E ⊗ ℤ_(p). Milne ISV, Theorem 8.17: the characteristic-zero moduli description uses the rational datum only. PELModuli:M1/char-zero-adelic-moduli: the all-primes adelic moduli problem over the reflex field uses the rational datum. PELModuli:M1/rational-moduli-problem: the prime-to-□ quasi-isogeny moduli problem depends on (V ⊗ 𝔸^{∞,□}, L ⊗ Ẑ^□ class).
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.1.4, p. 47.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.1.4, p. 47.
 
 **Direct dependencies.** PELModuli:M0/integral-pel-datum; PELModuli:M0/order-discriminant; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. toPIntegral requires the actual full order/rationalization, completed lattice, order compatibility, and p avoiding the order discriminant and dual index; its prototype does not carry the complete good-prime predicate.
 
 <a id="similitude-group"></a>
 
@@ -303,45 +379,70 @@ For an integral PEL datum and a commutative ℤ-algebra R put G(R) := {(g, r) �
 **Construction or proof.**
 
 1. Present G as the closed subscheme of GL(L) × G_m cut out by the B-linearity and multiplier equations; for O = ℤ and the standard form this is the closed subgroup scheme of Tau Ceti ConstantForm.groupScheme type with an extra multiplier coordinate.
+
 2. Construct ν and G₁ = ker ν; G₁ is the B-linear isometry group, which for O = ℤ, L standard is Tau Ceti Symplectic.groupScheme.
+
 3. Construct the rational group G_ℚ and its points in ℚ_p, 𝔸_f, ℝ.
+
 4. Record the representation G → GL(L) and the Siegel embedding G ↪ GSp(L, ⟨·,·⟩) (forgetting B).
 
 **API.**
 
-- **PELDatum.similitudeGroup** — The pair-valued rational point group over a Q-algebra R: a B-linear automorphism of R tensor V and a unit r satisfying the multiplier equation. Integral points over arbitrary Z-algebras use IntegralPELDatum.similitudePoints.
-- **PELDatum.multiplier** — The similitude character ν : G → G_m.
-- **PELDatum.isometryGroup** — G₁ := ker ν.
-- **PELDatum.similitudeGroup.points_iff** — (g, r) ∈ G(R) iff g is O ⊗ R-linear and ⟨gx, gy⟩ = r⟨x, y⟩.
-- **PELDatum.similitudeGroup.multiplier_unique** — For the nonzero perfect rational space over a Q-algebra R, two multipliers on the same automorphism agree. The arbitrary integral-base version has the explicit flatness and positive-rank hypotheses of IntegralPELDatum.multiplier_unique.
-- **PELDatum.similitudeGroup.siegelEmbedding** — Forget the B-linearity constraint while retaining both the linear automorphism and its multiplier, on the same alternating space. AA.1 promotes this inclusion to the closed GSp group-scheme immersion.
-- **PELDatum.similitudeGroup.completedPrincipalCongruence** — For the actual integral datum in P, U(n) is the kernel of reduction of G(completed Z away from the excluded primes) to its finite integral similitude quotient. The multiplier is part of that reduction.
-- **PELDatum.similitudeGroup.isometry_siegel** — For the principal integral Siegel lattice of genus g, its multiplier-one coordinate Hopf algebra is isomorphic to TauCeti.Symplectic.coordinateHopfAlgebra over Z, after the explicit Fin-sum/JFin basis conversion.
-- **PELDatum.similitudeGroup.ofZero** — On the zero rational module, every unit gives the identity linear map with that multiplier. The integral group identification over every R is zeroSimilitudeEquiv.
-- **RationalPELDatum.coordinate** — The coordinate Hopf algebra of the closed subgroup of GL(V) times Gm cut out by B-linearity and preservation of the alternating form up to the supplied multiplier.
-- **RationalPELDatum.coordinatePoints** — For every rational algebra R, the convolution group of R-points of the coordinate Hopf algebra is isomorphic to the pair-valued similitude group.
-- **IntegralPELDatum.similitudePoints** — Over any integral base R, the actual pair subgroup in automorphisms of R tensor L times R-units is cut out by the order-commutation and multiplier-pairing equations. No flatness is required to define it.
-- **IntegralPELDatum.coordinate** — AA.1 represents those integral equations by a commutative coordinate Hopf algebra over Z.
-- **IntegralPELDatum.coordinatePoints** — Its convolution-valued algebra points over R are naturally group-isomorphic to the actual integral similitude points.
-- **IntegralPELDatum.multiplier_unique** — For R flat over Z, nonzero finite free L and nontrivial R, two units scaling the same automorphism agree. Nonflat reduction of 5J over F5 fails this assertion.
-- **IntegralPELDatum.zeroSimilitudeEquiv** — For the zero lattice, the pair-valued integral point group is group-isomorphic to R-units over every commutative R.
-- **IntegralPELDatum.isometryCoordinate** — The integral multiplier-one closed subgroup represented by the same order and pairing equations.
+- **PELDatum.similitudeGroup** (constructor) — The pair-valued rational point group over a Q-algebra R: a B-linear automorphism of R tensor V and a unit r satisfying the multiplier equation. Integral points over arbitrary Z-algebras use IntegralPELDatum.similitudePoints.
+
+- **PELDatum.multiplier** (data) — The similitude character ν : G → G_m.
+
+- **PELDatum.isometryGroup** (data) — G₁ := ker ν.
+
+- **PELDatum.similitudeGroup.points_iff** (characterisation) — (g, r) ∈ G(R) iff g is O ⊗ R-linear and ⟨gx, gy⟩ = r⟨x, y⟩.
+
+- **PELDatum.similitudeGroup.multiplier_unique** (other) — For the nonzero perfect rational space over a Q-algebra R, two multipliers on the same automorphism agree. The arbitrary integral-base version has the explicit flatness and positive-rank hypotheses of IntegralPELDatum.multiplier_unique.
+
+- **PELDatum.similitudeGroup.siegelEmbedding** (functoriality) — Forget the B-linearity constraint while retaining both the linear automorphism and its multiplier, on the same alternating space. AA.1 promotes this inclusion to the closed GSp group-scheme immersion.
+
+- **PELDatum.similitudeGroup.completedPrincipalCongruence** (data) — For the actual integral datum in P, U(n) is the kernel of reduction of G(completed Z away from the excluded primes) to its finite integral similitude quotient. The multiplier is part of that reduction.
+
+- **PELDatum.similitudeGroup.isometry_siegel** (compatibility) — For the principal integral Siegel lattice of genus g, its multiplier-one coordinate Hopf algebra is isomorphic to TauCeti.Symplectic.coordinateHopfAlgebra over Z, after the explicit Fin-sum/JFin basis conversion.
+
+- **PELDatum.similitudeGroup.ofZero** (example) — On the zero rational module, every unit gives the identity linear map with that multiplier. The integral group identification over every R is zeroSimilitudeEquiv.
+
+- **RationalPELDatum.coordinate** (constructor) — The coordinate Hopf algebra of the closed subgroup of GL(V) times Gm cut out by B-linearity and preservation of the alternating form up to the supplied multiplier.
+
+- **RationalPELDatum.coordinatePoints** (compatibility) — For every rational algebra R, the convolution group of R-points of the coordinate Hopf algebra is isomorphic to the pair-valued similitude group.
+
+- **IntegralPELDatum.similitudePoints** (constructor) — Over any integral base R, the actual pair subgroup in automorphisms of R tensor L times R-units is cut out by the order-commutation and multiplier-pairing equations. No flatness is required to define it.
+
+- **IntegralPELDatum.coordinate** (constructor) — AA.1 represents those integral equations by a commutative coordinate Hopf algebra over Z.
+
+- **IntegralPELDatum.coordinatePoints** (compatibility) — Its convolution-valued algebra points over R are naturally group-isomorphic to the actual integral similitude points.
+
+- **IntegralPELDatum.multiplier_unique** (characterisation) — For R flat over Z, nonzero finite free L and nontrivial R, two units scaling the same automorphism agree. Nonflat reduction of 5J over F5 fails this assertion.
+
+- **IntegralPELDatum.zeroSimilitudeEquiv** (compatibility) — For the zero lattice, the pair-valued integral point group is group-isomorphic to R-units over every commutative R.
+
+- **IntegralPELDatum.isometryCoordinate** (constructor) — The integral multiplier-one closed subgroup represented by the same order and pairing equations.
 
 **Unit tests.**
 
 - **similitudeGroup_siegel_one** (computation) — The genus-one integral standard form satisfies transpose(A) J A = det(A) J. This is the multiplier equation behind GL2 = GSp2.
+
 - **similitudeGroup_zero** (degenerate) — For L = 0, G(R) = R^× for every R.
+
 - **isometryGroup_siegel** (compatibility) — For the Siegel datum, G₁ = TauCeti.Symplectic.groupScheme ℤ g as closed subgroup schemes of GL_{2g}.
+
 - **similitudeGroup_not_isometry** (non-example) — The rational diagonal matrix with entries 2 and 1 fails the standard isometry condition.
+
 - **similitudeGroup_multiplier_nonflat** (non-example) — For L=ℤ² with pairing 5J, over R=𝔽₅ the identity has both multipliers 1 and 2. This integral lattice is nondegenerate over ℤ; uniqueness fails on this nonflat base.
 
 **Acceptance.** For the Siegel datum G = GSp_{2g} over ℤ, and G₁ = Sp_{2g} (Tau Ceti Symplectic.groupScheme). For B = K imaginary quadratic and a hermitian space of dimension n, G_ℚ = GU(V) with G₁ = U(V). L = 0 gives G = G_m (Lan p. 48).
 
 **Uses.** Lan 2008, Definition 1.4.1.4: levels are open compact subgroups H ⊂ G(Ẑ^□). Kottwitz 1992, §§7–8: the complex points are indexed by ker¹(ℚ, G) and described by G(ℚ)\X × G(𝔸_f)/K. ShimuraData:D4/shimura-datum: the PEL Shimura datum has group G_ℚ. PELModuli:M3/complex-points: the double coset description uses G(ℚ), G(𝔸_f) and the G(ℝ)-orbit of h.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.5, p. 47; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.1.6, p. 48; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p. 4, correction to Definition 1.2.1.5.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.1.5, p. 47; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.1.6, p. 48; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p. 4, correction to Definition 1.2.1.5.
 
-**Direct dependencies.** PELModuli:M0/integral-pel-datum; tauceti:TauCeti.ConstantForm.groupScheme; tauceti:TauCeti.GeneralLinear.groupScheme; tauceti:TauCeti.Symplectic.groupScheme; tauceti:Matrix.transpose_mul_J_mul_eq_det_smul.
+**Direct dependencies.** PELModuli:M0/integral-pel-datum; tauceti:TauCeti.ConstantForm.groupScheme; tauceti:TauCeti.GeneralLinear.groupScheme; tauceti:TauCeti.Symplectic.groupScheme; tauceti:Matrix.transpose_mul_J_mul_eq_det_smul; AdelicAlgebraicGroups:AA.1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The integral congruence constructor uses the identified completed lattice and the finite reduction map imported from AA.1; the generic rational points already impose B-linearity and the form equation.
 
 <a id="similitude-group-structure"></a>
 
@@ -351,20 +452,25 @@ For an integral PEL datum and a commutative ℤ-algebra R put G(R) := {(g, r) �
 
 Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum with B simple, and G, G₁ its similitude and isometry groups over ℚ. In Cases A and C, G is connected reductive and its derived group is simply connected; in Case D, G is reductive with 2^{[F₀:ℚ]} connected components. In Cases A and C the quotient D := G/G^der is the torus G_m (Case C) or the subtorus {(x, t) ∈ F^× × ℚ^× : N_{F/F₀}(x) = t^n} (Case A, n the hermitian dimension). Two elements x, y ∈ G(K) (K algebraically closed of characteristic 0) are conjugate iff ν(x) = ν(y) and their images in (End_B V)^× are conjugate.
 
-**Hypotheses.** B simple (the semisimple case is the fibre product over G_m of the factor groups) rational PEL datum
+**Hypotheses.** B simple (the semisimple case is the fibre product over G_m of the factor groups); rational PEL datum
 
 **Construction or proof.**
 
 1. Over ℚ̄, G₁ decomposes as a product over embeddings of F₀ of GL_n (A), Sp_{2n} (C) or O_{2n} (D) (Kottwitz §5, p. 391; Milne Proposition 8.7 and Remark 8.9).
+
 2. Connectedness and simple connectivity of the derived group in Cases A and C follow from those of GL_n/SL_n and Sp_{2n}; O_{2n} has two components, giving 2^{[F₀:ℚ]} components for G₁ and G in Case D.
+
 3. Compute G/G^der from the norm and multiplier (Kottwitz §7, p. 393).
+
 4. The conjugacy criterion is Kottwitz Lemma 7.1, proved factorwise for GL_n ⊂ GL_n × GL_n, Sp_{2n} ⊂ GL_{2n}, O_{2n} ⊂ GL_{2n}.
 
 **Acceptance.** Siegel: G = GSp_{2g} connected with G^der = Sp_{2g} simply connected and D = G_m. Definite quaternion algebra over ℚ with V = B² (Case D): G has 2 components.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 393; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Lemma 7.1, p. 395; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Remark 8.9, p. 84.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 393; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Lemma 7.1, p. 395; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Remark 8.9, p. 84.
 
-**Direct dependencies.** PELModuli:M0/similitude-group; PELModuli:M0/albert-types; tauceti:TauCeti.Symplectic.groupScheme; tauceti:TauCeti.Orthogonal.groupScheme.
+**Direct dependencies.** PELModuli:M0/similitude-group; PELModuli:M0/albert-types; tauceti:TauCeti.Symplectic.groupScheme; tauceti:TauCeti.Orthogonal.groupScheme; AdelicAlgebraicGroups:AA.1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="good-primes"></a>
 
@@ -374,38 +480,51 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum with B simple, and G, G₁
 
 For an integral PEL datum and an integer n ≥ 1, a prime p is bad if p | n·I_bad·Disc·[L^# : L], and good otherwise; a set □ of primes is a set of good primes if it contains no bad prime. The good-prime base is S₀ := Spec O_{F₀,(□)}, the localization of the ring of integers of the reflex field F₀ at the primes above □ (for □ = ∅, S₀ = Spec F₀). For p ∈ □: p ∤ Disc (O maximal at p, B unramified at p), p ≠ 2 if B has a type D factor, L ⊗ ℤ_p is self-dual, and p ∤ n, so a level H ⊂ G(Ẑ^□) has no component at p. These hypotheses are not implied by 'p large': each is a separate condition.
 
-**Hypotheses.** an integral PEL datum n ≥ 1
+**Hypotheses.** an integral PEL datum; n ≥ 1
 
 **Construction or proof.**
 
 1. Define the bad-prime integer N_bad = n·I_bad·Disc·[L^#:L] and the predicate on sets of primes.
+
 2. Show p good ⇒ (O ⊗ ℤ_(p), L ⊗ ℤ_p) is a p-integral datum (M0/rational-pel-datum).
+
 3. p good ⇒ p unramified in F₀ (Lan Corollary 1.2.5.7 via p ∤ Disc ⇒ p unramified in F).
 
 **API.**
 
-- **PELDatum.badPrimeInteger** — N_bad(n) = n · I_bad · Disc · [L^# : L].
-- **PELDatum.IsGoodPrime** — p ∤ N_bad(n).
-- **PELDatum.IsGoodSet** — A set □ of primes with no bad element.
-- **PELDatum.goodBase** — S₀ = Spec O_{F₀,(□)}.
-- **PELDatum.IsGoodPrime.not_dvd_dualIndex** — A good prime does not divide the full dual-lattice index. The geometric p-integral promotion is IntegralPELDatum.toPIntegral, with the identified order and completed lattice.
-- **PELDatum.IsGoodPrime.not_two_of_typeD** — If B has a type D factor, 2 is bad.
-- **RationalPELDatum.unramified_reflex** — For the number field identified with the actual simple centre, a prime unramified in that centre is unramified in the PEL reflex field. Goodness of the order implies this centre hypothesis.
+- **PELDatum.badPrimeInteger** (data) — N_bad(n) = n · I_bad · Disc · [L^# : L].
+
+- **PELDatum.IsGoodPrime** (data) — p ∤ N_bad(n).
+
+- **PELDatum.IsGoodSet** (data) — A set □ of primes with no bad element.
+
+- **PELDatum.goodBase** (constructor) — S₀ = Spec O_{F₀,(□)}.
+
+- **PELDatum.IsGoodPrime.not_dvd_dualIndex** (other) — A good prime does not divide the full dual-lattice index. The geometric p-integral promotion is IntegralPELDatum.toPIntegral, with the identified order and completed lattice.
+
+- **PELDatum.IsGoodPrime.not_two_of_typeD** (other) — If B has a type D factor, 2 is bad.
+
+- **RationalPELDatum.unramified_reflex** (other) — For the number field identified with the actual simple centre, a prime unramified in that centre is unramified in the PEL reflex field. Goodness of the order implies this centre hypothesis.
 
 **Unit tests.**
 
 - **goodPrime_siegel** (computation) — For the principally polarized Siegel datum and n = 3, the bad primes are {3}.
+
 - **goodPrime_type** (computation) — For the Siegel datum of type (1 | 6) and n = 1, the bad primes are {2, 3}.
+
 - **goodPrime_typeD_two** (non-example) — For B the definite quaternion algebra over ℚ ramified at {3, ∞} with its canonical (type D) involution, I_bad = 2: if a datum over B has 2 ∤ n·Disc·[L^#:L], 2 is nevertheless bad.
+
 - **goodBase_empty** (degenerate) — For □ = ∅, S₀ = Spec F₀ and every datum is good.
 
 **Acceptance.** Siegel datum with principal polarization: the bad primes are exactly those dividing n. Definite quaternion datum (type D): 2 is always bad. Siegel type (1 | d): primes dividing d are bad.
 
 **Uses.** Lan 2008, §1.4.1: the moduli problems M_H are defined over S₀ = Spec O_{F₀,(□)} for □ a set of good primes. ShimuraCompactifications:C5: keeps the good-prime assumptions on the input PEL datum. PELModuli:M2/representability: smoothness over S₀ uses every clause of goodness.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.1, p. 148; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.1, p. 148; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M0/order-discriminant; PELModuli:M0/symplectic-o-lattice; PELModuli:M0/albert-types; PELModuli:M0/rational-pel-datum.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="hodge-structure-of-datum"></a>
 
@@ -415,19 +534,23 @@ For an integral PEL datum and an integer n ≥ 1, a prime p is bad if p | n·I_b
 
 Let (B, *, V, ⟨·,·⟩) be a rational datum. For an ℝ-algebra homomorphism h : ℂ → End_B(V ⊗ ℝ) with ⟨h(z)x, y⟩ = ⟨x, h(z̄)y⟩, the following are equivalent: (a) (x, y) ↦ (1/√−1)⟨x, h(√−1)y⟩ is symmetric positive definite; (b) the Hodge structure on V of type {(−1, 0), (0, −1)} with V^{−1,0} = V₀ := {v ∈ V ⊗ ℂ : h(z)v = zv} is polarized by 2π√−1·⟨·,·⟩ (Deligne's sign conventions), and B acts by endomorphisms of Hodge structures. Moreover V ⊗ ℂ = V₀ ⊕ V₀ᶜ with V₀ and V₀ᶜ totally isotropic B ⊗ ℂ-submodules; for (B, *) of type A or C such an h exists (Milne Proposition 8.14, after Zink); whenever h exists, any two such h are conjugate under G₁(ℝ) (Kottwitz Lemma 4.3), so the G(ℝ)-conjugacy class X of h is determined by the datum.
 
-**Hypotheses.** (B, *, V, ⟨·,·⟩) rational datum h : ℂ → End_B(V ⊗ ℝ) an ℝ-algebra homomorphism with h(z)* = h(z̄)
+**Hypotheses.** (B, *, V, ⟨·,·⟩) rational datum; h : ℂ → End_B(V ⊗ ℝ) an ℝ-algebra homomorphism with h(z)* = h(z̄)
 
 **Construction or proof.**
 
 1. Apply Tau Ceti’s existing almost-complex/Hodge and lattice-polarization constructions to the actual J. Identify the i-eigenspace with V₀ and obtain the conjugate complementary isotropic piece.
+
 2. Translate signs explicitly: Tau Ceti’s weight-one convention tests Q(Jx,x)>0, while PEL tests ψ(x,Jx)>0; the cohomological adapter uses −ψ and the existing Hodge dual gives homological weight −1.
+
 3. The real positive-involution classification supplies existence in types A/C (Milne Proposition 8.14, p.86); Kottwitz Lemma 4.3, p.388, gives conjugacy of compatible h.
 
 **Acceptance.** For the Siegel datum, V₀ is the +√−1-eigenspace of J and the polarization is the standard Riemann form. For a CM field K with signature (r_τ, s_τ), dim_ℂ (V₀)_τ = r_τ (M0/signatures).
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Lemma 4.3, p. 388; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 8.14, p. 86; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.3.4, p. 125.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Lemma 4.3, p. 388; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 8.14, p. 86; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §1.3.4, p. 125.
 
 **Direct dependencies.** PELModuli:M0/integral-pel-datum; PELModuli:M0/rational-pel-datum; PELModuli:M0/similitude-group; tauceti:TauCeti.AlmostComplexStructure.hodgeStructure; tauceti:TauCeti.Hodge.HodgeStructureOn; tauceti:TauCeti.Hodge.IsPolarization; tauceti:TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos; tauceti:TauCeti.SymplecticForm.exists_compatible; tauceti:TauCeti.SymplecticForm.Compatible.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="pel-shimura-datum"></a>
 
@@ -437,38 +560,51 @@ Let (B, *, V, ⟨·,·⟩) be a rational datum. For an ℝ-algebra homomorphism 
 
 For a rational PEL datum put X := the G(ℝ)-conjugacy class of h, viewed via the Deligne torus as homomorphisms h : S → G_ℝ (Deligne's convention, (V, h) of type {(−1,0),(0,−1)}). (G, h) satisfies: h(ℝ^×) is central; the cocharacter μ_h acts on Lie G_ℂ with weights in {−1, 0, 1}; Int h(√−1) is a Cartan involution of G₁/(centre) (Kottwitz Lemma 4.1). When G is connected (no type D factor) and h is nontrivial on every ℚ-simple factor of G^ad, (G, X) is a Shimura datum in the sense of ShimuraData:D4/shimura-datum, and the Siegel embedding G ↪ GSp(V) gives a morphism of Shimura data into a Siegel datum, so (G, X) is of Hodge type. Kottwitz writes the same object as (G, h⁻¹) under the opposite sign convention; the conversion is recorded.
 
-**Hypotheses.** For the preliminary Hodge/Cartan conclusions, an actual rational PEL datum. For the D4 Shimura datum and Hodge-type embedding, connected G and nontrivial h-projection on every Q-simple adjoint factor (SV3).
+**Hypotheses.** For the preliminary Hodge/Cartan conclusions, an actual rational PEL datum.; For the D4 Shimura datum and Hodge-type embedding, connected G and nontrivial h-projection on every Q-simple adjoint factor (SV3).
 
 **Construction or proof.**
 
 1. Define X as the G(ℝ)-orbit of h|_{S} and record the sign dictionary with ShimuraData (type (p, q) ↔ character z^{−p} z̄^{−q}).
+
 2. Prove Kottwitz Lemma 4.1 (1)–(3) for (G, h) (central weight, weights of the adjoint action, Cartan involution via a positive involution on C ⊗ ℂ).
+
 3. Under connectedness and nontriviality on Q-simple factors, conclude the Shimura axioms (Milne §8: SV1, SV2, SV4 from the Siegel embedding; SV3 from nontriviality).
+
 4. Construct the datum morphism (G, X) → (GSp(V), Siegel half spaces) of ShimuraData:D5/siegel-datum.
 
 **API.**
 
-- **RationalPELDatum.domain** — X := G(ℝ)-conjugacy class of h as homomorphisms S → G_ℝ.
-- **RationalPELDatum.domain_indep** — X does not depend on the choice of h satisfying Condition 1.2.1.2 (M0/hodge-structure-of-datum).
-- **RationalPELDatum.kottwitzSymmetricForm** — The real form ψ(x,Jy) is symmetric; positivity and the h-adjoint identity are fields of the PEL datum. The SV axioms are a separate consequence under the Shimura hypotheses.
-- **RationalPELDatum.toShimuraDatum** — Import the D4 carrier. For connected G and the stated SV3 nontriviality on every rational simple adjoint factor, it has the PEL coordinate group, the actual h-orbit and the Deligne-convention SV axioms.
-- **RationalPELDatum.siegelMorphism** — For connected G satisfying SV3 and positive genus g with dim_Q V=2g, forgetting B gives a morphism of the actual D4 Shimura datum to D5’s genus-g Siegel datum.
-- **RationalPELDatum.signConvention** — Replacing J by minus J exchanges the positive-i and negative-i eigenspaces. This is the Hodge sign comparison used when translating Kottwitz and Deligne conventions.
+- **RationalPELDatum.domain** (data) — X := G(ℝ)-conjugacy class of h as homomorphisms S → G_ℝ.
+
+- **RationalPELDatum.domain_indep** (characterisation) — Every B-linear J′ with square −1, adjoint-compatible alternating form and positive symmetric form lies in the same G₁(ℝ)-orbit. The adjoint compatibility is essential.
+
+- **RationalPELDatum.kottwitzSymmetricForm** (relation) — The real form ψ(x,Jy) is symmetric; positivity and the h-adjoint identity are fields of the PEL datum. The SV axioms are a separate consequence under the Shimura hypotheses.
+
+- **RationalPELDatum.toShimuraDatum** (relation) — Import the D4 carrier. For connected G and the stated SV3 nontriviality on every rational simple adjoint factor, it has the PEL coordinate group, the actual h-orbit and the Deligne-convention SV axioms.
+
+- **RationalPELDatum.siegelMorphism** (relation) — For connected G satisfying SV3 and positive genus g with dim_Q V=2g, forgetting B gives a morphism of the actual D4 Shimura datum to D5’s genus-g Siegel datum.
+
+- **RationalPELDatum.signConvention** (compatibility) — Replacing J by minus J exchanges the positive-i and negative-i eigenspaces. This is the Hodge sign comparison used when translating Kottwitz and Deligne conventions.
 
 **Unit tests.**
 
 - **pelShimuraDatum_siegel** (compatibility) — Under the actual genus-g comparison, the PEL Shimura datum is isomorphic to the imported Siegel datum, including its real orbit.
+
 - **pelShimuraDatum_definite** (non-example) — If J commutes with every actual real similitude, its real conjugacy orbit is the singleton J. For a nontrivial adjoint factor this is the excluded wholly definite SV3 case.
+
 - **pelShimuraDatum_typeD** (non-example) — The actual orthogonal involution example has disconnected full group. The ordinary PEL comparison retains that group; the connected Shimura-datum adapter has a separate connectedness hypothesis.
+
 - **pelShimuraDatum_gl2** (computation) — The actual principal genus-one Shimura datum is the imported GL2/Siegel datum. The multiplier-one matrix specialization is SL2.
 
 **Acceptance.** The Siegel PEL datum gives ShimuraData:D5/siegel-datum. A totally definite unitary datum of rank n≥2 has central h and fails SV3. Rank-one definite tori have trivial adjoint group and are a separate positive example.
 
 **Uses.** ShimuraVarieties:V5: the Siegel canonical model is constructed from the PEL Siegel datum. PELModuli:M3/complex-points: the complex points are G(ℚ)\(X × G(𝔸_f)/K) for each class in ker¹. PELModuli:M0/reflex-field-comparison: E(G, X) is compared with the field of definition F₀ of V₀.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Lemma 4.1, p. 386; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), §8, p. 87; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Lemma 4.1, p. 386; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), §8, p. 87; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400.
 
-**Direct dependencies.** PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/similitude-group-structure; ShimuraData:D4/shimura-datum; ShimuraData:D4/datum-morphism; ShimuraData:D4/hodge-type; ShimuraData:D5/siegel-datum.
+**Direct dependencies.** PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/similitude-group-structure; ShimuraData:D4/shimura-datum; ShimuraData:D4/datum-morphism; ShimuraData:D4/hodge-type; ShimuraData:D5/siegel-datum; AdelicAlgebraicGroups:AA.1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Connectedness of the coordinate group, g>0 for the Siegel morphism, and SV3 on every rational simple adjoint factor are omitted future D4 hypotheses. A definite unitary datum of rank at least two need not satisfy SV3.
 
 <a id="signatures"></a>
 
@@ -478,27 +614,36 @@ For a rational PEL datum put X := the G(ℝ)-conjugacy class of h, viewed via th
 
 Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, F the centre of B and, for each embedding τ : F → ℂ, W_τ the unique irreducible B ⊗_{F,τ} ℂ-module. Write V₀ ≅ ⊕_τ W_τ^{p_τ} and V₀ᶜ ≅ ⊕_τ W_τ^{q_τ}. The pairs (p_τ, q_τ) are the signatures of the datum; they satisfy p_τ + q_τ = m_[τ] (the multi-rank) and p_τ = q_{τ̄} with τ̄ = c∘τ. For B = K a CM field and V = K^n with hermitian form H, (p_τ, q_τ) is the signature of τ(H) at the CM embedding τ, and Σ_τ p_τ τ is a generalized CM type of rank n (M0/generalized-cm-type).
 
-**Hypotheses.** The number field F is identified with the actual simple centre of B (or a selected simple centre factor). Star induces identity or CM conjugation on F, and the chosen embeddings use that identification. For noncommutative B normalize central eigenspace dimensions by the matrix degree after Morita equivalence.
+**Hypotheses.** The number field F is identified with the actual simple centre of B (or a selected simple centre factor).; Star induces identity or CM conjugation on F, and the chosen embeddings use that identification.; For noncommutative B normalize central eigenspace dimensions by the matrix degree after Morita equivalence.
 
 **Construction or proof.**
 
 1. Decompose V₀ and V₀ᶜ as B ⊗ ℂ-modules (Lan Corollary 1.1.2.5).
+
 2. Prove p_τ + q_τ = m_[τ] and p_τ = q_{τ̄} from V ⊗ ℂ = V₀ ⊕ V₀ᶜ and complex conjugation (Lan §1.2.5, p. 90).
+
 3. Unitary case: the hermitian form ⟨v, √−1 w⟩ + √−1⟨v, w⟩ has signature (p_τ, q_τ) at τ (Kottwitz Lemma 4.3 proof).
 
 **API.**
 
-- **RationalPELDatum.signature** — τ ↦ (p_τ, q_τ) for embeddings τ : F → ℂ.
-- **RationalPELDatum.signature_add** — p_τ + q_τ = m_[τ].
-- **RationalPELDatum.signature_conj** — p_{c∘τ} = q_τ.
-- **RationalPELDatum.signature_unitary** — The coefficient of the signature type at tau is the first component of the Hodge signature. Agreement with the Hermitian-space signature is the unitary-data comparison in M5.
-- **RationalPELDatum.signatureType** — For B = K a CM field, Σ_τ p_τ τ ∈ ℕ[Σ_∞] is a generalized CM type of rank dim_K V.
+- **RationalPELDatum.signature** (data) — τ ↦ (p_τ, q_τ) for embeddings τ : F → ℂ.
+
+- **RationalPELDatum.signature_add** (relation) — p_τ + q_τ = m_[τ].
+
+- **RationalPELDatum.signature_conj** (relation) — p_{c∘τ} = q_τ.
+
+- **RationalPELDatum.signature_unitary** (compatibility) — The coefficient of the signature type at tau is the first component of the Hodge signature. Agreement with the Hermitian-space signature is the unitary-data comparison in M5.
+
+- **RationalPELDatum.signatureType** (coercion) — For B = K a CM field, Σ_τ p_τ τ ∈ ℕ[Σ_∞] is a generalized CM type of rank dim_K V.
 
 **Unit tests.**
 
 - **signature_siegel** (computation) — For the Siegel datum of genus g, F = ℚ, W = ℚ and (p, q) = (g, g).
+
 - **signature_picard** (computation) — For K = ℚ(√−3) and H of signature (2, 1), (p_τ, q_τ) = (2, 1) and (p_τ̄, q_τ̄) = (1, 2).
-- **signature_zero** (degenerate) — For V = 0 all signatures are (0, 0).
+
+- **signature_zero** (degenerate) — For the zero integral Hodge module both raw complex eigenspace dimensions are zero. This tests the linear signature adapter; a zero module over a nontrivial B is excluded from RationalPELDatum by faithfulness.
+
 - **signature_not_free** (non-example) — The pair (p_τ, q_τ) = (2, 0) with (p_τ̄, q_τ̄) = (2, 0) violates p_τ̄ = q_τ and is not the signature of any datum.
 
 **Acceptance.** Siegel: p = q = g. U(n−1, 1) over an imaginary quadratic K: (p_τ, q_τ) = (n−1, 1) and (1, n−1) at τ̄.
@@ -509,6 +654,8 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, F the centre of B and, fo
 
 **Direct dependencies.** PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/symplectic-o-lattice.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. F must be identified with the actual centre or selected simple factor; in a noncommutative simple factor use its Morita degree to translate the raw central eigenspace dimension to the normalized signature.
+
 <a id="determinant-polynomial"></a>
 
 ### The determinant polynomial Det_{O|M}
@@ -517,40 +664,55 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, F the centre of B and, fo
 
 Let R₀ be a noetherian domain, O an R₀-order with free underlying module and basis α₁, …, α_t, and M a locally free O_S-module of finite rank with an O-action over an R₀-scheme S. Define Det_{O|M}(X₁, …, X_t) := det_{O_S}(X₁α₁ + … + X_tα_t | M) ∈ O_S[X₁, …, X_t], equivalently an element of O_S[O^∨] = Sym(O^∨) ⊗ O_S independent of the basis. It is homogeneous of degree rank M, multiplicative in short exact sequences, compatible with base change, and its value at x ∈ O is det(x | M). In Mathlib terms, for φ : O → End(M), Det_{O|M} is the constant-term-up-to-sign coefficient of LinearMap.polyCharpoly φ b: Det(X) = (−1)^{rank M} polyCharpoly(φ, b)(0) evaluated generically.
 
-**Hypotheses.** O free of finite rank over R₀ M locally free of finite rank with an O-action
+**Hypotheses.** O free of finite rank over R₀; M locally free of finite rank with an O-action
 
 **Construction or proof.**
 
 1. Define locally on S using a trivialization of M and descend; basis independence by the linear substitution formula (Lan Definition 1.1.2.17).
+
 2. Relate to mathlib LinearMap.polyCharpoly: the characteristic polynomial of the generic element evaluated at T = 0 equals (−1)^r Det; base change from mathlib LinearMap.polyCharpoly_baseChange; specialization from LinearMap.polyCharpoly_map_eq_charpoly.
+
 3. Multiplicativity for 0 → M' → M → M'' → 0 by block-triangular determinants.
 
 **API.**
 
-- **detPoly** — Det_{O|M} ∈ O_S[O^∨] for a locally free O_S-module M with O-action.
-- **detPoly_basis_indep** — Det_{O|M} is independent of the R₀-basis of O.
-- **detPoly_eval** — Evaluating Det_{O|M} at x ∈ O ⊗ O_S gives det(x | M).
-- **detPoly_baseChange** — Det_{O|f*M} = f*Det_{O|M} for S' → S.
-- **detPoly_exact** — Det_{O|M} = Det_{O|M'}·Det_{O|M''} for short exact sequences of O-modules.
-- **detPoly_homogeneous** — Det_{O|M} is homogeneous of degree rank_{O_S} M.
-- **detPoly_eq_polyCharpoly** — Det_{O|M} = (−1)^{rank M}·(coefficient of T⁰ in LinearMap.polyCharpoly (O → End M) b), via mathlib's generic characteristic polynomial.
-- **detPoly_sheaf** — For a finite locally free O_S-module and a finite family of its endomorphisms, the determinant polynomial has section-valued coefficients on each open set.
-- **detPoly_sheaf_restrict** — The determinant polynomial restricts coefficientwise to smaller open sets; this glues the affine construction.
+- **detPoly** (constructor) — Det_{O|M} ∈ O_S[O^∨] for a locally free O_S-module M with O-action.
+
+- **detPoly_basis_indep** (characterisation) — Det_{O|M} is independent of the R₀-basis of O.
+
+- **detPoly_eval** (simp) — Evaluating Det_{O|M} at x ∈ O ⊗ O_S gives det(x | M).
+
+- **detPoly_baseChange** (functoriality) — Det_{O|f*M} = f*Det_{O|M} for S' → S.
+
+- **detPoly_exact** (relation) — Det_{O|M} = Det_{O|M'}·Det_{O|M''} for short exact sequences of O-modules.
+
+- **detPoly_homogeneous** (other) — Det_{O|M} is homogeneous of degree rank_{O_S} M.
+
+- **detPoly_eq_polyCharpoly** (compatibility) — Det_{O|M} = (−1)^{rank M}·(coefficient of T⁰ in LinearMap.polyCharpoly (O → End M) b), via mathlib's generic characteristic polynomial.
+
+- **detPoly_sheaf** (constructor) — For a finite locally free O_S-module and a finite family of its endomorphisms, the determinant polynomial has section-valued coefficients on each open set.
+
+- **detPoly_sheaf_restrict** (functoriality) — The determinant polynomial restricts coefficientwise to smaller open sets; this glues the affine construction.
 
 **Unit tests.**
 
 - **detPoly_int** (degenerate) — For O = ℤ with basis 1 and M free of rank r, Det_{ℤ|M} = X^r.
+
 - **detPoly_gaussian** (computation) — For O = ℤ[i], basis (1, i), M = ℂ with i ↦ √−1: Det = X₁ + √−1 X₂; for M = ℂ with i ↦ −√−1: Det = X₁ − √−1 X₂.
-- **detPoly_eval_charpoly** (compatibility) — For x ∈ O, (−1)^r Det_{O|M}(−coords x) agrees with (LinearMap.charpoly (φ x)).eval 0 computed by Mathlib.
+
+- **detPoly_eval_charpoly** (compatibility) — For x ∈ O, Det_{O|M}(−coords x) equals (LinearMap.charpoly (φ x)).eval 0. In odd rank, x = 1 on a rank-one module gives −1 on both sides; no extra sign factor is inserted.
+
 - **detPoly_not_trace** (non-example) — For O = ℤ[i] with basis (1, i), k = 𝔽_9 and τ : ℤ[i] → 𝔽_9 a homomorphism, let M = k³ with i acting by τ(i) and M' = k³ with i acting by −τ(i). Then Tr(x | M) = 3τ(x) = 0 = Tr(x | M') for all x, but Det_{O|M} = (X₁ + τ(i)X₂)³ ≠ (X₁ − τ(i)X₂)³ = Det_{O|M'}.
 
 **Acceptance.** For O = ℤ, Det_{ℤ|M}(X) = X^{rank M}. For O = ℤ[i] and M = ℂ with i acting by √−1: Det(X₁ + X₂ i) = X₁ + √−1 X₂.
 
 **Uses.** Kottwitz 1992, §5: the determinant condition is the equality g = f of the polynomials for Lie(A) and V₁. Lan 2008, Definition 1.3.4.2: the determinantal condition compares Det_{O|Lie_{A/S}} with the image of Det_{O|V₀}. PELModuli:M0/determinant-condition: defining polynomial identity over the base.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.1.2.17, p. 19; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.1.2.17, p. 19; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389.
 
 **Direct dependencies.** mathlib:LinearMap.polyCharpoly; mathlib:LinearMap.polyCharpoly_baseChange; mathlib:LinearMap.polyCharpoly_map_eq_charpoly; mathlib:LinearMap.charpoly; mathlib:LinearMap.charpoly_baseChange.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The sheaf-valued extension requires local finite freeness; the affine free-module determinant and short-exact-sequence theorem already use native freeness, finiteness, injectivity and surjectivity hypotheses.
 
 <a id="determinant-classifies"></a>
 
@@ -565,15 +727,20 @@ Let k be a field, C a finite-dimensional semisimple k-algebra whose centre E is 
 **Construction or proof.**
 
 1. Decompose M_i = ⊕ W_[τ]^{m_[τ],i} (Lan Corollary 1.1.2.5).
+
 2. Det_{C|M_i} = ∏ Det_{C|W_[τ]}^{m_[τ],i} and distinct Det_{C|W_[τ]} have no common irreducible factor over K^sep (Lan Lemma 1.1.2.15: the linear forms Σ X_j τ'(α_j) are distinct for distinct embeddings).
+
 3. Unique factorization in K^sep[X] gives equality of multiplicities.
+
 4. In characteristic 0 the trace maps of the W_[τ] are linearly independent (Dedekind's lemma; Lan Lemma 1.1.2.9), giving the trace criterion; Milne Remark 8.2 gives the failure in characteristic p.
 
 **Acceptance.** Over 𝔽_p with C = 𝔽_p and modules 𝔽_p^p and 0: equal traces, different determinants.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 1.1.2.16, p. 18; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.1.2.11, p. 14; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 390.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 1.1.2.16, p. 18; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.1.2.11, p. 14; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 390.
 
 **Direct dependencies.** PELModuli:M0/determinant-polynomial; mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing; mathlib:Algebra.IsSeparable.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="reflex-field"></a>
 
@@ -588,34 +755,48 @@ The reflex field F₀ ⊂ ℂ of a rational PEL datum is the field of definition
 **Construction or proof.**
 
 1. Define F₀ as a fixed field (mathlib IntermediateField.fixedField after restricting to ℚ̄).
+
 2. Trace description: in characteristic 0 isomorphism classes are detected by traces (M0/determinant-classifies), so σ fixes the class iff it fixes all traces (Lan Corollary 1.1.2.12).
+
 3. F₀ ⊂ F^Gal because each trace is a sum of conjugates τ'(Trd) (Lan Corollary 1.1.2.8); unramifiedness transfer (Lan Corollary 1.2.5.7).
+
 4. Integrality does not require descent of V₀ to F₀. Choose the corrected auxiliary finite extension F₀′ and full order-stable lattice there, as in the thesis errata p.7. Its determinant coefficients are integral over Z. They are invariant under the actual representation-class stabilizer, hence lie in F₀ and therefore in O_{F₀}. No O_{F₀}-lattice whose complexification is V₀ is asserted.
 
 **API.**
 
-- **RationalPELDatum.reflexField** — F₀ as an intermediate field of ℂ/ℚ (fixed field of the stabilizer of the class of V₀).
-- **RationalPELDatum.reflexField_eq_traces** — F₀ = ℚ(Tr(b | V₀) : b ∈ O).
-- **RationalPELDatum.reflexField_le_galoisClosure** — If F is identified with the actual centre and a finite normal complex subfield contains every embedded conjugate of F, it contains the traces on V₀ and the PEL reflex field.
-- **RationalPELDatum.reflexField_finite** — F₀ is a number field.
-- **RationalPELDatum.unramified_reflex** — p unramified in F ⇒ p unramified in F₀.
-- **RationalPELDatum.detPoly_integral** — For a full star-order O and every finite family in O, every coefficient of its determinant polynomial on the actual V₀ is integral over Z.
-- **RationalPELDatum.reflexField_siegel** — For the Siegel datum F₀ = ℚ.
+- **RationalPELDatum.reflexField** (constructor) — F₀ as an intermediate field of ℂ/ℚ (fixed field of the stabilizer of the class of V₀).
+
+- **RationalPELDatum.reflexField_eq_traces** (characterisation) — F₀ = ℚ(Tr(b | V₀) : b ∈ O).
+
+- **RationalPELDatum.reflexField_le_galoisClosure** (relation) — If F is identified with the actual centre and a finite normal complex subfield contains every embedded conjugate of F, it contains the traces on V₀ and the PEL reflex field.
+
+- **RationalPELDatum.reflexField_finite** (instance) — F₀ is a number field.
+
+- **RationalPELDatum.unramified_reflex** (other) — p unramified in F ⇒ p unramified in F₀.
+
+- **RationalPELDatum.detPoly_integral** (relation) — For a full star-order O and every finite family in O, every coefficient of its determinant polynomial on the actual V₀ is integral over Z.
+
+- **RationalPELDatum.reflexField_siegel** (example) — For the Siegel datum F₀ = ℚ.
 
 **Unit tests.**
 
 - **reflexField_siegel** (computation) — For the Siegel datum, all traces Tr(b | V₀) = g·b ∈ ℚ, so F₀ = ℚ.
+
 - **reflexField_picard** (computation) — For K = ℚ(√−3) with signature (2, 1): Tr(a | V₀) = 2τ(a) + τ̄(a) ∉ ℚ for a = √−3, so F₀ = K.
+
 - **reflexField_U11** (computation) — For signature (1, 1): Tr(a | V₀) = τ(a) + τ̄(a) = Tr_{K/ℚ}(a) ∈ ℚ, so F₀ = ℚ.
+
 - **reflexField_not_center** (non-example) — For B = F totally real Hilbert data, F₀ = ℚ although the centre is F: the reflex field is not the centre.
 
 **Acceptance.** Siegel: F₀ = ℚ. U(n−1, 1) over imaginary quadratic K with n ≥ 3: F₀ = K; U(1, 1): F₀ = ℚ.
 
 **Uses.** Kottwitz 1992, §5: the moduli problem is defined over O_E ⊗ ℤ_(p). Lan 2008, §1.4.1: the base is S₀ = Spec O_{F₀,(□)}. PELModuli:M0/reflex-field-comparison: identified with E(G, X). Bijakowski–Pilloni–Stroh, Hypothèse 1.1.1 (v): Complete splitting implies the chosen-local-place ordinary-density criterion; it is stronger than goodness or a residue-degree-one condition at just one place..
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.5.4, pp. 90–91; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.6, p. 91; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.7, p. 91; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 389; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p.7, correction to Lemma 1.2.5.10 and Corollary 1.2.5.12 (thesis p.92).
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.5.4, pp. 90–91; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.6, p. 91; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.7, p. 91; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 389; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p.7, correction to Lemma 1.2.5.10 and Corollary 1.2.5.12 (thesis p.92).
 
 **Direct dependencies.** PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/determinant-polynomial; PELModuli:M0/determinant-classifies; mathlib:IntermediateField.fixedField; mathlib:IntermediateField.normalClosure.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="reflex-field-comparison"></a>
 
@@ -630,7 +811,9 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum whose (G, X) is a Shimura 
 **Construction or proof.**
 
 1. Use D3’s conjugacy class of the actual cocharacter μ_h obtained from the same h, rather than an independently supplied subgroup.
+
 2. Conjugacy of μ_h is equivalent to isomorphism of its weight submodule V₀ with the B-action; the determinant/trace classification identifies its Galois stabilizer.
+
 3. The fixed fields agree, giving E(G,X)=F₀ under the connected Shimura hypotheses (Milne Proposition 12.4, p.112; Kottwitz §5, pp.389–390).
 
 **Acceptance.** Siegel: E(G, X) = ℚ = F₀. Unitary signature (n−1, 1), n ≥ 3, over imaginary quadratic K: both equal K.
@@ -638,6 +821,8 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum whose (G, X) is a Shimura 
 **Sources.** [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Definition 12.2, p. 112; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 8.13, p. 86; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.2.5.4, p. 91.
 
 **Direct dependencies.** PELModuli:M0/reflex-field; PELModuli:M0/pel-shimura-datum; PELModuli:M0/similitude-group-structure; ShimuraData:D3/reflex-field; ShimuraData:D3/cocharacter-class.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="determinant-condition"></a>
 
@@ -652,31 +837,42 @@ Fix a rational PEL datum with order O and its reflex field F₀, and a set □ o
 **Construction or proof.**
 
 1. Use M0/determinant-polynomial for M and M0/reflex-field (integrality) for V₀; compare in O_S[O^∨].
+
 2. Show stability under base change and descent along fpqc covers (equality of sections of O_S[O^∨]).
 
 **API.**
 
-- **SatisfiesDetCondition** — The predicate Det_{O|M} = image of Det_{O|V₀} for M over an O_{F₀,(□)}-scheme.
-- **SatisfiesDetCondition.baseChange** — Stable under pullback along any morphism of O_{F₀,(□)}-schemes.
-- **SatisfiesDetCondition.descent** — Satisfied iff satisfied after an fpqc cover (equality of sections).
-- **SatisfiesDetCondition.rank** — The condition implies rank M = dim_ℂ V₀.
-- **SatisfiesDetCondition.iff_eval** — Equivalent to det(x | M) = det(x | V₀) for all x ∈ O ⊗ O_S (after base change to the polynomial ring).
-- **SatisfiesDetCondition.unitary** — For B = F CM, O = O_F with p unramified in F and S over ℤ_p^◇, equivalent to rank Lie_τ = r_τ for all τ (signature type Ψ, M1/unitary-of-abelian-scheme).
+- **SatisfiesDetCondition** (constructor) — The predicate Det_{O|M} = image of Det_{O|V₀} for M over an O_{F₀,(□)}-scheme.
+
+- **SatisfiesDetCondition.baseChange** (functoriality) — Stable under pullback along any morphism of O_{F₀,(□)}-schemes.
+
+- **SatisfiesDetCondition.descent** (other) — Satisfied iff satisfied after an fpqc cover (equality of sections).
+
+- **SatisfiesDetCondition.rank** (other) — The condition implies rank M = dim_ℂ V₀.
+
+- **SatisfiesDetCondition.iff_eval** (characterisation) — Equivalent to det(x | M) = det(x | V₀) for all x ∈ O ⊗ O_S (after base change to the polynomial ring).
+
+- **SatisfiesDetCondition.unitary** (compatibility) — For B = F CM, O = O_F with p unramified in F and S over ℤ_p^◇, equivalent to rank Lie_τ = r_τ for all τ (signature type Ψ, M1/unitary-of-abelian-scheme).
 
 **Unit tests.**
 
 - **detCondition_siegel** (computation) — For the Siegel datum of genus g, M satisfies the condition iff M is locally free of rank g.
+
 - **detCondition_char3_signature** (non-example) — For K = ℚ(i), a unitary datum of signature (3, 0) at τ (so F₀ = K) and S = Spec 𝔽_9 over O_{K,(3)}: M = 𝔽_9³ with i acting by −τ(i) has the same trace map as V₀ ⊗ 𝔽_9 (both zero) but fails the determinant condition.
+
 - **detCondition_zero** (degenerate) — For V₀ = 0 (L = 0) the condition says M = 0.
+
 - **detCondition_baseChange_C** (compatibility) — Over S = Spec ℂ (via F₀ ⊂ ℂ), M satisfies the condition iff M ≅ V₀ as O ⊗ ℂ-modules (M0/determinant-classifies).
 
 **Acceptance.** For the Siegel datum the condition says rank Lie = g (Det = X^g), which every g-dimensional abelian scheme satisfies. For a Picard datum (2, 1) it fixes the decomposition Lie = Lie_τ ⊕ Lie_τ̄ with ranks (2, 1) over O_K ⊗ O_S.
 
 **Uses.** Lan 2008, Definition 1.4.1.4 (4): objects of M_H satisfy the determinantal condition on Lie_{A/S}. Kottwitz 1992, §5: the moduli quadruples satisfy g = f. HilbertModularVarietiesAndShimuraCurves:H1: verifies the full determinant condition for the Hilbert instance (RS-23). PELModuli:M2/formal-smoothness: the deformation calculation uses the condition at closed points.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.4.2, p. 126; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 390.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.4.2, p. 126; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 390.
 
 **Direct dependencies.** PELModuli:M0/determinant-polynomial; PELModuli:M0/reflex-field.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="determinant-condition-splitting"></a>
 
@@ -691,7 +887,9 @@ Let □ be a finite set of primes unramified in O and let k be an algebraically 
 **Construction or proof.**
 
 1. Use the official correction to Lemma 1.2.5.10: work over a finite auxiliary extension unramified at the prescribed finite set of good primes, and then reduce a model L₀ along the chosen map to k.
+
 2. Good-prime O ⊗ k is a product of matrix algebras. A full algebra basis in the determinant polynomial detects all simple-module multiplicities (M0/order-discriminant and M0/determinant-classifies).
+
 3. On a general, including nonreduced, base use a finite étale splitting of O and finite locally free idempotent summands. Their ranks are locally constant; their determinant formulas give the polynomial identity. Pointwise vanishing of arbitrary functions is not a valid substitute on a nonreduced base.
 
 **Acceptance.** Siegel: both conditions say dim M = g. Picard (2, 1) at a prime split in K: M ≅ k² ⊕ k (with O_K acting through the two embeddings).
@@ -700,27 +898,33 @@ Let □ be a finite set of primes unramified in O and let k be an algebraically 
 
 **Direct dependencies.** PELModuli:M0/determinant-condition; PELModuli:M0/determinant-classifies; PELModuli:M0/order-discriminant.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
+
 <a id="self-dual-lattice-classification"></a>
 
 ### Uniqueness of self-dual lattices at good primes
 
 **Target:** TauCeti.PEL.selfDualLatticeClassification (theorem; PELModuli:M0/self-dual-lattice-classification).
 
-Let p be a prime with p ∤ I_bad·Disc, so B ⊗ ℚ_p is a product of matrix algebras over unramified extensions and O ⊗ ℤ_p is maximal. (1) In Cases A and C, two self-dual symplectic O ⊗ ℤ_p-lattices of the same multi-rank are isomorphic as symplectic modules (up to the scalar choice of ℤ_p(1) ≅ ℤ_p). (2) (Kottwitz Lemma 7.2) If (V', ⟨·,·⟩') is a nondegenerate skew-Hermitian B ⊗ ℚ_p-module isomorphic to V as a B-module and Λ' ⊂ V' is self-dual, then, in Case D assuming p ≠ 2 and that the class of V' in H¹(ℚ_p, G) maps trivially to H¹(ℚ_p, G/G°), there is an isomorphism φ : V ≅ V' of skew-Hermitian modules with φ(Λ) = Λ'. (3) Consequently G(ℚ_p) acts transitively on the O_B-lattices in V ⊗ ℚ_p that are self-dual up to a scalar in ℚ_p^×.
+Let p be a prime with p ∤ I_bad·Disc, so B ⊗ ℚ_p is a product of matrix algebras over unramified extensions and O ⊗ ℤ_p is maximal. (1) In Cases A and C, two self-dual symplectic O ⊗ ℤ_p-lattices of the same multi-rank are isomorphic as symplectic modules (up to the scalar choice of ℤ_p(1) ≅ ℤ_p). (2) (Kottwitz Lemma 7.2) If (V', ⟨·,·⟩') is a nondegenerate skew-Hermitian B ⊗ ℚ_p-module isomorphic to V as a B-module and Λ' ⊂ V' is self-dual, then, in Case D assuming p ≠ 2 and that the class of V' in H¹(ℚ_p, G) maps trivially to H¹(ℚ_p, G/G°), there is an isomorphism φ : V ≅ V' of skew-Hermitian modules with φ(Λ) = Λ'. (3) With p ≠ 2 in Case D, consequently G(ℚ_p) acts transitively on the O_B-lattices in V ⊗ ℚ_p that are self-dual up to a scalar in ℚ_p^×.
 
-**Hypotheses.** p ∤ I_bad·Disc The same-multi-rank uniqueness in (1) excludes type D; (2) has its stated type-D component-class hypothesis.
+**Hypotheses.** p ∤ I_bad·Disc; The same-multi-rank uniqueness in (1) excludes type D; (2) has its stated type-D component-class hypothesis.
 
 **Construction or proof.**
 
 1. At an unramified maximal order apply Morita equivalence to the actual order-linear forms and full self-dual lattices, not just their underlying alternating integer matrices.
-2. Use the local hermitian/skew-hermitian classification in Cases A/C; in D retain p≠2 and the trivial component-cohomology class (Kottwitz Lemma 7.2, p.394).
-3. Lift the residual isometry smoothly to the completed lattices, then apply Kottwitz Corollary 7.3, p.395, for similitude-transitivity.
+
+2. Use the local hermitian/skew-hermitian classification in Cases A/C; in D retain p≠2 and the trivial component-cohomology class (Kottwitz Lemma 7.2, pp.395–396).
+
+3. Lift the residual isometry smoothly to the completed lattices, then apply Kottwitz Corollary 7.3, p.396, for similitude-transitivity.
 
 **Acceptance.** Siegel: any two self-dual symplectic ℤ_p-lattices in ℚ_p^{2g} are GSp_{2g}(ℚ_p)-conjugate.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Lemma 7.2, p. 395; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Corollary 7.3, p. 396; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.4.2, p. 168.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Lemma 7.2, p. 395; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Corollary 7.3, p. 396; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.4.2, p. 168.
 
 **Direct dependencies.** PELModuli:M0/similitude-group-structure; PELModuli:M0/order-discriminant; PELModuli:M0/symplectic-o-lattice; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The arbitrary p-adic order-linear forms are in unramified maximal-order Cases A/C; Case D also requires p≠2 and the trivial component class. These supplier classifications are omitted hypotheses.
 
 <a id="bps-signature-constancy"></a>
 
@@ -730,12 +934,14 @@ Let p be a prime with p ∤ I_bad·Disc, so B ⊗ ℚ_p is a product of matrix a
 
 Let (B, *, V, ⟨·,·⟩, h) be a datum of type A or C as in Bijakowski–Pilloni–Stroh §1.1 with centre F, F₀ = F^{*=1} of degree d, and p a prime satisfying their Hypothesis 1.1.1: (i) p unramified in F₀ and, in type A, every place of F₀ above p splits in F; (ii) B ⊗ ℚ_p is a product of matrix algebras over unramified extensions; (iii) O_B maximal at p; (iv) the pairing perfect at p; (v) p totally split in the reflex field E. Fix ℂ ≅ ℂ_p and, for τ : F₀ → ℝ, order the two embeddings σ, σ̄ of F above τ so that σ lies above π_i^+ (Remark 1.1.3). Then (a_τ, b_τ) = (a_τ', b_τ') whenever τ, τ' lie above the same prime π_i of F₀; in type C, a_τ = dim_ℚ U_ℚ /(2nd) for all τ. The ordering convention matters: the other choice exchanges (a_τ, b_τ).
 
-**Hypotheses.** type A or C Hypothesis 1.1.1 (i)–(v) at p
+**Hypotheses.** type A or C; Hypothesis 1.1.1 (i)–(v) at p
 
 **Construction or proof.**
 
 1. Write U^{1,0} ≅ ⊕_j (ℂ_p^n)^{a_τj} ⊕ (ℂ_p^n)^{b_τj} with O_B ⊗ ℤ_p ≅ M_n(O_F ⊗ ℤ_p) acting through σ_j, σ̄_j (BPS proof of Lemme 1.1.4).
+
 2. Evaluate the determinant polynomial on diag(x, 1, …, 1) + Id above π_i for x ∈ O_{F,π_i^+}: it equals ∏_{τ_j ∈ Σ_i} σ_j(x)^{a_τj}.
+
 3. Hypothesis (v) (via det_{U^{1,0}} taking values in ℤ_p on O_B ⊗ ℤ_p) forces this product to lie in ℤ_p for all x; since Σ_i is the Galois group of O_{F,π_i^+}, this holds iff a_τj is constant on Σ_i.
 
 **Acceptance.** For F₀ = ℚ (imaginary quadratic F) the statement is vacuous. For F₀ real quadratic with p inert in F₀, the two signatures above p coincide.
@@ -743,6 +949,8 @@ Let (B, *, V, ⟨·,·⟩, h) be a datum of type A or C as in Bijakowski–Pillo
 **Sources.** [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), Hypothèse 1.1.1, p. 980; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), Lemme 1.1.4, p. 981; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), Remarque 1.1.3, p. 981.
 
 **Direct dependencies.** PELModuli:M0/signatures; PELModuli:M0/determinant-polynomial; PELModuli:M0/reflex-field; PELModuli:M0/good-primes.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="hermitian-space"></a>
 
@@ -752,31 +960,44 @@ Let (B, *, V, ⟨·,·⟩, h) be a datum of type A or C as in Bijakowski–Pillo
 
 Let F be a CM field with maximal totally real subfield F⁺ and complex conjugation c, Σ⁺_bad a finite set of places of F⁺ containing those ramified in F, and R an O_{F⁺}[(Σ⁺_bad)⁻¹]-algebra. A hermitian space over O_F ⊗_{O_{F⁺}} R of rank N is a projective O_F ⊗ R-module V of rank N with a perfect pairing (·,·)_V : V × V → O_F ⊗ R, linear in the first variable, (c ⊗ id)-semilinear in the second, with (x, y)_V = (y, x)_V^c. U(V) is the reductive group over R of O_F ⊗ R-linear isometries. V_♯ := V ⊕ (O_F ⊗ R)·1 with (1, 1) = 1 (orthogonal sum), and an isometry f : V → V' induces f_♯ = f ⊕ id : V_♯ → V'_♯; U(V) ⊂ U(V_♯) via f ↦ f_♯. Dictionary with PEL data in the rational specialization V/F: for a totally imaginary δ ∈ F^× the form ⟨x, y⟩ := Tr_{F/ℚ}(δ (x, y)_V) is a skew-Hermitian F-module structure (M0/skew-hermitian-space), with the same unitary group G₁.
 
-**Hypotheses.** F is the actual CM field, with its CM conjugation; F⁺ is its maximal real subfield. R is an algebra over the specified localization of O_{F⁺}. V is finite locally free over O_F tensor R and its hermitian pairing is perfect.
+**Hypotheses.** F is the actual CM field, with its CM conjugation; F⁺ is its maximal real subfield.; R is an algebra over the specified localization of O_{F⁺}.; V is finite locally free over O_F tensor R and its hermitian pairing is perfect.
 
 **Construction or proof.**
 
 1. Use the CM field and conjugation already in Mathlib. Define the finite locally free hermitian module with a perfect pairing linear in the first variable and conjugate-linear in the second.
+
 2. Use the coefficient-ring-valued adjoint equations to construct U and the pair-valued GU group functors; retain the multiplier even when V=0.
+
 3. V_sharp is the norm-one hermitian line direct summed with V. Check the pairings, orthogonality and the unitary inclusion (LTXZZ Definition 3.1.7, p.137).
 
 **API.**
 
-- **HermitianSpace** — A projective O_F ⊗ R-module of rank N with a perfect c-sesquilinear hermitian pairing.
-- **HermitianSpace.unitaryGroup** — The subgroup of A-linear automorphisms preserving the specified Hermitian pairing. Its algebraic-group realization uses the finite-etale coefficient algebra and AA.1; this point-group helper does not itself return a group scheme.
-- **HermitianSpace.sharp** — V_♯ = V ⊕ (O_F ⊗ R)·1 with (1, 1) = 1.
-- **HermitianSpace.Isometry.sharp** — f ↦ f_♯ with (f ∘ g)_♯ = f_♯ ∘ g_♯ and id_♯ = id.
-- **HermitianSpace.unitaryGroup_le_sharp** — U(V) ↪ U(V_♯), g ↦ g_♯.
-- **HermitianSpace.toSkewHermitian** — The rational trace-form helper sends (x,y) to Tr(δH(x,y)); it returns the pairing. The finite locally free perfect-space constructor is traceSkewHermitian.
-- **HermitianSpace.unitaryGroup_matrix** — For the standard complex Hermitian matrix convention, membership in Mathlib’s unitary matrix group is equivalent to star(U) times U being the identity.
-- **HermitianSpace.traceSkewHermitian** — For a finite étale CM coefficient algebra A over R with its actual conjugation and an anti-invariant unit δ, a perfect hermitian module gives the perfect R-valued skew-hermitian space by Tr_{A/R}(δH).
-- **HermitianSpace.coordinate** — AA.1 represents the actual closed unitary group over R for a finite-etale coefficient algebra A/R, with involution fixing R and finite locally free W.
+- **HermitianSpace** (structure) — A projective O_F ⊗ R-module of rank N with a perfect c-sesquilinear hermitian pairing.
+
+- **HermitianSpace.unitaryGroup** (data) — The subgroup of A-linear automorphisms preserving the specified Hermitian pairing. Its algebraic-group realization uses the finite-etale coefficient algebra and AA.1; this point-group helper does not itself return a group scheme.
+
+- **HermitianSpace.sharp** (constructor) — V_♯ = V ⊕ (O_F ⊗ R)·1 with (1, 1) = 1.
+
+- **HermitianSpace.Isometry.sharp** (functoriality) — f ↦ f_♯ with (f ∘ g)_♯ = f_♯ ∘ g_♯ and id_♯ = id.
+
+- **HermitianSpace.unitaryGroup_le_sharp** (other) — U(V) ↪ U(V_♯), g ↦ g_♯.
+
+- **HermitianSpace.toSkewHermitian** (relation) — The rational trace-form helper sends (x,y) to Tr(δH(x,y)); it returns the pairing. The finite locally free perfect-space constructor is traceSkewHermitian.
+
+- **HermitianSpace.unitaryGroup_matrix** (compatibility) — For the standard complex Hermitian matrix convention, membership in Mathlib’s unitary matrix group is equivalent to star(U) times U being the identity.
+
+- **HermitianSpace.traceSkewHermitian** (constructor) — For a finite étale CM coefficient algebra A over R with its actual conjugation and an anti-invariant unit δ, a perfect hermitian module gives the perfect R-valued skew-hermitian space by Tr_{A/R}(δH).
+
+- **HermitianSpace.coordinate** (constructor) — AA.1 represents the actual closed unitary group over R for a finite-etale coefficient algebra A/R, with involution fixing R and finite locally free W.
 
 **Unit tests.**
 
 - **hermitianSpace_sharp_rank** (computation) — The actual sharp construction restricts to the original pairing and its added vector pairs with (x,a) as a; in particular its new one-dimensional summand has norm one.
+
 - **hermitianSpace_unitary_matrix** (compatibility) — For V = F^N with Σ x_i ȳ_i, U(V)(F⁺) = Matrix.unitaryGroup (Fin N) F with star = complex conjugation.
+
 - **hermitianSpace_not_symmetric** (non-example) — The actual complex Hermitian pairing is conjugate-linear in its second argument. The bilinear product xy fails this law, for example on 1 and i.
+
 - **hermitianSpace_trace_dictionary** (characterisation) — For δ = √−1 ∈ ℚ(i) and V = ℚ(i) with (x, y) = x ȳ, ⟨x, y⟩ = Tr(√−1 x ȳ) is alternating and ⟨ax, y⟩ = ⟨x, ā y⟩.
 
 **Acceptance.** For R = F⁺ and V = F^N with the standard form Σ x_i ȳ_i, U(V) is the definite unitary group of rank N. rank V_♯ = rank V + 1.
@@ -787,6 +1008,8 @@ Let F be a CM field with maximal totally real subfield F⁺ and complex conjugat
 
 **Direct dependencies.** PELModuli:M0/positive-involution; mathlib:NumberField.IsCMField; mathlib:NumberField.IsCMField.complexConj; mathlib:NumberField.maximalRealSubfield; mathlib:Matrix.unitaryGroup; mathlib:Algebra.trace.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. traceSkewHermitian requires finite étale CM coefficient algebra, actual conjugation fixing R and perfect trace form; the arbitrary star-algebra type of the prototype does not assert these properties.
+
 <a id="skew-hermitian-space"></a>
 
 ### Rational skew-hermitian spaces, similitudes, GU(W) and T₀
@@ -795,31 +1018,44 @@ Let F be a CM field with maximal totally real subfield F⁺ and complex conjugat
 
 Let F be a CM field and R a ℤ[(disc F)⁻¹]-algebra. A rational skew-hermitian space over O_F ⊗ R of rank N is a free O_F ⊗ R-module W of rank N with an R-bilinear skew-symmetric perfect pairing ⟨·,·⟩_W : W × W → R with ⟨ax, y⟩_W = ⟨x, a^c y⟩_W. A similitude f : W → W' is an O_F ⊗ R-linear isomorphism with ⟨f x, f y⟩ = c(f)⟨x, y⟩ for some c(f) ∈ R^×; W, W' are similar if a similitude exists; GU(W) is the reductive group of self-similitudes. T₀ ⊂ Res_{O_F/ℤ} G_m ⊗ ℤ[(disc F)⁻¹] is the torus with T₀(R) = {a ∈ O_F ⊗ R : N_{F/F⁺}(a) ∈ R^×}. For a CM type Φ, a rank-one W₀ over O_F ⊗ ℤ_(p) has type Φ if ⟨ax, x⟩_{W₀} ≥ 0 for all x and all totally imaginary a with Im τ(a) > 0 for τ ∈ Φ. An integral PEL datum additionally requires an integral O_F-lattice and a compatible positive complex structure; arbitrary R-valued skew-hermitian data do not supply these. For positive rank the map convention identifies GU(W) with the pair convention of M0/similitude-group; for W=0, the LTXZZ group of maps is trivial, while the pair convention gives G_m.
 
-**Hypotheses.** F is CM with its CM involution and R is a Z[(disc F)⁻¹]-algebra. W is finite locally free over O_F tensor R and the R-valued alternating pairing is perfect, with b and b^c adjoint. For HasType Φ the positive cone uses the chosen archimedean embeddings and the actual CM type, rather than an arbitrary ordered star ring.
+**Hypotheses.** F is CM with its CM involution and R is a Z[(disc F)⁻¹]-algebra.; W is finite locally free over O_F tensor R and the R-valued alternating pairing is perfect, with b and b^c adjoint.; For HasType Φ the positive cone uses the chosen archimedean embeddings and the actual CM type, rather than an arbitrary ordered star ring.
 
 **Construction or proof.**
 
 1. Define the structure, similitudes and GU(W); GU(W) is the similitude group M0/similitude-group of the datum (O_F, c, W, ⟨·,·⟩).
+
 2. Define T₀ and show T₀ = GU(W₀) for rank one W₀ (multiplication by a has multiplier a a^c).
+
 3. Type Φ: compare with the positivity of Condition 1.2.1.2 for h attached to Φ (the Riemann form of a CM abelian variety of type Φ).
 
 **API.**
 
-- **SkewHermitianSpace** — A free O_F ⊗ R-module with a perfect skew-symmetric R-valued pairing for which a and a^c are adjoint.
-- **SkewHermitianSpace.Similitude** — O_F ⊗ R-linear isomorphisms scaling the pairing by a unit c(f).
-- **SkewHermitianSpace.Similar** — The similarity relation; an equivalence relation.
-- **SkewHermitianSpace.GU** — The group of A-linear self-maps for which some scalar unit scales the actual skew-Hermitian pairing. Multipliers are existential here, as in LTXZZ; the zero-space group is trivial. Lan’s pair-valued group is a separate convention.
-- **cmTorus** — T₀ with T₀(R) = {a : N_{F/F⁺}(a) ∈ R^×}.
-- **SkewHermitianSpace.gu_rankOne** — If a unit a has norm equal to the image of c in R-units, multiplication by a is a GU self-map. The full norm-torus identification is gu_rankOneEquiv under the stated finite-etale faithful coefficient hypotheses.
-- **SkewHermitianSpace.HasCMType** — On the actual rank-one space, every anti-invariant a positive at all embeddings in Phi satisfies pairing(a x,x) nonnegative for every x. Perfectness gives strict positivity for nonzero x under the specified field hypotheses.
-- **SkewHermitianSpace.toIntegralPELDatum** — A rank-one CM-type skew-hermitian space together with a full finite free, star-order-stable integral lattice and its embedding gives the integral PEL datum with the same pairing and Φ-positive J.
-- **SkewHermitianSpace.gu_rankOneEquiv** — For a perfect rank-one finite étale CM module, the group of similitudes is isomorphic to the norm-similitude torus; this identifies the actual multiplier with the norm.
+- **SkewHermitianSpace** (structure) — A free O_F ⊗ R-module with a perfect skew-symmetric R-valued pairing for which a and a^c are adjoint.
+
+- **SkewHermitianSpace.Similitude** (structure) — O_F ⊗ R-linear isomorphisms scaling the pairing by a unit c(f).
+
+- **SkewHermitianSpace.Similar** (data) — The similarity relation; an equivalence relation.
+
+- **SkewHermitianSpace.GU** (data) — The group of A-linear self-maps for which some scalar unit scales the actual skew-Hermitian pairing. Multipliers are existential here, as in LTXZZ; the zero-space group is trivial. Lan’s pair-valued group is a separate convention.
+
+- **cmTorus** (constructor) — T₀ with T₀(R) = {a : N_{F/F⁺}(a) ∈ R^×}.
+
+- **SkewHermitianSpace.gu_rankOne** (equivalence) — If a unit a has norm equal to the image of c in R-units, multiplication by a is a GU self-map. The full norm-torus identification is gu_rankOneEquiv under the stated finite-etale faithful coefficient hypotheses.
+
+- **SkewHermitianSpace.HasCMType** (data) — On the actual rank-one space, every anti-invariant a positive at all embeddings in Phi satisfies pairing(a x,x) nonnegative for every x. Perfectness gives strict positivity for nonzero x under the specified field hypotheses.
+
+- **SkewHermitianSpace.toIntegralPELDatum** (coercion) — A rank-one CM-type skew-hermitian space together with a full finite free, star-order-stable integral lattice and its embedding gives the integral PEL datum with the same pairing and Φ-positive J.
+
+- **SkewHermitianSpace.gu_rankOneEquiv** (relation) — For a perfect rank-one finite étale CM module, the group of similitudes is isomorphic to the norm-similitude torus; this identifies the actual multiplier with the norm.
 
 **Unit tests.**
 
 - **cmTorus_points_imagQuad** (computation) — Every nonzero complex scalar belongs to the real points of the imaginary-quadratic norm-similitude torus, because its norm is a nonzero real unit.
+
 - **gu_rankOne_multiplier** (characterisation) — For rank one W₀, multiplication by a ∈ T₀(R) is a similitude with c = a a^c.
+
 - **skewHermitian_type_flip** (non-example) — If W₀ has type Φ, then (W₀, −⟨·,·⟩) has type cΦ and not type Φ (for a with Im τ(a) > 0 on Φ, −⟨ax, x⟩ ≤ 0).
+
 - **skewHermitian_zero** (degenerate) — The zero space has rank 0. Its group of self-maps is trivial under LTXZZ Definition 3.5.1; if multipliers are retained as pairs, the different convention gives G_m. Never identify these two zero-rank functors.
 
 **Acceptance.** For rank one, GU(W₀) ≅ T₀ ⊗ ℤ_(p) canonically. Type Φ and type Φ̄ := cΦ differ by the sign of ⟨·,·⟩.
@@ -829,6 +1065,8 @@ Let F be a CM field and R a ℤ[(disc F)⁻¹]-algebra. A rational skew-hermitia
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.5.1, p. 34 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), §3.5, p. 34 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.5.3, p. 34 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M0/hermitian-space; PELModuli:M0/similitude-group; PELModuli:M0/integral-pel-datum; mathlib:NumberField.IsCMField.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The rank-one norm-torus equivalence requires the actual CM involution and faithful coefficient inclusion. The integral adapter requires the given full lattice embedding and CM-type positivity.
 
 <a id="rank-one-skew-hermitian-classification"></a>
 
@@ -843,14 +1081,18 @@ Let F be a CM field, p a prime unramified in F and W₀ a rational skew-hermitia
 **Construction or proof.**
 
 1. GU(W₀) ≅ T₀: M0/skew-hermitian-space.
+
 2. Forms of W₀ that are everywhere locally similar are classified by ker¹(ℚ, GU(W₀)) = ker¹(T₀) (twisting by cocycles; integrality at p is harmless because T₀ is smooth over ℤ_(p) and H¹(ℤ_p, T₀) = 0 by Lang).
+
 3. Finiteness of ker¹ of a torus (classical; for T₀ via Tate–Nakayama duality ker¹(T₀) ≅ ker¹(X*(T₀))^∨).
 
 **Acceptance.** If F/F⁺ is such that F⁺^× ∩ N(𝔸_F^×) = N(F^×) (Hasse norm theorem, F/F⁺ cyclic) then ker¹ of the norm-one torus vanishes; ker¹(T₀) can still be nontrivial.
 
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Remark 3.5.2, p. 34 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Remark 3.5.2, p. 34 (arXiv v3).
 
-**Direct dependencies.** PELModuli:M0/skew-hermitian-space; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields; AdelicAlgebraicGroups:AA.4.
+**Direct dependencies.** PELModuli:M0/skew-hermitian-space; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields; AdelicAlgebraicGroups:AA.4; AdelicAlgebraicGroups:AA.1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="generalized-cm-type"></a>
 
@@ -865,24 +1107,35 @@ Let F be a CM field and Σ_∞ its set of complex embeddings, with Aut(ℂ/ℚ) 
 **Construction or proof.**
 
 1. Define ℕ[Σ_∞] as finitely supported functions Σ_∞ → ℕ (mathlib Finsupp) with the induced Galois action.
+
 2. Reflex field as a fixed field (mathlib IntermediateField.fixedField after descending to a finite Galois extension containing all τ(F)).
+
 3. Comparison with M0/reflex-field: Tr(a | V₀) = Σ_τ p_τ τ(a) for a ∈ F, and σ fixes these traces iff σ fixes Ψ (Dedekind independence of characters).
 
 **API.**
 
-- **GeneralizedCMType** — Ψ : Σ_∞ →₀ ℕ with Ψ(τ) + Ψ(c∘τ) = N.
-- **GeneralizedCMType.reflexField** — F_Ψ, the fixed field of Stab(Ψ) ⊂ Aut(ℂ/ℚ).
-- **GeneralizedCMType.IsCMType** — N = 1.
-- **GeneralizedCMType.galois_smul** — Transport every coefficient along tau to sigma composed with tau. The transported reflex fixed field is compared by galois_reflex.
-- **GeneralizedCMType.reflexField_eq_pel** — For an actual PEL datum whose CM centre is F and whose signature coefficients equal Ψ, its trace-defined reflex field and Ψ’s stabilizer-defined reflex field have the same elements in C.
-- **GeneralizedCMType.nPhi_sub** — For N ≥ 1 and τ_∞ contained in the CM type Φ, Ψ = NΦ − τ_∞ + τ_∞^c is a generalized CM type of rank N.
-- **GeneralizedCMType.positiveImaginaryCone** — The cone for rank-one Φ consists of anti-invariant elements a with Im τ(a)>0 at every embedding with coefficient one.
-- **GeneralizedCMType.galois_reflex** — For every complex field automorphism sigma, z belongs to the reflex field of Psi iff sigma(z) belongs to the reflex field of the transported type.
+- **GeneralizedCMType** (structure) — Ψ : Σ_∞ →₀ ℕ with Ψ(τ) + Ψ(c∘τ) = N.
+
+- **GeneralizedCMType.reflexField** (data) — F_Ψ, the fixed field of Stab(Ψ) ⊂ Aut(ℂ/ℚ).
+
+- **GeneralizedCMType.IsCMType** (data) — N = 1.
+
+- **GeneralizedCMType.galois_smul** (functoriality) — Transport every coefficient along tau to sigma composed with tau. The transported reflex fixed field is compared by galois_reflex.
+
+- **GeneralizedCMType.reflexField_eq_pel** (relation) — For an actual PEL datum whose CM centre is F and whose signature coefficients equal Ψ, its trace-defined reflex field and Ψ’s stabilizer-defined reflex field have the same elements in C.
+
+- **GeneralizedCMType.nPhi_sub** (example) — For N ≥ 1 and τ_∞ contained in the CM type Φ, Ψ = NΦ − τ_∞ + τ_∞^c is a generalized CM type of rank N.
+
+- **GeneralizedCMType.positiveImaginaryCone** (data) — The cone for rank-one Φ consists of anti-invariant elements a with Im τ(a)>0 at every embedding with coefficient one.
+
+- **GeneralizedCMType.galois_reflex** (functoriality) — For every complex field automorphism sigma, z belongs to the reflex field of Psi iff sigma(z) belongs to the reflex field of the transported type.
 
 **Unit tests.**
 
 - **gcmType_reflex_imagQuad** (computation) — For an imaginary-quadratic CM field and the rank-three type with coefficients (2,1), the actual reflex field inside C equals the image of the chosen embedding.
+
 - **gcmType_cm_rank1** (degenerate) — In rank one every coefficient is zero or one, and the type is a CM type. The classical reflex comparison uses the same stabilizer definition.
+
 - **gcmType_not** (non-example) — For a quartic CM field with embeddings τ₁, τ̄₁, τ₂, τ̄₂, Ψ = τ₁ + τ̄₁ + 2τ₂ + τ̄₂ is not a generalized CM type: r_{τ₁} + r_{τ̄₁} = 2 but r_{τ₂} + r_{τ̄₂} = 3.
 
 **Acceptance.** For F imaginary quadratic and Ψ = (n−1)τ + τ̄, F_Ψ = F when n ≠ 2 and F_Ψ = ℚ when n = 2. For a CM type Φ of a CM field of degree 4 that is primitive, F_Φ is the reflex CM field.
@@ -892,6 +1145,8 @@ Let F be a CM field and Σ_∞ its set of complex embeddings, with Aut(ℂ/ℚ) 
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.3.1, p. 28 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M0/signatures; PELModuli:M0/reflex-field; mathlib:NumberField.IsCMField; mathlib:IntermediateField.fixedField; mathlib:NumberField.ComplexEmbedding.conjugate.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="reflexive-closure"></a>
 
@@ -906,24 +1161,35 @@ For a CM field F, the reflexive closure F_rflx ⊂ ℂ is the subfield generated
 **Construction or proof.**
 
 1. ⋂_Φ F_Φ is Galois over ℚ because the set of CM types is Aut(ℂ/ℚ)-stable, and it is CM or totally real.
+
 2. Hence F_rflx = F·(⋂ F_Φ) is CM and Galois over F; c commutes with the Galois action, giving the statements on F⁺_rflx.
+
 3. If F is Galois, every F_Φ ⊂ F; if F ⊃ K imaginary quadratic, the CM type induced from K has reflex field K ⊂ F.
 
 **API.**
 
-- **CMField.reflexiveClosure** — F_rflx = F · ⋂_Φ F_Φ (published definition).
-- **CMField.reflexiveClosure_isCM** — F_rflx is a CM field.
-- **CMField.reflexiveClosure_galois** — The published reflexive closure is finite Galois over F. The conjugation-fixed real-subfield extension is the separate reflexiveClosure_real_galois interface.
-- **CMField.reflexiveClosure_eq_of_galois** — F Galois over ℚ ⇒ F_rflx = F.
-- **CMField.reflexiveClosure_eq_of_imagQuad** — F ⊃ K imaginary quadratic ⇒ F_rflx = F.
-- **CMField.reflexiveClosure_le_galoisClosure** — F_rflx ⊂ the Galois closure of F (mathlib IntermediateField.normalClosure).
-- **CMField.realSubfield** — The actual intersection of F with the conjugation-fixed subfield of C. For a CM field this is its maximal totally real subfield.
-- **CMField.reflexiveClosure_real_galois** — The conjugation-fixed real subfield of the published reflexive closure is finite Galois over the maximal totally real subfield of F.
+- **CMField.reflexiveClosure** (constructor) — F_rflx = F · ⋂_Φ F_Φ (published definition).
+
+- **CMField.reflexiveClosure_isCM** (instance) — F_rflx is a CM field.
+
+- **CMField.reflexiveClosure_galois** (other) — The published reflexive closure is finite Galois over F. The conjugation-fixed real-subfield extension is the separate reflexiveClosure_real_galois interface.
+
+- **CMField.reflexiveClosure_eq_of_galois** (simp) — F Galois over ℚ ⇒ F_rflx = F.
+
+- **CMField.reflexiveClosure_eq_of_imagQuad** (simp) — F ⊃ K imaginary quadratic ⇒ F_rflx = F.
+
+- **CMField.reflexiveClosure_le_galoisClosure** (compatibility) — F_rflx ⊂ the Galois closure of F (mathlib IntermediateField.normalClosure).
+
+- **CMField.realSubfield** (constructor) — The actual intersection of F with the conjugation-fixed subfield of C. For a CM field this is its maximal totally real subfield.
+
+- **CMField.reflexiveClosure_real_galois** (characterisation) — The conjugation-fixed real subfield of the published reflexive closure is finite Galois over the maximal totally real subfield of F.
 
 **Unit tests.**
 
 - **reflexiveClosure_imagQuad** (computation) — For F = ℚ(√−5), F_rflx = F.
+
 - **reflexiveClosure_galois** (computation) — For F = ℚ(ζ_5), Galois over ℚ, F_rflx = F.
+
 - **reflexiveClosure_not_intersection_alone** (non-example) — For F = ℚ(√2, i), the CM types are induced from ℚ(i) or ℚ(√−2), so their reflex fields are ℚ(i) and ℚ(√−2) and ⋂_Φ F_Φ = ℚ, while F_rflx = F: omitting F from the definition gives the wrong field.
 
 **Acceptance.** F imaginary quadratic: F_rflx = F. F Galois CM: F_rflx = F.
@@ -933,6 +1199,8 @@ For a CM field F, the reflexive closure F_rflx ⊂ ℂ is the subfield generated
 **Sources.** [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Definition 3.3.2 and Remark 3.3.3, p. 147; [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.3.2, p. 28 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M0/generalized-cm-type; mathlib:IntermediateField.normalClosure.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="unramified-tau-decomposition"></a>
 
@@ -947,27 +1215,41 @@ Let F be a CM field, p a prime unramified in F, and ι_p : ℂ ≅ ℚ̄_p fixed
 **Construction or proof.**
 
 1. Use the actual CM order and p-adic embeddings at p unramified in F. Import finite unramified completions, integer rings and residue fields; form the indicated composita inside one fixed algebraic closure.
+
 2. Finite étale splitting gives the orthogonal idempotents of O_F tensor the diamond integer ring, hence the decomposition for every module, including nonreduced coefficient bases.
+
 3. Transport Frobenius on residues to embeddings; check the tau-part of the Frobenius-twisted module has the prescribed shifted index (LTXZZ Notation 3.3.6, pp.148–149).
 
 **API.**
 
-- **tauField** — ℚ_p^τ and ℤ_p^τ, 𝔽_p^τ for τ ∈ Σ_∞ (unramified).
-- **diamondField** — ℚ_p^◇ := composite of all ℚ_p^τ.
-- **psiField** — ℚ_p^Ψ := ℚ_p · F · F_Ψ ⊂ ℚ_p^◇.
-- **tauPart** — ℱ_τ ⊂ ℱ for an O_F-module ℱ over a ℤ_p^τ-scheme.
-- **tauPart_decomp** — The unramified evaluation decomposition identifies the direct product of tau-eigensummands with M as additive groups. tauPart_decomp_linear records its actual linear refinement over the diamond integer ring.
-- **frobeniusOnEmbeddings** — The action of σ on Σ_∞ = Hom(O_F, 𝔽_p^◇).
-- **tauPart_frobeniusTwist** — Over a perfect residue field, the τ-part of the Frobenius-twisted module is isomorphic, as a module, to the Frobenius pullback of the τ′-part when Frobenius sends τ′ to τ.
-- **unramifiedTauDecomposition** — At p unramified in F, the actual tensor product of the diamond integer ring with O_F splits as a product of the diamond integer rings indexed by p-adic embeddings, via the evaluation map.
-- **tauSubmodule** — When the R and O_F actions commute, the tau-eigencondition defines an R-submodule, retaining the actual scalar action.
-- **tauPart_decomp_linear** — Under the unramified diamond evaluation splitting, summation identifies the product of actual tau-submodules with M linearly over the diamond integer ring.
+- **tauField** (data) — ℚ_p^τ and ℤ_p^τ, 𝔽_p^τ for τ ∈ Σ_∞ (unramified).
+
+- **diamondField** (data) — ℚ_p^◇ := composite of all ℚ_p^τ.
+
+- **psiField** (data) — ℚ_p^Ψ := ℚ_p · F · F_Ψ ⊂ ℚ_p^◇.
+
+- **tauPart** (constructor) — ℱ_τ ⊂ ℱ for an O_F-module ℱ over a ℤ_p^τ-scheme.
+
+- **tauPart_decomp** (relation) — The unramified evaluation decomposition identifies the direct product of tau-eigensummands with M as additive groups. tauPart_decomp_linear records its actual linear refinement over the diamond integer ring.
+
+- **frobeniusOnEmbeddings** (data) — The action of σ on Σ_∞ = Hom(O_F, 𝔽_p^◇).
+
+- **tauPart_frobeniusTwist** (relation) — Over a perfect residue field, the τ-part of the Frobenius-twisted module is isomorphic, as a module, to the Frobenius pullback of the τ′-part when Frobenius sends τ′ to τ.
+
+- **unramifiedTauDecomposition** (equivalence) — At p unramified in F, the actual tensor product of the diamond integer ring with O_F splits as a product of the diamond integer rings indexed by p-adic embeddings, via the evaluation map.
+
+- **tauSubmodule** (constructor) — When the R and O_F actions commute, the tau-eigencondition defines an R-submodule, retaining the actual scalar action.
+
+- **tauPart_decomp_linear** (compatibility) — Under the unramified diamond evaluation splitting, summation identifies the product of actual tau-submodules with M linearly over the diamond integer ring.
 
 **Unit tests.**
 
 - **tauField_split** (computation) — If the actual p-adic embedding lands in Qp, its generated local field equals Qp, the bottom intermediate field.
+
 - **tauField_inert** (computation) — For a field generated by a square root of minus one, if Qp has no such root, its actual tau-generated local field has degree two over Qp.
+
 - **tauPart_ramified** (non-example) — If tau sends pi to zero but pi acts nontrivially on m, that m is not in the actual tau-eigensummand. This applies to the ramified Gaussian integer example.
+
 - **tauPart_zero** (degenerate) — For ℱ = 0 every τ-part is 0.
 
 **Acceptance.** For F = ℚ(i) and p ≡ 1 mod 4, ℚ_p^τ = ℚ_p and σ fixes each τ; for p ≡ 3 mod 4, ℚ_p^τ = ℚ_{p²} and σ swaps τ, τ̄.
@@ -978,6 +1260,7 @@ Let F be a CM field, p a prime unramified in F, and ι_p : ℂ ≅ ℚ̄_p fixed
 
 **Direct dependencies.** PELModuli:M0/generalized-cm-type; tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. p is unramified in F and the order is its integer ring; both module actions come from the same tensor algebra. The Frobenius comparison requires the compatible OF action and actual conjugate embedding indices.
 
 <a id="m1"></a>
 
@@ -1000,30 +1283,47 @@ Let □ be a set of primes and S a scheme over ℤ_(□). A quasi-isogeny A ⇢ 
 **Construction or proof.**
 
 1. Define the category of abelian schemes up to prime-to-□ isogeny by inverting prime-to-□ isogenies; Lan Lemma 1.3.1.16 identifies it with Hom ⊗ ℤ_(□).
+
 2. Dualize quasi-isogenies through spans (Lan Definition 1.3.2.24), using the dual abelian scheme and dual isogenies of AbelianSchemesAndArithmeticModuli A2–A3.
+
 3. Positivity: f^∨ ∘ λ ∘ f is positive for a prime-to-□ f and λ⁻¹ is positive (Lan Corollary 1.3.2.25), via pullback of relatively ample sheaves along isogenies.
+
 4. LTXZZ Definition 3.4.5 is the case P = ℤ_(p) of the same notions.
 
 **API.**
 
-- **QuasiIsogeny** — A numerator isogeny and positive denominator on an affine base represent f/n. Mathematical morphisms are the quotient by cross-multiplication equality, glued locally over general bases.
-- **QuasiIsogeny.IsPrimeTo** — Representable by a span of isogenies of degree prime to □.
-- **QuasiIsogeny.dual** — f ↦ f^∨ : A'^∨ ⇢ A^∨ with (f ∘ g)^∨ = g^∨ ∘ f^∨ and id^∨ = id.
-- **QuasiIsogeny.comp** — Composition; the prime-to-□ quasi-isogenies form a groupoid.
-- **BoxPolarization** — A positive prime-to-□ quasi-isogeny to the dual with an actual ample polarization and a positive locally constant clearing factor.
-- **BoxPolarization.pullback** — f^∨ ∘ λ ∘ f is a ℤ_(□)^×-polarization for prime-to-□ f.
-- **BoxPolarization.inv_pos** — The quasi-isogeny of the inverse BoxPolarization equals λ inverse followed by the canonical bidual map, after clearing denominators.
-- **QuasiIsogeny.IsQuasiP** — LTXZZ: cφ is a homomorphism/isogeny for some c ∈ ℤ_(p)^×; IsPrimeToP; IsPPrincipal for quasi-polarizations.
-- **QuasiIsogeny.ofIsogeny** — Every isogeny (Tau Ceti AbelianVariety.IsIsogeny over a field) is a quasi-isogeny.
-- **QuasiIsogeny.Class** — Quasi-isogenies modulo equality after clearing denominators; compositions, inverse and dual descend to this carrier.
-- **QuasiIsogeny.primeTo_iff_both_quasiP** — A quasi-isogeny is prime-to-p exactly when it and its inverse admit representatives with denominator prime to p; IsPrimeTo also checks numerator-kernel degree.
-- **BoxPolarization.inverse** — Construct the positive inverse polarization on the dual using the canonical bidual identification.
+- **QuasiIsogeny** (structure) — A numerator isogeny and positive denominator on an affine base represent f/n. Mathematical morphisms are the quotient by cross-multiplication equality, glued locally over general bases.
+
+- **QuasiIsogeny.IsPrimeTo** (data) — Representable by a span of isogenies of degree prime to □.
+
+- **QuasiIsogeny.dual** (functoriality) — f ↦ f^∨ : A'^∨ ⇢ A^∨ with (f ∘ g)^∨ = g^∨ ∘ f^∨ and id^∨ = id.
+
+- **QuasiIsogeny.comp** (structure) — Composition; the prime-to-□ quasi-isogenies form a groupoid.
+
+- **BoxPolarization** (structure) — A positive prime-to-□ quasi-isogeny to the dual with an actual ample polarization and a positive locally constant clearing factor.
+
+- **BoxPolarization.pullback** (functoriality) — f^∨ ∘ λ ∘ f is a ℤ_(□)^×-polarization for prime-to-□ f.
+
+- **BoxPolarization.inv_pos** (relation) — The quasi-isogeny of the inverse BoxPolarization equals λ inverse followed by the canonical bidual map, after clearing denominators.
+
+- **QuasiIsogeny.IsQuasiP** (data) — LTXZZ: cφ is a homomorphism/isogeny for some c ∈ ℤ_(p)^×; IsPrimeToP; IsPPrincipal for quasi-polarizations.
+
+- **QuasiIsogeny.ofIsogeny** (coercion) — Every isogeny (Tau Ceti AbelianVariety.IsIsogeny over a field) is a quasi-isogeny.
+
+- **QuasiIsogeny.Class** (structure) — Quasi-isogenies modulo equality after clearing denominators; compositions, inverse and dual descend to this carrier.
+
+- **QuasiIsogeny.primeTo_iff_both_quasiP** (relation) — A quasi-isogeny is prime-to-p exactly when it and its inverse admit representatives with denominator prime to p; IsPrimeTo also checks numerator-kernel degree.
+
+- **BoxPolarization.inverse** (constructor) — Construct the positive inverse polarization on the dual using the canonical bidual identification.
 
 **Unit tests.**
 
 - **quasiIsogeny_mulBy** (computation) — For positive n and the actual multiplication isogeny, the fraction [n]/n equals the identity quasi-isogeny; its inverse and prime-to criterion are the API of the same localized carrier.
+
 - **quasiIsogeny_id** (degenerate) — id_A is a prime-to-□ quasi-isogeny for every □; for □ = ∅ every quasi-isogeny is prime-to-□.
+
 - **quasiIsogeny_frobenius_not_primeTo** (non-example) — For an elliptic curve E over 𝔽_p, the relative Frobenius E → E^{(p)} has degree p and is not a prime-to-□ quasi-isogeny when p ∈ □.
+
 - **boxPolarization_neg** (non-example) — For a positive-dimensional A and a polarization λ, −λ is not positive. On the zero abelian scheme the two morphisms coincide, so this nonexample requires positive dimension.
 
 **Acceptance.** [n] is a prime-to-□ isogeny iff n is prime to □. For an elliptic curve E, every symmetric positive rational quasi-polarization E to E∨ is a positive rational multiple of its canonical principal polarization; arbitrary CM quasi-isogenies need not be rational multiples.
@@ -1034,6 +1334,8 @@ Let □ be a set of primes and S a scheme over ℤ_(□). A quasi-isogeny A ⇢ 
 
 **Direct dependencies.** AbelianSchemesAndArithmeticModuli:A2; AbelianSchemesAndArithmeticModuli:A3; tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Raw QuasiIsogeny representatives use a global denominator on affine charts; arbitrary-base morphisms and locally varying denominators are glued in the localized groupoid. The quasi-isogeny equivalence and all prime-to predicates refer to actual isogenies and finite kernel degrees.
+
 <a id="pel-abelian-scheme"></a>
 
 ### Polarized abelian scheme with O-structure satisfying the Kottwitz condition
@@ -1042,40 +1344,55 @@ Let □ be a set of primes and S a scheme over ℤ_(□). A quasi-isogeny A ⇢ 
 
 Fix an integral PEL datum, a set □ of good primes and S a locally noetherian scheme over S₀ = Spec O_{F₀,(□)}. A PEL triple over S is (A, λ, i): A an abelian scheme over S; λ : A → A^∨ an actual prime-to-□ polarization for the integral problem; i : O → End_S(A) (or O ⊗ ℤ_(□) → End_S(A) ⊗ ℤ_(□)) a ring homomorphism satisfying the Rosati condition i(b)^∨ ∘ λ = λ ∘ i(b*) for b ∈ O; and Lie_{A/S}, with its O ⊗ ℤ_(□)-action through i, satisfying the determinant condition (M0/determinant-condition). Morphisms (A, λ, i) → (A', λ', i') are isomorphisms f : A → A' with λ = f^∨ ∘ λ' ∘ f and f ∘ i(b) = i'(b) ∘ f.
 
-**Hypotheses.** integral PEL datum □ a set of good primes S locally noetherian over S₀
+**Hypotheses.** integral PEL datum; □ a set of good primes; S locally noetherian over S₀
 
 **Construction or proof.**
 
 1. Import abelian schemes, duals, polarizations, Rosati involutions and Lie algebras from AbelianSchemesAndArithmeticModuli A1–A2 (A2/rosati-involution) and A4.
+
 2. The Rosati condition says that the λ-Rosati involution on End_S(A) ⊗ ℤ_(□) restricts to * on the image of O (Lan Definition 1.3.3.1).
+
 3. Impose the determinant condition on Lie_{A/S} with the action induced by i (Lan Definition 1.4.1.4 (4)).
 
 **API.**
 
-- **PELTriple** — The affine integral carrier has an actual polarization: its quasi-isogeny denominator is one and its numerator equals the ample polarization map, together with Rosati and the Lie determinant condition.
-- **PELTriple.rosati** — i(b)^∨ ∘ λ = λ ∘ i(b*) for all b ∈ O.
-- **PELTriple.detCondition** — Lie_{A/S} satisfies M0/determinant-condition.
-- **PELTriple.Hom** — Isomorphisms f with λ = f^∨ λ' f and f i(b) = i'(b) f; a groupoid.
-- **PELTriple.pullback** — Base change along T → S gives a PEL triple over T, with (g ∘ f)^* ≅ f^* g^* coherently.
-- **PELTriple.relDim** — rel. dim A = dim_ℂ V₀ (from the determinant condition).
-- **PELTriple.siegel** — For O=Z and the principal genus-one polynomial X, the affine helper identifies the determinant condition with Lie rank one. PELTriple.relDim supplies arbitrary homogeneous degree g, and moduliProblem.siegel is the full relative Siegel-family equivalence.
-- **PELTriple.toAbelianVariety** — Over S = Spec k, A is a Tau Ceti AbelianVariety k with i : O → AbelianVariety.End A.
-- **PELModuli.Triple** — Relative triples over every test scheme before a level is chosen, with actual polarization-preserving isomorphisms, pullback and an equivalence with the affine PELTriple carrier.
+- **PELTriple** (structure) — The affine integral carrier has an actual polarization: its quasi-isogeny denominator is one and its numerator equals the ample polarization map, together with Rosati and the Lie determinant condition.
+
+- **PELTriple.rosati** (relation) — i(b)^∨ ∘ λ = λ ∘ i(b*) for all b ∈ O.
+
+- **PELTriple.detCondition** (characterisation) — Lie_{A/S} satisfies M0/determinant-condition.
+
+- **PELTriple.Hom** (structure) — Isomorphisms f with λ = f^∨ λ' f and f i(b) = i'(b) f; a groupoid.
+
+- **PELTriple.pullback** (functoriality) — Base change along T → S gives a PEL triple over T, with (g ∘ f)^* ≅ f^* g^* coherently.
+
+- **PELTriple.relDim** (other) — rel. dim A = dim_ℂ V₀ (from the determinant condition).
+
+- **PELTriple.siegel** (relation) — For O=Z and the principal genus-one polynomial X, the affine helper identifies the determinant condition with Lie rank one. PELTriple.relDim supplies arbitrary homogeneous degree g, and moduliProblem.siegel is the full relative Siegel-family equivalence.
+
+- **PELTriple.toAbelianVariety** (coercion) — Over S = Spec k, A is a Tau Ceti AbelianVariety k with i : O → AbelianVariety.End A.
+
+- **PELModuli.Triple** (structure) — Relative triples over every test scheme before a level is chosen, with actual polarization-preserving isomorphisms, pullback and an equivalence with the affine PELTriple carrier.
 
 **Unit tests.**
 
 - **pelTriple_siegel** (compatibility) — For the genus-one Z datum, the actual determinant condition is equivalent to the Lie module having rank one.
+
 - **pelTriple_rosati_fails** (non-example) — For the Gaussian order, the actual triple’s Rosati equation pairs the action of i with the action of minus i, detecting conjugation rather than the identity involution.
+
 - **pelTriple_zero** (degenerate) — The constant determinant polynomial one forces the Lie rank of the actual triple to be zero over a nonzero base.
+
 - **pelTriple_det_picard** (computation) — A nonzero homogeneous determinant polynomial of degree three forces the actual Lie rank to be three; its tau-ranks are separately fixed by the signature condition.
 
 **Acceptance.** For the integral Siegel datum a PEL triple is an actual prime-to-box polarized abelian scheme of relative dimension g, with its integral structure action Z to End. The rational problem uses its separate localized quasi-polarization convention. Over ℂ a PEL triple gives a polarized Hodge structure H₁(A, ℚ) with B-action whose V^{−1,0} ≅ Lie A ≅ V₀ (Kottwitz §8).
 
 **Uses.** Lan 2008, Definition 1.4.1.4: objects of M_H(S) are PEL triples with a level-H structure. ShimuraCompactifications:C4: degenerations of polarized abelian schemes extend the endomorphism structure of PEL triples. ArakelovGeometryAndAbelianHeights:R35.5: imports the polarized moduli objects and their family. PELModuli:M2/formal-smoothness: deformations of (A₀, λ₀, i₀).
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.3.1, p. 122; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.4, pp. 149–150; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 390.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.3.1, p. 122; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.4, pp. 149–150; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 390.
 
 **Direct dependencies.** PELModuli:M0/determinant-condition; PELModuli:M0/integral-pel-datum; PELModuli:M1/prime-to-box-quasi-isogeny; AbelianSchemesAndArithmeticModuli:A1; AbelianSchemesAndArithmeticModuli:A2; AbelianSchemesAndArithmeticModuli:A2/rosati-involution; AbelianSchemesAndArithmeticModuli:A4; tauceti:TauCeti.AlgebraicGeometry.AbelianVariety; tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The order, Lie polynomial, rank and good base must arise from the same integral datum. Source-fibre examples assume the indicated Siegel/CM/Picard identification, and positive dimension for the Rosati nonexample.
 
 <a id="unitary-of-abelian-scheme"></a>
 
@@ -1085,50 +1402,75 @@ Fix an integral PEL datum, a set □ of good primes and S a locally noetherian s
 
 Let F be a CM field, P ⊂ ℚ a subring and S a P-scheme. An O_F-abelian scheme is (A, i) with i : O_F → End_S(A) ⊗ P a unital ring homomorphism; a unitary O_F-abelian scheme is (A, i, λ) with λ : A → A^∨ a quasi-polarization satisfying i(a^c)^∨ ∘ λ = λ ∘ i(a) for a ∈ O_F and cλ a polarization for some c ∈ P^×. For a generalized CM type Ψ = Σ r_τ τ of rank N and S over O_{F_Ψ} ⊗ P, (A, i) has signature type Ψ if for every a ∈ O_F the characteristic polynomial of i(a) on Lie_{A/S} is ∏_τ (T − τ(a))^{r_τ} ∈ O_S[T]. Then dim A = N[F⁺ : ℚ]; over S ∈ Sch/ℤ_p^τ (p unramified in F) the Hodge sequence 0 → ω_{A^∨/S,τ} → H^dR_1(A/S)_τ → Lie_{A/S,τ} → 0 is exact with locally free terms of ranks N − r_τ, N, r_τ; and λ induces a pairing ⟨·,·⟩_{λ,τ} : H^dR_1(A/S)_τ × H^dR_1(A/S)_{τ^c} → O_S, perfect if λ is p-principal. These are the PEL triples of the datum (O_F, c, W, ⟨·,·⟩) with signature Ψ (M1/pel-abelian-scheme).
 
-**Hypotheses.** F CM p unramified in F for the τ-part statements
+**Hypotheses.** F CM; p unramified in F for the τ-part statements
 
 **Construction or proof.**
 
 1. Define the structures (LTXZZ Definition 3.4.2, 3.4.3) as specializations of PEL triples with B = F, O = O_F, * = c.
+
 2. Prove: signature type Ψ ⇔ Kottwitz determinant condition for the unitary datum of signature Ψ when p is unramified in F (characteristic polynomials of all a ∈ O_F determine the O_F ⊗ O_S-module Lie up to the determinant polynomial; M0/determinant-classifies).
+
 3. Ranks of τ-parts from H^dR_1 locally free over O_F ⊗ O_S of rank N (M0/unramified-tau-decomposition; H^dR_1 and the Hodge sequence from AbelianSchemesAndArithmeticModuli A4).
+
 4. The pairing from the polarization: ⟨x, y⟩_λ = ⟨x, λ_* y⟩ restricted to τ and τ^c parts; perfect for p-principal λ.
 
 **API.**
 
-- **OFAbelianScheme** — The integral-action special case (A,i:OF→End A). The full source definition is LocalizedOFAbelianScheme.
-- **UnitaryOFAbelianScheme** — An integral OF action with a rational polarization cleared to an ample one by a positive integer; this is the positive integral-action special case.
-- **OFAbelianScheme.HasSignatureType** — charpoly(i(a) | Lie) = ∏ (T − τ(a))^{r_τ} for all a ∈ O_F.
-- **HasSignatureType.iff_detCondition** — For p unramified in F, signature type Ψ ⇔ the Kottwitz condition for the unitary datum of signature Ψ.
-- **HasSignatureType.dim** — dim A = N [F⁺ : ℚ].
-- **HasSignatureType.hodge_tau** — For the integral-action special case and an actual split OF tensor R evaluation isomorphism, the Lie τ-eigensummand has rank r_τ; the full Hodge sequence is supplied below.
-- **UnitaryOFAbelianScheme.pairingTau** — ⟨·,·⟩_{λ,τ} : H^dR_1(A/S)_τ × H^dR_1(A/S)_{τ^c} → O_S.
-- **UnitaryOFAbelianScheme.pairingTau_perfect** — ⟨·,·⟩_{λ,τ} is perfect if λ is p-principal (the converse fails over bases where p is invertible).
-- **UnitaryOFAbelianScheme.toPELTriple** — After clearing a positive quasi-polarization to an actual ample integral polarization, and supplying its prime-to-□ and determinant conditions, obtain an integral PELTriple. A general localized quasi-polarization belongs to the rational groupoid.
-- **LocalizedOFAbelianScheme** — For P a subring of Q and a P-algebra base, (A,i) with an actual unital action OF→End(A) tensor P.
-- **LocalizedUnitaryOFAbelianScheme** — Add λ in the actual localized Hom module with Rosati and cλ ample for a unit c of P. The source allows either sign of c; Lan’s positive rational convention adds positivity.
-- **LocalizedOFAbelianScheme.HasSignatureType** — For every finite family in OF, the determinant polynomial of its actual localized Lie action equals the product of the τ linear forms to the signature powers. Checking only characteristic polynomials over a finite residue field is insufficient.
-- **LocalizedOFAbelianScheme.iff_detCondition** — The all-family signature polynomial law is equivalent to the unitary determinant condition on an integral spanning family.
-- **LocalizedOFAbelianScheme.dim** — The actual localized Lie module has rank equal to the sum of the signature coefficients, namely N[F⁺:Q] for generalized CM rank N.
-- **LocalizedUnitaryOFAbelianScheme.hodge_tau** — Over the actual unramified τ-split p-adic base, the Hodge, de Rham homology and Lie τ-modules have ranks N−r_τ,N,r_τ.
-- **LocalizedUnitaryOFAbelianScheme.hodge_sequence_exact** — The actual Hodge inclusion is injective, its image is the kernel of the Hodge projection, and the projection to the actual Lie τ-module is surjective.
-- **LocalizedUnitaryOFAbelianScheme.pairingTau** — The quasi-polarization induces a bilinear pairing between the actual conjugate τ-parts of covariant de Rham homology.
-- **LocalizedUnitaryOFAbelianScheme.pairingTau_perfect** — In the unramified conjugate-τ setting, p-principality implies that this actual de Rham pairing is perfect. No converse is asserted.
+- **OFAbelianScheme** (structure) — The integral-action special case (A,i:OF→End A). The full source definition is LocalizedOFAbelianScheme.
+
+- **UnitaryOFAbelianScheme** (structure) — An integral OF action with a rational polarization cleared to an ample one by a positive integer; this is the positive integral-action special case.
+
+- **OFAbelianScheme.HasSignatureType** (data) — charpoly(i(a) | Lie) = ∏ (T − τ(a))^{r_τ} for all a ∈ O_F.
+
+- **HasSignatureType.iff_detCondition** (equivalence) — For p unramified in F, signature type Ψ ⇔ the Kottwitz condition for the unitary datum of signature Ψ.
+
+- **HasSignatureType.dim** (other) — dim A = N [F⁺ : ℚ].
+
+- **HasSignatureType.hodge_tau** (relation) — For the integral-action special case and an actual split OF tensor R evaluation isomorphism, the Lie τ-eigensummand has rank r_τ; the full Hodge sequence is supplied below.
+
+- **UnitaryOFAbelianScheme.pairingTau** (data) — ⟨·,·⟩_{λ,τ} : H^dR_1(A/S)_τ × H^dR_1(A/S)_{τ^c} → O_S.
+
+- **UnitaryOFAbelianScheme.pairingTau_perfect** (other) — ⟨·,·⟩_{λ,τ} is perfect if λ is p-principal (the converse fails over bases where p is invertible).
+
+- **UnitaryOFAbelianScheme.toPELTriple** (relation) — After clearing a positive quasi-polarization to an actual ample integral polarization, and supplying its prime-to-□ and determinant conditions, obtain an integral PELTriple. A general localized quasi-polarization belongs to the rational groupoid.
+
+- **LocalizedOFAbelianScheme** (structure) — For P a subring of Q and a P-algebra base, (A,i) with an actual unital action OF→End(A) tensor P.
+
+- **LocalizedUnitaryOFAbelianScheme** (structure) — Add λ in the actual localized Hom module with Rosati and cλ ample for a unit c of P. The source allows either sign of c; Lan’s positive rational convention adds positivity.
+
+- **LocalizedOFAbelianScheme.HasSignatureType** (data) — For every finite family in OF, the determinant polynomial of its actual localized Lie action equals the product of the τ linear forms to the signature powers. Checking only characteristic polynomials over a finite residue field is insufficient.
+
+- **LocalizedOFAbelianScheme.iff_detCondition** (relation) — The all-family signature polynomial law is equivalent to the unitary determinant condition on an integral spanning family.
+
+- **LocalizedOFAbelianScheme.dim** (relation) — The actual localized Lie module has rank equal to the sum of the signature coefficients, namely N[F⁺:Q] for generalized CM rank N.
+
+- **LocalizedUnitaryOFAbelianScheme.hodge_tau** (relation) — Over the actual unramified τ-split p-adic base, the Hodge, de Rham homology and Lie τ-modules have ranks N−r_τ,N,r_τ.
+
+- **LocalizedUnitaryOFAbelianScheme.hodge_sequence_exact** (relation) — The actual Hodge inclusion is injective, its image is the kernel of the Hodge projection, and the projection to the actual Lie τ-module is surjective.
+
+- **LocalizedUnitaryOFAbelianScheme.pairingTau** (constructor) — The quasi-polarization induces a bilinear pairing between the actual conjugate τ-parts of covariant de Rham homology.
+
+- **LocalizedUnitaryOFAbelianScheme.pairingTau_perfect** (relation) — In the unramified conjugate-τ setting, p-principality implies that this actual de Rham pairing is perfect. No converse is asserted.
 
 **Unit tests.**
 
 - **signatureType_cm_elliptic** (computation) — For E/ℂ with CM by O_K (K imaginary quadratic) via the normalized action, (E, i) has signature type τ (r_τ = 1, r_τ̄ = 0): i(a) acts on Lie E by τ(a).
+
 - **signatureType_conj** (non-example) — For a rank-one Lie module, two signature-type characters on the same action must be equal. Distinct conjugate characters therefore cannot both describe it.
+
 - **signatureType_iff_det** (compatibility) — For p unramified in F and S over ℤ_p^◇, HasSignatureType Ψ ⇔ rank Lie_τ = r_τ for all τ ⇔ SatisfiesDetCondition (M0) for the datum of signature Ψ.
+
 - **unitary_zero** (degenerate) — (0, 0, 0) is a unitary O_F-abelian scheme of signature type the zero generalized CM type of rank 0.
 
 **Acceptance.** Signature type Φ (a CM type) for an elliptic curve with CM by O_K, K imaginary quadratic: Lie = Lie_τ of rank 1.
 
 **Uses.** Liu–Tian–Xiao–Zhang–Zhu, §§3.4–3.5, 4–5: moduli of unitary O_F-abelian schemes of signature type NΦ − τ_∞ + τ_∞^c and the CM moduli T_p. PELModuli:M2/unitary-deformation: deformation groupoids Def(S, Ŝ; A, λ). PELModuli:M2/isogeny-kernel-ranks: kernel ranks of O_F-linear quasi-p-isogenies.
 
-**Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.4.2 (2), p. 29 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.4.3, p. 29 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Remark 3.4.6, p. 30 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Definitions 3.4.2–3.4.3, pp.148–149; Remark 3.4.6, p.150; Proposition 3.4.7, pp.150–151.
+**Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.4.2 (2), p. 29 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.4.3, p. 29 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Remark 3.4.6, p. 30 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Definitions 3.4.2–3.4.3, pp.148–149; Remark 3.4.6 and Notation 3.4.7, p.150.
 
 **Direct dependencies.** PELModuli:M1/pel-abelian-scheme; PELModuli:M0/generalized-cm-type; PELModuli:M0/unramified-tau-decomposition; PELModuli:M0/skew-hermitian-space; AbelianSchemesAndArithmeticModuli:A4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The coefficient order is OF of the actual CM field; τ and τc are conjugate embeddings at an unramified p, and P=Z_(p) for the p-principal conclusions. The rank theorem’s N,r parameters must come from the same generalized CM type; these identifications are omitted future conditions.
 
 <a id="symplectic-isom-sheaf"></a>
 
@@ -1138,37 +1480,49 @@ Let F be a CM field, P ⊂ ℚ a subring and S a P-scheme. An O_F-abelian scheme
 
 Let (A, λ, i) be a PEL triple over a connected locally noetherian S₀-scheme S, with prime-to-□ Tate module T^□A (a lisse Ẑ^□-sheaf on S_ét) and the λ-Weil pairing e^λ : T^□A × T^□A → T^□G_m. Isom_{O,sympl}(L ⊗ Ẑ^□, T^□A) is the étale sheaf of pairs (α̂, ν(α̂)) with α̂ : L ⊗ Ẑ^□ ≅ T^□A an O-linear isomorphism and ν(α̂) : Ẑ^□(1) ≅ T^□G_m such that e^λ(α̂x, α̂y) = ν(α̂)(⟨x, y⟩). G(Ẑ^□) acts on the right by α̂ ↦ α̂ ∘ g with ν(α̂ ∘ g) = ν(α̂)·ν(g); when nonempty at a geometric point s̄ the fibre is a G(Ẑ^□)-torsor, and π₁(S, s̄) acts on it on the left. The rational variant Isom(V ⊗ 𝔸^{∞,□}, V^□A) uses the rational Tate module V^□A = T^□A ⊗ ℚ and G(𝔸^{∞,□}).
 
-**Hypotheses.** (A, λ, i) a PEL triple S connected locally noetherian
+**Hypotheses.** (A, λ, i) a PEL triple; S connected locally noetherian
 
 **Construction or proof.**
 
 1. Import the Tate module local system and the Weil pairing of a polarization from AbelianSchemesAndArithmeticModuli A3–A4 (Weil pairing with its Tate twist; étale Tate module for ℓ invertible).
+
 2. Define the sheaf of O-linear symplectic similitudes as a closed subsheaf of Isom(L ⊗ Ẑ^□, T^□A) × Isom(Ẑ^□(1), T^□G_m) (limit over n prime to □ of finite étale schemes Isom((L/nL)_S, A[n])).
+
 3. Torsor property at geometric points: two O-symplectic isomorphisms differ by an element of G(Ẑ^□) (Lan Definition 1.1.4.11 and §1.3.5).
 
 **API.**
 
-- **symplecticIsomSheaf** — The étale sheaf of O-linear symplectic similitudes (α̂, ν(α̂)) : L ⊗ Ẑ^□ ≅ T^□A.
-- **symplecticIsomSheaf.act** — Right action of G(Ẑ^□); ν(α̂ g) = ν(α̂) ν(g).
-- **symplecticIsomSheaf.torsor** — At a geometric point where it is nonempty, the fibre is a G(Ẑ^□)-torsor.
-- **symplecticIsomSheaf.galois** — π₁(S, s̄) acts on the fibre at s̄, commuting with G(Ẑ^□).
-- **symplecticIsomSheaf.reduce** — Reduction mod n: (α̂, ν) ↦ (α̂ mod n, ν mod n) to O-linear symplectic isomorphisms (L/nL)_S ≅ A[n].
-- **symplecticIsomSheaf.rational** — The rational variant with V ⊗ 𝔸^{∞,□}, V^□A and G(𝔸^{∞,□}).
-- **symplecticIsomSheaf.baseChange** — Compatible with pullback along S' → S.
+- **symplecticIsomSheaf** (constructor) — The étale sheaf of O-linear symplectic similitudes (α̂, ν(α̂)) : L ⊗ Ẑ^□ ≅ T^□A.
+
+- **symplecticIsomSheaf.act** (structure) — Right action of G(Ẑ^□); ν(α̂ g) = ν(α̂) ν(g).
+
+- **symplecticIsomSheaf.torsor** (characterisation) — At a geometric point where it is nonempty, the fibre is a G(Ẑ^□)-torsor.
+
+- **symplecticIsomSheaf.galois** (functoriality) — π₁(S, s̄) acts on the fibre at s̄, commuting with G(Ẑ^□).
+
+- **symplecticIsomSheaf.reduce** (projection) — Reduction mod n: (α̂, ν) ↦ (α̂ mod n, ν mod n) to O-linear symplectic isomorphisms (L/nL)_S ≅ A[n].
+
+- **symplecticIsomSheaf.rational** (functoriality) — The rational variant with V ⊗ 𝔸^{∞,□}, V^□A and G(𝔸^{∞,□}).
+
+- **symplecticIsomSheaf.baseChange** (functoriality) — Compatible with pullback along S' → S.
 
 **Unit tests.**
 
 - **symplecticIsom_relative_torsor** (characterisation) — For actual abelian torsion with invertible n and a geometric section, the similitude sheaf is a torsor under the actual finite integral group.
+
 - **symplecticIsom_relative_monodromy** (non-example) — The actual monodromy action commutes with the integral similitude action on the relative torsor stalk. An orbit descends through the monodromy-invariance condition of the level carrier.
+
 - **symplecticIsom_relative_empty** (degenerate) — Without a similitude between the actual torsion modules the corresponding section fibre is empty.
 
 **Acceptance.** For the Siegel datum and S = Spec k, the fibre is the set of symplectic bases of T^□A up to the multiplier, a GSp_{2g}(Ẑ^□)-torsor if nonempty.
 
 **Uses.** Lan 2008, Definitions 1.3.6.1 and 1.3.7.8: level structures are orbits of (liftable) symplectic isomorphisms. Kottwitz 1992, §5: a level structure of type K^p is a π₁-invariant K^p-orbit of isomorphisms of skew-Hermitian B-modules. HilbertModularVarietiesAndShimuraCurves:H4: generic prime-to-p full-level functors (RS-23 link M1 → H4).
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.6.1, pp. 132–133; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 390.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.6.1, pp. 132–133; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 390.
 
 **Direct dependencies.** PELModuli:M1/pel-abelian-scheme; PELModuli:M0/similitude-group; AbelianSchemesAndArithmeticModuli:A3; AbelianSchemesAndArithmeticModuli:A4; tauceti:TauCeti.RootsOfUnityGroup.groupScheme; mathlib:AlgebraicGeometry.Scheme.etaleTopology.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The base is locally noetherian, connected for a single monodromy fibre, and the actual order, lattice and Weil pairing come from P. The empty-sheaf example takes a principal geometric polarization and a lattice with incompatible ℓ-adic elementary divisors, ℓ away from □.
 
 <a id="principal-level-structure"></a>
 
@@ -1178,30 +1532,42 @@ Let (A, λ, i) be a PEL triple over a connected locally noetherian S₀-scheme S
 
 Let n ≥ 1 be prime to □, (A, λ, i) a PEL triple over S with λ a prime-to-□ polarization and i : O → End_S(A). An integral principal level-n structure of type (L ⊗ Ẑ^□, ⟨·,·⟩) is a pair (α_n, ν(α_n)) of an O-linear isomorphism α_n : (L/nL)_S ≅ A[n] and an isomorphism ν(α_n) : ((ℤ/nℤ)(1))_S ≅ μ_{n,S}, such that for every geometric point s̄ of S there exists an O-equivariant symplectic isomorphism (α̂, ν(α̂)) : L ⊗ Ẑ^□ ≅ T^□A_s̄ (M1/symplectic-isom-sheaf) reducing to (α_{n,s̄}, ν(α_n)_s̄) mod n (liftability). The multiplier ν(α_n) is part of the datum: the mod-n pairing condition alone does not determine it at levels where L is not self-dual (e.g. L = ℓ·L_std, n = ℓ); it is pinned only through liftability. Liftability identifies ker λ on each geometric fibre with the finite lattice quotient (L^#/L) tensor Ẑ^□. At n=1 it does not provide a global trivialization of this kernel over S.
 
-**Hypotheses.** n prime to □ (A, λ, i) PEL triple with λ prime-to-□
+**Hypotheses.** n prime to □; (A, λ, i) PEL triple with λ prime-to-□
 
 **Construction or proof.**
 
 1. Define α_n as an isomorphism of finite étale group schemes with O-action (A[n] finite étale since n is invertible on S, AbelianSchemesAndArithmeticModuli A3) and ν(α_n) with values in μ_n (Tau Ceti RootsOfUnityGroup.groupScheme).
+
 2. Liftability is checked at one geometric point per connected component (Lan Corollary 1.3.6.7) because the lifts form a π₁-stable set.
+
 3. Record the consequence ker λ ≅ (L^#/L) ⊗ Ẑ^□ (Lan Remark 1.3.6.2).
 
 **API.**
 
-- **PrincipalLevel** — (α_n, ν_n) with α_n : (L/nL)_S ≅ A[n] O-linear and ν_n : (ℤ/n)(1)_S ≅ μ_n, liftable at all geometric points.
-- **PrincipalLevel.symplectic** — e^λ_n(α_n x, α_n y) = ν_n(⟨x, y⟩ mod n).
-- **PrincipalLevel.liftable** — Existence of an O-symplectic lift (α̂, ν(α̂)) at each geometric point; equivalent to existence at one point per connected component.
-- **PrincipalLevel.ker_polarization** — For every geometric point s, liftability gives an isomorphism of the actual geometric polarization kernel with the finite lattice-kernel group scheme over its algebraically closed field. This is a fibrewise comparison.
-- **PrincipalLevel.pullback** — Base change along T → S.
-- **PrincipalLevel.reduce** — For m | n, reduction to a level-m structure.
-- **PrincipalLevel.act** — The actual completed integral similitude group acts on liftable principal structures through its reduction. A finite similitude is usable here only with the required completed lift.
-- **PrincipalLevel.multiplier_data** — The retained multiplier is an actual isomorphism from the constant finite Tate twist to the Weil-pairing target. Uniqueness cannot be inferred from a degenerate finite pairing alone.
+- **PrincipalLevel** (structure) — (α_n, ν_n) with α_n : (L/nL)_S ≅ A[n] O-linear and ν_n : (ℤ/n)(1)_S ≅ μ_n, liftable at all geometric points.
+
+- **PrincipalLevel.symplectic** (relation) — e^λ_n(α_n x, α_n y) = ν_n(⟨x, y⟩ mod n).
+
+- **PrincipalLevel.liftable** (characterisation) — Existence of an O-symplectic lift (α̂, ν(α̂)) at each geometric point; equivalent to existence at one point per connected component.
+
+- **PrincipalLevel.ker_polarization** (relation) — For every geometric point s, liftability gives an isomorphism of the actual geometric polarization kernel with the finite lattice-kernel group scheme over its algebraically closed field. This is a fibrewise comparison.
+
+- **PrincipalLevel.pullback** (functoriality) — Base change along T → S.
+
+- **PrincipalLevel.reduce** (functoriality) — For m | n, reduction to a level-m structure.
+
+- **PrincipalLevel.act** (structure) — The actual completed integral similitude group acts on liftable principal structures through its reduction. A finite similitude is usable here only with the required completed lift.
+
+- **PrincipalLevel.multiplier_data** (relation) — The retained multiplier is an actual isomorphism from the constant finite Tate twist to the Weil-pairing target. Uniqueness cannot be inferred from a degenerate finite pairing alone.
 
 **Unit tests.**
 
 - **principalLevel_relative_pairing** (computation) — An actual lifted relative principal structure preserves the torsion Weil pairing with its finite multiplier.
+
 - **principalLevel_relative_lift** (characterisation) — A compatible completed lift maps to the prescribed relative finite-level section.
+
 - **principalLevel_relative_kernel** (characterisation) — At every geometric point the actual polarization kernel is isomorphic to the finite lattice quotient.
+
 - **principalLevel_multiplier_scaled** (non-example) — At a degenerate finite pairing two different units can satisfy the same scaling equation; liftability retains the multiplier data.
 
 **Acceptance.** For the principally polarized Siegel datum (L self-dual), α_n is a symplectic basis of A[n] relative to the Weil pairing and ν(α_n) is determined by α_n. For g = 1 this is a full level-n structure with the Weil-pairing value fixed by ν (M5/genus-one-comparison).
@@ -1212,48 +1578,65 @@ Let n ≥ 1 be prime to □, (A, λ, i) a PEL triple over S with λ a prime-to-�
 
 **Direct dependencies.** PELModuli:M1/symplectic-isom-sheaf; PELModuli:M1/pel-abelian-scheme; tauceti:TauCeti.RootsOfUnityGroup.groupScheme; AbelianSchemesAndArithmeticModuli:A3.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. n is positive and invertible at the prescribed base and prime to □; the full Tate-lattice lift is retained. The geometric-kernel test is at a geometric fibre and makes no global kernel-trivialization assertion.
+
 <a id="level-structure"></a>
 
 ### Integral and rational level-H structures
 
 **Target:** TauCeti.PEL.IntegralLevel (definition; PELModuli:M1/level-structure).
 
-Let H ⊂ G(Ẑ^□) be open compact. An integral level-H structure of (A, λ, i) is a compatible collection α_H = {α_{H_n}} over n prime to □ with U^□(n) ⊂ H, where α_{H_n} is an H_n = H/U^□(n)-orbit of étale-locally defined principal level-n structures, represented as a closed subscheme of Isom_S((L/nL)_S, A[n]) × Isom_S((ℤ/n)(1)_S, μ_n). For H ⊂ G(𝔸^{∞,□}) open compact, a rational level-H structure is, on each connected component with geometric point s̄, a π₁(S, s̄)-invariant H-orbit [α̂]_H of O-linear symplectic similitudes α̂ : V ⊗ 𝔸^{∞,□} ≅ V^□A_s̄, independent of s̄ via the canonical bijections of Lan Corollary 1.3.7.13. Every integral level-H structure gives a rational one (Construction 1.3.7.10); a rational one comes from a unique integral one iff some (equivalently every) α̂ in the orbit maps L ⊗ Ẑ^□ onto T^□A_s̄ with ν(α̂)(Ẑ^□(1)) = T^□G_m.
+Let H ⊂ G(Ẑ^□) be open compact. An integral level-H structure of (A, λ, i) is a compatible collection α_H = {α_{H_n}} over n prime to □ with U^□(n) ⊂ H, where α_{H_n} is an H_n = H/U^□(n)-orbit of étale-locally defined principal level-n structures, represented as a closed subscheme of Isom_S((L/nL)_S, A[n]) × Isom_S((ℤ/n)(1)_S, μ_n). For H ⊂ G(𝔸^{∞,□}) open compact, a rational level-H structure is, on each connected component with geometric point s̄, a π₁(S, s̄)-invariant H-orbit [α̂]_H of O-linear symplectic similitudes α̂ : V ⊗ 𝔸^{∞,□} ≅ V^□A_s̄, independent of s̄ via the canonical bijections of Lan Corollary 1.3.7.13. Every integral level-H structure gives a rational one (Construction 1.3.7.10); for H ⊂ G(Ẑ^□), a rational one comes from a unique integral one iff some (equivalently every) α̂ in the orbit maps L ⊗ Ẑ^□ onto T^□A_s̄ with ν(α̂)(Ẑ^□(1)) = T^□G_m.
 
 **Hypotheses.** H open compact
 
 **Construction or proof.**
 
 1. Define α_{H_n} as an orbit of étale-local level structures and show the collection is determined by one member (Lan Remark 1.3.7.9, Corollary 1.3.7.7).
+
 2. Construct the rational orbit [α̂]_H by lifting a representative after a finite étale cover trivializing α_{H_n} (Construction 1.3.7.10).
+
 3. Prove the integrality criterion (Lan Corollary 1.3.7.11) and independence of the base point (Corollary 1.3.7.13).
+
 4. For H = U^□(n) recover principal level-n structures (Lan Remark 1.4.1.6).
 
 **API.**
 
-- **IntegralLevel** — Compatible orbits α_{H_n} for U^□(n) ⊂ H.
-- **RelativeRationalLevel** — For a relative triple ξ, take the monodromy-invariant compact-open orbit of actual rational Tate similitudes on each component; descent and basepoint independence are part of the carrier.
-- **IntegralLevel.rationalize** — Rationalize compatible descended integral orbits to the rational orbit structure; this never chooses a full Tate trivialization.
-- **RelativeRationalLevel.integral_iff** — A rational orbit is the rationalization of a unique integral level iff a representative sends the completed lattice onto the actual Tate lattice and the completed Tate twist onto TGm.
-- **RelativeRationalLevel.basepointIndep** — Two geometric points of a connected locally noetherian base give a canonical bijection between monodromy-invariant orbit sets, obtained by transport. The full trivialization torsors need not have a canonical identification.
-- **IntegralLevel.ofPrincipal** — For H = U^□(n), integral level-H structures are principal level-n structures.
-- **RelativeRationalLevel.changeLevel** — For included levels enlarge the actual orbits; the resulting target uses the transported relative parameters. Adelic translation is separately defined by the right action.
-- **IntegralLevel.pullback** — Compatible with base change.
+- **IntegralLevel** (structure) — Compatible orbits α_{H_n} for U^□(n) ⊂ H.
+
+- **RelativeRationalLevel** (structure) — For a relative triple ξ, take the monodromy-invariant compact-open orbit of actual rational Tate similitudes on each component; descent and basepoint independence are part of the carrier.
+
+- **IntegralLevel.rationalize** (functoriality) — Rationalize compatible descended integral orbits to the rational orbit structure; this never chooses a full Tate trivialization.
+
+- **RelativeRationalLevel.integral_iff** (characterisation) — For H ⊂ G(Ẑ^□), a rational orbit is the rationalization of a unique integral level iff a representative sends the completed lattice onto the actual Tate lattice and the completed Tate twist onto TGm.
+
+- **RelativeRationalLevel.basepointIndep** (other) — Two geometric points of a connected locally noetherian base give a canonical bijection between monodromy-invariant orbit sets, obtained by transport. The full trivialization torsors need not have a canonical identification.
+
+- **IntegralLevel.ofPrincipal** (equivalence) — For H = U^□(n), integral level-H structures are principal level-n structures.
+
+- **RelativeRationalLevel.changeLevel** (functoriality) — For included levels enlarge the actual orbits; the resulting target uses the transported relative parameters. Adelic translation is separately defined by the right action.
+
+- **IntegralLevel.pullback** (functoriality) — Compatible with base change.
 
 **Unit tests.**
 
 - **level_full_unique** (degenerate) — For H = G(Ẑ^□) and a liftable triple, the level-H structure is unique.
+
 - **level_principal_eq** (compatibility) — IntegralLevel for H = U^□(n) is equivalent to PrincipalLevel n.
+
 - **rationalLevel_not_integral** (non-example) — For the Siegel datum, H = GSp_{2g}(Ẑ^□) and A with a polarization of degree ℓ² (ℓ ∉ □), the rational level structure [α̂] exists but no member sends L ⊗ Ẑ^□ onto T^□A: rational structures do not all come from integral ones.
+
 - **rationalLevel_change_compose** (characterisation) — changeLevel along H'' ⊂ H' ⊂ H equals changeLevel along H'' ⊂ H.
 
 **Acceptance.** H = U^□(n): integral level-H = principal level-n. H = G(Ẑ^□): a level-H structure exists iff (A, λ, i) is everywhere locally liftable, and is then unique.
 
 **Uses.** Lan 2008, Definitions 1.4.1.4 and 1.4.2.4: objects of M_H and M^rat_H. PELModuli:M1/hecke-action: Hecke translation of rational level structures. HilbertModularVarietiesAndShimuraCurves:H4: imports the generic prime-to-p level functors.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.7.8, p. 143; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.3.7.11, p. 144; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, pp. 390–391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.7.8, p. 143; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.3.7.11, p. 144; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, pp. 390–391.
 
 **Direct dependencies.** PELModuli:M1/principal-level-structure; PELModuli:M1/symplectic-isom-sheaf; PELModuli:M0/similitude-group; mathlib:IsDedekindDomain.FiniteAdeleRing.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. P and the target parameters use compatible base/order/lattice data; K is open compact. The full-level uniqueness test imposes K=G(completed Z), principal comparison K=U(n), and the nonintegral test the stated principal lattice and nonprincipal geometric polarization. The integral_iff comparison also requires K contained in the completed integral point group, so every orbit representative preserves the source lattice.
 
 <a id="moduli-problem"></a>
 
@@ -1263,30 +1646,42 @@ Let H ⊂ G(Ẑ^□) be open compact. An integral level-H structure of (A, λ, i
 
 Fix an integral PEL datum, a set □ of good primes, S₀ = Spec O_{F₀,(□)} and an open compact H ⊂ G(Ẑ^□). M_H is the category fibred in groupoids over the category of locally noetherian S₀-schemes whose fibre over S has objects (A, λ, i, α_H): A an abelian scheme over S, λ an actual prime-to-□ polarization, i : O → End_S(A) an O-structure (Rosati condition), Lie_{A/S} satisfying the determinant condition, and α_H an integral level-H structure; morphisms are isomorphisms f : A → A' with λ = f^∨ λ' f, f i(b) = i'(b) f, and α_{H_n} = (f|_{A[n]} × id)^*α'_{H_n} for one (equivalently all) n. M_n := M_{U^□(n)}. The functor of isomorphism classes S ↦ M_H(S)/≅ is a different object, used only when automorphisms are trivial.
 
-**Hypotheses.** □ a set of good primes H ⊂ G(Ẑ^□) open compact
+**Hypotheses.** □ a set of good primes; H ⊂ G(Ẑ^□) open compact
 
 **Construction or proof.**
 
 1. Assemble the fibred category from PEL triples and integral level structures, with pullbacks giving a cleavage (mathlib CategoryTheory.Functor.IsFibered for the projection to schemes).
+
 2. Check the morphism condition on level structures needs only one n (Lan Definition 1.4.1.4, isomorphism condition 3).
+
 3. Record M_n = M_{U^□(n)} (Lan Remark 1.4.1.6) and the iso-class presheaf as a separate functor.
 
 **API.**
 
-- **PELModuli.moduliProblem** — The ordinary pseudofunctor of actual relative Family groupoids on the opposite category of test schemes over the reflex base.
-- **PELModuli.moduliProblem.obj** — Evaluation is the groupoid of relative triples with their descended integral level, not the set of fibrewise coordinates.
-- **PELModuli.moduliProblem.isFibered** — The projection to schemes is fibered in groupoids (mathlib Functor.IsFibered).
-- **PELModuli.moduliProblem.principal** — M_n = M_{U^□(n)}.
-- **PELModuli.moduliProblem.isoClasses** — The presheaf S ↦ M_H(S)/≅ (not a sheaf in general).
-- **PELModuli.moduliProblem.changeLevel** — For H' ⊂ H, the forgetful morphism M_{H'} → M_H.
-- **PELModuli.moduliProblem.siegel** — A natural isomorphism between the actual family functor for Siegel parameters of any genus/type and the supplier’s polarized Siegel-family functor.
-- **PELModuli.moduliProblem.aut** — The automorphism type is ξ≅ξ in the actual PEL family groupoid; its elements preserve λ,i and the descended level.
+- **PELModuli.moduliProblem** (constructor) — The ordinary pseudofunctor of actual relative Family groupoids on the opposite category of test schemes over the reflex base.
+
+- **PELModuli.moduliProblem.obj** (relation) — Evaluation is the groupoid of relative triples with their descended integral level, not the set of fibrewise coordinates.
+
+- **PELModuli.moduliProblem.isFibered** (instance) — The projection to schemes is fibered in groupoids (mathlib Functor.IsFibered).
+
+- **PELModuli.moduliProblem.principal** (simp) — M_n = M_{U^□(n)}.
+
+- **PELModuli.moduliProblem.isoClasses** (projection) — The presheaf S ↦ M_H(S)/≅ (not a sheaf in general).
+
+- **PELModuli.moduliProblem.changeLevel** (functoriality) — For H' ⊂ H, the forgetful morphism M_{H'} → M_H.
+
+- **PELModuli.moduliProblem.siegel** (relation) — A natural isomorphism between the actual family functor for Siegel parameters of any genus/type and the supplier’s polarized Siegel-family functor.
+
+- **PELModuli.moduliProblem.aut** (relation) — The automorphism type is ξ≅ξ in the actual PEL family groupoid; its elements preserve λ,i and the descended level.
 
 **Unit tests.**
 
 - **moduliProblem_siegel_g1** (compatibility) — For the Siegel datum with g = 1 and n ≥ 3, M_n(S) is equivalent to the groupoid of elliptic curves over S with a full level-n structure (P, Q) and ν_n with e_n(P, Q) = ν_n(ζ) (ModularCurves layer 3C/5B).
+
 - **moduliProblem_isoClasses_not_sheaf** (non-example) — For the Siegel datum with g = 1 and H = GL₂(Ẑ^□), the iso-class presheaf is not an étale sheaf: an elliptic curve E over ℚ with j ≠ 0, 1728 and its quadratic twist E^d become isomorphic over ℚ(√d) (Tau Ceti WeierstrassCurve.j_quadraticTwist) but are not isomorphic over ℚ (WeierstrassCurve.not_exists_smul_quadraticTwist_eq), so two distinct classes glue to the same descent datum.
+
 - **moduliProblem_zero** (degenerate) — For L = 0, M_H(S) is the groupoid of trivializations ν of μ modulo H acting through ν(H) ⊂ Ẑ^{□×}.
+
 - **moduliProblem_det_matters** (non-example) — For a unitary datum of signature (2, 1), triples of signature (1, 2) are not objects: dropping the determinant condition adds the conjugate moduli problem.
 
 **Acceptance.** Siegel datum, □ = primes not dividing n: M_n is the moduli of principally polarized abelian schemes of dimension g with full symplectic level n and μ_n-trivialization over ℤ[1/n].
@@ -1297,6 +1692,8 @@ Fix an integral PEL datum, a set □ of good primes, S₀ = Spec O_{F₀,(□)} 
 
 **Direct dependencies.** PELModuli:M1/pel-abelian-scheme; PELModuli:M1/level-structure; PELModuli:M0/good-primes; mathlib:CategoryTheory.Functor.IsFibered; mathlib:AlgebraicGeometry.Scheme.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The ordinary pseudofunctor uses the effective descent comparison of affine and relative triples. Genus/type/level identifications in the Siegel examples are the actual imported datum, not arbitrary parameter records.
+
 <a id="rational-moduli-problem"></a>
 
 ### The prime-to-□ quasi-isogeny moduli problem M^rat_H
@@ -1305,34 +1702,43 @@ Fix an integral PEL datum, a set □ of good primes, S₀ = Spec O_{F₀,(□)} 
 
 For H ⊂ G(𝔸^{∞,□}) open compact, M^rat_H is the category fibred in groupoids over locally noetherian S₀-schemes whose objects over S are (A, λ, i, [α̂]_H): A an abelian scheme, λ a ℤ_(□)^×-polarization, i : O ⊗ ℤ_(□) → End_S(A) ⊗ ℤ_(□) an O ⊗ ℤ_(□)-structure, Lie_{A/S} satisfying the determinant condition (for (V ⊗ ℝ, ⟨·,·⟩)), and [α̂]_H a rational level-H structure; morphisms are ℤ_(□)^×-isogenies f with λ = r f^∨ λ' f for some r ∈ ℤ_(□),>0^×, f i(b) = i'(b) f, and (α̂')⁻¹ ∘ V^□(f) ∘ α̂ in the H-orbit of the identity with ν(α̂')⁻¹ν(α̂) in the ν(H)-orbit of r. Kottwitz's functor S_{K^p} (abelian schemes up to prime-to-p isogeny with K^p-level) is the case □ = {p} at level K^p.
 
-**Hypotheses.** □ good H ⊂ G(𝔸^{∞,□}) open compact
+**Hypotheses.** □ good; H ⊂ G(𝔸^{∞,□}) open compact
 
 **Construction or proof.**
 
 1. Define objects and ℤ_(□)^×-isogeny morphisms (Lan Definition 1.4.2.4), using M1/prime-to-box-quasi-isogeny and rational level structures.
+
 2. Observe the definition uses only (V ⊗ 𝔸^{∞,□}, ⟨·,·⟩), O ⊗ ℤ_(□) and the existence of L (Lan Remark 1.4.2.7, Remark 1.4.3.13).
 
 **API.**
 
-- **PELModuli.ratModuliProblem** — The relative groupoid of actual abelian schemes, prime-to-□ quasi-polarizations, localized order actions and invariant rational level orbits, with prime-to-□ quasi-isogenies.
-- **PELModuli.ratModuliProblem.hom** — Morphisms are ℤ_(□)^×-isogenies respecting λ up to ℤ_(□),>0^×, i and [α̂]_H as in Lan Definition 1.4.2.4.
-- **PELModuli.ratModuliProblem.dependsOnlyOn** — For two compatible integral presentations of the same rational datum and transported compact-open level, the actual rational-family functors are naturally isomorphic.
-- **PELModuli.ratModuliProblem.kottwitz** — A natural isomorphism of the actual rational-family functor with Kottwitz’s prime-to-p quadruple functor at the same rational datum and compact-open level.
-- **PELModuli.ratModuliProblem.changeLevel** — The natural level-forgetting transformation for an inclusion of compatible compact-open subgroups. Hecke translation by g is the separate heckeTranslate interface.
+- **PELModuli.ratModuliProblem** (constructor) — The relative groupoid of actual abelian schemes, prime-to-□ quasi-polarizations, localized order actions and invariant rational level orbits, with prime-to-□ quasi-isogenies.
+
+- **PELModuli.ratModuliProblem.hom** (characterisation) — Morphisms are ℤ_(□)^×-isogenies respecting λ up to ℤ_(□),>0^×, i and [α̂]_H as in Lan Definition 1.4.2.4.
+
+- **PELModuli.ratModuliProblem.dependsOnlyOn** (relation) — For two compatible integral presentations of the same rational datum and transported compact-open level, the actual rational-family functors are naturally isomorphic.
+
+- **PELModuli.ratModuliProblem.kottwitz** (relation) — A natural isomorphism of the actual rational-family functor with Kottwitz’s prime-to-p quadruple functor at the same rational datum and compact-open level.
+
+- **PELModuli.ratModuliProblem.changeLevel** (functoriality) — The natural level-forgetting transformation for an inclusion of compatible compact-open subgroups. Hecke translation by g is the separate heckeTranslate interface.
 
 **Unit tests.**
 
 - **ratModuli_scalar_iso** (characterisation) — For m a positive integer prime to □, [m] : A → A is an isomorphism (A, λ, i, [α̂]_H) ≅ (A, λ, i, [m α̂]_H) in M^rat_H with r = m⁻² in Lan's condition (1): scalar translation of the level structure is trivial on isomorphism classes.
+
 - **ratModuli_siegel_kottwitz** (compatibility) — For the Siegel datum with □ = {p}, iso classes of M^rat_{K^p}(k) are Kottwitz's quadruples (A up to prime-to-p isogeny, λ prime-to-p, η̄).
+
 - **ratModuli_lattice_indep** (non-example) — Different lattices L₁,L₂ whose localized PEL data agree give equivalent integral M_H after transporting the level, and equivalent M^rat_H. They need not be the same presentation; do not assert inequivalent M_H in contradiction with iso-isogeny comparison and change of lattice.
 
 **Acceptance.** For H = U^□(n) this is M^rat_n (Lan Remark 1.4.2.6). Kottwitz §5's set-valued functor is the iso-class functor of M^rat_{K^p} for □ = {p}.
 
 **Uses.** Lan 2008, Proposition 1.4.3.3: M_H ≅ M^rat_H. Kottwitz 1992, §§5–8: points over finite fields and complex points are described with the quasi-isogeny moduli. Liu–Tian–Xiao–Zhang–Zhu, Definition 3.5.4: the CM moduli T¹_p is a quasi-isogeny moduli problem.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.2.4, pp. 156–157; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 390.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.2.4, pp. 156–157; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 390.
 
 **Direct dependencies.** PELModuli:M1/prime-to-box-quasi-isogeny; PELModuli:M1/pel-abelian-scheme; PELModuli:M1/level-structure; PELModuli:M0/rational-pel-datum.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The coefficient localization is Z_(□); order/rational datum and K agree. dependsOnlyOn assumes both presentations describe that same rational datum and level, and Kottwitz comparison uses the specified good p-integral lattice.
 
 <a id="char-zero-adelic-moduli"></a>
 
@@ -1342,33 +1748,49 @@ For H ⊂ G(𝔸^{∞,□}) open compact, M^rat_H is the category fibred in grou
 
 For K ⊂ G(𝔸_f) open compact and an F₀-scheme S (characteristic zero), M^ad_K(S) is the groupoid of quadruples (A, λ, i, η̄): A an abelian scheme over S, λ a polarization up to ℚ_{>0}^× (a ℚ^×-polarization), i : B → End_S(A) ⊗ ℚ satisfying the Rosati condition, Lie_{A/S} satisfying the determinant condition, and η̄ a π₁-invariant K-orbit of B ⊗ 𝔸_f-linear isomorphisms η : V ⊗ 𝔸_f ≅ V_f(A) sending ⟨·,·⟩ to an 𝔸_f^×-multiple of the λ-Weil pairing; morphisms are quasi-isogenies preserving these data. This is the all-primes variant: full level at every prime, including those dividing n·Disc·[L^#:L], is allowed only in characteristic zero. Over ℂ its points are Milne's quadruples in Theorem 8.17 (without the condition (**)).
 
-**Hypotheses.** S an F₀-scheme K ⊂ G(𝔸_f) open compact
+**Hypotheses.** S an F₀-scheme; K ⊂ G(𝔸_f) open compact
 
 **Construction or proof.**
 
-1. Define as M1/rational-moduli-problem with □ = ∅ (all primes), over the generic fibre where all Tate modules are lisse.
+1. Restrict to characteristic-zero bases, rationalize the order and polarization, and use the full finite adelic coefficient ring and all-prime quasi-isogenies. Compare with the □=∅ specialization of the rationalized problem: ℤ_(∅)=ℚ and the away-from-∅ adelic ring is the full finite adelic ring. Retain the rational Tate markings rather than replacing them with integral markings.
+
 2. Compare with Milne ISV Theorem 8.17: over ℂ condition (**) selects the components attached to V itself (M3/complex-points).
 
 **API.**
 
-- **PELModuli.adelicModuli** — In characteristic zero use full finite adeles and all-prime quasi-isogenies in the relative family groupoid.
-- **PELModuli.adelicModuli.ofRational** — A natural comparison of the away-from-□ rational-family functor with the full finite adelic functor after the compatible omitted prime components and lattice are supplied.
-- **PELModuli.adelicModuli.hecke** — Actual full finite adelic right-translation functors on these groupoids.
-- **PELModuli.adelicModuli.complexPoints** — The quotient of the actual full adelic groupoid over C by isomorphisms is bijective to the disjoint union over ker¹ of full rational-form double quotients.
+- **PELModuli.adelicModuli** (constructor) — In characteristic zero use full finite adeles and all-prime quasi-isogenies in the relative family groupoid.
+
+- **PELModuli.adelicModuli.ofRational** (relation) — A natural comparison of the away-from-□ rational-family functor with the full finite adelic functor after the compatible omitted prime components and lattice are supplied.
+
+- **PELModuli.adelicModuli.hecke** (relation) — Actual full finite adelic right-translation functors on these groupoids.
+
+- **PELModuli.adelicModuli.complexPoints** (relation) — The quotient of the actual full adelic groupoid over C by isomorphisms is bijective to the disjoint union over ker¹ of full rational-form double quotients.
+
+- **PELModuli.adelicModuli.abelian** (projection) — The actual relative abelian scheme of a full finite adelic PEL family.
+
+- **PELModuli.adelicModuli.levelOrbit** (projection) — At each geometric point, its actual full finite adelic orbit of B-linear Tate markings with their Tate-twist multiplier.
+
+- **PELModuli.adelicModuli.heckeOrbit** (projection) — The level orbit of the actual Hecke-translated family, transported to the unchanged abelian scheme by the canonical comparison.
+
+- **PELModuli.adelicModuli.hecke_orbit** (compatibility) — The transported Hecke orbit consists exactly of the old markings precomposed by the actual full adelic similitude, multiplying the marking multiplier by that similitude multiplier.
 
 **Unit tests.**
 
 - **adelicModuli_coefficient_compare** (characterisation) — The actual completed integral Tate module rationalizes to the all-prime finite adelic homological module.
+
 - **adelicModuli_actual_hecke** (characterisation) — An actual right translation carries the K orbit to the conjugate level orbit on the same family.
-- **adelicModuli_all_primes_points** (non-example) — An orbit in the actual full finite adelic similitude group uses every prime; a single p-adic group does not have this type.
+
+- **adelicModuli_all_primes_points** (characterisation) — Over C, the actual full finite adelic family groupoid modulo isomorphism is classified by the union of every global rational-form double quotient. This distinguishes the all-prime problem from a single local realization or only the neutral piece.
 
 **Acceptance.** For the Siegel datum and K = K(N), M^ad_K over ℚ is the moduli of principally polarized abelian schemes with full level N up to isogeny, equivalently (by M1/iso-isogeny-comparison) up to isomorphism with L = ℤ^{2g}.
 
 **Uses.** Milne ISV, Theorem 8.17: complex points of PEL Shimura varieties. PELModuli:M3/complex-points: the complex uniformization is stated for M^ad_K. HilbertModularVarietiesAndShimuraCurves:H4: characteristic-zero full p-level trivializations (RS-23: not transported to characteristic p).
 
-**Sources.** [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 8.17, p. 88; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 398.
+**Sources.** [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 8.17, p. 88; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 398.
 
 **Direct dependencies.** PELModuli:M1/rational-moduli-problem; PELModuli:M0/rational-pel-datum; mathlib:IsDedekindDomain.FiniteAdeleRing.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Characteristic zero, same reflex base/rational datum, compatible compact-open full level and away-from-□ comparison are omitted supplier conditions. The complex-points test uses the quotient of the actual all-prime groupoid.
 
 <a id="iso-isogeny-comparison"></a>
 
@@ -1378,12 +1800,14 @@ For K ⊂ G(𝔸_f) open compact and an F₀-scheme S (characteristic zero), M^a
 
 For H ⊂ G(Ẑ^□) open compact, the canonical morphism M_H → M^rat_H, (A, λ, i, α_H) ↦ (A, λ, i, [α̂]_H) (Construction 1.4.3.1), is an isomorphism of fibred categories: for every S it is an equivalence M_H(S) → M^rat_H(S).
 
-**Hypotheses.** □ good H ⊂ G(Ẑ^□)
+**Hypotheses.** □ good; H ⊂ G(Ẑ^□)
 
 **Construction or proof.**
 
 1. Reduce to S connected with a geometric point s̄ (decompose into components).
+
 2. Full faithfulness: a ℤ_(□)^×-isogeny respecting the integral level structures preserves T^□ and hence is an isomorphism (rank of kernel prime to □ and trivial on Tate modules).
+
 3. Essential surjectivity: given (A, λ, i, [α̂]_H), find a ℤ_(□)^×-isogeny f with V^□(f) ∘ α̂ (L ⊗ Ẑ^□) = T^□A₁ (Lan Corollary 1.3.5.4), then rescale λ by r ∈ ℤ_(□),>0^× to make it a polarization with the right multiplier; the rational structure then comes from an integral one (M1/level-structure integrality criterion).
 
 **Acceptance.** Siegel g = 1: every elliptic curve with rational level structure up to prime-to-□ isogeny has a unique representative with integral level structure.
@@ -1392,27 +1816,33 @@ For H ⊂ G(Ẑ^□) open compact, the canonical morphism M_H → M^rat_H, (A, �
 
 **Direct dependencies.** PELModuli:M1/moduli-problem; PELModuli:M1/rational-moduli-problem; PELModuli:M1/level-structure; PELModuli:M1/prime-to-box-quasi-isogeny.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
+
 <a id="change-of-lattice-and-primes"></a>
 
 ### Changes of order, lattice, polarization type and good primes
 
 **Target:** TauCeti.PEL.changeOfLatticeAndPrimes (theorem; PELModuli:M1/change-of-lattice-and-primes).
 
-(1) If O, O' are *-orders and L, L' PEL-type lattices with O ⊗ ℤ_(□) ≅ O' ⊗ ℤ_(□) and (L ⊗ ℤ_(□), ⟨·,·⟩) ≅ (L' ⊗ ℤ_(□), ⟨·,·⟩') compatibly, so that □ is good for both, then M_H ≅ M'_H over S₀; in particular O may be replaced by a maximal order containing it and L by its O-span (Lan Corollary 1.4.3.7, Remark 1.4.3.8). (2) For sets □₁, □₂ of good primes with □ = □₁ ∩ □₂ and H = H_i × ∏_{p ∈ □_i ∖ □} G(ℤ_p), if for every p ∈ □₁ ∪ □₂ there is a unique isomorphism class of self-dual O ⊗ ℤ_p-modules of each multi-rank, then M_H ≅ M_{H_i} ×_{S_i} S₀ (Lan Proposition 1.4.4.1); the hypothesis holds unless B has a type D factor (M0/self-dual-lattice-classification), while in type D no unrestricted conclusion is asserted here. The official errata removes Remark 1.4.4.3's unsupported failure assertion; use the precise uniqueness/component hypotheses. (3) Over F₀, the generic fibre of M^rat_H is identified with the characteristic-zero problem M^ad_K for K = H × ∏_{p ∈ □} Stab(L ⊗ ℤ_p) (same uniqueness hypothesis).
+(1) If O, O' are *-orders and L, L' PEL-type lattices with O ⊗ ℤ_(□) ≅ O' ⊗ ℤ_(□) and (L ⊗ ℤ_(□), ⟨·,·⟩) ≅ (L' ⊗ ℤ_(□), ⟨·,·⟩') compatibly, so that □ is good for both, then M_H ≅ M'_H over S₀; one may retain O and enlarge L to its span under a containing maximal order when the localized lattice and form stay isomorphic (Lan Corollary 1.4.3.7 and the corrected Remark 1.4.3.8). (2) For sets □₁, □₂ of good primes with □ = □₁ ∩ □₂ and H = H_i × ∏_{p ∈ □_i ∖ □} G(ℤ_p), if for every p ∈ □₁ ∪ □₂ there is a unique isomorphism class of self-dual O ⊗ ℤ_p-modules of each multi-rank, then M_H ≅ M_{H_i} ×_{S_i} S₀ (Lan Proposition 1.4.4.1); the hypothesis holds unless B has a type D factor (M0/self-dual-lattice-classification), while in type D no unrestricted conclusion is asserted here. The official errata removes Remark 1.4.4.3's unsupported failure assertion; use the precise uniqueness/component hypotheses. (3) Over F₀, the generic fibre of M^rat_H is identified with the characteristic-zero problem M^ad_K for K = H × ∏_{p ∈ □} Stab(L ⊗ ℤ_p) (same uniqueness hypothesis).
 
-**Hypotheses.** □, □₁, □₂ sets of good primes uniqueness of self-dual classes per multi-rank at the primes involved for (2), (3)
+**Hypotheses.** □, □₁, □₂ sets of good primes; uniqueness of self-dual classes per multi-rank at the primes involved for (2), (3); The characteristic-zero generic-fibre statement (3) assumes the excluded prime set □ is finite, as corrected in the erratum to Remark 1.4.3.11.
 
 **Construction or proof.**
 
 1. (1) follows from M1/iso-isogeny-comparison and the dependence of M^rat_H only on the ℤ_(□)-data (Lan Remark 1.4.2.7).
+
 2. (2) At p ∈ □₁ ∖ □ the λ-Weil pairing on T_pA gives a self-dual O ⊗ ℤ_p-lattice of the same multi-rank as L ⊗ ℤ_p, hence symplectically isomorphic to it; so the extra liftability condition is automatic (Lan proof of Proposition 1.4.4.1).
+
 3. (3) Same argument at all p ∈ □ in characteristic zero (Kottwitz §8 treatment of the place p via Lemma 7.2).
 
 **Acceptance.** For the Siegel datum (type C, no type D factor) the change of good primes in (2) holds unconditionally.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.3.7, p. 163; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 1.4.4.1, p. 166; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p. 11, correction to Remark 1.4.4.3.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.3.7, p. 163; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 1.4.4.1, p. 166; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p. 11, correction to Remark 1.4.4.3; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p.11, correction to Remark 1.4.3.8; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), p.11, correction to Remark 1.4.3.11.
 
 **Direct dependencies.** PELModuli:M1/iso-isogeny-comparison; PELModuli:M1/char-zero-adelic-moduli; PELModuli:M0/self-dual-lattice-classification; PELModuli:M0/good-primes.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="effective-descent"></a>
 
@@ -1427,14 +1857,18 @@ For every S₀-scheme S and fppf covering {S_j → S}, the fibred category M_H s
 **Construction or proof.**
 
 1. Morphisms: homomorphisms of abelian schemes are morphisms of schemes, which descend (fppf subcanonicity; mathlib AlgebraicGeometry.Scheme.fppfTopology), and the conditions on λ, i, α are equalities of morphisms.
+
 2. Objects: λ gives the relatively ample invertible sheaf L_λ = (1, λ)^*P_A (Poincaré sheaf, A2), which carries a descent datum; effective descent of quasi-projective schemes with ample descent data (Tau Ceti ModularCurves layer 0E, R09.3 fpqc descent of quasi-coherent modules) descends A, and the group law, λ, i and α_H descend as morphisms.
+
 3. Package as mathlib CategoryTheory.Pseudofunctor.IsStack for the associated pseudofunctor (stacks on D0's carrier per RS-27: R09.4 imports D0 stacks).
 
 **Acceptance.** For the Siegel datum with g = 1 this recovers descent of elliptic curves with level structure (ModularCurves 0E/1E).
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Appendix A.5 and §1.4.1 (Remark 1.4.1.7), p. 151; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Appendix A.5 and §1.4.1 (Remark 1.4.1.7), p. 151; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M1/moduli-problem; PELModuli:M1/rational-moduli-problem; mathlib:AlgebraicGeometry.Scheme.fppfTopology; mathlib:CategoryTheory.Pseudofunctor.IsStack; AlgebraicModuliForArithmeticGeometry:R09.3; AlgebraicModuliForArithmeticGeometry:R09.4; tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out; AbelianSchemesAndArithmeticModuli:A2; DiamondsAndVStacks:D0.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use the actual finite free order/lattice, positive form and CM embeddings specified in this target; the suggested type omits only future supplier identifications, not a replacement predicate. The mathematical API is subject to all hypotheses in this node.
 
 <a id="hecke-action"></a>
 
@@ -1449,33 +1883,46 @@ For compact-open K′⊂K, forgetting level enlarges invariant rational orbits. 
 **Construction or proof.**
 
 1. Enlarge descended monodromy-invariant orbits for forgetting level. Precompose actual Tate similitudes by g, including its twist multiplier; check the conjugated stabilizer and quasi-isogeny compatibility.
+
 2. For the composition transport to a common source with both level containments. In function order, [g] after [h] equals [h g], up to the canonical common-level comparison.
+
 3. Positive rational central scalars act by a natural quasi-isogeny and the corresponding inverse square polarization factor. A general central adelic element need not act trivially; an element in the compact level does.
+
 4. After representability use the finite étale level theorem in M6 for the two maps of the Hecke span.
 
 **API.**
 
-- **PELModuli.forgetLevel** — M^rat_{H'} → M^rat_H for H' ⊂ H.
-- **PELModuli.heckeTranslate** — [g] : M^rat_{H'} → M^rat_H for H' ⊂ H ∩ gHg⁻¹.
-- **PELModuli.heckeTranslate_comp** — At a common refined source level, translation by h followed by g equals translation by h g, up to the canonical level identification; the identity translation equals forgetting level.
-- **PELModuli.heckeTranslate_central** — A positive rational scalar gives a natural isomorphism of the actual rational-family functor. Central elements already in the target level act trivially on orbits; arbitrary central ideles are not asserted trivial.
-- **PELModuli.heckeCorrespondence** — The span M^rat_H ← M^rat_{H ∩ gHg⁻¹} → M^rat_H.
-- **PELModuli.heckeTranslate_integral** — Under M_H ≅ M^rat_H the action preserves integral level structures for g ∈ G(Ẑ^□).
+- **PELModuli.forgetLevel** (constructor) — M^rat_{H'} → M^rat_H for H' ⊂ H.
+
+- **PELModuli.heckeTranslate** (constructor) — [g] : M^rat_{H'} → M^rat_H for H' ⊂ H ∩ gHg⁻¹.
+
+- **PELModuli.heckeTranslate_comp** (relation) — At a common refined source level, translation by h followed by g equals translation by h g, up to the canonical level identification; the identity translation equals forgetting level.
+
+- **PELModuli.heckeTranslate_central** (relation) — A positive rational scalar gives a natural isomorphism of the actual rational-family functor. Central elements already in the target level act trivially on orbits; arbitrary central ideles are not asserted trivial.
+
+- **PELModuli.heckeCorrespondence** (constructor) — The span M^rat_H ← M^rat_{H ∩ gHg⁻¹} → M^rat_H.
+
+- **PELModuli.heckeTranslate_integral** (compatibility) — Under M_H ≅ M^rat_H the action preserves integral level structures for g ∈ G(Ẑ^□).
 
 **Unit tests.**
 
 - **heckeTranslate_id** (computation) — The actual identity Hecke map is the identity on relative levelled objects.
+
 - **heckeTranslate_siegel_scalar** (computation) — A central scalar acts on the actual level orbit by its specified precomposition.
-- **heckeTranslate_right_order** (characterisation) — First precompose by g and then by h: the resulting level is η∘g∘h. The right-action composite uses h*g with the target-level conventions of the actual Hecke maps.
+
+- **heckeTranslate_right_order** (characterisation) — First precompose by h and then by g: the resulting level is η∘h∘g. The composite translation is h*g with the target-level conventions of the actual Hecke maps.
+
 - **hecke_matrices_noncommute** (non-example) — The explicit integral 2×2 unipotent matrices do not commute, so the action-order test detects reversal.
 
 **Acceptance.** g central in H acts trivially on M^rat_H. For the Siegel datum and g = diag(1, …, 1, ℓ, …, ℓ) the correspondence parametrizes ℓ-isogenies of a fixed type.
 
 **Uses.** Kottwitz 1992, §6: Hecke correspondences on S_{K^p} and λ-adic sheaves. AutomorphicGaloisRepresentationsPartII:AG2.1a: commuting Galois and Hecke actions on the étale cohomology of PEL varieties. PELModuli:M4/canonical-model-identification: compatibility of canonical models with Hecke translations.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.10, p. 164; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §6, p. 392.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.10, p. 164; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §6, p. 392.
 
 **Direct dependencies.** PELModuli:M1/rational-moduli-problem; PELModuli:M1/level-structure.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Compact openness and source-level containments, compatibility of P with D, and common-level transports are omitted. Positive central scalar triviality has that specified scalar, not a general central element.
 
 <a id="functoriality-in-data"></a>
 
@@ -1490,31 +1937,42 @@ A morphism of integral PEL data (O, L) → (O', L') consists of a *-homomorphism
 **Construction or proof.**
 
 1. Define the induced functor on objects (A, λ, i, α) ↦ (A, λ, i ∘ φ, α) and on morphisms.
-2. Relative representability of forgetting i: Hom_S(A, A) for projective A is representable by a disjoint union of projective schemes (Kottwitz §5), and the O-structure is a closed condition inside a finite product of copies (M2/isom-scheme).
+
+2. Work étale locally where A has an ample line representing its polarization (A2). Represent compatible order actions through the R09.2 graph/Hom scheme. For each of finitely many integral order generators b, Rosati adjointness gives i(b)†=i(b*), and the O-linear Tate marking identifies Tr(i(b)i(b)†) with the fixed trace of bb* on the prescribed lattice. A6 Rosati positivity and boundedness therefore bound the graph Hilbert polynomials. A1 rigidity gives unramifiedness. Extend actions across DVRs by R11.1 and verify all algebra/action equations by rigidity; the bounded locus is proper and quasi-finite, hence finite. These generic graph/rigidity suppliers are used directly, without a backward dependency on PEL M2. A disjoint union of projective Hom loci without the bound would not imply finiteness.
+
+3. For each compatible action and a fixed target-level orbit, the PEL refinements are parametrized by the finite cosets of H inside the compact-open intersection of the Siegel level with G. Finite étale marking descent therefore keeps the relative fibre finite. The construction is relatively representable before either entire moduli problem is represented.
 
 **API.**
 
-- **PELDatum.Hom** — Morphisms of integral PEL data.
-- **PELModuli.mapOfDatumFunctor** — An admissible star-order map, compatible lattice isometry, h and determinant polynomial, and transported level induce a natural map between the actual relative family functors. Identity and composition respect the same data.
-- **PELModuli.toSiegelFunctor** — For the actual underlying symplectic datum and a compact-open Siegel level containing the image of the PEL level, forget the order action in the actual relative family functor.
-- **PELModuli.toSiegel_fiber** — The actual relative 2-fibre over a fixed polarized Siegel family is equivalent to the discrete sheaf of compatible order actions satisfying Rosati, determinant and descended-level conditions.
-- **PELModuli.productFamilyEquivalence** — The family functor of the orthogonal product datum is naturally equivalent to pairs of the two actual family functors with their common Tate-twist multiplier and compatible product level.
+- **PELDatum.Hom** (structure) — Morphisms of integral PEL data.
+
+- **PELModuli.mapOfDatumFunctor** (functoriality) — An admissible star-order map, compatible lattice isometry, h and determinant polynomial, and transported level induce a natural map between the actual relative family functors. Identity and composition respect the same data.
+
+- **PELModuli.toSiegelFunctor** (constructor) — For the actual underlying symplectic datum and a compact-open Siegel level containing the image of the PEL level, forget the order action in the actual relative family functor.
+
+- **PELModuli.toSiegel_fiber** (characterisation) — The actual relative 2-fibre over a fixed polarized Siegel family is equivalent to the discrete sheaf of compatible order actions satisfying Rosati, determinant and descended-level conditions.
+
+- **PELModuli.productFamilyEquivalence** (constructor) — The family functor of the orthogonal product datum is naturally equivalent to pairs of the two actual family functors with their common Tate-twist multiplier and compatible product level.
 
 **Unit tests.**
 
 - **mapOfDatum_id** (degenerate) — The identity morphism of data induces the identity of M_H.
+
 - **toSiegel_g1** (computation) — For an imaginary-quadratic field, the locus of j-invariants of actual elliptic curves with the full integer-ring action is finite.
+
 - **toSiegel_not_injective_on_objects** (non-example) — For O = Z times Z on a product of two nonisogenous complex elliptic curves, swapping the two projector actions gives nonisomorphic PEL triples with the same forgotten polarized object and the same Lie determinant X1 X2.
+
 - **mapOfDatum_id_functor** (characterisation) — The identity datum morphism induces the identity natural transformation of actual relative family functors.
 
 **Acceptance.** The PEL datum of a CM field K with V = K (rank 1) maps to the Siegel datum of dimension [K⁺ : ℚ]. Forgetting i on a Picard datum gives a map to the genus-3 Siegel moduli problem.
 
 **Uses.** Kottwitz 1992, §5: representability is reduced to Mumford's moduli via the forgetful map. ShimuraCompactifications:C5: quasi-projectivity of the open PEL moduli via the Siegel case. PELModuli:M4/canonical-model-identification: compatibility of canonical models with morphisms of PEL data.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
-**Direct dependencies.** PELModuli:M1/moduli-problem; PELModuli:M0/similitude-group.
+**Direct dependencies.** PELModuli:M1/moduli-problem; PELModuli:M0/similitude-group; AbelianSchemesAndArithmeticModuli:A2; AbelianSchemesAndArithmeticModuli:A6/automorphisms-of-polarized-abelian-varieties; AlgebraicModuliForArithmeticGeometry:R09.2; NeronModelsAndSemistableAbelianVarieties:R11.1; AbelianSchemesAndArithmeticModuli:A1.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The star-order/lattice/h morphism, determinant compatibility and target transported level are omitted conditions. The product equivalence requires the orthogonal product datum and common multiplier; mapOfDatum_id_functor uses the identity data map.
 
 <a id="m2"></a>
 
@@ -1530,14 +1988,16 @@ M2 proves rigidity, constructs the finite Isom object and applies marked deforma
 
 **Target:** TauCeti.PEL.polarizedAutomorphismRigidity (theorem; PELModuli:M2/rigidity).
 
-Let A be an abelian scheme over a scheme S, λ : A → A^∨ a polarization and n ≥ 3 an integer invertible on S. Then the restriction homomorphism Aut_S(A, λ) := {f ∈ Aut_S(A) : f^∨ ∘ λ ∘ f = λ} → Aut_S(A[n]) is injective, and each f has finite order and its individual Tate-module eigenvalues are roots of unity. In particular an automorphism of (A, λ) acting trivially on A[n] is the identity (for S = Spec k with char k ∤ n this is Serre's rigidity).
+Let A be an abelian scheme over a scheme S, λ : A → A^∨ a polarization and n ≥ 3 an integer invertible on S. Then the restriction homomorphism Aut_S(A, λ) := {f ∈ Aut_S(A) : f^∨ ∘ λ ∘ f = λ} → Aut_S(A[n]) is injective, and on each geometric fibre each f has finite order and its individual Tate-module eigenvalues are roots of unity. In particular an automorphism of (A, λ) acting trivially on A[n] is the identity (for S = Spec k with char k ∤ n this is Serre's rigidity).
 
-**Hypotheses.** λ a polarization n ≥ 3 invertible on S
+**Hypotheses.** λ a polarization; n ≥ 3 invertible on S
 
 **Construction or proof.**
 
 1. Use A2’s ample polarization to make the graph construction of polarization-preserving automorphisms finite; source-fibre polarization automorphism groups are finite, not all endomorphism groups.
+
 2. Inject polarized automorphisms into the Tate representation by relative rigidity. An automorphism trivial on one geometric fibre is globally trivial on a connected base.
+
 3. For level n≥3 combine this with Serre’s torsion lemma on the actual lattice representation. The subgroup generated by all eigenvalues, rather than its individual torsion eigenvalues, is used.
 
 **Acceptance.** n = 2 fails: [−1] is a nontrivial automorphism of (A, λ) acting trivially on A[2]. For an elliptic curve with j = 1728 over ℂ, [i] acts on E[3] nontrivially.
@@ -1545,6 +2005,8 @@ Let A be an abelian scheme over a scheme S, λ : A → A^∨ a polarization and 
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Lemma 1.4.1.10, p. 152; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.1.9, p. 152.
 
 **Direct dependencies.** AbelianSchemesAndArithmeticModuli:A6/automorphisms-of-polarized-abelian-varieties; AbelianSchemesAndArithmeticModuli:A1; tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The one-geometric-fibre comparison uses a connected base; finite torsion is prime to the base residue characteristics. The geometric scheme and action are the actual polarized family.
 
 <a id="neat-level"></a>
 
@@ -1559,24 +2021,35 @@ Embed G(Ẑ^□) ⊂ GL(L ⊗ Ẑ^□) × G_m(Ẑ^□) (or use any faithful repr
 **Construction or proof.**
 
 1. Define the eigenvalue groups factorwise and show independence of the faithful representation and of ℚ̄ ↪ ℚ̄_p (Pink 0.6, as in Lan §1.4.1).
+
 2. U^□(n), n ≥ 3: an element ≡ 1 mod n has eigenvalues ≡ 1 mod n; Serre's lemma excludes nontrivial torsion (Lan Remark 1.4.1.9).
+
 3. Compare with ShimuraData:D5/neat-level when □ = ∅ and G is connected.
 
 **API.**
 
-- **IsNeatElement** — The local helper tests torsion-freeness of the subgroup generated by all eigenvalues; the full adelic predicate uses the intersection of the corresponding rational torsion subgroups at every unexcluded prime.
-- **IsNeat** — Every element of the actual completed PEL group level satisfies the all-prime generated-eigenvalue intersection condition.
-- **IsNeat.mono** — Open compact subgroups of neat groups are neat.
-- **IsNeat.conj** — Conjugation preserves the neatness predicate on the completed integral point group in this helper. The general finite-adelic level uses the same faithful-representation eigenvalue criterion.
-- **isNeat_principalCongruence** — U^□(n) is neat for n ≥ 3 prime to □.
-- **IsNeat.repr_indep** — Independent of the faithful representation used.
-- **IsNeat.shimuraData** — Unfold the faithful-representation definition: every allowed rational element has a torsion-free subgroup generated by all its eigenvalues. Agreement with ShimuraData D5 uses that owner’s same neatness convention.
+- **IsNeatElement** (data) — The local helper tests torsion-freeness of the subgroup generated by all eigenvalues; the full adelic predicate uses the intersection of the corresponding rational torsion subgroups at every unexcluded prime.
+
+- **IsNeat** (data) — Every element of the actual completed PEL group level satisfies the all-prime generated-eigenvalue intersection condition.
+
+- **IsNeat.mono** (other) — Open compact subgroups of neat groups are neat.
+
+- **IsNeat.conj** (other) — Conjugation preserves the neatness predicate on the completed integral point group in this helper. The general finite-adelic level uses the same faithful-representation eigenvalue criterion.
+
+- **isNeat_principalCongruence** (example) — U^□(n) is neat for n ≥ 3 prime to □.
+
+- **IsNeat.repr_indep** (characterisation) — Independent of the faithful representation used.
+
+- **IsNeat.shimuraData** (compatibility) — Unfold the faithful-representation definition: every allowed rational element has a torsion-free subgroup generated by all its eigenvalues. Agreement with ShimuraData D5 uses that owner’s same neatness convention.
 
 **Unit tests.**
 
 - **isNeat_U3** (computation) — For the Siegel datum with □ ∌ 3, U^□(3) is neat.
+
 - **not_isNeat_minus_one** (non-example) — Any H containing −1 (e.g. G(Ẑ^□) itself, or U^□(2) for the Siegel datum) is not neat: −1 has eigenvalue −1, a nontrivial torsion element of ℚ̄^×.
+
 - **isNeat_mono** (degenerate) — Every open compact subgroup of a neat subgroup is neat; in particular U^□(nm) ⊂ U^□(n) is neat for n ≥ 3 and m ≥ 1 prime to □.
+
 - **not_isNeat_generated_ratio** (non-example) — Eigenvalues 2 and −2 are individually of infinite order, but their generated subgroup contains −1; the corresponding diagonal matrix is not neat.
 
 **Acceptance.** U^□(3) is neat; GL₂(Ẑ) is not (it contains −1).
@@ -1586,6 +2059,8 @@ Embed G(Ẑ^□) ⊂ GL(L ⊗ Ẑ^□) × G_m(Ẑ^□) (or use any faithful repr
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.8, p. 152; [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.1.11 (1), p. 25 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M0/similitude-group; ShimuraData:D5/neat; ShimuraData:D5/neat-level.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Representation independence applies to faithful algebraic representations of the same group; conjugation and principal congruence use the actual adelic/lattice representation. Positive lattice rank is required for the −1 nonexample.
 
 <a id="no-automorphisms-at-neat-level"></a>
 
@@ -1600,7 +2075,9 @@ If H ⊂ G(Ẑ^□) is neat, every object (A, λ, i, α_H) of M_H(S), for any S�
 **Construction or proof.**
 
 1. Reduce to geometric points s̄ (an automorphism trivial on all geometric fibres is trivial, rigidity A1).
+
 2. By M2/rigidity, the finite polarized automorphism group injects into the automorphisms of the actual prime-to-box Tate module; each individual automorphism has finite order, so its eigenvalues are roots of unity. This does not identify the whole group with a subgroup of roots of unity.
+
 3. An automorphism preserving α_H lies in a conjugate of H; its eigenvalues are roots of unity in every Γ_p, so neatness forces it to be 1 (Lan proof of Corollary 1.4.1.11).
 
 **Acceptance.** For the Siegel datum and n ≥ 3, M_n(S) is a set for every S.
@@ -1608,6 +2085,8 @@ If H ⊂ G(Ẑ^□) is neat, every object (A, λ, i, α_H) of M_H(S), for any S�
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.1.11, p. 152.
 
 **Direct dependencies.** PELModuli:M2/rigidity; PELModuli:M2/neat-level; PELModuli:M1/moduli-problem.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The actual good integral datum and compact-open neat level are omitted; geometric torsion faithfulness is M2 rigidity.
 
 <a id="isom-scheme"></a>
 
@@ -1622,15 +2101,20 @@ Let ξ, η be objects of M_H over a locally noetherian S₀-scheme U. The sheaf 
 **Construction or proof.**
 
 1. Represent Hom/Isom of projective abelian schemes by graph loci in the R09.2 Hilbert schemes; impose the group, polarization, order and finite-level equations.
+
 2. Relative rigidity makes the actual polarization-preserving Isom functor unramified and quasi-finite. Use the ample polarization to bound the relevant Hilbert polynomial.
+
 3. Over a DVR extend homomorphisms by the Néron property and use the polarization to extend the inverse. This gives the valuative properness of the Isom functor; proper quasi-finite implies finite.
+
 4. Use this finite scheme to supply the representable diagonal in Artin’s criterion.
 
 **Acceptance.** For neat H, Isom_U(ξ, ξ) = U. For the Siegel datum with H = GSp_{2g}(Ẑ), Isom(ξ, ξ) over a field contains [±1].
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 1.4.1.12, p.153; its Isom-diagonal proof in §2.3.3, pp.265–267; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, pp.390–391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 1.4.1.12, p.153; its Isom-diagonal proof in §2.3.3, pp.265–267; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, pp.390–391.
 
 **Direct dependencies.** PELModuli:M2/rigidity; PELModuli:M1/moduli-problem; AlgebraicModuliForArithmeticGeometry:R09.2; NeronModelsAndSemistableAbelianVarieties:R11.1; AbelianSchemesAndArithmeticModuli:A2.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The parameter object supplies actual locally noetherian PEL families and polarized projectivity/finite presentation; these future supplier hypotheses are omitted from the representative constructor.
 
 <a id="deformation-prorepresentable"></a>
 
@@ -1638,14 +2122,16 @@ Let ξ, η be objects of M_H over a locally noetherian S₀-scheme U. The sheaf 
 
 **Target:** TauCeti.PEL.deformationProrepresentable (theorem; PELModuli:M2/deformation-prorepresentable).
 
-Let k be a field over S₀ (perfect, or more generally as in Lan §2.2), ξ₀ = (A₀, λ₀, i₀, α_{H,0}) an object of M_H(k), and Def_{ξ₀} the functor on complete local noetherian W(k)-type O_{S₀}-algebras with residue field k sending R to the set of deformations of ξ₀ over R. Def_{A₀}, Def_{(A₀,λ₀)}, Def_{(A₀,λ₀,i₀)} and Def_{ξ₀} are prorepresentable, and the forgetful morphisms are relatively representable by closed immersions (for λ and i) and isomorphisms (for prime-to-□ level).
+Let k be a field over S₀ (perfect, or more generally as in Lan §2.2), ξ₀ = (A₀, λ₀, i₀, α_{H,0}) an object of M_H(k), and Def_{ξ₀} the functor on complete local noetherian W(k)-type O_{S₀}-algebras with residue field k sending R to isomorphism classes of deformations over R with a specified identification of their special fibre with ξ₀; morphisms respect that identification. Def_{A₀}, Def_{(A₀,λ₀)}, Def_{(A₀,λ₀,i₀)} and Def_{ξ₀} are prorepresentable, and the forgetful morphisms are relatively representable by closed immersions (for λ and i) and isomorphisms (for prime-to-□ level).
 
 **Hypotheses.** ξ₀ ∈ M_H(k)
 
 **Construction or proof.**
 
 1. Schlessinger's criterion (Lan Theorem 2.2.1.4) for Def_{A₀}: tangent space H¹(A₀, T_{A₀}) finite and the gluing conditions from the obstruction theory of smooth schemes (Lan §2.1.2).
+
 2. Rigidity of structures (Lan §2.2.2): deformations of λ and i are unique if they exist, and their existence is a closed condition (Proposition 2.2.2.5); prime-to-□ level structures deform uniquely because A[n] is étale.
+
 3. Assemble: Def_{ξ₀} ⊂ Def_{(A₀,λ₀,i₀)} ⊂ Def_{(A₀,λ₀)} ⊂ Def_{A₀} (Lan Propositions 2.2.3.4, 2.2.3.7, 2.2.3.9, Theorem 2.2.3.10).
 
 **Acceptance.** For an elliptic curve E₀ over k, Def_{E₀} = Def_{(E₀,λ₀)} is prorepresented by W(k)[[t]] (ModularCurves 7D).
@@ -1653,6 +2139,8 @@ Let k be a field over S₀ (perfect, or more generally as in Lan §2.2), ξ₀ =
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 2.2.3.10, p. 245; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 2.2.1.4, p. 229.
 
 **Direct dependencies.** PELModuli:M1/moduli-problem; AbelianSchemesAndArithmeticModuli:A4; AlgebraicModuliForArithmeticGeometry:R09.6; tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The marked special object, perfect residue field and Artin local test category come from the actual reflex base. These are marked deformation functors: rigidity kills automorphisms reducing to the identity, so neatness is not required for their prorepresentability.
 
 <a id="formal-smoothness"></a>
 
@@ -1662,20 +2150,25 @@ Let k be a field over S₀ (perfect, or more generally as in Lan §2.2), ξ₀ =
 
 Let □ be a set of good primes (p ∤ I_bad·Disc·[L^#:L] for p ∈ □, no level at p) and ξ₀ ∈ M_H(k) for a field k over S₀. Then Def_{ξ₀} is formally smooth: for every small surjection R̃ → R of artinian local O_{S₀}-algebras with residue field k, every deformation over R lifts to R̃. The tangent space is the space of O ⊗ k-compatible symmetric maps, of dimension equal to the relative dimension of M2/kodaira-spencer-dimension. The hypotheses are used separately: p ∤ Disc for the projectivity of O ⊗ k-modules and the determinant condition over nonreduced bases, p ≠ 2 in type D for the symmetric-form lifting, self-duality for the perfectness of the pairing on H^dR_1.
 
-**Hypotheses.** □ a set of good primes H ⊂ G(Ẑ^□)
+**Hypotheses.** □ a set of good primes; H ⊂ G(Ẑ^□)
 
 **Construction or proof.**
 
 1. By Grothendieck–Messing (AbelianSchemesAndArithmeticModuli A4, importing FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6) and Serre–Tate, deformations of (A, λ, i) over a PD thickening correspond to O-stable, λ-isotropic lifts of the Hodge filtration ω_{A^∨} ⊂ H^dR_1 satisfying the determinant condition.
+
 2. The determinant condition at good primes identifies the space of such lifts with points of the flag variety G/P₀, formally smooth over the base (Lan Proposition 1.2.5.20, Corollary 1.2.5.23), using the classification of self-dual O ⊗ R-modules (M0/self-dual-lattice-classification) and I_bad for p = 2 (Lan Remark 1.2.2.3).
+
 3. Polarizations: Def_{(A₀,λ₀)} is formally smooth (Lan Proposition 2.2.4.4); adding i (Proposition 2.2.4.11) and étale level (Theorem 2.2.4.16).
+
 4. Apply the corrected auxiliary finite étale extension in the proof of Proposition 2.2.4.11 (thesis errata pp. 7, 15). The power-series ring is formally smooth; it is not a finite-presentation smooth algebra.
 
 **Acceptance.** For the Siegel datum, Def_{(A₀,λ₀)} ≅ Spf W(k)[[t_{ij} : 1 ≤ i ≤ j ≤ g]] for principal λ₀. For a type D datum at p = 2 the argument fails (Lan Remark 1.2.2.3).
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 2.2.4.16, p. 260; thesis errata p. 15 (formally smooth, reference 2.2.4.15); [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.2.3, p. 60; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 2.2.4.16, p. 260; thesis errata p. 15 (formally smooth, reference 2.2.4.15); [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.2.2.3, p. 60; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M2/deformation-prorepresentable; PELModuli:M0/good-primes; PELModuli:M0/self-dual-lattice-classification; PELModuli:M0/determinant-condition-splitting; AbelianSchemesAndArithmeticModuli:A4; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6; mathlib:Algebra.FormallySmooth.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. p is good and the actual maximal order and self-dual p-adic lattice are used; the reflex embedding into the residue field is the one used in the family. Dimension N is determined by the KS quotient.
 
 <a id="effectivity"></a>
 
@@ -1685,19 +2178,23 @@ Let □ be a set of good primes (p ∤ I_bad·Disc·[L^#:L] for p ∈ □, no le
 
 Let R be a complete local noetherian O_{S₀}-algebra with maximal ideal m, and {(A_i, λ_i, i_i, α_{H,i})} a compatible system of objects of M_H over R/m^{i+1}. Then there is an object, unique up to a unique isomorphism compatible with the prescribed formal identification, (A, λ, i, α_H) over R inducing it. Hence the deformation functors of M2/deformation-prorepresentable are effectively prorepresentable.
 
-**Hypotheses.** R a complete noetherian local reflex-base algebra, m its maximal ideal. Compatible marked PEL families over every R/m^n, with actual polarizations, order action and level.
+**Hypotheses.** R a complete noetherian local reflex-base algebra, m its maximal ideal.; Compatible marked PEL families over every R/m^n, with actual polarizations, order action and level.
 
 **Construction or proof.**
 
 1. Use the relatively ample polarization sheaf supplied by A2; apply proper polarized Grothendieck existence to the compatible abelian schemes and marking.
+
 2. Algebraize the group law, zero, polarization and order maps by full faithfulness; check Rosati and determinant identities after completion.
+
 3. Finite étale level data lift uniquely along nilpotent thickenings and the compatible inverse system. Relative rigidity gives uniqueness of the algebraization with its formal identification.
 
 **Acceptance.** The universal formal deformation of an elliptic curve algebraizes to an elliptic curve over W(k)[[t]].
 
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.2.1, p. 263; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), proof of Proposition 2.3.2.1, pp. 263–264.
 
-**Direct dependencies.** PELModuli:M2/deformation-prorepresentable; AlgebraicModuliForArithmeticGeometry:A0-extension; AbelianSchemesAndArithmeticModuli:A2.
+**Direct dependencies.** PELModuli:M2/deformation-prorepresentable; AlgebraicModuliForArithmeticGeometry:A0-extension; AbelianSchemesAndArithmeticModuli:A2; AlgebraicModuliForArithmeticGeometry:R09.3.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The suggested signature explicitly includes noetherian local, completeness and maximal-ideal conditions. Compatibility includes all group, polarization, order, level and marking maps; supplier Grothendieck existence remains admitted.
 
 <a id="representability"></a>
 
@@ -1707,13 +2204,16 @@ Let R be a complete local noetherian O_{S₀}-algebra with maximal ideal m, and 
 
 Let □ be a set of good primes, S₀ = Spec O_{F₀,(□)} and H ⊂ G(Ẑ^□) open compact. Then M_H is an algebraic stack over S₀ which is smooth, separated (finite diagonal) and of finite type; it is representable by an algebraic space (Deligne–Mumford with trivial inertia) when H is neat, and more generally whenever objects have no nontrivial automorphisms. The same holds for M^rat_H (M1/iso-isogeny-comparison). Scheme representability and quasi-projectivity over S₀ are not part of this theorem (ShimuraCompactifications C5; in characteristic zero M3/algebraization-of-components).
 
-**Hypotheses.** The reflex base is the excellent Dedekind localization O_{F₀,(□)} and □ is good. The algebraic-space conclusion requires neat level or trivial inertia; the ordinary stack conclusion permits arbitrary compact-open level. Use the ordinary family pseudofunctor and its actual finite Isom diagonal; local noetherianness and limit preservation. At every geometric point a finite separable residue-field extension admits effective marked prorepresentability; the formal deformation ring is normal and has the stated local dimension.
+**Hypotheses.** The reflex base is the excellent Dedekind localization O_{F₀,(□)} and □ is good. The algebraic-space conclusion requires neat level or trivial inertia; the ordinary stack conclusion permits arbitrary compact-open level.; Use the ordinary family pseudofunctor and its actual finite Isom diagonal; local noetherianness and limit preservation.; At every geometric point a finite separable residue-field extension admits effective marked prorepresentability; the formal deformation ring is normal and has the stated local dimension.
 
 **Construction or proof.**
 
 1. Apply the A0-extension Artin criterion in the exact form of Lan Appendix B.3.8, pp.1018–1023. Effective fppf descent supplies the stack; finite-presentation descent of objects and morphisms supplies limit preservation/local finite presentation; M2/isom-scheme supplies the finite representable diagonal.
+
 2. Marked deformations satisfy Appendix B.3.10, pp.1023–1024, after a finite separable residue-field extension. M2/effectivity supplies an actual family realizing the universal formal object.
+
 3. For the chosen excellent Dedekind base and normal formally smooth universal rings, invoke the precise openness-of-versality criterion of Appendix B.3.12, pp.1024–1026, with matching Krull dimensions. This step is an imported theorem whose PEL hypotheses have been verified.
+
 4. Neatness kills inertia, yielding a separated algebraic space. Good-prime Hodge-filtration lifting makes it smooth. Quasi-compactness follows from the bounded polarized Hilbert presentation plus the finitely presented order/level conditions, as in §2.3.3, pp.265–267. Integral quasi-projectivity remains the independent C5 suffix. For arbitrary H, choose a neat normal H′ and use the finite level-refinement quotient argument recorded independently in M6/arbitrary-level-stack; this adds the ordinary DM stack conclusion without requiring a scheme presentation.
 
 **Acceptance.** Siegel datum, H = U(n), n ≥ 3: M_n is a smooth separated algebraic space of finite type over ℤ[1/n] of relative dimension g(g+1)/2. Siegel datum, H = GSp_{2g}(Ẑ): M_H is a smooth separated Deligne–Mumford stack over ℤ, not an algebraic space ([−1] is an automorphism).
@@ -1721,6 +2221,8 @@ Let □ be a set of good primes, S₀ = Spec O_{F₀,(□)} and H ⊂ G(Ẑ^□)
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 1.4.1.12, p. 153; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), §2.3.3, p. 265; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.1.14, p. 154; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Appendix B.3.8, pp.1018–1023; B.3.10, pp.1023–1024; B.3.12, pp.1024–1026; §2.3.3, pp.265–267.
 
 **Direct dependencies.** PELModuli:M1/effective-descent; PELModuli:M2/isom-scheme; PELModuli:M2/deformation-prorepresentable; PELModuli:M2/effectivity; PELModuli:M2/formal-smoothness; PELModuli:M2/no-automorphisms-at-neat-level; PELModuli:M1/iso-isogeny-comparison; AlgebraicModuliForArithmeticGeometry:A0-extension; AlgebraicModuliForArithmeticGeometry:R09.4; SchemeAndStackFoundations:SF.1/algebraic-space; mathlib:AlgebraicGeometry.Smooth; mathlib:AlgebraicGeometry.IsSeparated.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Goodness, compact openness, neatness, excellent reflex base and the Artin inputs verified in the proof outline are omitted future hypothesis interfaces. A smooth/quasi-compact atlas alone does not imply properness or quasi-projectivity.
 
 <a id="universal-family"></a>
 
@@ -1735,35 +2237,50 @@ For H neat, let M_H be the representing algebraic space (M2/representability). T
 **Construction or proof.**
 
 1. Yoneda: an algebraic space representing a fibred category in sets carries a universal object, obtained from the étale atlas and descent of the objects over it (M1/effective-descent).
+
 2. Abelian scheme property: over an étale atlas U → M_H the pulled-back object is an abelian scheme; A^univ is the descended abelian algebraic space over M_H.
+
 3. Base change: for S₀' → S₀, M_H ×_{S₀} S₀' represents the restricted problem and carries the pulled-back universal object.
 
 **API.**
 
-- **PELModuli.universal** — The universal object (A^univ, λ^univ, i^univ, α^univ) over M_H for neat H.
-- **PELModuli.classify** — For an object ξ over S, the unique morphism c_ξ : S → M_H with c_ξ^*(universal) ≅ ξ.
-- **PELModuli.classify_pullback** — Naturality: classify of the pulled-back family equals the base-change map applied to its classifying point. classify_universal separately identifies the family with the pullback of the universal object.
-- **PELModuli.universal_baseChange** — Compatible with base change S₀' → S₀.
-- **PELModuli.universal_relDim** — A^univ has relative dimension dim_ℂ V₀ over M_H.
-- **PELModuli.universal_lie** — Lie_{A^univ/M_H} satisfies the determinant condition.
-- **PELModuli.universal_hecke** — Hecke translates pull back universal objects to ℤ_(□)^×-isogenous universal objects.
-- **PELModuli.universal_siegel** — Under the principal genus-one, invertible level at least three comparison, an actual isomorphism identifies the universal affine abelian scheme with ModularCurves 5B’s universal elliptic curve.
-- **PELModuli.classify_universal** — Every compatible relative family is isomorphic to the pullback of the actual universal family along its classifying point.
+- **PELModuli.universal** (constructor) — The universal object (A^univ, λ^univ, i^univ, α^univ) over M_H for neat H.
+
+- **PELModuli.classify** (universal-property) — For an object ξ over S, the unique morphism c_ξ : S → M_H with c_ξ^*(universal) ≅ ξ.
+
+- **PELModuli.classify_pullback** (functoriality) — Naturality: classify of the pulled-back family equals the base-change map applied to its classifying point. classify_universal separately identifies the family with the pullback of the universal object.
+
+- **PELModuli.universal_baseChange** (functoriality) — Compatible with base change S₀' → S₀.
+
+- **PELModuli.universal_relDim** (other) — A^univ has relative dimension dim_ℂ V₀ over M_H.
+
+- **PELModuli.universal_lie** (other) — Lie_{A^univ/M_H} satisfies the determinant condition.
+
+- **PELModuli.universal_hecke** (functoriality) — Hecke translates pull back universal objects to ℤ_(□)^×-isogenous universal objects.
+
+- **PELModuli.universal_siegel** (compatibility) — Under the principal genus-one, invertible level at least three comparison, an actual isomorphism identifies the universal affine abelian scheme with ModularCurves 5B’s universal elliptic curve.
+
+- **PELModuli.classify_universal** (relation) — Every compatible relative family is isomorphic to the pullback of the actual universal family along its classifying point.
 
 **Unit tests.**
 
 - **universal_g1** (compatibility) — For the Siegel datum, g = 1, n ≥ 3, the universal object is the universal elliptic curve over Y(n) with its full level-n structure and Weil-pairing multiplier.
+
 - **universal_classify_self** (characterisation) — classify(universal) = id_{M_H}.
+
 - **universal_nonneat** (non-example) — For H = GSp_{2g}(Ẑ), there is no universal object over an algebraic space representing M_H: [−1] obstructs (the universal object exists only on the stack).
+
 - **universal_zero** (degenerate) — For L = 0 the universal abelian scheme is the zero scheme over M_H.
 
 **Acceptance.** For the Siegel datum and g = 1, n ≥ 3, A^univ is the universal elliptic curve with full level n over Y(n) (ModularCurves layer 5B).
 
 **Uses.** RS-23 owner record: M2 owns the construction of the universal abelian family on the fine moduli object. ArakelovGeometryAndAbelianHeights:R35.2: the Hodge bundle of the universal family (via M6's export). ShimuraCompactifications:C4: degenerations extend the universal family to the boundary. AutomorphicGaloisRepresentationsPartII:AG2.1a: local systems from the universal abelian scheme and its Kuga–Sato powers. AbelianVarietiesIsogenousToNoJacobian:C0: fine-level moduli with its universal polarized family (request to M2).
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 269; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 269; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M1/effective-descent; SchemeAndStackFoundations:SF.1/algebraic-space.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The representing space has neat level and good base. universal_hecke compares actual translated families at compatible Hecke levels; the genus-one assertion uses the principal Siegel identification.
 
 <a id="kodaira-spencer-dimension"></a>
 
@@ -1771,22 +2288,31 @@ For H neat, let M_H be the representing algebraic space (M2/representability). T
 
 **Target:** TauCeti.PEL.kodairaSpencerDimension (theorem; PELModuli:M2/kodaira-spencer-dimension).
 
-Let (A, λ, i, α_H) be the object over S associated with S → M_H, with Ω¹_{S/S₀} locally free. The Kodaira–Spencer map KS : Lie^∨_{A/S} ⊗ Lie^∨_{A^∨/S} → Ω¹_{S/S₀} satisfies KS(λ^*(y) ⊗ z) = KS(λ^*(z) ⊗ y) and KS(i(b)^*(x) ⊗ y) = KS(x ⊗ (i(b)^∨)^*(y)), hence factors through the quotient KS_{(A,λ)/S} by these relations; S → M_H is étale iff it is flat and KS_{(A,λ)/S} ≅ Ω¹_{S/S₀}. Consequently M_H is smooth over S₀ of relative dimension rank KS_{(A,λ)}, which equals dim_ℂ (Sym-type quotient of V₀^∨ ⊗ V₀ᶜ^∨ by the O-relations): g(g+1)/2 for the Siegel datum of genus g, Σ_{τ ∈ Φ} p_τ q_τ for a unitary datum over a CM field with CM type Φ, and [F : ℚ] for the Hilbert datum.
+Let (A, λ, i, α_H) be the object over S associated with S → M_H, with Ω¹_{S/S₀} locally free. The Kodaira–Spencer map KS : Lie^∨_{A/S} ⊗ Lie^∨_{A^∨/S} → Ω¹_{S/S₀} satisfies KS(λ^*(y) ⊗ z) = KS(λ^*(z) ⊗ y) and KS(i(b)^*(x) ⊗ y) = KS(x ⊗ (i(b)^∨)^*(y)), hence factors through the quotient KS_{(A,λ)/S} by these relations; For S → M_H locally of finite presentation, this morphism is étale iff it is flat and KS_{(A,λ)/S} ≅ Ω¹_{S/S₀}. Consequently M_H is smooth over S₀ of relative dimension rank KS_{(A,λ)}, which equals dim_ℂ (Sym-type quotient of V₀^∨ ⊗ V₀ᶜ^∨ by the O-relations): g(g+1)/2 for the Siegel datum of genus g, Σ_{τ ∈ Φ} p_τ q_τ for a unitary datum over a CM field with CM type Φ, and [F : ℚ] for the Hilbert datum.
 
-**Hypotheses.** □ good
+**Hypotheses.** □ good; The étaleness criterion requires S → M_H locally of finite presentation; the cotangent sheaf is locally free.
 
 **Construction or proof.**
 
 1. Define KS from the Gauss–Manin connection on H^dR_1 (AbelianSchemesAndArithmeticModuli A4) and its Hodge filtration (Lan Definition 2.1.7.8).
+
 2. The symmetry and O-relations come from lifting λ and i(b) to the first infinitesimal neighbourhood of the diagonal (Lan proof of Proposition 2.3.4.2, Proposition 2.1.3.2).
-3. At closed points, KS is identified with the tangent space of the formally smooth deformation functor (Lan Corollaries 2.2.2.10, 2.2.4.13), giving the étaleness criterion.
+
+3. First obtain the universal KS isomorphism using the marked deformation computation, with the completed-local-ring argument corrected by the thesis errata p.16. Functoriality and the cotangent exact sequence give Ω¹_{S/M_H}=0 when KS is an isomorphism. For a locally finitely presented flat morphism this implies étaleness (Stacks tag 02GU); finite presentation is essential (sourceIssue E6).
+
 4. Compute the rank from V₀ = ⊕ W_τ^{p_τ}: Siegel: Sym² of a g-dimensional space; unitary: ⊕_{τ∈Φ} Hom(V_τ⁺, V_τ⁻) of dimension p_τ q_τ.
+
+**API.**
+
+- **kodairaSpencer_etale_iff** (characterisation) — On an ordinary étale scheme presentation, a locally finitely presented base morphism is étale iff flat and its actual KS map is an isomorphism; test cotangent local freeness is required.
 
 **Acceptance.** Siegel g = 1: KS : ω^{⊗2} ≅ Ω¹_{Y(n)/ℤ[1/n]} (the classical Kodaira–Spencer isomorphism). Picard (2, 1): relative dimension 2.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 269; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 270.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 269; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 270; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), Proof of Proposition 2.3.4.2, p.16; [stacks](https://stacks.math.columbia.edu), Tag 02GU, Lemma 29.37.15.
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M2/formal-smoothness; PELModuli:M0/signatures; AbelianSchemesAndArithmeticModuli:A4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The PEL tensor quotient is the actual quotient by Rosati symmetry and OF relations of the universal Hodge modules; its compatibility with the cotangent sheaf is omitted supplier structure. On an étale scheme presentation of M_H, the test morphism is over the same good base and the displayed modules/maps are its actual pulled-back Hodge tensor quotient and relative cotangent sheaf. Local finite presentation is explicit in the criterion signature.
 
 <a id="properness-when-division"></a>
 
@@ -1796,20 +2322,25 @@ Let (A, λ, i, α_H) be the object over S associated with S → M_H, with Ω¹_{
 
 Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum with B simple such that C = End_B(V) is a division algebra (equivalently V is a simple B-module), □ a set of good primes and H neat. Then M_H is proper over S₀. In particular, for the rank-one unitary datum of a CM field F with signature a CM type Φ (C = F), M_H is finite étale over S₀ (relative dimension Σ p_τ q_τ = 0).
 
-**Hypotheses.** End_B(V) a division algebra □ good H neat
+**Hypotheses.** End_B(V) a division algebra; □ good; H neat
 
 **Construction or proof.**
 
 1. Valuative criterion over a DVR R with fraction field K: after a finite extension of K, A_K has semistable reduction; the torus part T of the special fibre of the Néron model has X^*(T) ⊗ ℚ a B-module of ℚ-dimension at most dim V/2 (NeronModelsAndSemistableAbelianVarieties R11.1–R11.3).
+
 2. Since V is a simple B-module, T = 0, so the Néron model is an abelian scheme; λ and i extend (Hom of Néron models), λ remains a polarization (index of a nondegenerate line bundle; Kottwitz §5 citing Mumford §16), the level structure extends since A[n] is étale, and the determinant condition holds over R as an identity of polynomials true over K.
+
 3. The finite-extension argument gives potential good reduction. Descend to the original DVR by the good-reduction criterion: inertia acts through a finite subgroup on the prime-to-residue-characteristic Tate module; the level makes it conjugate into the neat subgroup, so it is trivial. Import this strengthened inertia/descent interface from NeronModelsAndSemistableAbelianVarieties R11.3; torus rank zero after extension alone does not establish the original valuative criterion.
+
 4. Finite étale case: smooth of relative dimension 0 and proper with quasi-finite fibres (M2/kodaira-spencer-dimension).
 
 **Acceptance.** Siegel datum (C = M_{2g}(ℚ) not division): not proper (A_g has cusps). Rank-one CM datum: finite étale over O_{F_Φ,(□)}.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 392; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 392.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 392; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 392.
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M2/kodaira-spencer-dimension; NeronModelsAndSemistableAbelianVarieties:R11.1; NeronModelsAndSemistableAbelianVarieties:R11.3.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The actual rational PEL commutant End_B(V) is division, level neat, and prime-to-residue-characteristic level kills inertia in potential-good-reduction descent. These conditions are omitted from the DVR extension prototype.
 
 <a id="unitary-deformation"></a>
 
@@ -1819,12 +2350,14 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum with B simple such that C 
 
 Let F be a CM field, p unramified in F, Ψ a generalized CM type of rank N with min(r_τ, r_{τ^c}) = 0 for every τ not above the distinguished place τ_∞ of F⁺, S ↪ Ŝ a closed immersion of ℤ_p^Ψ-schemes on which p is locally nilpotent with a (locally nilpotent) PD structure on its ideal, and (A, λ) a unitary O_F-abelian scheme of signature type Ψ over S. Let H^cris_1(A/Ŝ) be the value of the crystalline homology at Ŝ (a locally free O_Ŝ ⊗ O_F-module) with the pairing ⟨·,·⟩^cris_{λ,τ_∞} on its τ_∞ and τ_∞^c parts. Then Def(S, Ŝ; A, λ) → Def'(S, Ŝ; A, λ), (Â, λ̂) ↦ (ω_{Â^∨/Ŝ,τ_∞}, ω_{Â^∨/Ŝ,τ_∞^c}), is an equivalence onto the groupoid of pairs of subbundles lifting ω_{A^∨/S,τ} that are mutually orthogonal for ⟨·,·⟩^cris_{λ,τ_∞}.
 
-**Hypotheses.** p unramified in F PD thickening with p locally nilpotent min(r_τ, r_{τ^c}) = 0 for τ not above τ_∞
+**Hypotheses.** p unramified in F; PD thickening with p locally nilpotent; min(r_τ, r_{τ^c}) = 0 for τ not above τ_∞
 
 **Construction or proof.**
 
 1. Apply R07.6/A4 Grothendieck–Messing to the actual localized OF action and quasi-polarization, with marking over the specified nilpotent PD thickening.
+
 2. The unramified integral splitting decomposes the covariant crystal into τ-parts. Pairing-preserving lifts of the Hodge filtration are mutually isotropic locally direct summands.
+
 3. The extremal signatures away from the distinguished archimedean place force the remaining filtrations; at the distinguished pair retain both orthogonal subbundles. The construction and recovery give a groupoid equivalence.
 
 **Acceptance.** For Ψ = NΦ − τ_∞ + τ_∞^c the deformation space at a point is the space of isotropic pairs (lines/hyperplanes) of dimension N − 1.
@@ -1832,6 +2365,8 @@ Let F be a CM field, p unramified in F, Ψ a generalized CM type of rank N with 
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Proposition 3.4.8, p. 31 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), proof of Proposition 3.4.8, p. 31 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Proposition 3.4.8 and proof, p.151.
 
 **Direct dependencies.** PELModuli:M1/unitary-of-abelian-scheme; PELModuli:M0/unramified-tau-decomposition; AbelianSchemesAndArithmeticModuli:A4; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The localized signature is Ψ, P=Z_(p), p unramified and locally nilpotent on the PD thickening, with locally nilpotent divided powers; all signatures away from the distinguished place are extremal. localizedUnitaryDeformation is the full target; unitaryDeformation is its integral-action special case.
 
 <a id="isogeny-kernel-ranks"></a>
 
@@ -1841,13 +2376,16 @@ Let F be a CM field, p unramified in F, Ψ a generalized CM type of rank N with 
 
 Let F⁺ ⊂ ℚ_p via τ_∞ with induced prime 𝔭 of F⁺ inert in F, ϖ ∈ O_{F⁺} with val_𝔭(ϖ) = 1, A and B O_F-abelian schemes over S ∈ Sch/𝔽_{p²}, and α : A → B, β : B → A O_F-linear quasi-p-isogenies with β ∘ α = ϖ·id_A. Then: (1) for τ ∈ {τ_∞, τ_∞^c}, ker α_{*,τ} = im β_{*,τ} and ker β_{*,τ} = im α_{*,τ} on H^dR_1, and these are locally free; (2) rank Lie_{B,τ_∞} − rank Lie_{A,τ_∞} = rank ker α_{*,τ_∞} − rank ker α_{*,τ_∞^c}; (3) if λ_A, λ_B make A, B unitary of dimension N[F⁺:ℚ] with α^∨ λ_B α = ϖ λ_A, then ρ := rank ker α_{*,τ_∞} + rank ker α_{*,τ_∞^c} equals N if both are p-principal, N − 1 if λ_A is p-principal and ker λ_B[𝔭^∞] has rank p², N + 1 in the reverse case, and N if both kernels have rank p²; (4) if instead α^∨ λ_B α = λ_A, ker λ_A[𝔭^∞] has rank p² and λ_B is p-principal, then ρ = 1. (Tacitly 𝔭 is inert in F, as in every application; (2) fails if 𝔭 splits.) More generally, write deg α[𝔭∞]=p^ρ and the 𝔭-primary degrees of λ_A,λ_B as p^{d_A},p^{d_B}; if α∨λ_Bα=ϖ^eλ_A, then 2ρ+d_B=2Ne+d_A. The four rank cases follow by substituting e,d_A,d_B.
 
-**Hypotheses.** p unramified in F; the distinguished completion of F⁺ is Qp and its prime 𝔭 is inert in F. ϖ has 𝔭-adic valuation one; S is an F_{p²}-scheme. Both quasi-p-isogenies are OF-linear, β α=ϖ; τc is the actual conjugate embedding. For the degree cases, λ_A,λ_B are actual unitary quasi-polarizations satisfying the displayed pullback identity.
+**Hypotheses.** p unramified in F; the distinguished completion of F⁺ is Qp and its prime 𝔭 is inert in F.; ϖ has 𝔭-adic valuation one; S is an F_{p²}-scheme.; Both quasi-p-isogenies are OF-linear, β α=ϖ; τc is the actual conjugate embedding.; For the degree cases, λ_A,λ_B are actual unitary quasi-polarizations satisfying the displayed pullback identity.
 
 **Construction or proof.**
 
 1. Use the covariant crystals with F,V and perfect conjugate-τ pairings. Reduce β α=ϖ to identify the kernels with complementary images, and prove all four kernels finite locally free.
+
 2. Intersect with the homological Hodge exact sequence to obtain the difference of Lie ranks from the two conjugate kernel ranks. Inertness is essential to this relation.
+
 3. Identify the crystalline cokernel length of α with the height ρ of its actual 𝔭-primary kernel using the R07.2 BBM Proposition 4.3.1 contract.
+
 4. Take degrees of α∨λ_Bα=ϖ^eλ_A on the actual 𝔭-divisible group: its height is 2ρ+d_B on one side and 2Ne+d_A on the other. Substitute the principal/degree-p² cases rather than replacing ρ by an arbitrary integer.
 
 **Acceptance.** (3a) with N = 1: ρ = 1, i.e. α kills exactly a line in the τ_∞ ⊕ τ_∞^c parts.
@@ -1855,6 +2393,8 @@ Let F⁺ ⊂ ℚ_p via τ_∞ with induced prime 𝔭 of F⁺ inert in F, ϖ ∈
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Lemma 3.4.12 (1), p. 32 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Lemma 3.4.12 (3)(a), p. 32 (arXiv v3); [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), proof of Lemma 3.4.12, p. 33 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Lemma 3.4.12 and proof, pp.153–155.
 
 **Direct dependencies.** PELModuli:M1/unitary-of-abelian-scheme; PELModuli:M1/prime-to-box-quasi-isogeny; PELModuli:M0/unramified-tau-decomposition; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2; AbelianSchemesAndArithmeticModuli:A4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. P=Z_(p), actual OF-linear quasi-p-isogenies, inert 𝔭 with F⁺_𝔭=Qp, valuation-one ϖ, F_{p²} base and conjugate τ-parts are omitted. Degree/height and polarization pullback identities refer to those actual morphisms.
 
 <a id="wedhorn-ordinary-density"></a>
 
@@ -1864,13 +2404,16 @@ Let F⁺ ⊂ ℚ_p via τ_∞ with induced prime 𝔭 of F⁺ inert in F, ϖ ∈
 
 Let (B, *, V, ⟨·,·⟩, h) be a PEL datum with connected group G (in particular of type A or C), and let p satisfy Wedhorn §1.4.1: the local algebra is a product of matrix algebras over unramified extensions, a maximal star-stable order and a self-dual local lattice exist, and the level at p is hyperspecial. Fix a place v of the reflex field E above p and a sufficiently small prime-to-p level so that the smooth moduli scheme exists over O_{E,v}. The ordinary locus of its special fibre at v is nonempty iff it is dense iff E_v = ℚ_p. Since E_v is unramified here, this is equivalent to the residue degree at this chosen v being 1. Complete splitting of p in E implies the criterion at every v; the criterion at a single v does not assert complete splitting at the other places. BPS Hypothèse 1.1.1 additionally assumes complete splitting and is not equivalent to mere good reduction.
 
-**Hypotheses.** G connected (type A or C suffices) Wedhorn §1.4.1 good reduction, hyperspecial p-level a chosen place v | p; sufficiently small prime-to-p level and representability
+**Hypotheses.** G connected (type A or C suffices); Wedhorn §1.4.1 good reduction, hyperspecial p-level; a chosen place v | p; sufficiently small prime-to-p level and representability
 
 **Construction or proof.**
 
 1. Import the R07.2 Part II O-linear polarized display theorem for the actual unramified p-divisible group. Its input is the connected PEL root datum, hyperspecial integral structure and universal display deformation, not only a Newton-slope definition.
+
 2. Use Serre–Tate to identify the completed PEL deformation with the display deformation; decompose by Morita equivalence into the unramified local types of Wedhorn Chapter 2.
+
 3. Wedhorn’s explicit nilpotent deformation operator and specialization/generization argument in Chapter 4 show the μ-ordinary Newton polygon occurs generically in every such deformation. Thus the μ-ordinary locus is dense in every component.
+
 4. The ordinary polygon equals this μ-ordinary polygon precisely when Frobenius fixes the minuscule Hodge cocharacter conjugacy class. At the chosen unramified reflex place this is E_v=Qp, giving ordinary nonemptiness iff density iff this chosen-place criterion.
 
 **Acceptance.** Siegel: E = ℚ, the ordinary locus of A_g ⊗ 𝔽_p is dense. Picard over K imaginary quadratic with p inert in K: the ordinary locus is empty (μ-ordinary ≠ ordinary).
@@ -1879,6 +2422,7 @@ Let (B, *, V, ⟨·,·⟩, h) be a PEL datum with connected group G (in particul
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M0/reflex-field; PELModuli:M0/good-primes; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Connected group, unramified maximal order/self-dual lattice, hyperspecial p-level, small away-p level and nonempty smooth model are omitted; v is an actual reflex place with its completion.
 
 <a id="m3"></a>
 
@@ -1901,14 +2445,18 @@ Let (B, *, V, ⟨·,·⟩) be a rational PEL datum with similitude group G. Isom
 **Construction or proof.**
 
 1. Twisting: forms of (V, ⟨·,·⟩ up to scalars, B-action) are classified by nonabelian H¹(ℚ, Aut) = H¹(ℚ, G) (Kottwitz §8, p. 399), with classes realized as G-torsors (AdelicAlgebraicGroups:AA.4/group-torsor); the B-module structure has no forms because H¹ of the B-linear GL is trivial (Hilbert 90 for the semisimple algebra C).
+
 2. Restrict to the locally trivial classes; finiteness of ker¹ for linear algebraic groups over number fields (Borel–Serre, cited by Kottwitz as [BS]).
+
 3. Inner forms G^{(i)} and local identifications by transport of structure.
 
 **Acceptance.** Siegel: ker¹(ℚ, GSp_{2g}) = 1, so m = 1. Unitary similitude groups in an odd number of variables can have ker¹ ≠ 1 (Kottwitz §7).
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 399; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 393.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 399; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 393.
 
-**Direct dependencies.** PELModuli:M0/similitude-group-structure; PELModuli:M0/rational-pel-datum; AdelicAlgebraicGroups:AA.4/group-torsor.
+**Direct dependencies.** PELModuli:M0/similitude-group-structure; PELModuli:M0/rational-pel-datum; AdelicAlgebraicGroups:AA.4/group-torsor; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The coordinate Hopf algebra is the actual similitude group; rational twists include star/form/action/positive h, and localizations range over every finite and infinite place.
 
 <a id="hasse-principle-cases"></a>
 
@@ -1916,22 +2464,27 @@ Let (B, *, V, ⟨·,·⟩) be a rational PEL datum with similitude group G. Isom
 
 **Target:** TauCeti.PEL.hassePrincipleCases (theorem; PELModuli:M3/hasse-principle-cases).
 
-Let the rational PEL datum have B simple. (C) In Case C, G/G^der = G_m and ker¹(ℚ, G) = 1. (A) In Case A with hermitian dimension n even, ker¹(ℚ, G) = 1; with n odd, G may fail the Hasse principle, but the map ker¹(ℚ, Z) → ker¹(ℚ, G) from the centre Z of G is a bijection. (D) In Case D the Hasse principle fails in general and the group is disconnected; no single-variety statement is made without a separate computation. Hence in Cases C and A_even the characteristic-zero PEL moduli space at level K is a single Shimura variety Sh_K(G, X) (M3/complex-points), while in Case A_odd it is a disjoint union of |ker¹(ℚ, G)| copies.
+Let the rational PEL datum have B simple. (C) In Case C, G/G^der = G_m and ker¹(ℚ, G) = 1. (A) In Case A with hermitian dimension n even, ker¹(ℚ, G) = 1; with n odd, G may fail the Hasse principle, but the map ker¹(ℚ, Z) → ker¹(ℚ, G) from the centre Z of G is a bijection. (D) In Case D the Hasse principle fails in general and the group is disconnected; no single-variety statement is made without a separate computation. When the datum also satisfies SV3, in Cases C and A_even the characteristic-zero PEL moduli space at level K is a single Shimura variety Sh_K(G, X) (M3/complex-points), while in Case A_odd it is a disjoint union of |ker¹(ℚ, G)| copies.
 
-**Hypotheses.** B simple Cases A or C for the positive statements
+**Hypotheses.** B simple; Cases A or C for the positive statements
 
 **Construction or proof.**
 
 1. In Cases A and C, G^der is simply connected (M0/similitude-group-structure), so ker¹(ℚ, G) = ker¹(ℚ, D) for D = G/G^der (Kottwitz, citing his Lemma 4.3.1 of 'Stable trace formula: elliptic singular terms'; Milne Lemma 8.20 using H¹(ℚ_ℓ, G^der) = 0 (Kneser, AdelicAlgebraicGroups:AA.4/kneser-local-torsor) and the Hasse principle for G^der (AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected)).
+
 2. Case C: D = G_m and H¹(ℚ, G_m) = 0 (Hilbert 90).
+
 3. Case A, n = 2k even: D ≅ D₁ × G_m with D₁ the norm-one torus of F/F₀; ker¹ of D₁ vanishes because F/F₀ is cyclic (Hasse norm theorem, Tau Ceti ClassFieldTheory layer 13; Milne Lemma 8.21).
+
 4. Case A, n odd: ker¹(ℚ, Z) → ker¹(ℚ, D) is a bijection by the diagram chase of Kottwitz §7 (using that H¹(ℚ_v, D₁) is killed by 2 and n odd, and ker²(ℚ, Z₀) = 1 by Tate–Nakayama duality).
 
 **Acceptance.** Siegel and Hilbert (Case C): single Shimura variety. U(2,1) (n = 3 odd): ker¹(ℚ, G) ≅ ker¹(ℚ, Z), possibly nontrivial.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 393; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 394; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 394; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Lemma 8.21, p. 89.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 393; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 394; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 394; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Lemma 8.21, p. 89.
 
-**Direct dependencies.** PELModuli:M3/ker1-classification; PELModuli:M0/similitude-group-structure; PELModuli:M0/albert-types; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields; AdelicAlgebraicGroups:AA.4/kneser-local-torsor; AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected.
+**Direct dependencies.** PELModuli:M3/ker1-classification; PELModuli:M0/similitude-group-structure; PELModuli:M0/albert-types; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields; AdelicAlgebraicGroups:AA.4/kneser-local-torsor; AdelicAlgebraicGroups:AA.4/hasse-principle-simply-connected; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The actual connected reductive group and its simply connected derived group are imported. Even unitary rank, symplectic case and cyclic norm theorem have their actual root/CM data.
 
 <a id="complex-points"></a>
 
@@ -1939,22 +2492,29 @@ Let the rational PEL datum have B simple. (C) In Case C, G/G^der = G_m and ker¹
 
 **Target:** TauCeti.PEL.complexPoints (theorem; PELModuli:M3/complex-points).
 
-Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, X the G(ℝ)-class of h, K ⊂ G(𝔸_f) open compact, and assume Case A or C (for Case D see M3/type-d-comparison). Let V^{(1)} = V, …, V^{(m)} represent ker¹(ℚ, G) with inner forms G^{(i)}. Then M^ad_K(ℂ) (M1/char-zero-adelic-moduli) is the disjoint union over i of the subsets M^ad_K(ℂ)^{(i)} of quadruples whose H₁(A, ℚ) is isomorphic to V^{(i)} as skew-Hermitian B-modules, and there are bijections M^ad_K(ℂ)^{(i)} ≅ G^{(i)}(ℚ)\(X × G(𝔸_f)/K), sending (A, λ, i, η̄) to the class of (h_A, a ∘ η) for a choice of B-isomorphism a : H₁(A, ℚ) ≅ V^{(i)}. Each piece is nonempty. In particular M^ad_K(ℂ) = Sh_K(G, X)(ℂ) when ker¹(ℚ, G) = 1 (Cases C, A_even). For the p-integral problem the same holds for M^rat_H(ℂ) with K = H·K_p, K_p the stabilizer of a self-dual lattice (Kottwitz §8), using M0/self-dual-lattice-classification at p.
+Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, X the G(ℝ)-class of h, K ⊂ G(𝔸_f) open compact, and assume Case A or C (for Case D see M3/type-d-comparison). Let V^{(1)} = V, …, V^{(m)} represent ker¹(ℚ, G) with inner forms G^{(i)}. Then M^ad_K(ℂ) (M1/char-zero-adelic-moduli) is the disjoint union over i of the subsets M^ad_K(ℂ)^{(i)} of quadruples whose H₁(A, ℚ) is isomorphic to V^{(i)} as skew-Hermitian B-modules, and there are bijections M^ad_K(ℂ)^{(i)} ≅ G^{(i)}(ℚ)\(X × G(𝔸_f)/K), sending (A, λ, i, η̄) to the class of (h_A, a ∘ η) for a choice of B-isomorphism a : H₁(A, ℚ) ≅ V^{(i)}. Each piece is nonempty. When SV3 holds, in particular M^ad_K(ℂ) = Sh_K(G, X)(ℂ) when ker¹(ℚ, G) = 1 (Cases C, A_even). For the p-integral problem the same holds for M^rat_H(ℂ) with K = H·K_p, K_p the stabilizer of a self-dual lattice (Kottwitz §8), using M0/self-dual-lattice-classification at p.
 
-**Hypotheses.** Case A or C (G connected) K ⊂ G(𝔸_f) open compact
+**Hypotheses.** Case A or C (G connected); K ⊂ G(𝔸_f) open compact
 
 **Construction or proof.**
 
 1. For a complex point, H := H₁(A, ℚ) with B-action and λ-Weil form is a skew-Hermitian B-module isomorphic to V at every finite place (via η) and at ∞ (determinant condition ⇒ H^{−1,0} ≅ V₀ as B ⊗ ℂ-modules, then Kottwitz Lemma 4.2), so its class lies in ker¹ (M3/ker1-classification).
+
 2. Choose a : H ≅ V^{(i)}; then a ∘ h_A ∘ a⁻¹ ∈ X (Kottwitz Lemma 4.2, Milne Proposition 8.13(a)), and a ∘ η defines an element of G(𝔸_f)/K; changing a changes the pair by G^{(i)}(ℚ).
-3. Bijectivity: the theory of complex abelian varieties (Riemann's theorem: AbelianSchemesAndArithmeticModuli A5) builds a polarized abelian variety with B-action from (h', g) ∈ X × G(𝔸_f) with lattice g·(L ⊗ Ẑ) ∩ V^{(i)}.
+
+3. Bijectivity: the theory of complex abelian varieties (Riemann's theorem: AbelianSchemesAndArithmeticModuli A5) builds a polarized abelian variety with B-action from (h', g) ∈ X × G(𝔸_f) with lattice g·(L ⊗ Ẑ) ∩ V^{(i)}. Use ε(h′)ψ for positivity on the full real orbit, and clear rational denominators on L_g; the polarization class is independent of the positive clearing scalar.
+
 4. Nonemptiness: V^{(i)} carries a lattice and an h (local isomorphism at ∞), giving a complex point (Lan Remark 1.4.3.13).
+
+5. The Hodge/lattice quotient comparison does not require SV3. Use the classical Shimura-variety name only when the extra SV3 condition of M0/pel-shimura-datum holds.
 
 **Acceptance.** Siegel, K = K(n): A_{g,n}(ℂ) ≅ GSp_{2g}(ℚ)\(ℍ_g^± × GSp_{2g}(𝔸_f)/K(n)) ≅ ⊔_{(ℤ/n)^×} Γ(n)\ℍ_g.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 8.17, p. 88.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 8.17, p. 88.
 
-**Direct dependencies.** PELModuli:M3/ker1-classification; PELModuli:M1/char-zero-adelic-moduli; PELModuli:M0/pel-shimura-datum; PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/self-dual-lattice-classification; AbelianSchemesAndArithmeticModuli:A5.
+**Direct dependencies.** PELModuli:M3/ker1-classification; PELModuli:M1/char-zero-adelic-moduli; PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/self-dual-lattice-classification; AbelianSchemesAndArithmeticModuli:A5.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The rational datum, integral presentation and compact-open full level agree; the actual Betti/torsion comparison preserves polarization and twist. All ker¹ pieces are included.
 
 <a id="uniformization-morphism"></a>
 
@@ -1962,40 +2522,59 @@ Let (B, *, V, ⟨·,·⟩, h) be a rational PEL datum, X the G(ℝ)-class of h, 
 
 **Target:** TauCeti.PEL.PELModuli.analyticFamily (construction; PELModuli:M3/uniformization-morphism).
 
-Let K be neat and i a class in ker¹(ℚ, G). On X × G(𝔸_f)/K there is an analytic family of polarized complex abelian varieties with B-action and level: over (h', g) the torus A_{h',g} = V_ℝ^{(i)}/L_g with complex structure h'(√−1), L_g := V^{(i)} ∩ g(L ⊗ Ẑ), polarization ⟨·,·⟩, B-action, and level structure induced by g. It is G^{(i)}(ℚ)-equivariant and descends to Sh_K(G^{(i)}, X)^an := G^{(i)}(ℚ)\(X × G(𝔸_f)/K) (a complex manifold, ShimuraVarieties V1). By the universal property of the analytification of M^ad_K ⊗ ℂ, it defines a morphism of complex analytic spaces u^{(i)} : Sh_K(G^{(i)}, X)^an → (M^ad_K ⊗_{F₀} ℂ)^an, and ⊔_i u^{(i)} is an isomorphism of analytic spaces onto the analytification, each u^{(i)} an open and closed immersion.
+Let K be neat and i a class in ker¹(ℚ, G). On X × G(𝔸_f)/K there is an analytic family of polarized complex abelian varieties with B-action and level: over (h', g) the torus A_{h',g} = V_ℝ^{(i)}/L_g with complex structure h'(√−1), L_g := V^{(i)} ∩ g(L ⊗ Ẑ), polarization represented by a positive PEL form ε(h′)q_g⟨·,·⟩, B-action, and level structure induced by g. It is G^{(i)}(ℚ)-equivariant and descends to Q_K^{(i),an} := G^{(i)}(ℚ)\(X × G(𝔸_f)/K) (the arithmetic quotient complex manifold, ShimuraVarieties V0–V1). By the universal property of the analytification of M^ad_K ⊗ ℂ, it defines a morphism of complex analytic spaces u^{(i)} : Q_K^{(i),an} → (M^ad_K ⊗_{F₀} ℂ)^an, and ⊔_i u^{(i)} is an isomorphism of analytic spaces onto the analytification, each u^{(i)} an open and closed immersion. The notation Q denotes the PEL arithmetic quotient and its Baily–Borel algebraization; it is Sh_K(G^{(i)},X) when SV3 holds. The quotient and family comparison itself remains valid when a compact adjoint factor violates SV3.
 
-**Hypotheses.** K neat Case A or C
+**Hypotheses.** K neat; Case A or C; On the full real orbit choose ε(h′)∈{±1} so ε(h′)ψ(x,h′(i)x)>0. In the fixed-lattice integral presentation choose q_g>0 rational with q_g c(g)∈Ẑ×, where c(g) is the finite adelic multiplier; in the rational problem retain the resulting positive polarization class.
 
 **Construction or proof.**
 
 1. Construct the family on X × G(𝔸_f) from the relative Riemann theorem for analytic families (AbelianSchemesAndArithmeticModuli A5, Siegel universal analytic family and its monodromy) and descend through the free action of the neat arithmetic groups (ShimuraVarieties V0–V1).
-2. Analytification of the algebraic space M^ad_K ⊗ ℂ via an étale presentation and its universal property for analytic families (AlgebraicModuliForArithmeticGeometry A0-extension: analytification on étale presentations; carrier SchemeAndStackFoundations SF.2 Part II, with C0 local comparison).
-3. Bijectivity on points is M3/complex-points; local isomorphism compares tangent spaces through the Kodaira–Spencer map (M2/kodaira-spencer-dimension) with the tangent space of X (Hodge filtration variation).
+
+2. Negative real multipliers exchange positive and negative definite components. Normalize the Riemann form by ε(h′) and the rational lattice factor q_g. Under γ∈G^(i)(Q), ε(γh′)=sign(c(γ))ε(h′) and q_(γg)=q_g/|c(γ)|, so pulling back the new form gives the old form. Thus the descended polarization is positive and equivariant; raw ψ on every component would fail. A5 uses the opposite alternating Riemann-form convention E(Jx,x)>0, so its input is E=−ε(h′)q_gψ, as in the M0 Hodge sign adapter.
+
+3. Analytification of the algebraic space M^ad_K ⊗ ℂ via an étale presentation and its universal property for analytic families (AlgebraicModuliForArithmeticGeometry A0-extension: analytification on étale presentations; carrier SchemeAndStackFoundations SF.2 Part II, with C0 local comparison).
+
+4. Bijectivity on points is M3/complex-points; local isomorphism compares tangent spaces through the Kodaira–Spencer map (M2/kodaira-spencer-dimension) with the tangent space of X (Hodge filtration variation).
+
+5. Apply the V0–V3 Hermitian arithmetic-quotient statements with the effective action (compact factors act trivially). SV3 is needed for the Shimura-datum label, not for this quotient algebraization.
 
 **API.**
 
-- **PELModuli.analyticFamily** — The family A_{h',g} = V_ℝ^{(i)}/L_g over X × G(𝔸_f)/K with polarization, B-action and level.
-- **PELModuli.analyticFamily_equivariant** — G^{(i)}(ℚ)-equivariance: γ acts by A_{h',g} ≅ A_{γh'γ⁻¹, γg} via γ : V_ℝ → V_ℝ.
-- **PELModuli.uniformization** — u^{(i)} : Sh_K(G^{(i)}, X)^an → (M^ad_K ⊗ ℂ)^an.
-- **PELModuli.uniformization_openClosed** — The underlying point map of a compatible neat analytic uniformization piece is an open embedding with closed image. uniformization_analyticOpenClosed supplies the isomorphism of analytic spaces with their structure sheaves.
-- **PELModuli.uniformization_hecke** — u^{(i)} commutes with level change and Hecke translation by g ∈ G(𝔸_f).
-- **PELModuli.uniformization_universal** — u^{(i)*}(A^univ)^an ≅ the descended analytic family, compatibly with λ, i and level.
-- **PELModuli.uniformization_siegel** — For the principal genus-one datum with compatible fine level, the actual generic-fibre analytification is isomorphic to the modular analytic quotient. The family comparison is uniformization_universal.
-- **PELModuli.uniformization_analyticOpenClosed** — Each compatible neat piece is isomorphic to an actual open-and-closed analytic subspace of the generic-fibre analytification; its inclusion composed with that isomorphism is the uniformization morphism. Nilpotents and structure sheaves are retained.
+- **PELModuli.analyticFamily** (constructor) — The family A_{h',g} = V_ℝ^{(i)}/L_g over X × G(𝔸_f)/K with polarization, B-action and level.
+
+- **PELModuli.analyticFamily_equivariant** (relation) — G^{(i)}(ℚ)-equivariance: γ acts by A_{h',g} ≅ A_{γh'γ⁻¹, γg} via γ : V_ℝ → V_ℝ.
+
+- **PELModuli.uniformization** (constructor) — u^{(i)} : Sh_K(G^{(i)}, X)^an → (M^ad_K ⊗ ℂ)^an.
+
+- **PELModuli.uniformization_openClosed** (other) — The underlying point map of a compatible neat analytic uniformization piece is an open embedding with closed image. uniformization_analyticOpenClosed supplies the isomorphism of analytic spaces with their structure sheaves.
+
+- **PELModuli.uniformization_hecke** (functoriality) — u^{(i)} commutes with level change and Hecke translation by g ∈ G(𝔸_f).
+
+- **PELModuli.uniformization_universal** (compatibility) — u^{(i)*}(A^univ)^an ≅ the descended analytic family, compatibly with λ, i and level.
+
+- **PELModuli.uniformization_siegel** (example) — For the principal genus-one datum with compatible fine level, the actual generic-fibre analytification is isomorphic to the modular analytic quotient. The family comparison is uniformization_universal.
+
+- **PELModuli.uniformization_analyticOpenClosed** (compatibility) — Each compatible neat piece is isomorphic to an actual open-and-closed analytic subspace of the generic-fibre analytification; its inclusion composed with that isomorphism is the uniformization morphism. Nilpotents and structure sheaves are retained.
 
 **Unit tests.**
 
 - **uniformization_g1** (computation) — For the principal genus-one datum, the actual neutral uniformization agrees with the analytic modular family.
+
 - **uniformization_all_pieces** (characterisation) — Every actual locally trivial rational form contributes its own piece in the generic-fibre analytic comparison.
+
 - **uniformization_family_pullback** (characterisation) — Pulling back the actual universal PEL family along uniformization gives the period-domain family with action, polarization and level.
+
+- **uniformization_negative_component** (non-example) — Replacing J by −J makes the fixed PEL pairing negative on every nonzero vector. Negating that pairing restores positivity, so the full real orbit family must normalize the sign component by component.
 
 **Acceptance.** g = 1: the morphism ⊔_{(ℤ/n)^×} Γ(n)\ℍ → Y(n)(ℂ)^an, τ ↦ (ℂ/(ℤ + ℤτ), (1/n, τ/n)).
 
 **Uses.** ShimuraVarieties:V5: uses M3 to algebraize polarized weight-one variations and to identify the Siegel moduli with Sh(GSp, ℍ^±). ShimuraCompactifications:C4: complex comparison of degenerations at the boundary. HilbertModularVarietiesAndShimuraCurves:H1: complex fibres of the Hilbert–Blumenthal problem compared with the adelic descriptions. Tsimerman 2018, §6.1: π : ℍ_g → A_g(ℂ) for counting CM points.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 6.3, p. 70; [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), §6.1, p. 387.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 6.3, p. 70; [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), §6.1, p. 387.
 
 **Direct dependencies.** PELModuli:M3/complex-points; PELModuli:M2/universal-family; PELModuli:M2/kodaira-spencer-dimension; AbelianSchemesAndArithmeticModuli:A5; ShimuraVarieties:V0; ShimuraVarieties:V1; AlgebraicModuliForArithmeticGeometry:A0-extension; ComplexComparisonPartII:C0/repair-analytification; ComplexComparisonPartII:C0; mathlib:UpperHalfPlane; SchemeAndStackFoundations:SF.2; SchemeAndStackFoundations:SF.1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The generic fibre, D and K refer to the same PEL datum; K neat, and each quotient uses its actual rational twist. Source-level containments and transported families are omitted in the Hecke square. Analytic spaces use SF.2 Part II, retaining nilpotents.
 
 <a id="algebraization-of-components"></a>
 
@@ -2003,21 +2582,27 @@ Let K be neat and i a class in ker¹(ℚ, G). On X × G(𝔸_f)/K there is an an
 
 **Target:** TauCeti.PEL.algebraizationOfComponents (theorem; PELModuli:M3/algebraization-of-components).
 
-Let K be neat, Case A or C. The algebraic space M^ad_K ⊗_{F₀} ℂ is a quasi-projective scheme, and the analytic isomorphism ⊔_i u^{(i)} of M3/uniformization-morphism is the analytification of a unique isomorphism of ℂ-schemes ⊔_{i ∈ ker¹(ℚ,G)} Sh_K(G^{(i)}, X)_ℂ ≅ M^ad_K ⊗ ℂ, where Sh_K(G^{(i)}, X)_ℂ is the quasi-projective algebraization of ShimuraVarieties V2–V3. Each piece is open and closed; the identification is compatible with level change, Hecke operators and the universal families. This uses neither the integral compactification of ShimuraCompactifications C5 nor a blanket statement that M^ad_K is one Sh_K(G, X).
+Let K be neat, Case A or C. The algebraic space M^ad_K ⊗_{F₀} ℂ is a quasi-projective scheme, and the analytic isomorphism ⊔_i u^{(i)} of M3/uniformization-morphism is the analytification of a unique isomorphism of ℂ-schemes ⊔_{i ∈ ker¹(ℚ,G)} Q_K^{(i)} ≅ M^ad_K ⊗ ℂ, where Q_K^{(i)} is the quasi-projective algebraization of ShimuraVarieties V2–V3. Each piece is open and closed; the identification is compatible with level change, Hecke operators and the universal families. This uses neither the integral compactification of ShimuraCompactifications C5 nor a blanket statement that M^ad_K is one Sh_K(G, X). The notation Q denotes the PEL arithmetic quotient and its Baily–Borel algebraization; it is Sh_K(G^{(i)},X) when SV3 holds. The quotient and family comparison itself remains valid when a compact adjoint factor violates SV3.
 
-**Hypotheses.** K neat Case A or C
+**Hypotheses.** K neat; Case A or C
 
 **Construction or proof.**
 
 1. Choose an étale atlas U → M^ad_K ⊗ ℂ by a scheme with quasi-projective affine pieces; the composite U^an → ⊔ Sh_K^an is holomorphic between quasi-projective varieties of which the target is the Baily–Borel quasi-projective variety (ShimuraVarieties V2).
+
 2. Borel's algebraicity theorem (ShimuraVarieties V3) makes each U^an → Sh_K^an algebraic; the maps agree on overlaps U ×_M U, so they descend to an algebraic morphism M^ad_K ⊗ ℂ → ⊔ Sh_K(G^{(i)}, X)_ℂ (AlgebraicModuliForArithmeticGeometry A0-extension: descent of local-isomorphism comparisons along étale presentations).
+
 3. To recover an isomorphism from the algebraized map, compare its local rings using the faithful flat algebraic-to-analytic local-ring maps (ComplexComparisonPartII C0), deduce étaleness, and use the algebraic-space local-isomorphism criterion plus the bijection on geometric points. Proper GAGA at C3/C4 cannot be applied directly to these nonproper PEL spaces. Borel algebraicity remains the V3 supplier and the analytic carrier has the single chosen owner SF.2 Part II and its implementation is a supplier input.
+
+4. Apply the V0–V3 Hermitian arithmetic-quotient statements with the effective action (compact factors act trivially). SV3 is needed for the Shimura-datum label, not for this quotient algebraization.
 
 **Acceptance.** Siegel, n ≥ 3: A_{g,n} ⊗ ℂ is quasi-projective, isomorphic to ⊔_{(ℤ/n)^×} Γ(n)\ℍ_g with its Baily–Borel algebraic structure.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.11, pp. 164–165.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.11, pp. 164–165.
 
 **Direct dependencies.** PELModuli:M3/uniformization-morphism; PELModuli:M2/representability; ShimuraVarieties:V2; ShimuraVarieties:V3; AlgebraicModuliForArithmeticGeometry:A0-extension; ComplexComparisonPartII:C0/repair-local-faithful-flatness; SchemeAndStackFoundations:SF.2; ComplexComparisonPartII:C0.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use actual Baily–Borel quotient and Borel algebraicity for this nonproper map. Local faithful flatness transfers the analytic local isomorphism to algebraic étaleness; proper coherent GAGA alone is not the argument.
 
 <a id="type-d-comparison"></a>
 
@@ -2027,19 +2612,23 @@ Let K be neat, Case A or C. The algebraic space M^ad_K ⊗_{F₀} ℂ is a quasi
 
 For an integral PEL datum with a type-D factor, keep the full possibly disconnected similitude group G. Its complex moduli is the disjoint union, over the finite pointed set ker¹(Q,G), of the full rational-form quotients G_i(Q)\(X_i times G_i(Af)/K_i), using the same positive complex-structure orbit and transported level. This gives the analytic-family comparison for the full group. No replacement by G° with an unproved independent π₀(G) indexing formula is made.
 
-**Hypotheses.** The actual type-D PEL datum, full disconnected similitude group, compact-open level and rational twists. Neat level for the analytic-family quotient; good odd primes for integral comparison.
+**Hypotheses.** The actual type-D PEL datum, full disconnected similitude group, compact-open level and rational twists.; Neat level for the analytic-family quotient; good odd primes for integral comparison.
 
 **Construction or proof.**
 
 1. Use Lan’s direct complex Hodge/lattice equivalence for the full group, including rational forms everywhere locally similar to the given datum.
+
 2. Index rational forms by continuous nonabelian ker¹(Q,G) from AA.4 Part II; retain the full automorphism group in each double quotient.
-3. Construct the upstairs family and descend it by the full rational action as in M3/uniformization-morphism. Keep component information inside this action rather than adding an unproved identity-component comparison.
+
+3. Construct the upstairs family from relative Riemann theory and descend by the full rational action. Use V0–V1 for properly discontinuous effective action and the full-group quotient, and SF.2/C0 for the analytic carrier. The tangent comparison by M2/kodaira-spencer-dimension gives an analytic local isomorphism; the full-group point bijection makes the union an analytic isomorphism. This is a direct type-D argument, rather than an application of the Case-A/C theorem.
 
 **Acceptance.** A type-D datum must not be silently identified with the connected-group Shimura datum; verify the component and level comparison separately.
 
-**Sources.** [lan-intro](https://www.kwlan.org/articles/intro-Sh.pdf), §5.1.3, pp.54–56; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), Correction to Remark 1.4.4.3 (thesis p.177), errata p.12.
+**Sources.** [lan-intro](https://www.kwlan.org/articles/intro-sh-ex.pdf), §5.1.3, pp.54–56; [lan-thesis-errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf), Correction to Remark 1.4.4.3 (thesis p.168), errata p.11.
 
-**Direct dependencies.** PELModuli:M3/complex-points; PELModuli:M0/similitude-group-structure; PELModuli:M0/self-dual-lattice-classification.
+**Direct dependencies.** PELModuli:M3/ker1-classification; PELModuli:M1/char-zero-adelic-moduli; PELModuli:M0/hodge-structure-of-datum; PELModuli:M0/similitude-group-structure; PELModuli:M0/self-dual-lattice-classification; PELModuli:M2/universal-family; PELModuli:M2/kodaira-spencer-dimension; AbelianSchemesAndArithmeticModuli:A5; SchemeAndStackFoundations:SF.2; ComplexComparisonPartII:C0; ShimuraVarieties:V0; ShimuraVarieties:V1; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Use full possibly disconnected G with its actual rational twists and level. No G°/π₀ formula is promised.
 
 <a id="hermitian-hom-space"></a>
 
@@ -2049,38 +2638,51 @@ For an integral PEL datum with a type-D factor, keep the full possibly disconnec
 
 Let K be an algebraically closed field over O_{F_Ψ} ⊗ P, (A₀, i₀, λ₀) a unitary O_F-abelian scheme over K of signature type Φ (a CM type) and (A, i, λ) one of signature type Ψ. For a set □ of places of ℚ containing ∞ and char K (if nonzero), Hom_{F ⊗ 𝔸^□}(H₁^ét(A₀, 𝔸^□), H₁^ét(A, 𝔸^□)) with the pairing (x, y) := i₀⁻¹((λ_{0*})⁻¹ ∘ y^∨ ∘ λ_* ∘ x) ∈ i₀⁻¹End(H₁^ét(A₀, 𝔸^□)) = F ⊗ 𝔸^□ is a hermitian space over F ⊗_ℚ 𝔸^□ (M0/hermitian-space). Over ℂ with H₁ in place of H₁^ét it gives a hermitian space over F of signature determined by Ψ and Φ, used to compare the unitary moduli spaces with Sh(U(V), K).
 
-**Hypotheses.** A₀ and A are actual unitary OF-abelian schemes with quasi-polarizations and the specified common coefficient localization. A₀ has rank-one CM signature; the polarization pairing identifies End_{OF tensor Af} H₁(A₀) with OF tensor Af. For complex comparison the base is C and the OF actions, Tate twists and Betti–étale comparison are those of these same abelian varieties.
+**Hypotheses.** A₀ and A are actual unitary OF-abelian schemes with quasi-polarizations and the specified common coefficient localization.; A₀ has rank-one CM signature; the polarization pairing identifies End_{OF tensor Af} H₁(A₀) with OF tensor Af.; For complex comparison the base is C and the OF actions, Tate twists and Betti–étale comparison are those of these same abelian varieties.
 
 **Construction or proof.**
 
 1. H₁^ét(A₀, 𝔸^□) is free of rank 1 over F ⊗ 𝔸^□, so End_{F⊗𝔸^□}(H₁^ét(A₀)) = F ⊗ 𝔸^□.
+
 2. Linearity in x and c-semilinearity in y from λ₀ i₀(a) = i₀(a^c)^∨ λ₀; hermitian symmetry from the symmetry of polarizations.
+
 3. Perfectness from nondegeneracy of the Weil pairings.
 
 **API.**
 
-- **hermitianHom** — The F ⊗ 𝔸^□-module Hom(H₁^ét(A₀), H₁^ét(A)) with (x, y) = i₀⁻¹((λ_{0*})⁻¹ y^∨ λ_* x).
-- **hermitianHom_isHermitian** — (x, y) is F ⊗ 𝔸^□-linear in x, c-semilinear in y, hermitian and perfect.
-- **hermitianHom_rank** — rank = N for Ψ of rank N.
-- **hermitianHom_functorial** — The underlying Hom module is covariant by postcomposition with the specified coefficient-linear map. Preserving the Hermitian form requires the polarization/similitude conditions of the geometric Hom construction.
-- **hermitianHomOfAbelianSchemes_complex** — For the actual CM rank-one polarized source and unitary polarized target, Betti–etale comparison induces an OF tensor Af-linear equivalence on their Hom modules. complex_pairing separately states preservation of the polarization-adjoint pairing.
-- **hermitianHomOfAbelianSchemes** — The actual OF tensor Af-linear Hom between homological Tate modules of the polarized abelian schemes, with pairing induced by y∨ λ_A x and inverse λ_A₀.
-- **hermitianHomOfAbelianSchemes_complex_pairing** — On the actual CM rank-one source and unitary target, Betti–etale comparison carries the polarization-adjoint Hom pairing to the same pairing over the specified OF tensor adelic coefficients.
+- **hermitianHom** (constructor) — The F ⊗ 𝔸^□-module Hom(H₁^ét(A₀), H₁^ét(A)) with (x, y) = i₀⁻¹((λ_{0*})⁻¹ y^∨ λ_* x).
+
+- **hermitianHom_isHermitian** (characterisation) — (x, y) is F ⊗ 𝔸^□-linear in x, c-semilinear in y, hermitian and perfect.
+
+- **hermitianHom_rank** (other) — rank = N for Ψ of rank N.
+
+- **hermitianHom_functorial** (functoriality) — The underlying Hom module is covariant by postcomposition with the specified coefficient-linear map. Preserving the Hermitian form requires the polarization/similitude conditions of the geometric Hom construction.
+
+- **hermitianHomOfAbelianSchemes_complex** (compatibility) — For the actual CM rank-one polarized source and unitary polarized target, Betti–etale comparison induces an OF tensor Af-linear equivalence on their Hom modules. complex_pairing separately states preservation of the polarization-adjoint pairing.
+
+- **hermitianHomOfAbelianSchemes** (structure) — The actual OF tensor Af-linear Hom between homological Tate modules of the polarized abelian schemes, with pairing induced by y∨ λ_A x and inverse λ_A₀.
+
+- **hermitianHomOfAbelianSchemes_complex_pairing** (compatibility) — On the actual CM rank-one source and unitary target, Betti–etale comparison carries the polarization-adjoint Hom pairing to the same pairing over the specified OF tensor adelic coefficients.
 
 **Unit tests.**
 
 - **hermitianHom_rank_one** (computation) — For A = A₀ (Ψ = Φ, N = 1), Hom = F ⊗ 𝔸^□ with (x, y) = x·ȳ up to the unit given by λ, λ₀.
+
 - **hermitianHom_scaling** (characterisation) — Replacing λ by cλ (c ∈ ℚ_{>0}) multiplies the pairing by c.
+
 - **hermitianHom_not_symmetric_bilinear** (non-example) — The pairing is not 𝔸^□-bilinear symmetric in the F-linear sense: (ax, y) = a(x, y) but (x, ay) = a^c(x, y).
+
 - **hermitianHom_zero** (degenerate) — For A = 0 (N = 0) the space is 0.
 
 **Acceptance.** For A = A₀^N with the product structure the space is (F ⊗ 𝔸^□)^N with the standard hermitian form.
 
 **Uses.** Liu–Tian–Xiao–Zhang–Zhu, §§4–5: compare the moduli spaces M(V, K) × T with Sh(V, K). PELModuli:M4/cm-moduli-scheme: A₀ is a point of the CM moduli T_p.
 
-**Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Construction 3.4.4, p. 30 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Remark 3.4.4, pp.149–150.
+**Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Construction 3.4.4, p. 30 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Construction 3.4.4, p.149.
 
 **Direct dependencies.** PELModuli:M1/unitary-of-abelian-scheme; PELModuli:M0/hermitian-space; PELModuli:M1/symplectic-isom-sheaf.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Abstract Hom helper lemmas assume the source rank-one perfect. The actual geometric comparison uses the same CM/OF action, covariant Betti/Tate modules and polarization adjoints.
 
 <a id="siegel-fine-uniformization"></a>
 
@@ -2090,11 +2692,12 @@ Let K be an algebraically closed field over O_{F_Ψ} ⊗ P, (A₀, i₀, λ₀) 
 
 For the Siegel datum of genus g and n ≥ 3, the complex fibre of A_{g,n} := M_{U(n)} (over ℤ[1/n]) satisfies A_{g,n}(ℂ) ≅ ⊔_{ζ ∈ μ_n^prim} Γ(n)\ℍ_g, where ℍ_g is the Siegel upper half space of symmetric complex g × g matrices with positive definite imaginary part and Γ(n) = ker(Sp_{2g}(ℤ) → Sp_{2g}(ℤ/n)), the component indexed by ζ consisting of points whose level structure has ν_n(1) = ζ. For g = 1 this is ⊔ Γ(n)\ℍ with ℍ the Mathlib upper half plane.
 
-**Hypotheses.** Siegel datum n ≥ 3
+**Hypotheses.** Siegel datum; n ≥ 3
 
 **Construction or proof.**
 
 1. Apply M3/complex-points with ker¹ = 1 (Case C).
+
 2. Strong approximation for Sp_{2g} and ν(K(n)) = Ẑ^× ∩ (1 + nẐ) identify G(ℚ)\(ℍ_g^± × G(𝔸_f)/K(n)) with ⊔_{(ℤ/n)^×} Γ(n)\ℍ_g (Milne §6; ShimuraVarieties V0).
 
 **Acceptance.** g = 1, n = 3: (ℤ/3)^× has 2 elements, so A_{1,3}(ℂ) has 2 connected components, each isomorphic to Γ(3)\ℍ.
@@ -2103,6 +2706,7 @@ For the Siegel datum of genus g and n ≥ 3, the complex fibre of A_{g,n} := M_{
 
 **Direct dependencies.** PELModuli:M3/complex-points; PELModuli:M3/uniformization-morphism; ShimuraVarieties:V0; mathlib:UpperHalfPlane.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Positive genus, fixed integral type and principal level n≥3 prime to the base are omitted. The comparison carries the actual universal polarized family for every genus with its multiplier.
 
 <a id="m4"></a>
 
@@ -2118,21 +2722,25 @@ M4 identifies canonical generic-fibre pieces by CM reciprocity and density, with
 
 **Target:** TauCeti.PEL.cmPointsReciprocity (theorem; PELModuli:M4/cm-points-reciprocity).
 
-Let K be neat, (T, h) a special pair of (G, X) (ShimuraData:D4/special-pair) with reflex field E(T, h) ⊃ F₀, and x = [h, g] ∈ Sh_K(G^{(i)}, X)(ℂ) ⊂ M^ad_K(ℂ) a special point (the abelian variety A_x has CM by a CM algebra containing the image of T). For σ ∈ Aut(ℂ/E(T, h)) and s ∈ 𝔸^×_{E(T,h),f} with art(s) = σ|_{E(T,h)^ab} (in the normalization of ShimuraVarieties V4), the point σ(x) defined by the F₀-structure of the moduli problem (σ acting on (A, λ, i, η̄) by base change) equals [h, r_{(T,h)}(s)·g], where r_{(T,h)} is the reflex-norm reciprocity map. Hence the F₀-structure on M^ad_K satisfies the canonical-model condition of V4 on special points.
+Assume the connected PEL datum satisfies SV3. Let K be neat, (T, h) a special pair of (G, X) (ShimuraData:D4/special-pair) with reflex field E(T, h) ⊃ F₀, and x = [h, g] ∈ Sh_K(G^{(i)}, X)(ℂ) ⊂ M^ad_K(ℂ) a special point (the abelian variety A_x has CM by a CM algebra containing the image of T). For σ ∈ Aut(ℂ/E(T, h)) and s ∈ 𝔸^×_{E(T,h),f} with art(s) = σ|_{E(T,h)^ab} (in the normalization of ShimuraVarieties V4), the point σ(x) defined by the F₀-structure of the moduli problem (σ acting on (A, λ, i, η̄) by base change) equals [h, r_{(T,h)}(s)·g], where r_{(T,h)} is the reflex-norm reciprocity map. Hence the F₀-structure on M^ad_K satisfies the canonical-model condition of V4 on special points.
 
-**Hypotheses.** K neat Case A or C
+**Hypotheses.** K neat; Case A or C; The connected PEL datum satisfies SV3 on every rational simple adjoint factor; the referenced (G,X) is an actual Shimura datum.
 
 **Construction or proof.**
 
 1. For a special h and its Mumford–Tate torus, apply V5 complex multiplication to the actual polarized abelian variety with full finite adelic level.
+
 2. Compute the effect of σ under the reflex norm and V4’s specified Artin normalization, including the Tate-twist multiplier. The action is on the actual CM point in the PEL family.
+
 3. Use the computed reciprocity on each rational-form piece. Density of CM points and canonical-model uniqueness identify its reflex-field descent; the calculation cannot distinguish locally trivial global classes by local invariants alone.
 
 **Acceptance.** Siegel g = 1: for E with CM by O_K, σ ∈ Aut(ℂ/K) acts on the j-invariant through the Artin symbol of the class group (classical CM).
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 14.12, p. 125.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 14.12, p. 125.
 
 **Direct dependencies.** PELModuli:M3/algebraization-of-components; PELModuli:M3/complex-points; ShimuraVarieties:V4; ShimuraVarieties:V5; ShimuraData:D4/special-pair; ShimuraData:D4/special-point.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Actual special Mumford–Tate torus, embedding, level and CM family; σ fixes the actual reflex field. V4/V5 specify Artin sign and Tate-twist normalization. SV3, including the exclusion of wholly compact adjoint factors, is required for the actual Shimura datum and canonical-model theorem.
 
 <a id="canonical-model-identification"></a>
 
@@ -2140,22 +2748,27 @@ Let K be neat, (T, h) a special pair of (G, X) (ShimuraData:D4/special-pair) wit
 
 **Target:** TauCeti.PEL.canonicalModelIdentification (theorem; PELModuli:M4/canonical-model-identification).
 
-Let K be neat, Case A or C. The F₀-scheme M^ad_K (the generic fibre of the PEL moduli problem; for p-integral data M_{K^p} ⊗ F₀ with K = K^p·K_p, K_p hyperspecial) decomposes as ⊔_{i ∈ ker¹(ℚ,G)} S^{(i)} with each S^{(i)} open and closed and defined over F₀, and S^{(i)} is the canonical model of Sh_K(G^{(i)}, X) over E(G, X) = F₀ (ShimuraVarieties V4 definition). The identification of M3/algebraization-of-components is defined over F₀. When ker¹(ℚ, G) = 1, M^ad_K is the canonical model of Sh_K(G, X).
+Assume the connected PEL datum satisfies SV3. Let K be neat, Case A or C. The F₀-scheme M^ad_K (the generic fibre of the PEL moduli problem; for p-integral data M_{K^p} ⊗ F₀ with K = K^p·K_p, K_p hyperspecial) decomposes as ⊔_{i ∈ ker¹(ℚ,G)} S^{(i)} with each S^{(i)} open and closed and defined over F₀, and S^{(i)} is the canonical model of Sh_K(G^{(i)}, X) over E(G, X) = F₀ (ShimuraVarieties V4 definition). The identification of M3/algebraization-of-components is defined over F₀. When ker¹(ℚ, G) = 1, M^ad_K is the canonical model of Sh_K(G, X).
 
-**Hypotheses.** K neat Case A or C
+**Hypotheses.** K neat; Case A or C; The connected PEL datum satisfies SV3 on every rational simple adjoint factor; the referenced (G,X) is an actual Shimura datum.
 
 **Construction or proof.**
 
 1. M3 provides an open-and-closed algebraic piece with the correct uniformizing family. V4/V5 reciprocity identifies the neutral piece with the canonical model over the actual reflex field.
+
 2. For every globally distinct locally trivial form, use Kottwitz’s central α and adelic β satisfying the local norm-similitude condition to transport the actual polarized and levelled family to that piece.
+
 3. The transported CM reciprocity calculation and density identify descent of the entire piece; no local invariant substitutes for the global ker¹ class.
+
 4. Assemble the finite disjoint union over ker¹ and show the comparison respects actual level maps and Hecke translations.
 
 **Acceptance.** Siegel: A_{g,n} ⊗ ℚ is the canonical model of Sh_{K(n)}(GSp_{2g}, ℍ_g^±) (ShimuraVarieties V5). Picard (2,1) over K: M ⊗ K is a union of |ker¹| canonical models over K.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.11, p. 165.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.11, p. 165.
 
-**Direct dependencies.** PELModuli:M4/cm-points-reciprocity; PELModuli:M3/algebraization-of-components; PELModuli:M3/hasse-principle-cases; PELModuli:M0/reflex-field-comparison; ShimuraVarieties:V4; ShimuraVarieties:V6.
+**Direct dependencies.** PELModuli:M4/cm-points-reciprocity; PELModuli:M3/algebraization-of-components; PELModuli:M3/hasse-principle-cases; PELModuli:M0/reflex-field-comparison; ShimuraVarieties:V4; ShimuraVarieties:V6; PELModuli:M4/twisting-automorphisms.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Every canonical piece uses the same reflex field and actual rational twist; global α,β and CM reciprocity/density supply descent. These future global comparison interfaces are omitted. SV3, including the exclusion of wholly compact adjoint factors, is required for the actual Shimura datum and canonical-model theorem.
 
 <a id="twisting-automorphisms"></a>
 
@@ -2165,35 +2778,45 @@ Let K be neat, Case A or C. The F₀-scheme M^ad_K (the generic fibre of the PEL
 
 In the Case-A odd-rank situation of Kottwitz §8, choose a totally positive self-adjoint central a, a unit at the fixed good p, and β in the centre’s finite adeles away from p such that a N(β_v) is a scalar in Q_v× at every v≠p. The twist sends the actual rational PEL family (A,λ,i,[η]) to (A,λ∘i(a),i,[η∘β]), with the corresponding scalar multiplier. It commutes with the actual Hecke maps, has the multiplicative composition law, and transports the neutral complex rational-form piece to the specified global ker¹ piece. Full finite adelic variants supply a compatible integral p-component.
 
-**Hypotheses.** Case A with odd centre rank, actual CM centre and p-integral datum. a central, self-adjoint, totally positive at every complex embedding and a unit at p. β in away-p finite ideles, with a N(β_v) in Q_v×; compatible level and Tate-twist scalar.
+**Hypotheses.** Case A with odd centre rank, actual CM centre and p-integral datum.; a central, self-adjoint, totally positive at every complex embedding and a unit at p.; β in away-p finite ideles, with a N(β_v) in Q_v×; compatible level and Tate-twist scalar.
 
 **Construction or proof.**
 
 1. H¹(ℚ, Z) = F₀^×/ℚ^× N_{F/F₀}(F^×) and H¹(ℚ, Z(𝔸)) = 𝔸_{F₀}^×/𝔸^× N(𝔸_F^×) (Kottwitz §8); choose a and β as stated.
+
 2. λ ∘ i(a) is a polarization because a is totally positive and in the centre; the Rosati involution is unchanged since a* = a; the multiplier changes by a, compensated by β on level structures.
+
 3. Equivariance and compatibility with sheaves are formal; the image of S^{(1)} is S^{(i)} because H₁ changes by the twist of the form by a (class z_i).
 
 **API.**
 
-- **PELModuli.twist** — A natural automorphism of the actual rational-family functor induced by central a and adelic β, including the changed polarization and level orbit.
-- **PELModuli.twist_hecke** — The global alpha/beta twisting isomorphism commutes with the actual Hecke transformation on the same represented family functor, with all base and level identifications specified.
-- **PELModuli.twist_maps_piece** — The global twist carries the source ker1-indexed analytic piece to the piece indexed by the actual norm-torus/global cohomology translation class.
-- **PELModuli.twist_mul** — twist(a, β) ∘ twist(a', β') = twist(aa', ββ') up to the choices.
-- **PELModuli.twist_trivial** — For the identity alpha/beta twist data, the natural twisting automorphism is the identity. Preservation of the neutral component under a trivial global cohomology class follows from twist_maps_piece.
+- **PELModuli.twist** (relation) — A natural automorphism of the actual rational-family functor induced by central a and adelic β, including the changed polarization and level orbit.
+
+- **PELModuli.twist_hecke** (relation) — The global alpha/beta twisting isomorphism commutes with the actual Hecke transformation on the same represented family functor, with all base and level identifications specified.
+
+- **PELModuli.twist_maps_piece** (other) — The global twist carries the source ker1-indexed analytic piece to the piece indexed by the actual norm-torus/global cohomology translation class.
+
+- **PELModuli.twist_mul** (structure) — twist(a, β) ∘ twist(a', β') = twist(aa', ββ') up to the choices.
+
+- **PELModuli.twist_trivial** (simp) — For the identity alpha/beta twist data, the natural twisting automorphism is the identity. Preservation of the neutral component under a trivial global cohomology class follows from twist_maps_piece.
 
 **Unit tests.**
 
 - **twist_identity** (degenerate) — For a = 1, β = 1, twist is the identity.
+
 - **twist_polarization_positive** (characterisation) — For actual twist data, every complex embedding of its central scalar has positive real value; the twisted polarization uses this positivity.
+
 - **twist_needs_positivity** (non-example) — The central scalar minus one cannot occur in actual positive twist data.
 
 **Acceptance.** If ker¹(ℚ, G) = 1 the construction gives automorphisms of S^{(1)} only.
 
 **Uses.** Kottwitz 1992, §8: reduces the moduli space to copies of one canonical model, for the zeta function computation. AutomorphicGaloisRepresentationsPartII:AG2.1a: étale cohomology of unitary PEL varieties is a sum over ker¹ of isomorphic pieces.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, p. 400; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §8, pp.398–401, especially p.400.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, p. 400; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §8, pp.398–401, especially p.400.
 
-**Direct dependencies.** PELModuli:M4/canonical-model-identification; PELModuli:M3/hasse-principle-cases; PELModuli:M1/hecke-action.
+**Direct dependencies.** PELModuli:M3/algebraization-of-components; PELModuli:M3/hasse-principle-cases; PELModuli:M1/hecke-action.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Source Case-A odd-rank, actual CM norm, integral p-component, away-p β scalar-norm equation and level compatibility are omitted. twist_hecke’s η must be the constructed Hecke map.
 
 <a id="canonical-model-functoriality"></a>
 
@@ -2201,21 +2824,25 @@ In the Case-A odd-rank situation of Kottwitz §8, choose a totally positive self
 
 **Target:** TauCeti.PEL.canonicalModelFunctoriality (theorem; PELModuli:M4/canonical-model-functoriality).
 
-The identifications of M4/canonical-model-identification commute with: (a) the level-change maps M^ad_{K'} → M^ad_K and Sh_{K'} → Sh_K for K' ⊂ K; (b) Hecke translations [g] for g ∈ G(𝔸_f) (and the corresponding maps on canonical models); (c) morphisms of PEL data (M1/functoriality-in-data), in particular the Siegel morphism M^ad_K → A_{g,D,K^S} and the morphism of Shimura data (G, X) → (GSp(V), X(ψ)) of Hodge type, whose canonical models are compared by ShimuraVarieties V6; (d) prime-to-□ isogenies of PEL data changing L within L ⊗ ℚ.
+Assume the connected PEL datum satisfies SV3. The identifications of M4/canonical-model-identification commute with: (a) the level-change maps M^ad_{K'} → M^ad_K and Sh_{K'} → Sh_K for K' ⊂ K; (b) Hecke translations [g] for g ∈ G(𝔸_f) (and the corresponding maps on canonical models); (c) morphisms of PEL data (M1/functoriality-in-data), in particular the Siegel morphism M^ad_K → A_{g,D,K^S} and the morphism of Shimura data (G, X) → (GSp(V), X(ψ)) of Hodge type, whose canonical models are compared by ShimuraVarieties V6; (d) prime-to-□ isogenies of PEL data changing L within L ⊗ ℚ.
 
-**Hypotheses.** neat levels
+**Hypotheses.** neat levels; The connected PEL datum satisfies SV3 on every rational simple adjoint factor; the referenced (G,X) is an actual Shimura datum.
 
 **Construction or proof.**
 
 1. All maps are defined on the moduli side over F₀ and on the Shimura side by the adelic formulas; they agree on ℂ-points by M3/complex-points.
+
 2. A morphism between canonical models agreeing on ℂ-points with a morphism of F₀-schemes is that morphism (canonical models are reduced, points dense).
+
 3. For (c) use the Hodge-type inheritance theorem of ShimuraVarieties V6 for the canonical model of (G, X) ⊂ (GSp, X(ψ)).
 
 **Acceptance.** The Siegel morphism from a unitary PEL variety to A_{g} is defined over F₀ and agrees with the morphism of canonical models.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §6, p. 392; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 14.14, p. 127; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 13.6 and Remark 13.8, pp. 118–119.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §6, p. 392; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Proposition 14.14, p. 127; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 13.6 and Remark 13.8, pp. 118–119.
 
 **Direct dependencies.** PELModuli:M4/canonical-model-identification; PELModuli:M1/hecke-action; PELModuli:M1/functoriality-in-data; ShimuraVarieties:V6.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. The maps are the actual data, level and Hecke maps preserving their reflex embeddings and Artin normalization. SV3, including the exclusion of wholly compact adjoint factors, is required for the actual Shimura datum and canonical-model theorem.
 
 <a id="higher-level-normalization"></a>
 
@@ -2225,30 +2852,42 @@ The identifications of M4/canonical-model-identification commute with: (a) the l
 
 Let p be a good prime, v | p a prime of F₀, K^p ⊂ G(𝔸_f^p) neat, K_p^0 = G(ℤ_p) the stabilizer of L ⊗ ℤ_p and K_p ⊂ K_p^0 open compact. Let 𝔐 := M_{K^p} ⊗ O_{F₀,v} be the smooth good-level model (M2/representability) and π : M^ad_{K_pK^p} ⊗ F₀,v → M^ad_{K_p^0K^p} ⊗ F₀,v = 𝔐_{F₀,v} the finite étale level-change map of the generic fibre. Define 𝔐_{K_pK^p} := the relative normalization of 𝔐 in M^ad_{K_pK^p} ⊗ F₀,v along 𝔐_{F₀,v} ↪ 𝔐 ∘ π, constructed étale-locally on 𝔐 (mathlib AlgebraicGeometry.Scheme.Hom.normalization over each scheme in an étale atlas, glued by compatibility of normalization with étale base change). It comes with a finite morphism 𝔐_{K_pK^p} → 𝔐 and a canonical identification of its generic fibre with M^ad_{K_pK^p} ⊗ F₀,v. No smoothness, fine moduli interpretation or universal p-level structure is asserted for 𝔐_{K_pK^p}; the universal abelian scheme pulled back from 𝔐 carries no level-K_p structure over the special fibre.
 
-**Hypotheses.** p good, v | p K^p neat K_p ⊂ G(ℤ_p) open
+**Hypotheses.** p good, v | p; K^p neat; K_p ⊂ G(ℤ_p) open
 
 **Construction or proof.**
 
 1. Take the relative integral closure of the actual good-level model in the finite generic cover; reuse Scheme.Hom.normalization and its integral-factor universal property.
+
 2. Excellence gives finiteness; the local integral closure in the generic cover is normal. Torsion-freeness over the Dedekind reflex base gives flatness.
+
 3. For a normal flat source with dense generic open, integral elements map to normal local rings; this proves the separate normal-source lifting property, with uniqueness from generic density.
+
 4. Extend level/Hecke maps from their generic diagrams using normality and integral closure. Identify normalization with the original normal good-level model when the generic cover is the identity.
 
 **API.**
 
-- **PELModuli.normalizedModel** — 𝔐_{K_pK^p} := normalization of 𝔐 in the generic-fibre cover at level K_pK^p.
-- **PELModuli.normalizedModel_toGood** — The finite morphism 𝔐_{K_pK^p} → 𝔐 = 𝔐_{K_p^0K^p}.
-- **PELModuli.normalizedModel_generic** — The canonical morphism from the generic cover to its relative normalization. Its composite with the normalization-to-base morphism is the original cover. Identification of the generic fibre is made under the normal generic-cover hypotheses.
-- **PELModuli.normalizedModel_universal** — For any integral factorization Y→T→M of f, there is a unique map from the relative normalization of f to T commuting with both factorization maps. This is the native integral-factor universal property.
-- **PELModuli.normalizedModel_level** — Finite maps 𝔐_{K_p'K^p} → 𝔐_{K_pK^p} for K_p' ⊂ K_p, compatible in towers.
-- **PELModuli.normalizedModel_hecke** — An automorphism of the specified generic cover over the base induces an automorphism of the relative normalization. For a Hecke correspondence apply this functorial extension to its two compatible finite-cover maps.
-- **PELModuli.normalizedModel_good** — The relative normalization of the identity generic cover of an actual normal good model is that good model: its structural map is an isomorphism.
-- **PELModuli.normalizedModel_normalSource** — For a normal flat test scheme T over the Dedekind base, a dense generic open Tη and a compatible map Tη→Y over M, there is a unique extension T→the normalization in Y. This separate normal-source property has the opposite arrow direction.
+- **PELModuli.normalizedModel** (constructor) — 𝔐_{K_pK^p} := normalization of 𝔐 in the generic-fibre cover at level K_pK^p.
+
+- **PELModuli.normalizedModel_toGood** (projection) — The finite morphism 𝔐_{K_pK^p} → 𝔐 = 𝔐_{K_p^0K^p}.
+
+- **PELModuli.normalizedModel_generic** (characterisation) — The canonical morphism from the generic cover to its relative normalization. Its composite with the normalization-to-base morphism is the original cover. Identification of the generic fibre is made under the normal generic-cover hypotheses.
+
+- **PELModuli.normalizedModel_universal** (relation) — For any integral factorization Y→T→M of f, there is a unique map from the relative normalization of f to T commuting with both factorization maps. This is the native integral-factor universal property.
+
+- **PELModuli.normalizedModel_level** (functoriality) — Finite maps 𝔐_{K_p'K^p} → 𝔐_{K_pK^p} for K_p' ⊂ K_p, compatible in towers.
+
+- **PELModuli.normalizedModel_hecke** (functoriality) — An automorphism of the specified generic cover over the base induces an automorphism of the relative normalization. For a Hecke correspondence apply this functorial extension to its two compatible finite-cover maps.
+
+- **PELModuli.normalizedModel_good** (simp) — The relative normalization of the identity generic cover of an actual normal good model is that good model: its structural map is an isomorphism.
+
+- **PELModuli.normalizedModel_normalSource** (relation) — For a normal flat test scheme T over the Dedekind base, a dense generic open Tη and a compatible map Tη→Y over M, there is a unique extension T→the normalization in Y. This separate normal-source property has the opposite arrow direction.
 
 **Unit tests.**
 
 - **normalizedModel_good_level** (characterisation) — An identity generic cover of an actual normal good model has that good model as its relative normalization.
+
 - **normalizedModel_integral_factor** (characterisation) — A commuting integral factorization receives the unique map from the normalization; this tests the native direction.
+
 - **normalizedModel_generic_factor** (characterisation) — The normalization’s composite to the original base is the same actual generic finite-cover factorization.
 
 **Acceptance.** For K_p = K_p^0, 𝔐_{K_p^0K^p} = 𝔐 (𝔐 is normal, being smooth).
@@ -2258,6 +2897,8 @@ Let p be a good prime, v | p a prime of F₀, K^p ⊂ G(𝔸_f^p) neat, K_p^0 = 
 **Sources.** [stacks](https://stacks.math.columbia.edu), Tag 03GR (Lemma 29.54.15); [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.1.14, p. 154.
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M1/hecke-action; PELModuli:M3/algebraization-of-components; mathlib:AlgebraicGeometry.Scheme.Hom.normalization; mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc; mathlib:AlgebraicGeometry.Etale.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Generic cover finite over good normal model, excellent Dedekind base, and commuting generic diagrams. normalizedModel_good assumes identity generic cover of a normal good model. Normal-source lifting requires flat normal source, dense generic open and actual generic-fibre identification.
 
 <a id="normalization-finite-normal-flat"></a>
 
@@ -2272,14 +2913,18 @@ In the setting of M4/higher-level-normalization: 𝔐_{K_pK^p} is finite over �
 **Construction or proof.**
 
 1. Finiteness: 𝔐 is of finite type over O_{F₀,v}, hence excellent and Nagata (SchemeAndStackFoundations key/excellent-schemes); the normalization of a Nagata scheme in a reduced finite-type scheme is finite (Stacks Tag 03GR), applied on an étale atlas (AlgebraicModuliForArithmeticGeometry A0-extension: finiteness of normalisation under excellence).
+
 2. Normality: by construction (the integral closure of a normal ring in a reduced algebra whose total ring of fractions is a product of fields is normal).
+
 3. Flatness over O_{F₀,v}: 𝔐_{K_pK^p} is reduced with every irreducible component dominating Spec O_{F₀,v} (the structure sheaf is contained in the pushforward from the generic fibre), so its local rings are torsion-free over the DVR O_{F₀,v}, hence flat (Stacks Tag 0539).
 
 **Acceptance.** The Γ₀(p) model of the modular curve is flat with reduced special fibre.
 
-**Sources.** [stacks](https://stacks.math.columbia.edu), Tag 0539 (Lemma 15.22.10); [stacks](https://stacks.math.columbia.edu), Tag 035S (Lemma 29.55.11).
+**Sources.** [stacks](https://stacks.math.columbia.edu), Tag 0539 (Lemma 15.22.10); [stacks](https://stacks.math.columbia.edu), Tag 035S (Lemma 29.55.11); [stacks](https://stacks.math.columbia.edu), Tag 03GR (Lemma 29.54.15).
 
 **Direct dependencies.** PELModuli:M4/higher-level-normalization; SchemeAndStackFoundations:key/excellent-schemes; AlgebraicModuliForArithmeticGeometry:A0-extension; mathlib:AlgebraicGeometry.Flat; mathlib:AlgebraicGeometry.IsFinite.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Excellent noetherian normal good model, finite generic cover, dominant components and Dedekind base are omitted. Normality is for actual stalks; flatness follows from base torsion-freeness in this setting.
 
 <a id="cm-moduli-scheme"></a>
 
@@ -2287,32 +2932,44 @@ In the setting of M4/higher-level-normalization: 𝔐_{K_pK^p} is finite over �
 
 **Target:** TauCeti.PEL.cmModuli1 (construction; PELModuli:M4/cm-moduli-scheme).
 
-Let F be CM, Φ a rank-one CM type, p unramified in F, W₀ a rank-one Z_(p) skew-hermitian module of type Φ, and K₀⊂T₀(Af away from p) neat open compact. Over O_{F♭} tensor Z_(p), where F♭ is F joined with the intersection of all CM-type reflex fields, T₁ᵖ represents prime-to-p quasi-isogeny classes of p-principal localized unitary OF families of signature Φ with invariant K₀-level orbits. Their actual Betti lattices give w:T₁ᵖ(C)→ker¹(Q,T₀). Tᵖ is the minimal open-and-closed subscheme containing w⁻¹(neutral). T₁ᵖ and Tᵖ are finite étale. The same actual family functor is the rank-one rational PEL functor with this datum, localization and level.
+Let F be CM, Φ a rank-one CM type, p unramified in F, W₀ a rank-one Z_(p) skew-hermitian module of type Φ, and K₀⊂T₀(Af away from p) neat open compact. Over O_{F_Φ} tensor Z_(p), where F_Φ is the reflex field of the selected CM type Φ, T₁ᵖ represents prime-to-p quasi-isogeny classes of p-principal localized unitary OF families of signature Φ with invariant K₀-level orbits. Their actual Betti lattices give w:T₁ᵖ(C)→ker¹(Q,T₀). Tᵖ is the minimal open-and-closed subscheme containing w⁻¹(neutral). T₁ᵖ and Tᵖ are finite étale. The same actual family functor is the rank-one rational PEL functor with this datum, localization and level.
 
-**Hypotheses.** Φ a CM type of actual embedded F; W₀ perfect of rank one and type Φ. p unramified in F; K₀ neat open compact away from p. Base O_{F♭} tensor Z_(p) with published reflexive closure; same W₀ and K₀ in the PEL comparison.
+**Hypotheses.** Φ a CM type of actual embedded F; W₀ perfect of rank one and type Φ.; p unramified in F; K₀ neat open compact away from p.; Base O_{F_Φ} tensor Z_(p) with the selected CM-type reflex field; same W₀ and K₀ in the PEL comparison.
 
 **Construction or proof.**
 
 1. T¹_p is the rational moduli problem M^rat_{K^p₀} (M1/rational-moduli-problem with □ = {p}) for the rank-one unitary PEL datum of signature Φ, with reflex field F_Φ (M0/generalized-cm-type).
+
 2. Representability by a finite étale scheme: M2/representability (smooth of relative dimension Σ p_τ q_τ = 0, so étale) and M2/properness-when-division (End_F(W₀) = F is a field, so proper); a proper étale algebraic space with quasi-finite fibres is a finite étale scheme. LTXZZ states this as known without proof; this supplies it.
+
 3. The map w and T_p: M0/rank-one-skew-hermitian-classification identifies similarity classes with ker¹(T₀); the fibre w⁻¹(W₀) is a union of components.
+
 4. The T₀(𝔸^{∞,p})-action by changing η₀^p, with stabilizer computed from M2/no-automorphisms-at-neat-level.
 
 **API.**
 
-- **cmModuli1** — The finite étale representative of actual rank-one p-principal localized unitary families with CM type Φ and invariant away-p K₀-orbits, modulo prime-to-p quasi-isogeny and scalar unit in Z_(p). Its base is O_{F♭} tensor Z_(p), with F♭ the published reflexive closure.
-- **cmModuli1_represented** — The actual rank-one CM representative over O of the published reflexive closure localized at p is finite etale, under the unramified, perfect rank-one and neat-level hypotheses.
-- **cmModuli1_w** — w : T¹_p(ℂ) → ker¹(T₀), the similarity class of H₁(A₀(ℂ), ℤ_(p)).
-- **cmModuli** — The minimal open-and-closed subscheme of actual T₁ᵖ containing the neutral complex w-fibre; it need not be the entire T₁ᵖ.
-- **cmModuliAct** — The actual norm-similitude torus quotient acts on the selected minimal CM subscheme by precomposition of its level orbit.
-- **cmModuli_eq_pel** — T¹_p = M^rat_{K^p₀} for the rank-one unitary PEL datum of signature Φ.
-- **torusGroupoid** — The single-object groupoid with automorphism group the actual finite abelian CM torus quotient Gamma. cmModuliAct supplies its action by automorphisms of the selected CM scheme over the reflexive-closure base.
+- **cmModuli1** (constructor) — The finite étale representative of actual rank-one p-principal localized unitary families with CM type Φ and invariant away-p K₀-orbits, modulo prime-to-p quasi-isogeny and scalar unit in Z_(p). Its base is O_{F_Φ} tensor Z_(p), with F_Φ the selected CM-type reflex field.
+
+- **cmModuli1_represented** (other) — The actual rank-one CM representative over O of the selected CM-type reflex field localized at p is finite etale, under the unramified, perfect rank-one and neat-level hypotheses.
+
+- **cmModuli1_w** (data) — w : T¹_p(ℂ) → ker¹(T₀), the similarity class of H₁(A₀(ℂ), ℤ_(p)).
+
+- **cmModuli** (constructor) — The minimal open-and-closed subscheme of actual T₁ᵖ containing the neutral complex w-fibre; it need not be the entire T₁ᵖ.
+
+- **cmModuliAct** (structure) — The actual norm-similitude torus quotient acts on the selected minimal CM subscheme by precomposition of its level orbit.
+
+- **cmModuli_eq_pel** (compatibility) — T¹_p = M^rat_{K^p₀} for the rank-one unitary PEL datum of signature Φ.
+
+- **torusGroupoid** (data) — The single-object groupoid with automorphism group the actual finite abelian CM torus quotient Gamma. cmModuliAct supplies its action by automorphisms of the selected CM scheme over the CM-type reflex base.
 
 **Unit tests.**
 
-- **cmModuli_finite_etale** (characterisation) — The actual selected rank-one CM model over its reflexive-closure base is finite étale.
+- **cmModuli_finite_etale** (characterisation) — The actual selected rank-one CM model over its CM-type reflex base is finite étale.
+
 - **cmModuli_torus_torsor** (characterisation) — The actual finite abelian torus quotient acts freely and transitively on each geometric fibre.
+
 - **cmModuli_reciprocity_test** (computation) — The actual generic CM point is transported by the chosen reflex-norm/Artin action.
+
 - **cmModuli_open_closed** (non-example) — The selected model is the minimal clopen containing the neutral w-fibre; the comparison does not replace it by all T1.
 
 **Acceptance.** F imaginary quadratic: T_p(W₀, K^p₀) is a finite étale O_F ⊗ ℤ_(p)-scheme whose ℂ-points are CM elliptic curves with level structure.
@@ -2323,27 +2980,33 @@ Let F be CM, Φ a rank-one CM type, p unramified in F, W₀ a rank-one Z_(p) ske
 
 **Direct dependencies.** PELModuli:M2/representability; PELModuli:M2/properness-when-division; PELModuli:M1/rational-moduli-problem; PELModuli:M1/unitary-of-abelian-scheme; PELModuli:M0/rank-one-skew-hermitian-classification; PELModuli:M0/generalized-cm-type.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Actual rank-one W₀, CM type Φ, unramified p, neat K₀ and CM-type reflex base agree. PEL comparison uses the same rational datum and K; selected model is the minimal clopen containing the neutral w-fibre.
+
 <a id="cm-moduli-galois"></a>
 
 ### Galois structure of T_p(W₀, K^p₀)
 
 **Target:** TauCeti.PEL.cmModuliGalois (theorem; PELModuli:M4/cm-moduli-galois).
 
-For selected Tᵖ over O_{F♭} tensor Z_(p), Γ=T₀(Af away from p)/(T₀(Z_(p))K₀) is finite abelian and acts freely and transitively on each geometric fibre. Thus Tᵖ is a finite étale Γ-torsor over that base. Its Galois action at the geometric generic fibre is the Φ-reflex norm composed with Artin reciprocity in V4/V5’s convention; this and the Γ-action commute.
+For selected Tᵖ over O_{F_Φ} tensor Z_(p), Γ=T₀(Af away from p)/(T₀(Z_(p))K₀) is finite abelian and acts freely and transitively on each geometric fibre. Thus Tᵖ is a finite étale Γ-torsor over that base. Its Galois action at the geometric generic fibre is the Φ-reflex norm composed with Artin reciprocity in V4/V5’s convention; this and the Γ-action commute.
 
-**Hypotheses.** Φ a CM type of actual embedded F; W₀ perfect of rank one and type Φ. p unramified in F; K₀ neat open compact away from p. Base O_{F♭} tensor Z_(p) with published reflexive closure; same W₀ and K₀ in the PEL comparison.
+**Hypotheses.** Φ a CM type of actual embedded F; W₀ perfect of rank one and type Φ.; p unramified in F; K₀ neat open compact away from p.; Base O_{F_Φ} tensor Z_(p) with the selected CM-type reflex field; same W₀ and K₀ in the PEL comparison.
 
 **Construction or proof.**
 
 1. Finiteness of T₀(𝔸^{∞,p})/T₀(ℤ_(p))K^p₀: it injects into T₀(ℚ)\T₀(𝔸^∞)/T₀(ℤ_p)K^p₀, finite (class-group finiteness for tori).
+
 2. On ℂ-points, T_p(ℂ) is a torsor under this group (M3/complex-points for the torus datum: one G(ℚ)-orbit after fixing the similarity class).
+
 3. The Galois action on ℂ-points commutes with T₀(𝔸^{∞,p}) and is given by reciprocity (M4/cm-points-reciprocity), so the cover is Galois with the stated group acting by deck transformations.
 
 **Acceptance.** For F imaginary quadratic and K^p₀ maximal away from a neat auxiliary level, the cover is a ring class field extension of F (classical CM).
 
 **Sources.** [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), §3.5, p. 35 (arXiv v3); [ltxzz-published](https://par.nsf.gov/servlets/purl/10323568), Definition 3.5.4 and following discussion, pp.157–158.
 
-**Direct dependencies.** PELModuli:M4/cm-moduli-scheme; PELModuli:M4/cm-points-reciprocity; PELModuli:M3/complex-points.
+**Direct dependencies.** PELModuli:M4/cm-moduli-scheme; PELModuli:M4/cm-points-reciprocity; PELModuli:M3/complex-points; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Γ is the actual finite abelian torus quotient and points those of selected Tᵖ. Galois action uses the same CM-type reflex field and Φ-reflex norm.
 
 <a id="torus-groupoid-trace"></a>
 
@@ -2351,28 +3014,36 @@ For selected Tᵖ over O_{F♭} tensor Z_(p), Γ=T₀(Af away from p)/(T₀(Z_(p
 
 **Target:** TauCeti.PEL.torusTrace (construction; PELModuli:M4/torus-groupoid-trace).
 
-Let 𝔗 be the groupoid of the finite group Γ := T₀(𝔸^{∞,p})/T₀(ℤ_(p))K^p₀ and X : 𝔗 → Sch a functor (a scheme X(∗) with Γ-action), L a coefficient ring. H^i_𝔗(X, L(j)) ⊂ H^i_ét(X(∗), L(j)) and H^i_{𝔗,c}(X, L(j)) ⊂ H^i_{ét,c}(X(∗), L(j)) are the maximal submodules on which Γ acts trivially (invariants, not coinvariants). If κ is algebraically closed of characteristic p, L is p-coprime, X(∗) is smooth of finite type of dimension d over κ and Γ acts freely on π₀(X(∗)), the 𝔗-trace ∫^𝔗_X : H^{2d}_{𝔗,c}(X(∗), L(d)) → L is the composite of the inclusion into H^{2d}_c(X(∗), L(d)), the projection to ⊕_Y H^{2d}_c(Y, L(d)) over a set {Y} of representatives of Γ-orbits on components, and Σ tr_Y; it is independent of the representatives.
+Let 𝔗 be the groupoid of the finite group Γ := T₀(𝔸^{∞,p})/T₀(ℤ_(p))K^p₀ and X : 𝔗 → Sch a functor (a scheme X(∗) with Γ-action), L a coefficient ring. H^i_𝔗(X, L(j)) ⊂ H^i_ét(X(∗), L(j)) and H^i_{𝔗,c}(X, L(j)) ⊂ H^i_{ét,c}(X(∗), L(j)) are the maximal submodules on which Γ acts trivially (invariants, not coinvariants). If κ is algebraically closed of characteristic p, L is p-coprime, X(∗) is smooth of finite type of pure dimension d over κ and Γ acts freely on π₀(X(∗)), the 𝔗-trace ∫^𝔗_X : H^{2d}_{𝔗,c}(X(∗), L(d)) → L is the composite of the inclusion into H^{2d}_c(X(∗), L(d)), the projection to ⊕_Y H^{2d}_c(Y, L(d)) over a set {Y} of representatives of Γ-orbits on components, and Σ tr_Y; it is independent of the representatives.
 
-**Hypotheses.** Γ finite acting freely on components for the trace
+**Hypotheses.** Γ finite acting freely on components for the trace; The smooth scheme is pure of dimension d; every connected component has that dimension.
 
 **Construction or proof.**
 
 1. Define invariant submodules functorially in X (functor on ℭ × 𝔗 composed with the projection).
+
 2. Trace: on a Γ-invariant class, the traces on Y and on gY agree (tr is compatible with the isomorphism g : Y → gY), so the sum over representatives does not depend on choices; no division by |Γ| occurs.
+
 3. Étale cohomology with compact support and the trace map tr_Y for smooth connected Y of dimension d are imported (SchemeAndStackFoundations SF.2).
 
 **API.**
 
-- **torusInvariantCohomology** — The invariant submodule of the actual compactly supported top cohomology under the finite CM torus quotient action. The general invariant-module helper is applied to this geometric coefficient module.
-- **torusInvariantCohomology_functorial** — Functorial in Γ-equivariant morphisms X → X'.
-- **torusTrace** — ∫^𝔗_X : H^{2d}_{𝔗,c}(X(∗), L(d)) → L via orbit representatives.
-- **torusTrace_indep** — Independent of the representatives of Γ-orbits on π₀(X(∗)).
-- **torusTrace_trivial** — For trivial Γ and connected X(∗), ∫^𝔗 = tr.
+- **torusInvariantCohomology** (constructor) — The invariant submodule of the actual compactly supported top cohomology under the finite CM torus quotient action. The general invariant-module helper is applied to this geometric coefficient module.
+
+- **torusInvariantCohomology_functorial** (functoriality) — Restrict a specified Γ-equivariant map of coefficient modules to invariants. For geometric compact-support cohomology use only morphisms for which the relevant pullback or pushforward is defined, with its degree and twist.
+
+- **torusTrace** (constructor) — ∫^𝔗_X : H^{2d}_{𝔗,c}(X(∗), L(d)) → L via orbit representatives.
+
+- **torusTrace_indep** (characterisation) — Independent of the representatives of Γ-orbits on π₀(X(∗)).
+
+- **torusTrace_trivial** (simp) — For trivial Γ and connected X(∗), ∫^𝔗 = tr.
 
 **Unit tests.**
 
 - **torusTrace_trivial_group** (degenerate) — For Γ trivial and X(∗) connected, ∫^𝔗_X = tr_{X(∗)}.
+
 - **torusTrace_two_orbits** (computation) — Choosing two actual component representatives gives the sum of their component traces. For a free two-component orbit the invariant orbit trace instead uses one representative.
+
 - **torusTrace_not_average** (non-example) — Take a free C₂ orbit of two zero-dimensional components in odd characteristic and coefficients L=𝔽₂. The invariant class (1,1) has ordinary total trace 0 and orbit trace 1, with no division by 2 available. If |Γ| is invertible in L, the orbit trace does equal |Γ|⁻¹ times the total trace.
 
 **Acceptance.** For Γ trivial and connected X, the orbit trace equals the usual trace. A nontrivial group acting trivially on connected components does not satisfy the freeness hypothesis.
@@ -2383,6 +3054,7 @@ Let 𝔗 be the groupoid of the finite group Γ := T₀(𝔸^{∞,p})/T₀(ℤ_(
 
 **Direct dependencies.** PELModuli:M4/cm-moduli-scheme; SchemeAndStackFoundations:SF.2.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Actual scheme smooth finite type of pure dimension d over an algebraically closed residue field, coefficient torsion prime to characteristic, compact top cohomology component decomposition and free Γ-action. Trace naturality is for that geometric action; representatives meet every orbit once.
 
 <a id="m5"></a>
 
@@ -2400,32 +3072,46 @@ M5 fixes all-genus integral Siegel data and ordered polarization types, then com
 
 For g ≥ 1 and positive integers d₁ | d₂ | … | d_g (the type D), the Siegel PEL datum of genus g and type D is (ℤ, id, L_D, ⟨·,·⟩_D, h): L_D = ℤ^{2g} with basis e₁, …, e_g, f₁, …, f_g and ⟨e_i, f_j⟩_D = d_i δ_{ij}·2π√−1, ⟨e_i, e_j⟩ = ⟨f_i, f_j⟩ = 0 (values in ℤ(1)), and h(√−1) = J_D with J_D e_i = f_i, J_D f_i = −e_i, so that (1/2π√−1)⟨x, J_D y⟩ = Σ_i d_i (x_{e_i} y_{e_i} + x_{f_i} y_{f_i}) is positive definite (for D = (1, …, 1) and Mathlib's Matrix.J, whose form has ψ(e_i, f_i) = −1, the same structure is h(√−1) = −J). Its similitude group is G = GSp(L_D) (≅ GSp_{2g} over ℚ), Case C, I_bad = 1, Disc = 1, [L_D^# : L_D] = (d₁⋯d_g)², reflex field ℚ, signatures (g, g), and the bad primes for level n are those dividing n·d_g. Its Shimura datum is ShimuraData:D5/siegel-datum.
 
-**Hypotheses.** g ≥ 1 d₁ | … | d_g positive integers
+**Hypotheses.** g ≥ 1; d₁ | … | d_g positive integers
 
 **Construction or proof.**
 
 1. Write down L_D, ⟨·,·⟩_D and h; check Condition 1.2.1.2 by computing the real form (block-diagonal positive definite).
+
 2. Compute L_D^# = ⊕ (d_i⁻¹ℤ e_i ⊕ d_i⁻¹ℤ f_i) and the index; type is recovered by the Smith normal form of the Gram matrix (Tau Ceti Matrix.exists_smith_normal_form_of_det_ne_zero).
+
 3. Identify G₁ with Sp(L_D) (for D = 1, Tau Ceti Symplectic.groupScheme) and the Shimura datum with D5's Siegel datum; reflex field ℚ because V₀ is determined by its dimension g (M0/reflex-field).
 
 **API.**
 
-- **siegelIntegralDatum** — The actual finite free Z lattice of rank 2g with alternating type-d pairing and compatible positive J gives the full integral PEL datum. Genus zero is allowed integrally.
-- **siegelDatum_coordinate** — For positive genus, the actual coordinate Hopf algebra of the rationalized type-d datum is isomorphic to standard GSp₂g.
-- **siegelDatum_reflex** — Reflex field ℚ.
-- **siegelDatum_badPrimes** — p is bad at level n iff p | n·d_g.
-- **siegelDatum_dualIndex** — [L_D^# : L_D] = (d₁⋯d_g)².
-- **siegelDatum_signature** — Signatures (g, g); V₀ has dimension g.
-- **siegelDatum_shimura** — toShimuraDatum (siegelDatum D) = ShimuraData:D5/siegel-datum for every D (the rational datum does not depend on D).
-- **siegelDatum_type** — The polarization type of L_D (elementary divisors of the Gram matrix) is D.
-- **siegelRationalDatum** — For g>0 rationalize the same positive integral Siegel datum with faithful Q-action.
-- **siegelForm** — The raw alternating Gram form is the form field of that datum; convention ψ(e_i,f_i)=d_i.
+- **siegelIntegralDatum** (constructor) — The actual finite free Z lattice of rank 2g with alternating type-d pairing and compatible positive J gives the full integral PEL datum. Genus zero is allowed integrally.
+
+- **siegelDatum_coordinate** (characterisation) — For positive genus, the actual coordinate Hopf algebra of the rationalized type-d datum is isomorphic to standard GSp₂g.
+
+- **siegelDatum_reflex** (simp) — Reflex field ℚ.
+
+- **siegelDatum_badPrimes** (characterisation) — p is bad at level n iff p | n·d_g.
+
+- **siegelDatum_dualIndex** (simp) — [L_D^# : L_D] = (d₁⋯d_g)².
+
+- **siegelDatum_signature** (simp) — Signatures (g, g); V₀ has dimension g.
+
+- **siegelDatum_shimura** (compatibility) — toShimuraDatum (siegelDatum D) = ShimuraData:D5/siegel-datum for every D (the rational datum does not depend on D).
+
+- **siegelDatum_type** (other) — The polarization type of L_D (elementary divisors of the Gram matrix) is D.
+
+- **siegelRationalDatum** (constructor) — For g>0 rationalize the same positive integral Siegel datum with faithful Q-action.
+
+- **siegelForm** (data) — The raw alternating Gram form is the form field of that datum; convention ψ(e_i,f_i)=d_i.
 
 **Unit tests.**
 
 - **siegelDatum_index_12** (computation) — For g = 2 and D = (1, 2): [L_D^# : L_D] = 4 and the bad primes at level n = 3 are {2, 3}.
+
 - **siegelDatum_principal_good** (degenerate) — For the principal datum at level one, every prime is good.
+
 - **siegelDatum_shimura_indep** (compatibility) — The rational Shimura data of types (1, 1) and (1, 2) coincide (both GSp₄ with Siegel half spaces); only the integral moduli problems differ.
+
 - **siegelDatum_not_type_unordered** (non-example) — The proposed ordered type (2,1) fails the divisibility convention; it is not the canonical polarization type.
 
 **Acceptance.** D = (1): principally polarized Siegel datum, good at every p ∤ n. g = 1, D = (1): the GL₂ datum (ShimuraData:D5/gl2-datum).
@@ -2435,6 +3121,8 @@ For g ≥ 1 and positive integers d₁ | d₂ | … | d_g (the type D), the Sieg
 **Sources.** [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), §6, Proposition 6.3, p. 70; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.4.1.1, p. 148.
 
 **Direct dependencies.** PELModuli:M0/integral-pel-datum; PELModuli:M0/similitude-group; PELModuli:M0/good-primes; PELModuli:M0/reflex-field; PELModuli:M0/pel-shimura-datum; ShimuraData:D5/siegel-datum; tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero; tauceti:TauCeti.Symplectic.groupScheme; mathlib:Matrix.J.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Rationalization/D5 comparison require positive genus and positive ordered divisibility type. The integral datum permits rank zero; type computation assumes ordered invariant factors.
 
 <a id="siegel-moduli"></a>
 
@@ -2449,14 +3137,18 @@ For the Siegel datum of genus g and type D and n ≥ 1, A_{g,D,n} := M_{U(n)} ov
 **Construction or proof.**
 
 1. Instantiate M1/moduli-problem for the Siegel datum: the O-structure is trivial and the determinant condition says rank Lie = g, automatic.
+
 2. Apply M2/representability, M2/universal-family, M2/kodaira-spencer-dimension (Sym² of a rank-g space).
+
 3. Apply M3/siegel-fine-uniformization and M4/canonical-model-identification (ker¹ = 1 in Case C).
 
 **Acceptance.** g = 1, D = (1), n ≥ 3: Y(n) over ℤ[1/n] (M5/genus-one-comparison). Relative dimension of A_{2,D,n} is 3.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.1.13, p. 153; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.1.13, p. 153; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M5/siegel-pel-datum; PELModuli:M1/moduli-problem; PELModuli:M2/representability; PELModuli:M2/universal-family; PELModuli:M2/kodaira-spencer-dimension; PELModuli:M3/siegel-fine-uniformization; PELModuli:M4/canonical-model-identification.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Actual fixed type and n; positive genus, n≥3 for fine space, and inversion of n d_g are omitted.
 
 <a id="genus-one-comparison"></a>
 
@@ -2471,8 +3163,11 @@ For g = 1, D = (1) and n ≥ 3, there is an isomorphism over ℤ[1/n] between A_
 **Construction or proof.**
 
 1. Elliptic curves over S = abelian schemes of relative dimension 1 (AbelianSchemesAndArithmeticModuli A1); every such has a unique principal polarization (the canonical one), so λ is determined and D = (1) forces it.
+
 2. A symplectic level-n structure for the standard pairing is an ordered basis (P, Q) of E[n] with e_n(P, Q) = ν_n(ζ_n^{univ}); liftability is automatic for principal polarizations (L self-dual).
+
 3. Match with the Katz–Mazur [Γ(n)] moduli problem and Y(n, ζ) (ModularCurves layers 3C, 4A, 5B) and the Cartier–Nishi Weil pairing (layer 2E); the sign convention e_n(P, Q) versus e_n(Q, P) is fixed by ⟨e₁, f₁⟩ = +1.
+
 4. Universal objects correspond by the universal properties; the GL₂(ℤ/n)-actions agree after the transpose convention of ShimuraVarieties V8.
 
 **Acceptance.** Over ℂ, the point τ ∈ ℍ maps to (ℂ/(ℤ + ℤτ), 1/n, τ/n) with e_n = e^{2π√−1/n} in the chosen orientation.
@@ -2480,6 +3175,8 @@ For g = 1, D = (1) and n ≥ 3, there is an isomorphism over ℤ[1/n] between A_
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition 1.3.6.1, p. 133; [milne-isv](https://www.jmilne.org/math/xnotes/svi.pdf), Theorem 6.11, p. 74; aside p. 75 (full level N).
 
 **Direct dependencies.** PELModuli:M5/siegel-moduli; PELModuli:M1/principal-level-structure; AbelianSchemesAndArithmeticModuli:A1; tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing; tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing; tauceti:TauCetiRoadmap/ModularCurves#3c-the-four-level-structures.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Principal type, n≥3 invertible on base and same Weil-pairing sign/multiplier as ModularCurves 5B.
 
 <a id="hilbert-example-acceptance"></a>
 
@@ -2489,19 +3186,23 @@ For g = 1, D = (1) and n ≥ 3, there is an isomorphism over ℤ[1/n] between A_
 
 Let F be a totally real field of degree d, D5's rational Hilbert data, H0's integral trace-lattice refinement and H1's polarization-module PEL instance (B = F, * = id, O = O_F, L = O_F ⊕ 𝔠^∨-type lattice with the trace pairing; owned by HilbertModularVarietiesAndShimuraCurves H1 per RS-23). Then: the datum is of Case C (G = G* ⊂ Res_{F/ℚ}GL₂ with rational multiplier); I_bad = 1; Disc(O_F) = disc(F) with good primes p ∤ n·disc(F)·[L^#:L]; signatures (1, 1) at each real embedding; reflex field ℚ; ker¹(ℚ, G) = 1; relative dimension d (M2/kodaira-spencer-dimension); at good p the determinant condition is the Rapoport condition (Lie_{A/S} locally free of rank one over O_F ⊗ O_S). The verification is an acceptance test of the imported construction, not a second construction and not an input to H1/H2.
 
-**Hypotheses.** F totally real H1's polarization-module datum
+**Hypotheses.** F totally real; H1's polarization-module datum
 
 **Construction or proof.**
 
 1. Import the rational datum from ShimuraData D5 (D5/hilbert-star-datum, D5/hilbert-trace-embedding) and the integral/polarization-module instance from H0/H1.
+
 2. Compute the Albert type (C), bad primes, signature and reflex field from M0 (traces Tr(a | V₀) = Tr_{F/ℚ}(a) ∈ ℚ).
+
 3. Hasse principle from M3/hasse-principle-cases (Case C); dimension from M2/kodaira-spencer-dimension; determinant condition at unramified p equals the Rapoport condition by M0/determinant-condition-splitting.
 
 **Acceptance.** F = ℚ recovers the genus-one Siegel case. F real quadratic: Hilbert modular surfaces of dimension 2 with reflex field ℚ.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.6, p. 91; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 393.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.2.5.6, p. 91; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 393.
 
 **Direct dependencies.** PELModuli:M0/reflex-field; PELModuli:M0/albert-types; PELModuli:M0/good-primes; PELModuli:M0/determinant-condition-splitting; PELModuli:M2/kodaira-spencer-dimension; PELModuli:M3/hasse-principle-cases; ShimuraData:D5/hilbert-star-datum; ShimuraData:D5/hilbert-trace-embedding; HilbertModularVarietiesAndShimuraCurves:H0; HilbertModularVarietiesAndShimuraCurves:H1.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. D5 rational Hilbert datum and H0/H1 polarization-module refinement with actual trace/different pairing; this node imports that construction and only checks PEL consequences.
 
 <a id="unitary-pel-datum"></a>
 
@@ -2509,43 +3210,59 @@ Let F be a totally real field of degree d, D5's rational Hilbert data, H0's inte
 
 **Target:** TauCeti.PEL.unitaryRationalDatum (construction; PELModuli:M5/unitary-pel-datum).
 
-Let K be a CM field with maximal totally real subfield K⁺, Φ a CM type, (V, H) a hermitian space over K of dimension n with signature (r_τ, s_τ) at each τ ∈ Φ (r_τ + s_τ = n), and δ ∈ K^× with δ̄ = −δ and Im τ(δ) > 0 for τ ∈ Φ. The unitary PEL datum is (O_K, c, L, ⟨·,·⟩, h): ⟨x, y⟩ := Tr_{K/ℚ}(δ H(x, y))·2π√−1 on an O_K-lattice L ⊂ V with ⟨L, L⟩ ⊂ ℤ(1), and h(√−1) acting on V ⊗_{K,τ} ℂ ≅ ℂ^n by diag(√−1·1_{r_τ}, −√−1·1_{s_τ}) in an H-orthogonal basis (with the sign fixed by the positivity of (1/√−1)⟨x, h(√−1)y⟩). Its similitude group is GU(V) (Case A), I_bad = 1, its signatures are (p_τ, q_τ) = (r_τ, s_τ) with Ψ = Σ_{τ∈Φ} (r_τ τ + s_τ τ̄), its reflex field is F_Ψ, its relative dimension is Σ_{τ∈Φ} r_τ s_τ, and its good primes at level n are those not dividing n·disc(K)·[L^# : L].
+Let K be a CM field with maximal totally real subfield K⁺, Φ a CM type, (V, H) a hermitian space over K of dimension n≥1 with signature (r_τ, s_τ) at each τ ∈ Φ (r_τ + s_τ = n), and δ ∈ K^× with δ̄ = −δ and Im τ(δ) > 0 for τ ∈ Φ. The unitary PEL datum is (O_K, c, L, ⟨·,·⟩, h): ⟨x, y⟩ := Tr_{K/ℚ}(δ H(x, y))·2π√−1 on an O_K-lattice L ⊂ V with ⟨L, L⟩ ⊂ ℤ(1), and h(√−1) acting on V ⊗_{K,τ} ℂ ≅ ℂ^n by diag(√−1·1_{r_τ}, −√−1·1_{s_τ}) in an H-orthogonal basis (with the sign fixed by the positivity of (1/√−1)⟨x, h(√−1)y⟩). Its similitude group is GU(V) (Case A), I_bad = 1, its signatures are (p_τ, q_τ) = (r_τ, s_τ) with Ψ = Σ_{τ∈Φ} (r_τ τ + s_τ τ̄), its reflex field is F_Ψ, its relative dimension is Σ_{τ∈Φ} r_τ s_τ, and its good primes at level n are those not dividing n·disc(K)·[L^# : L].
 
-**Hypotheses.** K the actual CM field with CM conjugation; H perfect of finite rank n. δ nonzero anti-invariant with positive imaginary sign at Φ; full OF lattice has integral trace pairing. For D4 Shimura assertion, each nontrivial rational simple adjoint factor has nontrivial h-projection (SV3). A wholly definite unitary factor of rank≥2 may fail this; a rank-one torus has trivial adjoint.
+**Hypotheses.** K the actual CM field with CM conjugation; H perfect of finite positive rank n≥1.; δ nonzero anti-invariant with positive imaginary sign at Φ; full OF lattice has integral trace pairing.; For D4 Shimura assertion, each nontrivial rational simple adjoint factor has nontrivial h-projection (SV3). A wholly definite unitary factor of rank≥2 may fail this; a rank-one torus has trivial adjoint.
 
 **Construction or proof.**
 
 1. Check alternation and adjointness: ⟨x, x⟩ = Tr(δ H(x, x)) = 0 since δ H(x, x) is totally imaginary; ⟨ax, y⟩ = ⟨x, āy⟩ (M0/hermitian-space dictionary).
+
 2. Check Condition 1.2.1.2: on V ⊗_{K,τ} ℂ the real form is 2 Im τ(δ)·(±Re H) with signs matching the signature, positive definite by the choice of h (Kottwitz Lemma 4.3 signature argument).
+
 3. Compute signatures, reflex field (M0/generalized-cm-type: F_Ψ), relative dimension (M2/kodaira-spencer-dimension) and bad primes (Disc(O_K) = disc(K) by M0/order-discriminant).
 
 **API.**
 
-- **unitaryRationalDatum** — For actual CM field/conjugation, perfect hermitian space, nonzero anti-invariant δ with prescribed positive signs, construct the full rational PEL datum using Tr(δH) and its positive compatible J.
-- **unitaryDatum_group** — Similitude group GU(V); Case A.
-- **unitaryDatum_signature** — Signatures (r_τ, s_τ) at τ ∈ Φ and (s_τ, r_τ) at τ̄.
-- **unitaryDatum_reflex_general** — For the full unitary datum, the trace-defined reflex field equals the stabilizer-defined field of its generalized CM signature type.
-- **unitaryDatum_relDim** — Relative dimension Σ_{τ∈Φ} r_τ s_τ.
-- **unitaryDatum_badPrimes** — Bad primes divide n·Disc(O_K)·[L^#:L]; 2 may be good.
-- **unitaryDatum_shimura** — Under CM conjugation, the anti-invariant nonzero delta, positivity, connectedness and SV3 hypotheses, the actual PEL Shimura datum is isomorphic to ShimuraData’s GU datum. Definite rank one has trivial adjoint group; wholly definite rank at least two fails SV3.
-- **unitaryDatum_ker1** — ker¹(ℚ, GU(V)) = 1 if n is even; ≅ ker¹(ℚ, Z) if n is odd (M3/hasse-principle-cases).
-- **unitaryTraceForm** — The raw rational trace form is Tr_{K/Q}(δH); it is part of the full datum.
-- **unitaryDatum_reflex** — For imaginary quadratic K with selected embedding τ, the reflex field of signature (r,s) is Q if r=s and τ(K) otherwise.
+- **unitaryRationalDatum** (constructor) — For actual CM field/conjugation, perfect hermitian space, nonzero anti-invariant δ with prescribed positive signs, construct the full rational PEL datum using Tr(δH) and its positive compatible J.
+
+- **unitaryDatum_group** (characterisation) — Similitude group GU(V); Case A.
+
+- **unitaryDatum_signature** (simp) — Signatures (r_τ, s_τ) at τ ∈ Φ and (s_τ, r_τ) at τ̄.
+
+- **unitaryDatum_reflex_general** (simp) — For the full unitary datum, the trace-defined reflex field equals the stabilizer-defined field of its generalized CM signature type.
+
+- **unitaryDatum_relDim** (simp) — Relative dimension Σ_{τ∈Φ} r_τ s_τ.
+
+- **unitaryDatum_badPrimes** (characterisation) — Bad primes divide n·Disc(O_K)·[L^#:L]; 2 may be good.
+
+- **unitaryDatum_shimura** (compatibility) — Under CM conjugation, the anti-invariant nonzero delta, positivity, connectedness and SV3 hypotheses, the actual PEL Shimura datum is isomorphic to ShimuraData’s GU datum. Definite rank one has trivial adjoint group; wholly definite rank at least two fails SV3.
+
+- **unitaryDatum_ker1** (other) — ker¹(ℚ, GU(V)) = 1 if n is even; ≅ ker¹(ℚ, Z) if n is odd (M3/hasse-principle-cases).
+
+- **unitaryTraceForm** (data) — The raw rational trace form is Tr_{K/Q}(δH); it is part of the full datum.
+
+- **unitaryDatum_reflex** (relation) — For imaginary quadratic K with selected embedding τ, the reflex field of signature (r,s) is Q if r=s and τ(K) otherwise.
 
 **Unit tests.**
 
 - **unitaryDatum_picard_reflex** (computation) — K = ℚ(√−3), n = 3, signature (2, 1): reflex field K and relative dimension 2.
+
 - **unitaryDatum_U11** (computation) — K imaginary quadratic, signature (1, 1): reflex field ℚ, relative dimension 1.
+
 - **unitaryDatum_definite** (degenerate) — For the actual imaginary-quadratic rank-one definite datum, the adjoint point group is trivial. Thus SV3 is vacuous here; wholly definite rank at least two is excluded.
+
 - **unitaryDatum_wrong_delta** (non-example) — The real scalar delta = 1 fails the required anti-invariance condition, so it cannot be the imaginary scalar in the Hermitian-to-alternating construction.
 
 **Acceptance.** K imaginary quadratic, n = 3, signature (2, 1): Picard datum, reflex field K, dimension 2. K imaginary quadratic, signature (1, 1): reflex field ℚ, dimension 1.
 
 **Uses.** RS-14 owner record: M5 owns the unitary PEL example with specified signatures, polarization and good-prime/reflex-field checks. AutomorphicPadicLFunctions:L4: EHLS's unitary PEL varieties (RS-14 link M5 → L4, L4e, L5). AutomorphicCongruences:L1: the U(2,2) Shimura varieties of Skinner–Urban (RS-14 link M5 → L1). IgusaVarietiesAndTorsionConcentration:IG.0: the split unitary datum of CSnc.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), Lemma 4.3 proof, pp. 388–389; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), §1.1, p. 980; [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.3.1, p. 28 (arXiv v3).
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), Lemma 4.3 proof, pp. 388–389; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), §1.1, p. 980; [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Definition 3.3.1, p. 28 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M0/hermitian-space; PELModuli:M0/skew-hermitian-space; PELModuli:M0/generalized-cm-type; PELModuli:M0/signatures; PELModuli:M0/integral-pel-datum; PELModuli:M0/good-primes; PELModuli:M2/kodaira-spencer-dimension; mathlib:NumberField.IsCMField.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. CM conjugation, δ nonzero anti-invariant with Φ-positive sign, actual signatures and integral lattice are omitted. SV3 separately required for Shimura assertion. Imaginary quadratic reflex examples require [K:Q]=2 and their specified signature datum. The rational module has positive rank so its K-action is faithful; zero-dimensional integral examples belong only to M0.
 
 <a id="unitary-examples"></a>
 
@@ -2560,13 +3277,16 @@ Let K be a CM field with maximal totally real subfield K⁺, Φ a CM type, (V, H
 **Construction or proof.**
 
 1. Instantiate M5/unitary-pel-datum and compute signature, reflex field via M0/generalized-cm-type, relative dimension via M2/kodaira-spencer-dimension, bad primes via M0/good-primes, ker¹ via M3/hasse-principle-cases.
+
 2. Verify positivity of h for the chosen δ (sign of Im τ(δ)).
 
 **Acceptance.** (a) dimension 2, (b) 1, (c) 4. (a) reflex field K; (b), (c) reflex field ℚ.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §7, p. 394; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), Lemme 1.1.4, p. 981.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §7, p. 394; [bps2016](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf), Lemme 1.1.4, p. 981.
 
 **Direct dependencies.** PELModuli:M5/unitary-pel-datum; PELModuli:M3/hasse-principle-cases; PELModuli:M0/bps-signature-constancy; PELModuli:M2/kodaira-spencer-dimension.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Imaginary quadratic field, actual indicated hermitian matrix and inverse-different generator with compatible positive sign.
 
 <a id="nonprincipal-type-example"></a>
 
@@ -2576,12 +3296,14 @@ Let K be a CM field with maximal totally real subfield K⁺, Φ a CM type, (V, H
 
 For Siegel type (1,p), the actual surface pairing has dual index p², polarization degree p² and p excluded from the good smooth base; it is a genuine nonprincipal object after supplying level. For a Gaussian CM elliptic curve with action defined over a number field k, the product with its conjugate-action copy and polarization λ_E times pλ_E is an actual unitary surface with Lie signature (1,1) and degree p². Its lattice can be written OF⊕pOF with the second trace pairing scaled by 1/p, which transports to p times the standard pairing; the unscaled restricted form would give degree p⁴. M3/M4 place this in the actual nonprincipal moduli after finite level extension.
 
-**Hypotheses.** p odd unramified for the Gaussian CM unitary example. CM elliptic curve and OF action defined over k; conjugate action and actual product polarization.
+**Hypotheses.** p odd unramified for the Gaussian CM unitary example.; CM elliptic curve and OF action defined over k; conjugate action and actual product polarization.
 
 **Construction or proof.**
 
 1. Compute the alternating pairing and Smith elementary divisors; use the integral datum and its dual-index theorem.
+
 2. Construct actual polarized E times E with the two conjugate Gaussian actions. Lie eigenlines have rank one each and product polarization kernel degree p².
+
 3. Use comparison/CM descent for level after finite extension. Retain second-summand 1/p normalization on the nonstandard embedded lattice; compare its transported pairing with p times the original.
 
 **Acceptance.** The product E₁ × E₂ with λ = λ_{E₁} × pλ_{E₂} is an object of type (1, p).
@@ -2590,6 +3312,7 @@ For Siegel type (1,p), the actual surface pairing has dual index p², polarizati
 
 **Direct dependencies.** PELModuli:M5/siegel-pel-datum; PELModuli:M5/siegel-moduli; PELModuli:M5/unitary-pel-datum; tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. Actual Gaussian CM elliptic curve with defined action, good odd p, product polarization and transported nonprincipal pairing; the prototype records the actual object and Lie eigenline isomorphism.
 
 <a id="m6"></a>
 
@@ -2607,19 +3330,23 @@ M6 constructs level maps, ordinary quotient stacks, polarized finite-type presen
 
 For open compact H' ⊂ H ⊂ G(Ẑ^□), the forgetful morphism M_{H'} → M_H (M1/hecke-action) is representable, finite and étale. If H is neat and H' ⊲ H, it is a Galois cover of algebraic spaces with group H/H' acting freely by Hecke translation. For g ∈ G(𝔸^{∞,□}), the two maps of the Hecke correspondence M_H ← M_{H ∩ gHg⁻¹} → M_H are finite étale.
 
-**Hypotheses.** □ good H' ⊂ H open compact
+**Hypotheses.** □ good; H' ⊂ H open compact
 
 **Construction or proof.**
 
 1. Étale-locally on S, an integral level-H structure lifts to an H'-structure, and the set of lifts is a torsor under H_n/H'_n for n with U^□(n) ⊂ H' (Lan Definition 1.3.7.8): the fibre is a finite étale scheme.
+
 2. Representability by schemes: the fibre over an object is the finite étale scheme of H'-orbits refining α_H.
+
 3. Neat case: H/H' acts on M_{H'} over M_H, freely because objects have no automorphisms (M2/no-automorphisms-at-neat-level), with quotient M_H.
 
 **Acceptance.** Siegel g=1 and n≥3: Y(nm) to Y(n) is finite étale Galois with the congruence kernel of GL₂(Z/nm) to GL₂(Z/n), where both moduli problems retain the multiplier. At nonneat level use the stack map, whose representable fibre is the actual finite set of level refinements.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §6, p. 392; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.10, p. 164.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §6, p. 392; [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.3.10, p. 164.
 
 **Direct dependencies.** PELModuli:M1/hecke-action; PELModuli:M1/level-structure; PELModuli:M2/representability; PELModuli:M2/no-automorphisms-at-neat-level; mathlib:AlgebraicGeometry.Etale; mathlib:AlgebraicGeometry.IsFinite.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="arbitrary-level-stack"></a>
 
@@ -2629,20 +3356,25 @@ For open compact H' ⊂ H ⊂ G(Ẑ^□), the forgetful morphism M_{H'} → M_H 
 
 Let H ⊂ G(Ẑ^□) be any open compact subgroup (not necessarily neat) and H' ⊲ H a neat open normal subgroup. Then the action of the finite group H/H' on the algebraic space M_{H'} (by Hecke translation) gives an isomorphism of stacks [M_{H'}/(H/H')] ≅ M_H. Consequently M_H is a separated Deligne–Mumford stack, smooth of finite type over S₀, with finite inertia; the presentation is independent of H' up to canonical equivalence. The universal object of M_{H'} descends to the universal object of the stack M_H.
 
-**Hypotheses.** H open compact H' ⊲ H neat
+**Hypotheses.** H open compact; H' ⊲ H neat
 
 **Construction or proof.**
 
 1. Quotient stack [M_{H'}/(H/H')] of an algebraic space by a finite group is a DM stack (AlgebraicModuliForArithmeticGeometry R09.4: quotient stacks; RS-27 leaves the PEL instance to this layer).
+
 2. Construct M_{H'} → M_H as an H/H'-torsor of fibred categories (M6/level-forgetting-maps: the fibre is the set of H'-refinements of α_H, an H/H'-torsor), hence [M_{H'}/(H/H')] ≅ M_H.
+
 3. Inertia: Aut of an object is a subgroup of the stabilizer in H/H' (finite); separatedness from M2/isom-scheme.
+
 4. Independence of H': for H'' ⊂ H' both neat normal, the presentations are compatible via M_{H''} → M_{H'}.
 
 **Acceptance.** Siegel g = 1, H = GL₂(ℤ̂^□) (no level): M_H = [Y(n)/GL₂(ℤ/n)] over ℤ[1/n] for n ≥ 3, the moduli stack of elliptic curves.
 
-**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 1.4.1.12, p. 153; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §6, p. 392.
+**Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Theorem 1.4.1.12, p. 153; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §6, p. 392.
 
 **Direct dependencies.** PELModuli:M6/level-forgetting-maps; PELModuli:M2/representability; PELModuli:M2/isom-scheme; PELModuli:M1/moduli-problem; AlgebraicModuliForArithmeticGeometry:R09.4; DiamondsAndVStacks:D0.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="siegel-stack-over-z"></a>
 
@@ -2657,8 +3389,11 @@ Let 𝔄_g be the fibred category over Sch/ℤ of principally polarized abelian 
 **Construction or proof.**
 
 1. Construct the principal integral datum directly in M0 and its relative principally polarized family functor in M1; this does not import the M5 examples.
+
 2. Over Z[1/3] and Z[1/4], M2 gives fine smooth algebraic spaces with full level 3 and 4. Their finite group quotients represent the level-free ordinary groupoid.
+
 3. Use effective descent and independence of the chosen neat cover to glue the two quotient presentations on their overlap. These opens cover Spec Z, including characteristics 2 and 3.
+
 4. Descend the actual universal polarized family, finite Isom diagonal and Kodaira–Spencer dimension.
 
 **Acceptance.** g = 1: 𝔄_1 is the moduli stack of elliptic curves over ℤ.
@@ -2666,6 +3401,8 @@ Let 𝔄_g be the fibred category over Sch/ℤ of principally polarized abelian 
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Corollary 1.4.1.13, p. 153.
 
 **Direct dependencies.** PELModuli:M6/arbitrary-level-stack; PELModuli:M1/effective-descent; PELModuli:M2/kodaira-spencer-dimension; PELModuli:M0/integral-pel-datum; PELModuli:M1/moduli-problem; PELModuli:M1/principal-level-structure; PELModuli:M2/representability; AlgebraicModuliForArithmeticGeometry:R09.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="polarized-stack-finite-type"></a>
 
@@ -2675,20 +3412,27 @@ Let 𝔄_g be the fibred category over Sch/ℤ of principally polarized abelian 
 
 For g,d>0, the ordinary stack of abelian schemes of dimension g with an actual polarization of degree d² is separated Deligne–Mumford and of finite type over Z, including every characteristic dividing d. Over a base where n≥3 is invertible, marking the actual finite étale group A[n] kills polarized automorphisms and gives a finite-type algebraic space. A full symplectic marking of fixed type D with product d requires n also prime to d; it is not the all-characteristic presentation. Smoothness at p dividing d is not asserted.
 
-**Hypotheses.** g,d positive; objects carry actual polarization morphisms of degree d². A torsion marking uses n≥3 invertible on the base. A symplectic type-D marking additionally requires n prime to d.
+**Hypotheses.** g,d positive; objects carry actual polarization morphisms of degree d².; A torsion marking uses n≥3 invertible on the base. A symplectic type-D marking additionally requires n prime to d.
 
 **Construction or proof.**
 
 1. Étale locally lift the polarization morphism to an ample line bundle L. A2 supplies that L³ is very ample and has h0=3^g d in every characteristic (Faltings–Chai I.4.11).
+
 2. Use the fixed Hilbert polynomial and R09.2 to parameterize embedded abelian schemes together with their line bundles, group law and identity; quotient the projective-frame action using ordinary R09.4. Rigidify the scalar automorphisms of L.
+
 3. The forgetful map from line bundles inducing the same polarization to polarization morphisms is the actual relative Pic0 torsor, with its local existence and descent supplied by A2, using R09.3’s generic descent. Descend this presentation rather than identifying its line-bundle stack with the polarization stack.
+
 4. Polarization-preserving Isom is finite unramified by the graph, rigidity and valuative argument. Mark A[n] for n≥3 to kill automorphisms without requiring n prime to d; use n=3 and n=4 on covering base opens. Finite-type descent proves the claim including p dividing d.
+
+5. Apply only the all-characteristic field-fibre very-ampleness clause of A2/projective-presentation-over-normal-bases; no normality assumption on the moduli base is inferred. A2/ample-cohomology-and-degree supplies relative base change and the rank 3^g d. The exact Pic0 torsor is A2/polarization-representatives-and-graph. Faltings–Chai I.4.11 is the principal-degree model of the presentation, not a general-degree cubic theorem.
 
 **Acceptance.** d = 1: 𝔄_{g,1} = 𝔄_g (M6/siegel-stack-over-z). For p | d, 𝔄_{g,d} ⊗ 𝔽_p is of finite type but in general not smooth.
 
-**Sources.** [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391; [lipnowski-tsimerman2018](https://arxiv.org/pdf/1511.02212v1), §4.1, Remark 4.2, p. 17; faltings-chai, Chapter I, Proposition 4.11, pp.23–24; §5, pp.27–29.
+**Sources.** [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391; [lipnowski-tsimerman2018](https://arxiv.org/pdf/1511.02212v1), §4.1, Remark 4.2, p. 17; faltings-chai, Chapter I, Definition 1.6 and preceding Picard discussion, pp.2–4; discussion 4.11, pp.23–24; Proposition 5.3, p.27.
 
-**Direct dependencies.** PELModuli:M1/effective-descent; PELModuli:M2/isom-scheme; AlgebraicModuliForArithmeticGeometry:R09.2; AlgebraicModuliForArithmeticGeometry:R09.4; AbelianSchemesAndArithmeticModuli:A2; AlgebraicModuliForArithmeticGeometry:R09.3; DiamondsAndVStacks:D0.
+**Direct dependencies.** PELModuli:M1/effective-descent; PELModuli:M2/isom-scheme; AlgebraicModuliForArithmeticGeometry:R09.2; AlgebraicModuliForArithmeticGeometry:R09.4; AbelianSchemesAndArithmeticModuli:A2; AlgebraicModuliForArithmeticGeometry:R09.3; DiamondsAndVStacks:D0; AbelianSchemesAndArithmeticModuli:A2/polarization-representatives-and-graph; AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree; AbelianSchemesAndArithmeticModuli:A2/projective-presentation-over-normal-bases.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="coarse-moduli-space"></a>
 
@@ -2703,7 +3447,9 @@ For any open compact H, the stack M_H (finite inertia, M6/arbitrary-level-stack)
 **Construction or proof.**
 
 1. Apply the finite-inertia coarse-space theorem of AlgebraicModuliForArithmeticGeometry R09.5 (RS-27 owner record: PEL coarse spaces are owned here, by R09.5's theorem).
+
 2. For the quotient presentation, M_H^c = M_{H'}/(H/H') (quotient of an algebraic space by a finite group).
+
 3. Base change statements as available in R09.5 (flat; tame); points over algebraically closed fields by bijectivity.
 
 **Acceptance.** g = 1: the coarse space of 𝔄_1 is the j-line 𝔸¹_ℤ (ModularCurves layer 9E). Neat H: M_H^c = M_H.
@@ -2711,6 +3457,8 @@ For any open compact H, the stack M_H (finite inertia, M6/arbitrary-level-stack)
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Definition A.6.4.1, p. 980; [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), §1, footnote 1, p. 380.
 
 **Direct dependencies.** PELModuli:M6/arbitrary-level-stack; PELModuli:M6/siegel-stack-over-z; PELModuli:M6/polarized-stack-finite-type; AlgebraicModuliForArithmeticGeometry:R09.5; tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="quasi-projective-realization"></a>
 
@@ -2725,6 +3473,7 @@ For neat H, the algebraic space M_H over S₀ = Spec O_{F₀,(□)} is a quasi-p
 **Construction or proof.**
 
 1. Import quasi-projectivity of M_H from ShimuraCompactifications C5 (integral minimal compactification is projective with ample Hodge line).
+
 2. Coarse space: the quotient of a quasi-projective scheme by a finite group is a quasi-projective scheme.
 
 **Acceptance.** Siegel: A_{g,1,n} is a quasi-projective scheme over ℤ[1/n] for n ≥ 3 (Mumford).
@@ -2732,6 +3481,8 @@ For neat H, the algebraic space M_H over S₀ = Spec O_{F₀,(□)} is a quasi-p
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Remark 1.4.1.14, p. 154.
 
 **Direct dependencies.** PELModuli:M6/coarse-moduli-space; PELModuli:M6/hodge-line-bundle; ShimuraCompactifications:C5.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="field-of-moduli"></a>
 
@@ -2741,35 +3492,52 @@ For neat H, the algebraic space M_H over S₀ = Spec O_{F₀,(□)} is a quasi-p
 
 Let k have characteristic zero, K an algebraic closure, and ξ an actual polarized PEL object over K. Its field of moduli inside K is the fixed field of the subgroup of continuous absolute Galois automorphisms σ with σ*ξ isomorphic to ξ. It is the residue field, in the same algebraic closure, of the corresponding geometric point of the actual coarse space. A model over a subfield k1 contains this field; conjugation transports it. If the polarized object has trivial automorphisms, its isomorphisms satisfy the unique descent cocycle and it has a model over its field of moduli. For objects with inertia the residual gerbe may obstruct this.
 
-**Hypotheses.** k characteristic zero, K its algebraic closure, ξ an actual finite-presentation polarized object over K. Use the actual continuous Galois action and coarse space of the same ordinary finite-inertia stack. A claimed model includes polarization, action and level; fine descent requires trivial automorphisms.
+**Hypotheses.** k characteristic zero, K its algebraic closure, ξ an actual finite-presentation polarized object over K.; Use the actual continuous Galois action and coarse space of the same ordinary finite-inertia stack.; A claimed model includes polarization, action and level; fine descent requires trivial automorphisms.
 
 **Construction or proof.**
 
 1. Define the stabilizer of the isomorphism class; it is open (ξ is defined over a finite extension).
+
 2. Identify with the residue field of the coarse point: σ fixes the coarse point iff σ^*ξ ≅ ξ (bijectivity of M_H → M_H^c on geometric points).
+
 3. Models give inclusions: if ξ ≅ (ξ₁)_{k^s} with ξ₁ over k₁, then Gal(k^s/k₁) fixes the class.
 
 **API.**
 
-- **fieldOfModuli** — The fixed-field adapter for actual polarized abelian objects at fixed g,d. The full action-and-level version is fieldOfModuliPEL on the relative family carrier.
-- **fieldOfModuli_eq_residue** — The actual polarized isomorphism stabilizer and the actual coarse residue subfield have the same fixed elements in K.
-- **fieldOfModuli_le_of_model** — A model over k₁ gives k(ξ) ⊂ k₁.
-- **fieldOfModuli_galois** — k(σ^*ξ) = σ(k(ξ)).
-- **fieldOfModuli_fine** — If ξ has no automorphisms (neat level), ξ has a model over k(ξ) (M6/forms-and-descent-obstruction).
-- **PELModuli.isomorphismStabilizer** — For the actual geometric PEL family over an algebraic closure K of a characteristic-zero base field k, the absolute Galois subgroup consists of automorphisms whose pullback is isomorphic preserving every PEL structure.
-- **PELModuli.fieldOfModuliPEL** — The fixed intermediate field in K of that actual PEL isomorphism stabilizer. The specified reflex-base map factors through k.
-- **PELModuli.fieldOfModuliPEL_residue** — This fixed field equals the embedded residue field of the same family’s actual coarse PEL point.
-- **PELModuli.fieldOfModuliPEL_le** — If the actual family has a PEL model over L inside K containing k, its field of moduli lies in L. The model retains action, polarization and level.
-- **PELModuli.fieldOfModuliPEL_fine** — If the actual geometric PEL family has trivial automorphisms, effective unique descent gives a PEL model over its field of moduli.
+- **fieldOfModuli** (constructor) — The fixed-field adapter for actual polarized abelian objects at fixed g,d. The full action-and-level version is fieldOfModuliPEL on the relative family carrier.
+
+- **fieldOfModuli_eq_residue** (relation) — The actual polarized isomorphism stabilizer and the actual coarse residue subfield have the same fixed elements in K.
+
+- **fieldOfModuli_le_of_model** (other) — A model over k₁ gives k(ξ) ⊂ k₁.
+
+- **fieldOfModuli_galois** (functoriality) — k(σ^*ξ) = σ(k(ξ)).
+
+- **fieldOfModuli_fine** (compatibility) — If ξ has no automorphisms (neat level), ξ has a model over k(ξ) (M6/forms-and-descent-obstruction).
+
+- **PELModuli.isomorphismStabilizer** (data) — For the actual geometric PEL family over an algebraic closure K of a characteristic-zero base field k, the absolute Galois subgroup consists of automorphisms whose pullback is isomorphic preserving every PEL structure.
+
+- **PELModuli.fieldOfModuliPEL** (constructor) — The fixed intermediate field in K of that actual PEL isomorphism stabilizer. The specified reflex-base map factors through k.
+
+- **PELModuli.fieldOfModuliPEL_residue** (compatibility) — This fixed field equals the embedded residue field of the same family’s actual coarse PEL point.
+
+- **PELModuli.fieldOfModuliPEL_le** (relation) — If the actual family has a PEL model over L inside K containing k, its field of moduli lies in L. The model retains action, polarization and level.
+
+- **PELModuli.fieldOfModuliPEL_fine** (characterisation) — If the actual geometric PEL family has trivial automorphisms, effective unique descent gives a PEL model over its field of moduli.
 
 **Unit tests.**
 
 - **fieldOfModuli_residue_test** (computation) — For an actual geometric polarized object, its isomorphism fixed field equals its coarse residue field. The genus-one identification with Q(j) uses the imported coarse j-line.
+
 - **fieldOfModuli_le** (characterisation) — If ξ comes from ξ₁ over k₁, then Gal(k^s/k₁) ⊂ Stab(ξ), so k(ξ) ⊂ k₁.
+
 - **fieldOfModuli_twist** (non-example) — Geometrically isomorphic actual polarized objects have the same field of moduli. Quadratic twists over the base give the elliptic instance, though they need not be isomorphic there.
+
 - **fieldOfModuli_base** (degenerate) — If ξ is defined over k, k(ξ) = k.
+
 - **fieldOfModuliPEL_residue_test** (compatibility) — For the actual geometric PEL family over an algebraic closure in characteristic zero, the fixed isomorphism field equals its embedded coarse-point residue field.
+
 - **fieldOfModuliPEL_model_test** (compatibility) — An actual PEL model over the intermediate field L forces the geometric family’s field of moduli to be contained in L.
+
 - **fieldOfModuliPEL_fine_test** (compatibility) — A geometric PEL family with trivial automorphisms descends with all of its structures to the actual field of moduli.
 
 **Acceptance.** For elliptic curves with their canonical polarization and no extra action or level, the field of moduli over Q is Q(j). Adding PEL action or level can enlarge the stabilizer fixed field.
@@ -2778,7 +3546,9 @@ Let k have characteristic zero, K an algebraic closure, and ξ an actual polariz
 
 **Sources.** [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), §1, footnote 1, p. 380.
 
-**Direct dependencies.** PELModuli:M6/coarse-moduli-space.
+**Direct dependencies.** PELModuli:M6/coarse-moduli-space; PELModuli:M6/forms-and-descent-obstruction.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="forms-and-descent-obstruction"></a>
 
@@ -2793,14 +3563,18 @@ Let k have characteristic zero, K an algebraic closure, and ξ an actual polariz
 **Construction or proof.**
 
 1. (a) Galois descent for quasi-projective schemes with ample descent data (M1/effective-descent): a descent datum on ξ_{K'} is a 1-cocycle in Aut_{K'}(ξ); twisting identifies forms with H¹ (standard nonabelian cohomology of a finite group).
+
 2. (b) The residual gerbe of a point of a DM stack with finite inertia (AlgebraicModuliForArithmeticGeometry R09.4 gerbes and residual gerbes; R09.5 coarse spaces); neutral iff it has a section.
+
 3. Neat case: trivial band, so the gerbe is trivial.
 
 **Acceptance.** For 𝔄_1 over a field of characteristic ≠ 2, 3 every point lifts (WeierstrassCurve.ofJ), and its forms are the quadratic (and, for j = 0, 1728, quartic/sextic) twists, classified by H¹(Gal, Aut(E)).
 
 **Sources.** [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), Lemma 4.1 proof, p. 384; [lipnowski-tsimerman2018](https://arxiv.org/pdf/1511.02212v1), Definition 4.3, p. 17.
 
-**Direct dependencies.** PELModuli:M6/coarse-moduli-space; PELModuli:M6/arbitrary-level-stack; PELModuli:M1/effective-descent; AlgebraicModuliForArithmeticGeometry:R09.4; AlgebraicModuliForArithmeticGeometry:R09.5; mathlib:WeierstrassCurve.ofJ; mathlib:WeierstrassCurve.ofJ_j; tauceti:WeierstrassCurve.j_quadraticTwist; tauceti:WeierstrassCurve.not_exists_smul_quadraticTwist_eq; mathlib:CategoryTheory.PresheafOfGroups.H1; DiamondsAndVStacks:D0.
+**Direct dependencies.** PELModuli:M6/coarse-moduli-space; PELModuli:M6/arbitrary-level-stack; PELModuli:M1/effective-descent; AlgebraicModuliForArithmeticGeometry:R09.4; AlgebraicModuliForArithmeticGeometry:R09.5; mathlib:WeierstrassCurve.ofJ; mathlib:WeierstrassCurve.ofJ_j; tauceti:WeierstrassCurve.j_quadraticTwist; tauceti:WeierstrassCurve.not_exists_smul_quadraticTwist_eq; mathlib:CategoryTheory.PresheafOfGroups.H1; DiamondsAndVStacks:D0; AdelicAlgebraicGroups:AA.4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="bounded-field-of-definition"></a>
 
@@ -2810,12 +3584,14 @@ Let k have characteristic zero, K an algebraic closure, and ξ an actual polariz
 
 For a polarized abelian variety (A,λ) of dimension g over Qbar, let F be the field of moduli of the polarized pair. Mark a basis of A[3], let Fm be the field of moduli of that marked polarized object, and set F′=Fm Q(ζ3). Then (A,λ) has an actual polarized model over F′, every geometric endomorphism of A descends to that model, and [F′:F]≤2·3^(4g²). The field-of-moduli marking is for the polarized pair. The bound follows by applying the level-3 marking argument to that pair; Tsimerman’s stated unpolarized variant does not license rigidity of unpolarized A.
 
-**Hypotheses.** g ≥ 1 characteristic 0
+**Hypotheses.** g ≥ 1; characteristic 0
 
 **Construction or proof.**
 
 1. The polarized pair’s Galois orbit on bases of its actual A[3] has at most |GL_(2g)(F3)|≤3^(4g²) elements. Therefore [Fm:F] has this bound.
+
 2. Level-3 polarized rigidity kills inertia. Effective descent constructs a model of the marked pair over Fm, not just a coarse rational point. Adjoining ζ3 costs at most two.
+
 3. The Weil pairing defines the dual 3-torsion over F′. Apply A6’s precise Silverberg endomorphism theorem cited by Tsimerman as [19, Proposition 2.3]; surjectivity of the actual endomorphism base-change hom proves that all endomorphisms descend. Polarizations are actual dual homomorphisms and the original λ is retained.
 
 **Acceptance.** g = 1: F' ⊂ the 3-division field of an elliptic curve over ℚ(j) adjoined ζ₃, degree ≤ 2·|GL₂(𝔽₃)| = 96 ≤ 2·3⁴.
@@ -2824,40 +3600,56 @@ For a polarized abelian variety (A,λ) of dimension g over Qbar, let F be the fi
 
 **Direct dependencies.** PELModuli:M6/field-of-moduli; PELModuli:M6/forms-and-descent-obstruction; PELModuli:M2/rigidity; AbelianSchemesAndArithmeticModuli:A6.
 
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
+
 <a id="hodge-line-bundle"></a>
 
 ### The Hodge bundle and the Hodge line of the universal family
 
 **Target:** TauCeti.PEL.hodgeBundle (construction; PELModuli:M6/hodge-line-bundle).
 
-For an abelian scheme f : A → S with zero section e, ω_{A/S} := e^*Ω¹_{A/S} = f_*Ω¹_{A/S} is locally free of rank g (dual to Lie_{A/S}) and the Hodge line is ω̄_{A/S} := det ω_{A/S} = ∧^g ω_{A/S}. On the stack M_H (or 𝔄_g, 𝔄_{g,d}) the Hodge bundle ω and Hodge line ω̄ of the universal object are vector bundles on the stack, pulled back along classifying maps; on the fine space M_H (H neat) they are bundles on an algebraic space; ω is the Hodge filtration piece of H^1_dR of the universal family (AbelianSchemesAndArithmeticModuli A4). For the Siegel case the Kodaira–Spencer isomorphism gives Sym² ω ≅ Ω¹_{M/S₀} and ω̄^{⊗(g+1)} ≅ Ω^{g(g+1)/2}_{M/S₀}.
+For an abelian scheme f : A → S with zero section e, ω_{A/S} := e^*Ω¹_{A/S} = f_*Ω¹_{A/S} is locally free of rank g (dual to Lie_{A/S}) and the Hodge line is ω̄_{A/S} := det ω_{A/S} = ∧^g ω_{A/S}. On the stack M_H (or 𝔄_g, 𝔄_{g,d}) the Hodge bundle ω and Hodge line ω̄ of the universal object are vector bundles on the stack, pulled back along classifying maps; on the fine space M_H (H neat) they are bundles on an algebraic space; ω is the Hodge filtration piece of H^1_dR of the universal family (AbelianSchemesAndArithmeticModuli A4). For the principally polarized Siegel datum over its good smooth base, the Kodaira–Spencer isomorphism gives Sym² ω ≅ Ω¹_{M/S₀} and ω̄^{⊗(g+1)} ≅ Ω^{g(g+1)/2}_{M/S₀}.
 
-**Hypotheses.** f : A → S an abelian scheme
+**Hypotheses.** f : A → S an abelian scheme; The displayed Siegel cotangent isomorphism uses the principally polarized datum over its good smooth base.
 
 **Construction or proof.**
 
 1. Construct ω_{A/S} and ω̄_{A/S}; base change ω_{A_T/T} ≅ g^*ω_{A/S} for g : T → S because e^*Ω¹ commutes with base change (AbelianSchemesAndArithmeticModuli A4).
+
 2. Descend to the stack via the universal object of M6/arbitrary-level-stack (pullbacks along the presentation are compatible).
+
 3. Kodaira–Spencer for the Siegel datum from M2/kodaira-spencer-dimension; determinant of Sym² of a rank-g bundle is ω̄^{⊗(g+1)}.
 
 **API.**
 
-- **hodgeBundle** — ω_{A/S} := e^*Ω¹_{A/S}, locally free of rank g.
-- **hodgeLine** — ω̄_{A/S} := det ω_{A/S}.
-- **hodgeBundle_baseChange** — ω_{A_T/T} ≅ g^*ω_{A/S} for g : T → S, compatible with composition.
-- **hodgeBundle_dual_lie** — ω_{A/S} ≅ Lie_{A/S}^∨.
-- **hodgeBundle_isogeny** — The actual contravariant map on invariant relative differentials induced by an abelian-scheme homomorphism. hodgeBundle_isogeny_iff states that for an isogeny it is an isomorphism exactly when the isogeny is etale.
-- **hodgeBundle_universal** — ω and ω̄ on M_H (stack) and on M_H for neat H, with classify^*ω = ω_{A/S}.
-- **hodgeBundle_hodgeFiltration** — ω_{A/S} is the Hodge filtration Fil¹ ⊂ H¹_dR(A/S) (cohomological normalization of AbelianSchemesAndArithmeticModuli A4); in the homological normalization 0 → ω_{A^∨/S} → H^dR_1(A/S) → Lie_{A/S} → 0 of Liu–Tian–Xiao–Zhang–Zhu it is the dual of Lie_{A/S}.
-- **hodgeLine_ks_siegel** — For the Siegel datum, Sym² ω ≅ Ω¹ and ω̄^{⊗(g+1)} ≅ Ω^{top}.
-- **hodgeLine_product** — ω̄_{A×B} ≅ ω̄_A ⊗ ω̄_B.
-- **hodgeBundle_isogeny_iff** — For an actual abelian-scheme isogeny, the induced map on invariant differentials is an isomorphism iff its scheme morphism is etale.
+- **hodgeBundle** (constructor) — ω_{A/S} := e^*Ω¹_{A/S}, locally free of rank g.
+
+- **hodgeLine** (constructor) — ω̄_{A/S} := det ω_{A/S}.
+
+- **hodgeBundle_baseChange** (functoriality) — ω_{A_T/T} ≅ g^*ω_{A/S} for g : T → S, compatible with composition.
+
+- **hodgeBundle_dual_lie** (characterisation) — ω_{A/S} ≅ Lie_{A/S}^∨.
+
+- **hodgeBundle_isogeny** (functoriality) — The actual contravariant map on invariant relative differentials induced by an abelian-scheme homomorphism. hodgeBundle_isogeny_iff states that for an isogeny it is an isomorphism exactly when the isogeny is etale.
+
+- **hodgeBundle_universal** (data) — ω and ω̄ on M_H (stack) and on M_H for neat H, with classify^*ω = ω_{A/S}.
+
+- **hodgeBundle_hodgeFiltration** (compatibility) — ω_{A/S} is the Hodge filtration Fil¹ ⊂ H¹_dR(A/S) (cohomological normalization of AbelianSchemesAndArithmeticModuli A4); in the homological normalization 0 → ω_{A^∨/S} → H^dR_1(A/S) → Lie_{A/S} → 0 of Liu–Tian–Xiao–Zhang–Zhu it is the dual of Lie_{A/S}.
+
+- **hodgeLine_ks_siegel** (relation) — For the Siegel datum, Sym² ω ≅ Ω¹ and ω̄^{⊗(g+1)} ≅ Ω^{top}.
+
+- **hodgeLine_product** (relation) — ω̄_{A×B} ≅ ω̄_A ⊗ ω̄_B.
+
+- **hodgeBundle_isogeny_iff** (characterisation) — For an actual abelian-scheme isogeny, the induced map on invariant differentials is an isomorphism iff its scheme morphism is etale.
 
 **Unit tests.**
 
 - **hodgeLine_g1** (computation) — For an actual genus-one abelian scheme, its Hodge line and its invariant-differential bundle are isomorphic.
+
 - **hodgeLine_product_test** (characterisation) — For A = E₁ × E₂, ω̄_A ≅ ω_{E₁} ⊗ ω_{E₂}.
+
 - **hodgeBundle_mul_p_not_iso** (non-example) — For an actual genus-one abelian scheme in characteristic p, multiplication by p fails to induce an isomorphism on invariant differentials.
+
 - **hodgeBundle_zero** (degenerate) — For an actual dimension-zero abelian scheme, its invariant-differential bundle is the zero sheaf; its zeroth determinant is the structure sheaf.
 
 **Acceptance.** g = 1: ω̄ = ω and ω^{⊗2} ≅ Ω¹_{Y(n)/ℤ[1/n]}; sections of ω^{⊗k} are weight-k modular forms.
@@ -2867,6 +3659,8 @@ For an abelian scheme f : A → S with zero section e, ω_{A/S} := e^*Ω¹_{A/S}
 **Sources.** [lan2008](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf), Proposition 2.3.4.2, p. 269; [ltxzz2022](https://arxiv.org/pdf/1912.11942v3), Notation 3.4.1, p. 29 (arXiv v3).
 
 **Direct dependencies.** PELModuli:M6/arbitrary-level-stack; PELModuli:M2/universal-family; PELModuli:M2/kodaira-spencer-dimension; AbelianSchemesAndArithmeticModuli:A4.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. A actual abelian scheme of relative dimension g; Hodge bundle is e*Ω1 and its dual is Lie. Isogeny pullback is an isomorphism exactly in the étale case. The geometric multiplication-p test is used; relative Frobenius has its separate supplier comparison. Siegel Kodaira–Spencer requires the principal good smooth datum, not an arbitrary polarization type at bad primes.
 
 <a id="universal-family-export"></a>
 
@@ -2881,31 +3675,42 @@ The interface consists of: (1) the stacks M_H, 𝔄_g, 𝔄_{g,d} with their uni
 **Construction or proof.**
 
 1. Assemble the outputs of M6/arbitrary-level-stack, M6/coarse-moduli-space, M6/hodge-line-bundle and M6/forms-and-descent-obstruction.
+
 2. Rigidifying extension: the level-H' structures on A_K form a finite étale K-scheme (M6/level-forgetting-maps); a K'-point gives the fine-space point.
 
 **API.**
 
-- **PELModuli.classifyingMap** — c_ξ : S → M_H with c_ξ^*(universal) ≅ ξ (2-categorical uniqueness).
-- **PELModuli.moduliPoint** — x_A ∈ M^c(K) for an object over a field K.
-- **PELModuli.rigidifyingExtension** — K' = field of definition of a level-H' structure on A_K; [K' : K] ≤ [H : H'].
-- **PELModuli.hodgeLine_classify** — c_ξ^* ω̄^univ ≅ ω̄_{A_ξ}.
-- **PELModuli.export_obstruction** — A K-point of M^c lifts to an object over K iff the residual gerbe is neutral (M6/forms-and-descent-obstruction).
-- **PELModuli.export_siegel** — The universal fine family for the compatible genus-g Siegel datum and level, transported to the Siegel moduli representative. The arbitrary-level universal object lives on the ordinary stack, via stack descent.
+- **PELModuli.classifyingMap** (universal-property) — c_ξ : S → M_H with c_ξ^*(universal) ≅ ξ (2-categorical uniqueness).
+
+- **PELModuli.moduliPoint** (projection) — x_A ∈ M^c(K) for an object over a field K.
+
+- **PELModuli.rigidifyingExtension** (data) — K' = field of definition of a level-H' structure on A_K; [K' : K] ≤ [H : H'].
+
+- **PELModuli.hodgeLine_classify** (compatibility) — c_ξ^* ω̄^univ ≅ ω̄_{A_ξ}.
+
+- **PELModuli.export_obstruction** (relation) — A K-point of M^c lifts to an object over K iff the residual gerbe is neutral (M6/forms-and-descent-obstruction).
+
+- **PELModuli.export_siegel** (example) — The universal fine family for the compatible genus-g Siegel datum and level, transported to the Siegel moduli representative. The arbitrary-level universal object lives on the ordinary stack, via stack descent.
 
 **Unit tests.**
 
 - **export_classify_universal** (characterisation) — c_{universal} = id_{M_H}.
+
 - **export_model_point** (computation) — An actual polarized model over a field gives the point of its actual coarse space; this does not reconstruct a model from a point.
+
 - **export_not_family** (non-example) — A morphism Spec K → A_g (coarse) does not determine an object over K: for g = 1 the quadratic twists of E give the same K-point (Tau Ceti WeierstrassCurve.j_quadraticTwist).
+
 - **export_classify_pullback** (degenerate) — The classifying point of the actual fine relative family pulls back the universal family to that family. The Hodge-line pullback follows by the Hodge base-change API.
 
 **Acceptance.** For an elliptic curve E over a number field K and n = 3, K' = K(E[3]) and the K'-point of Y(3).
 
 **Uses.** FaltingsFinitenessAndIsogenyTheorems:R28.1: the stack 𝔄_g over ℤ, its universal family, Hodge line, coarse space and the descent comparison (request (i)–(ii)). FaltingsFinitenessAndIsogenyTheorems:R28.2: RS-06 link M6 → R28.2. ArakelovGeometryAndAbelianHeights:R35.3: RS-06 link M6 → R35.3. ArakelovGeometryAndAbelianHeights:R35.6: RS-06 link M6 → R35.6. StableReductionPartII:MC.6: fine principally polarized level-N moduli with universal family over ℤ[1/N, ζ_N] (request).
 
-**Sources.** [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), Lemma 4.1 proof, p. 384; [kottwitz1992](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf), §5, p. 391.
+**Sources.** [tsimerman2018](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf), Lemma 4.1 proof, p. 384; [kottwitz1992](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf), §5, p. 391.
 
 **Direct dependencies.** PELModuli:M6/arbitrary-level-stack; PELModuli:M6/coarse-moduli-space; PELModuli:M6/hodge-line-bundle; PELModuli:M6/forms-and-descent-obstruction; PELModuli:M6/level-forgetting-maps; PELModuli:M6/siegel-stack-over-z; PELModuli:M6/polarized-stack-finite-type.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="finite-field-finiteness"></a>
 
@@ -2920,7 +3725,9 @@ For a finite field k, and integers g, d ≥ 1, there are only finitely many k-is
 **Construction or proof.**
 
 1. The all-characteristic degree-d² stack and its coarse finite-type space have finitely many k-rational coarse points. Every polarized object over k maps to such a point.
+
 2. For each point with an object, its k-forms are continuous H1 for the actual finite geometric polarization automorphism group. Over a finite field a continuous cocycle is determined by its Frobenius value, so this pointed set is finite.
+
 3. Take the finite union of these finite form sets. Forgetting polarization preserves finiteness for the fixed degree d²; no uniform statement over all d is inferred.
 
 **Acceptance.** g = 1, d = 1, char k ≥ 5: finitely many elliptic curves over 𝔽_q (at most 2q + 6 classes).
@@ -2928,6 +3735,8 @@ For a finite field k, and integers g, d ≥ 1, there are only finitely many k-is
 **Sources.** [lipnowski-tsimerman2018](https://arxiv.org/pdf/1511.02212v1), Remark 4.2, p. 17; [lipnowski-tsimerman2018](https://arxiv.org/pdf/1511.02212v1), Corollary 2.2, p. 5.
 
 **Direct dependencies.** PELModuli:M6/polarized-stack-finite-type; PELModuli:M6/coarse-moduli-space; PELModuli:M6/forms-and-descent-obstruction; AbelianSchemesAndArithmeticModuli:A6/automorphisms-of-polarized-abelian-varieties.
+
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
 <a id="nonempty-examples"></a>
 
@@ -2942,6 +3751,7 @@ For a finite field k, and integers g, d ≥ 1, there are only finitely many k-is
 **Construction or proof.**
 
 1. Check the PEL conditions directly on the M1 carriers (RS-23: these examples test the arithmetic comparison and do not import M5): polarization type via kernels, Rosati condition (complex conjugation on O_K), determinant condition (signature from the two actions).
+
 2. Level structures exist over the stated finite extensions (M6/universal-family-export (4)).
 
 **Acceptance.** The points are objects over the stated fields, so M6/forms-and-descent-obstruction is not needed to produce them.
@@ -2950,343 +3760,452 @@ For a finite field k, and integers g, d ≥ 1, there are only finitely many k-is
 
 **Direct dependencies.** PELModuli:M0/integral-pel-datum; PELModuli:M0/hermitian-space; PELModuli:M0/skew-hermitian-space; PELModuli:M1/pel-abelian-scheme; PELModuli:M1/moduli-problem; PELModuli:M6/universal-family-export; PELModuli:M6/polarized-stack-finite-type.
 
-## Exact external input contracts
+**Suggested interface scope.** The target and API here impose these hypotheses. The suggested file records future supplier carriers and omits these conditions where their interfaces are not implemented; its declarations are not unconditional mathematical claims. All carriers refer to the same actual ordinary family groupoid, polarization and base. Quotients use actual finite group actions, coarse points their actual residual gerbes, and field-of-moduli/endomorphism descent use characteristic-zero geometric objects. These supplier identifications, finite-type/DM hypotheses and bounds are future mathematical inputs; the suggested interfaces do not assert them without the target hypotheses.
 
-These inputs belong to their suppliers and are consumed at the listed targets.
+## Supplier contracts
+
+These are planning dependencies, with their existing targets reused and their stated Part II extensions assigned to one owner. They do not claim that the imported interfaces have been implemented.
 
 ### AbelianSchemesAndArithmeticModuli:A1
 
 Abelian schemes over a base with rigidity (an endomorphism trivial on all geometric fibres is trivial), homomorphisms, products and base change; one-dimensional abelian schemes are the elliptic curves of #81 compatibly with group laws.
 
-**Consumers.** PELModuli:M1/pel-abelian-scheme; PELModuli:M2/rigidity; PELModuli:M5/genus-one-comparison.
+**Consumers:** PELModuli:M1/pel-abelian-scheme, PELModuli:M2/rigidity, PELModuli:M5/genus-one-comparison, PELModuli:M1/functoriality-in-data.
 
 ### AbelianSchemesAndArithmeticModuli:A2
 
-Duals, Poincaré sheaf and actual polarizations with Rosati; prime-to quasi-polarization inversion; every polarization is étale locally induced by an ample line bundle. The line bundles inducing it form the actual relative Pic0 torsor after scalar rigidification. All-characteristic L³ very ampleness and h0=3^g d for χ(L)=d, as Faltings–Chai I.4.11, pp.23–24; descent of that torsor is required.
+Duals, Poincaré sheaf and actual polarizations with Rosati; prime-to quasi-polarization inversion; every polarization is étale locally induced by an ample line bundle. The line bundles inducing it form the actual relative Pic0 torsor after scalar rigidification. All-characteristic L³ very ampleness and h0=3^g d for χ(L)=d, from A2/ample-cohomology-and-degree and the field-fibre very-ampleness clause of A2/projective-presentation-over-normal-bases; Faltings–Chai I.1.6, p.4 gives the Pic0 torsor, and I.4.11, pp.23–24 illustrates the principal Hilbert presentation; descent of that torsor is required.
 
-**Consumers.** PELModuli:M1/prime-to-box-quasi-isogeny; PELModuli:M1/pel-abelian-scheme; PELModuli:M1/effective-descent; PELModuli:M2/isom-scheme; PELModuli:M2/effectivity; PELModuli:M6/polarized-stack-finite-type.
+**Consumers:** PELModuli:M1/prime-to-box-quasi-isogeny, PELModuli:M1/pel-abelian-scheme, PELModuli:M1/effective-descent, PELModuli:M2/isom-scheme, PELModuli:M2/effectivity, PELModuli:M6/polarized-stack-finite-type, PELModuli:M1/functoriality-in-data.
 
 ### AbelianSchemesAndArithmeticModuli:A3
 
 Isogenies and dual isogenies; [n] finite locally free of rank n^{2g}, étale when n is invertible; the Weil pairing e^λ on A[n] and on Tate modules with values in μ_n and T G_m (Tate twist kept).
 
-**Consumers.** PELModuli:M1/prime-to-box-quasi-isogeny; PELModuli:M1/symplectic-isom-sheaf; PELModuli:M1/principal-level-structure.
+**Consumers:** PELModuli:M1/prime-to-box-quasi-isogeny, PELModuli:M1/symplectic-isom-sheaf, PELModuli:M1/principal-level-structure.
 
 ### AbelianSchemesAndArithmeticModuli:A4
 
 Relative H¹_dR (and homological H^dR_1) with the Hodge exact sequence, Gauss–Manin connection and Kodaira–Spencer map; the étale Tate-module local system for ℓ invertible; Serre–Tate and Grothendieck–Messing deformation theory with endomorphism and polarization structures.
 
-**Consumers.** PELModuli:M1/pel-abelian-scheme; PELModuli:M1/unitary-of-abelian-scheme; PELModuli:M1/symplectic-isom-sheaf; PELModuli:M2/deformation-prorepresentable; PELModuli:M2/formal-smoothness; PELModuli:M2/kodaira-spencer-dimension; PELModuli:M2/unitary-deformation; PELModuli:M2/isogeny-kernel-ranks; PELModuli:M6/hodge-line-bundle.
+**Consumers:** PELModuli:M1/pel-abelian-scheme, PELModuli:M1/unitary-of-abelian-scheme, PELModuli:M1/symplectic-isom-sheaf, PELModuli:M2/deformation-prorepresentable, PELModuli:M2/formal-smoothness, PELModuli:M2/kodaira-spencer-dimension, PELModuli:M2/unitary-deformation, PELModuli:M2/isogeny-kernel-ranks, PELModuli:M6/hodge-line-bundle.
 
 ### AbelianSchemesAndArithmeticModuli:A5
 
 Riemann's theorem: polarizable integral Hodge structures of type {(−1,0),(0,−1)} ↔ complex abelian varieties with polarization, its relative version for analytic families, and the Siegel universal analytic family with level.
 
-**Consumers.** PELModuli:M3/complex-points; PELModuli:M3/uniformization-morphism.
+**Consumers:** PELModuli:M3/complex-points, PELModuli:M3/uniformization-morphism, PELModuli:M3/type-d-comparison.
 
 ### AbelianSchemesAndArithmeticModuli:A6
 
-Silverberg's theorem: for n ≥ 3 all endomorphisms (and polarizations) of an abelian variety over a field of characteristic 0 are defined over the field of definition of A[n] (and of the dual A^∨[n]); used in Tsimerman's Lemma 4.1 as [19, Prop. 2.3].
+Silverberg's theorem: for n ≥ 3 all endomorphisms (and polarizations) of an abelian variety over a field of characteristic 0 are defined over the field of definition of A[n] (and of the dual A^∨[n]); used in Tsimerman's Lemma 4.1 as [19, Prop. 2.3]. Also import the existing finite polarized-automorphism theorem and faithful prime-to-characteristic n-torsion action; together with A2 Rosati positivity these bound compatible order generators in the finite forgetful morphism.
 
-**Consumers.** PELModuli:M6/bounded-field-of-definition.
+**Consumers:** PELModuli:M6/bounded-field-of-definition, PELModuli:M1/functoriality-in-data.
 
 ### AlgebraicModuliForArithmeticGeometry:A0-extension
 
 Artin’s ordinary fibred-groupoid criterion over an excellent Dedekind base in Lan Appendix B.3.8 (pp.1018–1023), marked effective prorepresentability B.3.10 (pp.1023–1024), and openness of versality B.3.12 (pp.1024–1026). Include limit preservation, finite representable Isom, stack descent, separable residue extensions, effective formal objects, normal local rings and the matching dimension conditions. Also polarized Grothendieck existence and finite normalization under excellence. Analytification is imported from SF.2 Part II, not created here.
 
-**Consumers.** PELModuli:M2/representability; PELModuli:M2/effectivity; PELModuli:M3/uniformization-morphism; PELModuli:M3/algebraization-of-components; PELModuli:M4/normalization-finite-normal-flat.
+**Consumers:** PELModuli:M2/representability, PELModuli:M2/effectivity, PELModuli:M3/uniformization-morphism, PELModuli:M3/algebraization-of-components, PELModuli:M4/normalization-finite-normal-flat.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.2
 
 Hilbert schemes of projective schemes with fixed Hilbert polynomial and Hom/Isom schemes of projective schemes via graphs; End_S(A) representable by a disjoint union of projective schemes for projective abelian schemes.
 
-**Consumers.** PELModuli:M2/isom-scheme; PELModuli:M6/polarized-stack-finite-type.
+**Consumers:** PELModuli:M2/isom-scheme, PELModuli:M6/polarized-stack-finite-type, PELModuli:M1/functoriality-in-data.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.3
 
 Generic effective fpqc descent of quasi-coherent modules and projective schemes equipped with ample descent data, scalar rigidification of invertible sheaves, and proper polarized Grothendieck existence with full faithfulness. The abelian-specific relative Pic0 torsor and polarization application belong to A2, which imports these generic results; no A2-to-R09.3 dependency is required.
 
-**Consumers.** PELModuli:M1/effective-descent; PELModuli:M2/effectivity; PELModuli:M6/polarized-stack-finite-type.
+**Consumers:** PELModuli:M1/effective-descent, PELModuli:M2/effectivity, PELModuli:M6/polarized-stack-finite-type.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.4
 
 Ordinary D0 algebraic/Deligne–Mumford stacks and finite quotient stacks, finite unramified Isom diagonal, universal-family descent and residual gerbes with their actual bands. DerivedAlgebraicGeometry is not an input.
 
-**Consumers.** PELModuli:M1/effective-descent; PELModuli:M2/representability; PELModuli:M6/arbitrary-level-stack; PELModuli:M6/polarized-stack-finite-type; PELModuli:M6/forms-and-descent-obstruction.
+**Consumers:** PELModuli:M1/effective-descent, PELModuli:M2/representability, PELModuli:M6/arbitrary-level-stack, PELModuli:M6/polarized-stack-finite-type, PELModuli:M6/forms-and-descent-obstruction.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.5
 
 Coarse moduli spaces of algebraic stacks with finite inertia (Keel–Mori), with flat (and tame) base change, bijective on geometric points.
 
-**Consumers.** PELModuli:M6/coarse-moduli-space; PELModuli:M6/forms-and-descent-obstruction.
+**Consumers:** PELModuli:M6/coarse-moduli-space, PELModuli:M6/forms-and-descent-obstruction.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.6
 
 Comparison of the deformation functor at a point of an algebraic stack with the completed local ring (versality), used with Schlessinger's criterion.
 
-**Consumers.** PELModuli:M2/deformation-prorepresentable.
+**Consumers:** PELModuli:M2/deformation-prorepresentable.
 
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
 
 Part II: covariant Dieudonné crystals and BBM height-rank theorem (Proposition 4.3.1); polarized O-displays and their deformation equivalence over perfect-field Artin bases. Decompose Wedhorn Chapters 2–4: the successive display-coordinate deformation, compatible polarization/action, generic Newton polygon and specialization argument proving μ-ordinary density for the connected unramified maximal-order/self-dual hyperspecial PEL datum. Ordinary locus is dense iff nonempty iff the chosen reflex completion E_v=Qp. This input precedes M2; no downstream Igusa theorem is used.
 
-**Consumers.** PELModuli:M2/isogeny-kernel-ranks; PELModuli:M2/wedhorn-ordinary-density.
+**Consumers:** PELModuli:M2/isogeny-kernel-ranks, PELModuli:M2/wedhorn-ordinary-density.
 
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6
 
 Grothendieck–Messing deformation theory over nilpotent PD thickenings in the form 'deformations ↔ lifts of the Hodge filtration', compatible with endomorphisms and polarizations.
 
-**Consumers.** PELModuli:M2/formal-smoothness; PELModuli:M2/unitary-deformation.
+**Consumers:** PELModuli:M2/formal-smoothness, PELModuli:M2/unitary-deformation.
 
 ### NeronModelsAndSemistableAbelianVarieties:R11.1
 
 Néron models over DVRs and extension of homomorphisms/isomorphisms of abelian varieties with good reduction.
 
-**Consumers.** PELModuli:M2/isom-scheme; PELModuli:M2/properness-when-division.
+**Consumers:** PELModuli:M2/isom-scheme, PELModuli:M2/properness-when-division, PELModuli:M1/functoriality-in-data.
 
 ### NeronModelsAndSemistableAbelianVarieties:R11.3
 
 Semistable reduction after a finite extension and the toric part of the special fibre of the Néron model with its character group as an End-module. Also supply descent of potential good reduction over the original DVR when a neat prime-to-residue-characteristic level kills the finite inertia action, or the corresponding valuative descent theorem.
 
-**Consumers.** PELModuli:M2/properness-when-division.
+**Consumers:** PELModuli:M2/properness-when-division.
 
 ### ShimuraVarieties:V0
 
-Neat arithmetic groups, strong approximation and the component decomposition G(ℚ)\(X × G(𝔸_f)/K) = ⊔ Γ_g\X⁺.
+Neat arithmetic groups, strong approximation and the component decomposition G(ℚ)\(X × G(𝔸_f)/K) = ⊔ Γ_g\X⁺. For the PEL application retain the Hermitian arithmetic quotient and its effective action even when SV3 fails; classical Sh notation requires SV3. At V0–V1 also retain a finite disconnected full group instead of replacing it by its identity component.
 
-**Consumers.** PELModuli:M3/uniformization-morphism; PELModuli:M3/siegel-fine-uniformization.
+**Consumers:** PELModuli:M3/uniformization-morphism, PELModuli:M3/siegel-fine-uniformization, PELModuli:M3/type-d-comparison.
 
 ### ShimuraVarieties:V1
 
-The complex-manifold structure on G(ℚ)\(X × G(𝔸_f)/K) at neat level with level maps and Hecke translations.
+The complex-manifold structure on G(ℚ)\(X × G(𝔸_f)/K) at neat level with level maps and Hecke translations. For the PEL application retain the Hermitian arithmetic quotient and its effective action even when SV3 fails; classical Sh notation requires SV3. At V0–V1 also retain a finite disconnected full group instead of replacing it by its identity component.
 
-**Consumers.** PELModuli:M3/uniformization-morphism.
+**Consumers:** PELModuli:M3/uniformization-morphism, PELModuli:M3/type-d-comparison.
 
 ### ShimuraVarieties:V2
 
-The Baily–Borel quasi-projective algebraic structure on Sh_K(G, X)_ℂ.
+The Baily–Borel quasi-projective algebraic structure on Sh_K(G, X)_ℂ. For the PEL application retain the Hermitian arithmetic quotient and its effective action even when SV3 fails; classical Sh notation requires SV3. At V0–V1 also retain a finite disconnected full group instead of replacing it by its identity component.
 
-**Consumers.** PELModuli:M3/algebraization-of-components.
+**Consumers:** PELModuli:M3/algebraization-of-components.
 
 ### ShimuraVarieties:V3
 
-Borel's algebraicity theorem for holomorphic maps from smooth quasi-projective varieties to arithmetic quotients at neat level.
+Borel's algebraicity theorem for holomorphic maps from smooth quasi-projective varieties to arithmetic quotients at neat level. For the PEL application retain the Hermitian arithmetic quotient and its effective action even when SV3 fails; classical Sh notation requires SV3. At V0–V1 also retain a finite disconnected full group instead of replacing it by its identity component.
 
-**Consumers.** PELModuli:M3/algebraization-of-components.
+**Consumers:** PELModuli:M3/algebraization-of-components.
 
 ### ShimuraVarieties:V4
 
 The canonical-model condition with the reflex-norm reciprocity on special points and its uniqueness, with the Artin normalization recorded.
 
-**Consumers.** PELModuli:M4/cm-points-reciprocity; PELModuli:M4/canonical-model-identification.
+**Consumers:** PELModuli:M4/cm-points-reciprocity, PELModuli:M4/canonical-model-identification.
 
 ### ShimuraVarieties:V5
 
 The main theorem of complex multiplication for CM abelian varieties with polarization and level structure, in the normalization of V4.
 
-**Consumers.** PELModuli:M4/cm-points-reciprocity.
+**Consumers:** PELModuli:M4/cm-points-reciprocity.
 
 ### ShimuraVarieties:V6
 
 Canonical models of Hodge-type Shimura data and their compatibility with the Siegel embedding.
 
-**Consumers.** PELModuli:M4/canonical-model-identification; PELModuli:M4/canonical-model-functoriality.
+**Consumers:** PELModuli:M4/canonical-model-identification, PELModuli:M4/canonical-model-functoriality.
 
 ### ComplexComparisonPartII:C0
 
 Import SF.2 Part II’s analytic-space and analytification carriers. Supply the exact local-ring faithful-flatness interface and transfer of analytic local isomorphisms to algebraic étaleness on ordinary étale presentations. Proper coherent GAGA alone supplies neither this carrier nor the nonproper algebraicity argument.
 
-**Consumers.** PELModuli:M3/uniformization-morphism; PELModuli:M3/algebraization-of-components.
+**Consumers:** PELModuli:M3/uniformization-morphism, PELModuli:M3/algebraization-of-components, PELModuli:M3/type-d-comparison.
 
 ### ShimuraCompactifications:C5
 
 Quasi-projectivity of the integral PEL moduli at neat level (Lan Corollary 7.2.3.10) and ampleness of the Hodge line on the minimal compactification.
 
-**Consumers.** PELModuli:M6/quasi-projective-realization.
+**Consumers:** PELModuli:M6/quasi-projective-realization.
 
 ### HilbertModularVarietiesAndShimuraCurves:H0
 
 The integral trace-lattice and different refinement of D5's rational Hilbert data.
 
-**Consumers.** PELModuli:M5/hilbert-example-acceptance.
+**Consumers:** PELModuli:M5/hilbert-example-acceptance.
 
 ### HilbertModularVarietiesAndShimuraCurves:H1
 
 The polarization-module trace-pairing PEL instance and Hilbert–Blumenthal moduli functor.
 
-**Consumers.** PELModuli:M5/hilbert-example-acceptance.
+**Consumers:** PELModuli:M5/hilbert-example-acceptance.
 
 ### SchemeAndStackFoundations:SF.2
 
 Part II: ordinary complex analytic locally C-ringed spaces, possibly nonreduced, built from convergent local models and coherent ideals; open/closed subspaces, gluing, finite products and fibre products; analytification for finite-type C-schemes representing the analytic functor of points, compatible with restriction/base change/products, étale local isomorphisms, smooth manifold comparison and descent to ordinary algebraic spaces by étale presentations. This is option (ii) of RT-AREA-algebraicgeometry/3. Retain SF.2’s étale compact-support trace interface and its cohomology/duality prerequisites for M4/torus-groupoid-trace.
 
-**Consumers.** PELModuli:M4/torus-groupoid-trace; PELModuli:M3/uniformization-morphism; PELModuli:M3/algebraization-of-components.
+**Consumers:** PELModuli:M4/torus-groupoid-trace, PELModuli:M3/uniformization-morphism, PELModuli:M3/algebraization-of-components, PELModuli:M3/type-d-comparison.
 
 ### tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields
 
 The cyclic Hasse norm theorem (cyclicHasseNorm) for CM extensions F/F₀, used for ker¹ of norm tori.
 
-**Consumers.** PELModuli:M3/hasse-principle-cases; PELModuli:M0/rank-one-skew-hermitian-classification.
+**Consumers:** PELModuli:M3/hasse-principle-cases, PELModuli:M0/rank-one-skew-hermitian-classification.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out
 
 Effective descent for polarized (projective) schemes with ample descent data.
 
-**Consumers.** PELModuli:M1/effective-descent.
+**Consumers:** PELModuli:M1/effective-descent.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing
 
 The scheme-theoretic Weil pairing on E[n] with its sign convention.
 
-**Consumers.** PELModuli:M5/genus-one-comparison.
+**Consumers:** PELModuli:M5/genus-one-comparison.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#3c-the-four-level-structures
 
 Full level-n (Drinfeld/[Γ(n)]) structures on elliptic curves.
 
-**Consumers.** PELModuli:M5/genus-one-comparison.
+**Consumers:** PELModuli:M5/genus-one-comparison.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing
 
 The fine moduli scheme Y(n, ζ) of full ordered bases with fixed Weil pairing over ℤ[1/n, ζ_n].
 
-**Consumers.** PELModuli:M5/genus-one-comparison.
+**Consumers:** PELModuli:M5/genus-one-comparison.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves
 
 Universal deformations of elliptic curves over W(k)[[t]].
 
-**Consumers.** PELModuli:M2/deformation-prorepresentable.
+**Consumers:** PELModuli:M2/deformation-prorepresentable.
 
 ### tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n
 
 The coarse j-line as coarse space of the elliptic moduli stack.
 
-**Consumers.** PELModuli:M6/coarse-moduli-space.
+**Consumers:** PELModuli:M6/coarse-moduli-space.
 
 ### AdelicAlgebraicGroups:AA.1
 
 Closed affine subgroup schemes with coordinate Hopf algebras and base change, including pair-valued PEL similitudes inside GL×Gm, their derived/adjoint/component groups, norm-similitude tori and group-of-points comparisons. Existing ConstantForm, Symplectic, Orthogonal and GeneralLinear constructions are reused.
 
-**Consumers.** PELModuli:M0/similitude-group; PELModuli:M0/similitude-group-structure; PELModuli:M0/rank-one-skew-hermitian-classification; PELModuli:M0/pel-shimura-datum.
+**Consumers:** PELModuli:M0/similitude-group, PELModuli:M0/similitude-group-structure, PELModuli:M0/rank-one-skew-hermitian-classification, PELModuli:M0/pel-shimura-datum.
 
 ### AdelicAlgebraicGroups:AA.4
 
 Part II of AA.4, the chosen sole owner: continuous absolute nonabelian Galois H1, all-place localizations, skew-hermitian/form twisting, finite ker1 for the actual full linear algebraic group (including the disconnected PEL group), connected reductive abelianization when its derived group is simply connected, and Tate–Nakayama/norm-torus comparisons. Include continuous H1 of the actual finite polarized automorphism group for forms. Reuse existing torsor/Kneser/simply-connected Hasse nodes. ArithmeticGaloisDuality is not an alternate owner.
 
-**Consumers.** PELModuli:M0/rank-one-skew-hermitian-classification; PELModuli:M0/self-dual-lattice-classification; PELModuli:M3/ker1-classification; PELModuli:M3/hasse-principle-cases; PELModuli:M3/type-d-comparison; PELModuli:M4/cm-moduli-galois; PELModuli:M6/forms-and-descent-obstruction.
+**Consumers:** PELModuli:M0/rank-one-skew-hermitian-classification, PELModuli:M0/self-dual-lattice-classification, PELModuli:M3/ker1-classification, PELModuli:M3/hasse-principle-cases, PELModuli:M3/type-d-comparison, PELModuli:M4/cm-moduli-galois, PELModuli:M6/forms-and-descent-obstruction.
 
 ### tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
 
 Finite unramified p-adic field extensions with integer rings, residue fields, completions and étale splitting; maximal unramified matrix orders, full lattices and the integral/rational tensor comparisons used at good PEL primes.
 
-**Consumers.** PELModuli:M0/order-discriminant; PELModuli:M0/rational-pel-datum; PELModuli:M0/unramified-tau-decomposition.
+**Consumers:** PELModuli:M0/order-discriminant, PELModuli:M0/rational-pel-datum, PELModuli:M0/unramified-tau-decomposition.
 
 ### SchemeAndStackFoundations:SF.1
 
 Ordinary algebraic spaces, points, étale presentations and the actual represented family groupoid with universal family and base change. This uses the RS-27 ordinary SF.1 interface, not a derived-stack carrier.
 
-**Consumers.** PELModuli:M2/representability; PELModuli:M2/universal-family; PELModuli:M6/coarse-moduli-space.
+**Consumers:** PELModuli:M2/representability, PELModuli:M2/universal-family, PELModuli:M6/coarse-moduli-space.
 
 ### DiamondsAndVStacks:D0
 
 The RS-27 ordinary algebraic and Deligne–Mumford stack carrier, fibre groupoids, atlas and diagonal. R09.4 supplies quotient and residual-gerbe applications on this carrier; no derived-stack theory is used.
 
-**Consumers.** PELModuli:M1/effective-descent; PELModuli:M6/arbitrary-level-stack; PELModuli:M6/forms-and-descent-obstruction; PELModuli:M6/polarized-stack-finite-type.
+**Consumers:** PELModuli:M1/effective-descent, PELModuli:M6/arbitrary-level-stack, PELModuli:M6/forms-and-descent-obstruction, PELModuli:M6/polarized-stack-finite-type.
+
+## Source conventions and corrections
+
+Statements and proof plans above use the corrected conventions. These findings are stated in our own words and scoped to the source version actually read.
+
+### PELModuli/E1
+
+**Version and locator:** milne-isv, §8, 'PEL data' and 'PEL Shimura varieties', pp. 87–88 (2017 revision).
+
+**Finding:** The source deduces SV3 from nontriviality of h and simplicity of G^ad. It also asserts that (G, X) meets SV1–4.
+
+**Correction:** SV3 holds only when the projection of h to every ℚ-simple factor of G^ad is nontrivial. For a simple PEL datum of type (A) whose hermitian form is definite at every real place (signature (n, 0) everywhere with n ≥ 2), h(ℂ^×) is central, its projection to the ℚ-simple group G^ad = PU is trivial and G^ad(ℝ) is compact, so SV3 fails and (G, X) is not a Shimura datum (X is a point). Rank n=1 is a torus: its adjoint group is trivial and SV3 is vacuous. This finding concerns the September 2017 author revision, not a verified assertion about the 2005 publication.
+
+**Check:** For signature (n,0) everywhere, h acts through the centre, so its adjoint projection is trivial although the adjoint group is nontrivial for n≥2. Nontriviality of h itself cannot establish the required nontrivial adjoint projection on every rational simple factor.
+
+**Status:** confirmed; new. **Correction search:** Milne's errata page https://www.jmilne.org/math/xnotes/errata.html (rechecked 2026-10-10); Jungin Lee's errata list SV_errata.pdf linked there (rechecked 2026-10-10)
+
+### PELModuli/E2
+
+**Version and locator:** lan2008, Definition 1.2.1.5, pp. 47–48; thesis errata p. 4; published-book errata p. 1.
+
+**Finding:** The source asserts uniqueness of the determination.
+
+**Correction:** Multiplier uniqueness needs R flat over ℤ when L≠0; retain pairs on arbitrary bases.
+
+**Check:** The official errata adds flatness. For ψ=5J over ℤ, reduction to 𝔽₅ is zero and id has multipliers 1 and 2.
+
+**Status:** confirmed; known. **Correction search:** Official thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf; Official published-book errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf
+
+### PELModuli/E3
+
+**Version and locator:** lan2008, Lemma 1.2.5.10, p. 92; thesis errata p. 7.
+
+**Finding:** The source says the construction produces an O_{F_0}-lattice.
+
+**Correction:** Use an auxiliary finite extension F₀′/F₀ unramified at a prescribed finite set of good primes; the asserted canonical F₀-model and map are retracted.
+
+**Check:** The official errata explicitly declares the lemma and preceding paragraph incorrect and replaces them; determinant and smoothness arguments must use the corrected finite étale extension.
+
+**Status:** confirmed; known. **Correction search:** Official thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf; Official published-book errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf
+
+### PELModuli/E4
+
+**Version and locator:** lan2008, Definitions 1.4.1.2 and 1.4.1.4, pp. 149–150; thesis errata p. 10; book errata p. 1.
+
+**Finding:** The source calls it a polarization.
+
+**Correction:** Integral M_H uses an actual prime-to-□ polarization, rather than a positive prime-to-□ quasi-isogeny.
+
+**Check:** Both official errata state this correction; rationalized M^rat_H remains a distinct problem.
+
+**Status:** confirmed; known. **Correction search:** Official thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf; Official published-book errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf
+
+### PELModuli/E5
+
+**Version and locator:** lan2008, Remark 1.4.4.3, p. 168; thesis errata p. 11.
+
+**Finding:** The source says the property need not hold.
+
+**Correction:** Do not assert a type-D change-of-primes counterexample from this remark; use precise additional hypotheses and leave the unrestricted comparison open.
+
+**Check:** The author retracts the vague failure sentence because no concrete example was known.
+
+**Status:** confirmed; known. **Correction search:** Official thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf; Official published-book errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf
+
+### PELModuli/E6
+
+**Version and locator:** lan2008, Proposition 2.3.4.2, pp.269–271 (May 2008 thesis); definition of LNSch/S₀, p.148.
+
+**Finding:** The étaleness equivalence is stated for any base morphism with locally free cotangent sheaf, without a local finite-presentation assumption.
+
+**Correction:** Require S → M_H locally of finite presentation in the converse étaleness criterion. The universal KS isomorphism and dimension formula are unchanged.
+
+**Check:** Work over a number field E on a nonempty smooth scheme presentation M of the generic moduli space. Set S=M×_E Ebar for an algebraic closure of E. The projection is flat and its relative differentials vanish since Ebar/E is algebraic separable. Base change of the universal KS isomorphism therefore gives the stated KS isomorphism over S, and Ω¹_{S/E} is locally free. The projection is not locally of finite presentation: a fibre at a closed point contains spectra of infinite algebraic field extensions. It is consequently not étale. Locally noetherian S is allowed by the thesis convention. This concerns only the read 2008 thesis, not an assertion about the unread 2013 book.
+
+**Status:** confirmed; new. **Correction search:** Official thesis errata https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf, p.16, checked 2026-10-10: corrects the forward completed-local-ring argument, without adding local finite presentation.; Official published-book errata https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf, checked 2026-10-10: no corresponding finite-presentation correction found. The book statement itself was not read.
+
+### PELModuli/E7
+
+**Version and locator:** lipnowski-tsimerman2018, §4.1, p.16, arXiv:1511.02212v1 (2015); published Duke version not accessible in this review.
+
+**Finding:** The graph pullback of the normalized Poincaré bundle by (id,φ_L) is identified with L.
+
+**Correction:** The normalized graph pullback is [2]*L tensor L^(−2); its Néron–Severi class is 2[L]. For symmetric rigidified L it is L². In particular its associated homomorphism is 2φ_L.
+
+**Check:** Restrict the displayed biextension m*L tensor pr₁*L^(−1) tensor pr₂*L^(−1) to the diagonal. For an elliptic curve and L=O(0), the resulting degree is 4−1−1=2, whereas L has degree 1. The explicit point formula for φ_L uses the usual normalization, so it cannot absorb this factor.
+
+**Status:** confirmed; new. **Correction search:** arXiv:1511.02212 submission history, checked 2026-10-10: only v1 listed.; Publisher DOI 10.1215/00127094-2018-0029, opened 2026-10-10: the serving page yielded only an iframe, so no claim is made about the published text.; No correction was found in the accessible version records; the finding is scoped solely to the read preprint.
+
+### PELModuli/E8
+
+**Version and locator:** ltxzz2022, Definition 3.5.3, p.34 (arXiv v3); compared with the published Definition 3.5.3, p.157.
+
+**Finding:** Strict positivity is required for every vector, including the zero vector, in the rank-one CM-type definition.
+
+**Correction:** Use nonnegativity for every vector, as the published version does; equivalently in the perfect rank-one setting impose strict positivity only on nonzero vectors.
+
+**Check:** Bilinearity gives ⟨a·0,0⟩=0, contradicting a strict positive inequality at zero. The independently read published definition uses ≥0.
+
+**Status:** confirmed; Corrected in published Definition 3.5.3, p.157, Inventiones Mathematicae (2022).. **Correction search:** arXiv:1912.11942v3 Definition 3.5.3, p.34, and independently read published Definition 3.5.3, p.157, checked 2026-10-10.
 
 ## Source versions and library provenance
 
-Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Cited statements were read at these pins. Current roadmap/library reuse checks supplement those citations.
+Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The 67 cited full statements were independently read at those pins. The read-only current upstream checkout was also checked for reuse; its newer interfaces supplement the pinned audit and were not used as unstated compiled dependencies.
 
-- **lan2008**: [Arithmetic compactifications of PEL-type Shimura varieties (Harvard PhD thesis, May 2008); revised and published as London Mathematical Society Monographs 36, Princeton University Press, 2013](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf). Kai-Wen Lan. Harvard PhD thesis, May 2008; locators refer to this thesis, corrected by the official thesis errata. Published-book numbering is not assumed identical.. Chapter 1: §§1.1.1–1.1.2 (orders, discriminant, determinantal conditions), §1.2.1, §1.2.5 (signatures, reflex field), §§1.3.1–1.3.7 statements (quasi-isogenies, polarizations, O-structures, Lie algebra condition, Tate modules, level structures), §§1.4.1–1.4.4 in full; Chapter 2: statements of Theorems 2.2.3.10, 2.2.4.16, Proposition 2.3.2.1, §2.3.3 (proof of representability), Proposition 2.3.4.2; Read 2026-10-06 (the author's page, www-users.cse.umn.edu/~kwlan, refused scripted access; this mirror of the same thesis PDF was read); Revision read 2026-10-10: representability/effectivity proof in §2.3.3 and Appendix B.3.8, B.3.10, B.3.12, pp.1018–1026; exact input contracts read alongside the official errata..
-- **kottwitz1992**: [Points on some Shimura varieties over finite fields](https://www.ams.org/journals/jams/1992-05-02/S0894-0347-1992-1124982-1/S0894-0347-1992-1124982-1.pdf). Robert E. Kottwitz. Journal of the American Mathematical Society 5 (1992), no. 2, 373–444. Introduction pp. 373–375; §4 Hermitian symmetric spaces of PEL type (Lemmas 4.1–4.3); §5 Moduli spaces of PEL type; §6 Hecke correspondences; §7 Structure of the groups G and G_1 (Lemmas 7.1–7.4, Corollary 7.3); §8 Complex points of moduli spaces of PEL type; Read 2026-10-06.
-- **milne-isv**: [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf). James S. Milne. Revised version of September 16, 2017 (numbering as in the 2005 Clay Mathematics Proceedings 4 publication). §6 The Siegel modular variety (Propositions 6.3–6.5, Theorems 6.7–6.11); §8 PEL Shimura varieties (Propositions 8.1–8.19, Lemmas 8.20–8.21, Theorem 8.17); §12 Definition 12.2 and Example 12.4 (reflex field); §14 statements 14.1–14.17; Read 2026-10-06.
-- **ltxzz2022**: [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://arxiv.org/pdf/1912.11942v3). Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu. arXiv:1912.11942v3, §§3.1, 3.3–3.5; published Definition 3.3.2 and Remark 3.3.3 independently read at printed p. 147 (separate ltxzz-published source).. §3.1 Definitions 3.1.7 and 3.1.11; §3.3 Definitions 3.3.1–3.3.4, Remark 3.3.3, Notation 3.3.6; §3.4 Notation 3.4.1 – Lemma 3.4.12 with proof; §3.5 Definitions 3.5.1–3.5.8 and Remark 3.5.2; Read 2026-10-06.
-- **bps2016**: [Classicité de formes modulaires surconvergentes](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf). Stéphane Bijakowski, Vincent Pilloni, Benoît Stroh. Annals of Mathematics 183 (2016), no. 3, 975–1014 (published version). §1.1 Données de type PEL (Hypothèse 1.1.1, Remarques 1.1.2–1.1.3, Lemme 1.1.4), pp. 979–981; §1.5 and Remarque 1.5.1, pp. 987–988; Read 2026-10-06.
-- **tsimerman2018**: [The André–Oort conjecture for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf). Jacob Tsimerman. Annals of Mathematics 187 (2018), no. 2, 379–390 (published version). §1 introduction and footnote p. 380; §4 Lemma 4.1 and its proof, p. 384; §6.1, p. 387; Read 2026-10-06.
-- **lipnowski-tsimerman2018**: [How large is A_g(F_q)?](https://arxiv.org/pdf/1511.02212v1). Michael Lipnowski, Jacob Tsimerman. arXiv:1511.02212v1 (published in Duke Mathematical Journal 167 (2018), 3403–3453); Tate's finiteness statement is cited from Tate, Endomorphisms of abelian varieties over finite fields, Invent. Math. 2 (1966), §2, through the reviewed extraction PAPER-LIPNOWSKI-TSIMERMAN-18. §2 (Lemma 2.1, Corollary 2.2); §4.1 (Mumford's construction, Remark 4.2, Definition 4.3); Read 2026-10-06.
-- **stacks**: [The Stacks Project](https://stacks.math.columbia.edu). The Stacks Project Authors. Online, tags 035S, 03GR, 0539 read 2026-10-06. Tag 035S (Lemma 29.55.11: normalization of a Nagata scheme is finite); Tag 03GR (Lemma 29.54.15: normalization of a Nagata scheme in a reduced finite-type scheme is finite); Tag 0539 (Lemma 15.22.10: over a valuation ring flat = torsion free).
-- **lan-thesis-errata**: [Arithmetic compactifications of PEL-type Shimura varieties: thesis errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf). Kai-Wen Lan. author errata. Corrections relevant to Chapters 1–2, pp. 1–15; especially pp. 4, 7–11, 15; Independently read 2026-10-06 for REV-PELModuli.
-- **lan-book-errata**: [Arithmetic compactifications of PEL-type Shimura varieties: published-book errata](https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf). Kai-Wen Lan. author errata. Errata dated March 14, 2021, pp. 1–2; Independently read 2026-10-06 for REV-PELModuli.
-- **ltxzz-published**: [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives (published)](https://par.nsf.gov/servlets/purl/10323568). Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu. published. Published §§3.3–3.5, printed pp.147–158, independently read 2026-10-10: intersection convention, localized unitary families, deformation/kernel ranks, rank-one CM moduli and torus-groupoid trace..
-- **wedhorn1999**: [Ordinariness in good reductions of Shimura varieties of PEL-type](https://www.numdam.org/item/10.1016/s0012-9593%2801%2980001-x.pdf). Torsten Wedhorn. Annales scientifiques de l’École Normale Supérieure, série 4, 32 (1999), no. 5, pp. 575–618. Introduction and §§1.3–1.6, pp.575–585; Chapters 2–4, pp.586–617: polarized O-displays, successive coordinate deformation and generic Newton argument, including §§4.3.7–4.3.9 and 4.5.7–4.5.10. Independently read for the chosen R07.2 Part II input, 2026-10-10..
-- **lan-intro**: [An example-based introduction to Shimura varieties](https://www.kwlan.org/articles/intro-Sh.pdf). Kai-Wen Lan. author survey. §5.1.3, pp.54–56.
-- **faltings-chai**: Degeneration of Abelian Varieties. Gerd Faltings; Ching-Li Chai. Springer, 1990. Chapter I, Proposition 4.11, pp.23–24; Chapter I, §5, pp.27–29.
+- **lan2008** — [Arithmetic compactifications of PEL-type Shimura varieties (Harvard PhD thesis, May 2008); revised and published as London Mathematical Society Monographs 36, Princeton University Press, 2013](https://mail.marktomforde.com/academic/miscellaneous/images/Lan-thesis.pdf). Kai-Wen Lan. Harvard PhD thesis, May 2008; locators refer to this thesis, corrected by the official thesis errata. Published-book numbering is not assumed identical.. Read scope: Independent review, 2026-10-10: printed pp.3–19, 45–54, 60, 90–95, 110, 121–122, 125–126, 132–134, 137–168; deformation statements pp.229, 245, 260 and full representability/effectivity/Kodaira–Spencer arguments pp.263–267, 269–271; stack definitions pp.956–959, coarse-space definition pp.980–981; Appendix B.3.8, B.3.10 and B.3.12, pp.1018–1026. Official thesis errata are separate sources. SHA256: `c3086d5140bab887e31a508cf4bf8804f092326a35882fc003a3422c4ab65bdd`.
+- **kottwitz1992** — [Points on some Shimura varieties over finite fields](https://webusers.imj-prg.fr/~christophe.cornut/M2/Ref/Kottwitz_PointsShiModp.pdf). Robert E. Kottwitz. Journal of the American Mathematical Society 5 (1992), no. 2, 373–444. Read scope: Independent review read of the scanned published text: introduction pp.374–375 and §§4–8, printed pp.386–401; positivity/orbits, moduli, Hecke action, group structure, self-dual lattices, rational forms and complex-point classification. The AMS download returned HTTP 403; the linked mirror was read directly as page images. SHA256: `ae2f2f148d791b6cc1d79d360868182c9abd2e0e5954d5c96df2d94b98570d2b`.
+- **milne-isv** — [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf). James S. Milne. Revised version of September 16, 2017 (numbering as in the 2005 Clay Mathematics Proceedings 4 publication). Read scope: Independent review, 2026-10-10: Proposition 6.3 p.70, Theorem 6.11 and level conventions pp.74–75, PEL discussion pp.84–89, reflex-field definition p.112, canonical/Hecke functoriality pp.118–119 and CM comparison pp.125–127. The official ISV errata page and linked SV Errata were also checked. SHA256: `f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e`.
+- **ltxzz2022** — [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://arxiv.org/pdf/1912.11942v3). Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu. arXiv:1912.11942v3, §§3.1, 3.3–3.5; published Definition 3.3.2 and Remark 3.3.3 independently read at printed p. 147 (separate ltxzz-published source).. Read scope: Independent review, 2026-10-10: arXiv v3 printed pp.24–25 and 28–36, including all statements and proofs used in §§3.3–3.5. Published definitions and corrections are recorded separately. SHA256: `84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86`.
+- **bps2016** — [Classicité de formes modulaires surconvergentes](https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf). Stéphane Bijakowski, Vincent Pilloni, Benoît Stroh. Annals of Mathematics 183 (2016), no. 3, 975–1014 (published version). Read scope: Independent review, 2026-10-10: printed pp.979–981 and 987–988, including Hypothèse 1.1.1, Lemme 1.1.4 and Remarque 1.5.1. SHA256: `13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c`.
+- **tsimerman2018** — [The André–Oort conjecture for A_g](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf). Jacob Tsimerman. Annals of Mathematics 187 (2018), no. 2, 379–390 (published version). Read scope: Independent review, 2026-10-10: printed pp.380, 384–385 and 387, including Lemma 4.1 and its full proof. SHA256: `43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc`.
+- **lipnowski-tsimerman2018** — [How large is A_g(F_q)?](https://arxiv.org/pdf/1511.02212v1). Michael Lipnowski, Jacob Tsimerman. arXiv:1511.02212v1 (published in Duke Mathematical Journal 167 (2018), 3403–3453); Tate's finiteness statement is cited from Tate, Endomorphisms of abelian varieties over finite fields, Invent. Math. 2 (1966), §2, through the reviewed extraction PAPER-LIPNOWSKI-TSIMERMAN-18. Read scope: Independent review, 2026-10-10: arXiv v1 printed p.5 (Corollary 2.2) and pp.16–17 (§4.1, Remark 4.2 and Definition 4.3). The graph-formula finding is limited to this read preprint version; the Duke text was not read. SHA256: `5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a`.
+- **stacks** — [The Stacks Project](https://stacks.math.columbia.edu). The Stacks Project Authors. Online version accessed 2026-10-10; fixed tag locators. Read scope: Independent review, 2026-10-10: tags 035S, 03GR, 0539 and 02GU, with the reducedness/finite-type, valuation-ring and finite-presentation hypotheses kept.
+- **lan-thesis-errata** — [Arithmetic compactifications of PEL-type Shimura varieties: thesis errata](https://www.kwlan.org/articles/cpt-PEL-type-thesis-errata.pdf). Kai-Wen Lan. author errata. Read scope: Independent review, 2026-10-10: relevant corrections on pp.4, 7, 10–12, 15–16, including multiplier flatness, the auxiliary splitting field, integral polarizations, the type-D qualification, formal smoothness and the proof of Proposition 2.3.4.2. SHA256: `18e66df9fefa6c3d6c2ee799ec8d5c208263a22a51847032d85ccbeb6947861d`.
+- **lan-book-errata** — [Arithmetic compactifications of PEL-type Shimura varieties: published-book errata](https://www.kwlan.org/articles/cpt-PEL-type-book-pup-err.pdf). Kai-Wen Lan. author errata. Read scope: Independent review, 2026-10-10: pp.1–2, including the corrections to the integral polarization problem. SHA256: `14343693efbc34ef8e9fa63e65ac9586c663d1c731409c0db64ec39a7e84eb88`.
+- **ltxzz-published** — [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives (published)](https://par.nsf.gov/servlets/purl/10323568). Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu. published. Read scope: Independent review, 2026-10-10: maintainer-cleared published text read in place, printed pp.140–158, including Definitions 3.3.2 and 3.5.3–3.5.4 and the deformation/kernel-rank proofs. No copy or passage retained. SHA256: `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97`.
+- **wedhorn1999** — [Ordinariness in good reductions of Shimura varieties of PEL-type](https://www.numdam.org/item/10.1016/s0012-9593%2801%2980001-x.pdf). Torsten Wedhorn. Annales scientifiques de l’École Normale Supérieure, série 4, 32 (1999), no. 5, pp. 575–618. Read scope: Introduction and §§1.3–1.6, pp.575–585; Chapters 2–4, pp.586–617: polarized O-displays, successive coordinate deformation and generic Newton argument, including §§4.3.7–4.3.9 and 4.5.7–4.5.10. Independently read for the chosen R07.2 Part II input, 2026-10-10. SHA256: `2d44cd511bd311580b110296ad118b39f2ede4173b7db68adbab188a9b7f57ba`.
+- **lan-intro** — [An example-based introduction to Shimura varieties](https://www.kwlan.org/articles/intro-sh-ex.pdf). Kai-Wen Lan. author survey. Read scope: §5.1.3, pp.54–56 SHA256: `d9a3e75544a0a168db70d552a80696c4ef2f84d8184654cd0ca45eae81b32dad`.
+- **faltings-chai** — Degeneration of Abelian Varieties. Gerd Faltings; Ching-Li Chai. Springer, 1990. Read scope: Chapter I, Definitions 1.4 and 1.6 and discussion, pp.2–4 Chapter I, discussion 4.11, pp.23–24 Chapter I, Proposition 5.3, p.27
 
-Source conventions and corrections:
+The earlier AMS Kottwitz download/hash in sourceVersions is historical provenance of the previous worker. This independent review read the scanned published mirror recorded above after AMS returned HTTP 403. The cleared Faltings–Chai and published LTXZZ sources were read in place; no source file or passage is retained in the deliverables.
 
-- **PELModuli/E1**, milne-isv, §8, 'PEL data' and 'PEL Shimura varieties', pp. 87–88 (2017 revision): SV3 holds only when the projection of h to every ℚ-simple factor of G^ad is nontrivial. For a simple PEL datum of type (A) whose hermitian form is definite at every real place (signature (n, 0) everywhere with n ≥ 2), h(ℂ^×) is central, its projection to the ℚ-simple group G^ad = PU is trivial and G^ad(ℝ) is compact, so SV3 fails and (G, X) is not a Shimura datum (X is a point). Rank n=1 is a torus: its adjoint group is trivial and SV3 is vacuous. This finding concerns the September 2017 author revision, not a verified assertion about the 2005 publication.
-- **PELModuli/E2**, lan2008, Definition 1.2.1.5, pp. 47–48; thesis errata p. 4; published-book errata p. 1: Multiplier uniqueness needs R flat over ℤ when L≠0; retain pairs on arbitrary bases.
-- **PELModuli/E3**, lan2008, Lemma 1.2.5.10, p. 92; thesis errata p. 7: Use an auxiliary finite extension F₀′/F₀ unramified at a prescribed finite set of good primes; the asserted canonical F₀-model and map are retracted.
-- **PELModuli/E4**, lan2008, Definitions 1.4.1.2 and 1.4.1.4, pp. 149–150; thesis errata p. 10; book errata p. 1: Integral M_H uses an actual prime-to-□ polarization, rather than a positive prime-to-□ quasi-isogeny.
-- **PELModuli/E5**, lan2008, Remark 1.4.4.3, p. 168; thesis errata p. 11: Do not assert a type-D change-of-primes counterexample from this remark; use precise additional hypotheses and leave the unrestricted comparison open.
+### Current upstream reuse
+
+- **ProfiniteArithmetic** — Layer 0 uses Additive TauCeti.zHat, with zHat.component, zHat.nonempty_ringEquiv_pi and zHat.isUnit_iff_component. CompletedIntegerRing in the suggested PEL file is only the product presentation of this supplied ring; it is not an upstream declaration name. Away products are projections/reindexings of this presentation; rational restricted products use the pinned Mathlib adelic carrier and the completed RestrictedProducts interfaces. No new profinite-integers target.
+- **IntegralLattices** — Full lattice duals, discriminants, local completions and finite-index APIs. PEL plans only star/order/positive-complex-structure adapters.
+- **AlgebraicVectorBundles** — Locally finite free modules, ranks, determinants and determinant lines for relative Lie/Hodge objects; no duplicate vector-bundle foundation.
+- **AdicSpaces** — Read the current roadmap. Adic spaces are a different carrier and do not replace the ordinary complex analytic nilpotent carrier required here.
+- **OrthogonalSpinGroups** — Existing symmetric-form group and component/root structure where applicable. It supplies no missing full-group ker1 complex-family comparison.
+- **Completed/RestrictedProducts** — Actual restricted-product adelic topology and tensors, not a product of all local rings.
+- **TauCeti** — Current AlmostComplex.latticeHodge and Hodge.IsPolarization interfaces read as supplementary reuse; weight-one source form corresponds to the negative of the PEL alternating convention. These current source interfaces are not represented as baseline pin declarations or as compiled current HEAD.
+- **AdelicAlgebraicGroups** — AA.4.1 supplies Approximation.Torsor, baseChange, ClassComparison, isTrivial_of_simplyConnected_local (characteristic-zero nonarchimedean local field), isTrivial_iff_forall_real (number field) and hasse_classSet. The AA.4 Part II request reuses these: only the continuous absolute Galois/class-set comparison, full-group finite ker1, twisting and reductive/norm-torus extensions are requested. AA.1 consumes ReductiveGroups layers 3 and 6 and ReductiveGroupsPartII RG2.0 for subgroup, derived/adjoint/component and point interfaces; these are not new PEL foundations.
 
 ### Baseline declaration applicability
 
-- **mathlib:Algebra.FormallySmooth** (Mathlib/RingTheory/Smooth/Basic.lean): Formally smooth algebras, with the infinitesimal lifting property Algebra lifting property; identify the actual deformation/local-model algebra first. Does not supply a PEL deformation functor or Artin representability.
-- **mathlib:Algebra.IsSeparable** (Mathlib/FieldTheory/Separable.lean): Separable algebraic field extensions Separable extension predicate; the centre and its separability must be identified, not an arbitrary coefficient field.
-- **mathlib:Algebra.discr** (Mathlib/RingTheory/Discriminant.lean): Discriminant det(Tr(b_i b_j)) of a family in a commutative algebra Commutative trace discriminant of a finite family. Noncommutative order discriminants require reduced trace and a full integral basis.
-- **mathlib:Algebra.trace** (Mathlib/RingTheory/Trace/Defs.lean): The trace of left multiplication of a finite free algebra Left-multiplication trace on a finite free module; reduced trace and factor weights are additional mathematics.
-- **mathlib:AlgebraicGeometry.Etale** (Mathlib/AlgebraicGeometry/Morphisms/Etale.lean): Étale morphisms of schemes Property of scheme morphisms. The actual level/Isom morphism and its functorial construction are additional inputs.
-- **mathlib:AlgebraicGeometry.Flat** (Mathlib/AlgebraicGeometry/Morphisms/Flat.lean): Flat morphisms Property of scheme morphisms. Integrality of normalization alone does not imply flatness over a general base.
-- **mathlib:AlgebraicGeometry.IsFinite** (Mathlib/AlgebraicGeometry/Morphisms/Finite.lean): Finite morphisms Property of scheme morphisms; not finite inertia or finite-type stack representability.
-- **mathlib:AlgebraicGeometry.IsSeparated** (Mathlib/AlgebraicGeometry/Morphisms/Separated.lean): Separated morphisms Scheme separation; does not prove representability or quasi-projectivity of an admitted chart.
-- **mathlib:AlgebraicGeometry.Scheme** (Mathlib/AlgebraicGeometry/Scheme.lean): Schemes Reuse the scheme carrier; does not supply complex analytic spaces, algebraic spaces or stacks.
-- **mathlib:AlgebraicGeometry.Scheme.Hom.normalization** (Mathlib/AlgebraicGeometry/Normalization.lean): Relative normalization of a quasi-compact quasi-separated morphism of schemes Relative normalization for quasi-compact quasi-separated morphisms. Reused; not automatically finite, flat or an identified PEL model.
-- **mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc** (Mathlib/AlgebraicGeometry/Normalization.lean): Universal property of the relative normalization Universal factorization through an integral intermediate morphism; use its factorization/uniqueness data, not just existence of a map.
-- **mathlib:AlgebraicGeometry.Scheme.etaleTopology** (Mathlib/AlgebraicGeometry/Sites/Etale.lean): The étale topology on schemes Topology on schemes. Tate-module local systems and the symplectic trivialization sheaf remain upstream constructions.
-- **mathlib:AlgebraicGeometry.Scheme.fppfTopology** (Mathlib/AlgebraicGeometry/Sites/Fpqc.lean): The fppf topology on schemes Topology on schemes; a topology is not an effective-descent proof for PEL objects.
-- **mathlib:AlgebraicGeometry.Smooth** (Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean): Smooth morphisms of schemes Scheme morphism predicate; source hypotheses and actual representing equivalence must precede its use.
-- **mathlib:CategoryTheory.Functor.IsFibered** (Mathlib/CategoryTheory/FiberedCategory/Fibered.lean): Fibered categories A condition on a functor to a base category; does not construct the PEL fibre category or prove its descent.
-- **mathlib:CategoryTheory.PresheafOfGroups.H1** (Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean): Nonabelian H¹ of a presheaf of groups relative to a family of objects (Čech-type cocycles) Cech-type cohomology for a presheaf/family. Near miss for continuous nonabelian Galois H1 of reductive groups and ker1.
-- **mathlib:CategoryTheory.Pseudofunctor.IsStack** (Mathlib/CategoryTheory/Sites/Descent/IsStack.lean): The stack condition (effective descent) for a pseudofunctor to categories Ordinary pseudofunctor effective-descent condition. The stack carrier/application is upstream D0/R09.4; assuming it is not proving MH is a stack.
-- **mathlib:IntermediateField.fixedField** (Mathlib/FieldTheory/Galois/Basic.lean): Fixed field of a subgroup of the Galois group Fixed fields of automorphism subgroups. Inverse stabilizer comparisons need Galois hypotheses; no geometric field-of-moduli theorem follows alone.
-- **mathlib:IntermediateField.normalClosure** (Mathlib/FieldTheory/Normal/Closure.lean): Normal (Galois) closure Normal closure of a field extension; identify reflex fields before comparing their composite/intersection with it.
-- **mathlib:IsDedekindDomain.FiniteAdeleRing** (Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean): The finite adele ring of a Dedekind domain as a restricted product of completions Finite adele ring via restricted products. Rational PEL group and open compact subgroup/levels remain separate.
-- **mathlib:IsSemisimpleRing** (Mathlib/RingTheory/SimpleModule/Basic.lean): Semisimple rings Semisimplicity predicate, not the positive-involution classification or reduced trace.
-- **mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing** (Mathlib/RingTheory/SimpleModule/WedderburnArtin.lean): Wedderburn–Artin: a semisimple algebra is a finite product of matrix algebras over division algebras Wedderburn–Artin algebra decomposition. Does not classify the involution or attach constrained A/C/D types.
-- **mathlib:LinearMap.BilinForm.IsAlt** (Mathlib/LinearAlgebra/BilinearForm/Properties.lean): Alternating bilinear forms: B x x = 0 Alternating form on modules. Perfectness/integral polarization and finite lattice hypotheses must be added.
-- **mathlib:LinearMap.BilinForm.Nondegenerate** (Mathlib/LinearAlgebra/BilinearForm/Properties.lean): Nondegenerate bilinear forms (separating on both sides) Separating bilinear form. Over a ring it is not automatically a perfect duality, and does not persist under arbitrary base change.
-- **mathlib:LinearMap.BilinForm.dualSubmodule** (Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean): The dual lattice {x | ∀ y ∈ N, B x y ∈ R} of a submodule with respect to a bilinear form Existing dual submodule, using the specified coefficient inclusion/form. Verify the integral full lattice and O-stability.
-- **mathlib:LinearMap.IsAdjointPair** (Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean): Adjoint pairs of maps for a pair of bilinear/sesquilinear forms: B'(f x) y = B x (g y) Adjoint pair for sesquilinear forms. Link to the actual star action and polarization; not a Rosati construction.
-- **mathlib:LinearMap.charpoly** (Mathlib/LinearAlgebra/Charpoly/Basic.lean): Characteristic polynomial of an endomorphism of a finite free module Characteristic polynomial with relevant finite-free instances. Not a determinant condition on an unspecified Lie object.
-- **mathlib:LinearMap.charpoly_baseChange** (Mathlib/LinearAlgebra/Charpoly/BaseChange.lean): The characteristic polynomial commutes with base change Characteristic polynomial base change under finite-free hypotheses; relative locally free sheaf descent is additional.
-- **mathlib:LinearMap.polyCharpoly** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): The generic characteristic polynomial of a linear family φ : L → End M in the coordinates of a basis of L Generic characteristic polynomial of a linear family in basis coordinates. Reuse its constant coefficient rather than planning this generic notion again.
-- **mathlib:LinearMap.polyCharpoly_baseChange** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): The generic characteristic polynomial commutes with base change Generic polynomial base change with its algebra/module/basis data; does not supply geometric Tate/Lie base change.
-- **mathlib:LinearMap.polyCharpoly_map_eq_charpoly** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): Evaluating the generic characteristic polynomial at the coordinates of x gives charpoly (φ x) Evaluation in coordinates of the same basis and same linear family; identify the family with the actual order action.
-- **mathlib:Matrix.J** (Mathlib/LinearAlgebra/SymplecticGroup.lean): The standard symplectic block matrix Standard symplectic block matrix. Polarization elementary divisors and their relation to the dual lattice are additional.
-- **mathlib:Matrix.unitaryGroup** (Mathlib/LinearAlgebra/UnitaryGroup.lean): Unitary matrices for a star ring Matrices for the specified star-unitary condition. Not the arbitrary hermitian-form similitude group scheme GU or its zero-space convention.
-- **mathlib:NumberField.ComplexEmbedding.conjugate** (Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean): The complex conjugate of a complex embedding Conjugate embedding. Requires actual centre/CM field and Hodge signature, not an unrelated star field.
-- **mathlib:NumberField.IsCMField** (Mathlib/NumberTheory/NumberField/CMField.lean): CM fields: totally complex quadratic extensions of their maximal real subfield CM-field carrier exists; generalized types/unitary examples must use it or explicitly state the omitted restriction.
-- **mathlib:NumberField.IsCMField.complexConj** (Mathlib/NumberTheory/NumberField/CMField.lean): Complex conjugation of a CM field as an automorphism over its maximal real subfield CM involution over maximal real subfield. Arbitrary StarRing structures are not this involution.
-- **mathlib:NumberField.IsTotallyReal** (Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean): Totally real number fields Totally-real field property; positivity/classification must show it for the actual fixed centre.
-- **mathlib:NumberField.discr** (Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean): Discriminant of a number field Number-field discriminant. disc(OF) = disc(F); a noncommutative order discriminant has a different definition.
-- **mathlib:NumberField.maximalRealSubfield** (Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean): The maximal totally real subfield of a number field Existing carrier; use it for the CM fixed field instead of an unrelated field parameter.
-- **mathlib:StarRing** (Mathlib/Algebra/Star/Basic.lean): Rings with an involutive anti-multiplicative additive star Involutive additive anti-multiplicative star. Positivity/rational linear compatibility are additional; do not redefine this carrier.
-- **mathlib:Submodule.IsLattice** (Mathlib/Algebra/Module/Lattice.lean): Finitely generated spanning submodules (lattices) Finite generated spanning submodule. Use the actual full rational lattice/coefficient map, not just an independent family.
-- **mathlib:UpperHalfPlane** (Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean): The upper half plane Existing carrier; not the analytic Siegel family or algebraic fine moduli comparison.
-- **mathlib:WeierstrassCurve.ofJ** (Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean): A Weierstrass curve over a field with prescribed j-invariant Field-level Weierstrass model with prescribed j under its construction conditions. Not a universal family over a coarse moduli base.
-- **mathlib:WeierstrassCurve.ofJ_j** (Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean): The curve ofJ j has j-invariant j Correct j-value for that model. A j computation is not an elliptic/PEL moduli equivalence.
-- **tauceti:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip** (TauCeti/LinearAlgebra/BilinearForm/DualLattice.lean): Double duality of lattices for a nondegenerate (not necessarily symmetric) bilinear form Double duality under full lattice/nondegeneracy/coefficient hypotheses, with flipped form. For an alternating form justify removing the flip.
-- **tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero** (TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean): Smith normal form with divisibility chain of a nonsingular integer matrix Nonsingular integer matrix Smith form. Alternating symplectic block form and O-equivariance require further arguments.
-- **tauceti:Matrix.transpose_mul_J_mul_eq_det_smul** (TauCeti/LinearAlgebra/Matrix/SymplecticMultiplier.lean): Rank-two multiplier identity Aᵀ J A = det(A) J Rank two only, with the specified J convention. Not the all-genus similitude group or representability.
-- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety** (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean): Abelian varieties over a field K: a proper, geometrically integral group object over Spec K BP-PELModuli~2, 2026-10-10: full statement independently read at the pinned commit. Actual proper geometrically integral group object over Spec K. Its field-only carrier is reused by the field adapter; the new relative commutative smooth proper group scheme is the A1 import.
-- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End** (TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean): The endomorphism ring End A of an abelian variety over a field (multiplication = reversed composition) Ring of endomorphisms of an actual abelian variety, using reversed composition. Supplier composition/left actions must respect this convention.
-- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny** (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean): Isogenies of abelian varieties over a field: finite surjective homomorphisms Finite surjective homomorphism of field-level varieties. Does not make every scheme morphism a quasi-isogeny or give relative degree conditions.
-- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy** (TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean): Multiplication by an integer n on an abelian variety over a field Integer multiplication on the actual group object; relative finite-flat rank, etaleness and duality are upstream A3.
-- **tauceti:TauCeti.AlmostComplexStructure** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): A real-linear J on a real vector space with J∘J = −1 Existing J squared = -1 on a real module. Reuse it; PEL action, invariant form and positivity are additional.
-- **tauceti:TauCeti.AlmostComplexStructure.hodgeStructure** (TauCeti/Geometry/Hodge/WeightOne/Basic.lean): The weight-one Hodge structure on ℂ ⊗ V attached to a complex structure J (no integral lattice) Weight-one Hodge structure from real J; integral lattice, homological sign and polarization compatibility remain necessary.
-- **tauceti:TauCeti.ConstantForm.groupScheme** (TauCeti/Algebra/AlgebraicGroup/ConstantForm/Basic.lean): The closed subgroup scheme of GL_n over a commutative ring preserving a constant form C (points M with M C Mᵀ = C); isometries, multiplier one Isometry scheme, multiplier one, with M C M-transpose convention. Not general GSp/GU or an O-linear similitude scheme.
-- **tauceti:TauCeti.ContCohomology.H1** (TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean): Continuous H¹ of a topological group with abelian coefficients Continuous cohomology with abelian coefficients. Near miss for nonabelian reductive Galois twisting and ker1.
-- **tauceti:TauCeti.GeneralLinear.groupScheme** (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Scheme.lean): The general linear group scheme GL_n over a commutative ring GL group scheme exists. Closed O-linear form/similitude equations and their base change must be supplied.
-- **tauceti:TauCeti.Hodge.HodgeStructureOn** (TauCeti/Geometry/Hodge/Structure.lean): Pure Hodge structures of weight n given by an opposed Hodge filtration on a complex space with conjugation Existing opposed-filter Hodge carrier. A Set of complex structures is not a Hodge or Shimura datum.
-- **tauceti:TauCeti.Hodge.IsPolarization** (TauCeti/Geometry/Hodge/Polarization.lean): Polarizations of integral Hodge structures: (-1)^n-symmetry, nondegeneracy, orthogonality, positivity Existing integral Hodge polarization predicate, including weight/sign, orthogonality and positivity. Isotropy alone is insufficient.
-- **tauceti:TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos** (TauCeti/Geometry/Hodge/WeightOne/Polarization.lean): Riemann relations: an effective weight-one integral Hodge structure with a skew nondegenerate form invariant under the Weil operator and positive on real points is polarized Requires effective weight-one integral Hodge carrier, nondegenerate skew form, Weil-operator invariance and real positivity. Convert homological weight/sign.
-- **tauceti:TauCeti.Orthogonal.groupScheme** (TauCeti/Algebra/AlgebraicGroup/Orthogonal/Basic.lean): The orthogonal group scheme of the standard form Standard-form orthogonal scheme; arbitrary O-linear type-D components and similitudes require identification and additional structure.
-- **tauceti:TauCeti.RootsOfUnityGroup.groupScheme** (TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean): The group scheme μ_n of n-th roots of unity over a commutative ring, with points rootsOfUnity n A Roots-of-unity group scheme over a commutative base. Individual finite-order eigenvalues do not identify the polarized automorphism group with it.
-- **tauceti:TauCeti.Symplectic.groupScheme** (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): The symplectic group scheme Sp_{2m} over a commutative ring, for the standard antidiagonal form Standard-form symplectic group scheme. Identify its antidiagonal form with block J, then add multiplier and O-linearity.
-- **tauceti:TauCeti.SymplecticForm** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): A nondegenerate alternating real bilinear form Existing nondegenerate alternating real form. Integral lattice, order action and polarization type are additional.
-- **tauceti:TauCeti.SymplecticForm.Compatible** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): Compatibility of J with ω: ω(Jx,Jy)=ω(x,y) and the associated symmetric form ω(x,Jy) is positive definite Existing J-invariance and real positive form condition. Both must hold; positivity alone is not the contract.
-- **tauceti:TauCeti.SymplecticForm.exists_compatible** (TauCeti/Geometry/Symplectic/ExistsCompatible.lean): Every real symplectic form on a finite-dimensional space admits a compatible J Finite-dimensional real symplectic spaces. An O-linear compatible J is an extra constrained problem.
-- **tauceti:WeierstrassCurve.j_quadraticTwist** (TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean): A quadratic twist has the same j-invariant Same j after twist. Not a forms classification or a universal coarse-family theorem.
-- **tauceti:WeierstrassCurve.not_exists_smul_quadraticTwist_eq** (TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean): For j ≠ 0,1728 the quadratic twist by a nontrivial quadratic extension is not isomorphic to the curve over the base Nonisomorphism for a nontrivial quadratic extension away from j=0,1728. Exceptional twists and residual-gerbe descent need more input.
+Each statement was read with its surrounding variable hypotheses; the applicability limits below are part of the import contract.
+
+- **mathlib:Algebra.FormallySmooth** (Mathlib/RingTheory/Smooth/Basic.lean): Formally smooth algebras, with the infinitesimal lifting property. Algebra lifting property; identify the actual deformation/local-model algebra first. Does not supply a PEL deformation functor or Artin representability.
+- **mathlib:Algebra.IsSeparable** (Mathlib/FieldTheory/Separable.lean): Separable algebraic field extensions. Separable extension predicate; the centre and its separability must be identified, not an arbitrary coefficient field.
+- **mathlib:Algebra.discr** (Mathlib/RingTheory/Discriminant.lean): Discriminant det(Tr(b_i b_j)) of a family in a commutative algebra. Commutative trace discriminant of a finite family. Noncommutative order discriminants require reduced trace and a full integral basis.
+- **mathlib:Algebra.trace** (Mathlib/RingTheory/Trace/Defs.lean): The trace of left multiplication of a finite free algebra. Left-multiplication trace on a finite free module; reduced trace and factor weights are additional mathematics.
+- **mathlib:AlgebraicGeometry.Etale** (Mathlib/AlgebraicGeometry/Morphisms/Etale.lean): Étale morphisms of schemes. Property of scheme morphisms. The actual level/Isom morphism and its functorial construction are additional inputs.
+- **mathlib:AlgebraicGeometry.Flat** (Mathlib/AlgebraicGeometry/Morphisms/Flat.lean): Flat morphisms. Property of scheme morphisms. Integrality of normalization alone does not imply flatness over a general base.
+- **mathlib:AlgebraicGeometry.IsFinite** (Mathlib/AlgebraicGeometry/Morphisms/Finite.lean): Finite morphisms. Property of scheme morphisms; not finite inertia or finite-type stack representability.
+- **mathlib:AlgebraicGeometry.IsSeparated** (Mathlib/AlgebraicGeometry/Morphisms/Separated.lean): Separated morphisms. Scheme separation; does not prove representability or quasi-projectivity of an admitted chart.
+- **mathlib:AlgebraicGeometry.Scheme** (Mathlib/AlgebraicGeometry/Scheme.lean): Schemes. Reuse the scheme carrier; does not supply complex analytic spaces, algebraic spaces or stacks.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.normalization** (Mathlib/AlgebraicGeometry/Normalization.lean): Relative normalization of a quasi-compact quasi-separated morphism of schemes. Relative normalization for quasi-compact quasi-separated morphisms. Reused; not automatically finite, flat or an identified PEL model.
+- **mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc** (Mathlib/AlgebraicGeometry/Normalization.lean): Universal property of the relative normalization. Universal factorization through an integral intermediate morphism; use its factorization/uniqueness data, not just existence of a map.
+- **mathlib:AlgebraicGeometry.Scheme.etaleTopology** (Mathlib/AlgebraicGeometry/Sites/Etale.lean): The étale topology on schemes. Topology on schemes. Tate-module local systems and the symplectic trivialization sheaf remain upstream constructions.
+- **mathlib:AlgebraicGeometry.Scheme.fppfTopology** (Mathlib/AlgebraicGeometry/Sites/Fpqc.lean): The fppf topology on schemes. Topology on schemes; a topology is not an effective-descent proof for PEL objects.
+- **mathlib:AlgebraicGeometry.Smooth** (Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean): Smooth morphisms of schemes. Scheme morphism predicate; source hypotheses and actual representing equivalence must precede its use.
+- **mathlib:CategoryTheory.Functor.IsFibered** (Mathlib/CategoryTheory/FiberedCategory/Fibered.lean): Fibered categories. A condition on a functor to a base category; does not construct the PEL fibre category or prove its descent.
+- **mathlib:CategoryTheory.PresheafOfGroups.H1** (Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean): Nonabelian H¹ of a presheaf of groups relative to a family of objects (Čech-type cocycles). Cech-type cohomology for a presheaf/family. Near miss for continuous nonabelian Galois H1 of reductive groups and ker1.
+- **mathlib:CategoryTheory.Pseudofunctor.IsStack** (Mathlib/CategoryTheory/Sites/Descent/IsStack.lean): The stack condition (effective descent) for a pseudofunctor to categories. Ordinary pseudofunctor effective-descent condition. The stack carrier/application is upstream D0/R09.4; assuming it is not proving MH is a stack.
+- **mathlib:IntermediateField.fixedField** (Mathlib/FieldTheory/Galois/Basic.lean): Fixed field of a subgroup of the Galois group. Fixed fields of automorphism subgroups. Inverse stabilizer comparisons need Galois hypotheses; no geometric field-of-moduli theorem follows alone.
+- **mathlib:IntermediateField.normalClosure** (Mathlib/FieldTheory/Normal/Closure.lean): Normal (Galois) closure. Normal closure of a field extension; identify reflex fields before comparing their composite/intersection with it.
+- **mathlib:IsDedekindDomain.FiniteAdeleRing** (Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean): The finite adele ring of a Dedekind domain as a restricted product of completions. Finite adele ring via restricted products. Rational PEL group and open compact subgroup/levels remain separate.
+- **mathlib:IsSemisimpleRing** (Mathlib/RingTheory/SimpleModule/Basic.lean): Semisimple rings. Semisimplicity predicate, not the positive-involution classification or reduced trace.
+- **mathlib:IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing** (Mathlib/RingTheory/SimpleModule/WedderburnArtin.lean): Wedderburn–Artin: a semisimple algebra is a finite product of matrix algebras over division algebras. Wedderburn–Artin algebra decomposition. Does not classify the involution or attach constrained A/C/D types.
+- **mathlib:LinearMap.BilinForm.IsAlt** (Mathlib/LinearAlgebra/BilinearForm/Properties.lean): Alternating bilinear forms: B x x = 0. Alternating form on modules. Perfectness/integral polarization and finite lattice hypotheses must be added.
+- **mathlib:LinearMap.BilinForm.Nondegenerate** (Mathlib/LinearAlgebra/BilinearForm/Properties.lean): Nondegenerate bilinear forms (separating on both sides). Separating bilinear form. Over a ring it is not automatically a perfect duality, and does not persist under arbitrary base change.
+- **mathlib:LinearMap.BilinForm.dualSubmodule** (Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean): The dual lattice {x | ∀ y ∈ N, B x y ∈ R} of a submodule with respect to a bilinear form. Existing dual submodule, using the specified coefficient inclusion/form. Verify the integral full lattice and O-stability.
+- **mathlib:LinearMap.IsAdjointPair** (Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean): Adjoint pairs of maps for a pair of bilinear/sesquilinear forms: B'(f x) y = B x (g y). Adjoint pair for sesquilinear forms. Link to the actual star action and polarization; not a Rosati construction.
+- **mathlib:LinearMap.charpoly** (Mathlib/LinearAlgebra/Charpoly/Basic.lean): Characteristic polynomial of an endomorphism of a finite free module. Characteristic polynomial with relevant finite-free instances. Not a determinant condition on an unspecified Lie object.
+- **mathlib:LinearMap.charpoly_baseChange** (Mathlib/LinearAlgebra/Charpoly/BaseChange.lean): The characteristic polynomial commutes with base change. Characteristic polynomial base change under finite-free hypotheses; relative locally free sheaf descent is additional.
+- **mathlib:LinearMap.polyCharpoly** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): The generic characteristic polynomial of a linear family φ : L → End M in the coordinates of a basis of L. Generic characteristic polynomial of a linear family in basis coordinates. Reuse its constant coefficient rather than planning this generic notion again.
+- **mathlib:LinearMap.polyCharpoly_baseChange** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): The generic characteristic polynomial commutes with base change. Generic polynomial base change with its algebra/module/basis data; does not supply geometric Tate/Lie base change.
+- **mathlib:LinearMap.polyCharpoly_map_eq_charpoly** (Mathlib/Algebra/Module/LinearMap/Polynomial.lean): Evaluating the generic characteristic polynomial at the coordinates of x gives charpoly (φ x). Evaluation in coordinates of the same basis and same linear family; identify the family with the actual order action.
+- **mathlib:Matrix.J** (Mathlib/LinearAlgebra/SymplecticGroup.lean): The standard symplectic block matrix. Standard symplectic block matrix. Polarization elementary divisors and their relation to the dual lattice are additional.
+- **mathlib:Matrix.unitaryGroup** (Mathlib/LinearAlgebra/UnitaryGroup.lean): Unitary matrices for a star ring. Matrices for the specified star-unitary condition. Not the arbitrary hermitian-form similitude group scheme GU or its zero-space convention.
+- **mathlib:NumberField.ComplexEmbedding.conjugate** (Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean): The complex conjugate of a complex embedding. Conjugate embedding. Requires actual centre/CM field and Hodge signature, not an unrelated star field.
+- **mathlib:NumberField.IsCMField** (Mathlib/NumberTheory/NumberField/CMField.lean): CM fields: totally complex quadratic extensions of their maximal real subfield. CM-field carrier exists; generalized types/unitary examples must use it or explicitly state the omitted restriction.
+- **mathlib:NumberField.IsCMField.complexConj** (Mathlib/NumberTheory/NumberField/CMField.lean): Complex conjugation of a CM field as an automorphism over its maximal real subfield. CM involution over maximal real subfield. Arbitrary StarRing structures are not this involution.
+- **mathlib:NumberField.IsTotallyReal** (Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean): Totally real number fields. Totally-real field property; positivity/classification must show it for the actual fixed centre.
+- **mathlib:NumberField.discr** (Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean): Discriminant of a number field. Number-field discriminant. disc(OF) = disc(F); a noncommutative order discriminant has a different definition.
+- **mathlib:NumberField.maximalRealSubfield** (Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean): The maximal totally real subfield of a number field. Existing carrier; use it for the CM fixed field instead of an unrelated field parameter.
+- **mathlib:StarRing** (Mathlib/Algebra/Star/Basic.lean): Rings with an involutive anti-multiplicative additive star. Involutive additive anti-multiplicative star. Positivity/rational linear compatibility are additional; do not redefine this carrier.
+- **mathlib:Submodule.IsLattice** (Mathlib/Algebra/Module/Lattice.lean): Finitely generated spanning submodules (lattices). Finite generated spanning submodule. Use the actual full rational lattice/coefficient map, not just an independent family.
+- **mathlib:UpperHalfPlane** (Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean): The upper half plane. Existing carrier; not the analytic Siegel family or algebraic fine moduli comparison.
+- **mathlib:WeierstrassCurve.ofJ** (Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean): A Weierstrass curve over a field with prescribed j-invariant. Field-level Weierstrass model with prescribed j under its construction conditions. Not a universal family over a coarse moduli base.
+- **mathlib:WeierstrassCurve.ofJ_j** (Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean): The curve ofJ j has j-invariant j. Correct j-value for that model. A j computation is not an elliptic/PEL moduli equivalence.
+- **tauceti:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip** (TauCeti/LinearAlgebra/BilinearForm/DualLattice.lean): Double duality of lattices for a nondegenerate (not necessarily symmetric) bilinear form. Double duality under full lattice/nondegeneracy/coefficient hypotheses, with flipped form. For an alternating form justify removing the flip.
+- **tauceti:Matrix.exists_smith_normal_form_of_det_ne_zero** (TauCeti/LinearAlgebra/Matrix/SmithNormalForm.lean): Smith normal form with divisibility chain of a nonsingular integer matrix. Nonsingular integer matrix Smith form. Alternating symplectic block form and O-equivariance require further arguments.
+- **tauceti:Matrix.transpose_mul_J_mul_eq_det_smul** (TauCeti/LinearAlgebra/Matrix/SymplecticMultiplier.lean): Rank-two multiplier identity Aᵀ J A = det(A) J. Rank two only, with the specified J convention. Not the all-genus similitude group or representability.
+- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety** (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean): Abelian varieties over a field K: a proper, geometrically integral group object over Spec K. BP-PELModuli~2, 2026-10-10: full statement independently read at the pinned commit. Actual proper geometrically integral group object over Spec K. Its field-only carrier is reused by the field adapter; the new relative commutative smooth proper group scheme is the A1 import.
+- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End** (TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean): The endomorphism ring End A of an abelian variety over a field (multiplication = reversed composition). Ring of endomorphisms of an actual abelian variety, using reversed composition. Supplier composition/left actions must respect this convention.
+- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny** (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean): Isogenies of abelian varieties over a field: finite surjective homomorphisms. Finite surjective homomorphism of field-level varieties. Does not make every scheme morphism a quasi-isogeny or give relative degree conditions.
+- **tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy** (TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean): Multiplication by an integer n on an abelian variety over a field. Integer multiplication on the actual group object; relative finite-flat rank, etaleness and duality are upstream A3.
+- **tauceti:TauCeti.AlmostComplexStructure** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): A real-linear J on a real vector space with J∘J = −1. Existing J squared = -1 on a real module. Reuse it; PEL action, invariant form and positivity are additional.
+- **tauceti:TauCeti.AlmostComplexStructure.hodgeStructure** (TauCeti/Geometry/Hodge/WeightOne/Basic.lean): The weight-one Hodge structure on ℂ ⊗ V attached to a complex structure J (no integral lattice). Weight-one Hodge structure from real J; integral lattice, homological sign and polarization compatibility remain necessary.
+- **tauceti:TauCeti.ConstantForm.groupScheme** (TauCeti/Algebra/AlgebraicGroup/ConstantForm/Basic.lean): The closed subgroup scheme of GL_n over a commutative ring preserving a constant form C (points M with M C Mᵀ = C); isometries, multiplier one. Isometry scheme, multiplier one, with M C M-transpose convention. Not general GSp/GU or an O-linear similitude scheme.
+- **tauceti:TauCeti.ContCohomology.H1** (TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean): Continuous H¹ of a topological group with abelian coefficients. Continuous cohomology with abelian coefficients. Near miss for nonabelian reductive Galois twisting and ker1.
+- **tauceti:TauCeti.GeneralLinear.groupScheme** (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Scheme.lean): The general linear group scheme GL_n over a commutative ring. GL group scheme exists. Closed O-linear form/similitude equations and their base change must be supplied.
+- **tauceti:TauCeti.Hodge.HodgeStructureOn** (TauCeti/Geometry/Hodge/Structure.lean): Pure Hodge structures of weight n given by an opposed Hodge filtration on a complex space with conjugation. Existing opposed-filter Hodge carrier. A Set of complex structures is not a Hodge or Shimura datum.
+- **tauceti:TauCeti.Hodge.IsPolarization** (TauCeti/Geometry/Hodge/Polarization.lean): Polarizations of integral Hodge structures: (-1)^n-symmetry, nondegeneracy, orthogonality, positivity. Existing integral Hodge polarization predicate, including weight/sign, orthogonality and positivity. Isotropy alone is insufficient.
+- **tauceti:TauCeti.Hodge.isPolarization_of_weilOperator_invariant_on_realPoints_of_pos** (TauCeti/Geometry/Hodge/WeightOne/Polarization.lean): Riemann relations: an effective weight-one integral Hodge structure with a skew nondegenerate form invariant under the Weil operator and positive on real points is polarized. Requires effective weight-one integral Hodge carrier, nondegenerate skew form, Weil-operator invariance and real positivity. Convert homological weight/sign.
+- **tauceti:TauCeti.Orthogonal.groupScheme** (TauCeti/Algebra/AlgebraicGroup/Orthogonal/Basic.lean): The orthogonal group scheme of the standard form. Standard-form orthogonal scheme; arbitrary O-linear type-D components and similitudes require identification and additional structure.
+- **tauceti:TauCeti.RootsOfUnityGroup.groupScheme** (TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean): The group scheme μ_n of n-th roots of unity over a commutative ring, with points rootsOfUnity n A. Roots-of-unity group scheme over a commutative base. Individual finite-order eigenvalues do not identify the polarized automorphism group with it.
+- **tauceti:TauCeti.Symplectic.groupScheme** (TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean): The symplectic group scheme Sp_{2m} over a commutative ring, for the standard antidiagonal form. Standard-form symplectic group scheme. Identify its antidiagonal form with block J, then add multiplier and O-linearity.
+- **tauceti:TauCeti.SymplecticForm** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): A nondegenerate alternating real bilinear form. Existing nondegenerate alternating real form. Integral lattice, order action and polarization type are additional.
+- **tauceti:TauCeti.SymplecticForm.Compatible** (TauCeti/Geometry/Symplectic/AlmostComplex.lean): Compatibility of J with ω: ω(Jx,Jy)=ω(x,y) and the associated symmetric form ω(x,Jy) is positive definite. Existing J-invariance and real positive form condition. Both must hold; positivity alone is not the contract.
+- **tauceti:TauCeti.SymplecticForm.exists_compatible** (TauCeti/Geometry/Symplectic/ExistsCompatible.lean): Every real symplectic form on a finite-dimensional space admits a compatible J. Finite-dimensional real symplectic spaces. An O-linear compatible J is an extra constrained problem.
+- **tauceti:WeierstrassCurve.j_quadraticTwist** (TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean): A quadratic twist has the same j-invariant. Same j after twist. Not a forms classification or a universal coarse-family theorem.
+- **tauceti:WeierstrassCurve.not_exists_smul_quadraticTwist_eq** (TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean): For j ≠ 0,1728 the quadratic twist by a nontrivial quadratic extension is not isomorphic to the curve over the base. Nonisomorphism for a nontrivial quadratic extension away from j=0,1728. Exceptional twists and residual-gerbe descent need more input.
