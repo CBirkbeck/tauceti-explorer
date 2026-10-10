@@ -3053,8 +3053,8 @@ def figureEightKashaev (x : ℚ) : ℝ :=
 theorem figureEightKashaev_periodic (x : ℚ) :
     figureEightKashaev (x + 1) = figureEightKashaev x := sorry
 
--- figureEightKashaev_small
-example : figureEightKashaev (-1) = 1 ∧ figureEightKashaev (-1 / 2) = 5 ∧
+-- figureEightKashaev_small: GZ §1, p. 9, selected primitive roots.
+theorem figureEightKashaev_small : figureEightKashaev (-1) = 1 ∧ figureEightKashaev (-1 / 2) = 5 ∧
     figureEightKashaev (-1 / 3) = 13 ∧ figureEightKashaev (-1 / 4) = 27 ∧
     figureEightKashaev (-1 / 5) = 46 + 2 * Real.sqrt 5 ∧
     figureEightKashaev (-1 / 6) = 89 := sorry
@@ -3622,43 +3622,329 @@ inductive LedgerColumn where
   | traceFieldAndBlochClasses | volumeAndChernSimons | asymptoticSeries
   deriving DecidableEq
 
-/-- Different outputs in a column have separate producing nodes and status. -/
+/-- Bibliographic data, not a replacement for a geometric or arithmetic carrier.
+`proved` denotes a source theorem, not a Lean proof of the recorded text. -/
 structure LedgerEntry where
   column : LedgerColumn
   output : String
   datum : String
   node : String
   status : Provenance
+  root : String
+  normalization : String
+  representation : String
+  shapeField : String
+  source : String
+  locator : String
+  domain : String
 
 abbrev Ledger := List (String × List LedgerEntry)
 
-/-- Selected ledger entries only; the six-column ledger specification and its
-complete-row tests remain in README.md. `proved` records source status,
-not a Lean proof. -/
+def ledgerColumns : List LedgerColumn :=
+  [.cyclotomicCoefficients, .kashaevValues, .invariantsAtRootsOfUnity,
+    .traceFieldAndBlochClasses, .volumeAndChernSimons, .asymptoticSeries]
+
+/-- Source-specific entries. An empty cell denotes no supplied checked output;
+it never asserts vanishing or agreement with another column. -/
 def ledgerRows : Ledger := [
   ("4₁", [
-    ⟨.kashaevValues, "orders 1–6", "1,5,13,27,46+2√5,89",
-      "ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals", .computed⟩,
-    ⟨.traceFieldAndBlochClasses, "ordinary class", "Q(√−3), 2[exp(πi/3)]",
-      "ArithmeticQuantumTopology:QT.5/number-field-geometric-bloch-class", .proved⟩,
-    ⟨.asymptoticSeries, "nondegenerate geometric formal series", "GSW normalized unit series",
-      "ArithmeticQuantumTopology:QT.6/formal-state-integral-invariance", .proved⟩,
-    ⟨.asymptoticSeries, "general matrix RQMC", "conjectural refinement",
-      "ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity", .conjectural⟩]),
+    { column := .cyclotomicCoefficients,
+      output := "product-basis coefficients",
+      datum := "all coefficients 1 in Σ (q⁻¹;q⁻¹)ₙ(q;q)ₙ",
+      node := "ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals",
+      status := .computed,
+      root := "q formal",
+      normalization := "GZ Habiro product basis; not coefficients of (q;q)ₙ alone",
+      representation := "trivial",
+      shapeField := "Q",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§2.2, (2.6), p. 13",
+      domain := "cyclotomic completion; finite truncation at a root" },
+    { column := .kashaevValues,
+      output := "orders 1–6",
+      datum := "1,5,13,27,46+2√5,89",
+      node := "ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals",
+      status := .computed,
+      root := "q=exp(−2πi/N), N=1,…,6",
+      normalization := "Σ |(q;q)ₙ|²",
+      representation := "trivial",
+      shapeField := "Q(√5) for the order-five value",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§1, (1.2), p. 9",
+      domain := "selected primitive roots; other order-five embedding gives 46−2√5" },
+    { column := .invariantsAtRootsOfUnity,
+      output := "Q₁ root row",
+      datum := "1,5,13,27,44−4q²−4q³,89",
+      node := "ArithmeticQuantumTopology:QT.7/figure-eight-habiro-descendants",
+      status := .computed,
+      root := "q=exp(2πix), den(x)=1,…,6",
+      normalization := "Q₁=J; product of two finite q-factorials",
+      representation := "trivial first column",
+      shapeField := "Q(q)",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§4.3, p. 26",
+      domain := "primitive roots; order-five polynomial retains the embedding" },
+    { column := .traceFieldAndBlochClasses,
+      output := "ordinary class",
+      datum := "Q(√−3), 2[exp(πi/3)]",
+      node := "ArithmeticQuantumTopology:QT.5/number-field-geometric-bloch-class",
+      status := .computed,
+      root := "shape exp(πi/3)",
+      normalization := "ordinary Bloch convention; no torsion lift asserted",
+      representation := "geometric",
+      shapeField := "Q(√−3)",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§1, (1.3), p. 10",
+      domain := "complete geometric solution" },
+    { column := .volumeAndChernSimons,
+      output := "g2 decay limit",
+      datum := "lim 2πℏ log |g2| = −Vol(S³∖4₁)",
+      node := "ArithmeticQuantumTopology:QT.6/selected-state-integral-volume",
+      status := .proved,
+      root := "not a root evaluation; ℏ=(b+b⁻¹)⁻²",
+      normalization := "AK contour-selected integral; decay sign",
+      representation := "selected geometric saddle",
+      shapeField := "selected complex shape field",
+      source := "https://arxiv.org/abs/1109.6295v2",
+      locator := "Theorem 5, p. 11; §12, pp. 32–34",
+      domain := "b→0+; contour, nondegenerate saddle and phase as in AK" },
+    { column := .asymptoticSeries,
+      output := "nondegenerate geometric formal series",
+      datum := "GSW normalized unit series",
+      node := "ArithmeticQuantumTopology:QT.6/formal-state-integral-invariance",
+      status := .proved,
+      root := "formal ℏ at the complete solution",
+      normalization := "formal Gaussian bracket; not analytic remainder estimates",
+      representation := "discrete faithful",
+      shapeField := "invariant trace field",
+      source := "https://arxiv.org/abs/2305.14884v2",
+      locator := "Theorem 1.1, p. 4; §2.3, pp. 8–9",
+      domain := "complete cusped hyperbolic manifold; regular nondegenerate refinements" },
+    { column := .asymptoticSeries,
+      output := "BD selected modular theorem",
+      datum := "all-orders bounded-denominator asymptotics",
+      node := "ArithmeticQuantumTopology:QT.7/bettin-drappeau-proved-cases",
+      status := .proved,
+      root := "q=exp(2πix), x rational",
+      normalization := "BD positive-q, principal logarithms; no negative-q comparison assumed",
+      representation := "selected hyperbolic knot",
+      shapeField := "Q(√−3)",
+      source := "https://arxiv.org/abs/1905.02045v2",
+      locator := "Theorem 1, pp. 2–3",
+      domain := "x→+∞ of bounded denominator; γ∞ finite; source phase and constants" },
+    { column := .asymptoticSeries,
+      output := "general matrix RQMC",
+      datum := "conjectural all-orders matrix refinement",
+      node := "ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity",
+      status := .conjectural,
+      root := "rational X and formal h",
+      normalization := "row weights require scalar/matrix sign reconciliation",
+      representation := "representation-indexed matrix",
+      shapeField := "representation fields",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§4.5, (4.12)–(4.14), pp. 28–30",
+      domain := "c>0; bounded denominator; matrix and exponential-ordering hypotheses" },
+    { column := .asymptoticSeries,
+      output := "general cocycle analyticity",
+      datum := "conjectural extension across the cut",
+      node := "ArithmeticQuantumTopology:QT.7/cocycle-analytic-extension",
+      status := .conjectural,
+      root := "x in the pole-free cut plane",
+      normalization := "ordered matrix cocycle with its stated factors",
+      representation := "representation-indexed matrix",
+      shapeField := "representation fields",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§5.2, Conjecture 5.1, pp. 34–35; conditional Proposition 5.2, p. 36",
+      domain := "selected numerical examples do not establish general analyticity" }]),
   ("5₂", [
-    ⟨.traceFieldAndBlochClasses, "selected shape field", "Q(ξ), ξ³−ξ²+1=0, Im ξ<0",
-      "ArithmeticQuantumTopology:QT.7/representation-indexed-perturbative-family", .computed⟩,
-    ⟨.volumeAndChernSimons, "g₃ decay limit", "lim 2πℏ log |g₃| = −Vol",
-      "ArithmeticQuantumTopology:QT.6/selected-state-integral-volume", .proved⟩,
-    ⟨.asymptoticSeries, "BD positive-q selected modular theorem", "all-orders bounded-denominator asymptotics",
-      "ArithmeticQuantumTopology:QT.7/bettin-drappeau-proved-cases", .proved⟩,
-    ⟨.asymptoticSeries, "general matrix RQMC", "conjectural refinement",
-      "ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity", .conjectural⟩])]
+    { column := .volumeAndChernSimons,
+      output := "g3 decay limit",
+      datum := "lim 2πℏ log |g3| = −Vol(S³∖5₂)",
+      node := "ArithmeticQuantumTopology:QT.6/selected-state-integral-volume",
+      status := .proved,
+      root := "not a root evaluation; ℏ=(b+b⁻¹)⁻²",
+      normalization := "AK contour-selected integral; decay sign",
+      representation := "selected geometric saddle",
+      shapeField := "selected complex shape field",
+      source := "https://arxiv.org/abs/1109.6295v2",
+      locator := "Theorem 5, p. 11; §12, pp. 32–34",
+      domain := "b→0+; contour, nondegenerate saddle and phase as in AK" },
+    { column := .asymptoticSeries,
+      output := "nondegenerate geometric formal series",
+      datum := "GSW normalized unit series",
+      node := "ArithmeticQuantumTopology:QT.6/formal-state-integral-invariance",
+      status := .proved,
+      root := "formal ℏ at the complete solution",
+      normalization := "formal Gaussian bracket; not analytic remainder estimates",
+      representation := "discrete faithful",
+      shapeField := "invariant trace field",
+      source := "https://arxiv.org/abs/2305.14884v2",
+      locator := "Theorem 1.1, p. 4; §2.3, pp. 8–9",
+      domain := "complete cusped hyperbolic manifold; regular nondegenerate refinements" },
+    { column := .asymptoticSeries,
+      output := "BD selected modular theorem",
+      datum := "all-orders bounded-denominator asymptotics",
+      node := "ArithmeticQuantumTopology:QT.7/bettin-drappeau-proved-cases",
+      status := .proved,
+      root := "q=exp(2πix), x rational",
+      normalization := "BD positive-q, principal logarithms; no negative-q comparison assumed",
+      representation := "selected hyperbolic knot",
+      shapeField := "Q(τ), τ³−τ+1=0, Im τ>0",
+      source := "https://arxiv.org/abs/1905.02045v2",
+      locator := "Theorem 1, pp. 2–3",
+      domain := "x→+∞ of bounded denominator; γ∞ finite; source phase and constants" },
+    { column := .asymptoticSeries,
+      output := "general matrix RQMC",
+      datum := "conjectural all-orders matrix refinement",
+      node := "ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity",
+      status := .conjectural,
+      root := "rational X and formal h",
+      normalization := "row weights require scalar/matrix sign reconciliation",
+      representation := "representation-indexed matrix",
+      shapeField := "representation fields",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§4.5, (4.12)–(4.14), pp. 28–30",
+      domain := "c>0; bounded denominator; matrix and exponential-ordering hypotheses" },
+    { column := .asymptoticSeries,
+      output := "general cocycle analyticity",
+      datum := "conjectural extension across the cut",
+      node := "ArithmeticQuantumTopology:QT.7/cocycle-analytic-extension",
+      status := .conjectural,
+      root := "x in the pole-free cut plane",
+      normalization := "ordered matrix cocycle with its stated factors",
+      representation := "representation-indexed matrix",
+      shapeField := "representation fields",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§5.2, Conjecture 5.1, pp. 34–35; conditional Proposition 5.2, p. 36",
+      domain := "selected numerical examples do not establish general analyticity" },
+    { column := .kashaevValues,
+      output := "orders 1 and 2",
+      datum := "1,13 from the double finite sum",
+      node := "ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals",
+      status := .computed,
+      root := "q=exp(2πix); den(x)=1 or 2",
+      normalization := "GZ (A.2); q times this sum is the cited colored Jones value",
+      representation := "trivial",
+      shapeField := "Q",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "Appendix A.3, (A.2), pp. 78–79",
+      domain := "positive-q formula; the extra q factor is retained" },
+    { column := .invariantsAtRootsOfUnity,
+      output := "finite root formula",
+      datum := "Σₘ<N Σₖ≤ₘ q⁻⁽ᵐ⁺¹⁾ᵏ(q;q)ₘ²(q⁻¹;q⁻¹)ₖ",
+      node := "ArithmeticQuantumTopology:QT.6/the-kashaev-invariant-and-the-function-on-the-rationals",
+      status := .computed,
+      root := "q primitive of order N>0",
+      normalization := "GZ (A.2), before the colored-Jones q factor",
+      representation := "trivial",
+      shapeField := "Q(q)",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "Appendix A.3, (A.2), pp. 78–79",
+      domain := "finite root sum, not a WRT manifold invariant" },
+    { column := .traceFieldAndBlochClasses,
+      output := "selected shape field",
+      datum := "Q(ξ), ξ³−ξ²+1=0, Im ξ<0",
+      node := "ArithmeticQuantumTopology:QT.7/representation-indexed-perturbative-family",
+      status := .computed,
+      root := "selected cubic shape ξ",
+      normalization := "GZ branch; no embedded-field identification with BD τ asserted",
+      representation := "geometric",
+      shapeField := "Q(ξ), ξ³−ξ²+1=0, Im ξ<0",
+      source := "https://arxiv.org/abs/2111.06645v3",
+      locator := "§1, p. 10; Appendix A.3, p. 79",
+      domain := "exact polynomial and embedding; no Bloch-class output supplied here" }])]
 
--- ledger_status_consistent: status belongs to an output, not an entire column.
-example : ∃ row ∈ ledgerRows, ∃ e ∈ row.2,
-    e.column = .asymptoticSeries ∧ e.status = .proved := sorry
+/-- All nine conjectural producing nodes in the accepted packet. The finite
+check is a provenance guard, not a proof or decision procedure for mathematics. -/
+def ledgerConjecturalNodes : List String := [
+  "ArithmeticQuantumTopology:QT.7/the-quantum-modularity-conjecture",
+  "ArithmeticQuantumTopology:QT.7/generalized-quantum-modularity",
+  "ArithmeticQuantumTopology:QT.7/lift-from-values-to-series",
+  "ArithmeticQuantumTopology:QT.7/quadratic-relations",
+  "ArithmeticQuantumTopology:QT.7/coefficient-asymptotics",
+  "ArithmeticQuantumTopology:QT.7/matrix-refined-quantum-modularity",
+  "ArithmeticQuantumTopology:QT.7/cocycle-analytic-extension",
+  "ArithmeticQuantumTopology:QT.7/ak-knot-comparison-conjecture",
+  "ArithmeticQuantumTopology:QT.7/kashaev-volume-conjecture"]
 
+def ledgerEntryStatusValid (e : LedgerEntry) : Bool :=
+  !ledgerConjecturalNodes.contains e.node || decide (e.status = .conjectural)
+
+def ledgerEntryRecorded (e : LedgerEntry) : Bool :=
+  [e.output, e.datum, e.node, e.root, e.normalization, e.representation,
+    e.shapeField, e.source, e.locator, e.domain].all (fun s => !s.isEmpty)
+
+/-- A missing row or column returns no outputs, rather than a default invariant. -/
+def ledgerCell (k : String) (c : LedgerColumn) : List LedgerEntry :=
+  ledgerRows.flatMap fun row =>
+    if row.1 = k then row.2.filter (fun e => decide (e.column = c)) else []
+
+-- ledger_figureEight_row: six cells plus the actual finite-root value signature.
+-- The arithmetic conjunct depends on the proposed theorem (and its sorry);
+-- the coverage conjunct checks only the concrete bibliographic table.
+theorem ledger_figureEight_row : (ledgerColumns.all (fun c => !(ledgerCell "4₁" c).isEmpty) = true) ∧
+    [figureEightKashaev (-1), figureEightKashaev (-1 / 2),
+      figureEightKashaev (-1 / 3), figureEightKashaev (-1 / 4),
+      figureEightKashaev (-1 / 5), figureEightKashaev (-1 / 6)] =
+      [1, 5, 13, 27, 46 + 2 * Real.sqrt 5, 89] := by
+  constructor
+  · decide
+  · rcases figureEightKashaev_small with ⟨h₁, h₂, h₃, h₄, h₅, h₆⟩
+    rw [h₁, h₂, h₃, h₄, h₅, h₆]
+
+-- ledger_status_consistent: check every output and its required context.
+theorem ledger_status_consistent : ledgerRows.all (fun row => row.2.all
+    (fun e => ledgerEntryStatusValid e && ledgerEntryRecorded e)) = true := by decide
+
+-- ledger_missing_context: a populated record cannot omit its root,
+-- normalization or source. Each mutation is checked on every actual output.
+theorem ledger_missing_context : ledgerRows.all (fun row => row.2.all (fun e =>
+    !ledgerEntryRecorded { e with root := "" } &&
+    !ledgerEntryRecorded { e with normalization := "" } &&
+    !ledgerEntryRecorded { e with source := "" })) = true := by decide
+
+-- ledger_status_rejects_proved_conjecture: an otherwise populated entry with
+-- either conjectural producing node cannot acquire a proved label.
+theorem ledger_status_rejects_proved_conjecture : (ledgerCell "4₁" .asymptoticSeries).all (fun e =>
+    if ledgerConjecturalNodes.contains e.node then
+      !ledgerEntryStatusValid { e with status := .proved } else true) = true := by decide
+
+-- ledger_selected_theorems: each selected formal/analytic output keeps its own
+-- proved-source label, while a different output in the same column is conjectural.
+theorem ledger_selected_theorems : (ledgerCell "4₁" .asymptoticSeries).map (fun e => e.status) =
+    [.proved, .proved, .conjectural, .conjectural] ∧
+    (ledgerCell "5₂" .volumeAndChernSimons).map (fun e => e.status) = [.proved] := by decide
+
+-- ledger_traceField: exact recorded fields/branches, not a field-isomorphism proof.
+theorem ledger_traceField : (ledgerCell "4₁" .traceFieldAndBlochClasses).map (fun e => e.datum) =
+    ["Q(√−3), 2[exp(πi/3)]"] ∧
+    (ledgerCell "5₂" .traceFieldAndBlochClasses).map (fun e => e.shapeField) =
+    ["Q(ξ), ξ³−ξ²+1=0, Im ξ<0"] := by decide
+
+-- ledger_empty_column: absence is explicit; it asserts no equality or vanishing.
+theorem ledger_empty_column : ledgerCell "5₂" .cyclotomicCoefficients = [] ∧
+    ledgerColumns.all (fun c => (ledgerCell "unlisted knot" c).isEmpty) = true := by decide
+
+/-- GZ Appendix A.3, (A.2), pp. 78–79. Positive-q convention, before
+multiplication by q to match the cited colored Jones evaluation. -/
+def fiveTwoKashaevAtRoot (N : ℕ) (q : ℂ) : ℂ :=
+  ∑ m ∈ range N, ∑ k ∈ range (m + 1),
+    q ^ (-( ((m + 1) * k : ℕ) : ℤ)) * qPochC q m ^ 2 * qPochC q⁻¹ k
+
+-- fiveTwo_root_zero: a zero-length truncation supplies no knot evaluation.
+theorem fiveTwo_root_zero (q : ℂ) : fiveTwoKashaevAtRoot 0 q = 0 := by
+  simp [fiveTwoKashaevAtRoot]
+-- fiveTwo_root_one: the normalized finite sum starts at 1.
+theorem fiveTwo_root_one (q : ℂ) : fiveTwoKashaevAtRoot 1 q = 1 := by
+  simp [fiveTwoKashaevAtRoot, qPochC]
+-- fiveTwo_root_minus_one: a different knot gives 13 rather than 4₁'s 5.
+theorem fiveTwo_root_minus_one : fiveTwoKashaevAtRoot 2 (-1) = 13 := by
+  norm_num [fiveTwoKashaevAtRoot, qPochC, Finset.sum_range_succ,
+    Finset.prod_range_succ]
+-- fiveTwo_root_normalization: the source's colored-Jones q factor changes the sign.
+theorem fiveTwo_root_normalization : (-1 : ℂ) * fiveTwoKashaevAtRoot 2 (-1) = -13 := by
+  norm_num [fiveTwoKashaevAtRoot, qPochC, Finset.sum_range_succ,
+    Finset.prod_range_succ]
 
 /-! Scalar algebraic components of the unified Kashaev and root-NZ plans.
 These functions do not replace the missing knot or triangulation carriers. -/

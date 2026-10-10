@@ -1922,28 +1922,26 @@ For γ=(a b;c d)∈SL₂(ℤ), c>0, put hγ(X)=2πi/[c(cX+d)] and α=a/c. For th
 
 ### A reproducible ledger linking the four kinds of data, for two knots
 
-The ledger records exact knot/root/normalization/representation/shape-field data and mathematical status separately for each output. 4₁: ζ₆=e^(πi/3), ordinary Bloch class 2[ζ₆], field ℚ(√−3), exact Kashaev values 1,5,13,27,46+2√5,89 in orders 1–6 (the other primitive order-five embedding gives 46−2√5), AK decay-volume theorem for g₂, positive-q BD modular theorem, and conjectural matrix refinements. 5₂: the GZ branch ξ³−ξ²+1=0, Im ξ<0; AK g₃ decay theorem and its explicit phase; positive-q BD modular theorem; conjectural quadratic/matrix extensions. Numerical shapes/coefficients have numerical status. Neither a torus knot nor a singular gluing solution satisfies the hyperbolic/nondegenerate hypotheses of these selected theorems.
+Each output carries its node, status, root, normalization, representation, field, source locus and domain. `proved` means a source theorem. Empty means no checked output, never zero or agreement. Root sums here are knot values.
+
+| Column | 4₁ | 5₂ |
+| --- | --- | --- |
+| Cyclotomic coefficients | Coefficients 1 in Σ(q⁻¹;q⁻¹)ₙ(q;q)ₙ (computed; product basis) | Empty |
+| Kashaev values | Orders 1–6: 1,5,13,27,46+2√5,89 (computed at q=e^(−2πi/N)) | Orders 1,2: 1,13 in GZ (A.2) (computed) |
+| Invariants at roots | Q₁=J, order-five 44−4q²−4q³ (computed) | Double finite sum (A.2); multiply by q for its cited colored Jones normalization (computed) |
+| Trace field/Bloch data | ℚ(√−3), ordinary class 2[e^(πi/3)] (computed) | ℚ(ξ), ξ³−ξ²+1=0, Im ξ<0 (computed); no class supplied |
+| Volume/Chern–Simons | AK g₂ decay-volume limit (proved source) | AK g₃ decay-volume limit (proved source) |
+| Asymptotic series | GSW geometric formal invariance and positive-q BD asymptotics (proved source); general matrix/cocycle claims conjectural | Same statuses, five-two branches |
+
+AK: b→0+, lim 2πℏ log|gₙ|=−Vol, its contour/phase. BD uses positive q, principal logarithms and bounded-denominator x→+∞; τ³−τ+1=0, Im τ>0 needs an explicit comparison with ξ. GSW is formal. Torus knots/singular shapes fail the geometric hypotheses.
 
 **Depends on.** [Kashaev invariant][AQT23]; [Geometric number-field Bloch class][AQT35]; [Selected state-integral volume theorem][AQT46]; [Proved quantum modularity cases][AQT48]; [Matrix refined quantum modularity][AQT50].
 
-**Proof.** Use exact arithmetic and the source branches for the finite values and shape fields. Record independently which source proves which analytic output. Treat failed geometric/root-domain hypotheses as nonexamples rather than false theorem instances.
+**API.** `Ledger`, `LedgerColumn`, `LedgerEntry.node`, `LedgerEntry.status` (proved/imported/computed/numerical/conjectural), `ledgerRows`; `ledgerColumns` lists six columns; `ledgerCell` returns outputs or []. `ledgerEntryRecorded` checks context; `ledgerEntryStatusValid` guards all nine conjectural nodes of the plan.
 
-**API.**
+**Tests.** `ledger_figureEight_row` checks six cells and finite values; `ledger_status_consistent` checks every entry and rejects proved conjectures; `ledger_traceField` checks recorded branches; `ledger_empty_column` preserves absence. Five-two truncations 0,1,2 test 0,1,13 and the colored-Jones sign −13. Empty root/normalization/source must fail; checks certify records only.
 
-- `Ledger`: The table with one row per example and one column per kind of datum.
-- `LedgerColumn`: The six columns: cyclotomic coefficients, Kashaev values, invariants at roots of unity, trace field and Bloch classes, volume and Chern-Simons, asymptotic series.
-- `LedgerEntry.node`: For each entry, the node that produces it.
-- `LedgerEntry.status`: For each entry, one of the five labels: proved, imported, computed, numerical, conjectural.
-- `ledgerRows`: The two rows, for the figure-eight knot and for the knot five two.
-
-**Tests.**
-
-- `ledger_figureEight_row`: Every entry of the figure-eight row is filled, and the Kashaev column reproduces the six values of the source.
-- `ledger_status_consistent`: Each output has its own status: the selected nondegenerate formal geometric series has a source theorem, AK and BD have selected analytic theorems, while general matrix RQMC and cocycle analyticity remain conjectural. No producing conjectural statement is marked proved.
-- `ledger_traceField`: The trace field of the figure-eight knot is the rationals with the square root of minus three adjoined, and of the knot five two the cubic field of the displayed polynomial.
-- `ledger_empty_column`: A column that cannot be filled for a row is recorded as empty and not as agreement; this is the discipline the ledger exists to enforce.
-
-**Sources.** [GZ][GZ], §1, equations (1.3)–(1.4), pp. 9–10; producing nodes cite the selected proved cases.
+**Sources.** [GZ][GZ], §1, pp. 9–10; §2.2, (2.6), p. 13; §4.3, p. 26; §4.5, pp. 28–30; §5.2, Conjecture 5.1 and conditional Proposition 5.2, pp. 34–37; Appendix A.3, (A.2), pp. 78–79. [AK][AK], Theorem 5, p. 11 and §12, pp. 32–34. [BD][AQT57], Theorem 1, pp. 2–3. [GSW][AQT58], Theorem 1.1, p. 4 and §2.3, pp. 8–9.
 
 <a id="qt-7-proved-cases-conjectures-and-the-executable-boundary"></a>
 
