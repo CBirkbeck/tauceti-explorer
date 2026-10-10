@@ -33790,8 +33790,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.1",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6272"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6272",
+   "finishedAt": "2026-10-10T10:48:37Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.2",
@@ -47116,8 +47117,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
