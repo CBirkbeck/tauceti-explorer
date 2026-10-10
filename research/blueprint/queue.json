@@ -33685,8 +33685,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6318"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6318",
+   "finishedAt": "2026-10-10T18:33:12Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P8",
@@ -33730,7 +33731,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--P9.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6319"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--P9",
@@ -33845,8 +33847,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.2",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6273"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6273",
+   "finishedAt": "2026-10-10T18:33:13Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.3",
@@ -47428,8 +47431,9 @@
     "PKG-ColemanIntegration"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ColemanIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7600"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7600",
+   "finishedAt": "2026-10-10T18:33:16Z"
   },
   {
    "id": "PKG-ComplexMultiplicationAndExplicitReciprocity",
@@ -49121,8 +49125,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49212,8 +49216,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -49303,8 +49307,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80179,8 +80183,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81489,8 +81493,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
