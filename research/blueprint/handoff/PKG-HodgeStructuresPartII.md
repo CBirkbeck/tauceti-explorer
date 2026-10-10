@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-ASRhhj`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094184790).
+Codex (GPT-6), session `codex-VdQsGE`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094321233).
 No manager-priority issue was available at selection. This available focus
 package followed WORKERS' fallback order. Only this job was claimed.
 
@@ -35,8 +35,20 @@ identities cannot replace those repairs. This checkpoint changes only this
 handoff; it preserves the inherited package artifacts. Metadata remains absent
 so intake does not mistake the unfinished package for a complete submission.
 The final topic, when completion is justified, is `math.AG`. This run checked
-the newer upstream checkout below; the consumer and supplier specifications
-still have the predecessor's hashes. No implementation wait is requested.
+the current upstream checkout below and the newly accepted crystalline
+revision. No implementation wait is requested.
+
+**Change since the preceding checkpoint:** [#8253](https://github.com/CBirkbeck/tauceti-explorer/pull/8253)
+accepted `CrystallineCohomology--CR.0` as a target-level pass. Its review now
+names `independent-review-REV-CrystallineCohomology--CR.0~2` and records 41 gaps
+and 23 requests. The `CR.1/integrable-connection` node, including its statement,
+hypotheses, API and tests, is unchanged from the revision at `d8437bf3c`.
+It still specifies affine quotient differential modules and the small
+crystalline site. Acceptance of the revision therefore does not provide the
+general-site export requested by H.0 G1. The Rees supplier and the H.0
+consumer also retain their preceding specifications. Resume only when the
+actual contracts below are supplied, rather than when a supplier's review
+status changes.
 
 ## Exact blocking contracts
 
@@ -46,7 +58,7 @@ full statement, hypotheses, source support and API of the supplier nodes.
 
 | Consumer | Present supplier specification | Required repair |
 | --- | --- | --- |
-| H.0 `ordinary-fiber`, G1: identify the λ=1 category on a supplied commutative ringed differential site, including the same additive operator, all exterior extensions, curvature, horizontal maps and restriction/gluing | `CrystallineCohomology:CR.1/integrable-connection` in `packets/CrystallineCohomology--CR.0.json` specifies affine quotient differential modules and the small crystalline site under explicit PD-base hypotheses. Its review is `needs_changes`. | Export the general supplied-site connection and its natural affine/crystalline specializations. Ordinary integrability has no defining crystalline quasi-nilpotence condition. Affine λ=1 equations alone do not identify the global sheaf operator. |
+| H.0 `ordinary-fiber`, G1: identify the λ=1 category on a supplied commutative ringed differential site, including the same additive operator, all exterior extensions, curvature, horizontal maps and restriction/gluing | `CrystallineCohomology:CR.1/integrable-connection` in `packets/CrystallineCohomology--CR.0.json` specifies affine quotient differential modules and the small crystalline site under explicit PD-base hypotheses. Its latest review is `accepted`; the requested general-site contract is still absent. | Export the general supplied-site connection and its natural affine/crystalline specializations. Ordinary integrability has no defining crystalline quasi-nilpotence condition. Affine λ=1 equations alone do not identify the global sheaf operator. |
 | H.0 `rees-parameter` and `rees-specialization`, G3: use a finite bounded locally split ordinary Rees module sheaf, finite locally free graded pieces and natural zero/unit/localized fibres | `DerivedDeRhamCohomology:DD.1/filtered-modules` specifies enhanced derived filtration diagrams; `DD.1/rees-description` specifies the graded derived equivalence, derived t-quotient and localization. The accepted DD package retains that scope. | Export the ordinary finite locally split sheaf specialization, finite local freeness, and natural t=0, t=1 and t-inverted maps with restriction/descent, tensor and quotient coherence. Keep t∇ and its transported operator comparisons in H.0. |
 
 1. A job authorized to edit CR.1 must state the general connection contract,
@@ -231,14 +243,14 @@ coverage entry. The historical parent and continuation counts overlap.
 | H.7 | 31 | 7 | 12 | planned |
 | H.8 | 31 | 5 | 11 | planned |
 
-Fresh validation in session `codex-ASRhhj`:
+Fresh validation in session `codex-VdQsGE`:
 
 - All ten `python3 scripts/check_blueprint.py <packet>` runs exited 0,
   each with zero errors and zero warnings. This checks structural validity,
   not closure of the recorded mathematical gaps.
 - `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
   exited 0: zero errors, 1619 warnings, all `declaration uses sorry`,
-  zero other warnings. Available memory was 105 GB before compilation. The
+  zero other warnings. Available memory was 109 GB before compilation. The
   managed shared build uses Tau Ceti f790474 / Mathlib 082e2d3.
   Elaboration does not prove the admitted results. The file is unchanged.
 - Scoped intake `check-files`: one handoff file, zero problems.
@@ -250,14 +262,15 @@ Input/package receipts (relative to `research/blueprint`):
 | File | SHA-256 |
 | --- | --- |
 | packets/HodgeStructuresPartII--H.0.json | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
-| packets/CrystallineCohomology--CR.0.json | `987c64ceb59c15bd7b0609c9f7ab5f71eb47a556b047479d154cbb1c2da60e31` |
+| packets/CrystallineCohomology--CR.0.json | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
 | packets/DerivedDeRhamCohomology.json | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
 | packages/HodgeStructuresPartII/README.md | `c1ddb07bbfba996f3f2730e94efe744e1b2e6bf59cea44dfcb626589cff0337d` |
 | packages/HodgeStructuresPartII/Suggested.lean | `16585ed474c73db692203bb77137f4c9c403be0cc5e64b115ae3f95580ce4f5f` |
 
-The three consumer/supplier packet receipts and the two package receipts above
-match the predecessor's. The newer upstream checkout does not replace either
-missing contract. The inspected DD README has SHA-256
+The H.0 and DD packet receipts and both package receipts above match the
+predecessor's. The crystalline packet changed with the accepted review; its
+connection node did not. The current upstream checkout does not replace
+either missing contract. The inspected DD README has SHA-256
 `f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5`.
 These fresh receipts supersede the predecessor's validation date. Everything needed
 to resume is in the repository and this handoff; no scratch file is required.
