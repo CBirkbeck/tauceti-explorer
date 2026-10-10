@@ -1,18 +1,19 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
-Reviewer: Codex (GPT-6), session `codex-y1Jgpw`, 10 October 2026.
+Reviewer: Codex (GPT-6), session `codex-DmX2pb`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6095376771).
-Input atlas: `6e7d703c6ed5a297a6bac17ea48622ec66ec82e9`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6095692532).
+Input atlas: `f17a93afb445ef6850058285fadda8bc662ec955`.
 This session did none of the fixes under review and claimed no second job.
 
 **L3 accepts the eight selected fix contracts; PMIA needs changes for native
 library reuse.** These are bounded fix reviews, not exhaustive new audits of
 their 1,663 and 487 nodes. The issue-named receipts have been replaced with
-this session's conclusions and their entire preceding codex-dm9OEX receipts
-archived in `reviewHistory`. Mathematical data and suggested signatures are
-unchanged. The queue still requires two additional packet reviews absent
-from the live issue's scope, so this submission is a blocked checkpoint.
+this session's conclusions and their entire preceding codex-y1Jgpw receipts
+archived in `reviewHistory`. The PMIA transpose non-example now states its
+necessary nontriviality hypothesis. Suggested signatures are unchanged.
+The queue still requires two additional packet reviews absent from the
+live issue’s scope, so this submission is a blocked checkpoint.
 
 ## Finding dispositions
 
@@ -26,7 +27,7 @@ below retain their original authorship; they are not claimed as fresh work.
 | /1: Morita Gamma and Gross–Koblitz | Accept L3's selected contracts. Morita §1, Lemma 1 and Theorem 1, pp.255–256 support signed natural interpolation, the modulus-4 exception, continuous unit values, uniqueness and both recurrence branches. Gross–Koblitz §1, (1.2), (1.5), Theorem 1.7, pp.570–571 support the chosen integral root and negative Gauss convention. Robert Theorems 2–4 and §4, pp.162–168 supply the separate all-prime route, whose dyadic decay keeps the binary digit sum. The comparison expressly assumes RD.6's coefficient and splitting inputs; those suppliers remain gaps. The three L3-2 root contracts were checked read-only, retaining integral ideal congruences and direct dyadic normalization. |
 | /2: Ferrero–Greenberg | The 26 selected derivative contracts in L3-2 are supported by Zhao §1.2 p.461, §4 Theorem 4.1 and (4.1)–(4.6), pp.471–473, including p=2. The hypotheses retain primitive odd χ, conductor N>1 and p prime to N. The derivative is the Gamma sum plus `(1−χ(p))B₁,χ log_p N`, equivalently minus `(1−χ(p))L(χ,0)log_p N`. Nonvanishing remains conditional on arithmetic projection and Baker–Brumer suppliers. Appendix B.2 p.474 has an endpoint error: the packet correctly uses the strict natural product and Γ_p(x), but the antidifference locator must reference `DirichletPadicLFunctions/E37`, not E34. The omitted path prevents that edit here. |
 | /3: integral/open syntomic comparison | The four D.2 consumer contracts were checked read-only against EN §§2.1–2.2 pp.4–8, CN Corollary 3.16 p.37 and Theorem 5.4 p.54, and NN Remark 2.14 p.14 and Proposition 4.13 pp.53–54. Divided and undivided differentials remain distinct even when their ideals agree. The directed maps have composites p^r; only the forward map is multiplicative. The factorial-modified twist, exact small-weight range, bounded undivided comparison and rational exponential scale/sign are retained. CS.0–CS.3 stay external producers in early CohomologyComparisons Part II after CR.5/CR.6. This does not certify the whole regulator packet or close the producers. |
-| /4: Dasgupta–Kakde algebra | The selected character-image, inverse-character ring, positive-size square presentation, finite-index/regularity, right compound-preimage and presentation-dependent transpose corrections agree with DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1 p.40 and Appendix B.2 pp.93–94. PMIA nevertheless needs the coordinated native Fitting migration below. The preceding exhaustive 50-node ledger remains attributed to codex-KQjyXV. |
+| /4: Dasgupta–Kakde algebra | The selected character-image, inverse-character ring, positive-size square presentation, finite-index/regularity, right compound-preimage and presentation-dependent transpose corrections agree with DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1 p.40 and Appendix B.2 pp.93–94. Corrected PMIA’s `presentation-transpose` test `transpose_depends_on_presentation` to require a nontrivial commutative ring and a ring isomorphism σ. For the projection R² → R, the transpose is S; it is nonzero precisely when the ring is nontrivial. Over the zero ring the claimed nonzero conclusion fails. The existing Lean example at lines 6414–6417 already assumes `[Nontrivial R]`. PMIA still needs the coordinated native Fitting migration below. The preceding exhaustive 50-node ledger remains attributed to codex-KQjyXV. |
 | /5: derived finite slope | Preserve the verified LAD owner gap. The invariant is cohomological spectral support, rather than the degreewise Fredholm product of a chosen representative. The 2025 solid construction needs its own contract beyond ordinary monoid inversion; generic Stein geometry keeps its existing owner. This is a check of the verifier/fix boundary, not a new full LAD source audit. |
 | /6: cyclotomic endpoint | Preserve the verifier's rejection of the alleged duplicate endpoint. Accepted RS-16 retains the independent historical Hecke and modern Euler-system routes. No owner is moved and neither route's proof closure is newly certified. |
 
@@ -88,25 +89,32 @@ migration would leave inconsistent interfaces, so the verdict is
 
 ## Validation and completion boundary
 
-Fresh checks in codex-y1Jgpw: all four original packet checkers report zero
-errors. L3 retains 26 documented short-API warnings; the other three have
-none. Source/receipt-only edits introduce no Lean signature changes. The
-suggested files have the same SHA-256 hashes as the inputs checked by
-codex-dm9OEX, so no unchanged Lean check was rerun:
+Fresh checks in codex-DmX2pb: all four original packets pass with zero
+errors. L3 has 26 inherited short-API warnings; the others have none.
+The corrected transpose test and receipt edits do not change Lean signatures.
+The suggested-file SHA-256 values still match the preceding checked inputs:
 
-| Suggested input | SHA-256 | Attributed original result |
+| Suggested input | SHA-256 | Elaboration evidence |
 |---|---|---|
-| L3 | `46fe3cba63b8c88eb0e0d734e8138009d421aac3fae334b70116b8f31da1af85` | codex-dm9OEX: standalone exit 1 before the body at repository-local research imports. |
-| PMIA | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` | codex-dm9OEX: exit 0, 1,075 sorry warnings only. |
-| L3-2 | `d076a92eb2d65a233b4fb86001f6ddc0ebd9c2b5c429c9c33ef1801252e244d3` | codex-dm9OEX: exit 0, 110 sorry warnings only. |
-| D.1 | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` | codex-dm9OEX: exit 0, 307 sorry warnings only. |
+| L3 | `46fe3cba63b8c88eb0e0d734e8138009d421aac3fae334b70116b8f31da1af85` | Fresh `lean-check`: exit 1 before the body because repository-local `research` imports are unavailable in the shared pinned build. |
+| PMIA | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` | codex-dm9OEX: original exit 0 with 1,075 sorry warnings; unchanged input, no fresh compile claimed. |
+| L3-2 | `d076a92eb2d65a233b4fb86001f6ddc0ebd9c2b5c429c9c33ef1801252e244d3` | codex-dm9OEX: original exit 0 with 110 sorry warnings; unchanged input. |
+| D.1 | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` | codex-dm9OEX: original exit 0 with 307 sorry warnings; unchanged input. |
 
 The earlier conditional 7,177-warning L3 body check and integer diagnostics
-remain attributed in the retained reports. They do not establish standalone
-L3 elaboration. No compiler was started or left running in this session.
-Post-edit packet, intake-file and whitespace checks pass; parsed comparisons
-confirm review/history-only changes and complete preceding receipts. No
-packet contains an `excerpt` field.
+remain attributed in the retained reports; they do not prove standalone
+L3 elaboration. Memory was checked before the fresh L3 attempt; it exited
+promptly and no compiler remains running.
+
+The two omitted-packet locator/receipt edits were prepared in scratch without
+changing those repository files. The initial draft checks used `.proposed.json`
+filenames and reported duplicate nodes against the original packet filenames;
+that naming diagnostic is not a mathematical failure. Final draft checks use
+the original basenames and pass with zero errors/warnings for both drafts. These drafts are not installed or submitted without
+scope authorization. Post-edit packet, intake-file and whitespace checks pass. Parsed comparisons
+confirm preservation of every previous receipt and all packet data except
+the one transpose test and top-level review/history.
+No packet contains an `excerpt` field.
 
 The live issue was fetched again and still lists five deliverables, while
 the unchanged queue requires nine. [WORKERS.md](../WORKERS.md), “Doing the
@@ -114,8 +122,9 @@ work”, says: “Edit only the files the issue names, plus your own scratch
 space.” Explicit authorization for the omitted packet/suggested pairs was
 requested while independent work continued; no answer has arrived.
 `issues.deliverables_complete` remains **False** because L3-2 and D.1 lack
-this fix-review id. The handoff specifies the remaining bounded edits and
-the full D.1 receipt that must be preserved. No queue or issue metadata was
+this fix-review id. The handoff specifies the prepared bounded edits and the full D.1 receipt
+that must be preserved. The one corrected transpose test is the new
+mathematical change in this checkpoint. No queue or issue metadata was
 changed to manufacture completion. Resolve this scope mismatch before
 redispatch; another receipt refresh cannot resolve it.
 
