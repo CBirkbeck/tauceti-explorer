@@ -1,5 +1,23 @@
 # Independent review of FIX-RT-AREA-algebraicgeometry~2
 
+## Continuation — codex-N53XK6
+
+**Scope-blocked checkpoint, 10 October 2026.** Codex, session `codex-N53XK6`, claimed only [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); the [bot confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098965483). This session did none of the original fixes. The five live-issue packet verdicts already identify this review job. They were retained without another metadata refresh: their full mathematical audits and bounded area-fix decisions remain evidence of the preceding independent reviewers.
+
+The live issue still omits six packets and `suggested/PELModuli.lean` that the queue's completion predicate requires. [WORKERS.md](../WORKERS.md), Doing the work, explicitly limits edits to files named by the issue. A user authorization request for those seven paths is pending. No omitted-path edit has been applied, and queue membership has not been treated as authorization.
+
+The seven-path completion patch was reconstructed in scratch, with these fresh checks:
+
+- The six candidate packets pass `check_blueprint.py` against the available pinned declaration index with zero errors and warnings. All eleven current packets also pass with zero errors and warnings.
+- The actual `issues.deliverables_complete` returns false. A read-only overlay of the six candidate packets returns true. Entire preceding reviews, older history entries and supplier requests survive unchanged; there are no `excerpt` fields in the six candidates.
+- The repaired PEL file has SHA-256 `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed` and freshly elaborates through `lean-check` with **784 admitted-proof warnings, no other warnings and no errors**. Available memory was 99 GB before the run. The signature change is the rational-prime hypothesis only.
+- [Lan's author-hosted thesis](https://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf), Definition 1.2.5.4 pp.90–91 and Corollaries 1.2.5.6–7 p.91, was freshly inspected. The reflex-field result assumes a rational prime and relates the reflex field to the normal closure of the actual centre. PDF SHA-256: `c3086d5140bab887e31a508cf4bf8804f092326a35882fc003a3422c4ab65bdd`.
+- [de Jong's paper](https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf), section 2.24 p.62, was freshly inspected. The projective-cover input ranges over all genera with at least three marks; prime-level etaleness holds over the smooth locus after inverting the level prime. Normalization over the stable boundary is not asserted etale. PDF SHA-256: `9e4e7dab2525e9a0fb0820752434c5a168914873b6118f5a967fcccae257ffb7`. Both sources were accessed on 10 October 2026; neither source nor passages are committed.
+- The current graph freshly reproduces 15,601 edges, precisely six SF.5 forwarding deletions and 15,595 remaining edges. Both long SF.4-to-MC.4 paths recorded below survive, including the branch through R07.2 when AbelianSchemes A4 is excluded. A blanket reverse import would still be circular. No graph mutation is proposed by this patch.
+- Current read-only AlgebraicVectorBundles and StableReduction documents and selected Suggested interfaces were inspected for the existing relative-Spec and general locally Noetherian coherent-cohomology boundaries. Upstream checkout commits remain the same as in the preceding report. The six omitted packets' current full review notes and relevant supplier requests were inspected; no new full-node/source audit is claimed.
+
+The completion patch preserves the preceding accepted audits for Adic, PEL, ShimuraVarieties and GrossZagier and the negative audits for Compactifications and ShimuraData. It corrects two Adic cycle descriptions and one PEL API/signature. Negative completed verdicts satisfy dispatch without certifying the broader unresolved prototypes. The following report and its 32-finding ledger are retained as **preceding-session evidence**, not presented as newly established in this continuation. The handoff retains the complete seven-path recipe. No Lean or download process remains running.
+
 ## Result — codex-X15WW9
 
 **Blocked checkpoint, 10 October 2026.** Codex (GPT-6), session `codex-X15WW9`, independently reviewed the round-2 fixes for [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), following the [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098552826). This session authored none of the fixes and claimed only this job. No manager-priority issue was available at selection. This continues [checkpoint #8445](https://github.com/CBirkbeck/tauceti-explorer/pull/8445).
