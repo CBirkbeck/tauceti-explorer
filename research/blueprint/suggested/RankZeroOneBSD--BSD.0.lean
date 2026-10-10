@@ -1001,14 +1001,22 @@ def RelaxedSignedH1 (S : SplitPrimeData K p) (s : SignedSign) :
 /-- The first regulator is defined on all local H¹ at v. -/
 def signedColeman (S : SplitPrimeData K p) (s : SignedSign) :
     LocalIwasawaH1 E K p S.v →ₗ[Lambda2 p] Lambda2 p := sorry
-/-- The second regulator has the signed local domain at vbar and unramified coefficients.
-The coefficient extension is encoded as a Zp-linear map here. -/
-instance : Module ℤ_[p] (Lambda2ur p) := by sorry
+/-- Imported unramified coefficient inclusion; the Iwasawa-algebra map applies it
+coefficientwise, preserving both variables. -/
+def unramifiedCoefficientInclusion : ℤ_[p] →+* R0 p := sorry
+instance : Algebra ℤ_[p] (R0 p) := (unramifiedCoefficientInclusion p).toAlgebra
+def unramifiedIwasawaInclusion : Lambda2 p →+* Lambda2ur p :=
+  MvPowerSeries.map (unramifiedCoefficientInclusion p)
+instance : Algebra (Lambda2 p) (Lambda2ur p) :=
+  (unramifiedIwasawaInclusion p).toAlgebra
+
+/-- The second regulator has the signed local domain at vbar and is Lambda-linear
+through the specified unramified coefficient inclusion. -/
 def signedLogarithm (S : SplitPrimeData K p) (s : SignedSign) :
-    signedLocalCondition E K p s S.vbar →ₗ[ℤ_[p]] Lambda2ur p := sorry
+    signedLocalCondition E K p s S.vbar →ₗ[Lambda2 p] Lambda2ur p := sorry
 
 def signedLocalization (S : SplitPrimeData K p) (s : SignedSign) :
-    RelaxedSignedH1 E K p S s →ₗ[ℤ_[p]] signedLocalCondition E K p s S.vbar := sorry
+    RelaxedSignedH1 E K p S s →ₗ[Lambda2 p] signedLocalCondition E K p s S.vbar := sorry
 
 /-- Analytic owner APL L3: the signed Rankin measure, independently constructed. -/
 def signedRankinL (E : WeierstrassCurve ℚ) (S : SplitPrimeData K p) (s : SignedSign) : Lambda2 p := sorry

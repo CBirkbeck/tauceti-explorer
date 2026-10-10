@@ -12,7 +12,7 @@ Mathlib’s `WeierstrassCurve.LSeries` is a sum of a Dirichlet series. Its value
 
 Tau Ceti’s height pairing gives the regulator `E.regulator`; use Reg_BSD(E)=2ʳ·E.regulator in the leading-term formula. A rank-zero regulator is one. All Tate–Shafarevich cardinalities are taken after finiteness has been proved. Define the defect with the torsion-square factor so it agrees with the full BSD leading-term quotient.
 
-For the complex period use the lattice Λω⊂ℂ obtained by integrating the chosen Néron differential on integral homology. Its covolume is Mathlib’s `ZLattice.covolumeL`. If aω is the invertible fractional differential ideal over 𝓞_K, use Ω(E/K)=Norm(aω)·4·covol(Λω), equivalently Norm(aω)·2∫|ω∧ω̄|. This fixes both the fractional-ideal norm and the complex-place factor.
+For the complex period use the lattice Λω⊂ℂ obtained by integrating the chosen Néron differential on integral homology. Its covolume is Mathlib’s `ZLattice.covolume` against `MeasureTheory.volume`. If aω is the invertible fractional differential ideal over 𝓞_K, use Ω(E/K)=Norm(aω)·4·covol(Λω), equivalently Norm(aω)·2∫|ω∧ω̄|. This fixes both the fractional-ideal norm and the complex-place factor.
 
 Signed Iwasawa coefficients are geometric T_pE with their compact topology and continuous Galois action. Use Tau Ceti’s continuous H¹ at finite levels and corestriction-compatible inverse limits; local signed conditions are submodules of local cohomology. With generators fixed, Λ_K=ℤ_p[[X,Y]] and Λ_K^ur=W(𝔽̄_p)[[X,Y]]. The Coleman law is at v, and the logarithm law at v̄. BSTW §§2.2.4–2.2.5, printed pp.13–14, defines the cohomological lattice T_g with determinant χ_cyc⁻¹. Its twist T_g(1) is compared with V_pE through modularity and the polarization; an integral comparison with T_pE must track the modular-parametrization lattice index and chosen differential/Betti bases. The geometric coefficient here is T_pE, not T_pE(1).
 
@@ -408,7 +408,7 @@ Let E/ℚ be elliptic and K a quadratic field. As arithmetic functions, (E.baseC
 
 1. Both sides are Euler products; compare, for each rational prime ℓ, the product of the factors of E/K at the primes 𝔩 | ℓ with P_ℓ(E,T)P_ℓ(E^K,T).
 2. ℓ split: K_𝔩 = ℚ_ℓ for both 𝔩, and E^K ≅ E over ℚ_ℓ since D_K is a square there, so both sides are P_ℓ(E,T)².
-3. ℓ inert: one prime of norm ℓ², with factor P_𝔩(E/K, T²) computed over the quadratic unramified extension; at good ℓ the identity (1 − αT)(1 − βT)(1 + αT)(1 + βT) = (1 − α²T²)(1 − β²T²) with a_{ℓ²} = a_ℓ² − 2ℓ (point count over 𝔽_{ℓ²}, EllipticCurves Layer 3) and twist-local-factors (a) with χ(ℓ) = −1; at multiplicative ℓ (1 − aT)(1 + aT) = 1 − T² since the reduction over 𝔽_{ℓ²} is split; at additive ℓ both sides are 1.
+3. ℓ inert: one prime of norm ℓ², with factor P_𝔩(E/K, T²) computed over the quadratic unramified extension; at good ℓ the identity (1 − αT)(1 − βT)(1 + αT)(1 + βT) = (1 − α²T²)(1 − β²T²) with t_{ℓ²} := ℓ² + 1 − #E(𝔽_{ℓ²}) = a_ℓ² − 2ℓ (point count over 𝔽_{ℓ²}, EllipticCurves Layer 3) (the Dirichlet coefficient a_{ℓ²} instead equals a_ℓ² − ℓ) and twist-local-factors (a) with χ(ℓ) = −1; at multiplicative ℓ (1 − aT)(1 + aT) = 1 − T² since the reduction over 𝔽_{ℓ²} is split; at additive ℓ both sides are 1.
 4. ℓ ramified: one prime of norm ℓ; as I_ℓ/I_𝔩 ≅ {±1} acts on V^{I_𝔩} by an involution, V^{I_𝔩} = V^{I_ℓ} ⊕ (V ⊗ χ_ℓ)^{I_ℓ} as Frobenius modules, which is twist-local-factors (b).
 5. Convergence for Re s > 3/2 of each factor gives the LSeries identity (LSeries_convolution); the product of the two entire functions agrees with it there, so it is the continuation.
 
@@ -587,7 +587,7 @@ For E/ℚ elliptic and K a quadratic field, rank E(K) = rank E(ℚ) + rank E^K(�
 2. Cokernel: 2E(K) ⊆ range res + range ι (quadratic-point-maps), so the cokernel is a quotient of E(K)/2E(K), finite by Mordell–Weil and killed by 2.
 3. Tensoring with ℚ kills both, giving the rank identity.
 
-**Prerequisites.** `RankZeroOneBSD:BSD.1/quadratic-point-maps`, `tauceti:WeierstrassCurve.Affine.fg_point_of_numberField`, `tauceti:WeierstrassCurve.Affine.PointModTorsion`, `mathlib:Module.finrank`, `tauceti:WeierstrassCurve.Affine.fg_point_of_numberField`.
+**Prerequisites.** `RankZeroOneBSD:BSD.1/quadratic-point-maps`, `tauceti:WeierstrassCurve.Affine.fg_point_of_numberField`, `tauceti:WeierstrassCurve.Affine.PointModTorsion`, `mathlib:Module.finrank`.
 
 **Sources.**
 
@@ -606,14 +606,14 @@ Let E/ℚ be elliptic, K quadratic, Λ = E(K)/tors, Λ₊ = image of res and Λ�
 **Hypotheses.**
 
 - Reg_BSD is the regulator of GrossZagierAndArithmeticHeights GZ.0 (x-height normalisation, Reg_BSD = 2^r · Tau Ceti regulator).
-- K-relative heights need a number-field instance of Tau Ceti's height machinery, which the pinned library lacks (GZ.0 gap); the statement is made for that instance.
+- Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. GZ.0 supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance.
 
 **Construction or proof.**
 
 1. Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩.
 2. Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r.
 3. Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K.
-4. Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (GZ.0/gram-determinant-rescaling).
+4. Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (native determinant and finite-index identities in the next step).
 5. Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so no removed GZ.0 gram-determinant node is needed. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; GZ.0 supplies the x-height/relative-height normalization transport.
 
 **Prerequisites.** `RankZeroOneBSD:BSD.1/quadratic-point-maps`, `RankZeroOneBSD:BSD.1/rank-splitting`, `GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator`, `GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height`, `tauceti:WeierstrassCurve.Affine.neronTatePairing`, `tauceti:WeierstrassCurve.Affine.regulator`, `tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`, `tauceti:WeierstrassCurve.Affine.fg_point_of_numberField`, `mathlib:Matrix.det_mul`, `mathlib:Matrix.det_transpose`, `mathlib:AddSubgroup.index_eq_natAbs_det`, `mathlib:NumberField.instAdmissibleAbsValues`, `mathlib:NumberField.totalWeight_eq_finrank`, `mathlib:NumberField.finite_setOfPred_logHeight₁_le`.
@@ -946,13 +946,13 @@ Let f be a cuspidal newform of even weight k with trivial character for Γ₀(M)
 **Hypotheses.**
 
 - Every prime of S split; the sign of D is forced by ε through the twisted sign εχ_D(−M) (BSD.0/twist-root-number).
-- Infinitely many: not stated in BFH's Theorem; proved here by enlarging S.
+- BFH’s introductory theorem states existence of a quadratic field (so D≠1). Its §9 proof, pp.616–617, gives infinitude through the pole obstruction for finitely many fundamental squareclasses.
 
 **Construction or proof.**
 
 1. twist-series-residue, including BFH Proposition 7.1, gives infinitely many fundamental squareclasses with nonzero central value or derivative; Lemma 9.1 transfers from weighted coefficients.
 2. In case (i), εD < 0 and every ℓ | M splits give sign −ε·ε = −1 for f ⊗ χ_D, so its order at k/2 is odd; a nonzero derivative means a simple zero.
-3. Alternatively, to exclude any finite list D₁,…,D_n, choose for each D_i a prime q_i dividing that D_i and enlarge S by all q_i. Each new discriminant has every q_i split and therefore differs from every old D_i. One prime dividing the product need not divide every D_i.
+3. For a separate elementary infinitude argument, first exclude the trivial discriminant D=1 by requiring a quadratic field. To exclude any finite list of remaining D_i, choose a prime q_i dividing each D_i and enlarge S by all q_i. The new discriminant has q_i split and cannot equal D_i, which is ramified there. BFH §9 also gives infinitude directly.
 
 **Prerequisites.** `RankZeroOneBSD:BSD.2/twist-series-residue`, `RankZeroOneBSD:BSD.2/heegner-local-conditions`, `RankZeroOneBSD:BSD.0/twist-root-number`, `RankZeroOneBSD:BSD.0/root-number-parity`.
 
@@ -960,6 +960,7 @@ Let f be a cuspidal newform of even weight k with trivial character for Γ₀(M)
 
 - [Nonvanishing theorems for L-functions of modular forms and their derivatives](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Theorem, pp. 543–544: Derivative branch.
 - [Nonvanishing theorems for L-functions of modular forms and their derivatives](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), Theorem, p. 544: Value branch.
+- [Nonvanishing theorems for L-functions of modular forms and their derivatives](https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf), §9, pp.616–617, using Proposition7.1: Infinitude via the pole obstruction for finitely many fundamental squareclasses.
 
 **Acceptance.**
 
@@ -981,7 +982,7 @@ Let f ∈ S₂(Γ₀(N)) be a newform with trivial character and (S, π, η) a l
 **Construction or proof.**
 
 1. Friedberg–Hoffstein construct the twist series with arbitrary local test data on the double cover of GL₂ (MetaplecticAutomorphicForms MP.7) instead of the genus-two Jacobi construction, and extract a nonzero residue as in twist-series-residue.
-2. Infinitude by enlarging S as in bfh-nonvanishing.
+2. Obtain infinitude from the full Friedberg–Hoffstein local-character theorem, after refining the coarse split/inert/ramified data to a compatible fixed local-character template. This remains the recorded direct-source obligation. Enlarging S and demanding splitting is not a proof for prescriptions that already require ramification.
 
 **Prerequisites.** `MetaplecticAutomorphicForms:MP.7`, `RankZeroOneBSD:BSD.2/heegner-local-conditions`, `RankZeroOneBSD:BSD.2/twist-series-residue`, `RankZeroOneBSD:BSD.0/twist-root-number`.
 
@@ -1370,7 +1371,7 @@ For every elliptic curve E/ℚ with analyticRank E = 1, L′(E, 1)/(Ω_E · Reg_
 
 1. Choose K by BSD.2/heegner-field-selection with L(E^K, 1) ≠ 0 and D_K odd.
 2. Gross–Zagier (GZ.8/elliptic-curve-heegner-height-formula): L′(E,1)·L(E^K,1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with C, u_K ∈ ℤ_{>0}.
-3. heegner-index-height-formula: ĥ_K(y_K) = I_K² · 2 · Reg_BSD(E/ℚ)/4^a.
+3. heegner-index-height-formula: ĥ_K(y_K) = (I_K^free)² · 2 · Reg_BSD(E/ℚ)/4^a.
 4. BSD.1/quadratic-period: ‖ω₀‖²/|D_K|^{1/2} = r·Ω_E·Ω_{E^K} with r ∈ ℚ^× (a power of 2 when (D_K, 2N) = 1).
 5. rank-zero-rationality for E^K: L(E^K, 1)/Ω_{E^K} ∈ ℚ^×. Dividing gives L′(E,1)/(Ω_E Reg_BSD) ∈ ℚ^×, positive by leading-term-positivity.
 
@@ -1777,7 +1778,7 @@ Let E/ℚ be semistable, or a quadratic twist of a semistable curve by a charact
 
 **Sources.**
 
-- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Theorem 1.5, p. 3: The r = 0 case is used; the r = 1 case rests on the p-adic Gross–Zagier formula, which is not imported.
+- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Theorem 1.5, p. 4: The r = 0 case is used; the r = 1 case rests on the p-adic Gross–Zagier formula, which is not imported.
 - [The Birch and Swinnerton-Dyer formula for elliptic curves of analytic rank one](https://arxiv.org/abs/1512.06894v1), Theorem 7.2.1(iii), p. 43: JSW's statement of the branch.
 
 **Acceptance.**
@@ -2018,7 +2019,7 @@ In the setting of anticyclotomic-selmer-control (p ≥ 3 good ordinary or supers
 
 Target `RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element` (construction). Atlas planet: **BSTW two-variable zeta element**.
 
-Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).
+Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). The unramified inclusion ℤ_p→R₀ induces a coefficientwise Λ_L→Λ_L^ur map; signed localization and Log_v̄ are Λ_L-linear through this action. Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).
 
 **Hypotheses.**
 
@@ -2066,7 +2067,7 @@ Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginar
 
 - [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Theorem 1.14, printed p. 7: The construction.
 - [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Remark 1.15(ii), printed p. 7: Nonvanishing.
-- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), §6.6.2, Theorems6.25–6.26, printed p.68; §3.3: Signed construction, common normalization and rational cyclotomic comparison with the two Kato classes; integral refinement requires the selected basis hypotheses.
+- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), §6.6.2, Proposition6.25 and Theorem6.26, printed p.68; §3.3: Signed construction, common normalization and rational cyclotomic comparison with the two Kato classes; integral refinement requires the selected basis hypotheses.
 - [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), §§2.2.4–2.2.5, printed pp.13–14; Theorem6.26(ii), printed p.68: Cohomological lattice and determinant convention, with the separate integral specialization hypotheses.
 
 **Acceptance.**
@@ -2147,7 +2148,7 @@ Under the hypotheses of bstw-signed-main-conjecture (E or a permitted twist E^K)
 
 **Sources.**
 
-- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Theorem 1.5, p. 3: The r = 0 case.
+- [Zeta elements for elliptic curves and applications](https://arxiv.org/abs/2409.01350v2), Theorem 1.5, p. 4: The r = 0 case.
 
 **Acceptance.**
 
@@ -2292,7 +2293,7 @@ Consumers: `RankZeroOneBSD:BSD.0/twist-root-number`, `RankZeroOneBSD:BSD.0/congr
 
 ### `tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`
 
-For an elliptic curve over a finite field 𝔽_q, the trace a_q = q + 1 − #E(𝔽_q) and the relation a_{q²} = a_q² − 2q (equivalently the characteristic polynomial of Frobenius over extensions).
+For an elliptic curve over a finite field 𝔽_q, the point-count trace t_q = q + 1 − #E(𝔽_q) and the relation t_{q²} = t_q² − 2q (distinct from the Dirichlet coefficient a_{q²}=a_q²−q; equivalently the characteristic polynomial of Frobenius over extensions).
 
 Consumers: `RankZeroOneBSD:BSD.0/finite-field-twist-trace`, `RankZeroOneBSD:BSD.0/base-change-factorization`.
 
@@ -2514,7 +2515,7 @@ Consumers: `RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element`.
 
 ### `PadicHodgeRegulators:L4`
 
-Integral signed local maps over Λ_L and Λ_L^ur at both split primes, comparison with Kobayashi/Pollack signs, image indices and common lattice/period normalization for BSTW1.14. Current rational one-variable Coleman-image and arbitrary Wach-basis signed-condition statements are insufficient.
+Integral signed local maps over Λ_L and Λ_L^ur at both split primes, comparison with Kobayashi/Pollack signs, image indices and common lattice/period normalization for BSTW1.14. Current rational one-variable Coleman-image and arbitrary Wach-basis signed-condition statements are insufficient. Both maps are Λ_L-linear; the logarithm target uses the coefficientwise inclusion Λ_L→Λ_L^ur, rather than an unrelated scalar action.
 
 Consumers: `RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element`, `RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws`.
 
@@ -2574,7 +2575,7 @@ Consumers: `RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element`, `RankZeroOneB
 
 ### `AutomorphicPadicLFunctions:L3`
 
-Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of 6.25–6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.
+Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of Proposition6.25 and Theorem6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.
 
 Consumers: `RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws`, `RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element`.
 
