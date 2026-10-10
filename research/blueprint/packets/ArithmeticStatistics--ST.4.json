@@ -15,49 +15,97 @@
         "ref": "mathlib:Set.ncard",
         "module": "Mathlib/Data/Set/Card.lean",
         "provides": "Finite-set cardinality; infinite sets give zero, so every use as a count carries a finiteness obligation.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "Finite-set cardinality; infinite sets give zero, so every use as a count carries a finiteness obligation."
+        }
       },
       {
         "ref": "mathlib:Nat.choose",
         "module": "Mathlib/Data/Nat/Choose/Basic.lean",
         "provides": "Binomial coefficients, with the recursive convention and zero beyond the upper index.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "Binomial coefficients, with the recursive convention and zero beyond the upper index."
+        }
       },
       {
         "ref": "mathlib:PadicInt",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The norm-at-most-one subtype of the p-adic field, with a prime Fact instance.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "The norm-at-most-one subtype of the p-adic field, with a prime Fact instance."
+        }
       },
       {
         "ref": "mathlib:ZMod",
         "module": "Mathlib/Data/ZMod/Defs.lean",
         "provides": "The actual residue-ring carrier: ZMod 0 is the integers and positive moduli use Fin.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "The actual residue-ring carrier: ZMod 0 is the integers and positive moduli use Fin."
+        }
       },
       {
         "ref": "tauceti:WeierstrassCurve.Affine.selmerGroup₂",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
         "provides": "Explicit two-descent Selmer subgroup, not a general ppav Selmer set or a p=5 interface.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "Explicit two-descent Selmer subgroup, not a general ppav Selmer set or a p=5 interface."
+        }
       },
       {
         "ref": "tauceti:WeierstrassCurve.Affine.pow_rank_le_card_of_range_μ_le",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
         "provides": "For finitely generated elliptic rational points and a finite subgroup containing descent, 2^rank times rational two-torsion cardinal is at most subgroup cardinal.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "For finitely generated elliptic rational points and a finite subgroup containing descent, 2^rank times rational two-torsion cardinal is at most subgroup cardinal."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "Proper geometrically integral group scheme over a field; this does not by itself provide Picard torsors, local Kummer maps or analytic L-functions.",
-        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately."
+        "checked": "Actual declaration and hypotheses read in the shared build at the registered pinned commit on 2026-10-10; current-library overlap screening is recorded separately.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "Proper geometrically integral group scheme over a field; this does not by itself provide Picard torsors, local Kummer maps or analytic L-functions."
+        }
       },
       {
         "ref": "mathlib:Filter.limsup",
         "module": "Mathlib/Order/LiminfLimsup.lean",
         "provides": "Upper limit on a conditionally complete lattice and its generated order dual Filter.liminf; the coefficient-box proportion is bounded between zero and one, so conditional-completeness side conditions are explicit.",
-        "checked": "Read definition and to_dual generation at lines 54–67 of the pinned Mathlib file on 2026-10-10."
+        "checked": "Read definition and to_dual generation at lines 54–67 of the pinned Mathlib file on 2026-10-10.",
+        "independentReview": {
+          "by": "REV-ArithmeticStatistics--ST.4",
+          "verdict": "confirmed",
+          "date": "2026-10-10",
+          "note": "Upper limit on a conditionally complete lattice and its generated order dual Filter.liminf; the coefficient-box proportion is bounded between zero and one, so conditional-completeness side conditions are explicit."
+        }
       }
     ]
   },
@@ -71,7 +119,7 @@
       "accessed": "2026-10-10",
       "sha256": "8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2",
       "readSections": [
-        "Introduction pp.1–6; local/integral soluble orbit results §§9–10 pp.25–29; counting and main proofs §§11–12 pp.29–35; Appendix A pp.35–39."
+        "Introduction pp.1–6; §7.2 pp.20–21 and §8 pp.21–25; local/integral soluble orbits §§9–10 pp.25–29; counting and main proofs §§11–12 pp.29–35; Appendix A pp.35–39."
       ]
     },
     {
@@ -83,7 +131,7 @@
       "accessed": "2026-10-10",
       "sha256": "1e553de8d3bafb12a5cb7efccea0eaab0fca14532cb8312bdfe48299be2d0db4",
       "readSections": [
-        "Targeted collation of Definition 39 and Theorems 40–44, §§11–12 pp.482–486; not a complete reading of the published paper."
+        "Introduction p.451 and targeted collation of §§11–12 and Appendix A, printed pp.481–490, including Definition 39, Theorems 40–44, Lemma A.5 and Theorem A.7; not a full reading."
       ]
     },
     {
@@ -107,7 +155,7 @@
       "accessed": "2026-10-10",
       "sha256": "cc7e4d90291c7859c1fb48defd315e8efdf90b39a09677ec1bc76a9ca0bdfd78",
       "readSections": [
-        "Theorem 2 pp.1–2; overview pp.3–5; §3 Theorem 11 p.8; §4 Theorems 12–16 and coefficient-box transfer pp.8–13."
+        "Theorem 2 p.3; §§1–4 pp.1–13, including Theorem 11 p.8, Theorems 12–14 p.9, Corollary 15 and Theorem 16 p.10, and the coefficient-box proof pp.11–13."
       ]
     },
     {
@@ -235,7 +283,7 @@
       "tests": [
         {
           "name": "ArithmeticSelmerRefinement.admissible_univ",
-          "kind": "example",
+          "kind": "computation",
           "statement": "All local coefficient sets equal to the whole space satisfy the predicate."
         },
         {
@@ -246,7 +294,7 @@
         {
           "name": "ArithmeticSelmerRefinement.admissible_empty_nonexample",
           "kind": "non-example",
-          "statement": "Taking every local coefficient set empty is not admissible: the form x^n+y^n has the point (1,0,1) at arbitrarily large primes."
+          "statement": "Taking every local coefficient set empty is not admissible: a₀=1 and a_i=0 for i>0 has the local point (x,y,z)=(1,0,1) for every prime, including the generic n=0 interface."
         }
       ],
       "uses": [
@@ -303,16 +351,18 @@
       ],
       "title": "Generic nontrivial Weierstrass class",
       "kind": "theorem",
-      "statement": "In the coefficient-height genus-g model family, after a density-zero exceptional set, W[2], the two-cover J¹→J²≅J, is nonzero in Sel₂(J) and J(Q)[2]=0. Both assertions also hold relatively inside every sieve-controlled congruence subfamily of positive lower density with locally soluble actual Div¹.",
+      "statement": "In the coefficient-height genus-g model family, outside a density-zero exceptional set, the finite J[2]-torsor W[2]={P∈J¹:2P=d}, the fibre of the canonical map J¹→J² over the hyperelliptic class d, defines a nonzero class in H¹(Q,J[2]), and J(Q)[2]=0. On the subfamily with everywhere locally soluble actual Div¹, W[2] belongs to Sel₂(J). These conclusions hold relatively in every such sieve-controlled congruence subfamily of positive lower density.",
       "hypotheses": [
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
       "proofSteps": [
         "Identify W[2]-points with odd factorisations and nonzero rational two-torsion with even factorisations, including quadratically conjugate factors.",
-        "Hilbert irreducibility gives full symmetric Galois group away from a density-zero set. Restrict using positive-density denominator comparison."
+        "Hilbert irreducibility gives full symmetric Galois group away from a density-zero set. Restrict using positive-density denominator comparison.",
+        "Use a local degree-one divisor to identify J¹(Q_v) with a J(Q_v)-torsor with a point. The class of W[2] is then a local Kummer class. This step is conditional on local Div¹, whereas full S_n gives nonvanishing without that condition."
       ],
       "acceptance": [
-        "For n=4, S4 has no invariant odd partition and no nontrivial even partition modulo complement; no claim is made about each exceptional polynomial."
+        "For n=4, S4 has no invariant odd partition and no nontrivial even partition modulo complement; no claim is made about each exceptional polynomial.",
+        "Distinguish a nonzero H¹(Q,J[2]) class in all models from its Selmer membership in the locally actual-Div¹-soluble subfamily."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-field-pencil-stabilizers",
@@ -323,8 +373,8 @@
       "sources": [
         {
           "sourceId": "bgw",
-          "locator": "Introduction p.2 and Theorem 5 proof pp.3–4",
-          "match": "In the coefficient-height genus-g model family, after a density-zero exceptional set, W[2], the two-cover J¹→J²≅J, is nonzero in Sel₂(J) and J(Q)[2]=0. Both assertions also hold relatively inside every sieve-controlled congruence subfamily of positive lower density with locally soluble actual Div¹."
+          "locator": "Introduction p.2, Theorem 5 proof pp.3–4, and §8 pp.21–22.",
+          "match": "The full S_n specialization argument gives a nonzero cohomology class of the Weierstrass fibre and no rational two-torsion. Membership in the Selmer group additionally uses everywhere local degree-one divisors, as in §8 pp.21–22."
         }
       ],
       "implementationStatus": "unchecked",
@@ -541,16 +591,17 @@
       ],
       "title": "Weighted hyperelliptic numerator bound",
       "kind": "theorem",
-      "statement": "Let n=2g+2, g≥1, and let F be a positive-mass sieve-controlled congruence family contained in the locally actual-Div¹-soluble locus, with all coefficients in 16Z. The Selmer numerator is at most 2 μ_∞({f:H(f)<X}) Π_p μ_p(F_p)+o_F(X^(n+1)). Real root strata are summed, and τ(SL_n/μ₂)=2 is the preceding central-quotient target, with an explicit general-formula supplier gap. This is an upper bound; the infinite-weight count supplies no matching lower bound.",
+      "statement": "Let n=2g+2, g≥1, and F be a positive-mass sieve-controlled congruence family contained in the everywhere actual-Div¹-soluble locus, with all coefficients in 16Z. For each non-negative-definite real root stratum I(m), let its allowed part be F_∞∩I(m); use the full strata when no extra real restriction is imposed. Assuming the corresponding real-region count, the Selmer numerator is at most 2 Σ_m μ_∞({f∈F_∞∩I(m):H(f)<X}) Π_p μ_p(F_p)+o_F(X^(n+1)). Here F_∞ is a union of these strata; more general real restrictions require the matching counting extension. The same allowed real mass occurs in the coefficient denominator. The value τ(SL_n/μ₂)=2 has the explicit general-formula supplier gap. The infinite-weight count gives an upper bound without a matching lower bound.",
       "hypotheses": [
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
       "proofSteps": [
-        "Apply ST.2’s one-sided infinite-weight bound. Multiply the compatible local integrals and real components.",
+        "Apply ST.2’s one-sided infinite-weight bound. Multiply the compatible local integrals and real components. Sum the non-negative-definite invariant strata with the same real-family indicator used in the denominator; negative-definite forms have no actual real degree-one divisor.",
         "Cancel Π_v|𝒥|_v and Π_vρ_v using the product formula. Use the exact Tamagawa number of the central quotient, not that of simply connected SL_n."
       ],
       "acceptance": [
-        "The numerator constant is two, with no extra identity class; the source’s 16^n divisibility is replaced by the sufficient 16Z condition."
+        "The numerator constant is two, with no extra identity class; the source’s 16^n divisibility is replaced by the sufficient 16Z condition.",
+        "Use the identical allowed real mass in numerator and denominator; do not replace it by the volume of the whole coefficient cube."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.4/refinement-pencil-selmer-weighted-count",
@@ -562,7 +613,7 @@
         {
           "sourceId": "bgw",
           "locator": "Theorem 41 p.33, (21)",
-          "match": "Let n=2g+2, g≥1, and let F be a positive-mass sieve-controlled congruence family contained in the locally actual-Div¹-soluble locus, with all coefficients in 16Z. The Selmer numerator is at most 2 μ_∞({f:H(f)<X}) Π_p μ_p(F_p)+o_F(X^(n+1)). Real root strata are summed, and τ(SL_n/μ₂)=2 is an imported AA.2 supplier calculation. This is an upper bound; the infinite-weight count supplies no matching lower bound."
+          "match": "Theorem 41 sums μ_∞({f∈I(m):H(f)<X}) over the non-negative-definite invariant strata. It does not replace this sum by the whole coefficient-cube volume. The sufficient 16Z scaling and the Tamagawa supplier gap remain explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -631,15 +682,19 @@
       ],
       "proofSteps": [
         "Intersect the pullbacks of the effective-divisor images with the finite Selmer set.",
-        "The construction is independent of the presentation of candidates. Translate torsor identifications and divisor images together; adding d proves the geometric order-k to order-(k+2) inclusion."
+        "The construction is independent of the presentation of candidates. Translate torsor identifications and divisor images together; adding d proves the geometric order-k to order-(k+2) inclusion.",
+        "Import Sym^k C→Pic^k, D↦O(D), from JacobianChallenge Layer D and the section-free Pic¹ convention from JC2. Translate by the actual degree-two hyperelliptic divisor. The remaining ST.1 request concerns compatibility with covering localisation, not a second construction of the Abel map."
       ],
       "acceptance": [
         "Check all local places and the exact height denominator; retain every displayed hypothesis."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-locally-soluble-pencil-orbits",
-        "JacobianChallengePartII:JC2/degree-abel-map",
-        "mathlib:Set.ncard"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "mathlib:Set.ncard",
+        "JacobianChallengePartII:JC2/section-free-abel-map",
+        "ArithmeticStatistics:ST.1",
+        "JacobianChallengePartII:JC0/picard-torsors"
       ],
       "sources": [
         {
@@ -690,7 +745,7 @@
       "tests": [
         {
           "name": "ArithmeticSelmerRefinement.restricted_one_place",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For S=Fin 3, identity localisation at one place and image {0,2}, the restriction is {0,2}."
         },
         {
@@ -786,12 +841,12 @@
       "tests": [
         {
           "name": "ArithmeticSelmerRefinement.component_three_one",
-          "kind": "example",
+          "kind": "computation",
           "statement": "S_3(1)=3, distinguishing the missing third-degree contribution."
         },
         {
           "name": "ArithmeticSelmerRefinement.component_five_three",
-          "kind": "example",
+          "kind": "computation",
           "statement": "S_5(3)=15, strictly smaller than 16."
         },
         {
@@ -801,12 +856,12 @@
         },
         {
           "name": "ArithmeticSelmerRefinement.component_saturation",
-          "kind": "example",
+          "kind": "computation",
           "statement": "S_3(9)=4: terms above m vanish and even terms stay excluded."
         },
         {
           "name": "ArithmeticSelmerRefinement.component_single",
-          "kind": "example",
+          "kind": "computation",
           "statement": "S_1(k)=1 for k>0."
         }
       ],
@@ -831,7 +886,8 @@
       ],
       "proofSteps": [
         "Compute the x−T descent value of a conjugate pair using a positive real norm at each real root.",
-        "Reduce effective divisors to parity subsets of the m components. Count the possible odd subsets, with no assumption that every image class is attained."
+        "Reduce effective divisors to parity subsets of the m components. Count the possible odd subsets, with no assumption that every image class is attained.",
+        "Import Sym^k C→Pic^k, D↦O(D), from JacobianChallenge Layer D and the section-free Pic¹ convention from JC2. Translate by the actual degree-two hyperelliptic divisor. The remaining ST.1 request concerns compatibility with covering localisation, not a second construction of the Abel map."
       ],
       "acceptance": [
         "Check all local places and the exact height denominator; retain every displayed hypothesis."
@@ -839,8 +895,10 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.4/refinement-restricted-selmer-set",
         "ArithmeticStatistics:ST.4/refinement-odd-component-bound",
-        "JacobianChallengePartII:JC2/degree-abel-map",
-        "ArithmeticStatistics:ST.1/refinement-field-pencil-stabilizers"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "ArithmeticStatistics:ST.1/refinement-field-pencil-stabilizers",
+        "JacobianChallengePartII:JC2/section-free-abel-map",
+        "JacobianChallengePartII:JC0/picard-torsors"
       ],
       "sources": [
         {
@@ -928,7 +986,7 @@
         {
           "sourceId": "bgw",
           "locator": "Theorem 7 and (23) p.34",
-          "match": "For fixed k>0 odd, let A_(g,k) be the limsup coefficient-height average of the order-k two-Selmer set over locally C-soluble genus-g models. Then A_(g,k)→0 as g→∞. Height tends to infinity first, separately for each g. The statement is not a uniform joint estimate in height and genus and does not apply to arbitrary genus-dependent real subfamilies."
+          "match": "Theorem 7 gives the locally C-soluble version. The same real-image and upper-bound argument extends to the locally actual-Div¹-soluble family, whose denominator is at least the C-soluble denominator; the genus-uniform denominator and few-root proof remain the stated supplier obligations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -952,8 +1010,8 @@
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
       "proofSteps": [
-        "Choose the largest odd k≤m. Trace any point of smaller odd degree and add copies of the effective degree-two hyperelliptic fibre to reach k.",
-        "A global effective divisor gives a locally soluble cover in the restricted Selmer set. Markov’s inequality bounds the fraction with such a point by the average restricted cardinal; multiply by the locally soluble fraction, which is at most one. Curves not locally soluble already have no global point, but an odd-degree point need not give local C-points; use the locally actual-Div¹-soluble version of the average and its uniform denominator bound for this transfer."
+        "Choose the largest odd k≤m. Trace a point of any smaller odd degree to an effective rational divisor and add effective degree-two hyperelliptic fibres to reach k.",
+        "An odd-degree global divisor together with the degree-two divisor gives an actual degree-one divisor over each completion. Hence a curve outside the locally actual-Div¹-soluble family has no odd-degree point. Inside that family, the effective degree-k divisor gives a member of the restricted Selmer set; Markov’s inequality bounds the proportion with such a point by its average cardinal. Multiply by the family’s proportion, which is at most one. Use the ordered-limit Div¹ version and its uniform denominator bound; no local C-point implication is used."
       ],
       "acceptance": [
         "Do not assume an odd-degree global point implies C(Q_v)≠∅. It gives actual Div¹(Q_v), which is the required family for the extended order-k argument."
@@ -1147,7 +1205,7 @@
       ],
       "title": "Local models for good and split nodal reduction",
       "kind": "theorem",
-      "statement": "Let K/Q_p be finite with p odd, residue field F_q, and let C:y²=f(x) be a smooth hyperelliptic curve with integral coefficients. (i) If f̄ is squarefree of degree n and has an F_q-root, J has good reduction and every quadratic twist of C has a K-point. (ii) If f̄=(x−a)²h, h squarefree of degree n−2, h(a) a nonzero square, and h has an F_q-root, J is split semistable of toric rank one and every quadratic twist has a K-point. (iii) If f̄ is not a scalar multiple of a square and q>4n², then C(K)≠∅. In (ii) the root of h is automatically different from a and simple. In (iii) the factorisation f̄=l h² does not require l,h coprime.",
+      "statement": "Let K/Q_p be finite with p odd, residue field F_q, and let C:y²=f(x) be a smooth hyperelliptic curve with integral coefficients and degree n≥3, hence genus ⌊(n−1)/2⌋. Reduction may drop degree in (iii), but (i) and (ii) retain degree n. (i) If f̄ is squarefree of degree n and has an F_q-root, J has good reduction and every quadratic twist of C has a K-point. (ii) If f̄=(x−a)²h, h squarefree of degree n−2, h(a) a nonzero square, and h has an F_q-root, J is split semistable of toric rank one and every quadratic twist has a K-point. (iii) If f̄ is not a scalar multiple of a square and q>4n², then C(K)≠∅. In (ii) the root of h is automatically different from a and simple. In (iii) the factorisation f̄=l h² does not require l,h coprime.",
       "hypotheses": [
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
@@ -1169,7 +1227,7 @@
         {
           "sourceId": "bgw",
           "locator": "Lemma A.5 p.37",
-          "match": "Let K/Q_p be finite with p odd, residue field F_q, and let C:y²=f(x) be a smooth hyperelliptic curve with integral coefficients. (i) If f̄ is squarefree of degree n and has an F_q-root, J has good reduction and every quadratic twist of C has a K-point. (ii) If f̄=(x−a)²h, h squarefree of degree n−2, h(a) a nonzero square, and h has an F_q-root, J is split semistable of toric rank one and every quadratic twist has a K-point. (iii) If f̄ is not a scalar multiple of a square and q>4n², then C(K)≠∅. In (ii) the root of h is automatically different from a and simple. In (iii) the factorisation f̄=l h² does not require l,h coprime."
+          "match": "The three local reduction/point statements are Lemma A.5 with n the degree of the characteristic-zero polynomial. Part (iii) permits degree drop and common factors between its odd-multiplicity part and square part; the repaired Hasse–Weil estimate is recorded in E-ST4-4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1485,6 +1543,11 @@
           "sourceId": "bs-rank",
           "locator": "Bhargava–Skinner Theorem 3 pp.2–3 and proof pp.6–8",
           "match": "Let E/Q have squarefree conductor with at least two odd prime factors, p≥5 a prime of good ordinary reduction, and irreducible E[p]. If Sel_p(E)≅F_p and its restriction to E(Q_p)/pE(Q_p) is not contained in the image of E(Q_p)[p], then both algebraic and analytic rank of E are one. This is the statistical application of the exact Skinner converse, not an assumption of finite Sha or a use of its converse direction."
+        },
+        {
+          "sourceId": "skinner",
+          "locator": "Theorem C p.332 and its surrounding hypotheses pp.331–332.",
+          "match": "Later published converse/statistical statement checked at these pages. The converse proof is owned by the routed supplier and remains G-converse, rather than being claimed as verified here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1523,6 +1586,11 @@
           "sourceId": "bs-rank",
           "locator": "Bhargava–Skinner Theorem 4 p.3 and proof pp.7–8",
           "match": "Let E/Q have squarefree conductor N with at least two odd prime factors, p≥5 good ordinary, and E[p] irreducible. Let K/Q be imaginary quadratic of odd discriminant D, with 2 and p split and gcd(D,N)=1. Require E[p] ramified at an odd prime q inert in K, Sel_p(E)=0, Sel_p(E^D)≅F_p, and restriction of Sel_p(E^D) not contained in the local p-torsion image. Then E^D has algebraic and analytic rank one. E^D itself need not have squarefree conductor."
+        },
+        {
+          "sourceId": "skinner",
+          "locator": "Theorem B p.331; introduction pp.329–334.",
+          "match": "Later published converse/statistical statement checked at these pages. The converse proof is owned by the routed supplier and remains G-converse, rather than being claimed as verified here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1600,7 +1668,7 @@
       "tests": [
         {
           "name": "ArithmeticSelmerRefinement.rankOne_example",
-          "kind": "example",
+          "kind": "computation",
           "statement": "(−136,16) belongs to F: d=39277=7·31·181, Δ₀ mod39=10=7² mod39, 864B mod7=6, and #E(F_5)=8."
         },
         {
@@ -1865,8 +1933,13 @@
       "sources": [
         {
           "sourceId": "bs-rank",
-          "locator": "Theorem 1 and Corollary 2 pp.1–2, final proof p.17; Skinner Theorem D p.332",
+          "locator": "Theorem 1 and Corollary 2 pp.1–2; final proof p.17.",
           "match": "Among all Q-isomorphism classes of elliptic curves ordered by the unique minimal-short-pair height H=max(4|A|³,27B²), the lower density with rank_ZE(Q)=ord_(s=1)L(E,s)=1 is positive. If #F_(H<X)~c_F X^(5/6) and #E_(H<X)~c_E X^(5/6), the proof gives lower bound c_F/(2c_E·39^5). The lower limits of both average ranks are consequently positive; their limits are not asserted to exist."
+        },
+        {
+          "sourceId": "skinner",
+          "locator": "Theorem D p.332.",
+          "match": "Later published converse/statistical statement checked at these pages. The converse proof is owned by the routed supplier and remains G-converse, rather than being claimed as verified here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1931,7 +2004,8 @@
       ],
       "proofSteps": [
         "Request the exact ternary covering/classification/minimisation dictionary from ST.1; invariant polynomials alone do not provide it.",
-        "Transport the chosen invariants and measure normalization. With Fisher c₄,c₆, A=−c₄/48, B=−c₆/864, whereas the ST.2 counting normalization I=c₄/16,J=c₆/32 gives H_IJ=max(27|A|³,729B²/4). Thus 27H_AB≤H_IJ≤(729/4)H_AB. Also H_AB≤H_BS≤27H_AB. Bounded comparisons transfer positive lower counts, not exact average constants."
+        "Transport the chosen invariants and measure normalization. With Fisher c₄,c₆, A=−c₄/48, B=−c₆/864, whereas the ST.2 counting normalization I=c₄/16,J=c₆/32 gives H_IJ=max(27|A|³,729B²/4). Thus 27H_AB≤H_IJ≤(729/4)H_AB. Also H_AB≤H_BS≤27H_AB. Bounded comparisons transfer positive lower counts, not exact average constants.",
+        "For heights h≤h′≤C h on the same carrier, {h′<X}⊆{h<X}⊆{h′<CX}. Thus counts bounded below at h′<X/C remain bounded below at h<X. Apply this inclusion and the X^(5/6) denominator; the ratio H_BS/H_AB need not be constant on finitely many pieces."
       ],
       "acceptance": [
         "det^(−1) substitution preserves the invariants and kills scalar matrices; plain substitution is not the PGL₃ action."
@@ -1940,7 +2014,7 @@
         "ArithmeticStatistics:ST.1/ternary-cubic-forms-and-their-invariants",
         "ArithmeticStatistics:ST.1/invariance-of-ternary-cubic-invariants",
         "ArithmeticStatistics:ST.1",
-        "ArithmeticStatistics:ST.0/piecewise-rescaling-of-a-height"
+        "ArithmeticStatistics:ST.0/arithmetic-family"
       ],
       "sources": [
         {
@@ -1965,16 +2039,18 @@
       ],
       "title": "Globally soluble forms in a homogeneous fundamental region",
       "kind": "theorem",
-      "statement": "For the integral ternary-cubic representation and H_AB invariant height, there is a finite-volume real fundamental multiset F₁, and F_t=tF₁ corresponds to H_AB<t^12. Generic integral points, with its stated orbit multiplicities, satisfy N_gen(F_t)=c₁t^10+o(t^10), c₁>0. At least c₃t^10+o(t^10) of them have a rational projective zero, c₃>0. The equality for total generic points and the lower soluble count use compatible measure and stabilizer conventions.",
+      "statement": "For the integral ternary-cubic representation and H_AB invariant height, take a finite-volume real fundamental region F₁ with compatible orbit and stabilizer multiplicities. Require a fixed finite bound M≥1 on the multiplicity of each coefficient vector, with M=1 for a set of representatives; boundary choices must satisfy the same convention. Its dilate F_t=tF₁ corresponds to H_AB<t^12. Weighted generic integral points satisfy N_gen(F_t)=c₁t^10+o(t^10), c₁>0, and weighted generic points with a rational projective zero have count at least c₃t^10+o(t^10), c₃>0. The total, soluble and bounded-intersection counts use this one convention. Passing from a multiset count to distinct coefficient vectors divides a lower bound by at most M.",
       "hypotheses": [
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
       "proofSteps": [
         "Use the homogeneous geometry-of-numbers fundamental region with the corrected invariant region. Import the ST.2 cusp and nongeneric estimates; make the normalization extension explicit.",
-        "Inject the nontrivial rational Selmer classes into integral generic orbits and use the rank-one lower count. Degree-twelve invariant height and X^(5/6) produce t^10, matching the coefficient dimension."
+        "Inject the nontrivial rational Selmer classes into integral generic orbits and use the rank-one lower count. Degree-twelve invariant height and X^(5/6) produce t^10, matching the coefficient dimension.",
+        "Choose a genuine fundamental set as in the source, or verify a finite multiplicity bound M independent of t for the chosen multiset. Carry the same multiplicity convention through total counts and bounded intersections; divide by M when counting distinct vectors."
       ],
       "acceptance": [
-        "Check all local places and the exact height denominator; retain every displayed hypothesis."
+        "Check all local places and the exact height denominator; retain every displayed hypothesis.",
+        "A weighted orbit/multiset count implies a coefficient-vector lower count only after a uniform point-multiplicity bound is fixed."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.4/refinement-soluble-generic-three-selmer-elements",
@@ -1985,8 +2061,8 @@
       "sources": [
         {
           "sourceId": "plane",
-          "locator": "Theorem 16 and Theorem 2 proof pp.10–13",
-          "match": "For the integral ternary-cubic representation and H_AB invariant height, there is a finite-volume real fundamental multiset F₁, and F_t=tF₁ corresponds to H_AB<t^12. Generic integral points, with its stated orbit multiplicities, satisfy N_gen(F_t)=c₁t^10+o(t^10), c₁>0. At least c₃t^10+o(t^10) of them have a rational projective zero, c₃>0. The equality for total generic points and the lower soluble count use compatible measure and stabilizer conventions."
+          "locator": "Theorem 16 p.10; Theorem 2 statement p.3 and proof pp.11–13.",
+          "match": "Theorem 16 supplies the total generic count in the fundamental region; the proof of Theorem 2 obtains a positive soluble lower count. The source uses a fundamental set. The packet’s multiset variant additionally requires a uniform multiplicity bound and the same convention in every count."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2010,9 +2086,9 @@
         "All parameter restrictions, family conventions and local hypotheses stated above are part of this target."
       ],
       "proofSteps": [
-        "Choose r so the bounded intersection F₁∩r[−1,1]^10 captures all but less than c₃/2 of the generic total mass. Use the total asymptotic minus the bounded-intersection lattice asymptotic to control the omitted cusp count. Volume smallness alone is insufficient.",
-        "At least (c₃/2)t^10 soluble integral generic forms remain inside rt[−1,1]^10. Put T=rt and divide by the actual ten-dimensional lattice-box count.",
-        "Remove singular forms only using their codimension-one lattice estimate; the all-form denominator and the smooth denominator are asymptotic."
+        "Choose r so the bounded intersection F₁∩r[−1,1]^10 captures all but less than c₃/2 of the generic total weighted mass. Use the total asymptotic minus the bounded-intersection lattice asymptotic to control the omitted cusp count. Volume smallness alone is insufficient.",
+        "At least (c₃/2)t^10 weighted soluble generic points remain in rt[−1,1]^10. The fixed multiplicity bound M gives at least (c₃/(2M))t^10 distinct integral coefficient vectors. Put T=rt and divide by the actual ten-dimensional lattice-box count, giving lower bound c₃/(2M(2r)^10)>0.",
+        "Remove singular forms only using their codimension-one lattice estimate; the all-form and smooth denominators are asymptotic. The same bound holds along integer coefficient cutoffs by monotonicity and adjacent-cutoff comparison."
       ],
       "acceptance": [
         "Check all local places and the exact height denominator; retain every displayed hypothesis."
@@ -2027,7 +2103,7 @@
       "sources": [
         {
           "sourceId": "plane",
-          "locator": "Theorem 2 pp.1–2 and proof pp.11–13",
+          "locator": "Theorem 16 p.10; Theorem 2 statement p.3 and proof pp.11–13.",
           "match": "Let c run over all integral ten-tuples, the coefficients of x³,x²y,x²z,xy²,xyz,xz²,y³,y²z,yz²,z³. For the cube |c_i|≤T, let N_sol(T) count tuples whose homogeneous cubic has a nonzero rational zero. Then liminf_(T→∞) N_sol(T)/(2⌊T⌋+1)^10>0. Restricting the numerator and denominator to smooth plane cubics preserves this conclusion because the discriminant-zero coefficient locus has density zero. The denominator counts equation models without GL₃, scalar or isomorphism quotients."
         }
       ],
@@ -2185,34 +2261,38 @@
     {
       "id": "ArithmeticStatistics:ST.4/request-15",
       "supplier": "ArithmeticStatistics:ST.0",
-      "need": "Coefficient-height finite sublevel sets and finite-prime density/CRT for hyperelliptic models; for the number-field A.2 statement use a fixed integral basis of O_K and the maximum of all coefficient coordinates, with finite twist-height constants and finite fibres. Supply a genus-uniform positive lower proportion of locally C-soluble models, hence of locally actual-Div¹-soluble models, with exactly the BGW coefficient cube and all real strata. The cited >75% local-solubility result is not replaced by a genus-dependent positive constant. Also identify the scalar-square reduction locus as a fixed codimension-at-least-two subscheme for n≥3.",
+      "need": "Coefficient-height finite sublevel sets and finite-prime density/CRT for hyperelliptic models; for the number-field A.2 statement use a fixed integral basis of O_K and the maximum of all coefficient coordinates, with finite twist-height constants and finite fibres. Supply a genus-uniform positive lower proportion of locally C-soluble models, hence of locally actual-Div¹-soluble models, with exactly the BGW coefficient cube and all real strata. The cited >75% local-solubility result is not replaced by a genus-dependent positive constant. Also identify the scalar-square reduction locus as a fixed codimension-at-least-two subscheme for n≥3. For positive-count height transport on the same family, use the inclusions arising from h≤h′≤Ch and the common power-law denominator, rather than the finite-piece constant-rescaling lemma.",
       "neededBy": [
         "ArithmeticStatistics:ST.4/refinement-order-k-vanishing-average",
         "ArithmeticStatistics:ST.4/refinement-small-odd-degree-points-disappear",
         "ArithmeticStatistics:ST.4/refinement-odd-residue-field-models",
-        "ArithmeticStatistics:ST.4/refinement-admissible-family-selmer-parities"
+        "ArithmeticStatistics:ST.4/refinement-admissible-family-selmer-parities",
+        "ArithmeticStatistics:ST.4/refinement-plane-cubic-height-and-orbit-transfer"
       ],
       "status": "open"
     },
     {
       "id": "ArithmeticStatistics:ST.4/request-16",
       "supplier": "ArithmeticStatistics:ST.1",
-      "need": "Extend the existing covering dictionary, without confusing ring representations: the degree-five genus-one representation is the 50-dimensional 5⊗∧²(5), with determinant-kernel central-quotient G from ST.2/refinement-quinary-finite-count. Supply invariant normalizations A,B, smooth Pfaffian degree-five covers, Sel₅(E)/local Kummer bijections, stabilizer E[5], integral minimization and compatibility of nearby local labels with point-group torsion images. The 40-dimensional quintic-ring representation does not supply this. For ternary cubics supply the twisted PGL₃ action, the orbit-to-three-cover dictionary, stabilizer E[3] and integral minimization in plane-cubic Theorems 12–14 pp.8–10. For order-k sets supply torsor-cover localisation naturality and effective-divisor maps including conjugate pairs. These are explicit refinements of the ST.1 ownership contract.",
+      "need": "Extend the existing covering dictionary, without confusing ring representations: the degree-five genus-one representation is the 50-dimensional 5⊗∧²(5), with determinant-kernel central-quotient G from ST.2/refinement-quinary-finite-count. Supply invariant normalizations A,B, smooth Pfaffian degree-five covers, Sel₅(E)/local Kummer bijections, stabilizer E[5], integral minimization and compatibility of nearby local labels with point-group torsion images. The 40-dimensional quintic-ring representation does not supply this. For ternary cubics supply the twisted PGL₃ action, the orbit-to-three-cover dictionary, stabilizer E[3] and integral minimization in plane-cubic Theorems 12–14 pp.8–10. For order-k sets supply compatibility of torsor-cover localisation with the existing JacobianChallenge Layer D symmetric-power Abel map and JC2 Pic¹ convention, including effective divisors supported on conjugate pairs. Generic effective-divisor and Abel-map constructions remain with JacobianChallenge. These are explicit refinements of the ST.1 ownership contract.",
       "neededBy": [
         "ArithmeticStatistics:ST.4/refinement-local-five-quotient-comparison",
         "ArithmeticStatistics:ST.4/refinement-soluble-generic-three-selmer-elements",
-        "ArithmeticStatistics:ST.4/refinement-plane-cubic-height-and-orbit-transfer"
+        "ArithmeticStatistics:ST.4/refinement-plane-cubic-height-and-orbit-transfer",
+        "ArithmeticStatistics:ST.4/refinement-restricted-selmer-set",
+        "ArithmeticStatistics:ST.4/refinement-real-effective-divisor-image"
       ],
       "status": "open"
     },
     {
       "id": "ArithmeticStatistics:ST.4/request-17",
       "supplier": "ArithmeticStatistics:ST.2",
-      "need": "Beyond the cited counts, supply the weighted negligible-rational-stabilizer estimate in the BGW unbounded fundamental regions from [BGW reference 1, Proposition 14], the same rational orbit-Jacobian at every place in BGW §11 pp.32–33, and bounded-intersection generic ternary lattice asymptotics plus the complement/cusp subtraction in the H_AB region. The latter extends the existing H_IJ normalization and includes stabilizer multiset multiplicities; positive volume alone does not control omitted lattice points. Preserve the strong excluded-lift saturation in refinement-large-coefficient-family-tail. Repair the wider printed Definition 39 separately, not by treating its reductions as whole p-adic complements.",
+      "need": "Beyond the cited counts, supply the weighted negligible-rational-stabilizer estimate in the BGW unbounded fundamental regions from [BGW reference 1, Proposition 14], the same rational orbit-Jacobian at every place in BGW §11 pp.32–33, and bounded-intersection generic ternary lattice asymptotics plus the complement/cusp subtraction in the H_AB region. The latter extends the existing H_IJ normalization and includes stabilizer multiset multiplicities; positive volume alone does not control omitted lattice points. Preserve the strong excluded-lift saturation in refinement-large-coefficient-family-tail. Repair the wider printed Definition 39 separately, not by treating its reductions as whole p-adic complements. Fix a uniform finite point-multiplicity bound M for the ternary fundamental multiset (or choose a fundamental set with M=1), including its boundary convention, and use that same convention for the bounded-intersection asymptotics and distinct-vector transfer.",
       "neededBy": [
         "ArithmeticStatistics:ST.4/refinement-hyperelliptic-average-two",
         "ArithmeticStatistics:ST.4/refinement-admissible-family-selmer-parities",
-        "ArithmeticStatistics:ST.4/refinement-soluble-ternary-fundamental-count"
+        "ArithmeticStatistics:ST.4/refinement-soluble-ternary-fundamental-count",
+        "ArithmeticStatistics:ST.4/refinement-positive-plane-cubic-solubility"
       ],
       "status": "open"
     },
@@ -2222,6 +2302,16 @@
       "need": "Extend the parent’s finite-congruence average #Sel₅=6 to every positive-density large family in Bhargava–Skinner Theorem 5 p.4, including F, its −39 twists and finite five-adic discs. Supply the same stabilizer-weighted local orbit-mass formula for the refined acceptable weight so a singleton Q-label has average 5/#Q nonidentity elements. The existing average alone, and the three-Selmer average, do not imply this local equidistribution.",
       "neededBy": [
         "ArithmeticStatistics:ST.4/refinement-five-selmer-local-equidistribution"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "ArithmeticStatistics:ST.4/request-19",
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "need": "Import the existing symmetric-power Abel morphism Sym^k C→Pic^k, D↦O(D), including arbitrary-base-change compatibility and actual effective divisors over Q_v supported on nonrational closed points. No second Abel-map construction is requested. Combine the Pic^k group/torsor law with the JC2 section-free Pic¹ convention and translation by ((k−1)/2) times the actual hyperelliptic degree-two divisor; ST.1 supplies its compatibility with covering localisation.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.4/refinement-restricted-selmer-set",
+        "ArithmeticStatistics:ST.4/refinement-real-effective-divisor-image"
       ],
       "status": "open"
     }
@@ -2326,9 +2416,9 @@
       "stageId": "ArithmeticStatistics:ST.4",
       "status": "planned",
       "remaining": [
-        "Discharge each of the six named gaps and eighteen supplier requests, preserving the source and height qualifications.",
+        "Discharge each of the six named gaps and nineteen supplier requests, preserving the source and height qualifications.",
         "Add the thirty-six native theorem signatures listed in the suggested omission register after the supplier interfaces exist.",
-        "Independent review must check the source repairs and exact imports; nothing in this part is marked closed or implemented."
+        "This independently reviewed part remains planned, with six explicit gaps and nineteen open supplier requests; no stage is closed or implemented."
       ]
     }
   ],
@@ -2336,7 +2426,7 @@
     {
       "id": "ArithmeticStatistics/E-ST4-1",
       "kind": "misprint",
-      "locator": "BGW arXiv v2 Theorems 40–41 pp.31,33; published §§11–12 pp.482–485",
+      "locator": "BGW arXiv v2 Theorem 33 p.25 and Theorems 40–41 pp.31,33; published Theorem 33 p.477 and Theorems 40–41 pp.483–484.",
       "printed": "The theorem hypotheses demand coefficient divisibility by 16^n.",
       "correction": "Use divisibility by 16, with κ=4 and the isomorphic equation scaled by κ².",
       "reason": "Divisibility by 16 gives 2^(4i)|f₀^(i−1)f_i for every i, exactly the integrality input; the proof and earlier κ=4 statement use it.",
@@ -2344,9 +2434,15 @@
       "known": "Already confirmed as PAPER-BHARGAVA-GROSS-WANG-17/E4; the published author copy still has the stronger printed hypothesis.",
       "searched": [
         "arXiv:1310.7692v2 and published author copy, targeted §§11–12 collation on 2026-10-10",
-        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted"
+        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the κ=4 integrality calculation: if every f_i is divisible by 16, then f₀^(i−1)f_i is divisible by 2^(4i). Theorem 33 and the counting theorems print a stronger sufficient hypothesis. The intended strengthening does not invalidate the printed restricted result.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST4-2",
@@ -2356,32 +2452,44 @@
       "correction": "If two has a unique prime in Q(√p,√q), require good reduction at two and points on all four twists there.",
       "reason": "The only available parity argument is A.3, which requires those conditions at every unique-prime place. For (p,q)=(5,3), two is inert in Q(√5) and ramified in Q(√3), so it is such a place.",
       "affects": "a stated result",
-      "known": "Already confirmed as PAPER-BHARGAVA-GROSS-WANG-17/E3; no independent review verdict is added here.",
+      "known": "Already confirmed as PAPER-BHARGAVA-GROSS-WANG-17/E3; independently confirmed in this review.",
       "searched": [
         "arXiv:1310.7692v2 and published author copy, targeted §§11–12 collation on 2026-10-10",
-        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted"
+        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted hypothesis of the given A.3 argument. For p=5,q=3 the dyadic decomposition group is all C₂×C₂; good reduction and four-twist points there are not among Theorem 44’s printed assumptions. This review does not assert a counterexample to the unrestricted theorem.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST4-3",
       "kind": "gap",
-      "locator": "BGW arXiv v2 Definition 39 p.31 and Proposition 42 proof p.33; published pp.482,485",
+      "locator": "BGW arXiv v2 Definition 39 p.31 and Proposition 42 proof p.33; published Definition 39 p.482, Proposition 42 p.484 and proof pp.484–485.",
       "printed": "The argument uses the stated reduction-only largeness condition as though it controlled all excluded p-adic lifts.",
       "correction": "Impose the excluded-lift codimension-two condition or supply an additional theorem deriving the tail under the original hypotheses.",
       "reason": "An allowed residue may have excluded higher-power lifts, so containment of missing reductions is logically weaker than containment of the entire complement. This identifies an unproved implication, not a counterexample to the core full-family average.",
       "affects": "the proof",
-      "known": "Not resolved in the arXiv or targeted published text inspected; independent verification is required.",
+      "known": "Not resolved in the arXiv or targeted published text inspected; the tail inference is independently confirmed as unsupported.",
       "searched": [
         "arXiv:1310.7692v2 and published author copy, targeted §§11–12 collation on 2026-10-10",
-        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted"
+        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the tail inference: surjectivity onto an allowed residue class does not include every lift in that class. For example the closed set Z_p minus p+p²Z_p has every mod-p residue but omits lifts of a nonzero residue. This local logical witness isolates the inference; it is not a counterexample to the full-family result. Retain the strong excluded-lift hypothesis.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST4-4",
       "kind": "misprint",
-      "locator": "BGW arXiv v2 Lemma A.5(3) proof p.37",
+      "locator": "BGW arXiv v2 Lemma A.5(3) proof p.37; published Lemma A.5 p.488.",
       "printed": "The proof makes the odd-multiplicity squarefree part coprime to the remaining square part.",
       "correction": "Use f̄=l h² with l squarefree and nonscalar, allowing common roots, then exclude all roots of f̄.",
       "reason": "A factor occurring with multiplicity three lies in both l and h, so the asserted coprimeness fails. The finite-field bound still gives more than 2n+2 projective points for q>4n², enough after excluding all bad coordinates.",
@@ -2389,9 +2497,15 @@
       "known": "No correction found in the source versions inspected; the nearby insufficient point-count inequality is already confirmed in PAPER-BHARGAVA-GROSS-WANG-17/E5.",
       "searched": [
         "arXiv:1310.7692v2 and published author copy, targeted §§11–12 collation on 2026-10-10",
-        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted"
+        "Accepted PAPER-BHARGAVA-GROSS-WANG-17.result.json and its independent review; no new independent verdict is asserted",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv p.37 and published p.488: a cubic-multiplicity factor belongs to both l and h in f̄=l h². Coprimeness is unnecessary; for q>4n² the corrected point count exceeds 2n+2 and survives exclusion of all roots and infinity.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST4-5",
@@ -2404,14 +2518,20 @@
       "known": "The corrected exclusion is implicit in the displayed N_odd−N_1 term; no separate correction found.",
       "searched": [
         "Bhargava–Skinner arXiv:1401.0233v1 full proof pp.15–17 read",
-        "Skinner Annals 191 (2020) introduction pp.329–334 checked for the later statistical citation"
+        "Skinner Annals 191 (2020) introduction pp.329–334 checked for the later statistical citation",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for arXiv v1 p.16: a nonzero one-dimensional F_p-space contradicts the claimed p²−1 lower bound. The displayed N_odd−N_1 term and the intended dimension-at-least-three case determine the correction. The journal PDF requires login, so no published-version claim is made.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST4-6",
       "kind": "misprint",
-      "locator": "BGW arXiv v2 Theorem 7 proof p.34; Dembo–Poonen–Shao–Zeitouni author copy Theorem 1.2 pp.2–3",
+      "locator": "BGW arXiv v2 Theorem 7 proof p.34; published p.485; Dembo–Poonen–Shao–Zeitouni author copy Theorem 1.2 p.2.",
       "printed": "BGW describes the cited few-root theorem using the full log n/log log n threshold.",
       "correction": "For this application use only each fixed root count, or a finite bounded union; the cited theorem’s growing-count range is o(log n/log log n).",
       "reason": "The fixed-count decay is sufficient to split the real strata into at most M components and the exponentially suppressed remainder. No endpoint estimate is needed.",
@@ -2419,9 +2539,37 @@
       "known": "The two inspected statements have different endpoint ranges; the packet uses their common fixed-count consequence.",
       "searched": [
         "BGW arXiv:1310.7692v2 p.34",
-        "Dembo–Poonen–Shao–Zeitouni author copy, Theorems 1.1–1.2 pp.1–3"
+        "Dembo–Poonen–Shao–Zeitouni author copy, Theorems 1.1–1.2 pp.1–3",
+        "Independent review: arXiv version history and Wang and Dokchitser publication/errata pages checked on 2026-10-10; no additional correction to this finding found."
       ],
-      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt."
+      "textPolicy": "printed is a paraphrase in the worker’s own words, not a source excerpt.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing BGW arXiv p.34 and published p.485 with the fewzeros author copy Theorem 1.2 p.2: the growing-count range is little-o of log n/log log n. Fixed counts, which are all the packet uses, suffice.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST4-7",
+      "kind": "misprint",
+      "locator": "BGW arXiv:1310.7692v2 Theorem A.7 p.38; published author copy Theorem A.7 p.490.",
+      "printed": "The local-and-Sha product in the parity display has no powers carrying the coefficients n_i of the Brauer relation.",
+      "correction": "Raise each factor c̃(A/F^H_i)·#Sha(A/F^H_i)^[p] to n_i before taking the product and its p-adic valuation.",
+      "reason": "Regulator constants and the permutation-module isogeny both use the signed multiplicities n_i. The biquadratic relation {1}−ΣH+2G recovers the quotient and squared base-field factor in Corollary A.8 only with these exponents. The intended formula is already used by this packet.",
+      "affects": "nothing",
+      "known": "new; no correction found in the inspected versions, source-issue register or author errata pages.",
+      "searched": [
+        "arXiv version history (v2 is the latest listed) and Theorem A.7 in v2, 2026-10-10",
+        "Published author copy Theorem A.7 p.490, 2026-10-10",
+        "Wang publication page https://www.math.uwaterloo.ca/~x46wang/ and Dokchitser errata page https://people.maths.bris.ac.uk/~matyd/, 2026-10-10",
+        "Accepted PAPER-BHARGAVA-GROSS-WANG-17 sourceIssues register, 2026-10-10"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked the displayed formula in both source versions. Corollary A.8 and the regulator product force the missing n_i powers; the mathematical target already includes them.",
+        "by": "REV-ArithmeticStatistics--ST.4"
+      },
+      "textPolicy": "All source assertions and repairs are stated in the reviewer’s own words."
     }
   ],
   "restructure": [],
@@ -3080,11 +3228,333 @@
       "OrthogonalL2Bases",
       "RestrictedProducts"
     ],
-    "result": "Names and relevant Suggested.lean/source declarations inspected read-only. General height, group, lattice, adelic, representation, Galois and pointed-Jacobian constructions are imported. No new implementation of those existing constructions is proposed."
+    "result": "Names and relevant Suggested.lean/source declarations inspected read-only. General height, group, lattice, adelic, representation, Galois and pointed-Jacobian constructions are imported. No new implementation of those existing constructions is proposed.",
+    "independentReview": {
+      "by": "REV-ArithmeticStatistics--ST.4",
+      "date": "2026-10-10",
+      "readEntire": [
+        "JacobianChallenge README",
+        "GlobalQuadraticForms README"
+      ],
+      "readRelevant": [
+        "ClassFieldTheory Layer 10",
+        "EllipticCurves Layers 7–8",
+        "AdelicAlgebraicGroups measures, Tamagawa normalization and strong approximation",
+        "RepresentationTheory/InductionRestriction Layer 0"
+      ],
+      "currentLibrary": "Current explicit elliptic two-descent and hyperelliptic function-field degree/genus declarations were read; they do not provide ppav torsor statistics, five-Selmer distributions or the analytic converse. All nine post-snapshot Suggested files and the four named Completed roadmaps were screened read-only. Existing semialgebraic, lattice, Galois and restricted-product notions stay with their owners."
+    }
   },
   "validation": {
-    "packetChecker": "python3 scripts/check_blueprint.py on this packet: 0 errors, 0 warnings at submission.",
-    "lean": "Final lean-check elaboration exited 0 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: 39 declaration-uses-placeholder warnings, no errors or other warnings. All 20 API signatures and 17 named tests are included; 36 native target signatures are explicitly omitted.",
-    "implementation": "unchecked for every node"
+    "packetChecker": "Independent review: python3 scripts/check_blueprint.py on this packet with the pinned declaration index: 0 errors, 0 warnings.",
+    "lean": "Independent lean-check elaboration exited 0 at the pinned Mathlib and Tau Ceti commits: 39 declaration-uses-placeholder warnings, no errors or other warnings. All 20 API signatures and 17 named tests are included; 36 native target signatures are explicitly omitted.",
+    "implementation": "unchecked for every node",
+    "sourceIssues": "All seven findings independently confirmed; sourceVersions records nine inspected public PDFs and scopes the inaccessible journal comparison for E-ST4-5 to arXiv v1."
+  },
+  "sourceVersions": [
+    {
+      "sourceId": "bgw",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1310.7692v2",
+      "read": "2026-10-10",
+      "sha256": "8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2",
+      "readSections": [
+        "Introduction pp.1–6; §7.2 pp.20–21 and §8 pp.21–25; local/integral soluble orbits §§9–10 pp.25–29; counting and main proofs §§11–12 pp.29–35; Appendix A pp.35–39."
+      ]
+    },
+    {
+      "sourceId": "bgw-published",
+      "kind": "published",
+      "url": "https://www.math.uwaterloo.ca/~x46wang/Papers/hyper.pdf",
+      "read": "2026-10-10",
+      "sha256": "1e553de8d3bafb12a5cb7efccea0eaab0fca14532cb8312bdfe48299be2d0db4",
+      "readSections": [
+        "Introduction p.451 and targeted collation of §§11–12 and Appendix A, printed pp.481–490, including Definition 39, Theorems 40–44, Lemma A.5 and Theorem A.7; not a full reading."
+      ]
+    },
+    {
+      "sourceId": "bs-rank",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1401.0233",
+      "read": "2026-10-10",
+      "sha256": "205e4a73ae9f3deb9afc541a5bb33ebb6c82708b54eec264d4bc22d18759c087",
+      "readSections": [
+        "§§1–5 pp.1–17: criteria, exact family, local equidistribution, Lemma 16, Proposition 17 and height transfer."
+      ],
+      "publicationAttempt": "The journal record was opened. Its PDF URL redirects to an institutional or individual login; E-ST4-5 is scoped to arXiv v1, not asserted against the version of record."
+    },
+    {
+      "sourceId": "plane",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1402.1131",
+      "read": "2026-10-10",
+      "sha256": "cc7e4d90291c7859c1fb48defd315e8efdf90b39a09677ec1bc76a9ca0bdfd78",
+      "readSections": [
+        "Theorem 2 p.3; §§1–4 pp.1–13, including Theorem 11 p.8, Theorems 12–14 p.9, Corollary 15 and Theorem 16 p.10, and the coefficient-box proof pp.11–13."
+      ]
+    },
+    {
+      "sourceId": "skinner",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p01-s.pdf",
+      "read": "2026-10-10",
+      "sha256": "cfdfab6e62ac507be40d1f0bc8d9cb8371d95b42c5ae259fde054c70fb20c214",
+      "readSections": [
+        "Introduction pp.329–334, especially Theorems B pp.331, C and D p.332; proof belongs to the routed RankOneConverse owner."
+      ]
+    },
+    {
+      "sourceId": "ps",
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "read": "2026-10-10",
+      "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "readSections": [
+        "Divisors versus rational divisor classes §2 pp.3–4; Theorem 8 and Corollary 9 §6 pp.11–12; Theorem 11 and Corollary 12 §§7–8 pp.13–14; Lemma 15 §9 p.16."
+      ]
+    },
+    {
+      "sourceId": "dd-self",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0705.1899v2",
+      "read": "2026-10-10",
+      "sha256": "ea250658ec1125a5f5bd5ac086505451053b1425edc73aac7166e7eb25542206",
+      "readSections": [
+        "§1 pp.1–4, Theorems 1.1,1.5,1.6; §2 beginning pp.4–5: isogeny quotient and self-duality reduction. Remaining proof is a supplier input."
+      ]
+    },
+    {
+      "sourceId": "dd-reg",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0709.2852",
+      "read": "2026-10-10",
+      "sha256": "b0d15a38e574c9e8aad8af9c13666da7950aba1d43d380cae86f7169b1684ee1",
+      "readSections": [
+        "§§2.i–2.ii pp.11–16: Brauer relations, Definition 2.13, Exercise 2.14, Lemmas 2.15–2.16, Theorem 2.17 and Corollary 2.18; targeted cyclic/local-function checks §§2.iii–2.iv pp.18–22; semistable formulas §3.v pp.39–40."
+      ]
+    },
+    {
+      "sourceId": "few-roots",
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/fewzeros.pdf",
+      "read": "2026-10-10",
+      "sha256": "864450d4469e069d582d4eb61db9f99c57ae24c9dc5b767d4642277e2b4dd4a8",
+      "readSections": [
+        "§1 pp.1–3: Theorems 1.1–1.2, coefficient hypotheses and fixed-root conclusion. The probability proof is requested from its owner."
+      ]
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticStatistics--ST.4",
+    "date": "2026-10-10",
+    "notes": "Independent review of all 41 targets, eight pinned baseline declarations, four definitions/20 APIs/17 tests, exact imported contracts, source locators and six existing source findings. Corrected 12 nodes (including test metadata), added one existing-upstream import request and one source misprint. All seven findings have independent verdicts. The complete target-level pass remains planned, with six honest gaps, 19 supplier requests and 36 explicit native-signature omissions; no closure or implementation is asserted. Lean elaborated with 39 placeholder warnings only. The reader document is outside this review’s deliverables; precise assembly corrections are in the review report and handoff.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-admissibility",
+        "verdict": "corrected",
+        "note": "Actual local coefficient closures and the eventual threshold agree with Definition 43 p.34. The empty-family witness was made valid even at n=0, and test kinds now use the protocol taxonomy."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-degree-one-arithmetic-comparison",
+        "verdict": "verified",
+        "note": "The actual-divisor/relative-Picard distinction is essential. Local degree-one divisors kill the Picard obstruction; global Brauer injectivity and the degree-two divisor then give the odd-degree and index equivalences. JC4 and the cohomological Brauer bridge are explicit imports."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-generic-weierstrass-class",
+        "verdict": "corrected",
+        "note": "Corrected unconditional Selmer membership to nonvanishing of the finite Weierstrass fibre in H¹. Selmer membership now requires local actual Div¹. The full S_n quantitative-density supplier gives relative genericity and J(Q)[2]=0."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-pencil-local-global-weight",
+        "verdict": "verified",
+        "note": "The algebraic central quotient, reciprocal stabilizer sum and good-prime weight are correct. Read the parent generic rational-orbit weight; the SL_n/μ₂ transporter/class-number-one extension, including two, is explicitly request 4."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-pencil-selmer-weighted-count",
+        "verdict": "verified",
+        "note": "Theorem 40 pp.31–32 gives the one-sided numerator estimate. Stabilizer denominators remain on Σ_i w_i/Stab_Z; only trivial rational stabilizers permit Σ_i w_i=1. Weighted exceptional orbits remain in request 17."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-hyperelliptic-local-mass-ratio",
+        "verdict": "verified",
+        "note": "The torsor must be nonempty. The ratios are 2^(-g),2^g,1 at real,two,odd places, with product one. The parent rank-one Z_p index is insufficient; request 1 explicitly requires Z_p^g."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-pencil-measure-comparison",
+        "verdict": "verified",
+        "note": "Checked both mass identities on BGW p.32. A common rational Jacobian, invariant differential and real stabilizer factor are retained; no independently normalized Haar volumes are substituted."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-tamagawa-central-quotient",
+        "verdict": "verified",
+        "note": "The specifically routed value τ(SL_even/μ₂)=2 matches Theorem 41. The general central-isogeny proof is still G-tamagawa/request 3; neither τ(SL_n)=1 nor the parent PGL₂ evaluation supplies it."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-hyperelliptic-weighted-upper-bound",
+        "verdict": "corrected",
+        "note": "Corrected the real coefficient mass to the sum of the allowed non-negative-definite strata. The numerator and denominator now use the same real indicator; the strong family/tail and Tamagawa qualifications remain."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-hyperelliptic-average-two",
+        "verdict": "verified",
+        "note": "The limsup bound is one-sided. The denominator uses the strong excluded-lift tail, and the factor-16 curve/height transport is constant rescaling. The reduction-only Definition 39 extension remains G-large-saturation."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-restricted-selmer-set",
+        "verdict": "corrected",
+        "note": "All six API statements and four examples match the concrete intersection definition. Replaced the individual-point Abel-map near miss by upstream Sym^k→Pic^k, JC0 torsors and the section-free JC2 map; request 19 and ST.1 compatibility preserve ownership."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-odd-component-bound",
+        "verdict": "corrected",
+        "note": "The five APIs agree with the finite odd-binomial sum, including strictness only for odd k<m−1 and saturation beyond m. All five numerical/degenerate tests were checked; example kinds were corrected to computation."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-real-effective-divisor-image",
+        "verdict": "corrected",
+        "note": "The component parity count and conjugate-pair cancellation agree with Theorem 7 proof. Corrected the effective-divisor import as for the restricted set; m=0 remains separate and uses only the full local bound."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-order-k-strict-average",
+        "verdict": "verified",
+        "note": "On the fully split real stratum m=g+1, odd k<g gives S_m(k)<2^(m−1). Positive measure of that stratum is retained for the finite-prime subfamily extension."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-order-k-vanishing-average",
+        "verdict": "verified",
+        "note": "The height-first then genus limit is correct. Only fixed few-root counts from DPSZ are used; the Div¹ extension uses the same real bound. The uniform denominator and probability proof remain identified supplier obligations."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-small-odd-degree-points-disappear",
+        "verdict": "corrected",
+        "note": "Corrected the complementary-family argument: an odd-degree point forces local actual Div¹, not local rational C-points. Trace and degree-two fibres give the order-k class; Markov then applies to the Div¹-family average."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-selmer-regulator-parity",
+        "verdict": "verified",
+        "note": "The Brauer coefficients n_i and finite Sha quotient are already correct; no Sha-finiteness assumption is needed. Checked DD self-duality/isogeny statements and regulator definitions. Added the missing-exponent source misprint E-ST4-7; supplier proofs remain explicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-biquadratic-parity-formula",
+        "verdict": "verified",
+        "note": "The relation {1}−ΣH+2G yields square class two for every character. Independent exact arithmetic gives constants 1/2,2,2,2. Twisted coranks are character multiplicities; the finite two-primary Sha quotient is retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-four-twist-local-parity",
+        "verdict": "verified",
+        "note": "A.3 requires points and good reduction at every other unique-prime place. Cyclic decomposition cancellation and the split rank-one factor are correctly separated. The extra four-twist local points are required only for the finite-Selmer parity conclusion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-mod-eight-parity-family",
+        "verdict": "verified",
+        "note": "The coordinate change yields the split node at two. Q(i,√2) has cyclic decomposition at odd places, rather than complete splitting at every odd prime. The target asserts corank parity, not finite-Selmer parity."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-odd-residue-field-models",
+        "verdict": "corrected",
+        "note": "Declared n≥3 and the degree conventions. Hensel lifts a simple root for all twists; splitness requires h(a) square. The scalar-square exception, noncoprime factorization and q>4n² bound match the repaired proof."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-full-family-corank-parities",
+        "verdict": "verified",
+        "note": "The residue block inside H<X/2 has density 8^(-n−1)2^(-n−1). Four-twist blocks are disjoint by their x² residues; Sha finiteness is restricted to the Mordell–Weil parity clause."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-admissible-family-selmer-parities",
+        "verdict": "verified",
+        "note": "A.2’s finite-place/twist argument is valid with actual family reconstruction and admissibility. The number-field fixed-basis height, CRT and tail proof remains G-number-field; it is not passed off as verified."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-positive-empty-selmer-set",
+        "verdict": "verified",
+        "note": "The generic minimum sizes two and four give T≥2N+2E−4Z−4B. The limsup-two upper bound and vanishing exceptional density imply liminf Z/N≥δ/2 without assuming an average exists."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-positive-index-two",
+        "verdict": "verified",
+        "note": "An actual rational Pic¹ point gives a soluble cover, contradicting an empty Selmer set. Degree-one comparison then identifies no odd-degree point and index two in the stated locally Div¹ families."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-positive-nontrivial-sha-two",
+        "verdict": "verified",
+        "note": "The image of the finite Weierstrass torsor is the nontrivial locally trivial Pic¹ torsor, killed by the degree-two class. The conclusion needs no finiteness of Sha."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-degree-one-points-empty-or-infinite",
+        "verdict": "verified",
+        "note": "A nonzero Kummer class with J(Q)[2]=0 forces positive rank by Mordell–Weil. Torsor translation gives infinitely many points when Pic¹(Q) is nonempty; the relative generic family hypothesis is retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-corrected-two-prime-criterion",
+        "verdict": "verified",
+        "note": "Checked the p,q and possible dyadic unique-prime places. The added good-reduction/four-point hypothesis at two repairs the A.3 application; the weak-largeness extension remains separate."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-rank-one-selmer-criterion",
+        "verdict": "verified",
+        "note": "Published Skinner C p.332 supports the stronger squarefree-conductor/two-odd-factor statistical criterion. Finite-Selmer to Bloch–Kato comparison is a supplier input; the exact converse export remains G-converse."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-twisted-rank-one-selmer-criterion",
+        "verdict": "verified",
+        "note": "Skinner B p.331 applies to the semistable original E over K, with odd inert ramification, ordinary p, two/p split and gcd(D,N)=1. The zero E-component and line twist-component meet the stated comparison contract; no squarefree-conductor assertion is made for E^D."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-rank-one-family",
+        "verdict": "corrected",
+        "note": "All five APIs and five examples agree with the source’s exact family. Independent point counts are 8 for (−136,16) and 6 for the ordinary counterexample; the latter fails only the ordinary condition. Corrected the positive test’s kind."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-rank-one-family-properties",
+        "verdict": "verified",
+        "note": "The exact d, ordinary five, nonsplit seven, residual inertia and −39 character conditions match Lemmas 14–15. Positive density uses the parent large-family count; minimality and the factor 39^6 are retained as the precise Néron request."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-local-five-quotient-comparison",
+        "verdict": "verified",
+        "note": "Propositions 11–12 preserve the local torsion image and nearby Kummer labels. The 50-dimensional degree-five covering representation is explicitly requested; the 40-dimensional quintic-ring representation is not used."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-five-selmer-local-equidistribution",
+        "verdict": "verified",
+        "note": "Nonidentity elements have singleton mean 5/#Q, not 6/#Q. This is a weighted average over curves, not an assertion about individual localization maps; the strengthened large-family average is request 18."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-rank-one-torsion-image-bound",
+        "verdict": "verified",
+        "note": "The local quotient modulo torsion has size p. Dimension≥2 supplies p−1 kernel elements, odd dimension≥3 supplies p²−1. The displayed N_odd−N_1 correction and twisted original-height convention are correct."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-rank-one-saturated-count",
+        "verdict": "verified",
+        "note": "Proposition 17 cancels the parity terms to give 1−2/(p−1)=1/2 for p=5. The successful original and twist criteria are disjoint subsets of the original family; p=3 would give no positive bound."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-positive-simultaneous-rank-one",
+        "verdict": "verified",
+        "note": "Twisting scales height by 39^6 and the 5/6-power denominator by 39^5. Disjoint curve classes give c_F/(2c_E39^5); only lower limits of average ranks are claimed."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-soluble-generic-three-selmer-elements",
+        "verdict": "verified",
+        "note": "Rank one supplies two nonzero Kummer classes in E(Q)/3E(Q), even with rational three-torsion. Their cubics are smooth, soluble and flex-free; the average-three-Selmer import is used only for the element proportion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-plane-cubic-height-and-orbit-transfer",
+        "verdict": "corrected",
+        "note": "The det^(-1) PGL₃ action and invariant normalizations are correct. Replaced finite piecewise rescaling with direct bounded-height sublevel inclusions; these transfer positivity, not exact averaging constants."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-soluble-ternary-fundamental-count",
+        "verdict": "corrected",
+        "note": "Required a uniform point-multiplicity bound M (or a fundamental set with M=1), compatible with total and bounded-intersection counts. The t^10 exponent follows from invariant degree twelve and curve count exponent 5/6. Fixed the Theorem 2 locator to p.3."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.4/refinement-positive-plane-cubic-solubility",
+        "verdict": "corrected",
+        "note": "The cusp subtraction uses total and bounded-intersection lattice asymptotics. Corrected the distinct-vector lower bound to c₃t^10/(2M), yielding c₃/(2M(2r)^10)>0 in the actual ten-coordinate box; integer cutoffs preserve it. The source statement is p.3."
+      }
+    ]
   }
 }
