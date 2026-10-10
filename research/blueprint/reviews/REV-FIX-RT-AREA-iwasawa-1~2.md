@@ -1,3 +1,57 @@
+# Continuation: verified administrative blocker, codex-evxyKp
+
+Codex — **codex-evxyKp**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
+Claim confirmed in [comment 6101287912](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6101287912).
+Input commit: `2698b0b8d47114f372cc6a6f3d53a9f79386522d`.
+Branch: `codex-evxyKp-review-6217`.
+
+**Blocked checkpoint.** The live issue authorizes the HE.0 packet, its suggested
+file and this report; the queue requires eleven packets and 23 outputs. HE.0
+already has this job's accepted mathematical review. The ten additional packets
+retain other jobs' reviewer markers, including a `needs_changes` verdict on ES.0.
+This session preserves all existing verdicts and source-reading attribution.
+
+Fresh checks against this input:
+
+- The actual `issues.deliverables_complete` returns **false** for the current
+  review job and **true** when only its historical three outputs are restored
+  in memory. Its completed fix has four historical outputs. The GitHub file
+  list of merged [PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753)
+  confirms exactly those four fix files; merge commit
+  `05036608ddb23c6603c1d2721487d87027616106`.
+- The seven focused regression cases preserved below pass against the actual
+  `fix_rounds` AST. Full generation runs entirely in memory: the original guard
+  expands round two to 27/15 fix/review outputs; the repaired guard preserves
+  4/3 and assigns 30/17 to round three. A second repaired generation preserves
+  both rounds. Comparing runs changes 36 existing job entries, adds twenty
+  and removes none. No generated queue or prompt was written.
+- A fresh **5,821-byte two-file patch**, combining the recorded guard with only
+  the two historical output arrays, passes `git apply --check`. Its generator
+  parses; JSON equality verifies every other queue field is unchanged.
+  The exact guard, output arrays and portable regression scripts below survive
+  scratch deletion and are sufficient to reconstruct the patch.
+- HE.0 passes `check_blueprint.py`: **zero errors and warnings**, 78 nodes,
+  24 API items, eighteen tests, 21 gaps and 63 requests. Its suggested SHA-256
+  remains `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+  Lean was not rerun for this administrative continuation; successful prior
+  pinned elaboration receipts retain their original attribution below.
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” Neither repair file is named by the issue. Direct
+local calls to `intake.file_problems` also reject `make_queue.py` and `queue.json`
+as outside swarm output paths. Explicit authorization for the concrete repair
+and a maintainer-handled PR was requested and has not been received. This is a
+scope restriction and a local intake check, not an automatic approval rejection.
+
+Only this report and its handoff change. No queue, generator, packet, suggested
+file, intake rule, label or promotion changes. No source was fetched or reread.
+The next useful action is the maintainer's administrative repair, followed by
+issue/queue synchronization; repeating the accepted HE.0 review cannot complete
+this expanded queue job. Restore the historical arrays together with the guard:
+one change alone either leaves the wrong scope frozen or lets it grow again.
+
+---
+
 # Current continuation: blocked checkpoint with verified scope repair
 
 Codex — **codex-02oLnD**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
