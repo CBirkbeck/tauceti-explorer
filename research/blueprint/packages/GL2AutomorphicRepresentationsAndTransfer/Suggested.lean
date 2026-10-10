@@ -26,6 +26,11 @@ import Mathlib.Algebra.Group.Action.Defs
 import Mathlib.Algebra.Group.Action.Basic
 import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.GroupTheory.FiniteAbelian.Duality
+import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
+import Mathlib.Analysis.Complex.Polynomial.Basic
+import Mathlib.Topology.Algebra.OpenSubgroup
+import Mathlib.Topology.Algebra.Group.Units
 import Mathlib.Algebra.Ring.Int.Parity
 import Mathlib.Topology.Algebra.InfiniteSum.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Complex
@@ -1045,6 +1050,85 @@ arbitrary groups and rings both existence claims are false.
 README targets: R17.5/finite-hecke-extension, R17.5/odd-residual-lift.
 Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
 -/
+
+/-- Descent and finite-character extension through an open finite quotient.
+The congruence subgroup N is an input, not an arithmetic existence claim. -/
+theorem finite_character_extension_iff
+    {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H N : Subgroup G) [N.FiniteIndex] (hN : IsOpen (N : Set G))
+    (χ : H →* ℂˣ) :
+    (∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧
+      (∀ n ∈ N, Ψ n = 1) ∧
+      (Set.range Ψ).Finite ∧
+      (∀ g : G, Ψ g ^ Monoid.exponent (G ⧸ N) = 1)) ↔
+    ∀ h : H, (h : G) ∈ N → χ h = 1 := by
+  constructor
+  · rintro ⟨Ψ, hΨ, hker, -, -⟩ h hh
+    rw [← hΨ h]
+    exact hker h hh
+  · intro hχ
+    let q := QuotientGroup.mk' N
+    let f : H →* G ⧸ N := q.comp H.subtype
+    have hf : f.rangeRestrict.ker ≤ χ.ker := by
+      intro h hh
+      apply hχ
+      have he : f h = 1 := congrArg Subtype.val hh
+      exact (QuotientGroup.eq_one_iff _).mp he
+    let ξ : f.range →* ℂˣ :=
+      f.rangeRestrict.liftOfSurjective f.rangeRestrict_surjective ⟨χ, hf⟩
+    obtain ⟨η, hη⟩ := MonoidHom.domRestrict_surjective ℂ f.range ξ
+    let : DiscreteTopology (G ⧸ N) := QuotientGroup.discreteTopology hN
+    let Ψ : ContinuousMonoidHom G ℂˣ :=
+      { toMonoidHom := η.comp q
+        continuous_toFun :=
+          (show Continuous (η : G ⧸ N → ℂˣ) from continuous_of_discreteTopology).comp
+            (show Continuous (q : G → G ⧸ N) from QuotientGroup.continuous_mk) }
+    refine ⟨Ψ, ?_, ?_, ?_, ?_⟩
+    · intro h
+      have hre := congrArg (fun ψ : f.range →* ℂˣ => ψ (f.rangeRestrict h)) hη
+      change η (f h) = χ h
+      rw [show η (f h) = ξ (f.rangeRestrict h) from hre]
+      exact MonoidHom.liftOfRightInverse_comp_apply _ _ _ _ _
+    · intro n hn
+      change η (q n) = 1
+      rw [show q n = 1 from (QuotientGroup.eq_one_iff n).mpr hn, η.map_one]
+    · exact (Set.finite_range η).subset (by rintro y ⟨g, rfl⟩; exact ⟨q g, rfl⟩)
+    · intro g
+      change η (q g) ^ Monoid.exponent (G ⧸ N) = 1
+      rw [← η.map_pow, Monoid.pow_exponent_eq_one, η.map_one]
+
+-- Trivial local data extends even when the ambient group is infinite.
+example {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H : Subgroup G) :
+    ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = 1) ∧ (∀ g : G, Ψ g = 1) ∧ (Set.range Ψ).Finite := by
+  obtain ⟨Ψ, hext, hker, hfinite, -⟩ :=
+    (finite_character_extension_iff H ⊤ isOpen_univ (1 : H →* ℂˣ)).mpr
+      (by intro h _; rfl)
+  exact ⟨Ψ, hext, fun g => hker g (by trivial), hfinite⟩
+
+-- In a finite discrete ambient group every subgroup character extends.
+example {G : Type*} [CommGroup G] [Finite G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [DiscreteTopology G] (H : Subgroup G) (χ : H →* ℂˣ) :
+    ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧ (Set.range Ψ).Finite := by
+  obtain ⟨Ψ, hext, -, hfinite, -⟩ :=
+    (finite_character_extension_iff H ⊥ (isOpen_discrete _) χ).mpr
+      (by intro h hh; have he : h = 1 := Subtype.ext hh; rw [he, χ.map_one])
+  exact ⟨Ψ, hext, hfinite⟩
+
+-- A nontrivial value on the intersection forbids an extension killing N.
+example {G : Type*} [CommGroup G] [TopologicalSpace G] [IsTopologicalGroup G]
+    (H N : Subgroup G) [N.FiniteIndex] (hN : IsOpen (N : Set G))
+    (χ : H →* ℂˣ) (h : H) (hh : (h : G) ∈ N) (hne : χ h ≠ 1) :
+    ¬ ∃ Ψ : ContinuousMonoidHom G ℂˣ,
+      (∀ h : H, Ψ h = χ h) ∧ (∀ n ∈ N, Ψ n = 1) ∧ (Set.range Ψ).Finite ∧
+      (∀ g : G, Ψ g ^ Monoid.exponent (G ⧸ N) = 1) := by
+  intro hext
+  exact hne ((finite_character_extension_iff H N hN χ).mp hext h hh)
+
+
 /- A concrete domain test: the unramified quadratic character of ℚ₂× and
 the trivial character agree on integral units and torsion, but differ at 2.
 This proves no global extension theorem. -/
