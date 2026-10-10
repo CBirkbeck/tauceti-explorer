@@ -1,80 +1,66 @@
-# Handoff: issue #6217 needs the tested queue-scope repair
+# Handoff: #6217 remains blocked by completed-round scope expansion
 
-Codex — **codex-kahzso**, 10 October 2026.
-Branch: `codex-kahzso-review-6217`.
-Input commit: `0d2178b78bf6a3deea5f4c16c2165442659a2a38`.
-Claim confirmed in [comment 6099857101](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6099857101).
+Codex — **codex-EDD1Xo**, 10 October 2026.
+Branch: `codex-EDD1Xo-review-6217`.
+Input commit: `a88313a4145831859fa4e61e0761d3f0ac86bc2c`.
+Claim confirmed in [comment 6100074571](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100074571).
 
-**Blocked checkpoint.** No second job was claimed. The issue-named HE.0 fix
-review is already accepted; its packet, reader and suggested file are unchanged.
-The live issue authorizes three outputs, while the checked-in queue requires
-23. All files exist, but ten additional packets carry other review jobs'
-verdicts. The real completion predicate is false for the queue job and true
-for the issue's historical three-output scope.
+**Blocked checkpoint.** This run claimed only #6217. The HE.0 mathematical
+fix review is already accepted by this review job; no new mathematical review
+or source reading is claimed. The issue authorizes three outputs, while the
+queue requires 23. All files exist, but ten additional packets have other
+jobs' verdicts. The actual completion predicate is false for that queue scope
+and true for the issue's historical scope.
 
-Do not repeat the HE.0 mathematical review. Do not stamp the ten extra packets
-without independently reviewing them. The prior mathematical-review verdicts,
-source hashes and locators are preserved in the
-[report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) and packet. This continuation
-adds an executable, self-contained repair replay to the report, so no scratch
-file is needed by the next worker.
+## What this run added
 
-## Concrete repair ready for the maintainer
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) now includes a standalone
+focused regression script using the actual `fix_rounds` AST. It verifies the
+original bug, completed-round preservation, routing of new work, stability
+through a second generation, continued expansion of unfinished rounds, genuine
+send-back dependencies, and preservation of historical rejection dependencies.
+All cases pass. The full-generator replay was independently rerun: old guard
+27/15 round-two outputs; repaired guard four/three, then 30/17 for round three;
+the second repaired generation is stable. Its wider effect remains 36 existing
+jobs changed, twenty added and none removed, all in memory.
 
-1. Apply the report's three-line change to `make_queue.py::fix_rounds`: reuse a
-   following round's historical job when its state is `done`, even when new
-   blueprints have arrived. Keep the existing no-new-work branch as well.
-2. Restore only the `outputs` lists of `FIX-RT-AREA-iwasawa-1~2` and
-   `REV-FIX-RT-AREA-iwasawa-1~2` from commit `88f9bcd44`, the merge of PR #6753.
-   The report includes both exact lists: four fix outputs, three review outputs.
-   Preserve the current job states and other fields. Changing the guard alone
-   preserves the already corrupted forty-output fix scope.
-3. Check regeneration twice. With the present full-generator inputs, round two
-   retains four/three outputs and round three receives thirty/seventeen.
-   The isolated round-function replay using the expanded queue's blueprint list
-   yields forty/twenty-three for round three instead. These are different input
-   routings; do not hand-copy the isolated counts into the queue.
-4. Inspect the broader regeneration. The shared guard changes 36 existing jobs
-   and adds twenty entries (ten fix/review pairs), with no job removed. Other
-   already corrupted historical scopes may also need recovery from their actual
-   submissions. Publish matching issue bodies for any new fix/review rounds.
-5. Verify this job's completion predicate after restoring its scope. Existing
-   HE.0 review attribution already satisfies it. Newly routed work belongs to
-   a separate round and is not done by this review.
+A minimal 5,821-byte patch was prepared in scratch: the generator guard and only
+the two historical output lists, with original queue formatting preserved. The
+report contains the exact repair and both reproducible scripts, so nothing in
+scratch is required to resume. Restoring those lists makes the real completion
+predicate true without changing any packet's review attribution.
 
-## Evidence added in this run
+## Resume here: maintainer scope repair
 
-The full-generator replay executes the actual routing and generation in memory,
-with writes refused and its lock redirected into scratch. Original guard:
-round two expands to 27 fix and fifteen review outputs. Repaired guard: round
-two stays at four/three, and round three gets thirty/seventeen. The repaired
-output lists are stable through a second complete generation.
+1. Restore only `outputs` of `FIX-RT-AREA-iwasawa-1~2` and
+   `REV-FIX-RT-AREA-iwasawa-1~2` from `88f9bcd44` (PR #6753). Preserve states
+   and other fields. The report gives the exact four/three lists.
+2. Apply the report's guard change in `make_queue.py::fix_rounds`: preserve a
+   following completed historical round when new blueprints arrive. The guard
+   alone would freeze the already incorrect forty-output scope.
+3. Verify completion and two regeneration passes. Inspect new routing and the
+   shared guard's wider effect. Other corrupted historical rounds need their
+   own actual submission scopes recovered, not arbitrary reductions.
+4. Publish matching issue instructions for additional fix/review rounds. Round
+   three receives newly available work; it does not belong to this review.
 
-The isolated replay executes the actual nested function. Original guard:
-forty/twenty-three in round two; repaired guard: four/three in round two and
-forty/twenty-three in round three. Its second generation is stable. A genuine
-round-two `needs_changes` review still makes round three depend on that review;
-newly available work alone makes it depend on the completed fix.
+Do not repeat the HE.0 mathematical review or replace ten other review markers.
+No worker-only deliverable edit resolves this administrative mismatch.
 
-Fresh HE.0 checker run against the pinned declaration index: zero errors and
-warnings (78 nodes, 24 API items, eighteen tests, 21 gaps and 63 requests).
-No mathematical/source review is claimed for this administrative continuation.
-No source file was fetched or reread. No Lean process was started. The unchanged
-suggested-file hash is
-`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`;
-the report preserves the previous successful `lean-check` run (exit 0, 114
-warnings, all `sorry`) and its attribution.
+## Authority and validation
 
-## Required authority
+Scope expansion for the concrete repair was requested during this run but had
+not arrived at submission. [WORKERS.md](../WORKERS.md) limits edits to
+issue-named files. `intake.py::file_problems` also excludes generator and queue
+paths, so applying the repair needs maintainer handling; no allowlist bypass or
+out-of-scope submission was attempted. This checkpoint edits only report/handoff.
 
-[WORKERS.md](../WORKERS.md) limits edits to issue-named files. The generator,
-queue and regression tests are outside this issue's scope. Scope expansion
-was requested and has not arrived. This submission changes only the report
-and this handoff.
-
-`intake.py::file_problems` also rejects generator and queue files as outside
-swarm output paths. Apply the repair through a maintainer-handled change;
-do not weaken intake or enlarge job outputs to bypass its checks. This
-checkpoint's two Markdown files are allowed. The extra packet reviews remain
-untouched. Scratch can be deleted once the pull request opens: the report
-contains the patch, exact restoration lists, full replay and historical receipts.
+Fresh HE.0 packet validation: zero errors and warnings (78 nodes, 24 API items,
+eighteen tests, 21 gaps, 63 requests). The packet and suggested file are unchanged.
+Suggested SHA-256:
+`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+No Lean process started; the report preserves the earlier successful exact-pin
+`lean-check` receipt (exit 0, 114 warnings, all `sorry`) and its attribution.
+No public source was downloaded and no cleared source was read or copied.
+Scratch can be removed after opening the PR: every needed repair and regression
+instruction is in the report.
