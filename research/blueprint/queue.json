@@ -32205,7 +32205,7 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-PeriodsAndSpecialValues--PS.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -32227,7 +32227,8 @@
     "BP-RankZeroOneBSD--BSD.0",
     "BP-RankZeroOneBSD--BSD.7"
    ],
-   "note": "claimed on GitHub issue #1035"
+   "note": "deliverables arrived from an external worker on issue #1035",
+   "finishedAt": "2026-10-11T03:51:47Z"
   },
   {
    "id": "REV-PeriodsAndSpecialValues--PS.8",
@@ -36792,8 +36793,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6343"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6343",
+   "finishedAt": "2026-10-11T03:51:49Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
@@ -47690,8 +47692,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49223,8 +49225,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49314,8 +49316,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80281,8 +80283,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
