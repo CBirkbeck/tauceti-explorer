@@ -859,6 +859,16 @@ abbrev IntegralUCTExt (G A : Type) [Group G] [AddCommGroup A] :=
   ((Ext ℤ (ModuleCat ℤ) 1).obj
     (Opposite.op (ModuleCat.of ℤ (Additive (Abelianization G))))).obj (ModuleCat.of ℤ A)
 -- The injection is a specified natural map, rather than an existential choice.
+-- For native bar modules C_i, set Z_i = ker d_i and B_i = im d_(i+1).
+-- Represent the evaluation kernel by Hom(B_1,A) modulo restrictions from Z_1;
+-- a representative ψ gives the cocycle ψ ∘ d_2, with d_2 corestricted to B_1.
+-- Pinned groupHomology.cycles₁IsoOfIsTrivial identifies Z_1 with free C_1.
+-- Reuse current TauCeti.homCokernelEquivExt for 0 → B_1 → Z_1 → H_1 → 0,
+-- then compare its categorical Ext with this derived bifunctor. That current
+-- module is beyond the build pin and is not imported here. The native group-map
+-- comparison and arbitrary-rank B_1 projectivity remain UCT input duties:
+-- pinned Submodule.basisOfPid assumes a finite basis index. No chosen splitting
+-- of evaluation defines the injection or either naturality law.
 def integral_uct_ext_inclusion :
     IntegralUCTExt G A →+ groupCohomology.H2 (Rep.trivial ℤ G A) := by sorry
 lemma integral_uct_ext_inclusion_injective :
