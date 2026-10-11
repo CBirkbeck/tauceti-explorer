@@ -183031,9 +183031,9 @@
    "owner": "CongruenceSpectralGap",
    "file": "research/blueprint/packets/CongruenceSpectralGap.json",
    "citation": "Sources of the blueprint of CongruenceSpectralGap",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-CongruenceSpectralGap",
+   "reviewReason": "The published p.395 scan uses an ordinary unit integral before the dy/y transform; evaluating that transform at zero requires the multiplicative normalization."
   },
   {
    "id": "CongruenceSpectralGap/E2",
@@ -183052,9 +183052,9 @@
    "owner": "CongruenceSpectralGap",
    "file": "research/blueprint/packets/CongruenceSpectralGap.json",
    "citation": "Sources of the blueprint of CongruenceSpectralGap",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-CongruenceSpectralGap",
+   "reviewReason": "The p.397 scan of (3.12) omits the ±1 classes from the subtraction. Formula (3.11), including the n=1 case, requires subtraction there too."
   },
   {
    "id": "CrystallineCohomology/E1",
@@ -192940,9 +192940,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At SCH23-author Proposition 5.5, p. 16, the local canonical cover is not identified with a globally extending twist. The independent global ±1,±2 torsor list and Q₂ 5-class comparison supply the missing step."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E2",
@@ -192960,9 +192960,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 9.2, p. 24, a reduced fibre graph can be cyclic (I_n) or triangular (IV); it need not have a terminal vertex. The repair chooses a smooth rational point of the whole simple scheme fibre, including these cases."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E3",
@@ -192980,9 +192980,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 9.3(v), p. 25, Tsen cannot be invoked over F₂(t). Use Tsen over F̄₂(t), then the Galois-equivariant restriction and descended two-section argument for MW descent."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E4",
@@ -193000,9 +193000,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 12.3, p. 43, the finite order-two quotient is Pic⁰ of the generic curve. All Pic has an infinite degree summand with image 2Z; the two-section splitting retains it."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E5",
@@ -193020,9 +193020,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 5.4(iii), p. 15, multiplication on O⊕L^{-1} must have tensor type L^{-2}→O, supplied by the dual trivialization; the displayed use of the L^{2} trivialization has the wrong source."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E6",
@@ -193040,9 +193040,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "The author’s eleven elliptic candidates (Proposition 10.4, pp. 29–31) omit the three additional twisted configurations in the canonical atlas finding. Their explicit model data were checked for compatibility with the fibre restrictions; no exhaustive classification is claimed. A separate /247 completeness gate and /246 Enriques exclusions are retained."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E7",
@@ -193060,9 +193060,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 9.3(iv), p. 25, geometric symbol I₀ does not distinguish ordinary from supersingular. Corollary 8.3 supplies the residue-field elliptic curve comparison needed for the ordinary conclusion."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E8",
@@ -193080,9 +193080,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 11.2, p. 34, the partner argument requires nonexceptionality, as in Proposition 4.4(iii). This is now an explicit domain hypothesis throughout the relevant exclusions."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E9",
@@ -193100,9 +193100,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "In the IV case of Proposition 11.3, p. 38, the first bound must use the I₁* half-fibre over 0, not the displayed half-fibre over infinity; their component incidences differ."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E10",
@@ -193120,9 +193120,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "In that IV case, p. 38, the branch in which the partner fibre equals the original fibre still needs the weighted A₂ bound. The correction keeps this separate branch; it does not cover the extra IV*+E₄+Ĩ₂ case."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E11",
@@ -193140,9 +193140,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 12.2, p. 42, the spinor congruence alone does not select the terminal C₈. Enumerating all fifteen weighted incidences gives four isotropic pairs, and independent terminal swaps justify the normalized {0,8} branch."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E12",
@@ -193160,9 +193160,9 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "At Proposition 14.1, p. 47, Proposition 4.4 is a characteristic-two assertion, whereas the target has arbitrary characteristic. MMV22 Theorem 1.2/Remark 1.5 supplies the general partner contract; its full proof acquisition is explicitly open."
   },
   {
    "id": "EnriquesSurfacesAndIntegralNonexistence/E13",
@@ -193180,9 +193180,49 @@
    "owner": "EnriquesSurfacesAndIntegralNonexistence",
    "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "The table on p. 33 and §15 on p. 49 do not treat the three omitted configurations. Both nonexistence endpoints must depend on their separate exclusion and the corrected elliptic list’s exhaustiveness."
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E14",
+   "kind": "misprint",
+   "locator": "§7, proof of Proposition 7.1, p. 23 (author version, 4 January 2021)",
+   "printed": "The tangent-sheaf Euler characteristic is assigned the positive value ten.",
+   "correction": "Its value is negative ten.",
+   "reason": "c₂(Y)=12 and χ(O_Y)=1 give −c₂+2χ(O_Y)=−10; both displayed triples have alternating sum −10.",
+   "affects": "nothing",
+   "known": "No separate correction was found in the atlas’s DI21 references searched during review.",
+   "searched": [
+    "Atlas paper results referring to DI21 and tangent Euler characteristics",
+    "Public author version, Proposition 7.1 and proof, p. 23"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, The Deligne–Illusie theorem and exceptional Enriques surfaces, Revised author version, 4 January 2021; Eur. J. Math. 7 (2021), 489–525",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "Independent arithmetic and the two cohomology triples give the same negative Euler characteristic; the planned triples remain unchanged."
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E15",
+   "kind": "misprint",
+   "locator": "§7, opening canonical-cover paragraph, p. 23 (author version, 4 January 2021)",
+   "printed": "The cohomological invariants and trivial dualizing sheaf of the canonical cover are subscripted by the Enriques base.",
+   "correction": "Those assertions refer to the total space X of the canonical cover.",
+   "reason": "The paragraph names the total space X immediately before the invariants. They are false for a classical Enriques base Y, which has h²(O_Y)=0 and nontrivial ω_Y, whereas the canonical cover has h²(O_X)=1 and trivial dualizing sheaf.",
+   "affects": "nothing",
+   "known": "No separate correction was found in the atlas’s DI21 references searched during review.",
+   "searched": [
+    "Atlas paper results referring to DI21 canonical-cover invariants",
+    "Public author version, opening §7 paragraph, p. 23"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, The Deligne–Illusie theorem and exceptional Enriques surfaces, Revised author version, 4 January 2021; Eur. J. Math. 7 (2021), 489–525",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
+   "reviewReason": "The correct total-space assertions agree with E1/k3-like-cohomology and distinguish classical base and cover."
   },
   {
    "id": "ErdosProgressionPowers/E1",
@@ -198424,7 +198464,7 @@
    "id": "FunctionFieldArithmeticPartII/E1",
    "kind": "misprint",
    "locator": "§7.1.1, p. 506; §A.2.1 and Lemma A.7, p. 519 (same in arXiv v2)",
-   "printed": "K_(d,i)=j!*(L[d])[−d]",
+   "printed": "The normalized IC object is shifted back by its dimension and then given a perverse label.",
    "correction": "Call K the normalized unshifted IC complex; K[d] is perverse. Apply the same normalization discipline to Lhat_d.",
    "reason": "Its restriction on a smooth d-dimensional open is a local system in degree zero; perversity requires shift d. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
    "affects": "nothing",
@@ -198439,14 +198479,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.506 has the normalized IC display followed by the perverse label, and Appendix A pp.519–520 calls the unshifted lisse object perverse. The correction retains the actual normalization."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "Fresh inspection of §7.1.1 p.506 and A.2.1/Lemma A.7 pp.519–520 confirms the normalization issue: removing the dimension shift from an IC or lisse complex does not leave the perverse normalization."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E2",
    "kind": "error",
    "locator": "§A.1.3, pp. 515–516 (same in arXiv v2)",
-   "printed": "P_x≅[SpecK/μ2]",
+   "printed": "The source describes the full ramified geometric fibre as a classifying stack.",
    "correction": "The full geometric fibre is [Spec K[t]/(t²)/μ2]; only its reduced substack is Bμ2.",
    "reason": "Trivialize the square line. A root section satisfies t²=0, so it has nonzero infinitesimal possibilities over dual numbers. The source's subsequent Cartesian squaring diagram yields this nonreduced fibre.",
    "affects": "a stated result",
@@ -198461,14 +198501,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed pp.515–516 assert the classifying-stack full fibre, but the scheme-theoretic root equation is t²=0; AGV B.2 p.53 explicitly retains its nilpotent thickening."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "A.1.3 pp.515–516 gives the classifying-stack description for a full fibre. The root equation and AGV B.2 p.53 retain nonzero nilpotent sections, so that description applies only to the reduced fibre."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E3",
    "kind": "misprint",
    "locator": "Lemma A.8, proof, p. 520, and the targets of (A.5)–(A.6)",
-   "printed": "χ:π1(U)→{±1}",
+   "printed": "The proof restricts the global character of the arbitrary rank-one input to signs.",
    "correction": "Use χ:π1(U)→Qℓbar× for the stated arbitrary rank-one local system; inertia at R has order dividing two.",
    "reason": "An unramified rank-one character may have order three (or infinite ℓ-adic image). The tensor-character proof works without imposing quadratic global monodromy. (cc-442dc5) Reclassified to affect nothing: a misprint whose intended form, given in the correction, is fixed by the surrounding displays and normalizations; the argument goes through with it.",
    "affects": "nothing",
@@ -198483,14 +198523,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.520 uses a globally ±1-valued character for the arbitrary rank-one input fixed on p.519; only the branch inertia is constrained to order two."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "A.2.1 fixes an arbitrary rank-one input, while the proof of Lemma A.8 p.520 gives its character a globally order-two target. Only the specified branch inertia has that restriction."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E4",
    "kind": "misprint",
    "locator": "Proposition A.11 (not Lemma A.11), proof, p. 523",
-   "printed": "AJ_(d1+d2)",
+   "printed": "The proof names the Abel–Jacobi map for the sum degree in the two-factor descent step.",
    "correction": "Descend the two-factor multiplicativity isomorphism along AJ_d1×AJ_d2.",
    "reason": "The target is Pic^d1×Pic^d2; the single Abel–Jacobi map lands in Pic^(d1+d2) and has the wrong domain for this pullback.",
    "affects": "nothing",
@@ -198505,14 +198545,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.523 names AJ_(d1+d2) while the multiplication comparison is on the two-factor Picard product; the product of Abel–Jacobi maps is the required pullback."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "The multiplicativity comparison in Proposition A.11 p.523 lives on two Picard factors. Descent therefore uses the product of the two Abel–Jacobi maps, rather than the single addition-degree map named in that proof."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E5",
    "kind": "misprint",
    "locator": "Definition A.2, p. 515 (same in arXiv v2)",
-   "printed": "The source refers to restricting a_R.",
+   "printed": "The restriction clause refers back to the restricted section itself.",
    "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
    "reason": "Checked on the page image. a is the global section in the previous bullet.",
    "affects": "nothing",
@@ -198526,14 +198566,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.515 says a_R is the restriction of a_R; the previous bullet supplies the global section a whose restriction is intended."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "Definition A.2 p.515 has both the global section and its restriction as data. The self-reference for the restriction must instead refer to the global section."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E6",
    "kind": "misprint",
    "locator": "Lemma A.10, proof, p. 522",
-   "printed": "The source chooses a divisor D.",
+   "printed": "The auxiliary divisor is introduced without an explicit effectiveness condition.",
    "correction": "Choose an effective divisor D supported in X−R with deg D=d′≥max{2g−1,1}+ρ−d.",
    "reason": "Checked on the page image. The proof uses T_D: X^√R_d → X^√R_{d+d′}, addition of D, and (A.7), which are defined only for effective D. Effective divisors of every large degree exist on X − R.",
    "affects": "nothing",
@@ -198547,14 +198587,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.522 uses a divisor in an addition-of-effective-divisors map. Choosing a sufficiently large effective divisor is the needed condition; no degree-one point is required."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "Lemma A.10 p.522 uses addition in effective-divisor spaces. Its auxiliary divisor must be chosen effective as well as sufficiently large and disjoint from R; the stated replacement does this without assuming a degree-one rational point."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E7",
    "kind": "misprint",
    "locator": "Proposition A.11, proof, display before (A.8) and (A.9), p. 523",
-   "printed": "The source gives L^Pic_{d1+d2} ≅ t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ L^{⊗−1}_{D1+D2}. It then obtains mult^*_{d1,d2}L^Pic_{d1+d2} ≅ mult^*_{d1,d2} t^*_{D1+D2} L_{d1+d2+n1+n2} ⊗ … ≅ ((t_{D1}×t_{D2})^* mult^*_{d1+n1,d2+n2} L_{d1+d2+n1+n2}) ⊗ …",
+   "printed": "Three translation and multiplication expressions use the local-system notation without its Picard decoration.",
    "correction": "L^Pic_{d1+d2+n1+n2} in all three places.",
    "reason": "Checked on the page image. t_{D1+D2} and mult act on Pic^√R_X, where L^Pic lives. L_{…} lives on X^√R_{…}. §A.2.2 defines L^Pic_d = t_D^*L^Pic_{d+d′} ⊗ L_D^{⊗−1}, and (A.8) correctly uses L^Pic.",
    "affects": "nothing",
@@ -198568,14 +198608,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "The three expressions on p.523 following (A.8) apply translations and multiplication on Picard stacks to L rather than L^Pic; the preceding definition and (A.8) fix the intended object."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "The three translated expressions on p.523 require the Picard local system defined there. Their omitted Picard decoration changes the space on which the object is defined."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E8",
    "kind": "gap",
    "locator": "Version of record, p. 525, A.3.3 display (A.11); unchanged in arXiv:1712.08026v2 p. 89.",
-   "printed": "The source presents (A.11) as an exact sequence involving Picard stacks.",
+   "printed": "The display asserts exactness for a complex of Picard stacks without specifying the coherent exactness and descent data.",
    "correction": "Specify the coherent exactness notion and construct the torsor connecting/descent data from the two short exact sheaf sequences; do not identify the ordinary kernel of 1−σ on Picard classes with the image of pullback.",
    "reason": "For ν:P¹→P¹, t↦t² in odd characteristic, σ*O(1)≅O(1), but every pulled-back line bundle has even degree. Thus plain kernel/image exactness is false. Passing from a four-term exact sheaf complex to Picard groupoids does not by itself prove a chosen two-categorical replacement. Root-normalized trivializations and connecting maps must be retained. This tests an interpretation, and does not assert that every possible intended coherent exactness statement is false.",
    "affects": "the proof",
@@ -198589,14 +198629,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "The P¹ double-cover degree test rules out ordinary kernel/image exactness on line-bundle classes. This confirms only the recorded interpretation/proof gap: a coherent Picard-stack replacement and its obstruction data remain to be established."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "A.3.3 p.525 displays Picard-stack exactness without the required coherent descent and obstruction data. The degree test for a double cover of P¹ rules out ordinary kernel/image exactness on Picard classes. This confirms the interpretation gap only; NORM-2EXACT remains open."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E9",
    "kind": "misprint",
    "locator": "Lemma A.5, proof, p. 518",
-   "printed": "(K_R, ι, τ_R)",
+   "printed": "The tuple for the extra root-frame data uses the notation for an ordinary line frame.",
    "correction": "(K_R, ι, t_R)",
    "reason": "Checked on the page image. The extra data are K_R, ι and the trivializations t_R = {t_x}_{x∈R} of K_x. The τ_x trivialize L and belong to the data of \\hat{Pic}_X(k).",
    "affects": "nothing",
@@ -198610,14 +198650,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Zhiwei Yun and Wei Zhang, Shtukas and the Taylor expansion of L-functions (II), Annals of Mathematics 189 (2019), 393–526, published author-hosted copy",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Printed p.518 introduces t_R as the root-line frame and then writes τ_R for these extra data. The ordinary line frames τ_x are different."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "In the proof of Lemma A.5 p.518 the root-line frame has a different name from the ordinary local line frames. The extra-data tuple must use the root-line frame introduced there."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E10",
    "kind": "error",
    "locator": "Alper author working draft23February2023, Example3.9.13 p.139, paragraph following the displayed root-stack definition; corrected author draft5January2026 Example4.9.22 p.159.",
-   "printed": "The source identifies √[r](L,0)/X with √[r]L/X, the root gerbe.",
+   "printed": "The old draft identifies the zero-section root stack with the root gerbe.",
    "correction": "The zero-section root stack retains root sections t with t^n=0; these can be nonzero on nonreduced test schemes. Do not identify it with the root gerbe that forgets t. The later draft explicitly cautions against this identification.",
    "reason": "On Spec(Z/9), n=2 is invertible. With trivial line and identification coefficient1, both t=0 and t=3 satisfy t^2=0. No unit sends3 to0. These distinct root objects forget to the same framed root-gerbe data. The native framedRootTests.zero_section_retains_nilpotents proves the coordinate counterexample; the general sheaf comparison remains planned.",
    "affects": "a stated result",
@@ -198629,14 +198669,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Jarod Alper; specialized deductions by Codex — codex-rtOQ9t, Root stacks; authored framed root-coordinate and normalized-chart deductions, Author draft5January2026, selected extracted printedpp.159–160 only; corresponding23February2023 p.139 collated",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Fresh comparison of the 2023 Example3.9.13 p139 with the 2026 Example4.9.22 p159 Caution confirms the draft error: nonzero nilpotent root sections survive over the zero section, whereas the gerbe forgets them."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "The 2023 Example3.9.13 p.139 identifies a zero-section root stack with a root gerbe. The 2026 Example4.9.22 p.159 Caution corrects this: nonzero nilpotent root sections are retained by the former."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E11",
    "kind": "error",
    "locator": "Alper author working draft23February2023, Exercise3.9.14(e) p.139; corrected author draft5January2026 Exercise4.9.23(f) p.160.",
-   "printed": "For a point x∈X, the source identifies its fiber with Bμ_r,κ(x).",
+   "printed": "The old draft describes every point fibre as a roots-of-unity classifying stack.",
    "correction": "The map is an isomorphism over the nonvanishing locus. The zero locus carries an infinitesimal extension of the root gerbe as the later draft states; do not give every fiber the classifying-stack description or discard its infinitesimal structure.",
    "reason": "For r=2 over a characteristic-zero field with nonzero section, the asserted isomorphism on the nonvanishing locus gives a scheme fiber with trivial automorphism groups; Bμ_2 has a nontrivial automorphism group. Over the zero locus, nonzero nilpotent root sections also remain, as in E10. No general root-stack or gerbe equivalence is closed by this checkpoint.",
    "affects": "a stated result",
@@ -198648,14 +198688,14 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Jarod Alper; specialized deductions by Codex — codex-rtOQ9t, Root stacks; authored framed root-coordinate and normalized-chart deductions, Author draft5January2026, selected extracted printedpp.159–160 only; corresponding23February2023 p.139 collated",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "Fresh comparison of 2023 Exercise3.9.14(e) p139 with 2026 Exercise4.9.23(f) p160 confirms the draft error: off V(s) the projection is an isomorphism; on V(s) the fibre retains an infinitesimal extension of the root gerbe."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "The 2023 Exercise3.9.14(e) p.139 gives a classifying-stack description for every fibre. The 2026 Exercise4.9.23(f) p.160 instead distinguishes the isomorphism on the nonvanishing locus from the infinitesimal extension over the zero locus."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E12",
    "kind": "misprint",
    "locator": "arXiv:math/0603151v2, Appendix B.2, p.53, item (3) in the triple definition; preprint only.",
-   "printed": "φ(τ^m) = σ",
+   "printed": "The section equation uses a different exponent symbol from the preceding power-identification equation.",
    "correction": "φ(τ^d) = σ",
    "reason": "The same definition has φ:M^{⊗d}≅L_T and d is the root exponent. No exponent m is bound there; the displayed m makes the expression ill-typed. The rendered p.53 confirms m rather than a text-extraction artifact. The packet already uses the correct exponent.",
    "affects": "nothing",
@@ -198669,8 +198709,8 @@
    "file": "research/blueprint/packets/FunctionFieldArithmeticPartII.json",
    "citation": "Dan Abramovich, Tom Graber and Angelo Vistoli, Gromov–Witten theory of Deligne–Mumford stacks, arXiv:math/0603151v2, 13 April 2008; Appendix B",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII",
-   "reviewReason": "The rendered inspected preprint p.53 has exponent m while the preceding power-isomorphism has exponent d. Confirmation applies only to that preprint."
+   "reviewedBy": "REV-DESIGN-FunctionFieldArithmeticPartII~2",
+   "reviewReason": "Rendered arXiv math/0603151v2 p.53 B.2 item(3) uses m for the section exponent, whereas item(2) uses d for the power isomorphism. The root equation must use d. This finding is restricted to that preprint."
   },
   {
    "id": "GL2AutomorphicRepresentationsAndTransfer/E12",
