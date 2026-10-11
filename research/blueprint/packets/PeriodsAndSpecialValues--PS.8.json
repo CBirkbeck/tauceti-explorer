@@ -7,7 +7,7 @@
     "PeriodsAndSpecialValues:PS.8",
     "PeriodsAndSpecialValues:PS.9"
   ],
-  "summary": "Target-level plan for the resolved Dwork quartic, its geometric period normalization and integral mirror coordinate, and the formal quintic Frobenius calculation with its precise crystalline-comparison obligations. The multiple-zeta layer constructs descending-index sums, word products and regularization, then the specific mixed-Tate category, motivic coaction and Hoffman basis proof route. Numerical spanning is transferred only through the actual period map. Both stages are planned; generic supplier requests and four explicit proof/interface gaps prevent a claim of closure.",
+  "summary": "Target-level plan for the resolved Dwork quartic, its geometric period normalization and integral mirror coordinate, and the formal quintic Frobenius calculation with its precise crystalline-comparison obligations. The multiple-zeta layer constructs descending-index sums, word products and regularization, then the specific mixed-Tate category, motivic coaction and Hoffman basis proof route. Numerical spanning is transferred only through the actual period map. Both stages are planned; generic supplier requests and four explicit mathematical proof/interface gaps plus the current-upstream supplier catalogue link G5 prevent a claim of closure.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,115 +16,221 @@
         "ref": "mathlib:Complex.Gamma_mul_Gamma_eq_betaIntegral",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "For complex parameters of positive real part, Γ(s)Γ(t)=Γ(s+t)betaIntegral(s,t).",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:Complex.Gamma_mul_Gamma_one_sub",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
         "provides": "The complex Gamma reflection identity Γ(z)Γ(1−z)=π/sin(πz), with the library total-value convention.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:Finsupp.single",
         "module": "Mathlib/Data/Finsupp/Single.lean",
         "provides": "The free coordinate vector supported at a single word.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:Ideal.Quotient.mk",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "The canonical ring map into a quotient by an ideal.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:LinearIndependent",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
         "provides": "Injectivity of Finsupp.linearCombination for the indicated vector family.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:Matrix.det",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Finite-square determinant over a commutative ring via the alternating row map.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:PowerSeries.derivative",
         "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
         "provides": "Formal derivative has coefficient (n+1) times coefficient n+1.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:PowerSeries.exp",
         "module": "Mathlib/RingTheory/PowerSeries/Exp.lean",
         "provides": "Formal exponential series over a Q-algebra, coefficient 1/n!; substitution requires a zero constant term.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:PowerSeries.mk",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Constructs a formal power series from its coefficient function.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:PowerSeries.substInv",
         "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
         "provides": "Compositional inverse for a zero-constant series with invertible linear coefficient; reuse rather than plan a generic inverse.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:Submodule.span",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "Smallest submodule containing the specified set; used for motivic spans and filtration.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:intervalIntegral",
         "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
         "provides": "Oriented Bochner interval integral defined by Ioc contributions; integrability remains a hypothesis.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:ordinaryHypergeometricSeries",
         "module": "Mathlib/Analysis/SpecialFunctions/OrdinaryHypergeometric.lean",
         "provides": "FormalMultilinearSeries for the ordinary 2F1 coefficients over an RCLike field and normed algebra; does not supply 3F2 or analytic continuation.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:riemannZeta",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "Complex Riemann zeta as the zero-parameter even Hurwitz zeta; not a multiple-zeta function.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:riemannZeta_four",
         "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
         "provides": "riemannZeta(4)=π⁴/90 over C.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:riemannZeta_two",
         "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
         "provides": "riemannZeta(2)=π²/6 over C.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "mathlib:zeta_nat_eq_tsum_of_gt_one",
         "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
         "provides": "For natural k>1, riemannZeta(k) equals the complex tsum of reciprocal natural kth powers, with the zero summand zero.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "tauceti:TauCeti.TensorWords.deconcatenation",
         "module": "TauCeti/LinearAlgebra/TensorCoalgebra/Coaugmented.lean",
         "provides": "Includes degree-zero tensor words and deconcatenation over all cuts, including the two outer cuts. This is not the shuffle multiplication.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       },
       {
         "ref": "tauceti:TauCeti.TensorWords.of",
         "module": "TauCeti/LinearAlgebra/TensorCoalgebra/Coaugmented.lean",
         "provides": "Includes degree-zero tensor words and the pure-word injection into the direct sum.",
-        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit."
+        "checked": "Actual definition or theorem and hypotheses read in source at the pinned commit.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
+      },
+      {
+        "ref": "mathlib:PhragmenLindelof.horizontal_strip",
+        "module": "Mathlib/Analysis/Complex/PhragmenLindelof.lean",
+        "provides": "A holomorphic function continuous on a closed horizontal strip and bounded on both boundary lines is bounded inside if its growth is dominated by exp(B exp(c |Re z|)) for some c < π/(b−a). A finite-order entire quotient meets this growth condition.",
+        "checked": "Actual theorem, DiffContOnCl, filter growth condition, boundary bounds and strip-width hypothesis read at the pinned Mathlib commit by the independent reviewer.",
+        "independentCheck": {
+          "by": "REV-PeriodsAndSpecialValues--PS.8",
+          "date": "2026-10-11",
+          "result": "Declaration and the actual statement read at its pinned commit; hypotheses and conventions checked against consuming nodes."
+        }
       }
     ]
   },
@@ -133,8 +239,8 @@
       "id": "H",
       "title": "Period- and mirror-maps for the quartic K3",
       "authors": "Heinrich Hartmann",
-      "url": "https://arxiv.org/pdf/1101.4601",
-      "edition": "arXiv 1101.4601; downloaded PDF dated 29 October 2018; PDF page numbers, 29 pages",
+      "url": "https://arxiv.org/pdf/1101.4601v1",
+      "edition": "arXiv 1101.4601v1; downloaded PDF dated 29 October 2018; 29 PDF pages; findings E1–E4 apply only to this checked preprint",
       "accessed": "2026-10-11",
       "sha256": "11e54e5ed83a516011217fa7f6fb40d4d890fb7ecf276d7ae398b5ae97a49909",
       "readSections": [
@@ -167,19 +273,19 @@
     },
     {
       "id": "SH",
-      "title": "Frobenius map on quintic threefolds",
+      "title": "Frobenius map for quintic threefolds",
       "authors": "Ilya Shapiro",
       "url": "https://arxiv.org/pdf/0809.3742v2",
       "edition": "v2, 7 October 2008; 19 pages",
       "accessed": "2026-10-11",
       "sha256": "cc57d22b1c173ef1837c6d31af4e76546233f0d9ac053cffa403e6017e551e16",
       "readSections": [
-        "Entire paper: §§3–6, Definition 4.2, Lemmas 4.12 and 4.15, Theorems 5.2, 5.11, 5.13 and 6.1"
+        "§§3–6, Definition 4.2, Lemmas 4.12 and 4.15, Theorems 5.2, 5.11 and 5.13, Definition 6.1, Lemmas 6.2–6.3 and §§6.1–6.4, pp.14–19; there is no Theorem 6.1 in this version"
       ]
     },
     {
       "id": "SS",
-      "title": "Twisted de Rham cohomology, homological definition of the integral and Feynman diagrams",
+      "title": "Twisted de Rham cohomology, homological definition of the integral and “Physics over a ring”",
       "authors": "Albert Schwarz and Ilya Shapiro",
       "url": "https://arxiv.org/pdf/0809.0086",
       "edition": "arXiv preprint, 2008; downloaded version",
@@ -242,11 +348,11 @@
       "title": "Motivic double shuffle",
       "authors": "Ismaël Soudères",
       "url": "https://arxiv.org/pdf/0808.0248v3",
-      "edition": "v3, 18 November 2008; mathematical text also checked in ar5iv rendering of this version",
+      "edition": "v3, 18 November 2008; 26 PDF pages; mathematical text also checked in ar5iv, and Proposition 3.8 and 4.24 locators checked visually in the PDF",
       "accessed": "2026-10-11",
       "sha256": "91259e395f1a550088e297a006a0e8ab811d48982e25d78c7599e1a596e85f0e",
       "readSections": [
-        "§§3.1–3.2 and §4.3: Definition 3.7, Proposition 3.8 and Proposition 4.24 with the frame-preserving maps; convergence hypotheses retained"
+        "§§3.1–3.2, Definition 3.7 and Proposition 3.8, pp.10–12; §4.4, Proposition 4.24 and its proof, pp.23–26; frame-preserving maps and convergence hypotheses retained"
       ]
     },
     {
@@ -254,11 +360,22 @@
       "title": "Mirror Symmetry of K3 and Torus",
       "authors": "Masaru Nagura and Katsuyuki Sugiyama",
       "url": "https://arxiv.org/pdf/hep-th/9312159",
-      "edition": "arXiv author preprint, 28 December 1993; PDF/printed pages agree",
+      "edition": "arXiv author preprint, 28 December 1993; locators use printed pages (PDF page = printed page + 1)",
       "accessed": "2026-10-11",
       "sha256": "3d5b118a8db84976a344e9c13408cefc229853641bb9fae7255b71f322ab6d6d",
       "readSections": [
         "§§3.2–3.3, pp.5–9; §5.2, pp.13–15: Frobenius solutions, formula (26), and local reflection (39)"
+      ]
+    },
+    {
+      "id": "IL",
+      "title": "Integral lattices, discriminant forms and primitive embeddings",
+      "authors": "Tau Ceti roadmap contributors",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/IntegralLattices/README.md",
+      "edition": "TauCetiRoadmap commit 070dc2becd74419e76303ede84b465ed4a69461f; current roadmap beyond the atlas snapshot",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Layer 5H, primitive-embedding uniqueness into an even unimodular ambient lattice; Layer 6A, indefinite unimodular classification; corresponding Suggested.lean shapes and limitations read"
       ]
     }
   ],
@@ -286,8 +403,8 @@
       "sources": [
         {
           "sourceId": "H",
-          "locator": "§§2.1–2.5, pp.2–4; §4.1, pp.10–11",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§4.1, Propositions 4.1–4.4, PDF pp.10–11",
+          "match": "The invariant quotient and its relative A₃ resolution give this selected family; generic geometry remains G4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -328,7 +445,7 @@
       ],
       "uses": [
         {
-          "where": "§§2.1–2.5, pp.2–4; §4.1, pp.10–11 (H)",
+          "where": "§4.1, Propositions 4.1–4.4, PDF pp.10–11 (H)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -362,8 +479,8 @@
       "sources": [
         {
           "sourceId": "H",
-          "locator": "§4.4, pp.16–17",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§4.2, Propositions 4.6–4.7 and formula (5), PDF pp.12–13",
+          "match": "The residue, its group invariance and extension across the resolution use the tube-normalized factor 2πi."
         }
       ],
       "implementationStatus": "unchecked",
@@ -404,7 +521,7 @@
       ],
       "uses": [
         {
-          "where": "§4.4, pp.16–17 (H)",
+          "where": "§4.2, Propositions 4.6–4.7 and formula (5), PDF pp.12–13 (H)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -456,8 +573,9 @@
       "statement": "Use T₀=⟨4⟩⊕U on the ordered basis (h,e,f), Gram matrix G₀=[[4,0,0],[0,0,1],[0,1,0]]. The rank-19 primitive lattice M₂ lies in H²(X_t,Z), and its orthogonal complement is the constant marked rank-three lattice T₀ on the universal cover. M₂⊕T₀ gives a rational splitting; do not assert an integral direct sum. The period line is [p h−e+2p²f] for p in the upper half-plane.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the quotient/resolution cycles and polarization to construct the marking of the primitive sublattice.",
-        "Compute the orthogonal complement and discriminate its integral gluing from the rational orthogonal decomposition."
+        "Use the quotient/resolution cycles and polarization to construct M₂ and its primitive rank-three complement T₀. H² of a K3 is the even unimodular lattice of signature (3,19); reuse current IntegralLattices 6A for its lattice identification.",
+        "Reuse IntegralLattices 5H, with the ambient lattice explicitly even unimodular, to match the two primitive T₀ embeddings. Here sign(T₀)=(2,1), its discriminant length is 1, and the complement rank is 19, so the strict signature inequalities and local length conditions hold. Hartmann Theorem 4.12 without ambient unimodularity is false (E3), but its K3 application meets the corrected hypotheses.",
+        "Compute the orthogonal complement and retain the discriminant gluing: M₂⊕T₀ splits rationally, not as an integral direct sum. Transport the selected marking to the universal cover. G5 records the missing atlas identifier for the already existing upstream supplier, not a new lattice theorem."
       ],
       "acceptance": [
         "Use T₀=⟨4⟩⊕U on the ordered basis (h,e,f), Gram matrix G₀=[[4,0,0],[0,0,1],[0,1,0]]. The rank-19 primitive lattice M₂ lies in H²(X_t,Z), and its orthogonal complement is the constant marked rank-three lattice T₀ on the universal cover. M₂⊕T₀ gives a rational splitting; do not assert an integral direct sum. The period line is [p h−e+2p²f] for p in the upper half-plane."
@@ -469,8 +587,13 @@
       "sources": [
         {
           "sourceId": "H",
-          "locator": "Theorem 4.8 and Proposition 4.12, pp.13–16; Proposition 4.24, p.20",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Theorem 4.8, Theorems 4.10–4.12 and Corollary 4.13, PDF pp.13–16; Proposition 4.24, p.20",
+          "match": "The selected rank-three marked complement and rational splitting are valid; the generic uniqueness assertion in Theorem 4.12 is corrected by E3."
+        },
+        {
+          "sourceId": "IL",
+          "locator": "Layer 5H (Nikulin Theorem 1.14.4) and Layer 6A; README at the recorded commit, unpaginated",
+          "match": "Supplies ambient-even-unimodular primitive-embedding uniqueness and K3 lattice classification. These existing targets are imported, not planned here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -511,7 +634,7 @@
       ],
       "uses": [
         {
-          "where": "Theorem 4.8 and Proposition 4.12, pp.13–16; Proposition 4.24, p.20 (H)",
+          "where": "Theorem 4.8, Theorems 4.10–4.12 and Corollary 4.13, PDF pp.13–16; Proposition 4.24, p.20 (H)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -521,7 +644,19 @@
       ],
       "planet": {
         "name": "Quartic period lattice"
-      }
+      },
+      "externalPrerequisites": [
+        {
+          "owner": "TauCetiRoadmap/IntegralLattices",
+          "targets": [
+            "5H",
+            "6A"
+          ],
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/IntegralLattices/README.md",
+          "provides": "Primitive-embedding uniqueness in the specified even unimodular K3 lattice; indefinite even-unimodular classification.",
+          "catalogueStatus": "Read in current upstream; the atlas snapshot has only the retired Completed/IntegralLattices predecessor. G5 records the catalogue linkage still required."
+        }
+      ]
     },
     {
       "id": "PeriodsAndSpecialValues:PS.8/quartic-monodromy",
@@ -677,7 +812,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Form the exponential because g/w₀ has zero constant term and w₀ is a unit. Reuse the generic formal-series inverse from Mathlib.",
-        "Use the local-continuation theorem (corrected E2), maximal-unipotent translation and Hartmann Proposition 4.25 to match the ratio to the integral marking. The common t-rescaling cancels from the ratio."
+        "Use the local-continuation theorem after its explicit pullback s=−it to the γ₁ chart, maximal-unipotent translation and Hartmann Proposition 4.25 to match the ratio to the integral marking. Keep γ₁ and γ₄ based continuations distinct (E4). The common t-rescaling cancels from the ratio."
       ],
       "acceptance": [
         "In Q[[z]], q(z)=z exp(g(z)/w₀(z)); define Z(q) as its compositional inverse, which exists since q₀=0 and q₁=1. The analytic period coordinate is p=(2πi)⁻¹ f₁/f₀ on the chosen branch, hence exp(2πip)=q(z). Match this p to the geometric marked p by the monodromy theorem, not merely by L_z. Use log z real on the chosen ray t=i√2 and analytic continuation from it."
@@ -692,8 +827,8 @@
       "sources": [
         {
           "sourceId": "H",
-          "locator": "Theorem 4.29 and Proposition 4.30, pp.22–23",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Theorem 4.29 and Proposition 4.30, pp.22–23; normalization proof corrected by E4",
+          "match": "The series and cusp normalization hold; the based-loop identification used in the printed proof is replaced by the explicit γ₁ local chart."
         }
       ],
       "implementationStatus": "unchecked",
@@ -734,7 +869,7 @@
       ],
       "uses": [
         {
-          "where": "Theorem 4.29 and Proposition 4.30, pp.22–23 (H)",
+          "where": "Theorem 4.29 and Proposition 4.30, pp.22–23; normalization proof corrected by E4 (H)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -770,8 +905,8 @@
       "sources": [
         {
           "sourceId": "LYA",
-          "locator": "§5.5, equation (5.19), pp.20–21; §§4–5.1 for normalization",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§5.5, equations (5.18)–(5.19), printed p.21 (PDF p.22); §§4–5.1 for normalization",
+          "match": "The displayed polynomial uses x=1/j, while the source also uses J=j/1728. The normalized cusp branch agrees."
         }
       ],
       "implementationStatus": "unchecked",
@@ -802,8 +937,8 @@
       "sources": [
         {
           "sourceId": "LYA",
-          "locator": "§6, integral-branch lemma and quartic application, pp.21–23",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§6, equations (6.1)–(6.4), printed p.22 (PDF p.23); quartic application, printed p.23",
+          "match": "Coefficient induction over Z[1/m] gives integrality for the quartic m=1; the generic branch includes x=q+O(q²)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -910,8 +1045,13 @@
       "sources": [
         {
           "sourceId": "SH",
-          "locator": "Definition 4.2, p.5; Lemma 4.12, pp.8–9; SS §2 for the comparison",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Definition 4.2, p.5; Lemma 4.12, pp.8–9",
+          "match": "The invariant formal basis and connection are computed in the degree-zero twisted model."
+        },
+        {
+          "sourceId": "SS",
+          "locator": "§2, pp.11–12",
+          "match": "The affine regular-sequence comparison motivates the projective/completed comparison; its extension to this family remains G1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -952,7 +1092,7 @@
       ],
       "uses": [
         {
-          "where": "Definition 4.2, p.5; Lemma 4.12, pp.8–9; SS §2 for the comparison (SH)",
+          "where": "Definition 4.2, p.5; Lemma 4.12, pp.8–9 (SH)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -1063,8 +1203,8 @@
       "sources": [
         {
           "sourceId": "SH",
-          "locator": "§6, pp.15–19; Theorem 6.1",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Definition 6.1 and Lemma 6.2, pp.14–15; Lemma 6.3 and §§6.1–6.4, pp.16–19",
+          "match": "Defines exp(z+z^p/p) and the series used in the boundary calculation. The complete harmonic-weighted convergence estimate remains G2."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1105,7 +1245,7 @@
       ],
       "uses": [
         {
-          "where": "§6, pp.15–19; Theorem 6.1 (SH)",
+          "where": "Definition 6.1 and Lemma 6.2, pp.14–15; Lemma 6.3 and §§6.1–6.4, pp.16–19 (SH)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -1139,8 +1279,8 @@
       "sources": [
         {
           "sourceId": "SH",
-          "locator": "Theorem 6.1, pp.15–19, together with §§4.3 and 5.1–5.3",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§§6.1–6.4, pp.16–19; Definition 6.1 and Lemma 6.2, pp.14–15; Theorem 5.13, pp.13–14",
+          "match": "The normalized diagonal and row-3/column-0 term follow from the reductions and Dwork sums. There is no Theorem 6.1 in this version; crystalline identification remains separate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1176,8 +1316,13 @@
       "sources": [
         {
           "sourceId": "SS",
-          "locator": "§§2–3, pp.10–13, limitation of crystalline identification; SH §§3–4",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§2, pp.11–12; §3, pp.12–13, especially the crystalline-comparison limitation on p.13",
+          "match": "The source does not prove the complete projective/integral crystalline identification; this node states the required bridge explicitly as G1."
+        },
+        {
+          "sourceId": "SH",
+          "locator": "§§3–4, pp.3–10",
+          "match": "The formal twisted model supplies the family-specific calculation to be compared, rather than a proof of the crystalline bridge."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1208,8 +1353,13 @@
       "sources": [
         {
           "sourceId": "IKZ",
-          "locator": "§1, pp.307–308; B introduction, p.1",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§1, pp.307–308",
+          "match": "Uses descending indices and convergence for first entry greater than one."
+        },
+        {
+          "sourceId": "B",
+          "locator": "Introduction, p.1",
+          "match": "Brown uses the reversed, ascending convention; the packet consistently reverses whole words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1250,7 +1400,7 @@
       ],
       "uses": [
         {
-          "where": "§1, pp.307–308; B introduction, p.1 (IKZ)",
+          "where": "§1, pp.307–308 (IKZ)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -1364,8 +1514,13 @@
       "sources": [
         {
           "sourceId": "IKZ",
-          "locator": "§1, pp.308–309; DG §§3.11–3.13, printed pp.42–45",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§1, pp.308–309",
+          "match": "Iterated integrals use the decreasing-time word convention, with admissible endpoints."
+        },
+        {
+          "sourceId": "DG",
+          "locator": "§§3.11–3.13, printed pp.42–45",
+          "match": "Tangential endpoint treatment gives the finite regularized integral instead of substituting missing ordinary endpoints."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1406,7 +1561,7 @@
       ],
       "uses": [
         {
-          "where": "§1, pp.308–309; DG §§3.11–3.13, printed pp.42–45 (IKZ)",
+          "where": "§1, pp.308–309 (IKZ)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -1423,15 +1578,15 @@
       ],
       "title": "Convergent double shuffle and low weights",
       "kind": "theorem",
-      "statement": "Evaluation Z:H⁰→R is an algebra homomorphism for both shuffle and stuffle products. In particular ζ(2)²=4ζ(3,1)+2ζ(2,2)=2ζ(2,2)+ζ(4), hence 4ζ(3,1)=ζ(4). After regularization comparison below, ζ(2,1)=ζ(3). The ordinary identity ζ(2)²=5ζ(4)/2 also gives ζ(2,2)=3ζ(4)/4.",
+      "statement": "Evaluation Z:H⁰→R is an algebra homomorphism for both shuffle and stuffle products. In particular ζ(2)²=4ζ(3,1)+2ζ(2,2)=2ζ(2,2)+ζ(4), hence 4ζ(3,1)=ζ(4). The ordinary identity ζ(2)²=5ζ(4)/2 also gives ζ(2,2)=3ζ(4)/4.",
       "hypotheses": [],
       "proofSteps": [
         "Partition products of absolutely convergent nested sums by the order/equality of summation indices for stuffle. Partition integration simplices for shuffle.",
-        "Use the explicit low-weight product computations. For ζ(2,1)=ζ(3), use the separate leading-one regularization target rather than evaluating a divergent series."
+        "Use the explicit low-weight product computations and the pinned ordinary ζ(2),ζ(4) evaluations. The equality ζ(2,1)=ζ(3) belongs to the later regularized-double-shuffle node, keeping this earlier prerequisite independent of its consumer."
       ],
       "acceptance": [
         "The coefficient 4 on ζ(3,1) retains shuffle multiplicity.",
-        "The ζ(2,1) equality is a consequence of the regularization theorem, not a premise of this node."
+        "The later ζ(2,1)=ζ(3) corollary is owned by regularized-double-shuffle; this node does not import a later consumer."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/iterated-integrals",
@@ -1553,8 +1708,8 @@
       "sources": [
         {
           "sourceId": "IKZ",
-          "locator": "§2, equations (2.2)–(2.3), pp.309–310",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§2, equations (2.1)–(2.2), pp.309–310",
+          "match": "Equation (2.1) defines A(u); (2.2) characterizes the linear operator ρ. Its failure to preserve multiplication appears already in degree two."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1595,7 +1750,7 @@
       ],
       "uses": [
         {
-          "where": "§2, equations (2.2)–(2.3), pp.309–310 (IKZ)",
+          "where": "§2, equations (2.1)–(2.2), pp.309–310 (IKZ)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -1742,8 +1897,13 @@
       "sources": [
         {
           "sourceId": "DG",
-          "locator": "Propositions 1.9 and 2.2, printed pp.16–19; Proposition 2.14, printed p.25; B §2.5, pp.6–7",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Proposition 1.9, printed pp.16–17; Propositions 2.2–2.3, pp.18–20; Proposition 2.14, p.25",
+          "match": "Ext vanishing, the graded fibre functor, free Lie algebra and realisation injection supply the stated reconstruction; freeness is Proposition 2.3."
+        },
+        {
+          "sourceId": "B",
+          "locator": "§2.5, pp.6–7",
+          "match": "Specializes to MT(Z) and uses negative odd Lie degrees, matching this packet’s convention."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1760,7 +1920,7 @@
       "statement": "For X=P¹_Q minus {0,1,∞}, construct the unipotent motivic fundamental groupoid and the torsor {}₀Π₁ between tangent +1 at 0 and tangent −1 at 1 as pro/ind-objects in MT(Z). The finite length quotients are constructed by the cosimplicial/bar motives of X; their de Rham coordinate algebra is the shuffle algebra on two letters with all-cut deconcatenation. Betti realisation is the corresponding unipotent path-completion, and the comparison evaluates iterated integrals on the straight path dch.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the normalized cosimplicial motive and its finite truncations; DG Proposition 3.10 gives the universal homotopy comparison to the simplex construction. Specialize the generic unipotent groupoid interface from NC.2.",
+        "Use the normalized cosimplicial motive and its finite truncations; DG Proposition 3.10 compares the homotopy and simplex constructions. Request NC.2’s generic unipotent groupoid API with the additional Betti/bar/tangential comparison specified below. NC.2’s current stage does not yet state that entire interface; do not silently infer it from its de Rham/étale target.",
         "Identify the logarithmic de Rham complex with the tensor-word model and the Betti comparison with iterated integration. Extend to the specified tangents, proving unramifiedness over Z and the groupoid composition laws."
       ],
       "acceptance": [
@@ -1776,8 +1936,8 @@
       "sources": [
         {
           "sourceId": "DG",
-          "locator": "§§3.10–3.13, printed pp.40–45; Theorem 4.4, printed pp.46–50; §§5.1–5.4, printed pp.56–57",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Proposition 3.10 and §§3.11–3.13, printed pp.40–45; Theorem 4.4, pp.47–50; §§4.13–4.18 and §5.3, pp.53–57",
+          "match": "Finite motivic path truncations, tangential groupoids and unramifiedness over Z give the selected three-punctured-line object."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1818,7 +1978,7 @@
       ],
       "uses": [
         {
-          "where": "§§3.10–3.13, printed pp.40–45; Theorem 4.4, printed pp.46–50; §§5.1–5.4, printed pp.56–57 (DG)",
+          "where": "Proposition 3.10 and §§3.11–3.13, printed pp.40–45; Theorem 4.4, pp.47–50; §§4.13–4.18 and §5.3, pp.53–57 (DG)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -2053,29 +2213,34 @@
       "realises": [
         "PeriodsAndSpecialValues:PS.9"
       ],
-      "title": "Motivic double shuffle and regularized leading ones",
+      "title": "Convergent motivic double shuffle and shifted all-two integrals",
       "kind": "theorem",
-      "statement": "In Brown’s H the admissible motivic ζ^m values obey shuffle and stuffle, and the tangential regularized leading-one identities used in Brown Lemma 3.8 hold before applying per. Transport Soudères’s frame-preserving convergent shuffle/stuffle identities to the path-period presentation, then establish the regularized extension in that presentation. The convergence-only framed-motive statements do not by themselves establish every regularized relation; this proof-transport obligation is G3.",
+      "statement": "In Brown’s H, admissible motivic values obey shuffle and stuffle. For n≥1, the shuffle-regularized integral ζ₁^m(2^n)=I^m(0;0(10)^n;1) satisfies ζ₁^m(2^n)=−2 Σ_{i=0}^{n−1} ζ_desc^m(2^{n−1−i},3,2^i)=2 Σ_{i=1}^n (−1)^i ζ^m(2i+1)ζ^m(2^{n−i}). Its indecomposable coefficient is 2(−1)^n. Brown’s notation ζ₁ denotes a leading-zero integral, not an additional divergent index-one MZV. Transport Soudères’s convergent framed-motive identities to this path-period presentation (G3); shuffle regularization is already available from the path-integral identities.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the pullbacks between compactified M₀,n and the products to compare relative cohomology frames; the cubical blowups keep divisors in normal-crossing position for stuffle.",
-        "Prove the equality of these frames with the tangential path iterated-integral periods in H, and their regularized polynomial extension. Apply the equality in the motivic algebra, rather than relying on injectivity of per. G3 records the explicit missing presentation comparison."
+        "Use Soudères’s pullback and product/compactification maps to compare relative cohomology frames. Preserve both the de Rham form and Betti integration frame in the shuffle and stuffle identities. G3 is the comparison of those framed objects with Brown’s generators in H.",
+        "Brown equation (3.8) follows from shuffle regularization in H and gives the first shifted-all-two sum. Apply convergent stuffle to ζ^m(2j+1)ζ^m(2^{n−j}); the alternating sum cancels the intermediate single-odd insertions, giving Lemma 3.8. No new divergent-stuffle polynomial extension is needed for this argument. Retain the i=n term, since ζ^m(2^0)=1.",
+        "Pass to indecomposables only after proving the identity in H. The resulting coefficient 2(−1)^n supplies the boundary contributions in the cut calculation. Equality after applying per would not suffice."
       ],
       "acceptance": [
         "ζ^m(2)²=2ζ^m(2,2)+ζ^m(4)=4ζ^m(3,1)+2ζ^m(2,2).",
-        "The leading-one relations used by the cut-matrix calculation must be proved motivically; numerical identities alone are insufficient."
+        "At n=1, ζ₁^m(2)=−2ζ^m(3); at n=2 it is −2ζ^m(3)ζ^m(2)+2ζ^m(5). These identities are motivic, not consequences of period injectivity."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
         "PeriodsAndSpecialValues:PS.9/motivic-path-torsor",
-        "PeriodsAndSpecialValues:PS.9/regularized-double-shuffle",
         "MotivesAndAlgebraicCycles:MC.4"
       ],
       "sources": [
         {
           "sourceId": "SO",
-          "locator": "Proposition 3.8 and proof, §3.2; Proposition 4.24 and proof, §4.3; B Lemma 3.8, pp.10–11",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Definition 3.7 and Proposition 3.8, §3.2, pp.10–12; Proposition 4.24 and proof, §4.4, pp.23–26",
+          "match": "Convergent framed-motive shuffle/stuffle is proved with frame-preserving maps; its presentation comparison is the open G3."
+        },
+        {
+          "sourceId": "B",
+          "locator": "Equation (3.8), p.9; Lemma 3.8 and proof, pp.10–11",
+          "match": "The shifted-all-two identity uses shuffle regularization and convergent motivic stuffle, without an extra divergent stuffle extension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2104,8 +2269,13 @@
       "sources": [
         {
           "sourceId": "Z",
-          "locator": "Theorem 1, p.978; B Theorem 4.3 and Corollary 4.4, pp.12–13",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Theorem 1, p.981",
+          "match": "Reversal exchanges a,b in the coefficient formula."
+        },
+        {
+          "sourceId": "B",
+          "locator": "Theorem 4.3 and Corollary 4.4, pp.12–13",
+          "match": "The same rational coefficients and their dyadic estimates enter the motivic and determinant arguments."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2146,7 +2316,7 @@
       ],
       "uses": [
         {
-          "where": "Theorem 1, p.978; B Theorem 4.3 and Corollary 4.4, pp.12–13 (Z)",
+          "where": "Theorem 1, p.981 (Z)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -2166,8 +2336,9 @@
       "statement": "For a,b≥0, n=a+b+1, ζ_desc({2}^a,3,{2}^b)=Σ_{r=1}^n c(a,b,r)ζ(2r+1)ζ({2}^{n−r}). Also ζ({2}^m)=π^(2m)/(2m+1)!, including m=0. These are numerical equalities; their lift to H is a separate theorem.",
       "hypotheses": [],
       "proofSteps": [
-        "Compute the generating function of the one-three integrals and the proposed binomial expression.",
-        "Prove equality at the integer interpolation points and use the growth bounds to conclude equality of the entire generating functions; extract coefficients. The all-two identity comes from the sine-product generating function."
+        "Use the all-two sine-product identity to compute the entire generating function F(x,y) of one-three MZVs and the proposed function F̂(x,y) from the binomial expression. Z Propositions 1–3, pp.982–985, give their formulas and bounds; retain the directional estimates (18),(21), not just order-one growth.",
+        "Compare F and F̂ on integer interpolation points by Z Propositions 4–6, pp.985–989, and on the diagonal x=y. For fixed x, f(y)=F(x,y)−F̂(x,y) vanishes at every integer, has finite exponential order and satisfies O(exp(π|Im y|)).",
+        "Divide f(y) by sin(πy), removing the integer zeros holomorphically. The quotient has finite order and is bounded outside a horizontal strip. Apply the pinned PhragmenLindelof.horizontal_strip theorem: finite-order growth is dominated by its exp(B exp(c|Re y|)) bound for a positive c smaller than π divided by the strip width. Liouville then makes the quotient constant. For nonintegral fixed x, vanishing at y=x makes that constant zero; extend to integral x by analyticity and extract coefficients. This proves Z Lemma 2 in the form the generating-function argument actually uses."
       ],
       "acceptance": [
         "ζ_desc(2,3)=−2ζ(3)ζ(2)+(9/2)ζ(5).",
@@ -2176,13 +2347,14 @@
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/zagier-coefficients",
         "PeriodsAndSpecialValues:PS.9/iterated-integrals",
-        "PeriodsAndSpecialValues:PS.9/mzv-indices"
+        "PeriodsAndSpecialValues:PS.9/mzv-indices",
+        "mathlib:PhragmenLindelof.horizontal_strip"
       ],
       "sources": [
         {
           "sourceId": "Z",
-          "locator": "Theorem 1, pp.977–979; proof in §§2–4, pp.979–991",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Theorem 1, p.981; all-two identities (5)–(6), p.979; §§2–4, pp.982–990, especially Lemma 2, p.989",
+          "match": "Generating functions, integer interpolation and the directional exponential growth estimate prove the one-three formula."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2199,7 +2371,7 @@
       "statement": "With the same descending coefficient c, ζ^m_desc({2}^a,3,{2}^b)=Σ_{r=1}^{a+b+1}c(a,b,r)ζ^m(2r+1)ζ^m({2}^{a+b+1−r}). This motivic equality follows from coaction induction and the ordinary one-three evaluation, without assuming period-map injectivity.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply each D_r with r<2a+2b+3 to the difference, using the contiguous cuts, regularized leading-one formulas and induction on weight. All these derivations vanish.",
+        "Apply each D_r with r<2a+2b+3 to the difference, using the contiguous cuts, the shifted-all-two identity from Brown Lemma 3.8 and induction on weight. All these derivations vanish.",
         "The joint-kernel theorem makes the difference αζ^m(2a+2b+3). Apply per and the ordinary Zagier formula: αζ(2a+2b+3)=0. Positivity of this single odd zeta value forces α=0, without a general injectivity assumption."
       ],
       "acceptance": [
@@ -2234,7 +2406,8 @@
       "hypotheses": [],
       "proofSteps": [
         "Enumerate the positive index words with the prescribed weight/level; form their free coordinate space and span map into H.",
-        "Filter by the count of threes. Establish the combinatorial cardinality by choosing the positions of the l threes among m+l entries, without assuming the span map is injective."
+        "Filter by the count of threes. Establish the combinatorial cardinality by choosing the positions of the l threes among m+l entries, without assuming the span map is injective.",
+        "Apply the contiguous-cut formula: a nonzero odd-length removed segment has at least one 3 in the 2/3 encoding. This proves level lowering by parity (Brown Lemma 5.5); coefficient evaluation is a later step."
       ],
       "acceptance": [
         "Let B_{N,l} be the finite set of descending words in {2,3} of total weight N and exactly l occurrences of 3. Let H_N^{2,3} be the Q-span of all their motivic values in H_N. F_lH_N^{2,3} is the span of words with at most l threes. Define the free word space W_{N,l}=Q[B_{N,l}] before proving independence. For N=2m+3l, #B_{N,l}=binom(m+l,l); it is zero if m is not a nonnegative integer. Include the empty word at N=l=0."
@@ -2243,7 +2416,8 @@
         "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
         "PeriodsAndSpecialValues:PS.9/word-products",
         "mathlib:Submodule.span",
-        "mathlib:LinearIndependent"
+        "mathlib:LinearIndependent",
+        "PeriodsAndSpecialValues:PS.9/motivic-coaction"
       ],
       "sources": [
         {
@@ -2268,7 +2442,7 @@
         {
           "name": "hoffman_level_derivation",
           "role": "compatibility",
-          "statement": "For odd r≥3, D_r sends F_lH_N^{2,3} into L_r⊗F_{l−1}H_{N−r}^{2,3}, as proved using the one-three evaluation."
+          "statement": "For l≥1 and odd 3≤r≤N, D_r sends F_lH_N^{2,3} into L_r⊗F_{l−1}H_{N−r}^{2,3}. Brown Lemma 5.5 proves this by parity of contiguous cuts in the 0/1 encoding, independently of the one-three evaluation."
         }
       ],
       "tests": [
@@ -2307,14 +2481,14 @@
       ],
       "title": "The Hoffman cut matrix",
       "kind": "construction",
-      "statement": "For N≥3 and l≥1, assemble all odd 3≤r≤N coaction cuts into the map on free spaces W_{N,l}→⊕_r W_{N−r,l−1}. Express each removed one-three segment using the motivic Zagier coefficients and the prescribed leading-one regularization. Denote its rational matrix by M_{N,l}. Use Brown’s reverse-lexicographic ordering on ascending words with 3<2, transported by reversing each descending word. The r=N summand includes the empty word when l=1. The source’s explicit cut formula, not a dimension comparison alone, defines the matrix.",
+      "statement": "For N≥3 and l≥1, use the explicit odd 3≤r≤N coaction cuts to define coefficients on free spaces W_{N,l} and ⊕_r W_{N−r,l−1}. Brown’s M_{N,l} has source words as rows and target pairs (r,u) as columns (Definition 5.9); this row-vector convention is the transpose of the usual column-input linear-map matrix. Reduce the removed one-three segments with the motivic Zagier coefficients and the shuffle-regularized leading-zero all-two formula. Order both sets by Brown’s reverse lexicographic order with 3<2 on ascending words, transported by whole-word reversal to descending words. Reindex columns by the bijection (r=2k+3,u)↦2^k3u, with u of weight N−r and level l−1; equivalently append 3·2^k in ascending notation. This produces a square matrix without assuming motivic independence. Include r=N and the empty target when l=1. The explicit cut formula defines the matrix; invertibility is a later theorem.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the contiguous-cut derivation formula to each formal 2/3 word, distinguish the cuts with one 3 and the regularized boundary contributions, and reduce with the motivic one-three formula.",
-        "Before taking the actual graded quotient, work in free source and target coordinates. Theorem 6.1 describes the entries modulo the differences of a word and its reverse; Corollary 6.2 identifies the upper-triangular leading matrix in the chosen order."
+        "Apply the contiguous-cut derivation formula to each formal 2/3 word, keeping the cuts with exactly one 3 in the level-l−1 quotient. Evaluate removed segments by the motivic one-three formula and the shifted-all-two integral identity; combine all contributions with the same odd weight and target word.",
+        "Use free source-row and target-column coordinates before taking the actual graded quotient. Delete the descending prefix 2^k3 to obtain the target pair (2k+3,u); its inverse prepends that prefix. Brown Definitions 5.8–5.9 fix row/column order. Theorem 6.1 describes formal entries modulo reversal differences and Corollary 6.2 gives the triangular leading matrix."
       ],
       "acceptance": [
-        "For N≥3 and l≥1, assemble all odd 3≤r≤N coaction cuts into the map on free spaces W_{N,l}→⊕_r W_{N−r,l−1}. Express each removed one-three segment using the motivic Zagier coefficients and the prescribed leading-one regularization. Denote its rational matrix by M_{N,l}. Use Brown’s reverse-lexicographic ordering on ascending words with 3<2, transported by reversing each descending word. The r=N summand includes the empty word when l=1. The source’s explicit cut formula, not a dimension comparison alone, defines the matrix."
+        "For N≥3 and l≥1, use the explicit odd 3≤r≤N coaction cuts to define coefficients on free spaces W_{N,l} and ⊕_r W_{N−r,l−1}. Brown’s M_{N,l} has source words as rows and target pairs (r,u) as columns (Definition 5.9); this row-vector convention is the transpose of the usual column-input linear-map matrix. Reduce the removed one-three segments with the motivic Zagier coefficients and the shuffle-regularized leading-zero all-two formula. Order both sets by Brown’s reverse lexicographic order with 3<2 on ascending words, transported by whole-word reversal to descending words. Reindex columns by the bijection (r=2k+3,u)↦2^k3u, with u of weight N−r and level l−1; equivalently append 3·2^k in ascending notation. This produces a square matrix without assuming motivic independence. Include r=N and the empty target when l=1. The explicit cut formula defines the matrix; invertibility is a later theorem."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/hoffman-level",
@@ -2326,8 +2500,8 @@
       "sources": [
         {
           "sourceId": "B",
-          "locator": "§§5–6, Theorem 6.1 and Corollary 6.2, pp.13–17",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "Lemma 5.5, pp.13–14; Definitions 5.8–5.9, p.15; Theorem 6.1 and Corollary 6.2, pp.16–17",
+          "match": "Source rows, target columns, the free-set bijection and the explicit leading-cut computation are distinct from proving independence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2336,17 +2510,17 @@
         {
           "name": "hoffman_matrix_entry",
           "role": "data",
-          "statement": "An entry is the rational sum of the explicit coaction-cut coefficients landing in that target word and odd weight."
+          "statement": "The source-row/target-column entry indexed by w,(r,u) is the rational sum of the explicit odd coaction cuts of w whose retained word is u, after evaluating the removed segment. The square version has column w′ reindexed by deleting its unique descending prefix 2^k3."
         },
         {
           "name": "hoffman_matrix_square",
           "role": "characterisation",
-          "statement": "The source and target free sets have equal cardinality, by deleting the first odd block in Brown’s ordering."
+          "statement": "For l≥1, (r=2k+3,u)↦2^k3u is a bijection from the disjoint target sets to B_{N,l}; the inverse deletes the prefix ending at the first 3. Thus the matrix is square before proving any motivic independence."
         },
         {
           "name": "hoffman_matrix_leading",
           "role": "relation",
-          "statement": "After Brown’s 2-adic column rescaling, the leading matrix is upper triangular modulo 2 with diagonal a unit, with the minimal coefficient in each column supplied by the ascending block (3,2,…,2)."
+          "statement": "With source rows and target columns in the specified order, Brown’s column rescaling gives an upper triangular matrix modulo 2 with diagonal units. The minimal coefficient in a column comes from ascending 3·2^k, or descending 2^k·3. The same assertion cannot silently be assigned to the transposed convention."
         }
       ],
       "tests": [
@@ -2358,17 +2532,17 @@
         {
           "name": "hoffman_matrix_weight_five_test",
           "kind": "computation",
-          "statement": "At N=5,l=1 the source has two words and target is W_{2,0}⊕W_{0,0}, also dimension two."
+          "statement": "At N=5,l=1, descending source-row order [3,2],[2,3] and target-column order (3,[2]),(5,[]) give [[3,−11/2],[−2,9/2]], determinant 5/2. Multiplying the second column by 2 gives [[3,−11],[−2,9]], upper triangular modulo 2 with diagonal units."
         },
         {
           "name": "hoffman_matrix_reversal_test",
           "kind": "compatibility",
-          "statement": "In descending notation the minimal-coefficient block is (2,…,2,3), the reversal of Brown’s (3,2,…,2)."
+          "statement": "The target-column bijection prefixes descending 2^k3 to its retained word; the minimal-coefficient block is descending 2^k3, reversing Brown’s ascending 3·2^k. A suffix-deletion convention would identify different columns."
         }
       ],
       "uses": [
         {
-          "where": "§§5–6, Theorem 6.1 and Corollary 6.2, pp.13–17 (B)",
+          "where": "Lemma 5.5, pp.13–14; Definitions 5.8–5.9, p.15; Theorem 6.1 and Corollary 6.2, pp.16–17 (B)",
           "how": "Provides the object and its normalisations for the consuming targets listed in the dependency graph."
         },
         {
@@ -2489,15 +2663,16 @@
       ],
       "title": "Quartic local continuation and reflection",
       "kind": "theorem",
-      "statement": "Near t=1 on a slit neighbourhood, let U₁=Γ(1/8)²/Γ(1/2)·₂F₁(1/8,1/8;1/2;1−t⁴) and U₂=Γ(5/8)²/Γ(3/2)·(t⁴−1)^(1/2)₂F₁(5/8,5/8;3/2;1−t⁴). For the branch obtained by continuation from the chosen large-t ray, p=i/√2·(U₁+cot(π/8)U₂)/(U₁−cot(π/8)U₂). Changing the square-root branch sends U₂ to −U₂ and hence p to −1/(2p). This is the correctly parameterized expression from Nagura–Sugiyama; Hartmann’s first upper parameter pair is corrected by E2.",
+      "statement": "First define the local analytic ratio P_loc(s) near s=1 on a slit neighbourhood, with U₁(s)=Γ(1/8)²/Γ(1/2)·₂F₁(1/8,1/8;1/2;1−s⁴) and U₂(s)=Γ(5/8)²/Γ(3/2)·(s⁴−1)^(1/2)₂F₁(5/8,5/8;3/2;1−s⁴). On the branch continued from real s>1, P_loc=i/√2·(U₁+cot(π/8)U₂)/(U₁−cot(π/8)U₂). For the marked geometric normalization based on the ray t=i·s, pull this formula back by s=−it to a slit neighbourhood of t=i: there p(t)=P_loc(−it). Thus the γ₁ square-root sign change sends p to −1/(2p). This uses the equal parameters corrected by E2. In the distinct based chart at t=1, γ₄ acts by p↦1−1/(2(p−1))=(3−2p)/(2−2p), so its centred local coordinate is p−1. Do not identify the two based loops or their unshifted local coordinates (E4).",
       "hypotheses": [],
       "proofSteps": [
-        "Use the Euler integral and the beta/Gamma identity to continue the rank-two hypergeometric solutions from t⁻⁴ to 1−t⁴; the inversion changes the two upper parameters to equal pairs. Differentiate in the Frobenius parameter to obtain the logarithmic companion and the Gamma factors.",
-        "Fix the branches by the real logarithm at t=i√2 and continue along the source’s paths. The square-root sign change gives the reflection; together with the infinity translation this fixes the additive constant by Hartmann Proposition 4.25."
+        "Continue the rank-two hypergeometric solutions from s⁻⁴ to 1−s⁴ using the Euler integral and beta/Gamma identity; inversion gives equal upper pairs. Differentiate in the Frobenius parameter to obtain the logarithmic companion and Gamma factors, using the real logarithm for s>1.",
+        "Pull the local formula back by t=i·s, so its large-parameter ray is the normalizing ray t=i√2 and its slit neighbourhood is at t=i. Since (−it)⁴=t⁴, the pulled series and the chosen logarithmic branch agree there. The square-root sign change supplies the γ₁ reflection; with the infinity translation it fixes the additive constant by Hartmann Proposition 4.25.",
+        "Keep the γ₄ chart separate. Conjugating R(p)=−1/(2p) by T(p)=p+1 gives T R T⁻¹(p)=1−1/(2(p−1)), the γ₄ action already computed from its matrix. Hartmann’s Theorem 4.29 proof treats the images of these distinct based loops as equal; E4 records the correction to that argument."
       ],
       "acceptance": [
-        "The first regular solution has coefficient 1/32 at u=1−t⁴=0; Hartmann’s erroneous 1/8,3/8 pair would give 3/32.",
-        "At U₂=0 the fixed point is p=i/√2."
+        "The first regular solution has coefficient 1/32 at u=1−s⁴=0; Hartmann’s erroneous unequal pair gives 3/32.",
+        "At U₂=0 the γ₁ local fixed point is p=i/√2; the γ₄ fixed points are 1±i/√2 in its based geometric coordinate."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.8/quartic-symmetric-square",
@@ -2508,8 +2683,13 @@
       "sources": [
         {
           "sourceId": "NS",
-          "locator": "§3.3, formula (26), p.9; §5.2, formula (39), p.14",
-          "match": "Supplies the stated construction or proof; the conventions and specialisation are specified here in our own words."
+          "locator": "§3.3, formula (26), printed p.9 (PDF p.10); §5.2, formula (39), printed p.14",
+          "match": "Supplies the local ratio at the normalized real parameter and its square-root reflection; the packet then explicitly pulls it back to the marked t=i chart."
+        },
+        {
+          "sourceId": "H",
+          "locator": "Proposition 4.24, PDF p.20; Proposition 4.25, pp.20–21; Theorems 4.28–4.29, pp.22–23, corrected by E2 and E4",
+          "match": "The geometric γ₁ and γ₄ actions differ by translation conjugation. The local formula at s=1 must be pulled to t=i before applying the γ₁ normalization criterion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2587,7 +2767,7 @@
     },
     {
       "supplier": "AnabelianGeometryAndNonabelianChabauty:NC.2",
-      "need": "The generic unipotent de Rham/Betti groupoid, finite path truncations and comparison with the bar complex, allowing tangential base points. PS.9 owns only the mixed-Tate three-punctured-line specialization.",
+      "need": "Source-qualified extension to the currently stated unipotent de Rham/étale groupoid: finite Betti and de Rham path truncations, comparison with the cosimplicial/bar construction, tangential base points and their composition/comparison laws (DG §§3.10–3.13 and Theorem 4.4). PS.9 owns the mixed-Tate three-punctured-line specialization. This request is open because the current NC.2 statement does not already supply all these additional structures.",
       "neededBy": [
         "PeriodsAndSpecialValues:PS.9/motivic-path-torsor"
       ],
@@ -2617,14 +2797,14 @@
     },
     {
       "id": "G3",
-      "title": "Transport of motivic stuffle and its regularized extension",
+      "title": "Frame-preserving transport of convergent motivic stuffle",
       "neededBy": [
         "PeriodsAndSpecialValues:PS.9/motivic-double-shuffle",
         "PeriodsAndSpecialValues:PS.9/motivic-zagier-evaluation",
         "PeriodsAndSpecialValues:PS.9/hoffman-cut-matrix",
         "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis"
       ],
-      "detail": "Construct the frame-preserving equality between Soudères’s relative-cohomology framed MZVs and Brown’s path-period generators in H, then prove the tangential polynomial extension needed for Brown Lemma 3.8. The sources state the resulting motivic identities, but the complete comparison proof was not established from the passages read. This is an explicit proof dependency, not numerical period injectivity. MC.4 supplies the generic relative motives; the source-specific equality belongs to PS.9."
+      "detail": "Construct the equality between Soudères’s relative-cohomology framed MZVs and Brown’s tangential path-period generators in H, preserving both frames and tensor/product structures. SO Proposition 4.24 proves convergent framed stuffle; B Lemma 3.8 assumes its validity for Brown’s presentation with ζ^m(2) nonzero. The explicit presentation comparison is the remaining source-specific proof obligation. Brown’s leading-zero identity (3.8) is shuffle-regularized, and Lemma 3.8 needs only convergent stuffle, so no additional divergent-stuffle polynomial extension is required by the Hoffman proof. MC.4 supplies generic relative motives. This gap is not numerical period injectivity."
     },
     {
       "id": "G4",
@@ -2634,6 +2814,14 @@
         "PeriodsAndSpecialValues:PS.8/quartic-residue"
       ],
       "detail": "The explicit invariant quotient and six A₃ resolutions are given by Hartmann; a reusable algebraic finite quotient/minimal-resolution interface at the required relative generality was not found in the pinned trees or current upstream roadmaps. MC.2 supplies realizations, not resolutions. A geometry-owner addition must supply that interface; the explicit selected-family verification remains in PS.8. Do not relabel this generic missing geometry as existing cohomology."
+    },
+    {
+      "id": "G5",
+      "title": "Current IntegralLattices supplier catalogue link",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.8/quartic-lattice"
+      ],
+      "detail": "The reviewed current TauCetiRoadmap IntegralLattices README, commit 070dc2becd74419e76303ede84b465ed4a69461f, owns Layer 5H primitive-embedding uniqueness in an even unimodular ambient lattice and Layer 6A indefinite classification. Their exact contracts are recorded on quartic-lattice. The atlas snapshot only has its retired Completed/IntegralLattices predecessor, which does not contain these targets; no old stage id is substituted. The maintainer/assembly must link the current upstream supplier when refreshing the catalogue. This is a catalogue/interface obligation, not missing generic lattice mathematics and not authority to replan or edit upstream."
     }
   ],
   "sourceIssues": [
@@ -2641,7 +2829,7 @@
       "id": "PeriodsAndSpecialValues/E1",
       "kind": "misprint",
       "affects": "a stated result",
-      "locator": "H, Proposition 4.26 and Example 4.27, PDF p.21; §4.7 normalization",
+      "locator": "H, Proposition 4.26 and Example 4.27, PDF p.21; §4.7 normalization; checked arXiv 1101.4601v1 only",
       "printed": "Paraphrase: the form is rescaled by t⁻¹ and the pulled-back hypergeometric operator is a scalar times D_t followed by multiplication by t.",
       "correction": "Rescale the period form by t. With z=t⁻⁴ in H’s unscaled hypergeometric variable, the operator is (1−t⁴)/64 · D_t∘m_{1/t}. Raw periods are t⁻¹ times the hypergeometric solutions.",
       "reason": "Put θ=−t∂_t/4. Both sides of the corrected identity have derivative coefficients (1−t⁴)/(64t), −3(t⁴+1)/(64t²), (6/t³−t)/64, −3/(32t⁴). Applied to 1, the printed right-hand side is −t²/8, while the hypergeometric operator gives −3/(32t⁴). The period ratio is unaffected by the common rescaling.",
@@ -2649,14 +2837,21 @@
       "searched": [
         "arXiv 1101.4601 downloaded PDF and source-cited NS formula for rescaled periods",
         "Web search on 2026-10-11: Hartmann Period- and mirror-maps correction erratum; Hartmann 4.26 mirror",
-        "Author mathematics page and arXiv abstract metadata"
-      ]
+        "Author mathematics page and arXiv abstract metadata",
+        "Publisher landing page for DOI 10.1007/s00229-012-0577-7: metadata/preview only; no full-text collation possible"
+      ],
+      "source": "H",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.8",
+        "reason": "Independently expanded θ=−t∂t/4 and D_t∘m_{1/t}; all four derivative coefficients agree. Applying the printed and corrected operators to the constant function distinguishes them. Common rescaling preserves the period ratio."
+      }
     },
     {
       "id": "PeriodsAndSpecialValues/E2",
       "kind": "misprint",
       "affects": "the proof",
-      "locator": "H, Theorem 4.28, PDF p.22, U₁ upper parameters; compared with NS formula (26), p.9",
+      "locator": "H, Theorem 4.28, PDF p.22, U₁ upper parameters; compared with NS formula (26), p.9; checked arXiv 1101.4601v1 only",
       "printed": "Paraphrase: U₁ uses the upper hypergeometric pair (1/8,3/8) in the variable 1−t⁴.",
       "correction": "Use (1/8,1/8) for U₁ in the variable 1−t⁴, as in the original NS formula (26). U₂ keeps (5/8,5/8); those equal parameters are correct in this variable.",
       "reason": "Changing from t⁻⁴ to 1−t⁴ includes the hypergeometric inversion transform, so one must not carry over the original unequal upper pair. The regular local solution has linear coefficient 1/32, not 3/32. NS gives the equal pair explicitly and the same square-root reflection.",
@@ -2664,8 +2859,59 @@
       "searched": [
         "Visual inspection of H PDF p.22",
         "Original NS formula (26) p.9 and local monodromy formula (39) p.14",
-        "Web search on 2026-10-11 for Hartmann 5/8 7/8 and the quartic period-map erratum"
-      ]
+        "Web search on 2026-10-11 for Hartmann 5/8 7/8 and the quartic period-map erratum",
+        "Publisher landing page for DOI 10.1007/s00229-012-0577-7: metadata/preview only; no full-text collation possible"
+      ],
+      "source": "H",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.8",
+        "reason": "Checked H Theorem 4.28 visually against NS formula (26), printed p.9/PDF p.10. The first coefficients are respectively 3/32 and 1/32; the equal-parameter solution is the one compatible with the transformed equation."
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E3",
+      "source": "H",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Theorem 4.12, PDF p.15, arXiv 1101.4601v1 only; K3 application on p.16",
+      "printed": "The preprint claims uniqueness of primitive embeddings of an even nondegenerate S into any even nondegenerate L under strict signature differences and rank(L)−rank(S)≥l(S)+2, without requiring L to be unimodular.",
+      "correction": "Require an even unimodular ambient L for the stated sufficient uniqueness theorem, or use the full discriminant-form classification for a general ambient lattice. The K3 application is valid because H² is even unimodular of signature (3,19); import the precise existing IntegralLattices 5H contract.",
+      "reason": "Let L=U⊕U⊕⟨−6⟩ with hyperbolic bases e₁,f₁,e₂,f₂ and g²=−6, and S=⟨2⟩. The primitive vectors v=e₁+f₁ and w=2e₁+2f₁+g both have norm 2, but gcd{(v,x):x∈L}=1 and gcd{(w,x):x∈L}=2. Divisibility is O(L)-invariant, so their primitive embeddings are inequivalent. L has signature (2,3), S has (1,0), l(S)=1, and rank gap 4≥3; all the printed inequalities hold. L has determinant −6 and is not unimodular.",
+      "known": "new: no separate correction located in the listed search; this finding is scoped to the checked preprint and makes no claim about the unread published theorem.",
+      "searched": [
+        "Checked arXiv 1101.4601v1 Theorem 4.12 and its K3 application",
+        "Current upstream IntegralLattices Layer 5H records the ambient even-unimodular hypothesis",
+        "Publisher landing page for DOI 10.1007/s00229-012-0577-7, metadata/preview only",
+        "Web search on 2026-10-11: Hartmann Theorem 4.12 unimodular; Period- and mirror-maps erratum correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.8",
+        "reason": "Both vectors have coprime coordinates and norm 2. Their pairing ideals are Z and 2Z, so no integral lattice isometry carries one to the other, despite the printed rank and signature conditions. The selected K3 ambient lattice satisfies the corrected unimodularity hypothesis."
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E4",
+      "source": "H",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "Proof of Theorem 4.29, PDF p.23, arXiv 1101.4601v1 only; compare Proposition 4.24, p.20",
+      "printed": "The proof transfers the reflection known near t=1 for γ₄ to the marked γ₁ by claiming their images under t↦t⁻⁴ coincide as based loops.",
+      "correction": "Retain the based paths and branch translations. The unshifted local ratio at a real parameter s near 1 pulls back by t=i·s to the marked γ₁ chart near t=i. Use that reflection directly in Proposition 4.25; do not identify γ₁ with γ₄. The normalized series conclusion remains supported by this corrected argument.",
+      "reason": "The source’s marked monodromies are β₁(p)=−1/(2p) and β₄(p)=(3−2p)/(2−2p). They are different: β₄=Tβ₁T⁻¹ with T(p)=p+1, and their fixed points are ±i/√2 and 1±i/√2. Thus the claimed equality of based continuations is incompatible with the earlier monodromy calculation. The pulled chart uses (−it)⁴=t⁴ and the same real logarithm at t=i√2, so it supplies γ₁ without that identification.",
+      "known": "new: no separate correction located in the searches; only the checked preprint proof is implicated, not the unread published proof.",
+      "searched": [
+        "The checked preprint Proposition 4.24 and Theorems 4.28–4.29, including their based paths",
+        "NS formulas (26) and (39) for the local ratio and reflection",
+        "Publisher landing page for DOI 10.1007/s00229-012-0577-7: metadata/preview only",
+        "Web search on 2026-10-11: Hartmann 4.29 correction quartic; Period- and mirror-maps erratum"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.8",
+        "reason": "The two explicit Möbius maps have different fixed-point sets and agree only after translation conjugation, so they cannot be the same based continuation. Pulling the analytic s=1 formula along t=i·s repairs the γ₁ normalization step without changing the normalized mirror series."
+      }
     }
   ],
   "coverage": [
@@ -2673,7 +2919,7 @@
       "stageId": "PeriodsAndSpecialValues:PS.8",
       "status": "planned",
       "remaining": [
-        "Discharge G1, G2 and G4 and the precise generic supplier requests before proof execution."
+        "Discharge G1, G2 and G4 and the precise generic supplier requests before proof execution; link the current upstream IntegralLattices supplier recorded in G5."
       ]
     },
     {
@@ -2692,10 +2938,237 @@
   ],
   "upstreamNotes": [
     "Current TauCetiRoadmap main and current TauCeti library were searched read-only for Picard–Fuchs, Gauss–Manin, mirror maps, MZVs and mixed-Tate constructions; none of these targets was found. Completed ContourIntegration and HodgeStructures were read for API style. Existing tensor words, interval integration and ordinary hypergeometric series are reused.",
-    "The current MC packet contains an added neutral-tannaka-reconstruction node. Its actual general statement was read and reused; the diagram-specific tensor-automorphism-group node is not substituted for it."
+    "The current MC packet contains an added neutral-tannaka-reconstruction node. Its actual general statement was read and reused; the diagram-specific tensor-automorphism-group node is not substituted for it.",
+    "Current IntegralLattices (commit 070dc2becd74419e76303ede84b465ed4a69461f) Layer 5H and Layer 6A were read, together with Suggested.lean. Their generic lattice targets are existing upstream work. quartic-lattice imports their exact even-unimodular contracts; G5 identifies the missing atlas catalogue link. The retired Completed/IntegralLattices snapshot does not supply Nikulin uniqueness."
   ],
   "scopeNotes": [
     "RS-13 accepted restructuring does not narrow PS.8 or PS.9.",
     "The issue’s added PS.1 and PS.6 sources and RT-AREA-iwasawa-3/8 correction belong to the other part. PS.9 imports PS.2’s localized Tate-period algebra through its stated interface; the other part owns implementing that correction."
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "H",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1101.4601v1",
+      "read": "2026-10-11",
+      "sha256": "11e54e5ed83a516011217fa7f6fb40d4d890fb7ecf276d7ae398b5ae97a49909",
+      "notes": "The complete 29-page checked PDF is the text for E1–E4. Its title page is dated 29 October 2018. The publisher landing page for DOI 10.1007/s00229-012-0577-7 was inspected but full published text was not available there; these findings make no assertion about the version of record."
+    },
+    {
+      "sourceId": "H",
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s00229-012-0577-7",
+      "citation": "Manuscripta Mathematica 141 (2013), 391–422",
+      "read": "2026-10-11",
+      "notes": "Metadata/preview only; full text not read. Listed to distinguish the inaccessible version of record from the checked preprint."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PeriodsAndSpecialValues--PS.8",
+    "date": "2026-10-11",
+    "notes": "Independent complete target-level review: all 40 nodes, 63 API items, 63 unit tests, sources, 20 actual pinned baseline statements, nine supplier contracts and current upstream ownership checked. Corrected 23 nodes, added no nodes, confirmed E1/E2 and added version-scoped E3/E4. Lean elaborates with only placeholder-proof warnings; rational determinant and branch-conjugacy checks are proved. G1–G4 remain explicit mathematical proof/interface obligations and G5 is the current-upstream catalogue link. Both stages are planned, neither closed. Acceptance does not assert that supplier requests, mathematical proofs or omitted supplier-dependent Lean signatures are implemented.",
+    "checked": [
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-pencil",
+        "verdict": "corrected",
+        "note": "Checked the order-16 quotient, invariant equation, six A₃ resolutions and smooth/excluded fibres against H §4.1, pp.10–11. Corrected irrelevant section references; generic relative geometry remains G4."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-residue",
+        "verdict": "corrected",
+        "note": "Checked H Propositions 4.6–4.7, pp.12–13, including the 2πi tube convention, chart restriction and crepant extension. Replaced the Picard–Fuchs section locator."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-picard-fuchs",
+        "verdict": "verified",
+        "note": "Verified H Proposition 4.14 and independently expanded the corrected E1 pullback. Ω and tΩ have the distinct stated equations; no missing scale is absorbed into an integral marking."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-lattice",
+        "verdict": "corrected",
+        "note": "Verified the primitive rank-19 polarization, rank-three complement and rational splitting. Corrected Theorem 4.12 attribution and its ambient hypothesis (E3), imported existing current IntegralLattices 5H/6A, and recorded G5 catalogue linkage."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-monodromy",
+        "verdict": "verified",
+        "note": "Verified all five cycle matrices, Gram preservation and ordered product exactly. Their Gram-conjugated period-row action gives the stated infinity translation and γ₁ reflection; γ₄ is translation-conjugate, as used in E4."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-frobenius-series",
+        "verdict": "verified",
+        "note": "Verified the harmonic-number Frobenius coefficients and logarithmic basis against H §4.7. Independent exact calculation gives the stated q coefficients after the tΩ normalization."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-symmetric-square",
+        "verdict": "verified",
+        "note": "Verified LYH Proposition 3.1 at λ=256,ν=1/4 and independently squared the first five ₂F₁ coefficients. Existing Mathlib provides only ordinary ₂F₁; the symmetric-square target is not duplicated."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-mirror-coordinate",
+        "verdict": "corrected",
+        "note": "Verified zero constant term, unit linear coefficient and formal inverse. Corrected the geometric normalization proof to pull the local formula to t=i rather than equate the γ₁ and γ₄ based paths (E4)."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-modular-relation",
+        "verdict": "corrected",
+        "note": "Checked every coefficient of LYA equation (5.19), printed p.21, and x=1/j versus J=j/1728. Corrected page numbers; the analytic Schwarzian supplier is explicitly requested."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-integrality",
+        "verdict": "corrected",
+        "note": "Checked LYA equations (6.1)–(6.4), printed p.22, and its quartic application. ℓ=2,m=1 gives integral coefficients; degree-four integrality does not use the prime-degree theorem. Tightened the locator."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-pencil",
+        "verdict": "verified",
+        "note": "Verified SH §§3.1–3.3: Γ has order 125, smoothness excludes λ=0 and 1+5⁵λ⁵=0, and invariant rank four is distinguished from full H³ rank 204."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-formal-connection",
+        "verdict": "corrected",
+        "note": "Verified SH Definition 4.2 and Lemma 4.12, including homogeneity, δ and its (24,50,35,10) relation. Separated SS’s affine comparison citation; no integral formal lattice is asserted and G1 remains explicit."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-dwork-frobenius",
+        "verdict": "verified",
+        "note": "Verified the exponential correction, p⁻² normalization, parameter semilinearity and δF=pFδ. Cup-pairing scaling is retained with its comparison hypotheses; CR.7 is not treated as a proved Dwork comparison."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/dwork-coefficients",
+        "verdict": "corrected",
+        "note": "Verified the Dwork exponential and harmonic-weighted sums. Corrected the nonexistent SH Theorem 6.1 to Definition 6.1, Lemmas 6.2–6.3 and §§6.1–6.4. Convergence is a genuine premise (G2)."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-boundary-matrix",
+        "verdict": "corrected",
+        "note": "Verified the diagonal p³,p²,p,1 and row-3/column-0 correction 24p³Δ₃/25 against SH’s reductions. Corrected the theorem locator. Exact matrix checks give NF=pFN and FᵀJF=p³J without interpreting numerical L-value evidence as a theorem."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quintic-crystalline-comparison",
+        "verdict": "corrected",
+        "note": "Checked SS §§2–3 and its explicit comparison limitation. The projective/completed, integral and semistable bridge is a precise target with G1, rather than a claim already proved by SH or CR.5–CR.7. Separated the two source references."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/mzv-indices",
+        "verdict": "corrected",
+        "note": "Verified descending positive-index convergence, the empty value and non-example [1]. Separated Brown’s reverse convention from the IKZ citation; no ordinary value is assigned to the divergent series."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/word-products",
+        "verdict": "verified",
+        "note": "Verified both recursive products, multiplicities, units and the 0/1 encoding. Pinned TauCeti supplies pure words and all-cut deconcatenation, including outer cuts, but not shuffle multiplication."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/iterated-integrals",
+        "verdict": "corrected",
+        "note": "Verified the largest-time head convention, interval integrability conditions and endpoint/tangential treatment. Separated the DG tangential source from IKZ. The increasing-time motivic word is explicitly reversed."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/convergent-double-shuffle",
+        "verdict": "corrected",
+        "note": "Verified the two admissible product decompositions and their ζ(3,1),ζ(2,2) consequences. Removed the forward ζ(2,1)=ζ(3) claim from this prerequisite; the existing later regularization node owns that corollary."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/polynomial-regularizations",
+        "verdict": "verified",
+        "note": "Verified IKZ Proposition 1 and its polynomial decomposition/uniqueness proof. T is the formal divergence parameter, with separate shuffle and stuffle algebra structures; each has three discriminating tests."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/regularization-operator",
+        "verdict": "corrected",
+        "note": "Verified the linear triangular operator, factorial coefficient formula and inverse. Corrected equations (2.1)–(2.2); the T² and T³ tests exclude a ring-homomorphism interpretation."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/regularized-double-shuffle",
+        "verdict": "verified",
+        "note": "Verified IKZ Theorems 1–2 and the asymptotic comparison proof. The admissible factor in the extended relation is retained; the [1,2] corollary and [1,1] polynomial check use no numerical ζ(1). Completeness is not asserted."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-z",
+        "verdict": "verified",
+        "note": "Verified the number-field mixed-Tate t-structure input, adjacent Kummer unramifiedness criterion over Z and exact graded fibre functor in DG §§1–2. The general category of all mixed motives is not a premise."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/mixed-tate-galois",
+        "verdict": "corrected",
+        "note": "Verified the Ext computations, noncanonical free negative-odd Lie generators and regulator/Hodge injection. Added DG Proposition 2.3 for freeness and separated Brown’s grading convention. The actual neutral reconstruction supplier is used."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-path-torsor",
+        "verdict": "corrected",
+        "note": "Verified DG finite path construction, tangential groupoid and unramifiedness. Corrected Theorem 4.4 page range and identified Betti/bar/tangential comparison as an open NC.2 extension, rather than its current export."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
+        "verdict": "verified",
+        "note": "Verified Brown’s largest graded stable ideal construction and period map. The whole numerical kernel is not substituted, and ζᵐ(2) stays nonzero. Word reversal matches the numerical encoding."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-coaction",
+        "verdict": "verified",
+        "note": "Verified Brown Theorem 2.4: cut-segment products are in the first A factor and the retained motivic word is second; empty cuts/segments are retained. Coassociativity and algebra compatibility are correctly required."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-f-alphabet",
+        "verdict": "verified",
+        "note": "Verified the noncanonical f-alphabet comodule embedding and Hilbert series 1/(1−t²−t³). The dimension result is an upper bound before the basis theorem and does not assume freeness of the MZV generators."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/coaction-derivation-kernel",
+        "verdict": "verified",
+        "note": "Verified Brown Theorem 3.3 with the strict odd range 3≤r<N and N≥2. The joint kernel is the single ζᵐ(N) line, not automatically zero. Projection to indecomposables yields contiguous cuts."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-double-shuffle",
+        "verdict": "corrected",
+        "note": "Verified SO’s convergent frame-preserving products, correcting the stuffle section to §4.4, pp.23–26. Replaced the invented divergent-extension obligation by Brown’s exact shifted all-two formulas, equation (3.8) and Lemma 3.8; G3 remains presentation transport."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-coefficients",
+        "verdict": "corrected",
+        "note": "Verified the descending coefficient by whole-word reversal and all three low-weight tests. Corrected Zagier Theorem 1 to p.981 and gave Brown’s dyadic estimates their own source id."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/zagier-evaluation",
+        "verdict": "corrected",
+        "note": "Verified Zagier Theorem 1, p.981, and all-two identities, p.979. Expanded integer/diagonal interpolation and directional exponential growth, with the pinned horizontal-strip theorem and Liouville step; no unsupported numerical interpolation heuristic remains."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/motivic-zagier-evaluation",
+        "verdict": "corrected",
+        "note": "Verified Brown’s motivic coaction induction and joint-kernel argument. Replaced the misleading leading-one premise by the shifted integral identity; positivity of one odd numerical zeta kills the final scalar without period-map injectivity."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-level",
+        "verdict": "corrected",
+        "note": "Verified the free enumeration and level span before independence, including empty/weight-five/weight-six tests. Corrected level lowering to parity of contiguous cuts (Lemma 5.5), and added the direct coaction prerequisite."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-cut-matrix",
+        "verdict": "corrected",
+        "note": "Verified Brown Definitions 5.8–5.9 and Theorem 6.1/Corollary 6.2. Pinned source rows, target columns and the descending prefix-deletion bijection. Strengthened the weight-five test to actual coefficients, determinant 5/2 and mod-2 column rescaling."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-matrix-invertible",
+        "verdict": "verified",
+        "note": "Verified Brown Lemma 7.1 and Theorem 7.3: below-diagonal valuations ≥1 and diagonal column minima ≤0 imply determinant nonzero after column scaling. The corrected matrix orientation supports that argument; original determinant need not be a unit."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis",
+        "verdict": "verified",
+        "note": "Verified Brown Theorem 7.4’s weight/level induction, nonzero level-zero period and word count matching the earlier Hilbert upper bound. Weight zero/one conventions are included; numerical independence is not inferred."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.9/numerical-spanning",
+        "verdict": "verified",
+        "note": "Verified the actual period-map transfer and Brown Corollary 7.5. PS.2 supplies the localized Tate algebra, including L⁻¹→(2πi)⁻¹, so the confirmed RT finding is respected. Numerical spanning and dimension upper bounds are distinguished from conjectural independence."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.8/quartic-local-continuation",
+        "verdict": "corrected",
+        "note": "Verified NS formula (26) and reflection (39). Corrected the local branch to the marked γ₁ root t=i via s=−it, kept the γ₄ centred coordinate separate, and confirmed E2/E4 against the preprint and exact monodromy maps."
+      }
+    ]
+  }
 }

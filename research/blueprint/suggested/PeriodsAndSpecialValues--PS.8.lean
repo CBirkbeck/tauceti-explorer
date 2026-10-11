@@ -4,6 +4,7 @@ import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.RingTheory.PowerSeries.Derivative
 import Mathlib.Analysis.SpecialFunctions.OrdinaryHypergeometric
 import Mathlib.Analysis.SpecialFunctions.Gamma.Beta
+import Mathlib.Analysis.Complex.PhragmenLindelof
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
@@ -25,7 +26,8 @@ from the pinned library. Their core data have typed signatures below. Missing
 conditions are identified explicitly in comments, never represented by dummy
 Prop fields. In particular the geometric cohomology, overconvergent-complex,
 crystalline and mixed-Tate t-structure conditions must be supplied from the
-reader before these forms become implementation declarations. G1–G4 are open.
+reader before these forms become implementation declarations. G1–G4 are open;
+G5 records the current IntegralLattices supplier's missing atlas catalogue link.
 The geometric API names whose complete signatures need those objects are
 listed at their target. Core numerical/formal/combinatorial examples are explicit;
 tests that need absent supplier objects are identified at their target.
@@ -90,6 +92,9 @@ lemma quartic_gram : quartic_lattice.det = -4 := by sorry
 def quartic_period_line (p : ℂ) : Fin 3 → ℂ := ![p,-1,2*p^2]
 -- quartic_marking_transport: omitted integral local-system transport signature,
 -- with its pairing and path-composition conditions, pending PS.0's interface.
+-- Import current IntegralLattices 5H/6A for the K3 marking: its ambient lattice
+-- is even unimodular of signature (3,19). Hartmann's generic Theorem 4.12 omits
+-- ambient unimodularity (E3); the selected K3 application meets it.
 -- quartic_gram_test
 example : quartic_lattice 0 0 = 4 ∧ quartic_lattice 1 2 = 1 ∧
     quartic_lattice 1 1 = 0 ∧ quartic_lattice 2 2 = 0 := by sorry
@@ -180,9 +185,17 @@ def quarticU1 (t : ℂ) : ℂ :=
 def quarticU2 (t : ℂ) : ℂ :=
   Complex.Gamma (5/8) ^ 2 / Complex.Gamma (3/2) * (t^4-1)^(1/2 : ℂ) *
     ordinaryHypergeometric (𝕂 := ℂ) (𝔸 := ℂ) (5/8 : ℂ) (5/8) (3/2) (1-t^4)
+-- The real-parameter local ratio at s=1 is pulled by s=-i*t to the marked
+-- gamma_1 chart at t=i, with the real log fixed at t=i*sqrt(2). The based
+-- gamma_4 chart at t=1 instead has reflection in the centred coordinate p-1.
+-- These are distinct based continuations (E4), despite t^4=s^4.
 theorem quartic_local_continuation (u v : ℂ) (huv : u+v ≠ 0) (huv' : u-v ≠ 0) :
     (Complex.I / (Real.sqrt 2 : ℂ) * (u-v)/(u+v)) =
       -1 / (2 * (Complex.I / (Real.sqrt 2 : ℂ) * (u+v)/(u-v))) := by sorry
+example (p : ℂ) (hp : p ≠ 1) :
+    1 - 1 / (2 * (p-1)) = (3-2*p)/(2-2*p) := by
+  field_simp
+  ring
 
 -- Quintic data. The geometric family and invariant cohomology are the reader's
 -- targets; core polynomial/companion data below do not claim an integral lattice.
@@ -589,7 +602,11 @@ theorem coaction_derivation_kernel (N : ℕ) (hN : 2 ≤ N) :
 theorem motivic_double_shuffle :
     (motivicZeta [2])^2 = 2*motivicZeta [2,2] + motivicZeta [4] ∧
     (motivicZeta [2])^2 = 4*motivicZeta [3,1] + 2*motivicZeta [2,2] := by sorry
--- The full leading-one theorem requires the motivic regularization extension G3.
+-- The generic convergent stuffle identity needs the frame-preserving comparison
+-- G3. Brown Lemma 3.8 uses no additional divergent-stuffle extension.
+lemma motivic_convergent_stuffle (u v : AdmissibleIndex) :
+    motivicZeta u.val * motivicZeta v.val =
+      (stuffleWord u.val v.val).sum (fun w a => a • motivicZeta w) := by sorry
 
 def zagier_coefficients (a b r : ℕ) : ℚ :=
   2 * (-1 : ℚ)^r * ((Nat.choose (2*r) (2*b+2) : ℚ) -
@@ -612,6 +629,21 @@ example : zagier_coefficients 1 0 1 = -2 ∧ zagier_coefficients 1 0 2 = 9/2 := 
 example : zagier_coefficients 0 1 1 = 3 ∧ zagier_coefficients 0 1 2 = -11/2 := by sorry
 
 def oneThree (a b : ℕ) : List ℕ := List.replicate a 2 ++ [3] ++ List.replicate b 2
+-- Brown's ζ₁ is a shuffle-regularized leading-zero integral I(0;0(10)^n;1).
+-- It is not the motivic value of an index list with an extra divergent 1.
+def motivicShiftedAllTwos (n : ℕ) : MZVH :=
+  motivicWord (false :: (List.replicate n [true,false]).flatten)
+lemma motivic_shifted_all_twos_shuffle (n : ℕ) (hn : 1 ≤ n) :
+    motivicShiftedAllTwos n = (-2 : ℚ) •
+      ∑ i ∈ Finset.range n, motivicZeta (oneThree (n-1-i) i) := by sorry
+lemma motivic_shifted_all_twos_stuffle (n : ℕ) (hn : 1 ≤ n) :
+    motivicShiftedAllTwos n =
+      ∑ i ∈ Finset.range n, (2 * (-1 : ℚ)^(i+1)) •
+        (motivicZeta [2*(i+1)+1] * motivicZeta (List.replicate (n-1-i) 2)) := by sorry
+example : motivicShiftedAllTwos 1 = (-2 : ℚ) • motivicZeta [3] := by sorry
+example : motivicShiftedAllTwos 2 =
+    (-2 : ℚ) • (motivicZeta [3] * motivicZeta [2]) +
+      (2 : ℚ) • motivicZeta [5] := by sorry
 theorem zagier_evaluation (a b : ℕ) : mzv_indices ⟨oneThree a b, by sorry⟩ =
     ∑ r ∈ Finset.range (a+b+1), (zagier_coefficients a b (r+1) : ℝ) *
       mzv_indices ⟨[2*(r+1)+1], by sorry⟩ *
@@ -640,6 +672,8 @@ lemma hoffman_level_derivation (N l r : ℕ) (hl : 1 ≤ l)
       (motivicDerivation r N x) ∈ Submodule.span ℚ
         {v | ∃ a : MotivicIndecomposables r, ∃ b : MZVH,
           b ∈ hoffman_level (N-r) (l-1) ∧ v = a ⊗ₜ[ℚ] b} := by sorry
+-- Level lowering follows from parity of the contiguous cuts (Brown Lemma 5.5),
+-- before evaluating their coefficients using the motivic one-three formula.
 -- hoffman_empty_test
 example : Fintype.card (HoffmanWords 0 0) = 1 ∧ hoffman_level 0 0 = Submodule.span ℚ {1} := by sorry
 -- hoffman_weight_five_test
@@ -651,22 +685,51 @@ example : Fintype.card (HoffmanWords 6 0) = 1 ∧ Fintype.card (HoffmanWords 6 2
 def HoffmanTargets (N l : ℕ) :=
   Σ r : {r : ℕ // Odd r ∧ 3 ≤ r ∧ r ≤ N}, HoffmanWords (N-r.val) (l-1)
 instance (N l : ℕ) : Fintype (HoffmanTargets N l) := by sorry
-def hoffman_cut_matrix (N l : ℕ) : Matrix (HoffmanWords N l) (HoffmanWords N l) ℚ := by sorry
--- hoffman_matrix_entry: its full cut-coefficient signature needs D_r and the
--- motivic leading-one theorem G3. This matrix is not defined by invertibility.
+-- Source words index rows and target pairs index columns, as in Brown Def. 5.9.
+-- Coefficients come from the actual level-lowering cuts; no independence is used.
+def hoffman_cut_coefficients (N l : ℕ) :
+    Matrix (HoffmanWords N l) (HoffmanTargets N l) ℚ := by sorry
+-- Delete the descending prefix 2^k3. The inverse prepends it to the target word.
+def hoffmanTargetEquiv (N l : ℕ) (hl : 1 ≤ l) :
+    HoffmanWords N l ≃ HoffmanTargets N l := by sorry
+lemma hoffman_matrix_prefix (N l k : ℕ) (hl : 1 ≤ l)
+    (w : HoffmanWords N l) (u : List ℕ)
+    (hw : w.val = List.replicate k 2 ++ [3] ++ u) :
+    (hoffmanTargetEquiv N l hl w).1.val = 2*k+3 ∧
+      (hoffmanTargetEquiv N l hl w).2.val = u := by sorry
+def hoffman_cut_matrix (N l : ℕ) (hl : 1 ≤ l) :
+    Matrix (HoffmanWords N l) (HoffmanWords N l) ℚ :=
+  fun w w' => hoffman_cut_coefficients N l w (hoffmanTargetEquiv N l hl w')
+-- hoffman_matrix_entry: the full cut-coefficient formula needs endpoint-labelled
+-- D_r and the shifted-all-two integral identity. G3 supplies convergent stuffle
+-- in this presentation. The matrix is not defined by its later invertibility.
 lemma hoffman_matrix_square (N l : ℕ) (hl : 1 ≤ l) :
     Fintype.card (HoffmanWords N l) = Fintype.card (HoffmanTargets N l) := by sorry
 -- hoffman_matrix_leading: the exact ordered/rescaled entry conditions are
 -- omitted until the cut formula and rational 2-adic valuation API are linked.
 -- hoffman_matrix_empty_target_test
-example : hoffman_cut_matrix 3 1 = 1 := by sorry
+example : hoffman_cut_matrix 3 1 (by decide) = 1 := by sorry
+def hoffmanFiveRows : Fin 2 → HoffmanWords 5 1 :=
+  ![⟨[3,2], by sorry⟩, ⟨[2,3], by sorry⟩]
+def hoffmanFiveColumns : Fin 2 → HoffmanTargets 5 1 :=
+  ![⟨⟨3, by decide⟩, ⟨[2], by sorry⟩⟩,
+    ⟨⟨5, by decide⟩, ⟨[], by sorry⟩⟩]
 -- hoffman_matrix_weight_five_test
-example : Fintype.card (HoffmanWords 5 1) = 2 ∧ Fintype.card (HoffmanTargets 5 1) = 2 := by sorry
+example : (hoffman_cut_coefficients 5 1).submatrix hoffmanFiveRows hoffmanFiveColumns =
+    !![3, -11/2; -2, 9/2] := by sorry
+-- This rational arithmetic check has no motivic or placeholder matrix premise.
+example : (!![zagier_coefficients 0 1 1, zagier_coefficients 0 1 2;
+    zagier_coefficients 1 0 1, zagier_coefficients 1 0 2] :
+      Matrix (Fin 2) (Fin 2) ℚ).det = 5/2 := by
+  norm_num [zagier_coefficients, Matrix.det_fin_two, Nat.choose]
+-- The square reindexing's columns correspond to [3,2] and [2,3] in this order.
+example : hoffmanTargetEquiv 5 1 (by decide) (hoffmanFiveRows 0) = hoffmanFiveColumns 0 ∧
+    hoffmanTargetEquiv 5 1 (by decide) (hoffmanFiveRows 1) = hoffmanFiveColumns 1 := by sorry
 -- hoffman_matrix_reversal_test
 example (k : ℕ) : (3 :: List.replicate k 2).reverse = List.replicate k 2 ++ [3] := by sorry
 
 theorem hoffman_matrix_invertible (N l : ℕ) (hN : 3 ≤ N) (hl : 1 ≤ l) :
-    (hoffman_cut_matrix N l).det ≠ 0 := by sorry
+    (hoffman_cut_matrix N l hl).det ≠ 0 := by sorry
 theorem hoffman_motivic_basis (N : ℕ) :
     LinearIndependent ℚ (fun k : HoffmanWeightWords N => motivicZeta k.val) ∧
     Submodule.span ℚ (Set.range (fun k : HoffmanWeightWords N => motivicZeta k.val)) =
