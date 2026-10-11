@@ -1,0 +1,310 @@
+{
+  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+  "protocol": "blueprint-v1",
+  "part": "NC.6",
+  "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+  ],
+  "status": "partial",
+  "summary": "NC.6 is a process endpoint whose listed outputs belong to NC.1–NC.5 and EffectiveDiophantineMethods ED.6. This checkpoint completes its ownership and dependency screen and proposes removing the stage, preserving the existing NC.5 to ED.6 edge. It introduces no mathematical nodes. Coverage remains partial because no accepted restructuring result drops NC.6; source-scoped reconstruction, finite local loci and certified global enumeration retain separate hypotheses and owners.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": []
+  },
+  "sources": [
+    {
+      "id": "mochizuki-1996",
+      "title": "The Profinite Grothendieck Conjecture for Closed Hyperbolic Curves over Number Fields",
+      "authors": "Shinichi Mochizuki",
+      "edition": "Journal of Mathematical Sciences, the University of Tokyo 3 (1996), 571–627; publisher PDF",
+      "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
+      "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
+      "readSections": [
+        "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
+      ]
+    },
+    {
+      "id": "kim-2009",
+      "title": "The Unipotent Albanese Map and Selmer Varieties for Curves",
+      "authors": "Minhyong Kim",
+      "edition": "Publications of RIMS 45 (2009), 89–133; publisher PDF",
+      "url": "https://ems.press/content/serial-article-files/41066?nt=1",
+      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
+      "readSections": [
+        "Introduction, pp.89–96: section-conjecture formulation, Theorem 1, global/local diagram and Conjecture 1."
+      ]
+    },
+    {
+      "id": "balakrishnan-dogra-2018",
+      "title": "Quadratic Chabauty and Rational Points I: p-adic Heights",
+      "authors": "Jennifer S. Balakrishnan and Netan Dogra",
+      "edition": "arXiv:1601.00388v2; page numbers refer to this preprint, not Duke Mathematical Journal",
+      "url": "https://arxiv.org/pdf/1601.00388v2",
+      "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
+      "readSections": [
+        "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
+      ]
+    },
+    {
+      "id": "bdckw-2018v4",
+      "title": "A Non-abelian Conjecture of Tate–Shafarevich Type for Hyperbolic Curves",
+      "authors": "Jennifer S. Balakrishnan, Ishai Dan-Cohen, Minhyong Kim and Stefan Wewers",
+      "edition": "arXiv:1209.0640v4; all locators use preprint pagination",
+      "url": "https://arxiv.org/pdf/1209.0640v4",
+      "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
+      "readSections": [
+        "§§2.3–2.7, pp.9–10, local conditions and nested loci; §§3.1–3.4, pp.12–13, eventual equality conjecture, number-field scope caveat and relation to the section conjecture."
+      ]
+    },
+    {
+      "id": "bdmtv-2021v4",
+      "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
+      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+      "edition": "arXiv:2101.01862v4; retained only for the version comparison",
+      "url": "https://arxiv.org/pdf/2101.01862v4",
+      "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+      "readSections": [
+        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
+      ]
+    },
+    {
+      "id": "bdmtv-2023-published",
+      "title": "Quadratic Chabauty for Modular Curves: Algorithms and Examples",
+      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+      "edition": "Compositio Mathematica 159 (2023), 1111–1152; version of record",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
+      "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
+      "readSections": [
+        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
+      ]
+    }
+  ],
+  "nodes": [],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+      "status": "partial",
+      "remaining": [
+        "Obtain independent acceptance of a restructuring result with layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop and the suppliers and preserved NC.5 to ED.6 link specified below. The present blueprint proposal and the accepted parent planning pass do not supply that acceptance.",
+        "After that acceptance, an authorized integration removes NC.6 and its two incoming edges; update this scoped packet to closed coverage with no nodes, citing the accepted result. These steps require files outside issue #6347's deliverables."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "NC.6 removal awaits accepted restructuring",
+      "neededBy": [],
+      "detail": "PROTOCOL §15 permits node-free closed coverage only for a layer dropped by an accepted restructuring. At this checkpoint, no research/blueprint/restructure/RS-*.result.json records an accepted NC.6 drop. Its parent packet still explicitly leaves removal pending acceptance. Adding a process node or duplicating NC.1–NC.5 mathematics would violate the issue. The permitted deliverables can make the proposal reviewable but cannot record the external acceptance or change the atlas. This is a structural blocker, not a new mathematical gap in the supplier layers."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AnabelianGeometryAndNonabelianChabauty"
+      ],
+      "detail": "The reviewed library audit classifies NC.6 as process work; its four exports already have mathematical owners and its precision consumer already has a direct NC.5 dependency.",
+      "proposal": "Drop NC.6 after independent restructuring acceptance. Keep reconstruction in NC.1, unipotent groups/comparisons in NC.2, geometric Selmer varieties in NC.3, iterated-integral equations and general conditional Chabauty–Kim loci in NC.4, quadratic height equations/loci in NC.5, and precision, candidate comparison and global certificates in EffectiveDiophantineMethods ED.6. Keep all supplier gaps and conjectural hypotheses at their existing owners.",
+      "acceptanceStatus": "proposed",
+      "layers": {
+        "AnabelianGeometryAndNonabelianChabauty:NC.6": {
+          "action": "drop",
+          "suppliedBy": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.1",
+            "AnabelianGeometryAndNonabelianChabauty:NC.2",
+            "AnabelianGeometryAndNonabelianChabauty:NC.3",
+            "AnabelianGeometryAndNonabelianChabauty:NC.4",
+            "AnabelianGeometryAndNonabelianChabauty:NC.5",
+            "EffectiveDiophantineMethods:ED.6"
+          ],
+          "reason": "No additional mathematical carrier, definition or theorem is required to publish these independently owned outputs."
+        }
+      },
+      "owners": [
+        {
+          "target": "Source-qualified Isom reconstruction from geometric profinite fundamental groups with outer Galois action; separately sourced Hom variants",
+          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        },
+        {
+          "target": "Finite-level unipotent étale and de Rham groups, path torsors and comparison maps",
+          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        },
+        {
+          "target": "Geometric Selmer schemes, specified local conditions and localization morphisms",
+          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        },
+        {
+          "target": "Unipotent Albanese maps, iterated-integral equations and conditional finite Chabauty–Kim loci",
+          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        },
+        {
+          "target": "Quadratic Chabauty equations, finite away-from-p height alternatives and source-qualified finite depth-two loci",
+          "owner": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        },
+        {
+          "target": "Finite precision data, exhaustive disc/root certificates and comparison with exact global points",
+          "owner": "EffectiveDiophantineMethods:ED.6",
+          "formerly": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.6"
+          ]
+        }
+      ],
+      "links": [
+        {
+          "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+          "target": "EffectiveDiophantineMethods:ED.6",
+          "reason": "Preserve the existing direct consumer link for quadratic equations and their rank/local-height hypotheses. ED.6 owns computational precision and global certification; no NC.6 transit is needed."
+        }
+      ],
+      "removeLinks": [
+        {
+          "source": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+          "target": "AnabelianGeometryAndNonabelianChabauty:NC.6"
+        },
+        {
+          "source": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+          "target": "AnabelianGeometryAndNonabelianChabauty:NC.6"
+        }
+      ],
+      "noNewLinkReason": "The atlas reports no NC.6 consumers. NC.2 to NC.3 to NC.4 to NC.5 already carries the unipotent inputs to ED.6. Profinite reconstruction is an independent NC.1 output, not an input required by the existing quadratic enumeration algorithm; do not introduce an NC.1 to ED.6 edge."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
+      "source": "bdmtv-2023-published",
+      "kind": "error",
+      "locator": "Published Lemma 4.7, p.1136; same tail condition in arXiv:2101.01862v4, p.25.",
+      "printed": "The truncation index is constrained only at coefficient indices satisfying ord_p(F_i) + i = n.",
+      "correction": "For all i ≥ m require ord_p(F_i) + i ≥ n, using ord_p(0) = infinity; retain the convergence and multiplicity obligations of the ED.6 root-determination-precision node.",
+      "reason": "The coefficient of T^i in G(T) = p^(−k)F(pT) has valuation ord_p(F_i) + i − k. A polynomial truncation of degree below m modulo p^(n−k) therefore needs a bound for every tail index. For F(x) = p^5 − p x + x^2, m = 2, n = 5, k = 2, the only equality index is 0, whereas G(T) = p^3 − T + T^2 has a unit coefficient in degree 2. This repeats the obstruction already recorded by the ED supplier; it supplies no new root-isolation proof.",
+      "affects": "a stated result",
+      "known": "Already recorded as EffectiveDiophantineMethods/E21, confirmed by REV-EffectiveDiophantineMethods~3. Freshly checked here in the published and v4 passages; not claimed new.",
+      "searched": [
+        "Published Compositio 159 (2023), p.1136",
+        "arXiv:2101.01862v4, p.25",
+        "research/blueprint/packets/EffectiveDiophantineMethods.json, E21"
+      ],
+      "originFinding": "EffectiveDiophantineMethods/E21"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-phi-branch",
+      "source": "bdmtv-2021v4",
+      "kind": "misprint",
+      "locator": "arXiv:2101.01862v4, p.24, final branch equality before Proposition 4.6; compared with published (4.21), p.1134, and branch equality, p.1136.",
+      "printed": "The eventual branch for phi(i) includes an additional c1.",
+      "correction": "The branch is phi(i) = −2 floor(log_p i). Add c1 when applying the separate splitting estimate, as in the final coefficient bound.",
+      "reason": "Substituting the eventual minimum into the published definition (4.21) gives two negative floor-log terms. The published branch agrees; c1 remains in Proposition 4.6's final bound.",
+      "affects": "nothing",
+      "known": "Corrected in the published Compositio 159 (2023), p.1136; already recorded as EffectiveDiophantineMethods/E30.",
+      "searched": [
+        "arXiv:2101.01862v4, pp.24–25",
+        "Published Compositio 159 (2023), pp.1134–1136",
+        "research/blueprint/packets/EffectiveDiophantineMethods.json, E30"
+      ],
+      "originFinding": "EffectiveDiophantineMethods/E30"
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "mochizuki-1996",
+      "kind": "published",
+      "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms030305.pdf",
+      "read": "2026-10-11",
+      "sha256": "90f4e3b19a7797b34ee7e87c25dfeacaa4ae11beef21d60bb30346776c76b950",
+      "extent": [
+        "Introduction, Theorem A, pp.571–574; §10, Theorems 10.1–10.2 and proof of 10.1, pp.624–626. Selected ownership and hypothesis check, not decomposition of the reconstruction proof."
+      ]
+    },
+    {
+      "sourceId": "kim-2009",
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/41066?nt=1",
+      "read": "2026-10-11",
+      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
+      "extent": [
+        "Introduction, pp.89–96: section-conjecture formulation, Theorem 1, global/local diagram and Conjecture 1."
+      ]
+    },
+    {
+      "sourceId": "balakrishnan-dogra-2018",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1601.00388v2",
+      "read": "2026-10-11",
+      "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
+      "extent": [
+        "Introduction, pp.2–5: finite loci versus computation, statement of Lemma 3.2 on p.3, Theorem 1.2 and Remark 1.3 on p.4, computational requirements on p.5. No proof-closure claim."
+      ]
+    },
+    {
+      "sourceId": "bdckw-2018v4",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1209.0640v4",
+      "read": "2026-10-11",
+      "sha256": "1cc3059dea942d17edad028fdde8f6d0ec410bdab14ad19565237115b0855c52",
+      "extent": [
+        "§§2.3–2.7, pp.9–10, local conditions and nested loci; §§3.1–3.4, pp.12–13, eventual equality conjecture, number-field scope caveat and relation to the section conjecture."
+      ]
+    },
+    {
+      "sourceId": "bdmtv-2021v4",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2101.01862v4",
+      "read": "2026-10-11",
+      "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+      "extent": [
+        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.14–15; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.24–25. Compared with the published passages below."
+      ]
+    },
+    {
+      "sourceId": "bdmtv-2023-published",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C317E63BB0128EB3F2163621CA63E66E/S0010437X23007170a.pdf/quadratic_chabauty_for_modular_curves_algorithms_and_examples.pdf",
+      "read": "2026-10-11",
+      "sha256": "811619d1e066b699fc977f6a88b3eb112966c40fce761c5524a72d0874413990",
+      "extent": [
+        "Algorithm 3.12, Remarks 3.13–3.16 and §3.5.1, pp.1124–1126; (4.21) and §4.3, p.1134; §4.4, Proposition 4.6, Lemma 4.7 and Remark 4.8, pp.1135–1136. Selected precision-boundary check, not a numerical replay."
+      ]
+    }
+  ],
+  "ownershipEvidence": {
+    "audit": "data/library-coverage.json: AnabelianGeometryAndNonabelianChabauty, NC.6, verdict process (AUDIT-08).",
+    "parentPacket": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json: accepted planning pass; NC.6 coverage not_read, expressly pending restructuring acceptance; no NC.6 nodes.",
+    "existingNode": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification is an authored topological torsor/H1 comparison. Its statement was read; it does not supply the geometric Selmer-variety export.",
+    "consumerPacket": "research/blueprint/packets/EffectiveDiophantineMethods.json: latest review needs_changes (REV-EffectiveDiophantineMethods~3, 2026-10-08). ED.6/certified-solution-set, padic-candidate-comparison, qc-disc-certificate, qc-certificate-sound, height-series-valuation-bound, root-determination-precision and qc-modular-algorithm identify the owner and open interfaces; none is imported as completed or formalised.",
+    "graph": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json and EffectiveDiophantineMethods.json: NC.1 and NC.5 feed NC.6; NC.6 has no consumers; NC.5 already feeds ED.6."
+  },
+  "libraryScreen": {
+    "upstreamRoadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
+    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "read": [
+      "TauCetiRoadmap/ProfiniteArithmetic/README.md, whole document; Suggested.lean, Layer 2 continuous automorphisms and outer quotient, lines 453–522.",
+      "Completed/EffectiveBounds/README.md and Suggested.lean, whole documents.",
+      "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean, module documentation, lines 1–87."
+    ],
+    "consequence": "NC.6 introduces no generic outer-automorphism, arithmetic-bound or power-series-evaluation API. Current upstream ownership is preserved. No baseline declaration is cited by a mathematical node, so declarations is empty; no fresh exhaustive absence search or supplier implementation claim is made."
+  },
+  "frontiers": [
+    "Mochizuki's closed-curve Isom theorem is not the section conjecture and supplies no rational-point enumeration algorithm. Hom claims and variants for other bases require their own NC.1 sources.",
+    "A finite-level locus contains the specified global rational or integral points through the local/global diagram. Finiteness under verified dimension or quadratic-height hypotheses is distinct from equality with the global set.",
+    "Eventual equality in BDCKW §3.1 uses that source's minimal Z-model and stringent local conditions. Do not generalize it to arbitrary number fields or identify it with Kim 2009 Conjecture 1's dimension inequality.",
+    "Any unresolved Bloch–Kato, Fontaine–Mazur, logarithm-rank, reduction or local-height input remains an explicit condition on every downstream assertion. FAIL or unresolved candidate balls yield an open computation."
+  ]
+}
