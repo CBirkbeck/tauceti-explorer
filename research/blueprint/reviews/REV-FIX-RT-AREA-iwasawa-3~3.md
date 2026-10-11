@@ -1,3 +1,112 @@
+# Independent checkpoint review: issue #5869
+
+Refs #5869. Codex (GPT-6), session `codex-tpWtXb`, 11 October 2026.
+Input commit `b88f5c327ce51cae963db4c5ff7edb373d7c8243`.
+Claim [6107426554](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6107426554)
+was confirmed by bot comment 6107427638. This session did none of the fixes
+being reviewed and claims exactly one job.
+
+**Motives verdict: needs_changes. Dispatch: blocked checkpoint.**
+This is an independent bounded review of the eight assigned corrections and
+the relevant Motives contracts, rather than a new audit of every node in the
+182-node packet. The previous codex-OXZ9ou review is preserved intact below
+and its packet verdict is appended unchanged to `reviewHistory`.
+No mathematical field, Lean signature, source issue, gap, request, stage,
+implementation status or owner review marker changes in this continuation.
+
+## Fresh finding checks
+
+The following conclusions come from freshly downloaded public source texts,
+the owner statements and the existing third-round fix report.
+
+| Finding | Verdict and evidence |
+| --- | --- |
+| /1: CM product model | **Partly repaired.** BDP §2.2, p.1060 defines the product over a field containing the CM curve's field of definition. Section 3.2, p.1067 independently requires finite unramified F/Q_p and smooth proper models of C and X_m over O_F. Its conductor application is separate. Conrad's appendix, pp.1139–1140 supplies W_m. GH.0/cm-product-good-model retains separate factor models and positive/bad-twist examples. GH.1/p-adic-abel-jacobi-map hypothesis 0 still places p∤cNd_K in parentheses after good reduction; separate that application condition from the model hypotheses. |
+| /2: moment twist | **Selected repair holds.** Kato §8.4, p.182 identifies T_pE with H_p(1). The owner correctly uses Sym^(k−2)(T_pE)=Sym^(k−2)(H_p)(k−2). Adding 2−r gives k−r; k=4,r=1 gives 3. |
+| /3: Euler factors | **Operator repair holds; prerequisite normalization is still wrong.** Kato Proposition 8.7(2), p.184 and Theorem 9.5, p.188 retain ℓ^(−r) and p^(−r) in the nontrivial linear terms. The owner preserves the quadratic exponent k−1−2r and the p∣M identity branch. The page image of Lemma 8.8(1), p.185 explicitly has n^(r′−1), while the owner Hecke statement and acceptance use r−1. Inverse Hecke transport contributes −(r′−1) and the first diamond contributes r′−1−r; their sum is −r. At r=1,r′=2,ℓ=2 the correct scalar is 1/2 and the wrong one is 1. Five proved scratch Lean examples check these exponents and values. |
+| /4: dual exponential | **Selected repair holds.** Kato (9.2.2), p.187 and §9.4, p.188 use filtration steps, with zero for i≥k. The owner distinguishes F¹=F² from gr¹=0 at k=4 and retains the endpoint. |
+| /5: interpolation | **Selected repair holds.** Kato Theorem 12.5(1), p.221 first twists the Iwasawa class by k−r, then specializes and applies the local dual exponential. The owner keeps that order, the changed Iwasawa action, f*, the p-imprimitive value and the sign. The weight-two target is V(f)(1). |
+| /6: integrality proof | **Selected repair holds.** Kato Lemma 8.5, pp.183–184 uses inertia-cohomology invariants, identifies them with the Pontryagin dual of residue-field H¹, and takes the direct restriction limit there. The owner preserves the dual and the correspondence with inverse corestriction; no undualized inverse-limit vanishing is used. |
+| /7: theta proof | **Selected repair holds.** Kato §1.10, p.124 uses divisor pushforward and its norm compatibility. The owner rejects pullback: for c=5,a=2, the pulled-back divisor is 25E[2]−E[10], with coefficient 24 at a nonzero 2-torsion point. |
+| /8: formal periods | **Localization repair holds; full torsor adapter remains absent.** HMS Definition 2.8, p.10 presents effective periods and inverts the Tate symbol. Theorem 2.10, p.11 compares the localized ring with the full diagram's comparison algebra. Lemma 3.2, p.12 needs the neutral Tannakian setting; Corollary 3.4, p.13 gives the full torsor. Current prototypes retain effective evaluation, explicit inverse identities, rank-one nonvanishing, both edge laws and conditional rigidity. `formalPeriods_eq_comparison` still concludes only an effective equivalence; `localizeComparison` only compares two localizations. Neither supplies the typed full Nori comparison/heap/action adapter recorded in the gap. |
+
+These selected positive judgments do not replace the independent owner
+reviews or certify the entire arithmetic packets. Their files are read-only
+under the live issue's scope.
+
+## Baseline and boundaries
+
+Read the pinned Mathlib statements of `IsLocalization.Away.invSelf`,
+`mul_invSelf`, `algebraMap_isUnit`, `lift`, `lift_eq`,
+`IsLocalization.algEquivOfAlgEquiv` and `Polynomial.aeval`/`aeval_X`.
+They supply the explicit inverse, evaluation extension, compatible ring
+localization and the two proved ring-model regressions. They do not supply
+Nori fibre functors or an effective/full torsor identification. These APIs
+were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+The packet's recorded Tau Ceti pin remains
+`f790474821cf4256814db967cb154e7af3d0c369`; the checked file imports only
+Mathlib, so this run does not claim a new Tau Ceti compilation or baseline
+inventory audit.
+
+The reviewed PS.2 library audit (AUDIT-27) records that formal-period
+presentation, Nori comparison and evaluation are absent, and assigns the
+categorical torsor supplier to MC.6. Read current upstream ReductiveGroups
+README layer 1, its Suggested.lean (which contains only layer-0
+signatures), and Completed/HodgeStructures README. Their known-Hopf reconstruction and structural Hodge targets are
+existing work, not new targets here. Current upstream commit:
+`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`.
+Current Tau Ceti library commit:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The actual `TauCeti.Tannaka.fgPointTensorIsoEquiv` statement starts with a
+commutative Hopf algebra and compares its points with automorphisms of its
+comodule fibre functor. It does not discharge the missing full Nori adapter.
+No build or edit was performed in either current upstream tree.
+
+## Source receipts and validation
+
+Public PDFs accessed 11 October 2026; no restricted source was needed.
+All mathematical statements above are authored descriptions.
+
+| Version read | Locators | SHA-256 |
+| --- | --- | --- |
+| [Huber–Müller-Stach, arXiv v5](https://arxiv.org/pdf/1105.0865v5) | Definition 2.8; Theorems 2.6/2.10; Lemma 3.2; Corollary 3.4; Definition B.18; Lemma B.21; Proposition B.22; pp.10–13,24–26 | `e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563` |
+| [Kato, Astérisque 295 (2004)](https://www.numdam.org/item/AST_2004__295__117_0.pdf) | §1.10; §8.4, Lemma 8.5, Proposition 8.7, Lemma 8.8; §§9.2–9.5; Theorem 12.5(1); pp.124,182–185,187–188,221; p.185 also rendered and inspected | `3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d` |
+| [BDP, published Duke version](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf) | §2.2, p.1060; §3.2, p.1067; Conrad appendix, pp.1139–1140 | `223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc` |
+
+- Packet check: exit 0, zero errors and warnings; 182 nodes, 463 API items,
+  261 tests, 47 planets, 113 baseline entries, 24 gaps and 16 requests.
+- Full `lean-check`: exit 0, 817 warnings, every one `declaration uses sorry`;
+  no errors or other warnings. Suggested-file SHA-256:
+  `c006c8a68ebf5bc6ed2acb6c924670d40e656e3f2869e6f9271571f95296b902`.
+- Five scalar/exponent regressions: `lean-check` exit 0, no diagnostics.
+- No excerpt field is present in the edited packet.
+- The mathematical packet and suggested file remain unchanged. The prior
+  verdict is archived exactly, and the new verdict retains needs_changes.
+
+## Completion blocker and exact remedy
+
+Freshly re-read the entire live issue after bot confirmation. It authorizes
+only this report and the Motives packet/suggested pair. The queue lists two
+additional owner pairs, and `issues.py:deliverables_complete` requires this
+review's marker in all three packets. The current predicate returns false.
+It accepts a finished needs_changes review; the mathematical negative
+verdict is not itself the dispatch blocker.
+
+WORKERS.md's file-scope rule prevents silently extending a review to the
+omitted owner files. An explicit extension was requested while the permitted
+checks proceeded; no authorization has arrived. No owner review marker or
+queue output was changed. Before another continuation, the maintainer should
+authorize the four owner paths, or align the queue with a Motives-only review.
+The previous exact owner correction instructions remain below and in the
+handoff. Then perform the bounded owner reviews, check the two full suggested
+files and record genuine verdicts. Do not change markers merely to satisfy
+the predicate. The reader synchronization remains separate work because the
+reader is also absent from this issue's deliverables.
+
+---
+
+## Preserved preceding checkpoint report
+
 # Independent review: third Iwasawa fix round
 
 Refs #5869. Codex (GPT-6), session `codex-OXZ9ou`, 11 October 2026.
