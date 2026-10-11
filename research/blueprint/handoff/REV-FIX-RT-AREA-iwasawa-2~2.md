@@ -1,18 +1,17 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-mrjVtq`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-pzP6uF`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105393160).
-Input commit: `5ef4331ec4198234c77f9a74652b98acfd786d96`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105591960).
+Input commit: `98e12a03c5d9478e5c37363f8a3daa086ac341cd`.
 
 ## Status: blocked by file-scope authorization
 
 The six-finding correction review is ready. Preserve the attribution in the
 [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) and its immutable
-predecessor links. L3 now records this session's bounded acceptance; PMIA
-records its justified `needs_changes` with fresh source/native evidence.
-Their entire previous review objects were appended intact to their histories;
-only these metadata fields changed. The queue finishes when the
+predecessor links. L3 already records the preceding session's bounded acceptance;
+PMIA already records its justified `needs_changes`. Both records and their
+entire histories are unchanged in this continuation. The queue finishes when the
 exact L3-2 and D.1 records below are installed. Their original
 `codex-jIGDIK` attribution must remain.
 
@@ -60,7 +59,7 @@ Also fetched and visually read Morita §1 Lemma 1/Theorem 1 pp.255–256 and
 Gross–Koblitz §1 equations (1.2), (1.5), (1.6)/Theorem 1.7 pp.570–571.
 Read Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26 and
 §6.1/Lemma 6.1 p.40. The /1 and /4 source checks support the earlier bounded
-correction verdicts. Seven public-PDF hashes reproduced below; no book used
+correction verdicts. Nine public-PDF hashes reproduced below; no book used
 and no source passage copied into the repository.
 
 Read the five current native Fitting/transpose declarations named in the
@@ -68,10 +67,15 @@ report and their PMIA counterparts. Their exact hypotheses support PMIA's
 negative ownership verdict. Read the pinned continuous-unit lift, positive
 Gauss sum, Teichmüller lift and opposite-ring transpose definition. Earlier
 consultations of ArithmeticDirichletSeries and StableReduction interfaces
-retain their attribution. Current read-only upstream heads
+retain their attribution; this session also read their current README and
+Suggested interfaces relevant to the owner boundary. Current read-only upstream heads
 are TauCetiRoadmap `070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the current LAD complex
-conventions and RS-16 I.5 proof-route decision. These checks preserve earlier
+conventions and RS-16 I.5 proof-route decision. Also fetched and read BCGP21 v3
+§6.1.1 p.139 and BCGP25 Definition 2.2.17 p.21/§4.6.46–Remark 4.6.47
+pp.93–94. Their distinction between the representative product and invariant
+cohomological support, and between derived solid localization and mere monoid
+inversion, agrees with the retained /5 correction. These checks preserve earlier
 full source/node audits with their original attribution.
 
 Ran all four Suggested files sequentially through `lean-check` after checking
@@ -92,11 +96,11 @@ evidence or mathematics.
 | L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
 | D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
 
-The issue-named packet hashes after this session's metadata updates are L3
+The unchanged issue-named packet hashes are L3
 `209f46501fd667a585ba591ea805d2cab7180294f3f92eefcf9f3b09fc8d1cce`
 and PMIA `96b645e4e42fc93fcc9c1199cace46c803e77af96b2d5bf1ab7ed7a3a93b41b3`.
 Their histories have 44 and 45 entries respectively. Do not overwrite these
-fresh records or add identical review-history entries when installing the
+existing records or add identical review-history entries when installing the
 two remaining candidates.
 
 ## Exact remaining records
@@ -156,6 +160,8 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 | [Morita](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
 | [Gross–Koblitz](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf) | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
 | [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3) | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
+| [BCGP21 v3](https://arxiv.org/pdf/1812.09269v3) | `7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed` |
+| [BCGP25](https://arxiv.org/pdf/2502.20645) | `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c` |
 
 ## Unchanged Suggested-file hashes
 
@@ -168,8 +174,8 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 
 ## Checkpoint scope
 
-Only this handoff, the review report and the two issue-named packets' review
-metadata change. Both exact candidates are
+Only this handoff and the review report change. No packet or Suggested file
+changes, and no repeated metadata history is added. Both exact candidates are
 fully specified here and validated; disposable scratch is unnecessary to
 resume. Actual dispatch remains incomplete because scope authorization is
 pending. Only #6219 was claimed; opening this checkpoint ends this run.
