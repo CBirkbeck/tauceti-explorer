@@ -4,7 +4,8 @@ import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.FinCases
 
 /-!
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
+This file is not exhaustive. The independently reviewed packet specifies the contracts.
+The reader document must be synchronized with the review before packaging.
 The declarations suggest Lean forms so that contributors and reviewers can converge on names
 and signatures. Proofs marked `sorry` are future work, including every geometric theorem.
 
@@ -28,6 +29,7 @@ EnriquesSurfacesAndIntegralNonexistence:E1/curves-and-two-sections
 EnriquesSurfacesAndIntegralNonexistence:E1/canonical-type-fibration
 EnriquesSurfacesAndIntegralNonexistence:E1/fibration-exists
 EnriquesSurfacesAndIntegralNonexistence:E1/multiple-fibre-degree
+EnriquesSurfacesAndIntegralNonexistence:E1/degree-two-reducibility
 EnriquesSurfacesAndIntegralNonexistence:E1/integral-two-section-exists
 EnriquesSurfacesAndIntegralNonexistence:E1/classical-criteria
 EnriquesSurfacesAndIntegralNonexistence:E1/classical-canonical-bundle
@@ -40,6 +42,7 @@ EnriquesSurfacesAndIntegralNonexistence:E1/k3-like-cohomology
 EnriquesSurfacesAndIntegralNonexistence:E1/conductrix
 EnriquesSurfacesAndIntegralNonexistence:E1/quasielliptic-simple-restriction
 EnriquesSurfacesAndIntegralNonexistence:E1/multiple-special-restriction
+EnriquesSurfacesAndIntegralNonexistence:E1/extra-special-e8
 EnriquesSurfacesAndIntegralNonexistence:E1/general-partner-theorem
 EnriquesSurfacesAndIntegralNonexistence:E1/nonexceptional-partner
 EnriquesSurfacesAndIntegralNonexistence:E2/enriques-family
@@ -95,7 +98,6 @@ EnriquesSurfacesAndIntegralNonexistence:E5/no-iv
 EnriquesSurfacesAndIntegralNonexistence:E5/residual-configurations
 EnriquesSurfacesAndIntegralNonexistence:E5/residual-multiplicities
 EnriquesSurfacesAndIntegralNonexistence:E5/partner-over-f2
-EnriquesSurfacesAndIntegralNonexistence:E1/degree-two-reducibility
 EnriquesSurfacesAndIntegralNonexistence:E6/first-discriminant
 EnriquesSurfacesAndIntegralNonexistence:E6/second-discriminant
 EnriquesSurfacesAndIntegralNonexistence:E6/generic-pic-zero-quotient
@@ -103,6 +105,7 @@ EnriquesSurfacesAndIntegralNonexistence:E6/generating-two-section
 EnriquesSurfacesAndIntegralNonexistence:E6/spinor-incidences
 EnriquesSurfacesAndIntegralNonexistence:E6/square-zero-calculation
 EnriquesSurfacesAndIntegralNonexistence:E6/first-ten-curves-forbidden
+EnriquesSurfacesAndIntegralNonexistence:E6/opposite-tip-branch
 EnriquesSurfacesAndIntegralNonexistence:E6/second-ten-curves-forbidden
 EnriquesSurfacesAndIntegralNonexistence:E6/i4-star-incidence-orbits
 EnriquesSurfacesAndIntegralNonexistence:E6/no-i4-star
@@ -115,8 +118,17 @@ EnriquesSurfacesAndIntegralNonexistence:E8/miniversal-deformation
 EnriquesSurfacesAndIntegralNonexistence:E8/exceptional-mod4-impossible
 EnriquesSurfacesAndIntegralNonexistence:E8/f2-nonexistence
 EnriquesSurfacesAndIntegralNonexistence:E8/integral-nonexistence
-EnriquesSurfacesAndIntegralNonexistence:E6/opposite-tip-branch
-EnriquesSurfacesAndIntegralNonexistence:E1/extra-special-e8
+EnriquesSurfacesAndIntegralNonexistence:E1/nef-half-fibre
+EnriquesSurfacesAndIntegralNonexistence:E1/nef-reduction
+EnriquesSurfacesAndIntegralNonexistence:E1/distinct-fibration-intersection
+EnriquesSurfacesAndIntegralNonexistence:E1/exceptional-fibration-characterization
+EnriquesSurfacesAndIntegralNonexistence:E1/extra-special-is-exceptional
+EnriquesSurfacesAndIntegralNonexistence:E2/finite-field-descent-specialization
+EnriquesSurfacesAndIntegralNonexistence:E2/genus-one-fibre-descent
+EnriquesSurfacesAndIntegralNonexistence:E2/no-i0-star
+EnriquesSurfacesAndIntegralNonexistence:E3/finite-field-point-count
+EnriquesSurfacesAndIntegralNonexistence:E8/tangent-cohomology
+EnriquesSurfacesAndIntegralNonexistence:E8/supersingular-nonlifting
 -/
 
 namespace TauCeti.Enriques
@@ -147,8 +159,15 @@ def secondGram : Matrix (Fin 10) (Fin 10) ℤ := !![
   0,0,0,0,0,0,0,0,0,1;
   0,0,0,0,0,0,0,0,1,0]
 
-theorem firstGram_symmetric : firstGram.IsSymm := by sorry
-theorem secondGram_symmetric : secondGram.IsSymm := by sorry
+theorem firstGram_symmetric : firstGram.IsSymm := by
+  apply Matrix.IsSymm.ext
+  intro i j
+  fin_cases i <;> fin_cases j <;> decide
+
+theorem secondGram_symmetric : secondGram.IsSymm := by
+  apply Matrix.IsSymm.ext
+  intro i j
+  fin_cases i <;> fin_cases j <;> decide
 
 noncomputable def firstLattice : IntegralLattice (Fin 10 → ℚ) :=
   IntegralLattice.ofGramMatrix (Pi.basisFun ℚ (Fin 10)) firstGram firstGram_symmetric
@@ -167,14 +186,16 @@ theorem firstLattice_basis_pairing (i j : Fin 10) :
       (IntegralLattice.ofGramMatrix.basis (Pi.basisFun ℚ (Fin 10))
         firstGram firstGram_symmetric i)
       (IntegralLattice.ofGramMatrix.basis (Pi.basisFun ℚ (Fin 10))
-        firstGram firstGram_symmetric j) = firstGram i j := by sorry
+        firstGram firstGram_symmetric j) = firstGram i j := by
+  exact IntegralLattice.integralForm_ofGramMatrix_apply _ _ _ _ _
 
 theorem secondLattice_basis_pairing (i j : Fin 10) :
     secondLattice.integralForm
       (IntegralLattice.ofGramMatrix.basis (Pi.basisFun ℚ (Fin 10))
         secondGram secondGram_symmetric i)
       (IntegralLattice.ofGramMatrix.basis (Pi.basisFun ℚ (Fin 10))
-        secondGram secondGram_symmetric j) = secondGram i j := by sorry
+        secondGram secondGram_symmetric j) = secondGram i j := by
+  exact IntegralLattice.integralForm_ofGramMatrix_apply _ _ _ _ _
 
 -- firstGram tests: the R-to-C₄ edge, R-to-F degree and isotropic F distinguish the model.
 -- test_first_r_c4
