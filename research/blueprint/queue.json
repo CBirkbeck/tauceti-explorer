@@ -11753,7 +11753,8 @@
    "avoidAccountOf": "DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3566"
   },
   {
    "id": "DESIGN-LocallyAnalyticDistributionsPartII",
@@ -17025,8 +17026,9 @@
    "avoidAccountOf": "DESIGN-EllipticCurveModularityWild3Adic",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityWild3Adic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7105"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7105",
+   "finishedAt": "2026-10-11T09:30:12Z"
   },
   {
    "id": "DESIGN-RelativeFarguesFontainePartII",
@@ -22871,7 +22873,8 @@
    ],
    "avoidAccountOf": "BP-AutomorphicCongruences--L5b",
    "prompt": "research/blueprint/prompts/REV-AutomorphicCongruences--L5b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #358"
   },
   {
    "id": "BP-AutomorphicFormsOnReductiveGroups",
@@ -23876,7 +23879,8 @@
    ],
    "avoidAccountOf": "BP-CompletedCohomologyPartII--CC.8",
    "prompt": "research/blueprint/prompts/REV-CompletedCohomologyPartII--CC.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #377"
   },
   {
    "id": "BP-ComplexComparisonPartII",
@@ -37812,8 +37816,9 @@
    ],
    "revisionOf": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6379"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6379",
+   "finishedAt": "2026-10-11T09:30:15Z"
   },
   {
    "priority": 2,
@@ -47742,8 +47747,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49275,8 +49280,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49366,8 +49371,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80333,8 +80338,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80556,8 +80561,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
