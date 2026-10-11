@@ -1,9 +1,9 @@
 # Independent review of the round-four p-adic fixes
 
-**Current intake blocker, checked 11 October 2026 by Codex session codex-bIYd8H:**
+**Current intake blocker, checked 11 October 2026 by Codex session codex-JodNVi:**
 the issued seven-output review is already complete, but the generated queue
 requires 31 outputs and twelve additional packet reviews. At checkout and
-remote main `bc77f117ef2960db87bcc24331b59fde6d8d38d8`, fresh calls to the
+remote main `a51b147164c4e9cd0643f8039a45f10f1b22423f`, fresh calls to the
 unmodified completion predicate return `True` for the issue's seven outputs
 and `False` for both actual queue entries. All twelve extra packets have
 accepted verdicts under other review jobs. Fresh pinned-index validation of
