@@ -493,19 +493,22 @@ listed real supplier interfaces can be imported.
   unitaryCompletedComparison, hilbertCompletedComparison:
   CC.0/CC.1/CC.2/CC.7 with V8/R14.3/R18.4/EDC.6.
 * definiteUnitaryDegreeZeroComparison: the actual LLHLM §5.3 double quotient,
-  coefficient covariance and stabilizer invariants, then CC.1 and CC.3.
+  CC.0 equivariant coefficient covariance and stabilizer invariants, then the
+  CC.1 level colimit, CC.2 coefficient inverse limit/topology and CC.3 duality.
+  This discrete H^0 comparison does not use a canonical-model comparison.
 * scholzeFixedExponentComparison: the actual Hodge-type compact-support tower,
   constant Z_p lattice and fixed exponent n. TC.2 owns the almost comparison.
 * The arithmetic instantiation of derivedHeckeDiagram requires the actual
   endomorphism-ring functor E from CC.4 base-change isomorphisms and the IHG.2
   equivariant noncommutative extension. The native image restriction and its
   three algebraic tests above do not construct that missing endomorphism functor.
-* residualSupportStability: CC.4/CC.6 derived coinvariant recovery and P7
+* residualSupportStability: CC.4 finite derived coinvariant recovery and P7
   conservative derived residue reduction for finite p-group rings. A bare
   diagram's radical-kernel condition is a hypothesis, not a proof of this result.
 * completedLocalization_levelColimit, completedLocalization_supportTriangle,
   completedLocalization_dual: the actual CC.1 fixed-exponent level diagram,
-  CC.2/CC.7 equivariant support triangle and CC.3 continuous-dual receipt.
+  CC.2 coefficient-limit/topology and recovery receipt, CC.7 equivariant
+  support triangle and CC.3 continuous-dual receipt.
 * derivedCohomologicalResidualComparison: the real finite derived/homology image
   quotient from the IHG extension, a common [a,b] support interval, and its
   compatible finite diagrams. The result is a nilpotent quotient, not ring equality.

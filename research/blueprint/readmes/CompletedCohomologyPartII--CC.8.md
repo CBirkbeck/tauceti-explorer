@@ -38,10 +38,10 @@ objects carry the induced coefficient inverse-limit topology. Completed Hecke
 algebras carry the topology from their finite derived image quotients. This is
 a specified topology, not a topology inferred from an endomorphism-ring image
 or from the algebraic Jacobson radical. A theorem about an ordinary inverse
-limit never suppresses a derived limit term without CC.6’s hypotheses.
+limit never suppresses a derived limit term without CC.2’s recovery hypotheses.
 
 Ordinary, compactly supported and boundary cohomology remain distinct. Their
-maps and triangle are CC.2/CC.7 inputs. Compact support is not the image of
+maps and triangle are CC.0/CC.7 inputs. Compact support is not the image of
 compact support in ordinary cohomology; that image is an interior cohomology
 object with different behaviour. The finite étale–Betti comparison preserves
 the chosen support and the complex orientation used for trace. An almost
@@ -79,12 +79,12 @@ owner’s construction; this layer adds no general group ring.
 | Supplier | Required output |
 | --- | --- |
 | CC.0 | Arithmetic tower and finite coefficient/local-system dictionary, with the real-component convention. |
-| CC.1 | Fixed-exponent level colimit, integral inverse limit, topology, comparison functoriality and cofinality. |
-| CC.2 | Ordinary/compact-support/boundary diagram. |
+| CC.1 | Fixed-exponent level colimit and cofinality; full G_p action by conjugating levels, open stabilizers and transported tame Hecke maps. |
+| CC.2 | Integral topological and derived coefficient inverse limits, completeness, qualified fixed-coefficient recovery, lim¹ corrections and stable-lattice rationalisation. |
 | CC.3 | Completed homology and the precise continuous duality pair, with Hecke adjoints and coefficient lattice. |
 | CC.4 | Uniformly bounded perfect finite group-ring complexes; actual coherent Hecke-equivariant derived coefficient and coinvariant recovery. |
-| CC.5 | Full G_p action through conjugated-level cofinality, and stable-lattice rationalisation. |
-| CC.6 | Derived coefficient/coinvariant descent and qualified integral-to-fixed-exponent recovery, with any remaining lim¹. |
+| CC.5 | Source-qualified finite generation, canonical topology comparison and dual admissibility when those extra structures are used. |
+| CC.6 | Continuous completed Hochschild–Serre/derived-invariants descent and qualified classical evaluation; finite derived coinvariants come from CC.4 and coefficient-limit recovery from CC.2. |
 | CC.7 | Functorial support, local-system and trace maps, including equivariance of the boundary triangle. |
 | ShimuraVarieties:V8 | Actual canonical models over reflex fields, analytic quotient dictionaries, level maps and tame correspondences defined over the reflex field. |
 | ModularCurvesPartII:R14.3 | Modular finite étale/Betti local-system and Hecke/trace dictionary; broader all-degree support uses EDC.6. |
@@ -107,9 +107,12 @@ The statements below are the mathematical specification. The suggested file
 prototypes the available native carriers; the arithmetic-specific names whose
 supplier carriers are absent are registered explicitly as omissions.
 
+Declaration names in the tables and tests below use the namespace
+`TauCeti.CompletedArithmetic`.
+
 #### 1. Arithmetic tower realisation comparisons
 
-For each of the modular, Siegel, unitary and Hilbert families, fix the actual canonical-model tower X_K over its reflex field E, an embedding of an algebraic closure of E into C, a neat cofinal level system K=K_p K^p, and a compatible finite locally constant O/varpi^s coefficient system L_s from one chosen integral lattice. Identify the CC.0 finite-level arithmetic quotient with X_K(C), with its archimedean-component convention explicitly matched. The supplied finite étale–analytic comparison gives compatible O/varpi^s-linear isomorphisms of ordinary and compactly supported cohomology, natural for coefficient reduction, level pullback, finite étale trace and tame Hecke correspondences. Applying the existing CC.1 colimit at fixed s and then its inverse limit in s gives named continuous linear comparison isomorphisms between the generic completed objects and these four actual arithmetic towers. These are comparisons of the existing carrier, not four new definitions of completed cohomology. The boundary triangle is transported only for the compactification and support maps supplied by CC.2/CC.7.
+For each of the modular, Siegel, unitary and Hilbert families, fix the actual canonical-model tower X_K over its reflex field E, an embedding of an algebraic closure of E into C, a neat cofinal level system K=K_p K^p, and a compatible finite locally constant O/varpi^s coefficient system L_s from one chosen integral lattice. Identify the CC.0 finite-level arithmetic quotient with X_K(C), with its archimedean-component convention explicitly matched. The supplied finite étale–analytic comparison gives compatible O/varpi^s-linear isomorphisms of ordinary and compactly supported cohomology, natural for coefficient reduction, level pullback, finite étale trace and tame Hecke correspondences. Applying the existing CC.1 colimit at fixed s and then the CC.2 coefficient inverse limit gives named continuous linear comparison isomorphisms between the generic completed objects and these four actual arithmetic towers. These are comparisons of the existing carrier, not four new definitions of completed cohomology. The boundary triangle is transported only for the compactification and support maps supplied by CC.0/CC.7.
 
 Hypotheses and conventions:
 
@@ -119,7 +122,7 @@ Hypotheses and conventions:
 - Siegel and unitary comparisons use the finite-coefficient portion of EDC.6/complex-analytic-comparison. R14.3 and R18.4 supply the modular and Hilbert/curve inputs. Trace comparisons use the chosen complex orientation.
 - For the complex orientation identify the finite Tate twist by the chosen compatible roots of unity. Use the EDC.6 trace-orientation input for Z/p^n and the supplied coefficient-extension compatibility for the selected O/varpi^s local system; no arbitrary unlabelled Tate-twist identification is made.
 
-Construction or proof: Import X_K, its canonical model, reflex-field action, and the analytic adelic quotient from V8; retain determinant/component labels, rather than silently selecting one geometric component. Apply the exact finite-coefficient comparison with compact supports from EDC.6. For modular and Hilbert/curve families use the specialized local-system dictionaries in R14.3 and R18.4. Check all comparison squares before taking limits. Use EDC.6/trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport. Use CC.1 functoriality on the cofinal level diagram at each s and CC.2/CC.7 for the support diagram. Then take the coefficient inverse limit with its induced topology; its inverse is the limit of the finite comparison inverses. Export modularCompletedComparison, siegelCompletedComparison, unitaryCompletedComparison and hilbertCompletedComparison; R31.1 imports the first and fourth instead of constructing them again.
+Construction or proof: Import X_K, its canonical model, reflex-field action, and the analytic adelic quotient from V8; retain determinant/component labels, rather than silently selecting one geometric component. Apply the exact finite-coefficient comparison with compact supports from EDC.6. For modular and Hilbert/curve families use the specialized local-system dictionaries in R14.3 and R18.4. Check all comparison squares before taking limits. Use EDC.6/trace-orientation-comparison for the chosen Tate-twist/complex-orientation normalization and CC.7 for its coefficient-system transport. Use CC.1 functoriality on the cofinal level diagram at each s and CC.7 for the support diagram. Then take the CC.2 coefficient inverse limit with its induced topology; its inverse is the limit of the finite comparison inverses. Export modularCompletedComparison, siegelCompletedComparison, unitaryCompletedComparison and hilbertCompletedComparison; R31.1 imports the first and fourth instead of constructing them again.
 
 Acceptance cases:
 
@@ -134,14 +137,14 @@ Source receipts: CE, §1.5, pp. 7–8 — The arithmetic quotient uses connected
 
 #### 2. Definite unitary degree-zero adapter
 
-In the definite unitary setting of LLHLM §5.3, with fixed tame level U^p and fixed away-p lattice W, let S(U,W_s) consist of functions on G(F^+)\G(A_f) with f(gu)=u^{-1}f(g), W_s=W/varpi^s. The actual finite double quotient and its coefficient local system identify this module with H^0 of the finite arithmetic tower. Thus lim_s colim_{U_p} S(U_p U^p,W_s) is canonically the CC.1 completed degree-zero object for that tower, with its tame Hecke and G_p actions and coefficient-limit topology. At a nonneat finite quotient, the value at a representative x lies in W_s^{Gamma_x}; arbitrary W_s-valued functions are valid only when stabilizers act trivially. The degree-zero identification makes no claim that higher stabilizer cohomology vanishes. Galois representations associated to Hecke eigenvalues are not a Galois action on these functions.
+In the definite unitary setting of LLHLM §5.3, with fixed tame level U^p and fixed away-p lattice W, let S(U,W_s) consist of functions on G(F^+)\G(A_f) with f(gu)=u^{-1}f(g), W_s=W/varpi^s. The actual finite double quotient and its equivariant coefficient system identify this module with H^0 of the finite discrete arithmetic tower. Thus lim_s colim_{U_p} S(U_p U^p,W_s) is canonically the CC.2 completed degree-zero object after the CC.1 level colimit for that tower, with its tame Hecke and G_p actions and coefficient-limit topology. At a nonneat finite quotient, the value at a representative x lies in W_s^{Gamma_x}; arbitrary W_s-valued functions are valid only when stabilizers act trivially. The degree-zero identification makes no claim that higher stabilizer cohomology vanishes. The finite quotient/coefficient dictionary is a CC.0 input; no canonical-model or étale–Betti comparison is used for this discrete degree-zero identification. Galois representations associated to Hecke eigenvalues are not a Galois action on these functions.
 
 Hypotheses and conventions:
 
 - Use the paper’s definite outer form of GL_3 over the totally real F^+≠Q, split over its CM field, and its specified local identifications and tame coefficient lattice.
 - For the simple G_p action by right translation, W is fixed away p and its U_p action is trivial. A nontrivial p-adic coefficient action requires the corresponding equivariant coefficient transport, not this simplified formula.
 
-Construction or proof: Use the finite double-coset decomposition to evaluate functions at representatives. Covariance identifies the result with the product of stabilizer invariants. Identify the same invariant fibres in finite-level H^0 using the imported quotient/local-system dictionary. Verify coefficient and level maps, including the covariant coefficient action. Apply CC.1 to this finite comparison; on the fixed away-p lattice use right translation to identify the G_p action and the standard finite Hecke sums. Import CC.3 for Pontryagin/Schikhof duals, rather than creating new dual carriers.
+Construction or proof: Use the finite double-coset decomposition to evaluate functions at representatives. Covariance identifies the result with the product of stabilizer invariants. Identify the same invariant fibres in finite-level equivariant H^0 using the CC.0 finite double-quotient/coefficient dictionary. Verify coefficient and level maps, including the covariant coefficient action. Apply the CC.1 level colimit and then the CC.2 coefficient inverse limit to this finite comparison; on the fixed away-p lattice use right translation to identify the G_p action and the standard finite Hecke sums. Import CC.3 for Pontryagin/Schikhof duals, rather than creating new dual carriers.
 
 Acceptance cases:
 
@@ -149,13 +152,13 @@ Acceptance cases:
 - For stabilizer C_2 acting by sign on O at p=2, integral invariant values are zero, while modulo 2 all values are invariant. Invariants cannot be interchanged with coefficient reduction without a descent theorem.
 - An empty double quotient gives the zero module; a disjoint union gives a product, not an identification with one selected component.
 
-Dependencies: `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.3`.
+Dependencies: `CompletedCohomologyPartII:CC.0`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`.
 
 Source receipts: LLHLM, §5.3, pp. 120–122, especially the definitions of S(U,W), S(U^p,W) and its completed lattice — These definitions specify the definite unitary group, coefficient covariance, fixed tame level and the coefficient/level limit order. The invariant-fibre formula follows directly from their covariance condition.
 
 #### 3. Scholze fixed-exponent support convention
 
-For the Hodge-type datum (G,D), the fixed embedding into (Sp_{2g},D_{Sp_{2g}}), and K^p contained in the level-N subgroup with N≥3 prime to p, Scholze’s tilde H^i_{c,K^p}(Z/p^n) in published §4.2 is colim_{K_p} H_c^i(X_{K_pK^p},Z/p^n), at fixed positive n. The compact-support part of the arithmetic comparison identifies this with the CC.1 fixed-coefficient object for the same tower, constant lattice Z_p and exponent n. The integral completed lattice is a separate lim_n construction; its modulo-p^n recovery requires CC.6 and is not the definition of the fixed-exponent object. This node supplies the left input and the boundary/support convention to TC.2. Scholze Theorem 4.2.1 and Corollaries 4.2.2–4.2.3, including the almost O_C coefficient tensor and the boundary ideal sheaf on the perfectoid minimal compactification, are exclusively TC.2 outputs.
+For the Hodge-type datum (G,D), the fixed embedding into (Sp_{2g},D_{Sp_{2g}}), and K^p contained in the level-N subgroup with N≥3 prime to p, Scholze’s tilde H^i_{c,K^p}(Z/p^n) in published §4.2 is colim_{K_p} H_c^i(X_{K_pK^p},Z/p^n), at fixed positive n. The compact-support part of the arithmetic comparison identifies this with the CC.1 fixed-coefficient object for the same tower, constant lattice Z_p and exponent n. The integral completed lattice is a separate lim_n construction; its modulo-p^n recovery requires CC.2 and is not the definition of the fixed-exponent object. This node supplies the left input and the boundary/support convention to TC.2. Scholze Theorem 4.2.1 and Corollaries 4.2.2–4.2.3, including the almost O_C coefficient tensor and the boundary ideal sheaf on the perfectoid minimal compactification, are exclusively TC.2 outputs.
 
 Hypotheses and conventions:
 
@@ -166,11 +169,11 @@ Construction or proof: Read the published §4.2 definition with the §4.1 Hodge 
 
 Acceptance cases:
 
-- For a proper tower ordinary and compact supports agree under CC.2; for a nonproper connected curve they do not agree in degree zero.
-- The coefficient-limit lattice and its fixed quotient are not declared equal without the CC.6 coefficient-recovery hypotheses.
+- For a proper tower ordinary and compact supports agree under CC.7; for a nonproper connected curve they do not agree in degree zero.
+- The coefficient-limit lattice and its fixed quotient are not declared equal without the CC.2 coefficient-recovery hypotheses.
 - Changing the integral lattice changes the corresponding integral comparison; rational isomorphism alone is insufficient.
 
-Dependencies: `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.6`, `CompletedCohomologyPartII:CC.7`.
+Dependencies: `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`.
 
 Source receipts: Scholze, §4.2, definition on p. 1020; Theorem 4.2.1 statement and its two level diagrams on p. 1021 — The definition is a compact-support colimit at fixed exponent with the Hodge/Siegel and tame-level hypotheses. The theorem is cited only to identify the consumer and its coefficient/support requirements, not as a CC.8 theorem.
 
@@ -182,9 +185,9 @@ Hypotheses and conventions:
 
 - The finite Galois and Hecke actions commute with level pullback, coefficient reduction and the selected support maps. Actual Hecke correspondences descend over E.
 - An infinite-dimensional discrete colimit need not have an open global action kernel: require open point stabilizers, which suffice for joint continuity.
-- Full G_p action may move levels by conjugation; the CC.5 cofinal reindexing construction is supplied. Do not assume G_p acts on every fixed K_p group.
+- Full G_p action may move levels by conjugation; the CC.1 conjugated-level/cofinal construction is supplied. Do not assume G_p acts on every fixed K_p group.
 
-Construction or proof: Conjugate the finite actions across the comparison, and use naturality to descend to each colimit. Prove its smoothness vector by vector at a finite level and finite coefficient. Invoke the existing TopModuleCat limit and Functor.mapEnd on the coefficient diagram. Equality and commutation are checked under every limit projection; uniqueness follows from those projections. For joint continuity, test each inverse-limit basic open using its discrete coordinate and that coordinate’s open stabilizer. Use CC.5 for G_p level reindexing and stable-lattice rationalization. For each residual projector in this packet the commutation equations restrict these actions to its closed summand.
+Construction or proof: Conjugate the finite actions across the comparison, and use naturality to descend to each colimit. Prove its smoothness vector by vector at a finite level and finite coefficient. Invoke the existing TopModuleCat limit and Functor.mapEnd on the coefficient diagram. Equality and commutation are checked under every limit projection; uniqueness follows from those projections. For joint continuity, test each inverse-limit basic open using its discrete coordinate and that coordinate’s open stabilizer. Use CC.1 for G_p level reindexing and CC.2 for stable-lattice rationalization and its topology. For each residual projector in this packet the commutation equations restrict these actions to its closed summand.
 
 API:
 
@@ -203,7 +206,12 @@ Unit tests:
 - **transportedAction_sign**. For a constant O coefficient-limit diagram with the C_2 sign action, the nontrivial element acts by −1, including at p=2; reduction modulo 2 can be trivial without making the integral action trivial.
 - **transportedAction_noncommuting**. The two shears on O^2, represented by matrices [[1,1],[0,1]] and [[1,0],[1,1]], do not commute. Commutation on the completed object requires the finite commuting-action hypothesis.
 
-Dependencies: `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.5`, `CompletedCohomologyPartII:CC.7`, `mathlib:TopModuleCat`, `mathlib:CategoryTheory.Functor.mapEnd`, `mathlib:CategoryTheory.Limits.lim`, `mathlib:TopModuleCat.isLimit`.
+Acceptance cases:
+
+- Projection to each coefficient coordinate recovers the specified action, with the same order of Hecke composition.
+- A product of finite discrete representations gives a continuous inverse-limit action even when their common kernel is not open.
+
+Dependencies: `CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.7`, `mathlib:TopModuleCat`, `mathlib:CategoryTheory.Functor.mapEnd`, `mathlib:CategoryTheory.Limits.lim`, `mathlib:TopModuleCat.isLimit`.
 
 Source receipts: CE, §1.5, p. 7 — The arithmetic tower carries the full p-adic group and completed tame Hecke action; CC.8 adds the canonical-model Galois transport to the generic construction.; GN, Remark 2.1.13, p. 11 — The completed Hecke action commutes with the full p-adic group on completed homology. This is the consumer requirement for the transported action.
 
@@ -234,6 +242,11 @@ Unit tests:
 - **derivedHeckeDiagram_scalar**. For the scalar action on a rank-one O/varpi^s complex at trivial group level, the image is O/varpi^s and coefficient transitions are quotient maps.
 - **derivedHeckeDiagram_intertwiner_insufficient**. For H=k[x] acting by x=0 on k and by x=1 on k, the zero map of modules intertwines the actions, but no H-compatible map of the two image quotients exists. A bare intertwiner cannot replace base-change recovery.
 
+Acceptance cases:
+
+- Every transition is surjective on actual image rings and preserves the class of each abstract Hecke operator.
+- An operator killed in the finer derived image is killed after actual derived coefficient change.
+
 Dependencies: `CompletedCohomologyPartII:CC.4`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:RingHom.range`.
 
 Source receipts: GN, Definition 2.1.11 and Remark 2.1.12, p. 10 — The finite rings are images in the derived category of finite group-ring modules, and their transitions come from coefficient-change identifications, including reduction through a normal subgroup at nonnormal levels.
@@ -256,7 +269,7 @@ Acceptance cases:
 - For the C_2 sign representation over F_3, derived coinvariants vanish because 2 is invertible; a nonzero perfect summand can disappear. The pro-p hypothesis cannot be removed.
 - Nilpotent ghosts can change an image algebra but cannot create a new residual maximal ideal.
 
-Dependencies: `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`, `CompletedCohomologyPartII:CC.4`, `CompletedCohomologyPartII:CC.6`, `DeformationAndDerivedPatchingAlgebra:P7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
+Dependencies: `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`, `CompletedCohomologyPartII:CC.4`, `DeformationAndDerivedPatchingAlgebra:P7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
 Source receipts: GN, Lemma 2.1.14, p. 11; Definitions 2.1.6–2.1.8 and Proposition 2.1.9, pp. 9–10 — The pro-p residual support argument is the first part of the semilocality proof. Minimal complexes over a possibly noncommutative local ring provide an alternative rigorous detection argument with a named prerequisite.
 
@@ -289,6 +302,11 @@ Unit tests:
 - **completedHecke_constant**. For the constant identity-transition diagram on a finite commutative ring A, T_hat≅A with its discrete topology.
 - **completedHecke_scalar**. For A_s=Z/p^s with reduction maps, T_hat≅Z_p; the map Z→Z_p is dense and is not surjective.
 - **completedHecke_zero**. For the one-element finite image diagram, the completed ring is the one-element ring and its maximal spectrum is empty.
+
+Acceptance cases:
+
+- No topology of pointwise convergence on End(completed homology) replaces the specified inverse-limit topology.
+- The underlying ring and projections agree with the native compatible-sections carrier.
 
 Dependencies: `CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.4`, `mathlib:RingCat.sectionsSubring`, `mathlib:ModuleCat.sectionsSubmodule`.
 
@@ -342,6 +360,10 @@ Unit tests:
 - **residualProjector_local**. For a local completed image ring the sole residual projector is 1.
 - **residualProjector_congruent_characters**. In T={(a,b)∈O×O : a≡b mod varpi}, (1,0) is not an element of T. Both rational characters belong to the same residual factor, whose projector is 1.
 
+Acceptance cases:
+
+- A residual ideal outside the image support is rejected as input; it does not define an arbitrary new summand.
+
 Dependencies: `CompletedCohomologyPartII:CC.8/completed-semilocal-product`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:RingCat.sectionsSubring`.
 
 Source receipts: GN, Definition 2.1.11, pp. 10–11; Lemma 2.1.14, p. 11 — The inverse-limit image algebra and its product into local factors provide canonical residual idempotents. This construction makes the projector compatibility and choice independence explicit.
@@ -376,9 +398,14 @@ Unit tests:
 - **completedLocalization_one**. The identity projector selects all of M with its original topology.
 - **completedLocalization_product**. On O×O with the first residual factor projector, the selected module is O×{0}; (0,1) is excluded.
 
+Acceptance cases:
+
+- The range topology is inherited from M and the inclusion/projection are continuous; no algebraic localization topology is silently substituted.
+- A nonidentity residual summand may be zero on one degree of M without removing that label from the all-degree derived image algebra.
+
 Dependencies: `CompletedCohomologyPartII:CC.8/residual-hecke-projector`, `CompletedCohomologyPartII:CC.8/transported-arithmetic-actions`, `CompletedCohomologyPartII:CC.3`, `IntegralHeckeAndGaloisDeterminants:IHG.2`, `mathlib:LinearMap.IsIdempotentElem.range_eq_ker`, `mathlib:ContinuousLinearMap.IsIdempotentElem.isClosed_range`.
 
-Source receipts: GN, Lemma 2.1.14, p. 11; §3.3.5, p. 18, and Proposition 3.4.19, p. 24 — The semilocal factors are the residual localization used for completed homology and patched complexes. CC.8 supplies the common topological summand, not patching or its augmentation theorem.
+Source receipts: GN, Lemma 2.1.14, p. 11; Definition 3.3.5, p. 18, and Proposition 3.4.19, p. 24 — The semilocal factors are the residual localization used for completed homology and patched complexes. CC.8 supplies the common topological summand, not patching or its augmentation theorem.
 
 #### 11. Localisation through limits, supports and duality
 
@@ -387,9 +414,9 @@ For a compatible residual label on the actual completed tower, localisation comm
 Hypotheses and conventions:
 
 - All finite projectors, transition maps and support-triangle maps are compatible. There are finitely many residual labels.
-- Topology and duality are the regimes of CC.1–CC.3; use CC.6 for integral-to-fixed-coefficient recovery, retaining lim^1 terms when its hypotheses fail.
+- Use CC.1 for the discrete level colimit, CC.2 for integral topology and qualified fixed-coefficient recovery, and CC.3 for the continuous duality regime. Retain the CC.2 lim^1 terms when its recovery hypotheses fail.
 
-Construction or proof: At each fixed s, represent a vector at some finite level; applying its projector produces a representative in the selected finite summand. Orthogonal complements show the resulting filtered-colimit image comparison is bijective. At the coefficient limit, send a compatible vector to its coordinate projections and use coordinatewise inclusion as inverse on the selected range. Continuity is tested under every coordinate map; no exactness of arbitrary inverse limits is used. For support triangles use the already equivariant CC.2/CC.7 triangle and its functorial IHG splitting. For duality transpose the split inclusion/projection; use the exact CC.3 continuous dual comparison and coefficient/support regime.
+Construction or proof: At each fixed s, represent a vector at some finite level; applying its projector produces a representative in the selected finite summand. Orthogonal complements show the resulting filtered-colimit image comparison is bijective. At the coefficient limit, send a compatible vector to its coordinate projections and use coordinatewise inclusion as inverse on the selected range. Continuity is tested under every coordinate map; no exactness of arbitrary inverse limits is used. For support triangles use the already equivariant CC.7 triangle and its functorial IHG splitting. For duality transpose the split inclusion/projection; use the exact CC.3 continuous dual comparison and coefficient/support regime.
 
 Acceptance cases:
 
@@ -397,7 +424,7 @@ Acceptance cases:
 - Localizing the boundary triangle preserves all three terms; it cannot replace compact support by the image in ordinary cohomology.
 - For a pairing between a module and its continuous dual, transpose the first-coordinate projector; a Hecke adjoint that permutes residual labels permutes the dual factor accordingly.
 
-Dependencies: `CompletedCohomologyPartII:CC.8/completed-residual-localisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.6`, `CompletedCohomologyPartII:CC.7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
+Dependencies: `CompletedCohomologyPartII:CC.8/completed-residual-localisation`, `CompletedCohomologyPartII:CC.1`, `CompletedCohomologyPartII:CC.2`, `CompletedCohomologyPartII:CC.3`, `CompletedCohomologyPartII:CC.7`, `IntegralHeckeAndGaloisDeterminants:IHG.2`.
 
 Source receipts: GN, Remark 2.1.13, p. 11, and Proposition 3.4.19, p. 24 — Residual localization is compatible with the completed homology object and the augmentation identification. The general CC.8 compatibility is a split-idempotent argument on the supplied diagrams, not a new augmentation or duality theorem.; LLHLM, §5.3, pp. 121–122 — The unitary example keeps a completed lattice and its dual, illustrating why dual localization must preserve the fixed lattice and its coefficient convention.
 
@@ -481,7 +508,7 @@ routes them to that first-part owner.
 The packet records the PDF hashes and access date, 11 October 2026. No source
 text or source excerpts are included here.
 
-- Toby Gee and James Newton, [Patching and the completed homology of locally symmetric spaces](https://www.ma.imperial.ac.uk/~tsg/Index_files/derivedpatchingpadicLL.pdf). Author PDF, 57 pages, corresponding to arXiv:1609.06965; page numbers are the printed author-PDF pages. Read: Introduction, pp. 1–3; §2.1.1–2.1.14, pp. 7–11; §3.3.5, p. 18; Propositions 3.4.16 and 3.4.19, pp. 23–24.
+- Toby Gee and James Newton, [Patching and the completed homology of locally symmetric spaces](https://www.ma.imperial.ac.uk/~tsg/Index_files/derivedpatchingpadicLL.pdf). Author PDF, 57 pages, corresponding to arXiv:1609.06965; page numbers are the printed author-PDF pages. Read: Introduction, pp. 1–3; §2.1.1–2.1.14, pp. 7–11; Definition 3.3.5, p. 18; Propositions 3.4.16 and 3.4.19, pp. 23–24.
 - Frank Calegari and Matthew Emerton, [Completed cohomology — a survey](https://math.uchicago.edu/~emerton/pdffiles/survey.pdf). Author survey PDF; printed pages. Read: §1.5, pp. 7–8; quotient and component conventions.
 - Peter Scholze, [On torsion in the cohomology of locally symmetric varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf). Annals of Mathematics 182 (2015), 945–1066, published §4.2 numbering. Read: §4.1, Theorem 4.1.1 hypotheses, pp. 1017–1020; §4.2 definition, p. 1020; Theorem 4.2.1 statement and comparison diagrams, p. 1021; opening finite-comparison step of proof.
 - Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra, [Serre weights and Breuil’s lattice conjecture in dimension three](https://math.rice.edu/~bl70/LLHLMlattices.pdf). Forum of Mathematics, Pi 8 (2020), e5; 135-page published PDF. Read: §5.3, pp. 120–122; definite unitary forms and completed lattice.
