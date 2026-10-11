@@ -1,71 +1,85 @@
-# Review #6217: blocked by the issue/queue scope mismatch
+# Review #6217: issued scope complete; queue reconciliation required
 
-Codex — **codex-yNaNxz**, 11 October 2026. Input commit:
-`3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab`. Branch:
-`codex-yNaNxz-review-6217`. Claim confirmed in
-[comment 6107083274](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107083274).
-This session did none of the fixes under review and claimed only this issue.
+Codex — **codex-7RoyI0**, 11 October 2026. Input commit: `cea943b81`.
+Branch: `codex-7RoyI0-review-6217`. Claim confirmed in
+[comment 6107375568](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107375568).
+This session did none of the fixes and claimed only this issue.
 
 **Blocked checkpoint.** The live issue assigns this report, the HE.0 packet
-and its suggested file. The permitted HE.0 review already has this job's
-accepted verdict. The current queue instead assigns eleven packet/Lean pairs
-and this report. Repeating the HE.0 review cannot finish that expanded job.
-This continuation consolidates the repeated scope diagnoses, preserves the
-mathematical reviews and concrete repair below, and changes no verdict,
-mathematical statement or Lean signature.
+and its suggested file. Those mathematical reviews are complete, as recorded
+below by their authors. The queue instead assigns eleven packet/Lean pairs.
+The current scope cannot finish without a maintainer decision. This session
+validated the scope repair against the full current generator, including its
+wider effects; no mathematical verdict or signature was changed.
 
-## Current evidence
+## Fresh verification in this session
 
-The actual `issues.deliverables_complete` returns **false** for the current
-23-output queue job and **true** for an in-memory copy restricted to the
-three live-issue deliverables. Every output exists. The predicate requires
-this job's reviewer identifier on every queued packet. The ten extra packets
-have other reviewers; their existing reviews are not this job's fix review.
-Their current markers are:
+The actual `issues.deliverables_complete` returns **false** for the queue's
+23-output review and **true** for a copy with precisely the live issue's three
+outputs. Every queued output exists. The ten additional packets retain other
+reviewers; none was stamped as reviewed by this job. The saved issue history
+contains nineteen prior checkpoint-intake comments. Further repetition of
+HE.0's review cannot resolve this mismatch.
 
-| Additional packet stem | Verdict | Reviewer job |
+At historical commit `88f9bcd44`, the round-two fix had four outputs and its
+review had three; today they have forty and twenty-three. The prepared patch
+below restores those original arrays and preserves an existing round whenever
+`previous_jobs` contains it. It remains **unapplied**; `git apply --check` succeeds at this input commit.
+
+Both preserved focused regressions pass: six state/trigger fixtures with
+repeat generation, rejection-dependency and absent-successor checks; and seven
+completed-round cases. This session also reran the complete generator in memory
+using the unconditional issued-round guard in the prepared patch. Repository
+writes were intercepted and forbidden; the generator lock was redirected to
+scratch. Historical output arrays were restored only in the in-memory input.
+
+| Generated family | Original guard | Prepared issued-round guard |
 |---|---|---|
-| HeegnerPointEulerSystems--HE.7s | accepted | REV-HeegnerPointEulerSystems--HE.7s~2 |
-| GrossZagierAndArithmeticHeights--GZ.0 | accepted | REV-FIX-RT-AREA-algebraicgeometry~2 |
-| RankZeroOneBSD--BSD.0 | accepted | REV-RankZeroOneBSD--BSD.0~2 |
-| RankZeroOneBSD--BSD.7 | accepted | REV-RankZeroOneBSD--BSD.7 |
-| EulerSystemsAndKolyvaginSystems--ES.0 | needs_changes | REV-EulerSystemsAndKolyvaginSystems--ES.0~2 |
-| GeneralizedHeegnerCycles--GH.0 | accepted | REV-GeneralizedHeegnerCycles--GH.0~2 |
-| GrossZagierAndArithmeticHeights--GZ.8 | accepted | REV-GrossZagierAndArithmeticHeights--GZ.8~2 |
-| PadicHodgeRegulators--D.1 | accepted | REV-PadicHodgeRegulators--D.1~2 |
-| EulerSystemsAndKolyvaginSystems--ES.8 | accepted | REV-EulerSystemsAndKolyvaginSystems--ES.8 |
-| KatoEulerSystems | accepted | REV-KatoEulerSystems~2 |
+| Round-two fix outputs | 27 | 4 |
+| Round-two review outputs | 15 | 3 |
+| Round-three fix/review outputs | No new round | 30 / 17 |
 
-The HE.0 checker passes with **zero errors and warnings**: 78 nodes,
+The patched generator keeps round two's original outputs across two successive
+generations and assigns additional work to round three. Against the stock
+counterfactual, it changes forty existing job records and adds eighteen job
+records across the other fix families, removing none. The counts above describe
+the generator replay, not the current on-disk queue. This wider scheduling
+impact must be examined when the maintainer applies the repair. The earlier
+full replay below used the narrower completed-round guard; its historical
+receipts are retained with their original attribution.
+
+The HE.0 packet checker passes with **zero errors and warnings**: 78 nodes,
 24 API items, eighteen tests, thirteen baseline declarations, 21 gaps and
-63 requests. All eight stages remain planned. The packet's accepted verdict
-and its prior workers' source and compilation receipts are untouched. No
-primary source was reread this run. Lean was not rerun for Markdown changes.
+63 requests. All eight stages remain planned. No primary source was reread in
+this continuation. The packet's accepted verdict and prior source/compilation
+receipts are preserved. Lean was not rerun because this session changes only
+Markdown and makes no mathematical or signature correction.
 
-The preserved unified patch passes `git apply --check` at this input. Both
-preserved focused regression scripts were rerun successfully: six
-state/trigger fixtures plus repeated generation, rejection-reason and
-absent-successor cases; and seven completed-round cases. The complete
-historical generator replay below was not rerun this session. Its earlier
-reported scheduling effects remain attributed to codex-ifgMVV and
-codex-XyECDt: changing the guard also changes jobs outside this issue, so
-those effects need maintainer inspection before application.
+## Action needed before reassignment
 
-## Why this run cannot apply the repair
+Restore the historical output arrays and inspect the prepared generator repair,
+or explicitly authorize the ten additional independent reviews. The guard
+alone preserves the already-expanded arrays. Synchronize the issue and queue
+before giving this job to another worker. Leave unrelated mathematical review
+markers intact until their reviews occur.
 
-[WORKERS.md](../WORKERS.md) explicitly says, “Edit only the files the issue
-names, plus your own scratch space.” Neither the queue nor its generator is
-an issue-named deliverable. Current `intake.file_problems` also rejects
-`queue.json` and `make_queue.py` as outside swarm output paths. This is an
-existing scope restriction, not an automatic approval-review rejection.
-No scope extension was requested or received in this run.
+WORKERS.md restricts edits to issue-named files and scratch; queue.json and
+make_queue.py are not named here. `intake.file_problems` separately rejects
+those paths as outside swarm outputs. A text clarification was requested from
+the user this session; no scope extension has been received. This is a scope
+restriction, not an automatic approval-review rejection. The PR therefore
+contains only this report and its handoff.
 
-The maintainer must reconcile the issue and queue before reassignment:
-restore the historical round-two output arrays and review the generator
-repair, or explicitly assign the ten additional packet reviews. The guard
-alone preserves the already-expanded arrays. Keep unrelated review markers
-until those reviews actually occur. No queue generation, synchronization,
-promotion or additional review was performed.
+## Reproducing the new full-generator check
+
+The third Python script preserved below already captures the full generator
+in memory and forbids repository writes. Extract it to scratch, save the queue
+from `git show 88f9bcd44:research/blueprint/queue.json` as `historical-queue.json`
+there, and replace that script's multiline `new` value by the string
+`made = previous_jobs.get(following)`. Run it with the scratch directory as its
+sole argument. Its assertions test both historical scopes, additional-work
+routing and stability across a second generation. The two focused scripts can
+be extracted and run directly. No scratch artifact is needed to resume.
 
 ## Preserved scope-repair proposal
 
