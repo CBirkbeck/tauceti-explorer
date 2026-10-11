@@ -12043,7 +12043,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3380"
   },
   {
    "id": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
@@ -14543,8 +14544,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PolynomialGaloisGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3434"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3434",
+   "finishedAt": "2026-10-11T10:31:42Z"
   },
   {
    "id": "REV-DESIGN-PolynomialGaloisGroupsPartII",
@@ -15430,8 +15432,9 @@
    ],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7102"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7102",
+   "finishedAt": "2026-10-11T10:31:43Z"
   },
   {
    "id": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
@@ -28326,11 +28329,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #964"
+   "note": "claimed on GitHub issue #964"
   },
   {
    "id": "REV-PadicDifferentialEquationsAndRigidCohomology",
@@ -37854,8 +37857,9 @@
     "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6394"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6394",
+   "finishedAt": "2026-10-11T10:31:44Z"
   },
   {
    "kind": "design",
@@ -37935,8 +37939,9 @@
    ],
    "revisionOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6380"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6380",
+   "finishedAt": "2026-10-11T10:31:46Z"
   },
   {
    "priority": 2,
@@ -49290,8 +49295,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80183,8 +80188,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80348,8 +80353,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80571,8 +80576,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5869"
+   "state": "external",
+   "note": "claimed on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81097,8 +81102,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -82553,8 +82558,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -84750,8 +84755,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -88430,7 +88435,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CongruenceSpectralGap.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1699"
   },
   {
    "id": "REV-DESIGN-CongruenceSpectralGap",
