@@ -1,0 +1,2035 @@
+{
+  "roadmapId": "CongruenceSpectralGap",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "CongruenceSpectralGap:CSG.0",
+    "CongruenceSpectralGap:CSG.1",
+    "CongruenceSpectralGap:CSG.2",
+    "CongruenceSpectralGap:CSG.3",
+    "CongruenceSpectralGap:CSG.4",
+    "CongruenceSpectralGap:CSG.5"
+  ],
+  "status": "complete",
+  "planningLevel": "target",
+  "summary": "A complete target-level plan of the curvature −1 congruence bound λ′₁≥21/100, including the general spherical GLm archimedean parameter theorem and the full LRS prime-twist nonvanishing argument. All six stages are planned with explicit supplier and realization gaps; none is claimed proof-closed or implemented.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.Gammaℝ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Existing Deligne factor π^(−s/2)Γ(s/2).",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Totalized Gammaℝ is zero at the nonpositive even integers; meromorphic pole arguments must use germs.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℝ_residue_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "The punctured limit of s Gammaℝ(s) at zero is 2.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:CongruenceSubgroup.IsCongruenceSubgroup",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+        "provides": "Existing congruence predicate ∃N≠0, Γ(N)≤Γ; no replacement predicate.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:CongruenceSubgroup.IsCongruenceSubgroup.finiteIndex",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+        "provides": "A congruence subgroup has finite index in SL₂(ℤ).",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.sum_characters_eq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+        "provides": "Full-character orthogonality over an integral domain with enough roots of unity and nonzero modulus.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:LinearPMap",
+        "kind": "structure",
+        "module": "Mathlib/LinearAlgebra/LinearPMap.lean",
+        "provides": "Partial linear map with a linear domain, used for the unbounded Laplacian.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.IsFundamentalDomain.quotientMeasure_eq",
+        "kind": "lemma",
+        "module": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
+        "provides": "For a countable measure-preserving group action, the quotient measure is independent of the measurable fundamental domain.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Lp",
+        "kind": "def",
+        "module": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+        "provides": "Actual almost-everywhere Lp quotient with p=2, not an abstract Hilbert carrier.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MulAction.orbitRel.Quotient",
+        "kind": "abbrev",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "Orbit quotient type for an actual group action.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MulAction.toPermHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Action/End.lean",
+        "provides": "Canonical homomorphism to permutations; its range removes the ineffective action kernel.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:UpperHalfPlane.volume_def",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean",
+        "provides": "Hyperbolic area on ℍ is Lebesgue measure weighted by y⁻².",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:ZMod.isPrimitive_stdAddChar",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "The standard additive character is primitive for nonzero modulus.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "Standard complex additive character exp(2πij/q).",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:gaussSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Finite multiplicative/additive character Gauss sum.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:mellin",
+        "kind": "def",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Mellin transform ∫Ioi(0) t^(s−1)f(t)dt.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:mellinInv",
+        "kind": "def",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Inverse transform (1/(2π))∫ℝ x^(−(σ+it))F(σ+it)dt.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:mellin_comp_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "The Mellin transform of f∘inv at s equals mellin f at −s.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "tauceti:IsSelfAdjoint.isFormalAdjoint",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/InnerProductSpace/LinearPMap/SelfAdjoint.lean",
+        "provides": "A self-adjoint partial operator on a complete inner-product space is formally self-adjoint.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      },
+      {
+        "ref": "tauceti:LinearPMap.IsFormalAdjoint.im_inner_self_apply",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/InnerProductSpace/LinearPMap/SelfAdjoint.lean",
+        "provides": "The self-adjoint diagonal inner product has imaginary part zero.",
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "lrs95",
+      "title": "On Selberg’s eigenvalue conjecture",
+      "authors": "Wenzhi Luo, Zeev Rudnick and Peter Sarnak",
+      "edition": "Geometric and Functional Analysis 5 (1995), 387–401; author-hosted scan of the published paper",
+      "url": "https://www.math.tau.ac.il/~rudnick/papers/lrsGAFA.pdf",
+      "sha256": "1ed6b366ee4b0275ae87225e06fcff99bec31bcf76f7b1b54a9cace377859fac",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Entire paper, printed pp.387–401; Theorems 1.1 and 1.2; §2.1 including ramified coefficients; Lemma 2.1; Proposition 3.1 and Lemmas 3.1–3.2; applications and references. Formula pages 389, 395–398 also inspected visually."
+      ]
+    },
+    {
+      "id": "gj78",
+      "title": "A relation between automorphic representations of GL(2) and GL(3)",
+      "authors": "Stephen Gelbart and Hervé Jacquet",
+      "edition": "Annales scientifiques de l’École Normale Supérieure, série 4, 11 (1978), 471–542",
+      "url": "https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf",
+      "sha256": "319347503f91fe22bec22ce7519b9ebaf09921ec4de8756c51d155864b4fc16a",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Introduction pp.471–473; Definition 3.1.3 and Proposition 3.2 pp.485–486; §3.7 p.491; §9.2 and Theorem 9.3 pp.531–534, proof §§9.4–9.8 pp.534–541 and Remark 9.9 p.541. Used to verify the imported adjoint contract, not to redecompose its proof."
+      ]
+    },
+    {
+      "id": "teschl",
+      "title": "Mathematical Methods in Quantum Mechanics",
+      "authors": "Gerald Teschl",
+      "edition": "Author-hosted second-edition text; theorem numbering of the retrieved PDF",
+      "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf",
+      "sha256": "8dc8de0b58aa0a3fedfe594a345f9b5875322e5526ea581cb640a98d55b82818",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§2.3 pp.67–73, Lemma 2.10 and Theorems 2.12–2.13; §4.3 pp.117–119, Theorem 4.10 and its form-domain version."
+      ]
+    },
+    {
+      "id": "fuchsian",
+      "title": "Fuchsian groups and orbifold Riemann surfaces",
+      "authors": "Tau Ceti contributors",
+      "edition": "TauCetiRoadmap current main c251d2e42c66f14c279d1e5c2708c5a91d8c8aec",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/FuchsianOrbifolds/README.md",
+      "readSections": [
+        "README Layers 0–5 and Suggested.lean effective action, quotient charts, covolume and cusp targets."
+      ]
+    },
+    {
+      "id": "baseline",
+      "title": "Pinned Mathlib and Tau Ceti source declarations",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "readSections": [
+        "Full cited declarations and ambient hypotheses in CongruenceSubgroups, UpperHalfPlane/Measure, FundamentalDomain, LpSpace/Basic, LinearPMap, MellinTransform, Gamma/Deligne, DirichletCharacter/Orthogonality, GaussSum, CircleAddChar and Tau Ceti LinearPMap/SelfAdjoint."
+      ]
+    },
+    {
+      "id": "global-number-fields",
+      "title": "Global number fields, ray classes, adeles, and Hecke characters",
+      "authors": "Tau Ceti contributors",
+      "edition": "TauCetiRoadmap current main c251d2e42c66f14c279d1e5c2708c5a91d8c8aec",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/GlobalNumberFields/README.md",
+      "readSections": [
+        "Layers 6, 9 and 10: norm-one compactness, unique real shift and unitary part, archimedean character types."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "CongruenceSpectralGap:CSG.0/quotient-measure",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Hyperbolic quotient measure",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.quotientMeasure",
+      "statement": "On XΓ=Γ\\ℍ use its quotient measurable space. quotientMeasure Γ is p₍*₎(dA restricted to F), where p:ℍ→XΓ, dA=y⁻² dx dy and F is a measurable fundamental domain for the effective projective group. It is independent of F, finite and nonzero.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Use the Fuchsian effective action, fundamental domain and covolume contracts; the kernel ±I cannot be retained in the acting group of IsFundamentalDomain.",
+        "Identify the effective orbit quotient with the raw Γ orbit quotient and transport the existing quotient measure. Apply quotientMeasure_eq to show independence.",
+        "Finite index from IsCongruenceSubgroup.finiteIndex gives positive finite covolume; level one has mass π/3."
+      ],
+      "acceptance": [
+        "On XΓ=Γ\\ℍ use its quotient measurable space. quotientMeasure Γ is p₍*₎(dA restricted to F), where p:ℍ→XΓ, dA=y⁻² dx dy and F is a measurable fundamental domain for the effective projective group. It is independent of F, finite and nonzero."
+      ],
+      "prerequisites": [
+        "mathlib:CongruenceSubgroup.IsCongruenceSubgroup",
+        "mathlib:CongruenceSubgroup.IsCongruenceSubgroup.finiteIndex",
+        "mathlib:MulAction.orbitRel.Quotient",
+        "mathlib:MulAction.toPermHom",
+        "mathlib:UpperHalfPlane.volume_def",
+        "mathlib:MeasureTheory.IsFundamentalDomain.quotientMeasure_eq",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "fuchsian",
+          "locator": "Layers 0 and 2, effective quotient and covolume targets",
+          "match": "Imports quotient geometry and adds its L² measure adapter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hyperbolic quotient measure"
+      },
+      "uses": [
+        {
+          "where": "CSG.0 quotientLaplacian",
+          "how": "Defines the actual Hilbert space Lp ℂ 2 μΓ."
+        },
+        {
+          "where": "CSG.5 congruence_rayleigh_bound",
+          "how": "Fixes the measure in the Rayleigh denominator."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure_eq_map",
+          "role": "compatibility",
+          "statement": "For any IsFundamentalDomain of the effective permutation image, μΓ is the map of volume restricted to that domain."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure_finite",
+          "role": "structure",
+          "statement": "μΓ(XΓ)<∞."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure_proof_irrel",
+          "role": "extensionality",
+          "statement": "Changing the proof of IsCongruenceSubgroup does not change μΓ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure.level_one",
+          "kind": "computation",
+          "statement": "For Γ(1), μΓ(XΓ).toReal=π/3."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure.nonzero",
+          "kind": "non-example",
+          "statement": "μΓ(XΓ)>0 for every allowed Γ."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure.domain_independence",
+          "kind": "compatibility",
+          "statement": "Two effective measurable fundamental domains have equal hyperbolic area."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Positive orbifold Laplacian",
+      "kind": "construction",
+      "leanName": "TauCeti.CongruenceSpectralGap.quotientLaplacian",
+      "statement": "quotientLaplacian Γ is the nonnegative self-adjoint Friedrichs realization of −y²(∂x²+∂y²) on L²(XΓ,μΓ). Start on compactly supported orbifold-smooth functions (smooth invariant lifts at elliptic charts), close their Dirichlet energy q(u,v)=∫⟨∇u,∇v⟩dA, and use the associated operator. Its kernel consists exactly of constants.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Import ordinary gradient, volume and Green identity from current DifferentialGeometry, and local weak derivatives from current PDE/Sobolev; descend through the Fuchsian isometric orbifold charts.",
+        "Density uses a locally finite partition and cusp truncations. Closability follows by testing a candidate gradient limit against compactly supported vector fields in each chart; finite isotropy averaging preserves the test core.",
+        "Apply the requested generic closed-form representation/Friedrichs extension, then the existing LinearPMap self-adjoint API. Cut off constants far into each cusp with energy tending to zero. Zero energy forces local constancy and connectedness forces a single constant."
+      ],
+      "acceptance": [
+        "quotientLaplacian Γ is the nonnegative self-adjoint Friedrichs realization of −y²(∂x²+∂y²) on L²(XΓ,μΓ). Start on compactly supported orbifold-smooth functions (smooth invariant lifts at elliptic charts), close their Dirichlet energy q(u,v)=∫⟨∇u,∇v⟩dA, and use the associated operator. Its kernel consists exactly of constants."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/quotient-measure",
+        "mathlib:MeasureTheory.Lp",
+        "mathlib:LinearPMap",
+        "tauceti:IsSelfAdjoint.isFormalAdjoint",
+        "tauceti:LinearPMap.IsFormalAdjoint.im_inner_self_apply",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+        "AutomorphicSpectralTheory:AS.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "teschl",
+          "locator": "§2.3, Theorems 2.12–2.13, pp.70–72",
+          "match": "Generic Friedrichs and closed-form representation, specialized to the imported orbifold charts; the orbifold density and cusp arguments are explicit local obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Positive orbifold Laplacian"
+      },
+      "uses": [
+        {
+          "where": "CSG.0 spectralGap",
+          "how": "Provides the domain and energy pairing."
+        },
+        {
+          "where": "HV.7 finite-area conformal argument",
+          "how": "The same closed energy is needed for finite-energy coordinate functions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian_selfAdjoint",
+          "role": "structure",
+          "statement": "The partial complex-linear map equals its adjoint."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian_dense_domain",
+          "role": "structure",
+          "statement": "Its operator domain is dense in L²."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian_nonnegative",
+          "role": "relation",
+          "statement": "For every u in its domain, Re⟨u,Δu⟩≥0."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian_kernel_constants",
+          "role": "characterisation",
+          "statement": "For u in the domain, Δu=0 iff u equals a complex constant almost everywhere."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian.zero",
+          "kind": "degenerate",
+          "statement": "Δ0=0."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian.constant",
+          "kind": "computation",
+          "statement": "The L² class of the constant 1 is in the domain and Δ1=0."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian.sign",
+          "kind": "non-example",
+          "statement": "If Δu≠0 then Re⟨u,Δu⟩>0; the opposite sign convention fails."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/mean-zero",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Mean-zero Hilbert subspace",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.meanZero",
+      "statement": "meanZero Γ is ker(u↦∫XΓ u dμΓ), a closed complex submodule of L²(XΓ,μΓ). It is the orthogonal complement of the constants and reduces the self-adjoint operator.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Use finite measure and Cauchy–Schwarz to bound the integral by μΓ(XΓ)^(1/2)‖u‖₂. Its continuous complex-linear kernel is closed.",
+        "Constants lie in the operator kernel, so self-adjointness gives ∫Δu=0 for every u in the domain. The spectral calculus restricts to this orthogonal complement."
+      ],
+      "acceptance": [
+        "meanZero Γ is ker(u↦∫XΓ u dμΓ), a closed complex submodule of L²(XΓ,μΓ). It is the orthogonal complement of the constants and reduces the self-adjoint operator."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "CongruenceSpectralGap:CSG.0/quotient-measure",
+        "mathlib:MeasureTheory.Lp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "teschl",
+          "locator": "§4.3, pp.117–119, restriction to orthogonal complements",
+          "match": "Mean-zero restriction is the orthogonal-complement case of the Rayleigh construction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "CSG.0 spectralGap",
+          "how": "Removes the zero eigenvalue."
+        },
+        {
+          "where": "CSG.5 congruence_rayleigh_bound",
+          "how": "States the Poincaré inequality on its correct subspace."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.mem_meanZero_iff",
+          "role": "characterisation",
+          "statement": "u∈meanZero iff its complex integral is zero."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero_isClosed",
+          "role": "structure",
+          "statement": "meanZero is closed in the L² topology."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero_laplacian_invariant",
+          "role": "relation",
+          "statement": "Δu∈meanZero for every operator-domain u."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero.zero",
+          "kind": "degenerate",
+          "statement": "0 belongs to meanZero."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero.constant_rejection",
+          "kind": "non-example",
+          "statement": "The almost-everywhere constant 1 does not belong to meanZero."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero.imaginary_constant_rejection",
+          "kind": "non-example",
+          "statement": "The almost-everywhere constant i does not belong; taking only a real mean fails."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/spectral-gap",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Positive spectral bottom",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.spectralGap",
+      "statement": "spectralGap Γ=inf{Re⟨u,Δu⟩/‖u‖₂² : 0≠u∈Dom Δ ∩ meanZero}. The set is nonempty and bounded below by zero. It equals the infimum on the closed form domain, and lies in [0,1/4].",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Dense operator domain and its constant projection give nonzero mean-zero vectors. Nonnegativity gives a lower bound.",
+        "Import self-adjoint spectral calculus from current OperatorTheory through AS.0. The spectral infimum equals both operator-domain and form-domain Rayleigh infima.",
+        "Use the requested all-level GL₂ spectral description to get continuous spectrum beginning at 1/4; this provides Weyl sequences and the upper bound."
+      ],
+      "acceptance": [
+        "spectralGap Γ=inf{Re⟨u,Δu⟩/‖u‖₂² : 0≠u∈Dom Δ ∩ meanZero}. The set is nonempty and bounded below by zero. It equals the infimum on the closed form domain, and lies in [0,1/4]."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/mean-zero",
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "AutomorphicSpectralTheory:AS.0",
+        "AutomorphicSpectralTheory:AS.4/gl2-spectral-expansion",
+        "AutomorphicSpectralTheory:AS.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "teschl",
+          "locator": "§4.3, Theorem 4.10, pp.118–119",
+          "match": "Rayleigh infimum includes the essential threshold when there is no lower eigenvalue."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Positive spectral bottom"
+      },
+      "uses": [
+        {
+          "where": "LRS95 Theorem 1.1 p.387",
+          "how": "Names the positive spectral quantity on all congruence levels."
+        },
+        {
+          "where": "HV.7 and GeometricFreyMazur",
+          "how": "Supplies the normalization-fixed Rayleigh lower bound."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap_eq_sInf",
+          "role": "characterisation",
+          "statement": "Equals the infimum of the explicitly displayed nonzero mean-zero operator-domain Rayleigh values."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap_nonnegative",
+          "role": "relation",
+          "statement": "0≤spectralGap Γ."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap_le_threshold",
+          "role": "relation",
+          "statement": "spectralGap Γ≤1/4."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.noncongruence_rejection",
+          "kind": "non-example",
+          "statement": "If Γ is not a congruence subgroup there is no N≠0 with Γ(N)≤Γ; the exported theorem requires this witness."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.constant_excluded",
+          "kind": "characterisation",
+          "statement": "A mean-zero domain vector killed by Δ is zero."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.continuous_threshold",
+          "kind": "computation",
+          "statement": "For real t, 1/4≤1/4+t²; the continuous parameter never supplies a smaller value."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/clipped-gap",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Clipped eigenvalue convention",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.clippedGap",
+      "statement": "For a real set small, clippedGap(small)=inf({1/4}∪small). Its geometric argument is the set of eigenvalues in (0,1/4); the inserted threshold gives value 1/4 when that set is empty.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the real conditional complete lattice infimum. In the geometric use the eigenvalues are nonnegative, so the set is nonempty and bounded below.",
+        "Prove lower and upper comparison APIs with explicit bounded-below hypotheses where the conditional infimum requires them."
+      ],
+      "acceptance": [
+        "For a real set small, clippedGap(small)=inf({1/4}∪small). Its geometric argument is the set of eigenvalues in (0,1/4); the inserted threshold gives value 1/4 when that set is empty."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.1 p.387 and archimedean discussion pp.389–390",
+          "match": "Makes the continuous-threshold convention explicit without assigning an artificial least cusp eigenvalue."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "CSG.0 spectralGap_eq_clippedGap",
+          "how": "Identifies the Rayleigh quantity with its small discrete spectrum."
+        },
+        {
+          "where": "CSG.5 congruence_spectral_gap",
+          "how": "Combines small-eigenvalue bounds and the threshold uniformly."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.clippedGap_eq",
+          "role": "characterisation",
+          "statement": "clippedGap(small)=sInf(insert(1/4,small))."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.clippedGap_le",
+          "role": "relation",
+          "statement": "If r∈small and {1/4}∪small is bounded below, clippedGap(small)≤r."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.le_clippedGap",
+          "role": "relation",
+          "statement": "If c≤1/4 and c≤r for every r∈small, then c≤clippedGap(small)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.clippedGap.empty",
+          "kind": "degenerate",
+          "statement": "clippedGap(∅)=1/4."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.clippedGap.exceptional",
+          "kind": "computation",
+          "statement": "clippedGap({21/100})=21/100."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.clippedGap.tempered",
+          "kind": "non-example",
+          "statement": "clippedGap({1/3})=1/4, not 1/3."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/spectral-description",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Congruence spectral description",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.congruence_spectral_description",
+      "statement": "For every allowed Γ, the weight-zero residual L² subspace is exactly the constants. The absolutely continuous spectrum of Δ is [1/4,∞), with one channel per cusp and a scattering matrix. Every spectral value in (0,1/4) is a finite-multiplicity cuspidal eigenvalue; there are finitely many there and no singular continuous contribution. This is an arbitrary-level specialization of AS.4.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Import AS.4 spectral orthosum and GL₂ expansion, with the requested multi-cusp scattering and residual classification.",
+        "For principal level, diagonalize the finite-level action. Rank-one Eisenstein poles in Re s>1/2 give only the trivial residual character at s=1; the relevant Dirichlet denominators are zero-free in Re(2s)>1.",
+        "Pass to Γ-invariants inside the principal-level cover. Retain the channels indexed by Γ cusps and identify the operator on the quotient."
+      ],
+      "acceptance": [
+        "Several cusps give several Eisenstein channels, not the level-one single-channel formula.",
+        "A positive residual exceptional value must be excluded, not silently treated as cuspidal."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "AutomorphicSpectralTheory:AS.4/spectral-orthosum",
+        "AutomorphicSpectralTheory:AS.4/residual-spectrum",
+        "AutomorphicSpectralTheory:AS.4/gl2-spectral-expansion",
+        "AutomorphicSpectralTheory:AS.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.1 p.387 and §1 pp.389–390",
+          "match": "LRS applies its cuspidal bound to the congruence quotient; the all-level spectral and residual input is imported from the parent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Congruence spectral decomposition"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.0/spectral-clipping",
+      "parentStageId": "CongruenceSpectralGap:CSG.0",
+      "realises": [
+        "CongruenceSpectralGap:CSG.0"
+      ],
+      "title": "Rayleigh and clipped spectrum comparison",
+      "kind": "comparison",
+      "leanName": "TauCeti.CongruenceSpectralGap.spectralGap_eq_clippedGap",
+      "statement": "Let smallΓ={λ∈ℝ : 0<λ<1/4 and there is nonzero u∈Dom Δ with Δu=λu}. Then spectralGap Γ=clippedGap(smallΓ). Equivalently it is min(λ₁,1/4) if a first positive discrete eigenvalue exists, and 1/4 if there is no eigenvalue below the threshold.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Restrict the existing spectral calculus to constants-perpendicular L².",
+        "Apply the spectral description: only finitely many positive discrete values occur below the essential threshold. The lowest spectral value gives the Rayleigh infimum; if the set is empty, approximate the essential bottom."
+      ],
+      "acceptance": [
+        "The empty small-spectrum set gives 1/4.",
+        "An eigenvalue exactly 1/4 does not change the clipped answer."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/spectral-description",
+        "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "CongruenceSpectralGap:CSG.0/clipped-gap",
+        "AutomorphicSpectralTheory:AS.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "teschl",
+          "locator": "§4.3, Theorem 4.10 p.119",
+          "match": "The essential-spectrum convention and form-domain equality provide the comparison."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.1/exceptional-dictionary",
+      "parentStageId": "CongruenceSpectralGap:CSG.1",
+      "realises": [
+        "CongruenceSpectralGap:CSG.1"
+      ],
+      "title": "Exceptional cuspidal dictionary",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.exceptional_cuspidal_dictionary",
+      "statement": "For allowed Γ and an eigenvalue 0<λ<1/4, a cuspidal GL₂(Aℚ) unitary representation π occurs after passing to principal level and decomposing the finite-level action. Its archimedean component has SO(2)-weight zero and complementary parameter r∈(0,1/2), with λ=1/4−r². A common sign parity on its two real inducing characters is allowed; π∞ need not be O(2)-spherical.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued.",
+        "u is a nonzero positive exceptional eigenfunction."
+      ],
+      "proofSteps": [
+        "Use CSG.0 residual classification to identify u as cuspidal. Lift u to Γ(N) and apply AF.2 adelic-classical comparison at principal level, then extract a cuspidal constituent using AF.3.",
+        "Compute the normalized Casimir on the SO(2)-fixed line using AF.1 real local classification. Write the unitary principal-series characters as sgn^ε|.|^r and sgn^ε|.|^−r after the central norm normalization.",
+        "Allow both ε=0 and ε=1; the geometric eigenvalue does not force reflection-even parity."
+      ],
+      "acceptance": [
+        "Covers Γ(N) and arbitrary intermediate Γ, not only Γ₀(N) with a nebentypus.",
+        "Either sign parity yields the same λ."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/spectral-description",
+        "AutomorphicFormsOnReductiveGroups:AF.2/adelic-classical-bijection",
+        "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation",
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "§1 pp.389–390, GL₂ eigenvalue and GL₃ lift discussion",
+          "match": "Specializes the classical/adelic and real representation dictionaries without constructing new generic carriers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Exceptional cuspidal dictionary"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.1/monomial-tempered",
+      "parentStageId": "CongruenceSpectralGap:CSG.1",
+      "realises": [
+        "CongruenceSpectralGap:CSG.1"
+      ],
+      "title": "Monomial archimedean temperance",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.monomial_archimedean_tempered",
+      "statement": "If π is unitary cuspidal on GL₂(Aℚ) and has a nontrivial character self-twist, then π=AIK/ℚ(θ) for a quadratic field K and a unitary Hecke character θ. Its archimedean parameter is tempered. Therefore a weight-zero complementary component with 0<r<1/2 has no nontrivial self-twist.",
+      "hypotheses": [
+        "π is unitary cuspidal; there is a character η≠1 with π⊗η≃π."
+      ],
+      "proofSteps": [
+        "Import the quadratic self-twist and induction branch of the existing adjoint-lift contract. A global Hecke character’s positive absolute-value part is a common norm power; the central unitarity of its induction forces this power to be zero.",
+        "At a split real place induction is the pair of unitary real characters. At a complex place unitary Weil induction is tempered (with the resulting principal/discrete type).",
+        "The nonzero real exponents of a complementary weight-zero π∞ contradict temperance."
+      ],
+      "acceptance": [
+        "The cuspidal-lift proof cannot be applied to every monomial form.",
+        "No complementary r>0 survives this branch."
+      ],
+      "prerequisites": [
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+        "CongruenceSpectralGap:CSG.1/exceptional-dictionary",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "gj78",
+          "locator": "§3.7 p.491; Theorem 9.3 p.534 and Remark 9.9 p.541",
+          "match": "Imports the quadratic induction case and checks that it cannot contribute an exceptional eigenvalue."
+        },
+        {
+          "sourceId": "global-number-fields",
+          "locator": "Layer 9, unique real shift and unitary-part targets; Layers 6 and 10 for norm-one compactness and infinity types",
+          "match": "Imports the fact that the absolute value of a global Hecke character is a single real norm power, so central unitarity forces zero shift."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.1/adjoint-parameters",
+      "parentStageId": "CongruenceSpectralGap:CSG.1",
+      "realises": [
+        "CongruenceSpectralGap:CSG.1"
+      ],
+      "title": "Exceptional adjoint parameters",
+      "kind": "comparison",
+      "leanName": "TauCeti.CongruenceSpectralGap.adjoint_exceptional_parameters",
+      "statement": "For the exceptional π of CSG.1, Ad(π)=Sym²(π)⊗ωπ⁻¹ is a unitary cuspidal GL₃ representation, O(3)-spherical at infinity, with standard archimedean parameters {2r,0,−2r} in the Γℝ(s−μj) convention. The common sign parity disappears. Its GL₃ parameters, not π’s GL₂ parameters, are used in Theorem 1.2.",
+      "hypotheses": [
+        "π and r are supplied by exceptional_cuspidal_dictionary."
+      ],
+      "proofSteps": [
+        "Use monomial_archimedean_tempered to exclude nontrivial self-twists; import the exact existing Gelbart–Jacquet adjoint lift and its cuspidality criterion.",
+        "At infinity compute the trace-zero endomorphism representation of the rank-two parameter. Ratios of the two characters give |.|^2r,1,|.|^−2r; common sign factors cancel.",
+        "The resulting spherical component has the required standard gamma factor; central-character removal is essential when ωπ is nontrivial."
+      ],
+      "acceptance": [
+        "Raw Sym² without ωπ⁻¹ is not the stated adjoint when the central character is nontrivial.",
+        "For r=1/5 the largest real GL₃ parameter is 2/5."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.1/exceptional-dictionary",
+        "CongruenceSpectralGap:CSG.1/monomial-tempered",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4/adjoint-lift",
+        "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "§1 pp.389–390 and Theorem 1.2 p.389",
+          "match": "Uses the imported adjoint lift only for its exceptional real parameter specialization."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+      "parentStageId": "CongruenceSpectralGap:CSG.2",
+      "realises": [
+        "CongruenceSpectralGap:CSG.2"
+      ],
+      "title": "Prime-twist functional equation",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.prime_twist_functional_equation",
+      "statement": "Write Lχ(s)=L(s,(π⊗χ)×π̃)=∑n≥1 b(n)χ(n)n⁻ˢ on Re s>1, with self-pair finite coefficients b(n)≥0, b(1)=1 and ∑n≤x b(n)∼cπx for cπ>0. Its completion A(s)Lχ(s), A(s)=∏j,k Γℝ(s−μj−conj μk), is entire and satisfies Lχ(s)=τπ χ(f) τ(χ)^d(fq^d)⁻ˢ G(s)Lχ̄(1−s), where G(s)=A(1−s)/A(s), f is the self-pair conductor and εself(s)=τπ f⁻ˢ. The unit root number is τπ f⁻¹/², not τπ itself.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "χ is a nonprincipal even character of prime conductor q>2, q∤fπ, where fπ is the standard conductor."
+      ],
+      "proofSteps": [
+        "Import AL.3 global poles, functional equation and strip estimates for this equal-rank pair, local factor product and the requested all-prime self-pair positivity and norm-twist transport.",
+        "At q, πq is unramified but πq⊗χq is ramified, so no global norm self-twist can hold. The local twisted L factor is 1 and its epsilon factor is τ(χ)^d q⁻ᵈˢ: the m² exponent shifts sum to zero.",
+        "At p≠q, twisting by the unramified character substitutes χ(p)p⁻ˢ in the local polynomial and multiplies epsilon by χ(p^ap). Even parity leaves the infinite factor unchanged. Multiply these factors.",
+        "Obtain the positive partial-sum asymptotic from the simple positive self-pair pole and the existing full Wiener–Ikehara theorem, checking boundary continuity of the pole-subtracted finite L function."
+      ],
+      "acceptance": [
+        "A ramified self-pair prime is retained in b(n); an unramified-only positivity argument is insufficient.",
+        "Conductor exponent is m², and odd χ would change the infinite factor."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-local-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-induced-factor-product",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
+        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "§2.1 pp.391–392 and Lemma 2.1 pp.392–394",
+          "match": "Combines existing generic RS contracts with the conductor-prime twist calculation; missing generic positivity and twist transport stay with AL.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Prime-twist functional equation"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.2/trivial-zero",
+      "parentStageId": "CongruenceSpectralGap:CSG.2",
+      "realises": [
+        "CongruenceSpectralGap:CSG.2"
+      ],
+      "title": "Archimedean trivial zero",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.archimedean_trivial_zero",
+      "statement": "If β₀>0, then Lχ(β₀)=0 for every χ in CSG.2. A(s) has a real pole at β₀ and has no poles on Re s>β₀. The completed twisted function is entire, so the finite function vanishes there to at least the pole order.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "χ is a nonprincipal even character of prime conductor q>2, q∤fπ, where fπ is the standard conductor.",
+        "β₀>0."
+      ],
+      "proofSteps": [
+        "Use AF.1 unitarity to identify the multiset with its negative complex conjugate and genericity to give β₀<1.",
+        "A maximal diagonal pair has argument s−2Re μj, which is zero at β₀. Gamma has no meromorphic zeros; no pole cancels another gamma pole, and none lies to the right.",
+        "Use entire completion from prime_twist_functional_equation and compare meromorphic orders. Interpret poles by germs or punctured limits: the totalized Complex.Gammaℝ value is zero at a pole and cannot be treated as infinite."
+      ],
+      "acceptance": [
+        "β₀=0 is excluded from this statement and needs no nonvanishing contradiction.",
+        "Pointwise totalized gamma values do not prove cancellation of a meromorphic pole."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "mathlib:Complex.Gammaℝ",
+        "mathlib:Complex.Gammaℝ_eq_zero_iff",
+        "mathlib:Complex.Gammaℝ_residue_zero",
+        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.2 discussion pp.389–390 and proof p.395",
+          "match": "The rightmost real infinite-factor pole forces all even-prime twists to vanish if the parameter bound fails."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.3/first-kernel",
+      "parentStageId": "CongruenceSpectralGap:CSG.3",
+      "realises": [
+        "CongruenceSpectralGap:CSG.3"
+      ],
+      "title": "Mellin cutoff kernel",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.firstKernel",
+      "statement": "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use existing mellin and mellinInv conventions; these agree with the vertical complex contour integral after ds=i dt.",
+        "Mellin inversion and contour shift show the integral-tail formula. For compact positive support, F₁ is exactly 1 below the support and exactly 0 above it under multiplicative normalization."
+      ],
+      "acceptance": [
+        "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1."
+      ],
+      "prerequisites": [
+        "mathlib:mellin",
+        "mathlib:mellinInv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Equations (3.6)–(3.7), Lemma 3.1 pp.395–396",
+          "match": "Cutoff normalized with dy/y so the residue at zero is one; source issue E1 records the printed normalization mismatch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Mellin cutoff kernel"
+      },
+      "uses": [
+        {
+          "where": "LRS95 Lemma 3.2 pp.396–397",
+          "how": "Truncates the first Dirichlet series."
+        },
+        {
+          "where": "CSG.4 prime_twist_average_asymptotic",
+          "how": "Keeps the n=1 main term and controls the other terms."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel_eq_integral",
+          "role": "characterisation",
+          "statement": "For every f and x, F₁(f,x)=∫Ioi(x) f(y)/(y:ℂ)dy."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel_eq_mellinInv",
+          "role": "compatibility",
+          "statement": "For smooth compact positive support and x>0, F₁=mellinInv(2,mellin(f,s)/s)(x)."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel_below",
+          "role": "simp",
+          "statement": "If a>0, f(y)=0 for y<a, f(y)/y is integrable on (0,∞), mellin(f,0)=1 and 0<x≤a, then F₁(f,x)=1."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel_above",
+          "role": "simp",
+          "statement": "If f(y)=0 for y>b and b≤x, then F₁(f,x)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel.zero",
+          "kind": "degenerate",
+          "statement": "F₁(0,x)=0 for every x."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel.below_support",
+          "kind": "computation",
+          "statement": "If f vanishes below 1, f/y is integrable on (0,∞) and mellin(f,0)=1, F₁(f,1/2)=1."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.firstKernel.above_support",
+          "kind": "computation",
+          "statement": "If f vanishes above 2, F₁(f,3)=0."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.3/dual-kernel",
+      "parentStageId": "CongruenceSpectralGap:CSG.3",
+      "realises": [
+        "CongruenceSpectralGap:CSG.3"
+      ],
+      "title": "Dual Mellin kernel",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.dualKernel",
+      "statement": "dualKernel(f,G,β,x)=mellinInv(2,s↦mellin(f,−s)G(β−s)/s)(x). G is an actual complex function; in the RS application it is the meromorphic quotient A(1−s)/A(s), evaluated on the allowed integration line. No bound is stored in its data.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Reuse mellinInv for the contour integral, so the sign change k(−s) and β−s remain visible.",
+        "For G=1 use mellin_comp_inv and the first-kernel inversion API. The zero-function and zero-ratio cases follow from the zero integrand."
+      ],
+      "acceptance": [
+        "dualKernel(f,G,β,x)=mellinInv(2,s↦mellin(f,−s)G(β−s)/s)(x). G is an actual complex function; in the RS application it is the meromorphic quotient A(1−s)/A(s), evaluated on the allowed integration line. No bound is stored in its data."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.3/first-kernel",
+        "mathlib:mellin_comp_inv",
+        "mathlib:mellinInv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Equation (3.7), Lemma 3.1 p.396",
+          "match": "Defines the dual cutoff with the reflected Mellin transform and archimedean ratio."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dual Mellin kernel"
+      },
+      "uses": [
+        {
+          "where": "LRS95 Lemma 3.2 pp.396–397",
+          "how": "Represents the dual Dirichlet series."
+        },
+        {
+          "where": "CSG.4 prime_twist_average_asymptotic",
+          "how": "Its near-zero exponent permits integration using β₀<1."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel_eq_mellinInv",
+          "role": "characterisation",
+          "statement": "F₂ equals the displayed existing inverse Mellin transform."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel_zero_ratio",
+          "role": "simp",
+          "statement": "G=0 gives F₂=0."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel_unit_ratio",
+          "role": "compatibility",
+          "statement": "For smooth compact positive-support f, x>0 and G=1, F₂(f,1,β,x)=F₁(f∘inv,x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel.zero",
+          "kind": "degenerate",
+          "statement": "f=0 gives F₂=0 for any G, β and x."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel.zero_factor",
+          "kind": "degenerate",
+          "statement": "G=0 gives F₂=0 for any f, β and x."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.dualKernel.inversion",
+          "kind": "compatibility",
+          "statement": "For smooth compact positive support, G=1 and x=2, F₂=F₁(f∘inv,2), detecting the sign of the Mellin argument."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.3/kernel-estimates",
+      "parentStageId": "CongruenceSpectralGap:CSG.3",
+      "realises": [
+        "CongruenceSpectralGap:CSG.3"
+      ],
+      "title": "Mellin cutoff estimates",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.mellin_cutoff_estimates",
+      "statement": "For f smooth with compact support in (0,∞), mellin(f,0)=1, the CSG.2 gamma ratio G, β with 0<σ=Re β<1 and every ε>0, F₁ and F₂ decay faster than any power as x→∞. F₁(x)=1 for sufficiently small positive x. For 0<x≤1, |F₂(x)|≤Cε(1+x^(1−β₀−σ−ε)); constants depend on π,β,f,ε, not q or Y. Choose ε<1−β₀ when using the dual integral.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "f is smooth, compactly supported in (0,∞), mellin(f,0)=1.",
+        "0<Re β<1 and ε>0."
+      ],
+      "proofSteps": [
+        "Integration by parts in log y makes k entire and rapidly decreasing in vertical strips.",
+        "Import the requested complex gamma Stirling bounds from AL.1; the ratio G has polynomial strip growth. Shift to the right for rapid decay, and to the left for near-zero behavior.",
+        "The rightmost possible dual pole is at β+β₀−1, with order at most d. Absorb powers of |log x| into x⁻ε; this also handles collision with the 1/s pole when σ+β₀=1."
+      ],
+      "acceptance": [
+        "At σ+β₀=1 the estimate allows logarithmic growth.",
+        "The bound does not depend on the prime conductor."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.3/first-kernel",
+        "CongruenceSpectralGap:CSG.3/dual-kernel",
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Lemma 3.1 p.396, contour-shift proof",
+          "match": "Records a robust epsilon bound including multiple poles and the zero-pole collision."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.3/approximate-equation",
+      "parentStageId": "CongruenceSpectralGap:CSG.3",
+      "realises": [
+        "CongruenceSpectralGap:CSG.3"
+      ],
+      "title": "Approximate functional equation",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.approximate_functional_equation",
+      "statement": "For the CSG.2 data, smooth compact positive-support f with mellin(f,0)=1, 0<Re β<1 and Y>1, Lχ(β)=∑n≥1 b(n)χ(n)n⁻ᵝF₁(n/Y)+τπχ(f)τ(χ)^d(fq^d)⁻ᵝ∑n≥1 b(n)χ̄(n)n^(β−1)F₂(nY/(fq^d)). Both sums converge absolutely.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "χ is a nonprincipal even character of prime conductor q>2, q∤fπ, where fπ is the standard conductor.",
+        "0<Re β<1, Y>1, and the normalized f of CSG.3."
+      ],
+      "proofSteps": [
+        "Integrate k(s)Lχ(β+s)Y^s/s on Re s=2, exchange the absolutely convergent series and integral, and identify F₁.",
+        "Shift to Re s=−1: the sole crossed pole is s=0 because the finite twisted Lχ is entire. Strip bounds and rapid k decay control horizontal contours.",
+        "Apply the functional equation, replace s by −s and shift the resulting integral to Re s=2 in the pole-free right region. Expanding Lχ̄(1−β+s) gives F₂ with the exact conductor and power of n.",
+        "Use rapid kernel decay and the positive partial-sum bound from CSG.2 for absolute summability."
+      ],
+      "acceptance": [
+        "The dual argument is nY/(fq^d), not n/(Yfq^d).",
+        "The dual character is χ̄ and the exponent is n^(β−1)."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "CongruenceSpectralGap:CSG.3/kernel-estimates",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Lemma 3.2 and its proof pp.396–397",
+          "match": "The two kernel expressions give the prime-twist series representation used by the average."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Approximate functional equation"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.4/prime-average",
+      "parentStageId": "CongruenceSpectralGap:CSG.4",
+      "realises": [
+        "CongruenceSpectralGap:CSG.4"
+      ],
+      "title": "Even prime-twist average",
+      "kind": "definition",
+      "leanName": "TauCeti.CongruenceSpectralGap.primeTwistAverage",
+      "statement": "For an actual family L(q,χ,s) of complex functions, standard conductor fπ and Q∈ℕ, primeTwistAverage(L,fπ,Q,β)=∑Q<q≤2Q, q prime, q∤fπ ∑χ≠1, χ(−1)=1 L(q,χ,β). The finite indexing sum is independent of any analytic assertions about L.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Filter Finset.Ioc(Q,2Q) by primality and q∤fπ, then filter the finite DirichletCharacter ℂ q group by evenness and nonprincipality.",
+        "The family congruence API tests equality only on selected indices. The zero API gives the contradiction interface without asserting nonvanishing for arbitrary function families."
+      ],
+      "acceptance": [
+        "For an actual family L(q,χ,s) of complex functions, standard conductor fπ and Q∈ℕ, primeTwistAverage(L,fπ,Q,β)=∑Q<q≤2Q, q prime, q∤fπ ∑χ≠1, χ(−1)=1 L(q,χ,β). The finite indexing sum is independent of any analytic assertions about L."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.sum_characters_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Equation (3.4) and Proposition 3.1 p.395",
+          "match": "Uses precisely the even nonprincipal prime twists away from the standard conductor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Even prime-twist average"
+      },
+      "uses": [
+        {
+          "where": "CSG.4 prime_twist_average_asymptotic",
+          "how": "Applies the construction to actual finite RS L functions."
+        },
+        {
+          "where": "CSG.5 lrs_archimedean_parameter_bound",
+          "how": "If each forced trivial-zero value vanishes, this finite sum is zero."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage_eq",
+          "role": "characterisation",
+          "statement": "Equals the finite sum over primes Q<q≤2Q with q∤fπ and even nonprincipal χ."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage_congr",
+          "role": "extensionality",
+          "statement": "Families equal at every selected (q,χ,β) have equal averages."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage_zero_of_zero",
+          "role": "simp",
+          "statement": "If every selected value is zero then the average is zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage.empty_interval",
+          "kind": "degenerate",
+          "statement": "Q=0 gives zero for every family and conductor."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage.no_even_nonprincipal_mod3",
+          "kind": "computation",
+          "statement": "For L≡1, fπ=1 and Q=2 the average is zero; q=3 has no even nonprincipal character."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage.mod5",
+          "kind": "computation",
+          "statement": "For L≡1, fπ=1 and Q=3 the average is one, coming from q=5."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.primeTwistAverage.bad_prime_removed",
+          "kind": "non-example",
+          "statement": "For L≡1, fπ=5 and Q=3 the average is zero, since q=5 is excluded."
+        }
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.4/even-orthogonality",
+      "parentStageId": "CongruenceSpectralGap:CSG.4",
+      "realises": [
+        "CongruenceSpectralGap:CSG.4"
+      ],
+      "title": "Even nonprincipal orthogonality",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.even_nonprincipal_orthogonality",
+      "statement": "For prime q>2 and a∈Z/qZ, ∑χ even,χ≠1 χ(a) is 0 if a=0, (q−1)/2−1 if a=±1, and −1 otherwise. Consequently the smoothed first-series sum is ((q−1)/2)∑n≡±1 mod q b(n)n⁻ᵝF₁(n/Y)−∑(n,q)=1 b(n)n⁻ᵝF₁(n/Y). The principal-character subtraction includes n≡±1.",
+      "hypotheses": [
+        "q>2 is prime; characters are complex Dirichlet characters extended by zero on nonunits."
+      ],
+      "proofSteps": [
+        "Project the full character sum to even characters by (1+χ(−1))/2 and use the pinned sum_characters_eq theorem at a and −a.",
+        "Subtract the principal character, which is one on every nonzero class and zero at zero. Apply to each coefficient of the finite-support primal kernel."
+      ],
+      "acceptance": [
+        "At a=1 the answer is (q−3)/2.",
+        "At q=3 every class has sum zero."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.sum_characters_eq",
+        "CongruenceSpectralGap:CSG.3/first-kernel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Equation (3.11) and corrected (3.12), p.397",
+          "match": "Supplies the finite sum and corrects the incomplete principal subtraction recorded as E2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.4/gauss-average",
+      "parentStageId": "CongruenceSpectralGap:CSG.4",
+      "realises": [
+        "CongruenceSpectralGap:CSG.4"
+      ],
+      "title": "Gauss-power average",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.gauss_power_even_average",
+      "statement": "For q>2 prime, k≥1, r∈(Z/qZ)×, τ(χ)=gaussSum(χ,stdAddChar), and the existing unnormalized FF.2 hyper-Kloosterman sum Klk(r,q) over k units of product r, ∑χ even,χ≠1 χ̄(r)τ(χ)^k=((q−1)/2)(Klk(r,q)+Klk(−r,q))−(−1)^k. Its norm is at most (q−1)k q^((k−1)/2)+1, hence O_k(q^((k+1)/2)).",
+      "hypotheses": [
+        "q>2 is prime; k≥1; r is a nonzero unit."
+      ],
+      "proofSteps": [
+        "Expand the k-th power of the existing finite Gauss sum. Orthogonality selects tuples whose product is r or −r.",
+        "Subtract the principal-character Gauss sum τ(1)=−1. Match the unit tuple fiber exactly to FF.2/hyper-kloosterman-sum.",
+        "Import FF.2/hyper-kloosterman-bound for nonzero arguments and the standard nontrivial additive character. Triangle inequality gives the displayed constant; no zero-argument extension or normalized sheaf trace is substituted."
+      ],
+      "acceptance": [
+        "The main factor is (q−1)/2; omitting the principal character leaves a correction −(−1)^k.",
+        "For k=d=m² the conductor Gauss term has size O_m(q^((d+1)/2))."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.4/even-orthogonality",
+        "mathlib:gaussSum",
+        "mathlib:ZMod.stdAddChar",
+        "mathlib:ZMod.isPrimitive_stdAddChar",
+        "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-sum",
+        "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Equations (3.18)–(3.20) p.398",
+          "match": "Matches the exact Deligne supplier convention instead of reproving the character-sum bound."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Gauss-power average"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.4/average-asymptotic",
+      "parentStageId": "CongruenceSpectralGap:CSG.4",
+      "realises": [
+        "CongruenceSpectralGap:CSG.4"
+      ],
+      "title": "Prime-twist average asymptotic",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.prime_twist_average_asymptotic",
+      "statement": "For fixed π as in CSG.2, β with 0<σ=Re β<1 and every ε>0, as Q→∞ through positive integers, primeTwistAverage(Lχ,fπ,Q,β)=(1/2)∑Q<q≤2Q,q prime,q∤fπ q+Oπ,β,ε(Q^(1+(d+1)(1−σ)/2+ε)). The main term is asymptotic to (3/4)Q²/log Q.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "0<Re β<1; ε>0; π and β are fixed."
+      ],
+      "proofSteps": [
+        "Choose a multiplicatively normalized smooth compact cutoff and apply approximate_functional_equation with Y=Q^((d+1)/2), valid for large Q and satisfying Q≪Y≪Q^d.",
+        "Even orthogonality isolates n=1, giving the main term up to O(Q). For n≠1 the number of primes dividing n−1 or n+1 is bounded by τ(n−1)+τ(n+1); use the AN.5 divisor subpower bound, not a false pointwise bound for b(n).",
+        "Partial summation with ∑n≤x b(n)≪πx gives primal error O(QY^(1−σ+ε)). The subtraction over all coprime n has the same or smaller bound.",
+        "For the dual term, put r=n/f mod q and k=d in gauss_power_even_average. Partial summation bounds the kernel integral by O(Q^(1+(d+1)/2)Y⁻σ); near zero the integrand is bounded by x^(σ−1)+x^(−β₀−ε′), integrable for ε′<1−β₀.",
+        "Combine the errors and absorb the smoothing exponent into the requested ε. PNT and Abel summation give the dyadic prime sum ∼(3/2)Q²/log Q; deleting finitely many bad primes changes no asymptotic."
+      ],
+      "acceptance": [
+        "The exponent is 1+(m²+1)(1−σ)/2, not the exponent of a degree-m single standard L function.",
+        "Errors are uniform in the dyadic primes but their constants may depend on fixed π and β."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.4/prime-average",
+        "CongruenceSpectralGap:CSG.4/even-orthogonality",
+        "CongruenceSpectralGap:CSG.4/gauss-average",
+        "CongruenceSpectralGap:CSG.3/approximate-equation",
+        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound",
+        "AnalyticNumberTheory:AN.2/rational-prime-number-theorem",
+        "AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Proposition 3.1 p.395, proof pp.397–399",
+          "match": "Includes both averaged errors, the smoothing scale and the prime main term."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Prime-twist average asymptotic"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.4/twist-nonvanishing",
+      "parentStageId": "CongruenceSpectralGap:CSG.4",
+      "realises": [
+        "CongruenceSpectralGap:CSG.4"
+      ],
+      "title": "Twisted Rankin–Selberg nonvanishing",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.prime_twist_nonvanishing",
+      "statement": "For fixed π as in CSG.2 and every β with 1−2/(m²+1)<Re β<1, every sufficiently large dyadic prime interval contains q∤fπ and an even nonprincipal χ modulo q for which L(β,(π⊗χ)×π̃)≠0. In particular such conductors are unbounded.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1).",
+        "1−2/(m²+1)<Re β<1."
+      ],
+      "proofSteps": [
+        "Choose ε>0 less than 2−[1+(d+1)(1−Re β)/2]. The asymptotic error divided by Q²/log Q tends to zero.",
+        "Thus the complex average is nonzero for large Q. If every summand were zero its finite sum would vanish, so extract one nonzero term. No positivity of the twisted values is asserted."
+      ],
+      "acceptance": [
+        "The strict half-strip does not include its left boundary.",
+        "Existence does not say that every twist is nonzero."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.4/average-asymptotic",
+        "CongruenceSpectralGap:CSG.4/prime-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Proposition 3.1 and proof of Theorem 1.2 p.395",
+          "match": "The first moment gives existence of a nonzero twist in the required half-strip."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Twisted Rankin–Selberg nonvanishing"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.5/archimedean-bound",
+      "parentStageId": "CongruenceSpectralGap:CSG.5",
+      "realises": [
+        "CongruenceSpectralGap:CSG.5"
+      ],
+      "title": "Luo–Rudnick–Sarnak parameter bound",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.lrs_archimedean_parameter_bound",
+      "statement": "For m≥2 and unitary cuspidal π of GLm(Aℚ) with O(m)-spherical π∞ and L∞(s,π)=∏j Γℝ(s−μj), every j satisfies |Re μj|≤1/2−1/(m²+1). No general nonspherical or number-field version is asserted.",
+      "hypotheses": [
+        "m≥2 and π is unitary cuspidal on GLm(Aℚ).",
+        "π∞ is O(m)-spherical; L∞(s,π)=∏j Γℝ(s−μj).",
+        "d=m², β₀=2 maxj Re μj; unitarity gives β₀∈[0,1)."
+      ],
+      "proofSteps": [
+        "Assume β₀>1−2/(m²+1). Generic unitary classification gives β₀<1, so twist-nonvanishing applies at the real point β=β₀.",
+        "Archimedean trivial zero gives zero for every even prime twist there, contradicting the extracted nonzero twist. Hence β₀≤1−2/(m²+1).",
+        "The unitary multiset symmetry bounds the negative real parts too. Divide by two and obtain the weak inequality; the boundary is not excluded by the strict nonvanishing region."
+      ],
+      "acceptance": [
+        "For m=3 the bound is 2/5.",
+        "The conclusion is ≤, not <, and its spherical hypothesis is retained."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.2/trivial-zero",
+        "CongruenceSpectralGap:CSG.4/twist-nonvanishing",
+        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.2 p.389 and its proof p.395",
+          "match": "The complete prime-twist argument yields the general spherical archimedean bound."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Luo–Rudnick–Sarnak parameter bound"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.5/exceptional-arithmetic",
+      "parentStageId": "CongruenceSpectralGap:CSG.5",
+      "realises": [
+        "CongruenceSpectralGap:CSG.5"
+      ],
+      "title": "Exceptional eigenvalue arithmetic",
+      "kind": "lemma",
+      "leanName": "TauCeti.CongruenceSpectralGap.exceptional_parameter_arithmetic",
+      "statement": "For r≥0 with 2r≤2/5, one has r≤1/5 and 1/4−r²≥21/100.",
+      "hypotheses": [
+        "r is real, r≥0 and 2r≤2/5."
+      ],
+      "proofSteps": [
+        "Divide the linear bound by two. Squaring preserves it because both sides are nonnegative; subtract from 1/4."
+      ],
+      "acceptance": [
+        "At r=1/5 equality gives 21/100.",
+        "The direct m=2 bound r≤3/10 gives only 4/25; the adjoint step is necessary."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "§1 pp.389–390, deduction of Theorem 1.1 from Theorem 1.2",
+          "match": "Isolates the exact rational conversion from the GL₃ parameter bound."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.5/congruence-bound",
+      "parentStageId": "CongruenceSpectralGap:CSG.5",
+      "realises": [
+        "CongruenceSpectralGap:CSG.5"
+      ],
+      "title": "Congruence spectral gap",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.congruence_spectral_gap",
+      "statement": "For every congruence subgroup Γ≤SL₂(ℤ), equivalently its effective image in PSL₂(ℤ), spectralGap Γ=λ′₁(Γ)≥21/100 in curvature −1. This includes arbitrary congruence levels and the empty small-spectrum convention.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued."
+      ],
+      "proofSteps": [
+        "Every 0<λ<1/4 is cuspidal by congruence_spectral_description. Apply exceptional_cuspidal_dictionary and adjoint_exceptional_parameters.",
+        "The m=3 instance of lrs_archimedean_parameter_bound gives 2r≤2/5. Exceptional_parameter_arithmetic gives λ≥21/100.",
+        "The continuous threshold 1/4 is also ≥21/100. Use spectralGap_eq_clippedGap and the lower-infimum API to combine these cases without choosing a nonexistent least eigenfunction."
+      ],
+      "acceptance": [
+        "3/16<21/100<1/4 and 21/100−3/16=9/400.",
+        "The theorem has an actual congruence hypothesis; finite index alone does not suffice.",
+        "No Selberg 1/4 conjecture is used."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/spectral-clipping",
+        "CongruenceSpectralGap:CSG.1/adjoint-parameters",
+        "CongruenceSpectralGap:CSG.5/archimedean-bound",
+        "CongruenceSpectralGap:CSG.5/exceptional-arithmetic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.1 p.387; GL₃ reduction pp.389–390; proof of Theorem 1.2 p.395",
+          "match": "Exports the original LRS congruence bound by the supplied spectral and adjoint comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Congruence spectral gap"
+      }
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.5/rayleigh-bound",
+      "parentStageId": "CongruenceSpectralGap:CSG.5",
+      "realises": [
+        "CongruenceSpectralGap:CSG.5"
+      ],
+      "title": "Congruence Rayleigh inequality",
+      "kind": "theorem",
+      "leanName": "TauCeti.CongruenceSpectralGap.congruence_rayleigh_bound",
+      "statement": "For allowed Γ and every u in its closed Dirichlet form domain with ∫u dμΓ=0, q(u,u)≥(21/100)‖u‖₂². On the operator domain this reads Re⟨u,Δu⟩≥(21/100)‖u‖₂². It includes u=0.",
+      "hypotheses": [
+        "Γ≤SL₂(ℤ) contains Γ(N) for some N≥1; its effective image acts on ℍ.",
+        "Metric ds²=(dx²+dy²)/y² has curvature −1; all functions are complex-valued.",
+        "u belongs to the closed form domain and has complex mean zero."
+      ],
+      "proofSteps": [
+        "For nonzero operator-domain u, its Rayleigh value is at least spectralGap and use congruence_spectral_gap; zero gives equality.",
+        "Approximate form-domain vectors in energy norm by operator-domain vectors using the generic closed-form operator core. Subtract their constant projections to preserve mean zero and pass to the limit."
+      ],
+      "acceptance": [
+        "A nonzero constant is excluded by the mean-zero assumption.",
+        "Multiplication of u by a complex scalar multiplies both sides by its modulus squared."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "CongruenceSpectralGap:CSG.0/mean-zero",
+        "CongruenceSpectralGap:CSG.5/congruence-bound",
+        "AutomorphicSpectralTheory:AS.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "Theorem 1.1 p.387 combined with Teschl Theorem 4.10 p.119",
+          "match": "The spectral statement becomes the finite-energy estimate used by conformal-area consumers."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "CongruenceSpectralGap:CSG.5/metric-rescaling",
+      "parentStageId": "CongruenceSpectralGap:CSG.5",
+      "realises": [
+        "CongruenceSpectralGap:CSG.5"
+      ],
+      "title": "Curvature rescaling comparison",
+      "kind": "comparison",
+      "leanName": "TauCeti.CongruenceSpectralGap.spectralGap_metric_rescale",
+      "statement": "For κ>0, replace g−1 by gκ=κ⁻¹g−1. Then curvature is −κ, μκ=κ⁻¹μ−1, Δκ=κΔ−1, the Dirichlet energy in dimension two is unchanged, and λ′₁,κ=κλ′₁,−1 with continuous threshold κ/4. Hence λ′₁,κ/κ≥21/100. Scalar curvature_scaled_gap multiplies the already established inequality by κ.",
+      "hypotheses": [
+        "κ>0 and Γ is a congruence subgroup; the metric is a constant rescaling of the specified hyperbolic metric."
+      ],
+      "proofSteps": [
+        "Apply current DifferentialGeometry constant-metric scaling to gradient, inverse metric and two-dimensional volume. Transport L² by the constant normalization and identify the same closed form and scaled operator.",
+        "Both operator/form Rayleigh quotients scale by κ; constants and mean-zero subspaces correspond. Take infima and rescale the threshold."
+      ],
+      "acceptance": [
+        "Curvature −4 gives λ′₁≥21/25 and continuous threshold 1.",
+        "(21/100)(π/3)/(8π)=7/800; applying the independent area/index and conformal-area theorems belongs to the consumers."
+      ],
+      "prerequisites": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "CongruenceSpectralGap:CSG.5/congruence-bound",
+        "AutomorphicSpectralTheory:AS.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
+        "namespace": "TauCeti.CongruenceSpectralGap"
+      },
+      "sources": [
+        {
+          "sourceId": "lrs95",
+          "locator": "§1 pp.387–390 metric-normalized eigenvalue convention; Theorem 4.10 p.119 for the Rayleigh comparison",
+          "match": "Constant rescaling transports the theorem and threshold, without a new automorphic estimate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.0",
+      "need": "Automorphic adapter to current OperatorTheory/SelfAdjointSpectralTheory SA-E01–SA-E14 and a generic densely defined closed nonnegative form → unique self-adjoint LinearPMap theorem, with operator/form Rayleigh equality and operator-domain form core. Route the missing generic Friedrichs representation as OperatorTheory, Part II; AS.0 supplies the automorphic adapter, not a second spectral theorem.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "CongruenceSpectralGap:CSG.0/spectral-clipping",
+        "CongruenceSpectralGap:CSG.5/rayleigh-bound",
+        "CongruenceSpectralGap:CSG.5/metric-rescaling"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicSpectralTheory:AS.4",
+      "need": "Arbitrary congruence-level weight-zero GL₂ spectral realization compatible with the constructed positive Friedrichs Laplacian: one Eisenstein channel per cusp, continuous interval [1/4,∞), no singular continuous spectrum, finitely many eigenvalues below 1/4, and residual subspace consisting exactly of constants. AS.4/gl2-spectral-expansion currently displays the level-one channel; its general-level contract must include the scattering matrix and residual classification.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/spectral-description",
+        "CongruenceSpectralGap:CSG.0/spectral-gap"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "need": "For unitary cuspidal π on GLm(Aℚ), all finite self-pair RS coefficients b(n), including ramified primes, are nonnegative with b(1)=1 and positive residue at 1. Supply the exact unramified-character transport of each local L and epsilon factor, including ramified πp, and the ramified primitive-character twist of an unramified πq×π̃q: L=1 and ε=τ(χ)^m² q^(−m²s). Use one generic AL.3 owner, with native carriers.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "need": "Complex Stirling estimates for finite products of Γℝ(s−a) and their ratios on finite vertical strips away from poles, with polynomial vertical bounds for G(s)=A(1−s)/A(s), zero-free meromorphic Gamma, and finite pole-order bounds. Real gamma asymptotics or the totalized value at a pole do not suffice.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.3/kernel-estimates"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+      "need": "Effective projective action and its identification with the orbit quotient of the SL₂ subgroup; remove ±I before a fundamental-domain measure.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-measure"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+      "need": "Isometric orbifold charts with finite elliptic isotropy; smooth functions are invariant smooth lifts, not arbitrary coarse-coordinate smooth functions.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+      "need": "Measurable finite-area domains and covolume independence for finite-index projective modular subgroups, including level-one π/3.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-measure"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
+      "need": "Cusp coordinates and width-normalized hyperbolic ends used for density, constant approximation and the all-level spectral adapter.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+      "need": "Full nonnegative-coefficient Wiener–Ikehara asymptotic from a positive simple pole and continuous pole-subtracted boundary value; the pinned smoothed special-case limit alone does not discharge this import.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "need": "Abel partial summation for nonnegative coefficient sums and for dyadic prime weighted sums; compatible with smooth Mellin weights and their derivatives.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.4/average-asymptotic"
+      ],
+      "status": "planned-upstream"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "need": "HeckeCharacter.shift and unitaryPart: every continuous global Hecke character has a unique real σ with |θ|=norm^σ and unitary norm-one part. Restricting θ to scalar ℚ ideles through a quadratic extension squares the norm, so unitary induced central character forces σ=0.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.1/monomial-tempered"
+      ],
+      "status": "planned-upstream"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "CongruenceSpectralGap:CSG.0",
+      "status": "planned",
+      "remaining": [
+        "G1 closed-form/orbifold proof and G2 all-level spectral realization; native spectral description remains G6."
+      ]
+    },
+    {
+      "stageId": "CongruenceSpectralGap:CSG.1",
+      "status": "planned",
+      "remaining": [
+        "G2 principal-level adelization adapter and G3 inherited adjoint/classification obligations; G6 native representation signatures."
+      ]
+    },
+    {
+      "stageId": "CongruenceSpectralGap:CSG.2",
+      "status": "planned",
+      "remaining": [
+        "G4 all-prime positivity, positive residue and exact local twist transport; full ADS9 import and G6 global carriers."
+      ]
+    },
+    {
+      "stageId": "CongruenceSpectralGap:CSG.3",
+      "status": "planned",
+      "remaining": [
+        "G5 complex Stirling, pole-order bounds and uniform contour justification; G6 automorphic kernel-estimate/AFE signatures."
+      ]
+    },
+    {
+      "stageId": "CongruenceSpectralGap:CSG.4",
+      "status": "planned",
+      "remaining": [
+        "G4 and G5 supplier closure, FF.2 imported Deligne proof dependencies and generic ADS6/PNT imports; G6 native RS-average signatures."
+      ]
+    },
+    {
+      "stageId": "CongruenceSpectralGap:CSG.5",
+      "status": "planned",
+      "remaining": [
+        "G1–G5 supplier and adapter proofs, G6 native general parameter/metric signatures; no proof-closure claim."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G1: generic closed-form representation and orbifold realization",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "CongruenceSpectralGap:CSG.5/rayleigh-bound",
+        "CongruenceSpectralGap:CSG.5/metric-rescaling"
+      ],
+      "detail": "Current OperatorTheory supplies unbounded spectral calculus but its read targets do not supply a generic Friedrichs/closed-form representation theorem. The requested Part II supplies that theorem. This packet owns the chart descent, energy closability and constant cusp approximation; these proofs still require a full chartwise weak-derivative/core argument and an exact rescaling comparison. Current PDE energyFormH1L0 is a real Euclidean Dirichlet-boundary form, not the complex cusp-orbifold form."
+    },
+    {
+      "title": "G2: all-level spectrum and classical adelization adapter",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/spectral-description",
+        "CongruenceSpectralGap:CSG.0/spectral-clipping",
+        "CongruenceSpectralGap:CSG.1/exceptional-dictionary"
+      ],
+      "detail": "The parent displays a level-one expansion and retains modular core/resolvent gaps. Its all-level, multi-cusp, constants-only residual realization must be established. AF.2 supplies the adelic-classical bijection, but principal-level constituent extraction, arbitrary Γ invariant descent and the SO(2)/O(2) parity comparison require the stated local adapter proof; its native global carriers remain absent."
+    },
+    {
+      "title": "G3: imported adjoint and local classification proof obligations",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.1/monomial-tempered",
+        "CongruenceSpectralGap:CSG.1/adjoint-parameters",
+        "CongruenceSpectralGap:CSG.5/archimedean-bound"
+      ],
+      "detail": "The existing R17.4/adjoint-lift now supplies the exact Gelbart–Jacquet contract, contrary to the older design brief, so no second lift is planned. It still records the highly ramified T-twist GL₃ converse and metaplectic analytic proof inputs; AL.3 G16 retains native converse carriers. AF.1 archimedean LLC and generic unitary classification retain unread original-proof gaps. These imported obligations are not discharged by the LRS scan."
+    },
+    {
+      "title": "G4: generic self-pair positivity and twist transport",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "CongruenceSpectralGap:CSG.2/trivial-zero",
+        "CongruenceSpectralGap:CSG.3/approximate-equation",
+        "CongruenceSpectralGap:CSG.4/average-asymptotic"
+      ],
+      "detail": "AL.3 generic factors, poles, equations, equal-rank strip bounds and boundary nonvanishing are imported, including their recorded proof gaps. Its exact all-ramified coefficient positivity/residue and local norm-twist/conductor transport contracts are requested. LRS §2.1 asserts the positive partial-sum input; a proof of it through all local factors and Wiener–Ikehara remains with the unique generic owners, not an assumed parameter-bound field."
+    },
+    {
+      "title": "G5: complex gamma estimates and uniform contour justification",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.3/kernel-estimates",
+        "CongruenceSpectralGap:CSG.3/approximate-equation",
+        "CongruenceSpectralGap:CSG.4/average-asymptotic"
+      ],
+      "detail": "Pinned Mellin transforms and totalized Gammaℝ do not include the full complex vertical Stirling ratio estimate needed here. AL.1 must supply it. The kernel proof must realize meromorphic orders and pole collisions and justify the contour shifts with strip bounds and dominated limits; logarithmic factors are covered by the epsilon formulation."
+    },
+    {
+      "title": "G6: native global statement carriers",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.0/spectral-description",
+        "CongruenceSpectralGap:CSG.1/exceptional-dictionary",
+        "CongruenceSpectralGap:CSG.1/monomial-tempered",
+        "CongruenceSpectralGap:CSG.1/adjoint-parameters",
+        "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "CongruenceSpectralGap:CSG.2/trivial-zero",
+        "CongruenceSpectralGap:CSG.3/kernel-estimates",
+        "CongruenceSpectralGap:CSG.3/approximate-equation",
+        "CongruenceSpectralGap:CSG.4/average-asymptotic",
+        "CongruenceSpectralGap:CSG.4/twist-nonvanishing",
+        "CongruenceSpectralGap:CSG.5/archimedean-bound",
+        "CongruenceSpectralGap:CSG.5/rayleigh-bound",
+        "CongruenceSpectralGap:CSG.5/metric-rescaling"
+      ],
+      "detail": "The named AF/AL/GL₂ and geometric signatures listed in the suggested-file omission comment need genuine native representation, completed-function, spectral, closed-form and scaled-metric carriers. The operator-domain congruence_rayleigh_bound is prototyped, while congruence_form_rayleigh_bound needs the generic closed-form carrier. Only those signatures are omitted under §13; every new definition/API/test and the native Gauss-sum, clipped-spectrum, final-gap and scalar declarations are prototyped. Comments do not count as elaborated signatures or proofs."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "CongruenceSpectralGap/E1",
+      "kind": "misprint",
+      "locator": "LRS95 published author scan, p.395, normalization before (3.6) and its k(0) consequence",
+      "printed": "In mathematical paraphrase: the cutoff is normalized by its ordinary dx integral, while its Mellin transform uses dy/y and its value at zero is then asserted to be one.",
+      "correction": "Normalize ∫₀∞f(y)dy/y=1, equivalently mellin(f,0)=1.",
+      "reason": "At s=0 the displayed transform is the multiplicative integral. An ordinary unit integral does not fix it. Rescale any smooth nonzero positive compact cutoff by its multiplicative integral.",
+      "affects": "the proof",
+      "known": "No applicable published correction found in the checked records; no novelty claim is made.",
+      "searched": [
+        "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
+        "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
+        "Public search for the title with erratum/correction and author names, 2026-10-11."
+      ]
+    },
+    {
+      "id": "CongruenceSpectralGap/E2",
+      "kind": "misprint",
+      "locator": "LRS95 published author scan, p.397, (3.12), compared with (3.11)",
+      "printed": "In mathematical paraphrase: the principal-character subtraction in the reorganized primal sum excludes the two residue classes ±1.",
+      "correction": "Subtract ∑(n,q)=1 b(n)n⁻ᵝF₁(n/Y) over all coprime n, including n≡±1.",
+      "reason": "The exact even nonprincipal sum on ±1 is (q−1)/2−1. For n=1 the printed reorganization leaves coefficient (q−1)/2 instead. Including those classes restores orthogonality; the extra subtraction has the same bounded error and does not change Proposition 3.1.",
+      "affects": "the proof",
+      "known": "No applicable published correction found in the checked records; no novelty claim is made.",
+      "searched": [
+        "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
+        "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
+        "Public search for the title with erratum/correction and author names, 2026-10-11."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "lrs95",
+      "version": "Geometric and Functional Analysis 5 (1995), 387–401; author-hosted scan of the published paper",
+      "accessed": "2026-10-11",
+      "sha256": "1ed6b366ee4b0275ae87225e06fcff99bec31bcf76f7b1b54a9cace377859fac"
+    },
+    {
+      "sourceId": "gj78",
+      "version": "Annales scientifiques de l’École Normale Supérieure, série 4, 11 (1978), 471–542",
+      "accessed": "2026-10-11",
+      "sha256": "319347503f91fe22bec22ce7519b9ebaf09921ec4de8756c51d155864b4fc16a"
+    },
+    {
+      "sourceId": "teschl",
+      "version": "Author-hosted second-edition text; theorem numbering of the retrieved PDF",
+      "accessed": "2026-10-11",
+      "sha256": "8dc8de0b58aa0a3fedfe594a345f9b5875322e5526ea581cb640a98d55b82818"
+    }
+  ],
+  "upstreamDependencies": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/OperatorTheory/SelfAdjointSpectralTheory",
+      "targets": "SA-C partial-operator domain/adjoint theory and SA-E01–SA-E14 unbounded spectral measure/integration; use existing targets, add only the missing generic closed-form representation.",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/OperatorTheory/SelfAdjointSpectralTheory/README.md"
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/DifferentialGeometry",
+      "targets": "Layer 12: gradient, laplaceBeltrami=div grad, riemannianVolume and Green identity; positive operator here is its negative. Current TauCeti UpperHalfPlane.riemannianVolume_eq_volume supplies the upstairs area comparison.",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/DifferentialGeometry/README.md"
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/PDE",
+      "targets": "Existing weak derivatives and Euclidean energyFormH1/energyFormH1L0; reuse local analytic ingredients, not a claim that a real Dirichlet-boundary operator is the cusp-orbifold operator.",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Analysis/PDE/EnergyForm/Sobolev.lean"
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/OperatorTheory",
+        "tauceti:TauCetiRoadmap/DifferentialGeometry"
+      ],
+      "note": "Generic closed nonnegative form representation/Friedrichs theory is needed by both this congruence orbifold operator and HV.7 compact/finite-area spectral realization. Current read OperatorTheory targets supply spectral calculus but not this construction. Route one generic Part II and let each geometry roadmap own its chart/core adapter. Do not edit or duplicate current upstream plans."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "CongruenceSpectralGap",
+        "AutomorphicSpectralTheory",
+        "tauceti:TauCetiRoadmap/OperatorTheory"
+      ],
+      "detail": "CongruenceSpectralGap is the spectral parent’s Part II. Generic spectral calculus already belongs to current OperatorTheory, while the generic closed-form representation is an additional shared need.",
+      "proposal": "Keep CSG.0–CSG.5 as this Part II; retain generic automorphic spectral decomposition in AS.4 and use AS.0 as its operator adapter. Route generic closed-form/Friedrichs representation to OperatorTheory, Part II. Generic RS positivity/twist transport stays in AL.3, and the existing GJ lift stays at R17.4/adjoint-lift."
+    }
+  ],
+  "sourceScope": {
+    "included": "LRS Theorems 1.1–1.2, Lemma 2.1, Mellin definitions, Lemmas 3.1–3.2, Proposition 3.1, unitary/classical/adjoint and all-level spectral imports needed for them.",
+    "excluded": "LRS Corollaries 1.1–1.2 on progression Kloosterman sums and prime geodesics; finite-place and number-field parameter refinements; the hypothetical further symmetric-square improvement. No consumer conformal-area or area/index theorem is replanned."
+  },
+  "signatureValidation": {
+    "compiled": true,
+    "command": "lean-check research/blueprint/suggested/CongruenceSpectralGap.lean",
+    "result": "Exit 0; only declaration-uses-placeholder warnings. Native signatures elaborate, with explicitly named omissions in G6; no proof implementation claimed."
+  }
+}

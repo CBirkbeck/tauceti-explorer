@@ -1,0 +1,165 @@
+{
+  "id": "CongruenceSpectralGap",
+  "title": "Automorphic spectral theory and trace distributions, Part II: the congruence spectral gap",
+  "area": "analysis",
+  "parent": "AutomorphicSpectralTheory",
+  "summary": "A complete target-level plan of the curvature −1 congruence bound λ′₁≥21/100, including the general spherical GLm archimedean parameter theorem and the full LRS prime-twist nonvanishing argument. All six stages are planned with explicit supplier and realization gaps; none is claimed proof-closed or implemented.",
+  "readme": "Prove the unconditional curvature −1 congruence bound λ′₁≥21/100 through the Luo–Rudnick–Sarnak prime-twist average and the existing Gelbart–Jacquet adjoint lift. Import quotient geometry, generic spectral calculus, automorphic representations, Rankin–Selberg functions, Deligne character bounds and Tauberian/prime-number tools from their unique owners. Export the mean-zero finite-energy inequality and constant-curvature rescaling for gonality consumers. Continuous threshold and the empty small-eigenvalue convention are part of the statement.",
+  "prerequisites": [
+    "AutomorphicSpectralTheory",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "FiniteFieldsAndCharacterSums",
+    "AnalyticNumberTheory",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/OperatorTheory",
+    "tauceti:TauCetiRoadmap/DifferentialGeometry",
+    "tauceti:TauCetiRoadmap/PDE"
+  ],
+  "stages": [
+    {
+      "key": "CSG.0",
+      "title": "Congruence quotient and positive spectrum",
+      "description": "On XΓ=Γ\\ℍ use its quotient measurable space. quotientMeasure Γ is p₍*₎(dA restricted to F), where p:ℍ→XΓ, dA=y⁻² dx dy and F is a measurable fundamental domain for the effective projective group. It is independent of F, finite and nonzero. quotientLaplacian Γ is the nonnegative self-adjoint Friedrichs realization of −y²(∂x²+∂y²) on L²(XΓ,μΓ). Start on compactly supported orbifold-smooth functions (smooth invariant lifts at elliptic charts), close their Dirichlet energy q(u,v)=∫⟨∇u,∇v⟩dA, and use the associated operator. Its kernel consists exactly of constants. meanZero Γ is ker(u↦∫XΓ u dμΓ), a closed complex submodule of L²(XΓ,μΓ). It is the orthogonal complement of the constants and reduces the self-adjoint operator. spectralGap Γ=inf{Re⟨u,Δu⟩/‖u‖₂² : 0≠u∈Dom Δ ∩ meanZero}. The set is nonempty and bounded below by zero. It equals the infimum on the closed form domain, and lies in [0,1/4]. For a real set small, clippedGap(small)=inf({1/4}∪small). Its geometric argument is the set of eigenvalues in (0,1/4); the inserted threshold gives value 1/4 when that set is empty. For every allowed Γ, the weight-zero residual L² subspace is exactly the constants. The absolutely continuous spectrum of Δ is [1/4,∞), with one channel per cusp and a scattering matrix. Every spectral value in (0,1/4) is a finite-multiplicity cuspidal eigenvalue; there are finitely many there and no singular continuous contribution. This is an arbitrary-level specialization of AS.4. Let smallΓ={λ∈ℝ : 0<λ<1/4 and there is nonzero u∈Dom Δ with Δu=λu}. Then spectralGap Γ=clippedGap(smallΓ). Equivalently it is min(λ₁,1/4) if a first positive discrete eigenvalue exists, and 1/4 if there is no eigenvalue below the threshold.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicSpectralTheory:AS.0",
+        "AutomorphicSpectralTheory:AS.4",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates"
+      ]
+    },
+    {
+      "key": "CSG.1",
+      "title": "Exceptional GL₂ parameters and the adjoint lift",
+      "description": "For allowed Γ and an eigenvalue 0<λ<1/4, a cuspidal GL₂(Aℚ) unitary representation π occurs after passing to principal level and decomposing the finite-level action. Its archimedean component has SO(2)-weight zero and complementary parameter r∈(0,1/2), with λ=1/4−r². A common sign parity on its two real inducing characters is allowed; π∞ need not be O(2)-spherical. If π is unitary cuspidal on GL₂(Aℚ) and has a nontrivial character self-twist, then π=AIK/ℚ(θ) for a quadratic field K and a unitary Hecke character θ. Its archimedean parameter is tempered. Therefore a weight-zero complementary component with 0<r<1/2 has no nontrivial self-twist. For the exceptional π of CSG.1, Ad(π)=Sym²(π)⊗ωπ⁻¹ is a unitary cuspidal GL₃ representation, O(3)-spherical at infinity, with standard archimedean parameters {2r,0,−2r} in the Γℝ(s−μj) convention. The common sign parity disappears. Its GL₃ parameters, not π’s GL₂ parameters, are used in Theorem 1.2.",
+      "requires": [
+        "CongruenceSpectralGap:CSG.0",
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+      ]
+    },
+    {
+      "key": "CSG.2",
+      "title": "Prime-twisted Rankin–Selberg functions",
+      "description": "Write Lχ(s)=L(s,(π⊗χ)×π̃)=∑n≥1 b(n)χ(n)n⁻ˢ on Re s>1, with self-pair finite coefficients b(n)≥0, b(1)=1 and ∑n≤x b(n)∼cπx for cπ>0. Its completion A(s)Lχ(s), A(s)=∏j,k Γℝ(s−μj−conj μk), is entire and satisfies Lχ(s)=τπ χ(f) τ(χ)^d(fq^d)⁻ˢ G(s)Lχ̄(1−s), where G(s)=A(1−s)/A(s), f is the self-pair conductor and εself(s)=τπ f⁻ˢ. The unit root number is τπ f⁻¹/², not τπ itself. If β₀>0, then Lχ(β₀)=0 for every χ in CSG.2. A(s) has a real pole at β₀ and has no poles on Re s>β₀. The completed twisted function is entire, so the finite function vanishes there to at least the pole order.",
+      "requires": [
+        "CongruenceSpectralGap:CSG.1",
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara"
+      ]
+    },
+    {
+      "key": "CSG.3",
+      "title": "Mellin kernels and the approximate equation",
+      "description": "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1. dualKernel(f,G,β,x)=mellinInv(2,s↦mellin(f,−s)G(β−s)/s)(x). G is an actual complex function; in the RS application it is the meromorphic quotient A(1−s)/A(s), evaluated on the allowed integration line. No bound is stored in its data. For f smooth with compact support in (0,∞), mellin(f,0)=1, the CSG.2 gamma ratio G, β with 0<σ=Re β<1 and every ε>0, F₁ and F₂ decay faster than any power as x→∞. F₁(x)=1 for sufficiently small positive x. For 0<x≤1, |F₂(x)|≤Cε(1+x^(1−β₀−σ−ε)); constants depend on π,β,f,ε, not q or Y. Choose ε<1−β₀ when using the dual integral. For the CSG.2 data, smooth compact positive-support f with mellin(f,0)=1, 0<Re β<1 and Y>1, Lχ(β)=∑n≥1 b(n)χ(n)n⁻ᵝF₁(n/Y)+τπχ(f)τ(χ)^d(fq^d)⁻ᵝ∑n≥1 b(n)χ̄(n)n^(β−1)F₂(nY/(fq^d)). Both sums converge absolutely.",
+      "requires": [
+        "CongruenceSpectralGap:CSG.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "key": "CSG.4",
+      "title": "Prime character averages and nonvanishing",
+      "description": "For an actual family L(q,χ,s) of complex functions, standard conductor fπ and Q∈ℕ, primeTwistAverage(L,fπ,Q,β)=∑Q<q≤2Q, q prime, q∤fπ ∑χ≠1, χ(−1)=1 L(q,χ,β). The finite indexing sum is independent of any analytic assertions about L. For prime q>2 and a∈Z/qZ, ∑χ even,χ≠1 χ(a) is 0 if a=0, (q−1)/2−1 if a=±1, and −1 otherwise. Consequently the smoothed first-series sum is ((q−1)/2)∑n≡±1 mod q b(n)n⁻ᵝF₁(n/Y)−∑(n,q)=1 b(n)n⁻ᵝF₁(n/Y). The principal-character subtraction includes n≡±1. For q>2 prime, k≥1, r∈(Z/qZ)×, τ(χ)=gaussSum(χ,stdAddChar), and the existing unnormalized FF.2 hyper-Kloosterman sum Klk(r,q) over k units of product r, ∑χ even,χ≠1 χ̄(r)τ(χ)^k=((q−1)/2)(Klk(r,q)+Klk(−r,q))−(−1)^k. Its norm is at most (q−1)k q^((k−1)/2)+1, hence O_k(q^((k+1)/2)). For fixed π as in CSG.2, β with 0<σ=Re β<1 and every ε>0, as Q→∞ through positive integers, primeTwistAverage(Lχ,fπ,Q,β)=(1/2)∑Q<q≤2Q,q prime,q∤fπ q+Oπ,β,ε(Q^(1+(d+1)(1−σ)/2+ε)). The main term is asymptotic to (3/4)Q²/log Q. For fixed π as in CSG.2 and every β with 1−2/(m²+1)<Re β<1, every sufficiently large dyadic prime interval contains q∤fπ and an even nonprincipal χ modulo q for which L(β,(π⊗χ)×π̃)≠0. In particular such conductors are unbounded.",
+      "requires": [
+        "CongruenceSpectralGap:CSG.3",
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.5",
+        "FiniteFieldsAndCharacterSums:FF.2",
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation"
+      ]
+    },
+    {
+      "key": "CSG.5",
+      "title": "Archimedean bounds and the spectral gap",
+      "description": "For m≥2 and unitary cuspidal π of GLm(Aℚ) with O(m)-spherical π∞ and L∞(s,π)=∏j Γℝ(s−μj), every j satisfies |Re μj|≤1/2−1/(m²+1). No general nonspherical or number-field version is asserted. For r≥0 with 2r≤2/5, one has r≤1/5 and 1/4−r²≥21/100. For every congruence subgroup Γ≤SL₂(ℤ), equivalently its effective image in PSL₂(ℤ), spectralGap Γ=λ′₁(Γ)≥21/100 in curvature −1. This includes arbitrary congruence levels and the empty small-spectrum convention. For allowed Γ and every u in its closed Dirichlet form domain with ∫u dμΓ=0, q(u,u)≥(21/100)‖u‖₂². On the operator domain this reads Re⟨u,Δu⟩≥(21/100)‖u‖₂². It includes u=0. For κ>0, replace g−1 by gκ=κ⁻¹g−1. Then curvature is −κ, μκ=κ⁻¹μ−1, Δκ=κΔ−1, the Dirichlet energy in dimension two is unchanged, and λ′₁,κ=κλ′₁,−1 with continuous threshold κ/4. Hence λ′₁,κ/κ≥21/100. Scalar curvature_scaled_gap multiplies the already established inequality by κ.",
+      "requires": [
+        "CongruenceSpectralGap:CSG.4",
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "AutomorphicSpectralTheory:AS.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "lrs95",
+      "title": "On Selberg’s eigenvalue conjecture",
+      "authors": "Wenzhi Luo, Zeev Rudnick and Peter Sarnak",
+      "edition": "Geometric and Functional Analysis 5 (1995), 387–401; author-hosted scan of the published paper",
+      "url": "https://www.math.tau.ac.il/~rudnick/papers/lrsGAFA.pdf",
+      "sha256": "1ed6b366ee4b0275ae87225e06fcff99bec31bcf76f7b1b54a9cace377859fac",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Entire paper, printed pp.387–401; Theorems 1.1 and 1.2; §2.1 including ramified coefficients; Lemma 2.1; Proposition 3.1 and Lemmas 3.1–3.2; applications and references. Formula pages 389, 395–398 also inspected visually."
+      ]
+    },
+    {
+      "id": "gj78",
+      "title": "A relation between automorphic representations of GL(2) and GL(3)",
+      "authors": "Stephen Gelbart and Hervé Jacquet",
+      "edition": "Annales scientifiques de l’École Normale Supérieure, série 4, 11 (1978), 471–542",
+      "url": "https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf",
+      "sha256": "319347503f91fe22bec22ce7519b9ebaf09921ec4de8756c51d155864b4fc16a",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Introduction pp.471–473; Definition 3.1.3 and Proposition 3.2 pp.485–486; §3.7 p.491; §9.2 and Theorem 9.3 pp.531–534, proof §§9.4–9.8 pp.534–541 and Remark 9.9 p.541. Used to verify the imported adjoint contract, not to redecompose its proof."
+      ]
+    },
+    {
+      "id": "teschl",
+      "title": "Mathematical Methods in Quantum Mechanics",
+      "authors": "Gerald Teschl",
+      "edition": "Author-hosted second-edition text; theorem numbering of the retrieved PDF",
+      "url": "https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf",
+      "sha256": "8dc8de0b58aa0a3fedfe594a345f9b5875322e5526ea581cb640a98d55b82818",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§2.3 pp.67–73, Lemma 2.10 and Theorems 2.12–2.13; §4.3 pp.117–119, Theorem 4.10 and its form-domain version."
+      ]
+    },
+    {
+      "id": "fuchsian",
+      "title": "Fuchsian groups and orbifold Riemann surfaces",
+      "authors": "Tau Ceti contributors",
+      "edition": "TauCetiRoadmap current main c251d2e42c66f14c279d1e5c2708c5a91d8c8aec",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/FuchsianOrbifolds/README.md",
+      "readSections": [
+        "README Layers 0–5 and Suggested.lean effective action, quotient charts, covolume and cusp targets."
+      ]
+    },
+    {
+      "id": "baseline",
+      "title": "Pinned Mathlib and Tau Ceti source declarations",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+      "readSections": [
+        "Full cited declarations and ambient hypotheses in CongruenceSubgroups, UpperHalfPlane/Measure, FundamentalDomain, LpSpace/Basic, LinearPMap, MellinTransform, Gamma/Deligne, DirichletCharacter/Orthogonality, GaussSum, CircleAddChar and Tau Ceti LinearPMap/SelfAdjoint."
+      ]
+    },
+    {
+      "id": "global-number-fields",
+      "title": "Global number fields, ray classes, adeles, and Hecke characters",
+      "authors": "Tau Ceti contributors",
+      "edition": "TauCetiRoadmap current main c251d2e42c66f14c279d1e5c2708c5a91d8c8aec",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/GlobalNumberFields/README.md",
+      "readSections": [
+        "Layers 6, 9 and 10: norm-one compactness, unique real shift and unitary part, archimedean character types."
+      ]
+    }
+  ],
+  "status": "draft"
+}
