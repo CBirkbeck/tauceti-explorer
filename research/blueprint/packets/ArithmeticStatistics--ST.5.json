@@ -82,6 +82,36 @@
         "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
         "provides": "The subtype of dependent functions integral eventually for a specified filter, with the cofinite restricted-product convention and existing topological/algebraic instances.",
         "checked": "Actual signature read in the existing build at the registered pinned commits on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.infinitePi",
+        "module": "Mathlib/Probability/ProductMeasure.lean",
+        "provides": "Product measure on arbitrary dependent measurable carriers. With probability factors it is a probability and has the finite product marginals; its definition returns zero for non-probability factors.",
+        "checked": "Independent reviewer read the actual signature in the registered pinned build on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.infinitePi_map_restrict",
+        "module": "Mathlib/Probability/ProductMeasure.lean",
+        "provides": "With probability factors, the pushforward by each finite coordinate restriction is the finite product measure.",
+        "checked": "Independent reviewer read the actual signature in the registered pinned build on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero",
+        "module": "Mathlib/MeasureTheory/OuterMeasure/BorelCantelli.lean",
+        "provides": "First Borel–Cantelli for a sequence of sets: a finite ENNReal sum of their masses gives a null limsup; independence is not needed.",
+        "checked": "Independent reviewer read the actual signature in the registered pinned build on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.measure_limsup_eq_one",
+        "module": "Mathlib/Probability/BorelCantelli.lean",
+        "provides": "Second Borel–Cantelli for a measurable independent sequence with divergent ENNReal sum; the limsup has mass one.",
+        "checked": "Independent reviewer read the actual signature in the registered pinned build on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.IsProjectiveLimit.unique",
+        "module": "Mathlib/MeasureTheory/Constructions/Projective.lean",
+        "provides": "Two measures with the same finite-coordinate marginals are equal when every marginal is finite. This is uniqueness on the product measurable space, not existence on the isotropic inverse-limit carrier.",
+        "checked": "Independent reviewer read the actual signature in the registered pinned build on 2026-10-11."
       }
     ]
   },
@@ -491,6 +521,11 @@
           "statement": "The underlying subgroup of each point is closed."
         },
         {
+          "name": "ArithmeticStatistics.ST5.LCQuadraticData.maximalIsotropics_isotropic",
+          "role": "projection",
+          "statement": "For a point Z and x in its underlying subgroup, q(x)=0."
+        },
+        {
           "name": "ArithmeticStatistics.ST5.LCQuadraticData.maximalIsotropics_self_orthogonal",
           "role": "projection",
           "statement": "Each point equals its computed annihilator."
@@ -771,8 +806,8 @@
       ],
       "proofSteps": [
         "The parent finite reduction map has constant fibre size, giving consistent uniform marginals.",
-        "Apply the requested countable projective-limit probability theorem to the actual reduction maps.",
-        "Uniqueness on cylinder sets gives isometry invariance."
+        "Construct the consistent finite-isotropic inverse system and its measure extension on I(V); existence and the comparison with the cofinal product/cylinder Borel structure remain G-lc-duality.",
+        "After the comparison, apply Mathlib’s uniqueness for finite projective marginals; naturality of the reductions gives isometry invariance."
       ],
       "acceptance": [
         "Retain every stated hypothesis and the exact normalization and convergence mode.",
@@ -781,7 +816,7 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-lc-finite-reductions",
         "ArithmeticStatistics:ST.5/fibres-of-the-isotropic-reduction-map",
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "mathlib:MeasureTheory.IsProjectiveLimit.unique"
       ],
       "sources": [
         {
@@ -822,7 +857,8 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-lc-canonical-measure",
-        "ArithmeticStatistics:ST.5/intersection-law-converges-to-poonen-rains"
+        "ArithmeticStatistics:ST.5/intersection-law-converges-to-poonen-rains",
+        "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero"
       ],
       "sources": [
         {
@@ -932,12 +968,12 @@
       ],
       "title": "Selmer group as an adelic quadratic intersection",
       "kind": "theorem",
-      "statement": "Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A).",
+      "statement": "Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, have polarization equal to the negative Weil-cup pairing (without division by 2) and make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A).",
       "hypotheses": [
         "All parameter restrictions in the statement are hypotheses."
       ],
       "proofSteps": [
-        "Import theta groups and the quadratic local obstruction with its cup-product polarization.",
+        "Import the existing A3 theta-group extension; extend it to the fppf quadratic Brauer obstruction. PR Corollary 4.6 gives its polar form as the negative Weil-cup pairing; in odd degree q(x)=−(1/2)(x cup x).",
         "Local duality and the symmetric-sheaf or odd-degree hypothesis give quadratic, rather than merely bilinear, isotropy of Kummer images.",
         "Poitou–Tate and global reciprocity give global maximal isotropy; compute the kernel of localization to obtain the quotient."
       ],
@@ -948,16 +984,17 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-lc-restricted-product",
         "ArithmeticStatistics:ST.5/refinement-maximal-isotropics",
-        "AbelianSchemesAndArithmeticModuli:A2",
         "AbelianSchemesAndArithmeticModuli:A3",
         "SelmerIwasawaCohomology:L1",
-        "ArithmeticGaloisDuality:D7"
+        "ArithmeticGaloisDuality:D7",
+        "AbelianSchemesAndArithmeticModuli:A3/theta-group",
+        "AbelianSchemesAndArithmeticModuli:A3/dual-isogeny-and-cartier-kernel"
       ],
       "sources": [
         {
           "sourceId": "pr",
-          "locator": "Theorem 4.13, Sections 4.1–4.3, pp. 14–21",
-          "match": "Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A)."
+          "locator": "Corollary 4.6, pp. 15–16; Theorem 4.13 and Sections 4.1–4.3, pp. 14–21",
+          "match": "Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, have polarization equal to the negative Weil-cup pairing (without division by 2) and make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -997,7 +1034,7 @@
       "sources": [
         {
           "sourceId": "pr",
-          "locator": "Conjecture 1.4(b), p. 3; Proposition 2.22, p. 12",
+          "locator": "Conjecture 1.4(b)–(c), pp. 3–4; Proposition 2.22, p. 12",
           "match": "For k≥1 prime laws w_i with half even/odd mass, assume for every m≥1 each parity-restricted sum Σ_{d≡ε(2)}w_i(d)p_i^(md) equals (1/2)∏_{j=1}^m(p_i^j+1). The normalized common-parity law then has m-th cardinality moment ∏_i∏_{j=1}^m(p_i^j+1). Its first moment is ∏_i(p_i+1)=σ(∏p_i) for distinct primes. For k=0 the moment is 1."
         }
       ],
@@ -1017,7 +1054,7 @@
       ],
       "title": "Joint squarefree Selmer conjecture",
       "kind": "definition",
-      "statement": "For squarefree n>1, minimal integral short Weierstrass models over Q ordered by H=max(4|A|³,27B²), the joint dimensions dim_Fp Sel_p(E), p|n, have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n tends to ∏_{p|n}∏_{j=1}^m(p^j+1). A limiting distribution alone does not establish these unbounded moments. For n=1 the group is trivial.",
+      "statement": "Fix a global field k and a squarefree integer n>1. In the source’s coefficient-model family from Conjecture 1.1, use short Weierstrass coefficients a,b in k of height bounded by B when char(k) is not 2 or 3, and the source’s long Weierstrass equations in characteristics 2 and 3; discard singular models and let B tend to infinity. The joint dimensions dim_Fp Sel_p(E), p|n, are conjectured to have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n is conjectured to tend to ∏_{p|n}∏_{j=1}^m(p^j+1). Distribution convergence alone does not establish these unbounded moments. At n=1 the group is trivial. The denominator counts these coefficient models, not minimal integral Q-isomorphism classes ordered by invariant height.",
       "hypotheses": [
         "This is a stated conjectural proposition, not an established arithmetic limit."
       ],
@@ -1032,13 +1069,14 @@
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-joint-parity-weight",
         "ArithmeticStatistics:ST.5/refinement-joint-parity-moments",
-        "ArithmeticStatistics:ST.5/height-moments-in-an-arithmetic-family"
+        "ArithmeticStatistics:ST.5/height-moments-in-an-arithmetic-family",
+        "ArithmeticStatistics:ST.0"
       ],
       "sources": [
         {
           "sourceId": "pr",
-          "locator": "Conjecture 1.4(a)–(b), p. 3",
-          "match": "For squarefree n>1, minimal integral short Weierstrass models over Q ordered by H=max(4|A|³,27B²), the joint dimensions dim_Fp Sel_p(E), p|n, have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n tends to ∏_{p|n}∏_{j=1}^m(p^j+1). A limiting distribution alone does not establish these unbounded moments. For n=1 the group is trivial."
+          "locator": "Conjecture 1.1 and its coefficient-height convention, p. 2; Conjecture 1.4(a)–(c), pp. 3–4",
+          "match": "Fix a global field k and a squarefree integer n>1. In the source’s coefficient-model family from Conjecture 1.1, use short Weierstrass coefficients a,b in k of height bounded by B when char(k) is not 2 or 3, and the source’s long Weierstrass equations in characteristics 2 and 3; discard singular models and let B tend to infinity. The joint dimensions dim_Fp Sel_p(E), p|n, are conjectured to have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n is conjectured to tend to ∏_{p|n}∏_{j=1}^m(p^j+1). Distribution convergence alone does not establish these unbounded moments. At n=1 the group is trivial. The denominator counts these coefficient models, not minimal integral Q-isomorphism classes ordered by invariant height."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1063,7 +1101,7 @@
         {
           "name": "ArithmeticStatistics.ST5.squarefree_selmer_conjecture.average",
           "role": "compatibility",
-          "statement": "The m=1 assertion recovers the parent σ(n) conjecture for squarefree n."
+          "statement": "At m=1 the predicted numerical constant is σ(n), as in the parent. Transfer to the parent’s different minimal-model invariant-height denominator requires a separate family comparison and is not asserted."
         }
       ],
       "tests": [
@@ -1104,7 +1142,7 @@
         "This is a stated conjectural proposition, not an established arithmetic limit."
       ],
       "proofSteps": [
-        "Express the precise finite-height averaging assertion on the supplied arithmetic family.",
+        "Request the fixed-global-field coefficient-height model family in ST.0, with odd or even degree as stated. The existing ST.0 integral even-degree family is a restricted specialization, not this supplier contract.",
         "Separate the random-model theorem from the conjectural identification of empirical arithmetic laws."
       ],
       "acceptance": [
@@ -1112,8 +1150,8 @@
         "All named API statements and all discriminating tests below must hold with these carriers and conventions."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
-        "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture"
+        "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture",
+        "ArithmeticStatistics:ST.0"
       ],
       "sources": [
         {
@@ -1185,7 +1223,7 @@
         "This is a stated conjectural proposition, not an established arithmetic limit."
       ],
       "proofSteps": [
-        "Express the precise finite-height averaging assertion on the supplied arithmetic family.",
+        "Request the fixed-global-field coefficient-height model family in ST.0, with odd or even degree as stated. The existing ST.0 integral even-degree family is a restricted specialization, not this supplier contract.",
         "Separate the random-model theorem from the conjectural identification of empirical arithmetic laws."
       ],
       "acceptance": [
@@ -1193,9 +1231,9 @@
         "All named API statements and all discriminating tests below must hold with these carriers and conventions."
       ],
       "prerequisites": [
-        "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
         "ArithmeticStatistics:ST.5/poonen-rains-distribution",
-        "ArithmeticStatistics:ST.5/poonen-rains-moments"
+        "ArithmeticStatistics:ST.5/poonen-rains-moments",
+        "ArithmeticStatistics:ST.0"
       ],
       "sources": [
         {
@@ -1517,7 +1555,7 @@
         "All parameter restrictions in the statement are hypotheses."
       ],
       "proofSteps": [
-        "Construct the countable product law on the parent finite-group carriers.",
+        "Apply Mathlib’s infinite product measure to the parent finite-group probability carriers; realize the coordinate events as measurable independent events using its finite marginals.",
         "Bound nontriviality by the first-moment estimate on the infinite product.",
         "Apply Borel–Cantelli and multiply independent local masses for each finite symplectic group."
       ],
@@ -1527,7 +1565,9 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-all-rank-delaunay",
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "mathlib:MeasureTheory.Measure.infinitePi",
+        "mathlib:MeasureTheory.Measure.infinitePi_map_restrict",
+        "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero"
       ],
       "sources": [
         {
@@ -1558,6 +1598,7 @@
         "All parameter restrictions in the statement are hypotheses."
       ],
       "proofSteps": [
+        "Apply Mathlib’s infinite product measure to the parent finite-group probability carriers; realize the coordinate events as measurable independent events using its finite marginals.",
         "The nontriviality probability is at least1/p from the i=1 product factor and at most C/p.",
         "Use prime harmonic divergence, independence and the second Borel–Cantelli lemma for all primes.",
         "For sparse P apply the first Borel–Cantelli lemma."
@@ -1568,7 +1609,10 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-all-rank-delaunay",
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "mathlib:MeasureTheory.Measure.infinitePi",
+        "mathlib:MeasureTheory.Measure.infinitePi_map_restrict",
+        "mathlib:MeasureTheory.measure_limsup_atTop_eq_zero",
+        "mathlib:ProbabilityTheory.measure_limsup_eq_one"
       ],
       "sources": [
         {
@@ -1600,7 +1644,7 @@
       ],
       "proofSteps": [
         "Use the parent symplectic mass formula as a formal power-series identity and Cauchy’s q-binomial theorem.",
-        "Factor over primes and bound the reciprocal Euler product by ζ(2)<2.",
+        "Factor over primes. Bound the product of reciprocal (1−p^(−2i)) factors by ∏_{m≥2}(1−m^(−2))^(−1)=2: prime powers p^i are distinct integers and the larger product telescopes. A ζ(2) bound accounts only for i=1 and is insufficient.",
         "Sum the resulting harmonic bounds, with integer-floor endpoint control."
       ],
       "acceptance": [
@@ -1856,7 +1900,8 @@
       ],
       "prerequisites": [
         "SelmerIwasawaCohomology:L0",
-        "ArithmeticStatistics:ST.5/refinement-adelic-kummer-direct-summand"
+        "ArithmeticStatistics:ST.5/refinement-adelic-kummer-direct-summand",
+        "ArithmeticStatistics:ST.0"
       ],
       "sources": [
         {
@@ -1899,7 +1944,7 @@
         {
           "name": "ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_local_global",
           "kind": "non-example",
-          "statement": "A local complement alone does not supply a complement to the global image."
+          "statement": "As a module diagnostic, the distinguished local subgroup 0 of Z/4 is a direct summand, while the putative global subgroup 2(Z/4) has no complementary Z/4-submodule. This tests that the conjecture checks the actual global image; it is not an arithmetic counterexample."
         },
         {
           "name": "ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_char_two",
@@ -2054,7 +2099,7 @@
       "proofSteps": [
         "For each profile ν expand the product of grid separators in its Taylor coefficients.",
         "The absolute coefficient bound and moment growth make the interchange of the coefficient and mass sums absolutely convergent.",
-        "The resulting triangular equalities determine the lexicographically successive masses; bounded finite rectangles followed by the summable tail avoid an invalid global lexicographic well-order argument."
+        "Use well-founded lexicographic induction on the finite concatenation of the nonnegative integer profiles. Lexicographic order on a fixed finite power of N is a well-order, and restricting to antitone profiles preserves well-foundedness. The triangular separator vanishes above the chosen profile; the absolutely convergent sum over lower profiles is already determined by induction."
       ],
       "acceptance": [
         "Retain every stated hypothesis and the exact normalization and convergence mode.",
@@ -2774,7 +2819,7 @@
         "All parameter restrictions in the statement are hypotheses."
       ],
       "proofSteps": [
-        "Iterate the isogeny Selmer exact sequence to bound log₃#Sel_ψ by the sum of degree3 Selmer dimensions.",
+        "Use the requested general-abelian isogeny-chain exact sequence in BKLOS Lemma 9.1, not the elliptic-only parent node; iterate it to bound log₃#Sel_ψ by the sum of degree-3 Selmer dimensions.",
         "Embed the Mordell–Weil quotient in Sel_ψ and apply the explicit uniform rank-index hypothesis.",
         "Bound each dimension by its cardinality and apply the abelian average theorem."
       ],
@@ -2784,13 +2829,13 @@
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average",
-        "ArithmeticStatistics:ST.5/isogeny-factorisation-selmer-exact-sequence",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "SelmerIwasawaCohomology:L0"
       ],
       "sources": [
         {
           "sourceId": "bklos",
-          "locator": "Theorem 2.2, p. 3; Section 9 proof, pp. 12–13, corrected conditional formulation",
+          "locator": "Theorem 2.2, p. 3; Lemma 9.1 and Section 9 proof, pp. 12–13, corrected conditional formulation",
           "match": "Let ψ:A→A factor over F as a nonempty chain of degree3 isogenies φ_i. Assume additionally a constant c>0, independent of s, such that log₃#(A_s(F)/ψ_s A_s(F))≥c·rank_Z A_s(F) for every quadratic twist s. Then limsup average rank A_s(F)≤c^(−1)Σ_i(1+average c(φ_(i,s)))<∞. The source’s unrestricted ψ claim is retained as G-endomorphism, because its e/t index estimate is not justified for a general Z[ψ]-module."
         }
       ],
@@ -2960,7 +3005,7 @@
       "sources": [
         {
           "sourceId": "bklos",
-          "locator": "Theorem 2.6(i)–(iii), pp. 4–5; Sections 10.3,10.4, pp. 16–18",
+          "locator": "Theorem 2.6(i)–(iii), pp. 4–5; Section 10 local ratios, pp. 13–16; Section 11 signature proof, pp. 17–18",
           "match": "For a number field F and an elliptic curve E/F with a3-isogeny: if F is totally real, positive lower proportions of twists have rank0 and3-Selmer rank1; if F has at most one complex place and at least one real place, a positive lower proportion has3-Selmer rank1; if F is imaginary quadratic, a positive lower proportion has Mordell–Weil rank0 or1 in union. These statements use the squareclass height; the last does not give both proportions separately."
         }
       ],
@@ -3019,21 +3064,9 @@
   ],
   "requests": [
     {
-      "id": "R-probability",
-      "supplier": "PadicMeasuresIwasawaAlgebras:L1",
-      "need": "Countable projective limits of consistent finite probability spaces, with cylinder-set uniqueness; countable independent product laws; first and second Borel–Cantelli, including countable finite-group carriers. Extend the owner as Part II rather than duplicating general measure theory.",
-      "neededBy": [
-        "ArithmeticStatistics:ST.5/refinement-lc-canonical-measure",
-        "ArithmeticStatistics:ST.5/refinement-lc-random-intersection",
-        "ArithmeticStatistics:ST.5/refinement-positive-rank-all-primes",
-        "ArithmeticStatistics:ST.5/refinement-rank-zero-all-primes-infinite"
-      ],
-      "status": "open"
-    },
-    {
       "id": "R-local-global-cohomology",
       "supplier": "SelmerIwasawaCohomology:L0",
-      "need": "Finite flat fppf H¹, including inseparable torsion, the Kummer exact sequences for n and divisors m|n, restriction/corestriction, Shapiro and localization to restricted products. Supply the genuine cohomological carriers and maps, not opaque propositions.",
+      "need": "Finite flat fppf H¹, including inseparable torsion, the Kummer exact sequences for n and divisors m|n, restriction/corestriction, Shapiro and localization to restricted products. Supply the genuine cohomological carriers and maps, not opaque propositions. Extend the isogeny-chain exact sequence to arbitrary abelian varieties: for φ1:A1→A2 and φ2:A2→A3, ψ=φ2∘φ1, construct the natural exact sequence Sel_φ1(A1)→Sel_ψ(A1)→Sel_φ2(A2) of BKLOS Lemma 9.1, with its finite torsion kernel. The existing parent elliptic-only sequence is not a general-abelian supplier.",
       "neededBy": [
         "ArithmeticStatistics:ST.5/refinement-sha-one-vanishing",
         "ArithmeticStatistics:ST.5/refinement-kummer-direct-summand",
@@ -3041,14 +3074,15 @@
         "ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture",
         "ArithmeticStatistics:ST.5/refinement-trivial-action-global-splitting",
         "ArithmeticStatistics:ST.5/refinement-two-selmer-nonlift",
-        "ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average"
+        "ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average",
+        "ArithmeticStatistics:ST.5/refinement-endomorphism-rank-bound"
       ],
       "status": "open"
     },
     {
       "id": "R-duality-pairing",
       "supplier": "SelmerIwasawaCohomology:L1",
-      "need": "The finite-flat local perfect cup-product pairing and self-dual Kummer annihilation; Cassels–Tate pairing with its isogeny adjointness, nondegeneracy after maximal divisible quotient, and alternation for elliptic curves. For the parent 3-isogeny parity, the induced dual-isogeny quotient pairing forces even F₃-dimension; do not assume all Sha finite.",
+      "need": "The finite-flat local perfect cup-product pairing and self-dual Kummer annihilation; Cassels–Tate pairing with its isogeny adjointness, nondegeneracy after maximal divisible quotient, and alternation for elliptic curves. For the parent 3-isogeny parity, the induced dual-isogeny quotient pairing forces even F₃-dimension; do not assume all Sha finite. For the PR quadratic refinement use the negative Weil-cup convention, compatible with the theta obstruction; multiplying the pairing by −1 preserves annihilators but must not be hidden in a comparison.",
       "neededBy": [
         "ArithmeticStatistics:ST.5/refinement-selmer-quadratic-intersection",
         "ArithmeticStatistics:ST.5/refinement-balanced-three-rank-one",
@@ -3091,8 +3125,8 @@
     },
     {
       "id": "R-theta-quadratic",
-      "supplier": "AbelianSchemesAndArithmeticModuli:A2",
-      "need": "Symmetric line sheaves, theta-group central extensions and their quadratic Brauer obstruction for self-dual isogenies; compatibility with the Weil/cup pairing and odd-degree replacement. This is an extension in the existing owner direction, with fppf base change.",
+      "supplier": "AbelianSchemesAndArithmeticModuli:A3",
+      "need": "Import A3/theta-group and its symmetric-line/sheaf framework. Extend A3 as Part II to the finite-flat quadratic Brauer obstruction, whose polar form is the negative Weil-cup pairing in PR Corollary 4.6, with no division by 2. Supply odd-degree q=−(1/2)x cup x and fppf base-change compatibility; do not re-plan the existing central extension.",
       "neededBy": [
         "ArithmeticStatistics:ST.5/refinement-selmer-quadratic-intersection"
       ],
@@ -3224,13 +3258,17 @@
     {
       "id": "R-family-adapters",
       "supplier": "ArithmeticStatistics:ST.0",
-      "need": "Reuse the source-specific finite-height denominators and height rescaling nodes. Connect the existing ST.5 exact-slice Wood extension carriers to wood-average-normalizations, without changing the existing rigidification formulas. Supply the explicit balanced BS3/BS5 finite-union local-family interfaces and the BSS quotient genus-one family ordered by Jacobian height.",
+      "need": "Reuse the source-specific finite-height denominators and height rescaling nodes. Connect the existing ST.5 exact-slice Wood extension carriers to wood-average-normalizations, without changing the existing rigidification formulas. Supply the explicit balanced BS3/BS5 finite-union local-family interfaces and the BSS quotient genus-one family ordered by Jacobian height. Extend ST.0 to the PR Conjectures 1.1/1.4/1.7/1.8 fixed-global-field coefficient-height model families, including odd-degree hyperelliptic models and characteristic-2/3 long Weierstrass equations, and the BKLPR Conjecture 6.9 family. Export finite-height subsets, source denominators, multiplicities and characteristic conditions. The existing integral even-degree ST.0 family does not provide these general families. Do not identify coefficient-height models with minimal invariant-height Q-isomorphism classes without a proved transfer.",
       "neededBy": [
         "ArithmeticStatistics:ST.5/refinement-positive-three-ranks",
         "ArithmeticStatistics:ST.5/refinement-five-root-balanced-family",
         "ArithmeticStatistics:ST.5/refinement-jacobian-marked-average",
         "ArithmeticStatistics:ST.5/imaginary-exact-slice-parametrization",
-        "ArithmeticStatistics:ST.5/real-exact-slice-parametrization"
+        "ArithmeticStatistics:ST.5/real-exact-slice-parametrization",
+        "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-even-genus-two-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture"
       ],
       "status": "open"
     }
@@ -3239,7 +3277,7 @@
     {
       "id": "G-lc-duality",
       "title": "Topological quadratic reductions and projective measure",
-      "detail": "Prove the requested compact-open annihilator and finite-exponent Pontryagin exactness, consistent finite-isotropic cylinder construction, cofinal inverse-limit topology and a.s. discreteness. The suggested carrier is available; these are mathematical proof/interface inputs, not existing general biduality theorems at the pin.",
+      "detail": "Prove the requested compact-open annihilator and finite-exponent Pontryagin exactness, consistent finite-isotropic cylinder construction, cofinal inverse-limit topology and a.s. discreteness. The suggested carrier is available; these are mathematical proof/interface inputs, not existing general biduality theorems at the pin. Generic product probability and both Borel–Cantelli lemmas are already in Mathlib. The missing step is the actual cofinal isotropic inverse-system measure extension and comparison with its Borel topology, not a new generic probability theory.",
       "neededBy": [
         "ArithmeticStatistics:ST.5/refinement-lc-finite-reductions",
         "ArithmeticStatistics:ST.5/refinement-lc-canonical-measure",
@@ -3398,6 +3436,17 @@
       ]
     },
     {
+      "id": "G-source-family",
+      "title": "Global coefficient-height family adapters",
+      "detail": "R-family-adapters must supply the source families and denominators for PR Conjectures 1.1/1.4/1.7/1.8 and BKLPR Conjecture 6.9. The ST.0 integral even-degree family does not cover global-field or odd-degree models. No transfer of a coefficient-height conjecture to the parent minimal invariant-height Q-family is asserted. Keep empirical distribution and unbounded moment assertions separate.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-even-genus-two-selmer-conjecture",
+        "ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture"
+      ]
+    },
+    {
       "id": "G-native",
       "title": "Native arithmetic and geometric signatures",
       "detail": "The suggested file elaborates seven supported native targets. The remaining targets require supplier exports for scheme-valued OGr points, finite group isomorphism classes, normalized arithmetic families, fppf cohomology and theta maps, or elliptic L-functions. Each omitted declaration is catalogued in the file with its full proposition and a node-specific reason. No arbitrary Prop, numerical-law wrapper or opaque model stands in for these objects.",
@@ -3473,6 +3522,7 @@
         "G-kane: Full-two-torsion twist law analytic inputs",
         "G-dejong: Primary de Jong function-field verification",
         "G-inherited-frontiers: Retained random-group and function-field frontiers",
+        "G-source-family: Global coefficient-height family adapters",
         "G-native: Native arithmetic and geometric signatures"
       ]
     }
@@ -4656,7 +4706,13 @@
       "searched": [
         "arXiv1009.0287v2, p.8; statement and preceding Proposition2.11",
         "Author bibliography and linked source versions; no claim that all published errata were searched"
-      ]
+      ],
+      "source": "pr",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at PR Corollary 2.12, printed p. 8. The separability argument establishes countability of the discrete quotient, not finiteness; Z times R/Z with q(n,t)=nt is a self-dual weakly metabolic countermodel to finiteness.",
+        "by": "REV-ArithmeticStatistics--ST.5"
+      }
     },
     {
       "id": "ArithmeticStatistics/E741",
@@ -4670,13 +4726,19 @@
       "searched": [
         "arXiv1402.5149v2 Lemma8.1 and Theorem8.2",
         "Latest arXiv PDF at1402.5149, same passages"
-      ]
+      ],
+      "source": "wood",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Wood Lemma 8.1, printed pp. 28–29. The head-product coefficients alternate signs; its proof supplies an absolute bound after taking the absolute finite-polynomial maximum. Theorem 8.2 needs that absolute bound for Fubini. The printed one-sided inequality need not itself be false.",
+        "by": "REV-ArithmeticStatistics--ST.5"
+      }
     },
     {
       "id": "ArithmeticStatistics/E742",
       "kind": "error",
       "affects": "the proof",
-      "locator": "BKLPR arXiv1304.3971v2, proof of Theorem5.16, pp.23–24; author final copy Theorem5.17 proof, pp.25–26",
+      "locator": "BKLPR arXiv1304.3971v2, proof of Theorem5.16, pp.23–24; author final copy Theorem5.17 proof, pp.24–25",
       "printed": "Own-word paraphrase, not a source quotation: The upper harmonic estimate is used with coefficient1/2 although the preceding lemma only gives upper coefficient2.",
       "correction": "Use numerator≤2ε logN+O(logM) and denominator≥(1/2)logN; the limsup is at most4ε and still tends to0.",
       "reason": "Weights of square-order groups lie between1/N and2/N. The lower constant cannot also be used as an upper bound. Only a fixed multiple of ε is needed.",
@@ -4684,7 +4746,13 @@
       "searched": [
         "arXiv1304.3971v2 Theorem5.16 proof",
         "https://math.mit.edu/~poonen/papers/rst_distribution.pdf, Theorem5.17 proof"
-      ]
+      ],
+      "source": "bklpr",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both copies: preprint Theorem 5.16 and author-copy Theorem 5.17. The preceding square-order mass lemma gives upper constant 2 and lower constant 1; using the weaker eventual denominator bound one-half still yields 4ε. The sparse-prime limit survives.",
+        "by": "REV-ArithmeticStatistics--ST.5"
+      }
     },
     {
       "id": "ArithmeticStatistics/E743",
@@ -4698,7 +4766,13 @@
       "searched": [
         "arXiv1312.7859v1 Proposition40 and final deductions",
         "Source equations compared with the direct finite-height derivation in this packet"
-      ]
+      ],
+      "source": "bs5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at preprint Proposition 40, equation (33), printed p. 29. Separate conditional limsups cannot be summed under a joint finite-height constraint. The alternating-pair diagnostic proves this. The packet’s finite-height repair retains the stated total rank and density constants.",
+        "by": "REV-ArithmeticStatistics--ST.5"
+      }
     },
     {
       "id": "ArithmeticStatistics/E744",
@@ -4707,13 +4781,19 @@
       "locator": "BKLOS arXiv1709.09790v2, Theorem2.2 and Section9 proof, pp.3,12–13; author PDF same locators",
       "printed": "Own-word paraphrase, not a source quotation: For O=Z[ψ] of Z-rank t and #O/ψ=3^e the proof asserts a lower bound3^((e/t)rank A_s(F)) on the ψ-index for every twist.",
       "correction": "Retain the unrestricted claim as a gap. Add an explicit uniform positive rank-index hypothesis, or specialize to ψ=[3], where the free Z-module calculation gives the bound with c=1.",
-      "reason": "For a product with ψ=(id,[3]) the degree3 chain can operate solely on the second factor; its Selmer groups and ψ-index give no control on the first factor’s Mordell–Weil rank. Even O=Z[(3,9)] has unequal component index rates, so arbitrary O-modules do not have the uniform e/t rate. No counterexample to the broader average-rank conclusion is claimed.",
+      "reason": "Confirmed as a gap in the Section 9 rank-index argument in both copies, not as a counterexample to the average-rank conclusion. For O=Z[(1,3)] of rank 2, #O/ψO=3, while M=Z via the first projection has ψ acting as identity and index 1. Thus the asserted e/t rate is not valid for arbitrary O-modules. The explicit c>0 hypothesis and [3] specialization avoid this step.",
       "known": "No correction located; the abstract states the sound[3] specialization, but the theorem and Section9 in the author PDF retain the broader claim.",
       "searched": [
         "arXiv1709.09790v2 Theorem2.2 and Section9",
         "https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf Theorem2.2 and Section9",
         "arXiv1709.09790 abstract and version history (latest v2)"
-      ]
+      ],
+      "source": "bklos",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the Section 9 rank-index argument in both copies, not as a counterexample to the average-rank conclusion. For O=Z[(1,3)] of rank 2, #O/ψO=3, while M=Z via the first projection has ψ acting as identity and index 1. Thus the asserted e/t rate is not valid for arbitrary O-modules. The explicit c>0 hypothesis and [3] specialization avoid this step.",
+        "by": "REV-ArithmeticStatistics--ST.5"
+      }
     }
   ],
   "restructure": [
@@ -4740,7 +4820,7 @@
     },
     {
       "kind": "ownership",
-      "proposal": "Import current IntegralLattices finite quadratic/isotropic-quotient API and current completed RestrictedProducts. The latter’s TauCeti convenience alias postdates the atlas pin; the suggested interfaces use pinned Mathlib RestrictedProduct. Current scalar moment determinacy stays in StandardDistributions and does not replace Wood’s group moment theorem."
+      "proposal": "Import current IntegralLattices finite quadratic/isotropic-quotient API and current completed RestrictedProducts. The latter’s TauCeti convenience alias postdates the atlas pin; the suggested interfaces use pinned Mathlib RestrictedProduct. Current scalar moment determinacy is already implemented in Tau Ceti from completed OrthogonalL2Bases; StandardDistributions delegates to that owner. Its exponential-integrability hypothesis does not replace Wood’s group moment theorem."
     }
   ],
   "supplierRefinements": [
@@ -5171,9 +5251,9 @@
       "decision": "Import existing owner; use the pinned Mathlib carrier rather than the post-pin convenience alias."
     },
     {
-      "owner": "StandardDistributions",
+      "owner": "TauCeti implemented moment determinacy (completed OrthogonalL2Bases)",
       "scope": "Scalar real moment determinacy",
-      "decision": "Import owner only for genuine scalar applications; Wood partition growth does not satisfy the available exponential-integrability hypothesis."
+      "decision": "Current TauCeti/Probability/Moments/Determinacy.lean already proves scalar real moment determinacy under exponential integrability near zero; StandardDistributions explicitly delegates this to the completed OrthogonalL2Bases owner. These hypotheses do not discharge Wood partition growth, so no scalar determinacy target is re-planned here."
     },
     {
       "owner": "OrthogonalSpinGroups",
@@ -5184,6 +5264,368 @@
       "owner": "EllipticCurves",
       "scope": "Existing explicit Selmer/Mordell–Weil library",
       "decision": "Import the actual descent layers; general abelian fppf/theta/Cassels–Tate inputs require the named lower-tier suppliers."
+    },
+    {
+      "owner": "Mathlib probability",
+      "scope": "Infinite product measures, finite-marginal uniqueness and Borel–Cantelli",
+      "decision": "Import the five independently checked pinned declarations. Remove R-probability; keep only the application-specific inverse-system construction in G-lc-duality."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1009.0287v2",
+      "read": "2026-10-11",
+      "sha256": "b2a91d0b2b01863c659500d224e922d0e40004c45e917fca23b59a59e5307c6e"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1304.3971v2",
+      "read": "2026-10-11",
+      "sha256": "370b9b8d853103b1388bdb52e1839e8c8e60c754f81b64c100a1ec89bb515c21"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1402.5149v2",
+      "read": "2026-10-11",
+      "sha256": "0e12d2fc84bf836603d719e8a7d5146b911ede1f582592325b98422d362cc90c"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1504.04391",
+      "read": "2026-10-11",
+      "sha256": "938818ec6a87de951b906a1c3db076ba5920ada1359c7fdb3a899016e15d6e64"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1007.0052v2",
+      "read": "2026-10-11",
+      "sha256": "317479d621b376ef3ca769a8cf1e7bb3d1b8babefcc726f7e2a9e761b8617108"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1312.7333v1",
+      "read": "2026-10-11",
+      "sha256": "1fe01e72dc60658ed51ffecef6ffb6a83818449a0d813fb24c480de678562c35"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1312.7859v1",
+      "read": "2026-10-11",
+      "sha256": "0fad7f4eab6ade59ca50ddc1f12fb6f50126b5eca204a9fef650649b3203fd6d"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2110.09063v1",
+      "read": "2026-10-11",
+      "sha256": "8f568036291bd251d8598770fa956ec7893675b348259eca1bc5326618ff6be0"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1709.09790v2",
+      "read": "2026-10-11",
+      "sha256": "5a652da57640cf78a787bbbc4b416077eda01880ce453239bf39c08282998d1a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1009.1365v4",
+      "read": "2026-10-11",
+      "sha256": "1a6573c2caff8f4abd15a1ec23b1e757c81a6e3204b4cbae68e5e5c0635e00f1"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/rst_distribution.pdf",
+      "read": "2026-10-11",
+      "sha256": "97a89e93a08a9cb1f69a6adb43aa3a5197d3ba3f9865e5973230a4917c281520"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf",
+      "read": "2026-10-11",
+      "sha256": "af4e5ab9b250700c95c09946509e88b8a3f4a4f7efedf6ddc882a5f742478880"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticStatistics--ST.5",
+    "date": "2026-10-11",
+    "notes": "Independent source-locator and hypothesis review of all 55 new targets; all 17 baseline signatures checked at the pins. Corrected source-family denominators and adapters, negative Weil-cup sign, pre-existing theta-group ownership, generic probability duplication, implemented scalar-moment ownership, two proof sketches, an elliptic-only supplier near miss, and source locators. Added one API projection and one explicit family gap. All five sourceIssues confirmed in the specified public copies. The 194 parent imports remain unchanged, with IDs/titles checked against the accepted parent rather than independently re-reviewed as fresh mathematics. Complete target-level pass accepted with 17 honest gaps and 18 open requests; no proof or implementation-closure claim. Final packet checker: zero errors/warnings. Final suggested Lean elaboration: success, only admitted-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-lc-quadratic",
+        "verdict": "verified",
+        "note": "The continuous quadratic map and compact-open additive dual equivalence implement PR Definition 2.13; polar means q(x+y)−q(x)−q(y), including at 2."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-weak-metabolic",
+        "verdict": "verified",
+        "note": "PR Definition 2.14 requires compact-open, q-isotropic and self-annihilating, without a direct-summand hypothesis; the three tests distinguish these conditions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-maximal-isotropics",
+        "verdict": "corrected",
+        "note": "Closed actual subgroups are retained. Added the q-isotropy projection API used by the intersection comparison; the existing three tests distinguish subgroup identity and quadratic isotropy."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-joint-parity-weight",
+        "verdict": "verified",
+        "note": "PR Conjecture 1.4(a) has the factor 2^(k−1), common parity, and separate empty-index convention. The API and mixed-parity tests match the native function."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-wood-grid-separator",
+        "verdict": "verified",
+        "note": "Wood Lemma 8.1 has the tail product and finite interpolation factors shown in the packet; support and nonzero target value are meaningful tests. Convergence is explicitly a remaining analytic gap."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-lc-finite-reductions",
+        "verdict": "verified",
+        "note": "PR Theorem 2.19(a)–(c) gives finite reductions and inverse-limit topology under second-countable weakly metabolic hypotheses; the non-routine topological duality is G-lc-duality."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-lc-canonical-measure",
+        "verdict": "corrected",
+        "note": "Replaced the unsupported generic probability-owner request by pinned finite-marginal uniqueness. Existence on the compatible isotropic inverse system and its Borel comparison remain G-lc-duality."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-lc-random-intersection",
+        "verdict": "corrected",
+        "note": "PR Theorem 2.19(f) distinguishes infinite-dimensional PR law from the finite law. Added pinned first Borel–Cantelli, retaining the actual inverse-system adapters as a gap."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-lc-restricted-product",
+        "verdict": "verified",
+        "note": "PR Examples 2.17–2.18 require compatible restricted-product integral subgroups, not arbitrary local self-dual choices. The already implemented restricted-product carrier is imported."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-sha-one-vanishing",
+        "verdict": "verified",
+        "note": "PR Proposition 3.3 is Sha¹ of E[p], with its Galois-module hypotheses, not vanishing of elliptic Sha; proof uses the requested finite-flat localization interface."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-selmer-quadratic-intersection",
+        "verdict": "corrected",
+        "note": "Corrected the polar convention to the negative Weil-cup pairing and imported the already planned A3 theta group and Cartier kernel duality. Only the quadratic obstruction and fppf comparison are requested extensions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-joint-parity-moments",
+        "verdict": "corrected",
+        "note": "Corrected the locator to Conjecture 1.4(b)–(c), pp. 3–4. The parity-restricted model moments factor correctly, including k=0; the native statement does not assert arithmetic convergence."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture",
+        "verdict": "corrected",
+        "note": "Restored the fixed-global-field coefficient-height family from Conjecture 1.1, p. 2, and Conjecture 1.4(a)–(c), pp. 3–4. Removed the unsupported transfer to minimal invariant-height Q-models; added the precise ST.0 adapter gap."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture",
+        "verdict": "corrected",
+        "note": "Conjecture 1.7 includes coefficient-model multiplicity, odd degree, and only odd n in even degree. Replaced the insufficient integral even-degree supplier by an explicit general-field/odd-degree ST.0 request."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-even-genus-two-selmer-conjecture",
+        "verdict": "corrected",
+        "note": "Conjecture 1.8 separately predicts the shifted law, mean 6 and shifted moments, only in positive even genus. The source family requires the explicit global coefficient-height adapter."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-smooth-cylinder-measure",
+        "verdict": "verified",
+        "note": "BKLPR Proposition 2.1 counts the reduction image, not all residue points for arbitrary nonsmooth schemes; smoothness yields the equal-mass formula. Underlying Oesterlé/Serre proof remains source-qualified G-ogr."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-ogr-smooth-projective",
+        "verdict": "verified",
+        "note": "The split quadratic form, rank, scheme-valued subbundles, smoothness over Z and dimension n(n−1)/2 agree with Section 4.2 and Proposition 4.4. The generic Grassmannian stays with R09.1."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-ogr-components",
+        "verdict": "verified",
+        "note": "Proposition 4.5 and Remark 4.6 give two components and the parity morphism; characteristic 2 is retained rather than importing the field-only classical-group owner."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-ogr-prime-power-count",
+        "verdict": "verified",
+        "note": "Lemma 4.8 multiplies the finite-field OGr point count by p^((e−1)n(n−1)/2). The exponent uses smooth relative dimension and the full union of components."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-ogr-schubert-dimension",
+        "verdict": "verified",
+        "note": "Proposition 4.9 has parity of intersection dimension and dimension (n−r)(n+r−1)/2 for the locally closed rank-r stratum; it is not the dimension of its closed degeneracy locus."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-all-rank-delaunay",
+        "verdict": "verified",
+        "note": "The all-rank alternating-cokernel law and Delaunay normalization are model statements with rank-conditioned Haar sampling. They do not promote rank or Sha conjectures to arithmetic theorems."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-positive-rank-all-primes",
+        "verdict": "corrected",
+        "note": "Imported actual pinned infinite product measures and first Borel–Cantelli instead of requesting them from a p-adic-distribution layer. The positive-rank summable exceptional probabilities are correct."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-rank-zero-all-primes-infinite",
+        "verdict": "corrected",
+        "note": "Imported actual product probability and both Borel–Cantelli lemmas. Prime harmonic divergence gives almost-sure infinitude at rank zero, whereas a summable sparse prime set gives finiteness."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-symplectic-harmonic-weights",
+        "verdict": "corrected",
+        "note": "Repaired the proof bound: all prime powers are bounded by the telescoping product over integers m≥2, equal to 2. ζ(2) alone does not bound the extra higher-power factors."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-sparse-prime-weighted-limit",
+        "verdict": "verified",
+        "note": "The sparse-prime weighted limit uses 1/N≤mass≤2/N and the corrected 4ε estimate. Its harmonic truncation is not an unconditional finite-group rank-zero product measure."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-injection-moment-conjecture",
+        "verdict": "verified",
+        "note": "Conjecture 5.11 concerns injections from the full finite module over Z/p^e, not just group cardinality when e>1; the cyclic-versus-elementary-abelian q=4 test distinguishes them."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-kummer-direct-summand",
+        "verdict": "verified",
+        "note": "Proposition 6.7 proves local Kummer direct-summand splitting by the m|n kernel criterion and actual Kummer diagrams. This is stronger than quadratic isotropy, and the Z/4 diagnostic is valid."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-adelic-kummer-direct-summand",
+        "verdict": "verified",
+        "note": "Corollary 6.8 retains the restricted-product local conditions and compatible local splitting; the corresponding arbitrary global image is not asserted to split here."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-global-image-splitting-conjecture",
+        "verdict": "corrected",
+        "note": "Conjecture 6.9 is density-one global-image splitting in its source family. Added the family adapter and a concrete Z/4 module test separating local splitting from a putative global subgroup."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-trivial-action-global-splitting",
+        "verdict": "verified",
+        "note": "Lemmas 6.10–6.11 use trivial residual action and the local-to-global injectivity criterion; this is the special theorem, not a proof of the general conjecture."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-wood-coefficient-bound",
+        "verdict": "verified",
+        "note": "Wood Lemma 8.1 gives the absolute coefficient estimate after the recorded E741 repair, with finite tail support. The analytic/Fubini work is explicitly G-wood-analysis."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-wood-subgroup-bound",
+        "verdict": "verified",
+        "note": "Wood Lemma 7.4 bounds the sum of wedge-square sizes over subgroups with exponent-dependent constants and the stated quadratic partition exponent; no group-count uniformity beyond that is inferred."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-wood-grid-uniqueness",
+        "verdict": "corrected",
+        "note": "Removed the false assertion that global lexicographic induction is invalid. A fixed finite power of N is well-ordered lexicographically; absolute convergence justifies the lower-profile sum."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-wood-bounded-moment-limit",
+        "verdict": "verified",
+        "note": "Woodmat Theorem 3.1 yields laws modulo a for every fixed a, under bounded surjection moments. It does not by itself give the parent full-group limit; G-full-group-tail is retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-balanced-three-rank-zero",
+        "verdict": "verified",
+        "note": "BS3 Theorem 41 uses finite-height parity balance and mean 3-Selmer size 4 to give the unconditional rank-zero quarter bound. No finiteness of Sha is imposed for this conclusion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-balanced-three-rank-one",
+        "verdict": "verified",
+        "note": "The five-twelfths rank-one deduction explicitly assumes finiteness of Sha for all curves, as in BS3 Theorem 41; finite empirical estimates avoid a separate-limsup error."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-positive-three-ranks",
+        "verdict": "verified",
+        "note": "The positive algebraic-rank conclusions retain their large-family denominator and local root-number construction, without replacing them by the full-family five-Selmer bounds."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-analytic-rank-zero-criterion",
+        "verdict": "verified",
+        "note": "BS3 Theorem 43 retains ordinarity at 3, irreducibility, trivial 3-Selmer, and residual ramification at a prime l≠3 with l exactly dividing the conductor. Primary Skinner–Urban proof is G-analytic."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-positive-analytic-rank-zero",
+        "verdict": "verified",
+        "note": "The good-ordinary-at-3 and multiplicative-at-5 family feeds the precise analytic-rank-zero criterion; quantitative residual irreducibility is left in G-analytic."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-positive-weak-bsd",
+        "verdict": "verified",
+        "note": "BS3 Corollary 7 is the positive proportion where both ranks are zero. It does not prove general BSD or a global Sha-finiteness assertion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-two-selmer-nonlift",
+        "verdict": "verified",
+        "note": "BS4 Theorem 3 counts nonlifting Selmer elements, not curves. The 3/5 mean and 1/5 element proportion follow from the extremal inequality; the supplied second moment controls weighted torsion exceptions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-basic-bounds",
+        "verdict": "verified",
+        "note": "BS5 Proposition 38 gives 21/20 and 19/24 using mean 6. The rank bound uses reduced Selmer dimension and controls rational 5-torsion exceptions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-balanced-bounds",
+        "verdict": "verified",
+        "note": "BS5 Proposition 40 gives 3/4, 7/8 and 3/8 after the independently confirmed finite-height repair E743. The packet does not sum separate conditional limsups."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-root-balanced-family",
+        "verdict": "verified",
+        "note": "BS5 Section 5 has the minus-one-twist pairing, local congruence tables and unequal real-sign weights. Certified density greater than .5501 remains G-five-density."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-full-average-rank",
+        "verdict": "verified",
+        "note": "The .88497 mixture bound is obtained by finite-height subtraction for the complement. It is below .885; no large-family assertion is assumed for an arbitrary complement."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-full-low-rank",
+        "verdict": "verified",
+        "note": "The stronger exact rational mixture is 100501/120000, exceeding 67/80. The lower-density conclusion requires no Sha-finiteness assumption."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-five-full-rank-zero",
+        "verdict": "verified",
+        "note": "The balanced rank-zero contribution is 16503/80000, exceeding .2062. This is a Mordell–Weil rank-zero proportion, with the same denominator as the full family."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-jacobian-marked-average",
+        "verdict": "verified",
+        "note": "BSS Theorem 1.2 is a limsup upper bound 6 for the marked locally soluble binary-quartic genus-one/Jacobian family. Monicization, sparse integral orbits and power-saving counts remain explicitly requested inputs."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-abelian-three-isogeny-average",
+        "verdict": "verified",
+        "note": "BKLOS Theorem 2.1 covers general abelian 3-isogenies in the source squareclass height with acceptable local conditions. ST.2 supplies only a conditional elliptic count; its six axioms and general kernel adapter remain gaps."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-endomorphism-rank-bound",
+        "verdict": "corrected",
+        "note": "Replaced the elliptic-only parent isogeny-chain prerequisite by the requested general-abelian sequence of BKLOS Lemma 9.1. Retained the explicit c>0 rank-index hypothesis; the unrestricted source claim remains G-endomorphism."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-multiplication-three-rank-bound",
+        "verdict": "verified",
+        "note": "The multiplication-by-three specialization has index at least 3^rank and is therefore safe. Rational degree-3 factorization of [3] is still an explicit hypothesis."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-finite-extension-rank-bound",
+        "verdict": "verified",
+        "note": "The finite extension makes all 3-torsion rational and permits a degree-3 flag factorization. The bounded-rank assertion is over that extension, with extension-defined twists; it is not silently pulled back to F."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-elliptic-explicit-twist-rank",
+        "verdict": "verified",
+        "note": "BKLOS Theorem 2.4 gives the limsup average rank bound average |t|+3^(-|t|) for the elliptic twist family. The source global Selmer ratio convention and actual squareclass denominator are retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-signature-positive-twists",
+        "verdict": "corrected",
+        "note": "Corrected the proof locator to Section 11, pp. 17–18, alongside Section 10 local ratios. The imaginary-quadratic conclusion is a positive proportion in the union of ranks zero and one, not each separately."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.5/refinement-complex-place-obstruction",
+        "verdict": "verified",
+        "note": "The source curve and sufficiently large k divisible by two match Example 13.3 and Proposition 13.4. The complex-place obstruction concerns a constructed family with a strong 3-Selmer-rank lower bound, not all elliptic curves."
+      }
+    ]
+  }
 }
