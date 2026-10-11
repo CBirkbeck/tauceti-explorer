@@ -802,9 +802,8 @@ example (s : ℂ) (hs : 1 < s.re) :
 example : ¬ (0 < (0 : ℂ).re) := by sorry
 
 -- complex_hurwitz_series.nonreal_shift
-example : complex_hurwitz_series 2 (2 + Complex.I) =
-    complex_hurwitz_series 2 (1 + Complex.I) -
-      Complex.exp (-(2 : ℂ) * Complex.log (1 + Complex.I)) := by sorry
+example : complex_hurwitz_series 2 (1 + Complex.I) -
+    complex_hurwitz_series 2 (2 + Complex.I) = -Complex.I / 2 := by sorry
 
 lemma lerch_parameter_shift (z s c : ℂ) (hz : ‖z‖ < 1) (hc : 0 < c.re) :
     lerch_transcendent z s c = Complex.exp (-s * Complex.log c) +
@@ -2353,7 +2352,7 @@ Sources: reviewed-paper-duke-imamoglu-toth-16, (7.2), p.970 (Hecke; a cited resu
 
 AnalyticNumberTheory:AN.4/genus-lseries-factorization
 Proposed name: TauCeti.AnalyticNumberTheory.genus_lseries_factorization.
-(p.971.) Let D = d'd be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ(s,χ) = Λ(s,χ_{d'})Λ(s,χ_d), with Λ(s,χ) as in (7.4)–(7.5) and Λ(s,χ_d) as in (5.13).
+(p.971.) Let D = d'd ≠ 1 be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). Either factor may be the trivial discriminant 1. For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ(s,χ) = Λ(s,χ_{d'})Λ(s,χ_d), with Λ(s,χ) as in (7.4)–(7.5) and Λ(s,χ_d) as in (5.13).
 Sources: reviewed-paper-duke-imamoglu-toth-16, §7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8); dit-published-2016, §7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8).
 
 AnalyticNumberTheory:AN.4/negative-genus-core-period
@@ -2378,7 +2377,7 @@ Sources: reviewed-paper-duke-imamoglu-toth-16, (7.3); dit-published-2016, (7.3).
 
 AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound
 Proposed name: TauCeti.AnalyticNumberTheory.eisenstein_weyl_lvalue_bound.
-There is an absolute C > 0 such that, for every ε > 0, every fundamental D = d'd with genus character χ, and every s with Re(s) = 1/2: Weyl(E(·,s),χ) ≪_ε |s|^C |L(s,χ_{d'})L(s,χ_d)| |D|^{1/4+ε}. The paper prints the left side as 'Weyl(s,χ)'.
+There is an absolute C > 0 such that, for every ε > 0, every fundamental D = d'd ≠ 1 with genus character χ, and every s with Re(s) = 1/2: Weyl(E(·,s),χ) ≪_ε |s|^C |L(s,χ_{d'})L(s,χ_d)| |D|^{1/4+ε}. The paper prints the left side as 'Weyl(s,χ)'.
 Sources: reviewed-paper-duke-imamoglu-toth-16, (6.7), proof of Proposition 2, p.969; dit-published-2016, (6.7), proof of Proposition 2, p.969.
 
 AnalyticNumberTheory:AN.2/siegel-quadratic-lvalue
@@ -2388,7 +2387,7 @@ Sources: reviewed-paper-duke-imamoglu-toth-16, §6, p.968 ('By Siegel's theorem'
 
 AnalyticNumberTheory:AN.4/real-quadratic-class-regulator-lower
 Proposed name: TauCeti.AnalyticNumberTheory.real_quadratic_class_regulator_lower.
-For every ε>0, h⁺(D)log ε_D≥c_ε D^(1/2−ε) for positive fundamental D, with an ineffective c_ε>0 and the narrow regulator convention of DIT item144.
+For every ε>0, h⁺(D)log ε_D≥c_ε D^(1/2−ε) for fundamental D>1, with an ineffective c_ε>0 and the narrow regulator convention of DIT item144.
 Sources: reviewed-paper-duke-imamoglu-toth-16, §6, pp967–968; dit-published-2016, §6, pp967–968.
 
 AnalyticNumberTheory:AN.4/imaginary-quadratic-class-number-lower
