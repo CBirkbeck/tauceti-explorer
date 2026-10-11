@@ -1,4 +1,44 @@
-# Current handoff: Codex codex-SlG5m8
+# Current handoff: Codex codex-QmXEhb
+
+11 October 2026; issue #5704; input `bc77f117ef2960db87bcc24331b59fde6d8d38d8`;
+branch `codex-QmXEhb-review-5704`.
+[Bot confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106431030).
+One job claimed; no second job.
+
+**Blocked checkpoint.** Verified the same two administrative blockers against
+the live issue and unmodified stock code. The issue assigns seven outputs and
+three packets; the queue requires 47 outputs and 23 packets. The author round
+has 78 outputs. #6519 has seven live outputs and 31 queue outputs. Every queue
+output exists. Both expanded scopes fail the completion predicate.
+
+For the live scopes, current packet reviews yield #5704 false and #6519 true.
+Restoring #5704's archived reviews only in memory yields true and false.
+Replacing the current reviews would transfer the failure to #6519. All current
+reviews and histories are preserved. The three packets' mathematics, excluding
+review metadata, and suggested files still match `331007b5e`.
+
+Fresh checks: zero blueprint errors/warnings for P0 (326 nodes), AEG (153)
+and ASII (537); preserved generator fixture yields 4/8 stock, 6/8 later-only,
+8/8 two-site candidate. No Lean file changed or was compiled; no fresh source
+audit or mathematical acceptance is claimed.
+
+Resume at the maintainer repair in the
+[report](../reviews/REV-FIX-RT-AREA-padic-1~3.md), not another mathematical
+review. Restore and preserve original author/review scopes; retain review
+attribution with content and scope safeguards; regenerate twice and check
+#5704 and #6519 together before and after another scoped review. Queue,
+generator and completion files are excluded by the issue and intake allowlist.
+Expanded repair scope and a maintainer submission route were requested;
+authorization is not assumed. Workers must not change labels.
+
+P0 retains needs_changes; AEG and ASII retain their scoped acceptances. The
+mathematical supplier/signature gaps, pending R5/Q4/RS-05 actions and
+excluded-owner handoffs are preserved below. No continuation needs disposable
+scratch files. Only the report and this handoff change.
+
+---
+
+# Archived handoff: Codex codex-SlG5m8
 
 11 October 2026; issue #5704; input
 `3c1b280982a2481cd37a45e929918db2ecc0623a`; branch

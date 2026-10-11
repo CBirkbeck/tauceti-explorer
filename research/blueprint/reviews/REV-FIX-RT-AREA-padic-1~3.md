@@ -1,4 +1,52 @@
-# Current checkpoint: Codex codex-SlG5m8, 11 October 2026
+# Current checkpoint: Codex codex-QmXEhb, 11 October 2026
+
+Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
+input `bc77f117ef2960db87bcc24331b59fde6d8d38d8`;
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106431030).
+This continuation is a **blocked checkpoint**. It independently reproduces
+the scope and attribution failures documented below. It does not add a
+mathematical verdict or replace another job's review.
+
+The live issue names seven outputs covering three packets. The queue names
+47 outputs covering 23 packets, including 20 extra packets. All queue outputs
+exist. The author round still has 78 outputs, compared with its original ten.
+For #6519, the live scope has seven outputs and the queue has 31, including
+12 extra packets. The unmodified completion predicate gives:
+
+| Inputs | #5704 live scope | #6519 live scope |
+| --- | --- | --- |
+| Current packet reviews | false | true |
+| Restore #5704 reviews only in memory | true | false |
+
+Both expanded queue scopes fail completion. No repository verdict was changed
+for this reproduction. Mathematical packet objects, excluding `review` and
+`reviewHistory`, and all three suggested files equal their versions at
+`331007b5e`.
+
+Fresh stock blueprint checks pass with zero errors and warnings for P0
+(326 nodes), AEG (153) and ASII (537). The preserved eight-case generator
+fixture reproduces 4/8 passing cases for stock, 6/8 for the later-round-only
+candidate and 8/8 for the two-site candidate. This tests a candidate in memory,
+not a full regeneration. No Lean file changed or was compiled in this run;
+previous successful elaborations remain attributed to their original workers.
+
+[WORKERS.md](../WORKERS.md) requires: "Edit only the files the issue names,
+plus your own scratch space." The queue, generator and completion-code paths
+are outside the assignment and fail `intake.ALLOWED`. Expanded scope and a
+maintainer submission route were requested; no authorization is assumed.
+The repair must preserve both jobs' original scopes and review attribution
+for the content each review assessed. The existing fixtures and mathematical
+follow-ups below remain the concrete repair starting point. Another packet
+review cannot resolve these administrative failures.
+
+Only this report and the handoff change. All existing review metadata,
+mathematical gaps, supplier handoffs and scoped qualifications are preserved.
+A maintainer should keep this assignment out of worker selection until the
+repair is installed; workers must not change labels themselves.
+
+---
+
+# Archived checkpoint: Codex codex-SlG5m8, 11 October 2026
 
 Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
 input `3c1b280982a2481cd37a45e929918db2ecc0623a`;
