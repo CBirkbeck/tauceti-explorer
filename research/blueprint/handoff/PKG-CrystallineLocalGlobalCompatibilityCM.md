@@ -1,46 +1,86 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-QqtehL`. Date: 2026-10-11.
-Branch: `codex-QqtehL-crystalline-package`.
-Input commit: `c7583e0c8a7807f24ec85744dad64beb1ca5d162`.
-Claim confirmed in [comment 6105564211](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105564211),
-responding to [comment 6105563392](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105563392).
+Agent: Codex (GPT-6). Session: `codex-b0VSZF`. Date: 2026-10-11.
+Branch: `codex-b0VSZF-crystalline-package`.
+Input commit: `f02507b0034179ec593e0bda3a9eba3c92d0072a`.
+Claim confirmed in [comment 6105666982](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105666982),
+responding to [comment 6105666005](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105666005).
+None of the manager's priority issues was available. The focused package was
+selected before the remaining eligible reviews, packages and planning jobs.
 Only this job was claimed.
 
-## What this continuation changes
+## Progress in this continuation
 
-The README now cites the current smooth group stages `SR.0` and `SR.0d`,
-in place of the inherited `SR.0:abelian-category` and `SR.0:derived-extension`
-request labels. It reuses the pinned monoid carrier `TauCeti.SmoothDiscreteTopRep`
-and its restriction lemma, while retaining the topological-group hypotheses of
-the coefficient equivalence. It distinguishes these existing carriers and group
-prototypes from the required monoid abelian/derived and ordinary-localization
-exports. The suggested signatures are preserved without modification.
+The package now types the local-level component and oriented unitary-partition
+formulas of CN Proposition 5.6.1, pp.82–83:
 
-The integral-coefficient and completed-tower corrections from
-[#8720](https://github.com/CBirkbeck/tauceti-explorer/pull/8720) remain intact.
-Their evidence is retained below, with the boundaries rechecked in this run.
+- `PreparedPGL2Level_level_components`: membership in the subgroup of the
+  product of supplied integral local groups is componentwise membership in the
+  selected maximal, Iwahori or pro-v Iwahori subgroup.
+- `PreparedPGL2Level_unitary_partitions`: the choice policy stᶜ≤st admits
+  exactly the cr/cr, st/cr and st/st branches. Their partitions are (2,2),
+  (2,1,1) and (1,1,1,1); all have total rank four. A sole st place is selected
+  before forming the mixed partition, and lies in its second size-two block.
+- The three named tests `test_auxiliary_level`, `test_mixed_orientation` and
+  `test_three_branches` now have typed component/partition statements. An
+  additional example retains properness of the supplied pro-v Iwahori at an
+  auxiliary component. These are signatures with `sorry`, as required of the
+  prototype; they are not implementation claims.
 
-**Blocked on external supplier interfaces, not on the run's time or memory.**
-The issue permits only the three package outputs and this handoff. Building the
-general supplier theories here would duplicate their owners, and changing the
-accepted request would exceed those permitted paths. This submission is a
-checkpoint; it does not complete the package.
+The private helpers select **supplied** local subgroups; they neither construct
+PGL₂ or unitary parabolics nor assert neatness, residual Hecke interpolation or
+localized perfectness. The product is the compact integral product, not the
+unrestricted product of local-field adelic groups. The omission catalogue
+identifies these partial cores and retains the missing arithmetic interfaces.
+The README explains their domains and matches the typed formulas.
 
-The accepted plan has 97 targets, 103 API entries, 104 tests, 27 requests and
-40 gaps. Ten layers are planned and none is closed. A fresh signature inventory
-finds **17 typed targets, 42 typed API entries and 42 named examples**, with
-**80 targets, 61 API entries and 62 tests omitted**. The typed targets include
-partial arithmetic cores; their existence does not establish the full arithmetic
-interface. Every remaining name occurs in the explicit omission catalogue.
+Both README occurrences of NT16 Lemma 2.10 were corrected to **Proposition
+2.10**, the citation actually used in CN's proof of Lemma 4.2.3, p.60.
+The accepted packet retains the stale citation because this issue prohibits
+packet edits. All earlier coefficient, completed-tower, smooth-monoid,
+rescaling, duality and cubic-tetrahedral corrections are preserved.
 
-`metadata.toml` remains absent. The intake's `deliverables_complete` currently
-uses output existence for this package, so creating the metadata would incorrectly
-mark the unfinished package complete. Add `topic = "math.NT"` only with a full
-submission. The accepted packet, original reader and original prototype are unchanged.
+## Why this remains a checkpoint
 
-## Freshly checked completion blockers
+**Blocked on supplier interfaces, not the run's time or memory.** The accepted
+plan has 97 targets, 103 API entries, 104 tests, 27 requests and 40 gaps.
+All ten layers are planned; none is closed. “Complete” in the packet means its
+planning pass is complete, not that its dependencies or prototypes are complete.
+A full package requires all its definitions, theorems, API and tests as faithful
+Lean signatures. This job permits only the three package files and this handoff;
+it expressly prohibits changing packets. Defining the absent general supplier
+theories here would duplicate their owners and exceed these permitted files.
+
+A new inventory, excluding nested block comments and associating test labels
+with actual examples, gives:
+
+| Accepted-plan entries | Typed cores/signatures | Omitted |
+|---|---:|---:|
+| Targets | 17 | 80 |
+| API items | 44 | 59 |
+| Named tests | 45 | 59 |
+
+The preceding continuation had 17/42/42 typed. Partially typed arithmetic
+objects remain partial, even when a helper formula elaborates. Supplementary
+examples do not count as an omitted named test. The omitted names remain in the
+source-indexed catalogue. The new component APIs do not complete the
+`PreparedPGL2Level` arithmetic construction or its non-neat perfectness test.
+
+`metadata.toml` remains absent: intake presently uses output existence to decide
+package completion. Creating it would falsely complete this unfinished job.
+Add `topic = "math.NT"` only when the full package standard is met.
+The accepted packet, original reader and original suggested file are unchanged.
+
+## Supplier blockers and inherited resume contracts
+
+The integral owner gap, absence of completed-tower exports and group/monoid
+boundary were rechecked in this continuation. Read the pinned and current Weyl
+module declarations, the pinned smooth-discrete monoid carrier and group
+coefficient-equivalence assumptions, current smooth group signatures, reviewed
+ALS.6 audit, accepted RS-09 ownership decisions, and CN v3 pp.26–27 and 60.
+These suffice to establish the blocking condition; the detailed contracts from
+the preceding handoff are preserved below.
 
 ### Integral dual-Weyl coefficients
 
@@ -50,7 +90,7 @@ Levi-equivariant splitting. Six consumers are CL.0/lem-2-1-12,
 CL.0/lem-2-1-17, CL.2/lem-2-2-14, CL.2/lem-2-2-16,
 CL.5/cor-4-1-9 and CL.6/lem-4-2-3.
 
-Read again the gap in
+Checked the gap in
 [PotentialAutomorphyInfrastructure](../packets/PotentialAutomorphyInfrastructure.json):
 it assigns the general theory to `ReductiveGroupsIntegralRepresentationsPartII`
 and records that this owner has no stage ids. There is still no exporting packet,
@@ -66,17 +106,17 @@ its standing assumptions include `[Algebra ℚ k]`. The current library's
 `ClassicalGroups/WeylModule/Basic.lean`, lines 122–134, retains the same
 requirement. Neither supplies dual-Weyl lattices over O or O/ϖ^m.
 
-Read CN v3 Lemma 2.1.12, pp.17–18, including its reduction to Schubert
-restriction, and Lemma 4.2.3 and proof, p.60. The latter requires an integral
+The preceding continuation checked CN v3 Lemma 2.1.12, pp.17–18, including
+its Schubert restriction input. This continuation reread Lemma 4.2.3 and proof, p.60. The latter requires an integral
 Levi-equivariant splitting and parabolic stability of its kernel; an E-linear
 splitting alone is insufficient. **Locator correction for a packet-editing job:**
-CN's proof cites NT16 **Proposition 2.10**. `REQ-INTEGRAL-WEYL` and the inherited
-handoff call it Lemma 2.10. No packet was edited in this package job.
+CN's proof cites NT16 **Proposition 2.10**. `REQ-INTEGRAL-WEYL` calls it Lemma 2.10. Both occurrences in the package README now say
+Proposition 2.10. No packet was edited in this package job.
 
 ### Completed arithmetic towers
 
 `REQ-TOWER` still requests completed adelic/Borel–Serre objects from
-`ArithmeticLocallySymmetricSpaces:ALS.6`. Read again accepted
+`ArithmeticLocallySymmetricSpaces:ALS.6`. Checked accepted
 [RS-09](../restructure/RS-09.result.json): ALS.6 keeps finite-level descent,
 while the completed tower belongs to `CompletedCohomologyPartII`.
 The latter still has no packet, suggested file or package exporting its
@@ -156,7 +196,8 @@ existence of the group-derived category.
 
 The integral coefficients and arithmetic tower blockers already suffice to
 prevent a complete package. This continuation does not claim exhaustive
-verification of all 27 supplier requests.
+verification of all 27 supplier requests. The historical detailed contracts below
+remain resume requirements; no missing supplier is reconstructed here.
 
 ## Material to preserve when resuming
 
@@ -201,39 +242,53 @@ Taylor–Wiles, Selmer and base-change data.
 ## Validation and provenance
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
-  **0 errors, 0 warnings**. Packet SHA-256 remains
-  `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
+  **0 errors, 0 warnings**. The accepted packet remains byte-for-byte unchanged;
+  SHA-256 `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
 - `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
-  **exit 0, 0 errors, 97 warnings, all `declaration uses sorry`**.
-  Available memory was 100 GB. One check was run; no language server or
-  library build was started. The file was not modified after checking.
-- Recounted declarations outside nested block comments and associated named
-  test labels with actual examples. Counts are 17/42/42 typed, 80/61/62
-  omitted. Supplementary examples do not fulfill omitted named tests.
-  No empty `Prop := sorry` definition was found.
-- Intake `check-files`: **2 files, 0 problems**; `git diff --check` passes.
-  `deliverables_complete` is **false**, with metadata absent. The README is
-  below 200 KB. No Lean process from this job remains running.
-- Read WORKERS, both protocols and UPSTREAM_GUIDE, current ReductiveGroups
-  and PeripheralActions READMEs, the relevant smooth group/monoid and Weyl
-  statements, PA's owner gap, reviewed ALS.6 audit and accepted RS-09. Current read-only roadmap commit:
-  `070dc2becd74419e76303ede84b465ed4a69461f`; current library:
+  **exit 0, 0 errors, 103 warnings, all `declaration uses sorry`**.
+  Available memory was 99 GB. The complete revised file was checked once;
+  no Lean language server or library build was started. No check remains running.
+- Signature inventory: 17/44/45 typed and 80/59/59 omitted. Two API entries
+  and three named examples were added to the typed inventory; no target was
+  falsely marked fully supplied. No empty `Prop := sorry` definition was added.
+- Intake `check-files`: **3 files, 0 problems**. `git diff --check` passes.
+  README is 184,291 bytes, below 200 KB. `deliverables_complete` remains false.
+- Read WORKERS, both protocols and UPSTREAM_GUIDE; current upstream
+  ReductiveGroups and PeripheralActions READMEs; the relevant pinned/current
+  Weyl and smooth-monoid declarations; PA's owner gap; reviewed ALS.6 audit;
+  accepted RS-09. Read-only roadmap commit
+  `070dc2becd74419e76303ede84b465ed4a69461f`, current library
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No restricted source was needed.
-- Read CN v3 pp.17–18, 26–27 and 60 from <https://arxiv.org/pdf/2301.10509v3>,
-  accessed 2026-10-11. PDF SHA-256:
-  `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
-  Only authored mathematical prose and locators enter the deliverables.
-- PA packet SHA-256:
+- Read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27, Lemma 4.2.3 and proof,
+  p.60, and the prepared-level and unitary-branch construction in the proof of
+  Proposition 5.6.1, pp.82–83, from
+  <https://arxiv.org/pdf/2301.10509v3>, accessed 2026-10-11.
+  PDF SHA-256 `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
+  Only authored mathematical statements and source locators enter the package.
+- PA packet SHA-256
   `eb472418e07c0614e6ee0a0b34e57306c769ff2444e5891ab1858cd924303650`;
-  RS-09 result SHA-256:
+  RS-09 result SHA-256
   `235bae7182f594ea6c4ccbd5fbf319ca9659a4d00fad93a8328237c1667c36da`.
 
-## Resume condition
+## Resume condition and manager action
 
-Supply the integral dual-Weyl, completed arithmetic tower and additional
-smooth-monoid exports in their owning roadmaps first. Retarget `REQ-TOWER`, reconcile the smooth-stage requests and correct the NT16
-locator in a job that allows packet edits. Then specialize the existing cores to the actual
-arithmetic carriers, actions, localizations and pairings, and type the remaining
-named targets, API and tests. Do not substitute hypotheses asserting each
-conclusion or empty propositions for these objects. Add metadata only when
-all package requirements are met. No second job is claimed.
+Supply the integral dual-Weyl and completed arithmetic tower interfaces in their
+owning roadmaps, together with the needed smooth-monoid extensions. Then a job
+allowed to edit the packet must retarget `REQ-TOWER`, reconcile the smooth stage
+labels, correct the NT16 locator and connect the actual supplier declarations.
+The owner-design issue [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357)
+was checked open and `state:available`; it is not an export, and this worker did
+not claim it.
+
+Resume package completion after those exports exist: specialize the inherited
+cores to the arithmetic carriers, type all remaining signatures/API/tests,
+check the complete file with `lean-check`, then add metadata. Preserve the
+qualified Barsotti–Tate scope and every inherited normalization in the material
+above. Repeating this package job without resolving its owner dependencies
+cannot turn these partial cores into a complete package. The manager should
+route the owner work and avoid returning this package to available work until
+its supplier situation changes; this worker did not alter labels.
+
+No scratch file is needed to continue. The source URL and hash, all verification
+results, code, mathematical formulas and required interfaces are retained here
+or in the package. No second job is claimed.
