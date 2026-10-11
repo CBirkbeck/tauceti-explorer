@@ -24970,9 +24970,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E5.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #720"
+   "note": "claimed on GitHub issue #720"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E5",
@@ -34252,8 +34252,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6284"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6284",
+   "finishedAt": "2026-10-11T00:54:25Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.3",
@@ -34587,7 +34588,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.2",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6291"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
@@ -49199,8 +49201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -81567,8 +81569,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
