@@ -2701,33 +2701,32 @@ Source: S3, §1 compact quotient formula; §16 (16.1)′′; PDF page 8.
 
 Uses: AS.6.4; AS.6.6; AS.4.7; AS.0.11.
 
-### AS.6.16a — Discrete series and pseudo-coefficients
+### AS.6.16a — Discrete functionals and pseudo-coefficients
 
-`discrete_series`, `discrete_functional_trace`, `pseudo_coefficient`
+`discrete_functional_trace`, `pseudo_coefficient`
 
-Let G be a real reductive group of Harish-Chandra's class with compact centre and K a maximal compact subgroup. An irreducible unitary representation π is in the discrete series when its K-finite matrix coefficients are square integrable on G. A Z-linear form λ on the Grothendieck group R(G) of finite-length Harish-Chandra modules is discrete when it vanishes on every representation induced from a proper parabolic, and admissible when it vanishes off a finite set of K-types. Realization theorem: for every discrete admissible λ and every r>0 there is a bi-K-finite f∈C_c^∞(G) supported in the ball of radius r with tr π(f)=λ(π) for every finite-length π. Pseudo-coefficients: for each discrete series δ₀ and r>0 there is such an f with tr δ₀(f)=1 and tr π(f)=0 for every standard module π≠δ₀ induced from a limit of discrete series; in particular tr π(f)=0 for every irreducible tempered π≇δ₀.
+Let G be a real reductive group of Harish-Chandra's class with compact centre, K a maximal compact subgroup and R(G) the Grothendieck group of finite-length Harish-Chandra modules. A ℤ-linear form λ on R(G) is discrete when it vanishes on every representation induced from a proper parabolic, and admissible when it vanishes on every representation without a K-type from some finite set. Realization theorem: for every discrete admissible λ and every r>0 there is a bi-K-finite f∈C_c^∞(G) supported in the ball of radius r with tr π(f)=λ(π) for every finite-length π. Pseudo-coefficients: for each discrete series δ₀ (`AF.1/tempered-square-integrable`) and r>0 there is such an f with tr δ₀(f)=1 and tr π(f)=0 for every standard module π≠δ₀ induced from a limit of discrete series; in particular tr π(f)=0 for every irreducible tempered π≇δ₀.
 
 Assume: Compact centre (for groups with split centre, fix the central character as in AS.6.17); the Paley–Wiener theorem AS.6.1.
 
 API:
-- `matrix_coefficient_mem_L2`: for discrete series π the K-finite matrix coefficients lie in L²(G).
-- `formal_degree`: Schur orthogonality ∫_G⟨π(g)u,v⟩conj⟨π(g)u′,v′⟩dg=d_π⁻¹⟨u,u′⟩conj⟨v,v′⟩ with d_π>0.
-- `pseudo_coefficient_trace`: the pseudo-coefficient property, derived from the realization theorem and Langlands' disjointness of the discrete series from the induced relations.
+- `admissible_iff`: for discrete λ, admissibility is equivalent to λ vanishing off finitely many irreducible representations, and to vanishing off finitely many tempered ones.
+- `pseudo_coefficient_trace`: the pseudo-coefficient property, from the realization theorem and Langlands' disjointness of the discrete series from the induced relations.
 
 Tests:
-- `compact_group`: for compact G every irreducible π is discrete series, and d_π·conj(χ_π) is a pseudo-coefficient of π.
-- `principal_series_not_discrete`: the unitary principal series of SL₂(ℝ) are not discrete series.
-- `noncompact_centre`: for G=ℝ_{>0}^× no unitary character is square integrable, so the compact-centre hypothesis cannot be dropped.
+- `compact_group`: for compact G every λ is discrete, every irreducible π is discrete series, and d_π·conj(χ_π) is a pseudo-coefficient of π.
+- `general_trace_not_discrete`: for SL₂(ℝ) and a nonzero bi-K-invariant f≥0, the trace on the spherical unitary principal series at parameter 0 is positive, so π↦tr π(f) need not be discrete.
+- `noncompact_centre`: for G=ℝ_{>0}^×, the indicator of the trivial character is discrete and admissible but is no trace of a compactly supported f, whose traces form an entire function of the character; the compact-centre hypothesis cannot be dropped.
 
 Source: S16, §5.2 Lemma 6, Proposition 4 and its Corollary, pp.212–213.
 
-Uses: AS.6.1; `AF.1/sf-representation`; `AF.1/infinitesimal-character`.
+Uses: AS.6.1; `AF.1/tempered-square-integrable`; `AF.1/discrete-series`; `AF.1/langlands-classification`.
 
 ### AS.6.17 — Real Euler–Poincaré test functions
 
 `general_euler_poincare`
 
-This uses the discrete series and realization theorem of AS.6.16a and AF.1a's relative cohomology. For finite-dimensional ξ, construct f_ξ within any prescribed positive support radius, simultaneously satisfying tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π of G. Without discrete series, this Euler characteristic vanishes for all π and f_ξ=0 suffices.
+This uses the realization theorem of AS.6.16a and AF.1a's relative cohomology. For finite-dimensional ξ, construct f_ξ within any prescribed positive support radius, simultaneously satisfying tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π of G. Without discrete series, this Euler characteristic vanishes for all π and f_ξ=0 suffices.
 
 Assume: Clozel–Delorme real group conventions; finite-length Harish-Chandra module and finite-dimensional ξ; split-center/central-character balancing for adelic groups.
 
