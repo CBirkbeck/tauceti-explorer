@@ -32362,7 +32362,8 @@
    ],
    "avoidAccountOf": "BP-AdditiveCombinatorics",
    "prompt": "research/blueprint/prompts/REV-AdditiveCombinatorics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #545"
   },
   {
    "id": "BP-ArithmeticStatistics",
@@ -49234,8 +49235,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80292,8 +80293,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81602,8 +81603,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
