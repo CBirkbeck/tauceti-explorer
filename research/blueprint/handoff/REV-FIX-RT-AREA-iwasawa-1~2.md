@@ -1,37 +1,39 @@
-# Handoff: #6217 is blocked by issued scope
+# Handoff: #6217 remains blocked by scope mismatch
 
-Codex — **codex-AatBZG**, 11 October 2026. Branch
-`codex-AatBZG-review-6217`. Input commit
-`ea4eca69090e655ae3fae93bd5ef846d43661f94`.
-The bot confirmed this claim in
-[comment 6106143621](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106143621).
-Only this issue was claimed.
+Codex — **codex-gFeYC4**, 11 October 2026. Branch:
+`codex-gFeYC4-review-iwasawa`. Input commit:
+`8076e348807e479667d4020d429028f01a1fa6f2`.
+Claim confirmed in [comment 6106614750](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106614750).
+Only #6217 was successfully claimed. Another worker won the attempted
+claim on #7462; no work on that job was submitted.
 
-The issue permits the HE.0 packet, its suggested file and the report.
-The queue requires eleven packet/Lean pairs and the report. All outputs
-exist, but the completion predicate is false for the expanded queue and
-true for the issue's historical three outputs. The HE.0 mathematical fix
-review is already accepted; the other ten review identifiers are unchanged.
-Repeating that review cannot finish the expanded assignment.
+The live issue authorizes HE.0, its suggested file and its review report.
+The local and freshly fetched main queue require eleven packet/Lean pairs
+and the report. The actual completion function returns false for the
+23-output queue entry and true for an in-memory copy restricted to the
+issue's three outputs. All files exist. HE.0 already has an accepted verdict
+for this review job; the other ten retain other reviewer identifiers,
+including ES.0's needs_changes. Repeating HE.0's review cannot finish the
+queue assignment.
 
-The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) now includes an exact
-unified repair patch, reconstructed from the historical round-two output
-lists at `88f9bcd44`. It applies cleanly at the input commit. It restores
-four fix outputs and three review outputs and preserves existing successors
-in the generator. Six state/trigger regression fixtures and the seven
-original cases pass. This run did not repeat the full-generator experiment;
-its historical wider scheduling effects remain recorded in the report.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) records the fresh
+review-marker inventory and preserves the prior proposed scope-repair
+patch, regression scripts and mathematical reviews with their attribution.
+The patch still passes git apply --check at this input commit. Queue and
+generator edits are outside the live issue's file scope and fail swarm
+path validation. No repair was applied, no extra packet was reviewed, and
+no approval was requested or rejected in this session.
 
-**Resume only after scope reconciliation.** A maintainer must authorize and
-review the patch, inspect its wider scheduling effects, apply it, regenerate
-metadata and synchronize the issue. Queue and generator edits are forbidden
-by the live issue's file scope and rejected by swarm path validation. A scope
-extension was requested; none was received before checkpoint preparation.
-Do not overwrite unrelated packets' review markers to force completion.
+**Reconcile scope before reassignment.** The maintainer can apply and
+validate the proposed repair, check its wider scheduling effects, and
+synchronize the issue; alternatively, explicitly authorize the expanded
+review. Keep unrelated verdicts intact. The proposed generator change alone
+preserves an already-expanded list, so restoring the historical lists is
+also necessary. Earlier regression/full-generator results are historical;
+this continuation did not repeat those experiments.
 
-Only the report and this required handoff change. The packet checker passes
-with zero errors/warnings. No Lean rerun was needed for Markdown-only work;
-no new mathematical or source-reading claim is made. All gaps, requests and
-unchecked statuses remain. No automatic approval rejection occurred.
-The proposed patch and experiments are preserved in the report, so no
-scratch file is needed. Scratch will be removed once the PR is open.
+Only the review report and this required handoff change. HE.0's checker
+passes with zero errors/warnings. No source rereading or new mathematical
+verdict is claimed. Lean was not rerun for Markdown-only work; prior
+successful elaborations remain attributed in the report. No process is
+left running and no scratch artifact is required for resumption.
