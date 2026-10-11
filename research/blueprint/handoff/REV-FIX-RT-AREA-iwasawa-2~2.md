@@ -1,50 +1,67 @@
-# Continuation handoff: resolve scope before redispatch
+# Handoff: finish only after file scope is repaired
 
-Codex (GPT-6), session `codex-UsC0w0`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-Sp4gYu`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105737083).
-Input commit: `2d01be48acc61f435ebaec80904aa39d92695f6b`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105853327).
+Input commit: `8a128b3b1`. This session authored none of the fixes under review.
 
-**Blocked checkpoint.** The live issue still omits the two paths below.
-Its file restriction and WORKERS.md remain binding. I prepared the exact
-two candidates, validated them, and requested explicit permission through
-the worker conversation. That request is unanswered. Only the report and
-this handoff change; all packets, Suggested files and histories are unchanged.
+**Scope-blocked checkpoint.** The live issue still omits the two queue-required
+packet paths listed below. I prepared their exact review-only candidates,
+validated them, and requested explicit authorization through the worker
+conversation. The request remains unanswered. Only this handoff and the review
+report change. No packet, Suggested file or review history changes.
 
-The preceding recipe below remains exact and needs no disposable scratch:
+The review's bounded six-finding decisions are ready: L3 is accepted, L3-2 and
+D.1 have prepared acceptances, and PMIA retains `needs_changes`. PMIA's
+coordinated revision belongs to a separate job and does not prevent this
+review from finishing. The outstanding installation is exactly:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-Both input/candidate hashes reproduce exactly. Every non-review field is
-equal, and each candidate history is its entire previous history plus its
-entire prior review, retaining all 79 and 72 node decisions. Both candidates
-pass pinned-index checks with zero errors/warnings and intake file rules.
-Both are queue-owned. Actual dispatch completeness is false; a read-only
-substitution of precisely these two candidates makes it true. The predicate
-and queue are unchanged. L3 and PMIA already have this job's verdicts and
-must not get another identical history entry.
+[WORKERS.md](../WORKERS.md), Doing the work, says:
+“Edit only the files the issue names, plus your own scratch space.”
+The live issue names L3 and PMIA, whereas its current queue outputs also
+include L3-2 and D.1. Queue ownership and passing intake checks do not remove
+this explicit file restriction. Authorize the two paths or update the live
+issue before redispatching. The exact installation recipe below remains
+sufficient; another unchanged audit cannot resolve the scope mismatch.
 
-All four actual packets pass pinned-index checks with zero errors; L3 has
-26 inherited short-API warnings, the other three have none. No `excerpt`
-field occurs. A fresh declaration index of the shared pinned source trees
-has 70,802 Tau Ceti and 246,008 Mathlib entries. Mathlib HEAD matches the
-full programme pin. The preceding full Tau Ceti inventory check retains
-its original attribution.
+Both guarded input hashes and candidate hashes reproduce exactly. Every
+non-review field is equal; each candidate history is its entire previous
+history plus its entire prior review. The 79-node and 72-node decision ledgers
+remain intact. Candidate records retain `codex-jIGDIK` attribution and dates.
+L3 and PMIA already have this job's verdicts: do not add another duplicate
+history entry. All eight packet/Suggested hashes match the receipts below.
 
-Read the five current native Fitting/transpose statements and their
-surrounding hypotheses cited in the report. Current upstream HEADs are
-unchanged from the preceding handoff. All eight packet/Suggested hashes
-match its receipts. No Lean code changed or compilation was rerun;
-codex-pzP6uF's exact-file results below remain attributed to that session.
-No source passages were copied or new exhaustive source audit claimed.
+Fresh checks:
 
-**Required next action:** authorize these two review-only edits or refresh
-the live issue to name its queue deliverables. Then follow the exact
-installation recipe below and require actual checkout completeness.
-PMIA's `needs_changes` finishes its portion of this review; its coordinated
-revision is a separate job. Do not redispatch another unchanged audit to
-resolve the file-scope blocker. This run claimed only #6219.
+- All four actual packets and both candidates pass the existing declaration
+  index at the programme pins with zero errors. L3 retains 26 inherited
+  unrelated short-API warnings; the other five checks have no warnings.
+- Both candidates pass intake file rules; the packets and candidates contain
+  no `excerpt` field. Actual `deliverables_complete` is false with the queue
+  and predicate unchanged.
+- All nine public source PDFs were fetched again and their hashes match the
+  receipts below. Direct readings and locators are in this session's report;
+  Morita and Gross–Koblitz pages were inspected visually. No book was used.
+- Read all six finding/verifier records and the round-two fix report, the four
+  relevant reviewed library-coverage records, RS-16's I.5 decision, the pinned
+  continuous-unit lift, positive Gauss sum and Teichmüller section, and the five
+  current native Fitting/transpose statements with their hypotheses and PMIA
+  counterparts. The read-only current upstream heads remain unchanged below.
+  Earlier exhaustive node audits retain their original attribution.
+- Fresh sequential `lean-check` commands, after checking available memory:
+  L3 exits 1 before body elaboration because the shared build cannot resolve
+  its `research` imports. L3-2, D.1 and PMIA exit 0 with respectively 111, 307
+  and 1,075 `sorry` warnings and no other diagnostics. No Lean code changed;
+  no compilation remains running.
+- `git diff --check` and intake file checks pass for the report and handoff.
+
+Only #6219 was claimed. This run submits a checkpoint because the required
+scope authorization is absent, not because the time budget expired. The next
+worker needs no disposable scratch: exact records, source receipts, guarded
+hashes and installation checks are preserved below.
 
 ---
 
