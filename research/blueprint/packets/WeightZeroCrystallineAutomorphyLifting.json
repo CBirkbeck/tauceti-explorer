@@ -79,14 +79,14 @@
       "readSections": [
         "Theorems 1.2–1.3, pp. 1–3",
         "§§2–3, pp. 3–15, selected-block local representation calculations",
-        "§6, pp. 19–22, especially Proposition 6.7",
+        "§5, pp. 17–20, block order and boundary Hecke maps; §6, pp. 20–22, especially Proposition 6.7",
         "Theorems 7.6–7.7, pp. 26–28",
         "§8, pp. 28–30, finite-level tower and adequate substitution"
       ]
     },
     {
       "id": "CN25v3",
-      "title": "Modularity of elliptic curves over imaginary quadratic fields",
+      "title": "On the modularity of elliptic curves over imaginary quadratic fields",
       "authors": "Ana Caraiani and James Newton",
       "edition": "arXiv:2301.10509v3; theorem locators refer to this version",
       "url": "https://arxiv.org/pdf/2301.10509v3",
@@ -124,7 +124,7 @@
       ],
       "title": "Prepared weight-zero lifting data",
       "kind": "definition",
-      "statement": "Fix an imaginary CM field F with maximal totally real subfield F⁺ and conjugation c, n≥1, an odd prime p>n, ι:Q̄_p≅C, and a regular algebraic cuspidal π of GL_n(A_F) of weight zero. PreparedWeightZeroData consists of finite S containing S_p and R⊂S\\S_p, with A=S\\(R∪S_p), and the following certificates. Every rational prime below S or ramified in F splits in some imaginary quadratic subfield of F. For each p-place v̄ of F⁺ there is another v̄′ above p such that the sum of [F⁺_w:Q_p] over w above p different from both is strictly greater than [F⁺:Q]/2. The residual r̄_ι(π) is absolutely irreducible and decomposed generic, and its restriction to G_{F(ζ_p)} has adequate image. π is unramified at S_p and outside S. At v∈R, π_v has Iwahori fixed vectors, q_v≡1 modulo p and r̄_v is trivial. At v∈A, π_v is unramified, v∉R^c and H²(F_v,ad r̄)=0. A contains two places of different residue characteristics. Enlarge the finite p-adic coefficient field E to contain the Galois closure of F, the residual values, ζ_p, all auxiliary characters and fields of definition of geometric local components. Its ring of integers is O, uniformizer ϖ and residue field k. Neither a polarization nor a fixed determinant is part of these data.",
+      "statement": "Fix an imaginary CM field F with maximal totally real subfield F⁺ and conjugation c, n≥2, an odd prime p>n, ι:Q̄_p≅C, and a regular algebraic cuspidal π of GL_n(A_F) of weight zero. PreparedWeightZeroData consists of finite S containing S_p and R⊂S\\S_p, with A=S\\(R∪S_p), and the following certificates. Every rational prime below S or ramified in F splits in some imaginary quadratic subfield of F. For each p-place v̄ of F⁺ there is another v̄′ above p such that the sum of [F⁺_w:Q_p] over w above p different from both is strictly greater than [F⁺:Q]/2. The residual r̄_ι(π) is absolutely irreducible and decomposed generic, and its restriction to G_{F(ζ_p)} has adequate image. π is unramified at S_p and outside S. At v∈R, π_v has Iwahori fixed vectors, q_v≡1 modulo p and r̄_v is trivial. At v∈A, π_v is unramified, v∉R^c and H²(F_v,ad r̄)=0. A contains two places of different residue characteristics. Enlarge the finite p-adic coefficient field E to contain the Galois closure of F, the residual values, ζ_p, all auxiliary characters and fields of definition of geometric local components. Its ring of integers is O, uniformizer ϖ and residue field k. Neither a polarization nor a fixed determinant is part of these data.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:G7/adequate-subgroup",
@@ -149,7 +149,7 @@
         {
           "sourceId": "BCGNT25",
           "locator": "§3.2, eight preparation conditions, pp. 32–33; Remark 3.2.2, p. 32",
-          "match": "Prepared weight-zero lifting data; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
+          "match": "Prepared weight-zero lifting data; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs. This is the n≥2 patching specialization of the source profile; n=1 in the final global theorems uses the separate rank-one realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -833,7 +833,7 @@
       ],
       "proofSteps": [
         "Apply MT Proposition 6.7 and its adequate projector/dual-Selmer argument simultaneously to the two systems, whose special-fibre deformation problems coincide. The scalar-outside hypothesis in the final theorem implies ζ_p∉F; include this certificate in the arithmetic application of the prime theorem.",
-        "Use MT §§2–3 block parahoric calculations, not the enormous-image all-distinct-eigenvalue tower. MT Theorem 7.6 gives derived invariants on cohomology; duality gives the stated derived coinvariant augmentation. Good covers and ALS finiteness give uniform bounded perfect models.",
+        "Use MT §§2–3 block parahoric calculations, not the enormous-image all-distinct-eigenvalue tower. MT Theorem 7.6 gives derived invariants on cohomology; duality gives the stated derived coinvariant augmentation. Good covers and ALS finiteness give uniform bounded perfect models. Use the SR.2/SR.5/ALS.6 convention comparison required by source issue E7; the printed first-selected-block partitions are not a literal instance of the last-selected-block level specified here.",
         "Use MT Theorem 7.7 for the selected-block tame Galois condition and CN Theorem 4.2.15 for the crystalline p-condition. Combine them with the WZ.1 Hecke argument and fixed residual coefficient identity. The auxiliary Q and Q^c levels satisfy CN’s parabolic alternatives.",
         "Lift compatible presentations through formal smoothness of the power-series source; use the common residual identification when choosing both sets of lifts. Feed these finite-level data to the existing P8 interface."
       ],
@@ -850,7 +850,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.5 proof, items (1)–(5), pp. 34–35; MT Proposition 6.7, p. 22; Theorems 7.6–7.7, pp. 26–28; §8, pp. 28–30",
+          "locator": "Theorem 3.2.5 proof, items (1)–(5), pp. 34–35",
           "match": "Adequate crystalline finite-level tower; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -905,7 +905,7 @@
         {
           "name": "WeightZero.test_tower_rank",
           "kind": "computation",
-          "statement": "For q=3 and n=2, Δ∞ has rank 3, not 6."
+          "statement": "For a prepared n=2, f=5 profile with both dual Selmer dimensions less than 20, take q=20: Δ∞ has rank 20, not 40, and g=0. Five equal-degree p-places satisfy the profile’s strict complementary-degree condition."
         },
         {
           "name": "WeightZero.test_tower_dual_augmentation",
@@ -916,6 +916,11 @@
           "name": "WeightZero.test_tower_depth",
           "kind": "non-example",
           "statement": "A constant quotient Z_p^q→(Z/p)^q for all N fails the shrinking-kernel condition even though the number of generators stays q."
+        },
+        {
+          "name": "WeightZero.test_tower_selected_block",
+          "kind": "non-example",
+          "statement": "For n=3 and a selected eigenvalue of multiplicity d=1, the ordered blocks are (2,1), the last degree-one polynomial is X−α, and the diamond character acts on that last rank-one block. Using (1,2) with a last-block diamond would select a rank-two block and fails this specification."
         }
       ],
       "uses": [
@@ -959,7 +964,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.5 proof, item (6), pp. 34–35; ACC Theorem 2.4.10(2), pp. 52–55 and §§6.4–6.5; MT §8, pp. 29–30",
+          "locator": "Theorem 3.2.5 proof, item (6), pp. 34–35",
           "match": "Adequate dimension and dual cohomological balance; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -1126,7 +1131,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.5 and proof, pp. 34–35; CN Proposition 5.4.2 and Corollary 5.4.3, pp. 77–79",
+          "locator": "Theorem 3.2.5 and proof, pp. 34–35",
           "match": "Prepared weight-zero support propagation; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -1180,7 +1185,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.1 proof, p. 35; ACC §6.5.12, pp. 175–179",
+          "locator": "Theorem 3.2.1 proof, p. 35",
           "match": "Solvable preparation with p split completely; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -1324,7 +1329,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.1, pp. 31–32; MT Theorem 1.3, pp. 2–3, rank-one boundary",
+          "locator": "Theorem 3.2.1, pp. 31–32, rank-one boundary",
           "match": "Rank-one character realization; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         }
       ],
@@ -1369,7 +1374,7 @@
       "sources": [
         {
           "sourceId": "BCGNT25",
-          "locator": "Theorem 3.2.1, pp. 31–32; proof, p. 35; ACC §6.5.12, pp. 175–179",
+          "locator": "Theorem 3.2.1, pp. 31–32; proof, p. 35",
           "match": "Global weight-zero crystalline automorphy lifting; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -1392,7 +1397,7 @@
       ],
       "title": "Adequate ordinary patching verification",
       "kind": "theorem",
-      "statement": "In the ordinary preparation of ACC §6.5.12, replace the enormous-image Taylor–Wiles prime tower by MT Proposition 6.7’s adequate selected-block tower, retaining the ordinary local rings and the ordinary Hecke characters from PA.2. The last-block diamond quotient has q directions and the presentation has g=q−n²[F⁺:Q] variables. MT §§2–7 gives level growth, augmentation and the selected-block Galois condition away from p. PA.2 ordinary local–global compatibility supplies the p-local triangular identities; the ordinary preparation extends the p-local characters to the full chosen inertia and ensures the weight compatibility at roots of unity needed for its local deformation rings. P8 patching and P9 support propagation then give the adequate analogue of the prepared ordinary support/lifting result used in ACC’s proof of its ordinary theorem. No weight-zero generic-reducedness input or Fontaine–Laffaille restriction is used. The statement is the verification of the adequate substitution in MT Theorem 1.3’s proof, not a second definition of ordinarity or a new proof of its existing local theory. The prepared ordinary hypotheses are ACC §6.6.1 conditions (1)–(15), with adequate replacing enormous: n≥2, p>n, a good imaginary-quadratic-split CM field, a residual absolutely irreducible decomposed-generic seed, R with trivial local residual representation and q_v≡1 mod p, two auxiliary H²=0 places, and p-local residual triviality with [F_v:Q_p]>n(n+1)/2+1. The seed has ordinary Iw_v(1,1)-fixed vectors and weight μ. The lift has the same reduction, is unramified outside S and unipotently ramified at R, and its ordered diagonal characters have the λ formula on all chosen inertia. For every p-power root of unity x∈O_{F_v} and i, require ∏_ττ(x)^{λ_{τ,n+1−i}−μ_{ιτ,n+1−i}}=1. Work over the ordinary weight-algebra branch Λ given by a minimal prime of the weight algebra, with Λ-linear normalized dual completed homology and its weight-character specialization. At the λ point the distinct inertia characters put it on a maximal-dimensional ordinary component; do not assert all ordinary components are smooth or in support.",
+      "statement": "In the ordinary preparation of ACC §§6.6.1 and 6.6.10, with ζ_p∉F, replace the enormous-image Taylor–Wiles prime tower by MT Proposition 6.7’s adequate selected-block tower, retaining the ordinary local rings and the ordinary Hecke characters from PA.2. The last-block diamond quotient has q directions and the presentation has g=q−n²[F⁺:Q] variables. MT §§2–7 gives level growth, augmentation and the selected-block Galois condition away from p. PA.2 ordinary local–global compatibility supplies the p-local triangular identities; the ordinary preparation extends the p-local characters to the full chosen inertia and ensures the weight compatibility at roots of unity needed for its local deformation rings. P8 patching and P9 support propagation then give the adequate analogue of the prepared ordinary support/lifting result used in ACC’s proof of its ordinary theorem. No weight-zero generic-reducedness input or Fontaine–Laffaille restriction is used. The statement is the verification of the adequate substitution in MT Theorem 1.3’s proof, not a second definition of ordinarity or a new proof of its existing local theory. The prepared ordinary hypotheses are ACC §6.6.1 conditions (1)–(15), with adequate replacing enormous: n≥2, p>n, a good imaginary-quadratic-split CM field, a residual absolutely irreducible decomposed-generic seed, R with trivial local residual representation and q_v≡1 mod p, two auxiliary H²=0 places, and p-local residual triviality with [F_v:Q_p]>n(n+1)/2+1. The seed has ordinary Iw_v(1,1)-fixed vectors and weight μ. The lift has the same reduction, is unramified outside S and unipotently ramified at R, and its ordered diagonal characters have the λ formula on all chosen inertia. For every p-power root of unity x∈O_{F_v} and i, require ∏_ττ(x)^{λ_{τ,n+1−i}−μ_{ιτ,n+1−i}}=1. Work over the ordinary weight-algebra branch Λ given by a minimal prime of the weight algebra, with Λ-linear normalized dual completed homology and its weight-character specialization. At the λ point the distinct inertia characters put it on a maximal-dimensional ordinary component; do not assert all ordinary components are smooth or in support.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:G7/adequate-subgroup",
@@ -1409,8 +1414,8 @@
         "LocalGaloisDeformationRings:R08.5"
       ],
       "proofSteps": [
-        "Use the ordinary variant of ACC’s preparation, with adequate image preserved by equality of residual images and test-prime splitting.",
-        "Use MT Proposition 6.7, §§2–7 and the §8 modification of ACC’s patching proof. Ordinary local rings have their existing smooth component properties, so the adequate arithmetic tower is the changed input.",
+        "Use the ordinary variant of ACC’s preparation, with adequate image preserved by equality of residual images and test-prime splitting. Preserve the scalar-outside-cyclotomic witness of the final theorem; it supplies ζ_p∉F for MT Proposition 6.7. The prepared assertion here explicitly requires that noncontainment certificate.",
+        "Use MT Proposition 6.7, §§2–7 and the §8 modification of ACC’s patching proof. Ordinary local rings have their existing smooth component properties, so the adequate arithmetic tower is the changed input. Use the SR.2/SR.5/ALS.6 convention comparison required by source issue E7; the printed first-selected-block partitions are not a literal instance of the last-selected-block level specified here.",
         "Use the ordinary Λ-linear nilpotent maps, normalized dual completed-homology augmentation and weight specialization from PA.2/PA.4 (ACC Propositions 6.6.7–6.6.9 and Corollary 6.6.6). Apply P9/ACC Corollary 6.3.9 at the λ point: distinct inertia characters give the required maximal-dimensional ordinary component. This proves the prepared lift, rather than full support on all ordinary components."
       ],
       "acceptance": [
@@ -1425,7 +1430,7 @@
       "sources": [
         {
           "sourceId": "MT23",
-          "locator": "Theorem 1.3, pp. 2–3; §8, pp. 28–30; Proposition 6.7, p. 22; ACC §§6.6.1–6.6.10, pp. 179–189",
+          "locator": "Theorem 1.3, pp. 2–3; §8, pp. 28–30; Proposition 6.7, p. 22",
           "match": "Adequate ordinary patching verification; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
@@ -1480,13 +1485,18 @@
       "sources": [
         {
           "sourceId": "MT23",
-          "locator": "Theorem 1.3, pp. 2–3; proof framework §8, pp. 28–30; BCGNT §6.2, proof of Theorem 6.2.4, p. 60",
+          "locator": "Theorem 1.3, pp. 2–3; proof framework §8, pp. 28–30",
           "match": "Adequate ordinary automorphy lifting; this node records the proof-specific arithmetic instance, with supplier-owned objects kept as inputs."
         },
         {
           "sourceId": "ACC23v2",
           "locator": "§6.6.1–6.6.10, pp. 179–189",
           "match": "Prepared ordinary local conditions, weight specialization and pointwise support/descent."
+        },
+        {
+          "sourceId": "BCGNT25",
+          "locator": "§6.2, proof of Theorem 6.2.4, p. 60",
+          "match": "Application of the adequate ordinary theorem, preserving common-unramified places."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1576,7 +1586,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.2",
-      "need": "Part II parahoric (n−d,d) invariants, last-block determinant diamond quotient, localized eigenvalue projectors and MT Proposition 2.14’s modular parahoric comparison, including d=n and repeated chosen eigenvalues; prove the actual localized level-growth input, not just an abstract finite-cover statement.",
+      "need": "Part II parahoric (n−d,d) invariants, last-block determinant diamond quotient, localized eigenvalue projectors and MT Theorem 2.14’s modular parahoric comparison, including d=n and repeated chosen eigenvalues; prove the actual localized level-growth input, not just an abstract finite-cover statement. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1584,7 +1594,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.5",
-      "need": "Part II integral/residue-field selected-block Hecke calculation and local-parameter compatibility from MT §§2–3, pp. 3–15, used in its Theorems 7.6–7.7. Existing characteristic-zero Bernstein families do not supply this modular comparison. Handle nongeneric local complex representations in the actual local calculation.",
+      "need": "Part II integral/residue-field selected-block Hecke calculation and local-parameter compatibility from MT §§2–3, pp. 3–15, used in its Theorems 7.6–7.7. Existing characteristic-zero Bernstein families do not supply this modular comparison. Handle nongeneric local complex representations in the actual local calculation. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1592,7 +1602,7 @@
     },
     {
       "supplier": "ArithmeticLocallySymmetricSpaces:ALS.6",
-      "need": "MT Theorem 7.6, pp. 26–27, localized K→K₀(Q) comparison and RΓ(K₀(Q))≅RΓ(Δ_Q,RΓ(K₁(Q))); after duality export derived O[Δ_Q]-coinvariant augmentation and uniformly bounded perfect representatives, compatibly for χ and 1. Coordinate selected-block inputs with SR.2/SR.5.",
+      "need": "MT Theorem 7.6, pp. 26–27, localized K→K₀(Q) comparison and RΓ(K₀(Q))≅RΓ(Δ_Q,RΓ(K₁(Q))); after duality export derived O[Δ_Q]-coinvariant augmentation and uniformly bounded perfect representatives, compatibly for χ and 1. Coordinate selected-block inputs with SR.2/SR.5. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1688,7 +1698,8 @@
       "remaining": [
         "Integrate the exact supplier exports: ArithmeticLocallySymmetricSpaces:ALS.5, IntegralHeckeAndGaloisDeterminants:IHG.5, GlobalGaloisDeformations:G7, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.5, ArithmeticLocallySymmetricSpaces:ALS.6.",
         "Adequate finite-level covers, Λ/O-perfect complexes, patching datum and the arithmetic support signature; only integer dimension identities are typed. See the indexed prototype gap.",
-        "Verify the full prepared ζ_p∈F support boundary (GAP-CYCLOTOMIC); the global lifting application supplies ζ_p∉F."
+        "Verify the full prepared ζ_p∈F support boundary (GAP-CYCLOTOMIC); the global lifting application supplies ζ_p∉F.",
+        "Discharge MT source issue E7 through the joint SR.2/SR.5/ALS.6 ordered-block, projector, diamond and boundary-Hecke compatibility contract; see GAP-BLOCK-CONVENTION."
       ]
     },
     {
@@ -1704,7 +1715,8 @@
       "status": "planned",
       "remaining": [
         "Integrate the exact supplier exports: DeformationAndDerivedPatchingAlgebra:P9, GlobalGaloisDeformations:G7, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.5, ArithmeticLocallySymmetricSpaces:ALS.6, DeformationAndDerivedPatchingAlgebra:P8, AutomorphicGaloisRepresentationsPartII:AG2.5, PotentialAutomorphyInfrastructure:PA.4, LocalGaloisDeformationRings:R08.5.",
-        "Ordinary local flags/weight characters, weight-algebra branch, completed homology and ordinary automorphic conclusions. See the indexed prototype gap."
+        "Ordinary local flags/weight characters, weight-algebra branch, completed homology and ordinary automorphic conclusions. See the indexed prototype gap.",
+        "Discharge MT source issue E7 through the joint SR.2/SR.5/ALS.6 ordered-block, projector, diamond and boundary-Hecke compatibility contract; see GAP-BLOCK-CONVENTION."
       ]
     }
   ],
@@ -1808,7 +1820,7 @@
       "id": "WeightZeroCrystallineAutomorphyLifting/GAP-SUPPLIER-10",
       "kind": "supplier",
       "title": "SmoothRepresentationsOfLocalGroups:SR.2 export",
-      "detail": "Part II parahoric (n−d,d) invariants, last-block determinant diamond quotient, localized eigenvalue projectors and MT Proposition 2.14’s modular parahoric comparison, including d=n and repeated chosen eigenvalues; prove the actual localized level-growth input, not just an abstract finite-cover statement.",
+      "detail": "Part II parahoric (n−d,d) invariants, last-block determinant diamond quotient, localized eigenvalue projectors and MT Theorem 2.14’s modular parahoric comparison, including d=n and repeated chosen eigenvalues; prove the actual localized level-growth input, not just an abstract finite-cover statement. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1818,7 +1830,7 @@
       "id": "WeightZeroCrystallineAutomorphyLifting/GAP-SUPPLIER-11",
       "kind": "supplier",
       "title": "SmoothRepresentationsOfLocalGroups:SR.5 export",
-      "detail": "Part II integral/residue-field selected-block Hecke calculation and local-parameter compatibility from MT §§2–3, pp. 3–15, used in its Theorems 7.6–7.7. Existing characteristic-zero Bernstein families do not supply this modular comparison. Handle nongeneric local complex representations in the actual local calculation.",
+      "detail": "Part II integral/residue-field selected-block Hecke calculation and local-parameter compatibility from MT §§2–3, pp. 3–15, used in its Theorems 7.6–7.7. Existing characteristic-zero Bernstein families do not supply this modular comparison. Handle nongeneric local complex representations in the actual local calculation. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1828,7 +1840,7 @@
       "id": "WeightZeroCrystallineAutomorphyLifting/GAP-SUPPLIER-12",
       "kind": "supplier",
       "title": "ArithmeticLocallySymmetricSpaces:ALS.6 export",
-      "detail": "MT Theorem 7.6, pp. 26–27, localized K→K₀(Q) comparison and RΓ(K₀(Q))≅RΓ(Δ_Q,RΓ(K₁(Q))); after duality export derived O[Δ_Q]-coinvariant augmentation and uniformly bounded perfect representatives, compatibly for χ and 1. Coordinate selected-block inputs with SR.2/SR.5.",
+      "detail": "MT Theorem 7.6, pp. 26–27, localized K→K₀(Q) comparison and RΓ(K₀(Q))≅RΓ(Δ_Q,RΓ(K₁(Q))); after duality export derived O[Δ_Q]-coinvariant augmentation and uniformly bounded perfect representatives, compatibly for χ and 1. Coordinate selected-block inputs with SR.2/SR.5. Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
         "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
@@ -1985,6 +1997,16 @@
       "neededBy": [
         "WeightZeroCrystallineAutomorphyLifting:WZ.3/prepared-weight-zero-support"
       ]
+    },
+    {
+      "id": "WeightZeroCrystallineAutomorphyLifting/GAP-BLOCK-CONVENTION",
+      "kind": "mathematical proof input",
+      "title": "Selected-block local/global convention comparison",
+      "detail": "Reconcile the source block convention before importing the global comparison: MT §3 defines the diamond kernel on the last block (pp. 10–11), and §2 selects that block (pp. 7–9), while §5 and Theorem 7.6 put the selected multiplicity d first (pp. 18, 26). Export the (n−d,d) convention with the selected polynomial, projector, last-block diamond and D_v^1 action transported together, including the boundary Hecke map; a permutation of the partition alone does not establish compatibility.",
+      "neededBy": [
+        "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification"
+      ]
     }
   ],
   "sourceIssues": [
@@ -2002,7 +2024,12 @@
         "BCGNT published author copy p. 32 and arXiv:2309.15880v3 §3.2",
         "PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json sourceIssues; the extraction item 44 retains the printed degree",
         "ACC arXiv v2 p. 178 and MT published p. 28 for the intended inequality"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published preparation condition (2), p. 32, prints a global field degree over Q_p. The corrected global degree over Q is also the one used in the local-degree sum and the analogous ACC/MT preparation.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     },
     {
       "id": "WeightZeroCrystallineAutomorphyLifting/E2",
@@ -2018,7 +2045,12 @@
         "The published author copy p. 31",
         "Reviewed BCGNT extraction sourceIssue E20",
         "IHG.3/gln-hecke-polynomial and geometric Frobenius conversion"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed polynomial on p. 31 has a positive final term. Its preceding alternating formula and the n=1 and n=3 characteristic-polynomial specializations require the stated sign.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     },
     {
       "id": "WeightZeroCrystallineAutomorphyLifting/E3",
@@ -2034,7 +2066,12 @@
         "ACC arXiv v2 pp. 174–175 and 185–186",
         "Reviewed parent packet sourceIssue E58",
         "MT Proposition 6.7 and §8, pp. 22, 29"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The initial g values on ACC pp. 174 and 185 subtract n²f, while the later recollections on pp. 175 and 186 subtract nf. MT Proposition 6.7, p. 22, changes qn to q while retaining n²f; the packet dimension identity confirms that count.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     },
     {
       "id": "WeightZeroCrystallineAutomorphyLifting/E4",
@@ -2049,7 +2086,12 @@
       "searched": [
         "ACC arXiv v2 pp. 175–176",
         "Reviewed parent packet E60 and PA.5/soluble-base-change-and-descent"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "ACC Proposition 6.5.13 states every-place local identities, but its proof on pp. 175–176 explicitly compares almost all places. The parent supplier includes the missing actual local base-change/LLC input; Frobenius uniqueness alone does not supply monodromy at bad places.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     },
     {
       "id": "WeightZeroCrystallineAutomorphyLifting/E5",
@@ -2064,7 +2106,12 @@
       "searched": [
         "ACC arXiv v2 p. 178",
         "Reviewed parent packet E61 and ordinary-base-change-fields"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quadratic example on ACC p. 178 omits congruences at the finite test set that its preceding splitting requirement needs. Including those congruences is compatible with the bad-prime choices and is necessary for the claimed test-place image argument.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     },
     {
       "id": "WeightZeroCrystallineAutomorphyLifting/E6",
@@ -2080,7 +2127,32 @@
         "BCGNT published §3.2, pp. 32–35",
         "MT published Proposition 6.7 and §8, pp. 22, 28–30",
         "ACC arXiv v2 §§6.4–6.5 and the existing G7/G8 presentation statements"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "BCGNT Theorem 3.2.5 has no cyclotomic noncontainment assumption, whereas MT Proposition 6.7 explicitly has it. The prepared conditions do not imply noncontainment. This confirms a missing justification for that method at ζ_p∈F, not a counterexample; the separate G7 gap remains honest and the final theorem supplies noncontainment.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
+    },
+    {
+      "id": "WeightZeroCrystallineAutomorphyLifting/E7",
+      "sourceId": "MT23",
+      "kind": "gap",
+      "locator": "§2 selected-block projector, pp. 7–9; §3 parahoric diamond definition, pp. 10–11; §5 partitions and localized polynomial order, pp. 18–20; Theorem 7.6, p. 26, published PDF",
+      "printed": "The local projector and diamond construction use the last block, but the later global partitions and polynomial ordering put the selected eigenvalue block first. This records the discrepancy in our own words.",
+      "correction": "Use one consistent ordered-block convention throughout the local and global comparison. This packet specifies (n−d,d) with the selected block last; SR.2/SR.5/ALS.6 must verify the matching projector, level-growth map, boundary Hecke map and diamond-linear Galois deformation condition together.",
+      "reason": "For unequal block sizes, the last-block determinant in the printed (d,n−d) partition belongs to the complement, while the selected eigenvalue polynomial has degree d. Permuting only the partition leaves the diamond action and selected polynomial inconsistent.",
+      "affects": "the proof",
+      "known": "No resolution established in the consulted published text or atlas source-issue register. This is a comparison obligation, not a claim that the automorphy theorem is false.",
+      "searched": [
+        "MT published §§2–3, §5 and Theorems 7.6–7.7",
+        "Atlas data/source-issues.json and available MT references in paper/parent packets"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed first-block selected polynomial on pp. 18–20 and 26 disagrees with the last-block kernel and projector on pp. 7–11. The repaired specification is internally consistent; the full global comparison is explicitly requested rather than assumed.",
+        "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting"
+      }
     }
   ],
   "sourceVersions": [
@@ -2096,7 +2168,7 @@
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A36C754C24E9258E1E062C62378BF1E/S2050509423000038a.pdf/automorphy-lifting-with-adequate-image.pdf",
       "read": "2026-10-11",
       "sha256": "a84934a7a67f5c9bcf737a0189befd448654a9bb93674d5e169afbccce2a1a23",
-      "scope": "Theorems 1.2–1.3, pp. 1–3; §§2–3, pp. 3–15, selected-block local representation calculations; §6, pp. 19–22, especially Proposition 6.7; Theorems 7.6–7.7, pp. 26–28; §8, pp. 28–30, finite-level tower and adequate substitution"
+      "scope": "Theorems 1.2–1.3, pp. 1–3; §§2–3, pp. 3–15, selected-block local representation calculations; §5, pp. 17–20, block order and boundary Hecke maps; §6, pp. 20–22, especially Proposition 6.7; Theorems 7.6–7.7, pp. 26–28; §8, pp. 28–30, finite-level tower and adequate substitution"
     },
     {
       "kind": "preprint",
@@ -2258,7 +2330,12 @@
       "CN Lemma 5.3.3 and the R08.4 BT generalization theorem are rank-two special cases; the general algebra bridge and n-dimensional weight-zero reducedness retain separate owners.",
       "MT Theorem 8.1 is Fontaine–Laffaille with p>n², so its final full-support assertion does not supply the p>n crystalline theorem.",
       "Existing ordinary and enormous-image towers are inputs to extend, not substitutes for adequate selected-block primes."
-    ]
+    ],
+    "review": {
+      "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+      "date": "2026-10-11",
+      "note": "Read all 37 direct supplier-node statements and the 20 supplier contracts. Confirmed all five baseline declarations in source files byte-identical to GitHub at the pin; no citation was removed. Partial prototypes and geometric/ordinary/adequate near misses remain explicit requests and gaps."
+    }
   },
   "upstreamAudit": {
     "readDate": "2026-10-11",
@@ -2276,14 +2353,17 @@
       "OrthogonalSpinGroups",
       "PeripheralActions",
       "ProfiniteArithmetic",
-      "RealAlgebraicGeometry",
-      "ContourIntegration",
-      "EffectiveBounds",
-      "OrthogonalL2Bases",
-      "RestrictedProducts"
+      "RealAlgebraicGeometry"
     ],
     "method": "Read the current Suggested.lean files through targeted searches for adequate, crystalline, deformation, automorphy, component and relevant coefficient interfaces, and inspected LocalGaloisGroups/ProfiniteArithmetic nearby declarations. Searched current TauCeti source as well as the pinned full trees. No weight-zero lifting or adequate arithmetic tower API found. Import current ClassFieldTheory Layers 7/11 and algebraic representation vocabulary rather than rebuilding them.",
-    "links": "No file in research/blueprint/links names this new roadmap or either of its split prerequisites. Read the accepted split and current atlas supplier layer descriptions. The new stage requires edges are generated from the actual packet prerequisites."
+    "links": "No file in research/blueprint/links names this new roadmap or either of its split prerequisites. Read the accepted split and current atlas supplier layer descriptions. The new stage requires edges are generated from the actual packet prerequisites.",
+    "review": {
+      "by": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+      "date": "2026-10-11",
+      "roadmapCommit": "c251d2e42c66f14c279d1e5c2708c5a91d8c8aec",
+      "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "note": "Independently searched the nine later roadmap readers and available Suggested files, the current Tau Ceti source, and the pinned full trees. Read current ClassFieldTheory Layers 7 and 11 and the LocalGaloisGroups/ProfiniteArithmetic scope. No duplicate weight-zero lifting or adequate arithmetic tower was found. Removed four absent directory names from currentMainScreen."
+    }
   },
   "prototypeCoverage": [
     {
@@ -2413,7 +2493,8 @@
         "WeightZero.test_tower_base_level",
         "WeightZero.test_tower_rank",
         "WeightZero.test_tower_dual_augmentation",
-        "WeightZero.test_tower_depth"
+        "WeightZero.test_tower_depth",
+        "WeightZero.test_tower_selected_block"
       ]
     },
     {
@@ -2510,5 +2591,118 @@
       "omittedApi": [],
       "omittedTests": []
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review of all 21 nodes, all five pinned baseline declarations, 37 direct supplier statements, 20 requests, 31 API items, 30 tests, 21 planets, four public source versions and the current upstream/library audit. Corrected the higher-rank prepared interface, the tower example, ordinary noncontainment and locators, and added source issue E7 with an explicit ordered-block supplier gap. All seven sourceIssues were independently confirmed. Accepted as a complete target-planning pass: six stages are planned, none closed, and all 28 gaps remain explicit. Lean elaborated with only placeholder-proof warnings; arithmetic prototypes are omitted/indexed honestly. This verdict does not assert proof completion or availability of the requested supplier extensions.",
+    "checked": [
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.0/prepared-profile",
+        "verdict": "corrected",
+        "note": "BCGNT §3.2, pp. 32–33: retained the eight arithmetic conditions and coefficient enlargement, but made this prepared patching interface n≥2 to match its crystalline supplier. The final n=1 branch remains separate."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.0/prepared-level",
+        "verdict": "verified",
+        "note": "BCGNT §3.1.1, p. 30: checked all four local-level cases and neatness via the two auxiliary residue characteristics; the generic subgroup API and four tests match the target."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.0/auxiliary-coefficient",
+        "verdict": "verified",
+        "note": "BCGNT §3.1.1, p. 30: checked the inverse aggregate scalar character, diagonal quotient, trivial residual comparison, four APIs and four tests against the actual Mathlib representation carrier."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.0/crystalline-global-problem",
+        "verdict": "verified",
+        "note": "BCGNT §3.1.3, pp. 31–32 and G8: checked variable determinant, weight-zero crystalline p-factors, tame characteristic polynomials, unrestricted auxiliary factors and n²|S|−1 framing. Representability remains supplier-owned."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.1/crystalline-deformation-hecke-map",
+        "verdict": "verified",
+        "note": "BCGNT Proposition 3.1.2, p. 31; CN Theorem 4.2.15, pp. 71–72; ACC Lemmas 6.2.25–6.2.26, pp. 146–147: checked torsion crystalline compatibility, actual tame factorization, uniform nilpotence, surjectivity and spectral pullback of support."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.1/weight-zero-cohomological-recognition",
+        "verdict": "verified",
+        "note": "ACC Theorem 2.4.10, pp. 52–55: checked the weight-zero cohomological range and cuspidal recognition after absolutely irreducible residual localization; Franke and parabolic exclusion remain explicit supplier contracts."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.2/local-tensor-dimension",
+        "verdict": "verified",
+        "note": "BCGNT Lemmas 3.2.3–3.2.4, pp. 33–34: checked the local dimensions, variable determinant and tensor/power-series count. The n-dimensional special-fibre reducedness theorem stays with R08.3."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.2/unique-special-generalization",
+        "verdict": "verified",
+        "note": "BCGNT Lemma 3.2.4, pp. 33–34; CN Lemma 5.3.3, pp. 76–77: checked the O-flat, generically reduced special-fibre DVR argument. The general algebra request does not silently import the rank-two Barsotti–Tate statement."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.2/distinct-type-component-projection",
+        "verdict": "verified",
+        "note": "BCGNT Lemma 3.2.3 and Lemma 3.2.4, pp. 33–34: checked distinct-character geometric irreducibility and unique local-component projection through tensor/power-series factors."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.2/unique-characteristic-zero-p-component",
+        "verdict": "verified",
+        "note": "BCGNT Remark 3.2.2 and Lemma 3.2.4, pp. 32–34: checked characteristic-zero regularity and the crystalline connects interpretation; comparison with the supplier definition over large extensions is explicitly requested."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.2/residual-component-transport",
+        "verdict": "verified",
+        "note": "BCGNT Lemma 3.2.4 and Theorem 3.2.5, pp. 33–35: checked special generic points, codimension one, p-component labels and transport between χ and trivial residual systems using the common special fibre."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-crystalline-finite-level-tower",
+        "verdict": "corrected",
+        "note": "BCGNT Theorem 3.2.5, pp. 34–35; MT Proposition 6.7, p. 22 and Theorems 7.6–7.7, pp. 26–28: corrected the q-bound example, added the selected-block non-example, and made the local/global block comparison an explicit joint supplier gap. Dual augmentation, uniform errors, residual identification and shrinking kernels were checked."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-dimension-balance",
+        "verdict": "corrected",
+        "note": "BCGNT Theorem 3.2.5, pp. 34–35; MT §8, pp. 29–30; ACC Theorem 2.4.10: verified q diamond directions, g=q−n²f, j=n²|S|−1, ℓ=nf−1 and the dual shift. Corrected per-source locators."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.3/weight-zero-patched-system",
+        "verdict": "verified",
+        "note": "BCGNT Theorem 3.2.5, pp. 34–35; CN Proposition 5.4.2 and Corollary 5.4.3, pp. 77–79: checked the paired P8 datum, compatible augmentations, same residual rings/complexes and common bounded nilpotent errors."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.3/prepared-weight-zero-support",
+        "verdict": "corrected",
+        "note": "BCGNT Theorem 3.2.5, pp. 34–35; CN Proposition 5.4.2 and Corollary 5.4.3: verified the componentwise support target and recorded suppliers. Corrected per-source locators. The full prepared ζ_p∈F boundary remains GAP-CYCLOTOMIC rather than an unproved invocation of MT Proposition 6.7."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.4/solvable-weight-zero-preparation",
+        "verdict": "corrected",
+        "note": "BCGNT proof of Theorem 3.2.1, p. 35; ACC §6.5.12, pp. 175–179: checked p-place splitting without requiring p to be absolutely unramified, degree enlargement, local prescriptions and preservation of residual/cyclotomic images. Corrected per-source locators."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.4/prepared-weight-zero-realization",
+        "verdict": "verified",
+        "note": "BCGNT proof of Theorem 3.2.1, p. 35: checked realization from support and cuspidal cohomological recognition. Hyperspecial p-factors ensure p-unramifiedness; auxiliary pro-Iwahori fixed vectors alone are not used for that conclusion."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.4/rank-one-character-realization",
+        "verdict": "corrected",
+        "note": "BCGNT Theorem 3.2.1, pp. 31–32 and MT Theorem 1.3, pp. 2–3: checked the separate n=1 character realization using existing local/global Artin reciprocity, coefficient-valued labelled rank-one p-adic Hodge characters and GL1 attachment. Removed a cross-paper locator from the BCGNT source entry."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.4/weight-zero-crystalline-automorphy-lifting",
+        "verdict": "corrected",
+        "note": "BCGNT Theorem 3.2.1, pp. 31–32 and proof p. 35: verified p>n, adequate cyclotomic residual image, decomposed genericity, scalar witness, weight-zero crystalline/connects hypotheses and both CM/totally real inputs. Soluble descent and Varma preserve common-unramified places, including p. Corrected per-source locators."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-patching-verification",
+        "verdict": "corrected",
+        "note": "MT Theorem 1.3, pp. 2–3 and §8, pp. 28–30; ACC §6.6, pp. 179–189: corrected the ordinary preparation locator and made ζ_p∉F explicit. Checked full-inertia ordered characters, roots-of-unity compatibility, the Λ-linear normalized dual augmentation and pointwise maximal-dimensional support. Added the same ordered-block comparison obligation as in WZ.3."
+      },
+      {
+        "nodeId": "WeightZeroCrystallineAutomorphyLifting:WZ.5/adequate-ordinary-automorphy-lifting",
+        "verdict": "corrected",
+        "note": "MT Theorem 1.3, pp. 2–3; ACC §6.6.10, pp. 187–189; BCGNT p. 60: verified regular ordinary weights, adequate residual assumptions, separate rank-one case and common-unramified conclusion away from p. Split the BCGNT application into its own source entry."
+      }
+    ]
+  }
 }

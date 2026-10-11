@@ -240,7 +240,7 @@ Omitted examples: none.
 Adequate finite-level covers, Λ/O-perfect complexes, patching datum and the arithmetic support signature; only integer dimension identities are typed.
 Omitted target signature: `WeightZero.AdequateCrystallineTower`.
 Omitted API signatures: `WeightZero.AdequateCrystallineTower.primes`, `WeightZero.AdequateCrystallineTower.presentations`, `WeightZero.AdequateCrystallineTower.augment`, `WeightZero.AdequateCrystallineTower.residual`, `WeightZero.AdequateCrystallineTower.uniform`.
-Omitted examples: `WeightZero.test_tower_repeated_eigenvalue`, `WeightZero.test_tower_base_level`, `WeightZero.test_tower_rank`, `WeightZero.test_tower_dual_augmentation`, `WeightZero.test_tower_depth`.
+Omitted examples: `WeightZero.test_tower_repeated_eigenvalue`, `WeightZero.test_tower_base_level`, `WeightZero.test_tower_rank`, `WeightZero.test_tower_dual_augmentation`, `WeightZero.test_tower_depth`, `WeightZero.test_tower_selected_block`.
 
 ### WeightZeroCrystallineAutomorphyLifting:WZ.3/adequate-dimension-balance
 Generic algebraic signature elaborates; arithmetic dimension and cohomology assertions is omitted and indexed.
