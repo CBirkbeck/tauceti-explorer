@@ -4,7 +4,7 @@
   "area": "commutative",
   "parent": "DeformationAndDerivedPatchingAlgebra",
   "summary": "This continuation starts after the finite-module depth, support and Cohen–Macaulay theory of DeformationAndDerivedPatchingAlgebra R03.3. It develops ordered CM-secant and Huneke d-sequences, Kawasaki’s product-of-prefix-ideals calculus and blowing-ups of modules. The final target is a Cohen–Macaulay module blowing-up along the ideal determined by a CM-secant sequence, with the actual local-cohomology claims and dimension bound needed by the proof.",
-  "readme": "A source-faithful continuation of local commutative algebra. See the matching reader document for exact conventions, corrected source statements and checkpoint coverage. Generic local cohomology and secant/depth/CM theory remain in R03.3; normalized ordinary-ring dualizing complexes are requested from AS.1; scheme blowups and affine charts are imported from StableReduction Layer 4 and module strict transforms from AdicCoefficientsAndComparisons L5.",
+  "readme": "Target-level plan covering all fifteen accepted route items in five layers, with typed suggestions, APIs and discriminating tests. K1 is closed; the other layers are planned with precise source/interface follow-ups. Generic local-cohomology, depth and CM remain in R03.3; normalized ordinary duality is requested from AS.1; existing StableReduction and AlgebraicVectorBundles geometry is reused, and generic module strict-transform gluing is requested from AdicCoefficientsAndComparisons L5.",
   "prerequisites": [
     "DeformationAndDerivedPatchingAlgebra",
     "AnalyticStacks",
@@ -51,7 +51,7 @@
     {
       "key": "K4",
       "title": "Cohen–Macaulay blowing-ups",
-      "description": "Prove the regular-terminal-element reduction and dimension-zero depth induction, with Claims 3.14.5 and 3.14.6 and the actual chart relation r_bT−r_a. Derive the theorem first under the weaker prefix conditions and then for CM-secant sequences. Exhibit the cited CM-ring/maximal-ideal-blowup nonexample.",
+      "description": "Prove the regular-terminal-element reduction and dimension-zero depth induction, with Claims 3.14.5 and 3.14.6 and the actual chart relation r_bT−r_a. Derive the theorem first under the weaker prefix conditions and then for CM-secant sequences. Exhibit an explicit two-dimensional semigroup CM ring and depth-one maximal-ideal blowup chart.",
       "requires": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0",
         "DeformationAndDerivedPatchingAlgebraPartII:K1",
@@ -67,18 +67,89 @@
       "title": "Macaulayfication of Noetherian schemes",
       "authors": "Kęstutis Česnavičius",
       "edition": "arXiv:1810.04493v2, deposited 3 September 2020; not the Duke version of record",
-      "url": "https://arxiv.org/abs/1810.04493v2",
+      "url": "https://arxiv.org/pdf/1810.04493v2",
       "sha256": "a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9",
       "readSections": [
-        "§3 in full, including the proof of Theorem 3.14; readable ar5iv conversion cross-checked against accepted extraction and errata"
+        "§3 in full, pp. 9–17, including Theorem 3.14 and both local-cohomology claims; §1.14, p. 4, for conventions"
       ],
-      "accessDate": "2026-10-04",
-      "conversion": {
-        "url": "https://ar5iv.labs.arxiv.org/html/1810.04493",
-        "sha256": "b7eb46583b8346479567b494d02107533d066e888f8cf65a771ae2f2c41da9d5",
-        "note": "Conversion has generated date August 8, 2026; that is not an author revision date. The PDF edition and the conversion are separate artifacts."
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "KAW96",
+      "title": "On Macaulayfication of local rings—in the case dim non-CM≤2",
+      "authors": "Takesi Kawasaki",
+      "edition": "RIMS Kôkyûroku 964 (1996), pp. 40–50",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/0964-3.pdf",
+      "sha256": "fe179ce84d4da3c01ea4798109094fba0bb22c9e9423c9575fca82711e38eddf",
+      "readSections": [
+        "§§1–2, pp. 40–43, especially Lemma 2.4, Definition 2.5, Theorem 2.6 and Lemma 2.7"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "HJLS",
+      "title": "Coefficient Ideals in and Blowups of a Commutative Noetherian Domain",
+      "authors": "William Heinzer, Bernard Johnston, David Lantz and Kishor Shah",
+      "edition": "Author preprint, Example 3.6 on p. 13",
+      "url": "https://www.math.purdue.edu/~heinzer/preprints/rrii53.pdf",
+      "sha256": "a834ac793daaac38a53bd179c437f47a202c920bfecccc1a1b8a287c271fe85f",
+      "readSections": [
+        "Example 3.6, p. 13; surrounding blowup discussion, pp. 12–13"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "STACKS-DIM",
+      "title": "The Stacks Project: The dimension formula",
+      "authors": "The Stacks Project Authors",
+      "edition": "Unpaginated HTML, accessed 11 October 2026; lemma/section and stable tag are the locators",
+      "url": "https://stacks.math.columbia.edu/tag/02IJ",
+      "sha256": "50f11470b532540b08b9609f0542e9b5656b5528855a9fba2ff06fc80faf6381",
+      "readSections": [
+        "§10.113, Lemma 10.113.1 and its complete proof"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "STACKS-CHART",
+      "title": "The Stacks Project: Blow up algebras",
+      "authors": "The Stacks Project Authors",
+      "edition": "Unpaginated HTML, accessed 11 October 2026; lemma/section and stable tag are the locators",
+      "url": "https://stacks.math.columbia.edu/tag/052P",
+      "sha256": "709ee80c7830e0c429fee54d1df78efaabbd6c6ef4dbdc00220f5a77c80d83bd",
+      "readSections": [
+        "§10.70, Definitions/Examples 10.70.1–10.70.3 and Lemma 10.70.6"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "STACKS-BLOWUP",
+      "title": "The Stacks Project: Product and iterated blowing ups",
+      "authors": "The Stacks Project Authors",
+      "edition": "Unpaginated HTML, accessed 11 October 2026; lemma/section and stable tag are the locators",
+      "url": "https://stacks.math.columbia.edu/tag/080A",
+      "sha256": "360b6b8de56e69c41ed385235c1c38ad519a92ae2b98962b06c5507afdb67a7e",
+      "readSections": [
+        "§31.33, Lemma 31.33.12 and its complete proof"
+      ],
+      "accessDate": "2026-10-11"
+    },
+    {
+      "id": "STACKS-DUAL",
+      "title": "The Stacks Project: Dualizing complexes over local rings",
+      "authors": "The Stacks Project Authors",
+      "edition": "Unpaginated HTML, accessed 11 October 2026; lemma/section and stable tag are the locators",
+      "url": "https://stacks.math.columbia.edu/tag/0A7U",
+      "sha256": "c6b4aa2979278eca2c10c588692e8516cf1911492652244f2699c353efbdf04d",
+      "readSections": [
+        "§47.16, Lemma 47.16.5 and proof; §47.17, Lemma 47.17.3 (tag 0A7Z) and proof"
+      ],
+      "accessDate": "2026-10-11",
+      "additionalArtifact": {
+        "url": "https://stacks.math.columbia.edu/tag/0A7Z",
+        "sha256": "fba666d439a12ff1cf60960fec1ec6d2303ae8cefa916f9da8266aa4a32c3c99"
       }
     }
   ],
-  "status": "draft"
+  "status": "complete"
 }
