@@ -189620,14 +189620,14 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Mihran Papikian, An overview of the theory of Drinfeld modules, Public lecture notes, last modified 9 October 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. The displayed product has derivative one at zero. The functional equation e_Λ(az)=φ_a(e_Λ(z)) has derivatives a on the left and φ_a′(0) on the right. The correction also gives φ_c=cX for constants c."
   },
   {
    "id": "DrinfeldModulesAndTModules/E2",
    "kind": "misprint",
-   "locator": "arXiv:1706.06807v1, proof of Theorem 3.5, display (3.5), p. 7; published display (3.5), p. 1440",
+   "locator": "arXiv:1706.06807v1, proof of Theorem 3.5, display (3.5), p. 9; published display (3.5), p. 1440",
    "printed": "The preprint display gives the target Hom(M,M′) while the map takes m′ to m′∘f for f:E→E′.",
    "correction": "The target is Hom(M(E′),M(E)); the published display gives this corrected target.",
    "reason": "Composition m′∘f starts with a function on E′ and produces a function on E, reversing the objects. The surrounding preprint proof already uses this direction.",
@@ -189639,14 +189639,14 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Urs Hartl, Isogenies of abelian Anderson A-modules and A-motives, arXiv:1706.06807v1, 22 June 2017",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. Composition m′∘f starts with a function on E′ and produces a function on E, reversing the objects. The surrounding preprint proof already uses this direction."
   },
   {
    "id": "DrinfeldModulesAndTModules/E3",
    "kind": "misprint",
-   "locator": "Compositio 146 (2010), recap after Proposition 6.21, p. 595; arXiv:0809.0224v1, p. 41",
+   "locator": "Compositio 146 (2010), recap after Proposition 6.21, p. 595; arXiv:0809.0224v1, p. 43",
    "printed": "The recap identifies B^G with the full completed coefficient ring F_(K,λ), although Proposition 6.21 identifies it with the smaller rational coefficient extension F_(λ,K).",
    "correction": "Use B^G=F_(λ,K)=Frac(F_λ⊗F_q K), retaining the distinction from Frac((F_λ,res⊗F_q K)[[z]]).",
    "reason": "Proposition 6.21 proves the smaller equality, and Claim 5.2 requires exactly that equality for local algebraization. For infinite K the rational scalar extension and full coefficient completion differ.",
@@ -189658,14 +189658,14 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Nicolas Stalder, The semisimplicity conjecture for A-motives, Compositio Mathematica 146 (2010), 561–598",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. Proposition 6.21 proves the smaller equality, and Claim 5.2 requires exactly that equality for local algebraization. For infinite K the rational scalar extension and full coefficient completion differ."
   },
   {
    "id": "DrinfeldModulesAndTModules/E4",
    "kind": "misprint",
-   "locator": "arXiv:2009.13934v2, Proposition 3.11 and proof, p. 19",
+   "locator": "arXiv:2009.13934v2, Proposition 3.11 and proof, pp. 18–19",
    "printed": "Three line-bundle subscripts use A[1/r] for the reciprocal compactification that the same proposition defines over A[1/t].",
    "correction": "Use Q_(r,A[1/t]) in the O(1) and O(−1) subscripts.",
    "reason": "r is the rank integer, while the coefficient element inverted throughout the construction and its base is t. The surrounding line-bundle construction is over Q_r⊗F_q A[1/t].",
@@ -189677,9 +189677,9 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Urs Hartl and Chia-Fu Yu, Arithmetic Satake compactifications and algebraic Drinfeld modular forms, arXiv:2009.13934v2, 8 January 2025; not collated against the 2025 journal version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. r is the rank integer, while the coefficient element inverted throughout the construction and its base is t. The surrounding line-bundle construction is over Q_r⊗F_q A[1/t]."
   },
   {
    "id": "DrinfeldModulesAndTModules/E5",
@@ -189696,14 +189696,14 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Stefan Wiedmann, Drinfeld modules and elliptic sheaves, Revised English thesis, 26 August 2005",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. Proposition 5.14, immediately preceding, proves the required vanishing and dimensions; Proposition 5.15 is the conclusion presently being proved."
   },
   {
    "id": "DrinfeldModulesAndTModules/E6",
    "kind": "misprint",
-   "locator": "Published Lemma 3.8(b), proof, p. 1442; arXiv:1706.06807v1, p. 9",
+   "locator": "Published Lemma 3.8(b), proof, p. 1442; arXiv:1706.06807v1, p. 10",
    "printed": "After choosing f∈1+I with fI=0 and I contained in every prime, the proof calls 1−f a unit.",
    "correction": "Use f itself as the unit; multiplying fI=0 by f⁻¹ gives I=0.",
    "reason": "Here I lies in the nilradical, so f=1+i is invertible while 1−f=−i is nilpotent and is generally not invertible in a nonzero ring. The corrected argument gives exactly the stated conclusion.",
@@ -189715,9 +189715,85 @@
    "owner": "DrinfeldModulesAndTModules",
    "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
    "citation": "Urs Hartl, Isogenies of abelian Anderson A-modules and A-motives, Annali della Scuola Normale Superiore di Pisa XIX (2019), 1429–1470",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. Here I lies in the nilradical, so f=1+i is invertible while 1−f=−i is nilpotent and is generally not invertible in a nonzero ring. The corrected argument gives exactly the stated conclusion."
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E7",
+   "kind": "misprint",
+   "locator": "§2.4, immediately after equation (2.2), p. 6",
+   "printed": "The action is identified with the derivative-one sublattice polynomial evaluated at z, although the preceding functional equation evaluates it at az.",
+   "correction": "Use φ_Λ(a)(z)=P_[Λ:aΛ](az).",
+   "reason": "The normalized P has derivative one; the action must have derivative a. The preceding scalar-lattice formula and the next page’s ψ(c) formula both contain the scalar in the argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Public source/version listing and targeted author/title erratum search checked on 2026-10-11; no separate correction located. The finding is confined to the identified public artifact; no uninspected published edition is claimed to have this error."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "W. Dale Brownawell and Matthew A. Papanikolas, A rapid introduction to Drinfeld modules, t-modules, and t-motives, arXiv:1806.03919v1, 11 June 2018",
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. The normalized P has derivative one; the action must have derivative a. The preceding scalar-lattice formula and the next page’s ψ(c) formula both contain the scalar in the argument."
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E8",
+   "kind": "misprint",
+   "locator": "arXiv:2009.13934v2, equation (3.7), p. 18",
+   "printed": "The coefficient is indexed by ordered pairwise-distinct tuples, which counts each elementary-symmetric monomial (q^i−1)! times.",
+   "correction": "Sum once over subsets S⊂V_r∖{0} of cardinality q^i−1, with summand γ(t) times the product of λ(v)⁻¹ for v∈S.",
+   "reason": "Expand the finite product in (3.6). For q=2, r=2, i=2 the printed ordered sum has six identical terms and vanishes, while the leading coefficient is the nonzero product of the three reciprocals times γ(t). The sign is one in characteristic p.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Public source/version listing and targeted author/title erratum search checked on 2026-10-11; no separate correction located. The finding is confined to the identified public artifact; no uninspected published edition is claimed to have this error."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Urs Hartl and Chia-Fu Yu, Arithmetic Satake compactifications and algebraic Drinfeld modular forms, arXiv:2009.13934v2, 8 January 2025; not collated against the 2025 journal version",
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. Expand the finite product in (3.6). For q=2, r=2, i=2 the printed ordered sum has six identical terms and vanishes, while the leading coefficient is the nonzero product of the three reciprocals times γ(t). The sign is one in characteristic p."
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E9",
+   "kind": "misprint",
+   "locator": "arXiv:0809.0224v1 artifact, Proposition 6.4 proof, p. 36",
+   "printed": "One branch of the induction changes the Frobenius exponent in the denominator from m to the unrelated residue-degree letter d.",
+   "correction": "Keep the denominator q^m−1 in that branch.",
+   "reason": "The preceding inequality is q^m v_x(f_ir)≥q^m C/(q^m−1). Division by q^m gives C/(q^m−1), in agreement with the proposition and the other branch.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Public source/version listing and targeted author/title erratum search checked on 2026-10-11; no separate correction located. The finding is confined to the identified public artifact; no uninspected published edition is claimed to have this error."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Nicolas Stalder, The Semisimplicity Conjecture for A-Motives, arXiv:0809.0224v1; downloaded artifact carries the date 23 November 2018",
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. The preceding inequality is q^m v_x(f_ir)≥q^m C/(q^m−1). Division by q^m gives C/(q^m−1), in agreement with the proposition and the other branch."
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E10",
+   "kind": "misprint",
+   "locator": "arXiv:0809.0224v1 artifact, Theorem 5.4 proof, p. 28",
+   "printed": "The final Hom identification dualizes the source realization a second time.",
+   "correction": "Identify (V_λ(M)∨⊗V_λ(N))^G with Hom_G(V_λ(M),V_λ(N)).",
+   "reason": "The tensor-Hom correspondence for finite-dimensional representations places a single dual on M in the tensor product. The fully faithful functor has source M and target N, so the displayed Hom source must be V_λ(M).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Public source/version listing and targeted author/title erratum search checked on 2026-10-11; no separate correction located. The finding is confined to the identified public artifact; no uninspected published edition is claimed to have this error."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Nicolas Stalder, The Semisimplicity Conjecture for A-Motives, arXiv:0809.0224v1; downloaded artifact carries the date 23 November 2018",
+   "status": "confirmed",
+   "reviewedBy": "REV-DrinfeldModulesAndTModules--DM.0",
+   "reviewReason": "Independently checked at the corrected locator. The tensor-Hom correspondence for finite-dimensional representations places a single dual on M in the tensor product. The fully faithful functor has source M and target N, so the displayed Hom source must be V_λ(M)."
   },
   {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
