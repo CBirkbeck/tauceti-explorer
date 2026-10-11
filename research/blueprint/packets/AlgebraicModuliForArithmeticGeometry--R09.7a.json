@@ -1,0 +1,1295 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "part": "R09.7a",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7a",
+    "AlgebraicModuliForArithmeticGeometry:R09.7b",
+    "AlgebraicModuliForArithmeticGeometry:R09.7c",
+    "AlgebraicModuliForArithmeticGeometry:R09.7d"
+  ],
+  "status": "complete",
+  "summary": "A supplemental target-level pass for R09.7a–d. The accepted aggregate R09.7 packet is the sole owner of the forty core targets, including arbitrary-scheme Cartier separation. This packet imports them explicitly and supplies finite native tower/output carriers, regular-to-completed coefficient comparison, normal-crossings boundary strictification, finite-cover compactification, and the monomial meridian interface needed by Landesman–Litt. All four stages are planned with precise supplier contracts and prototype refinements; none is declared closed or implemented.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "provides": "Native quasi-coherent affine ideal data, products, powers, support and associated closed subscheme.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "provides": "Actual scheme ideal pullback; orientation is contravariant.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Functorial.lean",
+        "provides": "The pullback along f followed by g is pullback along g and then f.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ker",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "provides": "Kernel ideal of a scheme morphism, giving the scheme-theoretic image for quasi-compact morphisms.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Multi-index coefficient linear map.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.pderiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
+        "provides": "Formal partial derivation over the coefficient ring.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.coeff_pderiv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Derivative.lean",
+        "provides": "A derivative coefficient is the shifted coefficient times the corresponding exponent plus one.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:FundamentalGroup.map",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicTopology/FundamentalGroupoid/FundamentalGroup.lean",
+        "provides": "Group homomorphism induced by a continuous map on actual based path-homotopy classes.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:FundamentalGroup.fundamentalGroupMulEquivOfPath",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicTopology/FundamentalGroupoid/FundamentalGroup.lean",
+        "provides": "Basepoint change by an actual path and conjugation in the fundamental groupoid.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      },
+      {
+        "ref": "mathlib:Path.Homotopic.Quotient.mk",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homotopy/Path.lean",
+        "provides": "The actual quotient map from paths to endpoint-fixed homotopy classes.",
+        "checked": "Actual statement and hypotheses read at pinned Mathlib 082e2d3; current Tau Ceti read separately for reuse."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BM97",
+      "title": "Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "url": "https://www.mahalex.net/teaching/seminars/gabber/Bierstone-Milman%20Canonical%20desingularization%20in%20characteristic%20zero.pdf",
+      "sha256": "f01ebbb0591fa62f9b65c16ab54f35e7409cf4fb0abd1f01bf3bf9b59d87ecaf",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§1, §§3–6, §10, Theorems 11.14, 12.2, 12.4, 13.2; printed pp. 209–259, 283–298"
+      ],
+      "edition": "Inventiones Mathematicae 128 (1997), 207–302; full published PDF"
+    },
+    {
+      "id": "LL24",
+      "title": "Canonical representations of surface groups",
+      "authors": "Aaron Landesman and Daniel Litt",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Lemma 2.2.3, p. 15; §8.3, especially proof of Lemma 8.3.3, pp. 40–41"
+      ],
+      "edition": "Annals of Mathematics 199 (2024), no. 2, 823–897; the accessed PDF is arXiv v4 (February 2025), with its own author pagination"
+    },
+    {
+      "id": "LLSS23",
+      "title": "Surface bundles and the section conjecture",
+      "authors": "Wanlin Li, Daniel Litt, Nick Salter and Padmavathi Srinivasan",
+      "url": "https://nsalter.science.nd.edu/research/sectconj.pdf",
+      "sha256": "861d5317374d0cc7184d42afb21a4497dddae85502cebab68b66112fdd5dab44",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§2.1, Lemma 2.1.1 and proof, pp. 6–8"
+      ],
+      "edition": "Mathematische Annalen 386 (2023), 877–942; author PDF dated May 27, 2023, with author pagination"
+    },
+    {
+      "id": "BP26",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "url": "https://www.ma.imperial.ac.uk/~gboxer/higherhidaSiegel.pdf",
+      "sha256": "b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§4.1.10–4.1.11, author p. 42; imported from accepted R09.7/cartier-separation"
+      ],
+      "edition": "Inventiones Mathematicae 244 (2026); author PDF pagination"
+    },
+    {
+      "id": "BKT20",
+      "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "url": "https://benjamin-bakker.github.io/DefArith.pdf",
+      "sha256": "b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§4.1, author p. 13; SNC source-chart input only"
+      ],
+      "edition": "Journal of the American Mathematical Society 33 (2020), 917–939; author PDF pagination"
+    },
+    {
+      "id": "STACKS",
+      "title": "The Stacks Project",
+      "authors": "The Stacks Project Authors",
+      "url": "https://stacks.math.columbia.edu",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "§29.54, Lemma 29.54.14 (0AVK)",
+        "§41.21, Definitions 41.21.1, 41.21.4 and Lemmas 41.21.2, 41.21.6, 41.21.7"
+      ],
+      "edition": "Online version accessed 2026-10-11; stable tag locators"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Finite blowup towers",
+      "kind": "definition",
+      "statement": "A BlowupTower on a scheme X is a natural number N, schemes X₀,…,X_N with X₀=X, finite-type coherent centre ideals Cᵢ on Xᵢ for i<N, and morphisms πᵢ:Xᵢ₊₁→Xᵢ identified with the ordinary blowups Bl_{Cᵢ}(Xᵢ). Its map to X is the ordered composite of the πᵢ. Each exceptional ideal is CᵢO_{Xᵢ₊₁}. Length zero has X as its endpoint and the identity map. A restriction retains all N years, including years whose centre misses the open; deletion of those identity steps is a separate reindexing operation. This record adds the finite native scheme carrier omitted from the aggregate prototype; it does not construct another ordinary blowup.",
+      "hypotheses": [
+        "Schemes and finite-type centre ideals; projectivity and the ordinary blowup universal property are imported from StableReduction Layer 4."
+      ],
+      "proofSteps": [
+        "Use the imported blowup object at each of finitely many years.",
+        "Define the endpoint map by composition in chronological order.",
+        "For restriction use flat base change of blowups and the canonical pullback isomorphisms."
+      ],
+      "acceptance": [
+        "A tower is more than a proper modification: all centre ideals and blowup identifications remain visible.",
+        "Composition order is X_N→…→X₀."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§1, (1.1), pp. 211–212; Theorems 1.10 and 13.2, pp. 216, 297–298",
+          "match": "The algorithms retain a finite sequence of spaces and specified centres; these data supply a native finite-tower record."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "BlowupTower.identity",
+          "role": "constructor",
+          "statement": "The length-zero tower on X has endpoint X and composite id_X."
+        },
+        {
+          "name": "BlowupTower.toBase",
+          "role": "projection",
+          "statement": "For every i≤N, the chronological composite Xᵢ→X₀, with toBase(0)=id and toBase(i+1)=πᵢ followed by toBase(i)."
+        },
+        {
+          "name": "BlowupTower.exceptional",
+          "role": "data",
+          "statement": "At year i+1 the newborn exceptional ideal is CᵢO_{Xᵢ₊₁}, with the imported effective-Cartier property."
+        },
+        {
+          "name": "BlowupTower.restrict",
+          "role": "functoriality",
+          "statement": "For an open W⊆X, take Xᵢ×_X W and pull back the centres. This is a tower of the same length; the comparison to Xᵢ is the actual pullback square, and restriction twice agrees with restriction to the intersection up to the unique blowup comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BlowupTowerTests.identity",
+          "kind": "degenerate",
+          "statement": "The endpoint morphism of the identity tower is id_X."
+        },
+        {
+          "name": "BlowupTowerTests.oneStep",
+          "kind": "compatibility",
+          "statement": "For a one-step tower the endpoint morphism is its specified ordinary blowup morphism, with exceptional ideal equal to the pullback centre ideal."
+        },
+        {
+          "name": "BlowupTowerTests.cartierCentre",
+          "kind": "non-example",
+          "statement": "Blowing up an effective Cartier ideal is an identity morphism up to canonical isomorphism, but its exceptional ideal is that pulled-back Cartier ideal and need not be the unit ideal."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BM97, Theorems 11.14 and 13.2",
+          "how": "Retains the actual finite sequence whose endpoint enters the global resolution output."
+        }
+      ],
+      "planet": {
+        "name": "Finite blowup tower"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-transform-tower",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Marked transforms and persistent boundary labels",
+      "kind": "definition",
+      "statement": "A MarkedTower extends a BlowupTower on a smooth finite-type characteristic-zero k-scheme M. It stores a positive integral mark d, a coherent ideal Jᵢ on each Mᵢ, and a labelled strict-SNC boundary Eᵢ with labels 0,…,m+i−1. The initial marked ideal is (J₀,d); every centre is permissible for its current marked ideal and boundary in the accepted R09.7 sense. The next ideal is the controlled transform, characterized by JᵢO_{Mᵢ₊₁}=Fᵢ^d Jᵢ₊₁, where Fᵢ=CᵢO_{Mᵢ₊₁} is Cartier. Old labels denote scheme-theoretic strict transforms; the last label denotes Fᵢ. A vanished old component is retained as the unit ideal with empty support. The record retains birth years even after restriction or loss of components; history blocks are computed by the existing exceptional-history node, not stored as arbitrary counters.",
+      "hypotheses": [
+        "Smooth finite-type ambient schemes, char(k)=0, d>0.",
+        "Permissibility includes ideal divisibility Jᵢ≤Cᵢ^d and the simultaneous boundary/centre coordinate condition."
+      ],
+      "proofSteps": [
+        "Import permissible-centre and controlled-transform and the SNC-after-blowup API.",
+        "Cartier cancellation makes the controlled ideal uniquely determined by its product equation.",
+        "Transport old ideals by the imported strict transform and append the pulled-back centre ideal.",
+        "Use the native ideal pullback composition law to telescope total transforms."
+      ],
+      "acceptance": [
+        "Controlled transforms are distinguished from total and strict transforms.",
+        "Dead labels remain available to chronological history without contributing to incident-component counts."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData.comap_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§§3–4, (4.3)–(4.4), pp. 241–242; Definitions 6.8 and §6.15, pp. 256, 259",
+          "match": "Controlled ideal division and surviving/born exceptional components must be tracked at every year; the birth-block rule is imported unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "MarkedTower.controlled",
+          "role": "characterisation",
+          "statement": "The pullback of Jᵢ is Fᵢ^d times Jᵢ₊₁; this identifies Jᵢ₊₁ uniquely because Fᵢ is Cartier."
+        },
+        {
+          "name": "MarkedTower.oldBoundary",
+          "role": "simp",
+          "statement": "For j<m+i, Eᵢ₊₁(j) is the scheme-theoretic strict transform of Eᵢ(j)."
+        },
+        {
+          "name": "MarkedTower.newBoundary",
+          "role": "simp",
+          "statement": "Eᵢ₊₁(m+i)=CᵢO_{Mᵢ₊₁}."
+        },
+        {
+          "name": "MarkedTower.totalTransform",
+          "role": "compatibility",
+          "statement": "On M_N, J₀O_{M_N}=J_N times the product, over i<N, of the total pullbacks of Fᵢ^d. These are total pullbacks of born ideals, not their strict transforms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MarkedTowerTests.cartierDivision",
+          "kind": "computation",
+          "statement": "In k[x,y], mark 2 and centre (x), the ideal (x²y) has controlled transform (y), despite the blowup being an identity. Its total transform remains (x²y)."
+        },
+        {
+          "name": "MarkedTowerTests.deadLabel",
+          "kind": "degenerate",
+          "statement": "The strict transform of a Cartier divisor blown up in itself is empty, represented by the unit ideal, while the newborn label is the original Cartier ideal."
+        },
+        {
+          "name": "MarkedTowerTests.twoYears",
+          "kind": "computation",
+          "statement": "In a length-two marked tower, the total transform is the pullback of F₀^d times F₁^d times J₂; replacing the first factor by a strict transform generally gives a wrong formula."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BM97, §§6, 10–13",
+          "how": "The numerical history and global output require the same persistent geometric labels and controlled ideals."
+        }
+      ],
+      "planet": {
+        "name": "Marked transform tower"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Regular coefficients and completed germs",
+      "kind": "theorem",
+      "statement": "Let N be smooth over a characteristic-zero field k, a a closed point, H=(z=0) a smooth maximal-contact hypersurface transverse to the labelled boundary, and (hᵢ,dᵢ) a finite regular presentation with dᵢ>0. In an étale coordinate neighbourhood let ∂z be the coordinate derivation and cᵢq=(1/q!)∂z^q hᵢ restricted to H, for 0≤q<dᵢ. Under the coordinate completion isomorphisms Ô_{N,a}≅κ(a)[[z,y]] and Ô_{H,a}≅κ(a)[[y]], the completion of cᵢq is the z^q coefficient of the completed hᵢ. Consequently, for a positive common mark L divisible by every dᵢ−q, extension of the regular coefficient ideal generated by cᵢq^{L/(dᵢ−q)} equals the formal coefficient ideal with the same powers. Faithful flatness of completion reflects equality and ideal-power membership of these finitely generated regular ideals. This is the missing regular-to-formal comparison, not a second definition of coefficient presentation or a claim that independently chosen formal germs descend.",
+      "hypotheses": [
+        "Étale regular coordinates with z as contact coordinate; char(k)=0; closed point residue field κ(a), not necessarily k.",
+        "One common regular neighbourhood supplies all coefficients; completion is its actual adic completion."
+      ],
+      "proofSteps": [
+        "Use the accepted regular-coordinates bridge to extend the derivation and restriction map to the coordinate completions.",
+        "The pinned coefficient-of-partial-derivative formula, iterated q times, yields q! times the z^q coefficient.",
+        "The factorial is invertible in κ(a); restrict z to zero.",
+        "Extension of an ideal commutes with generation and powers. Apply the requested Noetherian-local faithful-flat completion comparison to reflect the regular ideal assertions."
+      ],
+      "acceptance": [
+        "For h=z²+y³ marked 2 the only nonzero lower coefficient is y³ marked 2.",
+        "For h=z²+zy+y³ marked 2 the coefficients are (y³,2) and (y,1); common mark 2 gives (y³,y²)=(y²).",
+        "Taking the derivative q=d adds a unit for h=z^d and is forbidden."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "mathlib:MvPowerSeries.pderiv",
+        "mathlib:MvPowerSeries.coeff",
+        "mathlib:MvPowerSeries.coeff_pderiv",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Construction 4.18, Proposition 4.19 and Remark 4.20, pp. 246–247; §§3.5–3.7, p. 233",
+          "match": "Regular Taylor coefficients restrict to H and agree with their completed coefficients; all coefficients arise from the same regular data."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "planet": {
+        "name": "Coefficient completion comparison"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Principalization with its native finite tower",
+      "kind": "construction",
+      "statement": "For a smooth finite-type quasi-compact k-scheme M in characteristic zero and a coherent ideal J nonzero on each irreducible component, construct a PrincipalizationTower recording the finite tower supplied by the accepted principalization theorem. The initial boundary is empty, the centres are smooth permissible centres and miss M minus Supp(O_M/J), and the endpoint morphism is an isomorphism on that open. Store the total pullback JO_{M_N}, the weak transform equal to the unit ideal, and the final labelled SNC boundary. The total ideal is Cartier and locally a monomial in boundary equations with nonnegative integral exponents. The tower length is the finite termination witness, rather than an arbitrary proper morphism with a smooth target. This construction realizes the aggregate theorem’s witness on native schemes; it does not plan its invariant or termination proof again.",
+      "hypotheses": [
+        "Finite-type, smooth and quasi-compact over k; char(k)=0.",
+        "J is coherent and generically nonzero on every component; empty initial boundary."
+      ],
+      "proofSteps": [
+        "Take the finite witness from R09.7/principalization and its termination prerequisite.",
+        "Populate the BlowupTower with that witness’s centre ideals and ordinary blowups.",
+        "Track total and weak ideals using R09.7/controlled-transform and its exceptional multiplicities.",
+        "Record the local monomial factorization and complement isomorphism as output fields.",
+        "If the prototype uses one global exponent per birth label, split each smooth centre into its finitely many disjoint connected components before populating it; the full canonical theorem keeps the aggregate’s grouping of these steps."
+      ],
+      "acceptance": [
+        "The unit ideal has a length-zero output.",
+        "Generic nonvanishing excludes the zero ideal on a nonempty component."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.10 and Remark 1.18, pp. 216, 225; §10, pp. 283–287",
+          "match": "Principalization supplies a finite centre-by-centre witness, an invertible total ideal with normal-crossings support, and a unit weak transform."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "PrincipalizationTower.totalIdeal",
+          "role": "projection",
+          "statement": "The stored total ideal is exactly J pulled back along the tower composite."
+        },
+        {
+          "name": "PrincipalizationTower.weakIdeal",
+          "role": "simp",
+          "statement": "The final weak transform is the unit ideal."
+        },
+        {
+          "name": "PrincipalizationTower.preservedOpen",
+          "role": "compatibility",
+          "statement": "The tower composite restricted to M minus Supp(O_M/J) is an isomorphism."
+        },
+        {
+          "name": "PrincipalizationTower.ofUnit",
+          "role": "constructor",
+          "statement": "For J=O_M take the identity tower and empty boundary."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PrincipalizationTowerTests.unit",
+          "kind": "degenerate",
+          "statement": "The ofUnit construction has length zero, identity composite and empty boundary."
+        },
+        {
+          "name": "PrincipalizationTowerTests.coordinateMonomial",
+          "kind": "computation",
+          "statement": "On A²_k, a valid principalization certificate for (x²y³) blows up the Cartier centres (x) and then (y). Both maps are identities, the final boundary labels are (x),(y), the total exponents are (2,3), and the final weak ideal is the unit ideal."
+        },
+        {
+          "name": "PrincipalizationTowerTests.nativePullback",
+          "kind": "compatibility",
+          "statement": "For every output P, P.totalIdeal is the native IdealSheafData pullback J.comap P.tower.toBase(N)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R09.7/snc-compactification and finite-cover-compactification below",
+          "how": "Principalizes a closed complement while retaining a proof that its prescribed smooth open survives."
+        }
+      ],
+      "planet": {
+        "name": "Principalization tower"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Strict transforms in embedded resolution outputs",
+      "kind": "construction",
+      "statement": "For a reduced closed finite-type subscheme X of a smooth quasi-compact characteristic-zero ambient M, construct an EmbeddedTower recording the finite witness from R09.7/embedded-resolution. At each year set Xᵢ₊₁ to the scheme-theoretic closure of the inverse image of Xᵢ away from the chosen centre. Store its closed immersion into Mᵢ₊₁ and its map to Xᵢ. The output identifies the endpoint strict transform X_N with this iterative closure, proves it smooth, and gives SNC for the restrictions of the final exceptional labels to X_N. Its map to X is proper and an isomorphism over the original smooth locus. For the smooth-pair variant, import R09.7/preserve-resolved-points with its distinct-germ and noncontainment hypotheses and preserve exactly its resolved open. Isomorphism compatibility is throughout the specified towers, with empty steps removed on restriction as in R09.7/local-isomorphism-resolution.",
+      "hypotheses": [
+        "Reduced closed X⊆M, M smooth finite-type and quasi-compact over char-zero k.",
+        "The smooth-pair refinement keeps the accepted resolved-locus and Cartier-restriction hypotheses."
+      ],
+      "proofSteps": [
+        "Import the finite resolution witness without replacing reduced strict transforms by total inverse images.",
+        "Use the strict-transform closure in each ordinary blowup and compose its square with the ambient blowup square.",
+        "Populate the endpoint smoothness, SNC and original-regular-open assertions from the accepted theorem.",
+        "For local-isomorphism comparison, use the accepted unique lifts and retain their commuting squares at every surviving year."
+      ],
+      "acceptance": [
+        "A smooth X with empty boundary has an identity output.",
+        "Nonreduced inputs do not get a smooth strict-transform conclusion; their weaker theorem stays with the aggregate owner."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 11.14 and following paragraph, pp. 290–291; Theorems 12.2, 12.4, 13.2, pp. 292–294, 297–298",
+          "match": "The finite embedded witness carries iterative strict transforms and prescribed-open preservation; local isomorphisms lift through the entire towers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "EmbeddedTower.strictIdeal",
+          "role": "characterisation",
+          "statement": "The next strict ideal is the kernel ideal of the composite from the open inverse image away from the centre into the next ambient scheme; thus it is the scheme-theoretic closure, including its scheme structure."
+        },
+        {
+          "name": "EmbeddedTower.square",
+          "role": "compatibility",
+          "statement": "At each year the closed immersion followed by the ambient blowup equals the strict-transform map followed by the previous closed immersion."
+        },
+        {
+          "name": "EmbeddedTower.smoothEndpoint",
+          "role": "structure",
+          "statement": "The endpoint strict transform is smooth and meets all incident exceptional components with the expected smooth intersection codimensions."
+        },
+        {
+          "name": "EmbeddedTower.preservedOpen",
+          "role": "functoriality",
+          "statement": "The map X_N→X restricts to an isomorphism over Reg(X); in the imported smooth-pair variant it restricts over the specified resolved open."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EmbeddedTowerTests.identity",
+          "kind": "degenerate",
+          "statement": "For a smooth closed X⊆M and empty boundary, the identity tower has strict transform X and identity map to X."
+        },
+        {
+          "name": "EmbeddedTowerTests.avoidsCentre",
+          "kind": "compatibility",
+          "statement": "If Xᵢ is disjoint from a centre, the next strict transform is its full inverse image and maps isomorphically to Xᵢ."
+        },
+        {
+          "name": "EmbeddedTowerTests.containsCentre",
+          "kind": "non-example",
+          "statement": "For the origin X in A² and the blowup at that origin, the scheme-theoretic strict transform is empty, whereas the total inverse image is the nonempty exceptional line."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R09.7/snc-compactification; BM97 Theorem 13.2",
+          "how": "Exports an actual resolution witness with the same open identification and strict transform used in compactification."
+        }
+      ],
+      "planet": {
+        "name": "Embedded resolution tower"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Strictifying a normal-crossings boundary",
+      "kind": "construction",
+      "statement": "For a smooth finite-type quasi-compact characteristic-zero scheme Y and a reduced normal-crossings divisor D (branches may be permuted or self-intersect globally), construct a BoundaryRefinement: a finite BlowupTower supported on D, an unchanged open Y minus D, and a final reduced boundary with globally smooth labelled components and strict SNC. Use the branch-multiplicity stratification: starting with the largest number of original branches, blow up the reduced closures of its strata, then their proper transforms in descending branch number down to two. After higher strata are blown up, the next centres are disjoint smooth coordinate intersections. New components are labelled by their centre’s original stratum and birth year. Local branch permutations preserve the centre ideals, so the construction glues. Locally this is the barycentric subdivision of the coordinate boundary, not an invocation of general resolution of an arbitrary singular divisor. The same construction on a smooth DM stack uses the requested étale atlas and ideal/blowup descent interface; the scheme theorem is the native prototype.",
+      "hypotheses": [
+        "Y smooth finite-type quasi-compact over char-zero k; D is reduced and normal crossings in the étale sense.",
+        "The maximum original branch number is finite; the invariant stratification and centres use original branches, not all newly created intersections."
+      ],
+      "proofSteps": [
+        "Describe the distinct-branch strata étale locally by the coordinate intersections; finite boundary normalization distinguishes repeated branches without assuming global labels.",
+        "Blow deepest strata first. The pivot chart x_p=y_p, x_i=y_p y_i gives coordinate boundaries; proper transforms of remaining stratum closures are smooth after deeper intersections have been separated.",
+        "The permutation-invariant ideals descend; imported blowup base change identifies all overlap charts.",
+        "Descending original branch number is finite. The final components and their intersections have the required smooth codimensions; retain the original open identification."
+      ],
+      "acceptance": [
+        "Already disjoint smooth components need no blowup.",
+        "An irreducible nodal divisor is not treated as one smooth component.",
+        "Repeatedly blowing newly created intersections is not the specified finite procedure."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.3",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Proof of Lemma 8.3.3, pp. 40–41",
+          "match": "The strictification of the stable-curve boundary is a boundary-stratum blowup construction; this node isolates and proves its geometric local calculation."
+        },
+        {
+          "sourceId": "STACKS",
+          "locator": "§41.21, Definitions 41.21.1 and 41.21.4; Lemmas 41.21.2 and 41.21.6 (tags 0CBN, 0CBR)",
+          "match": "The distinct-branch description and expected-codimension intersection criterion distinguish normal crossings from globally strict SNC."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "BoundaryRefinement.open",
+          "role": "compatibility",
+          "statement": "The composite is an isomorphism over Y minus D, with the final reduced boundary equal to its inverse-image complement."
+        },
+        {
+          "name": "BoundaryRefinement.localChart",
+          "role": "characterisation",
+          "statement": "In the blowup of the intersection of branches indexed by I, the p-pivot chart has x_p=y_p, x_i=y_p y_i for i∈I minus {p}, and x_i=y_i for i outside I."
+        },
+        {
+          "name": "BoundaryRefinement.labels",
+          "role": "data",
+          "statement": "The final labels are surviving original strict components and components born from original-stratum centres; every label defines a globally smooth divisor or an empty component."
+        },
+        {
+          "name": "BoundaryRefinement.etaleComparison",
+          "role": "functoriality",
+          "statement": "For a quasi-compact étale restriction, identify the centre ideals and every blowup square; local branch permutations merely reindex the final labels."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BoundaryRefinementTests.empty",
+          "kind": "degenerate",
+          "statement": "For the empty divisor use the identity tower and empty boundary."
+        },
+        {
+          "name": "BoundaryRefinementTests.axes",
+          "kind": "computation",
+          "statement": "For xy=0 on A², the deepest-stratum step blows up (x,y). In the x-pivot chart x=u,y=uv, the reduced boundary is uv=0, and the total boundary ideal is (u²v)."
+        },
+        {
+          "name": "BoundaryRefinementTests.nodal",
+          "kind": "non-example",
+          "statement": "For an irreducible nodal divisor on a smooth surface, blow up its node: its strict component is smooth near the old node and meets the new exceptional component in two distinct geometric points. Leaving the node unchanged fails strict SNC."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24, proof of Lemma 8.3.3; LLSS23, Lemma 2.1.1",
+          "how": "Separates repeated stable-boundary branches while retaining the monomial chart description that controls new meridians."
+        }
+      ],
+      "planet": {
+        "name": "Strict normal-crossings boundary refinement"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Compactifying finite étale covers over a fixed SNC model",
+      "kind": "construction",
+      "statement": "Let U be a smooth integral quasi-projective characteristic-zero k-variety, let C be a chosen smooth projective strict-SNC compactification of U, and let f:V→U be a nonempty connected finite étale cover. Construct a FiniteCoverCompactification with a smooth projective compactification C_V of V and a proper dominant morphism g:C_V→C whose restriction is the given f and whose inverse image of U is exactly V. First normalize C in k(V), obtaining a finite projective normal scheme N and V as its unchanged inverse image of U. Resolve N preserving V, then principalize its reduced boundary preserving V, using the accepted resolution and compactification interfaces. The final map is proper but need not remain finite after blowups. Its reduced complement is labelled strict-SNC. Pullbacks of each target boundary Cartier ideal are Cartier and locally products of source-boundary ideals with nonnegative exponents; this is a divisor-supported-on-SNC statement, not an assertion that g is a toroidal morphism or that it is flat. Disconnected covers are treated componentwise.",
+      "hypotheses": [
+        "Connected nonempty finite étale cover of an integral U; chosen projective SNC model C.",
+        "Normalization finiteness uses finite type over a field (Nagata), not arbitrary excellent-scheme compactification."
+      ],
+      "proofSteps": [
+        "Use the same-bundle finite normalization interface and its actual integral-closure carrier; the function field extension is finite separable.",
+        "Normality of V identifies N over U with V. Finiteness over the projective C gives projectivity.",
+        "Apply the accepted local-isomorphism resolution and principalization witnesses away from V; retain both finite towers and the open-identifying squares.",
+        "Each pulled-back target Cartier equation is nonzero in the smooth integral source. Its divisor is supported on the source SNC complement, so local factoriality gives the unit-times-monomial expression."
+      ],
+      "acceptance": [
+        "Identity cover admits the original model itself with identity map.",
+        "A normalization of an SNC model is not silently assumed smooth.",
+        "The resolved map is proper; finiteness and flatness are not output properties."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Proof of Lemma 8.3.3, pp. 40–41",
+          "match": "The finite-cover route uses normalization in the cover’s function field. The added resolution and boundary principalization make its smooth-SNC output justified."
+        },
+        {
+          "sourceId": "STACKS",
+          "locator": "Lemma 29.54.14, tag 0AVK; §41.21, paragraph after Definition 41.21.1",
+          "match": "Finite-type relative normalization is finite, and a Cartier divisor supported on SNC components has local monomial exponents."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "FiniteCoverCompactification.openSquare",
+          "role": "compatibility",
+          "statement": "The square V→C_V over U→C commutes and is a pullback square; C_V minus its boundary is exactly V."
+        },
+        {
+          "name": "FiniteCoverCompactification.projective",
+          "role": "structure",
+          "statement": "C_V is smooth projective over k and g is a proper dominant k-morphism."
+        },
+        {
+          "name": "FiniteCoverCompactification.pullbackBoundary",
+          "role": "characterisation",
+          "statement": "On the smooth integral source, for each target boundary component D_i, g*I_{D_i} is locally ∏_j I_{E_j}^{a_ij}, with a_ij≥0, up to a unit in equations."
+        },
+        {
+          "name": "FiniteCoverCompactification.identity",
+          "role": "constructor",
+          "statement": "For f=id_U, use C_V=C, g=id and the same boundary labels."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FiniteCoverCompactificationTests.identity",
+          "kind": "degenerate",
+          "statement": "The identity construction has the same native model and identity morphism; its boundary exponent matrix is the identity on incident labels."
+        },
+        {
+          "name": "FiniteCoverCompactificationTests.powerCover",
+          "kind": "computation",
+          "statement": "For V=G_m→U=G_m, z↦z^e with e≥1, the extension P¹→P¹ has pullback exponents e at 0 and at ∞."
+        },
+        {
+          "name": "FiniteCoverCompactificationTests.singularNormalization",
+          "kind": "non-example",
+          "statement": "The finite étale degree-two cover z²=xy of G_m² normalizes A² in a scheme singular over (0,0); it must be resolved before a smooth compactification is claimed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LL24, proof of Lemma 8.3.3",
+          "how": "Supplies a smooth strict-SNC scheme compactification after the source’s finite-cover normalization step."
+        }
+      ],
+      "planet": {
+        "name": "Finite-cover SNC compactification"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/monomial-boundary-chart",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Monomial equations for boundary morphisms",
+      "kind": "definition",
+      "statement": "A MonomialBoundaryChart for a morphism of smooth complex pairs stores local polydisc coordinates z on the source and w on the target, their incident boundary labels, a matrix A=(a_ij) with nonnegative integral entries (target labels are rows, source labels columns), and nowhere-zero holomorphic functions u_i on the full source polydisc, such that w_i∘g=u_i∏_j z_j^{a_ij} for every incident target boundary coordinate. The source chart contains its boundary points, not merely the punctured complement. Coordinates without an incident target boundary are unrestricted holomorphic functions. An incident source divisor mapping into the target boundary has at least one positive entry in its column. This chart only records pullback boundary equations; it does not require monomial formulas for the whole morphism or étaleness of g.",
+      "hypotheses": [
+        "Smooth complex source and target pairs with labelled SNC; g maps the complements to one another.",
+        "Units are nonzero on the full source polydisc."
+      ],
+      "proofSteps": [
+        "Use the accepted algebraic-to-analytic SNC chart bridge for both pairs.",
+        "Factor pulled-back boundary Cartier equations on the smooth local source into its incident components and a unit.",
+        "Shrink charts to avoid nonincident divisors and keep the unit nonzero; record exponents with the stated row/column convention."
+      ],
+      "acceptance": [
+        "A unit only on the punctured locus is insufficient to control winding.",
+        "Changing an equation by a holomorphic unit does not change its exponent column."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "LLSS23",
+          "locator": "Lemma 2.1.1 and proof, pp. 7–8",
+          "match": "Its local blowup monodromy calculation uses exactly the monomial pullback of boundary coordinates."
+        },
+        {
+          "sourceId": "STACKS",
+          "locator": "§41.21, paragraph after Definition 41.21.1",
+          "match": "A Cartier equation supported on SNC components is a unit times their powers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "MonomialBoundaryChart.equation",
+          "role": "projection",
+          "statement": "w_i∘g=u_i∏_j z_j^{a_ij} on the full chart."
+        },
+        {
+          "name": "MonomialBoundaryChart.exponentsUnique",
+          "role": "characterisation",
+          "statement": "The exponent a_ij is the order of g*w_i along z_j=0; multiplying either boundary equation by an extending unit leaves it unchanged."
+        },
+        {
+          "name": "MonomialBoundaryChart.compose",
+          "role": "functoriality",
+          "statement": "For composable boundary charts with exponent matrices A and B, the composite has exponent matrix BA, and the remaining factors extend as nowhere-zero units."
+        },
+        {
+          "name": "MonomialBoundaryChart.identity",
+          "role": "constructor",
+          "statement": "An identity chart has the identity exponent matrix and all units 1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MonomialBoundaryChartTests.identity",
+          "kind": "compatibility",
+          "statement": "For an identity chart a_ij is the Kronecker delta."
+        },
+        {
+          "name": "MonomialBoundaryChartTests.power",
+          "kind": "computation",
+          "statement": "The map z↦z^e has exponent matrix [e], unit 1 and boundary pullback (z^e)."
+        },
+        {
+          "name": "MonomialBoundaryChartTests.puncturedUnit",
+          "kind": "non-example",
+          "statement": "Writing the identity map on Δ* as w=(z)·z⁰ is invalid monomial-chart data: the proposed unit z vanishes on the full disc and would lose the meridian exponent 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Meridian comparison below; LL24, Lemma 8.3.3 proof",
+          "how": "The full-chart units have zero winding, so new inertia depends only on the exponent matrix."
+        }
+      ],
+      "planet": {
+        "name": "Monomial boundary chart"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-map",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "The homomorphism on meridian lattices",
+      "kind": "construction",
+      "statement": "For a nonnegative integer matrix A indexed by r target and s source boundary branches, define MeridianMap(A):Z^s→Z^r by v↦(Σ_j a_ij v_j)_i. The positively oriented source meridian e_j maps to the jth column. For a boundary-intersection blowup of I and pivot p∈I, the pivot column has entry 1 exactly in rows i∈I, while every nonpivot column is its usual coordinate column. A composable sequence of such charts gives the product of their matrices in target-after-source order. This is the local geometric inertia adapter; it is not a new mapping-class-group definition.",
+      "hypotheses": [
+        "Finite label sets; a_ij∈N, viewed in Z for the homomorphism."
+      ],
+      "proofSteps": [
+        "Use finite sums to define the additive homomorphism.",
+        "Evaluate on coordinate generators.",
+        "Prove composition by rearranging finite sums.",
+        "Read the boundary blowup matrix from the imported pivot chart."
+      ],
+      "acceptance": [
+        "Target labels are rows and source labels are columns.",
+        "Exponents need not be primitive: a degree-e finite cover multiplies its meridian by e."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/monomial-boundary-chart",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
+      ],
+      "sources": [
+        {
+          "sourceId": "LLSS23",
+          "locator": "Lemma 2.1.1 and proof, pp. 7–8",
+          "match": "The exceptional meridian of an intersection blowup is the sum of the incident coordinate meridians."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "Proof of Lemma 8.3.3, pp. 40–41",
+          "match": "Boundary inertia after finite-cover normalization may be a positive power; subsequent monomial pullbacks compose these powers."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "api": [
+        {
+          "name": "MeridianMap.column",
+          "role": "simp",
+          "statement": "MeridianMap(A)(e_j) has ith coordinate a_ij."
+        },
+        {
+          "name": "MeridianMap.identity",
+          "role": "simp",
+          "statement": "MeridianMap(I_r)=id_{Z^r}."
+        },
+        {
+          "name": "MeridianMap.compose",
+          "role": "functoriality",
+          "statement": "MeridianMap(BA)=MeridianMap(B)∘MeridianMap(A)."
+        },
+        {
+          "name": "MeridianMap.blowupPivot",
+          "role": "compatibility",
+          "statement": "For a blowup of the I-intersection, the exceptional pivot meridian maps to Σ_{i∈I}e_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MeridianMapTests.empty",
+          "kind": "degenerate",
+          "statement": "With no boundary labels on either side the map is the unique endomorphism of the zero lattice."
+        },
+        {
+          "name": "MeridianMapTests.axes",
+          "kind": "computation",
+          "statement": "For x=u,y=uv, the matrix [[1,0],[1,1]] sends the exceptional meridian (1,0) to (1,1), and (0,1) to (0,1)."
+        },
+        {
+          "name": "MeridianMapTests.power",
+          "kind": "computation",
+          "statement": "For z↦z^e, the one-dimensional meridian map sends 1 to e, including e=2 rather than incorrectly returning 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LLSS23, Lemma 2.1.1; LL24, Lemma 8.3.3",
+          "how": "Converts boundary exponents into products of commuting geometric monodromy generators."
+        }
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-comparison",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Monomial pullback and positive boundary meridians",
+      "kind": "theorem",
+      "statement": "In a MonomialBoundaryChart with exponent matrix A, fix a basepoint in the punctured source chart. Let γ_j be its positive coordinate meridian, and let τ_i be the positive target coordinate meridian based at the image point. In the fundamental group of the target coordinate complement, g_*(γ_j)=∏_i τ_i^{a_ij}. The τ_i commute. Units extending over the full polydisc contribute no winding: contract their image loops along a based contraction in that full polydisc. Passing to a global complement uses the chart inclusion and a basepoint path, so the resulting equality there is defined up to simultaneous conjugacy. Consequently any representation of the global complement sends the source meridian to the product of the corresponding commuting target monodromies with these nonnegative exponents. The theorem computes actual path-homotopy classes; identifying stable-curve monodromies with Dehn twists is a separate consumer input.",
+      "hypotheses": [
+        "Full-chart extending units; coordinate meridians remain in the chosen source polydisc.",
+        "Positive complex orientation; one common basepoint and the same transporting path for all generators."
+      ],
+      "proofSteps": [
+        "Apply the pinned FundamentalGroup.map to the coordinate loop.",
+        "Contract each extending-unit loop in the full source polydisc, then use its nowhere-zero image to obtain a homotopy through the target coordinate complement.",
+        "The remaining coordinate loop has winding a_ij in target coordinate i; simultaneous coordinate loops commute by the product homotopy.",
+        "Apply the global chart inclusion and basepoint conjugation. No surface-group or mapping-class presentation is used."
+      ],
+      "acceptance": [
+        "The x-pivot blowup of xy=0 gives τ_xτ_y, not a single original τ.",
+        "The cover z↦z² gives τ².",
+        "If a unit is allowed only on Δ*, the false factorization z=(z)·1 would contradict the conclusion."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/monomial-boundary-chart",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-map",
+        "mathlib:FundamentalGroup.map",
+        "mathlib:FundamentalGroup.fundamentalGroupMulEquivOfPath",
+        "mathlib:Path.Homotopic.Quotient.mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "LLSS23",
+          "locator": "Lemma 2.1.1 and proof, pp. 7–8",
+          "match": "The lemma reduces exceptional inertia to the local normal-crossings blowup calculation; this node supplies that calculation with explicit exponents and orientation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      },
+      "planet": {
+        "name": "Boundary meridian comparison"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Stable-curve compactification and conditional multitwist inertia",
+      "kind": "application",
+      "statement": "For 2g−2+n>0, import the algebraic smooth-curve stack M_{g,n}, its smooth proper stable compactification with normal-crossings boundary, its local node-smoothing coordinates, and a nonempty finite étale scheme cover of the smooth open from the same-bundle R09.4/R09.5 interface. Strictify the stable boundary by its stratum blowups, and normalize the resulting proper model in the cover’s function field. Resolve this normalization and its boundary preserving the cover; the output is a smooth proper strict-SNC scheme model, projective when the supplier gives the required projective coarse/finite normalization model. On a stable deformation chart, every final boundary meridian maps to a product ∏_e τ_e^{a_e} of the mutually commuting node-smoothing meridians, with a_e≥0 and at least one positive a_e for a divisor above the boundary. If the consumer supplies the identification τ_e↦T_{δ_e} for pairwise disjoint vanishing curves δ_e, its monodromy is the corresponding positive multitwist, up to conjugacy and finite-cover powers. The geometry and exponent calculation are owned here; algebraicity, covers and stable-family coordinates are supplier contracts, and the topological Dehn-twist identification remains with the surface-group consumer. No fundamental-group equivalence for coarse spaces is asserted.",
+      "hypotheses": [
+        "Stable numerical range; over C for the monodromy statement.",
+        "Finite étale cover is a scheme of the stack, not a claim that coarse-space passage preserves inertia.",
+        "Projectivity needs the supplier’s projective coarse model and finite normalization comparison."
+      ],
+      "proofSteps": [
+        "Use the lower same-bundle moduli interfaces without redeclaring stable pointed moduli or rigidification.",
+        "Apply boundary-stratum refinement on an étale atlas and descend the invariant centre ideals and blowups.",
+        "Finite normalization gives a proper scheme extension once the supplier provides its stack-to-scheme comparison; it may be singular. Resolve and principalize its complement preserving the cover.",
+        "Apply the monomial-boundary and meridian comparison on each stable deformation chart. The consumer’s node-monodromy identification turns the computed exponents into multitwists."
+      ],
+      "acceptance": [
+        "For a single node and ramification index e the image is T_δ^e.",
+        "For an intersection of two node divisors the exceptional image is T_{δ₁}T_{δ₂}; disjointness of vanishing curves is the reason these commute.",
+        "The empty-boundary case has no boundary inertia."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Lemma 2.2.3, p. 15 (arXiv v4); proof of Lemma 8.3.3, pp. 40–41",
+          "match": "The application starts with a finite étale scheme cover and uses boundary-stratum blowups and normalization; its inertia calculation is local and uses commuting twists."
+        },
+        {
+          "sourceId": "LLSS23",
+          "locator": "Lemma 2.1.1 and proof, pp. 7–8",
+          "match": "Boundary-stratum exceptional inertia is the multitwist associated with the nodes of the stratum; the Dehn-twist premise belongs to the topological consumer."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Interfaces",
+        "namespace": "TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ResolutionInterfaces"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Reuse the existing ordinary blowup, Cartier exceptional ideal, projectivity, strict-transform closure, pivot-chart and flat-base-change API. Supply the finite native tower restriction comparisons used here; no duplicate Rees/Proj construction. Current Tau Ceti affineBlowup charts must replace older prototypes when packaging.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "The existing R09.7 regular-coordinate/Noetherian local-completion request, including derivative and quotient compatibility and faithful-flat reflection for finite ideals, plus finite boundary normalization/distinct-branch localization. Its Jacobson and étale coordinate nodes are imported through the aggregate owners.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Reuse current native effective-Cartier ideals, and provide the unrestricted ideal-product/divisor dictionary and local monomial factorization of a Cartier divisor supported on a labelled SNC boundary. Pullback here is justified by nonzero equations on a dominant smooth integral source, not by flatness of a blowup.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/monomial-boundary-chart"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
+      "need": "Effective étale descent for the permutation-invariant coherent branch-stratum centre ideals and their blowups on scheme charts, with overlap cocycles from the ordinary blowup universal property. General quasi-coherent descent stays with the accepted R09.3 owner.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+      "need": "Finite normalization of a finite-type characteristic-zero projective variety in a finite separable function-field extension: the actual integral-closure carrier, finiteness, its equality with the finite étale normal cover over U, and compatibility with étale localization. Analytification and open/étale coordinates remain the aggregate analytic-polydisc request; no upper-tier GAGA import.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "need": "Expose its existing stable-pointed-moduli import without replanning StableReductionPartII: for 2g−2+n>0 over C, the smooth proper stable DM stack, the smooth open, node-smoothing coordinate charts with étale normal-crossings boundary, and ordered local branch/node incidence. Keep separated/proper/tame and DM hypotheses distinct.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
+      "need": "For the stable smooth-curve stack over C, a nonempty finite étale surjective scheme cover, and the stack-to-scheme comparison extending this cover by finite normalization over the proper stratum-refined compactification. For projectivity, a projective coarse model and proof that the scheme extension is finite over it. A merely finite surjective cover at wild primes does not supply this étale characteristic-zero interface.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "On a smooth DM stack with étale normal-crossings boundary, descend permutation-invariant centre ideals, ordinary blowups, open-complement identifications and finite normalization from an étale atlas, with effective scheme/algebraic-space realization under the R09.5 cover contract. The full stack carrier belongs here; the suggested file supplies only the native scheme specialization until this carrier exists.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface"
+      ]
+    }
+  ],
+  "gaps": [],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "status": "planned",
+      "remaining": [
+        "Import the accepted aggregate owners listed in importedTargets; their supplier requests and implementation refinements remain in force.",
+        "Replace the pin-only blowup/Cartier adapters with the suppliers and prove finite-tower restriction, controlled cancellation and persistent-label tracking."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "status": "planned",
+      "remaining": [
+        "Import the accepted aggregate owners listed in importedTargets; their supplier requests and implementation refinements remain in force.",
+        "Discharge the completion/derivation supplier contract and the full geometric-to-formal comparison; the suggested file states its coefficient calculation under explicit algebra-map compatibilities."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "status": "planned",
+      "remaining": [
+        "Import the accepted aggregate owners listed in importedTargets; their supplier requests and implementation refinements remain in force.",
+        "Populate and prove the native finite output records from the accepted algorithm, including the smooth-pair preserved-open variant and unique whole-tower comparison."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "status": "planned",
+      "remaining": [
+        "Import the accepted aggregate owners listed in importedTargets; their supplier requests and implementation refinements remain in force.",
+        "Discharge the stable-moduli, finite étale scheme-cover and stack descent requests. The suggested file gives scheme and analytic chart specializations and omits the unavailable stack-carrier signature."
+      ]
+    }
+  ],
+  "importedTargets": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/regular-coordinates",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/stalk-order",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-boundary",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/permissible-centre",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/controlled-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/test-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/normalized-orders",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/orders-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/cartier-separation"
+      ],
+      "note": "Exact accepted owners in the aggregate packet; these are prerequisite references, not duplicated nodes."
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/coefficient-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/residual-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/initial-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hilbert-samuel",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/standard-certificate",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/finite-degree",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-jet-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-presentation-identity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/samuel-transform",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/semicoherent-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/hs-semicoherence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/exceptional-history",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-word",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/recursive-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/invariant-properties",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-data",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/monomial-decrease"
+      ],
+      "note": "Exact accepted owners in the aggregate packet; these are prerequisite references, not duplicated nodes."
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/global-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/resolved-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/preserve-resolved-points",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution"
+      ],
+      "note": "Exact accepted owners in the aggregate packet; these are prerequisite references, not duplicated nodes."
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "owners": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc"
+      ],
+      "note": "Exact accepted owners in the aggregate packet; these are prerequisite references, not duplicated nodes."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "StableReduction",
+      "detail": "General-purpose ordinary blowups remain Layer 4’s; current Tau Ceti has Ideal.affineBlowup and reesAlgebra.awayEquivAffineBlowup beyond the pin. No upstream file is edited."
+    },
+    {
+      "roadmap": "SchemeAndStackFoundations",
+      "detail": "Current Tau Ceti contains Scheme.IdealSheafData.IsEffectiveCartier on arbitrary schemes, with flat-comap API; it is absent at the pin. Reuse it instead of the prototype’s equivalent local-regular-generator predicate."
+    },
+    {
+      "roadmap": "AlgebraicVectorBundles",
+      "detail": "Current roadmap supplies sheaf tensor/relative-Spec and bundle infrastructure and explicitly reserves analytification for a successor. It does not supply an SNC scheme analytification carrier; use the same-bundle A0 bridge."
+    },
+    {
+      "roadmap": "TauCeti",
+      "detail": "Current Tau Ceti’s Geometry/Toric/Analytic/Fan/Boundary/NormalForm.lean supplies TauCeti.Toric.Fan.analyticAffineChartι_mem_analyticBoundaryComponent_iff and exists_partialDiffeomorph_analyticBoundaryComponent_normalForm for regular fans. Their full statements were read on 2026-10-11. Reuse these proved toric chart/boundary comparisons in special-case tests; the supplemental monomial chart carries an actual morphism and exponent matrix and does not replan the toric normal-form theorem. These declarations are beyond the pinned baseline."
+    },
+    {
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "detail": "The accepted aggregate R09.7 packet owns all core targets and Cartier separation. Its review corrected the diagram/certificate distinction, centre containment, exceptional-test distinguished point and closed-point Jacobson passage. Assembly must use the accepted packet rather than its unsynchronized older reader or PR #8005’s duplicate forty-node draft."
+    }
+  ],
+  "sourceRouting": [
+    {
+      "sourceId": "BP26",
+      "target": "Proposition-construction 4.1.11, author p. 42",
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/cartier-separation",
+      "note": "Arbitrary schemes, regular pivot generators and unrestricted Cartier products; already accepted, not replanned."
+    },
+    {
+      "sourceId": "BKT20",
+      "target": "§4.1, author p. 13, source SNC compactification/charts",
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
+      "also": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7/analytic-polydisc"
+      ],
+      "note": "Finite buffered/definable charts and Borel extension stay in their Hodge/Shimura consumers; the lower SNC input is imported."
+    },
+    {
+      "sourceId": "LL24",
+      "target": "Stable-curve moduli, covers, strictification and boundary monodromy in Lemma 8.3.3 proof",
+      "owner": "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface",
+      "note": "Moduli and scheme covers are exact same-bundle supplier contracts; topological identification with pure mapping class groups and Dehn twists is a consumer input, not a new definition here."
+    }
+  ],
+  "prototypeOmissions": [
+    "MarkedTower states smooth labelled SNC, the simultaneous coordinate-centre condition, ideal divisibility and tracking equations on native schemes. The full ambient/submanifold marked-presentation carrier and test-equivalence/history policies remain imported aggregate owners.",
+    "The coefficient calculation uses explicit derivation and restriction compatibilities of algebra maps; existence and faithful-flat reflection for actual completions are supplier obligations.",
+    "BoundaryRefinement’s native output omits the global distinct-branch-stratum algorithm predicate until its normalization/descent carrier exists; the reader defines the centres and the local coordinate example is stated.",
+    "The stable-curve application’s stack-valued signature is omitted. Its conditional geometric meridian consequence is stated on actual fundamental groups, using the supplied node-meridian identifications.",
+    "PrincipalizationTower uses global exponents per birth label; obtain this specialization by refining a centre into its finitely many disjoint connected components. The full canonical output and comparisons retain the aggregate owner’s grouped years and labels.",
+    "The full resolved-pair and whole-tower algorithm-comparison predicates remain aggregate owners; the native EmbeddedTower signature states the reduced empty-initial-boundary specialization.",
+    "Finite-cover tests state native P¹ boundary-ideal pullbacks and nonsmoothness of the quadratic-cone Spec. Identifying that cone with the actual normalization is a supplier obligation; no normalization or stack carrier is faked at the pin."
+  ],
+  "reviewHistory": [],
+  "sourceIssues": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E1903",
+      "source": "LL24",
+      "kind": "gap",
+      "locator": "Proof of Lemma 8.3.3, pp. 40–41, arXiv:2205.15352v4 (February 2025), author pagination; scoped to this accessed preprint, not to the journal version of record.",
+      "printed": "The proof seeks a smooth compactification with strict normal-crossings boundary. After strictifying the stable-moduli boundary by stratum blowups, it takes the normalization in the finite étale cover’s function field and proceeds to boundary monodromy without resolving that normalization.",
+      "correction": "A finite normalization of a smooth strict-SNC model need not be smooth. Resolve the normalized projective model and principalize its reduced boundary while preserving the given smooth cover. Use the resulting proper boundary morphism to pull back node-smoothing equations; their nonnegative exponents give the same commuting-meridian formula. Stack-to-scheme realization and comparison with the coarse model must retain their separate hypotheses.",
+      "reason": "Over a characteristic-zero field, the connected cover of the two-dimensional torus defined by z²=xy is finite étale. The normalization of the affine plane in its function field is Spec(k[x,y,z]/(z²−xy)): a normal quadratic cone, singular at the origin. Its local dimension is two but its cotangent dimension there is three. Thus normalization alone does not provide the smooth compactification needed at this step. Resolution preserving the cover supplies it, and the full-chart extending-unit argument computes the added boundary meridians.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Official arXiv abstract and version history for 2205.15352, and the accessed v4 proof (checked 2026-10-11).",
+        "Annals of Mathematics article page for volume 199 (2024), no. 2, p06; no correction link found (2026-10-11). The journal full text was not inspected.",
+        "Title searches with corrigendum, normalization and singular compactification; no existing correction located (2026-10-11)."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "citation": "Landesman–Litt, Canonical representations of surface groups, arXiv:2205.15352v4 (February 2025); accessed preprint only, own pagination. Published in Annals of Mathematics 199 (2024), 823–897; the published full text was not inspected.",
+      "read": "2026-10-11",
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb"
+    }
+  ]
+}
