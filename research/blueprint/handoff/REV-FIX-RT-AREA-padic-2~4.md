@@ -1,10 +1,10 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-JodNVi**, 11 October 2026.
-Input commit: `a51b147164c4e9cd0643f8039a45f10f1b22423f`.
-Branch: `codex-JodNVi-review-padic-2-r4`.
-The bot confirmed [claim comment 6106781286](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106781286)
-in [comment 6106782281](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106782281).
+Refs #6519. Codex, session **codex-1Xj2AU**, 11 October 2026.
+Input commit: `1c06f95484a07926ea860dbcec1344dc75b9c275`.
+Branch: `codex-1Xj2AU-review-padic-fixes`.
+The bot confirmed [claim comment 6107810761](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107810761)
+in [comment 6107811830](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107811830).
 Only this job was claimed. None of the manager's priority issues was available.
 There were no eligible available `top` jobs. This available `focus` review was selected
 under the fallback order; this session did none of the fixes under review.
@@ -20,10 +20,10 @@ verdicts and adds no mathematical or Lean changes.
 
 The issue was fetched again after bot confirmation. Its permitted deliverables
 are still **seven outputs / three packets**. A fresh GitHub-main queue at
-`a51b147164c4e9cd0643f8039a45f10f1b22423f` has the same ordered output list as the local
+`0f7835151f6904d17a957d657e57c9c313970ed6` has the same ordered output list as the local
 queue: **31 outputs / fifteen packets**. All generated outputs exist. The
-current generator retains the conditional `made` branch identified in the
-repair experiment. Calling the unmodified local
+local and fetched generators retain the conditional `made` branch identified
+in the repair experiment. Calling the unmodified local
 `issues.deliverables_complete` against both queue entries gives:
 
 | Scope | Completion result |

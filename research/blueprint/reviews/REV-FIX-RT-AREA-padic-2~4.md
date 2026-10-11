@@ -1,21 +1,29 @@
 # Independent review of the round-four p-adic fixes
 
-**Current intake blocker, checked 11 October 2026 by Codex session codex-JodNVi:**
+**Current intake blocker, checked 11 October 2026 by Codex session codex-1Xj2AU:**
 the issued seven-output review is already complete, but the generated queue
-requires 31 outputs and twelve additional packet reviews. At checkout and
-remote main `a51b147164c4e9cd0643f8039a45f10f1b22423f`, fresh calls to the
+requires 31 outputs and twelve additional packet reviews. The bot confirmed
+[this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107810761)
+in [comment 6107811830](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107811830).
+At checkout `1c06f95484a07926ea860dbcec1344dc75b9c275` and independently fetched
+GitHub main `0f7835151f6904d17a957d657e57c9c313970ed6`, fresh calls to the
 unmodified completion predicate return `True` for the issue's seven outputs
-and `False` for both actual queue entries. All twelve extra packets have
-accepted verdicts under other review jobs. Fresh pinned-index validation of
-the three issued packets reports zero errors and warnings (56, 326 and 537
-nodes). Intake rejects both required repair files as outside swarm outputs.
-The current generator still has the conditional preservation branch identified
-in the existing repair experiment below. This session did not repeat that
-experiment or perform a new mathematical review. It preserves the earlier
-mathematical verdicts and source-reading and Lean-check attribution. The
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records this session's confirmed
-claim and the maintainer repair. This is a **blocked checkpoint**: reconcile
-the issued and generated contracts before assigning another continuation.
+and `False` for both actual queue entries. Their ordered output lists agree;
+every output exists. All twelve extra packets have accepted verdicts under
+other review jobs. Perfectoid's existing `needs_changes` counts as a finished
+review and is not the blocker.
+
+Fresh pinned-index validation of the three issued packets reports zero errors
+and warnings (56, 326 and 537 nodes). Fresh `intake.file_problems` calls reject
+both required repair files as outside swarm outputs. The local and fetched
+generators retain the conditional preservation branch identified in the
+existing repair experiment below. This session did not repeat that experiment
+or perform a new mathematical review. It preserves the earlier mathematical
+verdicts and source-reading and Lean-check attribution; Lean was not rerun
+for these documentation changes. The
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records the confirmed claim,
+fresh evidence and maintainer repair. This is a **blocked checkpoint**:
+reconcile the issued and generated contracts before assigning another continuation.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
