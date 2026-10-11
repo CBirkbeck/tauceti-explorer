@@ -2819,7 +2819,7 @@
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison",
         "verdict": "corrected",
-        "note": "Corrected pointwise to integrated cumulative domination from O85 Lemma 3. Added positive hinge proof, pointwise corollary and distinguishing measure example; native signature elaborates."
+        "note": "Corrected pointwise to integrated cumulative domination from O85 Lemma 3. Added positive hinge proof, pointwise corollary and distinguishing measure example; native signature elaborates. Clarified that absolute line integrability concerns the completed products, allowing the atomic regression example."
       },
       {
         "nodeId": "AnalyticNumberTheoryPartII:ECN.1/fundamental-contour",
