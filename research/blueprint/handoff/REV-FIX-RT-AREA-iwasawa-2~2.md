@@ -1,89 +1,77 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-AHzUBV`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-NP5JM2`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107884272).
-Input: `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`.
-Branch: `codex-AHzUBV-review-6219`. One job; I authored none of the fixes.
+Input: `772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`.
+Branch: `codex-NP5JM2-review-iwasawa-2`. One job; none of its fixes were mine.
 
-## Status and resumption gate
+## Resumption gate
 
-**Scope-blocked checkpoint.** The six bounded correction decisions have been
-checked independently against the cited source locations and current library.
-The [review](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records the decisions
-and their limits. L3 is accepted for /1; PMIA needs a coordinated reuse
-revision for /4. Both issue-named packets carry this session's review,
-archiving the whole preceding verdict after its unchanged history. All
-non-review fields and all four Suggested files retain the input content.
+**Scope-blocked checkpoint.** The six bounded correction decisions are done.
+The [review](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) contains the source
+locators, mathematical boundaries and current-library overlap. L3 is accepted
+for /1; PMIA needs changes for /4. Both live issue-named packets carry this
+session's verdict, preserving the full previous reviews and histories.
 
-The live issue names only L3 and PMIA. Its full instructions also restrict
-editing to those packets. The queue requires L3-2 and D.1 to name this review
-in their top verdicts. `issues.deliverables_complete` returns false on the
-permitted tree and true with precisely the two candidates below. A negative
-PMIA verdict is a completed review; it does not cause this scope mismatch.
+The live issue and its full instructions omit L3-2 and D.1. The queue requires
+both to carry this review's identifier. The stock completion predicate returns
+false on the permitted tree and true with exactly the two metadata candidates
+below; a `needs_changes` verdict is a completed review.
+[WORKERS.md](../WORKERS.md), Doing the work, says “Edit only the files the issue
+names, plus your own scratch space.” I requested authorization for these two
+paths in the worker conversation. No answer arrived, and neither was changed.
 
-[WORKERS.md](../WORKERS.md), Doing the work, says “Edit only the files the
-issue names, plus your own scratch space.” Authorization for the two omitted
-metadata paths was requested in the worker conversation and has not arrived.
-Neither candidate is installed. Before redispatching, reconcile #6219's
-live file list with its queue outputs or expressly authorize those two paths.
-There is no mathematical review left that can remove this administrative
-blocker. Do not spend another run repeating the same audit under the unchanged
-file restriction.
+Before redispatching, reconcile #6219's live file list and instructions with
+its queue outputs, or expressly authorize the two metadata paths. Repeating
+the same mathematical audit cannot resolve this gate. After authorization,
+compare intervening changes, install the guarded records below and check all
+four packets, intake file rules and the stock completion predicate. Preserve
+the prior full-layer `checked` ledgers (79 nodes in L3-2, 72 in D.1). These
+records certify bounded corrections, not repeated whole-layer audits.
 
-After authorization, compare intervening changes, install the two guarded
-records, check all four packets and intake file rules, and verify the stock
-completion predicate. Then submit the completed review. Preserve the complete
-79-node L3-2 and 72-node D.1 layer ledgers: the candidates are bounded
-correction reviews and do not replace those audits' attribution.
+## Checks and mathematical follow-up
 
-## Verification and mathematical continuation
+All four actual packets and both exact candidates have zero blueprint checker
+errors. L3 has 26 inherited short-API warnings; the others have none. All
+non-review fields and Suggested files match the input. Preceding review
+objects are appended intact after existing histories. No packet or candidate
+contains an `excerpt` field. Intake checks and `git diff --check` pass.
 
-All four actual packets and both exact candidates pass the pinned-index
-blueprint checker with zero errors. L3 retains 26 inherited short-API warnings;
-the other packets have none. No packet or candidate contains an `excerpt`
-field. Full preceding review objects and histories are preserved. Intake file
-validation and `git diff --check` pass.
+Fresh sequential `lean-check`: PMIA exits 0 with 1,075 `sorry` warnings;
+L3-2 exits 0 with 111; D.1 exits 0 with 307. Those files have no other
+diagnostics. L3 exits 1 before body elaboration on unresolved `research`
+imports. More than 20 GB was available before each run. No language server,
+dependency build or update ran. Finite Gamma-sign/dyadic-period, FG
+permutation/congruence/strict-filtration and rectangular compound-preimage
+controls pass. They do not prove the admitted theorems.
 
-Fresh sequential `lean-check` results: L3 fails on unresolved `research`
-imports before body elaboration; L3-2, D.1 and PMIA elaborate with respectively
-111, 307 and 1,075 `sorry` warnings and no other diagnostics. Memory exceeded
-20 GB before each run. No language server, dependency build or update ran.
-Gamma sign/dyadic-period, positive-residue FG permutation/congruence/strict
-filtration and rectangular compound-map examples pass; their concrete values
-and primary-source locators are in the report. They do not prove the admitted
-statements.
+Pinned sources were read at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`; the four relevant shared-build
+source files match their pins. Current read-only heads are TauCetiRoadmap
+`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Current declarations are never
+attributed to the older pin. ProfiniteArithmetic and StableReduction were
+read as upstream examples; they were not replanned.
 
-Programme pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The shared build's relevant
-continuous-unit lift, Gauss-sum, Teichmuller and transpose source files match
-the pin checkout exactly. Current read-only heads: TauCetiRoadmap
-`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`; Tau Ceti
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. ProfiniteArithmetic and
-StableReduction's introductions/Suggested interfaces were read as upstream
-models. Current declarations are separated from the older programme pin.
-
-PMIA's next coordinated revision must replace generic L6 planning with current
-`TauCeti.fittingIdeal`, `Submodule.minorsIdeal_ker_eq_of_surjective`,
+PMIA requires a separate coordinated packet/reader/Suggested/consumer revision
+to reuse `TauCeti.fittingIdeal`, `Submodule.minorsIdeal_ker_eq_of_surjective`,
 `TauCeti.fittingIdeal_eq_minorsIdeal_ker`, `TauCeti.fittingIdeal_baseChange` and
-`TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`. The report
-maps all five targets to exact file locations and hypotheses. Change packet,
-reader, Suggested and consumers together, retaining arithmetic image orders,
-inverse-character sharp transport, arbitrary-family span/image adapters,
-nonflat examples and opposite dual factors P0×Q1 versus P1×Q0. This remains a
-separate revision: its reader/consumer paths are outside the live review's
-scope. Ring-module Fitting ideals do not supply scheme-level targets.
+`TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`. Exact
+hypotheses and file locations are in the report. Keep arithmetic image orders,
+inverse-character sharp scalar transport, arbitrary-family span/image
+adapters, nonflat examples and dual factors P0×Q1 versus P1×Q0. Scheme-level
+Fitting targets still need their scheme-level work. PMIA's negative verdict
+must not be treated as acceptance or erased to complete this review job.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/517d1829d0fc041f39f5b88fd54e5ba8459ba55c/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
-retains preceding checkpoint history. Everything needed to resume is below;
-no disposable scratch file is required.
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/772d9e5f9c5bc35afa5aba5078d7ac113ea52b12/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+retains the previous checkpoint history. No disposable scratch file is needed.
 
-## Exact records and guarded installation
+## Guarded records
 
-Run from the repository root only after the omitted paths are authorized.
-The script validates both input hashes before writing either file and
-preserves each prior review intact. If a guard fails, inspect intervening
-changes and recheck the affected contract; do not bypass it.
+Run from the repository root **only after the two omitted paths are
+authorized**. All guards are checked before either packet is written. A failed
+guard requires inspection of intervening changes, not bypassing it.
 
 ```python
 import copy
@@ -95,23 +83,23 @@ records = json.loads(r'''[
   {
     "path": "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
     "inputSha256": "d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14",
-    "candidateSha256": "abdfacc73a63fd5e4bbf6916b7c0c9621f7a336413dc8fd7d09034c856692907",
+    "candidateSha256": "9d9f380deed028e32debcb621c0e96eff193bb979e490883ca8734c3e232001e",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded correction review by Codex (GPT-6), session codex-AHzUBV, 11 October 2026. Follows independent-review-REV-DirichletPadicLFunctions--L3-2; its entire 79-node review ledger is preserved in reviewHistory. For finding /2, read Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474. Verified the primitive odd tame character, even chi-omega branch including the dyadic conductor convention, direct character weights in the Gamma-log sum and conductor term (1-chi(p))*B1,chi*log_p(N). Only chi(p)=1 removes that term. Checked finite permutation/congruence/strict-filtration examples, including dyadic and N=1 controls. The E37 endpoint repair, uniform convergence and separate nonvanishing contract remain explicit; five gaps and eight supplier requests remain. Pinned-index checker has zero errors/warnings; shared lean-check exits 0 with 111 admission warnings and no other diagnostics. This is a correction review, not a repeated whole-layer audit. No mathematical or Suggested field changed."
+      "notes": "Bounded correction review by Codex (GPT-6), session codex-NP5JM2. Follows independent-review-REV-DirichletPadicLFunctions--L3-2; its entire 79-node checked ledger is archived intact. Independently checked finding /2 against Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474. The primitive odd tame character determines the even chi-omega branch; weights are chi(a) directly and the additional term is (1-chi(p))*B1,chi*log_p(N). It disappears only under chi(p)=1. Dyadic branch conventions, the E37 strict endpoint repair, convergence and separate arithmetic nonvanishing requests are retained. Finite permutation/congruence/strict-filtration controls passed for (5,3,25),(2,3,4),(2,3,16),(3,1,9), including the N=1 auxiliary control. Checker: zero errors/warnings. Fresh lean-check: exit0,111 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
     }
   },
   {
     "path": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
     "inputSha256": "2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c",
-    "candidateSha256": "4e22289f70426ee90fde7fe3cbbb49040c789e8e7a0cb2a978a906b6734fb312",
+    "candidateSha256": "e9f412342d14fb122526d9406a38d7169a0e7376cc5bd6a30b827c4a0461ad75",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded correction review by Codex (GPT-6), session codex-AHzUBV, 11 October 2026. Follows independent-review-REV-PadicHodgeRegulators--D.1~2; its entire 72-node review ledger is preserved in reviewHistory. For finding /3, read Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54, and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. Checked the divided and undivided complexes, lifted divisible ideal, omega/tau direction and p^r composites, omega multiplicativity, modified Tate twist and exact small-weight range. Kept bounded integral error distinct from rational exponential comparison, including its boundary sign and scaling. CS.0–CS.3 remain shared producer requests; nine gaps and twenty requests remain. Pinned-index checker has zero errors/warnings; shared lean-check exits 0 with 307 admission warnings and no other diagnostics. This is a correction review, not a repeated whole-layer audit. No mathematical or Suggested field changed."
+      "notes": "Bounded correction review by Codex (GPT-6), session codex-NP5JM2. Follows independent-review-REV-PadicHodgeRegulators--D.1~2; its entire 72-node checked ledger is archived intact. Independently checked finding /3 against Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54, and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. The lifted divisible ideal, divided/undivided complexes, omega and tau directions with p^r composites, omega product compatibility, modified Tate twist and exact small-weight range are correct. Integral bounded error is kept separate from rational exponential comparison; boundary sign and scaling are explicit. CS.0–CS.3 remain shared producer requests. Checker: zero errors/warnings. Fresh lean-check: exit0,307 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
     }
   }
 ]''')
