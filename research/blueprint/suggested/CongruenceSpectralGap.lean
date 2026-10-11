@@ -3,6 +3,7 @@ import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.MeasureTheory.Group.FundamentalDomain
 import Mathlib.MeasureTheory.Function.L2Space
 import Mathlib.Analysis.MellinTransform
+import Mathlib.Analysis.MellinInversion
 import Mathlib.Analysis.SpecialFunctions.Gamma.Deligne
 import Mathlib.NumberTheory.DirichletCharacter.Orthogonality
 import Mathlib.NumberTheory.GaussSum
@@ -66,6 +67,10 @@ example : (quotientMeasure (CongruenceSubgroup.Gamma 1)
 example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) :
     0 < quotientMeasure Γ hΓ univ := by
   sorry
+-- quotientMeasure.level_two: the effective index is six.
+example : (quotientMeasure (CongruenceSubgroup.Gamma 2)
+    (CongruenceSubgroup.Gamma_is_cong_sub 2) univ).toReal = 2 * Real.pi := by
+  sorry
 -- quotientMeasure.domain_independence
 example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ)
     (F F' : Set UpperHalfPlane)
@@ -118,6 +123,10 @@ example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgrou
     (u : (quotientLaplacian Γ hΓ).domain) (hu : quotientLaplacian Γ hΓ u ≠ 0) :
     0 < (inner ℂ (u : QuotientL2 Γ hΓ) (quotientLaplacian Γ hΓ u)).re := by
   sorry
+-- quotientLaplacian.nontrivial: excludes the zero operator.
+example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) :
+    ∃ u : (quotientLaplacian Γ hΓ).domain, quotientLaplacian Γ hΓ u ≠ 0 := by
+  sorry
 
 def meanZero (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) :
     Submodule ℂ (QuotientL2 Γ hΓ) := by
@@ -152,6 +161,10 @@ example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgrou
     (u : QuotientL2 Γ hΓ) (hu : u =ᵐ[quotientMeasure Γ hΓ] (fun _ => I)) :
     u ∉ meanZero Γ hΓ := by
   sorry
+-- meanZero.nontrivial: excludes the zero submodule.
+example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) :
+    ∃ u : QuotientL2 Γ hΓ, u ∈ meanZero Γ hΓ ∧ u ≠ 0 := by
+  sorry
 
 -- Infimum of the positive-operator Rayleigh values, excluding the zero vector and constants.
 def spectralGap (Γ : Subgroup SL(2, ℤ))
@@ -174,18 +187,40 @@ lemma spectralGap_le_threshold (Γ : Subgroup SL(2, ℤ))
     (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) : spectralGap Γ hΓ ≤ 1 / 4 := by
   sorry
 
--- spectralGap.noncongruence_rejection: the baseline predicate requires a positive level.
-example (Γ : Subgroup SL(2, ℤ)) (hΓ : ¬ CongruenceSubgroup.IsCongruenceSubgroup Γ) :
-    ¬ ∃ N : ℕ, N ≠ 0 ∧ CongruenceSubgroup.Gamma N ≤ Γ := by
-  sorry
--- spectralGap.constant_excluded
-example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ)
+lemma spectralGap_le_rayleigh (Γ : Subgroup SL(2, ℤ))
+    (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ)
     (u : (quotientLaplacian Γ hΓ).domain)
     (hu : (u : QuotientL2 Γ hΓ) ∈ meanZero Γ hΓ)
-    (hz : quotientLaplacian Γ hΓ u = 0) : (u : QuotientL2 Γ hΓ) = 0 := by
+    (hne : (u : QuotientL2 Γ hΓ) ≠ 0) :
+    spectralGap Γ hΓ ≤
+      (inner ℂ (u : QuotientL2 Γ hΓ) (quotientLaplacian Γ hΓ u)).re /
+        ‖(u : QuotientL2 Γ hΓ)‖ ^ 2 := by
   sorry
--- spectralGap.continuous_threshold
-example (t : ℝ) : (1 / 4 : ℝ) ≤ 1 / 4 + t ^ 2 := by
+
+-- spectralGap.empty_small_spectrum
+example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ)
+    (hsmall : ∀ lam : ℝ, 0 < lam → lam < 1 / 4 →
+      ¬ ∃ u : (quotientLaplacian Γ hΓ).domain,
+        (u : QuotientL2 Γ hΓ) ≠ 0 ∧
+        quotientLaplacian Γ hΓ u = (lam : ℂ) • (u : QuotientL2 Γ hΓ)) :
+    spectralGap Γ hΓ = 1 / 4 := by
+  sorry
+-- spectralGap.attained_bottom
+example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ)
+    (lam : ℝ)
+    (u : (quotientLaplacian Γ hΓ).domain)
+    (hu : (u : QuotientL2 Γ hΓ) ∈ meanZero Γ hΓ)
+    (hne : (u : QuotientL2 Γ hΓ) ≠ 0)
+    (heig : quotientLaplacian Γ hΓ u = (lam : ℂ) • (u : QuotientL2 Γ hΓ))
+    (hbottom : ∀ v : (quotientLaplacian Γ hΓ).domain,
+      (v : QuotientL2 Γ hΓ) ∈ meanZero Γ hΓ → (v : QuotientL2 Γ hΓ) ≠ 0 →
+      lam * ‖(v : QuotientL2 Γ hΓ)‖ ^ 2 ≤
+        (inner ℂ (v : QuotientL2 Γ hΓ) (quotientLaplacian Γ hΓ v)).re) :
+    spectralGap Γ hΓ = lam := by
+  sorry
+-- spectralGap.positive: excludes retaining the constant eigenvalue.
+example (Γ : Subgroup SL(2, ℤ)) (hΓ : CongruenceSubgroup.IsCongruenceSubgroup Γ) :
+    21 / 100 ≤ spectralGap Γ hΓ := by
   sorry
 
 -- Scalar convention for small eigenvalues; the inserted threshold handles the empty set.
@@ -350,7 +385,7 @@ theorem congruence_rayleigh_bound (Γ : Subgroup SL(2, ℤ))
   sorry
 
 theorem exceptional_parameter_arithmetic (r : ℝ) (hr : 0 ≤ r) (hb : 2 * r ≤ 2 / 5) :
-    21 / 100 ≤ 1 / 4 - r ^ 2 := by
+    r ≤ 1 / 5 ∧ 21 / 100 ≤ 1 / 4 - r ^ 2 := by
   sorry
 
 theorem curvature_scaled_gap (lam κ : ℝ) (hκ : 0 < κ) (hbound : 21 / 100 ≤ lam) :
