@@ -169,9 +169,9 @@
       ],
       "title": "Finite blowup towers",
       "kind": "definition",
-      "statement": "A BlowupTower on a scheme X is a natural number N, schemes X₀,…,X_N with X₀=X, finite-type coherent centre ideals Cᵢ on Xᵢ for i<N, and morphisms πᵢ:Xᵢ₊₁→Xᵢ identified with the ordinary blowups Bl_{Cᵢ}(Xᵢ). Its map to X is the ordered composite of the πᵢ. Each exceptional ideal is CᵢO_{Xᵢ₊₁}. Length zero has X as its endpoint and the identity map. A restriction retains all N years, including years whose centre misses the open; deletion of those identity steps is a separate reindexing operation. This record adds the finite native scheme carrier omitted from the aggregate prototype; it does not construct another ordinary blowup.",
+      "statement": "A BlowupTower on a scheme X is a natural number N, schemes X₀,…,X_N with X₀=X, finite-type quasi-coherent centre ideals Cᵢ on Xᵢ for i<N, and morphisms πᵢ:Xᵢ₊₁→Xᵢ identified with the ordinary blowups Bl_{Cᵢ}(Xᵢ). Its map to X is the ordered composite of the πᵢ. Each exceptional ideal is CᵢO_{Xᵢ₊₁}. Length zero has X as its endpoint and the identity map. A restriction retains all N years, including years whose centre misses the open; deletion of those identity steps is a separate reindexing operation. This record adds the finite native scheme carrier omitted from the aggregate prototype; it does not construct another ordinary blowup.",
       "hypotheses": [
-        "Schemes and finite-type centre ideals; projectivity and the ordinary blowup universal property are imported from StableReduction Layer 4."
+        "Arbitrary schemes and quasi-coherent centre ideals of finite type; coherence is not assumed on a non-Noetherian base. Projectivity and the ordinary blowup universal property are imported from StableReduction Layer 4."
       ],
       "proofSteps": [
         "Use the imported blowup object at each of finitely many years.",
@@ -180,7 +180,8 @@
       ],
       "acceptance": [
         "A tower is more than a proper modification: all centre ideals and blowup identifications remain visible.",
-        "Composition order is X_N→…→X₀."
+        "Composition order is X_N→…→X₀.",
+        "Native restriction comparisons commute with the projection to the open; nested restrictions compare with pullback along the composite open immersion."
       ],
       "prerequisites": [
         "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
@@ -490,7 +491,7 @@
       ],
       "title": "Strict transforms in embedded resolution outputs",
       "kind": "construction",
-      "statement": "For a reduced closed finite-type subscheme X of a smooth quasi-compact characteristic-zero ambient M, construct an EmbeddedTower recording the finite witness from R09.7/embedded-resolution. At each year set Xᵢ₊₁ to the scheme-theoretic closure of the inverse image of Xᵢ away from the chosen centre. Store its closed immersion into Mᵢ₊₁ and its map to Xᵢ. The output identifies the endpoint strict transform X_N with this iterative closure, proves it smooth, and gives SNC for the restrictions of the final exceptional labels to X_N. Its map to X is proper and an isomorphism over the original smooth locus. For the smooth-pair variant, import R09.7/preserve-resolved-points with its distinct-germ and noncontainment hypotheses and preserve exactly its resolved open. Isomorphism compatibility is throughout the specified towers, with empty steps removed on restriction as in R09.7/local-isomorphism-resolution.",
+      "statement": "For a reduced closed finite-type subscheme X of a smooth quasi-compact characteristic-zero ambient M, construct an EmbeddedTower recording the finite witness from R09.7/embedded-resolution. Every centre is smooth and simultaneous-coordinate permissible for the current boundary. At each year set Xᵢ₊₁ to the scheme-theoretic closure of the inverse image of Xᵢ away from the chosen centre. Store its closed immersion into Mᵢ₊₁ and its map to Xᵢ. The output identifies the endpoint strict transform X_N with this iterative closure, proves it smooth, and gives SNC for the restrictions of the final exceptional labels to X_N. Its map to X is proper and an isomorphism over the original smooth locus. For the smooth-pair variant, import R09.7/preserve-resolved-points with its distinct-germ and noncontainment hypotheses and preserve exactly its resolved open. Isomorphism compatibility is throughout the specified towers, with empty steps removed on restriction as in R09.7/local-isomorphism-resolution.",
       "hypotheses": [
         "Reduced closed X⊆M, M smooth finite-type and quasi-compact over char-zero k.",
         "The smooth-pair refinement keeps the accepted resolved-locus and Cartier-restriction hypotheses."
@@ -503,7 +504,8 @@
       ],
       "acceptance": [
         "A smooth X with empty boundary has an identity output.",
-        "Nonreduced inputs do not get a smooth strict-transform conclusion; their weaker theorem stays with the aggregate owner."
+        "Nonreduced inputs do not get a smooth strict-transform conclusion; their weaker theorem stays with the aggregate owner.",
+        "The native certificate records each centre’s coordinate permissibility, in addition to smoothness and SNC of the successive spaces."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
@@ -684,7 +686,7 @@
         "Normalization finiteness uses finite type over a field (Nagata), not arbitrary excellent-scheme compactification."
       ],
       "proofSteps": [
-        "Use the same-bundle finite normalization interface and its actual integral-closure carrier; the function field extension is finite separable.",
+        "Import SF.0/nagata-normalization-finite and its native relative integral-closure carrier. Finite-type schemes over the field are Nagata, and k(V)/k(U) is finite separable; only the open-cover identification and localization comparisons remain supplier refinements.",
         "Normality of V identifies N over U with V. Finiteness over the projective C gives projectivity.",
         "Apply the accepted local-isomorphism resolution and principalization witnesses away from V; retain both finite towers and the open-identifying squares.",
         "Each pulled-back target Cartier equation is nonzero in the smooth integral source. Its divisor is supported on the source SNC complement, so local factoriality gives the unit-times-monomial expression."
@@ -692,13 +694,14 @@
       "acceptance": [
         "Identity cover admits the original model itself with identity map.",
         "A normalization of an SNC model is not silently assumed smooth.",
-        "The resolved map is proper; finiteness and flatness are not output properties."
+        "The resolved map is proper; finiteness and flatness are not output properties.",
+        "The stronger cubic-cover test retains a singular normalization after the prescribed two-branch boundary refinement."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification",
         "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution",
         "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
         "SchemeAndStackFoundations:SF.3"
       ],
       "sources": [
@@ -755,6 +758,11 @@
           "name": "FiniteCoverCompactificationTests.singularNormalization",
           "kind": "non-example",
           "statement": "The finite étale degree-two cover z²=xy of G_m² normalizes A² in a scheme singular over (0,0); it must be resolved before a smooth compactification is claimed."
+        },
+        {
+          "name": "FiniteCoverCompactificationTests.singularAfterRefinement",
+          "kind": "non-example",
+          "statement": "Over C, the connected finite étale torus cover z³=xy remains singular after the boundary-intersection blowup. In its x-pivot chart x=u, y=uv, the normalization in z³=u²v has ring C[a³,a²b,ab²,b³], with u=a³, v=b³, z=a²b. At its vertex the local dimension is two and the cotangent dimension is four. Thus the preceding boundary strictification does not justify omitting resolution."
         }
       ],
       "uses": [
@@ -837,7 +845,7 @@
         {
           "name": "MonomialBoundaryChartTests.identity",
           "kind": "compatibility",
-          "statement": "For an identity chart a_ij is the Kronecker delta."
+          "statement": "For an identity chart the actual coordinate map is the identity, all units are 1, and a_ij is the Kronecker delta."
         },
         {
           "name": "MonomialBoundaryChartTests.power",
@@ -847,7 +855,7 @@
         {
           "name": "MonomialBoundaryChartTests.puncturedUnit",
           "kind": "non-example",
-          "statement": "Writing the identity map on Δ* as w=(z)·z⁰ is invalid monomial-chart data: the proposed unit z vanishes on the full disc and would lose the meridian exponent 1."
+          "statement": "For the identity map of the one-dimensional boundary pair, no MonomialBoundaryChart can have exponent zero: the putative unit would be z, which vanishes at the origin in its full positive-radius source disc. Testing the chart itself rejects a definition that only asks for nonvanishing on the punctured locus."
         }
       ],
       "uses": [
@@ -1059,10 +1067,11 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "The existing R09.7 regular-coordinate/Noetherian local-completion request, including derivative and quotient compatibility and faithful-flat reflection for finite ideals, plus finite boundary normalization/distinct-branch localization. Its Jacobson and étale coordinate nodes are imported through the aggregate owners.",
+      "need": "The existing R09.7 regular-coordinate/Noetherian local-completion request, including derivative and quotient compatibility and faithful-flat reflection for finite ideals, plus finite boundary normalization/distinct-branch localization. Its Jacobson and étale coordinate nodes are imported through the aggregate owners. Import SF.0/nagata-normalization-finite for the native finite relative normalization in the cover’s function field; request only its identification with the given normal finite étale cover over U and its étale-localization comparison. No second normalization construction belongs to A0.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
-        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification"
       ]
     },
     {
@@ -1078,13 +1087,6 @@
       "need": "Effective étale descent for the permutation-invariant coherent branch-stratum centre ideals and their blowups on scheme charts, with overlap cocycles from the ordinary blowup universal property. General quasi-coherent descent stays with the accepted R09.3 owner.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement"
-      ]
-    },
-    {
-      "supplier": "AlgebraicModuliForArithmeticGeometry:A0-extension",
-      "need": "Finite normalization of a finite-type characteristic-zero projective variety in a finite separable function-field extension: the actual integral-closure carrier, finiteness, its equality with the finite étale normal cover over U, and compatibility with étale localization. Analytification and open/étale coordinates remain the aggregate analytic-polydisc request; no upper-tier GAGA import.",
-      "neededBy": [
-        "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification"
       ]
     },
     {
@@ -1230,6 +1232,10 @@
     {
       "roadmap": "AlgebraicModuliForArithmeticGeometry",
       "detail": "The accepted aggregate R09.7 packet owns all core targets and Cartier separation. Its review corrected the diagram/certificate distinction, centre containment, exceptional-test distinguished point and closed-point Jacobson passage. Assembly must use the accepted packet rather than its unsynchronized older reader or PR #8005’s duplicate forty-node draft."
+    },
+    {
+      "roadmap": "SchemeAndStackFoundations",
+      "detail": "Independent review reads SF.0/nagata-normalization-finite, including its finite-function-field-extension clause and native Scheme.Hom.fromNormalization carrier. Finite-cover compactification imports this existing owner; the supplemental A0 normalization request is removed. The aggregate A0 analytification bridge is unaffected."
     }
   ],
   "sourceRouting": [
@@ -1273,14 +1279,20 @@
       "locator": "Proof of Lemma 8.3.3, pp. 40–41, arXiv:2205.15352v4 (February 2025), author pagination; scoped to this accessed preprint, not to the journal version of record.",
       "printed": "The proof seeks a smooth compactification with strict normal-crossings boundary. After strictifying the stable-moduli boundary by stratum blowups, it takes the normalization in the finite étale cover’s function field and proceeds to boundary monodromy without resolving that normalization.",
       "correction": "A finite normalization of a smooth strict-SNC model need not be smooth. Resolve the normalized projective model and principalize its reduced boundary while preserving the given smooth cover. Use the resulting proper boundary morphism to pull back node-smoothing equations; their nonnegative exponents give the same commuting-meridian formula. Stack-to-scheme realization and comparison with the coarse model must retain their separate hypotheses.",
-      "reason": "Over a characteristic-zero field, the connected cover of the two-dimensional torus defined by z²=xy is finite étale. The normalization of the affine plane in its function field is Spec(k[x,y,z]/(z²−xy)): a normal quadratic cone, singular at the origin. Its local dimension is two but its cotangent dimension there is three. Thus normalization alone does not provide the smooth compactification needed at this step. Resolution preserving the cover supplies it, and the full-chart extending-unit argument computes the added boundary meridians.",
+      "reason": "Over a characteristic-zero field, the connected cover of the two-dimensional torus defined by z²=xy is finite étale. The normalization of the affine plane in its function field is Spec(k[x,y,z]/(z²−xy)): a normal quadratic cone, singular at the origin. Its local dimension is two but its cotangent dimension there is three. Thus normalization alone does not provide the smooth compactification needed at this step. Resolution preserving the cover supplies it, and the full-chart extending-unit argument computes the added boundary meridians. A stronger example survives the preceding boundary-stratum blowup: over C take z³=xy, then x=u and y=uv. The integral closure is C[a³,a²b,ab²,b³], with u=a³, v=b³, z=a²b and ab²=z²/u. It is the normal third-Veronese ring, finite over C[u,v], with the correct fraction field. Its vertex has dimension two and cotangent dimension four, so this normalized pivot chart is still singular.",
       "affects": "the proof",
-      "known": "new",
+      "known": "Daniel Litt, author-hosted erratum, P04 Canonical representations of surface groups, item 11 (published p. 868, proof of Lemma 8.3.3), https://www.daniellitt.com/published-paper-reviews.html; accessed 2026-10-11. The page says the audit was spot-checked and the erratum reviewed or edited by Litt.",
       "searched": [
         "Official arXiv abstract and version history for 2205.15352, and the accessed v4 proof (checked 2026-10-11).",
         "Annals of Mathematics article page for volume 199 (2024), no. 2, p06; no correction link found (2026-10-11). The journal full text was not inspected.",
-        "Title searches with corrigendum, normalization and singular compactification; no existing correction located (2026-10-11)."
-      ]
+        "Independent title/erratum and author-page search (2026-10-11) found Daniel Litt’s author-hosted P04 erratum, item 11, correcting this same normalization step. This supersedes the blueprint’s unsuccessful search and its classification as new.",
+        "https://www.daniellitt.com/published-paper-reviews.html, P04 erratum item 11 and audit item 14, accessed 2026-10-11; journal full text still not inspected."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The accessed arXiv v4 proof moves from finite normalization to a good compactification without establishing smoothness. Both the quadratic cone and the cubic third-Veronese example demonstrate the missing implication; the latter remains singular after the preceding boundary-stratum blowup. Resolution preserving the cover and the full-chart monomial-meridian formula supply the repair. This is already corrected in Litt’s author-hosted erratum, item 11, rather than a new finding. The verdict remains scoped to the accessed preprint.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a"
+      }
     }
   ],
   "sourceVersions": [
@@ -1290,6 +1302,75 @@
       "citation": "Landesman–Litt, Canonical representations of surface groups, arXiv:2205.15352v4 (February 2025); accessed preprint only, own pagination. Published in Annals of Mathematics 199 (2024), 823–897; the published full text was not inspected.",
       "read": "2026-10-11",
       "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.daniellitt.com/published-paper-reviews.html",
+      "citation": "Daniel Litt, Paper reviews, audits, and errata, P04 Canonical representations of surface groups, author-hosted erratum item 11 and audit item 14. The page explains its AI-assisted provenance and Litt’s review/editing of the erratum.",
+      "read": "2026-10-11"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review by Codex, session codex-Ra1y4s, of the distinct codex-dtTm52 blueprint. All eleven nodes, forty imported core owners, ten pinned declarations, six original source families, tests, APIs, nine planets, supplier statements, current upstream roadmaps/library and RT-AREA-algebraicgeometry/13 were checked. Corrected arbitrary-scheme coherence wording and finite-normalization ownership; strengthened native signatures/tests; confirmed E1903 and identified the existing author-hosted erratum. Four stages remain planned with seven explicit supplier requests and all implementations unchecked. The report and handoff specify reader synchronization in the authorized assembly/package job.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-blowup-tower",
+        "verdict": "corrected",
+        "note": "Confirmed finite native towers and StableReduction Layer 4 ownership. Corrected arbitrary-scheme centre ideals to finite-type quasi-coherent rather than coherent, and added projection-compatible single and nested restriction signatures. Cartier blowups retain identity years and their nonunit born ideals."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-transform-tower",
+        "verdict": "corrected",
+        "note": "Confirmed divisibility direction, Cartier controlled division, dead strict labels and total-pullback telescoping against BM97 §§3–4 and §6. Added controlled_unique to realize the stated cancellation API. Birth history remains imported from the accepted core."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/coefficient-completion-comparison",
+        "verdict": "verified",
+        "note": "BM97 Construction 4.18, Proposition 4.19 and Remark 4.20, pp.246–247, use regular derivatives restricted to contact with q<d. The residue-field completion and algebra-map compatibilities are explicit SF.0 obligations. Native coeff_pderiv gives factorial normalization; the same common powers extend, and Noetherian faithful flatness reflects the stated finite-ideal assertions."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/principalization-tower-output",
+        "verdict": "verified",
+        "note": "BM97 Theorem 1.10, pp.216–217, supplies finite permissible blowups, unit weak transform and monomial total ideal. The accepted core owns the algorithm/termination. Nonzero on every component, preserved complement, and connected-component refinement for constant birth-label multiplicities are retained; two Cartier identity steps correctly principalize the coordinate monomial test."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/embedded-tower-output",
+        "verdict": "corrected",
+        "note": "Checked reduced embedded resolution, scheme-theoretic strict closure, native maps, original smooth-locus preservation and final transverse boundary against BM97 Theorem 11.14 and §§12–13, pp.290–298. Added the missing coordinate-permissibility field to its native certificate. The stronger smooth-pair and canonical whole-tower comparisons remain explicit imported refinements."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/boundary-stratum-refinement",
+        "verdict": "verified",
+        "note": "Checked the distinction between normal crossings and strict SNC (Stacks 0CBN), local blowup coordinates and original-rank descending strata. Higher intersections separate the next centres; branch permutations preserve their ideals and barycentric rank labels. SF.0 branch normalization and R09.3 descent are exact open interfaces, not proofs already supplied by related nodes. Empty, axes and self-intersecting nodal tests are discriminating."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/finite-cover-compactification",
+        "verdict": "corrected",
+        "note": "Imported the existing SF.0/nagata-normalization-finite node instead of requesting a second construction from A0. Finite normalization, projectivity, preservation of the normal cover, resolution and boundary principalization give the asserted proper map. Dominance on the smooth integral source, not flatness, justifies Cartier pullback/monomial factors. Added the cubic cover whose normalized boundary-blowup chart is singular."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/monomial-boundary-chart",
+        "verdict": "corrected",
+        "note": "Confirmed target-row/source-column exponents, full-disc holomorphic nonzero units, arbitrary nonboundary coordinates and BA composition. Added identity-map/unit signatures and strengthened its identity and punctured-unit test statements to inspect the actual chart; no toroidal or étale hypothesis is added."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-map",
+        "verdict": "verified",
+        "note": "The native additive map is A on integer coordinate meridians. Columns, empty boundary, positive power, axes pivot [[1,0],[1,1]] and BA composition have the correct orientation. Existing peripheral-action roadmaps do not duplicate this local complex boundary adapter."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/meridian-comparison",
+        "verdict": "verified",
+        "note": "Checked actual based coordinate loops, target-coordinate commutativity, extending-unit nullhomotopy and product winding. Full positive-radius polydiscs are essential. Chart inclusion and a basepoint path give simultaneous conjugacy globally; LLSS23 Lemma 2.1.1, pp.7–8, supports the geometric pivot case without transferring ownership of the Dehn-twist identification."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.7a/stable-curve-boundary-interface",
+        "verdict": "verified",
+        "note": "Stable numerical range and complex node charts are explicit. R09.4 exposes StableReductionPartII’s import; R09.5 must supply a characteristic-zero finite étale scheme cover and actual extension realization, not its weaker finite-surjective/wild-prime interface. Stack descent, coarse comparison and projectivity remain separately conditioned supplier contracts. The monodromy statement is conditional on the consumer’s disjoint-node Dehn-twist identification."
+      }
+    ]
+  }
 }

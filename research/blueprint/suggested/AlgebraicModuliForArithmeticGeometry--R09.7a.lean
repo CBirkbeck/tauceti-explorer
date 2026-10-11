@@ -1,6 +1,7 @@
 /-
 This file is not the roadmap and is not exhaustive. The accompanying reader is
-its definitive specification. These suggested Lean forms help contributors and
+its mathematical specification, subject to the accepted packet and review's
+reader-synchronization notes. These suggested Lean forms help contributors and
 reviewers converge on names and signatures. Every proof is unchecked.
 
 The accepted R09.7 packet owns the core algorithm. The definitions in the
@@ -154,6 +155,20 @@ lemma restrict_length (T : BlowupTower X) (W : X.Opens) :
 -- This is a native comparison, not a redefinition of scheme pullback.
 def restrictComparison (T : BlowupTower X) (W : X.Opens) (i : Fin (T.length + 1)) :
     (T.restrict W).space (Fin.cast (by sorry) i) ≅ pullback (T.toBase i) W.ι := by sorry
+lemma restrictComparison_toBase (T : BlowupTower X) (W : X.Opens)
+    (i : Fin (T.length + 1)) :
+    (T.restrict W).toBase (Fin.cast (by sorry) i) =
+      (T.restrictComparison W i).hom ≫ pullback.snd (T.toBase i) W.ι := by sorry
+-- Nested opens give the iterated-restriction law without deleting identity years.
+def restrictTwiceComparison (T : BlowupTower X) (W : X.Opens)
+    (V : W.toScheme.Opens) (i : Fin (T.length + 1)) :
+    ((T.restrict W).restrict V).space (Fin.cast (by sorry) i) ≅
+      pullback (T.toBase i) (V.ι ≫ W.ι) := by sorry
+lemma restrictTwiceComparison_toBase (T : BlowupTower X) (W : X.Opens)
+    (V : W.toScheme.Opens) (i : Fin (T.length + 1)) :
+    ((T.restrict W).restrict V).toBase (Fin.cast (by sorry) i) =
+      (T.restrictTwiceComparison W V i).hom ≫
+        pullback.snd (T.toBase i) (V.ι ≫ W.ι) := by sorry
 
 def single {Y : Scheme} (C : X.IdealSheafData) (p : Y ⟶ X)
     (hfg : ∀ U, (C.ideal U).FG) (hb : IsBlowupOf C p) (hp : IsProper p) :
@@ -204,6 +219,10 @@ variable {k : Type} [Field k] {M : Scheme} {s : M ⟶ Spec (.of k)}
 lemma controlled (T : MarkedTower s) (i : Fin T.tower.length) :
     (T.ideal i.castSucc).comap (T.tower.step i) =
       T.tower.exceptional i ^ T.mark * T.ideal i.succ := by sorry
+lemma controlled_unique (T : MarkedTower s) (i : Fin T.tower.length)
+    (K : (T.tower.space i.succ).IdealSheafData)
+    (hK : (T.ideal i.castSucc).comap (T.tower.step i) =
+      T.tower.exceptional i ^ T.mark * K) : K = T.ideal i.succ := by sorry
 lemma oldBoundary (T : MarkedTower s) (i : Fin T.tower.length)
     (j : ℕ) (h : j < T.initialLabels + i.val) :
     T.boundary i.succ ⟨j, by sorry⟩ = strictIdeal (T.boundary i.castSucc ⟨j, h⟩)
@@ -365,6 +384,8 @@ structure EmbeddedTower {k : Type} [Field k] {M X : Scheme}
     strictMap j ≫ (strictIdeal j.castSucc).subschemeι
   boundary : (j : Fin (tower.length + 1)) → Fin j.val → (tower.space j).IdealSheafData
   snc : ∀ j, SNCBoundary (tower.toBase j ≫ s) (boundary j)
+  permissible : ∀ j, CoordinateCentre (tower.toBase j.castSucc ≫ s)
+    (boundary j.castSucc) (tower.centre j)
   old_boundary : ∀ (j : Fin tower.length) (r : ℕ) (h : r < j.val),
     boundary j.succ ⟨r, by sorry⟩ = Imported.strictIdeal (boundary j.castSucc ⟨r, h⟩)
       (tower.centre j) (tower.step j)
@@ -560,7 +581,7 @@ example (k : Type) [Field k] [CharZero k] (e : ℕ) (he : 0 < e) :
     IsFinite (linePower k e he) ∧ IsProper (linePower k e he) ∧
       ∀ p : Fin 2, (lineBoundary k p).comap (linePower k e he) = lineBoundary k p ^ e := by sorry
 -- singularNormalization: the affine quadratic cone is singular despite being the
--- normal extension of the cover. Normalization identification remains the A0 request;
+-- normal extension of the cover. Normalization identification uses the SF.0 owner;
 -- the signature here pins the actual singular scheme, not only a zero Jacobian.
 def coneEquation (k : Type) [Field k] : MvPolynomial (Fin 3) k :=
   MvPolynomial.X 2 ^ 2 - MvPolynomial.X 0 * MvPolynomial.X 1
@@ -569,6 +590,18 @@ abbrev coneRing (k : Type) [Field k] :=
 def coneToBase (k : Type) [Field k] : Spec (.of (coneRing k)) ⟶ Spec (.of k) :=
   Spec.map (CommRingCat.ofHom ((Ideal.Quotient.mk _).comp MvPolynomial.C))
 example (k : Type) [Field k] [CharZero k] : ¬ Smooth (coneToBase k) := by sorry
+-- singularAfterRefinement: z³=xy becomes z³=u²v in the x-pivot chart.
+-- Its normal ring is the third Veronese, not the nonnormal hypersurface ring.
+-- The normalization comparison remains the SF.0 contract; this example tests
+-- the actual normal carrier's nonsmoothness after the boundary-stratum blowup.
+def cubicNormalization (k : Type) [Field k] : Subalgebra k (MvPolynomial (Fin 2) k) :=
+  Algebra.adjoin k ({MvPolynomial.X 0 ^ 3, MvPolynomial.X 0 ^ 2 * MvPolynomial.X 1,
+    MvPolynomial.X 0 * MvPolynomial.X 1 ^ 2, MvPolynomial.X 1 ^ 3} : Set _)
+def cubicNormalizationToBase (k : Type) [Field k] :
+    Spec (.of (cubicNormalization k)) ⟶ Spec (.of k) :=
+  Spec.map (CommRingCat.ofHom (algebraMap k (cubicNormalization k)))
+example (k : Type) [Field k] [CharZero k] :
+    ¬ Smooth (cubicNormalizationToBase k) := by sorry
 end FiniteCoverCompactificationTests
 
 /-! Analytic chart carriers use actual complex coordinate spaces. The scheme
@@ -615,6 +648,11 @@ lemma compose_exponents {l t : ℕ} {ht : t ≤ l}
     (compose B A hR).exponents i j = ∑ a : Fin r, B.exponents i a * A.exponents a j := by sorry
 def identity (n s : ℕ) (hs : s ≤ n) (ε : Fin n → ℝ) (hε : ∀ i, 0 < ε i) :
     MonomialBoundaryChart n s n s hs hs := by sorry
+lemma identity_map (n s : ℕ) (hs : s ≤ n) (ε : Fin n → ℝ)
+    (hε : ∀ i, 0 < ε i) : (identity n s hs ε hε).map = id := by sorry
+lemma identity_units (n s : ℕ) (hs : s ≤ n) (ε : Fin n → ℝ)
+    (hε : ∀ i, 0 < ε i) (i : Fin s) :
+    (identity n s hs ε hε).units i = (fun _ => 1) := by sorry
 
 def power (e : ℕ) (he : 0 < e) : MonomialBoundaryChart 1 1 1 1 le_rfl le_rfl := by sorry
 lemma power_exponent (e : ℕ) (he : 0 < e) : (power e he).exponents 0 0 = e := by sorry
@@ -627,8 +665,11 @@ end MonomialBoundaryChart
 namespace MonomialBoundaryChartTests
 -- identity
 example (n s : ℕ) (hs : s ≤ n) (ε : Fin n → ℝ) (hε : ∀ i, 0 < ε i)
-    (i j : Fin s) : (MonomialBoundaryChart.identity n s hs ε hε).exponents i j =
-      if i = j then 1 else 0 := by sorry
+    (i j : Fin s) :
+    (MonomialBoundaryChart.identity n s hs ε hε).exponents i j =
+      (if i = j then 1 else 0) ∧
+    (MonomialBoundaryChart.identity n s hs ε hε).map = id ∧
+    (MonomialBoundaryChart.identity n s hs ε hε).units i = (fun _ => 1) := by sorry
 -- power
 example (e : ℕ) (he : 0 < e) :
     (MonomialBoundaryChart.power e he).exponents 0 0 = e ∧
@@ -636,7 +677,8 @@ example (e : ℕ) (he : 0 < e) :
       ∀ z ∈ polydisc (MonomialBoundaryChart.power e he).sourceRadius,
         (MonomialBoundaryChart.power e he).map z 0 = z 0 ^ e := by sorry
 -- puncturedUnit: the tempting exponent-zero unit is excluded on the full disc.
-example : ¬ (∀ z : Fin 1 → ℂ, z ∈ polydisc (fun _ => 1) → z 0 ≠ 0) := by sorry
+example : ¬ ∃ C : MonomialBoundaryChart 1 1 1 1 le_rfl le_rfl,
+    (∀ z ∈ polydisc C.sourceRadius, C.map z = z) ∧ C.exponents 0 0 = 0 := by sorry
 end MonomialBoundaryChartTests
 
 -- The matrix is target-by-source; rows and columns must not be transposed.
