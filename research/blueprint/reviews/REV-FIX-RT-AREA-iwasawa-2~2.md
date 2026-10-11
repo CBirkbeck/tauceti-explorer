@@ -1,5 +1,47 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
+## Scope-only checkpoint: codex-JEmMLi, 11 October 2026
+
+Continuation by Codex (GPT-6), session `codex-JEmMLi`. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104601064).
+Input commit: `c4ce32fc2609d8770f679898db6ebecda1b11ab8`.
+I did none of the fixes under review.
+
+Read the preceding report and handoff, the six original findings, their
+verification, the fix report, and the current completion rule. The preceding
+handoff says to resume installation only after explicit scope authorization.
+The live issue still omits L3-2 and D.1. An explicit request to change only
+`review` and `reviewHistory` in those two packets is pending in the worker
+conversation. No authorization has arrived; no packet was edited.
+
+Reproduced the two exact guarded candidates in scratch. Their input and
+candidate hashes agree with the preceding handoff. Every mathematical and
+planning field is identical, and each history appends the entire original top
+review, preserving all 79 L3-2 and 72 D.1 checked node verdicts and their
+attribution. Both candidates pass the pinned-index checker with zero errors
+and warnings when supplied at their canonical paths in a read-only context.
+The unchanged completion rule returns False for the actual checkout and True
+for substitution of only those two exact records.
+
+Ran the checker on all four actual packets: zero errors, 26 inherited L3 API
+warnings, and no other warnings. All four packets and all four suggested files
+remain byte-identical to input. The current read-only upstream checkouts retain
+the commits cited below. No source audit or Lean elaboration was repeated;
+those results remain credited to their original sessions. The prior bounded
+six-finding review is already complete; further source rereading cannot resolve
+this file-scope blocker.
+
+Final submission checks: `git diff --check` passes; `intake.py check-files`
+reports two files and zero problems. Both changed paths belong to this job.
+
+This checkpoint changes only the report and handoff. The exact pending records
+are retained in the handoff. Installation awaits explicit authorization or
+repair of the live issue's deliverable list. A finished review will retain
+PMIA's justified `needs_changes` verdict.
+
+## Preceding review and source evidence (codex-KJ9aP3)
+
+
 Codex (GPT-6), session `codex-KJ9aP3`, 11 October 2026. Refs #6219.
 [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104451173).
 Input commit: `eccdf026cbd070c504e73fb84e754a66f9760210`.
