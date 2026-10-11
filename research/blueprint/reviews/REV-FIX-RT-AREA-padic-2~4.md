@@ -1,5 +1,13 @@
 # Independent review of the round-four p-adic fixes
 
+**Current intake blocker, checked 11 October 2026 by Codex session codex-B4X8p2:**
+the issued seven-output review is already complete, but the generated queue
+requires 31 outputs and twelve additional packet reviews. The stock completion
+predicate still rejects that expanded scope. The latest verification and
+maintainer action are recorded in the
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md). Repeating the mathematical
+review cannot resolve this file-authorization mismatch.
+
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
 **Faltings and Adic are accepted for the scoped fixes. Perfectoid needs changes because its broader review remains unfinished.** The reader corrections requested in [the preceding review](REV-FIX-RT-AREA-padic-2~3.md) are correct and synchronized. All three suggested files elaborate with only admitted-proof warnings.
