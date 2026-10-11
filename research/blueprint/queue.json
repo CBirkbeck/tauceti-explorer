@@ -34297,8 +34297,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6285"
+   "state": "external",
+   "note": "claimed on GitHub issue #6285"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.4",
@@ -37392,8 +37392,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.4",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6314"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6314",
+   "finishedAt": "2026-10-11T00:02:41Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.5",
@@ -80249,8 +80250,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
