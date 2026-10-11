@@ -315,6 +315,10 @@ Prerequisites: **SmoothRepresentationsOfLocalGroups:SR.0**; **tauceti:TauCetiRoa
 
 **Ordinary monoid localization** (`CrystallineCM.OrdinaryMonoidLocalization`). For smooth Δ⁺-modules over R_m, ord is the filtered colimit under products of the commuting central operators ũ_n, regarded as a smooth Δ-module. It is exact and preserves the injectives needed to derive compact invariants. Do not replace it by a finite-projector formula for arbitrary smooth infinite modules.
 
+For the underlying module at a single operator T, reuse **SmoothRepresentationsOfLocalGroups:SR.6.5**, [Stable module operators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#sr65-stable-module-operators). Its `StableOperator.localization` is Mathlib's `Module.DirectLimit` of the system with transition maps T^{j−i}, and `StableOperator.localizationMap` is the structure map from index zero. `StableOperator.invertiblePart` identifies this colimit with range(T^c) for some c≥1 when T is stable. The identity, nilpotent and mixed-operator comparisons are supplied there by `localization_identity`, `localization_nilpotent` and `localization_mixed`. These prerequisites concern underlying modules and have no smoothness or group-action hypotheses.
+
+The specialization here must equip those colimits with the actual Δ-action extending the supplied Δ⁺-action, retain smoothness, and compare successive localizations for the commuting ũ_n. Its unit and universal property are morphisms of these representations. The derived comparison additionally uses exactness and preservation of the relevant injectives in the smooth categories. A linear equivalence of underlying modules alone supplies none of those action or injectivity assertions. The localization tests below retain their representation actions when applying the underlying module comparisons.
+
 Required API:
 
 - `CrystallineCM.OrdinaryMonoidLocalization_unit`: Every smooth π maps naturally to ord π by the filtered-colimit structure map.
@@ -943,10 +947,10 @@ Acceptance tests:
 - `CrystallineCM.TorsionHeckeImage_test_scalar_mod`: For a scalar O-action on R_m, its torsion image is R_m.
 - `CrystallineCM.TorsionHeckeImage_test_new_torsion`: Torsion H^{q+1}(V) may contribute to H^q(V/ϖ^m); the definition cannot identify the latter image with A(K,λ,q)/ϖ^m without extra hypotheses.
 
-A concrete instance is the two-term complex O --ϖ--> O in degrees zero and one for a nonzero uniformizer in a DVR. Its integral H⁰ is zero and its H¹ is O/ϖ. After derived reduction modulo ϖ the differential is zero, so H⁰ becomes O/ϖ. Thus its scalar Hecke image in degree zero changes from zero to O/ϖ. There can be no unital map from that zero integral image to the nonzero torsion image. Equivariance of the coefficient map still compares operators on the image of integral H⁰, which is zero here; it does not identify the whole torsion cohomology with a reduction of integral H⁰.
+A concrete instance is the two-term complex O --ϖ--> O in degrees zero and one for a nonzero uniformizer in a DVR. Its integral H⁰ is zero and its H¹ is O/ϖ. After derived reduction modulo ϖ the differential is zero, so H⁰ becomes O/ϖ. Thus its scalar Hecke image in degree zero changes from zero to O/ϖ. There can be no unital map from that zero integral image to the nonzero torsion image. Equivariance of the coefficient map still compares operators on the image of integral H⁰, which is zero here; it does not identify the whole torsion cohomology with a reduction of integral H⁰. The suggested test uses O=ℤ₃, ϖ=3 and the residue homomorphism `PadicInt.toZMod`. It forms both degree-zero kernels and their actual scalar endomorphism images, asserts that the first image is a subsingleton and the second is nontrivial, and excludes every unital ℤ₃-algebra map between them. This tests the image-algebra obstruction as well as the change in cohomology.
 
 
-Source: CN, §4.2.1, p.61.
+Source: CN, §4.2.1, p.61, for the integral and torsion image definitions. The two-term complex is an authored test of their distinction.
 
 Prerequisites: **CL.6**: Hecke images A(K,λ,q), A(K,λ,q,m), Ã(K̃,λ̃,S̄) and deep levels; `mathlib:AlgHom.range`.
 
