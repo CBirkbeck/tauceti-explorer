@@ -11,6 +11,8 @@ import TauCeti.FieldTheory.GaloisGroups.FrobeniusOrbits
 import TauCeti.FieldTheory.GaloisGroups.MultipleTransitivity
 import Mathlib.Combinatorics.Enumerative.Partition.Basic
 import Mathlib.GroupTheory.GroupAction.Primitive
+import Mathlib.GroupTheory.GroupAction.Jordan
+import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Probability.ProbabilityMassFunction.Basic
 import Mathlib.MeasureTheory.Measure.Real
 import Mathlib.NumberTheory.Harmonic.Bounds
@@ -62,6 +64,9 @@ theorem mergePerms_card {n : ℕ} (y : ℝ) (ρ : Nat.Partition n)
     {σ : Equiv.Perm α} (h : σ ∈ MergePerms y ρ) : n = Fintype.card α := by sorry
 theorem mergePerms_conj (y : ℝ) (ρ : Nat.Partition (Fintype.card α)) (g σ : Equiv.Perm α) :
     g * σ * g⁻¹ ∈ MergePerms y ρ ↔ σ ∈ MergePerms y ρ := by sorry
+theorem mergePerms_permCongr {β : Type*} [Fintype β] [DecidableEq β]
+    (e : α ≃ β) {n : ℕ} (y : ℝ) (ρ : Nat.Partition n) (σ : Equiv.Perm α) :
+    e.permCongr σ ∈ MergePerms (α := β) y ρ ↔ σ ∈ MergePerms y ρ := by sorry
 -- test merge_identity_includes_fixed_points
 example (ρ : Nat.Partition (Fintype.card α)) :
     (1 : Equiv.Perm α) ∈ MergePerms 1 ρ ↔
@@ -84,6 +89,9 @@ theorem badTransitive_conj (g σ : Equiv.Perm α) :
 theorem badTransitive_witness {G : Subgroup (Equiv.Perm α)}
     (ht : IsPretransitive G α) (ha : G ≠ alternatingGroup α) (hs : G ≠ ⊤)
     {σ : Equiv.Perm α} (hσ : σ ∈ G) : σ ∈ BadTransitive α := by sorry
+theorem badTransitive_permCongr {β : Type*} [Fintype β] [DecidableEq β]
+    (e : α ≃ β) (σ : Equiv.Perm α) :
+    e.permCongr σ ∈ BadTransitive β ↔ σ ∈ BadTransitive α := by sorry
 -- test bad_small_degrees
 example (n : ℕ) (hn : n ≤ 3) : BadTransitive (Fin n) = ∅ := by sorry
 -- test bad_identity
@@ -103,6 +111,8 @@ theorem equivariant_cycle_fibres {β : Type*} [Fintype β] [DecidableEq β]
 /-! PG2.1: ramified specialisation. -/
 def maxFactorMultiplicity {F : Type*} [Field F] (f : F[X]) : ℕ :=
   (normalizedFactors f).toFinset.sup (fun q => (normalizedFactors f).count q)
+theorem maxFactorMultiplicity_zero {F : Type*} [Field F] :
+    maxFactorMultiplicity (0 : F[X]) = 0 := by sorry
 theorem maxFactorMultiplicity_unit {F : Type*} [Field F] {f : F[X]} (hf : IsUnit f) :
     maxFactorMultiplicity f = 0 := by sorry
 theorem count_le_maxFactorMultiplicity {F : Type*} [Field F] (f q : F[X]) :
@@ -115,6 +125,8 @@ theorem maxFactorMultiplicity_eq_one_iff {F : Type*} [Field F] {f : F[X]}
     maxFactorMultiplicity f = 1 ↔ Squarefree f := by sorry
 -- test multiplicity_unit
 example : maxFactorMultiplicity (1 : (ZMod 2)[X]) = 0 := by sorry
+-- test multiplicity_zero
+example : maxFactorMultiplicity (0 : (ZMod 2)[X]) = 0 := by sorry
 -- test multiplicity_cube
 example : maxFactorMultiplicity ((X + 1 : (ZMod 2)[X]) ^ 3) = 3 := by sorry
 -- test multiplicity_not_degree_multiplicity
@@ -229,6 +241,8 @@ structure PartitionLaw (n : ℕ) (ν : MeasureTheory.Measure (Nat.Partition n))
   lower : ∀ (f : ℕ → Bool) (m : ℕ), 1 ≤ m → (m : ℝ) ≤ n / Real.log n →
     ν.real {ρ | ((ρ.parts.filter (fun (k : ℕ) => k ≤ m ∧ f k = true)).card : ℝ) ≤
       t * harmonicMass f m} ≤ C * Real.exp (-κ * harmonicMass f m)
+-- The three bounds are bundled here; IsProbabilityMeasure is a separate hypothesis
+-- of every probability theorem below, rather than a field of PartitionLaw.
 
 theorem PartitionLaw.pair_diagonal {n : ℕ} {ν : MeasureTheory.Measure (Nat.Partition n)}
     {C t κ δ : ℝ} (h : PartitionLaw n ν C t κ δ) (k : ℕ) (hk : 2 ≤ k)
@@ -365,6 +379,8 @@ theorem minSupport_eq_some (G : Subgroup (Equiv.Perm α)) (m : ℕ) :
 theorem minSupport_le {G : Subgroup (Equiv.Perm α)} {m : ℕ}
     (hm : minSupport G = some m) {σ : Equiv.Perm α} (hσ : σ ∈ G) (hne : σ ≠ 1) :
     m ≤ σ.support.card := by sorry
+theorem minSupport_two_le {G : Subgroup (Equiv.Perm α)} {m : ℕ}
+    (hm : minSupport G = some m) : 2 ≤ m := by sorry
 -- test minimum_trivial
 example : minSupport (⊤ : Subgroup (Equiv.Perm (Fin 0))) = none := by sorry
 -- test minimum_symmetric
