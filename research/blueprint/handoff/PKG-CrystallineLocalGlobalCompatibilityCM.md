@@ -1,6 +1,127 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex (GPT-6). Session: `codex-nw6xyR`. Date: 2026-10-11.
+Branch: `codex-nw6xyR-crystalline-package`.
+Input commit: `c8ca27292e25c7c8c1811aba80f0696d58eaa08f`.
+Claim confirmed in [comment 6106187590](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106187590),
+responding to [comment 6106186560](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106186560).
+None of the manager's priority issues was available. This was the available
+focused package under WORKERS.md's fallback order. Only this job was claimed.
+
+## Result of this run
+
+**Blocked on absent supplier interfaces.** This run changes only this handoff.
+It does not complete the package or add metadata. The accepted plan still has
+97 targets, 103 API items and 104 named tests. The inherited file contains typed
+cores/signatures for 17 targets, 44 API items and 45 named tests; these counts
+are an inventory, not a claim that the corresponding arithmetic targets are
+fully supplied. The remaining 80/59/59 entries are catalogued in comments, not
+faithful signatures. Passing elaboration does not close those omissions.
+
+Rechecked two sufficient blockers against the current checkout and read-only
+upstream/library trees:
+
+- `REQ-INTEGRAL-WEYL`: PotentialAutomorphyInfrastructure assigns integral
+  highest-weight coefficients to `ReductiveGroupsIntegralRepresentationsPartII`
+  but records no exporting stages. That owner still has no packet, suggested
+  file or package here, or roadmap in current upstream. The pinned and current
+  `YoungTableau.weylModule` require a rational algebra, so cannot supply the
+  needed integral dual-Weyl lattices, reduction maps and Levi splitting over
+  O or O/ϖ^m. The routing issue [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357)
+  was checked open and available; it is not an export and was not claimed.
+- `REQ-TOWER`: accepted RS-09 assigns completed arithmetic towers to
+  `CompletedCohomologyPartII`, while ALS.6 retains finite-level descent.
+  CompletedCohomologyPartII still has no packet, suggested file, package or
+  current upstream roadmap. The reviewed ALS.6 library audit distinguishes
+  generic limits from the absent arithmetic tower. Its CC.0/CC.1/CC.2/CC.4/
+  CC.6/CC.7 interfaces remain necessary; the existing package already records
+  that owner correction, while the accepted packet's request still needs a
+  later authorized packet edit.
+
+The smooth monoid carrier is already present: the pinned
+`IsSmoothDiscrete`, its continuous monoid restriction and
+`SmoothDiscreteTopRep` must be reused. The upstream group-category abelian and
+Grothendieck interfaces require a group; they do not supply the positive-monoid
+injective/acyclic and derived ordinary comparison contracts. SR.6.5's module
+localization must likewise be reused, with its smooth representation enhancement
+supplied separately. Do not recreate these existing carriers to work around
+the missing enhancements.
+
+WORKERS.md permits a blocked checkpoint. PROTOCOL.md sections 13, 15 and 20
+require faithful signatures, existing-owner reuse and a complete package;
+they do not permit replacing arithmetic carriers by arbitrary inputs or
+creating general supplier theories within this package's four editable paths.
+No proof or missing interface was established merely by accepting the plan.
+
+## Additional supplier check: characteristic-zero Q-ordinary selection
+
+Read `PadicFamilies:L0a` in its packet and suggested file, and compared it with
+`CL.4/q-ordinary-local-subspace`, its three API entries and three tests, and
+`REQ-Q-ORDINARY-LINEAR-ALGEBRA`. L0a's twenty nodes concern finite/profinite
+Fitting projectors, adic systems and ordinary complexes. Those interfaces alone
+do not state the characteristic-zero simultaneous valuation-zero eigenspace
+selection and descent that this consumer requests. This remains an interface
+comparison obligation even though L0a is marked source-decomposed.
+
+For a finite-dimensional invariant space over a p-adic field E, the requested
+subspace selects simultaneous generalized eigenspaces on which every rescaled
+Hecke eigenvalue has valuation zero, including the central operator. It must
+have splitting-field independence, descent and coefficient-extension
+compatibility. The source locator is CN v3 §3.1, after Definition 3.1.1, p.43;
+the package README already states the needed supplier contract.
+
+The accepted non-example is decisive: two scalar operators 1 and p on an
+E-line give a nonzero ordinary part for the first operator but zero Q-ordinary
+part. Merely retaining the invertible part over E would retain both operators,
+since p is nonzero in E. An integral-lattice Fitting construction would need its
+stable-lattice hypotheses and a simultaneous eigenspace comparison before it
+can implement this interface. Preserve that distinction when connecting L0a;
+this run does not claim a new impossibility result or an exhaustive audit of
+all 27 supplier requests.
+
+## Checks in this run
+
+- Packet checker: **0 errors, 0 warnings**. The accepted packet is unchanged.
+- `lean-check` on the inherited package Suggested.lean: **exit 0, no errors,
+  107 warnings, all declaration-uses-sorry warnings**. Available memory before
+  checking was 103 GB; no check remains running. No library build or Lean
+  server was started.
+- Inventory recounted after removing nested block comments and associating
+  named-test labels with actual examples: **17/44/45 typed, 80/59/59 omitted**.
+- Intake `check-files` on this handoff: **1 file, 0 problems**;
+  `git diff --check` passes. Metadata remains absent, so this is a checkpoint.
+- Unchanged Suggested.lean SHA-256:
+  `9e32ee66611e8eaa3c35f82ae7a41c48886ca968c42b0d3a7c54e14058fe69fb`.
+  Unchanged README SHA-256:
+  `849ad358d9d9c5dd53fd3c90c838bb5b84883871356e69fbe68fae9f406eae61`.
+  Unchanged packet SHA-256:
+  `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
+
+## Where to resume
+
+Route the integral dual-Weyl and completed arithmetic tower work to their
+owners, and supply the smooth-monoid enhancements. Reconcile the accepted
+packet's tower owner, smooth stage labels and NT16 Proposition 2.10 locator in
+a job authorized to edit it. Connect the Q-ordinary valuation-zero selection
+contract rather than substituting characteristic-zero invertibility. Then
+specialize the inherited cores to the actual arithmetic carriers, supply all
+remaining signatures/API/tests, elaborate the full file and add metadata only
+when the package meets section 20. Keep the inherited normalization corrections
+and qualified Barsotti–Tate scope.
+
+No scratch file is needed to resume. The following retained record contains
+the previous implementation changes, detailed contracts and provenance. Its
+validation is historical except where explicitly repeated above. In particular,
+this run did not add the Artin–Rees signatures or repeat the previous source
+PDF hash and proof audit. No second job was claimed.
+
+## Retained preceding checkpoint: codex-vpR7pE
+
+The record below describes the preceding run, not additional edits or checks
+in session codex-nw6xyR.
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex (GPT-6). Session: `codex-vpR7pE`. Date: 2026-10-11.
 Branch: `codex-vpR7pE-crystalline-package`.
 Input commit: `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
@@ -11,7 +132,7 @@ already had its scoped result and an open checkpoint; the four preceding focus
 packages had open submissions. This package's latest checkpoint, #8744, had
 merged and the bot had released the job. Only this job was claimed.
 
-## Progress in this continuation
+### Progress in this continuation
 
 `CrystallineCM.subquotient_mod_p_pow` now retains the chosen submodule N′ ⊆ N
 and surjection f : N′ → M. Its witness is the canonical image of N′ in
@@ -39,7 +160,7 @@ colimit. Its missing smooth representation enhancement remains a supplier
 contract below. NT16 remains **Proposition 2.10** in the README; the accepted
 packet's stale "Lemma 2.10" locator is outside this job's editable files.
 
-## Why this remains a checkpoint
+### Why this remains a checkpoint
 
 **Blocked on supplier interfaces, not the run's time or memory.** The accepted
 plan has 97 targets, 103 API entries, 104 tests, 27 requests and 40 gaps.
@@ -72,7 +193,7 @@ package completion. Creating it would falsely complete this unfinished job.
 Add `topic = "math.NT"` only when the full package standard is met.
 The accepted packet, original reader and original suggested file are unchanged.
 
-## Supplier blockers and inherited resume contracts
+### Supplier blockers and inherited resume contracts
 
 The integral owner gap, absence of completed-tower exports and monoid carrier
 were rechecked in this continuation against the pinned/current declarations,
@@ -83,7 +204,7 @@ upstream checks; their historical checks are identified as such. Integral
 coefficients and arithmetic towers alone suffice to establish the block. This
 run does not claim exhaustive verification of all 27 supplier requests.
 
-### Integral dual-Weyl coefficients
+#### Integral dual-Weyl coefficients
 
 `REQ-INTEGRAL-WEYL` needs integral induction, dual-Weyl lattices, coefficient
 extension/reduction, Levi evaluation, kernel weights and the integral
@@ -114,7 +235,7 @@ splitting alone is insufficient. **Locator correction for a packet-editing job:*
 CN's proof cites NT16 **Proposition 2.10**. `REQ-INTEGRAL-WEYL` calls it Lemma 2.10. Both occurrences in the package README now say
 Proposition 2.10. No packet was edited in this package job.
 
-### Completed arithmetic towers
+#### Completed arithmetic towers
 
 `REQ-TOWER` still requests completed adelic/Borel–Serre objects from
 `ArithmeticLocallySymmetricSpaces:ALS.6`. Checked accepted
@@ -146,7 +267,7 @@ CL.5/prop-4-1-4, CL.8/pgl2-cohomology and CL.8/prop-5-5-3.
 ALS.2's nilmanifold fibration and integral congruence-limit acyclicity remain
 separate inputs; a characteristic-zero Lie-algebra computation does not replace them.
 
-### Smooth monoids and derived ordinary parts
+#### Smooth monoids and derived ordinary parts
 
 The inherited phrase “missing smooth category” needs a narrower interpretation.
 At the pinned Tau Ceti commit, the preceding continuation read the following
@@ -217,7 +338,7 @@ prevent a complete package. This continuation does not claim exhaustive
 verification of all 27 supplier requests. The historical detailed contracts below
 remain resume requirements; no missing supplier is reconstructed here.
 
-## Material to preserve when resuming
+### Material to preserve when resuming
 
 The previous signature work and its detailed explanations are retained in the
 package. [#8715](https://github.com/CBirkbeck/tauceti-explorer/pull/8715)
@@ -257,7 +378,7 @@ Galois and crystalline/ordinary deformation data; CL.8 enhanced non-neat PGL₂
 complexes and derived support; CL.9 fixed determinants, local types,
 Taylor–Wiles, Selmer and base-change data.
 
-## Validation and provenance
+### Validation and provenance
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
   **0 errors, 0 warnings**. The accepted packet remains unchanged;
@@ -300,7 +421,7 @@ Taylor–Wiles, Selmer and base-change data.
   RS-09 result SHA-256
   `235bae7182f594ea6c4ccbd5fbf319ca9659a4d00fad93a8328237c1667c36da`.
 
-## Resume condition and manager action
+### Resume condition and manager action
 
 Supply the integral dual-Weyl and completed arithmetic tower interfaces in their
 owning roadmaps, together with the needed smooth-monoid extensions. Then a job
