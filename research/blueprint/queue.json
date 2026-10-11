@@ -12043,8 +12043,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3380"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3380",
+   "finishedAt": "2026-10-11T11:11:59Z"
   },
   {
    "id": "REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence",
@@ -14570,8 +14571,9 @@
    "avoidAccountOf": "DESIGN-PolynomialGaloisGroupsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PolynomialGaloisGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3591"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3591",
+   "finishedAt": "2026-10-11T11:12:01Z"
   },
   {
    "id": "DESIGN-ExceptionalThetaCorrespondencesForG2",
@@ -15459,8 +15461,9 @@
    "avoidAccountOf": "DESIGN-WeightZeroCrystallineAutomorphyLifting",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7107"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7107",
+   "finishedAt": "2026-10-11T11:12:04Z"
   },
   {
    "id": "DESIGN-SheafTheoreticSmithTheory",
@@ -16196,7 +16199,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RealSurfacePeriodIndex.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3470"
   },
   {
    "id": "REV-DESIGN-RealSurfacePeriodIndex",
@@ -47766,8 +47770,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49299,8 +49303,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49390,8 +49394,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80357,8 +80361,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -82117,8 +82121,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5704"
+   "state": "external",
+   "note": "claimed on GitHub issue #5704"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -88439,8 +88443,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CongruenceSpectralGap.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1699"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1699",
+   "finishedAt": "2026-10-11T11:12:07Z"
   },
   {
    "id": "REV-DESIGN-CongruenceSpectralGap",
