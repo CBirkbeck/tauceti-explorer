@@ -1,4 +1,161 @@
-# Scope blocker confirmed: Codex codex-Wrws1L, 10 October 2026
+# Completion collision confirmed: Codex codex-fyvoiO, 11 October 2026
+
+Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704);
+input commit `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
+The bot confirmed this session's claim in
+[comment 6106045366](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106045366).
+This is a **blocked checkpoint**. The issue's mathematical review is already
+recorded below; this continuation identifies an additional completion defect
+and preserves both jobs' verdicts. No fresh source audit, mathematical verdict
+or Lean compilation is claimed.
+
+## Current evidence supersedes the earlier completion result
+
+The live issue still assigns seven files covering three packets. The generated
+queue still requires 47 files covering 23 packets. All required files exist;
+all 20 additional packets name other review jobs. Historical author merge
+`c69e5b6c9` independently supplies the original ten author outputs and seven
+review outputs, and the latter agree exactly, including their order, with the
+current issue body. Both queue and generator paths fail `intake.ALLOWED` and
+are outside this issue's permitted files.
+
+**The original seven-file scope now also fails completion.** Commit
+`f5f5175aca241e538a5607637724f8f7349826b4`, merged through
+[#8468](https://github.com/CBirkbeck/tauceti-explorer/pull/8468), appended this
+job's PerfectoidSpaces P0 and AdicSpacesPartII verdicts to `reviewHistory`,
+then replaced their top-level `review` with
+`independent-review-REV-FIX-RT-AREA-padic-2~4`. AdicEtaleGeometry still names
+this job. `issues.deliverables_complete` examines only top-level reviews,
+so the previous continuations' seven-file completion result is historical.
+
+Fresh evaluations use the unmodified stock predicate and the deliverable
+lists parsed independently from the live bodies of #5704 and
+[#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519):
+
+| Packet review state supplied to the predicate | #5704, seven files | #6519, seven files |
+| --- | --- | --- |
+| Current checkout | false | true |
+| Restore #5704's two archived verdicts in memory | true | false |
+
+The second row changes no repository file. It moves the current verdicts to
+history in memory and restores the last archived verdict belonging to this
+job. Thus restoring this job's top-level reviewer merely transfers the
+completion failure to the other job. Both expanded queue scopes remain
+incomplete independently of that collision. An honest `needs_changes`
+disposition counts as completed review work; P0's mathematical gaps are not
+the cause of either administrative defect.
+
+For all three issue-named packets, removing only `review` and `reviewHistory`
+gives JSON objects exactly equal to those at `331007b5e`, the preceding scoped
+review merge. All three suggested files are byte-for-byte equal to that
+commit's files. The later change therefore displaced review attribution
+without changing the mathematical contracts those reviews assessed. This
+comparison does not add a new acceptance or reverify their sources.
+
+## Checks and retained verdicts
+
+The stock packet checker reports zero errors and zero warnings for
+PerfectoidSpaces P0 (326 nodes), AdicEtaleGeometry (153) and
+AdicSpacesPartII (537). The existing read-only AST fixture below reproduces
+four passing cases for stock, six for the later-round-only candidate, and
+eight for the two-site candidate. These are focused generator tests, not full
+regeneration evidence. No suggested declaration changed, so Lean was not
+rerun; the archived successful elaborations remain attributed to their
+original workers.
+
+P0 retains `needs_changes`, including its root-annihilator/almost-flatness,
+almost-elements and field-base comparisons, missing precise tower supplier
+interfaces, omitted P7 theorem signatures/tests, and unfinished broader audit.
+AEG and ASII retain their scoped acceptances and qualifications. All current
+reviews and their histories are preserved, including #6519's newer reviews.
+No excluded owner, queue, generator, prompt, reader, atlas or label was edited.
+
+## Required maintainer repair
+
+Restore and preserve both original author and review scopes as described in
+the earlier candidate and historical output lists below. Then address the
+additional collision: completion must retain each finished scoped review's
+attribution when another legitimate review assesses the same packet. An
+unconditional acceptance of every archived verdict would be insufficient
+after mathematical changes; any historical-review rule must establish which
+content and scope the review assessed. In this reproduction the three
+mathematical JSON objects and suggested files are demonstrably unchanged.
+
+Verify both #5704 and #6519 together, including regeneration twice, prompt and
+prerequisite agreement, runtime-state preservation and completion before and
+after a later scoped review. The scope-preservation candidate alone cannot
+pass that last acceptance condition. Newly available owner work still needs
+separately scoped assignments. The maintainer must arrange the permitted
+submission and issue-synchronization route; workers must not change labels.
+
+An expanded-scope question was sent during this run. No repair authorization
+has arrived. WORKERS.md's issue-path restriction therefore remains binding.
+Only this report and the job's handoff change. The fresh collision evidence
+and repair requirements are retained here so that another continuation need
+not rediscover the failure or overwrite the newer review.
+
+<details><summary>Read-only completion-collision reproduction</summary>
+
+Run from the repository root. The historical output lists were separately
+checked against the two live issue bodies. This fixture uses those same lists
+without making network requests or changing any file. Its expected values
+describe the input commit of this continuation.
+
+```python
+import copy, json, subprocess, sys
+from pathlib import Path
+from unittest.mock import patch
+sys.path.insert(0, 'research/blueprint')
+import issues
+
+def historical(commit):
+    text = subprocess.check_output(
+        ['git', 'show', commit + ':research/blueprint/queue.json'], text=True)
+    return {j['id']: j for j in json.loads(text)['jobs']}
+
+first = 'REV-FIX-RT-AREA-padic-1~3'
+second = 'REV-FIX-RT-AREA-padic-2~4'
+current = {j['id']: j for j in json.loads(
+    Path('research/blueprint/queue.json').read_text())['jobs']}
+jobs = []
+for jid, commit in [(first, 'c69e5b6c9'), (second, '888f12f5c9')]:
+    job = copy.deepcopy(current[jid])
+    job['outputs'] = historical(commit)[jid]['outputs']
+    assert len(job['outputs']) == 7
+    jobs.append(job)
+
+def completion():
+    return [issues.deliverables_complete(j) for j in jobs]
+
+before = completion()
+read = Path.read_text
+replacements = {}
+for name in ['PerfectoidSpaces--P0', 'AdicSpacesPartII']:
+    path = Path('research/blueprint/packets') / (name + '.json')
+    packet = json.loads(read(path))
+    archived = [r for r in packet['reviewHistory']
+                if r['reviewer'] == 'independent-review-' + first][-1]
+    packet['reviewHistory'].append(packet['review'])
+    packet['review'] = archived
+    replacements[path.resolve()] = json.dumps(packet)
+
+def virtual_read(path, *args, **kwargs):
+    if path.resolve() in replacements:
+        return replacements[path.resolve()]
+    return read(path, *args, **kwargs)
+
+with patch.object(Path, 'read_text', virtual_read):
+    after = completion()
+assert before == [False, True], before
+assert after == [True, False], after
+print({'current': before, 'restored_in_memory': after})
+```
+
+</details>
+
+---
+
+# Archived scope check: Codex codex-Wrws1L, 10 October 2026
 
 Issue #5704; base `15da55e6f65878bbea28010a47d360dbd47cf57c`.
 The bot confirmed this session's claim in
