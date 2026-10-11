@@ -1,485 +1,229 @@
 # Handoff — BP-AdditiveCombinatorics
 
-Refs #1037. Codex session **codex-hjdg0j**, 27 September 2026.
-Continuation of PR #3195 (codex-a71f92), retaining its earlier checkpoints.
-Claim comment 5854283901 was confirmed by bot comment 5854285238 before work;
-the entire issue was reread. Snapshot: 8b56d6675e9e17c5042e9eb7dfc47bb13f7c021f.
-
-## Status: Bohr containment checkpoint, no replacing packet
-
-The reader now specifies the next complete finite Fourier argument in Tao
-notes 2 §6: strict chord-radius Bohr sets and their containment in the double
-difference set of a nonempty small-doubling set. It applies the inherited E1
-correction and gives the explicit positive lower bound 5/16 of the full fourth
-moment. It does not identify phase distance with chord length.
-
-Added: one definition, thirteen construction API lemmas, seven additional
-lemma interfaces, ten typed examples, and two candidate AC.1 planet names.
-The worksheet now contains four definitions, 77 lemmas and 38 examples.
-All 88 inherited declarations/examples remain unchanged. The new baseline table names twelve indexed declarations (two rows
-combine names); three were already used by the spectrum continuation, giving
-nine additional indexed inputs. Generated additive names are distinguished
-from their indexed multiplicative generators.
-
-No packet is created: a narrow replacing packet would displace the nine
-accepted Green–Tao nodes without their required statement-level reconciliation.
-The integrated file, all nine IDs and all source records remain byte-identical.
-Packet counts are zero: no allocated nodes, API records, tests, planets or
-requests. The reader has eight candidate planet names (four AC.0, four AC.1).
-All six stages remain open; this is a source-backed checkpoint, not a completed
-blueprint or an implementation claim.
-
-## Mathematical content and dependency boundary
-
-The new definition is a Finset filter on the pinned AddChar dual. Its thirteen
-API obligations cover membership, empty frequencies, nonpositive radii, the
-identity, monotonicity in radius, antitonicity in frequencies, unions,
-negation, addition, subtraction, removing the trivial character, pullback
-along any additive homomorphism, and radii greater than two. The reader derives
-each obligation from the uses in the source and the existing quotient/coordinate
-interfaces. No alternative character or convolution carrier is introduced.
-
-Four interfaces handle the fourfold convolution: its fourth-power Fourier
-coefficient, inversion, the exact N^(-3) representation count, and support
-exactly (A+A)-(A+A). The reader supplies the explicit finite change of variables
-and its inverse. Two weighted inequalities separate the corrected real-part
-estimate from the three-quarter concentration assumption. The endpoint combines
-those interfaces with the inherited positive fourth moment and concentration.
-The existing spectrum cardinal bound supplies at most 4K/rho constraints.
-
-The endpoint uses no Minkowski theorem and no cyclic or prime-order hypothesis.
-It supplies a nonempty Bohr set, not a Bohr size bound or a progression. The
-Bohr-to-progression source step still needs its own phase/lattice comparisons,
-exact GN.1 supplier and proof. E2 and E3 remain binding on that step.
-
-## Reading and ownership evidence
-
-Read the full predecessor reader, seed and handoff; all six reviewed AUDIT-16
-rows; the full campaign description and stages/edges; all nine integrated node
-objects, their links, gaps and accepted review; relevant accepted RS-03 entries;
-REV-AUDIT-16; and the additive findings /1–/20 of the combinatorics area verifier.
-The previously read WORKERS, both protocols and UPSTREAM_GUIDE were confirmed
-unchanged. Both full upstream style documents (Completed/EffectiveBounds and
-ArithmeticDirichletSeries) byte-match this session's prior complete readings.
-All matching link-entry objects were screened/read, including array-valued
-stage overlaps. The LieGroups, coding and finite-field ownership remains intact.
-Read the routed Bennett–Siksek /46 and /101 contracts: qualitative Roth does
-not certify the exact Rahman threshold. No original Rahman proof is claimed.
-
-Freshly acquired the same 118-page CMU-hosted Tao compilation, with SHA-256
-961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9.
-Fresh reading: physical PDF pp.34–38 (notes 2 printed pp.8–12), §6 and the
-opening §7 transition; page 37 was also rendered and visually checked.
-Extraction used no more than three physical pages per call. The implemented
-planning scope is equations (8)–(9) and their corrected nonvanishing argument,
-with equations (1)–(7) as inherited inputs. No complete lattice/Freiman proof,
-other lecture, Tao–Vu book, Green–Tao original proof or Rahman original is
-claimed freshly read here. Prior source-read scopes remain predecessor evidence.
-
-Whole-library, declaration-index and packet searches found no Bohr-set or
-Bogolyubov implementation at either pin. All hits concerned the unrelated
-Bohr-Mollerup Gamma theorem. Actual pinned source statements and assumptions
-for every new baseline input were read and blob-verified before citation.
-
-## Checks executed
-
-- Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
-  f790474821cf4256814db967cb154e7af3d0c369. All 8,482 reached Mathlib
-  sources byte-verified; 36 Tau Ceti dependencies freshly built.
-- Full suggested file: 119 required proof-placeholder warnings, zero errors,
-  no other warnings. Four definitions, 77 lemmas, 38 examples.
-- Temporary complete proofs in the sole authorized suggested file: actual
-  Bohr finite-filter definition, thirteen API statements, both weighted
-  estimates, fourth-power complex algebra, and normalized representation-count
-  support equivalence. These seventeen proof checks have no placeholder axiom
-  in the checked dependency chains. Removed all probes before submission.
-- Exact rational complex regressions: 550 subsets in six groups; 4,234
-  indicator quadruple-count/Fourier coefficients; 1,632 small-doubling cases;
-  3,771 Bohr nonvanishing/containment points; 648 arbitrary complex-function
-  coefficients; 270 frequency/radius boundary families. Direct singleton
-  convolution on Z/3 also gives 1/27 at zero and zero elsewhere.
-- Exact radical check on Z/32: a non-kernel point with chord length strictly
-  between zero and 1/4; corrected weighted inference. This abstract-weight
-  test is not a new claimed counterexample for actual indicator spectra.
-- Inherited spectrum scratch proofs/regression scripts were not rerun. The
-  complete Fourier/count identities and final containment remain worksheet
-  interfaces with explicit proof outlines, not completed Lean proofs.
-- No packet exists, so the packet checker is not applicable. Do not report a
-  zero-error packet check. Source/version checks on an in-memory errata-v1
-  envelope and the three-file intake check report zero problems.
-- Only the authorized reader, suggested file and handoff change. No private
-  paths, PDF, extracted source text, temporary proofs or build files are included.
-
-## Source versions and inherited findings
-
-The following unreviewed sourceVersions/sourceIssues records are preserved
-verbatim from the predecessor. There is no new source finding. Transfer their
-IDs unchanged into the corresponding fields of the preserving packet.
-“New” means no correction was located in the recorded searches; it is not
-a claim of author confirmation or priority. No author contact was made.
-
-```json
-{
-  "sourceVersions": [
-    {
-      "kind": "author copy",
-      "url": "https://www.math.cmu.edu/users/af1p/Teaching/AdditiveCombinatorics/Tao.pdf",
-      "citation": "Terence Tao, Lecture notes 2 for 254A, within the undated 118-page compilation hosted by the CMU course. Not identified with Tao–Vu's published book.",
-      "read": "2026-09-27",
-      "sha256": "961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9"
-    }
-  ],
-  "sourceIssues": [
-    {
-      "id": "AdditiveCombinatorics/E1",
-      "source": "tao-254a-notes2-cmu",
-      "kind": "misprint",
-      "locator": "Lecture notes 2, §6, printed p.11 (PDF p.37), the two inequalities immediately after (9).",
-      "printed": "Re Σ_{ξ∈Λ} |χ̂_A(ξ)|⁴ e(x,ξ) ≥ (3/4) Σ_{ξ∈Z} |χ̂_A(ξ)|⁴.",
-      "correction": "In these two immediate inequalities put Λ, not Z, in the right-hand sum. Alternatively keep Z and use 9/16 in place of 3/4.",
-      "reason": "The pointwise estimate Re e(x,ξ)>3/4 on Λ yields (3/4) times the mass on Λ. Equation (6) supplies a further factor 3/4 when converting to total mass. The complementary sum is at most one third of the mass on Λ, so the corrected argument still proves the claimed nonvanishing. This identifies the missing step/index in the printed inference; it does not assert a counterexample to every stronger inequality for actual indicator spectra.",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "Author's 254A course archive https://www.math.ucla.edu/~tao/254a.1.03w/index.html: search index lists corrections to other notes, none to this passage; direct retrieval failed (502/certificate verification).",
-        "Searches for Tao 254A notes2 Bohr 3/4 errata; no correction located.",
-        "Repository source-issues register and blueprint errata screened for this text."
-      ]
-    },
-    {
-      "id": "AdditiveCombinatorics/E2",
-      "source": "tao-254a-notes2-cmu",
-      "kind": "misprint",
-      "locator": "Lecture notes 2, §7 opening, printed p.11 (PDF p.37), displayed phase-distance description of X.",
-      "printed": "X = {x ∈ Z : ||xξ/N|| < δN for all x ∈ Λ}.",
-      "correction": "Use {x ∈ Z/NZ : ||xξ/N|| < δ for every ξ∈Λ}, where ||·|| is distance to the nearest integer and δ is a fixed small phase radius.",
-      "reason": "The quantified frequency must be ξ. Phase distance is dimensionless and at most 1/2. For example N=20 and δ=1/20 makes the printed δN condition automatic, whereas x=10 and ξ=1 give character value −1 and do not satisfy (9). For comparison with the chord-radius set, choose the smaller constant in E3.",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "Author's 254A course archive search-index result, with direct retrieval failure as in E1.",
-        "Searches for Tao notes2 Bohr phase δN correction; none located.",
-        "Repository source-issues register and blueprint errata screened."
-      ]
-    },
-    {
-      "id": "AdditiveCombinatorics/E3",
-      "source": "tao-254a-notes2-cmu",
-      "kind": "error",
-      "locator": "Lecture notes 2, §7, first paragraph of printed p.12 (PDF p.38), comparison with the chord radius 1/4 of (9).",
-      "printed": "one can shrink X a bit and take δ to be 1/20 for concreteness",
-      "correction": "For the asserted contained phase-distance Bohr set, use δ=1/32 (or any positive δ with 2 sin(πδ)≤1/4).",
-      "reason": "Even after correcting δN to δ, t=1/24 satisfies ||t||<1/20 but |exp(2πit)−1|=sqrt(2−(sqrt(6)+sqrt(2))/2)>1/4. The phase radius 1/20 therefore does not ensure the chord-radius condition. In contrast δ=1/32 gives |exp(2πit)−1|≤2π||t||<π/16<1/4. This changes only a harmless absolute constant, not the existence of the progression.",
-      "affects": "the proof",
-      "known": "new",
-      "searched": [
-        "Author's 254A course archive search-index result; direct text retrieval failed as in E1.",
-        "Searches for Tao 254A notes2 1/20 correction Bohr; no correction located.",
-        "Repository source-issues register and blueprint errata screened."
-      ]
-    }
-  ]
-}
-```
-
-## Exact resume point and remaining contracts
-
-1. AC.1: resume after Tao notes 2 §6 equation (9), at the Bohr-to-progression
-   transition in §7. Specify the phase-radius comparison using E2–E3, the
-   appropriate cyclic or general finite-abelian statement, the lattice map,
-   rank/injectivity hypotheses and the precise GN.1 Minkowski-II input.
-   Cyclic progression and general coset-progression bounds cannot be exchanged.
-   Bohr size/regularity, BSG, the full selected Freiman and density-increment
-   proofs remain open. No cross-roadmap request record is allocated yet.
-2. Reconcile all nine accepted Green–Tao nodes to declaration granularity and
-   complete APIs/tests and source contracts before creating a replacing packet.
-   Preserve their IDs and correct mathematics. In particular, the set-form
-   progression statement needs explicit nontriviality and ambient hypotheses.
-3. AC.0: quotient fibre-cardinality, cyclic-constructor, one-dimensional
-   Peter–Weyl identification and exact coding/ER.4 specializations still need
-   full checks. This checkpoint preserves their existing interfaces.
-4. AC.2: original Rahman numerical-threshold proof and a selected all-length
-   Szemerédi/removal/correspondence/Varnavides route; import pinned qualitative
-   Roth rather than replanning it.
-5. AC.3: complex conjugated cube definitions, interval/box comparisons,
-   corrected quantitative inverse results and filtered rational nilsequence
-   data; preserve the accepted LieGroups Part II ownership.
-6. AC.4: preserve seven accepted transference-related nodes and close their
-   source-scoped analytic obligations. The 2008 route does not by itself supply
-   the separately requested dense-model and relative-counting targets; generic
-   Selberg or Bombieri–Vinogradov statements do not certify its majorant.
-7. AC.5: linear-equations, Möbius–nilsequence and accepted number-field/Kai
-   branches require their precise local, complexity, box and analytic suppliers.
-
-Canonical files outside this issue remain untouched. Rejected findings do not
-force a latest-bound/PFR programme, an AC.2/AC.3 cycle or a coding-stage prerequisite.
-
----
-
-# Continuation — 28 September 2026 (Claude Code, cc-fb70e5)
-
-This pass does one thing: **remaining contract 2 above**, the reconciliation that the previous pass
-named as the gate on a packet existing at all. `research/blueprint/packets/AdditiveCombinatorics.json`
-now exists, carrying the nine accepted Green–Tao nodes at packet granularity.
-
-`check_blueprint`: **0 errors, 6 warnings**, all of them `excerpt longer than 400 characters` on
-inherited source references — see "Why those six warnings stay" below. 9 nodes (2 definitions,
-4 theorems, 1 lemma, 1 construction, 1 application), 19 API items, 12 unit tests, 7 planets,
-3 baseline declarations, 7 requests, 7 gaps, 3 `sourceIssues`. Status `partial`; no layer closed.
-
-## What was preserved, and how it was checked
-
-The previous pass's constraint was that a narrow packet must not displace the nine accepted nodes.
-So for all nine, the fields the review accepted — `id`, `parentStageId`, `title`, `kind`,
-`statement`, `hypotheses`, `proofSteps`, `acceptance` and `sources` — are copied **byte-identical**.
-That is not an assertion: it was verified by comparing a canonical JSON dump of each field against
-the integrated file, and all nine match on all nine fields, with the id set equal. The seven gaps
-are carried unchanged, and the three `sourceIssues` are transferred with their ids
-`AdditiveCombinatorics/E1`–`E3` and their `tao-254a-notes2-cmu` source id, as directed.
-
-I am the packet's author, not its reviewer, so **no verdict was added to E1–E3**. They remain
-unreviewed, and the source record for Tao's notes says plainly that this session did not read them
-and that the sha256 is the predecessor's record.
-
-## What was added — the declaration granularity
-
-Only what a decomposition lacks and a packet needs:
-
-- `realises` and `prerequisites` on all nine, forming an acyclic chain: the Gowers norms and the
-  `k`-pseudorandomness conditions feed the generalised von Neumann estimate and the Koopman–von
-  Neumann decomposition; those two plus the imported functional Szemerédi give the relative
-  Szemerédi theorem; and that with the W-trick majorant gives the prime-progressions endgame.
-- An `api`, `uses` and unit tests on the two definitions and the one construction, as PROTOCOL §4
-  and §12 require. Three tests are chosen to fail a plausible wrong definition rather than to
-  restate the right one:
-  - `isKPseudorandom.test_nonproportional_forms` — the linear forms condition requires the
-    `t`-tuples to be non-zero **and pairwise non-proportional**; dropping that makes the condition
-    false, so an implementation omitting it fails.
-  - `isKPseudorandom.test_coincident_shifts` — the correlation condition quantifies over shifts
-    "not necessarily distinct". A version restricted to distinct `h_i` is strictly weaker, and the
-    majorant's verification needs the coincident case.
-  - `modifiedVonMangoldt.test_shifted_primality` — `Λ̃(n) = 0` unless **`Wn + 1`** is prime.
-    Testing primality of `n` instead defeats the W-trick, which exists precisely to move the primes
-    into one residue class coprime to `W`.
-- Planets: 7 in total, 5 on AC.4, within the six-per-layer limit. The eight candidate names the
-  previous pass recorded for AC.0 and AC.1 are **not** used, because those layers still have no
-  nodes and a planet needs one.
-
-## The audit's duplicates became requests, not nodes
-
-Unlike some roadmaps, this one has a reviewed library audit for all six layers (AC.0 and AC.2 partly
-built, the rest not built), and it records seven duplicate findings. The job rules say a layer that
-duplicates another roadmap's is planned once by its owner with a request here, so all seven are
-requests. One bears directly on the inherited work and is worth naming: AC.4 duplicates
-`SieveMethodsAndPrimePatterns:SV.1`, "Selberg sieve weights, of which the Goldston–Yildirim
-truncated divisor sum used for the majorant is a variant". The W-trick node therefore imports the
-sieve weights and plans only the Green–Tao-specific verification that `ν` satisfies the two
-conditions. `AnalyticNumberTheory:AN.2` is likewise the owner of the prime-distribution inputs that
-two of the gaps turn on.
-
-## Why those six warnings stay
-
-`check_blueprint` warns when a source excerpt exceeds 400 characters. All six warnings are on
-inherited source references of the accepted nodes. Trimming them would edit fields that an
-independent review accepted and that the previous pass required to stay byte-identical, which is a
-worse outcome than a style warning. They are deliberate, and a reviewer should read them as such.
-
-For the same reason one phrase in the document may look like a rule violation and is not: an
-inherited accepted proof step says the instances of Definition 3.1 are "used later", meaning later
-in the source. It is a description of the paper's structure, not deferred work.
-
-## Document and Lean file
-
-The reader's AC.0 and AC.1 material is the previous passes' and is untouched; its sections cover the
-Fourier/spectrum/Bohr thread and mention none of the nine nodes. The Green–Tao material is therefore
-**appended** as a new part, generated from the packet so the two agree by construction. The Lean
-worksheet likewise keeps all its existing declarations and gains a `GreenTao` section carrying the
-three definitions with their API items and unit tests, so that every name the packet gives appears
-in the file as PROTOCOL §13 requires.
-
-**Nothing was compiled.** The shared-machine rules allow elaborating the suggested file only against
-a build at the pinned commits that already exists, and there is none here: the worksheet imports
-`TauCeti.*` and Tau Ceti has no local build. The previous pass's compile record stands as its own;
-this pass adds no compile claim, and the new `GreenTao` section is unelaborated.
-
-## What a continuation should do next
-
-1. **AC.1, where the previous passes were working.** Their resume point is unchanged and remains the
-   most detailed thread here: after Tao notes 2 §6 equation (9), at the Bohr-to-progression
-   transition in §7, using E2–E3 for the phase-radius comparison. Nothing in this pass touched it.
-2. **Give the Gowers–Cauchy–Schwarz inequality its own node.** It is currently an API item of the
-   Gowers norm node, and AC.3 cannot close while the estimate that makes the norm useful is only an
-   API line.
-3. **AC.2's proof route.** Szemerédi's theorem is imported, and the layer asks for one selected
-   complete proof route. Until that exists AC.2 stays partial, and the packet says so rather than
-   implying the Green–Tao chain supplies it.
-4. **The unread interior behind `majorantNu_isKPseudorandom`**: Section 10 and Appendix A beyond
-   Lemma A.3, which carry Propositions 9.5 and 9.6. This is the largest mathematical hole under the
-   nodes this packet now carries.
-5. **AC.0 and AC.5 have no nodes.** AC.0's material is partly the audit's duplicates, so its
-   planning is mostly a matter of stating what is imported; AC.5 needs the two further Green–Tao
-   papers the stage itself names.
-
----
-
-# Continuation — 28 September 2026, second pass (Claude Code, cc-fb70e5)
-
-Item 2 of the previous pass's list: **the Gowers-norm estimates now have their own nodes.** The accepted
-Gowers node cites Green–Tao (5.5)–(5.7) in its sources but states only the definitions, and AC.3 could
-not close while the Gowers–Cauchy–Schwarz inequality was only an API line. Four nodes are added under
-AC.3; the accepted node, and every accepted field of the nine accepted nodes, is unchanged — verified
-again by a canonical comparison against the integrated file.
-
-| node | source |
-|---|---|
-| `AC.3/gowers-cauchy-schwarz` | (5.5), printed p. 12 — planet "Gowers–Cauchy–Schwarz inequality" |
-| `AC.3/gowers-triangle-inequality` | the paragraph after (5.5), p. 12 |
-| `AC.3/gowers-norm-monotone` | (5.7), p. 13 |
-| `AC.3/gowers-norm-is-norm` | after (5.7), p. 13, with the U² positivity example on p. 12 |
-
-Sources: the arXiv v6 PDF, whose sha256 `d03dd615…d7256e1` equals the one the accepted review recorded,
-for the page numbers; and the arXiv v6 LaTeX source for the text, so the prose of every excerpt is
-verbatim and only the displayed formulas are transcribed.
-
-**Dependency edges were taken from the source, and my first draft had them wrong.** I had attached
-monotonicity to Proposition 5.3 and the triangle inequality to the Koopman–von Neumann theorem. The
-source says otherwise: `\eqref{ud-monotone}` is invoked in the proof of Lemma 5.2 ("By (5.7) it suffices
-to prove the claim for d = k − 1"), so monotonicity now feeds `pseudorandom-measures-are-U-d-close-to-one`;
-and `\eqref{gcz}` is invoked in Lemma 6.1 and in the lemma behind Proposition 6.2, the Section 6
-machinery behind Koopman–von Neumann, so Gowers–Cauchy–Schwarz now feeds
-`koopman-von-neumann-structure-theorem`. No edge was added that the source does not show.
-
-`check_blueprint`: 0 errors, the same 6 deliberate warnings on inherited excerpts. 13 nodes, 8 planets
-(2 on AC.3). The Lean worksheet gains the four named theorems in its `GreenTao` section; nothing was
-compiled, as before. The document gains the four node sections, generated from the packet.
-
-**Next** is unchanged otherwise: AC.1's Bohr-to-progression thread at the previous passes' resume point;
-AC.2's selected proof route for Szemerédi's theorem; the unread Section 10 interior behind
-`majorantNu_isKPseudorandom`; and nodes for AC.0 and AC.5.
-
-# Continuation — 28 September 2026, third pass: AC.0 (Claude Code, cc-fb70e5)
-
-AC.0 had no nodes. The earlier passes had already designed it, thoroughly, as worksheet interfaces:
-`fourier`, `nconv`, their API, Parseval–Plancherel, the convolution identity, the energy identity, and
-the tests F1–F11 and C1–C9. This pass turns that design into five packet nodes under the worksheet's
-names, and does not redesign it.
-
-| node | kind | source (Tao 254A notes 2, §6) |
-|---|---|---|
-| `AC.0/fourier-transform` | definition, 22 API items, 8 tests | printed pp. 8–9: dual-group alternative, normalised measure, transform and inversion |
-| `AC.0/normalized-convolution` | definition, 14 API items, 6 tests | printed p. 9: convolution against dy |
-| `AC.0/fourier-parseval` | theorem | printed p. 9: Parseval and Plancherel |
-| `AC.0/fourier-nconv` | theorem | printed p. 9: (f ∗ g)ˆ = fˆĝ |
-| `AC.0/fourier-energy` | theorem | printed p. 10: Plancherel applied to χ_A ∗ χ_A |
-
-These are the targets the reviewed audit names as missing: "a character-indexed Fourier transform on
-general finite abelian groups with Parseval stated for characters, and the identity taking convolution
-to the product of transforms". Sumsets, additive energy and the Plünnecke–Ruzsa family are in the pinned
-Mathlib, so they remain citations and are not nodes.
-
-**Source.** I re-verified the sha256 of the CMU compilation (`961b3332…94ffe9`, as the packet records)
-and read physical pp. 34–36 myself. The packet's source record now says so, alongside the predecessor's
-entry, which is kept. The source fixes a bi-character on Z × Z and then says that "one can make things
-more canonical" by letting ξ range over the dual group; the nodes take that alternative, as the
-worksheet's convention already does. The energy identity is not displayed in the source. It uses the
-identity only for A = B, applying Plancherel to χ_A ∗ χ_A to reach the fourth moment, and the node's
-`match` says so. The page also has a duplicated word, "if we define define", on printed p. 9. It is
-recorded as `AdditiveCombinatorics/E4`, a misprint that affects nothing.
-
-**Baseline.** Eight declarations were added, each read at its pin: `AddChar.complexBasis`,
-`RCLike.wInner`, `RCLike.cWeight`, `ZMod.dft`, `DiscreteConvolution.ringConvolution`,
-`Finset.convolution` and `Finset.mulEnergy` from Mathlib, and `TauCeti.haarProb` from Tau Ceti. The nodes
-use the additive twins `addRingConvolution`, `addConvolution` and `addEnergy`. Those are generated by
-`@[to_additive]`, so the pinned declaration index, and the submission check, know only the
-multiplicative declarations; the baseline cites those, and each `provides` names the twin the nodes use.
-(The first submission cited the generated names and failed the check for that reason.)
-
-**Lean worksheet.** Apart from one attribution line in the header, the only change is to the
-example comments: each worksheet test the packet uses now
-carries its packet test name, for instance `-- F1 (`fourier.test_nonreal_phase`)`. Every API and test
-name in the five nodes appears in the file (checked by script). Nothing was compiled, because no build
-at the pinned commits exists on this server and the shared-machine rules forbid making one. The earlier
-passes' statement that the signatures elaborate therefore still rests on their own checks.
-
-`check_blueprint`: 0 errors, and the same six warnings on inherited excerpts. 18 nodes and 13 planets,
-of which 5 are on AC.0.
-
-**Next for AC.0** (also in the packet's coverage): list the sumset and Plünnecke–Ruzsa declarations in
-the baseline by name; add a node for E(A, B) ≤ |A|²|B|, which the audit says is not stated; turn the
-quantitative indicator interfaces (`fourier_indicator_l2`, `fourier_norm_le_l1`,
-`fourier_indicator_norm_le`) into nodes; and make the item-3 checks above (quotient fibre-cardinality,
-cyclic constructor, the one-dimensional Peter–Weyl identification, coding/ER.4). Beyond AC.0, the
-second pass's "Next" list still stands, with AC.5 the only layer that has no nodes.
-
-# Continuation — 28 September 2026, fourth pass: AC.0 indicator estimates (Claude Code, cc-fb70e5)
-
-Claimed by comment 5872194166, confirmed by the bot. **Five new AC.0 nodes**, each under the
-worksheet name it already had except the new energy lemma:
-
-- `fourier-indicator-l2` (theorem, source (1)).
-- `fourier-norm-le-l1` (lemma, source (2), first inequality).
-- `fourier-indicator-norm-le` (lemma, source (2)).
-- `fourier-indicator-fourth-le` (theorem, source (5)).
-- `add-energy-le` (lemma): E(A, B) ≤ |A|²|B| and ≤ |A||B|². This is the bound the audit records as
-  missing. The worksheet gains its two signatures `addEnergy_le_card_sq_mul_card` and
-  `addEnergy_le_card_mul_card_sq`, and nothing else changes there.
-
-**Baseline.** Ten Mathlib declarations are now listed by name: `card_mul_le`, `mulEnergy_eq_card_filter`, `mulEnergy_eq_sum_sq`,
-`le_mulEnergy`, `le_card_mul_mul_mulEnergy`, `mulEnergy_univ_left`, the two Plünnecke–Ruzsa
-inequalities, Ruzsa's triangle inequality and Ruzsa's covering lemma. Each one's `provides` names
-its `@[to_additive]` twin. The source record gains this session's re-reading of equations (1)–(5).
-Tao's equation (2) writes |f̂(ξ)| after setting f = χ_A. That is consistent notation, not a slip,
-so no finding is recorded.
-
-**Checks.** `check_blueprint --index` against the pinned declaration index gives 0 errors, with the
-same six warnings on inherited excerpts. `intake.py check-files` gives 0 problems. Nothing was compiled.
-
-**Next for AC.0:** the handoff's item-3 checks (quotient fibre-cardinality, cyclic constructor,
-one-dimensional Peter–Weyl identification, coding/ER.4). The large-coefficient count (3) belongs to
-AC.1. Beyond AC.0, the second pass's list still stands.
-
-# Continuation — 29 September 2026 (Claude Code, cc-39fac3): AC.1, Marton's conjecture in characteristic 2
-
-Refs #1037. Claim comment 5886748853. Base 6697027d39fb787560e88e9f254e76db214b153b. All 23 inherited nodes are unchanged.
-
-## Delivered
-
-Eighteen AC.1 nodes plan Gowers–Green–Manners–Tao, *On a conjecture of Marton* (Ann. of Math. 201 (2025)).
-
-- **Source.** The published text is subscriber-only, so the authors' accepted manuscript was read completely (Oxford Research Archive, CC BY; SHA-256 9f1a17d6…) and collated with arXiv:2311.05762v2.
-- **Carriers (new, because Mathlib has no Shannon entropy).**
-  - Shannon entropy, conditional entropy and (conditional) mutual information, with the Appendix A inequalities as API.
-  - The entropic Ruzsa distance and its conditional form.
-  - The functional τ, its minimizers and the minimizer setting of Sections 5–7.
-- **Lemmas.**
-  - The entropic Ruzsa triangle inequality and Madiman's inequality.
-  - Entropic BSG (Lemma A.2).
-  - The fibring lemma (Proposition 4.1) and Corollary 4.2.
-  - Lemmas 5.2, 5.3 and 7.1, and the 100% case (Lemma 2.2).
-  - The first and second estimates (Sections 5–6), the endgame Lemma 7.2 and Proposition 2.1.
-- **Theorems.** Theorem 1.8 (entropic PFR, constants 11 and 6) and Theorem 1.2 (C = 12).
-- **Planets (6).** Shannon entropy and mutual information; Entropic Ruzsa distance; Entropic Balog–Szemerédi–Gowers lemma; Fibring lemma; Entropic polynomial Freiman–Ruzsa theorem; Marton's conjecture in characteristic 2.
-- **Naming.** The names follow the Lean formalization at teorth.github.io/pfr, which is not a pinned library.
-
-## Findings
-
-Two new, unreviewed misprints, E5 and E6, were found. Both are in the accepted manuscript and arXiv v2, and both were checked on page images.
-- **E5.** The proof of Corollary 4.2 conditions on π(Z₁) + π(Z₂) where π(Z₁) − π(Z₂) is meant.
-- **E6.** (7.5) writes I[Tᵢ; Tⱼ] for I[Tᵢ : Tⱼ].
-
-Every other computation was rechecked while planning.
-
-## Checks
-
-- check_blueprint.py with the pinned declaration index: 0 errors, and only the six inherited AC.4 excerpt-length warnings, which are also present on origin/main.
-- intake.py check-files: no problems. Unit tests pass.
-- The new Lean section (TauCeti.EntropicPFR, Mathlib imports only) elaborates standalone on Lean 4.34.0-rc2 against Mathlib 082e2d3 with no errors and only proof-placeholder warnings.
-- The whole suggested file imports a Tau Ceti module and was not elaborated here.
-
-## Resume for AC.1
-
-- The combinatorial BSG theorem and Freiman over ℤ, from an open source.
-- Bohr-set size and regularity (the readme's Bohr-set material still has no packet nodes).
-- The bounded-torsion Marton theorem (GGMT, arXiv:2404.02244).
-- Theorem 1.3 and Corollaries 1.4–1.7 (gap: proofs by reference).
+Refs #1037. **Codex, codex-3CsULk**, 11 October 2026.
+Branch: `codex-3CsULk-additive-combinatorics`.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/1037#issuecomment-6104807955)
+was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/1037#issuecomment-6104808912)
+before work. None of the manager's priority issues was eligible at selection;
+the available review/package candidates were screened before this blueprint.
+This run takes and submits exactly this one job.
+
+## Result
+
+This is a **complete target-level blueprint pass**, not a checkpoint. All six
+layers are **planned**. None is closed: the exact source, proof and supplier
+work below remains. Every implementation status is **unchecked**. The pass
+continues the inherited 41-node packet, retaining its useful node identifiers,
+Fourier conventions and characteristic-two entropy/Marton chain. It replaces
+the vacuous Green–Tao prototype signatures with concrete objects and targets.
+It does not replace or edit any other packet, atlas data or upstream roadmap.
+
+The [packet](../packets/AdditiveCombinatorics.json),
+[reader](../readmes/AdditiveCombinatorics.md) and
+[suggested file](../suggested/AdditiveCombinatorics.lean) agree on target names,
+API names and named example annotations. The reader is definitive. Where a
+supplier condition is absent from a prototype signature, the packet's
+`prototypeLimitations` and the reader explicitly identify that difference.
+
+## Size and coverage
+
+100 nodes: 27 definitions, 56 theorems, 13 lemmas and 4 constructions. 285 API items, 129 unit tests, 31 planets and 48 baseline declarations. 8 gaps and 14 supplier requests.
+
+| Stage | Nodes | Planets | Status |
+| --- | ---: | ---: | --- |
+| AdditiveCombinatorics:AC.0 | 10 | 5 | planned |
+| AdditiveCombinatorics:AC.1 | 31 | 6 | planned |
+| AdditiveCombinatorics:AC.2 | 11 | 4 | planned |
+| AdditiveCombinatorics:AC.3 | 19 | 4 | planned |
+| AdditiveCombinatorics:AC.4 | 15 | 6 | planned |
+| AdditiveCombinatorics:AC.5 | 14 | 6 | planned |
+
+## Mathematical routes and ownership
+
+AC.0 plans the probability-normalized Fourier interface over arbitrary finite
+abelian groups and its native convolution, Haar, cyclic, quotient and finite
+Peter–Weyl comparisons. It imports existing energy, sumset and
+Plünnecke–Ruzsa results. The two elementary upper energy bounds were not found
+in the pinned energy source and remain a target. AC.1 retains the exact
+characteristic-two GGMT argument, and adds phase/chord Bohr distinctions,
+regularity, proper progressions and the source-scoped Freiman route.
+
+AC.2 selects the finitary quantitative Szemerédi route through nilsequence
+progression partitions, shifted regular resolutions and density increments.
+The original Rahman numerical bound is a separately sourced target with an
+acquisition gap; qualitative Mathlib Roth is imported. Removal is the ordered
+one-equation theorem for finite groups, including nonabelian groups.
+
+AC.3 uses complex cube products, normalized interval/box norms, concrete
+filtered polynomial sequences and nilsequence data, the finite
+Leng–Sah–Sawhney inverse theorem, Leng's efficient vertical-frequency
+reduction, and Kai's box deduction. No ultralimit route is selected. The
+single-parameter Green–Tao factorization route is separated from the corrected
+unequal-box statements in its published erratum.
+
+AC.4 selects the CFZ/Zhao linear-forms-only route with a smooth divisor
+majorant, dense model and relative counting. Fixed-modulus prime number
+theorems plus an explicit diagonal choice supply the slowly growing primorial
+and half-window prime mass. The original sharp majorant, full pseudorandomness
+and correlation route remain separate comparison targets with their own
+analytic gaps. No Bombieri–Vinogradov input is used.
+
+AC.5 has independent Möbius, integer-pattern, number-field and localized
+branches, each with AC.3 and its arithmetic suppliers. Number-field prime
+weights are AN.4 consumer interfaces using native fractional ideals. The
+number-field main factor contains the reciprocal zeta-residue power. Local
+avoidance uses one common residue witness. Localization retains the
+normalization multiplier, removes only the excluded prime ideals from the
+avoidance product, and distinguishes torsion cokernels from finite cokernels.
+
+The manager must apply the ownership/link proposals recorded in `restructure`:
+ALS.2 imports the AC.3 nilmanifold carrier; ER.4 imports the AC.0 finite Fourier
+interface; AC.5 receives direct AC.3 and arithmetic links; the unused
+SV.3 → AC.4 edge is removed; and AN.2's selected fixed-modulus input is
+distinguished from the stronger original sharp-route inputs. Missing global
+nilpotent Lie/quotient facts, prime-model arithmetic, directed pattern removal
+and affine singular products extend their existing directions as Part II.
+No downstream packet or atlas edge was changed here.
+
+## Assigned red-team findings
+
+Each claim and fix in `RT-AREA-combinatorics.result.json` was read, not inferred
+from the issue's short locator.
+
+| Finding | Treatment |
+| --- | --- |
+| /2 | KSV Theorem 2 is ordered one-equation removal in any finite group. The layered graph preserves product order. General directed-cycle removal is an explicit Regularity extension gap; native Quiver is only incidence data. |
+| /4 | AC.3 chooses a finite quantitative LSS/Leng route, with separate dimension, rational height, Lipschitz and correlation losses. Kai supplies the box deduction. The prototype includes conjugation, polynomial differences and concrete nilsequence data; no ultralimit shortcut is asserted. |
+| /5 | Kai v5 Theorem 13.1 and Appendix E supply the localized route, including fractional modules, common local witnesses, boundary covers and torsion kernel-restriction hypotheses. Ideal Vaughan and Hecke estimates are separately requested from SV.2 and AN.4; Appendix D.3 proof closure is explicit. |
+| /7 | AC.5's nodes have direct AC.3, AN.3, AN.4, FF.2 and SV.2 inputs where used. An AC.4-only stage edge does not supply Möbius nilsequence orthogonality or the number-field model theorem. |
+| /8 | The selected smooth route has its exact moment/half-window/diagonal contracts. The original sharp route retains classical zero-free, Siegel–Walfisz, divisor-order and correlation-kernel obligations. The pinned zeta pole asymptotic is not promoted to a zero-free theorem. |
+| /9 | No target consumes SV.3 or Bombieri–Vinogradov. Its SV.3 → AC.4 edge is proposed for removal; the selected route instead uses the specified weaker prime-distribution input. |
+| /12 | Cyclic Bohr containment uses the full point-plus-frequency lattice and rank bound d+1, with a nonfaithful-character regression. It imports the precise GN.1 Minkowski-second upper node. GAP properness, rank, volume and endpoint inequalities are separate conditions. |
+| /13 | AC.3 owns the filtered nilmanifold/nilsequence carrier; ALS.2 is an importing consumer. Native LieGroup and LeftInvariantDerivation and upstream LieGroups layers 0, 2, 3 and 5 are reused. Global exponential/BCH and smooth homogeneous-quotient specializations are requested, not duplicated as general Lie theory. |
+| /14 | AC.0 owns the missing arbitrary finite-abelian normalization/comparison API. Native characters, bases, orthogonality, cyclic DFT and finite Peter–Weyl are imports. Coding, modular-form and FF.1 specializations keep their owners; ER.4's importing link is proposed. |
+
+## Source readings and baseline screen
+
+Read WORKERS, both protocols, the upstream guide, the full issue after claim,
+the inherited three deliverables and handoff, all six accepted AUDIT-16 layer
+records, accepted RS-03 scope restrictions, all relevant link entries, the
+nine assigned findings and their verification context, routed Bennett–Siksek
+items /46 and /101, and the full EffectiveBounds and ArithmeticDirichletSeries
+upstream examples. The target-level rule governs this pass.
+
+The pinned baseline is Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Actual statements were read rather
+than inferred from names. The read-only current screen additionally used
+TauCetiRoadmap `070dc2becd74419e76303ede84b465ed4a69461f` and the current
+Tau Ceti library `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, including the
+nine roadmaps absent from the atlas snapshot. No Lake command was run there.
+
+The reader's bibliography records URLs, editions, SHA-256 hashes and detailed
+read scopes. Only public papers/notes were used. The uncleared Tao–Vu book
+and the uncleared Titchmarsh book were not read or copied. Relevant readings:
+
+- Tao's CMU-hosted 254A compilation: notes 2 §§1–8 and notes 3, for finite
+  Fourier normalization, Bohr/progression and Freiman source contracts.
+- GGMT, arXiv:2311.05762v2 and the accepted public text, for the inherited
+  entropy/Marton chain and the corrected conditioning notation.
+- Schoen–Shkredov, arXiv:1106.1601v1, §4 definitions and lemmas, printed
+  pp. 5–6, for regular Bohr contracts and the zero-scale correction.
+- LSS, arXiv:2402.17994v3 §§1–4, printed pp. 1–19, for the finite inverse
+  target and its objects. Deep proof interiors are listed below as unread.
+- LSS, arXiv:2402.17995v2, full 12-page Szemerédi argument; Leng,
+  arXiv:2312.10772v5, main efficient reduction statements, printed pp. 4–6.
+- KSV, arXiv:0804.4847v1, complete ordered-product-removal argument,
+  printed pp. 4–6; CFZ, arXiv:1403.2957v4, selected §§4–9; Zhao,
+  arXiv:1307.4959v2, full six-page exposition.
+- Green–Tao Möbius, arXiv:0807.1736v4 §§1–3, pp. 1–11, and Appendix A,
+  pp. 21–22; Linear equations in primes, arXiv:math/0606088v2, main
+  definitions, theorem and local-factor discussion, pp. 1–10.
+- Green–Tao polynomial orbits, arXiv:0709.3562v4, definitions and main
+  theorems, pp. 9–14; its erratum, arXiv:1311.6170v3, pp. 1–4.
+- Kai, arXiv:2306.16983v5, relevant statements in §§1–5, 7, 9, 12–13 and
+  Appendix D, pp. 69–72; complete Appendix A box deduction, pp. 59–60,
+  and complete Appendix E localized argument, pp. 78–83. Ideal Type I/II
+  interiors and the full D.3 proof remain explicitly unclosed.
+- Bennett–Siksek, §8 Theorem 8, equation (36), p. 381 and reference [31],
+  p. 392. It supplies the exact Rahman threshold citation, not its proof.
+
+All source statements, findings and proof outlines in the deliverables are in
+our own words. No source excerpts, PDFs or copied book passages are included.
+Fourteen source findings are recorded with edition and locator: six inherited
+records and eight reconciled in this pass. The records distinguish the known
+Green–Tao erratum from version-scoped corrections with no novelty claim.
+
+## Exact work remaining
+
+An independent review is the next job. The following gaps are the precise
+proof/source tasks; they are not assertions of implemented results.
+
+1. **Regular Bohr shrink and cyclic lattice bookkeeping.** The target statements, endpoint tests and native APIs are specified. Read a primary proof of the regular half-scale choice and L¹ small-shift estimate, then verify the full x-plus-frequency lattice argument for a nonfaithful family and the properization constants. A character-value map alone need not be injective; the selected rank bound is d+1.
+
+2. **Exact Rahman threshold: original numerical proof not acquired.** Bennett–Siksek §8 Theorem 8, equation (36), p. 381 records k≥exp(exp(132 log 2/δ)), but does not reproduce Rahman’s argument. Public Toronto/MIT thesis endpoints did not supply a readable source. Acquire a cleared or public primary proof before claiming numerical proof closure; qualitative Mathlib Roth does not establish this threshold.
+
+3. **Directed ordered-cycle removal supplier.** KSV Theorem 2 is reduced, in the stated order, to directed m-cycle removal in a labelled layered graph. Current upstream Regularity Part II PR #66 plans binary-palette and induced three-vertex counting; it does not state removal for every fixed directed cycle. Request an extension with: for each fixed directed H and ε>0, δ>0 such that at most δ|V|^|H| labelled injective copies imply at most ε|V|² arc deletions, respecting directions and parts. The native Quiver is only data. No generic graph removal is planned again here.
+
+4. **Quantitative inverse proof closure.** The modern finite quasipolynomial inverse target and its objects have exact signatures. Complete the source-backed internal proof contracts for LSS §§5–12 and Appendices A–C: degree-rank and multidegree nilcharacters, correlation reduction, symmetry and integration, retaining separate dimension, rational height, Lipschitz and correlation losses. The current node’s outline is target-level, not a checked complete internal proof.
+
+5. **Nilsequence calculus and efficient step-reduction closure.** Acquire and verify the integer-binomial Taylor and iterated-difference equivalence, finite BCH coordinate changes, metric descent/comparisons, horizontal-character denominator clearing and the quantitative vertical-frequency step-reduction proof in Leng §4. The box inverse instead has its complete Kronecker-encoding source proof read, but still needs its explicit zero-extension Gowers norm comparison.
+
+6. **Selected relative-counting and smooth-analysis proof closure.** Read the referenced general k-uniform relative hypergraph counting proof that the CFZ exposition and Zhao invoke; preserve all selected subproducts during densification. For smooth moments verify an existing native Fourier inversion/rapid-decay interface sufficient for the cutoff and the uniform bad-box estimate. These are precise proof refinements of stated targets; no counting theorem is asserted as built.
+
+7. **Original sharp-cutoff comparison proof closure.** GT §10 repeated-shift moments, correlation kernels with bounded moments of every fixed order, and the unbounded-tail approximation proof remain to be checked against the requested classical analytic inputs. The selected linear-forms-only proof does not traverse this gap.
+
+8. **Ideal Type I/II and vector counting proof closure.** Kai §§10–11 nilsequence correlations for the ideal Vaughan decomposition remain to be read and parameter-audited: fixed degree, dimension at most (log N)^ρ, and height/Lipschitz complexity at most exp((log N)^ρ), for sufficiently small ρ. Read Appendix D.3’s full module generalized-von-Neumann proof and retain its restored 1-boundedness and enlarged-box factor. The complete localized Appendix E argument is read; its input uniformity and sieve suppliers remain open.
+
+## Supplier requests
+
+The packet contains the full fourteen contracts and each consuming node. Their scope is:
+
+- `SieveMethodsAndPrimePatterns:SV.1`: Supply the smooth χ-truncated Möbius divisor sum Λ_(χ,R)(n)=(log R)Σ_(d|n)μ(d)χ(log d/log R), χ smooth supported on [−1,1], χ(0)=1, and the positive constant cχ=∫₀∞χ′². Also supply the original sharp Λ_R variant for the comparison route. These are requested sieve-weight variants, not a duplicate general sieve theory.
+- `SieveMethodsAndPrimePatterns:SV.1`: For fixed number field K, supply joint local-divisibility counts and ideal upper-bound sieve for the fractional-ideal Cramér model, including Kai Proposition 5.2, Lemma B.2, and the S-supported denominator sums in Appendix E. Constants must be uniform over norm-length compatible bases and permitted ideals.
+- `AnalyticNumberTheory:AN.2`: Original sharp-cutoff route only: classical ζ zero-free region Re(s)≥1−c/log(|Im(s)|+2), with the bounded-height pole treated separately, logarithmic bounds for ζ−1/(s−1) and 1/ζ there, and the convexity estimate used by GT Appendix A.3. The pinned pole asymptotic alone supplies none of these.
+- `AnalyticNumberTheory:AN.3`: Original sharp-cutoff route: a Siegel–Walfisz estimate sufficient for its increasing primorial. Möbius route: GT Appendix A.1, |N⁻¹Σ_(n≤N)μ(n)χ(n)|≤C_A q^(1/2)(log N)^−A for a Dirichlet character modulo q, and Appendix A.2, the corresponding C_A q bound for q-periodic bounded tests. Do not replace these μ estimates by Λ estimates.
+- `ClassicalArithmeticCompletion:CA.2`: Original sharp-cutoff correlation route only: maximal divisor order d(n)≤exp(C log n/log log n) for n sufficiently large, with constants adequate for GT §10 repeated-shift moments. The selected smooth route does not require this theorem.
+- `ExponentialSumsAndCircleMethod:ES.0`: Quantitative simultaneous polynomial recurrence: for k,d≥1 and α₁,…,α_d∈ℝ/ℤ, some 1≤n≤N satisfies max_i‖α_i n^k‖≤C_k d N^(−c_k/d²), in the form cited by LSS Szemerédi Proposition 2.1/Corollary 2.2. Supply also quantitative Weyl control of ordinary polynomial exponential sums at the dimension dependence required by the progression-partition proof.
+- `ExponentialSumsAndCircleMethod:ES.4`: Only the quadratic case not covered by the existing d≥3 Waring node is needed: for t≥5, the number of t-tuples 1≤n_i≤K with Σn_i²=m is at most C_t K^(t−2), uniformly in m. Degree one is elementary; degrees at least three import the named classical-asymptotic and absolute-convergence nodes.
+- `SieveMethodsAndPrimePatterns:SV.2`: GT Möbius Proposition 3.1 with all normalizations: correlation |E_(N<n≤2N)μ(n)f(n)|≥ε, |f|≤1, forces either Type I at K≤N^(2/3) with a quantitatively large family of k and large averages E_(N/k<w≤2N/k)f(kw), or a Type II four-point correlation at N^(1/3)/2≤K≤4N^(2/3), N/4≤KW≤4N; loss polynomial in ε/log N. Supply the distinct ideal Vaughan decomposition and twisted Type I/Type II contracts of Kai §8, Proposition 8.5 for Λ minus its Siegel model.
+- `ExponentialSumsAndCircleMethod:ES.3`: Affine-pattern singular products rather than only Waring products: for a fixed finite-complexity integer affine system, and for the full-rank vector-valued number-field systems in Kai, identify the finite-field local factors, prove good-prime β_p=1+O(p^−2), absolute convergence, and positivity exactly when all local factors are positive. Keep localization factors grouped over each rational prime.
+- `AnalyticNumberTheory:AN.4`: Supply Kai’s fractional-ideal prime weight Λ_K^a(x)=Λ_K(xa⁻¹), Cramér and Siegel models with all ideal-norm, exceptional-character and zeta-residue normalizations; compatible norm-length bases and covolumes uniform in a; the fixed-field Hecke Siegel–Walfisz/model comparison estimates; the quadratic-conductor dyadic character-sum bounds of §§6–7; and their S-localized weight. This is prime-model arithmetic in AN.4’s direction and is proposed as Part II, not redefined here.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups`: Reuse the existing exponential, closed-subgroup and Lie-algebra/BCH programme. The finite-dimensional simply connected nilpotent consumer needs global exponential diffeomorphism, finite rational BCH formulas, smooth homogeneous quotient by a discrete cocompact subgroup, and its invariant probability measure. Any missing global or quotient specialization is LieGroups, Part II; do not plan the general Lie correspondence in additive combinatorics.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-2-the-closed-subgroup-cartan-theorem`: Reuse the existing exponential, closed-subgroup and Lie-algebra/BCH programme. The finite-dimensional simply connected nilpotent consumer needs global exponential diffeomorphism, finite rational BCH formulas, smooth homogeneous quotient by a discrete cocompact subgroup, and its invariant probability measure. Any missing global or quotient specialization is LieGroups, Part II; do not plan the general Lie correspondence in additive combinatorics.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff`: Reuse the existing exponential, closed-subgroup and Lie-algebra/BCH programme. The finite-dimensional simply connected nilpotent consumer needs global exponential diffeomorphism, finite rational BCH formulas, smooth homogeneous quotient by a discrete cocompact subgroup, and its invariant probability measure. Any missing global or quotient specialization is LieGroups, Part II; do not plan the general Lie correspondence in additive combinatorics.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-5-simply-connected-covers-and-the-enveloping-algebra`: Reuse the existing exponential, closed-subgroup and Lie-algebra/BCH programme. The finite-dimensional simply connected nilpotent consumer needs global exponential diffeomorphism, finite rational BCH formulas, smooth homogeneous quotient by a discrete cocompact subgroup, and its invariant probability measure. Any missing global or quotient specialization is LieGroups, Part II; do not plan the general Lie correspondence in additive combinatorics.
+
+## Prototype limitations and verification
+
+The prototype uses concrete predicates and native structures. It has no
+`True` theorem placeholders, `Prop`-valued stand-ins for missing conditions,
+or proposition definitions with proof-placeholder bodies. Native structures'
+ordinary proof fields enforce the concrete conditions they state.
+
+- `AdditiveCombinatorics:AC.3/filtered-nilmanifold`, `AdditiveCombinatorics:AC.3/rational-malcev-basis`: The prototype bundles native LieGroup, LeftInvariantDerivation, subgroup/coset and topology data. It omits the smooth structures on each layer, the canonical global exponential-product equality, and the Lie-ideal tail condition until the LieGroups supplier gives those interfaces. The first_second_kind API only records the origin compatibility; its full finite triangular BCH comparison is in the reader and the nilsequence-calculus gap. The reader defines the target objects in full; the prototype is not a substitute definition.
+- `AdditiveCombinatorics:AC.3/malcev-metric-nilsequence`: The coordinate chain metric and quotient infimum are typed; the API named malcevMetric_comparison gives only a conditional metric comparison implication. Its basis-induced Riemannian construction and uniform constants are stated in the reader and remain supplier/proof gaps.
+- `AdditiveCombinatorics:AC.3/efficient-equidistribution`, `AdditiveCombinatorics:AC.3/quantitative-orbit-factorization`: The vertical obstruction signature gives the weaker r≤dimension bound, while the reader also bounds rank by the abelianization dimension and states the step-lowering quotient. Orbit factorization has a native subgroup embedding and an adapted basis, but omits the bounded rational Lie-algebra change-of-basis condition. These missing conditions are left out explicitly, without proposition stand-ins.
+- `AdditiveCombinatorics:AC.5/quadratic-hecke-uniformity`, `AdditiveCombinatorics:AC.5/number-field-prime-uniformity`, `AdditiveCombinatorics:AC.5/number-field-prime-patterns`: Native ideals, quotient rings, fractional ideals, integer lattice equivalences, prime-weight and Cramér formulae are present as AN.4 consumer sketches. The residue is designated supplier data, not an implemented zeta residue. The Hecke ray-character identification and Siegel-model comparison are omitted. Uniformity is prototyped at its Cramér endpoint with a fixed basis; constants may depend on that basis. The reader also states the exponential Siegel rate, uniform congruence classes and norm-length compatibility.
+- `AdditiveCombinatorics:AC.5/number-field-local-factors`, `AdditiveCombinatorics:AC.5/localized-prime-uniformity`, `AdditiveCombinatorics:AC.5/localized-prime-patterns`: Finite residue maps test the common-witness and retained-multiplier rules, and native ideal local factors are additionally sketched. Identifying the generic maps with fractional-ideal residue fields, and the product formula under O_K-linearity, remains arithmetic supplier work. The localized module, weights and singular constant are named data interfaces with proof-placeholder bodies, not completed arithmetic definitions. No opaque proposition stands for these missing identifications.
+- `AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant`: The majorantNu_isKPseudorandom signature assembles an already supplied measure, linear-forms condition and correlation condition. It does not establish these analytic hypotheses for the sharp weight. The exact cutoff family and their proof obligations remain in the reader and the separate sharp-route gap.
+
+Checks run on the final deliverables:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AdditiveCombinatorics.json`:
+  **zero errors, zero warnings**, complete pass, six planned stages.
+- All target/API names and all 129 named example annotations were matched
+  against declarations or native structure projections in the suggested file.
+  Every definition/construction has at least three discriminating tests.
+- The full suggested file was elaborated with `lean-check` in the shared build
+  at the pinned Mathlib and Tau Ceti: **exit 0, zero errors, 468 warnings,
+  all and only declaration-uses-proof-placeholder warnings**. No language
+  server or library rebuild was used. This verifies types, not proofs; the
+  omitted supplier conditions listed above limit the prototype accordingly.
+- The four-file intake check and `git diff --check` passed. No private paths,
+  source files, scratch files or build artifacts are submitted.
+
+No scratch artifact is required for resumption. Follow-up work starts from the
+packet's exact nodes, gaps, requests, prototype limitations and versioned source
+locators; it must independently review this complete pass before packaging.
 
