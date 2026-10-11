@@ -49,6 +49,8 @@ The starting libraries are Mathlib at `082e2d37e8b0463410cdb532e111cd43d5a66174`
 
 - [mathlib:DerivedCategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Basic.lean#L87) — Derived category of an abelian category with a chosen localization; does not supply enhanced smooth sheaves or completed arithmetic cohomology.
 - [mathlib:Representation](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean#L49) — Algebraic monoid representations as monoid homomorphisms to linear endomorphisms; smoothness and continuity must be supplied separately.
+- [mathlib:Representation.dual](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean#L671) — Coefficient dual of a group representation, acting through the inverse group element. It does not identify dual-coefficient cohomology with an unshifted linear dual of cohomology.
+- [mathlib:Module.Dual.eval](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean#L80) and [eval_naturality](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean#L177) — Natural evaluation into the double dual. Injectivity and reflexivity require their own hypotheses.
 - [mathlib:Fin.revPerm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Fin/Rev.lean#L35) — Order-reversing involution of Fin n for the longest GL_n Weyl permutation.
 - [mathlib:LinearMap.eventually_isCompl_ker_pow_range_pow](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Artinian/Module.lean#L317) — Fitting direct sum for an Artinian and Noetherian module.
 - [mathlib:AlgHom.range](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Subalgebra/Basic.lean#L545) — Image subalgebra of an algebra homomorphism, used for Hecke images once their action is constructed.
@@ -904,6 +906,10 @@ Prerequisites: **CL.6**: Degree shifting to middle-degree P-ordinary cohomology 
 
 **Dual Hecke images A^∨ and Ã^∨** (`CrystallineCM.HeckeImagesDual`). For S̄_p = S̄₁ ∪ S̄₂ ∪ S̄₃: A^∨(K,λ,q) := T^{Q_{S̄₃},S̄₃-ord,ι}(H^q(X_K, V^∨_λ)_{m^∨}), A^∨(K,λ,q,m) the same with V^∨_λ/ϖ^m, Ã^∨(K̃,λ̃,S̄₃) := T̃^{Q_{S̄₃},S̄₃-ord,ι̃}(H^d(X̃_{K̃}, V^∨_λ̃)^{ord∨}_{𝒮^*m^∨}).
 
+Construct each image from its actual dual-coefficient cohomology module and action, retaining the coefficient ring and localization. Coefficient duality takes place before cohomology. Over O, the module H^q(V^∨) cannot in general be replaced by Hom_O(H^q(V),O); duality can change the degree, supports and torsion terms. For example, Hom_ℤ(ℤ/3,ℤ)=0 although ℤ/3 is nonzero. The source's rational middle-degree Poincaré comparison supplies the particular perfect pairing used to compare the two image algebras.
+
+The algebraic descent of adjointness is explicit. Let H act on M and N by a and b, let ι be an involutive R-algebra automorphism of H, and let N≃Hom_R(M,R) be a perfect pairing that separates points of M. If ⟨a(h)x,y⟩=⟨x,b(ι(h))y⟩, then a(h)=0 exactly when b(ι(h))=0. This gives an isomorphism im(a)≃im(b) carrying a(h) to b(ι(h)). Apply it to the arithmetic pairing with its specified degree and support comparison; do not assert an integral pairing merely from the existence of a rational one. Mathlib's `Representation.dual` supplies the coefficient formula ρ^∨(g)φ=φ∘ρ(g⁻¹), and `Module.Dual.eval` supplies the comparison with the double dual without an unconditional reflexivity assertion.
+
 Required API:
 
 - `CrystallineCM.HeckeImagesDual_coefficient`: A^∨ uses the inverse-coset action on H^q(X_K,V_λ^∨)_{m^∨}, with the integral and mod-ϖ^m variants distinguished.
@@ -942,6 +948,10 @@ Source: CN, §4.2.1, p.61.
 Prerequisites: **CL.6**: Hecke images A(K,λ,q), A(K,λ,q,m), Ã(K̃,λ̃,S̄) and deep levels; `mathlib:AlgHom.range`.
 
 **Unitary middle-degree Hecke image** (`CrystallineCM.UnitaryMiddleHeckeImage`). Ã(K̃,λ̃,S̄)=image of T̃^{Q^{w₀^P},S̄-ord} in End_O(H^d(X̃_{K̃},V_λ̃)^{P-ord}_{m̃}). Under the generic middle-degree injection this is a finite torsion-free O-algebra inside its rational image. Q-unit eigensystems are selected by the maximal ideal, not by redefining POrd.
+
+Use the actual middle-degree action a:H→End_O(M) and its image, as for A. Tensoring M with E gives the image homomorphism into the rational action. Its injectivity follows from the supplied middle-degree injection M→E⊗_O M; it is not a property of every integral Hecke image. In particular, if r∈O has nonzero image in E and r annihilates an image endomorphism, that endomorphism is zero. Finiteness comes from the arithmetic middle-degree module, separately from this range argument.
+
+Evaluate a character χ on the image of every rescaled partial block operator through H→im(a)→E. Equal Siegel values alone do not determine this character: in the faithful regular action of ℚ×ℚ on itself, the two projection characters both send (1,1) to 1 but send (1,2) to 1 and 2. All those displayed eigenvalues are units. The cuspidal realization of the character uses the CTG and all-partial-unit hypotheses of Proposition 4.2.11, p.67, as specified in CL.7.
 
 Required API:
 

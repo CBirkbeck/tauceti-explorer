@@ -1,31 +1,32 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-ureQxO`. Date: 2026-10-11.
-Branch: `codex-ureQxO-crystalline-package`.
-Input commit: `763d46d25cf18f42a878f7e8b6e242ab2b575f83`.
+Agent: Codex (GPT-6). Session: `codex-zXQCL0`. Date: 2026-10-11.
+Branch: `codex-zXQCL0-crystalline-package`.
+Input commit: `156e332ce25faeeeee08fa751bcb62dc98d36631`.
 Claim confirmed by github-actions in
-[comment 6105128879](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105128879),
-in response to [6105127945](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105127945).
+[comment 6105329518](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105329518),
+in response to [6105328590](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105328590).
 Only this job was claimed.
 
 ## Status
 
-**Checkpoint blocked on supplier exports.** The new CL.0 positive parahoric
-monoid has an explicit DVR matrix carrier, its three core APIs and its three
-labelled examples. The reader now assigns the completed arithmetic tower to
-CompletedCohomologyPartII rather than ALS.6. Integral dual-Weyl lattices and
+**Checkpoint blocked on supplier exports.** This continuation adds the CL.6
+unitary-middle and dual-coefficient Hecke-image cores, six API signatures and
+five named examples, plus two supplementary discriminators. Integral dual-Weyl lattices and
 completed arithmetic tower interfaces are still absent from their owners;
 these blockers were checked afresh below. This is an external dependency
 blocker, not a time or memory limit. Their general mathematics belongs outside
-this issue's permitted paths. The earlier scaling-character, transfer and
-deep-level forms remain intact.
+this issue's permitted paths. The earlier positive-monoid, scaling-character,
+transfer, Hecke-image and deep-level forms remain intact. The package already
+assigns completed arithmetic towers to CompletedCohomologyPartII rather than
+ALS.6; that correction is preserved.
 
 The accepted input has 97 targets, 103 API entries, 104 tests, 27 supplier
 requests and 40 gaps. Its ten layers CL.0–CL.9 are planned; none is closed. A
 successful target-level review does not supply the missing carrier interfaces.
-The suggested file now has **15 typed targets, 36 typed APIs and 37 labelled
-examples**. It retains **82 omitted targets, 67 omitted APIs and 67 omitted
+The suggested file now has **17 typed targets, 42 typed APIs and 42 labelled
+examples**. It retains **80 omitted targets, 61 omitted APIs and 62 omitted
 tests**, together with explicit arithmetic-specialization boundaries on the
 existing cores. Comments describing missing signatures are not declarations.
 
@@ -35,7 +36,60 @@ package as complete from the existence of its output paths. Add
 `topic = "math.NT"` only when the entire package meets the issue's requirements.
 The accepted packet, original reader and original prototype were not changed.
 
-## New positive-parahoric signatures
+## New middle-degree and dual-coefficient Hecke-image signatures
+
+- `CrystallineCM.UnitaryMiddleHeckeImage` is the range of the actual supplied
+  action on the middle-degree module. `_mem` exposes its preimages;
+  `_rational_injective` uses the existing tensor-action map and an explicit
+  injection M→E⊗_R M; `_character` evaluates a supplied image character on
+  every specified partial operator. The injection is supplied by the
+  arithmetic middle-degree comparison, not asserted for an arbitrary image.
+  Finiteness of the arithmetic module is a separate input.
+- Two named examples give the zero-module image and detect scalar torsion
+  through the rational injection. A supplementary regular-action example for
+  ℚ×ℚ supplies two image characters with the same value at (1,1) and different
+  values at (1,2), all units. Thus matching only a Siegel value does not enforce
+  matching on every partial operator. The original `_test_characters`, which
+  requires an actual cuspidal realization with CTG and all partial-unit
+  hypotheses, remains omitted and belongs to the CL.7 arithmetic interface.
+- `CrystallineCM.HeckeImagesDual` is the range of each actual supplied
+  dual-coefficient action, separately for integral, torsion and unitary
+  cohomology. `_coefficient` exposes that range; `_unitary` identifies the
+  same construction for the unitary action. Neither signature identifies
+  H^q(V^dual) with Hom_R(H^q(V),R).
+- `_adjoint` takes actions a on M and b on N, an involutive algebra
+  automorphism ι, a perfect pairing N≃Module.Dual R M, separation of points
+  of M by its dual, and equivariance of the actual operators. It descends this
+  adjointness to an image-algebra isomorphism carrying a(h) to b(ι(h)).
+  The image isomorphism is a conclusion, not an assumed input. The arithmetic
+  application must supply the correct shifted and supported Poincaré pairing;
+  a rational comparison is not an integral pairing.
+- Three named examples cover the zero image, the inverse scalar in Mathlib's
+  actual `Representation.dual`, and double-dual evaluation equivariance
+  together with involutive maximal-ideal transport. Evaluation does not assert
+  reflexivity of every module. The supplementary example has a nonzero
+  ℤ/3 module with zero integral linear dual, distinguishing coefficient
+  duality before cohomology from an unshifted dual of a torsion cohomology group.
+- The catalogue marks both target signatures as partial arithmetic interfaces
+  and marks their six APIs and five named examples as typed cores. The
+  arithmetic modules/actions, ideal localization, degree/support comparison
+  and cuspidal realization are still required. The reader retains the full
+  arithmetic requirements and adds the descent and torsion distinctions.
+
+Source read this session: Caraiani–Newton [CN], arXiv:2301.10509v3,
+§4.2.1, printed pp.61–68: the image definitions on pp.61 and 65,
+Proposition 4.2.4 on p.61 and Proposition 4.2.11 on p.67, with their
+surrounding hypotheses. Public URL: <https://arxiv.org/pdf/2301.10509v3>.
+Accessed 2026-10-11; PDF SHA-256
+`57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
+Only original mathematical prose was added; no source passage or
+section-by-section source summary was recorded. The pinned Mathlib statements
+read are `Representation.dual` and `dual_apply` (Basic.lean, lines 671–681),
+`Module.Dual.eval` and `eval_naturality` (Dual/Defs.lean, lines 80 and 177),
+and the image and product-algebra interfaces. Their pinned links are in the
+reader's library list. No restricted source was needed.
+
+## Preserved positive-parahoric signatures
 
 - `CrystallineCM.PositiveParahoricMonoid` is a `Submonoid` of GL_I(K) over a
   DVR O with fraction field K, finite row index I and block map I→Fin t. It
@@ -77,8 +131,8 @@ passage or section-by-section source summary was recorded.
 ## Preserved scaling-character material
 
 The following forms and source checks came from previous checkpoints. They
-are retained for continuation; only the new positive-monoid work above and
-supplier checks below are claimed as this session's contribution.
+are retained for continuation; the new middle-degree/dual image forms above
+and supplier checks below are this session's contribution.
 
 - `CrystallineCM.LowestWeightScalingCharacter`: an actual monoid homomorphism
   D→E×. Its inputs are a finite embedding index, units π_τ, integer weight
@@ -209,7 +263,13 @@ pp.17–18, and Lemma 4.2.3, p.60. Its application supplier is
 That packet retains the explicit gap whose general owner is
 `ReductiveGroupsIntegralRepresentationsPartII`; no stage is assigned and no
 packet, suggested file or package for that owner exists in this checkout.
-The corresponding design issue is [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357).
+The current routing issue is
+[#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357),
+`DESIGN-ReductiveGroupsPartIII`, not a dedicated integral-representations job.
+Its brief combines thirteen continuation routes, including the KP18 and KPZ26
+routes to `ReductiveGroupsIntegralRepresentationsPartII`. No exporting packet,
+suggested file or package for that integral owner exists in this checkout or
+the current read-only upstream roadmap tree.
 
 Read the actual rational Weyl statement at Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`:
@@ -232,7 +292,7 @@ Its assembly, colimit and completed-chain-model interfaces still have no packet,
 suggested file or package in this checkout. The ALS.6 reviewed library audit
 likewise distinguishes generic limits from the missing arithmetic tower.
 
-This session corrected the package README and its Lean catalogue to the owners
+An earlier checkpoint corrected the package README and its Lean catalogue to the owners
 below, including CC.2 for the coefficient homotopy limit in the PGL₂ object.
 The packet request remains stale: its correction belongs to a subsequent job
 that permits packet edits. The missing owner exports, rather than the stale
@@ -309,8 +369,8 @@ or telescope here.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
   **0 errors, 0 warnings**; the accepted packet is unchanged.
 - `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
-  **exit 0, 0 errors, 91 warnings, all `declaration uses sorry`**. Available
-  memory was 99 GB before the full-file check. Only supplier comments changed
+  **exit 0, 0 errors, 97 warnings, all `declaration uses sorry`**. Available
+  memory was 102 GB before the full-file check. Only one operator-list comment changed
   afterwards; the Lean declarations are exactly those checked. The shared
   Mathlib is at `082e2d37e8b0463410cdb532e111cd43d5a66174`; individual Mathlib
   imports only. No language server, build, cache download or Lake command in
@@ -318,9 +378,10 @@ or telescope here.
 - Reconciled all 97 target names, 103 API names and 104 test names against the
   reader and prototype. Resolved declarations in namespace CrystallineCM and
   associated test labels with actual examples outside block comments; every
-  omitted name has an explicit omission entry. Counts are 15/36/37 typed and
-  82/67/67 omitted. No empty Prop-valued sorry definition was found.
-- README: 177,116 bytes; Suggested.lean: 158,037 bytes. The reader is below
+  omitted name has an explicit omission entry. Counts are 17/42/42 typed and
+  80/61/62 omitted. Two supplementary examples are not counted as fulfillment
+  of original test names. No empty Prop-valued sorry definition was found.
+- README: 180,115 bytes; Suggested.lean: 165,658 bytes. The reader is below
   200 KB. All accepted targets, hypotheses, APIs, tests and source locators
   remain present, with supplier ownership corrected as explained above.
 - Read WORKERS, both protocols and UPSTREAM_GUIDE; two complete current upstream
@@ -348,13 +409,19 @@ their owning roadmaps, and update REQ-TOWER in a job that permits packet edits.
 The package already names the corrected tower owners. Resume against actual
 exporting signatures rather than creating another copy of
 supplier mathematics or replacing missing objects by assumed conclusions.
-Keep the typed scaling-character, transfer and deep-level forms. Supply
+Keep the typed middle/dual image, positive-monoid, scaling-character, transfer
+and deep-level forms. Supply
 the arithmetic exponent maps and specialize the two Weyl permutations; do not
 reuse PA.0's ACC character as if its normalization agreed. Specialize the
 transfer to the actual contracting arithmetic elements, and the deep-level component maps to
 the arithmetic level dictionary, instead of rebuilding these constructions.
 The package cannot be completed by merely filling the remaining comments with
 Prop placeholders or abstract assumptions of each theorem's conclusion.
+For the new image cores, instantiate the actual coefficient cohomology and
+its localized Hecke action, derive the rational injection from middle-degree
+genericity, and provide the source's Poincaré comparison with its degree and
+support data. The full cuspidal-character example needs the actual CL.7
+realization, not a renamed pair of abstract algebra characters.
 
 Remaining layer interfaces:
 
