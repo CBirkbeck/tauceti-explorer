@@ -1,0 +1,192 @@
+{
+  "id": "WeightZeroCrystallineAutomorphyLifting",
+  "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: weight-zero crystalline automorphy lifting with p arbitrarily ramified",
+  "area": "automorphic",
+  "parent": "PotentialAutomorphyInfrastructure",
+  "summary": "This roadmap extends the potential-automorphy infrastructure to crystalline weight-zero lifts over CM and totally real fields with p arbitrarily ramified. It assembles the adequate-image Taylor–Wiles arithmetic tower, geometric local-component comparison, nilpotent derived Hecke actions and solvable preparation needed for the weight-zero lifting theorem, and exports the adequate ordinary companion. Local compatibility, crystalline generic reducedness, connects and abstract patching retain their existing owners.",
+  "readmeMarkdown": "research/blueprint/readmes/WeightZeroCrystallineAutomorphyLifting.md",
+  "prerequisites": [
+    "ArithmeticGaloisRepresentations",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicGaloisRepresentationsPartII",
+    "AutomorphicSpectralTheory",
+    "CrystallineLocalGlobalCompatibilityCM",
+    "DeformationAndDerivedPatchingAlgebra",
+    "GlobalGaloisDeformations",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "PadicHodgeTheory",
+    "PotentialAutomorphyInfrastructure",
+    "PotentialAutomorphyInfrastructurePartII",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  ],
+  "stages": [
+    {
+      "key": "WZ.0",
+      "title": "Prepared arithmetic data and inverse coefficients",
+      "description": "Fix prepared weight-zero CM arithmetic data: S=S_p⊔R⊔A, the imaginary-quadratic splitting certificates, strict complementary p-degree inequality, adequate and decomposed-generic residual seed, Iwahori bad places and two auxiliary H²=0 places. Construct the actual good level with hyperspecial factors at p, Iwahori factors at R and pro-residue-characteristic Iwahori factors at A. Define its inverse auxiliary character coefficient on the existing scalar module and its fixed trivial residual comparison. Instantiate the variable-determinant crystalline/tame/unrestricted global deformation problem and compatible local/global residual identifications. Export coefficient enlargement and framing count n²|S|−1. The generic selector and scalar coefficient have complete APIs and discriminating four-place, inverse-value, empty and reduction tests.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7",
+        "CrystallineLocalGlobalCompatibilityCM:CL.7",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "PotentialAutomorphyInfrastructure:PA.4",
+        "GlobalGaloisDeformations:G8",
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:R08.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ]
+    },
+    {
+      "key": "WZ.1",
+      "title": "Crystalline Hecke maps and cuspidal recognition",
+      "description": "Produce the weight-zero crystalline deformation-to-derived-Hecke surjection modulo a uniformly nilpotent ideal, using CL.7 torsion crystalline compatibility together with the tame and unrestricted local conditions. Retain the geometric-Frobenius alternating Hecke polynomial and define support by spectral pullback from the honest Hecke image. Prove rational cohomological recognition of cuspidal weight-zero eigensystems after absolutely irreducible residual localization, including the supported seed point and Frobenius identification. Neither a strict deformation-ring action on a chain complex nor an integral R=T is an input.",
+      "requires": [
+        "WeightZeroCrystallineAutomorphyLifting:WZ.0",
+        "CrystallineLocalGlobalCompatibilityCM:CL.7",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "AutomorphicSpectralTheory:AS.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7"
+      ]
+    },
+    {
+      "key": "WZ.2",
+      "title": "Local tensor components and their transport",
+      "description": "Prove the five local-tensor component assertions: O-flat equidimension 1+n²|S|+n(n−1)[F:Q]/2 and characteristic-zero generic points; unique generalization from each special generic point; bijection of distinct-type components with crystalline p-components; uniqueness of the crystalline component through a characteristic-zero point; and residual transport retaining the p-component label. Import weight-zero special-fibre generic reducedness from its sibling and the general DVR/geometric completed-tensor bridge from the algebra owners. Include finite coefficient descent and the same assertions after adding identical patching variables. Export PL.1’s precise base-field crystalline connects interpretation.",
+      "requires": [
+        "WeightZeroCrystallineAutomorphyLifting:WZ.0",
+        "LocalGaloisDeformationRings:R08.3",
+        "LocalGaloisDeformationRings:R08.2",
+        "DeformationAndDerivedPatchingAlgebra:P9",
+        "PotentialAutomorphyInfrastructurePartII:PL.1"
+      ]
+    },
+    {
+      "key": "WZ.3",
+      "title": "Adequate crystalline patching and prepared lifting",
+      "description": "Construct the adequate selected-block crystalline finite-level tower: q primes, one diamond coordinate per selected eigenvalue, g=q−n²[F⁺:Q] presentation variables, compatible residual systems and uniformly nilpotent crystalline Hecke maps. Dualize the localized cover comparison to obtain derived augmentation and use P8 to instantiate the six patched objects. Prove the adequate dimension balance and dual degree shift q₀=n(n−1)[F⁺:Q]/2+1. Verify CL.8’s two-system datum, then apply its support and augmentation theorems to prove Theorem 3.2.5 for two prepared points with the same crystalline p-component labels. Multiple unrelated crystalline components are not asserted automorphic.",
+      "requires": [
+        "WeightZeroCrystallineAutomorphyLifting:WZ.0",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.1",
+        "ArithmeticGaloisRepresentations:G7",
+        "GlobalGaloisDeformations:G7",
+        "GlobalGaloisDeformations:G8",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "ArithmeticLocallySymmetricSpaces:ALS.6",
+        "IntegralHeckeAndGaloisDeterminants:IHG.5",
+        "DeformationAndDerivedPatchingAlgebra:P8",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "CrystallineLocalGlobalCompatibilityCM:CL.8"
+      ]
+    },
+    {
+      "key": "WZ.4",
+      "title": "Solvable preparation and global weight-zero lifting",
+      "description": "Construct soluble CM preparation of the global theorem while every original p-place splits completely: preserve the original p-adic fields, full residual/cyclotomic images, decomposed genericity and scalar witness; enlarge split real degree and arrange all eight prepared certificates. Use prepared support and cuspidal recognition to realize the prescribed lift automorphically. Supply a separate GL₁ algebraic-character realization using class field theory and rank-one p-adic Hodge algebraicity. Descend by actual all-place LLC-compatible soluble base change and Varma’s weak local–global consequence. Conclude crystalline weight-zero automorphy for CM or totally real F, p>n, with unramifiedness at p and all places where the lift and seed are both unramified.",
+      "requires": [
+        "WeightZeroCrystallineAutomorphyLifting:WZ.0",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.3",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.1",
+        "PotentialAutomorphyInfrastructure:PA.5",
+        "PotentialAutomorphyInfrastructure:PA.4",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "PotentialAutomorphyInfrastructure:PA.2",
+        "PadicHodgeTheory:R06.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.0"
+      ]
+    },
+    {
+      "key": "WZ.5",
+      "title": "Adequate ordinary automorphy lifting",
+      "description": "Verify the adequate selected-block substitution in the ordinary prepared patching argument, using existing ordinary characters, local weight-algebra branches and normalized dual completed homology. Include full-inertia character formulas after preparation, roots-of-unity compatibility between seed and lift weights, pointwise maximal-dimensional ordinary component support and weight specialization. Export MT Theorem 1.3 for potentially semistable regular ordinary lifts over CM or totally real fields, with adequate cyclotomic residual image, decomposed genericity and a scalar-outside witness. The final ordinary cuspidal representation has the lift’s weight and is unramified away from p wherever both lift and seed are unramified. The seed weight may differ.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:G7",
+        "GlobalGaloisDeformations:G7",
+        "PotentialAutomorphyInfrastructure:PA.2",
+        "PotentialAutomorphyInfrastructure:PA.5",
+        "DeformationAndDerivedPatchingAlgebra:P8",
+        "DeformationAndDerivedPatchingAlgebra:P9",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.5",
+        "ArithmeticLocallySymmetricSpaces:ALS.6",
+        "PotentialAutomorphyInfrastructure:PA.4",
+        "LocalGaloisDeformationRings:R08.5",
+        "WeightZeroCrystallineAutomorphyLifting:WZ.4",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BCGNT25",
+      "title": "The Ramanujan and Sato–Tate conjectures for Bianchi modular forms",
+      "authors": "George Boxer, Frank Calegari, Toby Gee, James Newton and Jack A. Thorne",
+      "edition": "Forum of Mathematics, Pi 13 (2025), e10; author-hosted published copy, DOI 10.1017/fmp.2024.29",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/SatoTate.pdf",
+      "accessed": "2026-10-11",
+      "sha256": "ea12cd0dbc91c73f05886a59aa512e4b69f2dc2fae12dc5b68cf444d9046cdb2",
+      "readSections": [
+        "§3.1–3.2, pp. 30–35, complete owned direction",
+        "Theorem 2.5.5 and its use in Lemma 3.2.4, pp. 28–29, 33–34; sibling-owned result only",
+        "§6.2, proof of Theorem 6.2.4, p. 60, ordinary lifting application only"
+      ]
+    },
+    {
+      "id": "MT23",
+      "title": "Automorphy lifting with adequate image",
+      "authors": "Konstantin Miagkov and Jack A. Thorne",
+      "edition": "Forum of Mathematics, Sigma 11 (2023), e8, DOI 10.1017/fms.2023.3; published PDF",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A36C754C24E9258E1E062C62378BF1E/S2050509423000038a.pdf/automorphy-lifting-with-adequate-image.pdf",
+      "accessed": "2026-10-11",
+      "sha256": "a84934a7a67f5c9bcf737a0189befd448654a9bb93674d5e169afbccce2a1a23",
+      "readSections": [
+        "Theorems 1.2–1.3, pp. 1–3",
+        "§§2–3, pp. 3–15, selected-block local representation calculations",
+        "§6, pp. 19–22, especially Proposition 6.7",
+        "Theorems 7.6–7.7, pp. 26–28",
+        "§8, pp. 28–30, finite-level tower and adequate substitution"
+      ]
+    },
+    {
+      "id": "CN25v3",
+      "title": "Modularity of elliptic curves over imaginary quadratic fields",
+      "authors": "Ana Caraiani and James Newton",
+      "edition": "arXiv:2301.10509v3; theorem locators refer to this version",
+      "url": "https://arxiv.org/pdf/2301.10509v3",
+      "accessed": "2026-10-11",
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+      "readSections": [
+        "Theorems 4.2.15 and 4.3.1, pp. 71–73, imported crystalline compatibility",
+        "Lemma 5.3.3 and Proposition 5.4.2–Corollary 5.4.3, pp. 76–79, imported commutative algebra and two-system support"
+      ]
+    },
+    {
+      "id": "ACC23v2",
+      "title": "Potential automorphy over CM fields",
+      "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+      "edition": "arXiv:1812.09999v2, 16 June 2022; source for the 2023 publication; PDF internal pagination used here",
+      "url": "https://arxiv.org/pdf/1812.09999v2",
+      "accessed": "2026-10-11",
+      "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+      "readSections": [
+        "Theorem 2.4.10 and proof, pp. 52–55",
+        "Lemma 6.2.25–6.2.26, pp. 146–147",
+        "§6.4.1–6.4.2 patching interface, pp. 157–165, selected statements",
+        "Proposition 6.5.3 and proof, pp. 167–168",
+        "§6.5.12, pp. 175–179, entire soluble preparation/descent argument",
+        "§6.6.1 and §§6.6.7–6.6.10, pp. 179–189, ordinary weight/augmentation and descent interfaces"
+      ]
+    }
+  ],
+  "status": "draft"
+}
