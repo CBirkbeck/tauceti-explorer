@@ -1161,6 +1161,10 @@ Acceptance tests:
 - `CrystallineCM.PreparedPGL2Level_test_three_branches`: Both st gives the Borel (1,1,1,1); both cr gives Siegel (2,2); exactly one st gives (2,1,1).
 - `CrystallineCM.PreparedPGL2Level_test_non_neat`: For S=S_p∪R there is no auxiliary neatness argument. The ζ_p∈F hypothesis and localized perfectness input are required.
 
+The local-level formula takes the integral groups PGL₂(O_{F_v}) and their Iwahori and pro-v Iwahori subgroups as inputs. Its product is a subgroup of ∏_v PGL₂(O_{F_v}), the compact integral part of the adelic group. Membership is checked componentwise. A component outside S, or in S_p^{cr}, is the entire integral group; otherwise a component in R or S_p^{st} is Iwahori, and the remaining component is pro-v Iwahori. Keeping a proper pro-v Iwahori at an auxiliary place is essential to the specified level. This component calculation does not supply the neatness theorem or localized perfectness.
+
+For the unitary choice, put st=1 when ṽ∈S_p^{st} and stᶜ=1 when ṽᶜ∈S_p^{st}. The orientation policy is stᶜ≤st. Thus the admissible flags are (0,0), (1,0) and (1,1), giving respectively (2,2), (2,1,1) and (1,1,1,1). Every partition has total rank four and refines the two size-two Siegel blocks. In the mixed case the first block stays size two and the second becomes (1,1). The flags (0,1) violate the choice policy; switching the chosen place is required before using the mixed formula. The component and partition APIs in Suggested.lean express these formulas independently of the residual Hecke and derived-cohomology constructions.
+
 Source: CN, Proof of Proposition 5.6.1, pp.82–83; CN, Unitary parabolic cases and residual Hecke ideal, p.83.
 
 Prerequisites: **CL.9**: The data and hypotheses (1)–(15) of the special case of Theorem 5.2; **CL.8**: Cohomology of PGL₂ locally symmetric spaces at non-neat level; **CL.8**: Vanishing above the real dimension and perfectness; **CL.4**: Q-ordinary Hecke operators Ũ^k_v; **ArithmeticLocallySymmetricSpaces:ALS.0** (standard level subgroups); **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.5**; **ArithmeticLocallySymmetricSpaces:ALS.0** (neatness iwahori criterion).
@@ -1279,7 +1283,7 @@ Consumption source: CN, Theorem 3.1.2, pp.43–44.
 
 Consumption source: CN, Theorem 3.1.2, pp.43–44.
 
-**PotentialAutomorphyInfrastructure:PA.0** (used in CL.5, CL.6). The non-Eisenstein Siegel-boundary localization of ACC+ Theorem 3.4.2 and Newton–Thorne Corollary 2.11 as a Hecke-equivariant derived retract with the dual Weyl coefficient evaluation map. The residual 2n representation is ρ̄_m⊕ρ̄_m^{c,∨}(1−2n); irreducibility is imposed on its n-dimensional Levi constituent, not on this sum. Include the integral coefficient retract used in CN Corollary 4.1.9, without a Fontaine–Laffaille restriction. Also the separate ACC+ Corollary 2.4.4 integral coefficient retract after the NT16 Lemma 2.10 Levi splitting and Cab84 P-stability argument, as used in Lemma 4.2.3. Do not identify these two retracts.
+**PotentialAutomorphyInfrastructure:PA.0** (used in CL.5, CL.6). The non-Eisenstein Siegel-boundary localization of ACC+ Theorem 3.4.2 and Newton–Thorne Corollary 2.11 as a Hecke-equivariant derived retract with the dual Weyl coefficient evaluation map. The residual 2n representation is ρ̄_m⊕ρ̄_m^{c,∨}(1−2n); irreducibility is imposed on its n-dimensional Levi constituent, not on this sum. Include the integral coefficient retract used in CN Corollary 4.1.9, without a Fontaine–Laffaille restriction. Also the separate ACC+ Corollary 2.4.4 integral coefficient retract after the NT16 Proposition 2.10 Levi splitting and Cab84 P-stability argument, as used in Lemma 4.2.3. Do not identify these two retracts.
 
 Consumption source: CN, Corollary 4.1.9, p.57; CN, Lemma 4.2.3, p.60.
 
@@ -1311,7 +1315,7 @@ Consumption source: CN, §4.3, Theorem 4.3.1, p.73.
 
 Consumption source: CN, §2.3.1, Lemma 2.3.2, p.33.
 
-**PotentialAutomorphyInfrastructure:PA.0** (used in CL.0, CL.2, CL.5, CL.6). Integral algebraic induction/dual Weyl modules with coefficient extension and reduction, Levi evaluation onto V_{λ_τ̃}⊗V_{−w₀λ_{τ̃c}}, Schubert evaluation surjectivity after reduction and the positive-root weight description of its kernel. Generic highest-weight theory is owned by the representation-theory roadmap, not this application. Export the integral Levi-equivariant splitting V_{λ̃}=V_λ⊕W (NT16 Lemma 2.10); identify W⊗E=(1−U) V_{λ̃,E} (Cab84 proof of Proposition 2) to prove P(O)-stability before invoking the dual coefficient retract.
+**PotentialAutomorphyInfrastructure:PA.0** (used in CL.0, CL.2, CL.5, CL.6). Integral algebraic induction/dual Weyl modules with coefficient extension and reduction, Levi evaluation onto V_{λ_τ̃}⊗V_{−w₀λ_{τ̃c}}, Schubert evaluation surjectivity after reduction and the positive-root weight description of its kernel. Generic highest-weight theory is owned by the representation-theory roadmap, not this application. Export the integral Levi-equivariant splitting V_{λ̃}=V_λ⊕W (NT16 Proposition 2.10); identify W⊗E=(1−U) V_{λ̃,E} (Cab84 proof of Proposition 2) to prove P(O)-stability before invoking the dual coefficient retract.
 
 Consumption source: CN, Lemma 2.1.12, pp.17–18.
 

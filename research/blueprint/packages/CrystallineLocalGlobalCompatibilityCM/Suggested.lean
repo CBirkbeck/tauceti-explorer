@@ -25,6 +25,8 @@ component maps on a supplied subgroup; Levi selection is pulled back from F⁺.
 These cores do not construct arithmetic cohomology or
 its actions. CL.1 supplies the degree-zero transfer operator for a finite-index
 contraction and its raw intertwining action; smooth and derived refinements
+retain their supplier interfaces. CL.9 exposes the prepared integral local-level selection and oriented unitary
+partition formulas. Neatness, residual Hecke ideals and arithmetic perfectness
 retain their supplier interfaces. The theorem signatures include the degree bound, adic subquotient
 lemma and full corrected determinant-kernel criterion with its A₄ exception.
 The catalogue records remaining arithmetic specializations and signatures,
@@ -1068,6 +1070,77 @@ example (p : ℕ) [Fact p.Prime] :
   sorry
 
 
+/- CL.9/prepared-pgl2-level, CN Proposition 5.6.1, pp.82–83.
+These component formulas use the supplied integral local groups and their actual
+Iwahori/pro-v Iwahori subgroups. They do not construct those groups, prove
+neatness, select a residual Hecke ideal, or construct the arithmetic complex.
+The product is the subgroup of the product of integral local groups; it is not
+a substitute for an unrestricted product of local-field adelic groups. -/
+section PreparedLevelComponents
+variable {Places : Type*} {G : Places → Type*} [∀ v, Group (G v)]
+
+private def preparedLevelComponent (S cr st ramified : Set Places)
+    (Iw proIw : ∀ v, Subgroup (G v)) (v : Places) : Subgroup (G v) := by
+  classical
+  exact if v ∉ S ∨ v ∈ cr then ⊤
+    else if v ∈ ramified ∨ v ∈ st then Iw v else proIw v
+
+private def preparedLevelProduct (S cr st ramified : Set Places)
+    (Iw proIw : ∀ v, Subgroup (G v)) : Subgroup (∀ v, G v) :=
+  Subgroup.pi Set.univ (preparedLevelComponent S cr st ramified Iw proIw)
+
+lemma PreparedPGL2Level_level_components (S cr st ramified : Set Places)
+    (Iw proIw : ∀ v, Subgroup (G v)) (g : ∀ v, G v) :
+    g ∈ preparedLevelProduct S cr st ramified Iw proIw ↔
+      ∀ v, g v ∈ preparedLevelComponent S cr st ramified Iw proIw v := by
+  sorry
+
+-- CrystallineCM.PreparedPGL2Level_test_auxiliary_level
+-- S_p is partitioned into cr and st. These are the component hypotheses of
+-- v ∈ S − (S_p ∪ R). The selected subgroup is proIw, preserving the auxiliary
+-- component rather than replacing it by the entire integral local group.
+example (S cr st ramified : Set Places) (Iw proIw : ∀ v, Subgroup (G v))
+    (v : Places) (hvS : v ∈ S) (hvcr : v ∉ cr) (hvst : v ∉ st)
+    (hvR : v ∉ ramified) :
+    preparedLevelComponent S cr st ramified Iw proIw v = proIw v := by
+  sorry
+
+-- A supplied proper pro-v Iwahori stays proper at that auxiliary component.
+example (S cr st ramified : Set Places) (Iw proIw : ∀ v, Subgroup (G v))
+    (v : Places) (hvS : v ∈ S) (hvcr : v ∉ cr) (hvst : v ∉ st)
+    (hvR : v ∉ ramified) (hproper : proIw v ≠ ⊤) :
+    preparedLevelComponent S cr st ramified Iw proIw v ≠ ⊤ := by
+  sorry
+
+end PreparedLevelComponents
+
+/- In the split-place dictionary the conjugate place is in the first block and
+selected place in the second. The choice policy is stc → st: a sole ordinary
+place must be selected, before specifying the partition. Only the three
+oriented cases occur. These formulas do not construct a unitary parabolic. -/
+private def preparedUnitaryPartition (st stc : Bool) : List ℕ :=
+  if st then if stc then [1,1,1,1] else [2,1,1] else [2,2]
+
+lemma PreparedPGL2Level_unitary_partitions (st stc : Bool)
+    (horient : stc = true → st = true) :
+    (st = true → stc = false → preparedUnitaryPartition st stc = [2,1,1]) ∧
+    (st = true → stc = true → preparedUnitaryPartition st stc = [1,1,1,1]) ∧
+    (st = false → preparedUnitaryPartition st stc = [2,2] ∧ stc = false) ∧
+    (preparedUnitaryPartition st stc).sum = 4 := by
+  sorry
+
+-- CrystallineCM.PreparedPGL2Level_test_mixed_orientation
+example : preparedUnitaryPartition true false = [2,1,1] ∧
+    (preparedUnitaryPartition true false).drop 1 = [1,1] ∧
+    ¬ (true = true → false = true) := by
+  sorry
+
+-- CrystallineCM.PreparedPGL2Level_test_three_branches
+example : preparedUnitaryPartition true true = [1,1,1,1] ∧
+    preparedUnitaryPartition false false = [2,2] ∧
+    preparedUnitaryPartition true false = [2,1,1] := by
+  sorry
+
 end CrystallineCM
 
 /-
@@ -1709,13 +1782,13 @@ CrystallineLocalGlobalCompatibilityCM:CL.9/prepared-pgl2-level
 OMITTED signature: CrystallineCM.PreparedPGL2Level
 Under Setup56, define K=∏_v K_v⊂PGL₂(Ô_F): K_v=PGL₂(O_{F_v}) for v∉S or v∈S_p^{cr}, K_v=Iw_v for v∈R∪S_p^{st}, and K_v=Iw_{v,1}, the pro-v Iwahori, for v∈S−(S_p∪R). In the auxiliary-place case K is neat; otherwise ζ_p∈F and localized perfectness uses Proposition 5.5.3. Put T=S∪S^c. For every v̄|p choose ṽ|v̄ in S_p^{st} whenever that set meets {ṽ,ṽ^c}. The unitary parabolic Q_{v̄} has partition (2,1,1) if ṽ is st and ṽ^c is cr, (1,1,1,1) if both are st, and (2,2) if both are cr. Choose the maximal ideal 𝔪 of the corresponding Q-ordinary derived Hecke algebra from π; U_v∉𝔪 for v∈S_p^{st}. Enlarge E so k=k(𝔪) contains every eigenvalue of the residual representation. The selected characteristic-zero representation has dimension two (corrected E15).
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.9/setup-5-6; CrystallineLocalGlobalCompatibilityCM:CL.8/pgl2-cohomology; CrystallineLocalGlobalCompatibilityCM:CL.8/prop-5-5-3; CrystallineLocalGlobalCompatibilityCM:CL.4/Q-ordinary-hecke; ArithmeticLocallySymmetricSpaces:ALS.0/standard-level-subgroups; ArithmeticLocallySymmetricSpaces:ALS.3; ArithmeticLocallySymmetricSpaces:ALS.5; ArithmeticLocallySymmetricSpaces:ALS.0/neatness-iwahori-criterion
-OMITTED API signature: CrystallineCM.PreparedPGL2Level_level_components — Membership is componentwise membership in the specified maximal, Iwahori or pro-v Iwahori subgroup; the auxiliary level is preserved.
-OMITTED API signature: CrystallineCM.PreparedPGL2Level_unitary_partitions — The chosen lift ṽ and the cr/st flags determine exactly the displayed three partitions; a lone st branch is placed second in the split Levi dictionary.
+CORE API signature (component formula above; arithmetic specialization required): CrystallineCM.PreparedPGL2Level_level_components — Membership is componentwise membership in the specified maximal, Iwahori or pro-v Iwahori subgroup; the auxiliary level is preserved.
+CORE API signature (component formula above; arithmetic specialization required): CrystallineCM.PreparedPGL2Level_unitary_partitions — The chosen lift ṽ and the cr/st flags determine exactly the displayed three partitions; a lone st branch is placed second in the split Levi dictionary.
 OMITTED API signature: CrystallineCM.PreparedPGL2Level_residual_hecke_ideal — The π eigencharacter selects 𝔪; U_v is a unit after localization at every st place, and k contains the residual eigenvalues.
 OMITTED API signature: CrystallineCM.PreparedPGL2Level_localized_perfectness — The localized coefficient complex is perfect at this K, using neatness in the auxiliary case and Proposition 5.5.3 with ζ_p∈F otherwise.
-OMITTED example: CrystallineCM.PreparedPGL2Level_test_auxiliary_level — At v∈S−(S_p∪R), the selected level is pro-v Iwahori; replacing it by maximal compact loses the specified neatness construction.
-OMITTED example: CrystallineCM.PreparedPGL2Level_test_mixed_orientation — With exactly one st place over v̄, choose it as ṽ; the partition is (2,1,1), with the ordinary branch in the lower-right block.
-OMITTED example: CrystallineCM.PreparedPGL2Level_test_three_branches — Both st gives the Borel (1,1,1,1); both cr gives Siegel (2,2); exactly one st gives (2,1,1).
+CORE example (component/partition formula above; arithmetic realization required): CrystallineCM.PreparedPGL2Level_test_auxiliary_level — At v∈S−(S_p∪R), the selected level is pro-v Iwahori; replacing it by maximal compact loses the specified neatness construction.
+CORE example (component/partition formula above; arithmetic realization required): CrystallineCM.PreparedPGL2Level_test_mixed_orientation — With exactly one st place over v̄, choose it as ṽ; the partition is (2,1,1), with the ordinary branch in the lower-right block.
+CORE example (component/partition formula above; arithmetic realization required): CrystallineCM.PreparedPGL2Level_test_three_branches — Both st gives the Borel (1,1,1,1); both cr gives Siegel (2,2); exactly one st gives (2,1,1).
 OMITTED example: CrystallineCM.PreparedPGL2Level_test_non_neat — For S=S_p∪R there is no auxiliary neatness argument. The ζ_p∈F hypothesis and localized perfectness input are required.
 Source: CN25v3 Proof of Proposition 5.6.1, pp.82–83; CN25v3 Unitary parabolic cases and residual Hecke ideal, p.83
 
