@@ -11,6 +11,8 @@ arbitrary proposition fields. Data structures below do not claim those axioms.
 These omissions are tracked by the packet's signatureOmissions and the supplier-refinement gap.
 -/
 import Mathlib.AlgebraicTopology.Quasicategory.Basic
+import Mathlib.AlgebraicTopology.SimplicialSet.HomotopyCat
+import Mathlib.CategoryTheory.IsomorphismClasses
 import Mathlib.CategoryTheory.Monoidal.Braided.Basic
 import Mathlib.CategoryTheory.Idempotents.Karoubi
 import Mathlib.CategoryTheory.Comma.Arrow
@@ -34,12 +36,12 @@ namespace TauCeti.EnhancedDerivedSheaves.E5
 
 abbrev QCat := { C : SSet.{1} // SSet.Quasicategory C }
 abbrev QFun (C D : QCat) := C.val ⟶ D.val
--- E0's homotopy category has the actual vertices as objects.
-def HCat (C : QCat) : Type 1 := C.val.obj (Opposite.op (SimplexCategory.mk 0))
-noncomputable instance (C : QCat) : Category.{1} (HCat C) := by sorry
+-- Reuse the pinned homotopy-category carrier and its category instance.
+abbrev HCat (C : QCat) : Type 1 := C.val.HomotopyCategory
 abbrev Obj := HCat
 abbrev HEquiv (C D : QCat) := HCat C ≌ HCat D
-noncomputable def onHCat {C D : QCat} (F : QFun C D) : HCat C ⥤ HCat D := by sorry
+def onHCat {C D : QCat} (F : QFun C D) : HCat C ⥤ HCat D := SSet.mapHomotopyCategory F
+-- Fixed-universe lifting of the existing ordinary nerve remains a placeholder.
 noncomputable def nerveQ (C : Type) [Category C] : QCat := by sorry
 noncomputable def discreteQ (A : Type) : QCat := by sorry
 noncomputable def terminalQ : QCat := by sorry
@@ -157,24 +159,34 @@ example (C D : SymMonData) (F : Obj (laxMonoidalFunctors C D)) : D.unit ⟶ (onH
 
 /- EnhancedDerivedSheaves:E5:abstract/algebra-objects
 Alg_O(C) is the full infinity-category of sections O⊗ → C⊗ over O⊗ that preserve inert edges. For O=Comm write CAlg(C); for O=Ass use associative algebra objects. Algebra maps are coherent transformations over the operad. In a cartesian monoidal ordinary category, the construction agrees with ordinary commutative or associative monoid objects after passing to nerves. -/
+-- Pull back C.total along O.projection before taking operadic sections.
 noncomputable def operadicAlgebras (O : OperadData) (C : SymMonData) : QCat := by sorry
+noncomputable def relativeOperadicAlgebras (C : OMonoidalData) : QCat := by sorry
+noncomputable def operadicColourFibre (C : OMonoidalData) (colour : Obj C.operad.colours) : QCat := by sorry
+noncomputable def algebraAtColour (C : OMonoidalData) (colour : Obj C.operad.colours) :
+    QFun (relativeOperadicAlgebras C) (operadicColourFibre C colour) := by sorry
 noncomputable def commutativeAlgebras (C : SymMonData) : QCat := by sorry
 noncomputable def algebraForget (C : SymMonData) : QFun (commutativeAlgebras C) (C.fibre 1) := by sorry
 noncomputable def assCuts : QFun simplexOp assOperad.total := by sorry
 noncomputable def terminalMonoidal : SymMonData := by sorry
 noncomputable def setsMonoidal : SymMonData := by sorry
 noncomputable def commutativeMonoidsQ : QCat := by sorry
-noncomputable def algebraSegalLevel (C : SymMonData) (A : Obj (operadicAlgebras assOperad C)) (n : ℕ) : QCat := by sorry
+-- Product-valued Segal levels are used only for cartesian sets.
+noncomputable def algebraSegalLevel (A : Obj (operadicAlgebras assOperad setsMonoidal)) (n : ℕ) : QCat := by sorry
 noncomputable def operadicAlgebras.test_terminal : HEquiv (commutativeAlgebras terminalMonoidal) terminalQ := by sorry
 example : HEquiv (commutativeAlgebras terminalMonoidal) terminalQ := by sorry
 noncomputable def operadicAlgebras.test_sets : HEquiv (commutativeAlgebras setsMonoidal) commutativeMonoidsQ := by sorry
 example : HEquiv (commutativeAlgebras setsMonoidal) commutativeMonoidsQ := by sorry
-noncomputable def operadicAlgebras.test_segal (C : SymMonData) (A : Obj (operadicAlgebras assOperad C)) : HEquiv (algebraSegalLevel C A 2) (powerQ (algebraSegalLevel C A 1) 2) := by sorry
-example (C : SymMonData) (A : Obj (operadicAlgebras assOperad C)) : HEquiv (algebraSegalLevel C A 2) (powerQ (algebraSegalLevel C A 1) 2) := by sorry
+noncomputable def operadicAlgebras.test_segal (A : Obj (operadicAlgebras assOperad setsMonoidal)) :
+    HEquiv (algebraSegalLevel A 2) (powerQ (algebraSegalLevel A 1) 2) ×
+      HEquiv (algebraSegalLevel A 0) terminalQ := by sorry
+example (A : Obj (operadicAlgebras assOperad setsMonoidal)) :
+    HEquiv (algebraSegalLevel A 2) (powerQ (algebraSegalLevel A 1) 2) ×
+      HEquiv (algebraSegalLevel A 0) terminalQ := by sorry
 
 
 /- EnhancedDerivedSheaves:E5:abstract/module-objects
-For an associative algebra A in C and a left C-tensored infinity-category M, LMod_A(M) is the fibre of the category of LM-algebras at A. Its objects have a coherently unital associative action A⊗M→M. If geometric realizations exist and the action preserves them separately, f:A→B has an extension-of-scalars left adjoint B⊗_A− to restriction. Compute it by the two-sided bar realization. -/
+For an associative algebra A in C and a left C-tensored infinity-category M, LMod_A(M) is the fibre of the category of LM-algebras at A. Its objects have a coherently unital associative action A⊗M→M. If C and M admit geometric realizations, and both the tensor in C and its action on M preserve them separately in each variable, f:A→B has an extension-of-scalars left adjoint B⊗_A− to restriction. Compute it by the two-sided bar realization. -/
 structure LeftTensoredData (C : SymMonData) where
   category : QCat
   action : QFun (productQ (C.fibre 1) category) category
@@ -226,13 +238,13 @@ example : HEquiv (idemCompletion terminalQ) terminalQ := by sorry
 
 
 /- EnhancedDerivedSheaves:E5:abstract/monoidal-envelope
-Env(C⊗) has objects finite lists of colours of C; maps are active operadic maps, tensor concatenates lists. Inclusion of C as singleton lists extends lax maps: restriction Fun⊗(Env(C⊗),D) ≃ Fun_lax(C,D). Thus lax functors can be handled by strong functors out of a universal envelope. The envelope of the unit category has one object per arity, not just one object. -/
+Env(C⊗) has objects finite lists of colours of C; maps are active operadic maps, tensor concatenates lists. Inclusion of C as singleton lists extends lax maps: restriction Fun⊗(Env(C⊗),D) ≃ Fun_lax(C,D). Thus lax functors can be handled by strong functors out of a universal envelope. The envelope of the unit category has one isomorphism class per arity. -/
 noncomputable def monoidalEnvelope (C : SymMonData) : SymMonData := by sorry
 noncomputable def envelopeSingleton (C : SymMonData) : QFun (C.fibre 1) ((monoidalEnvelope C).fibre 1) := by sorry
 noncomputable def envelopeRestriction (C D : SymMonData) : HEquiv (strongMonoidalFunctors (monoidalEnvelope C) D) (laxMonoidalFunctors C D) := by sorry
 noncomputable def envelopeArity (C : SymMonData) : Obj ((monoidalEnvelope C).fibre 1) → ℕ := by sorry
-noncomputable def monoidalEnvelope.test_arity : Obj ((monoidalEnvelope terminalMonoidal).fibre 1) ≃ ℕ := by sorry
-example : Obj ((monoidalEnvelope terminalMonoidal).fibre 1) ≃ ℕ := by sorry
+noncomputable def monoidalEnvelope.test_arity : Quotient (isIsomorphicSetoid (Obj ((monoidalEnvelope terminalMonoidal).fibre 1))) ≃ ℕ := by sorry
+example : Quotient (isIsomorphicSetoid (Obj ((monoidalEnvelope terminalMonoidal).fibre 1))) ≃ ℕ := by sorry
  theorem monoidalEnvelope.test_concat (C : SymMonData) (x y : Obj ((monoidalEnvelope C).fibre 1)) : envelopeArity C ((monoidalEnvelope C).tensor x y) = envelopeArity C x + envelopeArity C y := by sorry
 example (C : SymMonData) (x y : Obj ((monoidalEnvelope C).fibre 1)) : envelopeArity C ((monoidalEnvelope C).tensor x y) = envelopeArity C x + envelopeArity C y := by sorry
  theorem monoidalEnvelope.test_empty (C : SymMonData) : envelopeArity C (monoidalEnvelope C).unit = 0 := by sorry
@@ -443,7 +455,7 @@ example (A : Type) : HEquiv (indCompletion (discreteQ A)) (discreteQ A) := by so
 
 
 /- EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind
-If small C and D admits κ-filtered colimits, restriction along Yoneda gives Fun_κ(Ind_κ(C),D) ≃ Fun(C,D). The extension sends a filtered presentation colim_i y(c_i) to colim_i F(c_i), independently of the presentation. If C,D have finite colimits and F preserves them, its Ind extension preserves all colimits. The extension is an equivalence exactly when the input is fully faithful, its objects are κ-compact in D, and they κ-filtered-generate D. -/
+For small C and D admitting κ-filtered colimits, restriction along Yoneda gives Fun_κ(Ind_κ(C),D) ≃ Fun(C,D). The extension sends a filtered presentation colim_i y(c_i) to colim_i F(c_i), independently of the presentation. For κ=ω, if C has finite colimits, D is presentable and F preserves finite colimits, its Ind extension preserves all small colimits. For larger κ, the corresponding criterion requires κ-small colimits and their preservation, rather than finite colimits alone. The extension is an equivalence exactly when the input is fully faithful, its objects are κ-compact in D, and they κ-filtered-generate D. -/
 noncomputable def indRestriction (C D : QCat) : HEquiv (filteredFunQ (indCompletion C) D) (funQ C D) := by sorry
 noncomputable def indExtend {C D : QCat} (F : QFun C D) : QFun (indCompletion C) D := by sorry
 
@@ -613,7 +625,11 @@ structure RigidData where
   dualPair : DualPairData
   category_eq : dualPair.category = monoidal.fibre 1
   multiplicationRightAdjoint : QFun (monoidal.fibre 1) (presentableTensor (monoidal.fibre 1) (monoidal.fibre 1))
-noncomputable def rigidRightAdjointLinearity (C D : RigidData) (F : QFun (C.monoidal.fibre 1) (D.monoidal.fibre 1)) : QFun (D.monoidal.fibre 1) (C.monoidal.fibre 1) := by sorry
+-- F belongs to the colimit-preserving strong monoidal functor category.
+-- The full API proves that its right adjoint is C-linear and preserves colimits.
+noncomputable def rigidRightAdjointLinearity (C D : RigidData)
+    (F : Obj (strongColimitMonoidalFunctors C.monoidal D.monoidal)) :
+    QFun (D.monoidal.fibre 1) (C.monoidal.fibre 1) := by sorry
 noncomputable def RigidData.test_modules (R : CommRingCat) : { C : RigidData // C.monoidal.fibre 1 = ordinaryDerivedModules R } := by sorry
 example (R : CommRingCat) : { C : RigidData // C.monoidal.fibre 1 = ordinaryDerivedModules R } := by sorry
 noncomputable def braidHom (C : SymMonData) (x y : Obj (C.fibre 1)) : C.tensor x y ⟶ C.tensor y x := by sorry
@@ -706,9 +722,10 @@ noncomputable def animatedFpPi (p : ℕ) (A : Obj (animatedAlgebras (CommRingCat
 
 
 /- EnhancedDerivedSheaves:E5:animation/derived-witt-adapter
-Apply the existing p-typical Witt vector functor degreewise to a simplicial commutative 𝔽_p-algebra A. This preserves weak equivalences since its underlying simplicial set is A^ℕ, with π_i W(A)≅∏_ℕ π_i A. Witt Frobenius induces zero on positive homotopy; its sequential localization is discrete and the map to W(π₀A) becomes an equivalence after Frobenius localization. The fibre of W(A)→W(π₀A) is killed by p in the derived sense, using the coherent Witt identity VF=p and the Frobenius nullhomotopy, rather than inferring a null map just from p-torsion cohomology. -/
+Apply the existing p-typical Witt vector functor degreewise to a simplicial commutative 𝔽_p-algebra A. This preserves weak equivalences since its underlying simplicial set is A^ℕ, with π_i W(A)≅∏_ℕ π_i A as pointed homotopy sets. For i>0 this is an additive-group identification by Eckmann–Hilton; at i=0 the ring is W(π₀A), whose addition is the Witt addition rather than coordinatewise addition. Witt Frobenius induces zero on positive homotopy; its sequential localization is discrete and the map to W(π₀A) becomes an equivalence after Frobenius localization. The fibre of W(A)→W(π₀A) is killed by p in the derived sense, using the coherent Witt identity VF=p and the Frobenius nullhomotopy, rather than inferring a null map just from p-torsion cohomology. -/
 noncomputable def simplicialWitt (p : ℕ) (A : CategoryTheory.SimplicialObject CommRingCat) : CategoryTheory.SimplicialObject CommRingCat := by sorry
 noncomputable def simplicialPi (A : CategoryTheory.SimplicialObject CommRingCat) (n : ℕ) : Type := by sorry
+-- This equivalence is on underlying types; its additive refinement applies only for n > 0.
 noncomputable def simplicialWittPi (p : ℕ) [Fact p.Prime]
     (A : CategoryTheory.SimplicialObject CommRingCat) (n : ℕ) :
     simplicialPi (simplicialWitt p A) n ≃ (ℕ → simplicialPi A n) := by sorry

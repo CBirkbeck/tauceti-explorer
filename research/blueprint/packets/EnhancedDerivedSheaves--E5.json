@@ -35,7 +35,7 @@
       {
         "ref": "mathlib:CategoryTheory.Grothendieck",
         "module": "Mathlib/CategoryTheory/Grothendieck.lean",
-        "provides": "The ordinary Grothendieck total category, used for the ordinary monoidal nerve comparison.",
+        "provides": "The ordinary total category of a strict category-valued functor. It supports the strict-family comparison; it does not by itself turn an arbitrary weak monoidal category into a split operadic fibration.",
         "checked": "Statement read in the source snapshot at the pinned commit."
       },
       {
@@ -127,6 +127,24 @@
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "The existing trivial square-zero extension carrier; its fstHom gives the dual-number augmentation in the nonregular cotangent test.",
         "checked": "Statement read in the source snapshot at the pinned commit on 11 October 2026."
+      },
+      {
+        "ref": "mathlib:SSet.HomotopyCategory",
+        "module": "Mathlib/AlgebraicTopology/SimplicialSet/HomotopyCat.lean",
+        "provides": "The existing homotopy category of a simplicial set, formed from its two-truncation; used directly as the prototype carrier.",
+        "checked": "Declaration read at the pinned Mathlib commit in the independent E5 review on 11 October 2026."
+      },
+      {
+        "ref": "mathlib:SSet.mapHomotopyCategory",
+        "module": "Mathlib/AlgebraicTopology/SimplicialSet/HomotopyCat.lean",
+        "provides": "The existing ordinary functor induced on homotopy categories by a map of simplicial sets.",
+        "checked": "Declaration read at the pinned Mathlib commit in the independent E5 review on 11 October 2026."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.isIsomorphicSetoid",
+        "module": "Mathlib/CategoryTheory/IsomorphismClasses.lean",
+        "provides": "The setoid of nonempty object isomorphisms, used for the envelope arity test on isomorphism classes.",
+        "checked": "Declaration read at the pinned Mathlib commit in the independent E5 review on 11 October 2026."
       }
     ]
   },
@@ -149,7 +167,7 @@
       "proofSteps": [
         "Extend E0’s restricted straightening to the base N(Fin_*); assemble the fibrewise product diagrams.",
         "Impose the Segal equivalences and recover coherent tensor and unit from active lifts.",
-        "Apply the Grothendieck construction to an ordinary symmetric monoidal category and compare its nerve fibrewise."
+        "Construct the ordinary operadic category from finite lists and multimorphisms, using the associator and symmetry coherence of the ordinary category, and compare its nerve fibrewise. The pinned Grothendieck construction applies to a strict category-valued diagram; use it only after such a strict diagram or strictification has been supplied."
       ],
       "acceptance": [
         "The zero-ary fibre is equivalent to the terminal infinity-category.",
@@ -163,7 +181,9 @@
         "mathlib:SSet",
         "mathlib:SSet.Quasicategory",
         "mathlib:CategoryTheory.Functor",
-        "mathlib:CategoryTheory.MonoidalCategory"
+        "mathlib:CategoryTheory.MonoidalCategory",
+        "mathlib:SSet.HomotopyCategory",
+        "mathlib:SSet.mapHomotopyCategory"
       ],
       "sources": [
         {
@@ -328,7 +348,7 @@
       "sources": [
         {
           "sourceId": "Lurie-HA",
-          "locator": "Proposition 2.1.2.12, p. 180; Definition 2.1.2.13, p. 182",
+          "locator": "Proposition 2.1.2.12, p. 180; Definition 2.1.2.13, p. 182; Definition 2.1.3.7, p. 185",
           "match": "Characterizes the relative Segal cocartesian family and distinguishes maps preserving all cocartesian edges from lax maps preserving inert ones."
         }
       ],
@@ -390,12 +410,12 @@
       "proofSteps": [
         "Form the functor category over O⊗ using E0; select inert-preserving sections.",
         "Compare with ordinary algebra objects by evaluating operation maps.",
-        "For Ass use the cuts functor Δop→Ass⊗; the resulting simplicial object satisfies the Segal condition with A_0 terminal."
+        "Compose an associative algebra section with the cuts functor Δop→Ass⊗ to obtain a diagram in the total operadic category, whose n-th value is the n-tuple of its underlying object. For cartesian tensor this corresponds to a Segal simplicial object in the underlying category, with A_n≃A_1^n and A_0 terminal; the product-valued description is not asserted for a general tensor."
       ],
       "acceptance": [
         "Algebras in the terminal monoidal category form a terminal category.",
         "Commutative algebras in cartesian sets are ordinary commutative monoids.",
-        "An associative algebra has A_2 ≃ A_1 × A_1, and A_0 terminal."
+        "In cartesian sets, an associative algebra has A_2≃A_1×A_1 and A_0 terminal."
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad",
@@ -406,6 +426,11 @@
           "sourceId": "Lurie-HA",
           "locator": "Definition 2.1.3.1, p. 184",
           "match": "Defines algebra objects by operadic sections preserving inert morphisms; commutative and associative algebra categories are its two specializations."
+        },
+        {
+          "sourceId": "NS18",
+          "locator": "Appendix B, introductory construction of Δop→Ass⊗, p. 140 (before Proposition B.1)",
+          "match": "Constructs the ordered-fibre cuts functor; its algebra composite is a diagram in the total operadic category, with the underlying product-valued Segal interpretation specialized to cartesian tensor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -413,7 +438,7 @@
         {
           "name": "operadicAlgebras",
           "role": "constructor",
-          "statement": "The category of inert-preserving sections."
+          "statement": "For a symmetric monoidal C and operad O, pull C⊗ back along O⊗→N(Fin_*) and form its inert-preserving section category. The general relative O-monoidal case is supplied by relativeOperadicAlgebras."
         },
         {
           "name": "commutativeAlgebras",
@@ -423,12 +448,22 @@
         {
           "name": "algebraForget",
           "role": "projection",
-          "statement": "Evaluation at the unique input colour."
+          "statement": "Evaluation at the sole colour in the commutative specialization; for a general coloured operad use algebraAtColour."
         },
         {
           "name": "assCuts",
           "role": "data",
-          "statement": "The cuts functor gives the Segal simplicial presentation of associative algebras."
+          "statement": "The cuts functor Δop→Ass⊗ gives the n-tuple diagram in the total operadic category. A product-valued Segal simplicial object in C is obtained when the tensor is cartesian."
+        },
+        {
+          "name": "relativeOperadicAlgebras",
+          "role": "constructor",
+          "statement": "For an O-monoidal category, the full coherent functor category of inert-preserving sections of C⊗→O⊗."
+        },
+        {
+          "name": "algebraAtColour",
+          "role": "projection",
+          "statement": "Evaluation of a relative operadic algebra at a specified colour, taking values in the corresponding fibre of C⊗."
         }
       ],
       "tests": [
@@ -445,13 +480,13 @@
         {
           "name": "operadicAlgebras.test_segal",
           "kind": "characterisation",
-          "statement": "An associative algebra has A_2 ≃ A_1 × A_1, and A_0 terminal."
+          "statement": "In cartesian sets, an associative algebra has A_2≃A_1×A_1 and A_0 terminal."
         }
       ],
       "uses": [
         {
           "where": "NS18, Appendix B, p. 140",
-          "how": "The cuts functor encodes associative algebra objects by simplicial objects with Segal equivalences; inert-preserving sections retain the coherent multiplication used by the trace consumers."
+          "how": "The cuts functor retains coherent associative operations in the total operadic category. For cartesian tensor it yields the Segal simplicial presentation; trace consumers in general tensor categories use the operadic section."
         }
       ],
       "planet": {
@@ -466,7 +501,7 @@
       ],
       "title": "Modules and extension of scalars",
       "kind": "construction",
-      "statement": "For an associative algebra A in C and a left C-tensored infinity-category M, LMod_A(M) is the fibre of the category of LM-algebras at A. Its objects have a coherently unital associative action A⊗M→M. If geometric realizations exist and the action preserves them separately, f:A→B has an extension-of-scalars left adjoint B⊗_A− to restriction. Compute it by the two-sided bar realization.",
+      "statement": "For an associative algebra A in C and a left C-tensored infinity-category M, LMod_A(M) is the fibre of the category of LM-algebras at A. Its objects have a coherently unital associative action A⊗M→M. If C and M admit geometric realizations, and both the tensor in C and its action on M preserve them separately in each variable, f:A→B has an extension-of-scalars left adjoint B⊗_A− to restriction. Compute it by the two-sided bar realization.",
       "hypotheses": [
         "LM is the two-coloured operad distinguishing the algebra and module colours.",
         "For a commutative A in presentably symmetric monoidal C, Mod_A(C) has relative tensor and unit A; tensors must preserve colimits."
@@ -488,7 +523,7 @@
       "sources": [
         {
           "sourceId": "Lurie-HA",
-          "locator": "Definitions 4.2.1.12–13, pp. 506–507; Proposition 4.6.2.17, p. 627",
+          "locator": "Definitions 4.2.1.12–13, pp. 506–507; Definition 4.2.1.19, p. 508; Proposition 4.6.2.17, p. 627",
           "match": "Defines the LM-fibre of left modules in a left-tensored category; the relative tensor product gives composition of extension of scalars."
         }
       ],
@@ -703,7 +738,7 @@
       ],
       "title": "The monoidal envelope",
       "kind": "construction",
-      "statement": "Env(C⊗) has objects finite lists of colours of C; maps are active operadic maps, tensor concatenates lists. Inclusion of C as singleton lists extends lax maps: restriction Fun⊗(Env(C⊗),D) ≃ Fun_lax(C,D). Thus lax functors can be handled by strong functors out of a universal envelope. The envelope of the unit category has one object per arity, not just one object.",
+      "statement": "Env(C⊗) has objects finite lists of colours of C; maps are active operadic maps, tensor concatenates lists. Inclusion of C as singleton lists extends lax maps: restriction Fun⊗(Env(C⊗),D) ≃ Fun_lax(C,D). Thus lax functors can be handled by strong functors out of a universal envelope. The envelope of the unit category has one isomorphism class per arity.",
       "hypotheses": [
         "D is symmetric monoidal.",
         "Use the operadic active-arrow construction, not a free ordinary tensor category on hC."
@@ -720,7 +755,8 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad",
-        "EnhancedDerivedSheaves:E5:abstract/algebra-objects"
+        "EnhancedDerivedSheaves:E5:abstract/algebra-objects",
+        "mathlib:CategoryTheory.isIsomorphicSetoid"
       ],
       "sources": [
         {
@@ -1256,7 +1292,7 @@
         },
         {
           "sourceId": "Mathew",
-          "locator": "Propositions 3.19, 3.22, 3.24–3.27, pp. 19–22",
+          "locator": "Propositions 3.19, 3.22, 3.24–3.25 and 3.27; Corollary 3.21; Definition 3.26, pp. 19–22",
           "match": "Proves module descent and permanence; Proposition 3.25 tests descendability pointwise in a finite limit of categories, rather than under arbitrary finite limits of algebra objects."
         }
       ],
@@ -1339,7 +1375,7 @@
       "sources": [
         {
           "sourceId": "Robalo",
-          "locator": "Proposition 4.10, pp. 75–76; Definition 4.18, p. 88; Proposition 4.21, p. 90; Corollary 4.24, p. 92",
+          "locator": "Proposition 4.10, pp. 75–76; Definition 4.18, p. 88; Proposition 4.21, p. 90; Remark 4.23, p. 91; Corollary 4.24, p. 92",
           "match": "Constructs presentable tensor inversion and its module base change; the telescope calculation requires the cyclic symmetry condition on the inverted object."
         }
       ],
@@ -1553,14 +1589,15 @@
       ],
       "title": "The universal property of Ind",
       "kind": "theorem",
-      "statement": "If small C and D admits κ-filtered colimits, restriction along Yoneda gives Fun_κ(Ind_κ(C),D) ≃ Fun(C,D). The extension sends a filtered presentation colim_i y(c_i) to colim_i F(c_i), independently of the presentation. If C,D have finite colimits and F preserves them, its Ind extension preserves all colimits. The extension is an equivalence exactly when the input is fully faithful, its objects are κ-compact in D, and they κ-filtered-generate D.",
+      "statement": "For small C and D admitting κ-filtered colimits, restriction along Yoneda gives Fun_κ(Ind_κ(C),D) ≃ Fun(C,D). The extension sends a filtered presentation colim_i y(c_i) to colim_i F(c_i), independently of the presentation. For κ=ω, if C has finite colimits, D is presentable and F preserves finite colimits, its Ind extension preserves all small colimits. For larger κ, the corresponding criterion requires κ-small colimits and their preservation, rather than finite colimits alone. The extension is an equivalence exactly when the input is fully faithful, its objects are κ-compact in D, and they κ-filtered-generate D.",
       "hypotheses": [
         "The equivalence criterion refers to the stated fully faithful input, not an arbitrary functor."
       ],
       "proofSteps": [
         "Apply the E3 full-inclusion left Kan extension to Yoneda.",
         "Use filtered presentations to prove evaluation and uniqueness on mapping spaces.",
-        "Use compactness to prove full faithfulness of the extension, then generation for essential surjectivity."
+        "Use compactness to prove full faithfulness of the extension, then generation for essential surjectivity.",
+        "For ω, use the finite-colimit completion property and filtered-colimit preservation to obtain all colimits. In the presentable κ-accessible case apply HTT 5.5.1.9 with κ-small colimits of compact objects; do not substitute finite colimits at larger κ."
       ],
       "acceptance": [
         "Restriction of the extension of F is naturally equivalent to F; two filtered presentations of one Ind-object give the same mapping-space comparison.",
@@ -1574,8 +1611,13 @@
       "sources": [
         {
           "sourceId": "Lurie-HTT",
-          "locator": "Propositions 5.3.5.10–11, printed pp. 406–407 (PDF pp. 424–425)",
+          "locator": "Propositions 5.3.5.10–11, printed pp. 406–407 (PDF pp. 424–425); Proposition 5.5.1.9, printed pp. 461–462 (PDF pp. 479–480)",
           "match": "Proves extension from the small category to filtered-colimit-preserving functors and the compact-generation criterion for that extension to be an equivalence."
+        },
+        {
+          "sourceId": "Lurie-HA",
+          "locator": "Corollary 4.8.1.14(2), pp. 711–712",
+          "match": "Its ω-Ind universal property identifies finite-colimit-preserving inputs with all-colimit-preserving extensions for presentable targets; the statement is explicitly the ordinary filtered, rather than arbitrary κ-filtered, completion."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1732,7 +1774,7 @@
         },
         {
           "sourceId": "Diamonds",
-          "locator": "Lemma 17.1, p. 97; Proposition 26.2, p. 162",
+          "locator": "Lemma 17.1, p. 96; Proposition 26.2, p. 162",
           "match": "Applies presentable limits to derived coefficient categories; those geometric applications remain downstream of the generic theorem."
         }
       ],
@@ -1892,7 +1934,7 @@
         },
         {
           "sourceId": "Diamonds",
-          "locator": "Proposition 23.7, p. 144",
+          "locator": "Proposition 23.7 and its proof, pp. 144–145",
           "match": "Uses the compact-generation criterion to identify the right-adjoint preservation property in the geometric application."
         }
       ],
@@ -2224,7 +2266,8 @@
       "proofSteps": [
         "Define the contraction of evaluation and coevaluation and the trace-class factorization.",
         "Use the internal adjoint criterion for multiplication, with both linearity and preservation of colimits.",
-        "Apply Ramzi v2 Proposition 4.15 and Corollary 4.60, translating v1 locator 4.57 to v2 4.60."
+        "Apply Ramzi v2 Proposition 4.15 and Corollary 4.60, translating v1 locator 4.57 to v2 4.60.",
+        "For the right-adjoint API apply Observation 4.51 to the colimit-preserving strong symmetric monoidal functor: local rigidity of the source and compactness of the target unit give an internal left adjoint over the source."
       ],
       "acceptance": [
         "For commutative R, D(R) is rigid with compact unit R.",
@@ -2240,7 +2283,7 @@
       "sources": [
         {
           "sourceId": "RamziRigid",
-          "locator": "Definition 3.1, p. 21; Definition 4.5, p. 24; Proposition 4.15, pp. 26–27; Definition 4.36, p. 33; Corollary 4.60, p. 38",
+          "locator": "Definition 3.1, p. 21; Definition 4.5, p. 24; Proposition 4.15, pp. 26–27; Definition 4.36, p. 33; Corollary 4.60, p. 38; Observation 4.51, pp. 34–35",
           "match": "Defines trace-class maps and local rigidity and proves the compact-unit plus trace-class-exhaustion criterion for rigidity, using the downloaded v2 numbering."
         }
       ],
@@ -2259,7 +2302,7 @@
         {
           "name": "rigidRightAdjointLinearity",
           "role": "compatibility",
-          "statement": "Right adjoints to strong monoidal maps between rigid categories are strong module-linear and colimit-preserving."
+          "statement": "For a colimit-preserving strong symmetric monoidal functor F:C→D between rigid stable presentable categories, its right adjoint is colimit-preserving and C-linear, where D has its C-action through F."
         }
       ],
       "tests": [
@@ -2317,7 +2360,7 @@
       "sources": [
         {
           "sourceId": "Lurie-HTT",
-          "locator": "§5.5.8, especially Proposition 5.5.8.10, printed pp. 506–508; §5.5.8 introduction",
+          "locator": "Definition 5.5.8.1, Warning 5.5.8.2, Example 5.5.8.3 and Lemma 5.5.8.4, printed p. 506; Propositions 5.5.8.6–7 and Lemma 5.5.8.11, printed pp. 507–508 (PDF pp. 524–526)",
           "match": "Uses nonemptiness and the cofinal diagonal to obtain finite-product commutation of space-valued colimits; simplicial realizations are the fundamental example."
         }
       ],
@@ -2618,14 +2661,14 @@
       ],
       "title": "The simplicial Witt adapter",
       "kind": "construction",
-      "statement": "Apply the existing p-typical Witt vector functor degreewise to a simplicial commutative 𝔽_p-algebra A. This preserves weak equivalences since its underlying simplicial set is A^ℕ, with π_i W(A)≅∏_ℕ π_i A. Witt Frobenius induces zero on positive homotopy; its sequential localization is discrete and the map to W(π₀A) becomes an equivalence after Frobenius localization. The fibre of W(A)→W(π₀A) is killed by p in the derived sense, using the coherent Witt identity VF=p and the Frobenius nullhomotopy, rather than inferring a null map just from p-torsion cohomology.",
+      "statement": "Apply the existing p-typical Witt vector functor degreewise to a simplicial commutative 𝔽_p-algebra A. This preserves weak equivalences since its underlying simplicial set is A^ℕ, with π_i W(A)≅∏_ℕ π_i A as pointed homotopy sets. For i>0 this is an additive-group identification by Eckmann–Hilton; at i=0 the ring is W(π₀A), whose addition is the Witt addition rather than coordinatewise addition. Witt Frobenius induces zero on positive homotopy; its sequential localization is discrete and the map to W(π₀A) becomes an equivalence after Frobenius localization. The fibre of W(A)→W(π₀A) is killed by p in the derived sense, using the coherent Witt identity VF=p and the Frobenius nullhomotopy, rather than inferring a null map just from p-torsion cohomology.",
       "hypotheses": [
         "Use the pinned WittVector carrier, functorial maps and Frobenius/Verschiebung formulas.",
         "The p-nullhomotopy is stronger than the homotopy-group computation; its coherent construction is recorded as a remaining gap."
       ],
       "proofSteps": [
         "Lift WittVector’s ordinary functor degreewise; compare its underlying simplicial set with the countable product.",
-        "Use fibrant simplicial abelian groups to compute homotopy groups of that product and hence weak-equivalence preservation.",
+        "Use the Kan underlying simplicial sets to compute pointed homotopy sets of the countable product, hence weak-equivalence preservation. For i>0 compare the two group laws by Eckmann–Hilton; keep Witt addition on π₀.",
         "Apply Frobenius discreteness to the coordinate Frobenius and take the telescope.",
         "Construct the p-annihilation nullhomotopy on the fibre from the coherent factorization through Frobenius and Verschiebung."
       ],
@@ -2656,7 +2699,7 @@
         {
           "name": "simplicialWittPi",
           "role": "characterisation",
-          "statement": "π_iW(A) is the product of the π_iA over Witt coordinates."
+          "statement": "The Witt-coordinate comparison on pointed homotopy sets for i≥0; for i>0 it is additive. The π₀ ring identification is W(π₀A), not the coordinatewise product ring."
         },
         {
           "name": "wittFrobeniusLocalization",
@@ -2941,7 +2984,8 @@
       "sha256": "774032c0daee98e339b7be165174185c77714b0e729a39a985ee876ccc7e7b64",
       "accessed": "2026-10-11",
       "readSections": [
-        "§3 Lemma 3.16; §11, especially Propositions 11.6 and Lemmas 11.10, 11.14–11.23, 11.43."
+        "§3 Lemma 3.16; §11, especially Propositions 11.6 and Lemmas 11.10, 11.14–11.23, 11.43.",
+        "Remark 11.24, p. 45, compared with Mathew Corollary 3.33, p. 24; Remark 11.44, p. 52."
       ]
     },
     {
@@ -3002,7 +3046,8 @@
       "sha256": "6c881bfa001b8103080a82f3cb880395f3737669d3abecf676c09256a6ac577a",
       "accessed": "2026-10-11",
       "readSections": [
-        "Definition 3.1; Definitions 4.5 and 4.36; Proposition 4.15; Corollaries 4.58–4.60."
+        "Definition 3.1; Definitions 4.5 and 4.36; Proposition 4.15; Corollaries 4.58–4.60.",
+        "Observation 4.51, pp. 34–35 (v2), for source-linear colimit-preserving right adjoints to colimit-preserving strong symmetric monoidal functors."
       ]
     },
     {
@@ -3014,7 +3059,8 @@
       "sha256": "604edce59fa9979a789229151d68ae8d04dbca63d7d0717e7146fac01d08c66d",
       "accessed": "2026-10-11",
       "readSections": [
-        "Proposition 4.10; Definition 4.18; Proposition 4.21; Corollary 4.24."
+        "Proposition 4.10; Definition 4.18; Proposition 4.21; Corollary 4.24.",
+        "Remark 4.23, p. 91, extending the telescope argument to the presentable setting."
       ]
     },
     {
@@ -3258,7 +3304,7 @@
     },
     {
       "scope": "SymMonData, OperadData, OMonoidalData, DerivedFamilyData, CoherentActionData",
-      "omitted": "Cocartesian/inner-fibration predicates, inert-operation mapping-space axioms, base identification, derived-transition Kan universality and 2-simplex coherence. The data signatures are not substitutes for the definitions."
+      "omitted": "Cocartesian/inner-fibration predicates, inert-operation mapping-space axioms, base identification, derived-transition Kan universality and 2-simplex coherence. The data signatures are not substitutes for the definitions. The operadicAlgebras prototype is the pullback of a symmetric monoidal category to an operad; relativeOperadicAlgebras names the general O-monoidal section construction, with colourwise evaluation."
     },
     {
       "scope": "PresentableData, DualPairData, RigidData, TraceClassData",
@@ -3291,7 +3337,12 @@
         "BS17 author PDF Remark 11.24",
         "Mathew arXiv PDF Corollary 3.33",
         "PAPER-BHATT-SCHOLZE-17 sourceIssues"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the pinned author copy BS17 Remark 11.24, p. 45, the attributed hypothesis controls algebra generators only; the cited Mathew Corollary 3.33, p. 24, controls both generators and relations. This confirms a citation/hypothesis gap, not falsity of countable-generation descendability. The packet conservatively uses countable presentation.",
+        "by": "REV-EnhancedDerivedSheaves--E5"
+      }
     }
   ],
   "sourceCoverage": [
@@ -3836,5 +3887,233 @@
     "E5 is outside the current tier; its DD.0 and concrete-spectra returns are recorded at planning level. Tier-compatible package edges must be checked against the accepted bundle order when this roadmap is packaged.",
     "The stage alias BS22 is resolved by the prismatic-paper extraction; its prism-specific constructions are outside this E5 part. Generic animation uses HTT, while descendability serves the prismatic consumers. No unidentified-source gap remains.",
     "Current TauCetiRoadmap main was checked on 11 October 2026 at 070dc2becd74419e76303ede84b465ed4a69461f, together with current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. DGAInfinity’s DG/A-infinity perfect-category and Morita comparisons and StablePeriodicCurved’s ordinary triangulated-envelope/localization plans remain their existing owners. E5 supplies higher operadic, presentable and animation interfaces; it does not duplicate those concrete DG or ordinary triangulated constructions."
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EnhancedDerivedSheaves--E5",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review of all 44 nodes, 13 pinned public source versions, all 19 original and 3 added pinned baseline declarations, supplier statements, six-stage coverage, API/tests, planets and prototype. Corrected cartesian Segal scope, relative/colourwise algebra API, module realization hypotheses, ω-Ind scope, Witt coordinate structure, rigid functor hypotheses, strict Grothendieck scope and precise source locators; reused existing homotopy-category APIs and corrected the envelope isomorphism-class test. Confirmed the existing sourceIssues hypothesis/citation gap. Accepted as a complete planning pass with 4 explicit gaps, 7 requests and no closed stages; cross-part closure and omitted coherent Lean hypotheses are not claimed. Packet checker: 0 errors, 0 warnings. Suggested Lean elaborated at the pinned baseline with only admitted-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
+        "verdict": "corrected",
+        "note": "Clarified that the ordinary monoidal nerve uses finite-list operadic construction and coherence; the strict Grothendieck API is only a strict-family input. Reused the pinned homotopy-category carrier and map instead of rebuilding them."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/infinity-operad",
+        "verdict": "verified",
+        "note": "HA 2.1.1.10 includes inert cocartesian lifts, the mapping-space product condition and the colour Segal condition; the Ass tests include all orderings and the nullary operation."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad",
+        "verdict": "corrected",
+        "note": "Added HA 2.1.3.7 for strong versus lax maps; relative fibre-product hypotheses and invertibility of the strong unit comparison agree with the source."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/algebra-objects",
+        "verdict": "corrected",
+        "note": "Restricted the product-valued Segal test to cartesian sets, including its nullary level. The generic cuts composite lands in the total operadic category. Added relative O-monoidal sections and evaluation at a specified colour; identified the symmetric-monoidal pullback specialization."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/module-objects",
+        "verdict": "corrected",
+        "note": "Made geometric realizations in both C and M, and separate preservation by tensor and action, explicit. Added HA 4.2.1.19 for left-tensored categories; the LM fibre and bar adjunction have the correct handedness."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/stable-infinity-category",
+        "verdict": "verified",
+        "note": "Retains E0 as the owner of elementary stability and the cochain sign comparison; HA 1.1.2.14 supplies the triangulated compatibility, not a second construction of E0."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/exact-functors",
+        "verdict": "verified",
+        "note": "Finite-limit and finite-colimit preservation are equivalent between stable categories by HA 1.1.4.1; tensor exactness is stated separately."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/idempotent-completion",
+        "verdict": "verified",
+        "note": "The retract-of-representables construction and restriction universal property agree with HTT 5.1.4.2 and 5.1.4.9. Ordinary Karoubi is a comparison, not the higher carrier."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/monoidal-envelope",
+        "verdict": "corrected",
+        "note": "The NS III.3.2 strong/lax universal property is correct. Changed the arity prototype to isomorphism classes using the pinned isIsomorphicSetoid, matching the packet test."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization",
+        "verdict": "verified",
+        "note": "NS A.1–A.5 requires tensor stability of W in each variable and gives the lax monoidal localization universal property; the packet keeps both hypotheses."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/monoidal-model-category-localization",
+        "verdict": "verified",
+        "note": "NS A.7 gives a lax functor on all model-category objects and a strong comparison on cofibrant objects. The packet does not claim an all-object strong localization."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/left-derivable-cocartesian-families",
+        "verdict": "verified",
+        "note": "NS A.8 uses absolute right Kan extension along source localization. A.14–A.17 give interval derivation, cocartesian descent and arbitrary-base gluing with the recorded coherence obligation."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals",
+        "verdict": "verified",
+        "note": "NS I.3.2 and Mathew 3.18 distinguish stable closure, thick closure and tensor-ideal closure; the zero, unit and retract tests separate them."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/verdier-quotient",
+        "verdict": "verified",
+        "note": "NS I.3.3 gives localization at cofibres in D and the filtered mapping-space formula. I.3.6 supplies the monoidal quotient for a tensor ideal, including its lax universal property."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/barr-beck-lurie",
+        "verdict": "verified",
+        "note": "HA 4.7.3.5 requires conservativity and G-split geometric-realization preservation. The prototype records only an ordinary adjunction and conservativity; the omitted higher condition is explicit."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/descendable-algebras",
+        "verdict": "verified",
+        "note": "BS17 11.14, 11.18 and 11.20 agree with finite thick generation, augmentation-power nilpotence and pro-constant Amitsur comparison. The packet explicitly records the E2 comparison gap and distinguishes completion from descendability."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality",
+        "verdict": "corrected",
+        "note": "Corrected the Mathew locator types: 3.21 is a corollary and 3.26 a definition. Proposition 3.25 concerns finite limits of categories, not arbitrary finite limits of algebra objects; the packet retains that distinction."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/uniform-index-colimits",
+        "verdict": "verified",
+        "note": "The sequential bound and non-uniform counterexample agree with BS17 11.19–11.22. The general finite-cohomological-dimension proof remains a precise E2 request. Confirmed the countable-generation versus presentation citation gap without declaring the weaker theorem false."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:abstract/formal-tensor-inversion",
+        "verdict": "corrected",
+        "note": "The symmetric-object condition on the cyclic permutation is essential. Added Robalo Remark 4.23 for passage from the small-category telescope to the presentable setting."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/compact-objects",
+        "verdict": "verified",
+        "note": "HTT 5.3.4.5 defines mapping-space compactness. The zero, compact generator and infinite sum tests distinguish it from ordinary finite generation."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/ind-completion",
+        "verdict": "verified",
+        "note": "HTT 5.3.5.1 uses space-valued presheaves and κ-filtered presentations. Ordinary Ind is only a baseline comparison; the compact recovery statement includes stable idempotent completeness."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind",
+        "verdict": "corrected",
+        "note": "Restricted the finite-colimit-to-all-colimit extension claim to ω and presentable targets. Added HTT 5.5.1.9 and HA 4.8.1.14(2); for larger κ the preservation criterion uses κ-small colimits. The universal filtered extension and equivalence criterion retain their original hypotheses."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable",
+        "verdict": "verified",
+        "note": "HA 1.1.3.6 proves stability of Indκ of a stable category; the monoidal finite-colimit extension is separately the ω statement of HA 4.8.1.14."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/presentable-categories",
+        "verdict": "verified",
+        "note": "HTT 5.5.0.1 and 5.5.1.1 support accessibility plus cocompleteness and the presheaf-localization characterizations. The contravariant representability test is HTT 5.5.2.2; E3 must isolate its abstract interface from applications."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories",
+        "verdict": "corrected",
+        "note": "Corrected the Diamonds 17.1 page to 96. HTT 5.5.3.12–13 covers Cat∞ limits of PrL diagrams; the completed category in Diamonds 26.2 is presentable without its ambient inclusion preserving all colimits."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change",
+        "verdict": "verified",
+        "note": "HA 4.8.1.15 and 4.8.1.17 give the separately colimit-preserving tensor with Spaces as unit. HA 4.8.4.6 has the correct right-module/left-action orientation for relative categorical base change."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/ind-verdier-localization",
+        "verdict": "verified",
+        "note": "NS I.3.5 identifies the Ind quotient, fully faithful colimit-preserving right adjoint and kernel. Compact objects recover Idem(C/D), with no unsupported idempotent-completeness claim on C/D."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion",
+        "verdict": "corrected",
+        "note": "Extended the Diamonds 23.7 locator to its proof on p. 145. FS IV.2.20 gives the stable compact-generation/coproduct criterion; HTT 5.5.7.2 is its κ-accessible analogue with κ-filtered preservation."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/coherent-group-actions",
+        "verdict": "verified",
+        "note": "Finite coherent actions and limits are precise. Read upstream ProfiniteCohomology Layers 0 and 10: the continuous coefficient cocone uses M^U and inflation-and-inclusion maps. General categorical profinite continuity remains explicitly outside the finite-quotient model."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/compact-morphisms",
+        "verdict": "verified",
+        "note": "RamziDual 2.1, 2.3 and 2.5 distinguish weak, coherent-diagonal and filtered-functor factorization notions. Definition 2.23 and Lemma 2.24 support compact exhaustions; the ordinary indexing and homotopy-category shadow in Lean is explicitly weaker."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/dualizable-compactly-assembled-categories",
+        "verdict": "verified",
+        "note": "RamziDual 1.49, 1.68 and 2.39 distinguish dualizability from unstable compact assembly. In the stable presentable case they agree; weak-exhaustion characterization includes left exactness as in BM26 2.7–2.8."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/strongly-continuous-filtered-colimits",
+        "verdict": "verified",
+        "note": "Verified BM26 10.5, RamziDual 1.62 and Efimov v4 2.63, 2.67 and 2.70. Strong continuity means a colimit-preserving right adjoint; fully faithful filtered transitions and compact-object colimit hypotheses are retained without a compact-generation substitution."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:presentability/rigid-presentable-categories",
+        "verdict": "corrected",
+        "note": "Required a colimit-preserving strong symmetric monoidal input for the right-adjoint API, with linearity over the source category. Added RamziRigid v2 Observation 4.51; trace class, local rigidity, atomic unit and the v2 4.60 criterion otherwise agree with the sources."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/sifted-colimits",
+        "verdict": "corrected",
+        "note": "Replaced the broad source locator by HTT 5.5.8.1–7 and 5.5.8.11. Nonemptiness and homotopy cofinality are indispensable; ordinary finality alone does not supply the infinity-categorical condition."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category",
+        "verdict": "verified",
+        "note": "HTT 5.5.8.10 and 5.5.8.14 support finite-coproduct-to-product presheaves, presentability and simplicial representable resolutions. PΣ(FinSet)≃Spaces and the zero-object test have the correct empty-product convention."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/universal-property-of-animation",
+        "verdict": "verified",
+        "note": "HTT 5.5.8.15 gives sifted extension and the finite-coproduct criterion for all-colimit preservation; 5.5.9.1–3 supplies strict product-preserving simplicial models."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/animated-commutative-rings",
+        "verdict": "verified",
+        "note": "Finite polynomial R-algebras and HTT 5.5.9 give animated commutative R-algebras. The homotopy pushout over k[t] retains Tor1 and is distinguished from the ordinary pushout."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/frobenius-and-perfection",
+        "verdict": "verified",
+        "note": "BS17 11.6 and 11.10 prove discreteness of simplicial perfection and the corrected perfect-ring colimit. The cosimplicial exception in 11.7 and multiplication-homotopy qualification in 11.8 are retained."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/derived-witt-adapter",
+        "verdict": "corrected",
+        "note": "Clarified the Witt-coordinate product as pointed homotopy sets, additive only in positive degrees. At π0 the ring is W(π0A) with Witt addition. The genuinely derived Tor test is retained and coherent fibre-level p-annihilation remains a recorded gap."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits",
+        "verdict": "verified",
+        "note": "Checked the bounded matching-fibre tower: a uniform Sp≤b bound makes πk constant after r≥max(0,b−k+1). The n-truncated-space finite window and E2 Postnikov/hypercompleteness request keep bounded commutation separate from arbitrary totalizations."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface",
+        "verdict": "verified",
+        "note": "Read the exact DD.0 supplier statements for cotangent, derivations, transitivity, derived base change, exterior powers and amplitude. E5 reexports them and restricts the pinned naive comparison to degrees 0 and −1."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges",
+        "verdict": "verified",
+        "note": "HA 7.1.4.11 and 7.1.4.20 require a rational base for commutative dg or animated/E∞ equivalence. 7.1.4.18 handles associative simplicial algebras; Warning 7.1.4.21 explicitly prevents a general positive-characteristic commutative equivalence."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation",
+        "verdict": "verified",
+        "note": "Read H.5 stable model, derived smash, module-spectra and Eilenberg–Mac Lane supplier statements. HA 7.1.2.13 gives the strong monoidal D(R)≃ModHR return after those models, without making it an abstract-prefix prerequisite."
+      },
+      {
+        "nodeId": "EnhancedDerivedSheaves:E5/single-enhancement-supplier",
+        "verdict": "verified",
+        "note": "The parent interface imports one enhancement and one DD.0 cotangent complex. Polynomial, regular-quotient, Tor and nonregular H−2 tests have the correct grading and prevent replacement by a naive two-term object."
+      }
+    ]
+  }
 }
