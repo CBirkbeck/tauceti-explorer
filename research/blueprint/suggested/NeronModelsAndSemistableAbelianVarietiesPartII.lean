@@ -22,6 +22,7 @@ import Mathlib.Algebra.Category.Ring.Limits
 import Mathlib.CategoryTheory.Limits.Preserves.FunctorCategory
 import Mathlib.CategoryTheory.Abelian.CommSq
 import Mathlib.Topology.Sheaves.LocallySurjective
+import Mathlib.Topology.Sheaves.AddCommGrpCat
 import Mathlib.Algebra.Homology.ShortComplex.ShortExact
 import Mathlib.RingTheory.Localization.Ideal
 import Mathlib.Algebra.Exact.Basic
@@ -114,13 +115,14 @@ TauCeti f790474821cf4256814db967cb154e7af3d0c369. The whole file requires the
 individual Tau Ceti modules imported above. Checks of extracted Mathlib-only signatures
 do not establish that this whole file elaborates.
 
-The packet records a complete planning pass with partial stage coverage. Conditions whose
+The packet records a complete target-level planning pass with explicit proof gaps. Conditions whose
 supplier vocabulary is unavailable are listed explicitly in the final ledger. The partial
 data structures below are not substitutes for their mathematical definitions.
 -/
 
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Polynomial
+open Polynomial
 
 universe u
 noncomputable section
@@ -275,6 +277,34 @@ lemma conductorRing_isPullback (S : Subring B) :
       (CommRingCat.ofHom (Ideal.Quotient.mk (S.conductor.comap S.subtype)))
       (CommRingCat.ofHom (Ideal.Quotient.mk S.conductor))
       (CommRingCat.ofHom (Ideal.quotientMap S.conductor S.subtype le_rfl)) := by sorry
+
+end TauCeti.GenusOne.AffinePinching
+
+namespace TauCeti.GenusOne.AffinePinching
+
+variable {B C D : Type u} [CommRing B] [CommRing C] [CommRing D]
+
+/-- The affine reconstruction square is also a ring pushout; its tensor comparison
+therefore identifies the tensor product over the actual pullback with C. -/
+lemma cartesian_affine (p : CommRingCat.of B ⟶ CommRingCat.of C)
+    (q : CommRingCat.of D ⟶ CommRingCat.of C) (hp : Function.Surjective p.hom) :
+    CategoryTheory.IsPushout (CommRingCat.pullbackCone p q).fst
+      (CommRingCat.pullbackCone p q).snd p q := by sorry
+
+/-- The complement comparison uses the actual first projection and actual localizations. -/
+lemma localization_complement (p : CommRingCat.of B ⟶ CommRingCat.of C)
+    (q : CommRingCat.of D ⟶ CommRingCat.of C) (hp : Function.Surjective p.hom)
+    (t : (CommRingCat.pullbackCone p q).pt)
+    (ht : (CommRingCat.pullbackCone p q).snd.hom t = 0) :
+    Function.Bijective (IsLocalization.Away.map (Localization.Away t)
+      (Localization.Away ((CommRingCat.pullbackCone p q).fst.hom t))
+      (CommRingCat.pullbackCone p q).fst.hom t) := by sorry
+
+/-- Finiteness transfers to the first projection without a Noetherian hypothesis. -/
+lemma finite_projection (p : CommRingCat.of B ⟶ CommRingCat.of C)
+    (q : CommRingCat.of D ⟶ CommRingCat.of C) (hp : Function.Surjective p.hom)
+    (hq : q.hom.Finite) :
+    (CommRingCat.pullbackCone p q).fst.hom.Finite := by sorry
 
 end TauCeti.GenusOne.AffinePinching
 
@@ -686,7 +716,7 @@ scheme-existence signature appears above; these names locate all remaining named
   universality against algebraic-space targets remains in the new space ledger below.
 * G.0/conductor-square: the affine form is FerrandPushout.conductor above; the native global
   ideal-sheaf, quotient-chart, cartesian, geometric/categorical and flat-recomputed forms
-  now appear in the final continuation. Their elaboration and SF.0 dependencies are unchecked.
+  appear below. Their SF.0 proof dependencies remain required.
 * G.1/canonical-type-classification: full geometric Kodaira incidence, not just the root graph.
 * G.1/five-f2-classes: actual pointed elliptic-curve isomorphism classes, not coefficient equality.
 * G.2/transverse-divisor: regular horizontal DVR Cartier divisor, intersection Spec k, length m.
@@ -2127,7 +2157,6 @@ end TauCeti.GenusOne.QuadraticPinch
 /- BEGIN QUADRATIC AFFINE NORMALIZATION -/
 namespace TauCeti.GenusOne.QuadraticPinch
 variable {k : Type u} [Field k]
-universe v
 
 lemma normalization_remainder (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
     (f : k[X]) :
@@ -3120,7 +3149,8 @@ lemma infinityι_desc (a b : k) {Y : Scheme} (f : finiteChart a b ⟶ Y)
     infinityι a b ≫ desc a b f g h = g := by sorry
 
 -- node: G.1/global-normalization-chart
-def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b := by sorry
+def normalizationChart (a b : k) : Spec (.of k[X]) ⟶ finiteChart a b :=
+  Spec.map (CommRingCat.ofHom (algebra (quadratic 1 a b)).val.toRingHom)
 
 lemma normalizationChart_isFinite (a b : k) : AlgebraicGeometry.IsFinite (normalizationChart a b) := by sorry
 
@@ -3845,11 +3875,17 @@ lemma normalization_flat_pullback_kernel
 
 /-- Relative integral factorization of the specified finite map, not the absolute
 normalization of the curve in a generic-point function field. -/
-def relativeNormalization (a b : k) : Scheme.{u}  := by sorry
+def relativeNormalization (a b : k) : Scheme.{u} :=
+  letI := normalization_isFinite a b
+  (normalization a b).normalization
 
-def toRelativeNormalization (a b : k) : normalizationSource a b ⟶ relativeNormalization a b  := by sorry
+def toRelativeNormalization (a b : k) : normalizationSource a b ⟶ relativeNormalization a b :=
+  letI := normalization_isFinite a b
+  (normalization a b).toNormalization
 
-def fromRelativeNormalization (a b : k) : relativeNormalization a b ⟶ curve a b  := by sorry
+def fromRelativeNormalization (a b : k) : relativeNormalization a b ⟶ curve a b :=
+  letI := normalization_isFinite a b
+  (normalization a b).fromNormalization
 
 lemma toRelativeNormalization_isIso (a b : k) : IsIso (toRelativeNormalization a b)  := by sorry
 
@@ -5054,8 +5090,9 @@ example :
     let hImage : (I.map (RingHom.id ℤ) : Set ℤ) = (RingHom.id ℤ) '' (I : Set ℤ) := by simp
     let hKernel : RingHom.ker (RingHom.id ℤ) ⊓ I = ⊥ := by
       rw [(RingHom.injective_iff_ker_eq_bot _).mp Function.injective_id, bot_inf_eq]
-    let p : (Ideal.Quotient.mk (I.map (RingHom.id ℤ))).pullback
-        (Ideal.quotientMap (I.map (RingHom.id ℤ)) (RingHom.id ℤ) Ideal.le_comap_map) :=
+    let p : (CommRingCat.pullbackCone
+        (CommRingCat.ofHom (Ideal.Quotient.mk (I.map (RingHom.id ℤ))))
+        (CommRingCat.ofHom (Ideal.quotientMap (I.map (RingHom.id ℤ)) (RingHom.id ℤ) Ideal.le_comap_map))).pt :=
       ⟨(7, Ideal.Quotient.mk I 3), by
         change Ideal.Quotient.mk (I.map (RingHom.id ℤ)) 7 = Ideal.Quotient.mk (I.map (RingHom.id ℤ)) 3
         rw [Ideal.Quotient.eq, Ideal.map_id]
@@ -6169,13 +6206,13 @@ def conductorAdditiveShortComplex : ShortComplex (TopCat.Sheaf AddCommGrpCat.{u}
   (conductor_additive_isPullback f).shortComplex'
 
 lemma conductorAdditiveShortComplex_f_fst :
-    (conductorAdditiveShortComplex f).f ≫ biprod.fst =
+    (conductorAdditiveShortComplex f).f ≫ (biprod.fst : (conductorAdditiveShortComplex f).X₂ ⟶ _) =
       (sheafCompose (Opens.grothendieckTopology P)
         (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (⟨f.c⟩ : P.sheaf ⟶ (TopCat.Sheaf.pushforward CommRingCat.{u} f.base).obj Y.sheaf) := by
   sorry
 
 lemma conductorAdditiveShortComplex_f_snd :
-    (conductorAdditiveShortComplex f).f ≫ biprod.snd =
+    (conductorAdditiveShortComplex f).f ≫ (biprod.snd : (conductorAdditiveShortComplex f).X₂ ⟶ _) =
       (sheafCompose (Opens.grothendieckTopology P)
         (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (⟨(conductorIdealSheaf f).subschemeι.c⟩ : P.sheaf ⟶
         (TopCat.Sheaf.pushforward CommRingCat.{u} (conductorIdealSheaf f).subschemeι.base).obj
@@ -6183,13 +6220,13 @@ lemma conductorAdditiveShortComplex_f_snd :
   sorry
 
 lemma conductorAdditiveShortComplex_inl_g :
-    biprod.inl ≫ (conductorAdditiveShortComplex f).g =
+    (biprod.inl : _ ⟶ (conductorAdditiveShortComplex f).X₂) ≫ (conductorAdditiveShortComplex f).g =
       (sheafCompose (Opens.grothendieckTopology P)
         (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (conductorSheafInclusion f) := by
   sorry
 
 lemma conductorAdditiveShortComplex_inr_g :
-    biprod.inr ≫ (conductorAdditiveShortComplex f).g =
+    (biprod.inr : _ ⟶ (conductorAdditiveShortComplex f).X₂) ≫ (conductorAdditiveShortComplex f).g =
       -(sheafCompose (Opens.grothendieckTopology P)
         (forget₂ CommRingCat.{u} RingCat.{u} ⋙ forget₂ RingCat.{u} AddCommGrpCat.{u})).map (conductorSheafChart f) := by
   sorry
@@ -6214,21 +6251,21 @@ lemma conductorAdditiveShortComplex_pair_app (U : P.Opens)
       conductorSectionDifference f U (b, c) := by
   sorry
 
-lemma conductorAdditiveShortComplex_mono : Mono (conductorAdditiveShortComplex f).f := by
+lemma conductorAdditiveShortComplex_mono : Mono (C := TopCat.Sheaf AddCommGrpCat.{u} P.carrier) ((conductorAdditiveShortComplex f).f) := by
   sorry
 
 lemma conductorAdditiveShortComplex_exact : (conductorAdditiveShortComplex f).Exact := by
   sorry
 
 lemma conductorAdditiveShortComplex_affine_surjective (U : P.affineOpens) :
-    Function.Surjective ((conductorAdditiveShortComplex f).g.hom.app (op (U : P.Opens))) := by
+    Function.Surjective (((conductorAdditiveShortComplex f).g.hom.app (op (U : P.Opens))).hom) := by
   sorry
 
 lemma conductorAdditiveShortComplex_locally_surjective :
-    TopCat.Presheaf.IsLocallySurjective (conductorAdditiveShortComplex f).g.hom := by
+    TopCat.Presheaf.IsLocallySurjective (C := AddCommGrpCat.{u}) (X := P.carrier) (conductorAdditiveShortComplex f).g.hom := by
   sorry
 
-lemma conductorAdditiveShortComplex_epi : Epi (conductorAdditiveShortComplex f).g := by
+lemma conductorAdditiveShortComplex_epi : Epi (C := TopCat.Sheaf AddCommGrpCat.{u} P.carrier) ((conductorAdditiveShortComplex f).g) := by
   sorry
 
 lemma conductorAdditiveShortComplex_shortExact : (conductorAdditiveShortComplex f).ShortExact := by
@@ -6935,7 +6972,6 @@ end TauCeti.GenusOne.FerrandPushout
 
 namespace TauCeti.GenusOne.FerrandPushout
 open scoped TensorProduct
-universe cu cv cw cx cy
 variable {A : Type cu} {B : Type cv} {F : Type cw} {D : Type cx} {E : Type cy}
 variable [CommRing A] [CommRing B] [CommRing F] [CommRing D] [CommRing E]
 variable [Algebra A B] [Algebra A F] [Algebra A D] [Algebra A E]
@@ -8096,3 +8132,142 @@ example (R : Type conductorTestLevel) [CommRing R] :
 
 end TauCeti.GenusOne.FerrandPushout
 end
+
+/-! Coordinate regressions for the specified maps (revision round 2).
+These statements use native Spec sections and chart germs. Their proofs remain
+roadmap obligations; no coordinate-correctness certificate is a hypothesis. -/
+namespace TauCeti.GenusOne.QuadraticPinch.Global
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry TopologicalSpace Opposite
+open TauCeti.GenusOne.QuadraticPinch.Overlap
+noncomputable section
+variable {k : Type u} [Field k]
+set_option backward.isDefEq.respectTransparency false
+
+-- test: Global.normalizationChart.cusp_coordinates
+example :
+    let q : k[X] := quadratic 1 0 0
+    let x : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+    let y : algebra q := ⟨q * X, (mem_algebra q (q * X)).mpr ⟨0, X, by simp⟩⟩
+    let pull := (Scheme.ΓSpecIso (.of (algebra q))).inv ≫
+      (normalizationChart (0 : k) 0).appTop ≫ (Scheme.ΓSpecIso (.of k[X])).hom
+    pull x = X ^ 2 ∧ pull y = X ^ 3 := by sorry
+
+-- test: Global.normalizationChart.nonsplit_coordinates
+example :
+    let q : (ZMod 2)[X] := quadratic 1 1 1
+    let x : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+    let y : algebra q := ⟨q * X, (mem_algebra q (q * X)).mpr ⟨0, X, by simp⟩⟩
+    let pull := (Scheme.ΓSpecIso (.of (algebra q))).inv ≫
+      (normalizationChart (1 : ZMod 2) 1).appTop ≫
+        (Scheme.ΓSpecIso (.of (ZMod 2)[X])).hom
+    pull x = X ^ 2 + X + 1 ∧ pull y = X * (X ^ 2 + X + 1) := by sorry
+
+-- test: Global.normalizationChart.split_branches
+example :
+    let p₀ := Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (0 : ℚ)))
+    let p₁ := Spec.map (CommRingCat.ofHom (Polynomial.evalRingHom (1 : ℚ)))
+    p₀ ≠ p₁ ∧ p₀ ≫ normalizationChart (-1 : ℚ) 0 =
+      p₁ ≫ normalizationChart (-1 : ℚ) 0 := by sorry
+
+-- test: Global.normalizationChart.cusp_localized_inverse
+example :
+    let A := algebra (quadratic (1 : k) 0 0)
+    let q : A := ⟨quadratic 1 0 0,
+      (mem_algebra _ _).mpr ⟨0, 1, by simp⟩⟩
+    let tq : A := ⟨quadratic 1 0 0 * X,
+      (mem_algebra _ _).mpr ⟨0, X, by simp⟩⟩
+    let U := (finiteChart (0 : k) 0).basicOpen ((Scheme.ΓSpecIso (.of A)).inv q)
+    let V := normalizationChart (0 : k) 0 ⁻¹ᵁ U
+    let resA := (finiteChart (0 : k) 0).presheaf.map (homOfLE le_top : U ⟶ ⊤).op
+    let resB := (Spec (.of k[X])).presheaf.map (homOfLE le_top : V ⟶ ⊤).op
+    let qV := (normalizationChart (0 : k) 0).app U (resA ((Scheme.ΓSpecIso (.of A)).inv q))
+    let tqV := (normalizationChart (0 : k) 0).app U (resA ((Scheme.ΓSpecIso (.of A)).inv tq))
+    ∃ h : IsUnit qV, (h.unit⁻¹ : Γ(Spec (.of k[X]), V)ˣ).val * tqV =
+      resB ((Scheme.ΓSpecIso (.of k[X])).inv X) := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_cusp_actual_pullback
+example (U : (curve (0 : k) 0).Opens) (hU : IsAffineOpen U)
+    (s : Γ(relativeNormalization (0 : k) 0, fromRelativeNormalization 0 0 ⁻¹ᵁ U)) :
+    letI := ((normalization (0 : k) 0).app U).hom.toAlgebra
+    ((relativeNormalizationSectionsIso (0 : k) 0 U hU).hom s).val =
+      (toRelativeNormalization (0 : k) 0).appLE
+        (fromRelativeNormalization 0 0 ⁻¹ᵁ U) (normalization 0 0 ⁻¹ᵁ U)
+        (by rw [← Scheme.Hom.comp_preimage, relativeNormalization_factorization]) s := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_nonsplit_coefficients
+example (U : (curve (1 : ZMod 2) 1).Opens) (hU : IsAffineOpen U)
+    (r : Γ(curve (1 : ZMod 2) 1, U)) :
+    letI := ((normalization (1 : ZMod 2) 1).app U).hom.toAlgebra
+    ((relativeNormalizationSectionsIso (1 : ZMod 2) 1 U hU).hom
+      ((fromRelativeNormalization 1 1).app U r)).val =
+        (normalization 1 1).app U r := by sorry
+
+-- test: QuadraticPinch.Global.test_sections_principal_restriction
+example (a b : k) (U : (curve a b).Opens) (hU : IsAffineOpen U)
+    (r : Γ(curve a b, U)) (hr : (curve a b).basicOpen r ≠ U)
+    (s : Γ(relativeNormalization a b, fromRelativeNormalization a b ⁻¹ᵁ U)) :
+    let V := (curve a b).basicOpen r
+    let e : V ≤ U := (curve a b).basicOpen_le r
+    letI := ((normalization a b).app U).hom.toAlgebra
+    letI := ((normalization a b).app V).hom.toAlgebra
+    ((relativeNormalizationSectionsIso a b V (hU.basicOpen r)).hom
+      ((relativeNormalization a b).presheaf.map
+        (homOfLE ((fromRelativeNormalization a b).preimage_mono e)).op s)).val =
+      (normalizationSource a b).presheaf.map
+        (homOfLE ((normalization a b).preimage_mono e)).op
+          (((relativeNormalizationSectionsIso a b U hU).hom s).val) := by sorry
+
+local instance (a b : k) : IsIntegral (curve a b) := curve_isIntegral a b
+local instance (a b : k) : IsIntegral (normalizationSource a b) := source_isIntegral a b
+
+-- test: QuadraticPinch.Global.test_functionFieldMap_cusp_coordinates
+example :
+    let U := finiteι (0 : k) 0 ''ᵁ ⊤
+    let V := sourceFiniteι (0 : k) 0 ''ᵁ ⊤
+    letI : Nonempty U := by sorry
+    letI : Nonempty V := by sorry
+    let q : k[X] := quadratic 1 0 0
+    let x : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+    let y : algebra q := ⟨q * X, (mem_algebra q (q * X)).mpr ⟨0, X, by simp⟩⟩
+    let cGerm := (Scheme.ΓSpecIso (.of (algebra q))).inv ≫
+      ((finiteι (0 : k) 0).appIso ⊤).inv ≫ (curve (0 : k) 0).germToFunctionField U
+    let nGerm := (Scheme.ΓSpecIso (.of k[X])).inv ≫
+      ((sourceFiniteι (0 : k) 0).appIso ⊤).inv ≫
+        (normalizationSource (0 : k) 0).germToFunctionField V
+    normalizationFunctionFieldMap (0 : k) 0 (cGerm x) = nGerm (X ^ 2) ∧
+      normalizationFunctionFieldMap (0 : k) 0 (cGerm y) = nGerm (X ^ 3) := by sorry
+
+-- test: QuadraticPinch.Global.test_functionFieldMap_nonsplit_coordinates
+example :
+    let U := finiteι (1 : ZMod 2) 1 ''ᵁ ⊤
+    let V := sourceFiniteι (1 : ZMod 2) 1 ''ᵁ ⊤
+    letI : Nonempty U := by sorry
+    letI : Nonempty V := by sorry
+    let q : (ZMod 2)[X] := quadratic 1 1 1
+    let x : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+    let y : algebra q := ⟨q * X, (mem_algebra q (q * X)).mpr ⟨0, X, by simp⟩⟩
+    let cGerm := (Scheme.ΓSpecIso (.of (algebra q))).inv ≫
+      ((finiteι (1 : ZMod 2) 1).appIso ⊤).inv ≫
+        (curve (1 : ZMod 2) 1).germToFunctionField U
+    let nGerm := (Scheme.ΓSpecIso (.of (ZMod 2)[X])).inv ≫
+      ((sourceFiniteι (1 : ZMod 2) 1).appIso ⊤).inv ≫
+        (normalizationSource (1 : ZMod 2) 1).germToFunctionField V
+    normalizationFunctionFieldMap (1 : ZMod 2) 1 (cGerm x) = nGerm q ∧
+      normalizationFunctionFieldMap (1 : ZMod 2) 1 (cGerm y) = nGerm (X * q) := by sorry
+
+-- test: QuadraticPinch.Global.test_functionFieldMap_split_infinity_coordinate
+example :
+    let U := infinityι (-1 : ℚ) 0 ''ᵁ ⊤
+    let V := sourceInfinityι (-1 : ℚ) 0 ''ᵁ ⊤
+    letI : Nonempty U := by sorry
+    letI : Nonempty V := by sorry
+    let u := algebraMap ℚ[X] (InfinityChart.Chart (-1 : ℚ) 0) X
+    let chartSection := (Scheme.ΓSpecIso (.of (InfinityChart.Chart (-1 : ℚ) 0))).inv u
+    normalizationFunctionFieldMap (-1 : ℚ) 0
+      ((curve (-1 : ℚ) 0).germToFunctionField U
+        (((infinityι (-1 : ℚ) 0).appIso ⊤).inv chartSection)) =
+      (normalizationSource (-1 : ℚ) 0).germToFunctionField V
+        (((sourceInfinityι (-1 : ℚ) 0).appIso ⊤).inv chartSection) := by sorry
+
+end
+end TauCeti.GenusOne.QuadraticPinch.Global
