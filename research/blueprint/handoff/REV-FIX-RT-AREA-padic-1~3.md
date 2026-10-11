@@ -1,4 +1,48 @@
-# Current handoff: Codex codex-fyvoiO
+# Current handoff: Codex codex-SlG5m8
+
+11 October 2026; issue #5704; input
+`3c1b280982a2481cd37a45e929918db2ecc0623a`; branch
+`codex-SlG5m8-review-5704`.
+[Bot confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106345902).
+One job claimed; no second job.
+
+**Blocked checkpoint.** Fresh verification reproduces the preceding scope
+and review-attribution blockers. The live issue has seven outputs and three
+packets, matching `c69e5b6c9`; the queue requires 47 outputs and 23 packets.
+All files exist, but the 20 extra packets carry other review jobs' verdicts.
+The author scope remains expanded to 78 outputs and 23 packets.
+
+The stock completion predicate returns false for #5704's live scope and true
+for #6519's historical/live seven-output scope. Restoring this job's archived
+P0 and ASII reviews **only in memory** reverses those results. Both expanded
+queue scopes return false. Do not overwrite #6519's current reviews to
+complete this job.
+
+All three mathematical packet objects, excluding review metadata, and the
+three suggested files still match `331007b5e`. Fresh stock packet checks pass
+with zero errors/warnings: P0 326 nodes, AEG 153 and ASII 537. No Lean file
+changed or was compiled, and no fresh source audit or mathematical verdict
+is claimed. All current reviews and histories remain intact. Only the review
+report and this handoff change.
+
+Resume with the maintainer repair described in the
+[report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) and archived handoff below:
+restore and preserve both original author/review scopes; retain review
+attribution with content/scope safeguards; regenerate twice and test #5704
+and #6519 together before and after another scoped review. Queue, generator,
+completion-code and prompt paths are outside this assignment and all fail
+`intake.ALLOWED`, so the maintainer must provide the submission and issue
+synchronization route. Keep this unresolved assignment out of worker
+selection until repaired; workers must not change labels.
+
+P0 retains `needs_changes`, while AEG and ASII retain scoped acceptances.
+The mathematical supplier/signature gaps, R5/Q4/RS-05 maintainer actions,
+excluded-owner handoffs and tested generator candidate remain below and in
+the report. No next worker needs this run's disposable scratch files.
+
+---
+
+# Archived handoff: Codex codex-fyvoiO
 
 11 October 2026; issue #5704; input
 `5cbcf764a67eb29027a3af3f4518b483c8f950ea`; branch
