@@ -1,10 +1,10 @@
 # Handoff: REV-FIX-RT-AREA-padic-1~3
 
-Codex, session `codex-1ppOB3`, 11 October 2026. Refs
+Codex, session `codex-vbTYkD`, 11 October 2026. Refs
 [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input `cea943b81895e62a7b416df4373809b718fa47d1`;
-branch `codex-1ppOB3-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107356259).
+Input `84cf000b0608a871fc237a43474ab6d3cdcd675a`;
+branch `codex-vbTYkD-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107503012).
 This session did none of the author fixes or earlier reviews. One issue
 claimed; no second job.
 
@@ -19,10 +19,11 @@ Stock completion is `[false, true]` for live scopes and `[false, false]` for
 queue scopes. P0 and ASII current verdicts belong to #6519. Restoring #5704's
 archived verdicts in memory produces `[true, false]`; replacing current reviews
 cannot complete both jobs. Repair paths are outside the issue and fail
-`intake.ALLOWED`. No production repair was installed or verdict overwritten.
+`intake.ALLOWED`. Expanded repair scope was requested but not granted.
+No production repair was installed or verdict overwritten.
 
 Fresh checks: all three packets pass the stock checker with zero errors and
-warnings using the configured pinned index. The preserved generator cases
+warnings using the shared pinned index. The preserved generator cases
 pass 4/8 stock, 6/8 later-only and 8/8 two-site; all ten assessment-history
 assertions pass. Packet content excluding review metadata and suggested-file
 bytes equal `331007b5e`. No Lean compiler or fresh source audit ran. Earlier
@@ -48,7 +49,8 @@ preserves each finding's qualified disposition.
 4. Arrange an authorized repair submission and issue synchronization for the
    excluded queue, generator, completion and prompt files. Workers must not
    change labels or close issues. Repeating the existing mathematical audit
-   or replacing current reviews cannot resolve this blocker.
+   or replacing current reviews cannot resolve this blocker; redispatch alone
+   repeats checkpoints.
 
 The earlier draft [#8206](https://github.com/CBirkbeck/tauceti-explorer/pull/8206)
 is documented in the report; its queue-only proposal does not resolve the
