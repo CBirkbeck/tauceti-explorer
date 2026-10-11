@@ -1,3 +1,79 @@
+# #6217: scope mismatch still prevents completion
+
+Codex — **codex-gFeYC4**, 11 October 2026. Input commit:
+`8076e348807e479667d4020d429028f01a1fa6f2`.
+Claim confirmed in [comment 6106614750](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106614750),
+responding to [comment 6106613558](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106613558).
+This session did none of the fixes under review. Only #6217 was successfully
+claimed; another worker won the attempted claim on #7462.
+
+**Blocked checkpoint.** The live issue still names only HE.0, its suggested
+file and this report. Both this input tree and a fresh read of GitHub main's
+queue require eleven packet/Lean pairs and this report. The authorized
+mathematical review has already been accepted. This continuation verifies
+the remaining completion blocker; it adds no mathematical verdict and
+changes no packet or Lean signature.
+
+## Fresh evidence
+
+The real `issues.deliverables_complete` returns **false** for the current
+23-output queue entry, although all outputs exist. It returns **true** for
+an in-memory copy with exactly the live issue's three deliverables. The
+completion code requires this job's reviewer identifier on every packet
+listed in the queue. This is a scope mismatch, not a missing output file.
+
+| Packet stem | Current verdict | Reviewer job |
+|---|---|---|
+| HeegnerPointEulerSystems--HE.0 | accepted | REV-FIX-RT-AREA-iwasawa-1~2 |
+| HeegnerPointEulerSystems--HE.7s | accepted | REV-HeegnerPointEulerSystems--HE.7s~2 |
+| GrossZagierAndArithmeticHeights--GZ.0 | accepted | REV-FIX-RT-AREA-algebraicgeometry~2 |
+| RankZeroOneBSD--BSD.0 | accepted | REV-RankZeroOneBSD--BSD.0~2 |
+| RankZeroOneBSD--BSD.7 | accepted | REV-RankZeroOneBSD--BSD.7 |
+| EulerSystemsAndKolyvaginSystems--ES.0 | needs_changes | REV-EulerSystemsAndKolyvaginSystems--ES.0~2 |
+| GeneralizedHeegnerCycles--GH.0 | accepted | REV-GeneralizedHeegnerCycles--GH.0~2 |
+| GrossZagierAndArithmeticHeights--GZ.8 | accepted | REV-GrossZagierAndArithmeticHeights--GZ.8~2 |
+| PadicHodgeRegulators--D.1 | accepted | REV-PadicHodgeRegulators--D.1~2 |
+| EulerSystemsAndKolyvaginSystems--ES.8 | accepted | REV-EulerSystemsAndKolyvaginSystems--ES.8 |
+| KatoEulerSystems | accepted | REV-KatoEulerSystems~2 |
+
+These are observed review markers, not new reviews of those packets. The
+ten additional packets cannot receive this job's identifier merely to
+satisfy the completion predicate.
+
+The prior report's unified scope-repair patch still passes
+`git apply --check` against this input tree. The problematic generator guard
+is unchanged. The patch restores the historical output lists and preserves
+existing successors. It remains a proposed maintainer change; this session
+did not rerun its regression fixtures or full-generator experiments. Their
+results and wider scheduling effects remain attributed below.
+
+Fresh `intake.file_problems` checks reject both `queue.json` and
+`make_queue.py` as outside swarm output paths.
+[WORKERS.md](../WORKERS.md) expressly limits edits to issue-named files and
+scratch. The permitted work cannot repair this mismatch. No permission
+request or automatic approval rejection occurred in this continuation.
+
+## Validation and resumption
+
+The current HE.0 packet checker passes with **zero errors and warnings**:
+78 nodes, 24 API items, eighteen tests, thirteen baseline declarations,
+21 gaps and 63 requests. All eight stages remain planned. No primary source
+was reread and no fresh mathematical/source verification is claimed.
+Lean was not rerun for this Markdown-only checkpoint; the historical
+successful elaborations below retain their original attribution.
+
+The maintainer must reconcile the issued scope with the queue before another
+worker can finish this job. Either apply and validate the proposed scope
+repair, including its wider scheduling effects and issue synchronization,
+or explicitly issue the expanded eleven-packet review. Preserve unrelated
+review identifiers until their files have actually been reviewed within
+that authorized scope. The handoff and the patch below contain everything
+needed to resume without scratch files.
+
+---
+
+The following prior reports retain their authors and validation limits.
+
 # #6217: blocked continuation with an applicable scope-repair patch
 
 Codex — **codex-AatBZG**, 11 October 2026. Input commit:
