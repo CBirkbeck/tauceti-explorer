@@ -1,106 +1,50 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-## Scope-only checkpoint: codex-JEmMLi, 11 October 2026
+## Blocked checkpoint: codex-aNVzdW, 11 October 2026
 
-Continuation by Codex (GPT-6), session `codex-JEmMLi`. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104601064).
-Input commit: `c4ce32fc2609d8770f679898db6ebecda1b11ab8`.
-I did none of the fixes under review.
+Codex (GPT-6), session `codex-aNVzdW`. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104747484).
+Input commit: `9e77d5c183d3c758c5971353e4069181095b2b2c`.
+This session did none of the fixes under review.
 
-Read the preceding report and handoff, the six original findings, their
-verification, the fix report, and the current completion rule. The preceding
-handoff says to resume installation only after explicit scope authorization.
-The live issue still omits L3-2 and D.1. An explicit request to change only
-`review` and `reviewHistory` in those two packets is pending in the worker
-conversation. No authorization has arrived; no packet was edited.
+The bounded review of all six findings is complete in the attributed evidence
+below. L3 carries this job's accepted verdict and PMIA its justified
+`needs_changes` verdict. Completion requires installing the two exact L3-2
+and D.1 review records preserved in the handoff. Their mathematical content,
+prior node reviews and open supplier obligations are unchanged.
 
-Reproduced the two exact guarded candidates in scratch. Their input and
-candidate hashes agree with the preceding handoff. Every mathematical and
-planning field is identical, and each history appends the entire original top
-review, preserving all 79 L3-2 and 72 D.1 checked node verdicts and their
-attribution. Both candidates pass the pinned-index checker with zero errors
-and warnings when supplied at their canonical paths in a read-only context.
-The unchanged completion rule returns False for the actual checkout and True
-for substitution of only those two exact records.
+The live issue omits both packet paths. The queue and the unchanged
+`issues.deliverables_complete` require them. [WORKERS.md](../WORKERS.md)
+says, "Edit only the files the issue names, plus your own scratch space."
+Explicit authorization to change only `review` and `reviewHistory` in the two
+omitted packets was requested in this worker conversation. No approval has
+arrived; neither packet has been edited. The permitted report and handoff record the concrete, checked changes ready for installation.
 
-Ran the checker on all four actual packets: zero errors, 26 inherited L3 API
-warnings, and no other warnings. All four packets and all four suggested files
-remain byte-identical to input. The current read-only upstream checkouts retain
-the commits cited below. No source audit or Lean elaboration was repeated;
-those results remain credited to their original sessions. The prior bounded
-six-finding review is already complete; further source rereading cannot resolve
-this file-scope blocker.
+## Checks performed by this session
 
-Final submission checks: `git diff --check` passes; `intake.py check-files`
-reports two files and zero problems. Both changed paths belong to this job.
+Read the live issue after claim confirmation, original six findings, verifier
+decisions, fix report, preceding review and handoff, and completion rule.
+Reproduced both candidates from the exact handoff records. Their input and
+candidate SHA-256 hashes match the predecessor's guards. Each candidate appends
+the entire prior top review to `reviewHistory`, preserving all 79 L3-2 and
+72 D.1 checked-node verdicts with their original attribution. Every parsed field
+other than `review` and `reviewHistory` is identical.
 
-This checkpoint changes only the report and handoff. The exact pending records
-are retained in the handoff. Installation awaits explicit authorization or
-repair of the live issue's deliverable list. A finished review will retain
-PMIA's justified `needs_changes` verdict.
+All four actual packets pass `check_blueprint.py` with the existing declaration
+index at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`: zero errors. L3 has 26 inherited
+short-API warnings; the other three have zero warnings. The two prepared
+candidates pass at their canonical paths in a read-only checker context with
+zero errors and warnings. Actual completion is False; substitution of only
+the exact two prepared records makes it True. This is a diagnostic check,
+not a change to the completion rule or a claim that the records are installed.
 
-## Preceding review and source evidence (codex-KJ9aP3)
-
-
-Codex (GPT-6), session `codex-KJ9aP3`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104451173).
-Input commit: `eccdf026cbd070c504e73fb84e754a66f9760210`.
-I did none of fixer `claude-6ZAIEy`'s work.
-
-## Result
-
-The bounded six-finding correction review is finished. Its outstanding task is
-installing two accepted review records. L3 already carries this job's accepted
-record; PMIA already carries its justified `needs_changes` record. That negative
-verdict completes the PMIA review: accepting its duplicate generic plans would
-be incorrect.
-
-The live issue names only L3 and PMIA, while the queue and unchanged
-`issues.deliverables_complete` also require L3-2 and D.1. Actual completion is
-False. Read-only substitution of the exact two prepared records makes it True.
-[WORKERS.md](../WORKERS.md) says, "Edit only the files the issue names, plus
-your own scratch space." I requested explicit authorization for changing only
-`review` and `reviewHistory` in the two omitted packets. No answer or live-issue
-scope repair has arrived. Neither record is installed; this submission is a
-blocked checkpoint. The report and handoff are the only repository changes.
-
-## This continuation: 11 October 2026
-
-This session reproduced the two guarded candidates from the preceding handoff.
-The old and proposed byte hashes still match. Each candidate changes only
-`review` and `reviewHistory`, appends the entire prior review, and preserves
-all 79 L3-2 or 72 D.1 node verdicts and their original attribution. Every other
-parsed field is equal. Both candidates pass the pinned-index checker at their
-canonical paths in a read-only context with zero errors and warnings.
-The unchanged completion predicate returns False on the actual checkout and
-True when only those two exact records are substituted.
-
-All four actual packets pass the checker with zero errors. Only L3 retains
-warnings: its 26 inherited short API outlines, outside the six-finding scope.
-The source PDFs listed in the handoff were fetched on 11 October; their four
-SHA-256 hashes match. This session read Zhao's general-prime setup and the
-Ferrero–Greenberg argument on printed pp.471–473, Ertl–Niziol §§2.1–2.2 on
-pp.4–7, Colmez–Niziol Corollary 3.16 on p.37, and Nekovar–Niziol Proposition
-4.13 on pp.53–54. The exact contracts below agree with those readings.
-These were PDF text-layer checks; earlier visual and exhaustive node audits
-retain their original attribution.
-
-This session read the relevant reviewed library audit entries and the five
-current native declarations in the table below. Git object checks confirm
-that their three source files are absent at the programme pin. The
-ArithmeticDirichletSeries and StableReduction roadmap boundaries were also
-consulted in the read-only upstream checkout. No upstream file was changed,
-and no Lake command ran there.
-
-No mathematical packet or suggested Lean file changed. No new Lean run was
-needed for the prepared metadata edits. The four previous elaboration results
-remain credited to `codex-YXQsbh`, including L3's unresolved import failure.
-
-The live issue lists L3 and PMIA but omits the two required packet paths.
-Explicit authorization for their exact review-only changes was requested in
-the worker conversation. It has not arrived; the candidates remain in
-scratch. The issue, queue, labels and completion predicate were unchanged.
-This is a blocked checkpoint, with exact records preserved in the handoff.
+Current read-only TauCetiRoadmap and Tau Ceti retain the commits cited below.
+No source rereading or Lean elaboration was repeated for these metadata-only
+changes. Earlier source and Lean checks remain credited to their original
+sessions. All four actual packets and all four suggested files are unchanged.
+No process remains running, and no upstream file, issue body, label, queue or
+completion rule was edited.
 
 ## Review evidence and attribution
 
@@ -115,8 +59,9 @@ source readings and elaborations retain their original attribution.
 The preceding `codex-0rbyYu` and `codex-lR9937` continuations checked the verified findings and
 fix report against those reviews, reread the bounded /2 and /3 source contracts
 and the five current native /4 declarations, and verified exact receipt
-preservation. This session reproduced the checks described above. None of these
-continuations claims a new exhaustive node audit.
+preservation. These predecessor source readings remain their evidence; this session
+reproduced only the metadata preservation and completion checks. No new
+exhaustive node audit is claimed.
 
 | Finding | Verdict | Reason and remaining boundary |
 | --- | --- | --- |
@@ -131,7 +76,7 @@ LAD, the restructure and the reader/consumer revision are outside this job's
 file scope. No mathematical statement, prerequisite, API, test, source,
 supplier obligation, gap, node verdict or suggested Lean file changes here.
 
-## Bounded source verification in this continuation
+## Preserved source verification: codex-KJ9aP3
 
 For /2, read [Zhao](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1DF77ECEC0EE657089F2E26C0F8AA351/S0013091522000177a.pdf/sum_expressions_for_kubotaleopoldt_padic_lfunctions.pdf),
 §1.2, p.461, and §4, Theorem 4.1 and equations (4.3)–(4.6), pp.471–473.
@@ -167,7 +112,7 @@ Ertl–Niziol product conventions visually; this session read their PDF text
 layers. No book was used and no source passage was copied into the repository. The /1, /4 arithmetic and /5 source audits remain credited
 to the linked predecessor reports.
 
-## Current native results in /4
+## Preserved native verification in /4: codex-KJ9aP3
 
 At current Tau Ceti commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`,
 read the statements in `TauCeti/RingTheory/FittingIdeal/Basic.lean`,
@@ -197,37 +142,20 @@ conventions. Relabelling a few packet nodes alone would leave incompatible
 reader and consumer plans. Retain `needs_changes`. The upstream checkouts were
 read only; no Lake command ran there.
 
-## Preservation, validation and resumption
+## Installation and remaining work
 
-All four actual packets pass `scripts/check_blueprint.py` with the existing
-pinned declaration index: zero errors. L3 has 1,663 nodes and 26 inherited
-short-API warnings; L3-2 has 79 nodes, D.1 has 72 and PMIA has 487,
-each with zero warnings. Recursive checks find no excerpt fields.
+The [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-2~2.md) preserves the exact
+records, input/candidate hashes and installation assertions. Explicit scope
+authorization or a repair of the live issue's deliverable list is required.
+After installation, require the actual completion rule to return True and run
+packet, intake and whitespace checks. Keep L3, PMIA and all suggested files
+byte-identical. A finished review retains PMIA's `needs_changes` verdict;
+coordinated reader, suggested-file and consumer revisions remain work for the
+owning revision job. No new exhaustive mathematical review is needed.
 
-The exact L3-2 and D.1 candidates pass the same checker with zero errors and
-zero warnings when substituted at their canonical paths in a read-only packet
-context. Each candidate differs only in `review` and `reviewHistory`; its
-history equals the old history plus the entire previous review, preserving
-all 79 or 72 checked node verdicts and their original attribution. Every
-other parsed field is equal. Input and candidate byte hashes match the
-predecessor's guards reproduced in the handoff. All four actual packets and
-all four suggested files remain byte-identical to input.
+This checkpoint changes only the report and handoff. It does not install the
+prepared records or satisfy actual completion. The scope request is pending;
+its lack of an answer is not authorization. No second issue was claimed.
 
-No Lean file changed and no new Lean run was needed. `codex-YXQsbh` previously
-ran all four files through `lean-check`: L3 failed before body elaboration on
-an unknown `research` import; L3-2, D.1 and PMIA elaborated with respectively
-111, 307 and 1,075 expected proof-placeholder warnings only. Those are that
-session's results. Do not weaken sibling interfaces to bypass unavailable
-compiled prototype artifacts.
-
-Resume after explicit authorization for the two omitted packet paths or a
-live-issue scope repair. Install the two exact records, preserve the complete
-older reviews, and require actual `deliverables_complete` to return True.
-The [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-2~2.md) provides the records,
-hashes and final checks. No queue, completion predicate, issue body, label
-or upstream file was changed. Repeating the source review cannot resolve the
-remaining scope mismatch.
-
-Final submission checks: `git diff --check` passes; `intake.py check-files`
-reports two files and zero problems. Actual completion remains False, and the
-read-only candidate completion remains True.
+Final submission checks: `git diff --check` passes and
+`intake.py check-files` reports two files and zero problems.
