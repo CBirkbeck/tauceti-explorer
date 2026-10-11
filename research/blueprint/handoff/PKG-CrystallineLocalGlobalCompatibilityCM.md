@@ -1,21 +1,26 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-3KNBuT`. Date: 2026-10-11.
-Branch: `codex-3KNBuT-crystalline-package`.
-Input commit: `f973beb333680e13458c7da9eb4dafaa23a6961f`.
-Claim confirmed in [comment 6105477908](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105477908),
-responding to [comment 6105477076](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105477076).
+Agent: Codex (GPT-6). Session: `codex-QqtehL`. Date: 2026-10-11.
+Branch: `codex-QqtehL-crystalline-package`.
+Input commit: `c7583e0c8a7807f24ec85744dad64beb1ca5d162`.
+Claim confirmed in [comment 6105564211](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105564211),
+responding to [comment 6105563392](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105563392).
 Only this job was claimed.
 
 ## What this continuation changes
 
-The README now explicitly assigns general integral induced/Weyl/dual-Weyl theory
-to `ReductiveGroupsIntegralRepresentationsPartII` and its GL_n/unitary
-specialization to `PotentialAutomorphyInfrastructure:PA.0`. It distinguishes the
-rational Young-symmetrizer construction from the integral coefficient maps and
-splittings used here. No new mathematics or supplier declaration is invented.
-The existing suggested signatures are preserved without modification.
+The README now cites the current smooth group stages `SR.0` and `SR.0d`,
+in place of the inherited `SR.0:abelian-category` and `SR.0:derived-extension`
+request labels. It reuses the pinned monoid carrier `TauCeti.SmoothDiscreteTopRep`
+and its restriction lemma, while retaining the topological-group hypotheses of
+the coefficient equivalence. It distinguishes these existing carriers and group
+prototypes from the required monoid abelian/derived and ordinary-localization
+exports. The suggested signatures are preserved without modification.
+
+The integral-coefficient and completed-tower corrections from
+[#8720](https://github.com/CBirkbeck/tauceti-explorer/pull/8720) remain intact.
+Their evidence is retained below, with the boundaries rechecked in this run.
 
 **Blocked on external supplier interfaces, not on the run's time or memory.**
 The issue permits only the three package outputs and this handoff. Building the
@@ -100,10 +105,58 @@ CL.5/prop-4-1-4, CL.8/pgl2-cohomology and CL.8/prop-5-5-3.
 ALS.2's nilmanifold fibration and integral congruence-limit acyclicity remain
 separate inputs; a characteristic-zero Lie-algebra computation does not replace them.
 
-These two blockers suffice. This continuation does not claim a fresh exhaustive
-verification of all 27 supplier requests. The inherited open-monoid
-abelian/derived-category, coefficient-injective coinduction and ordinary open-cell
-acyclicity obligations also remain in the catalogue.
+### Smooth monoids and derived ordinary parts
+
+The inherited phrase “missing smooth category” needs a narrower interpretation.
+At the pinned Tau Ceti commit, read
+`RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean`:
+
+| Declaration | Locator and actual scope |
+|---|---|
+| `TauCeti.IsSmoothDiscrete` | Lines 245–259; `[Monoid G]`, a discrete underlying module and open point stabilizers. |
+| `TauCeti.IsSmoothDiscrete.res` | Lines 268–270; continuous monoid restriction preserves that predicate. |
+| `TauCeti.SmoothDiscreteTopRep` | Lines 530–538; the corresponding full subcategory of `TopRep`. |
+| `TauCeti.discreteRepEquivSmoothTopRep` | Lines 642–645 and 678–688; the section requires `[Group G]` and `[IsTopologicalGroup G]`. |
+
+The current library keeps these interfaces in `SmoothDiscrete/Basic.lean`:
+predicate lines 270–275, restriction line 303, category lines 612–618,
+equivalence line 834. The monoid carrier is therefore already present and must
+not be recreated here. Its group coefficient equivalence must not be invoked
+for a positive monoid without a separate comparison theorem.
+
+The current upstream `SmoothRepresentationsOfLocalGroups` has the actual stages
+`SR.0` and `SR.0d`. Read its Suggested.lean lines 332–394: `SmoothRep`,
+`SmoothRep.instAbelian` and `SmoothRep.instIsGrothendieckAbelian` require a
+topological **group**. `SmoothRep.res_preserves_injective` (lines 3011–3014)
+likewise takes an open subgroup. README `SR.0d.1` and `SR.0d.2` plan the group
+derived category and compact-normal-subgroup composition. They do not establish
+the positive-monoid interfaces merely by providing the group category.
+
+Read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27. Required exports to resume:
+
+1. Compare arithmetic smoothness on Δ̃_P and Δ⁺ with the existing monoid
+   carrier; provide its abelian/enough-injectives interface.
+2. Construct monoid-valued RΓ(U₀,−), retaining the finite-transfer Δ⁺ action;
+   establish U₀-acyclicity after the specific monoid restrictions.
+3. Localize smooth Δ⁺-objects at the selected central ũ_n to smooth
+   Δ-objects; prove exactness and the injective-preservation comparison used
+   for derived compact Levi invariants. A finite ordinary projector on a finite
+   module does not define localization of arbitrary smooth modules.
+4. Supply the coefficient-injective coinduction and higher ordinary open-cell
+   acyclicity of CN Lemma 2.3.6, pp.36–37, separately from degree-zero transfer.
+
+These belong to the smooth-representation supplier's monoid extension. The
+package now uses the current stage names and states the extra contracts rather
+than asserting that existing group prototypes export them. The accepted packet
+still uses the old labels: a job authorized to edit that packet should reconcile
+`REQ-SMOOTH`, `REQ-DEEP-PERFECT` and `REQ-DERIVED-INVARIANTS` with the actual
+stages and assign ids to the additional monoid exports. Deep-perfect restriction
+remains a separate requested theorem; this run does not certify it from the
+existence of the group-derived category.
+
+The integral coefficients and arithmetic tower blockers already suffice to
+prevent a complete package. This continuation does not claim exhaustive
+verification of all 27 supplier requests.
 
 ## Material to preserve when resuming
 
@@ -161,12 +214,12 @@ Taylor–Wiles, Selmer and base-change data.
 - Intake `check-files`: **2 files, 0 problems**; `git diff --check` passes.
   `deliverables_complete` is **false**, with metadata absent. The README is
   below 200 KB. No Lean process from this job remains running.
-- Read WORKERS, both protocols and UPSTREAM_GUIDE, complete current ReductiveGroups
-  and PeripheralActions READMEs, the relevant Weyl statements, PA's owner gap,
-  reviewed ALS.6 audit and accepted RS-09. Current read-only roadmap commit:
+- Read WORKERS, both protocols and UPSTREAM_GUIDE, current ReductiveGroups
+  and PeripheralActions READMEs, the relevant smooth group/monoid and Weyl
+  statements, PA's owner gap, reviewed ALS.6 audit and accepted RS-09. Current read-only roadmap commit:
   `070dc2becd74419e76303ede84b465ed4a69461f`; current library:
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No restricted source was needed.
-- Read CN v3 pp.17–18 and 60 from <https://arxiv.org/pdf/2301.10509v3>,
+- Read CN v3 pp.17–18, 26–27 and 60 from <https://arxiv.org/pdf/2301.10509v3>,
   accessed 2026-10-11. PDF SHA-256:
   `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
   Only authored mathematical prose and locators enter the deliverables.
@@ -177,9 +230,9 @@ Taylor–Wiles, Selmer and base-change data.
 
 ## Resume condition
 
-Supply the integral dual-Weyl and completed arithmetic tower exports in their
-owning roadmaps first. Retarget `REQ-TOWER` and correct the NT16 locator in a
-job that allows packet edits. Then specialize the existing cores to the actual
+Supply the integral dual-Weyl, completed arithmetic tower and additional
+smooth-monoid exports in their owning roadmaps first. Retarget `REQ-TOWER`, reconcile the smooth-stage requests and correct the NT16
+locator in a job that allows packet edits. Then specialize the existing cores to the actual
 arithmetic carriers, actions, localizations and pairings, and type the remaining
 named targets, API and tests. Do not substitute hypotheses asserting each
 conclusion or empty propositions for these objects. Add metadata only when
