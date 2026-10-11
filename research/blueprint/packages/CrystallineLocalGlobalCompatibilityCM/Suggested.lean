@@ -14,7 +14,9 @@ and torsion image algebras of supplied actions, their factorization and the
 scalar-extension map. It also constructs deep levels from actual integral
 component maps on a supplied subgroup; Levi selection is pulled back from F⁺.
 These cores do not construct arithmetic cohomology or
-its actions. The theorem signatures include the degree bound, adic subquotient
+its actions. CL.1 supplies the degree-zero transfer operator for a finite-index
+contraction and its raw intertwining action; smooth and derived refinements
+retain their supplier interfaces. The theorem signatures include the degree bound, adic subquotient
 lemma and full corrected determinant-kernel criterion with its A₄ exception.
 The catalogue records remaining arithmetic specializations and signatures,
 including partial cores explicitly distinguished from missing declarations.
@@ -32,6 +34,9 @@ import Mathlib.LinearAlgebra.Matrix.Permutation
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.RepresentationTheory.Basic
+import Mathlib.RepresentationTheory.Invariants
+import Mathlib.GroupTheory.Coset.Basic
+import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
 import Mathlib.RingTheory.Ideal.Quotient.Defs
 import Mathlib.RingTheory.Filtration
@@ -45,7 +50,7 @@ import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.TensorProduct.Tower
 
-open scoped TensorProduct
+open scoped TensorProduct BigOperators
 
 noncomputable section
 namespace CrystallineCM
@@ -608,6 +613,110 @@ example {K : Type*} [Field K] [CharP K 7] :
       (!![2,3;3,-2] : Matrix (Fin 2) (Fin 2) K).mulVec v = b • v := by
   sorry
 
+
+/- CN §2.2.2, equation (2.2.1), p.26: degree-zero transfer core.
+For the arithmetic application, c(u)=gug⁻¹ and A is the raw g-action.
+Finite index and the intertwining equation are explicit mathematical inputs.
+The smooth monoid category and its derived functor remain supplier interfaces. -/
+def UnipotentTransferAction
+    {R U V : Type*} [CommRing R] [Group U] [AddCommGroup V] [Module R V]
+    (ρ : Representation R U V) (c : U →* U) (hc : Finite (U ⧸ c.range))
+    (A : Module.End R V) (hA : ∀ u, A ∘ₗ ρ u = ρ (c u) ∘ₗ A) :
+    Module.End R ρ.invariants := by
+  letI := hc
+  letI := Fintype.ofFinite (U ⧸ c.range)
+  exact {
+    toFun := fun v => ⟨∑ q : U ⧸ c.range, ρ q.out (A v), by sorry⟩
+    map_add' := by sorry
+    map_smul' := by sorry }
+
+lemma UnipotentTransferAction_independent
+    {R U V : Type*} [CommRing R] [Group U] [AddCommGroup V] [Module R V]
+    (ρ : Representation R U V) (c : U →* U) (hc : Finite (U ⧸ c.range))
+    (A : Module.End R V) (hA : ∀ u, A ∘ₗ ρ u = ρ (c u) ∘ₗ A)
+    (r : U ⧸ c.range → U) (hr : ∀ q, QuotientGroup.mk (r q) = q)
+    (v : ρ.invariants) :
+    letI := hc
+    letI := Fintype.ofFinite (U ⧸ c.range)
+    (UnipotentTransferAction ρ c hc A hA v : V) =
+      ∑ q : U ⧸ c.range, ρ (r q) (A v) := by
+  sorry
+
+lemma UnipotentTransferAction_mul
+    {R U V : Type*} [CommRing R] [Group U] [AddCommGroup V] [Module R V]
+    (ρ : Representation R U V) (c d : U →* U)
+    (hc : Finite (U ⧸ c.range)) (hd : Finite (U ⧸ d.range))
+    (hcd : Finite (U ⧸ (c.comp d).range))
+    (hci : Function.Injective c) (hdi : Function.Injective d)
+    (A B : Module.End R V)
+    (hA : ∀ u, A ∘ₗ ρ u = ρ (c u) ∘ₗ A)
+    (hB : ∀ u, B ∘ₗ ρ u = ρ (d u) ∘ₗ B) :
+    UnipotentTransferAction ρ (c.comp d) hcd (A ∘ₗ B) (by sorry) =
+      UnipotentTransferAction ρ c hc A hA * UnipotentTransferAction ρ d hd B hB ∧
+    UnipotentTransferAction ρ (MonoidHom.id U) (by sorry) (LinearMap.id) (by sorry) = 1 := by
+  sorry
+
+lemma UnipotentTransferAction_compact
+    {R U V : Type*} [CommRing R] [Group U] [AddCommGroup V] [Module R V]
+    (ρ : Representation R U V) (c : U →* U) (hc : Finite (U ⧸ c.range))
+    (A : Module.End R V) (hA : ∀ u, A ∘ₗ ρ u = ρ (c u) ∘ₗ A)
+    (hcs : Function.Surjective c) (v : ρ.invariants) :
+    (UnipotentTransferAction ρ c hc A hA v : V) = A v := by
+  sorry
+
+-- CrystallineCM.UnipotentTransferAction_test_trivial_u
+example {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
+    (A : Module.End R V)
+    (v : (Representation.trivial R PUnit V).invariants) :
+    (UnipotentTransferAction (Representation.trivial R PUnit V)
+      (MonoidHom.id PUnit) (by infer_instance) A (by sorry) v : V) = A v := by
+  sorry
+
+private def padicTransferContraction (p : ℕ) [Fact p.Prime] :
+    Multiplicative ℤ_[p] →* Multiplicative ℤ_[p] where
+  toFun z := Multiplicative.ofAdd ((p : ℤ_[p]) * z.toAdd)
+  map_one' := by simp
+  map_mul' := by simp [mul_add]
+
+/- This equivalence is the additive residue-field quotient. The underlying
+contraction is multiplication by p on Z_p, so its image is p Z_p. -/
+private def padicTransferResidueEquiv (p : ℕ) [Fact p.Prime] :
+    (Multiplicative ℤ_[p] ⧸ (padicTransferContraction p).range) ≃ ZMod p := by
+  sorry
+
+private lemma padicTransferResidueEquiv_apply (p : ℕ) [Fact p.Prime]
+    (z : ℤ_[p]) :
+    padicTransferResidueEquiv p (QuotientGroup.mk (Multiplicative.ofAdd z)) =
+      PadicInt.toZMod z := by
+  sorry
+
+private lemma padicTransferFinite (p : ℕ) [Fact p.Prime] :
+    Finite (Multiplicative ℤ_[p] ⧸ (padicTransferContraction p).range) := by
+  let := Fintype.ofEquiv (ZMod p) (padicTransferResidueEquiv p).symm
+  infer_instance
+
+-- CrystallineCM.UnipotentTransferAction_test_index_p
+example (p : ℕ) [Fact p.Prime]
+    (v : (Representation.trivial (ZMod p) (Multiplicative ℤ_[p]) (ZMod p)).invariants) :
+    (UnipotentTransferAction
+      (Representation.trivial (ZMod p) (Multiplicative ℤ_[p]) (ZMod p))
+      (padicTransferContraction p) (padicTransferFinite p) (LinearMap.id) (by sorry) v :
+      ZMod p) = (p : ZMod p) * v ∧
+    (UnipotentTransferAction
+      (Representation.trivial (ZMod p) (Multiplicative ℤ_[p]) (ZMod p))
+      (padicTransferContraction p) (padicTransferFinite p) (LinearMap.id) (by sorry) v :
+      ZMod p) = 0 := by
+  sorry
+
+-- CrystallineCM.UnipotentTransferAction_test_not_raw
+example (p : ℕ) [Fact p.Prime] :
+    let ρ := Representation.trivial (ZMod p) (Multiplicative ℤ_[p]) (ZMod p)
+    let T := UnipotentTransferAction ρ (padicTransferContraction p)
+      (padicTransferFinite p) (LinearMap.id) (by sorry)
+    T = 0 ∧ T ≠ 1 := by
+  sorry
+
+
 end CrystallineCM
 
 /-
@@ -684,15 +793,15 @@ OMITTED example: CrystallineCM.POrdinaryFiniteLevel_test_mixed — For diag(1,0)
 Source: CN25v3 §2.2.1, pp.25–26
 
 CrystallineLocalGlobalCompatibilityCM:CL.1/unipotent-transfer-action
-OMITTED signature: CrystallineCM.UnipotentTransferAction
+PARTIAL degree-zero signature: CrystallineCM.UnipotentTransferAction; the finite-coset sum and contraction APIs are typed above. The smooth positive-monoid functor, arithmetic specialization and derived transfer remain omitted.
 For contracting g∈Δ⁺ and π smooth on Δ⁺⋉U₀, act on Γ(U₀,π) by T_g(v)=Σ_{n∈U₀/gU₀g^{-1}}ngv. This is independent of coset representatives, is integral without averaging denominators, and is multiplicative in g. Derive the same action on RΓ(U₀,π).
 Direct prerequisites: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category; tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees; CrystallineLocalGlobalCompatibilityCM:CL.0/parahoric-P-v(b,c)
-OMITTED API signature: CrystallineCM.UnipotentTransferAction_independent — Replacing any representative n by an element of its same left coset does not change T_g on U₀-invariants.
-OMITTED API signature: CrystallineCM.UnipotentTransferAction_mul — T_{gh}=T_g∘T_h and T_1=id.
-OMITTED API signature: CrystallineCM.UnipotentTransferAction_compact — When g normalizes U₀, T_g is the usual g-action because the quotient has one element.
-OMITTED example: CrystallineCM.UnipotentTransferAction_test_trivial_u — For U₀=1 the transfer action is the original g-action.
-OMITTED example: CrystallineCM.UnipotentTransferAction_test_index_p — For U₀=Z_p,g contracting by p and trivial F_p coefficients, T_g=p·id=0.
-OMITTED example: CrystallineCM.UnipotentTransferAction_test_not_raw — In this index-p example raw g=id would incorrectly make it ordinary.
+CORE API signature: CrystallineCM.UnipotentTransferAction_independent — Replacing any representative n by an element of its same left coset does not change T_g on U₀-invariants.
+CORE API signature: CrystallineCM.UnipotentTransferAction_mul — T_{gh}=T_g∘T_h and T_1=id.
+CORE API signature: CrystallineCM.UnipotentTransferAction_compact — When g normalizes U₀, T_g is the usual g-action because the quotient has one element.
+CORE example: CrystallineCM.UnipotentTransferAction_test_trivial_u — For U₀=1 the transfer action is the original g-action.
+CORE example: CrystallineCM.UnipotentTransferAction_test_index_p — For U₀=Z_p,g contracting by p and trivial F_p coefficients, T_g=p·id=0.
+CORE example: CrystallineCM.UnipotentTransferAction_test_not_raw — In this index-p example raw g=id would incorrectly make it ordinary.
 Source: CN25v3 §2.2.2, equation (2.2.1), p.26
 
 CrystallineLocalGlobalCompatibilityCM:CL.1/ordinary-monoid-localization

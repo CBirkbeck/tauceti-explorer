@@ -1,28 +1,30 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-bVzE4Z`. Date: 2026-10-11.
-Branch: `codex-bVzE4Z-crystalline-cm-package`.
-Input commit: `fbbbb004e`.
+Agent: Codex (GPT-6). Session: `codex-yIyAW1`. Date: 2026-10-11.
+Branch: `codex-yIyAW1-crystalline-cm-package`.
+Input commit: `9e77d5c18`.
 Claim confirmed by github-actions in
-[comment 6104545769](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6104545769),
-in response to [6104544772](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6104544772).
+[comment 6104733646](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6104733646),
+in response to [6104732592](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6104732592).
 Only this job was claimed.
 
 ## Status
 
-**Checkpoint with substantive signature work.** The two deep congruence-level
-constructions in CL.6 now have typed forms, all six planned API declarations and
-all six planned unit tests. The README explains their construction and tests.
-The remaining arithmetic signatures still require supplying interfaces outside
+**Checkpoint with substantive signature work.** CL.1's unipotent transfer now
+has a typed degree-zero finite-coset construction, all three planned core API
+declarations and all three planned unit tests. The README explains the formula,
+composition and residue-characteristic test, and identifies the existing
+Tau Ceti trace and continuous-corestriction interfaces to reuse. The remaining
+arithmetic signatures require supplier exports and a request correction outside
 this issue's allowed files. This is an external dependency blocker, not a time
-or memory limit.
+or memory limit. The earlier CL.6 deep-level constructions are preserved.
 
 The accepted input has 97 targets, 103 API entries, 104 tests, 27 supplier
 requests and 40 gaps. Its ten layers CL.0–CL.9 are planned; none is closed. A
 successful target-level review does not supply the missing carrier interfaces.
-The suggested file now has **12 typed targets, 27 typed APIs and 27 labelled
-examples**. It retains **85 omitted targets, 76 omitted APIs and 77 omitted
+The suggested file now has **13 typed targets, 30 typed APIs and 30 labelled
+examples**. It retains **84 omitted targets, 73 omitted APIs and 74 omitted
 tests**, together with explicit arithmetic-specialization boundaries on the
 existing cores. Comments describing missing signatures are not declarations.
 
@@ -33,6 +35,47 @@ package as complete from the existence of its output paths. Add
 The accepted packet, original reader and original prototype were not changed.
 
 ## New typed material
+
+- `CrystallineCM.UnipotentTransferAction`: for a group U, an R-linear
+  representation ρ, a finite-index endomorphism c and a raw operator A with
+  Aρ(u)=ρ(c(u))A, sum ρ(r)Av over left cosets U/c(U). The result is an
+  endomorphism of `Representation.invariants`. The sum is explicit; it is
+  integral and permits a noninvertible raw operator. Arithmetic specialization
+  supplies c(u)=gug⁻¹ and A(v)=gv.
+- `_independent` states the arbitrary-transversal formula; `_mul` combines
+  injective contractions and intertwining operators, including the identity
+  law; `_compact` recovers the raw action when c is surjective. The trivial-U
+  test recovers any raw operator. Two tests use actual multiplication by p on
+  the additive group of p-adic integers, its residue quotient Z/pZ and trivial
+  F_p coefficients: transfer is p times the identity, hence zero, and differs
+  from the raw identity. The private quotient-equivalence signature is linked
+  explicitly to `PadicInt.toZMod`.
+- These signatures provide the algebraic degree-zero core. The smooth
+  positive-monoid functor, arithmetic specialization and derived enhancement
+  remain omitted. The catalogue distinguishes these boundaries from the typed
+  core API and examples. No assumed conclusions or empty Prop-valued sorry
+  definitions were introduced.
+
+Source: Caraiani–Newton [CN], arXiv:2301.10509v3, §2.2.2,
+equation (2.2.1), printed p.26. Read printed pp.26–28, including the derived
+construction and subsequent finite-level control. The public PDF matches
+SHA-256 `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
+URL: <https://arxiv.org/pdf/2301.10509v3>. Accessed 2026-10-11. No source passage
+was added.
+
+The current library already has `TauCeti.DiscreteCoind.traceLinear` and
+`TauCeti.DiscreteCoind.trace_eq_sum_transversal` in
+`RepresentationTheory/Coinduced/Discrete.lean`, and
+`TauCeti.ContCohomology.corestrictionTopRep` in
+`RepresentationTheory/Homological/ContCohomology/Corestriction/AllDegrees.lean`.
+ProfiniteCohomology Layer 10 plans the continuous restriction, conjugation and
+corestriction interfaces. Reuse these generic constructions: the remaining
+consumer work composes them with the raw contracting action and establishes
+smoothness and compact-unipotent acyclicity. Do not plan generic integral
+trace or all-degree continuous corestriction again. This checkpoint uses
+Mathlib imports only and does not assert a compile against the newer Tau Ceti.
+
+## Preserved deep-level material
 
 - `CrystallineCM.DeepLeviLevel`: inside a supplied subgroup K of the actual
   ambient group G, intersect the inverse images of matrix reduction kernels,
@@ -141,7 +184,7 @@ bounded-below group-derived material; it is not identical to the package export.
 Its positive-monoid interface remains in the omission ledger.
 
 At the exact Tau Ceti pin, `IsSmoothDiscrete` and `SmoothDiscreteTopRep` already
-allow monoids; read `Homological/ContCohomology/SmoothDiscrete.lean`,
+allow monoids; read `RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean`,
 lines 245–272. Basic monoid smoothness is available. The remaining
 `REQ-SMOOTH` obligation is the O/ϖ^m open-monoid abelian/derived interface,
 restriction/injectivity compatibility and coefficient-injective coinduction
@@ -179,23 +222,23 @@ exhaustive audit of all 27 requests.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
   **0 errors, 0 warnings**; the accepted packet is unchanged.
 - `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
-  **exit 0, 0 errors, 60 warnings, all `declaration uses sorry`**. Available
-  memory was 102 GB before the final check; it finished with no surviving Lean
+  **exit 0, 0 errors, 69 warnings, all `declaration uses sorry`**. Available
+  memory was 100 GB before the final check; it finished with no surviving Lean
   process. The shared Mathlib is exactly
   `082e2d37e8b0463410cdb532e111cd43d5a66174`; individual Mathlib imports only.
   No language server, build, cache download or Lake command in the read-only
   roadmap environment was used.
 - Reconciled all 97 target names, 103 API names and 104 test names against the
   reader and prototype; resolved namespace-qualified declarations and checked
-  the six new labelled examples outside block comments. Checked that there is
+  the three new labelled examples outside block comments. Checked that there is
   no empty Prop-valued sorry definition.
-- README: 169,947 bytes; Suggested.lean: 140,823 bytes. The reader remains
-  below 200 KB. Only its two deep-level explanations were extended, preserving
+- README: 171,901 bytes; Suggested.lean: 146,021 bytes. The reader remains
+  below 200 KB. Its transfer explanation was extended, preserving
   every accepted target, hypothesis, API, test and source locator.
 - Read WORKERS, both protocols and UPSTREAM_GUIDE; both complete upstream
   ReductiveGroups and PeripheralActions READMEs; the relevant current supplier
   signatures, pinned statements, reviewed ALS.6 audit and accepted RS-09.
-  The read-only roadmap checkout is
+  Read CN printed pp.26–28 for the new construction. The read-only roadmap checkout is
   `070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No restricted source was needed.
 - Intake file-scope check: **3 files, 0 problems**. `git diff --check` passes.
@@ -214,8 +257,11 @@ Input SHA-256 fingerprints remain:
 First resolve the supplier gate and authorize the REQ-TOWER ownership correction.
 Resume against actual exporting signatures rather than creating another copy of
 supplier mathematics or replacing missing objects by assumed conclusions.
-Keep the new deep-level forms; specialize their component maps to the arithmetic
-level dictionary instead of rebuilding the same subgroup construction.
+Keep the typed transfer and deep-level forms. Specialize the transfer to the
+actual contracting arithmetic elements, and the deep-level component maps to
+the arithmetic level dictionary, instead of rebuilding these constructions.
+The package cannot be completed by merely filling the remaining comments with
+Prop placeholders or abstract assumptions of each theorem's conclusion.
 
 Remaining layer interfaces:
 
