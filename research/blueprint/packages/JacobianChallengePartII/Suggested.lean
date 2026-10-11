@@ -371,6 +371,15 @@ theorem schemeIso_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) :
       (schemeIso (A := (Over.pullback f).obj A) n).hom := by
   sorry
 
+/-- The whole isomorphism, including its inverse, commutes with arbitrary base extension. -/
+theorem schemeIso_baseChangeIso {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).mapIso (schemeIso (A := A) n) ≪≫
+        PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A) =
+      PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A) ≪≫
+        schemeIso (A := (Over.pullback f).obj A) n := by
+  sorry
+
 -- test_schemeLengthOne: the isomorphism of the actual one-factor fibre power is identity.
 example : schemeIso (A := A) 0 = Iso.refl _ := by
   sorry
@@ -386,6 +395,13 @@ example (f g : T ⟶ A) :
 example (n : ℕ) (f : T ⟶ A) :
     Pi.lift (fun _ : Fin (n + 1) ↦ f) ≫ (schemeIso (A := A) n).hom =
       Pi.lift (fun i : Fin (n + 1) ↦ if i = 0 then f else 1) := by
+  sorry
+
+-- test_schemeNoncommutingInverse: left restoration fails when the head and tail do not commute.
+example (a b : T ⟶ A) (h : a * b ≠ b * a) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else b) ≫
+        (schemeIso (A := A) 1).inv ≠
+      Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else a * b) := by
   sorry
 
 end TriangularCoordinateEquivalence
