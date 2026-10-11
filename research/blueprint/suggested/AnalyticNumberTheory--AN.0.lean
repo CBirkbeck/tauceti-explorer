@@ -1,3 +1,17 @@
+import Mathlib.Analysis.Meromorphic.Basic
+import Mathlib.FieldTheory.Normal.Closure
+import Mathlib.NumberTheory.NumberField.CMField
+import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.GroupTheory.Solvable
+import TauCeti.AlgebraicTopology.UniversalCover.Classification.SubgroupQuotient
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
+import Mathlib.LinearAlgebra.Charpoly.ToMatrix
+import Mathlib.RepresentationTheory.Invariants
+import TauCeti.NumberTheory.NumberField.Frobenius
+import TauCeti.NumberTheory.NumberField.Quadratic.Conjugation.Ambiguous.Narrow
+import TauCeti.NumberTheory.NumberField.NarrowClassGroup.Finite
+import TauCeti.NumberTheory.ArithmeticDirichletSeries.Estimates
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.LSeries.DirichletContinuation
@@ -44,17 +58,10 @@ This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
 converge on names and signatures. No implementation is claimed.
 
-Independent review Codex codex-Yr3nnW (2026-10-05) is complete with verdict
-needs_changes. The executable file elaborates at Mathlib
-082e2d37e8b0463410cdb532e111cd43d5a66174 with 304 warnings, all
-`declaration uses sorry`, and no errors. This file imports Mathlib only.
-Elaboration checks signatures with admitted proofs; it certifies neither the
-mathematical proofs nor the comment-only canonical interfaces below.
-
-Four definition carriers, their 18 API items and 14 tests remain mathematical
-specifications: partial ideal zeta, exceptional squareclasses, and local/global
-Artin constructions. Further cover, higher-genus and Tauberian signatures are
-also explicit omissions. The final report records their exact proof boundaries.
+The signatures use the pinned Mathlib and Tau Ceti carriers. Admitted proofs
+are specifications, including constructions not implemented by either library.
+The final mathematical-interface notes identify targets requiring supplier
+exports; elaboration of the native portion does not certify those omissions.
 
 Three cutoff lemmas and the maximal-order divisor upper bound repair the
 leading-log-2 outline; no matching lower bound is asserted. The preliminary
@@ -64,7 +71,11 @@ Theorem6.1(2) must exclude order zero; E26 records the surviving n=0 term.
 -/
 
 noncomputable section
-open scoped BigOperators Topology
+open scoped BigOperators Topology nonZeroDivisors NumberField Pointwise
+open IsDedekindDomain (HeightOneSpectrum)
+open Module (Basis)
+open Classical
+attribute [local instance] propDecidable
 open Filter
 
 namespace TauCeti.AnalyticNumberTheory
@@ -1489,7 +1500,7 @@ example : ((Finset.range 14).filter (fun n : ℕ =>
     n.primeFactors.card = 2)).card = 1 := by sorry
 
 /-! AN.4: concrete finite-factor and disc signatures. The canonical number-field
-Artin carriers remain omitted under the explicit interface gap. -/
+Canonical number-field Artin carriers and their Euler-series interfaces are stated below. -/
 
 lemma artin_local_reciprocal_bound (d m : ℕ) (hm : m ≤ d)
     (θ : ℝ) (hθ0 : 0 ≤ θ) (hθ1 : θ < 1)
@@ -1514,599 +1525,1135 @@ lemma boundary_disc_overlap (a b : ℂ) (ha : a.re = 1) (hb : b.re = 1)
     IsPreconnected (Metric.ball a r ∩ Metric.ball b q) ∧
       ∃ z ∈ Metric.ball a r ∩ Metric.ball b q, 1 < z.re := by sorry
 
+
+
+/-- Select the existing class group, including positivity in the narrow case. -/
+abbrev IdealZetaClass (K : Type*) [Field K] [NumberField K] (narrow : Bool) : Type _ :=
+  match narrow with
+  | false => ClassGroup (𝓞 K)
+  | true => NumberField.NarrowClassGroup K
+instance (K : Type*) [Field K] [NumberField K] (narrow : Bool) : CommGroup (IdealZetaClass K narrow) := by
+  cases narrow <;> infer_instance
+instance (K : Type*) [Field K] [NumberField K] (narrow : Bool) :
+    Fintype (IdealZetaClass K narrow) := by
+  cases narrow <;> exact Fintype.ofFinite _
+
+def idealZetaClassMap (K : Type*) [Field K] [NumberField K] (narrow : Bool) :
+    (Ideal (𝓞 K))⁰ →* IdealZetaClass K narrow := by
+  cases narrow
+  · exact ClassGroup.mk0
+  · exact NumberField.NarrowClassGroup.mk0
+
+def partialIdealWeight (K : Type*) [Field K] [NumberField K] (narrow : Bool)
+    (A : IdealZetaClass K narrow) : TauCeti.IdealArithmeticFunction K :=
+  fun I => if idealZetaClassMap K narrow I = A then 1 else 0
+
+def partialIdealCoeff (K : Type*) [Field K] [NumberField K] (narrow : Bool)
+    (A : IdealZetaClass K narrow) : ArithmeticFunction ℂ :=
+  TauCeti.normCoeff K (partialIdealWeight K narrow A)
+
+/-- AN.4/partial-ideal-zeta. The zero ideal is excluded by the carrier. -/
+def partial_ideal_zeta (K : Type*) [Field K] [NumberField K] (narrow : Bool)
+    (A : IdealZetaClass K narrow) (s : ℂ) : ℂ :=
+  LSeries (partialIdealCoeff K narrow A) s
+
+namespace partial_ideal_zeta
+variable (K : Type*) [Field K] [NumberField K] (narrow : Bool)
+lemma coeff (A : IdealZetaClass K narrow) (n : ℕ) :
+    partialIdealCoeff K narrow A n =
+      (Nat.card {I : (Ideal (𝓞 K))⁰ //
+        Ideal.absNorm (I : Ideal (𝓞 K)) = n ∧ idealZetaClassMap K narrow I = A} : ℂ) := by sorry
+lemma sum_classes (s : ℂ) (hs : 1 < s.re) :
+    ∑ A : IdealZetaClass K narrow, partial_ideal_zeta K narrow A s =
+      NumberField.dedekindZeta K s := by sorry
+lemma character_sum (χ : IdealZetaClass K narrow →* ℂˣ) (s : ℂ) (hs : 1 < s.re) :
+    (∑ A : IdealZetaClass K narrow, (χ A : ℂ) * partial_ideal_zeta K narrow A s) =
+      LSeries (TauCeti.normCoeff K (fun I => (χ (idealZetaClassMap K narrow I) : ℂ))) s := by sorry
+/-- Conjugation is expressed on the actual ring of integers and class map. -/
+lemma conjugation (A : IdealZetaClass K narrow) (s : ℂ) (hs : 1 < s.re)
+    (τ : 𝓞 K ≃+* 𝓞 K)
+    (hclass : ∀ I J : (Ideal (𝓞 K))⁰,
+      (J : Ideal (𝓞 K)) = Ideal.map τ (I : Ideal (𝓞 K)) →
+      idealZetaClassMap K narrow J = (idealZetaClassMap K narrow I)⁻¹) :
+    partial_ideal_zeta K narrow A s = partial_ideal_zeta K narrow A⁻¹ s := by sorry
+-- TEST partial_ideal_zeta.q
+example (s : ℂ) (hs : 1 < s.re) :
+    partial_ideal_zeta ℚ false 1 s = riemannZeta s := by sorry
+-- TEST partial_ideal_zeta.unit
+example (A : IdealZetaClass K narrow) :
+    partialIdealCoeff K narrow A 1 = if A = 1 then 1 else 0 := by sorry
+-- TEST partial_ideal_zeta.no_generators
+example : partialIdealCoeff K narrow 1 1 = 1 := by sorry
+-- TEST partial_ideal_zeta.zero
+example (A : IdealZetaClass K narrow) : partialIdealCoeff K narrow A 0 = 0 := by sorry
+end partial_ideal_zeta
+
+end TauCeti.AnalyticNumberTheory
+
+/-! Requested GlobalNumberFields Layer 10 exports. These are prototypes of
+supplier constructions, not existing library declarations or AN-owned targets. -/
+namespace TauCeti.GlobalNumberFields
+/-- The signed fundamental discriminant for a squarefree quadratic radicand. -/
+def quadraticDiscriminant (d : ℤ) : ℤ := if d % 4 = 1 then d else 4 * d
+/-- Kronecker value at the prime 2, including the ramified value zero. -/
+def quadraticAtTwo (D : ℤ) : ℤ :=
+  if D % 2 = 0 then 0 else if D % 8 = 1 ∨ D % 8 = 7 then 1 else -1
+/-- Positive-denominator Kronecker symbol; the Jacobi symbol alone mishandles even n. -/
+def quadraticCoeff (d : ℤ) (n : ℕ) : ℂ :=
+  if n = 0 then 0 else
+    ((quadraticAtTwo (quadraticDiscriminant d)) ^ (n.factorization 2) *
+      jacobiSym (quadraticDiscriminant d) (n / 2 ^ (n.factorization 2)) : ℤ)
+/-- Canonical quadratic character: its value is fixed by the preceding formula.
+Its periodicity, multiplicativity and primitivity are supplier obligations. -/
+def quadraticDirichletCharacter (d : ℤ) (hd : d ≠ 0) (hsq : Squarefree d) (htriv : d ≠ 1) :
+    DirichletCharacter ℂ (quadraticDiscriminant d).natAbs := by sorry
+lemma quadraticDirichletCharacter_apply (d : ℤ) (hd : d ≠ 0) (hsq : Squarefree d)
+    (htriv : d ≠ 1) (n : ℕ) :
+    quadraticDirichletCharacter d hd hsq htriv n = quadraticCoeff d n := by sorry
+lemma quadraticDirichletCharacter_primitive (d : ℤ) (hd : d ≠ 0) (hsq : Squarefree d)
+    (htriv : d ≠ 1) : (quadraticDirichletCharacter d hd hsq htriv).IsPrimitive := by sorry
+
+def quadraticLFunction (d : ℤ) (hd : d ≠ 0) (hsq : Squarefree d) (htriv : d ≠ 1)
+    (s : ℂ) : ℂ := by
+  letI : NeZero (quadraticDiscriminant d).natAbs := ⟨by sorry⟩
+  exact DirichletCharacter.LFunction (quadraticDirichletCharacter d hd hsq htriv) s
+
+end TauCeti.GlobalNumberFields
+namespace TauCeti.AnalyticNumberTheory
+open TauCeti.GlobalNumberFields
+
+/-- AN.2/exceptional-squareclasses; no infinite enumeration is built into this set. -/
+def exceptional_squareclasses (c : ℝ) : Set ℤ :=
+  {d | ∃ (hd : d ≠ 0) (hsq : Squarefree d) (htriv : d ≠ 1) (β : ℝ),
+    1 - c / Real.log ((d.natAbs : ℝ) + 4) ≤ β ∧ β ≤ 1 ∧
+    quadraticLFunction d hd hsq htriv β = 0}
+lemma exceptional_squareclasses.membership (c : ℝ) (d : ℤ) :
+    d ∈ exceptional_squareclasses c ↔
+      ∃ (hd : d ≠ 0) (hsq : Squarefree d) (htriv : d ≠ 1) (β : ℝ),
+        1 - c / Real.log ((d.natAbs : ℝ) + 4) ≤ β ∧ β ≤ 1 ∧
+        quadraticLFunction d hd hsq htriv β = 0 := by sorry
+lemma exceptional_squareclasses.mono (c c' : ℝ) (hc : 0 < c) (hcc : c ≤ c')
+    (hc' : c' < 1/2) : exceptional_squareclasses c ⊆ exceptional_squareclasses c' := by sorry
+lemma exceptional_squareclasses.finite_height (c : ℝ) (B : ℕ) :
+    {d : ℤ | d ∈ exceptional_squareclasses c ∧ d.natAbs ≤ B}.Finite := by sorry
+lemma exceptional_squareclasses.conductor (d : ℤ) (hd : d ≠ 0) (hsq : Squarefree d)
+    (htriv : d ≠ 1) : (quadraticDirichletCharacter d hd hsq htriv).conductor =
+      if d % 4 = 1 then d.natAbs else 4 * d.natAbs := by sorry
+-- TEST exceptional_squareclasses.trivial
+example (c : ℝ) : (1 : ℤ) ∉ exceptional_squareclasses c := by sorry
+-- TEST exceptional_squareclasses.minus_one
+example : quadraticDiscriminant (-1) = -4 := by sorry
+-- TEST exceptional_squareclasses.two
+example : quadraticDiscriminant 2 = 8 := by sorry
+-- TEST exceptional_squareclasses.finite: finite selection is bounded without an infinitude assumption.
+example (c : ℝ) (B : ℕ) :
+    {d : ℤ | d ∈ exceptional_squareclasses c ∧ d.natAbs ≤ B}.Finite := by sorry
+
+section Artin
+variable {K L : Type*} [Field K] [NumberField K] [Field L] [NumberField L]
+  [Algebra K L] [IsGalois K L]
+variable {V W : Type*} [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+  [AddCommGroup W] [Module ℂ W] [FiniteDimensional ℂ W]
+variable (ρ : Representation ℂ (L ≃ₐ[K] L) V)
+
+abbrev artinInvariants (P : Ideal (𝓞 L)) :=
+  Representation.invariants (ρ.comp (P.inertia (L ≃ₐ[K] L)).subtype)
+/-- Restrict a Frobenius lift to the actual inertia-invariant submodule. -/
+def artinFrobeniusEnd (P : Ideal (𝓞 L)) (σ : L ≃ₐ[K] L)
+    (hσ : IsArithFrobAt (𝓞 K) σ P) : Module.End ℂ (artinInvariants ρ P) := by
+  refine (ρ σ).restrict ?_
+  sorry
+
+def artinPolynomialAt (P : Ideal (𝓞 L)) (σ : L ≃ₐ[K] L)
+    (hσ : IsArithFrobAt (𝓞 K) σ P) : Polynomial ℂ :=
+  (artinFrobeniusEnd ρ P σ hσ).charpoly.reverse
+
+/-- One prime above p; all dependence on this choice is removed by independence. -/
+def artinPrimeAbove (p : HeightOneSpectrum (𝓞 K)) : HeightOneSpectrum (𝓞 L) := by sorry
+lemma artinPrimeAbove_liesOver (p : HeightOneSpectrum (𝓞 K)) :
+    (artinPrimeAbove (L := L) p).asIdeal.LiesOver p.asIdeal := by sorry
+
+def artinFrobenius (P : HeightOneSpectrum (𝓞 L)) : L ≃ₐ[K] L :=
+  (NumberField.exists_isArithFrobAt K P.asIdeal P.ne_bot).choose
+lemma artinFrobenius_spec (P : HeightOneSpectrum (𝓞 L)) :
+    IsArithFrobAt (𝓞 K) (artinFrobenius (K := K) P) P.asIdeal :=
+  (NumberField.exists_isArithFrobAt K P.asIdeal P.ne_bot).choose_spec
+/-- AN.4/artin-local-polynomial. Ramified primes use invariants as well. -/
+def artin_local_polynomial (p : HeightOneSpectrum (𝓞 K)) : Polynomial ℂ :=
+  artinPolynomialAt ρ (artinPrimeAbove (L := L) p).asIdeal
+    (artinFrobenius (K := K) (artinPrimeAbove (L := L) p))
+    (artinFrobenius_spec (K := K) (artinPrimeAbove (L := L) p))
+
+lemma artin_local_polynomial.independence (p : HeightOneSpectrum (𝓞 K))
+    (P : HeightOneSpectrum (𝓞 L)) (hP : P.asIdeal.LiesOver p.asIdeal)
+    (σ : L ≃ₐ[K] L) (hσ : IsArithFrobAt (𝓞 K) σ P.asIdeal) :
+    artin_local_polynomial ρ p = artinPolynomialAt ρ P.asIdeal σ hσ := by sorry
+lemma artin_local_polynomial.constant (p : HeightOneSpectrum (𝓞 K)) :
+    (artin_local_polynomial ρ p).eval 0 = 1 := by sorry
+lemma artin_local_polynomial.unramified (p : HeightOneSpectrum (𝓞 K))
+    (P : HeightOneSpectrum (𝓞 L)) (hP : P.asIdeal.LiesOver p.asIdeal)
+    (hI : P.asIdeal.inertia (L ≃ₐ[K] L) = ⊥)
+    (σ : L ≃ₐ[K] L) (hσ : IsArithFrobAt (𝓞 K) σ P.asIdeal) :
+    artin_local_polynomial ρ p = (ρ σ).charpoly.reverse := by sorry
+lemma artin_local_polynomial.degree (p : HeightOneSpectrum (𝓞 K)) :
+    (artin_local_polynomial ρ p).natDegree =
+      Module.finrank ℂ (artinInvariants ρ (artinPrimeAbove (L := L) p).asIdeal) ∧
+    (artin_local_polynomial ρ p).natDegree ≤ Module.finrank ℂ V ∧
+    ∀ z : ℂ, (artin_local_polynomial ρ p).eval z = 0 → ‖z‖ = 1 := by sorry
+lemma artin_local_polynomial.basis (p : HeightOneSpectrum (𝓞 K))
+    (ι : Type*) [Fintype ι] [DecidableEq ι]
+    (b : Basis ι ℂ (artinInvariants ρ (artinPrimeAbove (L := L) p).asIdeal)) :
+    artin_local_polynomial ρ p =
+      (LinearMap.toMatrix b b (artinFrobeniusEnd ρ (artinPrimeAbove (L := L) p).asIdeal
+        (artinFrobenius (K := K) (artinPrimeAbove (L := L) p))
+        (artinFrobenius_spec (K := K) (artinPrimeAbove (L := L) p)))).charpoly.reverse := by sorry
+-- TEST artin_local_polynomial.trivial
+example (p : HeightOneSpectrum (𝓞 K)) :
+    artin_local_polynomial (L := L) (Representation.trivial ℂ (L ≃ₐ[K] L) ℂ) p =
+      1 - Polynomial.X := by sorry
+-- TEST artin_local_polynomial.zero
+example (p : HeightOneSpectrum (𝓞 K)) (hV : Module.finrank ℂ V = 0) :
+    artin_local_polynomial ρ p = 1 := by sorry
+-- TEST artin_local_polynomial.ramified_character
+example (p : HeightOneSpectrum (𝓞 K)) (hV : Module.finrank ℂ V = 1)
+    (hinertia : ∃ σ : (artinPrimeAbove (L := L) p).asIdeal.inertia (L ≃ₐ[K] L),
+      ρ σ ≠ 1) : artin_local_polynomial ρ p = 1 := by sorry
+
+/-- Reciprocal-polynomial coefficients, determined recursively by P(T)A(T)=1. -/
+def artinReciprocalCoeff (p : HeightOneSpectrum (𝓞 K)) : ℕ → ℂ
+  | 0 => 1
+  | n + 1 => - ∑ j ∈ Finset.range (n + 1),
+      (artin_local_polynomial ρ p).coeff (j + 1) * artinReciprocalCoeff p (n - j)
+/-- The multiplicative ideal coefficient is fixed by these prime-power values. -/
+def artinIdealCoeff (ρ : Representation ℂ (L ≃ₐ[K] L) V) : TauCeti.IdealArithmeticFunction K := by sorry
+lemma artinIdealCoeff_prime_pow (p : HeightOneSpectrum (𝓞 K)) (n : ℕ)
+    (I : (Ideal (𝓞 K))⁰) (hI : (I : Ideal (𝓞 K)) = p.asIdeal ^ n) :
+    artinIdealCoeff ρ I = artinReciprocalCoeff ρ p n := by sorry
+lemma artinIdealCoeff_multiplicative : (artinIdealCoeff ρ).IsMultiplicative := by sorry
+
+def artinLocalFactor (p : HeightOneSpectrum (𝓞 K)) (s : ℂ) : ℂ :=
+  ((artin_local_polynomial ρ p).eval
+    (Complex.exp (-s * Real.log (Ideal.absNorm p.asIdeal))))⁻¹
+/-- AN.4/artin-euler-series; right-half-plane product with all finite primes. -/
+def artin_euler_series (s : ℂ) : ℂ := ∏' p : HeightOneSpectrum (𝓞 K), artinLocalFactor ρ p s
+lemma artin_euler_series.local (p : HeightOneSpectrum (𝓞 K)) (s : ℂ) :
+    artinLocalFactor ρ p s = ((artin_local_polynomial ρ p).eval
+      (Complex.exp (-s * Real.log (Ideal.absNorm p.asIdeal))))⁻¹ := by sorry
+lemma artin_euler_series.series (s : ℂ) (hs : 1 < s.re) :
+    artin_euler_series ρ s = LSeries (TauCeti.normCoeff K (artinIdealCoeff ρ)) s := by sorry
+lemma artin_euler_series.nonzero (s : ℂ) (hs : 1 < s.re) : artin_euler_series ρ s ≠ 0 := by sorry
+lemma artin_euler_series.direct_sum (σ : Representation ℂ (L ≃ₐ[K] L) W)
+    (s : ℂ) (hs : 1 < s.re) :
+    artin_euler_series (ρ.prod σ) s = artin_euler_series ρ s * artin_euler_series σ s := by sorry
+lemma artin_euler_series.deleted (bad : Finset (HeightOneSpectrum (𝓞 K)))
+    (s : ℂ) (hs : 1 < s.re) :
+    (∏' p : {p : HeightOneSpectrum (𝓞 K) // p ∉ bad}, artinLocalFactor ρ p.val s) =
+      artin_euler_series ρ s * ∏ p ∈ bad,
+        (artin_local_polynomial ρ p).eval
+          (Complex.exp (-s * Real.log (Ideal.absNorm p.asIdeal))) := by sorry
+-- TEST artin_euler_series.trivial
+example (s : ℂ) (hs : 1 < s.re) :
+    artin_euler_series (L := L) (Representation.trivial ℂ (L ≃ₐ[K] L) ℂ) s =
+      NumberField.dedekindZeta K s := by sorry
+-- TEST artin_euler_series.zero
+example (s : ℂ) (hs : 1 < s.re) (hV : Module.finrank ℂ V = 0) :
+    artin_euler_series ρ s = 1 := by sorry
+-- TEST artin_euler_series.ramified
+example (p : HeightOneSpectrum (𝓞 K)) (s : ℂ) (hV : Module.finrank ℂ V = 1)
+    (hinertia : ∃ σ : (artinPrimeAbove (L := L) p).asIdeal.inertia (L ≃ₐ[K] L),
+      ρ σ ≠ 1) : artinLocalFactor ρ p s = 1 := by sorry
+end Artin
+
+/-- The genus-n elementary factor used in finite-order Hadamard products. -/
+def canonical_factor (n : ℕ) (w : ℂ) : ℂ :=
+  (1 - w) * Complex.exp (∑ j ∈ Finset.Icc 1 n, w ^ j / (j : ℂ))
+lemma canonical_factor.zero_genus (w : ℂ) : canonical_factor 0 w = 1 - w := by sorry
+lemma canonical_factor.one_genus (w : ℂ) : canonical_factor 1 w = genus_one_factor w := by sorry
+lemma canonical_factor.entire (n : ℕ) : Differentiable ℂ (canonical_factor n) := by sorry
+lemma canonical_factor.zeros (n : ℕ) (w : ℂ) :
+    (canonical_factor n w = 0 ↔ w = 1) ∧ analyticOrderNatAt (canonical_factor n) 1 = 1 := by sorry
+lemma canonical_factor.log_tail (n : ℕ) : ∃ C : ℝ, 0 < C ∧ ∀ w : ℂ, ‖w‖ ≤ 1/2 →
+    ‖Complex.log (1 - w) + ∑ j ∈ Finset.Icc 1 n, w ^ j / (j : ℂ)‖ ≤ C * ‖w‖ ^ (n + 1) := by sorry
+-- TEST canonical_factor.origin
+example (n : ℕ) : canonical_factor n 0 = 1 := by sorry
+-- TEST canonical_factor.root
+example (n : ℕ) : canonical_factor n 1 = 0 := by sorry
+-- TEST canonical_factor.genus_zero
+example (w : ℂ) : canonical_factor 0 w = 1 - w := by sorry
+-- TEST canonical_factor.genus_one
+example (w : ℂ) : canonical_factor 1 w * canonical_factor 1 (-w) = 1 - w ^ 2 := by sorry
+
+/-- Finite and empty zero families use `none`, preserving multiplicities. -/
+theorem finite_order_hadamard (f : ℂ → ℂ) (ρ : ℝ) (hf : entire_order_at_most f ρ)
+    (hnonzero : ∃ z : ℂ, f z ≠ 0) :
+    ∃ h : Polynomial ℂ, ∃ u : ℕ → Option ℂ,
+      h.natDegree ≤ Nat.floor ρ ∧
+      (∀ n α, u n = some α → α ≠ 0 ∧ f α = 0) ∧
+      (∀ α : ℂ, Set.Finite {n : ℕ | u n = some α}) ∧
+      (∀ α : ℂ, α ≠ 0 → Nat.card {n : ℕ // u n = some α} = analyticOrderNatAt f α) ∧
+      Summable (fun n => match u n with
+        | none => (0 : ℝ)
+        | some α => ‖α‖ ^ (-(Nat.floor ρ + 1 : ℝ))) ∧
+      TendstoLocallyUniformlyOn
+        (fun S : Finset ℕ => fun z : ℂ => ∏ n ∈ S, match u n with
+          | none => (1 : ℂ)
+          | some α => canonical_factor (Nat.floor ρ) (z / α))
+        (fun z : ℂ => ∏' n : ℕ, match u n with
+          | none => (1 : ℂ)
+          | some α => canonical_factor (Nat.floor ρ) (z / α)) atTop Set.univ ∧
+      ∀ z : ℂ, Multipliable (fun n => match u n with
+          | none => (1 : ℂ)
+          | some α => canonical_factor (Nat.floor ρ) (z / α)) ∧
+        f z = z ^ analyticOrderNatAt f 0 * Complex.exp (h.eval z) *
+          ∏' n : ℕ, match u n with
+            | none => (1 : ℂ)
+            | some α => canonical_factor (Nat.floor ρ) (z / α) := by sorry
+
+/-- Indexed exponent vectors distinguish repeated generalized primes. -/
+def beurling_zeta (P : beurling_prime_system) (s : ℂ) : ℂ :=
+  ∑' a : ℕ →₀ ℕ, Complex.exp (-s * Real.log (P.norm a))
+lemma beurling_zeta.summable (P : beurling_prime_system) (s : ℂ) (hs : 1 < s.re)
+    (hP : ∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    Summable (fun a : ℕ →₀ ℕ => Complex.exp (-s * Real.log (P.norm a))) := by sorry
+lemma beurling_zeta.nonzero (P : beurling_prime_system) (s : ℂ) (hs : 1 < s.re)
+    (hP : ∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    beurling_zeta P s ≠ 0 := by sorry
+lemma beurling_zeta.analytic (P : beurling_prime_system)
+    (hP : ∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    AnalyticOnNhd ℂ (beurling_zeta P) {s | 1 < s.re} := by sorry
+-- TEST beurling_zeta.ordinary
+example (P : beurling_prime_system) (hp : ∀ i, P.prime i = (Nat.nth Nat.Prime i : ℝ))
+    (s : ℂ) (hs : 1 < s.re) : beurling_zeta P s = riemannZeta s := by sorry
+-- TEST beurling_zeta.doubled
+example (P : beurling_prime_system)
+    (hp : ∀ i, P.prime i = (Nat.nth Nat.Prime (i / 2) : ℝ))
+    (s : ℂ) (hs : 1 < s.re) : beurling_zeta P s = riemannZeta s ^ 2 := by sorry
+-- TEST beurling_zeta.unit_term
+example (P : beurling_prime_system) (s : ℂ) :
+    Complex.exp (-s * Real.log (P.norm 0)) = 1 := by sorry
+
+lemma beurling_zeta_product (P : beurling_prime_system)
+    (hP : ∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    (∀ s : ℂ, 1 < s.re →
+      Multipliable (fun j => (1 - Complex.exp (-s * Real.log (P.prime j)))⁻¹) ∧
+      beurling_zeta P s = ∏' j : ℕ, (1 - Complex.exp (-s * Real.log (P.prime j)))⁻¹) ∧
+    TendstoLocallyUniformlyOn
+      (fun S : Finset ℕ => fun s : ℂ => ∏ j ∈ S,
+        (1 - Complex.exp (-s * Real.log (P.prime j)))⁻¹)
+      (beurling_zeta P) atTop {s | 1 < s.re} := by sorry
+
+/-- Each logarithmic error has its own constant and threshold; density is chosen once. -/
+theorem beurling_all_log_remainders (P : beurling_prime_system)
+    (hP : ∀ σ : ℝ, 1 < σ → Summable (fun a : ℕ →₀ ℕ => P.norm a ^ (-σ))) :
+    (∀ m : ℕ, 1 ≤ m → ∃ C X : ℝ, 0 < C ∧ 2 ≤ X ∧ ∀ x : ℝ, X ≤ x →
+      |(beurling_prime_count P x : ℝ) - ∫ t : ℝ in (2 : ℝ)..x, (Real.log t)⁻¹| ≤
+        C * x / Real.log x ^ m) ↔
+    (∃ a : ℝ, 0 < a ∧ ∀ m : ℕ, 1 ≤ m → ∃ C X : ℝ, 0 < C ∧ 2 ≤ X ∧
+      ∀ x : ℝ, X ≤ x → |(beurling_integer_count P x : ℝ) - a * x| ≤
+        C * x / Real.log x ^ m) := by sorry
+
+/-- Green--Tao, Lemma A.1, p.541. G and R are removable extensions at the pole. -/
+theorem green_tao_zeta_strip : ∃ β C : ℝ, 0 < β ∧ β < 1 ∧ 0 < C ∧
+    ∃ G R : ℂ → ℂ,
+      let Z : Set ℂ := {s | 1 - β / Real.log (|s.im| + 2) ≤ s.re ∧ s.re ≤ 10}
+      AnalyticOnNhd ℂ G Z ∧ AnalyticOnNhd ℂ R Z ∧ R 1 = 0 ∧
+      Tendsto (fun s : ℂ => (s - 1) * riemannZeta s) (𝓝[≠] 1) (𝓝 1) ∧
+      (∀ s ∈ Z, s ≠ 1 → riemannZeta s ≠ 0 ∧
+        G s = riemannZeta s - (s - 1)⁻¹ ∧ R s = (riemannZeta s)⁻¹) ∧
+      ∀ s ∈ Z, ‖G s‖ ≤ C * Real.log (|s.im| + 2) ∧
+        ‖R s‖ ≤ C * Real.log (|s.im| + 2) := by sorry
+
+/-- The weak convexity input actually used in Green--Tao (A.5), p.544. -/
+theorem riemann_zeta_weak_convexity (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ σ t : ℝ, 1/2 ≤ σ → σ ≤ 1 → 1/100 ≤ |t| →
+      ‖riemannZeta ((σ : ℂ) + t * Complex.I)‖ ≤ C * |t| ^ (1 - σ + ε) := by sorry
+
+/-- This is the actual open punctured-product space, not a substitute cover carrier. -/
+abbrev LerchDomain := {q : ℂ × ℂ × ℂ // q.2.1 ≠ 0 ∧ q.2.1 ≠ 1 ∧
+  ∀ n : ℕ, q.2.2 ≠ -(n : ℂ)}
+def lerchBasepoint : LerchDomain := ⟨(1/2, -1, 1/2), by
+  constructor
+  · norm_num
+  constructor
+  · norm_num
+  · intro n hn
+    have h := congrArg Complex.re hn
+    simp only [Complex.neg_re, Complex.natCast_re] at h
+    have hnonneg : (0 : ℝ) ≤ n := Nat.cast_nonneg n
+    norm_num at h
+    linarith⟩
+abbrev LerchCover := TauCeti.UniversalCover lerchBasepoint
+abbrev LerchGroup := FundamentalGroup LerchDomain lerchBasepoint
+
+/-- Local analytic representatives define holomorphy on the canonical topological cover.
+The initial germ comes from the principal integral, including at z=-1. -/
+theorem lerch_cover_continuation : ∃ F : LerchCover → ℂ,
+    (∀ u : LerchCover, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ F =ᶠ[𝓝 u] fun v => g v.proj.val) ∧
+    F =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerch_integral_representation.choose v.proj.val := by sorry
+
+/-- In this library a positive loop γ acts by γ⁻¹; invariance has either formulation. -/
+theorem lerch_solvable_descent (F : LerchCover → ℂ)
+    (hhol : ∀ u : LerchCover, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ F =ᶠ[𝓝 u] fun v => g v.proj.val)
+    (hbase : F =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerch_integral_representation.choose v.proj.val) :
+    (∀ γ : LerchGroup, γ ∈ derivedSeries LerchGroup 2 → ∀ u : LerchCover, F (γ • u) = F u) ∧
+    ∃ Fbar : TauCeti.UniversalCover.SubgroupQuotient lerchBasepoint (derivedSeries LerchGroup 2) → ℂ,
+      ∀ u : LerchCover,
+        Fbar (TauCeti.UniversalCover.subgroupQuotientMap lerchBasepoint
+          (derivedSeries LerchGroup 2) u) = F u := by sorry
+
+/-! Artin factors below are fixed by equality with the genuine all-prime Euler
+series. Analyticity and nonvanishing at 1 are qualitative supplier inputs.
+No arbitrary function family is substituted for the Galois representations.
+The canonical conductor object remains the explicit ArtinRepresentations request. -/
+section Colmez
+/-- Uniform over every odd irreducible of each degree-2g CM normal closure.
+The CM coefficient supplier restricts the height expression to this family. -/
+theorem artin_value_one_subpower (g : ℕ) (hg : 1 ≤ g) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧
+    ∀ (E L : Type) [Field E] [NumberField E] [NumberField.IsCMField E]
+      [Field L] [NumberField L] [Algebra E L] [IsNormalClosure ℚ E L]
+      [IsGalois ℚ L], Module.finrank ℚ E = 2 * g →
+    ∀ (c : L ≃ₐ[ℚ] L), (∀ (φ : L →+* ℂ) (x : L), φ (c x) = star (φ x)) →
+    ∀ (V : Type) [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+      (ρ : Representation ℂ (L ≃ₐ[ℚ] L) V), Representation.IsIrreducible ρ → ρ c = -1 →
+    ∀ (A : ℂ → ℂ), MeromorphicOn A Set.univ →
+      (∀ s : ℂ, 1 < s.re → A s = artin_euler_series ρ s) →
+      AnalyticAt ℂ A 1 → A 1 ≠ 0 →
+      ‖A 1‖ ≤ C * (Int.natAbs (NumberField.discr E) : ℝ) ^ ε ∧
+        ‖(A 1)⁻¹‖ ≤ C * (Int.natAbs (NumberField.discr E) : ℝ) ^ ε := by sorry
+
+/-- This is L'/L, requiring the regularized Brauer logarithmic-derivative input. -/
+theorem artin_log_derivative_one (g : ℕ) (hg : 1 ≤ g) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧
+    ∀ (E L : Type) [Field E] [NumberField E] [NumberField.IsCMField E]
+      [Field L] [NumberField L] [Algebra E L] [IsNormalClosure ℚ E L]
+      [IsGalois ℚ L], Module.finrank ℚ E = 2 * g →
+    ∀ (c : L ≃ₐ[ℚ] L), (∀ (φ : L →+* ℂ) (x : L), φ (c x) = star (φ x)) →
+    ∀ (V : Type) [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+      (ρ : Representation ℂ (L ≃ₐ[ℚ] L) V), Representation.IsIrreducible ρ → ρ c = -1 →
+    ∀ (A : ℂ → ℂ), MeromorphicOn A Set.univ →
+      (∀ s : ℂ, 1 < s.re → A s = artin_euler_series ρ s) →
+      AnalyticAt ℂ A 1 → A 1 ≠ 0 →
+      ‖deriv A 1 / A 1‖ ≤ C * (Int.natAbs (NumberField.discr E) : ℝ) ^ ε := by sorry
+
+/-- Analytic adapter for the odd completion. The supplied f is the conductor
+only after the arithmetic comparison; this lemma itself is a calculus statement. -/
+lemma artin_log_functional_equation_of_completion (A B : ℂ → ℂ) (f : ℝ) (hf : 0 < f)
+    (d : ℕ) (w : ℂ) (hw : w ≠ 0) (hA : AnalyticAt ℂ A 0) (hB : AnalyticAt ℂ B 1)
+    (hneA : A 0 ≠ 0) (hneB : B 1 ≠ 0)
+    (hFE : (fun s : ℂ => Complex.exp (s * (Real.log f : ℂ) / 2) *
+        Complex.Gammaℝ (s + 1) ^ d * A s) =ᶠ[𝓝 0]
+      fun s => w * Complex.exp ((1 - s) * (Real.log f : ℂ) / 2) *
+        Complex.Gammaℝ (2 - s) ^ d * B (1 - s)) :
+    deriv A 0 / A 0 + deriv B 1 / B 1 = -(Real.log f : ℂ) -
+      (d : ℂ) * (deriv Complex.Gammaℝ 1 / Complex.Gammaℝ 1 +
+        deriv Complex.Gammaℝ 2 / Complex.Gammaℝ 2) := by sorry
+
+/-- No evaluation of a trivial Hecke pole precedes regularization. -/
+lemma regularized_brauer_log_derivative {ι : Type*} [Fintype ι] (n : ι → ℤ)
+    (δ : ι → ℕ) (H : ι → ℂ → ℂ) (A : ℂ → ℂ)
+    (hcancel : ∑ i, n i * (δ i : ℤ) = 0)
+    (hH : ∀ i, AnalyticAt ℂ (H i) 1 ∧ H i 1 ≠ 0)
+    (hA : AnalyticAt ℂ A 1) (hprod : A =ᶠ[𝓝 1] fun s => ∏ i, H i s ^ n i) :
+    A 1 ≠ 0 ∧ deriv A 1 / A 1 = ∑ i, (n i : ℂ) * (deriv (H i) 1 / H i 1) := by sorry
+end Colmez
+
+lemma canonical_factor_pair (w : ℂ) :
+    genus_one_factor w * genus_one_factor (-w) = 1 - w ^ 2 := by sorry
+
+section ArtinContinuation
+variable {K L : Type*} [Field K] [NumberField K] [Field L] [NumberField L]
+  [Algebra K L] [IsGalois K L]
+variable {V : Type*} [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
+variable (ρ : Representation ℂ (L ≃ₐ[K] L) V)
+
+/-- Meromorphic continuation fixed by the complete finite-prime Euler series. -/
+theorem brauer_meromorphic_continuation : ∃ A : ℂ → ℂ,
+    MeromorphicOn A Set.univ ∧ ∀ s : ℂ, 1 < s.re → A s = artin_euler_series ρ s := by sorry
+
+/-- The incomplete series deletes precisely primes with nontrivial inertia.
+B is the pole-cleared germ, so no finite value is assigned to a pole. -/
+theorem artin_induction_versus_artin_holomorphy : ∃ A B : ℂ → ℂ,
+    MeromorphicOn A Set.univ ∧
+    (∀ s : ℂ, 1 < s.re → A s = ∏' p : HeightOneSpectrum (𝓞 K),
+      if (artinPrimeAbove (L := L) p).asIdeal.inertia (L ≃ₐ[K] L) = ⊥ then
+        artinLocalFactor ρ p s else 1) ∧
+    (∀ s : ℂ, s.re = 1 → s ≠ 1 → AnalyticAt ℂ A s ∧ A s ≠ 0) ∧
+    AnalyticAt ℂ B 1 ∧ B 1 ≠ 0 ∧
+    B =ᶠ[𝓝[≠] 1] fun s => (s - 1) ^ Module.finrank ℂ (Representation.invariants ρ) * A s := by sorry
+end ArtinContinuation
+
+/-! The following loops are concrete paths in the punctured product. The upper
+connector fixes conjugacy, and a quarter-unit circle is traversed positively.
+These expressions are path notation; their continuity and endpoint proofs are
+admitted, rather than choosing an unspecified homotopy-class generator. -/
+def lerchUpperLasso (n : ℤ) (t : ℝ) : ℂ :=
+  if t ≤ 1/3 then (1 - 3 * t) * (1/2 : ℂ) + 3 * t * ((n : ℂ) + Complex.I / 4)
+  else if t ≤ 2/3 then (n : ℂ) + Complex.I / 4 *
+    Complex.exp (2 * Real.pi * Complex.I * (3 * t - 1))
+  else (3 - 3 * t) * ((n : ℂ) + Complex.I / 4) + (3 * t - 2) * (1/2 : ℂ)
+
+def lerchCPath (n : ℤ) : Path lerchBasepoint lerchBasepoint where
+  toFun t := ⟨(1/2, -1, lerchUpperLasso n t), by sorry⟩
+  continuous_toFun := by sorry
+  source' := by sorry
+  target' := by sorry
+
+def lerchAPath (n : ℤ) : Path lerchBasepoint lerchBasepoint where
+  toFun t := ⟨(1/2, Complex.exp (2 * Real.pi * Complex.I * lerchUpperLasso n t), 1/2), by sorry⟩
+  continuous_toFun := by sorry
+  source' := by sorry
+  target' := by sorry
+
+/-- A connector on the negative axis, one positive circle of radius 1/2, then return. -/
+def lerchZZero (t : ℝ) : ℂ :=
+  if t ≤ 1/3 then -1 + 3 * t / 2
+  else if t ≤ 2/3 then -(1/2 : ℂ) * Complex.exp (2 * Real.pi * Complex.I * (3 * t - 1))
+  else -(1/2 : ℂ) - (3 * t - 2) / 2
+
+def lerchZZeroPath : Path lerchBasepoint lerchBasepoint where
+  toFun t := ⟨(1/2, lerchZZero t, 1/2), by sorry⟩
+  continuous_toFun := by sorry
+  source' := by sorry
+  target' := by sorry
+
+abbrev lerchCLoop (n : ℤ) : LerchGroup := .fromPath (.mk (lerchCPath n))
+abbrev lerchALoop (n : ℤ) : LerchGroup := .fromPath (.mk (lerchAPath n))
+abbrev lerchZZeroLoop : LerchGroup := .fromPath (.mk lerchZZeroPath)
+
+/-- On the positive-axis cut, this logarithm has imaginary part in (0,2π). -/
+def lerchCutLog (z : ℂ) : ℂ := Complex.log (-z) + Real.pi * Complex.I
+/-- The factor exp(2πipc) is essential for the p↦p-k continuation rule. -/
+def lerchResidueGerm (p : ℤ) (q : ℂ × ℂ × ℂ) : ℂ :=
+  let s := q.1
+  let c := q.2.2
+  let a := lerchCutLog q.2.1 / (2 * Real.pi * Complex.I)
+  Complex.exp (2 * Real.pi * Complex.I * p * c - c * lerchCutLog q.2.1) *
+    Complex.exp ((s - 1) *
+      (if p ≤ 0 then Complex.log (a - p) else Real.pi * Complex.I + Complex.log (p - a)))
+
+def lerchResidueScalar (s : ℂ) : ℂ :=
+  -Complex.exp (s * ((Real.log (2 * Real.pi) : ℂ) + Real.pi * Complex.I / 2)) /
+    Complex.Gamma s
+
+/-- Globally continued residue germs, zero monodromy of Φ around zero on its
+initial germ, and the nontrivial shift of the residue functions. The assertions
+about Φ are germs at the principal lift; Φ is not invariant on every sheet.
+The index-zero z=1 residue phase corrects LerchIII(3.28); see source finding E29. -/
+theorem lerch_z_monodromy_shift (F : LerchCover → ℂ)
+    (hhol : ∀ u : LerchCover, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ F =ᶠ[𝓝 u] fun v => g v.proj.val)
+    (hbase : F =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerch_integral_representation.choose v.proj.val) :
+    ∃ R : ℤ → LerchCover → ℂ,
+      (∀ p u, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+        AnalyticAt ℂ g u.proj.val ∧ R p =ᶠ[𝓝 u] fun v => g v.proj.val) ∧
+      (∀ p, R p =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+        fun v => lerchResidueGerm p v.proj.val) ∧
+      ((fun u => F (lerchZZeroLoop⁻¹ • u)) =ᶠ[
+          𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)] F) ∧
+      (∀ p (k : ℤ) u, R p ((lerchZZeroLoop ^ (-k)) • u) = R (p - k) u) ∧
+      (∀ p (k : ℤ) u, R p (((lerchALoop 0) ^ (-k)) • u) =
+        (if p = 0 then Complex.exp (2 * Real.pi * Complex.I * (k : ℂ) * u.proj.val.1)
+          else 1) * R p u) ∧
+      (∀ p n u, R p (lerchCLoop n • u) = R p u) ∧
+      (∀ u, F ((lerchALoop 0)⁻¹ • u) - F u = lerchResidueScalar u.proj.val.1 * R 0 u) := by sorry
+
+/-- Each R is the analytic continuation of the specified principal residue
+function, so it cannot be replaced by an arbitrary function on the cover. -/
+theorem lerch_a_monodromy (F : LerchCover → ℂ) (R : ℤ → LerchCover → ℂ)
+    (hhol : ∀ u : LerchCover, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ F =ᶠ[𝓝 u] fun v => g v.proj.val)
+    (hbase : F =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerch_integral_representation.choose v.proj.val)
+    (hR : ∀ p u, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ R p =ᶠ[𝓝 u] fun v => g v.proj.val)
+    (hRbase : ∀ p, R p =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerchResidueGerm p v.proj.val) :
+    ∀ n u, F ((lerchALoop n)⁻¹ • u) - F u =
+      lerchResidueScalar u.proj.val.1 * R n u := by sorry
+
+/-- The c-loop formula is a principal germ identity, followed by unique
+analytic continuation; positive integer c punctures have zero monodromy. -/
+theorem lerch_c_monodromy (F : LerchCover → ℂ)
+    (hhol : ∀ u : LerchCover, ∃ g : (ℂ × ℂ × ℂ) → ℂ,
+      AnalyticAt ℂ g u.proj.val ∧ F =ᶠ[𝓝 u] fun v => g v.proj.val)
+    (hbase : F =ᶠ[𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun v => lerch_integral_representation.choose v.proj.val) :
+    (∀ n : ℕ, (fun u => F ((lerchCLoop (-(n : ℤ)))⁻¹ • u) - F u) =ᶠ[
+        𝓝 (TauCeti.UniversalCover.basepointLift lerchBasepoint : LerchCover)]
+      fun u => (Complex.exp (-2 * Real.pi * Complex.I * u.proj.val.1) - 1) *
+        u.proj.val.2.1 ^ n * Complex.exp (-u.proj.val.1 * Complex.log (u.proj.val.2.2 + n))) ∧
+    (∀ n : ℤ, 1 ≤ n → ∀ u, F ((lerchCLoop n)⁻¹ • u) = F u) := by sorry
+
+/-- Constants and thresholds are literal parts of the numerical specifications. -/
+theorem schoenfeld_theta_upper (x : ℝ) (hx : 0 < x) :
+    Chebyshev.theta x < 1.000081 * x := by sorry
+
+theorem mod_eight_interval_mass (a : ZMod 8) (ha : a = 3 ∨ a = 5)
+    (k : ℝ) (hk : 2 * 10 ^ 10 ≤ k) :
+    (1 - 3 * 0.002811) * k / 8 ≤ theta_ap k 8 a - theta_ap (k / 2) 8 a := by sorry
+
+theorem rosser_schoenfeld_pi (x : ℝ) (hx : 59 ≤ x) :
+    (x / Real.log x) * (1 + 1 / (2 * Real.log x)) < (Nat.primeCounting ⌊x⌋₊ : ℝ) ∧
+    (Nat.primeCounting ⌊x⌋₊ : ℝ) < (x / Real.log x) * (1 + 3 / (2 * Real.log x)) := by sorry
+
+theorem explicit_prime_reciprocal : ∃ B : ℝ,
+    Tendsto (fun x : ℝ => (∑ p ∈ (Finset.range (⌊x⌋₊ + 1)).filter Nat.Prime,
+      (p : ℝ)⁻¹) - Real.log (Real.log x)) atTop (𝓝 B) ∧
+    ∀ x : ℝ, 286 ≤ x →
+      |(∑ p ∈ (Finset.range (⌊x⌋₊ + 1)).filter Nat.Prime, (p : ℝ)⁻¹) -
+        Real.log (Real.log x) - B| < 1 / (2 * Real.log x ^ 2) := by sorry
+
+theorem explicit_weighted_prime_sum : ∃ E : ℝ, ∀ x : ℝ, 319 ≤ x →
+    Real.log x + E - 1 / (2 * Real.log x) <
+      ∑ p ∈ (Finset.range (⌊x⌋₊ + 1)).filter Nat.Prime, Real.log p / p ∧
+    (∑ p ∈ (Finset.range (⌊x⌋₊ + 1)).filter Nat.Prime, Real.log p / p) <
+      Real.log x + E + 1 / (2 * Real.log x) := by sorry
+
+theorem explicit_plus_euler_product (x : ℝ) (hx : 10 ^ 8 ≤ x) :
+    (∏ p ∈ (Finset.range (⌊x⌋₊ + 1)).filter Nat.Prime, (1 + (p : ℝ)⁻¹)) ≤
+      2 * Real.log x := by sorry
+
+theorem prime_interval_three_x : ∃ X : ℝ, 2 ≤ X ∧ ∀ x : ℝ, X ≤ x →
+    4 + x / Real.log x ≤ ((Nat.primeCounting ⌊3 * x⌋₊ - Nat.primeCounting ⌊x⌋₊ : ℕ) : ℝ) ∧
+    ((Nat.primeCounting ⌊3 * x⌋₊ - Nat.primeCounting ⌊x⌋₊ : ℕ) : ℝ) ≤ 3 * x / Real.log x := by sorry
+
+theorem inverse_totient_count : ∃ C : ℝ, 0 < C ∧ ∀ x : ℝ, 1 ≤ x →
+    {d : ℕ | 0 < d ∧ (Nat.totient d : ℝ) ≤ x}.Finite ∧
+    (Nat.card {d : ℕ // 0 < d ∧ (Nat.totient d : ℝ) ≤ x} : ℝ) ≤ C * x := by sorry
+
+theorem davenport_mobius_cancellation (A : ℝ) (hA : 0 < A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ y α : ℝ, 2 ≤ y →
+      ‖∑ r ∈ Finset.Icc 1 ⌊y⌋₊, (ArithmeticFunction.moebius r : ℂ) *
+        Complex.exp (Complex.I * r * α)‖ ≤ C * y * Real.log y ^ (-A) := by sorry
+
+theorem coprime_mobius_log_sum (A : ℝ) (hA : 0 < A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) (T : ℝ), 0 < q → 2 ≤ T → (q : ℝ) ≤ T ^ 4 →
+      |(∑ t ∈ (Finset.Icc 1 ⌊T⌋₊).filter (fun t => t.Coprime q),
+        (ArithmeticFunction.moebius t : ℝ) * Real.log t / t) + q / (Nat.totient q : ℝ)| ≤
+          C * Real.log T ^ (-A) := by sorry
+
+theorem coprime_mobius_reciprocal_sum (A : ℝ) (hA : 0 < A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) (T : ℝ), 0 < q → 2 ≤ T → (q : ℝ) ≤ T ^ 4 →
+      |∑ t ∈ (Finset.Icc 1 ⌊T⌋₊).filter (fun t => t.Coprime q),
+        (ArithmeticFunction.moebius t : ℝ) / t| ≤ C * Real.log T ^ (-A) := by sorry
+
+theorem positive_truncation_error_cancellation (A : ℝ) (hA : 0 < A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ y z α : ℝ, 2 ≤ y → 2 ≤ z →
+      ‖∑ r ∈ Finset.Icc 1 ⌊y⌋₊, (mangoldt_truncation_error z r : ℂ) *
+        Complex.exp (Complex.I * r * α)‖ ≤
+          C * y * Real.log y * Real.log z ^ (-A) := by sorry
+
+theorem critical_line_gamma_quotient : ∃ C : ℝ, 0 < C ∧ ∀ (t : ℝ) (α β : ℕ),
+    α ≤ 1 → β ≤ 1 →
+    let s : ℂ := 1/2 + t * Complex.I
+    ‖Complex.Gamma ((s + α) / 2) * Complex.Gamma ((s + β) / 2) / Complex.Gamma s‖ ≤
+      C * ‖s‖ ^ (1/2 : ℝ) := by sorry
+
+/-- The reciprocal has its removable zero at the zeta pole. -/
+theorem reciprocal_zeta_line_one : ∃ R : ℂ → ℂ,
+    MeromorphicOn R Set.univ ∧ (∀ s : ℂ, 1 < s.re → R s = (riemannZeta s)⁻¹) ∧
+    AnalyticOnNhd ℂ R {s | s.re = 1} ∧ R 1 = 0 ∧
+    (∃ C : ℝ, 0 < C ∧ ∀ t : ℝ, ‖R (1 + 2 * t * Complex.I)‖ ≤ C * Real.log (2 + |t|)) ∧
+    Tendsto (fun t : ℝ => R (1 + 2 * t * Complex.I)) (𝓝 0) (𝓝 0) := by sorry
+
+/-- Counts are of integral ideals, using the genuine nonzero-ideal subtype. -/
+theorem bounded_norm_ideal_count (g : ℕ) (hg : 1 ≤ g) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (E : Type) [Field E] [NumberField E],
+      Module.finrank ℚ E = 2 * g →
+      (∀ n : ℕ, 1 ≤ n →
+        (Nat.card {I : (Ideal (𝓞 E))⁰ // Ideal.absNorm (I : Ideal (𝓞 E)) = n} : ℝ) ≤
+          C * (n : ℝ) ^ ε) ∧
+      ∀ X : ℝ, 1 ≤ X →
+        (Nat.card {I : (Ideal (𝓞 E))⁰ // (Ideal.absNorm (I : Ideal (𝓞 E)) : ℝ) ≤ X} : ℝ) ≤
+          C * X ^ (1 + ε) := by sorry
+
+/-- The tuple count d_n is notation, rather than a second divisor-function API. -/
+theorem ideal_coefficient_divisor_majorant (K : Type*) [Field K] [NumberField K]
+    (n m : ℕ) (hn : 1 ≤ n) (hdegree : Module.finrank ℚ K = n) (hm : 1 ≤ m) :
+    Nat.card {I : (Ideal (𝓞 K))⁰ // Ideal.absNorm (I : Ideal (𝓞 K)) = m} ≤
+      Nat.card {a : Fin n → ℕ // (∀ i, 0 < a i) ∧ ∏ i, a i = m} := by sorry
+
+theorem fixed_order_divisor_subpower (n : ℕ) (hn : 1 ≤ n) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ m : ℕ, 1 ≤ m →
+      (Nat.card {a : Fin n → ℕ // (∀ i, 0 < a i) ∧ ∏ i, a i = m} : ℝ) ≤
+        C * (m : ℝ) ^ ε := by sorry
+
 end TauCeti.AnalyticNumberTheory
 
 /-!
-## Canonical-carrier signature omissions (explicit gap, not native declarations)
+Mathematical-interface notes for the non-exhaustive suggested file.
 
-AnalyticNumberTheory:AN.4/partial-ideal-zeta
-For a number field K, choose its ordinary or narrow ideal class group, and a class A. Let a_A(n) count nonzero integral ideals of norm n in A, with a_A(0)=0. Define ζ_A(s)=LSeries a_A s on Re s>1, using the imported norm-indexed ideal arithmetic function and finite norm fibres. Quadratic period applications use narrow classes for real quadratic K and ordinary classes for imaginary quadratic K. Index ideals, not their generators. The finite class sum agrees with NumberField.dedekindZeta as an LSeries: the latter may have a different zeroth coefficient, which LSeries ignores.
-
-Signature withheld until its recorded canonical supplier interface exists.
-
-API partial_ideal_zeta.coeff: a_A(n) is the finite cardinality of integral ideals of positive norm n in A; a_A(0)=0.
-
-API partial_ideal_zeta.sum_classes: The sum of ζ_A over all ideal classes is the Dedekind series on Re s>1.
-
-API partial_ideal_zeta.character_sum: For a class character χ, Σ_A χ(A)ζ_A(s) is its ideal-character LSeries on Re s>1.
-
-API partial_ideal_zeta.conjugation: In a quadratic field, conjugating ideals takes A to A^−1 and preserves their norms, hence ζ_A=ζ_{A^−1}.
-
-TEST partial_ideal_zeta.q: For K=Q, the unique partial series equals the Riemann series on Re s>1.
-
-TEST partial_ideal_zeta.unit: a_A(1)=1 for the principal class and 0 otherwise.
-
-TEST partial_ideal_zeta.no_generators: The unit ideal contributes once, even when the unit group is infinite.
-
-TEST partial_ideal_zeta.zero: The zero ideal contributes to no coefficient; no norm-zero negative power occurs.
-
-AnalyticNumberTheory:AN.2/exceptional-squareclasses
-For 0<c<1/2 let S(c) consist of nonzero squarefree d≠1 such that the primitive quadratic character of Q(√d) has a real zero β∈[1−c/log(|d|+4),1]. The conductor is |d| or 4|d| as dictated by its fundamental discriminant. Enumerate any finite initial segment by nondecreasing |d|; an infinite enumeration requires infinitude, which is not asserted.
-
-Signature withheld until its recorded canonical supplier interface exists.
-
-API exceptional_squareclasses.membership: Membership is the stated near-one zero condition for the primitive field character.
-
-API exceptional_squareclasses.mono: If 0<c≤c′<1/2 then S(c)⊆S(c′).
-
-API exceptional_squareclasses.finite_height: For each B there are finitely many d∈S(c) with |d|≤B.
-
-API exceptional_squareclasses.conductor: Every estimate uses the field’s fundamental discriminant conductor, retaining the possible factor 4.
-
-TEST exceptional_squareclasses.trivial: d=1 is excluded, so a principal pole cannot be called an exceptional zero.
-
-TEST exceptional_squareclasses.minus_one: d=−1 has conductor 4, not conductor 1.
-
-TEST exceptional_squareclasses.two: d=2 has conductor 8, not 2.
-
-TEST exceptional_squareclasses.finite: The definition permits an empty or finite S(c); it does not fabricate an infinite sequence.
-
-AnalyticNumberTheory:AN.4/artin-local-polynomial
-For a finite Galois extension L/K, a finite-dimensional complex representation ρ of G=Gal(L/K), and a nonzero prime ideal p of K, choose P above p, its decomposition/inertia groups D_P,I_P and arithmetic Frobenius in D_P/I_P. On V^(I_P), Frobenius acts canonically. Define P_p(T)=det(1−T·Frob_P|V^(I_P)) in C[T]. The determinant is independent of P and of a Frobenius lift.
-
-Signature withheld until its recorded canonical supplier interface exists.
-
-API artin_local_polynomial.independence: Changing P conjugates the invariant-space endomorphism and leaves P_p unchanged.
-
-API artin_local_polynomial.constant: P_p(0)=1.
-
-API artin_local_polynomial.unramified: For unramified p, P_p(T)=det(1−Tρ(Frob_p)) on all of V.
-
-API artin_local_polynomial.degree: natDegree P_p=dim_C(V^I)≤dim_C V; the Frobenius endomorphism on V^I has eigenvalues of modulus1 and every root of P_p has modulus1. The degree-zero polynomial1 has no roots.
-
-API artin_local_polynomial.basis: Changing the finite-dimensional basis does not change the polynomial.
-
-TEST artin_local_polynomial.trivial: For the one-dimensional trivial representation, P_p=1−T at every prime.
-
-TEST artin_local_polynomial.zero: For the zero representation, P_p=1.
-
-TEST artin_local_polynomial.ramified_character: For a one-dimensional character nontrivial on inertia, V^I=0 and P_p=1; using the whole V would give a wrong factor.
-
-AnalyticNumberTheory:AN.4/artin-euler-series
-For the preceding data and Re s>1, L_K(s,ρ)=∏_p P_p((Np)^−s)^−1, over all nonzero prime ideals of K, with complex powers using the positive real norm logarithm. Coefficients are the norm-regrouped reciprocal local-polynomial coefficients, not a completely multiplicative degree-one ideal weight.
-
-Signature withheld until its recorded canonical supplier interface exists.
-
-API artin_euler_series.local: Every local factor is the reciprocal of the inertia-invariant polynomial.
-
-API artin_euler_series.series: The absolutely convergent Euler product equals the norm-regrouped coefficient LSeries on Re s>1.
-
-API artin_euler_series.nonzero: The convergent Euler product is nonzero on Re s>1.
-
-API artin_euler_series.direct_sum: The direct-sum identity is exported by the separate lemma below.
-
-API artin_euler_series.deleted: Omitting a finite bad-prime set multiplies L_K by exactly ∏_{p bad}P_p((Np)^−s).
-
-TEST artin_euler_series.trivial: The one-dimensional trivial representation gives the convergent Dedekind series, including ramified primes.
-
-TEST artin_euler_series.zero: The zero representation gives1.
-
-TEST artin_euler_series.ramified: A one-dimensional character ramified at p contributes local factor1 there.
-
-AnalyticNumberTheory:AN.5/halasz-coefficient-class
-For κ>0, C(κ) is a predicate on the pinned ArithmeticFunction C, with its fixed value f(0)=0 and ordinary coprime multiplicativity f(1)=1. Membership is witnessed by an ArithmeticFunction C coefficient b=Λ_f with |b(n)|≤κΛ(n) for every n, including0,1. For every Re s>1 the three series F(s)=LSeries f s, LSeries b s and H(s)=LSeries (n↦b(n)/log n) s are absolutely convergent, F(s)=exp(H(s)), and −F′(s)/F(s)=LSeries b s. Division at n=0,1 is totalized to0, since b(0)=b(1)=0. This exponential identity fixes the Euler logarithm branch; it is not an arbitrary Prop field or an unrelated logarithm. Coefficient uniqueness follows from the logarithmic derivative and pinned LSeries uniqueness, including the normalized zero coefficient.
-
-Native predicate, every API item and unit test appear above. Proofs remain admitted.
-
-API halasz_coefficient_class.log_coeff: Given h:f∈C(κ), expose the uniquely determined zero-extended arithmetic function Λ_f together with its summability and logarithmic-derivative identity. Any two membership witnesses choose the same Λ_f.
-
-API halasz_coefficient_class.majorant: |Λ_f(n)|≤κΛ(n) for every n, hence they vanish away from prime powers.
-
-API halasz_coefficient_class.nonzero: The Euler-compatible exponential identity gives F(s)≠0 on Re s>1.
-
-API halasz_coefficient_class.mono: If κ≤κ′, C(κ)⊆C(κ′).
-
-API halasz_coefficient_class.log_coeff_unique: If a zero-extended b has an absolutely convergent LSeries on Re s>1 equal there to −F′/F, it equals the exposed Λ_f. The zero coefficient is fixed; LSeries itself ignores it.
-
-API halasz_coefficient_class.constructor: Coprime-multiplicative f and a coefficient b with the stated majorant, three summability conditions, exponential identity and logarithmic-derivative identity produce membership in C(κ), for κ>0.
-
-TEST halasz_coefficient_class.one: f(n)=1 belongs to C(1), with Λ_f=Λ.
-
-TEST halasz_coefficient_class.mobius: μ belongs to C(1), with Λ_f=−Λ.
-
-TEST halasz_coefficient_class.twist: f(n)=n^(it) belongs to C(1), with Λ_f(n)=n^(it)Λ(n).
-
-TEST halasz_coefficient_class.growth: f(n)=n belongs to no fixed C(κ), since |Λ_f(p)|=p log p.
-
-## Named targets still requiring native interface refinement
+All AN-owned definitions, APIs and tests above have native forms. The following
+auxiliary targets remain mathematical specifications, rather than executable
+declarations. Canonical Hecke/geometric/conductor targets need the supplier
+exports named in the packet. Other auxiliary analytic or numerical estimates
+are stated in the roadmap; the forms above focus on the target interfaces.
+No omitted signature is replaced by an empty proposition field.
 
 AnalyticNumberTheory:AN.4/hecke-L-function-euler-product-comparison
+Proposed name: TauCeti.AnalyticNumberTheory.hecke_L_function_euler_product_comparison.
 Let K be a number field, c a unitary idele-class character unramified outside a finite set S containing every archimedean place, and χ its ideal-character presentation from GlobalNumberFields Layer9. Choose Tate's admissible factorizable f with f_v=1_{O_v} for v∉S. For Re(s)>1, Z(f,c|·|^s)=(∏_{v∈S}Z_v(f_v,c_v|·|_v^s))(∏_{v∉S}N(d_v)^(−1/2))L_S(s,χ), where L_S(s,χ)=∑_{a integral, prime to S}χ(a)N(a)^(−s)=∏_{v∉S}(1−χ(v)N(v)^(−s))⁻¹. d_v is the local different; its product is finite because d_v is a unit at almost all places. Haar and Fourier normalizations are Tate's, not silently normalized unit volumes.
-
-AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy
-Let K/ℚ be finite Galois and ρ a finite-dimensional complex representation of Gal(K/ℚ). The incomplete Artin L-function, with precisely the ramified rational primes omitted, has a meromorphic continuation to an open neighbourhood of {Re(s)≥1}; it is holomorphic and nonzero on Re(s)=1 away from s=1, and its pole order at 1 is dim(V^G). This statement asserts neither global Artin holomorphy nor Chebotarev density.
+Sources: tate-thesis-1950, §4.5, thesis p.(4.23), scan p.57; comparison and continuation discussion scan pp.58–59.
 
 AnalyticNumberTheory:AN.4/landau-nonnegative-logarithm
+Proposed name: TauCeti.AnalyticNumberTheory.ne_zero_of_log_nonneg_coeff.
 For a continued Hecke product F meromorphic near Re s≥1, with no poles except a pole of order at most one at 1, nonnegative norm-regrouped logarithmic coefficients on Re s>1 imply: F has no zeros at regular points of Re s≥1, and its meromorphic order at 1 is ≤0. A pole is not a nonzero finite value.
+Sources: kedlaya-ant-2025, §3.3, Lemma 3.6 and Exercise 3.6.1, printed pp. 19 and 21.
+
+AnalyticNumberTheory:AN.4/ray-class-product-nonvanishing
+Proposed name: TauCeti.AnalyticNumberTheory.rayClassProduct_ne_zero.
+For the finite character group of a ray class quotient, the product of the continued Hecke L-functions has no zeros at regular points of Re s≥1. At s=1 it has meromorphic order ≤0, permitting the principal-character pole. Each Euler logarithmic coefficient is nonnegative by finite-character orthogonality, with bad-prime factors treated separately.
+Sources: kedlaya-ant-2025, §3.3, Theorem 3.7 and (3.3.1), printed p. 19.
 
 AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one
+Proposed name: TauCeti.AnalyticNumberTheory.heckeL_ne_zero_of_re_eq_one.
 For every character χ of Cl_𝔪(K): L(s, χ) ≠ 0 for Re s = 1, s ≠ 1; and L(1, χ) ≠ 0 if χ ≠ 1 (for χ = 1, L(s, 1) has a simple pole at s = 1).
+Sources: kedlaya-ant-2025, §3.3–§3.4, Theorems 3.8, 3.10 and 3.11, printed pp. 19–20; kedlaya-ant-2025, §22.5, Theorem 22.4, printed p. 129.
 
 AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue
+Proposed name: TauCeti.AnalyticNumberTheory.dedekindZeta_meromorphic.
 The Dedekind function supplied by the trivial-character Tate continuation agrees with NumberField.dedekindZeta K on Re s>1. Its complex residue at 1 equals NumberField.dedekindZeta_residue K, by agreement with the pinned real one-sided residue limit and uniqueness of a meromorphic residue. This is an agreement theorem on the convergence half-plane, not equality with the totalized LSeries everywhere.
+Sources: tate-thesis-1950, §4.4 Main Theorem 4.4.1 and §4.5, physical pp. 50–58 (read on page images, cc-39fac3).
 
 AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation
+Proposed name: TauCeti.AnalyticNumberTheory.heckeL_functional_equation.
 For a primitive finite-order Hecke character χ with finite conductor f and the imported archimedean parity data, the canonical continued L-function, multiplied by the conductor/discriminant and the real/complex gamma factors in AL.1, satisfies Λ(s,χ)=ε(χ)Λ(1−s,χ̄) as a meromorphic identity. The principal character retains the two completed poles. Imprimitive deleted factors are a separate comparison.
+Sources: tate-thesis-1950, §4.5, physical pp. 57–59 (read on page images, cc-39fac3).
+
+AnalyticNumberTheory:AN.4/mth-root-gluing
+Proposed name: TauCeti.AnalyticNumberTheory.extend_of_pow_eq.
+Let f be holomorphic and zero-free on {Re s > 1}, m ≥ 1, and U an open set containing {Re s = 1} ∖ {1} on which a holomorphic, zero-free g is given with g = f^m on U ∩ {Re s > 1}. Then f extends holomorphically (and zero-free) to {Re s > 1} ∪ U′ for an open U′ ⊇ {Re s = 1} ∖ {1}: on each disc D ⊆ U centred on the line there is a unique holomorphic h_D with h_D^m = g agreeing with f on the connected set D ∩ {Re s > 1}, and the h_D agree on overlaps.
+Sources: kedlaya-ant-2025, §22.5, proof of Theorem 22.4, printed p. 129.
 
 AnalyticNumberTheory:AN.2/exceptional-conductor-repulsion
+Proposed name: TauCeti.AnalyticNumberTheory.exceptional_conductor_repulsion.
 With c_star from Proposition 7.1, two distinct exceptional quadratic conductors N1<N2 satisfy N2>N1^2.
+Sources: reviewed-paper-bennett-siksek-20, Proposition 7.1 and equation (25), pp. 373-374.
 
 AnalyticNumberTheory:AN.5/quadratic-conductor-largest-prime
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_conductor_largest_prime.
 If N>1 is the conductor of a primitive quadratic character, then P(N)>0.94*log(N).
-
-AnalyticNumberTheory:AN.2/schoenfeld-theta-upper
-For x>0, theta(x)=sum_{p prime,p<=x}log p < 1.000081*x.
-
-AnalyticNumberTheory:AN.2/mod-eight-interval-mass
-With epsilon=0.002811, for a=3 or 5 and k>=2*10^10, theta(k;a,8)-theta(k/2;a,8)>=(1-3*epsilon)*k/8.
+Sources: reviewed-paper-bennett-siksek-20, Lemma 7.3, p. 375.
 
 AnalyticNumberTheory:AN.2/prime-power-interval-margin
+Proposed name: TauCeti.AnalyticNumberTheory.prime_power_interval_margin.
 Put ε=0.002811. For real k≥2*10^10, the prime-power mass M=psi(k)−theta(k)−psi(k/2)+theta(k/2) is smaller than (((1−3*ε)/8)−0.1239)*k. For b:ℕ→ℂ with |b(n)|≤1 whenever k/2<n≤k, put P=Σ_{k/2<p≤k, p prime}b(p)log p and V=Σ_{k/2<n≤k}b(n)Λ(n). Then |V−P|≤M, so |P|≥(1−3*ε)*k/8 implies |V|>0.1239*k.
+Sources: reviewed-paper-bennett-siksek-20, §6 end of Case I, pp. 369–370; Schoenfeld Theorem 6*, (5.3*)–(5.4*).
 
 AnalyticNumberTheory:AN.2/two-real-zero-separation
+Proposed name: TauCeti.AnalyticNumberTheory.two_real_zero_separation.
 There is an effective absolute c_star>0 such that if distinct real primitive quadratic characters of conductors N1,N2>1 have real zeros beta1,beta2, then min(beta1,beta2)<1-3*c_star/log(N1*N2).
+Sources: reviewed-paper-bennett-siksek-20, Proposition 7.1(i), (23), p. 373.
 
 AnalyticNumberTheory:AN.2/exceptional-zero-unique
+Proposed name: TauCeti.AnalyticNumberTheory.exceptional_zero_unique.
 For that same c_star, a primitive nonprincipal quadratic character of conductor N has at most one real zero in (1-c_star/log N,1), and any such zero is simple.
+Sources: reviewed-paper-bennett-siksek-20, Proposition 7.1(ii), (24), pp. 373–374.
 
 AnalyticNumberTheory:AN.2/character-weighted-pnt
+Proposed name: TauCeti.AnalyticNumberTheory.character_weighted_pnt.
 For a primitive nonprincipal character chi of conductor N>1 and X sufficiently large, sum_{m<=X}chi(m)*Lambda(m)=-X^beta/beta+O(X*exp(-c*log X/(sqrt(log X)+log N))*(log N)^4), with the beta term only when an exceptional zero exists; c>0 and the implied constant are absolute and effective.
-
-AnalyticNumberTheory:AN.2/rosser-schoenfeld-pi
-For x>=59, (x/log x)*(1+1/(2 log x))<pi(x)<(x/log x)*(1+3/(2 log x)).
-
-AnalyticNumberTheory:AN.2/explicit-prime-reciprocal
-There is the prime Mertens constant B=0.26149... such that for x>=286, |sum_{p<=x}1/p-log log x-B|<1/(2*(log x)^2).
+Sources: reviewed-paper-bennett-siksek-20, Theorem 5, (26), p. 374; Iwaniec–Kowalski Theorem 5.27.
 
 AnalyticNumberTheory:AN.2/landau-page-bounded-height
+Proposed name: TauCeti.AnalyticNumberTheory.landau_page_bounded_height.
 There is an effective absolute c>0 such that among primitive Dirichlet characters of moduli q<=T, T>=2, there is at most one zero rho=beta+i*t with |t|<=T and beta>1-c/log T. Any exception is a simple real zero of a real character.
+Sources: reviewed-paper-bennett-siksek-20, §12 opening, p. 386; Bombieri §5 p.39; Iwaniec–Kowalski Theorem 5.26.
 
 AnalyticNumberTheory:AN.3/selberg-zero-density
+Proposed name: TauCeti.AnalyticNumberTheory.selberg_zero_density.
 For epsilon>0, Q>=2, T>=2, and 1/2<=sigma<=1, sum_{q<=Q} sum_{chi primitive mod q} N(sigma,T,chi) <<_epsilon (Q^(5+epsilon)*T^(3+epsilon))^(1-sigma), with effective constants with the right-hand side enlarged by +1, so the count includes the exceptional zero.
+Sources: reviewed-paper-bennett-siksek-20, §12 proof of Proposition 12.1, p. 386; Bombieri §5 remark after Theorem 14, p.40.
 
 AnalyticNumberTheory:AN.2/quadratic-effective-zero-gap
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_effective_zero_gap.
 For q>=3 and a quadratic Dirichlet character modulo q, a real zero beta>0 satisfies beta<=1-40/(sqrt(q)*(log q)^2).
+Sources: reviewed-paper-bennett-siksek-20, §12 p.387; Bennett–Martin–O'Bryant–Rechnitzer Proposition 1.11.
 
-AnalyticNumberTheory:AN.2/explicit-weighted-prime-sum
-There exists an absolute real constant E such that, for every real x≥319, log x+E−1/(2 log x)<Σ_{p≤x}(log p)/p<log x+E+1/(2 log x). The same E applies at both endpoints of every interval subtraction.
-
-AnalyticNumberTheory:AN.2/explicit-plus-euler-product
-For real x>=10^8, product_{p prime,p<=x}(1+1/p)<=2*log x.
+AnalyticNumberTheory:AN.2/weighted-prime-interval
+Proposed name: TauCeti.AnalyticNumberTheory.weighted_prime_interval.
+For x≥y≥319, Σ_{y<p≤x}(log p)/p>log(x/y)−1/(2 log x)−1/(2 log y).
+Sources: reviewed-paper-bennett-siksek-20, §9 p.384; Rosser–Schoenfeld Theorem 6, p.70.
 
 AnalyticNumberTheory:AN.4/bounded-degree-brauer-siegel
+Proposed name: TauCeti.AnalyticNumberTheory.bounded_degree_brauer_siegel.
 For number fields of bounded degree and discriminant D tending to infinity, log(h_K R_K)=(1/2+o(1)) log D. Keep fixed-degree uniformity and possible ineffectivity explicit.
-
-AnalyticNumberTheory:AN.5/bounded-norm-ideal-count
-For every fixed g≥1 and ε>0 there is C(g,ε)>0 such that for every number field E of degree 2g and every integer n≥1, the number of nonzero integral ideals of norm n is at most C(g,ε)n^ε. Consequently, for every real X≥1 the number of such ideals of norm at most X is O_(g,ε)(X^(1+ε)). Both constants are uniform in E.
+Sources: reviewed-paper-tsimerman-18, 2.2, p. 382; proof of Corollary 3.3, p. 384; [4].
 
 AnalyticNumberTheory:AN.4/artin-conductor-bound
-For representations occurring in the fixed-degree Colmez expression, establish log f_rho<=C_g(1+log |Disc(E)|). This is sufficient to absorb the conductor term in |Disc(E)|^epsilon.
+Proposed name: TauCeti.AnalyticNumberTheory.artin_conductor_bound.
+Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. Use the canonical positive Artin conductor f_ρ, formed from the lower-ramification codimensions of inertia invariants; it is not a ray modulus or an arbitrary positive parameter. There exists C_g>0 such that log f_ρ≤C_g(1+log D_E).
+Sources: reviewed-paper-tsimerman-18, Proof of Corollary 3.3, p. 384; tsimerman-primary-published, Theorem3.2 and proof of Corollary3.3, printed pp.383–384.
 
 AnalyticNumberTheory:AN.4/artin-log-functional-equation
-For the relevant nontrivial Artin factors with nonzero L(0,rho), the completed functional equation relates L'/L(0,rho) to L'/L(1,conjugate(rho)), a conductor logarithm and fixed-degree archimedean terms. Track conjugation and gamma factors.
-
-AnalyticNumberTheory:AN.4/artin-value-one-subpower
-For the relevant nontrivial Artin factors, prove two-sided subpolynomial control of the nonzero values at 1 using Brauer induction and bounded-degree Hecke/Brauer-Siegel inputs, allowing ineffective constants.
-
-AnalyticNumberTheory:AN.4/artin-log-derivative-one
-For a nontrivial irreducible Artin factor of the bounded-degree normal closure used in the height formula, with L(1,conjugate(rho)) finite and nonzero, use a Brauer identity L(s,conjugate(rho)) = product_i L(s,chi_i)^n_i. Prove the required subpolynomial bound at s=1 for L_prime/L by summing n_i times the Hecke logarithmic derivatives. If trivial Hecke factors occur, first remove their poles and prove cancellation of their total orders; evaluate the regularized factors, not separate infinite values. Constants depend only on g and epsilon and may be ineffective. This is a missing source obligation, not the printed fixed-radius Cauchy estimate for L_prime.
+Proposed name: TauCeti.AnalyticNumberTheory.artin_log_functional_equation.
+Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. Use the canonical positive Artin conductor f_ρ, formed from the lower-ramification codimensions of inertia invariants; it is not a ray modulus or an arbitrary positive parameter. Write Γ_R(s)=π^(−s/2)Γ(s/2), d=dimρ and Λ_ρ(s)=f_ρ^(s/2)Γ_R(s+1)^d L(s,ρ). Import Λ_ρ(s)=w_ρΛ_(ρ̄)(1−s), |w_ρ|=1. Odd parity makes the gamma factors finite and nonzero at0 and1; boundary nonvanishing and the equation make L_ρ(0), L_(ρ̄)(1) finite and nonzero. Then L′_ρ(0)/L_ρ(0)+L′_(ρ̄)(1)/L_(ρ̄)(1)=−log f_ρ−d((Γ_R′/Γ_R)(1)+(Γ_R′/Γ_R)(2)). A general even factor would instead require a regularized derivative at0.
+Sources: reviewed-paper-tsimerman-18, Proof of Corollary 3.3, p. 384; tsimerman-primary-published, Theorem3.2 and proof of Corollary3.3, printed pp.383–384.
 
 AnalyticNumberTheory:AN.4/quadratic-zeta-factorization
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_zeta_factorization.
 For a quadratic extension E/F with its canonical nontrivial finite-order Hecke character η, ζ_E(s)=ζ_F(s)L_f(s,η) on Re s>1, including every ramified Euler factor.
+Sources: reviewed-paper-tsimerman-18, Quadratic Euler-factor calculation; Thorner-Zaman 2017 equations (2-1)-(2-7); main Corollary 3.3 adapter.
 
 AnalyticNumberTheory:AN.4/bounded-degree-residue-bounds
+Proposed name: TauCeti.AnalyticNumberTheory.bounded_degree_residue_bounds.
 For every n>=1 and epsilon>0 there are c,C>0 depending only on n,epsilon such that c*D_K^(-epsilon)<=kappa_K<=C*D_K^epsilon for every number field of degree at most n. Constants may be ineffective. Derive from bounded-degree Brauer-Siegel, the explicit residue formula, the bounded number of roots of unity, and a finite adjustment for small discriminants. Normality is not added to the bounded-degree contract.
+Sources: reviewed-paper-tsimerman-18, Brauer 1947 input as used in main sections 2-3; Tsimerman arXiv:1103.5619v3 Lemma 4.1 for comparison.
 
 AnalyticNumberTheory:AN.4/quadratic-hecke-value-one
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_hecke_value_one.
 Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For every fixed g and epsilon>0, D_E^(-epsilon) <<_(g,epsilon) L_f(1,eta_E/F) <<_(g,epsilon) D_E^epsilon. Constants may be ineffective. Use kappa_E/kappa_F, the degree bounds 2g and g, and D_F<=D_E^(1/2), choosing each residue exponent at most 2*epsilon/3.
+Sources: reviewed-paper-tsimerman-18, Derived adapter for main Corollary 3.3.
 
 AnalyticNumberTheory:AN.4/primitive-hecke-convexity
+Proposed name: TauCeti.AnalyticNumberTheory.primitive_hecke_convexity.
 Let chi be a primitive finite-order Hecke character over a degree-n number field K, Q=D_K*N(f_chi), 0<r<=1/2, and -r<=sigma<=1+r. For s=sigma+it with chi nontrivial or s≠1, |L_f(s,chi)| << |(1+s)/(1-s)|^delta(chi) * zeta_Q(1+r)^n * (Q*(3+|t|)^n/(2*pi)^n)^((1+r-sigma)/2), with an absolute implied constant. Define the pole factor to be |(1+s)/(1-s)| for the trivial character, and 1 for every nontrivial character (including at s=1); zeta_Q means the Riemann zeta function.
+Sources: reviewed-paper-tsimerman-18, Thorner-Zaman 2017, Lemma 2.3, printed p. 1142; credits Rademacher 1959; thorner-zaman-2017, Lemma2.3 [Rademacher 1959], unnumbered bound, printed p.1142.
 
 AnalyticNumberTheory:AN.4/quadratic-hecke-cauchy-derivative
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_hecke_cauchy_derivative.
 Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For fixed g and every epsilon>0, |L_f prime(1,eta_E/F)| <<_(g,epsilon) D_E^epsilon. Set r=min(epsilon,1/4)>0. The closed circle |s-1|=r is in [-r,1+r] in real part, |t|<=r, and the convexity exponent is at most r. Hence its supremum is at most C_(g,r)*Q^r, and Cauchy gives |L_f prime(1)|<=C_(g,r)*Q^r/r. Holomorphy is required on the entire disk; a zero-free disk is unnecessary.
+Sources: reviewed-paper-tsimerman-18, Derived from Thorner-Zaman Lemma 2.3 and Cauchy derivative estimate.
 
 AnalyticNumberTheory:AN.4/quadratic-hecke-log-derivative-one
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_hecke_log_derivative_one.
 Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For every fixed g and epsilon>0, |L_f prime(1,eta)/L_f(1,eta)| <<_(g,epsilon) D_E^epsilon. Apply the derivative bound with epsilon/2 and the reciprocal value bound with epsilon/2. The latter, rather than Cauchy, is the possible ineffective input.
+Sources: reviewed-paper-tsimerman-18, Derived adapter for main Corollary 3.3.
 
 AnalyticNumberTheory:AN.4/quadratic-hecke-log-functional-equation
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_hecke_log_functional_equation.
 Let E be a CM number field, F its maximal totally real subfield, [F:ℚ]=g≥1, and η=η_E/F the canonical nontrivial primitive quadratic Hecke character. Write D_K=|Disc(K)|, f_η for its finite conductor, and Q=D_F N(f_η)=D_E/D_F. For ell_j=L_f prime(j,eta)/L_f(j,eta), both denominators are nonzero and ell_0+ell_1=-log Q+g*(gamma+log(2*pi)), where gamma is Euler constant. Differentiate the completed functional equation; Gamma_R prime/Gamma_R at 1 and 2 sum to -gamma-log(2*pi). Nonvanishing at 0 follows from the functional equation and L_f(1)>0. Each real local component of η is the sign character, so the conductor-normalized completion is Q^(s/2) Γ_R(s+1)^g L_f(s,η), with Γ_R(s)=π^(−s/2)Γ(s/2). This odd archimedean formula is not asserted for a real quadratic extension of a totally real field.
-
-AnalyticNumberTheory:AN.5/ideal-coefficient-divisor-majorant
-For a degree-n number field K, n>=1, let a_K(m) count nonzero integral ideals of norm m. For every m>=1, a_K(m)<=d_n(m), where d_n counts ordered n-tuples of positive integers with product m. At each rational prime the Euler factor product over p-adic prime ideals (1-T^f_i)^(-1) is coefficientwise bounded by (1-T)^(-n), since f_i>=1 and the number of factors is <=n; multiply over primes.
-
-AnalyticNumberTheory:AN.5/fixed-order-divisor-subpower
-For each integer n>=1 and epsilon>0 there is C_(n,epsilon) with d_n(m)<=C_(n,epsilon)*m^epsilon for every m>=1. Use d_n(p^a)=binomial(a+n-1,n-1). For large p this is <=n^a<=p^(epsilon*a); for the finitely many smaller primes the supremum of the polynomial in a divided by p^(epsilon*a) is finite. The product of those finitely many constants is independent of m.
-
-AnalyticNumberTheory:AN.4/class-character-lseries-comparison
-For a finite narrow-class character χ, L(s,χ)=Σ_aχ(a)N(a)^(−s)=∏_p(1−χ(p)N(p)^(−s))⁻¹, Re(s)>1, and L=Σ_Aχ(A)ζ_A. The printed Euler product omits χ(p); use the corrected one.
-
-AnalyticNumberTheory:AN.4/cm-partial-zeta-period
-For fundamental D<0, π^(−s)Γ(s)ζ_A(s)=(2^s/ω_D)|D|^(−s/2)E*(z_A,s), initially Re(s)>1 then by continuation. Here K=ℚ(√D), A is an ordinary ideal class, z_A is its associated CM lattice point in the upper half-plane, and ω_D=|O_K^×|/2 (thus ω_−4=2 and ω_−3=3). Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s).
-
-AnalyticNumberTheory:AN.4/real-even-partial-zeta-period
-For fundamental D>1, π^(−s)Γ(s/2)²D^(s/2)(ζ_A+ζ_{JA})=2∫_{C_A}E*(z,s)ds, initially Re(s)>1 and then by continuation. The proof divides by the full norm-one unit action. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The integration measure denoted ds in the displayed formula is hyperbolic arc length y^(−1)|dz|, not the complex variable s.
-
-AnalyticNumberTheory:AN.4/genus-lseries-factorization
-(p.971.) Let D = d'd be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ(s,χ) = Λ(s,χ_{d'})Λ(s,χ_d), with Λ(s,χ) as in (7.4)–(7.5) and Λ(s,χ_d) as in (5.13).
-
-AnalyticNumberTheory:AN.4/negative-genus-core-period
-For s=1/2+it, coprime negative fundamental d,d′ and D=d′d>0, Λ(s,χ_d)Λ(s,χ_{d′})=(s(1−s)/2)Σ_Aχ(A)∫_{F_A}E*(z,s)dμ. First continue the compact boundary Hecke identity from Re(s)>1 to the critical line, then apply Stokes there. The raw core integral diverges when Re(s)>1 and is not its initial definition.
-
-AnalyticNumberTheory:AN.4/positive-genus-geodesic-period
-Let D > 1 be a fundamental discriminant and D = d′d a factorization into positive fundamental discriminants (equivalently, d′, d > 0 coprime fundamental discriminants with d′d > 1; then D is fundamental). Let χ be the genus character. Then Λ(s,χ_{d'})Λ(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.
-
-AnalyticNumberTheory:AN.4/mixed-genus-cm-period
-For coprime fundamental d,d′ of opposite sign, Λ(s,χ_d)Λ(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity. Here D=dd′<0, the sum is over ordinary ideal classes of ℚ(√D), χ is the genus character, and ω_D=|O_K^×|/2 as in the CM partial-zeta comparison; use the same E* normalization.
-
-AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period
-For fundamental D>1, π^(−s)Γ((s+1)/2)²D^(s/2)(ζ_A−ζ_{JA})=2∫_{C_A}i∂_zE*(z,s)dz, initially Re(s)>1 and then by continuation. This is the odd archimedean branch, with an oriented differential rather than arc length. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The orientation is the quadratic-class orientation used in DIT §7; reversing it changes the sign of the differential integral.
-
-AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound
-There is an absolute C > 0 such that, for every ε > 0, every fundamental D = d'd with genus character χ, and every s with Re(s) = 1/2: Weyl(E(·,s),χ) ≪_ε |s|^C |L(s,χ_{d'})L(s,χ_d)| |D|^{1/4+ε}. The paper prints the left side as 'Weyl(s,χ)'.
-
-AnalyticNumberTheory:AN.3/critical-line-gamma-quotient
-For s=1/2+it, t real and α,β∈{0,1}, |Γ((s+α)/2)Γ((s+β)/2)/Γ(s)|≤C|s|^(1/2), with one absolute C.
-
-AnalyticNumberTheory:AN.3/reciprocal-zeta-line-one
-Let Zinv be the meromorphic reciprocal of the continued ζ, extended at s=1 by zero. For all real t, |Zinv(1+2it)|≤C log(2+|t|), and Zinv(1+2it)→0 as t→0.
-
-AnalyticNumberTheory:AN.2/siegel-quadratic-lvalue
-For every ε > 0 there is c(ε) > 0, not effectively computable, such that L(1,χ_D) ≥ c(ε)|D|^{−ε} for every fundamental discriminant D ≠ 1.
-
-AnalyticNumberTheory:AN.4/real-quadratic-class-regulator-lower
-For every ε>0, h⁺(D)log ε_D≥c_ε D^(1/2−ε) for positive fundamental D, with an ineffective c_ε>0 and the narrow regulator convention of DIT item144.
-
-AnalyticNumberTheory:AN.4/imaginary-quadratic-class-number-lower
-For every ε>0, h(D)≥c_ε |D|^(1/2−ε) for negative fundamental D, with an ineffective c_ε>0.
-
-AnalyticNumberTheory:AN.2/mertens-prime-reciprocal
-There is a real B such that Σ_{p≤x}1/p=log log x+B+O(1/log x) for real x≥2, with an absolute implied constant.
-
-AnalyticNumberTheory:AN.2/mertens-prime-product
-For real x≥2, ∏_{p≤x}(1−1/p)^−1=e^γ log x+O(1), with γ Euler’s constant and an absolute implied constant.
-
-AnalyticNumberTheory:AN.2/prime-interval-three-x
-For all sufficiently large x, the number of primes in (x,3x] lies between 4+x/log x and 3x/log x.
-
-AnalyticNumberTheory:AN.5/medium-prime-cardinality
-For fixed integer m≥0, #N_m(x)∼(x/log x)^m/(2^m m!) as x→∞; m is fixed, not uniform in m.
-
-AnalyticNumberTheory:AN.5/inverse-totient-count
-For real x≥1, #{d∈ℕ_{>0}:φ(d)≤x}=O(x), with an absolute constant.
-
-AnalyticNumberTheory:AN.5/divisor-maximal-order
-For every real ε>0 there is a natural K>e such that for every natural n≥K, τ(n)≤exp((log 2+ε)log n/log log n). This is the upper bound; no matching lower-order limit is asserted here.
-
-AnalyticNumberTheory:AN.3/davenport-mobius-cancellation
-For every A>0 there is C_A such that for y≥2, sup_{α∈ℝ}|Σ_{1≤r≤y}μ(r)e^{ir α}|≤C_A y(log y)^{−A}. Original proof input [22] or [39,Thm 13.10] still requires full source extraction.
-
-AnalyticNumberTheory:AN.5/coprime-mobius-log-sum
-For every A>0, uniformly in positive integers q≤T^4 and real T≥2, Σ_{1≤t≤T,(t,q)=1} μ(t)log t/t=−q/φ(q)+O_A((log T)^−A).
-
-AnalyticNumberTheory:AN.5/prime-divisor-product-mean
-For fixed n∈N,c>0 and f on rational primes with |f(p)|≤c/p, set a(t)=∏_{p|t}(1+f(p))^n for t≥1. Then Σ_{1≤t≤x}a(t)=Cx+O_{n,c}(√x), x≥1, where C=∏_p(1+((1+f(p))^n−1)/p); the product is absolutely convergent and f may be complex.
-
-AnalyticNumberTheory:AN.5/gamma-prime-product-tail
-For fixed n∈ℕ and real x≥e², define γ_n(p)=1−1/p+(1+1/(p−1))^n/p for each rational prime p. The convergent product over p>log x is 1+O_n(1/log x), uniformly after retaining any subset of those primes. In particular γ_0(p)=1; the equivalent expression p^(n−1)/(p−1)^n uses an integer exponent n−1, never truncated natural subtraction.
-
-AnalyticNumberTheory:AN.2/mertens-product-comparison
-For y≥2, ∏_{p≤y}(1−1/p) is comparable to 1/log y, with absolute positive upper and lower constants. The application here needs the lower estimate after removing finitely many fixed primes, not an unsourced precise constant.
-
-AnalyticNumberTheory:AN.5/shifted-coprime-mobius-sum
-For every A>0 there are constants C_A>0 and T_A≥2 such that for every real T≥T_A and every positive integer 1≤q≤√T, |Σ_{1≤t≤T/q,(t,q)=1}μ(t)log(qt)/t+q/φ(q)|≤C_A(log T)^(−A). The constants are independent of q.
-
-AnalyticNumberTheory:AN.5/totient-reciprocal-bound
-For n≥3, 1/φ(n)≤C log log n/n, with an absolute C>0.
-
-AnalyticNumberTheory:AN.3/positive-truncation-error-cancellation
-For A>0 and y,z≥2, sup_{α∈R}|Σ_{1≤r≤y}E_z(r)e^(irα)|≤C_A y(log y)(log z)^−A.
-
-AnalyticNumberTheory:AN.5/coprime-mobius-reciprocal-sum
-For every A>0, uniformly in positive integers q≤T^4 and T≥2, Σ_{1≤t≤T,(t,q)=1} μ(t)/t=O_A((log T)^−A).
-
-AnalyticNumberTheory:AN.5/landau-sum-two-squares-count
-For K→∞, #{1≤k≤K:k=u²+v² for some integers u,v}∼C_L K/√log K with the positive Landau–Ramanujan constant C_L.
-
-AnalyticNumberTheory:AN.5/landau-three-square-form-count
-For real K≥2, the count of positive integers k≤K with 4(k−1)=u²+3v² for some integers u,v is at most C K/√log K for one absolute C>0; the k=1 norm-zero case is counted once.
-
-AnalyticNumberTheory:AN.5/shifted-square-count
-#{1≤k≤K:k−4 is an integer square}≤1+√max(K−4,0), for K≥1.
-
-AnalyticNumberTheory:AN.5/landau-exception-union
-The union of k=u²+v², 4(k−1)=u²+3v² and k−4=u², with k positive and ≤K, has cardinality ∼C′ K/√log K for a positive C′.
-
-AnalyticNumberTheory:AN.5/half-density-prime-support-count
-Fix a positive modulus M and R⊆(ZMod M)^× with 2#R=φ(M); primes dividing M are excluded. Let H be the subgroup generated by R. For each fixed a∈H there are C₁,C₂>0 and X₀≥2, depending only on M,R,a, such that for all X≥X₀ the count of positive ν≤X with every prime factor lying in R modulo M and ν≡a mod M lies between C₁ X/√log X and C₂ X/√log X. If a∉H, that count is0. The empty factorization ofν=1 is included only in the identity class.
-
-AnalyticNumberTheory:AN.4/louboutin-dedekind-residue-upper
-For every number field K of degree d>1 and absolute discriminant D_K, the residue κ_K of the continued Dedekind zeta function satisfies κ_K≤(e log D_K/(2(d−1)))^(d−1).
-
-AnalyticNumberTheory:AN.3/ray-class-zero-density
-There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0, Σ_{Nm 𝔮≤Q}Σ*_{χ mod 𝔮}N_χ(σ, T) ≪_{[k:ℚ],ε} (Disc(k)QT)^{c(1−σ)+ε}, the inner sum over primitive ray class characters of conductor 𝔮 and N_χ(σ, T) counting zeros with ℜρ ∈ (σ, 1), |ℑρ| ≤ T.
-
-AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes
-For ε₁ > 0 and X ≥ 2 there is E = E(k, X, ε₁) ⊂ {F/k quadratic, Disc(F/k) ≤ X} with |E| ≪_{[k:ℚ],ε₁} Disc(k)^{ε₁}X^{ε₁}, such that for F ∉ E and 4 ≤ Y ≤ X, π_k(Y; F, e) ≥ (1/8)π_k(Y/2) − C_{[k:ℚ],ε₁}Y^{σ₁}log²(X Disc(k)) with σ₁ = max(1 − ε₁/(4c), 1/2). E consists of the F whose character χ_{F/k} has a zero with ℜρ > σ₁, |ℑρ| ≤ X^{1/2}; the proof is the explicit formula with Lemma 4.1.
-
-AnalyticNumberTheory:AN.4/effective-prime-ideal-lower
-For every fixed degree n there is a positive effective c_n and an absolute effective D₀ such that π_k(Y)≥c_n D_k^(−19)Y/log Y whenever [k:Q]=n, D_k≥D₀ and Y≥D_k^35.
-
-AnalyticNumberTheory:AN.2/mertens-first-theorem
-For X≥2, Σ_{p<X}(log p)/p=log X+O(1), with an absolute implied constant.
-
-AnalyticNumberTheory:AN.3/mestre-weil-explicit-formula
-Let A, B > 0, a_i, a′_i ≥ 0 (1 ≤ i ≤ M) with Σ a_i = Σ a′_i, b_i, b′_i ∈ C with non-negative real parts, and Λ_1, Λ_2 meromorphic on C with (i) Λ_1(1 − s) = wΛ_2(s) for some w ∈ C^×; (ii) finitely many poles; (iii) Λ_i minus its singular parts bounded in every vertical strip of finite width; (iv) for some c ≥ 0 and Re s > 1 + c, Λ_1(s) = A^s Π_{i=1}^M Γ(a_i s + b_i) Π_p Π_{i=1}^{M′} (1 − α_i(p)p^{−s})^{−1} and Λ_2(s) = B^s Π_{i=1}^M Γ(a′_i s + b′_i) Π_p Π_{i=1}^{M′} (1 − β_i(p)p^{−s})^{−1} with |α_i(p)|, |β_i(p)| ≤ p^c. Let F satisfy weil_test_function(c,F). For every zero gamma slope a_i=0 (respectively a′_i=0), assume b_i≠0 (respectively b′_i≠0), so its constant gamma factor is finite and nonzero. Then Σ_ρ Φ(ρ) − Σ_μ Φ(μ) + Σ_{i=1}^M I(a_i, b_i) + Σ_{i=1}^M J(a′_i, b′_i) = F(0) log(AB) − Σ_{p,i,k≥1} (α_i(p)^k F(k log p) + β_i(p)^k F(−k log p)) log p / p^{k/2}, where ρ (resp. μ) runs over the zeros (resp. poles) of Λ_1 with −c ≤ Re ≤ 1 + c, with multiplicity, Σ_ρ Φ(ρ) = lim_{T→∞} Σ_{|Im ρ|<T} Φ(ρ), Φ(s) = ∫_R F(x) e^{(s−1/2)x} dx, I(a, b) = a ∫_0^∞ (F(ax) e^{−(a/2+b)x}/(1 − e^{−x}) − F(0) e^{−x}/x) dx and J(a, b) is the same with F(−ax). For a>0 the displayed I,J are ordinary convergent combined integrals (do not integrate the two individually divergent subtraction terms separately). For a=0 set I(0,b)=J(0,b)=0 after removing its constant gamma factor; this is not0 times an undefined integral.
-
-AnalyticNumberTheory:AN.5/restricted-squarefree-landau-count
-For D(X)={n∈N:1≤n<X, n squarefree, every odd prime factor p satisfies p≡1 mod4}, there is a positive absolute C_D such that #D(X)=C_D X/√log X·(1+O(1/log X)) as X→∞. The cutoff is strict, as in KP§1. C_D=(3/(4√2))∏_{p≡1(4)}(1−p^(−2))∏_{p≡3(4)}(1−p^(−2))^(1/2), with positive convergent products.
-
-AnalyticNumberTheory:AN.5/restricted-sathe-selberg-count
-Let D_r(N)={n∈D(N):ω(n)=r}, with D(N) the strict-cutoff squarefree family defined in restricted_squarefree_landau_count and ω(n) the number of distinct prime divisors. For every fixed A>0 there are C₁,C₂>0 and N₀≥3, depending only on A, such that for every real N≥N₀ and integer1≤r≤A log log N, C₁(N/log N)(½ log log N)^(r−1)/(r−1)!≤#D_r(N)≤C₂(N/log N)(½ log log N)^(r−1)/(r−1)!. No r=0 or varying-A uniformity is asserted.
-
-AnalyticNumberTheory:AN.2/squareclass-exceptional-repulsion
-There is an effective absolute0<c_Landau<1/2 such that distinct d,e∈S(c_Landau) with |d|≤|e| satisfy |d|²≤|e|. This pairwise form applies to every existing finite ordered segment; no infinitude of S(c_Landau) is asserted.
-
-AnalyticNumberTheory:AN.2/quadratic-prime-character-interval
-There are positive absolute effective constants c,C such that for every nonzero squarefree integer D≠1, its primitive field character χ_D of conductor Q_D=|Disc(Q(√D))|, and real2≤u<v, |Σ_{u<p<v, p prime, p∤Q_D}χ_D(p)|≤C[E_D(v)+v exp(−c log v/(√log v+log Q_D))(log(vQ_D))⁴]. Here E_D(v)=v^β if the conductor-uniform zero-free region singles out a simple real exceptional zero β∈(1/2,1), and E_D(v)=0 otherwise. Equivalently extend χ_D by0 at ramified primes and sum over all primes. This is an upper bound, not an asymptotic for short intervals.
-
-AnalyticNumberTheory:AN.2/effective-quadratic-zero-separation
-For every ε>0 there is an effectively computable c_ε>0, fixed before D and β, such that for every nonzero squarefree integer D≠1 and real zero β∈(1/2,1) of the canonical continued primitive field-character L(s,χ_D), 1−β≥c_ε |D|^(−1/2−ε). The conductor is Q_D=|Disc(Q(√D))|, with |D|≤Q_D≤4|D|; conductor/radicand conversion only changes c_ε effectively.
-
-AnalyticNumberTheory:AN.4/heilbronn-simple-real-zero
-If K/Q is finite Galois and the canonical continued ζ_K has a simple real zero β with0<β<1, then a quadratic subfield k⊆K satisfies ζ_k(β)=0. The conclusion uses meromorphic Artin continuation and the Aramata–Brauer entire-quotient theorem, not Artin holomorphy.
-
-AnalyticNumberTheory:AN.4/gross-zagier-cm-eisenstein-comparison
-Let D<0 be a fundamental discriminant, K=Q(√D), u=#O_K^×/2 and A an ordinary ideal class. Choose its CM lattice point τ_A in the upper half-plane from a primitive positive-definite binary quadratic form of discriminant D. Let E(z,s)=(1/2)Σ_{gcd(c,d)=1}(Im z)^s/|cz+d|^(2s), the uncompleted level-one Eisenstein series. For Re s>1, E(τ_A,s)=2^(−s)|D|^(s/2)u ζ(2s)^(−1)ζ_K(A,s), equivalently2^s ζ(2s)E(τ_A,s)=u|D|^(s/2)ζ_K(A,s). All positive-base powers use the real logarithm. Changing A to A^(−1) leaves its partial zeta unchanged.
-
-AnalyticNumberTheory:AN.4/imaginary-genus-character-dictionary
-For an imaginary quadratic field K of fundamental discriminant D<0, genus characters are homomorphisms Cl_K→{±1}, including the trivial homomorphism. They correspond bijectively to unordered fundamental-discriminant factorizations{D₁,D₂}, D=D₁D₂, one positive and one negative; permit the trivial discriminant1 with ε_1=1. For an integral ideal a prime to D, χ_{D₁,D₂}(a)=ε_{D₁}(N a)=ε_{D₂}(N a). This node is the arithmetic classification/compatibility dictionary. The analytic equality L_K(s,χ)=L(s,ε_{D₁})L(s,ε_{D₂}) is supplied by the existing genus_lseries_factorization node, not proved again here.
-
-AnalyticNumberTheory:AN.4/imaginary-quadratic-root-number-one
-For negative fundamental D, put δ=|D| and let ε_D be the canonical primitive odd Dirichlet character of Q(√D), of conductorδ. On Re s>1, Λ(s,ε_D)=(δ/π)^((s+1)/2)Γ((s+1)/2)L(s,ε_D). Its canonical entire continuation is δ^((s+1)/2)·DirichletCharacter.completedLFunction(ε_D,s). The new quadratic normalization assertion is that the root number is+1 and Λ(1−s,ε_D)=Λ(s,ε_D). Entire continuation of a nontrivial Dirichlet completed function is already in Mathlib; no duplicate continuation construction is planned.
-
-AnalyticNumberTheory:AN.4/imaginary-quadratic-lvalue-one
-For an imaginary quadratic field of fundamental discriminant D<0, δ=|D|, class number h and w=2u roots of unity, L(1,ε_D)=πh/(u√δ).
-
-AnalyticNumberTheory:AN.4/imaginary-quadratic-lvalue-zero
-With the same imaginary quadratic data, the canonical continued primitive Dirichlet function satisfies L(0,ε_D)=h/u.
-
-AnalyticNumberTheory:AN.2/order-one-hadamard
-For nonzero entire f of order at most1, f(z)=z^m exp(a+bz)∏_αE₁(z/α), with locally uniform convergence, exact zero multiplicities and finite/empty zero sets permitted.
-
-AnalyticNumberTheory:AN.2/finite-order-hadamard
-For nonzero entire f of finite order at most ρ≥0, set n=floor ρ. Its nonzero zeros α with multiplicity satisfy Σ|α|^(−n−1)<∞ and f(z)=z^m exp(h(z))∏E_n(z/α), where E_n(w)=(1−w)exp(Σ_{j=1}^n w^j/j), h is a polynomial of degree≤n and the product converges locally uniformly. Finite/empty zero sets are allowed.
-
-AnalyticNumberTheory:AN.3/character-half-interval-formula
-There are absolute C>0 and k₀≥2 such that for every primitive nonprincipal Dirichlet characterχ of conductor q, integer k≥k₀ and real2≤T≤k, Σ_(k/2<m≤k)χ(m)Λ(m)=−Σ_(nontrivial zeros |Imρ|≤T)mρ(k^ρ−(k/2)^ρ)/ρ+E, with |E|≤C[k log²(qk)/T+log²(qk)]. Endpoint sums are over positive integers; powers use exp(ρ log x).
-
-AnalyticNumberTheory:AN.4/brauer-meromorphic-continuation
-Every finite-image complex Artin Euler series has a meromorphic continuation to C obtained from an integral Brauer expression as a finite product of integer powers of canonical Hecke continuations. This asserts global meromorphy, not Artin holomorphy.
-
-AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer
-From ψ(x)∼x, obtain θ(x)∼x, π(x)∼Li(x) and π(x)∼x/log x, using the existing ADS transfer and pinned prime-power bound.
-
-AnalyticNumberTheory:AN.2/dirichlet-conductor-zero-free-region
-There is an effective absolute c>0 such that a primitive nonprincipal Dirichlet L-function of conductor q≥2 has no zero in Re s≥1−c/log(q(|Im s|+2)), except possibly one simple real zero of a real character.
-
-AnalyticNumberTheory:AN.2/siegel-walfisz
-For every A,B>0, uniformly for q≤(log x)^B and gcd(a,q)=1, π(x;a,q)=Li(x)/φ(q)+O_{A,B}(x(log x)^−A) as x→∞. The constant and threshold may be ineffective.
-
-AnalyticNumberTheory:AN.5/halasz-integral-bound
-For fixed κ>0, f∈C(κ) and sufficiently large x, |Σ_{n≤x}f(n)|≤C_κ x/log x ·∫_{1/log x}^1 max_{|t|≤(log x)^κ}|F(1+σ+it)/(1+σ+it)| dσ/σ + C_κ x(log log x)^κ/log x. The constant is uniform in f.
-
-AnalyticNumberTheory:AN.5/halasz-classical
-For multiplicative |f(n)|≤1, x≥2,T≥1, let M(x,T)=min_{|t|≤2T}D(f,n^(it);x)². Then |Σ_{n≤x}f(n)|/x≤C((1+M)e^−M+T^−1/2), with an absolute C; increasing C handles bounded x.
-
-AnalyticNumberTheory:AN.5/dirichlet-divisor-average
-For x≥2, Σ_{1≤n≤x}τ(n)=x log x+(2γ−1)x+O(√x), with an absolute constant and inclusive real cutoff.
-
-AnalyticNumberTheory:AN.5/zeta-second-moment
-As T→∞, ∫_0^T|ζ(1/2+it)|²dt=T log(T/(2π))+(2γ−1)T+O(√T log T), with an absolute constant.
-
-AnalyticNumberTheory:AN.5/zeta-fourth-moment
-As T→∞, ∫_0^T|ζ(1/2+it)|⁴dt=(1/(2π²))T(log T)^4+O(T(log T)^3), with an absolute constant.
-
-AnalyticNumberTheory:AN.5/moment-model-comparison
-For each fixed k>0, the statement ∫_0^T|ζ(1/2+it)|^(2k)dt∼a(k)g(k)T(log T)^(k²) is a conjectural model with the arithmetic Euler factor a(k) and random-matrix factor g(k) supplied by PM.5. No asymptotic for general k is asserted unconditionally; k=1 and2 are checked against the proved moments.
-
-AnalyticNumberTheory:AN.5/beurling-all-log-remainders
-For a discrete Beurling system whose ζ converges on Re s>1, π_P(x)=Li(x)+O_m(x/log^m x) for every m≥1 iff N(x)=ax+O_m(x/log^m x) for every m≥1 for some a>0. Each error constant may depend on m and the system.
-
-AnalyticNumberTheory:AN.3/dirichlet-polynomial-mean-square
-For N≥1,T≥1 and complex a₁,…,a_N, ∫_{−T}^T|Σ_{n=1}^N a_n n^(−it)|²dt=2TΣ|a_n|²+O(Σn|a_n|²), with an absolute constant.
-
-AnalyticNumberTheory:AN.7/lerch-cover-continuation
-The initial Φ germ continues to a single-valued holomorphic function on the universal cover of N#=C_s×(C_z\{0,1})×(C_c\Z≤0), based at(s,z,c)=(1/2,−1,1/2). Fix its base germ by the principal integral and continuation from |z|<1. The separate solvable-descent lemma states the quotient-cover invariance.
-
-AnalyticNumberTheory:AN.7/lerch-nonpositive-special-values
-For m≥0, Φ(z,−m,c)=(z∂_z+c)^m(1/(1−z)), a rational function of z,c with poles only at z=1. It extends in c across all integers and has zero monodromy. For m=1 it equals c/(1−z)+z/(1−z)².
-
-AnalyticNumberTheory:AN.7/circle-hurwitz-import
-For real 0<c≤1 and Re s>1, the z=1 Lerch/Hurwitz series Σ_{n≥0}(n+c)^−s agrees with the pinned UnitAddCircle Hurwitz function using c mod1 and its endpoint convention c=1. Its meromorphic continuation has a simple pole at s=1 of residue1.
-
-AnalyticNumberTheory:AN.7/exp-zeta-lerch-comparison
-For real a, z=exp(2πia) and Re s>1, expZeta(a,s)=zΣ_{n≥0}z^n exp(−sLog(n+1)), in the absolutely convergent boundary series. The totalized defining Φ sum agrees here after its boundary summability proof; at a∈Z this is the Riemann degeneration. It gives no equality of arbitrary sheets or unqualified limit for Re s≤1.
-
-AnalyticNumberTheory:AN.7/dirichlet-hurwitz-finite-sum
-For a character χ modulo q≥1 and Re s>1, L(s,χ)=q^−sΣ_{a=1}^q χ(a)ζ_H(s,a/q), using the actual principal/imprimitive character values. Continue with the pinned Dirichlet and circle-Hurwitz functions and keep the principal pole.
-
-AnalyticNumberTheory:AN.7/lerch-even-functional-equation
-On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. At a gamma pole, Λ denotes the removable holomorphic extension of the product, not its pointwise totalized Gamma value.
-
-AnalyticNumberTheory:AN.7/lerch-odd-functional-equation
-On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations; at gamma poles Λ denotes the removable holomorphic extension rather than a pointwise totalized Gamma product.
-
-AnalyticNumberTheory:AN.7/complex-hurwitz-continuation
-There exist canonical joint continuations H(s,c),R(s,c) on s∈C, Re c>0, with H jointly holomorphic off s=1, R jointly holomorphic everywhere on this domain, R(1,c)=1, and R(s,c)=(s−1)H(s,c) for s≠1. H agrees with the defining Hurwitz series on Re s>1 and has a simple pole at1 of residue1. The shift holds off the pole. Neither a totalized divergent series nor the pointwise product(s−1)H at1 is claimed to be the removable extension R.
-
-AnalyticNumberTheory:AN.7/complex-hurwitz-bernoulli-values
-For m≥0 and Re c>0, the canonical continuation has ζ_H(−m,c)=−B_{m+1}(c)/(m+1), with Bernoulli polynomials normalized by te^(ct)/(e^t−1)=ΣB_j(c)t^j/j!. In particular ζ_H(0,c)=1/2−c. The polynomial is the pinned Polynomial.bernoulli(m+1) evaluated at complex c after coefficient extension; B₁(c)=c−1/2, so at c=1 the order-zero value is−1/2.
+Sources: reviewed-paper-tsimerman-18, Derived from Thorner-Zaman (2-3)-(2-6), odd gamma factors; thorner-zaman-2017, (2-3)–(2-7), printed pp.1140–1141; specialized using CM sign characters.
 
 AnalyticNumberTheory:AN.4/quadratic-residue-quotient
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_residue_quotient.
 For a quadratic extension E/F, L_f(1,η)=κ_E/κ_F>0, where κ_K is the positive residue of the continued Dedekind function. Here η is the canonical nontrivial primitive quadratic Hecke character attached by global Artin reciprocity. Its holomorphy at 1, the continued zeta factorization, and the two simple positive residues give the quotient; general line-one nonvanishing is not needed for this argument.
+Sources: reviewed-paper-tsimerman-18, Quadratic Euler-factor calculation; Thorner-Zaman 2017 equations (2-1)-(2-7); main Corollary 3.3 adapter.
 
+AnalyticNumberTheory:AN.4/class-character-lseries-comparison
+Proposed name: TauCeti.AnalyticNumberTheory.class_character_lseries_comparison.
+For a finite narrow-class character χ, L(s,χ)=Σ_aχ(a)N(a)^(−s)=∏_p(1−χ(p)N(p)^(−s))⁻¹, Re(s)>1, and L=Σ_Aχ(A)ζ_A. The printed Euler product omits χ(p); use the corrected one.
+Sources: reviewed-paper-duke-imamoglu-toth-16, §7, p970; dit-published-2016, §7, p970.
 
-## Additional lemma specifications exposed by codex-45ZB12
+AnalyticNumberTheory:AN.4/cm-partial-zeta-period
+Proposed name: TauCeti.AnalyticNumberTheory.cm_partial_zeta_period.
+For fundamental D<0, π^(−s)Γ(s)ζ_A(s)=(2^s/ω_D)|D|^(−s/2)E*(z_A,s), initially Re(s)>1 then by continuation. Here K=ℚ(√D), A is an ordinary ideal class, z_A is its associated CM lattice point in the upper half-plane, and ω_D=|O_K^×|/2 (thus ω_−4=2 and ω_−3=3). Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s).
+Sources: reviewed-paper-duke-imamoglu-toth-16, (7.1); dit-published-2016, (7.1).
 
-AnalyticNumberTheory:AN.2/zero-reciprocal-truncation-bound
-Under the family/count hypotheses there is K>0, depending on α,C,b, such that for R≥2, Σ_{|α_i|<R}|α_i|⁻¹≤K R^(b−1). The sum is finite and counts repeated zeros.
+AnalyticNumberTheory:AN.4/real-even-partial-zeta-period
+Proposed name: TauCeti.AnalyticNumberTheory.real_even_partial_zeta_period.
+For fundamental D>1, π^(−s)Γ(s/2)²D^(s/2)(ζ_A+ζ_{JA})=2∫_{C_A}E*(z,s)ds, initially Re(s)>1 and then by continuation. The proof divides by the full norm-one unit action. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The integration measure denoted ds in the displayed formula is hyperbolic arc length y^(−1)|dz|, not the complex variable s.
+Sources: reviewed-paper-duke-imamoglu-toth-16, (7.2), p.970 (Hecke; a cited result, 'He showed'); dit-published-2016, (7.2), p.970 (Hecke; a cited result, 'He showed').
 
-AnalyticNumberTheory:AN.2/zero-reciprocal-square-tail-bound
-Under the family/count hypotheses there is K>0, depending only on C,b, such that for R≥1, the reciprocal-square series over |α_i|>R is summable and Σ_{|α_i|>R}|α_i|⁻²≤K R^(b−2).
+AnalyticNumberTheory:AN.4/genus-lseries-factorization
+Proposed name: TauCeti.AnalyticNumberTheory.genus_lseries_factorization.
+(p.971.) Let D = d'd be a fundamental discriminant, with d' and d fundamental discriminants (hence coprime), K = Q(√D), and χ the associated genus character of Cl^+(K). For D > 0, χ(J) = sign d = sign d'. Kronecker's decomposition holds: L(s,χ) = L(s,χ_{d'})L(s,χ_d). Equivalently Λ(s,χ) = Λ(s,χ_{d'})Λ(s,χ_d), with Λ(s,χ) as in (7.4)–(7.5) and Λ(s,χ_d) as in (5.13).
+Sources: reviewed-paper-duke-imamoglu-toth-16, §7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8); dit-published-2016, §7, 'Genus characters', p.971, the unnumbered sentence between (7.7) and (7.8).
 
-AnalyticNumberTheory:AN.2/canonical-product-inner-lower-bound
-Under the family/count hypotheses there is K>0 such that for R≥2, |z|=R and every finite subset S of indices with |α_i|<R/2, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b.
+AnalyticNumberTheory:AN.4/negative-genus-core-period
+Proposed name: TauCeti.AnalyticNumberTheory.negative_genus_core_period.
+For s=1/2+it, coprime negative fundamental d,d′ and D=d′d>0, Λ(s,χ_d)Λ(s,χ_{d′})=(s(1−s)/2)Σ_Aχ(A)∫_{F_A}E*(z,s)dμ. First continue the compact boundary Hecke identity from Re(s)>1 to the critical line, then apply Stokes there. The raw core integral diverges when Re(s)>1 and is not its initial definition.
+Sources: reviewed-paper-duke-imamoglu-toth-16, Theorem3 first branch; dit-published-2016, Theorem3 first branch.
 
-AnalyticNumberTheory:AN.2/canonical-product-middle-lower-bound
-Under the family/count hypotheses there is K>0 such that for R≥2 satisfying |R−|α_i||>|α_i|⁻² for every index, |z|=R and every finite S with R/2≤|α_i|≤2R, Σ_{i∈S}log|E₁(z/α_i)|≥−K R^b(1+log(2R)).
+AnalyticNumberTheory:AN.4/positive-genus-geodesic-period
+Proposed name: TauCeti.AnalyticNumberTheory.positive_genus_geodesic_period.
+Let D > 1 be a fundamental discriminant and D = d′d a factorization into positive fundamental discriminants (equivalently, d′, d > 0 coprime fundamental discriminants with d′d > 1; then D is fundamental). Let χ be the genus character. Then Λ(s,χ_{d'})Λ(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.
+Sources: reviewed-paper-duke-imamoglu-toth-16, Theorem 3, second case, p.964; for all s by (7.8), p.972; dit-published-2016, Theorem 3, second case, p.964; for all s by (7.8), p.972.
 
-AnalyticNumberTheory:AN.2/canonical-product-outer-lower-bound
-Under the family/count hypotheses there is K>0 such that for R≥2 and |z|=R the unordered outer product P_out(z)=∏_{|α_i|>2R}E₁(z/α_i) is nonzero and log|P_out(z)|≥−K R^b.
+AnalyticNumberTheory:AN.4/mixed-genus-cm-period
+Proposed name: TauCeti.AnalyticNumberTheory.mixed_genus_cm_period.
+For coprime fundamental d,d′ of opposite sign, Λ(s,χ_d)Λ(s,χ_{d′})=(2√π/ω_D)Σ_Aχ(A)E*(z_A,s), as a meromorphic identity. Here D=dd′<0, the sum is over ordinary ideal classes of ℚ(√D), χ is the genus character, and ω_D=|O_K^×|/2 as in the CM partial-zeta comparison; use the same E* normalization.
+Sources: reviewed-paper-duke-imamoglu-toth-16, Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971; dit-published-2016, Theorem 3, third case, p.964 (Re(s) = 1/2); for all s by the display after 'By (7.6) we have when D < 0', p.971.
 
-AnalyticNumberTheory:AN.2/xi-zero-critical-strip
-For every complex ρ with ξ(ρ)=0,0<Re ρ<1.
+AnalyticNumberTheory:AN.4/real-odd-partial-zeta-period
+Proposed name: TauCeti.AnalyticNumberTheory.real_odd_partial_zeta_period.
+For fundamental D>1, π^(−s)Γ((s+1)/2)²D^(s/2)(ζ_A−ζ_{JA})=2∫_{C_A}i∂_zE*(z,s)dz, initially Re(s)>1 and then by continuation. This is the odd archimedean branch, with an oriented differential rather than arc length. Here K=ℚ(√D), A∈Cl^+(K), J is the narrow class of a principal ideal generated by an element of negative norm, and C_A is the oriented quadratic geodesic modulo the full norm-one unit group. With ε_D the least norm-one unit greater than 1, its arc length is 2 log ε_D. Here E(z,s)=(1/2)∑_(gcd(c,d)=1) (Im z)^s/|cz+d|^(2s) on Re s>1, and E*(z,s)=π^(−s)Γ(s)ζ(2s)E(z,s). The orientation is the quadratic-class orientation used in DIT §7; reversing it changes the sign of the differential integral.
+Sources: reviewed-paper-duke-imamoglu-toth-16, (7.3); dit-published-2016, (7.3).
 
-AnalyticNumberTheory:AN.3/zeta-poisson-zero-weight
-There is an absolute C>0 such that for every real t, Σ_(ξ(ρ)=0)mρ/(1+(t−Imρ)²) is summable and at most C log(2+|t|), with mρ=analyticOrderNatAt ξρ.
+AnalyticNumberTheory:AN.3/eisenstein-weyl-lvalue-bound
+Proposed name: TauCeti.AnalyticNumberTheory.eisenstein_weyl_lvalue_bound.
+There is an absolute C > 0 such that, for every ε > 0, every fundamental D = d'd with genus character χ, and every s with Re(s) = 1/2: Weyl(E(·,s),χ) ≪_ε |s|^C |L(s,χ_{d'})L(s,χ_d)| |D|^{1/4+ε}. The paper prints the left side as 'Weyl(s,χ)'.
+Sources: reviewed-paper-duke-imamoglu-toth-16, (6.7), proof of Proposition 2, p.969; dit-published-2016, (6.7), proof of Proposition 2, p.969.
 
-AnalyticNumberTheory:AN.3/zeta-trivial-zero-simple
-For every natural n≥1, analyticOrderNatAt riemannZeta(−2n)=1.
+AnalyticNumberTheory:AN.2/siegel-quadratic-lvalue
+Proposed name: TauCeti.AnalyticNumberTheory.siegel_quadratic_lvalue.
+For every ε > 0 there is c(ε) > 0, not effectively computable, such that L(1,χ_D) ≥ c(ε)|D|^{−ε} for every fundamental discriminant D ≠ 1.
+Sources: reviewed-paper-duke-imamoglu-toth-16, §6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])'); dit-published-2016, §6, p.968 ('By Siegel's theorem'); proof of Proposition 1, p.968 ('Siegel's theorem (see [11])').
 
-AnalyticNumberTheory:AN.3/primitive-character-unit-height-zero-count
-There is an absolute C>0 such that for every primitive nonprincipal Dirichlet character χ of conductor q≥1 and every real u, the nontrivial L-zero occurrences with u≤Imρ≤u+1 number at most C log(q(2+|u|)).
+AnalyticNumberTheory:AN.4/real-quadratic-class-regulator-lower
+Proposed name: TauCeti.AnalyticNumberTheory.real_quadratic_class_regulator_lower.
+For every ε>0, h⁺(D)log ε_D≥c_ε D^(1/2−ε) for positive fundamental D, with an ineffective c_ε>0 and the narrow regulator convention of DIT item144.
+Sources: reviewed-paper-duke-imamoglu-toth-16, §6, pp967–968; dit-published-2016, §6, pp967–968.
 
-AnalyticNumberTheory:AN.4/artin-local-reciprocal-bound
-For d∈N,0≤m≤d,0≤t≤θ<1 and α₁,…,α_m∈C with |α_j|=1, put A(z)=∏_{j=1}^m(1−α_j z). For |z|=t, A(z)≠0, |A(z)^−1|≤(1−θ)^−d and |A(z)^−1−1|≤d t(1−θ)^−d. The assertion includes d=m=0.
+AnalyticNumberTheory:AN.4/imaginary-quadratic-class-number-lower
+Proposed name: TauCeti.AnalyticNumberTheory.imaginary_quadratic_class_number_lower.
+For every ε>0, h(D)≥c_ε |D|^(1/2−ε) for negative fundamental D, with an ineffective c_ε>0.
+Sources: reviewed-paper-duke-imamoglu-toth-16, §6, pp967–968; dit-published-2016, §6, pp967–968.
+
+AnalyticNumberTheory:AN.5/prime-divisor-product-mean
+Proposed name: TauCeti.AnalyticNumberTheory.prime_divisor_product_mean.
+For fixed n∈N,c>0 and f on rational primes with |f(p)|≤c/p, set a(t)=∏_{p|t}(1+f(p))^n for t≥1. Then Σ_{1≤t≤x}a(t)=Cx+O_{n,c}(√x), x≥1, where C=∏_p(1+((1+f(p))^n−1)/p); the product is absolutely convergent and f may be complex.
+Sources: ss-primary-published, Lemma4.3 and full proof, published pp.705–706, equations(4.2)–(4.3).
+
+AnalyticNumberTheory:AN.5/prime-divisor-integrated-mean
+Proposed name: TauCeti.AnalyticNumberTheory.prime_divisor_integrated_mean.
+With a,C as in the prime-divisor mean lemma, ∫_0^T Σ_{1≤t≤x}a(t)dx=Σ_{1≤t≤T}(T−t)a(t)=CT²/2+O_{n,c}(T^(3/2)), T≥1.
+Sources: ss-primary-published, Lemma4.3, published pp.705–706.
+
+AnalyticNumberTheory:AN.3/two-sided-truncation-error
+Proposed name: TauCeti.AnalyticNumberTheory.two_sided_truncation_error.
+For y,z≥2 and A>0 the two-sided sum Σ_{|r|≤y}E_z(r)e^(irα) has absolute value ≤2C_A y(log y)(log z)^−A+|E_z(0)|. The zero term is bounded separately by O_A(z(log z)^−A).
+Sources: ss-primary-published, §3.1 definitions and Corollary3.3, published p.691.
+
+AnalyticNumberTheory:AN.4/louboutin-dedekind-residue-upper
+Proposed name: TauCeti.AnalyticNumberTheory.louboutin_dedekind_residue_upper.
+For every number field K of degree d>1 and absolute discriminant D_K, the residue κ_K of the continued Dedekind zeta function satisfies κ_K≤(e log D_K/(2(d−1)))^(d−1).
+Sources: reviewed-paper-lipnowski-tsimerman-18, §3.2.2 (24), [18]; used again in §5.4.2 (49); lt-primary-v1-residue, §3.2.2, (24), printed p.14; reference[18].
+
+AnalyticNumberTheory:AN.3/ray-class-zero-density
+Proposed name: TauCeti.AnalyticNumberTheory.ray_class_zero_density.
+There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0, Σ_{Nm 𝔮≤Q}Σ*_{χ mod 𝔮}N_χ(σ, T) ≪_{[k:ℚ],ε} (Disc(k)QT)^{c(1−σ)+ε}, the inner sum over primitive ray class characters of conductor 𝔮 and N_χ(σ, T) counting zeros with ℜρ ∈ (σ, 1), |ℑρ| ≤ T.
+Sources: reviewed-paper-lemkeoliver-wang-wood-25, Theorem 4.2, p.20, citing Lemke Oliver–Thorner [Pas17, Proposition A.2] and Thorner–Zaman [TZ21, Theorem 1.2], Forum Math. Pi 13 (2025), e19; low-primary-published, §4, Theorem4.2, printed p.20.
+
+AnalyticNumberTheory:AN.4/most-quadratic-many-split-primes
+Proposed name: TauCeti.AnalyticNumberTheory.most_quadratic_many_split_primes.
+For ε₁ > 0 and X ≥ 2 there is E = E(k, X, ε₁) ⊂ {F/k quadratic, Disc(F/k) ≤ X} with |E| ≪_{[k:ℚ],ε₁} Disc(k)^{ε₁}X^{ε₁}, such that for F ∉ E and 4 ≤ Y ≤ X, π_k(Y; F, e) ≥ (1/8)π_k(Y/2) − C_{[k:ℚ],ε₁}Y^{σ₁}log²(X Disc(k)) with σ₁ = max(1 − ε₁/(4c), 1/2). E consists of the F whose character χ_{F/k} has a zero with ℜρ > σ₁, |ℑρ| ≤ X^{1/2}; the proof is the explicit formula with Lemma 4.1.
+Sources: reviewed-paper-lemkeoliver-wang-wood-25, Lemma 4.3 and proof, pp.20–22, Forum Math. Pi 13 (2025), e19; low-primary-published, §4, Lemma4.3 and full proof, printed pp.20–22.
+
+AnalyticNumberTheory:AN.4/effective-prime-ideal-lower
+Proposed name: TauCeti.AnalyticNumberTheory.effective_prime_ideal_lower.
+For every fixed degree n there is a positive effective c_n and an absolute effective D₀ such that π_k(Y)≥c_n D_k^(−19)Y/log Y whenever [k:Q]=n, D_k≥D₀ and Y≥D_k^35.
+Sources: reviewed-paper-lemkeoliver-wang-wood-25, Lemma 4.4, p.22, citing [Zam17], Forum Math. Pi 13 (2025), e19; low-primary-published, §4, Lemma4.4 and ensuing discussion, printed p.22; zaman-primary-thesis, Theorem1.3.1, pp.11–12; conventions §1.5 p.26; selected §7.2.1 pp.159–160 and §7.2.4 pp.166–169.
+
+AnalyticNumberTheory:AN.3/mestre-weil-explicit-formula
+Proposed name: TauCeti.AnalyticNumberTheory.mestre_weil_explicit_formula.
+Let A, B > 0, a_i, a′_i ≥ 0 (1 ≤ i ≤ M) with Σ a_i = Σ a′_i, b_i, b′_i ∈ C with non-negative real parts, and Λ_1, Λ_2 meromorphic on C with (i) Λ_1(1 − s) = wΛ_2(s) for some w ∈ C^×; (ii) finitely many poles; (iii) Λ_i minus its singular parts bounded in every vertical strip of finite width; (iv) for some c ≥ 0 and Re s > 1 + c, Λ_1(s) = A^s Π_{i=1}^M Γ(a_i s + b_i) Π_p Π_{i=1}^{M′} (1 − α_i(p)p^{−s})^{−1} and Λ_2(s) = B^s Π_{i=1}^M Γ(a′_i s + b′_i) Π_p Π_{i=1}^{M′} (1 − β_i(p)p^{−s})^{−1} with |α_i(p)|, |β_i(p)| ≤ p^c. Let F satisfy weil_test_function(c,F). For every zero gamma slope a_i=0 (respectively a′_i=0), assume b_i≠0 (respectively b′_i≠0), so its constant gamma factor is finite and nonzero. Then Σ_ρ Φ(ρ) − Σ_μ Φ(μ) + Σ_{i=1}^M I(a_i, b_i) + Σ_{i=1}^M J(a′_i, b′_i) = F(0) log(AB) − Σ_{p,i,k≥1} (α_i(p)^k F(k log p) + β_i(p)^k F(−k log p)) log p / p^{k/2}, where ρ (resp. μ) runs over the zeros (resp. poles) of Λ_1 with −c ≤ Re ≤ 1 + c, with multiplicity, Σ_ρ Φ(ρ) = lim_{T→∞} Σ_{|Im ρ|<T} Φ(ρ), Φ(s) = ∫_R F(x) e^{(s−1/2)x} dx, I(a, b) = a ∫_0^∞ (F(ax) e^{−(a/2+b)x}/(1 − e^{−x}) − F(0) e^{−x}/x) dx and J(a, b) is the same with F(−ax). For a>0 the displayed I,J are ordinary convergent combined integrals (do not integrate the two individually divergent subtraction terms separately). For a=0 set I(0,b)=J(0,b)=0 after removing its constant gamma factor; this is not0 times an undefined integral.
+Sources: mestre-primary-published, §I.1–I.2, pp.211–215; Remark1.1.3, Lemmas1.2.1–1.2.2; ct-primary-published, §2.3 pp.275–276, (2.3.5).
+
+AnalyticNumberTheory:AN.2/squareclass-exceptional-repulsion
+Proposed name: TauCeti.AnalyticNumberTheory.squareclass_exceptional_repulsion.
+There is an effective absolute0<c_Landau<1/2 such that distinct d,e∈S(c_Landau) with |d|≤|e| satisfy |d|²≤|e|. This pairwise form applies to every existing finite ordered segment; no infinitude of S(c_Landau) is asserted.
+Sources: kp-primary-v1, §7.2 Definition7.5 and following paragraph, p.61.
+
+AnalyticNumberTheory:AN.2/quadratic-prime-character-interval
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_prime_character_interval.
+There are positive absolute effective constants c,C such that for every nonzero squarefree integer D≠1, its primitive field character χ_D of conductor Q_D=|Disc(Q(√D))|, and real2≤u<v, |Σ_{u<p<v, p prime, p∤Q_D}χ_D(p)|≤C[E_D(v)+v exp(−c log v/(√log v+log Q_D))(log(vQ_D))⁴]. Here E_D(v)=v^β if the conductor-uniform zero-free region singles out a simple real exceptional zero β∈(1/2,1), and E_D(v)=0 otherwise. Equivalently extend χ_D by0 at ramified primes and sum over all primes. This is an upper bound, not an asymptotic for short intervals.
+Sources: kp-primary-v1, §7.2 proof of Proposition7.6, (7.7), p.62.
+
+AnalyticNumberTheory:AN.2/effective-quadratic-zero-separation
+Proposed name: TauCeti.AnalyticNumberTheory.effective_quadratic_zero_separation.
+For every ε>0 there is an effectively computable c_ε>0, fixed before D and β, such that for every nonzero squarefree integer D≠1 and real zero β∈(1/2,1) of the canonical continued primitive field-character L(s,χ_D), 1−β≥c_ε |D|^(−1/2−ε). The conductor is Q_D=|Disc(Q(√D))|, with |D|≤Q_D≤4|D|; conductor/radicand conversion only changes c_ε effectively.
+Sources: kp-primary-v1, §7.2 proof of Proposition7.6, p.62, immediately after(7.7).
+
+AnalyticNumberTheory:AN.4/heilbronn-simple-real-zero
+Proposed name: TauCeti.AnalyticNumberTheory.heilbronn_simple_real_zero.
+If K/Q is finite Galois and the canonical continued ζ_K has a simple real zero β with0<β<1, then a quadratic subfield k⊆K satisfies ζ_k(β)=0. The conclusion uses meromorphic Artin continuation and the Aramata–Brauer entire-quotient theorem, not Artin holomorphy.
+Sources: heilbronn-primary-published, Theorem1 p.870; complete proof pp.871–873; postscript p.873; kp-primary-v1, §8.3 p.92, proof following Theorem8.13.
+
+AnalyticNumberTheory:AN.4/gross-zagier-cm-eisenstein-comparison
+Proposed name: TauCeti.AnalyticNumberTheory.gross_zagier_cm_eisenstein_comparison.
+Let D<0 be a fundamental discriminant, K=Q(√D), u=#O_K^×/2 and A an ordinary ideal class. Choose its CM lattice point τ_A in the upper half-plane from a primitive positive-definite binary quadratic form of discriminant D. Let E(z,s)=(1/2)Σ_{gcd(c,d)=1}(Im z)^s/|cz+d|^(2s), the uncompleted level-one Eisenstein series. For Re s>1, E(τ_A,s)=2^(−s)|D|^(s/2)u ζ(2s)^(−1)ζ_K(A,s), equivalently2^s ζ(2s)E(τ_A,s)=u|D|^(s/2)ζ_K(A,s). All positive-base powers use the real logarithm. Changing A to A^(−1) leaves its partial zeta unchanged.
+Sources: gz-primary-published-bu, ChapterII§4, p.248, immediately after(4.1).
+
+AnalyticNumberTheory:AN.4/imaginary-genus-character-dictionary
+Proposed name: TauCeti.AnalyticNumberTheory.imaginary_genus_character_dictionary.
+For an imaginary quadratic field K of fundamental discriminant D<0, genus characters are homomorphisms Cl_K→{±1}, including the trivial homomorphism. They correspond bijectively to unordered fundamental-discriminant factorizations{D₁,D₂}, D=D₁D₂, one positive and one negative; permit the trivial discriminant1 with ε_1=1. For an integral ideal a prime to D, χ_{D₁,D₂}(a)=ε_{D₁}(N a)=ε_{D₂}(N a). This node is the arithmetic classification/compatibility dictionary. The analytic equality L_K(s,χ)=L(s,ε_{D₁})L(s,ε_{D₂}) is supplied by the existing genus_lseries_factorization node, not proved again here.
+Sources: gz-primary-published-bu, ChapterIV introduction after(0.3), p.268.
+
+AnalyticNumberTheory:AN.4/imaginary-quadratic-root-number-one
+Proposed name: TauCeti.AnalyticNumberTheory.imaginary_quadratic_root_number_one.
+For negative fundamental D, put δ=|D| and let ε_D be the canonical primitive odd Dirichlet character of Q(√D), of conductorδ. On Re s>1, Λ(s,ε_D)=(δ/π)^((s+1)/2)Γ((s+1)/2)L(s,ε_D). Its canonical entire continuation is δ^((s+1)/2)·DirichletCharacter.completedLFunction(ε_D,s). The new quadratic normalization assertion is that the root number is+1 and Λ(1−s,ε_D)=Λ(s,ε_D). Entire continuation of a nontrivial Dirichlet completed function is already in Mathlib; no duplicate continuation construction is planned.
+Sources: gz-primary-published-bu, ChapterIV§4, p.282, proof of(4.1), and§5 p.290 after(5.4).
+
+AnalyticNumberTheory:AN.4/imaginary-quadratic-lvalue-one
+Proposed name: TauCeti.AnalyticNumberTheory.imaginary_quadratic_lvalue_one.
+For an imaginary quadratic field of fundamental discriminant D<0, δ=|D|, class number h and w=2u roots of unity, L(1,ε_D)=πh/(u√δ).
+Sources: gz-primary-published-bu, ChapterIV§4 pp.283–284, Propositions(4.4)–(4.5), implicit class-number substitution.
+
+AnalyticNumberTheory:AN.4/imaginary-quadratic-lvalue-zero
+Proposed name: TauCeti.AnalyticNumberTheory.imaginary_quadratic_lvalue_zero.
+With the same imaginary quadratic data, the canonical continued primitive Dirichlet function satisfies L(0,ε_D)=h/u.
+Sources: gz-primary-published-bu, ChapterIV§4 pp.283–284, implicit special-value substitution.
+
+AnalyticNumberTheory:AN.2/jensen-growth-zero-count
+Proposed name: TauCeti.AnalyticNumberTheory.jensen_growth_zero_count.
+If g is entire, g(0)≠0 and has order at most ρ, then for every b>ρ the number n_g(r) of zeros with multiplicity in |z|≤r is O_b(r^b) for r≥1.
+Sources: kedlaya-ant-2025, Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49.
+
+AnalyticNumberTheory:AN.2/dyadic-zero-reciprocal-square
+Proposed name: TauCeti.AnalyticNumberTheory.dyadic_zero_reciprocal_square.
+For a nonzero entire g with g(0)≠0 and order at most one, its nonzero zero family α_i, with every index carrying one occurrence of analytic multiplicity, satisfies Σ_i|α_i|⁻²<∞. Finite and empty index sets are included.
+Sources: kedlaya-ant-2025, Theorem 8.4 and Remark 8.6, printed p.48; Theorem 8.7 proof, printed p.49.
+
+AnalyticNumberTheory:AN.2/canonical-product-compact-tail
+Proposed name: TauCeti.AnalyticNumberTheory.canonical_product_compact_tail.
+Under the stated family hypotheses, for R>0 the log-factor tails Σ_{i in S, |α_i|>2R}(Log(1−z/α_i)+z/α_i), directed by finite subsets S, converge uniformly for |z|≤R. Every omitted-tail norm is at most R² times the corresponding reciprocal-square tail.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/canonical-product-entire
+Proposed name: TauCeti.AnalyticNumberTheory.canonical_product_entire.
+Under the stated family hypotheses, finite-subset products ∏_{i∈S}E₁(z/α_i), directed by inclusion of finite subsets, converge locally uniformly on C to the unordered product P(z). P is entire and P(0)=1. Enumeration changes preserve this product; finite and empty families are included.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/canonical-product-zero-orders
+Proposed name: TauCeti.AnalyticNumberTheory.canonical_product_zero_orders.
+For the preceding P, its zeros are exactly the α, with the listed multiplicities, and P is nonzero elsewhere.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/zero-free-entire-log
+Proposed name: TauCeti.AnalyticNumberTheory.zero_free_entire_log.
+For nonzero entire f and its origin factor z^m P with the same zero divisor, the quotient extends to a nonvanishing entire q and q=exp(h) for an entire h.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/summable-excluded-radii
+Proposed name: TauCeti.AnalyticNumberTheory.summable_excluded_radii.
+If forbidden intervals around |α| have total length at most M<∞, then every [r,r+M+1] contains a radius not in their union.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/hadamard-log-growth
+Proposed name: TauCeti.AnalyticNumberTheory.hadamard_log_growth.
+For nonzero entire f of order at most1 and q=f/(z^mP)=exp h, for every ε>0, Re h(z)≤C_ε(1+|z|^(1+ε)) on C.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/canonical-product-log-derivative
+Proposed name: TauCeti.AnalyticNumberTheory.canonical_product_log_derivative.
+For the order-one factorization of nonzero entire f, away from zero and its zeros, f′(z)/f(z)=m/z+b+Σ_α(1/(z−α)+1/α). The corrected summands, indexed with analytic multiplicity, converge locally uniformly there. The correction equals z/(α(z−α)); at z=0 it vanishes, and the term m/z is omitted there when m=0.
+Sources: kedlaya-ant-2025, Theorem 8.7 proof, printed p.49, and Exercise 8.4.10, printed p.52.
+
+AnalyticNumberTheory:AN.2/paired-imaginary-factors
+Proposed name: TauCeti.AnalyticNumberTheory.paired_imaginary_factors.
+Under these hypotheses, there is c>0 and a locally finite positive-real family λ_j, with one index per positive-imaginary zero occurrence, such that f(z)=c z^m∏_j(1+z²/λ_j²). The products converge locally uniformly over finite subsets; finite and empty families are included.
+Sources: yun-zhang-primary-published, Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
+
+AnalyticNumberTheory:AN.2/paired-product-nonnegative-coefficients
+Proposed name: TauCeti.AnalyticNumberTheory.paired_product_nonnegative_coefficients.
+For the preceding paired product, every Taylor coefficient of parity m is nonnegative, and all coefficients of the other parity are zero.
+Sources: yun-zhang-primary-published, Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
+
+AnalyticNumberTheory:AN.2/paired-product-strict-derivatives
+Proposed name: TauCeti.AnalyticNumberTheory.paired_product_strict_derivatives.
+If the preceding f is not a polynomial, every derivative f^(k)(x) with k≡m mod2 is strictly positive for x>0, and the same-parity Taylor coefficients from degree m onward are positive.
+Sources: yun-zhang-primary-published, Appendix B.1, Proposition B.1 and its proof, printed pp.902–903.
+
+AnalyticNumberTheory:AN.3/explicit-formula-residues
+Proposed name: TauCeti.AnalyticNumberTheory.explicit_formula_residues.
+For x>1, the integrand −(ζ′/ζ)(s)x^s/s has residue x at1, −m_ρx^ρ/ρ at a nontrivial zeroρ, x^(−2n)/(2n) at−2n, and −ζ′(0)/ζ(0) at0. Summing the trivial zeros gives −(1/2)log(1−x^−2).
+Sources: kedlaya-ant-2025, §9.2 Lemma9.2 p.54, proof omitted; local analytic-order factorization.
+
+AnalyticNumberTheory:AN.3/perron-nearest-prime-power-error
+Proposed name: TauCeti.AnalyticNumberTheory.perron_nearest_prime_power_error.
+For real x≥2,T≥2,c=1+1/log x, put δ(x)=infDist(x,{m∈ℝ:m is a natural prime power and m≠x})>0. The Perron remainder for ψ₀(x), after retaining the exact endpoint kernel, is bounded by C[x log²(xT)/T+(log x)min(1,x/(Tδ(x)))], with one absolute C. A prime-power endpoint has half weight only in the infinite-height limit.
+Sources: kedlaya-ant-2025, Lemma9.5 p.55; full Theorem9.9 proof pp.57–58; ADS6 endpoint contract.
+
+AnalyticNumberTheory:AN.3/explicit-formula-horizontal-bound
+Proposed name: TauCeti.AnalyticNumberTheory.explicit_formula_horizontal_bound.
+For x≥2, c=1+1/log x and a height T′≥2 separated from every ξ-zero ordinate by at least c₀/log(T′+2), the two horizontal Perron integrals from Re s=−1 to c have norm at most C_(c₀) x log²(T′+2)/(T′log x).
+Sources: kedlaya-ant-2025, Theorem9.9 proof, horizontal segments p.57.
+
+AnalyticNumberTheory:AN.3/explicit-formula-left-contour
+Proposed name: TauCeti.AnalyticNumberTheory.explicit_formula_left_contour.
+For every fixed x≥2,T≥2, the Perron vertical integral at Re s=−U tends to0 as U→∞ through positive odd integers. Uniformly in x,T, the two horizontal tails Re s≤−1 have norm O(log(T+2)/(Tx log x)+1/(Tx(log x)²)), with an absolute constant.
+Sources: kedlaya-ant-2025, Theorem9.9 proof, remaining segments p.57.
+
+AnalyticNumberTheory:AN.4/artin-direct-sum-factor
+Proposed name: TauCeti.AnalyticNumberTheory.artin_direct_sum_factor.
+For ρ₁,ρ₂, P_p(ρ₁⊕ρ₂,T)=P_p(ρ₁,T)P_p(ρ₂,T) at every prime, including ramified primes. Hence L(ρ₁⊕ρ₂)=L(ρ₁)L(ρ₂) on Re s>1.
+Sources: kedlaya-ant-2025, §22.2 p.128 displayed direct-sum identity.
+
+AnalyticNumberTheory:AN.4/artin-absolute-convergence
+Proposed name: TauCeti.AnalyticNumberTheory.artin_absolute_convergence.
+For fixed dimension d and ε>0, uniformly on Re s≥1+ε, the local factors satisfy |P_p((Np)^−s)^−1−1|≤C_{d,ε}(Np)^−Re s. Their product converges absolutely and locally uniformly and is nonzero there.
+Sources: kedlaya-ant-2025, §22.2 p.128 absolute convergence paragraph.
+
+AnalyticNumberTheory:AN.4/artin-induction-factor
+Proposed name: TauCeti.AnalyticNumberTheory.artin_induction_factor.
+For H⊆G and a complex finite-dimensional representation σ of H, with F=L^H, L_K(s,Ind_H^G σ)=L_F(s,σ) on Re s>1, including all ramified local factors.
+Sources: kedlaya-ant-2025, §22.5 Theorem22.4 sketch p.129.
+
+AnalyticNumberTheory:AN.4/artin-linear-hecke-comparison
+Proposed name: TauCeti.AnalyticNumberTheory.artin_linear_hecke_comparison.
+For L/K finite Galois and a one-dimensional finite-order character χ:Gal(L/K)→C×, composition with the arithmetic global Artin map gives the canonical primitive finite-order Hecke character η. On Re s>1, the full Artin Euler series equals its full Hecke L-function. At p where χ is trivial on inertia both factors are (1−χ(Frob_p)(Np)^−s)^−1; otherwise both are1. The conductor and archimedean signs come from the same local/global reciprocity dictionary.
+Sources: kedlaya-ant-2025, §22.5 Theorem22.4 sketch p.129.
+
+AnalyticNumberTheory:AN.4/ray-character-log-coefficients
+Proposed name: TauCeti.AnalyticNumberTheory.ray_character_log_coefficients.
+For a finite abelian ray-class quotient H and its full complex character group Ĥ, for h∈H and an integer k≥1, Σ_{χ∈Ĥ}χ(h^k) is #H if h^k=1 and 0 otherwise. On Re s>1 the contribution of an allowed prime ideal 𝔭 to log ∏_χL(s,χ) is Σ_{k≥1}(Σ_χχ([𝔭]^k))/k · N𝔭^(−ks). Thus these logarithmic coefficients are nonnegative after norm regrouping, with bad primes omitted consistently.
+Sources: kedlaya-ant-2025, §3.3 Theorem3.7 p.19 equation(3.3.1), corrected by E18.
+
+AnalyticNumberTheory:AN.4/nonreal-hecke-at-one
+Proposed name: TauCeti.AnalyticNumberTheory.nonreal_hecke_at_one.
+For a finite-order ray character χ with χ≠χ̄, its canonical L(1,χ) is nonzero.
+Sources: kedlaya-ant-2025, §3.4 Theorem3.10 p.19 full proof.
+
+AnalyticNumberTheory:AN.4/quadratic-auxiliary-positive-factors
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_auxiliary_positive_factors.
+For a nonprincipal quadratic Hecke character χ, Ψ(s)=L(s,χ)ζ_K(s)/ζ_K(2s) has, on Re s>1, local factors (1+x)/(1−x) when χ(p)=1, 1 when χ(p)=−1, and1+x at omitted character primes, x=(Np)^−s. Hence its norm-regrouped Dirichlet coefficients are nonnegative.
+Sources: kedlaya-ant-2025, §3.4 Theorem3.11 p.20 displayed quadratic auxiliary product.
+
+AnalyticNumberTheory:AN.4/quadratic-auxiliary-holomorphy
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_auxiliary_holomorphy.
+If L(1,χ)=0 for the preceding quadratic character, Ψ extends holomorphically to Re s>1/2. Indeed ζ_K(2s) is nonzero there because Re(2s)>1, and the numerator’s zero cancels ζ_K’s pole at1. At s=1/2, Ψ extends with a zero of order at least1.
+Sources: kedlaya-ant-2025, §3.4 Theorem3.11 p.20 pole-cancellation paragraph.
+
+AnalyticNumberTheory:AN.4/quadratic-landau-contradiction
+Proposed name: TauCeti.AnalyticNumberTheory.quadratic_landau_contradiction.
+For a nonprincipal quadratic Hecke character χ, L(1,χ)≠0. If it vanished, the nonnegative Dirichlet series of Ψ from node168 would have abscissa≤1/2 by ADS8 Landau and node169 holomorphy. For every real σ>1/2 its value would then satisfy Ψ(σ)≥1, while node169 gives lim_{σ↓1/2}Ψ(σ)=0, a contradiction. No convergence or sum identity at σ=1/2 is required.
+Sources: kedlaya-ant-2025, §3.4 Theorem3.11 p.20 complete proof and §2.1 Theorem2.4 p.12 proof.
+
+AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation
+Proposed name: TauCeti.AnalyticNumberTheory.dedekind_completed_functional_equation.
+For a number field K with absolute discriminant D_K, r₁ real places and r₂ conjugate pairs of complex places, let Γ_R(s)=π^(−s/2)Γ(s/2) and Γ_C(s)=2(2π)^(−s)Γ(s), the pinned Complex.Gammaℝ and Complex.Gammaℂ. The canonical continuation supplied by Tate has Λ_K(s)=|D_K|^(s/2)Γ_R(s)^r₁Γ_C(s)^r₂ζ_K^cont(s), and Λ_K(1−s)=Λ_K(s) as meromorphic functions. No equality of totalized values at poles is asserted.
+Sources: tate-thesis-1950, §4.5, scan pp.56–59, especially (4.24) on scan p.58; local factors tabulated in §2.5.
+
+AnalyticNumberTheory:AN.4/dedekind-negative-even-zero
+Proposed name: TauCeti.AnalyticNumberTheory.dedekind_negative_even_zero.
+For a number field K and every integer n≥1, the canonical holomorphic Dedekind continuation at −2n has a zero of exact order r₁+r₂, where r₁ and r₂ are its real-place and complex-pair counts. In particular ζ_K^cont(−2n)=0, since r₁+r₂≥1. This evaluates the continuation, not the pinned totalized ideal LSeries.
+Sources: tate-thesis-1950, §4.5 equation on scan p.58, with §2.5 archimedean factors; derived negative-even specialization.
+
+AnalyticNumberTheory:AN.4/imprimitive-hecke-factors
+Proposed name: TauCeti.AnalyticNumberTheory.imprimitive_hecke_factors.
+Let χ be the ray ideal character modulo a modulus m induced from a primitive finite-order Hecke character χ₀ of conductor f₀ dividing m. If m_fin is the finite part, then L_m^cont(s,χ)=L^cont(s,χ₀)∏_{p|m_fin, p∤f₀_fin}(1−χ₀(p)exp(−s log Np)). Each prime occurs once even if its exponent in m grows; real-place conditions enter the conductor dictionary but do not delete finite Euler factors. Equality is meromorphic.
+Sources: tate-thesis-1950, §4.5, scan p.57, Euler product over finite primes outside S.
+
+AnalyticNumberTheory:AN.2/chebyshev-prime-count-transfer
+Proposed name: TauCeti.AnalyticNumberTheory.chebyshev_prime_count_transfer.
+From ψ(x)∼x, obtain θ(x)∼x, π(x)∼Li(x) and π(x)∼x/log x, using the existing ADS transfer and pinned prime-power bound.
+Sources: kedlaya-ant-2025, §1.3 partial summation, §1.4 PNT equivalences and Exercise1.6.7; §7.1 p.43.
+
+AnalyticNumberTheory:AN.2/siegel-walfisz
+Proposed name: TauCeti.AnalyticNumberTheory.siegel_walfisz.
+For every A,B>0, uniformly for q≤(log x)^B and gcd(a,q)=1, π(x;a,q)=Li(x)/φ(q)+O_{A,B}(x(log x)^−A) as x→∞. The constant and threshold may be ineffective.
+Sources: kedlaya-ant-2025, §10.5 Theorem10.9 pp.62–63 and Theorem10.11 p.63; corrected coprimality, range and ineffectivity.
+
+AnalyticNumberTheory:AN.5/moment-model-comparison
+Proposed name: TauCeti.AnalyticNumberTheory.moment_model_comparison.
+For each fixed k>0, the statement ∫_0^T|ζ(1/2+it)|^(2k)dt∼a(k)g(k)T(log T)^(k²) is a conjectural model with the arithmetic Euler factor a(k) and random-matrix factor g(k) supplied by PM.5. No asymptotic for general k is asserted unconditionally; k=1 and2 are checked against the proved moments.
+Sources: atlas-an-brief, AN.5 target specification.
+
+AnalyticNumberTheory:AN.7/lerch-even-functional-equation
+Proposed name: TauCeti.AnalyticNumberTheory.lerch_even_functional_equation.
+On the extended polycylinder s∈C,0<Re a<1,0<Re c<1, put L_+=ζ(s,a,c)+e^(−2πia)ζ(s,1−a,1−c) and Λ_+=π^(−s/2)Γ(s/2)L_+. Then Λ_+(s,a,c)=e^(−2πiac)Λ_+(1−s,1−c,a), as matched holomorphic continuations. At a gamma pole, Λ denotes the removable holomorphic extension of the product, not its pointwise totalized Gamma value.
+Sources: lerch-II, Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof.
+
+AnalyticNumberTheory:AN.7/lerch-odd-functional-equation
+Proposed name: TauCeti.AnalyticNumberTheory.lerch_odd_functional_equation.
+On the same polycylinder, L_−=ζ(s,a,c)−e^(−2πia)ζ(s,1−a,1−c) and Λ_−=π^(−(s+1)/2)Γ((s+1)/2)L_− satisfy Λ_−(s,a,c)=i e^(−2πiac)Λ_−(1−s,1−c,a), with matched continuations; at gamma poles Λ denotes the removable holomorphic extension rather than a pointwise totalized Gamma product.
+Sources: lerch-II, Theorem2.1 (2.7)–(2.10) p.5; complete §3 pp.8–10, Lemma3.1 and Theorem2.1 proof.
+
+AnalyticNumberTheory:AN.5/pretentious-square-nonnegative
+Proposed name: TauCeti.AnalyticNumberTheory.pretentious_square_nonnegative.
+Under the prime unit-disc hypotheses, D(f,g;x)²=Σ_{p≤x}(1−Re(f(p)conj(g(p))))/p≥0.
+Sources: pretentious-gs, Weighted norm discussion pp3–4.
 
 AnalyticNumberTheory:AN.4/artin-ramified-induction-polynomial
+Proposed name: TauCeti.AnalyticNumberTheory.artin_ramified_induction_polynomial.
 For L/K finite Galois with group G,H≤G,F=L^H and σ a finite-dimensional complex representation of H, at every nonzero prime p of K, P_{p,Ind_H^Gσ}(T)=∏_{q|p in F}P_{q,σ}(T^{f(q/p)}). The right polynomials are defined from Gal(L/F)=H, their own inertia invariants and arithmetic Frobenius modulo inertia.
-
-
-## Additional lemma specifications exposed by codex-LO9Eha
-
-AnalyticNumberTheory:AN.2/rational-mangoldt-boundary
-There exists G:C→C continuous on {s:Re s≥1} such that, for Re s>1, G(s)=−ζ′(s)/ζ(s)−1/(s−1). Together with the pinned absolutely convergent Λ LSeries identity, this is the exact residue-1 Wiener–Ikehara boundary input. G(1) is the analytic extension’s value, not the junk-valued subtraction.
-
-AnalyticNumberTheory:AN.2/progression-mangoldt-boundary
-For fixed q≥1 and a unit residue a modulo q, put b(n)=Λ(n)1_{n≡a modq}≥0 with b(0)=0. Its LSeries converges absolutely for Re s>1 and equals F(s)=φ(q)^−1∑_χ χ(a)^−1(−L′(s,χ)/L(s,χ)), where χ ranges over all characters modulo q, including the principal and imprimitive ones. There exists G continuous on Re s≥1 with G(s)=F(s)−φ(q)^−1/(s−1) for Re s>1.
-
-AnalyticNumberTheory:AN.5/unit-disc-product-distance
-For complex z,w with |z|,|w|≤1, sqrt(1−Re(zw))≤sqrt(1−Re z)+sqrt(1−Re w).
-
-AnalyticNumberTheory:AN.5/mangoldt-polynomial-mean-square
-There is an absolute C>0 such that for T≥1, x≥1 and any complex coefficients a(n), the integral from −T to T of |∑_{T²≤n≤x}a(n)Λ(n)exp(−it log n)|² is at most C∑_{T²≤n≤x}n|a(n)|²Λ(n). The finite sums use inclusive real cutoffs. If x<T² they are empty.
-
--/
-
-/- API dickman_function.negative: ρ(u)=0 for u<0; no continuity across0 is asserted. -/
-
-/- API dickman_function.continuous: ContinuousOn ρ[0,∞). -/
-
-/- API dickman_function.delay: For u>1, HasDerivAt ρ(−ρ(u−1)/u) u; do not claim differentiability at1. -/
-
-/- API dickman_function.interval_identity: For every real u, uρ(u)=∫_{u−1}^uρ(v)dv, with the fixed negative extension. -/
-
-/- AnalyticNumberTheory:AN.5/smooth-largest-prime-decomposition
-For x≥1,y≥2, Ψ(x,y)+∑_{y<p≤x, p prime}Ψ(x/p,p)=floor x. Each positive non-y-smooth integer has a unique largest prime divisor p>y, and dividing by one copy of p leaves a p-smooth integer. Repeated largest primes are permitted. -/
-
-/- AnalyticNumberTheory:AN.5/smooth-finite-euler-series
-For y≥2 and σ>0, the nonnegative real series ∑_{n≥1, n y-smooth}n^(−σ) is summable and equals ∏_{p≤y}(1−p^(−σ))^(−1). This is a finite-prime identity valid for every positive σ, even σ≤1. -/
-
-/-! Reviewed mathematical specifications; canonical Dedekind/Hecke carrier
-adapters remain gaps, while the other native forms are given above. -/
-
-/- AnalyticNumberTheory:AN.4/dedekind-completed-functional-equation
-For a number field K with absolute discriminant D_K, r₁ real places and r₂ conjugate pairs of complex places, let Γ_R(s)=π^(−s/2)Γ(s/2) and Γ_C(s)=2(2π)^(−s)Γ(s), the pinned Complex.Gammaℝ and Complex.Gammaℂ. The canonical continuation supplied by Tate has Λ_K(s)=|D_K|^(s/2)Γ_R(s)^r₁Γ_C(s)^r₂ζ_K^cont(s), and Λ_K(1−s)=Λ_K(s) as meromorphic functions. No equality of totalized values at poles is asserted. -/
-
-/- AnalyticNumberTheory:AN.4/dedekind-negative-even-zero
-For a number field K and every integer n≥1, the canonical holomorphic Dedekind continuation at −2n has a zero of exact order r₁+r₂, where r₁ and r₂ are its real-place and complex-pair counts. In particular ζ_K^cont(−2n)=0, since r₁+r₂≥1. This evaluates the continuation, not the pinned totalized ideal LSeries. -/
-
-/- AnalyticNumberTheory:AN.4/imprimitive-hecke-factors
-Let χ be the ray ideal character modulo a modulus m induced from a primitive finite-order Hecke character χ₀ of conductor f₀ dividing m. If m_fin is the finite part, then L_m^cont(s,χ)=L^cont(s,χ₀)∏_{p|m_fin, p∤f₀_fin}(1−χ₀(p)exp(−s log Np)). Each prime occurs once even if its exponent in m grows; real-place conditions enter the conductor dictionary but do not delete finite Euler factors. Equality is meromorphic. -/
-
-/- AnalyticNumberTheory:AN.2/rational-prime-number-theorem
-As x→∞, Chebyshev.psi(x)∼x. The corresponding θ and π asymptotics are supplied by the separate transfer comparison. -/
-
-/- AnalyticNumberTheory:AN.2/fixed-progression-prime-number-theorem
-For fixed q≥1 and a coprime to q, θ(x;a,q)∼x/φ(q) and π(x;a,q)∼Li(x)/φ(q) as x→∞. The modulus is fixed; constants in qualitative convergence can depend on q. -/
-
-/- AnalyticNumberTheory:AN.2/rational-pnt-error
-There are absolute effective c,C>0 such that |ψ(x)−x|≤C x exp(−c√log x) for all sufficiently large x; ψ is the inclusive pinned function. -/
-
-/- AnalyticNumberTheory:AN.5/pretentious-distance
-For complex-valued f,g on positive integers and x≥1, D(f,g;x)=sqrt(Σ_{p≤x}(1−Re(f(p)conj(g(p))))/p), used under |f(p)|,|g(p)|≤1. This is a distance on prime data, not a metric on all multiplicative functions: D(f,f;x) can be positive if |f(p)|<1. -/
-
-/- AnalyticNumberTheory:AN.5/pretentious-product-triangle
-For |f_j(p)|,|g_j(p)|≤1, D(f₁f₂,g₁g₂;x)≤D(f₁,g₁;x)+D(f₂,g₂;x). If all g_j have unit modulus on the primes, this gives the usual triangle inequality for prime data. -/
-
-/- AnalyticNumberTheory:AN.5/smooth-count
-For x≥1,y≥2, Ψ(x,y)=#{1≤n≤floor x:every prime factor of n is≤y}. Express the set using Nat.smoothNumbers(floor y+1); the pinned carrier uses prime factors strictly below its cutoff. -/
-
-/- AnalyticNumberTheory:AN.5/dickman-function
-ρ:R→R is0 for u<0, equals1 for0≤u≤1, is continuous on[0,∞), and satisfies uρ′(u)=−ρ(u−1) on u>1. Construct it recursively on intervals[k,k+1] by integration; the value at0 is1, so no continuity across negative u is claimed. -/
-
-/- AnalyticNumberTheory:AN.5/dickman-fixed-u
-For each fixed u>0, Ψ(x,x^(1/u))/x→ρ(u) as x→∞. This statement is not uniform for u tending to infinity. -/
-
-/- AnalyticNumberTheory:AN.5/smooth-rankin-bound
-For x≥1,y≥2 and σ>0, Ψ(x,y)≤x^σ∏_{p≤y}(1−p^−σ)^−1. The finite-prime Euler product is finite and each geometric series converges. -/
-
-/-! Additional specifications exposed by codex-ywaJcp.
-
-The z-monodromy and solvable-descent nodes have no native canonical-cover
-signature yet. Packet gap39 records this omission; the UniversalCovers
-Stage0/Stage2 requests identify the supplier contracts.
-
-AnalyticNumberTheory:AN.5/harmonic-euler-remainder
-For every integer N≥1, 0<H_N−log N−γ<log(1+1/N)≤1/N, where H_N=Σ_{1≤n≤N}1/n and γ is the pinned Euler–Mascheroni constant.
-
-AnalyticNumberTheory:AN.5/divisor-hyperbola-identity
-For real x≥1 and M=floor(sqrt x), Σ_{1≤n≤floor x}τ(n)+M²=2Σ_{1≤a≤M}floor(x/a). The equality is exact, including x at a perfect square.
-
-AnalyticNumberTheory:AN.5/beurling-count-growth
-For a Beurling system P, real σ>0 and S=Σ_a norm(a)^−σ with summable nonnegative summands, N(x)≤S x^σ for x≥1, and π_P(x)≤N(x). Thus convergence for every σ>1 gives N(x),π_P(x)=O_ε(x^(1+ε)) for every ε>0.
-
-AnalyticNumberTheory:AN.5/beurling-prime-power-correction
-For x≥1, J=floor(log x/log p₁) and Π_P(x)=Σ_{1≤j≤J}π_P(x^(1/j))/j, all later terms are0. For x≥p₁, 0≤Π_P(x)−π_P(x)≤π_P(sqrt x)+π_P(x^(1/3))log x/log p₁. Under convergence for every σ>1, the difference is O_ε(x^(1/2+ε)) for every ε>0.
-
-AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift
-On D={s∈C,z∈C\[0,∞),0<Re c<1}, choose Log z with0<Im Log z<2π and a=Log z/(2πi). Let f_p=z^−c(a−p)^(s−1) for p≤0, and f_p=exp(πi(s−1))z^−c(p−a)^(s−1) for p≥1, using principal logarithms of the positive-real-part bases. For the source based loops Z₀,Z₁ around0,1, M_Z₀Φ=0, M_Z₁Φ=−(2πi)^s f₀/Γ(s), while continuing f_p along Z₀^k sends it to f_(p−k); Z₁ and c loops fix every f_p.
-
-AnalyticNumberTheory:AN.7/lerch-solvable-descent
-The holomorphic Lerch continuation on the universal cover of N#=C_s×(C_z\{0,1})×(C_c\Z≤0) is invariant under π₁(N#)″. It therefore descends to the regular cover associated to that second commutator subgroup; its deck group π₁(N#)/π₁(N#)″ is solvable of derived length at most2. No descent to the maximal abelian z cover is asserted.
-
--/
-
-/-! Further canonical analytic interfaces still requiring native refinement.
-
-AnalyticNumberTheory:AN.5/beurling-zeta-product
-If Σ_n n^−σ (with generalized-integer multiplicities) converges for every real σ>1, then ζ_P(s)=Σ_n n^−s=∏_j(1−p_j^−s)^−1 on Re s>1, absolutely and locally uniformly. The convergence hypothesis is additional to the prime-system axioms.
-
-AnalyticNumberTheory:AN.7/lerch-c-monodromy
-On the principal Lerch-zeta germ ζ(s,a,c)=Φ(exp(2πia),s,c), a positive loop around c=−n (n≥0) changes the branch by (e^(−2πis)−1)e^(2πina)(c+n)^−s, with the same logarithm lift. Loops about positive integer c have zero monodromy.
-
-AnalyticNumberTheory:AN.7/lerch-a-monodromy
-For the lifted principal Lerch-zeta branch, a positive loop around a=n∈Z changes it by −(2πi)^s Γ(s)^−1(a−n)^(s−1)e^(−2πic(a−n)), with (2πi)^s defined by log(2π)+iπ/2 and the continued logarithm of a−n. On the fundamental strip0<Re a<1, the logarithm of a−n is cut along the negative imaginary axis with argument in(−π/2,3π/2). Equivalently, for n≥1 replace(a−n)^(s−1) by exp(πi(s−1))(n−a)^(s−1), whose base has positive real part; for n≤0 use the principal logarithm of a−n.
+Sources: kedlaya-ant-2025, §22.5 Theorem22.4 sketch p.129; full ramified local identity is a required expansion.
 
 -/
