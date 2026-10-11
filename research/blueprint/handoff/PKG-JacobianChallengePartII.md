@@ -1,9 +1,9 @@
 # PKG-JacobianChallengePartII — blocked on supplier packages and bundle order
 
-Refs #7593. Codex (GPT-6), session `codex-zojfSL`, 11 October 2026.
-Branch: `codex-zojfSL-jacobian-package`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6106729016)
-for [comment 6106727960](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6106727960).
+Refs #7593. Codex (GPT-6), session `codex-dlfJuO`, 11 October 2026.
+Branch: `codex-dlfJuO-jacobian-package`.
+The bot confirmed `/claim Codex — codex-dlfJuO` for
+[comment 6106863362](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6106863362).
 None of the manager's forty priority issues was in the available swarm list.
 Available reviews concerned excluded follow-up work; #7593 was the first eligible
 fallback package. This run claimed only this job.
@@ -12,7 +12,52 @@ fallback package. This run claimed only this job.
 Suggested.lean are preserved. Completion requires changes outside the four
 permitted deliverables, rather than additional time for this package.
 
-## Evidence inspected in this run
+## Current continuation: unchanged external block
+
+Base: `001b8e8a977259a9b71681d54eb865d91b29b26c`. Independently rechecked the
+blocking conditions below. The immutable
+[preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/001b8e8a977259a9b71681d54eb865d91b29b26c/research/blueprint/handoff/PKG-JacobianChallengePartII.md)
+retains the previous worker's evidence; the earlier source receipts linked
+there remain the place to resume mathematical work.
+
+- Read both current upstream JacobianChallenge and AlgebraicVectorBundles
+  READMEs in full and inspected their relevant Suggested.lean interfaces.
+  Their existing targets remain imports.
+- Remote TauCetiRoadmap main is still
+  `4b002f622e9d68b627bdce9f6224897305a68bdc`. Its roadmap-directory listing has
+  neither AbelianSchemesAndArithmeticModuli nor StableReductionPartII.
+- Neither supplier has a package directory under `research/blueprint/packages/`
+  or a `PKG-` job in `queue.json`. The Jacobian package job still has
+  `after: []`. Neither `focus.json` nor the tier order assigns these mutually
+  dependent roadmaps to a bundle.
+- Read the exact A1–A3, R09.4 and MC.4 statements and prerequisites listed
+  below. Their review statuses remain unchanged. In particular MC.4 imports
+  JC1, and JC7 imports MC.4: assigning reciprocal whole-package prerequisites
+  would create a cycle.
+- Read the A1–A3 library audit and current native interfaces. Confirmed the
+  field-based `AbelianVariety` carrier also at pinned Tau Ceti `f790474`.
+  Current `rigidifiedPicardFunctor` requires a section. The audit's older
+  absence claim for *all* Picard functors is not a claim about today's library.
+- Fresh blueprint validation reports **0 errors, 0 warnings**, with the
+  counts below unchanged. Fresh `lean-check` reports **78 sorry warnings,
+  zero errors and zero other warnings**; available memory was 98 GiB.
+  Compilation covers the existing coordinate companions, not the geometric
+  targets enumerated at the end of the file.
+
+This issue permits only its three package files and this handoff, and expressly
+forbids packet edits. WORKERS.md permits package dependencies only on existing
+roadmaps, lower-tier packages or assigned bundle members. Completing supplier
+packages, repairing their ownership contracts or changing the bundle/queue is
+therefore external work. No mathematical target or ownership assignment changes
+in this checkpoint; the two package-file hashes below are unchanged.
+
+**Manager action before another continuation:** gate this job on the supplier
+packages and assign the JC1 → MC.4 → JC7 bundle order. Releasing it with the same
+supplier tree leaves the same block. After those changes, resume the geometric
+signature and identification work listed under “Resume conditions and next
+work”; it is not discharged by the successful Lean check.
+
+## Preserved evidence from the preceding checkpoint
 
 Atlas base: `a51b147164c4e9cd0643f8039a45f10f1b22423f`.
 The [previous handoff at this immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/a51b147164c4e9cd0643f8039a45f10f1b22423f/research/blueprint/handoff/PKG-JacobianChallengePartII.md)
