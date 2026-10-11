@@ -1,3 +1,63 @@
+# Continuation verification: Codex codex-Ke6FWz
+
+11 October 2026; Refs [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106432903).
+Input commit: `bc77f117ef2960db87bcc24331b59fde6d8d38d8`.
+This session authored none of the fixes and claimed one job.
+
+**Blocked checkpoint.** The live issue still names two packets, while its
+queue requires four. The exact L3-2 and D.1 review records preserved below
+have been reconstructed, checked against their guarded input/candidate
+hashes, and validated. They preserve all mathematical fields and the entire
+previous reviews, including both node ledgers. They remain uninstalled.
+The unchanged completion predicate returns false for the actual checkout and
+true when just those two candidate texts are substituted in memory.
+
+[WORKERS.md](../WORKERS.md), Doing the work, says:
+“Edit only the files the issue names, plus your own scratch space.”
+The worker conversation received a concrete request to authorize the two
+omitted packet paths; no reply has arrived. This is a scope blocker, not an
+elapsed-time checkpoint. Only this report and the handoff change. All four
+packets, their reviews/histories and all four Suggested files are preserved.
+
+## Fresh checks and attribution
+
+- All four actual packets and both candidates pass `check_blueprint.py` with
+  the programme-pinned declaration index: zero errors. L3 retains 26 inherited
+  short-API warnings; the other checks have none. Both candidate texts pass
+  `intake.file_problems` for their intended deliverable paths.
+- Fetched all nine public PDFs in the archived handoff; their SHA-256 hashes
+  match every receipt. Read the bounded Zhao, Ertl–Niziol, Colmez–Niziol,
+  Nekovář–Niziol, Dasgupta–Kakde and BCGP correction statements at the locators
+  below, and visually inspected Morita p.256 and Gross–Koblitz pp.570–571.
+  These checks support the earlier six-finding dispositions, without claiming
+  a new exhaustive audit of the packets or rewriting anyone else's verdict.
+- Read the pinned native continuous-unit lift, positive Gauss sum,
+  Teichmüller lift and opposite-ring transpose statements. Separately read
+  the five current native Fitting/transpose contracts and the corresponding
+  PMIA nodes. The stable comparison is in
+  `TauCeti/Algebra/Module/AuslanderReiten/StableTranspose.lean`, theorem
+  `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`;
+  it requires exact surjective projective presentations and no finiteness.
+  Current Tau Ceti and TauCetiRoadmap heads match the archived report.
+- PMIA's existing `needs_changes` is a completed negative correction review.
+  Its coordinated ownership revision is separate from installing the missing
+  two records. No review metadata is rotated merely to attribute this
+  continuation; the earlier reviewers' work remains intact.
+- No Lean file changed and no compiler ran. Earlier successful/failing Lean
+  outcomes remain explicitly attributed below. L3 still imports four modules
+  with the `research.blueprint.suggested` prefix; changing its supplier-loading
+  design is not necessary to install these review records.
+
+The exact remaining records, installation guards and resume steps in the
+handoff are sufficient without this session's disposable scratch files.
+Authorize the two paths or reconcile the live issue before redispatching.
+No source passage is added to the repository.
+
+---
+
+## Preserved preceding review (codex-PxaC2W)
+
 # Independent correction review: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-PxaC2W`, 11 October 2026. Refs

@@ -1,3 +1,49 @@
+# Current continuation: codex-Ke6FWz
+
+Codex (GPT-6), 11 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106432903).
+Input: `bc77f117ef2960db87bcc24331b59fde6d8d38d8`.
+Branch: `codex-Ke6FWz-review-6219`. One claim, no second job.
+
+**Scope-blocked checkpoint.** The two guarded review-only candidates below
+are ready and freshly validated, but the live issue still omits their paths.
+A concrete authorization request was sent in the worker conversation; no
+reply has arrived. WORKERS.md's issue-file restriction still applies. Neither
+candidate is installed, and no packet, current review, review history or
+Suggested file changed. This continuation changes only the report and handoff.
+
+Fresh evidence:
+
+- Actual queue completion is false; substituting exactly the two prepared
+  candidate texts in memory makes the unchanged predicate true.
+- All four packets and both candidates pass the programme-pinned index
+  checker with zero errors; only L3 has its 26 inherited API warnings.
+- The two input and candidate hashes match every installation guard below.
+  Every non-review field and both full earlier review ledgers are preserved.
+  Both candidate texts pass intake's file rules.
+- All nine public source receipts match freshly fetched PDFs. Bounded source
+  and pinned/current native checks support the preceding decisions; this is
+  not a new full-node audit. No source passage enters the repository.
+- All eight packet/Suggested hashes still match below. Lean was not rerun:
+  no Lean file changed, and historical results remain attributed.
+
+Resume with scope authorization or live-issue reconciliation, then execute
+**Resume after authorization** below. Install only the exact two guarded
+records, preserving their attribution. Keep L3, PMIA and all Suggested files
+unchanged. Verify actual completion before submitting as finished. The
+stable-transpose current native supplier is `StableTranspose.lean`, not the
+minimal-presentation comparison in `Transpose.lean`.
+
+No disposable scratch artifact is needed to resume. All exact records,
+hashes, source locators, prior checks and remaining mathematical obligations
+are preserved in this handoff and its companion report. Another unchanged
+mathematical review cannot resolve the missing scope authorization.
+
+---
+
+## Preserved preceding handoff (codex-PxaC2W)
+
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-PxaC2W`, 11 October 2026. Refs
