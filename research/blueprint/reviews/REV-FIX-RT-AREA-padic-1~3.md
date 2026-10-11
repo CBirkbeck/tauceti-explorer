@@ -1,55 +1,51 @@
-# Current checkpoint: Codex codex-XBKxEG, 11 October 2026
+# Current checkpoint: Codex codex-OyLXWL, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input `1c06f95484a07926ea860dbcec1344dc75b9c275`;
-branch `codex-XBKxEG-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107747633).
-This session did none of the author fixes or preceding reviews. No second
-issue was claimed.
+Input `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`;
+branch `codex-OyLXWL-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107928215).
+This session wrote none of the author fixes or preceding reviews and claimed
+no second issue. It continues the `codex-XBKxEG` handoff.
 
-**Blocked checkpoint.** The existing mathematical review remains below with
-its original attribution. Fresh checks confirm that dispatch and review
-completion still disagree. Only this report and the handoff change; no fresh
-mathematical verdict, source audit or Lean compilation is claimed.
+**Blocked checkpoint.** Fresh checks reproduce the unresolved assignment and
+review-attribution conflict. The mathematical review and runnable fixtures
+below retain their original attribution. This continuation changes only this
+report and the handoff, without issuing new mathematical verdicts.
 
 | Job | Live outputs / packets | Queue outputs / packets | Completion, live / queue |
 | --- | --- | --- | --- |
 | #5704 | 7 / 3 | 47 / 23 | false / false |
 | #6519 | 7 / 3 | 31 / 15 | true / false |
 
-Fetched both issue bodies and parsed their deliverable lists. They exactly
-match the historical queue assignments at `c69e5b6c9` and `888f12f5c9`.
-Every current queue output exists. The queue adds 20 packets and their
-suggested files to #5704, and 12 of each to #6519, beyond the issued scopes.
+Both freshly fetched issue output lists exactly match the historical queues
+at `c69e5b6c9` and `888f12f5c9`, respectively. Every current queue output
+exists. The stock completion function reads only current top-level reviews:
+P0 and ASII identify #6519, while AEG identifies #5704. The read-only collision
+fixture returns `[false, true]`; restoring #5704's archived reviews only in
+memory returns `[true, false]`. Replacing verdicts therefore transfers the
+failure rather than resolving both assignments.
 
-Read the stock completion function and reran the preserved collision fixture.
-Current reviews return `[false, true]` for the live scopes; restoring #5704's
-archived reviews only in memory returns `[true, false]`. P0 and ASII currently
-identify #6519, while AEG identifies #5704. Overwriting current reviews would
-transfer the failure. Production verdicts and histories remain untouched.
+Reran all three preserved fixtures. The generator's eight cases pass 4/8
+stock, 6/8 with the later-only candidate, and 8/8 with the two-site candidate.
+All ten assessment-history cases pass, including invalidation for changed
+mathematics, changed suggested files, altered scope and invalid verdicts.
+The fixture also confirms packet content excluding review metadata and all
+three suggested-file byte sequences equal `331007b5e`. Candidate repairs
+remain in memory; no production queue, generator or completion code changed.
 
-The generator fixture again passes 4/8 cases stock, 6/8 with its later-round
-candidate, and 8/8 with the two-site candidate. All ten assessment-bound
-history assertions pass. These are in-memory candidates, not installed
-repairs. The assessment fixture verifies that packet content excluding review
-metadata and all three suggested-file byte sequences equal `331007b5e`.
-Historical completion still needs a policy binding assessed sources and
-reader documents as well as these files.
+The stock blueprint checker, using the configured pinned declaration index,
+reports **zero errors and warnings** for P0 (326 nodes), AEG (153 nodes), and
+ASII (537 nodes). No link map or restructuring proposal is assigned. No fresh
+source audit or Lean compilation ran; the unchanged files' earlier elaboration
+results and the omitted P7 signatures retain their original qualifications.
 
-The stock blueprint checker uses the configured pinned declaration index and
-reports zero errors and warnings for P0 (326 nodes), AEG (153), and ASII
-(537). No link map or restructuring proposal is assigned. Unchanged Lean
-files were not recompiled; earlier workers' elaboration and source evidence
-retain their dates, attribution and qualifications.
-
-WORKERS.md permits only issue-named deliverables and scratch. The queue,
-generator, completion function and generated prompt paths are outside this
-assignment and fail the current intake allowlist. The resumption gate is a
-maintainer repair of scope preservation and assessment attribution, followed
-by simultaneous completion checks for both jobs. Keeping this issue available
-before that repair redispatches the same blocked review; the handoff asks the
-maintainer to remove it from worker selection until the gate is satisfied.
-No label, issue state, queue or excluded file was changed by this session.
+WORKERS.md's issue-path restriction applies to this assignment. The necessary
+queue, generator, completion-function and generated-prompt paths are outside
+its deliverables and each fails `intake.ALLOWED`. The maintainer must reconcile
+issued scopes and assessment attribution through an authorized repair, then
+verify both jobs together and regenerate twice before redispatching this job.
+The handoff specifies that resumption gate. No label or issue state was changed
+by hand.
 
 ---
 
