@@ -8338,25 +8338,46 @@ def PairDiagram.deRhamGood : (good Hs).Rep (FGModuleCat.{0} ℚ) :=
 /-- The graded multiplicative structures `M₁` on de Rham and `M₂` on singular cohomology of good
 pairs are those of the products in `PeriodData` (finding E36 asks for multiplicative structures on
 both representations; finding E37 takes them through the good pairs): the product of good pairs
-is the product of pairs, `τ⁻¹(ω ⊗ ω') = ω ∧ ω'`, and `τ⁻¹(x ⊗ y)` takes the value `x(γ) y(γ')` on
-`γ × γ'`. These are the structures for which the products of `P⁺` and of `A_{1,2}` agree on
-generators and for which a `PeriodComparison` is a tensor isomorphism. -/
+is the product of pairs. With the convention already fixed in MC.5/nori-tensor-category,
+both inverse Künneth maps carry the sign `s = (-1)^{|f||g|}`: the de Rham map is `s • (ω ∧ ω')`,
+and the singular map evaluates to `s * x(γ) * y(γ')` on `γ × γ'`. The two signs cancel in the
+period product. This agrees with HMS Definition B.14, pp.20–21, and the recorded E29 convention;
+it does not change the unsigned products in `PeriodData` or the formal-period presentation. -/
 structure PairDiagram.ProductCompatible (P : (good Hs).ProductStructure (goodGrading Hs))
     (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
     (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P) : Prop where
   /-- The product of good pairs is the product of pairs. -/
   mul_eq : ∀ f g, P.mul f g = goodMul Hs f g
-  /-- `τ⁻¹(ω ⊗ ω') = ω ∧ ω'`. -/
+  /-- The inverse de Rham Künneth map with the MC.5 degree sign. -/
   wedge : ∀ f g (ω : (deRhamGood Hs dR).obj f) (ω' : (deRhamGood Hs dR).obj g),
     ((M₁.τ f g).inv ≫ eqToHom (congrArg (deRhamGood Hs dR).obj (mul_eq f g))).hom.hom
-        (ω ⊗ₜ ω') = dR.wedge f.1 g.1 ω ω'
-  /-- `τ⁻¹(x ⊗ y)(γ × γ') = x(γ) y(γ')`. -/
+        (ω ⊗ₜ ω') =
+      Diagram.sign ℚ ((goodGrading Hs).deg f * (goodGrading Hs).deg g) • dR.wedge f.1 g.1 ω ω'
+  /-- The inverse singular Künneth map has the same degree sign. -/
   cross : ∀ f g (x : (goodRep Hs).obj f) (y : (goodRep Hs).obj g) (γ : Hs.H f.1.X f.1.Y f.1.i)
     (γ' : Hs.H g.1.X g.1.Y g.1.i),
     singularRep_eq_dual_homology Hs (vertexProduct f.1 g.1)
         (((M₂.τ f g).inv ≫ eqToHom (congrArg (goodRep Hs).obj (mul_eq f g))).hom.hom (x ⊗ₜ y))
         (dR.cross f.1 g.1 γ γ') =
-      singularRep_eq_dual_homology Hs f.1 x γ * singularRep_eq_dual_homology Hs g.1 y γ'
+      Diagram.sign ℚ ((goodGrading Hs).deg f * (goodGrading Hs).deg g) *
+        singularRep_eq_dual_homology Hs f.1 x γ * singularRep_eq_dual_homology Hs g.1 y γ'
+
+/-- The shared Künneth signs cancel in the comparison coefficient, so the formal-period
+product remains unsigned. A correction on just one representation would fail this check. -/
+theorem PairDiagram.ProductCompatible.signs_cancel (a : ZMod 2) (u v : ℚ) :
+    (Diagram.sign ℚ a * u) * (Diagram.sign ℚ a * v) = u * v := by
+  have hs : Diagram.sign ℚ a * Diagram.sign ℚ a = 1 := by
+    unfold Diagram.sign
+    rw [← mul_pow]
+    norm_num
+  rw [mul_mul_mul_comm, hs, one_mul]
+
+/-- Odd good pairs require a minus sign in both inverse Künneth maps. The coefficient pairing
+has positive product; leaving one side unsigned would instead give its negative. -/
+example : Diagram.sign ℚ (1 * 1) = -1 ∧
+    (Diagram.sign ℚ (1 * 1) * 2) * (Diagram.sign ℚ (1 * 1) * 3) = 6 ∧
+    (Diagram.sign ℚ (1 * 1) * 2) * 3 ≠ 6 := by
+  norm_num [Diagram.sign, ZMod.val_one_eq_one_mod]
 
 /-- MC.6/formal-periods-equal-comparison-algebra: `P⁺` is the space of periods of `H^*_dR` and
 `H^*` on `D^eff` (as vector spaces) and, through the good pairs whose graded multiplicative
