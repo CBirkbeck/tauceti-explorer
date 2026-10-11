@@ -1,10 +1,10 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-ARahsZ`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-zcNnM2`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107237759).
-Input: `f90586176babd13aa942990deccd87b0a40d5abb`.
-Branch: `codex-ARahsZ-review-6219`. One claim; I authored none of the fixes.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107393765).
+Input: `b88f5c327ce51cae963db4c5ff7edb373d7c8243`.
+Branch: `codex-zcNnM2-review-6219`. One claim; I authored none of the fixes.
 
 ## Status and next action
 
@@ -34,6 +34,10 @@ review. No new mathematical work is needed for the six correction decisions.
 Do not replace the complete prior 79-node and 72-node review ledgers with a
 claim that this session performed those exhaustive audits.
 
+The report also corrects the pinned transpose declaration name to
+`TauCeti.AuslanderReitenTranspose`; the packet’s citation was already right.
+The preceding full L6 audit remains under its original attribution.
+
 ## Validation and limits
 
 - Actual four packets: zero errors at the pinned declaration index; L3 has
@@ -52,7 +56,7 @@ claim that this session performed those exhaustive audits.
   read at the locators in the report; their receipts are below. No book used.
 
 Current read-only heads: TauCetiRoadmap
-`070dc2becd74419e76303ede84b465ed4a69461f`; Tau Ceti
+`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`; Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Programme pins remain Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
@@ -66,7 +70,7 @@ packet, reader, Suggested and consumer scope; reader and consumers are outside
 this job's live list. ProfiniteArithmetic and StableReduction were the upstream
 models read. Current APIs must not be attributed to the old programme pin.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/f90586176babd13aa942990deccd87b0a40d5abb/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/b88f5c327ce51cae963db4c5ff7edb373d7c8243/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
 preserves preceding checkpoint history. This note contains all continuation
 material; no disposable scratch path is needed.
 
@@ -75,9 +79,9 @@ material; no disposable scratch path is needed.
 Candidate serialization is UTF-8 `json.dumps(packet, ensure_ascii=False,
 indent=2)` plus one final newline. The two installed packet hashes are:
 
-- DirichletPadicLFunctions--L3: `809b313252cd153f80c3e293d47dde1964732b3d46bb802f28714e5e54f7df59`; history length 48.
+- DirichletPadicLFunctions--L3: `37a9c2b2d97d9f5ab9ad050be8338870d1a6860c88e774fe22efd323a8cfe864`; history length 49.
 
-- PadicMeasuresIwasawaAlgebras: `4ec19ca530457132db2a09f20326e3811c940884c74e989afceb0a094cc02f58`; history length 49.
+- PadicMeasuresIwasawaAlgebras: `5d114b22a514a5b4cb2aa78fd9cb5207289efe8bb67a56d2ddae16a6808d00dd`; history length 50.
 
 The following JSON contains only the two uninstalled candidates. The older
 full review remains in the corresponding input packet and must be archived
@@ -90,23 +94,23 @@ newer evidence or mathematics.
   {
     "path": "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
     "inputSha256": "d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14",
-    "candidateSha256": "7a19b54c26d499e92dbf22f2ed616172bf6a120992efb5ce3ff6df38412ed79c",
+    "candidateSha256": "3587c294ae5b5ff52f9f8f5c859644ed2a60498565daafa4f68a8b88016ace59",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded independent correction review of finding /2 by Codex (GPT-6), session codex-ARahsZ, following independent-review-REV-DirichletPadicLFunctions--L3-2; the complete preceding 79-node review and its original attribution are archived intact in reviewHistory. This session checked the eighteen FG/root correction contracts listed in the report, not every node afresh. Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474 support primitive odd tame chi, the even chi-omega branch, dyadic conductor four, direct chi(a) Gamma weights and the conductor correction (1-chi(p))*B1,chi*log_p(N). Dropping that term requires chi(p)=1. The strict endpoint repair E37, convergence inputs and independent nonvanishing obligation are retained. Five gaps and eight requests remain. Fresh finite permutation examples pass; these are not proofs of the limit theorem. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 111 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
+      "notes": "Bounded independent correction review of finding /2 by Codex (GPT-6), session codex-zcNnM2, following independent-review-REV-DirichletPadicLFunctions--L3-2; the complete preceding 79-node review and its original attribution are archived intact in reviewHistory. This session rechecked the source-sensitive FG/root contracts and strict-endpoint examples; the earlier complete layer audit is retained under its original attribution. Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474 support primitive odd tame chi, the even chi-omega branch, dyadic conductor four, direct chi(a) Gamma weights and the conductor correction (1-chi(p))*B1,chi*log_p(N). Dropping that term requires chi(p)=1. The strict endpoint repair E37, convergence inputs and independent nonvanishing obligation are retained. Five gaps and eight requests remain. Fresh finite permutation examples pass; these are not proofs of the limit theorem. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 111 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
     }
   },
   {
     "path": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
     "inputSha256": "2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c",
-    "candidateSha256": "e7f88b3197f57b7b38449068eef285fbc274cbd011eb498b72a4eb85a85401fd",
+    "candidateSha256": "0d47b15e6d2e585ee9507a8d0c46eeb24e80366d52233f5acae0369aa4091bf5",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded independent correction review of finding /3 by Codex (GPT-6), session codex-ARahsZ, following independent-review-REV-PadicHodgeRegulators--D.1~2; the complete preceding 72-node ledger and original attribution are archived intact in reviewHistory. Checked the three D.2 correction contracts and shared CS.0–CS.3 requests. Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 support the divided/undivided complexes, lifted divisible ideal, omega/tau map directions, only omega multiplicative, factorial-modified twist, exact small-weight divided range, bounded integral error and rational exponential/sign normalization. The rational inverse is not promoted to an integral inverse; shared producers remain requests. Nine gaps and twenty requests remain. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 307 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
+      "notes": "Bounded independent correction review of finding /3 by Codex (GPT-6), session codex-zcNnM2, following independent-review-REV-PadicHodgeRegulators--D.1~2; the complete preceding 72-node ledger and original attribution are archived intact in reviewHistory. Rechecked the three D.2 correction contracts and shared CS.0–CS.3 requests against the public sources. Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 support the divided/undivided complexes, lifted divisible ideal, omega/tau map directions, only omega multiplicative, factorial-modified twist, exact small-weight divided range, bounded integral error and rational exponential/sign normalization. The rational inverse is not promoted to an integral inverse; shared producers remain requests. Nine gaps and twenty requests remain. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 307 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
     }
   }
 ]

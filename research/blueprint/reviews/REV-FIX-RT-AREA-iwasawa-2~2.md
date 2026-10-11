@@ -1,9 +1,9 @@
 # Independent correction review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-ARahsZ`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-zcNnM2`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107237759).
-Input commit: `f90586176babd13aa942990deccd87b0a40d5abb`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107393765).
+Input commit: `b88f5c327ce51cae963db4c5ff7edb373d7c8243`.
 I did none of the fixes under review. This run holds one claim.
 
 ## Disposition
@@ -46,11 +46,14 @@ describe this session's narrower checks.
 | /5 Finite slope for complexes | Retain LAD correction | Representative dependence and the stronger Stein/solid hypotheses are explicit. |
 | /6 Main-conjecture proof routes | Retain verifier's rejection | Accepted RS-16 I.5 retains independent Hecke/congruence and Euler-system routes. |
 
-No mathematical correction was necessary within the permitted files. Changes
+No mathematical correction was necessary within the permitted packets. I
+corrected the inherited report’s pinned transpose declaration name from the
+nonexistent `.transpose` suffix to `TauCeti.AuslanderReitenTranspose`; the
+packet already cites the correct name. Changes
 are fresh review metadata, preservation of prior attribution, this report and
 its handoff. LAD and RS-16 were read-only context. The
-[input report](https://github.com/CBirkbeck/tauceti-explorer/blob/f90586176babd13aa942990deccd87b0a40d5abb/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-and [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/f90586176babd13aa942990deccd87b0a40d5abb/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+[input report](https://github.com/CBirkbeck/tauceti-explorer/blob/b88f5c327ce51cae963db4c5ff7edb373d7c8243/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+and [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/b88f5c327ce51cae963db4c5ff7edb373d7c8243/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
 retain the preceding checkpoint and its historical evidence.
 
 ## Fresh source checks
@@ -105,7 +108,7 @@ and applying p^−r normalization is rational. Shared CS.0–CS.3 producers rema
 requests; nine gaps and twenty requests remain, with no integral inverse.
 
 **/4.** [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3), §§2.2–2.3
-pp.15–18, Lemma 3.9 pp.25–26 and §6.1, Lemma 6.1 p.40, requires the
+pp.15–17, Lemma 3.9 pp.25–26 and §6.1, Lemma 6.1 p.40, requires the
 character-evaluation image order R_Ψ, generally smaller than the full product.
 Sharp transports to R_(Ψ^−1) and is an endomorphism only for inverse-stable Ψ.
 Finite-index/cardinality claims retain nonzerodivisor and finiteness
@@ -149,12 +152,12 @@ library-coverage entries and these exact pinned statements:
   adapter (`NumberTheory/GaussSum.lean:72`).
 - Tau Ceti's Teichmüller construction lifts residue units into integer units
   (`NumberTheory/LocalField/Teichmuller.lean:100`).
-- `AuslanderReitenTranspose.transpose` is the opposite-linear dual cokernel
+- `TauCeti.AuslanderReitenTranspose` is the opposite-linear dual cokernel
   of an arbitrary map, without minimality to construct it
   (`Algebra/Module/AuslanderReiten/Transpose.lean:94`).
 
 Separately, current TauCetiRoadmap is
-`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
+`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`; current Tau Ceti is
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. I read ProfiniteArithmetic and
 StableReduction as upstream models. PMIA must reuse these current suppliers:
 
@@ -192,7 +195,7 @@ Four fresh sequential `lean-check` runs used the shared pinned build:
 | D.1 | Exit 0; 307 `sorry` warnings, no other diagnostics. |
 | PMIA | Exit 0; 1,075 `sorry` warnings, no other diagnostics. |
 
-Available memory was 95 GB beforehand. No build, dependency update, language
+Available memory exceeded the required 20 GB threshold beforehand. No build, dependency update, language
 server or Lean edit occurred. L3's import failure remains a limitation;
 whole-file elaboration is not claimed.
 
@@ -200,7 +203,9 @@ Fresh finite checks give G₃(4)=2, G₃(5)=−8 and the dyadic modulus-four fai
 Sampled periods for p∈{2,3,5,7}, r∈{1,2,3,4} pass outside (2,2). FG
 permutation bijectivity, congruence and strict filtration pass for
 (p,N,B)=(5,3,25),(2,3,4),(2,3,16),(3,1,9). The compound example has
-determinant 9 and produces (18,−9,27)=9(2,−1,3). These are finite example
+matrix rows (1,2,0,3), (0,3,1,2), (0,0,3,1), first-three-column
+determinant 9 and r=2. Its explicit preimage (7,−9,0,3,0,0), in
+lexicographic two-subset order, produces (18,−9,27)=9(2,−1,3). These are finite example
 checks, not theorem proofs or claims of implementation.
 
 Reviewed L3 suffixes: `morita-natural-values`, `morita-natural-recurrence`,
@@ -219,4 +224,7 @@ Reviewed L3-2 suffixes: `rjw2-gk-root-ideals`, `rjw2-gk-root-congruence`,
 
 Reviewed D.2 suffixes: `log-syntomic-complex`,
 `fontaine-messing-kato-period-map`, `syntomic-exponential`.
-All fifty PMIA L6 contracts were checked.
+The source-sensitive PMIA L6 character-order, sharp, cardinality,
+compound/adjugate and transpose contracts and the five current-library
+duplication decisions were rechecked. The preceding report retains its
+original fifty-contract audit; this run does not claim to repeat it.
