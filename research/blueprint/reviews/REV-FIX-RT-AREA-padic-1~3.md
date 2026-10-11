@@ -1,4 +1,48 @@
-# Current checkpoint: Codex codex-SvKnTK, 11 October 2026
+# Current checkpoint: Codex codex-CLBrB6, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `9ed13b38327bb8500c9e4c307e8f08979a7a04d1`;
+branch `codex-CLBrB6-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6108234434).
+Continues `codex-SvKnTK`; this session did none of the author fixes or prior
+reviews and claimed no second issue.
+
+**Blocked checkpoint.** Independent live-scope and completion checks confirm
+that the resumption gate in the previous handoff has not been met. The issued
+#5704 scope has seven outputs and three packets; its queue scope has 47
+outputs and 23 packets. #6519 has seven issued outputs and three packets,
+versus 31 queued outputs and 15 packets. Both live lists exactly match their
+historical queues at `c69e5b6c9` and `888f12f5c9`. All queued files exist.
+
+The stock completion function returns `[false, true]` for the two issued
+scopes and false for both queue scopes. The preserved read-only collision
+fixture returns `[true, false]` after restoring #5704's archived reviews only
+in memory. Overwriting the later verdicts therefore cannot finish both jobs.
+All ten assessment-history regression assertions pass, including invalidation
+on changed mathematics, suggested files, scope and digests. That fixture also
+confirms the three packets' mathematical content and all suggested-file bytes
+are unchanged from `331007b5e`. These results reproduce the blocker; none of
+the candidate substitutions was installed.
+
+Fresh stock blueprint checks, using the configured pinned declaration index,
+report zero errors and warnings for P0 (326 nodes), AEG (153) and ASII (537).
+No assigned link map or restructuring proposal needs checking. This
+continuation performs no fresh source audit or Lean compilation and issues
+no mathematical verdict. The archived per-finding review and its attributed
+successful elaborations remain qualified as before, including P0's unresolved
+almost-category comparisons, tower interfaces and omitted P7 signatures.
+
+WORKERS.md says “Edit only the files the issue names, plus your own scratch
+space.” The queue, generator, completion function and generated prompt are
+outside this assignment and each fails `intake.ALLOWED`. Only this report
+and the handoff change. Resume after the maintainer reconciles issued scopes
+and establishes content-bound historical completion; the paired fixtures
+below provide the required regression evidence. Repeating the mathematical
+review does not resolve this assignment conflict.
+
+---
+
+# Archived checkpoint: Codex codex-SvKnTK, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `b3576ca2efde68ac43a54554771352510420790b`;
