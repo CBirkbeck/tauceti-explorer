@@ -1,4 +1,153 @@
-# PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
+# PKG-CrystallineLocalGlobalCompatibilityCM — supplier-blocked checkpoint
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex. Session: `codex-ugHxms`. Date: 2026-10-11.
+Branch: `codex-ugHxms-crystalline-package`.
+Input commit: `897618096af2bb002a83d22044f03ed8e63fd066`.
+The bot confirmed [claim 6108382768](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6108382768).
+None of the manager's priority issues was available; this available focus
+package was selected by the fallback order. This session claimed only #7462.
+
+## Outcome
+
+**The package cannot be completed within this issue's permitted edits.**
+This checkpoint changes only the handoff, recording a fresh check of the actual
+blocking interfaces and a fresh successful elaboration. It adds no generic
+core lemmas, arithmetic stand-ins or completion claim. The README and
+Suggested.lean are unchanged. Metadata remains absent because the package
+still lacks most of its required signatures.
+
+The accepted input is a complete planning pass, explicitly not a closed plan:
+97 nodes, 103 API entries, 104 tests, 27 requests, 40 gaps, ten planned layers
+and no closed layers. Its review explicitly retains missing arithmetic types.
+The issue's statement that all layers are planned therefore does not establish
+that all requested supplier interfaces exist. Only admitted **proofs** may be
+used to prototype a correctly stated theorem; replacing the missing coefficient
+objects by arbitrary modules would change the theorem.
+
+## Freshly verified blocker: integral coefficients
+
+Read Caraiani–Newton, [arXiv:2301.10509v3](https://arxiv.org/abs/2301.10509v3),
+printed pp.17–18, including Lemma 2.1.12 and its proof. The coefficients are
+integral dual-Weyl lattices with finite-free reductions. Transitivity of
+algebraic induction identifies the evaluation morphism; residue-field
+base change identifies it with restriction to a Schubert variety, and
+surjectivity there plus Nakayama gives integral surjectivity.
+
+The requested declaration is
+`CrystallineCM.coefficient_evaluation_surjective` (CL.0/lem-2-1-12).
+Its actual lattice, reduction, Levi tensor factors and equivariant evaluation
+map are absent. The packet records `REQ-INTEGRAL-WEYL` and
+`GAP-PROTOTYPE-CL-0` for exactly this reason.
+
+Freshly read the pinned `TauCeti.YoungTableau.weylModule`,
+`RepresentationTheory/ClassicalGroups/WeylModule.lean`, lines 114–126, and
+its current `WeylModule/Basic.lean`, lines 122–134. Both construct a
+Young-symmetrizer image with an **Algebra ℚ k** assumption. They cannot supply
+the required integral lattice and residue-field base change: a nonzero
+characteristic-p residue field admits no ℚ-algebra structure. Restricting
+scalars on the characteristic-zero vector space supplies neither the specified
+finite-free O-lattice nor the evaluation comparison after reduction.
+
+Read current upstream **ReductiveGroups** in full. Its Layer 9 supplies integral
+pinned groups and root maps, without the needed integral highest-weight
+representation interface. Read the parent's relevant requests: they explicitly
+assign the missing induced/Weyl/dual-Weyl extension to
+`ReductiveGroupsIntegralRepresentationsPartII`, with no stage yet.
+A fresh filename inventory finds no owner packet, reader, suggested file or
+package under that name or `ReductiveGroupsPartIII`.
+The corresponding [design issue #3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357)
+is still available. Its grouped brief includes the integral highest-weight
+direction and names its deliverables `ReductiveGroupsPartIII`. That name
+mismatch must be reconciled when the owner exports actual stage ids.
+
+Completing this supplier here would duplicate its assigned work and touch
+files excluded by #7462. PROTOCOL §§13 and 15 prohibit disguising the missing
+interface or replanning its owner. This blocker alone prevents a complete
+package, independently of available execution time.
+
+## Other supplier boundaries checked
+
+Read CN v3 §2.2.2, Definition 2.2.3 and Lemmas 2.2.4–6, pp.26–28,
+and §2.2.7 with Proposition 2.2.8, p.28.
+
+- The pinned `TauCeti.IsSmoothDiscrete` and `SmoothDiscreteTopRep` already
+  admit monoids; their carrier is not missing. Current upstream
+  `SmoothRepresentationsOfLocalGroups/Suggested.lean`, lines 332–397,
+  supplies the abelian and Grothendieck category under **Group G** and
+  **IsTopologicalGroup G**. That does not supply the positive-monoid
+  derived invariants with transfer action or smooth localization preserving
+  the injectives required by CN. The existing module localization must be
+  reused when these additional interfaces exist.
+- There is no reviewed library-audit entry for this new roadmap. The reviewed
+  `ArithmeticLocallySymmetricSpaces:ALS.6` entry records arithmetic towers,
+  finite recovery and completed boundary data as absent. A fresh inventory
+  finds only the CC.8 plan for `CompletedCohomologyPartII`; owner
+  [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701) remains
+  available. The CC.8 packet's **node prerequisites** cite CC.0–CC.4 and
+  CC.7, outside its CC.8 scope. More precisely than the preceding handoff,
+  these earlier-layer references are prerequisites, not entries in its
+  `requests` array. Neither proves that those supplier interfaces exist.
+
+This is not a fresh audit of all 27 requests. The detailed inherited contracts
+below remain necessary, including the arithmetic corner comparisons and the
+qualified Barsotti–Tate endpoint.
+
+## Resume and queue action
+
+Resume package completion after the owner exports typed integral lattices,
+base-change, Levi evaluation and splitting contracts; the smooth supplier
+exports the monoid derived interfaces; and CC.0–CC.7 export the required
+arithmetic towers and finite recovery maps. Admitted signatures with their
+correct types can suffice; implemented proofs are not a resume requirement.
+An authorized packet revision must reconcile the owner/stage names and the
+inherited NT16 Proposition 2.10 locator correction.
+
+Then replace the indexed omissions by the actual arithmetic signatures,
+API and examples, finish the README within its 200 KB limit, and add
+`topic = "math.NT"`. Current name presence is **17/97 targets** and
+**44/103 API items**, freshly recounted after stripping nested comments
+and accounting for the `CrystallineCM` namespace; it is not a mathematical
+coverage certification. Named-example counts below are inherited.
+
+For the maintainer: this job should remain unavailable until its supplier
+inputs change; another continuation of the same package cannot construct the
+out-of-scope owners. This session changes no labels, claims no second job
+and does not merge its own pull request. `issues.deliverables_complete`
+checks output existence first, so metadata absence deliberately keeps this
+submission a checkpoint. Intake releases a checkpoint automatically; that
+queue behavior does not resolve the mathematical blocker.
+
+## Fresh validation and provenance
+
+- Read WORKERS.md, both protocols and UPSTREAM_GUIDE.md. Read current upstream
+  ReductiveGroups and PeripheralActions READMEs in full; checked supplier
+  statements at the locators above. Current roadmap checkout commit:
+  `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`; current Tau Ceti:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither was edited or built.
+- Input packet checker: **0 errors, 0 warnings**. Packet SHA-256:
+  `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
+- Existing package `lean-check`: **exit 0, no errors, 111 warnings, all
+  declaration-uses-sorry**. Available memory: 92 GB. The shared wrapper
+  selects the pinned Tau Ceti f790474 build; its Mathlib HEAD was verified
+  as `082e2d37e8b0463410cdb532e111cd43d5a66174`. No language server,
+  library build or background check remains running.
+- Suggested.lean SHA-256:
+  `75a5404ab2a9767b1c4b1f8d11f899a1bc30ea53daee3d10449c92fa55e96c5d`.
+  README SHA-256:
+  `ee14120ed952a9ad2852032a7ca013a5ba74d6fe462d2f542d144df8cb628dda`;
+  197,806 bytes. Both are unchanged.
+- CN v3 public PDF accessed 2026-10-11, SHA-256:
+  `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
+  Fresh source reading: printed pp.17–18 and pp.26–28. No PDF or extracted
+  source text is submitted; all mathematical explanations are authored prose.
+- Submission-file and whitespace validation are recorded in the PR. No
+  scratch files are needed to resume. The preceding checkpoint is preserved
+  below, explicitly as history rather than fresh verification.
+
+---
+
+# Inherited checkpoint — codex-RNJ5c7
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex. Session: `codex-RNJ5c7`. Date: 2026-10-11.
