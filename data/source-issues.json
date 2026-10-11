@@ -189564,6 +189564,120 @@
    "reviewReason": "Confirmed in the freshly read published pp.160–161 / physical61–62 and arXiv v2 pp.44–45. The displayed κ_k gives 17 instead of 9 at p=3,n=2,k=4. Evenness is required. Corrected the pole description alongside the exponent shift, following the existing E55 finding; no new discovery is claimed."
   },
   {
+   "id": "DrinfeldModulesAndTModules/E1",
+   "kind": "misprint",
+   "locator": "Public lecture notes, Theorem 2.3 proof, p. 7",
+   "printed": "The displayed finite product for φ_a has initial X and factors (1−X/e_Λ(λ)), with no initial scalar a, while the argument requires differential a.",
+   "correction": "Use aX∏_(0≠λ∈a⁻¹Λ/Λ)(1−X/e_Λ(λ)).",
+   "reason": "The displayed product has derivative one at zero. The functional equation e_Λ(az)=φ_a(e_Λ(z)) has derivatives a on the left and φ_a′(0) on the right. The correction also gives φ_c=cX for constants c.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The public lecture URL and author/seminar listing were checked on 2026-10-11; a search for Papikian Drinfeld Theorem 2.3 errata found no correction. The uncleared book was not used."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Mihran Papikian, An overview of the theory of Drinfeld modules, Public lecture notes, last modified 9 October 2017",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E2",
+   "kind": "misprint",
+   "locator": "arXiv:1706.06807v1, proof of Theorem 3.5, display (3.5), p. 7; published display (3.5), p. 1440",
+   "printed": "The preprint display gives the target Hom(M,M′) while the map takes m′ to m′∘f for f:E→E′.",
+   "correction": "The target is Hom(M(E′),M(E)); the published display gives this corrected target.",
+   "reason": "Composition m′∘f starts with a function on E′ and produces a function on E, reversing the objects. The surrounding preprint proof already uses this direction.",
+   "affects": "nothing",
+   "known": "Corrected in the published Annali XIX (2019) display (3.5), p. 1440, inspected on 2026-10-11.",
+   "searched": [
+    "arXiv:1706.06807 version listing; Hartl publications page; published journal PDF, pp. 1439–1441."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Urs Hartl, Isogenies of abelian Anderson A-modules and A-motives, arXiv:1706.06807v1, 22 June 2017",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E3",
+   "kind": "misprint",
+   "locator": "Compositio 146 (2010), recap after Proposition 6.21, p. 595; arXiv:0809.0224v1, p. 41",
+   "printed": "The recap identifies B^G with the full completed coefficient ring F_(K,λ), although Proposition 6.21 identifies it with the smaller rational coefficient extension F_(λ,K).",
+   "correction": "Use B^G=F_(λ,K)=Frac(F_λ⊗F_q K), retaining the distinction from Frac((F_λ,res⊗F_q K)[[z]]).",
+   "reason": "Proposition 6.21 proves the smaller equality, and Claim 5.2 requires exactly that equality for local algebraization. For infinite K the rational scalar extension and full coefficient completion differ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The arXiv version listing; Cambridge Compositio article and erratum search; ETH deposited version of record, p. 595. No separate correction found on 2026-10-11."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Nicolas Stalder, The semisimplicity conjecture for A-motives, Compositio Mathematica 146 (2010), 561–598",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E4",
+   "kind": "misprint",
+   "locator": "arXiv:2009.13934v2, Proposition 3.11 and proof, p. 19",
+   "printed": "Three line-bundle subscripts use A[1/r] for the reciprocal compactification that the same proposition defines over A[1/t].",
+   "correction": "Use Q_(r,A[1/t]) in the O(1) and O(−1) subscripts.",
+   "reason": "r is the rank integer, while the coefficient element inverted throughout the construction and its base is t. The surrounding line-bundle construction is over Q_r⊗F_q A[1/t].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2009.13934 version listing and v2; Hartl publications page; Wiley 2025 article/erratum search. This finding is scoped to v2; the journal text was not collated."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Urs Hartl and Chia-Fu Yu, Arithmetic Satake compactifications and algebraic Drinfeld modular forms, arXiv:2009.13934v2, 8 January 2025; not collated against the 2025 journal version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E5",
+   "kind": "misprint",
+   "locator": "Revised English thesis, proof of Proposition 5.15, p. 77",
+   "printed": "The proof attributes cohomology/section conclusions to Proposition 5.15 itself.",
+   "correction": "Use Proposition 5.14 for the normalized cohomology and section dimensions.",
+   "reason": "Proposition 5.14, immediately preceding, proves the required vanishing and dimensions; Proposition 5.15 is the conclusion presently being proved.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The public revised English thesis and its Göttingen listing, checked on 2026-10-11; no separate erratum located."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Stefan Wiedmann, Drinfeld modules and elliptic sheaves, Revised English thesis, 26 August 2005",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DrinfeldModulesAndTModules/E6",
+   "kind": "misprint",
+   "locator": "Published Lemma 3.8(b), proof, p. 1442; arXiv:1706.06807v1, p. 9",
+   "printed": "After choosing f∈1+I with fI=0 and I contained in every prime, the proof calls 1−f a unit.",
+   "correction": "Use f itself as the unit; multiplying fI=0 by f⁻¹ gives I=0.",
+   "reason": "Here I lies in the nilradical, so f=1+i is invertible while 1−f=−i is nilpotent and is generally not invertible in a nonzero ring. The corrected argument gives exactly the stated conclusion.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1706.06807 version listing; Hartl publications page and its author PDF; published Annali XIX (2019) PDF, p. 1442; targeted Lemma 3.8 erratum search on 2026-10-11. No correction located."
+   ],
+   "owner": "DrinfeldModulesAndTModules",
+   "file": "research/blueprint/packets/DrinfeldModulesAndTModules--DM.0.json",
+   "citation": "Urs Hartl, Isogenies of abelian Anderson A-modules and A-motives, Annali della Scuola Normale Superiore di Pisa XIX (2019), 1429–1470",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
