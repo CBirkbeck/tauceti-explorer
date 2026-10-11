@@ -20,7 +20,7 @@
         "ref": "mathlib:ZMod",
         "kind": "def",
         "module": "Mathlib/Data/ZMod/Defs.lean",
-        "provides": "The ambient cyclic group Z_N = Z/NZ on which every statement of this roadmap's Green-Tao material lives.",
+        "provides": "The native cyclic quotient of the integers supplies the prime-cyclic Fourier and progression specializations. Integer intervals, boxes and number-field lattices remain distinct ambient objects.",
         "checked": "Statement checked in the source tree at the recorded pinned commit; normalization or generality differences are stated in the consuming node."
       },
       {
@@ -271,9 +271,9 @@
       {
         "ref": "mathlib:Behrend.roth_lower_bound",
         "kind": "theorem",
-        "module": "Mathlib/Combinatorics/AP/Three/Behrend.lean",
+        "module": "Mathlib/Combinatorics/Additive/AP/Three/Behrend.lean",
         "provides": "The native Roth number has lower bound N exp(−4√log N).",
-        "checked": "Statement checked in the source tree at the recorded pinned commit; normalization or generality differences are stated in the consuming node."
+        "checked": "Independent review read the pinned declaration at line 481: the stated real lower bound for rothNumberNat is correct; the module path is corrected."
       },
       {
         "ref": "mathlib:Quiver",
@@ -349,8 +349,29 @@
         "ref": "mathlib:Ideal.absNorm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
-        "provides": "The absolute ideal norm is the cardinality of the ideal quotient; multiplicativity is bundled. These data are reused by AN.4 consumer signatures.",
+        "provides": "For an infinite Dedekind domain S, the absolute ideal norm is Submodule.cardQuot and is a bundled monoid-with-zero homomorphism to natural numbers. Multiplicativity is available under IsDedekindDomain S and Infinite S; the number-field ring-of-integers consumers satisfy these assumptions.",
         "checked": "Statement checked in the source tree at the recorded pinned commit; normalization or generality differences are stated in the consuming node."
+      },
+      {
+        "ref": "tauceti:CommGroup.sum_monoidHom_apply_eq_ite",
+        "kind": "theorem",
+        "module": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
+        "provides": "For a finite commutative group and a domain with enough exponent roots of unity, the sum over unit-valued multiplicative characters is Nat.card G at 1 and zero elsewhere. Over complex numbers transport through Multiplicative/Additive and the unit-valued character correspondence; do not identify the dual with G.",
+        "checked": "Independent review read the full pinned declaration and surrounding typeclass context. Finite/additive and one-dimensional comparison obligations are stated in the consuming nodes."
+      },
+      {
+        "ref": "tauceti:TauCeti.haarProb_eq_smul_count",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Compact/Finite.lean",
+        "provides": "For a finite discrete group with its Borel measurable structure, Haar probability is inverse Nat.card times counting measure. This supplies the exact normalization in the AC.0 integral comparison.",
+        "checked": "Independent review read the full pinned declaration and surrounding typeclass context. Finite/additive and one-dimensional comparison obligations are stated in the consuming nodes."
+      },
+      {
+        "ref": "tauceti:TauCeti.hasSum_norm_sq_peterWeylCoeff",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+        "provides": "For a compact Hausdorff topological group, algebraically closed RCLike scalar field and an irreducible skeleton, the squared norms of its Peter–Weyl coefficients have sum the L2 Haar-probability norm squared. The finite abelian comparison uses one-dimensional characters and converts the sum to a finite dual sum; no general Peter–Weyl proof is planned again.",
+        "checked": "Independent review read the full pinned declaration and surrounding typeclass context. Finite/additive and one-dimensional comparison obligations are stated in the consuming nodes."
       }
     ]
   },
@@ -390,18 +411,18 @@
       "id": "GGMT-2025",
       "title": "On a conjecture of Marton",
       "authors": "W. T. Gowers, Ben Green, Freddie Manners, Terence Tao",
-      "edition": "arXiv:2311.05762v2; the earlier checkpoint read the Oxford accepted manuscript corresponding to Annals of Mathematics 201 (2025), 515–549.",
+      "edition": "arXiv:2311.05762v2, checked against the Oxford accepted manuscript for Annals of Mathematics 201 (2025), 515–549.",
       "url": "https://arxiv.org/pdf/2311.05762v2",
       "sha256": "1e3e7bfbc440f95b60202024c0d1e995e8a98dc2f5370bead60b47861d90e1b3",
       "accessed": "2026-10-11",
       "readSections": [
-        "Predecessor: full accepted manuscript §§1–7 and Appendices A–B, pp. 1–33. Present run: public arXiv v2, the theorem statements and source conventions supporting the retained characteristic-two chain; bibliography-dependent consequences are outside the chosen Marton target."
+        "Independent review: accepted manuscript §§1–7 and Appendices A–B, pp. 1–33; arXiv v2 theorem statements, entropy conventions and finding locators compared. Bibliography-dependent consequences beyond the selected Marton endpoint are not claimed as read."
       ],
       "previousVersion": {
         "url": "https://ora.ox.ac.uk/objects/uuid:b9008ecd-9716-491e-9365-eee8d47d12e7/files/sdr26z060n",
         "sha256": "9f1a17d63157d95a44378291b58f2e0d605cb0062a41a6ca82dc7b65b11e2b10",
-        "accessed": "2026-09-29",
-        "note": "Full §§1–7 and Appendices A–B were read by the predecessor. The present run could not retrieve this endpoint and uses the public arXiv version."
+        "accessed": "2026-10-11",
+        "note": "Independently retrieved and read in this review; SHA-256 matches the predecessor’s copy. AAM locators in the entropy nodes refer to this accepted manuscript."
       }
     },
     {
@@ -494,7 +515,7 @@
       "authors": "Ben Green and Terence Tao",
       "url": "https://arxiv.org/pdf/0807.1736v4",
       "sha256": "1983964ece08526e3ceca872c011d1fd6d95d689670e3715bcc6c3a20749d577",
-      "edition": "arXiv:0807.1736v4, 29 April 2011",
+      "edition": "arXiv:0807.1736v4, 29 May 2011",
       "accessed": "2026-10-11",
       "readSections": [
         "Main theorem and its complete proof, §§1–3, pp. 1–11; Appendix A, Propositions A.1–A.2, pp. 21–22. Applications in §§4–5 are outside the selected endpoint."
@@ -506,7 +527,7 @@
       "authors": "Ben Green and Terence Tao",
       "url": "https://arxiv.org/pdf/math/0606088v2",
       "sha256": "4cc772cfa6f2f9fa2af82d07b6323669c8150ac1911e83a245cc667f956500f5",
-      "edition": "arXiv:math/0606088v2, 26 March 2008",
+      "edition": "arXiv:math/0606088v2, 22 April 2008",
       "accessed": "2026-10-11",
       "readSections": [
         "Introduction and main theorem, Definitions 1.1 and 1.5, local factors and Lemma 1.3, pp. 1–10. The finite-complexity transference and model-to-prime proof inputs are itemized in a closure gap."
@@ -518,7 +539,7 @@
       "authors": "Wataru Kai",
       "url": "https://arxiv.org/pdf/2306.16983v5",
       "sha256": "c5e9e91fd7c698d0296a5412620a4556cf56f39ed964d353e423802c7ab495a7",
-      "edition": "arXiv:2306.16983v5, 21 August 2024",
+      "edition": "arXiv:2306.16983v5, submitted 12 March 2026; PDF dated 13 March 2026",
       "accessed": "2026-10-11",
       "readSections": [
         "Introduction and proof architecture §2, pp. 1–10; §§3–5 definitions and Proposition 5.2, pp. 11–17; §7, Lemma 7.1 and Proposition 7.2, pp. 28–31; §9, pp. 37–42; Theorems 12.1 and 13.1 with the proof of 12.1, pp. 54–57; Appendix D definitions and generalized von Neumann theorem, pp. 69–72. The ideal Type I/II and localization proof closures remain explicit.",
@@ -594,7 +615,9 @@
         "mathlib:RCLike.wInner",
         "mathlib:RCLike.cWeight",
         "mathlib:ZMod.dft",
-        "tauceti:TauCeti.haarProb"
+        "tauceti:TauCeti.haarProb",
+        "tauceti:CommGroup.sum_monoidHom_apply_eq_ite",
+        "tauceti:TauCeti.haarProb_eq_smul_count"
       ],
       "sources": [
         {
@@ -778,7 +801,7 @@
         {
           "name": "fourier.test_conjugate_reflection",
           "kind": "computation",
-          "statement": "Worksheet F10: on ZMod 4, the conjugate reflection of Pi.single 1 1 has coefficient +i/4 at zmodAddEquiv 1, the conjugate of F1; plain reflection would not conjugate."
+          "statement": "Worksheet F10: on ZMod 4, conjugate reflection of Pi.single 1 i has coefficient 1/4 at zmodAddEquiv 1; plain reflection has coefficient -1/4. A real point mass cannot distinguish those two operations."
         },
         {
           "name": "fourier.test_conjugate_slot",
@@ -970,7 +993,8 @@
       "proofSteps": [
         "Expand both sides in the character basis using fourier_inversion.",
         "Use orthogonality of characters for the normalised measure: N⁻¹ ∑_x χ(x) conj(ψ(x)) = [χ = ψ].",
-        "Collect terms to obtain Parseval; take g = f for Plancherel."
+        "Collect terms to obtain Parseval; take g = f for Plancherel.",
+        "For the finite Peter–Weyl comparison consume the existing norm-square Parseval theorem, identify the one-dimensional character coefficients, and use haarProb_eq_smul_count. This comparison reuses compact Fourier theory rather than proving it again."
       ],
       "acceptance": [
         "The measures differ on the two sides — probability on G, counting on Ĝ — and the identity is false with both normalised or both counting.",
@@ -979,7 +1003,8 @@
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.0/fourier-transform",
-        "mathlib:AddChar.complexBasis"
+        "mathlib:AddChar.complexBasis",
+        "tauceti:TauCeti.hasSum_norm_sq_peterWeylCoeff"
       ],
       "sources": [
         {
@@ -1907,7 +1932,8 @@
       "statement": "For η > 0 and fixed reference distributions X₁⁰, X₂⁰ on G = 𝔽₂ⁿ, τ[X₁; X₂] = d[X₁; X₂] + ηd[X₁⁰; X₁] + ηd[X₂⁰; X₂] (2.1). A τ-minimizer is a pair of probability distributions minimizing τ; the source uses η = 1/9.",
       "hypotheses": [
         "τ depends only on the distributions of X₁, X₂; the references are never modified.",
-        "In Lean, G is a finite ℤ/2-module; the definition makes sense for any finite abelian group."
+        "In Lean, G is a finite ℤ/2-module; the definition makes sense for any finite abelian group.",
+        "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance"
@@ -1953,7 +1979,7 @@
         {
           "name": "TauCeti.EntropicPFR.exists_isTauMinimizer",
           "role": "other",
-          "statement": "A minimizer exists."
+          "statement": "A minimizer exists. Both fixed reference measures are probability measures."
         },
         {
           "name": "TauCeti.EntropicPFR.tau_swap",
@@ -1963,7 +1989,7 @@
         {
           "name": "TauCeti.EntropicPFR.IsTauMinimizer.condRdist_ge",
           "role": "relation",
-          "statement": "(3.15): minimality in conditioned form."
+          "statement": "(3.15): minimality in conditioned form. Both fixed reference measures are probability measures."
         }
       ],
       "tests": [
@@ -2004,7 +2030,8 @@
       "kind": "lemma",
       "statement": "In the minimizer setting, I₁ = I[X₁ + X₂ : X̃₁ + X₂ | S] ≤ 2ηk (3.13), and H[S] ≤ ½H[X₁] + ½H[X₂] + (2 + η)k − I₁ (5.8).",
       "hypotheses": [
-        "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂."
+        "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.",
+        "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.1/fibring-corollary",
@@ -2045,7 +2072,8 @@
       "statement": "In the minimizer setting, I₂ = I[X₁ + X₂ : X₁ + X̃₁ | S] ≤ 2ηk + 2η(2ηk − I₁)/(1 − η).",
       "hypotheses": [
         "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.",
-        "By symmetry I₃ = I[X̃₁ + X₂ : X₁ + X̃₁ | S] equals I₂."
+        "By symmetry I₃ = I[X̃₁ + X₂ : X₁ + X̃₁ | S] equals I₂.",
+        "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.1/fibring-corollary",
@@ -2086,7 +2114,8 @@
       "statement": "Let G = 𝔽₂ⁿ and (T₁, T₂, T₃) be G³-valued with T₁ + T₂ + T₃ = 0, and δ = Σ_{i<j} I[Tᵢ : Tⱼ]. Then there are T₁′, T₂′ with d[T₁′; T₂′] + η(d[X₁⁰; T₁′] − d[X₁⁰; X₁]) + η(d[X₂⁰; T₂′] − d[X₂⁰; X₂]) ≤ δ + (η/3)(δ + Σ_{i=1}^{2} Σ_{j=1}^{3} (d[Xᵢ⁰; Tⱼ] − d[Xᵢ⁰; Xᵢ])).",
       "hypotheses": [
         "The source writes I[Tᵢ; Tⱼ] in (7.5) for the mutual information I[Tᵢ : Tⱼ] (E6).",
-        "η ≥ 0 and the references X₁⁰, X₂⁰ and X₁, X₂ are as in the τ setting."
+        "η ≥ 0 and the references X₁⁰, X₂⁰ and X₁, X₂ are as in the τ setting.",
+        "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.1/entropic-bsg",
@@ -2125,7 +2154,8 @@
       "kind": "lemma",
       "statement": "Let η = 1/9. If (X₁, X₂) minimizes τ, then d[X₁; X₂] = 0. Equivalently (Proposition 2.1), if d[X₁; X₂] > 0 there are X₁′, X₂′ with τ[X₁′; X₂′] < τ[X₁; X₂].",
       "hypotheses": [
-        "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂."
+        "G is an elementary abelian 2-group (a finite ℤ/2-module, i.e. 𝔽₂ⁿ); η = 1/9; ρ₁, ρ₂ are the reference distributions X₁⁰, X₂⁰; (μ₁, μ₂) minimizes τ; X₁, X₂, X̃₁, X̃₂ are independent with X₁, X̃₁ ∼ μ₁ and X₂, X̃₂ ∼ μ₂; k = d[X₁; X₂] and S = X₁ + X₂ + X̃₁ + X̃₂.",
+        "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
       ],
       "prerequisites": [
         "AdditiveCombinatorics:AC.1/first-estimate",
@@ -2886,7 +2916,7 @@
       "sources": [
         {
           "sourceId": "tao-254a-notes2-cmu",
-          "locator": "Notes 3, §1–2, pp. 1–7, Theorems 2.1–2.2",
+          "locator": "Notes 3, Theorem 1.1, pp. 3–6, and quantitative Theorem 2.2, p. 7 (physical PDF pp. 53–57)",
           "match": "The quantitative bipartite difference theorem and its full path proof imply the energy-to-small-doubling form with polynomial loss."
         }
       ],
@@ -3002,7 +3032,6 @@
         "AdditiveCombinatorics:AC.1/spectral-bogolyubov",
         "AdditiveCombinatorics:AC.1/cyclic-bohr-progression",
         "mathlib:Finset.ruzsa_covering_mul",
-        "AdditiveCombinatorics:AC.1/progression-properization",
         "AdditiveCombinatorics:AC.1/progression-properization"
       ],
       "sources": [
@@ -3182,7 +3211,7 @@
         {
           "name": "gowersNorm_smul",
           "role": "relation",
-          "statement": "U^d(cf)=|c|U^d(f)."
+          "statement": "For d>=1, U^d(cf)=|c|U^d(f). The real-part order-zero extension does not have complex scalar homogeneity."
         }
       ],
       "tests": [
@@ -3205,6 +3234,11 @@
           "name": "gowersNorm.test_point_mass",
           "kind": "compatibility",
           "statement": "For the unit point mass on ℤ/2, U²^4=1/8, agreeing with the sum of two Fourier fourth powers."
+        },
+        {
+          "name": "gowersNorm.test_imaginary_scalar",
+          "kind": "computation",
+          "statement": "On ZMod 2 the constant observable 3i has U^1 norm 3. This detects taking a real part before the absolute value in the order-one definition."
         }
       ],
       "uses": [
@@ -3730,7 +3764,7 @@
       "sources": [
         {
           "sourceId": "lss-inverse",
-          "locator": "§2.3, following Definition 2.9, pp. 8–9; citations to polynomial-map calculus",
+          "locator": "§2.3, Lemma 2.12 and its proof, pp. 8–9; integer-binomial Taylor coefficients and cited polynomial-map calculus",
           "match": "The source uses the standard Taylor theorem and group property from its cited nilsequence appendices; acquisition and detailed proof closure remain explicit."
         }
       ],
@@ -3882,7 +3916,7 @@
       "sources": [
         {
           "sourceId": "lss-inverse",
-          "locator": "§3, Definitions 3.1–3.5, pp. 10–12",
+          "locator": "§3.1–3.2, Definitions 3.1–3.5, pp. 11–12",
           "match": "These data supply rationality, integer lattice coordinates and filtration adaptation; dimension is not absorbed into complexity."
         }
       ],
@@ -3975,7 +4009,8 @@
       "kind": "construction",
       "statement": "For second-kind coordinates ψ, define d_G(x,y) as the infimum of finite-chain sums with edge cost min(‖ψ(uv^−1)‖∞,‖ψ(vu^−1)‖∞). Define d_(G/Γ)(xΓ,yΓ)=inf_(γ,γ′∈Γ)d_G(xγ,yγ′). For F:G/Γ→ℂ put ‖F‖Lip=‖F‖∞+Lip(F). A bounded degree-s nilsequence is n↦F(g(n)Γ), with g filtered polynomial and |F|≤1; its dimension, basis height and Lipschitz bound are separate data.",
       "hypotheses": [
-        "The group metric is right invariant. The minimum in the edge cost and the infimum over both representatives follow the source exactly."
+        "The group metric is right invariant. The minimum in the edge cost and the infimum over both representatives follow the source exactly.",
+        "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
       ],
       "proofSteps": [
         "Construct the chain metric, prove it induces the manifold topology, and descend it through the right-lattice isometry action.",
@@ -4049,6 +4084,11 @@
           "name": "malcevMetric_comparison",
           "role": "compatibility",
           "statement": "The coordinate metric and a basis-induced Riemannian metric compare with explicit constants depending on degree, dimension and rationality; Kai’s norm cannot be substituted without this comparison."
+        },
+        {
+          "name": "BoundedNilsequence.lipschitz",
+          "role": "data",
+          "statement": "A finite nonnegative C witnesses |F(x)-F(y)| <= C d(x,y) for every pair of quotient points. Together with the boundedness and observableLipNorm fields this enforces the intended finite Lipschitz norm."
         }
       ],
       "tests": [
@@ -4071,6 +4111,11 @@
           "name": "BoundedNilsequence.test_boundedness",
           "kind": "non-example",
           "statement": "The constant observable F=2 fails the bounded-nilsequence condition."
+        },
+        {
+          "name": "BoundedNilsequence.test_non_lipschitz",
+          "kind": "non-example",
+          "statement": "If for every nonnegative finite C there are x,y with C d(x,y)<|F(x)-F(y)|, no bounded nilsequence can have observable F, even if the totalized real infimum has a small value."
         }
       ],
       "uses": [
@@ -4632,10 +4677,11 @@
       ],
       "title": "Uniform factor approximation",
       "kind": "theorem",
-      "statement": "For fixed k≥5, 0<η<1/2 and real 0≤f≤1 on [N], there is a factor generated by T real degree-(k−2) nilsequences of absolute value at most 2, obtained by shifts in [0,1/K_i) of real parts of 1-bounded complex nilsequences, each of dimension d, complexity M and regular resolution K_i, such that U^(k−1)[N](f−E(f|factor))≤η. One may take d≤C_k(log*(1/η))^C_k and T,M,K_i≤exp(C_k(log*(1/η))^C_k).",
+      "statement": "For fixed k≥5, 0<η<1/2 N >= exp(C_k(log*(1/η))^C_k), and real 0≤f≤1 on [N], there is a factor generated by T real degree-(k−2) nilsequences of absolute value at most 2, obtained by shifts in [0,1/K_i) of real parts of 1-bounded complex nilsequences, each of dimension d, complexity M and regular resolution K_i, such that U^(k−1)[N](f−E(f|factor))≤η. One may take d≤C_k(log*(1/η))^C_k and T,M,K_i≤exp(C_k(log*(1/η))^C_k).",
       "hypotheses": [
         "The conditional average is real and lies in [0,1]. The residual is 2-bounded; divide by two before invoking a 1-bounded inverse theorem.",
-        "Regularity is obtained by shifting at each fixed resolution K_i, rather than choosing K_i to regularize an unshifted observable. Dimension is separate from rational and Lipschitz complexity."
+        "Regularity is obtained by shifting at each fixed resolution K_i, rather than choosing K_i to regularize an unshifted observable. Dimension is separate from rational and Lipschitz complexity.",
+        "N is sufficiently large relative to eta: N >= exp(C_k (log*(1/eta))^C_k), with C_k enlarged if necessary. This retains the size hypothesis of LSS Lemma 3.8; no all-N strengthening is asserted."
       ],
       "proofSteps": [
         "When the residual norm exceeds η, apply the quantitative inverse theorem to the normalized residual and use a real or imaginary part of the correlating observable.",
@@ -4678,7 +4724,7 @@
       "proofSteps": [
         "Approximate f by a regular nilsequence factor at tolerance a small multiple of δ^k and apply dense generalized von Neumann.",
         "Partition into progressions with nearly constant nilsequences. Regularity bounds bucket-boundary losses, giving a progression where the structured conditional mean is large.",
-        "Use the weak maximal inequality from E7 to select a regular resolution; the source’s asserted L¹ maximal estimate is unnecessary."
+        "Use the weak maximal inequality from E7 to select a shift at each fixed bucket resolution. In the large-N branch the size hypothesis of uniform factor approximation holds; the source’s asserted L¹ maximal estimate is unnecessary."
       ],
       "acceptance": [
         "Retain every ambient-group, normalization and quantitative parameter in the statement.",
@@ -5059,7 +5105,8 @@
       "kind": "theorem",
       "statement": "Fix degree k and box dimension ℓ. There is C=C(k,ℓ) such that, for 0<δ<1/10, M≥1, a degree-k filtered nilmanifold G/Γ with G of nilpotency step s, dimension d and complexity at most M, an observable F with Lipschitz norm at most M and nonzero final-central frequency ξ of size at most M/δ, and a filtered polynomial g:ℤ^ℓ→G with |E_(n∈∏[N_i])F(g(n)Γ)|≥δ, either min_i N_i≤(M/δ)^(C d^C), or there are 1≤r≤dim(G/[G,G]) horizontal characters η₁,…,η_r of size at most (M/δ)^(C d^C), with multivariate binomial C∞ norm of η_i∘g at most that bound, such that ξ([[…[w₁,w₂],w₃],…,w_s])=0 for all w_j∈G′=⋂kerη_i. Consequently G′/kerξ has step at most s−1.",
       "hypotheses": [
-        "Every N_i>1. The obstruction is a set of horizontal characters and a vertical commutator identity, not a claim of effective Ratner equidistribution for an arbitrary observable."
+        "Every N_i>1. The obstruction is a set of horizontal characters and a vertical commutator identity, not a claim of effective Ratner equidistribution for an arbitrary observable.",
+        "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
       ],
       "proofSteps": [
         "Use van der Corput and the refined bracket-polynomial lemma to obtain simultaneous rational constraints on a horizontal subspace.",
@@ -5373,7 +5420,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§4, Definition 4.1, pp. 7–8",
+          "locator": "§4, Definition 4.2, p. 8",
           "match": "The doubled progression forms and every selected subproduct define the chosen pseudorandomness condition."
         },
         {
@@ -5482,7 +5529,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§5, Definition 5.2, pp. 9–10",
+          "locator": "§5, equations (8)–(9), pp. 9–10; Lemma 5.2, p. 10",
           "match": "The cut-discrepancy model uses products of omitted-coordinate tests."
         },
         {
@@ -5585,7 +5632,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§5, Theorem 5.1 and proof, pp. 8–12",
+          "locator": "§5, Theorem 5.1 and its proof, pp. 9–11",
           "match": "The source supplies the bounded dense model by separation and polynomial approximation."
         },
         {
@@ -5632,7 +5679,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§6, Theorem 6.1 and densification proof, pp. 12–15",
+          "locator": "§6, Theorem 6.5, p. 15, and the general densification discussion, pp. 15–16; triangle case Theorem 6.2, pp. 12–15",
           "match": "The exposition explains the counting mechanism; its general k-uniform relative counting reference remains a precise source-closure input."
         },
         {
@@ -5678,7 +5725,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§7, Theorem 7.1 and deduction, pp. 15–16",
+          "locator": "Theorem 4.3, p. 8; §7 deduction, pp. 16–17",
           "match": "The source completes the linear-forms-only transfer."
         },
         {
@@ -5727,7 +5774,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§8, smooth cutoff and weights, pp. 16–18; Proposition 8.3, p. 18",
+          "locator": "§8, Proposition 8.1, p. 17; Definition 8.2, p. 18; Proposition 8.4, pp. 19–20",
           "match": "The smooth variant changes the analytic inputs of the older sharp cutoff route."
         }
       ],
@@ -5872,7 +5919,7 @@
       ],
       "proofSteps": [
         "Partition the doubled-variable cube into slowly refining boxes. Away from window boundaries each selected product is a fixed subproduct of smooth sieve weights or ones.",
-        "Apply the multiple-form moment theorem on the good boxes. Bound bad-box mass using a higher selected moment and a vanishing fraction of boundary boxes.",
+        "Apply the multiple-form moment theorem on good boxes. On each boundary box dominate the product by the product of one plus each corresponding squared sieve weight; expand into the same selected subproducts. Their moment bounds give bounded average on each box, so the vanishing fraction of boundary boxes contributes o(1). Repeated or higher powers of one form are not supplied by the nonproportional-form theorem.",
         "Choose the grid resolution and w(N) by a diagonal argument so that every one of the finitely many selected products has error tending to zero."
       ],
       "acceptance": [
@@ -5886,7 +5933,7 @@
       "sources": [
         {
           "sourceId": "cfz",
-          "locator": "§8, deduction following Proposition 8.3, pp. 18–19",
+          "locator": "§8, Proposition 8.4 and its deduction from Proposition 8.3, pp. 19–20",
           "match": "The source explicitly partitions into boxes to handle the majorant’s window splice."
         }
       ],
@@ -6246,7 +6293,8 @@
       "kind": "theorem",
       "statement": "Fix dimension m and filtration degree d. There are c_(m,d)>0 and C_(m,d) such that, for sufficiently large N, 0<δ<1/2, Q≥2, a Q-rational nilmanifold and polynomial orbit totally δ-equidistributed on [N], every real Lipschitz F of invariant mean zero and every progression P⊆[N] of length at least N/Q satisfy |E_[N] μ(n)1_P(n)F(g(n)Γ)|≤C_(m,d)δ^c_(m,d)Q‖F‖Lip log N.",
       "hypotheses": [
-        "The arithmetic progression’s length, total equidistribution and mean-zero condition are all retained."
+        "The arithmetic progression’s length, total equidistribution and mean-zero condition are all retained.",
+        "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
       ],
       "proofSteps": [
         "Apply the Möbius-specific Type I/II dichotomy to the bounded normalized observable restricted to P.",
@@ -6732,7 +6780,8 @@
       "proofSteps": [
         "Prove nilsequence correlation bounds by the ideal Type I, twisted Type I and Type II decompositions of Λ and its models. Track the conductor, ideal congruence class and nilsequence dimension in each case.",
         "Use the box inverse theorem on the residual divided by its logarithmic supremum bound. Choose the inverse-theorem threshold so that dimension and complexity stay within the correlation theorem’s permitted log-power range.",
-        "Apply quadratic Hecke-character uniformity to compare the Siegel and Cramér models."
+        "Apply quadratic Hecke-character uniformity to compare the Siegel and Cramér models.",
+        "In the §9.4 reduction use the corrected decaying large-conductor bound and a growing positive Fourier resolution (E16–E17), before the separately recorded Type I/II proof closure."
       ],
       "acceptance": [
         "Retain every ambient-group, normalization and quantitative parameter in the statement.",
@@ -6930,8 +6979,8 @@
         "S is a finite set of nonzero prime ideals. Contributions of higher prime powers are removed before the S-supported ideal decomposition."
       ],
       "proofSteps": [
-        "Decompose both weights into contributions from ideals q supported in S, plus a bounded correction supported on S-unit elements.",
-        "For N(q)≤N^(n/2), apply number-field prime-model uniformity in a norm-length compatible basis of qa. For larger q use the crude support bound for the unnormalized cube.",
+        "Decompose both weights into contributions from ideals q supported in S, plus a bounded correction supported on S-unit elements. The correction on S-supported prime ideals is negative (E19).",
+        "For N(q)≤N^(n/2), apply number-field prime-model uniformity in a norm-length compatible basis of qa. For larger q use the crude support bound for the unnormalized cube. Normalize on the full enlarged qa-box, not its intersection with the original box (E20); its indicator norm has the same required uniform order.",
         "Sum the convergent S-supported norm powers and the polylogarithmic number of large ideals, then divide by the exact box-indicator normalization."
       ],
       "acceptance": [
@@ -6987,7 +7036,7 @@
       "sources": [
         {
           "sourceId": "kai",
-          "locator": "Theorem 13.1, pp. 56–57; complete Appendix E deduction, pp. 78–83; boundary extension Appendix D, Remark D.13, p. 77",
+          "locator": "Theorem 13.1, pp. 56–57; complete Appendix E deduction, pp. 78–83; Lipschitz-boundary extension Appendix D, Remark D.12, p. 78",
           "match": "The localization endpoint has torsion-cokernel hypotheses and a Lipschitz-boundary error, distinct from the integral theorem."
         }
       ],
@@ -7070,7 +7119,7 @@
       "remaining": [
         "Exact Rahman threshold: original numerical proof not acquired: Bennett–Siksek §8 Theorem 8, equation (36), p. 381 records k≥exp(exp(132 log 2/δ)), but does not reproduce Rahman’s argument. Public Toronto/MIT thesis endpoints did not supply a readable source. Acquire a cleared or public primary proof before claiming numerical proof closure; qualitative Mathlib Roth does not establish this threshold.",
         "Directed ordered-cycle removal supplier: KSV Theorem 2 is reduced, in the stated order, to directed m-cycle removal in a labelled layered graph. Current upstream Regularity Part II PR #66 plans binary-palette and induced three-vertex counting; it does not state removal for every fixed directed cycle. Request an extension with: for each fixed directed H and ε>0, δ>0 such that at most δ|V|^|H| labelled injective copies imply at most ε|V|² arc deletions, respecting directions and parts. The native Quiver is only data. No generic graph removal is planned again here.",
-        "Supplier contract: ExponentialSumsAndCircleMethod:ES.0 — Quantitative simultaneous polynomial recurrence: for k,d≥1 and α₁,…,α_d∈ℝ/ℤ, some 1≤n≤N satisfies max_i‖α_i n^k‖≤C_k d N^(−c_k/d²), in the form cited by LSS Szemerédi Proposition 2.1/Corollary 2.2. Supply also quantitative Weyl control of ordinary polynomial exponential sums at the dimension dependence required by the progression-partition proof."
+        "Supplier contract: ExponentialSumsAndCircleMethod:ES.0 — Quantitative simultaneous polynomial recurrence: for k,d≥1 and α₁,…,α_d∈ℝ/ℤ, some 1≤n≤N satisfies max_i‖α_i n^k‖≤C_k d N^(−c_k/d²), in the form cited by LSS Szemerédi Proposition 2.2. Supply also quantitative Weyl control of ordinary polynomial exponential sums at the dimension dependence required by the progression-partition proof."
       ]
     },
     {
@@ -7152,7 +7201,7 @@
     },
     {
       "supplier": "ExponentialSumsAndCircleMethod:ES.0",
-      "need": "Quantitative simultaneous polynomial recurrence: for k,d≥1 and α₁,…,α_d∈ℝ/ℤ, some 1≤n≤N satisfies max_i‖α_i n^k‖≤C_k d N^(−c_k/d²), in the form cited by LSS Szemerédi Proposition 2.1/Corollary 2.2. Supply also quantitative Weyl control of ordinary polynomial exponential sums at the dimension dependence required by the progression-partition proof.",
+      "need": "Quantitative simultaneous polynomial recurrence: for k,d≥1 and α₁,…,α_d∈ℝ/ℤ, some 1≤n≤N satisfies max_i‖α_i n^k‖≤C_k d N^(−c_k/d²), in the form cited by LSS Szemerédi Proposition 2.2. Supply also quantitative Weyl control of ordinary polynomial exponential sums at the dimension dependence required by the progression-partition proof.",
       "neededBy": [
         "AdditiveCombinatorics:AC.2/nilsequence-progression-partition"
       ]
@@ -7294,7 +7343,7 @@
     },
     {
       "title": "Ideal Type I/II and vector counting proof closure",
-      "detail": "Kai §§10–11 nilsequence correlations for the ideal Vaughan decomposition remain to be read and parameter-audited: fixed degree, dimension at most (log N)^ρ, and height/Lipschitz complexity at most exp((log N)^ρ), for sufficiently small ρ. Read Appendix D.3’s full module generalized-von-Neumann proof and retain its restored 1-boundedness and enlarged-box factor. The complete localized Appendix E argument is read; its input uniformity and sieve suppliers remain open.",
+      "detail": "Kai §§10–11 nilsequence correlations for the ideal Vaughan decomposition remain to be read and parameter-audited: fixed degree, dimension at most (log N)^ρ, and height/Lipschitz complexity at most exp((log N)^ρ), for sufficiently small ρ. Read Appendix D.3’s full module generalized-von-Neumann proof and retain its restored 1-boundedness and enlarged-box factor. The complete localized Appendix E argument is read; its input uniformity and sieve suppliers remain open. Independent review corrected the elementary reductions and localized proof slips E16–E20; none discharges the ideal Type I/II or general module-counting proof obligations.",
       "neededBy": [
         "AdditiveCombinatorics:AC.5/number-field-prime-uniformity",
         "AdditiveCombinatorics:AC.5/module-generalised-von-neumann",
@@ -7317,7 +7366,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the selected-frequency versus total-mass mismatch after (9). The two 3/4 factors give 9/16; the source’s complementary-tail bound still proves nonvanishing.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E2",
@@ -7331,7 +7385,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the scale and quantifier mismatch: the phase bound is dimensionless, and it must hold for each selected frequency.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E3",
@@ -7345,7 +7404,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by t=1/24: its chord exceeds 1/4 although its phase is below 1/20. Radius 1/32 is a safe uniform correction.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E4",
@@ -7359,7 +7423,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the duplicated word at the stated Notes 2 locator; it has no mathematical effect.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E5",
@@ -7373,7 +7442,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the plus sign in Corollary 4.2 against its difference-based parent identity. Characteristic two hides the discrepancy, but the general abelian-group specialization requires subtraction.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E6",
@@ -7387,7 +7461,12 @@
       "known": "new",
       "searched": [
         "The predecessor checked the author archive or arXiv and publisher record; no published correction was located. This run retains that provenance, without a novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the inconsistent delimiter in the Lemma 7.2 mutual-information term; the sum and proof fix its meaning.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E7",
@@ -7401,7 +7480,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the failure of the claimed maximal L1 bound using a concentrated atom and its logarithmic integral. The weak (1,1) estimate is sufficient for the regular shift argument.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E8",
@@ -7415,7 +7499,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the negative progression-length exponent in the final deduction. The partition estimate gives the positive exponent retained by the node.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E9",
@@ -7429,7 +7518,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the strict endpoint failure at eta=0 for the regular Bohr condition. The non-strict form and endpoint tests repair it.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E10",
@@ -7443,7 +7537,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed that character-value coordinates alone can have a nontrivial kernel. Keeping the integer x coordinate in the lattice construction preserves injectivity and the rank d+1 target.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E11",
@@ -7457,7 +7556,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the omitted outer weight in the recalled Kai p.54 formula by comparison with Theorem 9.1. The expanded weighted-difference formula is the intended input.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E12",
@@ -7471,7 +7575,12 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed that Kai D.3 needs bounds on all other factors: scaling one by an arbitrary constant defeats the displayed estimate. The node restores 1-boundedness and retains the enlarged target box.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E13",
@@ -7485,21 +7594,145 @@
       "known": "No correction located in the consulted arXiv record and author pages; scoped to the version read, with no novelty claim.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the missing 1-bounded hypothesis in Kai A.1: scaling a point mass separates the unbounded claim from a bounded-observable correlation. The node retains 1-boundedness and the source’s large-N/small-delta restrictions.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     },
     {
       "id": "AdditiveCombinatorics/E14",
       "source": "gt-orbits",
       "kind": "error",
-      "locator": "arXiv v4, Lemmas 8.6 and 2.7; compared with arXiv:1311.6170v3, pp. 1–4",
+      "locator": "arXiv:0709.3562v4, Theorem 8.6, p. 47; arXiv:1311.6170v3, discussion pp. 1–3 and corrected [GT, Theorem 8.6], p. 3",
       "printed": "The original multivariable argument extends equal-side estimates to unequal boxes without the requisite small-side alternative.",
       "correction": "Use the corrected equal-side proposition, or retain the minimum-side lower bound and small-side alternative from the erratum. The one-variable factorization theorem remains usable.",
       "reason": "The published erratum identifies the unequal-side failure and supplies the corrected hypotheses.",
       "affects": "the proof",
-      "known": "Green–Tao, On the quantitative distribution of polynomial nilsequences—erratum, arXiv:1311.6170v3, corrected Lemma 2.1 and discussion pp. 1–4.",
+      "known": "Green–Tao, On the quantitative distribution of polynomial nilsequences—erratum, arXiv:1311.6170v3, corrected [GT, Theorem 8.6], p. 3. The erratum’s own Lemma 2.1 concerns polynomial coefficients, not the label of the corrected orbit theorem.",
       "searched": [
         "arXiv version history and linked author publication records checked on 2026-10-11; published-text collation is not claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the unequal-box issue using the published erratum’s corrected Theorem 8.6. Corrected the packet locator: 2.7 is a definition and 8.6 is a theorem. The one-parameter factorization is unaffected.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E15",
+      "source": "GGMT-2025",
+      "kind": "misprint",
+      "locator": "arXiv:2311.05762v2, Appendix A, (A.22), printed p. 29; compared with accepted manuscript Appendix A, printed p. 32",
+      "printed": "The joint-entropy upper bound subtracts H[B] from H[A].",
+      "correction": "Use H[A]+H[B] as the upper bound.",
+      "reason": "Take A constant and B uniform on a two-element group. The joint entropy is log 2 while the printed right-hand side is -log 2. Subadditivity gives the corrected plus sign.",
+      "affects": "the proof",
+      "known": "The Oxford accepted manuscript, Appendix A (A.22), p. 32, already has the plus sign. This finding is scoped to arXiv v2.",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take A constant and B uniform on a two-element group. The joint entropy is log 2 while the printed right-hand side is -log 2. Subadditivity gives the corrected plus sign.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E16",
+      "source": "kai",
+      "kind": "misprint",
+      "locator": "arXiv:2306.16983v5, §9.4, p. 40, first large-conductor reduction",
+      "printed": "The upper bound claimed to contradict the lower bound in (9.3) has a positive exponential exponent.",
+      "correction": "The upper bound is exp(-(log N)^(2 rho)), with a negative exponent.",
+      "reason": "The progression density contributes exp(-(log N)^(3 rho)); the Lipschitz and logarithmic weight losses are smaller. A growing upper bound supplies no contradiction to the decaying lower bound in (9.3). The decaying bound does for sufficiently large N.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The progression density contributes exp(-(log N)^(3 rho)); the Lipschitz and logarithmic weight losses are smaller. A growing upper bound supplies no contradiction to the decaying lower bound in (9.3). The decaying bound does for sufficiently large N.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E17",
+      "source": "kai",
+      "kind": "misprint",
+      "locator": "arXiv:2306.16983v5, §9.4, p. 40, invocation of Proposition C.6; C.6 on p. 69",
+      "printed": "The Fourier resolution is chosen as M=exp(-(log N)^(10 rho)), followed by Y=M^2.",
+      "correction": "Use M=exp((log N)^(10 rho)), then choose integer resolutions with Y of order M^2.",
+      "reason": "C.6 assumes 1<M,Y<N. A negative exponent gives M,Y<1, and cannot yield the claimed exponentially small boundary support. The positive exponent gives the displayed frequency-count and error bounds when rho is sufficiently small.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "C.6 assumes 1<M,Y<N. A negative exponent gives M,Y<1, and cannot yield the claimed exponentially small boundary support. The positive exponent gives the displayed frequency-count and error bounds when rho is sufficiently small.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E18",
+      "source": "kai",
+      "kind": "error",
+      "locator": "arXiv:2306.16983v5, Lemma C.5 proof, p. 68, positive-orthant superlevel-set argument",
+      "printed": "The product norm on the positive orthant is called convex as the justification for convexity of its superlevel sets.",
+      "correction": "Use log-concavity of the weighted product on the strictly positive orthant to prove convexity of positive superlevel sets, then treat zero levels and coordinate hyperplanes separately.",
+      "reason": "For N(x,y)=xy, the endpoint values at (1,0) and (0,1) are zero but the midpoint value is 1/4, contradicting convexity. The logarithm is a nonnegative weighted sum of concave logarithms; that proves the required superlevel convexity. This repairs the reasoning, not a counterexample to the Lipschitz-boundary conclusion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For N(x,y)=xy, the endpoint values at (1,0) and (0,1) are zero but the midpoint value is 1/4, contradicting convexity. The logarithm is a nonnegative weighted sum of concave logarithms; that proves the required superlevel convexity. This repairs the reasoning, not a counterexample to the Lipschitz-boundary conclusion.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E19",
+      "source": "kai",
+      "kind": "misprint",
+      "locator": "arXiv:2306.16983v5, Lemma E.2, (E.3) on p. 79 and the definition of H in its proof on p. 80",
+      "printed": "The proof assigns a positive prime-logarithm sum to H when the localized weight vanishes and the ordinary-weight sum is positive.",
+      "correction": "Assign the negative of that sum to H, as required by localized weight = ordinary-weight sum + H.",
+      "reason": "Take K=Q, S={(2)}, a=Z and x=2. The localized prime weight is zero; the ordinary term is log 2. The formula therefore requires H(2)=-log 2. The boundedness and support estimates depend only on its magnitude and remain valid.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take K=Q, S={(2)}, a=Z and x=2. The localized prime weight is zero; the ordinary term is log 2. The formula therefore requires H(2)=-log 2. The boundedness and support estimates depend only on its magnitude and remain valid.",
+        "by": "REV-AdditiveCombinatorics"
+      }
+    },
+    {
+      "id": "AdditiveCombinatorics/E20",
+      "source": "kai",
+      "kind": "misprint",
+      "locator": "arXiv:2306.16983v5, Proposition E.3 proof, p. 81, first normalized/unnormalized norm equality after (E.6)",
+      "printed": "The unnormalized norm is recovered using the indicator norm of the intersection with qa, while the normalized norm on the other side uses a larger coordinate box in qa.",
+      "correction": "Multiply by the indicator norm of that same full enlarged qa-box. Extend by zero from the intersection and use its inclusion in the enlarged box.",
+      "reason": "The normalized norm is defined as the unnormalized cube norm divided by the indicator cube norm of its ambient box. Mixing two different boxes changes this factor. The full enlarged box still has the required order (N^n/Norm(q))^((s+2)/2^(s+1)), so the subsequent upper bound and summation survive.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Independent review checked the current arXiv version history and author publication page on 2026-10-11. No separate correction for this locator was found; no priority or novelty claim is made."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The normalized norm is defined as the unnormalized cube norm divided by the indicator cube norm of its ambient box. Mixing two different boxes changes this factor. The full enlarged box still has the required order (N^n/Norm(q))^((s+2)/2^(s+1)), so the subsequent upper bound and summation survive.",
+        "by": "REV-AdditiveCombinatorics"
+      }
     }
   ],
   "sourceVersions": [
@@ -7513,7 +7746,7 @@
     {
       "kind": "author copy",
       "url": "https://ora.ox.ac.uk/objects/uuid:b9008ecd-9716-491e-9365-eee8d47d12e7/files/sdr26z060n",
-      "read": "2026-09-29",
+      "read": "2026-10-11",
       "sha256": "9f1a17d63157d95a44378291b58f2e0d605cb0062a41a6ca82dc7b65b11e2b10",
       "citation": "Gowers–Green–Manners–Tao, author accepted manuscript of Ann. of Math. 201 (2025) 515–549, read completely. The published version was not acquired (subscriber-only); findings E5–E6 are scoped to this manuscript and arXiv v2."
     },
@@ -7543,7 +7776,7 @@
       "url": "https://arxiv.org/pdf/2306.16983v5",
       "read": "2026-10-11",
       "sha256": "c5e9e91fd7c698d0296a5412620a4556cf56f39ed964d353e423802c7ab495a7",
-      "citation": "Linear patterns of prime elements in number fields, arXiv:2306.16983v5, 21 August 2024; findings scoped to this file."
+      "citation": "Linear patterns of prime elements in number fields, arXiv:2306.16983v5, submitted 12 March 2026; PDF dated 13 March 2026; findings scoped to this file."
     },
     {
       "kind": "preprint",
@@ -7644,5 +7877,513 @@
       ],
       "detail": "The majorantNu_isKPseudorandom signature assembles an already supplied measure, linear-forms condition and correlation condition. It does not establish these analytic hypotheses for the sharp weight. The exact cutoff family and their proof obligations remain in the reader and the separate sharp-route gap."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AdditiveCombinatorics",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review of all 100 nodes, 51 baseline declarations (48 inherited plus three existing finite-Fourier comparison ingredients) at both pins, all definition/construction APIs and tests, all 16 primary public source versions and the accepted GGMT manuscript, six stage coverage records and 31 planets. Corrected hypotheses, Lipschitz regularity, source locators and preliminary proof steps; confirmed E1–E14 and added E15–E20. Eight explicit proof/supplier gaps remain; planned does not mean proved or closed. The reader was checked but is outside issue #545’s deliverable list; the report and handoff enumerate the synchronization needed during packaging. Final checker and Lean results are recorded in the review report.",
+    "checked": [
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-transform",
+        "verdict": "corrected",
+        "note": "Strengthened the conjugate-reflection test with an imaginary point mass, so omitting conjugation fails it. Added the pinned finite-character-column and Haar-counting bridge citations required by the normalization audit."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/normalized-convolution",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 9 (physical p. 35), convolution). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-parseval",
+        "verdict": "corrected",
+        "note": "Verified the character-basis Parseval route and added the pinned Peter–Weyl norm-square theorem as an existing comparison ingredient. The one-dimensional coefficients and probability/counting normalization are explicit adapter obligations."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-nconv",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 9 (physical p. 35), convolution to product)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-energy",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 10 (physical p. 36), Plancherel applied to χ_A ∗ χ_A)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-indicator-l2",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 9 (physical p. 35), equation (1))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-norm-le-l1",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 9 (physical p. 35), equation (2))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-indicator-norm-le",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 9 (physical p. 35), equation (2))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/fourier-indicator-fourth-le",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 10 (physical p. 36), equation (5))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.0/add-energy-le",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: §6, printed p. 10 (physical p. 36), equation (5))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/shannon-entropy",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: Appendix A, (A.1)–(A.9), pp. 27–28 (AAM)). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/entropic-ruzsa-distance",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §1, (1.1) and the following remarks, p. 4 (AAM)). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/entropic-ruzsa-triangle",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: Appendix A, (A.13) and its proof, pp. 29–30 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/madiman-inequality",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: Appendix A, Lemma A.1 and proof, p. 30 (AAM); (5.5), p. 20)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/entropic-bsg",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: Appendix A, Lemma A.2 and proof, pp. 30–32 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/fibring-lemma",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §4, Proposition 4.1 and proof, pp. 16–17 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/fibring-corollary",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §4, Corollary 4.2 and proof, p. 17 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/conditional-distance-bound",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §5, Lemma 5.2 and proof, p. 19 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/distance-sum-bounds",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §5, Lemma 5.3 and proof, pp. 20–21 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/distance-fibre-sum-bound",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §7, Lemma 7.1 and proof, p. 23 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/hundred-percent-case",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §2, Lemma 2.2 and proof, pp. 7–8 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/tau-functional",
+        "verdict": "corrected",
+        "note": "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/first-estimate",
+        "verdict": "corrected",
+        "note": "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/second-estimate",
+        "verdict": "corrected",
+        "note": "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/endgame-lemma",
+        "verdict": "corrected",
+        "note": "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/tau-decrement",
+        "verdict": "corrected",
+        "note": "The reference laws rho1 and rho2 are probability measures. The minimizer already certifies that its two variable laws are probability measures; the reference hypotheses must also be explicit in the Lean theorem interfaces."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/entropic-pfr",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §1, Theorem 1.8, p. 5; §2, its proof, pp. 8–9 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/marton-conjecture",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (GGMT-2025: §1, Conjecture 1.1 and Theorem 1.2, pp. 1–2; Appendix B, pp. 32–33 (AAM))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/large-spectrum",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §6, pp. 9–11, (6)–(7)). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/chord-bohr-set",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §6, p. 11, (9)). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/spectral-bogolyubov",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §6, pp. 9–11, (5)–(9))."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/phase-bohr-set",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (regular-bohr: §4, Definitions 4.1–4.2, p. 5). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/regular-bohr-shrink",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (regular-bohr: §4, Lemmas 4.3–4.7, pp. 5–6). Internal proof/supplier closure remains explicitly recorded: Regular Bohr shrink and cyclic lattice bookkeeping."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/bohr-density-increment",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §6, pp. 9–11, Fourier identities; direct variance corollary)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/generalized-arithmetic-progression",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §3, pp. 4–5 and §8, pp. 14–19). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/balog-szemeredi-gowers",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to Notes 3, Theorem 1.1, pp. 3–6, and quantitative Theorem 2.2, p. 7 (physical PDF pp. 53–57)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/ruzsa-modelling",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §5, pp. 6–8)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/cyclic-bohr-progression",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §7, pp. 11–13). Internal proof/supplier closure remains explicitly recorded: Regular Bohr shrink and cyclic lattice bookkeeping."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/freiman-torsion-free",
+        "verdict": "corrected",
+        "note": "Removed the repeated properization prerequisite; retained torsion-free ambient group and proper progression conclusion."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/freiman-bounded-torsion",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §2, Theorem 2.1 and proof, pp. 2–4)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.1/progression-properization",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (tao-254a-notes2-cmu: Notes 2, §8, Theorem 8.1, pp. 14–19). Internal proof/supplier closure remains explicitly recorded: Regular Bohr shrink and cyclic lattice bookkeeping."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/gowers-inner-product-and-uniformity-norm",
+        "verdict": "corrected",
+        "note": "Restricted scalar homogeneity to positive order and added an imaginary-constant test."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/gowers-cauchy-schwarz",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, (5.5)–(5.7), p. 12; repeated Cauchy–Schwarz in Proposition 5.3, pp. 13–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/gowers-triangle-inequality",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, (5.5)–(5.7), p. 12; repeated Cauchy–Schwarz in Proposition 5.3, pp. 13–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/gowers-norm-monotone",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, (5.5)–(5.7), p. 12; repeated Cauchy–Schwarz in Proposition 5.3, pp. 13–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/gowers-norm-is-norm",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, (5.5)–(5.7), p. 12; repeated Cauchy–Schwarz in Proposition 5.3, pp. 13–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/interval-box-gowers",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: Definition 1.1 and its remark, p. 1). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/degree-filtration",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: §2.2, Definitions 2.3–2.4, pp. 6–7). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/filtered-polynomial-sequence",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: §2.2, Definitions 2.5–2.6, pp. 7–8). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/polynomial-sequence-calculus",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §2.3, Lemma 2.12 and its proof, pp. 8–9; integer-binomial Taylor coefficients and cited polynomial-map calculus."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/filtered-nilmanifold",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: §2.2, Definition 2.7, p. 8). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/rational-malcev-basis",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §3.1–3.2, Definitions 3.1–3.5, pp. 11–12."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/malcev-metric-nilsequence",
+        "verdict": "corrected",
+        "note": "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/horizontal-character-smoothness",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: Definition 2.9, pp. 8–9; Definition 3.11, p. 14). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/quasipolynomial-inverse",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-inverse: Theorem 1.2, p. 1; proof overview §4, pp. 15–19; §§5–12 and Appendices A–C). Internal proof/supplier closure remains explicitly recorded: Quantitative inverse proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/box-inverse",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: Appendix A, Theorem A.1 and proof, printed pp. 59–60). Internal proof/supplier closure remains explicitly recorded: Nilsequence calculus and efficient step-reduction closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/progression-average",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §2, Proposition 2.3, pp. 4–5). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/dense-generalised-von-neumann",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-szemeredi: §3, generalized von Neumann discussion and Lemma 3.7 proof, pp. 7 and 9–10)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/nilsequence-progression-partition",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-szemeredi: §2, Lemma 2.1, Proposition 2.2 and Lemmas 2.3–2.4, pp. 4–7)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/nilsequence-factor",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-szemeredi: §3, Definitions 3.4–3.5 and Fact 3.6, pp. 8–9). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/uniform-factor-approximation",
+        "verdict": "corrected",
+        "note": "N is sufficiently large relative to eta: N >= exp(C_k (log*(1/eta))^C_k), with C_k enlarged if necessary. This retains the size hypothesis of LSS Lemma 3.8; no all-N strengthening is asserted."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/progression-density-increment",
+        "verdict": "corrected",
+        "note": "Corrected regularization to a shift at fixed resolution and accounted for the factor approximation size threshold in the large-N branch."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/quantitative-szemeredi",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (lss-szemeredi: Theorem 1.1, p. 1; complete deduction at the end of §3, pp. 11–12)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/upper-density",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §2, Proposition 2.1 and its setup, pp. 3–4). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/szemeredi-set-form-and-functional-form",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §2, Propositions 2.1 and 2.3 and the Varnavides remark, pp. 3–5)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/rahman-threshold",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (bennett-siksek: §8, Theorem 8, equation (36), printed p. 381; reference [31], p. 392). Internal proof/supplier closure remains explicitly recorded: Exact Rahman threshold: original numerical proof not acquired."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.2/ordered-product-removal",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (ksv: Theorem 2, pp. 1–2; Lemma 6 and complete proof, pp. 4–6). Internal proof/supplier closure remains explicitly recorded: Directed ordered-cycle removal supplier."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/vertical-character",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (leng-equid: Definition 1.2 and Theorem 4, pp. 4–5). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/efficient-equidistribution",
+        "verdict": "corrected",
+        "note": "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/linear-forms-correlation-and-pseudorandomness",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §2, (2.4), p. 5; §3, Definitions 3.1–3.3, pp. 7–9). Checked the native-data API and discriminating examples against the suggested signatures. Internal proof/supplier closure remains explicitly recorded: Original sharp-cutoff comparison proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/pseudorandom-measures-are-U-d-close-to-one",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, Lemma 5.2, p. 12)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/generalised-von-neumann-relative-to-a-pseudorandom-measure",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §5, Proposition 5.3, (5.11)–(5.12), pp. 13–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/koopman-von-neumann-structure-theorem",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §8, Proposition 8.1 and Proposition 8.2, pp. 28–34)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/relative-szemeredi-theorem",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §3, Theorem 3.5, pp. 9–10; deduction in §8, pp. 29–30)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/ap-linear-forms-condition",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §4, Definition 4.2, p. 8."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/cut-discrepancy",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §5, equations (8)–(9), pp. 9–10; Lemma 5.2, p. 10."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/dense-model",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §5, Theorem 5.1 and its proof, pp. 9–11."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/relative-counting",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §6, Theorem 6.5, p. 15, and the general densification discussion, pp. 15–16; triangle case Theorem 6.2, pp. 12–15."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/linear-forms-relative-szemeredi",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to Theorem 4.3, p. 8; §7 deduction, pp. 16–17."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/smooth-sieve-majorant",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §8, Proposition 8.1, p. 17; Definition 8.2, p. 18; Proposition 8.4, pp. 19–20."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/smooth-divisor-linear-moments",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (cfz: Proposition 8.3 and complete proof in §9, pp. 18–23). Internal proof/supplier closure remains explicitly recorded: Selected relative-counting and smooth-analysis proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/smooth-majorant-linear-forms",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to §8, Proposition 8.4 and its deduction from Proposition 8.3, pp. 19–20. Replaced an unsupported higher selected moment by expansion over the existing distinct-form subproducts on each bad box."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/w-trick-and-goldston-yildirim-majorant",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (green-tao-2008: §9, Proposition 9.1 and Definitions 9.2–9.3, pp. 35–37; Propositions 9.5–9.6, pp. 37–43; §10, pp. 43–49; Appendix A, pp. 51–56). Checked the native-data API and discriminating examples against the suggested signatures. Internal proof/supplier closure remains explicitly recorded: Original sharp-cutoff comparison proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.4/prime-progressions-endgame",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (cfz: §8, prime-weight density and conclusion, pp. 16–19)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/orbit-factorization-data",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-orbits: Definitions 1.17–1.18, pp. 9–10; Definition 2.5, p. 12). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.3/quantitative-orbit-factorization",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-orbits: Theorem 1.19, p. 10; Theorem 2.9, pp. 13–14; §§7–10). Internal proof/supplier closure remains explicitly recorded: Nilsequence calculus and efficient step-reduction closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/power-sum-density",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-mobius: §3, Lemma 3.3 and proof, p. 9)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/mobius-equidistributed",
+        "verdict": "corrected",
+        "note": "An observable must admit an explicit finite nonnegative Lipschitz constant for the Malcev quotient metric, as well as the displayed real-valued Lipschitz-norm bound. A real sInf over an empty set does not impose regularity."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/mobius-nilsequence-orthogonality",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-mobius: Theorem 1.1, p. 2; complete §2 deduction, pp. 4–6; Appendix A, Propositions A.1–A.2, pp. 21–22)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/affine-linear-system",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-lep: Definitions 1.1 and 1.5, pp. 2–3 and 7; Lemma 1.6, p. 8). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/integer-local-factors",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-lep: (1.4) and (1.6), pp. 4–5; Lemma 1.3, p. 5). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/module-linear-complexity",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: Appendix D, Definition D.1 and Lemma D.2, p. 70; Theorems 12.1 and 13.1, pp. 54 and 56). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/module-generalised-von-neumann",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: Appendix D, Theorem D.3, p. 71; Propositions D.5–D.7 and complete proof, pp. 72–77). Internal proof/supplier closure remains explicitly recorded: Ideal Type I/II and vector counting proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/quadratic-hecke-uniformity",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: §7, Lemma 7.1 and Proposition 7.2, pp. 28–31)."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/number-field-prime-uniformity",
+        "verdict": "corrected",
+        "note": "Recorded the corrected signs in the source’s preliminary conductor and Fourier reductions; the deep Type I/II proof gap remains explicit."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/number-field-local-factors",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: §5, Proposition 5.2 and (5.4), pp. 15–17; Theorem 12.1 and Remark 12.3, pp. 54–55; Theorem 13.1, pp. 56–57; Appendix E, pp. 78–83). Checked the native-data API and discriminating examples against the suggested signatures."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/number-field-prime-patterns",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (kai: Theorem 12.1 and complete proof, pp. 54–55; Proposition 5.2, pp. 15–17). Internal proof/supplier closure remains explicitly recorded: Ideal Type I/II and vector counting proof closure."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/localized-prime-uniformity",
+        "verdict": "corrected",
+        "note": "Corrected the bounded S-unit error sign and the enlarged-box normalization in the source proof; the endpoint and arithmetic supplier requests are unchanged."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/localized-prime-patterns",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to Theorem 13.1, pp. 56–57; complete Appendix E deduction, pp. 78–83; Lipschitz-boundary extension Appendix D, Remark D.12, p. 78."
+      },
+      {
+        "nodeId": "AdditiveCombinatorics:AC.5/linear-equations-in-primes",
+        "verdict": "verified",
+        "note": "Checked the target, hypotheses, direct prerequisite route and source locator (gt-lep: Main theorem, pp. 1–2; Theorem 1.8, pp. 9–10)."
+      }
+    ]
+  }
 }
