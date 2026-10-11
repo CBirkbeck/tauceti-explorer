@@ -1,81 +1,76 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-1Xj2AU**, 11 October 2026.
-Input commit: `1c06f95484a07926ea860dbcec1344dc75b9c275`.
-Branch: `codex-1Xj2AU-review-padic-fixes`.
-The bot confirmed [claim comment 6107810761](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107810761)
-in [comment 6107811830](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107811830).
-Only this job was claimed. None of the manager's priority issues was available.
-There were no eligible available `top` jobs. This available `focus` review was selected
-under the fallback order; this session did none of the fixes under review.
+Refs #6519. Codex, session **codex-T4CCgc**, 11 October 2026.
+Input commit: `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`.
+Branch: `codex-T4CCgc-review-6519`.
+The bot confirmed [claim comment 6108093763](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108093763)
+in [comment 6108094958](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108094958).
+None of the manager's priority issues was available in the fetched queue.
+This available `focus` review was selected under the fallback order. This
+session did none of the fixes or earlier reviews and claimed no second job.
 
-## Completed work and fresh checks
+## Completed review and fresh evidence
 
-The issued review already has its three verdicts: Faltings and Adic accepted
-for the scoped fixes; Perfectoid `needs_changes` for its unfinished broader
-audit. The [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) retains the
-finding-by-finding review, source-reading attribution, successful Lean checks
-and earlier scope-repair experiments. This continuation preserves those
-verdicts and adds no mathematical or Lean changes.
+The issued review already has its verdicts: Faltings and Adic accepted for the
+scoped fixes; Perfectoid `needs_changes` for its unfinished broader audit.
+The [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) retains the original
+finding-by-finding review, source and Lean attribution, and the self-contained
+repair reproducer. This continuation changes no packet or suggested file.
 
-The issue was fetched again after bot confirmation. Its permitted deliverables
-are still **seven outputs / three packets**. A fresh GitHub-main queue at
-`0f7835151f6904d17a957d657e57c9c313970ed6` has the same ordered output list as the local
-queue: **31 outputs / fifteen packets**. All generated outputs exist. The
-local and fetched generators retain the conditional `made` branch identified
-in the repair experiment. Calling the unmodified local
-`issues.deliverables_complete` against both queue entries gives:
+After bot confirmation, the issue still authorizes **seven outputs / three
+packets**. The local queue and independently fetched GitHub-main queue at
+`772d9e5f9c5bc35afa5aba5078d7ac113ea52b12` require **31 outputs / fifteen
+packets**. Their ordered output lists agree; all generated outputs exist.
+Fresh calls to the unmodified `issues.deliverables_complete` give:
 
-| Scope | Completion result |
+| Contract | Complete |
 |---|---|
-| Seven outputs explicitly authorized by issue #6519 | `True` |
-| 31 outputs in the generated queue | `False` |
+| Issue's seven outputs | `True` |
+| Local generated queue | `False` |
+| Current-main generated queue | `False` |
 
-The three authorized packets already name this review job. The twelve
-additional packets all have accepted verdicts by their own independent review
-jobs; their reviewer identifiers differ from this job's identifier. The
-completion function requires this job's exact identifier on every packet.
-Perfectoid's `needs_changes` is a valid completed-review verdict and is not the
-intake blocker. The report lists the twelve extra packets and their owners.
+All twelve additional packets have accepted reviews under their own independent
+review identifiers, listed in the report. The completion predicate demands this
+job's exact reviewer identifier on every packet. Perfectoid's `needs_changes`
+counts as a completed review and is not the blocker. Overwriting the other
+reviewers' verdicts would misrepresent the scope of this review.
 
-Fresh calls to `intake.file_problems` reject both `research/blueprint/queue.json`
-and `research/blueprint/make_queue.py` as outside swarm output paths. The live
-issue also excludes those files and the twelve additional packets. The repair
-therefore needs separately authorized maintainer work.
+Current main still has the conditional `made` assignment in `fix_rounds`.
+Fresh `intake.file_problems` checks reject both repair files as outside swarm
+output paths. The issue excludes them and the twelve additional packets, and
+WORKERS.md says to edit only named files. A permitted document or packet edit
+cannot finish the generated job.
 
-All three packet validators pass with **zero errors and zero warnings**:
-Faltings 56 nodes, Perfectoid 326, Adic 537. The declaration-index manifest
-matches Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+Fresh `scripts/check_blueprint.py` validation with the manifest-matching pinned
+index passes for all three authorized packets: **56, 326 and 537 nodes; zero
+errors and zero warnings**. Manifest pins are Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
+Lean was not rerun because only documentation changes; earlier successful
+elaborations remain attributed to their original reviewer. No fresh source
+reading, mathematical verdict or generator experiment is claimed.
 
-Only this handoff and the report change. No fresh source reading, baseline
-statement audit or mathematical verdict is claimed. Lean was not rerun for
-these documentation changes; the earlier successful elaborations remain
-attributed to their original reviewer in the report. No build or language
-server was started.
+## Maintainer repair required before another continuation
 
-## Required maintainer repair
-
-1. Restore the round-four fix and review's ordered `outputs` and `after` lists
+1. Restore this round-four fix and review's ordered `outputs` and `after` lists
    from historical commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`: ten fix
-   outputs and seven review outputs. This preserves the issued contract.
-2. In `make_queue.py`'s `fix_rounds`, preserve a previously issued following
-   round even when new missing files or a send-back are discovered. The
-   previously tested candidate is
+   outputs and seven review outputs, matching the issued contract.
+2. Preserve previously issued following rounds in `make_queue.py` even when
+   new missing files or a preceding send-back are discovered. The existing
+   report's tested candidate uses
    `previous_jobs.get(following) if following in states else None` for `made`.
-   The report's complete-generator experiment includes the exact candidate
-   and a write-free reproducer. Earlier sessions tested two full computations
-   and eight isolated controls; those experiments were not rerun here. A
-   queue-only restoration was shown to expand again under stock generation.
-3. Review unrelated generated changes and verify persistence, issue
-   synchronization and actual intake in authorized maintainer work. Route new
-   receiving work to separate jobs. An intentional expansion instead requires
-   updating the live issue and its prompt before assigning the larger review.
-4. Keep this issue unavailable until the issued and generated scopes agree.
-   Reassigning the same completed three-packet review cannot repair intake.
-   Workers must not change labels or close the issue themselves.
+   Its write-free experiments preserve scope and dependencies through two full
+   computations and exercise eight isolated controls. Those earlier experiments
+   were not rerun by this session. A queue-only restoration expands again under
+   stock generation.
+3. In authorized maintainer work, inspect unrelated generated changes, verify
+   repeated regeneration preserves both contracts, synchronize the issue and
+   verify actual intake. Route new receiving work to separate jobs. An intended
+   larger review instead needs a revised issue and prompt before assignment.
+4. Keep this issue unavailable until the contracts agree. Workers cannot change
+   labels or close it. Reassigning the same completed review only repeats this
+   administrative blocker.
 
-The report holds all durable evidence and the repair reproducer. Scratch files
-are unnecessary for continuation. This is a **blocked checkpoint**, not a
-claim that the expanded fifteen-packet review is finished. No second job was
-claimed.
+All durable evidence and the repair reproducer are in the report; no scratch
+artifact is needed. This is a **blocked checkpoint**, not completion of the
+expanded fifteen-packet review.
