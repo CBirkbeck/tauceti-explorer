@@ -712,6 +712,18 @@
     "module": "Mathlib/RingTheory/Localization/Basic.lean",
     "provides": "A ring map between two localizations of the same ring and submonoid is bijective when it commutes with their structure maps. Reused for the canonical coefficient-map unit test.",
     "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex (GPT-6), codex-xVALZ8, 2026-10-10."
+   },
+   {
+    "ref": "mathlib:Polynomial.aeval",
+    "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+    "provides": "The Q-algebra evaluation Q[t] → Q at zero is unital and sends t to zero; reused for the effective Tate non-example.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-OXZ9ou, 2026-10-11."
+   },
+   {
+    "ref": "mathlib:IsLocalization.Away.algebraMap_isUnit",
+    "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+    "provides": "The canonical image of the inverted element is a unit, so a ring homomorphism from the localized Tate model to Q cannot send it to zero.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-OXZ9ou, 2026-10-11."
    }
   ],
   "abstractReconstructionAudit": {
@@ -6711,9 +6723,9 @@
     "Record that for T_1 = T_2 = T the construction is A(D, T) with its multiplication."
    ],
    "acceptance": [
-    "The object is a commutative Q-algebra with two coactions; it has no counit in general, since an algebra map A_{1,2} → Q is a tensor isomorphism T_1 → T_2 over Q, which need not exist.",
+    "The object is a commutative Q-algebra with two coactions, but no distinguished Q-point in general. Identifying its algebra maps with tensor isomorphisms additionally requires the neutral Tannakian setting of MC.6/tensor-iso-scheme, including rigidity and the second tensor fibre functor; multiplicativity alone gives no inverse.",
     "The multiplication is the substantial part of the construction and uses the multiplicative structures of both representations.",
-    "For de Rham and singular cohomology on the diagram of pairs this is the algebra whose spectrum is the torsor of periods."
+    "For de Rham and singular cohomology, the full Tate-localized comparison algebra on the Nori diagram is the coordinate algebra of the period torsor. The effective good-pair algebra alone is not asserted to represent isomorphisms."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra",
@@ -6808,7 +6820,7 @@
     {
      "name": "ComparisonAlgebra.points_are_isos",
      "kind": "non-example",
-     "statement": "An algebra map A_{1,2} → Q is exactly a tensor isomorphism T_1 → T_2 over Q; A_{1,2} is not a Hopf algebra and has no counit unless such an isomorphism is given."
+     "statement": "Under the neutral Tannakian hypotheses of MC.6/tensor-iso-scheme, algebra maps A_{1,2} → Q correspond to tensor isomorphisms. Outside that setting an effective rank-one Tate coordinate admits evaluation at zero, which is not a tensor isomorphism."
     }
    ],
    "planet": {
@@ -7242,7 +7254,8 @@
    "acceptance": [
     "The torsor structure is basepoint free, which is essential because there is no canonical isomorphism between de Rham and singular cohomology over the rationals.",
     "The inversion identifies the two schemes of isomorphisms, so the choice of order of the two fibre functors is immaterial.",
-    "The identities are checked at the level of affine schemes and not only on rational points."
+    "The identities are checked at the level of affine schemes and not only on rational points.",
+    "The Lean heap and point-representability signatures require the complete neutral Tannakian context, not arbitrary graded multiplicative representations or a comparison alone."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
@@ -12486,14 +12499,17 @@
    "acceptance": [
     "For T_1 = T_2 the scheme is the group G_1 and the composition morphisms are its multiplication and its actions on itself.",
     "The scheme has a complex point, the comparison isomorphism (MC.6/period-point); no rational point is asserted.",
-    "Faithful flatness over Q and the torsor property are the general statement MC.6/tensor-iso-torsor."
+    "Faithful flatness over Q and the torsor property are the general statement MC.6/tensor-iso-torsor.",
+    "Reject the effective rank-one Tate model Q[t] as an isomorphism-torsor coordinate ring: evaluation t ↦ 0 is a unital algebra map but is singular on the Tate fibre. In Q[t,t^-1] the coordinate is a unit, so every map to Q sends it to a nonzero scalar."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
     "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
     "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
     "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
-    "MotivesAndAlgebraicCycles:MC.5/diagram-category"
+    "MotivesAndAlgebraicCycles:MC.5/diagram-category",
+    "mathlib:Polynomial.aeval",
+    "mathlib:IsLocalization.Away.algebraMap_isUnit"
    ],
    "sources": [
     {
@@ -12506,14 +12522,19 @@
    "addedBy": "REV-MotivesAndAlgebraicCycles",
    "api": [
     {
+     "name": "Diagram.Rep.TannakianPair",
+     "role": "data",
+     "statement": "A typed package of the existing hypotheses: unitality of both multiplicative representations, rank-one unit fibre, rigidity of C(T_1), and a specified tensor isomorphism after a specified field extension. This supplies the second tensor fibre functor through MC.6/fibre-functor-extension; it does not assume the representability conclusion."
+    },
+    {
      "name": "TensorIsoScheme",
      "role": "data",
-     "statement": "The affine scheme Spec A_{1,2} representing tensor isomorphisms from T_1 to T_2."
+     "statement": "The comparison-algebra coordinate carrier; its spectrum represents tensor isomorphisms only after supplying the neutral Tannakian hypotheses, not for arbitrary effective multiplicative diagrams."
     },
     {
      "name": "TensorIsoScheme.represents",
      "role": "characterisation",
-     "statement": "Its R-points are naturally in bijection with the tensor isomorphisms T_1 ⊗ R → T_2 ⊗ R on C(T_1)."
+     "statement": "With Diagram.Rep.TannakianPair supplied, R-points correspond to tensor isomorphisms over R. Without rigidity an effective multiplicative endomorphism may be noninvertible."
     },
     {
      "name": "TensorIsoScheme.compLeft",
@@ -12575,6 +12596,16 @@
      "name": "TensorIsoScheme.not_group",
      "kind": "non-example",
      "statement": "X_{1,2} carries no group structure of its own: the composition maps land in G_1 and G_2, not in X_{1,2}."
+    },
+    {
+     "name": "TensorIsoScheme.effective_zero_point",
+     "kind": "non-example",
+     "statement": "Evaluation at zero is a Q-algebra map Q[t] → Q with t ↦ 0. Thus multiplicativity alone permits a noninvertible rank-one coordinate."
+    },
+    {
+     "name": "TensorIsoScheme.localized_excludes_zero",
+     "kind": "compatibility",
+     "statement": "Every ring homomorphism Localization.Away(t) → Q sends the canonical image of t to a nonzero scalar, because the image of the localized unit remains a unit."
     }
    ]
   },
@@ -12689,7 +12720,8 @@
     "Read φ as a compatible family of complex linear maps T_1(p) ⊗ C → T_2(p) ⊗ C commuting with both kinds of edge, unital and respecting the exterior and cross products; on good pairs, with the multiplicative structures of the second hypothesis, it is a tensor isomorphism T_1 ⊗ C → T_2 ⊗ C (PairDiagram.PeriodComparison.toTensorIsoOver).",
     "By MC.6/tensor-iso-scheme this is a complex point of X_{1,2}, a Q-algebra map A_{1,2} → C, and its value on the class of (p, ω, γ) is γ(φ_p(ω)).",
     "Compose with P_eff = A^eff_{1,2} (MC.6/formal-periods-equal-comparison-algebra) to obtain a ring homomorphism on P_eff; on generators it is the period γ(φ_p(ω)), which respects relations (2) and (3) because φ commutes with both kinds of edge.",
-    "The period of L = (G_m, {1}, dX/X, S^1) is nonzero: φ is an isomorphism of one-dimensional spaces at (G_m, {1}, 1), and dX/X and [S^1] are nonzero. So the homomorphism extends uniquely to P = P_eff[L^-1] (IsLocalization.Away.lift), and its value on L^-1 is the inverse of the period of L."
+    "The period of L = (G_m, {1}, dX/X, S^1) is nonzero: φ is an isomorphism of one-dimensional spaces at (G_m, {1}, 1), and dX/X and [S^1] are nonzero. So the homomorphism extends uniquely to P = P_eff[L^-1] (IsLocalization.Away.lift), and its value on L^-1 is the inverse of the period of L.",
+    "Keep the effective complex evaluation distinct from the full torsor point: periodPoint on the good-pair comparison algebra is constructed by effective generators and relations, not by an unsupported isomorphism representability theorem. periodPoint.formal extends it across the Tate localization. The generic effective heap/action prototypes are conditional on a separately supplied neutral Tannakian context; they do not establish the intended full Nori application."
    ],
    "acceptance": [
     "When the comparison is the integration pairing, the value on the class of (G_m, {1}, dX/X, S^1) is 2πi, as the source records; the identification with integration is proved in PeriodsAndSpecialValues:PS.2.",
@@ -12723,7 +12755,7 @@
     {
      "name": "periodPoint",
      "role": "data",
-     "statement": "For a typed comparison φ (PairDiagram.PeriodComparison) and graded multiplicative structures compatible with the products (PairDiagram.ProductCompatible), the Q-algebra map A_{1,2} → C corresponding to the tensor isomorphism φ.toTensorIsoOver under TensorIsoScheme.represents."
+     "statement": "The effective complex evaluation A^eff_{1,2} → C from the typed unital multiplicative comparison and the good-pair products. Its Tate-localized extension is periodPoint.formal, the intended full torsor point; effective rigidity is not inferred."
     },
     {
      "name": "periodPoint_gen",
@@ -12733,7 +12765,7 @@
     {
      "name": "periodPoint_heap",
      "role": "characterisation",
-     "statement": "For every typed comparison, composed with the heap map A_{1,2} → A_{1,2}^{⊗3} and taken with itself three times, it returns itself."
+     "statement": "For every typed comparison, composed with the heap map A_{1,2} → A_{1,2}^{⊗3} and taken with itself three times, it returns itself. The effective prototype additionally takes Diagram.Rep.TannakianPair; the full localized version remains an explicit adapter obligation, not a conclusion about the effective category."
     },
     {
      "name": "periodPoint.formal",
@@ -12743,7 +12775,7 @@
     {
      "name": "periodPoint_action",
      "role": "relation",
-     "statement": "Every complex point of X_{1,2} is the composite of the period point of a typed comparison with a unique complex point of G_1."
+     "statement": "Every complex point of X_{1,2} is the composite of the period point of a typed comparison with a unique complex point of G_1. The effective prototype additionally takes Diagram.Rep.TannakianPair; the full localized version remains an explicit adapter obligation, not a conclusion about the effective category."
     },
     {
      "name": "periodPoint_tate_inverse",
@@ -12763,7 +12795,7 @@
     {
      "name": "periodPoint.formal_eq_periodPoint",
      "role": "compatibility",
-     "statement": "On the generators of a good pair, periodPoint.formal agrees with periodPoint through P_eff = A^eff_{1,2}."
+     "statement": "On effective good-pair generators, the full formal evaluation equals the effective comparison-algebra evaluation. This does not identify the effective spectrum with the full tensor-isomorphism torsor."
     },
     {
      "name": "periodPoint.formal_tateInverse",
@@ -12809,7 +12841,7 @@
     {
      "name": "periodPoint_heap_test",
      "kind": "characterisation",
-     "statement": "For every typed comparison, the heap operation applied to (φ, φ, φ) returns φ."
+     "statement": "For every typed comparison, the heap operation applied to (φ, φ, φ) returns φ. The effective Lean example is conditional on the separately supplied neutral Tannakian context; use the localized Nori heap for the intended application."
     },
     {
      "name": "periodPoint_tate_inverse_test",
@@ -13869,7 +13901,8 @@
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
     "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain.",
-    "REV-FIX-RT-AREA-geomlanglands~2: finish the early abstract supplier interfaces and typed signatures named in the new gap. The relative Beck preservation bridge remains open; successful elaboration of the current partial prototype does not close it. The MC.6:abstract stage split still awaits maintainer installation under PROTOCOL §9."
+    "REV-FIX-RT-AREA-geomlanglands~2: finish the early abstract supplier interfaces and typed signatures named in the new gap. The relative Beck preservation bridge remains open; successful elaboration of the current partial prototype does not close it. The MC.6:abstract stage split still awaits maintainer installation under PROTOCOL §9.",
+    "Provide the typed identification of the localized good-pair comparison ring with the full Nori comparison algebra and thread the extended de Rham fibre functor, comparison, heap and actions through it; effective good-pair rigidity cannot replace this adapter."
    ]
   },
   {
@@ -14085,6 +14118,15 @@
     "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
    ],
    "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
+  },
+  {
+   "title": "Full localized comparison and period-point torsor adapters are not typed in the prototype",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+    "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+    "MotivesAndAlgebraicCycles:MC.6/period-point"
+   ],
+   "detail": "HMS Theorem 2.10 (p.11), Lemma 3.2 (p.12) and Corollary 3.4 (p.13) concern the Tate-localized Nori setting. The prototype has an effective comparison equivalence and localizeComparison to a localization of its coordinate ring, but lacks the named identification of that localized ring with the comparison algebra on the full Nori diagram and the compatible extension of the de Rham fibre functor, tensor comparison, heap and actions. Supply those typed canonical maps and their generator/Tate-inverse compatibility, using the existing MC.5 localization and rigidity suppliers; do not assume the effective good-pair category is rigid. Effective evaluation is valid before localization, whereas a generic effective isomorphism/heap claim is not. The corrected generic prototypes now take the source-neutral Tannakian context; that context has not been supplied for the effective good pairs."
   }
  ],
  "requests": [
@@ -15401,7 +15443,8 @@
   "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-11",
-  "notes": "Codex (GPT-6), session codex-dM5x45: bounded independent review of FIX-RT-AREA-iwasawa-3~3, following the complete independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record archived unchanged in reviewHistory. Freshly checked all eight findings against HMS v5, BDP and Kato, and the six MC.5/MC.6 supplier nodes against their contracts, tests and pinned localization APIs. Corrected the typed good-pair product contract to use the MC.5 degree sign on both inverse Künneth maps, with proved cancellation/odd-degree checks, and replaced unsupported coefficient-embedding wording by a complex evaluation map with injectivity explicitly conjectural. Preserve the canonical finite-dual coefficient-map repair, rank-one Tate nonvanishing, typed comparison, supplier ownership and all previous audit qualifications. The relative Beck preservation adapter, reconstruction carriers and fifteen API/four theorem prototype obligations remain unresolved, so needs_changes remains. The GH.1 model parenthetical and Kato r-prime Hecke scalar require edits outside the live issue scope; see report/handoff. No implementation or proof closure is claimed."
+  "session": "codex-OXZ9ou",
+  "notes": "Codex (GPT-6), session codex-OXZ9ou: independent bounded review of all eight Iwasawa findings and their owner handoffs, following codex-dM5x45 whose entire review is archived unchanged. Source checks confirm the still incorrect Kato r-prime Hecke exponent and GH.1 model parenthetical, outside the live issue scope. In the permitted Motives supplier, corrected generic isomorphism/heap prototypes to take the neutral Tannakian hypotheses of HMS Lemma 3.2, and separated effective complex evaluation from the localized torsor point. Added proved effective-zero/localized-nonzero Tate-model regressions. The full localized comparison and fibre-functor/heap/action adapter still needs explicit typed exports; it cannot be obtained by assuming rigidity of the effective good-pair category. Preserve the earlier canonical coefficient-map, shared-sign and typed-comparison repairs and all independent reconstruction objections. The relative Beck adapter and typed reconstruction carriers/fifteen API/four theorem obligations remain. No implementation, stage closure or proof closure is claimed; see report/handoff for checks and the issue/queue scope obstruction."
  },
  "reviewHistory": [
   {
@@ -16485,6 +16528,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-11",
    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /4 and /31 preserve the geometric-Hodge supplier gap and C5/SF.6 comparison ownership. The typed finite-dual coefficient map, induced products and distinguishing examples from the newer Iwasawa review remain intact. Retain needs_changes for the separate relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes; the assigned area fixes do not repair those defects. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-11",
+   "notes": "Codex (GPT-6), session codex-dM5x45: bounded independent review of FIX-RT-AREA-iwasawa-3~3, following the complete independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record archived unchanged in reviewHistory. Freshly checked all eight findings against HMS v5, BDP and Kato, and the six MC.5/MC.6 supplier nodes against their contracts, tests and pinned localization APIs. Corrected the typed good-pair product contract to use the MC.5 degree sign on both inverse Künneth maps, with proved cancellation/odd-degree checks, and replaced unsupported coefficient-embedding wording by a complex evaluation map with injectivity explicitly conjectural. Preserve the canonical finite-dual coefficient-map repair, rank-one Tate nonvanishing, typed comparison, supplier ownership and all previous audit qualifications. The relative Beck preservation adapter, reconstruction carriers and fifteen API/four theorem prototype obligations remain unresolved, so needs_changes remains. The GH.1 model parenthetical and Kato r-prime Hecke scalar require edits outside the live issue scope; see report/handoff. No implementation or proof closure is claimed."
   }
  ],
  "fixes": {

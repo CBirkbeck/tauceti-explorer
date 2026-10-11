@@ -1,4 +1,13 @@
 /-
+
+REV-FIX-RT-AREA-iwasawa-3~3 (Codex codex-OXZ9ou, 11 October 2026):
+Generic tensor-isomorphism representability and heap signatures now require the
+neutral Tannakian hypotheses of HMS Lemma 3.2. Effective periodPoint is evaluation;
+periodPoint.formal is its Tate-localized extension. The full localized comparison,
+fibre-functor and heap/action adapter remains a precise packet gap. Conditional
+effective heap/action examples do not assert rigidity of the good-pair category.
+The preceding notices describe their authors' input revisions and receipts.
+
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/MotivesAndAlgebraicCycles.md` is definitive. These
 statements suggest Lean forms so that contributors and reviewers can converge on
@@ -7672,6 +7681,24 @@ def TensorIsoOver {G : D.Graded} {P : D.ProductStructure G} (M₁ : T₁.GradedM
       (Functor.Monoidal.μIso (forget₂ (FGModuleCat.{u} k) (ModuleCat.{u} k) ⋙
         ModuleCat.extendScalars (algebraMap k R)) _ _).inv}
 
+/-- Hypotheses of HMS Lemma 3.2 (p.12), for MC.6/tensor-iso-scheme.
+A comparison algebra has tensor-isomorphism points only in this neutral Tannakian setting.
+The field comparison supplies the second tensor fibre functor through MC.6/fibre-functor-extension;
+rigidity is separate data, and is not inferred from a multiplicative comparison. -/
+structure TannakianPair {G : D.Graded} {P : D.ProductStructure G}
+    (M₁ : T₁.GradedMultiplicative G P) (M₂ : T₂.GradedMultiplicative G P) where
+  unital₁ : M₁.Unital
+  unital₂ : M₂.Unital
+  unit_rank : Module.finrank k (T₁.obj P.unit) = 1
+  rigid : letI := Diagram.category.monoidal M₁
+    Nonempty (RigidCategory (Diagram.category T₁))
+  field : Type u
+  [fieldStructure : Field field]
+  [fieldAlgebra : Algebra k field]
+  comparison : TensorIsoOver T₁ T₂ M₁ M₂ field
+
+attribute [instance] TannakianPair.fieldStructure TannakianPair.fieldAlgebra
+
 end Diagram.Rep
 
 open scoped Classical in
@@ -7724,9 +7751,10 @@ def rightCoaction : ComparisonAlgebra T₁ T₂ →ₗ[k] ComparisonAlgebra T₁
 /-- For `T₁ = T₂ = T`, `A_{1,2} = A(D, T)`. -/
 def diagonal (T : D.Rep (FGModuleCat.{u} k)) : ComparisonAlgebra T T ≃ₗ[k] T.coalgebra := sorry
 
-/-- The affine heap structure on `X_{1,2} = Spec A_{1,2}`, `(f, g, h) ↦ f ∘ g⁻¹ ∘ h`
+/-- Under the supplied neutral Tannakian hypotheses, the affine heap structure on `X_{1,2} = Spec A_{1,2}`, `(f, g, h) ↦ f ∘ g⁻¹ ∘ h`
 (MC.6/iso-torsor). -/
-def heap (M₁ : T₁.GradedMultiplicative G P) (M₂ : T₂.GradedMultiplicative G P) :
+def heap (M₁ : T₁.GradedMultiplicative G P) (M₂ : T₂.GradedMultiplicative G P)
+    (_ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂) :
     letI := mul M₁ M₂; letI := algebra M₁ M₂; AffineHeap k (ComparisonAlgebra T₁ T₂) := sorry
 
 end ComparisonAlgebra
@@ -7754,12 +7782,13 @@ example {k : Type u} [Field k] {D : Diagram.{v}} (T₁ T₂ : D.Rep (FGModuleCat
     ∃ (S : Finset D.V) (b : Module.Dual k (T₁.homSpace T₂ S)),
       ComparisonAlgebra.ofFinite T₁ T₂ S b = a := sorry
 
-/-- Unit test `ComparisonAlgebra.points_are_isos`: an algebra map `A_{1,2} ⟶ k` is exactly a
+/-- Unit test `ComparisonAlgebra.points_are_isos`: under the supplied neutral Tannakian hypotheses, an algebra map `A_{1,2} ⟶ k` is exactly a
 tensor isomorphism `T₁ ⟶ T₂` over `k`; `A_{1,2}` has no such point, hence no counit, unless one
 is given. -/
 example {k : Type u} [Field k] {D : Diagram.{v}} {T₁ T₂ : D.Rep (FGModuleCat.{u} k)}
     {G : D.Graded} {P : D.ProductStructure G} (M₁ : T₁.GradedMultiplicative G P)
-    (M₂ : T₂.GradedMultiplicative G P) :
+    (M₂ : T₂.GradedMultiplicative G P)
+    (_ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     Nonempty ((ComparisonAlgebra T₁ T₂ →ₐ[k] k) ≃ Diagram.Rep.TensorIso T₁ T₂ M₁ M₂) := sorry
 
@@ -7896,8 +7925,9 @@ variable {k : Type u} [Field k] {D : Diagram.{v}} {T₁ T₂ : D.Rep (FGModuleCa
   {G : D.Graded} {P : D.ProductStructure G} (M₁ : T₁.GradedMultiplicative G P)
   (M₂ : T₂.GradedMultiplicative G P)
 
-/-- The `R`-points of `X_{1,2}` are the tensor isomorphisms `T₁ ⊗ R ≅ T₂ ⊗ R`. -/
-def represents (R : Type u) [CommRing R] [Algebra k R] :
+/-- With the supplied neutral Tannakian hypotheses, the `R`-points of `X_{1,2}` are the tensor isomorphisms `T₁ ⊗ R ≅ T₂ ⊗ R`. -/
+def represents (_ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂)
+    (R : Type u) [CommRing R] [Algebra k R] :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     (TensorIsoScheme T₁ T₂ →ₐ[k] R) ≃ Diagram.Rep.TensorIsoOver T₁ T₂ M₁ M₂ R := sorry
 
@@ -7954,7 +7984,8 @@ example {k : Type u} [Field k] {D : Diagram.{v}} {T : D.Rep (FGModuleCat.{u} k)}
 `T₁ ⟶ T₂` over `ℚ`, and the scheme has one exactly when such an isomorphism exists. -/
 example {D : Diagram.{0}} {T₁ T₂ : D.Rep (FGModuleCat.{0} ℚ)} {G : D.Graded}
     {P : D.ProductStructure G} (M₁ : T₁.GradedMultiplicative G P)
-    (M₂ : T₂.GradedMultiplicative G P) :
+    (M₂ : T₂.GradedMultiplicative G P)
+    (_ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     Nonempty ((TensorIsoScheme T₁ T₂ →ₐ[ℚ] ℚ) ≃ Diagram.Rep.TensorIso T₁ T₂ M₁ M₂) ∧
       (Nonempty (TensorIsoScheme T₁ T₂ →ₐ[ℚ] ℚ) ↔ Nonempty (Diagram.Rep.TensorIso T₁ T₂ M₁ M₂)) :=
@@ -7964,7 +7995,8 @@ example {D : Diagram.{0}} {T₁ T₂ : D.Rep (FGModuleCat.{0} ℚ)} {G : D.Grade
 point `f⁻¹` of `X_{2,1}` gives the unit point of `G₁`. -/
 example {D : Diagram.{0}} {T₁ T₂ : D.Rep (FGModuleCat.{0} ℚ)} {G : D.Graded}
     {P : D.ProductStructure G} (M₁ : T₁.GradedMultiplicative G P)
-    (M₂ : T₂.GradedMultiplicative G P) (hU₁ : M₁.Unital) :
+    (M₂ : T₂.GradedMultiplicative G P) (hU₁ : M₁.Unital)
+    (_ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     letI := ComparisonAlgebra.mul M₂ M₁; letI := ComparisonAlgebra.algebra M₂ M₁
     letI := T₁.coalgebraCommRing M₁; letI := T₁.bialgebra M₁ hU₁
@@ -7984,19 +8016,19 @@ example (G : Diagram.single.{0}.Graded) (P : Diagram.single.{0}.ProductStructure
 
 /-- MC.6/iso-torsor: inversion is an isomorphism `X_{1,2} ≅ X_{2,1}`, and `(f, g, h) ↦ f ∘ g⁻¹ ∘ h`
 makes `X_{1,2}` an affine heap (`ComparisonAlgebra.heap`): on `R`-points it is the composite of
-the tensor isomorphisms. `C(T₁)` is assumed rigid. -/
+the tensor isomorphisms. The full neutral Tannakian context of Lemma 3.2 is supplied. -/
 theorem iso_torsor {k : Type u} [Field k] {D : Diagram.{u}} {T₁ T₂ : D.Rep (FGModuleCat.{u} k)}
     {G : D.Graded} {P : D.ProductStructure G} (M₁ : T₁.GradedMultiplicative G P)
     (M₂ : T₂.GradedMultiplicative G P)
-    (hrig : letI := Diagram.category.monoidal M₁; Nonempty (RigidCategory (Diagram.category T₁))) :
+    (ctx : Diagram.Rep.TannakianPair T₁ T₂ M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     letI := ComparisonAlgebra.mul M₂ M₁; letI := ComparisonAlgebra.algebra M₂ M₁
     Nonempty (ComparisonAlgebra T₁ T₂ ≃ₐ[k] ComparisonAlgebra T₂ T₁) ∧
     ∀ (R : Type u) [CommRing R] [Algebra k R] (x y z : ComparisonAlgebra T₁ T₂ →ₐ[k] R),
-      (TensorIsoScheme.represents M₁ M₂ R
-          (AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op x y z)).1 =
-        (TensorIsoScheme.represents M₁ M₂ R z).1 ≪≫ (TensorIsoScheme.represents M₁ M₂ R y).1.symm ≪≫
-          (TensorIsoScheme.represents M₁ M₂ R x).1 := sorry
+      (TensorIsoScheme.represents M₁ M₂ ctx R
+          (AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂ ctx).op x y z)).1 =
+        (TensorIsoScheme.represents M₁ M₂ ctx R z).1 ≪≫ (TensorIsoScheme.represents M₁ M₂ ctx R y).1.symm ≪≫
+          (TensorIsoScheme.represents M₁ M₂ ctx R x).1 := sorry
 
 /-- MC.6/tensor-iso-torsor, for `C = C(T)` with `A(T)` Hopf (which covers the neutral Tannakian
 categories of this packet): for a fibre functor `η` on `C(T)` with values in finitely generated
@@ -8320,6 +8352,20 @@ required inverse. Reuses pinned LaurentPolynomial.T_add. -/
 example : (LaurentPolynomial.T 1 : LaurentPolynomial ℚ) * LaurentPolynomial.T (-1) = 1 ∧
     (LaurentPolynomial.T (-1) : LaurentPolynomial ℚ) * LaurentPolynomial.T 1 = 1 := sorry
 
+/-- Unit test `TensorIsoScheme.effective_zero_point`: evaluation at zero in the effective Tate
+model is a unital algebra map sending its coordinate to zero. Such a point cannot be a tensor isomorphism of the rank-one Tate fibre. -/
+example : (Polynomial.aeval (0 : ℚ) : Polynomial ℚ →ₐ[ℚ] ℚ) Polynomial.X = 0 := by
+  simp
+
+/-- Unit test `TensorIsoScheme.localized_excludes_zero`: inversion in the full Tate model excludes
+the effective zero point. This is a regression for the missing rigidity/localization hypothesis, not a computation of all period motives. -/
+example (f : Localization.Away (Polynomial.X : Polynomial ℚ) →+* ℚ) :
+    f (algebraMap (Polynomial ℚ) (Localization.Away (Polynomial.X : Polynomial ℚ)) Polynomial.X) ≠ 0 := by
+  have hunit : IsUnit (algebraMap (Polynomial ℚ)
+      (Localization.Away (Polynomial.X : Polynomial ℚ)) Polynomial.X) :=
+    IsLocalization.Away.algebraMap_isUnit Polynomial.X
+  exact (hunit.map f).ne_zero
+
 /-! ### Formal periods as a comparison algebra, and the period torsor -/
 
 section PeriodTheorems
@@ -8445,16 +8491,13 @@ def PairDiagram.PeriodComparison.toTensorIsoOver (φ : PeriodComparison dR)
     (hM : ProductCompatible Hs dR P M₁ M₂) :
     Diagram.Rep.TensorIsoOver (deRhamGood Hs dR) (goodRep Hs) M₁ M₂ ℂ := sorry
 
-/-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (C5), supplied as a
-typed `PeriodComparison` (natural for both kinds of edge, unital and multiplicative), as a complex
-point of `X_{1,2} = Iso⊗(H^*_dR, H^*)`: the `ℚ`-algebra map `per : A_{1,2} ⟶ ℂ` corresponding
-under `TensorIsoScheme.represents` to the tensor isomorphism `φ.toTensorIsoOver hM`,
-`(p, ω, γ) ↦ γ(φ_p(ω))`. No rational point of `X_{1,2}` is asserted. -/
+/-- Effective complex evaluation on the good-pair comparison algebra, obtained from the
+unital multiplicative periods and the effective presentation theorem. This does not use the
+unavailable rigidity of the effective diagram category. The full torsor point is the Tate-localized
+map `periodPoint.formal`, not this effective algebra considered as an isomorphism scheme. -/
 def periodPoint (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ :=
-  letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-  (TensorIsoScheme.represents M₁ M₂ ℂ).symm (φ.toTensorIsoOver Hs dR P M₁ M₂ hM)
+    ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ := sorry
 
 /-- On the class of `(p, ω, γ)` the period point is the period `γ(φ_p(ω))`. -/
 theorem periodPoint_gen (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂)
@@ -8465,11 +8508,14 @@ theorem periodPoint_gen (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR
         (PeriodSpace.toComparison M₁ M₂ (PeriodSpace.gen _ _ v ω (Module.Dual.eval ℚ _ γ))) =
       φ.period v.1 ω γ := sorry
 
-/-- The period point is a point of the heap: `per ∘ (heap map)` taken with `per` three times is
-`per`. -/
-theorem periodPoint_heap (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂) :
+/-- Conditional effective heap check, requiring a separate neutral Tannakian context.
+Such a context has not been supplied for the effective good-pair diagram; the intended application
+is the full Tate-localized torsor. The period point is a point of the heap: `per ∘ (heap map)`
+taken with `per` three times is `per`. -/
+theorem periodPoint_heap (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂)
+    (ctx : Diagram.Rep.TannakianPair (deRhamGood Hs dR) (goodRep Hs) M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂ φ hM)
+    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂ ctx).op (periodPoint Hs dR P M₁ M₂ φ hM)
       (periodPoint Hs dR P M₁ M₂ φ hM) (periodPoint Hs dR P M₁ M₂ φ hM) =
         periodPoint Hs dR P M₁ M₂ φ hM := sorry
 
@@ -8477,7 +8523,8 @@ theorem periodPoint_heap (φ : PeriodComparison dR) (hM : ProductCompatible Hs d
 generators. It respects relations (2) and (3) by `PeriodComparison.period_pullback` and
 `period_boundary`, the unit and the product by `PeriodComparison.one` and `mul`, and it extends
 from `P⁺` through the localisation (`IsLocalization.Away.lift`) because the period of the Tate
-symbol is nonzero (`PeriodComparison.period_tate_ne_zero`). Through `P ≅ A_{1,2}` it is
+symbol is nonzero (`PeriodComparison.period_tate_ne_zero`). Its restriction to effective
+generators agrees with
 `periodPoint` (`periodPoint.formal_eq_periodPoint`); PeriodsAndSpecialValues:PS.2 identifies it
 with integration. -/
 def periodPoint.formal (φ : PeriodComparison dR) : FormalPeriods Hs dR →+* ℂ := sorry
@@ -8489,7 +8536,8 @@ theorem periodPoint.formal_gen (φ : PeriodComparison dR) (v : Vertex) (ω : dR.
       φ.period v ω γ := sorry
 
 /-- The two period points agree on the generators of a good pair: the formal evaluation is the
-complex point of the torsor read through `P = A_{1,2}`. -/
+effective evaluation. This generator agreement does not assert that the effective spectrum is
+a torsor. -/
 theorem periodPoint.formal_eq_periodPoint (φ : PeriodComparison dR)
     (hM : ProductCompatible Hs dR P M₁ M₂) (v : (good Hs).V) (ω : dR.HdR v.1.X v.1.Y v.1.i)
     (γ : Hs.H v.1.X v.1.Y v.1.i) :
@@ -8506,10 +8554,13 @@ theorem periodPoint.formal_tateInverse (φ : PeriodComparison dR) :
     periodPoint.formal Hs dR φ (FormalPeriods.tateInverse Hs dR) =
       (φ.period gmVertex dR.dlog dR.circle)⁻¹ := sorry
 
-/-- Every complex point of `X_{1,2}` is `per` composed with a unique complex point of `G₁`, the
+/-- Conditional effective action check, requiring the separate neutral Tannakian context.
+The full Nori application needs localized fibre functors; no effective rigidity is inferred.
+Every complex point of `X_{1,2}` is `per` composed with a unique complex point of `G₁`, the
 tensor automorphism group of de Rham cohomology. -/
 theorem periodPoint_action (φ : PeriodComparison dR) (hM : ProductCompatible Hs dR P M₁ M₂)
-    (hU₁ : M₁.Unital) :
+    (hU₁ : M₁.Unital)
+    (_ctx : Diagram.Rep.TannakianPair (deRhamGood Hs dR) (goodRep Hs) M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
     letI := (deRhamGood Hs dR).coalgebraCommRing M₁; letI := (deRhamGood Hs dR).bialgebra M₁ hU₁
     ∀ x : ComparisonAlgebra (deRhamGood Hs dR) (goodRep Hs) →ₐ[ℚ] ℂ,
@@ -8594,9 +8645,10 @@ example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     (P : (PairDiagram.good Hs).ProductStructure (PairDiagram.goodGrading Hs))
     (M₁ : (PairDiagram.deRhamGood Hs dR).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
     (M₂ : (PairDiagram.goodRep Hs).GradedMultiplicative (PairDiagram.goodGrading Hs) P)
-    (φ : PairDiagram.PeriodComparison dR) (hM : PairDiagram.ProductCompatible Hs dR P M₁ M₂) :
+    (φ : PairDiagram.PeriodComparison dR) (hM : PairDiagram.ProductCompatible Hs dR P M₁ M₂)
+    (ctx : Diagram.Rep.TannakianPair (PairDiagram.deRhamGood Hs dR) (PairDiagram.goodRep Hs) M₁ M₂) :
     letI := ComparisonAlgebra.mul M₁ M₂; letI := ComparisonAlgebra.algebra M₁ M₂
-    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂).op (periodPoint Hs dR P M₁ M₂ φ hM)
+    AffineHeap.pointsOp (ComparisonAlgebra.heap M₁ M₂ ctx).op (periodPoint Hs dR P M₁ M₂ φ hM)
       (periodPoint Hs dR P M₁ M₂ φ hM) (periodPoint Hs dR P M₁ M₂ φ hM) =
         periodPoint Hs dR P M₁ M₂ φ hM := sorry
 
