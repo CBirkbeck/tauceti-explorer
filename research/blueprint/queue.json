@@ -12069,8 +12069,9 @@
    "avoidAccountOf": "DESIGN-EnriquesSurfacesAndIntegralNonexistence",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EnriquesSurfacesAndIntegralNonexistence.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3524",
+   "finishedAt": "2026-10-11T11:44:58Z"
   },
   {
    "id": "DESIGN-ClassicalGroupsPartII",
@@ -28362,7 +28363,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #460"
   },
   {
    "id": "BP-PadicFamilies",
@@ -37978,8 +37980,9 @@
     "DESIGN-FunctionFieldArithmeticPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6392"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6392",
+   "finishedAt": "2026-10-11T11:45:01Z"
   },
   {
    "kind": "design",
@@ -49305,8 +49308,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80198,8 +80201,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80363,8 +80366,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80586,8 +80589,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -82568,8 +82571,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -88470,8 +88473,9 @@
    "avoidAccountOf": "DESIGN-CongruenceSpectralGap",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CongruenceSpectralGap.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1719"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1719",
+   "finishedAt": "2026-10-11T11:45:04Z"
   },
   {
    "id": "DESIGN-ArithmeticDynamicsPartIIMarkoff",
