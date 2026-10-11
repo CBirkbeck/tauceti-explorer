@@ -194612,9 +194612,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), 355–392; published version of record.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The q=120 divisor calculation refutes the universal numerical bound; the exact AN.5 suppliers have the necessary constant."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E2",
@@ -194632,9 +194632,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), 355–392; published version of record.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The χ8χ−8 example separates ambient level8 from primitive conductor4. The reduced period divides the ambient modulus but need not equal it."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E3",
@@ -194652,9 +194652,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), 355–392; published version of record.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Principal factors have conductor1 while their zero sets depend on ambient moduli; the empty principal family is already allowed."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E12",
@@ -194674,9 +194674,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "At F₂ zero gives additive orthogonality mass2 and one gives0; checked against the actual author-copy display."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E13",
@@ -194696,18 +194696,18 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Exact orderδ omits the identity when δ>1; the annihilator subgroup needs orders dividingδ."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E14",
    "kind": "misprint",
    "locator": "Opening continuation of the multiplicative Hilbert 90 paragraph, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
-   "printed": "The source asserts uniqueness modulo multiplication by an element of F_n*.",
-   "correction": "For the degree-n extension F_n/F, solutions of a=σ(b)/b are unique up to multiplication by F*, the fixed-field units, not by arbitrary F_n*.",
-   "reason": "If b and c are two solutions, σ(c/b)=c/b, so c/b lies in F*. For F₉/F₃ the map b↦b² on eight nonzero elements has kernel {1,−1}, not all eight elements.",
-   "affects": "a stated result",
+   "printed": "The author-copy continuation restricts the multiplicative ambiguity to fixed-field units F*.",
+   "correction": "No correction is needed at this locator. Keep the fixed-field formulation; the earlier reading of an extension-field subscript was mistaken.",
+   "reason": "Direct visual inspection of printed p.271 confirms F*, without the alleged subscript n. The standard fixed-field ratio argument agrees with that text.",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
@@ -194718,9 +194718,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Direct visual inspection of printed p.271 confirms F*, without the alleged subscript n. The standard fixed-field ratio argument agrees with that text."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E15",
@@ -194739,9 +194739,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The source sum starts at1; the degree-one, two-variable target2 separates positive and nonnegative counts."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E16",
@@ -194760,9 +194760,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Closed arcs need the separation condition. The displayed d=2,P=16 example makes the unqualified arcs overlap."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E17",
@@ -194780,9 +194780,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Jean Bourgain; Ciprian Demeter; Larry Guth, Proof of the main conjecture in Vinogradov’s Mean Value Theorem for degrees higher than three, Published Annals of Mathematics 184 (2016), 633–682; revised 18 April 2016",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Theorem1.1 is the arithmetic mean-value result and Theorem1.2 is the weighted decoupling result, so the cited induction reference is wrong."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E18",
@@ -194801,9 +194801,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "For degree2 modulo8, the complete sum has norm4 while the proposed recurrence gives zero. The missing quadratic binomial term explains the exceptional base."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E19",
@@ -194822,9 +194822,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The exceptional additive-character sum is p−1; keeping p and excluding the identity from the subtraction gives p+1."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E20",
@@ -194843,9 +194843,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Recursive substitution multiplies the leaf weights; after L levels their total mass is the Lth power of the one-level mass."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E21",
@@ -194864,9 +194864,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The phase tuple ends at k−1. The geometric-sum coefficient in the preceding line uses that index."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E22",
@@ -194885,9 +194885,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The 2b-th moment has mean-value parameter b. Replacing it by2b loses the claimed VMV exponent cancellation."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E23",
@@ -194906,9 +194906,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The major-arc variable ranges over a symmetric bounded interval; its rescaling cannot give a half-line."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E24",
@@ -194927,9 +194927,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "P approximates the degree-n root of m, so the replacement is P^n and has the stated rounding error."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E25",
@@ -194948,9 +194948,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The declared two-adic γ=τ+2 makes the displayed exponent τ+1 inconsistent. The corrected exponent retains the intended inequality."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E26",
@@ -194969,9 +194969,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The proof invokes n>2 and does not prove the stated quadratic boundary. This is a proof gap, not a refutation of quadratic positivity."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E27",
@@ -194990,9 +194990,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "A shrinking interval around one integer with constant integrand defeats the printed length-times-function bound; endpoint and derivative terms need their corrected placement."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E28",
@@ -195011,9 +195011,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "D. R. Heath-Brown; appendix by J.-L. Colliot-Thélène, The density of rational points on curves and surfaces, Annals155(2002),553–598, as reproduced in arXiv math/0405392v1 dated20May2004; this reprint is not independently collated with the publisher scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The determinant argument and box count constrain every coordinate, whereas the indicated source displays stop at1."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E29",
@@ -195032,9 +195032,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "D. R. Heath-Brown; appendix by J.-L. Colliot-Thélène, The density of rational points on curves and surfaces, Annals155(2002),553–598, as reproduced in arXiv math/0405392v1 dated20May2004; this reprint is not independently collated with the publisher scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Lemma3 treats a proper factor of specified degreeδ, and the concluding references to degree d contradict that hypothesis."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E30",
@@ -195053,9 +195053,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "D. R. Heath-Brown; appendix by J.-L. Colliot-Thélène, The density of rational points on curves and surfaces, Annals155(2002),553–598, as reproduced in arXiv math/0405392v1 dated20May2004; this reprint is not independently collated with the publisher scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The determinant has E columns, so eliminating one leaves E−1. The valuation computation itself uses all E columns."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E31",
@@ -195074,9 +195074,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "D. R. Heath-Brown; appendix by J.-L. Colliot-Thélène, The density of rational points on curves and surfaces, Annals155(2002),553–598, as reproduced in arXiv math/0405392v1 dated20May2004; this reprint is not independently collated with the publisher scan.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The height-one conic has a rational point but log1 forces zero auxiliary forms; the height≥2/rescaling repair preserves the intended bound."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E32",
@@ -195093,9 +195093,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The stated smaller cube does not provide the subsequent critical-radius rescaling. This is an insufficient transfer interface; no counterexample to its weaker upper bound is claimed."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E33",
@@ -195112,14 +195112,14 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The two polynomial identities give h≤2 and an affine quadratic restriction, so the recorded h=3,q=0 cannot hold."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E34",
    "kind": "error",
-   "locator": "Lemma9.4 harmonic-sum estimate p.28, arXivv3",
+   "locator": "Equation(9.5) after Corollary9.4, p.27, arXiv1706.06712v3",
    "printed": "The harmonic endpoint error is stated withKA^{-1}.",
    "correction": "UseKA^{-1/2}, and retain the separateAK^{1/2+ε} sum of slice errors. Both fit the specified slowly growingA range.",
    "reason": "The lower summation limit is√A, so rounding its endpoint changes the sum of1/a by orderA^{-1/2}; anA^{-1} bound without an endpoint correction is not uniform in realA.",
@@ -195131,9 +195131,9 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Equation(9.5) on p.27 loses the √A endpoint rounding error. The corrected first moment keeps KA^{-1/2} and the summed slice errors."
   },
   {
    "id": "ExponentialSumsAndCircleMethod/E35",
@@ -195150,9 +195150,66 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "The symmetric thickness is2ε. Its unit coarea test gives density1 with (2ε)^{-1}, while ε^{-1} gives2."
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E36",
+   "kind": "error",
+   "locator": "CorollaryB.15, p.53, arXiv1706.06712v3",
+   "printed": "The even-even pair mass is approximated at level2^B with an absolute O(2^{−B}) error, without a discriminant-valuation restriction.",
+   "correction": "Retain convergence for each fixed pair and a valuation-dependent tail. Derive an averaged bound after separating high-valuation pairs; no pair-uniform tail is used.",
+   "reason": "Take a=2+2^L,b=2+2^{L+1},L≥3. The common discriminant valuation is θ=L+2 and the same corollary gives δ₂=θ+O(1). For any fixed B<L, both coefficients reduce to2 modulo2^B, so their finite-level mass is fixed while the limit grows without bound. This disproves a uniform error even with B fixed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read the identified public source version on 2026-10-11 and made a bounded public search for the title/source, correction and erratum. No correction to this particular assertion was located. No exhaustive search or collation with another edition is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Take a=2+2^L,b=2+2^{L+1},L≥3. The common discriminant valuation is θ=L+2 and the same corollary gives δ₂=θ+O(1). For any fixed B<L, both coefficients reduce to2 modulo2^B, so their finite-level mass is fixed while the limit grows without bound. This disproves a uniform error even with B fixed."
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E37",
+   "kind": "error",
+   "locator": "Theorem7.6, equation(21), printed p.652, published Annals184(2016) PDF",
+   "printed": "The conversion is stated for0<δ≤1 but its supremum ranges overδ≤δ′<1.",
+   "correction": "Use0<δ<1 for that displayed conversion. Handleδ=1 separately with V_p(1)=1, or change the supremum to include an appropriate endpoint constant.",
+   "reason": "Atδ=1 the supremum has no index. The least linear constant is1 because there is one interval, so an empty supremum cannot bound it.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read the identified public source version on 2026-10-11 and made a bounded public search for the title/source, correction and erratum. No correction to this particular assertion was located. No exhaustive search or collation with another edition is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Jean Bourgain; Ciprian Demeter; Larry Guth, Proof of the main conjecture in Vinogradov’s Mean Value Theorem for degrees higher than three, Published Annals of Mathematics 184 (2016), 633–682; revised 18 April 2016",
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "Atδ=1 the supremum has no index. The least linear constant is1 because there is one interval, so an empty supremum cannot bound it."
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E38",
+   "kind": "misprint",
+   "locator": "Lemma2.7, coefficient definition above equation(9), p.7, identified 2007 author lecture notes",
+   "printed": "For the phase x² the displayed nth coefficient has i^n a^(2n)(0)/n! times the leading Fresnel constant.",
+   "correction": "The denominator is4^n n!. The leading n=0 coefficient, which is the only coefficient used in the packet stationary-phase theorem, is unchanged.",
+   "reason": "A compact amplitude equal to x² near0 has a″(0)=2. Integration by parts against the phase gives its leading coefficient i e^{πi/4}√π/2 at orderλ^{−3/2}; the printed coefficient is2i e^{πi/4}√π. The discrepancy is a factor4.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read the identified public source version on 2026-10-11 and made a bounded public search for the title/source, correction and erratum. No correction to this particular assertion was located. No exhaustive search or collation with another edition is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Terence Tao, Lecture notes 8: oscillatory integrals, 247B, Winter 2007, author notes",
+   "status": "confirmed",
+   "reviewedBy": "REV-ExponentialSumsAndCircleMethod",
+   "reviewReason": "A compact amplitude equal to x² near0 has a″(0)=2. Integration by parts against the phase gives its leading coefficient i e^{πi/4}√π/2 at orderλ^{−3/2}; the printed coefficient is2i e^{πi/4}√π. The discrepancy is a factor4."
   },
   {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
