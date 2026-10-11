@@ -15,7 +15,7 @@
   "status": "complete",
   "title": "Arithmetic Dirichlet series and Tauberian methods, Part II: analytic number theory and zeta functions",
   "extends": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
-  "summary": "A finished AN.0–AN.7 target-complete pass:91 routed inputs, declaration-sized canonical-product and contour chains, shared arithmetic analytic estimates, source-aware mean/smooth/Beurling targets and a branch-aware Lerch family. Dropped stages stay import-only; unproved original inputs and supplier contracts remain precise gaps for follow-up and independent review.",
+  "summary": "Develop quantitative zero-free and PNT estimates, zero counts and explicit formulas, arithmetic Hecke/Dedekind/Artin comparisons, multiplicative means and generalized-prime remainders, and complex Hurwitz/Lerch continuation. Every definition uses canonical library carriers with a planning API and discriminating tests. Generic arithmetic Dirichlet-series and Tauberian foundations are imported. Exact analytic and arithmetic supplier gaps remain recorded.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1090,6 +1090,118 @@
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
         "provides": "For s>0 and arbitrary r, (log x)^r=o(x^s) atTop; the name is global, not in the Real namespace.",
         "checked": "Statement and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 373, by Codex codex-Yr3nnW on 2026-10-05."
+      },
+      {
+        "ref": "tauceti:TauCeti.IdealArithmeticFunction",
+        "kind": "abbrev",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/Basic.lean",
+        "provides": "Complex arithmetic functions on nonzero integral ideals.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.normCoeff",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/ArithmeticDirichletSeries/NormCoeff.lean",
+        "provides": "Finite norm-fibre regrouping into a zero-extended ArithmeticFunction.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "mathlib:ClassGroup.mk0",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
+        "provides": "The monoid homomorphism from nonzero integral ideals to ordinary ideal classes.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.mk0",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
+        "provides": "Canonical nonzero-ideal map to narrow classes.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:NumberField.NarrowClassGroup.mk0_map_ringOfIntegersQuadraticConj_eq_inv",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Ambiguous/Narrow.lean",
+        "provides": "Quadratic conjugation inverts narrow classes, with the actual polynomial-generator hypotheses.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:NumberField.exists_isArithFrobAt",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Frobenius.lean",
+        "provides": "An arithmetic Frobenius lift at a nonzero prime in a Galois number-field extension, including ramified primes.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.UniversalCover",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Basic.lean",
+        "provides": "Endpoint/path-homotopy-class model with its quotient topology.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.UniversalCover.basepointLift",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Action.lean",
+        "provides": "The constant-path point over the basepoint (returned as a fibre subtype).",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.UniversalCover.inv_smul_mk",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Action.lean",
+        "provides": "The inverse action prepends the corresponding loop without reversing its orientation.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.UniversalCover.SubgroupQuotient",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Classification/SubgroupQuotient.lean",
+        "provides": "The actual subgroup-orbit quotient of the canonical cover.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "tauceti:TauCeti.UniversalCover.subgroupQuotientMap",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicTopology/UniversalCover/Classification/SubgroupQuotient.lean",
+        "provides": "Canonical orbit quotient map.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Irreducible.lean",
+        "provides": "Irreducibility on actual complex representations as simplicity of the subrepresentation order.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "mathlib:NumberField.IsCMField.complexConj",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+        "provides": "Canonical conjugation of a CM field, compatible with every complex embedding.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "mathlib:MeromorphicOn",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Meromorphic/Basic.lean",
+        "provides": "Meromorphy at every point of a set; isolated totalized values are not analytic endpoint values.",
+        "checked": "Statement read at the pinned commit; its carrier is used in the elaborated revision signatures."
+      },
+      {
+        "ref": "mathlib:Chebyshev.theta_eq_log_primorial",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Chebyshev.lean",
+        "provides": "For every real x, θ(x)=log(primorial(floor₊x)).",
+        "checked": "Actual statement read at the pinned commit, including the nonnegative-input hypothesis."
+      },
+      {
+        "ref": "mathlib:Chebyshev.theta_le_log4_mul_x",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Chebyshev.lean",
+        "provides": "For real x≥0, θ(x)≤(log4)x. This gives the slow-growing W bound without a prime number theorem.",
+        "checked": "Actual statement read at the pinned commit, including the nonnegative-input hypothesis."
       }
     ]
   },
@@ -1772,7 +1884,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Introduction; Theorems2.1–2.4; §5 rational negative-integer recurrence. The (2.5) sign is corrected in the publisher version.",
-        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
+        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries.",
+        "Codex codex-kd1uU9, 2026-10-10: Fresh Theorem2.2 p.13; §3.1 upper-half-plane based loops pp.19–20; §3.4–§3.5 descent/filling argument pp.28–32. The published theorem numbering is matched through the inherited publisher receipt; this fresh copy is arXivv1."
       ]
     },
     {
@@ -1828,7 +1941,8 @@
       "readSections": [
         "Introduction, Theorem1 and §2.1 pp1–3; complete Tauberian proofs remain gaps.",
         "Codex codex-ywaJcp: entire Introduction/§2.1 pp.1–3 and complete §§3–4 pp.4–11, including Theorem2/Proposition1/Theorem3/Lemma1 proofs. §5 Cesàro theorem is outside the present target and not audited.",
-        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
+        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries.",
+        "Codex codex-kd1uU9, 2026-10-10: Fresh complete §§1–4 pp.1–11, including Theorem2, Proposition1, Theorem3 and Lemma1 proofs. Native discrete-vector/product and all-log signatures checked; §5 Cesàro scope excluded."
       ]
     },
     {
@@ -1842,7 +1956,8 @@
       "readSections": [
         "Theorem2.3 (2.3)–(2.5) and corresponding §4 derivative proof read fresh; larger continuation/special-value statements first read in v1 and matched to this publisher text at the named statement only. Full publisher §§3–6 proof collation remains a gap.",
         "Codex codex-ywaJcp: complete selected §3.2–§3.5 pp.21–32, §4 Theorem4.1 and proof p.33, §5 Theorem5.1 proof p.36; §6 pp.40–42 introductory normalizations and Theorem6.1 discussion. Page40 additionally viewed as image. Remaining §§4–6 material not fully audited. The full selected Theorem6.1 proof pp.41–42 and preceding Theorem5.3 displayed recurrence were read; pp.40–42 were viewed as images. E22–E28 record the slips and order-zero error.",
-        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
+        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries.",
+        "Codex codex-kd1uU9, 2026-10-11: publisher PDF reacquired with identical SHA256. Definition3.3 (3.24) p.26, Theorem3.4 (3.28) p.27 and Theorem3.5 (3.54)–(3.55) p.32 collated with arXivv1/v2 at those formulas. E29 records the index-zero phase correction. No new whole-publisher-proof certification."
       ]
     },
     {
@@ -2030,8 +2145,10 @@
       "sha256": "c7a93ffea06491d824d900fe067f6768246e84555fa8da8282833caac7850cbd",
       "readSections": [
         "codex-btapUd: §1 pp.1–3 (strict cutoff), §7.1 pp.59–60 (Theorem7.2), §7.2 pp.61–62 (Definition7.5, Proposition7.6, (7.7)–(7.9)), selected §8.3 p.92 use of Heilbronn and bibliography[8],[23],[24]. Full paper/proofs of cited Landau/Sathe–Selberg/effective separation inputs not read.",
-        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
-      ]
+        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries.",
+        "2026-10-11: Definition7.5, printed p.61, freshly read in the pinned v1; the closed interval, nonzero squarefree radicand and log(|d|+4) cutoff were checked. No existence or infinitude of exceptional squareclasses is asserted."
+      ],
+      "accessed": "2026-10-11"
     },
     {
       "id": "ckmp-primary-preprint",
@@ -2079,7 +2196,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Codex codex-45ZB12: Appendix B.1, printed pp.901–903; general Hadamard is a cited theorem, whose Ahlfors proof was not acquired or read in this pass.",
-        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
+        "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries.",
+        "Codex codex-kd1uU9, 2026-10-10: Fresh AppendixB.1 (B.1)–(B.3), printed pp.901–902. E_n and upper finite-order factorization conventions checked; the referenced original Hadamard proof not read."
       ]
     },
     {
@@ -2106,6 +2224,30 @@
       "readSections": [
         "Codex codex-45ZB12: ChapterVIII§10 Artin L-series, pp.261–262, full selected subsection and title/version page. This is a statement/sketch receipt; no full ramified induction or Brauer proof.",
         "Codex codex-Yr3nnW, 2026-10-05: independently screened every attached locator/excerpt against the acquired source or pinned extraction and checked the node statement/proof outline. Literal excerpt matching is not full-proof certification; the per-node final review states all unverified boundaries."
+      ]
+    },
+    {
+      "id": "green-tao-primary-published",
+      "title": "The primes contain arbitrarily long arithmetic progressions",
+      "authors": "Ben Green and Terence Tao",
+      "edition": "Annals of Mathematics167(2008),481–547",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v167-n2-p03.pdf",
+      "sha256": "967dd6f5bb53d70abdbb07be0afe59e60b2a232e2c3387966013a09960e52c89",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "AppendixA LemmaA.1 p.541; complete LemmaA.3 contour estimate pp.542–544, including(A.5). External Titchmarsh ChaptersIII/V not read."
+      ]
+    },
+    {
+      "id": "tsimerman-primary-published",
+      "title": "The André–Oort conjecture for A_g",
+      "authors": "Jacob Tsimerman",
+      "edition": "Annals of Mathematics187(2018),379–390",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Theorem3.2 and complete Corollary3.3 proof pp.383–384; the following orbit applications pp.384–388. External Artin/Hecke/convexity proofs remain gaps."
       ]
     }
   ],
@@ -3833,15 +3975,20 @@
       ],
       "title": "Sufficient conductor-discriminant estimate",
       "kind": "theorem",
-      "statement": "For representations occurring in the fixed-degree Colmez expression, establish log f_rho<=C_g(1+log |Disc(E)|). This is sufficient to absorb the conductor term in |Disc(E)|^epsilon.",
+      "statement": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. Use the canonical positive Artin conductor f_ρ, formed from the lower-ramification codimensions of inertia invariants; it is not a ray modulus or an arbitrary positive parameter. There exists C_g>0 such that log f_ρ≤C_g(1+log D_E).",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "E is CM of degree2g; L is its normal closure; ρ is a nontrivial odd irreducible representation.",
+        "The general Artin-conductor supplier and its conductor–discriminant comparison are exact ownership requests, not existing NumberFieldArithmetic exports."
       ],
       "proofSteps": [
-        "Import the conductor-discriminant relation and bounded representation multiplicities.",
-        "Control the exponent using degree-dependent finite group bounds."
+        "Import general Artin-conductor integrality and the conductor–discriminant formula from the proposed ArtinRepresentations supplier. NumberFieldArithmetic owns the actual lower-ramification filtration and permutation discriminant formula, not this identification.",
+        "Combine the finite-group dimension bound with a degree-dependent comparison D_L≤D_E^A_g. The printed stronger f_ρ≤D_E is not needed. The original comparison proof remains recorded in the arithmetic supplier gap."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+        "mathlib:Representation.IsIrreducible",
+        "mathlib:NumberField.IsCMField.complexConj"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -3861,6 +4008,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/conductor-discriminant-control. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "tsimerman-primary-published",
+          "locator": "Theorem3.2 and proof of Corollary3.3, printed pp.383–384",
+          "match": "The averaged expression motivates the exact uniform factor estimates. The conductor and fixed-circle arguments require the corrected hypotheses and separately recorded supplier proofs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3876,15 +4028,21 @@
       ],
       "title": "Logarithmic functional equation",
       "kind": "theorem",
-      "statement": "For the relevant nontrivial Artin factors with nonzero L(0,rho), the completed functional equation relates L'/L(0,rho) to L'/L(1,conjugate(rho)), a conductor logarithm and fixed-degree archimedean terms. Track conjugation and gamma factors.",
+      "statement": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. Use the canonical positive Artin conductor f_ρ, formed from the lower-ramification codimensions of inertia invariants; it is not a ray modulus or an arbitrary positive parameter. Write Γ_R(s)=π^(−s/2)Γ(s/2), d=dimρ and Λ_ρ(s)=f_ρ^(s/2)Γ_R(s+1)^d L(s,ρ). Import Λ_ρ(s)=w_ρΛ_(ρ̄)(1−s), |w_ρ|=1. Odd parity makes the gamma factors finite and nonzero at0 and1; boundary nonvanishing and the equation make L_ρ(0), L_(ρ̄)(1) finite and nonzero. Then L′_ρ(0)/L_ρ(0)+L′_(ρ̄)(1)/L_(ρ̄)(1)=−log f_ρ−d((Γ_R′/Γ_R)(1)+(Γ_R′/Γ_R)(2)). A general even factor would instead require a regularized derivative at0.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "Same CM normal-closure/odd-irreducible family as the conductor bound.",
+        "Continuation agrees with the genuine all-prime Artin Euler series on Re s>1. Nonzero endpoint germs and conjugation are part of the contract."
       ],
       "proofSteps": [
-        "Import the completed Artin functional equation with its conductor and archimedean factors.",
-        "Take logarithmic derivatives only after regularizing zeros/poles and checking nonzero endpoint values."
+        "Use integral Brauer induction and finite-order Hecke functional equations to obtain the completed Artin equation with arithmetic conductor and odd infinity type. This supplier identity is still an exact gap.",
+        "After verifying analytic nonzero endpoints, differentiate the local completed identity. The suggested calculus adapter states this identity exactly and keeps the conductor comparison as a distinct arithmetic input."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/artin-conductor-bound",
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+        "AnalyticNumberTheory:AN.4/artin-linear-hecke-comparison",
+        "mathlib:Complex.Gammaℝ"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -3904,6 +4062,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-functional-equation. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "tsimerman-primary-published",
+          "locator": "Theorem3.2 and proof of Corollary3.3, printed pp.383–384",
+          "match": "The averaged expression motivates the exact uniform factor estimates. The conductor and fixed-circle arguments require the corrected hypotheses and separately recorded supplier proofs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3919,15 +4082,23 @@
       ],
       "title": "Two-sided subpolynomial values at one",
       "kind": "theorem",
-      "statement": "For the relevant nontrivial Artin factors, prove two-sided subpolynomial control of the nonzero values at 1 using Brauer induction and bounded-degree Hecke/Brauer-Siegel inputs, allowing ineffective constants.",
+      "statement": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. For each ρ∈F(E), import an integral monomial Brauer expression χ_ρ=Σ_(j∈J)n_j Ind_(H_j)^G ψ_j with one-dimensional finite-order ψ_j, Σ_j|n_j|≤B_g, |J|≤B_g and [L^(H_j):Q]≤M_g. Bound each Hecke analytic conductor (including the base-field discriminant) by D_E^C_g, with D_E=|Disc(E)|. For δ_j=1 if ψ_j is trivial and0 otherwise, take the holomorphic, nonzero extension H_j(s) of (s−1)^δ_j L(s,ψ_j) at1. Prove Σ_j n_jδ_j=0 and the local germ identity L(s,ρ)=∏_j H_j(s)^n_j. For every ε>0 there is C_(g,ε)>0 such that |L(1,ρ)|≤C_(g,ε)D_E^ε and |L(1,ρ)|⁻¹≤C_(g,ε)D_E^ε. The constants may be ineffective. Continued L-functions are required to match the all-prime Euler series on Re s>1 and be analytic, nonzero at1.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "Same finite family; no general Artin-holomorphy assumption.",
+        "Import fixed-degree regularized Hecke endpoint bounds in both directions, including positive residues of trivial factors; the exact source-proof obligation is retained."
       ],
       "proofSteps": [
-        "Use integral Brauer induction, with bounded integer coefficients in the fixed-degree family.",
-        "Remove every trivial Hecke pole, prove cancellation of orders, then bound the remaining regularized values and their reciprocals."
+        "For each ρ∈F(E), import an integral monomial Brauer expression χ_ρ=Σ_(j∈J)n_j Ind_(H_j)^G ψ_j with one-dimensional finite-order ψ_j, Σ_j|n_j|≤B_g, |J|≤B_g and [L^(H_j):Q]≤M_g. Bound each Hecke analytic conductor (including the base-field discriminant) by D_E^C_g, with D_E=|Disc(E)|. For δ_j=1 if ψ_j is trivial and0 otherwise, take the holomorphic, nonzero extension H_j(s) of (s−1)^δ_j L(s,ψ_j) at1. Prove Σ_j n_jδ_j=0 and the local germ identity L(s,ρ)=∏_j H_j(s)^n_j.",
+        "Use fixed-degree subpower upper and reciprocal bounds for the regularized Hecke values. Apply them with exponent ε/(C_g B_g), then the finite signed product gives both inequalities. No absolute value of a separate trivial pole is used."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/artin-euler-series",
+        "AnalyticNumberTheory:AN.4/artin-induction-factor",
+        "AnalyticNumberTheory:AN.4/artin-linear-hecke-comparison",
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one",
+        "AnalyticNumberTheory:AN.4/artin-conductor-bound",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -3947,6 +4118,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-values. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "tsimerman-primary-published",
+          "locator": "Theorem3.2 and proof of Corollary3.3, printed pp.383–384",
+          "match": "The averaged expression motivates the exact uniform factor estimates. The conductor and fixed-circle arguments require the corrected hypotheses and separately recorded supplier proofs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3962,15 +4138,21 @@
       ],
       "title": "Factorwise logarithmic derivative at one",
       "kind": "theorem",
-      "statement": "For a nontrivial irreducible Artin factor of the bounded-degree normal closure used in the height formula, with L(1,conjugate(rho)) finite and nonzero, use a Brauer identity L(s,conjugate(rho)) = product_i L(s,chi_i)^n_i. Prove the required subpolynomial bound at s=1 for L_prime/L by summing n_i times the Hecke logarithmic derivatives. If trivial Hecke factors occur, first remove their poles and prove cancellation of their total orders; evaluate the regularized factors, not separate infinite values. Constants depend only on g and epsilon and may be ineffective. This is a missing source obligation, not the printed fixed-radius Cauchy estimate for L_prime.",
+      "statement": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. For each ρ∈F(E), import an integral monomial Brauer expression χ_ρ=Σ_(j∈J)n_j Ind_(H_j)^G ψ_j with one-dimensional finite-order ψ_j, Σ_j|n_j|≤B_g, |J|≤B_g and [L^(H_j):Q]≤M_g. Bound each Hecke analytic conductor (including the base-field discriminant) by D_E^C_g, with D_E=|Disc(E)|. For δ_j=1 if ψ_j is trivial and0 otherwise, take the holomorphic, nonzero extension H_j(s) of (s−1)^δ_j L(s,ψ_j) at1. Prove Σ_j n_jδ_j=0 and the local germ identity L(s,ρ)=∏_j H_j(s)^n_j. For every ε>0 there exists C_(g,ε)>0 with |L′(1,ρ)/L(1,ρ)|≤C_(g,ε)D_E^ε. Use the exact identity L′(1,ρ)/L(1,ρ)=Σ_j n_j H_j′(1)/H_j(1) and fixed-degree subpower bounds for these regularized Hecke logarithmic derivatives. This is an explicit target and source obligation; the printed fixed-radius Cauchy bound for L′ alone does not establish it.",
       "hypotheses": [
-        "Parameters, ranges, character normalization and constant dependence are those in the displayed statement."
+        "Same finite family and continuation normalization.",
+        "Hecke logarithmic-derivative bounds must be uniform in the stated analytic-conductor range; poles have been removed and their total order cancels. Constants may be ineffective."
       ],
       "proofSteps": [
-        "Differentiate the regularized Brauer product in a neighbourhood of 1.",
-        "Sum factorwise logarithmic derivatives with bounded induction coefficients; a Cauchy bound for L′ alone does not bound L′/L."
+        "Differentiate the regularized Brauer product at1. The nonzero-factor condition permits division and removes all principal parts by Σ n_jδ_j=0.",
+        "Sum the individual Hecke logarithmic-derivative estimates using Σ|n_j|≤B_g, choosing the exponent to absorb the conductor comparison. This route supplies the ratio itself; general Artin holomorphy in a fixed-radius disc is not assumed."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.4/artin-value-one-subpower",
+        "AnalyticNumberTheory:AN.4/artin-induction-factor",
+        "AnalyticNumberTheory:AN.4/artin-linear-hecke-comparison",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
+      ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
       ],
@@ -3990,6 +4172,11 @@
           "sourceId": "reviewed-paper-tsimerman-18",
           "locator": "Proof of Corollary 3.3, p. 384; [10], (5.2)",
           "match": "Literal title and precise corrected statement of accepted extraction PAPER-TSIMERMAN-18/artin-derivatives. The original external proof is not certified by its acceptance."
+        },
+        {
+          "sourceId": "tsimerman-primary-published",
+          "locator": "Theorem3.2 and proof of Corollary3.3, printed pp.383–384",
+          "match": "The averaged expression motivates the exact uniform factor estimates. The conductor and fixed-circle arguments require the corrected hypotheses and separately recorded supplier proofs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4487,13 +4674,20 @@
       "statement": "For a number field K, choose its ordinary or narrow ideal class group, and a class A. Let a_A(n) count nonzero integral ideals of norm n in A, with a_A(0)=0. Define ζ_A(s)=LSeries a_A s on Re s>1, using the imported norm-indexed ideal arithmetic function and finite norm fibres. Quadratic period applications use narrow classes for real quadratic K and ordinary classes for imaginary quadratic K. Index ideals, not their generators. The finite class sum agrees with NumberField.dedekindZeta as an LSeries: the latter may have a different zeroth coefficient, which LSeries ignores.",
       "hypotheses": [],
       "proofSteps": [
-        "Construct the displayed object on the specified domain using the existing carriers; prove the listed API before its analytic applications."
+        "Choose the pinned ordinary ClassGroup or NumberField.NarrowClassGroup carrier and its canonical nonzero-ideal monoid homomorphism. Apply normCoeff to the class indicator weight; the zero ideal is absent from the carrier and the zeroth arithmetic coefficient is zero.",
+        "Use finite norm fibres and the finite class-group sum to regroup coefficients. Class characters are monoid homomorphisms to complex units; their finite order supplies unit norm.",
+        "For quadratic conjugation, use the ring-of-integers equivalence and the pinned inversion theorem on narrow classes, then the ordinary-class quotient. Norm preservation induces the coefficient bijection. The native general adapter exposes this exact class-inversion hypothesis; the canonical quadratic specialization discharges it."
       ],
       "prerequisites": [
         "mathlib:NumberField.dedekindZeta",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-1-norm-fibres-and-mathlib-lseries",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+        "tauceti:TauCeti.IdealArithmeticFunction",
+        "tauceti:TauCeti.normCoeff",
+        "mathlib:ClassGroup.mk0",
+        "tauceti:NumberField.NarrowClassGroup.mk0",
+        "tauceti:NumberField.NarrowClassGroup.mk0_map_ringOfIntegersQuadraticConj_eq_inv"
       ],
       "acceptance": [
         "For K=Q, the unique partial series equals the Riemann series on Re s>1.",
@@ -4553,7 +4747,7 @@
         {
           "name": "partial_ideal_zeta.conjugation",
           "role": "functoriality",
-          "statement": "In a quadratic field, conjugating ideals takes A to A^−1 and preserves their norms, hence ζ_A=ζ_{A^−1}."
+          "statement": "For a ring-of-integers automorphism τ whose induced map on the selected class group is inversion, norm preservation gives ζ_A(s)=ζ_(A⁻¹)(s) on Re s>1. The quadratic specialization uses the canonical quadratic conjugation; its narrow-class inversion is already pinned."
         }
       ],
       "tests": [
@@ -7534,11 +7728,14 @@
       "statement": "For 0<c<1/2 let S(c) consist of nonzero squarefree d≠1 such that the primitive quadratic character of Q(√d) has a real zero β∈[1−c/log(|d|+4),1]. The conductor is |d| or 4|d| as dictated by its fundamental discriminant. Enumerate any finite initial segment by nondecreasing |d|; an infinite enumeration requires infinitude, which is not asserted.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the canonical primitive quadratic Dirichlet character of the field Q(√d), with conductor its fundamental discriminant; never use |d| as the level without the discriminant case split.",
-        "Take the stated zero condition as a subset of the signed nonzero squarefree integers with d≠1. Compare inequalities for monotonicity in c and intersect with the finite integer interval[−B,B] for bounded-height finiteness.",
-        "Line-one nonvanishing for the nonprincipal primitive character excludes the endpointβ=1 without altering the source’s closed interval convention. An ordered finite initial segment needs no zero-existence or infinitude theorem."
+        "Import the Q-specialization character of the quadratic field with fundamental discriminant D(d)=d for d≡1 mod4 and D(d)=4d otherwise. Its positive-integer values are the Kronecker symbol (D(d)/n); primitivity gives conductor |D(d)|.",
+        "In the supplier prototype, separate the 2-primary part of n before applying the pinned Jacobi symbol to the odd denominator. A plain Jacobi-symbol definition would mishandle even n. The admitted construction is constrained by all character values and primitivity; no arbitrary quadratic character is supplied as data.",
+        "Take the canonical continued Dirichlet LFunction, not the totalized LSeries outside its convergence domain, and quantify a real zero in the closed interval [1−c/log(|d|+4),1]. Height-bounded selections are finite; no infinite enumeration or zero existence is asserted."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "mathlib:DirichletCharacter.LFunction"
+      ],
       "acceptance": [
         "d=1 is excluded, so a principal pole cannot be called an exceptional zero.",
         "d=−1 has conductor 4, not conductor 1.",
@@ -8876,7 +9073,8 @@
       "prerequisites": [
         "AnalyticNumberTheory:AN.2/entire-order-at-most",
         "mathlib:AnalyticOnNhd.sum_divisor_le",
-        "mathlib:Complex.borelCaratheodory"
+        "mathlib:Complex.borelCaratheodory",
+        "AnalyticNumberTheory:AN.2/canonical-factor"
       ],
       "acceptance": [
         "Check every endpoint and the stated dependence of constants; no conjectural input is implicit."
@@ -10170,6 +10368,7 @@
       "statement": "For a finite Galois extension L/K, a finite-dimensional complex representation ρ of G=Gal(L/K), and a nonzero prime ideal p of K, choose P above p, its decomposition/inertia groups D_P,I_P and arithmetic Frobenius in D_P/I_P. On V^(I_P), Frobenius acts canonically. Define P_p(T)=det(1−T·Frob_P|V^(I_P)) in C[T]. The determinant is independent of P and of a Frobenius lift.",
       "hypotheses": [],
       "proofSteps": [
+        "Use the actual representation of L≃ₐ[K]L, restrict it to the ideal inertia subgroup, and form Representation.invariants. The pinned existence theorem supplies an arithmetic Frobenius lift even at ramified primes. Restrict that lift to invariants; its reversed characteristic polynomial is det(1−T·F).",
         "Restrict the existing Representation C G V to I_P and use its invariants submodule; I_P is normal in D_P, so each decomposition-group element preserves that subspace.",
         "Any two arithmetic Frobenius lifts differ by inertia by pinned IsArithFrobAt.mul_inv_mem_inertia, so their restrictions to V^I agree. Changing P conjugates both I and Frobenius; transport vectors through ρ(g) and apply LinearEquiv.charpoly_conj.",
         "For the induced invariant-space automorphism A, define the polynomial as A.charpoly.reverse. Matrix.reverse_charpoly identifies it with det(1−T A) in any basis. Invertibility gives degree exactly dim V^I; finite order forces all eigenvalues and reciprocal polynomial roots onto the unit circle.",
@@ -10183,7 +10382,8 @@
         "mathlib:IsArithFrobAt.conj",
         "mathlib:LinearEquiv.charpoly_conj",
         "mathlib:Matrix.charpolyRev",
-        "mathlib:Matrix.reverse_charpoly"
+        "mathlib:Matrix.reverse_charpoly",
+        "tauceti:NumberField.exists_isArithFrobAt"
       ],
       "acceptance": [
         "For the one-dimensional trivial representation, P_p=1−T at every prime.",
@@ -10265,6 +10465,7 @@
       "statement": "For the preceding data and Re s>1, L_K(s,ρ)=∏_p P_p((Np)^−s)^−1, over all nonzero prime ideals of K, with complex powers using the positive real norm logarithm. Coefficients are the norm-regrouped reciprocal local-polynomial coefficients, not a completely multiplicative degree-one ideal weight.",
       "hypotheses": [],
       "proofSteps": [
+        "For each prime polynomial P(T) with P(0)=1, recursively determine reciprocal coefficients a_0=1 and a_(n+1)=−Σ_(j=0)^n P_(j+1)a_(n−j). Unique ideal factorization extends these to the canonical multiplicative nonzero-ideal weight. Its normCoeff LSeries is the series compared with the all-prime unordered Euler product.",
         "Expand each reciprocal local polynomial as the formal product of m geometric series, where m=dim V^I≤d. Assign these prime-power coefficients multiplicatively to the existing ideal arithmetic-function carrier; do not assert complete multiplicativity.",
         "The absolute coefficient sum at a prime is bounded by (1−(Np)^−σ)^−d. Finite ideal-factorization products therefore admit the d-fold Dedekind-series majorant; prove the ideal-indexed absolute convergence in node162 before identifying the norm-regrouped LSeries.",
         "Use ADS1 regroupByNorm and ADS3 EulerProductData to compare the single canonical coefficient LSeries and the unordered prime product on Re s>1. The trivial representation recovers the full Dedekind series, including every ramified prime; the zero representation is the constant1."
@@ -12209,7 +12410,8 @@
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.5/beurling-prime-system",
-        "AnalyticNumberTheory:AN.5/beurling-count-growth"
+        "AnalyticNumberTheory:AN.5/beurling-count-growth",
+        "AnalyticNumberTheory:AN.5/beurling-zeta"
       ],
       "acceptance": [
         "On the ordinary prime system the series and product recover ζ on Re s>1.",
@@ -12695,6 +12897,7 @@
       "statement": "The initial Φ germ continues to a single-valued holomorphic function on the universal cover of N#=C_s×(C_z\\{0,1})×(C_c\\Z≤0), based at(s,z,c)=(1/2,−1,1/2). Fix its base germ by the principal integral and continuation from |z|<1. The separate solvable-descent lemma states the quotient-cover invariance.",
       "hypotheses": [],
       "proofSteps": [
+        "Use the pinned endpoint/path-class UniversalCover of the actual open subtype N#. Holomorphy means a local analytic function on C³ represents the cover function near every point. Normalize its germ near the constant-path point by the principal integral at(1/2,−1,1/2). A positive geometric loop γ is represented in Tau Ceti by the action γ⁻¹; no orientation is inferred from a left-action name.",
         "Import the canonical based universal cover of the punctured complex-product manifold. Verify path-connectedness, local path-connectedness and semilocal simple connectedness; pull back its complex charts along the covering projection. Path composition follows the source: first traverse the based loop, then the path.",
         "In the a coordinate the integral defines the downward-cut domains for Re s>0, Re c>0. Clockwise contour detours give analytic cells covering all a∉Z; residue differences provide the local a-loop continuations. Finite c-shift separation supplies cells for c away from nonpositive integers.",
         "For Re c>0, repeatedly apply the already proved lowering relation on overlapping s half-planes to extend to every s. This is essential at positive integer c, where the four-term functional equation would contain excluded1−c. Keep the finite c-shift identity to reach all remaining c; its terms are entire in s on their lifted logarithm branches.",
@@ -12707,7 +12910,10 @@
         "AnalyticNumberTheory:AN.7/lerch-z-derivative",
         "AnalyticNumberTheory:AN.7/lerch-a-monodromy",
         "AnalyticNumberTheory:AN.7/lerch-c-monodromy",
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti"
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti",
+        "tauceti:TauCeti.UniversalCover",
+        "tauceti:TauCeti.UniversalCover.basepointLift",
+        "tauceti:TauCeti.UniversalCover.inv_smul_mk"
       ],
       "acceptance": [
         "The basepoint z=−1 lies outside the open series disc; its germ is fixed by the principal integral with Re s,Re c>0.",
@@ -12756,7 +12962,7 @@
       ],
       "acceptance": [
         "The loop is a based counterclockwise generator reached and returned along the source upper-half-plane path; arbitrary conjugate generators need their own translated branch.",
-        "The formula uses reciprocal gamma continued through its zeros at nonpositive integers; it does not require a finite value of the unregularized gamma function there."
+        "For n=0 the phase is 1; for every integral s the c-loop multiplier vanishes. No positive-integer c puncture is introduced into the enlarged Lerch domain."
       ],
       "uses": [
         {
@@ -14454,11 +14660,12 @@
       ],
       "title": "Lerch z-loop monodromy and shifts",
       "kind": "lemma",
-      "statement": "On D={s∈C,z∈C\\[0,∞),0<Re c<1}, choose Log z with0<Im Log z<2π and a=Log z/(2πi). Let f_p=z^−c(a−p)^(s−1) for p≤0, and f_p=exp(πi(s−1))z^−c(p−a)^(s−1) for p≥1, using principal logarithms of the positive-real-part bases. For the source based loops Z₀,Z₁ around0,1, M_Z₀Φ=0, M_Z₁Φ=−(2πi)^s f₀/Γ(s), while continuing f_p along Z₀^k sends it to f_(p−k); Z₁ and c loops fix every f_p.",
+      "statement": "On D={s∈C,z∈C\\[0,∞),0<Re c<1}, choose Log z with 0<Im Log z<2π and a=Log z/(2πi). Put f_p=e^(2πipc)z^−c(a−p)^(s−1) for p≤0, and f_p=e^(πi(s−1))e^(2πipc)z^−c(p−a)^(s−1) for p≥1, using principal logarithms of the positive-real-part bases. For the source upper-connector based loops Z₀,Z₁ about 0,1, the principal germ has M_Z₀Φ=0 and M_Z₁Φ=−(2πi)^s f₀/Γ(s). The residue functions analytically continue to the universal cover, and continuation along Z₀^k sends f_p to f_(p−k); positive continuation along Z₁^k multiplies f₀ by e^(2πiks) and fixes f_p for p≠0; c loops fix every f_p. This corrects the published (3.28), as recorded in E29. The vanishing Z₀ identity for Φ concerns its principal germ, not invariance on every sheet.",
       "hypotheses": [],
       "proofSteps": [
         "Lift Z₀ by the exponential cover to a path from a=1/2 to3/2 in the upper half-plane; the initial Fourier series is periodic there, so Φ has zero Z₀ monodromy. Z₁ lifts to the a=0 based loop, giving the existing a-monodromy residue.",
-        "The continued Log z increases by2πik along Z₀^k. Check f_p transforms to f_(p−k), including when p and p−k have different signs; the compensating exp(πi(s−1)) chooses the correct branch. No universal equality Log z=Complex.log z is asserted."
+        "The continued Log z increases by 2πik along Z₀^k. Its factor z^−c contributes e^(−2πikc); combined with e^(2πipc) this is the phase in f_(p−k). Track the cut of a−p using the stated positive-real-part bases, including a sign change of p−k. The principal-germ identities then have unique analytic continuations on the universal cover.",
+        "The Z₁ lift winds positively once around a=0, while its logarithm lift has no increment around z=0. Thus a^(s−1) gains e^(2πis) for p=0. For p≠0, the corresponding a−p factor has zero winding. Repetition gives e^(2πiks). These principal-germ relations extend analytically on the connected universal cover. The descent argument must use this corrected diagonal action, not published (3.28)."
       ],
       "prerequisites": [
         "AnalyticNumberTheory:AN.7/lerch-a-monodromy",
@@ -14466,7 +14673,8 @@
         "tauceti:TauCetiRoadmap/UniversalCovers#stage-0-port-the-foundations-into-tauceti"
       ],
       "acceptance": [
-        "A loop around0 fixes the principal Φ germ but shifts the logarithmic residue germs; that distinction prevents an unjustified abelian descent."
+        "A loop around0 fixes the principal Φ germ but shifts the logarithmic residue germs; that distinction prevents an unjustified abelian descent.",
+        "At s=c=1/2,z=−1 and the principal lift, f₀=−i√2≠0. A positive Z₁ loop sends it to −f₀; this refutes the all-index zero-monodromy assertion."
       ],
       "uses": [
         {
@@ -14483,7 +14691,12 @@
         {
           "sourceId": "lerch-III-published",
           "locator": "§3.2 Lemma3.1 pp.21–24; §3.3 Theorem3.4 pp.25–28, (3.24)–(3.35)",
-          "match": "Complete selected published continuation/monodromy argument newly read; the general topology is imported rather than rebuilt."
+          "match": "The selected published proof has inherited reading evidence. This revision freshly collates Definition3.3 (3.24), Theorem3.4 (3.28) and Theorem3.5 (3.54)–(3.55), pp.26–27,32. E29 corrects the stated index-zero residue action; a full corrected descent proof remains an explicit obligation."
+        },
+        {
+          "sourceId": "lerch-III",
+          "locator": "Definition3.3 (3.23), (3.24), Theorem3.4 (3.25)–(3.30), arXiv v1 printed pp.26–27",
+          "match": "Fresh reading supplies the necessary e^(2πipc) phase in every residue function. Without it the stated p-to-p−k rule is false. Positive monodromy uses γ inverse under the pinned cover action. The index-zero Z₁ action is corrected by local a-winding; E29 records the same false assertion in the published version and both arXiv versions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -14500,7 +14713,8 @@
       "statement": "The holomorphic Lerch continuation on the universal cover of N#=C_s×(C_z\\{0,1})×(C_c\\Z≤0) is invariant under π₁(N#)″. It therefore descends to the regular cover associated to that second commutator subgroup; its deck group π₁(N#)/π₁(N#)″ is solvable of derived length at most2. No descent to the maximal abelian z cover is asserted.",
       "hypotheses": [],
       "proofSteps": [
-        "Set H₀=kernel of the exponent-sum homomorphism sending Z₀↦1, Z₁,Y_n↦0. Its generators are the Z₀-conjugates of Z₁ and Y_n; G/H₀≅Z.",
+        "Use the pinned endpoint/path-class UniversalCover of the actual open subtype N#. Holomorphy means a local analytic function on C³ represents the cover function near every point. Normalize its germ near the constant-path point by the principal integral at(1/2,−1,1/2). A positive geometric loop γ is represented in Tau Ceti by the action γ⁻¹; no orientation is inferred from a left-action name.",
+        "Set H₀=kernel of the exponent-sum homomorphism sending Z₀↦1, Z₁,Y_n↦0. Its generators are the Z₀-conjugates of Z₁ and Y_n; G/H₀≅Z. In particular, the Z₁ action on f₀ is the phase e^(2πis), not invariance; the abelian diagonal action of the conjugate generators, with the mixed c actions, is the required calculation.",
         "Use the z-loop shift formulas and the c-loop monodromy to verify vanishing on[H₀,H₀]. The mixed z/c actions annihilate each other; the cocycle composition identity, not just commutativity of loops, is required.",
         "Since G′⊂H₀, G″⊂[H₀,H₀]. This characteristic normal subgroup gives the regular quotient cover imported from UniversalCovers Stage2. Filling positive c strata kills their zero-monodromy loops and preserves the second-commutator conclusion."
       ],
@@ -14508,7 +14722,12 @@
         "AnalyticNumberTheory:AN.7/lerch-cover-continuation",
         "AnalyticNumberTheory:AN.7/lerch-z-monodromy-shift",
         "AnalyticNumberTheory:AN.7/lerch-c-monodromy",
-        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence"
+        "tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence",
+        "tauceti:TauCeti.UniversalCover",
+        "tauceti:TauCeti.UniversalCover.basepointLift",
+        "tauceti:TauCeti.UniversalCover.inv_smul_mk",
+        "tauceti:TauCeti.UniversalCover.SubgroupQuotient",
+        "tauceti:TauCeti.UniversalCover.subgroupQuotientMap"
       ],
       "acceptance": [
         "At a generic s the Z₀-shift of the Z₁ residue is nontrivial; vanishing of principal Z₀ monodromy alone does not imply an abelian z cover."
@@ -14672,6 +14891,250 @@
       ],
       "implementationStatus": "unchecked",
       "addedBy": "REV-AnalyticNumberTheory--AN.0"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/green-tao-zeta-strip",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Zero-free zeta strip and logarithmic bounds",
+      "kind": "theorem",
+      "statement": "There exist0<β<1 and C>0 such that for Z={s:1−β/log(|Im s|+2)≤Re s≤10}, ζ is meromorphic with its only pole in Z a simple pole at1 of residue1 and no zeros away from1. The functions G(s)=ζ(s)−1/(s−1) and R(s)=1/ζ(s), initially defined off1, have analytic extensions to a neighbourhood of Z, with R(1)=0 and |G(s)|,|R(s)|≤C log(|Im s|+2) throughout Z. Values at1 refer to these extensions, not to totalized ζ(1).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Combine the high-height logarithmic-derivative zero-free proof with the real-line nonvanishing and pole germ on compact bounded-height sets. Shrink β to join the regions.",
+        "Prove high-height logarithmic bounds for ζ after pole subtraction and its reciprocal, and absorb the compact-region bounds into C. These are named quantitative inputs with original proof reading still required; high-height nonvanishing alone is insufficient."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/classical-zero-free-region",
+        "AnalyticNumberTheory:AN.2/zeta-hadamard-log-derivative",
+        "AnalyticNumberTheory:AN.2/xi-integral-comparison",
+        "mathlib:riemannZeta"
+      ],
+      "acceptance": [
+        "Verify the stated constants, endpoints and conventions against the source and discriminating examples."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.2",
+          "how": "Zero-free zeta strip and logarithmic bounds"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN2",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.green_tao_zeta_strip"
+      },
+      "sources": [
+        {
+          "sourceId": "green-tao-primary-published",
+          "locator": "AppendixA LemmaA.1, printed p.541",
+          "match": "The source supports the displayed mathematical target with the stated normalization; original external proof leaves remain explicit gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/riemann-zeta-weak-convexity",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Weak zeta convexity in a closed strip",
+      "kind": "theorem",
+      "statement": "For every ε>0 there exists C_ε>0 such that |ζ(σ+it)|≤C_ε|t|^(1−σ+ε) whenever1/2≤σ≤1 and |t|≥1/100. This is the weak convexity estimate used to bound ζ(1+z+z′) in Green–Tao (A.5).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Obtain vertical-strip growth from the functional equation, gamma estimates and a strip interpolation theorem; explicitly record these analytic suppliers in the quantitative zeta gap.",
+        "Enlarge the constant on bounded heights with |t|≥1/100; the exclusion of t=0 avoids the pole."
+      ],
+      "prerequisites": [
+        "mathlib:riemannZeta"
+      ],
+      "acceptance": [
+        "Verify the stated constants, endpoints and conventions against the source and discriminating examples."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.2",
+          "how": "Weak zeta convexity in a closed strip"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN2",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.riemann_zeta_weak_convexity"
+      },
+      "sources": [
+        {
+          "sourceId": "green-tao-primary-published",
+          "locator": "AppendixA proof of LemmaA.3, (A.5), printed p.544",
+          "match": "The source supports the displayed mathematical target with the stated normalization; original external proof leaves remain explicit gaps."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.2/canonical-factor",
+      "parentStageId": "AnalyticNumberTheory:AN.2",
+      "realises": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "title": "Elementary canonical factors of every genus",
+      "kind": "definition",
+      "statement": "For n≥0 define E_n(w)=(1−w)exp(Σ_(j=1)^n w^j/j), with an empty sum for n=0. This is an entire function with a simple zero exactly at1. Genus1 agrees with the existing E₁.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the finite polynomial sum and exponential. On |w|≤1/2 cancel the first n Taylor coefficients of log(1−w); the remaining series is O_n(|w|^(n+1))."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "Verify the stated constants, endpoints and conventions against the source and discriminating examples."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.2",
+          "how": "Elementary canonical factors of every genus"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN2",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.canonical_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "yun-zhang-primary-published",
+          "locator": "AppendixB.1, definition preceding(B.1), printed p.901",
+          "match": "The source supports the displayed mathematical target with the stated normalization; original external proof leaves remain explicit gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "canonical_factor.zero_genus",
+          "role": "simp",
+          "statement": "E₀(w)=1−w."
+        },
+        {
+          "name": "canonical_factor.one_genus",
+          "role": "compatibility",
+          "statement": "E₁(w)=(1−w)e^w equals genus_one_factor."
+        },
+        {
+          "name": "canonical_factor.entire",
+          "role": "structure",
+          "statement": "E_n is entire for every n."
+        },
+        {
+          "name": "canonical_factor.zeros",
+          "role": "characterisation",
+          "statement": "E_n(w)=0 iff w=1, and its vanishing order there is1."
+        },
+        {
+          "name": "canonical_factor.log_tail",
+          "role": "relation",
+          "statement": "There is C_n>0 with |log(1−w)+Σ_(j=1)^n w^j/j|≤C_n|w|^(n+1) for |w|≤1/2, using the principal analytic log."
+        }
+      ],
+      "tests": [
+        {
+          "name": "canonical_factor.origin",
+          "kind": "degenerate",
+          "statement": "E_n(0)=1 for every n."
+        },
+        {
+          "name": "canonical_factor.root",
+          "kind": "computation",
+          "statement": "E_n(1)=0 for every n."
+        },
+        {
+          "name": "canonical_factor.genus_zero",
+          "kind": "computation",
+          "statement": "E₀(w)=1−w, with no exponential factor."
+        },
+        {
+          "name": "canonical_factor.genus_one",
+          "kind": "computation",
+          "statement": "E₁(w)E₁(−w)=1−w²."
+        }
+      ]
+    },
+    {
+      "id": "AnalyticNumberTheory:AN.5/beurling-zeta",
+      "parentStageId": "AnalyticNumberTheory:AN.5",
+      "realises": [
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "title": "Zeta function of an indexed Beurling system",
+      "kind": "definition",
+      "statement": "For an indexed Beurling prime system P and Re s>1 with Σ_(a∈N^(N))norm_P(a)^−σ summable for every real σ>1, define ζ_P(s)=Σ_a exp(−s log(norm_P(a))) over finitely supported exponent vectors. Repeated prime values remain different indices. The totalized sum outside this domain is not its analytic continuation.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compact subsets of Re s>1 admit a fixed summable real majorant from a smaller real exponent σ₀>1.",
+        "Independent geometric sums on finite prime-index sets converge to the vector series. Summable logarithmic factors give a nonzero limit."
+      ],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.5/beurling-prime-system",
+        "AnalyticNumberTheory:AN.5/beurling-count-growth"
+      ],
+      "acceptance": [
+        "Verify the stated constants, endpoints and conventions against the source and discriminating examples."
+      ],
+      "uses": [
+        {
+          "where": "AnalyticNumberTheory:AN.5",
+          "how": "Zeta function of an indexed Beurling system"
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/AnalyticNumberTheory/AN5",
+        "namespace": "TauCeti.AnalyticNumberTheory",
+        "declaration": "TauCeti.AnalyticNumberTheory.beurling_zeta"
+      },
+      "sources": [
+        {
+          "sourceId": "beurling-dv",
+          "locator": "§2.1, (5)–(7) and discrete Euler product, printed pp.2–3",
+          "match": "The source supports the displayed mathematical target with the stated normalization; original external proof leaves remain explicit gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "beurling_zeta.summable",
+          "role": "characterisation",
+          "statement": "The exponent-vector complex series is absolutely summable on Re s>1 under the stated real convergence hypothesis."
+        },
+        {
+          "name": "beurling_zeta.nonzero",
+          "role": "relation",
+          "statement": "ζ_P(s)≠0 on Re s>1 under the same hypothesis."
+        },
+        {
+          "name": "beurling_zeta.analytic",
+          "role": "structure",
+          "statement": "ζ_P is analytic on a neighbourhood of every point of Re s>1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "beurling_zeta.ordinary",
+          "kind": "compatibility",
+          "statement": "For the indexed ordinary primes, ζ_P(s)=ζ(s) on Re s>1."
+        },
+        {
+          "name": "beurling_zeta.doubled",
+          "kind": "non-example",
+          "statement": "On Re s>1, if every ordinary prime appears at two consecutive indices, ζ_P(s)=ζ(s)²."
+        },
+        {
+          "name": "beurling_zeta.unit_term",
+          "kind": "degenerate",
+          "statement": "The zero exponent vector contributes exactly1 for every s."
+        }
+      ]
     }
   ],
   "requests": [
@@ -14735,9 +15198,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
-      "need": "Artin rational induction for finite-dimensional complex representations of a finite group, explicitly clearing denominators into a virtual sum of characters induced from cyclic subgroups. Global meromorphy uses the distinct Brauer integral-induction interface and its linear-character reduction, not unproved global roots.",
+      "need": "Artin rational induction for finite-dimensional complex representations of a finite group, explicitly clearing denominators into a virtual sum of characters induced from cyclic subgroups. Global meromorphy uses the distinct Brauer integral-induction interface and its linear-character reduction, not unproved global roots. For the Colmez targets, refine the integral statement to induced one-dimensional finite-order characters; elementary-induced arbitrary characters alone do not give a Hecke product. For every group of order≤(2g)!, choose decompositions of its irreducibles with sum of absolute integer coefficients and number of terms bounded solely in g. This follows only after the monomial refinement and finite-group finiteness proof.",
       "neededBy": [
-        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy"
+        "AnalyticNumberTheory:AN.4/artin-induction-versus-artin-holomorphy",
+        "AnalyticNumberTheory:AN.4/artin-value-one-subpower",
+        "AnalyticNumberTheory:AN.4/artin-log-derivative-one"
       ]
     },
     {
@@ -14964,6 +15429,21 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.7/lerch-solvable-descent"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "need": "For every nonzero squarefree integer d≠1, export the primitive quadratic field character χ_d modulo |D(d)| with D(d)=d if d≡1 mod4 and4d otherwise. For positive n, χ_d(n)=(D(d)/n), including the Kronecker factor at2; χ_d(0)=0. Prove primitivity, parity and conductor=|D(d)|. The suggested file prototypes these exports in the supplier namespace, not as new AN-owned objects.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.2/exceptional-squareclasses",
+        "AnalyticNumberTheory:AN.4/imaginary-quadratic-root-number-one"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-7-subfields-integral-bases-monogenicity-and-explicit-units",
+      "need": "For a degree-2g CM field E and its actual normal closure L/Q, identify Gal(L/Q) with its faithful permutation action on the 2g embeddings and deduce [L:Q]≤(2g)!. The stronger quantitative discriminant comparison D_L≤D_E^A_g is a required refinement, with A_g depending only on g; it is not asserted to be an existing Layer7 export. Combine it with the separately assigned general Artin-conductor comparison, not a ray-modulus bound.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-conductor-bound"
+      ]
     }
   ],
   "coverage": [
@@ -14996,10 +15476,9 @@
         "Mertens constant and error",
         "Mertens first theorem",
         "Koymans–Pagano analytic suppliers",
-        "Native signatures for imported analytic carriers",
         "Green–Tao 2008 analytic contract"
       ],
-      "note": "All stage targets are mapped to declarations or explicit supplier requests. Complete planning pass, not source_decomposed or proof closure. Final independent review needs_changes; remaining is synchronized with the actual gap consumers, including the Green–Tao/Colmez contracts."
+      "note": "Every stage target has a mathematical statement, source, prerequisites and explicit unresolved supplier/proof boundaries at target-level granularity. Planned does not assert proof closure."
     },
     {
       "stageId": "AnalyticNumberTheory:AN.3",
@@ -15016,7 +15495,7 @@
         "Number-field density and effective prime estimates",
         "Mestre source and contour formula"
       ],
-      "note": "All stage targets are mapped to declarations or explicit supplier requests. Complete planning pass, not source_decomposed or proof closure. Final independent review needs_changes; remaining is synchronized with the actual gap consumers, including the Green–Tao/Colmez contracts."
+      "note": "Every stage target has a mathematical statement, source, prerequisites and explicit unresolved supplier/proof boundaries at target-level granularity. Planned does not assert proof closure."
     },
     {
       "stageId": "AnalyticNumberTheory:AN.4",
@@ -15031,12 +15510,12 @@
         "Koymans–Pagano analytic suppliers",
         "Genus character classification",
         "Quadratic completed-factor normalization",
-        "Native signatures for imported analytic carriers",
+        "Remaining canonical analytic signature exports",
         "CM parity and conductor adapter proof",
         "Dedekind gamma and modulus adapters",
-        "Colmez factor specification"
+        "Colmez finite-family and regularized Brauer suppliers"
       ],
-      "note": "All stage targets are mapped to declarations or explicit supplier requests. Complete planning pass, not source_decomposed or proof closure. Final independent review needs_changes; remaining is synchronized with the actual gap consumers, including the Green–Tao/Colmez contracts."
+      "note": "Every stage target has a mathematical statement, source, prerequisites and explicit unresolved supplier/proof boundaries at target-level granularity. Planned does not assert proof closure."
     },
     {
       "stageId": "AnalyticNumberTheory:AN.5",
@@ -15055,7 +15534,7 @@
         "Koymans–Pagano analytic suppliers",
         "Squarefree mean and positive Euler-tail interfaces"
       ],
-      "note": "All stage targets are mapped to declarations or explicit supplier requests. Complete planning pass, not source_decomposed or proof closure. Final independent review needs_changes; remaining is synchronized with the actual gap consumers, including the Green–Tao/Colmez contracts."
+      "note": "Every stage target has a mathematical statement, source, prerequisites and explicit unresolved supplier/proof boundaries at target-level granularity. Planned does not assert proof closure."
     },
     {
       "stageId": "AnalyticNumberTheory:AN.6",
@@ -15071,7 +15550,7 @@
         "Hurwitz and Dirichlet endpoint adapters",
         "Complex Hurwitz Taylor-subtraction proof"
       ],
-      "note": "All stage targets are mapped to declarations or explicit supplier requests. Complete planning pass, not source_decomposed or proof closure. Final independent review needs_changes; remaining is synchronized with the actual gap consumers, including the Green–Tao/Colmez contracts."
+      "note": "Every stage target has a mathematical statement, source, prerequisites and explicit unresolved supplier/proof boundaries at target-level granularity. Planned does not assert proof closure."
     }
   ],
   "gaps": [
@@ -15097,7 +15576,7 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.2/finite-order-hadamard"
       ],
-      "detail": "Promote the E_n family and its small-log tail to definitions/lemmas with API/tests if a consumer beyond order one needs them. Read the full general Hadamard proof cited in Yun–Zhang AppendixB.1. The fully specified generic theorem is planned; the current detailed chain supplies only genus one."
+      "detail": "The native E_n definition, all API/tests, finite/empty zero enumeration, exponent−(floorρ+1) summability, local uniform product and polynomial-degree bound now agree with the mathematical Hadamard target. Yun–Zhang AppendixB.1 pp.901–902 states the genus/order theorem and cites Ahlfors §§5.2.3/5.3.2. The original finite-order good-circle argument remains unread, so proof closure is not asserted."
     },
     {
       "title": "Xi Mellin and real gamma estimates",
@@ -15219,7 +15698,7 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.5/beurling-all-log-remainders"
       ],
-      "detail": "Codex codex-ywaJcp read §§3–4 completely, including Theorem2, Proposition1, Theorem3 and Lemma1. The source-reading boundary is removed; proof closure still needs separate general lemmas for Laplace-Stieltjes integration by parts, tempered boundary/Fourier inversion, one-sided bump smoothing and the β_n/n→0 remainder estimate; Abelian all-derivative bounds and o(log|t|); weak* boundary-extension upgrade from half-plane derivative bounds;3–4–1 nonvanishing/reciprocal bounds; smooth removable division at1 and matched analytic logarithms. The ordinary arithmetic Wiener–Ikehara supplier does not export these all-remainder general measure results. Choose one foundational analytic owner before promoting them; never substitute only a smooth boundary without its growth hypotheses."
+      "detail": "Codex codex-ywaJcp read §§3–4 completely, including Theorem2, Proposition1, Theorem3 and Lemma1. The source-reading boundary is removed; proof closure still needs separate general lemmas for Laplace-Stieltjes integration by parts, tempered boundary/Fourier inversion, one-sided bump smoothing and the β_n/n→0 remainder estimate; Abelian all-derivative bounds and o(log|t|); weak* boundary-extension upgrade from half-plane derivative bounds;3–4–1 nonvanishing/reciprocal bounds; smooth removable division at1 and matched analytic logarithms. The ordinary arithmetic Wiener–Ikehara supplier does not export these all-remainder general measure results. Choose one foundational analytic owner before promoting them; never substitute only a smooth boundary without its growth hypotheses. The actual indexed vector series, unordered prime products and all-log equivalence now have elaborated native signatures; the source §§3–4 proof was freshly read in this revision. The existing named Laplace/Fourier/boundary supplier obligations remain proof boundaries."
     },
     {
       "title": "Dirichlet-polynomial Hilbert inequality",
@@ -15239,7 +15718,7 @@
         "AnalyticNumberTheory:AN.7/lerch-even-functional-equation",
         "AnalyticNumberTheory:AN.7/lerch-odd-functional-equation"
       ],
-      "detail": "Codex codex-ywaJcp read complete LerchII §§3–4 and §8, and published LerchIII §3.2–§3.5/§4 Theorem4.1/§5 Theorem5.1 proofs. Source reading no longer stops at displayed monodromy targets. Remaining interfaces: exact complex-c gamma integral and sum-integral/parameter differentiation; analytic continuation cells from contour detours, analytic uniqueness along homotopies; complex chart pullback to canonical universal covers; exponential-cover lifts/free punctured-plane generators and branch conventions; the general monodromy cocycle and subgroup descent. UniversalCovers Stage0/Stage2 are precise suppliers for topological covers, not for holomorphic continuation. LerchI/Weil real four-term Fourier–Mellin proof remains unread and is an explicit functional-equation input. Positive integer c removability needs the lowering operator, not mere trivial monodromy. Solvable descent is now its own node."
+      "detail": "Codex codex-ywaJcp read complete LerchII §§3–4 and §8, and published LerchIII §3.2–§3.5/§4 Theorem4.1/§5 Theorem5.1 proofs. Source reading no longer stops at displayed monodromy targets. Remaining interfaces: exact complex-c gamma integral and sum-integral/parameter differentiation; analytic continuation cells from contour detours, analytic uniqueness along homotopies; complex chart pullback to canonical universal covers; exponential-cover lifts/free punctured-plane generators and branch conventions; the general monodromy cocycle and subgroup descent. UniversalCovers Stage0/Stage2 are precise suppliers for topological covers, not for holomorphic continuation. LerchI/Weil real four-term Fourier–Mellin proof remains unread and is an explicit functional-equation input. Positive integer c removability needs the lowering operator, not mere trivial monodromy. Solvable descent is now its own node. Revision2 additionally records E29: published (3.28) falsely fixes f₀ under Z₁. Use the corrected e^(2πiks) action and verify the second-commutator descent with that diagonal residue action; the displayed source assertion cannot be used as an axiom."
     },
     {
       "title": "Hurwitz and Dirichlet endpoint adapters",
@@ -15436,14 +15915,15 @@
       "detail": "Gross–Zagier’s published pp.282/290 functional-equation uses were read. Pinned Mathlib already gives entire completed Dirichlet functions for nontrivial characters and a primitive functional equation with conductor factor. The new work is the Q-quadratic canonical-character/odd parity/conductor adapter and the normalized root+1 comparison to the Dedekind completion, includingΓ duplication. Special values then use the pinnedΓ(1),Γ(1/2) and explicit residue formula after imaginary-quadratic regulator/embedding specialization. Do not duplicate general Dirichlet continuation or infer root sign from its norm."
     },
     {
-      "title": "Native signatures for imported analytic carriers",
+      "title": "Remaining canonical analytic signature exports",
       "neededBy": [
-        "AnalyticNumberTheory:AN.4/partial-ideal-zeta",
-        "AnalyticNumberTheory:AN.2/exceptional-squareclasses",
-        "AnalyticNumberTheory:AN.4/artin-local-polynomial",
-        "AnalyticNumberTheory:AN.4/artin-euler-series"
+        "AnalyticNumberTheory:AN.4/artin-conductor-bound",
+        "AnalyticNumberTheory:AN.4/artin-log-functional-equation",
+        "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one",
+        "AnalyticNumberTheory:AN.4/hecke-primitive-functional-equation",
+        "AnalyticNumberTheory:AN.4/class-character-lseries-comparison"
       ],
-      "detail": "Four definition blocks and their API/tests remain mathematical comments without executable signatures: partial ideal zeta on the canonical class carrier, exceptional squareclasses with their canonical quadratic character, and the local/global Artin constructions on the actual inertia/Frobenius representation data. Do not substitute unrelated Prop fields or a degree-one Artin series. C(κ) now has an explicit native predicate on ArithmeticFunction and LSeries, concrete coefficient witnesses, every API/test and its native integral mean-bound signature; its proofs remain admitted. The final review checked the whole executable file: eighteen definition nodes have native forms, but four definitions, eighteen API items and fourteen tests remain mathematical comments. All executable signatures elaborate with admitted proofs; omitted carrier interfaces are not typechecked. The Lerch universal/solvable-cover continuation, cocycle action and z-monodromy-shift lemmas additionally remain mathematical specifications without native canonical-cover signatures. Resolve UniversalCovers supplier interfaces; do not encode monodromy through arbitrary Prop witnesses. The compact-series signature now bounds every fixed iterated Fréchet derivative on a compact subset; its analytic majorant proof remains admitted. Beurling zeta/product and all-log targets also remain mathematical specifications; an indexed finite-product/Laplace-Stieltjes native interface must be fixed before claiming suggested-file completeness."
+      "detail": "All24 AN-owned definitions have native signatures, API items and tests. The concrete upper-connector a/c lasso paths and z=0 loop, cut-log residue germs, inverse-action monodromy formulas, canonical-cover continuation/descent, higher-genus Hadamard, indexed Beurling analytic targets and Artin continuation signatures also elaborate. The remaining named Hecke signatures require GlobalNumberFields ray/idele character and AL.1 canonical continuation exports at the pinned baseline; the arithmetic Artin-conductor object requires its assigned owner. The conditional odd-completion calculus lemma does not supply that conductor identification. Other auxiliary numerical/geometric targets are mathematical interface notes rather than claimed native declarations; the suggested file is explicitly non-exhaustive."
     },
     {
       "title": "CM parity and conductor adapter proof",
@@ -15478,19 +15958,21 @@
       "neededBy": [
         "AnalyticNumberTheory:AN.2/classical-zero-free-region",
         "AnalyticNumberTheory:AN.2/dirichlet-conductor-zero-free-region",
-        "AnalyticNumberTheory:AN.2/siegel-walfisz"
+        "AnalyticNumberTheory:AN.2/siegel-walfisz",
+        "AnalyticNumberTheory:AN.2/green-tao-zeta-strip",
+        "AnalyticNumberTheory:AN.2/riemann-zeta-weak-convexity"
       ],
-      "detail": "The current AC.4 route needs Green–Tao LemmaA.1 small-height zero-free, pole-cleared growth and reciprocal-zeta bounds, plus LemmaA.3 convexity. Node7 only gives high positive-height nonvanishing. Derive the bounded-height extension and both O(log(|t|+2)) bounds with meromorphic pole conventions and split the convexity proof. For growing W(N), the AC owner must choose w(N) and prove a polylogarithmic modulus bound before node181 applies; node177 is fixed-modulus. Replacing this route by CFZ/Zhao requires an authorized correction of AC.4 and does not follow from this packet."
+      "detail": "The actual Green–Tao 2008 route now has explicit targets and native signatures for LemmaA.1 p.541 and the weak convexity input in(A.5) p.544. Read the original high-height log/reciprocal bounds, bounded-height completion and convexity proof before closing this source boundary; the source itself cites Titchmarsh ChaptersIII/V. For growing W(N), AC.4 must choose w(N) and prove W(N)≤(log N)^B before the uniform Siegel–Walfisz node applies. Its fixed-q PNT cannot discharge this step. Changing AC.4 to a CFZ/Zhao proof requires its owner to change the consumer route."
     },
     {
-      "title": "Colmez factor specification",
+      "title": "Colmez finite-family and regularized Brauer suppliers",
       "neededBy": [
         "AnalyticNumberTheory:AN.4/artin-conductor-bound",
         "AnalyticNumberTheory:AN.4/artin-log-functional-equation",
         "AnalyticNumberTheory:AN.4/artin-value-one-subpower",
         "AnalyticNumberTheory:AN.4/artin-log-derivative-one"
       ],
-      "detail": "Replace “representations occurring” and “relevant factors” by a defined finite family, exact representation/conductor/gamma data, quantifiers and normalization; assign the finite-family supplier. Node38 needs a regularized logarithmic derivative at0 when gamma has a pole, not a formula for an undefined L′/L value. Nodes39–40 need explicitly bounded integral Brauer coefficients, pole-order cancellation and both value/derivative estimates before dividing. The current prose cannot be read as four uniquely specified declarations."
+      "detail": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1. For each ρ∈F(E), import an integral monomial Brauer expression χ_ρ=Σ_(j∈J)n_j Ind_(H_j)^G ψ_j with one-dimensional finite-order ψ_j, Σ_j|n_j|≤B_g, |J|≤B_g and [L^(H_j):Q]≤M_g. Bound each Hecke analytic conductor (including the base-field discriminant) by D_E^C_g, with D_E=|Disc(E)|. For δ_j=1 if ψ_j is trivial and0 otherwise, take the holomorphic, nonzero extension H_j(s) of (s−1)^δ_j L(s,ψ_j) at1. Prove Σ_j n_jδ_j=0 and the local germ identity L(s,ρ)=∏_j H_j(s)^n_j. The exact CM coefficient export is assigned to the extraction’s proposed quantitative CM PartII, whose stage does not yet exist. General Artin conductors belong to the proposed ArtinRepresentations supplier identified by current NFA, not NFA’s permutation-only formula. Original source proofs are needed for uniform regularized Hecke values and logarithmic derivatives; Tsimerman p.384 is motivation, not their proof. The odd completion and conjugate endpoint identity are stated exactly. Native value/derivative signatures use genuine representations and continuation germs; the native completion lemma is a conditional calculus adapter and does not claim the conductor identification."
     }
   ],
   "sourceIssues": [
@@ -15499,7 +15981,7 @@
       "source": "bennett-siksek-2020",
       "kind": "error",
       "locator": "Published §8.1 p.378 and its reuse on p.379; known source issue E2.",
-      "printed": "The source asserts τ(q) ≤ q^(1/log log 3q) whenever q ≥ 1.",
+      "printed": "The proposed divisor inequality omits the multiplicative constant required uniformly at small inputs.",
       "correction": "Use the uniform explicit bound and eventual threshold supplied by the AN.5 chain; retain the constant for all positive n.",
       "reason": "At q=120, τ(q)=16 while the printed power is about14.89222. The local-to-global construction supplies a valid replacement.",
       "affects": "a stated result",
@@ -15519,7 +16001,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "Equation(8.3.3), printed p.50, PDF p.66",
-      "printed": "Γ′((s+1)/2)/Γ((s+1)/2)",
+      "printed": "The gamma logarithmic derivative is evaluated at the wrong shift for the displayed zeta completion.",
       "correction": "The displayed term must be Γ′(1+s/2)/Γ(1+s/2). Equivalently retain Γ′(s/2)/Γ(s/2) together with the missing 1/s term.",
       "reason": "Logarithmically differentiate ξ(s)=(1/2)s(s−1)π^(−s/2)Γ(s/2)ζ(s); the 1/s term is absorbed by (1/2)ψΓ(1+s/2), since ψΓ(z+1)=ψΓ(z)+1/z. The (s+1)/2 argument cannot perform that absorption.",
       "affects": "the proof",
@@ -15539,7 +16021,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Lemma22.1, printed p.127, PDF p.143",
-      "printed": "x^p=x^g",
+      "printed": "Two different exponent labels occur in a power identity that should use the same genus.",
       "correction": "Require a chosen prime P above p and the action of g on every element of O_K/P to be x↦x^p; use NFA2's IsArithFrobAt and then its conjugacy theorem.",
       "reason": "The source only requires a nonzero solution in O_K/pO_K. The element1 works for every g. In any nontrivial quadratic extension all g then qualify, but its two singleton conjugacy classes cannot form one class. The condition cannot characterize arithmetic Frobenius.",
       "affects": "a stated result",
@@ -15559,7 +16041,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Equations(7.2.1)–(7.2.2), printed pp.44–45, and proof of Theorem7.7",
-      "printed": "1/γ",
+      "printed": "The reciprocal analytic exponent has the wrong label.",
       "correction": "Use 1/|γ| in the nonnegative majorant and Stieltjes sum. Choose T away from zero ordinates, or use matching left limits at T. Isolate a finite low-height range and justify a positive lower cutoff.",
       "reason": "The source sums over both signs of γ. A conjugate pair contributes zero to 1/γ but positively to the claimed Stieltjes expression. A strict sum |γ|<T also cannot equal the expression with inclusive N(T) when T is a zero ordinate.",
       "affects": "the proof",
@@ -15579,7 +16061,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "gap",
       "locator": "Theorems7.5/8.8 and use in Theorem7.7, printed pp.45,50–51",
-      "printed": "Im(s)≥1",
+      "printed": "The zero-free conclusion allows height one, where the logarithmic denominator degenerates.",
       "correction": "Retain only Im(s)≥t₀>1 as the direct conclusion; establish bounded heights and conjugation separately before deriving the global PNT error.",
       "reason": "The formula has log1 in its denominator, and the proof's O(log t) estimate/constant choice is a high-height argument. The inherited independent review already required a finite low-height contribution.",
       "affects": "the proof",
@@ -15599,7 +16081,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "Theorem8.7 proof following(8.2.3), printed p.49",
-      "printed": "1+(z/ρ)²/2+O((z/ρ)³)",
+      "printed": "The small-factor expansion has the wrong quadratic sign.",
       "correction": "The expansion is 1−(z/ρ)²/2+O((z/ρ)³). Also the middle range in the three-factor partition is h₂, not a second h₁.",
       "reason": "Multiplying (1−w)(1+w+w²/2+O(w³)) gives 1−w²/2+O(w³). Absolute convergence uses only the quadratic order, so the sign does not alter the intended convergence argument.",
       "affects": "nothing",
@@ -15619,7 +16101,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "gap",
       "locator": "End of Theorem8.7 proof, printed p.49",
-      "printed": "|g(z)|=O(|z|^(1+ε))",
+      "printed": "An absolute-value growth estimate is attributed to the quotient rather than to its entire logarithm.",
       "correction": "Choose a global holomorphic logarithm of the zero-free entire quotient, then derive a modulus bound for g from its real-part upper bound using Borel–Carathéodory on nested discs (or an equivalent named lemma).",
       "reason": "Order≤1 gives an upper bound for Re(g)=log|f/h|, not directly the asserted bound for |g|. The missing real-part-to-modulus step is needed before the Liouville argument.",
       "affects": "the proof",
@@ -15639,7 +16121,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "Theorem10.2 parity convention, printed p.59",
-      "printed": "The source sets a=1 when χ is even.",
+      "printed": "The parity parameter is assigned the odd value to an even character.",
       "correction": "For the displayed −(1−a)log x and ∑x^(a−2m)/(2m−a), use a=0 for even and a=1 for odd primitive characters. State the primitive restriction; imprimitive local-factor zeros need separate terms.",
       "reason": "The subsequent §10.2 gamma factor uses a=0 for even and1 for odd. Even primitive nonprincipal L-functions have a zero at0 and trivial zeros at negative even integers, fixing both displayed terms.",
       "affects": "the proof",
@@ -15659,7 +16141,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Theorem10.11, printed p.63, omitted progression hypothesis",
-      "printed": "π(x,N,a)=li(x)/φ(N)+O(x log^(−A)x)",
+      "printed": "The prime count is combined with the wrong leading-term normalization in that displayed formula.",
       "correction": "Require gcd(a,N)=1, x sufficiently large, and state an explicit logarithmic modulus range N≤(log x)^B with fixed B in the standard Siegel–Walfisz formulation.",
       "reason": "With a=N=2, only the prime2 is counted, while li(x)/φ(2) has size x/log x; for A>1 the displayed remainder cannot absorb it.",
       "affects": "a stated result",
@@ -15679,7 +16161,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "gap",
       "locator": "Theorem10.11 following Siegel's theorem, printed p.63",
-      "printed": "The source says the implied constants can be given explicitly.",
+      "printed": "Effectivity is claimed despite the use of an ineffective Siegel estimate.",
       "correction": "The usual Siegel–Walfisz proof from the stated Siegel theorem has potentially ineffective constants. An effective version needs an additional explicit input or an exceptional-zero term and a revised contract.",
       "reason": "No effective lower bound for the Siegel constant is supplied. It is invalid to export an effective constant merely from the preceding existence theorem; AN.2 must distinguish these interfaces.",
       "affects": "a stated result",
@@ -15699,7 +16181,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "Theorem9.9 proof, printed pp.57–58",
-      "printed": "U→0",
+      "printed": "The limiting direction for the auxiliary parameter is reversed.",
       "correction": "The odd positive integer U tends to infinity. The near-endpoint remainder range on p.58 is 3x/4<n<x′, not3/4<n<x′.",
       "reason": "The contour's left edge is Re(s)=−U, and T log U/(U x^U) tends to0 as U tends to infinity; the substitution n=x′−m with m<x/4 requires the corrected range.",
       "affects": "nothing",
@@ -15719,7 +16201,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "Remark10.8 zero-repulsion inequalities, printed p.62",
-      "printed": "σ−Im(ρ)",
+      "printed": "A real-part expression subtracts the imaginary coordinate of a zero.",
       "correction": "Use σ−Re(ρ) when the evaluation point has the same imaginary part as the zero. The principal-character pole occurs at s=1, not at χ=1.",
       "reason": "At s=σ+i Im(ρ), s−ρ=σ−Re(ρ); using the imaginary part cannot measure horizontal separation from the zero.",
       "affects": "the proof",
@@ -15739,7 +16221,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Theorem10.6 denominator, printed p.61",
-      "printed": "log N",
+      "printed": "The logarithmic conductor factor misses its multiplicative companion.",
       "correction": "Assume N>1 for this primitive Dirichlet-character formulation; treat the unique conductor-one character through the zeta statement.",
       "reason": "The quantifier includes the primitive character of level1, but its denominator log N is zero. The zeta pole and small-height conventions require a separate specialization.",
       "affects": "a stated result",
@@ -15759,7 +16241,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "error",
       "locator": "Lemma8.3 proof, printed p47/PDFp63, author PDF sha7a934fce; parallel current HTML chap-zeroes",
-      "printed": "The source bounds the integral using exp(C|s|).",
+      "printed": "The claimed exponential-type growth loses the logarithmic factor produced by the gamma integral.",
       "correction": "Retain ω(x)≤C₀e^(−πx), and bound the resulting gamma integral by exp(C₁|s|log(2+|s|)). This proves the stated order-one growth but not the claimed exponential-type integral bound.",
       "reason": "For fixed real s>2, x^(s/2−1) is unbounded as x→∞, so it cannot be bounded uniformly in x by exp(C|s|). A constant bound for ω integrated on[1,∞) also gives an infinite majorant. The original positive integral has gamma-size growth along positive real s.",
       "affects": "the proof",
@@ -15779,7 +16261,7 @@
       "source": "lerch-III",
       "kind": "misprint",
       "locator": "Preprint arXiv1506.06161v1 Theorem2.3 (2.5),p13; corrected in published RMS3:2(2016),p13 (2.5)",
-      "printed": "(z∂z+c)∂cΦ(s,z,c)=sΦ(s,z,c)",
+      "printed": "The sign of the Lerch PDE right-hand side is positive in the preprint.",
       "correction": "The right-hand side is −sΦ(s,z,c), as in the published equation(2.5).",
       "reason": "Apply (z∂z+c) to ∂cΦ=−sΦ(s+1,z,c), then use the lowering relation at s+1. At z=0 the left side is −s c^−s, so the plus sign fails already at s=c=1.",
       "affects": "nothing",
@@ -15799,7 +16281,7 @@
       "source": "kedlaya-ant-2025",
       "kind": "misprint",
       "locator": "December 2025 author PreTeXt PDF, §3.3, proof of Theorem 3.7, equation (3.3.1), printed p.19 (PDF p.35); SHA256 7a934fce8272cedd36ad609f79bbe79af0056320bb1e0bc690c87af990f305be.",
-      "printed": "log f_N(s) = Σ_{p:(p,N)=1} Σ_{n≥1} (Σ_χ χ(p^n)) p^(−ns).",
+      "printed": "The ray-character logarithmic expansion omits the prime-power denominator.",
       "correction": "Insert 1/n: log f_N(s) = Σ_{p:(p,N)=1} Σ_{n≥1} (Σ_χ χ(p^n)) p^(−ns)/n.",
       "reason": "The convergent expansion −log(1−z)=Σ_{n≥1}z^n/n gives the divisor n. At level N=1, the local p^(−2s) coefficient is 1/2 rather than 1. Dividing each nonnegative character sum by n preserves the positivity used in the proof. The missing divisor was checked on the page image as well as the text layer.",
       "affects": "nothing",
@@ -15820,7 +16302,7 @@
       "source": "kouk-primary-preliminary",
       "kind": "misprint",
       "locator": "Author preliminary PDF, printed p.61 (PDFp72), Exercise5.4(c); Theorem3.4(c)/(3.6), pp.40–41. Published GSM203 text not inspected.",
-      "printed": "κ = ∫_0^∞ u^−1 (e^−u − 1_[0,1](u)) du.",
+      "printed": "The Euler-constant integral subtracts the cutoff and exponential in the wrong order.",
       "correction": "Reverse the integrand: κ = ∫_0^∞ u^−1 (1_[0,1](u) − e^−u) du = γ.",
       "reason": "The same page’s Exercise5.4(d) gives γ as the negative of the displayed(c) integral; Theorem3.4(c) and its proof require κ=γ. More directly (a),(b) and logζ(1+ε/log x)=log log x−log ε+o(1) yield κ=lim_(ε→0+)(−log ε−∫_ε^∞e^−u/u du), which is exactly the corrected integrand. The rendered page confirms both signs; this is not a text-extraction artifact.",
       "affects": "the proof",
@@ -15841,7 +16323,7 @@
       "source": "mestre-primary-published",
       "kind": "error",
       "locator": "Published §I.2 conditions(i)–(iii), p.212; transform and reflected-contour proof p.213",
-      "printed": "F(x) exp((1/2 + c + ε)x)",
+      "printed": "The sign in an exponential decay factor is reversed.",
       "correction": "For general, potentially asymmetric F, require the integrability/BV conditions for both F(x) and F(−x), equivalently use exp((1/2+c+ε)|x|). Chenevier–Taïbi’s even specialization already has this property.",
       "reason": "Take c=0, ε=1/4 and F(x)=exp(x/4) for x<0, exp(−2x) for x≥0, F(0)=1. The printed weighted function is exp(x) on x<0 and exp(−5x/4) on x≥0, integrable/BV and continuous. The difference quotient is monotone on each half-line with finite limits1/4 and−2 at0, hence has finite variation after any finite value at0. Yet the transform at s=0 has negative-tail integrand exp(−x/4), so its ordinary improper integral diverges. For completed Riemann ζ, the formula includes the pole at0 and therefore this undefined Φ(0). Both reflected tails are necessary for the general theorem; the even applications are unaffected.",
       "affects": "a stated result",
@@ -15863,7 +16345,7 @@
       "source": "kouk-primary-preliminary",
       "kind": "misprint",
       "locator": "Author preliminary PDF, printed p.39 (PDFp50), Theorem3.3 proof, first displayed evaluation; published GSM203 not inspected.",
-      "printed": "Σ_(b≤x) x/b",
+      "printed": "The sum variable does not match the summand variable in the divisor estimate.",
       "correction": "The second strip sum is Σ_(b≤B) x/b.",
       "reason": "Equation(3.5) and the immediately preceding floor-sum line have b≤B. At A=B=sqrt x the wrong cutoff adds order x log x, which cannot fit the claimed O(sqrt x) error. The rendered preliminary page confirms the printed x; the intended harmonic evaluation uses B.",
       "affects": "the proof",
@@ -15883,7 +16365,7 @@
       "source": "lerch-III-published",
       "kind": "misprint",
       "locator": "Published RMS3:2(2016), p.40, last line of Theorem5.3 proof.",
-      "printed": "q_(m+1)=z/(1−z) Σ_(j=1)^(m+1) binom(m+1,j)",
+      "printed": "The recursive formula for the rational special-value polynomials has an inconsistent upper index.",
       "correction": "Restore q_(m+1−j)(z) in each summand.",
       "reason": "The preceding derivative line has this factor and Theorem5.3 states the correct recurrence. For m=0,z=1/2 the truncated printed line gives1 instead of q₁=2. Page40 viewed as image.",
       "affects": "the proof",
@@ -15904,7 +16386,7 @@
       "source": "lerch-III-published",
       "kind": "misprint",
       "locator": "Published RMS3:2(2016), §6 p.40, Bernoulli generating series.",
-      "printed": "t/(e^t−1)=Σ_(k=1)^∞ B_k t^k/k!",
+      "printed": "The Bernoulli generating series omits its constant term.",
       "correction": "The lower index is k=0 with B₀=1.",
       "reason": "The left side has constant coefficient1; the printed right side has0. Page40 image confirms the index.",
       "affects": "nothing",
@@ -15925,7 +16407,7 @@
       "source": "lerch-III-published",
       "kind": "error",
       "locator": "Published RMS3:2(2016), §6 p.40, Riemann special-value formula in the nonpositive-order discussion.",
-      "printed": "ζ(−k)=−B_(k+1)/(k+1)",
+      "printed": "A negative-integer zeta formula includes the order-zero endpoint with an incompatible Bernoulli convention.",
       "correction": "For k≥0 use ζ(−k)=(−1)^k B_(k+1)/(k+1), equivalently −B_(k+1)(1)/(k+1). The printed formula is valid for k≥1 but not0.",
       "reason": "With the stated generating convention B₁=−1/2, k=0 gives+1/2 rather than ζ(0)=−1/2. Pinned Polynomial.bernoulli_one/eval_one fix the endpoint convention. Page40 image checked.",
       "affects": "a stated result",
@@ -15946,7 +16428,7 @@
       "source": "lerch-III-published",
       "kind": "misprint",
       "locator": "Published RMS3:2(2016), §6 p.40, introductory periodic-zeta specializations.",
-      "printed": "P(a/d,−m)=Φ(−m,e^(2πia/d),1)",
+      "printed": "The periodic zeta and Lerch specializations omit their normalizing factor of z.",
       "correction": "Insert the prefactor z=e^(2πia/d): P(a/d,−m)=zΦ(−m,z,1), using the matched continued functions.",
       "reason": "The periodic series starts at n=1 whereas Φ starts at0 and has (n+1) in its denominator. At z=−1,m=0 the periodic continuation is−1/2 and Φ=+1/2. This agrees with the source’s definition of the extended polylogarithm. Page40 image checked.",
       "affects": "nothing",
@@ -15967,7 +16449,7 @@
       "source": "lerch-III-published",
       "kind": "error",
       "locator": "Published RMS3:2(2016), Theorem6.1(2), (6.2) p.41 and proof p.42.",
-      "printed": "F(a,−m)=e^(−2πia)Li_(−m)(e^(2πia),0)=q_m(e^(2πia)), m≥0",
+      "printed": "A nonpositive-order Lerch identity includes order zero, where its initial term survives.",
       "correction": "Keep the displayed relation for m≥1. For m=0, with z=e^(2πia), F(a,0)=z/(1−z)=q₀(z)−1; equivalently subtract the surviving n=0 term from the c→0 limit of Φ. Part(1) remains correct.",
       "reason": "The proof explicitly requires Re s<0 to make c^(−s) vanish; at s=0 it equals1. At a=1/2, the printed value is q₀(−1)=+1/2. The continued alternating series is F(1/2,s)=−(1−2^(1−s))ζ(s), so F(1/2,0)=−1/2. The rational m=0 formula already gives Φ=1/(1−z) for all c. Images pp41–42 confirm the nonpositive range and proof. A counterexample requiring no boundary argument takes a=1/2+i log2/(2π), z=−1/2. Its entire absolutely convergent periodic series at0 is−1/3, whereas q₀(−1/2)=2/3. This lies inside the theorem’s0<Re a<1 domain.",
       "affects": "a stated result",
@@ -15988,7 +16470,7 @@
       "source": "lerch-III-published",
       "kind": "misprint",
       "locator": "Published RMS3:2(2016), Theorem6.1(2) proof p.41, integral preceding(6.4).",
-      "printed": "F(a,s)=Γ(s)^−1∫₀^∞ t^(s−1)/(1−z e^(−t))dt",
+      "printed": "The periodic Lerch integral lacks the exponential factor required by the selected normalization.",
       "correction": "For Re s>0 the numerator must be z e^(−t). Prove the entire extension separately by subtracting the kernel Taylor terms near0 and using reciprocal-gamma zeros.",
       "reason": "At a=1/2,s=2 the printed integrand t/(1+e^(−t)) has divergent positive tail. The corrected kernel expands as Σ_(n≥1)z^n e^(−nt), matching the periodic series. For other s, the direct integral does not itself assert all-s convergence. Page41 image confirms the omitted numerator.",
       "affects": "the proof",
@@ -16009,7 +16491,7 @@
       "source": "lerch-III-published",
       "kind": "misprint",
       "locator": "Published RMS3:2(2016), p.41 introductory sentence and p.42 last displayed proof chain.",
-      "printed": "z=−m; F(−m,s); Li_(−m)(e^(eπia),0)",
+      "printed": "The parameter and exponential notation in a displayed special-value formula have inconsistent labels.",
       "correction": "Read s=−m, F(a,−m), and Li_(−m)(e^(2πia),0), respectively.",
       "reason": "The theorem and immediately preceding equations fix the variables and exponential substitution. Images pp41–42 confirm these three local typesetting slips. This correction does not remove the separate order-zero error E26.",
       "affects": "nothing",
@@ -16024,6 +16506,23 @@
         "reason": "Published III prose and equation(6.13), PDF p.42 checked. The specialization is s=−m, F(a,−m), and z=exp(2πia); the printed z=−m, reversed arguments and malformed exponential do not describe that specialization. Independent locator and mathematical check on 2026-10-05; inherited bounded novelty searches remain at their stated scope.",
         "by": "REV-AnalyticNumberTheory--AN.0"
       }
+    },
+    {
+      "id": "AnalyticNumberTheory/E29",
+      "source": "lerch-III-published",
+      "kind": "error",
+      "locator": "Published RMS3:2(2016), Theorem3.4(i-b), equation(3.28), p.27; residue definition(3.24), p.26. The same assertion is present in arXiv1506.06161v1/v2 at(3.28).",
+      "printed": "The stated residue action around z=1 treats every integer index as invariant.",
+      "correction": "For positive powers Z₁^k on the principal residue germs, f₀ continues to e^(2πiks)f₀, whereas f_p for p≠0 is fixed. The c-loop invariance and Z₀ index shift are unaffected.",
+      "reason": "The upper-connector Z₁ loop lifts under z=exp(2πia) to one positive winding around a=0. Only the a^(s−1) factor of f₀ winds around its zero, giving e^(2πi(s−1))=e^(2πis). At s=c=1/2,z=−1 the chosen branch has f₀=−i√2, and the loop reverses its sign. The later formula(3.54), p.32, uses this nontrivial phase on the Z₁ monodromy of the Lerch function, independently consistent with this correction. The second-commutator result requires its diagonal-action proof with the corrected formula; this finding alone does not refute that result.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and identical final PDF checked2026-10-11: (3.28) remains unchanged, with no correction linked on the article page.",
+        "arXiv history checked2026-10-11: v1(19 June2015),v2(21 November2015); v2 (3.28) also unchanged. Only the named formulas were collated.",
+        "Lagarias author papers listing checked2026-10-11; LerchI/II links present, no LerchIII correction found there.",
+        "Bounded web searches for Lagarias/Li/Lerch/(3.28) with erratum and for the paper title with correction returned no relevant correction. This records the search scope, not an exhaustive novelty claim."
+      ]
     }
   ],
   "provenance": {
@@ -16593,7 +17092,7 @@
       "url": "https://link.springer.com/content/pdf/10.1186/s40687-015-0049-2.pdf",
       "read": "2026-10-05",
       "sha256": "1b9d8d35cf23b15bd921621011a066832dd39924688b121e85d6067eb25f6593",
-      "citation": "RMS3:2(2016), publisher PDF"
+      "citation": "RMS3:2(2016), publisher PDF; same PDF reacquired2026-10-11, fresh pp.26–27,32 formula collation for E29"
     },
     {
       "kind": "published",
@@ -16723,20 +17222,27 @@
       "url": "https://www.jmilne.org/math/CourseNotes/CFT.pdf",
       "read": "2026-10-05",
       "sha256": "50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.06161v2",
+      "read": "2026-10-11",
+      "sha256": "59fee8735fc7b5913ada21da3b779ebfebba4c6f3de10155f06650a3bba89bf8",
+      "citation": "arXiv1506.06161v2,21 November2015; only Definition3.3 (3.24), Theorem3.4 (3.28) and Theorem3.5 (3.54)–(3.55) collated; not a full-proof reading."
     }
   ],
   "links": [],
   "validationNotes": [
-    "Every node is an unchecked plan. No implementation or proof completion is claimed.",
-    "The suggested file was elaborated with lean-check in the existing shared build at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The latest codex-ywaJcp check has0 errors and300 warnings, all admitted-proof warnings. Mathlib-only elaboration; no Tau Ceti module compilation, new project, build/cache operation or language server.",
-    "Historical elaboration receipts retain their individual scopes. The codex-ywaJcp continuation reconciles selected Beurling/Lerch signatures and mathematical comments. Elaboration checks types, not proof correctness, complete source closure or canonical-cover signature completeness.",
-    "The current checker resolves tauceti atlas-stage prerequisites, so the prior upstreamPrerequisites workaround was removed.",
-    "AN.3 remains whole. The proposed SV.2→AN.3 reverse edge is withheld until the old AN.3→SV.2 edge can be removed atomically by the maintainer.",
-    "The generic Landau, Perron, Wiener–Ikehara and prime-transfer packages remain owned by ADS; Tate continuation/functional equations remain imported from AL.1.",
-    "The repeated-prime Beurling test and nonnegative Dickman monotonicity remain inherited corrections. Four canonical-carrier definition signatures remain explicit PROTOCOL§13 omissions, with their mathematical specifications and API/test names in comments. C(κ) now has a concrete ArithmeticFunction/LSeries predicate and complete native API/test signatures; Dickman continuity, negative extension, delay and interval identity are explicit. Full native API/test and reader consistency still require independent review.",
-    "Native forms additionally state the Mertens estimates, divisor average, proved moments, fixed-m medium-prime count, Halász bound, conductor region, order-one factorization and Dirichlet polynomial mean square using concrete carriers. Local-uniform factorization and other remaining named-target interfaces still require refinement.",
-    "REV-AnalyticNumberTheory--AN.0: removed PM.1 normal-order/distribution request attached to halasz-classical. The node has no such prerequisite and its source proof does not use Hardy–Ramanujan or Erdős–Kac; these remain owned by PM.1, not duplicated here.",
-    "Final review by REV-AnalyticNumberTheory--AN.0: coverage.remaining and the inherited 19-row routedInputs list are reconciled with the250-node packet and91-target ledger. Review verdict needs_changes is final; this is not a continuation checkpoint."
+    "All nodes remain unchecked mathematical plans. The target-level planning pass is complete; stages with unresolved source or supplier obligations remain planned, never closed.",
+    "The22 inherited definitions and2 added definitions have native signatures, full listed API items and discriminating tests against pinned Mathlib and Tau Ceti. Suggested.lean is non-exhaustive and its final interface notes name every other target not expressed natively.",
+    "The four formerly omitted carrier blocks use pinned ordinary/narrow class groups, the canonical normCoeff regrouping, a value-constrained quadratic-character supplier prototype, and genuine inertia-invariant Galois representation factors. No unrelated Prop fields or degree-one replacements are used.",
+    "AN.3 stays whole. The proposed SV.2→AN.3 reverse edge is withheld until the maintainer removes the old reverse dependency atomically.",
+    "Generic Perron, Landau and Wiener–Ikehara foundations stay with ArithmeticDirichletSeries; Tate continuation and functional equations stay with AL.1.",
+    "Green–Tao uses its actual2008 route and full-strip/growth targets. The slow-growing W modulus condition is an AC.4 consumer obligation.",
+    "The Colmez analytic targets quantify the normal-closure odd-irreducible family and track integral Brauer coefficients, regularized trivial poles and conjugate gamma endpoints. Exact arithmetic conductors, CM coefficients and uniform Hecke proof suppliers remain requests.",
+    "The accepted divisor, exceptional-zero, repeated-prime and Lerch normalization corrections are preserved. All source excerpts were deleted in accordance with the standing own-words rule.",
+    "The prior independent review object is preserved unchanged for the next independent reviewer.",
+    "Final native-signature elaboration: exit0; 398 warnings, all admitted-proof diagnostics, no errors. All24 definitions,113 API items and90 tests have native forms. Every construction uses the stated pinned carrier. The file is non-exhaustive; omitted auxiliary and supplier-dependent signatures are identified in its mathematical-interface notes."
   ],
   "targetLedger": {
     "session": "codex-rtOQ9t",
@@ -16827,7 +17333,10 @@
           "AnalyticNumberTheory:AN.2/dirichlet-conductor-zero-free-region",
           "AnalyticNumberTheory:AN.2/siegel-walfisz",
           "AnalyticNumberTheory:AN.2/canonical-factor-pair",
-          "AnalyticNumberTheory:AN.2/xi-entire-and-endpoints"
+          "AnalyticNumberTheory:AN.2/xi-entire-and-endpoints",
+          "AnalyticNumberTheory:AN.2/green-tao-zeta-strip",
+          "AnalyticNumberTheory:AN.2/riemann-zeta-weak-convexity",
+          "AnalyticNumberTheory:AN.2/canonical-factor"
         ]
       },
       {
@@ -16985,7 +17494,8 @@
           "AnalyticNumberTheory:AN.5/pretentious-square-nonnegative",
           "AnalyticNumberTheory:AN.5/divisor-small-prime-log-bound",
           "AnalyticNumberTheory:AN.5/divisor-large-prime-log-bound",
-          "AnalyticNumberTheory:AN.5/divisor-small-prime-loss"
+          "AnalyticNumberTheory:AN.5/divisor-small-prime-loss",
+          "AnalyticNumberTheory:AN.5/beurling-zeta"
         ]
       },
       {
@@ -18250,15 +18760,16 @@
       "disposition": "preserve accepted AN.2→AC.4 edge; unresolved route/contract correction for AC.4 owner",
       "source": "AnalyticNumberTheory:AN.2",
       "target": "AdditiveCombinatorics:AC.4",
-      "need": "The current AC.4 campaign document and reader select Green–Tao 2008. On that route, import AN.2 classical zero-free estimates with the full LemmaA.1 contract: 1−β/log(|t|+2)≤σ≤10, the simple pole at1, bounds for ζ(s)−1/(s−1) and 1/ζ(s) of size O(log(|t|+2)), and the LemmaA.3 convexity input. If W(N) varies, prove W(N)≤(log N)^B for a chosen slow w(N), then apply a uniform progression theorem, not the fixed-q PNT. The Conlon–Fox–Zhao/Zhao smooth-cutoff route would require only local Laurent/Chebyshev input, but narrowing to it requires the AC.4 owner to select and rewrite that proof; it is not the current resolved contract.",
-      "reason": "Independently read AC.4 current campaign source/acceptance and reader endgame/AppendixA gaps, and promoted RS-07. A conditional proposal for a different proof does not discharge the currently selected proof. This review cannot edit the consumer or its accepted edge."
+      "need": "The current AC.4 campaign document and reader select Green–Tao 2008. On that route, import AN.2 classical zero-free estimates with the full LemmaA.1 contract: 1−β/log(|t|+2)≤σ≤10, the simple pole at1, bounds for ζ(s)−1/(s−1) and 1/ζ(s) of size O(log(|t|+2)), and the LemmaA.3 convexity input. If W(N) varies, prove W(N)≤(log N)^B for a chosen slow w(N), then apply a uniform progression theorem, not the fixed-q PNT. The Conlon–Fox–Zhao/Zhao smooth-cutoff route would require only local Laurent/Chebyshev input, but narrowing to it requires the AC.4 owner to select and rewrite that proof; it is not the current resolved contract. Concretely, for W(N)=primorial(floor₊w(N)), the pinned θ=log primorial and θ(w)≤(log4)w give W(N)≤(log N)^B whenever N>1 and 0≤w(N)≤B log log N/log4. This elementary bound fixes the required modulus range; the progression error still needs the uniform Siegel–Walfisz target.",
+      "reason": "AC.4 currently selects Green–Tao2008. The AN strip and weak-convexity targets give its actual analytic contract. An alternative proof route requires an authorized change by that consumer’s owner."
     },
     {
       "id": "AN.4/colmez-finite-family",
       "status": "proposal",
-      "need": "For fixed g, possible normal-closure groups, representation dimensions and Colmez coefficient sizes lie in a bounded finite-combinatorial family. Split off the trivial Artin factor as a dimension-dependent constant before evaluating other factors at 1.",
-      "reason": "The Colmez CM-type representation coefficients are arithmetic height data, not a new analytic carrier. The analytic nodes need explicit dimension-dependent coefficient and conductor bounds from its owner.",
-      "source": "PAPER-TSIMERMAN-18/colmez-finite-uniformity"
+      "need": "Fix g≥1. Let E be any degree2g CM field, L its normal closure over Q (not an arbitrary Galois overfield), G=Gal(L/Q), and c the central complex conjugation. Let F(E) be the finite set of isomorphism classes of nontrivial irreducible complex G-representations ρ satisfying ρ(c)=−Id. Then |G|≤M_g=(2g)!, |F(E)|≤M_g and dim ρ≤M_g. All constants below are uniform in E and ρ∈F(E). The CM owner proves that the nontrivial factors in the averaged Colmez expression belong to this family and that their rational coefficients have absolute value≤B_g; the trivial factor is separated before evaluation at1.",
+      "reason": "The extraction assigns character coefficients to this quantitative CM extension, not to existing CM.0–CM.6. The analytic family is now specified by actual Galois representations. The coefficient-support/boundedness export remains a request until the extension has a precise node.",
+      "source": "PAPER-TSIMERMAN-18/colmez-finite-uniformity",
+      "proposedSupplier": "ComplexMultiplicationAndExplicitReciprocityPartII (CM heights and Galois-orbit bounds), proposed by PAPER-TSIMERMAN-18/colmez-character-data; no existing stage endpoint"
     },
     {
       "id": "AN.4/regulator-ratio",
@@ -18280,6 +18791,17 @@
       "source": "PAPER-DUKE-IMAMOGLU-TOTH-16 route:part-ii",
       "need": "Use the extraction’s proposed FuchsianOrbifolds, Part II (Nielsen cores and quadratic-class surfaces) for F_A, finite-area core surfaces, oriented geodesic boundaries, and multiplicity-preserving projection to the modular orbifold. GN.3 owns the quadratic arithmetic class/geodesic/CM dictionary; AS.1/AS.2 own Eisenstein analysis. Exact stages and theorem exports are still required.",
       "reason": "AS.1 does not construct quadratic geometry. The accepted extraction proposes this Part II, but the current atlas has no FuchsianOrbifoldsPartII stage; do not fabricate one or declare closure."
+    },
+    {
+      "id": "AN.4/artin-conductor-arithmetic",
+      "status": "proposal",
+      "proposedSupplier": "ArtinRepresentations, named as the general conductor owner by current NumberFieldArithmetic; no atlas stage or packet node exists",
+      "need": "For actual finite-dimensional complex Galois representations define a_p(ρ)=Σ_(i≥0)(|G_i|/|G_0|)codim V^(G_i), prove nonnegative integrality and finite support, and f_ρ=∏p p^a_p(ρ). Prove independence of prime and inflation, direct-sum multiplicativity, linear-character conductor agreement, and conductor–discriminant for permutation representations. Combine current NumberFieldArithmetic Layer6.5 permutation discriminant exponents and Layer7 normal-closure bounds to derive log f_ρ≤C_g(1+log D_E) for the stated CM family. The current library lower filtration is imported, never re-planned.",
+      "neededBy": [
+        "AnalyticNumberTheory:AN.4/artin-conductor-bound",
+        "AnalyticNumberTheory:AN.4/artin-log-functional-equation"
+      ],
+      "reason": "Current NumberFieldArithmetic README explicitly excludes general Artin conductors and its Suggested.lean Layer6.5 names a future ArtinRepresentations owner. General conductor data cannot be cited as an existing NFA or abelian CFT theorem."
     }
   ],
   "upstreamNotes": [
@@ -18294,6 +18816,11 @@
       "roadmap": "tauceti:TauCetiRoadmap/Chebotarev",
       "locator": "README Layer12.1, finite deleted factors at s=1",
       "note": "While checking the supplier boundary, noticed “same residue” for Dedekind zeta with Euler factors deleted. In general the residue is multiplied by ∏_{p deleted}(1−Np^−1); the logarithmic derivative still has residue1. Record for the maintainer only, without reviewing/fixing the upstream roadmap. No AN consumer may infer equality of uncompleted residues from this sentence."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "locator": "Current README boundary section and Suggested.lean Layer6.5; current main070dc2becd74419e76303ede84b465ed4a69461f",
+      "note": "General Artin conductor/integrality/conductor–discriminant is assigned to future ArtinRepresentations, explicitly excluded from this roadmap. The current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already contains global lower-ramification and fixed-field discriminant formulas; import them through NFA rather than re-plan them. These post-baseline implementations are ownership evidence, not citations falsely added to the pinned baseline."
     }
   ],
   "review": {
