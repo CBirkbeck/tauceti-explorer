@@ -3203,6 +3203,10 @@
           "where": "AGV B.2",
           "how": "The root identification has domain the n-th tensor power of M."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -3226,7 +3230,7 @@
       ],
       "proofSteps": [
         "Use the canonical bilinear section map into the sheafified tensor product and the unit section.",
-        "Recurse with the same parentheses as tensor powers. The general sheaf tensor/unit identification is an upstream JacobianChallenge interface, recorded as request JAC-A."
+        "Recurse with the same parentheses as tensor powers. Import AlgebraicVectorBundles L0A tensorSection and its tensor/unit comparisons through SF.3/JAC-A; the remaining adapter is their native invertible-sheaf coordinate identification, not a second generic sheaf tensor construction."
       ],
       "acceptance": [
         "Under a trivialization this is ordinary fⁿ; zero sections are allowed."
@@ -3288,6 +3292,10 @@
           "where": "AGV B.2",
           "how": "Defines the actual equation relating the root section to the original section."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -3375,6 +3383,10 @@
           "where": "Yun–Zhang Definition A.2",
           "how": "Permits nilpotent and zero section data."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -3619,6 +3631,10 @@
           "where": "AGV Appendix B",
           "how": "Supplies the scheme-base root construction; algebraic-stack bases use the separately requested atlas descent."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -3957,6 +3973,10 @@
           "where": "Bresciani p. 135",
           "how": "Transition maps identify the finite DVR root tower."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -8040,6 +8060,10 @@
           "kind": "computation",
           "statement": "For a section of O with coefficient z, its square transported by c_2 has coefficient z², including nilpotent z."
         }
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -8081,7 +8105,11 @@
           "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
@@ -8246,7 +8274,11 @@
           "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
+      ]
     },
     {
       "id": "FunctionFieldArithmeticPartII:RS.1/root-fpqc-descent",
@@ -41941,7 +41973,7 @@
     {
       "id": "JAC-A",
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Complete the upstream native invertible-sheaf interface: bilinear global-section tensor map, unit section, coherent n-th tensor powers, pullback preserving invertibility and compatibility of powers and section powers with identity/composition. Use the existing native sheaf and tensor operations; no replacement line-bundle category is acceptable. In trivial-line coordinates, the bilinear tensor-section map followed by the native unit isomorphism must evaluate to multiplication, and the free unit section must have coordinate 1. These are generic native sheaf tensor compatibility lemmas, not new root-specific geometric types.",
+      "need": "Integrate the existing upstream AlgebraicVectorBundles L0A tensorSection, tensor/unit comparisons and coherent strong monoidal module pullback, and L0B preservation of finite local freeness/rank one, through the native InvertibleSheaf interface. Supply the coordinate adapter showing that tensorSection followed by the trivial-line unit isomorphism evaluates to multiplication, that the free unit section evaluates to 1, and that the fixed recursive powers and section powers respect identity/composition and pullback. The general sheaf tensor construction and pullback structure are imports from that roadmap, never new targets here. SF.3/JacobianChallenge supplies the invertible-sheaf integration and the root-specific coordinate consequences consume it.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.0/tensor-power",
         "FunctionFieldArithmeticPartII:RS.0/section-power",
@@ -41951,6 +41983,10 @@
         "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
         "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
         "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
+      ],
+      "upstreamPrerequisites": [
+        "UPSTREAM:AlgebraicVectorBundles:L0A",
+        "UPSTREAM:AlgebraicVectorBundles:L0B"
       ]
     },
     {
@@ -42011,10 +42047,10 @@
       "stageId": "FunctionFieldArithmeticPartII:RS.0",
       "status": "partial",
       "remaining": [
-        "Complete JAC-A: actual native section tensor multiplication and unit evaluation, coherent tensor powers and pullbacks, and their coordinate compatibility; discharge LEAN-SECTION-COMP against those suppliers.",
+        "Complete JAC-A’s native invertible-sheaf integration and section/unit coordinate comparisons, importing AlgebraicVectorBundles L0A–L0B tensorSection and coherent module pullback; prove the root-specific section-power laws recorded by LEAN-SECTION-COMP.",
         "Construct the actual native sheaf RootObject-to-FramedRoot comparison, with both section and power-identification equations and every unit-labelled arrow. Prove local line-frame existence and compatibility with arbitrary test-algebra change.",
         "Use the specified positive-exponent normalization fppf covers to compare locally trivial root data and stackify. Retain zero-section stabilizers, nonzero nilpotents, wild exponents and nonflat coefficient maps; a faithful normalization functor does not make coefficient change faithful.",
-        "Supply general root-object pullback and tensor-power coherence and the higher-universe adapters, beyond the existing two- and three-step chosen affine normalization comparisons. Finish the omitted native geometric signatures and exact-pin full-file elaboration recorded by LEAN-GEOMETRY."
+        "Supply general root-object pullback and tensor-power coherence and the higher-universe adapters, beyond the existing two- and three-step chosen affine normalization comparisons. Finish the omitted native geometric signatures recorded by LEAN-GEOMETRY; the current admitted native file elaborates at the exact pins."
       ]
     },
     {
@@ -42024,7 +42060,7 @@
         "Resolve STACK-GEOM, JAC-A and ORDINARY-STACKS for the actual scheme/stack-base root groupoid, its universal root and two-fibre-product presentation; retain the single canonical reserved owner FunctionFieldArithmeticPartII:key/root-stacks.",
         "Complete the native arbitrary-QCoh fpqc descent equivalence with tensor/unit comparisons and apply it effectively to root objects and arrows in root-fpqc-descent. An affine framed normalization calculation does not provide global line-bundle descent.",
         "Resolve ROOT-ALGEBRAIC and ROOT-COARSE for the finite diagonalizable quotient, coarse universal property, arbitrary base-change compatibility and the regular/DM hypotheses. Preserve the full nonreduced closed fibre, its separate reduced gerbe, and the distinction between arbitrary positive exponents and invertible exponents.",
-        "Finish the actual geometric signatures in LEAN-GEOMETRY and elaborate the canonical suggested file against both exact pins; the existing native invariant-algebra evidence does not close the quotient-stack comparisons."
+        "Finish the actual geometric signatures in LEAN-GEOMETRY. The canonical admitted file now elaborates at both exact pins; its native invariant-algebra evidence does not close the quotient-stack comparisons."
       ]
     },
     {
@@ -42035,7 +42071,7 @@
         "Resolve TOWER-AFF and TOWER-TYPING: construct local line frames and the inverse limit of finite frame torsors, prove it is an fpqc torsor, and establish the infinite affine quotient equivalence with all finite projections and base changes. The existing affine Spec limit, coaction, invariant algebra and Cartesian tensor comparison are retained prerequisites, not remaining algebraic tasks.",
         "Resolve KUMMER-FINITE and prove finite-stage class lifting and isomorphism detection for actual coherent torsor towers. Identify the reduced infinite DVR gerbe after a chosen neutralization, including its automorphisms and the change of origin under a different neutralization.",
         "Retain infinite H1 and torsors on the fpqc site, finite Kummer on the fppf site, and the compatible roots-of-two torsor over Q that is not fppf-locally trivial. Do not replace a two-limit by an inverse limit of sets or by base-field points.",
-        "Resolve the shared STACK-GEOM, JAC-A and ORDINARY-STACKS carriers, complete higher-universe adapters, and finish LEAN-GEOMETRY exact-pin canonical typing. No algebraicity of finite presentation is asserted for the infinite quotient."
+        "Resolve the shared STACK-GEOM, JAC-A and ORDINARY-STACKS carriers, complete higher-universe adapters, and finish the actual geometric signatures omitted under LEAN-GEOMETRY. No algebraicity of finite presentation is asserted for the infinite quotient."
       ]
     },
     {
@@ -42059,7 +42095,7 @@
       "status": "partial",
       "remaining": [
         "Resolve FA-ADELES and CURVE-GEOM for function-field completions, residue units, idele gluing and the root Picard double-action groupoid with its degree.",
-        "Complete the groupoid and geometric signatures (LEAN-GEOMETRY), retaining the noninjective modified-unit map and its product of mu_2 stabilizers, and the inverse-uniformizer convention for O_X(x)."
+        "Complete the actual signed right-action root-divisor groupoid and its separate Picard double-quotient functor (LEAN-GEOMETRY), retaining both positive and negative divisors, principal ideles before the further quotient, labelled product-of-mu_2 stabilizers and the O_X(−E) valuation sign."
       ]
     },
     {
@@ -42154,7 +42190,7 @@
     {
       "id": "LEAN-GEOMETRY",
       "title": "Signatures blocked by absent geometric carriers",
-      "detail": "The suggested file prototypes the native root-object and affine-action fragment. All other geometric signatures need the actual algebraic-stack, Picard-stack, torsor, root pullback and constructible/lisse sheaf types from the requests and ST-LISSE/ST-OPS. The file carries an exhaustive omission ledger by declaration/API/test name; it does not replace missing types or conditions with arbitrary predicate fields. Complete those typed signatures after their suppliers fix their concrete types, and compile with an existing pinned build. A pinned Mathlib build exists, but no compiled Tau Ceti build with these imports was found; full-file elaboration remains open. Review checkpoint: rootDivisorGroupoid and its six API/four test signatures require the actual action-groupoid, idele, divisor and Picard carriers. Their omission ledger is explicit in the suggested file; no arbitrary predicate substitutes for these types.",
+      "detail": "The suggested file prototypes the native root-object and affine-action fragment. All other geometric signatures need the actual algebraic-stack, Picard-stack, torsor, root pullback and constructible/lisse sheaf types from the requests and ST-LISSE/ST-OPS. The file carries an exhaustive omission ledger by declaration/API/test name; it does not replace missing types or conditions with arbitrary predicate fields. Complete those typed signatures after their suppliers fix their concrete types, and compile with an existing pinned build. The complete admitted native file now elaborates against both exact pins. The omission ledger still has no typed actual geometric signatures, so that compilation does not close this gap. Review checkpoint: rootDivisorGroupoid and its six API/four test signatures require the actual action-groupoid, idele, divisor and Picard carriers. Their omission ledger is explicit in the suggested file; no arbitrary predicate substitutes for these types.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:key/root-stacks",
         "FunctionFieldArithmeticPartII:RS.1/two-pullback",
@@ -42243,7 +42279,7 @@
     {
       "id": "LEAN-SECTION-COMP",
       "title": "Native root-coordinate proofs after signature completion",
-      "detail": "The previously omitted RootObject.test_trivialization now has a native suggested signature, using actual line isomorphisms, the pinned freePUnitIsoUnit coordinate map and the computed image-of-one coefficient. Six nodes expose the canonical trivial-power comparison, section-power coordinates, unit coefficient, root equation and arrow scalar laws, including the promoted section-power transport API. The generic section-tensor multiplication/unit evaluation contract stays with JAC-A/SF.3. Its proof is not certified by source-only signature inspection, and no Tau Ceti build at the exact pin was found. Complete the actual supplier proofs, tensor-power coherence and full-file elaboration before closing this gap.",
+      "detail": "The previously omitted RootObject.test_trivialization now has a native suggested signature, using actual line isomorphisms, the pinned freePUnitIsoUnit coordinate map and the computed image-of-one coefficient. Six nodes expose the canonical trivial-power comparison, section-power coordinates, unit coefficient, root equation and arrow scalar laws, including the promoted section-power transport API. The generic tensorSection and coherent module pullback are imported from current upstream AlgebraicVectorBundles L0A–L0B through JAC-A/SF.3. The native invertible-sheaf coordinate adapter and root-specific power laws still need actual proofs. The complete admitted native file elaborates at the exact pins, which does not certify those proofs or close this gap.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.0/root-object",
         "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
@@ -42912,7 +42948,7 @@
       "source": "YZ19",
       "inheritedReview": {
         "verdict": "confirmed",
-        "reason": "On the smooth d-dimensional open X^{√R,◦}_d, K_{d,i} restricts to a local system in degree 0, which is perverse only after the shift [d]. YZ17 p. 869 says 'K_i is a shifted simple perverse sheaf'. All later uses (IC characterizations, stalk dimensions) are consistent with the shifted reading.",
+        "reason": "On the smooth d-dimensional open X^{√R,◦}_d, K_{d,i} restricts to a local system in degree 0, which is perverse only after the shift [d]. The normalization on YZ17 p.869 also treats K_i as a shift of a simple perverse sheaf. All later uses (IC characterizations, stalk dimensions) are consistent with the shifted reading.",
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "§7.1.1 p.506 and §A.2.1 p.519, perversity terminology; same issue in the corresponding arXiv v2 passage collated",
         "amendedCorrection": "K_{d,i} is a shifted perverse sheaf: K_{d,i}[d] is perverse. The same applies to p^√R_{d,!}L^{⊠d} and L_d in §A.2.1, and to 'The perverse sheaf L_d' in Lemma A.7."
@@ -43015,7 +43051,7 @@
         "reason": "Checked on the page image. μ_{d1,d2} lives on Pic^{√R,d1} × Pic^{√R,d2}, and there is no map from X^√R_{d1+d2} to that product. Since AJ_{d1+d2}∘add = mult∘(AJ_{d1}×AJ_{d2}), the pullback of μ_{d1,d2} along AJ_{d1}×AJ_{d2} is exactly α_{d1,d2}: add^*L_{d1+d2} ≅ L_{d1} ⊠ L_{d2}, which the sentence invokes.",
         "by": "REV-PAPER-YUN-ZHANG-19",
         "originalLocator": "LemmaA.11 proof p.523, descent pullback; published version",
-        "amendedCorrection": "Since AJ^√R_{d1} × AJ^√R_{d2} has connected geometric fibres, it suffices to give μ_{d1,d2} after pulling back to X^√R_{d1} × X^√R_{d2}, where it is α_{d1,d2} of Lemma A.8."
+        "amendedCorrection": "Construct the comparison on the two-factor root Picard product and check it after pullback by AJ_d1×AJ_d2; connected geometric fibres identify it there with the multiplication comparison of Lemma A.8."
       },
       "review": {
         "verdict": "confirmed",
@@ -43030,7 +43066,7 @@
       "kind": "misprint",
       "locator": "Definition A.2, p. 515 (same in arXiv v2)",
       "printed": "The source refers to restricting a_R.",
-      "correction": "… where a_R is the restriction of a to R × S.",
+      "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
       "reason": "Checked on the page image. a is the global section in the previous bullet.",
       "affects": "nothing",
       "known": "Previously recorded in PAPER-YUN-ZHANG-19/E66 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
@@ -43059,7 +43095,7 @@
       "kind": "misprint",
       "locator": "Lemma A.10, proof, p. 522",
       "printed": "The source chooses a divisor D.",
-      "correction": "Let D be an effective divisor on X − R of degree d′ ≥ max{2g−1, 1} + ρ − d.",
+      "correction": "Choose an effective divisor D supported in X−R with deg D=d′≥max{2g−1,1}+ρ−d.",
       "reason": "Checked on the page image. The proof uses T_D: X^√R_d → X^√R_{d+d′}, addition of D, and (A.7), which are defined only for effective D. Effective divisors of every large degree exist on X − R.",
       "affects": "nothing",
       "known": "Previously recorded in PAPER-YUN-ZHANG-19/E68 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
@@ -43236,6 +43272,13 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge"
       ],
       "note": "The native invertible-sheaf tensor operations and congruence/unit isomorphisms exist, but the root construction additionally needs the concrete section tensor map, power reassociation coherence and invertibility-preserving pullback. These are imported upstream interfaces; this packet neither re-plans that roadmap nor asserts its Picard/Riemann–Roch targets are already built."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+        "tauceti:TauCetiRoadmap/JacobianChallenge"
+      ],
+      "note": "The 2026-10-11 current-main comparison imports AlgebraicVectorBundles L0A–L0B for tensor sections and coherent module pullback through SF.3/JAC-A. The remaining need is the native invertible-sheaf integration and its specified section/unit coordinate laws; generic tensor, pullback, finite-local-freeness and relative Spec infrastructure is already owned upstream."
     }
   ],
   "sourceCoverage": [
@@ -45291,10 +45334,10 @@
     "boundary": "Finite affine universal coinvariance and its native invariant-algebra equivalence have separate exact-Mathlib proof evidence. Infinite coinvariants, stack coarse geometry, full exact-pin Tau typing and both routed-paper source contracts remain required; no stage or implementation closes."
   },
   "planningPass": {
-    "date": "2026-10-04",
-    "agent": "Codex — codex-5ebb6f",
-    "baseCommit": "28e0aff2b738637f9ae5eb4675cb2a0e1d99274b",
-    "protocolSha256": "7c5d4c0d0b218e8573e51fad37a432ae3ed7a7261f78b8fa084420d547d578b2",
+    "date": "2026-10-11",
+    "agent": "Codex — codex-MYqikH",
+    "baseCommit": "517d1829d0fc041f39f5b88fd54e5ba8459ba55c",
+    "protocolSha256": "535de3767c8de6cf81088a91daf2f3c6c057e7f77c71e2033ba7529eeddeaf79",
     "nodeBudget": 300,
     "incomingNodes": 717,
     "addedNodes": 0,
@@ -45313,7 +45356,7 @@
     },
     "mathematicalClosure": false,
     "sourceBoundary": "Both source routes and the 38-contract symplectic split inventory remain unchanged; completing the pass does not accept the split or certify its proposed sibling stages.",
-    "compilation": "No Lean run in this pass. The canonical file still lacks an existing exact-pin Tau Ceti build; predecessor proof receipts are preserved and attributed separately."
+    "compilation": "Complete canonical file elaborated at the exact pins with zero errors and only admitted-proof warnings. Actual missing geometric signatures remain an explicit omission ledger; no implementation or stage closure is claimed."
   },
   "reviewHistory": [
     {
@@ -53333,5 +53376,207 @@
       "status": "unverified",
       "reason": "Canonical lean-check stopped immediately at missing TauCeti.Algebra.AddCircle.olean. No declaration elaborated; no build, update, cache fetch or language server started."
     }
-  }
+  },
+  "upstreamImports": [
+    {
+      "ref": "UPSTREAM:AlgebraicVectorBundles:L0A",
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layer": "L0A",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "integrationOwner": "SchemeAndStackFoundations:SF.3",
+      "need": "The existing tensorSection, tensorUnderlyingIso, tensorUnitIso, and coherent strong symmetric monoidal module pullback; use them to obtain the native invertible-sheaf section and unit coordinate adapters, rather than constructing the general module infrastructure again.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "FunctionFieldArithmeticPartII:key/root-stacks",
+        "FunctionFieldArithmeticPartII:RS.2/transition",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
+      ],
+      "snapshotBoundary": "Current upstream main postdates the atlas snapshot. These are roadmap imports, not claims of declarations at the pinned library commits. Read README and Suggested.lean on 2026-10-11."
+    },
+    {
+      "ref": "UPSTREAM:AlgebraicVectorBundles:L0B",
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layer": "L0B",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "integrationOwner": "SchemeAndStackFoundations:SF.3",
+      "need": "Arbitrary pullback of finite locally free sheaves and rank-one comparison with the existing InvertibleSheaf carrier.",
+      "neededBy": [
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "FunctionFieldArithmeticPartII:key/root-stacks",
+        "FunctionFieldArithmeticPartII:RS.2/transition",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
+      ],
+      "snapshotBoundary": "Current upstream main postdates the atlas snapshot. These are roadmap imports, not claims of declarations at the pinned library commits. Read README and Suggested.lean on 2026-10-11."
+    }
+  ],
+  "revision": {
+    "job": "DESIGN-FunctionFieldArithmeticPartII~2",
+    "issue": 6380,
+    "agent": "Codex — codex-MYqikH",
+    "date": "2026-10-11",
+    "baseCommit": "517d1829d0fc041f39f5b88fd54e5ba8459ba55c",
+    "incomingNodes": 717,
+    "addedNodes": 0,
+    "reviewPreserved": true,
+    "changes": [
+      "Synchronize all independently corrected node statements, hypotheses, prerequisites, sources, APIs and tests into the definitive reader.",
+      "Distinguish the signed right-action root-divisor groupoid from the Picard double quotient and the separate effective root-section moduli.",
+      "Restore the fifteen accepted finite cyclic-coordinate declaration specifications missing from the reader.",
+      "Import current upstream AlgebraicVectorBundles L0A–L0B through SF.3/JAC-A, keeping only the invertible-sheaf integration and coordinate laws outstanding.",
+      "Remove the remaining inline source excerpts; retain locators and own-word source matches.",
+      "Complete exact-pin canonical suggested-file elaboration while keeping missing geometric signatures in the omission ledger."
+    ],
+    "freshSourceReads": [
+      {
+        "sourceId": "YZ19",
+        "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
+        "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+        "date": "2026-10-11",
+        "scope": "§6.2.3 pp.498–499, Appendix A.1–A.3 pp.514–526, including Lemma A.4 claim, Lemma A.5, Lemma A.9 and the double-cover norm inputs."
+      },
+      {
+        "sourceId": "AGV08",
+        "url": "https://arxiv.org/pdf/math/0603151v2",
+        "sha256": "c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb",
+        "date": "2026-10-11",
+        "scope": "Appendix B.1–B.2 pp.52–54, scheme-base root triples, full zero fibre, G_m quotient and two-fibre-product constructions."
+      },
+      {
+        "sourceId": "TV17",
+        "url": "https://arxiv.org/pdf/1410.1164v2",
+        "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+        "date": "2026-10-11",
+        "scope": "§3 and §3.1 pp.12–16, finite characters, transition direction, genuine two-limit and fpqc quotient, with proofs."
+      }
+    ],
+    "sourceBoundary": "Historical source findings, version collations and authored deductions retain their prior receipts and independent-review attribution. This revision does not claim a fresh full review of every source or acceptance of the AV23 sibling route.",
+    "lean": {
+      "date": "2026-10-11",
+      "command": "lean-check research/blueprint/suggested/FunctionFieldArithmeticPartII.lean",
+      "status": "elaborated",
+      "exitCode": 0,
+      "errors": 0,
+      "admittedProofWarnings": 1073,
+      "otherWarnings": 0,
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+      "codeSha256": "8dd2fed8d1aa7dd844548ab260b4d2bf23d76818e661531a55e2cb91dfc4fcf1",
+      "scope": "Complete canonical file at the exact pins, including all native declarations and examples. The leading explanatory comment was updated after the successful check; the checked code is identical. Missing actual geometric types remain in the omission ledger. Six failed proof fields were changed to admitted proof sketches without weakening any type, data map or hypothesis.",
+      "logSha256": "95b582ad406f0ddaf80e6fb013d3f060553c7c63a94652e6e59fdd16604ac140",
+      "directTauCetiImports": "All four directly imported Tau Ceti source files in the shared build were byte-compared with their exact f790474 git objects; all match. The shared Mathlib source HEAD is 082e2d3."
+    },
+    "immutableSourceReceipts": [
+      {
+        "sourceId": "FactorialCoactionCalculations-codex-a71f92",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/b1f05aed7e30f49e06f2620842851c0ca9702b0c/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+        "sha256": "50af9163346ebd62216b3903352fd9af9482f204538a40ecbffc5f1f631bb6bc",
+        "bytes": 144211,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "FactorialCoefficientNaturality-codex-rtOQ9t",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/a1b811af3c68ebf8277f57334475669a79c5e452/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+        "sha256": "4a20025a047fbc2ec73ba68907adc61aaf6f3e6ca9429e20a687cbb83a3d603e",
+        "bytes": 220457,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "FactorialConvolutionPoints-codex-5ebb6f",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/04e2ce014b6b5ee40c61bfff758fa5aff1e55016/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "a1d130a2d8ce8da4512e0cc17491bc1443e4f222cb48d426619ecea7210ba1b8",
+        "bytes": 585451,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "FactorialPointAction-codex-a71f92",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/71541cc03d659e6790ee25fb92b9b9fda577f5e2/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "10b6ea89549ddfb5cbeac2dde537ab32ee580d18b55df1ef11d5972b831a065e",
+        "bytes": 611611,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "FiniteCyclicCoordinates-codex-7e92bd",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/48a75526ba9c32c5401328c8611a38e425a019ce/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+        "sha256": "7629a89bfd6449e4ff4de5f5197bef2088d12583b15337c430429b960b8a5b62",
+        "bytes": 295399,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "QZCoordinates-codex-J6LwjP",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/aae1a6c273388af273204f2d9d2bb4afb96da71f/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "3174541b5589952de8231cf692358f48b7230bff63ee3ebb05a54233d0c32033",
+        "bytes": 644988,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "QZCoaction-codex-a71f92",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/4c16f370fda9213bd8e938345dc8aec90ac84608/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "dd5b6cb0cf5b0726fd0cfa1c30baae6d283db97bda4c096f8e469146b8e54857",
+        "bytes": 656522,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "QZCoefficient-codex-rtOQ9t",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/9a1dd4fb6f950d9ca6f37fa8ee8814700ad6a6d6/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "6d8a9e55fe371854cdc719b11e106c8edff363fc3ae37290e62746f148fb4626",
+        "bytes": 677334,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "QZNative-codex-7e92bd",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/29a0d57d6af9459dd1d32d6a1723b9a77bb43c9c/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md",
+        "sha256": "76be897c917d8d4c222f0dac864c1bff05c0cbf8e5a79e2f4334564360a6943d",
+        "bytes": 35311,
+        "date": "2026-10-11"
+      },
+      {
+        "sourceId": "InfiniteCoinvariants-codex-a71f92-N24",
+        "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/1644fce584291a1327802b3f2a977a072f3b59d1/research/blueprint/readmes/FunctionFieldArithmeticPartII.md",
+        "sha256": "81eae1d7a63717d341561ff72094f1bb631079bef623d30d8b69a3b6b1d4f7e7",
+        "bytes": 720049,
+        "date": "2026-10-11"
+      }
+    ],
+    "addressesReview": [
+      "Reader contradiction for GC.2/root-divisor-groupoid resolved by the signed right-action construction, distinct double quotient, six APIs and four distinguishing tests.",
+      "All reviewer-corrected node blocks synchronized, including the smooth G_m wild atlas, scheme-base regularity, smooth irreducible evaluation domain/nonzero sections, geometric weighted connectivity, degree-two norm input, zero tensor exponents, corrected determinant example, essential-image constructor dependency and source locators.",
+      "The ten source retrieval corrections now have matching immutable links in the reader reference register and freshly verified SHA-256 receipts.",
+      "The old source-excerpt requirement is superseded by current PROTOCOL section 5 and the maintainer instruction; source locators and own-word matches are retained."
+    ]
+  },
+  "planningPassHistory": [
+    {
+      "date": "2026-10-04",
+      "agent": "Codex — codex-5ebb6f",
+      "baseCommit": "28e0aff2b738637f9ae5eb4675cb2a0e1d99274b",
+      "protocolSha256": "7c5d4c0d0b218e8573e51fad37a432ae3ed7a7261f78b8fa084420d547d578b2",
+      "nodeBudget": 300,
+      "incomingNodes": 717,
+      "addedNodes": 0,
+      "reason": "The incoming packet exceeds the node budget; the issue requires no new nodes and completion of the coverage pass for independent review.",
+      "stageNodeCounts": {
+        "FunctionFieldArithmeticPartII:RS.0": 235,
+        "FunctionFieldArithmeticPartII:RS.1": 11,
+        "FunctionFieldArithmeticPartII:RS.2": 409,
+        "FunctionFieldArithmeticPartII:GC.0": 3,
+        "FunctionFieldArithmeticPartII:GC.1": 10,
+        "FunctionFieldArithmeticPartII:GC.2": 3,
+        "FunctionFieldArithmeticPartII:GC.3": 12,
+        "FunctionFieldArithmeticPartII:GC.4": 8,
+        "FunctionFieldArithmeticPartII:GC.5": 13,
+        "FunctionFieldArithmeticPartII:GC.6": 13
+      },
+      "mathematicalClosure": false,
+      "sourceBoundary": "Both source routes and the 38-contract symplectic split inventory remain unchanged; completing the pass does not accept the split or certify its proposed sibling stages.",
+      "compilation": "No Lean run in this pass. The canonical file still lacks an existing exact-pin Tau Ceti build; predecessor proof receipts are preserved and attributed separately."
+    }
+  ]
 }
