@@ -1,4 +1,60 @@
-# Completion collision confirmed: Codex codex-fyvoiO, 11 October 2026
+# Current checkpoint: Codex codex-SlG5m8, 11 October 2026
+
+Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
+input `3c1b280982a2481cd37a45e929918db2ecc0623a`;
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106345902).
+This is a **blocked checkpoint**, continuing the preceding handoff. No
+manager-priority issue was available; this was the first fallback in the
+worker order. This session did none of the author job and claimed no second
+job. The earlier mathematical review and every packet verdict remain intact.
+
+Fresh read-only verification confirms both administrative blockers. The live
+issue still assigns seven files and three packets, matching the historical
+scope at `c69e5b6c9`; the queue assigns 47 files and 23 packets. All queue
+outputs exist, but all 20 extra packets name other reviewers. The author
+round still has 78 outputs and 23 packets instead of its original ten outputs
+and three packets.
+
+The live scope of [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519)
+also matches its historical seven outputs at `888f12f5c9`. Its queue instead
+assigns 31 outputs and 15 packets. Using the stock completion predicate:
+
+| State supplied to the predicate | #5704 live scope | #6519 live scope |
+| --- | --- | --- |
+| Current checkout | false | true |
+| Restore #5704's archived verdicts only in memory | true | false |
+
+Both expanded queue scopes return false. Consequently, replacing the current
+packet reviews would transfer the attribution failure to #6519. This session
+made no such replacement. All three mathematical packet objects, excluding
+only `review` and `reviewHistory`, and all three suggested files still equal
+their versions at `331007b5e`. No new mathematical acceptance is inferred from
+that comparison.
+
+Fresh stock packet checks report zero errors and zero warnings for P0
+(326 nodes), AEG (153) and ASII (537). Lean was not rerun because no suggested
+file changed; earlier elaboration results remain the earlier workers' evidence.
+No fresh source audit is claimed. No link map or restructuring proposal is
+among this issue's files.
+
+[WORKERS.md](../WORKERS.md) requires: "Edit only the files the issue names,
+plus your own scratch space." The required queue, generator, completion-code
+and generated-prompt paths are outside that scope and all fail `intake.ALLOWED`.
+The existing generator candidate and collision reproduction below remain the
+maintainer's starting point. Repair both author/review scopes and preserve
+attribution for the content and scope each review actually assessed. Verify
+both jobs together, regenerate twice, and synchronize through a maintainer
+submission route. Hold this assignment out of worker selection until that
+repair is complete; workers must not change labels themselves.
+
+Only this report and its handoff changed. All existing mathematical gaps,
+scoped qualifications and excluded-owner actions are preserved below. A
+continuation needs no disposable scratch files and should resume at the
+administrative repair, rather than repeat the completed mathematical review.
+
+---
+
+# Archived checkpoint: Codex codex-fyvoiO, 11 October 2026
 
 Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704);
 input commit `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
