@@ -202,6 +202,10 @@ example (P : GaloisCoefficientFamily K G) {R S} (f : R ⟶ S) (g : G) x :
 -- TauCeti.NonabelianCohomology.NC3.GaloisCoefficientFamily.identity_test
 example (P : GaloisCoefficientFamily K G) (R) (x : P.obj R) :
     P.map (𝟙 R) x = x := by sorry
+-- TauCeti.NonabelianCohomology.NC3.GaloisCoefficientFamily.composition_test
+example (P : GaloisCoefficientFamily K G) {R S T}
+    (f : R ⟶ S) (g : S ⟶ T) (x : P.obj R) :
+    P.map (f ≫ g) x = P.map g (P.map f x) := by sorry
 end GaloisCoefficientFamily
 
 /-- NC.3/cohomology-functor: the actual gauge-orbit functor on coefficient algebras. -/
@@ -234,6 +238,12 @@ example (P : GaloisCoefficientFamily K G) {R S} (f : R ⟶ S) (x : P.obj R)
     (c : Z1 G (P.obj R)) :
     (cohomologyFunctor P).map f (classOf G (P.obj R) (x • c)) =
       (cohomologyFunctor P).map f (classOf G (P.obj R) c) := by sorry
+-- TauCeti.NonabelianCohomology.NC3.cohomologyFunctor_representative_test
+example (P : GaloisCoefficientFamily K G) {R S} (f : R ⟶ S)
+    (c : Z1 G (P.obj R)) (d : Z1 G (P.obj S))
+    (hd : ∀ g, d.val g = P.map f (c.val g)) :
+    (cohomologyFunctor P).map f (classOf G (P.obj R) c) =
+      classOf G (P.obj S) d := by sorry
 end CoefficientFamily
 
 section Loci
@@ -248,8 +258,8 @@ def neutralLocus (he : ∀ {R S} (a : R ⟶ S), T.map a (e R) = e S) : CommAlgCa
   map_comp := by sorry
 lemma neutralLocus_mem (R) (x : F.obj R) :
     (∃ y : (neutralLocus F T f e he).obj R, y.val = x) ↔ f.app R x = e R := by sorry
-lemma neutralLocus_ext (R) (x y : (neutralLocus F T f e he).obj R)
-    (h : x.val = y.val) : x = y := by sorry
+lemma neutralLocus_ext (R) (x y : (neutralLocus F T f e he).obj R) :
+    x = y ↔ x.val = y.val := by sorry
 lemma neutralLocus_map_val {R S} (a : R ⟶ S) (x : (neutralLocus F T f e he).obj R) :
     ((neutralLocus F T f e he).map a x).val = F.map a x.val := by sorry
 def neutralLocus_inclusion : neutralLocus F T f e he ⟶ F := sorry
@@ -304,7 +314,8 @@ lemma selmerFunctor_localization_val (v : ι) (R)
     (selmerFunctor_localization F L r C hC v).app R x = (r v).app R x.val := by sorry
 -- Empty collection: the functor is the whole global cohomology functor.
 -- TauCeti.NonabelianCohomology.NC3.selmerFunctor_empty_test
-example (hι : IsEmpty ι) (R) : Nonempty ((selmerFunctor F L r C hC).obj R ≃ F.obj R) := by sorry
+example (hι : IsEmpty ι) (R) :
+    ∃ e : (selmerFunctor F L r C hC).obj R ≃ F.obj R, ∀ x, e x = x.val := by sorry
 -- A rejected class at any one bad place must be rejected globally.
 -- TauCeti.NonabelianCohomology.NC3.selmerFunctor_bad_place_test
 example (R) (x : F.obj R) (v : ι) (hx : (r v).app R x ∉ C v R) :
@@ -312,7 +323,7 @@ example (R) (x : F.obj R) (v : ι) (hx : (r v).app R x ∉ C v R) :
 -- Universal local conditions impose no constraint.
 -- TauCeti.NonabelianCohomology.NC3.selmerFunctor_universal_test
 example (h : ∀ v R, C v R = Set.univ) (R) :
-    Nonempty ((selmerFunctor F L r C hC).obj R ≃ F.obj R) := by sorry
+    ∃ e : (selmerFunctor F L r C hC).obj R ≃ F.obj R, ∀ x, e x = x.val := by sorry
 end Selmer
 
 /-!
@@ -332,5 +343,9 @@ Precisely omitted signatures (G4 in the packet):
 * depth-two-cup-obstruction: native continuous Qp cup products with Tate twists.
 Each target has an exact mathematical statement and prerequisites in the packet and reader.
 The file does not substitute a theorem about arbitrary supplied maps for these targets.
+Independent review REV-AnabelianGeometryAndNonabelianChabauty--NC.3 corrected the
+packet's source locators and all-algebra hypotheses. The packet is authoritative for
+these corrections until assembly synchronizes the reader. Its finite-quotient target
+uses the apex of explicitFiniteQuotientCocone1; explicitFiniteQuotientColimit1 is IsColimit.
 -/
 end TauCeti.NonabelianCohomology.NC3
