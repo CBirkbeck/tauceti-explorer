@@ -1,5 +1,31 @@
 # Handoff — REV-FIX-RT-AREA-algebraicgeometry~2
 
+Codex (GPT-6), session `codex-BQCXjF`, 11 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6105760899). Review base: `43d1333d8377cdfa82317a22d2a67ec03b9fdab6`. **Scope-blocked checkpoint; actual dispatch completeness remains false.** Only this report’s [companion review](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) and this handoff were changed. Five issue-named packet reviews remain unchanged. The prepared seven-path candidate was independently validated but not applied because the authorization request remains unanswered.
+
+## Required action before redispatch
+
+Refresh #5702 from the canonical queue, or authorize the seven omitted paths listed in the preserved recipe below. [WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue names, plus your own scratch space.” The live issue still names five pairs, and the queue requires eleven. Another five-file audit cannot change this mismatch. The queue-supported refresh command, inspected but not executed, is:
+
+```sh
+python3 research/blueprint/issues.py refresh --ids 'REV-FIX-RT-AREA-algebraicgeometry~2'
+```
+
+Once scope is resolved, apply only the six missing area-review records, Adic’s two qualified cycle paragraphs and PEL’s API/signature prime hypothesis from the exact recipe below. Archive each entire existing review unchanged in `reviewHistory`; preserve earlier histories, node/source decisions and supplier requests. Keep the newer Motives canonical-map repair. The final area verdicts are eight accepted and three needs changes (Motives, C0 and ShimuraData); a complete negative review is a completed review, and those revisions are separate jobs.
+
+## Fresh checks and resumption
+
+All eleven actual packets and six candidates pass exact-pin packet checks with zero errors/warnings. All seven candidate paths pass ownership/intake rules and full history/request-preservation assertions. A read-only candidate overlay is complete; the actual checkout is incomplete. The graph has 15,527 edges, 15,521 after six forwarding cuts, with all three displayed paths surviving and the reverse MC.4 → SF.4 edge cyclic. The repaired complete PEL candidate freshly elaborates: exit 0, 784 admission warnings only, SHA-256 `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`. All ten unchanged Suggested hashes match the preceding receipt table; those full-file elaborations were not repeated. ShimuraData retains its negative predecessor receipt.
+
+A fresh exact-pin index independently verifies all 5,477 Tau Ceti Lean files against f790474 and Mathlib’s exact 082e2d3 HEAD. Primary source qualifications, current supplier boundaries and the Motives canonical coefficient-map contracts were reread; see the current report for provenance. No source passage, upstream change, graph change or new implementation is submitted. No Lean process remains running.
+
+After applying the authorized candidate, run all eleven packet checks against the exact pins, changed-file intake checks, history/request-preservation assertions, and require `issues.deliverables_complete` on the **actual checkout** to be true. Update report/handoff to completed status and open the completion PR with `Refs #5702`. The complete bounded recipe below survives deletion of this run’s scratch directory.
+
+## Preserved predecessor recipe: codex-Gl72hU
+
+The following preceding handoff is unchanged. Its earlier base, session-specific checks and unresolved authorization refer to codex-Gl72hU; the current state and newly reproduced checks are stated above.
+
+# Handoff — REV-FIX-RT-AREA-algebraicgeometry~2
+
 Codex (GPT-6), session `codex-Gl72hU`, 11 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6105501040). Scope-blocked checkpoint following codex-b4PGyE's [#8716](https://github.com/CBirkbeck/tauceti-explorer/pull/8716): the five issue-named packet reviews already identify this job and are preserved unchanged. Fresh work reconstructs the 15,527/15,521-edge graph and three surviving paths; checks current upstream boundaries, pinned declaration statements and every Suggested-file hash; rereads Stacks approximation, Lan's prime corollary, de Jong's pointed cover and Tate's geometric table; validates all eleven actual packets and six candidates; and elaborates the exact repaired PEL candidate. ShimuraData's unchanged hash matches codex-b4PGyE's full-file failure receipt, which was not repeated. The seven additional queue-owned paths remain unapplied while the scope question is unanswered.
 
 ## Resolve scope before another worker starts
