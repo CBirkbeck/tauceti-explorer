@@ -166700,14 +166700,14 @@
    "known": "Corrected in BDMTV2023 Remark3.17; also PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E5.",
    "searched": [
     "Read the cited published passage and adjacent argument.",
-    "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+    "Checked sequel Remark3.17 and the existing paper extraction sourceIssues; both record the converse correction."
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Confirmed in the published Annals lemma and independently in sequel Remark3.17 p.16. The forward rational-cycle implication is sufficient; the rational-lattice converse is invalid."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E502",
@@ -166724,10 +166724,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Published pp.899 and907 do not supply the missing Sha input for full global finite cohomology. BD I §2.3 p.9 and Proposition5.5 pp.20–22 justify the Mordell–Weil restriction and rational-divisor classes instead."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E503",
@@ -166744,10 +166744,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Theorem6.6 and Corollary6.7 p.929 concern the 13-adic construction. The first model on p.930 is good away from13 and supplies the omitted step, including intrinsic good reduction at2."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E504",
@@ -166765,10 +166765,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Published equations(18)–(19) pp.907–908 conflict with the defined residual hp−h. The sum identity forces the negative sign, also explicit in BD I Proposition5.5 p.21; nonzero one-place tests detect the discrepancy."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E505",
@@ -166786,10 +166786,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "The zero correspondence satisfies symmetry and cup-zero but fails the definition immediately preceding published Lemma2.4 p.900. Retaining nonzero repairs the equivalence and preserves absolute simplicity."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E506",
@@ -166806,10 +166806,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan and Netan Dogra, Quadratic Chabauty and rational points II: generalised height functions on Selmer varieties, arXiv:1705.00401v2, July 2018; PDF pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Checked arXiv Lemma4.2 p.22 and the publisher IMRN §4 Lemma4.2 proof. The identity coset is necessarily fixed. The correct singleton condition must be established on every twist to prove injectivity on all cohomology fibres."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E507",
@@ -166827,10 +166827,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Balakrishnan, Dogra, Muller, Tuitman and Vonk, Cartan13 supplementary first-chart Magma script, Supplement to BDMTV2019; Git commit e0dad89b5771312da3354531fc51e1e335a72ee3",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "At the pinned supplementary commit, U1.m line358 passes betafil1 for class2 whereas line356 uses betafil2. heights.m line332 subtracts the supplied vector; the distinct vectors on published p.931 establish the mismatch. This confirms a replay obligation, not failure of the seven-point theorem."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E508",
@@ -166847,10 +166847,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Published equation(30) p.916 fixes Omega transpose times Z times dOmega. For alternating Z, reversing the differentiated factor as on p.918 negates that term. The packet retains the gauge convention."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E509",
@@ -166867,10 +166867,10 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "Published equation(41) p.921 fixes left I(x0,x) and right I(b,b0). The integral limits in the p.923 display reverse those conventions; endpoint transport must keep the ordered factors."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E510",
@@ -166887,10 +166887,31 @@
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
-   "citation": "Sources of the blueprint of AnabelianGeometryAndNonabelianChabauty",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk, Explicit Chabauty–Kim for the split Cartan modular curve of level 13, Annals of Mathematics 189 (2019), 885–944",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "The general basis on published p.909 is not explicitly Hodge adapted, while the block filtration calculation pp.916–918 needs the first g forms holomorphic. The worked basis p.930 supplies that property."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E511",
+   "kind": "misprint",
+   "locator": "BD I arXiv1601.00388v2, Theorem6.3 p.26; §6.2 p.24 and E_Z construction p.25",
+   "printed": "The Theorem6.3 display compares E_Z with H_X(x−b,D_Z)(−1), although both E_Z and H_X were defined with grades Qp,V,Qp(1).",
+   "correction": "Compare E_Z=A_Z^*(1) with H_X(x−b,D_Z) without the extra(−1). The local height equality then uses Tate-dual symmetry.",
+   "reason": "The added twist changes the rigidified graded pieces. The proof of Theorem1.2 immediately following Theorem6.3 itself uses the untwisted isomorphism and local height identity.",
+   "affects": "a stated result",
+   "known": "new in the version read; the version of record could not be obtained",
+   "searched": [
+    "Read arXiv v2 §§6.2–6.4 and the following proof of Theorem1.2.",
+    "Checked the Oxford accepted-manuscript listing and the NSF author-copy search passage; no separate correction was located.",
+    "Tried the Duke DOI/Project Euclid article and PDF; the server returned an HTML access challenge, not the published mathematical text. This finding is scoped solely to arXiv v2."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
+   "citation": "Jennifer S. Balakrishnan and Netan Dogra, Quadratic Chabauty and rational points I: p-adic heights, arXiv:1601.00388v2, 1 May 2018; PDF pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+   "reviewReason": "The v2 graded-piece definitions on pp.24–25 and untwisted comparison in the p.26 proof contradict the extra twist in the theorem display. No assertion is made about the unavailable published display."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
@@ -173412,10 +173433,10 @@
    ],
    "owner": "ArithmeticStatistics",
    "file": "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
-   "citation": "Sources of the blueprint of ArithmeticStatistics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Bjorn Poonen; Eric Rains, Random maximal isotropic subspaces and Selmer groups, arXiv:1009.0287v2; all page locators below are the preprint’s printed pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticStatistics--ST.5",
+   "reviewReason": "Confirmed at PR Corollary 2.12, printed p. 8. The separability argument establishes countability of the discrete quotient, not finiteness; Z times R/Z with q(n,t)=nt is a self-dual weakly metabolic countermodel to finiteness."
   },
   {
    "id": "ArithmeticStatistics/E741",
@@ -173432,15 +173453,15 @@
    ],
    "owner": "ArithmeticStatistics",
    "file": "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
-   "citation": "Sources of the blueprint of ArithmeticStatistics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Melanie Matchett Wood, The distribution of sandpile groups of random graphs, arXiv:1402.5149v2; printed preprint pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticStatistics--ST.5",
+   "reviewReason": "Confirmed at Wood Lemma 8.1, printed pp. 28–29. The head-product coefficients alternate signs; its proof supplies an absolute bound after taking the absolute finite-polynomial maximum. Theorem 8.2 needs that absolute bound for Fubini. The printed one-sided inequality need not itself be false."
   },
   {
    "id": "ArithmeticStatistics/E742",
    "kind": "error",
-   "locator": "BKLPR arXiv1304.3971v2, proof of Theorem5.16, pp.23–24; author final copy Theorem5.17 proof, pp.25–26",
+   "locator": "BKLPR arXiv1304.3971v2, proof of Theorem5.16, pp.23–24; author final copy Theorem5.17 proof, pp.24–25",
    "printed": "Own-word paraphrase, not a source quotation: The upper harmonic estimate is used with coefficient1/2 although the preceding lemma only gives upper coefficient2.",
    "correction": "Use numerator≤2ε logN+O(logM) and denominator≥(1/2)logN; the limsup is at most4ε and still tends to0.",
    "reason": "Weights of square-order groups lie between1/N and2/N. The lower constant cannot also be used as an upper bound. Only a fixed multiple of ε is needed.",
@@ -173452,10 +173473,10 @@
    ],
    "owner": "ArithmeticStatistics",
    "file": "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
-   "citation": "Sources of the blueprint of ArithmeticStatistics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Manjul Bhargava; Daniel M. Kane; Hendrik W. Lenstra Jr.; Bjorn Poonen; Eric Rains, Modeling the distribution of ranks, Selmer groups, and Shafarevich–Tate groups of elliptic curves, arXiv:1304.3971v2; printed preprint pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticStatistics--ST.5",
+   "reviewReason": "Confirmed in both copies: preprint Theorem 5.16 and author-copy Theorem 5.17. The preceding square-order mass lemma gives upper constant 2 and lower constant 1; using the weaker eventual denominator bound one-half still yields 4ε. The sparse-prime limit survives."
   },
   {
    "id": "ArithmeticStatistics/E743",
@@ -173472,10 +173493,10 @@
    ],
    "owner": "ArithmeticStatistics",
    "file": "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
-   "citation": "Sources of the blueprint of ArithmeticStatistics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Manjul Bhargava; Arul Shankar, The average size of the 5-Selmer group of elliptic curves is 6, and the average rank is less than 1, arXiv:1312.7859v1; printed preprint pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticStatistics--ST.5",
+   "reviewReason": "Confirmed at preprint Proposition 40, equation (33), printed p. 29. Separate conditional limsups cannot be summed under a joint finite-height constraint. The alternating-pair diagnostic proves this. The packet’s finite-height repair retains the stated total rank and density constants."
   },
   {
    "id": "ArithmeticStatistics/E744",
@@ -173483,7 +173504,7 @@
    "locator": "BKLOS arXiv1709.09790v2, Theorem2.2 and Section9 proof, pp.3,12–13; author PDF same locators",
    "printed": "Own-word paraphrase, not a source quotation: For O=Z[ψ] of Z-rank t and #O/ψ=3^e the proof asserts a lower bound3^((e/t)rank A_s(F)) on the ψ-index for every twist.",
    "correction": "Retain the unrestricted claim as a gap. Add an explicit uniform positive rank-index hypothesis, or specialize to ψ=[3], where the free Z-module calculation gives the bound with c=1.",
-   "reason": "For a product with ψ=(id,[3]) the degree3 chain can operate solely on the second factor; its Selmer groups and ψ-index give no control on the first factor’s Mordell–Weil rank. Even O=Z[(3,9)] has unequal component index rates, so arbitrary O-modules do not have the uniform e/t rate. No counterexample to the broader average-rank conclusion is claimed.",
+   "reason": "Confirmed as a gap in the Section 9 rank-index argument in both copies, not as a counterexample to the average-rank conclusion. For O=Z[(1,3)] of rank 2, #O/ψO=3, while M=Z via the first projection has ψ acting as identity and index 1. Thus the asserted e/t rate is not valid for arbitrary O-modules. The explicit c>0 hypothesis and [3] specialization avoid this step.",
    "affects": "the proof",
    "known": "No correction located; the abstract states the sound[3] specialization, but the theorem and Section9 in the author PDF retain the broader claim.",
    "searched": [
@@ -173493,10 +173514,10 @@
    ],
    "owner": "ArithmeticStatistics",
    "file": "research/blueprint/packets/ArithmeticStatistics--ST.5.json",
-   "citation": "Sources of the blueprint of ArithmeticStatistics",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Manjul Bhargava; Zev Klagsbrun; Robert J. Lemke Oliver; Ari Shnidman, 3-isogeny Selmer groups and ranks of abelian varieties in quadratic twist families over a number field, arXiv:1709.09790v2; printed preprint pages",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticStatistics--ST.5",
+   "reviewReason": "Confirmed as a gap in the Section 9 rank-index argument in both copies, not as a counterexample to the average-rank conclusion. For O=Z[(1,3)] of rank 2, #O/ψO=3, while M=Z via the first projection has ψ acting as identity and index 1. Thus the asserted e/t rate is not valid for arbitrary O-modules. The explicit c>0 hypothesis and [3] specialization avoid this step."
   },
   {
    "id": "ArithmeticStatistics/E101",
