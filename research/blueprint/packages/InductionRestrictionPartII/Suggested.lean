@@ -182,10 +182,22 @@ lemma marking_correction_sign (φ : P →* E) (i : A →* E)
 example (φ : P →* E) (i : A →* E)
     (hi : ∀ a : A, ∀ e : E, i a * e = e * i a) :
     marking_correction φ i hi (1 : P →* A) = φ := by sorry
--- marking_correction_test_2: additive C₃ discrepancy calculation.
-example : (1 : ZMod 3) - 1 = 0 ∧ (1 : ZMod 3) + 1 = 2 := by sorry
--- marking_correction_test_3
-example (k : Multiplicative (ZMod 3)) (hk : k ≠ 1) : k*k ≠ 1 := by sorry
+-- marking_correction_test_2: evaluate the correction itself on a C₃ discrepancy.
+-- The target marking is 1; φ and ψ both send the chosen point to ofAdd 1.
+example :
+    marking_correction (MonoidHom.id (Multiplicative (ZMod 3)))
+      (MonoidHom.id (Multiplicative (ZMod 3))) (fun a e => mul_comm a e)
+      (MonoidHom.id (Multiplicative (ZMod 3))) (Multiplicative.ofAdd 1) = 1 ∧
+    (Multiplicative.ofAdd (1 : ZMod 3)) * Multiplicative.ofAdd 1 =
+      Multiplicative.ofAdd (2 : ZMod 3) := by sorry
+-- marking_correction_test_3: the wrong sign differs from the actual correction.
+example (k : Multiplicative (ZMod 3)) (hk : k ≠ 1) :
+    marking_correction (MonoidHom.id (Multiplicative (ZMod 3)))
+      (MonoidHom.id (Multiplicative (ZMod 3))) (fun a e => mul_comm a e)
+      (MonoidHom.id (Multiplicative (ZMod 3))) k = 1 ∧
+    k * k ≠ marking_correction (MonoidHom.id (Multiplicative (ZMod 3)))
+      (MonoidHom.id (Multiplicative (ZMod 3))) (fun a e => mul_comm a e)
+      (MonoidHom.id (Multiplicative (ZMod 3))) k := by sorry
 end Correction
 
 section Power
