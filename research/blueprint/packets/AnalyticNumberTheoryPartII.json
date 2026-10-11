@@ -1215,9 +1215,9 @@
       ],
       "title": "Positive Mellin comparison",
       "kind": "theorem",
-      "statement": "Let a≥0,m≥2 and let μ_j,ν_j be positive measures supported on (0,∞), with finite mass on every (0,t] and Mellin transforms absolutely integrable on the common line Re(s)=σ>a. Suppose ∫₀ᵀ μ_j((0,t])dt≤∫₀ᵀ ν_j((0,t])dt for every T≥0 and each j. Then the inverse Mellin transforms of (s−a)^−m∏_j μ̂_j(s) and (s−a)^−m∏_j ν̂_j(s) are nonnegative and ordered in the same direction. All multiplicative-convolution/Fubini integrals must be absolutely integrable. The assertion includes the single-measure comparison; pointwise cumulative-mass domination is a sufficient special case.",
+      "statement": "Let a≥0,m≥2 and let μ_j,ν_j be positive measures supported on (0,∞), with finite mass on every (0,t]. Their Mellin transforms converge on a common line Re(s)=σ>a, and each product (s−a)^−m∏_j μ̂_j(s), respectively (s−a)^−m∏_j ν̂_j(s), is absolutely integrable on that line. Suppose ∫₀ᵀ μ_j((0,t])dt≤∫₀ᵀ ν_j((0,t])dt for every T≥0 and each j. Then the inverse Mellin transforms of (s−a)^−m∏_j μ̂_j(s) and (s−a)^−m∏_j ν̂_j(s) are nonnegative and ordered in the same direction. All multiplicative-convolution/Fubini integrals must be absolutely integrable. The assertion includes the single-measure comparison; pointwise cumulative-mass domination is a sufficient special case.",
       "hypotheses": [
-        "Finite number of positive measures; finite mass on every (0,t], integrated cumulative-mass domination, and the displayed Mellin-line/Fubini integrability.",
+        "Finite number of positive measures; finite mass on every (0,t], integrated cumulative-mass domination, Mellin-transform convergence and absolute integrability of the completed products on the displayed line, and multiplicative-convolution/Fubini integrability.",
         "a≥0 for the decreasing convex comparison; m≥2; x>0."
       ],
       "proofSteps": [
