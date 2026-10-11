@@ -1,184 +1,171 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-0RDX2k`, 11 October 2026.
-Branch: `codex-0RDX2k-induction-restriction-package`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105942875)
-at 05:44:24 UTC, identifying claim comment 6105941964.
-Base atlas commit: `1e244e56b469b0c84906f48d7f670d09780fd895`.
+Codex (GPT-6), session `codex-Tr7yZR`, 11 October 2026.
+Branch: `codex-Tr7yZR-induction-restriction-package`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106252581),
+identifying claim comment 6106251524. One issue was claimed; no second job
+was taken. None of the manager's priority issues appeared in the open
+`swarm`, `state:available` inventory, so selection followed the fallback
+package priority in WORKERS.md.
 
-## Outcome
+Base atlas commit: `2790a6eabe10c8b46527cb1a6333eee4d577e572`.
 
-**Blocked checkpoint; the package is unfinished.** The native UCT proof
-contract now identifies the evaluation kernel with an explicit Hom cokernel
-and reuses the current Tau Ceti projective-presentation comparison with Ext.
-Pinned native degree-one cycle declarations eliminate an unnecessary general
-subgroup-freeness step. The README distinguishes the remaining arbitrary-rank
-boundary-projectivity input and group-map comparison from existing results.
-Suggested.lean has matching comments; no executable declaration changed.
+## Outcome and new work
 
-No issue in the manager's priority list was in the available swarm inventory.
-The first fallback plan review, #1726, had an unfinished author checkpoint,
-so it was ineligible under WORKERS' finished-plan condition. This package was
-the first eligible fallback by kind before new planning. One issue was
-claimed; no second job was taken.
+**Blocked checkpoint; this package is unfinished.** The remaining supplier
+ownership decisions require changes outside this issue's permitted files.
+This continuation replaces the order-bound target's indirect torus proof
+with an explicit native bar-chain proof, independently checked in Lean at
+the Mathlib pin without admissions. The README gives the complete boundary
+formula and its hypotheses; Suggested.lean has matching proof-route
+comments. Its executable declarations are unchanged.
 
-## Blocking evidence
+For z(a,y)=[a|y]−[y|a], set
+T(a,b;y)=[a|b|y]−[a|y|b]+[y|a|b]. If a and b each commute with y, then
+
+- d₃T(a,b;y)=z(a,y)+z(b,y)−z(ab,y).
+- d₃T(1,1;y)=z(1,y), including the unnormalized unit chains.
+- For Bₙ=Σ_(0≤k<n) T(xᵏ,x;y)−T(1,1;y),
+  d₃Bₙ=n z(x,y)−z(xⁿ,y), for every n≥0.
+
+Thus the native H2π quotient gives ⟨xⁿ,y⟩=n⟨x,y⟩. Its n=0 case gives
+⟨1,y⟩=0; its n=2 specialization for x²=1 gives 2⟨x,y⟩=0. There is no
+finiteness, cover, UCT or torus-generator assumption. The calculation only
+needs each of a,b to commute with y, not commutation between a and b.
+
+The scratch verification defined z and T as finitely supported integer
+chains, proved the differential identity, the finite-sum telescoping
+identity, cycle membership, the homology power law, unit vanishing and the
+involution bound. `lean-check` completed with **zero errors, zero warnings,
+and no `sorry`**. The proof used the exact-pin statements of
+`groupHomology.d₂₁_single`, `groupHomology.d₃₂_single`,
+`groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` from
+`RepresentationTheory/Homological/GroupHomology/LowDegree.lean`, plus the
+existing additive and finite-sum APIs. The repository remains a plan; this
+scratch check does not claim a Tau Ceti implementation.
+
+Wood's author copy, *An algebraic lifting invariant of Ellenberg, Venkatesh,
+and Westerland*, §2.1, author PDF p.2, was read for the oriented cycle;
+Lemma 2.2 and its proof on p.3 were read for the homology comparison. The
+boundary proof is our deduction from the cycle and the library differential,
+not a theorem attributed to Wood. Source URL:
+https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1.
+Accessed 2026-10-11; SHA-256
+`9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673`.
+No source passage enters the package or handoff.
+
+## Blocking evidence and required external amendment
 
 The accepted packet's first gap is **Natural integral homological bridge —
-supplier unassigned**. Its second restructuring proposal leaves the generic
-integral homology and central-extension package to an ownership decision for
-a continuation, with no supplier edge until a stage exists. The fifth gap
-asks for an owner for cyclic coprime complement conjugacy. Neither names a
-readable supplier layer. The accepted review dated 2026-10-05 retains these
-gaps; acceptance certifies a completed planning pass, not closed prerequisite
-chains.
+supplier unassigned**. Its second restructuring proposal expressly leaves
+that package to an ownership decision: there is no supplier edge until a
+stage with the necessary scope exists. Its fifth gap similarly leaves
+cyclic coprime complement conjugacy without an owner. Acceptance dated
+2026-10-05 retains both gaps; it certifies a completed planning pass, not
+closed prerequisite chains.
 
-Issue #7592 forbids packet changes and permits only the three package outputs
-and this handoff. PROTOCOL §§3, 15 and 20 require actual supplier chains and
-prohibit duplication. An admitted signature or a link to the package section
-containing it does not assign an owner. Resolving the packet's explicit
-continuation boundary requires a planning amendment outside this job's files.
+Issue #7592 authorizes only this package's README, Suggested.lean,
+metadata.toml and this handoff. It expressly forbids changing packets.
+PROTOCOL §§3, 15 and 20 require actual suppliers and prohibit duplicating
+another roadmap's work. Local admitted signatures and links to their own
+input-contract paragraphs cannot settle that ownership decision.
 
-The required external change is to assign matching supplier layers, or revise
-planning ownership so that actual layers of this roadmap own the necessary
-contracts. Reconcile the packet, roadmap definition, reader, and suggested
-interfaces, adding supplier edges and preserving the full API/tests.
-Ordinary Schur covers remain in parent InductionRestriction Layer 7. The local
-package queue has no preceding dependency, so repeated package checkpoints
-cannot settle this decision. No queue, issue label, or upstream file was
-changed here.
+| Contract needing an assigned supplying layer | Scope that the amendment must retain |
+| --- | --- |
+| Native integral UCT | Arbitrary groups and abelian kernels; natural Ext injection, onto evaluation, oriented cycle formula, both variances, free-abelian Ext vanishing and infinite-group tests. Reuse native degree-one cycles and the current Ext presentation comparison. |
+| Central-extension homological sequence | Exact H₂(E,ℤ)→H₂(G,ℤ)→A→Eᵃᵇ→Gᵃᵇ→0, with arbitrary central kernel, specified extension maps, section independence and the XYX⁻¹Y⁻¹ sign. |
+| Finite integral homology consequences | Finite generation, underlying-set finiteness and positive-degree order annihilation. Reuse native transfer and module-homology finiteness; retain the H₀ counterexample. |
+| Coprime degree-two edge | The actual multiplier-projection kernel and inclusion, induced coinvariant action, section and incoming d₃ check. |
+| Cyclic complement conjugacy | Finite coprime H,C with C cyclic and H possibly nonabelian; uniform H-conjugation of an actual complement to the standard complement. |
 
-## New proof refinement and reuse
+The amendment must assign each contract once and reconcile the packet,
+roadmap definition, reader, native suggested interfaces and consumer edges.
+Ordinary Schur covers remain in the parent InductionRestriction Layer 7.
+This run does not move a target or invent a supplier.
 
-The README's **Native UCT evaluation** subsection specifies the map from
-K=Hom(B₁,A)/im(Hom(Z₁,A)) to the evaluation kernel: ψ represents the cocycle
-ψ∘d₂, corestricting d₂ to B₁. A zero-evaluation cocycle factors through B₁;
-coboundaries give precisely the restrictions from Z₁. Extending maps on Z₂
-to C₂ proves evaluation onto when B₁ is projective. These proof extensions do
-not define a natural splitting.
+One refinement is ready for that amendment: remove
+`InductionRestrictionPartII:RS.1/commutator-order` from the first gap's
+`neededBy` list and replace its proof route by the direct boundary above.
+Its existing prerequisite, `RS.1/homological-commutator`, already supplies
+the native cycle formula it uses. The basic unit-cycle test also has this
+direct proof. This does **not** remove the homological-commutator node from
+the bridge gap: its UCT/central-extension comparison API and oriented torus
+comparison still require their own inputs. Other bridge consumers remain.
+No packet was edited.
 
-- Current `TauCeti.homCokernelEquivExt`,
-  `Algebra/Homology/Ext/Presentation.lean:86`, identifies K with categorical
-  Ext¹(H₁,A) using 0→B₁→Z₁→H₁→0 with projective middle term. Its
-  `homCokernelEquivExt_mk` at line 93 fixes the pushout representative;
-  `homCokernelEquivExt_naturality` at line 109 gives coefficient naturality.
-  It needs no projectivity of B₁ for this Ext comparison. Group-map
-  naturality still needs comparison of the native short exact sequences and
-  their extension classes, followed by comparison with the derived Ext
-  bifunctor in the package signature. A new general resolution-comparison
-  theory is unnecessary.
-- At the recorded Mathlib pin,
-  `groupHomology.d₁₀_eq_zero_of_isTrivial`,
-  `RepresentationTheory/Homological/GroupHomology/LowDegree.lean:138`,
-  and `groupHomology.cycles₁IsoOfIsTrivial` at line 360 identify Z₁ with the
-  free bar term C₁, with B₀=0. They apply to infinite G as well. Thus the
-  Ext comparison's middle-term projectivity is supplied by native
-  declarations and free-module projectivity.
-- At that same pin, `Submodule.basisOfPid`,
-  `LinearAlgebra/FreeModule/PID.lean:299`, requires a finite basis index.
-  It proves B₁ free for finite G, but is insufficient for the unrestricted
-  evaluation-surjectivity signature. General B₁ projectivity remains part
-  of the UCT supplier contract. This checks the scope of this particular
-  declaration; it does not claim that every possible library formulation
-  has been ruled out.
-- Read Hatcher's author PDF, *Algebraic Topology*, §3.1, printed pp.191–196:
-  cycle/boundary construction pp.191–193, Lemma 3.1 pp.194–195, Theorem 3.2
-  p.195, and naturality p.196. The package records the argument in its own
-  words with these locators, retaining arbitrary coefficients and the
-  distinction between a natural exact sequence and a chosen splitting.
+## Supplier checks
 
-The current Ext presentation module is absent at the Tau Ceti pin. It is
-current-library reuse evidence, not a new import into the pinned Suggested
-file. These changes refine an existing contract; no mathematical target,
-signature, unit test, or ownership edge was added.
-
-## Supplier checks and required amendment
-
-Read-only TauCetiRoadmap commit:
+Read-only TauCetiRoadmap checkout:
 `070dc2becd74419e76303ede84b465ed4a69461f`.
-Read-only Tau Ceti commit:
+Read-only current Tau Ceti:
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 Pinned baseline: Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`,
 Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
 
-Read the current InductionRestriction and SemisimpleAlgebras READMEs in full,
-parent Layer 7, the relevant AlgebraicTopology README/Suggested UCT interfaces,
-and ProfiniteCohomology's scope and five-term inventory. Read the reviewed
-library audit: no direct Part II entry; R17.5 and MP.1 supply factor-set and
-projective-lifting information. Parent Layer 7 retains ordinary covers and
-distinguishes its H²(G,kˣ) multiplier from integral H₂. The singular UCT does
-not assign the native group-bar adapter; the profinite five-term sequence is
-cohomological and that roadmap explicitly excludes the Hochschild–Serre
-spectral sequence.
+Read the current InductionRestriction and SemisimpleAlgebras READMEs in
+full, the relevant AlgebraicTopology UCT scope and ProfiniteCohomology
+exclusions, and the reviewed R17.5/MP.1 library-audit entries. Parent
+Layer 7 owns ordinary covers and distinguishes its coefficient-dependent
+H² multiplier from integral H₂. AlgebraicTopology's UCT target is singular
+cohomology and does not assign the native group-bar adapter.
+ProfiniteCohomology excludes the Hochschild–Serre spectral sequence; its
+cohomological five-term interface does not supply the required homological
+sequence or coprime edge. ProfiniteArithmetic supplies neither of those
+native contracts in its README/Suggested interfaces.
 
-Read current Kronecker statements at `Algebra/Homology/Kronecker.lean:98,105,116,177`:
-evaluation and chain-map naturality are available; bijectivity requires
-injective coefficients. Read native transfer at
-`RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean:107`:
-subgroup-index multiplication, combined with positive-degree trivial-group
-vanishing, gives the order-annihilation argument. Read
-`Algebra/Homology/ShortComplex/ModuleCat.lean:35`: noetherian middle terms give
-`Module.Finite` homology; set finiteness also needs the order annihilator.
-Read `Subgroup.exists_right_complement'_of_coprime` at the Mathlib pin,
-`GroupTheory/SchurZassenhaus.lean:277`: complement existence, no conjugacy
-assertion. These results narrow the missing work without supplying all the
-required native contracts or their ownership.
+Re-read current `TauCeti.ChainComplex.kronecker`,
+`kronecker_homologyπ`, `kronecker_naturality` and `kronecker_bijective`:
+evaluation is available, but bijectivity assumes injective coefficients.
+Re-read `TauCeti.homCokernelEquivExt`, its representative formula and
+coefficient naturality in `Algebra/Homology/Ext/Presentation.lean`: a
+projective middle term computes Ext¹ without projectivity of the kernel.
+Native bar/dual and group-map comparisons remain to be supplied. At the
+Mathlib pin, `Submodule.basisOfPid` requires a finite basis index, and
+`Subgroup.exists_right_complement'_of_coprime` asserts complement
+existence, not conjugacy. These exact statement checks preserve the
+predecessor's distinction between reusable declarations and missing
+contracts. No Lake command ran in either read-only tree.
 
-| Contract requiring an assigned supplier | Scope and consumers to retain |
-| --- | --- |
-| Native integral UCT | Arbitrary G and abelian A; canonical Ext injection, onto evaluation, oriented cycle formula, group/coefficient variance, free-abelian Ext vanishing, and infinite-group/kernel tests. RS.1 compatibility and RS.2 marked pullback/kernel comparison. Reuse the native cycles and current Ext presentation described above. |
-| Central-extension homological sequence | Arbitrary central abelian kernel; exact H₂(E,ℤ)→H₂(G,ℤ)→A→Eᵃᵇ→Gᵃᵇ→0, section independence, specified extension maps and sign XYX⁻¹Y⁻¹. RS.1 homology-image equality and RS.5 cover diagrams. |
-| Finite integral homology consequences | Native finite generation, set finiteness and positive-degree order annihilation; reuse current transfer and short-complex finiteness. RS.3 finite-level action and RS.5 primary support; retain the H₀ counterexample. |
-| Coprime degree-two edge | For the specified finite coprime semidirect product, identify the multiplier-projection kernel with native coinvariants, retaining the inclusion map, action and incoming d₃ check. RS.5 homological inputs and RS.6 odd-index-two reduction. |
-| Cyclic complement conjugacy | For finite coprime H,C with cyclic C and possibly nonabelian H, every complement in H⋊C is H-conjugate to the standard one. RS.5 admissible inertia classes; retain the Sylow-induction proof route and all three conjugacy tests. |
-
-The first gap names twelve consumers; the fifth names
-`RS.5/admissible-inertia-classes`. The amendment must reconnect their actual
-prerequisite edges. Bibliographic citations alone cannot replace them.
+Remote upstream main was also queried and returned
+`4b002f622e9d68b627bdce9f6224897305a68bdc`. It differs from the supplied
+read-only checkout. The API could not compare those hashes (HTTP 404), so
+this run's declaration/scope checks are expressly against the supplied
+checkout, not a claimed audit of every remote difference.
 
 ## Validation and continuation
 
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
-  exited 0: no errors, 696 declaration-uses-`sorry` warnings, no other
-  warnings. Memory preflight showed 99 GiB available. The helper is configured
-  for Tau Ceti f790474; the shared build's Mathlib manifest and source HEAD
-  both match the full recorded Mathlib pin. One final comment-only
-  clarification followed the compile; executable declarations are identical.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
-  reports zero errors and zero warnings: 109 nodes, 124 API items, 96 tests,
-  30 planets, 30 baseline declarations, five gaps, one ordinary-cover request,
-  six planned stages and no closed stages. The accepted packet is unchanged.
-- Inventory finds all 109 target suffixes, 124 API suffixes and 96 test labels
-  in both package files. This does not certify the mathematics of every
-  inherited statement or finite certificate. README size is 167,380 bytes,
-  within the 200 KB limit.
-- Local intake file validation and `git diff --check` pass. Only the package
-  README, Suggested comments, and this handoff change. The executable Lean
-  plan, packet, reader, and author Suggested file are unchanged.
-- `metadata.toml` remains absent. The package completion detector uses output
-  existence, so adding it would incorrectly classify the unresolved package
-  as complete.
-
-| Artifact | SHA-256 |
-| --- | --- |
-| `packets/InductionRestrictionPartII.json` | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `5703d12ab110776d9bd2e7eb0b2ba84547bc198e0b5dba79cebfd60e3c5ea9a9` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `5514649c61862239312c61ecbeac42fc9b052bb39c11dd7941476c248e845093` |
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
+  **0 errors, 0 warnings**; 109 nodes, 124 API items, 96 tests, 30 planets,
+  30 baseline declarations, five gaps, one request and six planned stages.
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
+  **zero errors; 696 warnings, all declaration uses `sorry`; zero other
+  warnings.** Memory preflight showed 102 GiB available. The wrapper
+  designates Tau Ceti f790474; the shared Mathlib source HEAD independently
+  matches the full pin. The Tau Ceti build tree lacks Git metadata, so its
+  pin designation is the wrapper's. No compiler is left running.
+- Inventory confirms every one of the 109 target suffixes, 124 API names
+  and 96 test labels remains in both package files. This is a correspondence
+  check, not certification of all inherited mathematical statements or
+  finite certificates. README size: 169,431 bytes, within the 200 KB limit.
+- `git diff --check` and the intake file check pass. Changes are confined to
+  the README proof outline, Suggested comments and this handoff. The accepted
+  packet, reader and author Suggested file are unchanged.
+- Metadata remains absent. `issues.py:deliverables_complete` tests package
+  output existence; adding metadata would incorrectly classify unresolved
+  supplier contracts as a finished package.
 
 Resume after the ownership amendment. Preserve all 109 accepted targets,
-the 31 row-certificate obligations, 38 RS.6 targets and ten accepted source
-findings. Concrete marked models, projections, embeddings, centralizer data
-and relation subgroups remain required. Complete the mathematical audit,
-replace each contract reference by its assigned supplier, check the amended
-target/API/test inventory, rerun `lean-check`, then create metadata with
-`topic = "math.GR"`.
+the 31 finite row certificates, 38 RS.6 targets and ten accepted source
+findings. Complete the remaining mathematical audit, replace contract
+references with their assigned suppliers, synchronize the target/API/test
+inventory, run `lean-check`, and then add `topic = "math.GR"` metadata.
+The new boundary proof requires no surviving scratch artifact: its exact
+formula and quotient argument are in the README and above.
 
-Prior supplier mismatches, source findings and accumulated finite-model
-calculation receipts remain in
-[the inherited handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/1e244e56b469b0c84906f48d7f670d09780fd895/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
-and its immutable continuation links. Those receipts cover affine sum kernels
-in rows 13/24, SL₂(𝔽₃) in rows 16/17, Heisenberg models in rows 22/23, and
-inverse-transpose SL₃(𝔽₂)/wreath models in rows 30/31. No finite certificate is
-claimed proved here. The cleared source index was read; no restricted source
-or source passage was copied. No scratch artifact is needed to resume.
+The prior UCT refinement, supplier mismatch details and accumulated finite
+model receipts remain in
+[the predecessor handoff at the immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/2790a6eabe10c8b46527cb1a6333eee4d577e572/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+and its continuation links. Those receipts cover rows 13/24, 16/17,
+22/23 and 30/31; no finite certificate is claimed proved here. The cleared
+source index was read; no restricted book was fetched or copied.

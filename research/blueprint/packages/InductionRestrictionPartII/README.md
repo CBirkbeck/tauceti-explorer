@@ -418,13 +418,29 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 **Target `commutator_order`.** For commuting x,y, the homological commutator is additive in each commuting cyclic variable: ⟨x^n,y⟩=n⟨x,y⟩. In particular if x is an involution then 2⟨x,y⟩=0.
 
-Construction and proof route: Compute the degree on the oriented torus generator and its homological image; use ⟨1,y⟩=0.
+Construction and proof route: Work directly in Mathlib's integral inhomogeneous bar chains. Write z(a,y)=[a|y]−[y|a] and put
 
-Needs: RS.1, universal homological commutator.
+T(a,b;y)=[a|b|y]−[a|y|b]+[y|a|b].
 
-Checks: This does not assert bilinearity on arbitrary pairs of noncommuting elements.
+If a and b each commute with y, expand the existing differential `groupHomology.d₃₂_single`. Its four terms on [a|b|y] are [b|y]−[ab|y]+[a|by]−[a|b]. Combining the three differentials and cancelling by=yb and ay=ya gives
 
-Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2.
+d₃T(a,b;y)=z(a,y)+z(b,y)−z(ab,y).
+
+The assumptions concern only commuting with y; the calculation does not require a and b to commute with each other. Taking a=b=1 gives d₃T(1,1;y)=z(1,y), so the unit cycle is a boundary even in the unnormalized chain model. For n≥0 define the finite chain
+
+Bₙ(x,y)=Σ_(0≤k<n) T(xᵏ,x;y)−T(1,1;y).
+
+Each xᵏ commutes with y. The consecutive product terms telescope, yielding
+
+d₃Bₙ(x,y)=n z(x,y)−z(xⁿ,y).
+
+By `groupHomology.boundaries₂`, this difference lies in the image of the native differential. Apply `groupHomology.H2π_eq_iff` to the two cycles, using linearity of H2π, to obtain the stated power law. If x²=1, specialize to n=2 and use the unit-cycle boundary. Swapping the variables and negating z gives the power law in the second variable. This proof uses no finiteness hypothesis, chosen cover, universal coefficient sequence or calculation of the homology of a torus.
+
+Needs: RS.1, universal homological commutator and its cycle formula; Mathlib's `groupHomology.d₃₂_single`, `groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` in `RepresentationTheory/Homological/GroupHomology/LowDegree.lean`. The same file's `groupHomology.d₂₁_single` verifies that z(x,y) is a cycle when xy=yx. Subtraction, finite sums and the cycle quotient use the existing ℤ-linear APIs.
+
+Checks: At n=0, B₀=−T(1,1;y) has boundary −z(1,y), so the formula includes the unit case. At n=1 the displayed boundary is zero. At n=2 with x²=1 it shows that 2⟨x,y⟩ vanishes; ⟨x,y⟩ itself can remain nonzero. Reversing the ordered pair changes the sign of its cycle. No class is asserted for a pair that fails the commuting hypothesis.
+
+Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2.1, author PDF p.2, fixes the oriented cycle representing ⟨x,y⟩. The boundary calculation above is a direct deduction from that cycle and Mathlib's stated differential, rather than an additional result attributed to Wood.
 
 ## RS.2: Universal marked extensions and degree
 
