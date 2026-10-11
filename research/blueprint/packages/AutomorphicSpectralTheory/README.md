@@ -560,7 +560,7 @@ Uses: AS.0.26; B5; B10; AS.0.25a.
 
 Let H_ε(t)=t^(−s)∫₀^π exp(εi(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)dθ/sinθ, μ∈ℂ, Re(s)>0, t>0, ε=±1. Then f_ε=t^sH_ε satisfies f_ε″+(1−s(s−1)/t²)f_ε=0. On every compact parameter set with Re(s)≥σ>0 the integrands and their first two t derivatives are bounded by C sin^(σ−1)θ; the integration-by-parts endpoint terms are O(δ^σ). The calculation works for both signs without complex conjugation.
 
-Source: S21, Appendix A, proof of (A.1), p.984: Whittaker angular integration by parts and the differential equation for the angular integral, with vanishing endpoint terms..
+Source: S21, Appendix A, proof of (A.1), p.984: Whittaker angular integration by parts and the differential equation for the angular integral, with vanishing endpoint terms.
 
 Uses: AS.0.26; B5; B10.
 
@@ -1935,7 +1935,7 @@ API:
 - `quotient_equiv`: A Borel orbit-domain model with the orbit/stabilizer measure is unitarily equivalent to the symmetric-family model.
 
 Tests:
-- `rank_zero`: A constant section over the single point with n_G=1 maps to an field vector whose squared norm is the original squared norm.
+- `rank_zero`: A constant section over the single point with n_G=1 maps to a field vector whose squared norm is the original squared norm.
 - `rank_one`: For a reflected compatible section over the real parameter line with n_P=2, the field vector has half the full integrated squared norm.
 - `stabilizer_not_removed`: A nonzero vector fixed by the stabilizer operator defines a nonzero point-field vector, with the reciprocal stabilizer norm factor retained.
 
