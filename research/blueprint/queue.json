@@ -16564,8 +16564,9 @@
    "avoidAccountOf": "DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3515"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3515",
+   "finishedAt": "2026-10-11T08:32:10Z"
   },
   {
    "id": "DESIGN-GeneralAlgebraicKTheoryPartII",
@@ -16997,8 +16998,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityWild3Adic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7103"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7103",
+   "finishedAt": "2026-10-11T08:32:13Z"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityWild3Adic",
@@ -22839,12 +22841,13 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicCongruences--L5b.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #683"
   },
   {
    "id": "REV-AutomorphicCongruences--L5b",
@@ -23842,12 +23845,13 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyPartII--CC.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #702"
   },
   {
    "id": "REV-CompletedCohomologyPartII--CC.8",
@@ -37005,8 +37009,8 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6347"
+   "state": "external",
+   "note": "claimed on GitHub issue #6347"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -37802,7 +37806,8 @@
    ],
    "revisionOf": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6379"
   },
   {
    "priority": 2,
@@ -47731,8 +47736,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80322,8 +80327,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80545,8 +80550,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -84724,8 +84729,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
