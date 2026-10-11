@@ -1,145 +1,169 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-RE9sU7`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-ARahsZ`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106952218).
-Input: `73cbb984728bc98dd73aefe910254af1ded45e0d`.
-Branch: `codex-RE9sU7-review-6219`. One claim; none of the fixes were mine.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6107237759).
+Input: `f90586176babd13aa942990deccd87b0a40d5abb`.
+Branch: `codex-ARahsZ-review-6219`. One claim; I authored none of the fixes.
 
-## Status: scope-blocked checkpoint
+## Status and next action
 
-The correction review is ready, but actual job completion is false. The live
-issue permits L3 and PMIA; the queue additionally requires L3-2 and D.1.
-Their top records still name the preceding layer reviews. A read-only overlay
-of only the two exact candidates below makes the unchanged completion
-predicate true. PMIA's `needs_changes` counts as completed; it is not the
-blocker. Reconcile the live issue or obtain authorization for those two paths
-before redispatching, so the next worker can finish rather than repeat this
-checkpoint.
+**Scope-blocked checkpoint.** All six correction decisions are in the
+[report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md). L3 is accepted for the
+bounded correction; PMIA remains `needs_changes`. Their new top reviews are
+attributed to this session, and the complete prior records/history survive.
+All mathematical fields and all four Suggested files are unchanged.
 
-WORKERS.md says “Edit only the files the issue names, plus your own scratch
-space.” After reconstructing and validating the concrete candidates, I asked
-for authorization through the worker conversation. No answer has arrived;
-the live issue comments contain no authorization. Both candidates remain
-uninstalled. This checkpoint is blocked on scope, not elapsed time.
+The live issue names L3 and PMIA. The queue additionally requires L3-2 and
+D.1 to name this FIX-review job in their top review objects. Their existing
+full layer reviews are accepted, but the unmodified completion predicate still
+returns false. A read-only overlay of exactly the candidates below returns
+true. PMIA's negative verdict qualifies as completed and is not the blocker.
 
-The two issue-named packets carry this session's fresh bounded reviews. Each
-complete preceding record is appended once to history; every non-review field
-is identical to input. The report and this handoff also change. Both omitted
-packets and all Suggested files remain byte-identical. The report supplies
-source locators and the current native-library boundary; the coordinated
-PMIA ownership revision needs a separate job covering packet, reader,
-Suggested and consumers.
+WORKERS.md, Doing the work, says “Edit only the files the issue names, plus
+your own scratch space.” I asked in the worker conversation for authorization
+to update the two omitted packets. No reply has arrived and the issue has not
+been amended. Both candidates remain uninstalled. Before redispatching,
+reconcile the issue's deliverable list with the queue, or explicitly authorize
+those two packet paths. Another bounded audit under the same restriction
+cannot resolve this mismatch. This checkpoint is blocked on scope, not time.
 
-## Fresh checks and attribution
+Once authorized, inspect intervening changes, use the guarded installation
+below, rerun checks and the completion predicate, and submit the finished
+review. No new mathematical work is needed for the six correction decisions.
+Do not replace the complete prior 79-node and 72-node review ledgers with a
+claim that this session performed those exhaustive audits.
 
-- Four actual packets pass the pinned-index checker with zero errors. L3
-  retains 26 inherited short-API warnings; the other three have none. Both
-  exact candidates pass at their intended paths under a read-only overlay,
-  and pass intake file rules.
-- Parsed preservation checks retain all non-review fields, complete prior
-  reviews and earlier histories. The candidates preserve the full 79-node
-  and 72-node ledgers and `codex-jIGDIK`'s original attribution/date.
-  No packet or candidate contains an `excerpt` field.
-- Fetched all nine public PDFs and reproduced the receipts below. Fresh
-  readings support the six correction decisions. No book was used and no
-  source passage enters the repository.
-- Four sequential fresh `lean-check` runs: L3 fails at the unresolved
-  `research` import before its body; L3-2, D.1 and PMIA elaborate with 111,
-  307 and 1,075 `sorry` warnings respectively and no other diagnostics.
-  No Lean code changed. Earlier compiler evidence stays separately attributed.
-- Fresh finite arithmetic checks reproduce the signed Gamma examples and
-  dyadic modulus-four failure; FG permutation bijectivity/congruence/strict
-  filtration in four odd/dyadic/one-conductor examples; the Fitting and
-  nonflat examples; and the acyclic versus zero-model Fredholm products.
-  These check examples, not theorem proofs or Lean implementations.
-- `git diff --check` and intake's changed-file check pass for the two
-  issue-named packet review records, report and handoff.
+## Validation and limits
+
+- Actual four packets: zero errors at the pinned declaration index; L3 has
+  26 inherited short-API warnings and the other three have none. Both exact
+  candidates pass the checker under a read-only overlay and intake file rules.
+- Every non-review field is identical to input. Each candidate appends the
+  entire original top review once, after the original history. No packet or
+  candidate has an `excerpt` field. Intake changed-file rules and
+  `git diff --check` pass.
+- Fresh sequential shared-build `lean-check`: L3 fails at unresolved `research`
+  imports before its body; L3-2, D.1 and PMIA elaborate with respectively
+  111, 307 and 1,075 `sorry` warnings and no other diagnostics. No Lean edits.
+- Fresh signed Gamma/period, strict FG permutation and compound/adjugate
+  finite examples pass as detailed in the report. These are distinguishing
+  examples, not theorem proofs. Nine public PDFs were freshly retrieved and
+  read at the locators in the report; their receipts are below. No book used.
 
 Current read-only heads: TauCetiRoadmap
 `070dc2becd74419e76303ede84b465ed4a69461f`; Tau Ceti
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-The five PMIA suppliers already exist in current Tau Ceti. Stable transpose
-is `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` in
-`StableTranspose.lean`, for exact surjective projective presentations over
-arbitrary rings, without finiteness. Its opposite-ring dual factors are
-P₀×Q₁ and P₁×Q₀. Preserve arbitrary-family span/image and arithmetic adapters,
-nonflat tests and contragredient conventions during the coordinated revision.
-The actual upstream models read this session were ProfiniteArithmetic and
-StableReduction; the preceding report's SemisimpleAlgebras directory is absent.
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Programme pins remain Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/73cbb984728bc98dd73aefe910254af1ded45e0d/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
-retains the preceding checkpoint history. Everything needed to resume is
-below; no disposable scratch file is required.
+PMIA's separate coordinated revision must reuse current higher Fitting and
+stable transpose implementations for five generic L6 targets. The report
+names exact statements and hypotheses. Preserve arithmetic image orders,
+inverse-character sharp transport, arbitrary-family span/image adapters,
+nonflat examples and opposite-ring dual factors P₀×Q₁ and P₁×Q₀. This requires
+packet, reader, Suggested and consumer scope; reader and consumers are outside
+this job's live list. ProfiniteArithmetic and StableReduction were the upstream
+models read. Current APIs must not be attributed to the old programme pin.
 
-## Installation guards
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/f90586176babd13aa942990deccd87b0a40d5abb/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+preserves preceding checkpoint history. This note contains all continuation
+material; no disposable scratch path is needed.
 
-Exact UTF-8 file SHA-256. Candidate serialization is
-`json.dumps(..., ensure_ascii=False, indent=2)` plus one final newline.
-If an input differs, inspect intervening changes rather than overwrite newer
-evidence or mathematics.
+## Exact candidates and guards
 
-| Packet | Input | Candidate |
-| --- | --- | --- |
-| L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
-| D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
+Candidate serialization is UTF-8 `json.dumps(packet, ensure_ascii=False,
+indent=2)` plus one final newline. The two installed packet hashes are:
 
-The issue-named packet hashes after this session's review updates are L3
-`d052fc3d630e1b0e586d6c06b9e3fe1c06669e993bc593fce84ad47ebd6f6573`
-and PMIA `382af060b20f30cd42ca247b1170d227ef055c4cca4d4edd55b46e468cd334ac`.
-Their histories have 47 and 48 entries respectively. Their input hashes were
-`e4cf6a66659febf5272d88efb5f494b6a5b8ce74ff96a45b0ad794db65b541a7`
-and `4247d8e655d0826d4ec186d05d9814c24d66ed878982c71bdd04676bca8d242a`.
-Do not overwrite the fresh records or add identical review-history entries
-when installing the two remaining candidates.
+- DirichletPadicLFunctions--L3: `809b313252cd153f80c3e293d47dde1964732b3d46bb802f28714e5e54f7df59`; history length 48.
 
-## Exact remaining records
+- PadicMeasuresIwasawaAlgebras: `4ec19ca530457132db2a09f20326e3811c940884c74e989afceb0a094cc02f58`; history length 49.
 
-Prepared by `codex-jIGDIK`; retain that attribution. These records accept the
-bounded corrections and preserve open supplier obligations.
+The following JSON contains only the two uninstalled candidates. The older
+full review remains in the corresponding input packet and must be archived
+intact. Guard failures mean intervening work must be reconciled; never overwrite
+newer evidence or mathematics.
 
-### DirichletPadicLFunctions--L3-2
-
+<!-- candidates:start -->
 ```json
-{
-  "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
-  "date": "2026-10-10",
-  "notes": "Bounded independent review of finding /2 by Codex session codex-jIGDIK, following independent-review-REV-DirichletPadicLFunctions--L3-2 and its full 79-node audit, archived intact with its original attribution. Read Zhao §1.2 p.461, §4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix A p.473. Primitive odd tame character, compatible embeddings, the even chi*omega branch including dyadic conductor four, and the common logarithm are explicit. Direct character weights and correction (1-chi(p))*B1chi*log_p(N) agree with the source; simplification requires chi(p)=1 and nonvanishing is separate. Convergence/majorant requirements and the strict endpoint repair remain explicit. Five gaps and eight requests are retained. All mathematical/planning fields and earlier review evidence are preserved. See the report for checks and the limited correction-review scope."
-}
+[
+  {
+    "path": "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
+    "inputSha256": "d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14",
+    "candidateSha256": "7a19b54c26d499e92dbf22f2ed616172bf6a120992efb5ce3ff6df38412ed79c",
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-11",
+      "notes": "Bounded independent correction review of finding /2 by Codex (GPT-6), session codex-ARahsZ, following independent-review-REV-DirichletPadicLFunctions--L3-2; the complete preceding 79-node review and its original attribution are archived intact in reviewHistory. This session checked the eighteen FG/root correction contracts listed in the report, not every node afresh. Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474 support primitive odd tame chi, the even chi-omega branch, dyadic conductor four, direct chi(a) Gamma weights and the conductor correction (1-chi(p))*B1,chi*log_p(N). Dropping that term requires chi(p)=1. The strict endpoint repair E37, convergence inputs and independent nonvanishing obligation are retained. Five gaps and eight requests remain. Fresh finite permutation examples pass; these are not proofs of the limit theorem. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 111 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
+    }
+  },
+  {
+    "path": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+    "inputSha256": "2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c",
+    "candidateSha256": "e7f88b3197f57b7b38449068eef285fbc274cbd011eb498b72a4eb85a85401fd",
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-11",
+      "notes": "Bounded independent correction review of finding /3 by Codex (GPT-6), session codex-ARahsZ, following independent-review-REV-PadicHodgeRegulators--D.1~2; the complete preceding 72-node ledger and original attribution are archived intact in reviewHistory. Checked the three D.2 correction contracts and shared CS.0–CS.3 requests. Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 support the divided/undivided complexes, lifted divisible ideal, omega/tau map directions, only omega multiplicative, factorial-modified twist, exact small-weight divided range, bounded integral error and rational exponential/sign normalization. The rational inverse is not promoted to an integral inverse; shared producers remain requests. Nine gaps and twenty requests remain. The packet checker reports zero errors or warnings; fresh lean-check elaborates with 307 admission warnings and no other diagnostics. No Lean or mathematical/planning field changed."
+    }
+  }
+]
+```
+<!-- candidates:end -->
+
+After authorization, run from the repository root. Both files are validated
+before either is written. This archives the prior top object exactly once;
+it changes only `review` and `reviewHistory`.
+
+```python
+import copy
+import hashlib
+import json
+from pathlib import Path
+
+note = Path("research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md").read_text()
+block = note.split("<!-- candidates:start -->", 1)[1].split("<!-- candidates:end -->", 1)[0]
+records = json.loads(block.split("```json", 1)[1].split("```", 1)[0])
+pending = []
+for record in records:
+    path = Path(record["path"])
+    raw = path.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == record["inputSha256"], path
+    packet = json.loads(raw)
+    packet.setdefault("reviewHistory", []).append(copy.deepcopy(packet["review"]))
+    packet["review"] = record["review"]
+    new = (json.dumps(packet, ensure_ascii=False, indent=2) + "\n").encode()
+    assert hashlib.sha256(new).hexdigest() == record["candidateSha256"], path
+    pending.append((path, new))
+for path, new in pending:
+    path.write_bytes(new)
 ```
 
-### PadicHodgeRegulators--D.1
+Run the pinned-index checker on all four packets, intake changed-file checks,
+JSON/preservation checks and `git diff --check`. Re-evaluate the unchanged
+completion predicate with the actual files:
 
-```json
-{
-  "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
-  "date": "2026-10-10",
-  "notes": "Bounded independent review of finding /3 by Codex session codex-jIGDIK, following independent-review-REV-PadicHodgeRegulators--D.1~2 and its full 72-node audit, archived intact with its original attribution. Read Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. Distinct divided and undivided complexes, lifted divisible ideals, directed omega/tau legs, product behavior, factorial modified twist and exact divided range r<=p-2 are retained. Rational exponential is invertible below i=r and injective at i=r; inverse comparison, p^-r scaling and Bloch–Kato sign assert no integral inverse. Proposed CS.0–CS.3 producer obligations, nine gaps and twenty requests remain explicit. All mathematical/planning fields and earlier review evidence are preserved. See the report for checks and the limited correction-review scope."
-}
+```python
+import json
+import sys
+from pathlib import Path
+sys.path.insert(0, "research/blueprint")
+import issues
+job = next(job for job in json.loads(Path("research/blueprint/queue.json").read_text())["jobs"]
+           if job["id"] == "REV-FIX-RT-AREA-iwasawa-2~2")
+assert issues.deliverables_complete(job, root=Path.cwd())
 ```
 
-## Resume after authorization
+The two metadata changes do not require another compiler run unless Lean
+code or its environment changes. Keep the L3 import failure explicit.
 
-1. Require the guarded input hashes above to match.
-2. Initialize `reviewHistory` to `[]` if absent, append each entire current
-   `review`, then install the corresponding exact record above. Assert that all other parsed
-   fields and the full earlier histories are unchanged.
-3. Keep L3, PMIA and every Suggested file byte-identical. Reject any `excerpt`
-   field recursively.
-4. Run all four packets through `scripts/check_blueprint.py` using the existing
-   pinned declaration index. Run `git diff --check` and
-   `intake.py check-files` on the changed paths.
-5. Import `issues` from `research/blueprint`, select queue job
-   `REV-FIX-RT-AREA-iwasawa-2~2` and require `deliverables_complete(job, root=...)`
-   to return true on the actual checkout, without an overlay.
-6. Update this report/handoff to completed status with the authorization and
-   installation evidence; submit the finished review with Refs #6219.
+## Source receipts
 
-## Fresh source receipts
-
-Public PDFs fetched on 11 October 2026; full locators are in the report.
+Retrieved 11 October 2026. All hashes match the input checkpoint's receipts.
+The report supplies section, theorem and page locators. Sources stayed in
+scratch and are not committed. These public URLs identify the exact versions.
 
 | Source | SHA-256 |
 | --- | --- |
@@ -152,12 +176,3 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 | [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3) | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 | [BCGP21 v3](https://arxiv.org/pdf/1812.09269v3) | `7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed` |
 | [BCGP25](https://arxiv.org/pdf/2502.20645) | `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c` |
-
-## Unchanged Suggested-file hashes
-
-| File | SHA-256 |
-| --- | --- |
-| DirichletPadicLFunctions--L3 | `46fe3cba63b8c88eb0e0d734e8138009d421aac3fae334b70116b8f31da1af85` |
-| DirichletPadicLFunctions--L3-2 | `d8be865820fe7491d3bd196c4a47c78e753595786bd939e8328ac20b121fa2a2` |
-| PadicHodgeRegulators--D.1 | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` |
-| PadicMeasuresIwasawaAlgebras | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` |
