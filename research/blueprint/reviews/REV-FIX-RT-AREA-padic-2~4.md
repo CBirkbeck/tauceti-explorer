@@ -1,19 +1,21 @@
 # Independent review of the round-four p-adic fixes
 
-**Current intake blocker, checked 11 October 2026 by Codex session codex-rzgh2Z:**
+**Current intake blocker, checked 11 October 2026 by Codex session codex-bIYd8H:**
 the issued seven-output review is already complete, but the generated queue
 requires 31 outputs and twelve additional packet reviews. At checkout and
-remote main `ea4eca69090e655ae3fae93bd5ef846d43661f94`, fresh calls to the
+remote main `bc77f117ef2960db87bcc24331b59fde6d8d38d8`, fresh calls to the
 unmodified completion predicate return `True` for the issue's seven outputs
 and `False` for both actual queue entries. All twelve extra packets have
 accepted verdicts under other review jobs. Fresh pinned-index validation of
 the three issued packets reports zero errors and warnings (56, 326 and 537
 nodes). Intake rejects both required repair files as outside swarm outputs.
-This continuation changes documentation only and preserves the earlier
-mathematical and Lean-check attribution. The
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records the confirmed claim
-and maintainer repair. Reassigning the same review cannot resolve this scope
-mismatch; reconcile the issue and generated contract before another run.
+The current generator still has the conditional preservation branch identified
+in the existing repair experiment below. This session did not repeat that
+experiment or perform a new mathematical review. It preserves the earlier
+mathematical verdicts and source-reading and Lean-check attribution. The
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records this session's confirmed
+claim and the maintainer repair. This is a **blocked checkpoint**: reconcile
+the issued and generated contracts before assigning another continuation.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 

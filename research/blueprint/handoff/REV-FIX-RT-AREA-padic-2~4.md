@@ -1,13 +1,13 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-rzgh2Z**, 11 October 2026.
-Input commit: `ea4eca69090e655ae3fae93bd5ef846d43661f94`.
-Branch: `codex-rzgh2Z-review-6519`.
-The bot confirmed [claim comment 6106125608](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106125608)
-in [comment 6106126696](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106126696).
+Refs #6519. Codex, session **codex-bIYd8H**, 11 October 2026.
+Input commit: `bc77f117ef2960db87bcc24331b59fde6d8d38d8`.
+Branch: `codex-bIYd8H-review-6519`.
+The bot confirmed [claim comment 6106465993](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106465993)
+in [comment 6106467042](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106467042).
 Only this job was claimed. None of the manager's priority issues was available.
-The two focus package issues had open checkpoint PRs (#8130 and #8150), so
-this eligible focus review was selected under the fallback order.
+There were no available `top` jobs. This available `focus` review was selected
+under the fallback order; this session did none of the fixes under review.
 
 ## Completed work and fresh checks
 
@@ -20,10 +20,11 @@ verdicts and adds no mathematical or Lean changes.
 
 The issue was fetched again after bot confirmation. Its permitted deliverables
 are still **seven outputs / three packets**. A fresh GitHub-main queue at
-`ea4eca69090e655ae3fae93bd5ef846d43661f94` has the same output list as the local
+`bc77f117ef2960db87bcc24331b59fde6d8d38d8` has the same output list as the local
 queue: **31 outputs / fifteen packets**. All generated outputs exist. The
-current-main completion function is structurally identical to the local one.
-Calling the unmodified `issues.deliverables_complete` gives:
+current generator retains the conditional `made` branch identified in the
+repair experiment. Calling the unmodified local
+`issues.deliverables_complete` against both queue entries gives:
 
 | Scope | Completion result |
 |---|---|
