@@ -1,27 +1,29 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-UZCd0p`, 11 October 2026.
-Branch: `codex-UZCd0p-induction-restriction-package`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105402887)
-at 04:23:50 UTC, identifying claim comment 6105401204.
-Base atlas commit: `5ef4331ec4198234c77f9a74652b98acfd786d96`.
+Codex (GPT-6), session `codex-1DTuZ3`, 11 October 2026.
+Branch: `codex-1DTuZ3-induction-restriction-package`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105575515)
+at 04:49:37 UTC, identifying claim comment 6105574583.
+Base atlas commit: `98e12a03c5d9478e5c37363f8a3daa086ac341cd`.
 
 ## Outcome and scope
 
-**Blocked checkpoint.** The README now specifies reuse of native Kronecker
-evaluation and Mathlib's first-homology/abelianization identification. It
-separates the generic evaluation already implemented in Tau Ceti from the
-required group-complex adapter and arbitrary-coefficient UCT. A comment in
-Suggested.lean records the same implementation boundary; all signatures and
-imports are unchanged. The scope paragraph now agrees with RS.6's concrete
-model constructions and the accepted ownership audit: ST.3 identifies their
-arithmetic types, rather than supplying the algebraic carriers.
+**Blocked checkpoint.** The README now reuses current Tau Ceti's
+`CategoryTheory.ShortComplex.finite_homology` for the finite-generation step
+of integral group homology. It specifies the native inhomogeneous chain
+complex, its finite free middle term, and the distinction between
+`Module.Finite` and finiteness of the underlying group. This avoids planning
+another generic finite-generation theorem or a singular-homology comparison
+for that step. A comment in Suggested.lean records the reuse and the older
+compilation pin. All signatures and imports are unchanged.
 
-No second job was claimed. All forty manager-priority issues were checked
-individually: each was done or submitted, none available. No eligible
-finished-plan or package review was available, so this package preceded new
-planning in the fallback order. The accepted packet remains unchanged.
+The inherited Kronecker-evaluation and first-homology reuse, concrete RS.6
+models and supplier boundaries remain in place. No second job was claimed.
+None of the forty manager-priority issues appeared in the live
+`swarm`/`state:available` inventory. No eligible finished-plan or package
+review was available, so this package preceded new planning in the fallback
+order. The accepted packet remains unchanged.
 
 The accepted packet explicitly leaves two prerequisite owners unassigned:
 its first gap covers the native integral homological bridge, and its fifth
@@ -49,7 +51,7 @@ naturality. Preserve the parent Layer 7 request for ordinary Schur covers.
 | --- | --- |
 | Native integral UCT | Before RS.1 reduced covers, give H²(G,A) → Hom(H₂(G,ℤ),A) for arbitrary groups G and abelian A, its oriented cycle formula, surjectivity, and the specified Ext¹(Gᵃᵇ,A) injection. Preserve naturality in both group and coefficients, free-abelian Ext vanishing, the definition's API and its discriminating tests. |
 | Central-extension class map and five-term sequence | Before RS.1 `homology_image`, supply the section-independent class-map construction and exactness of H₂(E,ℤ) → H₂(G,ℤ) → A → Eᵃᵇ → Gᵃᵇ → 0, with arbitrary abelian central kernels and the commutator sign XYX⁻¹Y⁻¹. Reuse the factor-set and abelianization interfaces. |
-| Finite integral homology | Before RS.1 order arguments, supply positive-degree finiteness and annihilation by the finite group order. Reuse current native transfer; derive finite generation from finite-rank bar chains. Retain the tests distinguishing positive degrees from H₀. |
+| Finite integral homology | Before RS.1 order arguments, supply positive-degree finiteness and annihilation by the finite group order. Reuse current native transfer and `CategoryTheory.ShortComplex.finite_homology` on the native finite free chain modules. Retain the tests distinguishing positive degrees from H₀. |
 | Coprime degree-two edge | Before RS.5 multiplier and compatible-cover results, supply the natural degree-two reduction, including the inclusion-induced map, the quotient action on normal-subgroup homology, coinvariants and the incoming d₃ check. RS.6 imports the odd-index-two specialization. |
 | Cyclic complement conjugacy | Before RS.5 admissible inertia classes, supply H-conjugacy of complements in H⋊C for finite coprime H,C with C cyclic, including nonabelian H. Preserve the Sylow-induction proof route and the three existing conjugacy tests, or identify an actual finite-group supplier with this scope. |
 
@@ -92,6 +94,21 @@ the required arbitrary-coefficient integral bridge.
   gives index multiplication in every degree. Use it for annihilation; finite
   generation and the extension spectral-sequence contracts remain separate.
   Current-only modules cannot be imported into the older compilation pin.
+- Current `CategoryTheory.ShortComplex.finite_homology`,
+  `Algebra/Homology/ShortComplex/ModuleCat.lean:35`, already proves
+  `Module.Finite` for the homology of a short complex with noetherian middle
+  module. At the Mathlib pin, `groupHomology.inhomogeneousChains`
+  (`RepresentationTheory/Homological/GroupHomology/Basic.lean:155`) has term
+  `(Fin n → G) →₀ A`, and `groupHomology` (line 230) is its homology. For
+  finite G and A = ℤ with trivial action, this term is finite free over ℤ,
+  hence noetherian. Apply the existing theorem to the degree-n short complex;
+  no singular-chain comparison is needed for finite generation. This also
+  applies in degree zero, where the underlying group is infinite. The
+  positive-degree annihilation argument remains needed to deduce set
+  finiteness. This current Tau Ceti module is absent from the older
+  compilation pin, so it is documented rather than imported. Its existence
+  narrows the missing construction work but does not assign the full
+  finite-homology contract to an actual roadmap layer.
 - At the same Mathlib pin, `groupHomology.H1AddEquivOfIsTrivial`
   (`RepresentationTheory/Homological/GroupHomology/LowDegree.lean:1023`),
   its `H1AddEquivOfIsTrivial_single` formula (line 1044),
@@ -117,28 +134,24 @@ Two accepted atlas suppliers were also checked by their actual statements:
 specialization above. Its supplier packet is unnecessary for the package's
 baseline imports; it does not supply the missing degree-two bridge.
 
-Fresh primary-source inspection: Hatcher, *Algebraic Topology*,
-[author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1,
-Theorem 3.2 and the Ext computations and naturality discussion, printed
-pp.195–196, supply the arbitrary-coefficient free-chain UCT. Applying it to
-native group complexes requires the specified adapter and an actual owner.
-Conrad,
-[*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
-Remark 5, printed p.4, distinguishes complement existence from the separate
-conjugacy conclusion; the latter is not proved in those notes. These checks
-supply mathematical references, not ownership assignments. No source passage
-or source file was added. The cleared-source index was read; no restricted
-book was obtained. Earlier Löh source checks remain in the permanent inherited
-handoff linked below.
+The preceding handoff records primary-source checks for Hatcher,
+*Algebraic Topology*, §3.1, Theorem 3.2, printed pp.195–196, Conrad,
+*The Schur–Zassenhaus theorem*, Remark 5, printed p.4, and earlier Löh
+checks. Those source inspections are inherited, not repeated in this
+session. This pass read the actual library statements and supplier plans
+above. The cleared-source index was read; no restricted book was obtained.
+No source passage or source file was added.
 
 ## Validation
 
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
   completed with **exit 0, zero errors, 696 warnings, all declaration uses
-  sorry, and zero other warnings**. Preflight showed 100 GiB available. The
+  sorry, and zero other warnings**. Preflight showed 101 GiB available. The
   helper targets Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the
   Mathlib source HEAD and build manifest agree on
   `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  The four reuse comments were added after that check; executable Lean text
+  is unchanged.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
   reports **zero errors and zero warnings**: 109 nodes, 124 API items, 96
   tests, 30 planets, 30 baseline declarations, five gaps, one request and six
@@ -146,7 +159,7 @@ handoff linked below.
 - A fresh inventory finds all 109 target-name suffixes, 124 API-name suffixes
   and 96 test labels in both package files. This is a name inventory, not a
   mathematical audit of every inherited statement or finite certificate.
-  The README is 162,085 bytes, below the 200 KB limit.
+  The README is 163,063 bytes, below the 200 KB limit.
 - Local intake validation reports three permitted changed files and zero
   problems. `git diff --check` passes. The package completion predicate is
   false because metadata is absent, so this remains a checkpoint.
@@ -154,13 +167,13 @@ handoff linked below.
 | Final artifact | SHA-256 |
 | --- | --- |
 | `packets/InductionRestrictionPartII.json` | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `ea86ca1136cca119b1a5353f8764df3d7d6b8e8b2c0946435ce51cea7c4769ff` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `e4f37f00401af86cd6e9c50b4128bc054669e8abb128828aa6719591b3e0fc88` |
+| `packages/InductionRestrictionPartII/README.md` | `8a996dffd1e5a97280fdd189107bc656e8e652d771af079e5dc9ba0dd429cd98` |
+| `packages/InductionRestrictionPartII/Suggested.lean` | `b706dc2f3414afa5a140b3f2b7b4982b073a5357d60f785166bf19a17314afd8` |
 
 ## Inherited receipts and continuation
 
 The preceding checkpoint and links to the full accumulated notes are retained in
-[the handoff at the base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/5ef4331ec4198234c77f9a74652b98acfd786d96/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
+[the handoff at the base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/98e12a03c5d9478e5c37363f8a3daa086ac341cd/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
 They include finite-model calculations, source hashes, the nonsplit C₄→C₂
 UCT test, oriented extension maps, the noncentral C₃⋊C₂ tail test, the
 coprime-edge d₃ argument and the complement-conjugacy tests. Those receipts
