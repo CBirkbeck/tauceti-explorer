@@ -15,61 +15,61 @@
         "ref": "mathlib:ContinuousMonoidHom",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Native continuous group homomorphism carrier, extending MonoidHom and ContinuousMap.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "mathlib:ContinuousMulEquiv",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Native multiplicative homeomorphism; both directions are continuous.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.comp",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Composition of continuous homomorphisms.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "mathlib:QuotientGroup.lift",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "A homomorphism killing a normal subgroup factors through its group quotient.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "tauceti:TauCeti.proPKernel",
         "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
         "provides": "Intersection of open normal subgroups with p-group quotient; apply to the geometric kernel only.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "tauceti:TauCeti.map_proPKernel_eq",
         "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
         "provides": "Continuous group equivalences preserve the pro-p kernel, hence conjugation by the arithmetic group preserves it.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "tauceti:TauCeti.proPKernel_le_comap",
         "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
         "provides": "A continuous homomorphism preserves the pro-p kernel; gives relative quotient functoriality.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "tauceti:TauCeti.maximalProPQuotient",
         "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
         "provides": "Existing maximal pro-p quotient of a topological group, used only for the geometric group.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "mathlib:MulAction.stabilizer",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Point stabilizer is a Subgroup; tower stabilizers are intersections of these existing subgroups.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       },
       {
         "ref": "mathlib:LinearMap.ker",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "Native kernel submodule; canonical relations use this kernel of the actual section multiplication map.",
-        "checked": "Statement read at the pinned commit; for Tau Ceti MaximalProP the shared build file also has the same SHA-256 as that commit."
+        "checked": "Independently read the named declaration at the exact pinned commit. Its complete module is byte-for-byte identical in the shared pinned elaboration build."
       }
     ]
   },
@@ -395,7 +395,7 @@
         {
           "name": "TauCeti.Anabelian.RelativeProP.projection",
           "role": "projection",
-          "statement": "A continuous surjection to Γ with geometric kernel canonically Δ(p)."
+          "statement": "Continuous projection to Γ; surjective when q is surjective. For compact Hausdorff Π and Hausdorff Γ its kernel is continuously isomorphic to the existing maximalProPQuotient of ker(q)."
         },
         {
           "name": "TauCeti.Anabelian.RelativeProP.map",
@@ -406,6 +406,26 @@
           "name": "TauCeti.Anabelian.RelativeProP.open_map",
           "role": "compatibility",
           "statement": "An open-image relative map induces an open-image map on these quotients."
+        },
+        {
+          "name": "TauCeti.Anabelian.RelativeProP.mk",
+          "role": "constructor",
+          "statement": "Continuous quotient map from Π to its relative geometric pro-p quotient; its composite with projection is q."
+        },
+        {
+          "name": "TauCeti.Anabelian.RelativeProP.lift",
+          "role": "universal-property",
+          "statement": "A relative continuous homomorphism factors through this quotient when the target geometric kernel has trivial proPKernel; on profinite target kernels this is equivalent to being pro-p."
+        },
+        {
+          "name": "TauCeti.Anabelian.RelativeProP.lift_comp_mk",
+          "role": "compatibility",
+          "statement": "The lifted relative map composed with the continuous quotient map is the supplied homomorphism."
+        },
+        {
+          "name": "TauCeti.Anabelian.RelativeProP.lift_unique",
+          "role": "characterisation",
+          "statement": "A relative map out of the quotient agreeing after precomposition with mk equals the constructed lift."
         }
       ],
       "tests": [
@@ -472,7 +492,7 @@
       "sources": [
         {
           "sourceId": "M96",
-          "locator": "Definitions 2.4 and 2.7, Lemmas 2.5–2.6, Proposition 2.8, pp. 580–585",
+          "locator": "Definitions 2.1, 2.4, 2.5 and 2.7, Lemma 2.6, Corollary 2.8, pp. 580–585",
           "match": "A stable log curve is a stable pointed curve with the log structure pulled back from the boundary log structure on its stable-curve moduli family, over a standard log point. A finite generically étale cover is pre-admissible if its stable extension is multi-admissible; it is potentially pre-admissible if this holds after a finite tame base extension. The admissible arithmetic group is Π modulo the intersection of the co-admissible open subgroups. Its base quotient is the tame log-point Galois group Γ^t. Multi-admissible means a disjoint union of admissible connected covers. The imported admissibility predicate requires a finite map of fibrewise generic degree d, preservation of the smooth/node loci, marked-divisor bounds μ_C≤π*μ_D≤dμ_C, étaleness off nodes and markings, tame marking ramification, and strict-henselian node charts xy=a, uv=a^e, u=x^e, v=y^e with 1≤e≤d invertible on the base. Equivalently it has the source’s log-étale lift and characteristic-generator multiplicity bound. Total cover degree need not be invertible."
         },
         {
@@ -754,7 +774,7 @@
       "sources": [
         {
           "sourceId": "T97",
-          "locator": "Propositions 2.8–2.10, pp. 151–155; Propositions 3.3–3.8, pp. 156–162",
+          "locator": "Proposition 2.8, Lemma 2.9 and Corollary 2.10, pp. 151–155; Propositions 3.3–3.5 and 3.7–3.8, Remark 3.6, pp. 156–162",
           "match": "For a smooth geometrically connected affine hyperbolic curve U over a finite field k, its arithmetic tame group recovers its geometric kernel, arithmetic Frobenius, #k, compactification genus and number of geometric punctures, and the conjugacy classes of decomposition groups of all points of its smooth compactification, distinguishing punctures from interior points. The recovery is compatible with every open subgroup and finite constant extension."
         }
       ],
@@ -795,7 +815,7 @@
       "sources": [
         {
           "sourceId": "T97",
-          "locator": "Lemma 4.7, Definition 4.8 and Lemmas 4.9–4.16, pp. 167–175",
+          "locator": "Lemma 4.7, Definition 4.8 and Lemmas 4.9–4.11, 4.13 and 4.16, Claims 4.12 and 4.14–4.15, pp. 167–175",
           "match": "Let C_1,C_2 be smooth proper connected curves over algebraically closed fields, with function fields F_i. A multiplicative monoid isomorphism Φ:F_1→F_2 and a bijection of their points that preserve each normalized valuation, identify chosen finite sets S_i of at least three points, and preserve 1+m_P at every P∈S_1 determine an additive Φ, hence a field isomorphism."
         }
       ],
@@ -839,7 +859,7 @@
       "sources": [
         {
           "sourceId": "T97",
-          "locator": "Theorem 4.3, Lemmas 4.4–4.5 and Claim 4.6, pp. 164–168; completion of Lemma 4.16, p. 175",
+          "locator": "Theorem 4.3, Lemma 4.4 and Corollary 4.5 and Claim 4.6, pp. 164–168; completion of Lemma 4.16, p. 175",
           "match": "An isomorphism of the arithmetic tame fundamental groups of smooth geometrically connected affine hyperbolic curves over finite fields lifts uniquely to an isomorphism of their pointed universal tame covers, and hence gives a unique underlying scheme isomorphism modulo geometric deck transformations. Field automorphisms of the finite constants may occur; k-linearity and cyclotomic degree are extra conditions used in log gluing."
         }
       ],
@@ -880,7 +900,7 @@
       "sources": [
         {
           "sourceId": "M96",
-          "locator": "Definition 1.1, pp. 574–575; Lemma 2.9, pp. 585–587; Lemma 4.2, pp. 590–592",
+          "locator": "Definition 1.1, pp. 574–575; Lemma 2.9, pp. 585–587; Proposition 4.2, pp. 590–592",
           "match": "A stable log hyperbolic curve admits a cofinal system of orderly covers whose normalization components all have genus at least two. Further finite tame extensions and covers can separate the branch combinatorics and make the required nodes rational. These changes are tracked with descent data; they are not hypotheses silently imposed on the original curve."
         }
       ],
@@ -917,7 +937,8 @@
         "WeightsInEtaleCohomology:R34.2",
         "AbelianSchemesAndArithmeticModuli:A4/etale-tate-module",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/ordinary-special-quotient"
       ],
       "sources": [
         {
@@ -959,12 +980,13 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/sturdy-cover",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-and-prime-to-p",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/ordinary-special-quotient"
       ],
       "sources": [
         {
           "sourceId": "M96",
-          "locator": "Lemma 4.2, pp. 590–592; Propositions 5.1–5.2 and Corollaries 5.3–5.4, pp. 594–596",
+          "locator": "Proposition 4.2, pp. 590–592; Propositions 5.1–5.2 and Corollaries 5.3–5.4, pp. 594–596",
           "match": "The admissible group recovers the node tower, its incidence with normalization components, and the paired branch inertia groups. For each component its normalization-minus-branches tame fundamental group is identified as a subgroup with the prescribed branch labels."
         },
         {
@@ -1010,7 +1032,7 @@
       "sources": [
         {
           "sourceId": "M96",
-          "locator": "§6, Proposition 6.1, Corollaries 6.2–6.3 and Theorem 6.4, pp. 596–600",
+          "locator": "§6, Proposition 6.1, Lemmas 6.2–6.3 and Proposition 6.4, pp. 596–600",
           "match": "At a stable node with chart xy=t^e, the calibrated two branch inertia embeddings determine the full integer e≥1 and the Kummer gluing torsor identifying the branch log structures. Hence component log isomorphisms with matching calibrated branch data glue uniquely to a stable log isomorphism."
         }
       ],
@@ -1089,7 +1111,8 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-tame-isom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/sturdy-cover",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-isom",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
       ],
       "sources": [
         {
@@ -1138,7 +1161,8 @@
         "NeronModelsAndSemistableAbelianVarieties:R11.3/raynaud-extension-comparison",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction"
       ],
       "sources": [
         {
@@ -1167,9 +1191,10 @@
       "title": "Local generic isomorphisms have degree one",
       "statement": "A G_K-compatible isomorphism of arithmetic fundamental groups of proper hyperbolic curves over K/Q_p finite has p-adic and every ℓ-adic fundamental-class scalar equal to 1; on singular admissible reduction its reconstruction degree is also 1.",
       "hypotheses": [
-        "Stable models; p and ℓ≠p pairings normalized by trace; compare a cofinal cover with a graph loop."
+        "Stable models; p and ℓ≠p pairings normalized by trace. A graph-loop cover is produced in the proof before applying the pairing comparison."
       ],
       "proofSteps": [
+        "First pass to a finite extension and an étale generic cover with singular stable reduction, using the Raynaud p-torsion filtration and the inseparable-genus/Hurwitz contradiction of the beginning of the proof of Theorem 9.2; no reconstructed isomorphism is used. On a sturdy singular reduction, if its graph is a tree, choose connected cyclic prime-to-p étale covers on its positive-genus components, split the fibres above the nodes after a constant extension, and glue the paired fibres. The resulting graph has parallel edges and a loop. The admissible cover-system dictionary lifts this cover to the generic tower. Fundamental-class scalars are unchanged by the matched cover degrees.",
         "Raynaud uniformization compares the toric monodromy pairing and period lattice over the rational numbers, independent of ℓ.",
         "The p-adic and ℓ-adic cup products identify their degree scalars with the same rational pairing ratio and force them to ±1.",
         "Graph duality identifies the ℓ scalar with the positive reconstruction degree in p^Z; positivity removes −1."
@@ -1180,12 +1205,16 @@
         "NeronModelsAndSemistableAbelianVarieties:R11.3/rigid-uniformisation",
         "NeronModelsAndSemistableAbelianVarieties:R11.4/integral-monodromy-pairing",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/sturdy-cover",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/node-branch-recovery",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
       ],
       "sources": [
         {
           "sourceId": "M96",
-          "locator": "Lemma 9.1, pp. 613–617",
+          "locator": "Lemma 9.1 and the independent cover reduction in the proof of Theorem 9.2, pp. 613–619",
           "match": "A G_K-compatible isomorphism of arithmetic fundamental groups of proper hyperbolic curves over K/Q_p finite has p-adic and every ℓ-adic fundamental-class scalar equal to 1; on singular admissible reduction its reconstruction degree is also 1."
         }
       ],
@@ -1309,7 +1338,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/local-special-isom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/curve-map-rigidity",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/galois-centre-free",
-        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction"
@@ -1394,9 +1423,11 @@
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2",
-        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:P8",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
       ],
       "sources": [
         {
@@ -1485,12 +1516,12 @@
         "JacobianChallengePartII:JC0/picard-torsors",
         "JacobianChallengePartII:JC4/actual-to-relative-obstruction",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
-        "PadicHodgeTheory:R06.5"
+        "PadicHodgeTheory:P8"
       ],
       "sources": [
         {
           "sourceId": "M99",
-          "locator": "§4, Lemma 4.1 and Definition 4.2, author-copy pp. 27–31",
+          "locator": "§4, Lemma 4.1 and Definition 4.3, author-copy pp. 27–31",
           "match": "After a finite extension supplies a curve point, the degree-one Picard arithmetic extension has a canonical weight-zero geometric section independent of that point. A section of the curve or generic-point arithmetic group is J-geometric when its induced weight-zero Pic¹ section equals that canonical section. Over a finite extension of Q_p this means its abelianized section comes from a Pic¹(K) point, not necessarily an X(K) point."
         }
       ],
@@ -1661,7 +1692,7 @@
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:P8",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
       ],
@@ -1848,7 +1879,9 @@
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
       ],
       "sources": [
         {
@@ -1887,9 +1920,9 @@
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/j-geometric-section",
-        "AlgebraicModuliForArithmeticGeometry:R09.1",
-        "PadicHodgeTheory:R06.5",
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets"
+        "PadicHodgeTheory:P8",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+        "StableReductionPartII:MC.4/fine-level-scheme"
       ],
       "sources": [
         {
@@ -1928,7 +1961,7 @@
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-splitting",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-pro-p",
-        "PadicHodgeTheory:R06.5",
+        "PadicHodgeTheory:P8",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia"
       ],
       "sources": [
@@ -1999,9 +2032,10 @@
       "title": "Prime-to-p divisor effectivity from sections",
       "statement": "In the disk-cover setup of Proposition 7.4, an open relative map and an FI-geometric source section produce on the target curve an actual line bundle of degree prime to p. For a geometric section of the Pic^N arithmetic extension, functorial diagonal Chern classes and Kummer divisibility recover a line bundle of prime-to-p degree.",
       "hypotheses": [
-        "Irreducibly-splittable source disk cover; proper hyperbolic target; compatible open map; actual Picard/Kummer obstruction controlled."
+        "The target disk-cover family Y′ is irreducibly splittable in the sense of M99 Definition 6.3; the induced source family then has that property. Use common allowed normal disk refinements with a section and geometrically irreducible fibres, the Definition 6.4 factorization and an FI-geometric source section; proper hyperbolic curves and a compatible open relative map."
       ],
       "proofSteps": [
+        "Choose an irreducibly splittable target cover Y′ and the induced connected source cover X′. Its splitting data transport through the relative group map; use a common disk refinement satisfying Definition 6.3 before applying FI⇒F to the target.",
         "Tate full faithfulness extends the induced p-divisible-group map, so formal Kummer classes are respected.",
         "Transport the constant J-geometric section and upgrade FI to F, then use norm and a nonzero multiple to obtain a geometric Pic^N section.",
         "Pull a line class from Pic^N×Y whose restriction is a nonzero tensor power of the diagonal; functorial Chern classes give mζ=c₁(M) with deg ζ=1.",
@@ -2168,14 +2202,15 @@
       ],
       "kind": "theorem",
       "title": "Completed toric differential comparison",
-      "statement": "For U=Spec K(X), the completed prime-to-weight-zero quotient of its geometric abelianization is assembled from point inertia and the potentially multiplicative quotients. Its dual C_T embeds into the completed logarithmic differential space F_∞ through generalized-Jacobian Hodge–Tate comparisons, with finite-rank approximants and a uniform integral bound. This defines the multiplication Ψ_N used to test canonical relations.",
+      "statement": "For U=Spec K(X), write H_U for its geometric pro-p abelianization and H_F for the kernel of the weight-zero quotient on the proper curve. Push the point-inertia extension to its universal torsion-free cyclotomic quotient H_T,U, obtaining 0→H_T,U→H_T,X→H_F→0. Its continuous dual C_T,X has a completed generalized-Jacobian Hodge–Tate comparison: after completed tensoring with Ô_K, the p-adic completion of the integers of an algebraic closure, and inverting p, it identifies with completed logarithmic differential terms with Tate twist (−1), together with the weight-zero term F_0=H¹(𝒳,O_𝒳) for the chosen stable integral model 𝒳. Projection to completed logarithmic differentials therefore has the weight-zero kernel; only the quotient by that kernel embeds. Finite-rank approximants and one integral bound independent of the finite puncture set permit completion. Tensor multiplication on the resulting completed differential space defines Ψ_N.",
       "hypotheses": [
-        "K p-adic finite; proper hyperbolic X; point removed to normalize the inertia product; exact topologies and inverse/completed direct limits retained."
+        "K p-adic finite; proper hyperbolic X; a stable O_K-model and a rational point after a common finite extension normalizes the inertia product. Keep completed tensor products, the p-adic completed direct sum dual to inertia, and inversion of p separate. F_∞ denotes the space of log-differential sections over the pointed stable-model limit; the maps to it use its p-adic completion, written F̂_∞."
       ],
       "proofSteps": [
-        "Describe the inertia product over all other points and the universal torsion-free cyclotomic quotient.",
-        "For finite point sets build generalized Jacobians by the indicated node pinchings; their Raynaud good-reduction/formal parts provide the differential maps.",
-        "A bound independent of the point set permits completion; compare with completed log differentials and construct their tensor multiplication."
+        "Describe the inertia product over all points other than the chosen point, then push to the universal torsion-free cyclotomic quotient and dualize the resulting exact extension.",
+        "For each finite set of points construct the pinched nodal curves and their generalized Jacobians. Their Raynaud formal parts give integral maps whose common p-power bound is independent of that set.",
+        "Complete the finite-rank extension sums. Proposition 11.3 becomes an isomorphism after p-inversion, with differential summand F̂_T,X(−1) and weight-zero summand F_0; do not discard the latter before projecting.",
+        "Embed the completed differential summand in F̂_∞ with its lattice and torsion-free comparison, and identify the projection kernel as the weight-zero part. Define Ψ_N using multiplication of the actual completed log sections."
       ],
       "prerequisites": [
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia",
@@ -2191,11 +2226,12 @@
         {
           "sourceId": "M99",
           "locator": "Lemmas 11.1–11.2 and Proposition 11.3, author-copy pp. 57–62",
-          "match": "For U=Spec K(X), the completed prime-to-weight-zero quotient of its geometric abelianization is assembled from point inertia and the potentially multiplicative quotients. Its dual C_T embeds into the completed logarithmic differential space F_∞ through generalized-Jacobian Hodge–Tate comparisons, with finite-rank approximants and a uniform integral bound. This defines the multiplication Ψ_N used to test canonical relations."
+          "match": "For U=Spec K(X), write H_U for its geometric pro-p abelianization and H_F for the kernel of the weight-zero quotient on the proper curve. Push the point-inertia extension to its universal torsion-free cyclotomic quotient H_T,U, obtaining 0→H_T,U→H_T,X→H_F→0. Its continuous dual C_T,X has a completed generalized-Jacobian Hodge–Tate comparison: after completed tensoring with Ô_K, the p-adic completion of the integers of an algebraic closure, and inverting p, it identifies with completed logarithmic differential terms with Tate twist (−1), together with the weight-zero term F_0=H¹(𝒳,O_𝒳) for the chosen stable integral model 𝒳. Projection to completed logarithmic differentials therefore has the weight-zero kernel; only the quotient by that kernel embeds. Finite-rank approximants and one integral bound independent of the finite puncture set permit completion. Tensor multiplication on the resulting completed differential space defines Ψ_N."
         }
       ],
       "acceptance": [
-        "An ordinary uncompleted direct sum of point inertia or a varying comparison bound does not supply F_∞."
+        "An ordinary uncompleted direct sum of point inertia or a varying comparison bound does not supply F_∞.",
+        "The F_0 summand survives in C_T,X after scalar extension and is killed by the differential projection; no injection of the whole C_T,X is claimed. The differential quotient becomes injective only after removing this kernel and making the stated scalar extension."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -2212,13 +2248,13 @@
       ],
       "kind": "theorem",
       "title": "Arithmetic maps preserve all canonical relations",
-      "statement": "An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N.",
+      "statement": "An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F̂_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N.",
       "hypotheses": [
         "K/Q_p finite; proper hyperbolic target; compatible generic-point input; all disk normalizations retain a section and geometric irreducibility."
       ],
       "proofSteps": [
         "If a transported relation were nonzero, choose a stable marked blowup and a generic special component where its differential pullback κ_L is nonzero.",
-        "Graph Weil divisors on the disk normalization are Q-Cartier; their formal Jacobian classes make the source section F/FI-geometric.",
+        "For the particular normalized disk family, prove normality by the geometrically regular completion comparison of Lemma 13.1. For a nodal chart xy=π^e over its regular base, the divisor of x−s_x is the graph plus vertical components; those components are Q-Cartier and the irreducible-fibre hypothesis controls the branches. Lemma 13.3 therefore makes the graph Q-Cartier. This is a special calculation, not a general assertion about Weil divisors on normal schemes. Its formal Jacobian class makes the source section F/FI-geometric.",
         "Every target Frattini cover receives a prime-to-p line bundle and a tame point; nondegeneracy and tower-point descent make the transported section geometric over L.",
         "Evaluation at that geometric point forces the purported relation to vanish, contradicting the chosen component."
       ],
@@ -2230,13 +2266,13 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-cover-descent",
         "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
         "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
-        "PadicHodgeTheory:R06.5"
+        "PadicHodgeTheory:P8"
       ],
       "sources": [
         {
           "sourceId": "M99",
           "locator": "Proposition 12.1, Lemmas 13.1–13.3 and Corollary 13.4, author-copy pp. 62–69",
-          "match": "An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N."
+          "match": "An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F̂_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N."
         }
       ],
       "acceptance": [
@@ -2273,7 +2309,7 @@
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
-        "PadicHodgeTheory:R06.5"
+        "PadicHodgeTheory:P8"
       ],
       "sources": [
         {
@@ -2317,7 +2353,8 @@
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free"
       ],
       "sources": [
         {
@@ -2402,11 +2439,12 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/local-pro-p-hom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/inertia-and-regularity",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/curve-map-rigidity",
-        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
         "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free"
       ],
       "sources": [
         {
@@ -2446,8 +2484,9 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/finitely-generated-hom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/curve-map-rigidity",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-pro-p",
-        "AlgebraicModuliForArithmeticGeometry:R09.1",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/galois-centre-free"
       ],
       "sources": [
         {
@@ -2492,7 +2531,8 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-hom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/galois-centre-free",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-pro-p"
       ],
       "sources": [
         {
@@ -2696,11 +2736,10 @@
   ],
   "requests": [
     {
-      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
-      "need": "Supply the dominant-morphism and isomorphism loci for proper hyperbolic curves as finite unramified schemes, their spreading/shrinking to finite étale, and universal pointed curve families used for weight-zero splitting. Constant maps are excluded from the Hom locus.",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
+      "need": "Specialize the relative Hom/Isom representability contract of R09.2 to proper hyperbolic curves: isolate dominant maps, prove finite unramified generic loci by Hurwitz and negative tangent degree, spread them and shrink to finite étale. Generic representability does not by itself prove finiteness. Universal fine curve families are supplied separately by StableReductionPartII MC.4.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/number-field-isom",
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-splitting",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/finitely-generated-hom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/sub-p-adic-hom"
       ]
@@ -2738,8 +2777,8 @@
       ]
     },
     {
-      "supplier": "PadicHodgeTheory:R06.5",
-      "need": "Supply relative Hodge–Tate comparison on a smooth p-adic base with normal-crossing boundary (Faltings almost purity and Tate weight vanishing), with functoriality under the open maps in M99 §2; scalar single-field comparison is insufficient.",
+      "supplier": "PadicHodgeTheory:P8",
+      "need": "Extend the current shared relative-period-sheaf/comparison contract to the precise Faltings setup of M99 §2: smooth p-adic algebraic bases with normal-crossing boundary, almost-étale completed integral base, relative Hodge–Tate exact sequence, weight vanishing and functoriality under the specified open group maps. Import the genuine comparison from this owner; R06.5 owns representation-theoretic applications and cannot serve as a construction supplier. The completed integral/logarithmic extension remains G2, not an existing scalar comparison theorem.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/j-geometric-section",
@@ -2819,7 +2858,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
-      "need": "Use representable Picard components, Abel maps from symmetric powers, generic birationality of Sym^g→Pic^g and generalized Jacobians where separately supplied; do not infer an actual line bundle from a sheaf point without its obstruction.",
+      "need": "Use representable Picard components, Abel maps from symmetric powers, generic birationality of Sym^g→Pic^g and generalized Jacobians where separately supplied; do not infer an actual line bundle from a sheaf point without its obstruction. Request generalized Jacobians of the specific point-pinched nodal curves, their torus extensions and Raynaud formal comparisons as an extension; the smooth Jacobian representability contract does not already contain them.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/linear-system-addition",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/prime-to-p-line-bundle",
@@ -2836,14 +2875,15 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
-      "need": "Use full local tame/wild subgroups, the normal pro-p wild kernel, and the Iwasawa tame presentation with arithmetic Frobenius; extract centre-freeness of the tame quotient without replacing the full G_K by its maximal pro-p quotient.",
+      "need": "Use full local tame/wild subgroups, the normal pro-p wild kernel, and the Iwasawa tame presentation with arithmetic Frobenius; extract centre-freeness of the tame quotient without replacing the full G_K by its maximal pro-p quotient. The faithful arithmetic Frobenius action on prime-to-p inertia also proves that the tame base Γ^t in log reconstruction has trivial centre.",
       "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free"
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-log-isom"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "need": "Use continuous Z_p coefficient cohomology with derived inverse-limit control and arithmetic Hochschild–Serre; discrete finite-coefficient results must first be transported.",
+      "need": "Consume the all-degree smooth discrete coefficient carrier and finite-level naturality from current Layer 10. Request a ProfiniteCohomology, Part II extension for continuous Z_p and completed integral coefficient modules: derived inverse-limit comparison (including possible lim¹ terms), arithmetic Hochschild–Serre, and naturality under the field, coefficient and group maps used here. The current roadmap explicitly excludes these coefficients and the spectral sequence; no theorem is supplied by Layer 10 merely because the canonical carrier exists.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/component-recovery",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/node-branch-recovery",
@@ -2858,7 +2898,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
-      "need": "Use all-degree cup products, trace and Poincaré duality comparisons for geometric curve cohomology.",
+      "need": "Consume the actual graded cup product and its naturality on smooth discrete coefficients from Layer 12. Transport it to continuous Z_p coefficients through the requested Part II inverse-limit comparison. Curve trace and Poincaré duality are geometric inputs from EDC.2, not theorems of this generic cup-product layer.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
@@ -2867,14 +2907,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
-      "need": "Use restriction, inflation, transfer, Hochschild–Serre and inner-conjugacy independence, with continuous cochains on the native carrier.",
+      "need": "Consume restriction, inflation, transfer and inner-conjugacy independence with the existing discrete coefficient conventions. The low-degree five-term sequence does not supply the arithmetic Hochschild–Serre spectral sequence for completed coefficients; that is part of the separately requested ProfiniteCohomology, Part II extension.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/nondegenerate-section"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
-      "need": "Use Kummer theory, its compatible p-power inverse limit and functoriality under field/group maps.",
+      "need": "Consume finite-level Kummer theory and functoriality with its actual discrete root-of-unity coefficient module and Galois action. Supply compatibility through the requested continuous p-power derived inverse limit before using Z_p(1); current Layer 9 alone does not provide the completed-coefficient comparison.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-decomposition",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/thickness-log-gluing",
@@ -2934,7 +2974,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-      "need": "Resolve rational maps between arithmetic surface models and control exceptional rational curves; also supply completion/normality of the disk normalizations used in the generic-point proof.",
+      "need": "Consume resolution and common regular arithmetic-surface models from Layer 4. The normal finite disk-cover completion comparison used in M99 Lemma 13.1 is an additional supplier extension with geometrically regular completion hypotheses; it is not implied by surface resolution. The special graph Q-Cartier calculation of Lemma 13.3 remains in the NC.1 relation proof.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/local-admissible-recovery",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/fi-to-f",
@@ -2944,7 +2984,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
-      "need": "Use stable reduction after finite DVR extension, uniqueness over a fixed DVR and compatible extension of generic isomorphisms; include the Jacobian semistability criterion under its stated perfect-residue hypotheses.",
+      "need": "Consume stable reduction after finite DVR extension, uniqueness over a fixed DVR and compatible extension of generic isomorphisms from Layer 8. The stronger curve/Jacobian semistability criterion is the later theorem of Layer 7, with its additional residue-field hypotheses retained; import it there.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/log-admissible-system",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/local-admissible-recovery",
@@ -2961,6 +3001,38 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/sturdy-cover",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing"
       ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+      "need": "Supply smooth proper curve trace normalized by point degree and first Kummer Chern classes; prove finite-cover pullback/degree and coefficient/base-change compatibility at every prime-power level.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/arithmetic-chern-comparison"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+      "need": "Supply the geometric smooth proper curve perfect cup pairing and its Galois/twist normalization at finite prime-power coefficients, then its torsion-free integral limit; preserve the actual trace under the NC.0 group/étale comparison.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/arithmetic-chern-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "need": "Use the later curve/Jacobian semistability equivalence over complete perfect-residue DVRs in the local admissibility criterion, rather than importing that stronger theorem from Layer 8.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/local-admissible-recovery"
+      ]
+    },
+    {
+      "supplier": "StableReductionPartII:MC.4/fine-level-scheme",
+      "need": "Use a full prime-to-p level N≥3 with fixed pairing component to obtain the actual smooth projective universal genus-g curve over the fine smooth scheme, then pull it back and add the generic point used in the weight-zero splitting proof. Coarse moduli alone cannot give this family.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-splitting"
+      ]
     }
   ],
   "coverage": [
@@ -2968,7 +3040,7 @@
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.1",
       "status": "planned",
       "remaining": [
-        "Discharge the supplier requests and geometric typing gap; independent review must verify the source-qualified chains and their interfaces before coverage can become closed."
+        "Discharge the geometric typing, integral/relative comparison, continuous-coefficient and supplier-extension gaps before packaging. Synchronize the reader document with the corrected packet and complete a fresh independent consistency check before promotion."
       ]
     }
   ],
@@ -3018,25 +3090,34 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-centre-free",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/punctured-elliptic-isom"
       ],
-      "detail": "The pinned libraries provide no arithmetic étale curve group, stable log-cover category, relative Hodge–Tate family, Picard arithmetic extension or completed differential multiplication with these comparison maps. Suggested therefore gives native relative group prototypes and the kernel-of-actual-multiplication adapter, then a named omission ledger for geometric definitions, APIs, tests and theorems. No opaque carrier or proposition-valued stand-in claims that these signatures have been typed. The mathematical statements and tests are complete here and in the reader; type them against the listed suppliers before packaging."
+      "detail": "The pinned libraries provide no arithmetic étale curve group, stable log-cover category, relative Hodge–Tate family, Picard arithmetic extension or completed differential multiplication with these comparison maps. Suggested therefore gives native relative group prototypes and the kernel-of-actual-multiplication adapter, then a named omission ledger for geometric definitions, APIs, tests and theorems. No opaque carrier or proposition-valued stand-in claims that these signatures have been typed. The mathematical target statements and tests are specified in the corrected packet; type them against the listed suppliers before packaging."
     },
     {
       "title": "G2: integral and relative comparison closure",
       "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/compatible-tower-point",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison",
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing"
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-splitting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/inertia-and-regularity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/j-geometric-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/nondegenerate-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/open-map-j-geometric",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient"
       ],
-      "detail": "Relative Faltings almost purity, weight vanishing and the uniform integral Hodge–Tate bounds are precise requests to R06.5 and R07.1. The papers state and use these inputs, but scalar Hodge–Tate decomposition nodes do not supply the integral completed-base comparison or its bound independent of cover depth and finite puncture set."
+      "detail": "Relative Faltings almost purity, weight vanishing and the uniform integral Hodge–Tate bounds are precise requests to P8 and R07.1. The papers state and use these inputs, but scalar Hodge–Tate decomposition nodes do not supply the integral completed-base comparison or its bound independent of cover depth and finite puncture set."
     },
     {
       "title": "G3: pro-p arithmetic cohomology closure",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.1/arithmetic-chern-comparison",
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/prime-to-p-line-bundle"
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/nondegenerate-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/prime-to-p-line-bundle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient"
       ],
-      "detail": "NC.0 supplies full finite-coefficient effacement and product refinements. The sharpened pro-p-cover cofinality and continuous Z_p twisted arithmetic comparison are requested explicitly; do not infer them from the full profinite K(π,1) property alone."
+      "detail": "NC.0 supplies full finite-coefficient effacement and product refinements. The sharpened pro-p-cover cofinality and continuous Z_p twisted arithmetic comparison are requested explicitly; do not infer them from the full profinite K(π,1) property alone. Current ProfiniteCohomology explicitly excludes completed coefficients and Hochschild–Serre. Its generic Part II extension must construct the derived inverse limits and spectral sequence; EDC.2 supplies geometric curve trace/duality and the group/étale comparison must transport them. Finite-level Kummer and graded cups alone do not close this gap."
     },
     {
       "title": "G4: supplier extensions for effectivity and centre-freeness",
@@ -3047,9 +3128,11 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/punctured-elliptic-isom",
         "AnabelianGeometryAndNonabelianChabauty:NC.1/linear-system-addition",
-        "AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison"
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-outer-comparison"
       ],
-      "detail": "Cofinal hyperbolic Artin-neighborhood models and their exact sequences, exact dominant Hom/Isom representability and finite-étale spreading, universal-family availability, generalized-Jacobian integral comparison and the surface-group centre theorem are supplier requests, not blanket conclusions of generic moduli/Picard/profinite stages. ProfiniteProPGroups centre extension is proposed as Part II. The function-field reciprocity supplier is outside the 94-roadmap Caraiani–Newton tier list; the maintainer must place that existing supplier below this packet before upstream packaging. The IG.5 extension distinguishes invertible local node indices from invertible total group order. The NC.2 two-step Malcev foundation is requested independently of reconstruction and must be split before assembly to keep stage-level dependencies acyclic."
+      "detail": "Cofinal hyperbolic Artin-neighborhood models and their exact sequences, exact dominant Hom/Isom representability and finite-étale spreading, fine universal-family base-change compatibility, generalized-Jacobian integral comparison and the surface-group centre theorem are supplier requests, not blanket conclusions of generic moduli/Picard/profinite stages. ProfiniteProPGroups centre extension is proposed as Part II. The function-field reciprocity supplier is outside the 94-roadmap Caraiani–Newton tier list; the maintainer must place that existing supplier below this packet before upstream packaging. The IG.5 extension distinguishes invertible local node indices from invertible total group order. The NC.2 two-step Malcev foundation is requested independently of reconstruction and must be split before assembly to keep stage-level dependencies acyclic. Current StableReduction Layer 4 does not state the geometrically regular disk-completion comparison, and smooth Jacobian Layer D does not state the point-pinched generalized-Jacobian extension; both requests are extensions, not existing contracts. Current ProfiniteArithmetic §2.3 is the exact generic continuous outer-action/pullback supplier for geometric-outer-comparison, but it has no stage id in this atlas snapshot; assembly must index it and add that edge, using the recorded upstreamReuse contract."
     }
   ],
   "sourceIssues": [
@@ -3068,7 +3151,12 @@
         "Author June 2019 comments (M99C), both entries read",
         "Author news page https://www.kurims.kyoto-u.ac.jp/~motizuki/news-english.html, checked 2026-10-10",
         "Web search for Mochizuki Local Pro-p Anabelian erratum correction; no additional correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the argument on author-copy p. 76: finiteness uses negative tangent degree and Hurwitz for dominant maps; the full Hom locus includes the family of constants. This is a qualification of notation, not a false endpoint theorem.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E2",
@@ -3083,7 +3171,12 @@
       "searched": [
         "Author papers page https://www.kurims.kyoto-u.ac.jp/~motizuki/papers-english.html",
         "Author December 2012 comments (M96C), correction (1)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read published pp. 593–594 and the author’s December 2012 correction (1): the argument and correction identify the image λ(L_r) with K_Y.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E3",
@@ -3099,7 +3192,12 @@
         "Author papers page https://www.kurims.kyoto-u.ac.jp/~motizuki/papers-english.html",
         "Author August 2017 comments https://www.kurims.kyoto-u.ac.jp/~motizuki/The%20Geometry%20of%20the%20Compactification%20of%20the%20Hurwitz%20Scheme%20%28comments%29.pdf, all three entries read",
         "Author-copy §3.10, p. 24, uses e≤d"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read §3.9 p. 22 and §3.10 p. 24 of the author copy: the strict bound conflicts with the identity nodal cover, while the proof uses the weak bound. The three August 2017 comments address other items.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1"
+      }
     }
   ],
   "sourceVersions": [
@@ -3138,6 +3236,12 @@
       "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/The%20Local%20Pro-p%20Anabelian%20Geometry%20of%20Curves%20%28comments%29.pdf",
       "read": "2026-10-10",
       "sha256": "e01d70acf57510305038d55eabaf1aea348ddf9a6b4db13798f6387d51c2b5f3"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/The%20Geometry%20of%20the%20Compactification%20of%20the%20Hurwitz%20Scheme%20%28comments%29.pdf",
+      "read": "2026-10-10",
+      "sha256": "6c9e2e497f996282dcf3d7fcf0e06b59e9918d4ea6c3ba8ec3fe2d7ef8973840"
     }
   ],
   "supplierInterfaces": [
@@ -3252,6 +3356,30 @@
     {
       "ref": "StableReductionPartII:MC.1/normal-crossing-boundary",
       "statementRead": "The unpointed stable-moduli boundary is a relative normal-crossings Cartier divisor; global components need not be smooth or simple."
+    },
+    {
+      "ref": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "statementRead": "Current §1 Out of scope excludes non-discrete Z_p(1) coefficients and Hochschild–Serre; Layer 10 supplies all-degree smooth discrete coefficient cohomology. Completed coefficients and inverse limits require the explicitly requested Part II."
+    },
+    {
+      "ref": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+      "statementRead": "Smooth curve trace is built from divisor degree and Kummer classes independently of general biduality; its normalization and base-change/finite-flat trace compatibility are specified."
+    },
+    {
+      "ref": "EtaleDualityAndPerverseSheaves:EDC.2:pairings",
+      "statementRead": "Geometric smooth proper cup duality follows after trace-purity and biduality; finite/integral derived forms remain separate, with Frobenius and twists retained."
+    },
+    {
+      "ref": "AlgebraicModuliForArithmeticGeometry:R09.2",
+      "statementRead": "The current Hilbert/Quot stage explicitly constructs relative Hom and Isom schemes; it does not assert finiteness of all curve morphisms. R09.1 instead contains projective bundles, Grassmannians and flags."
+    },
+    {
+      "ref": "PadicHodgeTheory:P8",
+      "statementRead": "Current P8 constructs shared relative period sheaves and imports proper comparison after its local rational prefix; its integral/logarithmic Faltings specialization used here is an explicit extension. Current R06.5 has representation-theoretic applications, not ownership of comparison constructions."
+    },
+    {
+      "ref": "StableReductionPartII:MC.4/fine-level-scheme",
+      "statementRead": "With g≥2 and fixed full symplectic level N≥3 invertible on the base, the fine moduli scheme is smooth and quasi-projective and carries a smooth projective universal curve; forgetting level is representable finite étale."
     }
   ],
   "upstreamReuse": [
@@ -3264,7 +3392,7 @@
         "2.3 outer actions from extensions",
         "3 closed lower central series"
       ],
-      "use": "Import these current interfaces when typing geometric outer equivariance. The arithmetic formulation uses native continuous homomorphisms and their relative kernel quotient; no generic Out, characteristic quotient or central-series definition is replanned."
+      "use": "Import these current interfaces when typing geometric outer equivariance. The arithmetic formulation uses native continuous homomorphisms and their relative kernel quotient; no generic Out, characteristic quotient or central-series definition is replanned. In particular §2.3 identifies a centre-free arithmetic extension with the pullback along its outer action. The current atlas stage index has no ProfiniteArithmetic entry, so this upstream interface is recorded here and in G4 rather than invented as a pinned baseline declaration."
     },
     {
       "roadmap": "AlgebraicCurves",
@@ -3313,16 +3441,262 @@
       ],
       "proposal": "Extract the foundational two-step Malcev/cup-relation interface requested from NC.2 into an earlier independent portion of the same roadmap; NC.1 and the remaining NC.2 then both import it.",
       "detail": "NC.2 has no planned nodes in the parent packet. The request here is for this foundation only, with no NC.1 reconstruction input. The current ProfiniteArithmetic lower-central Lie ring is reused; it does not itself assert a rational Malcev equivalence. Assembly must enforce this split so the stage-level NC.1→NC.2 application ordering cannot create a cycle."
+    },
+    {
+      "action": "extend",
+      "roadmaps": [
+        "ProfiniteCohomology"
+      ],
+      "proposal": "ProfiniteCohomology, Part II: continuous integral and completed coefficient comparison, derived p-power inverse limits and arithmetic Hochschild–Serre, preserving the existing canonical carrier and cup/Kummer maps.",
+      "detail": "The current main explicitly excludes non-discrete coefficients and the spectral sequence. NC.1 requests these general tools from that owner, rather than planning another continuous cohomology theory."
     }
   ],
   "upstreamNotes": [
     {
       "roadmap": "ProfiniteArithmetic",
-      "detail": "Its current main supplies generic ContinuousOut and extension outer actions, absent from the atlas snapshot. No change to that roadmap is made here."
+      "detail": "Its current main supplies generic ContinuousOut and extension outer actions, absent from the atlas snapshot. No change to that roadmap is made here. The actual current anchor is #layer-2-continuous-automorphisms-and-outer-automorphisms; §2.3 supplies the centre-free extension pullback. Assembly must index this supplier before converting the recorded reuse into a graph edge."
     },
     {
       "roadmap": "AlgebraicCurves",
       "detail": "Its current Layer 9 covers arbitrary residue fields and Layer 12 covers scheme/function-field dictionaries; the mixed-characteristic residue-function-field proof must cite these enlarged interfaces."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
+    "date": "2026-10-10",
+    "notes": "Completed independent target-level review: all 46 nodes, all 10 pinned declarations, all API/test obligations, source issues, direct dependency chains and supplier contracts checked. Corrected 27 nodes, expanded 49 to 53 API obligations, and clarified four existing gaps. Suggested Lean elaborates with only admitted-proof warnings. Acceptance is withheld because the companion reader still asserts an injection of the whole C_T,X contradicted by M99 Proposition 11.3 and still omits the target splittability hypothesis of Proposition 7.4. This issue does not authorize reader edits, and promotion copies that reader. Synchronize it with the corrected packet and independently check consistency before promotion; open implementation gaps alone are not grounds for this verdict. See the review report for exact repair locations.",
+    "checked": [
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-hom",
+        "verdict": "verified",
+        "note": "The over-base commuting square and quotient by target geometric conjugation agree with M99; open image is invariant under that relation. Composition is well defined."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-isom",
+        "verdict": "verified",
+        "note": "The inverse commuting square and geometric conjugacy relation give the correct continuous relative Isom set, without quotienting by arbitrary arithmetic conjugators."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-pro-p",
+        "verdict": "corrected",
+        "note": "Only the geometric kernel is completed. Qualified projection/kernel hypotheses and added the continuous quotient constructor and unique relative lift; the arithmetic base survives."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/log-admissible-system",
+        "verdict": "corrected",
+        "note": "Corrected M96 definition/lemma/corollary labels. The M95 node indices must be invertible, but total cover degree need not be; the identity cover forces the weak e≤d bound."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/tower-decomposition",
+        "verdict": "verified",
+        "note": "Intersections of actual tower point stabilizers recover the decomposition subgroup. The native cofinality adapter exposes its fixing hypothesis; geometric cofinality is still a supplier obligation."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/cyclotomic-degree",
+        "verdict": "verified",
+        "note": "The degree compares calibrated cyclotomic identifications, lies in positive p-powers, and is restricted to singular reduction. Merely preserving abstract inertia is insufficient."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-decomposition",
+        "verdict": "corrected",
+        "note": "Corrected Proposition/Lemma/Corollary labels. Rational-point sections on every cover, Kummer separation and Frobenius weights recover the compactification data and punctures."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/linear-system-addition",
+        "verdict": "corrected",
+        "note": "Corrected Lemma/Claim labels. Normalized valuations and principal units at at least three points give the addition reconstruction; preserving unit groups alone does not."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-tame-isom",
+        "verdict": "corrected",
+        "note": "Corrected Lemma 4.4/Corollary 4.5. The source reconstructs the universal tame cover and underlying schemes; fixed constant-field linearity is a further condition."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/sturdy-cover",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 4.2. Cofinal sturdy/orderly covers and untangling precede the component and node arguments; their descent data are retained."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/component-recovery",
+        "verdict": "corrected",
+        "note": "Added the ordinary-special-quotient edge. Weight-zero graph data and normalization Jacobian torsion must be recovered together; auxiliary-prime independence uses common cover refinements."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/node-branch-recovery",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 4.2 and added the ordinary-special-quotient edge. Checked branch incidence, eigencharacters and the December 2012 correction λ(L_r)=K_Y."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/thickness-log-gluing",
+        "verdict": "corrected",
+        "note": "Corrected Lemmas 6.2–6.3/Proposition 6.4. Calibrated branch maps recover the integer thickness, including its p-part, and the Kummer gluing torsor."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/ordinary-special-quotient",
+        "verdict": "verified",
+        "note": "The liftable-prime-torsor intermediate quotient is distinguished from the ordinary étale quotient. Both remain distinct from the full admissible group."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/finite-field-log-isom",
+        "verdict": "corrected",
+        "note": "Added the tame-base supplier used to refine arithmetic conjugacy to geometric conjugacy. Degree-one calibration and all orderly-cover compatibilities are essential."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/local-admissible-recovery",
+        "verdict": "corrected",
+        "note": "Added the actual Layer 7 owner of the Jacobian semistability criterion; Layer 8 supplies stable-model uniqueness. Unramified tower tests recover potential admissibility."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization",
+        "verdict": "corrected",
+        "note": "Exposed the independent graph-loop cover reduction, sturdy-cover/node inputs, and geometric trace/duality suppliers. The degree argument does not invoke the reconstruction theorem that uses it."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/local-special-isom",
+        "verdict": "verified",
+        "note": "This is stable log special-fibre reconstruction, not a local generic Isom theorem. Common stable extensions and all admissible covers are part of the comparison."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/curve-map-rigidity",
+        "verdict": "verified",
+        "note": "Faithfulness is only for dominant maps. Tate data supplies rigidity on an existing map locus; the hyperbolic curve embedding and cover compatibilities remove translations."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/number-field-isom",
+        "verdict": "corrected",
+        "note": "Moved the Hom/Isom request to R09.2. The finite unramified Isom locus spreads to finite étale after shrinking, permitting specialization and descent without assumed rational points."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-outer-comparison",
+        "verdict": "verified",
+        "note": "Checked the geometric-inner refinement using centre-free kernels/base. Current ProfiniteArithmetic §2.3 supplies the generic extension pullback; its missing atlas index is explicitly recorded in G4."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/weight-zero-quotient",
+        "verdict": "corrected",
+        "note": "Added geometric trace/duality edges and corrected the relative comparison owner to P8. Two-step bracket/cup relations and the weight-zero/one split retain the proper-curve relation."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/j-geometric-section",
+        "verdict": "corrected",
+        "note": "Corrected Definition 4.3 and the comparison owner. J-geometry concerns actual Picard degree-one/Kummer data; it does not assert a curve point."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/fi-geometric-section",
+        "verdict": "verified",
+        "note": "Checked the actual H_X filtration and Definition 6.4 factorization. FI-geometry is witnessed in cohomology via the formal image, not an arbitrary lift into H_X^FI."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/nondegenerate-section",
+        "verdict": "corrected",
+        "note": "Corrected the comparison owner to P8. The nonzero map into the torsion-free completed integral HΩ quotient retains the uniformizer and residue-constant hypotheses."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relations",
+        "verdict": "verified",
+        "note": "Canonical relations are kernels of actual section multiplication in every degree. The native adapter factors through the image only and does not assume surjective multiplication."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/arithmetic-chern-comparison",
+        "verdict": "corrected",
+        "note": "Added geometric trace/duality suppliers and qualified completed-coefficient comparison requests. Actual line bundles, twists, products and degree-normalized Chern classes remain necessary."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-splitting",
+        "verdict": "corrected",
+        "note": "Replaced projective parameter spaces by the fine universal-curve supplier MC.4 and the relative comparison owner P8. Geometric sections split the two-step quotient; the converse requires genus≥2."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/open-map-j-geometric",
+        "verdict": "corrected",
+        "note": "Corrected the relative comparison owner. The open map kills weight-one inertia in the target weight-zero quotient and gives J-geometry, not immediate curve-point effectivity."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/fi-to-f",
+        "verdict": "verified",
+        "note": "Irreducibly splittable means pointed constant-family descent on a normal disk with a section and geometrically irreducible fibres. These hypotheses control vertical primes in FI⇒F."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/prime-to-p-line-bundle",
+        "verdict": "corrected",
+        "note": "Restored irreducible splittability of the target family in Proposition 7.4, with the induced source property. Kummer division removes the p-part while preserving an actual line bundle."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/tame-point-existence",
+        "verdict": "verified",
+        "note": "A prime-to-p actual line bundle gives a closed point with tame Galois closure. The descent uses the specified residue completion and the same uniformizer; it is not a general DVR assertion."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/compatible-tower-point",
+        "verdict": "verified",
+        "note": "Every associated Frattini cover must have a tame point. The uniform integral bound and separated HΩ lattice give compatible projective differential coordinates and a tower point."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-cover-descent",
+        "verdict": "verified",
+        "note": "The bound is uniform in the deeper sequence for each fixed cover; constant extensions may depend on that fixed cover. Canonical nonhyperelliptic covers and norms descend the point to L."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison",
+        "verdict": "corrected",
+        "note": "Replaced the false injection of all C_T,X by the completed Hodge–Tate comparison with its F_0 summand. After scalar extension/p-inversion, only the quotient by the weight-zero kernel embeds in completed differentials."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing",
+        "verdict": "corrected",
+        "note": "Made the completed differential target explicit and exposed the particular normality/Q-Cartier graph calculation. Relation vanishing is in every degree and uses all target tower points."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/inertia-and-regularity",
+        "verdict": "corrected",
+        "note": "Corrected the relative comparison owner. A nonzero residue would force a deck transformation to fix a canonical-image point on an étale cover; residue vanishing yields regularity and proper-source factorization."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-effectivity",
+        "verdict": "corrected",
+        "note": "Added the prior local/finitely-generated Galois-centre input. All canonical relations and cover compatibilities produce the curve map and identify the arithmetic map up to geometric conjugacy."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/local-pro-p-hom",
+        "verdict": "verified",
+        "note": "The proper hyperbolic local Hom bijection follows from generic-source reconstruction, inertia factorization, effectivity and faithful descent; the source theorem is not a section conjecture."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/finitely-generated-hom",
+        "verdict": "corrected",
+        "note": "Added the prior local/finitely-generated centre edge and moved representability to R09.2. Frattini-surjectivity uses a nontrivial abelian cover; the finite dominant locus supports specialization and descent."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/sub-p-adic-hom",
+        "verdict": "corrected",
+        "note": "Added sub-p-adic centre-freeness and moved the Hom supplier to R09.2. Descent is through a chosen embedding into a finitely generated p-adic field, retaining all of G_K."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/full-profinite-hom",
+        "verdict": "corrected",
+        "note": "Added the relative-pro-p construction edge. Apply reconstruction on every finite cover, including non-p covers, to identify the original full profinite map."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/galois-centre-free",
+        "verdict": "verified",
+        "note": "The sub-p-adic centre argument follows local/finitely-generated Hom and the punctured elliptic helper; it precedes sub-p-adic Hom, avoiding a circle. Moving an elliptic j-invariant detects a nontrivial central element."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/local-galois-centre-free",
+        "verdict": "verified",
+        "note": "Tame-quotient centre-freeness, local H² restriction/duality and a nonabelian free wild pro-p group prove the local case. Cofinal hyperbolic Artin-neighborhood towers then give finite-generation induction."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/geometric-centre-free",
+        "verdict": "verified",
+        "note": "Checked the torsion/open-subgroup centre criteria and free/surface cases. Existing presentations do not supply this centre API; the Part II request and stable-log sturdy reduction are honest."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.1/punctured-elliptic-isom",
+        "verdict": "verified",
+        "note": "The puncture supplies hyperbolicity. Use finitely-generated generic/proper Hom, cofinal p-covers with large boundary ramification, and both inverse maps; no sub-p-adic centre theorem is assumed."
+      }
+    ]
+  }
 }

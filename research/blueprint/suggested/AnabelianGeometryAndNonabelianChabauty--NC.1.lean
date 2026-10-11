@@ -1,7 +1,8 @@
 /-
 This file is not the roadmap and is not exhaustive. The companion roadmap document is
-definitive. These statements suggest Lean forms so contributors and reviewers converge
-on names and signatures. No implementation is claimed.
+definitive after synchronization with the corrected packet; this review records the
+outstanding reader corrections in its report. These statements suggest Lean forms so
+contributors and reviewers converge on names and signatures. No implementation is claimed.
 
 NC.1: proper hyperbolic curves over number fields, with separate Isom and Hom chains.
 The pinned libraries can express the relative group interfaces below. Their geometric
@@ -175,6 +176,10 @@ abbrev RelativeProP (p : ℕ) (q : X →ₜ* Γ) := X ⧸ relativeProPKernel p q
 namespace RelativeProP
 variable (p : ℕ) (qX : X →ₜ* Γ)
 
+def mk : X →ₜ* RelativeProP p qX where
+  toMonoidHom := QuotientGroup.mk' (relativeProPKernel p qX)
+  continuous_toFun := QuotientGroup.continuous_mk
+
 theorem kernel_eq_image : relativeProPKernel p qX =
     (TauCeti.proPKernel p qX.toMonoidHom.ker).map qX.toMonoidHom.ker.subtype := by sorry
 
@@ -183,6 +188,8 @@ theorem kernel_le : relativeProPKernel p qX ≤ qX.toMonoidHom.ker := by sorry
 def projection : RelativeProP p qX →ₜ* Γ where
   toMonoidHom := QuotientGroup.lift _ qX.toMonoidHom (kernel_le p qX)
   continuous_toFun := by sorry
+
+theorem projection_comp_mk : (projection p qX).comp (mk p qX) = qX := by sorry
 
 theorem projection_surjective (hq : Function.Surjective qX) :
     Function.Surjective (projection p qX) := by sorry
@@ -194,6 +201,22 @@ def geometricKernelEquiv [CompactSpace X] [T2Space X] [T2Space Γ] :
       TauCeti.maximalProPQuotient p qX.toMonoidHom.ker := by sorry
 
 variable {qX} {qY : Y →ₜ* Γ}
+
+/-- The target-kernel hypothesis is equivalent to being pro-p in the profinite case.
+It applies to the geometric kernel, leaving the arithmetic base unchanged. -/
+def lift (f : OverHom qX qY)
+    (hY : TauCeti.proPKernel p qY.toMonoidHom.ker = ⊥) :
+    OverHom (projection p qX) qY := by sorry
+
+theorem lift_comp_mk (f : OverHom qX qY)
+    (hY : TauCeti.proPKernel p qY.toMonoidHom.ker = ⊥) :
+    (lift p f hY).hom.comp (mk p qX) = f.hom := by sorry
+
+theorem lift_unique (f : OverHom qX qY)
+    (hY : TauCeti.proPKernel p qY.toMonoidHom.ker = ⊥)
+    (g : OverHom (projection p qX) qY)
+    (hg : g.hom.comp (mk p qX) = f.hom) : g = lift p f hY := by sorry
+
 def map (f : OverHom qX qY) : RelativeProP p qX →ₜ* RelativeProP p qY := by sorry
 
 theorem projection_map (f : OverHom qX qY) :
@@ -388,7 +411,7 @@ Omitted theorem signature: TauCeti.Anabelian.genericGroupRecoversAdmissibleReduc
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/degree-normalization
 A G_K-compatible isomorphism of arithmetic fundamental groups of proper hyperbolic curves over K/Q_p finite has p-adic and every ℓ-adic fundamental-class scalar equal to 1; on singular admissible reduction its reconstruction degree is also 1.
-Hypotheses: Stable models; p and ℓ≠p pairings normalized by trace; compare a cofinal cover with a graph loop.
+Hypotheses: Stable models; p and ℓ≠p pairings normalized by trace. A graph-loop cover is produced in the proof before applying the pairing comparison.
 Omitted theorem signature: TauCeti.Anabelian.localArithmeticIsomDegreeOne
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/local-special-isom
@@ -477,7 +500,7 @@ Omitted theorem signature: TauCeti.Anabelian.fiGeometricImpliesFGeometric
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/prime-to-p-line-bundle
 In the disk-cover setup of Proposition 7.4, an open relative map and an FI-geometric source section produce on the target curve an actual line bundle of degree prime to p. For a geometric section of the Pic^N arithmetic extension, functorial diagonal Chern classes and Kummer divisibility recover a line bundle of prime-to-p degree.
-Hypotheses: Irreducibly-splittable source disk cover; proper hyperbolic target; compatible open map; actual Picard/Kummer obstruction controlled.
+Hypotheses: The target disk-cover family Y′ is irreducibly splittable in the sense of M99 Definition 6.3; the induced source family then has that property. Use common allowed normal disk refinements with a section and geometrically irreducible fibres, the Definition 6.4 factorization and an FI-geometric source section; proper hyperbolic curves and a compatible open relative map.
 Omitted theorem signature: TauCeti.Anabelian.openMapPrimeToPLineBundle
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/tame-point-existence
@@ -496,12 +519,12 @@ Hypotheses: Nondegenerate α; tame points on every Frattini cover; characteristi
 Omitted theorem signature: TauCeti.Anabelian.nondegenerateSectionIsGeometric
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/completed-differential-comparison
-For U=Spec K(X), the completed prime-to-weight-zero quotient of its geometric abelianization is assembled from point inertia and the potentially multiplicative quotients. Its dual C_T embeds into the completed logarithmic differential space F_∞ through generalized-Jacobian Hodge–Tate comparisons, with finite-rank approximants and a uniform integral bound. This defines the multiplication Ψ_N used to test canonical relations.
-Hypotheses: K p-adic finite; proper hyperbolic X; point removed to normalize the inertia product; exact topologies and inverse/completed direct limits retained.
+For U=Spec K(X), write H_U for its geometric pro-p abelianization and H_F for the kernel of the weight-zero quotient on the proper curve. Push the point-inertia extension to its universal torsion-free cyclotomic quotient H_T,U, obtaining 0→H_T,U→H_T,X→H_F→0. Its continuous dual C_T,X has a completed generalized-Jacobian Hodge–Tate comparison: after completed tensoring with Ô_K, the p-adic completion of the integers of an algebraic closure, and inverting p, it identifies with completed logarithmic differential terms with Tate twist (−1), together with the weight-zero term F_0=H¹(𝒳,O_𝒳) for the chosen stable integral model 𝒳. Projection to completed logarithmic differentials therefore has the weight-zero kernel; only the quotient by that kernel embeds. Finite-rank approximants and one integral bound independent of the finite puncture set permit completion. Tensor multiplication on the resulting completed differential space defines Ψ_N.
+Hypotheses: K p-adic finite; proper hyperbolic X; a stable O_K-model and a rational point after a common finite extension normalizes the inertia product. Keep completed tensor products, the p-adic completed direct sum dual to inertia, and inversion of p separate. F_∞ denotes the space of log-differential sections over the pointed stable-model limit; the maps to it use its p-adic completion, written F̂_∞.
 Omitted theorem signature: TauCeti.Anabelian.completedToricDifferentialComparison
 
 Node AnabelianGeometryAndNonabelianChabauty:NC.1/canonical-relation-vanishing
-An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N.
+An open relative generic-point pro-p homomorphism induces an injective differential map θ:H⁰(Y,ω_Y)→F̂_∞ for which Ψ_N(θ^⊗N(R_N(Y)))=0 for every N.
 Hypotheses: K/Q_p finite; proper hyperbolic target; compatible generic-point input; all disk normalizations retain a section and geometric irreducibility.
 Omitted theorem signature: TauCeti.Anabelian.openMapCanonicalRelationsVanish
 
