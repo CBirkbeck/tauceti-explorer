@@ -40,6 +40,10 @@ PerfectoidSpace, tilting operator or the supplier toric scheme family. Consequen
   algebraic zero-locus operations as supplier parameters. Their identification with the named
   toric objects and the hypotheses requiring the unavailable geometric carriers are omitted.
   Each such omission is called out next to the signature and in the handoff ledger.
+CURRENT-MAIN REUSE: TauCeti.AdicSpace and its native open restriction now exist in
+PreAdicSpace/Adic.lean at the current-main commit recorded in the packet. They postdate this
+pin. Upgraded signatures must use that carrier, without introducing another adic-space category.
+
 The concrete ray inequalities, divisor coefficients, convolution support and c₀ tests are fully
 stated. Abstract supplier parameters describe a signature shape, not an arbitrary-space theorem.
 -/
@@ -329,12 +333,49 @@ lemma perfectedDivisorSections_dense {F : Type*} [NormedField F] {n r : ℕ}
     (f : perfectedDivisorSections F p v a) (ε : ℝ) (hε : 0 < ε) :
     ∃ g : perfectedWeights p v a →₀ F, ∀ u, ‖f u - g u‖ < ε := by sorry
 
+/-- Singleton coefficient family for the named convolution API. -/
+def perfectedDivisorSections_monomial {F : Type*} [NormedField F] {n r : ℕ}
+    (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℚ)
+    (u : perfectedWeights p v a) (c : F) : perfectedDivisorSections F p v a := by
+  classical
+  exact { toFun := fun z => if z = u then c else 0
+          continuous_toFun := by sorry
+          zero_at_infty' := by sorry }
+
+/-- Addition of admissible weights; ray inequalities and p-denominators are preserved. -/
+def perfectedWeights_add {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a b : Fin r → ℚ) (u : perfectedWeights p v a) (w : perfectedWeights p v b) :
+    perfectedWeights p v (a + b) := ⟨u.val + w.val, by sorry⟩
+
 /-- Bounded convolution, not the pointwise product instance of the native coefficient carrier. -/
 def perfectedDivisorSections_mul {F : Type*} [NormedField F] [CompleteSpace F]
     [IsUltrametricDist F]
     {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n) (a b : Fin r → ℚ)
     (f : perfectedDivisorSections F p v a) (g : perfectedDivisorSections F p v b) :
     perfectedDivisorSections F p v (a + b) := by sorry
+
+lemma perfectedDivisorSections_mul_coeff {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a b : Fin r → ℚ) (f : perfectedDivisorSections F p v a)
+    (g : perfectedDivisorSections F p v b) (z : perfectedWeights p v (a + b)) :
+    perfectedDivisorSections_mul p v a b f g z =
+      ∑' t : perfectedWeights p v a × perfectedWeights p v b,
+        if t.1.val + t.2.val = z.val then f t.1 * g t.2 else 0 := by sorry
+
+lemma perfectedDivisorSections_mul_monomial {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a b : Fin r → ℚ) (u : perfectedWeights p v a) (w : perfectedWeights p v b) (c d : F) :
+    perfectedDivisorSections_mul p v a b
+      (perfectedDivisorSections_monomial p v a u c)
+      (perfectedDivisorSections_monomial p v b w d) =
+      perfectedDivisorSections_monomial p v (a + b) (perfectedWeights_add p v a b u w)
+        (c * d) := by sorry
+
+lemma perfectedDivisorSections_norm_mul_le {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a b : Fin r → ℚ) (f : perfectedDivisorSections F p v a)
+    (g : perfectedDivisorSections F p v b) :
+    ‖perfectedDivisorSections_mul p v a b f g‖ ≤ ‖f‖ * ‖g‖ := by sorry
 
 /-- The weight portion of finite-support p-power descent; algebraic sheaf comparison is omitted. -/
 lemma perfectedDivisorSections_descent {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
@@ -354,6 +395,15 @@ example (p : ℕ) (u : perfectedWeights p p1Rays 0) : u.val = 0 := by sorry
 -- Test perfectedDivisorSections_constantFamily: infinitely many coefficient ones violate c0.
 example (p : ℕ) (hp : Nat.Prime p) (F : Type*) [NormedField F]
     (f : perfectedDivisorSections F p p1Rays ![0, 1]) : ¬ (∀ u, f u = 1) := by sorry
+
+-- Test perfectedDivisorSections_convolution: disjoint supports multiply to the sum weight.
+example {F : Type*} [NormedField F] [CompleteSpace F] [IsUltrametricDist F]
+    (p : ℕ) (hp : Nat.Prime p) (u w : perfectedWeights p p1Rays ![0, 1])
+    (hu : u.val = 0) (hw : w.val = fun _ => 1) :
+    perfectedDivisorSections_mul p p1Rays ![0, 1] ![0, 1]
+      (perfectedDivisorSections_monomial p p1Rays ![0, 1] u (1 : F))
+      (perfectedDivisorSections_monomial p p1Rays ![0, 1] w 1)
+      (perfectedWeights_add p p1Rays ![0, 1] ![0, 1] u w) = 1 := by sorry
 
 /-- Real cone C_D; the perfected lattice intersection is separately represented below. -/
 def divisorCone {n r : ℕ} (v : Fin r → Lattice n) (a : Fin r → ℤ) :
@@ -393,6 +443,44 @@ instance {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℤ) :
 abbrev gradedDivisorAlgebra (F : Type*) [NormedField F] {n r : ℕ}
     (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℤ) := C₀(perfectedConeWeights p v a, F)
 
+def gradedDivisorAlgebra_monomial {F : Type*} [NormedField F] {n r : ℕ}
+    (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℤ)
+    (z : perfectedConeWeights p v a) (c : F) : gradedDivisorAlgebra F p v a := by
+  classical
+  exact { toFun := fun w => if w = z then c else 0
+          continuous_toFun := by sorry
+          zero_at_infty' := by sorry }
+
+def perfectedConeWeights_add {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a : Fin r → ℤ) (x y : perfectedConeWeights p v a) :
+    perfectedConeWeights p v a := ⟨x.val + y.val, by sorry⟩
+
+/-- The named product is convolution; the native C₀ pointwise product is not used. -/
+def gradedDivisorAlgebra_mul {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a : Fin r → ℤ) (f g : gradedDivisorAlgebra F p v a) :
+    gradedDivisorAlgebra F p v a := by sorry
+
+lemma gradedDivisorAlgebra_mul_monomial {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a : Fin r → ℤ) (x y : perfectedConeWeights p v a) (c d : F) :
+    gradedDivisorAlgebra_mul p v a (gradedDivisorAlgebra_monomial p v a x c)
+      (gradedDivisorAlgebra_monomial p v a y d) =
+      gradedDivisorAlgebra_monomial p v a (perfectedConeWeights_add p v a x y) (c * d) :=
+  by sorry
+
+lemma gradedDivisorAlgebra_mul_coeff {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a : Fin r → ℤ) (f g : gradedDivisorAlgebra F p v a) (z : perfectedConeWeights p v a) :
+    gradedDivisorAlgebra_mul p v a f g z =
+      ∑' t : perfectedConeWeights p v a × perfectedConeWeights p v a,
+        if t.1.val + t.2.val = z.val then f t.1 * g t.2 else 0 := by sorry
+
+lemma gradedDivisorAlgebra_norm_mul_le {F : Type*} [NormedField F] [CompleteSpace F]
+    [IsUltrametricDist F] {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n)
+    (a : Fin r → ℤ) (f g : gradedDivisorAlgebra F p v a) :
+    ‖gradedDivisorAlgebra_mul p v a f g‖ ≤ ‖f‖ * ‖g‖ := by sorry
+
 lemma gradedDivisorAlgebra_homogeneous {F : Type*} [NormedField F] {n r : ℕ}
     (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℤ)
     (f : gradedDivisorAlgebra F p v a) (j : ℚ) :
@@ -422,6 +510,16 @@ example (p : ℕ) (hp : Nat.Prime p) (j : ℤ) :
 -- Test gradedDivisorAlgebra_product: an infinite coefficient-one degree family is not c0.
 example (p : ℕ) (hp : Nat.Prime p) (F : Type*) [NormedField F]
     (f : gradedDivisorAlgebra F p p1Rays 0) : ¬ (∀ z, f z = 1) := by sorry
+
+-- Test gradedDivisorAlgebra_convolution: degree 1 times degree -1 has degree zero.
+example {F : Type*} [NormedField F] [CompleteSpace F] [IsUltrametricDist F]
+    (p : ℕ) (hp : Nat.Prime p) (x y : perfectedConeWeights p p1Rays 0)
+    (hx : x.val = (0, 1)) (hy : y.val = (0, -1)) :
+    (perfectedConeWeights_add p p1Rays 0 x y).val = (0, 0) ∧
+      gradedDivisorAlgebra_mul p p1Rays 0
+        (gradedDivisorAlgebra_monomial p p1Rays 0 x (1 : F))
+        (gradedDivisorAlgebra_monomial p p1Rays 0 y 1)
+        (perfectedConeWeights_add p p1Rays 0 x y) = 1 := by sorry
 
 /- NT.3: supplier spaces and sites. Omitted conditions are geometric identifications only. -/
 abbrev towerCarrier (X : TopCat) (φ : X ⟶ X) := {x : ℕ → X // ∀ n, φ (x (n+1)) = x n}
@@ -473,9 +571,20 @@ example {F Fb : Type*} [MonoidWithZero F] [MonoidWithZero Fb] (sharp : Fb →*�
 -- Test toricProjection_scaling: the multiplicative coordinate calculation is fully typed.
 example {F Fb : Type*} [Monoid F] [Monoid Fb] (sharp : Fb →* F) (scale x : Fb) :
     sharp (scale * x) = sharp scale * sharp x := by sorry
--- Test toricProjection_line: actual inverse-image tower condition; nonalgebraicity is omitted.
+-- Test toricProjection_line: the inverse-image tower condition.
 example {X Xb : TopCat} {φ : X ⟶ X} (e : Xb ≃ₜ towerCarrier X φ) (line : Set X) (x : Xb) :
     toricProjection e x ∈ line ↔ ∀ n, (e x).val n ∈ {y | (φ^[n]) y ∈ line} := by sorry
+
+-- The mixed-characteristic residue-two point [1:1:0] separates the two algebraic lines.
+-- The projective-point/tilting identifications are omitted; the coordinate obstruction is exact.
+example {F Fb : Type*} [Field F] [CharZero F] [Field Fb] [CharP Fb 2]
+    (sharp : Fb →*₀ F) :
+    (1 : Fb) + 1 + 0 = 0 ∧ sharp 1 + sharp 1 + sharp 0 ≠ 0 := by sorry
+
+-- Test toricProjection_line_equalCharacteristic: additivity under the characteristic-p
+-- tilt identification. That identification itself awaits the perfectoid-field supplier.
+example {F Fb : Type*} [Field F] [Field Fb] (sharp : Fb ≃+* F) (x y z : Fb) :
+    sharp x + sharp y + sharp z = 0 ↔ x + y + z = 0 := by sorry
 
 /-- Supply the small étale sites and the finite-stage colimit site from A1/P7. -/
 def toricEtaleComparison (Ctilt Climit : Type*) [Category Ctilt] [Category Climit]
@@ -524,8 +633,9 @@ theorem toricSectionNeighbourhoods {X : TopCat} (zeroLocus : Set X)
 theorem denseFieldSectionApproximation {F k : Type*} [NormedField F] [Field k] [Algebra k F]
     {n r : ℕ} (p : ℕ) (v : Fin r → Lattice n) (a : Fin r → ℚ)
     (hdense : DenseRange (algebraMap k F)) (f : perfectedDivisorSections F p v a)
-    (ε : ℝ) (hε : 0 < ε) :
-    ∃ g : perfectedWeights p v a →₀ k, ∀ u, ‖f u - algebraMap k F (g u)‖ < ε := by sorry
+    (hf : f ≠ 0) (ε : ℝ) (hε : 0 < ε) :
+    ∃ g : perfectedWeights p v a →₀ k, g ≠ 0 ∧
+      ∀ u, ‖f u - algebraMap k F (g u)‖ < ε := by sorry
 
 /-- Zero-locus operation and geometric coordinates are supplied by C0/R1. -/
 theorem toricHypersurfaceApproximation {X Xb : TopCat} (π : C(Xb, X))
@@ -583,14 +693,16 @@ theorem toricIntersectionDegree (n c : ℕ) (degree : ℤ) : 0 < degree := by
   let _ := c
   sorry
 
-/-- Subvarieties, analytification, dimension and k-descent are supplier inputs. -/
+/-- Closed models over k, base change, analytic support and dimension are supplier inputs. -/
 theorem toricCompleteIntersectionApproximation {X Xb : TopCat} (π : C(Xb, X))
-    (Subvariety : Type*) (analyticSupport : Subvariety → Set Xb)
-    (dimension : Subvariety → ℕ) (U : Set X) (hU : IsOpen U) (d : ℕ) :
+    (ClosedModel : Type*) (analyticSupport : ClosedModel → Set Xb)
+    (dimension : ClosedModel → ℕ) (U : Set X) (hU : IsOpen U) (d : ℕ) :
     ∃ Z, analyticSupport Z ⊆ π ⁻¹' U ∧ dimension Z = d := by
   -- Omitted: Σ smooth projective, K perfectoid, nonempty Y of dimension d cut out by
-  -- codimension-many Cartier hypersurfaces, U⊃Y^an, and Subvariety the reduced closed
-  -- subvarieties defined over the given dense subfield k⊂K♭. No irreducibility assumption.
+  -- codimension-many Cartier hypersurfaces, U⊃Y^an, and ClosedModel the closed
+  -- subschemes over the given dense subfield k⊂K♭; support and dimension refer to base change.
+  -- Reduction after base change need not descend as a reduced scheme to imperfect k.
+  -- No irreducibility assumption.
   sorry
 
 end TauCeti.Toric.Nonarchimedean
