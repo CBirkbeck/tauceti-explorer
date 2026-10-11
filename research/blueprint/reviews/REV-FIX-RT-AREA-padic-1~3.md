@@ -1,52 +1,54 @@
-# Current checkpoint: Codex codex-1ppOB3, 11 October 2026
+# Current checkpoint: Codex codex-vbTYkD, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input `cea943b81895e62a7b416df4373809b718fa47d1`;
-branch `codex-1ppOB3-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107356259).
+Input `84cf000b0608a871fc237a43474ab6d3cdcd675a`;
+branch `codex-vbTYkD-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107503012).
 This session did none of the author fixes or earlier reviews.
 
-**Blocked checkpoint.** The existing mathematical review and its qualifications
-remain below. Fresh checks establish that the scope and review-attribution
-conflict still prevents completion. This continuation changes the report and
-handoff only; it supplies no new mathematical verdict.
+**Blocked checkpoint.** Fresh verification confirms the existing assignment
+and review-attribution conflict. The mathematical review below remains the
+previous reviewers' work. This continuation updates this checkpoint and the
+handoff; it adds no mathematical verdict or source-audit claim.
 
 | Job | Live outputs / packets | Queue outputs / packets | Completion, live / queue |
 | --- | --- | --- | --- |
 | #5704 | 7 / 3 | 47 / 23 | false / false |
 | #6519 | 7 / 3 | 31 / 15 | true / false |
 
-Parsed both live issue bodies afresh. Their output lists equal the historical
-queues at `c69e5b6c9` and `888f12f5c9`, respectively. All current queue outputs
-exist. P0 and ASII current verdicts identify #6519; AEG identifies #5704.
-The preserved read-only collision fixture returns `[false, true]`; restoring
-#5704's archived verdicts in memory returns `[true, false]`. Therefore replacing
-current verdicts would transfer the completion failure between the jobs.
+Fetched both live issue bodies and compared their exact deliverable lists with
+the historical queues at `c69e5b6c9` and `888f12f5c9`. They agree. Every queue
+output exists. #5704's queue additionally demands 20 excluded packets and
+20 excluded suggested files; #6519's additionally demands 12 of each.
+This is a scope conflict, not a missing-output problem.
 
-Ran all three preserved fixtures from this report. The generator's eight
-cases pass 4/8 stock, 6/8 with the later-round-only candidate and 8/8 with the
-two-site candidate. All ten assessment-history assertions pass. These are
-in-memory repair demonstrations, not installed fixes. Independently compared
-the three packet objects excluding only top-level review metadata and all
-three suggested files against `331007b5e`; their assessed content is unchanged.
+Read the stock completion function: it considers current top-level reviews,
+not their history. P0 and ASII currently identify #6519, while AEG identifies
+#5704. The preserved collision fixture returns `[false, true]` for live scopes
+and `[true, false]` after restoring #5704's archived reviews only in memory.
+Replacing those reviews therefore transfers the failure between the jobs.
+All production reviews and histories remain untouched.
 
-The stock blueprint checker, using the configured pinned declaration index,
-reports zero errors and zero warnings for P0 (326 nodes), AEG (153 nodes) and
-ASII (537 nodes). No Lean compilation or fresh mathematical source audit ran;
-the earlier workers' source and elaboration evidence keeps its attribution.
-No link map or restructuring proposal is assigned to this review.
+Ran all three preserved fixtures below. Generator cases pass 4/8 stock,
+6/8 with the later-round-only candidate, and 8/8 with the two-site candidate.
+All ten assessment-history assertions pass. These in-memory demonstrations
+also confirm that the assessed packet contents and suggested-file bytes still
+equal `331007b5e`; they install no repair. Historical completion still needs
+an explicit policy for binding source and reader inputs.
 
-[WORKERS.md](../WORKERS.md) restricts edits to issue-named files and scratch.
-The necessary queue, generator, completion-function and generated-prompt paths
-are outside those deliverables and each fails `intake.ALLOWED`. No production
-repair or review replacement was made. Resume after the maintainer restores
-and preserves issued scopes, establishes assessed historical completion
-without replacing promotion verdicts, and provides an authorized submission
-route. Verify both jobs together and after another scoped review; regenerate
-twice and check stable outputs, prompts, prerequisites and runtime state.
-The historical-assessment candidate still needs a policy for source and
-reader inputs. The existing fixtures and mathematical dispositions below
-remain the resumption evidence. One job claimed; no second job.
+Ran the stock blueprint checker with the shared pinned declaration index:
+P0 (326 nodes), AEG (153), and ASII (537) each have zero errors and warnings.
+No Lean compiler or fresh mathematical source audit ran. The earlier workers'
+elaboration and source evidence retain their original attribution. No link
+map or restructuring proposal is assigned to this review.
+
+[WORKERS.md](../WORKERS.md) permits only issue-named deliverables and scratch.
+The required queue, generator, completion-function and generated-prompt paths
+are outside them and fail `intake.ALLOWED`. Expanded repair scope was requested
+in this session; none was granted before this checkpoint. No production repair
+or verdict replacement was made. The handoff specifies where to resume after
+the maintainer reconciles dispatch and assessment history. One job claimed;
+no second job.
 
 ---
 
