@@ -16564,7 +16564,8 @@
    "avoidAccountOf": "DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3515"
   },
   {
    "id": "DESIGN-GeneralAlgebraicKTheoryPartII",
@@ -27877,9 +27878,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R14.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #775"
+   "note": "claimed on GitHub issue #775"
   },
   {
    "id": "REV-ModularCurvesPartII--R14.3",
@@ -32465,7 +32466,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -32473,7 +32474,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1040"
+   "note": "claimed on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
@@ -47730,8 +47731,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49263,8 +49264,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80156,8 +80157,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80321,8 +80322,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80544,8 +80545,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5869"
+   "state": "external",
+   "note": "claimed on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81070,8 +81071,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -82526,8 +82527,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6519"
+   "state": "pending",
+   "note": "released on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -83226,8 +83227,8 @@
     "FIX-RT-AREA-ktheory-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5542"
+   "state": "pending",
+   "note": "released on GitHub issue #5542"
   },
   {
    "id": "RT-AREA-ktheory-2",
@@ -84723,8 +84724,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -88291,8 +88292,9 @@
    "avoidAccountOf": "DESIGN-EffectiveBoundsCompactModels",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EffectiveBoundsCompactModels.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1720"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1720",
+   "finishedAt": "2026-10-11T08:03:18Z"
   },
   {
    "id": "DESIGN-HyperbolicCurveVolumesAndGonality",
