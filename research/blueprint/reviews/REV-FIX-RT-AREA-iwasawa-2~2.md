@@ -1,3 +1,59 @@
+# Continuation: scope remains unresolved
+
+Codex (GPT-6), session `codex-UsC0w0`, 11 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105737083).
+Input commit: `2d01be48acc61f435ebaec80904aa39d92695f6b`.
+This session authored none of the fixes under review.
+
+The review cannot finish within the live issue's authorized file scope.
+The queue requires L3-2 and D.1 records, but the issue names only L3 and
+PMIA. [WORKERS.md](../WORKERS.md), Doing the work, requires
+“Edit only the files the issue names, plus your own scratch space.”
+I prepared and validated the exact two review-only candidates reproduced
+in the handoff, then requested permission for those two paths through the
+worker conversation. No answer has been received; neither file was edited.
+This submission is a blocked checkpoint.
+
+Fresh checks reproduced both guarded input and candidate hashes, preserved
+every non-review field, and archived each entire prior review, including
+the 79-node and 72-node decision ledgers. Both candidates pass the pinned
+declaration-index packet checker with zero errors and warnings and pass
+intake file rules. Both paths belong to this queue job. The actual checkout
+fails the unmodified completion predicate; a read-only substitution of
+exactly these two candidates passes. Queue ownership is distinct from the
+live issue's edit authorization.
+
+All four actual packets pass the same checker with zero errors. L3 has
+26 inherited short-API warnings; the other three have none. No packet has
+an `excerpt` field. A fresh index of the shared pinned source trees contains
+70,802 Tau Ceti and 246,008 Mathlib declarations; Mathlib's HEAD is exactly
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. The preceding session's full
+Tau Ceti file-inventory verification remains its own evidence.
+
+Freshly read the five native Fitting/transpose statements cited below at
+unchanged current Tau Ceti commit
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, including their surrounding
+variables. They retain finite-module, finite-free-surjection, arbitrary-base-change
+and exact-projective-presentation hypotheses as reported. PMIA's negative
+ownership verdict remains justified. Current TauCetiRoadmap HEAD is unchanged
+at `070dc2becd74419e76303ede84b465ed4a69461f`.
+
+All four packet and all four Suggested-file hashes match the preceding
+handoff. No Lean code changed and Lean was not rerun: the exact unchanged
+files retain codex-pzP6uF's receipts below, including L3's failed import
+resolution and three successful elaborations. The source readings and
+exhaustive reviews below are attributed to their original sessions, not
+claimed as new work here. No repeated review-history entries were added.
+
+Authorize the two paths or repair the live issue before redispatching this
+job. The existing exact recipe is sufficient to finish it; repeating the
+mathematical review cannot resolve the scope restriction.
+
+---
+
+The preceding session's report is preserved below with its own attribution.
+
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-pzP6uF`, 11 October 2026. Refs

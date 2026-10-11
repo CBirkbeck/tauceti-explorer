@@ -1,3 +1,56 @@
+# Continuation handoff: resolve scope before redispatch
+
+Codex (GPT-6), session `codex-UsC0w0`, 11 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105737083).
+Input commit: `2d01be48acc61f435ebaec80904aa39d92695f6b`.
+
+**Blocked checkpoint.** The live issue still omits the two paths below.
+Its file restriction and WORKERS.md remain binding. I prepared the exact
+two candidates, validated them, and requested explicit permission through
+the worker conversation. That request is unanswered. Only the report and
+this handoff change; all packets, Suggested files and histories are unchanged.
+
+The preceding recipe below remains exact and needs no disposable scratch:
+
+- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
+- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
+
+Both input/candidate hashes reproduce exactly. Every non-review field is
+equal, and each candidate history is its entire previous history plus its
+entire prior review, retaining all 79 and 72 node decisions. Both candidates
+pass pinned-index checks with zero errors/warnings and intake file rules.
+Both are queue-owned. Actual dispatch completeness is false; a read-only
+substitution of precisely these two candidates makes it true. The predicate
+and queue are unchanged. L3 and PMIA already have this job's verdicts and
+must not get another identical history entry.
+
+All four actual packets pass pinned-index checks with zero errors; L3 has
+26 inherited short-API warnings, the other three have none. No `excerpt`
+field occurs. A fresh declaration index of the shared pinned source trees
+has 70,802 Tau Ceti and 246,008 Mathlib entries. Mathlib HEAD matches the
+full programme pin. The preceding full Tau Ceti inventory check retains
+its original attribution.
+
+Read the five current native Fitting/transpose statements and their
+surrounding hypotheses cited in the report. Current upstream HEADs are
+unchanged from the preceding handoff. All eight packet/Suggested hashes
+match its receipts. No Lean code changed or compilation was rerun;
+codex-pzP6uF's exact-file results below remain attributed to that session.
+No source passages were copied or new exhaustive source audit claimed.
+
+**Required next action:** authorize these two review-only edits or refresh
+the live issue to name its queue deliverables. Then follow the exact
+installation recipe below and require actual checkout completeness.
+PMIA's `needs_changes` finishes its portion of this review; its coordinated
+revision is a separate job. Do not redispatch another unchanged audit to
+resolve the file-scope blocker. This run claimed only #6219.
+
+---
+
+The preceding handoff, including exact records, guards and source receipts,
+is preserved below with its own attribution.
+
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-pzP6uF`, 11 October 2026. Refs
