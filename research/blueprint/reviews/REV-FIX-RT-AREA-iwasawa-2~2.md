@@ -1,9 +1,9 @@
 # Independent correction review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-rTvrry`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-mYksrQ`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106537487).
-Input commit: `20f5269874fb14bdf618f0c984e5b448e682acb0`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106720937).
+Input commit: `a51b147164c4e9cd0643f8039a45f10f1b22423f`.
 This session authored none of the fixes under review and claimed one job.
 
 ## Status and exact blocker
@@ -25,13 +25,16 @@ explicit authorization through the worker conversation for
 The live issue's comments contain no scope authorization. The queue's broader
 output list does not override the issue-file restriction.
 
-This continuation changes only this report and the handoff. Every packet,
-review history and Suggested file stays byte-identical. Existing L3 and PMIA
-records already identify this correction-review job; I did not rotate their
-metadata or add another identical history entry. The handoff preserves the
-exact two candidates, their attribution, input/output guards and resume steps.
-Authorize those paths or reconcile the live issue before redispatching.
-This checkpoint is blocked on scope, not elapsed time.
+Following the live issue's review-record instruction, this session installs
+fresh bounded review records in the issue-named L3 and PMIA packets. Their
+previous records are archived intact; every mathematical/planning field and
+all Suggested files are unchanged. L3 remains `accepted` for finding /1;
+PMIA remains `needs_changes` for the current native-library ownership defect.
+This report and the handoff also record fresh source and compiler evidence.
+The handoff preserves the exact two omitted-path candidates, their attribution,
+input/output guards and resume steps. Authorize those paths or reconcile the
+live issue before redispatching. This checkpoint is blocked on scope, not
+elapsed time.
 
 ## Six finding decisions
 
@@ -55,7 +58,7 @@ keep their original authorship. The exact candidate records retain
 `codex-jIGDIK`'s attribution and dates.
 The [full six-finding audit](https://github.com/CBirkbeck/tauceti-explorer/blob/303b02c8bda26170394f9f96f6c691391a2f8611/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md),
 [historical compiler evidence](https://github.com/CBirkbeck/tauceti-explorer/blob/2790a6eabe10c8b46527cb1a6333eee4d577e572/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-and [input review](https://github.com/CBirkbeck/tauceti-explorer/blob/20f5269874fb14bdf618f0c984e5b448e682acb0/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+and [input review](https://github.com/CBirkbeck/tauceti-explorer/blob/a51b147164c4e9cd0643f8039a45f10f1b22423f/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 remain immutable evidence. Replacing the nested checkpoint prose here does not
 alter their records or any packet history.
 
@@ -157,17 +160,28 @@ the other packets have none. Both exact candidates also pass at their intended
 packet paths using a read-only text overlay; the checker, queue and completion
 predicate are unchanged. Both pass `intake.file_problems`. Every non-review
 field and complete earlier review is preserved, including both node ledgers.
-No packet or candidate contains an `excerpt` field. All eight actual
-packet/Suggested hashes match the handoff. Actual completion remains false.
-`git diff --check` passes, and intake's changed-file check reports two files
-with zero problems. Only the report and handoff are in the diff.
+No packet or candidate contains an `excerpt` field. L3 and PMIA each archive
+one complete previous record and receive this session's fresh review; their
+other fields are unchanged. The two omitted packets and all four Suggested
+files match their input guards. Actual completion remains false.
+`git diff --check` passes, and intake's changed-file check reports four files
+with zero problems. The diff contains only the two issue-named packet review
+records, this report and the handoff.
 
-No Lean file changed and no compiler ran this session. The preceding
-`codex-k2zZva` checkpoint records four sequential `lean-check` outcomes: L3
-failed before body elaboration on the unresolved `research` module prefix;
-L3-2, D.1 and PMIA succeeded with 111, 307 and 1,075 `sorry` warnings and no
-other diagnostics. These are historical results, not fresh compilation.
-L3 still imports four modules under `research.blueprint.suggested`.
+All four sequential `lean-check` runs are fresh this session, using the shared
+programme-pinned build after checking available memory. No Lean code changed.
+
+| Suggested file | Result | Diagnostics |
+| --- | --- | --- |
+| DirichletPadicLFunctions--L3 | Failed before body elaboration | One unresolved `research` module-prefix error |
+| DirichletPadicLFunctions--L3-2 | Elaborated | 111 `sorry` warnings only |
+| PadicHodgeRegulators--D.1 | Elaborated | 307 `sorry` warnings only |
+| PadicMeasuresIwasawaAlgebras | Elaborated | 1,075 `sorry` warnings only |
+
+L3 imports four modules under `research.blueprint.suggested`; the shared build
+cannot resolve that prefix. This does not establish body elaboration. These
+fresh results reproduce `codex-k2zZva`'s earlier outcomes, whose original
+compiler evidence remains separately attributed.
 
 Resume by obtaining authorization for the two omitted paths, installing the
 exact guarded review records and requiring actual completion. Disposable
