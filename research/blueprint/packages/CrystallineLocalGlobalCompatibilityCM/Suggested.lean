@@ -497,6 +497,34 @@ theorem UnipotentTransferAction_compact
     (UnipotentTransferAction ρ c hc A hA v : V) = A v := by
   sorry
 
+/-- An equivariant coefficient map commuting with the raw contracting operators
+also commutes with their integral finite-coset transfers. Restriction to invariants
+uses Mathlib's submodules, with no smoothness or derived conclusion. -/
+theorem UnipotentTransferAction_intertwiner
+    {R U V W : Type*} [CommRing R] [Group U]
+    [AddCommGroup V] [Module R V] [AddCommGroup W] [Module R W]
+    (ρ : Representation R U V) (σ : Representation R U W)
+    (c : U →* U) (hc : Finite (U ⧸ c.range))
+    (A : Module.End R V) (B : Module.End R W)
+    (hA : ∀ u, A ∘ₗ ρ u = ρ (c u) ∘ₗ A)
+    (hB : ∀ u, B ∘ₗ σ u = σ (c u) ∘ₗ B)
+    (F : Representation.IntertwiningMap ρ σ)
+    (hF : F.toLinearMap.comp A = B.comp F.toLinearMap) :
+    let FInv : ρ.invariants →ₗ[R] σ.invariants :=
+      (F.toLinearMap.comp ρ.invariants.subtype).codRestrict σ.invariants (by sorry)
+    FInv.comp (UnipotentTransferAction ρ c hc A hA) =
+      (UnipotentTransferAction σ c hc B hB).comp FInv := by
+  sorry
+
+-- U-equivariance alone does not compare different raw contracting operators.
+example :
+    let ρ := Representation.trivial ℚ PUnit ℚ
+    let A : Module.End ℚ ℚ := 2 • LinearMap.id
+    let B : Module.End ℚ ℚ := 3 • LinearMap.id
+    UnipotentTransferAction ρ (MonoidHom.id PUnit) (by infer_instance) A (by sorry) ≠
+      UnipotentTransferAction ρ (MonoidHom.id PUnit) (by infer_instance) B (by sorry) := by
+  sorry
+
 -- CrystallineCM.UnipotentTransferAction_test_trivial_u
 example {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
     (A : Module.End R V)
