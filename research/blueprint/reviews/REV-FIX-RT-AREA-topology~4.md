@@ -1,9 +1,12 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex (GPT-6), session `codex-igEEJo`, 11 October 2026,
-branch `codex-igEEJo-review-topology`.
-The bot confirmed [claim 6104841327](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6104841327).
+Refs #6521. Codex (GPT-6), session `codex-b5jo9O`, 11 October 2026,
+branch `codex-b5jo9O-review-topology`.
+The bot confirmed [claim 6105464888](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6105464888).
 This worker wrote none of the original plans or fixes and claimed only this job.
+This bounded review follows codex-igEEJo; the predecessor dispositions were
+rechecked against the assigned findings and the contracts below. Complete
+prior packet reviews remain attributed in reviewHistory.
 
 ## Verdict
 
@@ -219,9 +222,17 @@ were read. All conclusions are stated in this worker's words.
 | [Zagier, Strange identity, Topology](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf) | §6 theorem, equations (38)-(39), pp. 958-959; rendered pages read. |
 | [Lawrence-Zagier, Quantum invariants](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf) | §3 Theorems 1-2 and proposition, pp. 98-99; §4, pp. 103-104. |
 
-The retrieved PDFs match the eight source hashes recorded by the predecessor
-report. This matching provenance does not substitute for the fresh statement
-reads or discharge the inherited full proof audits.
+Freshly retrieved PDF SHA-256 values are recorded here so the scratch directory
+is not needed for provenance. These hashes identify versions, not proof audits.
+
+- dilog: `05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0`
+- neumann: `de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650`
+- gz: `c8e810047d40b52ffc139553e8c9833853675f139070f3d1d4cf365267ae5b66`
+- gswz: `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9`
+- qmf: `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf`
+- habiro: `5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc`
+- strange: `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e`
+- lz: `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543`
 
 ## Validation and resumption
 
@@ -229,11 +240,13 @@ Fresh checks of all five packets give zero errors/warnings. Inventories are
 Polylogarithms 75 nodes/19 gaps/21 requests; Habiro 109/22/9; QSeries 537/24/27;
 QT 106/8/19; P.2 14/2/3. Fresh serial `lean-check` runs on the three issue-listed
 suggested files exit 0 with 462/441/1491 `sorry` warnings respectively and no
-other diagnostics. Memory availability exceeded 20 GB. These are elaborated
-signatures, not proofs. Exact rational/complex arithmetic checked the reciprocal
-cross-ratios and vertex swap, singular figure-eight matrix, central multiplier
-products, covariance entry -1/3 and the scaled Taylor coefficients
-`1, 23/24, 1681/1152, 257543/82944`.
+other diagnostics. All three process statuses were captured. Memory
+availability exceeded 20 GB. These are elaborated signatures, not proofs.
+Exact rational-complex arithmetic checked the reciprocal cross-ratios and
+first-two-vertex swap for all 24 permutations of `(0,1,-i,2)`. Direct calculations
+checked the singular figure-eight matrix, the central multiplier products and
+the inverse off-diagonal covariance entry -1/3. Earlier Taylor-coefficient
+calculations remain attributed to the predecessor; this run did not repeat them.
 
 Parsed comparisons with the review base confirm that only reviews/history
 changed, every predecessor object is retained exactly, and all mathematical
@@ -243,8 +256,15 @@ payloads are unchanged. Suggested file hashes remain
 and `27f0445d4c487dcf3eda3753c342129ef89abd40a428f6f3b6f3518a744b19bf`.
 No assigned link map or restructuring result needs a checker.
 
-The actual queue completion test is false; restricting an in-memory copy of
-its outputs to the seven live-issue paths gives true. All eleven files exist;
+The actual queue completion test is false. The unmodified predicate also
+returns **true** through a read-only in-memory path adapter that substitutes
+only the two proposed packet objects; its output list remains all eleven queue
+paths. No extra repository file was written and no completion code changed.
+The proposed objects retain prior reviews and gaps/requests, set this job's
+reviewer IDs (P.2 accepted; QT needs_changes), and add the direct volume edge.
+Thus neither completing every outstanding proof nor editing the queue is
+needed: the two omitted packet paths are the exact scope blocker.
+All eleven files exist;
 only the two extra packet review IDs prevent completion. The referenced prompt
 is absent. [WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue
 names, plus your own scratch space.” The submitting/stopping rules allow this
