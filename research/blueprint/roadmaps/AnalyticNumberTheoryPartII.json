@@ -4,7 +4,7 @@
   "area": "analytic",
   "parent": "AnalyticNumberTheory",
   "summary": "Extend the analytic class-number interfaces to Goldfeld’s effective lower bounds for imaginary quadratic fields. The proof combines positive Mellin kernels, modular elliptic L-functions with a third-order central zero, Gross–Zagier heights, genus theory and certified numerical estimates. Construct explicit discriminant bounds and a complete certified enumeration of the class number three fields, with independent arithmetic and analytic rank certificates for the two elliptic curves.",
-  "readme": "The reader document is research/blueprint/readmes/AnalyticNumberTheoryPartII.md. Six layers lead from native class groups and existing modularity/height interfaces to the effective logarithmic lower bound and the complete class-number-three list. Sources are cited by theorem, section and printed page. Generic quadratic arithmetic, modularity, Gross–Zagier theory and validated numerics remain with their existing owners.",
+  "readme": "The draft reader is research/blueprint/readmes/AnalyticNumberTheoryPartII.md. Its integrated Mellin hypothesis, Heegner root-of-unity proof, exclusion of −5077, MW character parity and LLS 67-pattern threshold must be synchronized with the corrected packet before acceptance or publication. Exact corrections are recorded in research/blueprint/reviews/REV-DESIGN-AnalyticNumberTheoryPartII.md. Six layers lead to the effective logarithmic lower bound and the complete class-number-three list; generic quadratic arithmetic, modularity, Gross–Zagier theory and validated numerics remain with their existing owners.",
   "prerequisites": [
     "AnalyticNumberTheory",
     "GeometryOfNumbersAndQuadraticArithmetic",
@@ -19,7 +19,7 @@
     {
       "key": "ECN.0",
       "title": "Quadratic class numbers and ramified weights",
-      "description": "Import the existing ideal class number, fundamental discriminants, genus divisibility, and positive-definite binary-form reduction. Define the discriminant weight θ(d) excluding the largest prime. Prove p^h≥d/4 for a split prime and quantify agreement of the quadratic character with Liouville below this threshold. The form/class-group bijection, partial-zeta formulas and integrated nonaxial counting estimate are requested from GN.3 and AN.4.",
+      "description": "Import the existing ideal class number, fundamental discriminants, genus divisibility, and current IntegralLattices Layer B binary-form/class dictionary and finite reduction enumeration. Define the discriminant weight θ(d) excluding the largest prime. Prove p^h≥d/4 for a split prime and quantify agreement of the quadratic character with Liouville below this threshold. GN.3 supplies the native class-group, discriminant and boundary/counting adapters and integrated nonaxial estimate; AN.4 supplies partial-zeta formulas.",
       "requires": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "AnalyticNumberTheory:AN.4"
@@ -28,7 +28,7 @@
     {
       "key": "ECN.1",
       "title": "Goldfeld’s effective analytic principle",
-      "description": "Define the degree four completion and the positive inverse Mellin kernel. Prove the positive-measure comparison, the reflection contour identity, the truncated residue formula and the three remainder estimates. From Oesterlé’s exact C1–C4 hypotheses prove a uniform, effectively computed technical class-number bound whose constant depends only on Ψ and M, not on K or G.",
+      "description": "Define the degree four completion and the positive inverse Mellin kernel. Prove the positive-measure comparison under integrated cumulative domination, the reflection contour identity, the truncated residue formula and the three remainder estimates. From Oesterlé’s exact C1–C4 hypotheses prove a uniform, effectively computed technical class-number bound whose constant depends only on Ψ and M, not on K or G.",
       "requires": [
         "AnalyticNumberTheoryPartII:ECN.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
@@ -53,7 +53,7 @@
     {
       "key": "ECN.3",
       "title": "Uniform logarithmic class-number bounds",
-      "description": "Build Ψ,G,M satisfying C1–C4 from the two rank-three newforms. Include every overlap between discriminant and elliptic conductor, all ramified Euler corrections and the finitely many scales M. Certify θ(d)log d≤7000h for every negative fundamental discriminant; certify θ(d)log d≤55h when (d,5077)=1. Prove the fallback split-prime estimate and the exceptional conductor-discriminant case used in class number three.",
+      "description": "Build Ψ,G,M satisfying C1–C4 from the two rank-three newforms. Include every overlap between discriminant and elliptic conductor, all ramified Euler corrections and the finitely many scales M. Certify θ(d)log d≤7000h for every negative fundamental discriminant; certify θ(d)log d≤55h when (d,5077)=1. Prove the fallback split-prime estimate and the fundamental-discriminant congruence exclusion of |discr K|=5077 used in class number three.",
       "requires": [
         "AnalyticNumberTheoryPartII:ECN.1",
         "AnalyticNumberTheoryPartII:ECN.2",
@@ -74,7 +74,7 @@
     {
       "key": "ECN.5",
       "title": "The class number three discriminants",
-      "description": "Certify the Montgomery–Weinberger exclusion for 10^12≤d≤10^2500 from the three auxiliary real characters, phase inequalities and critical-line-zero brackets. Certify the Lehmer–Lehmer–Shanks small-range sieve above 907, regenerating finite character-pattern certificates. Combine the logarithmic cutoff, the prime-discriminant consequence of genus theory and exact reduced-form enumeration to obtain precisely the sixteen discriminants −23,−31,−59,−83,−107,−139,−211,−283,−307,−331,−379,−499,−547,−643,−883,−907, and largest absolute value 907.",
+      "description": "Certify the Montgomery–Weinberger exclusion for 10^12≤d≤10^2500 from the three auxiliary primitive real odd characters χ_{−17923},χ_{−115147},χ_{−123204}, phase inequalities and critical-line-zero brackets. Certify the Lehmer–Lehmer–Shanks small-range sieve above 907, regenerating finite character-pattern certificates. Combine the logarithmic cutoff, the prime-discriminant consequence of genus theory and exact reduced-form enumeration to obtain precisely the sixteen discriminants −23,−31,−59,−83,−107,−139,−211,−283,−307,−331,−379,−499,−547,−643,−883,−907, and largest absolute value 907.",
       "requires": [
         "AnalyticNumberTheoryPartII:ECN.3",
         "AnalyticNumberTheoryPartII:ECN.4",
@@ -132,7 +132,7 @@
       "edition": "L’Enseignement Mathématique 34 (1988), 43–67",
       "url": "https://doi.org/10.5169/seals-56588",
       "readSections": [
-        "§§6–9, pp. 56–67, publisher page images",
+        "II §§3–9, pp. 56–67, publisher page images",
         "§9, pp. 66–67, reported constants and class-number-three consequence"
       ],
       "accessed": "2026-10-11",

@@ -1,0 +1,17 @@
+# Handoff: REV-DESIGN-AnalyticNumberTheoryPartII
+
+Issue #5051; Codex session codex-pM0NTE; independent of design author codex-Ejos7R. Review completed 2026-10-11.
+
+All 39 nodes have individual verdicts: 32 verified and seven corrected. All 27 pinned baseline statements were read and confirmed. The roadmap definition, packet and suggested Lean file now have the integrated-Mellin/nonaxial fix, Hilbert-class-field roots-of-unity argument, nonfundamentality of −5077, odd negative-discriminant MW characters and LLS threshold 51599563. The affected supplier requests are reconciled. No nodes were added; no source erratum was asserted.
+
+Verdict is needs_changes solely because research/blueprint/readmes/AnalyticNumberTheoryPartII.md repeats the old errors and is outside this review issue's deliverables. Automatic promotion copies that reader with an accepted packet, so acceptance was withheld. Give the revision worker the reader path, packet and suggested file as deliverables. The review report identifies every affected reader section and request. Synchronize from the corrected packet, restore the ordinary definitive-reader pointers and obtain independent review. No new mathematical design pass is needed.
+
+The two original certificate gaps remain honest planning obligations: reconstruct the arithmetic descent/independence witnesses for E₁₃₉, and regenerate rational comparison datasets for constants 7000/55 over all local cases. They do not cause the review verdict. All six layers remain planned, none closed, and implementation statuses unchecked; 12 precise supplier requests remain.
+
+Checks passed: packet checker with zero errors/warnings; suggested file elaborated through lean-check at Mathlib 082e2d3 and Tau Ceti f790474, exit 0, only 120 sorry warnings. All 45 definition API names and 31 test names occur in the suggested file. Exact arithmetic checks enumerated 16,772,606 primitive reduced forms for negative fundamental |D|≤318028, finding precisely the sixteen class-number-three fields and the three stated forms for −907. They also confirmed both native curve discriminants, the E₁₃₉ coordinate map, negative MW discriminants/signs and the primality/signs of LLS candidates 1333963,51599563,1432817816347. They do not prove the candidates minimal.
+
+Public primary URLs and printed-page locators are in the packet/report. Seven PDFs matched recorded SHA-256 values; O88 was read as publisher page images. No book, source file or passage was copied into the repository. This handoff and the report contain everything needed to resume without retained scratch files.
+
+Current ownership was checked at TauCetiRoadmap 070dc2b and Tau Ceti a91d3aa, including the nine roadmaps newer than the atlas snapshot and completed contour, effective-bound and multiquadratic work. General upper bounds, genus/discriminant results and elliptic descent/height machinery are consumed. IntegralLattices Layer B B1/B2/B5 owns the quadratic-order/form-class dictionary and finite reduced-form enumeration; GN.3 imports these and supplies the native class-group and explicit counting/discriminant/nonaxial adapters. Include this ownership correction when synchronizing the reader. Current prime-boundary transfer and Wiener–Ikehara statements are recorded as existing AN.2 inputs. The upstream height-prose/native-normalization discrepancy remains a maintainer note; no upstream file was edited.
+
+This submission finishes the one claimed review job. Do not claim another job in this session.

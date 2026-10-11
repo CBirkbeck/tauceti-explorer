@@ -1,6 +1,8 @@
 /-
-This file is not the roadmap and is not exhaustive. The reader document
-research/blueprint/readmes/AnalyticNumberTheoryPartII.md is definitive.
+This file is not the roadmap and is not exhaustive. The roadmap document is
+definitive once synchronized with the corrected packet. The draft reader
+research/blueprint/readmes/AnalyticNumberTheoryPartII.md still needs the corrections
+listed in research/blueprint/reviews/REV-DESIGN-AnalyticNumberTheoryPartII.md.
 These suggested Lean forms help contributors and reviewers converge on names
 and signatures. Every proof below is a planning placeholder; no implementation
 is claimed. Future supplier objects are not replaced by empty proposition fields.
@@ -273,10 +275,26 @@ theorem liouville_agreement (χ : ArithmeticFunction ℤ) (n : ℕ)
     χ n = ArithmeticFunction.liouville n := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.1/positive-mellin-comparison -/
-/-- Single-measure kernel form; finite multiplicative convolutions iterate it.
-Mellin inversion requires the additional line/Fubini hypotheses in the reader. -/
+/-- Single-measure kernel form with O85 Lemma 3's integrated counting hypothesis;
+finite multiplicative convolutions iterate it. Mellin inversion additionally
+requires the line/Fubini hypotheses recorded in the packet. -/
 theorem positiveMellin_comparison (a x : ℝ) (m : ℕ) (ha : 0 ≤ a) (hx : 0 < x)
     (hm : 2 ≤ m) (μ ν : Measure ℝ)
+    (hμ : μ (Set.Iic 0) = 0) (hν : ν (Set.Iic 0) = 0)
+    (hlocalμ : ∀ t : ℝ, μ (Set.Ioc 0 t) ≠ ⊤)
+    (hlocalν : ∀ t : ℝ, ν (Set.Ioc 0 t) ≠ ⊤)
+    (hdom : ∀ T : ℝ, 0 ≤ T →
+      (∫ t in Set.Icc 0 T, (μ (Set.Ioc 0 t)).toReal) ≤
+        ∫ t in Set.Icc 0 T, (ν (Set.Ioc 0 t)).toReal)
+    (hintμ : Integrable (fun t ↦ inverseMellinKernel a m (x * t)) μ)
+    (hintν : Integrable (fun t ↦ inverseMellinKernel a m (x * t)) ν) :
+    0 ≤ ∫ t, inverseMellinKernel a m (x * t) ∂μ ∧
+      (∫ t, inverseMellinKernel a m (x * t) ∂μ) ≤
+        ∫ t, inverseMellinKernel a m (x * t) ∂ν := by sorry
+
+/-- Pointwise cumulative domination implies the integrated hypothesis above. -/
+theorem positiveMellin_comparison_of_cumulative (a x : ℝ) (m : ℕ)
+    (ha : 0 ≤ a) (hx : 0 < x) (hm : 2 ≤ m) (μ ν : Measure ℝ)
     (hμ : μ (Set.Iic 0) = 0) (hν : ν (Set.Iic 0) = 0)
     (hlocalμ : ∀ t : ℝ, μ (Set.Ioc 0 t) ≠ ⊤)
     (hlocalν : ∀ t : ℝ, ν (Set.Ioc 0 t) ≠ ⊤)
@@ -420,7 +438,9 @@ theorem curve5077_height_gap (P : curve5077.toAffine.Point) (hP : P ≠ 0) :
 
 /- AnalyticNumberTheoryPartII:ECN.2/heegner-trace-139 -/
 /-- The modular-unit divisor and isotypic trace are not yet native supplier types;
-this is their analytic consequence for the actual intrinsic Euler coefficients. -/
+this is their analytic consequence for the actual intrinsic Euler coefficients.
+The packet requires the CM twelfth-power relation in H and excludes order-3/4
+roots of unity there using [H:K]=3, before descending the common value to K. -/
 theorem heegnerTrace_139 (L : ℂ → ℂ) (hentire : Differentiable ℂ L)
     (hseries : ∀ s : ℂ, 3 / 2 < s.re → L s = curve139.LSeries s) :
     deriv L 1 = 0 := by sorry
@@ -482,9 +502,11 @@ theorem primeDiscriminant_55_strict (K : Type) [Field K] [NumberField K]
 
 /- AnalyticNumberTheoryPartII:ECN.3/exceptional-5077 -/
 theorem exceptional_5077 (K : Type) [Field K] [NumberField K]
-    (hdegree : Module.finrank ℚ K = 2) (him : NumberField.discr K < 0)
-    (hthree : NumberField.classNumber K = 3) :
+    (hdegree : Module.finrank ℚ K = 2) (him : NumberField.discr K < 0) :
     (NumberField.discr K).natAbs ≠ 5077 := by sorry
+
+-- The fundamental-discriminant filter excludes the integer before character use.
+example : ¬ TauCeti.Multiquadratic.IsFundamentalDiscriminant (-5077) := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.4/prime-product-bound -/
 theorem primeProduct_bound (c : ℝ) (hc : 0 < c) (t : ℕ) :
@@ -537,12 +559,15 @@ theorem classThree_prime (K : Type) [Field K] [NumberField K]
     ∃ p : ℕ, p.Prime ∧ p % 4 = 3 ∧ NumberField.discr K = -(p : ℤ) := by sorry
 
 /- AnalyticNumberTheoryPartII:ECN.5/mw-zero-brackets -/
-/-- Character normalization is explicit at 2 and all odd primes; χ₈ handles
-2, where the Legendre symbol would give the wrong primitive character. -/
+/-- The primitive real odd character has negative discriminant D=-k and positive
+conductor k. Its Hardy function uses Γ((s+1)/2). Character normalization is
+explicit at 2 and all odd primes; χ₈ handles the 2-adic evaluation. -/
 theorem mwZero_brackets (k : ℕ) [NeZero k] (hk : k = 17923 ∨ k = 115147 ∨ k = 123204)
     (χ : DirichletCharacter ℂ k) (hprimitive : χ.IsPrimitive)
-    (hodd : ∀ p : ℕ, (hp : p.Prime) → p ≠ 2 → χ p = (@legendreSym p ⟨hp⟩ (k : ℤ) : ℂ))
-    (htwo : χ 2 = (ZMod.χ₈ (k : ZMod 8) : ℂ)) :
+    (hparity : χ (-1) = -1)
+    (hoddPrimes : ∀ p : ℕ, (hp : p.Prime) → p ≠ 2 →
+      χ p = (@legendreSym p ⟨hp⟩ (-(k : ℤ)) : ℂ))
+    (htwo : χ 2 = (ZMod.χ₈ (-(k : ZMod 8)) : ℂ)) :
     ∃ γ : ℝ,
       (if k = 17923 then (30985 / 10 ^ 6 : ℝ)
         else if k = 115147 then 3157 / 10 ^ 6 else 10649 / 10 ^ 6) ≤ γ ∧
