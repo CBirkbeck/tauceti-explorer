@@ -118,6 +118,14 @@ An elementary proof uses induction on |H⋊C|. If C is trivial the assertion fol
 
 Apply the theorem with C=⟨ρ(g)⟩. If g has the same order as ρ(g), then ⟨g⟩ maps bijectively onto C and is a complement in H⋊C. Equality of the quotient images of corresponding generators gives g=h(1,ρ(g))h⁻¹. This is the exact input of `admissible_inertia_cyclic_conjugacy` and the class bijection; finite admissibility is used subsequently for generation.
 
+Unit tests:
+
+- `cyclic_complement_conjugacy_test_1`: if C is trivial and the projection K→C is bijective, then K is the bottom subgroup. This checks the induction base using the native projection, even when H is nontrivial.
+- `cyclic_complement_conjugacy_test_2`: in C₃⋊C₂ with inversion action, write a for the generator of C₃ and t for the generator of C₂. The subgroup K=⟨(a,t)⟩ projects bijectively to C₂. Conjugation by a⁻¹ carries each standard-complement element to its corresponding element of K: a⁻¹(1,t)a=(a,t), whereas a(1,t)a⁻¹=(a²,t) differs from (a,t). The test retains both the uniform subgroup assertion and this failed opposite orientation.
+- `cyclic_complement_conjugacy_test_3`: with trivial action on C₂×C₂, the diagonal K=⟨(a,a)⟩ projects bijectively onto the second C₂ but no element of the first C₂ conjugates the standard complement to K. Every conjugation in this abelian total group is the identity. This checks that cyclicity and projection bijectivity do not replace the coprime-order hypothesis.
+
+These finite calculations use the native semidirect-product multiplication (h,c)(h′,c′)=(hφ(c)(h′),cc′). They test the stated conjugacy contract; they do not assert it for general coprime kernels.
+
 Needs: Mathlib's Sylow conjugacy, subgroup normalizers, native quotients and semidirect products; the cyclic-complement conjugacy contract. Source: Conrad, [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf), Remark 5 p.4 for the conjugacy conclusion. The Sylow induction above is the proof route for the cyclic-quotient specialization. Conrad's Example 2 p.1 proves existence in the cyclic case; existence alone does not give this conjugacy statement.
 
 ## Layers and dependencies
