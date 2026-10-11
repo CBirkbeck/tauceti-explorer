@@ -1,4 +1,10 @@
-import Mathlib
+import Mathlib.AlgebraicGeometry.Limits
+import Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
+import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
+import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
+import Mathlib.CategoryTheory.Monoidal.Cartesian.Over
 
 /-!
 # JacobianChallengePartII: representative target signatures
@@ -110,8 +116,7 @@ end RelativeJacobian.CurveDifference
 /-! ## Layer 5: shifted morphisms and fibre-power coordinates
 
 The canonical Abel map and the section-free difference are inputs from Layer 2.
-Yuan, Theorem 2.10(3), p. 37; §4.6.2, pp. 98–99 (21 August 2024 manuscript).
-The coordinate formulas also occur in arXiv:2108.05625v4, §4.6.2, pp. 96–98,
+Yuan, arXiv:2108.05625v4, Theorem 2.10(3), p. 37; §4.6.2, pp. 96–98,
 and Dimitrov–Gao–Habegger, arXiv:2001.10276v3, §6.1, p. 25.
 -/
 
@@ -266,7 +271,7 @@ end ShiftedFaltingsZhang
 end RelativeJacobian
 
 /- The triangular change is the coordinate isomorphism of Layer 5.
-Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript). -/
+Yuan, arXiv:2108.05625v4, proof of Theorem 4.17(5), p. 98. -/
 
 namespace RelativeJacobian
 universe u
@@ -388,8 +393,7 @@ end RelativeJacobian
 
 /- The factorization uses the Abel-difference identity from Layer 2.
 Nonzero finite locally free multiplication comes from the abelian-scheme
-supplier. Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript),
-and arXiv:2108.05625v4, p. 98. -/
+supplier. Yuan, arXiv:2108.05625v4, proof of Theorem 4.17(5), p. 98. -/
 
 namespace RelativeJacobian
 universe u
