@@ -1,20 +1,36 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-nGenCY`, 11 October 2026.
-Branch: `codex-nGenCY-induction-restriction-package`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106655659),
-identifying claim comment 6106654588. No manager-priority issue was available
+Codex (GPT-6), session `codex-8zckxo`, 11 October 2026.
+Branch: `codex-8zckxo-induction-restriction-package`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106849740),
+identifying claim comment 6106848577. No manager-priority issue was available
 in the open `swarm`, `state:available` inventory, and there was no available
 plan or package review. This job was selected at the fallback package priority.
 Only one job was claimed.
 
-Base atlas commit: `94ef4d10337ec4e58f86ed4804996b862b039b10`.
+Base atlas commit: `001b8e8a977259a9b71681d54eb865d91b29b26c`.
 
-## Outcome and changes
+## Outcome
 
-**Blocked checkpoint; the roadmap package is unfinished.** Two executable
-unit-test signatures and their README descriptions now exercise
+**Blocked checkpoint; the roadmap package is unfinished.** This run changes
+only this handoff. It independently checked the supplier boundaries, read the
+published argument that consumes cyclic complement conjugacy, checked name
+correspondence, and recompiled the existing package. No assigned supplier
+resolving the accepted plan's ownership gaps was found. Metadata remains
+absent, so intake will not classify this package as complete.
+
+The exact open contracts appear only in this roadmap's definition in a
+targeted search of roadmap definitions and key-definition assignments. Resume
+after an ownership amendment, rather than repeating supplier searches against
+the same commits. The amendment must cover the contracts below and authorize
+their use in the accepted plan. A local admitted contract declaration cannot
+assign an owner.
+
+## Inherited progress
+
+The previous session changed two executable unit-test signatures and their
+README descriptions to exercise
 `marking_correction` directly:
 
 - `marking_correction_test_2` takes P=A=E=Multiplicative(C₃), with φ, inl
@@ -61,9 +77,9 @@ The issue permits edits only to the three package files and this handoff,
 and expressly says to change no packet. PROTOCOL §§3, 15 and 20 require
 actual supplying layers, preserve ownership, and require the package to agree
 with its accepted plan. Local admitted signatures cannot resolve an ownership
-decision that the plan expressly leaves unassigned. The manager was asked
-for the assigned layer IDs or permission to reconcile the plan and package;
-no assignment or authorization was received before this checkpoint.
+decision that the plan expressly leaves unassigned. The manager was asked for
+the assigned supplier layer IDs while independent checks continued; no
+assignment was received before this checkpoint.
 
 The required amendment must assign these contracts once:
 
@@ -100,21 +116,53 @@ pin, the public Schur–Zassenhaus results are complement existence, not the
 needed cyclic complement conjugacy. No Lake command ran in either read-only
 tree. The cleared source index was read; no restricted source was copied.
 
+Freshly read the pinned `Subgroup.exists_right_complement'_of_coprime` and its
+left-complement corollary: neither concludes conjugacy. Read current
+`TauCeti.groupHomology.transfer_comp_map_subtype_id`: it is an actual native
+transfer theorem and should be reused; its existence does not assign the
+remaining bridge. The arbitrary-coefficient UCT still needs its native bar
+adapter and both variances. The coprime edge still needs the specified maps
+and the possible incoming d₃ argument. These are narrower requirements than
+rebuilding transfer or generic Ext theory.
+
+Read Liu–Wood–Zureick-Brown's published Lemma 12.10, PDF pp.62–63, and proof of
+Theorem 10.4, PDF p.64. The lemma uses central coprime splitting and natural
+maps from integral H₂ to extension kernels. The theorem turns an equal-order
+lift over γ into a complement over ⟨γ⟩; conjugacy supplies its coboundary
+expression and the subsequent class bijection. Thus complement existence
+alone does not justify the consumer.
+
+Version read: [public version of record](https://par.nsf.gov/servlets/purl/10509628),
+*Inventiones mathematicae* 237 (2024), 49–116; accessed 2026-10-11;
+SHA-256 `64295273b34676cb6fd0f1de5fc643d1744e3359f94382ea77303903cdb6dc91`.
+Also checked Conrad,
+[*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
+Example 2 p.1 and Remark 5 p.4. The former treats cyclic-quotient existence;
+the latter identifies the separate conjugacy conclusion and refers elsewhere
+for its proof. It does not prove the package's native interface or assign a
+Lean supplier. Accessed 2026-10-11; SHA-256
+`7294dabc64a607186d96ee39bed942d78873c4408327c971c617fdc397ec0805`.
+No passage of either source enters this checkpoint.
+
 ## Validation and next action
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
   **0 errors, 0 warnings**; 109 nodes, 124 API items, 96 tests, 30 planets,
   30 baseline declarations, five gaps, one request and six planned stages.
+- Name-presence audit: all 109 target names, 124 API names and 96 test labels
+  occur in both package files. This checks name correspondence, not a
+  completed mathematical review or a proof of the admitted examples.
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
   **0 errors; 696 warnings, all declaration uses `sorry`; 0 other warnings**.
   Memory preflight: 97 GiB available. The shared wrapper designates Tau Ceti
   f790474 and reports Mathlib 082e2d37e8. No compiler is left running.
-- The separate admission-free sign/mutation check passed after importing
-  Mathlib's finite type-tag instances. It ran sequentially after the package
-  check, with 99 GiB available.
+- The previous session's separate admission-free sign/mutation check passed
+  after importing Mathlib's finite type-tag instances. Its receipt is preserved
+  above and in the immutable preceding handoff; it was not rerun here.
 - `git diff --check` passes. README size: 171,706 bytes, below the 200 KB
-  limit. The test labels and accepted statements are preserved. Changes are
-  confined to the README, Suggested.lean and this handoff.
+  limit. Suggested.lean is 191,498 bytes. The test labels and accepted statements
+  are preserved. The submission file check passes. This run changes only the
+  handoff; the package README and Suggested.lean are unchanged.
 - Accepted packet SHA-256 remains
   `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
   The reader and author suggested file are unchanged.
@@ -136,3 +184,9 @@ requires no general Ext injection or arbitrary-rank subgroup-freeness.
 Keep that refinement and the direct commutator-order boundary proof when
 reconciling the amended plan. No finite cover certificate is claimed proved
 by this checkpoint.
+
+The [immutable preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/001b8e8a977259a9b71681d54eb865d91b29b26c/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+preserves the marking-correction change and its original validation. Do not
+repeat it as new work. The ownership amendment must reconcile the packet,
+roadmap definition, reader, author suggested interfaces and consumer edges;
+those paths remain outside this package job's authorization.
