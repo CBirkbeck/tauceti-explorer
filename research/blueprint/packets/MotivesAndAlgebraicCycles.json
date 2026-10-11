@@ -12735,7 +12735,10 @@
     "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
     "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
     "ComplexComparisonPartII:C5",
-    "mathlib:IsLocalization.Away.lift"
+    "mathlib:IsLocalization.Away.lift",
+    "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
+    "MotivesAndAlgebraicCycles:MC.5/nori-rigidity",
+    "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension"
    ],
    "sources": [
     {
@@ -12752,6 +12755,11 @@
      "sourceId": "HMS.2014",
      "locator": "Lemmas 3.1 and 3.2, p.12; Theorem 3.3 and Corollary 3.4, p.13; arXiv:1105.0865v5",
      "match": "The full torsor interpretation uses extended fibre functors in a neutral Tannakian category; the effective algebra evaluation is constructed before Tate localization and does not use effective tensor-isomorphism representability."
+    },
+    {
+     "sourceId": "HMS.2014",
+     "locator": "Lemma B.21 and Proposition B.22, pp.25–26; Theorem 1.14, p.8; arXiv:1105.0865v5",
+     "match": "The effective representations extend by tensor powers of their rank-one Tate fibres, and the full Nori category is neutral Tannakian. These are separate inputs to the full torsor interpretation, rather than consequences of effective evaluation."
     }
    ],
    "implementationStatus": "unchecked",
@@ -15448,8 +15456,8 @@
   "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-11",
-  "session": "codex-EozIdh",
-  "notes": "Codex (GPT-6), session codex-EozIdh: independent bounded review of the eight third-round Iwasawa corrections, following codex-tpWtXb, whose complete review is archived unchanged. Corrected the residual effective tensor-isomorphism shortcut in MC.6/period-point proofSteps: construct effective algebra evaluation, extend through Tate localization, and only then apply representability in the full neutral Tannakian category. Added exact HMS Lemmas 3.1/3.2 and Theorem 3.3/Corollary 3.4 locators. The existing typed full localized comparison/fibre-functor/heap/action adapter remains absent, so needs_changes is retained; relative Beck and abstract reconstruction gaps remain. Selected localization, unit/product/edge laws, rank-one nonvanishing and shared-sign repairs hold. Fresh public-source checks find two remaining arithmetic-owner corrections: Kato Lemma 8.8 uses r-prime minus one, and BDP section 3.2 separately assumes finite unramified base and smooth proper models. Full unchanged Motives, Kato and GH.0 suggested files elaborated with 817, 135 and 242 admitted-proof-only warnings respectively. Twelve proved scratch regressions elaborate without diagnostics. This verdict does not certify every node in the three packets. Scope extension for queue-listed owner paths is pending; the report records the exact dispatch blocker and resumption instructions."
+  "session": "codex-R4MNK8",
+  "notes": "Codex (GPT-6), session codex-R4MNK8: independently checked all eight assigned findings against public HMS v5, published Kato and BDP, following the complete codex-EozIdh review archived unchanged. The unital multiplicative comparison, both edge laws, shared Künneth signs, explicit Tate inverse and effective evaluation contracts survive the check. Added the direct MC.5 diagram-localisation/nori-rigidity and MC.6 fibre-functor-extension prerequisites actually used by the period-point proof sketch, with source locators. The full localized Nori comparison-algebra/fibre-functor/heap/action adapter remains an explicit substantive gap, so needs_changes is retained. The Motives suggested file elaborates at pinned Mathlib with 817 admitted-proof-only warnings, no errors or other warnings. This verdict is a bounded review of the assigned correction, not a fresh exhaustive audit of all 182 nodes. Arithmetic owner paths are outside the live issue deliverables; the queue requires their verdicts, but no scope extension was received and their markers have not been changed."
  },
  "reviewHistory": [
   {
@@ -16553,6 +16561,13 @@
    "date": "2026-10-11",
    "session": "codex-tpWtXb",
    "notes": "Codex (GPT-6), session codex-tpWtXb: independent bounded recheck of the third-round Iwasawa corrections, following codex-OXZ9ou, whose complete review is preserved in reviewHistory. Freshly read HMS arXiv v5 Definitions 2.8/B.18, Theorem 2.10, Lemma 3.2 and Corollary 3.4: the effective presentation, explicit Tate inverse, unital comparison and conditional Tannakian signatures are sound selected repairs, but the typed full localized comparison/fibre-functor/heap/action adapter is still absent. Preserve the separate relative Beck and abstract reconstruction obligations. The Motives packet passes its checker with zero errors/warnings; its unchanged full suggested file elaborates with 817 admitted-proof-only warnings. Freshly read BDP section 3.2 p.1067 and Kato Lemma 8.8 p.185, including the latter page image: the separate owner files still need the independent smooth-model hypotheses and r-prime Hecke exponent. The scalar counterexample elaborates without warnings. This review adds no mathematical target or correction and claims no exhaustive re-review or closure. Dispatch remains blocked because the live issue omits the four arithmetic owner paths that the queue completion predicate requires; scope extension is requested and not received. See the report and handoff for source receipts and precise resumption steps."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-11",
+   "session": "codex-EozIdh",
+   "notes": "Codex (GPT-6), session codex-EozIdh: independent bounded review of the eight third-round Iwasawa corrections, following codex-tpWtXb, whose complete review is archived unchanged. Corrected the residual effective tensor-isomorphism shortcut in MC.6/period-point proofSteps: construct effective algebra evaluation, extend through Tate localization, and only then apply representability in the full neutral Tannakian category. Added exact HMS Lemmas 3.1/3.2 and Theorem 3.3/Corollary 3.4 locators. The existing typed full localized comparison/fibre-functor/heap/action adapter remains absent, so needs_changes is retained; relative Beck and abstract reconstruction gaps remain. Selected localization, unit/product/edge laws, rank-one nonvanishing and shared-sign repairs hold. Fresh public-source checks find two remaining arithmetic-owner corrections: Kato Lemma 8.8 uses r-prime minus one, and BDP section 3.2 separately assumes finite unramified base and smooth proper models. Full unchanged Motives, Kato and GH.0 suggested files elaborated with 817, 135 and 242 admitted-proof-only warnings respectively. Twelve proved scratch regressions elaborate without diagnostics. This verdict does not certify every node in the three packets. Scope extension for queue-listed owner paths is pending; the report records the exact dispatch blocker and resumption instructions."
   }
  ],
  "fixes": {
