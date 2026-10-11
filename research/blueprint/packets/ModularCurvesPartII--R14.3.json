@@ -103,6 +103,24 @@
     "module": "TauCeti/NumberTheory/ModularForms/CongruenceSubgroups/Basic.lean",
     "provides": "Existing antitonicity of principal congruence subgroups under divisibility of levels; use it in refinement and restriction tests.",
     "checked": "Full declaration read at pinned f790474."
+   },
+   {
+    "ref": "mathlib:Module.free_of_flat_of_isLocalRing",
+    "module": "Mathlib/RingTheory/LocalRing/Module.lean",
+    "provides": "A finite flat module over a commutative local ring is free. Finite projective modules supply flatness; this is not an unrestricted infinitely generated freeness assertion.",
+    "checked": "Full statement read at pinned 082e2d3; compared with shared pinned source."
+   },
+   {
+    "ref": "tauceti:SymmetricPower.finrank_eq",
+    "module": "TauCeti/LinearAlgebra/SymmetricPower/Basis.lean",
+    "provides": "For a finite free module over a commutative semiring with strong rank condition, the nth symmetric power has finrank multichoose(finrank M,n); supplies the rank checks for relative rank-two coefficients.",
+    "checked": "Full declaration read at pinned f790474 and shared pinned source compared."
+   },
+   {
+    "ref": "mathlib:RingHom.quotientKerEquivRange",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+    "provides": "For a commutative ring R and a ring S, R/ker f is canonically ring-isomorphic to the image subring f.range. This is an integral image theorem, not a rational coefficient-field identification.",
+    "checked": "Full declaration read at pinned 082e2d3 and compared with shared pinned source."
    }
   ]
  },
@@ -202,6 +220,18 @@
    "readSections": [
     "Setup and local/residual hypotheses, pp. 1–6; Proposition 1 with its group-cohomological proof, pp. 7–8. No patching or R=T theorem is planned here."
    ]
+  },
+  {
+   "id": "FUNKE-MILLSON",
+   "title": "Spectacle cycles with coefficients and modular forms of half-integral weight",
+   "authors": "Jens Funke and John Millson",
+   "edition": "arXiv:1108.5309v1 identifier (26 August 2011); the retrieved author PDF carries the date 27 August 2021.",
+   "url": "https://arxiv.org/pdf/1108.5309",
+   "sha256": "225af406ef9020f51e47cd5f4de13434f961a30b19310ecf4c3fd3f45e0ac494",
+   "accessDate": "2026-10-11",
+   "readSections": [
+    "§2, pp. 7–8; §3.4, pp. 12–13, including Lemma 3.8 and the boundary-coinvariant calculation. Only the modular surface/coefficient model is used."
+   ]
   }
  ],
  "nodes": [
@@ -215,7 +245,7 @@
    "kind": "theorem",
    "statement": "For N ≥ 5, the Hodge decomposition gives S₂(Γ₁(N), ℂ) ⊕ S̄₂(Γ₁(N), ℂ) ≅ H¹(X₁(N)^an, ℤ) ⊗ ℂ, and it identifies ⟨n⟩ ⊕ ⟨n⟩̄ with ⟨n⟩^*, T_p ⊕ T̄_p with T_p^* = (π₁^{(p)})_* ∘ (π₂^{(p)})^* and w_N ⊕ w̄_N with w^*_{e^{2πi/N}}, where π₁^{(p)}, π₂^{(p)} : X₁(N, p) → X₁(N) are the degeneracy maps and (π₁^{(p)})_* is the trace.",
    "hypotheses": [
-    "N ≥ 5 (for N < 5 both sides vanish); the Betti-side integral structure is Tau Ceti ModularForms Layer 8's modular-symbol lattice, whose comparison with H¹(X₁(N)^an, ℤ) is part of this stage."
+    "N ≥ 5; at N < 5 both sides vanish. The integral Betti carrier is H¹ of the compact analytic curve. ModularForms Layer 8 supplies a homological symbol module with boundary and possible torsion; only the separately proved cuspidal/dual comparison identifies the relevant lattice."
    ],
    "proofSteps": [
     "Hodge decomposition of the compact Riemann surface X₁(N)^an with H⁰(Ω¹) = S₂(Γ₁(N), ℂ).",
@@ -406,7 +436,9 @@
     "tauceti:TauCeti.LocalCoefficientSystem",
     "tauceti:TauCeti.LocalCoefficientSystem.pullback",
     "tauceti:Representation.symmetricPower",
-    "EtaleDualityAndPerverseSheaves:EDC.0"
+    "EtaleDualityAndPerverseSheaves:EDC.0",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+    "tauceti:SymmetricPower.finrank_eq"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/Cohomology",
@@ -573,6 +605,16 @@
      "name": "TauCeti.ModularCurves.parabolicH1_inverseLimit",
      "role": "compatibility",
      "statement": "Under the finite generation and transition hypotheses of integral-comparison, the finite-level parabolic system recovers the specified O-lattice."
+    },
+    {
+     "name": "TauCeti.ModularCurves.parabolicH1_map_id",
+     "role": "functoriality",
+     "statement": "The induced image map for identity maps on the support square is the identity."
+    },
+    {
+     "name": "TauCeti.ModularCurves.parabolicH1_map_comp",
+     "role": "functoriality",
+     "statement": "The image map of a composite of two commuting support squares is the composite of their image maps."
     }
    ],
    "tests": [
@@ -609,7 +651,8 @@
    "statement": "For a smooth open complex or étale curve with finite puncture set D, the support-forgetting map fits into the cohomology sequence of j_!L→Rj_*L→i_*i^*Rj_*L. In degree one, H¹_par is ker(H¹(Y,L)→⊕_{c∈D}H¹(I_c,L_c)); the neighboring H⁰ and H²_c terms are retained. For trivial A coefficients on a connected curve with s cusps, 0→H¹(X,A)→H¹(Y,A)→A^D→A→0 is exact, where the last map sums residues (and the étale terms carry the residue Tate twist).",
    "hypotheses": [
     "ℓ is invertible for étale coefficients; local punctured-disc/tame inertia comparison is part of the supplier request.",
-    "The displayed constant-coefficient residue sequence ending A→0 assumes D is nonempty. If D is empty, retain H²(X,A) and use the identity support map; there is no final residue-surjection claim."
+    "The displayed constant-coefficient residue sequence ending A→0 assumes D is nonempty. If D is empty, retain H²(X,A) and use the identity support map; there is no final residue-surjection claim.",
+    "The étale statement is geometric, over an algebraically closed field of characteristic different from ℓ; the curve is connected. Over other bases the corresponding cohomology of the cusp scheme must be retained, rather than replaced by A^D."
    ],
    "proofSteps": [
     "Apply the localization triangle for j_! and Rj_*; compute each boundary stalk by local inertia cohomology.",
@@ -622,8 +665,9 @@
    ],
    "prerequisites": [
     "ModularCurvesPartII:R14.3/parabolic-cohomology",
-    "EtaleDualityAndPerverseSheaves:EDC.3",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+    "EtaleDualityAndPerverseSheaves:EDC.0",
+    "EtaleDualityAndPerverseSheaves:EDC.1"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/Cohomology",
@@ -675,8 +719,8 @@
    "sources": [
     {
      "sourceId": "DELIGNE-355",
-     "locator": "Definition 3.9 and discussion of W_ℓ, pp. 154–156; Corollary 4.2, p. 161",
-     "match": "The same geometric space has Betti and algebraic adic descriptions; the general comparison and integral passage are imported rather than re-proved here."
+     "locator": "Definition 3.9 and discussion of W_ℓ, pp. 154–156; corollary following Theorem 4.1, printed as Corollaire 3.2, p. 161",
+     "match": "The same geometric space has Betti and algebraic adic descriptions; the general comparison and integral passage are imported rather than re-proved here. This corollary is a lisse-sheaf/unramifiedness consequence, not the general Artin comparison theorem; the latter is explicitly requested from SF.2."
     }
    ],
    "implementationStatus": "unchecked"
@@ -706,8 +750,9 @@
     "ModularCurvesPartII:R14.3/integral-comparison",
     "ModularCurvesPartII:R14.3/parabolic-cohomology",
     "ModularCurvesPartII:R14.1",
-    "EtaleDualityAndPerverseSheaves:EDC.3",
-    "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
+    "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+    "EtaleDualityAndPerverseSheaves:EDC.0",
+    "EtaleDualityAndPerverseSheaves:EDC.2"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/Cohomology",
@@ -863,16 +908,17 @@
    ],
    "title": "Modular symbols and the geometric lattice",
    "kind": "comparison",
-   "statement": "For the supplied torsion-free congruence quotient, identify the homological modular-symbol module of ModularForms Layer 8 with relative H₁(X_an,D;Sym^r lattice) using its Manin presentation, with the appropriate coefficient dual when pairing against L_r. The boundary map corresponds to restriction to cusp divisors. The cuspidal kernel modulo torsion pairs with H¹_par; rationally, and integrally under the torsion and perfectness hypotheses already displayed, this gives its dual cohomological lattice. The period map of ModularForms is integration against this homology and acts on symbols by transpose, not by an identification of forms with symbols.",
+   "statement": "For the torsion-free congruence quotient Y_an, use a compact oriented surface B with boundary circles obtained by truncating its cusp ends; its interior is Y_an and B≃Y_an. Extend the local system L_r and its coefficient dual to B via this homotopy equivalence. Compare the imported homological Manin-symbol module with H₁(B,∂B;L_r^∨), after fixing the standard-versus-relative-H¹ representation convention. Its boundary lands in H₀(∂B;L_r^∨), whose cusp terms are monodromy coinvariants. The cuspidal kernel modulo torsion gives the dual parabolic cohomological lattice rationally, and integrally only with the stated comparison, saturation and perfectness hypotheses. For r=0 the constant-coefficient comparison recovers H₁(X_an,D;A). Integration is a functional on symbols and Hecke acts on the dual by transpose.",
    "hypotheses": [
     "The symbol lattice is the existing coinvariants of Div⁰(P¹(Q))⊗Sym^r(ℤ²), not a second definition of that object.",
-    "Integral conclusions use the local coefficient dual and saturation; the whole symbol module contains boundary and may contain torsion."
+    "Integral conclusions use the local coefficient dual and saturation; the whole symbol module contains boundary and may contain torsion.",
+    "For r>0 cusp monodromy can be nontrivial, so L_r need not extend as a local system across the collapsed cusps of X_an. The pair (X_an,D;L_r) is not used in that case."
    ],
    "proofSteps": [
-    "Import Manin generators and relations and the relative singular-chain model.",
-    "Send a cusp difference with coefficient to its geodesic chain; use polygon relations and endpoint boundary maps to obtain the comparison.",
-    "Use duality to pass from cuspidal relative homology to parabolic cohomology, keeping the torsion-free quotient and coefficient dual explicit.",
-    "Match integration and Hecke pull-push to the existing period functional."
+    "Use cusp collars to construct B and the coefficient extension; import relative chains and manifold duality from AlgebraicTopology Stages 2/6.",
+    "Fix the explicit equivariant identification of the standard symbol coefficient representation with the appropriate dual of the geometric relative H¹ lattice, including determinant twists. Send each symbol to its geodesic relative chain, and compare Manin relations and cusp coinvariants. The precise integral presentation comparison remains the recorded lattice gap.",
+    "Use the boundary long exact sequence and duality on B to pass from the cuspidal homological kernel to the parabolic image. Retain torsion, saturation and the coefficient dual.",
+    "Match integration and Hecke pull-push with the existing period functional. Deligne supplies the rational cohomological realization, not an integral Manin-presentation theorem."
    ],
    "acceptance": [
     "The period map lands in the dual of symbols, as the current ModularForms roadmap requires.",
@@ -898,6 +944,11 @@
      "sourceId": "RIBET-STEIN-SERRE-LECTURES",
      "locator": "Theorems 5.1–5.2, pp. 65–66",
      "match": "Weight-two Hodge classes and integration determine the normalization of the comparison."
+    },
+    {
+     "sourceId": "FUNKE-MILLSON",
+     "locator": "§2, p. 8; Lemma 3.8 and Remark 3.9, p. 12; Proposition 3.11, p. 13",
+     "match": "The surface compactification adds cusp circles; geodesics with coefficients define relative classes, and the boundary calculation uses monodromy coinvariants. Their rational even symmetric-power setting illustrates this model, not the unrestricted integral Manin comparison."
     }
    ],
    "implementationStatus": "unchecked"
@@ -910,7 +961,7 @@
    ],
    "title": "The actual Jacobian Tate realization",
    "kind": "comparison",
-   "statement": "For J=Pic⁰(X₁(N)/Q), the canonical comparison identifies T_ℓJ with H¹_et(X₁(N)_Q̄,ℤ_ℓ(1)) and with the dual of untwisted H¹, using the principal polarization; equivalently T_ℓJ is integral first homology after Betti comparison. The comparison is functorial for Picard and Albanese actions, which are adjoint rather than identical. After tensoring Q_ℓ it transports the rational rank-two computation to V_ℓJ for both Hecke conventions.",
+   "statement": "For J=Pic⁰(X₁(N)/Q), the canonical comparison identifies T_ℓJ with H¹_et(X₁(N)_Q̄,ℤ_ℓ(1)) and with the dual of untwisted H¹, using the principal polarization; equivalently T_ℓJ is integral first homology after Betti comparison. The comparison is functorial for Picard and Albanese actions, which are adjoint rather than identical. After tensoring Q_ℓ it intertwines the two Hecke conventions. The rank-two consequence is proved in betti-free-rank-two using this comparison; it is not an input to the comparison itself.",
    "hypotheses": [
     "This comparison precedes rank-two freeness. The initial Tate carrier and functoriality from R14.2 must not depend on betti-free-rank-two."
    ],
@@ -978,7 +1029,7 @@
    "sources": [
     {
      "sourceId": "RIBET-1984",
-     "locator": "§3, p. 507; §4, pp. 510–513",
+     "locator": "§3, pp. 507–508; §4, pp. 510–513",
      "match": "The mixed-level degeneracy map on Jacobians and compact cohomology."
     },
     {
@@ -1174,7 +1225,8 @@
     "mathlib:groupCohomology.H1",
     "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
     "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
-    "mathlib:groupCohomology.coindIso"
+    "mathlib:groupCohomology.coindIso",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/Ihara",
@@ -1487,7 +1539,7 @@
    ],
    "proofSteps": [
     "The eigenvalue map T₁(N) → ℂ has image the order ℤ[a_n(f)] ⊂ K_f; its kernel is prime.",
-    "Minimality: T₁(N) ⊗ ℚ is reduced on the newform part (multiplicity one), so p_f is minimal."
+    "The integral Hecke algebra is finite and torsion-free over ℤ. Localizing at ℤ\\{0} makes it a finite-dimensional commutative ℚ-algebra, hence Artinian; every prime there is minimal. Since λ_f has characteristic-zero image, p_f is disjoint from ℤ\\{0}, and contraction of that minimal prime is minimal. This does not assume the full old-level Hecke algebra is reduced."
    ],
    "acceptance": [
     "Weak multiplicity one gives a_n(f) ∈ K_f for all n."
@@ -1497,7 +1549,8 @@
     "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
     "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
     "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
-    "mathlib:RingHom.ker"
+    "mathlib:RingHom.ker",
+    "mathlib:RingHom.quotientKerEquivRange"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
@@ -1545,7 +1598,7 @@
     {
      "name": "TauCeti.ModularCurves.heckePrime_quotient",
      "role": "equivalence",
-     "statement": "The rationalized quotient is K_f; the integral quotient is the eigenvalue order, not necessarily the maximal order."
+     "statement": "The integral quotient is canonically the image eigenvalue order by RingHom.quotientKerEquivRange; after rationalization it is K_f. The integral image need not be the maximal order."
     },
     {
      "name": "TauCeti.ModularCurves.heckePrime_conjugate",
@@ -1582,14 +1635,14 @@
    ],
    "title": "The modular abelian variety A_f",
    "kind": "construction",
-   "statement": "With the Picard Hecke action on J₁(N), let B_f be the connected abelian subvariety generated by all images t(J₁(N)), t∈p_f. Define A_f=J₁(N)/B_f over Q with its surjective quotient map q_f. It has good reduction outside N and an action of the order T₁(N)/p_f; the K_f action is in End⁰(A_f). This is a quotient by an actual abelian subvariety, not a pointwise module quotient or an assumed Galois representation.",
+   "statement": "With the Albanese Hecke action on J₁(N), let B_f be the connected abelian subvariety generated by all images t(J₁(N)), t∈p_f. Define A_f=J₁(N)/B_f over Q with its surjective quotient map q_f. It has good reduction outside N and an action of the order T₁(N)/p_f; the K_f action is in End⁰(A_f). This is a quotient by an actual abelian subvariety, not a pointwise module quotient or an assumed Galois representation.",
    "hypotheses": [
     "N ≥ 5 (for N < 5, S₂(Γ₁(N)) = 0).",
-    "Convention: Conrad takes the Picard ( )^* action of T₁(N) on Pic⁰; Ribet–Stein take the quotient by the image of the annihilator of f in T; the two give isogenous quotients."
+    "Conrad Definition 5.13 uses the Albanese action ( )_* on J₁(N) of the (E,P) model. A Picard-action quotient must be separately constructed and transported by w_ζ over a field containing ζ. Neither the action nor the moduli model is silently changed on the same quotient."
    ],
    "proofSteps": [
-    "Form the abelian subvariety Σ_{t ∈ p_f} t(J₁(N)) (finitely many generators of p_f suffice) and take the quotient abelian variety over ℚ (AbelianSchemesAndArithmeticModuli A2).",
-    "Good reduction over ℤ[1/N]: J₁(N) is the Néron model of an abelian scheme over ℤ[1/N] and quotients of abelian schemes by abelian subschemes are abelian schemes (or Néron–Ogg–Shafarevich)."
+    "Use the actual Albanese action to form the connected abelian subvariety generated by t(J₁(N)), t∈p_f; finite ideal generators suffice. Import the quotient and its universal property from AbelianSchemesAndArithmeticModuli A6, whose positive-dimensional quotient input is requested explicitly.",
+    "Apply the requested A6 good-reduction quotient theorem to J₁(N) over ℤ[1/N]; the resulting connected-subvariety quotient extends as an abelian scheme. This needs the positive-dimensional quotient theorem, not only the finite-flat-kernel quotient API."
    ],
    "acceptance": [
     "A_f is nonzero when f exists (modular-quotient-dimension).",
@@ -1637,7 +1690,7 @@
     {
      "name": "TauCeti.ModularCurves.modularQuotient",
      "role": "constructor",
-     "statement": "The actual abelian variety J₁(N)/B_f, with the chosen Picard convention."
+     "statement": "The actual abelian variety J₁(N)/B_f, using the Albanese action."
     },
     {
      "name": "TauCeti.ModularCurves.modularQuotient_map",
@@ -1663,18 +1716,33 @@
      "name": "TauCeti.ModularCurves.modularQuotient_hecke",
      "role": "compatibility",
      "statement": "The quotient order acts faithfully in characteristic zero; the induced rational action is K_f in End⁰(A_f)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotientForIdeal",
+     "role": "constructor",
+     "statement": "For any ideal I of the supplied acting modular Hecke algebra, form the connected subvariety generated by its Albanese images and invoke the A6 quotient. modularQuotient f is this modular specialization at I=p_f; the generic abelian-subvariety quotient is imported, not redefined here."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient_lift_map",
+     "role": "simp",
+     "statement": "The descended homomorphism composed with q_f equals the original h."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient_hom_ext",
+     "role": "extensionality",
+     "statement": "Two homomorphisms out of A_f agree when their compositions with the surjective q_f agree."
     }
    ],
    "tests": [
     {
      "name": "modularQuotient_zeroIdeal",
      "kind": "degenerate",
-     "statement": "The quotient attached to the zero ideal of an acting algebra is the supplied Jacobian itself."
+     "statement": "The modularQuotientForIdeal quotient attached to the zero ideal of an acting algebra is the supplied Jacobian itself."
     },
     {
      "name": "modularQuotient_unitIdeal",
      "kind": "degenerate",
-     "statement": "The quotient for the unit ideal is the zero abelian variety; this tests the image-generated-kernel convention."
+     "statement": "The modularQuotientForIdeal quotient for the unit ideal is the zero abelian variety; this tests the image-generated-kernel convention."
     },
     {
      "name": "modularQuotient_level11",
@@ -1699,7 +1767,7 @@
    ],
    "title": "Tate module of the actual modular quotient",
    "kind": "comparison",
-   "statement": "For the actual quotient q_f:J₁(N)→A_f, the induced map identifies V_ℓ(A_f) with V_ℓ(J₁(N))/p_fV_ℓ(J₁(N)) as a module over Q_ℓ⊗T₁(N), with the chosen Picard convention. Generic exactness of rational Tate modules for abelian-subvariety quotients is imported; integral exactness is not inferred by tensoring this rational statement.",
+   "statement": "For the actual quotient q_f:J₁(N)→A_f, the induced map identifies V_ℓ(A_f) with V_ℓ(J₁(N))/p_fV_ℓ(J₁(N)) as a module over Q_ℓ⊗T₁(N), with the chosen Albanese convention. Generic exactness of rational Tate modules for abelian-subvariety quotients is imported; integral exactness is not inferred by tensoring this rational statement.",
    "hypotheses": [
     "ℓ prime; base characteristic zero. B_f is the actual connected image-generated kernel from modular-quotient."
    ],
@@ -1789,7 +1857,7 @@
    ],
    "title": "Differentials on A_f",
    "kind": "theorem",
-   "statement": "Pullback along J₁(N) → A_f identifies H⁰(A_f, Ω¹) ⊗ ℂ with the span of the Galois conjugates f^σ (σ : K_f ↪ ℂ) in S₂(Γ₁(N), ℂ) = Cot₀(J₁(N)_ℂ), when T₁(N) acts on J₁(N) through the Albanese action (T_p)_*, whose cotangent action is the classical one; with the Picard action T_p^* the image is w_ζ of that span.",
+   "statement": "For the Albanese-action quotient q_f:J₁(N)→A_f defined here, cotangent pullback identifies H⁰(A_f,Ω¹)⊗ℂ with the span of f^σ, σ:K_f↪ℂ, inside S₂(Γ₁(N),ℂ)=Cot₀(J₁(N)_ℂ). If A_f^Pic is instead constructed with the Picard action on the same model, its separately defined quotient map has cotangent image w_ζ of this span over a field containing ζ. The two quotient maps are not identified without this transport.",
    "hypotheses": [
     "Conrad's warning: the Picard action on Cot₀ is the Petersson adjoint of the classical action; w_ζ conjugates one action into the other."
    ],
@@ -1799,7 +1867,7 @@
    ],
    "acceptance": [
     "Fix the Hecke-action convention before identifying differentials; the two choices differ by w_ζ.",
-    "For the Picard convention keep the w_ζ transport; do not silently use the cotangent action of the Albanese operator."
+    "For a separately constructed Picard quotient retain the w_ζ transport; never change the action on the already defined Albanese quotient."
    ],
    "prerequisites": [
     "ModularCurvesPartII:R14.5/modular-quotient",
@@ -1899,7 +1967,7 @@
     {
      "sourceId": "RIBET-STEIN-SERRE-LECTURES",
      "locator": "§3.6, p. 40; Corollary 5.9, pp. 69–70; Theorem 5.14, p. 73",
-     "match": "The two old images at a prime and the rational Tate/dimension theorem motivate the geometric transfer. The complete all-divisor analytic theorem is imported from its existing owner, not attributed to this excerpt."
+     "match": "The two old images at a prime and the rational Tate/dimension theorem motivate the geometric transfer. The complete all-divisor analytic theorem is imported from its existing owner, not attributed to that discussion."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2017,7 +2085,7 @@
    "sources": [
     {
      "sourceId": "RIBET-STEIN-SERRE-LECTURES",
-     "locator": "Theorem 5.16 and proof, pp. 74–77",
+     "locator": "Theorem 5.16 and proof, pp. 74–79",
      "match": "The actual Jacobian endomorphism identity, its w_ζ conjugation and the Frobenius/Verschiebung convention."
     }
    ],
@@ -2215,6 +2283,11 @@
      "name": "TauCeti.ModularCurves.supersingularDegreeZero_correspondence",
      "role": "compatibility",
      "statement": "A supplied geometric graph correspondence induces its character map via incidence chains; no division by an edge multiplicity is used."
+    },
+    {
+     "name": "TauCeti.ModularCurves.supersingularDegreeZero_ext",
+     "role": "extensionality",
+     "statement": "Two elements of the degree-zero lattice are equal when every supersingular coefficient agrees."
     }
    ],
    "tests": [
@@ -2315,7 +2388,7 @@
     {
      "sourceId": "RIBET-STEIN-SERRE-LECTURES",
      "locator": "§3.10.2, equation (3.2), p. 48",
-     "match": "The pivot sequence includes a different Shimura-curve Jacobian; the Cerednik–Drinfeld proof is cited but not supplied by the excerpt."
+     "match": "The pivot sequence includes a different Shimura-curve Jacobian; the Cerednik–Drinfeld proof is cited but not supplied by that reference."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2334,7 +2407,7 @@
    ],
    "proofSteps": [
     "Apply R11.3 and the actual toric character computation.",
-    "Use R11.4/R34.3 to match the monodromy operator and Weil pairing.",
+    "Use modular-monodromy and its imported R11.4 graph comparison to match the monodromy operator and Weil pairing.",
     "Transport the supplied degeneracy and Hecke maps through the filtration.",
     "Use the lower-tier R11.3 Tate filtration and R11.4 graph comparison for this modular application. No completion of the higher-tier weights roadmap is needed; its nearby-cycle interpretation belongs to the weights owner."
    ],
@@ -2387,7 +2460,8 @@
     "ModularCurvesPartII:R14.3/geometric-hecke-coefficients",
     "ModularCurvesPartII:R14.1",
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
-    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/PatchingInterface",
@@ -2449,6 +2523,11 @@
      "name": "TauCeti.ModularCurves.taylorWilesMinus_coefficients",
      "role": "functoriality",
      "statement": "Coefficient change and deck/Hecke-equivariant morphisms commute with minus projection under the proved base-change hypotheses."
+    },
+    {
+     "name": "TauCeti.ModularCurves.taylorWilesMinus_ext",
+     "role": "extensionality",
+     "statement": "Two minus classes are equal if their images in the actual cover H¹ agree."
     }
    ],
    "tests": [
@@ -2511,7 +2590,8 @@
     "ModularCurvesPartII:R14.3/boundary-non-eisenstein",
     "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
     "mathlib:groupCohomology.coindIso",
-    "ModularCurvesPartII:R14.6/diamond-group-ring-local"
+    "ModularCurvesPartII:R14.6/diamond-group-ring-local",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/PatchingInterface",
@@ -2554,7 +2634,8 @@
    ],
    "prerequisites": [
     "ModularCurvesPartII:R14.6/taylor-wiles-freeness",
-    "ModularCurvesPartII:R14.4/taylor-wiles-root-control"
+    "ModularCurvesPartII:R14.4/taylor-wiles-root-control",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/PatchingInterface",
@@ -2580,23 +2661,24 @@
    "realises": [
     "ModularCurvesPartII:R14.6"
    ],
-   "title": "The local diamond group ring",
-   "kind": "theorem",
-   "statement": "For O a complete DVR of residue characteristic ℓ and Δ a finite abelian ℓ-group, O[Δ] is a commutative local ring. Its maximal ideal is generated by the maximal ideal of O and every [δ]−1. Every finite projective O[Δ]-module is free. These are the precise algebra facts used in the finite-level Taylor–Wiles minus-module argument.",
+   "title": "Apply the existing local group-ring algebra to diamond groups",
+   "kind": "application",
+   "statement": "For the actual finite abelian ℓ-group Δ_Q and DVR O of taylor-wiles-cover, specialize the current Tau Ceti local-group-ring and local-augmentation theorems to obtain IsLocalRing O[Δ_Q]. The maximal ideal is the inverse image of the maximal ideal of O under augmentation, generated by that ideal and [δ]−1. Apply the pinned finite-flat-over-local-ring freeness theorem to the finite projective minus module. This node imports these algebra facts and records their modular hypotheses; it plans no second generic local-group-ring theorem.",
    "hypotheses": [
     "Δ is the finite diamond group of taylor-wiles-cover; the assertion is not made for a finite group of order prime to ℓ."
    ],
    "proofSteps": [
-    "Reduce modulo the uniformizer: the augmentation ideal in the group algebra of a finite ℓ-group over the residue field is nilpotent, using ([δ]−1)^{ℓ^a}=0.",
-    "Every maximal ideal of the finite O-algebra lies over the maximal ideal of O; its residue algebra has the unique augmentation maximal ideal.",
-    "Apply the finite-projective-over-local-ring freeness theorem; use augmentation and generic fibre invariants to compute rank."
+    "Read the current declarations TauCeti.MonoidAlgebra.isLocalRing_of_isPGroup and isLocalHom_lift_one_of_isPGroup: the inputs are a commutative local ring, a prime ℓ with ¬IsUnit(ℓ:O), and a finite commutative ℓ-group. The actual diamond group and residue characteristic supply precisely these inputs.",
+    "Use the existing augmentation and its kernel-span description to identify the maximal ideal; the local augmentation is surjective.",
+    "Apply Module.free_of_flat_of_isLocalRing to the finite projective module (projective implies flat); finite generation is essential. Integration of the post-pin group-ring module is explicitly recorded as a gap, rather than claimed at f790474."
    ],
    "acceptance": [
     "Δ=1 recovers O.",
     "For Δ=C₂ and ℓ odd the group ring has distinct trivial and sign factors, so this local-ring conclusion is false."
    ],
    "prerequisites": [
-    "ModularCurvesPartII:R14.6/taylor-wiles-cover"
+    "ModularCurvesPartII:R14.6/taylor-wiles-cover",
+    "mathlib:Module.free_of_flat_of_isLocalRing"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/ModularCurves/PatchingInterface",
@@ -2670,7 +2752,7 @@
   },
   {
    "supplier": "ModularCurvesPartII:R13.2",
-   "need": "Actual smooth fine elliptic family, compactification, universal elliptic curve on its open locus, and good reduction over Z[1/N].",
+   "need": "Actual smooth fine elliptic family, compactification, universal elliptic curve on its open locus, and good reduction over Z[1/N]. For Theorem 5.16 additionally supply the ordinary dense locus, the connected–étale decomposition of E[p], and lifting of its order-p subgroups after finite extension. R14.1 supplies the integral correspondence and its specialization.",
    "neededBy": [
     "ModularCurvesPartII:R14.3/relative-coefficient-system",
     "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
@@ -2721,7 +2803,7 @@
   },
   {
    "supplier": "AbelianSchemesAndArithmeticModuli:A4",
-   "need": "Actual ℓ-power torsion and inverse-limit Tate module, its 2g rank and Weil pairing; the curve-Picard Kummer comparison needed in weight-two-tate-comparison.",
+   "need": "Actual ℓ-power torsion and inverse-limit Tate module, its 2g rank and Weil pairing; the curve-Picard Kummer comparison needed in weight-two-tate-comparison. For the weight-two special-fibre calculation include Frobenius/Verschiebung and finite-flat p-torsion connected–étale structure in characteristic p, distinct from the ℓ-invertible Tate comparison.",
    "neededBy": [
     "ModularCurvesPartII:R14.3/relative-coefficient-system",
     "ModularCurvesPartII:R14.3/weight-two-tate-comparison",
@@ -2741,26 +2823,21 @@
   },
   {
    "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
-   "need": "Finite locally constant coefficient cohomology and compact supports on smooth curves, constructibility, finite generation and proper smooth base change for R¹ of the universal elliptic family.",
+   "need": "Finite locally constant coefficient cohomology and compact supports on smooth curves, constructibility, finite generation and proper smooth base change for R¹ of the universal elliptic family. Supply j_!, Rj_* and the enhanced coefficient/support categories used for the boundary complex.",
    "neededBy": [
     "ModularCurvesPartII:R14.3/relative-coefficient-system",
     "ModularCurvesPartII:R14.3/parabolic-cohomology",
-    "ModularCurvesPartII:R14.3/integral-comparison"
+    "ModularCurvesPartII:R14.3/integral-comparison",
+    "ModularCurvesPartII:R14.3/boundary-exact-sequence",
+    "ModularCurvesPartII:R14.3/geometric-hecke-coefficients"
    ]
   },
   {
    "supplier": "EtaleDualityAndPerverseSheaves:EDC.2",
-   "need": "Curve Poincaré–Lefschetz/étale duality with coefficient duals and twists; restrict to the parabolic image and prove integral perfection only under the displayed torsion and boundary vanishings.",
+   "need": "Curve Poincaré–Lefschetz/étale duality with coefficient duals and twists; restrict to the parabolic image and prove integral perfection only under the displayed torsion and boundary vanishings. Use the trace-purity target for finite étale pullback/trace, trace∘pullback=degree and the projection formula; use its pairing target for duality. These are not supplied by the EDC.3 cycle-class target.",
    "neededBy": [
     "ModularCurvesPartII:R14.3/parabolic-duality",
-    "ModularCurvesPartII:R14.3/weight-two-tate-comparison"
-   ]
-  },
-  {
-   "supplier": "EtaleDualityAndPerverseSheaves:EDC.3",
-   "need": "Finite étale trace, pullback, projection formula, degree composition and the j_!→Rj_* localization triangle, including punctured-disc/inertia boundary stalks.",
-   "neededBy": [
-    "ModularCurvesPartII:R14.3/boundary-exact-sequence",
+    "ModularCurvesPartII:R14.3/weight-two-tate-comparison",
     "ModularCurvesPartII:R14.3/geometric-hecke-coefficients"
    ]
   },
@@ -2872,6 +2949,24 @@
     "ModularCurvesPartII:R14.3/localized-freeness",
     "ModularCurvesPartII:R14.6/taylor-wiles-cover"
    ]
+  },
+  {
+   "supplier": "EtaleDualityAndPerverseSheaves:EDC.1",
+   "need": "Supply the localization triangle j_!L→Rj_*L→i_*i^*Rj_*L through the open/closed adjunction and localization API. Its local inertia stalk calculation is a specific required input, not a cycle-class theorem in EDC.3.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.3/boundary-exact-sequence"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+   "need": "Use finite-cover/local-coefficient descent, transfer, Cartan–Leray and permutation coefficient systems; Shapiro itself is already pinned. Keep noninvertible deck orders and derived invariants explicit.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.3/relative-coefficient-system",
+    "ModularCurvesPartII:R14.4/lyndon-exact-sequence",
+    "ModularCurvesPartII:R14.6/taylor-wiles-cover",
+    "ModularCurvesPartII:R14.6/taylor-wiles-freeness",
+    "ModularCurvesPartII:R14.6/augmentation-control"
+   ]
   }
  ],
  "coverage": [
@@ -2903,7 +2998,8 @@
    "stageId": "ModularCurvesPartII:R14.6",
    "status": "planned",
    "remaining": [
-    "Supply the quaternionic pivot and any integral old/new finite-error calculation; discharge semistable model and finite-cover supplier requests."
+    "Supply the quaternionic pivot and any integral old/new finite-error calculation; discharge semistable model and finite-cover supplier requests.",
+    "Import the current, already implemented local-group-ring algebra beyond the pinned baseline; no duplicate generic algebra proof is planned."
    ],
    "note": "Every target has a declaration-level node and a dependency route; implementation and the explicitly listed proof-chain refinements remain open."
   }
@@ -2917,7 +3013,7 @@
     "ModularCurvesPartII:R14.3/localized-freeness",
     "ModularCurvesPartII:R14.3/symbols-geometric-comparison"
    ],
-   "detail": "Deligne supplies rational Sym^r cohomology. Prove the exact good-prime Hecke eigensystems on H⁰ and cusp inertia cohomology for Sym^r integral coefficients; specify residual ideals where they vanish and where reduction and saturated parabolic comparison hold. For ℓ≤r symmetrization need not be perfect: choose a divided-power/dual lattice with a sourced comparison or retain a weaker pairing. The present conditional theorem does not claim unconditional integral freeness or perfectness in that range."
+   "detail": "Deligne supplies rational Sym^r cohomology. Prove the exact good-prime Hecke eigensystems on H⁰ and cusp inertia cohomology for Sym^r integral coefficients; specify residual ideals where they vanish and where reduction and saturated parabolic comparison hold. For ℓ≤r symmetrization need not be perfect: choose a divided-power/dual lattice with a sourced comparison or retain a weaker pairing. The present conditional theorem does not claim unconditional integral freeness or perfectness in that range. The symbol comparison must identify the standard representation with the dual geometric relative-H¹ coefficient system, including determinant twists, and prove the Manin/geodesic relative-chain presentation on B. Deligne and the rational even-weight boundary model do not by themselves establish this integral identification."
   },
   {
    "title": "Deep input to the S-arithmetic congruence kernel theorem",
@@ -2949,6 +3045,13 @@
     "ModularCurvesPartII:R14.4/taylor-wiles-root-control"
    ],
    "detail": "The compact constant-coefficient Γ₁(N) result includes ℓ|N on characteristic-zero curves and has no exceptional residual-image hypothesis. It does not by itself prove level lowering, nor a uniform Sym^r/coarse Γ₀(N) or characteristic-ℓ fibre result. R20/R22 must use the stated fine/mixed-level weight-two prefix, or specify a sourced further injectivity theorem with its stabilizer, coefficient and exceptional-image hypotheses; Γ₀(N) has a Shimura-subgroup kernel."
+  },
+  {
+   "title": "Integrate existing post-pin diamond group-ring algebra",
+   "neededBy": [
+    "ModularCurvesPartII:R14.6/diamond-group-ring-local"
+   ],
+   "detail": "The current Tau Ceti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 implements TauCeti.MonoidAlgebra.isLocalRing_of_isPGroup and isLocalHom_lift_one_of_isPGroup in TauCeti/Algebra/MonoidAlgebra/LocalRing.lean, with augmentation and ker_augmentation_eq_span in Exactness.lean. They are absent at f790474. Import the existing implementation when updating the baseline; do not plan or prove a duplicate. The pinned prototype does not import that post-pin module."
   }
  ],
  "links": [
@@ -2964,7 +3067,8 @@
   "WORKERS tier order puts WeightsInEtaleCohomology above this roadmap, although accepted RS-06 suppliedBy names R34.3. The needed modular Tate/graph comparison is planned here using lower R11.3/R11.4; no prerequisite to R34.3 remains. The general weight/nearby-cycle theory stays with its existing owner. Point the R34.3 modular application at this finite-level interface.",
   "RS-06 general étale–Betti owner label has no current resolvable upstream anchor. SF.2 is the lower integration interface requested explicitly for that same mathematics. No de Rham comparison or invented upstream theorem replaces it.",
   "The initial R14.2 Jacobian/Tate action prefix must be split from its later rational rank-two result to prevent a R14.2↔R14.3 theorem-level cycle. The packet depends only on the initial prefix.",
-  "RT-AREA-langlands-2/9 is handled by the scoped R14.6→R19.1 link. Narrow the R19 weight-two proof to a consequence of the imported relation; retain its higher-weight Deligne congruence nodes. No other roadmap file was edited."
+  "RT-AREA-langlands-2/9 is handled by the scoped R14.6→R19.1 link. Narrow the R19 weight-two proof to a consequence of the imported relation; retain its higher-weight Deligne congruence nodes. No other roadmap file was edited.",
+  "Independent review found generic diamond-group-ring locality already implemented in current Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, beyond the pinned f790474. The node is now only its modular application. Resolve the recorded baseline-integration gap by importing those declarations, not by reproving them."
  ],
  "sourceVersions": [
   {
@@ -3013,7 +3117,7 @@
    "id": "ModularCurvesPartII/E1",
    "source": "CALEGARI-GERAGHTY",
    "kind": "misprint",
-   "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 120",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120",
    "printed": "For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)².",
    "correction": "The determinant is (q+1)²−T_q². The two expressions differ by −1, a unit, so their invertibility tests agree.",
    "reason": "The 2×2 determinant formula gives a²−b²; at T_q=0 the determinant equals (q+1)².",
@@ -3024,13 +3128,18 @@
     "https://math.uchicago.edu/~fcale/research.html",
     "https://doi.org/10.1007/s00222-017-0749-x",
     "https://link.springer.com/article/10.1007/s00222-021-01095-5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed visually in the arXiv formula on p. 88 and author-layout PDF p. 120. Direct 2×2 determinant calculation reverses the printed sign; −1 is a unit. This does not establish whether the later correction addresses it.",
+    "by": "REV-ModularCurvesPartII--R14.3"
+   }
   },
   {
    "id": "ModularCurvesPartII/E2",
    "source": "CALEGARI-GERAGHTY",
    "kind": "misprint",
-   "locator": "Lemma 9.6 proof, arXiv author preprint p. 90; author-hosted Springer-layout PDF p. 122",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 122",
    "printed": "The displayed Lyndon segment places H^{i−1}(G) directly before H^i(Γ)²→H^i(H).",
    "correction": "The segment is H^i(G)→H^i(Γ)²→H^i(H)→H^{i+1}(G), with the two subgroup restrictions and their difference.",
    "reason": "Serre Trees II §2.8 Proposition 13, pp. 168–170, or the long exact sequence of the tree cochain short exact sequence, fixes the degrees. Degree-zero invariants already require H⁰(G) before H⁰(Γ)².",
@@ -3041,7 +3150,12 @@
     "https://math.uchicago.edu/~fcale/research.html",
     "https://doi.org/10.1007/s00222-017-0749-x",
     "https://link.springer.com/article/10.1007/s00222-021-01095-5"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed visually on arXiv p. 89 and author-layout PDF p. 122; Serre Trees II §2.8 Proposition 13 pp. 168–169 gives H^i of the amalgam before the vertex H^i term.",
+    "by": "REV-ModularCurvesPartII--R14.3"
+   }
   },
   {
    "id": "ModularCurvesPartII/E3",
@@ -3058,7 +3172,235 @@
     "https://doi.org/10.1090/jams/1053",
     "https://math.uchicago.edu/~fcale/research.html",
     "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in the preprint p. 31 and published offprint p. 663. The proof on p. 664 requires characteristic five. In characteristic three the constant residue vector on the 12 cusps of X(5) lies in the augmentation kernel and yields a nonzero SL₂(F₅)-invariant ordinary H¹ class.",
+    "by": "REV-ModularCurvesPartII--R14.3"
+   }
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-ModularCurvesPartII--R14.3",
+  "date": "2026-10-11",
+  "notes": "Independent source, exact-pin baseline, current-library/roadmap ownership, target-level closure, API/test, prototype and planet review. Corrected Albanese/Picard conventions, cusp-monodromy model, six-functor/cover suppliers, minimal-prime proof, comparison/rank dependency, source locators and duplicate group-ring planning. All 43 targets are verified or corrected, all 18 baseline declarations confirmed, and three source issues confirmed. This accepts a complete planning pass with four planned stages and six explicit gaps, not a closed packet or implemented mathematics. The reader is outside this review issue’s editable paths and must be synchronized during assembly/package; the corrections and exact places to resume are recorded in the report/handoff.",
+  "checked": [
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+    "verdict": "corrected",
+    "note": "Conrad pp. 64–65 gives the Hodge/Hecke identification on compact Betti H¹. Corrected the full-symbol-lattice assertion; symbols require the separate cuspidal/dual comparison."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/cup-product-petersson",
+    "verdict": "verified",
+    "note": "Conrad Theorem 5.2 p. 66 fixes the i-orientation and non-normalized Petersson measure. The 4π factor requires the specified Shimura normalization, not the unscaled form f dz."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+    "verdict": "verified",
+    "note": "Conrad pp. 66–68 gives the diamond adjoint and w_ζ-twisted perfect pairing. The two Jacobian actions remain adjoint and are not identified."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/betti-free-rank-two",
+    "verdict": "verified",
+    "note": "Conrad Theorem 5.8 and Corollary 5.9 pp. 69–70 give rational rank two and the rational Hecke-dual rank-one result. Integral freeness is excluded. The initial Tate comparison precedes the rank computation."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/relative-coefficient-system",
+    "verdict": "corrected",
+    "note": "Deligne §§3.9–3.11 and §3.16 pp. 154–158 supplies rational relative H¹ and symmetric powers. Finite/integral base change is requested explicitly; the existing symmetric-power functor and its pinned rank formula are imported. Added finite-cover descent."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/parabolic-cohomology",
+    "verdict": "corrected",
+    "note": "Deligne Definition 3.9 pp. 154–155 is the compact-support image. The range core uses actual maps and distinguishes j_! from Rj_*. Added identity/composition laws; geometric support and adic exactness remain supplier obligations."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/boundary-exact-sequence",
+    "verdict": "corrected",
+    "note": "The localization triangle yields the parabolic kernel and preserves neighboring terms. Corrected EDC.3 to EDC.0/1; specified geometric connected étale curves and the nonempty-cusp condition for the residue sequence."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/integral-comparison",
+    "verdict": "corrected",
+    "note": "Deligne pp. 154–156 describes the rational realization; the printed Corollaire 3.2 on p. 161 concerns lisse specialization/unramifiedness. Corrected the locator and attribution. General finite Artin comparison and limits are precisely requested from SF.2."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/geometric-hecke-coefficients",
+    "verdict": "corrected",
+    "note": "Deligne Propositions 3.18–3.19 and (3.20), pp. 158–160, fixes the isogeny normalization. Current EDC.2 trace-purity supplies traces and degree; EDC.3 cycle classes do not. Corrected direct suppliers."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/parabolic-duality",
+    "verdict": "verified",
+    "note": "Deligne (3.20), pp. 159–160 supports the rational pairing. The coefficient sign times cup sign gives alternating parity for even r. Integral perfection retains r! invertible and localized boundary/torsion hypotheses."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/boundary-non-eisenstein",
+    "verdict": "verified",
+    "note": "Taylor–Wiles pp. 6–8 gives the weight-two boundary and non-Eisenstein localization argument. Higher symmetric-power eigensystems remain an explicit gap; no weight-two source is silently strengthened."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/localized-freeness",
+    "verdict": "verified",
+    "note": "The coefficient long exact sequence and finite two-term graph complex prove the stated conditional torsion-freeness/reduction theorem. Taylor–Wiles pp. 7–8 supports the constant case; higher-weight vanishings remain conditions."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/symbols-geometric-comparison",
+    "verdict": "corrected",
+    "note": "Corrected the invalid local-system extension across collapsed cusps. The surface-with-boundary model and cusp coinvariants agree with Funke–Millson p. 8, Lemma 3.8 p. 12 and Proposition 3.11 p. 13. Exact coefficient identification and integral Manin comparison remain a named gap; periods land in the dual."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.3/weight-two-tate-comparison",
+    "verdict": "corrected",
+    "note": "Conrad (5.4) and pp. 68–70, plus the requested Kummer/Tate and comparison infrastructure, yields H¹(1) and its polarization dual. Separated the later rank-two consequence from this prerequisite comparison."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/degeneracy-cohomology",
+    "verdict": "corrected",
+    "note": "Ribet §3 pp. 507–508 defines the sum of pullbacks; CDT Lemma 4.6.2 p. 33 uses the difference. The second-summand sign change is explicit, and typed coprod tests detect a zero or swapped map."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/modular-amalgam",
+    "verdict": "verified",
+    "note": "Serre Trees II §1.4 Theorem 3/Corollary 2 p. 110 and CDT pp. 27–28, 33–34 gives the tree route. Principal-level fundamental-edge/reduction-surjectivity refinements are recorded as a gap, not credited to the ordinary H¹ carrier."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/congruence-subgroup-property",
+    "verdict": "verified",
+    "note": "Serre §2.6 Theorem 2/Corollary 3 pp. 498–500 applies to Q and S={∞,p}. The deep Mennicke/Moore proof inputs remain a named gap; the assertion is not made for SL₂(Z)."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/lyndon-exact-sequence",
+    "verdict": "corrected",
+    "note": "Serre Trees II §2.8 Proposition 13 pp. 168–170 confirms H^i(G)→H^i(vertices)→H^i(edge)→H^{i+1}(G), with restriction difference. Added the existing finite-cover/transfer supplier; checked CG degree slip separately."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/congruence-classes",
+    "verdict": "verified",
+    "note": "CDT §4.5 pp. 29–30 defines congruence characters, distinct from ordinary and parabolic cohomology. Actual Γ(N), quotient descent and the lcm witness are retained; pinned H¹/characters and subgroup antitonicity are imported."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/principal-ihara",
+    "verdict": "verified",
+    "note": "CDT Lemma 4.6.2 pp. 33–34 gives containment of the ordinary kernel in congruence classes, including q=p. The finite-character/CSP route is sound with its already recorded proof gaps."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/enhanced-ihara",
+    "verdict": "verified",
+    "note": "CDT Corollary 4.5.3 p. 29 and Lemma 4.6.3 p. 34 gives the enhanced principal-level bound. The congruence-invariance target is a direct prerequisite; its exceptional-prime proof inputs are recorded."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/compact-ihara",
+    "verdict": "verified",
+    "note": "Ribet Theorem 4.1/Corollary 4.2/Theorem 4.3 pp. 510–513 distinguishes trivial Γ₁ kernel from the Γ₀ Shimura kernel. Integral homology surjectivity gives saturated compact cohomology at every ℓ; ordinary character injectivity is not inferred."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/taylor-wiles-root-control",
+    "verdict": "verified",
+    "note": "CG Lemma 9.6 pp. 88–90 and Remarks 9.7–9.8 support distinct-root control with cyclotomic determinant, p≡1 mod ℓ, odd ℓ and retained fine level. General character diamonds and repeated roots are excluded pending their calculation."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/newform-hecke-prime",
+    "verdict": "corrected",
+    "note": "Conrad p. 73 defines the characteristic-zero Hecke prime/order. Corrected minimality to the finite rational Artinian algebra argument, without reducedness of the full old-level algebra. Imported the pinned kernel/image isomorphism."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/modular-quotient",
+    "verdict": "corrected",
+    "note": "Conrad Definition 5.13 p. 73 uses the Albanese action. Corrected that convention and the A6 positive-dimensional quotient route; added the ideal-specialization constructor and quotient-map/extensionality API so zero/unit-ideal tests have valid inputs."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/quotient-tate-exact",
+    "verdict": "corrected",
+    "note": "Conrad p. 73 and requested A6 rational Tate exactness identify the quotient by p_f. Corrected the convention to the same Albanese action as q_f. No integral exactness follows solely from this rational assertion."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+    "verdict": "verified",
+    "note": "Conrad Theorem 5.14 p. 73 gives dim A_f=[K_f:Q]. Rank-two base change and rational quotient exactness yield rational Tate dimension 2[K_f:Q]; the typed tensor-product core does not construct the quotient."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/modular-quotient-differentials",
+    "verdict": "corrected",
+    "note": "Conrad p. 68 distinguishes classical cotangent action from its Picard adjoint. Corrected the statement to the chosen Albanese quotient; the transported w_ζ span belongs to a separately constructed Picard quotient."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/trivial-character-J0",
+    "verdict": "verified",
+    "note": "Ribet–Stein §2.3.1.2 p. 29 supports the J₀ quotient and comparison isogeny when the character is trivial. The supplied finite-kernel pullback and matching geometric actions are explicit hypotheses."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/oldform-comparison",
+    "verdict": "verified",
+    "note": "The current ModularForms Layers 4/5 supplies all-divisor degeneracy spans and cross-level multiplicity one. Ribet–Stein §3.6 p. 40 and Conrad pp. 69–73 supports the weight-two transfer; the raised-level anemic factor retains τ(M/N) copies."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero",
+    "verdict": "verified",
+    "note": "Conrad p. 74 and existing JacobianChallenge Layer F generation/universal property gives nonconstancy once A_f≠0. The result takes an actual rational base point and does not create a dependency on a later cusp construction."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/neron-hecke-extension",
+    "verdict": "verified",
+    "note": "Conrad p. 72 and R14.2/R11.6 supplies the generic Jacobian extension and induced reduction maps. This is an application; it does not assert that the degeneracy curve correspondence extends unchanged at its own prime."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+    "verdict": "corrected",
+    "note": "Conrad Theorem 5.16 and proof pp. 74–79 confirms T_p=F+⟨p⟩V and w_ζ⁻¹Fw_ζ=⟨p⟩⁻¹F. Extended the proof locator and finite-flat ordinary-locus supplier requests. The scoped R14.6→R19.1 link implements RT-AREA-langlands-2/9."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+    "verdict": "verified",
+    "note": "Conrad p. 74 uses cusp 0 on the chosen point-of-exact-order X₁ model; infinity on X₀ is separate. Existing generic AJ is imported. Degeneracy includes [α(c′)−c], and positive genus is required for immersion."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/supersingular-character-lattice",
+    "verdict": "corrected",
+    "note": "Ribet–Stein §3.9 pp. 44–46 and §3.10.2 p. 48 supports degree-zero supersingular divisors. R13.5 supplies the two-component fibre; R11.4 supplies graph/character identification. Thickness stays in monodromy. Added coefficient extensionality."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/modular-monodromy",
+    "verdict": "verified",
+    "note": "Ribet–Stein pp. 44–48 motivates the imported R11.4 weighted graph pairing and component cokernel. Positive node thickness and primary torsion remain; rational perfection is not replaced by integral unimodularity."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/character-degeneracy-sequences",
+    "verdict": "verified",
+    "note": "Ribet–Stein (3.2) p. 48 uses the quaternionic J′_pq. The torus-exactness theorem is conditional on an actual exact torus sequence; its concrete pivot/Cerednik–Drinfeld identification remains a named gap."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/semistable-tate-interface",
+    "verdict": "corrected",
+    "note": "Ribet–Stein pp. 45–49 motivates the R11.3 filtration and R11.4 modular graph application at ℓ≠p. Removed the stale higher-tier R34.3 proof citation. Residual inertia invariants retain finite monodromy errors."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/taylor-wiles-cover",
+    "verdict": "corrected",
+    "note": "Taylor–Wiles pp. 4–8 supplies the prime-to-ℓ subgroup, finite diamond quotient, auxiliary fine level and ξ action. Added the current finite-cover supplier and minus-class extensionality. The empty set and characteristic-two tests retain their ranges."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/taylor-wiles-freeness",
+    "verdict": "corrected",
+    "note": "Taylor–Wiles Proposition 1 pp. 7–8 proves minus cohomology projective then free over the local diamond group ring. Shapiro is pinned; added cover descent. Neither the plus module nor Hecke-rank-one multiplicity is claimed."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/augmentation-control",
+    "verdict": "corrected",
+    "note": "Taylor–Wiles pp. 7–8 and CG Lemma 9.6 gives augmentation on the exact minus complex and distinct-root level control. Added finite-cover descent. The auxiliary R-level remains at both ends and the numerical rank test follows the geometric map."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.6/diamond-group-ring-local",
+    "verdict": "corrected",
+    "note": "Current Tau Ceti a91d3aa already implements the local group-ring/augmentation theorem. Converted the duplicate generic proof target to its modular application, using pinned finite-flat/local-ring freeness and a precise post-pin import gap."
+   },
+   {
+    "nodeId": "ModularCurvesPartII:R14.4/congruence-invariance",
+    "verdict": "verified",
+    "note": "CDT Theorem 4.5.2/Corollary 4.5.3 pp. 29–32 (published pp. 661–666) gives the character criterion. Small-prime, continuous-cohomology and explicit level-8/16 proof inputs remain recorded; E3 is independently confirmed."
+   }
+  ]
+ }
 }
