@@ -1,10 +1,10 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-## Blocked checkpoint: codex-aNVzdW, 11 October 2026
+## Blocked checkpoint: codex-dcA0Fs, 11 October 2026
 
-Codex (GPT-6), session `codex-aNVzdW`. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104747484).
-Input commit: `9e77d5c183d3c758c5971353e4069181095b2b2c`.
+Codex (GPT-6), session `codex-dcA0Fs`. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104967696).
+Input commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
 This session did none of the fixes under review.
 
 The bounded review of all six findings is complete in the attributed evidence
@@ -17,8 +17,10 @@ The live issue omits both packet paths. The queue and the unchanged
 `issues.deliverables_complete` require them. [WORKERS.md](../WORKERS.md)
 says, "Edit only the files the issue names, plus your own scratch space."
 Explicit authorization to change only `review` and `reviewHistory` in the two
-omitted packets was requested in this worker conversation. No approval has
-arrived; neither packet has been edited. The permitted report and handoff record the concrete, checked changes ready for installation.
+omitted packets was requested through the asynchronous worker-conversation
+question, after reconstructing and checking both exact candidate records. No
+approval has arrived; neither packet has been edited. The permitted report and
+handoff record the concrete, checked changes ready for installation.
 
 ## Checks performed by this session
 
@@ -108,9 +110,10 @@ audit or proof of the proposed suppliers.
 
 All four PDFs are public versions fetched on 11 October 2026. Their hashes
 are in the handoff. The predecessor checked equation (4.5) and the
-Ertl–Niziol product conventions visually; this session read their PDF text
-layers. No book was used and no source passage was copied into the repository. The /1, /4 arithmetic and /5 source audits remain credited
-to the linked predecessor reports.
+Ertl–Niziol product conventions visually and read their PDF text layers. This
+continuation performed no new source reading. No book was used and no source
+passage was copied into the repository. The /1, /4 arithmetic and /5 source
+audits remain credited to the linked predecessor reports.
 
 ## Preserved native verification in /4: codex-KJ9aP3
 
