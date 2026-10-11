@@ -1,5 +1,132 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
+Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
+Codex (GPT-6), session `codex-FRZdOs`, 11 October 2026.
+Branch: `codex-FRZdOs-induction-restriction-package`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104553257).
+Base atlas commit: `fbbbb004ed1556c56b68dc09238e46e1d4b75e15`.
+No manager-priority issue appeared in the available swarm enumeration;
+this package was selected in the permitted fallback order. Exactly one job
+was claimed.
+
+## Result and blocker
+
+This is a **blocked checkpoint**, not a completed package. Fresh inspection
+confirms that the accepted packet still has both unassigned prerequisite
+owners described below: arbitrary-coefficient integral UCT and the native
+homological extension bridge (`gaps[0]`), and cyclic coprime complement
+conjugacy for possibly nonabelian kernels (`gaps[4]`).
+
+The job restricts edits to the package and this note and explicitly says
+“Change no packet; if the plan has a mistake, describe it in the handoff
+note.” PROTOCOL §§3, 15 and 20 require named, nonduplicated prerequisite
+owners. The source-of-truth packet calls the homological continuation an
+ownership question, not an existing supplier, and its restructuring proposal
+asks for assignment once. Native admitted signatures do not discharge that
+assignment. The current read-only supplier trees did not change this result.
+
+Complete the planning amendment described in the earlier note before
+reopening package work: assign the five contracts to actual layers, add the
+needed nodes and replace the two unassigned gap entries. RS.1 and RS.5 are
+proposed placements only. An alternative supplier must name its layer and
+supply the same native carriers, arbitrary-kernel hypotheses, maps and
+naturality. Retain the existing parent ordinary-cover request and all finite
+certificate targets. No new owner, edge or review verdict was assigned here.
+
+`metadata.toml` remains absent. Its future content is
+`topic = "math.GR"`. The local `deliverables_complete` implementation checks
+all package output paths before returning completion; adding metadata now
+would advance this blocked package incorrectly. The missing file keeps
+this submission a checkpoint.
+
+## New work
+
+Add `extension_five_term_test_4` to the README and Suggested.lean. It uses
+Mathlib's actual `SemidirectProduct.toGroupExtension` for the inversion action
+of C₂ on C₃, rather than an assumed central-extension carrier. The extension
+has a splitting and a noncentral kernel, the kernel's map to abelianization
+is zero and not injective, and the induced quotient map on abelianizations
+is bijective. This complements the three inherited central examples. It
+tests the centrality hypothesis in the split-kernel injectivity claim and
+the absence of that hypothesis on the two tail conclusions. It never calls
+the central-extension class map on a noncentral extension.
+
+The calculation is explicit: elements are (i,j)∈ℤ/3×ℤ/2 with
+(i,j)(k,l)=(i+(−1)^j k,j+l). For a=(1,0), t=(0,1), the commutator
+[t,a]=a⁻²=a. The kernel C₃ therefore lies in the commutator subgroup;
+the abelian quotient C₂ proves the reverse inclusion. Exhaustively checking
+the six elements and all 36 commutators in Python gave a commutator subgroup
+of order three equal to that kernel, and confirmed the homomorphic standard
+section and noncentrality. These are calculation receipts; the Lean example
+still has an admitted proof.
+
+Fresh source reading: Löh, *Group Cohomology*, 30 July 2019,
+[author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
+Theorem 1.4.1 pp.20–22 and Example 1.4.4 p.22. The latter gives the symmetric
+group abelianization check; the semidirect-product computation above is an
+explicit deduction. Conrad, [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
+Example 2 p.1 and Remark 5 p.4, was also inspected: the former establishes
+cyclic-quotient existence, and the latter states the separate conjugacy
+conclusion. No primary-source passage was copied into a deliverable.
+
+## Fresh supplier checks
+
+Read the current InductionRestriction and SemisimpleAlgebras READMEs in full,
+the relevant suggested interfaces, and the reviewed library audit. The
+read-only roadmap commit remains `070dc2becd74419e76303ede84b465ed4a69461f`;
+current Tau Ceti remains `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+- Current `TauCeti.ChainComplex.kronecker_bijective`,
+  `Algebra/Homology/Kronecker.lean`, line 177, explicitly requires an
+  injective coefficient object. It does not give the arbitrary-coefficient
+  Ext injection needed here. AlgebraicTopology Stage 6 supplies singular
+  UCT; the native group/bar adapter still has to have an owner.
+- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
+  `GroupHomology/Transfer/Basic.lean`, line 107, supplies transfer followed
+  by inclusion as the subgroup index times identity. Reuse that theorem;
+  it does not by itself supply finite generation, UCT or the coprime edge.
+- Parent InductionRestriction Layer 7 owns ordinary representation groups;
+  its cohomological multiplier does not supply the missing generic native
+  homology contracts. Inspected ProfiniteCohomology and LocalGaloisGroups
+  interfaces give cohomological and local-field constructions, not this
+  arbitrary-group integral five-term sequence.
+- At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
+  `Subgroup.exists_right_complement'_of_coprime`,
+  `GroupTheory/SchurZassenhaus.lean`, line 277, asserts complement existence,
+  with no conjugacy conclusion. `SemidirectProduct.toGroupExtension` and
+  `inr_splitting`, `GroupExtension/Defs.lean`, lines 326 and 339, provide
+  exactly the extension and section used in the new test.
+
+## Verification in this session
+
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
+  **exit 0, 696 warnings, all `declaration uses sorry`; zero errors or other
+  warnings**. Preflight memory was 99 GiB available. The shared helper uses
+  the atlas's Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` build;
+  its Mathlib source HEAD is the pin above. The check finished. No library
+  build, update, cache download or language server was started.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
+  exit 0, zero errors/warnings; 109 nodes, 124 API items, 96 planned tests,
+  five gaps, one request, six planned stages, zero closed stages. Packet
+  SHA-256 is unchanged:
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
+- All 109 target suffixes, 124 API suffixes and 96 planned test labels still
+  occur in both package files; the new companion test occurs in both.
+  This is name correspondence, not a mathematical audit of every inherited
+  finite certificate.
+- README: 160,376 bytes, below the 200 KB limit. Only the README,
+  Suggested.lean and this handoff are changed. No scratch artifact is needed
+  to resume; calculation and resumption details are recorded here.
+
+The prior note follows to retain its exact amendment proposals, inherited
+finite-model obligations and references to earlier computation receipts.
+Its compiler counts and artifact hashes are historical; the fresh check
+above supersedes them.
+
+---
+
+## Previous checkpoint: codex-pYtfSw
+
 Issue [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
 Worker: Codex, session `codex-pYtfSw`, 2026-10-11.
 The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104130586).
