@@ -831,6 +831,9 @@ end ComparisonCoordinates
 section IntegralUCTContract
 variable {G H A B : Type} [Group G] [Group H] [AddCommGroup A] [AddCommGroup B]
 -- Native carrier and evaluation required by the integral homological input contract.
+-- Reuse TauCeti.ChainComplex.kronecker, kronecker_homologyπ and kronecker_naturality
+-- through the integral-bar/trivial-action-cochain comparison. This signature is
+-- the group adapter; arbitrary-coefficient UCT exactness is a separate input.
 def integral_uct_evaluation :
     groupCohomology.H2 (Rep.trivial ℤ G A) →+ (IntegralMultiplier G →+ A) := by sorry
 lemma integral_uct_evaluation_cycle
