@@ -1,10 +1,9 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so contributors and reviewers can converge on names
-and signatures. This is a PARTIAL checkpoint: the boundary register below lists the
-supplier-dependent targets whose typed signatures have not yet been written. Elaborating
-this file validates the concrete native portion only; it does not validate that register.
-No arbitrary proposition or assumed-property fields replace the missing objects.
+and signatures. Supplier adapters below expand actual mathematical carriers. The ordinary
+duality comparisons require the supplier interfaces recorded in the roadmap; omissions
+are identified beside the affected signatures. Elaboration checks types, not proofs.
 -/
 import Mathlib.Algebra.Homology.LocalCohomology
 import Mathlib.RingTheory.KrullDimension.Module
@@ -13,6 +12,13 @@ import Mathlib.RingTheory.ReesAlgebra
 import Mathlib.Algebra.Polynomial.Module.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.PowerSeries.Ideal
+import Mathlib.AlgebraicGeometry.Modules.Tilde
+import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme
+import Mathlib.Algebra.Module.LocalizedModule.Basic
+import Mathlib.RingTheory.GradedAlgebra.Homogeneous.Ideal
+import Mathlib.Topology.KrullDimension
+import Mathlib.RingTheory.Localization.AtPrime.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basic
 
 noncomputable section
 open scoped BigOperators
@@ -47,6 +53,12 @@ example (J : Ideal R) : annihilator_product R M J 1 = Module.annihilator R ((loc
 
 -- TauCeti.Kawasaki.ann_product_zero_module
 example [Subsingleton M] (J : Ideal R) (d : ℕ) : annihilator_product R M J d = ⊤ := by sorry
+
+-- TauCeti.Kawasaki.ann_product_not_intersection
+example (J : Ideal R) (A B : Ideal R)
+    (hA : Module.annihilator R ((localCohomology J 0).obj (ModuleCat.of R M)) = A)
+    (hB : Module.annihilator R ((localCohomology J 1).obj (ModuleCat.of R M)) = B)
+    (hne : A * B ≠ A ⊓ B) : annihilator_product R M J 2 ≠ A ⊓ B := by sorry
 
 -- DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant
 def is_cm_secant [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M] (rs : List R) : Prop :=
@@ -228,130 +240,518 @@ example  : rees_module R M ⊤ = ⊤ := by sorry
 -- TauCeti.Kawasaki.rees_module_torsion_test
 example  : PolynomialModule.single ℤ 1 (1 : ZMod 2) ∉ rees_module ℤ (ZMod 2) (Ideal.ofList [2]) := by sorry
 
+
+-- Expanded R03.3 inputs, used only to prototype its missing supplier interface.
+-- These are abbreviations of native conditions, not competing packet targets.
+abbrev prefixQuotient (rs : List R) := M ⧸ (Ideal.ofList rs • ⊤ : Submodule R M)
+
+abbrev secant [IsLocalRing R] (rs : List R) : Prop :=
+  (∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R) ∧
+  ∀ i : Fin rs.length,
+    Module.supportDim R (prefixQuotient R M (rs.take (i.val + 1))) <
+    Module.supportDim R (prefixQuotient R M (rs.take i.val))
+
+abbrev cm [IsLocalRing R] : Prop :=
+  ∀ j : ℕ, (j : WithBot ℕ∞) < Module.supportDim R M →
+    Subsingleton ((localCohomology (IsLocalRing.maximalIdeal R) j).obj (ModuleCat.of R M))
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-owner-comparison
+lemma cm_secant_owner_comparison [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) : is_cm_secant R M rs ↔
+    secant R M rs ∧ cm R (prefixQuotient R M rs) ∧
+    ∀ i : Fin rs.length, ∃ d : ℕ,
+      Module.supportDim R (prefixQuotient R M (rs.take i.val)) = (d : WithBot ℕ∞) ∧
+      rs[i] ∈ annihilator_product R (prefixQuotient R M (rs.take i.val))
+        (IsLocalRing.maximalIdeal R) d := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound
+lemma schenzel_torsion_bound [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (h : secant R M rs) (hne : rs ≠ []) (d : ℕ)
+    (hd : Module.supportDim R M = (d : WithBot ℕ∞)) :
+    ∀ x : prefixQuotient R M (rs.take (rs.length - 1)),
+      rs.getLast hne • x = 0 → ∀ a ∈ annihilator_product R M
+        (IsLocalRing.maximalIdeal R) d, a • x = 0 := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters
+lemma cm_secant_extend_parameters [IsNoetherianRing R] [IsLocalRing R]
+    [Module.Finite R M] [Nontrivial M] (rs : List R) (h : is_cm_secant R M rs) :
+    ∃ qs : List R, is_cm_secant R M (rs ++ qs) ∧
+      Module.supportDim R (prefixQuotient R M (rs ++ qs)) = 0 := by sorry
+
+-- The p-standard type (d-1) condition is the annihilator condition, read in the
+-- opposite order. Systems of parameters are kept as an explicit dimension hypothesis.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal
+lemma p_standard_reversal [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hsec : secant R M rs)
+    (hparam : Module.supportDim R (prefixQuotient R M rs) = 0) :
+    is_cm_secant R M rs ↔ ∀ i : Fin rs.reverse.length, ∃ d : ℕ,
+      Module.supportDim R (prefixQuotient R M (rs.reverse.drop (i.val+1))) =
+        (d : WithBot ℕ∞) ∧
+      rs.reverse[i] ∈ annihilator_product R
+        (prefixQuotient R M (rs.reverse.drop (i.val+1)))
+        (IsLocalRing.maximalIdeal R) d := by sorry
+
+-- An injective module containing the residue field as an essential submodule
+-- is its injective hull. Essentiality is expanded as intersections with every
+-- nonzero submodule; no abstract hull or assumed-annihilator field is used.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/matlis-annihilator
+lemma matlis_annihilator [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (E : ModuleCat R) [CategoryTheory.Injective E]
+    (e : (R ⧸ IsLocalRing.maximalIdeal R) →ₗ[R] E)
+    (he : Function.Injective e)
+    (hess : ∀ N : Submodule R E, N ≠ ⊥ → N ⊓ LinearMap.range e ≠ ⊥) :
+    Module.annihilator R M = Module.annihilator R (M →ₗ[R] E) := by sorry
+
+-- AS.1 supplies C = RHom(M,ω) and this normalized local-duality isomorphism.
+-- This signature is its annihilator consequence; it does not assert that an
+-- unrelated complex is RHom(M,ω). Negative local-cohomology degrees are omitted.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator
+lemma duality_annihilator [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (C : CochainComplex (ModuleCat R) ℤ) (j : ℕ)
+    (E : ModuleCat R) [CategoryTheory.Injective E]
+    (e : (R ⧸ IsLocalRing.maximalIdeal R) →ₗ[R] E)
+    (he : Function.Injective e)
+    (hess : ∀ N : Submodule R E, N ≠ ⊥ → N ⊓ LinearMap.range e ≠ ⊥)
+    [Module.Finite R (C.homology (-(j : ℤ)))]
+    (ld : ((localCohomology (IsLocalRing.maximalIdeal R) j).obj (ModuleCat.of R M))
+      ≃ₗ[R] (C.homology (-(j : ℤ)) →ₗ[R] E)) :
+    Module.annihilator R ((localCohomology (IsLocalRing.maximalIdeal R) j).obj
+      (ModuleCat.of R M)) = Module.annihilator R (C.homology (-(j : ℤ))) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq
+lemma kawasaki_reversed_dseq [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs as : List R) (h : is_cm_secant R M rs) (s : ℕ) (hs : s ≤ rs.length)
+    (ha : secant R (prefixQuotient R M (rs.take s)) as) :
+    is_d_sequence R (prefixQuotient R M as) (rs.take s).reverse := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion
+lemma kawasaki_torsion [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs as : List R) (h : is_cm_secant R M rs) (s : ℕ) (hs : s ≤ rs.length)
+    (hs2 : 2 ≤ s) (ha : secant R (prefixQuotient R M (rs.take s)) as)
+    (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
+    let Q := prefixQuotient R M as
+    ∀ x : Q ⧸ (prefix_product R rs (s-1)^n • ⊤ : Submodule R Q),
+      (rs[s-1]'(by omega))^m • x = 0 ↔ ∀ a ∈ Ideal.ofList (rs.take s), a • x = 0 := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular
+lemma kawasaki_aux_regular [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs as : List R) (h : is_cm_secant R M rs) (s : ℕ) (hs : s ≤ rs.length)
+    (ha : secant R (prefixQuotient R M (rs.take s)) as) (hne : as ≠ [])
+    (hreg : IsSMulRegular
+      (prefixQuotient R (prefixQuotient R M (as.take (as.length-1))) (rs.take s))
+      (as.getLast hne)) :
+    IsSMulRegular (prefixQuotient R M (as.take (as.length-1))) (as.getLast hne) ∧
+    ∀ n : ℕ, 0 < n →
+      IsSMulRegular
+        ((prefixQuotient R M (as.take (as.length-1))) ⧸
+          (prefix_product R rs s ^ n • ⊤ :
+            Submodule R (prefixQuotient R M (as.take (as.length-1)))))
+        (as.getLast hne) := by sorry
+
+-- The exact three prefix conditions, expanded for the weaker theorem.
+-- An auxiliary list is always secant on the terminal prefix quotient.
+abbrev prefixConditions [IsLocalRing R] (rs : List R) : Prop :=
+  (∀ as : List R, secant R (prefixQuotient R M rs) as →
+    is_d_sequence R (prefixQuotient R M as) rs.reverse) ∧
+  (∀ hlen : 2 ≤ rs.length, ∀ as : List R, secant R (prefixQuotient R M rs) as →
+    ∀ m n : ℕ, 0 < m → 0 < n →
+    let Q := prefixQuotient R M as
+    ∀ x : Q ⧸ (prefix_product R rs (rs.length-1)^n • ⊤ : Submodule R Q),
+      (rs[rs.length-1]'(by omega))^m • x = 0 ↔ ∀ a ∈ Ideal.ofList rs, a • x = 0) ∧
+  (∀ as : List R, secant R (prefixQuotient R M rs) as → ∀ hne : as ≠ [],
+    let Q := prefixQuotient R M (as.take (as.length-1))
+    IsSMulRegular (prefixQuotient R Q rs) (as.getLast hne) →
+      IsSMulRegular Q (as.getLast hne) ∧ ∀ n : ℕ, 0 < n →
+        IsSMulRegular (Q ⧸ (prefix_product R rs rs.length^n • ⊤ : Submodule R Q))
+          (as.getLast hne))
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness
+lemma kawasaki_robustness [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs as : List R) (h : ∀ s ≤ rs.length, prefixConditions R M (rs.take s))
+    (ha : secant R (prefixQuotient R M rs) as) :
+    ∀ s ≤ rs.length, prefixConditions R (prefixQuotient R M as) (rs.take s) := by sorry
+
+
+-- Use the group/ring structures consistently when chart modules are quotiented.
+-- The pin also has semiring-only subtype instances, which obscure these diamonds.
+attribute [-instance] Subalgebra.toSemiring Subalgebra.toCommSemiring Subalgebra.toRing
+attribute [-instance] OreLocalization.instSemiring OreLocalization.instRing
+attribute [-instance] Submodule.addCommMonoid TensorProduct.addCommMonoid
+attribute [-instance] SubsemiringClass.toSemiring SubsemiringClass.toCommSemiring
+attribute [-instance] AddSubmonoidClass.toAddCommMonoid
+
+open CategoryTheory AlgebraicGeometry
+open scoped ZeroObject
+
+-- Pinned-baseline adapters for existing current Tau Ceti geometry:
+-- reesAlgebra.grade / gradedAlgebra, Ideal.affineBlowup, TauCeti.AlgebraicGeometry.affineBlowupι.
+-- These concrete definitions are not new roadmap targets. Replace adapters
+-- by imports when rebasing to the current Tau Ceti; no scheme blowup is replanned.
+def reesGrade (I : Ideal R) (n : ℕ) : Submodule R (reesAlgebra I) :=
+  Submodule.comap (reesAlgebra I).val.toLinearMap
+    (Submodule.map (Polynomial.monomial n) (I^n))
+
+instance (I : Ideal R) : SetLike.GradedMonoid (reesGrade R I) := by sorry
+instance (I : Ideal R) : GradedAlgebra (reesGrade R I) := by sorry
+abbrev blowupScheme (I : Ideal R) := Proj (reesGrade R I)
+
+abbrev chartRing (I : Ideal R) (i : R) : Subalgebra R (Localization.Away i) :=
+  Algebra.adjoin R ((fun j : R => algebraMap R (Localization.Away i) j *
+    IsLocalization.Away.invSelf i) '' (I : Set R))
+
+-- Restrict the actual localization action along the chart's inclusion.
+instance chartLocalizedModule (I : Ideal R) (i : R) :
+    Module (chartRing R I i) (LocalizedModule (Submonoid.powers i) M) :=
+  letI : Module (Localization.Away i) (LocalizedModule (Submonoid.powers i) M) :=
+    LocalizedModule.moduleOfIsLocalization
+  Module.compHom _ (chartRing R I i).val.toRingHom
+
+instance chartScalarTower (I : Ideal R) (i : R) :
+    IsScalarTower R (chartRing R I i) (LocalizedModule (Submonoid.powers i) M) := by sorry
+
+abbrev chartModule (I : Ideal R) (i : R) :
+    Submodule (chartRing R I i) (LocalizedModule (Submonoid.powers i) M) :=
+  Submodule.span (chartRing R I i)
+    (Set.range (LocalizedModule.mkLinearMap (Submonoid.powers i) M))
+
+instance chartModule_C (I : Ideal R) (i : R) :
+    Module (chartRing R I i) (chartModule R M I i) :=
+  Submodule.module _
+
+instance (priority := 10) chartModule_R (I : Ideal R) (i : R) : Module R (chartModule R M I i) :=
+  Module.compHom _ (algebraMap R (chartRing R I i))
+
+attribute [-instance] chartModule_R
+
+-- SR4's chart open immersion and blowdown map, with their concrete domains.
+def chartMap (I : Ideal R) (i : R) (hi : i ∈ I) :
+    Spec (.of (chartRing R I i)) ⟶ blowupScheme R I := by sorry
+instance (I : Ideal R) (i : R) (hi : i ∈ I) : IsOpenImmersion (chartMap R I i hi) := by sorry
+
+def blowdown (I : Ideal R) : blowupScheme R I ⟶ Spec (.of R) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup
+-- Glue the tilde sheaves of chartModule via localization on overlaps.
+-- The chart theorem is the characteristic equation of this data construction.
+def module_blowup (M : Type u) [AddCommGroup M] [Module R M] (I : Ideal R) : (blowupScheme R I).Modules := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart
+noncomputable def module_blowup_chart (I : Ideal R) (i : R) (hi : i ∈ I) :
+    (Scheme.Modules.pullback (chartMap R I i hi)).obj (module_blowup R M I) ≅
+      tilde (ModuleCat.of (chartRing R I i) (chartModule R M I i)) := by sorry
+
+-- On D(i), invert i in the chart. These opens cover the complement of V(I).
+def awayChartMap (I : Ideal R) (i : R) :
+    Spec (.of (Localization.Away i)) ⟶ Spec (.of (chartRing R I i)) :=
+  Spec.map (CommRingCat.ofHom (chartRing R I i).val.toRingHom)
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-off-center
+noncomputable def module_blowup_off_center (I : Ideal R) (i : R) (hi : i ∈ I) :
+    (Scheme.Modules.pullback (awayChartMap R I i ≫ chartMap R I i hi)).obj
+      (module_blowup R M I) ≅
+    (Scheme.Modules.pullback (Spec.map (CommRingCat.ofHom
+      (algebraMap R (Localization.Away i))))).obj (tilde (ModuleCat.of R M)) := by sorry
+
+variable {N P : Type u} [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R P]
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map
+noncomputable def module_blowup_map (I : Ideal R) (f : M →ₗ[R] N) :
+    module_blowup R M I ⟶ module_blowup R N I := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id
+lemma module_blowup_map_id (I : Ideal R) :
+    module_blowup_map R M I (LinearMap.id : M →ₗ[R] M) = 𝟙 _ := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-comp
+lemma module_blowup_map_comp (I : Ideal R) (f : M →ₗ[R] N) (g : N →ₗ[R] P) :
+    module_blowup_map R M I (g.comp f) =
+      module_blowup_map R M I f ≫ module_blowup_map R N I g := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-zero
+noncomputable def module_blowup_zero [Subsingleton M] (I : Ideal R) :
+    module_blowup R M I ≅ 0 := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-self
+noncomputable def module_blowup_self (I : Ideal R) :
+    module_blowup R R I ≅ SheafOfModules.unit (blowupScheme R I).ringCatSheaf := by sorry
+
+open scoped TensorProduct ZeroObject
+
+-- The map c ⊗ m ↦ c • image(m); its characteristic equation fixes the map.
+noncomputable def chartPullbackMap (I : Ideal R) (i : R) :
+    (chartRing R I i) ⊗[R] M →ₗ[chartRing R I i] chartModule R M I i := by sorry
+
+lemma chartPullbackMap_tmul (I : Ideal R) (i : R) (c : chartRing R I i) (m : M) :
+    (chartPullbackMap R M I i (c ⊗ₜ[R] m) : LocalizedModule (Submonoid.powers i) M) =
+      c • LocalizedModule.mkLinearMap (Submonoid.powers i) M m := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart-surjection
+lemma module_blowup_chart_surjection (I : Ideal R) (i : R) (hi : i ∈ I) :
+    Function.Surjective (chartPullbackMap R M I i) ∧
+    ∀ x ∈ LinearMap.ker (chartPullbackMap R M I i), ∃ n : ℕ,
+      (algebraMap R (chartRing R I i) i)^n • x = 0 := by sorry
+
+abbrev moduleQuotient (A : Type u) [Ring A] (Q : Type u)
+    [AddCommGroup Q] [Module A Q] (P : Submodule A Q) := Q ⧸ P
+
+-- This quotient is L5's chartwise strict transform; the scalar relation and
+-- power-torsion kernel identify the canonical comparison, not an arbitrary iso.
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform
+noncomputable def module_strict_transform (I : Ideal R) (i : R) (hi : i ∈ I) :
+    (moduleQuotient (chartRing R I i) ((chartRing R I i) ⊗[R] M)
+      (LinearMap.ker (chartPullbackMap R M I i)))
+      ≃ₗ[chartRing R I i] chartModule R M I i := by sorry
+
+-- Tests of the actual sheaf, through its affine-chart characteristic equation.
+-- TauCeti.Kawasaki.module_blowup_unit
+example :
+    (Scheme.Modules.pullback (chartMap R ⊤ 1 (by simp))).obj (module_blowup R M ⊤) ≅
+    (Scheme.Modules.pullback (Spec.map (CommRingCat.ofHom
+      (algebraMap R (chartRing R ⊤ 1))))).obj (tilde (ModuleCat.of R M)) := by sorry
+
+-- TauCeti.Kawasaki.module_blowup_principal
+example (r : R) :
+    letI := chartModule_R R M (Ideal.span {r}) r
+    Nonempty (chartModule R M (Ideal.span {r}) r ≃ₗ[R]
+      M ⧸ LinearMap.ker (LocalizedModule.mkLinearMap (Submonoid.powers r) M)) := by sorry
+
+-- TauCeti.Kawasaki.module_blowup_zmod_two
+example : module_blowup ℤ (ZMod 2) (Ideal.span {2}) ≅ 0 := by sorry
+
+-- Support uses the actual sheaf's stalks, without a separate support carrier.
+abbrev sheafSupport {X : Scheme.{u}} (F : X.Modules) : Set X :=
+  {x | ¬ Subsingleton (F.presheaf.stalk x)}
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound
+lemma rees_dimension_bound [IsNoetherianRing R] (I : Ideal R) :
+    ringKrullDim (reesAlgebra I) ≤ ringKrullDim R + 1 := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/proj-prime-chain
+lemma proj_prime_chain [IsNoetherianRing R] (I : Ideal R) :
+    topologicalKrullDim (blowupScheme R I) + 1 ≤ ringKrullDim (reesAlgebra I) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension
+lemma blowup_support_dimension [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (I : Ideal R) : topologicalKrullDim (sheafSupport (module_blowup R M I)) ≤
+      Module.supportDim R M := by sorry
+
+-- LC-expanded R03.3 predicates on genuine chart localizations.
+abbrev localModule (A : Type u) [CommRing A] (Q : Type u) [AddCommGroup Q] [Module A Q]
+    (p : PrimeSpectrum A) := LocalizedModule p.asIdeal.primeCompl Q
+
+abbrev localCM (A : Type u) [CommRing A] (Q : Type u) [AddCommGroup Q] [Module A Q]
+    (p : PrimeSpectrum A) : Prop :=
+  letI := p.isPrime
+  cm (Localization.AtPrime p.asIdeal) (localModule A Q p)
+
+abbrev blowupCM (I : Ideal R) : Prop :=
+  ∀ i : R, i ∈ I → ∀ p : PrimeSpectrum (chartRing R I i),
+    localCM (chartRing R I i) (chartModule R M I i) p
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/weaker-hypothesis-cm-blowup
+lemma weaker_hypothesis_cm_blowup [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hm : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R)
+    (hterm : cm R (prefixQuotient R M rs))
+    (hp : ∀ s ≤ rs.length, prefixConditions R M (rs.take s)) :
+    blowupCM R M (prefix_product R rs rs.length) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/kawasaki-cm-blowup
+lemma kawasaki_cm_blowup [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (h : is_cm_secant R M rs) :
+    blowupCM R M (prefix_product R rs rs.length) := by sorry
+
+
+-- The map is restriction of R[1/i] → (R/Ann M)[1/image i]. Its kernel
+-- gives the closed support on a chart, including components lost at i=0.
+noncomputable def supportChartMap (I : Ideal R) (i : R) :
+    chartRing R I i →+* Localization.Away (Ideal.Quotient.mk (Module.annihilator R M) i) := by sorry
+
+lemma supportChartMap_algebraMap (I : Ideal R) (i r : R) :
+    supportChartMap R M I i (algebraMap R (chartRing R I i) r) =
+      algebraMap (R ⧸ Module.annihilator R M) _ (Ideal.Quotient.mk _ r) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support
+lemma blowup_support [IsNoetherianRing R] [Module.Finite R M]
+    (I : Ideal R) (i : R) (hi : i ∈ I) :
+    Module.support (chartRing R I i) (chartModule R M I i) =
+      PrimeSpectrum.zeroLocus (RingHom.ker (supportChartMap R M I i)) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal
+noncomputable def module_two_ideal (I J : Ideal R) (i j : R) (hi : i ∈ I) (hj : j ∈ J) :
+    let C := chartRing R J j
+    let Q := chartModule C (chartModule R M J j)
+      (Ideal.map (algebraMap R C) I) (algebraMap R C i)
+    letI : Module C Q := chartModule_R C (chartModule R M J j)
+      (Ideal.map (algebraMap R C) I) (algebraMap R C i)
+    letI : Module R Q := Module.compHom Q (algebraMap R C)
+    letI := chartModule_R R M (I*J) (i*j)
+    chartModule R M (I*J) (i*j) ≃ₗ[R] Q := by sorry
+
+-- The regular quotient comparison stays on the scheme Bl_I(Spec R).
+-- It is not a base change of this scheme to Spec(R/(r)).
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient
+lemma regular_terminal_quotient [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hm : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R)
+    (hp : ∀ s ≤ rs.length, prefixConditions R M (rs.take s))
+    (r : R) (hrm : r ∈ IsLocalRing.maximalIdeal R)
+    (hr : IsSMulRegular (prefixQuotient R M rs) r) :
+    IsSMulRegular M r ∧
+    (∀ s ≤ rs.length, ∀ n : ℕ, 0 < n →
+      IsSMulRegular (M ⧸ (prefix_product R rs s^n • ⊤ : Submodule R M)) r) ∧
+    ∀ s ≤ rs.length, ∀ i : R, i ∈ prefix_product R rs s →
+      Nonempty ((moduleQuotient (chartRing R (prefix_product R rs s) i)
+        (chartModule R M (prefix_product R rs s) i)
+        (Ideal.span {algebraMap R (chartRing R (prefix_product R rs s) i) r} • ⊤ :
+          Submodule (chartRing R (prefix_product R rs s) i)
+            (chartModule R M (prefix_product R rs s) i)))
+        ≃ₗ[chartRing R (prefix_product R rs s) i]
+          chartModule R (prefixQuotient R M [r]) (prefix_product R rs s) i) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage
+lemma principal_stage (r : R) :
+    letI := chartModule_R R M (Ideal.span {r}) r
+    IsSMulRegular (chartModule R M (Ideal.span {r}) r)
+      (algebraMap R (chartRing R (Ideal.span {r}) r) r) ∧
+    Nonempty (chartModule R M (Ideal.span {r}) r ≃ₗ[R]
+      M ⧸ LinearMap.ker (LocalizedModule.mkLinearMap (Submonoid.powers r) M)) := by sorry
+
+-- The general two-generator presentation used before localizing at (m,f).
+abbrev relationQuotient (a b : R) :=
+  PolynomialModule R M ⧸
+    (Ideal.span {Polynomial.C b * Polynomial.X - Polynomial.C a} • ⊤ :
+      Submodule (Polynomial R) (PolynomialModule R M))
+instance (priority := 10) relationQuotient_R (a b : R) : Module R (relationQuotient R M a b) :=
+  Module.compHom _ Polynomial.C
+
+abbrev torsionFreeRelation (a b : R) :=
+  relationQuotient R M a b ⧸ LinearMap.ker
+    (LocalizedModule.mkLinearMap (Submonoid.powers (Polynomial.C b))
+      (relationQuotient R M a b))
+instance (priority := 10) torsionFreeRelation_R (a b : R) : Module R (torsionFreeRelation R M a b) :=
+  Module.compHom _ Polynomial.C
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart
+noncomputable def two_generator_chart (a b : R)
+    (hreg : IsSMulRegular M a ∨ IsSMulRegular M b) :
+    letI := chartModule_R R M (Ideal.ofList [a,b]) b
+    chartModule R M (Ideal.ofList [a,b]) b ≃ₗ[R] torsionFreeRelation R M a b := by sorry
+
+-- Previous-stage local charts and images are actual localizations, not abstract
+-- modules equipped with a field claiming the desired local-cohomology properties.
+abbrev previousRing (rs : List R) (s : ℕ) (v : R)
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs (s-1)) v)) :=
+  Localization.AtPrime p.asIdeal
+abbrev previousModule (rs : List R) (s : ℕ) (v : R)
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs (s-1)) v)) :=
+  localModule (chartRing R (prefix_product R rs (s-1)) v)
+    (chartModule R M (prefix_product R rs (s-1)) v) p
+abbrev previousImage (rs : List R) (s : ℕ) (v : R)
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs (s-1)) v)) :
+    R →+* previousRing R rs s v p :=
+  (algebraMap (chartRing R (prefix_product R rs (s-1)) v) _).comp
+    (algebraMap R (chartRing R (prefix_product R rs (s-1)) v))
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation
+lemma claim_annihilation [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hm : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R)
+    (hp : ∀ t ≤ rs.length, prefixConditions R M (rs.take t))
+    (s : ℕ) (hs : s ≤ rs.length) (hs2 : 2 ≤ s) (i : ℕ) (hi : i < s-1)
+    (v : R) (hv : v ∈ prefix_product R rs (s-1))
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs (s-1)) v))
+    (hgen : Ideal.map (previousImage R rs s v p) (Ideal.ofList (rs.take (s-1))) =
+      Ideal.span {previousImage R rs s v p (rs[i]'(by omega))}) :
+    letI := p.isPrime
+    let A := previousRing R rs s v p
+    let Q := previousModule R M rs s v p
+    let ri := previousImage R rs s v p (rs[i]'(by omega))
+    let rt := previousImage R rs s v p (rs[s-1]'(by omega))
+    ri ∈ Module.annihilator A ((localCohomology (Ideal.ofList [ri,rt]) 1).obj
+      (ModuleCat.of A Q)) ∧
+    rt ∈ Module.annihilator A ((localCohomology (Ideal.ofList [ri,rt]) 1).obj
+      (ModuleCat.of A Q)) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing
+lemma claim_vanishing [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hm : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R)
+    (hp : ∀ t ≤ rs.length, prefixConditions R M (rs.take t))
+    (hzero : Module.supportDim R (prefixQuotient R M rs) = 0)
+    (s : ℕ) (hs : s ≤ rs.length) (hs2 : 2 ≤ s) (i : ℕ) (hi : i < s-1)
+    (v : R) (hv : v ∈ prefix_product R rs (s-1))
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs (s-1)) v))
+    (hclosed : p.asIdeal.IsMaximal)
+    (hover : Ideal.comap (algebraMap R (chartRing R (prefix_product R rs (s-1)) v))
+      p.asIdeal = IsLocalRing.maximalIdeal R)
+    (hgen : Ideal.map (previousImage R rs s v p) (Ideal.ofList (rs.take (s-1))) =
+      Ideal.span {previousImage R rs s v p (rs[i]'(by omega))})
+    (j j' : ℕ) (hj : j < s-2) :
+    letI := p.isPrime
+    let A := previousRing R rs s v p
+    let Q := previousModule R M rs s v p
+    let ri := previousImage R rs s v p (rs[i]'(by omega))
+    let rt := previousImage R rs s v p (rs[s-1]'(by omega))
+    Subsingleton ((localCohomology (IsLocalRing.maximalIdeal A) j).obj
+      ((localCohomology (Ideal.ofList [ri,rt]) j').obj (ModuleCat.of A Q))) := by sorry
+
+-- Flat polynomial base change carries the two annihilators to the actual relation.
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation
+lemma chart_polynomial_annihilation (a b : R)
+    (ha : a ∈ Module.annihilator R ((localCohomology (Ideal.ofList [a,b]) 1).obj
+      (ModuleCat.of R M)))
+    (hb : b ∈ Module.annihilator R ((localCohomology (Ideal.ofList [a,b]) 1).obj
+      (ModuleCat.of R M))) :
+    Polynomial.C b * Polynomial.X - Polynomial.C a ∈
+      Module.annihilator (Polynomial R)
+        ((localCohomology (Ideal.ofList [Polynomial.C a,Polynomial.C b]) 1).obj
+          (ModuleCat.of (Polynomial R) (PolynomialModule R M))) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction
+lemma chart_depth_induction [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (rs : List R) (hm : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal R)
+    (hp : ∀ s ≤ rs.length, prefixConditions R M (rs.take s))
+    (hzero : Module.supportDim R (prefixQuotient R M rs) = 0)
+    (s : ℕ) (hs : s ≤ rs.length) (v : R) (hv : v ∈ prefix_product R rs s)
+    (p : PrimeSpectrum (chartRing R (prefix_product R rs s) v))
+    (hclosed : p.asIdeal.IsMaximal)
+    (hover : Ideal.comap (algebraMap R (chartRing R (prefix_product R rs s) v))
+      p.asIdeal = IsLocalRing.maximalIdeal R) (j : ℕ) (hj : j < s) :
+    letI := p.isPrime
+    Subsingleton ((localCohomology (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) j).obj
+      (ModuleCat.of (Localization.AtPrime p.asIdeal)
+        (localModule (chartRing R (prefix_product R rs s) v)
+          (chartModule R M (prefix_product R rs s) v) p))) := by sorry
+
+-- Concrete witness: localize k[x³,x⁵y³,x¹⁵y²,y⁷] at its positive-generator ideal.
+-- The x³-chart k[a,b,c,d], with exponents (3,0),(5,3),(14,2),(4,7),
+-- has parameter pair a,d and nonzero class c² modulo a killed by d.
+-- See the roadmap for the free-basis and depth computations.
+-- DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample
+lemma arbitrary_blowup_nonexample :
+    ∃ A : Type u, ∃ _ : CommRing A, ∃ _ : IsNoetherianRing A,
+      ∃ _ : IsLocalRing A, cm A A ∧ ¬ blowupCM A A (IsLocalRing.maximalIdeal A) := by sorry
+
+-- The following two prototypes deliberately omit the AS.1 normalized-dualizing
+-- complex hypothesis, which has no supplier signature at the pin. They are not
+-- valid assertions at this generality. The roadmap's mathematical statements
+-- retain that hypothesis; these omissions are the explicit duality-interface gap.
+-- No arbitrary Prop field is introduced to pretend that hypothesis is available.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator
+lemma cm_locus_annihilator [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞))
+    (hequidim : ∀ p (hp : p ∈ Module.support R M), IsMin (show Module.support R M from ⟨p, hp⟩) →
+      ringKrullDim (R ⧸ p.asIdeal) = (d : WithBot ℕ∞)) :
+    PrimeSpectrum.zeroLocus (annihilator_product R M (IsLocalRing.maximalIdeal R) d) =
+      {p : PrimeSpectrum R | p ∈ Module.support R M ∧ ¬ localCM R M p} := by sorry
+
+-- The defect set is stated with its first nonvanishing LC degree rather than
+-- a fictitious native depth function. AS.1's coheight/normalization input is omitted.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect
+lemma nonequidimensional_defect [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞)) :
+    PrimeSpectrum.zeroLocus (annihilator_product R M (IsLocalRing.maximalIdeal R) d) =
+      {p : PrimeSpectrum R | p ∈ Module.support R M ∧ ∃ j : ℕ,
+        (j : WithBot ℕ∞) + ringKrullDim (R ⧸ p.asIdeal) < (d : WithBot ℕ∞) ∧
+        ¬ Subsingleton ((localCohomology
+          (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) j).obj
+            (ModuleCat.of (Localization.AtPrime p.asIdeal) (localModule R M p)))} := by sorry
+
 end TauCeti.Kawasaki
-
-/-!
-Supplier-dependent boundary register (not compiled signatures):
-
-TauCeti.Kawasaki.cm_secant_owner_comparison
-For finite M over Noetherian local R, the native expanded CM-secant condition agrees with Definition 3.1(ii) using the R03.3 secant and CM predicates. Zero M has empty support and vacuous local-cohomology vanishing; the comparison must use E4’s support-restricted CM convention. Every nonzero prefix quotient has finite natural support dimension.
-
-TauCeti.Kawasaki.schenzel_torsion_bound
-If r1,…,rs is a nonempty secant sequence for finite M over Noetherian local (R,m), then a_m(M,dim Supp M) kills the rs-torsion of M/(r1,…,r{s−1})M. No terminal-CM or dualizing-complex hypothesis is added.
-
-TauCeti.Kawasaki.cm_secant_extend_parameters
-Every CM-secant sequence for nonzero finite M over Noetherian local R extends to a CM-secant system of parameters. Choose regular parameters of the CM terminal quotient, whose low-degree annihilator product is the unit ideal.
-
-TauCeti.Kawasaki.p_standard_reversal
-For a system of parameters r1,…,rs of finite M, the list is CM-secant iff rs,…,r1 is a p-standard system of parameters of type s−1 in Kawasaki 2.6. This is an ordered reversal, not a claim of permutation invariance of CM-secant sequences.
-
-TauCeti.Kawasaki.matlis_annihilator
-For finite N over Noetherian local R and E the injective hull of the residue field, Ann_R N = Ann_R Hom_R(N,E).
-
-TauCeti.Kawasaki.duality_annihilator
-For finite M over Noetherian local R with a normalized dualizing complex ω, and every integer j, Ann_R H^j_m(M)=Ann_R H^{-j}(RHom_R(M,ω)). Negative local-cohomology degrees are zero. The normalization is essential.
-
-TauCeti.Kawasaki.cm_locus_annihilator
-For finite M with equidimensional support over Noetherian local R with normalized dualizing complex, V(a_m(M,dim Supp M)) is exactly the non-CM locus. The empty-support case gives the empty closed subset. Without equidimensionality this assertion is not made.
-
-TauCeti.Kawasaki.nonequidimensional_defect
-Without equidimensionality, under the hypotheses of Lemma 3.6, V(a_m(M,dim Supp M)) equals {p in Supp M : depth_{R_p} M_p + dim(R/p) < dim Supp M}. It contains every irreducible component of nonmaximal dimension.
-
-TauCeti.Kawasaki.kawasaki_reversed_dseq
-Let r1,…,rt be CM-secant for M and 0≤s≤t. Let a1,…,au∈m be secant for M/(r1,…,rs)M, and set M′=M/(a1,…,au)M. Then rs,…,r1 is a d-sequence for M′. The reversal and the ambient module quotient are essential.
-
-TauCeti.Kawasaki.kawasaki_torsion
-With r, s, auxiliary a and M′ as above, for s≥2 and m,n>0, the r_s^m-torsion of M′/I_{s−1}^nM′ equals its (r1,…,rs)-torsion. Powers and auxiliary secant hypotheses are retained.
-
-TauCeti.Kawasaki.kawasaki_aux_regular
-For a nonempty auxiliary secant list a1,…,au on M/(r1,…,rs)M, put M′=M/(a1,…,a{u−1})M. If a_u is regular on M′/(r1,…,rs)M′, then a_u is regular on M′ and on M′/I_s^nM′ for every n>0. The element is a_u, not r_u (E6).
-
-TauCeti.Kawasaki.kawasaki_robustness
-For a selected prefix of a CM-secant sequence, conditions (i),(ii),(iii) of Proposition 3.11 continue to hold after quotienting M by an auxiliary secant sequence on its terminal prefix quotient. This preserves the three conditions, not a blanket assertion that every prefix is CM-secant.
-
-TauCeti.Kawasaki.module_blowup
-For finite M over Noetherian R and ideal I, Bl_I(M) is the sheaf on Bl_I(R)=Proj(Rees_R(I)) associated to the graded Rees module ⊕I^nM. On the i-chart for i∈I, its module is the R_(i)-submodule of M[1/i] generated by the image of M, where R_(i)⊂R[1/i] is the imported blow-up chart. It is the image construction, not the full tensor product.
-
-TauCeti.Kawasaki.module_blowup_unit (example still to type)
-For I=R, Bl_I(R)=Spec R and Bl_I(M) is the ordinary affine sheaf associated to M.
-
-TauCeti.Kawasaki.module_blowup_principal (example still to type)
-For a principal ideal (r), Bl_(r)(M) is the sheaf of M/M⟨r^∞⟩ on the principal blowup scheme; do not assert M is unchanged when r is a zero divisor.
-
-TauCeti.Kawasaki.module_blowup_zmod_two (example still to type)
-For R=Z, I=(2), M=Z/2, the module blowing-up is zero on Bl_(2)(Z)=Spec Z, while the ordinary pullback of M is nonzero.
-
-TauCeti.Kawasaki.module_blowup_chart
-On the imported i-chart, sections are the submodule M_(i) of M[1/i] generated by M over R_(i).
-
-TauCeti.Kawasaki.module_blowup_off_center
-Restriction over Spec R minus V(I) is canonically the original sheaf of M.
-
-TauCeti.Kawasaki.module_blowup_map
-Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients.
-
-TauCeti.Kawasaki.module_blowup_map_id
-The induced blowing-up map of the identity M→M is the identity sheaf morphism.
-
-TauCeti.Kawasaki.module_blowup_map_comp
-For R-linear maps f:M→N and g:N→P, the blowing-up map of g composed with f equals the composite of their sheaf maps.
-
-TauCeti.Kawasaki.module_blowup_zero
-Bl_I(0) is the zero sheaf on Bl_I(R).
-
-TauCeti.Kawasaki.module_blowup_self
-Bl_I(R), as a module blowing-up of R itself, is the structure sheaf of the blowup scheme.
-
-TauCeti.Kawasaki.module_blowup_chart_surjection
-The natural tensor pullback M⊗_R R_(i)→M_(i) is surjective, with kernel supported on the exceptional divisor.
-
-TauCeti.Kawasaki.module_strict_transform
-Under the identification of the imported scheme blowup, Bl_I(M) is canonically the Raynaud–Gruson strict transform: quotient of the pullback sheaf by sections supported on the exceptional divisor. On each chart this is the map to the image submodule in M[1/i].
-
-TauCeti.Kawasaki.module_two_ideal
-For ideals I,J in Noetherian R, over the imported scheme isomorphism Bl_IJ(R)≅Bl_I(Bl_J(R)), the corresponding module Bl_IJ(M) is canonically the iterated module blowing-up Bl_I(Bl_J(M)). The second centre is the pulled-back ideal, and the isomorphism is tracked on the actual charts.
-
-TauCeti.Kawasaki.blowup_support
-For finite M and A=R/Ann_R M, the support of Bl_I(M) is the closed blowup Bl_{IA}(Spec A) inside Bl_I(Spec R). This is the scheme-support comparison required before applying the Rees dimension argument.
-
-TauCeti.Kawasaki.rees_dimension_bound
-For a finite-dimensional Noetherian ring A and ideal J, dim A[Jt]≤dim A+1. Reduction to minimal primes and a finitely generated domain algebra of transcendence degree at most one gives the inequality. No equality is asserted for J=0.
-
-TauCeti.Kawasaki.proj_prime_chain
-For S=A[Jt], every chain of homogeneous primes corresponding to points of Proj S can be enlarged by the homogeneous prime (P_last∩A)⊕S_+. Hence dim Proj S≤dim S−1 whenever Proj S is nonempty; for empty Proj use dimension bottom.
-
-TauCeti.Kawasaki.blowup_support_dimension
-For finite M over Noetherian local R, dim Supp Bl_I(M)≤dim Supp M, including the zero-module empty-support case. Apply the Rees bound to A=R/Ann M and the projective prime-chain bound to the support blowup.
-
-TauCeti.Kawasaki.regular_terminal_quotient
-Assume the weaker hypothesis of Theorem 3.14: every initial prefix satisfies Proposition 3.11(i)–(iii), and the final quotient is CM. If its dimension is positive, choose r′∈m regular on it. Then r′ is regular on M and on M/I_s^nM for every s and n>0, and Bl_{I_s}(M)/r′ equals Bl_{I_s}(M/r′M) under the imported scheme base-change identification.
-
-TauCeti.Kawasaki.principal_stage
-In Theorem 3.14’s dimension-zero-terminal reduction, the s=0 stage has unit ideal and is the original module, and the s=1 stage has Bl_(r1)(M)=M/M⟨r1^∞⟩ with r1 regular on this quotient. These are the base cases for the depth induction.
-
-TauCeti.Kawasaki.two_generator_chart
-For s≥2, at a point of the previous prefix-product blowing-up choose a generator r_i of the previous prefix ideal. It is regular on the local chart ring R′ and module M′. For {a,b}={i,s}, the current chart module at a closed point is (M′⊗R′[T])/(r_bT−r_a), divided by r_b-power torsion and localized at (m′,f), where f is a monic lift of the residual closed-point polynomial.
-
-TauCeti.Kawasaki.claim_annihilation
-In the inductive setup of Theorem 3.14, with local previous-stage chart (R′,M′), r_i and r_s both kill H^1_{(r_i,r_s)}(R′,M′).
-
-TauCeti.Kawasaki.claim_vanishing
-In the same setup, H^j_{m′}(R′,H^{j′}_{(r_i,r_s)}(R′,M′))=0 for j<s−2 and every j′. In a natural-degree formulation, only j′=1,2 remain: degree zero vanishes by regularity of r_i and degrees above two vanish by the two-generator Čech model.
-
-TauCeti.Kawasaki.chart_polynomial_annihilation
-After polynomial flat base change in the two-generator chart setup, multiplication by the actual relation r_bT−r_a is zero on H^1_{(r_a,r_b)}(R′[T],M′⊗R′[T]). This is E8’s corrected relation used in the preceding exact sequence, even though the printed swapped relation also kills the module.
-
-TauCeti.Kawasaki.chart_depth_induction
-With the weaker hypotheses and a zero-dimensional terminal quotient, for every 0≤s≤t, Bl_{I_s}(M) has depth at least s at its support points over the closed point. Together with the support-dimension bound and the source’s localization reduction, this proves the needed CM assertion.
-
-TauCeti.Kawasaki.weaker_hypothesis_cm_blowup
-Let finite M over Noetherian local (R,m) and an ordered list r1,…,rt∈m have CM terminal quotient. Suppose every initial subsequence satisfies all three conditions of Proposition 3.11, with their auxiliary secant quantifiers, reversed d-sequence and corrected last auxiliary element. Then Bl_{I_t}(M) is CM on Bl_{I_t}(R), where I_t is the product of successive prefix ideals.
-
-TauCeti.Kawasaki.kawasaki_cm_blowup
-For a finite module M over a Noetherian local ring (R,m) and CM-secant r1,…,rt∈m, set I=product_{i=1}^t(r1,…,ri). Then Bl_I(M) is a Cohen–Macaulay module on Bl_I(R). This includes the empty sequence, when M itself is CM and I=1; zero M gives the zero sheaf.
-
-TauCeti.Kawasaki.arbitrary_blowup_nonexample
-There exists a Noetherian local Cohen–Macaulay ring whose blowing-up at its maximal ideal is not Cohen–Macaulay. The statement is the warning cited at the start of §3; a concrete ring, charts and failing depth witness from HIO88 14.11 are not yet supplied.
-
-The packet gaps and per-stage remaining lists give the exact source and carrier obligations.
--/
