@@ -961,6 +961,16 @@ lemma extension_class_map_natural {A' E' G' : Type}
 lemma extension_class_map_five_term (S : GroupExtension A E G)
     (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) :
     (integral_multiplier_map S.rightHom).range = (extension_class_map S hc).ker := by sorry
+-- The remaining arrows use the existing abelianization maps, with no new H₁ carrier.
+lemma extension_class_map_exact_at_kernel (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) :
+    (extension_class_map S hc).range =
+      ((Abelianization.of.comp S.inl).toAdditive).ker := by sorry
+lemma extension_class_map_exact_at_abelianization (S : GroupExtension A E G) :
+    ((Abelianization.of.comp S.inl).toAdditive).range =
+      ((Abelianization.map S.rightHom).toAdditive).ker := by sorry
+lemma extension_class_map_abelianization_surjective (S : GroupExtension A E G) :
+    Function.Surjective (Abelianization.map S.rightHom).toAdditive := by sorry
 lemma extension_class_map_split (S : GroupExtension A E G)
     (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) (σ : S.Splitting) :
     extension_class_map S hc = 0 := by sorry
@@ -973,6 +983,17 @@ example (S : GroupExtension (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))
     (Multiplicative (ZMod 2)))
     (hc : ∀ a e, S.inl a * e = e * S.inl a) :
     extension_class_map S hc = 0 ∧ IsEmpty S.Splitting := by sorry
+-- extension_five_term_test_1: a split central kernel injects into the total abelianization.
+example (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) (σ : S.Splitting) :
+    Function.Injective (Abelianization.of.comp S.inl).toAdditive ∧
+      Function.Surjective (Abelianization.map S.rightHom).toAdditive := by sorry
+-- extension_five_term_test_2: a nonsplit abelian extension still has an injective kernel arrow.
+example (S : GroupExtension (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))
+    (Multiplicative (ZMod 2))) :
+    Function.Injective (Abelianization.of.comp S.inl).toAdditive ∧
+      Nat.card ((Abelianization.map S.rightHom).toAdditive).ker = 2 ∧
+      ¬ Function.Injective (Abelianization.map S.rightHom).toAdditive := by sorry
 end CoefficientEvaluation
 
 section DegreePermutation
@@ -1142,6 +1163,10 @@ example : extension_class_map dihedral_v4_extension dihedral_v4_central
     (homological_commutator (Multiplicative.ofAdd 1, 1)
       (1, Multiplicative.ofAdd 1) (by sorry)) =
     Additive.ofMul (Multiplicative.ofAdd (1 : ZMod 2)) := by sorry
+-- extension_five_term_test_3: a nontrivial stem kernel disappears in total abelianization.
+example : (Abelianization.of.comp dihedral_v4_extension.inl).toAdditive = 0 ∧
+    Function.Bijective (Abelianization.map dihedral_v4_extension.rightHom).toAdditive ∧
+    Function.Surjective (extension_class_map dihedral_v4_extension dihedral_v4_central) := by sorry
 def dihedral_v4_class_map : IntegralMultiplier Four ≃+ Additive dihedral_v4_extension.rightHom.ker := by sorry
 lemma dihedral_v4_kernel_central : ∀ k : dihedral_v4_extension.rightHom.ker,
     ∀ e : DihedralGroup 4, k.val * e = e * k.val := by sorry
