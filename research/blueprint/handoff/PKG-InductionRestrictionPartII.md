@@ -1,4 +1,124 @@
-# PKG-InductionRestrictionPartII — blocked checkpoint, codex-3mOqdI
+# PKG-InductionRestrictionPartII — blocked checkpoint, codex-LmQrBp
+
+Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
+Codex (GPT-6), session `codex-LmQrBp`, 11 October 2026.
+Branch: `codex-LmQrBp-induction-restriction-checkpoint`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105024628)
+at 03:28:34 UTC, identifying this session's claim comment 6105023741.
+Base atlas commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
+
+## Outcome
+
+**Blocked checkpoint.** This continuation updates only this handoff. The
+package's mathematical files and accepted packet retain their inherited
+contents. No job besides #7592 was claimed. None of the manager's priority
+issues appeared in the available swarm inventory; the permitted fallback
+queue had no available finished-plan or package review, and this package
+was selected before new planning.
+
+The accepted packet still leaves the native integral homological bridge
+(`gaps[0]`) and cyclic coprime complement conjugacy (`gaps[4]`) without a
+supplier. Its own restructuring proposal says the first is an ownership
+question, rather than a dependency already supplied by the parent. The
+package issue restricts changes to its three output files and this handoff,
+and explicitly instructs: “Change no packet; if the plan has a mistake,
+describe it in the handoff note.” Assigning either missing owner requires
+an amendment outside these paths. This is a scope blocker, not an exhausted
+time allowance or an elaboration failure.
+
+## Fresh supplier checks
+
+The read-only TauCetiRoadmap checkout is
+`070dc2becd74419e76303ede84b465ed4a69461f`; the read-only current Tau Ceti
+checkout is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read InductionRestriction and SemisimpleAlgebras READMEs in full and
+inspected the relevant suggested interfaces, AlgebraicTopology Stage 6,
+and ProfiniteCohomology Layer 5. No Lake command ran in either read-only
+checkout. The reviewed library audit has no direct Part II entry; its
+R17.5 and MP.1 records supply factor-set and projective-lifting evidence,
+not the required arbitrary-coefficient integral bridge.
+
+- Parent InductionRestriction Layer 7 supplies the ordinary representation
+  group. Its suggested `schurMultiplier` is second cohomology with scalar
+  coefficients. It distinguishes this from integral second homology and
+  supplies no arbitrary-abelian-coefficient UCT or homological extension
+  spectral sequence. Keep the existing ordinary-cover request to Layer 7.
+- AlgebraicTopology Stage 6's UCT is on singular cochains. The native
+  group/bar-complex comparison with the required maps and naturality still
+  needs its own assigned interface. ProfiniteCohomology Layer 5 supplies
+  a cohomological five-term sequence; the roadmap excludes the
+  Hochschild–Serre spectral sequence. It does not supply the homological
+  degree-two edge.
+- Current `TauCeti.ChainComplex.kronecker_bijective`,
+  `Algebra/Homology/Kronecker.lean:177`, explicitly assumes `[Injective Y]`.
+  This does not satisfy the arbitrary abelian coefficient requirement.
+  Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
+  `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean:107`,
+  gives index multiplication in every degree and should be reused for
+  annihilation. It does not provide the remaining missing contracts.
+- At the Mathlib pin,
+  `Subgroup.exists_right_complement'_of_coprime`,
+  `GroupTheory/SchurZassenhaus.lean:277`, concludes complement existence.
+  Its conclusion contains no conjugacy assertion.
+- The current ArithmeticStatistics packet's ST.5 complement-conjugacy
+  target assumes an **abelian** normal kernel. Its notes instead name
+  `ArithmeticStatisticsPartIIRandomGammaGroups` for nonabelian kernels,
+  and recommend moving that theory to a foundational supplier. There is
+  no packet, roadmap definition or package under that Part II identifier
+  in this atlas clone, and no such roadmap in the read-only upstream
+  checkout. That prose reference therefore does not identify an importable
+  supplier for this package. In any event, the integral bridge remains
+  separately unassigned.
+
+## Validation
+
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+  completed with exit 0: **zero errors, 696 warnings, all
+  `declaration uses sorry`, and zero other warnings**. Preflight showed
+  100 GiB available. The provided helper targets the atlas pins; the
+  inspected Mathlib manifest and source HEAD both give
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  No language server, library build, update or cache download was started.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
+  reports zero errors and warnings: 109 nodes, 124 API items, 96 tests,
+  30 planets, five gaps and one request; all six stages planned, none
+  closed. Structural success does not resolve the ownership gaps.
+- The 109 target-name suffixes, 124 API-name suffixes and 96 test labels
+  all occur in both package files. This is a name inventory, not a
+  mathematical audit of the inherited statements or finite certificates.
+- Unchanged SHA-256 values: packet
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`;
+  README `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8`;
+  Suggested.lean
+  `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646`.
+  The README remains 160,376 bytes.
+- Local intake file validation reports one permitted file and zero
+  problems. The package completion predicate returns false, and
+  `git diff --check` passes.
+
+## Resume
+
+Make the planning amendment in the five-contract table preserved below,
+or assign actual alternative supplier layers with matching carriers,
+hypotheses, maps and naturality. Reconcile the accepted packet, its
+reader document and suggested interfaces before finishing this package.
+Retain all 109 targets, the finite certificate obligations and the
+discriminating tests. No new prerequisite owner is assigned here.
+
+`metadata.toml` remains absent so the intake continues to recognize a
+checkpoint. The eventual line is `topic = "math.GR"`; adding it before
+the package is complete would satisfy the intake's output-existence
+predicate without resolving these gaps. The issue should leave the
+available package queue until its planning amendment is made; this is a
+maintainer recommendation, and this worker changed no labels manually.
+
+No scratch file is required to resume. Earlier source readings and finite
+calculations are preserved below as inherited receipts; this session
+does not claim to have repeated them. No source passage was added.
+
+---
+
+# Previous checkpoint: codex-3mOqdI
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
 Codex (GPT-6), session `codex-3mOqdI`, 11 October 2026.
