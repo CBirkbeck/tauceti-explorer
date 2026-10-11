@@ -1037,7 +1037,7 @@ def phase (x : ℝ) : ℂ := Complex.exp (2 * Real.pi * Complex.I * x)
 
 /-- The pinned regularized hypergeometric series defines M throughout its parameter
 domain. A totalized divergent Euler integral cannot define its continuation. -/
-def dit_112 (mu nu : ℂ) (y : ℝ) : ℂ :=
+def whittaker_m (mu nu : ℂ) (y : ℝ) : ℂ :=
   Complex.Gamma (1 + 2 * nu) * Complex.exp (-y / 2) * rpowC y (nu + 1 / 2) *
     Complex.regularizedHGFun {nu - mu + 1 / 2} {1 + 2 * nu} y
 
@@ -1052,15 +1052,15 @@ def whittakerW (mu nu : ℂ) (y : ℝ) : ℂ :=
   rpowC y (nu + 1 / 2) * Complex.exp (y / 2) / Complex.Gamma (nu - mu + 1 / 2) *
     ∫ t in Set.Ioi (1 : ℝ),
       rpowC t (nu + mu - 1 / 2) * rpowC (t - 1) (nu - mu - 1 / 2) * Complex.exp (-y * t)
-namespace dit_112
+namespace whittaker_m
 theorem eulerIntegral (mu nu : ℂ) (y : ℝ) (hy : 0 < y)
     (hp : 0 < (nu + mu + 1 / 2).re) (hm : 0 < (nu - mu + 1 / 2).re) :
-    dit_112 mu nu y = whittakerMEuler mu nu y := by sorry
+    whittaker_m mu nu y = whittakerMEuler mu nu y := by sorry
 
 /-- Ordinary ₁F₁ is Gamma times the pinned regularized series. -/
 theorem hypergeometricSeries (mu s : ℂ) (hs : 0 < s.re)
     (y : ℝ) (hy : 0 < y) :
-    dit_112 mu (s - 1 / 2) y = Complex.exp (-y / 2) * rpowC y s *
+    whittaker_m mu (s - 1 / 2) y = Complex.exp (-y / 2) * rpowC y s *
       Complex.Gamma (2 * s) * Complex.regularizedHGFun {s - mu} {2 * s} y := by sorry
 
 theorem decayingNormalization (mu nu : ℂ)
@@ -1068,47 +1068,47 @@ theorem decayingNormalization (mu nu : ℂ)
     Tendsto (fun y : ℝ => whittakerW mu nu y /
       (rpowC y mu * Complex.exp (-y / 2))) atTop (𝓝 1) := by sorry
 
-theorem test1 (y : ℝ) (hy : 0 < y) : dit_112 0 (1 / 2) y = (2 * Real.sinh (y / 2) : ℝ) := by sorry
+theorem test1 (y : ℝ) (hy : 0 < y) : whittaker_m 0 (1 / 2) y = (2 * Real.sinh (y / 2) : ℝ) := by sorry
 
--- Test: dit_112.test1
+-- Test: whittaker_m.test1
 -- M_{0,1/2}(y)=2 sinh(y/2).
-example (y : ℝ) (hy : 0 < y) : dit_112 0 (1 / 2) y = (2 * Real.sinh (y / 2) : ℝ) := by sorry
+example (y : ℝ) (hy : 0 < y) : whittaker_m 0 (1 / 2) y = (2 * Real.sinh (y / 2) : ℝ) := by sorry
 
 
 theorem test2 (y : ℝ) (hy : 0 < y) :
-    dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
+    whittaker_m 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
 
--- Test: dit_112.test2
+-- Test: whittaker_m.test2
 -- At μ=1, ν=1/2 and y>0, M_{1,1/2}(y)=y e^(−y/2), so the growing-asymptotic coefficient vanishes.
 -- At μ=ν+1/2, the general growing-asymptotic coefficient can vanish, so exceptional parameters require care.
 example (y : ℝ) (hy : 0 < y) :
-    dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
+    whittaker_m 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
 
 
 theorem test3 (t : ℝ) (ht : 0 < t) :
-    dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
+    whittaker_m 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
 
--- Test: dit_112.test3
+-- Test: whittaker_m.test3
 -- For t>0, M_{0,1/2}(2t sin(π/2))=2 sinh(t); replacing the argument by t sin(π/2) gives the wrong value.
 -- The argument in Lemma 7 is 2 t sin θ, not t sin θ.
 example (t : ℝ) (ht : 0 < t) :
-    dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
+    whittaker_m 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
 
-end dit_112
+end whittaker_m
 
 /-- The W integral at mu=0 needs Re(nu+1/2)>0 (DIT11 Appendix A, (A.2), p.977). Continuation to other orders requires a continued W carrier, not its divergent integral. -/
-theorem dit_113 (B : SpecialFunctions) (nu : ℂ) (y : ℝ) (hy : 0 < y)
+theorem whittaker_bessel_comparison (B : SpecialFunctions) (nu : ℂ) (y : ℝ) (hy : 0 < y)
     (hnu : 0 < (nu + 1 / 2).re) :
     B.besselI nu y = rpowC 2 (-2 * nu - 1 / 2) / Complex.Gamma (nu + 1) *
-      rpowC y (-1 / 2) * dit_112 0 nu (2 * y) ∧
+      rpowC y (-1 / 2) * whittaker_m 0 nu (2 * y) ∧
     B.besselK nu y = (Real.sqrt (Real.pi / (2 * y)) : ℂ) * whittakerW 0 nu (2 * y) := by sorry
 
-theorem dit_114 (mu nu : ℂ) (y : ℝ) (hy : 0 < y)
+theorem whittaker_asymptotics (mu nu : ℂ) (y : ℝ) (hy : 0 < y)
     (hp : 0 < (nu + mu + 1 / 2).re) (hm : 0 < (nu - mu + 1 / 2).re) :
-    deriv (deriv (dit_112 mu nu)) y +
-      (-1 / 4 + mu / y + (1 / 4 - nu ^ 2) / (y : ℂ) ^ 2) * dit_112 mu nu y = 0 := by sorry
+    deriv (deriv (whittaker_m mu nu)) y +
+      (-1 / 4 + mu / y + (1 / 4 - nu ^ 2) / (y : ℂ) ^ 2) * whittaker_m mu nu y = 0 := by sorry
 
-theorem dit_115 (nu beta : ℂ) (hnu : 0 < nu.re) :
+theorem sine_power_integral (nu beta : ℂ) (hnu : 0 < nu.re) :
     (∫ theta in (0 : ℝ)..Real.pi,
       Complex.exp (Complex.I * beta * theta) * rpowC (Real.sin theta) (nu - 1)) =
       Real.pi * Complex.exp (Complex.I * Real.pi * beta / 2) * Complex.Gamma nu /
@@ -1118,19 +1118,19 @@ theorem dit_115 (nu beta : ℂ) (hnu : 0 < nu.re) :
 def cycleWhittaker (eps : ℝ) (mu s : ℂ) (t : ℝ) : ℂ :=
   ∫ theta in (0 : ℝ)..Real.pi,
     Complex.exp (eps * Complex.I * (t * Real.cos theta + mu * theta)) *
-      dit_112 mu (s - 1 / 2) (2 * t * Real.sin theta) / Real.sin theta
+      whittaker_m mu (s - 1 / 2) (2 * t * Real.sin theta) / Real.sin theta
 
 def cycleConstant (eps : ℝ) (mu s : ℂ) : ℂ :=
   Complex.exp (eps * Complex.I * Real.pi * mu / 2) * rpowC (2 * Real.pi) (3 / 2) *
     rpowC 2 (-s) * Complex.Gamma (2 * s) /
       (Complex.Gamma ((s + 1 + mu) / 2) * Complex.Gamma ((s + 1 - mu) / 2))
 
-theorem dit_118 (B : SpecialFunctions) (eps : ℝ) (heps : eps = 1 ∨ eps = -1)
+theorem whittaker_cycle_integral (B : SpecialFunctions) (eps : ℝ) (heps : eps = 1 ∨ eps = -1)
     (mu s : ℂ) (hs : 0 < s.re) (t : ℝ) (ht : 0 < t) :
     cycleWhittaker eps mu s t = cycleConstant eps mu s * (Real.sqrt t : ℂ) *
       B.besselJ (s - 1 / 2) t := by sorry
 
-theorem dit_165 (eps : ℝ) (heps : eps = 1 ∨ eps = -1) (mu s : ℂ)
+theorem whittaker_integration_by_parts (eps : ℝ) (heps : eps = 1 ∨ eps = -1) (mu s : ℂ)
     (hs : 0 < s.re) (t : ℝ) (ht : 0 < t) :
     deriv (deriv (cycleWhittaker eps mu s)) t +
       (1 - s * (s - 1) / (t : ℂ) ^ 2) * cycleWhittaker eps mu s t = 0 := by sorry
@@ -1144,13 +1144,13 @@ def cycleCoefficient (mu s : ℂ) (m n : ℕ) : ℂ :=
         Complex.Gamma ((n + s + m + mu + 1) / 2) *
         Complex.Gamma ((n + s - m - mu + 1) / 2))
 
-theorem dit_appendix_a2_series_of_whittaker_cycle_integral (mu s : ℂ)
+theorem whittaker_cycle_series (mu s : ℂ)
     (hs : 0 < s.re) (t : ℝ) (ht : 0 < t) :
     HasSum (fun ell : ℕ => ∑ m ∈ Finset.range (ell + 1),
       cycleCoefficient mu s m (ell - m) * rpowC t (s + ell))
       (cycleWhittaker 1 mu s t) := by sorry
 
-theorem dit_appendix_a3_series_of_rhs (B : SpecialFunctions) (mu s : ℂ)
+theorem bessel_cycle_series (B : SpecialFunctions) (mu s : ℂ)
     (hs : 0 < s.re) (t : ℝ) (ht : 0 < t) :
     HasSum (fun r : ℕ =>
       Real.pi * Real.sqrt Real.pi * Complex.exp (Complex.I * Real.pi * mu / 2) *
@@ -1160,7 +1160,7 @@ theorem dit_appendix_a3_series_of_rhs (B : SpecialFunctions) (mu s : ℂ)
           ((r.factorial : ℂ) * Complex.Gamma (s + 1 / 2 + r)) * rpowC t (s + 2 * r))
       (cycleConstant 1 mu s * (Real.sqrt t : ℂ) * B.besselJ (s - 1 / 2) t) := by sorry
 
-theorem dit_appendix_a_leading_coefficient_match (mu s : ℂ) (hs : 0 < s.re) :
+theorem cycle_series_leading_coefficients (mu s : ℂ) (hs : 0 < s.re) :
     cycleCoefficient mu s 0 0 = 2 * Real.pi * Complex.exp (Complex.I * Real.pi * mu / 2) *
       Complex.Gamma s / (Complex.Gamma ((s + 1 + mu) / 2) * Complex.Gamma ((s + 1 - mu) / 2)) ∧
       cycleCoefficient mu s 1 0 + cycleCoefficient mu s 0 1 = 0 := by sorry
@@ -1186,47 +1186,47 @@ def effectiveModularGroup (N : ℕ) : ModularGeometry := by sorry
 def legendreIntegrand (s : ℂ) (t u : ℝ) : ℂ :=
   rpowC (t + Real.sqrt (t ^ 2 - 1) * Real.cosh u) (-s)
 
-def gz_64 (s : ℂ) (t : ℝ) : ℂ :=
+def legendre_q (s : ℂ) (t : ℝ) : ℂ :=
   ∫ u in Set.Ioi (0 : ℝ), legendreIntegrand s t u
-namespace gz_64
-def integral := gz_64
+namespace legendre_q
+def integral := legendre_q
 
 theorem hypergeometric (s : ℂ) (hs : 0 < s.re)
     (t : ℝ) (ht : 1 < t) :
-    gz_64 s t = Complex.Gamma s ^ 2 / (2 * Complex.Gamma (2 * s)) *
+    legendre_q s t = Complex.Gamma s ^ 2 / (2 * Complex.Gamma (2 * s)) *
       rpowC (2 / (1 + t)) s * (Complex.Gamma (2 * s) *
         Complex.regularizedHGFun {s, s} {2 * s} (2 / (1 + t))) := by sorry
 
 theorem integer_specialization (t : ℝ) (ht : 1 < t) :
-    gz_64 1 t = (1 / 2 * Real.log ((t + 1) / (t - 1)) : ℝ) ∧
-      gz_64 2 t = t * gz_64 1 t - 1 := by sorry
+    legendre_q 1 t = (1 / 2 * Real.log ((t + 1) / (t - 1)) : ℝ) ∧
+      legendre_q 2 t = t * legendre_q 1 t - 1 := by sorry
 
-theorem q_zero : gz_64 1 3 = (1 / 2 * Real.log 2 : ℝ) := by sorry
+theorem q_zero : legendre_q 1 3 = (1 / 2 * Real.log 2 : ℝ) := by sorry
 
--- Test: gz_64.q_zero
+-- Test: legendre_q.q_zero
 -- At s=1, Q₀(3)=½log2.
-example : gz_64 1 3 = (1 / 2 * Real.log 2 : ℝ) := by sorry
+example : legendre_q 1 3 = (1 / 2 * Real.log 2 : ℝ) := by sorry
 
 
-theorem q_one : gz_64 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
+theorem q_one : legendre_q 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
 
--- Test: gz_64.q_one
+-- Test: legendre_q.q_one
 -- At s=2, Q₁(3)=3/2 log2−1.
-example : gz_64 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
+example : legendre_q 2 3 = (3 / 2 * Real.log 2 - 1 : ℝ) := by sorry
 
 
 theorem boundary : ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
--- Test: gz_64.boundary
+-- Test: legendre_q.boundary
 -- t=1 has a logarithmic singularity and is excluded from the ordinary pointwise definition.
 example : ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
-end gz_64
+end legendre_q
 
-theorem gz_65 (s : ℝ) (hs : 1 < s) :
+theorem legendre_q_asymptotics (s : ℝ) (hs : 1 < s) :
     (∃ C eps : ℝ, 0 < eps ∧ ∀ t : ℝ, 1 < t → t < 1 + eps →
-      ‖gz_64 s t + (1 / 2 * Real.log (t - 1) : ℝ)‖ ≤ C) ∧
-    ∃ C : ℝ, ∀ t : ℝ, 2 ≤ t → ‖gz_64 s t‖ ≤ C * t ^ (-s) := by sorry
+      ‖legendre_q s t + (1 / 2 * Real.log (t - 1) : ℝ)‖ ≤ C) ∧
+    ∃ C : ℝ, ∀ t : ℝ, 2 ≤ t → ‖legendre_q s t‖ ≤ C * t ^ (-s) := by sorry
 
 /-- These curves stay in UHP for all real parameters. -/
 def horizontalCurve (z : UpperHalfPlane) (t : ℝ) : UpperHalfPlane :=
@@ -1239,34 +1239,34 @@ def gzLaplacian (f : UpperHalfPlane → ℂ) (z : UpperHalfPlane) : ℂ :=
     deriv (deriv (fun t : ℝ => f (verticalLogCurve z t))) 0 -
     deriv (fun t : ℝ => f (verticalLogCurve z t)) 0
 
-def gz_66 (s : ℂ) (z z' : UpperHalfPlane) : ℂ :=
-  -2 * gz_64 s (1 + ‖(z : ℂ) - (z' : ℂ)‖ ^ 2 / (2 * z.im * z'.im))
-namespace gz_66
+def point_pair_invariant (s : ℂ) (z z' : UpperHalfPlane) : ℂ :=
+  -2 * legendre_q s (1 + ‖(z : ℂ) - (z' : ℂ)‖ ^ 2 / (2 * z.im * z'.im))
+namespace point_pair_invariant
 /-- The PSL₂ action is imported from the existing upper-half-plane interface. -/
 theorem invariant (s : ℂ) (g : UpperHalfPlane → UpperHalfPlane)
     (hDistance : ∀ z z',
       ‖(g z : ℂ) - (g z' : ℂ)‖ ^ 2 / ((g z).im * (g z').im) =
         ‖(z : ℂ) - (z' : ℂ)‖ ^ 2 / (z.im * z'.im)) (z z' : UpperHalfPlane) :
-    gz_66 s (g z) (g z') = gz_66 s z z' := by sorry
+    point_pair_invariant s (g z) (g z') = point_pair_invariant s z z' := by sorry
 
 theorem s_one (z z' : UpperHalfPlane) (hne : z ≠ z') :
-    gz_66 1 z z' = (Real.log (‖(z : ℂ) - (z' : ℂ)‖ ^ 2 /
+    point_pair_invariant 1 z z' = (Real.log (‖(z : ℂ) - (z' : ℂ)‖ ^ 2 /
       ‖star (z : ℂ) - (z' : ℂ)‖ ^ 2) : ℝ) := by sorry
 
 theorem laplace (s : ℂ) (hs : 1 < s.re) (z z' : UpperHalfPlane) (hne : z ≠ z') :
-    gzLaplacian (fun x => gz_66 s x z') z = s * (s - 1) * gz_66 s z z' := by sorry
+    gzLaplacian (fun x => point_pair_invariant s x z') z = s * (s - 1) * point_pair_invariant s z z' := by sorry
 
-theorem symmetry (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
+theorem symmetry (s : ℂ) (z z' : UpperHalfPlane) : point_pair_invariant s z z' = point_pair_invariant s z' z := by sorry
 
--- Test: gz_66.symmetry
+-- Test: point_pair_invariant.symmetry
 -- g_s(z,z′)=g_s(z′,z).
-example (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
+example (s : ℂ) (z z' : UpperHalfPlane) : point_pair_invariant s z z' = point_pair_invariant s z' z := by sorry
 
 
 theorem singularity (z : UpperHalfPlane) :
     ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
 
--- Test: gz_66.singularity
+-- Test: point_pair_invariant.singularity
 -- The diagonal value is not a finite smooth kernel.
 example (z : UpperHalfPlane) :
     ¬ IntegrableOn (legendreIntegrand 1 1) (Set.Ioi 0) := by sorry
@@ -1276,29 +1276,29 @@ theorem bare_sum (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup N).Index,
       z ≠ (effectiveModularGroup N).orbit j z') :
     ¬ Summable (fun j : (effectiveModularGroup N).Index =>
-      gz_66 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
+      point_pair_invariant 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
 
--- Test: gz_66.bare_sum
+-- Test: point_pair_invariant.bare_sum
 -- The Γ₀(N) sum at s=1 diverges; subtract the pole before taking the finite part.
 -- Full Γ₀(N)/±I lattice, off the diagonal; subtract the pole before taking the finite part.
 example (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup N).Index,
       z ≠ (effectiveModularGroup N).orbit j z') :
     ¬ Summable (fun j : (effectiveModularGroup N).Index =>
-      gz_66 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
+      point_pair_invariant 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
 
-end gz_66
+end point_pair_invariant
 
-theorem gz_108 (s : ℝ) (hs : 1 < s) :
-    Tendsto (fun t : ℝ => gz_64 s t - (1 / 2 * Real.log ((t + 1) / (t - 1)) : ℝ))
+theorem legendre_q_near_one (s : ℝ) (hs : 1 < s) :
+    Tendsto (fun t : ℝ => legendre_q s t - (1 / 2 * Real.log ((t + 1) / (t - 1)) : ℝ))
       (𝓝[>] 1) (𝓝 (-(deriv Complex.Gamma (s : ℂ) / Complex.Gamma s -
         deriv Complex.Gamma 1 / Complex.Gamma 1))) := by sorry
 
-def gz_207 (k : ℕ) (s : ℂ) (t : ℝ) : ℂ :=
+def archimedean_v_integral (k : ℕ) (s : ℂ) (t : ℝ) : ℂ :=
   ∫ x : ℝ, Complex.exp (-2 * Real.pi * Complex.I * x * t) /
     (((x : ℂ) + Complex.I) ^ (2 * k - 1) * rpowC (x ^ 2 + 1) s)
-namespace gz_207
-def fourier_integral := gz_207
+namespace archimedean_v_integral
+def fourier_integral := archimedean_v_integral
 
 theorem integrable_iff (k : ℕ) (hk : 1 ≤ k) (s : ℂ) :
     Integrable (fun x : ℝ => (((x : ℂ) + Complex.I) ^ (2 * k - 1) *
@@ -1306,14 +1306,14 @@ theorem integrable_iff (k : ℕ) (hk : 1 ≤ k) (s : ℂ) :
 
 theorem parameter_derivative (k : ℕ) (hk : 1 ≤ k) (s : ℂ)
     (hs : 1 - (k : ℝ) < s.re) (t : ℝ) :
-    HasDerivAt (fun v => gz_207 k v t)
+    HasDerivAt (fun v => archimedean_v_integral k v t)
       (∫ x : ℝ, -Real.log (x ^ 2 + 1) * Complex.exp (-2 * Real.pi * Complex.I * x * t) /
         (((x : ℂ) + Complex.I) ^ (2 * k - 1) * rpowC (x ^ 2 + 1) s)) s := by sorry
 
 theorem k_one (s : ℂ) : Integrable (fun x : ℝ =>
     (((x : ℂ) + Complex.I) * rpowC (x ^ 2 + 1) s)⁻¹) ↔ 0 < s.re := by sorry
 
--- Test: gz_207.k_one
+-- Test: archimedean_v_integral.k_one
 -- At k=1, the initial absolutely integrable domain is Re(s)>0.
 example (s : ℂ) : Integrable (fun x : ℝ =>
     (((x : ℂ) + Complex.I) * rpowC (x ^ 2 + 1) s)⁻¹) ↔ 0 < s.re := by sorry
@@ -1322,34 +1322,34 @@ example (s : ℂ) : Integrable (fun x : ℝ =>
 theorem threshold (k : ℕ) (hk : 1 ≤ k) : ¬ Integrable (fun x : ℝ =>
     (((x : ℂ) + Complex.I) ^ (2 * k - 1) * rpowC (x ^ 2 + 1) (1 - k))⁻¹) := by sorry
 
--- Test: gz_207.threshold
+-- Test: archimedean_v_integral.threshold
 -- At Re(s)=1−k the seed norm decays like |x|⁻¹ and is not integrable.
 example (k : ℕ) (hk : 1 ≤ k) : ¬ Integrable (fun x : ℝ =>
     (((x : ℂ) + Complex.I) ^ (2 * k - 1) * rpowC (x ^ 2 + 1) (1 - k))⁻¹) := by sorry
 
 
 theorem zero_frequency (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re) :
-    gz_207 k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
+    archimedean_v_integral k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
       Complex.Gamma (2 * s + 2 * k - 2) / (Complex.Gamma s * Complex.Gamma (s + 2 * k - 1)) := by sorry
 
--- Test: gz_207.zero_frequency
--- t=0 equals the gamma formula of gz_212.
+-- Test: archimedean_v_integral.zero_frequency
+-- t=0 equals the gamma formula of archimedean_v_at_zero.
 example (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re) :
-    gz_207 k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
+    archimedean_v_integral k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
       Complex.Gamma (2 * s + 2 * k - 2) / (Complex.Gamma s * Complex.Gamma (s + 2 * k - 1)) := by sorry
 
-end gz_207
+end archimedean_v_integral
 
-theorem gz_212 (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re) :
-    gz_207 k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
+theorem archimedean_v_at_zero (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re) :
+    archimedean_v_integral k s 0 = (-1) ^ k * Real.pi * Complex.I * rpowC 2 (-2 * s - 2 * k + 3) *
       Complex.Gamma (2 * s + 2 * k - 2) / (Complex.Gamma s * Complex.Gamma (s + 2 * k - 1)) := by sorry
 
 /-- Entire continuation off t=0; it is distinct from the totalized initial integral. -/
 def continuedV (k : ℕ) (s : ℂ) (t : ℝ) : ℂ := by sorry
 
-theorem gz_213 (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
+theorem archimedean_v_holomorphic (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
     AnalyticOnNhd ℂ (fun s => continuedV k s t) Set.univ ∧
-      ∀ s : ℂ, 1 - (k : ℝ) < s.re → continuedV k s t = gz_207 k s t := by sorry
+      ∀ s : ℂ, 1 - (k : ℝ) < s.re → continuedV k s t = archimedean_v_integral k s t := by sorry
 
 /-- The holomorphic extension of the normalized product, including removable values.
 At Gamma poles the pointwise product of totalized Gamma and continuedV is incorrect. -/
@@ -1360,7 +1360,7 @@ theorem normalizedV_eq (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (t : ℝ) (ht : t ≠ 
     normalizedV k s t = rpowC (Real.pi * |t|) (-s - 2 * k + 1) *
       Complex.Gamma (s + 2 * k - 1) * continuedV k s t := by sorry
 
-theorem gz_214 (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
+theorem archimedean_v_functional_equation (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t ≠ 0) :
     AnalyticOnNhd ℂ (fun s => normalizedV k s t) Set.univ ∧
       ∀ s : ℂ, normalizedV k s t = (SignType.sign t : ℝ) * normalizedV k (2 - 2 * k - s) t := by sorry
 
@@ -1368,7 +1368,7 @@ def polynomialV (k r : ℕ) (t : ℝ) : ℝ :=
   (t / 2) ^ (2 * k - 2 - 2 * r) * ∑ j ∈ Finset.range (r + 1),
     (r.choose j : ℝ) * (-t) ^ j / ((2 * k - 2 * r - 2 + j).factorial : ℝ)
 
-theorem gz_215 (k r : ℕ) (hk : 1 ≤ k) (hr : r ≤ k - 1) (t : ℝ) (ht : t ≠ 0) :
+theorem archimedean_v_integer_points (k r : ℕ) (hk : 1 ≤ k) (hr : r ≤ k - 1) (t : ℝ) (ht : t ≠ 0) :
     continuedV k (-(r : ℂ)) t = if t < 0 then 0 else
       2 * Real.pi * Complex.I * (-1) ^ (k - r) * polynomialV k r (4 * Real.pi * t) *
         Complex.exp (-2 * Real.pi * t) := by sorry
@@ -1376,11 +1376,11 @@ theorem gz_215 (k r : ℕ) (hk : 1 ≤ k) (hr : r ≤ k - 1) (t : ℝ) (ht : t �
 def auxiliaryQ (k : ℕ) (t : ℝ) : ℝ :=
   ∫ x in Set.Ioi (1 : ℝ), (x - 1) ^ k * x ^ (-(k : ℝ) - 1) * Real.exp (-x * t)
 
-theorem gz_216 (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t < 0) :
+theorem archimedean_v_central_derivative (k : ℕ) (hk : 1 ≤ k) (t : ℝ) (ht : t < 0) :
     deriv (fun s => continuedV k s t) (1 - k) = -2 * Real.pi * Complex.I *
       auxiliaryQ (k - 1) (4 * Real.pi * |t|) * Complex.exp (-2 * Real.pi * t) := by sorry
 
-theorem gz_217 (B : SpecialFunctions) (s : ℂ) (t : ℝ) (ht : 0 < t) :
+theorem archimedean_v_bessel_k (B : SpecialFunctions) (s : ℂ) (t : ℝ) (ht : 0 < t) :
     normalizedV 1 s t = -2 * Complex.I / Real.sqrt t *
       (B.besselK (1 / 2 + s) (2 * Real.pi * t) + B.besselK (1 / 2 - s) (2 * Real.pi * t)) := by sorry
 
@@ -1457,9 +1457,9 @@ namespace TauCeti.AutomorphicSpectral
 universe u v w
 abbrev CycleCoordinates {r : ℕ} (l : Fin r → ℕ) := ∀ j, Fin (l j) → ℂˣ
 
-def yu_145 {r : ℕ} (l d : Fin r → ℕ) : Set (CycleCoordinates l) :=
+def spectral_cycle_coordinates {r : ℕ} (l d : Fin r → ℕ) : Set (CycleCoordinates l) :=
   {z | (∀ j t, ‖(z j t : ℂ)‖ = 1) ∧ ∏ j, ∏ t, z j t ^ d j = 1}
-namespace yu_145
+namespace spectral_cycle_coordinates
 
 def A {r : ℕ} (l d : Fin r → ℕ) : Set (Fin r → ℂˣ) :=
   {u | (∀ j, ‖(u j : ℂ)‖ = 1) ∧ ∏ j, u j ^ (l j * d j) = 1}
@@ -1467,19 +1467,19 @@ def B {r : ℕ} (l d : Fin r → ℕ) : Set (CycleCoordinates l) :=
   {z | (∀ j t, ‖(z j t : ℂ)‖ = 1) ∧ ∀ j, (∏ t, z j t) ^ d j = 1}
 def B0 {r : ℕ} (l : Fin r → ℕ) : Set (CycleCoordinates l) :=
   {z | (∀ j t, ‖(z j t : ℂ)‖ = 1) ∧ ∀ j, ∏ t, z j t = 1}
-def cycleTori {r : ℕ} (l d : Fin r → ℕ) := (yu_145 l d, A l d, B l d, B0 l)
+def cycleTori {r : ℕ} (l d : Fin r → ℕ) := (spectral_cycle_coordinates l d, A l d, B l d, B0 l)
 
 theorem componentProduct {r : ℕ} (l d : Fin r → ℕ)
     (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) (u : Fin r → ℂˣ)
     (hu : ∀ j, u j ^ d j = 1) : ∃ z ∈ B l d, ∀ j, ∏ t, z j t = u j := by sorry
 
 theorem embedCentral {r : ℕ} (l d : Fin r → ℕ) (u : Fin r → ℂˣ) :
-    u ∈ A l d → (fun j (_ : Fin (l j)) => u j) ∈ yu_145 l d := by sorry
+    u ∈ A l d → (fun j (_ : Fin (l j)) => u j) ∈ spectral_cycle_coordinates l d := by sorry
 
 theorem test1 (z : ℂˣ) (hz : ‖(z : ℂ)‖ = 1) :
     (fun (_ : Fin 1) (t : Fin 2) => if t = 0 then z else z⁻¹) ∈ B0 (fun _ => 2) := by sorry
 
--- Test: yu_145.test1
+-- Test: spectral_cycle_coordinates.test1
 -- For one cycle l=2,d=1: A=μ₂, B=B0={(z,z⁻¹)}.
 example (z : ℂˣ) (hz : ‖(z : ℂ)‖ = 1) :
     (fun (_ : Fin 1) (t : Fin 2) => if t = 0 then z else z⁻¹) ∈ B0 (fun _ => 2) := by sorry
@@ -1488,7 +1488,7 @@ example (z : ℂˣ) (hz : ‖(z : ℂ)‖ = 1) :
 theorem test2 : (fun (_ : Fin 1) (_ : Fin 1) => (-1 : ℂˣ)) ∈ B (fun _ => 1) (fun _ => 2) ∧
     (fun (_ : Fin 1) (_ : Fin 1) => (-1 : ℂˣ)) ∉ B0 (fun _ => 1) := by sorry
 
--- Test: yu_145.test2
+-- Test: spectral_cycle_coordinates.test2
 -- For one cycle l=1,d=2: B=μ₂ while B0={1}; replacing B by its identity component loses two points.
 example : (fun (_ : Fin 1) (_ : Fin 1) => (-1 : ℂˣ)) ∈ B (fun _ => 1) (fun _ => 2) ∧
     (fun (_ : Fin 1) (_ : Fin 1) => (-1 : ℂˣ)) ∉ B0 (fun _ => 1) := by sorry
@@ -1497,36 +1497,36 @@ example : (fun (_ : Fin 1) (_ : Fin 1) => (-1 : ℂˣ)) ∈ B (fun _ => 1) (fun 
 theorem test3 {r : ℕ} (z : CycleCoordinates (fun _ : Fin r => 1)) :
     z ∈ B0 (fun _ => 1) ↔ ∀ j, z j 0 = 1 := by sorry
 
--- Test: yu_145.test3
+-- Test: spectral_cycle_coordinates.test3
 -- For w=1, every l_j=1, A=T and B=∏_j μ_(d_j), with B0={1}.
 example {r : ℕ} (z : CycleCoordinates (fun _ : Fin r => 1)) :
     z ∈ B0 (fun _ => 1) ↔ ∀ j, z j 0 = 1 := by sorry
 
-end yu_145
+end spectral_cycle_coordinates
 
 def cycleDifference {r : ℕ} (l : Fin r → ℕ) (hl : ∀ j, 0 < l j)
     (z : CycleCoordinates l) : CycleCoordinates l :=
   fun j t => z j t / z j ⟨(t.val + l j - 1) % l j, by sorry⟩
 
-theorem yu_146 {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
-    (∀ v ∈ yu_145.B0 l, ∃ z ∈ yu_145.B l d, cycleDifference l hl z = v) ∧
-      Nat.card {z : CycleCoordinates l // z ∈ yu_145.B l d ∧ cycleDifference l hl z = 1} =
+theorem weyl_cycle_difference_map {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
+    (∀ v ∈ spectral_cycle_coordinates.B0 l, ∃ z ∈ spectral_cycle_coordinates.B l d, cycleDifference l hl z = v) ∧
+      Nat.card {z : CycleCoordinates l // z ∈ spectral_cycle_coordinates.B l d ∧ cycleDifference l hl z = 1} =
         ∏ j, l j * d j := by sorry
 
-theorem yu_147 {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
-    (∀ v ∈ yu_145 l d, ∃ a ∈ yu_145.A l d, ∃ c ∈ yu_145.B l d,
+theorem spectral_cover_fibres {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
+    (∀ v ∈ spectral_cycle_coordinates l d, ∃ a ∈ spectral_cycle_coordinates.A l d, ∃ c ∈ spectral_cycle_coordinates.B l d,
       (fun j t => a j * cycleDifference l hl c j t) = v) ∧
       Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates l //
-        p.1 ∈ yu_145.A l d ∧ p.2 ∈ yu_145.B l d ∧
+        p.1 ∈ spectral_cycle_coordinates.A l d ∧ p.2 ∈ spectral_cycle_coordinates.B l d ∧
           (fun j t => p.1 j * cycleDifference l hl p.2 j t) = 1} =
         (∏ j, l j) * (∏ j, l j * d j) := by sorry
 
 section Transfer
 variable {H : Type u} {K : Type v} [Group H] [Group K]
 variable (p : H →* K) [Fintype p.ker] (hp : Function.Surjective p)
-def yu_148 (f : H → ℂ) (y : K) : ℂ :=
+def compact_cover_transfer (f : H → ℂ) (y : K) : ℂ :=
   (Fintype.card p.ker : ℂ)⁻¹ * ∑ k : p.ker, f (Classical.choose (hp y) * k.val)
-namespace yu_148
+namespace compact_cover_transfer
 def squareCover : Circle →* Circle where
   toFun z := z ^ 2
   map_one' := by sorry
@@ -1540,49 +1540,49 @@ theorem squareCover_kernel : Fintype.card squareCover.ker = 2 := by sorry
 
 
 theorem transfer (f : H → ℂ) (x : H) :
-    yu_148 p hp f (p x) = (Fintype.card p.ker : ℂ)⁻¹ * ∑ k : p.ker, f (x * k.val) := by sorry
+    compact_cover_transfer p hp f (p x) = (Fintype.card p.ker : ℂ)⁻¹ * ∑ k : p.ker, f (x * k.val) := by sorry
 
 theorem integralTransfer [MeasurableSpace H] [MeasurableSpace K]
     (μ : Measure H) (ν : Measure K) [IsProbabilityMeasure μ] [IsProbabilityMeasure ν]
     (hMap : MeasurePreserving p μ ν)
     (hHaar : ∀ k : p.ker, MeasurePreserving (fun x : H => x * k.val) μ μ)
-    (f : H → ℂ) (hf : Integrable f μ) (hTr : Integrable (yu_148 p hp f) ν) :
-    ∫ y, yu_148 p hp f y ∂ν = ∫ x, f x ∂μ := by sorry
+    (f : H → ℂ) (hf : Integrable f μ) (hTr : Integrable (compact_cover_transfer p hp f) ν) :
+    ∫ y, compact_cover_transfer p hp f y ∂ν = ∫ x, f x ∂μ := by sorry
 
-theorem pullbackTransfer (g : K → ℂ) : yu_148 p hp (g ∘ p) = g := by sorry
+theorem pullbackTransfer (g : K → ℂ) : compact_cover_transfer p hp (g ∘ p) = g := by sorry
 
-theorem test1 (y : K) : yu_148 p hp (fun _ => 1) y = 1 := by sorry
+theorem test1 (y : K) : compact_cover_transfer p hp (fun _ => 1) y = 1 := by sorry
 
--- Test: yu_148.test1
+-- Test: compact_cover_transfer.test1
 -- Tr_id f=f and Tr_p 1=1 for every nonempty finite fibre.
-example (y : K) : yu_148 p hp (fun _ => 1) y = 1 := by sorry
+example (y : K) : compact_cover_transfer p hp (fun _ => 1) y = 1 := by sorry
 
 
 /-- Finite-fibre square-map computation, independent of any choice of square-root branch. -/
 theorem test2 (y : Circle) :
-    yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
-      yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
+    compact_cover_transfer squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
+      compact_cover_transfer squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
 
--- Test: yu_148.test2
+-- Test: compact_cover_transfer.test2
 -- For the circle square-cover, normalized transfer of z² is the target coordinate and transfer of z is zero.
 example (y : Circle) :
-    yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
-      yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
+    compact_cover_transfer squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
+      compact_cover_transfer squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
 
 
 theorem test3 (y : Circle) :
     (∑ k : squareCover.ker,
       (fun _ : Circle => (1 : ℂ)) (Classical.choose (squareCoverSurjective y) * k.val)) = 2 ∧
-      yu_148 squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
+      compact_cover_transfer squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
 
--- Test: yu_148.test3
+-- Test: compact_cover_transfer.test3
 -- For the same degree-two cover the normalized transfer of one is one, whereas the unnormalized kernel sum is two.
 example (y : Circle) :
     (∑ k : squareCover.ker,
       (fun _ : Circle => (1 : ℂ)) (Classical.choose (squareCoverSurjective y) * k.val)) = 2 ∧
-      yu_148 squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
+      compact_cover_transfer squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
 
-end yu_148
+end compact_cover_transfer
 
 end Transfer
 
@@ -1590,14 +1590,14 @@ end Transfer
 The index is the entire complex character group; counting Haar is normalized to mass one.
 The smooth torus and finite-component transport of the full statement are not part of this
 finite specialization. -/
-theorem yu_149 {H : Type u} {K : Type v} [CommGroup H] [CommGroup K]
+theorem character_inversion_fibre_average {H : Type u} {K : Type v} [CommGroup H] [CommGroup K]
     [Fintype H] [Fintype K] [MeasurableSpace H] [MeasurableSingletonClass H]
     (p : H →* K) [Fintype p.ker] (hp : Function.Surjective p)
     (μ : Measure H) [IsProbabilityMeasure μ]
     (hHaar : μ = (Fintype.card H : ℝ≥0∞)⁻¹ • Measure.count)
     (f : H → ℂ) (y : K) :
     HasSum (fun χ : AddChar (Additive K) ℂ =>
-      ∫ x, χ (Additive.ofMul (p x / y)) * f x ∂μ) (yu_148 p hp f y) ∧
+      ∫ x, χ (Additive.ofMul (p x / y)) * f x ∂μ) (compact_cover_transfer p hp f y) ∧
       Summable (fun χ : AddChar (Additive K) ℂ =>
         ‖∫ x, χ (Additive.ofMul (p x / y)) * f x ∂μ‖) := by sorry
 
@@ -1609,7 +1609,7 @@ theorem fourierDecaySummable {d : ℕ} (coeff : (Fin d → ℤ) → ℂ) (s : �
     Summable (fun k => ‖coeff k‖) := by sorry
 
 /-- Smoothness is imposed on the periodic lift to the covering real vector space. -/
-theorem yu_150 {d : ℕ} (f : UnitAddTorus (Fin d) → ℂ) (hf : Continuous f)
+theorem torus_fourier_decay {d : ℕ} (f : UnitAddTorus (Fin d) → ℂ) (hf : Continuous f)
     (hSmooth : ContDiff ℝ ⊤ (fun x : Fin d → ℝ => f (fun i => (x i : UnitAddCircle)))) :
     Summable (fun k => ‖UnitAddTorus.mFourierCoeff f k‖) ∧
       ∀ s : ℕ, d < 2 * s → ∃ C : ℝ, ∀ k : Fin d → ℤ,
@@ -2085,91 +2085,91 @@ end cuspidal_data_orthosum
 end CuspidalBlocks
 
 /- Yu's multiplicative parameter spaces retain their finite components. -/
-def yu_010 {r : Type*} [Fintype r] (n : r → ℕ) : Set (r → ℂˣ) :=
+def unramified_character_torus {r : Type*} [Fintype r] (n : r → ℕ) : Set (r → ℂˣ) :=
   {x | ∏ i, x i ^ n i = 1}
-namespace yu_010
+namespace unramified_character_torus
 /-- Degree coordinates; the adelic determinant-degree isomorphism is supplied by AA. -/
 def detCoordinates (r : Type*) := r → ℂˣ
 
-def trivialOnCenter {r : Type*} [Fintype r] (n : r → ℕ) := yu_010 n
+def trivialOnCenter {r : Type*} [Fintype r] (n : r → ℕ) := unramified_character_torus n
 
 def unitaryPart {r : Type*} [Fintype r] (n : r → ℕ) : Set (r → ℂˣ) :=
-  {x ∈ yu_010 n | ∀ i, ‖(x i : ℂ)‖ = 1}
+  {x ∈ unramified_character_torus n | ∀ i, ‖(x i : ℂ)‖ = 1}
 
-theorem test1 (n : ℕ) (z : ℂˣ) : (fun _ : Unit => z) ∈ yu_010 (fun _ => n) ↔ z ^ n = 1 := by sorry
+theorem test1 (n : ℕ) (z : ℂˣ) : (fun _ : Unit => z) ∈ unramified_character_torus (fun _ => n) ↔ z ^ n = 1 := by sorry
 
--- Test: yu_010.test1
+-- Test: unramified_character_torus.test1
 -- For M=G=GL_n, X_G^G={z∈C*:z^n=1}.
-example (n : ℕ) (z : ℂˣ) : (fun _ : Unit => z) ∈ yu_010 (fun _ => n) ↔ z ^ n = 1 := by sorry
+example (n : ℕ) (z : ℂˣ) : (fun _ : Unit => z) ∈ unramified_character_torus (fun _ => n) ↔ z ^ n = 1 := by sorry
 
 
-theorem test2 : (fun _ : Unit => (-1 : ℂˣ)) ∈ yu_010 (fun _ => 2) ∧
+theorem test2 : (fun _ : Unit => (-1 : ℂˣ)) ∈ unramified_character_torus (fun _ => 2) ∧
     (fun _ : Unit => (-1 : ℂˣ)) ≠ (fun _ : Unit => (1 : ℂˣ)) := by sorry
 
--- Test: yu_010.test2
+-- Test: unramified_character_torus.test2
 -- For M=GL₂ and L=M, Im X_M^L=μ₂ has two points and is not connected.
-example : (fun _ : Unit => (-1 : ℂˣ)) ∈ yu_010 (fun _ => 2) ∧
+example : (fun _ : Unit => (-1 : ℂˣ)) ∈ unramified_character_torus (fun _ => 2) ∧
     (fun _ : Unit => (-1 : ℂˣ)) ≠ (fun _ : Unit => (1 : ℂˣ)) := by sorry
 
 
 theorem test3 (a b : ℕ) (x y : ℂˣ) :
-    (fun i : Fin 2 => if i = 0 then x else y) ∈ yu_010 (fun i => if i = 0 then a else b) ↔
+    (fun i : Fin 2 => if i = 0 then x else y) ∈ unramified_character_torus (fun i => if i = 0 then a else b) ↔
       x ^ a * y ^ b = 1 := by sorry
 
--- Test: yu_010.test3
+-- Test: unramified_character_torus.test3
 -- For M=GL_a×GL_b in G=GL_(a+b), X_M^G is given by x^a y^b=1, rather than xy=1 unless a=b=1.
 example (a b : ℕ) (x y : ℂˣ) :
-    (fun i : Fin 2 => if i = 0 then x else y) ∈ yu_010 (fun i => if i = 0 then a else b) ↔
+    (fun i : Fin 2 => if i = 0 then x else y) ∈ unramified_character_torus (fun i => if i = 0 then a else b) ↔
       x ^ a * y ^ b = 1 := by sorry
 
-end yu_010
+end unramified_character_torus
 
 /-- Spherical sections in a prescribed convention; the Iwasawa map is supplied by AA. -/
-def yu_060 {G M : Type*} (levi : G → M) (s : M → ℂˣ) (φ : M → ℂ) : G → ℂ :=
+def induced_spherical_section {G M : Type*} (levi : G → M) (s : M → ℂˣ) (φ : M → ℂ) : G → ℂ :=
   fun g => (s (levi g) : ℂ) * φ (levi g)
-namespace yu_060
-def sphericalSection {G M : Type*} (levi : G → M) (s : M → ℂˣ) (φ : M → ℂ) := yu_060 levi s φ
+namespace induced_spherical_section
+def sphericalSection {G M : Type*} (levi : G → M) (s : M → ℂˣ) (φ : M → ℂ) := induced_spherical_section levi s φ
 
 theorem leviRestriction {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
-    (s m : ℂ)⁻¹ * yu_060 id s φ m = φ m := by sorry
+    (s m : ℂ)⁻¹ * induced_spherical_section id s φ m = φ m := by sorry
 
 def parameterTwist {M : Type*} (s lam : M → ℂˣ) : M → ℂˣ := fun m => s m * lam m
 
 theorem test1 {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
-    (s m : ℂ)⁻¹ * yu_060 id s φ m = φ m := by sorry
+    (s m : ℂ)⁻¹ * induced_spherical_section id s φ m = φ m := by sorry
 
--- Test: yu_060.test1
+-- Test: induced_spherical_section.test1
 -- For prescribed s_R, the Levi restriction of s_R*phi_pi multiplied by s_R⁻¹ equals phi_pi.
 example {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
-    (s m : ℂ)⁻¹ * yu_060 id s φ m = φ m := by sorry
+    (s m : ℂ)⁻¹ * induced_spherical_section id s φ m = φ m := by sorry
 
 
-theorem test2 {M : Type*} (φ : M → ℂ) : yu_060 id (fun _ => 1) φ = φ := by sorry
+theorem test2 {M : Type*} (φ : M → ℂ) : induced_spherical_section id (fun _ => 1) φ = φ := by sorry
 
--- Test: yu_060.test2
+-- Test: induced_spherical_section.test2
 -- For R=G the modular character is1, so both displayed rho conventions give the same section.
-example {M : Type*} (φ : M → ℂ) : yu_060 id (fun _ => 1) φ = φ := by sorry
+example {M : Type*} (φ : M → ℂ) : induced_spherical_section id (fun _ => 1) φ = φ := by sorry
 
 
 theorem test3 :
-    yu_060 id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
-      yu_060 id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
+    induced_spherical_section id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
+      induced_spherical_section id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
 
--- Test: yu_060.test3
--- Apply yu_060 to the constant vector one with ρ=2: the positive section gives two and the inverse section gives one half.
+-- Test: induced_spherical_section.test3
+-- Apply induced_spherical_section to the constant vector one with ρ=2: the positive section gives two and the inverse section gives one half.
 example :
-    yu_060 id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
-      yu_060 id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
+    induced_spherical_section id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
+      induced_spherical_section id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
 
-end yu_060
+end induced_spherical_section
 
-def yu_153 {M : Type*} (s t : M → ℂˣ) (φ : M → ℂ) : M → ℂ :=
+def induction_normalization_transport {M : Type*} (s t : M → ℂˣ) (φ : M → ℂ) : M → ℂ :=
   fun m => ((t m : ℂ) / (s m : ℂ)) * φ m
-namespace yu_153
-def normalizedSection {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) := yu_060 id s φ
+namespace induction_normalization_transport
+def normalizedSection {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) := induced_spherical_section id s φ
 
 theorem changeConvention {M : Type*} (s t u : M → ℂˣ) (φ : M → ℂ) :
-    yu_153 t u (yu_153 s t φ) = yu_153 s u φ ∧ yu_153 s s φ = φ := by sorry
+    induction_normalization_transport t u (induction_normalization_transport s t φ) = induction_normalization_transport s u φ ∧ induction_normalization_transport s s φ = φ := by sorry
 
 /-- Finite-dimensional transport preserves trace; the source/target conventions are both
 changed. The supplied equivalence implements the numerical t/s multiplication. -/
@@ -2178,20 +2178,20 @@ theorem conjugateOperators {V : Type u} [AddCommGroup V] [Module ℂ V]
     LinearMap.trace ℂ V (C.toLinearMap.comp (A.comp C.symm.toLinearMap)) = LinearMap.trace ℂ V A := by sorry
 
 theorem test1 :
-    yu_153 (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
+    induction_normalization_transport (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
       (fun _ => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 2) () = 1 / 2 := by sorry
 
--- Test: yu_153.test1
+-- Test: induction_normalization_transport.test1
 -- The actual section transport from ρ to ρ⁻¹ sends a value-two vector to one half when ρ=2.
 example :
-    yu_153 (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
+    induction_normalization_transport (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
       (fun _ => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 2) () = 1 / 2 := by sorry
 
 
 theorem test2 {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
     (s m : ℂ)⁻¹ * normalizedSection s φ m = φ m := by sorry
 
--- Test: yu_153.test2
+-- Test: induction_normalization_transport.test2
 -- Restricting s_R*phi_pi and multiplying by s_R⁻¹ recovers phi_pi exactly.
 example {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
     (s m : ℂ)⁻¹ * normalizedSection s φ m = φ m := by sorry
@@ -2199,25 +2199,25 @@ example {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
 
 theorem test3 {M : Type*} [MeasurableSpace M] (μ : Measure M)
     (rho : M → ℂˣ) (phi : M → ℂ) (hInt : Integrable (fun m => ‖phi m‖ ^ 2) μ) :
-    ∫ m, ‖yu_153 rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
+    ∫ m, ‖induction_normalization_transport rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
       ∫ m, ‖phi m‖ ^ 2 ∂μ := by sorry
 
--- Test: yu_153.test3
+-- Test: induction_normalization_transport.test3
 -- The squared norm of the transported section, integrated with the compensating factor |ρ|⁴, equals the original integrated squared norm.
 example {M : Type*} [MeasurableSpace M] (μ : Measure M)
     (rho : M → ℂˣ) (phi : M → ℂ) (hInt : Integrable (fun m => ‖phi m‖ ^ 2) μ) :
-    ∫ m, ‖yu_153 rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
+    ∫ m, ‖induction_normalization_transport rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
       ∫ m, ‖phi m‖ ^ 2 ∂μ := by sorry
 
-end yu_153
+end induction_normalization_transport
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
 universe u v w
 
-def dit_57 (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+def nonholomorphic_eisenstein (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s
-namespace dit_57
+namespace nonholomorphic_eisenstein
 def imaginaryPoint (y : ℝ) : UpperHalfPlane := ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩
 
 def identityCoset : fullModular.Index := by sorry
@@ -2228,108 +2228,108 @@ theorem identityCoset_orbit (z : UpperHalfPlane) :
 def summand (j : fullModular.Index) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   rpowC (fullModular.orbit j z).im s
 
-def cosetSum := dit_57
+def cosetSum := nonholomorphic_eisenstein
 
 theorem primitivePairs (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    dit_57 z s = 1 / 2 * rpowC z.im s *
+    nonholomorphic_eisenstein z s = 1 / 2 * rpowC z.im s *
       ∑' p : {p : ℤ × ℤ // p.1.gcd p.2 = 1},
         rpowC ‖(p.val.1 : ℂ) * (z : ℂ) + p.val.2‖ (-2 * s) := by sorry
 
 theorem automorphy (gamma : UpperHalfPlane → UpperHalfPlane)
     (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
     (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    dit_57 (gamma z) s = dit_57 z s ∧ lap (fun w => dit_57 w s) z = s * (1 - s) * dit_57 z s := by sorry
+    nonholomorphic_eisenstein (gamma z) s = nonholomorphic_eisenstein z s ∧ lap (fun w => nonholomorphic_eisenstein w s) z = s * (1 - s) * nonholomorphic_eisenstein z s := by sorry
 
 theorem test1  :
-    Tendsto (fun y : ℝ => dit_57 (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
+    Tendsto (fun y : ℝ => nonholomorphic_eisenstein (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
 
--- Test: dit_57.test1
+-- Test: nonholomorphic_eisenstein.test1
 -- Along the imaginary axis E(iy,2)/y² tends to one as y tends to infinity, testing the actual Eisenstein leading constant term.
 example  :
-    Tendsto (fun y : ℝ => dit_57 (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
+    Tendsto (fun y : ℝ => nonholomorphic_eisenstein (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
 
 
 theorem test2 (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
     (∑' p : {p : ℤ × ℤ // p.1.gcd p.2 = 1},
-      rpowC z.im s * rpowC ‖(p.val.1 : ℂ) * (z : ℂ) + p.val.2‖ (-2 * s)) = 2 * dit_57 z s := by sorry
+      rpowC z.im s * rpowC ‖(p.val.1 : ℂ) * (z : ℂ) + p.val.2‖ (-2 * s)) = 2 * nonholomorphic_eisenstein z s := by sorry
 
--- Test: dit_57.test2
+-- Test: nonholomorphic_eisenstein.test2
 -- Summing primitive pairs without 1/2 doubles E.
 example (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
     (∑' p : {p : ℤ × ℤ // p.1.gcd p.2 = 1},
-      rpowC z.im s * rpowC ‖(p.val.1 : ℂ) * (z : ℂ) + p.val.2‖ (-2 * s)) = 2 * dit_57 z s := by sorry
+      rpowC z.im s * rpowC ‖(p.val.1 : ℂ) * (z : ℂ) + p.val.2‖ (-2 * s)) = 2 * nonholomorphic_eisenstein z s := by sorry
 
 
 /-- At s=1 the positive series diverges, before continuation. -/
 theorem test3 (z : UpperHalfPlane) :
     ¬ Summable (fun j : fullModular.Index => rpowC (fullModular.orbit j z).im 1) := by sorry
 
--- Test: dit_57.test3
+-- Test: nonholomorphic_eisenstein.test3
 -- The critical-line value requires continuation and cannot be obtained by declaring the initial series convergent there.
 example (z : UpperHalfPlane) :
     ¬ Summable (fun j : fullModular.Index => rpowC (fullModular.orbit j z).im 1) := by sorry
 
-end dit_57
+end nonholomorphic_eisenstein
 
 namespace eisenstein_series
 theorem sl2_positive (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    dit_57 z s = ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s := by sorry
+    nonholomorphic_eisenstein z s = ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s := by sorry
 
 -- Test: eisenstein_series.sl2_positive
 -- For Γ=SL₂(ℤ), the spherical section gives Σ_{Γ∞\Γ}Im(γz)^s for Re s>1, with λ=s−1/2.
 example (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    dit_57 z s = ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s := by sorry
+    nonholomorphic_eisenstein z s = ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s := by sorry
 
 end eisenstein_series
 
 def continuedE (z : UpperHalfPlane) (s : ℂ) : ℂ := by sorry
-def dit_58 (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+def completed_eisenstein (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   B.completedZeta (2 * s) * continuedE z s
 
 /-- Laurent coefficient helper, with a common-denominator germ supplied by AS.0. -/
 def scalarCoefficient (f : ℂ → ℂ) (z : ℂ) (n : ℤ) : ℂ := by sorry
 
-namespace dit_58
+namespace completed_eisenstein
 theorem completion (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) :
-    dit_58 B z s = B.completedZeta (2 * s) * continuedE z s := by sorry
+    completed_eisenstein B z s = B.completedZeta (2 * s) * continuedE z s := by sorry
 
 def constantTerm (B : SpecialFunctions) (y : ℝ) (s : ℂ) : ℂ :=
   B.completedZeta (2 * s) * rpowC y s + B.completedZeta (2 - 2 * s) * rpowC y (1 - s)
 
 theorem continuation (B : SpecialFunctions) (z : UpperHalfPlane) :
-    CommonDenominator Set.univ (dit_58 B z) ∧
-      ∀ s : ℂ, 1 < s.re → dit_58 B z s = B.completedZeta (2 * s) * dit_57 z s := by sorry
+    CommonDenominator Set.univ (completed_eisenstein B z) ∧
+      ∀ s : ℂ, 1 < s.re → completed_eisenstein B z s = B.completedZeta (2 * s) * nonholomorphic_eisenstein z s := by sorry
 
 theorem test1 (B : SpecialFunctions) (z : UpperHalfPlane) :
-    scalarCoefficient (dit_58 B z) 0 (-1) = -1 / 2 ∧ scalarCoefficient (dit_58 B z) 1 (-1) = 1 / 2 := by sorry
+    scalarCoefficient (completed_eisenstein B z) 0 (-1) = -1 / 2 ∧ scalarCoefficient (completed_eisenstein B z) 1 (-1) = 1 / 2 := by sorry
 
--- Test: dit_58.test1
+-- Test: completed_eisenstein.test1
 -- Residues at 0 and 1 are −1/2 and +1/2.
 example (B : SpecialFunctions) (z : UpperHalfPlane) :
-    scalarCoefficient (dit_58 B z) 0 (-1) = -1 / 2 ∧ scalarCoefficient (dit_58 B z) 1 (-1) = 1 / 2 := by sorry
+    scalarCoefficient (completed_eisenstein B z) 0 (-1) = -1 / 2 ∧ scalarCoefficient (completed_eisenstein B z) 1 (-1) = 1 / 2 := by sorry
 
 
 /-- The full family has a limit at the critical center, despite the two singular CT pieces. -/
 theorem test2 (B : SpecialFunctions) (z : UpperHalfPlane) :
-    ∃ L : ℂ, Tendsto (dit_58 B z) (𝓝[≠] (1 / 2)) (𝓝 L) := by sorry
+    ∃ L : ℂ, Tendsto (completed_eisenstein B z) (𝓝[≠] (1 / 2)) (𝓝 L) := by sorry
 
--- Test: dit_58.test2
+-- Test: completed_eisenstein.test2
 -- At critical t=0, cancellations between meromorphic pieces require a limit.
 example (B : SpecialFunctions) (z : UpperHalfPlane) :
-    ∃ L : ℂ, Tendsto (dit_58 B z) (𝓝[≠] (1 / 2)) (𝓝 L) := by sorry
+    ∃ L : ℂ, Tendsto (completed_eisenstein B z) (𝓝[≠] (1 / 2)) (𝓝 L) := by sorry
 
 
 theorem test3 (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ)
     (hs : B.completedZeta (2 * s) ≠ 0) :
-    dit_58 B z s / B.completedZeta (2 * s) = continuedE z s := by sorry
+    completed_eisenstein B z s / B.completedZeta (2 * s) = continuedE z s := by sorry
 
--- Test: dit_58.test3
+-- Test: completed_eisenstein.test3
 -- An uncompleted E period cannot be substituted into Theorem 3 without dividing by Λ(2 s).
 example (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ)
     (hs : B.completedZeta (2 * s) ≠ 0) :
-    dit_58 B z s / B.completedZeta (2 * s) = continuedE z s := by sorry
+    completed_eisenstein B z s / B.completedZeta (2 * s) = continuedE z s := by sorry
 
-end dit_58
+end completed_eisenstein
 
 /-- AS.1.15a: the Kloosterman sum `S(m, n; c) = Σ_{d ∈ (ℤ/cℤ)ˣ} e((m d + n d⁻¹)/c)`, as a sum over
 residues `0 ≤ d < c` prime to `c`; it is `0` for `c = 0`. -/
@@ -2382,14 +2382,14 @@ theorem laplacian_power (s : ℂ) (z : UpperHalfPlane) :
 
 end weight_laplacian
 
-def dit_88 (B : SpecialFunctions) (m n : ℤ) (s : ℂ) : ℂ :=
+def bessel_kloosterman_coefficient (B : SpecialFunctions) (m n : ℤ) (s : ℂ) : ℂ :=
   ∑' c : ℕ, if c = 0 then 0 else (c : ℂ)⁻¹ * kloosterman_sum m n c *
     (if m * n < 0 then B.besselI else B.besselJ)
       (2 * s - 1) (4 * Real.pi * Real.sqrt |(m * n : ℝ)| / c)
-namespace dit_88
+namespace bessel_kloosterman_coefficient
 def nonzeroCoefficient (B : SpecialFunctions)
     (m n : ℤ) (s : ℂ) : Option ℂ :=
-  if m = 0 ∨ n = 0 then none else some (dit_88 B m n s)
+  if m = 0 ∨ n = 0 then none else some (bessel_kloosterman_coefficient B m n s)
 
 def signBranch (B : SpecialFunctions) (m n : ℤ) := if m * n < 0 then B.besselI else B.besselJ
 
@@ -2400,65 +2400,65 @@ theorem initialConvergence (B : SpecialFunctions)
 
 theorem test1 (B : SpecialFunctions) : signBranch B 1 1 = B.besselJ := by sorry
 
--- Test: dit_88.test1
+-- Test: bessel_kloosterman_coefficient.test1
 -- m=n=1 uses J.
 example (B : SpecialFunctions) : signBranch B 1 1 = B.besselJ := by sorry
 
 
 theorem test2 (B : SpecialFunctions) : signBranch B (-1) 1 = B.besselI := by sorry
 
--- Test: dit_88.test2
+-- Test: bessel_kloosterman_coefficient.test2
 -- m=−1, n=1 uses I.
 example (B : SpecialFunctions) : signBranch B (-1) 1 = B.besselI := by sorry
 
 
 theorem test3 (B : SpecialFunctions) (s : ℂ) :
     nonzeroCoefficient B 1 0 s = none ∧
-      nonzeroCoefficient B 1 1 s = some (dit_88 B 1 1 s) := by sorry
+      nonzeroCoefficient B 1 1 s = some (bessel_kloosterman_coefficient B 1 1 s) := by sorry
 
--- Test: dit_88.test3
--- The guarded nonzero-frequency coefficient returns no value at index zero and the actual dit_88 coefficient at index one.
+-- Test: bessel_kloosterman_coefficient.test3
+-- The guarded nonzero-frequency coefficient returns no value at index zero and the actual bessel_kloosterman_coefficient coefficient at index one.
 example (B : SpecialFunctions) (s : ℂ) :
     nonzeroCoefficient B 1 0 s = none ∧
-      nonzeroCoefficient B 1 1 s = some (dit_88 B 1 1 s) := by sorry
+      nonzeroCoefficient B 1 1 s = some (bessel_kloosterman_coefficient B 1 1 s) := by sorry
 
-end dit_88
+end bessel_kloosterman_coefficient
 
 def poincareSeed (B : SpecialFunctions) (m : ℤ) (s : ℂ) (z : UpperHalfPlane) : ℂ :=
   (Real.sqrt z.im : ℂ) * B.besselI (s - 1 / 2) (2 * Real.pi * |(m : ℝ)| * z.im) *
     phase (m * z.re)
-def dit_89 (B : SpecialFunctions) (m : ℤ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
-  if m = 0 then dit_57 z s else ∑' j : fullModular.Index, poincareSeed B m s (fullModular.orbit j z)
+def poincare_family (B : SpecialFunctions) (m : ℤ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+  if m = 0 then nonholomorphic_eisenstein z s else ∑' j : fullModular.Index, poincareSeed B m s (fullModular.orbit j z)
 /-- For `n ∉ {0, m}` the `n`-th Fourier coefficient of `F_m(·, s)` at height `y` is
 `2 √y Φ(m, n; s) K_{s-1/2}(2π|n|y)`. -/
-theorem dit_88.resolventComparison (B : SpecialFunctions) (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0)
+theorem bessel_kloosterman_coefficient.resolventComparison (B : SpecialFunctions) (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0)
     (hnm : n ≠ m) (s : ℂ) (hs : 1 < s.re) (y : ℝ) (hy : 0 < y) :
-    ∫ x in (0 : ℝ)..1, dit_89 B m ⟨(x : ℂ) + (y : ℂ) * Complex.I, by sorry⟩ s *
+    ∫ x in (0 : ℝ)..1, poincare_family B m ⟨(x : ℂ) + (y : ℂ) * Complex.I, by sorry⟩ s *
         phase (-((n : ℝ) * x)) =
-      2 * Real.sqrt y * dit_88 B m n s *
+      2 * Real.sqrt y * bessel_kloosterman_coefficient B m n s *
         B.besselK (s - 1 / 2) (2 * Real.pi * |(n : ℝ)| * y) := by sorry
 
-namespace dit_89
+namespace poincare_family
 def seed := poincareSeed
 
 theorem automorphicSum (B : SpecialFunctions) (m : ℤ) (gamma : UpperHalfPlane → UpperHalfPlane)
-    (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) : dit_89 B m (gamma z) s = dit_89 B m z s := by sorry
+    (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) : poincare_family B m (gamma z) s = poincare_family B m z s := by sorry
 
 theorem resolventContinuation (B : SpecialFunctions) (m : ℤ) (z : UpperHalfPlane) :
-    ∃ F : ℂ → ℂ, CommonDenominator Set.univ F ∧ ∀ s, 1 < s.re → F s = dit_89 B m z s := by sorry
+    ∃ F : ℂ → ℂ, CommonDenominator Set.univ F ∧ ∀ s, 1 < s.re → F s = poincare_family B m z s := by sorry
 
-theorem test1 (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : dit_89 B 0 z s = dit_57 z s := by sorry
+theorem test1 (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : poincare_family B 0 z s = nonholomorphic_eisenstein z s := by sorry
 
--- Test: dit_89.test1
+-- Test: poincare_family.test1
 -- m=0 gives E by a separate definition.
-example (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : dit_89 B 0 z s = dit_57 z s := by sorry
+example (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) : poincare_family B 0 z s = nonholomorphic_eisenstein z s := by sorry
 
 
 theorem test2 (B : SpecialFunctions) (m : ℤ) (s : ℂ) (z : UpperHalfPlane) :
     poincareSeed B (-m) s z = (Real.sqrt z.im : ℂ) *
       B.besselI (s - 1 / 2) (2 * Real.pi * |(m : ℝ)| * z.im) * phase (-m * z.re) := by sorry
 
--- Test: dit_89.test2
+-- Test: poincare_family.test2
 -- The absolute value of m occurs in the Bessel argument but not in the phase.
 example (B : SpecialFunctions) (m : ℤ) (s : ℂ) (z : UpperHalfPlane) :
     poincareSeed B (-m) s z = (Real.sqrt z.im : ℂ) *
@@ -2475,7 +2475,7 @@ theorem test3 (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (s : ℝ) (hs : 1 
       ‖poincareSeed B m s ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩‖ ^ 2 / y ^ 2)
       (Set.Ioi 1) := by sorry
 
--- Test: dit_89.test3
+-- Test: poincare_family.test3
 -- Under the standard large-argument I-Bessel asymptotic, the actual nonzero Poincaré seed has nonintegrable squared norm on the cusp for real s>1; it cannot be inserted directly as an L² vector.
 example (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (s : ℝ) (hs : 1 < s)
     (hAsymptotic : Tendsto
@@ -2487,26 +2487,26 @@ example (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (s : ℝ) (hs : 1 < s)
       ‖poincareSeed B m s ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩‖ ^ 2 / y ^ 2)
       (Set.Ioi 1) := by sorry
 
-end dit_89
+end poincare_family
 
-theorem dit_90 (B : SpecialFunctions) (m : ℤ) (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
+theorem poincare_eigenfunction (B : SpecialFunctions) (m : ℤ) (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
     (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    lap (fun w => dit_89 B m w s) z = s * (1 - s) * dit_89 B m z s := by sorry
+    lap (fun w => poincare_family B m w s) z = s * (1 - s) * poincare_family B m z s := by sorry
 
-def dit_105 (m : ℤ) (phi : ℝ → ℂ) (z : UpperHalfPlane) : ℂ :=
+def poincare_one_form (m : ℤ) (phi : ℝ → ℂ) (z : UpperHalfPlane) : ℂ :=
   ∑' j : fullModular.Index, phase (m * (fullModular.orbit j z).re) *
     phi (fullModular.orbit j z).im * fullModular.derivative j z
-namespace dit_105
+namespace poincare_one_form
 def inversion (z : UpperHalfPlane) : UpperHalfPlane := ⟨-(z : ℂ)⁻¹, by sorry⟩
 def cyclePullback (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
-    (dc : ℝ → ℂ) (t : ℝ) : ℂ := dit_105 m phi (c t) * dc t
+    (dc : ℝ → ℂ) (t : ℝ) : ℂ := poincare_one_form m phi (c t) * dc t
 def oscillatingSeed (y : ℝ) : ℂ := y ^ 2 * Real.sin (Real.exp y⁻¹)
 
-def oneFormSum := dit_105
+def oneFormSum := poincare_one_form
 
 theorem weightTwo (m : ℤ) (phi : ℝ → ℂ) (gamma : UpperHalfPlane → UpperHalfPlane)
     (gammaDerivative : UpperHalfPlane → ℂ) (z : UpperHalfPlane) :
-    dit_105 m phi (gamma z) * gammaDerivative z = dit_105 m phi z := by sorry
+    poincare_one_form m phi (gamma z) * gammaDerivative z = poincare_one_form m phi z := by sorry
 
 def parameterBounds (phi : ℝ → ℂ) (eps : ℝ) : Prop :=
   ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖phi y‖ ≤ C * y ^ eps
@@ -2515,15 +2515,15 @@ theorem test1 (m : ℤ) (phi : ℝ → ℂ)
     (hphi : ContDiffOn ℝ ⊤ phi (Set.Ioi 0))
     (hSupport : ∃ a b : ℝ, 0 < a ∧ Function.support phi ⊆ Set.Icc a b)
     (z : UpperHalfPlane) :
-    dit_105 m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = dit_105 m phi z := by sorry
+    poincare_one_form m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = poincare_one_form m phi z := by sorry
 
--- Test: dit_105.test1
+-- Test: poincare_one_form.test1
 -- For a smooth compactly supported seed, inversion transforms the actual Poincaré coefficient with derivative z^(−2), as required for the descended weight-two one-form.
 example (m : ℤ) (phi : ℝ → ℂ)
     (hphi : ContDiffOn ℝ ⊤ phi (Set.Ioi 0))
     (hSupport : ∃ a b : ℝ, 0 < a ∧ Function.support phi ⊆ Set.Icc a b)
     (z : UpperHalfPlane) :
-    dit_105 m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = dit_105 m phi z := by sorry
+    poincare_one_form m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = poincare_one_form m phi z := by sorry
 
 
 theorem test2 (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
@@ -2531,8 +2531,8 @@ theorem test2 (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
     (∫ t in b..a, cyclePullback m phi c dc t) =
       -(∫ t in a..b, cyclePullback m phi c dc t) := by sorry
 
--- Test: dit_105.test2
--- Reversing the interval orientation negates the integral of the actual dit_105 one-form pulled back along a parametrized cycle.
+-- Test: poincare_one_form.test2
+-- Reversing the interval orientation negates the integral of the actual poincare_one_form one-form pulled back along a parametrized cycle.
 example (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
     (dc : ℝ → ℂ) (a b : ℝ) :
     (∫ t in b..a, cyclePullback m phi c dc t) =
@@ -2543,58 +2543,58 @@ theorem test3  : ContDiffOn ℝ ⊤ oscillatingSeed (Set.Ioi 0) ∧
     parameterBounds oscillatingSeed 2 ∧
     ¬ ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖deriv oscillatingSeed y‖ ≤ C := by sorry
 
--- Test: dit_105.test3
+-- Test: poincare_one_form.test3
 -- The smooth positive-axis seed y² sin(exp(1/y)) satisfies the named value-bound condition of order two (hence the small-y value condition with ε = 1), while its derivative has no uniform bound near zero; a value bound does not imply the derivative majorant.
 example  : ContDiffOn ℝ ⊤ oscillatingSeed (Set.Ioi 0) ∧
     parameterBounds oscillatingSeed 2 ∧
     ¬ ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖deriv oscillatingSeed y‖ ≤ C := by sorry
 
-end dit_105
+end poincare_one_form
 
-theorem dit_110 (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (z : UpperHalfPlane)
+theorem whittaker_seed_derivative (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (z : UpperHalfPlane)
     (s : ℂ) (hs : 1 < s.re) (dz : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ) :
-    -2 * Complex.I * dz (fun w => dit_89 B m w s) z =
-      dit_105 m (fun y => -s * rpowC |(m : ℝ)| (-1 / 2) / (2 * Real.pi * y) *
+    -2 * Complex.I * dz (fun w => poincare_family B m w s) z =
+      poincare_one_form m (fun y => -s * rpowC |(m : ℝ)| (-1 / 2) / (2 * Real.pi * y) *
         Complex.Gamma s / Complex.Gamma (2 * s) *
-          dit_112 (if 0 < m then 1 else -1) (s - 1 / 2) (4 * Real.pi * |(m : ℝ)| * y)) z := by sorry
+          whittaker_m (if 0 < m then 1 else -1) (s - 1 / 2) (4 * Real.pi * |(m : ℝ)| * y)) z := by sorry
 
 def divisorSigma (s : ℂ) (n : ℕ) : ℂ := ∑ d ∈ n.divisors, rpowC d s
 
-theorem dit_fourier_expansion_weight0_poincare (B : SpecialFunctions)
+theorem poincare_fourier_expansion (B : SpecialFunctions)
     (m : ℤ) (hm : m ≠ 0) (z : UpperHalfPlane)
     (s : ℂ) (hs : 1 < s.re) :
-    dit_89 B m z s = poincareSeed B m s z +
+    poincare_family B m z s = poincareSeed B m s z +
       2 * rpowC |(m : ℝ)| (1 / 2 - s) * divisorSigma (2 * s - 1) m.natAbs /
         ((2 * s - 1) * B.completedZeta (2 * s)) * rpowC z.im (1 - s) +
-      2 * Real.sqrt z.im * ∑' n : ℤ, if n = 0 then 0 else dit_88 B m n s *
+      2 * Real.sqrt z.im * ∑' n : ℤ, if n = 0 then 0 else bessel_kloosterman_coefficient B m n s *
         B.besselK (s - 1 / 2) (2 * Real.pi * |(n : ℝ)| * z.im) * phase (n * z.re) := by sorry
 
 /-- AS.1.22: the cusp-∞ Eisenstein series of level `N`, `Σ_{γ ∈ Γ∞\Γ₀(N)} Im(γz)^s`,
 for `Re s > 1`. -/
-def gz_69 (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+def level_eisenstein (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' j : (levelModular N).Index, rpowC ((levelModular N).orbit j z).im s
-namespace gz_69
-/-- The meromorphic continuation of `gz_69 N z` in `s`. -/
+namespace level_eisenstein
+/-- The meromorphic continuation of `level_eisenstein N z` in `s`. -/
 def continued (N : ℕ) [NeZero N] (z : UpperHalfPlane) : ℂ → ℂ := by sorry
 
 theorem continued_eq (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    continued N z s = gz_69 N z s := by sorry
+    continued N z s = level_eisenstein N z s := by sorry
 
 def unrestrictedPairs (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' p : ℤ × ℤ, if p = (0, 0) then 0 else
     rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s)
 
 theorem coprime_pairs (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 N z s = 1 / 2 * ∑' p : ℤ × ℤ,
+    level_eisenstein N z s = 1 / 2 * ∑' p : ℤ × ℤ,
       if Int.gcd p.1 p.2 = 1 ∧ (N : ℤ) ∣ p.1 then
         rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0 := by sorry
 
 theorem coset_sum (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 N z s = ∑' j : (levelModular N).Index,
+    level_eisenstein N z s = ∑' j : (levelModular N).Index,
       rpowC ((levelModular N).orbit j z).im s := by sorry
 
 theorem level_one (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 1 z s = dit_57 z s := by sorry
+    level_eisenstein 1 z s = nonholomorphic_eisenstein z s := by sorry
 
 -- Test: level one gives E, with residue 3/π at s = 1.
 theorem level_one_test (z : UpperHalfPlane) :
@@ -2606,35 +2606,35 @@ theorem prime_level (p : ℕ) [NeZero p] (hp : p.Prime) (z : UpperHalfPlane) :
 
 -- Test: the unrestricted integer-pair sum at s = 2 is 2ζ(4) times the coset series.
 theorem nonprimitive (z : UpperHalfPlane) :
-    unrestrictedPairs z 2 = (2 * riemannZeta 4) * dit_57 z 2 ∧
-      unrestrictedPairs z 2 ≠ dit_57 z 2 := by sorry
+    unrestrictedPairs z 2 = (2 * riemannZeta 4) * nonholomorphic_eisenstein z 2 ∧
+      unrestrictedPairs z 2 ≠ nonholomorphic_eisenstein z 2 := by sorry
 
-end gz_69
+end level_eisenstein
 
 /-- Positive dilation `z ↦ a z` of the upper half-plane. -/
 def positiveDilation (a : ℝ) (ha : 0 < a) (z : UpperHalfPlane) : UpperHalfPlane :=
   ⟨a * (z : ℂ), by sorry⟩
 
 /-- AS.1.23: `E_N` through the level-one series and Möbius inversion. -/
-theorem gz_70 (N : ℕ) [NeZero N] (hN : 1 ≤ N)
+theorem level_eisenstein_mobius (N : ℕ) [NeZero N] (hN : 1 ≤ N)
     (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 N z s = rpowC N (-s) *
+    level_eisenstein N z s = rpowC N (-s) *
       (∏ p ∈ N.primeFactors, (1 - rpowC p (-2 * s)))⁻¹ *
       ∑ d : N.divisors, (ArithmeticFunction.moebius d.val : ℂ) * rpowC d.val (-s) *
-        dit_57 (positiveDilation ((N : ℝ) / d.val) (by sorry) z) s := by sorry
+        nonholomorphic_eisenstein (positiveDilation ((N : ℝ) / d.val) (by sorry) z) s := by sorry
 
 /-- Unrestricted odd-weight character-pair series; primitive Dirichlet characters and
 fundamental discriminants are imported. -/
-def gz_192 (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+def genus_eisenstein (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   1 / 2 * ∑' p : ℤ × ℤ, if D2 ∣ p.1 then
     eps1 p.1 * eps2 p.2 * ((p.1 : ℂ) * (z : ℂ) + p.2) ^ (-(2 * k - 1 : ℤ)) *
       rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0
 
-def gz_179 (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+def character_eisenstein (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   1 / 2 * ∑' p : ℤ × ℤ, if (N * delta : ℤ) ∣ p.1 ∧ p.2.gcd (N * delta) = 1 then
     eps p.2 * ((p.1 : ℂ) * (z : ℂ) + p.2) ^ (-(2 * k - 1 : ℤ)) *
       rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0
-namespace gz_179
+namespace character_eisenstein
 def latticeTerm (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane)
     (s : ℂ) (p : ℤ × ℤ) : ℂ :=
   if (N * delta : ℤ) ∣ p.1 ∧ p.2.gcd (N * delta) = 1 then
@@ -2644,52 +2644,52 @@ def latticeTerm (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane)
 
 theorem primitive_to_full (primitive : UpperHalfPlane → ℂ → ℂ)
     (Laway : ℂ → ℂ) (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_179 N delta k eps z s = Laway (2 * s + 2 * k - 1) * primitive z s := by sorry
+    character_eisenstein N delta k eps z s = Laway (2 * s + 2 * k - 1) * primitive z s := by sorry
 
 theorem automorphy (N delta k : ℕ) (eps : ℤ → ℂ)
     (gamma : UpperHalfPlane → UpperHalfPlane) (c d : ℤ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_179 N delta k eps (gamma z) s = eps d * ((c : ℂ) * (z : ℂ) + d) ^ (2 * k - 1) *
-      gz_179 N delta k eps z s := by sorry
+    character_eisenstein N delta k eps (gamma z) s = eps d * ((c : ℂ) * (z : ℂ) + d) ^ (2 * k - 1) *
+      character_eisenstein N delta k eps z s := by sorry
 
 theorem n_one (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_179 1 delta k eps z s = gz_192 delta (fun _ => 1) eps k z s := by sorry
+    character_eisenstein 1 delta k eps z s = genus_eisenstein delta (fun _ => 1) eps k z s := by sorry
 
 theorem sign_pair (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
     (hOdd : ∀ n, eps (-n) = -eps n) (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
     latticeTerm N delta k eps z s (-p.1, -p.2) = latticeTerm N delta k eps z s p ∧
-      gz_179 N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
+      character_eisenstein N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
 
--- Test: gz_179.sign_pair
--- With an odd character, negating both lattice indices leaves the actual gz_179 summand unchanged; the half-sum equals the series constructor.
+-- Test: character_eisenstein.sign_pair
+-- With an odd character, negating both lattice indices leaves the actual character_eisenstein summand unchanged; the half-sum equals the series constructor.
 example (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
     (hOdd : ∀ n, eps (-n) = -eps n) (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
     latticeTerm N delta k eps z s (-p.1, -p.2) = latticeTerm N delta k eps z s p ∧
-      gz_179 N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
+      character_eisenstein N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
 
 
 theorem n_one_test (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_179 1 delta k eps z s = gz_192 delta (fun _ => 1) eps k z s := by sorry
+    character_eisenstein 1 delta k eps z s = genus_eisenstein delta (fun _ => 1) eps k z s := by sorry
 
--- Test: gz_179.n_one_test
+-- Test: character_eisenstein.n_one_test
 -- N=1 gives levelδ.
 example (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_179 1 delta k eps z s = gz_192 delta (fun _ => 1) eps k z s := by sorry
+    character_eisenstein 1 delta k eps z s = genus_eisenstein delta (fun _ => 1) eps k z s := by sorry
 
 
 theorem wrong_parity (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
     (hEven : ∀ n, eps (-n) = eps n) (z : UpperHalfPlane) (s : ℂ)
     (hSum : Summable (latticeTerm N delta k eps z s)) :
-    gz_179 N delta k eps z s = 0 := by sorry
+    character_eisenstein N delta k eps z s = 0 := by sorry
 
--- Test: gz_179.wrong_parity
--- With an even character and an absolutely summable odd-weight lattice family, the actual gz_179 series vanishes by cancellation of opposite indices.
+-- Test: character_eisenstein.wrong_parity
+-- With an even character and an absolutely summable odd-weight lattice family, the actual character_eisenstein series vanishes by cancellation of opposite indices.
 example (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
     (hEven : ∀ n, eps (-n) = eps n) (z : UpperHalfPlane) (s : ℂ)
     (hSum : Summable (latticeTerm N delta k eps z s)) :
-    gz_179 N delta k eps z s = 0 := by sorry
+    character_eisenstein N delta k eps z s = 0 := by sorry
 
-end gz_179
-namespace gz_192
+end character_eisenstein
+namespace genus_eisenstein
 def latticeTerm (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ)
     (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) : ℂ :=
   if D2 ∣ p.1 then eps1 p.1 * eps2 p.2 *
@@ -2701,74 +2701,74 @@ def guardedPairSeries (D1 D2 : ℤ) (eps1 eps2 : ℤ → ℂ)
   classical
   exact if TauCeti.Multiquadratic.IsFundamentalDiscriminant D1 ∧
       TauCeti.Multiquadratic.IsFundamentalDiscriminant D2 then
-    some (gz_192 D2 eps1 eps2 k z s) else none
+    some (genus_eisenstein D2 eps1 eps2 k z s) else none
 
 
-def pair_sum := gz_192
+def pair_sum := genus_eisenstein
 
 theorem d1_one (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_192 delta (fun _ => 1) eps k z s = gz_179 1 delta k eps z s := by sorry
+    genus_eisenstein delta (fun _ => 1) eps k z s = character_eisenstein 1 delta k eps z s := by sorry
 
 theorem automorphy (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ)
     (gamma : UpperHalfPlane → UpperHalfPlane) (c d : ℤ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_192 D2 eps1 eps2 k (gamma z) s = eps1 d * eps2 d *
-      ((c : ℂ) * (z : ℂ) + d) ^ (2 * k - 1) * gz_192 D2 eps1 eps2 k z s := by sorry
+    genus_eisenstein D2 eps1 eps2 k (gamma z) s = eps1 d * eps2 d *
+      ((c : ℂ) * (z : ℂ) + d) ^ (2 * k - 1) * genus_eisenstein D2 eps1 eps2 k z s := by sorry
 
 theorem d1_one_test (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_192 delta (fun _ => 1) eps k z s = gz_179 1 delta k eps z s := by sorry
+    genus_eisenstein delta (fun _ => 1) eps k z s = character_eisenstein 1 delta k eps z s := by sorry
 
--- Test: gz_192.d1_one_test
+-- Test: genus_eisenstein.d1_one_test
 -- D₁=1 gives the levelδ series.
 example (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
-    gz_192 delta (fun _ => 1) eps k z s = gz_179 1 delta k eps z s := by sorry
+    genus_eisenstein delta (fun _ => 1) eps k z s = character_eisenstein 1 delta k eps z s := by sorry
 
 
 theorem odd_product (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (hk : 1 ≤ k)
     (hParity : ∀ m n, eps1 (-m) * eps2 (-n) = -(eps1 m * eps2 n))
     (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
     latticeTerm D2 eps1 eps2 k z s (-p.1, -p.2) = latticeTerm D2 eps1 eps2 k z s p ∧
-      gz_192 D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
+      genus_eisenstein D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
 
--- Test: gz_192.odd_product
--- When the product of the two character parities is odd, simultaneous sign reversal preserves the actual two-character lattice summand and its half-sum is gz_192.
+-- Test: genus_eisenstein.odd_product
+-- When the product of the two character parities is odd, simultaneous sign reversal preserves the actual two-character lattice summand and its half-sum is genus_eisenstein.
 example (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (hk : 1 ≤ k)
     (hParity : ∀ m n, eps1 (-m) * eps2 (-n) = -(eps1 m * eps2 n))
     (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
     latticeTerm D2 eps1 eps2 k z s (-p.1, -p.2) = latticeTerm D2 eps1 eps2 k z s p ∧
-      gz_192 D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
+      genus_eisenstein D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
 
 
 theorem nonfundamental (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) :
-    guardedPairSeries 12 1 eps1 eps2 k z s = some (gz_192 1 eps1 eps2 k z s) ∧
+    guardedPairSeries 12 1 eps1 eps2 k z s = some (genus_eisenstein 1 eps1 eps2 k z s) ∧
       guardedPairSeries 16 1 eps1 eps2 k z s = none := by sorry
 
--- Test: gz_192.nonfundamental
+-- Test: genus_eisenstein.nonfundamental
 -- The constructor guard using the upstream fundamental-discriminant criterion accepts 12 and rejects 16. The raw analytic lattice sum alone does not construct primitive arithmetic characters.
 example (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) :
-    guardedPairSeries 12 1 eps1 eps2 k z s = some (gz_192 1 eps1 eps2 k z s) ∧
+    guardedPairSeries 12 1 eps1 eps2 k z s = some (genus_eisenstein 1 eps1 eps2 k z s) ∧
       guardedPairSeries 16 1 eps1 eps2 k z s = none := by sorry
 
-end gz_192
+end genus_eisenstein
 
-theorem gz_208 (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re)
+theorem lipschitz_poisson_identity (k : ℕ) (hk : 1 ≤ k) (s : ℂ) (hs : 1 - (k : ℝ) < s.re)
     (x y : ℝ) (hy : 0 < y) :
     (∑' l : ℤ, (((x : ℂ) + y * Complex.I + l) ^ (2 * k - 1) *
       rpowC ‖(x : ℂ) + y * Complex.I + l‖ (2 * s))⁻¹) =
-      rpowC y (-2 * s - 2 * k + 2) * ∑' r : ℤ, gz_207 k s (r * y) * phase (r * x) := by sorry
+      rpowC y (-2 * s - 2 * k + 2) * ∑' r : ℤ, archimedean_v_integral k s (r * y) * phase (r * x) := by sorry
 
-theorem gz_209 (D1 D2 : ℤ) (delta2 k : ℕ) (eps1 eps2 : ℤ → ℂ)
+theorem genus_eisenstein_fourier (D1 D2 : ℤ) (delta2 k : ℕ) (eps1 eps2 : ℤ → ℂ)
     (kappa : ℤ → ℂ) (n : ℤ) (hn : n ≠ 0) (y : ℝ) (hy : 0 < y) (s : ℂ)
     (fourierCoefficient : ℤ → ℝ → ℂ → ℂ) :
     fourierCoefficient n y s = eps1 delta2 * kappa D2 / rpowC delta2 (2 * s + 2 * k - 3 / 2) *
       (∑ m ∈ n.natAbs.divisors, eps1 m * eps2 (n / m) * rpowC m (-2 * s - 2 * k + 2)) *
       rpowC y (-s - 2 * k + 2) * continuedV k s (n * y) := by sorry
 
-theorem gz_241 (s : ℝ) (hs : 1 < s) : ∃ C Y : ℝ, ∀ z : UpperHalfPlane,
-    Y ≤ z.im → ‖dit_57 z s - rpowC z.im s‖ ≤ C * z.im ^ (1 - s) := by sorry
+theorem eisenstein_growth (s : ℝ) (hs : 1 < s) : ∃ C Y : ℝ, ∀ z : UpperHalfPlane,
+    Y ≤ z.im → ‖nonholomorphic_eisenstein z s - rpowC z.im s‖ ≤ C * z.im ^ (1 - s) := by sorry
 
-theorem gz_265 (B : SpecialFunctions) (zeta : ℂ → ℂ) (z : UpperHalfPlane)
+theorem eisenstein_fourier_weight_two (B : SpecialFunctions) (zeta : ℂ → ℂ) (z : UpperHalfPlane)
     (s : ℂ) (hs : 1 < s.re) :
-    dit_57 z s = rpowC z.im s + (Real.sqrt Real.pi : ℂ) * Complex.Gamma (s - 1 / 2) *
+    nonholomorphic_eisenstein z s = rpowC z.im s + (Real.sqrt Real.pi : ℂ) * Complex.Gamma (s - 1 / 2) *
       zeta (2 * s - 1) / (Complex.Gamma s * zeta (2 * s)) * rpowC z.im (1 - s) +
       2 * rpowC Real.pi s * Real.sqrt z.im / (Complex.Gamma s * zeta (2 * s)) *
       ∑' m : ℤ, if m = 0 then 0 else rpowC |(m : ℝ)| (1 / 2 - s) *
@@ -3078,49 +3078,49 @@ structure RegularFunctionFieldFamily (P : Type*) (H : Type u)
   cocycle : ∀ S Q P z, (map S Q z).toContinuousLinearMap.comp
     (map Q P z).toContinuousLinearMap = (map S P z).toContinuousLinearMap
 
-def yu_061 {P : Type*} (D : RegularFunctionFieldFamily P H)
+def operator_intertwiner_family {P : Type*} (D : RegularFunctionFieldFamily P H)
     (Q P : P) (z : ℂˣ) : Operator H := (D.map Q P z).toContinuousLinearMap
-namespace yu_061
+namespace operator_intertwiner_family
 
-def integralIntertwiner {P : Type*} (D : RegularFunctionFieldFamily P H) := yu_061 D
+def integralIntertwiner {P : Type*} (D : RegularFunctionFieldFamily P H) := operator_intertwiner_family D
 
 theorem continueOperator {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
-    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
+    (operator_intertwiner_family D S Q z).comp (operator_intertwiner_family D Q P z) = operator_intertwiner_family D S P z := by sorry
 
 def ratioFamily {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P)
     (z mu : ℂˣ) : Operator H :=
-  (D.map Q P z).symm.toContinuousLinearMap.comp (yu_061 D Q P (z / mu))
+  (D.map Q P z).symm.toContinuousLinearMap.comp (operator_intertwiner_family D Q P (z / mu))
 
 theorem test1 {P : Type*} (D : RegularFunctionFieldFamily P H) (P : P) (z : ℂˣ) :
-    yu_061 D P P z = ContinuousLinearMap.id ℂ H := by sorry
+    operator_intertwiner_family D P P z = ContinuousLinearMap.id ℂ H := by sorry
 
--- Test: yu_061.test1
+-- Test: operator_intertwiner_family.test1
 -- The actual regular-point family constructor on a same-parabolic input is the identity, using its typed identity data.
 example {P : Type*} (D : RegularFunctionFieldFamily P H) (P : P) (z : ℂˣ) :
-    yu_061 D P P z = ContinuousLinearMap.id ℂ H := by sorry
+    operator_intertwiner_family D P P z = ContinuousLinearMap.id ℂ H := by sorry
 
 
 theorem test2 {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P) (z : ℂˣ) :
     ratioFamily D Q P z 1 = ContinuousLinearMap.id ℂ H := by sorry
 
--- Test: yu_061.test2
--- The ratio family built from the inverse regular intertwiner and yu_061 at λ/μ gives the identity at μ=1.
+-- Test: operator_intertwiner_family.test2
+-- The ratio family built from the inverse regular intertwiner and operator_intertwiner_family at λ/μ gives the identity at μ=1.
 example {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P) (z : ℂˣ) :
     ratioFamily D Q P z 1 = ContinuousLinearMap.id ℂ H := by sorry
 
 
 theorem test3 {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
-    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
+    (operator_intertwiner_family D S Q z).comp (operator_intertwiner_family D Q P z) = operator_intertwiner_family D S P z := by sorry
 
--- Test: yu_061.test3
+-- Test: operator_intertwiner_family.test3
 -- Composition of two members of the typed regular family agrees with its composed member. The source integral, continuation and Weyl transport must supply the identity/cocycle data.
 example {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
-    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
+    (operator_intertwiner_family D S Q z).comp (operator_intertwiner_family D Q P z) = operator_intertwiner_family D S P z := by sorry
 
-end yu_061
+end operator_intertwiner_family
 
 /-- The global q^(1−g)n_i n_j Haar factor is retained explicitly. -/
-theorem yu_066 {I : Type*} [Fintype I] (M : Operator H) (v : H)
+theorem spherical_scalar_intertwiner {I : Type*} [Fintype I] (M : Operator H) (v : H)
     (rootScalar : I → ℂ) (q : ℝ) (g ni nj : ℕ) (hq : 1 < q) :
     M v = (rpowC q ((1 - (g : ℂ)) * ni * nj) * ∏ i, rootScalar i) • v := by sorry
 end Intertwiners
@@ -3129,24 +3129,24 @@ end TauCeti.AutomorphicSpectral
 namespace TauCeti.AutomorphicSpectral
 universe u v w
 
-theorem dit_59 (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    dit_58 B z s = dit_58.constantTerm B z.im s + 2 * Real.sqrt z.im *
+theorem completed_eisenstein_fourier (B : SpecialFunctions) (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
+    completed_eisenstein B z s = completed_eisenstein.constantTerm B z.im s + 2 * Real.sqrt z.im *
       ∑' n : ℤ, if n = 0 then 0 else rpowC |(n : ℝ)| (s - 1 / 2) *
         divisorSigma (1 - 2 * s) n.natAbs * B.besselK (s - 1 / 2)
           (2 * Real.pi * |(n : ℝ)| * z.im) * phase (n * z.re) := by sorry
 
-theorem dit_60 (B : SpecialFunctions) (z : UpperHalfPlane) :
-    CommonDenominator Set.univ (dit_58 B z) ∧
-      (∀ s : ℂ, dit_58 B z s = dit_58 B z (1 - s)) ∧
-      scalarCoefficient (dit_58 B z) 0 (-1) = -1 / 2 ∧
-        scalarCoefficient (dit_58 B z) 1 (-1) = 1 / 2 := by sorry
+theorem completed_eisenstein_continuation (B : SpecialFunctions) (z : UpperHalfPlane) :
+    CommonDenominator Set.univ (completed_eisenstein B z) ∧
+      (∀ s : ℂ, completed_eisenstein B z s = completed_eisenstein B z (1 - s)) ∧
+      scalarCoefficient (completed_eisenstein B z) 0 (-1) = -1 / 2 ∧
+        scalarCoefficient (completed_eisenstein B z) 1 (-1) = 1 / 2 := by sorry
 
 section ModularResolvent
 variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
 /-- Partial-domain inverse of the imported positive modular Laplacian. -/
-def dit_91 (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ) : Operator H :=
+def resolvent_kernel (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ) : Operator H :=
   -TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H) (s * (1 - s))
-namespace dit_91
+namespace resolvent_kernel
 def scalarLaplacian (eigenvalue : ℂ) : (⊤ : Submodule ℂ ℂ) →ₗ[ℂ] ℂ :=
   eigenvalue • (⊤ : Submodule ℂ ℂ).subtype
 
@@ -3154,8 +3154,8 @@ def scalarLaplacian (eigenvalue : ℂ) : (⊤ : Submodule ℂ ℂ) →ₗ[ℂ] �
 omit [CompleteSpace H] in
 theorem inverseEquation (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ)
     (hOff : s * (1 - s) ∈ TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H)) :
-    ∀ v : H, ∃ hD : dit_91 D lap s v ∈ D,
-      lap ⟨dit_91 D lap s v, hD⟩ - (s * (1 - s)) • dit_91 D lap s v = v := by
+    ∀ v : H, ∃ hD : resolvent_kernel D lap s v ∈ D,
+      lap ⟨resolvent_kernel D lap s v, hD⟩ - (s * (1 - s)) • resolvent_kernel D lap s v = v := by
   intro v
   have hv := TauCeti.LinearPMap.resolvent_mem_domain hOff v
   refine ⟨D.neg_mem hv, ?_⟩
@@ -3177,7 +3177,7 @@ theorem operatorAdjoint (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
     (hOff : s * (1 - s) ∈ TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H))
     (hOffStar : (star s) * (1 - star s) ∈
       TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H)) :
-    (dit_91 D lap s).adjoint = dit_91 D lap (star s) := by
+    (resolvent_kernel D lap s).adjoint = resolvent_kernel D lap (star s) := by
   ext x
   apply ext_inner_left ℂ
   intro y
@@ -3185,20 +3185,20 @@ theorem operatorAdjoint (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
   obtain ⟨hu, hy⟩ := inverseEquation D lap s hOff y
   obtain ⟨hv, hx⟩ := inverseEquation D lap (star s) hOffStar x
   have hSym := hSelf.isFormalAdjoint
-    ⟨dit_91 D lap s y, hu⟩ ⟨dit_91 D lap (star s) x, hv⟩
-  change inner ℂ (lap ⟨dit_91 D lap s y, hu⟩) (dit_91 D lap (star s) x) =
-    inner ℂ (dit_91 D lap s y) (lap ⟨dit_91 D lap (star s) x, hv⟩) at hSym
+    ⟨resolvent_kernel D lap s y, hu⟩ ⟨resolvent_kernel D lap (star s) x, hv⟩
+  change inner ℂ (lap ⟨resolvent_kernel D lap s y, hu⟩) (resolvent_kernel D lap (star s) x) =
+    inner ℂ (resolvent_kernel D lap s y) (lap ⟨resolvent_kernel D lap (star s) x, hv⟩) at hSym
   calc
-    inner ℂ (dit_91 D lap s y) x =
-        inner ℂ (dit_91 D lap s y)
-          (lap ⟨dit_91 D lap (star s) x, hv⟩ -
-            ((star s) * (1 - star s)) • dit_91 D lap (star s) x) := by rw [hx]
-    _ = inner ℂ (lap ⟨dit_91 D lap s y, hu⟩ -
-          (s * (1 - s)) • dit_91 D lap s y) (dit_91 D lap (star s) x) := by
+    inner ℂ (resolvent_kernel D lap s y) x =
+        inner ℂ (resolvent_kernel D lap s y)
+          (lap ⟨resolvent_kernel D lap (star s) x, hv⟩ -
+            ((star s) * (1 - star s)) • resolvent_kernel D lap (star s) x) := by rw [hx]
+    _ = inner ℂ (lap ⟨resolvent_kernel D lap s y, hu⟩ -
+          (s * (1 - s)) • resolvent_kernel D lap s y) (resolvent_kernel D lap (star s) x) := by
       simp only [inner_sub_right, inner_sub_left, inner_smul_right,
         inner_smul_left, starRingEnd_apply, star_mul, star_sub, star_one, hSym]
       ring
-    _ = inner ℂ y (dit_91 D lap (star s) x) := by rw [hy]
+    _ = inner ℂ y (resolvent_kernel D lap (star s) x) := by rw [hy]
 
 omit [CompleteSpace H] in
 /-- A specified closed reducing complement C has its own partial Laplacian lapC. No arbitrary projection implies that fact. The extension at s0 is this complement inverse, not a totalized full resolvent
@@ -3209,7 +3209,7 @@ theorem restrictedResolvent (C : Submodule ℂ H) [CompleteSpace C]
     (DC : Submodule ℂ C) (lapC : DC →ₗ[ℂ] C) (s₀ : ℂ)
     (hOff : s₀ * (1 - s₀) ∈
       TauCeti.LinearPMap.resolventSet (⟨DC, lapC⟩ : C →ₗ.[ℂ] C)) :
-    ∃ r : ℝ, 0 < r ∧ AnalyticOnNhd ℂ (dit_91 DC lapC) (Metric.ball s₀ r) := by
+    ∃ r : ℝ, 0 < r ∧ AnalyticOnNhd ℂ (resolvent_kernel DC lapC) (Metric.ball s₀ r) := by
   have hPoly : Continuous (fun s : ℂ => s * (1 - s)) := by fun_prop
   have hOpen := (TauCeti.LinearPMap.isOpen_resolventSet
     (⟨DC, lapC⟩ : C →ₗ.[ℂ] C)).preimage hPoly
@@ -3222,12 +3222,12 @@ theorem restrictedResolvent (C : Submodule ℂ H) [CompleteSpace C]
       (f := fun s : ℂ => s * (1 - s)) hParameter).neg
 
 theorem test1 (s : ℂ) (hs : s ≠ 0) (hs' : s ≠ 1) :
-    dit_91 ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
+    resolvent_kernel ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
 
--- Test: dit_91.test1
+-- Test: resolvent_kernel.test1
 -- On the constant eigenline, the actual resolvent of the scalar Laplacian has value −1/[s(1−s)] away from its poles.
 example (s : ℂ) (hs : s ≠ 0) (hs' : s ≠ 1) :
-    dit_91 ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
+    resolvent_kernel ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
 
 
 theorem test2 (t : ℝ) :
@@ -3235,7 +3235,7 @@ theorem test2 (t : ℝ) :
       scalarLaplacian (1 / 4 + t ^ 2) u -
         ((1 / 2 + t * Complex.I) * (1 - (1 / 2 + t * Complex.I))) • u.val = v) := by sorry
 
--- Test: dit_91.test2
+-- Test: resolvent_kernel.test2
 -- At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there.
 example (t : ℝ) :
     ¬ (∀ v : ℂ, ∃! u : (⊤ : Submodule ℂ ℂ),
@@ -3244,44 +3244,44 @@ example (t : ℝ) :
 
 
 theorem test3 (s : ℂ) (hs : s ≠ 1 / 2) :
-    dit_91 ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
+    resolvent_kernel ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
 
--- Test: dit_91.test3
+-- Test: resolvent_kernel.test3
 -- The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold.
 example (s : ℂ) (hs : s ≠ 1 / 2) :
-    dit_91 ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
+    resolvent_kernel ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
 
-end dit_91
+end resolvent_kernel
 end ModularResolvent
 
 /-- Orthonormal
 arbitrary complex bases instead require conjugated Fourier coefficients. -/
-theorem dit_92 {I : Type*} [Fintype I] (u : I → UpperHalfPlane → ℂ)
+theorem resolvent_polar_part {I : Type*} [Fintype I] (u : I → UpperHalfPlane → ℂ)
     (kernel : UpperHalfPlane → UpperHalfPlane → ℂ → ℂ) (r : ℝ) (hr : 0 < r)
     (z z' : UpperHalfPlane) :
     scalarCoefficient (fun s => (2 * s - 1) * kernel z z' s) (1 / 2 + r * Complex.I) (-1) =
       ∑ i, star (u i z) * u i z' := by sorry
 
-theorem dit_93 {I : Type*} [Fintype I] (B : SpecialFunctions)
+theorem poincare_residue {I : Type*} [Fintype I] (B : SpecialFunctions)
     (continuedF : ℤ → UpperHalfPlane → ℂ → ℂ) (a : I → ℤ → ℝ)
     (normSquared : I → ℝ) (u : I → UpperHalfPlane → ℂ)
     (m : ℤ) (hm : m ≠ 0) (r : ℝ) (hr : 0 < r) (z : UpperHalfPlane) :
     scalarCoefficient (fun s => (2 * s - 1) * continuedF m z s) (1 / 2 + r * Complex.I) (-1) =
       ∑ i, (2 * a i m / normSquared i : ℝ) * u i z := by sorry
 
-theorem dit_94 {I : Type*} [Fintype I] (continuedPhi : ℤ → ℤ → ℂ → ℂ)
+theorem bessel_coefficient_residue {I : Type*} [Fintype I] (continuedPhi : ℤ → ℤ → ℂ → ℂ)
     (a : I → ℤ → ℝ) (normSquared : I → ℝ) (m n : ℤ) (hm : m ≠ 0) (hn : n ≠ 0)
     (r : ℝ) (hr : 0 < r) :
     scalarCoefficient (fun s => (2 * s - 1) * continuedPhi (-m) n s)
       (1 / 2 + r * Complex.I) (-1) =
         (2 * ∑ i, (normSquared i)⁻¹ * a i (-m) * a i n : ℝ) := by sorry
 
-theorem dit_resolvent_fourier_expansion_weight0 (B : SpecialFunctions)
+theorem resolvent_kernel_fourier (B : SpecialFunctions)
     (kernel : UpperHalfPlane → UpperHalfPlane → ℂ → ℂ)
     (z z' : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re)
     (hHeight : ∀ j : fullModular.Index, (fullModular.orbit j z).im < z'.im) :
-    kernel z z' s = (2 * s - 1)⁻¹ * rpowC z'.im (1 - s) * dit_57 z s +
-      Real.sqrt z'.im * ∑' m : ℤ, if m = 0 then 0 else dit_89 B (-m) z s *
+    kernel z z' s = (2 * s - 1)⁻¹ * rpowC z'.im (1 - s) * nonholomorphic_eisenstein z s +
+      Real.sqrt z'.im * ∑' m : ℤ, if m = 0 then 0 else poincare_family B (-m) z s *
         B.besselK (s - 1 / 2) (2 * Real.pi * |(m : ℝ)| * z'.im) * phase (m * z'.re) := by sorry
 
 def automorphic_green (N : ℕ) (z z' : UpperHalfPlane) (s : ℂ) : ℂ := by sorry
@@ -3295,8 +3295,8 @@ namespace automorphic_green
 theorem initial_sum (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ)
     (hs : 1 < s.re) (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     automorphic_green N z z' s = ∑' j : (effectiveModularGroup N).Index,
-      gz_66 s z ((effectiveModularGroup N).orbit j z') ∧
-      Summable (fun j : (effectiveModularGroup N).Index => ‖gz_66 s z ((effectiveModularGroup N).orbit j z')‖) := by sorry
+      point_pair_invariant s z ((effectiveModularGroup N).orbit j z') ∧
+      Summable (fun j : (effectiveModularGroup N).Index => ‖point_pair_invariant s z ((effectiveModularGroup N).orbit j z')‖) := by sorry
 
 theorem symmetry (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ)
     (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
@@ -3319,11 +3319,11 @@ example (z z' : UpperHalfPlane)
     scalarCoefficient (automorphic_green 1 z z') 1 (-1) = -12 := by sorry
 
 
-theorem point_pair_symmetry (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
+theorem point_pair_symmetry (s : ℂ) (z z' : UpperHalfPlane) : point_pair_invariant s z z' = point_pair_invariant s z' z := by sorry
 
 -- Test: automorphic_green.point_pair_symmetry
 -- For the identity summand g_s(z,z′)=g_s(z′,z), since the point-pair invariant is symmetric.
-example (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
+example (s : ℂ) (z z' : UpperHalfPlane) : point_pair_invariant s z z' = point_pair_invariant s z' z := by sorry
 
 
 /-- Same concrete Laplacian and off-diagonal convention as `eigenfunction`. -/
@@ -3340,7 +3340,7 @@ example (z z' : UpperHalfPlane)
 
 end automorphic_green
 
-theorem gz_68 (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
+theorem green_kernel_continuation (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     scalarCoefficient (automorphic_green N z z') 1 (-1) =
       -12 / N * ∏ p ∈ N.primeFactors, (1 + (p : ℂ)⁻¹)⁻¹ := by sorry
@@ -3617,17 +3617,17 @@ end TauCeti.AutomorphicSpectral
 namespace TauCeti.AutomorphicSpectral
 universe u v w
 /-- Determinant-degree block projection, with a partition encoded by a finite fibre map. -/
-def yu_022 {I J : Type*} [Fintype I] [Fintype J] [DecidableEq J]
+def gln_relative_roots {I J : Type*} [Fintype I] [Fintype J] [DecidableEq J]
     (block : I → J) (H : I → ℝ) : J → ℝ := fun j => ∑ i ∈ Finset.univ.filter (fun i => block i = j), H i
-namespace yu_022
+namespace gln_relative_roots
 def relativeProjection {r : ℕ} (n : Fin r → ℕ) (H : Fin r → ℝ) : Fin r → ℝ :=
   fun i => H i - (n i : ℝ) / (∑ j, (n j : ℝ)) * ∑ j, H j
 def oneTwoBlocks : Fin 3 → Fin 2 := ![0, 1, 1]
 def dualBlockProjection (H : Fin 3 → ℝ) : Fin 2 → ℝ :=
-  fun i => yu_022 oneTwoBlocks H i / (![1, 2] i : ℝ)
+  fun i => gln_relative_roots oneTwoBlocks H i / (![1, 2] i : ℝ)
 
 def blockProjection {I J : Type*} [Fintype I] [Fintype J] [DecidableEq J]
-    (block : I → J) := yu_022 block
+    (block : I → J) := gln_relative_roots block
 
 def relativeRoot (ni nj : ℕ) (H : Fin 2 → ℝ) : ℝ := H 0 / ni - H 1 / nj
 
@@ -3636,20 +3636,20 @@ def fundamentalWeight {r : ℕ} (n : Fin r → ℕ) (j : ℕ) (H : Fin r → ℝ
     (∑ i ∈ Finset.univ.filter (fun i => i.val < j), (n i : ℝ)) / (∑ i, n i) * ∑ i, H i
 
 theorem test1  :
-    yu_022 oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
+    gln_relative_roots oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
       dualBlockProjection ![1, 2, 3] = ![1, 5 / 2] := by sorry
 
--- Test: yu_022.test1
+-- Test: gln_relative_roots.test1
 -- The actual block projection for 1|23 sends (1,2,3) to (1,5), and its averaged dual projection gives (1,5/2).
 example  :
-    yu_022 oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
+    gln_relative_roots oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
       dualBlockProjection ![1, 2, 3] = ![1, 5 / 2] := by sorry
 
 
 theorem test2 (n : ℕ) (hn : 0 < n) (H : Fin 1 → ℝ) :
     relativeProjection (fun _ : Fin 1 => n) H = 0 := by sorry
 
--- Test: yu_022.test2
+-- Test: gln_relative_roots.test2
 -- For the single rank-n block, n>0, subtracting the central projection gives the zero relative-height vector for every input.
 example (n : ℕ) (hn : 0 < n) (H : Fin 1 → ℝ) :
     relativeProjection (fun _ : Fin 1 => n) H = 0 := by sorry
@@ -3657,16 +3657,16 @@ example (n : ℕ) (hn : 0 < n) (H : Fin 1 → ℝ) :
 
 theorem test3 (x y : ℝ) : relativeRoot 1 2 ![x, y] = x - y / 2 := by sorry
 
--- Test: yu_022.test3
+-- Test: gln_relative_roots.test3
 -- For blocks of ranks1 and2, α(x,y)=x−y/2 and α∨=(1,−1), with the degree-zero condition x+y=0.
 example (x y : ℝ) : relativeRoot 1 2 ![x, y] = x - y / 2 := by sorry
 
-end yu_022
+end gln_relative_roots
 
-def yu_023 {ι : Type*} [Fintype ι] {r : ℕ}
+def chamber_height_functions {ι : Type*} [Fintype ι] {r : ℕ}
     (roots weights : Fin r → Height ι →ₗ[ℝ] ℝ) (H : Height ι) : ℂ × ℂ :=
   (truncation_cones roots H, truncation_cones weights H)
-namespace yu_023
+namespace chamber_height_functions
 
 def height {G : Type*} {ι : Type*} (degree : G → Height ι) := degree
 
@@ -3676,7 +3676,7 @@ def hatTau {ι : Type*} [Fintype ι] {r : ℕ} (weights : Fin r → Height ι �
 
 theorem test1 {ι : Type*} [Fintype ι] (roots : Fin 0 → Height ι →ₗ[ℝ] ℝ) (H : Height ι) : tau roots H = 1 := by sorry
 
--- Test: yu_023.test1
+-- Test: chamber_height_functions.test1
 -- The empty product of cone conditions for GL₁ is1.
 example {ι : Type*} [Fintype ι] (roots : Fin 0 → Height ι →ₗ[ℝ] ℝ) (H : Height ι) : tau roots H = 1 := by sorry
 
@@ -3684,7 +3684,7 @@ example {ι : Type*} [Fintype ι] (roots : Fin 0 → Height ι →ₗ[ℝ] ℝ) 
 theorem test2 {ι : Type*} [Fintype ι] {r : ℕ} (roots : Fin r → Height ι →ₗ[ℝ] ℝ)
     (H : Height ι) (i : Fin r) (h : roots i H = 0) : tau roots H = 0 := by sorry
 
--- Test: yu_023.test2
+-- Test: chamber_height_functions.test2
 -- A point on a required wall, with the corresponding pairing zero, does not satisfy the strict cone condition.
 example {ι : Type*} [Fintype ι] {r : ℕ} (roots : Fin r → Height ι →ₗ[ℝ] ℝ)
     (H : Height ι) (i : Fin r) (h : roots i H = 0) : tau roots H = 0 := by sorry
@@ -3698,10 +3698,10 @@ theorem test3 {G : Type*} [Group G] {ι : Type*} [Fintype ι] {r : ℕ}
     (hn : degree n = 1) (hk : degree k = 1) :
     height (fun g => Multiplicative.toAdd (degree g)) (n * m * k) =
       height (fun g => Multiplicative.toAdd (degree g)) m ∧
-    yu_023 roots weights (Multiplicative.toAdd (degree (n * m * k))) =
-      yu_023 roots weights (Multiplicative.toAdd (degree m)) := by sorry
+    chamber_height_functions roots weights (Multiplicative.toAdd (degree (n * m * k))) =
+      chamber_height_functions roots weights (Multiplicative.toAdd (degree m)) := by sorry
 
--- Test: yu_023.test3
+-- Test: chamber_height_functions.test3
 -- For the determinant-height homomorphism with trivial unipotent and compact factors, the named height of nmk is that of m, and both actual cone cutoffs agree.
 example {G : Type*} [Group G] {ι : Type*} [Fintype ι] {r : ℕ}
     (degree : G →* Multiplicative (Height ι))
@@ -3709,15 +3709,15 @@ example {G : Type*} [Group G] {ι : Type*} [Fintype ι] {r : ℕ}
     (hn : degree n = 1) (hk : degree k = 1) :
     height (fun g => Multiplicative.toAdd (degree g)) (n * m * k) =
       height (fun g => Multiplicative.toAdd (degree g)) m ∧
-    yu_023 roots weights (Multiplicative.toAdd (degree (n * m * k))) =
-      yu_023 roots weights (Multiplicative.toAdd (degree m)) := by sorry
+    chamber_height_functions roots weights (Multiplicative.toAdd (degree (n * m * k))) =
+      chamber_height_functions roots weights (Multiplicative.toAdd (degree m)) := by sorry
 
-end yu_023
+end chamber_height_functions
 
 /-- Generic selector avoiding every supplied relative-root wall, not just zero projections. -/
-def yu_056 {ι : Type*} [Fintype ι] {r : ℕ}
+def auxiliary_chamber_selector {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) : Set (Height ι) := {k | ∀ i, roots i k ≠ 0}
-namespace yu_056
+namespace auxiliary_chamber_selector
 def crossedBlockRoot : Height (Fin 3) →ₗ[ℝ] ℝ :=
   (1 / 2 : ℝ) • ((LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 0) + (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 2)) - (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 1)
 def gl2Root : Height (Fin 2) →ₗ[ℝ] ℝ := (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) 0) -
@@ -3726,7 +3726,7 @@ def gl2Root : Height (Fin 2) →ₗ[ℝ] ℝ := (LinearMap.proj (R := ℝ) (φ :
 
 theorem avoidHyperplanes {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (hRoots : ∀ i, roots i ≠ 0) :
-    Set.Nonempty (yu_056 roots) := by sorry
+    Set.Nonempty (auxiliary_chamber_selector roots) := by sorry
 
 /-- Ordered blocks are supplied by the GL root datum; signs select their positive system. -/
 def orderedParabolic {ι : Type*} [Fintype ι] {r : ℕ}
@@ -3736,19 +3736,19 @@ theorem weylTransport {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (e : Height ι ≃ₗ[ℝ] Height ι) (k : Height ι) :
     orderedParabolic (fun i => (roots i).comp e.toLinearMap) k = orderedParabolic roots (e k) := by sorry
 
-theorem test1  : ![3, 2, 1] ∉ yu_056 (fun _ : Fin 1 => crossedBlockRoot) := by sorry
+theorem test1  : ![3, 2, 1] ∉ auxiliary_chamber_selector (fun _ : Fin 1 => crossedBlockRoot) := by sorry
 
--- Test: yu_056.test1
+-- Test: auxiliary_chamber_selector.test1
 -- The vector (3,2,1) fails membership in the selector for the crossed partition {1,3}|{2}, because its block averages are equal.
-example  : ![3, 2, 1] ∉ yu_056 (fun _ : Fin 1 => crossedBlockRoot) := by sorry
+example  : ![3, 2, 1] ∉ auxiliary_chamber_selector (fun _ : Fin 1 => crossedBlockRoot) := by sorry
 
 
-theorem test2  : ![2, 0] ∈ yu_056 (fun _ : Fin 1 => gl2Root) ∧
+theorem test2  : ![2, 0] ∈ auxiliary_chamber_selector (fun _ : Fin 1 => gl2Root) ∧
     orderedParabolic (fun _ : Fin 1 => gl2Root) ![2, 0] = fun _ => true := by sorry
 
--- Test: yu_056.test2
+-- Test: auxiliary_chamber_selector.test2
 -- The vector (2,0) belongs to the actual GL₂ regular selector and chooses the positive ordered parabolic.
-example  : ![2, 0] ∈ yu_056 (fun _ : Fin 1 => gl2Root) ∧
+example  : ![2, 0] ∈ auxiliary_chamber_selector (fun _ : Fin 1 => gl2Root) ∧
     orderedParabolic (fun _ : Fin 1 => gl2Root) ![2, 0] = fun _ => true := by sorry
 
 
@@ -3756,72 +3756,72 @@ theorem test3 {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (k : Height ι) (a : ℝ) (ha : 0 < a) :
     orderedParabolic roots (a • k) = orderedParabolic roots k := by sorry
 
--- Test: yu_056.test3
+-- Test: auxiliary_chamber_selector.test3
 -- Multiplying a generic kappa by a positive real preserves every relative-root sign, hence preserves every Q_L.
 example {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (k : Height ι) (a : ℝ) (ha : 0 < a) :
     orderedParabolic roots (a • k) = orderedParabolic roots k := by sorry
 
-end yu_056
+end auxiliary_chamber_selector
 
-def yu_058 (n : ℕ) (zeta : ℂ) (f : ℂ → ℂ) (e : ℤ) (lam : ℂ) : ℂ :=
+def degree_cone_series (n : ℕ) (zeta : ℂ) (f : ℂ → ℂ) (e : ℤ) (lam : ℂ) : ℂ :=
   (n : ℂ)⁻¹ * ∑ j ∈ Finset.range n, zeta ^ (e * j) * f (lam * zeta ^ j)
-namespace yu_058
+namespace degree_cone_series
 
 /-- Signed lattice cone sum, initially only where the absolute sum converges. -/
 def coneSeries {I : Type*} [Countable I] (sign : ℂ) (cutoff : I → Bool)
     (monomial : I → ℂ) : ℂ := sign * ∑' H : I, if cutoff H then monomial H else 0
 
-def degreeFourierProjector := yu_058
+def degreeFourierProjector := degree_cone_series
 
 theorem sumResidues (n : ℕ) (hn : 0 < n) (zeta : ℂ) (hPrimitive : IsPrimitiveRoot zeta n)
-    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, yu_058 n zeta f e lam) = f lam := by sorry
+    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, degree_cone_series n zeta f e lam) = f lam := by sorry
 
-theorem test1 (f : ℂ → ℂ) (lam : ℂ) : yu_058 1 1 f 0 lam = f lam := by sorry
+theorem test1 (f : ℂ → ℂ) (lam : ℂ) : degree_cone_series 1 1 f 0 lam = f lam := by sorry
 
--- Test: yu_058.test1
+-- Test: degree_cone_series.test1
 -- For n=1 the Fourier degree projector has one term and hat1_Q^0=hat1_Q.
-example (f : ℂ → ℂ) (lam : ℂ) : yu_058 1 1 f 0 lam = f lam := by sorry
+example (f : ℂ → ℂ) (lam : ℂ) : degree_cone_series 1 1 f 0 lam = f lam := by sorry
 
 
 theorem test2 (n : ℕ) (hn : 0 < n) (zeta : ℂ) (hz : IsPrimitiveRoot zeta n)
-    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, yu_058 n zeta f e lam) = f lam := by sorry
+    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, degree_cone_series n zeta f e lam) = f lam := by sorry
 
--- Test: yu_058.test2
+-- Test: degree_cone_series.test2
 -- Summing hat1_Q^e over e=0,...,n−1 recovers hat1_Q.
 example (n : ℕ) (hn : 0 < n) (zeta : ℂ) (hz : IsPrimitiveRoot zeta n)
-    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, yu_058 n zeta f e lam) = f lam := by sorry
+    (f : ℂ → ℂ) (lam : ℂ) : (∑ e ∈ Finset.range n, degree_cone_series n zeta f e lam) = f lam := by sorry
 
 
 theorem test3 (f : ℂ → ℂ) (lam : ℂ) :
-    yu_058 2 (-1) f 0 lam = (f lam + f (-lam)) / 2 ∧
-      yu_058 2 (-1) f 1 lam = (f lam - f (-lam)) / 2 := by sorry
+    degree_cone_series 2 (-1) f 0 lam = (f lam + f (-lam)) / 2 ∧
+      degree_cone_series 2 (-1) f 1 lam = (f lam - f (-lam)) / 2 := by sorry
 
--- Test: yu_058.test3
+-- Test: degree_cone_series.test3
 -- For n=2,zeta=−1, the even/odd projectors of a function f are (f(lambda)±f(lambda*eta))/2.
 example (f : ℂ → ℂ) (lam : ℂ) :
-    yu_058 2 (-1) f 0 lam = (f lam + f (-lam)) / 2 ∧
-      yu_058 2 (-1) f 1 lam = (f lam - f (-lam)) / 2 := by sorry
+    degree_cone_series 2 (-1) f 0 lam = (f lam + f (-lam)) / 2 ∧
+      degree_cone_series 2 (-1) f 1 lam = (f lam - f (-lam)) / 2 := by sorry
 
-end yu_058
+end degree_cone_series
 
 def floorHeight {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (e : ℤ) : Fin r → ℤ :=
   fun i => ⌊(e : ℝ) * ranks i.castSucc / n⌋ - ⌊(e : ℝ) * ranks i.succ / n⌋
 
-theorem yu_059 {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
+theorem cone_series_floor_vector {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
     (hFirst : ranks 0 = 0) (hLast : ranks (Fin.last r) = n) (e : ℤ) :
     (∑ i, floorHeight ranks n e i) = -e := by sorry
 
-def yu_115 {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (e : ℤ) : Fin r → ℤ :=
+def floor_monomial_family {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (e : ℤ) : Fin r → ℤ :=
   fun i => floorHeight ranks n e i + if i.val = 0 then 0 else 1
-namespace yu_115
+namespace floor_monomial_family
 /-- Arthur's linear θ in Yu's multiplicative character coordinates. The monomial
 λ₂⁻¹ in (5.2.4) converts its geometric-series denominator to this difference. -/
 def twoBlockTheta (lambda : Fin 2 → ℂˣ) : ℂ := (lambda 0 : ℂ) - (lambda 1 : ℂ)
 def twoBlockCutoff (lambda : Fin 2 → ℂˣ) : ℂ := -(twoBlockTheta lambda)⁻¹
 
 
-def floorExponent := @yu_115
+def floorExponent := @floor_monomial_family
 
 /-- Adjacent-block exchange changes the two floor exponents by opposite integers; monomials
 therefore agree on the corresponding equality wall. -/
@@ -3831,23 +3831,23 @@ theorem cutoffFactor (cutoff monomial thetaValue : ℂ) (hTheta : thetaValue ≠
     (hCutoff : cutoff = -monomial / thetaValue) : cutoff * thetaValue = -monomial := by sorry
 
 theorem test1  : floorHeight ![0, 1, 3] 3 1 = ![0, -1] ∧
-    yu_115 ![0, 1, 3] 3 1 = ![0, 0] := by sorry
+    floor_monomial_family ![0, 1, 3] 3 1 = ![0, 0] := by sorry
 
--- Test: yu_115.test1
+-- Test: floor_monomial_family.test1
 -- The named floor-height and shifted-exponent constructions for ranks (1,2), total rank three and degree one give H=(0,−1), I=(0,0).
 example  : floorHeight ![0, 1, 3] 3 1 = ![0, -1] ∧
-    yu_115 ![0, 1, 3] 3 1 = ![0, 0] := by sorry
+    floor_monomial_family ![0, 1, 3] 3 1 = ![0, 0] := by sorry
 
 
 theorem test2 {r : ℕ} (hr : 0 < r) (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
     (hFirst : ranks 0 = 0) (hLast : ranks (Fin.last r) = n) (e : ℤ) :
-    (∑ i, yu_115 ranks n e i) = (r : ℤ) - 1 - e := by sorry
+    (∑ i, floor_monomial_family ranks n e i) = (r : ℤ) - 1 - e := by sorry
 
--- Test: yu_115.test2
+-- Test: floor_monomial_family.test2
 -- The total of H_Q^e is−e and the total of I_Q^e is r−1−e.
 example {r : ℕ} (hr : 0 < r) (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
     (hFirst : ranks 0 = 0) (hLast : ranks (Fin.last r) = n) (e : ℤ) :
-    (∑ i, yu_115 ranks n e i) = (r : ℤ) - 1 - e := by sorry
+    (∑ i, floor_monomial_family ranks n e i) = (r : ℤ) - 1 - e := by sorry
 
 
 theorem test3 (lambda : Fin 2 → ℂˣ) (hWall : lambda 0 ≠ lambda 1) :
@@ -3855,31 +3855,31 @@ theorem test3 (lambda : Fin 2 → ℂˣ) (hWall : lambda 0 ≠ lambda 1) :
     twoBlockCutoff lambda * twoBlockTheta lambda = -1 ∧
       twoBlockCutoff lambda * (twoBlockTheta lambda)⁻¹ = -((twoBlockTheta lambda) ^ 2)⁻¹ := by sorry
 
--- Test: yu_115.test3
+-- Test: floor_monomial_family.test3
 -- In multiplicative character coordinates the two-block cone expression λ₂^(−1)/(1−λ₁/λ₂) equals −1/(λ₁−λ₂). Multiplication by the actual linear θ cancels the pole; multiplying by its inverse gives a double denominator.
 example (lambda : Fin 2 → ℂˣ) (hWall : lambda 0 ≠ lambda 1) :
     (lambda 1 : ℂ)⁻¹ / (1 - (lambda 0 : ℂ) / (lambda 1 : ℂ)) = twoBlockCutoff lambda ∧
     twoBlockCutoff lambda * twoBlockTheta lambda = -1 ∧
       twoBlockCutoff lambda * (twoBlockTheta lambda)⁻¹ = -((twoBlockTheta lambda) ^ 2)⁻¹ := by sorry
 
-end yu_115
+end floor_monomial_family
 
 /-- Coprimality is retained. -/
-theorem yu_116 {Q : Type*} [Fintype Q] (n : ℕ) (hn : 1 ≤ n) (e : ℤ)
+theorem degree_cutoff_vanishing {Q : Type*} [Fintype Q] (n : ℕ) (hn : 1 ≤ n) (e : ℤ)
     (hCoprime : Int.gcd e n = 1) (cutoff family : Q → ℂ → ℂ) :
     Tendsto (fun z => ∑ q, cutoff q z * family q z) (𝓝[≠] 1) (𝓝 0) := by sorry
 
 /-- Under the same family hypotheses the value depends on the order in Z/nZ. -/
-theorem yu_117 (n : ℕ) (hn : 1 ≤ n) (value : ℤ → ℂ) (e e' : ℤ)
+theorem cutoff_degree_order (n : ℕ) (hn : 1 ≤ n) (value : ℤ → ℂ) (e e' : ℤ)
     (hOrder : n / Int.gcd e n = n / Int.gcd e' n) : value e = value e' := by sorry
 
 /-- This uniqueness conclusion
 is what permits evaluation at T=0. -/
-theorem yu_157 {ι : Type*} [Fintype ι] (f g : (ι → ℤ) → ℂ)
+theorem lattice_count_quasipolynomial {ι : Type*} [Fintype ι] (f g : (ι → ℤ) → ℂ)
     (regular : Set (ι → ℤ)) (hEqual : ∀ T ∈ regular, f T = g T) : f 0 = g 0 := by sorry
 
 /-- Signed cone cancellation on a proper Levi with block gcd d. -/
-theorem yu_175 {Q : Type*} [Fintype Q] (n d : ℕ) (hd : 0 < d) (hDiv : d ∣ n)
+theorem cone_sum_levi_vanishing {Q : Type*} [Fintype Q] (n d : ℕ) (hd : 0 < d) (hDiv : d ∣ n)
     (e : ℤ) (hNondiv : ¬ ((n / d : ℕ) : ℤ) ∣ e) (cutoff : Q → ℂ → ℂ) (lam : ℂ) :
     (∑ q, cutoff q lam) = 0 := by sorry
 end TauCeti.AutomorphicSpectral
@@ -4135,11 +4135,11 @@ universe u v w
 section YuDiscrete
 variable {X : Type u} [MeasurableSpace X]
 /-- The quotient and central character are supplied by AA/AF. -/
-def yu_017 (μ : Measure X) (theta : X → ℂ) (phi : X → ℂ) : ℝ :=
+def discrete_spherical_spectrum (μ : Measure X) (theta : X → ℂ) (phi : X → ℂ) : ℝ :=
   ∫ x, ‖phi x‖ ^ 2 / ‖theta x‖ ^ 2 ∂μ
-namespace yu_017
+namespace discrete_spherical_spectrum
 
-def weightedNorm := @yu_017
+def weightedNorm := @discrete_spherical_spectrum
 
 def discreteSubspace {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℂ H]
     (irreducibleGenerators : Set H) := cuspidal_datum_space irreducibleGenerators
@@ -4151,91 +4151,91 @@ theorem cuspidalInclusion {H : Type*} [NormedAddCommGroup H] [InnerProductSpace 
 theorem test1  :
     (1 : ℂ) ∈ discreteSubspace ({1} : Set ℂ) ∧
       (1 : ℂ) ∈ residual_spectrum (⊤ : Submodule ℂ ℂ) ⊥ ∧
-      yu_017 (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
+      discrete_spherical_spectrum (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
 
--- Test: yu_017.test1
+-- Test: discrete_spherical_spectrum.test1
 example  :
     (1 : ℂ) ∈ discreteSubspace ({1} : Set ℂ) ∧
       (1 : ℂ) ∈ residual_spectrum (⊤ : Submodule ℂ ℂ) ⊥ ∧
-      yu_017 (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
+      discrete_spherical_spectrum (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
 
 
 theorem test2 (μ : Measure X) (theta phi : X → ℂ) (htheta : ∀ x, ‖theta x‖ = 1) :
-    yu_017 μ theta phi = ∫ x, ‖phi x‖ ^ 2 ∂μ := by sorry
+    discrete_spherical_spectrum μ theta phi = ∫ x, ‖phi x‖ ^ 2 ∂μ := by sorry
 
--- Test: yu_017.test2
+-- Test: discrete_spherical_spectrum.test2
 -- For |theta|=1 the |theta|-weighted integrand equals |phi|².
 example (μ : Measure X) (theta phi : X → ℂ) (htheta : ∀ x, ‖theta x‖ = 1) :
-    yu_017 μ theta phi = ∫ x, ‖phi x‖ ^ 2 ∂μ := by sorry
+    discrete_spherical_spectrum μ theta phi = ∫ x, ‖phi x‖ ^ 2 ∂μ := by sorry
 
 
 theorem test3 (μ : Measure X) {G : Type*} [Group G] [MulAction G X]
     (theta phi : X → ℂ) (chi : G →* ℂˣ)
     (hPhi : ∀ g x, phi (g • x) = (chi g : ℂ) * phi x)
     (hTheta : ∀ g x, theta (g • x) = (chi g : ℂ) * theta x) (g : G) :
-    yu_017 μ (fun x => theta (g • x)) (fun x => phi (g • x)) = yu_017 μ theta phi := by sorry
+    discrete_spherical_spectrum μ (fun x => theta (g • x)) (fun x => phi (g • x)) = discrete_spherical_spectrum μ theta phi := by sorry
 
--- Test: yu_017.test3
--- When the section and its weight transform by the same nonzero central character, the actual integrated yu_017 norm is unchanged under central translation.
+-- Test: discrete_spherical_spectrum.test3
+-- When the section and its weight transform by the same nonzero central character, the actual integrated discrete_spherical_spectrum norm is unchanged under central translation.
 example (μ : Measure X) {G : Type*} [Group G] [MulAction G X]
     (theta phi : X → ℂ) (chi : G →* ℂˣ)
     (hPhi : ∀ g x, phi (g • x) = (chi g : ℂ) * phi x)
     (hTheta : ∀ g x, theta (g • x) = (chi g : ℂ) * theta x) (g : G) :
-    yu_017 μ (fun x => theta (g • x)) (fun x => phi (g • x)) = yu_017 μ theta phi := by sorry
+    discrete_spherical_spectrum μ (fun x => theta (g • x)) (fun x => phi (g • x)) = discrete_spherical_spectrum μ theta phi := by sorry
 
-end yu_017
+end discrete_spherical_spectrum
 end YuDiscrete
 
 /-- `DiscreteRep` is the supplied discrete spherical Levi representation carrier, including
 triviality on Xi_M; it is not a newly defined automorphic representation type. -/
-def yu_018 (P : Type u) (DiscreteRep : P → Type v) := Sigma DiscreteRep
-namespace yu_018
+def discrete_pair (P : Type u) (DiscreteRep : P → Type v) := Sigma DiscreteRep
+namespace discrete_pair
 
-def pair {P : Type u} {Rep : P → Type v} (p : P) (pi : Rep p) : yu_018 P Rep := ⟨p, pi⟩
+def pair {P : Type u} {Rep : P → Type v} (p : P) (pi : Rep p) : discrete_pair P Rep := ⟨p, pi⟩
 
 def weylTwistEquiv {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (g : A) : yu_018 P Rep ≃ yu_018 P Rep :=
+    [MulAction A (discrete_pair P Rep)] (g : A) : discrete_pair P Rep ≃ discrete_pair P Rep :=
   ⟨fun x => g • x, fun x => g⁻¹ • x, by sorry, by sorry⟩
 
 def stabilizer {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) : Subgroup A := MulAction.stabilizer A pi
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) : Subgroup A := MulAction.stabilizer A pi
 
 theorem test1 {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) : 1 ∈ stabilizer (A := A) pi := by sorry
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) : 1 ∈ stabilizer (A := A) pi := by sorry
 
--- Test: yu_018.test1
+-- Test: discrete_pair.test1
 -- (1,1) belongs to stab(P,pi).
 example {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) : 1 ∈ stabilizer (A := A) pi := by sorry
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) : 1 ∈ stabilizer (A := A) pi := by sorry
 
 
 theorem test2 {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) (g : A) : g ∈ stabilizer pi ↔ g • pi = pi := by sorry
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) (g : A) : g ∈ stabilizer pi ↔ g • pi = pi := by sorry
 
--- Test: yu_018.test2
+-- Test: discrete_pair.test2
 -- (w,tau) is in the stabilizer precisely when w normalizes M and w(pi⊗tau)=pi.
 example {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) (g : A) : g ∈ stabilizer pi ↔ g • pi = pi := by sorry
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) (g : A) : g ∈ stabilizer pi ↔ g • pi = pi := by sorry
 
 
 theorem test3 {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) (g : A) (hg : g ∈ stabilizer pi) :
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) (g : A) (hg : g ∈ stabilizer pi) :
     g⁻¹ ∈ stabilizer pi := by sorry
 
--- Test: yu_018.test3
+-- Test: discrete_pair.test3
 -- The inverse stabilizer element of (w,tau) is (w⁻¹,w(tau)⁻¹), in the convention of Yu (5.2.11).
 example {A : Type w} [Group A] {P : Type u} {Rep : P → Type v}
-    [MulAction A (yu_018 P Rep)] (pi : yu_018 P Rep) (g : A) (hg : g ∈ stabilizer pi) :
+    [MulAction A (discrete_pair P Rep)] (pi : discrete_pair P Rep) (g : A) (hg : g ∈ stabilizer pi) :
     g⁻¹ ∈ stabilizer pi := by sorry
 
-end yu_018
+end discrete_pair
 
 /-- Equal inertial classes use identical chosen representatives. -/
-def yu_019 {I : Type u} {C : Type v} (inertialClass : I → C) (chooseRep : C → I) : I → I :=
+def good_discrete_pair {I : Type u} {C : Type v} (inertialClass : I → C) (chooseRep : C → I) : I → I :=
   chooseRep ∘ inertialClass
-namespace yu_019
+namespace good_discrete_pair
 def distinguishedTuple {I C : Type*} {r : ℕ} (inertialClass : I → C)
-    (chooseRep : C → I) (pi : Fin r → I) : Fin r → I := fun i => yu_019 inertialClass chooseRep (pi i)
+    (chooseRep : C → I) (pi : Fin r → I) : Fin r → I := fun i => good_discrete_pair inertialClass chooseRep (pi i)
 def pairStabilizer {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
     (inertialClass : I → C) (chooseRep : C → I) (pi : Fin r → I) :
     Set (Equiv.Perm (Fin r) × T) :=
@@ -4243,7 +4243,7 @@ def pairStabilizer {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
     distinguishedTuple inertialClass chooseRep pi i}
 
 
-def groupEqualTypes := @yu_019
+def groupEqualTypes := @good_discrete_pair
 
 def cycleData {r : ℕ} (w : Equiv.Perm (Fin r)) : Fin r → Fin r := w
 
@@ -4257,8 +4257,8 @@ theorem test1 {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
     distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 =
       distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
--- Test: yu_019.test1
--- Two raw representations in the same inertial class have equal chosen representatives under yu_019, so their distinguished tuple is fixed by transposition.
+-- Test: good_discrete_pair.test1
+-- Two raw representations in the same inertial class have equal chosen representatives under good_discrete_pair, so their distinguished tuple is fixed by transposition.
 example {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
     (pi tau : I) (hSame : inertialClass pi = inertialClass tau) :
     distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 =
@@ -4271,7 +4271,7 @@ theorem test2 {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
     distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 ≠
       distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
--- Test: yu_019.test2
+-- Test: good_discrete_pair.test2
 -- For two distinct inertial classes and a representative section of the class map, transposition does not fix the actual distinguished tuple.
 example {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
     (hSection : ∀ c, inertialClass (chooseRep c) = c)
@@ -4291,7 +4291,7 @@ theorem test3 {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
       {t | ∀ i, t • distinguishedTuple inertialClass chooseRep pi i =
         distinguishedTuple inertialClass chooseRep pi i} := by sorry
 
--- Test: yu_019.test3
+-- Test: good_discrete_pair.test3
 -- On the distinguished tuple, the actual Weyl/twist stabilizer is the product of permutation and twist stabilizers when twisting preserves inertial classes; no equality of arbitrary sets is assumed.
 example {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
     (inertialClass : I → C) (chooseRep : C → I)
@@ -4303,11 +4303,11 @@ example {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
       {t | ∀ i, t • distinguishedTuple inertialClass chooseRep pi i =
         distinguishedTuple inertialClass chooseRep pi i} := by sorry
 
-end yu_019
+end good_discrete_pair
 
 /-- MW classification: a discrete GL_n constituent has cuspidal data and the full
 symmetric progression of twists. -/
-theorem yu_020 {Groups : ℕ → Type u} [∀ n, Group (Groups n)] {Places : Type v}
+theorem moeglin_waldspurger {Groups : ℕ → Type u} [∀ n, Group (Groups n)] {Places : Type v}
     (pi : GLAutomorphicDatum Groups Places) (hRank : 0 < pi.rank)
     (twistSatake : ℝ → Multiset ℂ → Multiset ℂ) :
     ∃ nu : ℕ, ∃ rho : GLAutomorphicDatum Groups Places, 0 < nu ∧ 0 < rho.rank ∧
@@ -4315,30 +4315,30 @@ theorem yu_020 {Groups : ℕ → Type u} [∀ n, Group (Groups n)] {Places : Typ
         pi.satake place = ∑ j : Fin nu,
           twistSatake (((nu : ℝ) - 1) / 2 - j) (rho.satake place) := by sorry
 
-theorem yu_021 {A : Type u} [Group A] (fixSpeh fixCusp : Subgroup A) :
+theorem residual_twist_stabilizer {A : Type u} [Group A] (fixSpeh fixCusp : Subgroup A) :
     fixSpeh = fixCusp := by sorry
 
 /-- Fix(pi) acts as identity only on the spherical inducing subspace. -/
-theorem yu_065 {H : Type u} [NormedAddCommGroup H] [NormedSpace ℂ H]
+theorem stabilizing_twist_spherical {H : Type u} [NormedAddCommGroup H] [NormedSpace ℂ H]
     (spherical : Submodule ℂ H) (twist : Operator H) :
     ∀ v ∈ spherical, twist v = v := by sorry
 
-theorem yu_166 (residual : UpperHalfPlane → ℂ)
+theorem residual_eisenstein_residue (residual : UpperHalfPlane → ℂ)
     (cuspidalEisenstein : ℂ → UpperHalfPlane → ℂ) :
     ∃ z : ℂ, ∀ g : UpperHalfPlane, residual g = residue_calculus (fun s => cuspidalEisenstein s g) z := by sorry
 
 /-- Derivative and value bounds at a finite-width cusp. -/
-theorem dit_138 (u derivativeU : ℝ → ℂ) :
+theorem cusp_decay (u derivativeU : ℝ → ℂ) :
     (∃ C : ℝ, ∀ y : ℝ, 1 ≤ y → ‖derivativeU y‖ ≤ C * y ^ (-(1 / 2 : ℝ))) ∧
       IntegrableOn (fun y : ℝ => ‖u y‖ / y ^ 2) (Set.Ioi 1) := by sorry
 
-theorem dit_wrong_sign_weyl_integrals_vanish {C : Type*} [Fintype C]
+theorem wrong_sign_weyl_vanishing {C : Type*} [Fintype C]
     (chi : C → ℂ) (area boundary : C → ℂ) (d d' : ℤ) (lam : ℂ)
     (hSameSign : (0 < d ∧ 0 < d') ∨ (d < 0 ∧ d' < 0)) :
     if 0 < d then (∑ A, chi A * (lam / 2) * area A) = 0 else (∑ A, chi A * boundary A) = 0 := by sorry
 
 /-- Absolute value is integrated; this does not merely assert a conditionally unfolded period. -/
-theorem dit_eisenstein_integrable_over_core (muCore : Measure UpperHalfPlane)
+theorem eisenstein_core_integrable (muCore : Measure UpperHalfPlane)
     (s : ℂ) (hs : s.re = 1 / 2) : Integrable (fun z => ‖continuedE z s‖) muCore := by sorry
 end TauCeti.AutomorphicSpectral
 
@@ -5509,10 +5509,10 @@ end TauCeti.AutomorphicSpectral
 namespace TauCeti.AutomorphicSpectral
 universe u v w
 /-- Fixed-degree integral of an already truncated kernel; integrability is a theorem. -/
-def yu_024 {X : Type u} [MeasurableSpace X] (μ : Measure X) (degree : X → ℤ)
+def fixed_degree_trace {X : Type u} [MeasurableSpace X] (μ : Measure X) (degree : X → ℤ)
     (e : ℤ) (truncatedDiagonal : X → ℂ) : ℂ :=
   ∫ x, truncatedDiagonal x ∂μ.restrict {x | degree x = e}
-namespace yu_024
+namespace fixed_degree_trace
 
 def parabolicKernel {G : Type u} [Group G] {J : Type v} [Countable J]
     {N : Type w} [MeasurableSpace N] (ν : Measure N)
@@ -5525,13 +5525,13 @@ def truncate {P : Type u} [Fintype P] {X : Type v}
     (cutoff : P → X → ℂ) (K : P → X → X → ℂ) : X → ℂ :=
   coarse_truncated_kernel Cosets rank translate cutoff K
 
-def fixedDegreeIntegral := @yu_024
+def fixedDegreeIntegral := @fixed_degree_trace
 
 theorem test1 {X : Type u} (K : X → X → ℂ) (x : X) :
     coarse_truncated_kernel (fun _ : Unit => Unit) (fun _ => 0)
       (fun _ _ => id) (fun _ _ => 1) (fun _ => K) x = K x x := by sorry
 
--- Test: yu_024.test1
+-- Test: fixed_degree_trace.test1
 -- For G=GL₁, the parabolic truncation sum has only P=G and k^T=k_G.
 example {X : Type u} (K : X → X → ℂ) (x : X) :
     coarse_truncated_kernel (fun _ : Unit => Unit) (fun _ => 0)
@@ -5539,33 +5539,33 @@ example {X : Type u} (K : X → X → ℂ) (x : X) :
 
 
 theorem test2 {X : Type u} [MeasurableSpace X] (μ : Measure X) (degree : X → ℤ)
-    (e : ℤ) (k : ℝ → X → ℂ) : yu_024 μ degree e (k 0) =
+    (e : ℤ) (k : ℝ → X → ℂ) : fixed_degree_trace μ degree e (k 0) =
       ∫ x, k 0 x ∂μ.restrict {x | degree x = e} := by sorry
 
--- Test: yu_024.test2
+-- Test: fixed_degree_trace.test2
 -- Writing J_e^T as an integral is permitted after integrability of the restricted diagonal kernel has been proved; the value at T=0 is J_e.
 example {X : Type u} [MeasurableSpace X] (μ : Measure X) (degree : X → ℤ)
-    (e : ℤ) (k : ℝ → X → ℂ) : yu_024 μ degree e (k 0) =
+    (e : ℤ) (k : ℝ → X → ℂ) : fixed_degree_trace μ degree e (k 0) =
       ∫ x, k 0 x ∂μ.restrict {x | degree x = e} := by sorry
 
 
 theorem test3 (T : ℝ) (hT : 0 < T) (e : ℤ) :
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
       (coarse_truncated_kernel.cuspDiagonal T) = (T : ℂ) ∧
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
       (coarse_truncated_kernel.cuspDiagonal T) ≠
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
 
--- Test: yu_024.test3
+-- Test: fixed_degree_trace.test3
 -- The actual fixed-degree integral of the two-parabolic cusp model on [0,2T] is T and differs from the whole-group-only integral when T>0.
 example (T : ℝ) (hT : 0 < T) (e : ℤ) :
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
       (coarse_truncated_kernel.cuspDiagonal T) = (T : ℂ) ∧
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
       (coarse_truncated_kernel.cuspDiagonal T) ≠
-    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
+    fixed_degree_trace (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
 
-end yu_024
+end fixed_degree_trace
 
 def QuasiPolynomial (f : ℤ → ℂ) : Prop :=
   ∃ period : ℕ, 0 < period ∧ ∃ p : Fin period → Polynomial ℂ,
@@ -5583,101 +5583,101 @@ example : ¬ Integrable (fun _ : ℕ => (1 : ℂ)) Measure.count := by
 
 
 /-- Characteristic-polynomial fibre; the bundle/finite-field carrier is imported from GN. -/
-def yu_038 {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) :
+def charpoly_kernel_refinement {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) :
     Set (Matrix (Fin n) (Fin n) F) := {A | A.charpoly = p}
-namespace yu_038
+namespace charpoly_kernel_refinement
 
-def charpolyFibre := @yu_038
+def charpolyFibre := @charpoly_kernel_refinement
 
 def lieKernel {I : Type u} [Countable I] {F : Type v} [Field F] (n : ℕ)
     (endomorphisms : I → Matrix (Fin n) (Fin n) F) (p : Polynomial F)
     (summand : I → ℂ) : ℂ :=
-  by classical exact ∑' i, if endomorphisms i ∈ yu_038 n p then summand i else 0
+  by classical exact ∑' i, if endomorphisms i ∈ charpoly_kernel_refinement n p then summand i else 0
 
 /- Deep-chamber quasi-polynomial continuation, not integration at nonregular T. -/
 
 theorem test1 {F : Type u} [Field F] (n : ℕ) (a : F) :
-    a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
+    a • (1 : Matrix (Fin n) (Fin n) F) ∈ charpoly_kernel_refinement n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
 
--- Test: yu_038.test1
+-- Test: charpoly_kernel_refinement.test1
 -- The scalar matrix a·Id belongs to the (X−a)^n characteristic-polynomial fibre.
 -- The scalar matrix belongs to the specified (X−a)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (a : F) :
-    a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
+    a • (1 : Matrix (Fin n) (Fin n) F) ∈ charpoly_kernel_refinement n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
 
 
 theorem test2 {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
-    (0 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n (Polynomial.X ^ n) ∧
+    (0 : Matrix (Fin n) (Fin n) F) ∈ charpoly_kernel_refinement n (Polynomial.X ^ n) ∧
       ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) ∧
-      (0 : Matrix (Fin n) (Fin n) F) ∉ yu_038 n ((Polynomial.X - 1) ^ n) := by sorry
+      (0 : Matrix (Fin n) (Fin n) F) ∉ charpoly_kernel_refinement n ((Polynomial.X - 1) ^ n) := by sorry
 
--- Test: yu_038.test2
+-- Test: charpoly_kernel_refinement.test2
 -- For n>0, the zero matrix belongs to the X^n fibre, is not invertible, and does not belong to the (X−1)^n fibre.
 -- Zero lies in the X^n fibre, is not invertible, and is excluded from the (X−1)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
-    (0 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n (Polynomial.X ^ n) ∧
+    (0 : Matrix (Fin n) (Fin n) F) ∈ charpoly_kernel_refinement n (Polynomial.X ^ n) ∧
       ¬ IsUnit (0 : Matrix (Fin n) (Fin n) F) ∧
-      (0 : Matrix (Fin n) (Fin n) F) ∉ yu_038 n ((Polynomial.X - 1) ^ n) := by sorry
+      (0 : Matrix (Fin n) (Fin n) F) ∉ charpoly_kernel_refinement n ((Polynomial.X - 1) ^ n) := by sorry
 
 
 theorem test3 {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) (Fin n) F)
-    (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
+    (hA : A ∈ charpoly_kernel_refinement n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
 
--- Test: yu_038.test3
+-- Test: charpoly_kernel_refinement.test3
 -- For A in the p characteristic-polynomial fibre, A is invertible iff p has nonzero constant term; on a bundle use the corresponding global Cayley–Hamilton inverse.
 -- Within the p fibre, invertibility is equivalent to a nonzero constant coefficient of p.
 example {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) (Fin n) F)
-    (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
+    (hA : A ∈ charpoly_kernel_refinement n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
 
-end yu_038
+end charpoly_kernel_refinement
 
 
 /-- Cycle-fixed real height space. -/
-def yu_047 {r : ℕ} (w : Equiv.Perm (Fin r)) : Submodule ℝ (Fin r → ℝ) where
+def weyl_fixed_levi {r : ℕ} (w : Equiv.Perm (Fin r)) : Submodule ℝ (Fin r → ℝ) where
   carrier := {H | ∀ i, H (w i) = H i}
   zero_mem' := by sorry
   add_mem' := by sorry
   smul_mem' := by sorry
-namespace yu_047
+namespace weyl_fixed_levi
 
-def leviFromCycles {r : ℕ} (w : Equiv.Perm (Fin r)) := yu_047 w
+def leviFromCycles {r : ℕ} (w : Equiv.Perm (Fin r)) := weyl_fixed_levi w
 
 theorem fixedVectorSpace {r : ℕ} (w : Equiv.Perm (Fin r)) (H : Fin r → ℝ) :
-    H ∈ yu_047 w ↔ H ∘ w = H := by sorry
+    H ∈ weyl_fixed_levi w ↔ H ∘ w = H := by sorry
 
 theorem centralCharacterAction {r : ℕ} (w : Equiv.Perm (Fin r)) (lam : Fin r → ℂˣ)
     (hCycleConstant : ∀ i, lam (w i) = lam i) : lam ∘ w = lam := by sorry
 
-theorem test1 {r : ℕ} : yu_047 (Equiv.refl (Fin r)) = ⊤ := by sorry
+theorem test1 {r : ℕ} : weyl_fixed_levi (Equiv.refl (Fin r)) = ⊤ := by sorry
 
--- Test: yu_047.test1
+-- Test: weyl_fixed_levi.test1
 -- For w=1 the minimal fixed Levi is M.
-example {r : ℕ} : yu_047 (Equiv.refl (Fin r)) = ⊤ := by sorry
+example {r : ℕ} : weyl_fixed_levi (Equiv.refl (Fin r)) = ⊤ := by sorry
 
 
-theorem test2 (H : Fin 2 → ℝ) : H ∈ yu_047 (Equiv.swap 0 1) ↔ H 0 = H 1 := by sorry
+theorem test2 (H : Fin 2 → ℝ) : H ∈ weyl_fixed_levi (Equiv.swap 0 1) ↔ H 0 = H 1 := by sorry
 
--- Test: yu_047.test2
+-- Test: weyl_fixed_levi.test2
 -- For M=GL_d×GL_d and w swapping the two blocks, L_w=GL_(2d).
-example (H : Fin 2 → ℝ) : H ∈ yu_047 (Equiv.swap 0 1) ↔ H 0 = H 1 := by sorry
+example (H : Fin 2 → ℝ) : H ∈ weyl_fixed_levi (Equiv.swap 0 1) ↔ H 0 = H 1 := by sorry
 
 
-theorem test3 (H : Fin 4 → ℝ) : H ∈ yu_047 ((Equiv.swap 0 1).trans (Equiv.swap 2 3)) ↔
+theorem test3 (H : Fin 4 → ℝ) : H ∈ weyl_fixed_levi ((Equiv.swap 0 1).trans (Equiv.swap 2 3)) ↔
     H 0 = H 1 ∧ H 2 = H 3 := by sorry
 
--- Test: yu_047.test3
+-- Test: weyl_fixed_levi.test3
 -- For M=GL₁^4 and w=(12)(34), L_w=GL₂×GL₂ up to permutation, rather than GL₄.
-example (H : Fin 4 → ℝ) : H ∈ yu_047 ((Equiv.swap 0 1).trans (Equiv.swap 2 3)) ↔
+example (H : Fin 4 → ℝ) : H ∈ weyl_fixed_levi ((Equiv.swap 0 1).trans (Equiv.swap 2 3)) ↔
     H 0 = H 1 ∧ H 2 = H 3 := by sorry
 
-end yu_047
+end weyl_fixed_levi
 
 /-- Determinant-coordinate monomial pairing; its additive companion uses coordinate
 embedding, never a choice of logarithm. -/
-def yu_048 {I : Type u} [Fintype I] (lam : I → ℂˣ) (H : I → ℤ) : ℂˣ := ∏ i, lam i ^ H i
-namespace yu_048
+def torus_pairing {I : Type u} [Fintype I] (lam : I → ℂˣ) (H : I → ℤ) : ℂˣ := ∏ i, lam i ^ H i
+namespace torus_pairing
 
-def multiplicativePairing := @yu_048
+def multiplicativePairing := @torus_pairing
 
 def linearPairing {I : Type u} [Fintype I] (lam : I → ℂˣ) (H : I → ℤ) : ℂ :=
   ∑ i, (lam i : ℂ) * H i
@@ -5685,80 +5685,80 @@ def linearPairing {I : Type u} [Fintype I] (lam : I → ℂˣ) (H : I → ℤ) :
 def centralRoots (n : ℕ) : Set ℂˣ := {z | z ^ n = 1}
 
 theorem test1 {I : Type u} [Fintype I] (lam : I → ℂˣ) (H K : I → ℤ) :
-    yu_048 lam (H + K) = yu_048 lam H * yu_048 lam K := by sorry
+    torus_pairing lam (H + K) = torus_pairing lam H * torus_pairing lam K := by sorry
 
--- Test: yu_048.test1
+-- Test: torus_pairing.test1
 -- lambda^(H+K)=lambda^H*lambda^K for integral H,K.
 example {I : Type u} [Fintype I] (lam : I → ℂˣ) (H K : I → ℤ) :
-    yu_048 lam (H + K) = yu_048 lam H * yu_048 lam K := by sorry
+    torus_pairing lam (H + K) = torus_pairing lam H * torus_pairing lam K := by sorry
 
 
-theorem test2 (a b : ℂˣ) : yu_048 ![a, b] ![1, -1] = a / b ∧
+theorem test2 (a b : ℂˣ) : torus_pairing ![a, b] ![1, -1] = a / b ∧
     linearPairing ![a, b] ![1, -1] = (a : ℂ) - (b : ℂ) := by sorry
 
--- Test: yu_048.test2
+-- Test: torus_pairing.test2
 -- For H=(1,−1), lambda^H=lambda1/lambda2 whereas <lambda,H>=lambda1−lambda2.
-example (a b : ℂˣ) : yu_048 ![a, b] ![1, -1] = a / b ∧
+example (a b : ℂˣ) : torus_pairing ![a, b] ![1, -1] = a / b ∧
     linearPairing ![a, b] ![1, -1] = (a : ℂ) - (b : ℂ) := by sorry
 
 
-theorem test3 {I : Type u} [Fintype I] (lam : I → ℂˣ) : yu_048 lam 0 = 1 ∧ linearPairing lam 0 = 0 := by sorry
+theorem test3 {I : Type u} [Fintype I] (lam : I → ℂˣ) : torus_pairing lam 0 = 1 ∧ linearPairing lam 0 = 0 := by sorry
 
--- Test: yu_048.test3
+-- Test: torus_pairing.test3
 -- For H=0 the multiplicative pairing is1 and the additive pairing is0.
-example {I : Type u} [Fintype I] (lam : I → ℂˣ) : yu_048 lam 0 = 1 ∧ linearPairing lam 0 = 0 := by sorry
+example {I : Type u} [Fintype I] (lam : I → ℂˣ) : torus_pairing lam 0 = 1 ∧ linearPairing lam 0 = 0 := by sorry
 
-end yu_048
+end torus_pairing
 
 /-- Multiplicative (G,M)-family in determinant coordinates. The adjacency relation and
 coroot for each shared wall are actual AA root data, supplied here as explicit arguments. -/
-structure yu_049 {r : ℕ} (P : Type u) (A : Set (P × P))
+structure multiplicative_gm_family {r : ℕ} (P : Type u) (A : Set (P × P))
     (coroot : P × P → Fin r → ℤ) (U : Set (Fin r → ℂˣ)) where
   member : P → (Fin r → ℂˣ) → ℂ
   regular : ∀ p, ContinuousOn (member p) U
-  wall : ∀ pq ∈ A, ∀ lam ∈ U, yu_048 lam (coroot pq) = 1 → member pq.1 lam = member pq.2 lam
-namespace yu_049
+  wall : ∀ pq ∈ A, ∀ lam ∈ U, torus_pairing lam (coroot pq) = 1 → member pq.1 lam = member pq.2 lam
+namespace multiplicative_gm_family
 
 theorem adjacentCompatibility {r : ℕ} {P : Type u} {A : Set (P × P)}
-    {a : P × P → Fin r → ℤ} {U : Set (Fin r → ℂˣ)} (c : yu_049 P A a U)
+    {a : P × P → Fin r → ℤ} {U : Set (Fin r → ℂˣ)} (c : multiplicative_gm_family P A a U)
     (pq : P × P) (hA : pq ∈ A) (lam : Fin r → ℂˣ) (hU : lam ∈ U)
-    (hWall : yu_048 lam (a pq) = 1) : c.member pq.1 lam = c.member pq.2 lam := by sorry
+    (hWall : torus_pairing lam (a pq) = 1) : c.member pq.1 lam = c.member pq.2 lam := by sorry
 
 def theta {r m : ℕ} (roots : Fin m → Fin r → ℤ) (lam : Fin r → ℂˣ) : ℂ :=
-  ∏ j, yu_048.linearPairing lam (roots j)
+  ∏ j, torus_pairing.linearPairing lam (roots j)
 
 def regularizedSum {r : ℕ} {P : Type u} [Fintype P] {A : Set (P × P)}
-    {a : P × P → Fin r → ℤ} {U : Set (Fin r → ℂˣ)} (c : yu_049 P A a U)
+    {a : P × P → Fin r → ℤ} {U : Set (Fin r → ℂˣ)} (c : multiplicative_gm_family P A a U)
     (thetaQ : P → (Fin r → ℂˣ) → ℂ) (lam : Fin r → ℂˣ) : ℂ :=
   ∑ Q, c.member Q lam / thetaQ Q lam
 
 theorem test1 (a b : ℂˣ) : theta (fun _ : Fin 1 => ![1, -1]) ![a, b] = (a : ℂ) - (b : ℂ) := by sorry
 
--- Test: yu_049.test1
+-- Test: multiplicative_gm_family.test1
 -- For GL₂ with diagonal Levi, theta_B=lambda1−lambda2 and theta_Bop=lambda2−lambda1.
 example (a b : ℂˣ) : theta (fun _ : Fin 1 => ![1, -1]) ![a, b] = (a : ℂ) - (b : ℂ) := by sorry
 
 
 theorem test2  :
-    ¬ ∃ c : yu_049 Bool {(true, false)}
+    ¬ ∃ c : multiplicative_gm_family Bool {(true, false)}
       (fun _ => ![1, -1]) (Set.univ : Set (Fin 2 → ℂˣ)),
       (∀ lam, c.member true lam = 1) ∧ (∀ lam, c.member false lam = 2) := by sorry
 
--- Test: yu_049.test2
--- The multiplicative wall equation from the actual coroot (1,−1) rejects any yu_049 family with constant adjacent members one and two on the whole character domain.
+-- Test: multiplicative_gm_family.test2
+-- The multiplicative wall equation from the actual coroot (1,−1) rejects any multiplicative_gm_family family with constant adjacent members one and two on the whole character domain.
 example  :
-    ¬ ∃ c : yu_049 Bool {(true, false)}
+    ¬ ∃ c : multiplicative_gm_family Bool {(true, false)}
       (fun _ => ![1, -1]) (Set.univ : Set (Fin 2 → ℂˣ)),
       (∀ lam, c.member true lam = 1) ∧ (∀ lam, c.member false lam = 2) := by sorry
 
 
 theorem test3 {r : ℕ} (roots : Fin 0 → Fin r → ℤ) (lam : Fin r → ℂˣ) : theta roots lam = 1 := by sorry
 
--- Test: yu_049.test3
+-- Test: multiplicative_gm_family.test3
 -- For M=G, theta_G=1 and the single holomorphic member automatically satisfies the adjacency condition.
 example {r : ℕ} (roots : Fin 0 → Fin r → ℤ) (lam : Fin r → ℂˣ) : theta roots lam = 1 := by sorry
 
-end yu_049
+end multiplicative_gm_family
 
 
 -- A genuine pole does not become removable by naming its analytic extension.
@@ -5783,15 +5783,15 @@ example : ¬ ∃ g : ℂ → ℂ, AnalyticAt ℂ g 1 ∧
 
 /-- Probability Haar is pushed forward with all finite components retained. The surjective
 root-basis torus homomorphism and its probability Haar property are supplied by AA. -/
-theorem yu_053 {H K : Type u} [MeasurableSpace H] [MeasurableSpace K]
+theorem root_coordinate_haar {H K : Type u} [MeasurableSpace H] [MeasurableSpace K]
     (μ : Measure H) (ν : Measure K) (p : H → K) (hp : MeasurePreserving p μ ν)
     (f : K → ℂ) (hf : Integrable f ν) : ∫ x, f (p x) ∂μ = ∫ y, f y ∂ν := by sorry
 
 
 /-- Reuse the finite covering-degree proof; the two groups need not be connected. -/
-theorem yu_062 {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
+theorem torus_fourier_inversion {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
     Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates l //
-      p.1 ∈ yu_145.A l d ∧ p.2 ∈ yu_145.B l d ∧
+      p.1 ∈ spectral_cycle_coordinates.A l d ∧ p.2 ∈ spectral_cycle_coordinates.B l d ∧
         (fun j t => p.1 j * cycleDifference l hl p.2 j t) = 1} =
       (∏ j, l j) * (∏ j, l j * d j) := by sorry
 end TauCeti.AutomorphicSpectral
@@ -5801,12 +5801,12 @@ universe u v w
 /-- Ordered finite-dimensional regularized trace in a chosen orthonormal basis. The
 parameter `mu : ℂ` is a one-dimensional slice through the complex character torus. No cyclic permutation
 is made before `weyl * twist` closes the endomorphism. -/
-def yu_151 {Q : Type u} [Fintype Q] (n : ℕ) (h : Q → ℂ → ℂ)
+def finite_fibre_trace {Q : Type u} [Fintype Q] (n : ℕ) (h : Q → ℂ → ℂ)
     (ratio : Q → ℂ → Matrix (Fin n) (Fin n) ℂ)
     (weyl twist : Matrix (Fin n) (Fin n) ℂ) : ℂ :=
   Filter.limUnder (𝓝[≠] (1 : ℂ)) (fun mu =>
     Matrix.trace ((∑ q, h q mu • ratio q mu) * weyl * twist))
-namespace yu_151
+namespace finite_fibre_trace
 
 /-- Source and intermediate spaces need not coincide. Both transports are retained. -/
 def stabilizerTransport {A B : Type u} [AddCommGroup A] [Module ℂ A]
@@ -5820,15 +5820,15 @@ def spectralContribution {A : Type u} [MeasurableSpace A] {C : Type v} [Fintype 
 
 theorem test1 {r : ℕ} (d : Fin r → ℕ) (hd : ∀ j, 0 < d j) :
     Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates (fun _ : Fin r => 1) //
-      p.1 ∈ yu_145.A (fun _ => 1) d ∧ p.2 ∈ yu_145.B (fun _ => 1) d ∧
+      p.1 ∈ spectral_cycle_coordinates.A (fun _ => 1) d ∧ p.2 ∈ spectral_cycle_coordinates.B (fun _ => 1) d ∧
         (fun j t => p.1 j * cycleDifference (fun _ => 1) (by intro j; norm_num) p.2 j t) = 1} =
       ∏ j, d j := by sorry
 
--- Test: yu_151.test1
+-- Test: finite_fibre_trace.test1
 -- For all cycle lengths one, count the actual finite kernel of the map (a,c)↦aδ(c) on the constructed A×B cover: its cardinal is ∏d_j, retaining every finite component.
 example {r : ℕ} (d : Fin r → ℕ) (hd : ∀ j, 0 < d j) :
     Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates (fun _ : Fin r => 1) //
-      p.1 ∈ yu_145.A (fun _ => 1) d ∧ p.2 ∈ yu_145.B (fun _ => 1) d ∧
+      p.1 ∈ spectral_cycle_coordinates.A (fun _ => 1) d ∧ p.2 ∈ spectral_cycle_coordinates.B (fun _ => 1) d ∧
         (fun j t => p.1 j * cycleDifference (fun _ => 1) (by intro j; norm_num) p.2 j t) = 1} =
       ∏ j, d j := by sorry
 
@@ -5838,7 +5838,7 @@ theorem test2 {A B : Type u} [AddCommGroup A] [Module ℂ A]
     [AddCommGroup B] [Module ℂ B] (U : A →ₗ[ℂ] B) (M : B →ₗ[ℂ] A) (a : A) :
     stabilizerTransport U M a = M (U a) := by sorry
 
--- Test: yu_151.test2
+-- Test: finite_fibre_trace.test2
 -- In the general stabilizer case U_tau alone need not end in A_P,pi; the trace is formed only after the Weyl transport closes the endomorphism.
 example {A B : Type u} [AddCommGroup A] [Module ℂ A]
     [AddCommGroup B] [Module ℂ B] (U : A →ₗ[ℂ] B) (M : B →ₗ[ℂ] A) (a : A) :
@@ -5846,24 +5846,24 @@ example {A B : Type u} [AddCommGroup A] [Module ℂ A]
 
 
 theorem test3 (n : ℕ) (a : ℂ) (M U : Matrix (Fin n) (Fin n) ℂ) :
-    yu_151 n (fun _ : Unit => fun _ => a) (fun _ _ => 1) M U = a * Matrix.trace (M * U) := by sorry
+    finite_fibre_trace n (fun _ : Unit => fun _ => a) (fun _ _ => 1) M U = a * Matrix.trace (M * U) := by sorry
 
--- Test: yu_151.test3
+-- Test: finite_fibre_trace.test3
 -- For M=L=G the parabolic sum has one term and R_G(z;v)=Id; the formula reduces to the finite character average of h_G(a) times Tr(M(1,c)∘U_tau).
 example (n : ℕ) (a : ℂ) (M U : Matrix (Fin n) (Fin n) ℂ) :
-    yu_151 n (fun _ : Unit => fun _ => a) (fun _ _ => 1) M U = a * Matrix.trace (M * U) := by sorry
+    finite_fibre_trace n (fun _ : Unit => fun _ => a) (fun _ _ => 1) M U = a * Matrix.trace (M * U) := by sorry
 
-end yu_151
+end finite_fibre_trace
 
 
 /-- Finite degree Fourier inversion uses a primitive root and every residue class.
 The torus/operator order is unchanged by this scalar projection. -/
-theorem yu_152 (n : ℕ) [NeZero n] (hn : 0 < n) (zeta : ℂ) (hzeta : IsPrimitiveRoot zeta n)
+theorem degree_fourier_recovery (n : ℕ) [NeZero n] (hn : 0 < n) (zeta : ℂ) (hzeta : IsPrimitiveRoot zeta n)
     (J : ZMod n → ℂ) (twisted : ZMod n → ℂ)
     (hFourier : ∀ k, twisted k = ∑ e : ZMod n, zeta ^ (e.val * k.val) * J e) :
     ∀ e, J e = (n : ℂ)⁻¹ * ∑ k : ZMod n, zeta ^ (-(e.val * k.val : ℤ)) * twisted k := by sorry
 
-theorem yu_164 {X : Type u} [MeasurableSpace X] (μ : Measure X)
+theorem twisted_truncated_trace {X : Type u} [MeasurableSpace X] (μ : Measure X)
     (n : ℕ) (hn : 0 < n) (degree : X → ℤ) (k : X → ℂ)
     (hk : Integrable k μ) (zeta : ℂ) (hzeta : zeta ^ n = 1) :
     (∫ x, zeta ^ degree x * k x ∂μ) = ∑ e ∈ Finset.range n,
@@ -6076,8 +6076,8 @@ would assert them for data that does not satisfy them.
   `orbital_integral.invariant`, `orbital_integral.fibre_card` and
   `orbital_integral.full_centralizer` (AS.6).
 * **Function-field `GLₙ`** needs the moduli of bundles on the curve, the degree lattice and
-  holomorphic families on complex character tori: `yu_025`, `yu_038.continueInT`, `yu_039`,
-  `yu_050`, `yu_051`, `yu_052`, `yu_054`, `yu_055`, `yu_151.regularizedFamily`, `yu_063`,
-  `yu_165` and `yu_169` (AS.3, AS.6).
-* **The modular `L²` realization** of the resolvent kernel: `dit_91.kernelSymmetry` (AS.2.18).
+  holomorphic families on complex character tori: `fixed_degree_continuation`, `charpoly_kernel_refinement.continueInT`, `coprime_nilpotent_vanishing`,
+  `regularized_family_value`, `family_product_formula`, `root_product_derivative`, `family_argument_principle`, `family_central_vanishing`, `finite_fibre_trace.regularizedFamily`, `arthur_lafforgue_spectral`,
+  `lafforgue_spectral_expansion` and `root_basis_identity` (AS.3, AS.6).
+* **The modular `L²` realization** of the resolvent kernel: `resolvent_kernel.kernelSymmetry` (AS.2.18).
 -/
