@@ -14542,7 +14542,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PolynomialGaloisGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3434"
   },
   {
    "id": "REV-DESIGN-PolynomialGaloisGroupsPartII",
@@ -15428,7 +15429,8 @@
    ],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7102"
   },
   {
    "id": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
@@ -27914,8 +27916,9 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R14.3",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R14.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #452"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #452",
+   "finishedAt": "2026-10-11T09:44:28Z"
   },
   {
    "id": "BP-ModularIwasawaMainConjectures",
@@ -37846,7 +37849,8 @@
     "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6394"
   },
   {
    "kind": "design",
@@ -49280,8 +49284,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49371,8 +49375,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80338,8 +80342,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -84740,8 +84744,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
