@@ -218764,7 +218764,7 @@
   {
    "id": "ModularCurvesPartII/E1",
    "kind": "misprint",
-   "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 120",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120",
    "printed": "For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)².",
    "correction": "The determinant is (q+1)²−T_q². The two expressions differ by −1, a unit, so their invertibility tests agree.",
    "reason": "The 2×2 determinant formula gives a²−b²; at T_q=0 the determinant equals (q+1)².",
@@ -218779,14 +218779,14 @@
    "owner": "ModularCurvesPartII",
    "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, arXiv:1207.4224 author preprint, fetched 11 October 2026; comparison with author-hosted Springer-layout copy, PDF pp. 120–123",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularCurvesPartII--R14.3",
+   "reviewReason": "Confirmed visually in the arXiv formula on p. 88 and author-layout PDF p. 120. Direct 2×2 determinant calculation reverses the printed sign; −1 is a unit. This does not establish whether the later correction addresses it."
   },
   {
    "id": "ModularCurvesPartII/E2",
    "kind": "misprint",
-   "locator": "Lemma 9.6 proof, arXiv author preprint p. 90; author-hosted Springer-layout PDF p. 122",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 122",
    "printed": "The displayed Lyndon segment places H^{i−1}(G) directly before H^i(Γ)²→H^i(H).",
    "correction": "The segment is H^i(G)→H^i(Γ)²→H^i(H)→H^{i+1}(G), with the two subgroup restrictions and their difference.",
    "reason": "Serre Trees II §2.8 Proposition 13, pp. 168–170, or the long exact sequence of the tree cochain short exact sequence, fixes the degrees. Degree-zero invariants already require H⁰(G) before H⁰(Γ)².",
@@ -218801,9 +218801,9 @@
    "owner": "ModularCurvesPartII",
    "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
    "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, arXiv:1207.4224 author preprint, fetched 11 October 2026; comparison with author-hosted Springer-layout copy, PDF pp. 120–123",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularCurvesPartII--R14.3",
+   "reviewReason": "Confirmed visually on arXiv p. 89 and author-layout PDF p. 122; Serre Trees II §2.8 Proposition 13 pp. 168–169 gives H^i of the amalgam before the vertex H^i term."
   },
   {
    "id": "ModularCurvesPartII/E3",
@@ -218823,9 +218823,9 @@
    "owner": "ModularCurvesPartII",
    "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
    "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, arXiv:2109.09040 author preprint dated 18 September 2024, fetched 11 October 2026; compared with the author-hosted published JAMS 38 (2025), 627–702 offprint in §§4.4–4.6, pp. 659–666. Node locators distinguish preprint and journal pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularCurvesPartII--R14.3",
+   "reviewReason": "Confirmed in the preprint p. 31 and published offprint p. 663. The proof on p. 664 requires characteristic five. In characteristic three the constant residue vector on the 12 cusps of X(5) lies in the augmentation kernel and yields a nonzero SL₂(F₅)-invariant ordinary H¹ class."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E1",
