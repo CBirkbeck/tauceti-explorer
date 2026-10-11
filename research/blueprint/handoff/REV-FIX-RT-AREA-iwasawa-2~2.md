@@ -1,70 +1,76 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-mYksrQ`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-RE9sU7`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106720937).
-Input: `a51b147164c4e9cd0643f8039a45f10f1b22423f`.
-Branch: `codex-mYksrQ-review-6219`. One claim; none of the fixes were mine.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106952218).
+Input: `73cbb984728bc98dd73aefe910254af1ded45e0d`.
+Branch: `codex-RE9sU7-review-6219`. One claim; none of the fixes were mine.
 
 ## Status: scope-blocked checkpoint
 
-The mathematical correction decisions are ready. The live issue names only
-L3 and PMIA, while its queue requires L3-2 and D.1 as well. I reconstructed
-and validated the exact two metadata-only candidates below. Neither is
-installed: WORKERS.md says “Edit only the files the issue names, plus your own
-scratch space.” A concrete authorization request for the two omitted packet
-paths was sent through the worker conversation; no answer has arrived. The
-live issue's comments contain no authorization either. Reconcile the issue
-or obtain explicit authorization before redispatching this job.
+The correction review is ready, but actual job completion is false. The live
+issue permits L3 and PMIA; the queue additionally requires L3-2 and D.1.
+Their top records still name the preceding layer reviews. A read-only overlay
+of only the two exact candidates below makes the unchanged completion
+predicate true. PMIA's `needs_changes` counts as completed; it is not the
+blocker. Reconcile the live issue or obtain authorization for those two paths
+before redispatching, so the next worker can finish rather than repeat this
+checkpoint.
 
-The issue-named L3 and PMIA packets now carry this session's fresh bounded
-review records, following the live issue's instruction. Each entire previous
-review is appended to history; every other field is unchanged. This report and
-handoff also change. All Suggested files and both omitted-path packets are
-byte-identical to the input. PMIA's `needs_changes` is a completed negative
-review; its coordinated ownership revision is a separate job, not the scope
-blocker. The two remaining review-record updates still require authorization.
+WORKERS.md says “Edit only the files the issue names, plus your own scratch
+space.” After reconstructing and validating the concrete candidates, I asked
+for authorization through the worker conversation. No answer has arrived;
+the live issue comments contain no authorization. Both candidates remain
+uninstalled. This checkpoint is blocked on scope, not elapsed time.
 
-## Fresh evidence and attribution
+The two issue-named packets carry this session's fresh bounded reviews. Each
+complete preceding record is appended once to history; every non-review field
+is identical to input. The report and this handoff also change. Both omitted
+packets and all Suggested files remain byte-identical. The report supplies
+source locators and the current native-library boundary; the coordinated
+PMIA ownership revision needs a separate job covering packet, reader,
+Suggested and consumers.
 
-- Actual `issues.deliverables_complete` is false. Substituting exactly the two
-  candidate texts at their intended paths in memory makes the unmodified
-  predicate true, without changing the queue.
-- The four actual packets and two candidates pass the checker with the
-  programme-pinned declaration index: zero errors; only L3 has its 26
-  inherited short-API warnings. Both candidates pass intake's file rules.
-- The input and candidate hashes reproduce all guards below. Candidates
-  preserve every non-review field and each complete earlier review, including
-  the 79-node and 72-node ledgers. The omitted packets and all Suggested files
-  match their input hashes; the two fresh reviews preserve all other fields.
-  No packet or candidate has an `excerpt` field.
-- Fetched all nine public PDFs and matched every receipt below. Fresh bounded
-  source and pinned/current library checks support all six earlier finding
-  dispositions. The report gives exact theorem, section and page locators.
-  No book was used; no source passage enters the repository.
-- Earlier exhaustive audits retain their original authorship. Candidate
-  records retain `codex-jIGDIK`'s attribution and dates. Four fresh sequential
-  `lean-check` runs reproduce the historical outcomes: L3 fails at the unresolved
-  `research` import before its body; L3-2, D.1 and PMIA elaborate with 111, 307
-  and 1,075 `sorry` warnings respectively and no other diagnostics. No Lean code
-  changed. The report preserves the original historical evidence separately.
-- `git diff --check` and intake's changed-file check pass for the four changed
-  files: two issue-named packet review records, the report and this handoff.
+## Fresh checks and attribution
+
+- Four actual packets pass the pinned-index checker with zero errors. L3
+  retains 26 inherited short-API warnings; the other three have none. Both
+  exact candidates pass at their intended paths under a read-only overlay,
+  and pass intake file rules.
+- Parsed preservation checks retain all non-review fields, complete prior
+  reviews and earlier histories. The candidates preserve the full 79-node
+  and 72-node ledgers and `codex-jIGDIK`'s original attribution/date.
+  No packet or candidate contains an `excerpt` field.
+- Fetched all nine public PDFs and reproduced the receipts below. Fresh
+  readings support the six correction decisions. No book was used and no
+  source passage enters the repository.
+- Four sequential fresh `lean-check` runs: L3 fails at the unresolved
+  `research` import before its body; L3-2, D.1 and PMIA elaborate with 111,
+  307 and 1,075 `sorry` warnings respectively and no other diagnostics.
+  No Lean code changed. Earlier compiler evidence stays separately attributed.
+- Fresh finite arithmetic checks reproduce the signed Gamma examples and
+  dyadic modulus-four failure; FG permutation bijectivity/congruence/strict
+  filtration in four odd/dyadic/one-conductor examples; the Fitting and
+  nonflat examples; and the acyclic versus zero-model Fredholm products.
+  These check examples, not theorem proofs or Lean implementations.
+- `git diff --check` and intake's changed-file check pass for the two
+  issue-named packet review records, report and handoff.
 
 Current read-only heads: TauCetiRoadmap
 `070dc2becd74419e76303ede84b465ed4a69461f`; Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-The stable-transpose native supplier is `StableTranspose.lean`, theorem
-`TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`: exact
-surjective projective presentations over arbitrary rings, without finiteness,
-and opposite-ring dual factors P₀×Q₁ and P₁×Q₀. Preserve arithmetic adapters,
-arbitrary-family and nonflat tests, and contragredient conventions in the
-separate coordinated PMIA revision.
+The five PMIA suppliers already exist in current Tau Ceti. Stable transpose
+is `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` in
+`StableTranspose.lean`, for exact surjective projective presentations over
+arbitrary rings, without finiteness. Its opposite-ring dual factors are
+P₀×Q₁ and P₁×Q₀. Preserve arbitrary-family span/image and arithmetic adapters,
+nonflat tests and contragredient conventions during the coordinated revision.
+The actual upstream models read this session were ProfiniteArithmetic and
+StableReduction; the preceding report's SemisimpleAlgebras directory is absent.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/a51b147164c4e9cd0643f8039a45f10f1b22423f/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
-keeps the preceding checkpoint history. This document replaces nested
-checkpoint prose while retaining everything needed to resume. No disposable
-scratch file is required.
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/73cbb984728bc98dd73aefe910254af1ded45e0d/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+retains the preceding checkpoint history. Everything needed to resume is
+below; no disposable scratch file is required.
 
 ## Installation guards
 
@@ -79,11 +85,11 @@ evidence or mathematics.
 | D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
 
 The issue-named packet hashes after this session's review updates are L3
+`d052fc3d630e1b0e586d6c06b9e3fe1c06669e993bc593fce84ad47ebd6f6573`
+and PMIA `382af060b20f30cd42ca247b1170d227ef055c4cca4d4edd55b46e468cd334ac`.
+Their histories have 47 and 48 entries respectively. Their input hashes were
 `e4cf6a66659febf5272d88efb5f494b6a5b8ce74ff96a45b0ad794db65b541a7`
-and PMIA `4247d8e655d0826d4ec186d05d9814c24d66ed878982c71bdd04676bca8d242a`.
-Their histories have 46 and 47 entries respectively. Their input hashes were
-`47965335744a162e3a30700f192e9d00a5012215e55de4ee9f3a192194b2c3a6`
-and `b37882b86e695240c085397bb8db770443e26f51d459856d10751698998c1ab7`.
+and `4247d8e655d0826d4ec186d05d9814c24d66ed878982c71bdd04676bca8d242a`.
 Do not overwrite the fresh records or add identical review-history entries
 when installing the two remaining candidates.
 
