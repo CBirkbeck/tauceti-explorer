@@ -1,36 +1,55 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-i7uAjY`. Date: 2026-10-11.
-Branch: `codex-i7uAjY-crystalline-package`.
-Input commit: `f90586176babd13aa942990deccd87b0a40d5abb`.
-Claim [6107225079](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107225079)
-confirmed by [6107226008](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107226008).
+Agent: Codex. Session: `codex-gMveIL`. Date: 2026-10-11.
+Branch: `codex-gMveIL-crystalline-package`.
+Input commit: `b88f5c327ce51cae963db4c5ff7edb373d7c8243`.
+Claim [6107415120](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107415120)
+confirmed by [6107416317](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107416317).
 No manager-priority issue was available; this was the eligible focus package.
 This session claimed only this job.
 
 ## Outcome and concrete change
 
 **Blocked on missing supplier interfaces; this is not a complete package.**
-The package Suggested.lean now imports thirteen individual Mathlib modules
-instead of the Mathlib root. Its existing Tau Ceti Artin–Rees import remains.
-The imports expose the actual matrix, tensor base-change, representation
-invariants/duals, p-adic residue, DVR, finite-dimension, alternating-group and
-arithmetic tactic APIs used by the supplied signatures. Every declaration,
-hypothesis, proof and example below the import block is unchanged.
+The reader's layer prerequisite summaries omitted completed-cohomology stages
+already named by their individual targets. The summaries now include:
 
-`lean-check` finished with **exit 0, no errors and 107 warnings, all
-“declaration uses sorry”**. The change removes reliance on the root import,
-as required by PROTOCOL.md §13; it adds no implementation or arithmetic target.
-The README is unchanged. The repeated historical handoffs are consolidated here;
-mathematical resume contracts from earlier workers are retained below.
+| Consumer layer | Existing target inputs now also in its layer summary |
+|---|---|
+| CL.1 | CC.0, CC.1, CC.2, CC.6 |
+| CL.3 | CC.0, CC.1, CC.6 |
+| CL.5 | CC.0, CC.1, CC.2, CC.6, CC.7 |
+| CL.8 | CC.0, CC.2, CC.4, CC.6 |
+
+CL.1 and its OrdinaryMonoidLocalization target now also name the current upstream
+SR.6.5 underlying module localization and stable-operator comparison. The target
+continues to require the separate smooth positive-monoid action, exactness and
+injective-preservation contracts. Existing group-derived interfaces do not
+provide those additional contracts.
+
+Removed nine placeholder Examples sections and ten broad Dependencies lists
+that repeated the named checks and precise target prerequisites. The actual
+numerical example in CL.7 and all concrete checks remain. The README is now
+196,025 bytes, down from 198,995, below the 200 KB limit. A normalized comparison
+confirms that every mathematical statement, concrete example and source locator
+is unchanged; exactly one target's Needs line is expanded. All 97 target names,
+103 API names and 104 test names remain in the reader. Each of the ten summaries
+contains every highlighted external or earlier-layer input in its target Needs
+lines; this is a consistency check, not proof that suppliers export them.
+
+The existing Suggested.lean is byte-for-byte unchanged. A fresh `lean-check`
+finished with **exit 0, no errors and 107 warnings, all “declaration uses sorry”**.
+Its thirteen individual Mathlib imports, introduced by
+[#8815](https://github.com/CBirkbeck/tauceti-explorer/pull/8815), remain.
+No implementation or additional arithmetic signature is claimed.
 
 The accepted input is a complete target-level **planning pass**, rather than a
 closed plan: 97 nodes, 103 API entries, 104 tests, 27 requests and 40 gaps;
 all ten layers are planned, none closed. Its review explicitly says this.
-A fresh name inventory, removing nested block comments and requiring each
-named-test label to be followed by an actual example (allowing explanatory line
-comments), gives:
+The preceding checkpoint’s name inventory removed nested block comments and
+required named-test labels to be followed by actual examples. The unchanged
+Suggested.lean has the same SHA-256, so that inventory remains:
 
 | Layer | Target names present/total | API names present/total | Named examples present/total |
 |---|---:|---:|---:|
@@ -72,16 +91,18 @@ schemes, not these integral highest-weight modules and evaluation maps.
 
 Read the pinned `TauCeti.YoungTableau.weylModule` declaration and its local
 variable assumptions directly: it requires `[Algebra ℚ k]`. The current
-`WeylModule/Basic.lean` retains that assumption. Neither version supplies
+`WeylModule/Basic.lean` retains that assumption (pinned monolithic
+`ClassicalGroups/WeylModule.lean`, lines 114 and 122; current split file,
+line 122). Neither version supplies
 coefficients over O or O/ϖ^m. General algebraic induction, whose reuse was
 established by a preceding worker, does not discharge these integral
 base-change, evaluation and splitting obligations.
 
 Consumers: CL.0/lem-2-1-12, CL.0/lem-2-1-17, CL.2/lem-2-2-14,
 CL.2/lem-2-2-16, CL.5/cor-4-1-9 and CL.6/lem-4-2-3.
-The existing README retains the preceding source correction to **NT16
-Proposition 2.10**; the request still says “Lemma 2.10”. That packet edit needs
-separate authorization. This session did not repeat the CN/NT16 source audit.
+The README retains the preceding source correction to **NT16 Proposition
+2.10**; the request still says “Lemma 2.10”. Reconcile it in a packet-authorized
+job. This session did not repeat the CN/NT16 source audit.
 
 ### Completed arithmetic towers
 
@@ -126,7 +147,7 @@ Owner-job statuses checked through GitHub on 2026-10-11:
 |---|---|---|
 | Integral representation continuation in the ReductiveGroups Part III brief | [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357) | Open, state:available, kind:design; a routing brief, not a supplying export |
 | Completed towers from CC.0 | [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701) | Open, state:available, kind:blueprint |
-| Completed towers from CC.8 | [#702](https://github.com/CBirkbeck/tauceti-explorer/issues/702) | Open, state:claimed, kind:blueprint |
+| Completed towers from CC.8 | [#702](https://github.com/CBirkbeck/tauceti-explorer/issues/702) | Open, state:submitted, kind:blueprint |
 
 No owner job was claimed here. No issue label was changed manually. The
 maintainer needs to route the owner exports and packet-authorized reconciliation
@@ -135,29 +156,38 @@ before another completion attempt can satisfy this package's requirements.
 ## Validation
 
 - Read WORKERS.md, both protocols and UPSTREAM_GUIDE.md. Read current upstream
-  ReductiveGroups and PeripheralActions READMEs in full. Read the parent owner
-  gap, RS-09 ownership, ALS.6 reviewed audit and pinned/current Weyl assumptions.
+  InductionRestriction and PeripheralActions READMEs in full. Checked current
+  ReductiveGroups and smooth-representation supplier interfaces, parent owner
+  gap, accepted RS-09 ownership, ALS.6 reviewed audit and pinned/current Weyl
+  assumptions. Source-paper audits below are inherited, not repeated here.
 - Current read-only roadmap commit:
-  `070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti commit:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No build was run in either tree.
+  `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`; current Tau Ceti commit:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither integral representation
+  nor completed-cohomology owner has a packet, suggested file, package or
+  current upstream roadmap. No build was run in either read-only tree.
 - `python3 scripts/check_blueprint.py` on the accepted input: **0 errors,
   0 warnings**, confirming its planning-pass counts above.
-- `lean-check` on the changed package Suggested.lean: **exit 0, no errors,
+- `lean-check` on the existing package Suggested.lean: **exit 0, no errors,
   107 sorry-only warnings**, at pinned Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174` and the shared build supplied for
   Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Available memory was
-  95 GB before checking. No language server or library build was started;
+  100 GB before checking. No language server or library build was started;
   no check remains running.
 - Accepted packet SHA-256:
   `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
-  Changed Suggested.lean SHA-256:
+  Unchanged Suggested.lean SHA-256:
   `2f6487ab11fb57967c985d95cf3a483fc468c0bd92631b3028d3a4addd8c1e50`.
-- Intake `check-files` on the changed Suggested.lean and handoff: **2 files,
-  0 problems**; `git diff --check` passes.
+- Reader validation: **97/97 target names, 103/103 API names, 104/104 test
+  names**; all ten prerequisite summaries contain their highlighted target
+  inputs; mathematical text, concrete examples and source locators match the
+  input after excluding the described presentation/dependency changes.
+  README **196,025 bytes**; `git diff --check` passes.
+- Intake `check-files` on the changed README and handoff: **2 files,
+  0 problems**. Only those two permitted files are changed.
 - `metadata.toml` remains absent. Intake's `deliverables_complete` tests package
   output existence; adding the final file would misclassify this incomplete
-  package as complete. No accepted packet, original reader or original suggested
-  file was edited. No scratch artifact is needed to resume.
+  package as complete. No accepted packet, original reader, original suggested
+  file or supplier was edited. No scratch artifact is needed to resume.
 
 ## Where to resume
 
@@ -179,7 +209,7 @@ before another completion attempt can satisfy this package's requirements.
 ## Inherited mathematical resume contracts
 
 These are the preceding workers' authored source and interface checks, preserved
-for continuity. They are not fresh source-reading claims for `codex-i7uAjY`.
+for continuity. They are not fresh source-reading claims for `codex-gMveIL`.
 For the preceding full audit records, see
 [#8807](https://github.com/CBirkbeck/tauceti-explorer/pull/8807) and
 [#8800](https://github.com/CBirkbeck/tauceti-explorer/pull/8800).
