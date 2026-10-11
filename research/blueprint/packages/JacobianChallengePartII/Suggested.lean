@@ -1,52 +1,35 @@
-import Mathlib.AlgebraicGeometry.Group.Abelian
-import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
-import Mathlib.CategoryTheory.Limits.Shapes.FiniteProducts
-import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
-import Mathlib.CategoryTheory.Limits.Preserves.Shapes.BinaryProducts
-import Mathlib.AlgebraicGeometry.Morphisms.Flat
-import Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation
+import Mathlib
 
 /-!
-# Relative Jacobians: suggested interfaces
+# JacobianChallengePartII: representative target signatures
 
-This file is not the roadmap and is not exhaustive. README.md is definitive.
-The statements suggest Lean forms so contributors and reviewers converge on
-names and signatures. Every proof here is intentionally admitted.
+`README.md` is the definitive roadmap. This file is not exhaustive: it records
+definitions, theorem signatures and examples statable against the pinned APIs.
+It uses group objects in the slice category of schemes, so represented points
+include arbitrary test schemes. Multiplicative notation expresses the additive
+geometric law: the ordered difference is the second point divided by the first.
 
-The JC2.6 pointed-difference companion and JC5 coordinate constructions use
-native schemes, group objects and fibre products. The pointed companion takes
-the earlier degree-one Abel morphism as an input and preserves the difference
-order, translation invariance and arbitrary-base-change comparison.
-JC5.2 takes the earlier canonical Abel morphism as a typed input;
-JC5.3 takes the earlier section-free difference morphism; JC5.4 takes both.
-JC5.5 represents the triangular coordinate equivalence by a scheme isomorphism.
-JC5.6 states the coordinate factorization given the earlier Abel-difference
-identity and transfers native morphism properties of integer multiplication.
-Its tail map is identified with identity times the tailwise multiplication by
-a native scheme isomorphism; represented-point homomorphisms, naturality and
-arbitrary-base-change comparisons accompany that decomposition.
-
-The identification of these inputs with the geometric constructions of JC2
-and JC5.1, and the supplier's multiplication theorem, remain required. Their
-relative Picard and abelian-scheme types cannot yet be expressed at the pinned
-baseline. The full geometric contracts, API and tests remain recorded below;
-the other targets also require duality and algebraic-equivalence interfaces.
-Those unavailable signatures are omitted under the prototyping convention.
-Elaborating this file checks the native portion and its explicit hypotheses;
-it does not check the omitted geometric signatures or prove the admitted laws.
+The curve-coordinate constructions take the earlier Abel and difference
+morphisms as explicit inputs. Their relative Picard identifications and the
+geometric multiplication theorem require the supplier interfaces named in the
+README. The concluding comment lists the geometric targets absent from these
+representative signatures. Every admitted proof remains a roadmap target.
 -/
 
-/-!
-JC2.6: the pointed comparison of the section-free curve difference.
-Yuan, arXiv:2108.05625v4, §2.2.1 p. 29; Theorem 2.10(2), pp. 37–38.
-The geometric map comes from the Pic¹ torsor; this companion takes its earlier
-Abel morphism as an input. Its class interpretation and the section-free
-construction, including the nontrivial genus-one torsor test, remain required.
-The native Hom groups use multiplicative notation: y / x means y − x.
--/
+namespace TauCetiRoadmap.JacobianChallengePartII
+
 noncomputable section
+
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped CategoryTheory.MonObj
+
+/-! ## Layer 2: section-free differences
+
+The pointed companion uses the earlier Abel morphism and agrees with the
+section-free construction once its Picard-torsor comparison is available.
+Yuan, arXiv:2108.05625v4, §2.2.1, p. 29; Theorem 2.10(2), pp. 37–38.
+-/
+
 namespace RelativeJacobian.CurveDifference
 open CategoryTheory.MonoidalCategory CategoryTheory.CartesianMonoidalCategory
 universe u
@@ -56,35 +39,42 @@ variable {S : Scheme.{u}} {A X T U : Over S} [GrpObj A]
 def pointedMap (abel : X ⟶ A) : X ⨯ X ⟶ A :=
   (prod.snd ≫ abel) / (prod.fst ≫ abel)
 
-lemma pointedMap_value (abel : X ⟶ A) (x y : T ⟶ X) :
+/-- On a pair of test-scheme points, the difference is the second Abel image divided by the first. -/
+theorem pointedMap_value (abel : X ⟶ A) (x y : T ⟶ X) :
     prod.lift x y ≫ pointedMap abel = (y ≫ abel) / (x ≫ abel) := by
   sorry
 
-lemma pointedMap_diagonal (abel : X ⟶ A) :
+/-- The diagonal maps to the identity section of the group object. -/
+theorem pointedMap_diagonal (abel : X ⟶ A) :
     prod.lift (𝟙 X) (𝟙 X) ≫ pointedMap abel = (1 : X ⟶ A) := by
   sorry
 
-lemma pointedMap_swap (abel : X ⟶ A) :
+/-- Interchanging the two curve factors inverts the difference. -/
+theorem pointedMap_swap (abel : X ⟶ A) :
     (prod.braiding X X).hom ≫ pointedMap abel = (pointedMap abel)⁻¹ := by
   sorry
 
-lemma pointedMap_cocycle [IsCommMonObj A] (abel : X ⟶ A)
+/-- Successive differences multiply to the difference between the first and last points. -/
+theorem pointedMap_cocycle [IsCommMonObj A] (abel : X ⟶ A)
     (x y z : T ⟶ X) :
     (prod.lift x y ≫ pointedMap abel) * (prod.lift y z ≫ pointedMap abel) =
       prod.lift x z ≫ pointedMap abel := by
   sorry
 
-lemma pointedMap_translate [IsCommMonObj A] (abel : X ⟶ A)
+/-- A common translation of the Abel morphism leaves the difference unchanged. -/
+theorem pointedMap_translate [IsCommMonObj A] (abel : X ⟶ A)
     (b : 𝟙_ (Over S) ⟶ A) :
     pointedMap ((toUnit X ≫ b) * abel) = pointedMap abel := by
   sorry
 
-lemma pointedMap_natural (abel : X ⟶ A) (h : U ⟶ T) (x y : T ⟶ X) :
+/-- Precomposing the test-scheme points commutes with taking their difference. -/
+theorem pointedMap_natural (abel : X ⟶ A) (h : U ⟶ T) (x y : T ⟶ X) :
     h ≫ (prod.lift x y ≫ pointedMap abel) =
       prod.lift (h ≫ x) (h ≫ y) ≫ pointedMap abel := by
   sorry
 
-lemma pointedMap_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (abel : X ⟶ A) :
+/-- Pullback preserves the difference under the canonical binary-product comparison. -/
+theorem pointedMap_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (abel : X ⟶ A) :
     letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
     (Over.pullback f).map (pointedMap abel) =
       (PreservesLimitPair.iso (Over.pullback f) X X).hom ≫
@@ -117,10 +107,167 @@ example [IsCommMonObj A] (abel : X ⟶ A) (b : 𝟙_ (Over S) ⟶ A)
   sorry
 end RelativeJacobian.CurveDifference
 
--- JC5.5: Yuan, Theorem 4.17(5), proof p. 99 (21 August 2024 manuscript).
-noncomputable section
-open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open scoped CategoryTheory.MonObj
+/-! ## Layer 5: shifted morphisms and fibre-power coordinates
+
+The canonical Abel map and the section-free difference are inputs from Layer 2.
+Yuan, Theorem 2.10(3), p. 37; §4.6.2, pp. 98–99 (21 August 2024 manuscript).
+The coordinate formulas also occur in arXiv:2108.05625v4, §4.6.2, pp. 96–98,
+and Dimitrov–Gao–Habegger, arXiv:2001.10276v3, §6.1, p. 25.
+-/
+
+namespace RelativeJacobian
+universe u
+variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
+
+/-- JC5.2, using the canonical Abel morphism from JC5.1. -/
+def UniversalShift (canonicalAbel : X ⟶ A) : A ⨯ X ⟶ A ⨯ A :=
+  prod.lift prod.fst (prod.fst * (prod.snd ≫ canonicalAbel))
+
+namespace UniversalShift
+/-- The universal shift keeps the translation and multiplies it by the Abel image. -/
+theorem value (c : X ⟶ A) (y : T ⟶ A) (x : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift c = prod.lift y (y * (x ≫ c)) := by
+  sorry
+/-- The universal shift is a morphism over its first group-scheme factor. -/
+theorem overJ (c : X ⟶ A) : UniversalShift c ≫ prod.fst = prod.fst := by
+  sorry
+/-- The shift commutes with arbitrary base change using the canonical product comparisons. -/
+theorem baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (c : X ⟶ A) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (UniversalShift c) ≫
+        (PreservesLimitPair.iso (Over.pullback f) A A).hom =
+      (PreservesLimitPair.iso (Over.pullback f) A X).hom ≫
+        UniversalShift ((Over.pullback f).map c) := by
+  sorry
+-- test_zeroShift
+example (c : X ⟶ A) (x : T ⟶ X) :
+    prod.lift (1 : T ⟶ A) x ≫ UniversalShift c =
+      prod.lift (1 : T ⟶ A) (x ≫ c) := by
+  sorry
+-- The geometric test_genusOne requires the canonical-bundle identification.
+-- Its expressible group-law consequence: zero canonical Abel gives a diagonal shift.
+example (y : T ⟶ A) (x : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift (1 : X ⟶ A) = prod.lift y y := by
+  sorry
+-- test_firstCoordinate
+example (c : X ⟶ A) (y : T ⟶ A) (x x' : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift c ≫ prod.fst =
+      prod.lift y x' ≫ UniversalShift c ≫ prod.fst := by
+  sorry
+end UniversalShift
+
+/-- JC5.3, using the section-free difference morphism from JC2.6. -/
+def FaltingsZhang (m : ℕ) (difference : X ⨯ X ⟶ A) :
+    (∏ᶜ fun _ : Fin (m + 1) ↦ X) ⟶ (∏ᶜ fun _ : Fin m ↦ A) :=
+  Pi.lift (fun i ↦ prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
+    (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ difference)
+
+namespace FaltingsZhang
+/-- The ith coordinate compares the first curve point with the next ith point. -/
+theorem coordinate (m : ℕ) (d : X ⨯ X ⟶ A) (i : Fin m) :
+    FaltingsZhang m d ≫ Pi.π (fun _ : Fin m ↦ A) i =
+      prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
+        (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ d := by
+  sorry
+/-- The difference-power morphism commutes with arbitrary base change. -/
+theorem baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (m : ℕ) (d : X ⨯ X ⟶ A) :
+    (Over.pullback f).map (FaltingsZhang m d) ≫
+        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin m ↦ A)).hom =
+      (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (m + 1) ↦ X)).hom ≫
+        FaltingsZhang m
+          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
+  sorry
+/-- The degree-one pointed comparison is an equality of actual scheme morphisms. -/
+theorem pointed (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
+    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
+    (P : ⊤_ (Over S) ⟶ X) (hP : P ≫ abel = 1) (x : Fin m → (T ⟶ X)) :
+    Pi.lift (Fin.cases (terminal.from T ≫ P) x) ≫ FaltingsZhang m d =
+      Pi.lift (fun i ↦ x i ≫ abel) := by
+  sorry
+/-- A proper source over the base and a separated target make the difference-power map proper. -/
+theorem proper (m : ℕ) (d : X ⨯ X ⟶ A)
+    [IsProper (piObj (fun _ : Fin (m + 1) ↦ X)).hom]
+    [IsSeparated (piObj (fun _ : Fin m ↦ A)).hom] :
+    IsProper (FaltingsZhang m d).left := by
+  sorry
+-- test_one
+example (d : X ⨯ X ⟶ A) (x₀ x₁ : T ⟶ X) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₀ else x₁) ≫
+        FaltingsZhang 1 d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
+      prod.lift x₀ x₁ ≫ d := by
+  sorry
+-- test_diagonal, using the diagonal-zero law of the supplied difference morphism.
+example (m : ℕ) (d : X ⨯ X ⟶ A)
+    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) :
+    Pi.lift (fun _ : Fin (m + 1) ↦ x) ≫ FaltingsZhang m d =
+      Pi.lift (fun _ : Fin m ↦ (1 : T ⟶ A)) := by
+  sorry
+-- test_originChange, applied to each degree-one Abel morphism via JC2.6.pointed.
+example (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
+    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
+    (x : Fin (m + 1) → (T ⟶ X)) :
+    Pi.lift x ≫ FaltingsZhang m d =
+      Pi.lift (fun i : Fin m ↦ (x i.succ ≫ abel) / (x 0 ≫ abel)) := by
+  sorry
+end FaltingsZhang
+
+/-- JC5.4, with m = n + 1 and the source order X^m × A. -/
+def ShiftedFaltingsZhang (n : ℕ) (canonicalAbel : X ⟶ A) (difference : X ⨯ X ⟶ A) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
+  Pi.lift (fun i ↦ if i = 0 then
+    ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ canonicalAbel) * prod.snd
+    else prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
+      (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ difference)
+
+namespace ShiftedFaltingsZhang
+/-- The head is the canonical Abel image of the first curve point multiplied by the translation. -/
+theorem first (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
+    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) 0 =
+      ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ c) * prod.snd := by
+  sorry
+/-- Every tail coordinate is the supplied difference from the first curve point. -/
+theorem tail (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
+    (i : Fin (n + 1)) (hi : i ≠ 0) :
+    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
+      prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
+        (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ d := by
+  sorry
+/-- The shifted difference-power morphism commutes with arbitrary base change. -/
+theorem baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ)
+    (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (ShiftedFaltingsZhang n c d) ≫
+        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
+      (PreservesLimitPair.iso (Over.pullback f) (piObj (fun _ : Fin (n + 1) ↦ X)) A).hom ≫
+        prod.map (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ X)).hom
+          (𝟙 ((Over.pullback f).obj A)) ≫
+        ShiftedFaltingsZhang n ((Over.pullback f).map c)
+          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
+  sorry
+-- test_one
+example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin 1 ↦ x)) y ≫
+        ShiftedFaltingsZhang 0 c d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
+      (x ≫ c) * y := by
+  sorry
+-- test_sign
+example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x₁ x₂ : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₁ else x₂)) y ≫
+        ShiftedFaltingsZhang 1 c d ≫ Pi.π (fun _ : Fin 2 ↦ A) 1 =
+      prod.lift x₁ x₂ ≫ d := by
+  sorry
+-- test_diagonal
+example (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
+    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin (n + 1) ↦ x)) y ≫ ShiftedFaltingsZhang n c d =
+      Pi.lift (fun i ↦ if i = 0 then (x ≫ c) * y else 1) := by
+  sorry
+end ShiftedFaltingsZhang
+end RelativeJacobian
+
+/- The triangular change is the coordinate isomorphism of Layer 5.
+Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript). -/
+
 namespace RelativeJacobian
 universe u
 variable {S : Scheme.{u}} {A T U : Over S} [GrpObj A]
@@ -134,22 +281,27 @@ def TriangularCoordinateEquivalence (n : ℕ) :
   right_inv := by sorry
 
 namespace TriangularCoordinateEquivalence
-lemma first (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
+/-- The triangular coordinate change preserves the first coordinate. -/
+theorem first (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
     TriangularCoordinateEquivalence n q 0 = q 0 := by
   sorry
-lemma tail (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) (i : Fin (n + 1))
+/-- Each tail coordinate is divided by the first coordinate. -/
+theorem tail (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) (i : Fin (n + 1))
     (hi : i ≠ 0) : TriangularCoordinateEquivalence n q i = q i / q 0 := by
   sorry
-lemma inverse (n : ℕ) (r : Fin (n + 1) → (T ⟶ A)) (i : Fin (n + 1)) :
+/-- The inverse restores each tail by multiplication on the right by the head. -/
+theorem inverse (n : ℕ) (r : Fin (n + 1) → (T ⟶ A)) (i : Fin (n + 1)) :
     (TriangularCoordinateEquivalence n).symm r i =
       if i = 0 then r 0 else r i * r 0 := by
   sorry
-lemma natural (n : ℕ) (h : U ⟶ T) (q : Fin (n + 1) → (T ⟶ A)) :
+/-- The coordinate change commutes with test-scheme precomposition. -/
+theorem natural (n : ℕ) (h : U ⟶ T) (q : Fin (n + 1) → (T ⟶ A)) :
     TriangularCoordinateEquivalence n (fun i ↦ h ≫ q i) =
       fun i ↦ h ≫ TriangularCoordinateEquivalence n q i := by
   sorry
 
-lemma inverse_natural (n : ℕ) (h : U ⟶ T) (r : Fin (n + 1) → (T ⟶ A)) :
+/-- The inverse coordinate change also commutes with test-scheme precomposition. -/
+theorem inverse_natural (n : ℕ) (h : U ⟶ T) (r : Fin (n + 1) → (T ⟶ A)) :
     (TriangularCoordinateEquivalence n).symm (fun i ↦ h ≫ r i) =
       fun i ↦ h ≫ (TriangularCoordinateEquivalence n).symm r i := by
   sorry
@@ -188,7 +340,7 @@ def schemeIso (n : ℕ) :
   inv_hom_id := by sorry
 
 /-- On arbitrary test-scheme morphisms, the scheme map is the original point equivalence. -/
-lemma schemeIso_hom_coordinates (n : ℕ)
+theorem schemeIso_hom_coordinates (n : ℕ)
     (q : T ⟶ ∏ᶜ fun _ : Fin (n + 1) ↦ A) :
     (fun i ↦ q ≫ (schemeIso (A := A) n).hom ≫
       Pi.π (fun _ : Fin (n + 1) ↦ A) i) =
@@ -197,7 +349,7 @@ lemma schemeIso_hom_coordinates (n : ℕ)
   sorry
 
 /-- The inverse is represented by the inverse scheme morphism on every test scheme. -/
-lemma schemeIso_inv_coordinates (n : ℕ)
+theorem schemeIso_inv_coordinates (n : ℕ)
     (q : T ⟶ ∏ᶜ fun _ : Fin (n + 1) ↦ A) :
     (fun i ↦ q ≫ (schemeIso (A := A) n).inv ≫
       Pi.π (fun _ : Fin (n + 1) ↦ A) i) =
@@ -206,7 +358,7 @@ lemma schemeIso_inv_coordinates (n : ℕ)
   sorry
 
 /-- Base extension of the scheme coordinate change uses the canonical fibre-power comparison. -/
-lemma schemeIso_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) :
+theorem schemeIso_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) :
     letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
     (Over.pullback f).map (schemeIso (A := A) n).hom ≫
       (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
@@ -234,161 +386,10 @@ example (n : ℕ) (f : T ⟶ A) :
 end TriangularCoordinateEquivalence
 end RelativeJacobian
 
-/-!
-JC5.2–JC5.4. The inputs c = i_ω and d = j come from JC5.1 and JC2.6;
-no relative Picard or abelian-scheme construction is repeated here.
-Yuan, Theorem 2.10(3), p. 37; §4.6.2, pp. 98–99 (21 August 2024 manuscript).
-The explicit coordinate definitions also appear in arXiv:2108.05625v4,
-§4.6.2, pp. 96–98 (30 April 2024). DGH arXiv:2001.10276v3, §6.1, p. 25.
--/
-
-namespace RelativeJacobian
-universe u
-variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
-
-/-- JC5.2, using the canonical Abel morphism from JC5.1. -/
-def UniversalShift (canonicalAbel : X ⟶ A) : A ⨯ X ⟶ A ⨯ A :=
-  prod.lift prod.fst (prod.fst * (prod.snd ≫ canonicalAbel))
-
-namespace UniversalShift
-lemma value (c : X ⟶ A) (y : T ⟶ A) (x : T ⟶ X) :
-    prod.lift y x ≫ UniversalShift c = prod.lift y (y * (x ≫ c)) := by
-  sorry
-lemma overJ (c : X ⟶ A) : UniversalShift c ≫ prod.fst = prod.fst := by
-  sorry
-lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (c : X ⟶ A) :
-    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
-    (Over.pullback f).map (UniversalShift c) ≫
-        (PreservesLimitPair.iso (Over.pullback f) A A).hom =
-      (PreservesLimitPair.iso (Over.pullback f) A X).hom ≫
-        UniversalShift ((Over.pullback f).map c) := by
-  sorry
--- test_zeroShift
-example (c : X ⟶ A) (x : T ⟶ X) :
-    prod.lift (1 : T ⟶ A) x ≫ UniversalShift c =
-      prod.lift (1 : T ⟶ A) (x ≫ c) := by
-  sorry
--- The geometric test_genusOne requires the canonical-bundle identification.
--- Its expressible group-law consequence: zero canonical Abel gives a diagonal shift.
-example (y : T ⟶ A) (x : T ⟶ X) :
-    prod.lift y x ≫ UniversalShift (1 : X ⟶ A) = prod.lift y y := by
-  sorry
--- test_firstCoordinate
-example (c : X ⟶ A) (y : T ⟶ A) (x x' : T ⟶ X) :
-    prod.lift y x ≫ UniversalShift c ≫ prod.fst =
-      prod.lift y x' ≫ UniversalShift c ≫ prod.fst := by
-  sorry
-end UniversalShift
-
-/-- JC5.3, using the section-free difference morphism from JC2.6. -/
-def FaltingsZhang (m : ℕ) (difference : X ⨯ X ⟶ A) :
-    (∏ᶜ fun _ : Fin (m + 1) ↦ X) ⟶ (∏ᶜ fun _ : Fin m ↦ A) :=
-  Pi.lift (fun i ↦ prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
-    (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ difference)
-
-namespace FaltingsZhang
-lemma coordinate (m : ℕ) (d : X ⨯ X ⟶ A) (i : Fin m) :
-    FaltingsZhang m d ≫ Pi.π (fun _ : Fin m ↦ A) i =
-      prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
-        (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ d := by
-  sorry
-lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (m : ℕ) (d : X ⨯ X ⟶ A) :
-    (Over.pullback f).map (FaltingsZhang m d) ≫
-        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin m ↦ A)).hom =
-      (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (m + 1) ↦ X)).hom ≫
-        FaltingsZhang m
-          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
-  sorry
-/-- The degree-one pointed comparison is an equality of actual scheme morphisms. -/
-lemma pointed (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
-    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
-    (P : ⊤_ (Over S) ⟶ X) (hP : P ≫ abel = 1) (x : Fin m → (T ⟶ X)) :
-    Pi.lift (Fin.cases (terminal.from T ≫ P) x) ≫ FaltingsZhang m d =
-      Pi.lift (fun i ↦ x i ≫ abel) := by
-  sorry
-lemma proper (m : ℕ) (d : X ⨯ X ⟶ A)
-    [IsProper (piObj (fun _ : Fin (m + 1) ↦ X)).hom]
-    [IsSeparated (piObj (fun _ : Fin m ↦ A)).hom] :
-    IsProper (FaltingsZhang m d).left := by
-  sorry
--- test_one
-example (d : X ⨯ X ⟶ A) (x₀ x₁ : T ⟶ X) :
-    Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₀ else x₁) ≫
-        FaltingsZhang 1 d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
-      prod.lift x₀ x₁ ≫ d := by
-  sorry
--- test_diagonal, using the diagonal-zero law of the supplied difference morphism.
-example (m : ℕ) (d : X ⨯ X ⟶ A)
-    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) :
-    Pi.lift (fun _ : Fin (m + 1) ↦ x) ≫ FaltingsZhang m d =
-      Pi.lift (fun _ : Fin m ↦ (1 : T ⟶ A)) := by
-  sorry
--- test_originChange, applied to each degree-one Abel morphism via JC2.6.pointed.
-example (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
-    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
-    (x : Fin (m + 1) → (T ⟶ X)) :
-    Pi.lift x ≫ FaltingsZhang m d =
-      Pi.lift (fun i : Fin m ↦ (x i.succ ≫ abel) / (x 0 ≫ abel)) := by
-  sorry
-end FaltingsZhang
-
-/-- JC5.4, with m = n + 1 and the source order X^m × A. -/
-def ShiftedFaltingsZhang (n : ℕ) (canonicalAbel : X ⟶ A) (difference : X ⨯ X ⟶ A) :
-    (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
-  Pi.lift (fun i ↦ if i = 0 then
-    ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ canonicalAbel) * prod.snd
-    else prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
-      (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ difference)
-
-namespace ShiftedFaltingsZhang
-lemma first (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
-    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) 0 =
-      ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ c) * prod.snd := by
-  sorry
-lemma tail (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
-    (i : Fin (n + 1)) (hi : i ≠ 0) :
-    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
-      prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
-        (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ d := by
-  sorry
-lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ)
-    (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
-    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
-    (Over.pullback f).map (ShiftedFaltingsZhang n c d) ≫
-        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
-      (PreservesLimitPair.iso (Over.pullback f) (piObj (fun _ : Fin (n + 1) ↦ X)) A).hom ≫
-        prod.map (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ X)).hom
-          (𝟙 ((Over.pullback f).obj A)) ≫
-        ShiftedFaltingsZhang n ((Over.pullback f).map c)
-          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
-  sorry
--- test_one
-example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
-    prod.lift (Pi.lift (fun _ : Fin 1 ↦ x)) y ≫
-        ShiftedFaltingsZhang 0 c d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
-      (x ≫ c) * y := by
-  sorry
--- test_sign
-example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x₁ x₂ : T ⟶ X) (y : T ⟶ A) :
-    prod.lift (Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₁ else x₂)) y ≫
-        ShiftedFaltingsZhang 1 c d ≫ Pi.π (fun _ : Fin 2 ↦ A) 1 =
-      prod.lift x₁ x₂ ≫ d := by
-  sorry
--- test_diagonal
-example (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
-    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) (y : T ⟶ A) :
-    prod.lift (Pi.lift (fun _ : Fin (n + 1) ↦ x)) y ≫ ShiftedFaltingsZhang n c d =
-      Pi.lift (fun i ↦ if i = 0 then (x ≫ c) * y else 1) := by
-  sorry
-end ShiftedFaltingsZhang
-end RelativeJacobian
-
-/-!
-JC5.6. The canonical Abel-difference identity is an input from JC2.2;
-finite locally free nonzero multiplication is imported from the A3 supplier.
-Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript),
-and p. 98 in arXiv:2108.05625v4 (30 April 2024).
--/
+/- The factorization uses the Abel-difference identity from Layer 2.
+Nonzero finite locally free multiplication comes from the abelian-scheme
+supplier. Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript),
+and arXiv:2108.05625v4, p. 98. -/
 
 namespace RelativeJacobian
 universe u
@@ -400,7 +401,8 @@ def ShiftedCanonicalPower (n : ℕ) (c : X ⟶ A) :
   Pi.lift (fun i ↦ ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ c) * prod.snd)
 
 namespace ShiftedCanonicalPower
-lemma coordinate (n : ℕ) (c : X ⟶ A) (i : Fin (n + 1)) :
+/-- Every coordinate is its canonical Abel image multiplied by the same translation. -/
+theorem coordinate (n : ℕ) (c : X ⟶ A) (i : Fin (n + 1)) :
     ShiftedCanonicalPower n c ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
       ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ c) * prod.snd := by
   sorry
@@ -431,11 +433,13 @@ def TailMultiplication (n : ℕ) (e : ℤ) :
     else Pi.π (fun _ : Fin (n + 1) ↦ A) i ^ e)
 
 namespace TailMultiplication
-lemma first (n : ℕ) (e : ℤ) :
+/-- Tail multiplication fixes the head coordinate. -/
+theorem first (n : ℕ) (e : ℤ) :
     TailMultiplication (A := A) n e ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) 0 =
       Pi.π (fun _ : Fin (n + 1) ↦ A) 0 := by
   sorry
-lemma tail (n : ℕ) (e : ℤ) (i : Fin (n + 1)) (hi : i ≠ 0) :
+/-- Every tail is raised to the specified integer power. -/
+theorem tail (n : ℕ) (e : ℤ) (i : Fin (n + 1)) (hi : i ≠ 0) :
     TailMultiplication (A := A) n e ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
       Pi.π (fun _ : Fin (n + 1) ↦ A) i ^ e := by
   sorry
@@ -451,19 +455,22 @@ def headTailIso (n : ℕ) :
   inv_hom_id := by sorry
 
 omit [GrpObj A] in
-lemma headTailIso_first (n : ℕ) :
+/-- The head-tail decomposition places the original first coordinate in the head. -/
+theorem headTailIso_first (n : ℕ) :
     (headTailIso (A := A) n).hom ≫ prod.fst =
       Pi.π (fun _ : Fin (n + 1) ↦ A) 0 := by
   sorry
 
 omit [GrpObj A] in
-lemma headTailIso_tail (n : ℕ) (i : Fin n) :
+/-- The decomposition retains each successor coordinate in its original tail order. -/
+theorem headTailIso_tail (n : ℕ) (i : Fin n) :
     (headTailIso (A := A) n).hom ≫ prod.snd ≫ Pi.π (fun _ : Fin n ↦ A) i =
       Pi.π (fun _ : Fin (n + 1) ↦ A) i.succ := by
   sorry
 
 omit [GrpObj A] in
-lemma headTailIso_inverse (n : ℕ) (a : T ⟶ A) (q : Fin n → (T ⟶ A)) :
+/-- The inverse decomposition concatenates the given head and tail. -/
+theorem headTailIso_inverse (n : ℕ) (a : T ⟶ A) (q : Fin n → (T ⟶ A)) :
     prod.lift a (Pi.lift q) ≫ (headTailIso (A := A) n).inv =
       Pi.lift (Fin.cases a q) := by
   sorry
@@ -471,7 +478,7 @@ lemma headTailIso_inverse (n : ℕ) (a : T ⟶ A) (q : Fin n → (T ⟶ A)) :
 /-- The decomposition identifies D with identity × the product of [e].
 Finite, flat, presentation and surjectivity transfers use product stability
 and invariance under this isomorphism, rather than just a pointwise formula. -/
-lemma split (n : ℕ) (e : ℤ) :
+theorem split (n : ℕ) (e : ℤ) :
     TailMultiplication (A := A) n e ≫ (headTailIso (A := A) n).hom =
       (headTailIso (A := A) n).hom ≫
         prod.map (𝟙 A) (CategoryTheory.Limits.Pi.map
@@ -486,20 +493,22 @@ def points [IsCommMonObj A] (n : ℕ) (e : ℤ) :
   map_one' := by sorry
   map_mul' := by sorry
 
-lemma represented [IsCommMonObj A] (n : ℕ) (e : ℤ)
+/-- The fibre-power morphism represents the coordinatewise homomorphism on every test scheme. -/
+theorem represented [IsCommMonObj A] (n : ℕ) (e : ℤ)
     (q : Fin (n + 1) → (T ⟶ A)) :
     Pi.lift q ≫ TailMultiplication (A := A) n e =
       Pi.lift (points (T := T) n e q) := by
   sorry
 
-lemma natural [IsCommMonObj A] {U : Over S} (h : U ⟶ T) (n : ℕ) (e : ℤ)
+/-- The represented homomorphism commutes with test-scheme precomposition. -/
+theorem natural [IsCommMonObj A] {U : Over S} (h : U ⟶ T) (n : ℕ) (e : ℤ)
     (q : Fin (n + 1) → (T ⟶ A)) :
     points (T := U) n e (fun i ↦ h ≫ q i) =
       fun i ↦ h ≫ points (T := T) n e q i := by
   sorry
 
 /-- Arbitrary base change preserves D with the finite-product comparison. -/
-lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) (e : ℤ) :
+theorem baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) (e : ℤ) :
     letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
     (Over.pullback f).map (TailMultiplication (A := A) n e) ≫
         (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
@@ -547,7 +556,7 @@ end TailMultiplication
 
 /-- The JC2 difference identity gives the JC5.6 equality as an S-morphism.
 In the geometric application e = 2g - 2 and c = i_ω. -/
-lemma shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
+theorem shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
     (c : X ⟶ A) (d : X ⨯ X ⟶ A)
     (hdegree : (prod.snd ≫ c) / (prod.fst ≫ c) = d ^ e) :
     ShiftedCanonicalPower n c ≫ (TriangularCoordinateEquivalence.schemeIso (A := A) n).hom =
@@ -555,25 +564,25 @@ lemma shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
   sorry
 
 /-- Product stability transfers the supplier's finite multiplication theorem to D. -/
-lemma TailMultiplication.finite [IsCommMonObj A] (n : ℕ) (e : ℤ)
+theorem TailMultiplication.finite [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [IsFinite (((𝟙 A) ^ e : A ⟶ A).left)] :
     IsFinite (TailMultiplication (A := A) n e).left := by
   sorry
 
 /-- The flatness part is transferred separately; it does not assert étaleness. -/
-lemma TailMultiplication.flat [IsCommMonObj A] (n : ℕ) (e : ℤ)
+theorem TailMultiplication.flat [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [Flat (((𝟙 A) ^ e : A ⟶ A).left)] :
     Flat (TailMultiplication (A := A) n e).left := by
   sorry
 
 /-- Finite-presentation stability is needed alongside finiteness and flatness. -/
-lemma TailMultiplication.finitePresentation [IsCommMonObj A] (n : ℕ) (e : ℤ)
+theorem TailMultiplication.finitePresentation [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [LocallyOfFinitePresentation (((𝟙 A) ^ e : A ⟶ A).left)] :
     LocallyOfFinitePresentation (TailMultiplication (A := A) n e).left := by
   sorry
 
 /-- Surjectivity of D imports surjectivity of the supplier's multiplication isogeny. -/
-lemma TailMultiplication.surjective [IsCommMonObj A] (n : ℕ) (e : ℤ)
+theorem TailMultiplication.surjective [IsCommMonObj A] (n : ℕ) (e : ℤ)
     [Surjective (((𝟙 A) ^ e : A ⟶ A).left)] :
     Surjective (TailMultiplication (A := A) n e).left := by
   sorry
@@ -600,353 +609,22 @@ example (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
 
 end RelativeJacobian
 
-/- GEOMETRIC INTERFACE JC0.1
-For an invertible L on X_T, the function t↦deg(L_t)=χ(L_t)−χ(O_{X_t}) is locally constant on T and unchanged after any base extension of residue fields.
-Hypotheses: README.md standing smooth-family conventions.
--/
 
-/- GEOMETRIC INTERFACE JC0.2
-For every d∈ℤ, Picᵈ_{X/S} is the sub-fppf-sheaf of the imported Pic_{X/S} whose geometric-fibre classes have degree d. A locally varying integer degree gives the disjoint union of these constant-degree pieces, not a single globally constant integer on disconnected T.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.RelativeDegreeComponents.mem: A class lies in Picᵈ(T) iff its degree is d on every geometric fibre.
-API RelativeJacobian.RelativeDegreeComponents.tensor: Tensor product sends Picᵈ×Picᵉ to Picᵈ⁺ᵉ.
-API RelativeJacobian.RelativeDegreeComponents.baseChange: Picᵈ_{X/S} restricted to Sch/T identifies with Picᵈ_{X_T/T}.
-API RelativeJacobian.RelativeDegreeComponents.inverse: Inversion of line classes sends Picᵈ to Pic⁻ᵈ and carries the structure-sheaf class to itself.
-TEST RelativeJacobian.RelativeDegreeComponents.test_elliptic: For an elliptic curve E/k, O_E(e) lies in Pic¹ and O_E lies in Pic⁰.
-TEST RelativeJacobian.RelativeDegreeComponents.test_disconnected: On a disconnected T, a bundle of degrees 0 and 1 belongs to the whole Picard sheaf but neither constant-degree piece.
-TEST RelativeJacobian.RelativeDegreeComponents.test_field: Over Spec k the component is the parent degree-d Picard scheme, and is not the degree-d divisor set.
--/
+end
 
-/- GEOMETRIC INTERFACE JC0.3
-Pic_{X/S} is represented by a smooth separated S-group scheme, with open-and-closed quasi-projective pieces Picᵈ_{X/S} for d∈ℤ. Its degree-zero piece is the identity component. Representability commutes with arbitrary change of base.
-Hypotheses: README.md standing smooth-family conventions.
--/
+end TauCetiRoadmap.JacobianChallengePartII
 
-/- GEOMETRIC INTERFACE JC0.4
-Tensoring by degree-zero classes makes Picᵈ_{X/S} an fppf torsor under Pic⁰_{X/S}; Picᵈ need not have an S-point. Its difference morphism Picᵈ×_S Picᵈ→Pic⁰ sends (L,M) to M⊗L⁻¹.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.PicardTorsors.action: J×Picᵈ→Picᵈ is tensor product.
-API RelativeJacobian.PicardTorsors.difference: δ(L,M)=M⊗L⁻¹ belongs to J and is independent of local origins.
-API RelativeJacobian.PicardTorsors.translation: A chosen β∈Picᵈ(T) identifies Picᵈ_T with J_T by L↦L⊗β⁻¹.
-API RelativeJacobian.PicardTorsors.action_difference: For L,M∈Picᵈ(T), δ(L,M)⊗L=M; tensor action has identity and associativity, and δ(L,L)=0.
-TEST RelativeJacobian.PicardTorsors.test_zero: Pic⁰ is the trivial J-torsor with the structure-sheaf origin.
-TEST RelativeJacobian.PicardTorsors.test_genusOne: A genus-one curve of period>1 has no k-point of Pic¹; a global origin cannot be inserted in the torsor definition.
-TEST RelativeJacobian.PicardTorsors.test_swap: δ(M,L)=−δ(L,M), whereas δ(L,L)=0.
--/
-
-/- GEOMETRIC INTERFACE JC1.1
-For smooth projective geometrically connected X/S, Pic⁰_{X/S}→S is proper. Consequently it is projective locally over S and the canonical relatively ample twice-theta bundle of JC3 will make it projective over S.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC1.2
-J(X/S):=Pic⁰_{X/S}, with the tensor group law, is an abelian scheme of relative dimension g. No section of X/S is part of its data.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.RelativeJacobian.points: J(T)=Pic⁰_{X/S}(T), with its fppf sheaf interpretation.
-API RelativeJacobian.RelativeJacobian.baseChange: J(X/S)×_S T≅J(X_T/T), with the group law preserved.
-API RelativeJacobian.RelativeJacobian.field: At every field-valued base the result is the parent Jacobian, as an abelian variety.
-API RelativeJacobian.RelativeJacobian.groupLaw: Under J(T)=Pic⁰_{X/S}(T), the identity is [O] and addition/inverse are tensor product/dual.
-TEST RelativeJacobian.RelativeJacobian.test_elliptic: For an elliptic curve E with identity, J(E/k)≅E identifies the origins and group laws.
-TEST RelativeJacobian.RelativeJacobian.test_unpointed: A genus-one torsor C/k has J(C/k) even when C(k)=∅.
-TEST RelativeJacobian.RelativeJacobian.test_singular: For an irreducible one-nodal curve the generalized Pic⁰ has a torus and is not an abelian scheme; it is not in this smooth definition.
--/
-
-/- GEOMETRIC INTERFACE JC1.3
-For every T→S, the Picard-sheaf base-change isomorphism restricts to a group-scheme isomorphism J(X/S)_T≅J(X_T/T), including infinitesimal base changes.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC1.4
-There is a canonical principal polarization λ_X:J→J∨, functorial in base change, defined without a global degree-one bundle on X. After an fppf cover with a degree-one bundle it agrees with the classical theta polarization, with Yuan’s Poincaré sign convention pinned in JC3.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.PrincipalPolarization.isIso: λ_X is an isomorphism of abelian schemes.
-API RelativeJacobian.PrincipalPolarization.baseChange: λ_{X_T} is the base change of λ_X under the canonical J and dual comparisons.
-API RelativeJacobian.PrincipalPolarization.theta: The classical theta bundle on a field fibre induces λ_X with the specified polarization sign convention.
-TEST RelativeJacobian.PrincipalPolarization.test_elliptic: For genus one, λ_X is the usual degree-one elliptic principal polarization.
-TEST RelativeJacobian.PrincipalPolarization.test_noTheta: The construction exists when X has no global degree-one bundle; it cannot require a global theta divisor.
-TEST RelativeJacobian.PrincipalPolarization.test_dualNumbers: For S=Spec(k[ε]/ε²), overlap comparisons are equal as S-morphisms, not just on the reduced fibre.
--/
-
-/- GEOMETRIC INTERFACE JC2.1
-The diagonal relative effective Cartier divisor on X×_S X defines a canonical S-morphism a₁:X→Pic¹_{X/S}, taking a T-point x to O_{X_T}(Γ_x). It commutes with arbitrary base change and needs no section of π.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.SectionFreeAbelMap.value: a₁(x)=[O(Γ_x)] in Pic¹(T).
-API RelativeJacobian.SectionFreeAbelMap.baseChange: The Abel map of X_T is the base change of a₁.
-API RelativeJacobian.SectionFreeAbelMap.pointed: If x₀ is chosen, subtracting a₁(x₀) gives the parent pointed Abel–Jacobi map.
-TEST RelativeJacobian.SectionFreeAbelMap.test_ellipticTorsor: For a genus-one curve C, a₁:C→Pic¹_C is an isomorphism of torsors, including when C(k)=∅.
-TEST RelativeJacobian.SectionFreeAbelMap.test_degree: A geometric point gives degree1, not degree0.
-TEST RelativeJacobian.SectionFreeAbelMap.test_noOrigin: Without an origin the codomain is Pic¹, not J; translating requires a specified relative degree-one class.
--/
-
-/- GEOMETRIC INTERFACE JC2.2
-For an actual invertible α on X of constant relative degree d∈ℤ, i_α:X→J sends x to [O(dΓ_x)⊗α_T⁻¹]. The morphism exists for every d, including 0 and negative d.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.DegreeAbelMap.value: i_α(x)=[dΓ_x−α_T].
-API RelativeJacobian.DegreeAbelMap.baseChange: i_{α_T} is the base change of i_α.
-API RelativeJacobian.DegreeAbelMap.originChange: For α,β of the same degree, i_β=t_{α−β}∘i_α.
-API RelativeJacobian.DegreeAbelMap.pointed: For α=O(x₀) and d=1, i_α is the parent pointed Abel–Jacobi morphism.
-TEST RelativeJacobian.DegreeAbelMap.test_zero: For d=0 the map is the constant section −[α]; it is not finite on a nonempty positive-dimensional curve fibre.
-TEST RelativeJacobian.DegreeAbelMap.test_one: For d=1 and α=O(x₀), i_α(x₀)=0.
-TEST RelativeJacobian.DegreeAbelMap.test_inseparable: For d=p in characteristic p, no étaleness of [p] is assumed in defining i_α.
--/
-
-/- GEOMETRIC INTERFACE JC2.3
-After any base change with a section x₀:X_T/T, i_α=t_β∘[d]∘i_{O(x₀)}, where β=[dO(x₀)−α_T]∈J(T). The equality holds as T-morphisms.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC2.4
-If d=1, i_α:X→J is a closed immersion over every noetherian S in the standing scope. No global section of X/S is required.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC2.5
-For d≠0, i_α:X→J is finite over S. The statement allows negative d and characteristic dividing d. The degree-zero map is constant and is not finite on a nonempty curve fibre.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC IDENTIFICATION JC2.6
-j:X×_S X→J is δ∘(a₁,a₁), with j(x,y)=[O(Γ_y−Γ_x)]; it is defined without a section.
-The native pointedMap above takes the earlier Abel morphism as input.
-Identify it with j after a degree-one normalization; the section-free Pic¹
-construction and its geometric tests remain required.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.CurveDifference.value: j(x,y)=[y]−[x].
-API RelativeJacobian.CurveDifference.diagonal: j∘Δ_X=e∘π.
-API RelativeJacobian.CurveDifference.baseChange: The morphism commutes with arbitrary T→S.
-API RelativeJacobian.CurveDifference.pointed: With a degree-one α, j(x,y)=i_α(y)−i_α(x).
-API RelativeJacobian.CurveDifference.cocycle: On X³, j(x,z)=j(x,y)+j(y,z) on every test scheme.
-TEST RelativeJacobian.CurveDifference.test_equal: j(x,x)=0 on every test scheme.
-TEST RelativeJacobian.CurveDifference.test_sign: For an elliptic curve with identity, j(0,y)=y and j(y,0)=−y.
-TEST RelativeJacobian.CurveDifference.test_noSection: The construction applies to a nontrivial genus-one torsor and must not choose a point of it.
-TEST RelativeJacobian.CurveDifference.test_triangle: For three points x,y,z, j(x,y)+j(y,z)=j(x,z); replacing the order in just one difference fails this identity.
--/
-
-/- GEOMETRIC INTERFACE JC2.7
-View X×_S X over the first X-factor. Its diagonal is a section and its Jacobian is X×_S J. The Abel map for O(Δ_X) is (x,y)↦(x,j(x,y)); forgetting the first coordinate gives j.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC3.1
-Let U on J×_S J∨ be the normalized universal bundle with U|_{J×{b}} representing b. Fix the supplier convention φ_L(a)=t_a*L⊗L⁻¹ and the positive canonical theta polarization λ_X. Define P_X=(id_J,−λ_X)*U on J×_S J. Thus on a field fibre with theta line L its Picard class is m*L⁻¹⊗p₁*L⊗p₂*L, Yuan’s negative addition convention. Both zero axes are rigidified. The comparison with the supplier evaluation and φ_L conventions is required on all test schemes, including nonreduced ones.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.JacobianPoincare.axes: Both zero-axis pullbacks are canonically trivial with compatible unit trivializations.
-API RelativeJacobian.JacobianPoincare.baseChange: The normalized bundle and rigidifications commute with base change.
-API RelativeJacobian.JacobianPoincare.thetaSign: With U_b=b and φ_L(a)=t_a*L⊗L⁻¹, P_X=(id,−λ_X)*U has class m*L⁻¹+p₁*L+p₂*L; the rigidified comparison also normalizes L at zero.
-TEST RelativeJacobian.JacobianPoincare.test_zero: P restricted to either zero axis is trivial.
-TEST RelativeJacobian.JacobianPoincare.test_elliptic: For a genus-one pointed curve, (i,i)*P has class Δ−p₁*0−p₂*0, fixing the sign.
-TEST RelativeJacobian.JacobianPoincare.test_baseTwist: Twisting by a nontrivial line pulled from S fails the specified zero-axis rigidifications.
--/
-
-/- GEOMETRIC INTERFACE JC3.2
-Over a field K, for a smooth projective geometrically connected C of genus g>0 and an actual degree-one divisor α, θ_α is the image of Sym^{g−1}C→J, D↦[D−(g−1)α], with its effective Cartier divisor structure. For g=1 the symmetric power is Spec K and θ_α is the origin. This translates the parent theta construction to arbitrary degree-one α, which need not be effective or a rational point.
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a divisor of degree1.
-API RelativeJacobian.DegreeOneTheta.image: The support is the effective degree-(g−1) locus translated by −(g−1)α.
-API RelativeJacobian.DegreeOneTheta.originChange: For α′=α+c with c∈Pic⁰(C), θ_{α′} is the translate of θ_α by −(g−1)c.
-API RelativeJacobian.DegreeOneTheta.parent: For α=O(x₀), this is the parent pointed theta divisor with its Cartier structure.
-TEST RelativeJacobian.DegreeOneTheta.test_genusOne: For g=1 θ_α is the origin divisor on the elliptic Jacobian.
-TEST RelativeJacobian.DegreeOneTheta.test_genusTwo: For g=2 θ_α is the Abel image of C.
-TEST RelativeJacobian.DegreeOneTheta.test_notSymmetric: An arbitrary θ_α is not assumed symmetric; inversion changes it unless the relevant canonical-class condition holds.
--/
-
-/- GEOMETRIC INTERFACE JC3.3
-Define Θ_X:=Δ_J*(P_X∨), an actual invertible sheaf on J with the induced zero rigidification. This is defined without a degree-one bundle on X; it is not a chosen theta divisor.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.TwiceTheta.diagonal: Θ=Δ_J*(P∨), with the dual, not Δ_J*P.
-API RelativeJacobian.TwiceTheta.baseChange: Θ_{X_T} identifies with Θ_X pulled to J_T, respecting rigidification.
-API RelativeJacobian.TwiceTheta.normalization: e*Θ≅O_S with the specified trivialization.
-TEST RelativeJacobian.TwiceTheta.test_elliptic: On a pointed elliptic curve the class of Θ is 2[0], of degree2.
-TEST RelativeJacobian.TwiceTheta.test_negative: Δ_J*P has negative degree on an elliptic fibre and is not the ample bundle Θ.
-TEST RelativeJacobian.TwiceTheta.test_noDegreeOne: Θ exists without a global degree-one class; no arbitrary theta divisor is part of its definition.
--/
-
-/- GEOMETRIC INTERFACE JC3.4
-i_α*O_J([-1]*θ_α)≅O_C(gα).
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.5
-i_α*O_J(θ_α)≅ω_{C/K}⊗O_C((2−g)α).
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.6
-In Pic(J×J), P=m*O_J(−θ_α)⊗p₁*O_J(θ_α)⊗p₂*O_J(θ_α). As a rigidified isomorphism, include the constant fibre normalization of O_J(θ_α) at the origin; the displayed formula alone is a class equality over the field.
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.7
-In Pic(C×C), (i_α,i_α)*P=O(Δ_C)⊗p₁*O_C(−α)⊗p₂*O_C(−α). There is no assumption (2g−2)α=ω_C.
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.8
-[2]*O_J(θ_α)≅O_J(3θ_α+[-1]*θ_α) as a Picard class over K.
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.9
-Δ_J*P≅O_J(−θ_α−[-1]*θ_α).
-Hypotheses: K is any field; C is smooth projective geometrically connected of genus g>0; α is a degree-one divisor; J, i_α, θ_α and P have the conventions of JC2–JC3. Statements are equalities of Picard classes, not unchosen canonical scalar isomorphisms.
--/
-
-/- GEOMETRIC INTERFACE JC3.10
-For every geometric point s of S, Θ_s is algebraically equivalent to twice a theta divisor on J_s. With a chosen degree-one α over the algebraically closed residue field, its Picard class is θ_α+[-1]*θ_α.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC3.11
-[-1]*Θ_X≅Θ_X as zero-rigidified bundles over S, not merely on geometric fibres.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC3.12
-The zero-axis trivializations of P induce e*Θ_X≅O_S, compatible with base change.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC3.13
-Θ_X is relatively ample for J→S; hence J→S is projective. The proof uses properness and the fibrewise ampleness criterion over noetherian S.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC4.1
-For a projective flat Y→S, Pic⁰(Y/S) is the subgroup of the actual Pic(Y) formed by line-bundle classes algebraically trivial on every geometric fibre. It is not Pic⁰_{Y/S}(S); comparison to that sheaf group requires a separate obstruction statement.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.ActualPicardZero.mem: Membership means algebraic triviality on every geometric fibre, not degree zero for higher-dimensional Y.
-API RelativeJacobian.ActualPicardZero.pullback: An S-morphism Y′→Y pulls these actual classes to fibrewise algebraically trivial classes.
-API RelativeJacobian.ActualPicardZero.relativeClass: The class map lands in Pic⁰_{Y/S}(S), with kernel the base classes under universal global-functions hypotheses.
-TEST RelativeJacobian.ActualPicardZero.test_base: For Y=S, every class in Pic(S) belongs to this subgroup.
-TEST RelativeJacobian.ActualPicardZero.test_curve: For a smooth projective curve over a field, membership is equivalent to degree0.
-TEST RelativeJacobian.ActualPicardZero.test_brauer: An obstructed point of the relative Picard sheaf is not an actual line-bundle class in this subgroup.
--/
-
-/- GEOMETRIC INTERFACE JC4.2
-For projective flat Y₁,Y₂ over S, Pic⁰⁰(Y₁×_S Y₂) consists of actual line classes whose restrictions to every geometric fibre of each projection to Y₁ and to Y₂ are algebraically trivial.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.ActualPicardBizero.mem: Both projection-fibre conditions are required.
-API RelativeJacobian.ActualPicardBizero.pullback: Products of S-morphisms preserve the two fibre conditions.
-API RelativeJacobian.ActualPicardBizero.baseTwist: Classes pulled from S lie in Pic⁰⁰; they are not quotiented out of the definition.
-TEST RelativeJacobian.ActualPicardBizero.test_trivial: The structure sheaf and every base pullback lie in Pic⁰⁰.
-TEST RelativeJacobian.ActualPicardBizero.test_oneAxis: On C×C, p₁*L of positive degree fails one projection condition, despite being trivial along the other projection fibres.
-TEST RelativeJacobian.ActualPicardBizero.test_poincare: A normalized Poincaré bundle on J×J belongs to Pic⁰⁰ because its restrictions are degree-zero Picard classes.
--/
-
-/- GEOMETRIC INTERFACE JC4.3
-There is a canonical base-change-compatible identification u:Pic⁰_{J/S}≅Pic⁰_{X/S} such that, for the actual degree-d α, i_α*= [d]∘u as morphisms of fppf group sheaves. The sign of u is characterized by degree-one Abel pullback.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC4.4
-For proper flat Y/S with O_S≅f_*O_Y universally, 0→Pic(S)→Pic(Y)→Pic_{Y/S}(S)→H²_fppf(S,G_m)→H²_fppf(Y,G_m) is exact. These are the cohomological Brauer groups, not an unproved identification with Azumaya classes; the boundary is the Leray differential d₂^{0,1}. For J/S its identity section kills the obstruction, so Pic⁰(J/S)/Pic(S)≅Pic⁰_{J/S}(S). For X/S the same map is only injective without a section.
-Hypotheses: Y→S is proper, flat and finitely presented, with O_T≅(f_T)_*O_{Y_T} for every T→S. For the Pic⁰ restrictions, use the smooth geometrically connected curve X/S and its abelian-scheme Jacobian J/S in the standing scope.
--/
-
-/- GEOMETRIC INTERFACE JC4.5
-Let S be a normal integral quasi-projective scheme flat over ℤ or over a field, and let α have relative degree d>0. Every L∈Pic⁰(X/S) has a positive tensor power in the image of i_α*:Pic⁰(J/S)→Pic⁰(X/S). In particular the cokernel is a torsion group. No integral surjectivity is asserted.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC4.6
-In the arithmetic normal-base scope and for positive-degree i_α, every Pic⁰⁰ class on X×_S X has a positive power lifted through id_X×i_α to a class on X×_S J lying in Pic⁰⁰. The corresponding assertion through i_α×id_J lifts Pic⁰⁰(X×J) to Pic⁰⁰(J×J).
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC4.7
-Under the same S, X, α and d>0 hypotheses, (i_α,i_α)*:Pic⁰⁰(J×_S J)→Pic⁰⁰(X×_S X) has torsion cokernel.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC4.8
-Over a field K, with a rational x₀∈C(K), Pic⁻(C²) is the subgroup of actual Pic(C²) whose restrictions to C×{x₀} and {x₀}×C are trivial; Pic⁻(J²) uses the two zero axes. These are classes with trivial restrictions, not chosen rigidifications and not the larger Pic⁰⁰ subgroup.
-Hypotheses: K is a field; C/K is smooth projective geometrically connected of genus>0; x₀∈C(K). Its nonarchimedean application additionally assumes K complete nontrivially nonarchimedean.
-API RelativeJacobian.AxisNormalizedPicard.mem: Both actual axis restrictions have the trivial Picard class.
-API RelativeJacobian.AxisNormalizedPicard.pullback: Pointed product morphisms pull back axis-normalized classes.
-API RelativeJacobian.AxisNormalizedPicard.biextension: The normalized Poincaré class belongs to Pic⁻(J²), with an additional rigidification available from its construction.
-TEST RelativeJacobian.AxisNormalizedPicard.test_unit: The trivial line class lies in Pic⁻.
-TEST RelativeJacobian.AxisNormalizedPicard.test_positiveBase: On C², p₁*L for a nontrivial degree-zero L fails one axis restriction despite belonging to Pic⁰⁰.
-TEST RelativeJacobian.AxisNormalizedPicard.test_elliptic: With C=J an elliptic curve and x₀=0 the two axis-normalized groups are literally the same.
--/
-
-/- GEOMETRIC INTERFACE JC4.9
-With x₀ as above and i=i_{O(x₀)}, (i,i)*:Pic⁻(J²)→Pic⁻(C²) is an isomorphism. The application over complete nonarchimedean K uses only this algebraic assertion here; its metrics belong to the Arakelov owner.
-Hypotheses: K is a field; C/K is smooth projective geometrically connected of genus g>0; x₀∈C(K), and i=i_{O(x₀)}. No complete-valued-field assumption is used by the algebraic comparison.
--/
-
-/- GEOMETRIC INTERFACE JC5.1
-For g>1, ω_{X/S} has relative degree 2g−2, so i_ω(x)=[(2g−2)Γ_x−ω_{X/S}] is a finite S-morphism X→J.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC IDENTIFICATION JC5.2
-The native UniversalShift uses c = i_ω from JC5.1; its canonical identification
-and the genus-one canonical-bundle test require the earlier geometric interface.
-For g>1, τ:J×_S X→J×_S J is (y,x)↦(y,y+i_ω(x)); it is a morphism over the first J-factor and has no global-section hypothesis.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.UniversalShift.value: τ(y,x)=(y,y+(2g−2)[x]−ω).
-API RelativeJacobian.UniversalShift.overJ: q₁∘τ=p₁.
-API RelativeJacobian.UniversalShift.baseChange: τ commutes with arbitrary T→S.
-TEST RelativeJacobian.UniversalShift.test_zeroShift: τ(0,x)=(0,i_ω(x)).
-TEST RelativeJacobian.UniversalShift.test_genusOne: The asserted finite canonical Abel map uses g>1; in genus1 its degree is0 and it is constant.
-TEST RelativeJacobian.UniversalShift.test_firstCoordinate: Changing x leaves the first coordinate y fixed on every test scheme.
--/
-
-/- GEOMETRIC IDENTIFICATION JC5.3
-The native FaltingsZhang uses d = j from JC2.6. The pointed and origin-change
-signatures explicitly assume the earlier Abel-difference comparison.
-For m≥1, FZ_m:X^{m+1}_S→J^m_S sends (x₀,…,x_m) to (j(x₀,x₁),…,j(x₀,x_m)). It is defined without a section and without a maximal-variation hypothesis.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.FaltingsZhang.coordinate: The r-th coordinate is [x_r]−[x₀], for 1≤r≤m.
-API RelativeJacobian.FaltingsZhang.baseChange: The morphism pulls back to FZ_m of X_T/T.
-API RelativeJacobian.FaltingsZhang.pointed: Fixing x₀=P₀ on a fibre gives the m-fold product of the pointed Abel embedding C−P₀.
-API RelativeJacobian.FaltingsZhang.proper: FZ_m is proper: its source is proper over S and J^m is separated over S, so the graph factorization is proper.
-TEST RelativeJacobian.FaltingsZhang.test_one: FZ₁(x₀,x₁)=j(x₀,x₁).
-TEST RelativeJacobian.FaltingsZhang.test_diagonal: The small diagonal maps to the zero tuple.
-TEST RelativeJacobian.FaltingsZhang.test_originChange: With any degree-one α, all coordinates equal i_α(x_r)−i_α(x₀), independent of α.
--/
-
-/- GEOMETRIC IDENTIFICATION JC5.4
-The native ShiftedFaltingsZhang uses n + 1 = m, c = i_ω and d = j.
-Its source order is X^m × J and its tail differences are unscaled.
-For g>1 and m≥1, τ_m:X^m_S×_S J→J^m_S sends (x₁,…,x_m,y) to (i_ω(x₁)+y,j(x₁,x₂),…,j(x₁,x_m)). The source order, first shift and unscaled remaining differences are part of the definition.
-Hypotheses: README.md standing smooth-family conventions.
-API RelativeJacobian.ShiftedFaltingsZhang.first: The first coordinate is (2g−2)[x₁]−ω+y.
-API RelativeJacobian.ShiftedFaltingsZhang.tail: Coordinate r>1 is [x_r]−[x₁], with no factor 2g−2.
-API RelativeJacobian.ShiftedFaltingsZhang.baseChange: The shifted morphism commutes with T→S.
-TEST RelativeJacobian.ShiftedFaltingsZhang.test_one: For m=1 the map is i_ω(x₁)+y; there is no tail coordinate.
-TEST RelativeJacobian.ShiftedFaltingsZhang.test_sign: For m=2 the second coordinate is x₂−x₁, not x₁−x₂.
-TEST RelativeJacobian.ShiftedFaltingsZhang.test_diagonal: If all x_r=x₁, every tail coordinate is0 and the first remains i_ω(x₁)+y.
--/
-
-/- GEOMETRIC IDENTIFICATION JC5.6
-The native factorization assumes the JC2 identity for c = i_ω, d = j, e = 2g−2.
-The multiplication properties above are conditional transfers; the nonzero
-finite locally free isogeny theorem still comes from the abelian-scheme supplier.
-Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular change R on J^m, R∘B_m=D∘τ_m, where D fixes the first coordinate and multiplies each tail by 2g−2. This equality holds as S-morphisms; D is a finite locally free isogeny for g>1.
-Hypotheses: README.md standing smooth-family conventions.
--/
-
-/- GEOMETRIC INTERFACE JC6.1
-For an integral noetherian S and a stable connected nodal genus-g>1 family π:X→S, let G=Pic⁰_{X/S} be the smooth separated semi-abelian group supplied by Néron R11.4. There is a canonical O_S-linear isomorphism Lie(G/S)≅R¹π_*O_X, compatible with base change.
-Hypotheses: S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed.
--/
-
-/- GEOMETRIC INTERFACE JC6.2
-Under the hypotheses of the Picard Lie comparison, relative duality gives π_*ω_{X/S}≅e*Ω¹_{G/S}. Both are locally free of rank g and commute with the allowed base changes; the right side uses invariant differentials of the semi-abelian G.
-Hypotheses: S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed.
--/
-
-/- GEOMETRIC INTERFACE JC6.3
-For the same stable family, λ_X:=det(π_*ω_{X/S}) is canonically isomorphic to det(e*Ω¹_{G/S}); the isomorphism is the determinant of the vector-bundle comparison and is compatible with its base-change isomorphisms.
-Hypotheses: S is integral and noetherian; π:X→S is a proper flat finitely presented stable connected nodal curve of constant arithmetic genus g>1. G=Pic⁰_{X/S} is the smooth separated semi-abelian generalized Jacobian, and the relative-duality/base-change isomorphisms of JC6 are fixed.
--/
-
-/- GEOMETRIC INTERFACE JC7.1
-Fix g≥2, ℓ≥3 invertible on the base, and the same pairing component and cyclotomic convention as the imported fine-level curve scheme. Apply JC0–JC3 to its smooth projective universal curve: obtain Pic=⨆_d Picᵈ, the principally polarized J, its induced full symplectic level-ℓ structure, and the section-free C→Pic¹ morphism.
-Hypotheses: The exact base, pairing component and level flavour of StableReductionPartII MC.4/full-level and fine-level-scheme.
--/
-
-/- GEOMETRIC INTERFACE JC7.2
-For every S→M_g[ℓ] in the chosen level convention and m≥1, base change the universal curve and its Jacobian. FZ_m:C_S^{m+1}→J_S^m is a morphism over S. On a field fibre with P₀∈C(k), fixing its first coordinate gives the m-fold pointed Abel embedding C−P₀.
-Hypotheses: g≥2, ℓ≥3 invertible on the base, and the fixed symplectic component over ℤ[1/ℓ,ζ_ℓ] of the imported fine-level curve scheme; S→M_g[ℓ] is arbitrary and m≥1. The smooth universal curve and its Jacobian are pulled back to S; S need not be noetherian.
+/- Geometric targets requiring the relative Picard, dual abelian-scheme,
+algebraic-equivalence, relative-cohomology or fine-level interfaces of README.md:
+Layer 0: relative-degree-components, degree-locally-constant, picard-representability, picard-torsors.
+Layer 1: relative-jacobian, jacobian-proper, jacobian-base-change, principal-polarization.
+Layer 2: section-free-abel-map, degree-abel-map, pointed-factorization, degree-one-closed-immersion, nonzero-degree-finite, curve-difference, diagonal-base-change.
+Layer 3: jacobian-poincare, degree-one-theta, twice-theta, theta-inverse-pullback, theta-pullback, poincare-addition-identity, poincare-curve-square, theta-doubling-formula, poincare-diagonal, geometric-twice-theta, twice-theta-symmetric, twice-theta-zero-rigidified, twice-theta-relatively-ample.
+Layer 4: actual-picard-zero, actual-picard-bizero, relative-autoduality-pullback, actual-to-relative-obstruction, actual-pullback-torsion-cokernel, bizero-lift-one-factor, bizero-pullback-torsion-cokernel, axis-normalized-picard, pointed-square-picard-isomorphism.
+Layer 5: canonical-abel-map, universal-shift, faltings-zhang, shifted-faltings-zhang, shifted-power-factorization.
+Layer 6: picard-lie-cohomology, curve-jacobian-hodge-bundles, hodge-line-isomorphism.
+Layer 7: universal-level-jacobian, universal-faltings-zhang.
+For curve-difference, universal-shift, faltings-zhang,
+shifted-faltings-zhang and shifted-power-factorization, the native companions
+above still require their stated geometric identifications and supplier inputs.
 -/
