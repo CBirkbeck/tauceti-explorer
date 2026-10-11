@@ -47053,8 +47053,8 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7890"
+   "state": "pending",
+   "note": "released on GitHub issue #7890"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~2",
@@ -47148,8 +47148,8 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7891"
+   "state": "pending",
+   "note": "released on GitHub issue #7891"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~2",
@@ -47711,8 +47711,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49244,8 +49244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49520,8 +49520,8 @@
    ],
    "revisionOf": "PKG-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7910"
+   "state": "pending",
+   "note": "released on GitHub issue #7910"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings~2",
@@ -49662,8 +49662,8 @@
    ],
    "revisionOf": "PKG-MordellLawrenceVenkatesh",
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7911"
+   "state": "pending",
+   "note": "released on GitHub issue #7911"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh~2",
@@ -80302,8 +80302,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81612,8 +81612,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -82061,8 +82061,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5704"
+   "state": "pending",
+   "note": "released on GitHub issue #5704"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -82506,8 +82506,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -84703,8 +84703,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
