@@ -1,6 +1,6 @@
 # Independent area-fix review — 11 October 2026
 
-Codex (GPT-6), session `codex-lJBXyn`. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6104046573). This reviewer authored none of the fixes. None of the manager-priority issues was available. Higher-ranked fallback candidates already had open completion pull requests, so this available `top` independent review was selected. Only this job was claimed.
+Codex (GPT-6), session `codex-rKeSUF`. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6104515533). This reviewer authored none of the fixes. None of the manager-priority issues was available. This was the only available `top` review, and it was selected before lower-priority fallback work. Only this job was claimed.
 
 ## Deliverable scope prevents completion
 
@@ -16,7 +16,7 @@ Completion needs eight accepted verdicts and three `needs_changes` verdicts: Mot
 
 The 32 assigned high/medium findings are /1–4, /6–18, /20–21 and /23–35. Upstream-only /5, /19 and /22, and low-severity /36–46, are outside this review. I read their claims, verified reasons and round-two dispositions, checked the five permitted packets and six review predecessors, and verified preservation in the candidate. This is a bounded review of the corrections, not a new exhaustive audit of the eleven blueprints.
 
-The following decisions follow codex-LmPUk7’s scoped checkpoint and continue the inherited finding ledger, including codex-yj5Z0S's [#8575](https://github.com/CBirkbeck/tauceti-explorer/pull/8575), codex-AtxPdd's [#8599](https://github.com/CBirkbeck/tauceti-explorer/pull/8599), codex-CwcQzj's [#8608](https://github.com/CBirkbeck/tauceti-explorer/pull/8608), and codex-8gNtJ0's [#8617](https://github.com/CBirkbeck/tauceti-explorer/pull/8617). Exhaustive node/source audits remain attributed to those reports and the complete packet review histories. Fresh checks in this session are identified below. “Adequate” means the correction or precise supplier request is present; it does not claim that the supplier has implemented the mathematics. No correction to a mathematical field in the five permitted packets was necessary; their only changes are the new review records and complete preservation of their predecessors.
+The following decisions preserve codex-lJBXyn’s scoped checkpoint and continue the inherited finding ledger, including codex-yj5Z0S's [#8575](https://github.com/CBirkbeck/tauceti-explorer/pull/8575), codex-AtxPdd's [#8599](https://github.com/CBirkbeck/tauceti-explorer/pull/8599), codex-CwcQzj's [#8608](https://github.com/CBirkbeck/tauceti-explorer/pull/8608), and codex-8gNtJ0's [#8617](https://github.com/CBirkbeck/tauceti-explorer/pull/8617). Exhaustive node/source audits remain attributed to those reports and the complete packet review histories. Fresh checks in this session are identified below. “Adequate” means the correction or precise supplier request is present; it does not claim that the supplier has implemented the mathematics. No correction to a mathematical field in the five permitted packets was necessary; their only changes are the new review records and complete preservation of their predecessors.
 
 | Finding | Verdict and reason |
 | --- | --- |
@@ -92,7 +92,7 @@ All eleven actual packets and the six omitted-packet candidates pass `scripts/ch
 
 The repaired PEL candidate was freshly checked using `lean-check` in the shared pinned build. Its complete log contains 784 `sorry` warnings, zero errors and zero other warnings. SHA-256: `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`, matching codex-8gNtJ0's successful candidate receipt. The candidate remains unapplied. Elaboration checks signatures, not admitted proofs.
 
-Nine unchanged repository Suggested files match codex-CwcQzj’s complete receipts exactly. The Motives file matches codex-xVALZ8’s newer full-file receipt. I read its canonical-map contracts, induced products and distinguishing examples, preserved the entire preceding review, and freshly verified every hash in the table. These attributed elaborations were not repeated. The inherited ShimuraData failure continues to support its negative verdict. The review base is atlas commit `48928d01b026577b63ef377edce9d5b2a34a7493`.
+Nine unchanged repository Suggested files match codex-CwcQzj’s complete receipts exactly. The Motives file matches codex-xVALZ8’s newer full-file receipt. I read its canonical-map contracts, induced products and distinguishing examples, preserved the entire preceding review, and freshly verified every hash in the table. These attributed elaborations were not repeated. The inherited ShimuraData failure continues to support its negative verdict. The review base is atlas commit `fbbbb004ed1556c56b68dc09238e46e1d4b75e15`.
 
 | Suggested file | Exit | Admission warnings | Other diagnostics | SHA-256 |
 | --- | --- | --- | --- | --- |
