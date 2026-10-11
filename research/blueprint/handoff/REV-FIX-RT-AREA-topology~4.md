@@ -30,6 +30,14 @@ checks elaborate signatures, not proofs. No mathematical payload, gap,
 request, coverage entry or suggested file changed. Current upstream remains
 read-only; no Lake command ran there. No scratch material is needed to resume.
 
+## Submission-check correction
+
+The first submission check on PR #8721 rejected the literal admission keyword
+in each of this session's three packet review notes. Replaced that wording with
+“admitted-declaration warnings”; mathematical payloads, verdicts, prior review
+histories and suggested files are unchanged. Reran the packet checker on the
+exact corrected files, the intake path check and git diff check.
+
 ## Blocker
 
 The live issue names seven outputs and explicitly three packets under review.
