@@ -16,378 +16,392 @@
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
         "provides": "For an F-linear endomorphism f, the native F-submodule of vectors v satisfying f(v)=v.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.mem_fixedSubmodule_iff",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
         "provides": "Membership is exactly the equation f(v)=v.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.fixedSubmodule_eq_ker",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
         "provides": "The fixed submodule is the kernel of f−id.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.fixedSubmodule_eq_top_iff",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FixedSubmodule.lean",
         "provides": "The fixed submodule is all of V exactly when f=id.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Submodule.subtype",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
         "provides": "The native linear inclusion of a submodule.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Submodule.subtype_injective",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
         "provides": "The inclusion of a submodule is injective.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.liftBaseChangeEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "F-linear maps W→V correspond to L-linear maps L⊗_F W→V when V is an L-module. The native abbreviation liftBaseChange applies this equivalence.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.liftBaseChange_tmul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The scalar extension of j sends a⊗w to a·j(w).",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.range_liftBaseChange",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The image of the lifted map is the L-linear span of the original image.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Submodule.mem_span_range_iff_exists_fun",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
         "provides": "For a finite family, membership in its span is equivalent to a finite coefficient expansion.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:linearIndependent_iff'",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
         "provides": "Linear independence is equivalent to every finite relation having zero coefficients.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:linearIndependent_finSucc",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Lemmas.lean",
         "provides": "A Fin(n+1)-family is independent iff its tail is independent and its first vector is outside the tail span.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:linearIndependent_iff_finset_linearIndependent",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
         "provides": "An arbitrary family is independent iff all finite subfamilies are independent.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearIndependent.restrict_scalars'",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean",
         "provides": "Independence descends from L to F under faithful scalar restriction, the reverse direction to the new fixed-vector theorem.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearIndependent.map'",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean",
         "provides": "A linear map with zero kernel preserves linear independence.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Free.chooseBasis",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "A basis indexed by ChooseBasisIndex for a free module; vector spaces are free.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.linearIndependent",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
         "provides": "The family supplied by a basis is linearly independent.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.span_eq",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
         "provides": "The range of a basis spans the whole module.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.injective_constr_of_linearIndependent",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
         "provides": "The map prescribed on a basis is injective when the prescribed images are independent.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.baseChange",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
         "provides": "An F-basis gives the L-basis of L⊗_F W by scalar extension.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.baseChange_apply",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
         "provides": "The scalar-extended basis vector is 1⊗b_i.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearIndependent.finite",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Finite.lean",
         "provides": "An independent family in a finite module has finite index type.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.Basis.finiteDimensional_of_finite",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
         "provides": "A basis indexed by a finite type proves finite dimensionality.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.finrank_baseChange",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
         "provides": "The L-dimension of L⊗_F W equals the F-dimension of W.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.finrank_le_finrank_of_injective",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
         "provides": "An injective linear map into a finite module bounds the domain finrank by the codomain finrank.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
         "provides": "For finite-dimensional spaces of equal dimension, a linear map is injective iff surjective.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:LinearEquiv.finrank_eq",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
         "provides": "A linear equivalence preserves finrank.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Complex.conjAe",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Complex/Module.lean",
         "provides": "Complex conjugation as an R-algebra automorphism, with its R-linear map for acceptance examples.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Complex.basisOneI",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Complex/Module.lean",
         "provides": "The real basis 1,I of C; supplies a counterexample when exact constants or fixedness is omitted.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
         "provides": "Audit boundary only: for an existing commutative Hopf algebra over a field, the point functor is naturally isomorphic to the tensor-automorphism functor of its finite comodules. It does not reconstruct a Hopf algebra from an arbitrary neutral category.",
-        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree."
+        "checked": "Actual statement read in the pinned source; source bytes verified against the pinned tree. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:iterateFrobeniusEquiv",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Perfect.lean",
         "provides": "Iterated p-Frobenius equivalence on a perfect characteristic-p ring; its inverse supplies the inverse coefficient q-twist.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:PowerSeries.map",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Coefficientwise ring homomorphism on formal power series, leaving the variable unchanged.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:PowerSeries.IsRestricted.subring",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Restricted.lean",
         "provides": "Native radius-c restricted power-series subring of a normed ring.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin",
         "kind": "def",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "Native intermediate field generated by a set in an extension field.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:RatFunc",
         "kind": "structure",
         "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
         "provides": "Native rational-function type, equivalent to the fraction ring of a polynomial ring.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Algebra.IsGeometricallyReduced",
         "kind": "class",
         "module": "Mathlib/RingTheory/Nilpotent/GeometricallyReduced.lean",
         "provides": "Native geometric-reducedness class; over a field it means reducedness after algebraic-closure scalar extension and expresses general field-extension separability.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Native general linear group as units of the square matrix ring.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:AlgEquiv",
         "kind": "structure",
         "module": "Mathlib/Algebra/Algebra/Equiv.lean",
         "provides": "Native algebra equivalence with compatibility with the specified scalar map.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:IsScalarTower",
         "kind": "class",
         "module": "Mathlib/Algebra/Group/Action/Defs.lean",
         "provides": "Compatibility of successive scalar actions, used for the field and tensor towers.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Submodule",
         "kind": "structure",
         "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
         "provides": "Native submodule of a module, used for solution and degree spans.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Algebra.adjoin",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
         "provides": "Least native subalgebra containing a specified generator set.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Matrix.det",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinant of a finite square matrix over a commutative ring.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Algebra.TensorProduct.includeLeft",
         "kind": "def",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The left tensor-product algebra map sending a to a tensor 1.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Algebra.TensorProduct.includeRight",
         "kind": "def",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The right tensor-product algebra map sending b to 1 tensor b.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Ideal.map",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Extension of an ideal along a ring homomorphism.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Ideal.comap",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Contraction of an ideal along a ring homomorphism.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:CommHopfAlgCat",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/CommHopfAlgCat.lean",
         "provides": "Native category of commutative Hopf algebras, used only after the Hopf structure is proved.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "tauceti:TauCeti.smoothCommHopfAlgProperty_of_geometricallyReduced",
         "kind": "theorem",
         "module": "TauCeti/Algebra/AlgebraicGroup/Smooth/GeometricallyReduced.lean",
         "provides": "Finite-type geometrically reduced commutative Hopf algebras over a field are smooth; this is a group criterion, not a general scheme criterion.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Module.finrank",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
         "provides": "Natural-valued finite rank of a module, used only with explicit finite-dimensional hypotheses.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Submodule.span",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "Native scalar span of a set.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:MvPolynomial.aeval",
         "kind": "def",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Multivariate-polynomial algebra evaluation into a specified algebra.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:AlgebraicIndependent",
         "kind": "def",
         "module": "Mathlib/RingTheory/AlgebraicIndependent/Defs.lean",
         "provides": "Injectivity of multivariate-polynomial evaluation, the native notion of algebraic independence.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:Algebra.trdeg",
         "kind": "def",
         "module": "Mathlib/RingTheory/AlgebraicIndependent/Basic.lean",
         "provides": "Cardinal-valued transcendence degree of an algebra.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
       },
       {
         "ref": "mathlib:ringKrullDim",
         "kind": "def",
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "Krull dimension of a commutative ring, valued in the extended natural numbers with bottom.",
-        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10."
+        "checked": "Statement read at the recorded pin; source bytes compared with the pinned tree on 2026-10-10. Independently confirmed at the recorded pin on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8; the actual statement and citing use were checked."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Spec",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "The native scheme spectrum of a commutative ring; supplies Z=Spec Σ without a new scheme definition.",
+        "checked": "Statement and namespace read at Mathlib 082e2d3 on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
+        "provides": "For commutative rings and a surjective ring homomorphism, Spec.map is a closed immersion; apply to the generator-evaluation map with codomain its image Σ.",
+        "checked": "Statement and namespace read at Mathlib 082e2d3 on 2026-10-11 by REV-DrinfeldModulesAndTModules--DM.8."
       }
     ]
   },
@@ -399,9 +413,9 @@
       "edition": "arXiv math/0506078v2, 29 June 2007; preprint of Invent. Math. 171 (2008), 123–174",
       "url": "https://arxiv.org/pdf/math/0506078v2",
       "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "Entire preprint pp.1–39; target proof chain §§2–6 checked. Existing visual and source-issue audits from the checkpoint are retained as attributed evidence."
+        "Independent review: entire preprint pp.1–39; all DM.8 source locators, hypotheses and proof chains checked. Rendered pp.21, 30 and 38 checked for overbars, matrix shapes and the zero-exponential case."
       ]
     },
     {
@@ -411,9 +425,9 @@
       "edition": "arXiv math/0207168v1; preprint of Annals160(2004),237–313",
       "url": "https://arxiv.org/pdf/math/0207168v1",
       "sha256": "a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "§§2.1–2.5 pp.6–7; §3 pp.7–16, including the full proof of Theorem3.1.1 and Proposition3.1.3; Proposition4.3.2 p.21"
+        "Independent review: §§2.1–2.5 pp.6–7; §3 pp.7–16, including the full lifting proof and Proposition3.1.3; Proposition4.3.2 p.21. Compared with the corresponding published sections."
       ]
     },
     {
@@ -423,9 +437,9 @@
       "edition": "HAL hal-03298790, version accessed2026-10-10",
       "url": "https://hal.science/hal-03298790/document",
       "sha256": "f6bf74f188aad7602293e47b2c963243a036649cb591a4dc7ca13556e90d971d",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "§§4.1–4.3 printedpp.17–18 and §5.2 printedpp.20–21; selected use in §6"
+        "Independent review: §§4.1–4.3 printedpp.16–18 (PDFpp.17–19), and §5.2 printedpp.20–21 (PDFpp.21–22). Specialized multizeta results are consumers, not new DM.8 targets."
       ]
     },
     {
@@ -435,9 +449,9 @@
       "edition": "arXiv2205.09929v2",
       "url": "https://arxiv.org/pdf/2205.09929v2",
       "sha256": "05e1f6d6b1ef37068f73709928a9dcc7a0e50874aced170f0c92e07f0cd7413b",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "§4.1 p.13; Lemma5.1.1 proof pp.22–24"
+        "Independent review: §4.1 p.13; Lemma5.1.1 and its proof pp.22–24."
       ]
     },
     {
@@ -447,9 +461,9 @@
       "edition": "arXiv2205.07165v2 (10June2024)",
       "url": "https://arxiv.org/pdf/2205.07165v2",
       "sha256": "74a40b2e45b54760765247a010811d278e48f0b30f361bf3d9ca8cb92fd4b43e",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "§2.1 and Theorem2.2 p.26; selected §2.2 p.27 and proof use p.33"
+        "Independent review: §2.1 and Theorem2.2 p.26; §2.2.1 p.27; the uniqueness and denominator application p.33."
       ]
     },
     {
@@ -459,9 +473,21 @@
       "edition": "arXiv1411.0124v2",
       "url": "https://arxiv.org/pdf/1411.0124v2",
       "sha256": "029b57501d8b37f292557044ab2789b30435ab0c8e4b6d739284ee94ec7c5549",
-      "read": "2026-10-10",
+      "read": "2026-10-11",
       "readSections": [
-        "Proposition2.2.1 and proof p.6"
+        "Independent review: Proposition2.2.1 and full proof p.6, including its rendered page; adjacent Ω/period normalization was compared with the DM.8 convention."
+      ]
+    },
+    {
+      "id": "ABP-published",
+      "title": "Determination of the algebraic relations among special Γ-values in positive characteristic",
+      "authors": "G. W. Anderson, W. D. Brownawell, M. A. Papanikolas",
+      "edition": "Annals of Mathematics 160 (2004), 237–313; version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf",
+      "sha256": "5668a9496609eb02380d0038f0f67b200c4142eb01fadca48fef6d1f232f62ca",
+      "read": "2026-10-11",
+      "readSections": [
+        "§§2.1–2.5 and §3 pp.244–256, including the full lifting proof; Proposition4.3.2 pp.262–263. No change in the target hypotheses relative to ABP-v1."
       ]
     }
   ],
@@ -470,14 +496,41 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0506078v2",
       "citation": "arXiv math/0506078v2, 29 June 2007, 39 pages",
-      "read": "2026-09-27",
+      "read": "2026-10-11",
       "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3"
     },
     {
       "kind": "published",
       "url": "https://link.springer.com/article/10.1007/s00222-007-0073-y",
       "citation": "Invent. Math. 171 (2008), 123–174. Article metadata/correction search only; the /content/pdf/ endpoint returned HTML. Published full text was not read or collated; all findings are scoped to the preprint.",
-      "read": "2026-09-27"
+      "read": "2026-10-11"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0207168v1",
+      "citation": "arXiv math/0207168v1; preprint of Annals160(2004),237–313",
+      "read": "2026-10-11",
+      "sha256": "a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v160-n1-p06.pdf",
+      "citation": "Annals of Mathematics 160 (2004), 237–313; version of record; read pp.244–256 and 262–263 only.",
+      "read": "2026-10-11",
+      "sha256": "5668a9496609eb02380d0038f0f67b200c4142eb01fadca48fef6d1f232f62ca"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1411.0124v2",
+      "citation": "CPY arXiv1411.0124v2, Proposition2.2.1 p.6; independent rendered-page check.",
+      "read": "2026-10-11",
+      "sha256": "029b57501d8b37f292557044ab2789b30435ab0c8e4b6d739284ee94ec7c5549"
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/journals/jems/articles/15761",
+      "citation": "CPY, J. Eur. Math. Soc.21(2019),405–440. Publisher metadata read; subscription required and PDF endpoint returned the article HTML. Full published text not read; E-DM8-8 is scoped to arXivv2.",
+      "read": "2026-10-11"
     }
   ],
   "nodes": [
@@ -941,6 +994,11 @@
           "sourceId": "IKLNP-v2",
           "locator": "§2.1 p.26",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "§2.2 p.244",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1035,6 +1093,11 @@
           "sourceId": "ABP-v1",
           "locator": "§2.4 p.7",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "§2.4 p.244",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1100,7 +1163,7 @@
       "statement": "T is the existing radius-one restricted-series subring of C∞[[t]], equipped with its Gauss norm; L is its fraction field. The norm is complete, ultrametric and multiplicative. A nonzero f∈T has a finite zero divisor on |t|≤1, and f=λ·P·u with P the monic polynomial of those zeros, u=1+Σ_{n≥1}b_n t^n, sup||b_n||<1 and b_n→0. The corresponding signed divisor gives the same factorization for a nonzero element of L. Thus T is a principal ideal domain, and its maximal ideals are (t−a) with ||a||≤1. These are adaptations of existing restricted-series and Weierstrass theory, not a new Tate-algebra definition.",
       "hypotheses": [],
       "proofSteps": [
-        "Import the Gauss norm and completeness already present in current Tau Ceti, and the rank-one Weierstrass preparation milestone from Adic Spaces layer 0.5.",
+        "Reuse the current univariate TauCeti.PowerSeries restricted-series norm and its norm_eq_gaussNorm, norm_coeff_mul_pow_le and norm_le_iff API, together with multivariate completeness; these exports postdate the pin. Import the rank-one Weierstrass preparation milestone from AdicSpaces layer 0.5.",
         "Over algebraically closed C∞, factor the distinguished polynomial into linear factors. Unit normalization isolates a constant and a strict-norm tail. Pass to fractions to obtain a finite signed zero/pole divisor.",
         "Check the pinned/current discrepancy recorded in the audit before implementation; generic restricted-series theory remains with its existing owner."
       ],
@@ -1547,7 +1610,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Import the rigid abelian motive category, its unit, tensor and dual constructions from DM.4. Closure and exactness come from betti-exact-tensor.",
-        "Identify End(1) using exact constants, then use the arbitrary-field neutral-category interface of MC.6.",
+        "Identify End(1) using exact constants. The arbitrary-field neutral reconstruction is already planned as MC.6/neutral-tannaka-reconstruction; instantiate it over F_q(t), with no characteristic-zero assumption.",
         "Define T by the generic tensor-generation construction supplied with MC.6; its chosen generating family is the DM.4 rational image. The effective Frobenius modules of IKLNP are supplied by DM.4 and are not automatically Anderson-free over k̄[σ]."
       ],
       "acceptance": [
@@ -1558,6 +1621,7 @@
         "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
         "DrinfeldModulesAndTModules:DM.4",
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "MotivesAndAlgebraicCycles:MC.6"
       ],
       "library": {
@@ -1768,7 +1832,8 @@
         "mathlib:Algebra.adjoin",
         "mathlib:IntermediateField.adjoin",
         "mathlib:Matrix.det",
-        "SchemeAndStackFoundations:SF.1"
+        "mathlib:AlgebraicGeometry.Spec",
+        "mathlib:AlgebraicGeometry.IsClosedImmersion.spec_of_surjective"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -1977,7 +2042,7 @@
       "prerequisites": [
         "DrinfeldModulesAndTModules:DM.8/solution-ring",
         "DrinfeldModulesAndTModules:DM.8/invariant-ideal-descent",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1/affine-fpqc-descent"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -2052,7 +2117,8 @@
         "DrinfeldModulesAndTModules:DM.8/invariant-ideal-descent",
         "DrinfeldModulesAndTModules:DM.8/solution-invariant-ideal-descent",
         "DrinfeldModulesAndTModules:DM.8/solution-ring-simple",
-        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+        "SchemeAndStackFoundations:SF.1/torsor",
         "mathlib:CommHopfAlgCat"
       ],
       "library": {
@@ -2096,6 +2162,7 @@
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
         "FunctionFieldArithmetic:FA.0",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "SchemeAndStackFoundations:SF.3/line-bundle-degree-bounds",
         "SchemeAndStackFoundations:SF.3"
       ],
       "library": {
@@ -2134,7 +2201,8 @@
         "DrinfeldModulesAndTModules:DM.8/difference-torsor",
         "DrinfeldModulesAndTModules:DM.8/relative-algebraic-closure",
         "tauceti:TauCeti.smoothCommHopfAlgProperty_of_geometricallyReduced",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1/torsor",
+        "SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -2162,7 +2230,7 @@
       "hypotheses": [],
       "proofSteps": [
         "A σ-commuting automorphism sends Ψ to Ψγ; exact constants imply γ∈GL_r(F), and preserving the solution ring gives γ∈Γ(F).",
-        "For a geometric invariant rational function, use density of geometric points of the smooth group and the torsor identity to equate its two pullbacks. It is constant.",
+        "For a geometric invariant rational function, use SF.0/jacobson-finite-type after extension to an algebraically closed field: closed points of this finite-type scheme are rational and dense. Reducedness and the torsor identity then equate its two pullbacks on their domain of definition, forcing it to be constant.",
         "Use relative algebraic closure to descend the intersection with Λ. Do not replace the union-of-fixed-fields hypotheses by a claim about rational points over F."
       ],
       "acceptance": [
@@ -2172,7 +2240,8 @@
         "DrinfeldModulesAndTModules:DM.8/difference-torsor",
         "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+        "SchemeAndStackFoundations:SF.0/jacobson-finite-type"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -2211,6 +2280,8 @@
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
         "DrinfeldModulesAndTModules:DM.8/difference-torsor",
         "DrinfeldModulesAndTModules:DM.8/difference-invariants",
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+        "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
         "MotivesAndAlgebraicCycles:MC.6",
         "DrinfeldModulesAndTModules:DM.4"
       ],
@@ -2250,7 +2321,6 @@
         "DrinfeldModulesAndTModules:DM.8/entire-series",
         "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
         "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
-        "SchemeAndStackFoundations:SF.1",
         "FunctionFieldArithmetic:FA.0"
       ],
       "library": {
@@ -2268,6 +2338,11 @@
           "sourceId": "PAP-v2",
           "locator": "Proposition 5.1.3 p.32",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "Proposition3.1.3 pp.247–248",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2304,6 +2379,11 @@
           "sourceId": "ABP-v1",
           "locator": "ABP §§3.2–3.3 pp.10–13, especially Lemmas 3.3.3–3.3.6",
           "match": "This locator supplies the construction or argument specified here; the notation is reconciled with the conventions of this plan."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "§§3.2–3.3 pp.248–252, especially Lemmas3.3.3–3.3.6",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2358,6 +2438,11 @@
           "sourceId": "IKLNP-v2",
           "locator": "Theorem 2.2 p.26",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "Theorem3.1.1 pp.245–246; full proof §3.4 pp.252–256",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2502,7 +2587,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Construct the bounded tensor-monomial block system. Its determinant remains a nonzero constant times a power of t−θ; its entries are entire.",
-        "Specialization-rank equates dim_K D_d(Ψ) and dim_{k̄}D_d(Ψ(θ)) for every d. The degree-growth theorem for finitely generated domains equates their Krull dimensions and field transcendence degrees.",
+        "Specialization-rank equates dim_K D_d(Ψ) and dim_k̄ D_d(Ψ(θ)) for every d. Use the requested SF.0 bounded-generator filtration growth theorem to identify their transcendence degrees, and SF.0/algebraic-scheme-dimension for Krull dimension and field-extension invariance. The dimension theorem alone does not imply the growth comparison.",
         "Difference-smooth-dimension and tannakian-identification identify this dimension with Γ_M. No algebraic-independence conclusion for arbitrary matrix entries is inferred merely from a dimension equality."
       ],
       "acceptance": [
@@ -2515,7 +2600,8 @@
         "DrinfeldModulesAndTModules:DM.8/integral-trivialization",
         "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
         "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension",
+        "SchemeAndStackFoundations:SF.0"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/DrinfeldModule/Periods/Galois",
@@ -2748,6 +2834,11 @@
           "sourceId": "ABP-v1",
           "locator": "Proposition 4.3.2 p.21",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "Proposition4.3.2 pp.262–263",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2764,7 +2855,7 @@
       "hypotheses": [],
       "proofSteps": [
         "The one-dimensional difference equation for Hom(C(m), C(n)) has solutions constant times Ω^{m−n}. A nontrivial power of Ω has infinitely many zeros or poles, so is not rational.",
-        "The generated category is the integer-weight graded finite-dimensional category; import its G_m reconstruction from MC.6.",
+        "The generated category is the integer-weight graded finite-dimensional category over F_q(t). Instantiate MC.6/neutral-tannaka-reconstruction and the requested graded-category computation of its group as G_m.",
         "Apply period-transcendence to the eligible rank-one Carlitz matrix."
       ],
       "acceptance": [
@@ -2774,6 +2865,7 @@
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
         "DrinfeldModulesAndTModules:DM.2",
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "MotivesAndAlgebraicCycles:MC.6",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
       ],
@@ -2792,6 +2884,11 @@
           "sourceId": "ABP-v1",
           "locator": "§3.1.2 p.8",
           "match": "States or uses the indicated shared target; the exact hypotheses and inverse coefficient-twist convention are retained in the statement."
+        },
+        {
+          "sourceId": "ABP-published",
+          "locator": "§3.1.2 p.246",
+          "match": "The version of record retains the corresponding hypotheses and construction used here; the target is stated in our own words."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2819,6 +2916,7 @@
         "DrinfeldModulesAndTModules:DM.8/carlitz-group",
         "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
         "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
+        "SchemeAndStackFoundations:SF.1/torsor",
         "SchemeAndStackFoundations:SF.1"
       ],
       "library": {
@@ -2962,7 +3060,7 @@
       ],
       "title": "Frobenius-invariant common denominators",
       "kind": "theorem",
-      "statement": "Let Φ_i∈Mat_{r_i}(k̄[t]) have det Φ_i=c_i(t−θ)^{s_i}, c_i≠0, s_i≥0, i=1, 2. If B∈Mat_{r_1×r_2}(k̄(t)) satisfies σ(B)Φ_2=Φ_1B, its monic least common denominator belongs to F_q[t]. Thus a nonzero polynomial over F_q clears all entries. The matrix B is rational; the polynomial domain printed in CPY Proposition 2.2.1 is treated by the existing extraction correction.",
+      "statement": "Let Φ_i∈Mat_{r_i}(k̄[t]) have det Φ_i=c_i(t−θ)^{s_i}, c_i≠0, s_i≥0, i=1, 2. If B∈Mat_{r_1×r_2}(k̄(t)) satisfies σ(B)Φ_2=Φ_1B, its monic least common denominator belongs to F_q[t]. Thus a nonzero polynomial over F_q clears all entries. The matrix B is rational; the polynomial domain printed in CPY Proposition 2.2.1 is corrected in source issue E-DM8-8, reusing PAPER-NGODAC-21/E10.",
       "hypotheses": [],
       "proofSteps": [
         "The denominator of σ(B) divides den(B)(t−θ)^{s_2}. If it has a pole at θ, repeated Frobenius shifts force infinitely many distinct poles, using both determinant conditions.",
@@ -3036,7 +3134,7 @@
     },
     {
       "supplier": "MotivesAndAlgebraicCycles:MC.6",
-      "need": "For a rigid abelian neutral Tannakian category over an arbitrary field F (especially the imperfect positive-characteristic field F_q(t)) and an exact faithful F-linear tensor fibre functor to finite vector spaces, supply affine tensor-automorphism representability, reconstruction, tensor-generator finite type, fibre-functor isomorphism torsors, and the fully-faithful/subobject versus faithfully-flat and tensor-generation versus closed-immersion criteria. Current MC.6/tensor-automorphism-group and pro-algebraic-approximation require a specified diagram category and coalgebra; MC.3/tannakian-category assumes characteristic zero. None supplies the needed general input as stated. Reuse native Hopf-comodule reconstruction, then add the missing general interface in MC.6.",
+      "need": "Reuse the existing arbitrary-field MC.6/neutral-tannaka-reconstruction and tannaka-finiteness-recognition nodes, and tensor-iso-torsor after transporting along reconstruction. The remaining exports are: formation of the strictly full tensor subcategory generated by a family; for a compatible exact tensor functor between neutral categories, full faithfulness plus closure of its image under subobjects iff the induced group map is faithfully flat, and tensor generation of the target iff it is a closed immersion; and the computation of the tensor-automorphism group of integer-weight graded finite-dimensional F-vector spaces as G_m. State these over any field F, including imperfect F_q(t). The existing diagram-specific pro-algebraic-approximation and characteristic-zero connectedness criterion are insufficient for these remaining uses. Do not reconstruct an already planned neutral group again.",
       "neededBy": [
         "DrinfeldModulesAndTModules:DM.8/neutral-category",
         "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
@@ -3045,7 +3143,7 @@
     },
     {
       "supplier": "FunctionFieldArithmetic:FA.0",
-      "need": "Supply the chosen rational function field F_q(θ), exact constant field and its infinite-place normalization, and the smooth projective curve corresponding to a finite separable extension of the one-variable field over the perfect constant field bar(k). Export compatibility of the field/curve correspondence with the coefficient Frobenius automorphism, as needed in Papanikolas Proposition 4.3.3. Keep the analytic completion at DM.2 and the difference-field constant calculation at DM.8. For arbitrary field extensions, supply the equivalence of separability with native geometric reducedness and the characteristic-p p-basis/linear-disjointness criterion. Algebra.IsSeparable is algebraic separability and must not replace this general extension property. Import current TauCetiRoadmap ReductiveGroupsPartII RG2.3.7 Lang.lang_surjective and export its semilinear GL_r matrix specialization; the general Lang theorem is already owned upstream.",
+      "need": "Supply the chosen rational function field F_q(θ), exact constant field and its infinite-place normalization, and the smooth projective curve corresponding to a finite separable extension of the one-variable field over the perfect constant field bar(k). Export compatibility of the field/curve correspondence with the coefficient Frobenius automorphism, as needed in Papanikolas Proposition 4.3.3. Keep the analytic completion at DM.2 and the difference-field constant calculation at DM.8. For arbitrary field extensions, supply the equivalence of separability with native geometric reducedness and the characteristic-p p-basis/linear-disjointness criterion. Algebra.IsSeparable is algebraic separability and must not replace this general extension property. Import current TauCetiRoadmap ReductiveGroupsPartII RG2.3.7 Lang.lang_surjective and export its semilinear GL_r matrix specialization; the general Lang theorem is already owned upstream. The current Lang.lang_surjective Lean signature is on AlgebraicClosure F for finite F. Before applying it to a matrix with entries in bar(k), export surjectivity of the Lang morphism after base extension to that larger algebraically closed field and derive the inverse-Frobenius GL_r matrix normalization there. Its entries need not be algebraic over F_q.",
       "neededBy": [
         "DrinfeldModulesAndTModules:DM.8/twisting-limit",
         "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
@@ -3060,22 +3158,15 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Through the existing AlgebraicCurves/JacobianChallenge owner, supply Riemann–Roch for a smooth projective curve over bar(k) and a sufficiently large effective divisor above infinity: its L(D) is finite-dimensional and contains field generators. Export functorial transport by the coefficient automorphism for Papanikolas Proposition 4.3.3. Do not re-plan the underlying curve/Riemann–Roch theory in DM.8.",
+      "need": "Reuse SF.3/line-bundle-degree-bounds, which imports JacobianChallenge Riemann–Roch: on a smooth projective geometrically connected curve over bar(k), a sufficiently large effective divisor above infinity gives finite-dimensional L(D) containing any chosen finite set of field generators. The additional export is functorial transport of the curve, divisor and section space by the coefficient automorphism for Papanikolas Proposition 4.3.3. Generic Riemann–Roch remains with AlgebraicCurves/JacobianChallenge.",
       "neededBy": [
         "DrinfeldModulesAndTModules:DM.8/relative-algebraic-closure"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply effective faithfully flat descent and detection for affine morphism equality, isomorphisms and torsor action diagrams: DM.8 constructs Σ=K[Ψ,det(Ψ)^−1] and must descend the explicit Z×Z≅Z×Γ_K relation and the group structure from faithfully flat scalar extension. This is scheme-level descent over imperfect fields, not a criterion using only rational points. Generic fibre-functor torsors remain MC.6. Also export the affine-domain dimension/transcendence equality and bounded-generator degree-growth formulation, including invariance under field extension.",
+      "need": "Reuse SF.1/affine-fpqc-descent and SF.1/torsor for affine group diagrams, torsor isomorphisms and smoothness descent. The remaining export needed for the logarithm-group rational lift is: every fpqc torsor under the vector group G_a^r over any field F has an F-rational point (additive Hilbert 90, or faithfully flat descent for quasi-coherent modules). Apply only after the particular kernel is proved to be a vector group; this is not a splitting assertion for arbitrary unipotent groups over an imperfect field.",
       "neededBy": [
-        "DrinfeldModulesAndTModules:DM.8/solution-ring",
-        "DrinfeldModulesAndTModules:DM.8/solution-ring-simple",
-        "DrinfeldModulesAndTModules:DM.8/difference-torsor",
-        "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
-        "DrinfeldModulesAndTModules:DM.8/difference-invariants",
-        "DrinfeldModulesAndTModules:DM.8/entire-from-equation",
-        "DrinfeldModulesAndTModules:DM.8/period-transcendence",
         "DrinfeldModulesAndTModules:DM.8/logarithm-group-linear"
       ]
     },
@@ -3094,6 +3185,13 @@
         "DrinfeldModulesAndTModules:DM.8/relative-algebraic-closure",
         "DrinfeldModulesAndTModules:DM.8/abp-estimates"
       ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Reuse SF.0/algebraic-scheme-dimension for finite-type domain dimension versus fraction-field transcendence degree and invariance under field extension. Supply the remaining filtered growth form: for a finitely generated domain A=k[a_1,...,a_n], with A_≤d the k-span of generator monomials of total degree at most d, dim_k A_≤d is eventually a polynomial in d of degree trdeg_k Frac(A), with positive leading coefficient; include A=k, whose polynomial is the constant 1. Thus equality of these dimensions for all d implies equality of transcendence degrees even when the coefficient fields differ. This generic commutative-algebra dimension interface belongs with SF.0, not the SF.1 descent layer. It does not require extending the motives or moduli roadmaps.",
+      "neededBy": [
+        "DrinfeldModulesAndTModules:DM.8/period-transcendence"
+      ]
     }
   ],
   "coverage": [
@@ -3102,7 +3200,7 @@
       "status": "planned",
       "remaining": [
         "Reconcile the DM.4 dual-σ motive interfaces with the generated category T and instantiate the neutral arbitrary-field MC.6 interface.",
-        "Instantiate current restricted-series norms at the pinned analytic types and discharge the AdicSpaces preparation/zero-estimate, FA.0 separability and function-field/Riemann–Roch inputs.",
+        "Instantiate the existing restricted-series norms at the pinned analytic types, discharge the AdicSpaces preparation/zero-estimate and FA.0 separability/curve/Lang transport inputs, and supply the precise SF.0 filtered-growth export.",
         "Verify separability of the particular logarithm-group projection in Proposition6.2.3 and complete its scheme-level linear-kernel argument.",
         "Replace the documented supplier-dependent suggested-signature omissions once the actual motive/category interfaces are available."
       ]
@@ -3126,7 +3224,7 @@
         "DrinfeldModulesAndTModules:DM.8/logarithm-motive-membership",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
       ],
-      "detail": "DM.4 has not supplied a compiled dual-σ pre-t-motive category with scalar extension, tensor/dual and rationalization interfaces, and MC.6 has not supplied the arbitrary-field neutral reconstruction. The suggested file gives native fixed-module, matrix and coordinate-algebra forms, but omits the full category-valued signatures instead of inserting opaque types or condition placeholders. Those exact omissions are enumerated in the reader and handoff."
+      "detail": "DM.4 has not supplied the compiled dual-σ pre-t-motive category with scalar extension, tensor/dual and rationalization interfaces. MC.6 already plans arbitrary-field neutral reconstruction and finite-type recognition; its remaining tensor-subcategory and group-map comparison criteria are requested precisely. The suggested file omits category-valued signatures until these interfaces can actually be instantiated; native fixed-module, matrix and coordinate-algebra forms remain. Supplier packets marked needs_changes are mathematical contracts, not reviewed or implemented exports."
     },
     {
       "title": "Analytic and dimension supplier matching",
@@ -3138,7 +3236,7 @@
         "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
         "DrinfeldModulesAndTModules:DM.8/period-transcendence"
       ],
-      "detail": "The source proofs were read at target level. Instantiation of the current MvPowerSeries Tate norm (which postdates the pin), the AdicSpaces zero-estimate interface, FA.0 general separability criterion and curve transport, and SF.1 filtered growth/dimension requires the exact supplier exports specified in requests. These are imported dependencies rather than duplicated general theories."
+      "detail": "Instantiation at the pin of current univariate/multivariate restricted-series Gauss norms, the AdicSpaces preparation/zero-estimate interface, FA.0 general separability, curve transport and Lang base extension, and the requested SF.0 filtered growth theorem remains. SF.0 already plans the dimension/transcendence and base-extension statements; SF.1 already plans affine descent and torsors. Only the additional exact interfaces stated in requests are missing; the existing theories are imported."
     }
   ],
   "sourceIssues": [
@@ -3147,102 +3245,192 @@
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
-      "printed": "Paraphrase of the preprint notation issue: The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged.",
+      "printed": "The proof assigns both independently chosen trivializations Ψ_P and Ψ_Q to GL_r(L), although P and Q have independent ranks.",
       "correction": "Use Ψ_P∈GL_r(L), Ψ_Q∈GL_s(L) for the independently chosen ranks r and s; their tensor matrix has size rs.",
       "reason": "The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. The proposition permits P and Q of different ranks; choosing ranks 1 and 2 makes the shared r annotation incorrect. The tensor/dual argument itself is unchanged.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     },
     {
       "id": "DrinfeldModulesAndTModules/E-DM8-2",
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), §3.4.1, p.17, and Proposition 3.4.7, p.19",
-      "printed": "Paraphrase of the preprint notation issue: It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types.",
+      "printed": "The σ-representing matrix Φ is annotated as r×1 in the two indicated places.",
       "correction": "The representing matrix is r×r.",
       "reason": "It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. It multiplies the r×1 basis column, and its determinant is used immediately. For r=2 the printed matrix product and determinant have the wrong types.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     },
     {
       "id": "DrinfeldModulesAndTModules/E-DM8-3",
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), Theorem 3.5.4 proof, p.21",
-      "printed": "Paraphrase of the preprint notation issue: Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field.",
+      "printed": "The graded-vector-space equivalence is assigned coefficient field bar(k)(t).",
       "correction": "The coefficient field of the graded-vector-space category in this argument is F_q(t).",
       "reason": "Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. Lemma 3.5.3 gives endomorphisms of each Carlitz tensor power equal to F_q(t), and the fibre functor in the same sentence takes values in Vec(F_q(t)); a bar(k)(t)-linear equivalence would change that endomorphism field.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     },
     {
       "id": "DrinfeldModulesAndTModules/E-DM8-4",
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), Lemma 4.5.7 proof, p.30",
-      "printed": "Paraphrase of the preprint notation issue: C has m rows and s−m columns. Stacking −C above I_{s−m} gives s rows and s−m columns and makes its product with [I_m,C] defined.",
-      "correction": "The displayed basis-column matrix has size s×(s−m).",
+      "printed": "The kernel basis-column matrix is annotated Mat_{m×s}(Λ), and written using a transpose incompatible with the block widths.",
+      "correction": "Use the vertical block column with −C above I_(s−m), of size s×(s−m), as the kernel basis matrix; its product with [I_m,C] is zero.",
       "reason": "C has m rows and s−m columns. Stacking −C above I_{s−m} gives s rows and s−m columns and makes its product with [I_m,C] defined.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. C has m rows and s−m columns. Stacking −C above I_{s−m} gives s rows and s−m columns and makes its product with [I_m,C] defined.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     },
     {
       "id": "DrinfeldModulesAndTModules/E-DM8-5",
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), Theorem 5.2.2 proof, p.33",
-      "printed": "Paraphrase of the preprint notation issue: The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis.",
+      "printed": "The concatenated tensor-monomial vector length is given by (r^(2d+2)−1)/(r²−1) without excluding r=1.",
       "correction": "Use N=Σ_{n=0}^d r^(2n); the quotient expression is only for r≠1, and N=d+1 for r=1.",
       "reason": "The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. The proof includes rank-one motives. At r=1 the printed quotient is 0/0, whereas the concatenated vector has d+1 entries. This changes no theorem hypothesis.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     },
     {
       "id": "DrinfeldModulesAndTModules/E-DM8-6",
       "source": "PAP-v2",
       "kind": "misprint",
       "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 6.1.3 proof, p.34",
-      "printed": "Paraphrase of the preprint notation issue: The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate.",
+      "printed": "After choosing basis m_0,...,m_r, the column used in the σ equation starts with m_1 and omits m_0.",
       "correction": "Use m=[m_0,m_1,…,m_r]^tr in the equation σm=(t−θ)Φm.",
       "reason": "The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate.",
       "affects": "the proof",
-      "known": "new (no existing correction located; independent review required)",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
       "searched": [
         "2026-09-27: arXiv https://arxiv.org/abs/math/0506078 lists v2 (29 June 2007) as latest; no correction entry seen.",
         "2026-09-27: publisher article https://link.springer.com/article/10.1007/s00222-007-0073-y had no Correction match; its PDF endpoint returned HTML, not the article PDF.",
         "2026-09-27: author page https://www.math.tamu.edu/~map/ redirected to https://sites.google.com/tamu.edu/papanikolas/; no correction link seen.",
-        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips."
-      ]
+        "2026-09-27: searches for the exact title with erratum, for Papanikolas with 0073-y correction, and for Proposition 6.2.3 found no correction addressing these slips.",
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the stated PAP-v2 locator. The module has rank r+1 and Φ is an (r+1)×(r+1) matrix; the printed vector omits its first coordinate. The subsequent submodule C tensor C is generated in that coordinate.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-7",
+      "source": "PAP-v2",
+      "kind": "gap",
+      "locator": "arXiv math/0506078v2, Theorem6.4.2 proof p.38, invoking Lemma6.4.1 pp.37–38",
+      "printed": "The proof applies Lemma6.4.1 to each λ_i, while the theorem permits exp_C(λ_i)=0 and the lemma assumes a nonzero algebraic exponential.",
+      "correction": "Separate exp_C(λ)=0: the Carlitz kernel theorem gives λ in F_q[θ]·π̃. Apply division only to the nonzero exponentials, then choose a k-basis of the span of π̃ and the resulting small logarithms.",
+      "reason": "The single-element family λ_1=π̃ is linearly independent over k and satisfies the theorem, but does not satisfy the division lemma’s nonzero-exponential hypothesis. DM.8/logarithm-division and carlitz-logarithm-independence already state the separate period case, so no target theorem is weakened.",
+      "affects": "the proof",
+      "known": "new (no correction located in the recorded searches; finding limited to PAP-v2)",
+      "searched": [
+        "2026-10-11: https://arxiv.org/abs/math/0506078 still lists v2 (29June2007) as latest; no later correction version.",
+        "2026-10-11: https://sites.google.com/tamu.edu/papanikolas/research and /publications list the article and arXiv; no linked correction for these findings was located.",
+        "2026-10-11: https://link.springer.com/article/10.1007/s00222-007-0073-y metadata has no Correction match; published full text remains unavailable. Restricted primary-domain title/DOI correction searches found no relevant erratum."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rendered p.38 and Lemma6.4.1 were independently checked; the exponentials allowed by the theorem include zero, and the lemma excludes it. The DM.2 kernel input repairs that missing case.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
+    },
+    {
+      "id": "DrinfeldModulesAndTModules/E-DM8-8",
+      "source": "CPY-v2",
+      "kind": "misprint",
+      "locator": "arXiv1411.0124v2, Proposition2.2.1 p.6 (rendered page checked)",
+      "printed": "The matrix of the homomorphism between rationalized motives is placed in Mat_(r1×r2)(bar(k)[t]).",
+      "correction": "Place it in Mat_(r1×r2)(bar(k)(t)); retain both determinant conditions and the conclusion that its monic common denominator lies in F_q[t].",
+      "reason": "On two trivial rank-one motives, multiplication by 1/t commutes with σ and is a rationalized-module homomorphism, although its matrix is not polynomial. The proof immediately treats rational denominators and proves the intended corrected statement.",
+      "affects": "nothing",
+      "known": "Already recorded and independently confirmed as PAPER-NGODAC-21/E10 in research/blueprint/papers/PAPER-NGODAC-21.result.json; this is reuse, not a new claim.",
+      "searched": [
+        "2026-10-11: arXiv https://arxiv.org/abs/1411.0124 lists v2 (2November2015) as latest.",
+        "2026-10-11: https://ems.press/journals/jems/articles/15761 requires a subscription; its download returned HTML, so the published statement was not collated.",
+        "2026-10-11: Papanikolas and Chang publication pages and restricted primary-domain erratum search inspected; no relevant linked correction located. The existing atlas E10 records the same issue in an author-hosted 2018 copy."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the arXivv2 proof and rendered p.6. The trivial-motive 1/t example verifies the polynomial-domain slip; the rational target in this packet is correct.",
+        "by": "REV-DrinfeldModulesAndTModules--DM.8"
+      }
     }
   ],
   "restructure": [],
@@ -3252,7 +3440,8 @@
     "search": "Both pinned trees searched for Tannakian, Picard–Vessiot, rigid analytic, Carlitz, Drinfeld, semilinear/fixed-vector independence and scalar extension. Native fixed submodules and tensor scalar extension are reused. FixedPoints.linearIndependent_smul_of_linearIndependent concerns orbit functions, not fixed vectors in a semilinear module. Tau Ceti fixed-submodule dimension results require commuting idempotents; its group-algebra Galois descent is a different finite-Galois construction. VB0 concerns local isocrystals/slopes; Belyi Layer 11 and automorphic descent do not provide the arbitrary-automorphism fixed-vector statement.",
     "upstream": "Current GrothendieckEulerForms and JacobianChallenge reader documents were read in full in this continuation, together with the relevant current AdicSpaces and ReductiveGroupsPartII statements/signatures. The older checkpoint audit is retained as earlier-worker evidence, not described as a new snapshot comparison.",
     "continuedBy": "Codex — codex-hNQyYt, 2026-10-10",
-    "currentLibrary": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and TauCetiRoadmap070dc2becd74419e76303ede84b465ed4a69461f checked read-only. Current MvPowerSeries/TateAlgebra norm/completeness postdates the pin and is cited as an existing interface, not newly planned. ReductiveGroupsPartII owns general Lang; AdicSpaces owns generic preparation. Native group geometric-reducedness/smoothness supplies the correction to the source proof shortcut."
+    "currentLibrary": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and TauCetiRoadmap070dc2becd74419e76303ede84b465ed4a69461f checked read-only. Current MvPowerSeries/TateAlgebra norm/completeness postdates the pin and is cited as an existing interface, not newly planned. ReductiveGroupsPartII owns general Lang; AdicSpaces owns generic preparation. Native group geometric-reducedness/smoothness supplies the correction to the source proof shortcut.",
+    "independentReview": "All 54 inherited baseline declarations plus two native Spec citations read and confirmed at the pins on 2026-10-11. Exact current MC.6 neutral reconstruction/finiteness, SF.0 dimension/Jacobson, SF.1 affine descent/torsor, SF.3 degree bounds and FA.0 statements were read. Current upstream/library are the recorded snapshots, read only. GrothendieckEulerForms and JacobianChallenge documents were read in full; relevant AdicSpaces and ReductiveGroupsPartII signatures were read."
   },
   "upstreamNotes": [
     {
@@ -3260,6 +3449,260 @@
         "tauceti:TauCetiRoadmap/ReductiveGroupsPartII"
       ],
       "note": "Current main RG2.3.7 and its Lang.lang_surjective signature already own the general finite-field Lang theorem. FA.0 is requested only to transport its GL_r specialization to the coefficient-Frobenius field/curve interface; DM.8 does not plan a second Lang theorem."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AdicSpaces"
+      ],
+      "note": "Current Tau Ceti a91d3aa also provides TauCeti.PowerSeries.instNormedRingIsRestrictedSubring, norm_eq_gaussNorm, norm_coeff_mul_pow_le and norm_le_iff in TauCeti/RingTheory/PowerSeries/TateAlgebra.lean. Reuse these univariate exports and the current multivariate completeness interface; they postdate f790474 and are not duplicate DM.8 targets."
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-DrinfeldModulesAndTModules--DM.8",
+    "date": "2026-10-11",
+    "notes": "Independent mathematical review completed: all 48 nodes checked, all 56 baseline citations confirmed, seven primary texts read at the specified scope, and all eight source issues confirmed. Clear packet dependencies and source metadata were corrected. The three gaps remain honest and coverage remains planned. The only return condition is PROTOCOL §8 reader consistency: the definitive companion readme is outside issue #515’s deliverable paths and still requests already planned neutral reconstruction, misroutes dimension/growth to SF.1, and has the old requests/baseline/source-issue counts. It must be reconciled with this corrected packet before acceptance/promotion. The review itself is finished; this is not a checkpoint.",
+    "checked": [
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-coefficients",
+        "verdict": "verified",
+        "note": "Fixed independent vectors force coefficient fixedness; semilinearity and both field/module scalar actions agree."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-span-descent",
+        "verdict": "verified",
+        "note": "Exact constants are used in the forward span descent; the empty family and failure without exact constants are covered."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/finite-fixed-independence",
+        "verdict": "verified",
+        "note": "Finite-family induction uses Fin-succ independence and fixed-span descent without finite dimensionality."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-independence",
+        "verdict": "verified",
+        "note": "Arbitrary-index independence reduces to finite subfamilies; no finite-order or invertibility assumption on f is hidden."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/betti-comparison-injective",
+        "verdict": "verified",
+        "note": "The native tensor comparison is checked on a scalar-extended basis; the pinned basis-constr injectivity theorem applies."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-space-finite",
+        "verdict": "verified",
+        "note": "Independence after scalar extension bounds the chosen fixed basis and proves finiteness without assuming it."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-dimension-bound",
+        "verdict": "verified",
+        "note": "The dimension inequality uses the now finite fixed submodule and native base-change finrank."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/betti-comparison-dimension",
+        "verdict": "verified",
+        "note": "Dimension equality characterizes comparison bijectivity in the finite-dimensional setting."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fixed-basis-coordinates",
+        "verdict": "verified",
+        "note": "Fixed coordinates lie in F and the inverse comparison is L-linear; zero-dimensional cases are included."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/coefficient-twist",
+        "verdict": "corrected",
+        "note": "Inverse coefficient q-Frobenius fixes t; native iterated Frobenius and the published ABP locator agree."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/entire-series",
+        "verdict": "corrected",
+        "note": "ABP’s algebraic entire ring retains the finite coefficient-field condition; radius and coefficient hypotheses were checked in both versions."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/tate-analytic-interface",
+        "verdict": "corrected",
+        "note": "Current univariate Gauss-norm exports are now named explicitly; preparation and normalized zero factorization retain the recorded supplier gap."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/twisting-limit",
+        "verdict": "verified",
+        "note": "The Frobenius-subsequence limit is a polynomial over the algebraic closure of F_q, not necessarily F_q; the norm hypothesis is retained."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/analytic-fixed-fields",
+        "verdict": "verified",
+        "note": "Exact restricted-series and fraction-field constants, including σ-powers, match the source and routed CCM use."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/analytic-separability",
+        "verdict": "verified",
+        "note": "General field-extension separability uses geometric reducedness and the p-basis {t}; algebraic IsSeparable is not substituted."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/rigid-triviality",
+        "verdict": "verified",
+        "note": "Rigid triviality is comparison bijectivity; all three tests distinguish it from a bare finrank equality."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fundamental-matrix",
+        "verdict": "verified",
+        "note": "Fundamental matrices use native GL, equation σΨ=ΦΨ and the correct left-basis/right-constant changes."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/fundamental-betti-basis",
+        "verdict": "verified",
+        "note": "The fixed motive basis is Ψ inverse times the motive basis, distinct from columns of Ψ solving the vector system."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/integral-trivialization",
+        "verdict": "verified",
+        "note": "The polynomial determinant and integrality hypotheses are preserved; analytic denominator clearing is part of this source proof."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/betti-exact-tensor",
+        "verdict": "verified",
+        "note": "Exactness through subquotients, tensor and dual constructions is justified at target granularity; DM.4 interfaces remain explicit."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/neutral-category",
+        "verdict": "corrected",
+        "note": "Existing arbitrary-field neutral reconstruction is imported exactly; generated subcategory formation remains a precise MC.6 request."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/admissible-fields",
+        "verdict": "verified",
+        "note": "Admissibility retains exact constants and general separability for the complete field tower."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/solution-space",
+        "verdict": "verified",
+        "note": "The F-solution submodule and its dimension bound cover rectangular/noninvertible inputs where stated."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/solution-ring",
+        "verdict": "corrected",
+        "note": "Inverse determinant is a generator; native pinned Spec and the surjective-map closed immersion theorem replace the misrouted SF.1 input."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/comparison-algebra",
+        "verdict": "verified",
+        "note": "The comparison algebra is formed in the possibly nondomain tensor ring; the inverse determinant and ring actions are correct."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/invariant-ideal-descent",
+        "verdict": "verified",
+        "note": "Coefficient-only invariant-ideal descent uses finite-support linear relations and does not assume the later Σ descent theorem."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/solution-ring-simple",
+        "verdict": "corrected",
+        "note": "The noetherian stability argument and constant maximal-ideal step avoid circular use of solution-invariant-ideal-descent; exact affine descent is cited."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/solution-invariant-ideal-descent",
+        "verdict": "verified",
+        "note": "The Σ ideal descent comes after simplicity; tensor scalars and coefficient σ actions are kept distinct."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/difference-torsor",
+        "verdict": "corrected",
+        "note": "Hopf maps and the torsor are scheme/coordinate-ring identities; exact affine descent and torsor nodes replace a blanket stage citation."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/relative-algebraic-closure",
+        "verdict": "corrected",
+        "note": "The finite σ-stable extension is transported to a smooth curve over perfect bar(k); existing degree bounds are cited and Frobenius transport stays requested."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/difference-smooth-dimension",
+        "verdict": "corrected",
+        "note": "Smoothness uses the finite-type group criterion; torsor descent and the correct SF.0 dimension theorem are named."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/difference-invariants",
+        "verdict": "corrected",
+        "note": "The geometric invariant proof uses dense algebraically closed points from the exact SF.0 Jacobson theorem, with the power-constant hypotheses retained."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/tannakian-identification",
+        "verdict": "corrected",
+        "note": "Fullness, stable-subobject realization and generation use arbitrary algebra-valued group actions; existing reconstruction/finiteness are imported and comparison criteria remain requested."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/entire-from-equation",
+        "verdict": "corrected",
+        "note": "Invertibility of Φ at zero is retained; Lang base extension, coefficient algebraicity and the finite coefficient extension are distinct proof steps. Irrelevant SF.1 removed."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/abp-estimates",
+        "verdict": "corrected",
+        "note": "Finite separable arithmetic coefficients, integral perfect closure, nonzero roots and r<s norm estimates agree with both ABP versions."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/abp-lifting",
+        "verdict": "corrected",
+        "note": "The published lifting theorem has the same determinant, entire-vector and specialization hypotheses; the full auxiliary-function proof was collated."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/specialization-rank",
+        "verdict": "verified",
+        "note": "The relation module is saturated over a PID, so specialization preserves the required rank comparison; polynomial rows are retained."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/degree-span",
+        "verdict": "verified",
+        "note": "Degree-zero monomials are included and the sum formula works at rank one, avoiding the source’s 0/0 length expression."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/period-transcendence",
+        "verdict": "corrected",
+        "note": "All period hypotheses are present; SF.0 owns dimension and the additional filtered-growth theorem is requested explicitly rather than inferred from dimension alone."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/carlitz-deformation",
+        "verdict": "verified",
+        "note": "Carlitz deformation converges on the stated disk; L_α need not be entire while ΩL_α is entire, and the nonzero-α condition is used correctly."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/logarithm-matrices",
+        "verdict": "verified",
+        "note": "The lower-triangular matrix, determinant, twist equation and Carlitz extension orientation agree with the source."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/logarithm-motive-membership",
+        "verdict": "corrected",
+        "note": "Actual dual-Anderson membership uses C tensor X and finite σ generation, not polynomial freeness alone; the published ABP criterion is cited."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/carlitz-group",
+        "verdict": "corrected",
+        "note": "The graded category is over F_q(t); existing neutral reconstruction is imported and the G_m computation stays with MC.6. Both ABP versions support the transcendence application."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/logarithm-group-linear",
+        "verdict": "corrected",
+        "note": "Vectoriality is asserted for this specific scalar-action kernel; its separability check is honestly open. Generic torsor descent is imported and vector-torsor splitting is requested."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/logarithm-linear-relations",
+        "verdict": "verified",
+        "note": "The equality uses k-linear rather than bar(k)-linear span; rational coefficients can be evaluated at θ under the given regularity checks."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/logarithm-division",
+        "verdict": "verified",
+        "note": "Division is restricted to nonzero exponentials and the period case is separate; n=0 for an already small logarithm is harmless."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/carlitz-logarithm-independence",
+        "verdict": "verified",
+        "note": "Arbitrary logarithms with algebraic exponentials include zero-exponential periods; basis change and transcendence degree give the stated independence, subject to the recorded kernel gap."
+      },
+      {
+        "nodeId": "DrinfeldModulesAndTModules:DM.8/constant-denominator",
+        "verdict": "corrected",
+        "note": "The rational intertwiner and both determinant hypotheses match PAP/CPY. The existing CPY correction is now explicitly recorded and independently confirmed."
+      }
+    ]
+  }
 }
