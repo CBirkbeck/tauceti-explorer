@@ -630,11 +630,20 @@ example (I : Ideal R) : Function.Surjective (Ideal.Quotient.mk I) ∧
 
 -- CrystallineCM.TorsionHeckeImage_test_new_torsion
 -- C=[ℤ₃ --3--> ℤ₃] in degrees 0,1 has H⁰=0, whereas its mod-3 H⁰
--- is ℤ/3. Thus no map from its zero integral H⁰ image onto the scalar
--- mod-3 H⁰ image is possible. These are the two kernel calculations.
+-- is ℤ/3. Use the actual degree-zero kernels and their scalar actions.
+-- There is no unital algebra map at all from the zero integral image to
+-- the nonzero torsion image, even though the coefficient actions intertwine.
 example :
-    (LinearMap.ker (LinearMap.lsmul ℤ_[3] ℤ_[3] (3 : ℤ_[3]))) = ⊥ ∧
-      (LinearMap.ker (LinearMap.lsmul (ZMod 3) (ZMod 3) (3 : ZMod 3))) = ⊤ := by
+    letI : Algebra ℤ_[3] (ZMod 3) := (PadicInt.toZMod (p := 3)).toAlgebra
+    let integralH0 := LinearMap.ker (LinearMap.lsmul ℤ_[3] ℤ_[3] (3 : ℤ_[3]))
+    let torsionH0 := LinearMap.ker (LinearMap.lsmul (ZMod 3) (ZMod 3) (3 : ZMod 3))
+    let integralAction := Algebra.ofId ℤ_[3] (Module.End ℤ_[3] integralH0)
+    let torsionAction := Algebra.ofId ℤ_[3] (Module.End ℤ_[3] torsionH0)
+    integralH0 = ⊥ ∧ torsionH0 = ⊤ ∧
+      Subsingleton (HeckeImagesA integralAction) ∧
+      Nontrivial (TorsionHeckeImage torsionAction) ∧
+      ¬ Nonempty (HeckeImagesA integralAction →ₐ[ℤ_[3]]
+        TorsionHeckeImage torsionAction) := by
   sorry
 end HeckeImages
 
@@ -1231,6 +1240,12 @@ Source: CN25v3 §2.2.2, equation (2.2.1), p.26
 CrystallineLocalGlobalCompatibilityCM:CL.1/ordinary-monoid-localization
 OMITTED signature: CrystallineCM.OrdinaryMonoidLocalization
 For smooth Δ⁺-modules over R_m, ord is the filtered colimit under products of the commuting central operators ũ_n, regarded as a smooth Δ-module. It is exact and preserves the injectives needed to derive compact invariants. Do not replace it by a finite-projector formula for arbitrary smooth infinite modules.
+Underlying module supplied by SmoothRepresentationsOfLocalGroups:SR.6.5:
+StableOperator.localization and localizationMap use Mathlib's Module.DirectLimit;
+invertiblePart, localization_identity, localization_nilpotent and localization_mixed
+supply the module comparisons. Reuse them; do not plan a second module localization.
+The omitted arithmetic signature still needs the smooth Δ⁺→Δ representation
+functor, the commuting-operator comparison and the stated injective preservation.
 Direct prerequisites: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category; IntegralHeckeAndGaloisDeterminants:IHG.2/ordinary-localization-comparison
 OMITTED API signature: CrystallineCM.OrdinaryMonoidLocalization_unit — Every smooth π maps naturally to ord π by the filtered-colimit structure map.
 OMITTED API signature: CrystallineCM.OrdinaryMonoidLocalization_universal — Maps from π into a Δ-module extend uniquely through ord π.

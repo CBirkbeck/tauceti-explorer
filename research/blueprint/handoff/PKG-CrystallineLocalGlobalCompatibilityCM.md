@@ -1,45 +1,43 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-b0VSZF`. Date: 2026-10-11.
-Branch: `codex-b0VSZF-crystalline-package`.
-Input commit: `f02507b0034179ec593e0bda3a9eba3c92d0072a`.
-Claim confirmed in [comment 6105666982](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105666982),
-responding to [comment 6105666005](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105666005).
+Agent: Codex (GPT-6). Session: `codex-UNottH`. Date: 2026-10-11.
+Branch: `codex-UNottH-crystalline-package`.
+Input commit: `8a128b3b11179416161ab44fe032ea493422084f`.
+Claim confirmed in [comment 6105848253](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105848253),
+responding to [comment 6105847255](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105847255).
 None of the manager's priority issues was available. The focused package was
 selected before the remaining eligible reviews, packages and planning jobs.
 Only this job was claimed.
 
 ## Progress in this continuation
 
-The package now types the local-level component and oriented unitary-partition
-formulas of CN Proposition 5.6.1, pp.82–83:
+The current upstream smooth-representation roadmap already supplies the
+underlying module localization in **SR.6.5**, which the inherited handoff did
+not identify. The README and omission catalogue now name
+`StableOperator.localization`, `localizationMap`, `invertiblePart` and the
+identity, nilpotent and mixed-operator comparisons. Reuse those declarations
+and Mathlib's `Module.DirectLimit`; do not plan a duplicate module colimit here.
+The remaining arithmetic export is the smooth Δ⁺→Δ representation functor,
+with the actual extended action, commuting-localization comparison, exactness
+and preservation of the injectives used for derived compact invariants.
 
-- `PreparedPGL2Level_level_components`: membership in the subgroup of the
-  product of supplied integral local groups is componentwise membership in the
-  selected maximal, Iwahori or pro-v Iwahori subgroup.
-- `PreparedPGL2Level_unitary_partitions`: the choice policy stᶜ≤st admits
-  exactly the cr/cr, st/cr and st/st branches. Their partitions are (2,2),
-  (2,1,1) and (1,1,1,1); all have total rank four. A sole st place is selected
-  before forming the mixed partition, and lies in its second size-two block.
-- The three named tests `test_auxiliary_level`, `test_mixed_orientation` and
-  `test_three_branches` now have typed component/partition statements. An
-  additional example retains properness of the supplied pro-v Iwahori at an
-  auxiliary component. These are signatures with `sorry`, as required of the
-  prototype; they are not implementation claims.
+`CrystallineCM.TorsionHeckeImage_test_new_torsion` now expresses the actual
+image-algebra obstruction. For C = [ℤ₃ --3--> ℤ₃] in degrees zero and one,
+it forms the degree-zero kernels before and after reduction, installs the
+residue algebra structure using `PadicInt.toZMod`, and takes the ranges of
+their scalar endomorphism actions. Its conclusions say that the integral
+image is a subsingleton, the torsion image is nontrivial, and there is no unital
+ℤ₃-algebra map between them. The old test only computed the two kernels.
+This authored example discriminates the failure of image-algebra base change
+when reduction contributes new cohomology; it is not an example attributed to
+CN. The full file elaborates with the prescribed `sorry` proof bodies.
 
-The private helpers select **supplied** local subgroups; they neither construct
-PGL₂ or unitary parabolics nor assert neatness, residual Hecke interpolation or
-localized perfectness. The product is the compact integral product, not the
-unrestricted product of local-field adelic groups. The omission catalogue
-identifies these partial cores and retains the missing arithmetic interfaces.
-The README explains their domains and matches the typed formulas.
-
-Both README occurrences of NT16 Lemma 2.10 were corrected to **Proposition
-2.10**, the citation actually used in CN's proof of Lemma 4.2.3, p.60.
-The accepted packet retains the stale citation because this issue prohibits
-packet edits. All earlier coefficient, completed-tower, smooth-monoid,
-rescaling, duality and cubic-tetrahedral corrections are preserved.
+The inherited prepared local-level and unitary-partition formulas, coefficient,
+completed-tower, smooth-monoid, rescaling, duality and cubic-tetrahedral
+corrections are preserved. NT16 remains **Proposition 2.10** in the README,
+as cited by CN's proof of Lemma 4.2.3, p.60; the accepted packet's stale
+"Lemma 2.10" locator cannot be edited in this job.
 
 ## Why this remains a checkpoint
 
@@ -52,8 +50,8 @@ Lean signatures. This job permits only the three package files and this handoff;
 it expressly prohibits changing packets. Defining the absent general supplier
 theories here would duplicate their owners and exceed these permitted files.
 
-A new inventory, excluding nested block comments and associating test labels
-with actual examples, gives:
+The inherited inventory, excluding nested block comments and associating test
+labels with actual examples, is unchanged by this continuation:
 
 | Accepted-plan entries | Typed cores/signatures | Omitted |
 |---|---:|---:|
@@ -61,10 +59,11 @@ with actual examples, gives:
 | API items | 44 | 59 |
 | Named tests | 45 | 59 |
 
-The preceding continuation had 17/42/42 typed. Partially typed arithmetic
-objects remain partial, even when a helper formula elaborates. Supplementary
-examples do not count as an omitted named test. The omitted names remain in the
-source-indexed catalogue. The new component APIs do not complete the
+No new target, API or named-test signature was added in this continuation.
+The existing torsion test was strengthened. Partially typed arithmetic objects
+remain partial, even when a helper formula elaborates. Supplementary examples
+do not count as an omitted named test. The omitted names remain in the
+source-indexed catalogue. The inherited component APIs do not complete the
 `PreparedPGL2Level` arithmetic construction or its non-neat perfectness test.
 
 `metadata.toml` remains absent: intake presently uses output existence to decide
@@ -76,11 +75,13 @@ The accepted packet, original reader and original suggested file are unchanged.
 
 The integral owner gap, absence of completed-tower exports and group/monoid
 boundary were rechecked in this continuation. Read the pinned and current Weyl
-module declarations, the pinned smooth-discrete monoid carrier and group
-coefficient-equivalence assumptions, current smooth group signatures, reviewed
-ALS.6 audit, accepted RS-09 ownership decisions, and CN v3 pp.26–27 and 60.
-These suffice to establish the blocking condition; the detailed contracts from
-the preceding handoff are preserved below.
+module declarations, the pinned smooth-discrete monoid carrier, current
+upstream stable-localization signatures, reviewed ALS.6 audit, accepted RS-09
+ownership decisions, and CN v3 §§2.2.1–2.2.2, pp.25–27, and Lemma 4.2.3
+and proof, p.60. These suffice to establish the blocking condition; the
+detailed contracts from the preceding handoff are preserved below. Historical
+group-equivalence and smooth-group locators are distinguished below from the
+new module-localization check.
 
 ### Integral dual-Weyl coefficients
 
@@ -148,8 +149,9 @@ separate inputs; a characteristic-zero Lie-algebra computation does not replace 
 ### Smooth monoids and derived ordinary parts
 
 The inherited phrase “missing smooth category” needs a narrower interpretation.
-At the pinned Tau Ceti commit, read
-`RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean`:
+At the pinned Tau Ceti commit, the preceding continuation read the following
+interfaces in `RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean`.
+This continuation reread the monoid predicate, restriction and category:
 
 | Declaration | Locator and actual scope |
 |---|---|
@@ -165,12 +167,27 @@ not be recreated here. Its group coefficient equivalence must not be invoked
 for a positive monoid without a separate comparison theorem.
 
 The current upstream `SmoothRepresentationsOfLocalGroups` has the actual stages
-`SR.0` and `SR.0d`. Read its Suggested.lean lines 332–394: `SmoothRep`,
+`SR.0` and `SR.0d`. The preceding continuation read its Suggested.lean
+lines 332–394: `SmoothRep`,
 `SmoothRep.instAbelian` and `SmoothRep.instIsGrothendieckAbelian` require a
 topological **group**. `SmoothRep.res_preserves_injective` (lines 3011–3014)
 likewise takes an open subgroup. README `SR.0d.1` and `SR.0d.2` plan the group
 derived category and compact-normal-subgroup composition. They do not establish
 the positive-monoid interfaces merely by providing the group category.
+
+This continuation read the current **SR.6.5 Stable module operators**
+README and its actual Suggested.lean declarations, lines 1712–1730 and
+7270–7309. `StableOperator.localization` and `localizationMap` define the
+module direct limit with transition T^(j−i) and its index-zero map.
+`invertiblePart` supplies an equivalence from range(T^c) under
+`StableOperator T`. `localization_nilpotent`, `localization_identity` and
+`localization_mixed` state the underlying module checks. These are roadmap
+signatures with `sorry`, not implemented Tau Ceti theorems. They have no
+representation action or smoothness data. Upstream's
+`RationalParabolic.jacquet_localization` is a separate complex-coefficient
+Jacquet comparison, not the required torsion positive-monoid functor.
+Do not repeat either construction or infer the missing derived comparison
+from an equivalence of underlying modules.
 
 Read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27. Required exports to resume:
 
@@ -203,7 +220,7 @@ remain resume requirements; no missing supplier is reconstructed here.
 
 The previous signature work and its detailed explanations are retained in the
 package. [#8715](https://github.com/CBirkbeck/tauceti-explorer/pull/8715)
-contains the preceding handoff if its full history is needed.
+contains an earlier handoff if its full history is needed.
 
 | Typed core | Boundary and essential convention |
 |---|---|
@@ -248,20 +265,19 @@ Taylor–Wiles, Selmer and base-change data.
   **exit 0, 0 errors, 103 warnings, all `declaration uses sorry`**.
   Available memory was 99 GB. The complete revised file was checked once;
   no Lean language server or library build was started. No check remains running.
-- Signature inventory: 17/44/45 typed and 80/59/59 omitted. Two API entries
-  and three named examples were added to the typed inventory; no target was
-  falsely marked fully supplied. No empty `Prop := sorry` definition was added.
+- Signature inventory unchanged: 17/44/45 typed and 80/59/59 omitted. The
+  strengthened test occupies the same named-test slot; no omitted target was
+  marked supplied. No empty `Prop := sorry` definition was added.
 - Intake `check-files`: **3 files, 0 problems**. `git diff --check` passes.
-  README is 184,291 bytes, below 200 KB. `deliverables_complete` remains false.
+  README is 186,215 bytes, below 200 KB. `deliverables_complete` remains false.
 - Read WORKERS, both protocols and UPSTREAM_GUIDE; current upstream
   ReductiveGroups and PeripheralActions READMEs; the relevant pinned/current
-  Weyl and smooth-monoid declarations; PA's owner gap; reviewed ALS.6 audit;
-  accepted RS-09. Read-only roadmap commit
+  Weyl declarations and pinned smooth-monoid declarations; PA's owner gap; reviewed ALS.6 audit;
+  accepted RS-09; SR.6.5 and its stable-localization signatures. Read-only roadmap commit
   `070dc2becd74419e76303ede84b465ed4a69461f`, current library
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No restricted source was needed.
-- Read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27, Lemma 4.2.3 and proof,
-  p.60, and the prepared-level and unitary-branch construction in the proof of
-  Proposition 5.6.1, pp.82–83, from
+- Read CN v3 §§2.2.1–2.2.2 and Definition 2.2.3, pp.25–27, Lemma 4.2.3
+  and proof, p.60, and the Hecke-image definitions in §4.2.1, p.61, from
   <https://arxiv.org/pdf/2301.10509v3>, accessed 2026-10-11.
   PDF SHA-256 `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
   Only authored mathematical statements and source locators enter the package.
