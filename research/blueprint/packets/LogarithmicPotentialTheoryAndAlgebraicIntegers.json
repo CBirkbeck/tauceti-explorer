@@ -28,140 +28,154 @@
         "kind": "declaration",
         "module": "TauCeti.Probability.Process.EmpiricalMeasure",
         "provides": "The empirical probability law of a nonempty finite population, including repeated values.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "tauceti:TauCeti.Probability.integral_empiricalMeasureOfFintype",
         "kind": "declaration",
         "module": "TauCeti.Probability.Process.EmpiricalMeasure",
         "provides": "Integration against that law is the finite average for strongly measurable functions.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
         "kind": "declaration",
         "module": "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
         "provides": "Weak convergence is convergence against all bounded continuous real functions.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact",
         "kind": "declaration",
         "module": "Mathlib.MeasureTheory.Measure.Prokhorov",
         "provides": "Finite measures with bounded mass and no mass outside a fixed compact set form a compact set.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:MeasureTheory.lintegral_lintegral_swap",
         "kind": "declaration",
         "module": "Mathlib.MeasureTheory.Measure.Prod",
         "provides": "Tonelli interchange for an AEMeasurable curried ENNReal function on the product, with the native SFinite hypotheses.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.support",
         "kind": "declaration",
         "module": "Mathlib.MeasureTheory.Measure.Support",
         "provides": "Native closed support of a Borel measure; no separate support carrier.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Polynomial.resultant_eq_prod_eval",
         "kind": "declaration",
         "module": "Mathlib.RingTheory.Polynomial.Resultant.Basic",
         "provides": "For a splitting polynomial f and deg g≤n, its bounded-degree resultant is leadingCoeff(f)^n times the product of evaluations at roots.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Polynomial.resultant_map_map",
         "kind": "declaration",
         "module": "Mathlib.RingTheory.Polynomial.Resultant.Basic",
         "provides": "The bounded-size resultant commutes with a coefficient ring homomorphism for every pair of size parameters.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Polynomial.IsEisensteinAt.irreducible",
         "kind": "declaration",
         "module": "Mathlib.RingTheory.Polynomial.Eisenstein.Basic",
         "provides": "A primitive Eisenstein polynomial at a prime ideal, of positive degree, is irreducible.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:ContinuousMap.exists_restrict_eq",
         "kind": "declaration",
         "module": "Mathlib.Topology.TietzeExtension",
         "provides": "A continuous map on a closed subset extends in a normal space when the codomain has the Tietze extension property.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:geometric_hahn_banach_open",
         "kind": "declaration",
         "module": "Mathlib.Analysis.LocallyConvex.Separation",
         "provides": "Disjoint convex sets, one open, admit a separating continuous real linear functional.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "tauceti:TauCeti.chebyshevMeasureT_univ",
         "kind": "declaration",
         "module": "TauCeti.Analysis.SpecialFunctions.Trigonometric.Chebyshev.Measure",
         "provides": "The Chebyshev T measure has total mass ENNReal.ofReal π, so the probability normalization is π⁻¹.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "tauceti:TauCeti.planarNewtonianKernel",
         "kind": "declaration",
         "module": "TauCeti.Analysis.PDE.FundamentalSolution.Planar",
         "provides": "The planar kernel is −(2π)⁻¹ log ‖z‖, using totalized real log at zero.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Frullani.integral_Ioi_eq",
         "kind": "declaration",
         "module": "Mathlib.Analysis.SpecialFunctions.FrullaniIntegral",
         "provides": "For a locally integrable function with finite limits L at 0+ and R at infinity, the integrable Frullani difference with positive scale factors a,b has integral log(b/a)(L−R).",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:ContinuousMap.subalgebra_topologicalClosure_eq_top_of_separatesPoints",
         "kind": "declaration",
         "module": "Mathlib.Topology.ContinuousMap.StoneWeierstrass",
         "provides": "A real subalgebra of continuous functions on a compact space that separates points is uniformly dense.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset",
         "kind": "declaration",
         "module": "Mathlib.Combinatorics.Nullstellensatz",
         "provides": "Over an integral domain, separate degree bounds below finite grid sizes and zero evaluation on the product grid force the polynomial to vanish.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:MvPolynomial.combinatorial_nullstellensatz_exists_eval_nonzero",
         "kind": "declaration",
         "module": "Mathlib.Combinatorics.Nullstellensatz",
         "provides": "A nonzero coefficient at the total-degree exponent supplies a nonzero value on any product grid whose coordinate sizes exceed those exponents.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Polynomial.discr",
         "kind": "declaration",
         "module": "Mathlib.RingTheory.Polynomial.Resultant.Basic",
         "provides": "The native polynomial discriminant uses the derivative Sylvester determinant and its signed degree factor.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:Complex.integral_boundary_rect_eq_zero_of_continuousOn_of_differentiableOn",
         "kind": "declaration",
         "module": "Mathlib.Analysis.Complex.CauchyIntegral",
         "provides": "Cauchy–Goursat on a rectangle: continuity on the closed rectangle and complex differentiability on its interior make the four oriented side integrals sum to zero.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
       },
       {
         "ref": "mathlib:DiffContOnCl.circleIntegral_sub_inv_smul",
         "kind": "declaration",
         "module": "Mathlib.Analysis.Complex.CauchyIntegral",
         "provides": "For a function complex differentiable in a disk and continuous on its closure, the circle integral of (z−w)⁻¹ times the function is 2πi times its value at each interior w.",
-        "checked": "Statement read in the shared source tree at the pinned commit."
+        "checked": "Independently read the full statement at the pinned full commit; the public raw module bytes agree with the pinned elaboration build. Native hypotheses and conventions were checked against its consumers on 2026-10-11."
+      },
+      {
+        "ref": "tauceti:TauCeti.harmonicOnNhd_planarNewtonianKernel_sub",
+        "kind": "declaration",
+        "module": "TauCeti.Analysis.PDE.FundamentalSolution.Planar",
+        "provides": "For each complex pole a, the translated real planar Newtonian kernel is harmonic on the complement of {a}; its totalized pole value is not used there.",
+        "checked": "Full statement independently read at f790474821cf4256814db967cb154e7af3d0c369; public raw bytes match the pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.eqOn_const_of_harmonicOnNhd_of_isMaxOn",
+        "kind": "declaration",
+        "module": "TauCeti.Analysis.PDE.Harnack.StrongPrinciple",
+        "provides": "A real-valued harmonic function on a preconnected planar set containing a neighborhood of an attained global maximum point is constant on that set. Use on an open connected component to exclude an interior strict maximum above its boundary limit.",
+        "checked": "Full statement independently read at f790474821cf4256814db967cb154e7af3d0c369; public raw bytes match the pinned build."
       }
     ]
   },
@@ -220,7 +234,7 @@
       "sha256": "e79397783e4d928e6cafd1a2ea55a7654565479629ecbd95cd125c40d0faf1d2",
       "readSections": [
         "§1, pp.218–222: Theorems 1.1, 1.3 and 1.4",
-        "§2, pp.228–232: Theorem 2.6 and its density proof",
+        "§2, pp.227–232: Theorems 2.1–2.6, band laws and the density proof",
         "§3, pp.235–236: Theorems 3.2–3.3",
         "§4, pp.236–237: proof of Theorem 1.4"
       ],
@@ -272,7 +286,7 @@
       "readDate": "2026-10-11",
       "scope": [
         "§1, pp.218–222: Theorems 1.1, 1.3 and 1.4",
-        "§2, pp.228–232: Theorem 2.6 and its density proof",
+        "§2, pp.227–232: Theorems 2.1–2.6, band laws and the density proof",
         "§3, pp.235–236: Theorems 3.2–3.3",
         "§4, pp.236–237: proof of Theorem 1.4"
       ]
@@ -343,12 +357,12 @@
         },
         {
           "name": "kernel_unit_distance",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "k(0,1)=0."
         },
         {
           "name": "kernel_distance_two",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "k(0,2)=−log 2."
         }
       ],
@@ -443,7 +457,7 @@
         },
         {
           "name": "potential_two_atoms",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "Two unit atoms at 0 and 1 give potential −log 2 at 2."
         }
       ],
@@ -526,7 +540,7 @@
         {
           "name": "logEnergy_not_bot",
           "role": "relation",
-          "statement": "Compact support excludes negative infinite energy."
+          "statement": "Finite mass and compact support exclude negative infinite energy."
         }
       ],
       "tests": [
@@ -542,7 +556,7 @@
         },
         {
           "name": "energy_uniform_unit_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The uniform probability on [0,1], pushed into ℂ, has logarithmic energy 3/2; this detects an incorrect sign or scalar factor."
         }
       ],
@@ -588,7 +602,8 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/potential",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/energy",
         "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
-        "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact"
+        "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact",
+        "mathlib:ContinuousMap.subalgebra_topologicalClosure_eq_top_of_separatesPoints"
       ],
       "sources": [
         {
@@ -675,12 +690,12 @@
         },
         {
           "name": "capacity_disk",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "A closed disk of positive radius r has capacity r."
         },
         {
           "name": "capacity_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "A nondegenerate real interval has capacity (b−a)/4."
         }
       ],
@@ -775,7 +790,7 @@
         },
         {
           "name": "polar_countable",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "Every countable set is polar, even with accumulation points."
         },
         {
@@ -913,7 +928,7 @@
       "tests": [
         {
           "name": "equilibrium_unit_disk",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The equilibrium potential of the unit disk is zero at its centre."
         },
         {
@@ -962,7 +977,7 @@
       "proofSteps": [
         "Variation toward a probability on a nonpolar potential sublevel contradicts minimality. Mutual-energy finiteness is supplied by strict-energy, so the variation has no undefined infinity subtraction.",
         "Finite energy ignores the resulting polar exceptional set. Lower semicontinuity and the equilibrium integral equality then give UμK≤V(K) on the support.",
-        "The nearest-support-point argument of Levenberg Proposition 1.4 gives the boundary upper-limit bound for UμK outside its support. The potential is harmonic off the support and tends to −∞ at infinity. The harmonic maximum principle extends the support bound to all of ℂ. This is the boundary argument used in Theorem 2.6, rather than identifying the continuity principle itself with a maximum principle."
+        "The nearest-support-point argument of Levenberg Proposition 1.4 bounds the upper limit from outside the support by the support supremum. On a ball separated from the compact support, the translated planar kernels and their first two derivatives have uniform bounds; differentiating their finite-measure integral gives a real harmonic potential, using the native harmonic kernel. At infinity the unit mass gives U(z)=−log|z|+o(1). If a component had a value above V(K), the boundary upper-limit bound and the decay at infinity would place an attained maximum in its interior. The native strong harmonic maximum principle makes the potential constant on that component, contradicting its boundary limit (or its decay on the unbounded component). Hence the bound holds everywhere."
       ],
       "acceptance": [
         "For compact K⊂ℂ with positive capacity, UμK(z)≤V(K)=−log cap K on all of ℂ and UμK(z)=V(K) quasi-everywhere on K."
@@ -972,7 +987,9 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/polar",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/polar-null",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/potential",
-        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/strict-energy"
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/strict-energy",
+        "tauceti:TauCeti.harmonicOnNhd_planarNewtonianKernel_sub",
+        "tauceti:TauCeti.eqOn_const_of_harmonicOnNhd_of_isMaxOn"
       ],
       "sources": [
         {
@@ -1161,7 +1178,7 @@
       "tests": [
         {
           "name": "zero_field_weight",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The zero field has unit weight."
         },
         {
@@ -1214,7 +1231,9 @@
         "μ is a supported probability, K compact, Q admissible. The factor multiplying ∫Q is exactly 2."
       ],
       "proofSteps": [
-        "Add the two one-variable field contributions to the kernel before integrating. Since the mass is one each contributes ∫Q."
+        "Add the two one-variable field contributions to the kernel before integrating. Since the mass is one each contributes ∫Q.",
+        "To justify minimum_exists, write the finite-Q subset as the countable union of the compact sublevels {Q≤m}. Since this subset is nonpolar, polar_iUnion gives a nonpolar sublevel. Its positive capacity supplies a finite-energy supported probability; Q is bounded on that support, giving a finite weighted competitor.",
+        "On compact K the field has a finite lower bound. Portmanteau, or increasing bounded continuous approximations of this lower-semicontinuous field, gives lower semicontinuity of its integral. Combine this with energy descent. The compact space of supported probabilities and a minimizing sequence give an attained finite weighted minimum. Uniqueness is proved in weighted-equilibrium, not assumed here."
       ],
       "acceptance": [
         "For an admissible Q on compact K and supported probability μ, I_Q(μ)=I(μ)+2∫Qdμ. The extended values are valid because both negative parts are finite. The coefficient 2 fixes the weighted-capacity and Robin conventions.",
@@ -1222,7 +1241,10 @@
       ],
       "prerequisites": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/energy",
-        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/external-field"
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/external-field",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/descent",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/polar-null",
+        "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact"
       ],
       "sources": [
         {
@@ -1266,7 +1288,7 @@
         },
         {
           "name": "weighted_energy_factor_two",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "At field 1 the unit disk equilibrium has weighted energy 2."
         }
       ],
@@ -1364,7 +1386,7 @@
       "tests": [
         {
           "name": "weighted_robin_unit_disk",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "For the unit disk and field 1, F=1 rather than V=2."
         },
         {
@@ -1374,7 +1396,7 @@
         },
         {
           "name": "weighted_robin_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "On [−1,1] in zero field, F=log 2."
         }
       ],
@@ -1512,12 +1534,12 @@
         },
         {
           "name": "norm_unit_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "X on [−1,1] at unit weight has norm 1."
         },
         {
           "name": "norm_constant_weight",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "Weight 2 and exponent 3 give norm 8 to the constant polynomial 1 on [0,1]."
         }
       ],
@@ -1686,12 +1708,12 @@
       "tests": [
         {
           "name": "one_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "A single positive-length interval is allowed."
         },
         {
           "name": "intervals_with_gap",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "Two separated nondegenerate intervals are allowed."
         },
         {
@@ -1847,7 +1869,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Lemma 2.7, p.7; normalized root measures in §1, p.4",
+          "locator": "Lemma 2.7, p.7; Definition 1.4, p.3",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -1876,18 +1898,23 @@
       "tests": [
         {
           "name": "root_law_linear",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "X−2 has law δ2."
         },
         {
           "name": "root_law_repeated",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "(X−1)² has the same law as X−1, retaining multiplicity."
         },
         {
           "name": "root_law_no_real_roots",
           "kind": "degenerate",
           "statement": "X²+1 uses the explicit zero-real-root default δ0, and is excluded by the splitting hypotheses."
+        },
+        {
+          "name": "root_law_mixed_multiplicity",
+          "kind": "computation",
+          "statement": "(X−1)²(X−2) has law (2/3)δ1+(1/3)δ2, distinguishing multiset normalization from a uniform law on the root set."
         }
       ],
       "uses": [
@@ -2100,7 +2127,7 @@
       "tests": [
         {
           "name": "log_moment_unit",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The constant polynomial 1 has moment zero."
         },
         {
@@ -2110,7 +2137,7 @@
         },
         {
           "name": "log_moment_integer_value",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "At δ2 the polynomial X has moment log 2."
         }
       ],
@@ -2284,12 +2311,12 @@
         },
         {
           "name": "quantile_uniform_one",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The degree-one uniform-[0,1] quantile polynomial is X−1, fixing right-endpoint indexing."
         },
         {
           "name": "quantile_uniform_two",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The degree-two uniform-[0,1] quantile polynomial has roots 1/2 and 1."
         }
       ],
@@ -2510,15 +2537,16 @@
       ],
       "title": "Weighted integer approximation",
       "kind": "theorem",
-      "statement": "For a finite interval set K and supported Hölder probability μ, there is C>0 such that for n≥2, squarefree Q∈ℤ[X] of degree n and real P of degree≤n−1, an integer R of degree≤n−1 satisfies ||P−R||n≤n^C||Q||n. Q need not be monic or have its roots in K.",
+      "statement": "For a finite interval set K and supported Hölder probability μ, there is C>0 such that for n≥2, Q∈ℤ[X] squarefree after coefficient extension to ℚ of degree n and real P of degree≤n−1, an integer R of degree≤n−1 satisfies ||P−R||n≤n^C||Q||n. Q need not be monic or have its roots in K.",
       "hypotheses": [
-        "K finite interval set; μ supported Hölder probability; n≥2; squarefree integer Q of degree n; real deg P<n."
+        "K finite interval set; μ supported Hölder probability; n≥2; integer Q squarefree over ℚ of degree n; real deg P<n."
       ],
       "proofSteps": [
-        "Import the polynomial cofactor flatness theorem with its positive integral leading coefficient and complex roots. Bound every cofactor by root removal. Sum the cofactor coefficient budget Cn log(2n), and convert the resulting real integer remainder to R."
+        "Import the polynomial cofactor flatness theorem with its positive integral leading coefficient and complex roots. Bound every cofactor by root removal. Sum the cofactor coefficient budget Cn log(2n), and convert the resulting real integer remainder to R.",
+        "Squarefreeness concerns the image in ℚ[X], equivalently absence of repeated complex roots; nonzero integer content is allowed. It is not the stronger native Squarefree predicate on ℤ[X]."
       ],
       "acceptance": [
-        "For a finite interval set K and supported Hölder probability μ, there is C>0 such that for n≥2, squarefree Q∈ℤ[X] of degree n and real P of degree≤n−1, an integer R of degree≤n−1 satisfies ||P−R||n≤n^C||Q||n. Q need not be monic or have its roots in K."
+        "For a finite interval set K and supported Hölder probability μ, there is C>0 such that for n≥2, Q∈ℤ[X] squarefree after coefficient extension to ℚ of degree n and real P of degree≤n−1, an integer R of degree≤n−1 satisfies ||P−R||n≤n^C||Q||n. Q need not be monic or have its roots in K."
       ],
       "prerequisites": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
@@ -2601,15 +2629,16 @@
       ],
       "title": "Small squarefree integer polynomials",
       "kind": "theorem",
-      "statement": "For compact real K and an admissible Hölder probability μ supported there, there is C>0 such that for every n≥2 there is a squarefree integer polynomial Rn of degree n with ||Rn||n≤n^(C√n). This statement asserts neither monicity, irreducibility nor root support.",
+      "statement": "For compact real K and an admissible Hölder probability μ supported there, there is C>0 such that for every n≥2 there is an integer polynomial Rn squarefree after coefficient extension to ℚ of degree n with ||Rn||n≤n^(C√n). This statement asserts neither monicity, irreducibility nor root support.",
       "hypotheses": [
         "μ supported admissible Hölder probability on compact real K; n≥2."
       ],
       "proofSteps": [
-        "Place K inside a finite interval union to use the norm-product machinery. Order successive-minima polynomials and remove their gcd. The gcd-refined estimate and nonpositive energy bound the first full-degree group. The bounded squarefree-combination lemma then produces degree n with the O(√n log n) norm exponent."
+        "Place K inside a finite interval union to use the norm-product machinery. Order successive-minima polynomials and remove their gcd. The gcd-refined estimate and nonpositive energy bound the first full-degree group. The bounded squarefree-combination lemma then produces degree n with the O(√n log n) norm exponent.",
+        "Squarefreeness concerns the image in ℚ[X], equivalently absence of repeated complex roots; nonzero integer content is allowed. It is not the stronger native Squarefree predicate on ℤ[X]."
       ],
       "acceptance": [
-        "For compact real K and an admissible Hölder probability μ supported there, there is C>0 such that for every n≥2 there is a squarefree integer polynomial Rn of degree n with ||Rn||n≤n^(C√n). This statement asserts neither monicity, irreducibility nor root support."
+        "For compact real K and an admissible Hölder probability μ supported there, there is C>0 such that for every n≥2 there is an integer polynomial Rn squarefree after coefficient extension to ℚ of degree n with ||Rn||n≤n^(C√n). This statement asserts neither monicity, irreducibility nor root support."
       ],
       "prerequisites": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/gcd-norm-bound",
@@ -2621,7 +2650,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Theorem 3.1, p.12; proof pp.19–21",
+          "locator": "Theorem 3.1, p.12; proof pp.19–20",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -2654,7 +2683,7 @@
       ],
       "proofSteps": [
         "Coefficient bounds from interpolation give existence. The alternation criterion gives uniqueness, simple real roots in the convex hull, and at most one root in each gap.",
-        "For the finite-gap bound use CSZ §4: the inverse image of the Chebyshev level interval is a union of real intervals with explicitly related capacity. Compare its equilibrium law with that of K; on each gap the Green function is bounded by its finite maximum. There are finitely many gaps, so summing those bounds gives a fixed multiplicative norm constant. This uses the finite-interval density and the capacity/Frostman layer, and does not require a new general Parreau–Widom theory."
+        "For finite interval K put tn=||Tn||K and Kn={x∈ℝ:|Tn(x)|≤tn}. Alternation places its bands inside the convex hull of K. The explicit pullback of interval equilibrium has density |Tn′|/(nπsqrt(tn²−Tn²)) on the bands. The finite-interval density construction, or the same Cauchy-transform argument, identifies it as μKn and gives mass 1/n per band and cap Kn=(tn/2)^(1/n). Each gap of K meets at most one band, so μKn(gap)≤1/n (CSZ Theorems 2.2–2.4). Let GK=V(K)−UμK. Since UμKn is constant on K⊂Kn, reciprocal integration gives ∫GK dμKn=log(cap Kn/cap K). The finite-interval continuous potential makes GK zero on K and bounded on each gap. Thus n∫GK dμKn≤Σgaps max GK, and tn≤2exp(Σgaps max GK)cap(K)^n. The lower bound follows from Frostman reciprocity against the polynomial root law. No general harmonic-measure representation or Parreau–Widom theory is required."
       ],
       "acceptance": [
         "For nonpolar compact real K and r≥1, Tr is the unique monic real degree-r polynomial minimizing the uniform norm on K. It has r+1 alternating extremal points. Its roots are simple and real in the convex hull of K; each gap of K contains at most one root. For a finite interval set there is C>0 with cap(K)^r≤||Tr||K≤C cap(K)^r.",
@@ -2664,7 +2693,9 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/intervals",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/weighted-norm",
-        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/finite-interval-equilibrium"
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/finite-interval-equilibrium",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/frostman",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/energy"
       ],
       "sources": [
         {
@@ -2674,7 +2705,7 @@
         },
         {
           "sourceId": "csz",
-          "locator": "Theorem 1.1, pp.218–219; Theorem 1.4, p.222 and §4 proof, pp.236–237",
+          "locator": "Theorem 1.1, pp.218–219; Theorem 1.4, p.222; Theorems 2.2–2.4, pp.227–229; §4 proof, pp.236–237",
           "match": "Statement/proof checked at this locator, with the corrected conventions and proof route in this node."
         }
       ],
@@ -2703,17 +2734,32 @@
           "name": "monicChebyshev_zero",
           "role": "simp",
           "statement": "The degree-zero monic polynomial is 1."
+        },
+        {
+          "name": "monicChebyshev_unique",
+          "role": "characterisation",
+          "statement": "For compact real K of positive capacity and r>0, any monic degree-r polynomial with the minimal norm equals Tr."
+        },
+        {
+          "name": "monicChebyshev_alternation",
+          "role": "characterisation",
+          "statement": "For compact real K of positive capacity and r>0, there are r+1 strictly increasing points in K on which Tr takes alternating values ±||Tr||K."
+        },
+        {
+          "name": "monicChebyshev_gap_root",
+          "role": "structure",
+          "statement": "For compact real K of positive capacity and r>0, each open gap (a,b) with endpoints in K and no K-points inside contains at most one Tr-root."
         }
       ],
       "tests": [
         {
           "name": "chebyshev_degree_one",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "On [−1,1] the degree-one minimizer is X."
         },
         {
           "name": "chebyshev_degree_two",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "On [−1,1] the monic degree-two minimizer is X²−1/2."
         },
         {
@@ -2769,7 +2815,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Definition 4.3, p.22",
+          "locator": "Definition 4.3, p.23",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -2803,7 +2849,7 @@
         },
         {
           "name": "pruned_middle_root",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "Only the middle root is retained from (X+1)X(X−1) on [−1,1]."
         },
         {
@@ -3253,7 +3299,7 @@
         },
         {
           "name": "inverse_interval_mean_one_four",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "ν[1,4] has mean 2."
         },
         {
@@ -3407,7 +3453,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Notation 5.5 and Proposition 5.6, pp.34–35",
+          "locator": "Definition 5.5, pp.34–35; Remark 5.6, p.35",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -3436,7 +3482,7 @@
       "tests": [
         {
           "name": "sweetening_no_loss",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "When ν has mass one and B=0, sweetening leaves ν unchanged."
         },
         {
@@ -3498,7 +3544,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Corollary 5.7, pp.35–36",
+          "locator": "Proposition 5.7, pp.35–36",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -3600,7 +3646,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Theorem 1.5, p.4; §4.1 proof, p.22",
+          "locator": "Theorem 1.5, p.4; §4.1 proof, pp.22–23",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -3680,7 +3726,7 @@
         },
         {
           "name": "constant_empty_certificate",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "F=3 admits the empty certificate with value 3 on every Σ."
         },
         {
@@ -3840,7 +3886,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Proposition 5.15, pp.41–42",
+          "locator": "Proposition 5.15, p.42",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -3872,7 +3918,7 @@
         "a,b,γ are the exact rational parameters displayed; 0<a<b and 0<γ<1."
       ],
       "proofSteps": [
-        "For x∈[a,b], Uμ(x)=−γlog x+C where C=−log((b−a)/4)+γlog((a+2sqrt(ab)+b)/4)<0. Domination extends Uμ≤−γlog|z| globally. The explicit formula for Lμ(X) is positive. Use rational interval enclosures for sqrt and log to certify both signs and the mean; the degree budget is γ≤1. Import the definition of λSSS from CA.6 and identify its cofinite value through auxiliary completeness."
+        "For x∈[a,b], Uμ(x)=−γlog x+C where C=−log((b−a)/4)+γlog((a+2sqrt(ab)+b)/4)<0. Domination extends Uμ≤−γlog|z| globally. The explicit formula for Lμ(X) is positive. Use rational interval enclosures for sqrt and log to certify both signs and the mean; the degree budget is γ≤1. The comparison with λSSS is a separate trace-bound theorem; this construction only proves the witness properties."
       ],
       "acceptance": [
         "Take a=87353/1000000, b=4411076/1000000 and γ=215485/1000000 exactly, and μ=γν[a,b]+(1−γ)μ[a,b], with μ[a,b] the interval equilibrium probability. Its mean is γsqrt(ab)+(1−γ)(a+b)/2. The exact potential and log-moment bounds make it admissible, and its mean lies strictly between 1.898303 and 1.898304, hence below 1.89831. The decimal parameters are exact rationals; numerical floating-point evaluation alone is insufficient.",
@@ -3885,9 +3931,9 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/holder-potential",
-        "ClassicalArithmeticCompletion:CA.6",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/interval-equilibrium-adapter",
-        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/finite-interval-equilibrium"
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/finite-interval-equilibrium",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/domination"
       ],
       "sources": [
         {
@@ -3921,12 +3967,12 @@
       "tests": [
         {
           "name": "serre_mean_interval",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The mean is certified in the strict interval (1.898303,1.898304)."
         },
         {
           "name": "serre_positive_x_moment",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The X logarithmic moment is strictly positive."
         },
         {
@@ -3982,7 +4028,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Theorem 1.1, p.1; Example 5.16, pp.42–43",
+          "locator": "Theorem 1.1, p.2; Example 5.16, pp.42–43",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -4069,14 +4115,15 @@
       ],
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate",
-        "DeligneWeightsAndPurity:DWP.1",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/polynomial-root-law",
-        "mathlib:Polynomial.resultant_eq_prod_eval"
+        "mathlib:Polynomial.resultant_eq_prod_eval",
+        "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties",
+        "DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties"
       ],
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "§5.12 discussion and Corollary 5.12, pp.40–41",
+          "locator": "§5.12 discussion and Proposition 5.12, pp.40–41",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -4117,12 +4164,13 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10/auxiliary-completeness",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10/optimization",
         "AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate",
-        "DeligneWeightsAndPurity:DWP.1"
+        "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties",
+        "DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties"
       ],
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Corollary 5.12, pp.40–41",
+          "locator": "Proposition 5.12, pp.40–41",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -4167,7 +4215,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Corollary 5.13, p.41",
+          "locator": "Proposition 5.13, p.41",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -4207,12 +4255,13 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-asymptotics",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/trace-bound",
         "AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate",
-        "DeligneWeightsAndPurity:DWP.1"
+        "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties",
+        "DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties"
       ],
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Corollary 1.3, p.2; deduction from Corollary 5.13, p.41",
+          "locator": "Corollary 1.3, p.3; deduction from Proposition 5.13, p.41",
           "match": "Target stated in our own words; the proof route uses the indicated passage, with the version-specific corrections recorded below."
         }
       ],
@@ -4300,7 +4349,7 @@
       "sources": [
         {
           "sourceId": "saff",
-          "locator": "Definition 1.9, pp.172–173",
+          "locator": "§1 (1.1), p.167; Lemma 1.1 and (1.4), pp.168–169",
           "match": "Statement/proof checked at this locator, with the corrected conventions and proof route in this node."
         },
         {
@@ -4339,7 +4388,7 @@
         },
         {
           "name": "fekete_two_point_distance",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The two-point diameter of {0,2} is 2."
         },
         {
@@ -4377,7 +4426,9 @@
         "K arbitrary complex compact, including empty and polar sets."
       ],
       "proofSteps": [
-        "Integrate the minimal pair energy of a Fekete tuple against any supported finite-energy probability. It gives I(μ)≥−log δn, hence cap K≤lim δn. If the limit is positive, the truncation argument below constructs a finite-energy probability even before equilibrium is invoked; if the limit is zero, the first inequality forces cap K=0."
+        "Integrate the minimal pair energy of a Fekete tuple against any supported finite-energy probability. It gives I(μ)≥−log δn, hence cap K≤δ=lim δn. This direction is vacuous if no finite-energy probability exists. The empty set has both quantities zero; if δ=0 the inequality already forces cap K=0.",
+        "If δ>0, choose maximizing n-point tuples and their native empirical laws νn. Compactness supplies a weakly convergent subsequence with supported probability limit ν. For each finite M, the continuous kernel kM=min(M,k) satisfies ∫∫kM dνn dνn≤(1−1/n)(−log δn)+M/n: only the n diagonal terms contribute M/n, while off-diagonal truncation can only decrease pair energy. Product weak convergence passes this bound to ν. Increasing M and monotone convergence give I(ν)≤−log δ<∞, so V(K)≤−log δ and cap K≥δ. This constructs the finite-energy measure before invoking positive-capacity equilibrium.",
+        "When cap K>0, every Fekete subsequential limit attains V(K). Equilibrium uniqueness identifies all cluster points and therefore yields weak convergence. No uniqueness or logarithm of zero is used for polar K."
       ],
       "acceptance": [
         "For every compact K⊂ℂ, cap K=transfiniteDiameter K, including empty and polar compact sets. Fekete weak convergence is an implementation consequence, proved by the same truncation argument, rather than an additional target."
@@ -4387,12 +4438,13 @@
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/descent",
         "tauceti:TauCeti.Probability.empiricalMeasureOfFintype",
-        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto"
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact"
       ],
       "sources": [
         {
           "sourceId": "saff",
-          "locator": "Theorem 1.18, pp.176–177",
+          "locator": "Theorem 1.9, pp.172–173; Theorem 1.18, pp.176–177",
           "match": "Statement/proof checked at this locator, with the corrected conventions and proof route in this node."
         },
         {
@@ -4477,7 +4529,7 @@
         },
         {
           "name": "interval_equilibrium_symmetric_mean",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The mean on [−2,2] is 0."
         },
         {
@@ -4537,7 +4589,7 @@
       "sources": [
         {
           "sourceId": "smith",
-          "locator": "Remark after Proposition 5.6, p.35",
+          "locator": "Remark 5.6, p.35",
           "match": "Statement/proof checked at this locator, with the corrected conventions and proof route in this node."
         },
         {
@@ -4666,7 +4718,7 @@
         },
         {
           "name": "components_integer_points",
-          "kind": "evaluation",
+          "kind": "computation",
           "statement": "The nonnegative integer points give infinitely many countable components."
         },
         {
@@ -4736,7 +4788,7 @@
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/R1",
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
-      "need": "Extend GN.1 by the integer coefficient-lattice evaluation-polytope interface of Smith Proposition 3.4 (pp.14–15): for distinct real α0,…,αm and vi>0, K={deg P≤m:vi|P(αi)|≤1}; Vol(K)=2^(m+1)/(∏vi∏i<j|αi−αj|), and its nonnegative successive minima have product between D/(m+1)! and D, where D=∏vi∏i<j|αi−αj|. Use the already planned Minkowski lower/upper nodes; supply the coefficient-space, Vandermonde and volume bridge instead of repeating Minkowski here.",
+      "need": "Extend GN.1 by the integer coefficient-lattice evaluation-polytope interface of Smith Proposition 3.4 (pp.14–15): for distinct real α0,…,αm and vi>0, K={deg P≤m:vi|P(αi)|≤1}; Vol(K)=2^(m+1)/(∏vi∏i<j|αi−αj|), and its nonnegative successive minima have product between D/(m+1)! and D, where D=∏vi∏i<j|αi−αj|. Use the already planned Minkowski lower/upper nodes; supply the coefficient-space, Vandermonde and volume bridge instead of repeating Minkowski here. The exact existing inputs are GN.1/minkowski-second-lower and GN.1/minkowski-second-upper; their common hypotheses are a full discrete real lattice and a symmetric convex body with zero in its interior.",
       "consumers": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/norm-product-lower",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/norm-product-upper",
@@ -4747,7 +4799,7 @@
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/R2",
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
-      "need": "Supply the cofactor flatness conclusion of Smith Theorem 3.2 (pp.12–13): for squarefree integer Q of positive degree n and positive integral leading coefficient, with distinct complex roots αi, every real P of degree<n differs from an integer polynomial of degree<n by Σβi Q/(X−αi), with Σ|βi|≤C n log(2n) for one absolute C. Include real/conjugate pairing and the algebraic-integrality argument; handle negative leading coefficient by negation. This is a GN lattice covering extension, not a logarithmic-potential theorem.",
+      "need": "Supply the cofactor flatness conclusion of Smith Theorem 3.2 (pp.12–13): for integer Q squarefree over ℚ of positive degree n and positive integral leading coefficient, with distinct complex roots αi, every real P of degree<n differs from an integer polynomial of degree<n by Σβi Q/(X−αi), with Σ|βi|≤C n log(2n) for one absolute C. Include real/conjugate pairing and the algebraic-integrality argument; handle negative leading coefficient by negation. This is a GN lattice covering extension, not a logarithmic-potential theorem.",
       "consumers": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/integer-approximation",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/gcd-norm-bound",
@@ -4758,7 +4810,7 @@
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/R3",
       "supplier": "ClassicalArithmeticCompletion:CA.3",
-      "need": "Add Smith Lemma 2.10 (p.9): for nonzero integer Q1,…,Qk of degrees≤n, at least one of degree n, and positive-leading primitive gcd G over ℚ, there are integers 0≤bi≤2(n−deg G), i=2,…,k, for which (Q1+ΣbiQi)/G is squarefree of degree n−deg G. Supply the Gauss/divisibility normalization bridge to the native finite polynomial gcd, including the degree-zero case. Native multivariate grid nonvanishing and discriminants are inputs; the bounded squarefree combination is the missing classical-arithmetic output.",
+      "need": "Add Smith Lemma 2.10 (p.9): for nonzero integer Q1,…,Qk of degrees≤n, at least one of degree n, and positive-leading primitive gcd G over ℚ, there are integers 0≤bi≤2(n−deg G), i=2,…,k, for which (Q1+ΣbiQi)/G is squarefree in ℚ[X] of degree n−deg G. Supply the Gauss/divisibility normalization bridge to the native finite polynomial gcd, including the degree-zero case. Native multivariate grid nonvanishing and discriminants are inputs; the bounded squarefree combination is the missing classical-arithmetic output. Nonzero integer content need not be squarefree; for example 4(X+1) has the allowed primitive gcd X+1 and rational squarefree constant quotient 4.",
       "consumers": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/gcd-norm-bound",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/small-squarefree"
@@ -4770,7 +4822,6 @@
       "supplier": "ClassicalArithmeticCompletion:CA.6",
       "need": "Supply the Schur–Siegel–Smyth trace constant with the cofinite supremum convention, and prove that it equals cofiniteMean([0,∞),id). Include the conjugacy-class/minimal-polynomial indexing bridge. LP.10 then supplies the optimal nonnegative trace measure; its existence is not planned a second time in CA.6. Import this classical constant only in LP.11–12; LP.0–2 exports complex potential foundations to CA.6 and has no reverse dependency on CA.6.",
       "consumers": [
-        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/serre-witness",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/trace-bound",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-asymptotics"
       ],
@@ -4790,7 +4841,7 @@
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/R6",
       "supplier": "DeligneWeightsAndPurity:DWP.1",
-      "need": "Supply the finite-field abelian Frobenius specialization of Weil weights: every complex conjugate of a Frobenius eigenvalue has modulus sqrt(q), and the finite rational-point count is det(1−Frob), equal to the product of (1−πi), with characteristic-polynomial degree twice geometric dimension. Reconcile it with the native simple-class/multiplicity interface of F3/honda-tate. The existing Weil-weight layer is imported; no new theory of purity or Honda–Tate is planned here.",
+      "need": "Supply the finite-field abelian Frobenius specialization of Weil weights: every complex conjugate of a Frobenius eigenvalue has modulus sqrt(q), and the finite rational-point count is det(1−Frob), equal to the product of (1−πi), with characteristic-polynomial degree twice geometric dimension. Reconcile it with the native simple-class/multiplicity interface of F3/honda-tate. The existing Weil-weight layer is imported; no new theory of purity or Honda–Tate is planned here. Reuse exactly DWP.1/weil-estimate-for-abelian-varieties and DWP.1/point-counts-of-abelian-varieties. Only their native compatibility with the simple-class and positive-natural-dimension interface is requested; keep arithmetic Frobenius and its degree-2g characteristic polynomial throughout.",
       "consumers": [
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/real-weil-bridge",
         "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-optimization",
@@ -5066,7 +5117,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Thresholds below a valid threshold remain valid, so they have no least real element.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E2",
@@ -5083,7 +5139,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. A real monic polynomial changes sign between simple real roots; its signed real logarithm cannot give this identity.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E3",
@@ -5100,7 +5161,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Central symmetry makes λK=(−λ)K, leaving the admissible negative dilations unbounded below.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E4",
@@ -5117,7 +5183,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Tonelli integrates the constant against μ; the subprobability uses retain the stated weaker bound.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E5",
@@ -5134,7 +5205,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. A zero coefficient times the singular logarithm does not enforce −∞; excluded Dirac vectors also prevent extending the separation inequality automatically at isolated roots. The explicit perturbation resolves both defects.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E6",
@@ -5151,7 +5227,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The compact set {0}∪⋃n≥1[1/(2n+1),1/(2n)]∪[1,6] has a nonisolated singleton component {0} and capacity>1. Countability and polarity, rather than isolation, prove the required null mass.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E7",
@@ -5168,7 +5249,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Every compact probability already has I(μ)>−∞, including an atom with infinite positive energy. Proposition 5.7 supplies the correct stronger condition.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E8",
@@ -5185,7 +5271,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. For K=[−3,−1]∪[1,3], symmetry makes odd-degree Chebyshev polynomials vanish at 0 in the gap. The corrected convex-hull estimate proves the same lower bound.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E9",
@@ -5202,7 +5293,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. D+1 level points bound D intervals, which are required to count Dr roots.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E10",
@@ -5219,7 +5315,12 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The proof uses the maximum over all n+1 interpolation basis elements.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E11",
@@ -5236,13 +5337,18 @@
         "2026-10-11: https://annals.math.princeton.edu/2024/200-1/p02, publication metadata and linked notices.",
         "2026-10-11: https://www.asmith-math.org/papers.html, author publication listing; title/correction search.",
         "The atlas PAPER-SMITH-24 source ledger was read as a lead; each relevant v2 passage was rechecked independently."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The final shift satisfies every avoidance inequality, so it cannot also be declared forbidden. The interval-length proof works for complex as well as real roots and avoids division by zero.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     },
     {
       "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E12",
       "kind": "misprint",
       "sourceId": "saff",
-      "locator": "§6 after the weighted minimum definition, p.197; arXiv:1010.3760 PDF, hash as recorded above.",
+      "locator": "§6 after the weighted minimum definition, p.196; arXiv:1010.3760 PDF, hash as recorded above.",
       "printed": "Own-word description of the source claim: The unweighted energy of the weighted minimizer is identified with the weighted minimum.",
       "correction": "Identify I_Q(μK,Q) with V_Q; retain F_Q=V_Q−∫Q=I(μK,Q)+∫Q.",
       "reason": "For the unit disk and constant Q=1, the minimizer has I=0 but V_Q=2 and F_Q=1.",
@@ -5251,7 +5357,32 @@
       "searched": [
         "2026-10-11: https://my.vanderbilt.edu/edsaff/research-articles/, survey listing and correction search.",
         "2026-10-11: https://arxiv.org/abs/1010.3760 and the public §6 PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. For the unit disk and constant Q=1, the minimizer has I=0 but V_Q=2 and F_Q=1.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
+    },
+    {
+      "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E13",
+      "kind": "misprint",
+      "sourceId": "levenberg",
+      "locator": "Corollary 2.2 proof, p.8; 2012 public journal PDF, hash as recorded above.",
+      "printed": "Own-word description: the proof labels energy upper semicontinuous when passing from smoothed probabilities to their weak limits.",
+      "correction": "Use lower semicontinuity: I(μ)≤liminf I(μj). Together with the strict-energy midpoint inequality this proves convexity and uniqueness.",
+      "reason": "Let μ be the uniform probability on [0,1] in ℂ and μn=(1−1/n)μ+(1/n)δ0. Then μn converges weakly to μ, I(μn)=+∞, and I(μ)=3/2. Upper semicontinuity fails; lower semicontinuity has the required direction.",
+      "affects": "nothing",
+      "known": "No public correction was located in the journal index and targeted correction search on 2026-10-11; no claim is made about other editions.",
+      "searched": [
+        "2026-10-11: https://www.maths.tcd.ie/EMIS/journals/DRNA/pdf/levenberg-2012-wpt.pdf, Corollary 2.2 proof.",
+        "2026-10-11: https://www.maths.tcd.ie/EMIS/journals/DRNA/filter7e3c.html?o=asc&page=8&s=title and a targeted author/title/errata search."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed direction is reversed. The weakly converging atomic-mixture example above disproves upper semicontinuity; LP.0/descent and LP.1/equilibrium already use lower semicontinuity and the valid strict-energy proof.",
+        "by": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers"
+      }
     }
   ],
   "routing": [
@@ -5609,7 +5740,360 @@
     },
     {
       "roadmap": "TauCetiRoadmap",
-      "note": "Read-only current-main roadmap commit 070dc2becd74419e76303ede84b465ed4a69461f and current TauCeti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 were searched separately from the pinned baseline. Existing empirical, PDE-kernel, conformal and semigroup material is reused; no current upstream potential-theory or native simple-class output sufficient for these targets was found."
+      "note": "Independently screened current-main TauCetiRoadmap c251d2e42c66f14c279d1e5c2708c5a91d8c8aec and TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, separately from the pinned baseline. All nine post-snapshot roadmap families (including split OperatorTheory) have no matching logarithmic-potential, Fekete, Remez or capacity target. Completed roadmaps whose Suggested files are absent were checked through current library declarations. Native empirical laws, Chebyshev measure, translated planar harmonic kernel and harmonic maximum principle are reused; no sufficient current logarithmic-capacity or simple-class point-count interface was found."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+    "date": "2026-10-11",
+    "notes": "Independent target-level pass over all 69 nodes, all 22 pinned baseline declarations (20 retained and two native harmonic inputs added), all APIs/tests, supplier contracts and sourceIssues. Corrected locators, rational squarefreeness, missing proof/prerequisite steps and prototype API/tests. All nodes are justified as exact contracts or corrected proof routes; G1–G3 and R1–R6 remain honest obligations, not claims of closure or implementation. No nodes were added or implementation status changed. Suggested file elaborates at the pinned commits with only unfinished-proof warnings. The separate reader is outside this issue’s deliverables; packaging synchronization is specified in the handoff.",
+    "checked": [
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/log-kernel",
+        "verdict": "corrected",
+        "note": "Singular diagonal and off-diagonal 2π planar normalization agree with Smith Definition 2.1 and the pinned kernel; the three examples distinguish sign and totalization."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/potential",
+        "verdict": "corrected",
+        "note": "Finite compact mass bounds the negative part; upper truncations justify the extended integral and additive API without subtracting two infinities."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/energy",
+        "verdict": "corrected",
+        "note": "Tonelli and the compact diameter bound justify energy and scaling, including zero mass. Added finite mass explicitly to not_bot prose; Lean already required it."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/descent",
+        "verdict": "corrected",
+        "note": "Saff Lemma 1.6 has the required lower direction. Added the exact native Stone–Weierstrass input for convergence of product laws under bounded kernel truncation."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity",
+        "verdict": "corrected",
+        "note": "Compact infimum, empty-set convention, affine scaling and Borel inner extension agree with Saff Definition 1.8 and its p.174 footnote."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/polar",
+        "verdict": "corrected",
+        "note": "Inner-capacity polarity uses Borel exceptional sets; countable and area-zero examples distinguish the intended capacity from area."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/polar-null",
+        "verdict": "verified",
+        "note": "Finite-energy compact restrictions prove nullity; compact subsets of a countable union cannot carry a finite-energy law. Levenberg Proposition 2.4/Corollary 2.5 checked."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/equilibrium",
+        "verdict": "corrected",
+        "note": "Compact supported probabilities and energy descent give existence; the in-packet strict-energy proof gives uniqueness only at positive capacity. Levenberg E13 does not invalidate this corrected route."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/frostman",
+        "verdict": "corrected",
+        "note": "Both directions match Levenberg Theorem 2.6/Saff Theorem 1.12. Added native translated harmonic kernel and strong maximum principle, with differentiation and the boundary/attained-maximum argument."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/domination",
+        "verdict": "verified",
+        "note": "Saff Theorem 2.8 confirms the finite-energy/mass contract. Explicit nonzero dominated mass excludes the vacuous zero-measure counterexample; G1 honestly retains the missing full general proof."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/capacity-continuity",
+        "verdict": "verified",
+        "note": "Increasing bounded Borel inner capacity and decreasing compact capacity are distinguished. Polar singleton omissions allow the countable-component interval exhaustion; no false Borel intersection rule is used."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/external-field",
+        "verdict": "corrected",
+        "note": "Compact lower-semicontinuous bounded-below fields finite on a nonpolar subset agree with Levenberg §5. Zero weight corresponds to +∞ and regularity is not assumed."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/weighted-energy",
+        "verdict": "corrected",
+        "note": "Factor two and extended-integral signs checked. Added the omitted minimum_exists proof: a nonpolar bounded-field sublevel supplies a finite competitor, then lower semicontinuity and compactness give attainment."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/weighted-equilibrium",
+        "verdict": "corrected",
+        "note": "Strict energy makes the finite weighted minimizer unique. V_Q and F_Q remain distinct; the constant-field examples expose the Saff E12 misprint."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/weighted-variational",
+        "verdict": "verified",
+        "note": "Levenberg Proposition 5.1 and Saff (6.2) support quasi-everywhere inequalities and the finite-energy converse; everywhere claims retain continuous field and regular compact support."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2/weighted-norm",
+        "verdict": "corrected",
+        "note": "The potential weight is exp(U), and exponent n is not divided by degree again. Compactness, continuous positive weight and negative-exponent conditions are present in the API and signatures."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/holder",
+        "verdict": "verified",
+        "note": "Interval-mass regularity, positive exponent and arbitrary finite mass are retained; this is not a density condition. Atom and Lebesgue examples discriminate."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/intervals",
+        "verdict": "corrected",
+        "note": "Nonempty finite separated nondegenerate intervals match Smith Definition 2.4; singleton and Cantor examples rule out weakened component conditions."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/holder-potential",
+        "verdict": "verified",
+        "note": "Layer-cake near/far estimates give finite continuous complex potential and real Hölder regularity for 0<η<1, without asserting the endpoint exponent."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/potential-field",
+        "verdict": "verified",
+        "note": "Q=−U is finite continuous and the weighted Euler condition is zero. Finite energy supplies nonpolarity; no complex zero-law uniqueness is inferred."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/polynomial-root-law",
+        "verdict": "corrected",
+        "note": "Corrected Smith Definition 1.4 to p.3. Native empirical/root-multiset normalization is reused; added the mixed 2:1 multiplicity test, which a root-set average fails."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/weighted-zero-limit",
+        "verdict": "verified",
+        "note": "Smith Lemma 2.7 retains monicity, diverging degrees and all real roots in K. Descent plus domination identifies the limit; G1 is propagated and complex supports are excluded."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/remez",
+        "verdict": "verified",
+        "note": "The sharp measurable-set consequence implies the e^5 bound; complex rotation reduces to the real input. G2 records the unavailable primary proof rather than assigning it to Tietze."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/root-removal",
+        "verdict": "verified",
+        "note": "Smith (2.4) allows complex roots of the real polynomial and no root-in-K hypothesis. Local Hölder control plus the Remez consequence gives polynomial loss; G2 is retained."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/integer-log-moment",
+        "verdict": "corrected",
+        "note": "Singular zeros have −∞ rather than Bochner zero; compact mass bounds the positive part. Constant, zero-measure and algebraic-atom tests check the arithmetic convention."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/admissible-measure",
+        "verdict": "verified",
+        "note": "All nonzero integer polynomials are quantified, including constants; probability/support are separate realization hypotheses. Zero mass is correctly admissible and algebraic atoms are not."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/quantile-polynomial",
+        "verdict": "corrected",
+        "note": "Right-endpoint quantile indexing and least level points match Definition 2.11. Continuity of the atom-free CDF gives roots in K; n=0 is explicitly the empty product."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/quantile-estimates",
+        "verdict": "verified",
+        "note": "Smith Proposition 2.12 includes absolute value, nearest-root distance and the n²/2 energy exponent. Hölder separation and interval discrepancy supply the stated polynomial errors."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/norm-product-lower",
+        "verdict": "verified",
+        "note": "Smith Proposition 3.5 fixes the factorial and energy exponent. The GN evaluation-polytope bridge remains R1, distinct from its existing two Minkowski theorems."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/norm-product-upper",
+        "verdict": "verified",
+        "note": "Smith Proposition 3.6 requires n+1 interpolation cofactors and its quantile determinant bound; E10 is already incorporated. R1 supplies the lattice/volume adapter."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/holder-energy-nonpositive",
+        "verdict": "verified",
+        "note": "Enclosing the support in one interval permits the norm-product bound; integrating admissible logarithmic moments and letting n grow proves I≤0 without finite-interval support."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/integer-approximation",
+        "verdict": "corrected",
+        "note": "Changed Squarefree to the image in ℚ[X], allowing integer content as Smith Corollary 3.3 does. R2 cofactor flatness plus complex root removal gives the contract; monicity/root support are not imposed."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/gcd-norm-bound",
+        "verdict": "verified",
+        "note": "Smith Lemma 3.8 retains the exact degree of the quotient group, ordered norms and the gcd moment condition. GN flatness and CA bounded squarefree combination are requests, not assumed existing outputs."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/small-squarefree",
+        "verdict": "corrected",
+        "note": "Changed the output to rational squarefreeness and corrected the proof pages to 19–20. Smith Theorem 3.1 supplies neither monicity nor irreducibility nor root support; R3 includes the rational gcd convention."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/chebyshev",
+        "verdict": "corrected",
+        "note": "Added uniqueness, alternation and gap-root API signatures. Expanded the finite-gap norm proof through the explicit band law, reciprocal energy and one-band-per-gap bound; added Frostman/energy edges and CSZ Theorems 2.2–2.4 locators."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/pruned",
+        "verdict": "corrected",
+        "note": "Corrected Definition 4.3 to p.23. Retained-root data remove each component’s extreme roots and all gap roots; a degree is promised only by the following theorem."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/pruned-chebyshev",
+        "verdict": "verified",
+        "note": "Smith Lemma 4.4 gives degree r after 3k0 surplus. E8 replaces the false K-location of removed roots by the sufficient convex-hull diameter estimate."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/coefficient-adjustment",
+        "verdict": "verified",
+        "note": "Descending corrections in [0,2/D], κ>1 and D’s explicit choice retain parity and at least half the pruned alternation values. Constants depend on K, not the parent polynomial."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/complementary",
+        "verdict": "verified",
+        "note": "Definition 4.6 includes triangular parity correction and complex-root avoidance; n=0 omits division/avoidance. D depends only on K and r=0 is the explicit prototype default."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/complementary-roots",
+        "verdict": "verified",
+        "note": "E9/E11 are valid: all D level intervals give Dr roots, and [0,N) is covered by at most n forbidden real intervals even for complex roots. Degree counting proves simplicity."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6/complementary-bounds",
+        "verdict": "verified",
+        "note": "Smith Lemma 4.8 uses root-removal for derivatives and isolating brackets for the lower slope bound; constants remain uniform in the parent degree and G2 is retained."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.7/interior-quantile",
+        "verdict": "verified",
+        "note": "Smith Lemma 4.9 permits any fixed integral exponent shift. Inward perturbation keeps all roots and polynomial-sized brackets inside finite intervals."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.7/real-construction",
+        "verdict": "verified",
+        "note": "Proposition 4.1’s m=floor(B√n log n) and all-sufficiently-large degree threshold are retained. The bounded shift Dr−m supplies a finite list of quantile estimates and separated product brackets."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/inverse-interval",
+        "verdict": "corrected",
+        "note": "The density, inversion pushforward, mass one and mean sqrt(ab) agree with Lemma 5.2/Example 5.16. Invalid endpoints give the declared zero law."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/inverse-interval-potential",
+        "verdict": "verified",
+        "note": "Smith Lemma 5.2 gives the complex bound, equality on the positive interval and the finite value at zero. The extra log|z| is singular at zero."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/smoothing",
+        "verdict": "verified",
+        "note": "Native convolution has the mass-M potential loss and common compact weak limit; interval mass regularity follows by Tonelli. E4 is already applied."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/sweetening",
+        "verdict": "corrected",
+        "note": "Corrected to Definition 5.5/Remark 5.6. Finite nonnegative B and κ>1 keep β<1; total mass, support and each individual polynomial moment follow from the stated potential comparison."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/energy-nonpositive",
+        "verdict": "corrected",
+        "note": "Corrected the source label to Proposition 5.7. Smoothing/sweetening and descent remove Hölder hypotheses; finite energy is the upper, not lower, bound in E7."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8/holder-reduction",
+        "verdict": "verified",
+        "note": "The proof uses polar-null singleton components, not isolation, and crosses capacity 1 by interval exhaustion. Inward smoothing retains support and diagonal weak convergence; E6/E7 are valid."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.9/realization",
+        "verdict": "corrected",
+        "note": "Corrected the §4.1 proof span to pp.22–23. Eisenstein rounding requires primitive monic positive degree, preserves all brackets, and yields distinct irreducibles. Resultants and log-moment semicontinuity prove necessity."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10/optimization",
+        "verdict": "corrected",
+        "note": "Cofinite supremum and strictly positive auxiliary weights are correct; E1 is resolved. Empty certificates, polynomial indexing and singular auxiliary roots have explicit tests."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10/compact-reduction",
+        "verdict": "verified",
+        "note": "Smith Lemma 5.10 supplies a fixed compact replacement preserving every individual nonnegative polynomial moment, not just overall admissibility. Closed countable components and superlogarithmic growth are kept."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10/auxiliary-completeness",
+        "verdict": "verified",
+        "note": "Theorem 5.11’s separation proof is repaired by the positive-weight perturbation E5, including isolated roots. Compact reduction, upper semicontinuity and realization identify an attained admissible minimum."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/majorant",
+        "verdict": "corrected",
+        "note": "Corrected the locator to p.42. The moment implication uses primitive distinct irreducibles, positive weights and the degree budget; capacity/component assumptions enter only the separate realization consequence."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/serre-witness",
+        "verdict": "corrected",
+        "note": "Added domination as a direct edge and removed the unused CA.6 constant edge. Exact rational parameters and sqrt/log enclosures certify both potential/moment signs and the strict mean interval."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/trace-bound",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 1.1 to p.2. The exact witness and auxiliary completeness give the cofinite bound; R4 explicitly requests the classical-constant indexing identification."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11/optimal-support",
+        "verdict": "verified",
+        "note": "Proposition 5.17’s improving perturbations require every root inside the interior and the measure to be optimal. These hypotheses are retained; the conclusion is both moment zero and root/support separation."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/real-weil-bridge",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 5.12 and replaced broad DWP edges by its exact two abelian outputs. Shared Honda–Tate multiplicity e cancels with dimension ed; endpoint exceptions and G3/R5/R6 remain explicit."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-optimization",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 5.12 and its DWP imports. Optimizing ±log(q+1−x) yields the two infinite-class thresholds and the two finite-exception thresholds with their correct signs."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-asymptotics",
+        "verdict": "corrected",
+        "note": "Corrected to Proposition 5.13. Integral translations require square q; a bounded optimal trace law and uniform Taylor remainder give both bounds. λSSS is the R4 import."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12/point-count-explicit",
+        "verdict": "corrected",
+        "note": "Corrected Corollary 1.3 to p.3 and Proposition 5.13’s label; DWP imports are exact. The strict trace bound yields −0.89831 and +2.89831 for sufficiently large square prime powers."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0/strict-energy",
+        "verdict": "verified",
+        "note": "Read Levenberg Proposition 2.1 and checked the supplied Gaussian/Frullani derivation. Finite self energies first control mutual energy; weighted polynomial moments and Stone–Weierstrass make equality strict."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/transfinite-diameter",
+        "verdict": "corrected",
+        "note": "Replaced nonexistent Definition 1.9 by Saff (1.1), Lemma 1.1 and (1.4), pp.167–169. Tuple collisions, empty sets and the n+2 prototype index have explicit conventions."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1/diameter-capacity",
+        "verdict": "corrected",
+        "note": "Added the missing reverse inequality via compact Fekete empirical limits and min(M,k); the diagonal contributes M/n. Added compactness directly and cited Saff Theorem 1.9, pp.172–173."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/interval-equilibrium-adapter",
+        "verdict": "corrected",
+        "note": "The native Chebyshev T law has mass π; its π⁻¹ normalization and affine pushforward give the interval probability. The adapter does not replan the measure."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/finite-interval-equilibrium",
+        "verdict": "corrected",
+        "note": "Corrected Smith’s reference to Remark 5.6. The period matrix is invertible by gap zero counting; Cauchy cut deformation fixes density/mass/signs and strict energy identifies equilibrium. This supplies the finite-gap proof omitted by CSZ’s sketch."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/log-moment-upper-semicontinuity",
+        "verdict": "verified",
+        "note": "Negative logarithmic truncations give the upper direction, including atoms at roots. Distinct irreducibles have eventual nonzero integer resultants, yielding necessary admissibility."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3/countable-components",
+        "verdict": "corrected",
+        "note": "The native connected-component set includes accumulating singleton components. Empty and finite-interval tests succeed; the Cantor non-example fails."
+      },
+      {
+        "nodeId": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4/holder-extremizers",
+        "verdict": "verified",
+        "note": "The every-positive-degree sequence is supplied by quantiles, not arbitrary weighted complex minimizers. Quantile estimates and Hölder separation give polynomial upper/lower norms whose nth roots tend to one."
+      }
+    ]
+  }
 }

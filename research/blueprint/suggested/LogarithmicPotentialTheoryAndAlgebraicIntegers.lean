@@ -25,9 +25,10 @@ import TauCeti.Analysis.PDE.FundamentalSolution.Planar
 /-!
 # Suggested declarations: logarithmic potential theory and algebraic integers
 
-This file is a roadmap prototype. Definitions, API lemmas and examples are proposals,
-not implementations. Proofs use `sorry`; their statements fix the mathematical contracts.
-The README gives hypotheses, proof routes, unit tests and supplier boundaries.
+This file is not the roadmap and is not exhaustive. The roadmap document is definitive;
+these declarations suggest Lean forms to align names and signatures. Definitions, API lemmas
+and examples are proposals, not implementations. Proofs use `sorry`. The reviewed packet
+records corrected mathematical contracts, proof routes, tests and supplier boundaries.
 -/
 noncomputable section
 open MeasureTheory Set Filter Polynomial
@@ -568,7 +569,7 @@ theorem potential_field_equilibrium (K : Set ℝ) (hK : IsCompact K)
     weightedRobin (Complex.ofReal '' K) (fun z => -logPotential (realLift (μ : Measure ℝ)) z) = 0 := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3 / polynomial-root-law — smith Lemma 2.7, p.7; normalized root measures in §1, p.4 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3 / polynomial-root-law — smith Lemma 2.7, p.7; Definition 1.4, p.3 -/
 def polynomialRootLaw (p : ℝ[X]) : ProbabilityMeasure ℝ := by sorry
 
 
@@ -594,6 +595,13 @@ example  : (polynomialRootLaw (X-C (2 : ℝ)) : Measure ℝ) = Measure.dirac 2 :
 
 /-- Unit test `root_law_repeated`: (X−1)² has the same law as X−1, retaining multiplicity. -/
 example  : polynomialRootLaw ((X-C (1 : ℝ))^2) = polynomialRootLaw (X-C 1) := by
+  sorry
+
+
+/-- Unit test `root_law_mixed_multiplicity`: repeated roots receive their full mass. -/
+example : (polynomialRootLaw ((X-C (1 : ℝ))^2 * (X-C 2)) : Measure ℝ) =
+    ENNReal.ofReal (2/3 : ℝ) • Measure.dirac 1 +
+    ENNReal.ofReal (1/3 : ℝ) • Measure.dirac 2 := by
   sorry
 
 
@@ -773,7 +781,7 @@ theorem holder_energy_nonpositive (μ : ProbabilityMeasure ℝ)
 /-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 / integer-approximation — smith Corollary 3.3, pp.13–14 -/
 theorem integer_approximation (K : Set ℝ) (hK : FiniteIntervals K)
     (μ : ProbabilityMeasure ℝ) (hs : supported (μ : Measure ℝ) K) (hh : IsHolder (μ : Measure ℝ)) :
-    ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 2 ≤ n → ∀ Q : ℤ[X], Squarefree Q → Q.natDegree = n →
+    ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 2 ≤ n → ∀ Q : ℤ[X], Squarefree (Q.map (algebraMap ℤ ℚ)) → Q.natDegree = n →
       ∀ P : ℝ[X], P.natDegree ≤ n-1 → ∃ R : ℤ[X], R.natDegree ≤ n-1 ∧
         nNorm K (μ : Measure ℝ) n (P-realPoly R) ≤ Real.rpow n C * nNorm K (μ : Measure ℝ) n (realPoly Q) := by sorry
 
@@ -781,16 +789,16 @@ theorem integer_approximation (K : Set ℝ) (hK : FiniteIntervals K)
 /-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 / gcd-norm-bound — smith Lemma 3.8, pp.17–19, (3.8) -/
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 / small-squarefree — smith Theorem 3.1, p.12; proof pp.19–21 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 / small-squarefree — smith Theorem 3.1, p.12; proof pp.19–20 -/
 theorem small_squarefree (K : Set ℝ) (hK : IsCompact K)
     (μ : ProbabilityMeasure ℝ) (hs : supported (μ : Measure ℝ) K)
     (hh : IsHolder (μ : Measure ℝ)) (ha : ArithmeticAdmissible (μ : Measure ℝ)) :
     ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ, 2 ≤ n → ∃ R : ℤ[X],
-      Squarefree R ∧ R.natDegree = n ∧ nNorm K (μ : Measure ℝ) n (realPoly R) ≤
+      Squarefree (R.map (algebraMap ℤ ℚ)) ∧ R.natDegree = n ∧ nNorm K (μ : Measure ℝ) n (realPoly R) ≤
         Real.rpow n (C*Real.sqrt n) := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6 / chebyshev — smith Lemma 4.2, p.23; csz Theorem 1.1, pp.218–219; Theorem 1.4, p.222 and §4 proof, pp.236–237 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6 / chebyshev — smith Lemma 4.2, p.23; csz Theorem 1.1, pp.218–219; Theorem 1.4, p.222; Theorems 2.2–2.4, pp.227–229; §4 proof, pp.236–237 -/
 def monicChebyshev (K : Set ℝ) (r : ℕ) : ℝ[X] := by sorry
 abbrev uniformNorm (K : Set ℝ) (p : ℝ[X]) := weightedNorm K (fun _ => 1) 0 p
 
@@ -802,6 +810,34 @@ lemma monicChebyshev_minimizes (K : Set ℝ) (hK : IsCompact K) (hc : 0 < realCa
 
 /-- All roots are simple real roots in the convex hull, rather than necessarily in K. -/
 lemma monicChebyshev_roots (K : Set ℝ) (hK : IsCompact K) (hc : 0 < realCapacity K) (r : ℕ) (hr : 0 < r) : (monicChebyshev K r).Splits ∧ Squarefree (monicChebyshev K r) ∧ ∀ x ∈ (monicChebyshev K r).roots, x ∈ convexHull ℝ K := by
+  sorry
+
+
+/-- A monic polynomial attaining the minimum is the chosen Chebyshev polynomial. -/
+lemma monicChebyshev_unique (K : Set ℝ) (hK : IsCompact K)
+    (hc : 0 < realCapacity K) (r : ℕ) (hr : 0 < r) (P : ℝ[X])
+    (hm : P.Monic) (hd : P.natDegree = r)
+    (hn : uniformNorm K P = uniformNorm K (monicChebyshev K r)) :
+    P = monicChebyshev K r := by
+  sorry
+
+
+/-- There are r+1 ordered alternating extremal points in K. -/
+lemma monicChebyshev_alternation (K : Set ℝ) (hK : IsCompact K)
+    (hc : 0 < realCapacity K) (r : ℕ) (hr : 0 < r) :
+    ∃ x : Fin (r+1) → ℝ, StrictMono x ∧ (∀ i, x i ∈ K) ∧
+      ∃ s : ℝ, (s = 1 ∨ s = -1) ∧ ∀ i,
+        (monicChebyshev K r).eval (x i) =
+          s * (-1 : ℝ)^i.val * uniformNorm K (monicChebyshev K r) := by
+  sorry
+
+
+/-- An open complementary gap contains at most one Chebyshev root. -/
+lemma monicChebyshev_gap_root (K : Set ℝ) (hK : IsCompact K)
+    (hc : 0 < realCapacity K) (r : ℕ) (hr : 0 < r) (a b : ℝ)
+    (hab : a < b) (ha : a ∈ K) (hb : b ∈ K) (hg : Disjoint (Ioo a b) K) :
+    ∀ x ∈ Ioo a b, ∀ y ∈ Ioo a b,
+      (monicChebyshev K r).IsRoot x → (monicChebyshev K r).IsRoot y → x = y := by
   sorry
 
 
@@ -825,7 +861,7 @@ example  : monicChebyshev (Icc (-3 : ℝ) (-1) ∪ Icc (1 : ℝ) 3) 1 = X ∧ (0
   sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6 / pruned — smith Definition 4.3, p.22 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6 / pruned — smith Definition 4.3, p.23 -/
 def IsPruned (K : Set ℝ) (P T : ℝ[X]) : Prop :=
   ∃ S : Finset ℝ, T = ∏ x ∈ S, (X-C x) ∧ ∀ x ∈ S,
     x ∈ P.roots ∧ x ∈ K ∧ ∃ a b : ℝ, a ∈ P.roots ∧ b ∈ P.roots ∧ a < x ∧ x < b ∧ Icc a b ⊆ K
@@ -952,7 +988,7 @@ theorem smoothing_tendsto (μ : Measure ℝ) [IsFiniteMeasure μ] (hc : compactS
       (𝓝[>] 0) (𝓝 (∫ x, f x ∂μ)) := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8 / sweetening — smith Notation 5.5 and Proposition 5.6, pp.34–35 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8 / sweetening — smith Definition 5.5, pp.34–35; Remark 5.6, p.35 -/
 def sweetened (K : Set ℝ) (ν : Measure ℝ) (B : ℝ) : Measure ℝ :=
   let γ := 1-(ν univ).toReal
   let β := B/(B+Real.log (realCapacity K))
@@ -990,7 +1026,7 @@ example  : realCapacity (Icc (-2 : ℝ) 2) = 1 ∧ (0 : ℝ)+Real.log (realCapac
   sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8 / energy-nonpositive — smith Corollary 5.7, pp.35–36 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8 / energy-nonpositive — smith Proposition 5.7, pp.35–36 -/
 theorem admissible_energy_nonpositive (μ : ProbabilityMeasure ℝ)
     (hc : compactSupport (μ : Measure ℝ)) (ha : ArithmeticAdmissible (μ : Measure ℝ)) :
     logEnergy (realLift (μ : Measure ℝ)) ≤ 0 := by sorry
@@ -1007,7 +1043,7 @@ theorem holder_reduction (K : Set ℝ) (hK : IsCompact K) (hcpt : CountableCompo
       Tendsto μ' atTop (𝓝 μ) := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.9 / realization — smith Theorem 1.5, p.4; §4.1 proof, p.22 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.9 / realization — smith Theorem 1.5, p.4; §4.1 proof, pp.22–23 -/
 theorem integer_conjugate_realization (K : Set ℝ) (hK : IsCompact K)
     (hcpt : CountableComponents K) (hcap : 1 < realCapacity K)
     (μ : ProbabilityMeasure ℝ) (hs : supported (μ : Measure ℝ) K) :
@@ -1083,7 +1119,7 @@ theorem auxiliary_completeness (SigmaSet : Set ℝ) (hSigmaSet : IsClosed SigmaS
         ArithmeticAdmissible (ν : Measure ℝ) → (∫ x, F x ∂(μ : Measure ℝ)) ≤ ∫ x, F x ∂(ν : Measure ℝ) := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11 / majorant — smith Proposition 5.15, pp.41–42 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11 / majorant — smith Proposition 5.15, p.42 -/
 theorem potential_majorant_admissible (μ : ProbabilityMeasure ℝ) (hc : compactSupport (μ : Measure ℝ))
     (N : ℕ) (Q : Fin N → ℤ[X]) (a : Fin N → ℝ)
     (hQ : ∀ i, (Q i).IsPrimitive ∧ Irreducible (Q i) ∧ 0 < (Q i).natDegree)
@@ -1134,7 +1170,7 @@ example  : 1 < realCapacity (Icc (87353/1000000 : ℝ) (4411076/1000000)) := by
   sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11 / trace-bound — smith Theorem 1.1, p.1; Example 5.16, pp.42–43 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11 / trace-bound — smith Theorem 1.1, p.2; Example 5.16, pp.42–43 -/
 theorem trace_constant_bound : cofiniteMean (Ici (0 : ℝ)) id < ((189831/100000 : ℝ) : EReal) := by sorry
 
 
@@ -1151,16 +1187,16 @@ theorem optimal_polynomial_support (SigmaSet : Set ℝ) (hSigmaSet : IsClosed Si
     logMoment (μ : Measure ℝ) P = 0 ∧ ∀ x ∈ (realPoly P).roots, x ∉ (μ : Measure ℝ).support := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / real-weil-bridge — smith §5.12 discussion and Corollary 5.12, pp.40–41 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / real-weil-bridge — smith §5.12 discussion and Proposition 5.12, pp.40–41 -/
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-optimization — smith Corollary 5.12, pp.40–41 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-optimization — smith Proposition 5.12, pp.40–41 -/
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-asymptotics — smith Corollary 5.13, p.41 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-asymptotics — smith Proposition 5.13, p.41 -/
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-explicit — smith Corollary 1.3, p.2; deduction from Corollary 5.13, p.41 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.12 / point-count-explicit — smith Corollary 1.3, p.3; deduction from Proposition 5.13, p.41 -/
 
 
 /-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0 / strict-energy — levenberg Proposition 2.1, p.8 -/
@@ -1172,7 +1208,7 @@ theorem strict_energy (μ ν : ProbabilityMeasure ℂ)
       (logEnergy (μ : Measure ℂ)+logEnergy (ν : Measure ℂ)-2*J = 0 ↔ μ = ν) := by sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1 / transfinite-diameter — saff Definition 1.9, pp.172–173; levenberg Proposition 2.3, pp.9–10 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1 / transfinite-diameter — saff §1 (1.1), p.167; Lemma 1.1 and (1.4), pp.168–169; levenberg Proposition 2.3, pp.9–10 -/
 def feketeDiameter (K : Set ℂ) (n : ℕ) : ℝ :=
   sSup (insert 0 {r | ∃ z : Fin (n+2) → ℂ, (∀ i, z i ∈ K) ∧
     r = Real.rpow (∏ i : Fin (n+2), ∏ j ∈ Finset.univ.filter (fun j : Fin (n+2) => i < j),
@@ -1210,7 +1246,7 @@ example  : transfiniteDiameter ({0,2} : Set ℂ) = 0 := by
   sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1 / diameter-capacity — saff Theorem 1.18, pp.176–177; levenberg Proposition 2.3, pp.9–10 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1 / diameter-capacity — saff Theorem 1.9, pp.172–173; Theorem 1.18, pp.176–177; levenberg Proposition 2.3, pp.9–10 -/
 theorem diameter_capacity (K : Set ℂ) (hK : IsCompact K) : capacity K = transfiniteDiameter K := by sorry
 
 
@@ -1250,7 +1286,7 @@ example  : intervalEquilibriumMeasure (-1) 1 univ = 1 := by
   sorry
 
 
-/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3 / finite-interval-equilibrium — smith Remark after Proposition 5.6, p.35; csz Theorem 2.6(d), p.230 and §2 proof, pp.228–232; saff Example 1.11, p.174 -/
+/-! LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3 / finite-interval-equilibrium — smith Remark 5.6, p.35; csz Theorem 2.6(d), p.230 and §2 proof, pp.228–232; saff Example 1.11, p.174 -/
 theorem finite_interval_equilibrium_holder (K : Set ℝ) (hK : FiniteIntervals K) :
     HolderMeasure ((equilibrium (Set.image Complex.ofReal K) : Measure ℂ).map Complex.re) (1/2) := by sorry
 
