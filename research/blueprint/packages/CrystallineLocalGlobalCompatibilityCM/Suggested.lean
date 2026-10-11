@@ -11,7 +11,9 @@ The four CL.0 objects expose algebraic cores: block exchange, positive exponent
 cone, integral block subgroup and scalar rescaling. CL.3 adds the p-adic
 normalization of a supplied determinant-norm character. CL.6 exposes integral
 and torsion image algebras of supplied actions, their factorization and the
-scalar-extension map. These cores do not construct arithmetic cohomology or
+scalar-extension map. It also constructs deep levels from actual integral
+component maps on a supplied subgroup; Levi selection is pulled back from F⁺.
+These cores do not construct arithmetic cohomology or
 its actions. The theorem signatures include the degree bound, adic subquotient
 lemma and full corrected determinant-kernel criterion with its A₄ exception.
 The catalogue records remaining arithmetic specializations and signatures,
@@ -407,6 +409,150 @@ example :
       (LinearMap.ker (LinearMap.lsmul (ZMod 3) (ZMod 3) (3 : ZMod 3))) = ⊤ := by
   sorry
 end HeckeImages
+
+/- CL.6/deep-levi-level and deep-unitary-level, CN §4.2.1, pp.61–62.
+The ambient group can be the adelic group. Integral component maps are defined
+on K, not on the entire adelic group. R v is its actual local integer ring.
+The arithmetic application supplies these maps and their split-place dictionary;
+the construction below imposes exactly the displayed congruences.
+-/
+section DeepLevels
+
+variable {G : Type*} [Group G] {ι κ : Type*}
+variable {R : ι → Type*} [∀ v, CommRing (R v)]
+variable (n : ℕ) (K : Subgroup G)
+
+def DeepLeviLevel
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin n) (R v))
+    (below : ι → κ) (S : Set κ) (π : ∀ v, R v) (e : ℕ) : Subgroup G :=
+  (⨅ v, ⨅ (_ : below v ∈ S),
+    ((Matrix.GeneralLinearGroup.map
+      (Ideal.Quotient.mk ((Ideal.span {π v}) ^ e))).ker.comap
+        (component v))).map K.subtype
+
+lemma DeepLeviLevel_mem
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin n) (R v))
+    (below : ι → κ) (S : Set κ) (π : ∀ v, R v) (e : ℕ) (g : G) :
+    g ∈ DeepLeviLevel n K component below S π e ↔
+      ∃ hg : g ∈ K, ∀ v, below v ∈ S → ∀ i j : Fin n,
+        component v ⟨g, hg⟩ i j - (if i = j then 1 else 0) ∈
+          (Ideal.span {π v}) ^ e := by
+  sorry
+
+lemma DeepLeviLevel_antitone
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin n) (R v))
+    (below : ι → κ) (S : Set κ) (π : ∀ v, R v)
+    (e e' : ℕ) (he : e ≤ e') :
+    DeepLeviLevel n K component below S π e' ≤
+      DeepLeviLevel n K component below S π e := by
+  sorry
+
+lemma DeepLeviLevel_empty
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin n) (R v))
+    (below : ι → κ) (π : ∀ v, R v) (e : ℕ) :
+    DeepLeviLevel n K component below ∅ π e = K := by
+  sorry
+
+-- CrystallineCM.DeepLeviLevel_test_empty
+example (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin n) (R v))
+    (below : ι → κ) (π : ∀ v, R v) (e : ℕ) :
+    DeepLeviLevel n K component below ∅ π e = K := by
+  sorry
+
+-- CrystallineCM.DeepLeviLevel_test_scalar
+-- Bool labels the two conjugate places over one selected place of F⁺.
+example (p : ℕ) [Fact p.Prime] (e : ℕ) (he : 1 ≤ e)
+    (g : Bool → Matrix.GeneralLinearGroup (Fin 1) ℤ_[p]) :
+    let component : ∀ _ : Bool,
+        (⊤ : Subgroup (Bool → Matrix.GeneralLinearGroup (Fin 1) ℤ_[p])) →*
+          Matrix.GeneralLinearGroup (Fin 1) ℤ_[p] :=
+      fun v => { toFun := fun h => h.val v, map_one' := rfl, map_mul' := by intros; rfl }
+    g ∈ DeepLeviLevel 1 ⊤ component (fun _ => ((): Unit))
+      Set.univ (fun _ => (p : ℤ_[p])) e ↔
+      ∀ v, ∃ a : ℤ_[p], g v 0 0 = 1 + (p : ℤ_[p]) ^ e * a := by
+  sorry
+
+-- CrystallineCM.DeepLeviLevel_test_local_uniformizer
+-- In a ramified integral local domain with π²=p, 1+π has local depth 1
+-- and fails depth 1 measured using p. No artificial local-field carrier is used.
+example (p : ℕ) [Fact p.Prime] {A : Type*} [CommRing A] [IsDomain A]
+    [IsLocalRing A] [CharZero A] (π : A) (hπ : π ≠ 0)
+    (hmax : π ∈ IsLocalRing.maximalIdeal A) (hram : (p : A) = π ^ 2) :
+    let component : ∀ _ : Unit,
+        (⊤ : Subgroup (Matrix.GeneralLinearGroup (Fin 1) A)) →*
+          Matrix.GeneralLinearGroup (Fin 1) A := fun _ => (⊤ : Subgroup _).subtype
+    ∃ u : Aˣ, (u : A) = 1 + π ∧
+      Matrix.GeneralLinearGroup.scalar (Fin 1) u ∈
+        DeepLeviLevel 1 ⊤ component id Set.univ (fun _ => π) 1 ∧
+      Matrix.GeneralLinearGroup.scalar (Fin 1) u ∉
+        DeepLeviLevel 1 ⊤ component id Set.univ (fun _ => (p : A)) 1 := by
+  sorry
+
+def DeepUnitaryLevel
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin (n+n)) (R v))
+    (S : Set ι) (π : ∀ v, R v) (e : ℕ) : Subgroup G :=
+  (⨅ v, ⨅ (_ : v ∈ S),
+    (ParahoricPVBC n e e (π v) le_rfl).comap (component v)).map K.subtype
+
+lemma DeepUnitaryLevel_mem
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin (n+n)) (R v))
+    (S : Set ι) (π : ∀ v, R v) (e : ℕ) (g : G) :
+    g ∈ DeepUnitaryLevel n K component S π e ↔
+      ∃ hg : g ∈ K, ∀ v, v ∈ S → ∀ i j : Fin n,
+        component v ⟨g, hg⟩ (Fin.natAdd n i) (Fin.castAdd n j) ∈
+            (Ideal.span {π v}) ^ e ∧
+          component v ⟨g, hg⟩ (Fin.castAdd n i) (Fin.castAdd n j) -
+            (if i = j then 1 else 0) ∈ (Ideal.span {π v}) ^ e ∧
+          component v ⟨g, hg⟩ (Fin.natAdd n i) (Fin.natAdd n j) -
+            (if i = j then 1 else 0) ∈ (Ideal.span {π v}) ^ e := by
+  sorry
+
+lemma DeepUnitaryLevel_unipotent
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin (n+n)) (R v))
+    (S : Set ι) (π : ∀ v, R v) (e : ℕ) (g : K)
+    (hu : ∀ v, v ∈ S → ∀ i j : Fin n,
+      component v g (Fin.natAdd n i) (Fin.castAdd n j) = 0 ∧
+        component v g (Fin.castAdd n i) (Fin.castAdd n j) =
+          (if i = j then 1 else 0) ∧
+        component v g (Fin.natAdd n i) (Fin.natAdd n j) =
+          (if i = j then 1 else 0)) :
+    g.val ∈ DeepUnitaryLevel n K component S π e := by
+  sorry
+
+lemma DeepUnitaryLevel_empty
+    (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin (n+n)) (R v))
+    (π : ∀ v, R v) (e : ℕ) :
+    DeepUnitaryLevel n K component ∅ π e = K := by
+  sorry
+
+-- CrystallineCM.DeepUnitaryLevel_test_empty
+example (component : ∀ v, K →* Matrix.GeneralLinearGroup (Fin (n+n)) (R v))
+    (π : ∀ v, R v) (e : ℕ) :
+    DeepUnitaryLevel n K component ∅ π e = K := by
+  sorry
+
+-- CrystallineCM.DeepUnitaryLevel_test_upper_unipotent
+example {A : Type*} [CommRing A] (π : A) (e : ℕ)
+    (K : Subgroup (Matrix.GeneralLinearGroup (Fin (1+1)) A)) :
+    let u := Matrix.GeneralLinearGroup.mk'' (!![(1 : A),1;0,1]) (by sorry)
+    let component : ∀ _ : Unit, K →*
+        Matrix.GeneralLinearGroup (Fin (1+1)) A := fun _ => K.subtype
+    u ∈ K → u ∈ DeepUnitaryLevel 1 K component Set.univ (fun _ => π) e := by
+  sorry
+
+-- CrystallineCM.DeepUnitaryLevel_test_not_principal
+example :
+    let u := Matrix.GeneralLinearGroup.mkOfDetNeZero
+      (!![(1 : ZMod 3),1;0,1]) (by decide)
+    let component : ∀ _ : Unit,
+        (⊤ : Subgroup (Matrix.GeneralLinearGroup (Fin (1+1)) (ZMod 3))) →*
+          Matrix.GeneralLinearGroup (Fin (1+1)) (ZMod 3) :=
+      fun _ => (⊤ : Subgroup _).subtype
+    u ∈ DeepUnitaryLevel 1 ⊤ component Set.univ (fun _ => (0 : ZMod 3)) 1 ∧
+      u ∉ DeepLeviLevel (1+1) ⊤ component id Set.univ (fun _ => (0 : ZMod 3)) 1 := by
+  sorry
+
+end DeepLevels
 
 /- CL.9/lem-5-6-5, corrected finite-group statement of CN pp.85–86.
 Private notation expresses the projective image as the range of conjugation on
@@ -964,27 +1110,27 @@ OMITTED example: CrystallineCM.UnitaryMiddleHeckeImage_test_characters — Its c
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/deep-levi-level
-OMITTED signature: CrystallineCM.DeepLeviLevel
+PARTIAL signature (typed level construction above; arithmetic component maps supplied externally): CrystallineCM.DeepLeviLevel
 For e≥1 and S̄⊂S̄_p, K(e,S̄)_v=K_v∩ker(GL_n(O_{F_v})→GL_n(O_{F_v}/ϖ_v^e)) for v above S̄, and K_v elsewhere. The same depth is imposed at both conjugate places. K(e′,S̄)⊂K(e,S̄) for e′≥e.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.0/parahoric-P-v(b,c); ArithmeticLocallySymmetricSpaces:ALS.0/standard-level-subgroups
-OMITTED API signature: CrystallineCM.DeepLeviLevel_mem — g∈K(e,S̄) iff g∈K and every selected p-component is identity modulo its local ϖ_v^e.
-OMITTED API signature: CrystallineCM.DeepLeviLevel_antitone — e′≥e implies K(e′,S̄)⊂K(e,S̄).
-OMITTED API signature: CrystallineCM.DeepLeviLevel_empty — K(e,∅)=K.
-OMITTED example: CrystallineCM.DeepLeviLevel_test_empty — S̄=∅ leaves K unchanged.
-OMITTED example: CrystallineCM.DeepLeviLevel_test_scalar — For GL₁ over Z_p with K=Z_p×, K(e,{v̄})=1+p^e Z_p at each conjugate place.
-OMITTED example: CrystallineCM.DeepLeviLevel_test_local_uniformizer — At ramified F_v/Q_p, congruence modulo ϖ_v^e differs from congruence modulo p^e; the local uniformizer is required.
+TYPED API signature: CrystallineCM.DeepLeviLevel_mem — g∈K(e,S̄) iff g∈K and every selected p-component is identity modulo its local ϖ_v^e.
+TYPED API signature: CrystallineCM.DeepLeviLevel_antitone — e′≥e implies K(e′,S̄)⊂K(e,S̄).
+TYPED API signature: CrystallineCM.DeepLeviLevel_empty — K(e,∅)=K.
+TYPED example: CrystallineCM.DeepLeviLevel_test_empty — S̄=∅ leaves K unchanged.
+TYPED example: CrystallineCM.DeepLeviLevel_test_scalar — For GL₁ over Z_p with K=Z_p×, K(e,{v̄})=1+p^e Z_p at each conjugate place.
+TYPED example: CrystallineCM.DeepLeviLevel_test_local_uniformizer — At ramified F_v/Q_p, congruence modulo ϖ_v^e differs from congruence modulo p^e; the local uniformizer is required.
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/deep-unitary-level
-OMITTED signature: CrystallineCM.DeepUnitaryLevel
+PARTIAL signature (typed level construction above; arithmetic component maps supplied externally): CrystallineCM.DeepUnitaryLevel
 K̃(e,S̄)_{v̄}=K̃_{v̄}∩P_{v̄}(e,e) for v̄∈S̄ and K̃_{v̄} elsewhere; equivalently the reduction modulo ϖ_ṽ^e is block unipotent (1_n *;0 1_n), so U₀ remains present. This is deeper than diagonal-level control while retaining the unipotent fiber.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.0/parahoric-P-v(b,c)
-OMITTED API signature: CrystallineCM.DeepUnitaryLevel_mem — A selected component lies in K̃(e,S̄) iff it lies in the original K̃ and its diagonal blocks reduce to identity and its lower-left block to zero modulo ϖ_ṽ^e.
-OMITTED API signature: CrystallineCM.DeepUnitaryLevel_unipotent — U(O_{F⁺_{v̄}})⊂K̃(e,S̄) whenever it was contained in K̃.
-OMITTED API signature: CrystallineCM.DeepUnitaryLevel_empty — K̃(e,∅)=K̃.
-OMITTED example: CrystallineCM.DeepUnitaryLevel_test_empty — S̄=∅ leaves K̃ unchanged.
-OMITTED example: CrystallineCM.DeepUnitaryLevel_test_upper_unipotent — For n=1, (1 1;0 1) belongs at every depth when in K̃.
-OMITTED example: CrystallineCM.DeepUnitaryLevel_test_not_principal — The same upper-unipotent matrix need not be identity modulo ϖ^e, so replacing this level by a principal congruence subgroup destroys U₀.
+TYPED API signature: CrystallineCM.DeepUnitaryLevel_mem — A selected component lies in K̃(e,S̄) iff it lies in the original K̃ and its diagonal blocks reduce to identity and its lower-left block to zero modulo ϖ_ṽ^e.
+TYPED API signature: CrystallineCM.DeepUnitaryLevel_unipotent — U(O_{F⁺_{v̄}})⊂K̃(e,S̄) whenever it was contained in K̃.
+TYPED API signature: CrystallineCM.DeepUnitaryLevel_empty — K̃(e,∅)=K̃.
+TYPED example: CrystallineCM.DeepUnitaryLevel_test_empty — S̄=∅ leaves K̃ unchanged.
+TYPED example: CrystallineCM.DeepUnitaryLevel_test_upper_unipotent — For n=1, (1 1;0 1) belongs at every depth when in K̃.
+TYPED example: CrystallineCM.DeepUnitaryLevel_test_not_principal — The same upper-unipotent matrix need not be identity modulo ϖ^e, so replacing this level by a principal congruence subgroup destroys U₀.
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/prop-4-2-6
