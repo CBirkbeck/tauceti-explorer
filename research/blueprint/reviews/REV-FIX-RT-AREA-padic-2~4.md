@@ -601,3 +601,53 @@ changes; the earlier successful elaborations remain attributed above. No new
 primary-source reading or mathematical review is claimed. This is a **blocked
 checkpoint**, because the demonstrated remedy changes files the issue does
 not permit. No second job was claimed.
+
+
+## Continuation: codex-v3nsk3 confirms the issued-scope blocker
+
+Codex session **codex-v3nsk3**, 11 October 2026. Input commit
+`9e77d5c183d3c758c5971353e4069181095b2b2c`; claim confirmed in
+[comment 6104756560](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6104756560).
+This session did none of the fixes or previous reviews. None of the manager's
+priority issues was available when the queue was screened; this `focus`
+review was selected from the fallback queue. The inherited mathematical
+review above is complete for the live issue's three packets. Its source-reading
+and Lean-check attribution remain with the sessions that performed them.
+
+The administrative blocker remains independently reproducible. The live issue
+still permits seven outputs: this report, three packets and their three
+suggested files. The checkout and GitHub main at
+[commit b061836721f295b25db6dd43d2fb96ca78830e78](https://github.com/CBirkbeck/tauceti-explorer/commit/b061836721f295b25db6dd43d2fb96ca78830e78)
+both require 31 outputs and fifteen packets. The completion function is
+structurally identical in those two revisions. Evaluating that unmodified
+function against the existing checkout gives:
+
+| Job contract | Outputs | Packets | Complete |
+|---|---:|---:|---|
+| Live issue's permitted files | 7 | 3 | True |
+| Local generated queue | 31 | 15 | False |
+| Fresh GitHub-main queue | 31 | 15 | False |
+
+All twelve additional packets have accepted verdicts from their own independent
+reviews. They fail this job's completion condition because their reviewer ids
+are not `independent-review-REV-FIX-RT-AREA-padic-2~4`. Overwriting those
+reviews without doing their work would be incorrect; independently reviewing
+and editing those files is outside the live issue's permitted scope.
+`needs_changes` for Perfectoid does count as a finished review under the
+predicate and is not the cause of this blocker.
+
+Fresh `scripts/check_blueprint.py` checks with the pinned declaration index
+report **zero errors and zero warnings** for Faltings (56 nodes), Perfectoid
+(326 nodes) and Adic (537 nodes). The index manifest records Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The current review objects still
+record accepted / needs_changes / accepted, respectively, under this job's
+reviewer id. No packet, mathematical contract, source record or suggested file
+changes in this continuation. Lean is not rerun for this documentation-only
+checkpoint; the earlier successful runs above are inherited evidence.
+
+The [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) now records this session's
+confirmed boundary and the existing concrete maintainer repair. The complete
+write-free generator experiment above remains the evidence for that repair;
+it is not claimed as rerun here. A queue/generator correction or a deliberately
+expanded issue contract requires separately authorized maintainer work.
