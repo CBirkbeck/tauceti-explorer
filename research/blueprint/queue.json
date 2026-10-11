@@ -47690,8 +47690,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49314,8 +49314,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
