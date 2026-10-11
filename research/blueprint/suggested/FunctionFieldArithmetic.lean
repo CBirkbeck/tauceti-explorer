@@ -353,7 +353,7 @@ local instance constantsTopology : TopologicalSpace k := ⊥
 local instance adeleMeasurable : MeasurableSpace (FullAdeles k K) := borel _
 
 /-- Existence and the Fourier inversion normalization are specified in FA.2. -/
-def SelfDualHaar (ω : WeilDifferential k K) (ψ : AddChar k ℂ) :
+def SelfDualHaar [Finite k] (ω : WeilDifferential k K) (ψ : AddChar k ℂ) :
     Measure (FullAdeles k K) := by sorry
 
 def completedLattice (D : Divisor k K) : Set (FullAdeles k K) :=
@@ -373,7 +373,7 @@ theorem divisor_volume [Finite k] (hK : IsFunctionField k K)
     SelfDualHaar k K ω ψ (completedLattice k K D) =
       ENNReal.ofReal ((Nat.card k : ℝ) ^ (Divisor.degree D + 1 - (genus k K : ℤ))) := by sorry
 
-theorem change_differential (hK : IsFunctionField k K) (ω : WeilDifferential k K)
+theorem change_differential [Finite k] (hK : IsFunctionField k K) (ω : WeilDifferential k K)
     (hω : ω ≠ 0) (ψ : AddChar k ℂ) (hψ : ψ ≠ 1) (f : Kˣ) :
     SelfDualHaar k K (DifferentialCharacter.multiplyDifferential hK f ω) ψ =
       SelfDualHaar k K ω ψ := by sorry
@@ -384,7 +384,7 @@ theorem p1_integral [Finite k] (ψ : AddChar k ℂ) (hψ : ψ ≠ 1) :
 /-- Scalar local-volume test, whose O_v normalization is imported from AA.0. -/
 theorem local_order_two (Q : ℝ) (hQ : 0 < Q) : Q ^ (-(2 : ℝ) / 2) = Q⁻¹ := by sorry
 
-theorem principal_change (hK : IsFunctionField k (RatFunc k))
+theorem principal_change [Finite k] (hK : IsFunctionField k (RatFunc k))
     (ψ : AddChar k ℂ) (hψ : ψ ≠ 1) (t : (RatFunc k)ˣ) :
     SelfDualHaar k (RatFunc k) (DifferentialCharacter.multiplyDifferential hK t
       (CompletedResidue.dt (k := k))) ψ =
@@ -393,7 +393,7 @@ example [Finite k] (ψ : AddChar k ℂ) (hψ : ψ ≠ 1) :
     SelfDualHaar k (RatFunc k) (CompletedResidue.dt (k := k)) ψ
       (↑(FullAdeles.integral (k := k) (K := RatFunc k)) : Set (FullAdeles k (RatFunc k))) = Nat.card k := by sorry
 example (Q : ℝ) (hQ : 0 < Q) : Q ^ (-(2 : ℝ) / 2) = Q⁻¹ := by sorry
-example (hK : IsFunctionField k (RatFunc k)) (ψ : AddChar k ℂ) (hψ : ψ ≠ 1)
+example [Finite k] (hK : IsFunctionField k (RatFunc k)) (ψ : AddChar k ℂ) (hψ : ψ ≠ 1)
     (t : (RatFunc k)ˣ) :
     SelfDualHaar k (RatFunc k) (DifferentialCharacter.multiplyDifferential hK t
       (CompletedResidue.dt (k := k))) ψ =
@@ -403,7 +403,7 @@ end SelfDualHaar
 /-- Omitted locally constant compact support interface: BS is the actual subtype below. -/
 abbrev BruhatSchwartz := {f : LocallyConstant (FullAdeles k K) ℂ // HasCompactSupport f}
 
-def Fourier (ω : WeilDifferential k K) (ψ : AddChar k ℂ)
+def Fourier [Finite k] (ω : WeilDifferential k K) (ψ : AddChar k ℂ)
     (f : BruhatSchwartz k K) (b : FullAdeles k K) : ℂ :=
   ∫ a, f.val a * DifferentialCharacter k K ω ψ (a * b) ∂SelfDualHaar k K ω ψ
 
@@ -571,10 +571,16 @@ theorem local_abelian_existence (H : Subgroup (LaurentSeries k)ˣ)
       FiniteDimensional (LaurentSeries k) E ∧ IsGalois (LaurentSeries k) E ∧
       (∀ σ τ : E ≃ₐ[LaurentSeries k] E, σ * τ = τ * σ) ∧ localNormSubgroup k E = H := by sorry
 
-/-- Omitted Artin action and Schmid–Witt residue-symbol interfaces. The comparison is an
-actual character on local units attached to an ASW class, not a claimed generic CFT.8 result. -/
+/-- Omitted Artin action and Schmid–Witt residue-symbol interfaces. At fixed Witt length n
+this character factors through Fˣ/(Fˣ)^(p^n), the domain of the perfect pairing in Kosters–Wan
+Remark 4.1 (pp.14–15); the whole pro-p completion occurs only with the infinite-length symbol.
+The character has the actual multiplicative group as its domain, including uniformizers. -/
 def schmidWittCharacter (p n : ℕ) [Fact p.Prime] [CharP k p]
     (c : ASW p n (LaurentSeries k)) : (LaurentSeries k)ˣ →* Multiplicative (ZMod (p ^ n)) := by sorry
+
+theorem schmidWittCharacter_pow (p n : ℕ) [Fact p.Prime] [CharP k p]
+    (c : ASW p n (LaurentSeries k)) (b : (LaurentSeries k)ˣ) :
+    schmidWittCharacter k p n c (b ^ (p ^ n)) = 1 := by sorry
 
 theorem schmid_witt_artin_comparison (p n : ℕ) [Fact p.Prime] [CharP k p]
     (c : ASW p n (LaurentSeries k)) :
@@ -705,14 +711,16 @@ theorem degree_two (q : ℤ) :
     PowerSeries.coeff 1 (PowerSeries.mk (fun n => if 2 ∣ n then (1 : ℤ) else 0)) = 0 ∧
     PowerSeries.coeff 2 (PowerSeries.mk (fun n => if 2 ∣ n then (1 : ℤ) else 0)) = 1 := by sorry
 
-theorem zero_coefficient : PowerSeries.coeff 0 (CurveZeta k K) = 1 := by sorry
+theorem zero_coefficient [Finite k] (hK : IsFunctionField k K) :
+    PowerSeries.coeff 0 (CurveZeta k K) = 1 := by sorry
 example [Finite k] :
     CurveZeta k (RatFunc k) *
       ((1 - PowerSeries.X) * (1 - PowerSeries.C (Nat.card k : ℤ) * PowerSeries.X)) = 1 := by sorry
 example :
     PowerSeries.coeff 1 (PowerSeries.mk (fun n => if 2 ∣ n then (1 : ℤ) else 0)) = 0 ∧
     PowerSeries.coeff 2 (PowerSeries.mk (fun n => if 2 ∣ n then (1 : ℤ) else 0)) = 1 := by sorry
-example : PowerSeries.coeff 0 (CurveZeta k K) = 1 := by sorry
+example [Finite k] (hK : IsFunctionField k K) :
+    PowerSeries.coeff 0 (CurveZeta k K) = 1 := by sorry
 end CurveZeta
 
 /-- RR supplies rationality/functional equation; the Weil root bound is a separate WC.5 import. -/
@@ -768,7 +776,9 @@ end ArtinFactor
 
 /-- Omitted: finite coefficient field A has characteristic ℓ≠p; L is the Euler product of
 j_*ρ on the proper curve, and M_i are geometric-Frobenius matrices on H^i_et(Xbar,j_*ρ).
-This uses the EDC.8 torsion trace comparison, including H0/H2, without a characteristic-zero lift. -/
+EDC.8 imports ordinary trace from PR196 TraceFormula. Its finite coefficient-field determinant
+enhancement is the explicit TORSION-DETERMINANT boundary in the packet; all power traces alone
+do not determine a determinant in characteristic ℓ. Include H0/H2 without assuming a lift. -/
 theorem torsion_trace_comparison (L : RatFunc A) (n0 n1 n2 : ℕ)
     (M0 : Matrix (Fin n0) (Fin n0) A) (M1 : Matrix (Fin n1) (Fin n1) A)
     (M2 : Matrix (Fin n2) (Fin n2) A) :
@@ -1073,6 +1083,7 @@ notions. Executable finite ray relations and local-unit evaluations require FA.7
 The choice of degree-one class is separate from its geometric conductor. -/
 structure RayCharacterCertificate (hK : IsFunctionField k K) where
   character : IdeleClass k K hK →* ℂˣ
+  finiteImage : Finite character.range
   modulus : Divisor k K
   effective : 0 ≤ modulus
   localTrivial : ∀ a : FullIdeles k K, a ∈ rayUnits k K modulus →
@@ -1081,7 +1092,8 @@ structure RayCharacterCertificate (hK : IsFunctionField k K) where
     (∀ a : FullIdeles k K, a ∈ rayUnits k K m → character (QuotientGroup.mk a) = 1) →
       modulus ≤ m
   degreeClass : IdeleClass k K hK
-  degreeOne : IdeleClass.yuDegree hK degreeClass = Multiplicative.ofAdd 1
+  /-- Valuation degree +1 is Yu degree −1. -/
+  degreeOne : IdeleClass.yuDegree hK degreeClass = Multiplicative.ofAdd (-1)
 
 namespace RayCharacterCertificate
 variable {k K} {hK : IsFunctionField k K}
@@ -1129,15 +1141,18 @@ structure CompletionCertificate (v : Place k K) where
   parameterValue : Valued.v parameter = WithZero.exp (-1 : ℤ)
   seriesEquiv : CompletedPlace k K v ≃+* LaurentSeries v.ResidueField
   parameterToT : seriesEquiv parameter = HahnSeries.single 1 1
+  preservesValuation : ∀ x : CompletedPlace k K v, x ≠ 0 →
+    Valued.v x = WithZero.exp (-(seriesEquiv x).order)
 
 namespace CompletionCertificate
 variable {k K} {v : Place k K}
 theorem uniformizer (c : CompletionCertificate k K v) :
     c.seriesEquiv c.parameter = HahnSeries.single 1 1 := by sorry
 
-/-- Omitted canonical Laurent valuation adapter: the order is the series' integer order. -/
+omit [Finite k] in
+/-- The certificate carries the normalized valuation comparison for every nonzero element. -/
 theorem valuation (c : CompletionCertificate k K v) (x : CompletedPlace k K v) (hx : x ≠ 0) :
-    Valued.v x = WithZero.exp (-(c.seriesEquiv x).order) := by sorry
+    Valued.v x = WithZero.exp (-(c.seriesEquiv x).order) := c.preservesValuation x hx
 
 def change_parameter (c d : CompletionCertificate k K v) :
     LaurentSeries v.ResidueField ≃+* LaurentSeries v.ResidueField :=
