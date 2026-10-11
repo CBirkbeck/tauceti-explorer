@@ -1,9 +1,9 @@
 # Independent correction review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-k2zZva`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-PxaC2W`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106025819).
-Review base: `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106249104).
+Review base: `2790a6eabe10c8b46527cb1a6333eee4d577e572`.
 This session authored none of the fixes under review and claimed no other job.
 
 ## Status and file-scope blocker
@@ -14,8 +14,11 @@ The issue names L3 and PMIA. Its queue also requires L3-2 and D.1, whose
 current review objects name their earlier layer-review jobs. I reconstructed
 and validated the exact two metadata-only candidates in the handoff, preserving
 the complete earlier reviews, including their 79-node and 72-node ledgers.
-All non-review fields are unchanged. L3 and PMIA already carry this review
-job's decisions; adding identical history entries would add no evidence.
+All non-review fields are unchanged. In the two issue-named packets I installed
+this session's review records, retaining bounded acceptance for L3 and
+`needs_changes` for PMIA, and archived each preceding record intact. The
+issue's review instructions require the current reviewer's record; these
+updates identify the fresh source checks and distinguish historical Lean runs.
 
 [WORKERS.md](../WORKERS.md), Doing the work, says:
 “Edit only the files the issue names, plus your own scratch space.”
@@ -28,16 +31,17 @@ under a read-only substitution of exactly these two candidates. Queue ownership
 and validation do not remove the live issue's explicit file restriction.
 Authorize those paths or repair the issue before redispatching this job.
 
-This continuation changes only this report and the handoff. PMIA's negative
+This continuation changes this report, the handoff, and only `review` and
+`reviewHistory` in the two issue-named packets. PMIA's negative
 verdict completes its part of the review; its coordinated revision belongs to
 a separate job. It is not the dispatch blocker.
 
 ## Six finding decisions
 
 Read the six claims in `RT-AREA-iwasawa-2.result.json`, their verified decisions
-in `RT-AREA-iwasawa-2.review.json`, the round-two fix report, the four packets,
-and the earlier attributed reviews. Fresh checks of the bounded corrections
-support the following decisions.
+in `RT-AREA-iwasawa-2.review.json`, the round-two fix report, the relevant
+correction contracts in the four packets, and the earlier attributed reviews.
+Fresh checks of the bounded corrections support the following decisions.
 
 | Finding | Decision | Evidence and remaining obligation |
 | --- | --- | --- |
@@ -53,8 +57,10 @@ their original authorship. The
 [full six-finding audit](https://github.com/CBirkbeck/tauceti-explorer/blob/303b02c8bda26170394f9f96f6c691391a2f8611/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 and the
 [input report](https://github.com/CBirkbeck/tauceti-explorer/blob/5cbcf764a67eb29027a3af3f4518b483c8f950ea/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-remain immutable evidence. The prepared records retain `codex-jIGDIK`'s
-attribution and dates, rather than claiming those exhaustive audits as mine.
+remain immutable evidence. The
+[preceding checkpoint](https://github.com/CBirkbeck/tauceti-explorer/blob/2790a6eabe10c8b46527cb1a6333eee4d577e572/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+records `codex-k2zZva`'s checks and Lean outcomes. The prepared records retain
+`codex-jIGDIK`'s attribution and dates, rather than claiming those exhaustive audits as mine.
 
 ## Fresh source checks
 
@@ -139,9 +145,10 @@ order/index calculations and contragredient conventions when revising the
 packet, reader, Suggested and consumers. Relabelling five nodes alone would
 leave duplicated definitions and proofs in those other artifacts.
 
-Read the four relevant library-coverage records, RS-16 I.5, and current
-ArithmeticDirichletSeries and StableReduction owner interfaces. TauCetiRoadmap
-is read-only at `070dc2becd74419e76303ede84b465ed4a69461f`. Existing upstream
+Read the four relevant library-coverage records, RS-16 I.5, current
+ArithmeticDirichletSeries and StableReduction owner interfaces, and the complete
+current SemisimpleAlgebras and ProfiniteArithmetic READMEs as upstream models.
+TauCetiRoadmap is read-only at `070dc2becd74419e76303ede84b465ed4a69461f`. Existing upstream
 contracts are suppliers; no new roadmap or generic carrier is planned here.
 
 ## Validation
@@ -154,13 +161,14 @@ an `excerpt` field. Full earlier histories and node ledgers are preserved.
 Actual completion is false; the diagnostic two-candidate substitution is true,
 with the queue and predicate unchanged.
 
-Ran four sequential `lean-check` commands in the existing pinned build, with
-sufficient available memory. L3 exits 1 at line 1 because the build cannot
-resolve its `research` module prefix; its body is not elaborated. L3-2, D.1 and
-PMIA exit 0 with 111, 307 and 1,075 `sorry` warnings respectively and no other
-Lean diagnostics. No Lean code changed and no compilation remains running.
-All eight packet/Suggested hashes match the handoff. `git diff --check` and
-intake checks pass for this report and handoff.
+No Lean file changed and I did not run a compiler this session. The preceding
+`codex-k2zZva` checkpoint records four sequential `lean-check` outcomes: L3
+failed at line 1 on the unresolved `research` module prefix before its body;
+L3-2, D.1 and PMIA succeeded with 111, 307 and 1,075 `sorry` warnings and no
+other diagnostics. These are historical results, not fresh compilation.
+The two issue-named packets changed only review metadata; the omitted packets
+and all four Suggested files remain byte-identical. All hashes match the handoff.
+`git diff --check` and intake checks pass for all four changed paths.
 
 Resume by obtaining scope authorization, installing exactly the two guarded
 records, and checking actual completion. The handoff contains everything
