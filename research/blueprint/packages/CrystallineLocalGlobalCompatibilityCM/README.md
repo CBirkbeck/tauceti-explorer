@@ -257,6 +257,12 @@ Prerequisites: **CL.0**: Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators �
 
 **Unipotent transfer action** (`CrystallineCM.UnipotentTransferAction`). For contracting g∈Δ⁺ and π smooth on Δ⁺⋉U₀, act on Γ(U₀,π) by T_g(v)=Σ_{n∈U₀/gU₀g^{-1}}ngv. This is independent of coset representatives, is integral without averaging denominators, and is multiplicative in g. Derive the same action on RΓ(U₀,π).
 
+At degree zero the formula needs a group U, its coefficient representation ρ, a contraction c:U→U with finite-index image, and an R-linear raw operator A satisfying Aρ(u)=ρ(c(u))A. The arithmetic dictionary is c(u)=gug⁻¹ and A(v)=gv. For v∈V^U, the vector Av is fixed by c(U), so each term ρ(r)Av depends only on the left coset r c(U). Summing over these cosets gives an R-linear endomorphism of Mathlib's `Representation.invariants`. This formulation permits A to be noninvertible and works integrally without a choice of averaging denominators.
+
+For injective contractions c,d, representatives for U/c(U) and U/d(U) combine as a·c(b), giving representatives for U/cd(U). If A and B satisfy the two intertwining equations, this identifies T_c(A)T_d(B) with T_cd(AB); the identity contraction with raw identity operator gives the identity transfer. Surjectivity of c makes the quotient a singleton and gives T_c(A)v=Av. At U=(Z_p,+), c(z)=pz, the quotient is the residue field Z/pZ; on trivial F_p coefficients with A=id, all p summands are equal, so the resulting operator is zero and differs from the raw identity.
+
+The smooth positive-monoid action uses the actual contracting elements and their open finite-index images. The general integral trace is supplied by `TauCeti.DiscreteCoind.traceLinear`, with its arbitrary-transversal identity `TauCeti.DiscreteCoind.trace_eq_sum_transversal`; its finite sum applied to the constant c(U)-invariant vector Av gives the displayed degree-zero formula. These declarations are in Tau Ceti’s current continuous-cohomology library. **ProfiniteCohomology, Layer 10** supplies continuous restriction, conjugation and all-degree corestriction. The construction here composes those maps with the raw contracting action, retaining the compact-unipotent acyclicity and smoothness statements needed for the derived invariants functor. The algebraic degree-zero formula supplies its normalization check.
+
 Required API:
 
 - `CrystallineCM.UnipotentTransferAction_independent`: Replacing any representative n by an element of its same left coset does not change T_g on U₀-invariants.
