@@ -16,7 +16,7 @@ S(V) consists of finite-length modules filtered with every graded piece isomorph
 
 Shared theories retain their owners. ClassFieldTheory supplies reciprocity, Kummer theory and local Tate duality; LocalFieldsRamification supplies local extension/valuation theory; FiniteFlatGroupsAndIntegralPadicHodgeTheory supplies the general wild Breuil and strong-filtration machinery; LocalGaloisDeformationRings supplies deformation rings and type quotients; GL₂ automorphic and lifting roadmaps supply compact-admittance and classical lifting; EllipticCurves supplies torsion/reduction and the cross-prime comparison; ModularCurves and ModularCurvesPartII supply actual twisted moduli curves and their connected/rational compactifications; InverseGaloisAndArithmeticFundamentalGroups supplies Hilbert irreducibility with local conditions. The exact additional contracts appear below. There is no plan here for higher-dimensional automorphy, arbitrary-coefficient Serre modularity, a new general Breuil theory, or a new definition of elliptic modularity.
 
-The present upstream ModularCurves §5C makes geometric connectedness conditional; ModularCurvesPartII R12.4 discharges it. Current ProfiniteArithmetic and LocalGaloisGroups have been checked and supply neither these explicit wild field families nor the finite-flat calculations. Existing continuous cohomology, native intermediate fields, polynomial quotients and Weierstrass curves are used directly.
+Current Tau Ceti already proves Kummer equivalences and finite-module local duality after the atlas pin; the Q₃ arithmetic specializations use them. The present upstream ModularCurves §5C makes geometric connectedness conditional; ModularCurvesPartII R12.4 discharges it. Current ProfiniteArithmetic and LocalGaloisGroups have been checked and supply neither these explicit wild field families nor the finite-flat calculations. Existing continuous cohomology, native intermediate fields, polynomial quotients and Weierstrass curves are used directly.
 
 ## Layer overview
 
@@ -1195,6 +1195,7 @@ In the wild Breuil descent category over F′ᵢ annihilated by Iᵢ, construct 
 - `extendedModel_sixSixFrobenius`: At (6,6), c=1 gives nonzero special-fibre Frobenius, while the (2,6) family always has zero special-fibre Frobenius. This distinguishes the intended definition because: Identifying all four integral models fails.
 - `extendedModel_twoTenCrossTerm`: For (2,10) and c₁=1 the γ₃ cross term begins at u¹², not u⁶. This distinguishes the intended definition because: Copying the (2,6) formula fails.
 - `extendedModel_deepWildCorrection`: The (6,6) inverse descent includes −c′u³⁰ with the same sign for both γ₃ and γ₃⁻¹. This distinguishes the intended definition because: Treating the inverse as a naive sign change fails.
+- `extendedModel_sixSixUnitCrossTerm`: At (6,6), c=1 and c′=0 the second filtration generator is u⁶e′ω+e₁; its e₁ coefficient is a unit and its special-fibre Frobenius is nonzero. This distinguishes the intended definition because: Substituting the diagonal self-extension polynomial cu²+c′u⁶ would make this coefficient divisible by u² and would lose the forward family.
 
 **Acceptance.**
 
@@ -1208,22 +1209,27 @@ In the wild Breuil descent category over F′ᵢ annihilated by Iᵢ, construct 
 
 `EllipticCurveModularityWild3Adic:W3.5/extended-model-classification` · theorem.
 
-Every Iᵢ-annihilated descent object killed by three whose Q₃ generic fibre is an extension 0→ω→ρ→1→0 is in one of the four model families. In each family generic fibre induces an isomorphism of its Breuil Ext group with H¹(G₃,ω)≅F₃². In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent to c=0, splitting over Q₃ to c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0, c=c′=0, and c=0. The maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′) to (c+c′,c).
+Fix the full G₃ très ramifié residual extension 0→ω→ρ̄→1→0 of extended-category. Every Iᵢ-annihilated descent object killed by three with Q₃ generic fibre isomorphic to this nonsplit ρ̄ is in one of the four model families. Separately, for all parameter values, including the split class, in each of those four families generic fibre induces an isomorphism of its Breuil Ext group with H¹(G₃,ω)≅F₃². In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent to c=0, splitting over Q₃ to c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0, c=c′=0, and c=0. The maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′) to (c+c′,c).
 
 **Construction or proof.**
 
-- 1. The adapted basis and operator ideal rule out the other weight pairs and put every object into one of the displayed forms.
+- 1. Take schematic closure of the generic ω line and use the adapted basis and operator ideal. As in BCDT pp.922–923, the other weight pairs force the Q₃ generic extension to split, contradicting the très ramifié hypothesis. This exclusion is not asserted for split generic fibres.
 - 2. Compute kernels of generic-fibre Ext over Fᵢ, then check which splitting morphisms respect descent to Q₃. Injectivity and parameter counts give the four isomorphisms.
 - 3. Check the canonical u⁶ pullback and pushout maps, including the change of lifted basis, giving (c+c′,c).
 - 4. The two very ramified paired local curves nonsplit over Fᵢ have nonzero special-fibre F, so their (6,6) lines are c′=0 and c=c′. The remaining nonsplit-over-Fᵢ line c=0 is the peu line.
 
 **Direct prerequisites:** `EllipticCurveModularityWild3Adic:W3.5/extended-models`, `EllipticCurveModularityWild3Adic:W3.1/local-paired-curves`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`.
 
+**Unit tests.**
+
+- `extendedClassification_splitCounterexample`: M′_{2,1}⊕M′_{2,ω} is an Iᵢ-annihilated model of the split generic extension and has weight pair (2,2), outside the four selected pairs. This distinguishes the intended definition because: Removing the nonsplitting hypothesis from exhaustiveness would falsely classify this object.
+
 **Acceptance.**
 
 - The line c+c′=0 is the splitting-over-type-field line, not the peu line.
+- Exhaustiveness uses nonsplitting. The split Iᵢ-annihilated object M′_{2,1}⊕M′_{2,ω}, with F=V_D=0 on its special fibre, has weight pair (2,2) and is outside the four families.
 
-**Sources:** BCDT, Proposition 9.2.1, pp.920–927, especially pp.925–927.
+**Sources:** BCDT, Theorem 4.6.1(3), p.877; Proposition 9.2.1 and its standing hypothesis, pp.920–927, especially pp.922–923 and 925–927.
 
 ### Reversed extensions in the four extended models
 
@@ -1569,7 +1575,7 @@ Let E/Q be a companion with surjective E[3]. In one of cases two through six of 
 
 - The wild local results are outputs of W3.3–W3.5 and are not imported back from a global modularity theorem.
 
-**Sources:** BCDT, Theorems 1.4.1–1.4.2, pp.856–857; application in proof of Theorem 2.2.1, p.865.
+**Sources:** BCDT, Theorems 1.4.1–1.4.2, pp.857–858; application in proof of Theorem 2.2.1, p.865.
 
 **Planet:** Wild three-adic lifting application.
 
@@ -1667,7 +1673,7 @@ The complete R17.5 stage states solvable two-dimensional Artin modularity with t
 
 ### GL2ModularityLifting:R22.5
 
-Classical BCDT Theorems 1.4.1–1.4.2 (pp.856–857) with residual modularity, cyclotomic absolute irreducibility, scalar local centralizer, potentially Barsotti–Tate type, admittance and weak acceptability. Also supply CDT Theorems 7.2.1 (conductor not divisible by 27) and 7.2.4 (mod-five modularity or exceptional cyclotomic restriction), including BCDT §10 (pp.937–938) correcting the negative-j branch by a rational three-isogeny. These interfaces must not assume the unconditional elliptic modularity theorem.
+Classical BCDT Theorems 1.4.1–1.4.2 (pp.857–858) with residual modularity, cyclotomic absolute irreducibility, scalar local centralizer, potentially Barsotti–Tate type, admittance and weak acceptability. Also supply CDT Theorems 7.2.1 (conductor not divisible by 27) and 7.2.4 (mod-five modularity or exceptional cyclotomic restriction), including BCDT §10 (pp.937–938) correcting the negative-j branch by a rational three-isogeny. These interfaces must not assume the unconditional elliptic modularity theorem.
 
 R22.5 owns odd-prime ordinary/potentially Barsotti–Tate lifting; add the exact classical BCDT/CDT interfaces as GL₂ modularity lifting, Part II. Do not replace them with the full Serre theorem or KW global-finiteness inputs.
 
@@ -1685,9 +1691,9 @@ R13.4a owns algebraic compactification and the fixed-pairing base/stabilizers. R
 
 ### tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality
 
-Continuous local Tate duality and Kummer theory over Q₃, dim H¹(G₃,ω)=2, the unit/peu line and the nonunit/très classes, and nontrivial pairing of the unramified H¹(G₃,F₃) line with a très Kummer class.
+Specialize the existing native Kummer and local Tate-duality interfaces to Q₃: dim H¹(G₃,ω)=2, the unit/peu line and nonunit/très classes, and nontrivial pairing of the unramified H¹(G₃,F₃) line with a très Kummer class. Use the coefficient and continuous-cohomology comparison already owned by ClassFieldTheory; no new general Kummer isomorphism or local-duality proof is requested.
 
-Reviewed AUDIT-03: the native continuous-cohomology carriers and cup product exist; perfect local Tate duality and the Kummer isomorphism are not built. Import this roadmap’s planned duality, never re-plan it here.
+Reviewed AUDIT-03 describes the atlas pin f790474, at which the arithmetic comparison was missing. At current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, ClassFieldTheory.kummerEquiv and dualityMap1_kummerCoeff_bijective are proved. Reuse them when the pin advances and supply only the specified Q₃ dimension/line/pairing specializations. The present Lean fragments still elaborate at the atlas pin.
 
 ### tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence
 
@@ -1703,9 +1709,9 @@ This exact native elliptic-roadmap layer owns the geometric torsion and pairing,
 
 ### tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
 
-Local elliptic reduction and Néron–Ogg–Shafarevich, special-fibre Frobenius and point-count sign comparison. Supply the explicit local companion existence of Manoharmayum Theorem 5.3.2/§5.4 and BCDT Corollary 2.3.2; the rank-one cubic forward-extension proof also needs the peu companion examples from Manoharmayum §5.3. Supply the elliptic cross-prime Weil–Deligne compatibility and Barsotti–Tate/good-reduction criterion of CDT Proposition B.4.2, pp.563–565.
+Local elliptic reduction and Néron–Ogg–Shafarevich, special-fibre Frobenius and point-count comparison. Supply the reduction and torsion calculations for the Manoharmayum cubic families in §5.3, Lemma 5.3.1 and Theorem 5.3.2 (pp.750–751), including the peu examples used in BCDT Lemmas 7.2.1–7.2.2, and the ramified-quadratic families in Manoharmayum §5.4 and Theorem 5.4.2 (pp.751–753). Supply the elliptic cross-prime Weil–Deligne comparison and Barsotti–Tate/good-reduction criterion of CDT Proposition B.4.2 (pp.563–565). W3.1/local-paired-curves assembles the prescribed two-prime companions, including BCDT Corollary 2.3.2; W3.1/extended-local-frobenius-sign proves the exact extended sign.
 
-The native elliptic-roadmap Layer 4 owns reduction and Tate’s algorithm. Its current target does not give the precise paired-torsion families or cross-prime WD theorem: add these as Elliptic curves, Part II, not as a duplicate theory in this roadmap.
+Current EllipticCurves Layer 4 owns reduction and Tate’s algorithm, but does not yet state these specific family calculations or the cross-prime comparison; request that addition as Elliptic curves, Part II. The general local inputs can be proved without this roadmap. Its two-prime assembly and extended sign remain W3.1 outputs, so the supplier request does not ask for its consumer’s theorem.
 
 ### tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration
 
@@ -1727,9 +1733,11 @@ Read current upstream Suggested.lean and §5C: geometric connectedness is condit
 - **Independent endpoint carrier.** Do not depend on the parent’s whole modularity-theorem node as a black box. Its conditional equivalence/parametrisation portion must be exported without the KW unconditional truth theorem; the mathematical result is already owned there.
 - **Extension notation on p.888.** The routed extraction flags the final G(k′;r,a;s,b;f)=Gπ(M(k′;r,a;s,b;f)) notation as a reversed-argument misprint. Rechecking pp.887–888 shows that both sides are ordered identically and the dummy pairs may be renamed; no correction to that equality is required. This packet always identifies the actual submodule and quotient, and does not reproduce that alleged source issue.
 
+- **Independent review of current upstream.** The review read current TauCetiRoadmap at 4d41db8550e23603fb93c65d363a8d521cca9cbe and Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. ProfiniteArithmetic and LocalGaloisGroups were read in full, with the exact ClassFieldTheory, LocalFieldsRamification, EllipticCurves and ModularCurves supplier contracts checked. Kummer equivalences and finite-module local duality now exist after the atlas pin; reuse those declarations and request only the Q₃ arithmetic specializations.
+
 ## Source corrections and proof repairs
 
-The following are the recorded source issues, without verbatim quotations. Their status records whether a separate official correction was located. The packet’s statements and proofs incorporate the indicated corrections.
+The following source issues were independently checked and confirmed at their specified versions and locators. E4 includes a notation clarification; E15–E16 concern the SBT author copy only. The packet’s sourceVersions records the public texts and hashes. The packet’s statements and proofs incorporate the indicated corrections.
 
 - **E1** (BCDT, misprint; affects nothing), Corollary 2.3.2, p.866: The mod-three target matrix group is labelled GL₃(F₃). It is GL₂(F₃). The prescribed residual representation has two-dimensional upper-triangular shape and is realized on elliptic three-torsion. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
 
@@ -1737,9 +1745,9 @@ The following are the recorded source issues, without verbatim quotations. Their
 
 - **E3** (BCDT, misprint; affects nothing), §6.4, p.902: Two Galois-group field labels in the negative quadratic construction use the positive quadratic subscript three. The labels refer to the negative quadratic fields F₋₃ and F′₋₃. The calculation is in the paragraph defining the negative quadratic extension, with its own uniformizer and automorphisms. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
 
-- **E4** (BCDT, misprint; affects the proof), Proof of Lemma 5.7.1, p.899: The cross-reference calls Lemma 5.2.1 a theorem, and an undefined Γ₁ appears in the descent argument. Use Lemma 5.2.1(5) and the inertia subgroup acting trivially on the residue field and congruent to one on the uniformizer. The rank-one identity N◦φ₁=0 is Lemma 5.2.1(5), p.886; the subsequent calculation uses the first ramification subgroup. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
+- **E4** (BCDT, misprint; affects the proof), Proof of Lemma 5.7.1, p.899: The cross-reference calls Lemma 5.2.1 a theorem, and the proof uses Γ₁ without explicitly introducing that notation in §§5.6–5.7. Use Lemma 5.2.1(5) and the inertia subgroup acting trivially on the residue field and congruent to one on the uniformizer. The rank-one identity N◦φ₁=0 is Lemma 5.2.1(5), p.886. The proof uses the usual first ramification subgroup (inertia with uniformizer ratio congruent to one); the Γ₁ point is an omitted notation explanation, not a false identity. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
 
-- **E5** (BCDT, misprint; affects nothing), §8.3, p.918: The comparison cites Theorem 4.4.1. The intended comparison is Theorem 4.5.1. The proof is in the ramified-quadratic branch; its unique residual model is the statement of 4.5.1. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
+- **E5** (BCDT, misprint; affects nothing), §8.3, p.918: The comparison cites Theorem 4.4.1. The intended comparison is Theorem 4.5.1. Theorem 4.7.4 is the ramified-quadratic theta-vanishing result, whose dimension-bound consequence is Theorem 4.5.1 (p.877). Theorem 4.4.1 instead belongs to the cubic branch. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
 
 - **E6** (BCDT, misprint; affects the proof), §7.4 rank-four descent display, p.910: The fourth displayed left-hand side repeats the ω-labelled lifted vector. It is the descent action on e′₁. There are four different basis vectors; its right-hand side is the transformation of the fourth one. No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.
 

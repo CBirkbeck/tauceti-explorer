@@ -2474,6 +2474,12 @@
           "kind": "characterisation",
           "statement": "The (6,6) inverse descent includes −c′u³⁰ with the same sign for both γ₃ and γ₃⁻¹.",
           "detects": "Treating the inverse as a naive sign change fails."
+        },
+        {
+          "name": "extendedModel_sixSixUnitCrossTerm",
+          "kind": "characterisation",
+          "statement": "At (6,6), c=1 and c′=0 the second filtration generator is u⁶e′ω+e₁; its e₁ coefficient is a unit and its special-fibre Frobenius is nonzero.",
+          "detects": "Substituting the diagonal self-extension polynomial cu²+c′u⁶ would make this coefficient divisible by u² and would lose the forward family."
         }
       ],
       "uses": [
@@ -2503,8 +2509,10 @@
       ],
       "kind": "theorem",
       "title": "Classification and generic Ext of the extended models",
-      "statement": "Every Iᵢ-annihilated descent object killed by three whose Q₃ generic fibre is an extension 0→ω→ρ→1→0 is in one of the four model families. In each family generic fibre induces an isomorphism of its Breuil Ext group with H¹(G₃,ω)≅F₃². In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent to c=0, splitting over Q₃ to c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0, c=c′=0, and c=0. The maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′) to (c+c′,c).",
-      "hypotheses": [],
+      "statement": "Fix the full G₃ très ramifié residual extension 0→ω→ρ̄→1→0 of extended-category. Every Iᵢ-annihilated descent object killed by three with Q₃ generic fibre isomorphic to this nonsplit ρ̄ is in one of the four model families. Separately, for all parameter values, including the split class, in each of those four families generic fibre induces an isomorphism of its Breuil Ext group with H¹(G₃,ω)≅F₃². In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent to c=0, splitting over Q₃ to c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0, c=c′=0, and c=0. The maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′) to (c+c′,c).",
+      "hypotheses": [
+        "The exhaustiveness clause concerns the fixed full G₃ très ramifié ρ̄. The generic-Ext comparisons within the four families allow all parameters; they do not classify every integral model of a split generic fibre."
+      ],
       "prerequisites": [
         "EllipticCurveModularityWild3Adic:W3.5/extended-models",
         "EllipticCurveModularityWild3Adic:W3.1/local-paired-curves",
@@ -2515,21 +2523,30 @@
       "sources": [
         {
           "sourceId": "BCDT",
-          "locator": "Proposition 9.2.1, pp.920–927, especially pp.925–927",
-          "match": "This locator supplies the stated classification and generic ext of the extended models; the formulation here fixes the coefficient, variance and descent conventions explicitly."
+          "locator": "Theorem 4.6.1(3), p.877; Proposition 9.2.1 and its standing hypothesis, pp.920–927, especially pp.922–923 and 925–927",
+          "match": "The fixed très residual representation is the context of the exhaustive model statement. The proof excludes the other pairs by nonsplitting; the four individual Ext computations also include zero parameters."
         }
       ],
       "proofSteps": [
-        "The adapted basis and operator ideal rule out the other weight pairs and put every object into one of the displayed forms.",
+        "Take schematic closure of the generic ω line and use the adapted basis and operator ideal. As in BCDT pp.922–923, the other weight pairs force the Q₃ generic extension to split, contradicting the très ramifié hypothesis. This exclusion is not asserted for split generic fibres.",
         "Compute kernels of generic-fibre Ext over Fᵢ, then check which splitting morphisms respect descent to Q₃. Injectivity and parameter counts give the four isomorphisms.",
         "Check the canonical u⁶ pullback and pushout maps, including the change of lifted basis, giving (c+c′,c).",
         "The two very ramified paired local curves nonsplit over Fᵢ have nonzero special-fibre F, so their (6,6) lines are c′=0 and c=c′. The remaining nonsplit-over-Fᵢ line c=0 is the peu line."
       ],
       "acceptance": [
-        "The line c+c′=0 is the splitting-over-type-field line, not the peu line."
+        "The line c+c′=0 is the splitting-over-type-field line, not the peu line.",
+        "Exhaustiveness uses nonsplitting. The split Iᵢ-annihilated object M′_{2,1}⊕M′_{2,ω}, with F=V_D=0 on its special fibre, has weight pair (2,2) and is outside the four families."
       ],
       "implementationStatus": "unchecked",
-      "leanName": "extendedModelClassification"
+      "leanName": "extendedModelClassification",
+      "tests": [
+        {
+          "name": "extendedClassification_splitCounterexample",
+          "kind": "characterisation",
+          "statement": "M′_{2,1}⊕M′_{2,ω} is an Iᵢ-annihilated model of the split generic extension and has weight pair (2,2), outside the four selected pairs.",
+          "detects": "Removing the nonsplitting hypothesis from exhaustiveness would falsely classify this object."
+        }
+      ]
     },
     {
       "id": "EllipticCurveModularityWild3Adic:W3.5/extended-reverse-extensions",
@@ -3212,7 +3229,7 @@
       "sources": [
         {
           "sourceId": "BCDT",
-          "locator": "Theorems 1.4.1–1.4.2, pp.856–857; application in proof of Theorem 2.2.1, p.865",
+          "locator": "Theorems 1.4.1–1.4.2, pp.857–858; application in proof of Theorem 2.2.1, p.865",
           "match": "This locator supplies the stated wild modularity lifting for the companion curve; the formulation here fixes the coefficient, variance and descent conventions explicitly."
         }
       ],
@@ -3430,7 +3447,7 @@
     },
     {
       "supplier": "GL2ModularityLifting:R22.5",
-      "need": "Classical BCDT Theorems 1.4.1–1.4.2 (pp.856–857) with residual modularity, cyclotomic absolute irreducibility, scalar local centralizer, potentially Barsotti–Tate type, admittance and weak acceptability. Also supply CDT Theorems 7.2.1 (conductor not divisible by 27) and 7.2.4 (mod-five modularity or exceptional cyclotomic restriction), including BCDT §10 (pp.937–938) correcting the negative-j branch by a rational three-isogeny. These interfaces must not assume the unconditional elliptic modularity theorem.",
+      "need": "Classical BCDT Theorems 1.4.1–1.4.2 (pp.857–858) with residual modularity, cyclotomic absolute irreducibility, scalar local centralizer, potentially Barsotti–Tate type, admittance and weak acceptability. Also supply CDT Theorems 7.2.1 (conductor not divisible by 27) and 7.2.4 (mod-five modularity or exceptional cyclotomic restriction), including BCDT §10 (pp.937–938) correcting the negative-j branch by a rational three-isogeny. These interfaces must not assume the unconditional elliptic modularity theorem.",
       "neededBy": [
         "EllipticCurveModularityWild3Adic:W3.6/wild-lifting-application",
         "EllipticCurveModularityWild3Adic:W3.6/global-mod-five",
@@ -3459,7 +3476,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
-      "need": "Continuous local Tate duality and Kummer theory over Q₃, dim H¹(G₃,ω)=2, the unit/peu line and the nonunit/très classes, and nontrivial pairing of the unramified H¹(G₃,F₃) line with a très Kummer class.",
+      "need": "Specialize the existing native Kummer and local Tate-duality interfaces to Q₃: dim H¹(G₃,ω)=2, the unit/peu line and nonunit/très classes, and nontrivial pairing of the unramified H¹(G₃,F₃) line with a très Kummer class. Use the coefficient and continuous-cohomology comparison already owned by ClassFieldTheory; no new general Kummer isomorphism or local-duality proof is requested.",
       "neededBy": [
         "EllipticCurveModularityWild3Adic:W3.2/theta-kernel-criterion",
         "EllipticCurveModularityWild3Adic:W3.3/cubic-local-local-descent",
@@ -3467,7 +3484,7 @@
         "EllipticCurveModularityWild3Adic:W3.5/extended-model-classification"
       ],
       "status": "open",
-      "evidence": "Reviewed AUDIT-03: the native continuous-cohomology carriers and cup product exist; perfect local Tate duality and the Kummer isomorphism are not built. Import this roadmap’s planned duality, never re-plan it here."
+      "evidence": "Reviewed AUDIT-03 describes the atlas pin f790474, at which the arithmetic comparison was missing. At current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, ClassFieldTheory.kummerEquiv and dualityMap1_kummerCoeff_bijective are proved. Reuse them when the pin advances and supply only the specified Q₃ dimension/line/pairing specializations. The present Lean fragments still elaborate at the atlas pin."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
@@ -3501,7 +3518,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-      "need": "Local elliptic reduction and Néron–Ogg–Shafarevich, special-fibre Frobenius and point-count sign comparison. Supply the explicit local companion existence of Manoharmayum Theorem 5.3.2/§5.4 and BCDT Corollary 2.3.2; the rank-one cubic forward-extension proof also needs the peu companion examples from Manoharmayum §5.3. Supply the elliptic cross-prime Weil–Deligne compatibility and Barsotti–Tate/good-reduction criterion of CDT Proposition B.4.2, pp.563–565.",
+      "need": "Local elliptic reduction and Néron–Ogg–Shafarevich, special-fibre Frobenius and point-count comparison. Supply the reduction and torsion calculations for the Manoharmayum cubic families in §5.3, Lemma 5.3.1 and Theorem 5.3.2 (pp.750–751), including the peu examples used in BCDT Lemmas 7.2.1–7.2.2, and the ramified-quadratic families in Manoharmayum §5.4 and Theorem 5.4.2 (pp.751–753). Supply the elliptic cross-prime Weil–Deligne comparison and Barsotti–Tate/good-reduction criterion of CDT Proposition B.4.2 (pp.563–565). W3.1/local-paired-curves assembles the prescribed two-prime companions, including BCDT Corollary 2.3.2; W3.1/extended-local-frobenius-sign proves the exact extended sign.",
       "neededBy": [
         "EllipticCurveModularityWild3Adic:W3.3/cubic-forward-extensions",
         "EllipticCurveModularityWild3Adic:W3.3/cubic-residual-model",
@@ -3511,7 +3528,7 @@
         "EllipticCurveModularityWild3Adic:W3.6/six-case-tate-types"
       ],
       "status": "open",
-      "evidence": "The native elliptic-roadmap Layer 4 owns reduction and Tate’s algorithm. Its current target does not give the precise paired-torsion families or cross-prime WD theorem: add these as Elliptic curves, Part II, not as a duplicate theory in this roadmap."
+      "evidence": "Current EllipticCurves Layer 4 owns reduction and Tate’s algorithm, but does not yet state these specific family calculations or the cross-prime comparison; request that addition as Elliptic curves, Part II. The general local inputs can be proved without this roadmap. Its two-prime assembly and extended sign remain W3.1 outputs, so the supplier request does not ask for its consumer’s theorem."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
@@ -3541,49 +3558,49 @@
       "stageId": "EllipticCurveModularityWild3Adic:W3.0",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.1",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.2",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.3",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.4",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.5",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     },
     {
       "stageId": "EllipticCurveModularityWild3Adic:W3.6",
       "status": "planned",
       "remaining": [
-        "Instantiate the exact supplier contracts and the indexed native signature boundary; verify their hypotheses in the independent review."
+        "Instantiate the exact supplier contracts and the full signatures indexed in G-LEAN when the supplier interfaces exist. Their mathematical hypotheses have been checked in this independent review."
       ]
     }
   ],
@@ -3666,7 +3683,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published p.866 statement: elliptic three-torsion and the displayed upper-triangular representation have dimension two, so the target is GL₂(F₃).",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E2",
@@ -3681,7 +3703,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published pp.900–901: γ₄² negates β and squares to the identity, hence it is the order-two element, not an order-three element.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E3",
@@ -3696,7 +3723,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.902: the calculation belongs to the negative quadratic field defined in §6.4; the positive-field labels are incorrect.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E4",
@@ -3704,14 +3736,19 @@
       "kind": "misprint",
       "affects": "the proof",
       "locator": "Proof of Lemma 5.7.1, p.899",
-      "printed": "The cross-reference calls Lemma 5.2.1 a theorem, and an undefined Γ₁ appears in the descent argument.",
+      "printed": "The cross-reference calls Lemma 5.2.1 a theorem, and the proof uses Γ₁ without explicitly introducing that notation in §§5.6–5.7.",
       "correction": "Use Lemma 5.2.1(5) and the inertia subgroup acting trivially on the residue field and congruent to one on the uniformizer.",
-      "reason": "The rank-one identity N◦φ₁=0 is Lemma 5.2.1(5), p.886; the subsequent calculation uses the first ramification subgroup.",
+      "reason": "The rank-one identity N◦φ₁=0 is Lemma 5.2.1(5), p.886. The proof uses the usual first ramification subgroup (inertia with uniformizer ratio congruent to one); the Γ₁ point is an omitted notation explanation, not a false identity.",
       "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the Lemma 5.2.1 reference at published p.899. Scoped Γ₁ to an explanation of the first ramification subgroup; its notation is implicit, not a false rank-one identity.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E5",
@@ -3721,12 +3758,17 @@
       "locator": "§8.3, p.918",
       "printed": "The comparison cites Theorem 4.4.1.",
       "correction": "The intended comparison is Theorem 4.5.1.",
-      "reason": "The proof is in the ramified-quadratic branch; its unique residual model is the statement of 4.5.1.",
+      "reason": "Theorem 4.7.4 is the ramified-quadratic theta-vanishing result, whose dimension-bound consequence is Theorem 4.5.1 (p.877). Theorem 4.4.1 instead belongs to the cubic branch.",
       "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.918: the quadratic vanishing argument proves Theorem 4.7.4 and its dimension consequence Theorem 4.5.1. The reference to Theorem 4.4.1 points to the cubic branch.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E6",
@@ -3741,7 +3783,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.910: the fourth descent row acts on the fourth basis vector 1′; repeating the lifted ω label makes the displayed matrix inconsistent.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E8",
@@ -3756,7 +3803,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.939: the Tate and Tunnell references share one tag. Citing the author and theorem avoids ambiguity without changing a result.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E9",
@@ -3771,7 +3823,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.902: α is a unit and β has valuation 1/4; α−1 has valuation 1/3. Thus only (α−1)/β is the claimed valuation-1/12 uniformizer, with norm −3.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E10",
@@ -3786,7 +3843,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.910 by restriction to the rank-three submodule: the second-row g coefficient multiplies the original ω vector, not its second lift.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E11",
@@ -3801,7 +3863,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.908 against Lemma 7.2.6: the weight-two filtration uses u²e′+(b+b′u)u e. The proof display has the wrong leading weight/vector.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E12",
@@ -3816,7 +3883,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.878 and the construction on pp.932–935: the varying representation is ρ_N with Artin coefficients over F₃, not the fixed residual representation with general residue-field notation.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E13",
@@ -3831,7 +3903,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.878: for N=1 the coefficient ring is F₃, so no nonzero T-direction exists. Published p.933 explicitly restricts the proof’s nontrivial T² specialization to N≥2.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E14",
@@ -3846,7 +3923,12 @@
       "searched": [
         "Published source and author-hosted version at the corresponding locators.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the lifting gap at published p.879. In Z/9⊕Z/3 the stated map from 3D cannot extend. The packet’s replacement using F(D[3])=0, F²=−3 and bounded exponent proves 3D=0 without that lift.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E15",
@@ -3861,7 +3943,12 @@
       "searched": [
         "Author-hosted version at the cited locator; these two label issues are not asserted of the published version.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only in the SBT author copy, p.3: the general field-K twist is P¹_K. The applications over Q remain valid; the published printing was not checked.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E16",
@@ -3876,7 +3963,12 @@
       "searched": [
         "Author-hosted version at the cited locator; these two label issues are not asserted of the published version.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only in the SBT author copy, p.3: the double-cover proof uses SL₂(F₅) throughout and the isolated SL₅ label is a typo. The published printing was not checked.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     },
     {
       "id": "EllipticCurveModularityWild3Adic/E17",
@@ -3891,7 +3983,12 @@
       "searched": [
         "Published source at the cited locator.",
         "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published Manoharmayum p.744 proof: item 3.4 is a definition, whereas Proposition 3.5 gives the quartic splitting-field calculation cited.",
+        "by": "REV-DESIGN-EllipticCurveModularityWild3Adic"
+      }
     }
   ],
   "restructure": [
@@ -3935,6 +4032,10 @@
     {
       "title": "Extension notation on p.888",
       "detail": "The routed extraction flags the final G(k′;r,a;s,b;f)=Gπ(M(k′;r,a;s,b;f)) notation as a reversed-argument misprint. Rechecking pp.887–888 shows that both sides are ordered identically and the dummy pairs may be renamed; no correction to that equality is required. This packet always identifies the actual submodule and quotient, and does not reproduce that alleged source issue."
+    },
+    {
+      "title": "Independent review of current upstream",
+      "detail": "The review read current TauCetiRoadmap at 4d41db8550e23603fb93c65d363a8d521cca9cbe and Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. ProfiniteArithmetic and LocalGaloisGroups were read in full, with the exact ClassFieldTheory, LocalFieldsRamification, EllipticCurves and ModularCurves supplier contracts checked. Kummer equivalences and finite-module local duality now exist after the atlas pin; reuse those declarations and request only the Q₃ arithmetic specializations."
     }
   ],
   "sourceCoverage": [
@@ -5149,5 +5250,333 @@
       "source": "data/library-coverage.json",
       "use": "Read the reviewed verdict and declaration evidence; native carriers are cited and missing arithmetic comparisons retain their roadmap owners."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "BCDT",
+      "kind": "published",
+      "url": "https://web.archive.org/web/2023id_/https://www.ams.org/journals/jams/2001-14-04/S0894-0347-01-00370-8/S0894-0347-01-00370-8.pdf",
+      "citation": "J. Amer. Math. Soc. 14 (2001), no.4, 843–939, published version",
+      "read": "2026-10-11",
+      "sha256": "1e34130e55a0ef39d7ef2566cc7d518e2b69048dece36328a0b6530e92044cf2",
+      "scope": "Published pagination governs findings E1–E14; the public archived publisher PDF was read at all cited locators."
+    },
+    {
+      "sourceId": "BCDT",
+      "kind": "author copy",
+      "url": "https://virtualmath1.stanford.edu/~conrad/papers/tswfinal.pdf",
+      "citation": "Author-hosted 79-page text",
+      "read": "2026-10-11",
+      "sha256": "13043cf6e9043a69dc7988882658cd92595efc88dfd4fd2f326ac3ef3cae8e06",
+      "scope": "Comparison copy; findings against stated BCDT results are checked against the published PDF."
+    },
+    {
+      "sourceId": "CDT",
+      "kind": "author copy",
+      "url": "https://virtualmath1.stanford.edu/~conrad/papers/cdtmaster.pdf",
+      "citation": "J. Amer. Math. Soc. 12 (1999), 521–567; author-hosted 47-page text",
+      "read": "2026-10-11",
+      "sha256": "e9dac063b9db6fd7b34e79907ce09095688b1fd8b1ea48c8527797b6090ae91c"
+    },
+    {
+      "sourceId": "Man",
+      "kind": "published",
+      "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/mrl/1999/0006/0006/MRL-1999-0006-0006-a012.pdf",
+      "citation": "Math. Res. Lett. 6 (1999), 735–754, published version",
+      "read": "2026-10-11",
+      "sha256": "54a0052b024d310f08384bc3316bd83faf24fee136692d385ef9d06c90b9273b"
+    },
+    {
+      "sourceId": "SBT",
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~rltaylor/klein.pdf",
+      "citation": "J. Amer. Math. Soc. 10 (1997), 283–298; author-hosted version",
+      "read": "2026-10-11",
+      "sha256": "857e0948c265684293f3a84df33762d394b15ce61ac185b513c44338df836a08",
+      "scope": "E15–E16 concern the author copy, p.3, only; no claim is made about the published printing."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityWild3Adic",
+    "date": "2026-10-11",
+    "notes": "Independent review of the new definition, all 55 node contracts, 82 API items, 68 tests, 38 planets, 14 exact-pinned baseline declarations, 16 supplier requests and 16 source findings. Corrected classification nonsplitting, the native exceptional filtration and lifting pagination; narrowed overlapping/current-upstream requests and recorded public source versions. All seven stages are planned. G-LEAN remains an explicit full-signature boundary; no formalisation is claimed. The final suggested file elaborates with 45 permitted admitted-proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/cubic-types",
+        "verdict": "verified",
+        "note": "Checked both cubic characters, their conductor and arithmetic reciprocity normalization; the two signs are distinct inertia classes and use the compact-type supplier."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/ramified-quadratic-types",
+        "verdict": "verified",
+        "note": "Checked the quadratic induction and order-three character restrictions; the ramified quadratic extensions and their signs remain distinct."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/extended-types",
+        "verdict": "verified",
+        "note": "Checked all three norm-subgroup characters and the full Weil extension, including quotient Frobenius; inertia alone does not determine this object."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/cubic-cyclic-field",
+        "verdict": "verified",
+        "note": "Checked the Eisenstein polynomial, its three roots, cyclic generator and truncated Breuil coefficients; the native intermediate field has the stated degree."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/cubic-nonabelian-field",
+        "verdict": "verified",
+        "note": "Checked the cubic polynomial, unramified quadratic splitting extension, automorphism and its inverse; the field and splitting field are distinguished."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/positive-quadratic-field",
+        "verdict": "verified",
+        "note": "Checked the degree-twelve splitting field, positive uniformizer and descent generators; the order-two correction is consistent with the formulas."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/negative-quadratic-field",
+        "verdict": "verified",
+        "note": "Checked the negative field independently: (α−1)/β has valuation 1/12 and norm −3, while α/β has valuation −1/4. The corrected Hγ expansion uses this uniformizer."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/extended-type-fields",
+        "verdict": "verified",
+        "note": "Checked the three explicit extensions against their norm subgroups and the reciprocal γ₂, γ₃ and γ₄² generators; the residue degree and total ramification are distinguished."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/simple-admittance-cubic",
+        "verdict": "verified",
+        "note": "Checked the two local compact representations and scalar-centralizer hypothesis; the source proves simple admittance rather than a new lifting theorem."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/simple-admittance-quadratic",
+        "verdict": "verified",
+        "note": "Checked the ramified quadratic compact representation and residual alternatives, using the stated arithmetic character convention."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.0/simple-admittance-extended",
+        "verdict": "verified",
+        "note": "Checked the full extended-type action and its Frobenius sign; omitting the w₃ action would give a weaker inertia assertion."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/cubic-category",
+        "verdict": "verified",
+        "note": "Checked the unbounded torsion essential-image condition and ramified special-fibre descent compatibility; its finite-product/subquotient closure uses the whole generic representation as in R08.6."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/quadratic-category",
+        "verdict": "verified",
+        "note": "Checked F+V_D and γ₄²+1 on contravariant special fibres; its category contains all torsion levels, not just groups killed by three."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/extended-category",
+        "verdict": "verified",
+        "note": "Checked all three semilinear ideal generators and sign independence; γ₂ supplies coefficient Frobenius, and the fixed residual representation is on the full G₃."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/theta-maps",
+        "verdict": "verified",
+        "note": "Checked the coefficient pushout/pullback construction in native continuous H¹ and the natural map from finite-flat Ext; no discrete-cohomology replacement is used."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/theta-kernel-criterion",
+        "verdict": "verified",
+        "note": "Checked the trace-zero fixed-determinant kernel, the unramified diagonal ambiguity, and its elimination by pairing with a très class."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/cubic-point-factorization",
+        "verdict": "verified",
+        "note": "Checked full Barsotti–Tate type and finite-product/subquotient membership of the whole generic representation against the weak type quotient supplier."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.2/quadratic-point-factorization",
+        "verdict": "verified",
+        "note": "Checked the special-fibre quadratic identity and lattice factorization; the result concerns full type and does not promote a weak type quotient to a stronger ring."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-rank-one-models",
+        "verdict": "verified",
+        "note": "Checked rank-one weights, characters and uniqueness from the requested Breuil descent interface, including the corrected monodromy convention."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-forward-extensions",
+        "verdict": "verified",
+        "note": "Checked parameter/gauge equivalence and descent; the peu comparison uses Manoharmayum Theorem 5.3.2 and the local elliptic family supplier."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-local-local-descent",
+        "verdict": "verified",
+        "note": "Checked local-local model normalization and invariance of its extension parameter; the H¹ restriction isomorphism gives descent of the generic group from any totally ramified abelian cubic field. Integral descent to Z₃ is not claimed."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-residual-model",
+        "verdict": "verified",
+        "note": "Checked the très residual model and uniqueness; its generic comparison uses the paired local examples rather than assuming all cubic extensions are very ramified."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-rank-one-self-extensions",
+        "verdict": "verified",
+        "note": "Checked both self-extension computations and the weight-two filtration generator u²e′+(b+b′u)u e, including the corrected displayed proof."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-rank-three-splitting",
+        "verdict": "verified",
+        "note": "Checked the rank-three pushout and pullback models and their strict filtration/generic splitting comparisons."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-diagonal-vanishing",
+        "verdict": "verified",
+        "note": "Checked the rank-four descent equations and both corrected basis labels; the remaining diagonal class is forced to vanish."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-tangent-bound",
+        "verdict": "verified",
+        "note": "Checked the theta-kernel implication and residue-field change: the fixed-determinant tangent dimension is at most one, not an asserted smoothness result."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.3/cubic-weak-acceptability",
+        "verdict": "verified",
+        "note": "Checked the characteristic-zero point factorization and tangent bound needed by the classical lifting contract; weak acceptability is kept distinct from acceptability."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/degree-twelve-rank-one-descent",
+        "verdict": "verified",
+        "note": "Checked all seven even weights 0 through 12, their Frobenius coefficients and canonical descent; the involution condition selects precisely 2, 6 and 10. These calculations are reused in W3.5."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/degree-twelve-adapted-bases",
+        "verdict": "verified",
+        "note": "Checked the Frobenius coefficient normalization and γ₂/tame adapted bases; wild correction equations are deferred to the explicit classifications."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/quadratic-residual-model",
+        "verdict": "verified",
+        "note": "Checked the nonsplit très classification, the two quadratic signs and the generic Ext comparison, with the elliptic family exclusion supplied by the owner."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/quadratic-push-pull-vanishing",
+        "verdict": "verified",
+        "note": "Checked the rank-three comparison and its Cartier-dual counterpart; the generic Ext image, not every integral extension, vanishes."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/quadratic-diagonal-vanishing",
+        "verdict": "verified",
+        "note": "Checked the final descent relation and Theorem 4.7.4; the resulting dimension consequence is Theorem 4.5.1, not the cubic theorem."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/quadratic-tangent-bound",
+        "verdict": "verified",
+        "note": "Checked the quadratic theta kernel and coefficient-field change against the deformation-ring supplier; the dimension bound retains determinant hypotheses."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.4/quadratic-weak-acceptability",
+        "verdict": "verified",
+        "note": "Checked point factorization and tangent control for both signs; the lifting assumption is full potentially Barsotti–Tate type."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/six-local-cases",
+        "verdict": "verified",
+        "note": "Checked the six mutually specified local alternatives and exceptional extended case; the representation is the full residual Galois representation."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/six-case-classification",
+        "verdict": "verified",
+        "note": "Checked the finite F₅ normalizer calculation and local alternatives against the exact ArithmeticGaloisRepresentations request; no full Serre theorem is assumed."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/extended-local-frobenius-sign",
+        "verdict": "verified",
+        "note": "Checked the two special-fibre point counts and the extended Frobenius sign with arithmetic reciprocity, beyond inertia-type agreement."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.1/local-paired-curves",
+        "verdict": "verified",
+        "note": "Checked prescribed three/five-torsion and pairing compatibility; narrowed the elliptic supplier request to family/reduction calculations, leaving two-prime assembly here."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-models",
+        "verdict": "corrected",
+        "note": "Corrected native extendedSixSixFiltration from the diagonal polynomial cu²+c′u⁶ to the forward polynomial c+c′u⁴; added the unit-cross-term test and an elaborated native membership example."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-model-classification",
+        "verdict": "corrected",
+        "note": "Restored the fixed full-G₃ très, nonsplit residual representation for exhaustiveness; added the split weight-(2,2) counterexample. The four within-family Ext comparisons still include zero parameters."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-reverse-extensions",
+        "verdict": "verified",
+        "note": "Checked the opposite Ext groups and their canonical pullback/pushout maps; generic splitting and integral nontriviality are distinguished."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-diagonal-extensions",
+        "verdict": "verified",
+        "note": "Checked both diagonal self-extension families; the cu²+c′u⁶ polynomial belongs here and must not replace the forward (6,6) filtration."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-coefficient-filtration",
+        "verdict": "verified",
+        "note": "Checked the coefficient-linear weak filtration for each model, with rank-one multiplicities and strict integral realization supplied by R07.1/R07.4."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-filtered-categories",
+        "verdict": "verified",
+        "note": "Checked weak-to-strong filtrations using all four Hom/Ext comparisons, full generic subquotients and the unbounded torsion category."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-theta-vanishing",
+        "verdict": "verified",
+        "note": "Checked the rank-four exceptional filtration and wild correction forcing a₂=0; the coefficient and local pairing steps use the stated suppliers."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-tangent-bound",
+        "verdict": "verified",
+        "note": "Checked each filtered-category theta kernel, including the exceptional model, and the fixed-determinant tangent bound after coefficient extension."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-artin-deformations",
+        "verdict": "verified",
+        "note": "Checked the compatible F₃[T]/(Tᴺ) families and their fixed determinant; nontrivial specialization modulo T² is asserted only for N≥2."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-characteristic-three-rings",
+        "verdict": "verified",
+        "note": "Verified the existing repair: exactness identifies D[3], Frobenius kills it, F²=−3 implies D[9]=D[3], and bounded three-primary exponent implies 3D=0. No extension of arbitrary endomorphisms from 3D is assumed."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-point-factorization",
+        "verdict": "verified",
+        "note": "Checked characteristic-zero point factorization through the filtered category and exclusion of the three rings wholly killed by three."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.5/extended-weak-acceptability",
+        "verdict": "verified",
+        "note": "Checked the remaining characteristic-zero branch, its tangent bound and full extended-type sign against the classical lifting hypotheses."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.6/global-companion",
+        "verdict": "verified",
+        "note": "Checked fixed-pairing twist rationality and Hilbert local conditions; the ordered three-torsion cover has degree 24 and is the level-fifteen quotient, not a regular GL₂(F₃) cover."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.6/six-case-tate-types",
+        "verdict": "verified",
+        "note": "Checked the cross-prime Weil–Deligne comparison and good-reduction criterion, with the extended sign obtained from W3.1 rather than inferred from inertia."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.6/wild-lifting-application",
+        "verdict": "corrected",
+        "note": "Corrected the locator for BCDT Theorems 1.4.1–1.4.2 to pp.857–858; checked residual modularity, cyclotomic irreducibility, local centralizers, admittance and weak acceptability."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.6/global-mod-five",
+        "verdict": "verified",
+        "note": "Checked the global companion and six local lifting branches, including the finite-group determinant argument and the separate classical five-adic input."
+      },
+      {
+        "nodeId": "EllipticCurveModularityWild3Adic:W3.6/elliptic-modularity",
+        "verdict": "verified",
+        "note": "Checked the independent three-five endpoint, the exceptional CDT branch and BCDT §10 isogeny correction; only the parent’s conditional modularity/parametrisation equivalence is imported."
+      }
+    ]
+  }
 }

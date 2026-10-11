@@ -261,7 +261,12 @@ def extendedNonexceptionalFiltration (r s t : ℕ) (c : F3) :
 
 /-- The filtration fragment of the exceptional (6,6) forward family. -/
 def extendedSixSixFiltration (c c' : F3) : Submodule S36 (Fin 2 → S36) :=
-  Submodule.span S36 { ![u36 ^ 6, 0], ![(c : S36) * u36 ^ 2 + (c' : S36) * u36 ^ 6, u36 ^ 6] }
+  Submodule.span S36 { ![u36 ^ 6, 0], ![(c : S36) + (c' : S36) * u36 ^ 4, u36 ^ 6] }
+
+-- extendedModel_sixSixUnitCrossTerm: the native filtration distinguishes a unit cross term.
+example : ![1, u36 ^ 6] ∈ extendedSixSixFiltration 1 0 := by
+  apply Submodule.subset_span
+  simp
 
 /-- The exceptional monodromy coefficient fragment of extendedModel_filtration. -/
 def extendedSixSixN (c' : F3) : S36 := (c' : S36) * u36 ^ 30
@@ -879,40 +884,50 @@ exact positive uniformizer sign in tag 6 for its index.
 
 EllipticCurveModularityWild3Adic:W3.5/extended-models
 Target name: extendedModels (construction).
-Full contract: In the wild Breuil descent category over F′ᵢ annihilated by Iᵢ, construct the four families
-M′_{r,s} of extensions 0→M′_{s,1}→M′→M′_{r,ω}→0 for (r,s)=(2,6),(6,10),(2,10),(6,6). Over S₃₆=F₃[u]/u³⁶ use
-basis e₁,e′ω, filtration ⟨uˢe₁,uʳe′ω+h e₁⟩, and Frobenius images e₁,e′ω. For the first three pairs
-h=cu²,cu⁶,cu⁸ respectively, N=0, parameters (c,c₁)∈F₃², and γ₃^{±1} acts respectively by
-e₁↦e₁,e′ω↦(1±u¹⁸)(e′ω±c₁u⁶e₁); e₁↦(1∓u¹⁸)e₁,e′ω↦e′ω±c₁u⁶e₁; e₁↦(1∓u¹⁸)e₁,e′ω↦(1±u¹⁸)(e′ω±c₁u¹²e₁). The γ₄
-eigenvalues on (e₁,e′ω) are (−j,−j),(j,j),(j,−j). For (6,6), h=c+c′u⁴, N(e′ω)=c′u³⁰e₁, γ₄ has eigenvalues
-(−j,j), and γ₃^{±1}(e′ω)=e′ω+(±c∓c′u¹²−c′u³⁰)e₁, fixing e₁. In all cases γ₂ is coefficient Frobenius on F₉.
-These are corrected wild descent operators, not ordinary commuting semilinear group actions.
+Full contract: In the wild Breuil descent category over F′ᵢ annihilated by Iᵢ, construct the four
+families M′_{r,s} of extensions 0→M′_{s,1}→M′→M′_{r,ω}→0 for (r,s)=(2,6),(6,10),(2,10),(6,6). Over
+S₃₆=F₃[u]/u³⁶ use basis e₁,e′ω, filtration ⟨uˢe₁,uʳe′ω+h e₁⟩, and Frobenius images e₁,e′ω. For the first
+three pairs h=cu²,cu⁶,cu⁸ respectively, N=0, parameters (c,c₁)∈F₃², and γ₃^{±1} acts respectively by
+e₁↦e₁,e′ω↦(1±u¹⁸)(e′ω±c₁u⁶e₁); e₁↦(1∓u¹⁸)e₁,e′ω↦e′ω±c₁u⁶e₁; e₁↦(1∓u¹⁸)e₁,e′ω↦(1±u¹⁸)(e′ω±c₁u¹²e₁). The
+γ₄ eigenvalues on (e₁,e′ω) are (−j,−j),(j,j),(j,−j). For (6,6), h=c+c′u⁴, N(e′ω)=c′u³⁰e₁, γ₄ has
+eigenvalues (−j,j), and γ₃^{±1}(e′ω)=e′ω+(±c∓c′u¹²−c′u³⁰)e₁, fixing e₁. In all cases γ₂ is coefficient
+Frobenius on F₉. These are corrected wild descent operators, not ordinary commuting semilinear group
+actions.
 API extendedModel_exists: For each pair and parameter tuple, the listed data determine an Iᵢ-annihilated
 Breuil descent object and its contravariant finite-flat model.
-API extendedModel_filtration: Its filtration, Frobenius, N and descent have exactly the displayed formulas.
-API extendedModel_extension: The object is a strict Breuil extension with the stated rank-one subobject and
-quotient.
-API extendedModel_specialFrobenius: Special-fibre F is zero in the first three families and, in (6,6), is zero
-exactly when c=0.
-API extendedModel_genericFibre: The contravariant generic fibre is a continuous F₃[G₃] extension of 1 by ω;
-coefficient Frobenius acts on F₉, not on the residual parameters.
-Test extendedModel_zeroParameters: At zero parameters the extension is split with the indicated canonical
-rank-one descent.
+API extendedModel_filtration: Its filtration, Frobenius, N and descent have exactly the displayed
+formulas.
+API extendedModel_extension: The object is a strict Breuil extension with the stated rank-one subobject
+and quotient.
+API extendedModel_specialFrobenius: Special-fibre F is zero in the first three families and, in (6,6),
+is zero exactly when c=0.
+API extendedModel_genericFibre: The contravariant generic fibre is a continuous F₃[G₃] extension of 1 by
+ω; coefficient Frobenius acts on F₉, not on the residual parameters.
+Test extendedModel_zeroParameters: At zero parameters the extension is split with the indicated
+canonical rank-one descent.
 Test extendedModel_sixSixMonodromy: At (6,6), c′=1 gives N(e′ω)=u³⁰e₁≠0 in S₃₆.
 Test extendedModel_sixSixFrobenius: At (6,6), c=1 gives nonzero special-fibre Frobenius, while the (2,6)
 family always has zero special-fibre Frobenius.
 Test extendedModel_twoTenCrossTerm: For (2,10) and c₁=1 the γ₃ cross term begins at u¹², not u⁶.
-Test extendedModel_deepWildCorrection: The (6,6) inverse descent includes −c′u³⁰ with the same sign for both
-γ₃ and γ₃⁻¹.
+Test extendedModel_deepWildCorrection: The (6,6) inverse descent includes −c′u³⁰ with the same sign for
+both γ₃ and γ₃⁻¹.
+Test extendedModel_sixSixUnitCrossTerm: At (6,6), c=1 and c′=0 the second filtration generator is
+u⁶e′ω+e₁; its e₁ coefficient is a unit and its special-fibre Frobenius is nonzero.
 
 EllipticCurveModularityWild3Adic:W3.5/extended-model-classification
 Target name: extendedModelClassification (theorem).
-Full contract: Every Iᵢ-annihilated descent object killed by three whose Q₃ generic fibre is an extension
-0→ω→ρ→1→0 is in one of the four model families. In each family generic fibre induces an isomorphism of its
-Breuil Ext group with H¹(G₃,ω)≅F₃². In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent
-to c=0, splitting over Q₃ to c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0,
-c=c′=0, and c=0. The maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′)
-to (c+c′,c).
+Full contract: Fix the full G₃ très ramifié residual extension 0→ω→ρ̄→1→0 of extended-category. Every
+Iᵢ-annihilated descent object killed by three with Q₃ generic fibre isomorphic to this nonsplit ρ̄ is in
+one of the four model families. Separately, for all parameter values, including the split class, in each
+of those four families generic fibre induces an isomorphism of its Breuil Ext group with H¹(G₃,ω)≅F₃².
+In the first three families generic splitting over Fᵢ or F′ᵢ is equivalent to c=0, splitting over Q₃ to
+c=c₁=0, and peu ramifié to c₁=0. In (6,6) these criteria are respectively c+c′=0, c=c′=0, and c=0. The
+maps from (6,6) to (2,6) or (6,10) along the canonical u⁶ rank-one morphisms send (c,c′) to (c+c′,c).
+Hypothesis: The exhaustiveness clause concerns the fixed full G₃ très ramifié ρ̄. The generic-Ext
+comparisons within the four families allow all parameters; they do not classify every integral model of
+a split generic fibre.
+Test extendedClassification_splitCounterexample: M′_{2,1}⊕M′_{2,ω} is an Iᵢ-annihilated model of the
+split generic extension and has weight pair (2,2), outside the four selected pairs.
 
 EllipticCurveModularityWild3Adic:W3.5/extended-reverse-extensions
 Target name: extendedReverseExtensions (theorem).
