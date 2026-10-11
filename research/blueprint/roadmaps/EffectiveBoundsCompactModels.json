@@ -54,7 +54,8 @@
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
         "mathlib:LinearMap.dualMap",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume",
-        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
+        "mathlib:NumberField.discr_eq_basisMatrix_det_sq",
         "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard"
       ]
