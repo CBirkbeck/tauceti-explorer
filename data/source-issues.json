@@ -198154,7 +198154,7 @@
    "kind": "misprint",
    "locator": "Definition A.2, p. 515 (same in arXiv v2)",
    "printed": "The source refers to restricting a_R.",
-   "correction": "… where a_R is the restriction of a to R × S.",
+   "correction": "In the root-section data, a_R is obtained by restricting the global section a to R×S.",
    "reason": "Checked on the page image. a is the global section in the previous bullet.",
    "affects": "nothing",
    "known": "Previously recorded in PAPER-YUN-ZHANG-19/E66 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
@@ -198175,7 +198175,7 @@
    "kind": "misprint",
    "locator": "Lemma A.10, proof, p. 522",
    "printed": "The source chooses a divisor D.",
-   "correction": "Let D be an effective divisor on X − R of degree d′ ≥ max{2g−1, 1} + ρ − d.",
+   "correction": "Choose an effective divisor D supported in X−R with deg D=d′≥max{2g−1,1}+ρ−d.",
    "reason": "Checked on the page image. The proof uses T_D: X^√R_d → X^√R_{d+d′}, addition of D, and (A.7), which are defined only for effective D. Effective divisors of every large degree exist on X − R.",
    "affects": "nothing",
    "known": "Previously recorded in PAPER-YUN-ZHANG-19/E68 and confirmed by REV-PAPER-YUN-ZHANG-19; this packet uses that corrected statement.",
@@ -221508,8 +221508,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at public-v3 Proposition 3.1: a smooth elliptic product fiber over a rational point is a counterexample to (ii)⇒(iii). The singular-fiber qualification repairs the stated implication."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked public v3 Proposition 3.1, p. 10. A smooth elliptic product fiber over a rational base point satisfies (ii) and has a genus-one component, contradicting (iii). The singular-fiber restriction repairs the implication used later."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES7",
@@ -221531,8 +221531,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the p.18 coordinate passage: with t=t₀/t₁, t⁻⁶=(t₁/t₀)⁶, not the printed reciprocal."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 6.1 proof, p. 18. The reciprocal of t=t₀/t₁ is t₁/t₀, so the sixth-power ratio is reversed in that expression. The final inverse-chart coefficient rule has the intended direction."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES8",
@@ -221554,8 +221554,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the p.18 relative-very-ampleness assertion: on a regular reducible fiber, a component disjoint from the section has degree zero against 3E. Relative very ampleness belongs to the contracted Weierstrass model."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 6.1 proof, p. 18. A vertical component disjoint from the section has degree zero against 3E, preventing relative very ampleness on the regular surface. Very ampleness applies after contraction to the Weierstrass cubic."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES13",
@@ -221577,8 +221577,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at p.25: F₂(t) is not covered by Tsen. In the cyclic extension F₄(t)/F₂(t), valuations of norms at t=0 are even, so t is not a norm and its cyclic Brauer class is nonzero. The corrected algebraically closed-base obstruction is a separate supplier theorem."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 9.3(v), p. 25. In F₄(t)/F₂(t), norms have even valuation at t=0; therefore t is not a norm and gives a nontrivial cyclic Brauer class. Tsen applies after extending the constants to their algebraic closure. The corrected Galois-equivariant section descent retains the Picard obstruction."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES14",
@@ -221600,8 +221600,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at p.27: the projection to the dual root lattice need not preserve the integral complement norm. The stated dual vector weight has norm −1, so it cannot be an integral vector of an even lattice; the duality argument avoids that false step."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 9.5 proof, p. 27. Restriction to the dual component lattice is not an isometry. Unimodularity and integral pairing instead place the indicated norm −1 dual vector in the even rank-eight complement, giving the needed contradiction."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES15",
@@ -221623,8 +221623,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at p.29: a₁=0 gives c₄=0 in characteristic two even for a smooth supersingular equation with Δ≠0. The singular/minimal-fiber hypothesis is necessary for the reduction criterion."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 10.3 proof, p. 29. In characteristic two c₄=a₁⁴ can vanish for a smooth supersingular equation with nonzero discriminant. The additive-fiber equivalence needs a singular minimal fiber."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES29",
@@ -221645,13 +221645,13 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed for the false eleven-model claim and missing converse proof. The explicit omitted model y²+txy+t³y=x³+x² has Δ=t¹⁰, split I₂* at zero, E₄ at one and nonsplit I₂ at infinity, hence 25 points. The earlier review reports fourteen exhaustive classes; this review has not reproduced its full search, and G.6 retains that certificate as an open obligation."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked the introductory theorem on p. 3 and the §10 count on p. 27 against the printed candidate lists. The omitted model y²+txy+t³y=x³+x² has Δ=t¹⁰; its local I₂* calculation and nonsplit infinity tangent give fiber counts 15+4+6=25. This disproves the eleven-model list. The earlier paper review reports fourteen exhaustive classes; this review does not rerun that surface search, and G.6 keeps the full certificate open."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES34",
    "kind": "error",
-   "locator": "Theorem 10.4, p. 29, and its proof, p. 31 (twisted semistable case); the count in the introduction to Section 10, p. 28 (arXiv v3 = author version of 19 July 2022)",
+   "locator": "Theorem 10.4, p. 29, and its proof, pp. 30–31 (twisted semistable case); the count opening §10, p. 27 (arXiv v3; journal pagination not checked here)",
    "printed": "The nonzero-j enumeration lists eight equations. Its rejection argument bounds the number of components of a twisted multiplicative fiber by two and consequently excludes twisted configurations that actually occur.",
    "correction": "The twisted case also gives I₂*+E₄+Ĩ₂, I₃*+E₄+Ĩ₁ and IV*+E₄+Ĩ₂. Theorem 10.4 has eleven models, not eight, and §10 has fourteen equations in all. The additional models, with fibres over t=0, 1, ∞, are: y²+txy+t³y=x³+x² [I₂*+E₄+Ĩ₂, Δ=t¹⁰, j=t²]; y²+txy+t³y=x³+tx² [I₃*+E₄+Ĩ₁, Δ=t¹¹, j=t]; y²+txy+t²y=x³+t²x² [IV*+E₄+Ĩ₂, Δ=t⁸(t²+t+1), j=t⁴/(t²+t+1), plus I₁ over t²+t+1=0]. Theorem 10.5 is correct. Proposition 11.1 (p. 33) and the key-reduction proposition of §11 take their elliptic column from Theorem 10.4. The proof of Theorem 15.1 reduces every fibration to I₁*+I₄ or I₂*+III+III. All of these must treat the three configurations; I₃* is never mentioned in §§11–15. On an Enriques surface Y, the multiple fibres would lie over the unstable and the E₄ points, because Ĩ₁ and Ĩ₂ are semistable. Until then the proof of the main theorem has a gap at this point. Whether the configurations occur on a non-exceptional Enriques surface over F₂ with constant Picard scheme is not settled here.",
    "reason": "Checked by hand for y²+txy+t³y=x³+x². Δ=t¹⁰. At t=0 (Tate's algorithm): the reduction y²=x³+x² is singular at (0,0), and b₂=t², so the fibre is additive; v(a₆)=∞, v(b₈)=6, v(b₆)=6. The change y↦y+x gives a₂=t, a₄=t³ and P(T)=T³+T²=T²(T+1). Then a_{3,2}=a_{6,4}=0, and a_{2,1}X²+a_{4,3}X+a_{6,5}=X²+X has distinct rational roots. So I₂* with c=4, all seven components defined over F₂, 15 points. At ∞: y²+xy+y=x³+s²x², Δ′=s², node at (1,1) with tangent polynomial T²+T+1, so non-split I₂, 6 points. At t=1: y²+xy+y=x³+x² is smooth ordinary with 4 points (E₄). Total 25, so the trace of Frobenius on NS(J̄) is 10 and Pic_{J/F₂} is constant. Condition (ii) holds: only Ĩ₂ is semistable, and E₄ is ordinary. The other two models are checked the same way: I₃* at t=0 after three steps of the I_n* loop, and IV* at t=0 (Y²+Y distinct roots, c=3). Independent checks (scripts S/tate2.py, brute.py, classify.py, lcheck.py): (1) all 2²¹ equations were enumerated through their 2¹⁸ representatives with a₂=0 (every equation becomes one via x↦x+a₂), with Tate's algorithm at every place; this gives exactly 14 isomorphism classes, taken modulo the 512 coordinate changes of degree ≤(2,1,3) and PGL₂(F₂), that satisfy (i) and (ii); these are the 11 printed and the 3 above, one class per configuration; (2) for every class, the L-function of the generic fibre was computed from naive point counts at all places of degree ≤8; it equals (1−2T)^r with r=8−Σ(m_v−1), which confirms the component counts and the Galois-trivial Mordell–Weil action independently of Tate's algorithm; (3) for all 2¹⁸ normalised equations, Ogg's formula (v(Δ)≥e, δ=0 for I_n, IV, IV*) and Σ deg(v)·v(Δ)=12 hold. The proof's other claims were also reproduced: II*+E₂+E₄, I₃*+E₄+E₄ and IV*+E₄+I₃ are excluded, d₁=1 and 1+t are equivalent in the I₄* case, the second I₁* solution is twisted, and α=1 gives E₂. The error is the unexamined twisted case ('the argument is similar'): the tuples (r_a,i,r_c)=(7,2,2) and (8,2,1) yield these configurations.",
@@ -221667,8 +221667,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed for the overlooked twisted semistable branch: (r_a,i,r_c)=(7,2,2) satisfies the displayed counting equation and is realized by the omitted model y²+txy+t³y=x³+x². Its local I₂* loop and nonsplit infinity tangent give 15+4+6=25. This bounded counterexample refutes the printed list; full verification of all fourteen classes and the downstream Enriques implications is not claimed."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Theorem 10.4, p. 29, and the twisted branch of its proof, pp. 30–31. The omitted tuple (t,1,t³,0,0) realizes the missed (r_a,i,r_c)=(7,2,2) branch: at zero the I₂* loop has final quadratic X²+X; at infinity the reversed coefficients have Δ=s² and tangent T²+T+1, giving nonsplit I₂; at one the smooth fiber has four points. Fresh polynomial checks also confirm the discriminants and inverse-chart formulas of all fourteen candidates. Full resolutions, all three new local certificates and exhaustiveness remain recorded obligations; their earlier reported verification is attributed."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES36",
@@ -221689,8 +221689,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the p.27–28 IV argument: IV has a triangular component graph. A section fixes a vertex and the argument needs the two other vertices, rather than a tree argument."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 9.5 proof, p. 26. IV has a triangular component graph and no leaves, although its three branches meet at one point. The section-marked vertex and a second section-fixed vertex fix the third. The prior review explanation had the wrong pages."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES37",
@@ -221711,8 +221711,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the p.28–29 exceptional-graph argument: affine E₇ and E₈ have three terminal vertices with the stated weights. Fixing the section-marked vertex still gives the corrected rigidity argument."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Proposition 9.5 proof, p. 26. III* and II* each have three terminal vertices; the two others have multiplicities (1,2) and (2,3), respectively. Multiplicity-preserving automorphisms fixing the section component give the corrected rigidity. The prior review explanation had the wrong pages."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ES45",
@@ -221734,8 +221734,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Stefan Schröer, There is no Enriques surface over the integers, arXiv:2004.07025v3, 9 August 2022; separate from Annals197(2023)",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the p.30 inequalities: the second lower bound concerns r_c, not a second bound for r_a."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked Theorem 10.4 proof, p. 30. With r_a=7 the lower bound under discussion is r_c≥3; repeating r_a is a symbol error."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ESY1",
@@ -221754,8 +221754,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Michael Szydło, Elliptic fibers over non-perfect residue fields, Author preprint September 28, 2003; published JNT 104 (2004), 75–99",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in Szydlo p.3 equation (4): the invariant is c₄=b₂²−24b₄. For a₄=1 and the other coefficients zero it is −48, which detects the printed sign."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked Szydło author preprint p. 3, equation (4). The c₄ term is −24b₄. Taking a₄=1 and all other coefficients zero gives c₄=−48 and detects the printed sign."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ESY2",
@@ -221774,16 +221774,16 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "Michael Szydło, Elliptic fibers over non-perfect residue fields, Author preprint September 28, 2003; published JNT 104 (2004), 75–99",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in Szydlo p.3 equation (4): c₆=−b₂³+36b₂b₄−216b₆. Taking only a₂=1 gives −64, detecting the printed leading sign."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked Szydło author preprint p. 3, equation (4). The leading c₆ term is −b₂³. Taking a₂=1 and all other coefficients zero gives c₆=−64 and detects the printed sign."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD1",
    "kind": "misprint",
    "locator": "April19,2024 author edition p366, proof of4.1.6(1)",
-   "printed": "The Hodge-line degree formula uses the opposite sign for the Euler-characteristic contribution.",
-   "correction": "deg L=−χ(O_X)−length(T)",
-   "reason": "Leray and curve Riemann–Roch give χ(O_X)=−deg L−length(T). For a rational Jacobian over P¹, deg L=−1; substituting the base Euler characteristic fails for other χ(O_X). The stated theorem uses the total-space term correctly.",
+   "printed": "The Euler-characteristic term in the degree formula is labeled as that of the base curve C instead of the surface X.",
+   "correction": "Use deg L=−χ(O_X)−length(T); the minus sign already printed is correct.",
+   "reason": "The coherent Euler characteristic calculation uses Rf_*O_X and therefore χ(O_X). The inherited sourceIssue mistakenly diagnosed its sign.",
    "affects": "the proof",
    "known": "No correction located; exact edition restriction retained.",
    "searched": [
@@ -221794,8 +221794,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the April 19, 2024 author edition, printed p.267: the Hodge-line degree uses χ(O_X), the total surface Euler characteristic, not χ(O_C)."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL April 19, 2024 manuscript p. 366, proof of 4.1.6(1). Its surface Euler characteristic is labeled χ(O_C) where χ(O_X) is needed. The printed minus sign is already correct. Replaced the inherited incorrect sign description and p. 267 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD2",
@@ -221814,8 +221814,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the same p.267 passage: at n=0 the pushforward of O_X has rank one, so the rank-n claim needs n>0. The packet already retains that hypothesis."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 394, Lemma 4.4.1(2). The rank-n formula must assume n>0: at n=0 the connected-fiber pushforward of O_X has rank one. Corrected the inherited p. 267 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD3",
@@ -221834,15 +221834,15 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed pp.267–268: the special-fiber excess is dim(T⊗κ), not length(T). A DVR module O/(π²) has fiber dimension one and length two."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 365, proof of 4.1.6. The fiber excess h¹−1 is the residue-field dimension of the torsion module modulo the maximal ideal, its minimal number of generators. O/(π²) has that dimension one and length two. Corrected the inherited pp. 267–268 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD4",
    "kind": "misprint",
    "locator": "April19,2024 author edition p267 Proposition2.2.5, I₃,IV and I_n rows; images inspected",
    "printed": "The affine A diagram indices for I₃, IV and I_n are shifted from the indices determined by their numbers of components.",
-   "correction": "I₃ and IV use Ã₂; I_n uses Ã_(n−1).",
+   "correction": "I₃ and IV use Ã₂; I_n uses Ã_(n−1). The n+5-component star row is Iₙ*, with affine D_(n+4), not I*_(n+4).",
    "reason": "There are3 or n vertices, whereas an affine Ã_r diagram has r+1 vertices. The book’s own comparison table onp268 gives the corrected n−1 convention.",
    "affects": "nothing",
    "known": "No correction located; exact edition restriction retained.",
@@ -221854,8 +221854,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed p.365: I₃ and IV give A₂ and I_n gives A_(n−1); the displayed ranks distinguish these from A₃ and A_n."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 267, Proposition 2.2.5. I₃ and IV have three vertices and affine A₂, and Iₙ has affine A_(n−1). The same table labels the n+5-component affine D_(n+4) configuration I*_(n+4) instead of Iₙ*. Corrected the inherited p. 365 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD5",
@@ -221874,14 +221874,14 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed p.365: the affine D_(n+4) diagram is I_n*, not I*_(n+4), and the two initial edges must be R₀–R₄ and R₁–R₄ to match its labels and intersection data."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 267, Proposition 2.2.5, star row. The repeated edge label leaves R₀ isolated; the two left terminal edges must be R₀–R₄ and R₁–R₄. The star-index typo is also recorded with ECD4. Corrected the inherited p. 365 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD6",
    "kind": "misprint",
    "locator": "April19,2024 author edition p268 Proposition2.2.5, IV* row; image inspected",
-   "printed": "The III* intersection list joins a component to the wrong branch vertex.",
+   "printed": "The IV* intersection list includes an extra edge between two terminal components.",
    "correction": "Remove R₁·R₂=1; all unlisted pairings remain0.",
    "reason": "The extra edge creates a cycle in the seven-vertex graph and violates the displayed primitive null-root equation. Removing it leaves the three length2 arms of affine E₆.",
    "affects": "nothing",
@@ -221894,8 +221894,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed p.366: the extra R₁–R₂ edge creates a cycle in the affine E₆/IV* tree and must be removed."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 268, Proposition 2.2.5, IV* row. The extra R₁–R₂ edge creates a cycle in the affine E₆ tree and must be removed. Replaced the inherited III* description and p. 366 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD7",
@@ -221914,8 +221914,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed p.366: the II* null-root vector requires multiplicity three at the labeled R₀; multiplicity two violates the intersection kernel equation."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 268, Proposition 2.2.5, II* row. The terminal component R₀ meets a multiplicity-six neighbor with square −2, so the intersection-kernel equation forces multiplicity three. Corrected the inherited p. 366 review locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ECD8",
@@ -221923,7 +221923,7 @@
    "locator": "April19,2024 author edition p366 proof of4.1.6(2); image inspected",
    "printed": "The multiple-fiber notation confuses the primitive fiber with its reduction and states a coefficient inequality outside the canonical-formula range.",
    "correction": "Use D_t=a_t Xbar_t and rule out a_t≥m_t.",
-   "reason": "The evaluation divisor was just written with coefficient a_t; its pushforward criterion rules out even equality, establishing the required strict inequality a_t<m_t.",
+   "reason": "The canonical correction divisor has coefficients a_t with 0≤a_t<m_t. The proof must rule out equality as well as values greater than m_t.",
    "affects": "the proof",
    "known": "No correction located; exact edition restriction retained.",
    "searched": [
@@ -221934,8 +221934,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "François Cossec, Igor Dolgachev, Christian Liedtke, Enriques Surfaces I, Author manuscript dated April 19, 2024; not the 1989 edition",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed at printed p.394: strict inequality >m t excludes coefficient a=m−1 for a tame fiber. The actual bound is ≥m t."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Visually checked CDL p. 366, proof of 4.1.6(2). The divisor coefficient is a_t, and the argument must exclude a_t≥m_t, including equality, to obtain 0≤a_t<m_t. Replaced the inherited explanation about m−1 and its p. 394 locator."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ErtOQ9t0ET0",
@@ -221954,8 +221954,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors; deductions by Codex — codex-rtOQ9t, Conductor section-ring context, Stacks 0ET0, Online version read3October2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed by checking the map domains in the current 0ET0 proof: m′ starts at S′, m at S and n at T, so their pushforward sheaves must have those domains. This is a displayed formula correction."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked the complete current Stacks 0ET0 statement and proof. In the pushforward comparison the factors are m′_*O_S′ and n_*O_T over m_*O_S. The printed unprimed first factor has the wrong scheme source."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ErtOQ9t0C6L",
@@ -221974,8 +221974,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors; deductions by Codex — codex-rtOQ9t, Conductor section-ring context, Stacks 0C6L, Online version read3October2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed for the general matrix-bound justification in 0C6L, not for a false curve lemma. Independently enumerated all 32 block matrices over F₂ and all 1,024 products: they form a commutative unital five-dimensional algebra in M₄. The native conductor proof does not use this argument, so its obsolete dependency gap was removed while this source finding remains."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked the complete current Stacks 0C6L proof at its bare matrix-subalgebra bound. In End(F₂⁴), the matrices [[λI₂,M],[0,λI₂]] form a commutative unital five-dimensional subalgebra. Fresh enumeration checked all 32 elements and 1024 products. This refutes that general linear-algebra bound, not the conductor lemma itself; the proposed native route uses finite annihilator/localization inputs instead."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0ECJ",
@@ -221994,8 +221994,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors, Conductor topology context: Stacks 0ECH, Current displayed page, 4 October 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the current complete 0ECH section, Lemma 37.67.2 proof: V′ lies in Y and i maps to X. Its inverse image must be i⁻¹(U′)."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked current Stacks Section 37.67, Lemma 37.67.2 proof. V′ is an open of Y and i has target X, so the matching inverse image under i must be i⁻¹(U′)."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0E25",
@@ -222014,8 +222014,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors, Conductor topology context: Stacks 0E25, Current displayed page, 4 October 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the current 0E25 proof: the original maps form the span Y←Z→X, whose ringed-space pushout is Y⊔_Z X. The displayed fiber product is the wrong object."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked current Stacks 0E25, Proposition 37.67.3 proof. The span is Y←Z→X and the object constructed is its pushout Y⊔_Z X; the displayed fiber product has the wrong meaning."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/E7e92bd0ECH7",
@@ -222034,8 +222034,8 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors, Conductor topology context: Stacks 0ECH, Current displayed page, 4 October 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed in the current complete 0ECH section, Lemma 37.67.7 proof: both the comparison base and its flatness base must be the same pushout Y⊔_Z X."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked current Stacks 0ECH, Lemma 37.67.7 proof. Both the comparison target base and the final flatness base must be the original pushout Y⊔_Z X. The two inconsistent displayed expressions are notation errors."
   },
   {
    "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ErtOQ9t00DF1",
@@ -222053,8 +222053,48 @@
    "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
    "citation": "The Stacks Project authors, Tensor right exactness, Current primary displayed page; read4October2026",
    "status": "confirmed",
-   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
-   "reviewReason": "Confirmed only as a historical proof-reference error: the complete authors patch aee70b2c90b64dc043aa7740e0d9c9346aa4323f dated July 24, 2025 replaces the pullback reference by Hom-exactness and explicitly quantifies over every module P. The current 00DF proof contains that correction; no current statement error or full historical-version audit is claimed."
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "Checked the entire authors correction patch aee70b2c90b64dc043aa7740e0d9c9346aa4323f and current Stacks 00DF with its comments. The historical proof needed Hom-exactness tested against every module P. The July 24, 2025 patch supplies it; the current proof is corrected. No error in the current statement or full historical-version audit is claimed."
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ELLR6.6",
+   "kind": "error",
+   "locator": "Theorem 6.6, pp. 496–497; initial strictly henselian reduction in its proof; notation p. 457",
+   "printed": "The multiplicity of the torsor fiber is expressed using the original fraction-field period for a DVR that is not explicitly required to be henselian.",
+   "correction": "Assume the DVR is henselian with algebraically closed residue field, or use the torsor period after strict henselization when describing the geometric fiber multiplicity.",
+   "reason": "Take R=C[t]_(t−1), E/C with a nonzero two-torsion point P, and the smooth quotient of E×G_m,s by (e,s)↦(e+P,−s), over t=s². E(C(s))=E(C), since a rational map P¹→E extends and is constant. The nonzero translation cocycle therefore has period two over C(t). At t=1 its special fiber is smooth of multiplicity one. Henselization splits s²=t near t=1, and the local torsor period is one. Hence passing to strict henselization need not preserve the original K-period.",
+   "affects": "a stated result",
+   "known": "Confirmed in the public 2004 author copy. The separately recorded 2018 corrigendum repairs Theorem 4.3 and does not supply this qualification. No claim about every published edition is made.",
+   "searched": [
+    "Read the 2004 author copy notation p. 457, Theorem 6.6 and proof pp. 496–497, and the 2018 author corrigendum introduction/corrected statements.",
+    "Bounded web searches on 11 October 2026 for Liu–Lorenzini–Raynaud Theorem 6.6 henselian and for the paper with corrigendum found the recorded 2018 correction, but no separate correction of this local-period qualification."
+   ],
+   "owner": "NeronModelsAndSemistableAbelianVarietiesPartII",
+   "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+   "citation": "Qing Liu, Dino Lorenzini, Michel Raynaud, Néron models, Lie algebras, and reduction of curves of genus one, Inventiones Mathematicae 157 (2004), 455–518, author copy",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "The explicit nonhenselian constant-elliptic translation twist has original period two and geometric fiber multiplicity one. The strictly henselian local period fixes the statement used by the planned target."
+  },
+  {
+   "id": "NeronModelsAndSemistableAbelianVarietiesPartII/ETT6.1.1",
+   "kind": "misprint",
+   "locator": "Author PDF/arXiv v3, Theorem 6.1.1 proof, part (5), p. 16; compare Theorem 4.4.1, p. 12",
+   "printed": "The quotient description reverses the étale relation and its object space immediately before using the correctly oriented diagonal.",
+   "correction": "Use X=X₀/X₁, where X₁=X₀×_X X₀, as in Theorem 4.4.1.",
+   "reason": "The map h:X₁→X₀×X₀ is the relation map, so X₁ acts as the equivalence relation on X₀. The reverse quotient expression is incompatible with these domains. The following quasi-separatedness argument uses the correct relation map and survives.",
+   "affects": "nothing",
+   "known": "Confirmed only in the recorded public author PDF/arXiv v3; no conclusion about the journal typography is made.",
+   "searched": [
+    "Visually read author PDF p. 16 and compared Theorem 4.4.1 on p. 12.",
+    "Bounded searches on 11 October 2026 for Temkin Tyomkin 6.1.1 correction and Ferrand pushouts for algebraic spaces erratum returned the author PDF and publication records; no separate correction identified."
+   ],
+   "owner": "NeronModelsAndSemistableAbelianVarietiesPartII",
+   "file": "research/blueprint/packets/NeronModelsAndSemistableAbelianVarietiesPartII.json",
+   "citation": "Michael Temkin and Ilya Tyomkin, Ferrand pushouts for algebraic spaces, Author PDF, arXiv:1305.6014v3, 27 May 2016; distinguished from the Eur. J. Math. 2 (2016) journal pagination",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII~2",
+   "reviewReason": "The quotient in the p. 16 proof must have object space X₀ and relation X₁; Theorem 4.4.1 and the diagonal in the same paragraph fix the orientation. This is a notation error, not a counterexample to the theorem."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E1",
@@ -230607,6 +230647,90 @@
    "status": "confirmed",
    "reviewedBy": "REV-Polylogarithms",
    "reviewReason": "The review redid the n = 2 computation from (13) and the residue convention."
+  },
+  {
+   "id": "PolynomialGaloisGroupsPartII/E1",
+   "kind": "gap",
+   "locator": "proof of Lemma 12.9, Cases 2b and 3, p. 63 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "printed": "In Case 2b, the source uses r_i′ | mk to infer gcd(r_i′, k) ⩾ r_i′/m > n^{δ/2−α−θ} = n^α, then gcd(k, ℓ_i) > n^α, claiming a contradiction to ρ ∈ E₁. In Case 3 it derives gcd(k, ℓ) ⩾ r′/m ⩾ r′/n^θ and again claims a contradiction to ρ ∈ E₁.",
+   "correction": "E₁ concerns only pairs of parts ≤ n/4, and nothing bounds the part k. Repair (this continuation): in Case 2 take five distinct parts ℓ ∈ ρ ∩ [n^{1−α}, n/log n] (E₁, E₃). The unions X_ℓ of the blocks met by their cycles are single block orbits of g, pairwise disjoint because X_ℓ = X_ℓ′ would force r_ℓ′ > n^α to divide ℓ and ℓ′. At most one ℓ has s_ℓ′ = s (Case 2a), and g has at most three cycles longer than n/4, so some ℓ has s_ℓ′ < s and only cycles of length ≤ n/4 in X_ℓ outside its own cycle; their parts k are ≤ n/4 and the printed argument applies. In Case 3 argue the same way with four parts ℓ ∈ ρ ∩ [n^{1−2α}, n/log n] not divisible by s, which a strengthened E₅ supplies with the same probability bound as Lemma 12.6.",
+   "reason": "The companion original part may exceed n/4, outside the exact E₁ hypothesis. Five middle-range block orbits and four large-range block orbits allow one to avoid every cycle longer than n/4. The four-part lower-tail estimate uses count≤3≤tL_r and retains the original rate.",
+   "affects": "the proof",
+   "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12; no journal text or new published correction was established in this run.",
+   "searched": [
+    "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12",
+    "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+    "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+   ],
+   "owner": "PolynomialGaloisGroupsPartII",
+   "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
+   "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PolynomialGaloisGroupsPartII/E2",
+   "kind": "error",
+   "locator": "Introduction, p. 4; §11, p. 54 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "printed": "The source asserts equivalence between irreducibility of a polynomial and transitivity of its Galois group.",
+   "correction": "For separable polynomials of positive degree. Every use in the paper goes from irreducible to transitive, which holds.",
+   "reason": "The reducible polynomial(X²−2)² has a transitive action on its two distinct roots. The pinned orbit/irreducibility equivalence requires separability and positive degree, which every use here retains.",
+   "affects": "nothing",
+   "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16; no journal text or new published correction was established in this run.",
+   "searched": [
+    "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16",
+    "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+    "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+   ],
+   "owner": "PolynomialGaloisGroupsPartII",
+   "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
+   "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PolynomialGaloisGroupsPartII/E3",
+   "kind": "misprint",
+   "locator": "proof of Lemma 12.8, p. 62 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "printed": "The source says that E₁’s condition is satisfied whenever p ⩾ n^{κα} ⩾ n^{1/40}, and therefore covers p ∈ P.",
+   "correction": "n^{κα} ≤ n^{1/40} < n^{1/8} < p.",
+   "reason": "α ≤ 1/40 and κ ≤ 1, so n^{κα} ≤ n^{1/40}; the argument needs p ≥ n^{κα}, which holds because p > n^{1/8}.",
+   "affects": "nothing",
+   "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24; no journal text or new published correction was established in this run.",
+   "searched": [
+    "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24",
+    "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+    "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+   ],
+   "owner": "PolynomialGaloisGroupsPartII",
+   "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
+   "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PolynomialGaloisGroupsPartII/E4",
+   "kind": "misprint",
+   "locator": "proof of Lemma 12.9, Case 1, p. 63 (arXiv v3; the published pagination was not seen)",
+   "printed": "The source reasons that merging parts of ρ produces these lengths, so some subset U of the parts of ρ must satisfy Σ_{u∈U} = nr′/r.",
+   "correction": "Σ_{u∈U} u = nr′/r.",
+   "reason": "The E₂ argument needs the sum of the part values, not an expression without a summand. The preceding construction and the next invocation of Lemma12.3 uniquely determine the intended statement.",
+   "affects": "nothing",
+   "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26; no journal text or new published correction was established in this run.",
+   "searched": [
+    "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26",
+    "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+    "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+   ],
+   "owner": "PolynomialGaloisGroupsPartII",
+   "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
+   "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PotentialAutomorphyInfrastructure/E1",
@@ -248858,6 +248982,130 @@
    "status": "confirmed",
    "reviewedBy": "REV-VectorBundlesAndIsocrystals--VB3~2",
    "reviewReason": "The Q_p Dimension and Remark 3.13(i) contradict applying the displayed formulas at λ=0. Restricting them to nonzero slopes resolves the boundary."
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E1",
+   "kind": "misprint",
+   "locator": "§3.2, preparation condition (2), p. 32, published author copy",
+   "printed": "The right side of the complementary local-degree inequality uses a degree of the global totally real field over Q_p. This describes the misprint in our words.",
+   "correction": "Use [F⁺:Q]/2 on the right side.",
+   "reason": "A global number field is not a finite extension of Q_p; the local degrees sum to [F⁺:Q]. ACC §6.5.12, p. 178, and MT condition (9), p. 28, use the global degree.",
+   "affects": "nothing",
+   "known": "No correction established in the consulted copies or atlas register; request independent verification.",
+   "searched": [
+    "BCGNT published author copy p. 32 and arXiv:2309.15880v3 §3.2",
+    "PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json sourceIssues; the extraction item 44 retains the printed degree",
+    "ACC arXiv v2 p. 178 and MT published p. 28 for the intended inequality"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E2",
+   "kind": "misprint",
+   "locator": "§3.1.2, spherical Hecke polynomial P_v, p. 31, published author copy",
+   "printed": "The displayed final term is assigned positive sign independently of n, while the preceding general coefficient has the alternating sign. This is a paraphrase.",
+   "correction": "The constant coefficient is (−1)^n q_v^{n(n−1)/2}T_{v,n}; use the uniform alternating coefficient formula.",
+   "reason": "At n=1 the characteristic polynomial is X−T_{v,1}; at n=3 the determinant term is negative.",
+   "affects": "nothing",
+   "known": "Already recorded and independently confirmed as PAPER-BOXER-CALEGARI-GEE-ETAL-25/E20 in the atlas extraction; no new discovery claimed.",
+   "searched": [
+    "The published author copy p. 31",
+    "Reviewed BCGNT extraction sourceIssue E20",
+    "IHG.3/gln-hecke-polynomial and geometric Frobenius conversion"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E3",
+   "kind": "misprint",
+   "locator": "Proofs of Theorems 6.5.4 and 6.6.2, pp. 174–175 and 185–186, arXiv v2",
+   "printed": "The later recollection of g drops one factor of n from the archimedean subtraction in the earlier presentation. This is a paraphrase.",
+   "correction": "For the enormous tower g=qn−n²[F⁺:Q]. For the adequate tower here the replacement is g=q−n²[F⁺:Q].",
+   "reason": "The initial presentation and relative tangent formula give the squared factor. Substituting the later value breaks dim R∞=dim S∞−ℓ₀.",
+   "affects": "nothing",
+   "known": "Already confirmed as PAPER-ALLEN-ETAL-23/E88 and PotentialAutomorphyInfrastructure/E58; retain the corrected count.",
+   "searched": [
+    "ACC arXiv v2 pp. 174–175 and 185–186",
+    "Reviewed parent packet sourceIssue E58",
+    "MT Proposition 6.7 and §8, pp. 22, 29"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E4",
+   "kind": "gap",
+   "locator": "§6.5.12, proof of Proposition 6.5.13, pp. 175–176, arXiv v2",
+   "printed": "The proof records local comparison at almost all places before stating an all-finite-place descent comparison. This is a paraphrase.",
+   "correction": "Use actual local soluble base change and its LLC compatibility at every finite place, as explicitly included in the parent supplier node.",
+   "reason": "Almost-everywhere Frobenius comparison identifies Galois representations but does not prove a full local Weil–Deligne comparison retaining monodromy at every bad place.",
+   "affects": "the proof",
+   "known": "Already independently confirmed as PAPER-ALLEN-ETAL-23/E90 and PotentialAutomorphyInfrastructure/E60.",
+   "searched": [
+    "ACC arXiv v2 pp. 175–176",
+    "Reviewed parent packet E60 and PA.5/soluble-base-change-and-descent"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E5",
+   "kind": "gap",
+   "locator": "§6.5.12, three-quadratic example, p. 178, arXiv v2",
+   "printed": "The example gives congruences for bad primes while the required test-place splitting also needs congruences at the residual-image test set. This is a paraphrase.",
+   "correction": "Include the test-prime congruences for both added quadratic fields; in this weight-zero variant also make all three quadratic fields split at p.",
+   "reason": "Splitting every image-detecting test place is needed to preserve full residual and cyclotomic images; the listed bad-prime congruences alone do not ensure it.",
+   "affects": "nothing",
+   "known": "The missing test-place congruences were confirmed as PAPER-ALLEN-ETAL-23/E91 and PotentialAutomorphyInfrastructure/E61.",
+   "searched": [
+    "ACC arXiv v2 p. 178",
+    "Reviewed parent packet E61 and ordinary-base-change-fields"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E6",
+   "kind": "gap",
+   "locator": "Theorem 3.2.5 proof, pp. 34–35; compare MT Proposition 6.7, p. 22",
+   "printed": "The prepared support proof invokes the adequate patching construction without an explicit cyclotomic noncontainment assumption in its eight preparation conditions. This describes the issue in our own words.",
+   "correction": "Explain how the adequate Taylor–Wiles tower and balanced presentation are obtained if ζ_p∈F, or restrict this prepared result to ζ_p∉F when using MT Proposition 6.7. The global Theorem 3.2.1 already forces noncontainment by its scalar witness.",
+   "reason": "The supplied prime-selection theorem has ζ_p∉F as a hypothesis, which is not among the eight conditions of the prepared source result. This records a missing justification for that boundary, not a counterexample to the support theorem.",
+   "affects": "the proof",
+   "known": "No resolution established in the consulted source passages; independent verification is required.",
+   "searched": [
+    "BCGNT published §3.2, pp. 32–35",
+    "MT published Proposition 6.7 and §8, pp. 22, 28–30",
+    "ACC arXiv v2 §§6.4–6.5 and the existing G7/G8 presentation statements"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "WeightsInEtaleCohomology/E1",
