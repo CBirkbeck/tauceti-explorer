@@ -1,7 +1,9 @@
 # PKG-AutomorphicGaloisRepresentations~2 — blocked checkpoint
 
 Issue: #7891. Worker: Codex, session `codex-XePsML`. Date: 2026-10-11.
-Branch: `codex-XePsML-7891`. The bot confirmed the claim in issue comment
+Branch: `codex-XePsML-7891`. Draft checkpoint:
+[PR #8754](https://github.com/CBirkbeck/tauceti-explorer/pull/8754).
+The bot confirmed the claim in issue comment
 6106034462. No second job was claimed.
 
 This is **partial**, not a completed package or a new independent review.
@@ -195,7 +197,8 @@ only the specified pinned shared build.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicGaloisRepresentations.json --json`:
   **0** errors, **0** warnings. The packet is unchanged.
 - Submission path/local-path checks: **4 files, 0 problems**.
-  `git diff --check`: passed. The final PR checks are recorded below.
+  `git diff --check`: passed. Submission workflow results are attached to the
+  checkpoint PR.
 - Metadata remains exactly `topic = "math.NT"`.
 
 ## Maintainer intake note
