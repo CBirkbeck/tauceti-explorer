@@ -151,6 +151,20 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "The native sheaf-module adjunction; pullback preserves cokernels and pushforward supplies the unit.",
         "checked": "Statement and namespace read at the pinned commit on 2026-10-11."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isOpen_quasiFiniteAt",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+        "provides": "The quasi-finite locus of a locally finite-type scheme map is open; no extra separatedness hypothesis is required.",
+        "checked": "Statement and hypotheses independently read at Mathlib 082e2d3 on 2026-10-11; cited module matches the shared pinned build byte for byte."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsFinite.iff_isProper_and_locallyQuasiFinite",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
+        "provides": "A scheme morphism is finite if and only if it is proper and locally quasi-finite.",
+        "checked": "Statement and hypotheses independently read at Mathlib 082e2d3 on 2026-10-11; cited module matches the shared pinned build byte for byte."
       }
     ]
   },
@@ -725,7 +739,7 @@
       "sources": [
         {
           "sourceId": "STACKS-QUOT",
-          "locator": "§99.9, Lemma 9.2 (0D00), PDF p. 26",
+          "locator": "§99.9, Lemma 9.2 (0D00), PDF p. 25",
           "match": "Quotients of the structure sheaf are exactly closed subschemes, with the same family conditions."
         }
       ],
@@ -854,7 +868,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.1/uniform-quotient-regularity",
         "AlgebraicModuliForArithmeticGeometry:R09.1/family-regularity",
         "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "AlgebraicModuliForArithmeticGeometry:R09.2/sheaf-isom-representability"
       ],
       "sources": [
         {
@@ -1033,7 +1048,7 @@
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.QuotScheme.test_point",
           "kind": "computation",
-          "statement": "For X=S=Spec k, E=O and P=1, Q≅S and the universal map is the identity."
+          "statement": "For X=S=Spec k, E=O and P=1, Q≅S and its universal quotient is an isomorphism, identified with the identity quotient by its unique source-commuting isomorphism."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.QuotScheme.test_zero",
@@ -1082,7 +1097,7 @@
         },
         {
           "sourceId": "STACKS-QUOT",
-          "locator": "§99.9, Lemma 9.2, PDF p. 26",
+          "locator": "§99.9, Lemma 9.2, PDF p. 25",
           "match": "The structure-sheaf Quot comparison transports the universal quotient to the universal closed subscheme."
         }
       ],
@@ -1096,6 +1111,11 @@
       },
       "implementationStatus": "unchecked",
       "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.Moduli.HilbertScheme.ofQuot",
+          "role": "constructor",
+          "statement": "Transport a chosen Quot scheme for O_X through hilbertQuotIso to a Hilbert scheme, preserving the representing base and projectivity."
+        },
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.HilbertScheme.represent",
           "role": "characterisation",
@@ -1115,6 +1135,11 @@
           "name": "TauCeti.AlgebraicGeometry.Moduli.HilbertScheme.quot_compat",
           "role": "compatibility",
           "statement": "Its universal O_X quotient agrees with QuotScheme for E=O_X through hilbertQuotIso."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Moduli.HilbertScheme.pullback_universal",
+          "role": "functoriality",
+          "statement": "Pullback of the universal closed family along T→H is precisely the Hilbert point classified by that morphism."
         }
       ],
       "tests": [
@@ -1160,11 +1185,13 @@
       "proofSteps": [
         "Use native Over categories and base change of their morphisms.",
         "The graph is a closed immersion because Y/S is separated, and its source is flat proper finitely presented over T.",
-        "Projection to X_T recovers a graph morphism whenever that projection is an isomorphism."
+        "Projection to X_T recovers a graph morphism whenever that projection is an isomorphism.",
+        "Apply graph-isomorphism-open to the universal closed family and X over its parameter base; both are proper flat finitely presented there. Its first projection is an isomorphism exactly on the universal open graph locus."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-functor",
-        "mathlib:CategoryTheory.Over"
+        "mathlib:CategoryTheory.Over",
+        "AlgebraicModuliForArithmeticGeometry:R09.2/graph-isomorphism-open"
       ],
       "sources": [
         {
@@ -1218,7 +1245,12 @@
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.HomFunctor.test_nongraph",
           "kind": "non-example",
-          "statement": "For X=Spec k and Y=P¹_k, a two-point closed family in X×Y is not a graph because its first projection is not an isomorphism."
+          "statement": "For X=Spec k and Y=Spec(k×k), the whole two-point closed family in X×Y is not the graph of any HomFunctor point: its ideal is zero, whereas every graph has a nonzero ideal. Its first projection is not an isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Moduli.HomFunctor.test_two_points",
+          "kind": "computation",
+          "statement": "For X=Spec k and Y=Spec(k×k), HomFunctor at the identity test Spec k has exactly two points, corresponding to the two components. A constant singleton functor fails."
         }
       ],
       "uses": [
@@ -1243,17 +1275,21 @@
       "statement": "Let X,Y be proper flat finitely presented over S and let u:X→Y be an S-morphism. There is an open U⊆S such that for every T→S, u_T is an isomorphism if and only if T→S factors through U. In the graph application both the universal closed family and X_H are proper flat finitely presented over H. Consequently the first-projection isomorphism locus is scheme-theoretically universal, including infinitesimal tests.",
       "hypotheses": [
         "No conclusion from merely bijective geometric points is substituted for being an isomorphism.",
-        "Nitsure uses projectivity of u; the graph projection has it, and the general proper version follows the Stacks proof."
+        "Nitsure 6.5 is the Noetherian, projective-map case. The stated proper finitely presented scheme version is proved by the finite-algebra argument below; Stacks 99.12.2 and its input 76.49.6 (05XD) independently confirm the general universal locus."
       ],
       "proofSteps": [
-        "The fibre isomorphism condition is open for a map of proper flat finitely presented families.",
-        "Over this open the map is an isomorphism; prove the converse by its failure on fibres and its infinitesimal/finite-presentation criterion.",
-        "Arbitrary base-change universality follows from the locus characterization; finite-presentation descent covers non-Noetherian tests."
+        "Work first over a Noetherian affine base. The map u is proper because its source is proper and its target separated over S. At a fibre where u_s is an isomorphism it is quasi-finite. Remove the proper image in S of the closed complement of its quasi-finite locus. On the resulting neighbourhood u is proper quasi-finite, hence finite, using the two cited Mathlib results.",
+        "For finite u, inspect the algebra map O_Y→u_*O_X. Its coherent cokernel vanishes on the isomorphic fibre; Nakayama and properness of Y/S allow removal of the image of its support. After this removal the map is surjective. Both O_Y and u_*O_X are flat over S (for the latter use finite affine pushforward and flatness of X/S). Therefore the short exact kernel sequence stays exact on the fibre. Its coherent kernel also has zero fibre, so the same support/Nakayama argument removes it. The finite algebra map is then an isomorphism, hence so is u.",
+        "The union of these neighbourhoods is the open set of fibre isomorphisms. A base-changed isomorphism forces every residue-field fibre to be an isomorphism, since isomorphisms descend under field extensions; conversely a map into this open pulls back the isomorphism already present there. This proves universality on infinitesimal and arbitrary test schemes, not only on geometric points.",
+        "For arbitrary S, work affine locally and descend the two proper flat finitely presented families and their map to a Noetherian finite-presentation model using SF.0/finite-presentation-limits. Pull its universal open locus back to S; the universal property makes the constructions agree on overlaps."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0/finite-presentation-limits",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-        "mathlib:CategoryTheory.IsIso"
+        "mathlib:CategoryTheory.IsIso",
+        "SchemeAndStackFoundations:SF.0/coherent-scheme-support",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isOpen_quasiFiniteAt",
+        "mathlib:AlgebraicGeometry.IsFinite.iff_isProper_and_locallyQuasiFinite"
       ],
       "sources": [
         {
@@ -1386,6 +1422,11 @@
           "name": "TauCeti.AlgebraicGeometry.Moduli.IsomFunctor.pullback",
           "role": "functoriality",
           "statement": "Pullback commutes with inverse and composition."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Moduli.IsomFunctor.toHom_apply",
+          "role": "compatibility",
+          "statement": "Forgetting an Isom point returns its actual native scheme morphism, with the base-change identification and universe lift."
         }
       ],
       "tests": [
@@ -1397,12 +1438,12 @@
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.IsomFunctor.test_two_points",
           "kind": "computation",
-          "statement": "For two disjoint k-points, the automorphism functor has the two permutation points over k."
+          "statement": "For X=Spec(k×k) over Spec k, IsomFunctor(X,X) at the identity test Spec k has two points, the identity and component exchange."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.IsomFunctor.test_nonlinear_map",
           "kind": "non-example",
-          "statement": "The degree-two map P¹→P¹ is a Hom point and not an Isom point."
+          "statement": "The degree-two morphism [x:y]↦[x²:y²] of P¹_k, pulled to the identity test Spec k, is not in the image of IsomFunctor.toHom."
         }
       ],
       "uses": [
@@ -1468,14 +1509,15 @@
       ],
       "title": "Affine parameter spaces for coherent sheaf morphisms and isomorphisms",
       "kind": "theorem",
-      "statement": "For projective finitely presented f:X→S with Noetherian S, finitely presented E,F and F S-flat, the functor T↦Hom_{O_{X_T}}(E_T,F_T) is represented by an affine finitely presented S-scheme. If E also is S-flat, the functor of source-target isomorphisms is affine finitely presented over S: use a pair of morphisms in the two directions with their composite identities as closed equations. This parameter-space theorem imports the existing internal Hom; it does not define another internal Hom or replan finite-source Weil restriction.",
+      "statement": "For projective finitely presented f:X→S with Noetherian S, finitely presented E,F and F S-flat, the functor T↦Hom_{O_{X_T}}(E_T,F_T) is represented by an affine finitely presented S-scheme. If E also is S-flat, the functor of source-target isomorphisms is affine finitely presented over S: use a pair of morphisms in the two directions with their composite identities as closed equations. This parameter-space theorem imports the existing internal Hom; it does not define another internal Hom or replan finite-source Weil restriction. A specified sheaf morphism E→F has a universal closed zero locus on S: T→S factors through it exactly when the pulled morphism vanishes.",
       "hypotheses": [
         "Projective X/S and a chosen relatively very ample sheaf are used for a coherent-source presentation. E need not be flat for Hom, but both sheaves are flat for Isom. For invertible source E the Hom proof also works with proper finitely presented X/S, because tensoring F with E∨ retains base-flatness."
       ],
       "proofSteps": [
-        "On each affine base open choose a two-term presentation E19→E0→E→0 by sums of powers of the relative very ample invertible sheaf. Internal Hom from Ei to F is a twist of F, hence base-flat. The proper cohomology complex corepresents its H0; the cokernel of the two corepresenting modules corepresents Hom(E,F). Glue the affine linear schemes by the functor. For invertible E, the same argument uses F⊗E∨ directly and requires only properness.",
+        "Import AlgebraicVectorBundles L0A–L0B internal Hom and its finite locally free source comparison. On each affine base open choose a two-term presentation E1→E0→E→0 by sums of powers of the relative very ample invertible sheaf. Internal Hom from Ei to F is a twist of F, hence base-flat. The proper cohomology complex corepresents its H0; the cokernel of the two corepresenting modules corepresents Hom(E,F). Glue the affine linear schemes by the functor. For invertible E, the same argument uses F⊗E∨ directly and requires only properness.",
         "For Isom use Hom(E,F)×Hom(F,E) and impose the two identities as closed vanishing loci.",
-        "Projection forgetting the inverse identifies its points with actual sheaf isomorphisms, and inversion is unique."
+        "Projection forgetting the inverse identifies its points with actual sheaf isomorphisms, and inversion is unique.",
+        "The affine linear Hom scheme is separated over S. Pull back its closed zero section along the section corresponding to a specified E→F to obtain its universal zero locus; this is the factorization-equation input used by quot-grassmann-map."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
@@ -1493,7 +1535,7 @@
         },
         {
           "sourceId": "STACKS-QUOT",
-          "locator": "§99.3, Proposition 3.10, PDF pp. 7–8; §99.4, Proposition 4.3 (08K9), PDF pp. 9–10",
+          "locator": "§99.3, Proposition 3.10, PDF p. 8; §99.4, Proposition 4.3 (08K9), PDF pp. 9–10",
           "match": "The general proper Hom and Isom statements imply this projective case. Our proof uses the elementary projective presentation, rather than silently importing the perfect-approximation argument in Lemma 3.9."
         }
       ],
@@ -1506,7 +1548,26 @@
         "module": "TauCeti/AlgebraicGeometry/Moduli/HilbertQuot",
         "namespace": "TauCeti.AlgebraicGeometry.Moduli"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.Moduli.sheaf_hom_zero_locus",
+          "role": "characterisation",
+          "statement": "For a specified E→F in the projective finitely presented setting with F base-flat, construct a closed subscheme of S through which T→S factors exactly when the pulled sheaf morphism is zero."
+        }
+      ],
+      "importsFromTauCetiRoadmaps": [
+        {
+          "roadmap": "AlgebraicVectorBundles",
+          "layers": [
+            "L0A",
+            "L0B"
+          ],
+          "commit": "070dc2becd74419e76303ede84b465ed4a69461f",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/AlgebraicVectorBundles/README.md",
+          "provides": "Closed monoidal sheaf category and internal Hom; Hom from finite locally free sources is dual tensor and commutes with arbitrary pullback. This existing supplier is absent from the atlas stage index; no fabricated stage id or pinned-baseline declaration is asserted."
+        }
+      ]
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry:R09.2/polarized-isom-functor",
@@ -1767,12 +1828,12 @@
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.ChowModification.test_disjoint",
           "kind": "computation",
-          "statement": "For X a disjoint union of two projective k-schemes, identity covers both generic components; choosing only one component is not surjective."
+          "statement": "For X=Spec(k×k) over k, no ChowModification map can be identified through a source isomorphism with the inclusion of just one component. The actual modification must cover both generic components."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.Moduli.ChowModification.test_density_basechange",
           "kind": "non-example",
-          "statement": "An open isomorphism locus U can pull back to the empty open under a base map whose image is in its complement; universality does not include density."
+          "statement": "For an actual ChowModification of the identity X→X and x outside its open isomorphism locus U, pullback along Spec κ(x)→X still has a surjective modification map, but the pulled open is empty. The base-change API must not demand density."
         }
       ],
       "uses": [
@@ -2036,7 +2097,12 @@
         "https://www.ams.org/books/surv/123/ (publisher access returned 403)",
         "Targeted searches for Nitsure cohomology/base-change errata and reduced-base correction, 2026-10-09",
         "Cited source and correction independently rechecked on 2026-10-11; earlier search dates retained as provenance. No additional primary erratum located in targeted searches."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Theorem 3.7(3) in arXiv v1, p. 17. The vector-bundle extension with class ε has cohomology kernel εA, while fibre dimensions are constant; this disproves the assertion over a nonreduced base. The packet instead uses the valid vanishing/base-change criterion.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E20",
@@ -2053,7 +2119,12 @@
         "https://stacks.math.columbia.edu/tag/01YI (correct formulation)",
         "Targeted search for EGA III 3.1.2 support errata, 2026-10-09",
         "Cited source and correction independently rechecked on 2026-10-11; earlier search dates retained as provenance. No additional primary erratum located in targeted searches."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published statement and proof of 3.1.2, pp. 115–116. The statement omits witness support, but the proof assumes support exactly Y. The two-component equal-length exact class is a counterexample; Stacks 30.12.6 supplies the corrected support condition.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E21",
@@ -2070,7 +2141,12 @@
         "https://pub.math.leidenuniv.nl/~edixhovensj/public_html_rennes/sgahtml/ (re-edition project)",
         "SMF SGA1 publisher page access failed, 2026-10-09",
         "Cited source and correction independently rechecked on 2026-10-11; earlier search dates retained as provenance. No additional primary erratum located in targeted searches."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the electronic re-edition XII 4.4, display (*) on p. 250: it excludes q=1, although the argument requires lifting an extension in that degree. The spectral-sequence comparison immediately afterwards includes all nonnegative degrees. Verdict is scoped to this edition.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E22",
@@ -2087,15 +2163,20 @@
         "https://www.ams.org/books/surv/123/ (403)",
         "Targeted regularity-exercise correction search, 2026-10-09",
         "Cited source and correction independently rechecked on 2026-10-11; earlier search dates retained as provenance. No additional primary erratum located in targeted searches."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the third exercise implication on p. 11 and checked the P¹ Euler sequence. With m=1 the middle and right terms have the required regularity, but the left H1 is k. H0 surjectivity at m−1 is the missing condition.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E23",
       "source": "NITSURE",
       "kind": "misprint",
       "locator": "arXiv:math/0504590v1, proof of Lemma 2.1(c), printed p. 11",
-      "printed": "The final generation argument says the vector space H0(P^n,F(r+p)) is generated by its global sections where it needs the sheaf F(r+p).",
-      "correction": "Replace that occurrence by generation of the sheaf F(r+p) by its global sections.",
+      "printed": "The final generation argument twice describes H0 of a twist as generated by global sections, where it needs generation of the corresponding sheaves F(r+p) and F(r).",
+      "correction": "Replace both generation claims by generation of the sheaves F(r+p) and F(r) by their global sections.",
       "reason": "Surjectivity of multiplication on H0 then supplies generators of the stalks of F(r); the vector-space statement alone gives no sheaf-generation conclusion.",
       "affects": "nothing",
       "known": "No correction located in arXiv v1; published chapter not read.",
@@ -2103,7 +2184,12 @@
         "https://arxiv.org/abs/math/0504590 (only v1)",
         "https://www.ams.org/books/surv/123/ (403)",
         "Cited source and correction independently rechecked on 2026-10-11; earlier search dates retained as provenance. No additional primary erratum located in targeted searches."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 2.1(c), p. 11. Both successive generation sentences concern sheaves, despite being printed as H0. Correcting both occurrences leaves the multiplication-map proof and theorem intact.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.2"
+      }
     }
   ],
   "coverage": [
@@ -2112,8 +2198,7 @@
       "status": "planned",
       "remaining": [
         "Resolve the five named supplier interfaces before implementation: R09.1/family-regularity on arbitrary tests and its reviewed sibling nodes, proper coherent cohomology/base change, ModularCurves 0G Grassmannians, StableReduction projective geometry, and SF.0 relative-flat-module limit descent.",
-        "Reconcile the current AlgebraicVectorBundles L0A–L0C imports with the atlas catalogue when that upstream roadmap is synchronized; its internal Hom and determinant remain owned there.",
-        "Independent review must check the complete target pass, corrected source statements, global projectivity argument and arbitrary-test-scheme contracts."
+        "Reconcile the current AlgebraicVectorBundles L0A–L0C imports with the atlas catalogue when that upstream roadmap is synchronized; its internal Hom and determinant remain owned there."
       ]
     }
   ],
@@ -2173,5 +2258,138 @@
       "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
       "note": "Electronic re-edition read; SMF publisher page unavailable through the browser. E21 is scoped to the electronic re-edition, not an unchecked original printing."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.2",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review of all 25 nodes, all cited sources and five sourceIssues, current supplier scopes, APIs/tests, six planets and pinned libraries. Corrected proof dependencies, expanded universal isomorphism-locus proof using two additional confirmed baseline lemmas, supplied missing construction/zero-locus APIs, strengthened direct API tests and fixed source-page/notation errors. No unresolved mathematical contradiction or new gap; complete planning pass remains planned with five precise supplier requests. Suggested Lean file and validation results are recorded in the review report; admissions are not proofs.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/relative-flat-module",
+        "verdict": "corrected",
+        "note": "Affine/stalk flatness and arbitrary pullback are valid. The dual-number negative and closed-point pullback examples now exercise IsFlatOver itself, so a constantly true predicate fails."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quotient-family",
+        "verdict": "verified",
+        "note": "Native epimorphism, finite presentation, relative flatness, proper scheme-theoretic support and fibre polynomial have the required scopes; E and X need not be base-flat."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quotient-equivalence",
+        "verdict": "verified",
+        "note": "Native abelian-category cokernel uniqueness identifies source-commuting quotient equivalence with equality of embedded kernels; right exact pullback suffices."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quot-functor",
+        "verdict": "verified",
+        "note": "Fpqc descent is imported once; arbitrary affine limits retain the separately requested relative-module flatness descent. Empty tests remain singleton even for inadmissible polynomials."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-functor",
+        "verdict": "verified",
+        "note": "Native ideals preserve the embedding and nilpotents. Proper flat finite-presentation families and the polynomial agree with Stacks 99.9."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-quot-comparison",
+        "verdict": "corrected",
+        "note": "Kernel-ideal and quotient constructions are inverse on arbitrary tests. Corrected the exact Stacks 99.9.2 locator to PDF p. 25."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/flattening-strata",
+        "verdict": "verified",
+        "note": "Nitsure 4.3 supports the universal locally closed, possibly nonreduced strata and finite set of occurring polynomials; arbitrary tests use the precise limit supplement."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quot-grassmann-map",
+        "verdict": "corrected",
+        "note": "Added the direct sheaf Hom/closed zero-locus prerequisite used for factorization equations. Evaluation reconstructs the actual quotient map, using images rather than falsely exact kernel pullback."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quot-projectivity",
+        "verdict": "verified",
+        "note": "Bounded Grassmannian immersion, DVR quotient extension and coherent global ambient prove projectivity in the stated coherent-presentation convention; no unconditional finite-free presentation is claimed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/quot-scheme",
+        "verdict": "corrected",
+        "note": "Yoneda gives the universal quotient and coherent base changes. Strengthened the point example to check the universal quotient is an isomorphism, with the precise identity-quotient wording."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme",
+        "verdict": "corrected",
+        "note": "Added construction from the unit-sheaf Quot scheme and the universal pullback API; strengthened the point example to check the zero ideal. Corrected the Stacks comparison page."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/relative-hom-functor",
+        "verdict": "corrected",
+        "note": "Added the direct universal isomorphism-locus dependency. The nongraph example now excludes the whole two-point family through the actual graph map; a fourth test counts the two HomFunctor points."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/graph-isomorphism-open",
+        "verdict": "corrected",
+        "note": "Replaced the terse openness assertion by the finite-map, coherent kernel/cokernel and Nakayama proof, with exact existing Mathlib quasi-finite/finite citations and coherent-support prerequisite. Arbitrary bases and infinitesimal tests are justified."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/hom-representability",
+        "verdict": "verified",
+        "note": "Quasi-projective completion and coherent extension give the support-open Hilbert pieces; graph openness gives separated locally finite-presentation Hom and quasi-compact fixed graph-polynomial pieces."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/relative-isom-functor",
+        "verdict": "corrected",
+        "note": "Tests now use actual IsomFunctor points and exclude the square map from its forgetful image. Added toHom_apply so forgetting retains the specified underlying morphism."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/isom-representability",
+        "verdict": "verified",
+        "note": "Second projection being an isomorphism is a universal open condition in graph Hom. The unrestricted functor is only locally of finite presentation; fixed graph pieces are finite presentation."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/sheaf-isom-representability",
+        "verdict": "corrected",
+        "note": "Projective two-term presentations corepresent coherent-source Hom; pairwise inverse equations give affine finite-presentation Isom. Added the explicit closed zero-locus signature used by Quot, corrected the malformed first presentation term E19 to E1, and narrowed the Stacks Hom locator to p. 8. Explicitly imports current AlgebraicVectorBundles L0A–L0B internal Hom and finite locally free source comparisons; no arbitrary nonflat base-change theorem for a merely finitely presented source is assumed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/polarized-isom-functor",
+        "verdict": "corrected",
+        "note": "All four Lean tests now evaluate the functor itself, retaining α and its units on disconnected sources; no unconditional G_m fibre is asserted."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/polarized-isom-representability",
+        "verdict": "verified",
+        "note": "The doubled polarization bounds graphs on finitely many base pieces; the affine finite-presentation sheaf-Isom morphism then gives quasi-compact separated finite presentation."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/dual-number-parameter",
+        "verdict": "verified",
+        "note": "Finite flat rank-one families are graphs of sections, so Hilb1=X including its nonreduced structure. The closed-point example correctly separates universal flatness from parameter flatness."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/chow-modification",
+        "verdict": "corrected",
+        "note": "Stacks 30.18.1–2 supplies proper projective surjection and a dense open isomorphism meeting every component. Proper original X implies projective cover, not projective X; density is not claimed after arbitrary base change. The disconnected-source exclusion and density-under-base-change examples now exercise ChowModification and its actual pulled map, rather than standalone native facts."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/support-power-filtration",
+        "verdict": "verified",
+        "note": "Noetherian support implies annihilation by a finite ideal power; finite integral-support filtrations retain rank-one residue-field generic stalks and native subobjects."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/coherent-devissage",
+        "verdict": "verified",
+        "note": "The witness must be supported on each integral closed subscheme, as corrected in E20. Exact classes suffice for rank-one witnesses; the positive-rank version separately assumes summand closure."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/generic-projective-test-sheaves",
+        "verdict": "verified",
+        "note": "Choose the Chow cover birational over the integral support, then a high projective twist with vanishing higher pushforward. Its pushed witness has rank one at the generic point and the required support."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.2/chow-unit-support",
+        "verdict": "verified",
+        "note": "The actual adjunction unit is an isomorphism on the specified open; proper coherent pushforward makes its kernel and cokernel coherent and supported on the complement, hence killed by finite ideal powers."
+      }
+    ]
+  }
 }
