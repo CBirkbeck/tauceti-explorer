@@ -1,3 +1,117 @@
+# PKG-JacobianChallengePartII — individual imports and blocked supplier handoff
+
+Refs #7593. Codex (GPT-6), session `codex-iphhPQ`, 11 October 2026.
+Branch: `codex-iphhPQ-jacobian-package`.
+The bot confirmed [this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6104637557).
+Only this job was claimed; none of the manager's priority issues was available.
+
+**Blocked checkpoint.** The parent abelian-scheme supplier still has no
+package, and the coupled curve-moduli supplier has neither a package nor a
+declared bundle with this roadmap. Both corrections require files outside this
+job's four authorized paths. The existing package is retained and its native
+Lean signatures now use individual Mathlib imports. This is not a completed
+package or an upstream-ready submission.
+
+## Changes and validation in this continuation
+
+- Replace `import Mathlib` in the package's
+  [Suggested.lean](../packages/JacobianChallengePartII/Suggested.lean) with
+  seven individual modules: scheme limits, finite presentation, flatness,
+  properness, product preservation, Cartesian group objects and Cartesian
+  slice categories. Properness imports the finite and separated morphism
+  interfaces also used by the signatures.
+- Align its three remaining Yuan manuscript locators with the public
+  arXiv:2108.05625v4 version already used by the README: §4.6.2, pp. 96–98,
+  and the proof of Theorem 4.17(5), p. 98. Read those pages directly, including
+  the first coordinate, the difference coordinates, the triangular change
+  and the separate multiplication by 2g−2 in the tails. The source's
+  nondegeneracy theorem has additional hypotheses; the signatures retain
+  only algebraic coordinate identities with their geometric inputs explicit.
+- Preserve all executable declaration bodies, names and signatures. A
+  comparison against the base commit, removing imports, nested/line comments
+  and whitespace, gives identical Lean code: **10 definitions, 40 theorem
+  signatures and 32 examples**. None is claimed implemented.
+- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`
+  finished with exit code **0**, **76 `sorry` warnings**, **zero other warnings**
+  and **zero errors**. Available memory exceeded 20 GB before the check.
+  No Lake build or language server was started.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`
+  reports **0 errors and 0 warnings**: 48 nodes, 60 API items, 52 tests,
+  24 planets, 11 baseline declarations, eight planned layers, 14 recorded gaps
+  and 13 requests. This structural check does not discharge those gaps.
+- `git diff --check` passes. The README and accepted packet are unchanged.
+  The README is 99,386 bytes and retains all 48 accepted targets. Geometric
+  omissions and supplier obligations remain exactly as recorded below;
+  comments are not counted as elaborated geometric declarations or tests.
+
+## Fresh external-gate check and where to resume
+
+Fresh remote checks on 11 October 2026 used atlas main
+`c4ce32fc2609d8770f679898db6ebecda1b11ab8` and TauCetiRoadmap main
+`4b002f622e9d68b627bdce9f6224897305a68bdc`. Neither
+`AbelianSchemesAndArithmeticModuli` nor `StableReductionPartII` is present in
+the atlas package directory or the upstream roadmap directory. The local
+queue contains neither exact package job and still gives
+`PKG-JacobianChallengePartII` an empty `after` list. `focus.json` and
+`upstream/CaraianiNewton.md` do not declare the required coupled bundle.
+The current library/roadmap search also finds no arbitrary-base abelian-scheme
+declaration supplying the missing A1–A3 contract.
+
+Re-read the accepted 89-node parent abelian-scheme packet and the accepted
+528-node StableReductionPartII packet's full-level and fine-level-scheme
+contracts. They still have the same dependency described in the inherited
+handoff: JC1's relative Jacobian, base change and polarization supply full
+level; fine level supplies the universal curve consumed only by JC7. The
+existing abelian-moduli **Part II** package imports A1–A3 and cannot supply
+its missing parent.
+
+[WORKERS.md, Upstream tiers](../WORKERS.md#upstream-tiers) requires supplier
+roadmaps upstream first, or together in a declared bundle. Its package rule
+allows citations to libraries, own layers, bundle partners and lower-tier
+**packages**. Before another package continuation can finish this job, the
+maintainer must:
+
+1. Provide the parent `AbelianSchemesAndArithmeticModuli` package as the
+   lower-tier A1–A3 supplier.
+2. Provide the `StableReductionPartII` package and declare its coupled bundle
+   with this roadmap. Keep MC.4 out of generic Layers 0–5, and avoid reciprocal
+   whole-package dependencies: the node-level sequence is
+   `JC1 → MC.4 full-level/fine-level scheme → JC7`.
+
+**Resume after these external actions.** Recheck the packages and bundle,
+reconcile their final layer identifiers with the README's exact contracts,
+address supplier-interface changes, rerun `lean-check` and the packet
+checker, and then add `metadata.toml` with `topic = "math.AG"`.
+Metadata stays absent now because `research/blueprint/issues.py`,
+`deliverables_complete`, marks a package complete when every output path
+exists, without consulting the blocked handoff. Adding it would incorrectly
+advance this job to review. No supplier, queue, schedule or packet was edited.
+
+Read the current JacobianChallenge and AlgebraicVectorBundles READMEs in full
+and inspected their suggested-file forms. The read-only roadmap checkout is
+`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command was run there.
+The reviewed library audit has no dedicated Part II entry; the parent
+JacobianChallenge and AbelianSchemesAndArithmeticModuli entries were read.
+Their old-pin field/relative and actual-class/sheaf distinctions still apply;
+current-only interfaces are not imported into the old-pin native file.
+
+Public Yuan v4 was fetched only into scratch and its changed locators were
+read. Its SHA-256 is
+`a4e4c3d79e0912b62961a4b45b08e1e5c6957b0b64af7da74647c8ff9361e11e`;
+the exact URL is [arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4).
+The cleared-library index was read. BLR and MFK are not cleared and were
+neither obtained nor read in this session. Other source and proof receipts
+below are inherited, not new verification claims. No source passage or
+local filesystem path is included in the changes.
+
+## Inherited handoff from codex-d9d4xD
+
+The following archived notes retain the detailed target correspondence,
+mathematical obligations, earlier source checks and proof receipts. References
+to "this run" within them mean the preceding session, `codex-d9d4xD`.
+The current compilation result and the current changes are those above.
+
 # PKG-JacobianChallengePartII — prose package and external supplier checkpoint
 
 Refs #7593. Codex (GPT-6), session `codex-d9d4xD`, 11 October 2026.
