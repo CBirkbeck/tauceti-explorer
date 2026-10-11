@@ -4,6 +4,7 @@ import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
 import Mathlib.AlgebraicGeometry.IdealSheaf.Functorial
 import Mathlib.AlgebraicGeometry.Noetherian
 import Mathlib.AlgebraicGeometry.Fiber
+import Mathlib.AlgebraicGeometry.ZariskisMainTheorem
 import Mathlib.CategoryTheory.Subobject.Lattice
 import Mathlib.CategoryTheory.Limits.Shapes.ZeroObjects
 import Mathlib.CategoryTheory.Yoneda
@@ -100,14 +101,15 @@ example (X : Scheme.{u}) :
 
 -- IsFlatOver.test_dualNumbers
 example (k : Type u) [Field k] :
-    ¬ Flat (Spec.map (CommRingCat.ofHom ((TrivSqZeroExt.fstHom k k k).toRingHom))) := by
+    let f := Spec.map (CommRingCat.ofHom ((TrivSqZeroExt.fstHom k k k).toRingHom))
+    ¬ IsFlatOver f (SheafOfModules.unit (Spec (.of k)).ringCatSheaf) := by
   sorry
 
 -- IsFlatOver.test_baseChange_closedPoint
 example (k : Type u) [Field k] :
-    Flat (pullback.snd
-      (Spec.map (CommRingCat.ofHom ((TrivSqZeroExt.fstHom k k k).toRingHom)))
-      (Spec.map (CommRingCat.ofHom ((TrivSqZeroExt.fstHom k k k).toRingHom)))) := by
+    let f := Spec.map (CommRingCat.ofHom ((TrivSqZeroExt.fstHom k k k).toRingHom))
+    IsFlatOver (pullback.snd f f) ((Scheme.Modules.pullback (pullback.fst f f)).obj
+      (SheafOfModules.unit (Spec (.of k)).ringCatSheaf)) := by
   sorry
 
 end IsFlatOver
@@ -659,7 +661,7 @@ theorem baseChange {X S T : Scheme.{u}} {f : X ⟶ S} {E : FinitelyPresentedShea
 -- QuotScheme.test_point
 example (k : Type u) [Field k]
     (Q : QuotScheme (𝟙 (Spec (.of k))) (Imported.unitFP _) (InvertibleSheaf.trivial _) 1) :
-    Nonempty (Q.base ≅ Over.mk (𝟙 (Spec (.of k)))) := by
+    Nonempty (Q.base ≅ Over.mk (𝟙 (Spec (.of k)))) ∧ IsIso Q.universal.quotient := by
   sorry
 
 -- QuotScheme.test_zero
@@ -687,6 +689,12 @@ structure HilbertScheme {X S : Scheme.{u}} (f : X ⟶ S)
 
 namespace HilbertScheme
 
+def ofQuot {X S : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
+    {P : Polynomial ℚ} (Q : QuotScheme f (Imported.unitFP X) L P) : HilbertScheme f L P where
+  base := Q.base
+  representation := Q.representation ≪≫ (hilbertQuotIso f L P).symm
+  projective := Q.projective
+
 theorem represent {X S : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
     {P : Polynomial ℚ} (H : HilbertScheme f L P) (T : Over S) :
     Nonempty ((T ⟶ H.base) ≃ (HilbertFunctor f L P).obj (op T)) := by
@@ -697,6 +705,12 @@ def universal {X S : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
     HilbertFamily (pullback.snd f H.base.hom)
       (Imported.pullbackLine (pullback.fst f H.base.hom) L) P :=
   (H.representation.hom.app (op H.base) (ULift.up (𝟙 H.base))).down
+
+theorem pullback_universal {X S : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
+    {P : Polynomial ℚ} (H : HilbertScheme f L P) (T : Over S) (t : T ⟶ H.base) :
+    H.representation.hom.app (op T) (ULift.up t) =
+      (HilbertFunctor f L P).map t.op (ULift.up H.universal) := by
+  sorry
 
 theorem baseChange {X S T : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
     {P : Polynomial ℚ} (H : HilbertScheme f L P) (g : T ⟶ S) :
@@ -714,7 +728,7 @@ theorem quot_compat {X S : Scheme.{u}} {f : X ⟶ S} {L : InvertibleSheaf X}
 -- HilbertScheme.test_point
 example (k : Type u) [Field k]
     (H : HilbertScheme (𝟙 (Spec (.of k))) (InvertibleSheaf.trivial _) 1) :
-    Nonempty (H.base ≅ Over.mk (𝟙 (Spec (.of k)))) := by
+    Nonempty (H.base ≅ Over.mk (𝟙 (Spec (.of k)))) ∧ H.universal.ideal = ⊥ := by
   sorry
 
 -- HilbertScheme.test_empty
@@ -739,6 +753,12 @@ theorem hilbert_one_iso {X S : Scheme.{u}} (f : X ⟶ S) [LocallyOfFinitePresent
 
 private def baseChangeObject {S : Scheme.{u}} (X T : Over S) : Over T.left :=
   Over.mk (pullback.snd X.hom T.hom)
+
+/-- The cartesian pullback of a specified native morphism, used by the examples. -/
+private def baseChangeMorphism {S : Scheme.{u}} (X Y T : Over S) (a : X ⟶ Y) :
+    baseChangeObject X T ⟶ baseChangeObject Y T :=
+  Over.homMk (pullback.map X.hom T.hom Y.hom T.hom a.left (𝟙 T.left) (𝟙 S)
+    (by simp) (by simp)) (by simp [baseChangeObject, pullback.map, pullback.lift_snd])
 
 private def pullHom {S : Scheme.{u}} (X Y : Over S) {T T' : Over S} (g : T' ⟶ T) :
     (baseChangeObject X T ⟶ baseChangeObject Y T) →
@@ -800,7 +820,25 @@ example {S : Scheme.{u}} (Y T : Over S) :
 
 -- HomFunctor.test_nongraph
 example (k : Type u) [Field k] :
-    ¬ IsIso (Spec.map (CommRingCat.ofHom (algebraMap k (k × k)))) := by
+    let X := Over.mk (𝟙 (Spec (.of k)))
+    let Y := Over.mk (Spec.map (CommRingCat.ofHom (algebraMap k (k × k))))
+    letI : IsProper X.hom := by change IsProper (𝟙 _); infer_instance
+    letI : Flat X.hom := by change Flat (𝟙 _); infer_instance
+    letI : LocallyOfFinitePresentation X.hom := by
+      change LocallyOfFinitePresentation (𝟙 _); infer_instance
+    letI : IsSeparated Y.hom := by sorry
+    letI : LocallyOfFinitePresentation Y.hom := by sorry
+    let f := pullback.fst X.hom Y.hom ≫ X.hom
+    ∀ a : (HomFunctor X Y).obj (op X),
+      ((graph X Y).app (op X) a).down.ideal ≠
+        (⊥ : (Limits.pullback f X.hom).IdealSheafData) := by
+  sorry
+
+-- HomFunctor.test_two_points
+example (k : Type u) [Field k] :
+    let X := Over.mk (𝟙 (Spec (.of k)))
+    let Y := Over.mk (Spec.map (CommRingCat.ofHom (algebraMap k (k × k))))
+    Nonempty ((HomFunctor X Y).obj (op X) ≃ Bool) := by
   sorry
 
 end HomFunctor
@@ -907,6 +945,11 @@ theorem toHom_injective {S : Scheme.{u}} (X Y T : Over S) :
     Function.Injective ((toHom X Y).app (op T)) := by
   sorry
 
+theorem toHom_apply {S : Scheme.{u}} (X Y T : Over S)
+    (e : (IsomFunctor X Y).obj (op T)) :
+    (toHom X Y).app (op T) e = ULift.up e.down.hom := by
+  sorry
+
 theorem pullback {S : Scheme.{u}} (X Y : Over S) {T T' : Over S} (g : T' ⟶ T)
     (e : (IsomFunctor X Y).obj (op T)) :
     ((IsomFunctor X Y).map g.op e).down = pullIso X Y g e.down := by
@@ -921,11 +964,16 @@ example {S : Scheme.{u}} (T : Over S) :
 -- IsomFunctor.test_two_points
 example (k : Type u) [Field k] :
     let X := Over.mk (Spec.map (CommRingCat.ofHom (algebraMap k (k × k))))
-    Nonempty ((X ≅ X) ≃ Bool) := by
+    let T := Over.mk (𝟙 (Spec (.of k)))
+    Nonempty ((IsomFunctor X X).obj (op T) ≃ Bool) := by
   sorry
 
 -- IsomFunctor.test_nonlinear_map
-example (k : Type u) [Field k] : ¬ IsIso (Imported.squareMap k).left := by
+example (k : Type u) [Field k] :
+    let X := Imported.projectiveLine k
+    let T := Over.mk (𝟙 (Spec (.of k)))
+    ∀ e : (IsomFunctor X X).obj (op T),
+      (toHom X X).app (op T) e ≠ ULift.up (baseChangeMorphism X X T (Imported.squareMap k)) := by
   sorry
 
 end IsomFunctor
@@ -1001,7 +1049,7 @@ theorem fiber {S : Scheme.{u}} (X Y T : Over S) (LX : InvertibleSheaf X.left)
 example (k : Type u) [Field k] :
     let X := Over.mk (𝟙 (Spec (.of k)))
     let L := InvertibleSheaf.trivial X.left
-    Nonempty (PolarizedPair X X X L L ≃ kˣ) := by
+    Nonempty ((PolarizedIsomFunctor X X L L).obj (op X) ≃ kˣ) := by
   sorry
 
 -- PolarizedIsomFunctor.test_disconnected
@@ -1009,20 +1057,23 @@ example (k : Type u) [Field k] :
     let X := Over.mk (Spec.map (CommRingCat.ofHom (algebraMap k (k × k))))
     let T := Over.mk (𝟙 (Spec (.of k)))
     let L := InvertibleSheaf.trivial X.left
-    Nonempty ({a : PolarizedPair X X T L L // a.schemeIso = Iso.refl _} ≃ (kˣ × kˣ)) := by
+    Nonempty ({a : (PolarizedIsomFunctor X X L L).obj (op T) //
+      a.down.schemeIso = Iso.refl _} ≃ (kˣ × kˣ)) := by
   sorry
 
 -- PolarizedIsomFunctor.test_empty
 example {S : Scheme.{u}} (T : Over S) :
     let X := Over.mk (Scheme.emptyTo S)
-    Nonempty (Unique (PolarizedPair X X T (InvertibleSheaf.trivial _) (InvertibleSheaf.trivial _))) := by
+    Nonempty (Unique ((PolarizedIsomFunctor X X (InvertibleSheaf.trivial _)
+      (InvertibleSheaf.trivial _)).obj (op T))) := by
   sorry
 
 -- PolarizedIsomFunctor.test_degree_mismatch
 example (k : Type u) [Field k] :
     let X := Imported.projectiveLine k
     let L := Imported.projectiveO1 (Imported.freeFP (Spec (.of k)) 2)
-    IsEmpty (PolarizedPair X X (Over.mk (𝟙 (Spec (.of k)))) L (Imported.tensorLine L L)) := by
+    IsEmpty ((PolarizedIsomFunctor X X L (Imported.tensorLine L L)).obj
+      (op (Over.mk (𝟙 (Spec (.of k)))))) := by
   sorry
 
 end PolarizedIsomFunctor
@@ -1051,6 +1102,16 @@ theorem sheaf_hom_affine {X S : Scheme.{u}} (f : X ⟶ S) [IsNoetherian S]
     (hF : IsFlatOver f F.obj) :
     ∃ H : Over S, Nonempty (uliftYoneda.{u + 1}.obj H ≅ SheafHomFunctor f E F) ∧
       IsAffineHom H.hom ∧ LocallyOfFinitePresentation H.hom := by
+  sorry
+
+/-- Nitsure 3.5: the zero condition is a closed subscheme on every test base. -/
+theorem sheaf_hom_zero_locus {X S : Scheme.{u}} (f : X ⟶ S) [IsNoetherian S]
+    [LocallyOfFinitePresentation f] (L : InvertibleSheaf X)
+    (h : Imported.ProjectiveEmbedding f L) (E F : FinitelyPresentedSheaf X)
+    (hF : IsFlatOver f F.obj) (a : E.obj ⟶ F.obj) :
+    ∃ I : S.IdealSheafData, ∀ (T : Scheme.{u}) (g : T ⟶ S),
+      (∃ g' : T ⟶ I.subscheme, g' ≫ I.subschemeι = g) ↔
+        (Scheme.Modules.pullback (pullback.fst f g)).map a = 0 := by
   sorry
 
 /-- The proper invertible-source case, using native internal Hom and the
@@ -1211,12 +1272,18 @@ example (S : Scheme.{u}) :
 
 -- ChowModification.test_disjoint
 example (k : Type u) [Field k] :
-    ¬ Surjective (Spec.map (CommRingCat.ofHom (RingHom.fst k k))) := by
+    let X := Spec (.of (k × k))
+    let f := Spec.map (CommRingCat.ofHom (algebraMap k (k × k)))
+    ∀ d : ChowModification f, ¬ ∃ e : d.source ≅ Spec (.of k),
+      e.hom ≫ Spec.map (CommRingCat.ofHom (RingHom.fst k k)) = d.map := by
   sorry
 
 -- ChowModification.test_density_basechange
-example (X : Scheme.{u}) (U : X.Opens) (x : X) (hx : x ∉ U) :
-    x ∉ U ∧ Set.range (X.fromSpecResidueField x) ⊆ (U : Set X)ᶜ := by
+example (X : Scheme.{u}) (d : ChowModification (𝟙 X)) (x : X)
+    (hx : x ∉ d.isoOpen) :
+    let g := X.fromSpecResidueField x
+    let a := pullFamilyMap (d.map ≫ 𝟙 X) (𝟙 X) d.map rfl g
+    Surjective a ∧ ((pullback.fst (𝟙 X) g) ⁻¹ᵁ d.isoOpen) = ⊥ := by
   sorry
 
 end ChowModification
