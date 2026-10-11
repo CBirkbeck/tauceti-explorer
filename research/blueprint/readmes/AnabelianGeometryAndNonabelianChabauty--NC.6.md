@@ -32,18 +32,25 @@ The [parent packet](../packets/AnabelianGeometryAndNonabelianChabauty.json)
 contains the existing NC.3/torsor-classification node. Its topological torsor
 classification is useful support for H¹; the node's own scope does not include
 representability of geometric Selmer varieties or their local conditions.
-The parent leaves reconstruction, unipotent comparisons and quadratic Chabauty
-as separate remaining work. They cannot be treated as ready APIs merely by
-listing their outputs here.
+The separate scoped packets now identify the following exact exports. Each
+name in the last column is a node suffix under the stage in the first column;
+the packet's `supplierExports` records all 24 full ids, the inspected file
+hashes and the conditions carried by each interface.
 
-The [ED packet](../packets/EffectiveDiophantineMethods.json) identifies the
-consumer interfaces through ED.6/certified-solution-set,
-padic-candidate-comparison, qc-disc-certificate, qc-certificate-sound,
-height-series-valuation-bound, root-determination-precision and
-qc-modular-algorithm. Its latest review is needs_changes
-(REV-EffectiveDiophantineMethods~3, 8 October 2026). These references establish
-ownership and expose outstanding geometric/numerical interfaces; they do not
-certify that the suppliers or computations have been implemented.
+| Owner | Packet | Export nodes |
+| --- | --- | --- |
+| NC.1 | [Reconstruction](../packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json) | relative-outer-isom; number-field-isom |
+| NC.2 | [Unipotent comparisons](../packets/AnabelianGeometryAndNonabelianChabauty--NC.2.json) | tannakian-groups; tensor-paths; finite-path-comparison |
+| NC.3 | [Selmer varieties](../packets/AnabelianGeometryAndNonabelianChabauty--NC.3.json) | selmer-functor; selmer-representability; selmer-localization-naturality |
+| NC.4 | [Albanese maps and loci](../packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json) | local-albanese; iterated-coordinates; kim-loci; rational-integral-containment; dimension-finiteness |
+| NC.5 | [Quadratic Chabauty](../packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json) | rank-picard-criterion; away-height-constants; quadratic-chabauty-pair; pair-finite-locus |
+| ED.6 | [Precision and certification](../packets/EffectiveDiophantineMethods.json) | certified-solution-set; padic-candidate-comparison; qc-disc-certificate; qc-certificate-sound; height-series-valuation-bound; root-determination-precision; qc-modular-algorithm |
+
+These references specify ownership and expose the suppliers' remaining gaps.
+Their planning coverage supplies no proof that an interface is implemented.
+In particular, the NC.1 arithmetic-extension formulation still requires its
+comparison with the source's outer geometric-action target, and ED.6 retains
+its geometric and numerical obligations.
 
 ## Reconstruction retains its own scope
 
@@ -67,6 +74,15 @@ reconstruction theorem.
 
 ## Equations retain their geometric meaning
 
+NC.2 supplies tensor automorphisms and right path torsors on every coefficient
+algebra, with composition, finite-length transitions, filtration and Frobenius.
+Its ramified comparison clause assumes that the model and endpoints descend
+from the stated unramified setup. It does not cover an arbitrary ramified
+model. NC.3 forms its Selmer scheme from represented factors and closed local
+conditions on all coefficient algebras, including algebras with nilpotents.
+That fibre-product construction retains those representability hypotheses;
+pointwise torsor classification alone does not establish them.
+
 A consumer must retain the base field, the chosen place above p, the curve and
 its model, base point, finite unipotent quotient/depth, allowed bad places and
 the precise local Selmer conditions. Rational points on a proper curve and
@@ -75,6 +91,14 @@ global-to-local images must agree with the corresponding unipotent Albanese
 map and comparison maps; an unrelated function with the same numerical values
 at sampled points does not supply these maps.
 
+With NC.4's right-path convention, the de Rham period representative is
+`I(b,x)⁻¹ γ(x)`. Its depth n uses Kim's quotient indexed by n+1. The crystalline
+witness locus, its de Rham period-image locus and the locus obtained from the
+reduced geometric image closure are separate objects with forward inclusions.
+The geometric closure need not give every point a rational Selmer lift and is
+not a p-adic topological closure. Consumers must name the locus used by their
+equations rather than silently identifying these sets.
+
 The required inclusion of the specified global points in the local locus is
 the content carried through the diagram in
 [Kim, introduction, pp.94–96](https://ems.press/content/serial-article-files/41066?nt=1).
@@ -82,6 +106,9 @@ The dimension inequality of his Conjecture 1 is a condition leading to
 finiteness, distinct from an equality with the global set.
 When a route uses Bloch–Kato, Fontaine–Mazur or another unproved input, that
 input must remain in the hypotheses of NC.4/NC.5 and every consumer.
+The NC.4 dimension-finiteness export is over Q and assumes the verified strict
+dimension inequality; a number-field dimension count after Weil restriction
+does not by itself supply the corresponding analytic argument.
 
 NC.5 must export the complete family of quadratic equations, the finite
 alternatives for local heights away from p, and the domains where those
@@ -91,6 +118,16 @@ alternatives are visible in
 [Balakrishnan–Dogra, Theorem 1.2 and Remark 1.3, preprint v2, p.4](https://arxiv.org/pdf/1601.00388v2).
 Any excluded correspondence support, missing affine patch or exceptional
 point remains a coverage obligation at its owner.
+
+In the NC.5 rank–Picard export, the inequality is
+`r < g + ρ_Q − 1`: the Néron–Severi rank is over Q and the Selmer locus uses
+the stated Mordell–Weil cut. For the quadratic pair, the allowed residual
+constants `Υ` are the **negative** sums of all away-place local-height
+alternatives. The density condition holds on every nonempty open subdisc,
+and the analytic functions use the specified compact charts. The resulting
+finite residual locus contains the rational points; it need not equal the
+exact depth-two Selmer locus. ED.6 must carry these conventions into its
+height equations and coverage certificates.
 
 For the stringent local conditions and minimal integral model used by BDCKW,
 eventual equality with the global integral points is their §3.1 conjecture;
@@ -156,4 +193,6 @@ and planets. Definition and construction tests stay with their mathematical
 owners. The [Lean companion](../suggested/AnabelianGeometryAndNonabelianChabauty--NC.6.lean)
 contains comments only; its elaboration tests no mathematical assertion.
 Removal can be marked closed without nodes only after the accepted
-restructuring required by PROTOCOL §15.
+restructuring required by PROTOCOL §15. Once the accepted drop is recorded in
+the checker's registry, this packet can cite it and close its scope. Applying
+the atlas stage and edge removals is a separate authorized integration step.
