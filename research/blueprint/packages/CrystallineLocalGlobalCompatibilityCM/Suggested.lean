@@ -602,6 +602,45 @@ theorem subquotient_mod_p_pow_uniform (p : ℕ) [Fact p.Prime]
           (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f := by
   sorry
 
+/-- At a fixed ambient depth, the comparison square determines its map uniquely.
+This uses surjectivity onto the actual quotient image, not finite generation. -/
+theorem subquotient_mod_p_pow_unique (p : ℕ) [Fact p.Prime]
+    {N M : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+    [AddCommGroup M] [Module ℤ_[p] M] (N' : Submodule ℤ_[p] N)
+    (f : N' →ₗ[ℤ_[p]] M) (e m : ℕ)
+    (g₁ g₂ : adicSubmoduleImage p N' e →ₗ[ℤ_[p]]
+      (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))))
+    (hg₁ : g₁.comp (adicSubmoduleImageMap p N' e) =
+      (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f)
+    (hg₂ : g₂.comp (adicSubmoduleImageMap p N' e) =
+      (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f) :
+    g₁ = g₂ := by
+  sorry
+
+/-- The canonical comparison intertwines supplied Hecke or monoid actions.
+The two generating maps must be equivariant for the same source action.
+No arithmetic action is constructed by this scalar-linear descent statement. -/
+theorem subquotient_mod_p_pow_equivariant (p : ℕ) [Fact p.Prime]
+    {N M H : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+    [AddCommGroup M] [Module ℤ_[p] M] [Monoid H]
+    (N' : Submodule ℤ_[p] N) (f : N' →ₗ[ℤ_[p]] M) (e m : ℕ)
+    (ρSub : Representation ℤ_[p] H N')
+    (ρImage : Representation ℤ_[p] H (adicSubmoduleImage p N' e))
+    (ρQuot : Representation ℤ_[p] H
+      (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))))
+    (hImage : ∀ h, (ρImage h).comp (adicSubmoduleImageMap p N' e) =
+      (adicSubmoduleImageMap p N' e).comp (ρSub h))
+    (hQuot : ∀ h, (ρQuot h).comp
+        ((((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f) =
+      ((((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f).comp
+        (ρSub h))
+    (g : adicSubmoduleImage p N' e →ₗ[ℤ_[p]]
+      (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))))
+    (hg : g.comp (adicSubmoduleImageMap p N' e) =
+      (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f) :
+    ∀ h, g.comp (ρImage h) = (ρQuot h).comp g := by
+  sorry
+
 -- A quotient of the entire ambient module needs no coefficient-depth increase.
 example (p : ℕ) [Fact p.Prime]
     {N M : Type*} [AddCommGroup N] [Module ℤ_[p] N]

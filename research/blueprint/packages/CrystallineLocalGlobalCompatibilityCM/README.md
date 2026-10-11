@@ -736,6 +736,8 @@ Prove `CrystallineCM.subquotient_mod_p_pow_uniform`. There is a shift k₀ depen
 
 The square determines g uniquely because N′ → T_m′ is surjective. Consequently it preserves any supplied endomorphism actions that preserve N′ and commute with f and the quotient maps. This is the map data needed when applying the subquotient lemma to Hecke modules in the proof of CN Proposition 4.2.6, especially p.64. Neither the scalar-linear signature nor its naturality constructs the arithmetic Hecke actions; those remain prerequisites of CL.6.
 
+The signatures `CrystallineCM.subquotient_mod_p_pow_unique` and `CrystallineCM.subquotient_mod_p_pow_equivariant` make these two requirements explicit. At a fixed ambient depth e, any two maps T_e → M/J^mM satisfying the square coincide. For equivariance, supply representations of the same monoid H on N′, T_e and M/J^mM, require the map N′ → T_e and q_M,m ∘ f to intertwine their actions, and prove g ∘ ρ_T(h) = ρ_M/J^mM(h) ∘ g for every h ∈ H. Precompose both sides with the surjection N′ → T_e and use the two intertwining identities and the comparison square. This applies to the multiplicative monoid of an acting Hecke algebra, retaining its chosen action on each module. The uniqueness and equivariance statements need neither finite generation, surjectivity of f, nor positive e or m: those assumptions enter the existence and coefficient-depth control above. They do require the actual image T_e and the commuting square.
+
 **Checks.** The following examples exercise the natural comparison square:
 
 - **Whole ambient submodule:** If N′=N and f is surjective, the natural comparison works with m′=m, without finite-generation or positive-depth assumptions. This detects an unnecessary depth increase in this special case.
