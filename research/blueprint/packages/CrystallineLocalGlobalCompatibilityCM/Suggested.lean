@@ -5,7 +5,8 @@ reviewers converge on names and signatures. Every proof is a prototype.
 
 Mathlib baseline: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369.
-The expressible cores below use only individual Mathlib imports.
+The expressible cores below use individual Mathlib imports and the pinned
+Tau Ceti Artin–Rees supplier; no arithmetic supplier is fabricated.
 
 The six CL.0 objects expose algebraic cores: block exchange, positive exponent
 cone, integral block subgroup, positive parahoric monoid, lowest-weight scaling
@@ -28,7 +29,8 @@ contraction and its raw intertwining action; smooth and derived refinements
 retain their supplier interfaces. CL.9 exposes the prepared integral local-level selection and oriented unitary
 partition formulas. Neatness, residual Hecke ideals and arithmetic perfectness
 retain their supplier interfaces. The theorem signatures include the degree bound, adic subquotient
-lemma and full corrected determinant-kernel criterion with its A₄ exception.
+lemma with its canonical image, natural square and uniform depth shift, and
+full corrected determinant-kernel criterion with its A₄ exception.
 The catalogue records remaining arithmetic specializations and signatures,
 including partial cores explicitly distinguished from missing declarations.
 A commented statement is not a Lean declaration.
@@ -54,6 +56,8 @@ import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
 import Mathlib.RingTheory.Ideal.Quotient.Defs
 import Mathlib.RingTheory.Filtration
+import Mathlib.LinearAlgebra.Quotient.Basic
+import TauCeti.RingTheory.Ideal.ArtinRees
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.NumberTheory.Padics.PadicIntegers
@@ -462,18 +466,86 @@ lemma degree_shift_bound (n D r q : ℕ) (hr : D ≤ 2*r) (hq : n^2*D/2 ≤ q) :
 example : 3^2*5-22 ≤ 3^2*3 := by
   sorry
 
-/- CL.3/lem-2-3-18: a quotient of a submodule, with the actual adic quotients. -/
+/- CL.3/lem-2-3-18, CN p.43; used in Proposition 4.2.6, pp.63–65.
+Specialize the existing TauCeti.ArtinRees.exists_controlled_lift and Mathlib
+Ideal.exists_pow_inf_eq_pow_smul. The quotient image and square retain the
+chosen presentation f : N' → M; an unrelated abstract witness loses this data.
+All proofs below remain suggested, including the authored acceptance tests. -/
+/- These are abbreviations for Mathlib's quotient image and its canonical map.
+They do not choose an unrelated subquotient witness. -/
+private abbrev adicSubmoduleImage (p : ℕ) [Fact p.Prime]
+    {N : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+    (N' : Submodule ℤ_[p] N) (e : ℕ) :=
+  ((((Ideal.span {(p : ℤ_[p])}) ^ e) • (⊤ : Submodule ℤ_[p] N)).mkQ.comp
+    N'.subtype).range
+
+private abbrev adicSubmoduleImageMap (p : ℕ) [Fact p.Prime]
+    {N : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+    (N' : Submodule ℤ_[p] N) (e : ℕ) :
+    N' →ₗ[ℤ_[p]] adicSubmoduleImage p N' e :=
+  ((((Ideal.span {(p : ℤ_[p])}) ^ e) • (⊤ : Submodule ℤ_[p] N)).mkQ.comp
+    N'.subtype).rangeRestrict
+
 lemma subquotient_mod_p_pow (p : ℕ) [Fact p.Prime]
     {N M : Type*} [AddCommGroup N] [Module ℤ_[p] N] [Module.Finite ℤ_[p] N]
     [AddCommGroup M] [Module ℤ_[p] M] (N' : Submodule ℤ_[p] N)
     (f : N' →ₗ[ℤ_[p]] M) (hf : Function.Surjective f) (m : ℕ) (hm : 1 ≤ m) :
     ∃ m' : ℕ, m ≤ m' ∧
-      ∃ T : Submodule ℤ_[p]
-        (N ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m') • (⊤ : Submodule ℤ_[p] N))),
-      ∃ g : T →ₗ[ℤ_[p]]
+      ∃ g : adicSubmoduleImage p N' m' →ₗ[ℤ_[p]]
         (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))),
-      Function.Surjective g := by
+      Function.Surjective g ∧
+        g.comp (adicSubmoduleImageMap p N' m') =
+          (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f := by
   sorry
+
+/-- The Artin–Rees shift depends only on the chosen ambient submodule,
+so it precedes both the quotient map and the coefficient depth. -/
+lemma subquotient_mod_p_pow_uniform (p : ℕ) [Fact p.Prime]
+    {N : Type*} [AddCommGroup N] [Module ℤ_[p] N] [Module.Finite ℤ_[p] N]
+    (N' : Submodule ℤ_[p] N) :
+    ∃ k₀ : ℕ, ∀ {M : Type*} [AddCommGroup M] [Module ℤ_[p] M]
+      (f : N' →ₗ[ℤ_[p]] M), Function.Surjective f → ∀ m : ℕ, 1 ≤ m →
+      ∃ g : adicSubmoduleImage p N' (m+k₀) →ₗ[ℤ_[p]]
+        (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))),
+      Function.Surjective g ∧
+        g.comp (adicSubmoduleImageMap p N' (m+k₀)) =
+          (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f := by
+  sorry
+
+-- A quotient of the entire ambient module needs no coefficient-depth increase.
+example (p : ℕ) [Fact p.Prime]
+    {N M : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+    [AddCommGroup M] [Module ℤ_[p] M]
+    (f : (⊤ : Submodule ℤ_[p] N) →ₗ[ℤ_[p]] M)
+    (hf : Function.Surjective f) (m : ℕ) :
+    ∃ g : adicSubmoduleImage p (⊤ : Submodule ℤ_[p] N) m →ₗ[ℤ_[p]]
+      (M ⧸ (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M))),
+      Function.Surjective g ∧
+        g.comp (adicSubmoduleImageMap p (⊤ : Submodule ℤ_[p] N) m) =
+          (((Ideal.span {(p : ℤ_[p])}) ^ m) • (⊤ : Submodule ℤ_[p] M)).mkQ.comp f := by
+  sorry
+
+-- For pℤ_p⊂ℤ_p at m=1, the natural image in ℤ_p/pℤ_p vanishes,
+-- but pℤ_p/p(pℤ_p) does not. No map can have the required square at m'=1.
+example (p : ℕ) [Fact p.Prime] :
+    let N' : Submodule ℤ_[p] ℤ_[p] := Ideal.span {(p : ℤ_[p])}
+    ¬ ∃ g : adicSubmoduleImage p N' 1 →ₗ[ℤ_[p]]
+      (N' ⧸ ((Ideal.span {(p : ℤ_[p])}) • (⊤ : Submodule ℤ_[p] N'))),
+      g.comp (adicSubmoduleImageMap p N' 1) =
+        ((Ideal.span {(p : ℤ_[p])}) • (⊤ : Submodule ℤ_[p] N')).mkQ := by
+  sorry
+
+-- Depth two repairs the same natural square. This is a quotient of the
+-- actual image of pℤ_p in ℤ_p/p²ℤ_p, not an abstract isomorphic copy.
+example (p : ℕ) [Fact p.Prime] :
+    let N' : Submodule ℤ_[p] ℤ_[p] := Ideal.span {(p : ℤ_[p])}
+    ∃ g : adicSubmoduleImage p N' 2 →ₗ[ℤ_[p]]
+      (N' ⧸ ((Ideal.span {(p : ℤ_[p])}) • (⊤ : Submodule ℤ_[p] N'))),
+      Function.Bijective g ∧
+        g.comp (adicSubmoduleImageMap p N' 2) =
+          ((Ideal.span {(p : ℤ_[p])}) • (⊤ : Submodule ℤ_[p] N')).mkQ := by
+  sorry
+
 
 /- CL.3/chi-character, CN §2.3.1 p.37.
 The input δ is the *actual* norm of the determinant on Lie U, supplied by PA.0/PA.2.

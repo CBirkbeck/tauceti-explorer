@@ -1,43 +1,43 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-UNottH`. Date: 2026-10-11.
-Branch: `codex-UNottH-crystalline-package`.
-Input commit: `8a128b3b11179416161ab44fe032ea493422084f`.
-Claim confirmed in [comment 6105848253](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105848253),
-responding to [comment 6105847255](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6105847255).
-None of the manager's priority issues was available. The focused package was
-selected before the remaining eligible reviews, packages and planning jobs.
-Only this job was claimed.
+Agent: Codex (GPT-6). Session: `codex-vpR7pE`. Date: 2026-10-11.
+Branch: `codex-vpR7pE-crystalline-package`.
+Input commit: `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
+Claim confirmed in [comment 6106036226](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106036226),
+responding to [comment 6106035229](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106035229).
+None of the manager's priority issues was available. The earlier focused review
+already had its scoped result and an open checkpoint; the four preceding focus
+packages had open submissions. This package's latest checkpoint, #8744, had
+merged and the bot had released the job. Only this job was claimed.
 
 ## Progress in this continuation
 
-The current upstream smooth-representation roadmap already supplies the
-underlying module localization in **SR.6.5**, which the inherited handoff did
-not identify. The README and omission catalogue now name
-`StableOperator.localization`, `localizationMap`, `invertiblePart` and the
-identity, nilpotent and mixed-operator comparisons. Reuse those declarations
-and Mathlib's `Module.DirectLimit`; do not plan a duplicate module colimit here.
-The remaining arithmetic export is the smooth Δ⁺→Δ representation functor,
-with the actual extended action, commuting-localization comparison, exactness
-and preservation of the injectives used for derived compact invariants.
+`CrystallineCM.subquotient_mod_p_pow` now retains the chosen submodule N′ ⊆ N
+and surjection f : N′ → M. Its witness is the canonical image of N′ in
+N/p^m′N, with a surjection to M/p^mM and the square induced by f. The inherited
+statement only chose an arbitrary submodule and abstract quotient map; it did
+not connect that witness to f. The stronger signature records the maps needed
+when applying CN Lemma 2.3.18, p.43, to the Hecke subquotients in Proposition
+4.2.6 and its proof, pp.63–65, especially p.64.
 
-`CrystallineCM.TorsionHeckeImage_test_new_torsion` now expresses the actual
-image-algebra obstruction. For C = [ℤ₃ --3--> ℤ₃] in degrees zero and one,
-it forms the degree-zero kernels before and after reduction, installs the
-residue algebra structure using `PadicInt.toZMod`, and takes the ranges of
-their scalar endomorphism actions. Its conclusions say that the integral
-image is a subsingleton, the torsion image is nontrivial, and there is no unital
-ℤ₃-algebra map between them. The old test only computed the two kernels.
-This authored example discriminates the failure of image-algebra base change
-when reduction contributes new cohomology; it is not an example attributed to
-CN. The full file elaborates with the prescribed `sorry` proof bodies.
+The supplementary `subquotient_mod_p_pow_uniform` puts the Artin–Rees shift
+before both the coefficient depth and the quotient map. Three authored tests
+check an ambient quotient with no depth increase, failure of the natural square
+for pZ_p ⊆ Z_p at depth one, and its repair at depth two. The last two distinguish
+the intrinsic p-adic filtration of the submodule from the ambient filtration.
+The README states the canonical maps, the descent argument and the limited
+Hecke-naturality consequence. This does not construct arithmetic Hecke actions.
+The private image abbreviations reuse Mathlib quotients and ranges; the general
+Artin–Rees theorem is imported from its existing pinned Tau Ceti owner.
+These are suggested signatures with `sorry` proofs, not verified theorems.
 
-The inherited prepared local-level and unitary-partition formulas, coefficient,
-completed-tower, smooth-monoid, rescaling, duality and cubic-tetrahedral
-corrections are preserved. NT16 remains **Proposition 2.10** in the README,
-as cited by CN's proof of Lemma 4.2.3, p.60; the accepted packet's stale
-"Lemma 2.10" locator cannot be edited in this job.
+All inherited coefficient, tower, smooth-monoid, rescaling, image-algebra,
+duality, level-selection and cubic-tetrahedral corrections are preserved.
+In particular, reuse SR.6.5's module localization rather than planning another
+colimit. Its missing smooth representation enhancement remains a supplier
+contract below. NT16 remains **Proposition 2.10** in the README; the accepted
+packet's stale "Lemma 2.10" locator is outside this job's editable files.
 
 ## Why this remains a checkpoint
 
@@ -59,8 +59,9 @@ labels with actual examples, is unchanged by this continuation:
 | API items | 44 | 59 |
 | Named tests | 45 | 59 |
 
-No new target, API or named-test signature was added in this continuation.
-The existing torsion test was strengthened. Partially typed arithmetic objects
+No previously omitted target, API or named-test signature was supplied in this
+continuation. One existing target was strengthened; a supplementary uniform
+signature and three supplementary examples were added. Partially typed arithmetic objects
 remain partial, even when a helper formula elaborates. Supplementary examples
 do not count as an omitted named test. The omitted names remain in the
 source-indexed catalogue. The inherited component APIs do not complete the
@@ -73,15 +74,14 @@ The accepted packet, original reader and original suggested file are unchanged.
 
 ## Supplier blockers and inherited resume contracts
 
-The integral owner gap, absence of completed-tower exports and group/monoid
-boundary were rechecked in this continuation. Read the pinned and current Weyl
-module declarations, the pinned smooth-discrete monoid carrier, current
-upstream stable-localization signatures, reviewed ALS.6 audit, accepted RS-09
-ownership decisions, and CN v3 §§2.2.1–2.2.2, pp.25–27, and Lemma 4.2.3
-and proof, p.60. These suffice to establish the blocking condition; the
-detailed contracts from the preceding handoff are preserved below. Historical
-group-equivalence and smooth-group locators are distinguished below from the
-new module-localization check.
+The integral owner gap, absence of completed-tower exports and monoid carrier
+were rechecked in this continuation against the pinned/current declarations,
+PA's owner gap, accepted RS-09 and the reviewed ALS.6 library audit. The generic
+Artin–Rees declarations and the new target's source and consumer were read.
+The contracts below preserve the preceding checkpoints' additional source and
+upstream checks; their historical checks are identified as such. Integral
+coefficients and arithmetic towers alone suffice to establish the block. This
+run does not claim exhaustive verification of all 27 supplier requests.
 
 ### Integral dual-Weyl coefficients
 
@@ -108,7 +108,7 @@ its standing assumptions include `[Algebra ℚ k]`. The current library's
 requirement. Neither supplies dual-Weyl lattices over O or O/ϖ^m.
 
 The preceding continuation checked CN v3 Lemma 2.1.12, pp.17–18, including
-its Schubert restriction input. This continuation reread Lemma 4.2.3 and proof, p.60. The latter requires an integral
+its Schubert restriction input. The preceding checkpoint reread Lemma 4.2.3 and proof, p.60. The latter requires an integral
 Levi-equivariant splitting and parabolic stability of its kernel; an E-linear
 splitting alone is insufficient. **Locator correction for a packet-editing job:**
 CN's proof cites NT16 **Proposition 2.10**. `REQ-INTEGRAL-WEYL` calls it Lemma 2.10. Both occurrences in the package README now say
@@ -175,7 +175,7 @@ likewise takes an open subgroup. README `SR.0d.1` and `SR.0d.2` plan the group
 derived category and compact-normal-subgroup composition. They do not establish
 the positive-monoid interfaces merely by providing the group category.
 
-This continuation read the current **SR.6.5 Stable module operators**
+The preceding checkpoint read the current **SR.6.5 Stable module operators**
 README and its actual Suggested.lean declarations, lines 1712–1730 and
 7270–7309. `StableOperator.localization` and `localizationMap` define the
 module direct limit with transition T^(j−i) and its index-zero map.
@@ -189,7 +189,8 @@ Jacquet comparison, not the required torsion positive-monoid functor.
 Do not repeat either construction or infer the missing derived comparison
 from an equivalence of underlying modules.
 
-Read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27. Required exports to resume:
+The preceding checkpoint read CN v3 §2.2.2 and Definition 2.2.3, pp.26–27.
+Required exports to resume:
 
 1. Compare arithmetic smoothness on Δ̃_P and Δ⁺ with the existing monoid
    carrier; provide its abelian/enough-injectives interface.
@@ -232,7 +233,7 @@ contains an earlier handoff if its full history is needed.
 | Integral/torsion Hecke images | Ranges of the actual supplied localized actions; arithmetic coefficient reduction and base change require comparisons. |
 | Middle/dual Hecke images | Rational injection needs M→E⊗M injective. Adjoint image descent needs the actual perfect pairing, degree/support data and involution. Dual coefficients precede cohomology; torsion linear duals can vanish. |
 | Deep Levi and unitary levels | Integral component maps are defined on K, with the actual local uniformizer. Pull back Levi selection from F⁺ to both conjugate places; unitary levels permit upper unipotents. |
-| Numerical degree bound and adic subquotients | Retain floor/ceiling conventions in odd dimension, and the Artin–Rees coefficient-depth increase. |
+| Numerical degree bound and adic subquotients | Retain floor/ceiling conventions in odd dimension, and the canonical Artin–Rees image, natural square and uniform coefficient-depth shift. |
 | Determinant-kernel criterion | Projective image is conjugation image in ambient GL₂. Retain the cubic A₄ exception; the F₇ quaternion computation discriminates it. |
 
 Preserve geometric Frobenius, the reversed first unitary weight block, the
@@ -259,25 +260,38 @@ Taylor–Wiles, Selmer and base-change data.
 ## Validation and provenance
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
-  **0 errors, 0 warnings**. The accepted packet remains byte-for-byte unchanged;
+  **0 errors, 0 warnings**. The accepted packet remains unchanged;
   SHA-256 `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
 - `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
-  **exit 0, 0 errors, 103 warnings, all `declaration uses sorry`**.
-  Available memory was 99 GB. The complete revised file was checked once;
-  no Lean language server or library build was started. No check remains running.
-- Signature inventory unchanged: 17/44/45 typed and 80/59/59 omitted. The
-  strengthened test occupies the same named-test slot; no omitted target was
-  marked supplied. No empty `Prop := sorry` definition was added.
+  **exit 0, 0 errors, 107 warnings, all `declaration uses sorry`**.
+  Available memory was 100 GB. The full revised file was checked once, after
+  checking the new signatures separately. No Lean server or library build was
+  started. No check remains running.
+- Inventory independently recounted after stripping nested block comments:
+  17/44/45 typed and 80/59/59 omitted. Named tests were counted only when their
+  labels precede actual examples, allowing intervening explanatory comments.
+  Supplementary signatures and examples do not count as omitted plan entries.
+  No empty `Prop := sorry` definition or replacement arithmetic carrier was added.
 - Intake `check-files`: **3 files, 0 problems**. `git diff --check` passes.
-  README is 186,215 bytes, below 200 KB. `deliverables_complete` remains false.
+  README is 189,231 bytes, below 200 KB. `deliverables_complete` remains false:
+  metadata is absent, and every changed path belongs to this job.
 - Read WORKERS, both protocols and UPSTREAM_GUIDE; current upstream
-  ReductiveGroups and PeripheralActions READMEs; the relevant pinned/current
-  Weyl declarations and pinned smooth-monoid declarations; PA's owner gap; reviewed ALS.6 audit;
-  accepted RS-09; SR.6.5 and its stable-localization signatures. Read-only roadmap commit
+  ReductiveGroups and PeripheralActions READMEs; relevant pinned/current Weyl
+  declarations and the pinned smooth-monoid carrier; PA's owner gap; reviewed
+  ALS.6 audit; accepted RS-09; pinned generic Artin–Rees and quotient/range APIs.
+  The audit has no entry keyed by this new roadmap id; its ALS.6 supplier entry
+  was used. Read-only roadmap commit
   `070dc2becd74419e76303ede84b465ed4a69461f`, current library
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No restricted source was needed.
-- Read CN v3 §§2.2.1–2.2.2 and Definition 2.2.3, pp.25–27, Lemma 4.2.3
-  and proof, p.60, and the Hecke-image definitions in §4.2.1, p.61, from
+- The build's `TauCeti/RingTheory/Ideal/ArtinRees.lean` was compared against
+  the pinned commit `f790474821cf4256814db967cb154e7af3d0c369`; both have
+  SHA-256 `e05c509c32f6433d6fdbf667ee998371c05ab7f0bf894df10daa8e6365fa2270`.
+  Its `exists_controlled_lift` requires a Noetherian coefficient ring and a
+  finitely generated ambient module, and quantifies the shift before depth
+  and surjection. Mathlib's `Ideal.exists_pow_inf_eq_pow_smul` and its actual
+  filtration formula were also read at the pin.
+- Read CN v3 Lemma 2.3.18 and its proof, p.43, neighboring Lemma 2.3.17,
+  p.42, and Proposition 4.2.6 and its proof, pp.63–65, from
   <https://arxiv.org/pdf/2301.10509v3>, accessed 2026-10-11.
   PDF SHA-256 `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
   Only authored mathematical statements and source locators enter the package.
