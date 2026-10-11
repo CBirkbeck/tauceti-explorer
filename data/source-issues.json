@@ -176078,9 +176078,9 @@
    "owner": "AutomorphicCongruences",
    "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
    "citation": "Kazuhiro Fujiwara, Deformation rings and Hecke algebras in the totally real case, arXiv:math/0602606v2, 25 July 2006, manuscript pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Directly compared Fujiwara v2 §3.1 p.16 with BCS H3. Inertia lies in the unramified index-two subgroup; restricting the induced representation gives the two characters. Thus the printed inertia irreducibility contradicts its induced description, while absolute irreducibility of the local representation is retained."
   },
   {
    "id": "AutomorphicCongruences/E2",
@@ -176100,9 +176100,9 @@
    "owner": "AutomorphicCongruences",
    "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
    "citation": "Ashay Burungale, Francesc Castella, Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, published author-hosted copy, 15 pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Directly compared BCS Δ p.7 with Wan §1 p.1. Wan explicitly requires the narrow field. The literal ordinary noncontainment alone is weaker. This finding identifies a hypothesis-discharge gap, not a counterexample to BCS’s endpoint; the selected finite ramification suffices for the strengthened input."
   },
   {
    "id": "AutomorphicCongruences/E3",
@@ -176122,9 +176122,9 @@
    "owner": "AutomorphicCongruences",
    "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
    "citation": "Ashay Burungale, Francesc Castella, Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, published author-hosted copy, 15 pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Read the BCS published p.11 citation and bibliography pp.14–15 and Wan 2015 Theorem 103 pp.91–92. Published reference [40] is the 2021 Heegner paper; [38] is the Hilbert paper containing the theorem and the actual minimal base-change argument."
   },
   {
    "id": "AutomorphicCongruences/E4",
@@ -176144,9 +176144,9 @@
    "owner": "AutomorphicCongruences",
    "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
    "citation": "Ashay Burungale, Francesc Castella, Christopher Skinner, Base Change and Iwasawa Main Conjectures for GL2, IMRN 2025(8), rnaf082, published author-hosted copy, 15 pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Read BCS Lemma 5.1.2 proof p.11 and its bibliography, then Wan 2015 Proposition 84 pp.68–69. The printed [40] again names the Heegner paper, whereas the directly matching interpolation comparison is in the Hilbert reference [38]."
   },
   {
    "id": "AutomorphicCongruences/E5",
@@ -176166,9 +176166,50 @@
    "owner": "AutomorphicCongruences",
    "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
    "citation": "Xin Wan, The Iwasawa main conjecture for Hilbert modular forms, Forum of Mathematics, Sigma 3 (2015), e18, 95 pages, published open-access PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Read Wan Theorem 8 p.7, Fujiwara induced type p.16 and BCS H3 p.8. The literally stated irreducible-inertia antecedent does not exclude the reducible-inertia induced type. Retaining both tests and verifying no exceptional type resolves the application gap; no counterexample to Wan’s Gorenstein conclusion is asserted."
+  },
+  {
+   "id": "AutomorphicCongruences/E6",
+   "kind": "misprint",
+   "locator": "Published §9.1.1, unramified split case, p.82; compare the two Satake formulas on that page and Skinner–Urban author §9.5.3, p.131",
+   "printed": "The displayed conjugate-prime polynomial uses the same Hecke-family index as the first prime, while its central-operator index uses the conjugate prime.",
+   "correction": "Use T_i^(i_wbar), with i_wbar=2, in the polynomial for the conjugate prime, paired with the complementary central operator. The first prime uses i_w=1. Keep both independent split Satake families in the Eisenstein ideal.",
+   "reason": "The two families defined immediately above have different independent Satake variables. Exchanging the two primes exchanges both family and central indices. Changing only the central index leaves the wrong degree-one Satake terms; the independent families in Skinner–Urban §9.5.3 corroborate the correction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Wan Cambridge article and published PDF checked 2026-10-11; no correction listed on the article page",
+    "Targeted Wan Hilbert erratum/Hecke-polynomial search on 2026-10-11 found no correction",
+    "Compared Skinner–Urban author §9.5.3 pp.130–132 directly"
+   ],
+   "owner": "AutomorphicCongruences",
+   "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
+   "citation": "Xin Wan, The Iwasawa main conjecture for Hilbert modular forms, Forum of Mathematics, Sigma 3 (2015), e18, 95 pages, published open-access PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Verified visually against the published p.82 and by comparing the two independent split Satake-variable families. The second polynomial repeats the first Hecke-family index; conjugating the prime requires the second index as well as the complementary central operator."
+  },
+  {
+   "id": "AutomorphicCongruences/E7",
+   "kind": "misprint",
+   "locator": "arXiv:2303.04373v1, Remark 1.2.3, p.7; persists in v2 Remark 2.2.3, p.7",
+   "printed": "The period is defined by dividing the raw Néron area by the square root of the absolute quadratic discriminant, but the subsequent Petersson-area comparison omits that square root.",
+   "correction": "First compare the raw areas: the Petersson area equals the modular degree divided by the square of the Manin constant times the raw Néron area. In terms of the defined quadratic period, restore the discriminant square-root factor. Track that scalar and the quadratic-twist period ratio under the chosen p-adic embedding when proving the up-to-unit cyclotomic ideal identity.",
+   "reason": "Pullback of the Néron differential multiplies the modular differential by the Manin constant, and integration of a pullback multiplies raw area by the degree. Substituting the stated definition of the quadratic period introduces the square root. The omitted factor is a p-adic unit in the selected prime-to-p, split quadratic setting, so this does not refute the up-to-unit conclusion of Proposition 1.2.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2303.04373 history checked 2026-10-11: v2 dated 2025-10-15; its §2.2 was read and retains the discrepancy",
+    "Author-hosted Mazur.pdf and targeted title/correction search checked 2026-10-11; no separate correction found"
+   ],
+   "owner": "AutomorphicCongruences",
+   "file": "research/blueprint/packets/AutomorphicCongruences--L5b.json",
+   "citation": "Francesc Castella, Giada Grossi, Christopher Skinner, Mazur’s main conjecture at Eisenstein primes, arXiv:2303.04373v1, 8 March 2023, 33 pages; only the independently applicable analytic factorization is used",
+   "status": "confirmed",
+   "reviewedBy": "REV-AutomorphicCongruences--L5b",
+   "reviewReason": "Visually read v1 p.7, compared v2 p.7, and substituted the defined period into the raw pullback-area identity. The square-root factor is missing from the printed equality. The packet tracks it as a unit in the selected p-split discriminant-prime-to-p comparison, without asserting a wrong equality of complex periods."
   },
   {
    "id": "AutomorphicFormsOnReductiveGroups/E1",
@@ -195033,6 +195074,82 @@
    "owner": "ExponentialSumsAndCircleMethod",
    "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
    "citation": "D. R. Heath-Brown; appendix by J.-L. Colliot-Thélène, The density of rational points on curves and surfaces, Annals155(2002),553–598, as reproduced in arXiv math/0405392v1 dated20May2004; this reprint is not independently collated with the publisher scan.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E32",
+   "kind": "gap",
+   "locator": "Theorem8.6 p.77, 120-page Bonn notes",
+   "printed": "The stated coordinate cube has side scaleN, while the prefactor isN^{-t²}.",
+   "correction": "Use coordinate scaleN^t and the same normalized weight/volume. The notes give the intended critical transfer without a full proof; the complete perturbation proof remains a gap.",
+   "reason": "The following rescaling to a top phase of degreek and lower degrees1,…,t−1 uses radiusN^t. The smaller displayed cube yields only a weaker restriction statement and does not support the subsequent argument. This is an unresolved scale/proof interface in the notes, rather than a counterexample to the displayed upper bound. The needed radiusN^t statement is planned with its complete transfer proof as an explicit gap.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read in the specified source version on11October2026. The existing reviewed extraction/errata record was consulted where identified; no publisher-version collation or exhaustive erratum search is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Edgar Assing, The circle method and Waring’s problem, Author-hosted Bonn winter-term 2021/22 lecture notes, dated 1 April 2022, 120-page PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E33",
+   "kind": "error",
+   "locator": "AppendixA p.45, sum-of-three-cubes example, arXivv3",
+   "printed": "The example assigns h=3 and q=0 toX³+Y³+Z³.",
+   "correction": "The elementary identities give h≤2 and q≥1; no exact replacement values are asserted here.",
+   "reason": "FactorX³+Y³=(X+Y)(X²−XY+Y²) and keepZ·Z². On the affine line(t,1−t,0), the form restricts to3t²−3t+1. Both identities are proved by ring normalization in Suggested.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read in the specified source version on11October2026. The existing reviewed extraction/errata record was consulted where identified; no publisher-version collation or exhaustive erratum search is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E34",
+   "kind": "error",
+   "locator": "Lemma9.4 harmonic-sum estimate p.28, arXivv3",
+   "printed": "The harmonic endpoint error is stated withKA^{-1}.",
+   "correction": "UseKA^{-1/2}, and retain the separateAK^{1/2+ε} sum of slice errors. Both fit the specified slowly growingA range.",
+   "reason": "The lower summation limit is√A, so rounding its endpoint changes the sum of1/a by orderA^{-1/2}; anA^{-1} bound without an endpoint correction is not uniform in realA.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read in the specified source version on11October2026. The existing reviewed extraction/errata record was consulted where identified; no publisher-version collation or exhaustive erratum search is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E35",
+   "kind": "error",
+   "locator": "Equation(9.20) p.30, arXivv3; reviewed extraction E14–E19 used for local normalizations",
+   "printed": "The symmetric tube is normalized byε^{-1}.",
+   "correction": "The Fourier delta/coarea density of one equation uses(2ε)^{-1}. Retain the original-coordinate Jacobian2 and parity lattice.",
+   "reason": "A symmetric interval|F−m|<ε has normal width2ε. The density ofF(x)=x at an interior point against unit interval weight is1, which the printed normalization doubles.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read in the specified source version on11October2026. The existing reviewed extraction/errata record was consulted where identified; no publisher-version collation or exhaustive erratum search is claimed."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Amit Ghosh; Peter Sarnak, Integral points on Markoff type cubic surfaces, Author final arXiv v3, 30 May 2022; 55-page pagination, not collated with the published text",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -217885,9 +218002,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Thresholds below a valid threshold remain valid, so they have no least real element."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E2",
@@ -217907,9 +218024,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. A real monic polynomial changes sign between simple real roots; its signed real logarithm cannot give this identity."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E3",
@@ -217929,9 +218046,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Central symmetry makes λK=(−λ)K, leaving the admissible negative dilations unbounded below."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E4",
@@ -217951,9 +218068,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Tonelli integrates the constant against μ; the subprobability uses retain the stated weaker bound."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E5",
@@ -217973,9 +218090,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. A zero coefficient times the singular logarithm does not enforce −∞; excluded Dirac vectors also prevent extending the separation inequality automatically at isolated roots. The explicit perturbation resolves both defects."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E6",
@@ -217995,9 +218112,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The compact set {0}∪⋃n≥1[1/(2n+1),1/(2n)]∪[1,6] has a nonisolated singleton component {0} and capacity>1. Countability and polarity, rather than isolation, prove the required null mass."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E7",
@@ -218017,9 +218134,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. Every compact probability already has I(μ)>−∞, including an atom with infinite positive energy. Proposition 5.7 supplies the correct stronger condition."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E8",
@@ -218039,9 +218156,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. For K=[−3,−1]∪[1,3], symmetry makes odd-degree Chebyshev polynomials vanish at 0 in the gap. The corrected convex-hull estimate proves the same lower bound."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E9",
@@ -218061,9 +218178,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. D+1 level points bound D intervals, which are required to count Dr roots."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E10",
@@ -218083,9 +218200,9 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The proof uses the maximum over all n+1 interpolation basis elements."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E11",
@@ -218105,14 +218222,14 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. The final shift satisfies every avoidance inequality, so it cannot also be declared forbidden. The interval-length proof works for complex as well as real roots and avoids division by zero."
   },
   {
    "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E12",
    "kind": "misprint",
-   "locator": "§6 after the weighted minimum definition, p.197; arXiv:1010.3760 PDF, hash as recorded above.",
+   "locator": "§6 after the weighted minimum definition, p.196; arXiv:1010.3760 PDF, hash as recorded above.",
    "printed": "Own-word description of the source claim: The unweighted energy of the weighted minimizer is identified with the weighted minimum.",
    "correction": "Identify I_Q(μK,Q) with V_Q; retain F_Q=V_Q−∫Q=I(μK,Q)+∫Q.",
    "reason": "For the unit disk and constant Q=1, the minimizer has I=0 but V_Q=2 and F_Q=1.",
@@ -218125,9 +218242,29 @@
    "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
    "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "Independently reread the displayed claim and its use at this locator in the recorded public PDF. For the unit disk and constant Q=1, the minimizer has I=0 but V_Q=2 and F_Q=1."
+  },
+  {
+   "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers/E13",
+   "kind": "misprint",
+   "locator": "Corollary 2.2 proof, p.8; 2012 public journal PDF, hash as recorded above.",
+   "printed": "Own-word description: the proof labels energy upper semicontinuous when passing from smoothed probabilities to their weak limits.",
+   "correction": "Use lower semicontinuity: I(μ)≤liminf I(μj). Together with the strict-energy midpoint inequality this proves convexity and uniqueness.",
+   "reason": "Let μ be the uniform probability on [0,1] in ℂ and μn=(1−1/n)μ+(1/n)δ0. Then μn converges weakly to μ, I(μn)=+∞, and I(μ)=3/2. Upper semicontinuity fails; lower semicontinuity has the required direction.",
+   "affects": "nothing",
+   "known": "No public correction was located in the journal index and targeted correction search on 2026-10-11; no claim is made about other editions.",
+   "searched": [
+    "2026-10-11: https://www.maths.tcd.ie/EMIS/journals/DRNA/pdf/levenberg-2012-wpt.pdf, Corollary 2.2 proof.",
+    "2026-10-11: https://www.maths.tcd.ie/EMIS/journals/DRNA/filter7e3c.html?o=asc&page=8&s=title and a targeted author/title/errata search."
+   ],
+   "owner": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "file": "research/blueprint/packets/LogarithmicPotentialTheoryAndAlgebraicIntegers.json",
+   "citation": "Sources of the blueprint of LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
+   "reviewReason": "The printed direction is reversed. The weakly converging atomic-mixture example above disproves upper semicontinuity; LP.0/descent and LP.1/equilibrium already use lower semicontinuity and the valid strict-energy proof."
   },
   {
    "id": "MetaplecticAutomorphicForms/E-MP0-1",
