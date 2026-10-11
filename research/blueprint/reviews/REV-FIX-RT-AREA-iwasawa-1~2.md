@@ -1,3 +1,158 @@
+# #6217: blocked continuation with an applicable scope-repair patch
+
+Codex — **codex-AatBZG**, 11 October 2026. Input commit:
+`ea4eca69090e655ae3fae93bd5ef846d43661f94`.
+Claim confirmed in [comment 6106143621](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106143621).
+This session did none of the fixes under review and claimed only this issue.
+
+**The remaining blocker is the disagreement between the issued scope and the
+queue.** The live issue names HE.0, its suggested file and this report. The
+queue names eleven packet/Lean pairs and the report. All 23 outputs exist.
+The actual `issues.deliverables_complete` is false for that queue entry and
+true for its historical three-output scope. HE.0 already has this job's
+accepted review marker; the other ten packets retain their own review
+identifiers. ES.0 additionally retains `needs_changes`. This session adds
+no mathematical verdict and changes no packet or Lean file.
+
+## New verification and concrete repair
+
+I reconstructed the two historical round-two output lists from commit
+`88f9bcd44`, retaining every other queue field, and prepared the unified patch
+below. It applies cleanly to this input tree with `git apply --check`.
+It restores the original four fix outputs and three review outputs and uses
+the previously proposed guard that preserves every existing successor.
+The patch is **a maintainer proposal, not an applied repository change**.
+
+The actual completion predicate passes with the restored review output list.
+Both preserved focused regression scripts were rerun against the current
+nested helper: six state/trigger fixtures with repeat generation, rejection
+reason and absent-successor checks pass, as do the seven original regression
+cases. This run did not repeat the earlier full-generator replay or test
+GitHub issue refresh; those earlier results retain their attribution below.
+Before publishing generated metadata, inspect the wider scheduling effects
+reported by the earlier worker and synchronize the issue and queue.
+
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus
+your own scratch space.” The queue and generator are outside those paths;
+`intake.file_problems` also rejects both as outside swarm output paths. A
+scope extension was requested from the user. None was received before this
+checkpoint was prepared. No automatic approval review was requested or
+rejected. The existing issue scope therefore permits only this report and
+the required handoff for the blocked continuation.
+
+Current packet check: **zero errors and warnings**; 78 nodes, 24 API items,
+18 tests, 43 planets, 13 baseline declarations, 21 gaps and 63 requests.
+All eight stages remain planned and none is closed. Lean was not rerun for
+these Markdown-only changes; previous successful receipts remain attributed
+to their workers. No primary source was fetched or reread in this session.
+
+## Proposed patch for the maintainer
+
+The patch contains only queue metadata and generator code. It contains no
+source-document passage, mathematical declaration or private path. The
+current scope does not authorize applying it. Once authorized, apply it
+against the stated input or refresh its context, run the focused and full
+replays below, and reconcile generated prompts and the live issue. Do not
+replace unrelated packet review identifiers merely to satisfy completion.
+
+```diff
+--- a/research/blueprint/queue.json
++++ b/research/blueprint/queue.json
+@@ -80042,45 +80042,9 @@
+    ],
+    "outputs": [
+     "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
+-    "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
+-    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.7s.md",
+-    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean",
+-    "research/blueprint/handoff/BP-HeegnerPointEulerSystems--HE.7s~2.md",
+     "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+     "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
+-    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+-    "research/blueprint/handoff/BP-HeegnerPointEulerSystems--HE.0~2.md",
+-    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+-    "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.0.md",
+-    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
+-    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
+-    "research/blueprint/readmes/RankZeroOneBSD--BSD.0.md",
+-    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
+-    "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
+-    "research/blueprint/readmes/RankZeroOneBSD--BSD.7.md",
+-    "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean",
+-    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+-    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
+-    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
+-    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
+-    "research/blueprint/readmes/GeneralizedHeegnerCycles--GH.0.md",
+-    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean",
+-    "research/blueprint/handoff/BP-GeneralizedHeegnerCycles--GH.0~2.md",
+-    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json",
+-    "research/blueprint/readmes/GrossZagierAndArithmeticHeights--GZ.8.md",
+-    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.8.lean",
+-    "research/blueprint/handoff/BP-GrossZagierAndArithmeticHeights--GZ.8~2.md",
+-    "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+-    "research/blueprint/readmes/PadicHodgeRegulators--D.1.md",
+-    "research/blueprint/suggested/PadicHodgeRegulators--D.1.lean",
+-    "research/blueprint/handoff/BP-PadicHodgeRegulators--D.1~2.md",
+-    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json",
+-    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.8.md",
+-    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.8.lean",
+-    "research/blueprint/packets/KatoEulerSystems.json",
+-    "research/blueprint/readmes/KatoEulerSystems.md",
+-    "research/blueprint/suggested/KatoEulerSystems.lean",
+-    "research/blueprint/handoff/BP-KatoEulerSystems~2.md"
++    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+    ],
+    "after": [
+     "FIX-RT-AREA-iwasawa-1"
+@@ -80108,28 +80072,8 @@
+    ],
+    "outputs": [
+     "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+-    "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json",
+     "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+-    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+-    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
+-    "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
+-    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+-    "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
+-    "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json",
+-    "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+-    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.8.json",
+-    "research/blueprint/packets/KatoEulerSystems.json",
+-    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.7s.lean",
+-    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+-    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.0.lean",
+-    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
+-    "research/blueprint/suggested/RankZeroOneBSD--BSD.7.lean",
+-    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
+-    "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean",
+-    "research/blueprint/suggested/GrossZagierAndArithmeticHeights--GZ.8.lean",
+-    "research/blueprint/suggested/PadicHodgeRegulators--D.1.lean",
+-    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.8.lean",
+-    "research/blueprint/suggested/KatoEulerSystems.lean"
++    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+    ],
+    "after": [
+     "FIX-RT-AREA-iwasawa-1~2"
+--- a/research/blueprint/make_queue.py
++++ b/research/blueprint/make_queue.py
+@@ -1954,7 +1954,7 @@
+             earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
+             # A round an earlier run made is kept as it was made, though its files may now carry a later
+             # round's verdict: the rounds after it are then still found, and a later send-back still counts.
+-            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
++            made = previous_jobs.get(following)
+             if made:
+                 sent_back = made.get("after") == [review]
+             why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
+```
+
+---
+
+The historical continuation and mathematical reports below are preserved
+with their original authors and validation limits.
+
 # #6217: blocked checkpoint — preserve issued review scope
 
 Codex — **codex-XyECDt**, 11 October 2026. Input commit:
