@@ -217,7 +217,7 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 Construction and proof route: Use the existing cycle quotient. Compare with the ℤ² generator and the oriented UCT evaluation through the homological input contracts.
 
-Needs: RS.1, the oriented commuting-pair cycle; `groupHomology.H2π` (Mathlib); `groupHomology.H2` (Mathlib); `groupHomology.map` (Mathlib).
+Needs: RS.1, the oriented commuting-pair cycle; `groupHomology.H2π` (Mathlib); `groupHomology.H2` (Mathlib); `groupHomology.map` (Mathlib). The central-extension compatibility API also needs [native UCT evaluation](#native-uct-evaluation) and the oriented [extension class map](#extension-classes-and-the-five-term-map).
 
 Required API:
 
@@ -392,7 +392,7 @@ Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), Definition 3.1 p.388 
 
 Construction and proof route: The five-term transgression is the quotient M(G)→M(G,c); exactness identifies its kernel Q_c.
 
-Needs: RS.1, reduced schur cover; `groupHomology.map` (Mathlib).
+Needs: RS.1, reduced schur cover; `groupHomology.map` (Mathlib); [extension-class-map five-term exactness](#extension-classes-and-the-five-term-map). Functoriality alone gives no equality between the homology image and the Schur relation subgroup.
 
 Checks: The equality is stronger than Wood Lemma 2.2, and is not inferred from the zero composite alone.
 
@@ -549,7 +549,7 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 Construction and proof route: The class map of E kills Q_c. The homological map out of P factors through S_c and is zero after reduction. UCT has no Ext term because P^ab is free, so the pullback class vanishes.
 
-Needs: RS.1, reduced-cover homology composite vanishes; RS.2, abelianization of the marked fiber product; RS.2, marked central extension; `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero` (Tau Ceti).
+Needs: RS.1, reduced-cover homology composite vanishes; RS.2, abelianization of the marked fiber product; RS.2, marked central extension; `TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero` (Tau Ceti); [native UCT exactness and free-abelian Ext vanishing](#native-uct-evaluation) for the possibly infinite central kernel. Zero evaluation implies a zero extension class here through the vanishing Ext term.
 
 Checks: A UCT only for finite A is insufficient here.
 
@@ -822,7 +822,7 @@ Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups 
 
 Construction and proof route: The exponent of M(G) divides |G|, so the exponent of S_c divides |G|². Power residues and class permutations are determined at that level; apply the coordinate formula. For a general marked central model, assume explicitly that every element of its kernel is killed by |G|. This gives the same exponent bound for its cover. The reduced-multiplier case requires the integral transfer annihilation input.
 
-Needs: RS.3, discrete cyclotomic action.
+Needs: RS.3, discrete cyclotomic action; [positive-degree integral homology annihilated by the group order](#finite-homology-and-the-coprime-edge). For the reduced-cover specialization this supplies the kernel exponent bound used in the proof.
 
 Checks: This is a bound on the finite-cover coordinate, not a claim that U is finite.
 
@@ -1248,7 +1248,7 @@ Construction and proof route: Import the transfer bound on positive-degree integ
 
 The two parts can be represented by Mathlib's `AddCommGroup.primaryComponent` with parameters |H| and |Γ|, respectively. For a composite parameter n this subgroup consists of elements annihilated by a power of n. The isomorphism to their product must reconstruct each original class by adding its two components; the product cardinality alone does not specify the projections.
 
-Needs: RS.5, split projections induce homology surjections; `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib).
+Needs: RS.5, split projections induce homology surjections; `AddCommGroup.equiv_directSum_zmod_of_finite` (Mathlib); [finite positive-degree integral homology and its order annihilator](#finite-homology-and-the-coprime-edge).
 
 Checks: For Γ=1 the Γ-primary part is trivial; for H=1 the H-primary part is trivial.
 
@@ -1290,7 +1290,7 @@ Construction and proof route: The quotient S/D→Γ is a central extension with 
 
 A compatible-cover diagram records D with its normality, the projection S/D→Γ, centrality and the stem condition, and the lower integral kernel isomorphism. The upper and lower isomorphisms are the extension-class evaluation maps. An arbitrary abstract isomorphism from homology to the kernel is insufficient for the naturality square. For every z∈M(G), quotienting τ_S(z) in S gives τ_lower(ρ_*(z)) in S/D; this equation also controls the descended reduced-cover maps.
 
-Needs: RS.5, the hall preimage is normal in the cover; RS.5, split projections induce homology surjections; InductionRestriction, Layer 7.
+Needs: RS.5, the hall preimage is normal in the cover; RS.5, split projections induce homology surjections; InductionRestriction, Layer 7; [naturality of the extension class map](#extension-classes-and-the-five-term-map), using the specified maps on the two cover kernels.
 
 Required API:
 
@@ -1327,7 +1327,7 @@ Construction and proof route: Apply the cyclic-complement conjugacy contract abo
 
 Retain the action Γ→Aut(H) and the native semidirect-product projection. The generating subset of H is exactly the set of h⁻¹γ(h), and c excludes the identity before imposing equality of orders. The conjugacy input asserts that an equal-order g is h(1,ρ(g))h⁻¹ for some h∈H. The class-lattice map sends e_[g] to e_[ρ(g)] and intertwines δ with the induced map on abelianizations. The abelianization comparison itself only needs the admissible generating condition; its proof does not use complement conjugacy.
 
-Needs: `GroupExtension` (Mathlib); `Subgroup.exists_right_complement'_of_coprime` (Mathlib).
+Needs: `GroupExtension` (Mathlib); [cyclic coprime complement conjugacy](#cyclic-complement-conjugacy). `Subgroup.exists_right_complement'_of_coprime` supplies complement existence; the class bijection additionally uses conjugacy of the chosen cyclic complements.
 
 Checks: Exclude 1 explicitly; equality of orders alone would include it.
 
@@ -1397,7 +1397,7 @@ Construction and proof route: In the integral homological LHS spectral sequence,
 
 Use `Representation.Coinvariants` for the integral homology representation induced by conjugation on the normal subgroup H. Inner conjugation by H acts trivially, so the G-action factors through G/H. The edge isomorphism sends the inclusion-induced image of z∈M(H) to the native coinvariant class of z. This identifies the map as well as the two abstract groups. The vanishing relation conclusion also permits any subset whose elements square to the identity.
 
-Needs: RS.1, universal homological commutator; RS.1, reduced schur multiplier; RS.1, commuting-pair classes respect orders.
+Needs: RS.1, universal homological commutator; RS.1, reduced schur multiplier; RS.1, commuting-pair classes respect orders; the [coprime degree-two edge](#finite-homology-and-the-coprime-edge), including its inclusion-map formula and incoming d₃ check; Mathlib's cyclic second-homology calculation.
 
 Checks: This does not extend to even-order H.
 
