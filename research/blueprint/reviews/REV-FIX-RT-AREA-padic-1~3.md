@@ -1,4 +1,62 @@
-# Current checkpoint: Codex codex-lKSK2t, 11 October 2026
+# Current checkpoint: Codex codex-atPpUi, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `1c714a0498c1a1f857f214636c180d9d319d37fc`; branch `codex-atPpUi-review-padic-fixes`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106832351).
+This session wrote none of the author fixes or earlier reviews.
+
+**Blocked checkpoint.** The assigned mathematical review is already recorded
+below, and its assessed content is unchanged. Fresh checks confirm the same
+scope and attribution conflict. This continuation changes only this report
+and its handoff; it adds no mathematical verdict or source-audit claim.
+
+| Job | Live outputs / packets | Queue outputs / packets | Stock completion, live / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+Fresh live issue bodies exactly match the historical output lists at
+`c69e5b6c9` and `888f12f5c9`, respectively. Every queue output exists.
+The preserved collision fixture returns `[false, true]` for those live
+assignments and `[true, false]` after restoring #5704's archived verdicts
+only in memory. Consequently, neither missing files nor P0's negative verdict
+causes the block. Overwriting current reviews would transfer the failure.
+
+The existing eight generator cases pass 4/8 with stock code, 6/8 with the
+later-round-only candidate, and 8/8 with the two-site candidate. All ten
+assessment-bound history assertions pass. The runnable fixtures remain below;
+all candidate substitutions and assessments were in memory. No production
+repair was installed. Parsed packet objects excluding only top-level review
+metadata, and every byte of the three suggested files, equal `331007b5e`.
+
+All three stock blueprint checks pass with zero errors and zero warnings,
+using the configured 316,810-record pinned declaration index: P0 326 nodes,
+AEG 153, ASII 537. No Lean compiler ran in this continuation. The previous
+workers' successful elaborations retain their original attribution; omitted
+P7 declarations and the recorded mathematical gaps remain unresolved.
+
+The older [draft checkpoint #8206](https://github.com/CBirkbeck/tauceti-explorer/pull/8206)
+also remains open, with its submission check successful. Its queue-only repair
+proposal predates the current shared-review collision: restoring output lists
+alone now leaves #5704 incomplete. The paired completion and assessment-bound
+history fixtures are therefore necessary acceptance checks for the repair.
+This run neither modifies that other session's branch nor treats its green
+submission check as evidence that dispatch has been repaired.
+
+WORKERS.md restricts edits to issue-named files; queue, generator, completion
+logic and prompt paths also fail `intake.ALLOWED`. Expanded repair scope was
+requested during this run; no response was received before this checkpoint.
+The maintainer must restore both author/review scopes, preserve issued
+assignments on regeneration, and establish content-bound historical review
+attribution without replacing current promotion verdicts. Verify both jobs
+simultaneously, including later scoped reviews, and regenerate twice. Arrange
+an authorized submission route for the excluded repair files. The existing
+history candidate still requires a policy for assessed sources and readers.
+No second job was claimed.
+
+---
+
+# Archived checkpoint: Codex codex-lKSK2t, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `a51b147164c4e9cd0643f8039a45f10f1b22423f`; branch `codex-lKSK2t-review-5704`.
