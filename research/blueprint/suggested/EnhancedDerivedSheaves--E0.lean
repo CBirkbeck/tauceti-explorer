@@ -4,6 +4,7 @@ is definitive. These statements suggest Lean forms so contributors and reviewers
 converge on names and signatures; they are not an implementation.
 
 Codex — codex-XRohZZ, issue #719, 2026-10-11.
+Independent review: Codex — codex-KAgYbr, issue #396, 2026-10-11.
 Continues the checkpoints and the unmerged codex-BCQSXl target proposal (#8010).
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -17,6 +18,7 @@ import Mathlib.AlgebraicTopology.Quasicategory.Nerve
 import Mathlib.AlgebraicTopology.Quasicategory.InnerFibration
 import Mathlib.AlgebraicTopology.SimplicialSet.Finite
 import Mathlib.AlgebraicTopology.SimplicialSet.Homotopy
+import Mathlib.AlgebraicTopology.SimplicialNerve
 import Mathlib.CategoryTheory.Bicategory.Adjunction.Mate
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.HasPullback
 import Mathlib.CategoryTheory.Category.Preorder
@@ -43,6 +45,7 @@ import Mathlib.RingTheory.Ideal.Operations
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.Algebra.Homology.Embedding.CochainComplex
+import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.Analysis.Normed.Field.Basic
 import Mathlib.Analysis.Normed.Group.Bounded
 import Mathlib.Data.Set.Countable
@@ -111,6 +114,27 @@ def HasFiniteEnhancedColimits (C : SSet.{u}) : Prop :=
 abbrev coherentFun (K C : SSet.{u}) : SSet.{u} := SimplicialCategory.sHom K C
 abbrev coherentNatTrans {K C : SSet.{u}} (f g : K ⟶ C) :=
   SSet.Edge ((SimplicialCategory.homEquiv' K C) f) ((SimplicialCategory.homEquiv' K C) g)
+
+-- HTT 1.1.5.10 and 2.2.2.13: a general input to Cat∞ and Spaces.
+noncomputable def coherentNerveVertex (C : Type u) [Category.{u} C]
+    [SimplicialCategory C] (x : C) : (SimplicialNerve C) _⦋0⦌ := by sorry
+
+instance locallyKan_coherentNerve_quasicategory (C : Type u) [Category.{u} C]
+    [SimplicialCategory C] [∀ x y : C, SSet.KanComplex (SimplicialCategory.sHom x y)] :
+    SSet.Quasicategory (SimplicialNerve C) := by sorry
+
+noncomputable def locallyKan_coherentNerve_mappingComparison
+    (C : Type u) [Category.{u} C] [SimplicialCategory C]
+    [∀ x y : C, SSet.KanComplex (SimplicialCategory.sHom x y)] (x y : C) :
+    SimplicialCategory.sHom x y ⟶ rightMappingSpace (SimplicialNerve C)
+      (coherentNerveVertex C x) (coherentNerveVertex C y) := by sorry
+
+theorem locallyKan_coherentNerve_mappingEquiv
+    (C : Type u) [Category.{u} C] [SimplicialCategory C]
+    [∀ x y : C, SSet.KanComplex (SimplicialCategory.sHom x y)] (x y : C) :
+    letI := rightMappingSpace_kan (SimplicialNerve C)
+      (coherentNerveVertex C x) (coherentNerveVertex C y)
+    IsSpaceEquivalence (locallyKan_coherentNerve_mappingComparison C x y) := by sorry
 
 noncomputable def dgNerve (R : Type v) [CommRing R] (C : Type u)
     [EnrichedCategory (CochainComplex (ModuleCat.{v} R) ℤ) C] : SSet.{max u v} := by sorry
@@ -215,6 +239,43 @@ open MonoidalCategory
 
 def IsKFlat (R : Type u) [CommRing R] (K : CochainComplex (ModuleCat.{u} R) ℤ) : Prop :=
   ∀ L : CochainComplex (ModuleCat.{u} R) ℤ, L.Acyclic → (L ⊗ K).Acyclic
+
+-- Generic Koszul carrier moves down from DD.1 for the tier-4 completion inputs.
+-- The complete contraction, multiplication and functoriality APIs remain in the matrix.
+noncomputable def koszulComplex (R : Type u) [CommRing R]
+    (E : Type u) [AddCommGroup E] [Module R E] (φ : E →ₗ[R] R) :
+    CochainComplex (ModuleCat.{u} R) ℤ := by sorry
+
+noncomputable def koszulComplex_degree (R : Type u) [CommRing R]
+    (E : Type u) [AddCommGroup E] [Module R E] (φ : E →ₗ[R] R) (n : ℕ) :
+    (koszulComplex R E φ).X (-(n : ℤ)) ≅
+      ModuleCat.of R (ExteriorAlgebra.exteriorPower R n E) := by sorry
+
+noncomputable def finiteKoszulComplex (R : Type u) [CommRing R] (fs : List R) :
+    CochainComplex (ModuleCat.{u} R) ℤ := by sorry
+
+noncomputable def koszulComplex_augmentation (R : Type u) [CommRing R] (fs : List R) :
+    finiteKoszulComplex R fs ⟶
+      (HomologicalComplex.single (ModuleCat.{u} R) (ComplexShape.up ℤ) 0).obj
+        (ModuleCat.of R (R ⧸ Ideal.ofList fs)) := by sorry
+
+theorem koszulComplex_regular (R : Type u) [CommRing R] (fs : List R)
+    (hfs : RingTheory.Sequence.IsRegular R fs) :
+    QuasiIso (koszulComplex_augmentation R fs) := by sorry
+
+-- koszul_empty
+example (R : Type u) [CommRing R] : Nonempty
+    (finiteKoszulComplex R [] ≅
+      (HomologicalComplex.single (ModuleCat.{u} R) (ComplexShape.up ℤ) 0).obj
+        (ModuleCat.of R R)) := by sorry
+
+-- koszul_prime
+example (p : ℕ) (hp : p.Prime) :
+    QuasiIso (koszulComplex_augmentation ℤ [(p : ℤ)]) := by sorry
+
+-- koszul_zero: retains the negative cohomology that the ordinary quotient loses.
+example (R : Type u) [CommRing R] : Nonempty
+    ((finiteKoszulComplex R [0]).homology (-1) ≅ ModuleCat.of R R) := by sorry
 
 theorem kFlat_replacement (R : Type u) [CommRing R]
     (K : CochainComplex (ModuleCat.{u} R) ℤ) :
@@ -596,9 +657,22 @@ noncomputable def fullEnhancedSubcategory_vertices (C : SSet.{u}) (P : C _⦋0�
 def IsCoCartesianSection {E B : SSet.{u}} (p : E ⟶ B) (s : B ⟶ E) : Prop :=
   s ≫ p = 𝟙 B ∧ ∀ (x y : B _⦋0⦌) (e : SSet.Edge x y), IsCoCartesianEdge p (e.map s)
 
+-- Relative sections fix the map to B on every simplex, including transformations.
+noncomputable def coherentSections {E B : SSet.{u}} (p : E ⟶ B) : SSet.{u} := by sorry
+noncomputable def coherentSections_simplices {E B : SSet.{u}} (p : E ⟶ B) (n : ℕ) :
+    (coherentSections p) _⦋n⦌ ≃
+      {s : Δ[n] ⊗ B ⟶ E // s ≫ p = CartesianMonoidalCategory.snd Δ[n] B} := by sorry
+noncomputable def coherentSections_inclusion {E B : SSet.{u}} (p : E ⟶ B) :
+    coherentSections p ⟶ coherentFun B E := by sorry
+
 noncomputable def coCartesianSections {E B : SSet.{u}} (p : E ⟶ B) : SSet.{u} :=
-  fullEnhancedSubcategory (coherentFun B E)
-    (fun s ↦ IsCoCartesianSection p ((SimplicialCategory.homEquiv' B E).symm s))
+  fullEnhancedSubcategory (coherentSections p)
+    (fun s ↦ IsCoCartesianSection p ((SimplicialCategory.homEquiv' B E).symm
+      ((coherentSections_inclusion p).app _ s)))
+
+-- cocartesian_sections_identity: also detects spurious transformations over the base.
+example (B : SSet.{u}) [SSet.Quasicategory B] :
+    Nonempty (coCartesianSections (𝟙 B) ≅ Δ[0]) := by sorry
 
 theorem coCartesianEdge_comp {E B : SSet.{u}} (p : E ⟶ B) [SSet.InnerFibration p]
     {x y z : E _⦋0⦌} (e : SSet.Edge x y) (f : SSet.Edge y z) (g : SSet.Edge x z)
@@ -648,8 +722,14 @@ noncomputable def spaceVertex (K : SSet.{u}) [SSet.KanComplex K] :
 abbrev raiseShape (K : SSet.{u}) : SSet.{u+1} := SSet.uliftFunctor.{u+1,u}.obj K
 noncomputable def raiseVertex (K : SSet.{u}) : K _⦋0⦌ ≃ raiseShape K _⦋0⦌ := by sorry
 
+def HasSmallSpaceModel (K : SSet.{u+1}) : Prop :=
+  SSet.KanComplex K ∧ ∃ L : SSet.{u}, SSet.KanComplex L ∧
+    ∃ (f : raiseShape L ⟶ K) (g : K ⟶ raiseShape L),
+      Nonempty (SSet.Homotopy (f ≫ g) (𝟙 (raiseShape L))) ∧
+      Nonempty (SSet.Homotopy (g ≫ f) (𝟙 K))
+
 def IsLocallySmall (C : SSet.{u+1}) : Prop :=
-  ∀ x y : C _⦋0⦌, Small.{u} (rightMappingSpace C x y).N
+  SSet.Quasicategory C ∧ ∀ x y : C _⦋0⦌, HasSmallSpaceModel (rightMappingSpace C x y)
 
 noncomputable def smallMappingSpace (C : SSet.{u+1}) (h : IsLocallySmall C)
     (x y : C _⦋0⦌) : SSet.{u} := by sorry
@@ -662,9 +742,15 @@ noncomputable def smallMappingSpace_compare (C : SSet.{u+1}) (h : IsLocallySmall
 noncomputable def representableSpaceFunctor (C : SSet.{u+1})
     (h : IsLocallySmall C) (x : C _⦋0⦌) : C ⟶ spaceInfinity.{u} := by sorry
 
+noncomputable def representableSpaceFunctor_vertexComparison
+    (C : SSet.{u+1}) [SSet.Quasicategory C]
+    (h : IsLocallySmall C) (x y : C _⦋0⦌) :
+    SSet.Edge ((representableSpaceFunctor C h x).app _ y)
+      (spaceVertex (smallMappingSpace C h x y)) := by sorry
+
 theorem representableSpaceFunctor_vertex (C : SSet.{u+1}) [SSet.Quasicategory C]
     (h : IsLocallySmall C) (x y : C _⦋0⦌) :
-    (representableSpaceFunctor C h x).app _ y = spaceVertex (smallMappingSpace C h x y) := by sorry
+    IsEquivalenceEdge (representableSpaceFunctor_vertexComparison C h x y) := by sorry
 
 def IsKappaFiltered (κ : Cardinal.{u}) (K : SSet.{u}) : Prop :=
   SSet.Quasicategory K ∧ ∀ (Y : SSet.{u}) (_hY : Cardinal.mk Y.N < κ) (f : Y ⟶ K),
@@ -1070,6 +1156,10 @@ noncomputable def CompatibleCoefficientSystems (C : Type u) [SmallCategory C]
     (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R) : SSet.{u+1} :=
     coCartesianSections (coefficientSystemProjection C J R I)
 
+instance CompatibleCoefficientSystems_quasicategory (C : Type u) [SmallCategory C]
+    (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R) :
+    SSet.Quasicategory (CompatibleCoefficientSystems C J R I) := by sorry
+
 noncomputable def coefficientSystem_eval (C : Type u) [SmallCategory C]
     (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R) (n : ℕ) :
     CompatibleCoefficientSystems C J R I ⟶ sheafDerived C J (R ⧸ I^(n+1)) := by sorry
@@ -1112,10 +1202,19 @@ theorem coefficient_system_reconstruction (C : Type u) [SmallCategory C]
     IsEquivalenceEdge (reconstructionUnit C J R I) ∧
     IsEquivalenceEdge (reconstructionCounit C J R I) := by sorry
 
--- coefficientSystem_zeroIdeal: constant coefficient tower retains the full enhancement.
+noncomputable def coefficientSystem_zeroIdeal_eval (C : Type u) [SmallCategory C]
+    (J : GrothendieckTopology C) (R : Type u) [CommRing R] :
+    CompatibleCoefficientSystems C J R (⊥ : Ideal R) ⟶ sheafDerived C J R := by sorry
+
+-- coefficientSystem_zeroIdeal: evaluation is a categorical equivalence.
 example (C : Type u) [SmallCategory C] (J : GrothendieckTopology C)
-    (R : Type u) [CommRing R] : Nonempty
-    (CompatibleCoefficientSystems C J R (⊥ : Ideal R) ≅ sheafDerived C J R) := by sorry
+    (R : Type u) [CommRing R] :
+    letI := enhancedDerived_quasicategory
+      (SheafOfModules.{u} (constantCoefficientSheaf C J R))
+    IsCategoricalEquivalence
+      (ObjectProperty.homMk (coefficientSystem_zeroIdeal_eval C J R) :
+        qcat (CompatibleCoefficientSystems C J R (⊥ : Ideal R)) ⟶
+          qcat (sheafDerived C J R)) := by sorry
 
 -- fullSubcategory_all
 example (C : SSet.{u}) :
@@ -1129,12 +1228,15 @@ example (A : Type u) [Category.{u} A] (P : A → Prop) :
       nerve (ObjectProperty.FullSubcategory P)) := by sorry
 
 -- localSmall_raise
-example (C : SSet.{u}) : IsLocallySmall (raiseShape C) := by sorry
+example (C : SSet.{u}) [SSet.Quasicategory C] : IsLocallySmall (raiseShape C) := by sorry
 -- localSmall_sets
 example : IsLocallySmall (nerve (Type u)) := by sorry
 -- localSmall_large_hom
 example (A : Type (u+1)) [Category.{u+1} A] (x y : A) (h : ¬ Small.{u} (x ⟶ y)) :
     ¬ IsLocallySmall (nerve A) := by sorry
+
+-- localSmall_contractible_large_model: raw simplex size is not homotopy size.
+example (K : SSet.{u+1}) (hK : IsContractibleSpace K) : HasSmallSpaceModel K := by sorry
 
 -- filtered_point
 example (κ : Cardinal.{u}) (hκ : κ.IsRegular) : IsKappaFiltered κ Δ[0] := by sorry
@@ -1169,9 +1271,6 @@ example (p : ℕ) (hp : p.Prime) :
 instance DerivedCompleteSheaves_quasicategory (C : Type u) [SmallCategory C]
     (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R) :
     SSet.Quasicategory (DerivedCompleteSheaves C J R I) := by sorry
-instance CompatibleCoefficientSystems_quasicategory (C : Type u) [SmallCategory C]
-    (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R) :
-    SSet.Quasicategory (CompatibleCoefficientSystems C J R I) := by sorry
 
 theorem coefficientSystem_mapEquiv (C : Type u) [SmallCategory C]
     (J : GrothendieckTopology C) (R : Type u) [CommRing R] (I : Ideal R)
