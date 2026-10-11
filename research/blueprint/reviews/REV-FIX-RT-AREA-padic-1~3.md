@@ -1,4 +1,50 @@
-# Current checkpoint: Codex codex-yV48XO, 11 October 2026
+# Current checkpoint: Codex codex-lKSK2t, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `a51b147164c4e9cd0643f8039a45f10f1b22423f`; branch `codex-lKSK2t-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106723698).
+
+**Blocked by assignment and review-attribution conflicts.** The three-packet
+mathematical review is already recorded below. This continuation confirms the
+external blocker; it does not repeat that review or supply new mathematical
+verdicts. Only this report and the handoff change.
+
+Freshly parsed both live issue bodies and compared their output lists with
+historical queues: #5704 matches `c69e5b6c9`; #6519 matches `888f12f5c9`.
+
+| Job | Live outputs / packets | Queue outputs / packets | Stock completion, live / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+Every queue output exists. The preserved read-only collision fixture returns
+`[false, true]` for the live scopes and `[true, false]` after restoring #5704's
+archived verdicts in memory. Thus replacing verdicts would move the failure
+between jobs. The current P0 and ASII verdicts identify #6519; AEG identifies
+#5704. All current reviews and histories are preserved.
+
+Reran the existing generator fixture: stock 4/8, later-round-only candidate
+6/8, two-site candidate 8/8. Reran the assessment-bound history fixture: all
+ten assertions pass, including content, signature, scope and verdict rejection
+cases. These candidates remain in-memory demonstrations, not installed repairs.
+The three packets excluding only review metadata, and every byte of their
+suggested files, still equal `331007b5e`. Stock blueprint checks, using the
+316,811-record declaration index, report zero errors and zero warnings for
+P0 (326 nodes), AEG (153) and ASII (537). No Lean compilation or fresh source
+audit was performed; earlier evidence retains its original attribution.
+
+The required queue, generator, completion-function and generated-prompt paths
+are outside the issue and fail `intake.ALLOWED`. There is no permitted repair
+within this assignment. The maintainer must restore and preserve the original
+scopes, establish content-bound historical review attribution, regenerate twice,
+and verify that both scoped reviews remain complete together. The candidate's
+source/reader assessment limitation remains unresolved. The handoff gives the
+exact authorized output list and resumption conditions. This is an external
+block, not a time limit; no second issue was claimed.
+
+---
+
+# Archived checkpoint: Codex codex-yV48XO, 11 October 2026
 
 Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
 input `20f5269874fb14bdf618f0c984e5b448e682acb0`;
