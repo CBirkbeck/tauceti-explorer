@@ -41473,7 +41473,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-11",
-    "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /1–2, /10–14, /17–18 and /32 retain SF.1/SF.2 ownership and the specific descent, Weil-restriction, Grassmannian, blowup and proper-cohomology supplier contracts. The newer A0-extension-2 approximation chain supersedes the historical R09.6-prefix proposal. Freshly read Stacks 07QY/07QZ: approximation in the original base requires henselianity; the other theorem passes to a pointed étale neighborhood. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /1–2, /10–14, /17–18 and /32 preserve SF.1/SF.2 ownership and exact descent, Weil-restriction, Grassmannian, blowup and proper-cohomology imports. The accepted A0-extension-2 approximation chain supersedes the historical R09.6-prefix proposal. Stacks 07QY/07QZ were reread: original-base approximation needs henselianity, while the other theorem uses a pointed etale extension. Current upstream proper coherent cohomology already covers all relative dimensions over locally Noetherian bases. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
   },
   "independentReviewEvidence": {
     "job": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -44007,6 +44007,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), session codex-lJBXyn; bounded independent area-fix review following Codex session codex-LmPUk7’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /1–2, /10–14, /17–18 and /32: retain SF.1/SF.2 ownership, imported descent, affine Weil restriction, Grassmannians, blowups and general proper cohomology. A0-extension-2 already supplies the approximation prefix; avoid a second R09.6 owner. Original-base approximation requires henselianity. Exhaustive unrelated node/source audits remain attributed to their predecessors. See the current area review report for fresh checks and elaboration provenance."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /1–2, /10–14, /17–18 and /32 retain SF.1/SF.2 ownership and the specific descent, Weil-restriction, Grassmannian, blowup and proper-cohomology supplier contracts. The newer A0-extension-2 approximation chain supersedes the historical R09.6-prefix proposal. Freshly read Stacks 07QY/07QZ: approximation in the original base requires henselianity; the other theorem passes to a pointed étale neighborhood. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
     }
   ]
 }

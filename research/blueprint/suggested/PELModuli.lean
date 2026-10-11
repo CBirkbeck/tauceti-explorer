@@ -839,7 +839,7 @@ theorem reflexField_finite (D : RationalPELDatum B V) :
 /-- `p` unramified in the centre `F` (here: `p ∤ disc F`) is unramified in `F₀`. -/
 theorem unramified_reflex (D : RationalPELDatum B V) (F : Type*) [Field F] [NumberField F]
     [Algebra F B] [NumberField D.reflexField]
-    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B)) (p : ℕ) (hp : ¬ (p : ℤ) ∣ NumberField.discr F) :
+    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B)) (p : ℕ) (hpprime : p.Prime) (hp : ¬ (p : ℤ) ∣ NumberField.discr F) :
     ¬ (p : ℤ) ∣ NumberField.discr D.reflexField := sorry
 
 /-- `Det_{O|V₀}` has integral coefficients: traces of elements of an order are integral. -/

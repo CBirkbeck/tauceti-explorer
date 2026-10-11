@@ -6775,7 +6775,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-11",
-    "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /21 and /23 retain the geometric Kodaira configuration and component counts, the algebraically closed residue-field qualification, and the separate component-group and rational Tamagawa contracts. Freshly read the rendered Tate §6 table, pp.45–46. The excellent-DVR curve–Jacobian handoff and explicit resolution/model-comparison gap remain; no upstream roadmap or stage graph is changed. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /21 and /23 retain geometric Kodaira configurations/component counts over an algebraically closed residue field, distinct component-group and rational Tamagawa contracts, and the excellent-DVR curve–Jacobian supplier handoff. Tate’s rendered section 6 table, pp.45–46 was checked directly; the counts agree. Resolution and model-comparison gaps remain explicit. No upstream roadmap or stage edge is changed. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
   },
   "reviewHistory": [
     {
@@ -7341,6 +7341,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-11",
       "notes": "Codex (GPT-6), session codex-lJBXyn; bounded independent area-fix review following Codex session codex-LmPUk7’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /21 and /23: preserve Tate’s geometric component counts, algebraically closed residue-field hypothesis, component-group/rational-Tamagawa distinction and excellent-DVR curve–Jacobian supplier qualification. The unresolved actual-model bridge remains visible. Exhaustive unrelated node/source audits remain attributed to their predecessors. See the current area review report for fresh checks and elaboration provenance."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /21 and /23 retain the geometric Kodaira configuration and component counts, the algebraically closed residue-field qualification, and the separate component-group and rational Tamagawa contracts. Freshly read the rendered Tate §6 table, pp.45–46. The excellent-DVR curve–Jacobian handoff and explicit resolution/model-comparison gap remain; no upstream roadmap or stage graph is changed. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
     }
   ]
 }

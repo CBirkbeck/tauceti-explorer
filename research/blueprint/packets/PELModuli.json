@@ -2497,7 +2497,7 @@
         {
           "name": "RationalPELDatum.unramified_reflex",
           "role": "other",
-          "statement": "p unramified in F ⇒ p unramified in F₀."
+          "statement": "For a rational prime p, p unramified in the actual centre F implies p unramified in the PEL reflex field F₀."
         },
         {
           "name": "RationalPELDatum.detPoly_integral",
@@ -9643,9 +9643,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-PELModuli~2",
-    "date": "2026-10-10",
-    "notes": "Independent target-level review of all 91 nodes, all 67 full baseline statements at their pins, the current upstream reuse interfaces, all 40 supplier contracts, 339 API items (338 on definitions/constructions), 159 named tests, 34 planets, and all eight source findings. Clear source, hypothesis, sign, closure, carrier and reader corrections are recorded in REV-PELModuli~2.md. Seven stages are planned with no open planning gaps. The suggested file elaborates with admission warnings only. PROTOCOL §13 permits explicitly documented omissions of future supplier identifications; these interfaces are planning statements, all implementationStatus values remain unchecked, and acceptance asserts no formalisation. RT-AREA-algebraicgeometry/3 uses SF.2 Part II option (ii) and the full type-D group.",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-PELModuli~2 and archiving its entire review unchanged. Finding /3 retains the newer independent review’s SF.2 Part II ordinary analytic-space carrier and C0 local-comparison contract, including nilpotents and the full type-D group. Corrected the reflex-field API and Suggested theorem to require a rational prime p, as Lan Definition 1.2.5.4 and Corollaries 1.2.5.6–7, pp.90–91 require. The actual-centre hypothesis and discriminant conclusion are unchanged. The complete repaired Suggested file freshly elaborates at both pins with admission warnings only. The 91-row checked ledger is retained from the predecessor, not claimed as a new exhaustive audit. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance.",
     "checked": [
       {
         "nodeId": "PELModuli:M0/positive-involution",
@@ -10343,6 +10343,471 @@
       "roadmap": "AdelicAlgebraicGroups",
       "version": "current main 48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688",
       "reuse": "AA.4.1 supplies Approximation.Torsor, baseChange, ClassComparison, isTrivial_of_simplyConnected_local (characteristic-zero nonarchimedean local field), isTrivial_iff_forall_real (number field) and hasse_classSet. The AA.4 Part II request reuses these: only the continuous absolute Galois/class-set comparison, full-group finite ker1, twisting and reductive/norm-torus extensions are requested. AA.1 consumes ReductiveGroups layers 3 and 6 and ReductiveGroupsPartII RG2.0 for subgroup, derived/adjoint/component and point interfaces; these are not new PEL foundations."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-PELModuli~2",
+      "date": "2026-10-10",
+      "notes": "Independent target-level review of all 91 nodes, all 67 full baseline statements at their pins, the current upstream reuse interfaces, all 40 supplier contracts, 339 API items (338 on definitions/constructions), 159 named tests, 34 planets, and all eight source findings. Clear source, hypothesis, sign, closure, carrier and reader corrections are recorded in REV-PELModuli~2.md. Seven stages are planned with no open planning gaps. The suggested file elaborates with admission warnings only. PROTOCOL §13 permits explicitly documented omissions of future supplier identifications; these interfaces are planning statements, all implementationStatus values remain unchecked, and acceptance asserts no formalisation. RT-AREA-algebraicgeometry/3 uses SF.2 Part II option (ii) and the full type-D group.",
+      "checked": [
+        {
+          "nodeId": "PELModuli:M0/positive-involution",
+          "verdict": "verified",
+          "note": "Reduced and regular traces are compared factorwise; central idempotents and the actual centre are retained. The finite semisimple carrier and positivity are mathematical hypotheses, not an arbitrary trace predicate. Source check: lan2008: §1.2.1, p. 45; milne-isv: Proposition 8.10 and Definition 8.11, pp. 84–85; kottwitz1992: §5, p. 389"
+        },
+        {
+          "nodeId": "PELModuli:M0/albert-types",
+          "verdict": "verified",
+          "note": "The classification is of real algebras with positive involution, not Wedderburn–Artin alone. The three involution-compatible models, simple-factor stability and I_bad are explicit. Source check: lan2008: Definition 1.2.1.15, pp. 53–54; lan2008: Definition 1.2.1.17, p. 54; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M0/order-discriminant",
+          "verdict": "verified",
+          "note": "The discriminant uses a full integral order and an integral basis. Its inverse-different index uses the actual reduced-trace dual; local maximality is the order-specific application of the unramified-field supplier. Source check: lan2008: Definition 1.1.1.6, p. 4; lan2008: Proposition 1.1.1.17 and proof, pp.7–8"
+        },
+        {
+          "nodeId": "PELModuli:M0/symplectic-o-lattice",
+          "verdict": "verified",
+          "note": "Finite free integral modules, a rationally perfect alternating form and star-adjoint action determine the actual dual lattice. Elementary divisors are tied to a block basis; symmetric-lattice results are used only through their applicable dual/index ingredients. Source check: lan2008: §1.2.1, p. 46; lan2008: Definition 1.4.1.1, p. 148; kottwitz1992: §1, p. 374"
+        },
+        {
+          "nodeId": "PELModuli:M0/integral-pel-datum",
+          "verdict": "verified",
+          "note": "The real complex structure, adjoint and positive form occur on the tensor of the same finite free lattice. Zero/nonfaithful integral data are allowed; faithful rationalization is a separate condition. Source check: lan2008: Condition 1.2.1.2, pp. 46–47; lan2008: Definition 1.2.1.3, p. 47; lan2008: Remark 1.2.1.4, p. 47"
+        },
+        {
+          "nodeId": "PELModuli:M0/rational-pel-datum",
+          "verdict": "verified",
+          "note": "The finite semisimple B-action is faithful and the real complex structure is positive and B-linear. The p-integral order/lattice identification and good-prime conditions are documented future identifications, not unconditional scalar-extension claims. Source check: kottwitz1992: §5, p. 389; kottwitz1992: §5, p. 389; lan2008: Remark 1.2.1.4, p. 47"
+        },
+        {
+          "nodeId": "PELModuli:M0/similitude-group",
+          "verdict": "corrected",
+          "note": "Group points are pairs of a linear equivalence and an actual unit multiplier. Flatness and nonzero rank are used only for uniqueness; the F5 zero-form example prevents their omission. Source check: lan2008: Definition 1.2.1.5, p. 47; lan2008: Remark 1.2.1.6, p. 48; kottwitz1992: §5, p. 389; lan-thesis-errata: p. 4, correction to Definition 1.2.1.5"
+        },
+        {
+          "nodeId": "PELModuli:M0/similitude-group-structure",
+          "verdict": "corrected",
+          "note": "The GL/Sp/O factors give the derived, component and multiplier structure of this group. The AA.1 dependency is now direct; its existing ReductiveGroups suppliers own the generic group structures. Source check: kottwitz1992: §7, p. 393; kottwitz1992: Lemma 7.1, p. 395; milne-isv: Remark 8.9, p. 84"
+        },
+        {
+          "nodeId": "PELModuli:M0/good-primes",
+          "verdict": "verified",
+          "note": "The bad integer combines the order discriminant, dual-lattice index and type-D factor two. Reflex unramifiedness refers to the centre/reflex extension of this same datum. Source check: lan2008: Definition 1.4.1.1, p. 148; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M0/hodge-structure-of-datum",
+          "verdict": "verified",
+          "note": "The two actual J-eigenspaces form the homological Hodge structure. The adapter to Tau Ceti weight-one Hodge/polarization carriers retains the dual and alternating-form sign. Source check: kottwitz1992: Lemma 4.3, p. 388; milne-isv: Proposition 8.14, p. 86; lan2008: §1.3.4, p. 125"
+        },
+        {
+          "nodeId": "PELModuli:M0/pel-shimura-datum",
+          "verdict": "corrected",
+          "note": "SV3 is checked on every rational simple adjoint factor. The ordinary arithmetic quotient remains available for compact factors, while the Shimura-datum API is conditional; AA.1 is a direct prerequisite. Source check: kottwitz1992: Lemma 4.1, p. 386; milne-isv: §8, p. 87; kottwitz1992: §8, p. 400"
+        },
+        {
+          "nodeId": "PELModuli:M0/signatures",
+          "verdict": "corrected",
+          "note": "Centre embeddings determine eigenspace ranks. The native centre-image hypothesis and the raw rank-zero adapter test replace unrelated-field and impossible faithful-zero specializations. Source check: lan2008: Definition 1.2.5.1, p. 90; lan2008: §1.2.5, p. 90; bps2016: §1.1, p. 979"
+        },
+        {
+          "nodeId": "PELModuli:M0/determinant-polynomial",
+          "verdict": "corrected",
+          "note": "The generic determinant polynomial is a polynomial law, with sheaf base change and equivariant exact-sequence APIs. The charpoly substitution now has no extra sign, and the odd-rank computation catches the former error. Source check: lan2008: Definition 1.1.2.17, p. 19; kottwitz1992: §5, p. 389"
+        },
+        {
+          "nodeId": "PELModuli:M0/determinant-classifies",
+          "verdict": "verified",
+          "note": "A spanning family in a finite semisimple algebra is essential. Equality of the determinant laws yields equality of multiplicities and the stated representation comparison, not just equality at a selected element. Source check: lan2008: Proposition 1.1.2.16, p. 18; lan2008: Remark 1.1.2.11, p. 14; kottwitz1992: §5, p. 390"
+        },
+        {
+          "nodeId": "PELModuli:M0/reflex-field",
+          "verdict": "verified",
+          "note": "The coefficient/trace field of the actual V0 representation is used. Official errata requires an auxiliary unramified splitting extension and does not assert descent of V0 to E. Source check: lan2008: Definition 1.2.5.4, pp. 90–91; lan2008: Corollary 1.2.5.6, p. 91; lan2008: Corollary 1.2.5.7, p. 91; kottwitz1992: §5, p. 389; lan-thesis-errata: p.7, correction to Lemma 1.2.5.10 and Corollary 1.2.5.12 (thesis p.92)"
+        },
+        {
+          "nodeId": "PELModuli:M0/reflex-field-comparison",
+          "verdict": "verified",
+          "note": "The stabilizer of the same Hodge cocharacter and the determinant coefficient field agree via semisimple representation classification. This is the adapter to the imported ShimuraData reflex-field definition. Source check: milne-isv: Definition 12.2, p. 112; milne-isv: Proposition 8.13, p. 86; lan2008: Definition 1.2.5.4, p. 91"
+        },
+        {
+          "nodeId": "PELModuli:M0/determinant-condition",
+          "verdict": "verified",
+          "note": "The full polynomial law on Lie(A) is compared with the datum law after the same coefficient base map. The nonreduced-base and pointwise-characteristic-polynomial tests distinguish the condition. Source check: lan2008: Definition 1.3.4.2, p. 126; kottwitz1992: §5, p. 390"
+        },
+        {
+          "nodeId": "PELModuli:M0/determinant-condition-splitting",
+          "verdict": "verified",
+          "note": "The corrected auxiliary finite étale field splits the order and V0; faithful descent compares all rank components. No canonical V0 model over the reflex field is assumed. Source check: lan-thesis-errata: p. 7, correction to Lemma 1.2.5.10 and (1.2.5.15); lan2008: §1.3.4, p. 126"
+        },
+        {
+          "nodeId": "PELModuli:M0/self-dual-lattice-classification",
+          "verdict": "corrected",
+          "note": "The local transpose/orthogonal cases and integral lifting use Kottwitz Lemma 7.2 and Corollary 7.3 at the corrected pages. The type-D transitivity clause explicitly excludes p=2. Source check: kottwitz1992: Lemma 7.2, p. 395; kottwitz1992: Corollary 7.3, p. 396; lan2008: Remark 1.4.4.2, p. 168"
+        },
+        {
+          "nodeId": "PELModuli:M0/bps-signature-constancy",
+          "verdict": "verified",
+          "note": "Constancy is the BPS split-centre hypothesis, not an automatic property of all signatures. It supplies the simplified product dimensions while retaining the nonconstant-signature non-example. Source check: bps2016: Hypothèse 1.1.1, p. 980; bps2016: Lemme 1.1.4, p. 981; bps2016: Remarque 1.1.3, p. 981"
+        },
+        {
+          "nodeId": "PELModuli:M0/hermitian-space",
+          "verdict": "verified",
+          "note": "The star-linear second variable, perfectness and actual coefficient algebra are retained. Split-field and zero-space tests distinguish a hermitian form from a bilinear replacement. Source check: ltxzz2022: Definition 3.1.7, p. 24 (arXiv v3); p. 140 (published); ltxzz2022: Definition 3.1.7, second paragraph"
+        },
+        {
+          "nodeId": "PELModuli:M0/skew-hermitian-space",
+          "verdict": "verified",
+          "note": "The alternating rational trace form and skew-hermitian F-valued form are related by their actual trace/scalar adapter, with nondegeneracy and conjugation preserved. Source check: ltxzz2022: Definition 3.5.1, p. 34 (arXiv v3); ltxzz2022: §3.5, p. 34 (arXiv v3); ltxzz2022: Definition 3.5.3, p. 34 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M0/rank-one-skew-hermitian-classification",
+          "verdict": "corrected",
+          "note": "An anti-invariant scalar specifies the rank-one form; norm classes classify it. Norm-torus and H1 comparisons are imported from AA.4, with a direct AA.1 group edge. Source check: ltxzz2022: Remark 3.5.2, p. 34 (arXiv v3); ltxzz2022: Remark 3.5.2, p. 34 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M0/generalized-cm-type",
+          "verdict": "verified",
+          "note": "Nonnegative multiplicities sum to N on each conjugate pair. Galois transport and the stabilizer reflex field use the same embedding set; zero and rank-one cases are separate. Source check: ltxzz2022: Definition 3.3.1, p. 28 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M0/reflexive-closure",
+          "verdict": "verified",
+          "note": "The published intersection convention is used and distinguished from the preprint composite. Both the actual subfield and its conjugation-fixed real subfield are present; the change is version provenance, not an erratum. Source check: ltxzz-published: Definition 3.3.2 and Remark 3.3.3, p. 147; ltxzz2022: Definition 3.3.2, p. 28 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M0/unramified-tau-decomposition",
+          "verdict": "verified",
+          "note": "The embedding-indexed factorization is over the chosen unramified coefficient extension at the chosen place. It is the decomposition of the actual completed order, not a generic product label. Source check: ltxzz2022: Notation 3.3.6(2), p. 29 (arXiv v3); ltxzz2022: Remark 3.4.6, p. 30 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M1/prime-to-box-quasi-isogeny",
+          "verdict": "verified",
+          "note": "Localized Hom and the degree/unit condition define genuine quasi-isogenies of the same families. Empty box inverts all nonzero integers, giving rational Hom rather than integral Hom. Source check: lan2008: Definition 1.3.1.15, p. 110; lan2008: Definition 1.3.2.27, p. 121; ltxzz2022: Definition 3.4.5, p. 30 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M1/pel-abelian-scheme",
+          "verdict": "verified",
+          "note": "The polarization, order action, Rosati relation and determinant law belong to one relative abelian scheme. Clearing quasi-polarizations uses positive locally constant scalars; integral and rational objects remain distinct. Source check: lan2008: Definition 1.3.3.1, p. 122; lan2008: Definition 1.4.1.4, pp. 149–150; kottwitz1992: §5, p. 390"
+        },
+        {
+          "nodeId": "PELModuli:M1/unitary-of-abelian-scheme",
+          "verdict": "corrected",
+          "note": "Actual localized Tate/de Rham objects carry the OF action and polarization-adjoint form. Published Notation 3.4.7 supplies the stated notation; source labels no longer call it a proposition. Source check: ltxzz2022: Definition 3.4.2 (2), p. 29 (arXiv v3); ltxzz2022: Definition 3.4.3, p. 29 (arXiv v3); ltxzz2022: Remark 3.4.6, p. 30 (arXiv v3); ltxzz-published: Definitions 3.4.2–3.4.3, pp.148–149; Remark 3.4.6 and Notation 3.4.7, p.150"
+        },
+        {
+          "nodeId": "PELModuli:M1/symplectic-isom-sheaf",
+          "verdict": "verified",
+          "note": "The source and target are actual geometric Tate modules with O-action and Tate twist. Transport and base change produce the Isom torsor, with a separately retained multiplier. Source check: lan2008: Definition 1.3.6.1, pp. 132–133; kottwitz1992: §5, p. 390"
+        },
+        {
+          "nodeId": "PELModuli:M1/principal-level-structure",
+          "verdict": "verified",
+          "note": "Finite markings include liftability to completed Tate data and the multiplier isomorphism. A degenerate finite pairing cannot determine a multiplier; the nonprincipal example tests this. Source check: lan2008: Definition 1.3.6.1, p. 133; lan2008: Definition 1.3.6.1, p. 134; lan2008: Remark 1.3.6.2, p. 134"
+        },
+        {
+          "nodeId": "PELModuli:M1/level-structure",
+          "verdict": "corrected",
+          "note": "A monodromy-invariant H-orbit of Tate similitudes is the level, with étale descent and subgroup change. A selected marking without invariance is excluded. Source check: lan2008: Definition 1.3.7.8, p. 143; lan2008: Corollary 1.3.7.11, p. 144; kottwitz1992: §5, pp. 390–391"
+        },
+        {
+          "nodeId": "PELModuli:M1/moduli-problem",
+          "verdict": "verified",
+          "note": "The integral groupoid uses actual polarizations as required by both errata. Its class functor comes only after fibrewise isomorphisms and pullback coherence. Source check: lan2008: Definition 1.4.1.4, pp. 149–150; lan2008: Remark 1.4.1.7, p. 151; lan-book-errata: p. 1, items (8)–(9); thesis errata p. 10"
+        },
+        {
+          "nodeId": "PELModuli:M1/rational-moduli-problem",
+          "verdict": "verified",
+          "note": "Objects use positive rational quasi-polarization classes and localized actions, and morphisms are compatible quasi-isogenies. Its level is attached to the same rational Tate module. Source check: lan2008: Definition 1.4.2.4, pp. 156–157; kottwitz1992: §5, p. 390"
+        },
+        {
+          "nodeId": "PELModuli:M1/char-zero-adelic-moduli",
+          "verdict": "corrected",
+          "note": "Full finite adeles and the actual full rational Tate module are used. New levelOrbit/heckeOrbit interfaces test right precomposition on these objects rather than an unrelated linear-equivalence type. Source check: milne-isv: Theorem 8.17, p. 88; kottwitz1992: §8, p. 398"
+        },
+        {
+          "nodeId": "PELModuli:M1/iso-isogeny-comparison",
+          "verdict": "verified",
+          "note": "The comparison reconstructs the transported lattice through the level. The API now explicitly requires H inside the integral lattice stabilizer for the claimed integral equivalence. Source check: lan2008: Proposition 1.4.3.3, p. 159; lan2008: Remark 1.4.3.4, p. 159"
+        },
+        {
+          "nodeId": "PELModuli:M1/change-of-lattice-and-primes",
+          "verdict": "corrected",
+          "note": "Lattice enlargement and maximal-order enlargement are distinguished. The corrected errata supports the controlled comparison; the packet no longer draws an unrestricted type-D failure from the withdrawn remark. Source check: lan2008: Corollary 1.4.3.7, p. 163; lan2008: Proposition 1.4.4.1, p. 166; lan-thesis-errata: p. 11, correction to Remark 1.4.4.3; lan-thesis-errata: p.11, correction to Remark 1.4.3.8; lan-thesis-errata: p.11, correction to Remark 1.4.3.11"
+        },
+        {
+          "nodeId": "PELModuli:M1/effective-descent",
+          "verdict": "verified",
+          "note": "Generic module descent, actual abelian Pic0/polarization descent and the ordinary stack owner are separate. Effective descent includes ample data; a groupoid type alone is not used as its proof. Source check: lan2008: Appendix A.5 and §1.4.1 (Remark 1.4.1.7), p. 151; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M1/hecke-action",
+          "verdict": "corrected",
+          "note": "Right precomposition and conjugated levels give the composition order h*g for first h then g. Central triviality is restricted to appropriate positive rational scalars and integral transport uses the changed lattice. Source check: lan2008: Remark 1.4.3.10, p. 164; kottwitz1992: §6, p. 392"
+        },
+        {
+          "nodeId": "PELModuli:M1/functoriality-in-data",
+          "verdict": "corrected",
+          "note": "Forgetting an order action is finite because fixed Rosati bounds on order generators give finite Hom choices, followed by rigidity and the DVR properness argument. A1/A6/R09.2/R11.1 are direct suppliers; the fixed Tate representation bounds each Rosati norm, finite level refinements preserve finiteness, and the backward M2 edge and disjoint-union projectivity shortcut are removed. Source check: kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M2/rigidity",
+          "verdict": "corrected",
+          "note": "Torsion detection is fibrewise, using the actual localized Hom action. Finite order applies on geometric fibres; disconnected bases do not give a uniform global-order assertion. Source check: lan2008: Lemma 1.4.1.10, p. 152; lan2008: Remark 1.4.1.9, p. 152"
+        },
+        {
+          "nodeId": "PELModuli:M2/neat-level",
+          "verdict": "verified",
+          "note": "Neatness is the eigenvalue-generated subgroup condition, transported to adelic levels through all rational conjugates. The positive integer, identity and root-of-unity checks distinguish it from torsion-freeness of a single group. Source check: lan2008: Definition 1.4.1.8, p. 152; ltxzz2022: Definition 3.1.11 (1), p. 25 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M2/no-automorphisms-at-neat-level",
+          "verdict": "verified",
+          "note": "A polarized geometric automorphism has finite order; its level eigenvalues and neatness force triviality, then rigidity descends this conclusion. No global disconnected-base finite-order premise is needed. Source check: lan2008: Corollary 1.4.1.11, p. 152"
+        },
+        {
+          "nodeId": "PELModuli:M2/isom-scheme",
+          "verdict": "verified",
+          "note": "The diagonal is the actual Isom of polarized families with action and level, not unconstrained Hom. Graph-Hilbert representability, unramifiedness and the DVR extension theorem supply finiteness. Source check: lan2008: Theorem 1.4.1.12, p.153; its Isom-diagonal proof in §2.3.3, pp.265–267; kottwitz1992: §5, pp.390–391"
+        },
+        {
+          "nodeId": "PELModuli:M2/deformation-prorepresentable",
+          "verdict": "corrected",
+          "note": "The test functor retains the marked special-fibre identification. Polarized O-linear Grothendieck–Messing and the imported Artin criterion supply the complete local ring and uniqueness of maps. Source check: lan2008: Theorem 2.2.3.10, p. 245; lan2008: Theorem 2.2.1.4, p. 229"
+        },
+        {
+          "nodeId": "PELModuli:M2/formal-smoothness",
+          "verdict": "verified",
+          "note": "The corrected theorem gives formal smoothness of the deformation problem, with good-prime splitting and isotropic O-stable Hodge lifts. Finite type/Artin inputs are used separately for geometric smoothness. Source check: lan2008: Theorem 2.2.4.16, p. 260; thesis errata p. 15 (formally smooth, reference 2.2.4.15); lan2008: Remark 1.2.2.3, p. 60; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M2/effectivity",
+          "verdict": "corrected",
+          "note": "Formal abelian schemes and compatible polarization/action/level data are algebraized over the complete local base. The missing direct R09.3 descent edge has been supplied. Source check: lan2008: Proposition 2.3.2.1, p. 263; lan2008: proof of Proposition 2.3.2.1, pp. 263–264"
+        },
+        {
+          "nodeId": "PELModuli:M2/representability",
+          "verdict": "verified",
+          "note": "Lan Appendix B.3.8, B.3.10 and B.3.12 supply the precise excellent-base Artin criteria. Finite diagonal, limit compatibility, effectivity and marked deformation are explicit inputs; the target is an ordinary algebraic space. Source check: lan2008: Theorem 1.4.1.12, p. 153; lan2008: §2.3.3, p. 265; lan2008: Remark 1.4.1.14, p. 154; lan2008: Appendix B.3.8, pp.1018–1023; B.3.10, pp.1023–1024; B.3.12, pp.1024–1026; §2.3.3, pp.265–267"
+        },
+        {
+          "nodeId": "PELModuli:M2/universal-family",
+          "verdict": "verified",
+          "note": "The actual groupoid equivalence at neat level yields a universal PEL family over the representative. This is stronger than a bijection of point sets and uses SF.1 descent. Source check: lan2008: Proposition 2.3.4.2, p. 269; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M2/kodaira-spencer-dimension",
+          "verdict": "corrected",
+          "note": "The actual affine-chart cotangent map is identified with KS. The converse étaleness criterion now assumes local finite presentation; E6 records why flatness and the KS isomorphism alone are insufficient. Source check: lan2008: Proposition 2.3.4.2, p. 269; lan2008: Proposition 2.3.4.2, p. 270; lan-thesis-errata: Proof of Proposition 2.3.4.2, p.16; stacks: Tag 02GU, Lemma 29.37.15"
+        },
+        {
+          "nodeId": "PELModuli:M2/properness-when-division",
+          "verdict": "verified",
+          "note": "The division-algebra/rank hypothesis rules out a toric boundary in a semiabelian degeneration. The Néron/semistable extension suppliers are essential; properness is not asserted for arbitrary PEL data. Source check: kottwitz1992: §5, p. 392; kottwitz1992: §5, p. 392"
+        },
+        {
+          "nodeId": "PELModuli:M2/unitary-deformation",
+          "verdict": "verified",
+          "note": "The published deformation proof identifies the actual polarized OF-linear Hodge filtration and dimension sum. This applies the ordinary crystalline supplier with its PD and good-prime assumptions. Source check: ltxzz2022: Proposition 3.4.8, p. 31 (arXiv v3); ltxzz2022: proof of Proposition 3.4.8, p. 31 (arXiv v3); ltxzz-published: Proposition 3.4.8 and proof, p.151"
+        },
+        {
+          "nodeId": "PELModuli:M2/isogeny-kernel-ranks",
+          "verdict": "verified",
+          "note": "Kernel Dieudonné and Lie ranks refer to the actual isogeny and chosen embedding factors. The local block calculation is applied after the same polarized display/de Rham comparison. Source check: ltxzz2022: Lemma 3.4.12 (1), p. 32 (arXiv v3); ltxzz2022: Lemma 3.4.12 (3)(a), p. 32 (arXiv v3); ltxzz2022: proof of Lemma 3.4.12, p. 33 (arXiv v3); ltxzz-published: Lemma 3.4.12 and proof, pp.153–155"
+        },
+        {
+          "nodeId": "PELModuli:M2/wedhorn-ordinary-density",
+          "verdict": "verified",
+          "note": "The full display and generic-Newton proof supplier was read. For connected unramified hyperspecial data, ordinary nonemptiness/density uses the chosen reflex completion Ev=Qp; μ-ordinary density is not substituted for this criterion. Source check: bps2016: Remarque 1.5.1, p. 988; bps2016: §1.5, p. 987; wedhorn1999: §§1.3.1–1.5.1 pp. 580–583; Density Theorem 1.6.2 and Theorem 1.6.3 pp. 584–585; wedhorn1999: §2.1, pp.585–588; §2.2, pp.589–595; Theorem 3.1.12 and §3.2; §4.2.3, pp.601–602; §§4.3.3–4.3.9, pp.603–609; §4.4.3, pp.610–611; §§4.5.5–4.5.10, pp.613–617"
+        },
+        {
+          "nodeId": "PELModuli:M3/ker1-classification",
+          "verdict": "corrected",
+          "note": "The pointed all-place localization kernel classifies actual locally equivalent rational forms; finiteness is imported for the full group. A finite-group cochain object is not substituted for absolute Galois H1. Source check: kottwitz1992: §8, p. 399; kottwitz1992: §7, p. 393"
+        },
+        {
+          "nodeId": "PELModuli:M3/hasse-principle-cases",
+          "verdict": "corrected",
+          "note": "The existing upstream simply-connected torsor/Hasse interfaces are reused. The reductive abelianization and norm-torus comparisons add the necessary A/C and parity arguments; a Shimura-variety label is conditional on SV3. Source check: kottwitz1992: §7, p. 393; kottwitz1992: §7, p. 394; kottwitz1992: §7, p. 394; milne-isv: Lemma 8.21, p. 89"
+        },
+        {
+          "nodeId": "PELModuli:M3/complex-points",
+          "verdict": "corrected",
+          "note": "The point classification retains all ker1 forms, the full similitude group, and the positive polarization class. Sign choice for the full real orbit and positive adelic normalization are explicit in the inverse construction. Source check: kottwitz1992: §8, p. 400; kottwitz1992: §8, p. 400; milne-isv: Theorem 8.17, p. 88"
+        },
+        {
+          "nodeId": "PELModuli:M3/uniformization-morphism",
+          "verdict": "corrected",
+          "note": "The analytic family uses ε(h)q_gψ with q_gc(g) an integral adelic unit. Sign and q transport make it equivariant under rational similitudes; the opposite A5 Riemann-form convention and the negative-component regression are explicit. Source check: kottwitz1992: §8, p. 400; milne-isv: Proposition 6.3, p. 70; tsimerman2018: §6.1, p. 387"
+        },
+        {
+          "nodeId": "PELModuli:M3/algebraization-of-components",
+          "verdict": "corrected",
+          "note": "An actual analytic isomorphism and open-and-closed analytic subspace are compared by local faithful flatness and algebraic component descent. The packet does not infer scheme descent from a point-set identification. Source check: kottwitz1992: §8, p. 400; lan2008: Remark 1.4.3.11, pp. 164–165"
+        },
+        {
+          "nodeId": "PELModuli:M3/type-d-comparison",
+          "verdict": "corrected",
+          "note": "This independently imports the full-group arithmetic quotient and all-form family construction. It no longer relies on the A/C uniformization hypothesis or an unsupported G°/π0 formula; the source errata locator is corrected. Source check: lan-intro: §5.1.3, pp.54–56; lan-thesis-errata: Correction to Remark 1.4.4.3 (thesis p.168), errata p.11"
+        },
+        {
+          "nodeId": "PELModuli:M3/hermitian-hom-space",
+          "verdict": "corrected",
+          "note": "Construction 3.4.4 defines polarization-adjoint Hom for the same two abelian schemes. The perfect hermitian pairing and Betti/Tate comparison use their actual OF-actions and the rank-one source hypothesis. Source check: ltxzz2022: Construction 3.4.4, p. 30 (arXiv v3); ltxzz-published: Construction 3.4.4, p.149"
+        },
+        {
+          "nodeId": "PELModuli:M3/siegel-fine-uniformization",
+          "verdict": "verified",
+          "note": "Milne Theorem 6.11 supplies the polarization/complex-torus equivalence; the fine adelic Siegel comparison retains the family and multiplier components rather than only the coarse orbit. Source check: milne-isv: Theorem 6.11, p. 74; tsimerman2018: §6.1, p. 387"
+        },
+        {
+          "nodeId": "PELModuli:M4/cm-points-reciprocity",
+          "verdict": "corrected",
+          "note": "Reciprocity is checked on the same PEL CM points with the imported Artin/reflex-norm convention. Actual global twisting and CM density identify the intended form component. Source check: kottwitz1992: §8, p. 400; milne-isv: Proposition 14.12, p. 125"
+        },
+        {
+          "nodeId": "PELModuli:M4/canonical-model-identification",
+          "verdict": "corrected",
+          "note": "Uniqueness and CM reciprocity identify the SV3 canonical pieces; the full moduli union uses actual global twists. The twist node is now a direct dependency and creates no reciprocal edge through CM reciprocity. Source check: kottwitz1992: §8, p. 400; lan2008: Remark 1.4.3.11, p. 165"
+        },
+        {
+          "nodeId": "PELModuli:M4/twisting-automorphisms",
+          "verdict": "corrected",
+          "note": "A positive central alpha and actual central adelic beta transport polarization and level. The prerequisite is the established M3 algebraic comparison, so the former M4 reciprocal dependency is removed. Source check: kottwitz1992: §8, p. 400; kottwitz1992: §8, p. 400; kottwitz1992: §8, pp.398–401, especially p.400"
+        },
+        {
+          "nodeId": "PELModuli:M4/canonical-model-functoriality",
+          "verdict": "corrected",
+          "note": "Canonical-model uniqueness and Milne Hecke functoriality transport the same right level maps and datum morphisms. The Shimura-model use is conditional on the datum axioms. Source check: kottwitz1992: §6, p. 392; milne-isv: Proposition 14.14, p. 127; milne-isv: Theorem 13.6 and Remark 13.8, pp. 118–119"
+        },
+        {
+          "nodeId": "PELModuli:M4/higher-level-normalization",
+          "verdict": "verified",
+          "note": "Relative normalization in the actual reduced finite-type generic cover has the universal factorization property. Tag 03GR, rather than absolute normalization alone, supplies the relevant finiteness statement. Source check: stacks: Tag 03GR (Lemma 29.54.15); lan2008: Remark 1.4.1.14, p. 154"
+        },
+        {
+          "nodeId": "PELModuli:M4/normalization-finite-normal-flat",
+          "verdict": "corrected",
+          "note": "Normality, finiteness and DVR flatness are separate conclusions with their own reducedness, Nagata, dominance and torsion-free hypotheses. These are not asserted for arbitrary morphisms. Source check: stacks: Tag 0539 (Lemma 15.22.10); stacks: Tag 035S (Lemma 29.55.11); stacks: Tag 03GR (Lemma 29.54.15)"
+        },
+        {
+          "nodeId": "PELModuli:M4/cm-moduli-scheme",
+          "verdict": "corrected",
+          "note": "Definition 3.5.4 bases the finite étale CM problem on the selected CM type reflex field localized at p. The neutral w-fibre selects the minimal open-and-closed model; the reflexive closure is separate. Source check: ltxzz2022: Definition 3.5.4, p. 35 (arXiv v3); ltxzz2022: §3.5, p. 35 (arXiv v3); ltxzz2022: §3.5, p. 35 (arXiv v3); ltxzz-published: Remark 3.5.2 and Definitions 3.5.3–3.5.4, pp.156–158"
+        },
+        {
+          "nodeId": "PELModuli:M4/cm-moduli-galois",
+          "verdict": "corrected",
+          "note": "The Galois action is that of this finite étale scheme over the same CM base, with the torus torsor and reciprocity map. It uses actual global rational-form classes and the corrected base-field definition. Source check: ltxzz2022: §3.5, p. 35 (arXiv v3); ltxzz-published: Definition 3.5.4 and following discussion, pp.157–158"
+        },
+        {
+          "nodeId": "PELModuli:M4/torus-groupoid-trace",
+          "verdict": "corrected",
+          "note": "For a pure d-dimensional component space, trace sums one representative per torus orbit on invariant H_c^(2d)(d). Functoriality is an equivariant cohomology map; no arbitrary geometric pullback or division by group order is asserted. Source check: ltxzz2022: Notation 3.5.7, p. 35 (arXiv v3); ltxzz2022: Definition 3.5.8, pp. 35–36 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M5/siegel-pel-datum",
+          "verdict": "verified",
+          "note": "The integral alternating block matrix and real J use the same sign convention, ordered positive elementary divisors and rational basis. The native all-genus adapter and dual-basis formulas agree with the pinned symplectic carriers. Source check: milne-isv: §6, Proposition 6.3, p. 70; lan2008: Definition 1.4.1.1, p. 148"
+        },
+        {
+          "nodeId": "PELModuli:M5/siegel-moduli",
+          "verdict": "verified",
+          "note": "The represented functor is polarized abelian schemes with the stated type and liftable full level. Good-prime and neatness conditions are separate from the bare datum construction. Source check: lan2008: Corollary 1.4.1.13, p. 153; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M5/genus-one-comparison",
+          "verdict": "verified",
+          "note": "The comparison imports current ModularCurves elliptic duality, Weil pairing, level and fine-family interfaces. It retains all multiplier components and does not substitute a fixed-pairing component for the entire level problem. Source check: lan2008: Definition 1.3.6.1, p. 133; milne-isv: Theorem 6.11, p. 74; aside p. 75 (full level N)"
+        },
+        {
+          "nodeId": "PELModuli:M5/hilbert-example-acceptance",
+          "verdict": "verified",
+          "note": "The trace-form Hilbert example imports ShimuraData D5 and H0/H1; it is an acceptance application, not a second Hilbert roadmap. The common-multiplier group and its domain components are retained. Source check: lan2008: Corollary 1.2.5.6, p. 91; kottwitz1992: §7, p. 393"
+        },
+        {
+          "nodeId": "PELModuli:M5/unitary-pel-datum",
+          "verdict": "corrected",
+          "note": "The hermitian trace construction uses CM conjugation, anti-invariant delta, finite faithful rational action and positive rank. The imaginary-quadratic native constructor now requires 0<r+s. Source check: kottwitz1992: Lemma 4.3 proof, pp. 388–389; bps2016: §1.1, p. 980; ltxzz2022: Definition 3.3.1, p. 28 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M5/unitary-examples",
+          "verdict": "verified",
+          "note": "The indefinite Picard example and rank-one definite torus use their actual signatures and reflex fields. Higher-rank wholly definite factors require the separate SV3 qualification. Source check: kottwitz1992: §7, p. 394; bps2016: Lemme 1.1.4, p. 981"
+        },
+        {
+          "nodeId": "PELModuli:M5/nonprincipal-type-example",
+          "verdict": "verified",
+          "note": "The scaled finite pairing can degenerate while the completed marking and multiplier survive. The example constructs actual polarized families and the dual-lattice/type calculation, not just a Gram determinant. Source check: lan2008: Remark 1.3.6.2, p. 134"
+        },
+        {
+          "nodeId": "PELModuli:M6/level-forgetting-maps",
+          "verdict": "verified",
+          "note": "For nested neat compact opens, the finite étale cover and index fibres are applied to the same moduli family. Arbitrary levels retain stabilizers and are handled by the subsequent stack target. Source check: kottwitz1992: §6, p. 392; lan2008: Remark 1.4.3.10, p. 164"
+        },
+        {
+          "nodeId": "PELModuli:M6/arbitrary-level-stack",
+          "verdict": "verified",
+          "note": "Ordinary quotient-stack descent from a neat cover keeps geometric inertia and the actual universal family. D0/R09.4 supply the generic ordinary-stack construction. Source check: lan2008: Theorem 1.4.1.12, p. 153; kottwitz1992: §6, p. 392"
+        },
+        {
+          "nodeId": "PELModuli:M6/siegel-stack-over-z",
+          "verdict": "verified",
+          "note": "The all-characteristic principally polarized problem is an ordinary algebraic stack over Z. Full-level covers are used where their order is invertible; the stack retains automorphisms at unmarked levels. Source check: lan2008: Corollary 1.4.1.13, p. 153"
+        },
+        {
+          "nodeId": "PELModuli:M6/polarized-stack-finite-type",
+          "verdict": "corrected",
+          "note": "The exact A2 field-fibre cubic very-ampleness/cohomology bounds and relative Pic0 descent yield a bounded Hilbert atlas even when p divides d. FC I.4.11 is a principal quartic discussion, not a general cubic theorem. Source check: kottwitz1992: §5, p. 391; lipnowski-tsimerman2018: §4.1, Remark 4.2, p. 17; faltings-chai: Chapter I, Definition 1.6 and preceding Picard discussion, pp.2–4; discussion 4.11, pp.23–24; Proposition 5.3, p.27"
+        },
+        {
+          "nodeId": "PELModuli:M6/coarse-moduli-space",
+          "verdict": "verified",
+          "note": "The coarse algebraic space has both the initial mapping property and the geometric isomorphism-class bijection. Current ModularCurves supplies the genus-one j comparison, while R09.5 owns the general coarse construction. Source check: lan2008: Definition A.6.4.1, p. 980; tsimerman2018: §1, footnote 1, p. 380"
+        },
+        {
+          "nodeId": "PELModuli:M6/quasi-projective-realization",
+          "verdict": "verified",
+          "note": "The Hodge/ampleness and arithmetic quotient input is imported directly from C5. M6 has no M5 dependency, and the target concerns the good/neat generic-fibre realization with its precise hypotheses. Source check: lan2008: Remark 1.4.1.14, p. 154"
+        },
+        {
+          "nodeId": "PELModuli:M6/field-of-moduli",
+          "verdict": "corrected",
+          "note": "The stabilizer field concerns the same polarized/PEL object. A coarse residue field alone does not produce a family; the forms/gerbe node is now a direct prerequisite for the descent assertion. Source check: tsimerman2018: §1, footnote 1, p. 380"
+        },
+        {
+          "nodeId": "PELModuli:M6/forms-and-descent-obstruction",
+          "verdict": "corrected",
+          "note": "Forms use continuous H1 of the actual finite polarized automorphism group and the residual gerbe. Neutrality or rigidification is required; the elliptic twist example tests failure of coarse-point descent. Source check: tsimerman2018: Lemma 4.1 proof, p. 384; lipnowski-tsimerman2018: Definition 4.3, p. 17"
+        },
+        {
+          "nodeId": "PELModuli:M6/bounded-field-of-definition",
+          "verdict": "verified",
+          "note": "Level-three marking rigidifies the polarized pair, bounds its orbit by GL_(2g)(F3), and adjoining ζ3 costs at most two. The exact A6 torsion-field descent theorem handles all geometric endomorphisms and dual torsion. Source check: tsimerman2018: Lemma 4.1, p. 384; tsimerman2018: Lemma 4.1 proof, p. 384"
+        },
+        {
+          "nodeId": "PELModuli:M6/hodge-line-bundle",
+          "verdict": "corrected",
+          "note": "The Hodge sheaf and determinant line are attached to the actual family and descend on the stack. The Siegel KS assertion is qualified by the good principal-polarization situation. Source check: lan2008: Proposition 2.3.4.2, p. 269; ltxzz2022: Notation 3.4.1, p. 29 (arXiv v3)"
+        },
+        {
+          "nodeId": "PELModuli:M6/universal-family-export",
+          "verdict": "verified",
+          "note": "An actual family is exported from a fine representative or a neutral/rigidifying lift. No universal abelian scheme over an arbitrary coarse rational point is promised. Source check: tsimerman2018: Lemma 4.1 proof, p. 384; kottwitz1992: §5, p. 391"
+        },
+        {
+          "nodeId": "PELModuli:M6/finite-field-finiteness",
+          "verdict": "verified",
+          "note": "Finite type of the polarized stack, finitely many rational coarse points and finitely many twists by finite inertia give finiteness for fixed g,d,q. The graph-formula error E7 is not used in this argument. Source check: lipnowski-tsimerman2018: Remark 4.2, p. 17; lipnowski-tsimerman2018: Corollary 2.2, p. 5"
+        },
+        {
+          "nodeId": "PELModuli:M6/nonempty-examples",
+          "verdict": "verified",
+          "note": "This target supplies explicit admissible Siegel/unitary families and levels with the stated positivity and good-prime conditions. Nonemptiness is checked for these examples, not imposed on every arbitrary datum. Source check: lan2008: Remark 1.4.3.13, pp. 165–166"
+        }
+      ]
     }
   ]
 }
