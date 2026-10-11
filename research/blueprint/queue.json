@@ -24994,7 +24994,8 @@
    ],
    "avoidAccountOf": "BP-EnhancedDerivedSheaves--E5",
    "prompt": "research/blueprint/prompts/REV-EnhancedDerivedSheaves--E5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #397"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -49206,8 +49207,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49297,8 +49298,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -81574,8 +81575,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
