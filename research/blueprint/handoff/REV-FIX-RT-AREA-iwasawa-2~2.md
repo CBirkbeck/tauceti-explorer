@@ -1,10 +1,10 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-rTvrry`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-mYksrQ`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106537487).
-Input: `20f5269874fb14bdf618f0c984e5b448e682acb0`.
-Branch: `codex-rTvrry-review-6219`. One claim; none of the fixes were mine.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106720937).
+Input: `a51b147164c4e9cd0643f8039a45f10f1b22423f`.
+Branch: `codex-mYksrQ-review-6219`. One claim; none of the fixes were mine.
 
 ## Status: scope-blocked checkpoint
 
@@ -17,11 +17,13 @@ paths was sent through the worker conversation; no answer has arrived. The
 live issue's comments contain no authorization either. Reconcile the issue
 or obtain explicit authorization before redispatching this job.
 
-This continuation changes only the review report and this handoff. No packet,
-review, history or Suggested file changed. L3 and PMIA already identify this
-correction-review job. PMIA's `needs_changes` is a completed negative review;
-its coordinated ownership revision is a separate job, not the scope blocker.
-Another unchanged mathematical review cannot fix the dispatch mismatch.
+The issue-named L3 and PMIA packets now carry this session's fresh bounded
+review records, following the live issue's instruction. Each entire previous
+review is appended to history; every other field is unchanged. This report and
+handoff also change. All Suggested files and both omitted-path packets are
+byte-identical to the input. PMIA's `needs_changes` is a completed negative
+review; its coordinated ownership revision is a separate job, not the scope
+blocker. The two remaining review-record updates still require authorization.
 
 ## Fresh evidence and attribution
 
@@ -33,18 +35,21 @@ Another unchanged mathematical review cannot fix the dispatch mismatch.
   inherited short-API warnings. Both candidates pass intake's file rules.
 - The input and candidate hashes reproduce all guards below. Candidates
   preserve every non-review field and each complete earlier review, including
-  the 79-node and 72-node ledgers. All eight actual packet/Suggested hashes
-  still match. No packet or candidate has an `excerpt` field.
+  the 79-node and 72-node ledgers. The omitted packets and all Suggested files
+  match their input hashes; the two fresh reviews preserve all other fields.
+  No packet or candidate has an `excerpt` field.
 - Fetched all nine public PDFs and matched every receipt below. Fresh bounded
   source and pinned/current library checks support all six earlier finding
   dispositions. The report gives exact theorem, section and page locators.
   No book was used; no source passage enters the repository.
 - Earlier exhaustive audits retain their original authorship. Candidate
-  records retain `codex-jIGDIK`'s attribution and dates. No Lean compiler ran
-  this session. `codex-k2zZva`'s historical L3 failure and other three successes
-  remain explicitly attributed in the report.
-- `git diff --check` and intake's changed-file check pass for the two changed
-  Markdown files; no packet or Suggested file is in the diff.
+  records retain `codex-jIGDIK`'s attribution and dates. Four fresh sequential
+  `lean-check` runs reproduce the historical outcomes: L3 fails at the unresolved
+  `research` import before its body; L3-2, D.1 and PMIA elaborate with 111, 307
+  and 1,075 `sorry` warnings respectively and no other diagnostics. No Lean code
+  changed. The report preserves the original historical evidence separately.
+- `git diff --check` and intake's changed-file check pass for the four changed
+  files: two issue-named packet review records, the report and this handoff.
 
 Current read-only heads: TauCetiRoadmap
 `070dc2becd74419e76303ede84b465ed4a69461f`; Tau Ceti
@@ -56,7 +61,7 @@ and opposite-ring dual factors P₀×Q₁ and P₁×Q₀. Preserve arithmetic ad
 arbitrary-family and nonflat tests, and contragredient conventions in the
 separate coordinated PMIA revision.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/20f5269874fb14bdf618f0c984e5b448e682acb0/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/a51b147164c4e9cd0643f8039a45f10f1b22423f/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
 keeps the preceding checkpoint history. This document replaces nested
 checkpoint prose while retaining everything needed to resume. No disposable
 scratch file is required.
@@ -73,12 +78,14 @@ evidence or mathematics.
 | L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
 | D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
 
-The unchanged issue-named packet hashes are L3
+The issue-named packet hashes after this session's review updates are L3
+`e4cf6a66659febf5272d88efb5f494b6a5b8ce74ff96a45b0ad794db65b541a7`
+and PMIA `4247d8e655d0826d4ec186d05d9814c24d66ed878982c71bdd04676bca8d242a`.
+Their histories have 46 and 47 entries respectively. Their input hashes were
 `47965335744a162e3a30700f192e9d00a5012215e55de4ee9f3a192194b2c3a6`
-and PMIA `b37882b86e695240c085397bb8db770443e26f51d459856d10751698998c1ab7`.
-Their histories have 45 and 46 entries respectively. Do not overwrite these
-existing records or add identical review-history entries when installing the
-two remaining candidates.
+and `b37882b86e695240c085397bb8db770443e26f51d459856d10751698998c1ab7`.
+Do not overwrite the fresh records or add identical review-history entries
+when installing the two remaining candidates.
 
 ## Exact remaining records
 
