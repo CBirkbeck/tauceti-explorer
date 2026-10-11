@@ -47,6 +47,12 @@ The [algebraic vector bundles roadmap](https://github.com/TauCetiProject/TauCeti
 
 ### Existing library vocabulary
 
+The names in this document are relative to the Lean namespace
+`TauCetiRoadmap.JacobianChallengePartII`. For example,
+`RelativeJacobian.UniversalShift` in the suggested file has that namespace as
+its prefix. The file states the available group-scheme companions; the
+relative Picard identifications still require the supplier contracts above.
+
 Use Mathlib's schemes, slice category Over(S), native morphism properties and fppf topology. Tau Ceti's `InvertibleSheaf`, `InvertibleSheaf.tensorProduct`, `LineBundleClass`, `SchemeWeilDivisor.relativeDegree`, `Scheme.Modules.Cohomology` and field `AbelianVariety` supply the initial objects. `LineBundleClass` at the stated baseline is a commutative monoid of isomorphism classes; inverses and the actual Picard group are supplied by the parent theory. Abstract module-sheaf cohomology supplies neither proper pushforward nor relative duality. Mathlib's `CommRing.Pic` concerns invertible modules over a ring and does not supply a relative Picard scheme.
 
 The coordinate constructions in JC5 use native morphisms in Over(S). Mathlib's `CategoryTheory.Hom.group`, `CategoryTheory.MonObj.comp_mul`, `CategoryTheory.GrpObj.comp_div` and `CategoryTheory.GrpObj.comp_zpow` give the group law and its compatibility with precomposition. The finite products `piObj`, `Pi.π` and `Pi.lift` express actual fibre powers. Arbitrary base change uses the comparison isomorphisms `PreservesLimitPair.iso` and `PreservesProduct.iso`, with the pulled-back group object supplied by `Functor.grpObjObj`. Their represented points include infinitesimal test schemes.
