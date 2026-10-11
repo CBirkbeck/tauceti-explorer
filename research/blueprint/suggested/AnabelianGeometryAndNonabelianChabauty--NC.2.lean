@@ -13,6 +13,7 @@ import Mathlib.RingTheory.Derivation.Basic
 import Mathlib.RingTheory.TwoSidedIdeal.Operations
 import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Algebra.Polynomial.Eval.Defs
+import Mathlib.Algebra.Polynomial.Derivative
 import TauCeti.Algebra.AlgebraicGroup.Representation.Tannaka.Equivalence
 import TauCeti.Algebra.Coalgebra.Comodule.Finite.ScalarExtension.Monoidal
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.Unipotent
@@ -104,10 +105,18 @@ def fiber {k : Type w} [Field k] (unit : C) (ω : C ⥤ ModuleCat.{w} k) :
 -- they do not assert that those categories already exist or are equivalent.
 end UnipotentRealizations
 
--- test: realization_unit
-example (unit : C) : ∃ n, IsUnipotentLength unit n unit := by sorry
-
 end Length
+
+section RealizationUnitTest
+open MonoidalCategory
+variable {k : Type w} [Field k]
+variable {C : Type u} [Category.{v} C] [MonoidalCategory C]
+
+-- test: realization_unit
+-- The fibre functor's strong monoidal unit comparison identifies the fibre with k.
+example (ω : C ⥤ ModuleCat.{w} k) [ω.Monoidal] :
+    Nonempty (ω.obj (𝟙_ C) ≅ ModuleCat.of k k) := by sorry
+end RealizationUnitTest
 
 section Universal
 variable {k : Type w} [Field k]
@@ -502,14 +511,33 @@ example (eb : M ≃ₗ[k] E) : transport eb eb = LinearEquiv.refl k E := by sorr
 
 end RigidHorizontalFiber
 
--- test: rigid_unit (linear kernel of the zero connection)
-example : LinearMap.ker (0 : M →ₗ[k] N) = ⊤ := by sorry
--- test: rigid_nilpotent_transport
+-- Additional finite linear consequence: composition of nilpotent transports.
 example (T : M →ₗ[k] M) (h : T.comp T = 0) (x y z : k) :
     (LinearMap.id + (z - y) • T).comp (LinearMap.id + (y - x) • T) =
       LinearMap.id + (z - x) • T := by sorry
 
 end Horizontal
+
+section HorizontalPolynomialTests
+variable {k : Type u} [Field k] [CharZero k]
+
+-- test: rigid_unit
+-- A polynomial model of (O,d) has precisely constant horizontal sections. A zero
+-- operator on all sections would wrongly make every nonconstant polynomial horizontal.
+example (p : Polynomial k) (x : k) :
+    Polynomial.derivative p = 0 ↔ p = Polynomial.C (p.eval x) := by sorry
+
+-- test: rigid_nilpotent_transport
+-- For N(a,b)=(b,0), the solution of d s=N s dt with initial value (a,b) at x
+-- is (a+(t-x)b,b). This checks the sign against the differential equation itself.
+example (a b x y : k) :
+    let s₁ := Polynomial.C a + (Polynomial.X - Polynomial.C x) * Polynomial.C b
+    let s₂ := Polynomial.C b
+    Polynomial.derivative s₁ = s₂ ∧ Polynomial.derivative s₂ = 0 ∧
+      (s₁.eval x, s₂.eval x) = (a, b) ∧
+      (s₁.eval y, s₂.eval y) = (a + (y - x) * b, b) := by sorry
+
+end HorizontalPolynomialTests
 
 section Frobenius
 variable {k M N : Type u} [Field k]
@@ -531,7 +559,7 @@ theorem changeLift (φ : M ≃ₗ[k] M) (τ : M ≃ₗ[k] N) (v : M) :
 
 -- test: frobenius_fixed_lifts
 example (φ : M ≃ₗ[k] M) : PathFrobenius φ (LinearEquiv.refl k M) = φ := by sorry
--- test: frobenius_two_sided
+-- The linear conjugation formula; the endpoint-sensitive test follows below.
 example (φ : M ≃ₗ[k] M) (τ : M ≃ₗ[k] N) (v : N) :
     PathFrobenius φ τ v = τ (φ (τ.symm v)) := by sorry
 -- test: frobenius_conjugation_fixed
@@ -540,6 +568,22 @@ example (φ : M ≃ₗ[k] M) (τ : M ≃ₗ[k] N) (v : M) (h : φ v = v) :
 
 end PathFrobenius
 end Frobenius
+
+section TwoSidedTransportTest
+variable {k B B₀ X X₀ : Type u} [Field k]
+variable [AddCommGroup B] [Module k B] [AddCommGroup B₀] [Module k B₀]
+variable [AddCommGroup X] [Module k X] [AddCommGroup X₀] [Module k X₀]
+
+-- test: frobenius_two_sided
+-- tb transports b to b₀; tx transports x₀ to x. Both endpoint maps are needed:
+-- tau(g)=tx ∘ g ∘ tb. This is the finite Hom-space component of equation (41).
+example (tb : B ≃ₗ[k] B₀) (tx : X₀ ≃ₗ[k] X)
+    (φ : (B₀ →ₗ[k] X₀) ≃ₗ[k] (B₀ →ₗ[k] X₀))
+    (g : B₀ →ₗ[k] X₀) (v : B) :
+    PathFrobenius φ (tb.symm.arrowCongr tx) ((tb.symm.arrowCongr tx) g) v =
+      tx (φ g (tb v)) := by sorry
+
+end TwoSidedTransportTest
 
 section FixedPath
 variable {P : Type u}
@@ -560,9 +604,11 @@ theorem unique (φ : P → P) (h : ∃! p, φ p = p) (p : P) (hp : φ p = p) :
 -- CanonicalFrobeniusPath.power: omitted geometric Frobenius-power weight argument;
 -- unique fixed points for an arbitrary self-map do not imply this power statement.
 
--- test: canonical_equal_endpoint (native singleton case of the identity torsor)
-example (φ : P → P) [Unique P] (h : ∃! p, φ p = p) :
-    CanonicalFrobeniusPath φ h = default := by sorry
+-- test: canonical_equal_endpoint
+-- At equal endpoints the path torsor is the tensor automorphism group, and its
+-- identity is fixed by every group endomorphism. Uniqueness selects that identity.
+example {G : Type u} [Group G] (φ : G →* G) (h : ∃! g, φ g = g) :
+    CanonicalFrobeniusPath φ h = 1 := by sorry
 -- test: canonical_additive
 example (c : ℚ) : (∃! z : ℚ, 2 * z + c = z) ∧
     ∀ h : ∃! z : ℚ, 2 * z + c = z,

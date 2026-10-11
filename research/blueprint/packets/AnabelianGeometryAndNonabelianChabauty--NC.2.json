@@ -16,84 +16,84 @@
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
         "provides": "For an already supplied commutative Hopf k-algebra H, identifies convolution algebra-valued points with tensor automorphisms of scalar extension on finite comodules. It does not construct H from a geometric category.",
-        "checked": "Statement read in the supplied source tree at the packet pin; TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean:188."
+        "checked": "Statement read in the supplied source tree at the packet pin; TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean:188. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "tauceti:TauCeti.SmoothUnipotentAffineGroupSchemeCat",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Unipotent.lean",
         "provides": "Existing full category of smooth finite-type affine group schemes whose geometric points act unipotently on every finite-dimensional comodule. It is not a construction of a pro-geometric group.",
-        "checked": "Statement read in the supplied source tree at the packet pin; TauCeti/AlgebraicGeometry/AffineGroupScheme/Unipotent.lean:88."
+        "checked": "Statement read in the supplied source tree at the packet pin; TauCeti/AlgebraicGeometry/AffineGroupScheme/Unipotent.lean:88. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:ModuleCat.of",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Native bundled module associated to an actual coefficient-field vector space.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Category/ModuleCat/Basic.lean:76."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Category/ModuleCat/Basic.lean:76. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.ShortComplex.Exact",
         "kind": "structure",
         "module": "Mathlib/Algebra/Homology/ShortComplex/Exact.lean",
         "provides": "Native exactness of a short complex, via homology data with zero homology; used with mono and epi for unipotent extensions.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Homology/ShortComplex/Exact.lean:45."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Homology/ShortComplex/Exact.lean:45. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:UniversalEnvelopingAlgebra",
         "kind": "def",
         "module": "Mathlib/Algebra/Lie/UniversalEnveloping.lean",
         "provides": "Existing enveloping algebra of a Lie algebra, defined as the tensor-algebra quotient by bracket relations; augmentation completion and geometric universal objects are additional work.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Lie/UniversalEnveloping.lean:65."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/Algebra/Lie/UniversalEnveloping.lean:65. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.Aut",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Endomorphism.lean",
         "provides": "Native automorphism group of an object. Multiplication is function order, opposite to categorical sequential composition.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Endomorphism.lean:119."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Endomorphism.lean:119. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.biproduct",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Biproducts.lean",
         "provides": "Finite biproduct object in a category with the required bilimit, for finite sums of tensor units.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Limits/Shapes/Biproducts.lean:425."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Limits/Shapes/Biproducts.lean:425. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.NatTrans.appLinearMap",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Linear/FunctorCategory.lean",
         "provides": "Evaluation at an object is a linear map on natural transformations into a linear target category.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Linear/FunctorCategory.lean:75."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Linear/FunctorCategory.lean:75. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.LaxMonoidalFunctor.Hom",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean",
         "provides": "Bundled monoidal natural transformations, with native categorical composition, giving the correct tensor-isomorphism point carrier.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean:176."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean:176. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
         "provides": "Full subcategory selected by an object property; all ambient morphisms are retained.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean:39."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean:39. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:Subgroup.lowerCentralSeries",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Nilpotent.lean",
         "provides": "Abstract subgroup lower central series: index zero is the subgroup, index n+1 is its commutator with the index-n term. It supplies indexing checks, not schematic closure or group-scheme quotients.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/GroupTheory/Nilpotent.lean:397."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/GroupTheory/Nilpotent.lean:397. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       },
       {
         "ref": "mathlib:Derivation",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "An actual coefficient-linear derivation, including value zero at one and the Leibniz identity; used for the affine connection prototype.",
-        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/RingTheory/Derivation/Basic.lean:45."
+        "checked": "Statement read in the supplied source tree at the packet pin; Mathlib/RingTheory/Derivation/Basic.lean:45. Independently reread and confirmed by REV-AnabelianGeometryAndNonabelianChabauty--NC.2 on 2026-10-11."
       }
     ]
   },
@@ -343,7 +343,7 @@
       ],
       "proofSteps": [
         "Apply unipotent-length in the three imported geometric categories. Prove subquotient closure by the invariant-vector filtration, and exact faithful evaluation using connectedness and horizontal/local-system uniqueness.",
-        "Identify extensions of unit by unit with H^1 using the connection Čech–de Rham cocycle, the local-system cocycle, or the rigid de Rham complex. Use the suppliers for finite-dimensionality.",
+        "Identify extensions of unit by unit with H^1 using the connection Čech–de Rham cocycle, the local-system cocycle, or the rigid de Rham complex. For rigid H^1, apply RD.5 finiteness to the constant unit with its canonical Frobenius structure; this does not assume a Frobenius structure on every unipotent object. CLS Remark 2.3.4(iii) also proves finite cohomology of successive unit extensions by induction. Algebraic and étale curve H^1 finiteness, with exact coefficient conventions, remains the supplier requirement recorded below; neither RD.4 alone nor the restricted Coleman scalar H^1 datum proves all three instances.",
         "Build tensor/dual/pullback and basepoint evaluation from the suppliers; check symmetry and unit compatibility, rather than assuming an arbitrary tensor category is neutral."
       ],
       "prerequisites": [
@@ -355,7 +355,7 @@
         "PadicDifferentialEquationsAndRigidCohomology:RD.4/rigid-cohomology",
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.2",
-        "ColemanIntegration:L1/frobenius-h1-datum"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5/finiteness-of-rigid-cohomology"
       ],
       "sources": [
         {
@@ -365,8 +365,8 @@
         },
         {
           "sourceId": "cls",
-          "locator": "Proposition 2.3.2, p. 93; Proposition 2.4.1, pp. 95–97",
-          "match": "Supplies the isocrystal closure and neutral-fibre comparison."
+          "locator": "Proposition 2.3.2 and Remark 2.3.4(iii), pp. 93–94; Proposition 2.4.1, pp. 95–97",
+          "match": "Supplies unipotent subquotient closure, finite cohomology of unipotent objects and the neutral algebraic/rigid fibre comparison."
         },
         {
           "sourceId": "besser",
@@ -551,7 +551,7 @@
         "Neutral categories and fibres of realization-categories."
       ],
       "proofSteps": [
-        "Apply MC.6 tensor-isomorphism representability and torsor theorem to the two fibres.",
+        "Apply neutral reconstruction to identify the two fibres with fibre functors on finite comodules over the reconstructed Hopf algebra, then apply MC.6 tensor-isomorphism representability and its torsor theorem. The fixed-Hopf case is a consequence of this reduction, not a construction of the geometric category.",
         "Define actions, identity, inverse and composition in the category of tensor functors. Check the torsor isomorphism P×U→P×P after faithfully flat trivialization, then descend.",
         "Compare the point carrier directly with the native category of bundled lax monoidal functors and its monoidal natural isomorphisms."
       ],
@@ -1152,13 +1152,13 @@
       ],
       "kind": "construction",
       "title": "Affine universal connection",
-      "statement": "Let Y be a smooth geometrically connected affine curve over k of characteristic zero, with b∈Y(k), and choose forms ω_1,…,ω_m whose classes are a basis of H^1_dR(Y). Put V=H^1_dR(Y)∨ with dual generators T_i and W_≤n=⊕_(j=0)^n V^⊗j. On W_≤n⊗O_Y define ∇(w⊗f)=w⊗df−Σ_i(T_iw)⊗fω_i, with terms of degree n+1 set to zero. The pointer at b is the empty word 1. Descending word-degree subbundles give trivial graded connections. This is an integrable algebraic connection: Ω²_Y=0. Its algebra is the length quotient of the imported tensor/word algebra, with left-prepending in the connection and right multiplication horizontal.",
+      "statement": "Let Y be a smooth geometrically connected affine curve over k of characteristic zero, with b∈Y(k), and choose forms ω_1,…,ω_m whose classes are a basis of H^1_dR(Y). Put V=H^1_dR(Y)∨ with dual generators T_i and W_≤n=⊕_(j=0)^n V^⊗j. On W_≤n⊗O_Y define ∇(w⊗f)=w⊗df−Σ_i(T_iw)⊗fω_i, with terms of degree n+1 set to zero. The pointer at b is the empty word 1. Descending word-degree subbundles give trivial graded connections. This is an integrable algebraic connection: Ω²_Y=0. Its associative algebra is the truncated concatenation algebra on V. The imported Coleman word algebra has shuffle multiplication: take the coefficient-space coalgebra of words of length at most n, with deconcatenation, and dualize it to obtain this concatenation algebra. Do not take an algebra quotient of the shuffle algebra by words of length greater than n. The connection uses left-prepending; right multiplication by constant elements is horizontal.",
       "hypotheses": [
         "Affine smooth curve, rational b, finite-dimensional H^1 with a represented basis.",
         "If the compactification has genus g and d geometric boundary points, d>0, then m=2g+d−1."
       ],
       "proofSteps": [
-        "Import the word algebra from Coleman L1 and form its finite length quotient; tensor it with O_Y using AlgebraicVectorBundles.",
+        "Import the Coleman word basis and deconcatenation coalgebra on the coefficient spaces. The length-at-most-n coefficient subspace is a finite subcoalgebra; its linear dual has truncated concatenation multiplication on the dual generators V. Tensor this algebra with O_Y using AlgebraicVectorBundles. Shuffle multiplication is the coordinate product, not the multiplication of the universal module.",
         "Define the connection by the displayed Leibniz rule. Word-degree proves unipotence and finite rank, and curve dimension proves integrability.",
         "Right multiplication commutes with left-prepending, hence is horizontal; do not claim left multiplication is horizontal for arbitrary noncentral words."
       ],
@@ -1345,7 +1345,7 @@
       ],
       "proofSteps": [
         "Prove restriction full faithfulness in characteristic zero on the horizontal Hom connection: a rational horizontal section with a pole of maximal order r>0 has derivative of order r+1, while a regular connection matrix contributes at most order r. The leading pole coefficient cannot cancel, so the section extends across each removed smooth point. Apply this to Hom of two regular connections.",
-        "Use the universal pointed maps on Y and X. The image is a subconnection extending to X, and contains the universal pointer; universality forces surjectivity.",
+        "Before using the image, extend any subconnection of a restricted regular connection: across a removed smooth point, saturate its generic subspace inside the regular bundle over the local DVR. The intersection is stable under the connection because both the generic subspace and the ambient regular bundle are stable; saturation makes the submodule and quotient locally free on a curve. It is unipotent by subquotient closure. The image of the universal map thus extends to X and contains the pointer. Universal pointed evaluation on X supplies its retraction from 𝒜_n(X); uniqueness makes the composite the identity, forcing surjectivity.",
         "For each extendable target, universal pointed evaluation on X gives the unique factorization. Extendable quotients are exactly the ones with zero residues in their canonical logarithmic extension."
       ],
       "prerequisites": [
@@ -1519,8 +1519,8 @@
       "sources": [
         {
           "sourceId": "hadian",
-          "locator": "Thesis §2.2, Lemma 2.2.6 and Proposition 2.2.7, pp. 30–32",
-          "match": "Proves the filtered Hom-complex calculation for logarithmic unipotent connections."
+          "locator": "Thesis §2.2, Proposition 2.2.3 and proof, p. 29; Lemma 2.2.1, p. 27",
+          "match": "Classifies strict filtered extensions by the first hypercohomology of the two-term filtered Hom complex, using local filtered splittings. Lemma 2.2.1 supplies the unfiltered de Rham complex calculation."
         },
         {
           "sourceId": "bdii",
@@ -2269,11 +2269,11 @@
       "hypotheses": [
         "Proper smooth geometrically connected curve, rational b; coefficient p in the étale realization.",
         "Good reduction is required only for crystalline comparison and the local filtered statement.",
-        "The Jacobian and Abel–Jacobi construction are imported from JacobianChallenge."
+        "The Jacobian and Abel–Jacobi construction are imported from JacobianChallenge; the cohomological bridges are separate inputs, including the existing SF.3 Tate/H^1 node and the recorded de Rham compatibility requirement."
       ],
       "proofSteps": [
         "The first augmentation/Lie graded piece is Ext^1(1,1)∨=H^1∨, so central depth one is its vector group.",
-        "Import Abel–Jacobi pullback on H^1 and the Tate-module identification for the Jacobian. Dualize with the same covariance to get the group comparison and identify the abelianized endpoint torsor with the Kummer torsor.",
+        "Import the Jacobian and the pointed Abel–Jacobi morphism from JacobianChallenge B–F, and the untwisted étale H^1/Tate-module identification and Abel–Jacobi pullback from SF.3/tate-module-etale-h1. Dualize with the same covariance. For endpoint compatibility, pull back the finite étale multiplication-by-p^r covers of J along a_b: their fibre over x is the division-point torsor of [x−b], and the fibre over b has its zero lift. Passing to the Tate-module inverse limit and rationalizing gives the Kummer torsor. The exact de Rham Abel–Jacobi H^1 comparison and proper curve Hodge calculation are additional requirements, not assertions supplied by the current upstream B–F layers.",
         "Apply the linear abelian-scheme comparison and the dual Hodge filtration. The annihilator description gives Lie(J) as the quotient; integration on linear paths is already supplied by Coleman L1."
       ],
       "prerequisites": [
@@ -2284,13 +2284,15 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
         "PadicHodgeTheory:R06.5/abelian-scheme-dcris",
-        "ColemanIntegration:L1/coleman-realization"
+        "ColemanIntegration:L1/coleman-realization",
+        "SchemeAndStackFoundations:SF.3/tate-module-etale-h1",
+        "SchemeAndStackFoundations:SF.2"
       ],
       "sources": [
         {
           "sourceId": "kim",
           "locator": "Introduction, pp. 93–95; Section 1, pp. 100–104",
-          "match": "The first central quotient is H^1∨ and gives the ordinary Albanese/Chabauty realization."
+          "match": "The first central quotient is H^1∨ and the ordinary Albanese/Chabauty realization is identified at the first level; the general de Rham Abel–Jacobi proof remains a recorded bridge requirement."
         },
         {
           "sourceId": "bdmtv",
@@ -2356,18 +2358,18 @@
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Resolve the atlas snapshot to the already existing current TauCetiRoadmap AlgebraicVectorBundles L0/L0A: finite locally free sheaves, tensor/dual, exact fibre restriction and monoidal pullback, used as inputs to connections. This is a catalogue/export request, not a request to reconstruct vector bundles. That upstream roadmap is the mathematical owner; its current README and Suggested.lean were read.",
+      "need": "Resolve the atlas snapshot to the already existing current TauCetiRoadmap AlgebraicVectorBundles L0A (module sheaves and monoidal coherence) and L0B (finite locally free sheaves, duals, pullback): import finite locally free sheaves, tensor/dual, exact fibre restriction on vector-bundle short exact sequences and monoidal pullback, used as inputs to connections. This is a catalogue/export request, not a reconstruction of vector bundles. Its current README and Suggested.lean were read.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/realization-categories",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/affine-universal",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/filtered-path"
       ],
-      "upstreamOwner": "TauCetiRoadmap/AlgebraicVectorBundles, L0 and L0A",
+      "upstreamOwner": "TauCetiRoadmap/AlgebraicVectorBundles, L0A and L0B",
       "status": "open"
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Zariski Čech/hypercohomology of the algebraic de Rham complex, Ext^1 of integrable connections as H^1, affine coherent H^1 vanishing for splitting unipotent bundles, and finite-dimensional H^1_dR of a smooth characteristic-zero curve. Provide actual complexes and pullback maps.",
+      "need": "Zariski Čech/hypercohomology of the algebraic de Rham complex, Ext^1 of integrable connections as H^1, affine coherent H^1 vanishing for splitting unipotent bundles, and finite-dimensional H^1_dR of a smooth characteristic-zero curve. Provide actual complexes and pullback maps. Include the rational étale H^1 identification with continuous local-system unit extensions and finite-dimensionality for smooth characteristic-zero curves, separating the proper case from the additional boundary directions of an open curve. The exact de Rham complex, Hodge degeneration and Abel–Jacobi H^1 compatibility for the proper curve must be assigned to their cohomological owner; general sheaf cohomology alone does not supply them.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/realization-categories",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/affine-universality",
@@ -2378,7 +2380,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
-      "need": "Characteristic-zero smooth unipotent algebraic groups and finite-dimensional nilpotent Lie algebras: polynomial exponential/logarithm equivalence, Lie-compatible closed normal subgroups and fpqc quotients, together with passage to finitely generated pronilpotent inverse limits. This is the algebraic unipotent input; the real LieGroups roadmap is not a supplier.",
+      "need": "Characteristic-zero smooth unipotent algebraic groups and finite-dimensional nilpotent Lie algebras: polynomial exponential/logarithm equivalence, Lie-compatible closed normal subgroups and fpqc quotients, together with passage to finitely generated pronilpotent inverse limits. This is the algebraic unipotent input; the real LieGroups roadmap is not a supplier. Current upstream Layer 5 states unipotent group structure, and Layer 3 owns represented quotients; the requested exponential/pronilpotent interface is an additional requirement, not an export already found in Suggested.lean.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/central-quotients",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/length-algebra"
@@ -2387,7 +2389,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
-      "need": "Use the existing JacobianChallenge coherent cohomology and Hodge descriptions on a smooth proper genus-g curve to identify H^1_dR dimension 2g and Fil^1=H^0(Ω¹). No Riemann–Roch or Jacobian is reconstructed here.",
+      "need": "Import coherent cohomology, genus and Serre duality for the proper curve from the existing JacobianChallenge Layer B. These give dimensions of H^1(O_X) and H^0(Ω¹_X). The proper de Rham hypercohomology exact sequence, degeneration and Fil^1 identification require the separate cohomological bridge recorded as a gap; Layer B does not already state them.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
       ],
@@ -2395,7 +2397,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
-      "need": "The Jacobian Tate module identifies covariantly with H^1_et(X_bar,Q_p) dual and its de Rham realization with H^1_dR(X) dual, with good-reduction abelian comparison and Lie quotient conventions.",
+      "need": "Import the abelian variety/Jacobian and its tangent space from JacobianChallenge Layer E. Import the Tate/H^1 comparison separately from SF.3/tate-module-etale-h1 and the good-reduction Tate/de Rham comparison from PadicHodgeTheory:R06.5/abelian-scheme-dcris. Layer E does not itself state these cohomological comparisons.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
       ],
@@ -2403,7 +2405,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
-      "need": "The existing pointed Abel–Jacobi map induces the isomorphism on H^1 and carries the abelianized endpoint torsor to the rational Kummer torsor of [x−b]. Export this compatibility through SchemeAndStackFoundations SF.3 rather than reconstructing the Abel–Jacobi map.",
+      "need": "Import the normalized Abel–Jacobi morphism and its universal property from JacobianChallenge Layer F. Its étale H^1 pullback is supplied separately by SF.3/tate-module-etale-h1. NC.2 identifies the endpoint division-point torsor with the Kummer torsor using this map; its de Rham H^1 compatibility remains the separate recorded bridge. Do not reconstruct the Abel–Jacobi morphism or attribute the cohomology/Kummer assertions to Layer F.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
       ],
@@ -2411,7 +2413,7 @@
     },
     {
       "supplier": "CohomologyComparisons:CP.2",
-      "need": "Supply the good-reduction rational crystalline/étale comparison as a multiplicative enhanced cochain map compatible with the augmentations at two integral points, Frobenius, Galois and the filtered de Rham comparison through CP.3. NC.2 needs the pointed unipotent consequence; a cup-product-compatible H^1 isomorphism is insufficient. The logarithmic open-pair extension is a separate gap below.",
+      "need": "Supply the good-reduction rational crystalline/étale comparison as a multiplicative enhanced cochain map compatible with the augmentations at two integral points, Frobenius, Galois and the filtered de Rham comparison through CP.3. Current CP.2 supplies proper linear/degreewise comparisons and an enhanced derived comparison square; it does not yet state this multiplicative, two-augmentation interface. NC.2 needs the pointed unipotent consequence; a cup-product-compatible H^1 isomorphism is insufficient. The proper enhancement and its logarithmic open-pair extension remain open.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/crystalline-path-coordinates"
       ],
@@ -2423,20 +2425,21 @@
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.2",
       "status": "planned",
       "remaining": [
-        "Discharge the seven supplier export requests with exact native declarations or accepted supplier nodes; the AlgebraicVectorBundles entry only reconciles the newer upstream roadmap with the atlas catalogue.",
+        "Discharge the seven precise supplier requests with exact native declarations or supplier nodes of the required scope. AlgebraicVectorBundles L0A/L0B and JacobianChallenge B/E/F import existing constructions; the ReductiveGroups exponential/pronilpotent and the cohomological requests extend beyond the targets currently found upstream.",
         "Audit and decompose the pointed multiplicative/logarithmic comparison input to Olsson’s nonlinear coordinate theorem; retain its restriction to the verified unramified good-reduction pair and descendent base extensions.",
-        "Instantiate the categorical and local-linear suggested signatures in the suppliers’ actual geometric categories; preserve both finite towers, scheme torsor descent and strict filtered period maps."
+        "Instantiate the categorical and local-linear suggested signatures in the suppliers’ actual geometric categories; preserve both finite towers, scheme torsor descent and strict filtered period maps.",
+        "Supply the curve cohomology finiteness/Ext interfaces and the proper de Rham Abel–Jacobi H^1 and Hodge exact-sequence bridge; preserve SF.3’s untwisted Tate-dual covariance and the division-point description of the Kummer endpoint torsor."
       ]
     }
   ],
   "gaps": [
     {
-      "title": "Pointed multiplicative comparison for the open pair",
+      "title": "Pointed multiplicative comparison and its open-pair extension",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/crystalline-path-coordinates",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison"
       ],
-      "detail": "Olsson’s unit-specialized theorem is the source of the stated nonlinear path comparison, with its precise good-reduction and nilpotent-boundary hypotheses read. A complete proof-chain audit of its augmented cochain/schematic-homotopy engine is not supplied by ordinary R06.5. CP.2 covers the proper multiplicative comparison requested above; the functorial logarithmic open-pair enhancement with both endpoint augmentations, and the passage to the ind-coordinate path comparison, remain to be decomposed against Olsson §§6–8. Do not replace this gap by extension closure of crystalline representations: arbitrary extensions of crystalline representations need not be crystalline."
+      "detail": "Olsson’s unit-specialized theorem is the source of the stated nonlinear path comparison, with its precise good-reduction and nilpotent-boundary hypotheses read. A complete proof-chain audit of its augmented cochain/schematic-homotopy engine is not supplied by ordinary R06.5. Current CP.2 supplies proper linear/degreewise comparisons and an enhanced derived comparison square, not the requested multiplicative map with both endpoint augmentations. That enhancement remains open even for the proper pair. Its functorial logarithmic open-pair extension and the passage to the ind-coordinate path comparison remain to be decomposed against Olsson §§6–8. Do not replace this gap by extension closure of crystalline representations: arbitrary extensions of crystalline representations need not be crystalline."
     },
     {
       "title": "Native geometric signatures at the pinned baseline",
@@ -2452,7 +2455,15 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison",
         "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
       ],
-      "detail": "The suggested file gives actual categorical length and universal-evaluation signatures, tensor path points, natural-transformation path modules, local connection operators and finite linear transport tests. The pinned baseline lacks native algebraic connection/isocrystal categories, geometric period objects and their comparison functors. Their scheme-level instantiations and all their geometric hypotheses are stated in the packet and reader. They are omitted, explicitly by name, from the compiled prototype rather than encoded as arbitrary propositions or assumed comparison fields. A follow-up should replace these omissions only when the supplier categories and period functors have actual native declarations."
+      "detail": "The suggested file gives actual categorical length and universal-evaluation signatures, tensor path points, natural-transformation path modules, local connection operators and finite linear transport tests. The pinned baseline lacks native algebraic connection/isocrystal categories, geometric period objects and their comparison functors. Their scheme-level instantiations and all their geometric hypotheses are stated in the packet and reader. They are omitted, explicitly by name, from the compiled prototype rather than encoded as arbitrary propositions or assumed comparison fields. A follow-up should replace these omissions only when the supplier categories and period functors have actual native declarations. The Jordan-block length and extension examples currently test the native nilpotent operators, not yet exact sequences of geometric connections. Their categorical extension and exact-fibre realizations are also part of this omission."
+    },
+    {
+      "title": "Curve cohomology and proper de Rham Abel–Jacobi bridge",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/realization-categories",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian"
+      ],
+      "detail": "Supply native algebraic de Rham H^1 finiteness and the continuous rational étale unit-extension/H^1 identification for a smooth characteristic-zero curve, with open boundary contributions kept separate. For a proper genus-g curve, supply the Hodge–de Rham exact sequence 0→H^0(Ω¹_X)→H^1_dR(X)→H^1(O_X)→0 and functorial Abel–Jacobi H^1_dR pullback isomorphism, identifying invariant forms and the dual Lie quotient. Current JacobianChallenge B/E/F supply the geometric and coherent objects, not these theorems. SF.3/tate-module-etale-h1 states the étale bridge but its supplier packet currently needs_changes; use it as a planned dependency, not a baseline or accepted implementation. The same distinction applies to the other supplier plans. These requirements must be resolved before declaring NC.2 closed."
     }
   ],
   "sourceIssues": [
@@ -2468,7 +2479,12 @@
       "searched": [
         "Read the already reviewed BDMTV paper extraction, its review, and its E9/E10 follow-up correction record; reread the affected published pages on 2026-10-11. This pass does not claim a new search for a published erratum."
       ],
-      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E1"
+      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against published equation (40), p. 921, and the alphabet in §4.1, p. 909: the former upper differential index has an extra boundary contribution.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E-NC2-9",
@@ -2482,7 +2498,12 @@
       "searched": [
         "Read the already reviewed BDMTV paper extraction, its review, and its E9/E10 follow-up correction record; reread the affected published pages on 2026-10-11. This pass does not claim a new search for a published erratum."
       ],
-      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E9"
+      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Definition A.2, p. 935: existence without uniqueness admits the pointed two-dimensional trivial object. Projection and coordinate sum give distinct maps with the same pointer value; Lemmas A.3–A.4 need the unique-map property.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E-NC2-10",
@@ -2496,7 +2517,12 @@
       "searched": [
         "Read the already reviewed BDMTV paper extraction, its review, and its E9/E10 follow-up correction record; reread the affected published pages on 2026-10-11. This pass does not claim a new search for a published erratum."
       ],
-      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E10"
+      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Definition A.1, p. 934: the zero object has no nonzero morphism from the unit. The invariant-vector statement needs a nonzero-object qualification.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E-NC2-6",
@@ -2510,7 +2536,12 @@
       "searched": [
         "Read the already reviewed BDMTV paper extraction, its review, and its E9/E10 follow-up correction record; reread the affected published pages on 2026-10-11. This pass does not claim a new search for a published erratum."
       ],
-      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E6"
+      "inheritedFrom": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Theorem 4.2, p. 910, against Kim Lemma 3, pp. 108–110: the prescribed input is a basepoint fibre vector. A nonconstant unit-bundle section cannot be the horizontal image of the empty word.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.2"
+      }
     }
   ],
   "sourceRoutes": [
@@ -2681,7 +2712,7 @@
     },
     {
       "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/93",
-      "locator": "Published §5.2.1, (39),(41), p.921; Lemma 4.3 p.910; Theorem 5.3 pp.919–920; Besser, arXiv:math/0011269, Theorem 3.1 and Corollaries 3.2–3.3, pp.7–9",
+      "locator": "Published §5.2.1, (39),(41), p.921; Lemma 4.3 p.911; Theorem 5.3 p.920; Besser, arXiv:math/0011269, Theorem 3.1 and Corollaries 3.2–3.3, pp.7–9",
       "disposition": "planned",
       "nodes": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2/canonical-frobenius-path",
@@ -2704,8 +2735,8 @@
     {
       "owner": "TauCetiRoadmap/AlgebraicVectorBundles, current main",
       "imports": [
-        "L0 finite locally free sheaves",
-        "L0A monoidal coherence and pullback"
+        "L0A module sheaves, monoidal coherence and pullback",
+        "L0B finite locally free sheaves, tensor and dual"
       ],
       "boundary": "Current upstream is newer than the atlas snapshot. No vector-bundle target is planned here. SF.0 is the catalogue bridge, recorded as an export request."
     },
@@ -2720,10 +2751,11 @@
       "boundary": "Scalar/local integration is imported. NC.2 adds the identification with geometric tensor paths and Besser global continuation."
     },
     {
-      "owner": "PadicDifferentialEquationsAndRigidCohomology:RD.3, RD.4, RD.6",
+      "owner": "PadicDifferentialEquationsAndRigidCohomology:RD.3, RD.4, RD.5, RD.6",
       "imports": [
         "overconvergent isocrystals and frames",
         "rigid cohomology",
+        "rigid finiteness for the Frobenius-equipped constant unit",
         "proper/open H^1 weights"
       ],
       "boundary": "NC.2 selects the unipotent category and builds its universal paths; it does not redevelop frames, Taylor overconvergence or weight theory."
@@ -2733,18 +2765,18 @@
       "imports": [
         "period functors and strict tensor exactness",
         "linear comparison",
-        "multiplicative enhanced comparison"
+        "requested multiplicative enhanced comparison, not a current CP.2 export"
       ],
-      "boundary": "The nonlinear coordinate/path specialization is NC.2. Linear H^1 comparison alone cannot certify it."
+      "boundary": "The nonlinear coordinate/path specialization is NC.2. Current CP.2 linear/degreewise comparisons and its derived square do not yet supply the multiplicative two-endpoint interface; that request remains open. Linear H^1 comparison alone cannot certify it."
     },
     {
       "owner": "TauCetiRoadmap/JacobianChallenge, Layers B–F",
       "imports": [
-        "Jacobian",
-        "Abel–Jacobi",
-        "Tate and de Rham cohomology"
+        "coherent cohomology and genus",
+        "Jacobian and tangent space",
+        "normalized Abel–Jacobi morphism"
       ],
-      "boundary": "NC.2 identifies the first group quotient with these existing realizations; it constructs no second Jacobian."
+      "boundary": "NC.2 imports these existing constructions and identifies its first group quotient with their realizations. Tate/H^1 is supplied by SF.3, good-reduction linear comparison by R06.5, and the proper de Rham Abel–Jacobi bridge is recorded separately. The current JacobianChallenge B–F layers do not state the cohomological or Kummer comparison."
     },
     {
       "owner": "Accepted AnabelianGeometryAndNonabelianChabauty parent, NC.3",
@@ -2754,7 +2786,16 @@
       "boundary": "The parent supplies abstract equivariant torsors for rational point realizations. Its abstract carriers do not establish scheme representability, fpqc descent or nonlinear crystalline comparison."
     }
   ],
-  "upstreamNotes": [],
+  "upstreamNotes": [
+    {
+      "roadmap": "TauCetiRoadmap/JacobianChallenge",
+      "note": "Read current main at 070dc2becd74419e76303ede84b465ed4a69461f. B plans coherent cohomology/genus, E abelian varieties/tangent spaces, F the Abel–Jacobi universal property. The NC.2 cohomological bridges are not already their targets; route them to SF.3 and the cohomological suppliers, leaving the proper de Rham bridge explicit. No upstream file was edited."
+    },
+    {
+      "roadmap": "TauCetiRoadmap/AlgebraicVectorBundles",
+      "note": "Current main uses L0A for module-sheaf monoidal structure and L0B for finite locally free sheaves, tensor/dual and pullback. Updated the snapshot reconciliation; these are imports, never NC.2 targets."
+    }
+  ],
   "audit": {
     "reviewed": "data/library-coverage.json, AUDIT-08 NC.2; accepted parent NC.2 coverage and independent review",
     "pinnedSources": "Supplied exact-pin source trees and declarations.tsv, with every cited statement read",
@@ -2771,5 +2812,163 @@
       "RealAlgebraicGeometry"
     ],
     "result": "Current upstream vector bundles are imported. The other newer roadmaps and current library did not supply the geometric unipotent categories/path comparisons at issue. Existing fixed-Hopf Tannaka, smooth unipotent group categories, Lie enveloping algebras and native categorical objects are cited, never rebuilt."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
+    "date": "2026-10-11",
+    "notes": "Independent review of all 30 target-level nodes, 63 API items, 39 tests, six planets, 12 exact-pin declarations, seven public source versions, all supplier statements and current upstream/library boundaries. Corrected 11 nodes or their prototype/route realizations, seven supplier requests, ownership and three precise gaps; confirmed all four inherited sourceIssues. No node was added or removed and no baseline citation was removed. Accepted as a completed planning pass: NC.2 remains planned, not closed, with three gaps and seven open requests. The corrected suggested file elaborates at the pinned baseline with only warnings for admitted declarations; geometric omissions remain explicit. The report and handoff record reader synchronization needed outside this issue’s deliverable paths.",
+    "checked": [
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/unipotent-length",
+        "verdict": "verified",
+        "note": "Length n means n+1 trivial grades, with zero allowed; tensor length is n+m and a fixed length subcategory need not be monoidal. Native Jordan examples are operator tests, with their geometric realization explicitly omitted."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/invariant-vector-criterion",
+        "verdict": "verified",
+        "note": "The nonzero-object qualification repairs the zero counterexample; neutral characteristic-zero reconstruction and induction on representation dimension justify the equivalence."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/realization-categories",
+        "verdict": "corrected",
+        "note": "Replaced the restricted Coleman H1 datum by RD.5 finiteness for the Frobenius-equipped rigid unit and CLS Remark 2.3.4(iii). General curve cohomology interfaces remain a gap. The unit test now identifies the strong monoidal fibre of the unit with the coefficient field."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/tannakian-groups",
+        "verdict": "verified",
+        "note": "The all-algebra tensor point functor imports neutral reconstruction from MC.6. The pinned fixed-Hopf equivalence is only its already-reconstructed specialization, not reconstruction itself."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/tensor-paths",
+        "verdict": "corrected",
+        "note": "The proof now reduces the neutral geometric category to its reconstructed comodule presentation before applying MC.6’s fixed-Hopf tensor-isomorphism torsor. Right source action and q-after-p composition are consistent."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/etale-galois",
+        "verdict": "verified",
+        "note": "Read NC.0 arithmetic-geometric paths and IG.0 local-system/representation suppliers. The endpoint descent formula and finite-piece continuity are correct; no surjectivity onto all rational unipotent points is claimed."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/central-quotients",
+        "verdict": "verified",
+        "note": "Schematic closure and fpqc quotients remain separate from abstract subgroup quotients. Native index n corresponds to Gamma_(n+1); finite H1 gives finite-type central depth quotients."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/length-algebra",
+        "verdict": "verified",
+        "note": "The finite augmentation quotient is associative, not a Hopf quotient. The r+s coproduct and direct union of finite duals preserve the two distinct finite towers; the primitive-square test detects the false quotient."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/universal-pointed",
+        "verdict": "verified",
+        "note": "Evaluation is bijective, including uniqueness for each prescribed fibre vector. The extra-summand counterexample confirms the inherited correction of BDMTV Definition A.2."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/universal-object-existence",
+        "verdict": "verified",
+        "note": "The left regular augmentation quotient represents evaluation on objects annihilated by I^(n+1); its quotient maps preserve the pointer and length-zero normalization."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-module",
+        "verdict": "verified",
+        "note": "The carrier is the whole natural-transformation vector space on the full length subcategory. Evaluation, source right action, categorical composition and endpoint-reversed duality agree with BDMTV Lemma A.4."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/affine-universal",
+        "verdict": "corrected",
+        "note": "Separated Coleman shuffle coordinates from the concatenation algebra: dualize the finite deconcatenation coalgebra, never quotient shuffle multiplication by long words. Prepending, negative connection sign, overflow and constant right multiplication are consistent."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/affine-universality",
+        "verdict": "verified",
+        "note": "Kim Lemmas 2–3 justify the gauge normal form and unique horizontal map for a base-fibre vector. The corrected source statement uses a fibre vector rather than an arbitrary global section."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/affine-composition",
+        "verdict": "verified",
+        "note": "BDMTV Lemma 4.3 identifies q after p with the ordered product f2 f1 and the source action with right multiplication."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/proper-maximal-quotient",
+        "verdict": "corrected",
+        "note": "Expanded the non-routine subobject extension step using the intersection with the generic horizontal subspace, saturated over each local DVR. This gives a connection-stable subbundle and locally free quotient, allowing universality to prove surjectivity."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/filtered-path",
+        "verdict": "verified",
+        "note": "Subbundle filtration, Griffiths transversality, quotient tensor grades and dual annihilator index are stated explicitly. Hodge existence is a theorem, and Frobenius is not assumed filtered."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/filtered-extension",
+        "verdict": "corrected",
+        "note": "The thesis extension classifier is Hadian Proposition 2.2.3, p.29, with local filtered splittings, rather than the previously cited later universal-object results. The Cech proof distinguishes extension classes from filtrations on a fixed bundle."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/hadian-filtration",
+        "verdict": "verified",
+        "note": "Proper/logarithmic compactification, pointer rigidification and image filtrations are retained. The proof does not claim uniqueness for the unrigidified affine bundle or freeness of proper graded pieces."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/rigid-fibre",
+        "verdict": "corrected",
+        "note": "Strengthened the native tests to derivative-zero polynomial constants and an actual polynomial solution of d−Ndt for N²=0 with prescribed evaluation and positive transport sign. These remain local models; geometric isocrystal evaluation is explicitly omitted."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/rigid-frobenius-equivalence",
+        "verdict": "verified",
+        "note": "CLS Proposition 2.4.2 supplies the unipotent tensor autoequivalence. q-power iteration is coefficient-linear, while p-Frobenius is semilinear; no Hodge-preservation claim is made."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/frobenius-normalization",
+        "verdict": "verified",
+        "note": "Universal pointed uniqueness gives the fixed-endpoint normalized Frobenius and all transition compatibilities. The graded action uses the quotient of tensor powers of dual H1 Frobenius."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/berthelot-ogus",
+        "verdict": "verified",
+        "note": "CLS Proposition 2.4.1 applies to the smooth proper good-reduction pair with finite-etale boundary. Endpoint fibres are disc evaluations, and the empty-boundary proper case does not use the free affine algebra."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/path-frobenius",
+        "verdict": "corrected",
+        "note": "Replaced the generic-only two-sided test by an actual function-Hom transport from separate source and target equivalences. The transported operator uses tau phi tau-inverse with the displayed endpoint directions."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/frobenius-lang",
+        "verdict": "verified",
+        "note": "Besser proves invertibility on positive augmentation grades using the negative H1-dual weights, then a functorial scheme inverse. The Lang map is not asserted to be a group homomorphism."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/canonical-frobenius-path",
+        "verdict": "corrected",
+        "note": "The equal-endpoint native test now derives the identity from a group endomorphism and uniqueness of its fixed point, rather than choosing a default singleton. Descent, composition and common positive Frobenius powers follow from the geometric uniqueness theorem."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/word-path-bridge",
+        "verdict": "corrected",
+        "note": "Corrected the route locators to Lemma 4.3 p.911 and Theorem 5.3 p.920. Local coefficient recursion and global Frobenius continuation remain separate prerequisites; the two-sided word order matches equation (41)."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/crystalline-path-coordinates",
+        "verdict": "corrected",
+        "note": "Read Olsson’s unit specialization, finite stable coordinate-piece argument, two-endpoint comparison and enlarged-period-ring descent. CP.2 currently gives degreewise comparisons and a derived square, not the required multiplicative two-augmentation map; even its proper enhancement remains an explicit request and gap."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison",
+        "verdict": "verified",
+        "note": "Finite coordinate duals are stable subobjects of the ind-crystalline algebra; tensor exactness and duality then give the finite comparison and quotient-grade diagrams. Arbitrary extension closure is not used, and ramified extensions require a descendent good-reduction pair."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian",
+        "verdict": "corrected",
+        "note": "Separated existing JacobianChallenge B/E/F constructions from cohomological bridges. Added the exact planned SF.3 Tate/H1 prerequisite and division-cover proof of the endpoint Kummer torsor. Proper de Rham Abel–Jacobi/Hodge compatibility is now a separate gap; upstream vector-bundle imports use L0A/L0B."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-cover-boundary",
+        "verdict": "verified",
+        "note": "Read the IG.0 finite-cover statement. Power covers of Gm survive in the profinite classifier while additive Qp(1) points have no nontrivial finite quotient; finite representations and finite covering sets remain distinct."
+      }
+    ]
   }
 }
