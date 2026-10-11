@@ -166690,6 +166690,48 @@
    "reviewReason": "The section 2 crystalline/de Rham base-change comparison and the printed p. 129 display determine the correct realization. This is a notation misprint; it does not refute the intended dimension result."
   },
   {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E1",
+   "kind": "misprint",
+   "locator": "Published version, introduction p.92, choice of v over p",
+   "printed": "The chosen place over the rational prime p is described as archimedean.",
+   "correction": "Use a nonarchimedean finite place v over p.",
+   "reason": "The completion F_v is used as a finite extension of Q_p, with ring of integers, residue field and crystalline Galois theory throughout the subsequent construction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "EMS published article and journal search: https://ems.press/journals/prims/articles/2127",
+    "arXiv record and version history: https://arxiv.org/abs/math/0510441",
+    "Web search for Kim 2009 unipotent Albanese erratum; the returned 2011 Massey-product corrigendum concerns a different article."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E2",
+   "kind": "misprint",
+   "locator": "Published version, §3 p.121, regular annihilator in the dimension argument",
+   "printed": "The quotient supporting the annihilating regular function is labelled with the étale group and its F⁰ subgroup.",
+   "correction": "The function belongs to the de Rham Hodge quotient U_n^dR/F⁰, the target of the de Rham Albanese map.",
+   "reason": "The Hodge filtration and the map j_n used to pull back that function belong to the de Rham realization; the preceding comparison diagram places the global period image there.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "EMS published article and journal search: https://ems.press/journals/prims/articles/2127",
+    "arXiv record and version history: https://arxiv.org/abs/math/0510441",
+    "Web search for Kim 2009 unipotent Albanese erratum; the returned 2011 Massey-product corrigendum concerns a different article."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AnabelianGeometryAndNonabelianChabauty/E501",
    "kind": "error",
    "locator": "BDMTV2019 Lemma4.7 and proof, pp.913–914; sequel arXiv2101.01862v4 Remark3.17 p.16",
@@ -197212,9 +197254,9 @@
    "owner": "FunctionFieldArithmetic",
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmetic",
+   "reviewReason": "The displayed pairing on preprint p.9 sums U(1)-values. Evaluating at the zero pair produces infinitely many ones; the product or trace-residue character is the well-defined correction."
   },
   {
    "id": "FunctionFieldArithmetic/E2",
@@ -197233,9 +197275,9 @@
    "owner": "FunctionFieldArithmetic",
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmetic",
+   "reviewReason": "The preprint p.9 specifies injectivity for a general finite field. An additive group of exponent p has complex character image of order at most p, so injectivity fails when [k:Fp]>1; the trace pairing supplies the correct nondegeneracy."
   },
   {
    "id": "FunctionFieldArithmetic/E3",
@@ -197254,9 +197296,9 @@
    "owner": "FunctionFieldArithmetic",
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "A. N. Parshin, Notes on the Poisson formula, arXiv:1011.3392v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmetic",
+   "reviewReason": "The p.7 spanning assertion includes only unshifted subgroup indicators. Their scalar invariance excludes moved-coset indicators when |k|>2; translated compact-open indicators give the required spanning family."
   },
   {
    "id": "FunctionFieldArithmetic/E4",
@@ -197276,9 +197318,9 @@
    "owner": "FunctionFieldArithmetic",
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe, arXiv:1807.04659v5",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmetic",
+   "reviewReason": "Lemma 5.3.3 on preprint p.36 permits the zero vector, which cannot have a nonzero value. Requiring a nonzero spherical vector agrees with the surrounding application and reconstruction proof."
   },
   {
    "id": "FunctionFieldArithmetic/E5",
@@ -197297,9 +197339,9 @@
    "owner": "FunctionFieldArithmetic",
    "file": "research/blueprint/packets/FunctionFieldArithmetic.json",
    "citation": "Hongjie Yu, Comptage des systèmes locaux ℓ-adiques sur une courbe, arXiv:1807.04659v5",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-FunctionFieldArithmetic",
+   "reviewReason": "The diagonal in the pp.37–38 proof has weighted valuation degree −n(n−1)(g−1). Negating it gives positive Yu degree; a degree-one Yu scalar must be raised to −(n−1)(g−1) to cancel it."
   },
   {
    "id": "FunctionFieldArithmeticPartII/E1",
@@ -210648,9 +210690,9 @@
    "owner": "HyperbolicCurveVolumesAndGonality",
    "file": "research/blueprint/packets/HyperbolicCurveVolumesAndGonality.json",
    "citation": "Benjamin Bakker and Jacob Tsimerman, Erratum to p-torsion monodromy representations of elliptic curves over geometric function fields, Undated five-page author erratum; no publication date inferred",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+   "reviewReason": "Independently read the full author erratum: increasing V(r)/sinh r gives V(r)≤sinh(r)/sinh(R)·V(R), so the reciprocal in the final Proposition 4.1 proof step is reversed."
   },
   {
    "id": "HyperbolicCurveVolumesAndGonality/E2",
@@ -210668,9 +210710,50 @@
    "owner": "HyperbolicCurveVolumesAndGonality",
    "file": "research/blueprint/packets/HyperbolicCurveVolumesAndGonality.json",
    "citation": "Benjamin Bakker and Jacob Tsimerman, p-torsion monodromy representations of elliptic curves over geometric function fields, Annals of Mathematics 184 (2016), no.3, 709–744, published version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+   "reviewReason": "Independently expanded χ/(1−χ)=|z−w|²/((1−|z|²)(1−|w|²)) with dᶜ=i(∂̄−∂)/(4π). Differentiating the smooth logarithm has coefficient −1, yielding ω/(4π)+[Δ]; the extra reciprocal 2π in the two intermediate printed lines is inconsistent."
+  },
+  {
+   "id": "HyperbolicCurveVolumesAndGonality/E3",
+   "kind": "error",
+   "locator": "June 21, 2012 author book, I (2.14)(b), p.17, compared with I (2.6), p.15 and (2.13), p.16; visual PDF page checked.",
+   "printed": "Bare current pushforward is asserted to commute with d for arbitrary oriented real source and target manifolds.",
+   "correction": "With the preceding degree-sign definition and unsigned pushforward pairing, d(f_*T)=(−1)^(n−m)f_*(dT) for f:M^m→N^n. Ordinary commutation holds when n−m is even, including holomorphic maps. A dimension-sign current differential would be a different convention.",
+   "reason": "Pushforward preserves current dimension and changes degree q to q+n−m. The two defining signs therefore differ by (−1)^(n−m). For proper inclusion i:ℝ→ℝ², t↦(t,0), and T=[0,1], I (2.7) gives dT=δ₀−δ₁ and d(i_*T)=δ_(1,0)−δ_(0,0), the negative of i_*(dT).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author June 21, 2012 public PDF, I (2.6), (2.7), (2.13), (2.14); no local qualification to even dimension.",
+    "Searches for Demailly (2.14) current-pushforward sign errata on the author domain and publicly indexed errata, 2026-10-11, found no correction. Author homepage/manuscript index endpoints were inaccessible; no claim of an exhaustive errata search."
+   ],
+   "owner": "HyperbolicCurveVolumesAndGonality",
+   "file": "research/blueprint/packets/HyperbolicCurveVolumesAndGonality.json",
+   "citation": "Jean-Pierre Demailly, Complex Analytic and Differential Geometry, Version of Thursday June 21, 2012",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+   "reviewReason": "The degree-shift computation and the compact interval integration-current counterexample independently give the odd-parity sign. The complex-manifold specialization used for holomorphic cycles remains valid."
+  },
+  {
+   "id": "HyperbolicCurveVolumesAndGonality/E4",
+   "kind": "misprint",
+   "locator": "Published AIF 56 (2006), Definition 4.5 cases (1)–(3), p.1175, compared with Definition 2.1, p.1168 and Theorem 5.3 proof, pp.1180–1181; visual PDF page checked.",
+   "printed": "The subbundles parametrizing a degree-d, dimension-r linear series are assigned rank r in all three cases.",
+   "correction": "Their rank is r+1 in the paper’s g_d^r convention, so a pencil has rank two. Generic rank-r linked Grassmannians in Appendix A use their own rank parameter and are unaffected.",
+   "reason": "Definition 2.1 fixes dimension r as an (r+1)-dimensional section space. The representability/dimension proof counts rank V=r+1 and uses (r+1)-st exterior powers. On ℙ¹ a g¹₁ uses all two sections of O(1), whereas rank-one subspaces parameterize a different object.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Published publisher PDF and journal metadata/DOI record, 2026-10-11.",
+    "The arXiv math/0407496 PDF served 2026-10-11 also retains rank r in Definition 4.5 (SHA-256 ad56a473fb2438847e666e468265a6c032b6b7187433ad317aefe22677a8e639).",
+    "Public searches for Osserman limit-linear-series moduli-scheme rank errata found no correction; author research endpoints were inaccessible."
+   ],
+   "owner": "HyperbolicCurveVolumesAndGonality",
+   "file": "research/blueprint/packets/HyperbolicCurveVolumesAndGonality.json",
+   "citation": "Brian Osserman, Brian Osserman, A limit linear series moduli scheme, Published Annales de l’Institut Fourier 56 (2006), 1165–1205",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+   "reviewReason": "Compared the actual typesetting with the initial linear-series convention and the rank count in Theorem 5.3. The packet already uses rank two for pencils; this finding records the source slip rather than changing the intended theorem."
   },
   {
    "id": "IgusaVarietiesAndTorsionConcentration/E1",
