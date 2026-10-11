@@ -913,8 +913,9 @@ def tensorEquiv (k : Type u) [CommRing k] (k' : Type u) [CommRing k'] [Algebra k
     (A' B' : Type u) [CommRing A'] [Algebra k' A'] [CommRing B'] [Algebra k' B'] :
     Res k k' (A' ⊗[k'] B') ≃ₐ[k] Res k k' A' ⊗[k] Res k k' B' := sorry
 
-/-- The splitting over a field `Ω` containing all conjugates: `Ω`-points of `Res A'` are tuples of
-`Ω`-points of the conjugates `A' ⊗_{k',τ} Ω`, one for each `k`-embedding `τ : k' → Ω`. -/
+/-- Splitting on points over a separably closed field `Ω`, with one component for each
+`k`-embedding `k' → Ω`. The packet's more general normal-closure tensor comparison needs
+a separate CRT interface; this signature does not encode that generality. -/
 def splittingEquiv (k : Type u) [Field k] (k' : Type u) [Field k'] [Algebra k k']
     [FiniteDimensional k k'] [Algebra.IsSeparable k k'] (Ω : Type u) [Field Ω] [Algebra k Ω]
     [IsSepClosed Ω] (A' : Type u) [CommRing A'] [Algebra k' A'] :
@@ -1044,7 +1045,8 @@ namespace NormTorus
 variable (k : Type u) [CommRing k] (k' : Type u) [CommRing k'] [Algebra k k']
   [Module.Finite k k'] [Module.Free k k']
 
-/-- The norm `Res_{k'/k} G_m → G_m` on points: the algebra norm of `R ⊗_k k'` over `R`, on units. -/
+/-- The finite free norm on points. The packet's finite locally free norm additionally needs
+local trivialization and determinant gluing; it is not encoded by this free-module signature. -/
 def norm (R : Type u) [CommRing R] [Algebra k R] : (k' ⊗[k] R)ˣ →* Rˣ := sorry
 
 theorem norm_points (R : Type u) [CommRing R] [Algebra k R] (x : (k' ⊗[k] R)ˣ) :

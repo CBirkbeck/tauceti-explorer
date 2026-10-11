@@ -11,8 +11,8 @@
     "ReductiveGroupsPartII:RG2.4",
     "ReductiveGroupsPartII:RG2.5"
   ],
-  "status": "complete",
-  "summary": "A complete target-level plan of Reductive algebraic groups, Part II: local structure and arithmetic models, extending the Tau Ceti ReductiveGroups anchor under accepted RS-31. All seven layers are planned: topologies of points and unramified completion; affine Weil restriction extending ModularCurves 0F; valued root data and arithmetic invariants; enlarged and reduced buildings and classical lattice models; smooth fixer/parahoric models, Néron tori, Moy–Prasad filtrations and Lang lifting; Iwahori–Weyl combinatorics, rational quotient and Cartan/Iwasawa decompositions; integral Langlands dual groups and L-groups. Stable checkpoint node IDs are retained. Exact paper adapters, API, discriminating tests, lower-tier suppliers and source corrections are included. These are unproved plans, with implementationStatus unchecked throughout. The continuation corrects the algebra adjunction direction, restricts the dimension formula to separable extensions with a geometric α_p counterexample, and ties the finite character-transition formula to its actual Hopf map.",
+  "status": "partial",
+  "summary": "A target-level atlas draft for local reductive groups, reviewed with needs_changes on 2026-10-11. The tracked upstream roadmap PR #785 already owns all seven named layers. This packet has not separated imports of that existing work from genuine extensions: 166 of its 180 nodes have exact target-name matches in the upstream README, and several other nodes occur there within larger targets. The stable node IDs are retained for routing, not accepted as a second plan. All seven stages are partial with precise ownership work remaining. Eight atlas nodes have local corrections or explicitly exposed proof gaps, all seven source findings have independent verdicts against published texts, and every implementationStatus remains unchecked. The Lean skeleton is an unproved planning artifact.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -443,6 +443,13 @@
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "The Krull dimension of a commutative ring, defined as the order-theoretic Krull dimension of its prime spectrum in WithBot ℕ∞.",
         "checked": "Statement read at the pinned Mathlib commit, Mathlib/RingTheory/KrullDimension/Basic.lean:29."
+      },
+      {
+        "ref": "mathlib:AlgHom.card_of_splits",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/PrimitiveElement.lean",
+        "provides": "For a finite separable extension E/F and an F-field L in which every minimal polynomial of an element of E splits, the number of F-embeddings E → L is finrank F E; L need not be algebraically closed.",
+        "checked": "Independent statement check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 354–357, by REV-ReductiveGroupsPartII on 2026-10-11."
       }
     ]
   },
@@ -956,6 +963,18 @@
         "§3 opening, article pp. 13–14 (PDF pp. 17–18): connected torus filtration, tame character description and Galois intersection; the existence-of-good-elements theorems are not planned here."
       ],
       "sha256": "0fa8a0b38020a078a8293c1162a2a70277e7337cf167b49299a84e578ed162c1"
+    },
+    {
+      "id": "blaszczok-kuhlmann",
+      "title": "Algebraic independence of elements in immediate extensions of valued fields",
+      "authors": "Anna Blaszczok and Franz-Viktor Kuhlmann",
+      "edition": "Author-hosted manuscript dated 2 April 2013; manuscript pagination",
+      "url": "https://fvkuhlmann.de/algind.pdf",
+      "sha256": "490ccc87d7e0ba5bb6889a85b4f382f1a5cbab251621ff7eb9a728ad1d63fa64",
+      "readSections": [
+        "Theorem 1.1 and residue-algebraic case, pp. 2–3"
+      ],
+      "accessed": "2026-10-11"
     }
   ],
   "nodes": [
@@ -1101,7 +1120,7 @@
         "Extend the valuation to E^ur (unique by Tau Ceti LFR Layer 0, finite extensions II, applied to each finite unramified subextension) and complete (Mathlib UniformSpace.Completion of the valued field).",
         "Residue field: the residue field of E^ur is the union of the finite extensions κ_f, i.e. κ̄; completion does not change the residue field or the value group.",
         "Frobenius: the arithmetic Frobenius of E^ur/E (LFR Layer 2) is an isometry, so it extends to L; fixed points: an element of L fixed by σ has σ-fixed residue expansion, hence lies in E (He 2018 §4.3, p. 12; He 2021 §2.1, p. 4).",
-        "Transcendence: L is uncountable while the algebraic closure of E in L is countable (Gleason–Lim–Xu Lemma 5.10 input)."
+        "Apply Blaszczok–Kuhlmann, Theorem 1.1 (residue-algebraic case and its completion assertion), manuscript pp. 2–3, to E^ur/E. This extension is algebraic, its residue field contains elements of arbitrarily large degree over the finite residue field of E, and its value group is discrete and has countable cofinality. The completion therefore has infinite transcendence degree over E^ur and hence over E, in either characteristic. Cardinality alone does not prove this: E itself is uncountable."
       ],
       "acceptance": [
         "For E = ℚ_p: L = W(F̄_p)[1/p], σ = Witt vector Frobenius, L^σ = ℚ_p.",
@@ -1129,6 +1148,11 @@
           "sourceId": "gleason-lim-xu-26",
           "locator": "Lemma 5.10 and proof, p. 40; input Chen Proposition 2.0.3 cited there",
           "match": "Uses infinite transcendence degree of Q̆_p to obtain a point of a flag variety over its generic point; the completion result here is the underlying field input, not that flag-variety conclusion."
+        },
+        {
+          "sourceId": "blaszczok-kuhlmann",
+          "locator": "Theorem 1.1, residue-algebraic case and completion conclusion, manuscript pp. 2–3",
+          "match": "For an algebraic valued extension whose residue field contains elements of unbounded degree over the base residue field, countable cofinality of the value group gives infinite transcendence degree of its completion. Apply this to E^ur/E."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1283,7 +1307,7 @@
       "proofSteps": [
         "(1) Precomposition with B → A sends ev_b to ev_{image of b}, so it is continuous; for a surjection the evaluations at images of generators of B are evaluations generating A, so Prop. 2.1's embedding argument applies; closedness as in the presentation theorem (Conrad, Prop. 2.1, proof, p. 2).",
         "(2) Postcomposition is continuous coordinatewise; for finite type, use a presentation and the fact that R^n → R'^n is an (open, closed) embedding (Conrad, Example 2.2, p. 3).",
-        "(3) Products: evaluations on a ⊗ 1 and 1 ⊗ b generate; fibre products: the fibre product is a closed subspace of the product cut out by the equalities on C (Conrad, Prop. 2.1, proof, pp. 2–3).",
+        "(3) Products: evaluations on a ⊗ 1 and 1 ⊗ b generate. Fibre products carry the subspace topology on the equalizer in X(R) × Y(R); evaluation on the two factors proves the homeomorphism. Closedness of this equalizer requires a Hausdorff value ring and is not asserted for an arbitrary topological ring (Conrad, Proposition 2.1, pp. 2–3).",
         "(4) The bijection matches evaluations at a and at 1 ⊗ a."
       ],
       "acceptance": [
@@ -1377,7 +1401,8 @@
         "ReductiveGroupsPartII:RG2.0/affine-point-topology-functoriality",
         "ReductiveGroupsPartII:RG2.0/affine-point-topology-embedding",
         "mathlib:IsNonarchimedeanLocalField",
-        "mathlib:IsNonarchimedeanLocalField.isCompact_closedBall"
+        "mathlib:IsNonarchimedeanLocalField.isCompact_closedBall",
+        "ReductiveGroupsPartII:RG2.0/points-topological-group"
       ],
       "sources": [
         {
@@ -2137,7 +2162,7 @@
       ],
       "proofSteps": [
         "Free affine space: for E a k-module, Hom_{k'}(Sym_{k'}(k' ⊗ E), k' ⊗ R) = Hom_k(E, k' ⊗ R) ≅ Hom_k((k')^∨ ⊗ E, R) = Hom_k(Sym_k((k')^∨ ⊗ E), R), because k' is finite projective (BT II 1.5.6, pp. 27–28).",
-        "Relations: a point of the free algebra vanishes on I iff its transform vanishes on I^♮; this uses that k ↪ k' ⊗ R detects zero through the dual basis (BT II 1.5.1 and 1.5.7, pp. 26–28).",
+        "Relations: finite projectivity gives a finite dual frame (b_i, λ_i), with every element v of k′ ⊗_k R equal to Σ_i b_i ⊗ (λ_i ⊗ id)(v). Thus v is zero exactly when all its dual-frame components vanish. Apply this to every relation in I to obtain I^♮ (BT II 1.5.1 and 1.5.7, pp. 26–28). No injectivity of R → k′ ⊗_k R is used; the finite locally free algebra need not have positive rank on every component.",
         "Basis description: with a basis of k' and the dual basis, I^♮ is generated by the coordinates of the P_l (BT II 1.5.10, p. 29); comparison with ModularCurves Layer 0F by uniqueness of representing objects (Yoneda, Mathlib RepresentableBy).",
         "Stacks 05YF gives representability by an algebraic space in general; here the affine target makes the representing object affine."
       ],
@@ -2350,7 +2375,8 @@
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.0a/weil-restriction-representing-algebra",
         "mathlib:Algebra.TensorProduct.assoc",
-        "mathlib:Algebra.TensorProduct.cancelBaseChange"
+        "mathlib:Algebra.TensorProduct.cancelBaseChange",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-adjunction"
       ],
       "sources": [
         {
@@ -2624,7 +2650,7 @@
         "Ω/k containing all k-embeddings of k' (normal closure inside Ω)"
       ],
       "proofSteps": [
-        "Ω ⊗_k k' ≅ ∏_τ Ω by τ-components, since k'/k is étale and Ω splits it (Mathlib Algebra.FormallyEtale.equivPiOfIsSepClosed; AlgHom.card counts the embeddings).",
+        "The library result Algebra.FormallyEtale.equivPiOfIsSepClosed gives the tensor decomposition only when Ω is separably closed. For a general field Ω containing the normal closure, use a primitive element of k′/k: its separable minimal polynomial splits into distinct linear factors over Ω, and the Chinese remainder theorem identifies Ω ⊗_k k′ with ∏_τ Ω by evaluation. Count embeddings with AlgHom.card_of_splits, whose splitting hypothesis is satisfied. The precise tensor/primitive-element and Chinese-remainder interfaces remain a recorded closure gap; neither separable closedness nor algebraic closedness is inferred from containing the normal closure.",
         "Then Res X'(Ω ⊗ R) for Ω-algebras R becomes X'(∏_τ R_τ) = ∏_τ X'_τ(R) using base change RG2.0a/weil-restriction-base-change (1) and products (3).",
         "Galois equivariance: σ permutes the idempotents of Ω ⊗ k' as it permutes embeddings (Milne iAG 2.h; Harpaz–Wittenberg §1.1)."
       ],
@@ -2635,7 +2661,7 @@
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.0a/weil-restriction-base-change",
         "mathlib:Algebra.FormallyEtale.equivPiOfIsSepClosed",
-        "mathlib:AlgHom.card"
+        "mathlib:AlgHom.card_of_splits"
       ],
       "sources": [
         {
@@ -2914,14 +2940,14 @@
       ],
       "title": "Norm maps and norm-one tori",
       "kind": "construction",
-      "statement": "Let k → k' be finite locally free of constant rank d. The norm morphism Nm : Res_{k'/k} G_m → G_m is the homomorphism of group schemes whose effect on R-points is the algebra norm (k' ⊗_k R)^× → R^× (determinant of multiplication, Mathlib Algebra.norm). Its kernel R^1_{k'/k} G_m is the norm-one group. For k'/k a finite separable field extension, R^1_{k'/k} G_m is a torus of dimension d − 1 with character module the cokernel of the diagonal ℤ → ℤ[Hom_k(k', k^sep)] and cocharacter module the augmentation kernel; the composite G_m → Res G_m → G_m (unit then norm) is x ↦ x^d. Similarly Res_{k'/k} μ_n modulo the diagonal μ_n has character module the augmentation kernel of (ℤ/n)[Hom_k(k', k^sep)]. For ℂ/ℝ: R^1_{ℂ/ℝ} G_m = U(1) ≅ SO_2 with real points the unit circle. Here n>0 and the quotient is the fppf quotient, not a quotient of every set of rational points. For finite Galois E⊂L over F and n|m, the transition Res_{L/F}μ_m→Res_{E/F}μ_n sends a geometric tuple (z_b) to (∏_{b↦a}z_b^(m/n))_a. It preserves the diagonal subgroups and induces an fppf epimorphism u_{L/F,m}→u_{E/F,n}; the transitions compose. On characters the induced injection sends (c_a) to ((m/n)c_{b|E})_b in the augmentation-zero module modulo m.",
+      "statement": "Let k → k' be finite locally free of constant rank d. The norm morphism Nm : Res_{k'/k} G_m → G_m is the homomorphism of group schemes whose effect on R-points is the determinant norm on the finite locally free R-module k′ ⊗_k R; on a finite free trivialization it agrees with Mathlib Algebra.norm. Its kernel R^1_{k'/k} G_m is the norm-one group. For k'/k a finite separable field extension, R^1_{k'/k} G_m is a torus of dimension d − 1 with character module the cokernel of the diagonal ℤ → ℤ[Hom_k(k', k^sep)] and cocharacter module the augmentation kernel; the composite G_m → Res G_m → G_m (unit then norm) is x ↦ x^d. Similarly Res_{k'/k} μ_n modulo the diagonal μ_n has character module the augmentation kernel of (ℤ/n)[Hom_k(k', k^sep)]. For ℂ/ℝ: R^1_{ℂ/ℝ} G_m = U(1) ≅ SO_2 with real points the unit circle. Here n>0 and the quotient is the fppf quotient, not a quotient of every set of rational points. For finite Galois E⊂L over F and n|m, the transition Res_{L/F}μ_m→Res_{E/F}μ_n sends a geometric tuple (z_b) to (∏_{b↦a}z_b^(m/n))_a. It preserves the diagonal subgroups and induces an fppf epimorphism u_{L/F,m}→u_{E/F,n}; the transitions compose. On characters the induced injection sends (c_a) to ((m/n)c_{b|E})_b in the augmentation-zero module modulo m.",
       "hypotheses": [
         "k → k' finite locally free of constant rank d",
         "for the torus statements: k'/k a finite separable field extension",
         "For roots-of-unity transitions: F⊂E⊂L finite Galois over F, n,m>0 and n divides m; character coordinates use embeddings into a fixed algebraic closure of F."
       ],
       "proofSteps": [
-        "Define Nm on points by Algebra.norm, natural in R because the norm commutes with base change of free modules (determinant of a base-changed matrix); representability by Yoneda.",
+        "Trivialize the finite locally free algebra on a Zariski cover of Spec k. On each finite free chart define the norm using Algebra.norm and Algebra.norm_eq_matrix_det. Change of basis conjugates multiplication matrices, so their determinants agree on overlaps; glue these regular functions to the determinant norm. Base change of matrices proves naturality, and Yoneda yields the group-scheme morphism. Algebra.norm alone is not the determinant norm for every finite projective module: its definition returns 1 when no finite basis exists. The local-trivialization and gluing input is recorded as a gap pending the ownership revision.",
         "After separable splitting, Nm is multiplication of the embedding coordinates. On characters its pullback is ℤ→ℤ[embeddings], 1↦Σ_τ[τ]; on cocharacters it is the augmentation map. Exactness gives the quotient character lattice and augmentation-zero cocharacter lattice of R¹G_m.",
         "Real case: Nm(x + iy) = x² + y², kernel the circle; Tau Ceti proves SO_2 is a torus.",
         "For u_{E/F,n}, dualize the diagonal μ_n inclusion: the character map (ℤ/n)[embeddings]→ℤ/n is augmentation, hence the quotient characters are its kernel. This uses the anchor anti-equivalence for multiplicative-type groups, including nonsmooth μ_n when char F divides n.",
@@ -2992,7 +3018,7 @@
         {
           "name": "NormTorus.norm_points",
           "role": "simp",
-          "statement": "On R-points, Nm(x) = Algebra.norm R x for x ∈ (k' ⊗_k R)^×."
+          "statement": "On a finite free trivialization of k′ ⊗_k R, the value of Nm(x) is Algebra.norm R x, after commuting tensor factors. Globally it is the glued determinant norm; equality with Algebra.norm is not asserted without a finite free hypothesis."
         },
         {
           "name": "NormTorus.normOne",
@@ -3109,7 +3135,7 @@
       "proofSteps": [
         "Fixed points of a finite group acting on an affine scheme are represented by a closed subscheme (Edixhoven, Prop. 3.1, p. 293).",
         "Smoothness: the infinitesimal lifting criterion for the fixed locus reduces, by averaging over Γ (|Γ| invertible), to that of X (Edixhoven, Prop. 3.4, p. 294).",
-        "Néron models: Edixhoven §4 (Prop. 4.1, Thm 4.2, p. 295) identifies Γ-invariants of the Weil restriction of a Néron model with the Néron model in the tame case; Kisin–Pappas use it for tori."
+        "The Néron application needs a separate non-affine, locally finite type Weil-restriction input: the full lft Néron model of a split torus has infinitely many components and is not a smooth affine finite-type X as in the preceding argument. Edixhoven, Proposition 4.1, p. 295, and Theorem 4.2, p. 296, supply the abelian-variety application; Example 4.3, pp. 296–297, discusses the torus case. The asserted full torus-model comparison is a recorded gap, not a consequence of the affine theorem alone."
       ],
       "acceptance": [
         "For K'/K tame quadratic and X = G_{m,O'} with Γ acting through x ↦ σ(x)^{-1}, the identity component of (Res X)^Γ is the connected Néron model of the norm-one torus.",
@@ -13530,80 +13556,326 @@
   "coverage": [
     {
       "stageId": "ReductiveGroupsPartII:RG2.0",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import the upstream point-topology, congruence and completion targets; separate equal-characteristic infinite transcendence degree, general-E Witt descriptions and scheme fibre-product compatibility from that owner. Resolve the étale local-homeomorphism input of smooth-morphism-open-map for any retained extension."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.0a",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import upstream affine Weil restriction, its dimension formula, norm on finite free algebras and tame affine fixed points. Route preservation of étale/surjective/open maps, centres/derived groups/root multiplicities, the locally free determinant norm and fppf roots-of-unity quotient beyond the existing scope. Supply the CRT and non-affine lft Néron-model interfaces where needed."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.1",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import the upstream valued root datum, apartments, π₁, z-extensions and Kottwitz targets, while retaining ReductiveGroups layer 7 as owner of unvalued structure. Separate additions such as vanishing of κ on unipotent elements rather than replanning the shared target."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.2",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import upstream buildings, descent, classical models and toral embeddings. Separate any assertion of uniqueness or Galois equivariance for non-split toral embeddings, which the existing scope does not state."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.3",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import upstream smooth/fixer/parahoric models, Néron models, filtrations and Lang results. Route connected-special-fibre torsors, R-smoothness and its Néron/fixer criteria, arbitrary-adjoint association and R-smooth kernel exactness into a separately identified extension. Compare the remaining subdivision and field-extension statements clause by clause with the existing hyperspecial and filtration targets."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.4",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import upstream Iwahori–Weyl and decomposition targets, including cocharacter surjectivity, adjoint coset lifting and the integer-depth simple-cell argument already inside its targets. Route any genuinely stronger normalization or hypothesis variant explicitly."
+      ]
     },
     {
       "stageId": "ReductiveGroupsPartII:RG2.5",
-      "status": "planned",
-      "remaining": []
+      "status": "partial",
+      "remaining": [
+        "Import upstream dual groups, pinned Galois actions, L-groups and field-valued standard Levis. Separate the integral z-extension dual embedding and Levi comparisons over arbitrary coefficient algebras from the existing lattice/field-valued statements."
+      ]
     }
   ],
-  "gaps": [],
+  "gaps": [
+    {
+      "title": "Resolve the atlas/upstream ownership boundary before accepting any layer",
+      "neededBy": [
+        "ReductiveGroupsPartII:RG2.0/affine-point-topology",
+        "ReductiveGroupsPartII:RG2.0/completed-maximal-unramified-extension",
+        "ReductiveGroupsPartII:RG2.0/affine-point-topology-embedding",
+        "ReductiveGroupsPartII:RG2.0/affine-point-topology-functoriality",
+        "ReductiveGroupsPartII:RG2.0/affine-point-topology-open-immersion",
+        "ReductiveGroupsPartII:RG2.0/integral-points-compact-open",
+        "ReductiveGroupsPartII:RG2.0/scheme-point-topology",
+        "ReductiveGroupsPartII:RG2.0/congruence-subgroup",
+        "ReductiveGroupsPartII:RG2.0/scheme-point-topology-functoriality",
+        "ReductiveGroupsPartII:RG2.0/points-locally-compact-hausdorff",
+        "ReductiveGroupsPartII:RG2.0/points-topological-group",
+        "ReductiveGroupsPartII:RG2.0/general-linear-points-homeomorphism",
+        "ReductiveGroupsPartII:RG2.0/congruence-neighbourhood-basis",
+        "ReductiveGroupsPartII:RG2.0/smooth-morphism-open-map",
+        "ReductiveGroupsPartII:RG2.0/frobenius-fixed-points-of-points",
+        "ReductiveGroupsPartII:RG2.0/smooth-model-congruence-quotients",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-functor",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-representing-algebra",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-finiteness",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-base-change",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-adjunction",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-group-scheme",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-smoothness-and-immersions",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-separable-splitting",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-dimension",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-descent-of-properties",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-character-lattices",
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-points-topology",
+        "ReductiveGroupsPartII:RG2.0a/integral-weil-restriction",
+        "ReductiveGroupsPartII:RG2.0a/norm-torus",
+        "ReductiveGroupsPartII:RG2.0a/tame-fixed-points-of-weil-restriction",
+        "ReductiveGroupsPartII:RG2.0a/deligne-torus",
+        "ReductiveGroupsPartII:RG2.1/steinberg-quasi-split",
+        "ReductiveGroupsPartII:RG2.1/root-datum-in-a-group",
+        "ReductiveGroupsPartII:RG2.1/minuscule-coweight",
+        "ReductiveGroupsPartII:RG2.1/algebraic-fundamental-group",
+        "ReductiveGroupsPartII:RG2.1/rational-maximal-unramified-split-torus",
+        "ReductiveGroupsPartII:RG2.1/rational-points-root-datum",
+        "ReductiveGroupsPartII:RG2.1/valuation-of-root-datum",
+        "ReductiveGroupsPartII:RG2.1/z-extension",
+        "ReductiveGroupsPartII:RG2.1/torus-valuation-map",
+        "ReductiveGroupsPartII:RG2.1/quasi-split-root-group-coordinates",
+        "ReductiveGroupsPartII:RG2.1/z-extension-existence",
+        "ReductiveGroupsPartII:RG2.1/apartment",
+        "ReductiveGroupsPartII:RG2.1/quasi-split-valuation",
+        "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism-torus",
+        "ReductiveGroupsPartII:RG2.1/affine-roots-and-filtrations",
+        "ReductiveGroupsPartII:RG2.1/valued-root-datum-existence",
+        "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism",
+        "ReductiveGroupsPartII:RG2.1/nonsplit-torus-example",
+        "ReductiveGroupsPartII:RG2.1/valued-commutator-estimates",
+        "ReductiveGroupsPartII:RG2.1/unramified-descent-of-valuation",
+        "ReductiveGroupsPartII:RG2.1/affine-chamber-structure",
+        "ReductiveGroupsPartII:RG2.1/transport-under-choices",
+        "ReductiveGroupsPartII:RG2.1/echelonnage-root-system",
+        "ReductiveGroupsPartII:RG2.1/frobenius-action-on-apartment",
+        "ReductiveGroupsPartII:RG2.1/affine-weyl-group",
+        "ReductiveGroupsPartII:RG2.1/levi-of-apartment-vector",
+        "ReductiveGroupsPartII:RG2.1/unitary-rank-one-example",
+        "ReductiveGroupsPartII:RG2.1/apartment-action-kernel",
+        "ReductiveGroupsPartII:RG2.1/sl2-valued-root-datum",
+        "ReductiveGroupsPartII:RG2.2/building",
+        "ReductiveGroupsPartII:RG2.2/finite-group-fixed-points-reductive",
+        "ReductiveGroupsPartII:RG2.2/building-apartment-axioms",
+        "ReductiveGroupsPartII:RG2.2/enlarged-and-reduced-building",
+        "ReductiveGroupsPartII:RG2.2/building-independence-of-choices",
+        "ReductiveGroupsPartII:RG2.2/unramified-descent-of-building",
+        "ReductiveGroupsPartII:RG2.2/weil-restriction-building",
+        "ReductiveGroupsPartII:RG2.2/gl-building-lattice-chains",
+        "ReductiveGroupsPartII:RG2.2/building-metric",
+        "ReductiveGroupsPartII:RG2.2/facets-and-special-points",
+        "ReductiveGroupsPartII:RG2.2/tame-descent-of-building",
+        "ReductiveGroupsPartII:RG2.2/building-functoriality-central-extensions",
+        "ReductiveGroupsPartII:RG2.2/building-products-and-levis",
+        "ReductiveGroupsPartII:RG2.2/gsp-building-self-dual-chains",
+        "ReductiveGroupsPartII:RG2.2/division-algebra-building",
+        "ReductiveGroupsPartII:RG2.2/building-of-tori-and-anisotropic-groups",
+        "ReductiveGroupsPartII:RG2.2/bruhat-tits-fixed-point-theorem",
+        "ReductiveGroupsPartII:RG2.2/stabilizers-and-fixers",
+        "ReductiveGroupsPartII:RG2.2/building-cocompact-action",
+        "ReductiveGroupsPartII:RG2.2/building-field-extension-embedding",
+        "ReductiveGroupsPartII:RG2.2/twisted-levi-subgroup",
+        "ReductiveGroupsPartII:RG2.2/toral-embedding-into-gl-building",
+        "ReductiveGroupsPartII:RG2.2/sl2-tree",
+        "ReductiveGroupsPartII:RG2.2/minuscule-toral-embedding",
+        "ReductiveGroupsPartII:RG2.2/ihara-amalgam",
+        "ReductiveGroupsPartII:RG2.3/lang-theorem",
+        "ReductiveGroupsPartII:RG2.3/smooth-affine-model",
+        "ReductiveGroupsPartII:RG2.3/quasi-tame-group",
+        "ReductiveGroupsPartII:RG2.3/lang-for-pro-algebraic-groups",
+        "ReductiveGroupsPartII:RG2.3/reductive-model",
+        "ReductiveGroupsPartII:RG2.3/schematic-closure",
+        "ReductiveGroupsPartII:RG2.3/extension-principle",
+        "ReductiveGroupsPartII:RG2.3/quotients-over-a-dvr",
+        "ReductiveGroupsPartII:RG2.3/neron-lft-model-of-torus",
+        "ReductiveGroupsPartII:RG2.3/smooth-model-torsors",
+        "ReductiveGroupsPartII:RG2.3/big-cell-criteria",
+        "ReductiveGroupsPartII:RG2.3/reductive-closed-immersion-criterion",
+        "ReductiveGroupsPartII:RG2.3/faithful-representations-of-models",
+        "ReductiveGroupsPartII:RG2.3/neron-finite-type-and-connected-models",
+        "ReductiveGroupsPartII:RG2.3/r-smooth-torus",
+        "ReductiveGroupsPartII:RG2.3/neron-model-closed-immersions",
+        "ReductiveGroupsPartII:RG2.3/torus-models-exact-sequences",
+        "ReductiveGroupsPartII:RG2.3/bruhat-tits-group-scheme",
+        "ReductiveGroupsPartII:RG2.3/split-torus-bounded-model-smoothness",
+        "ReductiveGroupsPartII:RG2.3/lattice-chain-stabilizer-schemes",
+        "ReductiveGroupsPartII:RG2.3/r-smoothness-criteria",
+        "ReductiveGroupsPartII:RG2.3/parahoric-group-scheme",
+        "ReductiveGroupsPartII:RG2.3/associated-parahorics",
+        "ReductiveGroupsPartII:RG2.3/central-extensions-of-parahorics",
+        "ReductiveGroupsPartII:RG2.3/hodge-type-fixer-immersion",
+        "ReductiveGroupsPartII:RG2.3/parahoric-subgroup",
+        "ReductiveGroupsPartII:RG2.3/parahoric-kottwitz-characterization",
+        "ReductiveGroupsPartII:RG2.3/reductive-quotient-of-special-fibre",
+        "ReductiveGroupsPartII:RG2.3/unramified-base-change-of-parahorics",
+        "ReductiveGroupsPartII:RG2.3/invariant-chain-direct-summand",
+        "ReductiveGroupsPartII:RG2.3/r-smooth-fixer-immersions",
+        "ReductiveGroupsPartII:RG2.3/moy-prasad-filtration",
+        "ReductiveGroupsPartII:RG2.3/torus-parahoric-example",
+        "ReductiveGroupsPartII:RG2.3/fixer-versus-parahoric",
+        "ReductiveGroupsPartII:RG2.3/pro-unipotent-radical-and-nested-facets",
+        "ReductiveGroupsPartII:RG2.3/hyperspecial-vertices",
+        "ReductiveGroupsPartII:RG2.3/quasi-parahoric",
+        "ReductiveGroupsPartII:RG2.3/very-special-parahoric",
+        "ReductiveGroupsPartII:RG2.3/similitude-and-derived-models",
+        "ReductiveGroupsPartII:RG2.3/moy-prasad-lie-lattices",
+        "ReductiveGroupsPartII:RG2.3/yu-mixed-depth-groups",
+        "ReductiveGroupsPartII:RG2.3/torus-generation-of-filtration",
+        "ReductiveGroupsPartII:RG2.3/compact-elements-in-hyperspecial-subgroups",
+        "ReductiveGroupsPartII:RG2.3/generic-points-and-connected-stabilizers",
+        "ReductiveGroupsPartII:RG2.3/moy-prasad-isomorphism",
+        "ReductiveGroupsPartII:RG2.3/lifting-residual-cocharacters",
+        "ReductiveGroupsPartII:RG2.3/tame-subdivision-to-hyperspecial",
+        "ReductiveGroupsPartII:RG2.3/filtration-under-field-extension",
+        "ReductiveGroupsPartII:RG2.3/tame-hyperspecial-realization",
+        "ReductiveGroupsPartII:RG2.3/positive-depth-filtration-basis",
+        "ReductiveGroupsPartII:RG2.3/mock-exponential",
+        "ReductiveGroupsPartII:RG2.3/classical-hyperspecial-lattices",
+        "ReductiveGroupsPartII:RG2.3/frobenius-fixed-coset-lifting",
+        "ReductiveGroupsPartII:RG2.3/classical-level-subgroups",
+        "ReductiveGroupsPartII:RG2.4/iwahori-weyl-group",
+        "ReductiveGroupsPartII:RG2.4/compact-double-coset-finiteness",
+        "ReductiveGroupsPartII:RG2.4/iwahori-factorization",
+        "ReductiveGroupsPartII:RG2.4/invariant-cocharacter-lifting",
+        "ReductiveGroupsPartII:RG2.4/iwahori-weyl-exact-sequences",
+        "ReductiveGroupsPartII:RG2.4/split-torus-coset-infinitude",
+        "ReductiveGroupsPartII:RG2.4/hyperspecial-generation",
+        "ReductiveGroupsPartII:RG2.4/length-and-bruhat-order",
+        "ReductiveGroupsPartII:RG2.4/affine-tits-system",
+        "ReductiveGroupsPartII:RG2.4/dominant-coinvariant-cocharacters",
+        "ReductiveGroupsPartII:RG2.4/levi-kottwitz-kernel",
+        "ReductiveGroupsPartII:RG2.4/iwahori-bruhat-decomposition",
+        "ReductiveGroupsPartII:RG2.4/translation-length-formula",
+        "ReductiveGroupsPartII:RG2.4/admissible-set",
+        "ReductiveGroupsPartII:RG2.4/kottwitz-quotient",
+        "ReductiveGroupsPartII:RG2.4/parahoric-double-cosets",
+        "ReductiveGroupsPartII:RG2.4/simple-cell-multiplication",
+        "ReductiveGroupsPartII:RG2.4/unramified-combinatorial-comparison",
+        "ReductiveGroupsPartII:RG2.4/kottwitz-rational-surjectivity",
+        "ReductiveGroupsPartII:RG2.4/double-coset-cardinalities",
+        "ReductiveGroupsPartII:RG2.4/dominant-normal-form",
+        "ReductiveGroupsPartII:RG2.4/cartan-decomposition",
+        "ReductiveGroupsPartII:RG2.4/iwasawa-decomposition",
+        "ReductiveGroupsPartII:RG2.4/simple-cell-adjacent-depth",
+        "ReductiveGroupsPartII:RG2.4/iwasawa-integration-and-unimodularity",
+        "ReductiveGroupsPartII:RG2.4/gl-n-decompositions",
+        "ReductiveGroupsPartII:RG2.4/rank-one-and-nonsplit-examples",
+        "ReductiveGroupsPartII:RG2.4/adjoint-cartan-coset-lifting",
+        "ReductiveGroupsPartII:RG2.5/dual-based-root-datum",
+        "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
+        "ReductiveGroupsPartII:RG2.5/pinned-automorphisms",
+        "ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group",
+        "ReductiveGroupsPartII:RG2.5/gsp4-self-dual",
+        "ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group",
+        "ReductiveGroupsPartII:RG2.5/l-group",
+        "ReductiveGroupsPartII:RG2.5/l-group-change-of-pinning",
+        "ReductiveGroupsPartII:RG2.5/l-group-levi-embedding",
+        "ReductiveGroupsPartII:RG2.5/dual-isogenies-and-products",
+        "ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction",
+        "ReductiveGroupsPartII:RG2.5/torus-and-gl-dual-groups"
+      ],
+      "detail": "PROTOCOL §15 includes tracked open upstream PRs as existing work. TauCetiRoadmap PR #785 already contains ReductiveGroupsPartII, README and Suggested.lean at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d. Both files are identical to the versions in the supplied upstream checkout at 070dc2becd74419e76303ede84b465ed4a69461f. The atlas upstream order file tracks this PR. Replace existing targets with imports, identify an extension for the extra scope, and reconcile the queue, reader and package identity; those routing files are outside this review issue."
+    },
+    {
+      "title": "Étale local-homeomorphism input for the smooth-open-map proof",
+      "neededBy": [
+        "ReductiveGroupsPartII:RG2.0/smooth-morphism-open-map"
+      ],
+      "detail": "Conrad, discussion following Proposition 4.4, p. 11, reduces smooth maps to standard étale charts and persistence of a simple root under small coefficient changes. The packet names a Krasner argument but does not provide the precise local-homeomorphism theorem and its prerequisites. Import the existing upstream smooth-open-map target; if an extension retains this proof, supply that exact input."
+    },
+    {
+      "title": "Tensor splitting over a field which is not separably closed",
+      "neededBy": [
+        "ReductiveGroupsPartII:RG2.0a/weil-restriction-separable-splitting"
+      ],
+      "detail": "Containing the normal closure does not satisfy IsSepClosed Ω. The corrected proof identifies primitive-element tensor presentation and CRT for distinct split roots as the needed input; AlgHom.card_of_splits covers only the embedding count. Cite the existing upstream general splitting comparison or supply exact prerequisites in the eventual extension."
+    },
+    {
+      "title": "Determinant norm for a finite locally free algebra",
+      "neededBy": [
+        "ReductiveGroupsPartII:RG2.0a/norm-torus"
+      ],
+      "detail": "The upstream norm target and current suggested norm_points are finite free. The atlas constant-rank finite locally free target needs local trivialization, conjugation invariance, descent/gluing and base-change compatibility. The pinned Algebra.norm has a fallback value for modules without finite bases and cannot be used as the global determinant norm without these steps."
+    },
+    {
+      "title": "Non-affine locally finite type Weil restriction for full torus Néron models",
+      "neededBy": [
+        "ReductiveGroupsPartII:RG2.0a/tame-fixed-points-of-weil-restriction",
+        "ReductiveGroupsPartII:RG2.3/neron-lft-model-of-torus",
+        "ReductiveGroupsPartII:RG2.3/r-smooth-torus",
+        "ReductiveGroupsPartII:RG2.3/neron-model-closed-immersions",
+        "ReductiveGroupsPartII:RG2.3/r-smoothness-criteria",
+        "ReductiveGroupsPartII:RG2.3/r-smooth-fixer-immersions"
+      ],
+      "detail": "The affine representability and smooth-fixed-point inputs of RG2.0a do not apply to a full lft Néron model with infinitely many components. Separate the already owned Néron models from the R-smooth extension and identify its exact non-affine lft representability, fixed-point, component and base-change inputs. The issue does not authorize replanning the existing upstream Néron targets."
+    }
+  ],
   "sourceIssues": [
     {
       "id": "ReductiveGroupsPartII/E40",
       "source": "he-18",
       "kind": "gap",
-      "locator": "Lemma 15 and its proof (arXiv v3: Lemma 4.5, p. 13), and its use in the count of Lemma 16 (arXiv v3 Lemma 4.6, pp. 13–14)",
+      "locator": "Lemma 15 and proof, published pp. 16–17; Lemma 16, published p. 17 (arXiv v3 Lemmas 4.5–4.6, pp. 13–14)",
       "printed": "The proof lifts a Frobenius-fixed element of Ĭ_n/(Ĭ_n ∩ gĬ_ng^{-1}) to I_n by observing only that Ĭ_n ∩ gĬ_ng^{-1} is a pro-p subgroup of Ĭ_n.",
-      "correction": "The lifting needs the Lang map z ↦ z^{-1}σ(z) to be surjective on Ĭ_n ∩ gĬ_ng^{-1}; this holds because that intersection is the group of Ŏ-points of a smooth connected pro-unipotent model whose truncations are smooth connected groups over F̄_q, by Lang's theorem for inverse limits (RG2.3/lang-for-pro-algebraic-groups, RG2.3/frobenius-fixed-coset-lifting). The statement of Lemma 15 is then correct.",
-      "reason": "A pro-p group with a Frobenius-type automorphism need not have surjective Lang map: for the finite p-group ℤ/p with the identity as σ, z ↦ z^{-1}σ(z) is trivial and fixed cosets of the trivial subgroup in a quotient by a σ-stable subgroup need not lift; surjectivity is a property of connected algebraic groups (Lang), not of pro-p groups.",
+      "correction": "Justify surjectivity of z ↦ z⁻¹σ(z) on H = Ĭ_n ∩ gĬ_ng⁻¹ using its smooth connected geometric models and Lang lifting, with compatibility through the congruence quotients. The affine algebraic-group result and a justified inverse-limit passage, not merely pro-p structure, supply the required step. This review confirms the missing argument, without certifying every geometric input in the proposed roadmap proof.",
+      "reason": "Take the finite pro-p group A = ℤ/p², the automorphism σ(a) = (1+p)a and the stable subgroup H = pA. Then σ acts trivially on A/H, but A^σ = H, so a nonzero fixed coset has no fixed representative. The Lang map on H is zero. Thus pro-p structure alone is insufficient; the geometric Lang input for the actual intersection must be established.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "arXiv versions v1–v3 of 1610.04791",
         "Forum of Mathematics, Pi article page (no erratum listed on 2026-10-09)",
-        "the reviewed extraction PAPER-HE-18, which records the same gap as PAPER-HE-18/E5"
-      ]
+        "the reviewed extraction PAPER-HE-18, which records the same gap as PAPER-HE-18/E5",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the missing justification for the fixed-coset lifting step in the published proof. Being pro-p alone does not imply Lang surjectivity: take A = ℤ/p², σ(a) = (1+p)a and H = pA. The quotient A/H is fixed, but A^σ = H maps only to zero in A/H. A geometric connectedness/Lang argument for the actual intersection is still required; this finding does not assert that Lemma 15 is false.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E41",
       "source": "kisin-pappas-18",
       "kind": "gap",
-      "locator": "§1.3.8 and Proposition 1.3.9, arXiv v3 p. 19 (IHÉS pp. 142–143)",
+      "locator": "§1.3.8 and Proposition 1.3.9, published pp. 142–143 (arXiv v3 p. 19)",
       "printed": "The text takes K̃ equal to its maximal unramified extension and uses BT II 1.7.6 to let Γ act on the smooth group scheme Res_{Õ/O}(𝒢_{Ω,K̃}), then asserts (Res_{Õ/O} 𝒢_{Ω,K̃})^Γ ≅ 𝒢_{Ω,K}.",
       "correction": "Take K̃/K finite tame Galois splitting G, so that the Weil restriction is of finite type; obtain the Γ-action after base change to O^ur (where 1.7.6 applies) and descend, or prove the statement over Ŏ with the finite inertia group and descend the closed-immersion property along O → Ŏ.",
-      "reason": "For K̃ = K̃^ur the extension K̃/K is infinite, the Weil restriction is not a scheme of finite type, and Edixhoven's fixed-point theorem (finite tame group acting on a smooth scheme of finite type) does not apply as stated.",
+      "reason": "With K local and K̃ = K̃^ur, the extension K̃/K is infinite. The finite locally free representability and finite tame-group smooth-fixed-point arguments invoked in this proof have not been justified for that setting. Work first over a finite tame splitting extension and then apply strict-henselian descent; the review does not infer nonrepresentability in every possible generalized sense.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "arXiv versions of 1512.01149",
         "Numdam/IHÉS page of the article (no erratum found)",
         "Kisin–Pappas–Zhou 2026 §1.3 (authors' later corrections, which do not address this point)",
-        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E15)"
-      ]
+        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E15)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the finite-type descent justification gap as written: the setup includes local K as well as strictly henselian K, and takes K̃ = K̃^ur. In the local case the indicated extension is infinite. The finite locally free Weil-restriction and finite prime-to-residue-characteristic fixed-point arguments cannot be applied to that extension directly. A finite tame splitting extension followed by strict-henselian base change/descent is needed. No counterexample to the proposition is asserted.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E42",
       "source": "kisin-pappas-18",
       "kind": "misprint",
-      "locator": "proof of Proposition 1.3.3, display after 'It decomposes as follows', arXiv v3 p. 17 (IHÉS p. 140), repeated for V_j on the next page",
+      "locator": "Proof of Proposition 1.3.3, weight-string decomposition displays, published pp. 140–141 (arXiv v3 pp. 17–18)",
       "printed": "V = ⊕_[λ] V_[λ] = ⊕_[λ](⊕_{λ′=λ+ka} V_λ), the summand indexed by λ instead of λ′.",
       "correction": "V_[λ] = ⊕_{λ′=λ+ka} V_{λ′} (and V_{j,[λ]} = ⊕_{λ′=λ+ka} V_{j,λ′}).",
       "reason": "The class [λ] collects the weights λ′ in the a-string through λ; summing V_λ over λ′ repeats a single weight space.",
@@ -13611,14 +13883,20 @@
       "known": "new",
       "searched": [
         "arXiv versions of 1512.01149",
-        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E14)"
-      ]
+        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E14)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both published displays repeat the λ weight space while summing over λ′ in its a-string. The direct sum must use the λ′ weight space, including the indexed V_j version. This is a misprint with the intended decomposition fixed by the surrounding weight decomposition.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E43",
       "source": "kisin-pappas-zhou-26",
       "kind": "misprint",
-      "locator": "Proposition 2.2.2(2), arXiv v3 p. 12",
+      "locator": "Proposition 2.2.2(2), published p. 11 (arXiv v3 p. 12)",
       "printed": "Part (2) speaks of the stabilizer group scheme 𝒢̃_x over Õ and of the isomorphism 𝒢 ≅ (Res_{Õ/O}𝒢̃_x)^Γ.",
       "correction": "Both occurrences should be 𝒢̃_{x′}, the stabilizer of the point x′ of part (1), which is hyperspecial over K̃: 𝒢 = 𝒢_x = 𝒢_{x′} ≅ (Res_{Õ/O}𝒢̃_{x′})^Γ.",
       "reason": "Reductivity over Õ is established for x′ (hyperspecial in B(G,K̃)), not for the original point x, which need not be hyperspecial over K̃.",
@@ -13627,14 +13905,20 @@
       "searched": [
         "arXiv versions v1–v3 of 2409.03689",
         "Forum of Mathematics, Pi article page",
-        "the reviewed extraction PAPER-KISIN-PAPPAS-ZHOU-26 (recorded as PAPER-KISIN-PAPPAS-ZHOU-26/E20)"
-      ]
+        "the reviewed extraction PAPER-KISIN-PAPPAS-ZHOU-26 (recorded as PAPER-KISIN-PAPPAS-ZHOU-26/E20)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published part (1) first replaces x by x′, which is hyperspecial over K̃. Part (2) uses the original x subscript for the reductive model twice. Reductivity over Õ is available for x′; equality of the K-fixers does not identify the two stabilizers after extending the field. Both subscripts must refer to x′.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E45",
       "source": "kisin-pappas-zhou-26",
       "kind": "misprint",
-      "locator": "Remark 2.4.3(a) and display (2.4.5), arXiv v3 pp. 16–17",
+      "locator": "Remark 2.4.3(a) and display (2.4.5), published p. 15 (arXiv v3 pp. 16–17)",
       "printed": "Remark 2.4.3(a) writes the target as Res_{Õ/Õ}GL(Λ̃)^Γ, and (2.4.5) writes (Res_{Õ/O}GL(Λ̃)^Γ with an unbalanced parenthesis.",
       "correction": "(Res_{Õ/O}𝒢̃)^Γ ↪ (Res_{Õ/O}GL(Λ̃))^Γ in both places, followed by the closed immersion into GL(Λ̃).",
       "reason": "The Weil restriction is from Õ to O; restriction from Õ to Õ is the identity and the Γ-fixed points must be taken after restriction.",
@@ -13642,30 +13926,42 @@
       "known": "new",
       "searched": [
         "arXiv versions of 2409.03689",
-        "the reviewed extraction PAPER-KISIN-PAPPAS-ZHOU-26 (recorded as PAPER-KISIN-PAPPAS-ZHOU-26/E23 and E24)"
-      ]
+        "the reviewed extraction PAPER-KISIN-PAPPAS-ZHOU-26 (recorded as PAPER-KISIN-PAPPAS-ZHOU-26/E23 and E24)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the Õ/Õ base in the target of Remark 2.4.3(a) and the unmatched parenthesis in (2.4.5) in the published PDF. Both targets restrict from Õ to O and then take Γ-fixed points. The surrounding morphisms determine the intended corrected expression.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E46",
       "source": "kisin-pappas-18",
       "kind": "gap",
-      "locator": "Corollaries 4.2.12 (second sentence) and 4.2.13 with proof, arXiv v3 p. 56 (IHÉS p. 188)",
+      "locator": "Corollaries 4.2.12–4.2.13 and proof, with Remark 4.2.14, published p. 188 (arXiv v3 pp. 56–57)",
       "printed": "The corollaries assume K_p = K_p°, described as parahoric level, and the proof applies Lang's lemma to the special fibre of the stabilizer group scheme to lift points.",
-      "correction": "Assume that the stabilizer group scheme 𝒢_x has connected special fibre (𝒢 = 𝒢°); then Lang's theorem applies over every F_q (RG2.3/smooth-model-torsors). For the lifting alone it suffices that H^1(F_q, π_0(𝒢_{F_q})) = 0.",
-      "reason": "Equality of the level with the parahoric subgroup does not make the special fibre of the stabilizer scheme connected; Lang's theorem fails for disconnected groups (H^1(F_q, ℤ/2) ≠ 0).",
-      "affects": "a stated result",
-      "known": "Kisin–Pappas–Zhou 2026, §1.3 and Theorem 7.1.3(3) work under the connected-special-fibre hypothesis",
+      "correction": "To use the printed Lang argument uniformly over finite residue extensions, establish connectedness of the stabilizer special fibre, or supply a proof that the actual torsor obstruction vanishes. Connected special fibre is a sufficient repair, not a hypothesis proved necessary for the entire corollary by this review. For the torsor lifting step, vanishing of H¹(F_q, π₀(𝒢_Fq)) is sufficient.",
+      "reason": "Equality K_p = K_p° is an equality of rational point groups and only detects Frobenius-fixed components. It does not identify the geometric component group. A component group ℤ/3 with Frobenius −1 illustrates this distinction: its F_q-points are trivial and its F_q²-points are not. Thus connectedness used by the proof requires another argument. This is not a counterexample to a Shimura-variety corollary.",
+      "affects": "the proof",
+      "known": "Related sufficient-hypothesis formulation: Kisin–Pappas–Zhou, Theorem 7.1.3(3), published p. 73, assumes a connected stabilizer; §1.3 and Remark 7.1.4(1) separately correct the very-good-embedding hypothesis. Not claimed to be an erratum proving the old corollary false.",
       "searched": [
         "arXiv versions of 1512.01149",
         "Kisin–Pappas–Zhou 2026 §§1.3, 7.1",
-        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E58)"
-      ]
+        "the reviewed extraction PAPER-KISIN-PAPPAS-18 (recorded as PAPER-KISIN-PAPPAS-18/E58)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed a proof-hypothesis gap, not a demonstrated false corollary. Equality of rational stabilizer/parahoric points tests only Frobenius-fixed components and does not establish a geometrically connected special fibre. For instance, a component group ℤ/3 with Frobenius acting by −1 has no nonidentity rational component over F_q but does over F_q². Lang for a connected group therefore needs a scheme-level connectedness argument or a vanishing obstruction for the actual torsor. KPZ Theorem 7.1.3(3), published p. 73, explicitly assumes G = G°; §1.3 and Remark 7.1.4(1) also impose very good Hodge embeddings, so it is not an unconditional replacement of these older corollaries.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     },
     {
       "id": "ReductiveGroupsPartII/E47",
       "source": "vanhoften-24",
       "kind": "misprint",
-      "locator": "§2.2.5, arXiv v4 p. 15 (published p. 12)",
+      "locator": "§2.2.5, published p. 12 (arXiv v4 p. 15)",
       "printed": "For quasi-split G the standard Iwahori subgroup is said to contain a very special parahoric subgroup.",
       "correction": "The standard Iwahori subgroup is contained in a very special parahoric subgroup (the parahoric of a σ-stable very special vertex in the closure of the base alcove).",
       "reason": "Parahorics of facets in the closure of an alcove contain the Iwahori of the alcove; a very special parahoric is a maximal parahoric and is strictly larger than the Iwahori when W_0 ≠ 1.",
@@ -13674,8 +13970,14 @@
       "searched": [
         "arXiv versions of 2010.10496",
         "Forum of Mathematics, Pi article page",
-        "the reviewed extraction PAPER-VANHOFTEN-24 (recorded as PAPER-VANHOFTEN-24/E8)"
-      ]
+        "the reviewed extraction PAPER-VANHOFTEN-24 (recorded as PAPER-VANHOFTEN-24/E8)",
+        "Independent comparison with the published PDF and the cited preprint on 2026-10-11; no correction beyond the already recorded later-paper discussion located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the reversed inclusion in the published paragraph. A standard parahoric at a vertex in the closure of the base alcove contains its Iwahori, as follows from the facet incidence and the definitions earlier in §2.2; the claimed opposite inclusion is a misprint.",
+        "by": "REV-ReductiveGroupsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -13706,6 +14008,956 @@
       "citation": "vanhoften-24, arXiv:2010.10496v4 (2024); Forum of Mathematics, Pi 12 (2024), e20",
       "read": "2026-10-11",
       "sha256": "593ccc39d59ebdd70122cb3b742218a96a2654cbf171dc3d6a83211618e0e738"
+    },
+    {
+      "sourceId": "he-18",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf",
+      "citation": "arXiv:1610.04791v3 (2018); Forum of Mathematics, Pi 6 (2018), e2",
+      "read": "2026-10-11",
+      "sha256": "95e7b41122195fa6742b1ddb8a6097faf3f85ec9bdab3313248f08ca559dff0a"
+    },
+    {
+      "sourceId": "kisin-pappas-zhou-26",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6C2640CC5856BDF975AF97EE30CA7906/S2050508626100316a.pdf/div-class-title-integral-models-of-shimura-varieties-with-parahoric-level-structure-ii-div.pdf",
+      "citation": "arXiv:2409.03689v3; Forum of Mathematics, Pi 14 (2026), e14",
+      "read": "2026-10-11",
+      "sha256": "d0438498fbe4501e6d9c0cc7cf3ea9fc02ba5e11d326f2d77dd42715658a198b"
+    },
+    {
+      "sourceId": "vanhoften-24",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/div-class-title-mod-em-class-italic-p-em-points-on-shimura-varieties-of-parahoric-level-div.pdf",
+      "citation": "arXiv:2010.10496v4 (2024); Forum of Mathematics, Pi 12 (2024), e20",
+      "read": "2026-10-11",
+      "sha256": "d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0"
+    },
+    {
+      "sourceId": "kisin-pappas-18",
+      "kind": "published",
+      "url": "https://numdam.org/item/10.1007/s10240-018-0100-0.pdf",
+      "citation": "arXiv:1512.01149v3 (2018); Publications mathématiques de l’IHÉS 128 (2018), 121–218",
+      "read": "2026-10-11",
+      "sha256": "e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-ReductiveGroupsPartII",
+    "date": "2026-10-11",
+    "notes": "Completed negative atlas review, not a checkpoint. All 180 nodes received an ownership disposition; 166 have exact upstream target-name matches. WORKERS and PROTOCOL §15 prohibit replanning or reviewing that existing upstream work here. Eight atlas nodes were corrected or had missing inputs exposed, 61 inherited baseline declaration statements were opened at the pins and one splitting-count declaration was added, and seven source issues were independently checked against published texts. Declaration existence is confirmed; compatibility of every citation with every unaccepted node is not certified. All stages are partial pending a manager-authorized ownership/extension revision. The suggested file elaborates with admitted-proof warnings only; compilation does not verify its omitted geometric data or the plan. RT-AREA-algebraicgeometry/11 is respected by the explicit ModularCurves 0F import and Yoneda compatibility, but this does not resolve duplication with the new upstream ReductiveGroupsPartII owner.",
+    "checked": [
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/affine-point-topology",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 412 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/completed-maximal-unramified-extension",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 682 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Replaced the false countability argument by the residue-algebraic completion theorem of Blaszczok–Kuhlmann, Theorem 1.1, manuscript pp. 2–3. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/affine-point-topology-embedding",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 438 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/affine-point-topology-functoriality",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 447 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Removed unconditional closedness of the fibre-product equalizer; its subspace topology suffices. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/affine-point-topology-open-immersion",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 464 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/integral-points-compact-open",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 571 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Added the directly used points-topological-group prerequisite. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/scheme-point-topology",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 473 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/congruence-subgroup",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 612 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/scheme-point-topology-functoriality",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 512 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/points-locally-compact-hausdorff",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 524 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/points-topological-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 550 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/general-linear-points-homeomorphism",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 585 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/congruence-neighbourhood-basis",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 639 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/smooth-morphism-open-map",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 561 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/frobenius-fixed-points-of-points",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 743 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0/smooth-model-congruence-quotients",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 660 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-functor",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 789 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-representing-algebra",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 819 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Replaced the unsupported injectivity assertion by zero detection with a finite projective dual frame. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-finiteness",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 875 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-base-change",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 886 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Added the directly used Weil-restriction adjunction prerequisite. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-adjunction",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 921 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-group-scheme",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 942 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-smoothness-and-immersions",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 990 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-separable-splitting",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1013 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Distinguished the separably closed case from a general splitting field, replaced the embedding count by AlgHom.card_of_splits, and recorded the remaining CRT interface gap. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-dimension",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 990 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The dimension formula is already included in the upstream smoothness-and-immersions target; no separate slug is needed to establish this overlap. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-descent-of-properties",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1034 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-character-lattices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1046 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/weil-restriction-points-topology",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1100 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/integral-weil-restriction",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1121 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/norm-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1060 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Restricted the Algebra.norm comparison to finite free trivializations and recorded the determinant-norm gluing gap. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/tame-fixed-points-of-weil-restriction",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1146 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Atlas correction: Corrected the Theorem 4.2 page and exposed the missing non-affine lft Néron-model input. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.0a/deligne-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1162 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/steinberg-quasi-split",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1249 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/root-datum-in-a-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1289 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/minuscule-coweight",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2071 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/algebraic-fundamental-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2097 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/rational-maximal-unramified-split-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1261 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/rational-points-root-datum",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1329 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/valuation-of-root-datum",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1484 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/z-extension",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2203 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/torus-valuation-map",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1533 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/quasi-split-root-group-coordinates",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1631 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/z-extension-existence",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2257 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/apartment",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1575 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/quasi-split-valuation",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1680 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2266 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/affine-roots-and-filtrations",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1695 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/valued-root-datum-existence",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1773 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/kottwitz-homomorphism",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2354 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/nonsplit-torus-example",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2451 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/valued-commutator-estimates",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1729 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/unramified-descent-of-valuation",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1783 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/affine-chamber-structure",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1803 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/transport-under-choices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2057 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/echelonnage-root-system",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1845 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/frobenius-action-on-apartment",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1955 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/affine-weyl-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1892 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/levi-of-apartment-vector",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2029 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/unitary-rank-one-example",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2429 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/apartment-action-kernel",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 1942 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.1/sl2-valued-root-datum",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2406 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2492 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/finite-group-fixed-points-reductive",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2801 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-apartment-axioms",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2527 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/enlarged-and-reduced-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2669 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-independence-of-choices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2722 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/unramified-descent-of-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2784 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/weil-restriction-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2823 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/gl-building-lattice-chains",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2998 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-metric",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2540 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/facets-and-special-points",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2594 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/tame-descent-of-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2845 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-functoriality-central-extensions",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2884 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-products-and-levis",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2926 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/gsp-building-self-dual-chains",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3132 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/division-algebra-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3175 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-of-tori-and-anisotropic-groups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3254 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/bruhat-tits-fixed-point-theorem",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2577 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/stabilizers-and-fixers",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2643 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-cocompact-action",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2712 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/building-field-extension-embedding",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2744 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/twisted-levi-subgroup",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 2967 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/toral-embedding-into-gl-building",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3086 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/sl2-tree",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3190 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/minuscule-toral-embedding",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3114 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.2/ihara-amalgam",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3239 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/lang-theorem",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4419 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/smooth-affine-model",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3332 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/quasi-tame-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3589 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/lang-for-pro-algebraic-groups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4438 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/reductive-model",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3389 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/schematic-closure",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3426 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/extension-principle",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3460 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/quotients-over-a-dvr",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3485 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/neron-lft-model-of-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3521 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/smooth-model-torsors",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 62 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The scope explicitly excludes torsors under smooth models with connected special fibre. Route this as an extension importing upstream Lang and smooth models. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/big-cell-criteria",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3474 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/reductive-closed-immersion-criterion",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3493 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/faithful-representations-of-models",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3508 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/neron-finite-type-and-connected-models",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3555 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/r-smooth-torus",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 81 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: R-smooth tori and the non-affine lft restriction-of-scalars construction are explicitly outside the existing scope. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/neron-model-closed-immersions",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 83 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The Néron closed-immersion criteria of Kisin–Zhou Lemma 2.4.4 are explicitly outside the existing scope. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/torus-models-exact-sequences",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3604 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/bruhat-tits-group-scheme",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3617 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/split-torus-bounded-model-smoothness",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3493 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The upstream reductive closed-immersion criterion is related but is not this split-torus normalization criterion. Its exact owner and source proof require routing and verification. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/lattice-chain-stabilizer-schemes",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4067 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/r-smoothness-criteria",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 83 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: R-smoothness criteria are explicitly outside the existing scope; import its affine tame fixed-point theorem rather than recreating it. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/parahoric-group-scheme",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3672 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/associated-parahorics",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3931 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/central-extensions-of-parahorics",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4034 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/hodge-type-fixer-immersion",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4083 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/parahoric-subgroup",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3709 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/parahoric-kottwitz-characterization",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3746 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/reductive-quotient-of-special-fibre",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3778 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/unramified-base-change-of-parahorics",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3843 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/invariant-chain-direct-summand",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4111 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The direct-summand conclusion is already within the upstream tame-hyperspecial-realization target. The detailed eigensublattice formula is an interface refinement, not justification for a second owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/r-smooth-fixer-immersions",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 90 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: R-smooth fixer immersions and their p > 2 field-extension version are explicitly outside the existing scope. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/moy-prasad-filtration",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4151 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/torus-parahoric-example",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4584 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/fixer-versus-parahoric",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3763 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/pro-unipotent-radical-and-nested-facets",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3815 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/hyperspecial-vertices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3853 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/quasi-parahoric",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3970 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/very-special-parahoric",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4002 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/similitude-and-derived-models",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4120 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/moy-prasad-lie-lattices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4212 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/yu-mixed-depth-groups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4268 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/torus-generation-of-filtration",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4392 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/compact-elements-in-hyperspecial-subgroups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3882 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/generic-points-and-connected-stabilizers",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 3889 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/moy-prasad-isomorphism",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4323 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/lifting-residual-cocharacters",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4404 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/tame-subdivision-to-hyperspecial",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4103 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The KPZ classical tame realization is already supplied; the PR24 exceptional-type and subdivision formulation needs a separate comparison before being called an extension. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/filtration-under-field-extension",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4151 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The upstream filtration and Lie-lattice targets are the base. This tame positive-depth full-rational-point comparison needs a precise extension boundary; the Adler parahoric-intersection statement alone does not supply it. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/tame-hyperspecial-realization",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4103 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/positive-depth-filtration-basis",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4332 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/mock-exponential",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4351 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/classical-hyperspecial-lattices",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4135 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/frobenius-fixed-coset-lifting",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4498 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.3/classical-level-subgroups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4542 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwahori-weyl-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4651 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/compact-double-coset-finiteness",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4995 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwahori-factorization",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4936 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/invariant-cocharacter-lifting",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4877 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: Invariant-cocharacter lifting is already the third clause of the upstream rational Kottwitz-surjectivity target. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwahori-weyl-exact-sequences",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4730 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/split-torus-coset-infinitude",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5437 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/hyperspecial-generation",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5484 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/length-and-bruhat-order",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4768 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/affine-tits-system",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4823 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/dominant-coinvariant-cocharacters",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5030 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/levi-kottwitz-kernel",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5429 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwahori-bruhat-decomposition",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4839 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/translation-length-formula",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5138 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/admissible-set",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5176 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/kottwitz-quotient",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4856 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/parahoric-double-cosets",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4891 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/simple-cell-multiplication",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4922 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/unramified-combinatorial-comparison",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5461 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/kottwitz-rational-surjectivity",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4877 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/double-coset-cardinalities",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4974 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/dominant-normal-form",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5163 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/cartan-decomposition",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5249 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwasawa-decomposition",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5270 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/simple-cell-adjacent-depth",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4922 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The adjacent integer-depth containment already occurs in the upstream simple-cell multiplication target. Preserve the exact integer-depth normalization when importing it. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/iwasawa-integration-and-unimodularity",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5351 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/gl-n-decompositions",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5503 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/rank-one-and-nonsplit-examples",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5519 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.4/adjoint-cartan-coset-lifting",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 4877 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: Adjoint hyperspecial coset lifting is already the fourth clause of the upstream rational Kottwitz-surjectivity target. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/dual-based-root-datum",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5592 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5638 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/pinned-automorphisms",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5689 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5815 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/gsp4-self-dual",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5903 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5725 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/l-group",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5769 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/l-group-change-of-pinning",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5806 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/l-group-levi-embedding",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5830 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: Field-valued standard dual Levis are already supplied under l-group-levi-subgroup. The all-coefficient-algebras assertion and intrinsic compatible-choice comparison require a separately specified extension. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/dual-isogenies-and-products",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5853 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5872 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartII:RG2.5/torus-and-gl-dual-groups",
+        "verdict": "unverifiable",
+        "note": "Ownership checked against upstream README line 5885 at bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d: The exact target identifier already occurs in the tracked upstream roadmap. Compare clauses with that supplier and import its covered statement; any added clause needs an explicit extension owner. Full source, closure, API and test acceptance is withheld at this ownership boundary; this is not a review of the upstream target."
+      }
+    ],
+    "upstreamCompared": {
+      "pullRequest": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/785",
+      "stateWhenRead": "open draft",
+      "commit": "bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d",
+      "read": "2026-10-11",
+      "readme": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d/TauCetiRoadmap/ReductiveGroupsPartII/README.md",
+      "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/bd3d0c373f9ed1aec95ea3f34ff8970ec7ed0a6d/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean",
+      "localCheckoutCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
+      "filesIdenticalAtBothCommits": true
+    }
+  }
 }
