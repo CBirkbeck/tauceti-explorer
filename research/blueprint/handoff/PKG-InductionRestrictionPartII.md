@@ -1,192 +1,142 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-8zckxo`, 11 October 2026.
-Branch: `codex-8zckxo-induction-restriction-package`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106849740),
-identifying claim comment 6106848577. No manager-priority issue was available
-in the open `swarm`, `state:available` inventory, and there was no available
-plan or package review. This job was selected at the fallback package priority.
-Only one job was claimed.
+Codex (GPT-6), session `codex-AH8hEp`, 11 October 2026.
+Branch: `codex-AH8hEp-induction-restriction-package`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6107075753),
+identifying claim comment 6107074774. No issue in the manager's priority list
+was available in the open `swarm`, `state:available` inventory. No eligible
+plan or package review was available; this package was selected among the
+fallback package candidates. Only one job was claimed.
 
-Base atlas commit: `001b8e8a977259a9b71681d54eb865d91b29b26c`.
+Base atlas commit: `3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab`.
 
-## Outcome
+## Outcome and blocker
 
-**Blocked checkpoint; the roadmap package is unfinished.** This run changes
-only this handoff. It independently checked the supplier boundaries, read the
-published argument that consumes cyclic complement conjugacy, checked name
-correspondence, and recompiled the existing package. No assigned supplier
-resolving the accepted plan's ownership gaps was found. Metadata remains
-absent, so intake will not classify this package as complete.
+**Blocked checkpoint; the package remains unfinished.** This run changes only
+this handoff. It independently checked the accepted plan's supplier boundaries,
+read the source argument requiring arbitrary central kernels, audited name
+presence and recompiled the existing package. No assigned supplier resolving
+the ownership gaps was found. Metadata remains absent because the package is
+not ready for completion intake.
 
-The exact open contracts appear only in this roadmap's definition in a
-targeted search of roadmap definitions and key-definition assignments. Resume
-after an ownership amendment, rather than repeating supplier searches against
-the same commits. The amendment must cover the contracts below and authorize
-their use in the accepted plan. A local admitted contract declaration cannot
-assign an owner.
+The accepted packet still has the gap **Natural integral homological bridge —
+supplier unassigned**. Its restructuring proposal requires an ownership decision
+before introducing a supplier edge. The fifth gap separately requires an owner
+for cyclic coprime complement conjugacy. The independent acceptance records
+six planned stages, five gaps and one ordinary-cover request; it does not
+close these prerequisites.
 
-## Inherited progress
+The issue expressly forbids changing the packet and directs plan mistakes to
+this handoff. PROTOCOL §§3, 15 and 20 require actual supplying layers, preserve
+ownership and require agreement with the accepted plan. Adding another admitted
+local signature would not resolve an unassigned supplier. The manager was asked
+for supplier layer IDs or an authorized ownership amendment; no assignment was
+received before submission. These are the required contracts:
 
-The previous session changed two executable unit-test signatures and their
-README descriptions to exercise
-`marking_correction` directly:
-
-- `marking_correction_test_2` takes P=A=E=Multiplicative(C₃), with φ, inl
-  and ψ the identity homomorphisms. The actual correction evaluated at the
-  additive generator is the multiplicative identity; the wrong-sign product
-  is the additive class 2.
-- `marking_correction_test_3` takes the same homomorphisms and any nonidentity
-  k. The actual correction gives 1, while k² differs from that value.
-
-Previously these examples asserted only arithmetic in C₃, without applying
-`marking_correction`. Such statements would survive an incorrect definition
-using φ·ψ instead of φ·ψ⁻¹. The revised examples implement the accepted
-packet's existing sign tests; no target or supplier has been added.
-
-An independent scratch check implemented the displayed correction formula
-for commutative total groups as the product of φ with the inverse of
-inl∘ψ. It proved the exact revised examples, and separately proved that the
-wrong-sign product at the additive generator is not the identity. That check
-returned **zero errors, zero warnings and no admissions**. Its mathematical
-receipt is k·k⁻¹=1, while every nonidentity k in C₃ has k²≠1. Scratch is
-removed after submission; this receipt and the package signatures are enough
-to reconstruct the check. The package remains a roadmap prototype, with its
-proofs admitted; the scratch check does not implement its general API.
-
-Read Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and
-Westerland*, §2, Theorem 2.5, author PDF p.4. The discrepancy convention
-φ(mark)=mark·k and the homomorphism ψ(mark)=k require inverse correction.
-This is the sign correction already in the accepted plan, tested here on
-actual values of the proposed constructor. Public author copy:
-https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1.
-Accessed 2026-10-11; SHA-256
-`9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673`.
-No passage of that source enters the repository.
-
-## Why completion is blocked
-
-The accepted packet retains the gap **Natural integral homological bridge —
-supplier unassigned** and a restructuring proposal that requires an ownership
-decision before adding any supplier edge. Its fifth gap separately requires
-an owner for cyclic coprime complement conjugacy. Acceptance is a completed
-planning pass, not closure of these prerequisites.
-
-The issue permits edits only to the three package files and this handoff,
-and expressly says to change no packet. PROTOCOL §§3, 15 and 20 require
-actual supplying layers, preserve ownership, and require the package to agree
-with its accepted plan. Local admitted signatures cannot resolve an ownership
-decision that the plan expressly leaves unassigned. The manager was asked for
-the assigned supplier layer IDs while independent checks continued; no
-assignment was received before this checkpoint.
-
-The required amendment must assign these contracts once:
-
-| Contract | Required scope |
+| Contract | Scope the owner must supply |
 | --- | --- |
 | Native integral UCT | Arbitrary groups and abelian coefficients; evaluation on native cycles; natural Ext injection; both variances; free-abelianization injectivity; infinite-group tests. |
-| Central-extension homological sequence | Exact H₂(E,ℤ)→H₂(G,ℤ)→A→Eᵃᵇ→Gᵃᵇ→0; specified extension maps; section independence; XYX⁻¹Y⁻¹ orientation. |
-| Finite integral homology | Finiteness and group-order annihilation in positive degrees, retaining the H₀ counterexample. |
-| Coprime degree-two edge | Native inclusion and projection kernel; multiplier coinvariant action; section; incoming d₃ verification. |
-| Cyclic complement conjugacy | Finite coprime H,C with C cyclic and H possibly nonabelian; uniform H-conjugation of actual complements. |
+| Central-extension homological sequence | Exact H₂(E,ℤ)→H₂(G,ℤ)→A→Eᵃᵇ→Gᵃᵇ→0 with specified extension maps, section independence and XYX⁻¹Y⁻¹ orientation. |
+| Finite integral homology | Finiteness and group-order annihilation in positive degrees, retaining the H₀ counterexample and reusing native transfer. |
+| Coprime degree-two edge | Native inclusion and projection kernel, multiplier coinvariant action, section and the possible incoming d₃ verification. |
+| Cyclic complement conjugacy | Finite coprime H,C with C cyclic and H possibly nonabelian; uniform H-conjugation of actual complements in H⋊C. |
 
-Ordinary Schur covers stay in the parent InductionRestriction Layer 7.
-The amendment must reconcile the packet, roadmap definition, reader, suggested
-interfaces and consumer edges. These files were not edited here.
+Ordinary Schur covers remain the parent InductionRestriction Layer 7's
+responsibility. The ownership amendment must reconcile the packet, roadmap
+definition, reader, suggested interfaces and consumer edges. Those files are
+outside this package job's editable paths. Resume after that amendment rather
+than repeating unchanged supplier searches. The maintainer should resolve or
+gate this prerequisite before scheduling another package attempt.
 
-## Supplier and baseline checks
+## Fresh supplier and source checks
 
 The supplied read-only TauCetiRoadmap checkout is
 `070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the InductionRestriction
-and SemisimpleAlgebras READMEs, the relevant AlgebraicTopology UCT target,
+and SemisimpleAlgebras READMEs, the AlgebraicTopology UCT target,
 ProfiniteCohomology's cohomological five-term sequence and spectral-sequence
-exclusion, and the reviewed R17.5/MP.1 library-audit entries. The parent
-separates H²(G,kˣ) from integral H₂(G,ℤ); the cohomological five-term sequence
-does not supply the required homological transgression or coprime edge.
+exclusion, and the reviewed R17.5/MP.1 library-audit entries. The parent separates
+H²(G,kˣ) from integral H₂(G,ℤ). The other targets do not supply the required
+native homological transgression or coprime edge.
 
-Read current `TauCeti.ChainComplex.kronecker`, its representative formula,
-naturality and `kronecker_bijective`. The last assumes injective
-coefficients and cannot supply the arbitrary-coefficient UCT. Read current
-`TauCeti.homCokernelEquivExt`, its pushout representative formula and
-coefficient naturality: these improve the generic Ext prerequisite but do
-not assign or implement the native group-bar comparisons. At the Mathlib
-pin, the public Schur–Zassenhaus results are complement existence, not the
-needed cyclic complement conjugacy. No Lake command ran in either read-only
-tree. The cleared source index was read; no restricted source was copied.
+A targeted search of roadmap definitions and key-definition assignments found
+the exact open contracts only in this roadmap's definition. The remote packet
+blob remains `55ac5635e31f335b01e148781a4d7bfa4d78cd77`, matching this clone.
+No new ownership amendment was found.
 
-Freshly read the pinned `Subgroup.exists_right_complement'_of_coprime` and its
-left-complement corollary: neither concludes conjugacy. Read current
-`TauCeti.groupHomology.transfer_comp_map_subtype_id`: it is an actual native
-transfer theorem and should be reused; its existence does not assign the
-remaining bridge. The arbitrary-coefficient UCT still needs its native bar
-adapter and both variances. The coprime edge still needs the specified maps
-and the possible incoming d₃ argument. These are narrower requirements than
-rebuilding transfer or generic Ext theory.
+Read these current declarations and their hypotheses:
 
-Read Liu–Wood–Zureick-Brown's published Lemma 12.10, PDF pp.62–63, and proof of
-Theorem 10.4, PDF p.64. The lemma uses central coprime splitting and natural
-maps from integral H₂ to extension kernels. The theorem turns an equal-order
-lift over γ into a complement over ⟨γ⟩; conjugacy supplies its coboundary
-expression and the subsequent class bijection. Thus complement existence
-alone does not justify the consumer.
+- `TauCeti.ChainComplex.kronecker`, its representative formula and naturality:
+  generic evaluation is already present. `kronecker_bijective` requires
+  injective coefficients, so it does not provide the arbitrary-coefficient UCT.
+- `TauCeti.homCokernelEquivExt`, its pushout representative formula and
+  coefficient naturality: reuse this generic Ext API; the native group-bar
+  comparison and its ownership remain missing.
+- `TauCeti.groupHomology.transfer_comp_map_subtype_id`: transfer followed by
+  the subgroup inclusion is the subgroup index times identity in every degree.
+  Reuse it rather than planning transfer again.
+- `CategoryTheory.ShortComplex.finite_homology`: the Noetherian hypothesis
+  yields finite generation. Finiteness of the carrier still needs the
+  positive-degree annihilation argument.
+- At the Mathlib pin, `Subgroup.exists_right_complement'_of_coprime` and its
+  left-complement corollary assert existence; neither concludes conjugacy.
 
-Version read: [public version of record](https://par.nsf.gov/servlets/purl/10509628),
-*Inventiones mathematicae* 237 (2024), 49–116; accessed 2026-10-11;
-SHA-256 `64295273b34676cb6fd0f1de5fc643d1744e3359f94382ea77303903cdb6dc91`.
-Also checked Conrad,
-[*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
-Example 2 p.1 and Remark 5 p.4. The former treats cyclic-quotient existence;
-the latter identifies the separate conjugacy conclusion and refers elsewhere
-for its proof. It does not prove the package's native interface or assign a
-Lean supplier. Accessed 2026-10-11; SHA-256
-`7294dabc64a607186d96ee39bed942d78873c4408327c971c617fdc397ec0805`.
-No passage of either source enters this checkpoint.
+No Lake command ran in either read-only tree. The cleared source index was read;
+no restricted source was copied.
 
-## Validation and next action
+Freshly read Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh,
+and Westerland*, §2.1, Lemmas 2.2–2.4 and Theorem 2.5, author PDF pp.2–4
+(*Research in the Mathematical Sciences* 8 (2021), Article 21). Theorem 2.5
+pulls back an extension along a possibly infinite marked group with coefficients
+in its central kernel. Thus a UCT restricted to finite coefficients does not
+justify that consumer. Free abelianization removes the Ext obstruction, but
+injective-coefficient evaluation alone does not cover an arbitrary kernel.
+The inverse marking correction is already in the accepted plan and inherited
+package; it is not a new correction from this run.
+
+[Public author PDF](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1),
+accessed 2026-10-11; SHA-256
+`9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673`.
+No source passage enters the repository. The preceding handoff preserves the
+Liu–Wood–Zureick-Brown and Conrad source receipts; those PDFs were not freshly
+read in this run.
+
+## Validation
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
   **0 errors, 0 warnings**; 109 nodes, 124 API items, 96 tests, 30 planets,
   30 baseline declarations, five gaps, one request and six planned stages.
 - Name-presence audit: all 109 target names, 124 API names and 96 test labels
-  occur in both package files. This checks name correspondence, not a
-  completed mathematical review or a proof of the admitted examples.
+  appear in both package files. This verifies presence, not mathematical
+  correspondence or proofs of admitted examples.
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
   **0 errors; 696 warnings, all declaration uses `sorry`; 0 other warnings**.
-  Memory preflight: 97 GiB available. The shared wrapper designates Tau Ceti
-  f790474 and reports Mathlib 082e2d37e8. No compiler is left running.
-- The previous session's separate admission-free sign/mutation check passed
-  after importing Mathlib's finite type-tag instances. Its receipt is preserved
-  above and in the immutable preceding handoff; it was not rerun here.
-- `git diff --check` passes. README size: 171,706 bytes, below the 200 KB
-  limit. Suggested.lean is 191,498 bytes. The test labels and accepted statements
-  are preserved. The submission file check passes. This run changes only the
-  handoff; the package README and Suggested.lean are unchanged.
+  Memory preflight: 97 GiB available. The wrapper designates Tau Ceti f790474
+  and reports Mathlib 082e2d37e8; the Mathlib checkout hash was also checked.
+  No compiler is left running.
+- README size is 171,706 bytes, below the 200 KB limit; Suggested.lean is
+  191,498 bytes. Neither package file, the reader nor the author suggested
+  file was edited. No new proof or finite-cover certificate is claimed.
 - Accepted packet SHA-256 remains
   `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
-  The reader and author suggested file are unchanged.
-- Metadata remains absent: creating it would make the intake's existence
-  check classify this blocked package as complete.
+- `git diff --check` and the submission file check pass; the sole changed
+  path is this job's handoff.
 
-Resume after the ownership amendment. Retain all 109 targets, 31 finite row
+## Continuation
+
+After the ownership amendment, retain all 109 targets, 31 finite row
 certificates, 38 RS.6 targets and ten accepted source findings. Complete the
-mathematical audit, replace contracts by assigned supplying layers, maintain
-the target/API/test correspondence, run `lean-check`, and then add
+mathematical audit, replace contracts with assigned suppliers, preserve the
+target/API/test correspondence, run `lean-check`, and then add
 `topic = "math.GR"` metadata.
 
-The predecessor's full supplier analysis, native boundary proof, direct
-free-abelianization UCT proof, finite-model receipts and earlier continuation
-links remain in the
-[immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/94ef4d10337ec4e58f86ed4804996b862b039b10/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
-Its free-abelianization proof uses two projective-quotient retractions and
-requires no general Ext injection or arbitrary-rank subgroup-freeness.
-Keep that refinement and the direct commutator-order boundary proof when
-reconciling the amended plan. No finite cover certificate is claimed proved
-by this checkpoint.
-
-The [immutable preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/001b8e8a977259a9b71681d54eb865d91b29b26c/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
-preserves the marking-correction change and its original validation. Do not
-repeat it as new work. The ownership amendment must reconcile the packet,
-roadmap definition, reader, author suggested interfaces and consumer edges;
-those paths remain outside this package job's authorization.
+The [immutable preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+preserves the inherited direct tests of `marking_correction`, their separate
+admission-free sign/mutation proof receipt, source receipts and earlier
+continuation links. Those tests were not changed or separately reproved here.
+Its predecessor links preserve the native commutator-order boundary proof,
+the direct free-abelianization UCT proof and finite-model receipts. Keep the
+free-abelianization refinement using two projective-quotient retractions;
+it requires neither a general Ext injection nor arbitrary-rank subgroup
+freeness. Do not repeat these inherited changes as new work.
