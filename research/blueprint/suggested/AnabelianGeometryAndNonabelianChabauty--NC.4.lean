@@ -23,6 +23,12 @@ hypotheses, and the explicitly omitted signatures below are part of the supplier
 A right U-torsor is a native left torsor for Uᵐᵒᵖ. U/H below is the left-coset carrier gH,
 with right multiplication by H, even when H is nonnormal. It is not a quotient group.
 Finite depth n means U/Γ_(n+1): Kim's U_(n+1), with n=1 the abelian depth.
+
+The geometric comparison suppliers in NC.2 cover unramified models and ramified
+base changes whose models and endpoints descend. Comparisons for arbitrary ramified
+good-reduction pairs and integral endpoints are additional requested inputs. Global
+path classes also require trivial inertia outside T on both the group and every
+permitted path torsor; NC.2's G_F-action theorem alone does not give G_(F,T)-actions.
 -/
 
 open CategoryTheory
@@ -66,6 +72,15 @@ example (H : Subgroup U) (g : U) :
 example (H : Subgroup U) (g : U) (h : H) :
     admissiblePeriod H (MulOpposite.op (1 : U)) (MulOpposite.op (g * h)) =
       admissiblePeriod H (MulOpposite.op (1 : U)) (MulOpposite.op g) := by sorry
+
+-- admissiblePeriod_inverse_fixed_path: pφ is a forward path, not the ratio itself.
+example :
+    let g : Multiplicative ℚ := Multiplicative.ofAdd 1
+    let H : Subgroup (Multiplicative ℚ) := ⊥
+    admissiblePeriod H (MulOpposite.op g) (MulOpposite.op 1) =
+        (QuotientGroup.mk g⁻¹ : Multiplicative ℚ ⧸ H) ∧
+      admissiblePeriod H (MulOpposite.op g) (MulOpposite.op 1) ≠
+        (QuotientGroup.mk g : Multiplicative ℚ ⧸ H) := by sorry
 
 -- admissiblePeriod_left_change_fails: H=<swap(0,1)> is nonnormal in S₃.
 example :
@@ -140,6 +155,11 @@ geometric evaluation are imported from NC.2/L1, not available as native carriers
 Classification is natural on every commutative K-algebra; density is separately on
 every integral K-disc in Q_n, not asserted in its Q_p-Weil restriction. The forward
 word element I has period representative I⁻¹γ in the ordered-ratio convention.
+Kim p.112 identifies the ratio with the forward horizontal section, missing this
+inverse. Antipode reversal preserves word independence; constant path transport
+and the algebraic Hodge factor preserve its triangular density argument. For a
+proper curve the auxiliary finite étale divisor may have degree greater than one:
+the source's p.111 choice of another integral rational residue disc need not exist.
 -/
 
 section AffinePoints
@@ -193,6 +213,8 @@ end AffinePoints
 Omitted localEtaleAlbanese and globalEtaleAlbanese definitions: native continuous G_K
 and G_(F,T) path-torsor gauge classes with the B_cr condition and all chosen bad-place
 conditions are supplied by NC.2/NC.3; this file does not restate cohomology.
+The arbitrary ramified-model comparison and outside-T inertia/factorization
+refinements recorded in the packet remain explicit geometric inputs to these maps.
 
 localEtaleAlbanese_path: class of the actual right geometric path from b to x.
 localEtaleAlbanese_base: the constant fixed path gives the neutral class.
