@@ -24923,9 +24923,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #719"
+   "note": "deliverables arrived from an external worker on issue #719",
+   "finishedAt": "2026-10-11T01:58:55Z"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
@@ -29261,7 +29262,8 @@
    ],
    "avoidAccountOf": "BP-ReductiveGroupsPartII",
    "prompt": "research/blueprint/prompts/REV-ReductiveGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #479"
   },
   {
    "id": "BP-RefinedTraceMethods--RT.1",
@@ -47677,8 +47679,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80268,8 +80270,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
