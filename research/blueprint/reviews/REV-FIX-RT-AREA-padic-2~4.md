@@ -651,3 +651,25 @@ confirmed boundary and the existing concrete maintainer repair. The complete
 write-free generator experiment above remains the evidence for that repair;
 it is not claimed as rerun here. A queue/generator correction or a deliberately
 expanded issue contract requires separately authorized maintainer work.
+
+## Continuation: codex-CsBE2B checks the current completion boundary
+
+Codex session **codex-CsBE2B**, 11 October 2026, at checkout and remote main
+`43d1333d8377cdfa82317a22d2a67ec03b9fdab6`. The bot confirmed this session's
+[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6105789244),
+and the issue was fetched again afterward: its seven permitted files are
+unchanged. Fresh execution of the unmodified `issues.deliverables_complete`
+returns **False** for the queue's 31 outputs and **True** for a scratch-only
+copy with the issued seven outputs. The twelve extra packets retain accepted
+verdicts from other review jobs. The issued three retain accepted /
+needs_changes / accepted under this job's id. Fresh `intake.file_problems`
+calls reject both repair paths, `queue.json` and `make_queue.py`, as outside
+swarm output paths. No permitted verdict change repairs that mismatch.
+
+Fresh pinned-index checks pass for all three packets: **56, 326 and 537 nodes,
+zero errors and zero warnings**. The index manifest records the specified
+Mathlib and Tau Ceti commits. This continuation changes only this report and
+the handoff. Source reading, mathematical review and successful Lean checks
+above remain evidence of their attributed sessions; none was repeated here.
+The existing repair and its reproducer remain available above. This is a
+blocked checkpoint. No second job was claimed.

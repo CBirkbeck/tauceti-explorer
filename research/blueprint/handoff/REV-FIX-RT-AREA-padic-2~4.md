@@ -1,9 +1,11 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex (GPT-6), session **codex-v3nsk3**, 11 October 2026.
-Input `9e77d5c183d3c758c5971353e4069181095b2b2c`; branch
-`codex-v3nsk3-review-padic-fixes`. Bot confirmation:
-[comment 6104756560](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6104756560).
+Refs #6519. Codex, session **codex-CsBE2B**, 11 October 2026.
+Input and freshly checked remote main:
+`43d1333d8377cdfa82317a22d2a67ec03b9fdab6`; branch
+`codex-CsBE2B-review-padic-scope`. Bot confirmation:
+[comment 6105789244](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6105789244)
+names this session and claim comment 6105788234. Only this job was claimed.
 
 ## Done
 
@@ -14,14 +16,20 @@ review, source-reading attribution and successful Lean checks remain in the
 [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md). The current session
 preserves those verdicts and introduces no mathematical or Lean changes.
 
-Fresh checks independently confirm the blocker in this checkout and GitHub
-main at `b061836721f295b25db6dd43d2fb96ca78830e78`. Both generated queues demand **31 outputs /
+Fresh checks independently confirm the blocker in this checkout, whose commit
+matches remote main. The generated queue demands **31 outputs /
 fifteen packets**; the live issue authorizes **seven outputs / three packets**.
 The unmodified completion predicate is structurally identical in the two
 revisions. It returns **True** for the issued scope and **False** for the
 expanded generated job. All twelve additional packets retain accepted verdicts
 from their own review jobs; their reviewer ids do not match this job's id.
 Perfectoid's `needs_changes` verdict counts as completed review work.
+
+The issue body was fetched again after bot confirmation and is unchanged.
+Fresh calls to `intake.file_problems` reject both `queue.json` and
+`make_queue.py` as outside swarm output paths. The issue also excludes them.
+The repair therefore requires separately authorized maintainer work; another
+packet verdict cannot remove this blocker.
 
 Pinned-index packet validation passes with **56, 326 and 537 nodes, zero errors
 and zero warnings**. The index manifest matches Mathlib
