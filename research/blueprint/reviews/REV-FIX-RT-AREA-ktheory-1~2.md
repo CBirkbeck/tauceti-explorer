@@ -1,5 +1,176 @@
 # Independent review of the second K-theory area fix
 
+Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex (GPT-6), session
+`codex-7qt7vQ`, 11 October 2026. Claim comment 6106799027 was confirmed
+by bot comment 6106800088. This session did none of the fixes under review.
+
+**Blocked checkpoint.** The live issue was reread after claim and again
+before submission: its deliverables and full instructions still name seven
+packets, seven suggested files and this report. The queue requires 22 packets
+and 22 suggested files. [WORKERS.md](../WORKERS.md) says “Edit only the files
+the issue names.” Expanded authorization was requested; none arrived before
+submission. Only this report and the permitted handoff were changed. The
+additional suppliers were inspected and checked without changing their
+review objects, declarations or mathematical content.
+
+This continuation adds current supplier evidence and a first compilation
+check of all fifteen additional suggested files. It preserves the earlier
+seven-packet review, its 38 finding dispositions and its source records as
+historical certification. It does not certify the entire supplier packets or
+refresh a verdict merely to satisfy intake.
+
+## Completion condition
+
+A fresh call to `research/blueprint/issues.py:deliverables_complete` on the
+actual queue job returns **false**. All outputs exist, but fifteen packets
+still carry other review identifiers. The predicate accepts negative review
+verdicts; the original seven's needs-changes verdicts do not cause this scope
+blocker. The queue and issue were not edited.
+
+The retained verdicts are accepted for ArithmeticKTheory N.1,
+K2SymbolsBrauer T.1 and K3BlochGroups; needs changes for
+GeneralAlgebraicKTheory K.1/K.6, ArithmeticKTheory N.7 and K2SymbolsBrauer
+T.3. This run claims no new packet acceptance. The handoff lists the fifteen
+additional deliverables that need explicit authorization or issue/queue
+synchronization before this review can finish.
+
+## Current supplier evidence
+
+The following are read-only assessments of the actual destination nodes,
+not whole-packet verdicts. Finding numbers refer to `RT-AREA-ktheory-1`.
+Several assertions in the earlier supplier handoff are now stale.
+
+| Finding | Current destination and assessment |
+| --- | --- |
+| /1 | Borel R.1 `steinberg-duality-finiteness` now includes right projective lattices, arithmetic subgroups commensurable with their automorphism groups, the integral orientation twist, and finite-index descent. It selects a normal torsion-free orientation-preserving subgroup and uses the finite quotient's homology spectral sequence. The earlier assertion that this contract remains absent is stale. For D=F the twist is the (n−1)st power of the sign of the norm of the determinant, not the untwisted Steinberg module. |
+| /7 | Borel R.3 `borel-rank-theorem` now distinguishes orders in number fields from S-integers, gives the higher odd ranks for j≥2, and excludes K₁ from the even-degree assertion. It directs the S-integer case to Arithmetic N.3. The earlier missing-scope assessment is stale. |
+| /35 | Borel R.2 `arithmetic-invariant-form-map` now directly imports `ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison`; it also specifies the maximal compact group for the real components met by Γ. This resolves the earlier missing early import at the node level. |
+| /5, /33 | `StableHomotopyKTheory:H.3/rational-hurewicz-hspace` still has parent H.3. Borel's `cartan-serre-application` and GL/SL comparison still import that node. The verifier's requested H.6 ownership move has not occurred. Its statement assumes a path-connected H-space of CW type with finite-dimensional rational homology in each degree; it does not explicitly assume homotopy associativity. This records the requested-contract discrepancy without asserting that the weaker H-space theorem is false. H.3's separate `hspace-homology-whitehead` now supplies the path-connected H-space comparison without requiring the map to preserve multiplication. |
+| /2 | M.7 `beilinson-lichtenbaum`, in the M.5d packet, explicitly gives the field/smooth truncated complex comparison, the isomorphism range a≤j and injection at j+1. Its proof separates the cycle/transfer argument from the diagonal symbol theorem. Naturality is not exported as a separate statement or API entry there. `dedekind-motivic-comparison` states the étale cycle-complex equivalence and low-degree cohomology comparison; its proof cites Geisser's integral truncation through j+1 and finite-coefficient passage through j. The proof route is present, but the corresponding derived Zariski truncation contract is not stated in that node. |
+| /17 | Scheme S.5 `projective-bundle-theorem` now directly imports K.6 `projective-line-splitting` and `nil-groups-are-NK`. This confirms the destination import; it does not repair the retained K.6 stage-projection cycles. |
+| /23 | Both Scheme S.4 K- and G-coniveau spectral-sequence nodes directly import H.6's exact couple, filtered-spectrum spectral sequence and convergence nodes. The earlier missing-destination objection is stale. |
+| /31 | Z.5 `doubled-line-example` is now an actual node in the Z.3 packet. It gives Pic(X)=ℤ and K₀(Vect X)=ℤ²=G₀(X), and distinguishes the doubled plane by importing Scheme S.1 `doubled-plane-counterexample`. The latter supplies the perfect skyscraper that has no bounded global vector-bundle resolution. This is more than an upstream note, contrary to the old handoff. The Z.3 Lean file nevertheless fails compilation as recorded below. |
+| /37 | L.1 `green-virtual-character` now imports upstream InductionRestriction Layer 6. `quillen-fibration` explicitly uses H.3 `plus-construction-universal-property` for the passage from an integral homology equivalence into an H-space, and records that supplier's unread proof as a conditional import. Thus absence of a direct simple-space prerequisite alone is not evidence that the destination supplies no route. The conditional supplier gap remains explicit; this checkpoint does not accept it. |
+| /39 | L.5 `tr-log-structure-maps` directly imports `CrystallineCohomology:CR.5:log-algebra`. Its multiplication-by-uniformizer map is a self-weak-equivalence after inverting π, not an A-module automorphism. The log-Witt-complex comparison invokes CR.4 and is restricted to odd p; the log-DGA statement separately permits n=1. The old missing CR.5 edge is stale. Identifying the canonical comparison with the shared general log-Witt construction remains an obligation for the expanded review. |
+
+Additional destination spot checks found N.3's integral finite-generation
+argument distinguishes rank stability, relative homology and the simple
+H-space finiteness input; N.2 distinguishes ramification-weighted restriction
+from transfer; N.5 uses the finite-coefficient real comparison instead of
+silently replacing it by an integral tensor product; and Borel R.4 imports
+the Scheme S.6 operation contracts. These are targeted checks, not a new
+review of every node or every source in those packets.
+
+Current upstream AlgebraicTopology, GrothendieckEulerForms and
+LocalFieldsRamification, and the current Tau Ceti tree, were consulted
+read-only for supplier boundaries. No upstream tree was edited or built.
+
+## Fresh source checks
+
+All statements here are in the reviewer's own words. No source passage was
+added to a packet or reader, and no restricted book was opened.
+
+- [Putman–Studenmund, arXiv:1909.01217v4](https://arxiv.org/pdf/1909.01217v4),
+  Theorem C and Example 1.4, pp.3–4: GLₙ over a number ring requires the
+  Steinberg module tensored with the (n−1)st power of the determinant-norm
+  sign character. The GL₂(ℤ) example distinguishes this from the untwisted
+  module. This supports the corrected Borel R.1 coefficient formula; it
+  does not by itself establish every nonfree-lattice generalization.
+- [Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf),
+  Theorem 1.2(2),(4), publication p.774 / PDF p.2: the integral Zariski
+  comparison is truncated through weight plus one, while the invertible
+  finite-coefficient étale cycle complex is the roots-of-unity sheaf. The
+  coefficient exact triangle yields the finite comparison through weight.
+  The current M.7 proof records this distinction; its exported statement
+  still omits the derived Zariski comparison.
+- [Burgos Gil, The regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf),
+  Definition 10.8 and Theorem 10.9, pp.94–95: with the book's renormalized
+  Borel and Beilinson elements, the former is twice the latter. Current
+  Borel R.7 `universal-factor-two` specifies these normalizations and all
+  weights j≥2 instead of treating a weight-two computation as the theorem.
+- [Weibel, K-book V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf),
+  Theorem 1.5.4, chapter pp.5–6: the two projective-line functors give the
+  ring-level splitting for arbitrary associative rings. Its construction
+  precedes the later general scheme forms, matching the K.6-to-S.5 import.
+
+Fresh PDF SHA-256 values:
+
+| Public version | SHA-256 |
+| --- | --- |
+| Putman–Studenmund v4 | `3421bcfaffc1e05198ae8323971872ca3774bd73c067077e94f46ed5d073d7ad` |
+| Geisser Dedekind | `88b92df6124b0e3a2be09ac24250c2b811572628d17a6282e787e0883160091f` |
+| Burgos Gil | `da6ba8c4b08bf447d1575788c33b96c52d8d0d0a377e8f2990ead6aed73f65ea` |
+| K-book V | `52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8` |
+
+## Fresh validation and elaboration failures
+
+All **22** queue-listed packets pass `scripts/check_blueprint.py` with zero
+errors and zero warnings against the pinned declaration index. This says
+nothing about closure of their proof gaps. The seven original Lean files
+were not recompiled in this continuation; their preceding compilation
+results are retained below and must not be read as fresh results.
+
+The fifteen additional actual Lean files were checked serially with
+`lean-check`, at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Available memory was
+above the worker threshold. No language server, build, update or cache
+command was started.
+
+| Additional suggested file | Errors | `sorry` warnings | Other warnings |
+| --- | ---: | ---: | ---: |
+| ArithmeticKTheory--N.3-finite-generation | 0 | 5 | 0 |
+| BorelRegulators | 0 | 97 | 0 |
+| MotivicEtaleKTheory--M.1 | 0 | 283 | 0 |
+| MotivicEtaleKTheory--M.5d | 0 | 170 | 0 |
+| ArithmeticKTheory--N.5 | 0 | 4 | 0 |
+| StableHomotopyKTheory | 0 | 645 | 0 |
+| ArithmeticKTheory--N.2 | 0 | 15 | 0 |
+| KTheoryLowDegrees--U.1 | 9 | 946 | 0 |
+| KTheoryLowDegrees--U.6 | 0 | 8 | 0 |
+| SpecialValuesBirchTate | 0 | 3 | 0 |
+| SchemeKTheoryOperations | 0 | 368 | 0 |
+| KTheoryLowDegrees--U.4 | 0 | 82 | 0 |
+| K3BlochGroups--V.1 | 0 | 25 | 0 |
+| KTheoryLowDegrees--Z.3 | 13 | 733 | 56 |
+| KTheoryFiniteLocalFields | 0 | 270 | 0 |
+
+Failure locations refer to the unchanged files reviewed in this run:
+
+- **U.1:** line 4850's `omega` does not discharge the Fin-index inequality
+  in `division_ring_transvection_conjugacy`. Lines 7977, 7988, 7993, 7997
+  and 8004 report incompatible smallness universes in the native Morita
+  square and its tests. The local `toExactK0` explicitly fixes the small
+  carrier universe; pinned `ExactK0.mapEquiv` must be instantiated consistently
+  with it. Lines 8723 and 8776 pass a homomorphism into ℚˣ where inference
+  expects one into ℚ in `standardFormValue` and `extendedValue` tests.
+- **Z.3:** lines 242, 250, 424, 431, 477 and 520 contain adjacent declaration
+  documentation comments that Lean rejects. Line 705 redeclares the already
+  imported `TauCeti.LambdaRing`. Lines 2905, 2956, 2972 and 2973 give an extra
+  field argument to `character`, whose inferred signature has only the list
+  parameter. Line 6564 repeats an existing universe name. Line 6894's test
+  mixes the binomial and cubic pre-λ structures during instance synthesis.
+  The 56 other warnings also violate the suggested-file requirement.
+
+These failures have not been repaired: both files are among the fifteen
+outputs absent from the issue's authorized scope. The next worker should
+repair them after scope reconciliation and then rerun the actual files,
+without treating the existing accepted supplier reviews as compilation
+certification. Signatures in comments are not type checked, and admitted
+statements are not claimed formalized.
+
+## Resume
+
+Synchronize the issue's deliverables with the queue or explicitly authorize
+the fifteen additional packets and suggested files. Then review their actual
+area-fix obligations, preserve earlier review history, correct fixable
+mathematical and Lean errors, and write this review's scoped verdicts.
+Resolve the retained K.1/K.6 stage ordering, N.7 generation and generic
+complete-DVR supplier gaps separately; the old report gives their exact
+finding dispositions. No second issue was claimed. The handoff contains
+everything needed to resume without this run's scratch files.
+
+## Retained checkpoint by codex-UC1AMR (10 October 2026)
+
 Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex — `codex-UC1AMR`,
 10 October 2026. Claim comment 6101317119 was confirmed by bot comment
 6101318506. This session wrote none of the fixes or earlier reviews.
