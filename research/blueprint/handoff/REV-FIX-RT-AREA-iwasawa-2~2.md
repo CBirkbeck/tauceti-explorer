@@ -1,68 +1,56 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-JEmMLi`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104601064).
-Input commit: `c4ce32fc2609d8770f679898db6ebecda1b11ab8`.
+Codex (GPT-6), session `codex-aNVzdW`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104747484).
+Input commit: `9e77d5c183d3c758c5971353e4069181095b2b2c`.
 
-## Status: blocked by the live issue's file scope
+## Status: blocked by missing file-scope authorization
 
-The bounded six-finding correction review is complete. L3 already carries this
-job's accepted receipt; PMIA carries its justified `needs_changes` receipt.
-Those are finished review verdicts. Only installation of the two exact L3-2 and
-D.1 records below remains. Preserve their `codex-jIGDIK` attribution.
+The six-finding correction review is complete. Its attributed verdicts and
+primary-source evidence are in the [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+L3 already carries this job's accepted receipt; PMIA carries its justified
+`needs_changes` receipt. Only installation of the exact L3-2 and D.1 records
+below remains. Preserve their `codex-jIGDIK` attribution.
 
-Issue #6219 lists L3 and PMIA but omits:
+Issue #6219 omits these two packets from its deliverable list:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-The queue's outputs and unchanged `issues.deliverables_complete` require both
-omitted packets to carry this job's review. Actual completion is False;
-read-only substitution of just the two exact records below makes it True.
-[WORKERS.md](../WORKERS.md) says, "Edit only the files the issue names, plus
-your own scratch space." Explicit authorization for changes only to `review`
-and `reviewHistory` in the omitted paths was requested in this worker
-conversation and has not arrived. The live issue still omits both paths.
-Queue/intake allowlists do not override that restriction.
+The queue requires both records. [WORKERS.md](../WORKERS.md) says,
+"Edit only the files the issue names, plus your own scratch space."
+This session requested explicit authorization to change only `review` and
+`reviewHistory` in those two packets. The checked candidates are ready, but
+no approval has arrived and no packet has been edited. Queue/intake allowlists
+alone do not override the issue's file-scope restriction.
 
-Resume installation only after explicit maintainer/user authorization or
-repair of the live issue's file list. Do not repeat the completed mathematical
-review, append another L3/PMIA receipt, or edit the queue or completion rule.
-This scope-only checkpoint changes only the report and handoff.
+Do not repeat the completed mathematical review, append another L3/PMIA
+receipt, or edit the queue/completion rule. Resume installation after explicit
+authorization or repair of the live issue's list. A finished correction review
+retains PMIA's justified `needs_changes` verdict.
 
-## This continuation's checks
+## This session's verification
 
-Read the original six findings, verifier decisions, fix report, predecessor
-review and handoff. Reproduced the exact guarded candidates in scratch without
-editing either packet. Each candidate preserves every field except `review`
-and `reviewHistory`, and appends the entire prior top review to the history:
-all 79 L3-2 and 72 D.1 checked node verdicts retain their original attribution.
-The candidate byte hashes match the predecessor's guards.
+Reproduced both exact candidates from the preceding handoff. All input and
+candidate hashes match the guards below. The entire 79-node L3-2 review and
+72-node D.1 review are preserved in history, with original attribution; every
+non-review parsed field is identical. All four actual packets pass the
+pinned-index checker with zero errors (L3 has 26 inherited short-API warnings,
+all others zero). Both candidates pass at canonical paths in a read-only
+context with zero errors/warnings. Actual completion is False; substituting
+only these two records makes it True. No repository packet was substituted.
 
-All four actual packets pass `check_blueprint.py` with the existing declaration
-index at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`: zero errors. Only L3 has warnings,
-its 26 inherited short-API outlines. Both candidates pass with zero errors and
-warnings at their canonical paths in a read-only checker context. All four
-actual packets and all four suggested files remain byte-identical to input.
-Recursive checks find no excerpt fields.
+All four actual packets and all four suggested files retain their input byte
+hashes. No source audit or Lean elaboration was repeated. The report preserves
+previous source and Lean evidence with its original attribution. The current
+read-only upstream commits remain TauCetiRoadmap
+`070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-The unchanged completion rule returns False on the actual repository and True
-under substitution of exactly the two records below. No issue, label, queue,
-completion rule or upstream file was edited. No Lean or source audit was
-repeated. The report preserves all preceding source and elaboration evidence
-with its original attribution.
-
-Current read-only TauCetiRoadmap remains at
-`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti remains at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. PMIA's coordinated
-reader/suggested/consumer revision remains required. The five native results
-in the report postdate programme pin `f790474`.
-
-No Lean source changed. `codex-YXQsbh`'s earlier runs remain that session's
-results: L3 fails before body elaboration on an unknown `research` import;
-L3-2, D.1 and PMIA elaborate with 111, 307 and 1,075 expected proof-placeholder
-warnings only. No process remains running.
+Previous `codex-YXQsbh` Lean results remain that session's checks: L3 fails on
+an unknown `research` import before body elaboration; L3-2, D.1 and PMIA
+elaborate with 111, 307 and 1,075 expected proof-placeholder warnings only.
+No Lean source changed, and no process remains running.
 
 ## Preserved source evidence
 
@@ -141,9 +129,13 @@ A finished review retains PMIA's justified `needs_changes` verdict. No queue
 or predicate change is authorized. Repeating source audits cannot resolve
 this remaining scope mismatch.
 
-## Submission checks for this checkpoint
+## Checkpoint submission
 
-`git diff --check` passes; `intake.py check-files` reports two files and zero
-problems. Changed paths belong to this job. All four packets and four suggested
-files retain their input hashes; no recursive excerpt fields exist. Actual
-completion remains False, and the exact candidate substitution returns True.
+Only this handoff and the review report are changed. The two exact candidates
+were checked and are fully specified above. No mathematical or Lean file was
+edited. Actual completion remains False; approval or live-issue scope repair
+is required before their installation. Do not submit another scope-only
+checkpoint without an external change to that blocker.
+
+Final submission checks: `git diff --check` passes and
+`intake.py check-files` reports two files and zero problems.
