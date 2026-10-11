@@ -29233,9 +29233,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #982"
+   "note": "claimed on GitHub issue #982"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -32259,12 +32259,13 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "claimed on GitHub issue #1036"
+   "note": "deliverables arrived from an external worker on issue #1036",
+   "finishedAt": "2026-10-11T01:07:23Z"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
@@ -34588,8 +34589,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.2",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6291"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6291",
+   "finishedAt": "2026-10-11T01:07:24Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
@@ -80259,8 +80261,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
