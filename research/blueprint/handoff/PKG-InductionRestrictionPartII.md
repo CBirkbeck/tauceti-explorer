@@ -1,20 +1,27 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-XRKr6d`, 11 October 2026.
-Branch: `codex-XRKr6d-induction-restriction-package`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105134626)
-at 03:44:43 UTC, identifying claim comment 6105133704.
-Base atlas commit: `763d46d25cf18f42a878f7e8b6e242ab2b575f83`.
+Codex (GPT-6), session `codex-UZCd0p`, 11 October 2026.
+Branch: `codex-UZCd0p-induction-restriction-package`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105402887)
+at 04:23:50 UTC, identifying claim comment 6105401204.
+Base atlas commit: `5ef4331ec4198234c77f9a74652b98acfd786d96`.
 
 ## Outcome and scope
 
-**Blocked checkpoint.** This submission consolidates the accumulated handoff
-into a resume note and records fresh supplier and validation checks. The
-package README, Suggested.lean and accepted packet are unchanged. No second
-job was claimed. None of the manager's priority issues was in the available
-swarm inventory; no eligible finished-plan or package review was available,
-so this package preceded new planning in the fallback order.
+**Blocked checkpoint.** The README now specifies reuse of native Kronecker
+evaluation and Mathlib's first-homology/abelianization identification. It
+separates the generic evaluation already implemented in Tau Ceti from the
+required group-complex adapter and arbitrary-coefficient UCT. A comment in
+Suggested.lean records the same implementation boundary; all signatures and
+imports are unchanged. The scope paragraph now agrees with RS.6's concrete
+model constructions and the accepted ownership audit: ST.3 identifies their
+arithmetic types, rather than supplying the algebraic carriers.
+
+No second job was claimed. All forty manager-priority issues were checked
+individually: each was done or submitted, none available. No eligible
+finished-plan or package review was available, so this package preceded new
+planning in the fallback order. The accepted packet remains unchanged.
 
 The accepted packet explicitly leaves two prerequisite owners unassigned:
 its first gap covers the native integral homological bridge, and its fifth
@@ -85,27 +92,50 @@ the required arbitrary-coefficient integral bridge.
   gives index multiplication in every degree. Use it for annihilation; finite
   generation and the extension spectral-sequence contracts remain separate.
   Current-only modules cannot be imported into the older compilation pin.
+- At the same Mathlib pin, `groupHomology.H1AddEquivOfIsTrivial`
+  (`RepresentationTheory/Homological/GroupHomology/LowDegree.lean:1023`),
+  its `H1AddEquivOfIsTrivial_single` formula (line 1044),
+  `groupHomology.H1π_comp_map` (`Functoriality.lean:387`) and
+  `TensorProduct.rid` (`LinearAlgebra/TensorProduct/Associator.lean:72`)
+  supply the first-homology input by specialization and tensor-unit
+  composition. The README records the naturality check on generators.
+  This reuses baseline mathematics rather than asking a new owner to
+  reconstruct H₁ or abelianization.
 - At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
   `Subgroup.exists_right_complement'_of_coprime`,
   `GroupTheory/SchurZassenhaus.lean:277`, concludes complement existence.
   Its statement has no conjugacy conclusion.
 
-Fresh primary-source inspection: Löh, *Group Cohomology* (30 July 2019),
-[author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
-Theorem 3.2.12, printed pp.123–124, Proposition 3.2.13 p.124 and
-Remark 3.2.14 p.125, give the natural extension spectral sequence and
-quotient action needed by the bridge. Conrad,
+Two accepted atlas suppliers were also checked by their actual statements:
+
+| Candidate | Why it does not resolve the required contract |
+| --- | --- |
+| `ArithmeticGaloisDuality:D7/finite-group-uct-sylow` (accepted 10 October 2026) | It states a tensor/Tor homological UCT for finite G, integral-coefficient cohomological Ext, finite-field duality and Sylow detection. It does not supply H²(G,A) with the specified Ext injection for arbitrary G and A, or the central-extension five-term comparison and coprime d₃ contract. |
+| `ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate` | Its normal subgroup H is explicitly abelian. RS.5 needs nonabelian H as well. The node's prose names `ArithmeticStatisticsPartIIRandomGammaGroups` as a general supplier, but no packet, reader or suggested artifact with that name exists in this atlas checkout; that prose is not a readable dependency contract. |
+
+`K2SymbolsBrauer:T.1:classical/h1-trivial-perfect` confirms the baseline H₁
+specialization above. Its supplier packet is unnecessary for the package's
+baseline imports; it does not supply the missing degree-two bridge.
+
+Fresh primary-source inspection: Hatcher, *Algebraic Topology*,
+[author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1,
+Theorem 3.2 and the Ext computations and naturality discussion, printed
+pp.195–196, supply the arbitrary-coefficient free-chain UCT. Applying it to
+native group complexes requires the specified adapter and an actual owner.
+Conrad,
 [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
-Example 2 p.1 and Remark 5 p.4, distinguish cyclic-quotient complement
-existence from the conjugacy conclusion. These checks identify the needed
-mathematics; they supply no atlas owner. No source passage or source file was
-added. The cleared-source index was read; no restricted book was obtained.
+Remark 5, printed p.4, distinguishes complement existence from the separate
+conjugacy conclusion; the latter is not proved in those notes. These checks
+supply mathematical references, not ownership assignments. No source passage
+or source file was added. The cleared-source index was read; no restricted
+book was obtained. Earlier Löh source checks remain in the permanent inherited
+handoff linked below.
 
 ## Validation
 
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
   completed with **exit 0, zero errors, 696 warnings, all declaration uses
-  sorry, and zero other warnings**. Preflight showed 101 GiB available. The
+  sorry, and zero other warnings**. Preflight showed 100 GiB available. The
   helper targets Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the
   Mathlib source HEAD and build manifest agree on
   `082e2d37e8b0463410cdb532e111cd43d5a66174`.
@@ -113,24 +143,24 @@ added. The cleared-source index was read; no restricted book was obtained.
   reports **zero errors and zero warnings**: 109 nodes, 124 API items, 96
   tests, 30 planets, 30 baseline declarations, five gaps, one request and six
   planned stages, none closed. This does not close the ownership gaps.
-- All 109 target-name suffixes, 124 API-name suffixes and 96 test labels occur
-  in both package files. This is a name inventory, not a mathematical audit
-  of every inherited statement or finite certificate. The unchanged README
-  is 160,376 bytes, below the 200 KB limit.
-- Local intake validation reports one permitted changed file and zero
+- A fresh inventory finds all 109 target-name suffixes, 124 API-name suffixes
+  and 96 test labels in both package files. This is a name inventory, not a
+  mathematical audit of every inherited statement or finite certificate.
+  The README is 162,085 bytes, below the 200 KB limit.
+- Local intake validation reports three permitted changed files and zero
   problems. `git diff --check` passes. The package completion predicate is
   false because metadata is absent, so this remains a checkpoint.
 
-| Unchanged artifact | SHA-256 |
+| Final artifact | SHA-256 |
 | --- | --- |
 | `packets/InductionRestrictionPartII.json` | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646` |
+| `packages/InductionRestrictionPartII/README.md` | `ea86ca1136cca119b1a5353f8764df3d7d6b8e8b2c0946435ce51cea7c4769ff` |
+| `packages/InductionRestrictionPartII/Suggested.lean` | `e4f37f00401af86cd6e9c50b4128bc054669e8abb128828aa6719591b3e0fc88` |
 
 ## Inherited receipts and continuation
 
-The full accumulated notes are permanently retained in
-[the handoff at the base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/763d46d25cf18f42a878f7e8b6e242ab2b575f83/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
+The preceding checkpoint and links to the full accumulated notes are retained in
+[the handoff at the base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/5ef4331ec4198234c77f9a74652b98acfd786d96/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
 They include finite-model calculations, source hashes, the nonsplit C₄→C₂
 UCT test, oriented extension maps, the noncentral C₃⋊C₂ tail test, the
 coprime-edge d₃ argument and the complement-conjugacy tests. Those receipts
@@ -144,9 +174,11 @@ models; 22/23 use Heisenberg graph/sum models; 30/31 use inverse transpose
 on SL₃(𝔽₂) and its full wreath model. Further details and calculation
 provenance remain in the permanent inherited handoff.
 
-After the planning amendment, reconcile every dependency and native
-interface, complete the package audit, rerun the checks and add
-`metadata.toml` with `topic = "math.GR"`. Metadata remains absent now:
+Resume with a maintainer planning amendment assigning the five contracts,
+including the exact group-complex comparison; merely repeating the package
+pass cannot change the explicit unassigned gaps. Then reconcile every
+dependency and native interface, complete the package audit, rerun the checks
+and add `metadata.toml` with `topic = "math.GR"`. Metadata remains absent now:
 `issues.deliverables_complete` otherwise classifies the package by output
 existence and would treat this unresolved checkpoint as a completed job.
 No scratch artifact is needed to resume.
