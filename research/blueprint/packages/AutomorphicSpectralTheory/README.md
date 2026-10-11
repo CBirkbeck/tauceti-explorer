@@ -1,18 +1,30 @@
 # Automorphic spectral theory and trace distributions
 
-## Scope and prerequisites
+This roadmap builds the spectral theory of automorphic forms on a connected reductive group G over a number field F and the trace distributions made from it. Its centre is Langlands' decomposition of L²(G(F)\G(𝔸)¹): Eisenstein series induced from cuspidal data, their continuation and functional equations, the residual spectrum of their residues, and the unitary spectral transform. Arthur's truncation and the Maass–Selberg relations compute the inner products; the same tools give the coarse, fine and invariant trace formulas, with weighted orbital integrals and weighted characters as local terms, and the L²-Lefschetz formula. Franke's weighted L² complexes connect the spectrum with the cohomology of arithmetic groups. For everywhere-unramified GLₙ over 𝔽_q(X) the roadmap computes the fixed-degree trace used to count ℓ-adic local systems, and on SL₂(ℤ)\ℍ and Γ₀(N)\ℍ it gives the explicit rank-one formulas (Poincaré series, Green kernels, Whittaker and Legendre integrals) used by Gross–Zagier and Duke–Imamoğlu–Tóth. Layer AS.0 supplies the functional analysis needed beyond the operator-theory roadmaps.
 
-Spectral measures/calculus: **SelfAdjointSpectralTheory**; Schatten theory: **OperatorIdeals**; Peter–Weyl: **CompactGroups**. AS: direct integrals, multiplicities, L² kernels, traces, noncompact smoothing.
+## Scope and neighbouring roadmaps
 
-**AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS: rational Bruhat indices and intertwiner estimates.
+From Tau Ceti roadmaps:
 
-**AutomorphicFormsOnReductiveGroups** AF.0–AF.3: functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5: cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3: Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS: GL×classical, exterior/symmetric and Asai factors.
+- **OperatorTheory/SelfAdjointSpectralTheory** owns projection-valued measures, the bounded Borel calculus, Stone's theorem and the spectral measure of an unbounded self-adjoint operator (its targets SA-B, SA-D and SA-E); **OperatorTheory/OperatorIdeals** owns Schatten classes and Hilbert–Schmidt operators (OI-B, OI-C); **RepresentationTheory/CompactGroups** owns the Peter–Weyl theorem. AS.0.5 and AS.0.7–AS.0.10 add only the direct-integral models and the trace API used here.
+- **AdelicAlgebraicGroups** supplies restricted Haar products (Layer 0), rational characters, the logarithmic height and G(𝔸)¹ (§2.1), parabolic modulus characters and homogeneous integration (§2.2), quotient measures on G(F)\G(𝔸)¹ (§2.3), Levi decompositions and Iwasawa integration (§3.1), adelic Siegel sets and reduction (§3.4) and heights (§3.5). Citations such as `AA.2/quotient-norm-one-comparison` name targets in these sections. **ReductiveGroupsPartII** supplies local points, parabolic subgroups and the L-group.
+- **SmoothRepresentationsOfLocalGroups** supplies Hecke algebras (SR.1), smooth and parabolic induction and Jacquet modules (SR.2), admissible, tempered and finite-length representations with the Langlands classification (SR.3), and spherical representations with the Satake isomorphism (SR.4).
+
+From other roadmaps:
+
+- **AutomorphicFormsOnReductiveGroups**: smooth adelic functions (AF.0), Harish-Chandra modules, infinitesimal characters, normalized real parabolic induction and relative Lie algebra cochains (AF.1, AF.1a), restricted tensor products (AF.2), and constant terms, cusp forms and the discreteness of the cuspidal spectrum (AF.3). **ArithmeticLocallySymmetricSpaces** ALS.5: the de Rham comparison and cuspidal cohomology. **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3: Fourier–Laplace inversion, the K-Bessel function `AL.0/bessel-k`, Hecke, Godement–Jacquet and Rankin–Selberg L-functions.
+
+Boundaries:
+
+- This roadmap constructs ordinary orbital integrals (AS.6.8a), discrete-series pseudo-coefficients (AS.6.16a) and the generic packets of classical groups (AS.2.6a) that its trace formulas and intertwining-operator theorems use. Stable orbital integrals, endoscopic transfer and the stabilization of the trace formula are not part of it; the roadmaps that build them import these targets.
+- The local Langlands correspondence for general linear groups and the tempered local Langlands correspondence for quasi-split classical groups and their pure inner forms enter only as data: AS.2.6a–AS.2.12 take a tempered packet with its generic member as a hypothesis, as ramified comparisons take a compatible local parameter. Their existence is not proved here.
+- The arithmetic Green functions and heights of Gross–Zagier are not constructed here; AS.2.24 stops at the analytic resolvent kernel.
 
 ## Conventions and order
 
 Use complete complex Hilbert spaces, conjugate-first inner products, countable fundamental sequences and a.e. equality. Projection measures are strongly countably additive; traces require trace class and diagonals require representatives or factorization.
 
-Induction: δ_P^(1/2)=a^ρ_P; AA.0/AA.2 quotient measures. Track Weyl denominators, covolumes, stabilizer orders. (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
+Induction: δ_P^(1/2)=a^ρ_P; AA.0/AA.2 quotient measures. Track Weyl denominators, covolumes, stabilizer orders. (A−zI)⁻¹ is minus Mathlib's (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
 Conventions Y, D, G:
 
@@ -25,9 +37,9 @@ For F=y^(k/2)f,
 
 Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6 imports `AF.1/normalized-real-parabolic-induction`: covariance a^(ν+ρ_P)σ(m), right translation, K∩M_P compact picture and induction in stages; Paley–Wiener requires holomorphic finite-K-type families. Its trace suffix uses orbital integrals, pseudo-coefficients and Bernstein trace images; modular cores use oriented quadratic cycles with genus signs.
 
-`TauCeti.AutomorphicSpectral`; AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B/S: library/sources.
+Names live in `TauCeti.AutomorphicSpectral`. AS.k.j numbers targets; AA, SR, AF, AF.1a, AL and ALS name the layers above; B and S label the library declarations and sources listed at the end. Targets are grouped by layer; the Uses lines give the acyclic construction order inside a layer.
 
-`SpecialFunctions` requires I/J to agree with QM.2's principal-power regularized ₀F̃₁ formulas, at +y²/4 and −y²/4; K uses AL.0's Mellin integral; Λ uses native `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
+Rank-one special functions: J_ν and I_ν are AS.0.25a (principal-power regularized ₀F̃₁ at −y²/4 and +y²/4), K_ν is `AL.0/bessel-k` (its Mellin integral) and Λ is Mathlib's `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
 
 ## AS.0 — Hilbert fields, vector analysis and rank-one kernels
 
@@ -40,13 +52,11 @@ A measurable Hilbert field over a standard Borel X has complete complex fibres H
 Assume: X is standard Borel; fibres are separable; inner products conjugate the first variable.
 
 API:
-
 - `ofFundamental`: A sequence with measurable pairwise Gram entries and pointwise dense span generates exactly one saturated measurable-section space.
 - `mem_iff_pairing`: s∈M iff its pairings with every fundamental section are measurable.
 - `map_isometry`: A fibrewise unitary carrying one fundamental sequence to measurable sections transports M; identity and composition agree.
 
 Tests:
-
 - `constant_scalar`: For the standard constant ℂ field, with the constant-one section in M, M is exactly the measurable complex functions.
 - `zero_fibre`: If every fibre is zero, M contains the unique section.
 - `fundamental_change`: Adding measurable limits of finite rational combinations to a fundamental sequence leaves M unchanged.
@@ -64,14 +74,12 @@ For a measurable Hilbert field and a σ-finite Borel measure μ, form square-int
 Assume: The field is measurable in the preceding saturated/countable sense; μ is σ-finite.
 
 API:
-
 - `mk`: A measurable square-integrable section has a canonical class.
 - `mk_eq_mk`: Two such classes agree iff the sections agree μ-almost everywhere.
 - `inner_mk`: The inner product of classes is the integral of fibre inner products.
 - `reindex`: A measure-preserving Borel isomorphism and measurable fibrewise unitaries induce a unitary reindexing map.
 
 Tests:
-
 - `scalar_L2`: The standard constant ℂ field, with the constant-one section in M, identifies unitarily with L²(μ;ℂ).
 - `two_atoms`: For μ=aδ₀+bδ₁ with a,b>0, ‖(v₀,v₁)‖²=a‖v₀‖²+b‖v₁‖².
 - `null_singleton`: Changing a section on a μ-null singleton leaves its class unchanged even when its value changes.
@@ -89,13 +97,11 @@ An operator field Aₓ:Hₓ→Kₓ is measurable when it carries every measurabl
 Assume: σ-finite standard Borel base; measurable separable fields; essentially bounded operator norm.
 
 API:
-
 - `apply_mk`: D(A)[s]=[Aₓsₓ].
 - `norm_eq_essSup`: ‖D(A)‖=ess supₓ‖Aₓ‖.
 - `adjoint`: D(A)⁎=D(A⁎); D(B∘A)=D(B)∘D(A).
 
 Tests:
-
 - `identity`: For the identity operator field, its decomposable operator is the identity on the direct integral and has norm one on a nonzero scalar fibre model.
 - `null_change`: Changing A on a null set induces the same operator.
 - `unbounded_multiplier`: Multiplication by the real coordinate on L²(ℝ) has no bounded extension agreeing almost everywhere on all compactly supported vectors.
@@ -120,35 +126,31 @@ Uses: AS.0.2.
 
 `projection_valued_measure`
 
-Consume SelfAdjointSpectralTheory SA-B14–SA-B33; the listed API/tests specify the real spectral-coordinate adapter.
-
-A projection-valued measure E on ℝ (or ℂ for a bounded normal operator) assigns an orthogonal projection E(B) to each Borel set, with E(∅)=0, E(total)=1 and strong countable additivity on disjoint Borel sets. Strong additivity means convergence after application to each vector; operator-norm additivity is not imposed. The scalar measure μᵥ(B)=⟪v,E(B)v⟫ is positive with total mass ‖v‖².
+Projection-valued measures, with strong (not norm) countable additivity, are SelfAdjointSpectralTheory's (SA-B14–SA-B33). This target fixes the form used here: Borel sets of ℝ (of ℂ for bounded normal operators), scalar measures μᵥ(B)=⟪v,E(B)v⟫ of mass ‖v‖², and the statements below.
 
 Assume: H is a complete complex Hilbert space.
 
 API:
-
 - `scalarMeasure`: E gives positive finite scalar measures μᵥ and polarized complex measures μᵤ,ᵥ.
 - `inter`: E(B)E(C)=E(B∩C) for Borel B,C.
 - `borelIntegral`: Bounded Borel functions integrate to bounded operators, with indicators mapping to E(B).
 
 Tests:
-
 - `finite_diagonal`: For diag(a,b), E(B)=diag(1_B(a),1_B(b)).
 - `empty`: E(∅)=0 and E(total)=1, including the zero Hilbert space.
 - `multiplication`: On L²(ℝ), E(B) is multiplication by 1_B.
 
 Source: S2, §3.1 equations (3.5)–(3.15); PDF page 100.
 
-Uses: the stated native analytic/Hilbert-space interfaces.
+Uses: SelfAdjointSpectralTheory SA-B14–SA-B33.
 
 ### AS.0.6 — Herglotz representation
 
 `herglotz_representation`
 
-Consume Tau Ceti's `exists_isFiniteMeasure_eq_nevanlinnaKernel_add`: a holomorphic F with Im F≥0 on the upper half-plane has F(z)=a+bz+∫(1+tz)/(t−z)dρ(t), with ρ finite positive, a=Re F(i) and b≥0. Convert by dν=(1+t²)dρ to F(z)=a+bz+∫[(t−z)⁻¹−t/(1+t²)]dν; establish uniqueness in this convention. For resolvents, identify b=0 and finite mass by the asymptotic at i∞; polarize to reconstruct the spectral measure.
+Tau Ceti's `exists_isFiniteMeasure_eq_nevanlinnaKernel_add` gives: a holomorphic F with Im F≥0 on the upper half-plane has F(z)=a+bz+∫(1+tz)/(t−z)dρ(t), with ρ finite positive, a=Re F(i) and b≥0. Convert by dν=(1+t²)dρ to F(z)=a+bz+∫[(t−z)⁻¹−t/(1+t²)]dν; establish uniqueness in this convention. For resolvents, identify b=0 and finite mass by the asymptotic at i∞; polarize to reconstruct the spectral measure.
 
-Adapter API: `weightedMeasure` preserves positivity; `weighted_mass` gives ∫(1+t²)⁻¹dν=ρ(ℝ); `integral_conversion` equates the integrable kernels. Tests: ρ=0 gives ν=0; ρ=δ₂ gives ν=5δ₂ and weighted mass 1.
+API: `weightedMeasure` preserves positivity; `weighted_mass` gives ∫(1+t²)⁻¹dν=ρ(ℝ); `integral_conversion` equates the integrable kernels. Tests: ρ=0 gives ν=0; ρ=δ₂ gives ν=5δ₂ and weighted mass 1.
 
 Assume: The sign is the resolvent convention (A−z)⁻¹; a resolvent written (z−A)⁻¹ has the opposite sign.
 
@@ -160,9 +162,7 @@ Uses: Tau Ceti `Analysis.Complex.Pick.Nevanlinna`; Mathlib `Measure.withDensity`
 
 `unbounded_selfadjoint_spectral`
 
-Consume SelfAdjointSpectralTheory SA-E01–SA-E47 and its native LinearPMap interface. The additional target here is the separable measurable-multiplicity/direct-integral model.
-
-For a densely defined self-adjoint partial linear map A on H there is a unique projection-valued measure E on ℝ with A=∫t dE(t), domain {v:∫t²dμᵥ(t)<∞}. The bounded Borel calculus satisfies f(A)⁎=conj(f)(A), multiplication, and dominated strong convergence. For general Borel f, the domain is {v:∫|f|²dμᵥ<∞}; real f gives self-adjoint f(A). If H is separable, a unitary multiplication model is a countable sum of cyclic L² measures, hence a measurable-multiplicity direct integral. This extends, and agrees with, the existing Stone correspondence.
+The spectral theorem A=∫t dE(t) for a self-adjoint `LinearPMap`, with domain {v:∫t²dμᵥ<∞} and its Borel calculus, is SelfAdjointSpectralTheory's (SA-E01–SA-E47). The target here: if H is separable, A is unitarily equivalent to multiplication by the coordinate on a countable Hilbert sum of cyclic spaces L²(ℝ,μₙ), hence on a measurable-multiplicity direct integral (AS.0.2), compatibly with Stone's correspondence.
 
 Assume: A is self-adjoint, not merely symmetric or essentially self-adjoint on an unspecified domain.
 
@@ -174,9 +174,7 @@ Uses: AS.0.5; AS.0.6; AS.0.2; B12.
 
 `bounded_normal_spectral`
 
-Consume SelfAdjointSpectralTheory SA-B01–SA-B36 for the normal bounded Borel calculus; construct its measurable-multiplicity/direct-integral model here.
-
-For a bounded normal operator N on a separable complex Hilbert space there is a unique projection-valued Borel measure on its compact spectrum in ℂ with N=∫z dE(z). Its bounded Borel calculus extends the continuous functional calculus and gives a multiplication direct-integral model, including multiplicities. This is a spectral-measure extension; the existing finite-dimensional self-adjoint eigenbasis is the finite atomic special case.
+The bounded normal Borel calculus N=∫z dE(z) on the compact spectrum is SelfAdjointSpectralTheory's (SA-B01–SA-B36). The target here: on a separable space N is unitarily equivalent to coordinate multiplication on a measurable-multiplicity direct integral over its spectrum; the finite-dimensional eigenbasis is the atomic case.
 
 Assume: N⁎N=NN⁎; H is separable and complete.
 
@@ -188,20 +186,16 @@ Uses: AS.0.7; AS.0.5; AS.0.2; B21.
 
 `hilbert_schmidt`
 
-Consume OperatorIdeals OI-B32–OI-B41, OI-B90 and OI-C01–OI-C14. The new target here identifies general L² kernels with these imported operators, extending the continuous compact-kernel case of CompactGroups.
-
-For a bounded operator A:H→K between separable Hilbert spaces define the squared Hilbert–Schmidt norm by Σ_j‖Ae_j‖² for any orthonormal basis of H. Finiteness is basis independent. These operators form a complete normed vector space and a two-sided operator ideal; finite-rank operators are dense in this norm. On scalar L² spaces, a square-integrable kernel gives a Hilbert–Schmidt operator with exactly its kernel L² norm.
+Hilbert–Schmidt operators, their basis-independent norm ‖A‖HS²=Σ_j‖Ae_j‖² and ideal inequalities are OperatorIdeals' (OI-B32–OI-B41, OI-B90, OI-C01–OI-C14). The target here: on scalar L² spaces a square-integrable kernel gives a Hilbert–Schmidt operator with exactly its kernel L² norm, extending the continuous compact-kernel case of CompactGroups.
 
 Assume: Complete separable complex Hilbert spaces; countable orthonormal bases.
 
 API:
-
 - `norm_basis`: ‖A‖HS²=Σ_j‖Ae_j‖² for every orthonormal basis.
 - `ideal_bound`: ‖BAC‖HS≤‖B‖‖A‖HS‖C‖.
 - `kernel_norm`: For K∈L²(X×Y), the integral operator has HS norm ‖K‖₂.
 
 Tests:
-
 - `rank_one`: For v↦⟪u,v⟫w, ‖A‖HS=‖u‖‖w‖.
 - `infinite_identity`: On a Hilbert space with an ℕ-indexed Hilbert basis the identity has no Hilbert–Schmidt representative.
 - `finite_identity`: On an n-dimensional Hilbert space the actual identity is Hilbert–Schmidt and has Hilbert–Schmidt norm √n.
@@ -214,21 +208,19 @@ Uses: B2; B1; B22.
 
 `trace_class`
 
-Consume OperatorIdeals OI-B29–OI-B30, OI-B46–OI-B52 and OI-B83 for the trace-class carrier and gauge. Construct the basis-independent complex operator trace and the displayed trace API here.
+The trace-class ideal and its gauge are OperatorIdeals' (OI-B29–OI-B30, OI-B46–OI-B52, OI-B83). The basis-independent complex trace and the API below are the target here.
 
-A bounded operator A on a separable Hilbert space is trace class iff its singular values are summable, equivalently A=BC for two Hilbert–Schmidt operators. Define ‖A‖₁=Σs_j(A) and tr A=Σ⟪e_j,Ae_j⟫. The diagonal series is absolutely convergent and basis independent, |tr A|≤‖A‖₁, and tr(AD)=tr(DA) for bounded D. Trace norm convergence permits passage through trace, unlike strong convergence alone.
+Trace class means summable singular values, equivalently A=BC with B,C Hilbert–Schmidt; ‖A‖₁=Σs_j(A). Define tr A=Σ⟪e_j,Ae_j⟫. The diagonal series is absolutely convergent and basis independent, |tr A|≤‖A‖₁, and tr(AD)=tr(DA) for bounded D. Trace norm convergence permits passage through trace, unlike strong convergence alone.
 
 Assume: Trace is operator trace, with the first inner-product slot conjugated.
 
 API:
-
 - `trace_basis`: tr A=Σ_j⟪e_j,Ae_j⟫ with absolute convergence for any basis.
 - `mul_hs`: BC is trace class and ‖BC‖₁≤‖B‖HS‖C‖HS.
 - `trace_cyclic`: For trace-class A and bounded D, tr(AD)=tr(DA).
 - `trace_continuous`: |tr(A−B)|≤‖A−B‖₁.
 
 Tests:
-
 - `rank_one_trace`: tr(v↦⟪u,v⟫w)=⟪u,w⟫.
 - `diagonal_harmonic`: The bounded diagonal operator with basis coefficients 1/(n+1) is Hilbert–Schmidt and has no trace-class representative.
 - `projection_trace`: An orthogonal projection of rank r has trace and trace norm r.
@@ -258,14 +250,12 @@ For Hausdorff locally convex complex E, define Fréchet by completeness and a co
 Assume: A countable exhaustion and a second-countable finite-dimensional real Lie group are fixed; nonarchimedean test functions are locally constant.
 
 API:
-
 - `supportLevelPiece`: Compact support and finite level define a nuclear Fréchet subspace with seminorms sup‖D f‖.
 - `inclusion`: Increasing support and lowering finite level give continuous closed embeddings and their induced LF maps.
 - `bounded_stage`: A bounded set in the strict LF test space is contained and bounded in one Fréchet stage.
 - `distributionDual`: Continuous complex-linear functionals form the strong and weak distribution duals with their named topologies.
 
 Tests:
-
 - `finite_group`: The constant finite-group function stages induce exactly the usual finite-dimensional topology on their function space.
 - `real_line`: For real smooth compactly supported tests, the support-stage construction agrees with Mathlib TestFunction topology, and each fixed-support stage embeds as a closed subspace.
 - `escaping_support`: The translates by n of a fixed nonzero real test function are not von Neumann bounded in the actual LF topology; failure of a common support alone is not the conclusion.
@@ -295,13 +285,11 @@ For Hausdorff locally convex E,F, the completed projective tensor product E⊗̂
 Assume: The completion and separated quotient are explicit; the universal target is complete.
 
 API:
-
 - `tensor`: The canonical continuous bilinear map sends (e,f) to e⊗f.
 - `lift`: Each continuous bilinear b:E×F→H, H complete, has a unique continuous linear extension.
 - `map_comp`: Continuous maps on both factors induce tensor maps respecting identity and composition.
 
 Tests:
-
 - `scalar_unit`: ℂ⊗̂πE≅E for complete E, by z⊗e↦ze.
 - `finite_matrix`: ℂᵐ⊗̂πℂⁿ≅ℂ^(m×n).
 - `zero`: If either factor is zero, the completed product is zero.
@@ -319,13 +307,11 @@ For finite-dimensional real V and quasi-complete locally convex E, define 𝓢(V
 Assume: V finite dimensional; E Hausdorff quasi-complete; tensor identification assumes the stronger stated completeness/nuclearity.
 
 API:
-
 - `tensor_apply`: (φ⊗e)(v)=φ(v)e.
 - `map`: A continuous linear map E→F acts pointwise continuously on Schwartz spaces.
 - `fourier`: The vector Fourier transform commutes with continuous scalar functionals and is a continuous automorphism with the dual Haar normalization.
 
 Tests:
-
 - `scalar`: For E=ℂ this agrees with Mathlib SchwartzMap.
 - `gaussian_tensor`: The transform of e^(−π‖v‖²)e is the same Gaussian times e for self-dual Euclidean measure.
 - `constant`: A nonzero constant E-valued map on ℝ is not Schwartz.
@@ -343,13 +329,11 @@ On a finite-dimensional complex parameter domain U, a continuous-operator family
 Assume: One common denominator and the specified bounded-set topology are essential.
 
 API:
-
 - `regularize`: Strong meromorphy is equivalent to a local common scalar denominator giving bounded-set holomorphy.
 - `coefficient`: A transverse Laurent coefficient is obtained by a continuous vector Cauchy integral.
 - `compose`: Continuous fixed pre- and post-composition commute with regularization and Laurent coefficients.
 
 Tests:
-
 - `scalar_pole`: For A(z)=z⁻¹id, the residue at 0 is id and is infinite rank when E is infinite dimensional.
 - `removable`: A holomorphic family has zero negative Laurent coefficients.
 - `pointwise_orders`: For the direct-sum family with nth coordinate z^(−n), every finitely supported vector has a local denominator, but no common exponent and radius regularize all basis vectors.
@@ -403,13 +387,11 @@ Let w permute equal-rank blocks of M. Index its nonempty cycles by j, with lengt
 Assume: Compact abelian Lie groups with probability Haar, including disconnected components; smoothness and finite covering assumptions in the statement.
 
 API:
-
 - `cycleTori`: Construct closed subgroups T,A,B,B0 of finite products of Circle from positive integral cycle/rank data.
 - `componentProduct`: The map B→∏_j μ_(d_j), v↦(∏_t v_(j,t))_j is onto with connected kernel B0.
 - `embedCentral`: A embeds by repeating u_j in its l_j coordinates, and its intersection with B0 is ∏_j μ_(l_j).
 
 Tests:
-
 - `test1`: For one cycle l=2,d=1: A=μ₂, B=B0={(z,z⁻¹)}.
 - `test2`: For one cycle l=1,d=2: B=μ₂ while B0={1}; replacing B by its identity component loses two points.
 - `test3`: For w=1, every l_j=1, A=T and B=∏_j μ_(d_j), with B0={1}.
@@ -451,13 +433,11 @@ For a continuous surjective homomorphism p:H→K of compact abelian Lie groups w
 Assume: Compact abelian Lie groups with probability Haar, including disconnected components; smoothness and finite covering assumptions in the statement.
 
 API:
-
 - `transfer`: Use any lift x of y and average f(x*k) over k∈ker p; prove lift independence.
 - `integralTransfer`: For continuous f, ∫_K Tr_p f=∫_H f, by kernel averaging, Haar invariance and142.
 - `pullbackTransfer`: For continuous g on K, Tr_p(g∘p)=g; for a character χ of H the transfer vanishes unless χ is trivial on ker p, in which case it is the descended character.
 
 Tests:
-
 - `test1`: Tr_id f=f and Tr_p 1=1 for every nonempty finite fibre.
 - `test2`: For the circle square-cover, normalized transfer of z² is the target coordinate and transfer of z is zero.
 - `test3`: For the same degree-two cover the normalized transfer of one is one, whereas the unnormalized kernel sum is two.
@@ -490,6 +470,28 @@ Source: S19, §5.2.3, equation (5.2.12), printed p.35; smooth Fourier justificat
 
 Uses: B2; B13; B14; B15.
 
+### AS.0.25a — Bessel functions J_ν and I_ν
+
+`bessel_j`, `bessel_i`
+
+For ν∈ℂ and real y, J_ν(y)=(y/2)^ν ₀F̃₁(;ν+1;−y²/4) and I_ν(y)=(y/2)^ν ₀F̃₁(;ν+1;y²/4), where (y/2)^ν is Mathlib's principal complex power and ₀F̃₁ is Mathlib's entire regularized hypergeometric function `Complex.regularizedHGFun`. Equivalently J_ν(y)=Σ_{k≥0}(−1)^k(y/2)^{ν+2k}/(k!Γ(ν+k+1)) and I_ν drops the sign, with 1/Γ read as entire, so every order is allowed. At y=0 Mathlib's 0^0=1 gives I₀(0)=J₀(0)=1.
+
+Assume: ν∈ℂ arbitrary; statements about derivatives are for y>0.
+
+API:
+- `bessel_j_series`, `bessel_i_series`: the displayed power series converge absolutely for every y.
+- `bessel_j_ode`, `bessel_i_ode`: for y>0, y²w″+yw′+(y²−ν²)w=0 for w=J_ν and y²w″+yw′−(y²+ν²)w=0 for w=I_ν.
+- `bessel_j_recurrence`: J_{ν−1}(y)+J_{ν+1}(y)=(2ν/y)J_ν(y) for y>0.
+
+Tests:
+- `bessel_j_half`: J_{1/2}(y)=√(2/(πy)) sin y for y>0.
+- `bessel_i_half`: I_{1/2}(y)=√(2/(πy)) sinh y for y>0, so I is not J with the sign of y² forgotten.
+- `bessel_j_neg_int`: J_{−n}=(−1)^n J_n for integers n≥0; a definition dividing by Γ instead of using 1/Γ fails here.
+
+Source: [DLMF](https://dlmf.nist.gov/10) 10.2.1, 10.2.2, 10.4.1, 10.6.1, 10.16.1, 10.16.9, 10.25.1, 10.25.2 and 10.39.1.
+
+Uses: B7; B8.
+
 ### AS.0.26 — Whittaker M and W functions
 
 `dit_112`
@@ -499,13 +501,11 @@ For y>0 put M_{μ,ν}(y)=Γ(1+2ν)e^(−y/2)y^(ν+1/2) regularized ₁F₁(ν−
 Assume: y>0; initial Euler-integral assumptions Re(ν±μ+1/2)>0; continuation excludes uncompensated gamma poles.
 
 API:
-
 - `eulerIntegral`: For y>0 and Re(ν±μ+1/2)>0, the series-defined M agrees with its displayed Euler integral; W is defined by the convergent tail integral in this region and continued separately.
 - `hypergeometricSeries`: For Re(s)>0, M_{μ,s−1/2}(y)=e^(−y/2)y^s Γ(2s)·regularized ₁F₁(s−μ;2s;y), using Mathlib Complex.regularizedHGFun with singleton numerator and denominator multisets.
 - `decayingNormalization`: At positive infinity, W has leading term y^μ exp(−y/2), fixing its scale.
 
 Tests:
-
 - `test1`: M_{0,1/2}(y)=2 sinh(y/2).
 - `test2`: At μ=1, ν=1/2 and y>0, M_{1,1/2}(y)=y e^(−y/2), so the growing-asymptotic coefficient vanishes.
 - `test3`: For t>0, M_{0,1/2}(2t sin(π/2))=2 sinh(t); replacing the argument by t sin(π/2) gives the wrong value.
@@ -522,7 +522,7 @@ For y>0 and Re(ν+1/2)>0, I_ν(y)=2^(−2ν−1/2)Γ(ν+1)⁻¹y^(−1/2)M_{0,ν
 
 Source: S22, DIT11 Appendix A, (A.1)–(A.2) and the Bessel comparisons, p.977.
 
-Uses: B7; B8; B9; rank-one special-function input contract; AL.0/bessel-k; I-Bessel rank-one definition; AS.0.26.
+Uses: B7; B8; B9; AS.0.25a; `AL.0/bessel-k`; AS.0.26.
 
 ### AS.0.28 — Whittaker differential and asymptotic API
 
@@ -542,7 +542,7 @@ For Re(ν)>0 and complex β, ∫_0^π e^{iβθ}sin^(ν−1)θ dθ=πe^{iπβ/2}�
 
 Source: S21, AppendixA, p984; [23]3.892(1).
 
-Uses: AS.0.26; B5; B10; J-Bessel rank-one definition; AS.0.27.
+Uses: AS.0.26; B5; B10; AS.0.25a; AS.0.27.
 
 ### AS.0.30 — New Whittaker cycle integral
 
@@ -552,7 +552,7 @@ For μ∈C,t>0,Re(s)>0, ∫_0^π exp(±i(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)d
 
 Source: S21, Lemma 7, display (9.4), p. 980 (statement); restated as (A.1), Appendix A, p. 983; proof Appendix A, pp. 983–985.
 
-Uses: AS.0.26; B5; B10; J-Bessel rank-one definition.
+Uses: AS.0.26; B5; B10; AS.0.25a.
 
 ### AS.0.31 — Endpoint-justified integration by parts for both signs
 
@@ -582,7 +582,7 @@ For μ ∈ ℂ, Re(s) > 0, t > 0: G(s,μ) t^{1/2} J_{s−1/2}(t) = π^{3/2} e(μ
 
 Source: S21, Appendix A, (A.3), p. 985.
 
-Uses: AS.0.26; B5; B10; J-Bessel rank-one definition.
+Uses: AS.0.26; B5; B10; AS.0.25a.
 
 ### AS.0.34 — Agreement of the first coefficients of (A.2) and (A.3)
 
@@ -601,13 +601,11 @@ Uses: AS.0.26; B5; B10.
 For t>1 and complex s with Re(s)>0, define Q_{s−1}(t)=∫₀∞(t+√(t²−1)cosh u)^(−s)du with the positive real base. It equals Γ(s)²/[2Γ(2s)](2/(1+t))^s ₂F₁(s,s;2s;2/(1+t)), satisfies ((1−t²)Q′)′+s(s−1)Q=0, and for integer s=k≥1 equals the Q_{k−1} of GZ IV(5.7). In particular Q₀(t)=½log((t+1)/(t−1)) and Q₁(t)=tQ₀(t)−1.
 
 API:
-
 - `integral`: Use the positive-base convergent integral for Re(s)>0.
 - `hypergeometric`: Compare with the displayed ₂F₁ formula on its open-disc argument.
 - `integer_specialization`: The integer k case is the same Q_{k−1}, with Q₀,Q₁ as stated.
 
 Tests:
-
 - `q_zero`: At s=1, Q₀(3)=½log2.
 - `q_one`: At s=2, Q₁(3)=3/2 log2−1.
 - `boundary`: t=1 has a logarithmic singularity and is excluded from the ordinary pointwise definition.
@@ -633,13 +631,11 @@ Uses: B7; B9; B5; AS.0.35.
 g(z, z′) = log(|z − z′|²/|z̄ − z′|²) satisfies a′) g(γz, γz′) = g(z, z′) for γ ∈ PSL₂(ℝ); b′) continuous and harmonic in each variable on 𝔥 × 𝔥 ∖ diagonal; c′) g = log|z − z′|² + O(1) as z′ → z; but Σ_{γ ∈ Γ₀(N)} g(z, γz′) diverges (barely). For s > 1, g_s(z, z′) = −2Q_{s−1}(1 + |z − z′|²/(2yy′)) (z ≠ z′) (2.9) satisfies a′), c′) (by (2.7)) and Δg_s = s(s−1)g_s in each variable; g₁ = g. The positive spectral Laplacian convention of DIT is −Δ_GZ, so its eigenvalue here is s(1−s).
 
 API:
-
 - `invariant`: Simultaneous PSL₂(ℝ) action preserves g_s.
 - `s_one`: At s=1, −2Q₀(cosh dist)=log(|z−z′|²/|z−bar z′|²).
 - `laplace`: Off the diagonal, Δ_GZ g_s=s(s−1)g_s in either variable.
 
 Tests:
-
 - `symmetry`: g_s(z,z′)=g_s(z′,z).
 - `singularity`: The diagonal value is not a finite smooth kernel.
 - `bare_sum`: The Γ₀(N) sum at s=1 diverges; subtract the pole before taking the finite part.
@@ -665,16 +661,14 @@ Uses: B7; B9; B5; AS.0.35.
 Fix k ≥ 1. For s ∈ ℂ with Re(s) > 1−k and t ∈ ℝ: V_s(t) = ∫_{−∞}^{∞} e^{−2πixt} dx / ((x+i)^{2k−1}(x²+1)^s). This is the Fourier transform of x ↦ (x+i)^{−(2k−1)}(x²+1)^{−s}, which is absolutely integrable exactly when Re(s) > 1−k.
 
 API:
-
 - `fourier_integral`: V_s is the explicit Lebesgue Fourier integral in Re(s)>1−k.
 - `integrable_iff`: The seed norm is integrable exactly for Re(s)>1−k.
 - `parameter_derivative`: Differentiate in a compact sub-half-plane using the logarithmic majorant.
 
 Tests:
-
 - `k_one`: At k=1, the initial absolutely integrable domain is Re(s)>0.
 - `threshold`: At Re(s)=1−k the seed norm decays like |x|⁻¹ and is not integrable.
-- `zero_frequency`: t=0 equals the gamma formula in AS.0/gz-212.
+- `zero_frequency`: t=0 equals the gamma formula in AS.0.40.
 
 Source: S29, Chapter IV, (3.2) Proposition, p. 277.
 
@@ -738,7 +732,7 @@ For t > 0: V*_s(t) = i Σ_{a,b,c≥0, 2a+b+c=2k−1} (−1)^{k−a}(2k−1)!/((2
 
 Source: S29, Chapter IV, §3, proof of (3.3), p. 280.
 
-Uses: B9; B5; AS.0.39; AS.0.26; rank-one special-function input contract; AL.0/bessel-k.
+Uses: B9; B5; AS.0.39; AS.0.26; AS.0.25a; `AL.0/bessel-k`.
 
 ### AS.0.46 — Entire continuation of Schwartz families
 
@@ -775,14 +769,12 @@ Fix P=MN and a discrete unitary representation σ of M(𝔸)¹, with its automor
 Assume: F is a number field; G is connected reductive; compatible Iwasawa measures have vol K=vol(N(F)\N(𝔸))=1; work on G(𝔸)¹ or quotient A_G(ℝ)⁰ throughout.
 
 API:
-
 - `action_comp`: I_P(λ,gh)=I_P(λ,g)I_P(λ,h).
 - `unitary_axis`: For λ imaginary, I_P(λ,g) is unitary.
 - `flat_section`: A fixed φ∈H_P⁰ gives an entire flat section λ↦φ; evaluation and right translation are holomorphic.
 - `local_tensor`: For factorizable σ and section, I_P(σ,λ) is the restricted tensor product of the local normalized inductions.
 
 Tests:
-
 - `whole_group`: For P=G on G(𝔸)¹, ρ_P=H_P=0 and I_P is right translation on the discrete inducing space.
 - `rank_one_half_modulus`: The GL₂ open-cell torus model acts by r^(s+1/2)f(rx), and preserves the L² norm for purely imaginary s.
 - `unnormalized_not_unitary`: Dropping the half-modulus in the same dilation model, at r=4 a nonzero vector has half its original norm.
@@ -800,13 +792,11 @@ For φ∈H_P⁰, define E_P(g,φ,λ)=Σ_{δ∈P(F)\G(F)}φ(δg)exp((λ+ρ_P)H_P(
 Assume: Re(λ−ρ_P)(α∨)>0 for every simple root; φ is smooth K-finite finite-level discrete inducing data; the sum ranges over all rational cosets.
 
 API:
-
 - `linear`: E_P(aφ+bψ)=aE_P(φ)+bE_P(ψ). Require summable φ and ψ summands, supplied by chamber convergence.
-- `automorphic`: E_P(γg,φ,λ)=E_P(g,φ,λ), γ∈G(F). The adapter requires a coset permutation preserving translated height and inducing value.
+- `automorphic`: E_P(γg,φ,λ)=E_P(g,φ,λ), γ∈G(F). The proof uses the permutation of P(F)\G(F) by γ, which preserves the translated height and the inducing value.
 - `right_equivariant`: E(g,I_P(λ,h)φ,λ)=E(gh,φ,λ), using normalized induction’s pointwise weighted-translation identity.
 
 Tests:
-
 - `whole_group`: For P=G, E_G(g,φ,0)=φ(g).
 - `zero`: E(g,0,λ)=0.
 - `sl2_positive`: For Γ=SL₂(ℤ), the spherical section gives Σ_{Γ∞\Γ}Im(γz)^s for Re s>1, with λ=s−1/2.
@@ -838,13 +828,11 @@ For w∈W(𝔞_P,𝔞_Q), choose a rational representative ŵ. In the common com
 Assume: Re λ−ρ_P is positive; Haar measures and rational Weyl representatives are fixed compatibly.
 
 API:
-
 - `intertwines`: M(w,λ)I_P(λ,g)=I_Q(wλ,g)M(w,λ).
 - `identity`: M(1,λ)=id for P=Q.
 - `holomorphic_chamber`: Every compact-picture matrix coefficient is holomorphic in the chamber.
 
 Tests:
-
 - `identity_quotient`: The actual point-quotient integral returns the original vector.
 - `sl2_spherical`: The convergent real spherical integral times its finite-prime Euler product gives ξ(2s−1)/ξ(2s) on the spherical eigenline.
 - `target_parabolic`: The block-permutation slice transports inducing labels and parameter and permutes section coordinates in its integral; general induction requires the coherence interface.
@@ -871,16 +859,14 @@ Uses: AS.1.2; AS.1.4; `AF.3/constant-term`; `SR.2`.
 
 Fix cuspidal data (P,σ). Let Ψ:(𝔞_P^G)_ℂ*→H_P,cusp,σ⁰ be entire, valued in one finite-dimensional subspace, and the Fourier–Laplace transform of a smooth compactly supported function on 𝔞_P^G. Set ψ(g)=∫_{Λ+i(𝔞_P^G)*}exp((λ+ρ_P)H_P(g))Ψ(λ,g)dλ and Eψ(g)=Σ_{P(F)\G(F)}ψ(δg). Fourier inversion makes ψ compactly supported in the projected height H_P^G, so the result is independent of Λ. The dual measure satisfies ∫_{i(𝔞_P^G)*}∫_{𝔞_P^G} h(H)e^(−λ(H))dH dλ=h(0); no extra (2π)^rank factor is inserted. This is the fixed trivial A_G(ℝ)⁰-character version on G(F)\G(𝔸)¹ (equivalently the quotient by A_G(ℝ)⁰): λ vanishes on 𝔞_G and the inducing central action is compatible. Arthur Lemmas12.2–12.4 first use all of 𝔞_P and L²(G(F)\G(𝔸)); that full-height version is a separate construction and does not automatically descend to the central quotient.
 
-Assume: The compact-picture coefficient space is fixed and finite dimensional; Ψ is Paley–Wiener, not merely an arbitrary entire function. Fix the trivial split-central character, parameters in (𝔞_P^G)_ℂ* and the matching central restriction of the inducing datum. In the full-height variant use 𝔞_P and the full arithmetic quotient instead.
+Assume: Ψ is Paley–Wiener, valued in a fixed finite-dimensional compact-picture space; trivial split-central character, parameters in (𝔞_P^G)_ℂ* and the matching central restriction of the inducing datum (𝔞_P and the full quotient in the full-height variant).
 
 API:
-
 - `contour_independent`: The inverse-transform ψ is independent of the real shift Λ.
 - `linear`: Ψ↦Eψ is complex linear.
-- `eisenstein_integral`: For Λ with Λ−ρ_P in the open positive chamber (the absolute-convergence region of AS.1/eisenstein-convergence), Eψ(g)=∫_{Λ+i(𝔞_P^G)*} E_P(g,Ψ(λ),λ)dλ.
+- `eisenstein_integral`: For Λ with Λ−ρ_P in the open positive chamber (the absolute-convergence region of AS.1.3), Eψ(g)=∫_{Λ+i(𝔞_P^G)*} E_P(g,Ψ(λ),λ)dλ.
 
 Tests:
-
 - `zero`: The zero Paley–Wiener section gives zero.
 - `split_torus`: For a split torus, P=G: the full-height construction is inverse Fourier–Laplace transformation on 𝔞_G, whereas the fixed-central-character construction has 𝔞_P^G=0.
 - `wrong_entire_growth`: For V=ℂ, Ψ(z)=exp(z⁴) is entire but not Paley–Wiener and does not qualify for this construction. More generally exp(z⁴)v is excluded only when v≠0.
@@ -895,7 +881,7 @@ Uses: AS.1.1; AS.1.2; AS.1.4; `AL.0`.
 
 For the fixed-central-character pseudo-Eisenstein series just defined, Eψ belongs to L²(G(F)\G(𝔸)¹), equivalently L²(G(F)\G(𝔸)/A_G(ℝ)⁰), using parameters and compact height support in 𝔞_P^G. If one instead uses the full 𝔞_P transform of Arthur Lemma12.2, the target is L²(G(F)\G(𝔸)); no descent through the split centre is asserted for an arbitrary full-height section. Both assertions concern finite-dimensional cuspidal Paley–Wiener sections, not an individual unitary-axis Eisenstein series.
 
-Assume: Cuspidal inducing vectors; smooth compact height support before summation; compatible quotient measures. The split-central convention and height space agree with the preceding construction; the full-height and fixed-central variants are not identified.
+Assume: Cuspidal inducing vectors; compact height support before summation; quotient measures, height space and central variant as in AS.1.6.
 
 Source: S3, §12 Lemma 12.2, pp.64–66.
 
@@ -907,7 +893,7 @@ Uses: AS.1.6; AS.1.4; B2.
 
 With Mathlib’s conjugate-first inner product, ⟪Eψ′,Eψ⟫=∫_{Λ+i(𝔞_P^G)*}Σ_{w∈W(𝔞_P,𝔞_Q)}⟪Ψ′(−overline(wλ)),M(w,λ)Ψ(λ)⟫dλ, where Ψ is attached to (P,σ), Ψ′ to (Q,σ′), and Λ−ρ_P is positive. Only compatible inducing cuspidal isotypic spaces contribute. The conjugation in −overline(wλ) is essential: the second section is evaluated on the reflected real contour. On an imaginary contour after justified continuation this becomes wλ. Use the same fixed-central datum and quotient as pseudo-eisenstein. For the full-height version replace 𝔞_P^G by 𝔞_P and use the full arithmetic quotient on both sides.
 
-Assume: Paley–Wiener sections of the preceding construction; the equality is first proved in the absolute-convergence chamber. Central restriction, contour dimension and both L² measures use the same variant; conjugation is retained in the reflected contour.
+Assume: Paley–Wiener sections of AS.1.6, with one central variant and its measures throughout; the identity is first proved in the absolute-convergence chamber, with conjugation in the reflected contour.
 
 Source: S5, §4 Corollary formula (2).
 
@@ -922,13 +908,11 @@ A cuspidal datum χ is a Weyl-associate class of (P,σ), with σ occurring in L�
 Assume: The central quotient/G(𝔸)¹ convention is fixed; equivalence includes the representation.
 
 API:
-
 - `generator_mem`: Each Eψ attached to χ lies in L²_χ.
 - `right_invariant`: Right translation preserves L²_χ.
 - `associate_eq`: Weyl-associate pairs define the same subspace, with the representation transported by that Weyl element.
 
 Tests:
-
 - `whole_group_cusp`: For χ represented by (G,σ), L²_χ is the σ-isotypic cuspidal summand.
 - `inequivalent_same_levi`: Distinct closed generated blocks remain distinct in the quotient by equality of cuspidal_datum_space; identifying this block relation with AF Weyl-associate cuspidal data is required.
 - `zero_generators`: The closed span of the zero generator set is the zero subspace.
@@ -958,13 +942,11 @@ Uses: AS.1.9; AS.1.8; `AF.3/constant-term-transitivity`; Mathlib `IsHilbertSum.m
 For M=∏GL_ni let M(A)^0 be the simultaneous kernel of rational-character degrees, Xi_M the central lattice generated by a in each block, X_M=Hom(M(A)/M(A)^0,C*)≅(C*)^r and X_M^L the characters trivial on Z_L(A). The latter need not be connected; Im denotes its unitary subgroup.
 
 API:
-
 - `detCoordinates`: identify the unramified characters of a product Levi
 - `trivialOnCenter`: construct X_M^L with its components
 - `unitaryPart`: restrict to probability-Haar compact character tori
 
 Tests:
-
 - `test1`: For M=G=GL_n, X_G^G={z∈C*:z^n=1}.
 - `test2`: For M=GL₂ and L=M, Im X_M^L=μ₂ has two points and is not connected.
 - `test3`: For M=GL_a×GL_b in G=GL_(a+b), X_M^G is given by x^a y^b=1, rather than xy=1 unless a=b=1.
@@ -980,13 +962,11 @@ Uses: `AA.0/restricted-haar-product`.
 For each R∈P(M), fix the inducing character s_R explicitly. The spherical section space consists of phi on M(F)N_R(A)\G(A)/K with s_R⁻¹ phi|_M∈pi; its basis is s_R*phi_pi. Laf97 p284 and Yu p32 use s_R=rho_R (with P to be replaced by R in Yu); Yu p39 uses s_R=rho_R⁻¹. Use yu_153 to transport conventions and fix the choice matching the Rankin–Selberg normalizers.
 
 API:
-
 - `sphericalSection`: For specified s_R, extend phi_pi by phi_R(nmk)=s_R(m)phi_pi(m).
 - `leviRestriction`: Recover phi_pi by multiplying the Levi restriction by s_R⁻¹.
 - `parameterTwist`: transport along an unramified lambda
 
 Tests:
-
 - `test1`: For prescribed s_R, the Levi restriction of s_R*phi_pi multiplied by s_R⁻¹ equals phi_pi.
 - `test2`: For R=G the modular character is1, so both displayed rho conventions give the same section.
 - `test3`: Apply yu_060 to the constant vector one with ρ=2: the positive section gives two and the inverse section gives one half.
@@ -1002,13 +982,11 @@ Uses: AS.4.11; AS.4.12; `AA.0/restricted-haar-product`; AS.1.1.
 Fix positive inducing characters s_R on M(A). Define A_R,pi^s by s_R⁻¹*phi|_M∈pi and spherical basis phi_R(nmk)=s_R(m)*phi_pi(m). For a second convention t_R, C_R^(s→t) multiplies by t_R/s_R in Iwasawa coordinates. Transport each operator by M^t_(R′|R)=C_R′ M^s_(R′|R) C_R⁻¹. Yu p32 and Laf97 p284 use s_R=rho_R in their membership formula (Yu writes P); Yu p39 uses s_R=rho_R⁻¹. One cannot identify their numerical normalizers until this dictionary, including parameter conventions, is checked.
 
 API:
-
 - `normalizedSection`: From a fixed positive character s_R, extend a Levi spherical vector by multiplication by s_R; independence follows from its triviality on M∩K.
 - `changeConvention`: C_R^(t→u)∘C_R^(s→t)=C_R^(s→u), and C_R^(s→s)=Id.
 - `conjugateOperators`: Transport domains, intertwining identities and norms together; a closed composition on A_P is conjugated by C_P, hence has unchanged finite-dimensional trace.
 
 Tests:
-
 - `test1`: The actual section transport from ρ to ρ⁻¹ sends a value-two vector to one half when ρ=2.
 - `test2`: Restricting s_R*phi_pi and multiplying by s_R⁻¹ recovers phi_pi exactly.
 - `test3`: The squared norm of the transported section, integrated with the compensating factor |ρ|⁴, equals the original integrated squared norm.
@@ -1024,13 +1002,11 @@ Uses: AS.1.12; AS.2.14; `AA.0/restricted-haar-product`; AS.1.1.
 For Re(s)>1, E(z,s)=Σ_{Γ∞\PSL₂(Z)}Im(γz)^s=(1/2)y^sΣ_{gcd(c,d)=1}|cz+d|^(−2s). The half accounts for ±(c,d). Prove local normal convergence and ΔE=s(1−s)E.
 
 API:
-
 - `cosetSum`: Define E by ΣIm(γz)^s in Re(s)>1.
 - `primitivePairs`: The coprime(c, d) expression has factor 1/2 for ±pairs.
 - `automorphy`: E(γz, s)=E(z, s) and ΔE=s(1−s)E in the normal-convergence region.
 
 Tests:
-
 - `test1`: Along the imaginary axis E(iy,2)/y² tends to one as y tends to infinity, testing the actual Eisenstein leading constant term.
 - `test2`: Summing primitive pairs without 1/2 doubles E.
 - `test3`: The critical-line value requires continuation and cannot be obtained by declaring the initial series convergent there.
@@ -1046,13 +1022,11 @@ Uses: AS.1.3.
 Let Λ(s)=π^(−s/2)Γ(s/2)ζ(s), and E*(z,s)=Λ(2s)E(z,s), with meromorphic values interpreted through continuation. Its critical-line use includes the limit at t=0.
 
 API:
-
 - `completion`: Multiply E(z, s) by Λ(2 s) where Λ is the completed scalar zeta.
 - `constantTerm`: Its constant Fourier coefficient is Λ(2 s)y^s+Λ(2−2 s)y^(1−s).
 - `continuation`: Define equality with the initial completion on Re(s)>1 and extend meromorphically.
 
 Tests:
-
 - `test1`: Residues at 0 and 1 are −1/2 and +1/2.
 - `test2`: At critical t=0, cancellations between meromorphic pieces require a limit.
 - `test3`: An uncompleted E period cannot be substituted into Theorem 3 without dividing by Λ(2 s).
@@ -1061,6 +1035,28 @@ Source: S21, (5.3).
 
 Uses: AS.1.3; AS.1.14; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-zeta-integral`.
 
+### AS.1.15a — Kloosterman sums and hyperbolic Laplacians
+
+`kloosterman_sum`, `weight_laplacian`
+
+For m,n∈ℤ and c≥1, S(m,n;c)=Σ_{d∈(ℤ/cℤ)^×}e((md+nd̄)/c) with dd̄≡1 mod c and e(x)=exp(2πix). For real k and a twice real-differentiable f on ℍ, z=x+iy, the weight-k Laplacian is Δ_k f=−y²(∂ₓ²+∂ᵧ²)f+iky(∂ₓ+i∂ᵧ)f. Its weight-zero case is the convention-D Laplacian Δ=Δ₀, and Δ_GZ=−Δ₀.
+
+Assume: c≥1; f is C² on ℍ.
+
+API:
+- `kloosterman_symm`: S(m,n;c)=S(n,m;c), by d↦d̄; so the sum does not depend on which variable carries the inverse.
+- `kloosterman_real`: S(m,n;c) is real, by d↦−d.
+- `weight_laplacian_slash`: Δ_k commutes with the weight-k slash action of SL₂(ℝ).
+
+Tests:
+- `kloosterman_one`: S(m,n;1)=1.
+- `kloosterman_ramanujan`: S(m,0;c) is the Ramanujan sum Σ_{d|(m,c)}μ(c/d)d; in particular S(0,0;c)=φ(c).
+- `laplacian_power`: Δ₀ y^s=s(1−s)y^s, while Δ_GZ y^s=s(s−1)y^s.
+
+Source: S21, §8, p.974 (the sum in Φ(m,n;s)); [DLMF](https://dlmf.nist.gov/27.10) 27.10.4–27.10.5 (Ramanujan's sum); Bruinier–Funke, [On two geometric theta lifts](https://arxiv.org/pdf/math/0212286v2), Duke Math. J. 125 (2004), §3 (3.1), p.8.
+
+Uses: B32.
+
 ### AS.1.16 — Weight-zero Bessel–Kloosterman coefficient
 
 `dit_88`
@@ -1068,20 +1064,18 @@ Uses: AS.1.3; AS.1.14; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-
 For mn≠0 and Re(s)>1, Φ(m,n;s)=Σ_{c>0}c⁻¹K(m,n;c)B_{2s−1}(4π√|mn|/c), using I for mn<0 and J for mn>0. This sign convention must match the F_{−m} residue.
 
 API:
-
 - `signBranch`: Use I_{2 s−1} for mn<0 and J_{2 s−1} for mn>0.
 - `initialConvergence`: The series over c defines Φ in Re(s)>1 for fixed nonzero m,n.
 - `resolventComparison`: Identify Φwith the actual Fourier coefficient of F_m before continuation.
 
 Tests:
-
 - `test1`: m=n=1 uses J.
 - `test2`: m=−1, n=1 uses I.
 - `test3`: The guarded nonzero-frequency coefficient returns no value at index zero and the actual dit_88 coefficient at index one.
 
 Source: S21, §8, p974.
 
-Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition; J-Bessel rank-one definition; finite Kloosterman rank-one definition.
+Uses: AS.0.26; AS.0.27; AS.0.25a; AS.1.15a.
 
 ### AS.1.17 — Weight-zero Poincaré family
 
@@ -1090,20 +1084,18 @@ Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition; J-Bessel rank-one definiti
 For m≠0 and Re(s)>1 let F_m(z,s)=Σ_{Γ∞\Γ}√Im(γz) I_{s−1/2}(2π|m|Im(γz))e(m Re(γz)); F_0=E. No L² assumption is imposed on the exponentially growing seed.
 
 API:
-
 - `seed`: Use √yI_{s−1/2}(2π|m|y)e(mx) for nonzero m.
 - `automorphicSum`: The coset sum is Γ-invariant in Re(s)>1.
 - `resolventContinuation`: Relate the seed and Fourier expansion to the resolvent rather than assuming the growing series is L².
 
 Tests:
-
 - `test1`: m=0 gives E by a separate definition.
 - `test2`: The absolute value of m occurs in the Bessel argument but not in the phase.
 - `test3`: The large-argument I-Bessel asymptotic makes the nonzero Poincaré seed's squared cusp norm nonintegrable for real s>1; the seed is not an L² vector.
 
 Source: S21, (8.1).
 
-Uses: AS.1.3; AS.0.26; AS.0.27; I-Bessel rank-one definition.
+Uses: AS.1.3; AS.0.26; AS.0.27; AS.0.25a.
 
 ### AS.1.18 — Poincaré eigenfunction and convergence
 
@@ -1113,7 +1105,7 @@ F_m converges normally on compact sets for Re(s)>1, is Γ-invariant and satisfie
 
 Source: S21, §8, p973.
 
-Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition.
+Uses: AS.0.26; AS.0.27; AS.0.25a.
 
 ### AS.1.19 — Weight-two Poincaré one-form
 
@@ -1122,13 +1114,11 @@ Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition.
 For smooth φ:(0,∞)→ℂ with φ(y)≪y^ε near zero, ε>0, and m∈ℤ, define P_m(τ,φ)=Σ_(γ∈Γ∞\Γ)e(m Re(γτ))φ(Im(γτ))·d(γτ)/dτ. It has weight two, making P_m dτ invariant. The value bound suffices for absolute convergence and Lemma6 unfolding; φ from (9.2) satisfies it for Re(s)>1. The paper's stronger y^(1+ε) bound is unnecessary for these value assertions. Differentiating the series needs additional derivative bounds.
 
 API:
-
 - `oneFormSum`: Sum the seed times d(γz), including the Möbius derivative.
 - `weightTwo`: P_m(γz)γ′(z)=P_m(z), so the one-form P_m dz descends to the quotient.
 - `parameterBounds`: Expose small-y bounds for φ and the derivatives actually used in normal convergence.
 
 Tests:
-
 - `test1`: For a smooth compactly supported seed, inversion transforms the actual Poincaré coefficient with derivative z^(−2), as required for the descended weight-two one-form.
 - `test2`: Reversing the interval orientation negates the integral of the actual dit_105 one-form pulled back along a parametrized cycle.
 - `test3`: The smooth seed y²sin(exp(1/y)) satisfies the order-two value bound, including the ε=1 small-y condition, but has no uniformly bounded derivative near zero.
@@ -1161,23 +1151,21 @@ Uses: AS.0.26; AS.0.27.
 
 `gz_69`
 
-Construct the cusp-∞ normalized level-N adapter E_N to the imported congruence-class weight-zero Eisenstein series of ER.7: E_N=[2ζ(2s)∏_{p|N}(1−p^(−2s))]⁻¹ Σ_{v∈(ℤ/Nℤ)×} E_{(0,v)} for Re(s)>1. Prove this equals Σ_{Γ∞\Γ₀(N)}Im(γz)^s, and that E_1 agrees with AS.1/dit-57. Under Δ_GZ=+y²(∂x²+∂y²), Δ_GZ E_N=s(s−1)E_N; −4πE_N has residue κ_N=−12/[SL₂(ℤ):Γ₀(N)] at s=1.
+For N≥1 and Re(s)>1 define the cusp-∞ Eisenstein series E_N(z,s)=Σ_{γ∈Γ∞\Γ₀(N)}Im(γz)^s, equivalently (1/2)Σ y^s|cz+d|^(−2s) over coprime (c,d) with N|c. Prove local normal convergence, Γ₀(N)-invariance and that E_1 is the series of AS.1.14. Under Δ_GZ=+y²(∂x²+∂y²), Δ_GZ E_N=s(s−1)E_N; −4πE_N has residue κ_N=−12/[SL₂(ℤ):Γ₀(N)] at s=1.
 
 API:
-
-- `congruence_adapter`: Use the stated finite sum of ER.7 congruence classes divided by the Euler/zeta factor.
-- `coset_sum`: The adapter equals the primitive coset sum in Re(s)>1.
+- `coprime_pairs`: E_N is half the sum over coprime (c,d) with N|c in Re(s)>1.
+- `coset_sum`: E_N is the coset sum over Γ∞\Γ₀(N) in Re(s)>1.
 - `level_one`: At N=1 it equals the DIT E with the same half for ±pairs.
 
 Tests:
-
 - `level_one_test`: N=1 gives E and residue3/π.
 - `prime_level`: For N=p the congruence-pair Eisenstein continuation, with Mathlib Riemann zeta normalization, gives residue 3/[π(p+1)] at s=1.
 - `nonprimitive`: The actual unrestricted nonzero integer-pair Eisenstein sum at s=2 equals 2ζ(4) times the primitive-coset dit_57 series and differs from that normalized series.
 
 Source: S29, Chapter II, §2, (2.14), p. 239.
 
-Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; B30.
+Uses: AS.1.14; Mathlib `CongruenceSubgroup.Gamma0`; B30.
 
 ### AS.1.23 — E_N via the SL₂(ℤ) series (2.16)
 
@@ -1187,7 +1175,7 @@ For N ≥ 1: E_N(z, s) = N^{−s} ∏_{p|N} (1 − p^{−2s})⁻¹ Σ_{d|N} μ(d
 
 Source: S29, Chapter II, §2, (2.16), p. 240; p. 241.
 
-Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; AS.1.22; B32.
+Uses: AS.1.14; AS.1.22; Mathlib `CongruenceSubgroup.Gamma0`; B32.
 
 ### AS.1.24 — Non-holomorphic Eisenstein series E_s = E_{M,ε,2k−1,s} of level M = N|D|
 
@@ -1196,13 +1184,11 @@ Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; AS.1.22; B32.
 Let D<0 be a fundamental discriminant, ε its odd primitive quadratic character, δ=|D|, k≥1 and (N,D)=1. With M = N|D|: E_s(z) = E_{M,ε,2k−1,s}(z) = L^{(N)}(2s+2k−1, ε) Σ_{±(∗ ∗; c d) ∈ Γ_∞\Γ₀(M)} ε(d)(cz+d)^{−(2k−1)} y^s |cz+d|^{−2s} = ½ Σ_{c,d∈ℤ, c≡0 (mod M), (d,M)=1} ε(d)(cz+d)^{−(2k−1)} y^s |cz+d|^{−2s}, for Re(s) large. Here L^{(N)}(s, ε) = Σ_{(n,N)=1} ε(n)n^{−s} and Γ_∞ = {±(1 n; 0 1)}. E_s ∈ M̃_{2k−1}(Γ₀(M), ε). (The two expressions agree: pull out g = gcd(c,d), which is prime to M, and pair ±(c,d) using ε(−1)(−1)^{2k−1} = 1.)
 
 API:
-
 - `primitive_to_full`: The L^(N) factor converts the primitive coset sum into the half unrestricted sum.
 - `automorphy`: The series has weight2k−1 and Nebentypus ε on Γ₀(Nδ).
-- `n_one`: For N=1 it is the D₁=1 case of AS.1/gz-192.
+- `n_one`: For N=1 it is the D₁=1 case of AS.1.25.
 
 Tests:
-
 - `sign_pair`: With an odd character, negating both lattice indices leaves the actual gz_179 summand unchanged; the half-sum equals the series constructor.
 - `n_one_test`: N=1 gives levelδ.
 - `wrong_parity`: With an even character and an absolutely summable odd-weight lattice family, the actual gz_179 series vanishes by cancellation of opposite indices.
@@ -1218,13 +1204,11 @@ Uses: AS.1.1; AS.1.3; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-z
 Fix an odd negative fundamental discriminant D, k≥1 and a factorization D=D₁D₂ into fundamental discriminants, allowing D_i=1. Let ε_i be the primitive quadratic characters of conductors |D_i|. For sufficiently large Re(s), define E_s^(D₁)(z) by half the sum over integer pairs (m,n) with D₂ dividing m of ε₁(m)ε₂(n)(mz+n)^(−2k+1) Im(z)^s |mz+n|^(−2s). Its transformation law has weight 2k−1 and character ε₁ε₂ on Γ₀(|D|). The case D₁=1 recovers the level-|D₂| series. Genus characters and ramified ideals are imported arithmetic data for the consumers, rather than part of this analytic definition.
 
 API:
-
 - `pair_sum`: Use ½Σ_{D₂|m}ε₁(m)ε₂(n)(mz+n)^(−2k+1)y^s|mz+n|^(−2s).
 - `d1_one`: D₁=1 recovers E^(1)_s of GZ IV(1.2).
 - `automorphy`: The coefficient pair transforms by ε(d), giving weight2k−1 on Γ₀(δ).
 
 Tests:
-
 - `d1_one_test`: D₁=1 gives the levelδ series.
 - `odd_product`: When the product of the two character parities is odd, simultaneous sign reversal preserves the actual two-character lattice summand and its half-sum is gz_192.
 - `nonfundamental`: The constructor guard using the upstream fundamental-discriminant criterion accepts 12 and rejects 16. The raw analytic lattice sum alone does not construct primitive arithmetic characters.
@@ -1284,13 +1268,11 @@ For a characteristic-zero local field k, a Levi M of a connected reductive G and
 Assume: P,Q have common Levi M; π is admissible; sufficiently positive means relative to the exponents of π, not a uniform chamber for all π.
 
 API:
-
 - `intertwines`: J_Q|P(π_λ) intertwines I_P(π_λ) and I_Q(π_λ).
 - `identity`: J_P|P(π_λ)=id.
 - `meromorphic_coefficients`: Each fixed K-finite matrix coefficient is meromorphic in λ, rational in the exponential coordinates over nonarchimedean k.
 
 Tests:
-
 - `identity_test`: When P=Q the integral is the identity.
 - `p_adic_gl2_spherical`: For GL₂(k), unramified χ₁⊗χ₂ and hyperspecial normalization, the nontrivial Weyl integral on the spherical vector equals (1−q⁻¹z)/(1−z), z=χ₁(ϖ)/χ₂(ϖ), in |z|<1.
 - `raw_not_unitary`: The continued spherical eigenline, identified with the valuation-shell integral in its chamber, sends one to a vector of norm 3/4 at q=2,z=−1; it does not preserve norm on the unitary axis.
@@ -1308,13 +1290,11 @@ For irreducible admissible π and opposite P,P̄ with Levi M, the composition J_
 Assume: Characteristic-zero local field; irreducible admissible inducing representation; generic irreducibility and analytic continuation identify the scalar meromorphically.
 
 API:
-
 - `opposite_composition`: J_P|P̄ J_P̄|P=μ_M⁻¹ id as meromorphic families.
 - `measure_change`: Multiplying the two unipotent measures by c,d multiplies μ⁻¹ by cd.
 - `rank_one_product`: The reduced-root rank-one composition scalars give the higher-rank μ-product with the fixed measures.
 
 Tests:
-
 - `no_roots`: For M=G the point integral gives μ=1.
 - `gl2_spherical`: For unramified GL₂, μ⁻¹=c(z)c(z⁻¹), c(z)=(1−q⁻¹z)/(1−z), interpreted meromorphically.
 - `measure_scaling`: Rescaling both opposite measures by 2 changes μ⁻¹ by 4; μ is not measure independent.
@@ -1368,13 +1348,11 @@ On a fixed finite inducing/K-type block, regularize E and M near a parameter λ�
 Assume: Common denominator; an ordered independent hyperplane flag; the L² assertion additionally requires every surviving exponent to lie in the appropriate negative cone modulo center.
 
 API:
-
 - `coefficient`: Ordered residues compose Laurent-coefficient maps. Each Cauchy circle has positive radius, contains no other pole and uses a common denominator with holomorphy on the punctured closed ball.
 - `constant_term`: Constant term commutes with a justified common-denominator residue and reveals its exponents.
 - `change_coordinate`: Changing transverse coordinates transforms residue differential forms by the determinant; a scalar residue requires the chosen coordinates.
 
 Tests:
-
 - `two_simple_poles`: The ordered residue of v/(z₁z₂) is v in either coordinate order.
 - `holomorphic_zero`: A holomorphic family has zero residue.
 - `pole_not_residue`: The scalar family 1/z² has a pole at zero and residue zero.
@@ -1383,29 +1361,49 @@ Source: S3, §12 p.66 discussion of contour shifts.
 
 Uses: AS.2.4; AS.1.5; AS.0.16; `AF.3`.
 
+### AS.2.6a — Generic local packets of classical groups
+
+`generic_packet`
+
+Let F be a local field of characteristic zero, H*_m a quasi-split symplectic, special orthogonal or unitary group over F (unitary for E/F), and H_m a pure inner form. A local L-parameter φ of H*_m is written up to conjugacy as (φ₁|·|^{β₁}⊕φ₁^∨|·|^{−β₁})⊕⋯⊕(φ_t|·|^{β_t}⊕φ_t^∨|·|^{−β_t})⊕φ₀ with β₁>⋯>β_t>0, where φ_i is a tempered parameter of a general linear group G_{E/F}(n_i) and φ₀ a tempered parameter of H*_{n₀}. Given the tempered packet Π_{φ₀}(H_{n₀}) and the unitary generic tempered τ(φ_i) attached to φ_i, the packet Π_φ(H_m) is the set of Langlands quotients of the standard modules Ind_P^{H_m}(τ(φ₁)|det|^{β₁}⊗⋯⊗τ(φ_t)|det|^{β_t}⊗σ₀), σ₀∈Π_{φ₀}(H_{n₀}), P the standard parabolic with Levi ∏G_{E/F}(n_i)×H_{n₀}. φ is generic when Π_φ(H*_m) contains a generic member σ°. The local L- and ε-factors of every σ∈Π_φ(H_m) are by definition those of σ°.
+
+Assume: The tempered packets and the general-linear correspondence are given data with three properties: members of tempered packets are irreducible and tempered; the quasi-split tempered packet of a generic parameter has a generic member; and the Langlands–Shahidi factors of that member equal the Artin factors of the parameter.
+
+API:
+- `mem_iff`: σ∈Π_φ(H_m) iff σ is the Langlands quotient of one of the displayed standard modules (SR.3 Langlands classification).
+- `tempered`: for t=0, Π_φ(H_m)=Π_{φ₀}(H_m).
+- `local_factor`: L(s,τ×σ)=L(s,τ×σ°) and ε(s,τ×σ,ψ)=ε(s,τ×σ°,ψ) for every member σ.
+
+Tests:
+- `tempered_packet`: with t=0 the packet is the whole tempered packet, not only its generic member.
+- `sl2_complementary`: for H*_1=SL₂=Sp₂, φ=|·|^β⊕|·|^{−β}⊕1 with 0<β<1/2, the packet is the irreducible complementary series Ind(|·|^β), which equals its Langlands quotient.
+- `trivial_not_generic`: for SL₂ and φ=|·|⊕1⊕|·|^{−1}, the standard module Ind(|·|) is reducible, its Langlands quotient is the trivial representation, and φ is not generic.
+
+Source: S20, Appendix B (B.1)–(B.2), pp.84–85; the generic member, proof of Theorem B.2, p.86, citing Arthur's and Mok's endoscopic classifications.
+
+Uses: SR.2; SR.3; AS.2.1.
+
 ### AS.2.7 — Classical-group Shahidi normalization
 
 `shahidi_normalization`
 
-For H_{a+m} with Levi G_{E/F}(a)×H_m, τ unitary generic self-dual and σ in a relevant generic local L-packet, define β_v(s)=L_v(1+s,τ×σ)L_v(1+2s,τ,ρ)ε_v(s,τ×σ,ψ)ε_v(2s,τ,ρ,ψ)/(L_v(s,τ×σ)L_v(2s,τ,ρ)) and N_v(s)=β_v(s)M_v(s). Here ρ=∧² for even orthogonal, Sym² for odd orthogonal, and Asai⊗ξ^m for unitary groups. The dual target is τ*=ι(τ)∨ with |det|^(−s). Local L/ε factors and the additive character are supplied by the parameter theory; the factors are multiplied in precisely this orientation.
+For H_{a+m} with Levi G_{E/F}(a)×H_m, τ unitary generic self-dual and σ in a relevant generic local packet (AS.2.6a), define β_v(s)=L_v(1+s,τ×σ)L_v(1+2s,τ,ρ)ε_v(s,τ×σ,ψ)ε_v(2s,τ,ρ,ψ)/(L_v(s,τ×σ)L_v(2s,τ,ρ)) and N_v(s)=β_v(s)M_v(s). Here ρ=∧² for even orthogonal, Sym² for odd orthogonal, and Asai⊗ξ^m for unitary groups. The dual target is τ*=ι(τ)∨ with |det|^(−s). Local L/ε factors and the additive character are supplied by the parameter theory; the factors are multiplied in precisely this orientation.
 
 Assume: Characteristic-zero local field; relevant classical-group packet with generic parameter; specified ψ and compatible measures; self-dual is conjugate-self-dual in the unitary case.
 
 API:
-
 - `normalized_eq`: N_v=β_v M_v with β_v equal to the displayed L/ε ratio.
 - `target`: N_v maps I(τ|det|^s⊗σ) to I(τ*|det|^(−s)⊗σ).
 - `global_product`: On factorizable data the global scalar ratio uses L(s,τ×σ)L(2s,τ,ρ) divided by the shifted L-factors and ε-factors, as in (5.2)–(5.4).
 
 Tests:
-
 - `spherical`: If the spherical raw eigenvalue times the local-factor normalizer is one, the normalized operator fixes that vector.
 - `orthogonal_parity`: For the two-dimensional Satake parameter (2,3), exterior-square weight 6 and symmetric-square weights 4,6,9 give different actual normalized operators at a regular parameter.
 - `unitary_dual`: For a one-dimensional representation, the normalizer's cross-factor argument is the inverse conjugate character. Check that argument explicitly.
 
 Source: S20, §5.1 equations (5.3)–(5.4).
 
-Uses: AS.2.1; `AL.3`.
+Uses: AS.2.1; AS.2.6a; `AL.3`.
 
 ### AS.2.8 — Irreducibility of generic packet standard modules
 
@@ -1417,7 +1415,7 @@ Assume: φ⁺ is a local component of an H_m-relevant generic global Arthur para
 
 Source: S20, Appendix B Proposition B.1, p.85; (B.5)–(B.6), p.86.
 
-Uses: `SR.3`; `AF.1`.
+Uses: AS.2.6a; `SR.3`; `AF.1`.
 
 ### AS.2.9 — Tempered GL intertwiner half-plane
 
@@ -1441,7 +1439,7 @@ Assume: σ₀ is in the tempered packet of the generic parameter used in Appendi
 
 Source: S20, Appendix B p.87.
 
-Uses: AS.2.7; `AF.1`; `SR.3`.
+Uses: AS.2.6a; AS.2.7; `AF.1`; `SR.3`.
 
 ### AS.2.11 — Generic classical normalized intertwiner bound
 
@@ -1451,9 +1449,9 @@ For a generic unitary member of the relevant classical packet and unitary generi
 
 Assume: Generic member of a relevant generic unitary packet; normalization is (5.4).
 
-Source: S20, Appendix B proof of Theorem B.2, p.86, citing [11, Theorem 11.1].
+Source: S20, Appendix B proof of Theorem B.2, p.86, citing Cogdell–Kim–Piatetski-Shapiro–Shahidi, Publ. Math. IHÉS 99 (2004), Theorem 11.1.
 
-Uses: AS.2.7; classical packet input contract.
+Uses: AS.2.6a; AS.2.7.
 
 ### AS.2.12 — Jiang–Zhang intertwiner holomorphy
 
@@ -1476,13 +1474,11 @@ For cuspidal automorphic representations π_i of GL_{n_i}(𝔸_F), with specifie
 Assume: Cuspidal GL_{n_i} data and their twists; compatible Langlands order; strong multiplicity one is required for uniqueness from almost-all Satake parameters.
 
 API:
-
 - `satake_union`: At a place where all summands are unramified, the Satake eigenvalues concatenate.
 - `standard_L_product`: L(s,⊞π_i)=∏_i L(s,π_i) with the summand twists retained.
 - `permutation`: Permuting summands with the corresponding Langlands ordering gives the same isobaric representation.
 
 Tests:
-
 - `single`: The isobaric sum of a single cusp π is π.
 - `two_characters`: For unramified characters χ₁,χ₂ the GL₂ Satake polynomial is (1−χ₁(ϖ)T)(1−χ₂(ϖ)T).
 - `not_hilbert_sum`: π₁⊕π₂ is not the isobaric GL_{n₁+n₂} representation: it does not even carry the same group action.
@@ -1498,13 +1494,11 @@ Uses: AS.1.1; AS.2.4; `AL.2`; `SR.4`.
 Construct M_(R'|R)(w,lambda) by the convergent unipotent integral and meromorphic continuation on induced sections. It satisfies the composition and unitary-axis identities. Ratios M_R(lambda,P;mu)=M_(R|P)(lambda)^−1 M_(R|P)(lambda/mu) give the operator-valued (G,M)-family on its regular domain.
 
 API:
-
 - `integralIntertwiner`: define on the domain of absolute convergence
 - `continueOperator`: prove meromorphic continuation and functional equations
 - `ratioFamily`: form the regular operator family on the unitary domain
 
 Tests:
-
 - `test1`: The actual regular-point family constructor on a same-parabolic input is the identity, using its typed identity data.
 - `test2`: The ratio family built from the inverse regular intertwiner and yu_061 at λ/μ gives the identity at μ=1.
 - `test3`: Composition of two members of the typed regular family agrees with its composed member. The source integral, continuation and Weyl transport must supply the identity/cocycle data.
@@ -1547,23 +1541,21 @@ Uses: AS.1.15; AS.2.4.
 
 `dit_91`
 
-Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on modular L² off spectrum, with its cusp realization and continuation. Native bounded-inverse analyticity applies to genuine spectral gaps. At s₀=1/2+ir, r>0, a cuspidal eigenvalue is embedded in continuous spectrum: the finite-rank subtraction in (8.4) requires meromorphic continuation in weighted/test spaces, not operator-norm holomorphy on full L².
+Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on modular L² off spectrum, with its cusp realization and continuation. Bounded-inverse analyticity applies only at genuine spectral gaps. At s₀=1/2+ir, r>0, a cuspidal eigenvalue is embedded in continuous spectrum: the finite-rank subtraction in (8.4) requires meromorphic continuation in weighted/test spaces, not operator-norm holomorphy on full L².
 
 API:
-
-- `inverseEquation`: (Δ−s(1−s))R_s=1 on its domain, assuming membership in the native bounded-inverse resolvent set; algebraic bijectivity alone is insufficient.
+- `inverseEquation`: (Δ−s(1−s))R_s=1 on its domain, assuming membership in the bounded-inverse resolvent set; algebraic bijectivity alone is insufficient.
 - `kernelSymmetry`: The actual self-adjoint resolvent kernel obeys R_s(z,z′)=conj(R_conj(s)(z′,z)), with conjugation of the parameter as well as exchange of the spatial variables.
-- `restrictedResolvent`: For the closed reducing complement C and its partial Laplacian Δ_C, require s₀(1−s₀) in its bounded-inverse resolvent set; the complement inverse is then holomorphic near s₀. `operatorAdjoint` adapts SA-D20 to R_s*=R_conj(s), requiring both shifts off spectrum; a spatial kernel requires its own realization.
+- `restrictedResolvent`: For the closed reducing complement C and its partial Laplacian Δ_C, require s₀(1−s₀) in its bounded-inverse resolvent set; the complement inverse is then holomorphic near s₀. `operatorAdjoint` specializes SA-D20 to R_s*=R_conj(s), requiring both shifts off spectrum; a spatial kernel requires its own realization.
 
 Tests:
-
 - `test1`: On the constant eigenline, the scalar Laplacian resolvent is −1/[s(1−s)] off its poles.
 - `test2`: At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there.
 - `test3`: The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold.
 
 Source: S21, §8 (8.2)–(8.4), pp.973–974, citing Fay [20, Theorem 3.1, p.173] and Hejhal [27].
 
-Uses: AS.0.7; AS.0.16; AS.4.8; SelfAdjointSpectralTheory SA-D20; native `LinearPMap.resolvent`, `IsResolventAt`, `analyticAt_resolvent`.
+Uses: AS.0.7; AS.0.16; AS.4.8; SelfAdjointSpectralTheory SA-D20; Mathlib `LinearPMap.resolvent`, `IsResolventAt`, `analyticAt_resolvent`.
 
 ### AS.2.19 — Finite-rank resolvent polar part
 
@@ -1609,7 +1601,7 @@ Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18.
 
 `gz_68`
 
-(Quoted from Hejhal [20].) G_{N,s}(z, z′) extends meromorphically in s to a neighbourhood of s = 1 with a simple pole at s = 1 of residue κ_N = −12/[SL₂(ℤ) : Γ₀(N)] = −12 N⁻¹ ∏_{p|N} (1 + 1/p)⁻¹, independent of z, z′. Consequently lim_{s→1}[G_{N,s} − κ_N/(s−1)] is not harmonic: its Laplacian is κ_N ≠ 0. The automorphic kernel is G_{N,s}(z,z′)=Σ_{γ∈Γ₀(N)}−2Q_{s−1}(1+|z−γz′|²/(2y Im(γz′))), initially Re(s)>1 and z outside the Γ-orbit of z′. Its finite part at s=1 has Δ_GZ equal to κ_N and is not harmonic; the cusp-corrected arithmetic Green function is owned by GZ.7.
+(Quoted from Hejhal [20].) G_{N,s}(z, z′) extends meromorphically in s to a neighbourhood of s = 1 with a simple pole at s = 1 of residue κ_N = −12/[SL₂(ℤ) : Γ₀(N)] = −12 N⁻¹ ∏_{p|N} (1 + 1/p)⁻¹, independent of z, z′. Consequently lim_{s→1}[G_{N,s} − κ_N/(s−1)] is not harmonic: its Laplacian is κ_N ≠ 0. The automorphic kernel is G_{N,s}(z,z′)=Σ_{γ∈Γ₀(N)}−2Q_{s−1}(1+|z−γz′|²/(2y Im(γz′))), initially Re(s)>1 and z outside the Γ-orbit of z′. Its finite part at s=1 has Δ_GZ equal to κ_N and is not harmonic; the cusp-corrected arithmetic Green function is not constructed here.
 
 Source: S29, Chapter II, §2, (2.13), p. 239.
 
@@ -1619,25 +1611,23 @@ Uses: AS.0.35; AS.2.18; AS.0.37; AS.2.24.
 
 `automorphic_green`
 
-For N≥1 and z,z′∈𝔥 off the Γ₀(N)-orbit diagonal, construct G_{N,s}(z,z′), initially Σ_{γ∈Γ₀(N)/{±I}}g_s(z,γz′) for Re(s)>1, and then its meromorphic continuation near s=1. Here g_s=−2Q_{s−1}(1+|z−z′|²/(2yy′)); Γ is interpreted as the effective projective action, with each ±I pair counted once. It is Γ-invariant in each variable, symmetric in z,z′ and satisfies Δ_GZ G=s(s−1)G away from its diagonal. This is the analytic resolvent kernel, not the cusp-corrected arithmetic Green function of GZ.7.
+For N≥1 and z,z′∈𝔥 off the Γ₀(N)-orbit diagonal, construct G_{N,s}(z,z′), initially Σ_{γ∈Γ₀(N)/{±I}}g_s(z,γz′) for Re(s)>1, and then its meromorphic continuation near s=1. Here g_s=−2Q_{s−1}(1+|z−z′|²/(2yy′)); Γ is interpreted as the effective projective action, with each ±I pair counted once. It is Γ-invariant in each variable, symmetric in z,z′ and satisfies Δ_GZ G=s(s−1)G away from its diagonal. This is the analytic resolvent kernel, not the cusp-corrected arithmetic Green function.
 
 Assume: N≥1; the two points are outside the orbit diagonal; the effective projective-group sum and hyperbolic measure dxdy/y² are fixed. For the initial sum Re(s)>1; continuation uses the quoted Hejhal result and the spectral/resolvent inputs.
 
 API:
-
 - `initial_sum`: For Re(s)>1 off the orbit diagonal G_{N,s}=Σ_{Γ₀(N)/±I}g_s(z,γz′), absolutely and locally uniformly.
 - `symmetry`: G_{N,s}(z,z′)=G_{N,s}(z′,z); invariance holds in both variables with the effective-group convention.
 - `eigenfunction`: Away from the orbit diagonal Δ_GZ,z G_{N,s}=Δ_GZ,z′ G_{N,s}=s(s−1)G_{N,s}.
 
 Tests:
-
 - `full_level_residue`: At N=1 the s=1 residue is −12, with hyperbolic quotient volume π/3.
 - `point_pair_symmetry`: For the identity summand g_s(z,z′)=g_s(z′,z), since the point-pair invariant is symmetric.
 - `finite_part_not_harmonic`: For N=1, subtracting −12/(s−1) leaves a Green finite part with Δ_GZ value −12 off the modular orbit. Test with the coordinate gzLaplacian.
 
 Source: S29, ChapterII §2 equations(2.10)–(2.13), p.239.
 
-Uses: AS.0.35; AS.0.36; AS.0.37; AS.0.7; AS.1/dit-57; congruence-group input contract; modular Laplacian input contract.
+Uses: AS.0.35; AS.0.36; AS.0.37; AS.0.7; AS.1.14; AS.1.15a; Mathlib `CongruenceSubgroup.Gamma0`.
 
 ## AS.3 — Truncation, Maass–Selberg relations and wave packets
 
@@ -1650,13 +1640,11 @@ For P⊂Q use the relative simple roots Δ_P^Q and their dual fundamental weight
 Assume: A compatible relative root datum and dual Lebesgue measures are fixed; rank-zero products and cone indicators are 1.
 
 API:
-
 - `rank_zero`: For P=Q, τ=τ̂=θ=1.
 - `alternating_sum`: Compatible root/dual-weight cones satisfy incidence cancellation, with rank-zero value 1 and the subset signs of Identity 6.2; singleton weights fail.
 - `theta_homogeneous`: θ_P^Q(tν)=t^dim(𝔞_P^Q)θ_P^Q(ν).
 
 Tests:
-
 - `rank_one`: For one coroot α∨, θ(ν)=ν(α∨)/vol(𝔞/ℤα∨).
 - `boundary`: At α(H)=0 the strict root-cone indicator is 0.
 - `a2_distinction`: The named A₂ simple-root cutoff is zero at root coordinates (−1,3), while the cutoff for the two inverse-Cartan fundamental weights is one.
@@ -1674,13 +1662,11 @@ For sufficiently regular T∈𝔞₀⁺ define Λᵀf(g)=Σ_{P⊃P₀}(−1)^dim
 Assume: Number field; compatible measures with vol[N_P]=1; regularity of T is a reduction-theoretic threshold.
 
 API:
-
 - `cusp_fixed`: If every proper constant term of f vanishes, Λᵀf=f.
 - `linear`: Λᵀ is complex linear on its domain.
 - `local_finite`: On each compact g-set only finitely many rational cosets can contribute for fixed regular T.
 
 Tests:
-
 - `cusp`: A cuspidal automorphic form is unchanged, not annihilated, by Λᵀ.
 - `sl2_constant`: The one-cusp strip model at T=log Y truncates one to 1_(y≤Y); identifying it globally uses the large-Y reduction theorem.
 - `rank_zero`: When G has no proper rational parabolic, Λᵀ=id.
@@ -1695,7 +1681,7 @@ Uses: AS.3.1; `AF.3/constant-term`; `AA.3/siegel-finiteness-adelic`.
 
 For sufficiently regular T, the P-constant term of Λᵀf vanishes unless every ϖ(H_P(g)−T)≤0. Moreover ΛᵀΛᵀ=Λᵀ. For locally bounded f and compactly supported continuous h, ⟪Λᵀf,h⟫=⟪f,Λᵀh⟫ whenever the displayed pairings are defined. It extends as an orthogonal projection on L². The support inequality is non-strict, correcting the strict inequality printed in Arthur 1980 Lemma 1.1.
 
-Assume: Regular T and genuine rational constant terms; initial self-adjointness uses one compactly supported factor. Finite incoherent truncation data can give Λf=−f, failing idempotence and decay for an unrelated unbounded height.
+Assume: Regular T and genuine rational constant terms; initial self-adjointness uses one compactly supported factor.
 
 Source: S3, §13 Proposition 13.1(a)–(c) and correction, pp.68–69.
 
@@ -1719,7 +1705,7 @@ Uses: AS.3.3; AS.1.3; AS.2.4; `AA.3/height-siegel-estimate`.
 
 For cuspidal φ∈H_P⁰ and φ′∈H_R⁰ and regular T, the truncated Gram pairing ⟪ΛᵀE_R(φ′,λ′),ΛᵀE_P(φ,λ)⟫ equals ωᵀ(λ,λ′;φ,φ′)=Σ_QΣ_{w∈W(𝔞_P,𝔞_Q)}Σ_{w′∈W(𝔞_R,𝔞_Q)}exp((wλ+overline(w′λ′))(T_Q))⟪M(w′,λ′)φ′,M(w,λ)φ⟫/θ_Q^G(wλ+overline(w′λ′)). Initially take generic regular parameters; at a denominator zero take the holomorphic limit of the whole finite sum. The sum is zero for nonassociate P,R. Exact equality here requires cuspidal inducing data.
 
-Assume: The Gram vectors and ωᵀ come from the same cuspidal inducing data; regular T; meromorphic continuation; generic parameters first; conjugate-first Gram convention. An empty unrelated Weyl sum cannot equal ⟪1,1⟫.
+Assume: The Gram vectors and ωᵀ come from the same cuspidal inducing data; regular T; meromorphic continuation; generic parameters first; conjugate-first Gram convention.
 
 Source: S9, Introduction (1), pp.35–36; §9 ωᵀ formula, pp.68–69.
 
@@ -1746,13 +1732,11 @@ Let F_P be a smooth compactly supported function on i(𝔞_P/𝔞_G)* with value
 Assume: Finite-dimensional smooth inducing space; compact smooth spectral support; compatible dual measure and central quotient.
 
 API:
-
 - `linear`: F↦W(F) is complex linear.
 - `right_equivariant`: Right translation acts by the corresponding induced action on F_P(λ).
 - `truncate_integral`: Λᵀ commutes with the compact-parameter integral under the quantitative truncation estimates.
 
 Tests:
-
 - `zero`: Zero sections give zero packets.
 - `rank_zero`: For P=G on [G]¹ the zero-dimensional integral gives the inducing vector.
 - `weyl_overcount`: The roadmap constructor over a two-element Weyl orbit with measure half counting sends a compatible constant section v to v; omitting the denominator gives 2v.
@@ -1777,7 +1761,7 @@ Uses: AS.3.7; AS.3.5; AS.3.6; B2.
 
 `singular_parameter_limits`
 
-Near coincident regular parameters, the complete Maass–Selberg Weyl sum extends as the actual truncated Gram function even when individual θ denominators vanish. Differentiating that full regularized identity gives Gram forms of parameter derivatives. For ordered polar flags with a common denominator, take the chosen residue coefficients on both sides; the resulting residue Gram form uses the same coordinate/order conventions. No positivity or L² membership follows from a formal Laurent coefficient. An arbitrary singleton sum 1/s has no analytic extension at zero.
+Near coincident regular parameters, the complete Maass–Selberg Weyl sum extends as the actual truncated Gram function even when individual θ denominators vanish. Differentiating that full regularized identity gives Gram forms of parameter derivatives. For ordered polar flags with a common denominator, take the chosen residue coefficients on both sides; the resulting residue Gram form uses the same coordinate/order conventions. No positivity or L² membership follows from a formal Laurent coefficient.
 
 Assume: Differentiation and residues have the common denominator and locally uniform derivative majorants; exact equality is the cuspidal formula, while general discrete data retains its controlled error.
 
@@ -1789,16 +1773,14 @@ Uses: AS.3.5; AS.3.6; AS.2.6; B4.
 
 `yu_022`
 
-Using the imported rational root spaces of AA.3, construct their determinant-degree coordinate adapter for function-field GL_n. For M=∏GL_ni, use determinant coordinates for a_M and its dual. Projection a_B→a_M takes block sums, while dual projection takes block averages. Relative roots are det_i/ni−det_j/nj, coroots e_i−e_j, a_M^G has coordinate sum zero and its dual has Σni x_i=0.
+Using the imported rational root spaces of AA.3, construct their determinant-degree coordinates for function-field GL_n. For M=∏GL_ni, use determinant coordinates for a_M and its dual. Projection a_B→a_M takes block sums, while dual projection takes block averages. Relative roots are det_i/ni−det_j/nj, coroots e_i−e_j, a_M^G has coordinate sum zero and its dual has Σni x_i=0.
 
 API:
-
 - `blockProjection`: implement sums on a_M and averages on its dual
 - `relativeRoot`: construct det_i/ni−det_j/nj and coroots
 - `fundamentalWeight`: export the prefix inequalities with exact denominators
 
 Tests:
-
 - `test1`: The actual block projection for 1|23 sends (1,2,3) to (1,5), and its averaged dual projection gives (1,5/2).
 - `test2`: For the single rank-n block, n>0, subtracting the central projection gives the zero relative-height vector for every input.
 - `test3`: For blocks of ranks1 and2, α(x,y)=x−y/2 and α∨=(1,−1), with the degree-zero condition x+y=0.
@@ -1811,16 +1793,14 @@ Uses: AS.1.11; `AA.0/restricted-haar-product`; `AA.3/relative-chamber`; `AA.3/mi
 
 `yu_023`
 
-Import the root/fundamental-weight cones from AS.3/truncation-cones and specialize their height argument to the function-field determinant-degree lattice. Define tau_P and hat-tau_P as strict positive-root/fundamental-weight cone indicators. For g=nmk, H_P(g) is the vector of determinant degrees of m. Record block-weight denominators and proper-parabolic conventions in the truncation cutoff.
+Import the root/fundamental-weight cones from AS.3.1 and specialize their height argument to the function-field determinant-degree lattice. Define tau_P and hat-tau_P as strict positive-root/fundamental-weight cone indicators. For g=nmk, H_P(g) is the vector of determinant degrees of m. Record block-weight denominators and proper-parabolic conventions in the truncation cutoff.
 
 API:
-
 - `height`: extract Levi determinant degrees from Iwasawa decomposition
 - `tau`: test strict simple-root inequalities
 - `hatTau`: test strict fundamental-weight inequalities
 
 Tests:
-
 - `test1`: The empty product of cone conditions for GL₁ is1.
 - `test2`: A point on a required wall, with the corresponding pairing zero, does not satisfy the strict cone condition.
 - `test3`: For the determinant-height homomorphism with trivial unipotent and compact factors, the named height of nmk is that of m, and both actual cone cutoffs agree.
@@ -1836,13 +1816,11 @@ Uses: AS.3.10; `AA.0/restricted-haar-product`; AS.3.1.
 Choose kappa in the positive chamber outside every relative-root hyperplane for every semistandard Levi. The unique Q_L with all its simple roots positive on kappa orders the Levi blocks. Merely requiring nonzero projections to a_L is insufficient.
 
 API:
-
 - `avoidHyperplanes`: choose a point off the finite union of relative-root walls
 - `orderedParabolic`: recover Q_L from the signs
 - `weylTransport`: relate a semistandard Levi to the ordered standard one
 
 Tests:
-
 - `test1`: The vector (3,2,1) fails membership in the selector for the crossed partition {1,3}|{2}, because its block averages are equal.
 - `test2`: The vector (2,0) belongs to the actual GL₂ regular selector and chooses the positive ordered parabolic.
 - `test3`: Multiplying a generic kappa by a positive real preserves every relative-root sign, hence preserves every Q_L.
@@ -1858,13 +1836,11 @@ Uses: AS.3.10; AS.6.23; `AA.0/restricted-haar-product`.
 Let M be standard, Q in P(M) and s in W_n/W^Q with sQs^{-1} standard. Let φ_Q be the indicator of {H in a_{s(M)} : for all α in Δ_Q, ϖ_{s(α)}(H)≤0 if α(κ)>0 and ϖ_{s(α)}(H)>0 if α(κ)<0}, where ϖ_{s(α)} in Δ̂_{sQs^{-1}} is dual to s(α)^∨, and let ε(Q)=#{α in Δ_Q : α(κ)<0}. Then 1̂_Q(λ) on X_M^G is the analytic continuation of (−1)^{ε(Q)}Σ_{H in a_{M,Z}/X_*(Z_G)} φ_Q(s(H))λ^{−H}, which converges where |λ^{α^∨}|<1 for all α in Φ(Z_M,G) with α(κ)>0 (a region meeting every component of X_M^G). For semi-standard L and Q in P(L), 1̂_Q(λ):=1̂_{wQw^{-1}}(w(λ)), where w in W_n/W^{Q_L} is the unique element with wQ_Lw^{-1} standard. For ζ a primitive n-th root of unity, η=ζ^{deg det} in X_G^G and e in Z, 1̂^e_Q(λ)=n^{-1}Σ_{k=1}^n ζ^{ek}1̂_Q(λη^k); it is the part of the series with Σ_iH_i≡e (mod n), and 1̂_Q=Σ_{e=0}^{n−1}1̂^e_Q.
 
 API:
-
 - `coneSeries`: define in a convergence chamber then continue
 - `degreeFourierProjector`: select a degree residue by the finite Fourier sum
 - `sumResidues`: recover the unfiltered series
 
 Tests:
-
 - `test1`: For n=1 the Fourier degree projector has one term and hat1_Q^0=hat1_Q.
 - `test2`: Summing hat1_Q^e over e=0,..,n−1 recovers hat1_Q.
 - `test3`: For n=2,zeta=−1, the even/odd projectors of a function f are (f(lambda)±f(lambda*eta))/2.
@@ -1890,13 +1866,11 @@ Uses: AS.3.10; AS.6.24; AS.3.13; `AA.0/restricted-haar-product`.
 Set I_Q^e=H_Q^e+s^−1(0,1,..,1). The functions lambda↦lambda^I_Q^e form a (G,M)-family, and hat1_Q^e=(−1)^dim(a_M^G)lambda^I_Q^e/theta_Q. Adjacent-block compatibility follows from the floor identities on the wall.
 
 API:
-
 - `floorExponent`: add the ordered (0,1,..,1) vector
 - `wallAgreement`: prove adjacent exponent compatibility
 - `cutoffFactor`: recover hat1_Q^e with the single theta denominator
 
 Tests:
-
 - `test1`: The named floor-height and shifted-exponent constructions for ranks (1,2), total rank three and degree one give H=(0,−1), I=(0,0).
 - `test2`: The total of H_Q^e is−e and the total of I_Q^e is r−1−e.
 - `test3`: For two blocks, λ₂⁻¹/(1−λ₁/λ₂)=−1/(λ₁−λ₂). Multiplication by linear θ cancels the pole, whereas its inverse doubles the denominator.
@@ -1956,13 +1930,11 @@ For each associate class 𝒫 of rational parabolics take measurable families F_
 Assume: Number field; countably many discrete inducing constituents at each level/K-type; compatible central quotient and unitary-axis intertwiner fields.
 
 API:
-
 - `symmetric_norm`: The symmetric-family norm is Σ_P n_P⁻¹∫‖F_P‖².
 - `weyl_transport`: F_P↦F_Q(wλ) is the unitary fibre transport M(w,λ), satisfying identity and composition.
 - `quotient_equiv`: A Borel orbit-domain model with the orbit/stabilizer measure is unitarily equivalent to the symmetric-family model.
 
 Tests:
-
 - `rank_zero`: A constant section over the single point with n_G=1 maps to an actual field vector whose squared norm is the original squared norm.
 - `rank_one`: For a reflected compatible section over the real parameter line with n_P=2, the actual field vector has half the full integrated squared norm.
 - `stabilizer_not_removed`: A nonzero vector fixed by the stabilizer operator defines a nonzero point-field vector, with the reciprocal stabilizer norm factor retained.
@@ -1980,13 +1952,11 @@ On smooth compactly supported symmetric associate families define U(F)=Σ_P n_P�
 Assume: Dense smooth compact spectral domain in the symmetric-family Hilbert space; all discrete Levi data are included.
 
 API:
-
 - `packet_apply`: On the dense domain U equals the normalized sum of Eisenstein integrals.
 - `norm`: ‖U(F)‖²=Σ_P n_P⁻¹∫‖F_P(λ)‖².
 - `right_intertwines`: U I(g)=R(g)U; after onto completeness its inverse has the same intertwining property.
 
 Tests:
-
 - `cusp_component`: The P=G cuspidal component maps identically to the AF.3 cuspidal subspace.
 - `zero`: U(0)=0.
 - `proper_isometry`: A proper closed inclusion of Hilbert spaces satisfies the norm law but fails the required surjectivity condition.
@@ -2016,13 +1986,11 @@ Import L²_cusp and its finite-multiplicity decomposition from AF.3. Define L²_
 Assume: The complete spectral theorem and the negative-exponent residue criterion; cuspidal space is imported rather than reconstructed.
 
 API:
-
 - `orthogonal`: L²_disc=L²_cusp⊕L²_res and L²=L²_disc⊕L²_cont.
 - `residue_mem`: A nonzero ordered residue satisfying the negative-exponent criterion defines a vector in L²_res.
 - `projection_equivariant`: The three orthogonal projections commute with the unitary right action and every bounded integrated Hecke action.
 
 Tests:
-
 - `anisotropic`: If G is anisotropic modulo center, there are no proper rational parabolics and L²_res=L²_cont=0.
 - `sl2_constant`: The modular Eisenstein residue is 3/π. If the discrete Hilbert space is the orthogonal sum of cusp space and the nonzero constant line, the residual space is that line.
 - `non_l2_pole`: For a surviving cusp power y^a with a≥1/2, there is no L² representative for the hyperbolic cusp measure, so the power cannot be a vector in any L² residual subspace.
@@ -2077,7 +2045,7 @@ Assume: Compact smooth f; one-cusp full modular group in the displayed formula; 
 
 Source: S21, §5 equations (5.1)–(5.6).
 
-Uses: AS.4.3; AS.4.4; AS.2.4; modular Laplacian input contract.
+Uses: AS.4.3; AS.4.4; AS.2.4; AS.1.15a.
 
 ### AS.4.9 — Modular Weyl law and spectral summability
 
@@ -2110,13 +2078,11 @@ Uses: `AF.1`; `AF.3/constant-term`; AS.4.4.
 For a fixed central character theta, use the paper's |theta|-weighted L² norm on the central quotient and take irreducible spherical constituents of the discrete subspace. Cuspidal constituents are discrete; residual constituents must not be discarded.
 
 API:
-
 - `weightedNorm`: use theta's absolute-value normalization
 - `discreteSubspace`: separate discrete from continuous spectral pieces
 - `cuspidalInclusion`: embed cuspidal constituents without identifying them with all discrete ones
 
 Tests:
-
 - `test1`: In the constant-line model, one lies in the discrete span and residual space and has point-quotient norm one. Its GL₂ embedding requires the automorphic comparison.
 - `test2`: For |theta|=1 the |theta|-weighted integrand equals |phi|².
 - `test3`: When the section and its weight transform by the same nonzero central character, the actual integrated yu_017 norm is unchanged under central translation.
@@ -2132,13 +2098,11 @@ Uses: AS.1.11; `AA.0/restricted-haar-product`.
 A pair (P,pi) has standard P and a discrete spherical representation of M_P, with central character trivial on Xi_M. Quotient by Weyl transport and unramified twists in X_M^G; stab(P,pi) comprises the corresponding pairs (w,lambda).
 
 API:
-
 - `pair`: construct standard-parabolic discrete data
 - `weylTwistEquiv`: transport both the parabolic and coefficient representation
 - `stabilizer`: record the Weyl element and its compensating character
 
 Tests:
-
 - `test1`: (1,1) belongs to stab(P,pi).
 - `test2`: (w,tau) is in the stabilizer precisely when w normalizes M and w(pi⊗tau)=pi.
 - `test3`: The inverse stabilizer element of (w,tau) is (w⁻¹,w(tau)⁻¹), in the convention of Yu (5.2.11).
@@ -2154,13 +2118,11 @@ Uses: AS.1.11; AS.4.11; `AA.0/restricted-haar-product`.
 Choose pi=⊗_i Π_i^⊗mi with equal representatives of each inertial class and distinct classes for distinct i. Then stabilizers split into permutations of equal factors and their twist stabilizers. These choices are required in the zero/pole and cycle computations.
 
 API:
-
 - `groupEqualTypes`: choose one representative of each inertial class
 - `cycleData`: decompose stabilizing permutations on multiplicity blocks
 - `stabilizerCard`: compute factorial and twist factors
 
 Tests:
-
 - `test1`: Two raw representations in the same inertial class have equal chosen representatives under yu_019, so their distinguished tuple is fixed by transposition.
 - `test2`: For two distinct inertial classes and a representative section of the class map, transposition does not fix the actual distinguished tuple.
 - `test3`: When twisting preserves the distinguished tuple's inertial classes, its Weyl/twist stabilizer is the product of permutation and twist stabilizers.
@@ -2235,7 +2197,7 @@ Uses: AS.2.16; AS.4.8.
 
 For Re(s)=1/2, E(z,s) is absolutely integrable over F_A with respect to dμ=y^{−2}dxdy.
 
-Assume: D. The imported core has a compact part and finitely many cusp ends of finite width; use the geometric carrier supplied by the oriented Fuchsian-core geometry. At removable points use the continued value of E.
+Assume: D. The quotient has a compact part and finitely many cusp ends of finite width; at removable points E takes its continued value.
 
 Source: S21, §5, p963 ('by (5.3)').
 
@@ -2252,13 +2214,11 @@ On X_K=G(F)\G(𝔸)/(A_G(ℝ)⁰K∞K_f), with an algebraic coefficient local sy
 Assume: Neat finite level or the orbifold variant with its stabilizer conventions; finite-dimensional algebraic E; fixed quotient measure and metric; d interpreted distributionally.
 
 API:
-
 - `domain`: ω lies in L_p^q iff pω and its distributional p dω are L².
 - `weight_comparison`: If p≤Cq, there is a continuous complex inclusion L_q^•→L_p^•.
 - `d_squared`: The distributional derivative squares to zero on the graph domain.
 
 Tests:
-
 - `unit_weight`: For p=1 this is the maximal L² de Rham graph complex.
 - `rank_zero`: On a compact quotient all admissible weights bounded above and below give the same form domain and cohomology.
 - `cusp_power`: For the power vector y^a, weight y^b and its actual radial differential ay^a, membership in the named graph domain is equivalent to a+b<1/2; the critical boundary fails membership.
@@ -2288,13 +2248,11 @@ Let Z=Z(U(𝔪_G)) and J⊂Z a finite-codimension ideal. For a (𝔤,K)-module V
 Assume: Complex Harish-Chandra category; J finite codimensional; the category’s injective resolution and compatible central action are specified.
 
 API:
-
 - `mem_iff`: v∈Fin_J(V) iff J^n v=0 for some n.
 - `map`: A central-compatible module map restricts to Fin_J, preserving identity and composition.
 - `left_exact`: For 0→U→V→W, 0→Fin_J(U)→Fin_J(V)→Fin_J(W) is exact at the first two terms.
 
 Tests:
-
 - `zero_ideal`: For J=0, Fin_J(V)=V.
 - `unit_ideal`: For J=Z, Fin_J(V)=0.
 - `nilpotent_jordan`: On the actual polynomial module defined by the size-two nilpotent Jordan operator, finite_character_functor for (X) is the whole module, although X does not annihilate every vector.
@@ -2324,13 +2282,11 @@ For fixed J and an associate parabolic class {P}, every Fin_J uniform-moderate f
 Assume: r in the closed positive chamber; J finite codimensional; all constant terms, not only the minimal one; the ordering function is strictly compatible with the source root cone.
 
 API:
-
 - `mem_iff`: f∈F_T^i iff every nonzero constant-term coefficient has T((Re λ)₊)≥i.
 - `descending`: F_T^(i+1)⊂F_T^i and the filtration has finite length.
-- `levi_compatible`: The positive-part decomposition commutes with Levi projection (§6 (6)). The numerical adapter requires coefficient agreement below the cutoff after index transport; unrelated coefficient maps need not give equal filtrations.
+- `levi_compatible`: The positive-part decomposition commutes with Levi projection (§6 (6)). Unrelated coefficient maps need not give equal filtrations.
 
 Tests:
-
 - `single_weight`: If the only exponent weight has T-value j, F_T^i is the whole space for i≤j and zero for i>j.
 - `no_exponents`: The zero vector belongs to every step.
 - `rank_only_fails`: For two exponent coefficients of one parabolic with T-values zero and one, only the vector supported at exponent one belongs to step one. Parabolic rank alone cannot define the filtration.
@@ -2348,13 +2304,11 @@ For a finite set of polar hyperplanes through λ_t choose a transverse direction
 Assume: A common finite hyperplane divisor and transverse ξ; target complete locally convex space; graded independence is the theorem below, not part of the raw definition.
 
 API:
-
 - `holomorphic_eval`: For a holomorphic germ, MW_ξ(f)=f(λ_t).
 - `linear`: MW_ξ is linear and commutes with continuous fixed target maps.
 - `graded_independent`: The induced Eisenstein-jet map to the prescribed graded quotient is independent of ξ.
 
 Tests:
-
 - `simple_pole`: MW(z⁻¹v+w)=w.
 - `holomorphic`: MW of a constant vector v is v.
 - `direction_dependence`: Restrict the same named germ (z₁,z₂)↦z₁/z₂ along directions (1,1) and (2,1): the actual principal values are one and two.
@@ -2370,8 +2324,6 @@ Uses: AS.0.16; AS.2.4; AS.5.5.
 For r in the closed positive chamber, each graded piece F_T^i/F_T^(i+1) of Fin_J S_{p_{−r}+log}^{{P}} is the direct sum over Levi ranks k of the colimit, under Weyl transport, of M(t)=W(u_t)⊗D_t with T(Re λ_t)=i (choose an equivalent shifted ordering so all filtration indices are positive). Here t=(R,Λ,χ) has R containing a member of {P}, continuous central character Λ, infinitesimal character χ in the finite J-support, Re λ_t in the closed positive chamber and in r−closure(positive root cone); u_t=Λ exp(−λ_tH_R) is unitary inducing data, W(u_t) is its induced discrete automorphic module, and D_t is the space of finite-order holomorphic functionals supported at λ_t. The map is MW_ξ applied to the corresponding derivative of E. It is a (𝔤,K,G_f)-isomorphism independent of ξ.
 
 Assume: All index conditions in Franke §6 (10)–(14), including J-support and weighted exponent bounds; colimit identifies Weyl-isomorphic data, not a free direct sum over repetitions.
-
-Check: the zero space is not linearly isomorphic to ℂ; graded carriers cannot be arbitrary.
 
 Source: S17, §6 Theorem 14, (14), p.236.
 
@@ -2457,7 +2409,7 @@ Uses: AS.5.12; AS.2.13.
 
 For a real reductive algebraic group G with maximal compact K and radius r>0, the trace transforms of smooth bi-K-finite functions supported in the radius-r ball are exactly the collections F_i(δ,ν) on basic representations induced from limits of discrete series of Levi subgroups satisfying: finite support in δ; entire scalar Paley–Wiener bounds of type r in ν; K-conjugacy/Weyl invariance; and every induction-in-stages additivity relation (iv) of Clozel–Delorme Theorem 1. The LF image carries the quotient topology. All four conditions are required; a Weyl-invariant entire function alone is insufficient.
 
-Assume: The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed. Use `AF.1/normalized-real-parabolic-induction` and holomorphic finite-K-type matrix coefficients.
+Assume: The real reductive setting, basic representations and Haar, norm and radius conventions of Clozel–Delorme §0; holomorphic finite-K-type matrix coefficients.
 
 Source: S16, §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′.
 
@@ -2469,7 +2421,7 @@ Uses: AS.0.12; `AF.1/normalized-real-parabolic-induction`; `AF.1/sf-representati
 
 For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,λ,f)} is a topological algebra isomorphism C_c^∞(G,K)→PW(G,K). At fixed radius N and finite K-type set Γ it identifies C_N^∞(G)_Γ with PW_N(G)_Γ: entire finite-dimensional operator families with all seminorms sup e^(−N||Re λ||)(1+||λ||)^n||F_B(σ,λ)|| finite and all differential matrix-coefficient relations (III.4.1) inherited from the induced representations. The relations include derivatives, not just ordinary intertwining covariance.
 
-Assume: The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces. Use `AF.1/normalized-real-parabolic-induction` and holomorphic finite-K-type matrix coefficients.
+Assume: The representation, radius and finite-K-type conventions of Arthur, Acta III §4; holomorphic finite-dimensional matrix-coefficient spaces.
 
 Source: S11, III §4 Theorem 4.1, pp.84–85.
 
@@ -2484,13 +2436,11 @@ For a compactly supported W-invariant distribution γ on the real Cartan space h
 Assume: Real reductive group; infinitesimal character ν_π as a W-orbit; Fourier–Laplace convention γ̂(ν)=γ(exp⟨ν,·⟩).
 
 API:
-
 - `character`: π(f_γ)=γ̂(ν_π)π(f) for every irreducible admissible π, with ν_π its infinitesimal-character W-orbit.
 - `composition`: (f_γ)_η=f_(γ*η).
 - `support`: A radius N input and radius N_γ multiplier have output supported in radius N+N_γ, with the same K-types.
 
 Tests:
-
 - `dirac`: The Dirac distribution at 0 acts as identity.
 - `central_polynomial`: For the distribution whose transform is the Harish-Chandra polynomial p_z, f_γ=zf.
 - `zero`: The zero distribution sends every f to zero.
@@ -2510,13 +2460,11 @@ For f∈C_c^∞(G(𝔸)^1), define K_f(x,y)=Σ_{γ∈G(F)}f(x⁻¹γy), the kern
 Assume: Connected reductive number-field G; rational quotient, Haar and N(F)\N(𝔸) volume-one conventions; smooth finite-level compact support.
 
 API:
-
 - `operator`: R(f)u(x)=∫_[G] K_f(x,y)u(y)dy on smooth compactly supported quotient functions.
 - `constant_term`: The parabolic kernel is obtained by the indicated unipotent integral and rational Levi sum.
 - `adjoint`: For a rational index family equipped with an explicit inversion reindexing j↦j⁻¹, K_{f*}(x,y)=conj K_f(y,x). The source rational subgroup supplies that reindexing.
 
 Tests:
-
 - `finite_group`: For finite G(F) inside a finite group, unfolding gives the usual finite convolution matrix.
 - `noncompact_diagonal`: The compact logarithmic seed on ℝ with trivial lattice gives a periodized kernel with nonintegrable diagonal on the infinite-volume quotient. The modular cusp estimate requires a separate comparison.
 - `adjoint_swap`: For an inversion-stable rational index family with explicit bijective inversion reindexing and f(g)=conj f(g⁻¹), the actual periodized kernel is Hermitian.
@@ -2534,13 +2482,11 @@ For a positive regular T, define k_f^T(x)=Σ_{P⊃P₀}(−1)^dim(a_P/a_G)Σ_{δ
 Assume: Number-field test function and measures above; dual-weight open cone indicators, all standard parabolics including G; T sufficiently regular relative to supp f.
 
 API:
-
 - `decomposition`: k_f^T=Σ_o k_o^T=Σ_χ k_χ^T with the absolute integrated convergence theorem.
 - `levi_translation`: Translation of T is expressed using Γ′-cone integrals and constant-term test functions on Levis.
 - `canonical_value`: J(f) is the polynomial J^T(f) evaluated at Arthur’s distinguished point T₀, not its leading coefficient.
 
 Tests:
-
 - `anisotropic`: With only the whole-group parabolic, the actual coarse_truncated_kernel equals the original kernel diagonal.
 - `rank_one`: In the constant-term logarithmic cusp model, the actual two-parabolic truncated diagonal is integrable on positive heights and its integral is T for T≥0, a degree-one polynomial.
 - `zero_test`: f=0 gives k_f^T=0 and J^T(f)=0.
@@ -2570,13 +2516,11 @@ Fix G,M and Haar measure on a_M^G. A (G,M)-family consists of smooth c_P:ia_M*�
 Assume: Finite rational parabolic/root data; smoothness on the imaginary real vector space; coroot lattice covolume and fixed Haar.
 
 API:
-
 - `wall`: Adjacent c_P,c_P′ have identical restrictions to the common wall.
 - `product`: Pointwise multiplication and restriction produce (G,M)-families.
 - `regularized_sum`: c_M is the unique smooth extension of Σ_P c_P/θ_P, evaluated at zero.
 
 Tests:
-
 - `rank_zero`: For a genuine one-member gm_family with no walls, the actual regularized zero value equals its member at zero.
 - `rank_one`: For a genuine two-member family with agreement on the shared wall, the full regularized sum has limit c₊′(0)−c₋′(0), and its zero-value construction has that value.
 - `bad_wall`: No actual gm_family on a domain containing the shared wall can have constant members one and zero on the adjacent parabolics.
@@ -2599,29 +2543,49 @@ Source: S3, §17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14), pp.97–101; two
 
 Uses: AS.6.7; AS.3.1.
 
+### AS.6.8a — Invariant orbital integrals
+
+`orbital_integral`
+
+Let S be a finite set of places, G(F_S)=∏_{v∈S}G(F_v) and γ∈G(F_S). The connected centralizer G_γ is the product of the identity components of the centralizers of the γ_v, and G_{γ,+}⊇G_γ is the full centralizer. G_γ(F_S) is unimodular, so Haar measures on G(F_S) and G_γ(F_S) give a right-invariant measure dx on G_γ(F_S)\G(F_S). For f∈C_c^∞(G(F_S)) put O_γ(f)=∫_{G_γ(F_S)\G(F_S)}f(x⁻¹γx)dx and J_G(γ,f)=|D(γ)|^{1/2}O_γ(f), with D(γ)=∏_v det(1−Ad(σ_v))|_{𝔤/𝔤_{σ_v}} for σ_v the semisimple part of γ_v. The map x↦x⁻¹γx is onto the class of γ with fibres G_{γ,+}(F_S)/G_γ(F_S). For every γ, semisimple or not, dx defines a G(F_S)-invariant Radon measure on the class, so O_γ is a continuous invariant distribution; for semisimple γ the class is closed.
+
+Assume: G connected reductive over F; characteristic-zero local fields; fixed Haar measures on G(F_S) and on each centralizer.
+
+API:
+- `quotient_measure`: scaling the centralizer measure by c scales the quotient measure, and O_γ, by c⁻¹.
+- `invariant`: O_γ(f^y)=O_γ(f) for f^y(x)=f(yxy⁻¹), and O_{yγy⁻¹}(f)=O_γ(f) with the transported centralizer measure.
+- `fibre_card`: each fibre of x↦x⁻¹γx has [G_{γ,+}(F_S):G_γ(F_S)] points.
+
+Tests:
+- `central`: for central γ the quotient is a point and O_γ(f)=f(γ), with D(γ)=1.
+- `torus`: if G is a torus, O_γ(f)=f(γ) for all γ.
+- `full_centralizer`: in PGL₂(ℝ), γ=diag(1,−1) has [G_{γ,+}:G_γ]=2 (the antidiagonal element), so integrating over G_{γ,+}\G instead halves O_γ.
+
+Source: S3, §18, pp.102–104 (connected centralizer, unimodularity, the Deligne–Ranga Rao invariant measure and the discriminant of (18.3)), citing R. Ranga Rao, Ann. of Math. 96 (1972), 505–510.
+
+Uses: `AA.0/restricted-haar-product`; AdelicAlgebraicGroups §2.2.
+
 ### AS.6.9 — Weighted orbital integrals
 
 `weighted_orbital_integral`
 
-For γ∈M(F_S) with connected G_γ=M_γ, define J_M^G(γ,f)=|D^G(γ)|^(1/2)∫_{G_γ(F_S)\G(F_S)} f(x⁻¹γx)v_M(x)dx. Here v_M is the zero value of the family exp(−λH_P(x)), hence the volume of the convex hull of {−H_P(x)} in a_M^G. For arbitrary γ use the canonical induced-class measure/central-shift limit of Arthur Theorem18.2, not the same integral when the centralizer condition fails. Import the unweighted orbital-integral carrier and singular extension from ET.1; this construction owns only the weight, its estimates, splitting and descent.
+For γ∈M(F_S) with connected G_γ=M_γ, define J_M^G(γ,f)=|D^G(γ)|^(1/2)∫_{G_γ(F_S)\G(F_S)} f(x⁻¹γx)v_M(x)dx. Here v_M is the zero value of the family exp(−λH_P(x)), hence the volume of the convex hull of {−H_P(x)} in a_M^G. For arbitrary γ use the canonical induced-class measure/central-shift limit of Arthur Theorem18.2, not the same integral when the centralizer condition fails. The unweighted integral and its quotient measure are AS.6.8a; this construction adds the weight, its estimates, splitting and descent.
 
 Assume: Local/product-local connected centralizers, compatible Haar quotient and coroot covolumes; smooth compact support; absolute convergence before identifying a distribution.
 
 API:
-
 - `weight`: v_M(x)=lim_(λ→0)Σ_P exp(−λH_P(x))/θ_P(λ).
-- `full_levi`: J_G(γ,f)=|D^G(γ)|^(1/2)O_γ(f) with the imported quotient measure.
+- `full_levi`: J_G(γ,f)=|D^G(γ)|^(1/2)O_γ(f), the integral of AS.6.8a.
 - `splitting`: For two place sets, J_M is Σ d_M^G(L₁,L₂)J_M^{L₁}(γ₁,f₁,Q₁)J_M^{L₂}(γ₂,f₂,Q₂).
 
 Tests:
-
 - `rank_zero`: M=G gives weight 1.
 - `rank_one_volume`: The actual two-height weight with coroot covolume vol is r·vol for r≥0, and the named point-quotient weighted orbital integral with discriminant one takes exactly that value.
 - `measure_scaling`: Scaling the centralizer Haar by c scales the quotient integral by c⁻¹; the global centralizer-volume coefficient scales by c and cancels it.
 
 Source: S3, §18 (18.3), Theorem 18.2, (18.10).
 
-Uses: orbital/pseudo-coefficient input contract; AS.6.7; AS.6.8.
+Uses: AS.6.8a; AS.6.7; AS.6.8.
 
 ### AS.6.10 — Normalized weighted characters
 
@@ -2632,13 +2596,11 @@ Fix π unitary on M(F_S), P∈P(M) and normalized local intertwiners R. The fami
 Assume: S has Arthur’s closure property; fixed finite K-types of f; analytic unitary-axis normalized intertwiners; quotient Haar/Fourier dual measures.
 
 API:
-
 - `trace`: J_M(π_λ,f)=tr(ℛ_M(π_λ,P)I_P(π_λ,f)).
 - `full_levi`: For M=G, ℛ_G=1 and J_G is the ordinary character.
 - `parabolic_independence`: Conjugating by normalized R identifies the definitions for different P, so their traces agree.
 
 Tests:
-
 - `full_levi_test`: M=G recovers tr π(f).
 - `rank_one_derivative`: On a finite-dimensional invertible slice, the weighted character is tr(R(λ)⁻¹R′(λ)·test); its trace-class witness belongs to this product.
 - `normalization_change`: The scalar families exp(z)Id and Id have weighted traces one and zero at z=0: imaginary-axis unitarity does not fix the logarithmic-derivative weight.
@@ -2680,13 +2642,11 @@ For S with the closure property (an archimedean place, or only finite places of 
 Assume: Tempered π on G(F_S); central Fourier dual quotient ia_G*/ia_G,S∨, with periods 2πℤ; the invariant PW image, not all functions on tempered representations.
 
 API:
-
 - `cutoff`: Membership means every compact smooth height cutoff belongs to the same Γ piece of H or I.
 - `height_covariance`: φ(π_λ,Z)=e^(λZ)φ(π,Z).
 - `weighted_fourier`: φ_M(f)(π,X)=J_M(π,X,f), a continuous linear map into I_ac(M).
 
 Tests:
-
 - `compact_input`: H(G) embeds into H_ac(G).
 - `semisimple`: If a_G=0 then H_ac(G)=H(G), and likewise for I.
 - `fiberwise_only`: A smooth coefficient family can have compact support per K-type and finitely many types at each height, yet involve all labels within one compact height interval. No fixed finite-type almost-compact space contains it.
@@ -2704,13 +2664,11 @@ Define I_M^G(γ,f)=J_M^G(γ,f)−Σ_{L⊃M,L≠G}Î_M^L(γ,φ_L(f)) and the para
 Assume: S has closure property; H_ac domain; induction on proper Levis; character support is proved for these distributions, not assumed for all invariant distributions.
 
 API:
-
 - `recursion`: The defining subtraction uses every proper Levi L containing M.
 - `invariance`: Matching the conjugation defect of J with the weighted lower-Levi defects gives I(conjugate f)=I(f) in the linear model; the distribution construction supplies this compatibility.
 - `character_support`: In the linear model, J=Î∘transform+Σ_L weight_L·lower_L∘φ_L implies I=Î∘transform, so transform f=0 implies I(f)=0. Arthur's induction supplies the factorization.
 
 Tests:
-
 - `full_levi`: I_G(γ,f)=J_G(γ,f) and I_G(π,Z,f)=tr π(f^Z).
 - `zero_transform`: Construct J from a character-image functional plus the lower-Levi correction; invariant_recursion then vanishes when transform f=0.
 - `rank_one`: The global GL₂ recursion (23.10) has proper-Levi Weyl coefficient 1/2; the local I_M^G recursion (23.3) has coefficient one.
@@ -2743,31 +2701,50 @@ Source: S3, §1 compact quotient formula; §16 (16.1)′′; PDF page 8.
 
 Uses: AS.6.4; AS.6.6; AS.4.7; AS.0.11.
 
+### AS.6.16a — Discrete series and pseudo-coefficients
+
+`discrete_series`, `discrete_functional_trace`, `pseudo_coefficient`
+
+Let G be a real reductive group of Harish-Chandra's class with compact centre and K a maximal compact subgroup. An irreducible unitary representation π is in the discrete series when its K-finite matrix coefficients are square integrable on G. A Z-linear form λ on the Grothendieck group R(G) of finite-length Harish-Chandra modules is discrete when it vanishes on every representation induced from a proper parabolic, and admissible when it vanishes off a finite set of K-types. Realization theorem: for every discrete admissible λ and every r>0 there is a bi-K-finite f∈C_c^∞(G) supported in the ball of radius r with tr π(f)=λ(π) for every finite-length π. Pseudo-coefficients: for each discrete series δ₀ and r>0 there is such an f with tr δ₀(f)=1 and tr π(f)=0 for every standard module π≠δ₀ induced from a limit of discrete series; in particular tr π(f)=0 for every irreducible tempered π≇δ₀.
+
+Assume: Compact centre (for groups with split centre, fix the central character as in AS.6.17); the Paley–Wiener theorem AS.6.1.
+
+API:
+- `matrix_coefficient_mem_L2`: for discrete series π the K-finite matrix coefficients lie in L²(G).
+- `formal_degree`: Schur orthogonality ∫_G⟨π(g)u,v⟩conj⟨π(g)u′,v′⟩dg=d_π⁻¹⟨u,u′⟩conj⟨v,v′⟩ with d_π>0.
+- `pseudo_coefficient_trace`: the pseudo-coefficient property, derived from the realization theorem and Langlands' disjointness of the discrete series from the induced relations.
+
+Tests:
+- `compact_group`: for compact G every irreducible π is discrete series, and d_π·conj(χ_π) is a pseudo-coefficient of π.
+- `principal_series_not_discrete`: the unitary principal series of SL₂(ℝ) are not discrete series.
+- `noncompact_centre`: for G=ℝ_{>0}^× no unitary character is square integrable, so the compact-centre hypothesis cannot be dropped.
+
+Source: S16, §5.2 Lemma 6, Proposition 4 and its Corollary, pp.212–213.
+
+Uses: AS.6.1; `AF.1/sf-representation`; `AF.1/infinitesimal-character`.
+
 ### AS.6.17 — Real Euler–Poincaré test functions
 
 `general_euler_poincare`
 
-Import ET.1's discrete-series/pseudo-coefficient carriers and AF.1a's relative cohomology. For finite-dimensional ξ, construct f_ξ within any prescribed positive support radius, simultaneously satisfying tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π of G. Without discrete series, this Euler characteristic vanishes for all π and f_ξ=0 suffices.
+This uses the discrete series and realization theorem of AS.6.16a and AF.1a's relative cohomology. For finite-dimensional ξ, construct f_ξ within any prescribed positive support radius, simultaneously satisfying tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π of G. Without discrete series, this Euler characteristic vanishes for all π and f_ξ=0 suffices.
 
 Assume: Clozel–Delorme real group conventions; finite-length Harish-Chandra module and finite-dimensional ξ; split-center/central-character balancing for adelic groups.
 
 API:
-
-- `trace_identity`: tr π(f_ξ)=EP(𝔤,K;π⊗ξ) for every finite-length admissible π. An invertible scalar trace E≃ₗℂ gives the scalar model by inversion.
+- `trace_identity`: tr π(f_ξ)=EP(𝔤,K;π⊗ξ) for every finite-length admissible π.
 - `induced_vanishing`: Proper induction has zero EP. The rank-one model has nonzero cohomology in degrees zero and one with zero alternating dimension.
-- `no_discrete_series`: Without discrete series, EP vanishes. Inverting a scalar trace sends a supplied zero Euler sum to zero; the representation theorem establishes that sum.
+- `no_discrete_series`: Without discrete series, EP(𝔤,K;π⊗ξ)=0 for every finite-length π.
 
 Tests:
-
 - `compact_group`: Degree-zero relative cochain model: EP trace one and dim H⁰=1.
-- `no_discrete_series_test`: Zero Euler sum gives zero in the relative-cochain scalar model; the no-discrete-series theorem supplies the sum for representations.
+- `no_discrete_series_test`: For SL₂(ℂ), which has no discrete series, the trivial representation has (𝔤,K)-cohomology of dimension one in degrees 0 and 3, so its Euler–Poincaré characteristic is 0.
 - `parabolic_induction`: Rank-one model: EP trace zero with dim H⁰=dim H¹=1.
 
-Simultaneity check: on E=ℂ take T₀(z)=z and T₁(z)=−z. Both traces are invertible. Their joint image is b=−a: it excludes (1,1), contains (1,−1), and the separate inverses choose 1 and −1. Trace-image realization must preserve all character relations and the support bound for the entire Euler functional.
 
 Source: S16, §0 Theorem 1, p.195; §5 Proposition 4, p.212, Theorem 3 and proof, pp.213–214.
 
-Uses: AS.6.1; orbital/pseudo-coefficient input contract; `AF.1a/relative-lie-cochain-complex`.
+Uses: AS.6.1; AS.6.16a; `AF.1a/relative-lie-cochain-complex`.
 
 ### AS.6.18 — L²-Lefschetz traces of Hecke operators
 
@@ -2775,7 +2752,7 @@ Uses: AS.6.1; orbital/pseudo-coefficient input contract; `AF.1a/relative-lie-coc
 
 For Arthur’s reductive Q-group, coefficient ξ, level K_f and central balancing character, the alternating trace of h on finite-dimensional L² relative cohomology is Σ_{π∈Π_disc}m_disc(π)EP(𝔪_G,K∞;π∞⊗ξ)tr π_f(h)=I(f_ξ⊗h). The invariant geometric expansion computes this trace with lower-Levi corrections. In CT20’s split classical integral groups at level one, h=∏_p1_{G(ℤ_p)} with vol G(ℤ_p)=1 gives EP(G;λ)=T_geom(G;λ); its elliptic term is Σ_[γ finite order]vol(G_γ(ℚ)\G_γ(𝔸))O_γ(h)tr(γ|V_λ), with signed Euler–Poincaré measure at infinity and the matching local centralizer measures. Residual cohomology contributes unless a separate theorem excludes it.
 
-Assume: Finite-dimensional algebraic coefficient; finite level; full K∞ component convention; invariant quotient by the split center. CT specialization uses the groups and coefficient regularity stated in §1.4. Arthur assumes G(ℝ)/A_G(ℝ)^0 has a compact Cartan subgroup; see §2, p.264. CT20 §1.4 uses its listed split classical groups admitting discrete series (in particular the even orthogonal cases allowed there).
+Assume: Finite-dimensional algebraic coefficient; finite level; full K∞ component; invariant quotient by the split centre; G(ℝ)/A_G(ℝ)⁰ has a compact Cartan subgroup (Arthur, §2, p.264). The CT20 specialization uses the split classical groups admitting discrete series and the coefficient regularity of its §1.4.
 
 Source: S15, Arthur89 §2, p.264 (compact-Cartan hypothesis), Proposition 2.1; §3 Proposition 3.2; §6 Theorem 6.1; CT20 §1.4.
 
@@ -2788,13 +2765,11 @@ Uses: AS.6.17; AS.6.15; AS.4.3; AS.4.5.
 Form k_P by the prescribed rational Levi sum, central Xi_G sum and unipotent integral; k^T is the alternating sum over P(F)\G(F) with hat-tau_P(H−T). Set J_e^T=∫_{G(F)\G(A)^e} k^T(x,x) dx and J_e=J_e^0, with convergence proved separately.
 
 API:
-
 - `parabolicKernel`: assemble rational sums and unipotent integration
 - `truncate`: form the locally finite alternating parabolic sum
 - `fixedDegreeIntegral`: integrate only after convergence and quotient-measure proofs
 
 Tests:
-
 - `test1`: For G=GL₁, the parabolic truncation sum has only P=G and k^T=k_G.
 - `test2`: Writing J_e^T as an integral is permitted after integrability of the restricted diagonal kernel has been proved; the value at T=0 is J_e.
 - `test3`: The actual fixed-degree integral of the two-parabolic cusp model on [0,2T] is T and differs from the whole-group-only integral when T>0.
@@ -2822,13 +2797,11 @@ Uses: AS.6.19; `AA.0/restricted-haar-product`.
 For monic p∈Fq[X] of degree n restrict the large-T kernels to matrices/endormorphisms with characteristic polynomial p and extend their integrals quasipolynomially. If p(0)≠0, End(E) and Aut(E) fibres coincide; hence J_e=Σ_{p(0)≠0} tildeJ_p,e.
 
 API:
-
 - `charpolyFibre`: restrict kernel sums to a monic degree-n polynomial
 - `lieKernel`: replace automorphisms by all endomorphisms
 - `continueInT`: extend each truncated integral quasipolynomially
 
 Tests:
-
 - `test1`: The scalar matrix a·Id belongs to the (X−a)^n characteristic-polynomial fibre.
 - `test2`: For n>0, the zero matrix belongs to the X^n fibre, is not invertible, and does not belong to the (X−1)^n fibre.
 - `test3`: For A in the p characteristic-polynomial fibre, A is invertible iff p has nonzero constant term; on a bundle use the corresponding global Cayley–Hamilton inverse.
@@ -2854,13 +2827,11 @@ Uses: AS.6.20; AS.6.21; `AA.0/restricted-haar-product`.
 Let M be a semi-standard Levi subgroup of G=GL_n and w in W_n (a permutation matrix). Put w(M)=wMw^{-1}; then w(a_M)=a_{w(M)} and w induces an isomorphism w: X_M^G -> X_{w(M)}^G, w(λ)(m)=λ(w^{-1}mw) for m in w(M)(A). If w(M)=M (so w permutes the blocks of M, necessarily among blocks of equal size), there is a smallest Levi subgroup L_w containing M and w; it is characterized by a_{L_w}=ker((w−id)|a_M), its blocks are the unions of the blocks of M along the cycles of the block permutation induced by w, and w acts trivially on X_{L_w}^G. For M ⊆ L, restriction of characters gives an inclusion X_L^G ⊆ X_M^G. Track the lattices a_{M,Z}, a_{L,Z} as well as the real spaces.
 
 API:
-
 - `leviFromCycles`: construct L_w from the permutation orbits
 - `fixedVectorSpace`: identify a_L with ker(w−1)
 - `centralCharacterAction`: prove w fixes X_L^G
 
 Tests:
-
 - `test1`: For w=1 the minimal fixed Levi is M.
 - `test2`: For M=GL_d×GL_d and w swapping the two blocks, L_w=GL_(2d).
 - `test3`: For M=GL₁^4 and w=(12)(34), L_w=GL₂×GL₂ up to permutation, rather than GL₄.
@@ -2876,13 +2847,11 @@ Uses: AS.1.11; AS.3.10; `AA.0/restricted-haar-product`.
 In determinant coordinates set X_M^G={(lambda_i):∏lambda_i^ni=1}. Write lambda^H=∏lambda_i^H_i but <lambda,H>=Σlambda_i H_i, using the coordinate embedding, not a logarithm. The finite central subgroup X_G^G is mu_n.
 
 API:
-
 - `multiplicativePairing`: evaluate lambda^H with integer exponents
 - `linearPairing`: evaluate the coordinate-linear form without logarithms
 - `centralRoots`: identify X_G^G with mu_n
 
 Tests:
-
 - `test1`: lambda^(H+K)=lambda^H*lambda^K for integral H,K.
 - `test2`: For H=(1,−1), lambda^H=lambda1/lambda2 whereas <lambda,H>=lambda1−lambda2.
 - `test3`: For H=0 the multiplicative pairing is1 and the additive pairing is0.
@@ -2898,13 +2867,11 @@ Uses: AS.1.11; AS.3.10; `AA.0/restricted-haar-product`.
 For a semi-standard Levi L, the chambers of a_L^G correspond to P(L) via P ↦ {H in a_L^G : α(H)>0 for all α in Δ_P}; P̄ denotes the opposite parabolic (Φ_P̄=−Φ_P), and P,Q in P(L) are adjacent when |Φ_P̄ ∩ Φ_Q|=1. For Q in P(M) and λ in X_M put θ_Q(λ)=∏_{α in Δ_Q}⟨λ,α^∨⟩ (the linear pairing of 4.1.6, so ⟨λ,α^∨⟩=λ_u−λ_v for α^∨=e_{M,u}−e_{M,v}); this differs from Arthur's θ_Q by a volume factor. Let Ω ⊆ X_M^G or X_M be a domain. A family (c_P)_{P in P(M)} of holomorphic functions on Ω is a (G,M)-family if c_P(λ)=c_{P'}(λ) for every adjacent pair P,P' and every λ in Ω with λ^{α^∨}=1, where α is the unique root in Φ_P ∩ Φ_{P̄'}. For such a family c_M(λ)=Σ_{Q in P(M)} c_Q(λ)θ_Q(λ)^{-1} is meromorphic on Ω. A domain around a noncentral translate must be specified when one is used.
 
 API:
-
 - `adjacentCompatibility`: state equality on the multiplicative coroot wall
 - `theta`: construct the product of coordinate differences
 - `regularizedSum`: name the sum before proving removable singularities
 
 Tests:
-
 - `test1`: For GL₂ with diagonal Levi, theta_B=lambda1−lambda2 and theta_Bop=lambda2−lambda1.
 - `test2`: The multiplicative wall equation from the actual coroot (1,−1) rejects any yu_049 family with constant adjacent members one and two on the whole character domain.
 - `test3`: For M=G, theta_G=1 and the single holomorphic member automatically satisfies the adjacency condition.
@@ -2989,7 +2956,7 @@ Uses: AS.0.20; AS.0.21; AS.0.22; AS.0.23; AS.0.24; `AA.0/restricted-haar-product
 
 `yu_063`
 
-For G=GL_n over F_q(X), n>0, the everywhere-unramified trace at T=0 is J_eta=Σ_[(P,pi)] |stab(P,pi)|⁻¹ Σ_[(w,tau)∈stab(P,pi)] ∫_(lambda∈A) D⁻¹ Σ_[(a,c)∈mu_w⁻¹(tau)] F_eta(lambda,a,c) d lambda. Here A=Im X_L^G, B=Im X_M^L, L=L_w, mu_w(a,c)=a*c/w⁻¹(c), D=|w||X_L^L|, and F_eta is the exact ordered regularized trace151 with h_Q(v)=hat1_Q(v eta⁻¹). Haar on A has total mass one, including all components. The finite fibre is equivalently a∈A,b∈B0,tau=a*b,c∈B,δ_w(c)=b. Replacing h_Q by hat1_Q^e gives J_e for every e∈Z. No good-representative hypothesis is required for this spectral identity. The scalar specialization uses compatible spherical vectors, intertwiners, L-factors and Haar measures. Here F_η is the ordered operator trace defined in AS.6/yu-151; both the all-lifts fiber sum and D⁻¹ are retained.
+For G=GL_n over F_q(X), n>0, the everywhere-unramified trace at T=0 is J_eta=Σ_[(P,pi)] |stab(P,pi)|⁻¹ Σ_[(w,tau)∈stab(P,pi)] ∫_(lambda∈A) D⁻¹ Σ_[(a,c)∈mu_w⁻¹(tau)] F_eta(lambda,a,c) d lambda. Here A=Im X_L^G, B=Im X_M^L, L=L_w, mu_w(a,c)=a*c/w⁻¹(c), D=|w||X_L^L|, and F_eta is the exact ordered regularized trace151 with h_Q(v)=hat1_Q(v eta⁻¹). Haar on A has total mass one, including all components. The finite fibre is equivalently a∈A,b∈B0,tau=a*b,c∈B,δ_w(c)=b. Replacing h_Q by hat1_Q^e gives J_e for every e∈Z. No good-representative hypothesis is required for this spectral identity. The scalar specialization uses compatible spherical vectors, intertwiners, L-factors and Haar measures. Here F_η is the ordered operator trace defined in AS.6.34; both the all-lifts fiber sum and D⁻¹ are retained.
 
 Source: S19, Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem.
 
@@ -3002,13 +2969,11 @@ Uses: AS.4.12; AS.6.19; AS.6.20; AS.3.13; AS.2.14; AS.6.32; AS.6.34; AS.6.35; `A
 For a discrete pair (P,pi), (w,tau)∈stab(P,pi), L=L_w, a∈A, b∈B0, tau=a*b and c∈B with δ_w(c)=b, put z=lambda*c for lambda∈A. Define R_Q(z;v)=M_(R|P)(z)⁻¹∘M_(R|P)(z/v), where R∈P^Q(M), v∈X_L^G. For h_Q=hat1_Q(·eta⁻¹) or hat1_Q^e, set F_h(lambda,a,c)=lim_(mu→1 in X_L^G) Tr_(A_P,pi)[(Σ_(Q∈P(L))h_Q(mu*a) R_Q(z;mu*a))∘M(w,w⁻¹(c))∘U_tau]. U_tau is multiplication by tau. The Q-sum is continued holomorphically before evaluation at mu=1; the other parameters are unitary.
 
 API:
-
 - `stabilizerTransport`: U_tau:A_P,pi→A_P,pi⊗tau followed by M(w,w⁻¹c):A_P,pi⊗tau→A_P,w(pi⊗tau)=A_P,pi closes the endomorphism because stab means w(pi⊗tau)=pi.
 - `regularizedFamily`: For a fixed fibre and lambda form the meromorphic Q-sum, prove its extension near mu=1 by adjacent-wall gluing, then take the finite-dimensional trace.
 - `spectralContribution`: Integrate F_h over probability Haar on A and average over the D-point fibre; multiply by |stab(P,pi)|⁻¹. Choice of R within P^Q(M) does not change the operator.
 
 Tests:
-
 - `test1`: For all cycle lengths one, count the actual finite kernel of the map (a,c)↦aδ(c) on the constructed A×B cover: its cardinal is ∏d_j, retaining every finite component.
 - `test2`: In the general stabilizer case U_tau alone need not end in A_P,pi; the trace is formed only after the Weyl transport closes the endomorphism.
 - `test3`: For M=L=G the parabolic sum has one term and R_G(z;v)=Id; the formula reduces to the finite character average of h_G(a) times Tr(M(1,c)∘U_tau).
@@ -3061,99 +3026,38 @@ Uses: AS.3.1; AS.3.10; `AA.3/relative-chamber`.
 
 ## Library prerequisites
 
-B labels identify the following declarations at Mathlib `082e2d37` and Tau Ceti `f7904748`.
+B labels identify these declarations (Mathlib unless marked) at Mathlib `082e2d37` and Tau Ceti `f7904748`.
 
-- **B1**: `mathlib:MeasureTheory.L2.inner_def`.
-- **B2**: `mathlib:MeasureTheory.integral_prod`.
-- **B3**: `mathlib:MeasureTheory.integral_tsum`.
-- **B4**: `mathlib:hasFDerivAt_integral_of_dominated_of_fderiv_le`.
-- **B5**: `mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le`.
-- **B6**: `mathlib:WithSeminorms.banach_steinhaus`.
-- **B7**: `mathlib:Complex.regularizedHGFun`.
-- **B8**: `mathlib:Complex.radius_regularizedHGFunSeries_eq_top`.
-- **B9**: `mathlib:Complex.betaIntegral_eq_Gamma_mul_div`.
-- **B10**: `mathlib:Complex.Gamma_mul_Gamma_add_half`.
-- **B11**: `tauceti:TauCeti.stdPeterWeylBasis`.
-- **B12**: `tauceti:IsSelfAdjoint.existsUnique_isUnitary_complexGenerator_eq_I_smul`.
-- **B13**: `mathlib:MonoidHom.measurePreserving`.
-- **B14**: `mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable`.
-- **B15**: `mathlib:AddChar.expect_eq_ite`.
-- **B16**: `mathlib:UpperHalfPlane.cosh_dist`.
-- **B17**: `mathlib:UpperHalfPlane.tanh_half_dist`.
-- **B18**: `tauceti:TauCeti.vitali`.
-- **B19**: `mathlib:SchwartzMap`.
-- **B20**: `mathlib:SchwartzMap.postcompCLM`.
-- **B21**: `mathlib:LinearMap.IsSymmetric.eigenvectorBasis`.
-- **B22**: `tauceti:IsCompactOperator.finiteDimensional_eigenspace`.
-- **B23**: `tauceti:TauCeti.isFredholm_one_sub`.
-- **B24**: `tauceti:ContinuousLinearMap.exists_hilbertBasis_forall_hasEigenvector`.
-- **B25**: `mathlib:TestFunction`.
-- **B26**: `mathlib:TestFunction.topologicalSpace`.
-- **B27**: `mathlib:AddChar.complexBasis`.
-- **B28**: `mathlib:Module.AEval'`.
-- **B29**: `mathlib:Module.AEval'.X_smul_of`.
-- **B30**: `mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow`.
-- **B31**: `tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant`.
-- **B32**: `mathlib:ArithmeticFunction.moebius`.
+B1 `MeasureTheory.L2.inner_def`; B2 `MeasureTheory.integral_prod`; B3 `MeasureTheory.integral_tsum`; B4 `hasFDerivAt_integral_of_dominated_of_fderiv_le`; B5 `hasDerivAt_integral_of_dominated_loc_of_deriv_le`; B6 `WithSeminorms.banach_steinhaus`; B7 `Complex.regularizedHGFun`; B8 `Complex.radius_regularizedHGFunSeries_eq_top`; B9 `Complex.betaIntegral_eq_Gamma_mul_div`; B10 `Complex.Gamma_mul_Gamma_add_half`; B11 `TauCeti.stdPeterWeylBasis` (Tau Ceti); B12 `IsSelfAdjoint.existsUnique_isUnitary_complexGenerator_eq_I_smul` (Tau Ceti); B13 `MonoidHom.measurePreserving`; B14 `UnitAddTorus.hasSum_mFourier_series_apply_of_summable`; B15 `AddChar.expect_eq_ite`; B16 `UpperHalfPlane.cosh_dist`; B17 `UpperHalfPlane.tanh_half_dist`; B18 `TauCeti.vitali` (Tau Ceti); B19 `SchwartzMap`; B20 `SchwartzMap.postcompCLM`; B21 `LinearMap.IsSymmetric.eigenvectorBasis`; B22 `IsCompactOperator.finiteDimensional_eigenspace` (Tau Ceti); B23 `TauCeti.isFredholm_one_sub` (Tau Ceti); B24 `ContinuousLinearMap.exists_hilbertBasis_forall_hasEigenvector` (Tau Ceti); B25 `TestFunction`; B26 `TestFunction.topologicalSpace`; B27 `AddChar.complexBasis`; B28 `Module.AEval'`; B29 `Module.AEval'.X_smul_of`; B30 `zeta_eq_tsum_one_div_nat_add_one_cpow`; B31 `TauCeti.Multiquadratic.IsFundamentalDiscriminant` (Tau Ceti); B32 `ArithmeticFunction.moebius`.
 
 ## References
-
-- **S1 (yetter)**: David N. Yetter, [Measurable Categories](https://arxiv.org/pdf/math/0309185). arXiv:math/0309185v2, 6 September 2004.
-
-- **S2 (teschl)**: Gerald Teschl, [Mathematical Methods in Quantum Mechanics](https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf). author PDF of second edition.
-
-- **S3 (arthur05)**: James Arthur, [An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf). Clay Mathematics Proceedings 4 (2005), 1–263.
-
-- **S4 (langlands)**: Robert P. Langlands, [On the Functional Equations Satisfied by Eisenstein Series](https://publications.ias.edu/sites/default/files/functional-equations-eisenstein_rpl_8.pdf). IAS electronic transcription, 235 PDF pages, dated 2 December2015 and updated 22 July2016, of LNM544(1976); AppendixIII includes editorial reconstruction notices; not collated against the printed 337-page edition.
-
-- **S5 (langlands66)**: Robert P. Langlands, [Eisenstein Series](https://publications.ias.edu/sites/default/files/Eisenstein-series-rpl_0.pdf). Proc. Sympos. Pure Math. 9 (1966), 235–252, IAS transcription.
-
-- **S6 (arthur78)**: James Arthur, [A Trace Formula for Reductive Groups I: Terms Associated to Classes in G(Q)](https://www.claymath.org/library/cw/arthur/pdf/7.pdf). Duke Math. J. 45 (1978), 911–952.
-
-- **S7 (arthur80)**: James Arthur, [A Trace Formula for Reductive Groups II: Applications of a Truncation Operator](https://www.claymath.org/library/cw/arthur/pdf/9.pdf). Compositio Math. 40 (1980), 87–121.
-
-- **S8 (arthur81)**: James Arthur, [The Trace Formula in Invariant Form](https://www.claymath.org/library/cw/arthur/pdf/10.pdf). Annals of Math. 114 (1981), 1–74.
-
-- **S9 (arthur82ms)**: James Arthur, [On the Inner Product of Truncated Eisenstein Series](https://www.claymath.org/library/cw/arthur/pdf/12.pdf). Duke Math. J. 49 (1982), 35–70.
-
-- **S10 (arthur83pw)**: James Arthur, [Multipliers and a Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/17.pdf). 1983 expository article, Arthur archive no.17.
-
-- **S11 (arthur83acta)**: James Arthur, [A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf). Acta Math. 150 (1983), 1–89.
-
-- **S12 (arthur88local)**: James Arthur, [The Invariant Trace Formula I: Local Theory](https://www.claymath.org/library/cw/arthur/pdf/26.pdf). JAMS 1 (1988), 323–383.
-
-- **S13 (arthur88global)**: James Arthur, [The Invariant Trace Formula II: Global Theory](https://www.claymath.org/library/cw/arthur/pdf/27.pdf). JAMS 1 (1988), 501–554.
-
-- **S14 (arthur89weighted)**: James Arthur, [Intertwining Operators and Residues I: Weighted Characters](https://www.claymath.org/library/cw/arthur/pdf/28.pdf). J. Funct. Anal. 84 (1989), 19–84.
-
-- **S15 (arthur89lefschetz)**: James Arthur, [The L²-Lefschetz Numbers of Hecke Operators](https://www.claymath.org/library/cw/arthur/pdf/32.pdf). Invent. Math. 97 (1989), 257–290.
-
-- **S16 (clozeldelorme90)**: Laurent Clozel and Patrick Delorme, [Le théorème de Paley-Wiener invariant pour les groupes de Lie réductifs II](https://www.numdam.org/article/ASENS_1990_4_23_2_193_0.pdf). Ann. ENS 23 (1990), 193–228.
-
-- **S17 (franke)**: Jens Franke, [Harmonic Analysis in Weighted L²-Spaces](https://www.numdam.org/item/10.1016/s0012-9593(98)80015-3.pdf). Ann. ENS 31 (1998), 181–279.
-
-- **S18 (wallach)**: Nolan R. Wallach, [On the Constant Term of a Square Integrable Automorphic Form](https://mathweb.ucsd.edu/~nwallach/tempered-cuspidal.pdf). Monogr. Stud. Math. 18 (1984), 227–237, author scan.
-
-- **S19 (yu23)**: Hongjie Yu, [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5). arXiv:1807.04659v5, 18 July 2022.
-
-- **S20 (jiangzhang20)**: Dihua Jiang and Lei Zhang, [Arthur Parameters and Cuspidal Automorphic Modules of Classical Groups](https://arxiv.org/pdf/1508.03205v4). arXiv:1508.03205v4.
-
-- **S21 (dit16)**: William Duke, Özlem İmamoğlu and Árpád Tóth, [Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf). Annals of Math. 184 (2016), 949–990.
-
-- **S22 (dit11)**: William Duke, Özlem İmamoğlu and Árpád Tóth, [Cycle Integrals of the j-Function and Mock Modular Forms](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n2-p08-p.pdf). Annals of Math. 173 (2011), 947–981.
-
-- **S23 (cg20)**: Frank Calegari and David Geraghty, [Minimal Modularity Lifting for Non-regular Symplectic Representations](https://arxiv.org/pdf/1907.08691). arXiv:1907.08691v1, July 2019.
-
-- **S24 (cgh20)**: Frank Calegari, David Geraghty and Michael Harris, [Bloch–Kato Conjectures for Automorphic Motives](https://arxiv.org/pdf/1907.08694). arXiv:1907.08694v1, July2019.
-
-- **S25 (bcg25)**: George Boxer, Frank Calegari and Toby Gee, [Cuspidal Cohomology of GLₙ(Z) and SLₙ(Z)](https://math.uchicago.edu/~fcale/papers/WeightZero.pdf). author WeightZero PDF.
-
-- **S26 (bpcz22)**: Raphaël Beuzart-Plessis, Pierre-Henri Chaudouard and Michał Zydor, [The Global Gan–Gross–Prasad Conjecture for Unitary Groups: the Endoscopic Case](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf). Publ. Math. IHES 135 (2022), 183–337.
-
-- **S27 (ct20)**: Gaëtan Chenevier and Olivier Taïbi, [Discrete Series Multiplicities for Classical Groups over Z and Level 1 Algebraic Cusp Forms](https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf). Publ. Math. IHES 131 (2020), 261–323.
-
-- **S28 (bcgp21)**: George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, [Abelian Surfaces over Totally Real Fields Are Potentially Modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf). Publ. Math. IHES 134 (2021), 153–501.
-
-- **S29 (gz86)**: Benedict H. Gross and Don B. Zagier, [Heegner Points and Derivatives of L-Series](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf). Invent. Math. 84 (1986), 225–320.
-
-- **S30 (shapiro25)**: Jacob Shapiro, [Functional Analysis: Princeton University MAT520 Lecture Notes](https://web.math.princeton.edu/~js129/PDFs/teaching/MAT520_fall_2025/MAT520_Lecture_Notes.pdf). Fall 2025; last typeset 10 December 2025.
+- **S1**: David N. Yetter, [Measurable Categories](https://arxiv.org/pdf/math/0309185). arXiv:math/0309185v2, 6 September 2004.
+- **S2**: Gerald Teschl, [Mathematical Methods in Quantum Mechanics](https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf). author PDF of second edition.
+- **S3**: James Arthur, [An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf). Clay Mathematics Proceedings 4 (2005), 1–263.
+- **S4**: Robert P. Langlands, [On the Functional Equations Satisfied by Eisenstein Series](https://publications.ias.edu/sites/default/files/functional-equations-eisenstein_rpl_8.pdf). IAS electronic transcription, 235 PDF pages, dated 2 December2015 and updated 22 July2016, of LNM544(1976); AppendixIII includes editorial reconstruction notices; not collated against the printed 337-page edition.
+- **S5**: Robert P. Langlands, [Eisenstein Series](https://publications.ias.edu/sites/default/files/Eisenstein-series-rpl_0.pdf). Proc. Sympos. Pure Math. 9 (1966), 235–252, IAS transcription.
+- **S6**: James Arthur, [A Trace Formula for Reductive Groups I: Terms Associated to Classes in G(Q)](https://www.claymath.org/library/cw/arthur/pdf/7.pdf). Duke Math. J. 45 (1978), 911–952.
+- **S7**: James Arthur, [A Trace Formula for Reductive Groups II: Applications of a Truncation Operator](https://www.claymath.org/library/cw/arthur/pdf/9.pdf). Compositio Math. 40 (1980), 87–121.
+- **S8**: James Arthur, [The Trace Formula in Invariant Form](https://www.claymath.org/library/cw/arthur/pdf/10.pdf). Annals of Math. 114 (1981), 1–74.
+- **S9**: James Arthur, [On the Inner Product of Truncated Eisenstein Series](https://www.claymath.org/library/cw/arthur/pdf/12.pdf). Duke Math. J. 49 (1982), 35–70.
+- **S10**: James Arthur, [Multipliers and a Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/17.pdf). 1983 expository article, Arthur archive no.17.
+- **S11**: James Arthur, [A Paley-Wiener Theorem for Real Reductive Groups](https://www.claymath.org/library/cw/arthur/pdf/15.pdf). Acta Math. 150 (1983), 1–89.
+- **S12**: James Arthur, [The Invariant Trace Formula I: Local Theory](https://www.claymath.org/library/cw/arthur/pdf/26.pdf). JAMS 1 (1988), 323–383.
+- **S13**: James Arthur, [The Invariant Trace Formula II: Global Theory](https://www.claymath.org/library/cw/arthur/pdf/27.pdf). JAMS 1 (1988), 501–554.
+- **S14**: James Arthur, [Intertwining Operators and Residues I: Weighted Characters](https://www.claymath.org/library/cw/arthur/pdf/28.pdf). J. Funct. Anal. 84 (1989), 19–84.
+- **S15**: James Arthur, [The L²-Lefschetz Numbers of Hecke Operators](https://www.claymath.org/library/cw/arthur/pdf/32.pdf). Invent. Math. 97 (1989), 257–290.
+- **S16**: Laurent Clozel and Patrick Delorme, [Le théorème de Paley-Wiener invariant pour les groupes de Lie réductifs II](https://www.numdam.org/article/ASENS_1990_4_23_2_193_0.pdf). Ann. ENS 23 (1990), 193–228.
+- **S17**: Jens Franke, [Harmonic Analysis in Weighted L²-Spaces](https://www.numdam.org/item/10.1016/s0012-9593(98)80015-3.pdf). Ann. ENS 31 (1998), 181–279.
+- **S18**: Nolan R. Wallach, [On the Constant Term of a Square Integrable Automorphic Form](https://mathweb.ucsd.edu/~nwallach/tempered-cuspidal.pdf). Monogr. Stud. Math. 18 (1984), 227–237, author scan.
+- **S19**: Hongjie Yu, [Comptage des systèmes locaux ℓ-adiques sur une courbe](https://arxiv.org/pdf/1807.04659v5). arXiv:1807.04659v5, 18 July 2022.
+- **S20**: Dihua Jiang and Lei Zhang, [Arthur Parameters and Cuspidal Automorphic Modules of Classical Groups](https://arxiv.org/pdf/1508.03205v4). arXiv:1508.03205v4.
+- **S21**: William Duke, Özlem İmamoğlu and Árpád Tóth, [Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf). Annals of Math. 184 (2016), 949–990.
+- **S22**: William Duke, Özlem İmamoğlu and Árpád Tóth, [Cycle Integrals of the j-Function and Mock Modular Forms](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n2-p08-p.pdf). Annals of Math. 173 (2011), 947–981.
+- **S23**: Frank Calegari and David Geraghty, [Minimal Modularity Lifting for Non-regular Symplectic Representations](https://arxiv.org/pdf/1907.08691). arXiv:1907.08691v1, July 2019.
+- **S24**: Frank Calegari, David Geraghty and Michael Harris, [Bloch–Kato Conjectures for Automorphic Motives](https://arxiv.org/pdf/1907.08694). arXiv:1907.08694v1, July2019.
+- **S25**: George Boxer, Frank Calegari and Toby Gee, [Cuspidal Cohomology of GLₙ(Z) and SLₙ(Z)](https://math.uchicago.edu/~fcale/papers/WeightZero.pdf). author WeightZero PDF.
+- **S26**: Raphaël Beuzart-Plessis, Pierre-Henri Chaudouard and Michał Zydor, [The Global Gan–Gross–Prasad Conjecture for Unitary Groups: the Endoscopic Case](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf). Publ. Math. IHES 135 (2022), 183–337.
+- **S27**: Gaëtan Chenevier and Olivier Taïbi, [Discrete Series Multiplicities for Classical Groups over Z and Level 1 Algebraic Cusp Forms](https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf). Publ. Math. IHES 131 (2020), 261–323.
+- **S28**: George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, [Abelian Surfaces over Totally Real Fields Are Potentially Modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf). Publ. Math. IHES 134 (2021), 153–501.
+- **S29**: Benedict H. Gross and Don B. Zagier, [Heegner Points and Derivatives of L-Series](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf). Invent. Math. 84 (1986), 225–320.
+- **S30**: Jacob Shapiro, [Functional Analysis: Princeton University MAT520 Lecture Notes](https://web.math.princeton.edu/~js129/PDFs/teaching/MAT520_fall_2025/MAT520_Lecture_Notes.pdf). Fall 2025; last typeset 10 December 2025.
