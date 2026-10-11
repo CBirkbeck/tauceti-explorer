@@ -20,280 +20,576 @@
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "The ideal spanned by the entries of a list over a commutative ring.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 41"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 41",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.annihilator",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "The ideal of scalars acting by zero on every element of the module.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 860"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 860",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.mkQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
         "provides": "The canonical linear quotient map from a module to its quotient by a submodule.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 227"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 227",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.mapQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "A semilinear map descending to the two quotient modules when the source submodule maps into the target submodule.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.map",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "provides": "The image submodule under a semilinear map, with the required scalar-surjectivity hypotheses.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 53"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 53",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.comap",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "provides": "The inverse-image submodule under a semilinear map.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 172",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.supportDim",
         "kind": "def",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "Extended topological Krull dimension of the actual module support, with bottom for empty support.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 32"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 32",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "Support dimension is bottom exactly when the module has one element.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 43"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 43",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "For a finite module, support dimension equals the Krull dimension of the coefficient ring modulo its annihilator.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 49"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 49",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsWeaklyRegular",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "Successive scalars act injectively on the preceding prefix quotients; no properness is required.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 135"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 135",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "Weak regularity together with a nonzero final quotient.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 146"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 146",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:IsSMulRegular",
         "kind": "def",
         "module": "Mathlib/Algebra/Regular/SMul.lean",
         "provides": "Injectivity of scalar multiplication by the selected element on the selected module.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PolynomialModule",
         "kind": "structure",
         "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
         "provides": "Finitely supported coefficient sequences forming the polynomial module, with coefficients in an additive module.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 42"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 42",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PolynomialModule.smul_apply",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
         "provides": "The coefficient at n of polynomial scalar multiplication is the finite convolution over pairs of degrees summing to n.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 228"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 228",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PolynomialModule.equivPolynomialSelf",
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
         "provides": "The polynomial module with coefficients in the ring is linearly equivalent, over the polynomial ring, to the polynomial ring itself.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 238"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 238",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:reesAlgebra",
         "kind": "def",
         "module": "Mathlib/RingTheory/ReesAlgebra.lean",
         "provides": "The polynomial subalgebra whose degree-n coefficient belongs to the n-th power of the ideal.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 39",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:mem_reesAlgebra_iff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/ReesAlgebra.lean",
         "provides": "Membership in the Rees algebra is exactly coefficient membership in each corresponding ideal power.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 64"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 64",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:reesAlgebra.fg",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/ReesAlgebra.lean",
         "provides": "A finitely generated ideal has a finitely generated Rees subalgebra.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 107"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 107",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:localCohomology",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/LocalCohomology.lean",
         "provides": "For an ideal and natural cohomological degree, a functor from modules to modules; the generic long-exact/Čech calculus is not thereby asserted.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 175"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 175",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:localCohomology.isoOfSameRadical",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/LocalCohomology.lean",
         "provides": "Over a Noetherian coefficient ring, equal radicals give a natural isomorphism of the local-cohomology functors in each natural degree.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 263"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 263",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Ideal.smul_top_eq_map",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Extension of an ideal to an algebra equals its scalar action on the top submodule of that algebra.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 286"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 286",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:IsLocalRing.maximalIdeal",
         "kind": "def",
         "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Defs.lean",
         "provides": "The canonical maximal ideal of a local ring, consisting of the nonunits.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 30"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 30",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.supportDim_eq_of_equiv",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "A linear equivalence preserves module support dimension.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 79"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 79",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.smul_mem_smul",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Algebra/Operations.lean",
         "provides": "An ideal element multiplied by a submodule element belongs to the ideal’s scalar product with that submodule.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 120"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 120",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Submodule.mul_smul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "The scalar action of an ideal product equals the successive scalar actions of its two factors.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 88"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 88",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PolynomialModule.coeff_add",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
         "provides": "Coefficient extraction preserves addition of polynomial-module elements.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 109"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 109",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PolynomialModule.coeff_zero",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
         "provides": "Every coefficient of the zero polynomial-module element is zero.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 103"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 103",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PowerSeries.maximalIdeal_eq_span_X",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
         "provides": "For power series over a field, the local maximal ideal is generated by the series variable.",
-        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 294"
+        "checked": "Full signature read at pinned commit, including surrounding hypotheses; line 294",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.«Proj»",
         "kind": "definition",
         "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
         "provides": "The scheme associated to the projective spectrum of an internally graded commutative algebra.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 854"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 854",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.projIsoSpec",
         "kind": "construction",
         "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
-        "provides": "The projective basic-open chart is isomorphic to Spec of its degree-zero homogeneous localization.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 847"
+        "provides": "The projective basic-open restriction is isomorphic, as a locally ringed space, to Spec of the degree-zero homogeneous localization. The surrounding Proj construction uses these isomorphisms to supply its scheme structure.",
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 847",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
         "kind": "definition",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "The category of sheaves of modules over a scheme’s structure sheaf.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 36"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 36",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.presheaf",
         "kind": "definition",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "The underlying presheaf of modules of a module sheaf, used to take its actual stalks.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 89"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 89",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "kind": "construction",
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "provides": "A scheme morphism induces pullback of module sheaves to its source.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 182"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 182",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.tilde",
         "kind": "construction",
         "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
         "provides": "The module sheaf associated to a module on the affine spectrum of its coefficient ring.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 151"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 151",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:LocalizedModule.mkLinearMap",
         "kind": "definition",
         "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
         "provides": "The canonical linear map from a module to its localization at a scalar submonoid.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 482"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 482",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:LocalizedModule.moduleOfIsLocalization",
         "kind": "construction",
         "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
         "provides": "An algebra realizing localization of the coefficient ring acts on the corresponding localized module.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 364"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 364",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "The set of prime ideals containing the specified subset of the ring.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 137"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 137",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Module.support",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Support.lean",
         "provides": "The prime ideals at which the localized module is nonzero.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 49"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 49",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:topologicalKrullDim",
         "kind": "definition",
         "module": "Mathlib/Topology/KrullDimension.lean",
         "provides": "Extended Krull dimension from chains in the specialization order of a topological space.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 40"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 40",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
       },
       {
         "ref": "mathlib:Polynomial.ringKrullDim_of_isNoetherianRing",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Polynomial.lean",
         "provides": "For a Noetherian commutative ring, adjoining one polynomial variable adds one to extended Krull dimension.",
-        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 107"
+        "checked": "Full signature and surrounding hypotheses read at the pinned commit, line 107",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Declaration and full ambient hypotheses read in the pinned source; its native carrier and generality cover the stated uses."
+        }
+      },
+      {
+        "ref": "mathlib:PolynomialModule.coeff_inj",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "Equality of native polynomial modules is equivalent to equality of their coefficient finitely supported functions; pointwise coefficient equality and subtype extensionality give Rees-module extensionality.",
+        "checked": "Full signature and ambient hypotheses independently read at the pinned commit, line 79",
+        "addedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Read at Mathlib 082e2d3, including coefficient-ring and scalar-tower parameters where present."
+        }
+      },
+      {
+        "ref": "mathlib:PolynomialModule.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "The coefficientwise R-linear map induced by an R-linear coefficient map, with an explicit target coefficient ring R′. Taking R′=R gives the ambient map restricted by the Rees-module API.",
+        "checked": "Full signature and ambient hypotheses independently read at the pinned commit, line 293",
+        "addedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Read at Mathlib 082e2d3, including coefficient-ring and scalar-tower parameters where present."
+        }
+      },
+      {
+        "ref": "mathlib:PolynomialModule.map_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Module/Basic.lean",
+        "provides": "With Algebra R R′ and the scalar-tower hypothesis, coefficient maps commute with polynomial scalar action after mapping the polynomial. For R′=R these hypotheses are native, yielding the restricted Rees-algebra linearity.",
+        "checked": "Full signature and ambient hypotheses independently read at the pinned commit, line 308",
+        "addedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Read at Mathlib 082e2d3, including coefficient-ring and scalar-tower parameters where present."
+        }
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.tilde.map",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
+        "provides": "A morphism of ModuleCat R induces the actual sheaf morphism between its affine tilde sheaves over Spec R; its nearby identity/composition laws apply to the chart map square.",
+        "checked": "Full signature and ambient hypotheses independently read at the pinned commit, line 201",
+        "addedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "review": {
+          "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+          "verdict": "confirmed",
+          "date": "2026-10-11",
+          "note": "Read at Mathlib 082e2d3, including coefficient-ring and scalar-tower parameters where present."
+        }
       }
     ]
   },
@@ -354,7 +650,7 @@
       "url": "https://stacks.math.columbia.edu/tag/052P",
       "sha256": "709ee80c7830e0c429fee54d1df78efaabbd6c6ef4dbdc00220f5a77c80d83bd",
       "readSections": [
-        "§10.70, Definitions/Examples 10.70.1–10.70.3 and Lemma 10.70.6"
+        "§10.70 in full, Definitions/Examples/Lemmas 10.70.1–10.70.12 and their proofs; the chart relation in Lemma 10.70.6 is used here."
       ],
       "accessDate": "2026-10-11"
     },
@@ -965,13 +1261,14 @@
       ],
       "title": "Schenzel’s secant torsion bound",
       "kind": "theorem",
-      "statement": "If r1,…,rs is a nonempty secant sequence for finite M over Noetherian local (R,m), then a_m(M,dim Supp M) kills the rs-torsion of M/(r1,…,r{s−1})M. No terminal-CM or dualizing-complex hypothesis is added.",
+      "statement": "If r1,…,rs is a nonempty secant sequence for finite M over Noetherian local (R,m), then a_m(M,dim Supp M) kills every element of M/(r1,…,r{s−1})M annihilated by a positive power of rs. No terminal-CM or dualizing-complex hypothesis is added.",
       "hypotheses": [
-        "R is a commutative Noetherian local ring with maximal ideal m; M is a finite R-module. The displayed sequence, dimension, duality and equidimensionality hypotheses are retained."
+        "R is commutative Noetherian local, M is finite, the ordered list is nonempty and secant, and its entries lie in the maximal ideal. The support dimension of nonzero M is represented by a finite natural cutoff."
       ],
       "proofSteps": [
         "Use the torsion estimate of Schenzel 2.4.2, as quoted in CES21 Remark 3.3 and also Kawasaki 1996 Lemma 2.4. Both accessible sources give its statement, not a proof sufficient to close this target.",
-        "The supplier’s torsion carrier is the union of kernels of positive powers of the last parameter on the penultimate quotient. The suggested form says every element in that union is killed by every element of the annihilator product; no terminal-CM assumption is used."
+        "The supplier’s torsion carrier is the union of kernels of positive powers of the last parameter on the penultimate quotient. The suggested form says every element in that union is killed by every element of the annihilator product; no terminal-CM assumption is used.",
+        "For an element killed by rs^n with n>0, replace the last parameter by rs^n. Its quotient has the same support, so this remains a secant sequence (CES21 Remark 3.2, p. 10). Apply the immediate-kernel estimate to that list. The annihilator product is still that of M, so the same ideal kills the union of all positive-power kernels."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product",
@@ -995,7 +1292,8 @@
       },
       "planet": {
         "name": "Schenzel’s torsion bound"
-      }
+      },
+      "suggestedBoundary": "The signature quantifies over every positive exponent n and every element of the actual penultimate quotient; it does not stop at the kernel of multiplication by rs. The primary proof of the immediate-kernel estimate remains the recorded Schenzel source gap."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters",
@@ -1176,12 +1474,14 @@
         "Replace local cohomology annihilators by finite dual-cohomology annihilators.",
         "Localize these finite annihilators; normalize ω at p by shift −dim(R/p).",
         "Use catenarity and equidimensional support to identify dim Supp M_p = dim Supp M − dim(R/p).",
-        "Apply the imported local-cohomology CM criterion."
+        "Apply the imported local-cohomology CM criterion.",
+        "The suggested conditional version applies the defect-set formula to the concrete localized comparison data and the supplied equality dim Supp M_p + δ(p) = d. The full target obtains these data from normalized duality and equidimensionality, not from equidimensionality over an arbitrary local ring alone."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
         "AnalyticStacks:AS.1",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect"
       ],
       "sources": [
         {
@@ -1202,7 +1502,7 @@
       "planet": {
         "name": "Annihilator description of the CM locus"
       },
-      "suggestedBoundary": "The normalized-dualizing-complex hypothesis is explicitly omitted from the typed prototype, because its supplier signature is missing. Thus the prototype is not valid at its displayed generality. The roadmap statement retains normalization and equidimensionality. Its natural dimension witness types the nonzero-module case; the zero case is the empty locus and is dealt with separately."
+      "suggestedBoundary": "The full target requires a normalized dualizing complex. The suggested signature is a valid conditional consequence of an actual finite-cohomology CochainComplex, annihilator equalities, a coheight function representing dim(R/p), and explicit localized cohomology-vanishing comparisons. AS.1 must construct these data from RHom(M,ω), including zeros below the coheight shift. It does not omit a required hypothesis or substitute an arbitrary Prop. Natural dimension witnesses cover nonzero M; zero M has empty locus and is handled separately. It additionally assumes the actual support-dimension/coheight equality at support primes; normalized duality and equidimensional support must supply that equality."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect",
@@ -1220,7 +1520,8 @@
       "proofSteps": [
         "Put E⁻ʲ=H⁻ʲ(RHom(M,ω)). Local duality and the Matlis comparison identify each local-cohomology annihilator with Ann E⁻ʲ. Finiteness gives V(a(M))=the union of Supp E⁻ʲ for 0≤j<d.",
         "At p, localization of the normalized dualizing complex is normalized after the coheight shift δ(p)=dim(R/p). Stacks 47.17.3 supplies this dimension function and its shift; 47.16.5 identifies the least j with (E⁻ʲ)_p≠0 as depth(M_p)+δ(p). Hence membership in that union is exactly depth(M_p)+dim(R/p)<d.",
-        "At a minimal support prime of a component of dimension e<d, the nonzero localized module has zero-dimensional support and depth zero, so the strict inequality holds. This argument uses the AS.1 package; it does not assert equidimensionality."
+        "At a minimal support prime of a component of dimension e<d, the nonzero localized module has zero-dimensional support and depth zero, so the strict inequality holds. This argument uses the AS.1 package; it does not assert equidimensionality.",
+        "For the typed conditional consequence, finite dual cohomology identifies each annihilator zero locus with its localization support. Degrees below δ(p) vanish by hneg; degrees k≥δ(p) are j+δ(p), and hloc compares their vanishing with actual local cohomology. At primes outside Supp M all these groups vanish. Thus the finite union is the displayed existence of j with j+δ(p)<d. AS.1 is still required to establish this comparison data for the full target."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
@@ -1248,7 +1549,7 @@
         "module": "TauCeti/RingTheory/Kawasaki",
         "namespace": "TauCeti.Kawasaki"
       },
-      "suggestedBoundary": "The typed prototype expresses depth by existence of a nonzero local-cohomology degree. The AS.1 normalized-dualizing-complex hypothesis is explicitly omitted because it has no supplier signature at the pin; the mathematical target retains it. The prototype is not valid at its displayed generality."
+      "suggestedBoundary": "The full target requires a normalized dualizing complex. The suggested signature is a valid conditional consequence of an actual finite-cohomology CochainComplex, annihilator equalities, a coheight function representing dim(R/p), and explicit localized cohomology-vanishing comparisons. AS.1 must construct these data from RHom(M,ω), including zeros below the coheight shift. It does not omit a required hypothesis or substitute an arbitrary Prop. Natural dimension witnesses cover nonzero M; zero M has empty locus and is handled separately."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
@@ -2031,13 +2332,14 @@
       ],
       "title": "Robustness under auxiliary secant quotients",
       "kind": "theorem",
-      "statement": "For a selected prefix of a CM-secant sequence, conditions (i),(ii),(iii) of Proposition 3.11 continue to hold after quotienting M by an auxiliary secant sequence on its terminal prefix quotient. This preserves the three conditions, not a blanket assertion that every prefix is CM-secant.",
+      "statement": "Fix a selected prefix rs for which all three auxiliary-quantified conditions (i),(ii),(iii) of Proposition 3.11 hold on M. If an auxiliary list as is secant on M/(rs)M, those same three conditions hold for rs on M/(as)M. In particular this applies to a selected prefix of a CM-secant sequence. Secancy on the full terminal quotient alone does not assert inheritance for every shorter prefix.",
       "hypotheses": [
-        "R is a commutative Noetherian local ring, M finite, and the original ordered list is CM-secant. Auxiliary lists are secant on the indicated terminal prefix quotient. All index and positive-power bounds are as displayed."
+        "R is commutative Noetherian local and M is finite. For this selected prefix, assume all three conditions, including their auxiliary-list and positive-power quantifiers. The auxiliary list is secant on its selected terminal prefix quotient."
       ],
       "proofSteps": [
         "Concatenate any further auxiliary secant list with the one already divided out.",
-        "Apply each of the three preceding clauses to the concatenated list and use canonical quotient-by-sum equivalences from R03.3."
+        "Apply each of the three preceding clauses to the concatenated list and use canonical quotient-by-sum equivalences from R03.3.",
+        "The proof uses only the selected prefix conditions. For a further auxiliary list on the new terminal quotient, the concatenated list is secant on the original selected terminal quotient, and quotient-by-sum equivalences give each clause. To use this at every shorter prefix in the outer induction, separately establish auxiliary secancy there; this is recorded in the auxiliary-quotient induction gap."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
@@ -2053,14 +2355,15 @@
         }
       ],
       "acceptance": [
-        "For a selected prefix of a CM-secant sequence, conditions (i),(ii),(iii) of Proposition 3.11 continue to hold after quotienting M by an auxiliary secant sequence on its terminal prefix quotient. This preserves the three conditions, not a blanket assertion that every prefix is CM-secant."
+        "The empty auxiliary list leaves the three selected-prefix conditions unchanged. No conclusion about every shorter prefix follows from a single full-terminal secancy hypothesis."
       ],
       "implementationStatus": "unchecked",
       "leanName": "TauCeti.Kawasaki.kawasaki_robustness",
       "library": {
         "module": "TauCeti/RingTheory/Kawasaki",
         "namespace": "TauCeti.Kawasaki"
-      }
+      },
+      "suggestedBoundary": "The Lean lemma has prefixConditions on one selected list as input and returns prefixConditions for that same list on the actual auxiliary quotient. It no longer promises all shorter-prefix conclusions from one terminal hypothesis."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
@@ -2076,7 +2379,8 @@
       ],
       "proofSteps": [
         "Use PolynomialModule R M as ambient carrier and restrict scalar action from R[X] to reesAlgebra I.",
-        "Define coefficientwise membership and prove closure using PolynomialModule.smul_apply, the ideal-power convolution and finite sums."
+        "Define coefficientwise membership and prove closure using PolynomialModule.smul_apply, the ideal-power convolution and finite sums.",
+        "Coefficient extensionality follows from PolynomialModule.coeff_inj and subtype extensionality. Restrict PolynomialModule.map R f to the coefficient submodules: R-linearity preserves I^nM in every degree. PolynomialModule.map_smul with R′=R gives Rees-algebra linearity. The coefficient equation determines the map, and gives its identity and composition laws without extra geometric hypotheses."
       ],
       "prerequisites": [
         "mathlib:PolynomialModule",
@@ -2085,7 +2389,10 @@
         "mathlib:Submodule.smul_mem_smul",
         "mathlib:Submodule.mul_smul",
         "mathlib:PolynomialModule.coeff_add",
-        "mathlib:PolynomialModule.coeff_zero"
+        "mathlib:PolynomialModule.coeff_zero",
+        "mathlib:PolynomialModule.coeff_inj",
+        "mathlib:PolynomialModule.map",
+        "mathlib:PolynomialModule.map_smul"
       ],
       "sources": [
         {
@@ -2117,6 +2424,10 @@
         {
           "where": "Theorem 3.14, regular-terminal-element reduction",
           "how": "Comparison with the quotient graded module has a degreewise snake-lemma kernel."
+        },
+        {
+          "where": "§3.13 and Theorem 3.14, quotient comparison",
+          "how": "Linear coefficient maps induce graded Rees-module maps; their coefficient formula determines the sheaf maps and the quotient comparison."
         }
       ],
       "api": [
@@ -2139,6 +2450,31 @@
           "name": "TauCeti.Kawasaki.rees_module_zero_ideal",
           "role": "simp",
           "statement": "For I=0 only degree-zero coefficients may be nonzero."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_ext",
+          "role": "extensionality",
+          "statement": "Two elements of the Rees module are equal when all their coefficients are equal."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_map",
+          "role": "functoriality",
+          "statement": "An R-linear map M→N induces a Rees-algebra-linear map on the actual coefficient submodules."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_map_coeff",
+          "role": "characterisation",
+          "statement": "The coefficient of degree n of the induced map is f applied to the coefficient of degree n; this uniquely determines the map."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_map_id",
+          "role": "simp",
+          "statement": "The induced map of the identity linear map is the identity."
+        },
+        {
+          "name": "TauCeti.Kawasaki.rees_module_map_comp",
+          "role": "functoriality",
+          "statement": "The induced map of g∘f is the composite of the induced maps."
         }
       ],
       "tests": [
@@ -2319,7 +2655,8 @@
       "proofSteps": [
         "Use the native Proj scheme of the Rees grading; current Tau Ceti supplies the grading and affine blowup charts. At the pinned baseline the suggested adapters have these same mathematical carriers, rather than an arbitrary scheme. Generic Proj/gluing belongs to StableReduction.",
         "Sheafify ⊕IⁿM using degree-zero homogeneous localizations. On the i-chart, degree-zero fractions of coefficients identify with the chart-ring span of the image of M in M[1/i]. Verify restrictions on chart overlaps and glue.",
-        "The suggested sheaf has the actual Proj carrier and a typed chart characteristic isomorphism. Its body is admitted. The homogeneous localization/gluing interface is requested from SR4; generic strict-transform gluing is requested from L5."
+        "The suggested sheaf has the actual Proj carrier and a typed chart characteristic isomorphism. Its body is admitted. The homogeneous localization/gluing interface is requested from SR4; generic strict-transform gluing is requested from L5.",
+        "The functoriality API includes a chart characteristic equation. It ties the admitted global map to the actual localized coefficient map on image generators, rather than merely requesting an arbitrary family of morphisms satisfying identity and composition."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
@@ -2378,6 +2715,11 @@
           "statement": "Every R-linear map M→N induces Bl_I(M)→Bl_I(N) by its actual maps on the Rees-module coefficients."
         },
         {
+          "name": "TauCeti.Kawasaki.module_blowup_map_chart",
+          "role": "characterisation",
+          "statement": "Under the canonical chart isomorphisms, the restriction of the sheaf map induced by f is the tilde map of the chart-ring-linear restriction of localized f. On the image of m∈M this chart map is the image of f(m). This fixes the sheaf map on a covering family."
+        },
+        {
           "name": "TauCeti.Kawasaki.module_blowup_map_id",
           "role": "simp",
           "statement": "The induced blowing-up map of the identity M→M is the identity sheaf morphism."
@@ -2419,11 +2761,6 @@
           "kind": "non-example",
           "statement": "For R=Z, I=(2), M=Z/2, the module blowing-up is zero on Bl_(2)(Z)=Spec Z, while the ordinary pullback of M is nonzero."
         }
-      ],
-      "untypedTests": [
-        "TauCeti.Kawasaki.module_blowup_unit",
-        "TauCeti.Kawasaki.module_blowup_principal",
-        "TauCeti.Kawasaki.module_blowup_zmod_two"
       ],
       "suggestedBoundary": "Actual Proj, Scheme.Modules, pullback and affine tilde objects are typed at the pin. Local helpers adapt the current Tau Ceti grading/chart carriers, absent from the pin; they are not new geometry nodes."
     },
@@ -2484,7 +2821,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2520,7 +2858,9 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
       ],
       "sources": [
         {
@@ -2540,6 +2880,50 @@
       }
     },
     {
+      "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3"
+      ],
+      "title": "Chart characterisation of module blowing-up maps",
+      "kind": "lemma",
+      "statement": "For finite modules M,N over Noetherian R and f:M→N, pull back Bl_I(f) to any i-chart with i∈I. Under the canonical chart isomorphisms, this equals the affine tilde map of the chart-ring-linear map M_(i)→N_(i) obtained by restricting localized f. The latter sends the localized image of m∈M to that of f(m), and is uniquely determined by these spanning generators.",
+      "hypotheses": [
+        "R is commutative Noetherian, M and N are finite R-modules, I is an ideal, i∈I, and f is R-linear. No injectivity or surjectivity of f is assumed."
+      ],
+      "proofSteps": [
+        "Localize f at powers of i. Its R_(i)-linear restriction preserves the image spans because it sends each generator from M to the generator from f(M). Spanning gives uniqueness and the generator formula.",
+        "The coefficient map on Rees modules commutes with degree-zero homogeneous localization. Apply the characteristic chart isomorphism to identify its sheafification with tilde of the restricted localized map.",
+        "The affine chart family covers the native Proj scheme. Its overlap compatibilities are those of homogeneous localization; these are supplied by the recorded SR4 gluing interface, not new scheme geometry."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+        "mathlib:AlgebraicGeometry.tilde.map",
+        "mathlib:LocalizedModule.mkLinearMap",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "CES21",
+          "locator": "§3.13, graded module and chart image construction (pp. 13–14 of arXiv v2)",
+          "match": "Functorial compatibility derived from the stated graded and chart image constructions; the source does not name this API lemma."
+        }
+      ],
+      "acceptance": [
+        "A zero map induces the zero map on every chart generator; the identity fixes those generators. This excludes unrelated sheaf maps with only formal identity/composition axioms."
+      ],
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Kawasaki.module_blowup_map_chart",
+      "library": {
+        "module": "TauCeti/RingTheory/Kawasaki",
+        "namespace": "TauCeti.Kawasaki"
+      },
+      "addedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+      "suggestedBoundary": "chartModuleMap and its generator equation use actual chart modules and localized images. The equality is a square between actual pullback and tilde morphisms; its body and the global overlap gluing remain admitted."
+    },
+    {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id",
       "parentStageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
       "realises": [
@@ -2552,11 +2936,14 @@
         "R is a commutative Noetherian ring, I (and J when used) an ideal, and all modules in the comparison or map are finite R-modules. Selected chart denominators belong to their indicated ideals."
       ],
       "proofSteps": [
-        "Use the image-span chart formula and the coefficientwise maps of graded Rees modules. Identity/composition and zero/self comparisons hold on every chart and glue through the imported overlap maps. For the tensor surjection, its kernel localizes to zero after inverting the exceptional generator, hence consists exactly of exceptional power torsion."
+        "Use the image-span chart formula and the coefficientwise maps of graded Rees modules. Identity/composition and zero/self comparisons hold on every chart and glue through the imported overlap maps. For the tensor surjection, its kernel localizes to zero after inverting the exceptional generator, hence consists exactly of exceptional power torsion.",
+        "Use the characteristic equation on each chart and equality on localized image generators; the chart cover gives equality of the global sheaf morphisms. This uses the coefficient maps fixed by the Rees API."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart"
       ],
       "sources": [
         {
@@ -2588,11 +2975,14 @@
         "R is a commutative Noetherian ring, I (and J when used) an ideal, and all modules in the comparison or map are finite R-modules. Selected chart denominators belong to their indicated ideals."
       ],
       "proofSteps": [
-        "Use the image-span chart formula and the coefficientwise maps of graded Rees modules. Identity/composition and zero/self comparisons hold on every chart and glue through the imported overlap maps. For the tensor surjection, its kernel localizes to zero after inverting the exceptional generator, hence consists exactly of exceptional power torsion."
+        "Use the image-span chart formula and the coefficientwise maps of graded Rees modules. Identity/composition and zero/self comparisons hold on every chart and glue through the imported overlap maps. For the tensor surjection, its kernel localizes to zero after inverting the exceptional generator, hence consists exactly of exceptional power torsion.",
+        "Use the characteristic equation on each chart and equality on localized image generators; the chart cover gives equality of the global sheaf morphisms. This uses the coefficient maps fixed by the Rees API."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart"
       ],
       "sources": [
         {
@@ -2628,7 +3018,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2664,7 +3055,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2701,7 +3093,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
         "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-        "mathlib:LocalizedModule.mkLinearMap"
+        "mathlib:LocalizedModule.mkLinearMap",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2780,7 +3173,9 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
         "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-        "AdicCoefficientsAndComparisons:L5"
+        "AdicCoefficientsAndComparisons:L5",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2829,7 +3224,8 @@
         "AdicCoefficientsAndComparisons:L5",
         "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
         "mathlib:Module.support",
-        "mathlib:PrimeSpectrum.zeroLocus"
+        "mathlib:PrimeSpectrum.zeroLocus",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -2986,14 +3382,16 @@
       "proofSteps": [
         "Use the weaker prefix clauses, as in the first reduction of Theorem 3.14, with the one-element regular auxiliary quotient [r′]. Clause (iii) gives regularity on M and every prefix-power quotient. Its secant and quotient identifications use the R03.3 interface; zero M is handled separately. Only CM of the terminal quotient is used to choose r′ when reducing positive terminal dimension.",
         "In 0→I_s^nM→M→M/I_s^nM→0 the multiplication-by-r′ snake lemma, with regularity on the last term, identifies I_s^nM/r′I_s^nM with the image I_s^n(M/r′M). The degree-zero comparison is included.",
-        "Homogeneous localization and sheafification give the quotient comparison on Bl_{I_s}(Spec R); this is a module quotient on a fixed scheme. Robustness preserves the weaker prefix conditions after dividing by r′. At support points containing r′, regular-element CM ascent recovers CM of the original module; the localization induction handles the remaining points."
+        "Homogeneous localization and sheafification give the quotient comparison on Bl_{I_s}(Spec R); this is a module quotient on a fixed scheme. Robustness preserves the weaker prefix conditions after dividing by r′. At support points containing r′, regular-element CM ascent recovers CM of the original module; the localization induction handles the remaining points.",
+        "For the weaker-hypothesis dimension reduction, explicitly prove that the chosen regular terminal parameter is an eligible auxiliary secant element at every shorter prefix before invoking the selected-prefix clauses and robustness. This prefixwise argument is part of the recorded auxiliary-quotient induction gap; regularity on the full terminal quotient is not itself that proof."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
         "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module"
       ],
       "sources": [
         {
@@ -3150,20 +3548,23 @@
       ],
       "title": "The second local-cohomology claim",
       "kind": "theorem",
-      "statement": "In the same setup, H^j_{m′}(R′,H^{j′}_{(r_i,r_s)}(R′,M′))=0 for j<s−2 and every j′. In a natural-degree formulation, only j′=1,2 remain: degree zero vanishes by regularity of r_i and degrees above two vanish by the two-generator Čech model.",
+      "statement": "In the inductive setup, assume the preceding-stage depth bound depth M′≥s−1 and the same bound for each actual preceding localized chart module of M/r_s^mM, m>0. Then H^j_{m′}(R′,H^{j′}_{(r_i,r_s)}(R′,M′))=0 for j<s−2 and every natural j′. Only j′=1,2 need argument: degree zero vanishes by regularity of r_i and degrees above two vanish by the two-generator Čech model. These are explicit outer-induction assumptions, not conclusions derived from the two annihilation statements alone.",
       "hypotheses": [
-        "R is a commutative Noetherian local ring and M a finite module. The ordered elements lie in m. The displayed weaker-prefix, CM-terminal or CM-secant assumptions are used exactly as stated; closed-point depth targets retain maximal chart primes over m."
+        "R is a commutative Noetherian local ring and M a finite module. The ordered elements lie in m. The displayed weaker-prefix, CM-terminal or CM-secant assumptions are used exactly as stated; closed-point depth targets retain maximal chart primes over m.",
+        "The preceding-stage local-cohomology vanishing below s−1 is assumed for the actual localized chart of M and for the corresponding charts of M/r_s^mM for every m>0. The selected chart prime is maximal and contracts to m."
       ],
       "proofSteps": [
-        "At a closed previous-stage point over m, the induction gives depth M′≥s−1. For the two-generator Čech complex, the degree-zero row vanishes because r_i is regular, and rows above two vanish by its length.",
+        "Use the explicit outer-induction input for the original module at a closed previous-stage point over m: depth M′≥s−1. For the two-generator Čech complex the degree-zero row vanishes because r_i is regular, and rows above two vanish by its length.",
         "For row two, regular r_s gives H²_(r_i,r_s)(M′)=colim_{m>0}H¹_(r_i)(M′/r_s^mM′). The comparison to the previous blowup module M′_(m) of M/r_s^mM has r_i-killed kernel by (3.14.15), so principal H¹ does not see this kernel.",
-        "Robustness permits induction on M/r_s^mM. It gives depth M′_(m)≥s−1; r_i is regular on it, so its quotient by r_i^l has depth at least s−2 for l>0. Local cohomology commutes with both filtered systems. Thus colim_{m>0}colim_{l>0}Hʲ_m′(M′_(m)/r_i^lM′_(m)) vanishes for j<s−2, which kills row two in that range (3.14.16).",
+        "Use the second explicit outer-induction input for the actual previous blowup module M′_(m) of M/r_s^mM: its depth is at least s−1 for every m>0. The element r_i is regular on it, so its quotient by r_i^l has depth at least s−2 for l>0. Local cohomology commutes with both filtered systems. Thus colim_m colim_l H^j_m′(M′_(m)/r_i^lM′_(m)) vanishes for j<s−2, which kills row two in that range (3.14.16). The outer proof must justify prefixwise inheritance before providing this input; it is not inferred here from robustness on only the full terminal quotient.",
         "Use the iterated local-cohomology spectral sequence E₂^{j,j′}=Hʲ_m′(H^{j′}_(r_i,r_s)(M′))⇒H^{j+j′}_m′(M′). Its abutment vanishes below s−1. With rows zero and above two absent and row two already vanishing in the needed range, the only possible incoming differential to row one has zero source; hence row one also vanishes for j<s−2."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
-        "DeformationAndDerivedPatchingAlgebra:R03.3"
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart"
       ],
       "sources": [
         {
@@ -3184,7 +3585,7 @@
       "planet": {
         "name": "Kawasaki’s vanishing claim"
       },
-      "suggestedBoundary": "The typed signature uses the actual localized previous chart, all weaker prefix conditions, a zero-dimensional terminal quotient, a maximal chart prime contracting to m, and natural j,j′. The maximal-prime restriction is retained; the depth assertion is not made at arbitrary points of the closed fibre."
+      "suggestedBoundary": "The signature retains the actual localized previous charts, weaker prefix conditions, zero-dimensional terminal quotient, and a maximal prime contracting to m. It explicitly quantifies over the preceding vanishing assumptions ih and ihQuot for every positive power quotient. These are the induction context of CES21 Claim 3.14.6. The chart-depth proof supplies them through simultaneous induction over eligible modules; the necessary prefixwise inheritance remains a precise recorded gap."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation",
@@ -3237,6 +3638,7 @@
         "R is a commutative Noetherian local ring and M a finite module. The ordered elements lie in m. The displayed weaker-prefix, CM-terminal or CM-secant assumptions are used exactly as stated; closed-point depth targets retain maximal chart primes over m."
       ],
       "proofSteps": [
+        "Strengthen the induction hypothesis at stage s−1 to range over every finite module and eligible ordered list satisfying the weaker conditions and zero-dimensional terminal quotient. Its instances for M and M/r_s^mM are the ih and ihQuot inputs to Claim 3.14.6. Establish the full family of shorter-prefix conditions on these quotients, with canonical chart-quotient comparisons, before instantiating it; selected-prefix robustness alone does not do this. The missing prefixwise secancy/inheritance argument is recorded in the auxiliary-quotient induction gap. No dependency edge back to this node is used to hide the induction context.",
         "For s=0 the depth lower bound is vacuous; for s=1 the principal chart is the quotient by r₁-power torsion, with r₁ injective on it.",
         "For s≥2 work at a closed point and use the two-generator presentation, P=M′[T] and g=r_bT−r_a. One coefficient is module-regular, so multiplication by g is injective on P. The residual polynomial f is monic, so it is injective on every polynomial base change of a local-cohomology module.",
         "Flat polynomial base change carries Claim 3.14.6 to P; then the long exact sequence for support enlarged by f raises the vanishing range to j<s−1. Claim 3.14.5 makes g act by zero on H¹_(r_a,r_b)(P).",
@@ -3434,7 +3836,7 @@
     },
     {
       "supplier": "AnalyticStacks:AS.1",
-      "need": "Ordinary Noetherian-local normalized dualizing complexes, finite RHom cohomology, local duality with the essential injective hull of the residue field, localization with coheight normalization shift, and the induced dimension function/catenarity. Accepted route.reason names AS.1 despite the brief’s stale R03.3 assignment. Current AS.1 describes topological/coherent six-functor and Grothendieck–Serre structures, not this ordinary-ring package, and has no packet. Supply the actual typed data and the all-integer-degree zero convention; two prototype hypotheses are explicitly omitted pending this interface.",
+      "need": "Ordinary Noetherian-local normalized dualizing complexes, finite RHom cohomology, local duality with the essential injective hull of the residue field, localization with coheight normalization shift, and the induced dimension function/catenarity. Accepted route.reason names AS.1 despite the brief’s stale R03.3 assignment. Current AS.1 describes topological/coherent six-functor and Grothendieck–Serre structures, not this ordinary-ring package, and has no packet. Supply the actual typed data and the all-integer-degree zero convention; the suggested consequences now take concrete finite-cohomology complexes, localized comparisons and the support-dimension/coheight equality where needed.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
         "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
@@ -3461,7 +3863,8 @@
         "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
         "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
         "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
-        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample"
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample",
+        "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart"
       ]
     },
     {
@@ -3485,11 +3888,14 @@
     },
     {
       "title": "Corrected Kawasaki auxiliary-quotient induction",
-      "detail": "KAW96 Definition 2.5 resolves the p-standard definition, but its tail d-sequence theorem does not prove the full auxiliary-quotient clauses. Read Kaw00 Lemmas 2.9, 2.10 and Propositions 3.1–3.3 and Kaw02 Corollary 3.6, or prove their module forms independently. In the A_ij–E_ij induction apply the five corrections identified in CES21 Proposition 3.11, retaining positive powers and the corrected last auxiliary element. These primary proofs were not obtained.",
+      "detail": "KAW96 Definition 2.5 resolves the p-standard definition, but its tail d-sequence theorem does not prove the full auxiliary-quotient clauses. Read Kaw00 Lemmas 2.9, 2.10 and Propositions 3.1–3.3 and Kaw02 Corollary 3.6, or prove their module forms independently. In the A_ij–E_ij induction apply the five corrections identified in CES21 Proposition 3.11, retaining positive powers and the corrected last auxiliary element. These primary proofs were not obtained. Also supply the prefixwise inheritance argument used in the weaker-hypothesis outer induction: for M/r′M and M/r_s^mM establish auxiliary secancy and conditions (i)–(iii) at each shorter prefix, then apply selected-prefix robustness and identify the actual previous chart modules. Treat zero preceding-stage modules separately. A secant list on only the full terminal quotient is not a substitute for these prefixwise inputs.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
         "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
-        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular"
+        "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+        "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction"
       ]
     },
     {
@@ -3506,8 +3912,8 @@
       ]
     },
     {
-      "title": "AS.1 ordinary duality interface and omitted hypotheses",
-      "detail": "The ordinary-ring normalized dualizing package is not supplied by the visible AS.1 plan. The annihilator comparison is typed conditionally on an actual finite-cohomology complex and a local-duality isomorphism; binding it to RHom and negative-degree zeros remains open. CM-locus and defect prototypes explicitly omit the unstateable normalized-dualizing-complex hypothesis and are invalid at that generality. The packet retains the correct hypotheses and proofs via coherent localization/coheight normalization. Supply the actual AS.1 interface before treating these signatures as full theorem statements.",
+      "title": "AS.1 ordinary duality interface and concrete comparison data",
+      "detail": "The ordinary-ring normalized dualizing package is not supplied by the visible AS.1 plan. All three suggested duality consequences are now typed conditionally on actual complexes and cohomology comparisons; no known-false signature omits the duality hypothesis. Supply RHom(M,ω) with finite cohomology, normalized local duality, the coheight function δ(p)=dim(R/p), zeros below its shift and localized vanishing comparisons. For the CM-locus target derive the support-dimension/coheight equality from catenarity and equidimensionality. All-integer-degree conventions and the zero-module empty-locus case remain part of the full target.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
         "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
@@ -3530,7 +3936,7 @@
       "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K0",
       "status": "planned",
       "remaining": [
-        "Obtain the primary secant-torsion proof; bind expanded secant/CM and local-duality comparisons to the R03.3/AS.1 interfaces, reinstating the two explicitly omitted dualizing hypotheses."
+        "Obtain the primary secant-torsion proof; bind expanded secant/CM predicates to R03.3 and construct the concrete normalized-duality comparison data from AS.1, including coheight localization and the support-dimension equality for the equidimensional CM locus."
       ]
     },
     {
@@ -3542,21 +3948,21 @@
       "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K2",
       "status": "planned",
       "remaining": [
-        "Obtain the corrected primary proof of Proposition 3.11(i)–(iii) and resolve its R03.3 auxiliary secant interface; statements, robustness and all powers/quantifiers are typed."
+        "Obtain the corrected primary proof of Proposition 3.11(i)–(iii), resolve R03.3 auxiliary secancy, and justify prefixwise inheritance for the outer induction. Selected-prefix robustness and all positive-power quantifiers are typed."
       ]
     },
     {
       "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K3",
       "status": "planned",
       "remaining": [
-        "Supply the SR4/L5 overlap and strict-transform interfaces for the whole-sheaf comparisons. Chart, support, Rees/Proj dimension targets, API and tests are planned and typed."
+        "Supply the SR4/L5 overlap and strict-transform interfaces for whole-sheaf comparisons and map compatibility. Chart image, coefficient-map API, characteristic chart square, support and Rees/Proj dimension targets are planned and typed."
       ]
     },
     {
       "stageId": "DeformationAndDerivedPatchingAlgebraPartII:K4",
       "status": "planned",
       "remaining": [
-        "Resolve the inherited K2 primary proof and R03.3 cohomology/depth calculus plus K3 gluing interfaces. Both claims, closed-point chart-depth induction, final theorems and an explicit nonexample are planned and typed."
+        "Resolve K2 primary proof and prefixwise quotient inheritance, R03.3 cohomology/depth calculus and K3 gluing interfaces. The vanishing claim explicitly assumes preceding-stage bounds for the original and all power-quotient chart modules; the outer depth induction must supply both families. Final targets and the explicit nonexample are planned and typed."
       ]
     }
   ],
@@ -3574,15 +3980,16 @@
         "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
         "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
         "the author's publications page, which lists the Duke reference and no corrigendum",
-        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+        "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-PAPER-CESNAVICIUS-21",
-        "reason": "found by the review (checker of §§1–2); the coordinator checked the TeX (ll. 887–893)"
+        "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "reason": "Independently read the displayed convention on arXiv v2 p. 4. Off-support zero stalks have infinite depth and empty-support dimension, so the equality must be support-restricted. This review did not re-read the separate author manuscript or the Duke version."
       },
       "inheritedFindingId": "PAPER-CESNAVICIUS-21/E4",
-      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record."
+      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record. Reconfirmed in this review against arXiv v2; earlier author-manuscript scope is inherited, not independently rechecked here."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII/E5",
@@ -3597,15 +4004,16 @@
         "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
         "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
         "the author's publications page, which lists the Duke reference and no corrigendum",
-        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+        "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-PAPER-CESNAVICIUS-21",
-        "reason": "found by the review (checker of §§3–5); the coordinator re-checked the example by hand"
+        "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "reason": "Independently read Remark 3.9 on arXiv v2 p. 12 and checked the counterexample over k[[t,u]] with M=R/(u)⊕R. The d-sequence has zero t-torsion but nonzero tu-torsion equal to its u-torsion; the later index is required."
       },
       "inheritedFindingId": "PAPER-CESNAVICIUS-21/E5",
-      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record."
+      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record. Reconfirmed in this review against arXiv v2; earlier author-manuscript scope is inherited, not independently rechecked here."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII/E6",
@@ -3620,15 +4028,16 @@
         "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
         "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
         "the author's publications page, which lists the Duke reference and no corrigendum",
-        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+        "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-PAPER-CESNAVICIUS-21",
-        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1436–1443, 1540–1544)"
+        "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "reason": "Independently read Proposition 3.11(iii) on arXiv v2 p. 13 and its application on p. 14. The antecedent must refer to the last auxiliary parameter, which is the regular element actually used in the proof."
       },
       "inheritedFindingId": "PAPER-CESNAVICIUS-21/E6",
-      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record."
+      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record. Reconfirmed in this review against arXiv v2; earlier author-manuscript scope is inherited, not independently rechecked here."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII/E7",
@@ -3643,15 +4052,16 @@
         "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
         "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
         "the author's publications page, which lists the Duke reference and no corrigendum",
-        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+        "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-PAPER-CESNAVICIUS-21",
-        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1421, 1550)"
+        "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "reason": "Independently read the product definition on arXiv v2 p. 15 and checked it against Proposition 3.11 on p. 13 and the iterated-blowup recurrence. Only the product of successive prefix ideals supplies the required recurrence."
       },
       "inheritedFindingId": "PAPER-CESNAVICIUS-21/E7",
-      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record."
+      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record. Reconfirmed in this review against arXiv v2; earlier author-manuscript scope is inherited, not independently rechecked here."
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebraPartII/E8",
@@ -3666,15 +4076,16 @@
         "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
         "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
         "the author's publications page, which lists the Duke reference and no corrigendum",
-        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+        "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+        "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-PAPER-CESNAVICIUS-21",
-        "reason": "found by the review (checker of §§3–5); the coordinator checked the TeX (ll. 1612–1632)"
+        "by": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+        "reason": "Independently read display (3.14.10) and the surrounding chart exact sequence on arXiv v2 p. 16. Both coefficients annihilate the cohomology, but the map feeding the next sequence is multiplication by r_bT−r_a."
       },
       "inheritedFindingId": "PAPER-CESNAVICIUS-21/E8",
-      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record."
+      "note": "Inherited independently confirmed finding from REV-PAPER-CESNAVICIUS-21; paraphrased here. Scope remains the author manuscript/arXiv v2, not an unread version of record. Reconfirmed in this review against arXiv v2; earlier author-manuscript scope is inherited, not independently rechecked here."
     }
   ],
   "targetInventory": [
@@ -3804,7 +4215,8 @@
     "auditRead": "Full reviewed parent R03.3 row (AUDIT-17) from data/library-coverage.json; no integrated audit row for this new Part II exists.",
     "search": "Both pinned source trees searched for CM-secant, d-sequence, CohenMacaulay, p-standard and module-blowup variants. Broad sequence hits were unrelated; no claim is made that textual absence proves nonexistence. The actual native declarations recorded in baseline were read.",
     "drafts": "Integrated links, reserved ids, expansion/decomposition drafts and the accepted route were screened for this id. No existing supplier node states the missing ordinary-ring AS.1 or generic L5 module interface. The coherent-duality reservation in SchemeAndStackFoundations is a different direction. Internal and external supplier dependency chains have no discovered return path to this new Part II; local acyclicity is checked by check_blueprint.",
-    "currentUpstream": "All nine upstream roadmaps newer than the atlas snapshot were screened, alongside StableReduction and the current library. StableReduction supplies generic Proj/blowup geometry; AlgebraicVectorBundles supplies generic affine module sheaves and pullback/tensor infrastructure. No CM-secant, d-sequence, module-Rees blowing-up or Kawasaki target was found already planned there. No higher-tier notion is moved: this continuation is outside the currently listed upstream tiers, and retains the accepted route’s ownership boundaries."
+    "currentUpstream": "All nine upstream roadmaps newer than the atlas snapshot were screened, alongside StableReduction and the current library. StableReduction supplies generic Proj/blowup geometry; AlgebraicVectorBundles supplies generic affine module sheaves and pullback/tensor infrastructure. No CM-secant, d-sequence, module-Rees blowing-up or Kawasaki target was found already planned there. No higher-tier notion is moved: this continuation is outside the currently listed upstream tiers, and retains the accepted route’s ownership boundaries.",
+    "independentReview": "All 40 inherited baseline declarations and four added native API citations were independently read at the pin, with ambient hypotheses. The full parent audit row and exact R03.3, AS.1 and L5 stages were checked. Current StableReduction and AlgebraicVectorBundles READMEs and the three current Rees/chart library modules were read; newer roadmaps and Completed roadmaps were screened without finding duplicated CM-secant/d-sequence/Kawasaki targets. No tier move or upstream edit is made."
   },
   "currentLibrary": {
     "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
@@ -3825,6 +4237,354 @@
         "name": "TauCeti.AlgebraicGeometry.affineBlowupι; iSup_opensRange_affineBlowupι; affineBlowupι_toSpecZero",
         "module": "TauCeti/AlgebraicGeometry/Blowup/AffineCharts.lean",
         "provides": "Affine blowup-chart open immersions into Proj of the Rees grading, their covering property and compatibility with the base morphism."
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+    "date": "2026-10-11",
+    "notes": "Independent complete-pass review: all 68 nodes checked (49 verified, 18 corrected, one added), all 40 inherited and four added baseline citations confirmed at the pin, seven source records/eight artifacts checked, and all five inherited source findings reconfirmed against arXiv v2. Corrected positive-power torsion, selected-prefix robustness, two omitted-duality-hypothesis prototypes, explicit outer-induction inputs, coefficient/map API and direct chart dependencies. 37 API items, 26 discriminating tests and 19 planets checked. The packet remains a complete planning pass: K1 closed; K0/K2/K3/K4 planned with five honest gaps and four precise supplier requests. No unresolved contradiction remains. This acceptance does not assert implementation or gap closure.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product",
+        "verdict": "verified",
+        "note": "CES21 §3.1, p. 9: checked the finite product of the native local-cohomology annihilators. An explicit cutoff retains dimension-bottom and zero-module conventions; four API lemmas and four tests distinguish product from intersection and top from bottom."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-zero",
+        "verdict": "verified",
+        "note": "The product over Finset.range 0 is the unit ideal, including on zero modules. This is the actual empty-product convention in the definition and typed test."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-succ",
+        "verdict": "verified",
+        "note": "Split the last index from the finite product; the last factor is degree d, not d+1. No localness or finiteness assumption is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-le-factor",
+        "verdict": "verified",
+        "note": "For j<d, the product of ideals is contained in its j-th factor. The direction and strict index bound are correct."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/annihilator-product-eq-top-of-vanishing",
+        "verdict": "verified",
+        "note": "Zero actual cohomology modules have unit annihilator, so all factors are top. The assumption covers every degree below the cutoff, not just degree zero."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/is-cm-secant",
+        "verdict": "verified",
+        "note": "CES21 Definition 3.1, pp. 9–10: checked maximal-ideal membership, strict support-dimension drops, terminal CM only, and prefix annihilator membership. Actual prefix quotients and local cohomology are used; tests cover empty/zero modules, units and order sensitivity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-mem-maximal",
+        "verdict": "verified",
+        "note": "Projects the maximal-ideal clause of the expanded definition. It cannot be weakened to arbitrary ring elements, as the unit-element test shows."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-dimension-drop",
+        "verdict": "verified",
+        "note": "Projects the strict inequality for successive actual prefix quotients. Extended support dimension retains bottom for empty support; prefixes need not themselves be CM."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-terminal-vanishing",
+        "verdict": "verified",
+        "note": "Projects precisely the final-quotient local-cohomology vanishing. The comparison with the owner CM predicate is separately requested; no CM assertion on every prefix is introduced."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-ann-membership",
+        "verdict": "verified",
+        "note": "Projects the natural dimension witness and membership in the product for the preceding quotient. The index is before adjoining the current element, as in Definition 3.1."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-sect-empty-iff",
+        "verdict": "verified",
+        "note": "For the empty list all membership and drop conditions disappear, leaving CM expressed by local-cohomology vanishing. Zero M has empty support and satisfies this criterion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-owner-comparison",
+        "verdict": "verified",
+        "note": "The expanded predicate matches CES21 Definition 3.1 with E4 support conventions. The exact parent R03.3 stage and audit were checked; its missing secant/CM and finite-dimension comparisons remain an explicit interface request, not a native citation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/schenzel-torsion-bound",
+        "verdict": "corrected",
+        "note": "CES21 Remark 3.3, p. 10, and KAW96 Lemma 2.4, p. 42, state the estimate but do not supply its primary proof. Corrected the signature to cover all positive-power torsion; positive powers preserve secancy by Remark 3.2. The unread Schenzel proof remains a recorded gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters",
+        "verdict": "verified",
+        "note": "CES21 Remark 3.4, p. 10: choose parameters in the CM terminal quotient, where the lower cohomology annihilators are top. Nonzero M and actual finite dimension are retained. Regular-parameter existence and Nakayama belong to the precise R03.3 request."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/p-standard-reversal",
+        "verdict": "verified",
+        "note": "Checked KAW96 Definition 2.5, p. 42, term by term against CES21 Remark 3.4. Reversal identifies tail quotients with the relevant prefix quotients; it is not permutation invariance. Positive dimension avoids assigning a negative type to the empty list."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/matlis-annihilator",
+        "verdict": "verified",
+        "note": "CES21 Lemma 3.6(a), p. 11: checked the separating-functional argument from an essential injective hull, using a nonzero cyclic submodule and extension by injectivity. The conditional signature uses the actual injective module and essential embedding, not a formal duality axiom."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/duality-annihilator",
+        "verdict": "verified",
+        "note": "CES21 Lemma 3.6(a), p. 11: apply the Matlis annihilator identity to finite dual cohomology and normalized local duality. The typed nonnegative-degree consequence has an actual complex and isomorphism; RHom construction and all-integer-degree normalization remain with AS.1."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator",
+        "verdict": "corrected",
+        "note": "CES21 Lemma 3.6(b), pp. 11–12: normalization, catenarity and equidimensional support are essential. Replaced the known-false omitted-hypothesis prototype by a conditional theorem on actual finite cohomology, localized comparisons and the support-dimension/coheight equality; added the defect-formula prerequisite."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect",
+        "verdict": "corrected",
+        "note": "CES21 Remark 3.7, p. 12, and Stacks 47.16.5/47.17.3: checked the coheight shift and the least nonzero dual-cohomology degree. Replaced the known-false prototype with actual comparison data, including zeros below the shift. The lower-dimensional-component consequence and zero-module convention are correct."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/is-d-sequence",
+        "verdict": "verified",
+        "note": "CES21 Definition 3.8, p. 12: checked injectivity on the ideal-generated submodule of the actual prefix quotient. No properness, localness or finiteness is needed. Singleton, zero-module, unit and order-sensitive tests discriminate the predicate."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-empty",
+        "verdict": "verified",
+        "note": "There are no indices in the empty list, so the predicate is vacuous for every module. This is independent of regular-sequence properness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-zero-module",
+        "verdict": "verified",
+        "note": "Every relevant submodule of every zero prefix quotient is zero; scalar multiplication is injective. No nontriviality hypothesis has slipped into the signature."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-of-weakly-regular",
+        "verdict": "verified",
+        "note": "Native IsWeaklyRegular gives injectivity on the full prefix quotient; restricting it gives the d-sequence condition. No final nonzero quotient is needed, so IsRegular would impose unnecessary hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-singleton-iff",
+        "verdict": "verified",
+        "note": "For a singleton the generated submodule is rM and the preceding quotient is M. The criterion is injectivity on rM, not injectivity on all of M."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-linear-equiv",
+        "verdict": "verified",
+        "note": "The native linear equivalence transports the generated submodule and prefix quotient; scalar action commutes with it. Submodule.mapQ was read with its quotient-compatibility hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/dseq-colon-iff",
+        "verdict": "verified",
+        "note": "CES21 Remark 3.9, p. 12: verified the later-index torsion identity and its converse by expressing elements as sums of generators and descending through prefixes. The printed earlier index fails in E5’s checked counterexample."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-colon",
+        "verdict": "verified",
+        "note": "CES21 Lemma 3.10, pp. 12–13: checked the ascending positive-power and descending-prefix induction. The n≥1 range and intersection with J^nM are essential; colon is modeled by inverse image under scalar multiplication."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K1/goto-yamagishi-intersection",
+        "verdict": "verified",
+        "note": "CES21 Lemma 3.10, pp. 12–13: verified the separate equality with the preceding prefix acting on J^(n−1)M. It follows in the same double induction from the colon identity; it is not bundled into one opaque theorem."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product",
+        "verdict": "verified",
+        "note": "CES21 Proposition 3.11, p. 13, and corrected Theorem 3.14 proof, p. 15: checked the product of successive prefix ideals, with I0=1. Four API lemmas and the explicit two-element integer test reject the power of the full prefix ideal."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-zero",
+        "verdict": "verified",
+        "note": "The finite product has no factors at s=0 and equals one. This is the unit-centre base case later used by the blowup induction."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-succ",
+        "verdict": "verified",
+        "note": "Splitting the final factor gives I_(s+1)=I_s·Ideal.ofList(take(s+1)). This is exactly the recurrence needed by the imported two-ideal blowup identity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-one",
+        "verdict": "verified",
+        "note": "For a nonempty list the single factor is the ideal of its first element. The list-length condition prevents an accidental empty-prefix formula."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/prefix-product-take",
+        "verdict": "verified",
+        "note": "For s≤length rs, each factor has index ≤s, so nested take operations preserve all factors. The bound is retained even though the definition is total beyond the list length."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-reversed-dseq",
+        "verdict": "verified",
+        "note": "CES21 Proposition 3.11(i), p. 13: checked reversal, arbitrary auxiliary length and actual quotient M′. The auxiliary list must be secant on the selected prefix quotient. The full Kawasaki primary induction remains a recorded source gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-torsion",
+        "verdict": "verified",
+        "note": "CES21 Proposition 3.11(ii), p. 13: checked s≥2, both positive exponents, the product I_(s−1), and auxiliary quotient. The comparison is with all prefix generators, not merely immediate r_s-torsion; its primary proof is explicitly open."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-aux-regular",
+        "verdict": "verified",
+        "note": "CES21 Proposition 3.11(iii), p. 13: E6 requires the last auxiliary element a_u. It acts on the quotient by earlier auxiliary terms and on every positive I_s-power quotient. No original-sequence element is substituted for a_u."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness",
+        "verdict": "corrected",
+        "note": "CES21 Remark 3.12, p. 13: the concatenation proof preserves all three conditions on one selected prefix. Corrected the all-prefix Lean conclusion and made the general selected-prefix assumptions explicit; full-terminal secancy alone is not used to promise every shorter-prefix conclusion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module",
+        "verdict": "corrected",
+        "note": "CES21 §3.13, pp. 13–14: native coefficient submodule is I^nM, not tensoring M with Rees(I). Added coefficient extensionality and coefficient-map identity/composition API, using three independently read native polynomial-module citations. The four existing tests include the Z/2 tensor-torsion discriminator."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-mem",
+        "verdict": "verified",
+        "note": "Coefficientwise membership is the characteristic formula for the actual submodule. It retains every n, including degree zero I^0M=M."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-single",
+        "verdict": "verified",
+        "note": "Native singleton coefficients vanish away from the selected degree. Membership reduces to the coefficient belonging to I^nM; this is the usable constructor criterion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-unit",
+        "verdict": "verified",
+        "note": "All ideal powers are top when I=R, so every polynomial coefficient qualifies. This agrees with the typed unit-ideal test."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-zero-ideal",
+        "verdict": "verified",
+        "note": "Positive powers of the zero ideal give zero submodules, while degree zero is unrestricted. The degree-one integer nonexample catches replacing this with the full polynomial module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup",
+        "verdict": "corrected",
+        "note": "CES21 §3.13, pp. 13–14: checked the actual Proj carrier and image chart module. Removed stale untypedTests metadata because all three examples elaborate. Added the characteristic chart-map API; generic geometry remains imported and its gluing interfaces remain an honest gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart",
+        "verdict": "verified",
+        "note": "Degree-zero homogeneous fractions identify the chart sections with the span of the image of M in M[1/i]. Native current chart infrastructure was read and is reused through baseline adapters; no independent arbitrary scheme is introduced."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-off-center",
+        "verdict": "corrected",
+        "note": "Where an element of I is invertible, the image chart recovers the ordinary localized module. Added the direct chart prerequisite used by the proof; the suggested principal opens cover the complement of V(I)."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map",
+        "verdict": "corrected",
+        "note": "Coefficient maps preserve I^nM and sheafify compatibly. Added direct Rees-module and chart prerequisites; the new characteristic square fixes the admitted map to localized f rather than merely formal functor laws."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart",
+        "verdict": "added",
+        "note": "Added the square relating actual sheaf pullback, canonical chart isomorphisms and tilde of localized f on image spans. Its generator equation uniquely specifies the local map. The native tilde.map citation and SR4 overlap interface justify the construction."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id",
+        "verdict": "corrected",
+        "note": "Added the actual map and characteristic-chart prerequisites. On localized image generators the coefficient map of id is id; equality on the chart cover gives equality of sheaf morphisms."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-comp",
+        "verdict": "corrected",
+        "note": "Added the actual map and characteristic-chart prerequisites. Localized coefficient maps compose on the spanning images, and the chart cover transfers that identity to global sheaf morphisms."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-zero",
+        "verdict": "corrected",
+        "note": "A zero module has zero image on each chart and hence zero sheaf. Added the direct chart prerequisite; the conclusion uses the zero object of the actual Scheme.Modules category."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-self",
+        "verdict": "corrected",
+        "note": "The Rees module for M=R is the Rees algebra itself, so its chart image is the chart ring and its sheaf is the structure module. Added the direct chart prerequisite."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-chart-surjection",
+        "verdict": "corrected",
+        "note": "The tensor map hits the span of localized images by definition. Its kernel vanishes after inverting the chart denominator, hence is exceptional power torsion. Added the direct chart prerequisite and checked the actual native localized map."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-strict-transform",
+        "verdict": "verified",
+        "note": "CES21 §3.13, pp. 13–14: quotienting the tensor pullback by exceptional torsion gives the image chart module. The actual L5 statement does not supply generic module gluing, so the precise whole-sheaf interface remains requested; the chart prototype is valid."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/module-two-ideal",
+        "verdict": "corrected",
+        "note": "CES21 §3.13 and Stacks 31.33.12: the scheme identity is imported, and the module image spans agree on product/iterated charts. Added direct chart and strict-transform prerequisites used by that argument. The second centre is pulled back, not an unrelated ideal."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support",
+        "verdict": "corrected",
+        "note": "CES21 §3.13: finite-module support on a chart is the zero locus of the kernel after quotienting by Ann M and localizing. Added the direct chart prerequisite. Only topological support is identified; no nilpotent scheme structure is invented."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/rees-dimension-bound",
+        "verdict": "verified",
+        "note": "Stacks 10.113.1, tag 02IJ: checked finite-type domain height inequality, transcendence degree ≤1 for the domain Rees algebra, and reduction through minimal primes for general Noetherian A. The result is a bound; J=0 and infinite dimension are handled without a false equality or catenarity assumption."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/proj-prime-chain",
+        "verdict": "verified",
+        "note": "The final homogeneous prime avoids the irrelevant ideal, so adjoining (P_last∩A)⊕S_+ strictly extends the chain and remains prime. This gives the projective dimension drop. Empty Proj has bottom dimension and is treated separately."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K3/blowup-support-dimension",
+        "verdict": "verified",
+        "note": "Apply the two dimension bounds to A=R/Ann M and the identified support blowup. Native finite-module support dimension equals quotient-ring dimension. Zero M gives empty support; no unread HIO theorem is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/regular-terminal-quotient",
+        "verdict": "corrected",
+        "note": "CES21 Theorem 3.14 reduction, p. 14: degreewise quotient maps use the Rees API, now a direct prerequisite. The full-terminal regular parameter acts on the same blowup scheme. Recorded the non-routine shorter-prefix secancy/inheritance argument needed to reuse the weaker hypotheses after quotienting."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/principal-stage",
+        "verdict": "verified",
+        "note": "CES21 §3.13 and Theorem 3.14, pp. 13–15: the unit centre gives M; the principal centre gives M modulo power torsion. Multiplication by r is injective on that quotient, even when r was a zero divisor on M."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/two-generator-chart",
+        "verdict": "verified",
+        "note": "CES21 proof of Theorem 3.14, pp. 15–16, and Stacks 10.70.6: checked denominator regularity, the relation r_bT−r_a, power-torsion quotient and monic residual polynomial at a closed point. The chart prototype is conditional on the actual principalization interface, not an arbitrary chart ring."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-annihilation",
+        "verdict": "verified",
+        "note": "CES21 Claim 3.14.5, p. 15: reverse d-sequences give r_s regular on positive Rees degrees; the quotient-comparison kernel is killed by the whole prefix ideal using clause (ii). Principal Čech cohomology and filtered colimits give annihilation by both r_i and r_s without a depth induction assumption."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/claim-vanishing",
+        "verdict": "corrected",
+        "note": "CES21 Claim 3.14.6 and (3.14.14)–(3.14.16), pp. 16–17: corrected the standalone signature to assume the outer preceding-stage bounds for M and every M/r_s^mM chart. Checked the double colimit for row two and the iterated-support spectral sequence for row one; recorded how the outer induction must supply its inputs."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-polynomial-annihilation",
+        "verdict": "verified",
+        "note": "CES21 (3.14.10), p. 16: polynomial flat base change carries annihilation by both coefficients, hence the actual relation r_bT−r_a acts by zero. E8’s swapped relation is also zero but is not the chart exact-sequence map."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/chart-depth-induction",
+        "verdict": "corrected",
+        "note": "CES21 (3.14.1)–(3.14.11), pp. 15–16: made simultaneous induction over eligible modules and its two input families explicit. Checked the monic residual-polynomial step, the two short exact sequences from the relation map, and the spectral-sequence shift. The lower bound is at closed support points over m; prefixwise inheritance is a precise remaining gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/weaker-hypothesis-cm-blowup",
+        "verdict": "verified",
+        "note": "CES21 Theorem 3.14 proof, pp. 14–17: all three auxiliary-quantified conditions are required at every initial prefix. Regular-terminal reduction, the closed-point depth bound, support dimension and proper/localization reduction give the final CM conclusion, with the recorded interfaces still open."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/kawasaki-cm-blowup",
+        "verdict": "verified",
+        "note": "CES21 Theorem 3.14, p. 14: Proposition 3.11 supplies each weaker prefix condition for a CM-secant list. The ideal is the product of prefixes; empty-list and zero-module cases agree with the actual image sheaf, rather than a blanket theorem for arbitrary centres."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebraPartII:K4/arbitrary-blowup-nonexample",
+        "verdict": "verified",
+        "note": "HJLS Example 3.6, p. 13: independently checked the 21-element free basis over k[x³,y⁷] for the CM ring, and the x³-chart semigroup. The chart is finite over k[a,d]; c²∉(a), but dc²=ab³c, so its local depth is one. The maximal chart prime contracts to the chosen local base point."
       }
     ]
   }
