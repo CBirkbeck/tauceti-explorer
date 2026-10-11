@@ -168,18 +168,18 @@
         "checked": "Actual declaration and hypotheses read in the source tree at the stated pinned commit on 2026-10-10."
       },
       {
-        "ref": "mathlib:AlgHom.convGroup",
+        "ref": "tauceti:TauCeti.AlgHom.instGroup",
         "kind": "instance",
-        "module": "Mathlib/RingTheory/HopfAlgebra/Convolution.lean",
-        "provides": "For a commutative Hopf algebra H, its algebra-valued points carry the convolution group structure WithConv (H →ₐ[K] R).",
-        "checked": "Actual declaration and hypotheses read in the source tree at the stated pinned commit on 2026-10-10."
+        "module": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
+        "provides": "For a Hopf algebra H over R and any commutative R-algebra A, the convolution points WithConv (H →ₐ[R] A) form a group. Unlike Mathlib AlgHom.convGroup at this pin, no Bialgebra R A on the value algebra is required.",
+        "checked": "Independent pinned-source statement audit on 2026-10-10; replaced the overly restrictive Mathlib receipt by the existing Tau Ceti instance, with no new mathematics planned."
       },
       {
         "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
-        "kind": "def",
-        "module": "TauCeti/AffineGroupScheme/Reductive.lean",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
         "provides": "Native finite-type reductive affine group schemes and their smooth/geometrically connected Hopf presentations.",
-        "checked": "Actual declaration and hypotheses read in the source tree at the stated pinned commit on 2026-10-10."
+        "checked": "Statement independently read at pinned f790474 on 2026-10-10; module path corrected by REV-FunctionFieldArithmetic."
       },
       {
         "ref": "tauceti:TauCeti.CommHopfAlgCat.schemePointsAlgΓMulEquiv",
@@ -199,7 +199,7 @@
         "ref": "mathlib:LaurentSeries.ratfuncAdicComplRingEquiv",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/LaurentSeries.lean",
-        "provides": "The X-adic completion of RatFunc k is uniformly and algebraically equivalent to LaurentSeries k; use this existing result in the rational-function completion test, not a new general completion theorem.",
+        "provides": "Ring equivalence from the X-adic completion of RatFunc k to LaurentSeries k; its underlying map is the existing uniform equivalence LaurentSeries.comparePkg. The separate valuation_compare theorem fixes the valuation comparison. Reuse these in the rational-function completion test.",
         "checked": "Actual declaration and hypotheses read in the source tree at the stated pinned commit on 2026-10-10."
       },
       {
@@ -449,7 +449,7 @@
         {
           "sourceId": "yu",
           "locator": "§2.2, pp.7–8",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Yu fixes a smooth projective geometrically connected curve over its full finite constant field. The normalization and exact-constant reduction are supplied by the native function-field declarations and AC.12, rather than proved in this introductory passage."
         }
       ],
       "acceptance": [
@@ -488,7 +488,7 @@
         {
           "sourceId": "yu",
           "locator": "§§2.2–2.3, pp.7–11",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Yu defines the idele degree as log_q of the multiplicative norm, the negative of weighted valuation degree. The packet explicitly converts this sign and uses arithmetic Artin Frobenius; it does not infer an Artin convention from Yu."
         }
       ],
       "acceptance": [
@@ -529,8 +529,13 @@
       "sources": [
         {
           "sourceId": "adt",
-          "locator": "Appendix A, proof of A.7, pp.131–132; Conrad §2, pp.2–3",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "Appendix A, proof of A.7, pp.131–132",
+          "match": "Milne uses the divisor-class/Picard comparison over finite fields in proving A.7. The no-rational-point comparison here follows from the separately imported Picard–Brauer sequence and Br(k)=0; no rational base point is assumed."
+        },
+        {
+          "sourceId": "conrad",
+          "locator": "§2, Examples 2.1–2.2, pp.2–3",
+          "match": "The generalized Picard description supplies the comparison context; rational-point-free descent is handled by the imported Picard–Brauer sequence."
         }
       ],
       "acceptance": [
@@ -571,7 +576,7 @@
         {
           "sourceId": "yu",
           "locator": "§2.2, pp.7–8 (divisor conventions); native AC.3–AC.4 Riemann–Roch inputs",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Yu supplies weighted divisor conventions, not a basis algorithm. The certificate is our proof-bearing basis interface for native L(D); dimensions and principal-divisor transport follow from the listed native and AC inputs."
         }
       ],
       "acceptance": [
@@ -654,7 +659,7 @@
         {
           "sourceId": "hess",
           "locator": "§§4–6: Lemma 1, Corollaries 3–4, Theorem 7, Proposition 9(iii), Algorithm 13, pp.4–10",
-          "match": "Constructive module intersection, terminating reduction and complete RR basis; use the exact verified encodings specified in the statement."
+          "match": "Hess proves reduced-basis computation for divisor spaces using integral bases, degree bounds and polynomial matrix reduction. Algorithm 13 and its preceding reductions justify the proposed certificate-producing algorithm, conditional on certified normalization and factorization."
         }
       ],
       "acceptance": [
@@ -735,7 +740,7 @@
         {
           "sourceId": "parshin",
           "locator": "§1, pp.3–5; §2.1, pp.6–7",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Parshin defines the restricted product over every closed point of the projective curve. This includes infinity and differs from both an affine finite-adele ring and the native K-valued repartition module."
         }
       ],
       "acceptance": [
@@ -821,8 +826,13 @@
       "sources": [
         {
           "sourceId": "parshin",
-          "locator": "§2.5, pp.14–15; Yu §§2.2–2.3, pp.7–11",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§2.5, pp.14–15",
+          "match": "Parshin uses the multiplicative restricted product and weighted divisor map. Native restricted-product units provide the carrier; the idele topology uses integral units and is not the subspace topology of additive adeles."
+        },
+        {
+          "sourceId": "yu",
+          "locator": "§§2.2–2.3, pp.7–11",
+          "match": "Yu fixes the finite-function-field idele norm and the sign of its degree."
         }
       ],
       "acceptance": [
@@ -908,7 +918,7 @@
         {
           "sourceId": "parshin",
           "locator": "§2.5, pp.14–15",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Parshin identifies the integral-unit kernel and divisor-class quotient. Surjectivity is obtained by finite-support choices of local uniformizers; finiteness of degree-zero classes is imported from the pinned library."
         }
       ],
       "acceptance": [
@@ -952,7 +962,7 @@
         {
           "sourceId": "parshin",
           "locator": "§§1–2.1, pp.3–7",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Parshin describes the discrete diagonal and compact adelic quotient, together with divisor lattices. The packet obtains these arithmetic comparisons from local approximation and imported Riemann–Roch, rather than identifying completed adeles with repartitions."
         }
       ],
       "acceptance": [
@@ -991,8 +1001,13 @@
       "sources": [
         {
           "sourceId": "parshin",
-          "locator": "§2.1, pp.6–7; Yu §5.3.1, p.37",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§2.1, pp.6–7",
+          "match": "Parshin uses local differential residues and their global sum. AC.9 supplies parameter independence and the residue theorem; FA.2 extends to completed places and takes the residue-field trace to the exact constants."
+        },
+        {
+          "sourceId": "yu",
+          "locator": "§5.3.1, p.37",
+          "match": "Yu uses the trace-residue global additive character and its placewise differential conductor."
         }
       ],
       "acceptance": [
@@ -1069,8 +1084,13 @@
       "sources": [
         {
           "sourceId": "parshin",
-          "locator": "§2.1, pp.6–7 (corrected notation, source issues E1–E2); Yu §5.3.1, p.37",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§2.2, pp.8–9 (pairing corrected by source issues E1–E2)",
+          "match": "The residue character is Parshin’s adelic pairing with the two corrections E1–E2: multiply local character values and use a nontrivial trace character. Finite-field trace pairing proves nondegeneracy without requiring an injective scalar character."
+        },
+        {
+          "sourceId": "yu",
+          "locator": "§5.3.1, p.37",
+          "match": "The additive character and differential-conductor convention agree after the explicit finite-field trace choice."
         }
       ],
       "acceptance": [
@@ -1153,7 +1173,7 @@
         {
           "sourceId": "parshin",
           "locator": "§2.2, pp.8–9",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Parshin fixes differential-dependent self-dual local measures and gives the global integral-lattice volume. The packet derives q^(deg D+1−g) from local conductor exponents and the native canonical divisor degree, keeping local and global changes of differential distinct."
         }
       ],
       "acceptance": [
@@ -1234,7 +1254,7 @@
         {
           "sourceId": "parshin",
           "locator": "§2.2, pp.8–9 (translated test functions, source issue E3)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Parshin states adelic Fourier inversion and Poisson summation. The proof here corrects E3 by spanning the test space with translated compact-open indicators and uses the diagonal annihilator and quotient-volume normalization."
         }
       ],
       "acceptance": [
@@ -1277,8 +1297,8 @@
       "sources": [
         {
           "sourceId": "kw",
-          "locator": "§3.2, pp.8–10; §4.4, pp.22–23 (wild extension input)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§3.2, pp.8–10; §4.5, pp.21–23 (wild extension input)",
+          "match": "Kosters–Wan uses ramification and conductors of finite ASW extensions. General different, separability, Hurwitz and upper/lower numbering are existing AC/LFR inputs; this node records their use rather than planning their general theory again."
         }
       ],
       "acceptance": [
@@ -1318,7 +1338,7 @@
         {
           "sourceId": "kw",
           "locator": "§3.1, Theorem 3.2 and proof, pp.6–8",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Theorem 3.2 identifies ASW classes with continuous cyclic p-power characters using Witt Frobenius minus identity. Orders of classes determine extension degrees, and cyclic subgroups, rather than individual generators, determine the same cyclic field."
         }
       ],
       "acceptance": [
@@ -1403,7 +1423,7 @@
         {
           "sourceId": "kw",
           "locator": "Proposition 4.3, pp.15–16; Proposition 4.14 and proof, pp.22–23",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Proposition 4.3 gives the reduced constant-plus-prime-to-p-pole form, with p-adically vanishing coefficients. Proposition 4.14 computes finite-layer conductors; truncation leaves only finitely many effective coefficients."
         }
       ],
       "acceptance": [
@@ -1484,7 +1504,7 @@
         {
           "sourceId": "kw",
           "locator": "Proposition 4.14, pp.22–23; Theorem 3.2, pp.7–8",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "The length-one specialization of Proposition 4.14 gives conductor m+1 for the single prime-to-p pole. Imported ramification and Hurwitz then give different exponent (p−1)(m+1) and genus (p−1)(m−1)/2; the source is not claimed to enumerate the global curve."
         }
       ],
       "acceptance": [
@@ -1526,7 +1546,7 @@
         {
           "sourceId": "yoshida",
           "locator": "§§3.1–4.2, Lemma 3.4, Proposition 3.5, Corollary 3.7, Proposition 4.4, pp.415–421; Appendix II, Proposition 8.1, pp.436–437",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Yoshida’s formal-module construction and Proposition 4.4 apply to equal characteristic as well as mixed characteristic. Specializing to f=πX+X^Q yields torsion degree (Q−1)Q^(m−1), including the nontrivial wild higher levels."
         }
       ],
       "acceptance": [
@@ -1607,8 +1627,8 @@
       "sources": [
         {
           "sourceId": "yoshida",
-          "locator": "Proposition 5.10, Theorem 5.15, Corollary 5.16(iv), pp.424–428; Theorem 6.15, pp.431–433",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "Proposition 5.10, Theorem 5.15 and §5.3(iv) existence theorem, pp.425–428; Theorem 6.15, pp.432–433",
+          "match": "Yoshida computes relative Lubin–Tate norm subgroups and proves the open finite-index existence theorem, then identifies all finite abelian extensions using Hasse–Arf. His geometric Frobenius convention is inverted to the packet’s arithmetic convention."
         }
       ],
       "acceptance": [
@@ -1633,13 +1653,14 @@
       ],
       "title": "Schmid–Witt symbol and local Artin comparison",
       "kind": "theorem",
-      "statement": "On F=k((T)), pair Q_n(F) with F× by the action of the arithmetic local Artin map on solutions of wp_n(y)=a. It equals the truncation modulo p^n of Tr_{W(k)/Z_p} Res(ã dlog b̃), using Kosters–Wan’s characteristic-zero lifts of reduced Witt Laurent data and unit factors. This is a perfect continuous pairing between the discrete ASW character group and the pro-p completion of F×. For a finite subgroup of Q_n(F), the compositum of its ASW extensions has norm subgroup equal to the common annihilator. The symbol is compared after local existence, never used in a circular proof of it.",
+      "statement": "On F=k((T)) with k finite and n≥1, pair Q_n(F) with F× by the action of the arithmetic local Artin map on solutions of wp_n(y)=a. It equals the truncation modulo p^n of Tr_{W(k)/Z_p} Res(ã dlog b̃), using Kosters–Wan’s characteristic-zero lifts of reduced Witt Laurent data and unit factors. The pairing kills (F×)^(p^n) and induces a perfect continuous pairing of the discrete group Q_n(F) with F×/(F×)^(p^n), carrying the quotient of the local-field topology. At a fixed n it is not perfect against the whole pro-p completion: nonzero p^n multiples in its valuation coordinate annihilate every Q_n character. The compatible infinite-length symbol uses the inverse-limit Witt quotient and pro-p completion with the topologies specified in Kosters–Wan §4.1. For a finite subgroup of Q_n(F), the compositum of its ASW extensions has norm subgroup equal to the common annihilator. The symbol is compared after local existence, never used in a circular proof of it.",
       "hypotheses": [
+        "k is a finite field of characteristic p and n≥1; finite-length and inverse-limit pairings have distinct multiplicative domains and topologies.",
         "Residue and dlog computed in the specified characteristic-zero lift ring; Witt trace, not ghost-coordinate division in characteristic p."
       ],
       "proofSteps": [
         "Import local Artin from the existing class formation and the full existence theorem just proved.",
-        "Check the explicit lifted-residue formula on a constant, a Teichmüller pole, a uniformizer and a principal unit; use bilinearity and the reduced expansion. Apply the norm-kernel theorem on each finite ASW layer and intersection under composita."
+        "At fixed length use Theorem 3.4 and Remark 4.1 to descend to F×/(F×)^(p^n). Check Theorem 4.7’s lifted-residue formula on a constant, a Teichmüller pole, a uniformizer and a principal unit; use bilinearity and the reduced expansion. Apply the norm-kernel theorem on each finite ASW layer and intersection under composita."
       ],
       "prerequisites": [
         "FunctionFieldArithmetic:FA.3/artin-schreier-witt-quotient",
@@ -1650,13 +1671,14 @@
       "sources": [
         {
           "sourceId": "kw",
-          "locator": "Proposition 3.10, p.12; §§4.2–4.3, Theorem 4.12 and proof, pp.17–22",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "Theorem 3.4, p.8; §4.1, Remark 4.1, pp.14–15; Proposition 4.2, p.15; §4.4, Theorem 4.7 and proof, pp.18–19",
+          "match": "Theorem 3.4 and Remark 4.1 give the finite-length pairing with F×/(F×)^(p^n). Theorem 4.7 supplies the characteristic-zero lifted-residue formula. The infinite pro-p completion belongs to the compatible infinite-length symbol, not a perfect pairing with one fixed Q_n."
         }
       ],
       "acceptance": [
         "Constant classes pair with the valuation of b and are trivial on units.",
-        "A reduced pole gives the conductor in FA.3; naive characteristic-p ghost division is excluded."
+        "A reduced pole gives the conductor in FA.3; naive characteristic-p ghost division is excluded.",
+        "At n=1 a uniformizer raised to p pairs trivially with every class but has nonzero valuation coordinate p in the pro-p completion; perfectness requires the pth-power quotient."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -1697,7 +1719,7 @@
         {
           "sourceId": "adt",
           "locator": "Appendix A, A.7–A.9 with proofs, pp.131–134",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Milne proves the finite-function-field class formation in A.7–A.9 using Picard, Lang and Tsen inputs. These are requested explicitly from SF.3; no abelian existence theorem is used to establish the formation."
         }
       ],
       "acceptance": [
@@ -1738,7 +1760,7 @@
         {
           "sourceId": "adt",
           "locator": "Appendix A, A.10–A.11, pp.134–136; A.5, pp.129–130",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "A.10–A.11 derive finite norm quotients and reciprocity from the formation. The packet retains the abelian-extension hypothesis and separates this norm theorem from geometric existence."
         }
       ],
       "acceptance": [
@@ -1780,7 +1802,7 @@
         {
           "sourceId": "roquette",
           "locator": "§4.3.3, pp.25–28 (Schmidt context); WC.5 supplies the independent all-extension Weil estimate",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Roquette supplies historical context for Schmidt, not the proof adopted here. The independent all-extension Weil estimate forces closed-point degree gcd one; a Bezout combination gives a degree-one divisor, without requiring a rational point or FA.4 existence."
         }
       ],
       "acceptance": [
@@ -1824,7 +1846,7 @@
         {
           "sourceId": "conrad",
           "locator": "§2, Examples 2.1–2.2 and §3, pp.2–4",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Conrad defines generalized Jacobians for a modulus and states their class-field relation. The arithmetic idele/divisor comparison includes local units at depth zero and a separate infinite degree direction; the generalized Picard construction remains an SF.3 input."
         }
       ],
       "acceptance": [
@@ -1907,7 +1929,7 @@
         {
           "sourceId": "conrad",
           "locator": "§3, Theorems 3.1–3.2, pp.3–4; ADT Appendix A explicitly omits existence",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Conrad states the exact ray-cover and classification theorems. The packet honestly records that this handout does not verify the full Rosenlicht/Lang-torsor proof; GEO-RAY remains a closure boundary."
         }
       ],
       "acceptance": [
@@ -1949,8 +1971,13 @@
       "sources": [
         {
           "sourceId": "adt",
-          "locator": "Appendix A, A.10–A.11, pp.134–136 (finite quotients); Conrad Theorem 3.2, p.4 (existence input)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "Appendix A, A.10–A.11, pp.134–136 (finite quotients)",
+          "match": "Milne supplies the finite norm quotients; existence supplies their cofinality. Taking finite quotients yields profinite reciprocity, with degree completed from Z to Z-hat rather than a false isomorphism of the uncompleted idele class group."
+        },
+        {
+          "sourceId": "conrad",
+          "locator": "§3, Theorem 3.2, p.4",
+          "match": "The stated existence theorem supplies cofinality of finite norm quotients; its full proof remains GEO-RAY."
         }
       ],
       "acceptance": [
@@ -1988,8 +2015,13 @@
       "sources": [
         {
           "sourceId": "roquette",
-          "locator": "§4.3.3, pp.25–28; Parshin §2.5, pp.14–15",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§4.3.3, pp.25–28",
+          "match": "Roquette discusses the effective-divisor Euler product and its relation to finite-extension point counts. The formal logarithmic/Newton identities here are the stated arithmetic deduction, with residue degrees retained."
+        },
+        {
+          "sourceId": "parshin",
+          "locator": "§2.5, pp.14–15",
+          "match": "The multiplicative adelic zeta formula agrees with the divisor Euler-product normalization."
         }
       ],
       "acceptance": [
@@ -2072,8 +2104,13 @@
       "sources": [
         {
           "sourceId": "roquette",
-          "locator": "§4.3.3, pp.25–28 (RR rationality); Parshin §2.5, pp.14–15 (functional equation normalization)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§4.3.3, pp.25–28 (RR rationality)",
+          "match": "Roquette explains rationality and the functional equation from Riemann–Roch. The packet imports the Weil inverse-root bound independently from WC.5 and does not claim that Riemann–Roch proves that bound."
+        },
+        {
+          "sourceId": "parshin",
+          "locator": "§2.5, pp.14–15",
+          "match": "The adelic Fourier argument checks the functional-equation convention; translated test functions are used as corrected in E3."
         }
       ],
       "acceptance": [
@@ -2114,7 +2151,7 @@
         {
           "sourceId": "av",
           "locator": "§3.2, equation (3.1), pp.26–27",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Equation (3.1) uses geometric Frobenius acting on actual inertia invariants. This also applies to the stated finite coefficient field with ℓ≠p; no averaging projector is imposed when ℓ divides the finite monodromy order."
         }
       ],
       "acceptance": [
@@ -2180,22 +2217,23 @@
       "kind": "comparison",
       "statement": "For an everywhere unramified finite-dimensional A-local system ρ on proper X, A a finite field of characteristic ℓ≠p, its degree-weighted Euler product equals ∏_{i=0}² det(1−T Fr_q|H^i_et(X̄,ρ))^{(−1)^{i+1}}. This is the torsion coefficient contract used by AV, not an assertion that ρ lifts to an ℓ-adic representation. For a representation ramified on X minus U, the analogous proper formula uses j_*ρ and its inertia stalks; compact-support cohomology of U instead gives the Euler product with omitted boundary factors.",
       "hypotheses": [
-        "Proper smooth X; geometric Frobenius; finite étale cohomology and trace formula supplied with these coefficients."
+        "Proper smooth X; geometric Frobenius; finite étale cohomology and trace formula supplied with these coefficients.",
+        "EDC.8 is an import receipt for its explicitly named PR196 TraceFormula owner. No second trace construction is assigned to EDC.8; the finite coefficient-field determinant enhancement remains TORSION-DETERMINANT."
       ],
       "proofSteps": [
         "Import the torsion Grothendieck trace formula and determinant expansion from the étale/cohomology supplier.",
-        "Check that the j_* stalk is V^{I_v}; separate the open compact-support and proper direct-image formulas before adding ramified local factors."
+        "Check that the j_* stalk is V^{I_v}; separate the open compact-support and proper direct-image formulas before adding ramified local factors.",
+        "Import the finite-coefficient curve trace theorem and perfect-complex determinants from the TraceFormula owner, together with the explicit finite-field Euler-product/determinant enhancement requested there. In characteristic ℓ, equality of all power traces alone does not determine the determinant: for example, the identity on an ℓ-dimensional space has every power trace zero but determinant (1−T)^ℓ=1−T^ℓ. Do not infer the finite-coefficient determinant formula by division in a formal exponential or by a characteristic-zero lift of the representation."
       ],
       "prerequisites": [
         "FunctionFieldArithmetic:FA.5/artin-inertia-factor",
-        "DeligneWeightsAndPurity:DWP.1",
         "EtaleDualityAndPerverseSheaves:EDC.8"
       ],
       "sources": [
         {
           "sourceId": "av",
           "locator": "§3.2, equations (3.1)–(3.2), pp.26–27",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Equation (3.2) expresses the torsion Euler product through all cohomological determinants on the proper curve. The packet distinguishes j_* inertia stalks from j_! extension by zero and requests the coefficient-accurate trace formula."
         }
       ],
       "acceptance": [
@@ -2234,7 +2272,7 @@
         {
           "sourceId": "kcheb",
           "locator": "Theorem 1.1, Corollary 1.2 and Lemmas 1.3–1.4 with proofs, pp.1–5; the displayed r-bound is the stated base-change deduction",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Kosters proves finite-field twist counting with Weil error. The displayed degree-r prime-count bound is the packet’s deduction after constant-field compatibility, base change, ramified-point exclusion and removal of lower-degree divisors; it is not quoted as his theorem."
         }
       ],
       "acceptance": [
@@ -2269,13 +2307,13 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev",
-        "DeligneWeightsAndPurity:DWP.1"
+        "DeligneWeightsAndPurity:DWP.0"
       ],
       "sources": [
         {
           "sourceId": "dad",
           "locator": "Proof of Theorem 5.3.3, p.27 (Chebotarev and Brauer–Nesbitt step only)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "The proof of Theorem 5.3.3 uses Chebotarev density and Brauer–Nesbitt for determination by Frobenius. Only that step is imported; continuous characteristic-zero semisimplicity is retained, without claiming the source’s broader coefficient-object theorem here."
         }
       ],
       "acceptance": [
@@ -2308,15 +2346,20 @@
         "FunctionFieldArithmetic:FA.2/projective-adeles",
         "FunctionFieldArithmetic:FA.4/profinite-reciprocity",
         "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
-        "mathlib:AlgHom.convGroup",
+        "tauceti:TauCeti.AlgHom.instGroup",
         "tauceti:TauCeti.CommHopfAlgCat.schemePointsAlgΓMulEquiv",
         "ReductiveGroupsPartII:RG2.4"
       ],
       "sources": [
         {
           "sourceId": "yu",
-          "locator": "§§2.2–2.3, pp.7–11; Harder §1.1, pp.252–253",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§§2.2–2.3, pp.7–11",
+          "match": "Yu fixes the global adelic quotient, levels and central character in the finite-function-field setting. Generic reductive points are imported; the packet bounds or quotients every central degree direction before making finiteness claims."
+        },
+        {
+          "sourceId": "harder",
+          "locator": "§1.1, pp.252–253",
+          "match": "Harder formulates arithmetic reduction on the function-field adelic quotient; central degree directions must be controlled."
         }
       ],
       "acceptance": [
@@ -2396,8 +2439,13 @@
       "sources": [
         {
           "sourceId": "bhkt",
-          "locator": "§8.1, equation (8.1), Proposition 8.2 and proof, pp.34–35; Ciubotaru–Harris §3, pp.8–9",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§8.1, equation (8.1), Proposition 8.2 and proof, pp.34–35",
+          "match": "BHKT defines cuspidality by every proper rational parabolic and proves finite-level finiteness. The integral construction uses finite p-power averages with p invertible and common support; torus cuspidality alone does not remove its infinite degree direction."
+        },
+        {
+          "sourceId": "ch",
+          "locator": "§3, Proposition 3.1 and Lemma 3.2, pp.8–9",
+          "match": "The fixed-level cusp module over Noetherian coefficients and its complex comparison agree with the integral specialization."
         }
       ],
       "acceptance": [
@@ -2478,7 +2526,7 @@
         {
           "sourceId": "harder",
           "locator": "§1.2, Theorem 1.2.1 and Corollary 1.2.3, pp.254–256",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Harder proves common support bounds and compactness for split Chevalley groups. The packet preserves this proved scope and explicitly conditions the nonsplit connected-reductive extension on RG2.4."
         }
       ],
       "acceptance": [
@@ -2509,7 +2557,7 @@
       ],
       "proofSteps": [
         "Use the finite support theorem and finitely many finite-average cusp equations to obtain the Noetherian submodule.",
-        "Use Ciubotaru–Harris Lemma 3.2’s complex scalar comparison; for eigenvalue algebraicity apply the integral Hecke action on the finite Z[1/p] model and Cayley–Hamilton after passing to a finite-dimensional Q-space."
+        "Use Ciubotaru–Harris Lemma 3.2’s complex scalar comparison; for eigenvalue algebraicity apply the integral Hecke action on the finite Z[1/p] model and Cayley–Hamilton after passing to a finite-dimensional Q-space. For R⊆C, flatness follows by factoring scalar extension through Frac(R), then extending between fields."
       ],
       "prerequisites": [
         "FunctionFieldArithmetic:FA.6/harder-cuspidal-support",
@@ -2519,8 +2567,13 @@
       "sources": [
         {
           "sourceId": "ch",
-          "locator": "§3, Proposition 3.1 and Lemma 3.2, pp.8–9; BHKT Proposition 8.2, pp.34–35",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§3, Proposition 3.1 and Lemma 3.2, pp.8–9",
+          "match": "Ciubotaru–Harris proves fixed-level cusp finiteness and the complex scalar comparison over Noetherian coefficient subrings of C. Such an embedding is flat via the fraction field. Hecke eigenvalue algebraicity is restricted to arithmetic coefficient models, not arbitrary transcendental characters."
+        },
+        {
+          "sourceId": "bhkt",
+          "locator": "§8.1, Proposition 8.2, pp.34–35",
+          "match": "BHKT gives fixed-level cusp finiteness in the integral automorphic setting; the common support requirement is kept explicit."
         }
       ],
       "acceptance": [
@@ -2555,14 +2608,18 @@
         "FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism",
         "FunctionFieldArithmetic:FA.5/artin-inertia-factor",
         "SmoothRepresentationsOfLocalGroups:SR.4",
-        "SmoothRepresentationsOfLocalGroups:SR.4",
         "ReductiveGroupsPartII:RG2.4"
       ],
       "sources": [
         {
           "sourceId": "bhkt",
-          "locator": "§8.1, pp.34–35; Yu §§2.2–2.3, pp.7–11",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§8.1, pp.34–35",
+          "match": "BHKT’s integral unramified Hecke setup fixes the needed coefficients and Satake normalization. The generic local Hecke/Satake construction is imported from SR.4; FA.6 supplies the global fixed-level action."
+        },
+        {
+          "sourceId": "yu",
+          "locator": "§§2.2–2.3, pp.7–11",
+          "match": "Yu’s spherical Hecke action supplies the global arithmetic specialization, while the local algebra belongs to SR.4."
         }
       ],
       "acceptance": [
@@ -2605,7 +2662,7 @@
         {
           "sourceId": "yu",
           "locator": "§5.3.1, Lemma 5.3.3 and complete proof, pp.36–38",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Yu’s Lemma 5.3.3 and proof give spherical degree-zero nonvanishing through Whittaker reconstruction. The packet requires a nonzero vector and corrects the determinant-degree and scalar-power signs recorded in E4–E5."
         }
       ],
       "acceptance": [
@@ -2647,7 +2704,7 @@
         {
           "sourceId": "fyz",
           "locator": "§2.1, Remark 2.1, pp.8–9",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "FYZ Remark 2.1 gives the unramified character extension with the stated restriction to F×. Its modulo-two argument uses alternating cup product, requested through integral Z_2 cohomology rather than inferred from graded commutativity over F_2."
         }
       ],
       "acceptance": [
@@ -2689,7 +2746,7 @@
         {
           "sourceId": "fyz",
           "locator": "§2.1, pp.8–9",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "FYZ fixes the quasi-split skew-Hermitian unitary group, spherical section and unnormalized exponent s+n/2. Convergence and continuation are separately imported with explicit function-field enhancement requests to AS.1 and AS.2."
         }
       ],
       "acceptance": [
@@ -2772,7 +2829,7 @@
         {
           "sourceId": "fyz",
           "locator": "§2.2, equations (2.1)–(2.4), pp.9–10",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "FYZ defines the residue character on the Hermitian unipotent, the global quotient measure and the local integral-volume-one Fourier coefficients. Their differential-dependent prefactor and Levi transformation law are retained without mixing the two measure conventions."
         }
       ],
       "acceptance": [
@@ -2855,8 +2912,13 @@
       "sources": [
         {
           "sourceId": "fyz",
-          "locator": "§§2.3–2.5, Theorem 2.3 and Lemma 2.7 with proof, pp.10–14; Li–Zhang Theorem 3.5.1, pp.17–18 (inert supplier)",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§§2.3–2.5, Theorem 2.3 and Lemma 2.7 with proof, pp.10–14",
+          "match": "FYZ proves the unramified inert and split density polynomials and compares them with local Whittaker integrals. Existing GN.3 inert data are reused; split density and the source-rank n+2j Siegel–Weil normalization are explicit supplier enhancements."
+        },
+        {
+          "sourceId": "lz",
+          "locator": "§3.5, Theorem 3.5.1, pp.17–18",
+          "match": "Li–Zhang provides the inert Cho–Yamauchi input used by GN.3; it does not establish the split variant."
         }
       ],
       "acceptance": [
@@ -2896,8 +2958,8 @@
       "sources": [
         {
           "sourceId": "fyz",
-          "locator": "§2.6, equation (2.10), Theorem 2.8 and proof, pp.14–15",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§2.6, equations (2.10)–(2.12), Theorem 2.8 and proof, pp.14–15",
+          "match": "FYZ’s Theorem 2.8 gives the regular injective Hermitian bundle coefficient, including the determinant character, degree exponent and Euler normalization. Serre duality uses the canonical line, and the packet retains weighted total degree for split or constant covers."
         }
       ],
       "acceptance": [
@@ -2939,7 +3001,7 @@
         {
           "sourceId": "hess",
           "locator": "§3.2, pp.3–4; Proposition 9(i)–(ii), p.7; §6, p.9",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Hess uses finite-prime factorization and integral normalization to access places. FA.7’s new contract assembles native normalized branches, infinity and degree-bounded completeness; factorization remains imported from FF.3."
         }
       ],
       "acceptance": [
@@ -3020,7 +3082,7 @@
         {
           "sourceId": "roquette",
           "locator": "§4.3.3, pp.25–28 (zeta identities); own certified Newton/functional-equation deduction",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "match": "Roquette supplies zeta identities. The proof-bearing certificate is our Newton and functional-equation deduction from independently certified complete counts through genus g; Weil-shaped coefficients alone are insufficient."
         }
       ],
       "acceptance": [
@@ -3084,9 +3146,10 @@
       ],
       "title": "Ray-character and conductor certificates",
       "kind": "construction",
-      "statement": "A finite ray-character certificate specifies a modulus m, a chosen finite degree quotient of C_m, its verified finite abelian-group presentation, a character into specified roots of unity, and local restrictions. Its conductor is the least effective m′≤m for which each local character is trivial on 1+𝔭_v^{m′_v}; an unramified character has m′_v=0. Wild cyclic p-parts are verified using ReducedWittData and the Artin symbol; prime-to-p parts use imported tame reciprocity. The value on the selected degree-one class separately records the constant-field character.",
+      "statement": "A finite ray-character certificate specifies a modulus m, a chosen finite degree quotient of C_m, its verified finite abelian-group presentation, a character into specified roots of unity, and local restrictions. Its conductor is the least effective m′≤m for which each local character is trivial on U_v^(m′_v), where U_v^(0)=O_v× and U_v^(r)=1+𝔭_v^r for r≥1; an unramified character has m′_v=0. Wild cyclic p-parts are verified using ReducedWittData and the Artin symbol; prime-to-p parts use imported tame reciprocity. The value on the selected degree-one class separately records the constant-field character.",
       "hypotheses": [
-        "Finite-index degree quotient is specified; a full infinite ray class group is not encoded as a finite group. Character-order and root-of-unity encodings are checked."
+        "Finite-index degree quotient is specified; a full infinite ray class group is not encoded as a finite group. Character-order and root-of-unity encodings are checked.",
+        "Degree one means valuation degree +1, equivalently Yu degree −1, consistently with FA.0."
       ],
       "proofSteps": [
         "Compute the finite ray quotient from certified divisors, RR relations and local units using FA.4’s exact comparison; include degree explicitly.",
@@ -3101,12 +3164,18 @@
       "sources": [
         {
           "sourceId": "kw",
-          "locator": "Theorem 4.12 and Proposition 4.14, pp.21–23; Conrad §3, p.4",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "Theorem 4.12 and Proposition 4.14, pp.21–23",
+          "match": "Kosters–Wan computes the wild local conductor. Combining this with Conrad’s ray-class contract gives the proposed finite presentation certificate. Depth zero means O_v×, and the finite degree quotient and degree-one value are specified separately."
+        },
+        {
+          "sourceId": "conrad",
+          "locator": "§3, Theorems 3.1–3.2, pp.3–4",
+          "match": "The ray existence contract supplies arithmetic interpretation of certified finite characters, subject to GEO-RAY."
         }
       ],
       "acceptance": [
-        "A character factoring through a larger modulus need not have that modulus as its conductor."
+        "A character factoring through a larger modulus need not have that modulus as its conductor.",
+        "Depth zero tests all integral units; 1+O_v is not a multiplicative subgroup and cannot define unramified conductor zero."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3186,8 +3255,13 @@
       "sources": [
         {
           "sourceId": "parshin",
-          "locator": "§2.1, p.7; Yoshida §2.2 and Appendix I, pp.413–415, 433–436",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§2.1, p.7",
+          "match": "Parshin identifies local curve fields as Laurent series. Yoshida explains uniformizer expansions in a complete DVR; together with the AC.5 coefficient-field and completion interfaces these justify the normalized local certificate, not an identification of the global field with its completion."
+        },
+        {
+          "sourceId": "yoshida",
+          "locator": "§2.2 and Appendix I, pp.413–415, 433–436",
+          "match": "Uniformizer expansion in a complete DVR supplies the series construction; the coefficient-field algebra structure is chosen separately."
         }
       ],
       "acceptance": [
@@ -3269,8 +3343,13 @@
       "sources": [
         {
           "sourceId": "hess",
-          "locator": "§3.2, pp.3–4; §6, Algorithm 13 and Remark 14, pp.9–10; Kosters–Wan Proposition 4.14, pp.22–23",
-          "match": "The cited passage supplies the stated arithmetic input; the specialization and any unverified proof boundary are identified in proofSteps and gaps."
+          "locator": "§3.2, pp.3–4",
+          "match": "Hess separates integral-basis, factorization and degree/height reduction costs. The global ASW example’s local conductor comes from Kosters–Wan. Exhaustive extension-field point counts are finite verification tasks, not a polynomial-in-log(q) counting claim."
+        },
+        {
+          "sourceId": "kw",
+          "locator": "§4.5, Proposition 4.14, pp.22–23",
+          "match": "The reduced single-pole specialization certifies the wild conductor used in the explicit global example."
         }
       ],
       "acceptance": [
@@ -3327,19 +3406,18 @@
       "neededBy": [
         "FunctionFieldArithmetic:FA.5/torsion-trace-comparison"
       ],
-      "need": "Grothendieck Euler-product/determinant trace formula for finite coefficient fields of characteristic ℓ≠p, with j_* inertia stalks for ramification and distinct j_! compact-support formula.",
-      "reason": "AV equation (3.2) is a torsion contract. No characteristic-zero lift is assumed; request the coefficient-accurate enhancement from the trace-formula owner.",
+      "need": "Expose the finite-coefficient trace and perfect-complex determinants imported by EDC.8 from PR196 TraceFormula Layers 0–4 and 9–11. Forward to that upstream owner the finite coefficient-field Euler-product/determinant enhancement for proper j_* inertia stalks, separately from j_! compact support; current TraceFormula Layers 14–15 state the characteristic-zero adic theorem. Do not construct ordinary Frobenius trace again in EDC.8.",
+      "reason": "EDC.8 explicitly imports ordinary Frobenius trace from TraceFormula and must not duplicate that upstream construction. PR196 head 4bd72379658126cbe9be935656396f0c9dac4de0 was read. The finite-coefficient determinant enhancement remains a maintainer-facing upstream note; traces alone do not prove it in characteristic ℓ. The atlas has no registered stage ID for those PR196 layers, so EDC.8 is the existing import receipt, with the exact upstream URL and commit recorded in upstreamNotes and the coefficient gap.",
       "status": "open"
     },
     {
       "id": "FunctionFieldArithmetic/request-weights-density",
-      "supplier": "DeligneWeightsAndPurity:DWP.1",
+      "supplier": "DeligneWeightsAndPurity:DWP.0",
       "neededBy": [
-        "FunctionFieldArithmetic:FA.5/torsion-trace-comparison",
         "FunctionFieldArithmetic:FA.5/frobenius-semisimple-determination"
       ],
-      "need": "Curve cohomological determinant comparison with geometric Frobenius, and characteristic-zero Brauer–Nesbitt interface for continuous semisimple representations.",
-      "reason": "Only these generic cohomological inputs are imported; FA.5 owns the finite function-field Chebotarev theorem and its profinite density deduction.",
+      "need": "Characteristic-zero Brauer–Nesbitt comparison for finite-dimensional semisimple representations, usable after equality of continuous traces on a dense set.",
+      "reason": "DWP.0 owns the reusable functorial linear-algebra direction; DWP.1 owns initial curve/abelian Weil estimates and does not state Brauer–Nesbitt. The cohomological determinant request belongs to TraceFormula instead. FA.5 retains arithmetic Chebotarev density and its representation-theoretic specialization.",
       "status": "open"
     },
     {
@@ -3806,6 +3884,13 @@
         "FunctionFieldArithmetic:FA.7/l-polynomial-certificate"
       ],
       "detail": "FF.3 currently certifies an odd-characteristic elliptic model only. General curve/hyperelliptic count certificates over all required finite extensions remain the FF.3 request; FA.7 assembly alone cannot certify those input counts."
+    },
+    {
+      "title": "TORSION-DETERMINANT coefficient boundary",
+      "neededBy": [
+        "FunctionFieldArithmetic:FA.5/torsion-trace-comparison"
+      ],
+      "detail": "PR196 TraceFormula provides finite-coefficient curve trace and perfect-complex determinant algebra, but its Layers 14–15 state the sheaf L-function determinant theorem in characteristic-zero adic coefficients. The finite coefficient-field Euler-product identity in AV (3.2) needs the explicit TraceFormula enhancement in request-torsion-trace. All-power trace equality in characteristic ℓ does not suffice and no characteristic-zero lift of the given finite-field representation is assumed."
     }
   ],
   "sourceIssues": [
@@ -3824,7 +3909,12 @@
         "AMS DOI 10.1090/S1061-0022-2012-01218-5 and its PDF endpoint: HTTP 403; no published text read",
         "AMS erratum search and MathNet publication listing",
         "Steklov author publication list https://www.mi-ras.ru/index.php?c=pubs&id=11177&l=0&showall=show&showmode=groups; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed pairing on preprint p.9 sums U(1)-values. Evaluating at the zero pair produces infinitely many ones; the product or trace-residue character is the well-defined correction.",
+        "by": "REV-FunctionFieldArithmetic"
+      }
     },
     {
       "id": "FunctionFieldArithmetic/E2",
@@ -3840,7 +3930,12 @@
         "arXiv:1011.3392 history: only v1",
         "AMS published PDF refused with HTTP 403; finding limited to preprint",
         "AMS erratum search, MathNet listing and Steklov author publication list; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preprint p.9 specifies injectivity for a general finite field. An additive group of exponent p has complex character image of order at most p, so injectivity fails when [k:Fp]>1; the trace pairing supplies the correct nondegeneracy.",
+        "by": "REV-FunctionFieldArithmetic"
+      }
     },
     {
       "id": "FunctionFieldArithmetic/E3",
@@ -3856,7 +3951,12 @@
         "arXiv:1011.3392 history: only v1",
         "AMS published PDF endpoint: HTTP 403, not read",
         "AMS erratum search, MathNet listing and Steklov author publication list; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.7 spanning assertion includes only unshifted subgroup indicators. Their scalar invariance excludes moved-coset indicators when |k|>2; translated compact-open indicators give the required spanning family.",
+        "by": "REV-FunctionFieldArithmetic"
+      }
     },
     {
       "id": "FunctionFieldArithmetic/E4",
@@ -3873,7 +3973,12 @@
         "Annals article record https://annals.math.princeton.edu/2023/197-2/p01, checked 2026-10-10; no correction linked",
         "Author https://www.hongjieyu.com/ publication listing and arXiv v1–v5 history; v5 read, no inter-version collation",
         "The published PDF was not served; finding is confined to the read preprint"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 5.3.3 on preprint p.36 permits the zero vector, which cannot have a nonzero value. Requiring a nonzero spherical vector agrees with the surrounding application and reconstruction proof.",
+        "by": "REV-FunctionFieldArithmetic"
+      }
     },
     {
       "id": "FunctionFieldArithmetic/E5",
@@ -3889,7 +3994,12 @@
         "PAPER-YU-23/E11, including its independently checked determinant calculation",
         "Annals article record, author publication listing and arXiv history checked for corrections",
         "Published PDF not served; this finding is scoped to arXiv v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The diagonal in the pp.37–38 proof has weighted valuation degree −n(n−1)(g−1). Negating it gives positive Yu degree; a degree-one Yu scalar must be raised to −(n−1)(g−1) to cancel it.",
+        "by": "REV-FunctionFieldArithmetic"
+      }
     }
   ],
   "upstreamNotes": [
@@ -3916,6 +4026,13 @@
     {
       "roadmap": "Schmidt-routing",
       "detail": "Retarget PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/degree-one-divisor and AUDIT-01 to FA.5/schmidt-degree-one. AC.5 remains a zeta-free RR consequence layer; this packet has no FA.4→Schmidt prerequisite."
+    },
+    {
+      "roadmap": "CohomologicalPointCounting/TraceFormula",
+      "pullRequest": "https://github.com/TauCetiProject/TauCetiRoadmap/pull/196",
+      "commit": "4bd72379658126cbe9be935656396f0c9dac4de0",
+      "checked": "2026-10-11",
+      "detail": "Read README finite-coefficient conventions, Layers 0–4, 9–11 and 14–15, plus the corresponding Suggested.lean. Reuse the finite-coefficient trace and perfect determinant algebra. Ordinary trace is not owned by EDC.8. Ask the maintainer for the finite coefficient-field Euler-product determinant enhancement: current Layer 14 is characteristic-zero adic. This note does not edit or replan the upstream roadmap."
     }
   ],
   "sourceVersions": [
@@ -4015,5 +4132,253 @@
       "read": "2026-10-10",
       "sha256": "69d7e3d1f2455dd79081247d20b30ceb1176812411f78ec036ae58528fc0882a"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FunctionFieldArithmetic",
+    "date": "2026-10-11",
+    "notes": "Completed independent review of all 48 target-level nodes, all 28 final pinned baseline receipts, 16 public source versions, 29 requests, API/tests, 31 planets, the current upstream/library inventory and four confirmed ownership findings. Corrected the packet and suggested file in place, confirmed all five sourceIssues, and recorded one additional honest coefficient boundary. The final suggested file elaborates at the pinned baseline with admitted proofs as its only warning. The definitive reader is outside this review issue’s deliverables and still contains the false fixed-length perfect pairing, the depth-zero conductor formula and superseded supplier/baseline references. Synchronize that reader before acceptance; this is a completed review, not an unfinished review checkpoint. The five stated gaps and supplier enhancements remain explicit planning boundaries rather than claims of implementation.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.0/finite-exact-base",
+        "verdict": "verified",
+        "note": "Yu fixes a smooth projective geometrically connected curve over its full finite constant field. The normalization and exact-constant reduction are supplied by the native function-field declarations and AC.12, rather than proved in this introductory passage."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.0/degree-conventions",
+        "verdict": "verified",
+        "note": "Yu defines the idele degree as log_q of the multiplicative norm, the negative of weighted valuation degree. The packet explicitly converts this sign and uses arithmetic Artin Frobenius; it does not infer an Artin convention from Yu."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.1/rational-picard-comparison",
+        "verdict": "corrected",
+        "note": "Milne uses the divisor-class/Picard comparison over finite fields in proving A.7. The no-rational-point comparison here follows from the separately imported Picard–Brauer sequence and Br(k)=0; no rational base point is assumed."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.1/riemann-roch-basis-certificate",
+        "verdict": "verified",
+        "note": "Yu supplies weighted divisor conventions, not a basis algorithm. The certificate is our proof-bearing basis interface for native L(D); dimensions and principal-divisor transport follow from the listed native and AC inputs."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.1/certified-riemann-roch-computation",
+        "verdict": "verified",
+        "note": "Hess proves reduced-basis computation for divisor spaces using integral bases, degree bounds and polynomial matrix reduction. Algorithm 13 and its preceding reductions justify the proposed certificate-producing algorithm, conditional on certified normalization and factorization."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/projective-adeles",
+        "verdict": "verified",
+        "note": "Parshin defines the restricted product over every closed point of the projective curve. This includes infinity and differs from both an affine finite-adele ring and the native K-valued repartition module."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/projective-ideles",
+        "verdict": "corrected",
+        "note": "Parshin uses the multiplicative restricted product and weighted divisor map. Native restricted-product units provide the carrier; the idele topology uses integral units and is not the subspace topology of additive adeles."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/idele-divisor-exact-sequence",
+        "verdict": "verified",
+        "note": "Parshin identifies the integral-unit kernel and divisor-class quotient. Surjectivity is obtained by finite-support choices of local uniformizers; finiteness of degree-zero classes is imported from the pinned library."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/additive-diagonal-lattice",
+        "verdict": "verified",
+        "note": "Parshin describes the discrete diagonal and compact adelic quotient, together with divisor lattices. The packet obtains these arithmetic comparisons from local approximation and imported Riemann–Roch, rather than identifying completed adeles with repartitions."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/completed-residue-functional",
+        "verdict": "corrected",
+        "note": "Parshin uses local differential residues and their global sum. AC.9 supplies parameter independence and the residue theorem; FA.2 extends to completed places and takes the residue-field trace to the exact constants."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/differential-additive-character",
+        "verdict": "corrected",
+        "note": "The residue character is Parshin’s adelic pairing with the two corrections E1–E2: multiply local character values and use a nontrivial trace character. Finite-field trace pairing proves nondegeneracy without requiring an injective scalar character."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/differential-self-dual-haar",
+        "verdict": "corrected",
+        "note": "Parshin fixes differential-dependent self-dual local measures and gives the global integral-lattice volume. The packet derives q^(deg D+1−g) from local conductor exponents and the native canonical divisor degree, keeping local and global changes of differential distinct. Corrected the suggested signatures to require finite constants."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.2/adelic-poisson",
+        "verdict": "verified",
+        "note": "Parshin states adelic Fourier inversion and Poisson summation. The proof here corrects E3 by spanning the test space with translated compact-open indicators and uses the diagonal annihilator and quotient-volume normalization."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.3/ramification-import-contract",
+        "verdict": "corrected",
+        "note": "Kosters–Wan uses ramification and conductors of finite ASW extensions. General different, separability, Hurwitz and upper/lower numbering are existing AC/LFR inputs; this node records their use rather than planning their general theory again."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.3/artin-schreier-witt-quotient",
+        "verdict": "verified",
+        "note": "Theorem 3.2 identifies ASW classes with continuous cyclic p-power characters using Witt Frobenius minus identity. Orders of classes determine extension degrees, and cyclic subgroups, rather than individual generators, determine the same cyclic field."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.3/reduced-witt-laurent-data",
+        "verdict": "verified",
+        "note": "Proposition 4.3 gives the reduced constant-plus-prime-to-p-pole form, with p-adically vanishing coefficients. Proposition 4.14 computes finite-layer conductors; truncation leaves only finitely many effective coefficients."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.3/wild-cover-example",
+        "verdict": "verified",
+        "note": "The length-one specialization of Proposition 4.14 gives conductor m+1 for the single prime-to-p pole. Imported ramification and Hurwitz then give different exponent (p−1)(m+1) and genus (p−1)(m−1)/2; the source is not claimed to enumerate the global curve."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/equal-characteristic-lubin-tate",
+        "verdict": "verified",
+        "note": "Yoshida’s formal-module construction and Proposition 4.4 apply to equal characteristic as well as mixed characteristic. Specializing to f=πX+X^Q yields torsion degree (Q−1)Q^(m−1), including the nontrivial wild higher levels."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/local-abelian-existence",
+        "verdict": "corrected",
+        "note": "Yoshida computes relative Lubin–Tate norm subgroups and proves the open finite-index existence theorem, then identifies all finite abelian extensions using Hasse–Arf. His geometric Frobenius convention is inverted to the packet’s arithmetic convention."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/schmid-witt-artin-comparison",
+        "verdict": "corrected",
+        "note": "Theorem 3.4 and Remark 4.1 give the finite-length pairing with F×/(F×)^(p^n). Theorem 4.7 supplies the characteristic-zero lifted-residue formula. The infinite pro-p completion belongs to the compatible infinite-length symbol, not a perfect pairing with one fixed Q_n. Corrected the finite-length perfect-pairing domain and added the p^n-power annihilator regression."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/function-field-class-formation",
+        "verdict": "verified",
+        "note": "Milne proves the finite-function-field class formation in A.7–A.9 using Picard, Lang and Tsen inputs. These are requested explicitly from SF.3; no abelian existence theorem is used to establish the formation."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/global-artin-norm-isomorphism",
+        "verdict": "verified",
+        "note": "A.10–A.11 derive finite norm quotients and reciprocity from the formation. The packet retains the abelian-extension hypothesis and separates this norm theorem from geometric existence."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/schmidt-degree-one",
+        "verdict": "verified",
+        "note": "Roquette supplies historical context for Schmidt, not the proof adopted here. The independent all-extension Weil estimate forces closed-point degree gcd one; a Bezout combination gives a degree-one divisor, without requiring a rational point or FA.4 existence."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard",
+        "verdict": "verified",
+        "note": "Conrad defines generalized Jacobians for a modulus and states their class-field relation. The arithmetic idele/divisor comparison includes local units at depth zero and a separate infinite degree direction; the generalized Picard construction remains an SF.3 input."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/global-abelian-existence",
+        "verdict": "verified",
+        "note": "Conrad states the exact ray-cover and classification theorems. The packet honestly records that this handout does not verify the full Rosenlicht/Lang-torsor proof; GEO-RAY remains a closure boundary."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.4/profinite-reciprocity",
+        "verdict": "corrected",
+        "note": "Milne supplies the finite norm quotients; existence supplies their cofinality. Taking finite quotients yields profinite reciprocity, with degree completed from Z to Z-hat rather than a false isomorphism of the uncompleted idele class group."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/curve-zeta-series",
+        "verdict": "corrected",
+        "note": "Roquette discusses the effective-divisor Euler product and its relation to finite-extension point counts. The formal logarithmic/Newton identities here are the stated arithmetic deduction, with residue degrees retained. Corrected the zero-coefficient theorem and example to require finite constants and an explicit function-field proof."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality",
+        "verdict": "corrected",
+        "note": "Roquette explains rationality and the functional equation from Riemann–Roch. The packet imports the Weil inverse-root bound independently from WC.5 and does not claim that Riemann–Roch proves that bound."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/artin-inertia-factor",
+        "verdict": "verified",
+        "note": "Equation (3.1) uses geometric Frobenius acting on actual inertia invariants. This also applies to the stated finite coefficient field with ℓ≠p; no averaging projector is imposed when ℓ divides the finite monodromy order."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/torsion-trace-comparison",
+        "verdict": "corrected",
+        "note": "Equation (3.2) expresses the torsion Euler product through all cohomological determinants on the proper curve. The packet distinguishes j_* inertia stalks from j_! extension by zero and requests the coefficient-accurate trace formula. Read PR196 TraceFormula; corrected the supplier contract through EDC.8’s existing upstream import, added the characteristic-ℓ power-trace counterexample, and recorded TORSION-DETERMINANT."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev",
+        "verdict": "verified",
+        "note": "Kosters proves finite-field twist counting with Weil error. The displayed degree-r prime-count bound is the packet’s deduction after constant-field compatibility, base change, ramified-point exclusion and removal of lower-degree divisors; it is not quoted as his theorem."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.5/frobenius-semisimple-determination",
+        "verdict": "corrected",
+        "note": "The proof of Theorem 5.3.3 uses Chebotarev density and Brauer–Nesbitt for determination by Frobenius. Only that step is imported; continuous characteristic-zero semisimplicity is retained, without claiming the source’s broader coefficient-object theorem here. Moved the generic Brauer–Nesbitt enhancement request from DWP.1 to the DWP.0 linear-algebra direction."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/automorphic-function-space",
+        "verdict": "corrected",
+        "note": "Yu fixes the global adelic quotient, levels and central character in the finite-function-field setting. Generic reductive points are imported; the packet bounds or quotients every central degree direction before making finiteness claims. Replaced the Mathlib convolution group citation by TauCeti.AlgHom.instGroup, which supports arbitrary commutative value algebras."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/cuspidal-constant-terms",
+        "verdict": "corrected",
+        "note": "BHKT defines cuspidality by every proper rational parabolic and proves finite-level finiteness. The integral construction uses finite p-power averages with p invertible and common support; torus cuspidality alone does not remove its infinite degree direction."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/harder-cuspidal-support",
+        "verdict": "verified",
+        "note": "Harder proves common support bounds and compactness for split Chevalley groups. The packet preserves this proved scope and explicitly conditions the nonsplit connected-reductive extension on RG2.4."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/integral-coefficient-model",
+        "verdict": "corrected",
+        "note": "Ciubotaru–Harris proves fixed-level cusp finiteness and the complex scalar comparison over Noetherian coefficient subrings of C. Such an embedding is flat via the fraction field. Hecke eigenvalue algebraicity is restricted to arithmetic coefficient models, not arbitrary transcendental characters. Clarified that R→C is flat through Frac(R); the original comparison was valid."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/function-field-hecke-satake",
+        "verdict": "corrected",
+        "note": "BHKT’s integral unramified Hecke setup fixes the needed coefficients and Satake normalization. The generic local Hecke/Satake construction is imported from SR.4; FA.6 supplies the global fixed-level action. Removed the repeated SR.4 prerequisite."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/yu-degree-zero-nonvanishing",
+        "verdict": "verified",
+        "note": "Yu’s Lemma 5.3.3 and proof give spherical degree-zero nonvanishing through Whittaker reconstruction. The packet requires a nonzero vector and corrects the determinant-degree and scalar-power signs recorded in E4–E5."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/unitary-unramified-inducing-character",
+        "verdict": "verified",
+        "note": "FYZ Remark 2.1 gives the unramified character extension with the stated restriction to F×. Its modulo-two argument uses alternating cup product, requested through integral Z_2 cohomology rather than inferred from graded commutativity over F_2."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/unitary-siegel-eisenstein-series",
+        "verdict": "verified",
+        "note": "FYZ fixes the quasi-split skew-Hermitian unitary group, spherical section and unnormalized exponent s+n/2. Convergence and continuation are separately imported with explicit function-field enhancement requests to AS.1 and AS.2."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/unitary-residue-fourier-coefficient",
+        "verdict": "verified",
+        "note": "FYZ defines the residue character on the Hermitian unipotent, the global quotient measure and the local integral-volume-one Fourier coefficients. Their differential-dependent prefactor and Levi transformation law are retained without mixing the two measure conventions."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/unitary-whittaker-density-comparison",
+        "verdict": "corrected",
+        "note": "FYZ proves the unramified inert and split density polynomials and compares them with local Whittaker integrals. Existing GN.3 inert data are reused; split density and the source-rank n+2j Siegel–Weil normalization are explicit supplier enhancements."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.6/fyz-regular-global-coefficient",
+        "verdict": "corrected",
+        "note": "FYZ’s Theorem 2.8 gives the regular injective Hermitian bundle coefficient, including the determinant character, degree exponent and Euler normalization. Serre duality uses the canonical line, and the packet retains weighted total degree for split or constant covers."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.7/certified-place-enumeration",
+        "verdict": "verified",
+        "note": "Hess uses finite-prime factorization and integral normalization to access places. FA.7’s new contract assembles native normalized branches, infinity and degree-bounded completeness; factorization remains imported from FF.3."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.7/l-polynomial-certificate",
+        "verdict": "verified",
+        "note": "Roquette supplies zeta identities. The proof-bearing certificate is our Newton and functional-equation deduction from independently certified complete counts through genus g; Weil-shaped coefficients alone are insufficient."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.7/ray-character-conductor-certificate",
+        "verdict": "corrected",
+        "note": "Kosters–Wan computes the wild local conductor. Combining this with Conrad’s ray-class contract gives the proposed finite presentation certificate. Depth zero means O_v×, and the finite degree quotient and degree-one value are specified separately. Corrected the depth-zero unit group, added finite image to the Lean certificate, and changed its degree-one condition to Yu degree −1."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.7/normalized-completion-certificate",
+        "verdict": "corrected",
+        "note": "Parshin identifies local curve fields as Laurent series. Yoshida explains uniformizer expansions in a complete DVR; together with the AC.5 coefficient-field and completion interfaces these justify the normalized local certificate, not an identification of the global field with its completion. Added an actual valuation-preservation proof field to the Lean certificate."
+      },
+      {
+        "nodeId": "FunctionFieldArithmetic:FA.7/explicit-cost-and-examples",
+        "verdict": "corrected",
+        "note": "Hess separates integral-basis, factorization and degree/height reduction costs. The global ASW example’s local conductor comes from Kosters–Wan. Exhaustive extension-field point counts are finite verification tasks, not a polynomial-in-log(q) counting claim."
+      }
+    ]
+  }
 }
