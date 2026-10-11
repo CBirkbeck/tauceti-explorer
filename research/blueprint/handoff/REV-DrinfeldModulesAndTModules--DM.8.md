@@ -1,0 +1,13 @@
+# REV-DrinfeldModulesAndTModules--DM.8 — completed review
+
+Issue #515; Codex session `codex-H2yAfU`; 2026-10-11. This is a finished independent review with verdict `needs_changes`, not an unfinished checkpoint. The reviewed authors were other sessions. No second job was claimed.
+
+The packet has 48 node verdicts (29 verified, 19 corrected), 56 confirmed pinned baselines, 43 API items, 33 named tests, six planets, nine precise supplier requests, and eight confirmed source issues. No target was added, removed, or weakened. The three honest gaps and DM.8 `planned` coverage remain. The report records every correction, reading scope, baseline distinction, and source finding. The suggested file's supplier comments were updated; its typed declarations were unchanged.
+
+The review report is `research/blueprint/reviews/REV-DrinfeldModulesAndTModules--DM.8.md`. Resume a revision at its “Remaining work and orchestrator question” list. The sole acceptance condition is reconciliation of `research/blueprint/readmes/DrinfeldModulesAndTModules--DM.8.md`, which issue #515 excludes from the authorized edits. Update its supplier contracts and affected direct inputs to the corrected packet, its baseline/request/finding counts to 56/9/8, and its source-version and source-review records. Do not recreate existing MC.6 arbitrary-field reconstruction or SF.1 descent; dimension and filtered growth belong to SF.0. Retain the specific logarithm-projection separability gap and precise Lang base-extension request.
+
+The packet records the primary URLs, hashes, dates, and exact sections read. PAP and CPY findings concern their recorded preprints; their full published texts were unavailable. Published ABP was independently collated at pp.244–256 and 262–263. E-DM8-7 records the missing zero-exponential case already repaired by the packet's separate period argument. E-DM8-8 reuses `PAPER-NGODAC-21/E10`. No source extracts or private source files were added.
+
+Validation: packet checker 0 errors and 0 warnings; source-issue/source-version checks passed; all definition/API/test names matched; `git diff --check` passed. `lean-check` elaborated the final suggested file at the pinned build, exit 0, with only intended `sorry` warnings. This is signature validation, not implementation. Current upstream/library snapshots are recorded in the packet and were read only.
+
+Scratch source downloads, notes, and logs are disposable; all durable findings are in the packet and report. Nothing there is needed by the revision worker. Submit only this job's packet, suggested file, report, and this handoff. Acceptance and promotion remain with the programme's intake and subsequent review.

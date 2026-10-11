@@ -836,19 +836,26 @@ theorem constant_denominator (σ : K ≃ₐ[F] K)
 end Denominators
 /- Supplier-dependent signatures deliberately omitted, rather than represented by opaque types
 or unspecified proposition fields:
-* tate_analytic_interface and twisting_limit need the current Tate Gauss-norm instance, which postdates
-  the pin. analytic_separability and the full analytic_fixed_fields need DM.2's chosen analytic
+* tate_analytic_interface and twisting_limit reuse the current univariate restricted-series norm
+  and multivariate completeness, which postdate the pin; their preparation/residue comparison still
+  needs to be instantiated. analytic_separability and the full analytic_fixed_fields need DM.2's chosen analytic
   fraction field and its canonical rational-field algebra tower.
 * fundamental_betti_basis, integral_trivialization, betti_exact_tensor and neutral_category need
-  DM.4's actual dual-σ category/scalar extension plus MC.6's arbitrary-field reconstruction.
-* relative_algebraic_closure needs the actual analytic-field instantiation and FA.0 curve transport.
+  DM.4's actual dual-σ category/scalar extension and instantiation of MC.6's already planned
+  arbitrary-field neutral reconstruction. Tensor-subcategory and group-map comparison exports remain requested.
+* relative_algebraic_closure needs the actual analytic-field instantiation and FA.0 curve transport,
+  reusing SF.3's degree bounds. entire_from_equation needs Lang surjectivity after base extension
+  to bar(k), beyond the existing finite-constant algebraic-closure points signature.
 * difference_invariants needs the σ-power algebraic-closure fields and the native group action on
   the base-changed solution field. tannakian_identification needs the actual tensor functor.
 * abp_estimates needs FA.0's infinite-place arithmetic size/integers interfaces. period_transcendence
   above states the field equality only; its Γ_M dimension form needs those category interfaces.
+  Generic dimension is already planned in SF.0; the additional bounded-generator filtration growth
+  export is requested there. Affine descent and torsor diagrams reuse SF.1's existing nodes.
 * logarithm_motive_membership, carlitz_group, logarithm_group_linear and logarithm_linear_relations
   need the actual motives and affine group schemes. The linear-kernel target also retains the explicit
-  separability gap from the source proof. logarithm_division needs DM.2's period normalization and
+  separability gap from the source proof and requests vector-group torsor splitting from SF.1.
+  logarithm_division needs DM.2's period normalization and
   exponential/local inverse interface. constant_denominator above gives denominator clearing; the monic least-denominator
   strengthening needs the canonical polynomial-denominator API. These mathematical targets are stated in full
   in the reader and packet, with sources, proof routes and supplier requests.
