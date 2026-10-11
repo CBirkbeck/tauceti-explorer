@@ -7,8 +7,10 @@ AC.1 entropy and Marton's conjecture (namespace TauCeti.EntropicPFR): Claude Cod
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive;
-these suggested forms help contributors and reviewers converge on names and signatures.
+Independent review: Codex, codex-A7zu36, issue #545, 2026-10-11.
+This file is not exhaustive. The reviewed packet and REV-AdditiveCombinatorics report
+record the corrected contracts; the reader needs those corrections during packaging.
+These suggested forms help contributors and reviewers converge on names and signatures.
 PLANNING ONLY. Proof bodies are deliberately `sorry`; signatures elaborate at the pins.
 The packet plans all six stages; proof and supplier gaps are recorded explicitly.
 See readmes/AdditiveCombinatorics.md and handoff/BP-AdditiveCombinatorics.md.
@@ -261,8 +263,8 @@ example (f : ZMod 4 → ℂ) (x : ZMod 4) :
 -- F10 (`fourier.test_conjugate_reflection`): conjugate reflection, not just reflection, conjugates
 --   the coefficient.
 example : fourier (fun x : ZMod 4 =>
-    star ((Pi.single (1 : ZMod 4) (1 : ℂ) : ZMod 4 → ℂ) (-x)))
-      (AddChar.zmodAddEquiv (1 : ZMod 4)) = Complex.I / 4 := by sorry
+    star ((Pi.single (1 : ZMod 4) Complex.I : ZMod 4 → ℂ) (-x)))
+      (AddChar.zmodAddEquiv (1 : ZMod 4)) = 1 / 4 := by sorry
 
 -- F11 (`fourier.test_conjugate_slot`): the inner product places the character in its conjugate-
 --   linear slot.
@@ -820,7 +822,8 @@ def IsTauMinimizer (η : ℝ) (ρ₁ ρ₂ μ₁ μ₂ : Measure G) : Prop :=
       tau η ρ₁ ρ₂ μ₁ μ₂ ≤ tau η ρ₁ ρ₂ ν₁ ν₂
 
 /-- AC.1/tau-functional, API: a minimizer exists (compactness of the simplex). -/
-theorem exists_isTauMinimizer (η : ℝ) (ρ₁ ρ₂ : Measure G) :
+theorem exists_isTauMinimizer (η : ℝ) (ρ₁ ρ₂ : Measure G)
+    [IsProbabilityMeasure ρ₁] [IsProbabilityMeasure ρ₂] :
     ∃ μ₁ μ₂ : Measure G, IsTauMinimizer η ρ₁ ρ₂ μ₁ μ₂ := by
   sorry
 
@@ -830,7 +833,8 @@ theorem tau_swap (η : ℝ) (ρ₁ ρ₂ : Measure G) [IsProbabilityMeasure ρ�
   sorry
 
 /-- AC.1/tau-functional, API: the conditioned form (3.15) of minimality. -/
-theorem IsTauMinimizer.condRdist_ge {η : ℝ} {ρ₁ ρ₂ μ₁ μ₂ : Measure G} (hη : 0 ≤ η)
+theorem IsTauMinimizer.condRdist_ge {η : ℝ} {ρ₁ ρ₂ μ₁ μ₂ : Measure G}
+    [IsProbabilityMeasure ρ₁] [IsProbabilityMeasure ρ₂] (hη : 0 ≤ η)
     (hmin : IsTauMinimizer η ρ₁ ρ₂ μ₁ μ₂) {Ω₁ Ω₂ T₁ T₂ : Type*} [MeasurableSpace Ω₁]
     [MeasurableSpace Ω₂] [Fintype T₁] [MeasurableSpace T₁] [DiscreteMeasurableSpace T₁]
     [Fintype T₂] [MeasurableSpace T₂] [DiscreteMeasurableSpace T₂]
@@ -878,7 +882,8 @@ structure MinimizerSetup (ρ₁ ρ₂ : Measure G) (Ω : Type*) [MeasurableSpace
   law₂' : μ.map X₂' = μ₂
 
 /-- AC.1/first-estimate. Section 5: `I₁ ≤ 2ηk` (3.13) and the entropy bound (5.8). -/
-theorem first_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ₂ Ω) :
+theorem first_estimate {ρ₁ ρ₂ : Measure G} [IsProbabilityMeasure ρ₁]
+    [IsProbabilityMeasure ρ₂] (P : MinimizerSetup ρ₁ ρ₂ Ω) :
     let k := rdist P.μ₁ P.μ₂
     let S := P.X₁ + P.X₂ + P.X₁' + P.X₂'
     let I₁ := condMutualInfo (P.X₁ + P.X₂) (P.X₁' + P.X₂) S P.μ
@@ -887,7 +892,8 @@ theorem first_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ₂
   sorry
 
 /-- AC.1/second-estimate. Section 6: the bound (3.14) for `I₂`. -/
-theorem second_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ₂ Ω) :
+theorem second_estimate {ρ₁ ρ₂ : Measure G} [IsProbabilityMeasure ρ₁]
+    [IsProbabilityMeasure ρ₂] (P : MinimizerSetup ρ₁ ρ₂ Ω) :
     let η : ℝ := 1 / 9
     let k := rdist P.μ₁ P.μ₂
     let S := P.X₁ + P.X₂ + P.X₁' + P.X₂'
@@ -897,7 +903,8 @@ theorem second_estimate {ρ₁ ρ₂ : Measure G} (P : MinimizerSetup ρ₁ ρ�
   sorry
 
 /-- AC.1/endgame-lemma. Lemma 7.2, for `T₁ + T₂ + T₃ = 0`. -/
-theorem exists_endgame_pair (ρ₁ ρ₂ μ₁ μ₂ : Measure G) (η : ℝ) (hη : 0 ≤ η)
+theorem exists_endgame_pair (ρ₁ ρ₂ μ₁ μ₂ : Measure G)
+    [IsProbabilityMeasure ρ₁] [IsProbabilityMeasure ρ₂] (η : ℝ) (hη : 0 ≤ η)
     (T₁ T₂ T₃ : Ω → G) (μ : Measure Ω) [IsProbabilityMeasure μ]
     (hm : ∀ i, Measurable (![T₁, T₂, T₃] i)) (hsum : T₁ + T₂ + T₃ = 0) :
     let δ := mutualInfo T₁ T₂ μ + mutualInfo T₁ T₃ μ + mutualInfo T₂ T₃ μ
@@ -911,6 +918,7 @@ theorem exists_endgame_pair (ρ₁ ρ₂ μ₁ μ₂ : Measure G) (η : ℝ) (h�
 /-- AC.1/tau-decrement. Proposition 2.1, in contrapositive form: a `τ`-minimizer for `η = 1/9`
 has distance zero. -/
 theorem rdist_eq_zero_of_isTauMinimizer (ρ₁ ρ₂ μ₁ μ₂ : Measure G)
+    [IsProbabilityMeasure ρ₁] [IsProbabilityMeasure ρ₂]
     (hmin : IsTauMinimizer (1 / 9) ρ₁ ρ₂ μ₁ μ₂) : rdist μ₁ μ₂ = 0 := by
   sorry
 
@@ -1099,7 +1107,7 @@ lemma gowersNorm_U2_fourier (f : G → ℂ) :
     gowersNorm 2 f ^ 4 = ∑ χ : AddChar G ℂ, ‖fourier f χ‖ ^ 4 := by sorry
 lemma gowersNorm_translate (d : ℕ) (f : G → ℂ) (a : G) :
     gowersNorm d (fun x => f (x+a)) = gowersNorm d f := by sorry
-lemma gowersNorm_smul (d : ℕ) (f : G → ℂ) (c : ℂ) :
+lemma gowersNorm_smul (d : ℕ) (hd : 1 ≤ d) (f : G → ℂ) (c : ℂ) :
     gowersNorm d (fun x => c * f x) = ‖c‖ * gowersNorm d f := by sorry
 theorem gowers_cauchy_schwarz (d : ℕ) (hd : 1 ≤ d)
     (f : (Fin d → Bool) → G → ℂ) : ‖gowersInnerProduct d f‖ ≤ ∏ ω, gowersNorm d (f ω) := by sorry
@@ -1118,6 +1126,8 @@ example : gowersNorm 2 (fun x : ZMod 3 => AddChar.zmodAddEquiv (1 : ZMod 3) x) =
 example : gowersInnerProduct 1 (fun ω => fun _ : ZMod 2 => if ω 0 then (-1 : ℂ) else 1) = -1 := by sorry
 -- gowersNorm.test_point_mass
 example : gowersNorm 2 (Pi.single (0 : ZMod 2) (1 : ℂ)) ^ 4 = 1/8 := by sorry
+-- gowersNorm.test_imaginary_scalar
+example : gowersNorm 1 (fun _ : ZMod 2 => 3*Complex.I) = 3 := by sorry
 
 def intervalCubeCount (d N : ℕ) (f : ℤ → ℂ) : ℂ :=
   ∑ p ∈ (Finset.Icc (-(N : ℤ)) N).product
@@ -1498,6 +1508,8 @@ lemma malcevQuotientDistance_representative (x y : M.carrier) (γ γ' : M.lattic
 abbrev malcevMetricSpace (B : RationalMalcevBasis M Q) : MetricSpace M.Space := by sorry
 lemma malcevMetricSpace_distance (x y : M.Space) :
     @dist M.Space (malcevMetricSpace B).toDist x y = malcevQuotientDistance B x y := by sorry
+/-- The real-valued expression is used only for bounded observables admitting a finite
+Lipschitz constant. Its value outside that domain does not certify Lipschitz regularity. -/
 def observableLipNorm (F : M.Space → ℂ) : ℝ :=
   sSup (Set.range (fun x => ‖F x‖)) +
     sInf {L : ℝ | 0 ≤ L ∧ ∀ x y, ‖F x-F y‖ ≤ L*malcevQuotientDistance B x y}
@@ -1506,6 +1518,8 @@ structure BoundedNilsequence (ℓ : ℕ) (L : ℝ) where
   polynomial : IsFilteredPolynomial M.filtration orbit
   observable : M.Space → ℂ
   bounded : ∀ x, ‖observable x‖ ≤ 1
+  lipschitz : ∃ C : ℝ, 0 ≤ C ∧ ∀ x y,
+    ‖observable x-observable y‖ ≤ C*malcevQuotientDistance B x y
   lip : observableLipNorm B observable ≤ L
 def BoundedNilsequence.eval {B : RationalMalcevBasis M Q} {ℓ : ℕ} {L : ℝ} (f : BoundedNilsequence B ℓ L) (n : Fin ℓ → ℤ) : ℂ :=
   f.observable (M.coset (f.orbit n))
@@ -1545,6 +1559,12 @@ example (α : ℝ) : ∃ M : FilteredNilmanifold, M.dim=1 ∧ M.degree=1 ∧
 -- BoundedNilsequence.test_boundedness
 example (M : FilteredNilmanifold) (Q L : ℝ) (B : RationalMalcevBasis M Q) :
     ¬ ∃ F : BoundedNilsequence B 1 L, ∀ x, F.observable x=2 := by sorry
+-- BoundedNilsequence.test_non_lipschitz: a real sInf of an empty set cannot admit an observable.
+example (M : FilteredNilmanifold) (Q L : ℝ) (B : RationalMalcevBasis M Q)
+    (F : M.Space → ℂ)
+    (hF : ∀ C : ℝ, 0 ≤ C → ∃ x y,
+      C*malcevQuotientDistance B x y < ‖F x-F y‖) :
+    ¬ ∃ f : BoundedNilsequence B 1 L, f.observable=F := by sorry
 
 section Horizontal
 variable {M : FilteredNilmanifold} {Q : ℝ} (B : RationalMalcevBasis M Q)
@@ -2132,7 +2152,8 @@ def residualOnInterval (N : ℕ) (f : Fin N → ℝ) (B : NilsequenceFactor N) :
   fun n => if hn : 1 ≤ n ∧ n ≤ N then
     f ⟨(n-1).toNat,by sorry⟩ - factorAverage B f ⟨(n-1).toNat,by sorry⟩ else 0
 theorem uniform_factor_approximation (k : ℕ) (hk : 5 ≤ k) : ∃ C : ℝ, 1 ≤ C ∧
-    ∀ N : ℕ, 1 ≤ N → ∀ η : ℝ, 0 < η → η < 1/2 → ∀ f : Fin N → ℝ,
+    ∀ N : ℕ, 1 ≤ N → ∀ η : ℝ, 0 < η → η < 1/2 →
+      Real.exp (C*(logStar η⁻¹)^C) ≤ (N : ℝ) → ∀ f : Fin N → ℝ,
       (∀ n, 0 ≤ f n ∧ f n ≤ 1) → ∃ T : ℕ,
         (T : ℝ) ≤ Real.exp (C*(logStar η⁻¹)^C) ∧
         ∃ M : Fin T → FilteredNilmanifold,
@@ -2244,6 +2265,7 @@ theorem efficient_equidistribution (k ℓ : ℕ) (hk : 1 ≤ k) (hℓ : 1 ≤ �
           (∀ t, Multiplicative.toAdd (ξ t)=∑ j, (a j : ℝ)*B.coordinates t j) →
           ‖(fun j => (a j : ℝ))‖ ≤ R/δ →
       ∀ F : M.Space → ℂ, observableLipNorm B F ≤ R →
+        (∃ L : ℝ, 0 ≤ L ∧ ∀ x y, ‖F x-F y‖ ≤ L*malcevQuotientDistance B x y) →
         HasVerticalFrequency ((⊤ : Subgroup M.carrier).lowerCentralSeries (s-1)) ξ F →
       δ ≤ ‖((Fintype.piFinset (fun i => Finset.Icc (1 : ℤ) (N i))).card : ℂ)⁻¹ *
         ∑ n ∈ Fintype.piFinset (fun i => Finset.Icc (1 : ℤ) (N i)), F (M.coset (g n))‖ →
@@ -2282,6 +2304,7 @@ theorem mobius_equidistributed (m d : ℕ) : ∃ c C : ℝ, 0 < c ∧ 0 < C ∧
         IsFilteredPolynomial M.filtration g → IsTotallyEquidistributed B g N δ →
       ∀ F : M.Space → ℝ, (∫ x, F x ∂M.invariantProbability)=0 →
       ∀ L : ℝ, 0 ≤ L → observableLipNorm B (fun x => (F x : ℂ)) ≤ L →
+      (∃ C : ℝ, 0 ≤ C ∧ ∀ x y, ‖F x-F y‖ ≤ C*malcevQuotientDistance B x y) →
       ∀ P : Finset ℤ, IsIntegerProgression P → P ⊆ Finset.Icc (1 : ℤ) N →
         (N : ℝ)/Q ≤ P.card →
           ‖intervalCorrelation N mobiusInteger
