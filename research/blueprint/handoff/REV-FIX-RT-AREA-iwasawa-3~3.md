@@ -1,79 +1,101 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-3~3
 
-Refs #5869. Codex (GPT-6), session `codex-R4MNK8`, 11 October 2026.
-Input `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`;
-branch `codex-R4MNK8-review-5869`.
-Claim comment 6108084687 was confirmed by the bot for this session.
-Exactly one issue was claimed; no second job follows this submission.
+Refs #5869. Codex (GPT-6), session `codex-BIjxwP`, 11 October 2026.
+Branch `codex-BIjxwP-review-5869`; input revision
+`df91fe32260d17ef3558ec5fd610ca2a56f047cb`.
+Claim comment 6108456249 was confirmed by bot comment 6108457119.
+This worker did none of FIX-RT-AREA-iwasawa-3~3.
 
-**Checkpoint: resolve the live issue/queue scope mismatch before assigning
-another continuation.** The live issue lists the report and Motives
-packet/suggested pair; the queue additionally lists Kato and GH.0 pairs.
-`issues.py:deliverables_complete` requires this review's verdict in all three
-packets and currently returns false. WORKERS.md forbids editing omitted paths.
-A scope clarification was requested while independent checks continued; no
-extension was received. A finished `needs_changes` review can complete the job,
-but the omitted owner markers block dispatch completion.
+## Checkpoint reason
 
-## Work delivered
+The bounded Motives review is finished, including a new hypothesis repair,
+but intake is blocked by the unchanged issue/queue scope mismatch. A
+negative verdict itself is a completed review outcome.
 
-Fresh source checks of all eight findings are in the
-[review report](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md), with current contracts,
-public source URLs, exact locators, source hashes, baseline and upstream checks.
-This worker did none of the fixes reviewed.
+The live issue permits only the review report and Motives packet/suggested
+pair. WORKERS.md's named-file restriction prevents editing the four extra
+GH.0/Kato paths listed by the queue. An explicit scope extension was requested;
+none was received. `issues.py:deliverables_complete` is false with all seven
+queue outputs, true with the three live outputs substituted only in memory.
+All files exist. No queue, generator or arithmetic owner path was edited.
+Resolve this before sending another worker into the same restricted job.
 
-Added period-point's direct MC.5/diagram-localisation, MC.5/nori-rigidity and
-MC.6/fibre-functor-extension prerequisites, already used by its proof sketch.
-Added HMS Lemma B.21/Proposition B.22, pp.25–26 and Theorem 1.14, p.8 locators.
-Only that node's prerequisites/sources and the review/history changed.
-The preceding codex-EozIdh review is archived exactly. Every other node and
-all status, coverage, gap, request, API/test and baseline data are preserved.
+## Work saved
 
-Motives remains `needs_changes`: the typed full localized Nori comparison
-algebra/fibre-functor/heap/action adapter is absent. Preserve that explicit gap
-and the separate relative Beck/abstract reconstruction obligations. Do not
-use effective rigidity in place of full Nori rigidity. PS.2 owns integration
-and its 2πi normalization. Reader synchronization also needs separately
-allowed scope.
+The report gives a fresh bounded verdict on each of the eight confirmed
+findings, public URLs, printed theorem/section/page locators, source hashes,
+pinned-library declarations and current upstream boundaries.
 
-## Resume after resolving scope
+Corrected MC.6/period-point hypothesis 0: comparison on all effective pairs
+is natural, respects both edge types, unit and product pairings; graded
+multiplicativity is asserted after restricting to good pairs with supplied
+ProductCompatible structures. HMS Definition 1.1, p.4; Theorem 1.6, pp.4–5;
+Definition B.14, pp.20–21 support this. The Lean contracts already express
+that distinction, so no suggested-file change was needed.
 
-Authorize these queue-listed paths or align the queue with the live issue:
+Preserved the previous codex-R4MNK8 review exactly in reviewHistory and linked
+its full report at the immutable input revision. Older histories and all
+other node fields, coverage, status, gaps, requests, API/tests and baseline
+data are unchanged. The only mathematical changes are that hypothesis and
+one added source annotation.
+
+Motives remains `needs_changes`. `FormalPeriods.localizeComparison` reaches
+only the localization of the effective comparison algebra. The typed
+identification with the full Nori comparison algebra, extended fibre
+functors, heap and actions is still absent. The conditional effective
+TannakianPair signatures do not provide it. Preserve this existing gap and
+the separate relative Beck and abstract reconstruction obligations. PS.2
+owns integration and its 2πi normalization; do not duplicate it. Reader
+synchronization of the corrected hypothesis requires separately allowed
+reader-file scope.
+
+## Resume after scope resolution
+
+Authorize these four queue-listed paths, or align dispatch with the live
+Motives-only issue:
 
 - `research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json`
 - `research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean`
 - `research/blueprint/packets/KatoEulerSystems.json`
 - `research/blueprint/suggested/KatoEulerSystems.lean`
 
-Then complete genuine bounded reviews of the assigned corrections:
+If the four paths are authorized, finish their genuine bounded reviews:
 
-1. Kato L1/hecke-and-diamond-equivariance-of-the-moment-map: replace n^(r−1)
-   by n^(r′−1) in the statement and acceptance item 0; Lemma 8.8(1), printed
-   p.185 has r′−1. Keep central diamond exponent k−2−2r. At r=1,r′=2,ℓ=2,
-   inverse Hecke plus first-diamond scalar is 1/2, not 1. The generic scalar
-   argument in `chernHeckeDiamond` does not encode this normalization. Add a
-   source-normalized proposed signature and a discriminating test.
-2. GH.1/p-adic-abel-jacobi-map hypothesis 0: independently assume finite
-   unramified F/Q_p and supplied smooth proper models of C and X_m over O_F,
-   as BDP §3.2, pp.1067–1068 does. Move p∤cNd_K to the separate chosen-CM
-   conductor application. Retain GH.0's good-product/bad-CM-twist tests and
-   Conrad's attribution for the universal-family factor only.
-3. Preserve the previous owner verdicts unchanged in review history. Record
-   this review's bounded owner verdicts, check changed files, and rerun
-   `deliverables_complete`. The current owner markers are
+1. In Kato L1/hecke-and-diamond-equivariance-of-the-moment-map, change
+   n^(r−1) to n^(r′−1) in its statement and acceptance item 0. Kato Lemma
+   8.8(1), printed p.185 has r′−1, independently checked on the page image.
+   Keep central diamond exponent k−2−2r. For r=1,r′=2,ℓ=2, inverse Hecke
+   times first-diamond scalar is 1/2, whereas the wrong exponent gives 1.
+   `chernHeckeDiamond` currently takes an arbitrary scalar: add a
+   source-normalized proposed signature and a discriminating regression.
+2. In GH.1/p-adic-abel-jacobi-map hypothesis 0, separate the finite
+   unramified F/Q_p and supplied smooth proper models of C and X_r over O_F
+   from the selected-CM conductor application p∤cNd_K. BDP §3.2,
+   pp.1067–1068 uses the model assumptions directly. Preserve GH.0's
+   good-product/bad-CM-twist tests; Conrad's appendix, pp.1139–1140 supplies
+   only the universal-family compactification, not an arbitrary CM model.
+3. Preserve previous owner verdicts in their histories, then record genuine
+   bounded verdicts and run the changed-packet checkers and serial Lean
+   checks. Current markers are
    `independent-review-REV-GeneralizedHeegnerCycles--GH.0~2` and
-   `independent-review-REV-KatoEulerSystems~2`; no owner file was edited here.
-4. Keep the substantive Motives `needs_changes` verdict. A revision must
-   implement the already recorded full-localized-adapter gap before acceptance.
+   `independent-review-REV-KatoEulerSystems~2`. Rerun stock completion;
+   do not replace markers merely to satisfy intake.
+4. Keep the Motives substantive `needs_changes` verdict until the already
+   recorded full-localized-adapter obligation is supplied in a revision.
 
-## Fresh receipts
+## Fresh verification receipts
 
-All three packet checkers: exit 0, zero errors/warnings. Motives: 182 nodes,
-463 API items, 261 tests, 47 planets, 113 baseline declarations, 24 gaps and
-16 requests. Fresh full Lean checks: Motives 817, Kato 135, GH.0 242 warnings,
-all admitted-proof warnings; exit 0, no errors or other warnings. Ten proved
-scratch numerical examples: exit 0, no diagnostics. The report states their
-formulas and their limits; scratch is deleted after PR submission.
+All three packet checkers exit 0, zero errors/warnings. Final Motives counts:
+182 nodes, 463 API items, 261 tests, 47 planets, 113 baseline declarations,
+24 gaps, 16 requests. The changed Motives packet is checked again after the
+prose repair. Parsed preservation, whitespace and intake-file checks pass.
+
+A fresh full Motives `lean-check` exits 0 with 817 admitted-proof-only
+warnings, no errors or other warnings. Kato and GH.0 were inspected read-only
+but not freshly elaborated in this session; preceding receipts are in the
+input-revision report. No compile or language server remains running, and
+no library build/update/cache command was started. Scratch sources and logs
+are deleted after submission; all needed evidence is in the report.
 
 Unchanged suggested-file SHA-256:
 
@@ -81,11 +103,10 @@ Unchanged suggested-file SHA-256:
 - Kato: `c894922a7c8becb9ae32714d095cb3681ab72b311ea488527c4cc1240d3dfc13`.
 - GH.0: `525f2beb40760ef2240fda9b6030f0d706a08eebe7465997f053490ecc0823f7`.
 
-Unchanged owner-packet SHA-256:
+Unchanged arithmetic owner-packet SHA-256:
 
 - Kato: `6ed1534d238b1b2318af806b6568e37c7bf631de62381baa038dd2b189663f36`.
 - GH.0: `532a65579cf7558abb0a5cb87c6a9089ec0c7f689e23272e327a74709e901be8`.
 
-No source excerpt was added. All Lean checks finished, and no language server
-or library build was started. Parsed preservation, whitespace and intake-file
-checks pass. No manual merge, closure, label change, promotion or second claim.
+No source passage was added. No manual merge, closure, label change,
+promotion or second claim was performed.

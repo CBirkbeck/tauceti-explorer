@@ -1,128 +1,161 @@
 # Independent review of the third Iwasawa fix round
 
-Refs #5869. Codex (GPT-6), session `codex-R4MNK8`, 11 October 2026.
-Input commit `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`;
-branch `codex-R4MNK8-review-5869`.
-The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6108084687)
-was confirmed by the bot for this session. This worker did none of
-FIX-RT-AREA-iwasawa-3~3.
+Refs #5869. Codex (GPT-6), session `codex-BIjxwP`, 11 October 2026.
+Input revision `df91fe32260d17ef3558ec5fd610ca2a56f047cb`;
+branch `codex-BIjxwP-review-5869`.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6108456249)
+was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5869#issuecomment-6108457119).
+This worker did none of the fixes being reviewed.
 
-The bounded mathematical review is finished. The Motives verdict remains
-`needs_changes`: the effective evaluation and Tate localization contracts
-are sound, but the suggested file still lacks the adapter to the full Nori
-comparison algebra and its torsor structures. This submission is a
-**checkpoint because the live issue and queue disagree about editable files**,
-not because a negative verdict cannot finish a review.
+The bounded Motives review is finished with `needs_changes`: effective
+comparison and evaluation are distinguished correctly from the full torsor,
+but the full localized Nori adapter is still missing. One remaining
+hypothesis error was corrected in this review. This submission is a
+**checkpoint because the live issue excludes four paths required by intake**.
+A negative mathematical verdict itself is a completed review outcome.
 
-## Findings and verdicts
+The original eight findings, their verification and the third-round fix
+report were read. All three owner packets and the relevant proposed Lean
+signatures were inspected; only the live issue's Motives packet was edited.
+This is a review of the assigned corrections, not an exhaustive new audit of
+all 182 Motives nodes or either arithmetic roadmap.
 
-These verdicts concern the eight confirmed findings and their fixes, not a
-new exhaustive audit of the 182-node Motives packet. The original findings,
-verification and third-round fix report were read alongside the current
-packets and suggested signatures.
+## Findings
 
-| Finding | Verdict on the current correction | Evidence and remaining work |
+| Finding | Verdict | Source check and discriminating evidence |
 |---|---|---|
-| /1 CM product model | Product correction present; consumer hypothesis still needs separation | GH.0/cm-product-good-model requires both factor models and attributes only the Kuga–Sato factor to Conrad. Its positive good-model and negative ramified-CM-twist tests distinguish the contracts. GH.1/p-adic-abel-jacobi-map nevertheless retains `p∤cNd_K` in parentheses after good reduction. BDP §3.2, pp.1067–1068 separately assumes finite unramified F/Q_p and smooth proper models of C and X_m over O_F. The conductor criterion belongs to the selected CM application. Conrad's appendix, pp.1139–1140 constructs the universal elliptic-curve fibre-power compactification, not an arbitrary CM-product model. |
-| /2 Kato moment twist | Corrected | L1/etale-chern-moment-map-into-modular-local-system has Sym^(k−2)(T_pE) = Sym^(k−2)(H_p)(k−2), so the composite twist is 2−r+(k−2)=k−r. Kato §8.4, equations (8.4.1)–(8.4.3), pp.182–183. Weight four/r=1 gives 3; the reversed convention gives −1. |
-| /3 Euler factors | Displayed factors corrected; supplier normalization still wrong | L2 norm relations and L3 reciprocity retain the linear factors ℓ^(−r) and p^(−r), quadratic exponent k−1−2r, and identity when p divides M. Kato Proposition 8.7, p.184 and Theorem 9.5, p.188 agree. However L1/hecke-and-diamond-equivariance-of-the-moment-map's statement and acceptance item 0 still use n^(r−1); Lemma 8.8(1), p.185 uses n^(r′−1). With r=1,r′=2,ℓ=2, the inverse Hecke and first-diamond contributions give 1/2; the wrong exponent gives 1. The generic scalar in `chernHeckeDiamond` does not distinguish them. Correct the two packet occurrences and add a source-normalized proposed signature/regression when the owner paths are authorized. |
-| /4 Filtration target | Corrected | The dual-exponential node uses F^i, with vanishing at i≥k. Kato (9.2.2), p.187 and §9.4, p.188 identify filtration steps, not associated graded pieces. For k=4, F¹=F²=F³ can equal the nonzero modular-form space while gr¹ and gr² vanish. |
-| /5 Interpolation twist | Corrected | The interpolation node first twists Iwasawa cohomology by k−r, then specializes and localizes before exp*. Its action convention retains κ(σ)^(−j), the dual form f*, the p-imprimitive value and the stated sign. Kato Theorem 12.5(1), p.221. For k=2,r=1 the required target twist is +1. |
-| /6 Local-duality limit | Corrected | The integrality proof retains inertia-cohomology invariants, local duality, and the dual of the direct limit of residue-field H¹ under restriction. Corestriction in the original inverse system corresponds to restriction after duality. Kato Lemma 8.5, proof, pp.183–184. There is no asserted vanishing of an undualized inverse limit. |
-| /7 Theta divisor | Corrected | L0/theta-function-c-normalised uses divisor pushforward and its compatibility with the isogeny norm. Kato §1.10, p.124. For c=5,a=2 the pullback has coefficient 24 at a nonzero 2-torsion point, whereas the original divisor has coefficient zero there; its pushforward is fixed. |
-| /8 Formal-period localization | Effective contract corrected; full torsor adapter missing | P_eff, the Tate symbol L, P=P_eff[L⁻¹], inverse identities and extension of evaluation through a nonzero Tate period are explicit. The typed comparison includes both edge laws, unit and product laws; ProductCompatible ties the two inverse Künneth maps to the geometric products with matching signs. HMS Definition 2.8, p.10, Theorem 2.10 and evaluation, p.11 support these contracts. HMS Lemma 3.2, p.12 requires a neutral Tannakian category; Theorem 1.14, p.8 supplies this for full Nori motives. `localizeComparison` only reaches a localization of the effective comparison algebra. The identification with the full comparison algebra, the localized fibre functors, and transported heap/actions are not typed. Conditional effective statements do not supply that application. |
+| /1 CM product model | Factor-model correction present; consumer hypothesis still conflates assumptions | GH.0/cm-product-good-model requires supplied smooth proper models of both factors. Its attribution to Conrad is limited to the universal-family Kuga–Sato factor. The positive product-model and negative ramified-CM-twist tests retain this distinction. GH.1/p-adic-abel-jacobi-map still places `p∤cNd_K` parenthetically after good reduction. BDP §3.2, pp.1067–1068 separately assumes a finite unramified F/Q_p and smooth proper models of C and X_r over O_F; its selected-CM application must be distinguished from that general assumption. Conrad's appendix, pp.1139–1140 addresses compactifications of universal generalized-elliptic-curve fibre powers, not an arbitrary CM factor. |
+| /2 Moment twist | Corrected | Kato §8.4, (8.4.1)–(8.4.3), pp.182–183 uses T_pE=H_p(1). The packet's moment node therefore adds k−2 to the Chern/root twist 2−r and lands in twist k−r. At k=4,r=1 the result is 3; reversing the identification would give −1. |
+| /3 Euler factors | Displayed norm factors corrected; upstream Hecke normalization still wrong | The norm and reciprocity nodes carry linear coefficients ℓ^(−r) and p^(−r), quadratic exponent k−1−2r, and the trivial p-factor in the p-divides-M case. These agree with Kato Proposition 8.7, p.184 and Theorem 9.5, p.188. But L1/hecke-and-diamond-equivariance-of-the-moment-map's statement and acceptance item 0 still say n^(r−1). Lemma 8.8(1), p.185 has n^(r′−1), checked directly on the page image. Combining inverse Hecke with the first-diamond scalar gives ℓ^(1−r′)ℓ^(r′−1−r)=ℓ^(−r). For r=1,r′=2,ℓ=2 this is 1/2; the current wrong Hecke exponent gives 1. The generic scalar argument of `chernHeckeDiamond` does not encode the source normalization. |
+| /4 Filtration target | Corrected | The dual-exponential node uses filtration steps F^i, not their associated graded pieces. Kato (9.2.2), p.187 gives the entire de Rham module at i≤0, the modular-form subspace for 1≤i≤k−1, and zero for i≥k. At weight four the interior steps coincide while their interior successive quotients vanish. This distinguishes the two targets. |
+| /5 Interpolation twist | Corrected | The interpolation node twists Iwasawa cohomology by k−r before specialization/localization and exp*. Its semilinear action convention has the inverse cyclotomic factor κ(σ)^(−j); it retains the dual form f*, p-imprimitive L-value and stated sign. Kato Theorem 12.5(1), p.221 explicitly places the twist before the finite-level map. At k=2,r=1 the required twist is +1. |
+| /6 Local-duality limit | Corrected | The proof retains H⁰ of residue-field Galois acting on inertia H¹, its identification by local duality with the Pontryagin dual of residue-field H¹, and then the dual of a direct limit under restriction. Kato Lemma 8.5, pp.183–184 uses this sequence. Original corestriction becomes restriction after duality; an undualized inverse-limit vanishing is not asserted. |
+| /7 Theta divisor | Corrected | The normalized theta node uses divisor pushforward for the isogeny norm, as Kato §1.10, p.124 requires. For c=5,a=2, pullback of the divisor has coefficient 24 at a nonzero 2-torsion point, where the original coefficient is zero. Pushforward instead fixes the 5-torsion divisor because multiplication by two permutes its support. |
+| /8 Formal-period localization | Effective contracts corrected; hypothesis repaired here; full torsor adapter absent | Effective periods, the Tate symbol L, P=P_eff[L⁻¹], its inverse and evaluation extension through a nonzero Tate period are explicit. Both diagram-edge laws, the unit and product pairing laws, rank-one nonvanishing and shared Künneth signs appear in the proposed signatures. The all-pairs comparison must first be restricted to good pairs before being called a graded multiplicative representation; hypothesis 0 now says so. HMS Definition 2.8, p.10 and Theorem 2.10, p.11 support the effective comparison. Lemma 3.2, p.12 requires neutral Tannakian fibre functors; Theorem 1.14, p.8 supplies rigidity for the full Nori category. The prototype does not yet connect the localized effective algebra to the full comparison algebra and its extended fibre functors, heap and actions. |
 
-## Correction made in this review
+## Correction and remaining mathematical gap
 
-MC.6/period-point's corrected proof sketch already uses three results without
-listing them as direct prerequisites. Added MC.5/diagram-localisation,
-MC.5/nori-rigidity and MC.6/fibre-functor-extension, with HMS Lemma B.21 and
-Proposition B.22, pp.25–26 and Theorem 1.14, p.8 locators. The added source
-annotation describes their distinct roles in the worker's own words.
+MC.6/period-point hypothesis 0 previously called comparison on the diagram of
+all pairs an isomorphism of unital graded multiplicative representations.
+HMS Definition 1.1, p.4 distinguishes all pairs from good pairs; Theorem 1.6
+and its proof, pp.4–5 place the multiplicative tensor construction on the
+good-pair diagram. Definition B.14, pp.20–21 requires a single-degree
+Künneth isomorphism, a stronger condition than compatible product pairings
+on arbitrary pairs.
 
-The previous codex-EozIdh review is archived unchanged in `reviewHistory`.
-Only period-point's prerequisites and one added source locator change among
-mathematical node fields; every other node and all statements, proof steps,
-API/tests, coverage, gaps, requests, baseline, implementation statuses and
-older histories are preserved. The preceding report is available at the
-[input revision](https://github.com/CBirkbeck/tauceti-explorer/blob/0311207a4c7eb718bd7adaac0013c0c4a832e5a1/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-3~3.md).
-No Lean file or arithmetic owner packet was edited.
+The hypothesis now describes natural comparison on all effective pairs,
+including connecting maps, unit and product pairings. It asserts graded
+multiplicativity after restriction to good pairs with the supplied
+`PairDiagram.ProductCompatible` structures. Added those exact source
+locators. This matches `PairDiagram.PeriodComparison` and
+`PeriodComparison.toTensorIsoOver`; their typed signatures need no change.
+The earlier direct localization, rigidity and fibre-functor prerequisites
+are preserved. Existing tests for a doubled comparison, common signs and
+Tate-inverse identities still apply.
 
-Preserve the existing full-localized-adapter gap, the separate relative Beck
-adapter and abstract reconstruction obligations. This review neither accepts
-those obligations nor treats elaboration of admitted signatures as their
-implementation. PS.2 continues to own integration, the 2πi normalization and
-its comparison with the supplier period point. Reader synchronization is
-outside this issue's live deliverables.
+`FormalPeriods.localizeComparison` produces an equivalence to
+`Localization.Away (e(L))` for an effective algebra equivalence e. It does
+not identify that target with the comparison algebra of the full localized
+Nori diagram. `periodPoint_heap` and `periodPoint_action` still take a
+separately supplied effective `Diagram.Rep.TannakianPair`. Those conditional
+signatures do not establish that the effective Nori category is rigid.
+HMS Lemma B.21/Proposition B.22, pp.25–26 and Theorem 1.14, p.8 are the
+localization and full-neutrality inputs needed for the intended application;
+Theorem 3.3/Corollary 3.4, p.13 then supply its torsor and heap interpretation.
 
-## Baseline and existing upstream work
+The packet already records the missing full localized comparison and
+period-point adapter as a gap. Retain `needs_changes` until that actual
+adapter is typed; no additional effective-rigidity assumption repairs it.
+The separate relative Beck and abstract reconstruction gaps are also
+preserved. PS.2 owns integration, its 2πi normalization and the comparison
+with this supplier evaluation. No PS.2 construction is duplicated here.
 
-The reviewed PS.2 library audit records the presentation, Nori torsor and
-evaluation as absent; MC.5–MC.6 remain the shared category/torsor supplier.
-The baseline declarations relevant to this correction were read at Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174`: Away.invSelf,
-Away.mul_invSelf, Away.lift/liftAlgHom and
-IsLocalization.algEquivOfAlgEquiv. A localization lift requires the image of
-the inverted element to be a unit; transporting an algebra equivalence
-requires the corresponding localization submonoids and algebra towers.
-These APIs do not identify the full Nori comparison algebra by themselves.
+The preceding codex-R4MNK8 review object is archived exactly at the end of
+`reviewHistory`, preserving all older entries. Its full report remains
+available at the
+[input revision](https://github.com/CBirkbeck/tauceti-explorer/blob/df91fe32260d17ef3558ec5fd610ca2a56f047cb/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-3~3.md).
+Among mathematical node fields, only period-point hypothesis 0 and one added
+source annotation changed. Coverage, status, gaps, requests, API, tests,
+implementation statuses, baseline data and every other node are unchanged.
+No suggested file or arithmetic owner packet was edited. Synchronizing the
+reader's matching hypothesis requires separately allowed reader-file scope.
 
-The actual
-[Tau Ceti Tannaka equivalence at f790474](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean)
-was read: `fgPointTensorIsoEquiv` assumes a known commutative Hopf algebra and
-identifies its algebra points with tensor automorphisms of the scalar-extension
-functor on finite generated comodules. It does not construct a full Nori
-fibre functor or the missing comparison adapter.
+## Pinned libraries and current upstream
 
-Current upstream was inspected read-only at roadmap commit
-`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` and library commit
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, including ReductiveGroups' known-Hopf
-representation/comodule scope and Completed/HodgeStructures' Tate conventions.
-No existing upstream target is replanned and no upstream file was changed.
+The reviewed PS.2 library-audit entry does not claim the formal-period
+presentation, Nori torsor or evaluation as existing library results. MC.5
+and MC.6 supply those contracts; PS.2 imports them for its application.
 
-## Public sources and fresh validation
+The actual declarations at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` were read: `Away.invSelf`,
+`Away.mul_invSelf`, `Away.lift`, `Away.liftAlgHom` and
+`IsLocalization.algEquivOfAlgEquiv`. The lift needs a unit image for the
+inverted element; transport of an algebra equivalence also needs compatible
+localization submonoids and algebra towers. These existing APIs should be
+used, but supply no Nori comparison-algebra identification themselves.
 
-Sources were read on 11 October 2026. No protected book was needed and no
-source passage is included in this submission.
+At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, the
+[Tannaka equivalence](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean)
+`fgPointTensorIsoEquiv` starts with a known commutative Hopf algebra and
+identifies its algebra points with tensor automorphisms of a scalar-extension
+functor on finitely generated comodules. It does not construct the full
+Nori fibre functors or the missing adapter.
 
-| Public version | Locators checked | SHA-256 of PDF |
+Current upstream was inspected read-only at roadmap revision
+`c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` and Tau Ceti library revision
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The relevant ReductiveGroups
+known-Hopf/comodule scope and Completed/HodgeStructures Tate conventions do
+not discharge the Nori application. Existing results are cited rather than
+replanned. No upstream file was changed or built.
+
+## Public sources and fresh checks
+
+These public sources were read on 11 October 2026. The contents needed for
+this bounded review were read directly, including the new good-pair source
+locators. No protected book was needed, and no source excerpt was added.
+
+| Source version | Locators checked | PDF SHA-256 |
 |---|---|---|
-| [Huber–Müller-Stach, arXiv:1105.0865v5](https://arxiv.org/pdf/1105.0865v5) | Definition 0.1/Theorem 0.2, p.2; Theorem 1.14, p.8; Definition 2.8/Theorem 2.10, pp.10–11; Lemmas 3.1–3.2, p.12; Theorem 3.3/Corollary 3.4, p.13; Lemma B.21/Proposition B.22, pp.25–26 | `e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563` |
-| [Kato, Astérisque 295 (2004)](https://www.numdam.org/item/AST_2004__295__117_0.pdf) | §1.10, p.124; §8.4, pp.182–183; Lemma 8.5/Proposition 8.7/Lemma 8.8, pp.183–185; §§9.2–9.4/Theorem 9.5, pp.187–188; Theorem 12.5(1), p.221. Printed pp.124,184–185,187–188,221 also inspected as page images. | `3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d` |
-| [BDP, published Duke version](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf) | §3.2, pp.1067–1068, p.1067 also inspected as a page image; Conrad appendix, pp.1139–1140 | `223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc` |
+| [Huber–Müller-Stach, arXiv:1105.0865v5](https://arxiv.org/pdf/1105.0865v5) | Definition 0.1/Theorem 0.2, p.2; Definition 1.1/Theorem 1.6, pp.4–5; Theorem 1.14, p.8; Definition 2.8/Theorem 2.10, pp.10–11; Lemmas 3.1–3.2, p.12; Theorem 3.3/Corollary 3.4, p.13; Definition B.14, pp.20–21; Lemma B.21/Proposition B.22, pp.25–26 | `e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563` |
+| [Kato, Astérisque 295 (2004)](https://www.numdam.org/item/AST_2004__295__117_0.pdf) | §1.10, p.124; §8.4, pp.182–183; Lemma 8.5/Proposition 8.7/Lemma 8.8, pp.183–185; §§9.2–9.4/Theorem 9.5, pp.187–188; Theorem 12.5(1), p.221. Printed pp.184,185,187,221 also checked as page images. | `3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d` |
+| [BDP, published Duke version](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf) | §3.2, pp.1067–1068; Conrad appendix, pp.1139–1140 | `223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc` |
 
-All three packets pass `scripts/check_blueprint.py` with zero errors and
-warnings. Final Motives counts: 182 nodes, 463 API items, 261 tests, 47 planets,
-113 baseline declarations, 24 gaps and 16 requests; no source-excerpt field.
-There are no link maps or restructuring proposals among the live outputs.
+Fresh `scripts/check_blueprint.py` runs on Motives, Kato and GH.0 report zero
+errors and warnings. Motives retains 182 nodes, 463 API items, 261 tests,
+47 planets, 113 baseline declarations, 24 gaps and 16 requests. The final
+prose correction is checked again on the changed packet. There are no link
+maps or restructuring proposals in this job's live outputs.
 
-Fresh full `lean-check` runs exit 0: Motives 817 warnings, Kato 135 and GH.0
-242, every warning an admitted-proof warning. Ten fresh proved scratch
-examples elaborate without diagnostics. They discriminate the weight-four
-moment orientation, r′ versus r Hecke exponent, inverse-Hecke/diamond
-cancellation, central diamond versus Hecke scalar, theta pullback coefficient
-and doubled comparison's unit/product failures. These numerical tests do not
-certify the geometric constructions. Existing proved Motives sign and
-localization models were included in the full-file check.
+A fresh full `lean-check` of the unchanged Motives suggested file exited 0,
+with 817 warnings, all `declaration uses sorry`, and no errors or other
+warnings. It ran sequentially at the pinned Mathlib after a memory check.
+Kato and GH.0 were not freshly elaborated in this session; their earlier
+receipts are in the preceding report. Elaborating admitted statements does
+not prove the geometric constructions or resolve the missing adapter. No
+new test was needed for a prose correction that matches existing signatures.
+No language server or library build/update/cache command was started.
 
-Lean checks ran sequentially through the shared pinned-Mathlib wrapper after
-checking memory. No language server or library build/update/cache command was
-started. Parsed preservation, whitespace and submission-file checks pass.
+Parsed preservation, whitespace and intake-file checks pass. Suggested-file
+and arithmetic-packet hashes are recorded in the handoff so that a scope
+resolution can resume from unchanged owners.
 
-## Dispatch blocker and resumption
+## Dispatch blocker
 
-The live issue names this report and the Motives packet/suggested pair only.
-WORKERS.md requires editing only the issue's named files. The queue additionally
-lists the Kato and GH.0 packet/suggested pairs. Its
-`issues.py:deliverables_complete` requires this review's genuine marker in all
-three packets, including a finished negative verdict. It still returns false:
-the two owner packets retain their independent blueprint-review markers.
+The bot-confirmed live issue names this report and the Motives
+packet/suggested pair. WORKERS.md says to edit only files the issue names.
+The queue additionally requires the GH.0 and Kato packet/suggested pairs.
+The stock `issues.py:deliverables_complete` predicate accepts a finished
+negative verdict but requires this review's genuine marker in every packet
+listed in those outputs.
 
-An explicit scope clarification was requested while the permitted work
-continued. No scope extension has been received. No omitted path or queue entry
-was edited. Before dispatching another continuation, authorize the four owner
-paths or align the queue with the live Motives-only review. The handoff gives
-the exact owner corrections and receipts. Once scope is resolved, record
-bounded owner verdicts after the corrections and rerun completion; do not
-change markers merely to satisfy dispatch. A future revision should supply
-the full Motives adapter before that packet is accepted.
+The predicate remains false with the actual seven queue outputs, and is true
+when tested in memory against just the three live-issue outputs. All seven
+files exist. The arithmetic owner markers remain their previous independent
+blueprint reviews; they were not changed to manufacture completion.
+
+A scope extension for the four queue-listed arithmetic paths was requested
+while the permitted review continued. No extension has been received. This
+checkpoint records the concrete Motives correction and completed bounded
+verdict. Before another continuation, authorize those four paths or align
+dispatch with the live Motives-only issue. The handoff identifies the exact
+Hecke-normalization and good-model corrections to make once authorized.
