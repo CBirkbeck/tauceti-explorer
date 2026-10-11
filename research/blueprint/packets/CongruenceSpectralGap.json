@@ -22,140 +22,168 @@
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Existing Deligne factor π^(−s/2)Γ(s/2).",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_eq_zero_iff",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Totalized Gammaℝ is zero at the nonpositive even integers; meromorphic pole arguments must use germs.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_residue_zero",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "The punctured limit of s Gammaℝ(s) at zero is 2.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:CongruenceSubgroup.IsCongruenceSubgroup",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
         "provides": "Existing congruence predicate ∃N≠0, Γ(N)≤Γ; no replacement predicate.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:CongruenceSubgroup.IsCongruenceSubgroup.finiteIndex",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
         "provides": "A congruence subgroup has finite index in SL₂(ℤ).",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:DirichletCharacter.sum_characters_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
         "provides": "Full-character orthogonality over an integral domain with enough roots of unity and nonzero modulus.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:LinearPMap",
         "kind": "structure",
         "module": "Mathlib/LinearAlgebra/LinearPMap.lean",
         "provides": "Partial linear map with a linear domain, used for the unbounded Laplacian.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:MeasureTheory.IsFundamentalDomain.quotientMeasure_eq",
         "kind": "lemma",
         "module": "Mathlib/MeasureTheory/Group/FundamentalDomain.lean",
         "provides": "For a countable measure-preserving group action, the quotient measure is independent of the measurable fundamental domain.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:MeasureTheory.Lp",
         "kind": "def",
         "module": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
         "provides": "Actual almost-everywhere Lp quotient with p=2, not an abstract Hilbert carrier.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:MulAction.orbitRel.Quotient",
         "kind": "abbrev",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "Orbit quotient type for an actual group action.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:MulAction.toPermHom",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Action/End.lean",
         "provides": "Canonical homomorphism to permutations; its range removes the ineffective action kernel.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:UpperHalfPlane.volume_def",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean",
         "provides": "Hyperbolic area on ℍ is Lebesgue measure weighted by y⁻².",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:ZMod.isPrimitive_stdAddChar",
         "kind": "lemma",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
         "provides": "The standard additive character is primitive for nonzero modulus.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:ZMod.stdAddChar",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
         "provides": "Standard complex additive character exp(2πij/q).",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:gaussSum",
         "kind": "def",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Finite multiplicative/additive character Gauss sum.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:mellin",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Mellin transform ∫Ioi(0) t^(s−1)f(t)dt.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:mellinInv",
         "kind": "def",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Inverse transform (1/(2π))∫ℝ x^(−(σ+it))F(σ+it)dt.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "mathlib:mellin_comp_inv",
         "kind": "theorem",
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "The Mellin transform of f∘inv at s equals mellin f at −s.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "tauceti:IsSelfAdjoint.isFormalAdjoint",
         "kind": "theorem",
         "module": "TauCeti/Analysis/InnerProductSpace/LinearPMap/SelfAdjoint.lean",
         "provides": "A self-adjoint partial operator on a complete inner-product space is formally self-adjoint.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       },
       {
         "ref": "tauceti:LinearPMap.IsFormalAdjoint.im_inner_self_apply",
         "kind": "theorem",
         "module": "TauCeti/Analysis/InnerProductSpace/LinearPMap/SelfAdjoint.lean",
         "provides": "The self-adjoint diagonal inner product has imaginary part zero.",
-        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11."
+        "checked": "Full statement and ambient hypotheses read in the pinned source on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
+      },
+      {
+        "ref": "mathlib:mellinInv_mellin_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinInversion.lean",
+        "provides": "Mellin inversion at x>0 for MellinConvergent f σ, VerticalIntegrable (mellin f) σ and ContinuousAt f x, in a complete normed complex space.",
+        "checked": "Full statement, ambient variables and proof read at the pinned commit by codex-8lcXWF on 2026-10-11.",
+        "independentReviewChecked": "codex-8lcXWF, 2026-10-11: declaration and ambient hypotheses read at the recorded pin; statement fit checked against its consuming nodes."
       }
     ]
   },
@@ -213,7 +241,7 @@
       "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369",
       "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
       "readSections": [
-        "Full cited declarations and ambient hypotheses in CongruenceSubgroups, UpperHalfPlane/Measure, FundamentalDomain, LpSpace/Basic, LinearPMap, MellinTransform, Gamma/Deligne, DirichletCharacter/Orthogonality, GaussSum, CircleAddChar and Tau Ceti LinearPMap/SelfAdjoint."
+        "Full cited declarations and ambient hypotheses in CongruenceSubgroups, UpperHalfPlane/Measure, FundamentalDomain, LpSpace/Basic, LinearPMap, MellinTransform, MellinInversion (including the inversion hypotheses and proof), Gamma/Deligne, DirichletCharacter/Orthogonality, GaussSum, CircleAddChar and Tau Ceti LinearPMap/SelfAdjoint."
       ]
     },
     {
@@ -317,6 +345,11 @@
           "name": "TauCeti.CongruenceSpectralGap.quotientMeasure.domain_independence",
           "kind": "compatibility",
           "statement": "Two effective measurable fundamental domains have equal hyperbolic area."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientMeasure.level_two",
+          "kind": "computation",
+          "statement": "For Γ(2), μΓ(XΓ).toReal=2π; its effective index is six, rather than the level-one area."
         }
       ]
     },
@@ -337,7 +370,8 @@
       "proofSteps": [
         "Import ordinary gradient, volume and Green identity from current DifferentialGeometry, and local weak derivatives from current PDE/Sobolev; descend through the Fuchsian isometric orbifold charts.",
         "Density uses a locally finite partition and cusp truncations. Closability follows by testing a candidate gradient limit against compactly supported vector fields in each chart; finite isotropy averaging preserves the test core.",
-        "Apply the requested generic closed-form representation/Friedrichs extension, then the existing LinearPMap self-adjoint API. Cut off constants far into each cusp with energy tending to zero. Zero energy forces local constancy and connectedness forces a single constant."
+        "Apply the requested generic closed-form representation/Friedrichs extension, then the existing LinearPMap self-adjoint API. Cut off constants far into each cusp with energy tending to zero. Zero energy forces local constancy and connectedness forces a single constant.",
+        "A nonconstant orbifold-smooth bump in a free chart belongs to the operator core and has nonzero Laplacian, by the kernel characterization; this supplies the nontriviality test."
       ],
       "acceptance": [
         "quotientLaplacian Γ is the nonnegative self-adjoint Friedrichs realization of −y²(∂x²+∂y²) on L²(XΓ,μΓ). Start on compactly supported orbifold-smooth functions (smooth invariant lifts at elliptic charts), close their Dirichlet energy q(u,v)=∫⟨∇u,∇v⟩dA, and use the associated operator. Its kernel consists exactly of constants."
@@ -414,6 +448,11 @@
           "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian.sign",
           "kind": "non-example",
           "statement": "If Δu≠0 then Re⟨u,Δu⟩>0; the opposite sign convention fails."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.quotientLaplacian.nontrivial",
+          "kind": "non-example",
+          "statement": "For every allowed Γ there is an operator-domain u with Δu≠0; the zero operator fails."
         }
       ]
     },
@@ -497,6 +536,11 @@
           "name": "TauCeti.CongruenceSpectralGap.meanZero.imaginary_constant_rejection",
           "kind": "non-example",
           "statement": "The almost-everywhere constant i does not belong; taking only a real mean fails."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.meanZero.nontrivial",
+          "kind": "non-example",
+          "statement": "For every allowed Γ there is a nonzero L² vector in meanZero; the zero submodule fails. Subtract the mean of a nonconstant compactly supported bump."
         }
       ]
     },
@@ -527,7 +571,8 @@
         "CongruenceSpectralGap:CSG.0/quotient-laplacian",
         "AutomorphicSpectralTheory:AS.0",
         "AutomorphicSpectralTheory:AS.4/gl2-spectral-expansion",
-        "AutomorphicSpectralTheory:AS.4"
+        "AutomorphicSpectralTheory:AS.4",
+        "CongruenceSpectralGap:CSG.0/spectral-description"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
@@ -569,23 +614,28 @@
           "name": "TauCeti.CongruenceSpectralGap.spectralGap_le_threshold",
           "role": "relation",
           "statement": "spectralGap Γ≤1/4."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap_le_rayleigh",
+          "role": "relation",
+          "statement": "For nonzero u in the operator domain with complex mean zero, spectralGap Γ≤Re⟨u,Δu⟩/‖u‖₂²."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.CongruenceSpectralGap.spectralGap.noncongruence_rejection",
-          "kind": "non-example",
-          "statement": "If Γ is not a congruence subgroup there is no N≠0 with Γ(N)≤Γ; the exported theorem requires this witness."
-        },
-        {
-          "name": "TauCeti.CongruenceSpectralGap.spectralGap.constant_excluded",
-          "kind": "characterisation",
-          "statement": "A mean-zero domain vector killed by Δ is zero."
-        },
-        {
-          "name": "TauCeti.CongruenceSpectralGap.spectralGap.continuous_threshold",
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.empty_small_spectrum",
           "kind": "computation",
-          "statement": "For real t, 1/4≤1/4+t²; the continuous parameter never supplies a smaller value."
+          "statement": "If no nonzero operator-domain eigenvector has eigenvalue in (0,1/4), then spectralGap Γ=1/4."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.attained_bottom",
+          "kind": "characterisation",
+          "statement": "For a nonzero mean-zero operator-domain eigenvector u with real eigenvalue λ, if every nonzero mean-zero operator-domain v has Re⟨v,Δv⟩≥λ‖v‖₂², then spectralGap Γ=λ."
+        },
+        {
+          "name": "TauCeti.CongruenceSpectralGap.spectralGap.positive",
+          "kind": "non-example",
+          "statement": "For every allowed Γ, 21/100≤spectralGap Γ; a definition that retains the constant eigenvalue and returns zero fails."
         }
       ]
     },
@@ -769,7 +819,8 @@
         "u is a nonzero positive exceptional eigenfunction."
       ],
       "proofSteps": [
-        "Use CSG.0 residual classification to identify u as cuspidal. Lift u to Γ(N) and apply AF.2 adelic-classical comparison at principal level, then extract a cuspidal constituent using AF.3.",
+        "Apply AL.3/global-whittaker-factorization to the cuspidal GLn representation to obtain genericity of every local component before invoking the generic unitary classification. Cuspidality alone is not a definition of genericity.",
+        "Use CSG.0 residual classification to identify u as cuspidal. Lift u to Γ(N) and apply AF.2 adelic-classical comparison at principal level, then extract a cuspidal constituent using AF.3/cuspidal-spectrum-discrete, not merely the definition of a cuspidal representation.",
         "Compute the normalized Casimir on the SO(2)-fixed line using AF.1 real local classification. Write the unitary principal-series characters as sgn^ε|.|^r and sgn^ε|.|^−r after the central norm normalization.",
         "Allow both ε=0 and ε=1; the geometric eigenvalue does not force reflection-even parity."
       ],
@@ -782,7 +833,9 @@
         "AutomorphicFormsOnReductiveGroups:AF.2/adelic-classical-bijection",
         "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-automorphic-representation",
         "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
-        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual"
+        "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual",
+        "AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
@@ -905,6 +958,7 @@
         "χ is a nonprincipal even character of prime conductor q>2, q∤fπ, where fπ is the standard conductor."
       ],
       "proofSteps": [
+        "Apply AL.3/global-whittaker-factorization to the cuspidal GLn representation to obtain genericity of every local component before invoking the generic unitary classification. Cuspidality alone is not a definition of genericity.",
         "Import AL.3 global poles, functional equation and strip estimates for this equal-rank pair, local factor product and the requested all-prime self-pair positivity and norm-twist transport.",
         "At q, πq is unramified but πq⊗χq is ramified, so no global norm self-twist can hold. The local twisted L factor is 1 and its epsilon factor is τ(χ)^d q⁻ᵈˢ: the m² exponent shifts sum to zero.",
         "At p≠q, twisting by the unramified character substitutes χ(p)p⁻ˢ in the local polynomial and multiplies epsilon by χ(p^ap). Even parity leaves the infinite factor unchanged. Multiply these factors.",
@@ -924,7 +978,8 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1/canonical-archimedean-factor",
         "AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual",
         "AutomorphicLFunctionsAndLocalFactors:AL.3",
-        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara"
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
@@ -1001,14 +1056,15 @@
       "hypotheses": [],
       "proofSteps": [
         "Use existing mellin and mellinInv conventions; these agree with the vertical complex contour integral after ds=i dt.",
-        "Mellin inversion and contour shift show the integral-tail formula. For compact positive support, F₁ is exactly 1 below the support and exactly 0 above it under multiplicative normalization."
+        "For Re s>0, apply Fubini to the integral tail and integrate x^(s−1) from 0 to y, obtaining mellin(firstKernel f,s)=mellin(f,s)/s. Compact positive support gives continuity and Mellin convergence of the tail on Re s=2; integration by parts in log y gives integrability of its transform on that line. Apply the pinned mellinInv_mellin_eq with those hypotheses. Below the support the tail is exactly the multiplicative normalization, and above it the tail is zero."
       ],
       "acceptance": [
         "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1."
       ],
       "prerequisites": [
         "mathlib:mellin",
-        "mathlib:mellinInv"
+        "mathlib:mellinInv",
+        "mathlib:mellinInv_mellin_eq"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
@@ -1178,7 +1234,7 @@
       "proofSteps": [
         "Integration by parts in log y makes k entire and rapidly decreasing in vertical strips.",
         "Import the requested complex gamma Stirling bounds from AL.1; the ratio G has polynomial strip growth. Shift to the right for rapid decay, and to the left for near-zero behavior.",
-        "The rightmost possible dual pole is at β+β₀−1, with order at most d. Absorb powers of |log x| into x⁻ε; this also handles collision with the 1/s pole when σ+β₀=1."
+        "The gamma-ratio poles have rightmost possible real part σ+β₀−1 and order at most d. The factor 1/s adds one to the order if a gamma pole coincides with zero. Absorb the resulting finite powers of |log x| into x⁻ε; this handles all repeated poles and the zero-pole collision when σ+β₀=1."
       ],
       "acceptance": [
         "At σ+β₀=1 the estimate allows logarithmic growth.",
@@ -1222,7 +1278,7 @@
       ],
       "proofSteps": [
         "Integrate k(s)Lχ(β+s)Y^s/s on Re s=2, exchange the absolutely convergent series and integral, and identify F₁.",
-        "Shift to Re s=−1: the sole crossed pole is s=0 because the finite twisted Lχ is entire. Strip bounds and rapid k decay control horizontal contours.",
+        "Shift to Re s=−1: the sole crossed pole is s=0 because the finite twisted Lχ is entire. Use the explicitly requested polynomial vertical-strip growth of the finite Lχ, together with rapid decay of k, to kill the horizontal contours. Boundedness of the completed Λ alone does not justify this step.",
         "Apply the functional equation, replace s by −s and shift the resulting integral to Re s=2 in the pole-free right region. Expanding Lχ̄(1−β+s) gives F₂ with the exact conductor and power of n.",
         "Use rapid kernel decay and the positive partial-sum bound from CSG.2 for absolute summability."
       ],
@@ -1233,7 +1289,8 @@
       "prerequisites": [
         "CongruenceSpectralGap:CSG.2/prime-twist-equation",
         "CongruenceSpectralGap:CSG.3/kernel-estimates",
-        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds"
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-vertical-strip-bounds",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/CongruenceSpectralGap",
@@ -1679,8 +1736,13 @@
       "sources": [
         {
           "sourceId": "lrs95",
-          "locator": "Theorem 1.1 p.387 combined with Teschl Theorem 4.10 p.119",
-          "match": "The spectral statement becomes the finite-energy estimate used by conformal-area consumers."
+          "locator": "Theorem 1.1, p.387",
+          "match": "The curvature −1 congruence spectral bound."
+        },
+        {
+          "sourceId": "teschl",
+          "locator": "§4.3, Theorem 4.10 and its form-domain version, p.119",
+          "match": "Conversion of the spectral bottom to the operator and closed-form Rayleigh inequalities."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1699,7 +1761,7 @@
         "κ>0 and Γ is a congruence subgroup; the metric is a constant rescaling of the specified hyperbolic metric."
       ],
       "proofSteps": [
-        "Apply current DifferentialGeometry constant-metric scaling to gradient, inverse metric and two-dimensional volume. Transport L² by the constant normalization and identify the same closed form and scaled operator.",
+        "Compute the specialized constant scaling in the imported metric/gradient and volume-density coordinates: the inverse metric multiplies by κ and the two-dimensional volume by κ⁻¹; the constant Levi-Civita connection is unchanged, so sectional curvature multiplies by κ. Transport L² by constant normalization and identify the same closed form and scaled operator. DifferentialGeometry Layer 12 supplies the definitions, not an already stated general rescaling theorem.",
         "Both operator/form Rayleigh quotients scale by κ; constants and mean-zero subspaces correspond. Take infima and rescale the threshold."
       ],
       "acceptance": [
@@ -1719,8 +1781,13 @@
       "sources": [
         {
           "sourceId": "lrs95",
-          "locator": "§1 pp.387–390 metric-normalized eigenvalue convention; Theorem 4.10 p.119 for the Rayleigh comparison",
-          "match": "Constant rescaling transports the theorem and threshold, without a new automorphic estimate."
+          "locator": "§1, pp.387–390",
+          "match": "The curvature −1 eigenvalue convention."
+        },
+        {
+          "sourceId": "teschl",
+          "locator": "§4.3, Theorem 4.10, p.119",
+          "match": "The infimum characterization used after the explicitly displayed two-dimensional metric scaling."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1729,7 +1796,7 @@
   "requests": [
     {
       "supplier": "AutomorphicSpectralTheory:AS.0",
-      "need": "Automorphic adapter to current OperatorTheory/SelfAdjointSpectralTheory SA-E01–SA-E14 and a generic densely defined closed nonnegative form → unique self-adjoint LinearPMap theorem, with operator/form Rayleigh equality and operator-domain form core. Route the missing generic Friedrichs representation as OperatorTheory, Part II; AS.0 supplies the automorphic adapter, not a second spectral theorem.",
+      "need": "Automorphic adapter to current OperatorTheory/SelfAdjointSpectralTheory SA-E01–SA-E14 and a generic densely defined closed nonnegative form → unique self-adjoint LinearPMap theorem, with operator/form Rayleigh equality and operator-domain form core. Route the missing generic Friedrichs representation as OperatorTheory, Part II; AS.0 supplies the automorphic adapter, not a second spectral theorem. The adapter explicitly consumes current DifferentialGeometry Layer 12 gradient, volume-density and Green identities (div grad has the opposite sign), and current PDE local weak-derivative/Sobolev tools. These current upstream targets are listed in upstreamDependencies because the atlas stage snapshot predates DifferentialGeometry; do not recreate those targets.",
       "neededBy": [
         "CongruenceSpectralGap:CSG.0/quotient-laplacian",
         "CongruenceSpectralGap:CSG.0/spectral-gap",
@@ -1819,6 +1886,14 @@
         "CongruenceSpectralGap:CSG.1/monomial-tempered"
       ],
       "status": "planned-upstream"
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "need": "For each fixed prime twist used here, the finite entire RS Lχ(s), after removal of archimedean factors, has polynomial growth in |Im s| on every finite vertical strip. Constants may depend on χ: no uniform-in-q strip bound is required for the exact contour identity. Supply the finite-order continuation and Phragmén–Lindelöf step with the functional equation and absolute-convergence endpoint bounds. AL.3/rs-vertical-strip-bounds bounds the completed Λ and by itself does not supply this finite-function estimate.",
+      "neededBy": [
+        "CongruenceSpectralGap:CSG.3/approximate-equation"
+      ],
+      "status": "open"
     }
   ],
   "coverage": [
@@ -1874,7 +1949,7 @@
         "CongruenceSpectralGap:CSG.5/rayleigh-bound",
         "CongruenceSpectralGap:CSG.5/metric-rescaling"
       ],
-      "detail": "Current OperatorTheory supplies unbounded spectral calculus but its read targets do not supply a generic Friedrichs/closed-form representation theorem. The requested Part II supplies that theorem. This packet owns the chart descent, energy closability and constant cusp approximation; these proofs still require a full chartwise weak-derivative/core argument and an exact rescaling comparison. Current PDE energyFormH1L0 is a real Euclidean Dirichlet-boundary form, not the complex cusp-orbifold form."
+      "detail": "Current OperatorTheory supplies unbounded spectral calculus but its read targets do not supply a generic Friedrichs/closed-form representation theorem. The requested Part II supplies that theorem. This packet owns the chart descent, energy closability and constant cusp approximation; these proofs still require a full chartwise weak-derivative/core argument and an exact rescaling comparison. Current PDE energyFormH1L0 is a real Euclidean Dirichlet-boundary form, not the complex cusp-orbifold form. The AS.0 adapter must import the exact current DifferentialGeometry Layer 12 and PDE local weak-derivative targets listed in upstreamDependencies; these newer upstream targets have no stage IDs in the atlas snapshot. Specialized constant scaling is calculated from the imported definitions, rather than assumed to be an existing general scaling theorem."
     },
     {
       "title": "G2: all-level spectrum and classical adelization adapter",
@@ -1902,7 +1977,7 @@
         "CongruenceSpectralGap:CSG.3/approximate-equation",
         "CongruenceSpectralGap:CSG.4/average-asymptotic"
       ],
-      "detail": "AL.3 generic factors, poles, equations, equal-rank strip bounds and boundary nonvanishing are imported, including their recorded proof gaps. Its exact all-ramified coefficient positivity/residue and local norm-twist/conductor transport contracts are requested. LRS §2.1 asserts the positive partial-sum input; a proof of it through all local factors and Wiener–Ikehara remains with the unique generic owners, not an assumed parameter-bound field."
+      "detail": "AL.3 generic factors, poles, equations, equal-rank strip bounds and boundary nonvanishing are imported, including their recorded proof gaps. Its exact all-ramified coefficient positivity/residue and local norm-twist/conductor transport contracts are requested. LRS §2.1 asserts the positive partial-sum input; a proof of it through all local factors and Wiener–Ikehara remains with the unique generic owners, not an assumed parameter-bound field. The finite Lχ polynomial vertical-strip estimate needed for the exact contour shifts is a separate AL.3 request; removing gamma factors from a completed bound only gives an exponential estimate without the finite-order/Phragmén–Lindelöf argument."
     },
     {
       "title": "G5: complex gamma estimates and uniform contour justification",
@@ -1947,7 +2022,12 @@
         "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
         "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
         "Public search for the title with erratum/correction and author names, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published p.395 scan uses an ordinary unit integral before the dy/y transform; evaluating that transform at zero requires the multiplicative normalization.",
+        "by": "REV-DESIGN-CongruenceSpectralGap"
+      }
     },
     {
       "id": "CongruenceSpectralGap/E2",
@@ -1962,7 +2042,12 @@
         "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
         "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
         "Public search for the title with erratum/correction and author names, 2026-10-11."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.397 scan of (3.12) omits the ±1 classes from the subtraction. Formula (3.11), including the n=1 case, requires subtraction there too.",
+        "by": "REV-DESIGN-CongruenceSpectralGap"
+      }
     }
   ],
   "sourceVersions": [
@@ -2030,6 +2115,144 @@
   "signatureValidation": {
     "compiled": true,
     "command": "lean-check research/blueprint/suggested/CongruenceSpectralGap.lean",
-    "result": "Exit 0; only declaration-uses-placeholder warnings. Native signatures elaborate, with explicitly named omissions in G6; no proof implementation claimed."
+    "result": "Exit 0; 77 warnings, all declaration-uses-placeholder warnings. Independently rerun by codex-8lcXWF after the signature/API/test corrections. Native signatures elaborate, with explicitly named omissions in G6; no proof implementation claimed."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-CongruenceSpectralGap",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review by Codex session codex-8lcXWF: all 26 nodes and all 21 final pinned declarations checked; 12 nodes corrected, no new nodes. Strengthened tests/API, supplied constituent, local-genericity and Mellin-inversion prerequisites, separated finite-function strip growth from completed bounds, corrected source attribution and confirmed both source issues. Six explicit gaps and twelve requests remain; acceptance certifies a complete plan, not proof closure or implementation.",
+    "checked": [
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/quotient-measure",
+        "verdict": "corrected",
+        "note": "Confirmed effective-action fundamental-domain hypotheses and level-one area; added level-two mass 2π to reject level-independent normalization."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/quotient-laplacian",
+        "verdict": "corrected",
+        "note": "Added nontrivial operator test and its free-chart bump argument; made current DG/PDE imports explicit through the AS.0 adapter. Generic closed-form representation remains G1."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/mean-zero",
+        "verdict": "corrected",
+        "note": "Confirmed complex integral kernel and constant orthogonal complement; added a nonzero member test to reject the zero submodule."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/spectral-gap",
+        "verdict": "corrected",
+        "note": "Added direct spectral-description prerequisite and Rayleigh upper-bound API. Replaced unrelated tests by actual gap evaluations at an empty small spectrum, an attained bottom, and the positive congruence bound."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/clipped-gap",
+        "verdict": "verified",
+        "note": "Inserted threshold handles the empty set; lower-bound hypothesis protects sInf in the member-bound API. Three numerical/set tests agree with Lean."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/spectral-description",
+        "verdict": "verified",
+        "note": "All-level constants-only residual and continuous threshold are stated precisely and honestly requested from AS.4 in G2; level-one displayed expansion is not used as an all-level proof."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.0/spectral-clipping",
+        "verdict": "verified",
+        "note": "Operator/form infimum and discrete/essential spectrum yield the clipped small-spectrum bottom, conditional on the recorded AS.0/AS.4 obligations."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.1/exceptional-dictionary",
+        "verdict": "corrected",
+        "note": "Added AF.3/cuspidal-spectrum-discrete for constituent extraction; SO(2) weight zero allows both sign parities. Principal-level and arbitrary intermediate-group adapters remain G2. Added the same exact local-genericity supplier."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.1/monomial-tempered",
+        "verdict": "verified",
+        "note": "Imported self-twist/induction branch of R17.4 with GlobalNumberFields unitary norm shift; induction of a unitary Hecke character has tempered real component. No new generic lift is planned."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.1/adjoint-parameters",
+        "verdict": "verified",
+        "note": "Trace-zero endomorphism characters give 2r,0,−2r; common parity cancels. Central-character inverse and no-self-twist cuspidality criterion agree with the existing R17.4 contract."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.2/prime-twist-equation",
+        "verdict": "corrected",
+        "note": "Compared LRS Lemma 2.1 at every type of finite prime: ramified coefficients retained, even parity, degree m², conductor and non-unit-normalized τπ correct. Missing positivity/transport remain AL.3 requests. Added AL.3/global-whittaker-factorization to justify local genericity before the unitary-classification import."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.2/trivial-zero",
+        "verdict": "verified",
+        "note": "Diagonal maximal gamma pole is real at β₀; use meromorphic orders rather than the totalized pole value. Entire twist and generic unitarity give the required cancellation and β₀<1."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.3/first-kernel",
+        "verdict": "corrected",
+        "note": "Added the actual pinned Mellin-inversion theorem with its convergence, vertical integrability and continuity hypotheses; gave Fubini/tail-transform proof rather than an unlisted inversion step."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.3/dual-kernel",
+        "verdict": "verified",
+        "note": "Reflected Mellin argument and β−s match (3.7); unit-ratio identity uses inversion of the support. Zero and sign-sensitive tests use genuine function types."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.3/kernel-estimates",
+        "verdict": "corrected",
+        "note": "Distinguished gamma pole order ≤d from possible order d+1 after collision with 1/s. Epsilon absorbs all logarithmic factors; requested complex gamma estimates remain G5."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.3/approximate-equation",
+        "verdict": "corrected",
+        "note": "Added a precise AL.3 request for polynomial vertical growth of the finite twisted function; completed bounds alone do not justify horizontal contours. Dual conductor argument and reflected character match Lemma 3.2."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.4/prime-average",
+        "verdict": "verified",
+        "note": "Finite sum includes only dyadic good primes and even nonprincipal characters; q=3, q=5, zero-cutoff and bad-prime tests check the carrier."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.4/even-orthogonality",
+        "verdict": "verified",
+        "note": "Full character orthogonality gives the exact ±1 coefficient and principal subtraction over every coprime n; includes the confirmed source misprint correction."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.4/gauss-average",
+        "verdict": "verified",
+        "note": "Expanded power and principal τ(1)=−1 give the exact parity correction. FF.2 all-coordinate nonzero fibre equals the unit fibre; Deligne bound yields the stated constant."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.4/average-asymptotic",
+        "verdict": "verified",
+        "note": "Checked divisor count of n±1, positive coefficient partial sums, both errors, Y=Q^((d+1)/2), near-zero integrability β₀+ε′<1, and 3/4 dyadic prime main-term constant."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.4/twist-nonvanishing",
+        "verdict": "verified",
+        "note": "Strict half-strip makes the error smaller than Q²/log Q; a nonzero complex finite sum has a nonzero term. No positivity or every-twist assertion is made."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.5/archimedean-bound",
+        "verdict": "verified",
+        "note": "Contradiction at β₀ and unitary multiset symmetry give the weak spherical GLm/Q bound. The strict nonvanishing region cannot remove equality."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.5/exceptional-arithmetic",
+        "verdict": "corrected",
+        "note": "Lean now states both r≤1/5 and 21/100≤1/4−r², matching the packet; direct GL2 arithmetic would give only 4/25."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.5/congruence-bound",
+        "verdict": "verified",
+        "note": "Uses GL3 adjoint parameters, not a direct GL2 bound; clipped threshold covers arbitrary congruence levels and empty exceptional spectrum."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.5/rayleigh-bound",
+        "verdict": "corrected",
+        "note": "Split LRS and Teschl locators into their actual source entries. Operator-domain signature elaborates; form-domain core transfer is explicit in G1/G6."
+      },
+      {
+        "nodeId": "CongruenceSpectralGap:CSG.5/metric-rescaling",
+        "verdict": "corrected",
+        "note": "Corrected attribution of constant scaling to a local coordinate calculation using DG definitions, and split source locators. Volume/operator scaling and curvature −4 check agree; native metric statement remains G6."
+      }
+    ]
   }
 }

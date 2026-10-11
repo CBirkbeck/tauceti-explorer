@@ -45,7 +45,8 @@
         "AutomorphicFormsOnReductiveGroups:AF.3",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3/global-whittaker-factorization"
       ]
     },
     {
@@ -63,7 +64,7 @@
     {
       "key": "CSG.3",
       "title": "Mellin kernels and the approximate equation",
-      "description": "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1. dualKernel(f,G,β,x)=mellinInv(2,s↦mellin(f,−s)G(β−s)/s)(x). G is an actual complex function; in the RS application it is the meromorphic quotient A(1−s)/A(s), evaluated on the allowed integration line. No bound is stored in its data. For f smooth with compact support in (0,∞), mellin(f,0)=1, the CSG.2 gamma ratio G, β with 0<σ=Re β<1 and every ε>0, F₁ and F₂ decay faster than any power as x→∞. F₁(x)=1 for sufficiently small positive x. For 0<x≤1, |F₂(x)|≤Cε(1+x^(1−β₀−σ−ε)); constants depend on π,β,f,ε, not q or Y. Choose ε<1−β₀ when using the dual integral. For the CSG.2 data, smooth compact positive-support f with mellin(f,0)=1, 0<Re β<1 and Y>1, Lχ(β)=∑n≥1 b(n)χ(n)n⁻ᵝF₁(n/Y)+τπχ(f)τ(χ)^d(fq^d)⁻ᵝ∑n≥1 b(n)χ̄(n)n^(β−1)F₂(nY/(fq^d)). Both sums converge absolutely.",
+      "description": "For f:ℝ→ℂ define firstKernel(f,x)=∫y>x f(y)dy/y. For smooth compact support contained in (0,∞) and x>0 this equals mellinInv(2,s↦mellin(f,s)/s)(x), with mellin(f,s)=∫₀∞f(y)y^(s−1)dy. Normalize mellin(f,0)=1. dualKernel(f,G,β,x)=mellinInv(2,s↦mellin(f,−s)G(β−s)/s)(x). G is an actual complex function; in the RS application it is the meromorphic quotient A(1−s)/A(s), evaluated on the allowed integration line. No bound is stored in its data. For f smooth with compact support in (0,∞), mellin(f,0)=1, the CSG.2 gamma ratio G, β with 0<σ=Re β<1 and every ε>0, F₁ and F₂ decay faster than any power as x→∞. F₁(x)=1 for sufficiently small positive x. For 0<x≤1, |F₂(x)|≤Cε(1+x^(1−β₀−σ−ε)); constants depend on π,β,f,ε, not q or Y. Choose ε<1−β₀ when using the dual integral. For the CSG.2 data, smooth compact positive-support f with mellin(f,0)=1, 0<Re β<1 and Y>1, Lχ(β)=∑n≥1 b(n)χ(n)n⁻ᵝF₁(n/Y)+τπχ(f)τ(χ)^d(fq^d)⁻ᵝ∑n≥1 b(n)χ̄(n)n^(β−1)F₂(nY/(fq^d)). Both sums converge absolutely. The contour identity requires polynomial vertical growth of the finite twisted Lχ on each fixed strip; the completed-function bound alone is insufficient. This is an explicit AL.3 supplier request.",
       "requires": [
         "CongruenceSpectralGap:CSG.2",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",

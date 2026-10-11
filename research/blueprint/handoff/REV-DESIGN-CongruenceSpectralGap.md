@@ -1,0 +1,15 @@
+# Handoff: REV-DESIGN-CongruenceSpectralGap
+
+Completed independent review for issue #1719 by Codex session `codex-8lcXWF`, 2026-10-11. The bot confirmed this session's claim in issue comment 6108425332. Input atlas commit was `5d61b133d15ae42bdc33c6f1fd9ba837a35f2e59`. The design was written by a different session.
+
+The packet is **accepted at target level**: 26 nodes, 14 verified and 12 corrected; no nodes added, removed or left unverifiable. All 21 final pinned baseline declarations are confirmed. The report records every correction and both confirmed source misprints. All eight definitions/constructions have synchronized APIs and meaningful tests (27 API items, 28 tests). Fifteen planets respect the layer limits. All six layers remain planned and every implementation status remains unchecked.
+
+The review corrected weak measure/operator/subspace/gap tests, added the Rayleigh API, supplied exact constituent-extraction, local-genericity and Mellin-inversion dependencies, made finite-function polynomial strip growth a precise AL.3 request, accounted for the extra zero-pole order, fixed mixed-source locators, corrected the scaling attribution, and matched both rational arithmetic conclusions in Lean.
+
+Validation: the blueprint checker reports zero errors and zero warnings; `lean-check research/blueprint/suggested/CongruenceSpectralGap.lean` exits zero with only declaration-uses-`sorry` warnings. The pinned libraries are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Current read-only upstream checks used roadmap commit `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+No work remains for this review. The six recorded gaps and twelve requests are future mathematical/native-carrier obligations, not a review checkpoint or proof certification. In particular completed-function bounds do not discharge the newly requested finite-function contour bound; current real Euclidean PDE forms do not implement the complex cusp-orbifold operator. Newer DG/PDE imports are documented through the AS.0 adapter and upstreamDependencies because the atlas stage snapshot lacks the newer stage IDs. The next packaging worker should retain these boundaries and the explicit §13 signature omissions.
+
+Selection note: no manager-priority issue was available. The available focus review continuations #6521, #6519, #6217, #5871, #5869 and #5542 had already completed their mathematical work and explicitly awaited maintainer queue/scope reconciliation; they were unsuitable repeat claims. A race on #3524 was rejected by the bot because another session already held it; no claim was won and no work was done on that issue. #1719 was the one confirmed claim. Do not treat this run as having completed or claimed those other jobs.
+
+The source URLs, versions, hashes and locators needed by a later worker are preserved in the packet and review report. Source scratch files are disposable; no handoff depends on them. No upstream file, atlas data, label, issue state or repository promotion was changed manually.
