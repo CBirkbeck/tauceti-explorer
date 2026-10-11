@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Claude Code (cc-fb70e5), Codex (codex-zJGrQH)
+Authors: Claude Code (cc-fb70e5), Codex (codex-zJGrQH), Codex (codex-ljXclE, review)
 -/
 import Mathlib.Algebra.SkewPolynomial.Basic
 import Mathlib.FieldTheory.Finite.Basic
@@ -118,12 +118,16 @@ structure DrinfeldModule (F A L : Type*) [Field F] [Fintype F] [CommRing A]
 namespace DrinfeldModule
 variable {gamma : A →ₐ[F] L}
 
+@[ext]
+theorem ext (E E' : DrinfeldModule F A L gamma) (h : ∀ a, E.map a = E'.map a) :
+    E = E' := by sorry
+
 def charIdeal (_E : DrinfeldModule F A L gamma) : Ideal A := RingHom.ker gamma
 
 def baseChange (E : DrinfeldModule F A L gamma) {L' : Type*} [Field L'] [Algebra F L']
     (f : L →ₐ[F] L') : DrinfeldModule F A L' (f.comp gamma) := by sorry
 
-/-- In the general-A theorem, `degA` is the divisor degree supplied by FA.1. -/
+/-- In the general-A theorem, `degA` is the divisor degree supplied by AlgebraicCurves function-ring. -/
 def HasRank (E : DrinfeldModule F A L gamma) (degA : A → ℕ) (r : ℕ) : Prop :=
   0 < r ∧ ∀ a, a ≠ 0 → Ore.degree (E.map a) = r * degA a
 
@@ -148,6 +152,16 @@ def Hom (E E' : DrinfeldModule F A L gamma) : Submodule F (Ore F L) where
 
 def Hom.comp {E E' E'' : DrinfeldModule F A L gamma}
     (v : Hom E' E'') (u : Hom E E') : Hom E E'' := ⟨v.val * u.val, by sorry⟩
+
+theorem Hom.ext {E E' : DrinfeldModule F A L gamma} (u v : Hom E E')
+    (h : u.val = v.val) : u = v := by sorry
+
+def Hom.id (E : DrinfeldModule F A L gamma) : Hom E E := ⟨1, by sorry⟩
+
+theorem Hom.comp_assoc {E E' E'' E''' : DrinfeldModule F A L gamma}
+    (w : Hom E'' E''') (v : Hom E' E'') (u : Hom E E') :
+    Hom.comp w (Hom.comp v u) = Hom.comp (Hom.comp w v) u ∧
+      Hom.comp (Hom.id E') u = u ∧ Hom.comp u (Hom.id E) = u := by sorry
 
 def Hom.smul {E E' : DrinfeldModule F A L gamma} (a : A) (u : Hom E E') : Hom E E' :=
   ⟨E'.map a * u.val, by sorry⟩
@@ -343,6 +357,13 @@ def idealTorsion_baseChange (E : DrinfeldModule F A L gamma) (I : Ideal A)
 def tateModule (E : DrinfeldModule F A L gamma) (ell : A) : Type _ :=
   {xs : ℕ → E.Points // (∀ n, ell ^ n • xs n = 0) ∧ ∀ n, ell • xs (n + 1) = xs n}
 
+def tateModule.lift (E : DrinfeldModule F A L gamma) (ell : A)
+    (xs : ℕ → E.Points) (ht : ∀ n, ell^n • xs n = 0)
+    (hc : ∀ n, ell • xs (n+1) = xs n) : E.tateModule ell := ⟨xs, ht, hc⟩
+
+theorem tateModule.ext (E : DrinfeldModule F A L gamma) (ell : A)
+    (x y : E.tateModule ell) (h : ∀ n, x.val n = y.val n) : x = y := by sorry
+
 instance (E : DrinfeldModule F A L gamma) (ell : A) : AddCommGroup (E.tateModule ell) :=
   by sorry
 instance (E : DrinfeldModule F A L gamma) (ell : A) :
@@ -436,7 +457,8 @@ example : (carlitz F (0 : L)).torsionPoints (Ideal.span {X}) = ⊥ := by sorry
 
 /-! ## DM.2. Native completion, lattices and normalized analytic series -/
 
-/-- The algebraic closure is equipped with an extending norm by the FA.2 supplier. -/
+/-- The normalized infinity field comes from AlgebraicCurves Layer 5.
+An extending norm on its algebraic closure is an explicit remaining input. -/
 abbrev CInfty (Kinf : Type*) [NormedField Kinf]
     [NormedField (AlgebraicClosure Kinf)] := UniformSpace.Completion (AlgebraicClosure Kinf)
 
@@ -463,6 +485,11 @@ structure ALattice (A C : Type*) [CommRing A] [NormedField C] [Algebra A C] wher
 
 namespace ALattice
 variable (Lambda : ALattice A C)
+
+@[ext]
+theorem ext (Lambda Lambda' : ALattice A C) (h : Lambda.carrier = Lambda'.carrier) :
+    Lambda = Lambda' := by sorry
+
 def rank : ℕ := (Module.rank A Lambda.carrier).toNat
 
 def scale (Lambda : ALattice A C) (c : C) (hc : c ≠ 0) : ALattice A C := by sorry
@@ -480,12 +507,15 @@ theorem exp_entire (b : ℝ) : PowerSeries.IsRestricted b Lambda.expSeries := by
 
 theorem exp_add (x y : C) : Lambda.exp (x + y) = Lambda.exp x + Lambda.exp y := by sorry
 
+theorem exp_smul [IsScalarTower F A C] (c : F) (x : C) :
+    Lambda.exp (c • x) = c • Lambda.exp x := by sorry
+
 theorem exp_ker (x : C) : Lambda.exp x = 0 ↔ x ∈ Lambda.carrier := by sorry
 
 theorem exp_scale (c : C) (hc : c ≠ 0) (x : C) :
     (Lambda.scale c hc).exp (c * x) = c * Lambda.exp x := by sorry
 
-/-- Polynomial-coefficient specialization; the general-A construction needs FA.1. -/
+/-- Polynomial-coefficient specialization; the general-A construction needs AlgebraicCurves function-ring. -/
 def drinfeldModule [IsAlgClosed C] [Algebra F[X] C] [IsScalarTower F F[X] C]
     (Lambda : ALattice F[X] C) (gamma : F[X] →ₐ[F] C)
     (hg : ∀ a, gamma a = algebraMap F[X] C a)
@@ -647,12 +677,20 @@ structure TModule (F L : Type*) [Field F] [Fintype F] [Field L] [Algebra F L]
 namespace TModule
 variable {theta : L} {d e f : ℕ}
 
+@[ext]
+theorem ext (E E' : TModule F L theta d) (h : E.map X = E'.map X) : E = E' := by sorry
+
 def differential (E : TModule F L theta d) : Matrix (Fin d) (Fin d) L :=
   (E.map X).map Ore.differential
 
 def Hom (E : TModule F L theta d) (E' : TModule F L theta e) :
     Set (Matrix (Fin e) (Fin d) (Ore F L)) := {U | U * E.map X = E'.map X * U}
 
+def Hom.id (E : TModule F L theta d) : {U // U ∈ Hom E E} := ⟨1, by sorry⟩
+
+def Hom.comp {E : TModule F L theta d} {E' : TModule F L theta e}
+    {E'' : TModule F L theta f} (v : {V // V ∈ Hom E' E''}) (u : {U // U ∈ Hom E E'}) :
+    {W // W ∈ Hom E E''} := ⟨v.val * u.val, by sorry⟩
 /-- Rows encode actual F-module-scheme functions on the coordinate additive group. -/
 def motive (_E : TModule F L theta d) : Type _ := Fin d → Ore F L
 instance (E : TModule F L theta d) : AddCommGroup E.motive :=
@@ -677,16 +715,19 @@ theorem motiveMap_comp {E : TModule F L theta d} {E' : TModule F L theta e}
 
 variable {C : Type*} [NormedField C] [CompleteSpace C] [Algebra F C]
 /-- The matrix exponential is a concrete map, not an unknown surjectivity field. -/
-def exp {theta : C} (E : TModule F C theta d) (z : Fin d → C) : Fin d → C := by sorry
+def exp {theta : C} (E : TModule F C theta d) (ht : 1 < ‖theta‖)
+    (z : Fin d → C) : Fin d → C := by sorry
 theorem exp_functionalEquation {theta : C} (E : TModule F C theta d)
     (ht : 1 < ‖theta‖) (z : Fin d → C) :
-    E.exp (E.differential.mulVec z) = fun i =>
-      ∑ j : Fin d, Ore.evalEnd (E.map X i j) (E.exp z j) := by sorry
+    E.exp ht (E.differential.mulVec z) = fun i =>
+      ∑ j : Fin d, Ore.evalEnd (E.map X i j) (E.exp ht z j) := by sorry
 
-def isUniformizable {theta : C} (E : TModule F C theta d) : Prop := Function.Surjective E.exp
+def isUniformizable {theta : C} (E : TModule F C theta d) (ht : 1 < ‖theta‖) : Prop :=
+  Function.Surjective (E.exp ht)
 
-def periodLattice {theta : C} (E : TModule F C theta d) : AddSubgroup (Fin d → C) where
-  carrier := {z | E.exp z = 0}
+def periodLattice {theta : C} (E : TModule F C theta d) (ht : 1 < ‖theta‖) :
+    AddSubgroup (Fin d → C) where
+  carrier := {z | E.exp ht z = 0}
   add_mem' := by sorry
   zero_mem' := by sorry
   neg_mem' := by sorry
@@ -702,6 +743,9 @@ structure EffectiveTMotive (L : Type*) [Field L] (theta : L) (r : ℕ) where
 
 namespace EffectiveTMotive
 variable {theta : L} {r : ℕ}
+
+@[ext]
+theorem ext (M N : EffectiveTMotive L theta r) (h : M.matrix = N.matrix) : M = N := by sorry
 
 def rank (_M : EffectiveTMotive L theta r) : ℕ := r
 
@@ -726,6 +770,12 @@ example (theta b : L) (h : b ≠ theta) :
 /-- EffectiveAMotive_test_linearization -/
 example : ¬ Function.Surjective (fun x : RatFunc F => x ^ Fintype.card F) := by sorry
 end EffectiveTMotive
+
+/-- EffectiveAMotive_test_nonreduced_bound: an unspecified support power is weaker
+than the dimension-one bound over a nonreduced base. The quotient by (X-C e) is R. -/
+example {R0 : Type*} [CommRing R0] (e : R0) (he : e ≠ 0) (hsq : e^2 = 0) :
+    (X : R0[X]) ∉ Ideal.span {X - Polynomial.C e} ∧
+      (X : R0[X])^2 ∈ Ideal.span {X - Polynomial.C e} := by sorry
 
 /-- Index n denotes tensor power n+1; it has n+1 coordinates and motive rank one. -/
 def carlitzTensor (F : Type*) [Field F] [Fintype F] [Algebra F L] (theta : L) (n : ℕ) :
@@ -925,21 +975,26 @@ def infinityFrobenius (M : EffectiveTMotive L theta r) (x : Fin r → LaurentSer
   fun i => ∑ j, aeval (infinityT (L := L)) (M.matrix i j) *
     (x j).map (FiniteField.frobeniusAlgHom F L)
 
-/-- This raw-image form is for perfect coefficients, supplied by `root` below. -/
+/-- The specified lattice conditions; the raw-image form requires perfect coefficients. -/
+def PureLattice (M : EffectiveTMotive L theta r) (u v : ℕ)
+    (H : Submodule (PowerSeries L) (Fin r → LaurentSeries L)) : Prop :=
+  0 < u ∧ 0 < v ∧ Module.Finite (PowerSeries L) H ∧ Module.Free (PowerSeries L) H ∧
+    Module.finrank (PowerSeries L) H = r ∧
+    Submodule.span (LaurentSeries L) (H : Set (Fin r → LaurentSeries L)) = ⊤ ∧
+    (fun x : Fin r → LaurentSeries L => infinityT (L := L)^u • x) '' (H : Set _) =
+      (M.infinityFrobenius (F := F))^[v] '' (H : Set _)
+
 def isPure (M : EffectiveTMotive L theta r) : Prop :=
-  ∃ u v : ℕ, 0 < u ∧ 0 < v ∧
-    ∃ H : Submodule (PowerSeries L) (Fin r → LaurentSeries L),
-      Module.Finite (PowerSeries L) H ∧ Module.Free (PowerSeries L) H ∧
-      Module.finrank (PowerSeries L) H = r ∧
-      Submodule.span (LaurentSeries L) (H : Set (Fin r → LaurentSeries L)) = ⊤ ∧
-      (fun x : Fin r → LaurentSeries L => infinityT (L := L)^u • x) '' (H : Set _) =
-        (M.infinityFrobenius (F := F))^[v] '' (H : Set _)
+  ∃ u v : ℕ, ∃ H : Submodule (PowerSeries L) (Fin r → LaurentSeries L),
+    M.PureLattice (F := F) u v H
 
 def weight (M : EffectiveTMotive L theta r) : ℚ := (M.dimension : ℚ) / r
 
 theorem weight_eq (M : EffectiveTMotive L theta r) (hr : 0 < r)
-    (root : L ≃ₐ[F] L) (hroot : ∀ x, root x ^ Fintype.card F = x) (hp : M.isPure (F := F)) :
-    M.weight = (M.dimension : ℚ) / M.rank := by sorry
+    (root : L ≃ₐ[F] L) (hroot : ∀ x, root x ^ Fintype.card F = x)
+    (u v : ℕ) (H : Submodule (PowerSeries L) (Fin r → LaurentSeries L))
+    (hp : M.PureLattice (F := F) u v H) :
+    M.weight = (u : ℚ) / v ∧ (u : ℚ) / v = (M.dimension : ℚ) / M.rank := by sorry
 
 def pureTensor (M : EffectiveTMotive L theta r) (N : EffectiveTMotive L theta s) :
     EffectiveTMotive L theta (r*s) := by sorry
@@ -1019,7 +1074,8 @@ end TModule
 /-! ## DM.5. Principal-prime geometric Tate comparison
 
 Use an actual algebraic closure of the field of definition, not its own rational points.
-The general nonprincipal ideal and period-ring theorem use the FA.2 supplier contract.
+The general nonprincipal ideal and period-ring theorem use the recorded completed-coefficient
+adapters to AlgebraicCurves Layer 5 and the strict finite-shtuka realization.
 -/
 namespace DrinfeldModule
 variable {gamma : A →ₐ[F] L}
@@ -1133,6 +1189,10 @@ structure TaelmanModel (F R : Type*) [Field F] [Fintype F] [CommRing R] [Algebra
 namespace TaelmanModel
 variable {theta : R}
 variable {B : Type*} [CommRing B] [Algebra F B] [Algebra R B] [IsScalarTower F R B]
+
+@[ext]
+theorem ext (E E' : TaelmanModel F R theta) (h : E.polynomial = E'.polynomial) :
+    E = E' := by sorry
 
 def points (_E : TaelmanModel F R theta) (B : Type*) [CommRing B] [Algebra F B]
     [Algebra R B] [IsScalarTower F R B] : Type _ := B
@@ -1273,7 +1333,8 @@ example (theta : L) [Algebra (ZMod 2) L] (ht : Transcendental (ZMod 2) theta) :
 
 /-! ## DM.6. The one-place coordinate class formula
 
-The FA.2 supplier supplies this coordinate on the base infinity field. Finite products of
+The normalized base infinity field is supplied by AlgebraicCurves Layer 5; its Laurent
+coordinate is a recorded adapter. Finite products of
 completion fields are treated as finite-dimensional vector spaces over that base field in the
 reader; the signatures here specialize to R=F[θ]. No assertion about arbitrary integral rings
 is inferred from the coordinate model.
@@ -1591,6 +1652,10 @@ structure EffectiveDualTMotive (F L : Type*) [Field F] [Fintype F] [Field L] [Al
 namespace EffectiveDualTMotive
 variable {theta : L} {root : L ≃ₐ[F] L} {r : ℕ}
 
+@[ext]
+theorem ext (H H' : EffectiveDualTMotive F L theta root r) (h : H.matrix = H'.matrix) :
+    H = H' := by sorry
+
 def carrier (_H : EffectiveDualTMotive F L theta root r) : Type _ := Fin r → L[X]
 instance (H : EffectiveDualTMotive F L theta root r) : AddCommGroup H.carrier :=
   inferInstanceAs (AddCommGroup (Fin r → L[X]))
@@ -1725,14 +1790,14 @@ example {C : Type*} [NormedField C] [CompleteSpace C] [Algebra F C] [Algebra F[X
 /-- uniformizable_test_drinfeld -/
 example {C : Type*} [NormedField C] [CompleteSpace C] [IsAlgClosed C] [Algebra F C]
     (theta : C) (ht : 1 < ‖theta‖) (E : DrinfeldModule F F[X] C (aeval theta)) :
-    (TModule.ofDrinfeld E).isUniformizable := by sorry
+    (TModule.ofDrinfeld E).isUniformizable ht := by sorry
 /-- uniformizable_test_tensor_power -/
 example {C : Type*} [NormedField C] [CompleteSpace C] [IsAlgClosed C] [Algebra F C]
-    (theta : C) (ht : 1 < ‖theta‖) (n : ℕ) : (carlitzTensor F theta n).isUniformizable := by sorry
+    (theta : C) (ht : 1 < ‖theta‖) (n : ℕ) : (carlitzTensor F theta n).isUniformizable ht := by sorry
 /-- uniformizable_test_predicate -/
 example {C : Type*} [NormedField C] [CompleteSpace C] [Algebra F C]
-    (theta : C) (E : TModule F C theta 1) :
-    E.isUniformizable ↔ ∀ y, ∃ x, E.exp x = y := by sorry
+    (theta : C) (ht : 1 < ‖theta‖) (E : TModule F C theta 1) :
+    E.isUniformizable ht ↔ ∀ y, ∃ x, E.exp ht x = y := by sorry
 
 /-- tateGaloisAction_test_finite_field: point-coordinate part of the finite-field Tate test; the continuous absolute action is in the
 omission register. Arithmetic Frobenius acts nontrivially on extension-field torsion. -/
@@ -1768,10 +1833,11 @@ theorem FiniteFieldNuclearDet_exact {F0 : Type*} [NormedField F0] [Fintype F0] [
     FiniteFieldNuclearDet Phi = FiniteFieldNuclearDet Phi' * FiniteFieldNuclearDet Phi'' :=
   by sorry
 
-/-- Linear-in-Z instance of the cyclic law; the complete series law remains a target. -/
+/-- Taelman Theorem 2, with a replaced by -a. Retain all three contraction hypotheses. -/
 theorem FiniteFieldNuclearDet_cyclic {F0 : Type*} [NormedField F0] [Fintype F0] [IsUltrametricDist F0]
     {V : Type*} [NormedAddCommGroup V] [IsUltrametricDist V] [NormedSpace F0 V] [CompactSpace V]
     (a b : V →L[F0] V)
+    (ha : FiniteFieldNuclear.LocallyContracting F0 V a)
     (hab : FiniteFieldNuclear.LocallyContracting F0 V (a.comp b))
     (hba : FiniteFieldNuclear.LocallyContracting F0 V (b.comp a)) :
     FiniteFieldNuclearDet (FiniteFieldNuclear.linearData (a.comp b) hab) =
@@ -1783,9 +1849,9 @@ def tangentDelta {F0 : Type*} [NormedField F0]
     {V1 V2 : Type*} [NormedAddCommGroup V1] [NormedSpace F0 V1]
     [NormedAddCommGroup V2] [NormedSpace F0 V2]
     (gamma : V1 ≃L[F0] V2) (t1 : V1 →L[F0] V1) (t2 : V2 →L[F0] V2) :
-    ℕ → V2 →L[F0] V2 := fun n => if n = 0 then 0 else
-      (t2 - (gamma.toContinuousLinearMap.comp t1).comp gamma.symm.toContinuousLinearMap).comp
-        (t2 ^ (n-1))
+    ℕ → V1 →L[F0] V1 := fun n => if n = 0 then 0 else
+      (t1 - (gamma.symm.toContinuousLinearMap.comp t2).comp gamma.toContinuousLinearMap).comp
+        (t1 ^ (n-1))
 
 theorem tangentDelta_identity {F0 : Type*} [NormedField F0]
     {V : Type*} [NormedAddCommGroup V] [IsUltrametricDist V] [NormedSpace F0 V] (t : V →L[F0] V) (n : ℕ) :
@@ -1812,9 +1878,9 @@ example {C : Type*} [NormedField C] [Algebra (AlgebraicClosure F) C] :
 end TauCeti.Drinfeld
 
 /-! ## Packet interface register
-Every packet name is indexed below. A declared signature or example still has the scope stated
-for its target. An omission is a named mathematical target, not an arbitrary proposition or a
-claim that it has a native declaration. The reader and packet retain its exact statement.
+Every packet name is indexed below. Declared signatures and examples have the scope stated
+for their targets. Named omissions retain the mathematical statement and record the missing
+native interface. The reviewed packet governs corrections pending companion-reader synchronization.
 
 DrinfeldModulesAndTModules:DM.0/drinfeld-module — Drinfeld modules
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -1825,6 +1891,7 @@ DrinfeldModule.baseChange: signature above.
 DrinfeldModule.test_carlitz: example above, within the stated target scope.
 DrinfeldModule.test_scalar_rejected: example above, within the stated target scope.
 DrinfeldModule.test_special_characteristic: example above, within the stated target scope.
+DrinfeldModule.ext: signature above.
 
 DrinfeldModulesAndTModules:DM.0/rank-polynomial-ring — Rank over the polynomial ring
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -1835,7 +1902,7 @@ Native algebraic signatures and examples use the conventions and hypotheses of t
 Named target: For A=Γ(C−∞,O_C) with arbitrary δ=deg∞, a field Drinfeld A-module has a unique integer r≥1 such that deg_τφ_a=r deg_A(a), where deg_A(a)=−δ ord∞(a)=log_q #(A/(a)), for all a≠0. A rational ∞ is not assumed. The assertion includes integrality of r.
 
 DrinfeldModulesAndTModules:DM.0/rank — The rank invariant
-The native rank signatures specialize to F[t]. General A and the degree-δ normalization require the FA.1 function-ring contract and the integral-rank gap.
+The native rank signatures specialize to F[t]. General A and the degree-δ normalization require the AlgebraicCurves Layers 2–3 function-ring contract and the integral-rank gap.
 DrinfeldModule.rank: signature above.
 DrinfeldModule.rank_pos: signature above.
 DrinfeldModule.rank_baseChange: signature above.
@@ -1862,6 +1929,9 @@ DrinfeldModule.isogeny_iff: signature above.
 Hom_test_identity: example above, within the stated target scope.
 Hom_test_scalar_conjugation: example above, within the stated target scope.
 Hom_test_extra_endomorphism: example above, within the stated target scope.
+DrinfeldModule.Hom.ext: signature above.
+DrinfeldModule.Hom.id: signature above.
+DrinfeldModule.Hom.comp_assoc: signature above.
 
 DrinfeldModulesAndTModules:DM.0/isogeny-rank — Rank invariance and separability
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -1884,6 +1954,7 @@ RelativeDrinfeldModule.rank_fiber: signature above.
 RelativeDrinfeldModule_test_field: OMITTED — Over Spec L with E=O, recover the field definition and rank.
 RelativeDrinfeldModule_test_nonunit: example above, within the stated target scope.
 RelativeDrinfeldModule_test_frame: example above, within the stated target scope.
+RelativeDrinfeldModule.ext: OMITTED — On a fixed invertible sheaf, two actions agree when their restrictions on every affine open agree for every a∈A. Families on different line bundles use a compatible line-bundle isomorphism.
 
 DrinfeldModulesAndTModules:DM.0/relative-standardization — Standardization over nonreduced bases
 The unique nonlinear nilpotent Ore conjugation is a mathematical target. Its native relative automorphism signature is omitted until the standardization proof and line-bundle interface are fixed.
@@ -1923,7 +1994,7 @@ The full nonprincipal ideal-quotient basis and finite-shtuka dualizing pairing r
 Named target: If I is prime to the characteristic and Ω is a separably closed coefficient field, E[I](Ω) is a free A/I-module of rank r. For its motive, (M/IM)^τ is free of the same rank; the realization of E[I] is its finite-field dual, with the dualizing A/I-module Hom_F(A/I,F) made explicit.
 
 DrinfeldModulesAndTModules:DM.1/tate-module — Drinfeld Tate modules
-The native inverse limit uses a chosen element ell; the quotient and rank signatures specialize to principal prime ideals. The full A_lambda action and nonprincipal division-coordinate independence need FA.2 and finite-shtuka limits.
+The native inverse limit uses a chosen element ell; the quotient and rank signatures specialize to principal prime ideals. The full A_lambda action and nonprincipal division-coordinate independence need AlgebraicCurves completion and finite-shtuka limits.
 DrinfeldModule.tateModule: signature above.
 DrinfeldModule.tateModule_mod: signature above.
 DrinfeldModule.tateMap: signature above.
@@ -1932,9 +2003,11 @@ tateModule_test_carlitz: example above, within the stated target scope.
 tateModule_test_tau_square: example above, within the stated target scope.
 tateModule_test_isogeny: example above, within the stated target scope.
 tateModule_test_char_rejected: example above, within the stated target scope.
+DrinfeldModule.tateModule.lift: coordinate above as DrinfeldModule.tateModule.lift.
+DrinfeldModule.tateModule.ext: signature above.
 
 DrinfeldModulesAndTModules:DM.1/continuous-galois-action — The continuous Tate representation
-Coefficient automorphism actions and their coordinate equivariance are native. The continuous absolute-Galois representation, topology and completed coefficient-module action require FA.2 and the finite-shtuka limit interface.
+Coefficient automorphism actions and their coordinate equivariance are native. The continuous absolute-Galois representation, topology and completed coefficient-module action require AlgebraicCurves completion and the finite-shtuka limit interface.
 DrinfeldModule.tateGaloisAction: signature above.
 DrinfeldModule.tateGaloisAction_mod: signature above.
 DrinfeldModule.tateMap_equivariant: signature above.
@@ -1943,7 +2016,7 @@ tateGaloisAction_test_finite_field: example above, within the stated target scop
 tateGaloisAction_test_basis: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.1/characteristic-local-realization — The characteristic-place realization
-The connected affine kernels and a residue-degree Frobenius calculation are native tests. The completed characteristic factor, bound and finite-shtuka comparison require HS2 and SF.2; no separable-point representation replaces them.
+The connected affine kernels and a residue-degree Frobenius calculation are native tests. The completed characteristic factor, bound and finite-shtuka comparison require the equal-characteristic local-shtuka and strict finite-group gaps; no separable-point representation replaces them.
 DrinfeldModule.charLocalRealization: OMITTED — The distinguished completed module with τ^f.
 DrinfeldModule.charLocalRealization_rank: OMITTED — Its R[[z]]-rank is r.
 DrinfeldModule.charLocalRealization_mod: OMITTED — The finite reductions realize the full characteristic torsion group schemes.
@@ -1952,7 +2025,7 @@ charLocal_test_residue_degree: example above, within the stated target scope.
 charLocal_test_points_insufficient: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.2/c-infinity — The analytic coefficient field
-The native type is the uniform completion of an algebraic closure equipped with an explicitly supplied extending norm. FA.2 supplies that norm and the infinity field; no new completion type is planned.
+The native type is the uniform completion of an algebraic closure equipped with an explicitly supplied extending norm. AlgebraicCurves Layer 5 supplies the normalized infinity field; the extending norm remains an input in the completed-coefficient gap. No new completion type is planned.
 CInfty: signature above.
 CInfty.norm_algebraMap: signature above.
 CInfty.isAlgClosed: signature above.
@@ -1962,7 +2035,7 @@ CInfty_test_qroot: example above, within the stated target scope.
 CInfty_test_generic: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.2/a-lattice — Projective A-lattices
-The native positive-rank finite projective submodule uses finite bounded-ball intersections. Principal and algebraic-constant tests are stated. The nonprincipal ideal example needs the FA.1 ring and FA.2 embedding and norm data.
+The native positive-rank finite projective submodule uses finite bounded-ball intersections. Principal and algebraic-constant tests are stated. The nonprincipal ideal example needs the AlgebraicCurves Layers 2–3 function ring and AlgebraicCurves completion embedding and norm data.
 ALattice: signature above.
 ALattice.rank: signature above.
 ALattice.scale: signature above.
@@ -1970,6 +2043,7 @@ ALattice.quotient_card: signature above.
 ALattice_test_principal: example above, within the stated target scope.
 ALattice_test_nonprincipal: OMITTED — For a nonprincipal ideal I⊂A embedded in K_∞, I is a rank-one projective lattice and is not free as an A-module.
 ALattice_test_discrete_constants: example above, within the stated target scope.
+ALattice.ext: signature above.
 
 DrinfeldModulesAndTModules:DM.2/lattice-exponential — Lattice exponential
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -1980,6 +2054,7 @@ ALattice.exp_scale: signature above.
 latticeExp_test_derivative: example above, within the stated target scope.
 latticeExp_test_kernel: example above, within the stated target scope.
 latticeExp_test_scaling: example above, within the stated target scope.
+ALattice.exp_smul: signature above.
 
 DrinfeldModulesAndTModules:DM.2/lattice-drinfeld-module — The module of a lattice
 The native construction specializes to F[t]. The general A action, rank and scalar-change comparisons require the function-ring interface and the uniformization proof gap.
@@ -1992,12 +2067,12 @@ latticeModule_test_linear: example above, within the stated target scope.
 latticeModule_test_carlitz: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.2/uniformization — Drinfeld uniformization
-The full general-A analytic surjectivity and projective kernel theorem is a mathematical target; its exact native signature awaits the FA.1/FA.2 interfaces and the stated analytic proof input.
-Named target: Every rank-r Drinfeld A-module φ over C_∞ in generic characteristic has a unique entire F-linear exponential exp_φ with derivative one and exp_φ(az)=φ_a(exp_φ(z)). It is surjective; its kernel is a projective A-lattice of rank r. These functors give an equivalence between field Drinfeld modules over C_∞ and A-lattices with scalar morphisms. No automatic statement is asserted for arbitrary t-modules or families.
+The full general-A analytic surjectivity and projective kernel theorem is a mathematical target; its exact native signature awaits the existing AlgebraicCurves function-ring/completion interfaces and the stated analytic proof input.
+Named target: Every rank-r Drinfeld A-module φ over C_∞ in generic characteristic has a unique entire F-linear exponential exp_φ with derivative one and exp_φ(az)=φ_a(exp_φ(z)). It is surjective; its kernel is a projective A-lattice of rank r. These functors give an equivalence between rank-r field Drinfeld modules over C_∞ and rank-r A-lattices with scalar morphisms. No automatic statement is asserted for arbitrary t-modules or families.
 
 DrinfeldModulesAndTModules:DM.2/exponential-morphisms — Morphisms in uniformization
 The general-A scalar/morphism dictionary requires the general-A uniformization object; the coordinate Ore intertwiners are already native.
-Named target: For φ,ψ over C_∞, differentiation gives a bijection Hom(φ,ψ)≅{c∈C_∞:cΛ_φ⊂Λ_ψ}; the corresponding polynomial u satisfies u(exp_φ(z))=exp_ψ(cz). It is compatible with A-actions, identities and composition. In particular scalar homothety classifies isomorphisms.
+Named target: For φ,ψ of the same positive rank r over C_∞, differentiation gives a bijection Hom(φ,ψ)≅{c∈C_∞:cΛ_φ⊂Λ_ψ}; the corresponding polynomial u satisfies u(exp_φ(z))=exp_ψ(cz). It is compatible with A-actions, identities and composition. In particular scalar homothety classifies isomorphisms.
 
 DrinfeldModulesAndTModules:DM.2/carlitz-exponential — Carlitz exponential and logarithm
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -2030,7 +2105,7 @@ carlitzOmega_test_theta: example above, within the stated target scope.
 carlitzOmega_test_tate_unit: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.2/period-power — The invariant Carlitz period power
-The exact normalized product identity is stated mathematically; its K-infinity membership signature requires the FA.2 embedding rather than an arbitrary coefficient-field membership predicate.
+The exact normalized product identity is stated mathematically; its K-infinity membership signature requires the AlgebraicCurves completion embedding rather than an arbitrary coefficient-field membership predicate.
 Named target: π_BP^(q−1)=π_ND^(q−1)=−θ^q∏_{i≥1}(1−θ^(1−q^i))^(−(q−1)) belongs to K_∞×. It is independent of the root ρ. The period itself need not lie in K_∞ when q>2.
 
 DrinfeldModulesAndTModules:DM.3/level-structure — Prime-to-characteristic level structures
@@ -2042,6 +2117,7 @@ DrinfeldLevel.change: OMITTED — GL_r(A/N) acts by precomposition after the ide
 DrinfeldLevel_test_rank_one: example above, within the stated target scope.
 DrinfeldLevel_test_basis: example above, within the stated target scope.
 DrinfeldLevel_test_characteristic: example above, within the stated target scope.
+DrinfeldLevel.ext: OMITTED — For the same underlying Drinfeld family, level frames are equal when their finite étale group-scheme maps agree.
 
 DrinfeldModulesAndTModules:DM.3/moduli-functor — The Drinfeld moduli stack
 The groupoid/stack, descent, atlas and quotient tests need the SF.1 fibred-category and relative line-bundle interfaces. Sets of isomorphism classes are explicitly insufficient.
@@ -2054,7 +2130,7 @@ DrinfeldModuli_test_dimension: OMITTED — Relative dimensions at ranks one and 
 DrinfeldModuli_test_iso_classes: OMITTED — Replacing each groupoid by its set of isomorphism classes loses the automorphism group when q>2.
 
 DrinfeldModulesAndTModules:DM.3/fine-moduli-scheme — Fine level representability and smoothness
-The native universal-family representability signature requires DrinfeldModuli and SF.1/SF.2; the exact principal-level chart/deformation proof is a recorded gap.
+The native universal-family representability signature requires DrinfeldModuli and exact SF.1 descent and quotient nodes; the exact principal-level chart/deformation proof is a recorded gap.
 Named target: For any nonzero proper N⊂A, the full level-N functor over Spec A[1/N] is represented by an affine smooth scheme M_r(N) of finite type and relative dimension r−1, with universal family. For a compact open K⊂GL_r(Â), call K fine if its image in some GL_r(A/p) is unipotent. Write N_K for the largest ideal with K(N_K)⊂K. The K-level moduli scheme over A[1/N_K] is a fine smooth moduli scheme when K is fine; for general K it is coarse. These assertions do not require the two-prime condition needed for an all-characteristics level functor over Spec A.
 
 DrinfeldModulesAndTModules:DM.3/generalized-drinfeld-module — Generalized Drinfeld modules
@@ -2067,6 +2143,7 @@ generalized_test_boundary: example above, within the stated target scope.
 generalized_test_scalar: example above, within the stated target scope.
 generalized_test_nilpotents: example above, within the stated target scope.
 generalized_test_constant_family: OMITTED — A constant family over a positive-dimensional affine line is not weakly separating.
+GeneralizedDrinfeldModule.ext: OMITTED — On a fixed line bundle, equality of all action coefficients on a trivializing cover determines the generalized family; no equality from geometric fibres alone is asserted over a nonreduced base.
 
 DrinfeldModulesAndTModules:DM.3/satake-compactification — The generic Satake compactification
 The normal proper generic compactification, dense immersion, extended family and uniqueness require the native moduli, scheme and bundle interfaces. General boundary stratification and unrestricted arithmetic base change are not inferred.
@@ -2079,7 +2156,7 @@ satake_test_rank_two: OMITTED — For F[t] and level (t), its generic rank-two c
 satake_test_general_boundary: OMITTED — Normal projectivity and weak separation alone do not provide a named disjoint union of every lower-rank moduli stratum.
 
 DrinfeldModulesAndTModules:DM.3/reciprocal-compactification — The principal-level reciprocal model
-Reciprocal.ring is the native ungraded subalgebra of a fraction field and has reciprocal relations. The grading, Proj, universal O(-1) action, Lie dual and rank-two geometric test require SF.4; the normality proof is a recorded input.
+Reciprocal.ring is the native ungraded subalgebra of a fraction field and has reciprocal relations. The grading, Proj, universal O(-1) action, Lie dual and rank-two geometric test require the exact SF.0 Proj/normalization and SF.1 finite-quotient inputs plus the recorded projectivity gap; the normality proof is a recorded input.
 DrinfeldReciprocalRing: coordinate above as Reciprocal.ring.
 DrinfeldReciprocalScheme: OMITTED — Q_r=Proj R(V).
 DrinfeldReciprocalScheme.universalAction: OMITTED — The bounded action tX∏(1−X/v) on O(−1).
@@ -2097,6 +2174,7 @@ DrinfeldModularForm.levelInvariants: OMITTED — At a fine normal sublevel K′,
 modularForm_test_one: OMITTED — The constant section 1 is a weight-zero form.
 modularForm_test_rank_two: OMITTED — At A=F[t], level (t), rank two, ω has degree q and dim M_k=qk+1; for k≥1 the q+1 cusp vanishing conditions give dim cusp forms qk−q.
 modularForm_test_boundary: OMITTED — A section on the open moduli scheme with a pole at a cusp is not a global section on the compactification.
+DrinfeldModularForm.ext: OMITTED — Global modular-form sections are equal when their restrictions on an open cover agree. Evaluation at geometric points is not used as extensionality on a possibly nonreduced base.
 
 DrinfeldModulesAndTModules:DM.3/hecke-correspondence — Drinfeld Hecke correspondences and operators
 The compact finite correspondence, trace on the form line and double-coset composition require the Satake and section interfaces; no abstract set map substitutes for the finite geometric trace.
@@ -2110,7 +2188,7 @@ Hecke_test_level_trace: OMITTED — For a fine normal sublevel K′⊂K, trace�
 Hecke_test_characteristic_index: OMITTED — If p divides [K:K′], that composite is zero on forms; a normalized trace dividing by the degree is undefined.
 
 DrinfeldModulesAndTModules:DM.3/integral-compactification — The arithmetic Satake compactification
-The integral normal/projective/flat compactification and finite surjective open level maps require SF.4 and the extended generalized family. Special-fibre normality or Cohen–Macaulayness is not asserted.
+The integral normal/projective/flat compactification and finite surjective open level maps require the exact SF.0 Proj/normalization and SF.1 finite-quotient inputs plus the recorded projectivity gap and the extended generalized family. Special-fibre normality or Cohen–Macaulayness is not asserted.
 Named target: For every fine compact open K⊂GL_r(Â), with N_K the largest ideal satisfying K(N_K)⊂K, M_r(K) over Spec A[1/N_K] has a normal integral projective flat Satake compactification carrying a weakly separating generalized Drinfeld module extending the universal family. Both are unique up to unique compatible isomorphism, and the Lie-dual line is ample. For fine K′⊂K, the level map extends to a finite surjective open map after extending the base to A[1/N_K′], and pulls back the family and Lie-dual line. No flatness of this finite level map or normality/Cohen–Macaulayness of every special fiber is asserted.
 
 DrinfeldModulesAndTModules:DM.4/t-module — Anderson t-modules
@@ -2124,9 +2202,12 @@ TModule_test_carlitz: example above, within the stated target scope.
 TModule_test_nilpotent: example above, within the stated target scope.
 TModule_test_semisimple_differential: example above, within the stated target scope.
 TModule_test_nonabelian: example above, within the stated target scope.
+TModule.ext: signature above.
+TModule.Hom.id: signature above.
+TModule.Hom.comp: signature above.
 
 DrinfeldModulesAndTModules:DM.4/effective-a-motive — Effective A-motives
-EffectiveTMotive is the finite-free F[t]-coordinate presentation with an injective linearization and characteristic-supported cokernel. General projective A-tensor modules and their matrix-localization/descent API need FA.1 and SF.0/SF.2; the scope is not silently replaced by the free case.
+EffectiveTMotive is the finite-free F[t]-coordinate presentation with an injective linearization and characteristic-supported cokernel. General projective A-tensor modules and their matrix-localization/descent API need AlgebraicCurves and AlgebraicVectorBundles; the scope is not silently replaced by the free case. The additional nonreduced-base example is a native polynomial-ideal test. The field coordinate type’s unspecified support exponent is sufficient only in its stated field scope, where the exponent is bounded by cokernel dimension.
 EffectiveAMotive: OMITTED — Finite projective M with τ_M:σ*M→M and the specified cokernel.
 EffectiveAMotive.rank: coordinate above as EffectiveTMotive.rank.
 EffectiveAMotive.dimension: coordinate above as EffectiveTMotive.dimension.
@@ -2136,6 +2217,9 @@ EffectiveAMotive_test_carlitz: example above, within the stated target scope.
 EffectiveAMotive_test_tensor: example above, within the stated target scope.
 EffectiveAMotive_test_support: example above, within the stated target scope.
 EffectiveAMotive_test_linearization: example above, within the stated target scope.
+EffectiveAMotive.dimension_bound: OMITTED — For dimension d the cokernel is locally free of R-rank d and J^d annihilates it. An unspecified annihilating power is a weaker effective condition.
+EffectiveAMotive_test_nonreduced_bound: example above, within the stated target scope.
+EffectiveAMotive.matrix_ext: coordinate above as EffectiveTMotive.ext.
 
 DrinfeldModulesAndTModules:DM.4/contravariant-motive — The contravariant motive functor
 The native coordinate motive, reversed maps and linearized tau-image Lie-dual quotient are given. General A-projectivity and relative descent use the effective A-motive supplier.
@@ -2161,9 +2245,10 @@ EffectiveTMotive.pureTensor: signature above.
 purity_test_carlitz: example above, within the stated target scope.
 purity_test_tensor_power: example above, within the stated target scope.
 purity_test_mixed: example above, within the stated target scope.
+EffectiveTMotive.PureLattice: signature above.
 
 DrinfeldModulesAndTModules:DM.4/uniformizability — Uniformizable t-modules
-The native exponential, its functional equation and surjectivity predicate are coordinate statements. The full general-A projective period lattice and its rank require the analytic input; rigid triviality is an outgoing DM.8 comparison.
+The native exponential, its functional equation and surjectivity predicate are coordinate statements. The full general-A projective period lattice and its rank require the analytic input; rigid triviality is an outgoing DM.8 comparison. The native exponential, uniformizability and kernel definitions all take 1<‖θ‖ explicitly, as does their functional equation.
 TModule.exp: signature above.
 TModule.exp_functionalEquation: signature above.
 TModule.isUniformizable: signature above.
@@ -2191,6 +2276,7 @@ EffectiveDualTMotive.baseChange: signature above.
 dualMotive_test_carlitz: example above, within the stated target scope.
 dualMotive_test_tensor: example above, within the stated target scope.
 dualMotive_test_twist: example above, within the stated target scope.
+EffectiveDualTMotive.ext: signature above.
 
 DrinfeldModulesAndTModules:DM.4/star-adapter — The star anti-isomorphism
 Native algebraic signatures and examples use the conventions and hypotheses of the mathematical target; the source proof route remains a planned specification.
@@ -2209,7 +2295,7 @@ Native algebraic signatures and examples use the conventions and hypotheses of t
 Named target: For the row dual module H=L[σ]^{1×d} associated to Φ over a perfect field, define δ₁(Σ h_iσ^i)=Σ h_i^(q^i) coordinatewise. It induces an F-linear A-module isomorphism H/(σ−1)H≅E(L), with the t-action inherited from Φ_t*. The denominator means the F-linear image of σ−1, not an L-linear submodule. For an effective dual motive finite free over both L[t] and L[σ], this reconstructs its A-finite t-module; over perfect L this is abelian as well: Maurischat Theorem 6.6 proves abelian iff A-finite, and Corollary 8.1 extends this equivalence to Anderson A-modules by restriction along a finite extension A/F[t]. This theorem concerns finite generation of the motive of an actual Anderson module; it does not add Ore-finiteness to the broader effective dual-motive definition.
 
 DrinfeldModulesAndTModules:DM.5/rational-motive-realization — Rational motives and their Tate realization
-The rational A-isomotive category, completed residue factors, fixed-module realizations and point/motive duality require FA.2 and SF.2. The literal completion of point Hom below is not a period-ring substitute.
+The rational A-isomotive category, completed residue factors, fixed-module realizations and point/motive duality require the recorded completion and finite-shtuka inputs. The literal completion of point Hom below is not a period-ring substitute.
 AMotive.HomIsogeny: OMITTED — K_0⊗A Hom(M,N).
 AMotive.rationalTate: OMITTED — The completed τ-fixed rational realization.
 AMotive.rationalTateMap: OMITTED — A motive morphism acts covariantly on τ-invariants.
@@ -2219,7 +2305,7 @@ rationalMotive_test_isogeny: OMITTED — A nonzero Drinfeld isogeny becomes an i
 rationalMotive_test_carlitz_dual: OMITTED — The rank-one Carlitz motive realization has inverse character to the Carlitz point realization; identifying them without dualization reverses the Galois character.
 
 DrinfeldModulesAndTModules:DM.5/tate-hom-map — The Tate Hom map
-The native completed-tensor Hom map targets coefficient-automorphism-equivariant principal Tate modules. Its full absolute-Galois and rational-motive formulation uses FA.2/SF.2.
+The native completed-tensor Hom map targets coefficient-automorphism-equivariant principal Tate modules. Its full absolute-Galois and rational-motive formulation uses the recorded completion and finite-shtuka inputs.
 DrinfeldModule.tateHomMap: signature above.
 DrinfeldModule.tateHomMap_pure: signature above.
 DrinfeldModule.tateHomMap_comp: signature above.
@@ -2237,7 +2323,7 @@ The exact finite-generation and scalar-extension full-faithfulness theorem is a 
 Named target: Let L be finitely generated over F. Put K_0,L=Frac(K_0⊗F L), K_0,λ,L=Frac(K_0,λ⊗F L), and L_(λ)=Frac((F_λ⊗F L)[[z]]). A restricted module means a finite projective module with invertible Frobenius linearization; at λ it has a finite-projective integral lattice with invertible Frobenius. Extension K_0,L→K_0,λ,L is K_0,λ/K_0-fully faithful on such modules and preserves semisimple objects. Extension K_0,λ,L→L_(λ) is fully faithful on the λ-restricted objects and preserves semisimple objects. Thus completed Frobenius-equivariant maps are algebraized over the rational coefficient ring. The first ring is not the full completed Laurent-series ring unless L is finite.
 
 DrinfeldModulesAndTModules:DM.5/period-ring — The Tate period ring
-The two distinct fixed fields, divisor-by-divisor valuation bounds, localization and semilinear comparison require the FA.2/rational-motive coefficient interfaces. An unconstrained series ring would state a different theorem.
+The two distinct fixed rings, divisor-by-divisor valuation bounds, localization and semilinear comparison require the AlgebraicCurves completion/rational-motive coefficient interfaces. An unconstrained series ring would state a different theorem.
 TatePeriodRing: OMITTED — The valuation-bounded ring B⁺ localized at the specified Frobenius units.
 TatePeriodRing.sigmaFixed: OMITTED — B^σ=K_0,λ.
 TatePeriodRing.galoisFixed: OMITTED — B^G_L=K_0,λ,L.
@@ -2277,6 +2363,7 @@ TaelmanModel.reduce: signature above.
 TaelmanModel_test_carlitz: example above, within the stated target scope.
 TaelmanModel_test_bad_reduction: example above, within the stated target scope.
 TaelmanModel_test_zero_rank: example above, within the stated target scope.
+TaelmanModel.ext: signature above.
 
 DrinfeldModulesAndTModules:DM.6/euler-l-value — The model-dependent L-value
 The native local factors keep the point and Lie actions separate. Global Euler-product convergence, constant term and the Carlitz zeta comparison require a finite global-field/integral-model interface; no convergence is asserted for arbitrary commutative rings.
@@ -2289,7 +2376,7 @@ lValue_test_carlitz_prime: example above, within the stated target scope.
 lValue_test_bad_prime: example above, within the stated target scope.
 
 DrinfeldModulesAndTModules:DM.6/unit-lattice — The exponential unit lattice
-The native exponential inverse image is an A-submodule. Full lattice/rank and examples use the one-place polynomial-integral specialization; the finite-product infinity-field version needs FA.2.
+The native exponential inverse image is an A-submodule. Full lattice/rank and examples use the one-place polynomial-integral specialization; the finite-product infinity-field version needs AlgebraicCurves completion.
 TaelmanModel.exp: signature above.
 TaelmanModel.units: signature above.
 TaelmanModel.units_mem: signature above.
@@ -2348,7 +2435,7 @@ The full nuclear determinant identity uses the compact quotient comparison and i
 Named target: For a continuous F-linear isomorphism γ:(V/Λ₁)×H₁→(V/Λ₂)×H₂ infinitely tangent to the identity on V, the series Δ_γ is nuclear and det(1+Δ_γ|M₁)=[Λ₁:Λ₂]·|H₂|/|H₁|. This fixes the covolume orientation and the class numerator. No determinant of an arbitrary infinite-dimensional automorphism is used.
 
 DrinfeldModulesAndTModules:DM.6/class-number-formula — Taelman’s class formula
-The native class formula specializes to F[t] in one infinity completion. The full finite global-field version and nuclear proof retain the FA.2 quotient/operator contracts.
+The native class formula specializes to F[t] in one infinity completion. The full finite global-field version and nuclear proof retain the AlgebraicCurves completion quotient/operator contracts.
 Named target: For every Taelman integral model E/R, including nonunit leading coefficient and rank zero, L(E/R)=[R:U(E/R)]·|H(E/R)| in F((T⁻¹)). All local factors are those of the chosen integral model. The formula is not generalized here to arbitrary A, arbitrary higher-dimensional t-motives, or complex L-values.
 
 DrinfeldModulesAndTModules:DM.6/small-power-sum — Depth-one Carlitz power sums
@@ -2370,6 +2457,7 @@ EllipticSheaf_test_rank_one: OMITTED — For F[t], C=P¹ and Carlitz, E_i=O(i), 
 EllipticSheaf_test_rank_two: example above, within the stated target scope.
 EllipticSheaf_test_curve: OMITTED — Bundles on a Fargues–Fontaine curve do not define this chain on C×S.
 EllipticSheaf_test_frobenius: OMITTED — Replacing σ=id_C×Frob_S by the absolute Frobenius of C×S changes the degree of every E_i and fails periodicity compatibility.
+EllipticSheaf.Hom.ext: OMITTED — Two bounded-shift morphisms agree if their component bundle maps agree after passage to a common index shift; use the quotient-by-further-inclusions convention of the target.
 
 DrinfeldModulesAndTModules:DM.7/normalized-elliptic-sheaf — Normalized elliptic sheaves
 Normalization uses fibre Euler characteristic, the transverse square, cohomology/base change and the dual section line. The native diagram component contains no fabricated cohomology or support field.
@@ -2383,7 +2471,7 @@ normalized_test_shift: OMITTED — Shifting the Carlitz chain to E_i=O(i+1) give
 normalized_test_direction: OMITTED — The inverse Drinfeld line is (pr_S*E_0)∨ because the sections are the contravariant motive generator, not its point line.
 
 DrinfeldModulesAndTModules:DM.7/drinfeld-to-sheaf — The elliptic sheaf of a Drinfeld module
-The full filtered-motive gluing on the global curve, infinity residue factors and bounded-shift maps require the FA.1/SF.0 interfaces. The affine matrix tests do not construct the full chain.
+The full filtered-motive gluing on the global curve, infinity residue factors and bounded-shift maps require the existing AlgebraicCurves, AlgebraicVectorBundles and JacobianChallenge interfaces. The affine matrix tests do not construct the full chain.
 DrinfeldModule.ellipticSheaf: OMITTED — The glued chain from the Ore-degree filtration.
 DrinfeldModule.ellipticSheaf_affine: OMITTED — Its restriction to C−∞ is M(E).
 DrinfeldModule.ellipticSheaf_periodic: OMITTED — An rδ-index shift equals tensoring by O(∞).
@@ -2411,7 +2499,7 @@ The full elliptic-motive/point Tate pairing needs the completed finite-shtuka re
 Named target: For a normalized elliptic sheaf attached to E and λ away from the characteristic, complete its affine motive M at λ. Its τ-fixed completed realization is canonically dual to T_λE, with the A_λ-linear Galois pairing obtained at each λ^n level from the finite-shtuka functor. The pairing is compatible with all Drinfeld morphisms, bounded shifts of elliptic-chain maps, base extension and prime-to-characteristic level frames.
 
 DrinfeldModulesAndTModules:DM.7/characteristic-comparison — The effective characteristic local comparison
-The effective characteristic local comparison retains the connected group schemes, characteristic residue factor and residue-degree Frobenius. Its native local-shtuka interface is imported from HS2, not replaced by separable points.
+The effective characteristic local comparison retains the connected group schemes, characteristic residue factor and residue-degree Frobenius. Its native local-shtuka interface is recorded as an equal-characteristic local-shtuka gap, not replaced by separable points.
 Named target: For characteristic p and an F_p-algebra R with nilpotent uniformizer image γ(z), completing the affine motive of the elliptic sheaf and selecting the characteristic residue factor gives the same rank-r effective local shtuka as DM.1, with q^(deg p)-Frobenius and the dimension-one cokernel bound. Its finite reductions correspond to the full p-power strict finite group schemes. This is a comparison of completed motives and finite torsion, not a characteristic-place rank-r separable-point Tate representation or an unrestricted crystalline/étale comparison.
 
 -/
