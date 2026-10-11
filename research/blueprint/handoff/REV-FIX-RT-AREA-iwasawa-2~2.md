@@ -1,98 +1,92 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-9tlKfF`, 11 October 2026. Refs #6219.
-[Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105080539); the bot confirmed this session won the claim.
-Input commit: `e6ff4c204473491a6961e671d9ae761a017bc59f`.
+Codex (GPT-6), session `codex-Ocof1q`, 11 October 2026. Refs
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105241649).
+Input commit: `1e39b91ecd76e1bfdf116c6502efc2f2b5fd3b7f`.
 
-## Status: blocked by missing file-scope authorization
+## Status: blocked by file-scope authorization
 
-The six-finding correction review is complete; preserve its original
-attribution in the [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
-L3 carries this job's accepted record and PMIA its justified `needs_changes`
-record. Completion requires only installation of the exact L3-2 and D.1
-records below, retaining their `codex-jIGDIK` attribution.
+The six-finding correction review is ready. Preserve the attribution in the
+[report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) and its immutable
+predecessor links. L3 already records acceptance under this review job; PMIA
+already records its justified `needs_changes`. The queue finishes when the
+exact L3-2 and D.1 records below are installed. Their original
+`codex-jIGDIK` attribution must remain.
 
-The live issue #6219 omits these two queue-required packets:
+The live issue omits these queue-required packets:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-[WORKERS.md](../WORKERS.md) says,
-"Edit only the files the issue names, plus your own scratch space."
-After preparing and validating both concrete changes, this session requested
-explicit authorization through the worker conversation to change only
-`review` and `reviewHistory` in these packets. Authorization is pending;
-neither packet has been edited. The queue's output list and intake allowlist
-do not repair the live issue's narrower file-scope instruction.
+[WORKERS.md](../WORKERS.md), Doing the work, says:
+“Edit only the files the issue names, plus your own scratch space.”
+The issue also restricts edits to its named files under review. After
+preparing and validating the concrete two-record changes, I asked through
+the worker conversation for authorization to change only `review` and
+`reviewHistory` in those two packets. The question remains unanswered.
+Neither packet was edited; queue ownership and intake eligibility do not
+supersede this instruction.
 
-Do not repeat the completed mathematical review, append further L3 or PMIA
-records, or alter the queue/completion rule. Resume the two installations
-after explicit authorization or repair of the live issue's list. A finished
-review preserves PMIA's justified `needs_changes` verdict.
+Authorize these two paths or repair the live issue before redispatch.
+Repeating the completed review cannot finish the scope-blocked job.
+Negative PMIA review does not prevent this review finishing; its coordinated
+revision is a separate job. Do not change the completion predicate, add
+another identical L3/PMIA history entry or replan existing upstream work.
 
-## This session's verification
+## Fresh checks in this continuation
 
-Reconstructed the two exact candidates from the predecessor's handoff.
-All guarded input and candidate hashes below match. Their histories preserve
-the complete 79-node L3-2 and 72-node D.1 reviews, with original attribution;
-every non-review parsed field is unchanged. All four actual packets pass
-`check_blueprint.py` with the existing pinned index: zero errors, 26 inherited
-short-API warnings in L3, and no warnings in the other three. Both candidates
-pass at their canonical paths in a read-only context with no errors or
-warnings. Actual `deliverables_complete` is False; read-only substitution
-of exactly the two records makes it True. No actual packet was substituted.
+Prepared the exact two candidates from the preceding handoff and matched
+both input/candidate hashes below. Their full prior reviews retain 79 and
+72 `checked` node decisions. Asserted that every non-review field is equal
+and each history equals the prior history plus the entire prior review.
+All four actual packets pass the exact pinned-index checker with zero errors;
+L3 retains 26 inherited short-API warnings, the other three have none. Both
+scratch candidates pass with zero errors and warnings. Actual completion is
+false; a read-only substitution of exactly the two candidates makes it true.
+The actual four packets and four Suggested files retain their input hashes.
+No packet contains an `excerpt` field.
 
-Freshly read the five current native declarations for /4 named in the
-report, confirming their exact hypotheses and module conventions. The
-read-only upstream commits remain TauCetiRoadmap
-`070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read all six finding claims, verifier decisions and the round-two fix report.
+Directly checked Zhao §1.2 p.461, §4 pp.471–473 and Appendix A p.473;
+Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7;
+Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54;
+Nekovář–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54.
+Text readings and visual checks of Zhao p.472 and Ertl–Niziol p.7 agree with
+the bounded /2 and /3 contracts. Five gaps/eight requests in L3-2 and nine
+gaps/twenty requests in D.1 remain explicit. Four public-PDF hashes reproduced
+below; no book used and no source passage copied into the repository.
 
-All four actual packets and four suggested files retain their input byte
-hashes, and no packet contains an `excerpt` field. No PDF was fetched, no
-book was used and no source passage was copied. Predecessor source and Lean
-checks are preserved with their attribution; no Lean elaboration was
-repeated for the metadata-only candidates.
+Read the five current native Fitting/transpose declarations named in the
+report and their PMIA counterparts. Their exact hypotheses support PMIA's
+negative ownership verdict. Consulted current ArithmeticDirichletSeries and
+StableReduction README/Suggested interfaces. Current read-only upstream heads
+are TauCetiRoadmap `070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the current LAD complex
+conventions and RS-16 I.5 proof-route decision. These checks preserve earlier
+full source/node audits with their original attribution.
 
-The `codex-YXQsbh` elaboration results remain that session's checks: L3 fails
-at its `research` import before body elaboration; L3-2, D.1 and PMIA elaborate
-with 111, 307 and 1,075 expected proof-placeholder warnings only. No Lean
-source changed, and no process remains running.
-
-## Preserved source evidence
-
-The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) retains the six-finding
-verdicts, exact primary-source locators, five native declarations and immutable
-links to earlier exhaustive reviews. Its preceding source checks retain the
-original sessions' attribution. This continuation fetched no source PDF,
-used no book, and copied no source passage.
-
-The following public-PDF hashes were reproduced by `codex-KJ9aP3` on
-11 October 2026; they are preserved as earlier evidence, not new readings.
-
-| Source | SHA-256 |
-| --- | --- |
-| [Zhao](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1DF77ECEC0EE657089F2E26C0F8AA351/S0013091522000177a.pdf/sum_expressions_for_kubotaleopoldt_padic_lfunctions.pdf) | `923b85f7e3e7e55b4636ff98be2ca5f11a469ec10abe1ee15d6ede55a6936661` |
-| [Ertl–Niziol v2](https://arxiv.org/pdf/1603.01705v2) | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
-| [Colmez–Niziol v4](https://arxiv.org/pdf/1505.06471v4) | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
-| [Nekovar–Niziol v5](https://arxiv.org/pdf/1309.7620v5) | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
+Lean was not repeated for metadata-only candidates. The unchanged Suggested
+hashes below preserve `codex-YXQsbh`'s evidence: L3 fails at its `research`
+import; L3-2, D.1 and PMIA elaborate with 111, 307 and 1,075 admission warnings
+only. This session makes no fresh compilation claim.
 
 ## Installation guards
 
-SHA-256 of the exact UTF-8 JSON files. Candidate serialization is
+Exact UTF-8 file SHA-256. Candidate serialization is
 `json.dumps(..., ensure_ascii=False, indent=2)` plus one final newline.
-Inspect intervening changes if an input hash differs; never replace new
-mathematics or erase newer review evidence.
+If an input differs, inspect intervening changes rather than overwrite newer
+evidence or mathematics.
 
-| Packet | Expected input | Prepared candidate |
+| Packet | Input | Candidate |
 | --- | --- | --- |
 | L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
 | D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
 
-## Remaining records
+## Exact remaining records
 
-These exact records were prepared by `codex-jIGDIK`. They accept the bounded
-corrections and preserve open supplier obligations. Keep that attribution.
+Prepared by `codex-jIGDIK`; retain that attribution. These records accept the
+bounded corrections and preserve open supplier obligations.
 
 ### DirichletPadicLFunctions--L3-2
 
@@ -116,35 +110,46 @@ corrections and preserve open supplier obligations. Keep that attribution.
 }
 ```
 
-## Installation after authorization
+## Resume after authorization
 
-1. Require the input hashes above to match; otherwise inspect intervening edits.
-2. Append each entire existing top review to `reviewHistory`, then install its
-   corresponding exact record above. Assert parsed equality of all other
-   fields, and history equality to old history plus the entire old review.
-3. Keep L3, PMIA and every suggested file byte-identical to input. Recursively
-   reject excerpt fields.
-4. Run the packet checker on all four packets using the existing pinned index,
-   `git diff --check`, and `intake.py check-files` on changed paths.
-5. Import `issues` from `research/blueprint`, select the queue job with id
-   `REV-FIX-RT-AREA-iwasawa-2~2`, and call `deliverables_complete(job, root=...)`
-   with the actual repository root. Require True without any monkeypatch.
-6. Update the report and handoff with explicit authorization and installation
-   results; submit a finished review PR with Refs #6219 and accurate attribution.
+1. Require the guarded input hashes above to match.
+2. Append each entire current `review` to its existing `reviewHistory`, then
+   install the corresponding exact record above. Assert that all other parsed
+   fields and the full earlier histories are unchanged.
+3. Keep L3, PMIA and every Suggested file byte-identical. Reject any `excerpt`
+   field recursively.
+4. Run all four packets through `scripts/check_blueprint.py` using the existing
+   pinned declaration index. Run `git diff --check` and
+   `intake.py check-files` on the changed paths.
+5. Import `issues` from `research/blueprint`, select queue job
+   `REV-FIX-RT-AREA-iwasawa-2~2` and require `deliverables_complete(job, root=...)`
+   to return true on the actual checkout, without an overlay.
+6. Update this report/handoff to completed status with the authorization and
+   installation evidence; submit the finished review with Refs #6219.
 
-A finished review retains PMIA's justified `needs_changes` verdict. No queue
-or predicate change is authorized. Repeating source audits cannot resolve
-this remaining scope mismatch.
+## Fresh source receipts
 
-## Checkpoint submission
+Public PDFs fetched on 11 October 2026; full locators are in the report.
 
-Only this handoff and the review report are changed. The two exact candidates
-were checked and are fully specified above. No mathematical or Lean file was
-edited. Actual completion remains False; approval or live-issue scope repair
-is required before their installation. The manager’s run instruction permits
-a checkpoint when blocked. This continuation submits the allowed report and handoff because the scope request
-remains unanswered. The next worker should resume only after authorization or
-a repair of the live issue; the completed mathematical review needs no repeat.
+| Source | SHA-256 |
+| --- | --- |
+| [Zhao](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1DF77ECEC0EE657089F2E26C0F8AA351/S0013091522000177a.pdf/sum_expressions_for_kubotaleopoldt_padic_lfunctions.pdf) | `923b85f7e3e7e55b4636ff98be2ca5f11a469ec10abe1ee15d6ede55a6936661` |
+| [Ertl–Niziol v2](https://arxiv.org/pdf/1603.01705v2) | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
+| [Colmez–Niziol v4](https://arxiv.org/pdf/1505.06471v4) | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
+| [Nekovář–Niziol v5](https://arxiv.org/pdf/1309.7620v5) | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
 
-Final submission checks: `git diff --check` passes and
-`intake.py check-files` reports two files and zero problems.
+## Unchanged Suggested-file hashes
+
+| File | SHA-256 |
+| --- | --- |
+| DirichletPadicLFunctions--L3 | `46fe3cba63b8c88eb0e0d734e8138009d421aac3fae334b70116b8f31da1af85` |
+| DirichletPadicLFunctions--L3-2 | `d8be865820fe7491d3bd196c4a47c78e753595786bd939e8328ac20b121fa2a2` |
+| PadicHodgeRegulators--D.1 | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` |
+| PadicMeasuresIwasawaAlgebras | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` |
+
+## Checkpoint scope
+
+Only this handoff and the review report change. Both exact candidates are
+fully specified here and validated; disposable scratch is unnecessary to
+resume. Actual dispatch remains incomplete because scope authorization is
+pending. Only #6219 was claimed; opening this checkpoint ends this run.
