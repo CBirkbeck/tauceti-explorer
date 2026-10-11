@@ -1893,7 +1893,7 @@ def symbolsCoinvariantsEquiv (Γ : Subgroup SL(2, ℤ)) {W M : Type}
 
 /-- Arbitrary flat extension of coefficients on the Hom module. -/
 def symbols_baseChange {S : Type} [CommRing S] [Algebra R S] [Module.Flat R S]
-    [Module.FinitePresentation R V] (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
+    (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
     (ρ : Representation R Γ V) :
     (S ⊗[R] symbols Γ ρ) ≃ₗ[S] symbols Γ (coefficientBaseChange Γ ρ (S := S)) := sorry
 
@@ -1916,16 +1916,25 @@ theorem periodSymbol_apply (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
 def homologicalPeriodPairing (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
     (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (D : Delta0) (Q : Vk ℂ k) : ℂ := sorry
 
-def swapPolynomial (k : ℕ) : Vk ℂ k →ₗ[ℂ] Vk ℂ k := sorry
+/-- Rotation Q(X,Y) ↦ Q(−Y,X), dictated by the determinant pairing. -/
+def symplecticPolynomial (k : ℕ) : Vk ℂ k →ₗ[ℂ] Vk ℂ k := sorry
 
-theorem swapPolynomial_apply (k : ℕ) (Q : Vk ℂ k) :
-    (swapPolynomial k Q).val = _root_.MvPolynomial.aeval
-      ![_root_.MvPolynomial.X 1,_root_.MvPolynomial.X 0] Q.val := sorry
+theorem symplecticPolynomial_apply (k : ℕ) (Q : Vk ℂ k) :
+    (symplecticPolynomial k Q).val = _root_.MvPolynomial.aeval
+      ![-_root_.MvPolynomial.X 1,_root_.MvPolynomial.X 0] Q.val := sorry
+
+/-- The degree-one sign detects substitution [Y,X] in place of [−Y,X]. -/
+theorem periodSymbol_symplectic_sign (z : ℂ) :
+    _root_.MvPolynomial.aeval ![z, (1 : ℂ)]
+      (_root_.MvPolynomial.aeval
+        ![-(_root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℂ), _root_.MvPolynomial.X 0]
+        (_root_.MvPolynomial.X 0 : MvPolynomial (Fin 2) ℂ)) = -1 := by
+  simp
 
 theorem periodSymbol_eq_periodMap (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
     (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (D : Delta0) (Q : Vk ℂ k) :
     vkPairing ℂ k (by sorry) (periodSymbol Γ k f D) Q =
-      (2*Real.pi*Complex.I) * homologicalPeriodPairing Γ k f D (swapPolynomial k Q) := sorry
+      (2*Real.pi*Complex.I) * homologicalPeriodPairing Γ k f D (symplecticPolynomial k Q) := sorry
 
 theorem periodSymbol_injective (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) :
     Function.Injective (periodSymbol Γ k) := sorry
@@ -1934,6 +1943,38 @@ theorem periodSymbol_hecke {N k : ℕ} [NeZero N] (ℓ : ℕ) [NeZero ℓ]
     (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) (f : Form N k) :
     periodSymbol _ k (HeckeRing.GL2.heckeTCuspNat ((k : ℤ)+2) ℓ f) =
       heckeTGamma1 N (vkSigmaAction ℂ k N) ℓ (periodSymbol _ k f) := sorry
+
+/-- Coefficient conjugation on native degree-one cohomology, induced by conjugating
+polynomial coefficients; the integral matrices make this a real representation map. -/
+def conjugateH1 (Γ : Subgroup SL(2, ℤ)) (k : ℕ) :
+    groupCohomology (Rep.of (vkRep ℂ k Γ)) 1 →ₗ[ℝ]
+      groupCohomology (Rep.of (vkRep ℂ k Γ)) 1 := sorry
+
+def conjugateVk (k : ℕ) (P : Vk ℂ k) : Vk ℂ k :=
+  ⟨_root_.MvPolynomial.map Complex.conjAe.toRingHom P.val, sorry⟩
+
+theorem conjugateH1_cocycle (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (c d : groupCohomology.cocycles₁ (Rep.of (vkRep ℂ k Γ)))
+    (hd : ∀ γ, d.val γ = conjugateVk k (c.val γ)) :
+    conjugateH1 Γ k ((groupCohomology.H1π (Rep.of (vkRep ℂ k Γ))).hom c) =
+      (groupCohomology.H1π (Rep.of (vkRep ℂ k Γ))).hom d := sorry
+
+/-- The second coordinate is realified from its conjugate complex vector space. -/
+def eichlerShimuraClass (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (f g : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) :
+    groupCohomology (Rep.of (vkRep ℂ k Γ)) 1 :=
+  toH1 Γ (vkRep ℂ k Γ) ⟨periodSymbol Γ k f, periodSymbol_mem Γ k f⟩ +
+    conjugateH1 Γ k
+      (toH1 Γ (vkRep ℂ k Γ) ⟨periodSymbol Γ k g, periodSymbol_mem Γ k g⟩)
+
+/-- Added key theorem L0/period-cocycle-injectivity: cusp-relative cup pairing
+and Petersson positivity detect both summands, before any dimension argument. -/
+theorem period_cocycle_injectivity (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
+    (hfree : ∀ γ : Γ, ∀ m : ℕ, 0 < m → γ^m = 1 → γ = 1) (k : ℕ) :
+    Function.Injective fun fg :
+      CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2) ×
+        CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2) ↦
+      eichlerShimuraClass Γ k fg.1 fg.2 := sorry
 
 /-- Eichler–Shimura isomorphism on the torsion-free Γ₁(N) carrier. The anti-holomorphic
 summand is anti-holomorphic. This signature is the underlying real-linear isomorphism;
@@ -1992,14 +2033,14 @@ example {N k : ℕ} [NeZero N] (f : Newform N k) :
     Module.finrank (newformField f) (periodLine f Sign.plus) + Module.finrank (newformField f) (periodLine f Sign.minus) = 2 ∧
       Module.finrank ℂ (Submodule.span ℂ {periodSymbol (Gamma1 N) k f.toCuspForm}) = 1 := sorry
 
-theorem integralPeriod_k0 (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+theorem integralPeriod_k0 (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) (hφne : φ ≠ 0) :
     ∃ D : Delta0, (φ.val.val D).val.coeff 0 ∉ IsLocalRing.maximalIdeal ℤ_[p] := sorry
-example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) (hφne : φ ≠ 0) :
     ∃ D : Delta0, (φ.val.val D).val.coeff 0 ∉ IsLocalRing.maximalIdeal ℤ_[p] := sorry
 
-theorem integralPeriod_not_saturated (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+theorem integralPeriod_not_saturated (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) (hφne : φ ≠ 0) :
     ¬ ∃ ψ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L, φ = (p : ℤ_[p]) • ψ := sorry
-example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) (hφne : φ ≠ 0) :
     ¬ ∃ ψ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L, φ = (p : ℤ_[p]) • ψ := sorry
 
 theorem pStabilisation_coeff_coprime {N k p : ℕ} [NeZero N] [Fact p.Prime] (f : Newform N k) (β : ℂ) (n : ℕ) (hn : ¬ p ∣ n) :
@@ -2141,6 +2182,16 @@ def eichlerShimuraGeneral (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) 
     (CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2) ×
       CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) ≃ₗ[ℝ] H1par Γ (vkRep ℂ k Γ) := sorry
 
+/-- The isomorphism has the stated period-class map, including coefficient conjugation. -/
+theorem eichlerShimuraGeneral_apply (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ)
+    (f g : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) :
+    (eichlerShimuraGeneral Γ k (f,g)).val = eichlerShimuraClass Γ k f g := sorry
+
+/-- Γ₁(4) has two regular cusps and one irregular cusp. In odd degree the latter
+has no invariant line, so subtracting all three cusps would give the impossible −1. -/
+theorem parabolic_cohomology_Gamma1_four_odd :
+    Module.finrank ℂ (H1par (Gamma1 4) (vkRep ℂ 1 _)) = 0 := sorry
+
 theorem parabolic_cohomology_dimension (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) :
     Module.finrank ℂ (H1par Γ (vkRep ℂ k Γ)) =
       2*Module.finrank ℂ (CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) := sorry
@@ -2212,6 +2263,17 @@ theorem ordinary_integral_measure (N k : ℕ) (Φ : DistSymbols p K N k)
       ‖((specialiseSymb p K N k Φ).val D).val.coeff (Finsupp.single 1 k)‖ ≤ 1)
     (a n : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) :
     ‖padicLFunction p K N k Φ (ballMonomial p K a n 0)‖ ≤ 1 := sorry
+
+/-- All continuous integral-valued test functions have integral values once the
+ordinary distribution is an integral measure. No division by binomial coefficients
+is needed to deduce this bound for polynomial moments. -/
+theorem ordinary_integral_moments [CompleteSpace K] [FiniteDimensional ℚ_[p] K]
+    (N k : ℕ) (Φ : DistSymbols p K N k)
+    (α : K) (hα : ‖α‖ = 1) (hΦ : upDist p K N k Φ = α • Φ)
+    (hφ : ∀ D : Delta0,
+      ‖((specialiseSymb p K N k Φ).val D).val.coeff (Finsupp.single 1 k)‖ ≤ 1)
+    (a n j : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) :
+    ‖padicLFunction p K N k Φ (ballMonomial p K a n j)‖ ≤ 1 := sorry
 
 /-- The critical-order obstruction uses a nonzero distribution on a tame component,
 not the scalar polynomial ∏(s−γ^i). -/
@@ -2303,6 +2365,8 @@ def specialisationFibre (N k : ℕ) (φ : ClassicalSymbols p K N k) :
 /-- Proposition 5.7 at an actual fibre. The operator-theory decomposition itself is imported. -/
 theorem slope_decomposition_fibre [CompleteSpace K] [FiniteDimensional ℚ_[p] K]
     (N k : ℕ) (φ : ClassicalSymbols p K N k) (α : K) (hα : α ≠ 0)
+    (hslope : 0 ≤ -Real.log ‖α‖ / Real.log p ∧
+      -Real.log ‖α‖ / Real.log p ≤ k + 1)
     (hφ : upClassical p K N k φ = α • φ) :
     ∃ P Q : Submodule K (BoundedSymbols (p := p) (K := K) N k),
       P ⊔ Q = specialisationFibre N k φ ∧ Disjoint P Q ∧ Module.Finite K P ∧
