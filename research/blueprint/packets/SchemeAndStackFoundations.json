@@ -19973,8 +19973,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-10",
-    "notes": "Codex (GPT-6), session codex-8afbzy: bounded independent round-two area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full and unchanged in reviewHistory. Findings /1, /8, /11 and /15–18: the packet retains the unique SF.4 alteration owner, general SF.2 coherent duality and the distinct Weil-restriction extensions. Its pointed-cover request retains de Jong section 2.24, p.62, with all g >= 0 and n >= 3; finite etaleness belongs to the smooth level-cover locus, rather than the normalized stable boundary. Removing six forwarding edges into SF.5 does not eliminate all SF.4-to-MC.4 paths: node-level supplier separation remains required before a reverse whole-stage import. Earlier exhaustive node/source/baseline audits and unchanged Lean receipts remain attributed to their reviewers. This review checks the assigned finding corrections and records no formalisation or proof-closure claim."
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-DqjAZa; bounded independent review of FIX-RT-AREA-algebraicgeometry~2, 11 October 2026. This follows the complete preceding area-review record archived unchanged in reviewHistory; exhaustive node/source ledgers and unchanged elaboration receipts remain attributed to their named predecessors. No mathematical field was changed. Findings /1, /8, /11, /15–18 and /31: checked single ownership and consumer requests, the coherent-duality boundary, schematic SF.4 alterations, and the qualified SF.5 rescope. Independently rebuilt the assembled-plus-draft graph: 15,502 acyclic edges; deleting six SF.5 forwarding inputs leaves 15,496 acyclic edges and all three displayed de Rham/prismatic routes; adding MC.4→SF.4 is cyclic. Directly reread de Jong §2.24, p.62: level étaleness is over the smooth pointed locus, with the finite dominant projective normalization across the stable boundary; every genus and n≥3 are retained. No edge or supplier is implemented here. Zero pinned-index errors/warnings; unchanged elaboration receipt is attributed and hash-verified."
   },
   "reviewHistory": [
     {
@@ -21610,6 +21610,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-10",
       "notes": "Codex (GPT-6), session codex-f0fT1p: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (Codex (GPT-6), session codex-8gNtJ0), archived in full and unchanged in reviewHistory. Findings /15–17: the alteration gap and rescope correctly preserve SF.4 as owner, pointed-cover hypotheses and node-level supplier requests. Independently reconstructed all three surviving dependency paths, including the prismatic branch, after deleting the six SF.5 forwarding inputs; a reverse whole-stage MC.4 import would still be cyclic. Directly checked de Jong section 2.24, p.62: the smooth pointed level cover is finite etale after inverting its prime, while the normalized stable cover is finite, dominant and projective. No further mathematical correction was necessary. Fresh exact-pin packet validation passes. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers; their hashes were freshly compared. Mathematical fields, previous histories and supplier requests are preserved. No formalisation or proof closure is claimed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "notes": "Codex (GPT-6), session codex-8afbzy: bounded independent round-two area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full and unchanged in reviewHistory. Findings /1, /8, /11 and /15–18: the packet retains the unique SF.4 alteration owner, general SF.2 coherent duality and the distinct Weil-restriction extensions. Its pointed-cover request retains de Jong section 2.24, p.62, with all g >= 0 and n >= 3; finite etaleness belongs to the smooth level-cover locus, rather than the normalized stable boundary. Removing six forwarding edges into SF.5 does not eliminate all SF.4-to-MC.4 paths: node-level supplier separation remains required before a reverse whole-stage import. Earlier exhaustive node/source/baseline audits and unchanged Lean receipts remain attributed to their reviewers. This review checks the assigned finding corrections and records no formalisation or proof-closure claim."
     }
   ]
 }

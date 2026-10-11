@@ -6774,8 +6774,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-10",
-    "notes": "Codex (GPT-6), session codex-8afbzy: bounded independent round-two area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full and unchanged in reviewHistory. Findings /21 and /23: the geometric component-count contract distinguishes I0 and I1 from the positive I_n range, and separates geometric components from component-group orders and rational Tamagawa factors. Freshly read Tate section 6, pp.45–46: the algebraically closed residue-field condition and geometric rows agree, while tame valuation/conductor formulas carry a separate characteristic restriction. The model-resolution gap remains open. The curve-Jacobian handoff preserves excellent-DVR and residue-field conditions, exact supplier stages and its node-level cycle qualification. Earlier exhaustive node/source/baseline audits and unchanged Lean receipts remain attributed to their reviewers. This review checks the assigned finding corrections and records no formalisation or proof-closure claim."
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-DqjAZa; bounded independent review of FIX-RT-AREA-algebraicgeometry~2, 11 October 2026. This follows the complete preceding area-review record archived unchanged in reviewHistory; exhaustive node/source ledgers and unchanged elaboration receipts remain attributed to their named predecessors. No mathematical field was changed. Findings /21 and /23: directly inspected Tate §6, pp.45–46; geometric component counts and configurations agree, with algebraically closed residue field and geometric/rational distinctions retained. The characteristic restriction belongs to the valuation/conductor rows. Checked the curve–Jacobian upstream note’s excellent-DVR/residue assumptions and node-level cycle qualification; actual-model resolution remains an explicit supplier gap. Zero pinned-index errors/warnings; unchanged full-file elaboration receipt is attributed and hash-verified."
   },
   "reviewHistory": [
     {
@@ -7317,6 +7317,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-10",
       "notes": "Codex (GPT-6), session codex-f0fT1p: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (Codex (GPT-6), session codex-uc4o8L), archived in full and unchanged in reviewHistory. Findings /21 and /23: geometric component counts remain separate from component-group orders and rational Tamagawa factors. The Tate section 6, p.46 source reading remains attributed to the predecessor. The curve-Jacobian criterion retains excellent-DVR and residue-field restrictions and its node-level cycle qualification. The resolution gap remains open. No mathematical correction was necessary. Fresh exact-pin packet validation passes. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers; their hashes were freshly compared. Mathematical fields, previous histories and supplier requests are preserved. No formalisation or proof closure is claimed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "notes": "Codex (GPT-6), session codex-8afbzy: bounded independent round-two area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full and unchanged in reviewHistory. Findings /21 and /23: the geometric component-count contract distinguishes I0 and I1 from the positive I_n range, and separates geometric components from component-group orders and rational Tamagawa factors. Freshly read Tate section 6, pp.45–46: the algebraically closed residue-field condition and geometric rows agree, while tame valuation/conductor formulas carry a separate characteristic restriction. The model-resolution gap remains open. The curve-Jacobian handoff preserves excellent-DVR and residue-field conditions, exact supplier stages and its node-level cycle qualification. Earlier exhaustive node/source/baseline audits and unchanged Lean receipts remain attributed to their reviewers. This review checks the assigned finding corrections and records no formalisation or proof-closure claim."
     }
   ]
 }
