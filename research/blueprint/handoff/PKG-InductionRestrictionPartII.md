@@ -1,566 +1,152 @@
-# PKG-InductionRestrictionPartII — blocked checkpoint, codex-LmQrBp
+# PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-LmQrBp`, 11 October 2026.
-Branch: `codex-LmQrBp-induction-restriction-checkpoint`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105024628)
-at 03:28:34 UTC, identifying this session's claim comment 6105023741.
-Base atlas commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
+Codex (GPT-6), session `codex-XRKr6d`, 11 October 2026.
+Branch: `codex-XRKr6d-induction-restriction-package`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6105134626)
+at 03:44:43 UTC, identifying claim comment 6105133704.
+Base atlas commit: `763d46d25cf18f42a878f7e8b6e242ab2b575f83`.
 
-## Outcome
+## Outcome and scope
 
-**Blocked checkpoint.** This continuation updates only this handoff. The
-package's mathematical files and accepted packet retain their inherited
-contents. No job besides #7592 was claimed. None of the manager's priority
-issues appeared in the available swarm inventory; the permitted fallback
-queue had no available finished-plan or package review, and this package
-was selected before new planning.
+**Blocked checkpoint.** This submission consolidates the accumulated handoff
+into a resume note and records fresh supplier and validation checks. The
+package README, Suggested.lean and accepted packet are unchanged. No second
+job was claimed. None of the manager's priority issues was in the available
+swarm inventory; no eligible finished-plan or package review was available,
+so this package preceded new planning in the fallback order.
 
-The accepted packet still leaves the native integral homological bridge
-(`gaps[0]`) and cyclic coprime complement conjugacy (`gaps[4]`) without a
-supplier. Its own restructuring proposal says the first is an ownership
-question, rather than a dependency already supplied by the parent. The
-package issue restricts changes to its three output files and this handoff,
-and explicitly instructs: “Change no packet; if the plan has a mistake,
-describe it in the handoff note.” Assigning either missing owner requires
-an amendment outside these paths. This is a scope blocker, not an exhausted
-time allowance or an elaboration failure.
+The accepted packet explicitly leaves two prerequisite owners unassigned:
+its first gap covers the native integral homological bridge, and its fifth
+gap covers complement conjugacy for a cyclic coprime quotient. Its
+restructuring proposal treats the former as an ownership decision requiring
+a continuation, rather than an existing dependency. The issue authorizes
+only the three package files and this handoff and forbids packet changes.
+Consequently, the necessary ownership amendment cannot be made in this job.
+This is a scope blocker, not a time or Lean failure.
+
+The local queue still gives this package `after: []`. Package-only iterations
+cannot resolve the missing owners. The maintainer should make the planning
+amendment before offering this job for another package pass. This is a
+recommendation; no queue, label or upstream file was changed.
+
+## What must change before resuming
+
+Assign the following five contracts to actual supplier layers and reconcile
+the accepted packet, reader and suggested file. The proposed RS.1/RS.5
+placements below are inherited proposals, not ownership assignments by this
+session. Another supplier must match the carriers, hypotheses, maps and
+naturality. Preserve the parent Layer 7 request for ordinary Schur covers.
+
+| Contract | Required planning amendment |
+| --- | --- |
+| Native integral UCT | Before RS.1 reduced covers, give H²(G,A) → Hom(H₂(G,ℤ),A) for arbitrary groups G and abelian A, its oriented cycle formula, surjectivity, and the specified Ext¹(Gᵃᵇ,A) injection. Preserve naturality in both group and coefficients, free-abelian Ext vanishing, the definition's API and its discriminating tests. |
+| Central-extension class map and five-term sequence | Before RS.1 `homology_image`, supply the section-independent class-map construction and exactness of H₂(E,ℤ) → H₂(G,ℤ) → A → Eᵃᵇ → Gᵃᵇ → 0, with arbitrary abelian central kernels and the commutator sign XYX⁻¹Y⁻¹. Reuse the factor-set and abelianization interfaces. |
+| Finite integral homology | Before RS.1 order arguments, supply positive-degree finiteness and annihilation by the finite group order. Reuse current native transfer; derive finite generation from finite-rank bar chains. Retain the tests distinguishing positive degrees from H₀. |
+| Coprime degree-two edge | Before RS.5 multiplier and compatible-cover results, supply the natural degree-two reduction, including the inclusion-induced map, the quotient action on normal-subgroup homology, coinvariants and the incoming d₃ check. RS.6 imports the odd-index-two specialization. |
+| Cyclic complement conjugacy | Before RS.5 admissible inertia classes, supply H-conjugacy of complements in H⋊C for finite coprime H,C with C cyclic, including nonabelian H. Preserve the Sylow-induction proof route and the three existing conjugacy tests, or identify an actual finite-group supplier with this scope. |
+
+The first unassigned gap names twelve consuming nodes, including
+`reduced-cover`, `homology-image`, `marked-pullback-split`, `compatible-covers`
+and `odd-index-two-reduction`. The conjugacy gap directly affects
+`admissible-inertia-classes`. Adding admitted signatures or a source citation
+alone does not assign these prerequisites under PROTOCOL §§3, 15 and 20.
 
 ## Fresh supplier checks
 
-The read-only TauCetiRoadmap checkout is
-`070dc2becd74419e76303ede84b465ed4a69461f`; the read-only current Tau Ceti
-checkout is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Read InductionRestriction and SemisimpleAlgebras READMEs in full and
-inspected the relevant suggested interfaces, AlgebraicTopology Stage 6,
-and ProfiniteCohomology Layer 5. No Lake command ran in either read-only
-checkout. The reviewed library audit has no direct Part II entry; its
-R17.5 and MP.1 records supply factor-set and projective-lifting evidence,
-not the required arbitrary-coefficient integral bridge.
+Read-only TauCetiRoadmap commit:
+`070dc2becd74419e76303ede84b465ed4a69461f`.
+Current read-only Tau Ceti commit:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read InductionRestriction and SemisimpleAlgebras READMEs in full; inspected
+the relevant suggested interfaces, AlgebraicTopology Stage 6 and
+ProfiniteCohomology's five-term scope. The reviewed library audit has no direct
+Part II entry. R17.5 and MP.1 concern factor sets and projective lifting, not
+the required arbitrary-coefficient integral bridge.
 
-- Parent InductionRestriction Layer 7 supplies the ordinary representation
-  group. Its suggested `schurMultiplier` is second cohomology with scalar
-  coefficients. It distinguishes this from integral second homology and
-  supplies no arbitrary-abelian-coefficient UCT or homological extension
-  spectral sequence. Keep the existing ordinary-cover request to Layer 7.
-- AlgebraicTopology Stage 6's UCT is on singular cochains. The native
-  group/bar-complex comparison with the required maps and naturality still
-  needs its own assigned interface. ProfiniteCohomology Layer 5 supplies
-  a cohomological five-term sequence; the roadmap excludes the
-  Hochschild–Serre spectral sequence. It does not supply the homological
-  degree-two edge.
-- Current `TauCeti.ChainComplex.kronecker_bijective`,
-  `Algebra/Homology/Kronecker.lean:177`, explicitly assumes `[Injective Y]`.
-  This does not satisfy the arbitrary abelian coefficient requirement.
-  Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
+- Parent InductionRestriction Layer 7 owns ordinary representation groups.
+  Its `schurMultiplier` interface uses scalar-valued second cohomology and
+  explicitly distinguishes integral second homology. Keep the ordinary-cover
+  request; do not use that layer as an unstated general homological supplier.
+- AlgebraicTopology Stage 6 states the UCT for singular cochains. Using its
+  generic free-chain argument on native group bar complexes still needs the
+  assigned comparison and naturality interface. ProfiniteCohomology supplies
+  a cohomological five-term sequence and excludes the Hochschild–Serre
+  spectral sequence from its scope.
+- Current `TauCeti.ChainComplex.kronecker` and `kronecker_naturality`,
+  `Algebra/Homology/Kronecker.lean:98,116`, already provide evaluation and
+  chain-map naturality without assuming injective coefficients. Reuse these
+  when building the bar adapter; do not rebuild the generic evaluation map.
+  In contrast, `kronecker_bijective`, line 177, requires an injective
+  coefficient object. It does not supply the arbitrary-coefficient Ext
+  injection, its exact image or both variance contracts required here.
+- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
   `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean:107`,
-  gives index multiplication in every degree and should be reused for
-  annihilation. It does not provide the remaining missing contracts.
-- At the Mathlib pin,
+  gives index multiplication in every degree. Use it for annihilation; finite
+  generation and the extension spectral-sequence contracts remain separate.
+  Current-only modules cannot be imported into the older compilation pin.
+- At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
   `Subgroup.exists_right_complement'_of_coprime`,
   `GroupTheory/SchurZassenhaus.lean:277`, concludes complement existence.
-  Its conclusion contains no conjugacy assertion.
-- The current ArithmeticStatistics packet's ST.5 complement-conjugacy
-  target assumes an **abelian** normal kernel. Its notes instead name
-  `ArithmeticStatisticsPartIIRandomGammaGroups` for nonabelian kernels,
-  and recommend moving that theory to a foundational supplier. There is
-  no packet, roadmap definition or package under that Part II identifier
-  in this atlas clone, and no such roadmap in the read-only upstream
-  checkout. That prose reference therefore does not identify an importable
-  supplier for this package. In any event, the integral bridge remains
-  separately unassigned.
+  Its statement has no conjugacy conclusion.
+
+Fresh primary-source inspection: Löh, *Group Cohomology* (30 July 2019),
+[author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
+Theorem 3.2.12, printed pp.123–124, Proposition 3.2.13 p.124 and
+Remark 3.2.14 p.125, give the natural extension spectral sequence and
+quotient action needed by the bridge. Conrad,
+[*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
+Example 2 p.1 and Remark 5 p.4, distinguish cyclic-quotient complement
+existence from the conjugacy conclusion. These checks identify the needed
+mathematics; they supply no atlas owner. No source passage or source file was
+added. The cleared-source index was read; no restricted book was obtained.
 
 ## Validation
 
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
-  completed with exit 0: **zero errors, 696 warnings, all
-  `declaration uses sorry`, and zero other warnings**. Preflight showed
-  100 GiB available. The provided helper targets the atlas pins; the
-  inspected Mathlib manifest and source HEAD both give
+  completed with **exit 0, zero errors, 696 warnings, all declaration uses
+  sorry, and zero other warnings**. Preflight showed 101 GiB available. The
+  helper targets Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the
+  Mathlib source HEAD and build manifest agree on
   `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  No language server, library build, update or cache download was started.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
-  reports zero errors and warnings: 109 nodes, 124 API items, 96 tests,
-  30 planets, five gaps and one request; all six stages planned, none
-  closed. Structural success does not resolve the ownership gaps.
-- The 109 target-name suffixes, 124 API-name suffixes and 96 test labels
-  all occur in both package files. This is a name inventory, not a
-  mathematical audit of the inherited statements or finite certificates.
-- Unchanged SHA-256 values: packet
-  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`;
-  README `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8`;
-  Suggested.lean
-  `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646`.
-  The README remains 160,376 bytes.
-- Local intake file validation reports one permitted file and zero
-  problems. The package completion predicate returns false, and
-  `git diff --check` passes.
+  reports **zero errors and zero warnings**: 109 nodes, 124 API items, 96
+  tests, 30 planets, 30 baseline declarations, five gaps, one request and six
+  planned stages, none closed. This does not close the ownership gaps.
+- All 109 target-name suffixes, 124 API-name suffixes and 96 test labels occur
+  in both package files. This is a name inventory, not a mathematical audit
+  of every inherited statement or finite certificate. The unchanged README
+  is 160,376 bytes, below the 200 KB limit.
+- Local intake validation reports one permitted changed file and zero
+  problems. `git diff --check` passes. The package completion predicate is
+  false because metadata is absent, so this remains a checkpoint.
 
-## Resume
-
-Make the planning amendment in the five-contract table preserved below,
-or assign actual alternative supplier layers with matching carriers,
-hypotheses, maps and naturality. Reconcile the accepted packet, its
-reader document and suggested interfaces before finishing this package.
-Retain all 109 targets, the finite certificate obligations and the
-discriminating tests. No new prerequisite owner is assigned here.
-
-`metadata.toml` remains absent so the intake continues to recognize a
-checkpoint. The eventual line is `topic = "math.GR"`; adding it before
-the package is complete would satisfy the intake's output-existence
-predicate without resolving these gaps. The issue should leave the
-available package queue until its planning amendment is made; this is a
-maintainer recommendation, and this worker changed no labels manually.
-
-No scratch file is required to resume. Earlier source readings and finite
-calculations are preserved below as inherited receipts; this session
-does not claim to have repeated them. No source passage was added.
-
----
-
-# Previous checkpoint: codex-3mOqdI
-
-Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-3mOqdI`, 11 October 2026.
-Branch: `codex-3mOqdI-induction-restriction-checkpoint`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104797868).
-Base atlas commit: `b061836721f295b25db6dd43d2fb96ca78830e78`.
-
-## Outcome and reason for stopping
-
-This submission is a **blocked checkpoint**. It changes only this handoff;
-the inherited mathematical documents, signatures and accepted plan are
-unchanged. It does not mark the package complete or assign prerequisite
-owners. The manager's forty priority issues were checked individually:
-each was done or submitted, with none available. The available-job search
-had no eligible plan/package review and led to this package in the
-permitted fallback order. This session claimed exactly one job.
-
-The accepted plan still explicitly leaves two ownership decisions open:
-
-1. `gaps[0]`, the native integral homological bridge, has no supplier.
-   It affects twelve targets, including `homology-image`,
-   `marked-pullback-split`, `compatible-covers` and
-   `odd-index-two-reduction`. Its required scope includes arbitrary
-   abelian coefficients, a natural Ext injection and oriented evaluation,
-   the central-extension class map and homological five-term sequence,
-   finite positive-degree homology, and the coprime degree-two edge with
-   its incoming differential checked.
-2. `gaps[4]`, cyclic coprime complement conjugacy, requires an assigned
-   finite-group owner. `RS.5/admissible-inertia-classes` needs conjugacy
-   by the normal kernel, including when that kernel is nonabelian.
-
-The issue permits only the package's three files and this handoff, and
-instructs the worker to change no packet and to describe plan errors in
-the handoff. PROTOCOL sections 3, 15 and 20 and the upstream no-gaps rule
-require identifiable prerequisite owners. The accepted packet's
-restructuring proposal explicitly treats the homological continuation as
-an ownership question, rather than an existing dependency. Adding admitted
-signatures or naming new owners in package prose does not amend that plan.
-This is a scope blocker; the run did not exhaust its eight-hour allowance.
-
-## Evidence checked in this run
-
-Read-only TauCetiRoadmap main remains
-`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti remains
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The library audit has no direct
-entry for this Part II. Its R17.5 and MP.1 records concern factor sets and
-projective lifting, not the missing native homological bridge.
-
-- InductionRestriction Layer 7 owns ordinary representation groups and
-  factor-set classification. Its statement does not supply arbitrary-
-  coefficient integral UCT, general homological five-term exactness, or
-  the coprime degree-two extension edge. Preserve the existing ordinary-
-  cover request to that parent layer.
-- AlgebraicTopology Stage 6 specifies the singular-cochain UCT. Using it
-  here still needs the native group/bar-complex comparison with the
-  specified maps and naturality. ProfiniteCohomology Layer 5 specifies a
-  cohomological five-term sequence and excludes the Hochschild–Serre
-  spectral sequence; it does not supply the required homological edge.
-- Current `TauCeti.ChainComplex.kronecker_bijective`,
-  `Algebra/Homology/Kronecker.lean`, line 177, carries `[Injective Y]`.
-  That hypothesis excludes the arbitrary abelian coefficient contract.
-- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
-  `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`,
-  line 107, supplies index multiplication in every degree. Reuse it for
-  annihilation; it does not establish the remaining UCT or extension
-  spectral-sequence contracts, and it is not an import from the atlas pin.
-- At the Mathlib pin, `Subgroup.exists_right_complement'_of_coprime`,
-  `GroupTheory/SchurZassenhaus.lean`, line 277, concludes existence of a
-  complement. The statement has no conjugacy conclusion. The required
-  cyclic-complement theorem cannot be cited under that name.
-
-## Resume after a planning amendment
-
-Assign the five contracts in the amendment table retained below, add their
-definition/theorem nodes, and reconcile the accepted plan with its reader
-and suggested interfaces. RS.1 and RS.5 in that table are proposed
-placements, not assignments made by this session. An alternative supplier
-must identify an actual layer supplying the same carriers, hypotheses,
-maps and naturality. Then reconcile and finish the package without losing
-its 109 targets, finite row certificates or discriminating tests.
-
-**Maintainer action:** keep this package out of the available queue until
-the prerequisite-owner amendment has been made. Repeating package-only
-work cannot change either ownership gap. This is a recommendation; this
-worker changed no labels or issue state manually.
-
-`metadata.toml` remains absent, as in the inherited checkpoint. Add
-`topic = "math.GR"` when the package meets section 20. The intake's
-file-existence completion check must continue to recognize this submission
-as a checkpoint. No scratch file is needed to resume.
-
-## Verification
-
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
-  finished: zero errors, 696 `declaration uses sorry` warnings, no other
-  warnings. Preflight showed 105 GiB available. The shared helper uses the
-  atlas-pinned build; its reported Mathlib source commit is
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`. No language server or library
-  build, update or cache download was started.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
-  zero errors and warnings; 109 nodes, 124 API items, 96 tests, 30 planets,
-  five gaps, one request and six planned stages, none closed. Passing this
-  structural checker does not resolve the ownership gaps.
-- All 109 target suffixes, 124 API suffixes and 96 planned test labels
-  occur in both inherited package files. This is name correspondence,
-  not verification of each inherited certificate or statement.
-- Unchanged artifact SHA-256 values:
-  packet `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`;
-  README `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8`;
-  Suggested.lean `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646`.
-  The README is 160,376 bytes, below the 200 KB limit.
-- Local intake file validation reports one permitted file and zero
-  problems; its completion predicate returns false for this package.
-  `git diff --check` passes.
-
-The earlier handoff follows to preserve the exact amendment proposals,
-finite-model obligations, source locators and computation provenance.
-Its mathematical work is inherited; this session does not claim to have
-performed those source readings or computations.
-
----
-
-# Previous checkpoint: codex-FRZdOs
-
-Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-FRZdOs`, 11 October 2026.
-Branch: `codex-FRZdOs-induction-restriction-package`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104553257).
-Base atlas commit: `fbbbb004ed1556c56b68dc09238e46e1d4b75e15`.
-No manager-priority issue appeared in the available swarm enumeration;
-this package was selected in the permitted fallback order. Exactly one job
-was claimed.
-
-## Result and blocker
-
-This is a **blocked checkpoint**, not a completed package. Fresh inspection
-confirms that the accepted packet still has both unassigned prerequisite
-owners described below: arbitrary-coefficient integral UCT and the native
-homological extension bridge (`gaps[0]`), and cyclic coprime complement
-conjugacy for possibly nonabelian kernels (`gaps[4]`).
-
-The job restricts edits to the package and this note and explicitly says
-“Change no packet; if the plan has a mistake, describe it in the handoff
-note.” PROTOCOL §§3, 15 and 20 require named, nonduplicated prerequisite
-owners. The source-of-truth packet calls the homological continuation an
-ownership question, not an existing supplier, and its restructuring proposal
-asks for assignment once. Native admitted signatures do not discharge that
-assignment. The current read-only supplier trees did not change this result.
-
-Complete the planning amendment described in the earlier note before
-reopening package work: assign the five contracts to actual layers, add the
-needed nodes and replace the two unassigned gap entries. RS.1 and RS.5 are
-proposed placements only. An alternative supplier must name its layer and
-supply the same native carriers, arbitrary-kernel hypotheses, maps and
-naturality. Retain the existing parent ordinary-cover request and all finite
-certificate targets. No new owner, edge or review verdict was assigned here.
-
-`metadata.toml` remains absent. Its future content is
-`topic = "math.GR"`. The local `deliverables_complete` implementation checks
-all package output paths before returning completion; adding metadata now
-would advance this blocked package incorrectly. The missing file keeps
-this submission a checkpoint.
-
-## New work
-
-Add `extension_five_term_test_4` to the README and Suggested.lean. It uses
-Mathlib's actual `SemidirectProduct.toGroupExtension` for the inversion action
-of C₂ on C₃, rather than an assumed central-extension carrier. The extension
-has a splitting and a noncentral kernel, the kernel's map to abelianization
-is zero and not injective, and the induced quotient map on abelianizations
-is bijective. This complements the three inherited central examples. It
-tests the centrality hypothesis in the split-kernel injectivity claim and
-the absence of that hypothesis on the two tail conclusions. It never calls
-the central-extension class map on a noncentral extension.
-
-The calculation is explicit: elements are (i,j)∈ℤ/3×ℤ/2 with
-(i,j)(k,l)=(i+(−1)^j k,j+l). For a=(1,0), t=(0,1), the commutator
-[t,a]=a⁻²=a. The kernel C₃ therefore lies in the commutator subgroup;
-the abelian quotient C₂ proves the reverse inclusion. Exhaustively checking
-the six elements and all 36 commutators in Python gave a commutator subgroup
-of order three equal to that kernel, and confirmed the homomorphic standard
-section and noncentrality. These are calculation receipts; the Lean example
-still has an admitted proof.
-
-Fresh source reading: Löh, *Group Cohomology*, 30 July 2019,
-[author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
-Theorem 1.4.1 pp.20–22 and Example 1.4.4 p.22. The latter gives the symmetric
-group abelianization check; the semidirect-product computation above is an
-explicit deduction. Conrad, [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf),
-Example 2 p.1 and Remark 5 p.4, was also inspected: the former establishes
-cyclic-quotient existence, and the latter states the separate conjugacy
-conclusion. No primary-source passage was copied into a deliverable.
-
-## Fresh supplier checks
-
-Read the current InductionRestriction and SemisimpleAlgebras READMEs in full,
-the relevant suggested interfaces, and the reviewed library audit. The
-read-only roadmap commit remains `070dc2becd74419e76303ede84b465ed4a69461f`;
-current Tau Ceti remains `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-
-- Current `TauCeti.ChainComplex.kronecker_bijective`,
-  `Algebra/Homology/Kronecker.lean`, line 177, explicitly requires an
-  injective coefficient object. It does not give the arbitrary-coefficient
-  Ext injection needed here. AlgebraicTopology Stage 6 supplies singular
-  UCT; the native group/bar adapter still has to have an owner.
-- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
-  `GroupHomology/Transfer/Basic.lean`, line 107, supplies transfer followed
-  by inclusion as the subgroup index times identity. Reuse that theorem;
-  it does not by itself supply finite generation, UCT or the coprime edge.
-- Parent InductionRestriction Layer 7 owns ordinary representation groups;
-  its cohomological multiplier does not supply the missing generic native
-  homology contracts. Inspected ProfiniteCohomology and LocalGaloisGroups
-  interfaces give cohomological and local-field constructions, not this
-  arbitrary-group integral five-term sequence.
-- At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
-  `Subgroup.exists_right_complement'_of_coprime`,
-  `GroupTheory/SchurZassenhaus.lean`, line 277, asserts complement existence,
-  with no conjugacy conclusion. `SemidirectProduct.toGroupExtension` and
-  `inr_splitting`, `GroupExtension/Defs.lean`, lines 326 and 339, provide
-  exactly the extension and section used in the new test.
-
-## Verification in this session
-
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
-  **exit 0, 696 warnings, all `declaration uses sorry`; zero errors or other
-  warnings**. Preflight memory was 99 GiB available. The shared helper uses
-  the atlas's Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` build;
-  its Mathlib source HEAD is the pin above. The check finished. No library
-  build, update, cache download or language server was started.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
-  exit 0, zero errors/warnings; 109 nodes, 124 API items, 96 planned tests,
-  five gaps, one request, six planned stages, zero closed stages. Packet
-  SHA-256 is unchanged:
-  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
-- All 109 target suffixes, 124 API suffixes and 96 planned test labels still
-  occur in both package files; the new companion test occurs in both.
-  This is name correspondence, not a mathematical audit of every inherited
-  finite certificate.
-- README: 160,376 bytes, below the 200 KB limit. Only the README,
-  Suggested.lean and this handoff are changed. No scratch artifact is needed
-  to resume; calculation and resumption details are recorded here.
-
-The prior note follows to retain its exact amendment proposals, inherited
-finite-model obligations and references to earlier computation receipts.
-Its compiler counts and artifact hashes are historical; the fresh check
-above supersedes them.
-
----
-
-## Previous checkpoint: codex-pYtfSw
-
-Issue [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Worker: Codex, session `codex-pYtfSw`, 2026-10-11.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104130586).
-Branch: `codex-pYtfSw-induction-restriction-package`.
-This continues merged checkpoint [#8662](https://github.com/CBirkbeck/tauceti-explorer/pull/8662),
-which continued [#8659](https://github.com/CBirkbeck/tauceti-explorer/pull/8659).
-Those handoffs retain the earlier calculation receipts. This note consolidates
-the resumption requirements and supersedes the compiler counts.
-Exactly one issue was claimed.
-
-## Blocker and resumption gate
-
-The accepted packet still has two unassigned prerequisite owners:
-
-- `gaps[0]`, **Natural integral homological bridge — supplier unassigned**:
-  arbitrary-coefficient integral UCT, its specified natural Ext injection
-  and oriented evaluation; central-extension class map and homological
-  five-term exactness; finite positive-degree homology consequences; the
-  coprime degree-two edge, including its incoming d₃. Twelve targets need
-  this bridge. The proposed continuation is explicitly an ownership
-  question, not an existing dependency. Parent InductionRestriction Layer 7
-  owns ordinary Schur covers, not this general bridge.
-- `gaps[4]`, **Conjugacy of complements over a cyclic coprime quotient**:
-  finite coprime H,C with C cyclic, and conjugacy by an element of H,
-  without an abelian or solvable hypothesis on H.
-  RS.5/admissible-inertia-classes needs it. Pinned complement existence
-  supplies no conjugacy conclusion. The packet requires a finite-group
-  owner to be assigned.
-
-Issue #7592 says: “Change no packet; if the plan has a mistake, describe it
-in the handoff note.” It permits only the package and this handoff.
-Assigning owners in package prose would silently replace its authoritative
-plan. PROTOCOL §§3, 15, 20 and UPSTREAM_GUIDE require named prerequisite
-chains. Admitted native signatures specify their contracts but neither
-prove them nor assign their owners in the accepted graph.
-This checkpoint is caused by that scope blocker, not the eight-hour limit.
-
-**Resume after a planning amendment confirms the following owners or names
-actual alternative supplier layers.** Reconcile the packet and its source
-documents before reconciling the package. Repeated package-only inventories
-cannot resolve the same ownership decisions. Recommend suspending package
-eligibility until that amendment; this worker changed no labels.
-
-| Contract | Proposed owner and exact output |
+| Unchanged artifact | SHA-256 |
 | --- | --- |
-| Native integral UCT | RS.1, before reduced covers: H²(G,A)→Hom(M(G),A), for arbitrary G and abelian A, with its oriented cycle formula, surjectivity and specified Ext¹(G^ab,A) injection. Preserve group and coefficient naturality of both maps. Add the definition, API and three tests already in the package. |
-| Central extension class map and five-term exactness | RS.1, before `homology_image`: section-independent class-map construction and exactness of the full sequence through total-group and quotient abelianizations, for arbitrary abelian kernels. Preserve the sign convention and reuse Tau Ceti factor-set and Mathlib abelianization interfaces. Add construction and key-theorem nodes. |
-| Finite integral homology consequences | RS.1, before `commutator_order`: `integral_homology_finite` and `integral_homology_card_smul` in positive degrees. Reuse current native transfer and trivial-group vanishing; use finite generation of integral bar chains for finiteness. Retain the three new degree tests. |
-| Coprime degree-two edge | RS.5, before primary-kernel/compatible-cover results: `coprime_degree_two_edge`, with its coinvariant-kernel isomorphism and specified inclusion. Establish the native filtered-resolution input and the d₃ argument. RS.6 imports the result. Retain the three new edge tests. |
-| Cyclic complement conjugacy | RS.5, before admissible inertia classes: `cyclic_coprime_complement_conjugacy`, finite coprime H,C and C cyclic, without solvability of H. Add its key-theorem node, Sylow induction and three existing conjugacy tests; or record the exact layer of an alternative finite-group owner. |
+| `packets/InductionRestrictionPartII.json` | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
+| `packages/InductionRestrictionPartII/README.md` | `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8` |
+| `packages/InductionRestrictionPartII/Suggested.lean` | `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646` |
 
-These are proposed amendments, not ownership assignments made here. Add the
-necessary definition/theorem nodes and source locators, then replace the two
-unassigned gap entries. All existing 109 targets and six layers remain.
+## Inherited receipts and continuation
 
-`metadata.toml` remains absent deliberately. `issues.py`'s
-`deliverables_complete` regards a package as complete once all output paths
-exist, without checking prerequisite ownership. Adding metadata now would
-misclassify this checkpoint. A direct call returns `False` for the current
-four-output job. Add `topic = "math.GR"` only when the package meets §20.
+The full accumulated notes are permanently retained in
+[the handoff at the base commit](https://github.com/CBirkbeck/tauceti-explorer/blob/763d46d25cf18f42a878f7e8b6e242ab2b575f83/research/blueprint/handoff/PKG-InductionRestrictionPartII.md).
+They include finite-model calculations, source hashes, the nonsplit C₄→C₂
+UCT test, oriented extension maps, the noncentral C₃⋊C₂ tail test, the
+coprime-edge d₃ argument and the complement-conjugacy tests. Those receipts
+are inherited and were not all repeated here.
 
-## Changes in this session
+Retain all 109 targets, 31 row-certificate obligations, 38 RS.6 targets and
+the ten accepted source issues. Preserve actual projections, embeddings,
+centralizer enumerations, relation subgroups and group-valued outputs.
+Rows 13/24 use affine sum kernels; 16/17 use native SL₂(𝔽₃) graph/sum
+models; 22/23 use Heisenberg graph/sum models; 30/31 use inverse transpose
+on SL₃(𝔽₂) and its full wreath model. Further details and calculation
+provenance remain in the permanent inherited handoff.
 
-The README already specified the full homological five-term sequence, but
-Suggested stated exactness only at M(G). Three new native API signatures
-complete its remaining arrows:
-
-- `extension_class_map_exact_at_kernel`: the image of τ equals the kernel of
-  `(Abelianization.of.comp S.inl).toAdditive`.
-- `extension_class_map_exact_at_abelianization`: the image of that inclusion
-  equals the kernel of `(Abelianization.map S.rightHom).toAdditive`.
-- `extension_class_map_abelianization_surjective`: the last map is onto.
-
-Only the first statement needs centrality. The last two use an arbitrary
-extension with abelian kernel. The maps retain the specified inclusion and
-projection; no private H₁ carrier or extra definition was introduced. This
-spells out an existing package contract without assigning its missing owner.
-
-Three new admitted examples, `extension_five_term_test_1` through `_3`,
-distinguish the tail maps:
-
-1. Every split central extension, including infinite kernels, has injective
-   inclusion into total-group abelianization and surjective projection.
-2. Every C₂→C₄→C₂ extension has injective kernel inclusion, while the final
-   projection has a kernel of order two and is not injective. This holds
-   despite the absence of a splitting.
-3. For the specified D₈→C₂² extension, the kernel inclusion into abelianization
-   is zero, the final projection is bijective, and τ is onto. The nontrivial
-   central kernel is the commutator subgroup.
-
-These are acceptance statements with admitted proofs. The README now names
-the same API and tests and distinguishes the spectral-sequence deduction
-from the free-total-group example used to illustrate it in the source.
-
-Fresh primary-source reading: Löh, *Group Cohomology*, 30 July 2019,
-[author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
-Theorem 1.4.1 pp.20–22, Theorem 3.2.12 pp.123–124, Remark 3.2.14 p.125,
-and the proof of Theorem 3.2.18 pp.129–131. The full sequence for arbitrary
-central extensions is a deduction from the low-degree filtration, not a
-claim that Theorem 3.2.18 has an arbitrary total group. The cleared-source index was read.
-No source passage or section-by-section source summary was added.
-
-## Library and roadmap checks
-
-Read-only TauCetiRoadmap main:
-`070dc2becd74419e76303ede84b465ed4a69461f`.
-Current read-only Tau Ceti:
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-InductionRestriction and SemisimpleAlgebras READMEs were read in full;
-relevant AlgebraicTopology, ProfiniteCohomology and LocalGaloisGroups
-interfaces were inspected. The reviewed library audit was read. It has no
-direct Part II entry; R17.5/MP.1 describe projective lifting and factor-set
-classification, not the general integral bridge.
-
-- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
-  GroupHomology/Transfer/Basic line 107, supplies transfer followed by
-  inclusion as subgroup index times identity. Reuse it for annihilation.
-  It is absent at the pin, so Suggested does not import that newer module.
-- Mathlib `groupHomology.isZero_groupHomology_succ_of_subsingleton`,
-  GroupHomology/Basic line 263, supplies the trivial-group vanishing.
-  `H0IsoOfIsTrivial`, LowDegree line 892, supplies the degree-zero check.
-  `Rep.FiniteCyclicGroup.groupHomologyIsoEven` and `groupHomologyIsoOdd`,
-  FiniteCyclic lines 85 and 122, supply cyclic parity computations.
-  These exact statements were read at the Mathlib pin.
-- Current `TauCeti.ChainComplex.kronecker_bijective`,
-  Algebra/Homology/Kronecker line 177, assumes injective coefficients.
-  AlgebraicTopology Stage 6 plans singular UCT. Neither supplies the native
-  arbitrary-coefficient group sequence needed here.
-- ProfiniteCohomology's five-term interface is cohomological and explicitly
-  excludes Hochschild–Serre. The inspected local-Galois interfaces do not
-  supply the integral homological extension maps.
-- Pinned `Subgroup.exists_right_complement'_of_coprime`,
-  GroupTheory/SchurZassenhaus line 277, supplies existence only.
-  ArithmeticStatistics ST.5's complement-conjugacy target assumes an
-  abelian kernel, so it does not cover possibly nonabelian H.
-
-No upstream roadmap or library was changed or built. No Lake command ran in
-those read-only trees.
-
-## Inherited obligations to retain
-
-The existing package contains the specified native UCT Ext injection and
-both naturality maps; its evaluation-kernel tests for C₂ with ℤ, ℤ² with
-arbitrary abelian coefficients, and C₄ with C₂ must remain. Preserve the
-oriented central-extension formula and its nonsplit C₄→C₂ counterexample.
-The coprime edge still needs its explicit d₃ check. Preserve the cyclic
-Sylow-induction proof and all three conjugacy tests, especially the inverse
-conjugator for C₃⋊C₂ and the noncoprime diagonal counterexample.
-
-Retain the previous checkpoint's two finite positive-degree homology
-signatures and six tests. The positive-degree tests cover the trivial group,
-C₂ parity, and the failure of finiteness/order annihilation in H₀. The
-coprime-edge tests cover trivial quotient, C₃²⋊C₂ with inversion acting
-trivially on the multiplier, and the extra tensor class when coprimality
-fails for C₂×C₂. Their source and calculation receipts remain in #8662.
-
-The accepted packet also records ordinary-cover input with a named parent
-owner, finite table/order-96 certificates, and original signatures requiring
-missing carriers. This session does not certify those inherited obligations
-as discharged. All 31 row-certificate signatures and 38 RS.6 targets remain.
-Retain oriented class maps, chosen projections and embeddings, centralizer
-enumerations, actual relation subgroups and group-valued outputs. Rows 13/24
-use affine sum kernels; 16/17 native SL₂(𝔽₃) graph/sum models; 22/23 Heisenberg
-graph/sum models; 30/31 inverse transpose on SL₃(𝔽₂) and its full wreath model.
-Earlier finite-certificate calculations were not rerun here. The ten accepted
-source issues remain unchanged. Prior computation receipts and public-source
-version hashes are in the handoff merged by #8659.
-
-## Verification
-
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
-  exit 0; 695 warnings, all `declaration uses sorry`; zero errors or other
-  warnings. Preflight showed 97 GiB available. The check finished; no
-  language server, library build, update or cache download was started.
-- The helper uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-  Mathlib source HEAD is `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-- Packet checker: exit 0, zero errors/warnings; 109 nodes, 124 API items,
-  96 tests, 30 planets, 30 baseline declarations, five gaps, one request,
-  six planned stages and zero closed stages. The packet is unchanged.
-- All 109 target suffixes, 124 API suffixes and 96 test labels occur in both
-  package files; all 32 definition/construction nodes have at least three
-  tests. The three new API names and three new test labels occur in both files. This is correspondence
-  coverage, not a mathematical audit of every inherited target.
-- README: 159,497 bytes, below the 200 KB limit.
-- Local intake file checks: three permitted changed files, zero problems.
-  `git diff --check` passed.
-
-| Artifact | SHA-256 |
-| --- | --- |
-| `packets/InductionRestrictionPartII.json` (unchanged) | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `6cd57a8e2f41f751f13a7858440f893a2a5abcf313c23725150e65b47159e982` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `1ffdde971a3f1f8232519d48cabf0f0b9f1172a5c92c0ec2e6b2258a075fb959` |
-
-No scratch artifact is needed to resume. No second job was claimed.
+After the planning amendment, reconcile every dependency and native
+interface, complete the package audit, rerun the checks and add
+`metadata.toml` with `topic = "math.GR"`. Metadata remains absent now:
+`issues.deliverables_complete` otherwise classifies the package by output
+existence and would treat this unresolved checkpoint as a completed job.
+No scratch artifact is needed to resume.
