@@ -918,6 +918,30 @@ theorem majorArcs_mono (Q R : ℕ) (η θ : ℝ) (hq : Q ≤ R) (hr : η ≤ θ)
 theorem majorArcs_measurable (Q : ℕ) (η : ℝ) :
     IsClosed (majorArcs Q η) ∧ MeasurableSet (majorArcs Q η) := by sorry
 
+/-- ES.1/denominator-major-arcs, added by REV-ExponentialSumsAndCircleMethod.
+The optimized Waring domains use radius η/q at denominator q. -/
+def denominatorMajorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) :=
+  ⋃ aq ∈ reducedArcIndices Q, majorArc aq (η / (aq.2 : ℝ))
+theorem mem_denominatorMajorArcs (Q : ℕ) (η : ℝ) (α : AddCircle (1 : ℝ)) :
+    α ∈ denominatorMajorArcs Q η ↔ ∃ aq ∈ reducedArcIndices Q,
+      dist α (((aq.1 : ℝ) / aq.2 : ℝ) : AddCircle (1 : ℝ)) ≤ η / (aq.2 : ℝ) := by sorry
+theorem denominatorMajorArcs_zero (η : ℝ) :
+    denominatorMajorArcs 0 η = ∅ := by sorry
+theorem denominatorMajorArcs_one (η : ℝ) :
+    denominatorMajorArcs 1 η = majorArc (0,1) η := by sorry
+theorem denominatorMajorArcs_mono (Q R : ℕ) (η θ : ℝ) (hq : Q ≤ R) (hr : η ≤ θ) :
+    denominatorMajorArcs Q η ⊆ denominatorMajorArcs R θ := by sorry
+theorem denominatorMajorArcs_negative (Q : ℕ) (η : ℝ) (hη : η < 0) :
+    denominatorMajorArcs Q η = ∅ := by sorry
+theorem denominatorMajorArcs_measurable (Q : ℕ) (η : ℝ) :
+    IsClosed (denominatorMajorArcs Q η) ∧ MeasurableSet (denominatorMajorArcs Q η) := by sorry
+/-! Denominator-dependent arc regressions: empty cutoff, wraparound,
+width at denominator two, and an exact rational centre. -/
+example : denominatorMajorArcs 0 1 = ∅ := by sorry
+example : ((19/20 : ℝ) : AddCircle (1 : ℝ)) ∈ denominatorMajorArcs 1 (1/10) := by sorry
+example : ((23/40 : ℝ) : AddCircle (1 : ℝ)) ∉ denominatorMajorArcs 2 (1/10) := by sorry
+example : ((1/2 : ℝ) : AddCircle (1 : ℝ)) ∈ denominatorMajorArcs 2 0 := by sorry
+
 /-- ES.1/minor-arcs. Closed major boundaries are not minor. -/
 def minorArcs (Q : ℕ) (η : ℝ) : Set (AddCircle (1 : ℝ)) := (majorArcs Q η)ᶜ
 theorem mem_minorArcs (Q : ℕ) (η : ℝ) (α : AddCircle (1 : ℝ)) :
@@ -1492,10 +1516,12 @@ theorem oscillatory_integral_derivative (k : ℕ) (hk : 2 ≤ k) :
       ‖∫ x in Set.Icc a b, Complex.exp ((lam*φ x : ℝ)*Complex.I)‖ ≤
         C*Real.rpow (c*lam) (-(k : ℝ)⁻¹) := by sorry
 
+/-- The support is closed: zeros of the amplitude may still be stationary points.
+Reuse the current Tau Ceti Morse chart; quantitative Jacobian control remains a packet gap. -/
 theorem stationary_phase_leading (a : ℝ → ℂ) (φ : ℝ → ℝ) (x₀ : ℝ)
     (ha : ContDiff ℝ ⊤ a) (hcompact : HasCompactSupport a) (hφ : ContDiff ℝ ⊤ φ)
     (hz : deriv φ x₀ = 0) (hsecond : iteratedDeriv 2 φ x₀ ≠ 0)
-    (hunique : ∀ x ∈ Function.support a, deriv φ x = 0 → x = x₀) :
+    (hunique : ∀ x ∈ tsupport a, deriv φ x = 0 → x = x₀) :
     ∃ C : ℝ, 0 < C ∧ ∀ lam : ℝ, 1 ≤ lam →
       ‖(∫ x : ℝ, a x * Complex.exp ((lam*φ x : ℝ)*Complex.I)) -
         a x₀ * Complex.exp (((lam*φ x₀ + Real.pi*(if 0 < iteratedDeriv 2 φ x₀ then 1 else -1)/4) : ℝ)*Complex.I) *
@@ -2009,7 +2035,8 @@ example : weightedQuadraticCount 1 (MvPolynomial.X 0^2) 4
     (fun x => if |x 0| ≤ 3/2 then 1 else 0) = 2 := by sorry
 
 -- maximal_lattice_local_positivity and maximal_lattice_eventual_representation:
--- current IntegralLattices supplier types are an explicit gap, not assumed facts.
+-- Reuse current IntegralLattices local carriers/forms. Maximality and
+-- hyperbolic splitting including p=2 require its Part II extension.
 end TauCeti.ExponentialSumsPlan
 
 namespace TauCeti.ExponentialSumsPlan
@@ -2144,6 +2171,8 @@ theorem markoff_odd_local_density (p : ℕ) [Fact p.Prime] (hp : 2 < p)
       (p=3 → (d=0 ↔ k%9=3 ∨ k%9=6)) := by sorry
 -- Remaining valuation formulas of markoff_odd_local_density and
 -- markoff_pair_local_density need the corrected native character/valuation adapter.
+-- The even-even finite-level tail depends on the discriminant valuations (E36).
+-- A valuation-sensitive averaged product comparison is still needed for truncation.
 
 theorem markoff_sector_first_moment (eps : ℝ) (heps : 0 < eps) :
     ∃ C : ℝ, 0 < C ∧ ∀ K A : ℕ, 2 ≤ K → 3 ≤ A →
@@ -2492,7 +2521,7 @@ theorem improved_hua_moment (k t : ℕ) (ht : 1 ≤ t) (htk : t ≤ k)
 theorem waring_optimized_minor_arcs (k t s : ℕ) (hk : 3 ≤ k) (ht : 1 ≤ t) (htk : t<k)
     (hs : (k : ℝ)^2-(t : ℝ)*(k-t-1)/(k+1-t)<s) (hs' : s ≤ k*(k+1)) :
     ∃ δ C : ℝ, 0<δ ∧ 0<C ∧ ∀ N : ℕ, 1 ≤ N →
-      (∫ α in (majorArcs (N/(2*k)) ((N : ℝ)^(1-(k : ℝ))/(2*k)))ᶜ,
+      (∫ α in (denominatorMajorArcs (N/(2*k)) ((N : ℝ)^(1-(k : ℝ))/(2*k)))ᶜ,
         ‖powerWeylSum k N α‖^s ∂AddCircle.haarAddCircle) ≤ C*(N : ℝ)^((s : ℝ)-k-δ) := by sorry
 
 theorem waring_linear_range_positivity (k s : ℕ) (hk : 3 ≤ k)
@@ -2619,6 +2648,8 @@ theorem prime_bilinear_estimates : ∃ C : ℝ, 1 ≤ C ∧
     (min M N : ℝ) ≤ C*δ^(-4 : ℤ) ∨ ∃ q : ℕ, 1 ≤ q ∧ (q : ℝ) ≤ C*δ^(-2 : ℤ) ∧
       dist ((q : ℤ) • θ) 0 ≤ C*δ^(-4 : ℤ)/(M*N)) := by sorry
 
+/-- General fixed-form target. SSTT's local proofs assume maximality, and its
+sharper estimate assumes a good prime; nonmaximal and dyadic lifting remain gaps. -/
 theorem quadratic_local_stability (n : ℕ) (hn : 5 ≤ n) (Q : MvPolynomial (Fin n) ℤ)
     (hQ : Q.IsHomogeneous 2)
     (hnd : ∀ x : Fin n → ℚ, (∀ i, (MvPolynomial.pderiv i Q).eval₂ (Int.castRingHom ℚ) x=0) → x=0) :
