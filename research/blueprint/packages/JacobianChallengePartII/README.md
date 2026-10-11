@@ -824,6 +824,10 @@ Represent the same coordinate change on the actual fibre power A^{n+1}_S. Its fo
 
 The scheme form passes three further checks: for n=0 it is the identity isomorphism of the one-factor fibre power; its inverse takes the pair of actual T-morphisms (f,g/f) to (f,g); and the small diagonal takes f to f in the head and the identity section in each tail. These identities hold for arbitrary test schemes T, including nonreduced ones.
 
+`RelativeJacobian.TriangularCoordinateEquivalence.schemeIso_baseChangeIso` compares the complete isomorphisms after arbitrary base extension, using `Functor.mapIso` and the same finite-product comparison. If F is pullback along S′→S and C identifies F(A^{n+1}_S) with (F(A))^{n+1}_{S′}, the equality is F(R)≫C=C≫R′ as isomorphisms. Taking inverses also gives C⁻¹≫F(R⁻¹)=R′⁻¹≫C⁻¹. Thus the inverse coordinate change has the same base-change compatibility as the forward morphism. This follows from the coordinate construction above, the product universal property and the uniqueness of the inverse; it uses no commutativity hypothesis. ([Yuan](https://arxiv.org/pdf/2108.05625v4), proof of Theorem 4.17(5), p. 98, for the Jacobian coordinate change; the extension to arbitrary group objects is the group-cancellation argument above.)
+
+The companion check `RelativeJacobian.TriangularCoordinateEquivalence.test_schemeNoncommutingInverse` retains the noncommutative distinction explicitly: for actual T-valued points a,b with ab≠ba, R⁻¹(a,b)=(a,ba) differs from (a,ab). Projection to the second factor detects the difference. For GL₂ over F₂, take a with rows (1,1),(0,1) and b with rows (1,0),(1,1). Then ab has rows (0,1),(1,1), while ba has rows (1,1),(1,0). These are distinct rational points of the same group scheme. This rules out restoring the head on the left in a purported inverse of the stated right-quotient coordinate map.
+
 The properties of `RelativeJacobian.TriangularCoordinateEquivalence` fix each forward and inverse coordinate and prove naturality of both directions:
 
 - `RelativeJacobian.TriangularCoordinateEquivalence.first`: R(q)₀=q₀.
