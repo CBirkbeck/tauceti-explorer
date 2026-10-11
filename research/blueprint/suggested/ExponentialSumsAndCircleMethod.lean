@@ -1,3 +1,12 @@
+import Mathlib.NumberTheory.ArithmeticFunction.VonMangoldt
+import Mathlib.Analysis.InnerProductSpace.Projection.Basic
+import Mathlib.Algebra.MvPolynomial.PDeriv
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.RingTheory.KrullDimension.Basic
+import Mathlib.RingTheory.Ideal.Quotient.Operations
+import Mathlib.Analysis.Fourier.ZMod
+import Mathlib.Analysis.Calculus.ContDiff.Basic
+import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.Algebra.MvPolynomial.Degrees
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
@@ -34,7 +43,7 @@ import Mathlib.Tactic
 
 /-! This file is not the roadmap and is not exhaustive; the roadmap document
 is definitive. These suggested Lean forms help contributors and reviewers
-converge on names and signatures for the ES.0–ES.5 planning checkpoints.
+converge on names and signatures for the ES.0–ES.5 targets.
 All new declarations are planning obligations, not implementations.
 Existing DirichletCharacter, periodicity, finite intervals and Möbius are reused. -/
 noncomputable section
@@ -1441,4 +1450,1195 @@ example : boundedProjectivePointCount
 /-- boundedProjectivePointCount_sign_test -/
 example : boundedProjectivePointCount (0 : MvPolynomial (Fin 3) ℤ) (fun _ => 1)=13 := by sorry
 
+end TauCeti.ExponentialSumsPlan
+
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+
+theorem finite_completion {q : ℕ} [NeZero q] (f : ZMod q → ℂ) (I : Finset ℤ) :
+    (∑ m ∈ I, f (m : ZMod q)) =
+      (q : ℂ)⁻¹ * ∑ h : ZMod q, ZMod.dft f h *
+        ∑ m ∈ I, ZMod.stdAddChar ((m : ZMod q) * h) := by sorry
+
+theorem kusmin_landau : ∃ C : ℝ, 0 < C ∧
+    ∀ (a b : ℤ) (f : ℝ → ℝ) (δ : ℝ), a ≤ b → ContDiff ℝ 1 f →
+      0 < δ → δ ≤ 1/2 →
+      (MonotoneOn (deriv f) (Set.Icc (a : ℝ) b) ∨
+       AntitoneOn (deriv f) (Set.Icc (a : ℝ) b)) →
+      (∀ x ∈ Set.Icc (a : ℝ) b, ∀ j : ℤ, δ ≤ |deriv f x - j|) →
+      ‖∑ m ∈ Finset.Ioc a b, Complex.exp ((2*Real.pi*f m : ℝ)*Complex.I)‖ ≤ C/δ := by sorry
+
+theorem second_derivative_sum (A : ℝ) (hA : 1 < A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (a b : ℤ) (f : ℝ → ℝ) (lam : ℝ),
+      1 < b-a → ContDiff ℝ 2 f → 0 < lam →
+      (∀ x ∈ Set.Icc (a : ℝ) b, lam ≤ |iteratedDeriv 2 f x| ∧
+        |iteratedDeriv 2 f x| ≤ A*lam) →
+      ‖∑ m ∈ Finset.Ioc a b, Complex.exp ((2*Real.pi*f m : ℝ)*Complex.I)‖ ≤
+        C * ((b-a : ℤ)*Real.sqrt lam + (Real.sqrt lam)⁻¹) := by sorry
+
+theorem van_der_corput_a (a b : ℤ) (H : ℕ) (ha : a < b) (hH : 1 ≤ H)
+    (hHN : (H : ℤ) ≤ b-a) (f : ℤ → ℝ) :
+    ‖∑ m ∈ Finset.Ioc a b, Complex.exp ((2*Real.pi*f m : ℝ)*Complex.I)‖^2 ≤
+      2*(b-a : ℤ)^2/(H : ℝ) + (2*(b-a : ℤ)/(H : ℝ)) *
+        ∑ h ∈ (Finset.Ioo (-(H : ℤ)) H).erase 0,
+          ‖∑ m ∈ (Finset.Ioc a b).filter (fun m => a < m+h ∧ m+h ≤ b),
+            Complex.exp ((2*Real.pi*(f (m+h)-f m) : ℝ)*Complex.I)‖ := by sorry
+
+theorem oscillatory_integral_derivative (k : ℕ) (hk : 2 ≤ k) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (a b c lam : ℝ) (φ : ℝ → ℝ),
+      a ≤ b → 0 < c → 0 < lam → ContDiff ℝ ⊤ φ →
+      (∀ x ∈ Set.Icc a b, c ≤ |iteratedDeriv k φ x|) →
+      ‖∫ x in Set.Icc a b, Complex.exp ((lam*φ x : ℝ)*Complex.I)‖ ≤
+        C*Real.rpow (c*lam) (-(k : ℝ)⁻¹) := by sorry
+
+theorem stationary_phase_leading (a : ℝ → ℂ) (φ : ℝ → ℝ) (x₀ : ℝ)
+    (ha : ContDiff ℝ ⊤ a) (hcompact : HasCompactSupport a) (hφ : ContDiff ℝ ⊤ φ)
+    (hz : deriv φ x₀ = 0) (hsecond : iteratedDeriv 2 φ x₀ ≠ 0)
+    (hunique : ∀ x ∈ Function.support a, deriv φ x = 0 → x = x₀) :
+    ∃ C : ℝ, 0 < C ∧ ∀ lam : ℝ, 1 ≤ lam →
+      ‖(∫ x : ℝ, a x * Complex.exp ((lam*φ x : ℝ)*Complex.I)) -
+        a x₀ * Complex.exp (((lam*φ x₀ + Real.pi*(if 0 < iteratedDeriv 2 φ x₀ then 1 else -1)/4) : ℝ)*Complex.I) *
+        (Real.sqrt (2*Real.pi/(lam*|iteratedDeriv 2 φ x₀|)) : ℂ)‖ ≤
+          C*Real.rpow lam (-3/2 : ℝ) := by sorry
+
+theorem van_der_corput_b (A : ℝ) (hA : 1 ≤ A) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (a b : ℤ) (N F : ℝ) (f : ℝ → ℝ),
+      a < b → 0 < N → 0 < F → N ≤ a → (b : ℝ) ≤ 2*N → ContDiff ℝ 4 f →
+      (∀ x ∈ Set.Icc (a : ℝ) b,
+        F/(A*N^2) ≤ iteratedDeriv 2 f x ∧ iteratedDeriv 2 f x ≤ A*F/N^2 ∧
+        |iteratedDeriv 3 f x| ≤ A*F/N^3 ∧ |iteratedDeriv 4 f x| ≤ A*F/N^4) →
+      ∀ xh : ℤ → ℝ,
+        (∀ h ∈ Finset.Icc (⌈deriv f a⌉ : ℤ) (⌊deriv f b⌋ : ℤ),
+          xh h ∈ Set.Icc (a : ℝ) b ∧ deriv f (xh h) = h) →
+        ‖(∑ m ∈ Finset.Ioc a b, Complex.exp ((2*Real.pi*f m : ℝ)*Complex.I)) -
+          ∑ h ∈ Finset.Icc (⌈deriv f a⌉ : ℤ) (⌊deriv f b⌋ : ℤ),
+            Complex.exp ((2*Real.pi*(f (xh h) - (h : ℝ)*xh h + 1/8) : ℝ)*Complex.I) /
+              (Real.sqrt (iteratedDeriv 2 f (xh h)) : ℂ)‖ ≤
+          C*(Real.log (2+F/N) + N/Real.sqrt F) := by sorry
+
+def symmetricDirichletKernel (H : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
+  ∑ m ∈ Finset.Icc (-(H : ℤ)) H, fourier m α
+def oneSidedDirichletKernel (H : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
+  ∑ m ∈ Finset.Icc (1 : ℤ) H, fourier m α
+theorem symmetricDirichletKernel_zero : symmetricDirichletKernel 0 = 1 := by sorry
+theorem symmetricDirichletKernel_at_zero (H : ℕ) : symmetricDirichletKernel H 0 = 2*H+1 := by sorry
+theorem symmetricDirichletKernel_continuous (H : ℕ) : Continuous (symmetricDirichletKernel H) := by sorry
+theorem symmetricDirichletKernel_lift (H : ℕ) (x : ℝ) : symmetricDirichletKernel H x =
+    ∑ m ∈ Finset.Icc (-(H : ℤ)) H, Complex.exp ((2*Real.pi*m*x : ℝ)*Complex.I) := by sorry
+theorem oneSidedDirichletKernel_zero : oneSidedDirichletKernel 0 = 0 := by sorry
+theorem oneSidedDirichletKernel_at_zero (H : ℕ) : oneSidedDirichletKernel H 0 = H := by sorry
+theorem oneSidedDirichletKernel_continuous (H : ℕ) : Continuous (oneSidedDirichletKernel H) := by sorry
+theorem oneSidedDirichletKernel_lift (H : ℕ) (x : ℝ) : oneSidedDirichletKernel H x =
+    ∑ m ∈ Finset.Icc (1 : ℤ) H, Complex.exp ((2*Real.pi*m*x : ℝ)*Complex.I) := by sorry
+-- symmetricDirichletKernel_zero_test
+example : symmetricDirichletKernel 0 = 1 := by sorry
+-- symmetricDirichletKernel_one_half_test
+example : symmetricDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by sorry
+-- symmetricDirichletKernel_at_zero_test
+example : symmetricDirichletKernel 2 0 = 5 := by sorry
+-- oneSidedDirichletKernel_zero_test
+example : oneSidedDirichletKernel 0 = 0 := by sorry
+-- oneSidedDirichletKernel_one_half_test
+example : oneSidedDirichletKernel 1 ((1/2 : ℝ) : AddCircle (1 : ℝ)) = -1 := by sorry
+-- oneSidedDirichletKernel_at_zero_test
+example : oneSidedDirichletKernel 2 0 = 2 := by sorry
+theorem dirichlet_kernel_l1 : ∃ C : ℝ, 0 < C ∧ ∀ H : ℕ,
+    (∫ α, ‖symmetricDirichletKernel H α‖ ∂AddCircle.haarAddCircle) ≤ C*Real.log (2+H) ∧
+    (∫ α, ‖oneSidedDirichletKernel H α‖ ∂AddCircle.haarAddCircle) ≤ C*Real.log (2+H) := by sorry
+
+theorem burgess_character_bound (r : ℕ) (hr : 1 ≤ r) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q),
+      2 ≤ q → χ ≠ 1 → (r ≤ 3 ∨ (∀ p : ℕ, p.Prime → ¬ p^3 ∣ q) ∨ χ.IsQuadratic) →
+      ∀ (M : ℤ) (N : ℕ), 1 ≤ N →
+        ‖∑ m ∈ Finset.Ioc M (M+N), χ (m : ZMod q)‖ ≤
+          C*Real.rpow N (1-(r : ℝ)⁻¹)*Real.rpow q ((r+1)/(4*(r : ℝ)^2)+ε) := by sorry
+
+def shortCharacterHypothesis (n : ℕ) (δ : ℝ) : Prop :=
+  3 ≤ n ∧ 0 < δ ∧ ∀ ε : ℝ, 0 < ε → ∃ C : ℝ, 0 < C ∧
+    ∀ (Q q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q), 3 ≤ Q → q ≤ Q →
+      χ ≠ 1 → χ.IsQuadratic → ∀ (M : ℤ) (N : ℕ),
+      1 ≤ N → (N : ℝ) ≤ Real.rpow Q (n : ℝ)⁻¹ →
+      ‖∑ m ∈ Finset.Ioc M (M+N), χ (m : ZMod q)‖ ≤ C*Real.rpow Q ((1-δ)/(n : ℝ)+ε)
+theorem shortCharacterHypothesis_range (n : ℕ) (δ : ℝ)
+    (h : shortCharacterHypothesis n δ) : 3 ≤ n ∧ 0 < δ := by sorry
+theorem shortCharacterHypothesis_bound (n : ℕ) (δ ε : ℝ)
+    (h : shortCharacterHypothesis n δ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (Q q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q),
+      3 ≤ Q → q ≤ Q → χ ≠ 1 → χ.IsQuadratic → ∀ (M : ℤ) (N : ℕ),
+      1 ≤ N → (N : ℝ) ≤ Real.rpow Q (n : ℝ)⁻¹ →
+      ‖∑ m ∈ Finset.Ioc M (M+N), χ (m : ZMod q)‖ ≤ C*Real.rpow Q ((1-δ)/(n : ℝ)+ε) := by sorry
+theorem shortCharacterHypothesis_weaken (n : ℕ) (δ δ' : ℝ)
+    (h : shortCharacterHypothesis n δ) (hp : 0 < δ') (hle : δ' ≤ δ) :
+    shortCharacterHypothesis n δ' := by sorry
+theorem shortCharacterHypothesis_progression (n : ℕ) (δ ε : ℝ)
+    (h : shortCharacterHypothesis n δ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (Q q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q),
+      3 ≤ Q → q ≤ Q → χ ≠ 1 → χ.IsQuadratic → ∀ (M l : ℤ) (N k : ℕ),
+      1 ≤ N → 1 ≤ k → Nat.Coprime k q → (N : ℝ) ≤ Real.rpow Q (n : ℝ)⁻¹ →
+      ‖∑ m ∈ (Finset.Ioc M (M+N)).filter (fun m => (k : ℤ) ∣ m-l),
+          χ (m : ZMod q)‖ ≤ C*Real.rpow Q ((1-δ)/(n : ℝ)+ε) := by sorry
+-- shortCharacterHypothesis_small_degree_test
+example (δ : ℝ) : ¬ shortCharacterHypothesis 2 δ := by sorry
+-- shortCharacterHypothesis_zero_saving_test
+example (n : ℕ) : ¬ shortCharacterHypothesis n 0 := by sorry
+-- shortCharacterHypothesis_shift_test
+example (n : ℕ) (δ ε : ℝ) (h : shortCharacterHypothesis n δ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (Q q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q),
+      3 ≤ Q → q ≤ Q → χ ≠ 1 → χ.IsQuadratic →
+      ‖∑ m ∈ Finset.Ioc (-20 : ℤ) (-19), χ (m : ZMod q)‖ ≤
+        C*Real.rpow Q ((1-δ)/(n : ℝ)+ε) := by sorry
+theorem burgess_cubic_hypothesis : shortCharacterHypothesis 3 (1/48) := by sorry
+theorem short_jacobi_progression (n : ℕ) (δ ε : ℝ)
+    (h : shortCharacterHypothesis n δ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (q : ℕ) [NeZero q] (χ : DirichletCharacter ℂ q),
+      1 < q → Odd q → Squarefree q → χ.IsPrimitive → χ.IsQuadratic → χ ≠ 1 →
+      ∀ (M l k : ℤ) (N : ℕ), k ≠ 0 → ¬ (q : ℤ) ∣ k → 1 ≤ N →
+      (N : ℝ) ≤ Real.rpow q (n : ℝ)⁻¹ →
+      ‖∑ m ∈ (Finset.Ioc M (M+N)).filter (fun m => k ∣ m-l), χ (m : ZMod q)‖ ≤
+        C*Real.rpow q ((1-δ)/(n : ℝ)+ε) := by sorry
+
+theorem graham_ringrose_bound (r : ℕ) (hr : 1 ≤ r) (q : Fin r → ℕ)
+    [∀ i, NeZero (q i)] (π : (i : Fin r) → DirichletCharacter ℂ (q i))
+    (i₀ : Fin r) (hq : 1 < q i₀) (hsq : Squarefree (q i₀))
+    (hcop : Pairwise (fun i j => Nat.Coprime (q i) (q j)))
+    (hprim : (π i₀).IsPrimitive) (M R : ℝ)
+    (hR0 : Real.rpow (q i₀) (3/2) ≤ R)
+    (hRi : ∀ i : Fin r, i ≠ i₀ → (q i : ℝ)*Real.rpow (q i₀) (5/4) ≤ R) :
+    ‖∑ m ∈ Finset.Ioc (⌊M⌋ : ℤ) (⌊M+R⌋ : ℤ),
+      ∏ i : Fin r, π i (m : ZMod (q i))‖ ≤
+      4*R*Real.rpow (((q i₀).divisors.card : ℝ)^(r^2)/(q i₀))
+        (Real.rpow 2 (-(r : ℝ))) := by sorry
+
+theorem distinct_quadratic_cancellation (c : ℝ) (hc : 0 < c) :
+    ∃ K : ℕ, 1 ≤ K ∧ ∀ k : ℕ, K ≤ k →
+      ∀ (q₁ q₂ : ℕ) [NeZero q₁] [NeZero q₂]
+        (χ₁ : DirichletCharacter ℂ q₁) (χ₂ : DirichletCharacter ℂ q₂),
+        χ₁.IsPrimitive → χ₂.IsPrimitive → χ₁.IsQuadratic → χ₂.IsQuadratic →
+        (q₁ : ℝ) ≤ Real.rpow k c → (q₂ : ℝ) ≤ Real.rpow k c →
+        (∃ m : ℤ, χ₁ (m : ZMod q₁) ≠ χ₂ (m : ZMod q₂)) →
+        (∀ p : ℕ, p.Prime → p ∣ q₁*q₂ → (p : ℝ) ≤ Real.rpow k (7/16)) →
+        ‖∑ m ∈ Finset.Ioc (k/2) k, χ₁ m * χ₂ m‖ ≤
+          Real.rpow k (1-Real.rpow 2 (-10*c-6)) := by sorry
+end TauCeti.ExponentialSumsPlan
+
+
+namespace TauCeti.ExponentialSumsPlan
+open Polynomial
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+def polarForm {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R) (j : Fin n) : R :=
+  (Nat.factorial (r+1) : R) * ∑ a : Fin r → Fin n,
+    c (Fin.snoc a j) * ∏ t : Fin r, u t (a t)
+theorem polarForm_zero_tensor {R : Type*} [CommRing R] (n r : ℕ)
+    (u : Fin r → Fin n → R) (j : Fin n) : polarForm n r (fun _ => 0) u j = 0 := by sorry
+theorem polarForm_add_slot {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R)
+    (t : Fin r) (v w : Fin n → R) (j : Fin n) :
+    polarForm n r c (Function.update u t (v+w)) j =
+      polarForm n r c (Function.update u t v) j + polarForm n r c (Function.update u t w) j := by sorry
+theorem polarForm_smul_slot {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R)
+    (t : Fin r) (z : R) (j : Fin n) :
+    polarForm n r c (Function.update u t (z • u t)) j = z * polarForm n r c u j := by sorry
+theorem polarForm_diagonal {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R)
+    (hsym : ∀ (a : Fin (r+1) → Fin n) (σ : Equiv.Perm (Fin (r+1))), c (a ∘ σ) = c a)
+    (x : Fin n → R) (j : Fin n) :
+    polarForm n r c (fun _ => x) j = (Nat.factorial r : R) *
+      MvPolynomial.eval x (MvPolynomial.pderiv j
+        (∑ a : Fin (r+1) → Fin n, MvPolynomial.C (c a) *
+          ∏ t : Fin (r+1), MvPolynomial.X (a t))) := by sorry
+theorem polarForm_map {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S) (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R) (j : Fin n) :
+    f (polarForm n r c u j) = polarForm n r (fun a => f (c a)) (fun t i => f (u t i)) j := by sorry
+-- polarForm_cubic_test
+example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun _ _ => 1) 0 = 6 := by sorry
+-- polarForm_zero_slot_test
+example : polarForm 1 2 (fun _ => (1 : ℚ)) (fun t _ => if t=0 then 0 else 1) 0 = 0 := by sorry
+-- polarForm_bad_characteristic_test
+example : polarForm 1 2 (fun _ => (1 : ZMod 3)) (fun _ _ => 1) 0 = 0 := by sorry
+
+theorem multivariate_polarization {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R)
+    (hsym : ∀ (a : Fin (r+1) → Fin n) (σ : Equiv.Perm (Fin (r+1))), c (a ∘ σ) = c a)
+    (L : MvPolynomial (Fin n) R) (hL : L.totalDegree ≤ r) (u : Fin r → Fin n → R) (x : Fin n → R) :
+    let f := ∑ a : Fin (r+1) → Fin n, MvPolynomial.C (c a) *
+      ∏ t : Fin (r+1), MvPolynomial.X (a t)
+    let D := (List.ofFn u).foldl (fun G h => fun z => G (z+h)-G z)
+      (fun z => MvPolynomial.eval z (f+L))
+    D x - D 0 = ∑ j : Fin n, polarForm n r c u j * x j := by sorry
+
+def polarZeroLocus {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) : Set (Fin r → Fin n → R) :=
+  {u | ∀ j, polarForm n r c u j = 0}
+theorem mem_polarZeroLocus {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R) :
+    u ∈ polarZeroLocus n r c ↔ ∀ j, polarForm n r c u j = 0 := by sorry
+theorem polarZeroLocus_zero_tensor {R : Type*} [CommRing R] (n r : ℕ) :
+    polarZeroLocus n r (fun _ => (0 : R)) = Set.univ := by sorry
+theorem zero_mem_polarZeroLocus {R : Type*} [CommRing R] (n r : ℕ) (hr : 1 ≤ r)
+    (c : (Fin (r+1) → Fin n) → R) : 0 ∈ polarZeroLocus n r c := by sorry
+theorem polarZeroLocus_smul_slot {R : Type*} [CommRing R] (n r : ℕ)
+    (c : (Fin (r+1) → Fin n) → R) (u : Fin r → Fin n → R)
+    (hu : u ∈ polarZeroLocus n r c) (t : Fin r) (z : R) :
+    Function.update u t (z • u t) ∈ polarZeroLocus n r c := by sorry
+-- polarZeroLocus_cubic_unit_test
+example : (fun _ _ => (1 : ℚ)) ∉ polarZeroLocus 1 2 (fun _ => 1) := by sorry
+-- polarZeroLocus_cubic_zero_test
+example : (fun t _ => if t=0 then (0 : ℚ) else 1) ∈ polarZeroLocus 1 2 (fun _ => 1) := by sorry
+-- polarZeroLocus_zero_tensor_test
+example : polarZeroLocus 1 2 (fun _ => (0 : ℚ)) = Set.univ := by sorry
+
+theorem function_field_top_phase {F : Type*} [Field F] (n d k : ℕ)
+    (c : (Fin k → Fin n) → F) (b : ℕ → F) (a : Fin d → Fin n → F) :
+    let P := ∑ j : Fin k → Fin n, Polynomial.C (c j) * ∏ t : Fin k,
+      ∑ i : Fin d, Polynomial.C (a i (j t)) * Polynomial.X^i.val
+    (∑ v ∈ P.support, b (v+1)*P.coeff v) =
+      ∑ j : Fin k → Fin n, ∑ i : Fin k → Fin d,
+        c j * b (1 + ∑ t : Fin k, (i t).val) * ∏ t : Fin k, a (i t) (j t) := by sorry
+
+def functionFieldPolarCount {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D C : ℕ) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) : ℕ :=
+  ((Finset.univ : Finset (Fin r → Fin n → Fin D → F)).filter (fun a =>
+    ∀ j : Fin n, ∀ l ∈ Finset.Icc 1 C,
+      let P := polarForm n r (fun v => Polynomial.C (c v))
+        (fun t j => ∑ i : Fin D, Polynomial.C (a t j i) * Polynomial.X^i.val) j
+      ∑ v ∈ P.support, b (v+l)*P.coeff v = 0)).card
+theorem functionFieldPolarCount_zero_phase {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D C : ℕ) (c : (Fin (r+1) → Fin n) → F) :
+    functionFieldPolarCount n r D C c (fun _ => 0) = (Fintype.card F)^(r*n*D) := by sorry
+theorem functionFieldPolarCount_no_constraints {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D : ℕ) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    functionFieldPolarCount n r D 0 c b = (Fintype.card F)^(r*n*D) := by sorry
+theorem functionFieldPolarCount_zero_box {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r C : ℕ) (hr : 1 ≤ r) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    functionFieldPolarCount n r 0 C c b = 1 := by sorry
+theorem functionFieldPolarCount_pos {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D C : ℕ) (hr : 1 ≤ r) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    1 ≤ functionFieldPolarCount n r D C c b := by sorry
+theorem functionFieldPolarCount_cutoff_antitone {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D C C' : ℕ) (hC : C ≤ C') (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    functionFieldPolarCount n r D C' c b ≤ functionFieldPolarCount n r D C c b := by sorry
+theorem functionFieldPolarCount_coefficients {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r D C : ℕ) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    functionFieldPolarCount n r D C c b =
+      ((Finset.univ : Finset (Fin r → Fin n → Fin D → F)).filter (fun a =>
+        ∀ j : Fin n, ∀ l : Fin C,
+          (Nat.factorial (r+1) : F) * ∑ v : Fin r → Fin n,
+            ∑ i : Fin r → Fin D,
+              c (Fin.snoc v j) * b (1+l.val+∑ t : Fin r, (i t).val) *
+                ∏ t : Fin r, a t (v t) (i t) = 0)).card := by sorry
+-- functionFieldPolarCount_zero_phase_test
+example : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun _ => 0) = 25 := by sorry
+-- functionFieldPolarCount_nonzero_phase_test
+example : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun l => if l=1 then 1 else 0) = 9 := by sorry
+-- functionFieldPolarCount_strict_cutoff_test
+example : functionFieldPolarCount 1 2 1 1 (fun _ => (1 : ZMod 5)) (fun l => if l=2 then 1 else 0) = 25 ∧
+    functionFieldPolarCount 1 2 1 2 (fun _ => (1 : ZMod 5)) (fun l => if l=2 then 1 else 0) = 9 := by sorry
+-- functionFieldPolarCount_zero_box_test
+example : functionFieldPolarCount 1 2 0 1 (fun _ => (1 : ZMod 5)) (fun _ => 1) = 1 := by sorry
+
+theorem function_field_count_identity {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r d : ℕ) (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F) :
+    functionFieldPolarCount n r d d c b =
+      ((Finset.univ : Finset (Fin r → Fin n → Fin d → F)).filter (fun a =>
+        ∀ j : Fin n, ∀ i : Fin d,
+          (Nat.factorial (r+1) : F) * ∑ v : Fin r → Fin n,
+            ∑ z : Fin r → Fin d,
+              c (Fin.snoc v j) * b (1+i.val+∑ t : Fin r, (z t).val) *
+                ∏ t : Fin r, a t (v t) (z t) = 0)).card := by sorry
+
+theorem iterated_function_field_shrinking {F : Type*} [Field F] [Fintype F] [DecidableEq F]
+    (n r d s p : ℕ) [CharP F p] (hr : 2 ≤ r) (hp : r+1 < p) (hs : s ≤ d)
+    (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F)
+    (hsym : ∀ (a : Fin (r+1) → Fin n) (σ : Equiv.Perm (Fin (r+1))), c (a ∘ σ) = c a) :
+    functionFieldPolarCount n r d d c b ≤
+      (Fintype.card F)^(r*n*s) * functionFieldPolarCount n r (d-s) (d+r*s) c b := by sorry
+
+theorem short_polar_values_zero {F : Type*} [Field F] (n r d m : ℕ)
+    (hr : 2 ≤ r) (hmd : d ≤ m) (hml : 2*m ≤ (r+1)*d)
+    (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F)
+    (hminor : ∀ h : Polynomial F, h.natDegree ≤ m →
+      (∀ l ∈ Finset.Icc 1 ((r+1)*d-m), ∑ v ∈ h.support, b (v+l)*h.coeff v = 0) → h = 0)
+    (u : Fin r → Fin n → Polynomial F)
+    (hbox : ∀ t j, (u t j).degree < (d-(d-m/r) : ℕ))
+    (hcoeff : ∀ j : Fin n, ∀ l ∈ Finset.Icc 1 (d+r*(d-m/r)),
+      let P := polarForm n r (fun a => Polynomial.C (c a)) u j
+      ∑ v ∈ P.support, b (v+l)*P.coeff v = 0) :
+    ∀ j, polarForm n r (fun a => Polynomial.C (c a)) u j = 0 := by sorry
+
+theorem polar_dimension_bound {F : Type*} [Field F] (n r p : ℕ) [CharP F p]
+    (hn : 1 ≤ n) (hr : 2 ≤ r) (hp : r+1 < p)
+    (c : (Fin (r+1) → Fin n) → F)
+    (hdiag : ∀ x : Fin n → AlgebraicClosure F,
+      (∀ j, polarForm n r (fun a => algebraMap F (AlgebraicClosure F) (c a)) (fun _ => x) j = 0) → x=0) :
+    let S := MvPolynomial (Fin r × Fin n) (AlgebraicClosure F)
+    let I : Ideal S := Ideal.span (Set.range (fun j : Fin n =>
+      polarForm n r (fun a => MvPolynomial.C (algebraMap F (AlgebraicClosure F) (c a)))
+        (fun t i => MvPolynomial.X (t,i)) j))
+    ringKrullDim (S ⧸ I) ≤ (n*(r-1) : ℕ) := by sorry
+
+theorem uniform_function_field_minor_count (n r d : ℕ) (hn : 1 ≤ n)
+    (hr : 2 ≤ r) (hd : r ≤ d) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (F : Type) [Field F] [Fintype F] [DecidableEq F]
+      (p m : ℕ) [CharP F p], r+1 < p → d ≤ m → 2*m ≤ (r+1)*d →
+      ∀ (c : (Fin (r+1) → Fin n) → F) (b : ℕ → F),
+      (∀ (a : Fin (r+1) → Fin n) (σ : Equiv.Perm (Fin (r+1))), c (a ∘ σ) = c a) →
+      (∀ x : Fin n → AlgebraicClosure F,
+        (∀ j, polarForm n r (fun a => algebraMap F (AlgebraicClosure F) (c a)) (fun _ => x) j = 0) → x=0) →
+      (∀ h : Polynomial F, h.natDegree ≤ m →
+        (∀ l ∈ Finset.Icc 1 ((r+1)*d-m), ∑ v ∈ h.support, b (v+l)*h.coeff v = 0) → h=0) →
+      (functionFieldPolarCount n r d d c b : ℝ) ≤
+        C*Real.rpow (Fintype.card F) ((d*n*r-n*(m/r) : ℕ) : ℝ) := by sorry
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory
+open scoped ENNReal
+
+def brascampLiebBound (n m : ℕ) (d : Fin m → ℕ)
+    (L : (j : Fin m) → EuclideanSpace ℝ (Fin n) →L[ℝ] EuclideanSpace ℝ (Fin (d j)))
+    (a : Fin m → ℝ) (C : ℝ) : Prop :=
+  ∀ f : (j : Fin m) → EuclideanSpace ℝ (Fin (d j)) → ℝ,
+    (∀ j x, 0 ≤ f j x) → (∀ j, Integrable (f j)) →
+    Integrable (fun x => ∏ j, Real.rpow (f j (L j x)) (a j)) ∧
+    (∫ x, ∏ j, Real.rpow (f j (L j x)) (a j)) ≤ C * ∏ j, Real.rpow (∫ y, f j y) (a j)
+theorem brascampLiebBound_iff (n m : ℕ) (d : Fin m → ℕ)
+    (L : (j : Fin m) → EuclideanSpace ℝ (Fin n) →L[ℝ] EuclideanSpace ℝ (Fin (d j)))
+    (a : Fin m → ℝ) (C : ℝ) :
+    brascampLiebBound n m d L a C ↔
+    ∀ f : (j : Fin m) → EuclideanSpace ℝ (Fin (d j)) → ℝ,
+      (∀ j x, 0 ≤ f j x) → (∀ j, Integrable (f j)) →
+      Integrable (fun x => ∏ j, Real.rpow (f j (L j x)) (a j)) ∧
+      (∫ x, ∏ j, Real.rpow (f j (L j x)) (a j)) ≤ C * ∏ j, Real.rpow (∫ y, f j y) (a j) := by sorry
+theorem brascampLiebBound_mono (n m : ℕ) (d : Fin m → ℕ)
+    (L : (j : Fin m) → EuclideanSpace ℝ (Fin n) →L[ℝ] EuclideanSpace ℝ (Fin (d j)))
+    (a : Fin m → ℝ) (C C' : ℝ) (h : C ≤ C')
+    (hC : brascampLiebBound n m d L a C) : brascampLiebBound n m d L a C' := by sorry
+theorem brascampLiebBound_identity (n : ℕ) :
+    brascampLiebBound n 1 (fun _ => n) (fun _ => ContinuousLinearMap.id ℝ _) (fun _ => 1) 1 := by sorry
+theorem brascampLiebBound_no_zero_map (C : ℝ) :
+    ¬ brascampLiebBound 1 1 (fun _ => 1) (fun _ => 0) (fun _ => 1) C := by sorry
+-- brascampLiebBound_identity_test
+example : brascampLiebBound 1 1 (fun _ => 1) (fun _ => ContinuousLinearMap.id ℝ _) (fun _ => 1) 1 := by sorry
+-- brascampLiebBound_zero_map_test
+example (C : ℝ) : ¬ brascampLiebBound 1 1 (fun _ => 1) (fun _ => 0) (fun _ => 1) C := by sorry
+-- brascampLiebBound_wrong_scaling_test
+example (C : ℝ) : ¬ brascampLiebBound 1 1 (fun _ => 1) (fun _ => ContinuousLinearMap.id ℝ _) (fun _ => 2) C := by sorry
+
+theorem brascamp_lieb_finiteness (n m : ℕ) (hn : 1 ≤ n) (hm : 1 ≤ m) (d : Fin m → ℕ)
+    (hd : ∀ j, 1 ≤ d j)
+    (L : (j : Fin m) → EuclideanSpace ℝ (Fin n) →L[ℝ] EuclideanSpace ℝ (Fin (d j)))
+    (hL : ∀ j, Function.Surjective (L j)) (a : Fin m → ℝ) (ha : ∀ j, 0 < a j ∧ a j ≤ 1) :
+    (∃ C : ℝ, 0 ≤ C ∧ brascampLiebBound n m d L a C) ↔
+      (n : ℝ) = ∑ j, a j * d j ∧
+      ∀ V : Submodule ℝ (EuclideanSpace ℝ (Fin n)),
+        (Module.finrank ℝ V : ℝ) ≤ ∑ j, a j * Module.finrank ℝ (V.map (L j).toLinearMap) := by sorry
+
+theorem brascamp_lieb_stability (n m : ℕ) (d : Fin m → ℕ)
+    (L0 : (j : Fin m) → EuclideanSpace ℝ (Fin n) →L[ℝ] EuclideanSpace ℝ (Fin (d j)))
+    (hL0 : ∀ j, Function.Surjective (L0 j)) (a : Fin m → ℝ) (ha : ∀ j, 0 < a j ∧ a j ≤ 1)
+    (hfinite : ∃ C : ℝ, 0 ≤ C ∧ brascampLiebBound n m d L0 a C) :
+    ∃ η C : ℝ, 0 < η ∧ 0 < C ∧ ∀ L,
+      (∀ j, ‖L j - L0 j‖ < η) → brascampLiebBound n m d L a C := by sorry
+
+theorem moment_transversality (n k : ℕ) (hn : 2 ≤ n) (hk : 1 ≤ k ∧ k < n)
+    (t : Fin (Nat.factorial n) → ℝ) (ht : ∀ j, t j ∈ Set.Icc 0 1) (hsep : Function.Injective t) :
+    let W := fun j => Submodule.span ℝ (Set.range (fun l : Fin k =>
+      iteratedDeriv (l.val+1) (momentCurve n) (t j)))
+    ∀ V : Submodule ℝ (EuclideanSpace ℝ (Fin n)),
+      (Module.finrank ℝ V : ℝ) ≤ (n : ℝ)/(k*Nat.factorial n) *
+        ∑ j, Module.finrank ℝ (V.map (W j).orthogonalProjectionOnto.toLinearMap) := by sorry
+
+theorem parabola_decoupling_base (E : ℕ) (hE : 200 ≤ E) (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (M : ℕ), 1 ≤ M →
+      ∀ (c : EuclideanSpace ℝ (Fin 2)) (g : ℝ → ℂ), IntegrableOn g (Set.Icc 0 1) →
+      eLpNorm (momentExtension 2 0 1 g) 6
+        (volume.withDensity (fun x => ENNReal.ofReal (decouplingWeight 2 E c ((M : ℝ)^2) x))) ≤
+      ENNReal.ofReal (C*(M : ℝ)^ε) *
+        (∑ i : Fin M, eLpNorm (momentExtension 2 ((i.val : ℝ)/M) (((i.val : ℝ)+1)/M) g) 6
+          (volume.withDensity (fun x => ENNReal.ofReal (decouplingWeight 2 E c ((M : ℝ)^2) x))) ^ (2 : ℕ)) ^ (1/2 : ℝ) := by sorry
+-- uniform_moment_bl, perturbed_plate_kakeya, weighted_l2_decoupling,
+-- lower_dimensional_decoupling, ball_inflation, linear_multilinear_conversion,
+-- multiscale_decoupling_iteration, decoupling_exponent_collapse:
+-- the exact contracts are in README; native cover/Fourier-support/V,D,A
+-- adapter signatures are explicitly recorded gaps, omitted under PROTOCOL§13.
+end TauCeti.ExponentialSumsPlan
+
+
+namespace TauCeti.ExponentialSumsPlan
+open MeasureTheory Filter
+open scoped Topology
+
+def formCongruenceCount (n r q : ℕ) [NeZero q]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℕ :=
+  Fintype.card {x : Fin n → ZMod q // ∀ j, MvPolynomial.eval₂ (Int.castRingHom (ZMod q)) x (F j) = (m j : ZMod q)}
+theorem formCongruenceCount_one (n r : ℕ) (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) :
+    formCongruenceCount n r 1 F m = 1 := by sorry
+theorem formCongruenceCount_no_equations (n q : ℕ) [NeZero q] :
+    formCongruenceCount n 0 q (fun j => Fin.elim0 j) (fun j => Fin.elim0 j) = q^n := by sorry
+theorem formCongruenceCount_projection (n q : ℕ) [NeZero q] (hn : 1 ≤ n) (a : ℤ) :
+    formCongruenceCount n 1 q (fun _ => MvPolynomial.X ⟨0,hn⟩) (fun _ => a) = q^(n-1) := by sorry
+theorem formCongruenceCount_periodic (n r q : ℕ) [NeZero q]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) :
+    formCongruenceCount n r q F (fun j => m j + q) = formCongruenceCount n r q F m := by sorry
+theorem formCongruenceCount_crt (n r q q' : ℕ) [NeZero q] [NeZero q'] [NeZero (q*q')]
+    (h : Nat.Coprime q q') (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) :
+    formCongruenceCount n r (q*q') F m = formCongruenceCount n r q F m * formCongruenceCount n r q' F m := by sorry
+-- formCongruenceCount_projection_test
+example : formCongruenceCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+-- formCongruenceCount_inconsistent_test
+example : formCongruenceCount 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by sorry
+-- formCongruenceCount_repeated_equation_test
+example : formCongruenceCount 2 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+
+def formNormalizedCount (n r q : ℕ) [NeZero q]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℝ :=
+  (formCongruenceCount n r q F m : ℝ) / (q : ℝ)^((n : ℤ)-r)
+theorem formNormalizedCount_nonneg (n r q : ℕ) [NeZero q]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : 0 ≤ formNormalizedCount n r q F m := by sorry
+theorem formNormalizedCount_one (n r : ℕ) (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) :
+    formNormalizedCount n r 1 F m = 1 := by sorry
+theorem formNormalizedCount_crt (n r q q' : ℕ) [NeZero q] [NeZero q'] [NeZero (q*q')]
+    (h : Nat.Coprime q q') (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) :
+    formNormalizedCount n r (q*q') F m = formNormalizedCount n r q F m * formNormalizedCount n r q' F m := by sorry
+theorem formNormalizedCount_projection (n q : ℕ) [NeZero q] (hn : 1 ≤ n) (a : ℤ) :
+    formNormalizedCount n 1 q (fun _ => MvPolynomial.X ⟨0,hn⟩) (fun _ => a) = 1 := by sorry
+-- formNormalizedCount_projection_test
+example : formNormalizedCount 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by sorry
+-- formNormalizedCount_duplicate_test
+example : formNormalizedCount 2 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+-- formNormalizedCount_overdetermined_test
+example : formNormalizedCount 1 2 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 5 := by sorry
+
+def formPadicDensity (n r p : ℕ) [NeZero p]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) : ℝ :=
+  Filter.limUnder Filter.atTop (fun t : ℕ => formNormalizedCount n r (p^t) F m)
+theorem formPadicDensity_eq_of_tendsto (n r p : ℕ) [NeZero p]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ) (L : ℝ)
+    (h : Tendsto (fun t : ℕ => formNormalizedCount n r (p^t) F m) atTop (nhds L)) :
+    formPadicDensity n r p F m = L := by sorry
+theorem formPadicDensity_nonneg (n r p : ℕ) [NeZero p]
+    (F : Fin r → MvPolynomial (Fin n) ℤ) (m : Fin r → ℤ)
+    (h : ∃ L, Tendsto (fun t : ℕ => formNormalizedCount n r (p^t) F m) atTop (nhds L)) :
+    0 ≤ formPadicDensity n r p F m := by sorry
+theorem formPadicDensity_projection (n p : ℕ) [NeZero p] (hn : 1 ≤ n) (a : ℤ) :
+    formPadicDensity n 1 p (fun _ => MvPolynomial.X ⟨0,hn⟩) (fun _ => a) = 1 := by sorry
+theorem formPadicDensity_inconsistent (n p : ℕ) [NeZero p] (hp : 2 ≤ p) :
+    formPadicDensity n 1 p (fun _ => 0) (fun _ => 1) = 0 := by sorry
+-- formPadicDensity_projection_test
+example : formPadicDensity 2 1 5 (fun _ => MvPolynomial.X 0) (fun _ => 2) = 1 := by sorry
+-- formPadicDensity_inconsistent_test
+example : formPadicDensity 2 1 5 (fun _ => 0) (fun _ => 1) = 0 := by sorry
+-- formPadicDensity_hyperbolic_test
+example : formPadicDensity 2 1 5 (fun _ => MvPolynomial.X 0 * MvPolynomial.X 1) (fun _ => 1) = 4/5 := by sorry
+
+def weightedRealDensity (n r : ℕ) (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ)
+    (m : Fin r → ℝ) (w : EuclideanSpace ℝ (Fin n) → ℝ) : ℝ :=
+  Filter.limUnder (nhdsWithin (0 : ℝ) (Set.Ioi 0)) (fun ε =>
+    (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
+theorem weightedRealDensity_eq_of_tendsto (n r : ℕ)
+    (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ) (m : Fin r → ℝ)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) (L : ℝ)
+    (h : Tendsto (fun ε : ℝ => (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds L)) : weightedRealDensity n r F m w = L := by sorry
+theorem weightedRealDensity_weight_zero (n r : ℕ)
+    (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ) (m : Fin r → ℝ) :
+    weightedRealDensity n r F m (fun _ => 0) = 0 := by sorry
+theorem weightedRealDensity_add (n r : ℕ)
+    (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ) (m : Fin r → ℝ)
+    (v w : EuclideanSpace ℝ (Fin n) → ℝ)
+    (hv : ∀ ε : ℝ, 0<ε → IntegrableOn v {x | ∀ j, |F x j-m j| < ε})
+    (hw : ∀ ε : ℝ, 0<ε → IntegrableOn w {x | ∀ j, |F x j-m j| < ε})
+    (hvl : ∃ L, Tendsto (fun ε : ℝ => (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, v x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds L))
+    (hwl : ∃ L, Tendsto (fun ε : ℝ => (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds L)) :
+    weightedRealDensity n r F m (v+w)=weightedRealDensity n r F m v+weightedRealDensity n r F m w := by sorry
+theorem weightedRealDensity_smul (n r : ℕ)
+    (F : EuclideanSpace ℝ (Fin n) → Fin r → ℝ) (m : Fin r → ℝ)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) (a : ℝ)
+    (hwl : ∃ L, Tendsto (fun ε : ℝ => (2*ε)^(-(r : ℤ)) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds L)) :
+    weightedRealDensity n r F m (a • w)=a*weightedRealDensity n r F m w := by sorry
+theorem weightedRealDensity_equation_scale (n : ℕ)
+    (F : EuclideanSpace ℝ (Fin n) → Fin 1 → ℝ) (m : Fin 1 → ℝ)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) (a : ℝ) (ha : a≠0)
+    (hwl : ∃ L, Tendsto (fun ε : ℝ => (2*ε)^(-1 : ℤ) * ∫ x in {x | ∀ j, |F x j-m j| < ε}, w x)
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds L)) :
+    weightedRealDensity n 1 (fun x j => a*F x j) (fun j => a*m j) w=
+      |a|⁻¹*weightedRealDensity n 1 F m w := by sorry
+-- weightedRealDensity_interior_test
+example : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 1/2)
+    (fun x => if x 0 ∈ Set.Icc (0 : ℝ) 1 then 1 else 0) = 1 := by sorry
+-- weightedRealDensity_boundary_test
+example : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 0)
+    (fun x => if x 0 ∈ Set.Icc (0 : ℝ) 1 then 1 else 0) = 1/2 := by sorry
+-- weightedRealDensity_outside_test
+example : weightedRealDensity 1 1 (fun x _ => x 0) (fun _ => 2)
+    (fun x => if x 0 ∈ Set.Icc (0 : ℝ) 1 then 1 else 0) = 0 := by sorry
+
+def weightedQuadraticCount (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) : ℝ :=
+  ∑' x : Fin n → ℤ, if MvPolynomial.eval x Q = (m : ℤ) then
+    w (WithLp.toLp 2 (fun j => (x j : ℝ)/Real.sqrt m)) else 0
+theorem weightedQuadraticCount_zero_weight (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ) :
+    weightedQuadraticCount n Q m (fun _ => 0) = 0 := by sorry
+theorem weightedQuadraticCount_add (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ) (hm : 1 ≤ m)
+    (v w : EuclideanSpace ℝ (Fin n) → ℝ) (hv : HasCompactSupport v) (hw : HasCompactSupport w) :
+    weightedQuadraticCount n Q m (v+w) = weightedQuadraticCount n Q m v + weightedQuadraticCount n Q m w := by sorry
+theorem weightedQuadraticCount_smul (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) (z : ℝ) :
+    weightedQuadraticCount n Q m (z • w) = z * weightedQuadraticCount n Q m w := by sorry
+theorem weightedQuadraticCount_finite_support (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ)
+    (hm : 1 ≤ m) (w : EuclideanSpace ℝ (Fin n) → ℝ) (hw : HasCompactSupport w) :
+    (Function.support (fun x : Fin n → ℤ => if MvPolynomial.eval x Q = (m : ℤ) then
+      w (WithLp.toLp 2 (fun j => (x j : ℝ)/Real.sqrt m)) else 0)).Finite := by sorry
+theorem weightedQuadraticCount_unary_square (w : EuclideanSpace ℝ (Fin 1) → ℝ) :
+    weightedQuadraticCount 1 (MvPolynomial.X 0^2) 1 w =
+      w (WithLp.toLp 2 (fun _ => 1)) + w (WithLp.toLp 2 (fun _ => -1)) := by sorry
+-- weightedQuadraticCount_unary_test
+example : weightedQuadraticCount 1 (MvPolynomial.X 0^2) 1
+    (fun x => if |x 0| ≤ 2 then 1 else 0) = 2 := by sorry
+-- weightedQuadraticCount_zero_test
+example (n : ℕ) (Q : MvPolynomial (Fin n) ℤ) (m : ℕ) : weightedQuadraticCount n Q m (fun _ => 0) = 0 := by sorry
+-- weightedQuadraticCount_scale_test
+example : weightedQuadraticCount 1 (MvPolynomial.X 0^2) 4
+    (fun x => if |x 0| ≤ 3/2 then 1 else 0) = 2 := by sorry
+
+-- maximal_lattice_local_positivity and maximal_lattice_eventual_representation:
+-- current IntegralLattices supplier types are an explicit gap, not assumed facts.
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open Filter MeasureTheory
+open scoped BigOperators
+
+def markoffSector (d : ℝ) : Set (EuclideanSpace ℝ (Fin 2)) :=
+  {s | 0 ≤ s 0 ∧ 0 ≤ s 1 ∧ 0 ≤ (s 0)^2-d*(s 1)^2 ∧
+    (s 0)^2-d*(s 1)^2 ≤ 1 ∧ 2*Real.sqrt d*s 1 ≤ s 0 ∧ s 0 ≤ 3*Real.sqrt d*s 1}
+theorem markoffSector_mem (d : ℝ) (s : EuclideanSpace ℝ (Fin 2)) :
+    s ∈ markoffSector d ↔ 0 ≤ s 0 ∧ 0 ≤ s 1 ∧ 0 ≤ (s 0)^2-d*(s 1)^2 ∧
+      (s 0)^2-d*(s 1)^2 ≤ 1 ∧ 2*Real.sqrt d*s 1 ≤ s 0 ∧ s 0 ≤ 3*Real.sqrt d*s 1 := by sorry
+theorem markoffSector_volume (d : ℝ) (hd : 0 < d) :
+    volume (markoffSector d) = ENNReal.ofReal ((Real.log (3/2)/4)/Real.sqrt d) := by sorry
+theorem markoffSector_compact (d : ℝ) (hd : 0 < d) : IsCompact (markoffSector d) := by sorry
+theorem markoffSector_origin (d : ℝ) : (0 : EuclideanSpace ℝ (Fin 2)) ∈ markoffSector d := by sorry
+-- markoffSector_origin_test
+example : (0 : EuclideanSpace ℝ (Fin 2)) ∈ markoffSector 1 := by sorry
+-- markoffSector_outer_test
+example : WithLp.toLp 2 ![(2 : ℝ),1] ∉ markoffSector 1 := by sorry
+-- markoffSector_interior_test
+example : WithLp.toLp 2 ![(1/2 : ℝ),1/4] ∈ markoffSector 1 := by sorry
+
+def markoffRepresentationCount (a K : ℕ) (k : ℤ) : ℕ :=
+  if 1 ≤ k ∧ k ≤ K then
+    ((Finset.range (2*K+1) ×ˢ Finset.range (2*K+1)).filter (fun x =>
+      (x.1 : ℤ)^2 + (x.2 : ℤ)^2 + a*(x.1 : ℤ)*x.2 + (a : ℤ)^2 = k ∧
+      2*Real.sqrt ((a : ℝ)^2-4)*(x.2 : ℝ) ≤ 2*(x.1 : ℝ)+a*x.2 ∧
+      2*(x.1 : ℝ)+a*x.2 ≤ 3*Real.sqrt ((a : ℝ)^2-4)*(x.2 : ℝ))).card
+  else 0
+theorem markoffRepresentationCount_outside (a K : ℕ) (k : ℤ)
+    (h : ¬(1 ≤ k ∧ k ≤ K)) : markoffRepresentationCount a K k = 0 := by sorry
+theorem markoffRepresentationCount_eq_sector (a K : ℕ) (ha : 3 ≤ a) (hK : 1 ≤ K)
+    (k : ℤ) (hk : 1 ≤ k ∧ k ≤ K) :
+    markoffRepresentationCount a K k = Nat.card {x : Fin 2 → ℤ |
+      (x 0)^2+(x 1)^2+(a : ℤ)*x 0*x 1+(a : ℤ)^2=k ∧
+      WithLp.toLp 2 (fun i : Fin 2 =>
+        (if i=0 then 2*(x 0 : ℝ)+a*x 1 else (x 1 : ℝ))/Real.sqrt (4*K))
+          ∈ markoffSector ((a : ℝ)^2-4)} := by sorry
+theorem markoffRepresentationCount_le (a K : ℕ) (k : ℤ) :
+    markoffRepresentationCount a K k ≤ (2*K+1)^2 := by sorry
+theorem markoffRepresentationCount_point (a K : ℕ) (k : ℤ)
+    (h : 0 < markoffRepresentationCount a K k) :
+    ∃ x : Fin 3 → ℤ, (x 0)^2+(x 1)^2+(x 2)^2+x 0*x 1*x 2=k := by sorry
+-- markoffRepresentationCount_basic_test
+example : markoffRepresentationCount 3 14 14 = 1 := by sorry
+-- markoffRepresentationCount_outside_test
+example : markoffRepresentationCount 3 13 14 = 0 := by sorry
+-- markoffRepresentationCount_even_test
+example : markoffRepresentationCount 4 29 29 = 1 := by sorry
+
+def markoffAggregate (K A : ℕ) (k : ℤ) : ℕ :=
+  ∑ a ∈ (Finset.Icc 3 A).filter (fun (a : ℕ) => Real.sqrt A ≤ (a : ℝ)),
+    markoffRepresentationCount a K k
+theorem markoffAggregate_zero (K A : ℕ) (k : ℤ) (h : A < 3) : markoffAggregate K A k = 0 := by sorry
+theorem markoffAggregate_outside (K A : ℕ) (k : ℤ) (h : ¬(1 ≤ k ∧ k ≤ K)) :
+    markoffAggregate K A k = 0 := by sorry
+theorem markoffAggregate_positive_iff (K A : ℕ) (k : ℤ) :
+    0 < markoffAggregate K A k ↔ ∃ a ∈ Finset.Icc 3 A,
+      Real.sqrt A ≤ (a : ℝ) ∧ 0 < markoffRepresentationCount a K k := by sorry
+theorem markoffAggregate_sum (K A : ℕ) :
+    ∑ k ∈ Finset.Icc 1 K, markoffAggregate K A k =
+      ∑ a ∈ (Finset.Icc 3 A).filter (fun (a : ℕ) => Real.sqrt A ≤ (a : ℝ)),
+        ∑ k ∈ Finset.Icc 1 K, markoffRepresentationCount a K k := by sorry
+-- markoffAggregate_small_test
+example (K : ℕ) (k : ℤ) : markoffAggregate K 2 k = 0 := by sorry
+-- markoffAggregate_basic_test
+example : markoffAggregate 14 3 14 = 1 := by sorry
+-- markoffAggregate_outside_test
+example (A : ℕ) (k : ℤ) : markoffAggregate 0 A k = 0 := by sorry
+
+def markoffResidueMass (q : ℕ) [NeZero q] (k : ℤ) : ℝ :=
+  formNormalizedCount 3 1 q (fun _ =>
+    MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.X 2^2+
+      MvPolynomial.X 0*MvPolynomial.X 1*MvPolynomial.X 2) (fun _ => k)
+theorem markoffResidueMass_nonneg (q : ℕ) [NeZero q] (k : ℤ) : 0 ≤ markoffResidueMass q k := by sorry
+theorem markoffResidueMass_one (k : ℤ) : markoffResidueMass 1 k = 1 := by sorry
+theorem markoffResidueMass_periodic (q : ℕ) [NeZero q] : Function.Periodic (markoffResidueMass q) (q : ℤ) := by sorry
+theorem markoffResidueMass_crt (q q' : ℕ) [NeZero q] [NeZero q'] (h : q.Coprime q') (k : ℤ) :
+    markoffResidueMass (q*q') k = markoffResidueMass q k*markoffResidueMass q' k := by sorry
+-- markoffResidueMass_obstruction_test
+example : markoffResidueMass 4 3 = 0 := by sorry
+-- markoffResidueMass_odd_one_test
+example : markoffResidueMass 8 1 = 3/4 := by sorry
+-- markoffResidueMass_odd_five_test
+example : markoffResidueMass 8 5 = 9/4 := by sorry
+
+def markoffPairMass (q : ℕ) [NeZero q] (a b : ℤ) : ℝ :=
+  formNormalizedCount 4 1 q (fun _ =>
+    MvPolynomial.X 0^2+MvPolynomial.X 1^2+MvPolynomial.C a*MvPolynomial.X 0*MvPolynomial.X 1-
+    (MvPolynomial.X 2^2+MvPolynomial.X 3^2+MvPolynomial.C b*MvPolynomial.X 2*MvPolynomial.X 3))
+    (fun _ => b^2-a^2)
+theorem markoffPairMass_one (a b : ℤ) : markoffPairMass 1 a b = 1 := by sorry
+theorem markoffPairMass_nonneg (q : ℕ) [NeZero q] (a b : ℤ) : 0 ≤ markoffPairMass q a b := by sorry
+theorem markoffPairMass_symm (q : ℕ) [NeZero q] (a b : ℤ) : markoffPairMass q a b = markoffPairMass q b a := by sorry
+theorem markoffPairMass_crt (q q' : ℕ) [NeZero q] [NeZero q'] (h : q.Coprime q') (a b : ℤ) :
+    markoffPairMass (q*q') a b = markoffPairMass q a b*markoffPairMass q' a b := by sorry
+-- markoffPairMass_one_test
+example : markoffPairMass 1 4 3 = 1 := by sorry
+-- markoffPairMass_even_odd_test
+example : markoffPairMass 4 4 3 = 5/4 := by sorry
+-- markoffPairMass_odd_odd_test
+example : markoffPairMass 32 3 5 = 93/64 := by sorry
+
+def markoffVariance (K A q : ℕ) [NeZero q] (c : ℝ) : ℝ :=
+  ∑ k ∈ Finset.Icc 1 K, ((markoffAggregate K A k : ℝ)-c*Real.log A*markoffResidueMass q k)^2
+theorem markoffVariance_nonneg (K A q : ℕ) [NeZero q] (c : ℝ) : 0 ≤ markoffVariance K A q c := by sorry
+theorem markoffVariance_zero_length (A q : ℕ) [NeZero q] (c : ℝ) : markoffVariance 0 A q c = 0 := by sorry
+theorem markoffVariance_expand (K A q : ℕ) [NeZero q] (c : ℝ) :
+    markoffVariance K A q c =
+      (∑ k ∈ Finset.Icc 1 K, (markoffAggregate K A k : ℝ)^2)-
+      2*c*Real.log A*(∑ k ∈ Finset.Icc 1 K, (markoffAggregate K A k : ℝ)*markoffResidueMass q k)+
+      c^2*(Real.log A)^2*(∑ k ∈ Finset.Icc 1 K, (markoffResidueMass q k)^2) := by sorry
+theorem markoffVariance_zero_iff (K A q : ℕ) [NeZero q] (c : ℝ) :
+    markoffVariance K A q c = 0 ↔ ∀ k ∈ Finset.Icc 1 K,
+      (markoffAggregate K A k : ℝ)=c*Real.log A*markoffResidueMass q k := by sorry
+-- markoffVariance_empty_test
+example (A q : ℕ) [NeZero q] (c : ℝ) : markoffVariance 0 A q c = 0 := by sorry
+-- markoffVariance_log_zero_test
+example (K q : ℕ) [NeZero q] (c : ℝ) : markoffVariance K 1 q c = 0 := by sorry
+-- markoffVariance_basic_test
+example : markoffVariance 1 3 1 1 = (Real.log 3)^2 := by sorry
+
+theorem markoff_two_adic_density (k : ℤ) (hk : k≠0 ∧ k≠4) :
+    ∃ d : ℝ, Tendsto (fun t : ℕ => markoffResidueMass (2^t) k) atTop (nhds d) ∧
+      (d=0 ↔ k%4=3) ∧ (k%4≠3 → 3/4 ≤ d) ∧
+      (k%8=1 → d=3/4) ∧ (k%8=5 → d=9/4) ∧ (k%4=2 → d=1) := by sorry
+
+theorem markoff_odd_local_density (p : ℕ) [Fact p.Prime] (hp : 2 < p)
+    (k : ℤ) (hk : k≠0 ∧ k≠4) :
+    ∃ d : ℝ, Tendsto (fun t : ℕ => markoffResidueMass (p^t) k) atTop (nhds d) ∧
+      (p=3 → (d=0 ↔ k%9=3 ∨ k%9=6)) := by sorry
+-- Remaining valuation formulas of markoff_odd_local_density and
+-- markoff_pair_local_density need the corrected native character/valuation adapter.
+
+theorem markoff_sector_first_moment (eps : ℝ) (heps : 0 < eps) :
+    ∃ C : ℝ, 0 < C ∧ ∀ K A : ℕ, 2 ≤ K → 3 ≤ A →
+      (Real.log K)^2 < A → (A : ℝ) ≤ Real.rpow K eps →
+      |(∑ k ∈ Finset.Icc 1 K, (markoffAggregate K A k : ℝ))-
+        (Real.log (3/2)/4)*K*Real.log A| ≤
+        C*(K/Real.sqrt A+A*Real.rpow K (1/2+eps)) := by sorry
+
+theorem markoff_diagonal_energy :
+    ∃ C : ℝ, 0 < C ∧ ∀ K A : ℕ, 2 ≤ K → 3 ≤ A →
+      (Real.log K)^2 < A → (A : ℝ) ≤ Real.rpow K (1/100 : ℝ) →
+      (∑ a ∈ (Finset.Icc 3 A).filter (fun (a : ℕ) => Real.sqrt A ≤ (a : ℝ)),
+        ∑ k ∈ Finset.Icc 1 K, (markoffRepresentationCount a K k : ℝ)^2) ≤ C*K*Real.log A := by sorry
+
+-- markoff_pair_asymptotic and markoff_pair_truncation await the explicit
+-- native original-coordinate sector weights and convergent Euler product adapter.
+
+theorem markoff_variance_bound :
+    ∃ eps C : ℝ, 0 < eps ∧ 0 < C ∧ ∃ K₀ : ℕ, ∀ K A : ℕ, K₀ ≤ K →
+      (Real.log K)^2 < A → (A : ℝ) ≤ Real.rpow K eps →
+      let phi := Real.sqrt (Real.log (Real.log A)/Real.log (Real.log (Real.log A)))/2
+      let L := Nat.floor (Real.log A/Real.log (Real.log A)*phi)
+      let B := Nat.floor (Real.log (Real.log A)/phi^2)
+      let m := ∏ p ∈ (Finset.range (L+1)).filter Nat.Prime, p^B
+      haveI : NeZero m := ⟨by sorry⟩
+      markoffVariance K A m (Real.log (3/2)/4) ≤ C*K*(Real.log A)^2/phi := by sorry
+
+theorem markoff_reciprocal_mass :
+    ∃ eps C : ℝ, 0 < eps ∧ 0 < C ∧ ∃ K₀ : ℕ, ∀ K A : ℕ, K₀ ≤ K →
+      (Real.log K)^2 < A → (A : ℝ) ≤ Real.rpow K eps →
+      let phi := Real.sqrt (Real.log (Real.log A)/Real.log (Real.log (Real.log A)))/2
+      let L := Nat.floor (Real.log A/Real.log (Real.log A)*phi)
+      let B := Nat.floor (Real.log (Real.log A)/phi^2)
+      let m := ∏ p ∈ (Finset.range (L+1)).filter Nat.Prime, p^B
+      haveI : NeZero m := ⟨by sorry⟩
+      (∑ k ∈ (Finset.Icc 1 K).filter (fun k => k%4≠3 ∧ k%9≠3 ∧ k%9≠6),
+        (markoffResidueMass m k)⁻¹) ≤ C*K := by sorry
+
+open Classical in
+theorem markoff_almost_all_representation :
+    Tendsto (fun K : ℕ =>
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k =>
+        k%4≠3 ∧ k%9≠3 ∧ k%9≠6 ∧ ¬∃ x : Fin 3 → ℤ,
+          (x 0)^2+(x 1)^2+(x 2)^2-x 0*x 1*x 2=k)).card : ℝ)/(K : ℝ))
+      atTop (nhds 0) := by sorry
+-- Zariski-density and markoff_orbit_growth clauses import the native Markoff
+-- action/fundamental-set supplier; their exact unresolved types are recorded as a gap.
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open Filter
+open scoped BigOperators
+
+def formAdmissible (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) : Prop :=
+  ∀ (q : ℕ) [NeZero q], ∃ x : Fin n → ZMod q, f.eval₂ (Int.castRingHom (ZMod q)) x = (k : ZMod q)
+theorem formAdmissible_projection (n : ℕ) (hn : 0 < n) (k : ℤ) :
+    formAdmissible n (MvPolynomial.X ⟨0,hn⟩) k := by sorry
+theorem formAdmissible_of_point (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ)
+    (x : Fin n → ℤ) (h : f.eval x=k) : formAdmissible n f k := by sorry
+theorem formAdmissible_prime_powers (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) :
+    formAdmissible n f k ↔ ∀ (p : ℕ) [Fact p.Prime] (t : ℕ),
+      ∃ x : Fin n → ZMod (p^t), f.eval₂ (Int.castRingHom (ZMod (p^t))) x = (k : ZMod (p^t)) := by sorry
+theorem formAdmissible_target_congruence (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ)
+    (h : formAdmissible n f k) (q : ℕ) [NeZero q] :
+    ∃ x : Fin n → ZMod q, f.eval₂ (Int.castRingHom (ZMod q)) x = (k : ZMod q) := by sorry
+-- formAdmissible_projection_test
+example : formAdmissible 1 (MvPolynomial.X 0) 2 := by sorry
+-- formAdmissible_square_two_test
+example : ¬formAdmissible 1 (MvPolynomial.X 0^2) 2 := by sorry
+-- formAdmissible_square_one_test
+example : formAdmissible 1 (MvPolynomial.X 0^2) 1 := by sorry
+
+def formZariskiDense (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) : Prop :=
+  ∀ g : MvPolynomial (Fin n) (AlgebraicClosure ℚ),
+    (∀ x : Fin n → ℤ, f.eval x=k → g.eval (fun i => (x i : AlgebraicClosure ℚ))=0) →
+    ∀ y : Fin n → AlgebraicClosure ℚ, f.eval₂ (Int.castRingHom (AlgebraicClosure ℚ)) y=(k : AlgebraicClosure ℚ) → g.eval y=0
+theorem formZariskiDense_iff (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ) :
+    formZariskiDense n f k ↔ ∀ g : MvPolynomial (Fin n) (AlgebraicClosure ℚ),
+      (∀ x : Fin n → ℤ, f.eval x=k → g.eval (fun i => (x i : AlgebraicClosure ℚ))=0) →
+      ∀ y : Fin n → AlgebraicClosure ℚ, f.eval₂ (Int.castRingHom (AlgebraicClosure ℚ)) y=(k : AlgebraicClosure ℚ) → g.eval y=0 := by sorry
+theorem formZariskiDense_projection (n : ℕ) (hn : 0 < n) (k : ℤ) :
+    formZariskiDense n (MvPolynomial.X ⟨0,hn⟩) k := by sorry
+theorem formZariskiDense_no_integer_point (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ)
+    (h : ¬∃ x : Fin n → ℤ, f.eval x=k)
+    (hgeo : ∃ y : Fin n → AlgebraicClosure ℚ, f.eval₂ (Int.castRingHom (AlgebraicClosure ℚ)) y=(k : AlgebraicClosure ℚ)) :
+    ¬formZariskiDense n f k := by sorry
+theorem formZariskiDense_affine_equiv (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (k : ℤ)
+    (A : (Fin n → ℤ) ≃ₗ[ℤ] (Fin n → ℤ)) (b : Fin n → ℤ) :
+    formZariskiDense n (f.eval₂ MvPolynomial.C
+      (fun i => MvPolynomial.C (b i)+∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)) k ↔
+    formZariskiDense n f k := by sorry
+-- formZariskiDense_projection_test
+example : formZariskiDense 2 (MvPolynomial.X 0) 2 := by sorry
+-- formZariskiDense_square_one_test
+example : formZariskiDense 1 (MvPolynomial.X 0^2) 1 := by sorry
+-- formZariskiDense_square_two_test
+example : ¬formZariskiDense 1 (MvPolynomial.X 0^2) 2 := by sorry
+
+def formPerfect (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
+  {k : ℤ | formAdmissible n f k ∧ ¬formZariskiDense n f k}.Finite
+open Classical in
+def formAlmostPerfect (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
+  Tendsto (fun K : ℕ =>
+    (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k =>
+      formAdmissible n f k ∧ ¬formZariskiDense n f k)).card : ℝ)/
+    (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0)
+open Classical in
+def formFull (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
+  ∀ T : ℕ, Tendsto (fun K : ℕ =>
+    (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k => formAdmissible n f k ∧
+      ¬∃ s : Finset (Fin n → ℤ), T ≤ s.card ∧ ∀ x ∈ s, f.eval x=k)).card : ℝ)/
+    (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0)
+
+theorem formPerfect_iff (n : ℕ) (f : MvPolynomial (Fin n) ℤ) :
+    formPerfect n f ↔ {k : ℤ | formAdmissible n f k ∧ ¬formZariskiDense n f k}.Finite := by sorry
+theorem formPerfect_of_all_dense (n : ℕ) (f : MvPolynomial (Fin n) ℤ)
+    (h : ∀ k, formAdmissible n f k → formZariskiDense n f k) : formPerfect n f := by sorry
+theorem formPerfect_projection (n : ℕ) (hn : 0 < n) : formPerfect n (MvPolynomial.X ⟨0,hn⟩) := by sorry
+open Classical in
+theorem formPerfect_implies_almost (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (h : formPerfect n f)
+    (hcount : Tendsto (fun K : ℕ =>
+      ((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card) atTop atTop) :
+    formAlmostPerfect n f := by sorry
+-- formPerfect_projection_test
+example : formPerfect 2 (MvPolynomial.X 0) := by sorry
+-- formPerfect_identity_test
+example : formPerfect 1 (MvPolynomial.X 0) := by sorry
+-- formPerfect_constant_test
+example : formPerfect 1 0 := by sorry
+
+open Classical in
+theorem formAlmostPerfect_iff (n : ℕ) (f : MvPolynomial (Fin n) ℤ) :
+    formAlmostPerfect n f ↔ Tendsto (fun K : ℕ =>
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k =>
+        formAdmissible n f k ∧ ¬formZariskiDense n f k)).card : ℝ)/
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0) := by sorry
+theorem formAlmostPerfect_of_all_dense (n : ℕ) (f : MvPolynomial (Fin n) ℤ)
+    (h : ∀ k, formAdmissible n f k → formZariskiDense n f k) : formAlmostPerfect n f := by sorry
+theorem formAlmostPerfect_projection (n : ℕ) (hn : 0 < n) : formAlmostPerfect n (MvPolynomial.X ⟨0,hn⟩) := by sorry
+open Classical in
+theorem formAlmostPerfect_absolute (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (d : ℝ) (hd : 0 < d)
+    (hcount : Tendsto (fun K : ℕ =>
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)/(K : ℝ)) atTop (nhds d)) :
+    formAlmostPerfect n f ↔ Tendsto (fun K : ℕ =>
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k =>
+        formAdmissible n f k ∧ ¬formZariskiDense n f k)).card : ℝ)/(K : ℝ)) atTop (nhds 0) := by sorry
+-- formAlmostPerfect_projection_test
+example : formAlmostPerfect 2 (MvPolynomial.X 0) := by sorry
+-- formAlmostPerfect_identity_test
+example : formAlmostPerfect 1 (MvPolynomial.X 0) := by sorry
+-- formAlmostPerfect_constant_test
+example : formAlmostPerfect 1 0 := by sorry
+
+open Classical in
+theorem formFull_iff (n : ℕ) (f : MvPolynomial (Fin n) ℤ) :
+    formFull n f ↔ ∀ T : ℕ, Tendsto (fun K : ℕ =>
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (fun k => formAdmissible n f k ∧
+        ¬∃ s : Finset (Fin n → ℤ), T ≤ s.card ∧ ∀ x ∈ s, f.eval x=k)).card : ℝ)/
+      (((Finset.Icc (-(K : ℤ)) (K : ℤ)).filter (formAdmissible n f)).card : ℝ)) atTop (nhds 0) := by sorry
+theorem formFull_of_infinite_fibers (n : ℕ) (f : MvPolynomial (Fin n) ℤ)
+    (h : ∀ k, formAdmissible n f k → {x : Fin n → ℤ | f.eval x=k}.Infinite) : formFull n f := by sorry
+theorem formFull_projection (n : ℕ) (hn : 2 ≤ n) : formFull n (MvPolynomial.X ⟨0,by omega⟩) := by sorry
+theorem formFull_not_identity : ¬formFull 1 (MvPolynomial.X 0) := by sorry
+-- formFull_plane_projection_test
+example : formFull 2 (MvPolynomial.X 0) := by sorry
+-- formFull_identity_test
+example : ¬formFull 1 (MvPolynomial.X 0) := by sorry
+-- formFull_constant_test
+example : formFull 1 0 := by sorry
+
+open Classical in
+def cubicHInvariant (n : ℕ) (F : MvPolynomial (Fin n) ℚ) : ℕ :=
+  sInf {r : ℕ | ∃ L Q : Fin r → MvPolynomial (Fin n) ℚ,
+    (∀ i, (L i).IsHomogeneous 1) ∧ (∀ i, (Q i).IsHomogeneous 2) ∧ F=∑ i, L i*Q i}
+theorem cubicHInvariant_zero (n : ℕ) : cubicHInvariant n 0=0 := by sorry
+theorem cubicHInvariant_le (n : ℕ) (F : MvPolynomial (Fin n) ℚ) (hF : F.IsHomogeneous 3) :
+    cubicHInvariant n F ≤ n := by sorry
+theorem cubicHInvariant_le_iff (n r : ℕ) (F : MvPolynomial (Fin n) ℚ) (hF : F.IsHomogeneous 3) :
+    cubicHInvariant n F ≤ r ↔ ∃ L Q : Fin r → MvPolynomial (Fin n) ℚ,
+      (∀ i, (L i).IsHomogeneous 1) ∧ (∀ i, (Q i).IsHomogeneous 2) ∧ F=∑ i, L i*Q i := by sorry
+theorem cubicHInvariant_one_iff (n : ℕ) (F : MvPolynomial (Fin n) ℚ)
+    (hF : F.IsHomogeneous 3) (hne : F≠0) :
+    cubicHInvariant n F=1 ↔ ∃ L Q : MvPolynomial (Fin n) ℚ,
+      L.IsHomogeneous 1 ∧ Q.IsHomogeneous 2 ∧ F=L*Q := by sorry
+theorem cubicHInvariant_linear_equiv (n : ℕ) (F : MvPolynomial (Fin n) ℚ)
+    (hF : F.IsHomogeneous 3) (A : (Fin n → ℚ) ≃ₗ[ℚ] (Fin n → ℚ)) :
+    cubicHInvariant n (F.eval₂ MvPolynomial.C
+      (fun i => ∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)) = cubicHInvariant n F := by sorry
+-- cubicHInvariant_zero_test
+example : cubicHInvariant 3 0=0 := by sorry
+-- cubicHInvariant_product_test
+example : cubicHInvariant 3 (MvPolynomial.X 0*MvPolynomial.X 1*MvPolynomial.X 2)=1 := by sorry
+-- cubicHInvariant_two_cubes_test
+example : cubicHInvariant 2 (MvPolynomial.X 0^3+MvPolynomial.X 1^3)=1 := by sorry
+
+open Classical in
+def affineDegreeInvariant (n : ℕ) (f : MvPolynomial (Fin n) ℚ) (d : ℕ) : ℕ :=
+  ((Finset.range (n+1)).filter (fun s =>
+    ∃ (A : (Fin s → ℚ) →ₗ[ℚ] (Fin n → ℚ)) (b : Fin n → ℚ), Function.Injective A ∧
+      (f.eval₂ MvPolynomial.C (fun i => MvPolynomial.C (b i)+
+        ∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)).totalDegree=d)).sup id
+theorem affineDegreeInvariant_le (n d : ℕ) (f : MvPolynomial (Fin n) ℚ) :
+    affineDegreeInvariant n f d ≤ n := by sorry
+theorem affineDegreeInvariant_zero_constant (n d : ℕ) (hd : 0 < d) (c : ℚ) :
+    affineDegreeInvariant n (MvPolynomial.C c) d=0 := by sorry
+theorem affineDegreeInvariant_ge_iff (n d s : ℕ) (f : MvPolynomial (Fin n) ℚ) (hs : 1 ≤ s) :
+    s ≤ affineDegreeInvariant n f d ↔ ∃ t : ℕ, s ≤ t ∧ t ≤ n ∧
+      ∃ (A : (Fin t → ℚ) →ₗ[ℚ] (Fin n → ℚ)) (b : Fin n → ℚ), Function.Injective A ∧
+        (f.eval₂ MvPolynomial.C (fun i => MvPolynomial.C (b i)+
+          ∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)).totalDegree=d := by sorry
+theorem affineDegreeInvariant_affine_equiv (n d : ℕ) (f : MvPolynomial (Fin n) ℚ)
+    (A : (Fin n → ℚ) ≃ₗ[ℚ] (Fin n → ℚ)) (b : Fin n → ℚ) :
+    affineDegreeInvariant n (f.eval₂ MvPolynomial.C
+      (fun i => MvPolynomial.C (b i)+∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)) d=
+      affineDegreeInvariant n f d := by sorry
+-- affineDegreeInvariant_linear_test
+example : affineDegreeInvariant 2 (MvPolynomial.X 0) 1=2 ∧ affineDegreeInvariant 2 (MvPolynomial.X 0) 2=0 := by sorry
+-- affineDegreeInvariant_quadratic_test
+example : affineDegreeInvariant 2 (MvPolynomial.X 0^2+MvPolynomial.X 1^2) 2=2 ∧
+    affineDegreeInvariant 2 (MvPolynomial.X 0^2+MvPolynomial.X 1^2) 1=0 := by sorry
+-- affineDegreeInvariant_constant_test
+example : affineDegreeInvariant 3 (MvPolynomial.C 1) 1=0 ∧ affineDegreeInvariant 3 (MvPolynomial.C 1) 2=0 := by sorry
+
+-- cubic_invariant_comparisons: the full zero-subspace/hyperplane interface uses
+-- native polynomial restriction above; the stated nonvanishing condition remains explicit.
+example : (MvPolynomial.X 0^3+MvPolynomial.X 1^3+MvPolynomial.X 2^3 : MvPolynomial (Fin 3) ℚ)=
+    (MvPolynomial.X 0+MvPolynomial.X 1)*(MvPolynomial.X 0^2-MvPolynomial.X 0*MvPolynomial.X 1+MvPolynomial.X 1^2)+
+      MvPolynomial.X 2*MvPolynomial.X 2^2 := by ring
+example (t : ℚ) : t^3+(1-t)^3=3*t^2-3*t+1 := by ring
+-- cubic-fullness-hypotheses deliberately has no theorem/axiom: source assertions
+-- are announced/conjectural, and the quantitative missing hypothesis is in the packet.
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open scoped BigOperators
+
+def isAffineForm (n : ℕ) (f : MvPolynomial (Fin n) ℤ) : Prop :=
+  0<f.totalDegree ∧
+  (∀ v : Fin n → ℚ,
+    (∑ i, MvPolynomial.C (v i)*MvPolynomial.pderiv i
+      ((MvPolynomial.homogeneousComponent f.totalDegree f).map (Int.castRingHom ℚ)))=0 → v=0) ∧
+  ∀ k : AlgebraicClosure ℚ, Irreducible (f.map (Int.castRingHom (AlgebraicClosure ℚ))-MvPolynomial.C k)
+theorem isAffineForm_degree (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (h : isAffineForm n f) :
+    0<f.totalDegree := by sorry
+theorem isAffineForm_essential (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (h : isAffineForm n f)
+    (v : Fin n → ℚ) (hv : (∑ i, MvPolynomial.C (v i)*MvPolynomial.pderiv i
+      ((MvPolynomial.homogeneousComponent f.totalDegree f).map (Int.castRingHom ℚ)))=0) : v=0 := by sorry
+theorem isAffineForm_fiber (n : ℕ) (f : MvPolynomial (Fin n) ℤ) (h : isAffineForm n f)
+    (k : AlgebraicClosure ℚ) : Irreducible (f.map (Int.castRingHom (AlgebraicClosure ℚ))-MvPolynomial.C k) := by sorry
+theorem isAffineForm_affine_equiv (n : ℕ) (f : MvPolynomial (Fin n) ℤ)
+    (A : (Fin n → ℤ) ≃ₗ[ℤ] (Fin n → ℤ)) (b : Fin n → ℤ) :
+    isAffineForm n (f.eval₂ MvPolynomial.C
+      (fun i => MvPolynomial.C (b i)+∑ j, MvPolynomial.C ((A (Pi.single j 1)) i)*MvPolynomial.X j)) ↔
+      isAffineForm n f := by sorry
+-- isAffineForm_linear_test
+example : isAffineForm 1 (MvPolynomial.X 0) := by sorry
+-- isAffineForm_cube_test
+example : ¬isAffineForm 1 (MvPolynomial.X 0^3) := by sorry
+-- isAffineForm_projection_test
+example : ¬isAffineForm 2 (MvPolynomial.X 0) := by sorry
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open Filter MeasureTheory
+open scoped BigOperators ComplexConjugate
+
+/-- ES.1/summable-torus-counting: absolute summability justifies interchange. -/
+theorem summable_torus_counting {ι : Type*} [Countable ι] (n : ℕ)
+    (Φ : ι → Fin n → ℤ) (w : ι → ℂ) (hw : Summable w) (b : Fin n → ℤ) :
+    (∫ α : Fin n → AddCircle (1 : ℝ),
+      (∑' a, w a * ∏ j : Fin n, fourier (Φ a j) (α j)) *
+        ∏ j : Fin n, fourier (-b j) (α j)
+      ∂Measure.pi (fun _ => AddCircle.haarAddCircle)) =
+      ∑' a, if Φ a=b then w a else 0 := by sorry
+
+def mangoldtExponentialSum (N : ℕ) (α : AddCircle (1 : ℝ)) : ℂ :=
+  weightedTorusSum 1 (Finset.Icc 1 N) (fun m _ => (m : ℤ))
+    (fun m => (ArithmeticFunction.vonMangoldt m : ℂ)) (fun _ => α)
+theorem mangoldtExponentialSum_zero (α : AddCircle (1 : ℝ)) :
+    mangoldtExponentialSum 0 α=0 := by sorry
+theorem mangoldtExponentialSum_at_zero (N : ℕ) :
+    mangoldtExponentialSum N 0=∑ m ∈ Finset.Icc 1 N, (ArithmeticFunction.vonMangoldt m : ℂ) := by sorry
+theorem mangoldtExponentialSum_conj (N : ℕ) (α : AddCircle (1 : ℝ)) :
+    conj (mangoldtExponentialSum N α)=mangoldtExponentialSum N (-α) := by sorry
+theorem mangoldtExponentialSum_increment (N : ℕ) (α : AddCircle (1 : ℝ)) :
+    mangoldtExponentialSum (N+1) α=mangoldtExponentialSum N α+
+      (ArithmeticFunction.vonMangoldt (N+1) : ℂ)*fourier ((N+1 : ℕ) : ℤ) α := by sorry
+theorem mangoldtExponentialSum_weighted (N : ℕ) (α : AddCircle (1 : ℝ)) :
+    mangoldtExponentialSum N α=∑ m ∈ Finset.Icc 1 N,
+      (ArithmeticFunction.vonMangoldt m : ℂ)*fourier (m : ℤ) α := by sorry
+-- mangoldtExponentialSum_empty_test
+example : mangoldtExponentialSum 0 0=0 := by sorry
+-- mangoldtExponentialSum_primepower_test
+example : mangoldtExponentialSum 4 0=(2*Real.log 2+Real.log 3 : ℝ) := by sorry
+-- mangoldtExponentialSum_half_test
+example : mangoldtExponentialSum 3 ((1/2 : ℝ) : AddCircle (1 : ℝ))=
+    (Real.log 2-Real.log 3 : ℝ) := by sorry
+
+def mangoldtTripleCount (N : ℕ) : ℝ :=
+  ∑ x : Fin 3 → Fin (N+1), if (∑ i, (x i).val)=N then
+    ∏ i, ArithmeticFunction.vonMangoldt (x i).val else 0
+theorem mangoldtTripleCount_nonneg (N : ℕ) : 0 ≤ mangoldtTripleCount N := by sorry
+theorem mangoldtTripleCount_small (N : ℕ) (h : N ≤ 5) : mangoldtTripleCount N=0 := by sorry
+theorem mangoldtTripleCount_pos_iff (N : ℕ) : 0 < mangoldtTripleCount N ↔
+    ∃ x : Fin 3 → ℕ, (∑ i, x i)=N ∧ ∀ i, IsPrimePow (x i) := by sorry
+theorem mangoldtTripleCount_fourier (N : ℕ) :
+    (mangoldtTripleCount N : ℂ)=∫ α : AddCircle (1 : ℝ),
+      mangoldtExponentialSum N α^3*fourier (-(N : ℤ)) α ∂AddCircle.haarAddCircle := by sorry
+-- mangoldtTripleCount_small_test
+example : mangoldtTripleCount 5=0 := by sorry
+-- mangoldtTripleCount_six_test
+example : mangoldtTripleCount 6=(Real.log 2)^3 := by sorry
+-- mangoldtTripleCount_seven_test
+example : mangoldtTripleCount 7=3*(Real.log 2)^2*Real.log 3 := by sorry
+
+def ternaryPrimeSeries (N : ℕ) : ℝ := ∏' p : ℕ,
+  if p.Prime then if p ∣ N then 1-((p : ℝ)-1)^(-2 : ℤ) else 1+((p : ℝ)-1)^(-3 : ℤ) else 1
+theorem ternaryPrimeSeries_product (N : ℕ) : Multipliable (fun p : ℕ =>
+    if p.Prime then if p ∣ N then (1-((p : ℝ)-1)^(-2 : ℤ) : ℝ)
+    else 1+((p : ℝ)-1)^(-3 : ℤ) else 1) := by sorry
+theorem ternaryPrimeSeries_even (N : ℕ) (h : Even N) : ternaryPrimeSeries N=0 := by sorry
+theorem ternaryPrimeSeries_odd_lower : ∃ c : ℝ, 0<c ∧ ∀ N : ℕ, Odd N → c ≤ ternaryPrimeSeries N := by sorry
+theorem ternaryPrimeSeries_divisibility (N p : ℕ) (hp : p.Prime) :
+    (if p.Prime then if p ∣ N then (1-((p : ℝ)-1)^(-2 : ℤ) : ℝ)
+     else 1+((p : ℝ)-1)^(-3 : ℤ) else 1)=
+      if p ∣ N then 1-((p : ℝ)-1)^(-2 : ℤ) else 1+((p : ℝ)-1)^(-3 : ℤ) := by sorry
+-- ternaryPrimeSeries_even_test
+example : ternaryPrimeSeries 8=0 := by sorry
+-- ternaryPrimeSeries_two_factor_test
+example : (if (2 : ℕ) ∣ 7 then (1-((2 : ℝ)-1)^(-2 : ℤ)) else 1+((2 : ℝ)-1)^(-3 : ℤ))=2 ∧
+    (if (2 : ℕ) ∣ 8 then (1-((2 : ℝ)-1)^(-2 : ℤ)) else 1+((2 : ℝ)-1)^(-3 : ℤ))=0 := by sorry
+-- ternaryPrimeSeries_three_factor_test
+example : (if (3 : ℕ) ∣ 9 then (1-((3 : ℝ)-1)^(-2 : ℤ)) else 1+((3 : ℝ)-1)^(-3 : ℤ))=3/4 ∧
+    (if (3 : ℕ) ∣ 7 then (1-((3 : ℝ)-1)^(-2 : ℤ)) else 1+((3 : ℝ)-1)^(-3 : ℤ))=9/8 := by sorry
+
+theorem vinogradov_three_prime_asymptotic (A : ℝ) (hA : 0<A) :
+    ∃ (C : ℝ) (N₀ : ℕ), 0<C ∧ ∀ N : ℕ, N₀ ≤ N →
+      |mangoldtTripleCount N-ternaryPrimeSeries N*(N : ℝ)^2/2| ≤
+        C*(N : ℝ)^2*(Real.log N)^(-A) := by sorry
+
+theorem improved_hua_moment (k t : ℕ) (ht : 1 ≤ t) (htk : t ≤ k)
+    (ε : ℝ) (hε : 0<ε) : ∃ C : ℝ, 0<C ∧ ∀ N : ℕ, 1 ≤ N →
+    (∫ α : AddCircle (1 : ℝ), ‖powerWeylSum k N α‖^(t*(t+1)) ∂AddCircle.haarAddCircle) ≤
+      C*(N : ℝ)^((t*t : ℝ)+ε) := by sorry
+
+theorem waring_optimized_minor_arcs (k t s : ℕ) (hk : 3 ≤ k) (ht : 1 ≤ t) (htk : t<k)
+    (hs : (k : ℝ)^2-(t : ℝ)*(k-t-1)/(k+1-t)<s) (hs' : s ≤ k*(k+1)) :
+    ∃ δ C : ℝ, 0<δ ∧ 0<C ∧ ∀ N : ℕ, 1 ≤ N →
+      (∫ α in (majorArcs (N/(2*k)) ((N : ℝ)^(1-(k : ℝ))/(2*k)))ᶜ,
+        ‖powerWeylSum k N α‖^s ∂AddCircle.haarAddCircle) ≤ C*(N : ℝ)^((s : ℝ)-k-δ) := by sorry
+
+theorem waring_linear_range_positivity (k s : ℕ) (hk : 3 ≤ k)
+    (hs : if Odd k then 2*k+1 ≤ s else 4*k ≤ s) :
+    ∃ c : ℝ, 0<c ∧ ∀ m : ℕ, c ≤ (waringSingularSeries k s m).re := by sorry
+
+theorem waring_optimized_asymptotic (k t s : ℕ) (hk : 3 ≤ k) (ht : 1 ≤ t) (htk : t<k)
+    (hs : (k : ℝ)^2-(t : ℝ)*(k-t-1)/(k+1-t)<s) (hs' : s ≤ k*(k+1)) :
+    ∃ (δ C : ℝ) (M₀ : ℕ), 0<δ ∧ 0<C ∧ ∀ m : ℕ, M₀ ≤ m →
+      |(waringPositiveCount k s m : ℝ)-
+        (Real.Gamma (1+1/(k : ℝ)))^s/Real.Gamma ((s : ℝ)/k)*
+        (waringSingularSeries k s m).re*(m : ℝ)^((s : ℝ)/k-1)| ≤
+      C*(m : ℝ)^((s : ℝ)/k-1-δ) := by sorry
+
+open Classical in
+def scaledRegionCount {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ)
+    (S : Set (EuclideanSpace ℝ (Fin n))) (P : ℝ) : ℕ :=
+  Nat.card {x : Fin n → ℤ // f.eval x=m ∧ WithLp.toLp 2 (fun i => (x i : ℝ)) ∈ (P • ·) '' S}
+theorem scaledRegionCount_finite {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ)
+    (S : Set (EuclideanSpace ℝ (Fin n))) (P : ℝ) (hS : Bornology.IsBounded S) :
+    Finite {x : Fin n → ℤ // f.eval x=m ∧ WithLp.toLp 2 (fun i => (x i : ℝ)) ∈ (P • ·) '' S} := by sorry
+theorem scaledRegionCount_empty {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ) (P : ℝ) :
+    scaledRegionCount f m ∅ P=0 := by sorry
+theorem scaledRegionCount_mono {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ)
+    (S T : Set (EuclideanSpace ℝ (Fin n))) (P : ℝ) (hST : S ⊆ T) (hT : Bornology.IsBounded T) :
+    scaledRegionCount f m S P ≤ scaledRegionCount f m T P := by sorry
+theorem scaledRegionCount_zero_scale {n : ℕ} (f : MvPolynomial (Fin n) ℤ) (m : ℤ)
+    (S : Set (EuclideanSpace ℝ (Fin n))) (hS : S.Nonempty) :
+    scaledRegionCount f m S 0=if f.eval 0=m then 1 else 0 := by sorry
+-- scaledRegionCount_zero_scale_test
+example : scaledRegionCount (0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 0=1 := by sorry
+-- scaledRegionCount_projection_test
+example : scaledRegionCount (MvPolynomial.X 0 : MvPolynomial (Fin 2) ℤ) 0 {x | ∀ i, |x i| ≤ 1} 1=3 := by sorry
+-- scaledRegionCount_empty_test
+example : scaledRegionCount (0 : MvPolynomial (Fin 2) ℤ) 0 ∅ 1=0 := by sorry
+
+open Classical in
+def binaryFormEquivalent (G : MvPolynomial (Fin 2) ℚ) (x y : Fin 2 → ℤ) : Prop :=
+  ∃ M : (Fin 2 → ℚ) ≃ₗ[ℚ] (Fin 2 → ℚ),
+    (∀ z : Fin 2 → ℚ, G.eval (M z)=G.eval z) ∧ M (fun i => (x i : ℚ))=(fun i => (y i : ℚ))
+theorem binaryFormEquivalent_refl (G : MvPolynomial (Fin 2) ℚ) (x : Fin 2 → ℤ) : binaryFormEquivalent G x x := by sorry
+theorem binaryFormEquivalent_symm (G : MvPolynomial (Fin 2) ℚ) (x y : Fin 2 → ℤ) :
+    binaryFormEquivalent G x y → binaryFormEquivalent G y x := by sorry
+theorem binaryFormEquivalent_trans (G : MvPolynomial (Fin 2) ℚ) (x y z : Fin 2 → ℤ) :
+    binaryFormEquivalent G x y → binaryFormEquivalent G y z → binaryFormEquivalent G x z := by sorry
+theorem binaryFormEquivalent_value (G : MvPolynomial (Fin 2) ℚ) (x y : Fin 2 → ℤ) :
+    binaryFormEquivalent G x y → G.eval (fun i => (x i : ℚ))=G.eval (fun i => (y i : ℚ)) := by sorry
+theorem binaryFormEquivalent_zero (G : MvPolynomial (Fin 2) ℚ) (y : Fin 2 → ℤ) :
+    binaryFormEquivalent G 0 y ↔ y=0 := by sorry
+-- binaryFormEquivalent_swap_test
+example : binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,0] ![0,1] := by sorry
+-- binaryFormEquivalent_value_test
+example : ¬binaryFormEquivalent (MvPolynomial.X 0^3+MvPolynomial.X 1^3) ![1,1] ![2,0] := by sorry
+-- binaryFormEquivalent_zero_test
+example : ¬binaryFormEquivalent 0 0 ![1,0] := by sorry
+
+theorem integral_plane_curve_bound (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0<ε) :
+    ∃ C : ℝ, 0<C ∧ ∀ f : MvPolynomial (Fin 2) ℤ, f.totalDegree=d →
+      Irreducible (f.map (Int.castRingHom ℚ)) → ∀ B : ℕ, 1 ≤ B →
+        (scaledRegionCount f 0 {x | ∀ i, |x i| ≤ 1} B : ℝ) ≤ C*(B : ℝ)^(1/(d : ℝ)+ε) := by sorry
+
+theorem surface_all_points_bound (d : ℕ) (hd : 2 ≤ d) (ε : ℝ) (hε : 0<ε) :
+    ∃ C : ℝ, 0<C ∧ ∀ F : MvPolynomial (Fin 4) ℤ, F.IsHomogeneous d →
+      Irreducible (F.map (Int.castRingHom (AlgebraicClosure ℚ))) → ∀ B : ℕ, 1 ≤ B →
+        (boundedProjectivePointCount F (fun _ => B) : ℝ) ≤ C*(B : ℝ)^(2+ε) := by sorry
+
+-- §13 omissions, corresponding to the packet gaps: nondegenerate_curve_critical_transfer
+-- needs the native critical curve restriction interface. waring_refined_major_arcs needs
+-- the target-dependent Gauss tail interface. niedermowwe_gaussian_asymptotic and
+-- niedermowwe_expanding_box need their Gaussian and indicator oscillatory-density adapters.
+-- birch_single_form_asymptotic needs native geometric singular-locus dimension.
+-- projective_space_curve_bound, surface_linefree_bound and
+-- binary_form_representation_statistics need degree/line-locus/root-multiplicity suppliers.
+-- These are exact mathematical contracts in the document, never Prop-valued stand-ins.
+end TauCeti.ExponentialSumsPlan
+
+namespace TauCeti.ExponentialSumsPlan
+open Filter MeasureTheory
+open scoped BigOperators
+
+theorem vmv_weyl_bound (k : ℕ) (hk : 3 ≤ k) (ε : ℝ) (hε : 0<ε) :
+    ∃ C : ℝ, 0<C ∧ ∀ (α : Fin k → ℝ) (j : Fin k) (a : ℤ) (q N : ℕ),
+      1 ≤ j.val → 1 ≤ q → 1 ≤ N → Nat.Coprime a.natAbs q →
+      |α j-(a : ℝ)/q| ≤ (q : ℝ)^(-2 : ℤ) →
+      ‖∑ x ∈ Finset.Icc 1 N, Complex.exp (2*Real.pi*Complex.I*
+        (∑ i : Fin k, α i*(x : ℝ)^(i.val+1)))‖ ≤
+      C*(N : ℝ)^(1+ε)*((q : ℝ)⁻¹+(N : ℝ)⁻¹+(q : ℝ)*(N : ℝ)^(-((j.val+1 : ℕ) : ℤ)))^
+        (1/((k : ℝ)*(k-1))) := by sorry
+
+theorem prime_minor_arc_estimate (A : ℝ) (hA : 0<A) :
+    ∃ B C : ℝ, 0<B ∧ 0<C ∧ ∀ (N : ℕ) (α : AddCircle (1 : ℝ)), 3 ≤ N →
+      (∀ (a : ℤ) (q : ℕ), 1 ≤ q → (q : ℝ) ≤ (Real.log N)^B → Nat.Coprime a.natAbs q →
+        (Real.log N)^B/N < dist ((q : ℤ) • α) 0) →
+      ∀ u v : ℕ, 1 ≤ u → u ≤ v → v ≤ N →
+      ‖∑ n ∈ Finset.Icc u v, (ArithmeticFunction.vonMangoldt n : ℂ)*fourier (n : ℤ) α‖ ≤
+        C*(N : ℝ)*(Real.log N)^(-A) := by sorry
+
+theorem prime_major_arc_approximation (A : ℝ) (hA : 0<A) :
+    ∃ C : ℝ, 0<C ∧ ∀ (N u v q : ℕ) (a : ℤ) (ξ : ℝ),
+      3 ≤ N → 1 ≤ u → u ≤ v → v ≤ N → 1 ≤ q → Nat.Coprime a.natAbs q →
+      ‖(∑ n ∈ Finset.Icc u v, (ArithmeticFunction.vonMangoldt n : ℂ)*
+          fourier (n : ℤ) (((a : ℝ)/q+ξ/q : ℝ) : AddCircle (1 : ℝ)))-
+        ((ArithmeticFunction.moebius q : ℤ) : ℂ)/(Nat.totient q : ℂ)*
+          ∫ x in (u : ℝ)..(v : ℝ), Complex.exp (2*Real.pi*Complex.I*(ξ*x/q))‖ ≤
+        C*((q : ℝ)+N*|ξ|)*(N : ℝ)*(Real.log N)^(-A) := by sorry
+
+/-- The norm here is circular distance, so it is independent of a real lift. -/
+theorem prime_bilinear_estimates : ∃ C : ℝ, 1 ≤ C ∧
+  (∀ (M N u v : ℕ) (δ : ℝ) (θ : AddCircle (1 : ℝ)) (a : ℕ → ℂ) (b : ℕ → ℝ) (U V : ℝ),
+    1 ≤ M → 1 ≤ N → 0<δ → δ ≤ 1 → 0 ≤ U → 0 ≤ V →
+    (∀ m ∈ Finset.Icc M (2*M), ‖a m‖ ≤ U) →
+    (∀ n ∈ Finset.Icc N (2*N), |b n| ≤ V) → MonotoneOn b (Set.Icc N (2*N)) →
+    δ*M*N*U*V < ‖∑ m ∈ Finset.Icc M (2*M), ∑ n ∈ Finset.Icc N (2*N),
+      if m*n ∈ Finset.Icc u v then a m*(b n : ℂ)*fourier ((m*n : ℕ) : ℤ) θ else 0‖ →
+    (N : ℝ) ≤ C*δ^(-2 : ℤ) ∨ ∃ q : ℕ, 1 ≤ q ∧ (q : ℝ) ≤ C*δ⁻¹ ∧
+      dist ((q : ℤ) • θ) 0 ≤ C*δ^(-2 : ℤ)/(M*N)) ∧
+  (∀ (M N u v : ℕ) (δ : ℝ) (θ : AddCircle (1 : ℝ)) (a b : ℕ → ℂ),
+    1 ≤ M → 1 ≤ N → 0<δ → δ ≤ 1 →
+    δ*Real.sqrt ((M : ℝ)*N)*
+      Real.sqrt (∑ m ∈ Finset.Icc M (2*M), ‖a m‖^2)*
+      Real.sqrt (∑ n ∈ Finset.Icc N (2*N), ‖b n‖^2) <
+      ‖∑ m ∈ Finset.Icc M (2*M), ∑ n ∈ Finset.Icc N (2*N),
+        if m*n ∈ Finset.Icc u v then a m*b n*fourier ((m*n : ℕ) : ℤ) θ else 0‖ →
+    (min M N : ℝ) ≤ C*δ^(-4 : ℤ) ∨ ∃ q : ℕ, 1 ≤ q ∧ (q : ℝ) ≤ C*δ^(-2 : ℤ) ∧
+      dist ((q : ℤ) • θ) 0 ≤ C*δ^(-4 : ℤ)/(M*N)) := by sorry
+
+theorem quadratic_local_stability (n : ℕ) (hn : 5 ≤ n) (Q : MvPolynomial (Fin n) ℤ)
+    (hQ : Q.IsHomogeneous 2)
+    (hnd : ∀ x : Fin n → ℚ, (∀ i, (MvPolynomial.pderiv i Q).eval₂ (Int.castRingHom ℚ) x=0) → x=0) :
+    ∃ C : ℝ, 0<C ∧ ∀ (p : ℕ) [Fact p.Prime] [NeZero p] (m : ℤ), m≠0 →
+      Tendsto (fun t : ℕ => formNormalizedCount n 1 (p^t) (fun _ => Q) (fun _ => m))
+        atTop (nhds (formPadicDensity n 1 p (fun _ => Q) (fun _ => m))) ∧
+      (∀ t : ℕ, |formNormalizedCount n 1 (p^t) (fun _ => Q) (fun _ => m)-
+          formPadicDensity n 1 p (fun _ => Q) (fun _ => m)| ≤
+        C*(p : ℝ)^(2-3*((t/2 : ℕ) : ℤ))) ∧
+      |formPadicDensity n 1 p (fun _ => Q) (fun _ => m)-1| ≤ C/p := by sorry
+
+theorem heath_brown_quadratic_asymptotic (n : ℕ) (hn : 5 ≤ n) (Q : MvPolynomial (Fin n) ℤ)
+    (hQ : Q.IsHomogeneous 2)
+    (hnd : ∀ x : Fin n → ℚ, (∀ i, (MvPolynomial.pderiv i Q).eval₂ (Int.castRingHom ℚ) x=0) → x=0)
+    (w : EuclideanSpace ℝ (Fin n) → ℝ) (hw : ContDiff ℝ ⊤ w) (hc : HasCompactSupport w)
+    (ε : ℝ) (hε : 0<ε) : ∃ C : ℝ, 0<C ∧ ∀ m : ℕ, 1 ≤ m →
+      Multipliable (fun p : ℕ => if hp : p.Prime then (letI : NeZero p := ⟨hp.ne_zero⟩; formPadicDensity n 1 p (fun _ => Q) (fun _ => (m : ℤ))) else 1) ∧
+      |weightedQuadraticCount n Q m w-
+        weightedRealDensity n 1 (fun x _ => Q.eval₂ (Int.castRingHom ℝ) (fun i => x i)) (fun _ => 1) w*
+          (m : ℝ)^((n : ℝ)/2-1)*
+          (∏' p : ℕ, if hp : p.Prime then (letI : NeZero p := ⟨hp.ne_zero⟩; formPadicDensity n 1 p (fun _ => Q) (fun _ => (m : ℤ))) else 1)| ≤
+        C*(m : ℝ)^(((n : ℝ)-1)/4+ε) := by sorry
 end TauCeti.ExponentialSumsPlan
