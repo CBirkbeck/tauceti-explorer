@@ -11727,7 +11727,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3372"
   },
   {
    "id": "REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
@@ -16537,8 +16538,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3476"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3476",
+   "finishedAt": "2026-10-11T07:48:00Z"
   },
   {
    "id": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
@@ -28001,8 +28003,9 @@
    ],
    "avoidAccountOf": "BP-ModularSymbolsPadicLFunctions",
    "prompt": "research/blueprint/prompts/REV-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #454"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #454",
+   "finishedAt": "2026-10-11T07:48:01Z"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.1",
@@ -36928,8 +36931,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.4",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6302"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6302",
+   "finishedAt": "2026-10-11T07:48:05Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.5",
@@ -49259,8 +49263,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80152,8 +80156,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80317,8 +80321,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80540,8 +80544,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81066,8 +81070,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -82522,8 +82526,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -83222,8 +83226,8 @@
     "FIX-RT-AREA-ktheory-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5542"
+   "state": "external",
+   "note": "claimed on GitHub issue #5542"
   },
   {
    "id": "RT-AREA-ktheory-2",
@@ -84719,8 +84723,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -88287,7 +88291,8 @@
    "avoidAccountOf": "DESIGN-EffectiveBoundsCompactModels",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-EffectiveBoundsCompactModels.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1720"
   },
   {
    "id": "DESIGN-HyperbolicCurveVolumesAndGonality",
