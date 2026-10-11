@@ -10,9 +10,12 @@ Complete planning status does not certify this file or close its geometric gaps.
 The native fragment uses the pinned invertible-sheaf and quotient-ring types.
 The omission ledger below records signatures needing actual geometric types
 from other roadmap owners. It does not replace them with assumed predicates.
-The independent review check on 2026-10-05 stopped at the missing compiled
-TauCeti.Algebra.AddCircle module, before any declarations were elaborated.
-The complete file remains uncompiled; no implementation is certified.
+The complete file elaborated on 2026-10-11 at Mathlib 082e2d3 and Tau Ceti
+f790474, with zero errors and only admitted-proof warnings. The six failing
+native diagram/cocone/coefficient-naturality proof fields use admissions, as
+required for this suggested-signature file. Missing geometric signatures stay
+in the omission ledger; elaboration does not construct those carriers or
+certify any implementation.
 The finite action-comparison fragment was checked against pinned Mathlib with
 its native character generator expanded. The suggested bodies are admitted
 under PROTOCOL §13; separate proof-prototype evidence is recorded in the handoff;
@@ -5154,34 +5157,24 @@ def divisibilityRingDiagram (f : A) : RootDivIndex ⥤ CommRingCat.{u} where
   obj n := CommRingCat.of (AffineRing f n.exponent)
   map h := CommRingCat.ofHom (divisibilityAffineMap f _ _ (leOfHom h)).toRingHom
   map_id n := by
-    apply CommRingCat.hom_ext
-    change (affineDivisibility f n.exponent n.exponent (dvd_refl _)).toRingHom = RingHom.id _
-    rw [affineDivisibility.identity]
-    rfl
+    sorry
   map_comp {n N P} h k := by
-    apply CommRingCat.hom_ext
-    exact congrArg AlgHom.toRingHom (affineDivisibility.composition f
-      n.exponent N.exponent P.exponent (leOfHom h) (leOfHom k)).symm
+    sorry
 
 def divisibilityRingCocone (f : A) : Cocone (divisibilityRingDiagram f) where
   pt := CommRingCat.of (DivisibilityAffineColimit f)
   ι.app n := CommRingCat.ofHom (divisibilityAffineInclusion f n).toRingHom
   ι.naturality n N h := by
-    apply CommRingCat.hom_ext
-    apply RingHom.ext
-    intro x
-    exact divisibilityAffineInclusion.transition f (leOfHom h) x
+    sorry
 
 def divisibilityRingCocone.isColimit (f : A) : IsColimit (divisibilityRingCocone f) where
   desc s := CommRingCat.ofHom (DirectLimit.Ring.lift _ (divisibilityAffineMap f) s.pt
     (fun n => (s.ι.app n).hom) (fun n N h x => by
       exact congrArg (fun z => z.hom x) (s.w (homOfLE h))))
-  fac s n := by apply CommRingCat.hom_ext; rfl
+  fac s n := by
+    sorry
   uniq s m hm := by
-    apply CommRingCat.hom_ext
-    apply DirectLimit.Ring.hom_ext
-    intro n
-    exact congrArg CommRingCat.Hom.hom (hm n)
+    sorry
 
 def divisibilitySpecDiagram (f : A) : RootDivIndexᵒᵖ ⥤ Scheme.{u} :=
   (divisibilityRingDiagram f).op ⋙ Scheme.Spec
@@ -5875,22 +5868,7 @@ def divisibilityRingCoefficientNatTrans (φ : A →+* B) (f : A) :
     divisibilityRingDiagram f ⟶ divisibilityRingDiagram (φ f) where
   app n := CommRingCat.ofHom (AdjoinRoot.map φ _ _ (by simp))
   naturality n N h := by
-    apply CommRingCat.hom_ext
-    apply AdjoinRoot.ringHom_ext
-    · ext a
-      change AdjoinRoot.map φ _ _ (by simp)
-        (divisibilityAffineMap f n N (leOfHom h) (algebraMap A (AffineRing f n.exponent) a)) =
-        divisibilityAffineMap (φ f) n N (leOfHom h)
-          (AdjoinRoot.map φ _ _ (by simp) (algebraMap A (AffineRing f n.exponent) a))
-      rw [AlgHom.commutes]
-      simp only [AdjoinRoot.algebraMap_eq, AdjoinRoot.map_of]
-      exact ((divisibilityAffineMap (φ f) n N (leOfHom h)).commutes (φ a)).symm
-    · change AdjoinRoot.map φ _ _ (by simp)
-        (affineDivisibility f n.exponent N.exponent (leOfHom h) (AdjoinRoot.root _)) =
-        affineDivisibility (φ f) n.exponent N.exponent (leOfHom h)
-          (AdjoinRoot.map φ _ _ (by simp) (AdjoinRoot.root _))
-      rw [affineDivisibility.root, map_pow, AdjoinRoot.map_root, AdjoinRoot.map_root,
-        affineDivisibility.root]
+    sorry
 
 lemma divisibilityRingCoefficientNatTrans.root (φ : A →+* B) (f : A) (n : RootDivIndex) :
     ((divisibilityRingCoefficientNatTrans φ f).app n).hom (AdjoinRoot.root _) =

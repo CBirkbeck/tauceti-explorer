@@ -4,7 +4,15 @@ The root-stack direction extends FunctionFieldArithmetic: it imports the parent'
 
 Every declaration remains a specification. The affine coaction, coefficient invariant algebra, native affine scheme limits, tensor base change and chosen-frame normalization comparisons provide inputs to the geometric root-stack construction. The general line-bundle root-object comparison, local frames, effective descent and genuine infinite two-limit remain distinct targets. Root-stack fibres retain nilpotents and stabilizers; coefficient changes need not be faithful. The canonical owner is `FunctionFieldArithmeticPartII:key/root-stacks`, including scheme and stack bases, Cartier pairs and arbitrary positive exponents.
 
-The coverage table gives the current mathematical frontier. Each layer is partial; the packet's complete planning pass does not close these obligations. The exact declarations, APIs, examples and source passages follow this table.
+The signed root-divisor groupoid in GC.2 is the right-action quotient of all ideles by modified units. It retains labelled stabilizers and signed divisors in every degree; principal ideles are identified only by the subsequent Picard double quotient. Its divisor convention E(a)=Σ v_x(a_x)x gives the Picard line O_X(−E(a)). Effective root-section moduli in GC.1 are a separate construction.
+
+The generic tensor-section and coherent module-pullback inputs are imported from current upstream AlgebraicVectorBundles L0A–L0B through SF.3/JAC-A. This roadmap specifies their invertible-sheaf coordinate adapters and root-specific recursion. Earlier continuation introductions below describe their original frontiers; the current coverage table and individual declaration contracts govern the present scope.
+
+The three corrected baseline ingredient contracts retain their native limits: ZMod.finEquiv requires a nonzero modulus; Algebra.TensorProduct.map_comp composes maps over fixed base rings with the stated scalar towers, while heterogeneous coefficient change uses mapRingHom; AddCircle.coe_eq_coe_iff_of_mem_Ico uses an Archimedean linearly ordered additive commutative group and a positive period. None removes the root-stack supplier assumptions.
+
+The complete [suggested file](../suggested/FunctionFieldArithmeticPartII.lean) elaborated on 11 October 2026 at Mathlib 082e2d3 and Tau Ceti f790474 with zero errors and only admitted-proof warnings. Its native signatures and examples are type-checked; actual geometric signatures whose supplier carriers are missing remain listed in the omission ledger. Six native diagram, cocone and coefficient-naturality proof fields are admitted sketches. Their object types, maps, hypotheses and universal-property targets are retained.
+
+The coverage table gives the current mathematical frontier. Each layer is partial; the packet's complete planning pass does not close these obligations. The exact declarations, APIs, examples and source locators follow this table.
 
 | Layer | Declarations | Status | Remaining mathematical work |
 |---|---:|---|---|
@@ -20,6 +28,56 @@ The coverage table gives the current mathematical frontier. Each layer is partia
 | GC.6 | 13 | partial | Root norm carriers, Picard obstruction data, support-moving approximation and arithmetic trace comparison. |
 
 The symplectic L-function direction has a separate target and proof closure. Its existing split proposal retains all 38 extracted contracts, assigned to the proposed SL.0–SL.5 layers. Those proposed sibling stages are not established suppliers, and the root-stack coverage table does not certify their planning or accept the split. Both routes and their source findings remain part of the specification until the ownership proposal is resolved.
+
+## Reference register
+
+The source IDs in the declaration blocks refer to the texts below. Version, read-scope and SHA-256 receipts are retained in the [packet](../packets/FunctionFieldArithmeticPartII.json). Aliases for authored calculations indicate motivation and the recorded derivation scope; they do not assert that those named calculations are printed theorems. The ten immutable authored receipts were checked again in this revision.
+
+| Source ID | Public text or immutable receipt |
+|---|---|
+| YZ19 | [Shtukas and the Taylor expansion of L-functions (II)](https://math.mit.edu/~zyun/GZW_ramified_published.pdf) |
+| AGV08 | [Gromov–Witten theory of Deligne–Mumford stacks](https://arxiv.org/pdf/math/0603151v2) |
+| TV17 | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| B24 | [On the birational section conjecture with strong birationality assumptions](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) |
+| AV23 | [Symplectic L-functions and symplectic Reidemeister torsion (mod squares)](https://arxiv.org/pdf/2303.13436v1) |
+| STACKS-KUMMER | [The Stacks Project, Kummer theory](https://stacks.math.columbia.edu/tag/040N) |
+| TV17ScalarPoints-codex-J6LwjP | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| TV17CoefficientNaturality-codex-5ebb6f | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| FactorialCoactionCalculations-codex-a71f92 | [Authored rank-one factorial coaction and Hopf algebra calculations](https://github.com/CBirkbeck/tauceti-explorer/blob/b1f05aed7e30f49e06f2620842851c0ca9702b0c/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md) |
+| TV17UniversalCoaction-codex-a71f92 | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| TV17CoefficientNaturality-codex-rtOQ9t | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| FactorialCoefficientNaturality-codex-rtOQ9t | [Coefficient naturality of the actual universal factorial root coaction](https://github.com/CBirkbeck/tauceti-explorer/blob/a1b811af3c68ebf8277f57334475669a79c5e452/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md) |
+| TV17ConvolutionPoints-codex-5ebb6f | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| FactorialConvolutionPoints-codex-5ebb6f | [Convolution points of the actual factorial unity-root Hopf algebra](https://github.com/CBirkbeck/tauceti-explorer/blob/04e2ce014b6b5ee40c61bfff758fa5aff1e55016/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| FactorialPointAction-codex-a71f92 | [The actual convolution action on factorial affine root-chart points](https://github.com/CBirkbeck/tauceti-explorer/blob/71541cc03d659e6790ee25fb92b9b9fda577f5e2/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| FiniteCyclicCoordinates-codex-7e92bd | [Finite unit-root cyclic coordinates](https://github.com/CBirkbeck/tauceti-explorer/blob/48a75526ba9c32c5401328c8611a38e425a019ce/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md) |
+| QZCoordinates-codex-J6LwjP | [Normalized rational characters and infinite unity-root coordinate comparison](https://github.com/CBirkbeck/tauceti-explorer/blob/aae1a6c273388af273204f2d9d2bb4afb96da71f/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| QZCoaction-codex-a71f92 | [Rational character transport of the arbitrary-section root coaction](https://github.com/CBirkbeck/tauceti-explorer/blob/4c16f370fda9213bd8e938345dc8aec90ac84608/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| QZCoefficient-codex-rtOQ9t | [Arbitrary-section rational-character coefficient naturality](https://github.com/CBirkbeck/tauceti-explorer/blob/9a1dd4fb6f950d9ca6f37fa8ee8814700ad6a6d6/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| QZNative-codex-7e92bd | [Native rational-character and infinite unity-root coordinate proofs](https://github.com/CBirkbeck/tauceti-explorer/blob/29a0d57d6af9459dd1d32d6a1723b9a77bb43c9c/research/blueprint/handoff/DESIGN-FunctionFieldArithmeticPartII.md) |
+| QZNativeCoaction-codex-a71f92 | [Authored arbitrary-section rational coaction and boundary deductions](https://arxiv.org/pdf/1410.1164v2) |
+| AFFINE-INVARIANTS-J6LwjP | [Talpo–Vistoli finite character grading and native invariant algebra](https://arxiv.org/pdf/1410.1164v2) |
+| TV17InfiniteCoinvariants-N24 | [Infinite root stacks and quasi-coherent sheaves on logarithmic schemes](https://arxiv.org/pdf/1410.1164v2) |
+| InfiniteCoinvariants-codex-a71f92-N24 | [Rational-character coefficients and infinite affine coinvariants](https://github.com/CBirkbeck/tauceti-explorer/blob/1644fce584291a1327802b3f2a977a072f3b59d1/research/blueprint/readmes/FunctionFieldArithmeticPartII.md) |
+| DivisibilityCoaction-7e92bd | [Positive-divisibility coaction and invariant algebra; authored deductions from Talpo–Vistoli grading](https://arxiv.org/pdf/1410.1164v2) |
+| DivisibilityCoefficients-rtOQ9t | [Positive-divisibility coefficient maps and invariant algebra naturality; authored deductions](https://arxiv.org/pdf/1410.1164v2) |
+| RootChartSpecLimits-codex-7e92bd | [Native affine root-chart scheme inverse limits; authored deductions](https://arxiv.org/pdf/1410.1164v2) |
+| RootChartBaseChange-codex-7e92bd | [Affine fibre products and root-colimit base change; authored deduction from Stacks §26.17](https://stacks.math.columbia.edu/tag/01JO) |
+| TensorRootAction-rtOQ9t | [Actions of group schemes and equivariance; authored root-chart tensor deductions](https://stacks.math.columbia.edu/tag/022Y) |
+| Stacks-finite-root-projections-codex-7e92bd | [Affine inverse limits and root-specific finite projection deductions](https://stacks.math.columbia.edu/tag/01YW) |
+| AffineRootPointGroupoid-rtOQ9t | [Actions of group schemes; authored finite affine root-point groupoid deductions](https://stacks.math.columbia.edu/tag/022Y) |
+| RootPointDiagram-codex-7e92bd | [Actions of group schemes; authored actual root-point diagram and algebra-functor deductions](https://stacks.math.columbia.edu/tag/022Y) |
+| FramedRoot-codex-rtOQ9t | [Root stacks; authored framed root-coordinate and normalized-chart deductions](https://sites.math.washington.edu/~jarod/moduli.pdf) |
+| FramedNormalization-codex-7e92bd | [Root stacks and authored faithfully flat normalization of framed coordinates](https://sites.math.washington.edu/~jarod/moduli.pdf) |
+| FramedFppfCover-codex-rtOQ9t | [Fppf covering convention and authored normalization scheme packaging](https://stacks.math.columbia.edu/tag/021M) |
+| FramedNormalizationArrows-codex-rtOQ9t | [Roots-of-lines context and authored faithful normalization arrows](https://stacks.math.columbia.edu/tag/04V8) |
+| NormalizationChangeRoots-codex-7e92bd | [Roots-of-lines context and authored normalization changes](https://stacks.math.columbia.edu/tag/04V8) |
+| NormalizationChangePullbacks-codex-7e92bd | [Affine fibre products and authored Cartesian normalization squares](https://stacks.math.columbia.edu/tag/01JO) |
+| NormalizationTower-codex-rtOQ9t | [Scheme fibre products and authored normalization pullback coherence](https://stacks.math.columbia.edu/tag/01JO) |
+| NormalizationThree-codex-rtOQ9t | [Scheme fibre products and authored three-step normalization coherence](https://stacks.math.columbia.edu/tag/01JO) |
+| NormalizationOver-codex-5ebb6f | [Fibre products of schemes and authored normalization comparisons over the changed base](https://stacks.math.columbia.edu/tag/01JO) |
+
+The native tensor-section and pullback suppliers are [AlgebraicVectorBundles L0A–L0B](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/AlgebraicVectorBundles/README.md) and its [suggested interfaces](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c251d2e42c66f14c279d1e5c2708c5a91d8c8aec/TauCetiRoadmap/AlgebraicVectorBundles/Suggested.lean). They are roadmap inputs, rather than pinned library declarations.
 
 # Native normalization base-change comparison over the changed base
 
@@ -253,7 +311,7 @@ The [Stacks fibre-product section](https://stacks.math.columbia.edu/tag/01JO) su
 
 Three successive arbitrary test-algebra changes now have an actual normalization isomorphism to the three nested chosen scheme pullbacks. Pull back the complete two-step comparison along the third change and compose its normalizationBaseChangeIso. All forward and inverse projection equations and roundtrips hold. The actual triple pullback collapse agrees, as a whole native isomorphism and on its inverse, with the alternate route that first combines the last two changes. Composing the actual triple normalization comparison with either collapse route gives the direct normalizationBaseChangeIso for the triple composite. The positive-exponent actual chart triangle holds. Every natural exponent is allowed for scheme comparisons, with no flatness or injectivity assumptions; the nonflat Z/4 to Z/2 example kills a nonzero square-zero normalized section and preserves the comparison. Wild exponents and zero rings remain allowed. This establishes three-step chosen-scheme coherence only; higher coherence, native sheaf RootObject comparison, local frames, fppf stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open with all inherited source, supplier and geometric obligations.
 
-All676 incoming node objects and336 baseline records retain their full scope. This adds25 nodes,21 API references and9 distinct typed examples with15 references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,omission ledger and version receipts retain their scope. Every implementation remains unchecked. The whole Tau-dependent suggested file is uncompiled; separate executed native Mathlib proof and admitted sketch evidence have exact scopes in the handoff.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All676 incoming node objects and336 baseline records retain their full scope. This adds25 nodes,21 API references and9 distinct typed examples with15 references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,eleven source findings,omission ledger and version receipts retain their scope. Every implementation remains unchecked. The whole Tau-dependent suggested file is uncompiled; separate executed native Mathlib proof and admitted sketch evidence have exact scopes in the handoff.
 
 ## The chosen normalization pullback pasting comparison
 
@@ -569,7 +627,7 @@ Proof: Postcompose the exact triple normalization projection with the existing c
 
 Successive arbitrary test-algebra changes now have an actual native scheme comparison from the changed normalization scheme to the iterated chosen pullback. It is constructed by pulling back the previous normalizationBaseChangeIso and composing the next one, with both forward and inverse projection formulas and roundtrips. After the native pullback-pasting isomorphism and the actual Spec-composition congruence, the whole isomorphism equals the direct normalizationBaseChangeIso, and the inverse route also agrees. The direct chosen comparison is natural for every actual framed arrow, including all unit labels, and the positive-exponent iterated chart triangle holds. Actual normalization scheme maps have identity, composition and three-map associativity for every natural exponent, including zero. No flatness or injectivity is assumed: Z/4 to Z/2 then identity kills a nonzero square-zero section while preserving the comparison equations. Wild exponents and the zero ring remain allowed. This establishes two-step chosen-scheme coherence only; three-step chosen-pullback associators, native sheaf RootObject comparison, local frames, stackification, effective fpqc descent, infinite genuine 2-limits and higher-universe adapters remain open, with all inherited source, supplier and geometric obligations.
 
-All 655 incoming nodes and 325 baseline objects remain unchanged. This adds 21 nodes,16 API references and 9 distinct typed tests with13 references. All 40 planets, ten partial stages, eight gaps, thirteen requests, two paper routes, eleven source findings, omission ledger and version receipts retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file is uncompiled; separate native Mathlib proof evidence and the admitted Mathlib sketch have their precise execution scopes recorded in the handoff.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All 655 incoming nodes and 325 baseline objects remain unchanged. This adds 21 nodes,16 API references and 9 distinct typed tests with13 references. All 40 planets, ten partial stages, eight gaps, thirteen requests, two paper routes, eleven source findings, omission ledger and version receipts retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file is uncompiled; separate native Mathlib proof evidence and the admitted Mathlib sketch have their precise execution scopes recorded in the handoff.
 
 ## The actual normalization change on schemes
 
@@ -1105,7 +1163,7 @@ For positive exponent, the actual spectrum maps give a native functor to Over(Sp
 
 Eight typed examples check the exact root and coefficient images, identity and composition, actual Over isomorphisms and scheme triangles, the visible minus-one zero-section automorphism over Z/4, nonzero square-zero normalized sections over Z/9, coefficient changes over Z/7, exponent one and the zero ring. Ring maps and their coefficient triangles allow every natural exponent; faithful normalization covers and chart points require positive exponent. No exponent-invertibility, reducedness, nontriviality or section-regularity assumption is introduced.
 
-All616 incoming node objects and309 baseline objects are unchanged. This continuation adds18 nodes,14 API references and14 references to8 distinct typed examples. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the full omission ledger,all eleven source findings and all version receipts retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file remains UNCOMPILED; the separate full native certificate and bounded Mathlib sketch are reported precisely in the handoff.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All616 incoming node objects and309 baseline objects are unchanged. This continuation adds18 nodes,14 API references and14 references to8 distinct typed examples. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the full omission ledger,all eleven source findings and all version receipts retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file remains UNCOMPILED; the separate full native certificate and bounded Mathlib sketch are reported precisely in the handoff.
 
 For positive exponent, chosen-frame normalization is now an actual faithful functor from FramedRoot f n B to the native category Over(Spec B). An actual arrow with unit label zeta induces the B-algebra map Dq to Dp sending Tq to Tp times zeta inverse; its actual spectrum arrow lies over Spec B, respects identity and composition, is an isomorphism and preserves the actual normalized chart point. Every object retains its actual singleton fppf covering morphism. The chart maps form a native natural transformation to the constant actual affine root chart, with the proved global-section computation. Faithfulness cancels the bundled unit Tp and uses faithful flatness of B to Dp; it never cancels the root section. Zero-section stabilizers over Z/4 and nonzero square-zero sections over Z/9 remain visible. Ring-map functoriality and the base triangle allow n=0, while normalization points, faithful covers and chart naturality require positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, along with every existing source, supplier and geometric obligation.
 
@@ -1343,7 +1401,7 @@ The existing normalization-point algebra homomorphism now gives an actual arrow 
 
 The Z/4 wild-exponent example has a covering normalization despite the absence of an original normalized chart point. The actual chart-section image over Z/9 is nonzero and square-zero. Tests also check arbitrary base-point lifting, the actual global-section triangle, exponent1, the empty zero-ring spectrum and finite presentation at exponent0. The cover statement requires positive exponent, with no exponent-invertibility, section-regularity, nontriviality or reducedness premise.
 
-All602 incoming node objects and299 baseline objects are unchanged. This continuation adds14 nodes,11 API references and14 references to7 distinct typed examples. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the complete omission ledger,all eleven source findings and every version receipt retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file remains UNCOMPILED; the separate full native certificate and bounded Mathlib sketch are reported precisely in the handoff.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All602 incoming node objects and299 baseline objects are unchanged. This continuation adds14 nodes,11 API references and14 references to7 distinct typed examples. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the complete omission ledger,all eleven source findings and every version receipt retain their scope. Every implementation remains unchecked. The complete Tau-dependent suggested file remains UNCOMPILED; the separate full native certificate and bounded Mathlib sketch are reported precisely in the handoff.
 
 For every positive exponent and actual chosen-frame root p=(u,y), the existing normalization extension D=B[T]/(T^n-u) now gives an actual singleton cover of Spec B in the native scheme fppf precoverage. Its actual coefficient spectrum map is flat, surjective and locally of finite presentation; its unique source, arrow and presieve are computed and every actual base point lifts. The actual normalized chart arrow Spec D to Spec(A[Z]/(Z^n-f)) induces the existing normalization-point map on global sections, pulls the root section to T times the image of y, and has the proved coefficient triangle to Spec A. Wild exponents, nonzero nilpotents and the empty zero-ring spectrum are retained. Finite presentation of the scheme map also holds for n=0; the cover assertion uses positive n. Native sheaf RootObject comparison, local line-frame existence, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open, as do all existing source, supplier and geometric obligations.
 
@@ -1536,7 +1594,7 @@ Given an actual framed root (u,y), adjoin an n-th root T of its bundled coeffici
 
 Over Z/4, n=2,u=3,y=1,f=3 still has no original normalized chart point, but the specified extension removes this obstruction. Over Z/9 at n=2 the nonzero nilpotent root section3 remains nonzero after normalization. The zero ring and exponent1 also satisfy the exact formulas. Algebra change retains both arrow equations; the Z/4 to Z/2 example shows that its functor can kill a nonidentity stabilizer.
 
-All583 incoming node objects,296 baseline objects,40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the full omission ledger and all eleven source findings and version receipts are retained. This continuation adds19 nodes,12 API references,13 test references to8 distinct typed examples and3 native baseline references. Every implementation remains unchecked. Full Tau-dependent canonical execution remains UNCOMPILED; separate native and bounded Mathlib checks are reported in the handoff.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All583 incoming node objects,296 baseline objects,40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the full omission ledger and all eleven source findings and version receipts are retained. This continuation adds19 nodes,12 API references,13 test references to8 distinct typed examples and3 native baseline references. Every implementation remains unchecked. Full Tau-dependent canonical execution remains UNCOMPILED; separate native and bounded Mathlib checks are reported in the handoff.
 
 For every chosen-frame root (u,y), the existing extension D=B[T]/(T^n-u) now has its actual adjoined root unit, normalized affine chart point and native framed-groupoid isomorphism labelled by that unit. For every positive exponent D has a Fin n basis and is faithfully flat; it is finitely presented even for n=0. This removes the unit-root obstruction after the specified algebra extension, including wild characteristic, while preserving nonzero nilpotent root sections. The arbitrary algebra-change functor retains actual arrow labels and is not claimed faithful. The native sheaf RootObject-to-coordinate comparison, local line-frame existence, scheme-cover packaging, fppf stackification, effective fpqc descent, infinite coherent reindexing, genuine 2-limits and higher-universe adapters remain open; the reserved scheme/stack and all-positive-exponent fppf scope is unchanged.
 
@@ -1785,7 +1843,7 @@ The new coordinate groupoid keeps the unit u of the power identification and the
 
 The existing normalized affine chart embeds with u=1, its actual root image and every original roots-of-unity arrow. Native FullyFaithful data recovers all arrows between embedded chart objects, and a native Hom equivalence preserves every stabilizer. A framed object is isomorphic to an embedded chart object exactly when u has an n-th root in the test algebra unit group. For n=1 every framed object normalizes. For n=2 over Z/4, u=3,y=1,f=3 is valid framed data while the normalized chart has no root: no element has square3. This is an objectwise obstruction, prior to fppf-local normalization and stackification.
 
-All558 incoming node objects and292 baseline objects are retained. This continuation adds25 nodes,22 API references,19 test references to9 distinct typed examples and4 native baseline references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the complete omission ledger and inherited source issue/version envelopes retain their scope. Every implementation remains unchecked. Full Tau-dependent canonical execution remains UNCOMPILED; native and bounded Mathlib evidence is reported separately.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): All558 incoming node objects and292 baseline objects are retained. This continuation adds25 nodes,22 API references,19 test references to9 distinct typed examples and4 native baseline references. All40 planets,ten partial stages,eight gaps,thirteen requests,both paper routes,the complete omission ledger and inherited source issue/version envelopes retain their scope. Every implementation remains unchecked. Full Tau-dependent canonical execution remains UNCOMPILED; native and bounded Mathlib evidence is reported separately.
 
 An actual native framed root-coordinate groupoid now retains the arbitrary power-identification unit u and equation u*y^n=f. Its arrows retain both section and unit-power equations. The existing normalized affine chart embeds fully faithfully, with native FullyFaithful data and an actual Hom equivalence preserving all stabilizers. A framed object is isomorphic to an embedded chart object exactly when u is an n-th power in the test algebra unit group. The Z/4 example u=3,y=1,f=3,n=2 has framed root data but no chart root, so chart points do not give objectwise essential surjectivity before local trivialization and stackification. The native sheaf RootObject-to-coordinate functor, frame/unit-root existence locally, fppf stackification, infinite coherent reindexing, genuine 2-limit comparison, effective fpqc quotient/descent and higher-universe adapters remain open. The reserved scheme/stack and all-positive-exponent fppf scope is unchanged.
 
@@ -2094,13 +2152,29 @@ Proof: Expand the power of the product, use the actual unit-power coercion and w
 
 ## The exact objectwise normalization obstruction
 
-**TauCeti.RootStack.rootChartEmbedding.essentialImage_iff** — For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality.
+Declaration: FunctionFieldArithmeticPartII:RS.0/framed-essential-image. Lemma. Native name: TauCeti.RootStack.rootChartEmbedding.essentialImage_iff.
 
-Hypotheses: Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption. A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations.
+For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality.
 
-Prerequisites: FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding, FunctionFieldArithmeticPartII:RS.0/framed-normalized-equation, mathlib:CategoryTheory.Groupoid.isoEquivHom.
+Hypotheses:
 
-Proof: An actual isomorphism to a coefficient1 object supplies a unit w with w^n=p.u. Conversely construct the AdjoinRoot point with root w*p.y, construct the actual framed arrow labelled w, and use the native groupoid Hom-to-Iso equivalence.
+- Arbitrary commutative A and commutative A-algebra B in a common universe; f arbitrary. The coordinate carrier and its groupoid exist for every natural n; the chart embedding and normalization comparison use positive n via NeZero. No invertibility of n, reducedness, nontriviality, unit-section, regularity, finite-generation, flatness or injectivity assumption.
+- A chosen-frame coordinate groupoid only. The actual sheaf RootObject-to-coordinate functor, existence of frames and unit roots locally, fppf stackification, effective descent, infinite coherent reindexing and genuine 2-limits remain separate obligations.
+
+Construction or proof:
+
+1. An actual isomorphism to a coefficient1 object supplies a unit w with w^n=p.u. Conversely construct the AdjoinRoot point with root w*p.y, construct the actual framed arrow labelled w, and use the native groupoid Hom-to-Iso equivalence.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/framed-chart-embedding, FunctionFieldArithmeticPartII:RS.0/framed-normalized-equation, mathlib:CategoryTheory.Groupoid.isoEquivHom, FunctionFieldArithmeticPartII:RS.2/root-point-lift.
+
+Acceptance:
+
+- For a framed root p, an isomorphism to some embedded normalized chart object exists if and only if its coefficient p.u is an n-th power in the native unit group B.units. The isomorphism is an actual groupoid arrow, not an orbit-set equality.
+- Retain the arbitrary bundled power-identification unit and both arrow equations. Do not identify chart points with all root-stack points over the original test algebra.
+
+Sources:
+
+- FramedRoot-codex-rtOQ9t, Alper corrected author draft5January2026 Example4.9.22 and Exercise4.9.23(c), pp.159–160; authored framed coordinate deductions The source motivates root data. The coordinate groupoid and chart comparison are authored algebraic deductions from the retained root equation and arrow equations. The source exercise assumes invertible exponent; the native coordinate proofs do not. No global line-bundle comparison or descent theorem is attributed here.
 
 ## Every framed first root normalizes
 
@@ -2120,7 +2194,7 @@ The construction retains nilpotents and all stabilizers for arbitrary commutativ
 
 All538 inherited mathematical contracts remain;535 whole node objects are unchanged and three receive only appended API references. This continuation adds20 nodes,three constructions,17 API references and7 typed tests. All40 planets,ten partial stages,eight gaps,thirteen requests,source routes/versions/issues and the omission ledger are preserved. Every implementation remains unchecked.
 
-This finite chart diagram does not give the general line-bundle root-object comparison, infinite coherent reindexing or a 2-limit equivalence. Frame torsor existence, fppf stackification, effective fpqc quotient/descent and higher-universe adapters remain explicit. The reserved root-stack key still permits scheme/stack bases, arbitrary line bundles with section, every positive exponent and fppf scope. Full Tau-dependent canonical execution remains UNCOMPILED; native and bounded Mathlib evidence is reported separately.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): This finite chart diagram does not give the general line-bundle root-object comparison, infinite coherent reindexing or a 2-limit equivalence. Frame torsor existence, fppf stackification, effective fpqc quotient/descent and higher-universe adapters remain explicit. The reserved root-stack key still permits scheme/stack bases, arbitrary line bundles with section, every positive exponent and fppf scope. Full Tau-dependent canonical execution remains UNCOMPILED; native and bounded Mathlib evidence is reported separately.
 
 The actual finite root-point power and test-algebra change functors now satisfy identity, composition and interchange as equalities of full functors. They give a native positive-divisibility diagram valued in Grpd and natural transformations for arbitrary test-algebra maps, packaged into a functor from native CommAlgCat to the groupoid-diagram category. All stabilizers and nilpotent points are retained. This provides finite chart categorical coherence only: the general line-bundle root-object comparison, coherent infinite groupoid reindexing and 2-limit comparison, frame-torsor existence, fppf stackification, effective infinite fpqc quotient/descent and higher-universe adapters remain open. All ten partial stages,eight gaps,thirteen requests,forty planets,both paper routes,the full omission ledger and source issue/version envelopes retain their scope.
 
@@ -2372,7 +2446,7 @@ Fourteen typed tests include the nonzero square-zero root2 over Z/4, absence of 
 
 All515 incoming nodes remain whole and unchanged, including the general reserved root-stack key with scheme/stack bases, arbitrary invertible line bundles with section, every positive exponent and fppf scope. All40 planets, ten partial stages, eight gaps, thirteen requests, source routes/versions/issues and the omission ledger remain. Every implementation stays unchecked. The new work adds23 nodes,5 constructions,20 API references and14 distinct typed tests (17 test references across constructions).
 
-The finite chart action groupoid remains a prerequisite for the general line-bundle root-object comparison. It does not establish that comparison, frame-torsor existence, stackification or effective fpqc descent. General root-object coherence and infinite compatible groupoid reindexing remain open even though the displayed finite chart object and label laws are proved. Full Tau-dependent canonical execution remains UNCOMPILED because no existing complete build at its exact pin is available.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The finite chart action groupoid remains a prerequisite for the general line-bundle root-object comparison. It does not establish that comparison, frame-torsor existence, stackification or effective fpqc descent. General root-object coherence and infinite compatible groupoid reindexing remain open even though the displayed finite chart object and label laws are proved. Full Tau-dependent canonical execution remains UNCOMPILED because no existing complete build at its exact pin is available.
 
 Fresh primary reading covers the complete displayed Stacks Section39.10, its definitions, action/equivariance diagrams, Lemma39.10.3 and proof, and all five comments. The specialized root-point groupoid deductions are authored from the actual native APIs. This is no fresh whole-paper or erratum survey. Earlier own source/audit/protocol scopes are reused only at their unchanged hashes and original extent. The actual peer input is PR6043 at head720503fa02df017fc7b8d1e69ba197926171b260; its recovered actual verifier reproduced its archived report. The peer's historical “PR6038” root-input caption points to a descendant head carrying the unchanged root files from our original PR6036; our own reading provenance is authenticated separately at the original PR6036 head0fa34bf1a1bb472b4928629647b7a770fa61eb07. Historical receipts remain attributed and unchanged.
 
@@ -2685,7 +2759,7 @@ The base rings and parameter are arbitrary. The proof uses no flatness, reducedn
 
 All 501 incoming mathematical contracts remain, with 498 whole node objects unchanged; only the existing infinite coefficient map, its Spec map and the scheme base-change isomorphism gain the 5 corresponding API entries. Two new constructions contain 7 API entries and 8 tests. All 40 planets, ten partial stages, eight gaps, thirteen supplier requests, both source routes, source issues/versions and the omission ledger remain. The reserved general root-stack key retains stack bases, every positive exponent and fppf scope. Every implementation stays unchecked.
 
-This is an affine diagram result. Coherent root-object groupoid reindexing, the finite projections of the general stack comparison and actual fpqc quotient/descent still need their recorded suppliers. The entire Tau-dependent canonical suggested file remains uncompiled because no existing complete build at its exact pin is available. The native proof certificate and bounded Mathlib planning projection check only their recorded source files and import cones.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): This is an affine diagram result. Coherent root-object groupoid reindexing, the finite projections of the general stack comparison and actual fpqc quotient/descent still need their recorded suppliers. The entire Tau-dependent canonical suggested file remains uncompiled because no existing complete build at its exact pin is available. The native proof certificate and bounded Mathlib planning projection check only their recorded source files and import cones.
 
 Fresh source reading covers the complete displayed Stacks Lemma 32.2.1 and proof, plus the current group-action conventions and all comments in Section 39.10. The root-specific identities here are authored deductions from the actual pinned APIs and inherited native chart construction. No fresh full-paper, recursive source closure, complete errata survey or stack-descent certification is asserted. Own6031 audit/protocol/upstream/source scopes are reused only at unchanged exact hashes and original scope. Peer6038 was publicly authenticated and its actual verifier replayed with the peer attribution retained.
 
@@ -4184,147 +4258,317 @@ No theorem asserting that invariants commute with arbitrary filtered colimits is
 
 ### Rational-character tensor coefficient
 
-TauCeti.RootStack.qzTensorCoefficient — FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient. Construction. Native name: TauCeti.RootStack.qzTensorCoefficient.
 
 For q∈Q/Z define the native A-linear map P_q:G⊗_A C→C by composing the existing group-algebra coefficient equivalence, evaluation at q, the tensor map with id_C and the native left unitor. Thus P_q(e_r a⊗x)=a·x if r=q, and 0 otherwise.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:MonoidAlgebra.coeffLinearEquiv, mathlib:Finsupp.lapply, mathlib:TensorProduct.map, mathlib:TensorProduct.lid.
+Hypotheses:
 
-Proof route: Use the native coefficient linear equivalence and native Finsupp evaluation; compose their linear maps. Tensor the coefficient functional with id_C, then compose with the existing native A⊗_A C≃C. This is a coefficient map, not an algebra homomorphism. Evaluate a character basis tensor using the native tensor-map and unitor formulas; linearity supplies sums and scalar multiples.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
 
-API TauCeti.RootStack.qzTensorCoefficient.single (simp): P_q(e_r a⊗x) is a·x when r=q and zero otherwise.
+1. Use the native coefficient linear equivalence and native Finsupp evaluation; compose their linear maps.
+2. Tensor the coefficient functional with id_C, then compose with the existing native A⊗_A C≃C. This is a coefficient map, not an algebra homomorphism.
+3. Evaluate a character basis tensor using the native tensor-map and unitor formulas; linearity supplies sums and scalar multiples.
 
-API TauCeti.RootStack.qzTensorCoefficient.constant (simp): P_q(1⊗x)=x for q=0 and zero for q≠0.
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:MonoidAlgebra.coeffLinearEquiv, mathlib:Finsupp.lapply, mathlib:TensorProduct.map, mathlib:TensorProduct.lid.
 
-API TauCeti.RootStack.qzTensorCoefficient.coaction_constant (compatibility): P_q(η_f(a)) is the actual coefficient image of a for q=0, and zero for q≠0.
+API uses:
 
-Test TauCeti.RootStack.qzTensorCoefficient.test_matching (computation): For every q,a,x, P_q(e_q a⊗x)=a·x.
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
 
-Test TauCeti.RootStack.qzTensorCoefficient.test_nonzero_character (non-example): For q≠0, P_q(1⊗x)=0; this excludes evaluation on the second tensor factor.
+API:
 
-Test TauCeti.RootStack.qzTensorCoefficient.test_zero_character (compatibility): P_0(1⊗x)=x, agreeing with the native tensor left unitor.
+- TauCeti.RootStack.qzTensorCoefficient.single (simp): P_q(e_r a⊗x) is a·x when r=q and zero otherwise.
+- TauCeti.RootStack.qzTensorCoefficient.constant (simp): P_q(1⊗x)=x for q=0 and zero for q≠0.
+- TauCeti.RootStack.qzTensorCoefficient.coaction_constant (compatibility): P_q(η_f(a)) is the actual coefficient image of a for q=0, and zero for q≠0.
 
-Test TauCeti.RootStack.qzTensorCoefficient.test_zero_ring (degenerate): For A=Z/1 and f=0 every character coefficient of 1⊗x is zero.
+Unit tests:
+
+- TauCeti.RootStack.qzTensorCoefficient.test_matching (computation): For every q,a,x, P_q(e_q a⊗x)=a·x.
+- TauCeti.RootStack.qzTensorCoefficient.test_nonzero_character (non-example): For q≠0, P_q(1⊗x)=0; this excludes evaluation on the second tensor factor.
+- TauCeti.RootStack.qzTensorCoefficient.test_zero_character (compatibility): P_0(1⊗x)=x, agreeing with the native tensor left unitor.
+- TauCeti.RootStack.qzTensorCoefficient.test_zero_ring (degenerate): For A=Z/1 and f=0 every character coefficient of 1⊗x is zero.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.qzTensorCoefficient in the immutable matching reader, line 27; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Distinct finite rational characters
 
-TauCeti.RootStack.affineQZCharacter.fin_injective — FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.fin_injective.
 
 For n≥1, the map Fin(n)→Q/Z sending j to χ_n(j) is injective.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-character-injective, mathlib:ZMod.val_natCast_of_lt.
+Hypotheses:
 
-Proof route: Apply the inherited injectivity of χ_n on Z/n to an equality of characters. Apply the native residue-value map to the resulting equality in Z/n; values of natural residues below n equal their original integers, so Fin extensionality proves equality.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
+
+1. Apply the inherited injectivity of χ_n on Z/n to an equality of characters.
+2. Apply the native residue-value map to the resulting equality in Z/n; values of natural residues below n equal their original integers, so Fin extensionality proves equality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character-injective, mathlib:ZMod.val_natCast_of_lt.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.affineQZCharacter.fin_injective in the immutable matching reader, line 53; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Character coefficient of a finite root expansion
 
-TauCeti.RootStack.factorialQZCoaction.coefficient_sum — FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient. Lemma. Native name: TauCeti.RootStack.factorialQZCoaction.coefficient_sum.
 
 For i≥0, c:Fin(d_i)→A and k∈Fin(d_i), P_(χ_d_i(k))(η_f(ι_i(Σ_j c_j t_i^j)))=ι_i(c_k t_i^k).
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power, FunctionFieldArithmeticPartII:RS.2/qz-character-natcast, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion.
+Hypotheses:
 
-Proof route: Use the inherited power formula η_f(u_i^j)=e_(χ_d_i(j))⊗u_i^j and native A-linearity. Apply P_(χ_d_i(k)) term by term; distinctness of the finite characters kills every j≠k. The remaining term is c_k u_i^k=ι_i(c_k t_i^k); neither the scalar nor the root is cancelled.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
+
+1. Use the inherited power formula η_f(u_i^j)=e_(χ_d_i(j))⊗u_i^j and native A-linearity.
+2. Apply P_(χ_d_i(k)) term by term; distinctness of the finite characters kills every j≠k.
+3. The remaining term is c_k u_i^k=ι_i(c_k t_i^k); neither the scalar nor the root is cancelled.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-power, FunctionFieldArithmeticPartII:RS.2/qz-character-natcast, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialQZCoaction.coefficient_sum in the immutable matching reader, line 65; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Finite-level criterion for infinite coinvariance
 
-TauCeti.RootStack.factorialQZCoaction.invariants_sum_iff — FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion. Lemma. Native name: TauCeti.RootStack.factorialQZCoaction.invariants_sum_iff.
 
 For i≥0 and c:Fin(d_i)→A, η_f(ι_i(Σ_j c_j t_i^j))=1⊗ι_i(Σ_j c_j t_i^j) if and only if c_j=0 for every j≠0.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, mathlib:Module.Basis.equivFun_self.
+Hypotheses:
 
-Proof route: For k≠0 its rational character is nonzero by finite-character injectivity. Apply P_(χ_d_i(k)) to universal coinvariance: the right-hand coefficient is zero, and the left-hand coefficient is ι_i(c_k t_i^k). Use actual finite-stage injectivity to get c_k t_i^k=0 in B_i. Over a nontrivial A, apply the k-th coordinate of the reindexed monic power basis to conclude c_k=0. For a subsingleton A the same conclusion is immediate. No regularity of t_i is used. Conversely, sum reduction leaves only c_0; the algebra-map coefficient formula and constant coaction give 1⊗c_0.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: At d_1=2 over F_2 the criterion is precisely c_1=0, not invariance under μ_2(F_2). At f=0 over Z/4 the expansion with c_1=2 and c_0=0 is not coinvariant, although its nonconstant coefficient is nilpotent.
+Construction or proof:
 
-Test TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion (characterisation): At level one, A=F₂ and f=0, universal coinvariance of the two-coefficient expansion is equivalent to c_1=0.
+1. For k≠0 its rational character is nonzero by finite-character injectivity. Apply P_(χ_d_i(k)) to universal coinvariance: the right-hand coefficient is zero, and the left-hand coefficient is ι_i(c_k t_i^k).
+2. Use actual finite-stage injectivity to get c_k t_i^k=0 in B_i. Over a nontrivial A, apply the k-th coordinate of the reindexed monic power basis to conclude c_k=0. For a subsingleton A the same conclusion is immediate. No regularity of t_i is used.
+3. Conversely, sum reduction leaves only c_0; the algebra-map coefficient formula and constant coaction give 1⊗c_0.
 
-Test TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected (non-example): At level one over Z/4 with f=0, the expansion c_0=0,c_1=2 is not coinvariant, although c_1 is a nonzero nilpotent.
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-tensor-character-coefficient, FunctionFieldArithmeticPartII:RS.2/qz-character-fin-injective, FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, mathlib:Module.Basis.equivFun_self.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Unit tests:
+
+- TauCeti.RootStack.factorialQZCoaction.test_wild_coefficient_criterion (characterisation): At level one, A=F₂ and f=0, universal coinvariance of the two-coefficient expansion is equivalent to c_1=0.
+- TauCeti.RootStack.factorialQZCoaction.test_nonzero_nilpotent_rejected (non-example): At level one over Z/4 with f=0, the expansion c_0=0,c_1=2 is not coinvariant, although c_1 is a nonzero nilpotent.
+
+Acceptance:
+
+- At d_1=2 over F_2 the criterion is precisely c_1=0, not invariance under μ_2(F_2).
+- At f=0 over Z/4 the expansion with c_1=2 and c_0=0 is not coinvariant, although its nonconstant coefficient is nilpotent.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialQZCoaction.invariants_sum_iff in the immutable matching reader, line 77; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Infinite affine coinvariants
 
-TauCeti.RootStack.factorialQZCoaction.invariants — FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants. Theorem. Native name: TauCeti.RootStack.factorialQZCoaction.invariants.
 
 For every x∈C_A(f), η_f(x)=1⊗x if and only if x=algebraMap(a) for some a∈A.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements, FunctionFieldArithmeticPartII:RS.1/affine-invariants, FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.sum_equivFun, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant.
+Hypotheses:
 
-Proof route: Represent x at an actual finite level by the direct-limit element theorem. Handle the zero ring directly. Use the monic power basis to expand this representative, apply the finite-level criterion to force its nonzero-weight coefficients to vanish. Invoke the inherited finite invariant criterion and finite invariant theorem on that same representative. Its coefficient image passes to the same coefficient in the colimit. Constants satisfy coinvariance by the inherited constant formula. This does not commute invariants with an arbitrary filtered colimit or arbitrary base change without proof.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
+
+1. Represent x at an actual finite level by the direct-limit element theorem. Handle the zero ring directly.
+2. Use the monic power basis to expand this representative, apply the finite-level criterion to force its nonzero-weight coefficients to vanish.
+3. Invoke the inherited finite invariant criterion and finite invariant theorem on that same representative. Its coefficient image passes to the same coefficient in the colimit.
+4. Constants satisfy coinvariance by the inherited constant formula. This does not commute invariants with an arbitrary filtered colimit or arbitrary base change without proof.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-coaction-finite-invariant-criterion, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements, FunctionFieldArithmeticPartII:RS.1/affine-invariants, FunctionFieldArithmeticPartII:RS.1/affine-invariant-coefficient-criterion, mathlib:AdjoinRoot.powerBasis', mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.natDegree_X_pow_sub_C, mathlib:Module.Basis.sum_equivFun, mathlib:Module.Basis.reindex, mathlib:Module.Basis.reindex_apply, FunctionFieldArithmeticPartII:RS.2/qz-chart-coaction-constant.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialQZCoaction.invariants in the immutable matching reader, line 93; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Faithful coefficient inclusion in the root colimit
 
-TauCeti.RootStack.factorialAffineColimit.coefficient_injective — FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective. Lemma. Native name: TauCeti.RootStack.factorialAffineColimit.coefficient_injective.
 
 For every f∈A the actual coefficient map A→C_A(f) is injective.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos, mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.degree_X_pow_sub_C.
+Hypotheses:
 
-Proof route: Factor the coefficient map through level i=0, whose exponent is one. The positive-degree monic quotient coefficient map is injective; then use the actual injective finite-level inclusion into C_A(f). The subsingleton coefficient ring satisfies injectivity directly.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
+
+1. Factor the coefficient map through level i=0, whose exponent is one.
+2. The positive-degree monic quotient coefficient map is injective; then use the actual injective finite-level inclusion into C_A(f). The subsingleton coefficient ring satisfies injectivity directly.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-affine-inclusion-injective, mathlib:AdjoinRoot.of.injective_of_monic_of_degree_pos, mathlib:Polynomial.monic_X_pow_sub_C, mathlib:Polynomial.degree_X_pow_sub_C.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialAffineColimit.coefficient_injective in the immutable matching reader, line 105; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Unique invariant coefficient
 
-TauCeti.RootStack.factorialQZCoaction.invariants_unique — FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants-unique
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants-unique. Lemma. Native name: TauCeti.RootStack.factorialQZCoaction.invariants_unique.
 
 If η_f(x)=1⊗x, there exists a unique a∈A with x=algebraMap(a).
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective.
+Hypotheses:
 
-Proof route: Take a coefficient supplied by the invariant theorem. Any two coefficients with that image agree by coefficient-map injectivity.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: For A=Z/1 every x has the unique coefficient 0. For every A,f,a the image of a has exactly coefficient a.
+Construction or proof:
 
-Test TauCeti.RootStack.factorialQZCoaction.test_unique_constants (characterisation): For every A,f,a, the actual coefficient image of a has the unique coefficient a.
+1. Take a coefficient supplied by the invariant theorem.
+2. Any two coefficients with that image agree by coefficient-map injectivity.
 
-Test TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring (degenerate): For A=Z/1 and f=0 every colimit element has the unique coefficient zero.
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Unit tests:
+
+- TauCeti.RootStack.factorialQZCoaction.test_unique_constants (characterisation): For every A,f,a, the actual coefficient image of a has the unique coefficient a.
+- TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring (degenerate): For A=Z/1 and f=0 every colimit element has the unique coefficient zero.
+
+Acceptance:
+
+- For A=Z/1 every x has the unique coefficient 0.
+- For every A,f,a the image of a has exactly coefficient a.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialQZCoaction.invariants_unique in the immutable matching reader, line 117; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Coinvariants in unity-root coordinates
 
-TauCeti.RootStack.factorialCoaction.invariants — FunctionFieldArithmeticPartII:RS.2/factorial-coaction-invariants
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-coaction-invariants. Theorem. Native name: TauCeti.RootStack.factorialCoaction.invariants.
 
 For every x∈C_A(f), ρ_f(x)=1⊗x in C_A(1)⊗_A C_A(f) if and only if x=algebraMap(a) for some a∈A.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/qz-chart-coinvariance.
+Hypotheses:
 
-Proof route: Use the inherited native tensor-algebra equivalence to reflect universal coinvariance between ρ_f and η_f. Apply the proved rational-coordinate invariant theorem to the same x. This is equality of universal coactions, not a comparison using scalar points.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
+
+1. Use the inherited native tensor-algebra equivalence to reflect universal coinvariance between ρ_f and η_f.
+2. Apply the proved rational-coordinate invariant theorem to the same x. This is equality of universal coactions, not a comparison using scalar points.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/qz-chart-coinvariance.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialCoaction.invariants in the immutable matching reader, line 133; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ### Infinite invariant algebra
 
-TauCeti.RootStack.factorialInvariantEquiv — FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-invariant-algebra-equivalence. Construction. Native name: TauCeti.RootStack.factorialInvariantEquiv.
 
 Let I_f be the native AlgHom.equalizer of η_f:C_A(f)→A[Q/Z]⊗_A C_A(f) and the right inclusion x↦1⊗x. Construct the A-algebra equivalence A≃I_f induced by the actual coefficient map.
 
-Dependencies: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective, mathlib:AlgHom.equalizer, mathlib:AlgHom.mem_equalizer, mathlib:AlgHom.codRestrict, mathlib:Algebra.ofId, mathlib:AlgEquiv.ofBijective.
+Hypotheses:
 
-Proof route: Restrict the coefficient A-algebra homomorphism to the native equalizer; constant coinvariance proves membership. Its underlying map is injective by coefficient inclusion and surjective by the invariant theorem. Apply the existing native bijective algebra-hom equivalence constructor. The forward map is coefficient inclusion, and the inverse is the coefficient of that same invariant element. Do not construct a separate opaque invariant carrier or infer geometric coarse universality.
+- A is an arbitrary commutative ring in the fixed universe, f∈A arbitrary; no nontriviality, reducedness, Noetherianity, flatness or exponent-invertibility hypothesis is imposed.
+- Put d_i=(i+1)!, B_i=A[t_i]/(t_i^d_i−f), C=C_A(f)=colim_i B_i with its actual injective maps ι_i, G=A[Q/Z] using the native rational AddCircle of period 1, and η_f:C→G⊗_A C the inherited LEFT coaction. Write u_i=ι_i(t_i), χ_n(k)=[k/n], and e_q for a character basis vector.
 
-Acceptance: Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+Construction or proof:
 
-API TauCeti.RootStack.factorialInvariantEquiv.apply_coe (simp): The underlying chart element of factorialInvariantEquiv(f)(a) is the coefficient image of a.
+1. Restrict the coefficient A-algebra homomorphism to the native equalizer; constant coinvariance proves membership.
+2. Its underlying map is injective by coefficient inclusion and surjective by the invariant theorem. Apply the existing native bijective algebra-hom equivalence constructor.
+3. The forward map is coefficient inclusion, and the inverse is the coefficient of that same invariant element. Do not construct a separate opaque invariant carrier or infer geometric coarse universality.
 
-API TauCeti.RootStack.factorialInvariantEquiv.inverse_coe (compatibility): Including the inverse coefficient of x∈I_f back into C_A(f) gives x itself.
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-coaction-invariants, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-injective, mathlib:AlgHom.equalizer, mathlib:AlgHom.mem_equalizer, mathlib:AlgHom.codRestrict, mathlib:Algebra.ofId, mathlib:AlgEquiv.ofBijective.
 
-API TauCeti.RootStack.factorialInvariantEquiv.eq_iff (characterisation): For x∈I_f and a∈A, the inverse coefficient of x is a if and only if x itself is the actual coefficient image of a.
+API uses:
 
-Test TauCeti.RootStack.factorialInvariantEquiv.test_coefficient_two (computation): For A=Z/4 and f=2, the forward image of coefficient 2 is its actual chart inclusion.
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual affine invariant algebra; coherent root-object groupoids, Spec limits and fpqc frame torsors are separate geometric inputs.
 
-Test TauCeti.RootStack.factorialInvariantEquiv.test_zero_ring (degenerate): For A=Z/1 and f=0 the forward image of the sole coefficient is zero.
+API:
 
-Test TauCeti.RootStack.factorialInvariantEquiv.test_unity (compatibility): For f=1 every forward image is universally coinvariant for the original unity-root coaction ρ_1.
+- TauCeti.RootStack.factorialInvariantEquiv.apply_coe (simp): The underlying chart element of factorialInvariantEquiv(f)(a) is the coefficient image of a.
+- TauCeti.RootStack.factorialInvariantEquiv.inverse_coe (compatibility): Including the inverse coefficient of x∈I_f back into C_A(f) gives x itself.
+- TauCeti.RootStack.factorialInvariantEquiv.eq_iff (characterisation): For x∈I_f and a∈A, the inverse coefficient of x is a if and only if x itself is the actual coefficient image of a.
 
-Test TauCeti.RootStack.factorialInvariantEquiv.test_inverse (characterisation): For every x in the native equalizer, applying the forward map to its inverse coefficient recovers exactly x.
+Unit tests:
+
+- TauCeti.RootStack.factorialInvariantEquiv.test_coefficient_two (computation): For A=Z/4 and f=2, the forward image of coefficient 2 is its actual chart inclusion.
+- TauCeti.RootStack.factorialInvariantEquiv.test_zero_ring (degenerate): For A=Z/1 and f=0 the forward image of the sole coefficient is zero.
+- TauCeti.RootStack.factorialInvariantEquiv.test_unity (compatibility): For f=1 every forward image is universally coinvariant for the original unity-root coaction ρ_1.
+- TauCeti.RootStack.factorialInvariantEquiv.test_inverse (characterisation): For every x in the native equalizer, applying the forward map to its inverse coefficient recovers exactly x.
+
+Acceptance:
+
+- Retain the zero ring, f=0 and nonunits, and wild characteristic; use universal coaction equality, not fixedness under field-valued points.
+
+Sources:
+
+- InfiniteCoinvariants-codex-a71f92-N24, Authored declaration TauCeti.RootStack.factorialInvariantEquiv in the immutable matching reader, line 145; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. This concrete factorial-colimit statement is an authored consequence of the listed native universal properties, not a named theorem printed in the paper; the motivating grading argument is read separately.
 
 ## Additional theorem acceptance examples
 
@@ -4340,7 +4584,7 @@ TauCeti.RootStack.factorialQZCoaction.test_coefficient_unique_zero_ring asserts 
 
 The motivating primary text is Talpo–Vistoli, arXiv1410.1164v2, printed/PDF pages14–16: the Cartier-dual grading, Lemma3.7 degree-zero calculation, Definition3.8, the complete Proposition3.10/Lemma3.12 proof route and Corollary3.13. The nine named native adapters are authored deductions from the specific factorial colimit and the pinned Mathlib statements, not names or full theorems printed in that paper. This is a selected source audit, not a whole-paper or errata certification.
 
-The native tensor maps, coefficient equivalence, finite quotient bases, equalizer and bijective algebra-equivalence constructor are imported. No generic group, Hopf, tensor, stack or coarse-moduli theory is rebuilt. The geometric root-stack reserved node remains unchanged, as do the Yun–Zhang and Abdurrahman–Venkatesh routes, all source findings, eight gaps, thirteen requests and all ten partial stages. Full exact-pin Tau Ceti canonical-file typing, positive-index and higher-universe transport, root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons remain required. This invariant-algebra theorem is one input to those goals, not their completion.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The native tensor maps, coefficient equivalence, finite quotient bases, equalizer and bijective algebra-equivalence constructor are imported. No generic group, Hopf, tensor, stack or coarse-moduli theory is rebuilt. The geometric root-stack reserved node remains unchanged, as do the Yun–Zhang and Abdurrahman–Venkatesh routes, all source findings, eight gaps, thirteen requests and all ten partial stages. Full exact-pin Tau Ceti canonical-file typing, positive-index and higher-universe transport, root-object groupoid reindexing, affine Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons remain required. This invariant-algebra theorem is one input to those goals, not their completion.
 
 ---
 
@@ -4466,7 +4710,7 @@ The reserved FunctionFieldArithmeticPartII:key/root-stacks contract remains the 
 
 Fresh source reading is limited to full printed pp.14–16 of [Talpo–Vistoli v2](https://arxiv.org/pdf/1410.1164v2), including the local grading setup and the complete Lemmas3.7/3.12 and Proposition3.10 proofs and Corollary3.13. The native formulas are authored algebraic deductions. Earlier whole-paper, route and erratum receipts remain attributed to their workers. No new primary-source error is asserted.
 
-The full suggested Tau file is UNCOMPILED because no existing full Tau build matches the required source pin. The separate Mathlib-only native proof certificate and admitted-signature extraction are distinct checks with exact source hashes, serial memory guards and axiom audits in the handoff. Higher-universe/full-positive-index transport, convolution-point identification, coherent groupoid reindexing, Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons still require work. No stage or implementation status closes.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The full suggested Tau file is UNCOMPILED because no existing full Tau build matches the required source pin. The separate Mathlib-only native proof certificate and admitted-signature extraction are distinct checks with exact source hashes, serial memory guards and axiom audits in the handoff. Higher-universe/full-positive-index transport, convolution-point identification, coherent groupoid reindexing, Spec limits, fpqc frame torsors and quotient/DVR/Kummer comparisons still require work. No stage or implementation status closes.
 
 ## Preserved detailed predecessor document
 
@@ -4490,27 +4734,78 @@ For comultiplication and counit use the native algebra maps and the inherited ro
 
 ## Natural representative of the finite rational character
 
-`TauCeti.RootStack.affineQZCharacter.natCast` — For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-natcast. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.natCast.
 
-Cast k to an integer and apply the existing integer-character computation; the natural/integer casts agree.
+For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
 
-Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-character-intcast`.
+Hypotheses:
+
+- All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.
+- The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions.
+
+Construction or proof:
+
+1. Cast k to an integer and apply the existing integer-character computation; the natural/integer casts agree.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character-intcast.
+
+Acceptance:
+
+- For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
+
+Sources:
+
+- QZNative-codex-7e92bd, Authored computation affineQZCharacter.natCast A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there.
 
 ## Canonical representative of the finite rational character
 
-`TauCeti.RootStack.affineQZCharacter.apply` — For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-representative. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.apply.
 
-Apply the natural-character computation to val(k), then use the native reduction identity. This form puts the rational value in [0,1) for injectivity.
+For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
 
-Prerequisites: `FunctionFieldArithmeticPartII:RS.2/qz-character-natcast`, `mathlib:ZMod.natCast_zmod_val`.
+Hypotheses:
+
+- All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.
+- The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions.
+
+Construction or proof:
+
+1. Apply the natural-character computation to val(k), then use the native reduction identity. This form puts the rational value in [0,1) for injectivity.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character-natcast, mathlib:ZMod.natCast_zmod_val.
+
+Acceptance:
+
+- For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
+
+Sources:
+
+- QZNative-codex-7e92bd, Authored computation affineQZCharacter.apply A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there.
 
 ## Factorial-level rational character comparison
 
-`TauCeti.RootStack.factorialUnitQZMap.level` — For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level. Lemma. Native name: TauCeti.RootStack.factorialUnitQZMap.level.
 
-Compare the two actual A-algebra homomorphisms out of the finite quotient by their root images. Both send the root to e_[1/((i+1)!)]; evaluate the resulting map equality at x.
+For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
 
-Prerequisites: `FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root`, `FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root`, `mathlib:AdjoinRoot.algHom_ext`.
+Hypotheses:
+
+- All displayed finite exponents are positive. A is an arbitrary commutative ring in the fixed universe; no nontriviality, reducedness, flatness or invertibility hypothesis is imposed.
+- The character group is the native rational AddCircle of period 1. The source and target algebra maps are the actual inherited quotient, factorial colimit and group-algebra constructions.
+
+Construction or proof:
+
+1. Compare the two actual A-algebra homomorphisms out of the finite quotient by their root images. Both send the root to e_[1/((i+1)!)]; evaluate the resulting map equality at x.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root, mathlib:AdjoinRoot.algHom_ext.
+
+Acceptance:
+
+- For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
+
+Sources:
+
+- QZNative-codex-7e92bd, Authored computation factorialUnitQZMap.level A root-coordinate deduction from the listed pinned declarations and inherited constructions, motivated by Talpo–Vistoli §3.1; not a named theorem printed there.
 
 ## Added regression contracts
 
@@ -4522,9 +4817,9 @@ The separate native extraction also checks the fifteen inherited rational-coordi
 
 ## Remaining construction
 
-The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The 28 rational-coordinate declarations and three computation lemmas now have separate exact-Mathlib native proof evidence, including arbitrary coefficients and wild nilpotents. Next prove the admitted arbitrary-section rational coaction contracts over this actual equivalence, then replay the inherited conditional coefficient square without those admissions. Full canonical Tau typing, higher-universe/full-positive-index transport, coherent root-groupoid reindexing, affine Spec limits, fpqc frame torsors and the quotient/DVR/Kummer comparisons remain open. Preserve all eight gaps, thirteen requests and both source routes.
 
-The complete canonical suggested file still imports unavailable exact-pin Tau geometric carriers and remains uncompiled. Its existing admitted signatures are preserved; the three new lemma and example signatures are appended and checked in the separate Mathlib harness. Native proof evidence does not change the packet's unchecked implementation statuses or partial stage coverage. The complete incoming reader and both source routes follow unchanged.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The complete canonical suggested file still imports unavailable exact-pin Tau geometric carriers and remains uncompiled. Its existing admitted signatures are preserved; the three new lemma and example signatures are appended and checked in the separate Mathlib harness. Native proof evidence does not change the packet's unchecked implementation statuses or partial stage coverage. The complete incoming reader and both source routes follow unchanged.
 
 ---
 
@@ -4786,13 +5081,13 @@ The wild test uses the monic finite chart F₂[t]/(t²), where the coefficient o
 
 These ten items add one construction with nine promoted API lemmas and five tests. Every incoming declaration remains present. Only the existing infinite quotient consumer acquires their explicit dependencies. There is no new planet: RS.2 already has its six named landmarks. The reserved general root-stack node still includes arbitrary schemes/stacks, nontrivial lines and sections, relative closed-subscheme roots and full nonreduced fibres. The native counit supplies injectivity; tensor congr reflects universal coinvariance without flatness. Neither result proves that the invariant algebra equals A. The unity compatibility transports BOTH tensor factors and uses the inherited actual comultiplication square.
 
-Construct the arbitrary-section coefficient square from the existing heterobasic tensor map and the incoming E_A coefficient square. Establish higher-universe and full positive-index coherent groupoid transport, affine Spec limits, fpqc frame torsors and the quotient comparison. All eight gaps and thirteen supplier requests remain open; all ten stages stay partial, and all implementation statuses stay unchecked. The two accepted source routes, 33 source-coverage entries and the independent symplectic continuation are unchanged. The ten new declaration signatures and five example headers elaborate in an authenticated Mathlib-only native fragment with expected admitted-proof warnings. The complete canonical file remains uncompiled; exact finite algebra calculations are regression checks, not Lean proofs or a new whole-source coverage receipt.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): Construct the arbitrary-section coefficient square from the existing heterobasic tensor map and the incoming E_A coefficient square. Establish higher-universe and full positive-index coherent groupoid transport, affine Spec limits, fpqc frame torsors and the quotient comparison. All eight gaps and thirteen supplier requests remain open; all ten stages stay partial, and all implementation statuses stay unchecked. The two accepted source routes, 33 source-coverage entries and the independent symplectic continuation are unchanged. The ten new declaration signatures and five example headers elaborate in an authenticated Mathlib-only native fragment with expected admitted-proof warnings. The complete canonical file remains uncompiled; exact finite algebra calculations are regression checks, not Lean proofs or a new whole-source coverage receipt.
 
 ---
 
 # Infinite unity-root coordinates in the rational character algebra
 
-This continuation specifies the canonical diagonalizable coordinate input to RS.2. It starts from the inherited finite equivalence between the actual unity-root chart and the actual finite cyclic group algebra, and the already constructed factorial root colimit. It gives the normalized characters into the native rational circle, compatible finite algebra maps, the unity-root colimit equivalence with the native group algebra, and separate comultiplication, counit, antipode and coefficient comparisons. This is a mathematical plan with admitted signatures. Its new signatures have not been elaborated. Every implementation status remains unchecked and all ten stages remain partial.
+This continuation specifies the canonical diagonalizable coordinate input to RS.2. It starts from the inherited finite equivalence between the actual unity-root chart and the actual finite cyclic group algebra, and the already constructed factorial root colimit. It gives the normalized characters into the native rational circle, compatible finite algebra maps, the unity-root colimit equivalence with the native group algebra, and separate comultiplication, counit, antipode and coefficient comparisons. This is a mathematical plan with admitted signatures. The new signatures were unelaborated at that checkpoint; the present full-file elaboration is recorded at the start of this document. Every implementation status remains unchecked and all ten stages remain partial.
 
 The incoming 340 declaration contracts, the complete root-stack key definition, the Yun–Zhang ramified geometric class-field route, and the independent symplectic route remain in force. Only the infinite affine-quotient consumer acquires five dependencies and one explicit proof step. The original eight gaps and thirteen supplier requests are retained. The preceding reader follows this new section without alteration.
 
@@ -4852,237 +5147,962 @@ Each entry below is one planned declaration. The dependencies in the packet spec
 
 ### Normalized finite root character in Q/Z
 
-`TauCeti.RootStack.affineQZCharacter` — For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n].
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character. Construction. Native name: TauCeti.RootStack.affineQZCharacter.
 
-The integer map preserves addition. At n its value is [1]=0; descend it through ZMod.lift. This specifies its orientation, rather than merely choosing an isomorphism with an abstract cyclic subgroup.
+For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. The integer map preserves addition. At n its value is [1]=0; descend it through ZMod.lift. This specifies its orientation, rather than merely choosing an isomorphism with an abstract cyclic subgroup.
+
+Inputs: mathlib:ZMod.lift, mathlib:AddCircle.coe_eq_zero_iff, mathlib:AddCircle.coe_period.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/qz-character-intcast — For k∈Z, c_n([k])=[k/n], including negative k.
+- FunctionFieldArithmeticPartII:RS.2/qz-character-one — The chosen character sends [1] to [1/n].
+- FunctionFieldArithmeticPartII:RS.2/qz-character-injective — The homomorphism c_n is injective for every n>0.
+- FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility — If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+- FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive — For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+- FunctionFieldArithmeticPartII:RS.2/qz-character-natcast — For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
+- FunctionFieldArithmeticPartII:RS.2/qz-character-representative — For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
 
 API:
 
-- `TauCeti.RootStack.affineQZCharacter.intCast`: For k∈Z, c_n([k])=[k/n], including negative k.
-- `TauCeti.RootStack.affineQZCharacter.one`: The chosen character sends [1] to [1/n].
-- `TauCeti.RootStack.affineQZCharacter.injective`: The homomorphism c_n is injective for every n>0.
-- `TauCeti.RootStack.affineQZCharacter.divisibility`: If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
-- `TauCeti.RootStack.affineQZCharacter.exhaustive`: For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+- TauCeti.RootStack.affineQZCharacter.intCast (simp): For k∈Z, c_n([k])=[k/n], including negative k.
+- TauCeti.RootStack.affineQZCharacter.one (simp): The chosen character sends [1] to [1/n].
+- TauCeti.RootStack.affineQZCharacter.injective (characterisation): The homomorphism c_n is injective for every n>0.
+- TauCeti.RootStack.affineQZCharacter.divisibility (functoriality): If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+- TauCeti.RootStack.affineQZCharacter.exhaustive (compatibility): For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+- TauCeti.RootStack.affineQZCharacter.natCast (simp): For every n>0 and k∈N, c_n([k])=[k/n], without reducing k before forming the rational quotient.
+- TauCeti.RootStack.affineQZCharacter.apply (simp): For n>0 and k∈Z/n, c_n(k)=[val(k)/n], where 0≤val(k)<n.
 
 Unit tests:
 
-- `TauCeti.RootStack.affineQZCharacter.test_one`: At n=1 the character of [1] is zero.
-- `TauCeti.RootStack.affineQZCharacter.test_orientation`: At n=3, c_3(1) differs from [2/3]; reversing the chosen generator fails.
-- `TauCeti.RootStack.affineQZCharacter.test_two_six`: The 2-to-6 transition sends [1] to [3], whose image is [1/2].
+- TauCeti.RootStack.affineQZCharacter.test_one (degenerate): At n=1 the character of [1] is zero.
+- TauCeti.RootStack.affineQZCharacter.test_orientation (non-example): At n=3, c_3(1) differs from [2/3]; reversing the chosen generator fails.
+- TauCeti.RootStack.affineQZCharacter.test_two_six (computation): The 2-to-6 transition sends [1] to [3], whose image is [1/2].
+- TauCeti.RootStack.affineQZCharacter.test_natcast_period (computation): At n=3 the unreduced natural representative 7 maps to [7/3].
+- TauCeti.RootStack.affineQZCharacter.test_negative_representative (computation): At n=3 the canonical natural representative of −1 is 2, and its character is [2/3].
+
+Acceptance:
+
+- For n>0 define the additive homomorphism c_n:Z/n→Q/Z by c_n([k])=[k/n] for every integer k. This is the unique lift of the integer map k↦[k/n].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter in the immutable matching reader, line 63; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite character on integer representatives
 
-`TauCeti.RootStack.affineQZCharacter.intCast` — For k∈Z, c_n([k])=[k/n], including negative k.
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-intcast. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.intCast.
 
-Apply the integer-lift computation. Negative representatives are integers before reduction; do not replace them by unreduced natural values.
+For k∈Z, c_n([k])=[k/n], including negative k.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Apply the integer-lift computation. Negative representatives are integers before reduction; do not replace them by unreduced natural values.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, mathlib:ZMod.lift_coe.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/qz-character-one — The chosen character sends [1] to [1/n].
+- FunctionFieldArithmeticPartII:RS.2/qz-character-injective — The homomorphism c_n is injective for every n>0.
+- FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility — If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+- FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive — For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Acceptance:
+
+- For k∈Z, c_n([k])=[k/n], including negative k.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter.intCast in the immutable matching reader, line 83; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite root character orientation
 
-`TauCeti.RootStack.affineQZCharacter.one` — The chosen character sends [1] to [1/n].
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-one. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.one.
 
-Specialize the integer representative to one.
+The chosen character sends [1] to [1/n].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Specialize the integer representative to one.
+2. The native proof specializes the natural-character formula at 1.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, FunctionFieldArithmeticPartII:RS.2/qz-character-intcast, FunctionFieldArithmeticPartII:RS.2/qz-character-natcast.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root — F_n(t_n)=e_[1/n].
+
+Acceptance:
+
+- The chosen character sends [1] to [1/n].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter.one in the immutable matching reader, line 89; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite root characters embed
 
-`TauCeti.RootStack.affineQZCharacter.injective` — The homomorphism c_n is injective for every n>0.
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-injective. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.injective.
 
-The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption.
+The homomorphism c_n is injective for every n>0.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. The kernel consists of k with k/n integral, exactly the integers divisible by n. Use ZMod.lift_injective and the integer divisibility criterion. This proof concerns the character group and has no coefficient-ring assumption.
+2. Alternative checked native route: both val(k)/n representatives lie in [0,1); injectivity of the quotient on that interval gives equality of rational quotients, then of natural representatives, then of the original residue classes. This directly reuses the interval theorem; it does not require a coefficient-ring assumption.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, FunctionFieldArithmeticPartII:RS.2/qz-character-intcast, mathlib:ZMod.lift_injective, mathlib:AddCircle.coe_eq_zero_iff, mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd, FunctionFieldArithmeticPartII:RS.2/qz-character-representative, mathlib:AddCircle.coe_eq_coe_iff_of_mem_Ico, mathlib:ZMod.val_injective, mathlib:ZMod.val_lt.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective — j_n is injective over every commutative ring, including the zero ring.
+
+Acceptance:
+
+- The homomorphism c_n is injective for every n>0.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter.injective in the immutable matching reader, line 95; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Divisibility preserves the normalized character
 
-`TauCeti.RootStack.affineQZCharacter.divisibility` — If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.divisibility.
 
-Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k].
+If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Choose the natural representative val(k). The rational identity ((N/n)val(k))/N=val(k)/n uses n>0,N>0 and exact divisibility. Integer-lift computations give equality in Q/Z. This is the scaled transition, not the map [k]↦[k].
+2. Use the two explicit representative formulas. Exact natural division casts to rational division; nonzero n and N allow cancellation of ((N/n) val(k))/N to val(k)/n. This proves the scaled divisibility formula over the actual quotient.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, FunctionFieldArithmeticPartII:RS.2/qz-character-intcast, mathlib:ZMod.natCast_zmod_val, FunctionFieldArithmeticPartII:RS.2/qz-character-natcast, FunctionFieldArithmeticPartII:RS.2/qz-character-representative, mathlib:Nat.cast_div.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition — For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+
+Acceptance:
+
+- If n divides N, then c_N([(N/n) val(k)])=c_n(k) for k∈Z/n. Thus c_N([N/n])=[1/n].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter.divisibility in the immutable matching reader, line 101; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Every rational character occurs at a finite level
 
-`TauCeti.RootStack.affineQZCharacter.exhaustive` — For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+Declaration: FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive. Lemma. Native name: TauCeti.RootStack.affineQZCharacter.exhaustive.
 
-Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned.
+For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Import Tau Ceti rational torsion exhaustion to choose n. Import its normalized torsion generator lemma to write u as an integer multiple of [1/n]. The integer-lift formula supplies k. No new generic finite-subgroup or torsion theorem is planned.
+2. Alternative checked Mathlib-only route for this normalized period-one adapter: choose a rational representative q of the quotient, take n=den(q)>0 and k=num(q) mod n, and apply the integer-character formula and num_div_den. The existing Tau Ceti torsion exhaustion/generator route remains available; no new generic torsion theorem is claimed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, FunctionFieldArithmeticPartII:RS.2/qz-character-intcast, tauceti:AddCircle.exists_mem_torsionBy_rat, tauceti:AddCircle.exists_zsmul_eq_of_mem_torsionBy, mathlib:Rat.num_div_den.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective — F:U_A→A[Q/Z] is surjective for arbitrary A.
+
+Acceptance:
+
+- For every u∈Q/Z there are n>0 and k∈Z/n with c_n(k)=u.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.affineQZCharacter.exhaustive in the immutable matching reader, line 107; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite group-algebra character map
 
-`TauCeti.RootStack.finiteQZAlgMap` — Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n.
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map. Construction. Native name: TauCeti.RootStack.finiteQZAlgMap.
 
-Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier.
+Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Pass the additive character to Multiplicative and use the existing group-algebra domain map. Import the generic functor rather than defining a new group-algebra carrier.
+2. Use the native additive-to-multiplicative type-tag equivalence as the input of the existing group-algebra domain map.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/qz-character, mathlib:MonoidAlgebra.mapDomainAlgHom, mathlib:AddMonoidHom.toMultiplicative.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single — For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective — j_n is injective over every commutative ring, including the zero ring.
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition — For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
 
 API:
 
-- `TauCeti.RootStack.finiteQZAlgMap.single`: For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
-- `TauCeti.RootStack.finiteQZAlgMap.injective`: j_n is injective over every commutative ring, including the zero ring.
-- `TauCeti.RootStack.finiteQZAlgMap.transition`: For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+- TauCeti.RootStack.finiteQZAlgMap.single (simp): For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+- TauCeti.RootStack.finiteQZAlgMap.injective (characterisation): j_n is injective over every commutative ring, including the zero ring.
+- TauCeti.RootStack.finiteQZAlgMap.transition (functoriality): For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
 
 Unit tests:
 
-- `TauCeti.RootStack.finiteQZAlgMap.test_constant`: The n=1 basis element [0] with coefficient a maps to the constant a.
-- `TauCeti.RootStack.finiteQZAlgMap.test_negative`: At n=3, the basis label −1 maps to [−1/3], retaining integer orientation.
-- `TauCeti.RootStack.finiteQZAlgMap.test_wild`: Over Z/2, the image of e_[1]−1 at n=2 is nonzero with square zero; the character algebra is not replaced by its reduced fibre.
+- TauCeti.RootStack.finiteQZAlgMap.test_constant (compatibility): The n=1 basis element [0] with coefficient a maps to the constant a.
+- TauCeti.RootStack.finiteQZAlgMap.test_negative (computation): At n=3, the basis label −1 maps to [−1/3], retaining integer orientation.
+- TauCeti.RootStack.finiteQZAlgMap.test_wild (non-example): Over Z/2, the image of e_[1]−1 at n=2 is nonzero with square zero; the character algebra is not replaced by its reduced fibre.
+
+Acceptance:
+
+- Define j_n:A[Z/n]→A[Q/Z] as the actual mapDomainAlgHom induced by the multiplicative form of c_n.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteQZAlgMap in the immutable matching reader, line 113; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Character map on a group-algebra basis
 
-`TauCeti.RootStack.finiteQZAlgMap.single` — For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single. Lemma. Native name: TauCeti.RootStack.finiteQZAlgMap.single.
 
-Use the native domain-map single formula. Coefficients are unchanged.
+For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Use the native domain-map single formula. Coefficients are unchanged.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map, mathlib:MonoidAlgebra.mapDomain_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition — For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root — F_n(t_n)=e_[1/n].
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective — F:U_A→A[Q/Z] is surjective for arbitrary A.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Acceptance:
+
+- For a∈A,k∈Z/n, j_n(a e_k)=a e_{c_n(k)}.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteQZAlgMap.single in the immutable matching reader, line 131; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite group-algebra character maps are injective
 
-`TauCeti.RootStack.finiteQZAlgMap.injective` — j_n is injective over every commutative ring, including the zero ring.
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective. Lemma. Native name: TauCeti.RootStack.finiteQZAlgMap.injective.
 
-Apply the native domain-map injectivity theorem to c_n. Its coefficient-level proof has no nontriviality hypothesis.
+j_n is injective over every commutative ring, including the zero ring.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Apply the native domain-map injectivity theorem to c_n. Its coefficient-level proof has no nontriviality hypothesis.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map, FunctionFieldArithmeticPartII:RS.2/qz-character-injective, mathlib:MonoidAlgebra.mapDomain_injective.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective — F_n is injective for every n>0 and every A.
+
+Acceptance:
+
+- j_n is injective over every commutative ring, including the zero ring.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteQZAlgMap.injective in the immutable matching reader, line 137; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite basis transitions commute with the character map
 
-`TauCeti.RootStack.finiteQZAlgMap.transition` — For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition. Lemma. Native name: TauCeti.RootStack.finiteQZAlgMap.transition.
 
-Rewrite the two images on singles and apply character divisibility. This is precisely the inherited finite root-transition formula.
+For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Rewrite the two images on singles and apply character divisibility. This is precisely the inherited finite root-transition formula.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single, FunctionFieldArithmeticPartII:RS.2/qz-character-divisibility.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition — For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+
+Acceptance:
+
+- For n dividing N and a∈A, j_N(a e_{[(N/n)val(k)]})=j_n(a e_k).
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteQZAlgMap.transition in the immutable matching reader, line 143; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite unity-root chart character map
 
-`TauCeti.RootStack.finiteRootQZMap` — Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n].
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map. Construction. Native name: TauCeti.RootStack.finiteRootQZMap.
 
-Compose actual A-algebra maps. This is restricted to the unity-parameter chart; arbitrary-f charts still have their inherited coaction.
+Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Compose actual A-algebra maps. This is restricted to the unity-parameter chart; arbitrary-f charts still have their inherited coaction.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-map, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root — F_n(t_n)=e_[1/n].
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective — F_n is injective for every n>0 and every A.
+- FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition — For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
 
 API:
 
-- `TauCeti.RootStack.finiteRootQZMap.root`: F_n(t_n)=e_[1/n].
-- `TauCeti.RootStack.finiteRootQZMap.injective`: F_n is injective for every n>0 and every A.
-- `TauCeti.RootStack.finiteRootQZMap.transition`: For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+- TauCeti.RootStack.finiteRootQZMap.root (simp): F_n(t_n)=e_[1/n].
+- TauCeti.RootStack.finiteRootQZMap.injective (characterisation): F_n is injective for every n>0 and every A.
+- TauCeti.RootStack.finiteRootQZMap.transition (functoriality): For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
 
 Unit tests:
 
-- `TauCeti.RootStack.finiteRootQZMap.test_one`: The unity root at n=1 maps to 1.
-- `TauCeti.RootStack.finiteRootQZMap.test_three`: At n=3 the root maps to the basis label [1/3].
-- `TauCeti.RootStack.finiteRootQZMap.test_zero_ring`: The finite root map remains injective over Z/1.
+- TauCeti.RootStack.finiteRootQZMap.test_one (degenerate): The unity root at n=1 maps to 1.
+- TauCeti.RootStack.finiteRootQZMap.test_three (computation): At n=3 the root maps to the basis label [1/3].
+- TauCeti.RootStack.finiteRootQZMap.test_zero_ring (degenerate): The finite root map remains injective over Z/1.
+
+Acceptance:
+
+- Define F_n:E_n(1)→A[Q/Z] as j_n composed with the inherited equivalence E_n(1)≃A[Z/n].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteRootQZMap in the immutable matching reader, line 149; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite unity root maps to the normalized rational character
 
-`TauCeti.RootStack.finiteRootQZMap.root` — F_n(t_n)=e_[1/n].
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root. Lemma. Native name: TauCeti.RootStack.finiteRootQZMap.root.
 
-Use the inherited root formula, then the group-algebra single formula and character orientation.
+F_n(t_n)=e_[1/n].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Use the inherited root formula, then the group-algebra single formula and character orientation.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single, FunctionFieldArithmeticPartII:RS.2/qz-character-one, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power — For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.
+- FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition — If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+
+Acceptance:
+
+- F_n(t_n)=e_[1/n].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteRootQZMap.root in the immutable matching reader, line 167; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Finite unity-root charts embed in the rational character algebra
 
-`TauCeti.RootStack.finiteRootQZMap.injective` — F_n is injective for every n>0 and every A.
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective. Lemma. Native name: TauCeti.RootStack.finiteRootQZMap.injective.
 
-Compose finite character-map injectivity with the inherited actual algebra equivalence. No argument by geometric field points is used.
+F_n is injective for every n>0 and every A.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Compose finite character-map injectivity with the inherited actual algebra equivalence. No argument by geometric field points is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-injective, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective — F:U_A→A[Q/Z] is injective for arbitrary A.
+
+Acceptance:
+
+- F_n is injective for every n>0 and every A.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteRootQZMap.injective in the immutable matching reader, line 173; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Root chart transitions commute with rational characters
 
-`TauCeti.RootStack.finiteRootQZMap.transition` — For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+Declaration: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition. Lemma. Native name: TauCeti.RootStack.finiteRootQZMap.transition.
 
-Transport to finite group-algebra coordinates. The inherited divisibility theorem sends e_k to e_{[(N/n)val(k)]}; apply the character-transition lemma on each basis element and linearity. Both inverse laws belong to the inherited finite equivalence.
+For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Transport to finite group-algebra coordinates. The inherited divisibility theorem sends e_k to e_{[(N/n)val(k)]}; apply the character-transition lemma on each basis element and linearity. Both inverse laws belong to the inherited finite equivalence.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-transition, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition — If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+
+Acceptance:
+
+- For n dividing N, F_N composed with the actual affineDivisibility(1,n,N) equals F_n as A-algebra homomorphisms.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.finiteRootQZMap.transition in the immutable matching reader, line 179; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Factorial rational characters satisfy the root relation
 
-`TauCeti.RootStack.factorialQZRoot_power` — For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power. Lemma. Native name: TauCeti.RootStack.factorialQZRoot_power.
 
-Map the finite unity-root relation through F_{d_i}. Equivalently use d_i[1/d_i]=[1]=0 and native basis multiplication.
+For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Map the finite unity-root relation through F_{d_i}. Equivalently use d_i[1/d_i]=[1]=0 and native basis multiplication.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root, FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map — Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+
+Acceptance:
+
+- For d_i=(i+1)!, the basis element e_[1/d_i] in A[Q/Z] has d_i-th power 1.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialQZRoot_power in the immutable matching reader, line 185; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Factorial rational character roots form a coherent family
 
-`TauCeti.RootStack.factorialQZRoot_transition` — If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition. Lemma. Native name: TauCeti.RootStack.factorialQZRoot_transition.
 
-Evaluate the finite root-transition square on t_{d_i}, using exact factorial divisibility and the inherited root transition.
+If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Evaluate the finite root-transition square on t_{d_i}, using exact factorial divisibility and the inherited root transition.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map — Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+
+Acceptance:
+
+- If i≤j, then e_[1/d_j] raised to d_j/d_i equals e_[1/d_i].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialQZRoot_transition in the immutable matching reader, line 191; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite unity-root character map
 
-`TauCeti.RootStack.factorialUnitQZMap` — Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map. Construction. Native name: TauCeti.RootStack.factorialUnitQZMap.
 
-Use the existing universal root lift. The target is a native commutative A-algebra in the same coefficient universe; no new abstract colimit or conclusion-valued certificate is introduced.
+Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Use the existing universal root lift. The target is a native commutative A-algebra in the same coefficient universe; no new abstract colimit or conclusion-valued certificate is introduced.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-power, FunctionFieldArithmeticPartII:RS.2/factorial-qz-root-transition, FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root — F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective — F:U_A→A[Q/Z] is injective for arbitrary A.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective — F:U_A→A[Q/Z] is surjective for arbitrary A.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level — For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
 
 API:
 
-- `TauCeti.RootStack.factorialUnitQZMap.root`: F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
-- `TauCeti.RootStack.factorialUnitQZMap.leg`: For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
-- `TauCeti.RootStack.factorialUnitQZMap.injective`: F:U_A→A[Q/Z] is injective for arbitrary A.
-- `TauCeti.RootStack.factorialUnitQZMap.surjective`: F:U_A→A[Q/Z] is surjective for arbitrary A.
+- TauCeti.RootStack.factorialUnitQZMap.root (simp): F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+- TauCeti.RootStack.factorialUnitQZMap.leg (compatibility): For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+- TauCeti.RootStack.factorialUnitQZMap.injective (characterisation): F:U_A→A[Q/Z] is injective for arbitrary A.
+- TauCeti.RootStack.factorialUnitQZMap.surjective (characterisation): F:U_A→A[Q/Z] is surjective for arbitrary A.
+- TauCeti.RootStack.factorialUnitQZMap.level (compatibility): For every i∈N and x∈A[t]/(t^((i+1)!)−1), F(ι_i(x))=F_((i+1)!)(x), with the actual factorial inclusion and finite root map.
 
 Unit tests:
 
-- `TauCeti.RootStack.factorialUnitQZMap.test_level_zero`: At i=0,d_i=1, the included root maps to 1.
-- `TauCeti.RootStack.factorialUnitQZMap.test_level_two`: At i=2,d_i=6, the included root maps to e_[1/6].
-- `TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients`: Over Z/4 the coefficient 2 times the level-one root maps to 2 e_[1/2].
+- TauCeti.RootStack.factorialUnitQZMap.test_level_zero (degenerate): At i=0,d_i=1, the included root maps to 1.
+- TauCeti.RootStack.factorialUnitQZMap.test_level_two (computation): At i=2,d_i=6, the included root maps to e_[1/6].
+- TauCeti.RootStack.factorialUnitQZMap.test_torsion_coefficients (compatibility): Over Z/4 the coefficient 2 times the level-one root maps to 2 e_[1/2].
+- TauCeti.RootStack.factorialUnitQZMap.test_level_basis (computation): For every coefficient a∈A, the level-two inclusion of the inverse cyclic basis element a e_[2] maps to a e_[1/3].
+
+Acceptance:
+
+- Define F:U_A→A[Q/Z] by the inherited factorialAffineRootLift with roots e_[1/d_i], using the preceding power and transition lemmas.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZMap in the immutable matching reader, line 197; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite character map on a factorial root
 
-`TauCeti.RootStack.factorialUnitQZMap.root` — F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root. Lemma. Native name: TauCeti.RootStack.factorialUnitQZMap.root.
 
-Apply the inherited lift-root computation.
+F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Apply the inherited lift-root computation.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map, FunctionFieldArithmeticPartII:RS.2/factorial-affine-root-lift-root.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root — E(u_i)=e_[1/d_i].
+
+Acceptance:
+
+- F(u_i)=e_[1/d_i], where u_i is the actual root included at factorial level i.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZMap.root in the immutable matching reader, line 216; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Every positive finite chart has its specified character leg
 
-`TauCeti.RootStack.factorialUnitQZMap.leg` — For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg. Lemma. Native name: TauCeti.RootStack.factorialUnitQZMap.leg.
 
-First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple.
+For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. First compare the two A-algebra maps at a factorial level by root extensionality. Extend an arbitrary positive n to its specified factorial multiple and apply the finite transition square. The existing at-level independence removes the choice of multiple.
+2. The factorial-level comparison is now its own explicit lemma. Unfold the chosen positive-index extension, apply that comparison and the finite divisibility square; the incoming independence-of-level contract is retained.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-root, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-transition, FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-choice, FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-transition, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective — F:U_A→A[Q/Z] is injective for arbitrary A.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective — F:U_A→A[Q/Z] is surjective for arbitrary A.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Acceptance:
+
+- For a positive divisibility index n and x∈E_n(1), F(ι_n(x))=F_n(x), where ι_n is the inherited factorialAffineExtension.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZMap.leg in the immutable matching reader, line 222; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite unity-root character map is injective
 
-`TauCeti.RootStack.factorialUnitQZMap.injective` — F:U_A→A[Q/Z] is injective for arbitrary A.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective. Lemma. Native name: TauCeti.RootStack.factorialUnitQZMap.injective.
 
-For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives.
+F:U_A→A[Q/Z] is injective for arbitrary A.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. For F(x)=F(y), represent x−y at one factorial level using the inherited exists-level result. Its finite image is zero by the leg theorem. Finite injectivity makes the representative zero, hence x−y=0. This avoids an unproved common-stage assertion for two representatives.
+2. The checked proof uses the factorial-level comparison directly on a representative of x−y, then finite-root-map injectivity. No simultaneous representative choice is required.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-injective, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-elements, FunctionFieldArithmeticPartII:RS.2/factorial-affine-extension-factorial, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-level.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence — Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+
+Acceptance:
+
+- F:U_A→A[Q/Z] is injective for arbitrary A.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZMap.injective in the immutable matching reader, line 228; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Every group-algebra element is a unity-root colimit image
 
-`TauCeti.RootStack.factorialUnitQZMap.surjective` — F:U_A→A[Q/Z] is surjective for arbitrary A.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective. Lemma. Native name: TauCeti.RootStack.factorialUnitQZMap.surjective.
 
-For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs.
+F:U_A→A[Q/Z] is surjective for arbitrary A.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. For a basis element a e_u, choose n,k with c_n(k)=u using imported torsion exhaustion through the normalized character adapter. Pull a e_k back through the finite cyclic equivalence and include that chart by ι_n. The leg and single formulas give the desired preimage. Native group-algebra linear induction extends this to zero and sums; each summand may use its own finite level. No infinite support or geometric-point assertion occurs.
+2. The checked proof uses finite-support single-add induction. Each label is represented by the explicit rational character; include the inverse finite cyclic basis element and add it to the inductive preimage. The original linear-induction route is equivalent.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single, FunctionFieldArithmeticPartII:RS.2/qz-character-exhaustive, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse, mathlib:MonoidAlgebra.induction_linear, mathlib:MonoidAlgebra.induction.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence — Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+
+Acceptance:
+
+- F:U_A→A[Q/Z] is surjective for arbitrary A.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZMap.surjective in the immutable matching reader, line 234; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite unity-root coordinates
 
-`TauCeti.RootStack.factorialUnitQZEquiv` — Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence. Construction. Native name: TauCeti.RootStack.factorialUnitQZEquiv.
 
-Apply the native promotion of a bijective A-algebra homomorphism; do not package inverse laws as assumptions of a new comparison record.
+Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Apply the native promotion of a bijective A-algebra homomorphism; do not package inverse laws as assumptions of a new comparison record.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-map, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-injective, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-surjective, mathlib:AlgEquiv.ofBijective.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root — E(u_i)=e_[1/d_i].
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul — For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit — For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode — For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient — For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary.
 
 API:
 
-- `TauCeti.RootStack.factorialUnitQZEquiv.root`: E(u_i)=e_[1/d_i].
-- `TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den`: For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
-- `TauCeti.RootStack.factorialUnitQZEquiv.comul`: For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
-- `TauCeti.RootStack.factorialUnitQZEquiv.counit`: For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
-- `TauCeti.RootStack.factorialUnitQZEquiv.antipode`: For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
-- `TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural`: For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
+- TauCeti.RootStack.factorialUnitQZEquiv.root (simp): E(u_i)=e_[1/d_i].
+- TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den (simp): For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+- TauCeti.RootStack.factorialUnitQZEquiv.comul (compatibility): For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+- TauCeti.RootStack.factorialUnitQZEquiv.counit (compatibility): For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+- TauCeti.RootStack.factorialUnitQZEquiv.antipode (compatibility): For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+- TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural (functoriality): For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
 
 Unit tests:
 
-- `TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative`: The inverse of e_[−1/3] is the positive-index n=3 extension of t_3 squared.
-- `TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf`: For v=u_1−1 over Z/2, E(v) is nonzero with square zero and Δ(E(v))=E(v)⊗E(v)+E(v)⊗1+1⊗E(v).
-- `TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients`: For the nonflat coefficient map Z→Z/2, the native coordinate square commutes on every element.
+- TauCeti.RootStack.factorialUnitQZEquiv.test_inverse_negative (computation): The inverse of e_[−1/3] is the positive-index n=3 extension of t_3 squared.
+- TauCeti.RootStack.factorialUnitQZEquiv.test_wild_hopf (non-example): For v=u_1−1 over Z/2, E(v) is nonzero with square zero and Δ(E(v))=E(v)⊗E(v)+E(v)⊗1+1⊗E(v).
+- TauCeti.RootStack.factorialUnitQZEquiv.test_nonflat_coefficients (compatibility): For the nonflat coefficient map Z→Z/2, the native coordinate square commutes on every element.
+
+Acceptance:
+
+- Define the actual A-algebra equivalence E:U_A≃A[Q/Z] by promoting F with its injectivity and surjectivity proofs. Its forward function is F.
+
+Planet: Infinite unity-root coordinates.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv in the immutable matching reader, line 240; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite coordinate equivalence on roots
 
-`TauCeti.RootStack.factorialUnitQZEquiv.root` — E(u_i)=e_[1/d_i].
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.root.
 
-The promoted equivalence has forward function F. Apply its root formula.
+E(u_i)=e_[1/d_i].
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. The promoted equivalence has forward function F. Apply its root formula.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-root, mathlib:AlgEquiv.ofBijective_apply.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul — For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit — For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode — For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+- FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient — For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary.
+
+Acceptance:
+
+- E(u_i)=e_[1/d_i].
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.root in the immutable matching reader, line 261; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Inverse coordinate map on rational representatives
 
-`TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den` — For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-inverse-basis. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den.
 
-Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective.
+For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Map the displayed preimage forward. The finite leg and single formulas yield [num(q)/den(q)]=[q]. Use the equivalence inverse law to identify the preimage. Different rational representatives of the same circle class give the same inverse because their forward images coincide and F is injective.
+2. Apply the actual algebra equivalence forward to both proposed preimages. Use the leg, inverse finite cyclic map, single and integer-character formulas and num_div_den; injectivity identifies the inverse.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-leg, FunctionFieldArithmeticPartII:RS.2/finite-root-qz-map, FunctionFieldArithmeticPartII:RS.2/finite-qz-alg-single, FunctionFieldArithmeticPartII:RS.2/qz-character-intcast, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse, mathlib:Rat.num_div_den.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons.
+
+Acceptance:
+
+- For q∈Q and a∈A, E⁻¹(a e_[q]) is ι_{den(q)} applied to the inverse finite cyclic image of a e_[num(q) mod den(q)]. This includes negative q and q=0.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.inverse_single_den in the immutable matching reader, line 267; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite coordinate equivalence preserves comultiplication
 
-`TauCeti.RootStack.factorialUnitQZEquiv.comul` — For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-comul. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.comul.
 
-View both sides as A-algebra homomorphisms into the native tensor product. On u_i the inherited coaction is u_i⊗u_i; the mapped tensor is e_[1/d_i]⊗e_[1/d_i], precisely native comultiplication of that basis element. Apply the inherited root-extensionality theorem. This is a coordinate Hopf comparison, not an affine scheme-limit theorem.
+For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. View both sides as A-algebra homomorphisms into the native tensor product. On u_i the inherited coaction is u_i⊗u_i; the mapped tensor is e_[1/d_i]⊗e_[1/d_i], precisely native comultiplication of that basis element. Apply the inherited root-extensionality theorem. This is a coordinate Hopf comparison, not an affine scheme-limit theorem.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext, mathlib:MonoidAlgebra.comul_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons.
+
+Acceptance:
+
+- For x∈U_A, (E⊗E)(Δ_U(x))=Δ_{A[Q/Z]}(E(x)), using the inherited chosen factorial coaction at parameter 1 and the native group-algebra comultiplication.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.comul in the immutable matching reader, line 273; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite coordinate equivalence preserves the counit
 
-`TauCeti.RootStack.factorialUnitQZEquiv.counit` — For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-counit. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.counit.
 
-Both A-algebra homomorphisms send every included root to 1. Apply inherited root extensionality. On a general single a e_u the native counit is a; no coefficient augmentation is guessed.
+For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Both A-algebra homomorphisms send every included root to 1. Apply inherited root extensionality. On a general single a e_u the native counit is a; no coefficient augmentation is guessed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-counit-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext, mathlib:MonoidAlgebra.counit_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons.
+
+Acceptance:
+
+- For x∈U_A, ε_{A[Q/Z]}(E(x))=ε_U(x), with the inherited factorialCounit and the native group-algebra counit.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.counit in the immutable matching reader, line 279; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite coordinate equivalence preserves the antipode
 
-`TauCeti.RootStack.factorialUnitQZEquiv.antipode` — For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-antipode. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.antipode.
 
-The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode.
+For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. The inherited root inverse formula identifies S_U(u_i) with the inverse of the universal factorial unit. An algebra equivalence preserves inverses of these units, and the native antipode sends e_[1/d_i] to e_[−1/d_i]. Package the antipode on a commutative group algebra as the algebra hom induced by group inversion using the existing mapDomainAlgHom, then use root extensionality. Native single induction identifies that map with the native linear antipode.
+2. Use the already-existing native antipodeAlgHom for this commutative Hopf algebra, avoiding a new generic inversion map. Root extensionality reduces to included universal units. Their images are units, so cancel the common character basis element from the two inverse equations. The native single-antipode formula identifies the negative character.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-antipode-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext, mathlib:MonoidAlgebra.antipode_single, mathlib:MonoidAlgebra.mapDomainAlgHom, mathlib:MonoidAlgebra.induction_linear, mathlib:HopfAlgebra.antipodeAlgHom.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons.
+
+Acceptance:
+
+- For x∈U_A, S_{A[Q/Z]}(E(x))=E(S_U(x)), with inherited factorialAntipode and native group-algebra antipode e_u↦e_{−u}.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.antipode in the immutable matching reader, line 285; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ### Infinite root coordinates commute with coefficient homomorphisms
 
-`TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural` — For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
+Declaration: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-coefficient. Lemma. Native name: TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural.
 
-Regard the target as an A-algebra via φ; the two ring maps become A-algebra maps with equal constant images. On every factorial root both give e_[1/d_i] with coefficient φ(1)=1. Apply inherited root extensionality with this restriction of scalars; this is a fixed-universe coefficient square, not a general universe/base-change equivalence.
+For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialUnitCoefficientMap(φ). Flatness and injectivity of φ are unnecessary.
+
+Hypotheses:
+
+- A is any commutative ring in a fixed universe. Every finite exponent is positive; divisibility maps require n divides N. No nontriviality, reducedness, flatness, field or invertibility hypothesis is imposed.
+- The character group is the actual AddCircle of period 1 over the rationals, namely Q/Z; its group algebra means the actual MonoidAlgebra A (Multiplicative (AddCircle (1:Q))). The unity-root algebra U_A is the inherited FactorialAffineColimit(1).
+- Original QZCoordinates-codex-J6LwjP checkpoint: these planning declarations had admitted, then-uncompiled prototypes. The current separate native proof evidence does not certify the full canonical geometric file or the fpqc quotient.
+
+Construction or proof:
+
+1. Regard the target as an A-algebra via φ; the two ring maps become A-algebra maps with equal constant images. On every factorial root both give e_[1/d_i] with coefficient φ(1)=1. Apply inherited root extensionality with this restriction of scalars; this is a fixed-universe coefficient square, not a general universe/base-change equivalence. Use the inherited unity-specific factorialUnitCoefficientMap, whose codomain is U_B without an implicit identification of φ(1) with 1; its root and constant APIs and the existing ring-homomorphism extensionality lemma supply the type-correct square.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence, FunctionFieldArithmeticPartII:RS.2/factorial-unit-qz-equivalence-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-root, FunctionFieldArithmeticPartII:RS.2/factorial-coefficient-unity-constant, FunctionFieldArithmeticPartII:RS.2/factorial-semilinear-ringhom-ext, mathlib:MonoidAlgebra.mapRingHom_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the explicit native diagonalizable coordinate input before independent coherent groupoid, affine Spec and fpqc torsor comparisons.
+
+Acceptance:
+
+- For any ring hom φ:A→B, native coefficient mapping A[Q/Z]→B[Q/Z] after E_A equals E_B after the inherited φ-semilinear factorialCoefficientMap(φ,1). Flatness and injectivity of φ are unnecessary.
+
+Sources:
+
+- QZCoordinates-codex-J6LwjP, Authored declaration TauCeti.RootStack.factorialUnitQZEquiv.coefficient_natural in the immutable matching reader, line 291; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. A deduction from the stated pinned universal properties and inherited root tower, motivated by Talpo–Vistoli arXiv1410.1164v2 §3.1 pp.14–16; the paper does not print this named adapter.
 
 ## Exact remaining work and validation boundary
 
@@ -5096,7 +6116,7 @@ Talpo–Vistoli arXiv1410.1164v2 pp.14–16 were read freshly for this continuat
 
 ## Finite unit-root cyclic coordinates — 2026-10-03
 
-This checkpoint identifies the actual finite unity-root algebra
+The finite-coordinate interface identifies the actual finite unity-root algebra
 `B_n = AdjoinRoot (X^n − C (1:A))` with
 `MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n))` for every positive n and arbitrary commutative A. Write t_n for the quotient root and e_[k] for the group-algebra basis vector. The map E_n sends t_n to e_[1]; its inverse sends a e_[k] to a·t_n^val(k). There is no choice of primitive root in A, and no reducedness, nontriviality, field or invertibility-of-n assumption. This is the coordinate algebra of μ_n, retaining its scheme-theoretic multiplicities.
 
@@ -5108,7 +6128,508 @@ Twelve typed acceptance examples include n=1, exponent wraparound, cyclic multip
 
 Source scope: fresh Talpo–Vistoli arXiv:1410.1164v2, complete printed/PDF pp.14–16, with p.14 visually checked. Section3.1 identifies the finite Cartier dual character groups and their inverse system. The explicit quotient/group-algebra comparison and formulas here are authored deductions from the pinned universal properties, not quoted printed theorems. The pinned Tau Ceti roots-of-unity file explicitly leaves this polynomial-coordinate comparison separate. A bounded current PR/Zulip check found related universal-property, cyclotomic-power and generic diagonalizable-Hopf work; none is imported or credited as implementing this comparison.
 
-The packet now contains340 nodes, including all325 incoming statement contracts and324 unchanged node objects. Both paper routes, the reserved general root-stack key, stable-curve imports,39 planets,8 gaps and13 requests are retained. Every stage remains partial. The next algebraic step is the compatible character embeddings Z/n→Q/Z and the actual A[Q/Z] Hopf-colimit comparison. It still requires its own proof. Root-object groupoid reindexing, arbitrary-universe transports, affine Spec limits, fpqc frame torsors and infinite quotient equivalence remain open, together with TOWER-AFF/KUMMER-FINITE/TOWER-TYPING/DVR. The inherited all-roots-of2 non-fppf counterexample and the distinction between chart point actions and torsors remain in force.
+The following declarations give the exact finite-coordinate interface. Its algebraic inputs are imported from the pinned libraries; the geometric stack and torsor comparisons remain the coverage obligations recorded above.
+
+### The universal finite cyclic root character
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character. Construction. Native name: TauCeti.RootStack.affineUnitCharacter.
+
+Define χ_n:Multiplicative(ZMod n)→*B_n by χ_n([k])=t_n^val(k), where B_n=A[T]/(T^n−1).
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The existing root-power reduction with f=1 makes t_n^k periodic modulo n. Use val(k+l)=(val(k)+val(l)) mod n to prove multiplicativity; zero maps to one.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction, mathlib:ZMod.val_add.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+API:
+
+- TauCeti.RootStack.affineUnitCharacter.natCast (simp): For every k≥0, χ_n([k])=t_n^k.
+- TauCeti.RootStack.affineUnitFromCyclic.single (simp): For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k).
+- TauCeti.RootStack.affineUnitCyclic.right_inverse (compatibility): F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.
+
+Unit tests:
+
+- TauCeti.RootStack.affineUnitCharacter.test_one (degenerate): At n=1 every cyclic character value is 1.
+- TauCeti.RootStack.affineUnitCharacter.test_wrap (computation): At n=2 the representative 3 maps to t_2, not to an unreduced new generator.
+- TauCeti.RootStack.affineUnitCharacter.test_square (compatibility): At n=2 the universal character of [1] has square 1.
+
+Acceptance:
+
+- Define χ_n:Multiplicative(ZMod n)→*B_n by χ_n([k])=t_n^val(k), where B_n=A[T]/(T^n−1).
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Cyclic character at a natural exponent
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character-power. Lemma. Native name: TauCeti.RootStack.affineUnitCharacter.natCast.
+
+For every k≥0, χ_n([k])=t_n^k.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Replace val([k]) by k mod n and apply the existing root-power reduction with coefficient one.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character, FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction, mathlib:ZMod.val_natCast.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- For every k≥0, χ_n([k])=t_n^k.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### The polynomial-to-cyclic coordinate map
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic. Construction. Native name: TauCeti.RootStack.affineUnitToCyclic.
+
+Construct F_n:B_n→ₐ[A]A[Z/n] sending t_n to e_[1].
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The native group-algebra generator satisfies e_[1]^n=e_[n]=e_[0]=1. Apply the existing AdjoinRoot algebra lift; retain the actual quotient carrier.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:AdjoinRoot.liftAlgHom.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+API:
+
+- TauCeti.RootStack.affineUnitToCyclic.root (simp): F_n(t_n)=e_[1].
+- TauCeti.RootStack.affineUnitCyclic.left_inverse (compatibility): G_n∘F_n=id_B_n as actual A-algebra homomorphisms.
+- TauCeti.RootStack.affineUnitCyclic.right_inverse (compatibility): F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.
+
+Unit tests:
+
+- TauCeti.RootStack.affineUnitToCyclic.test_one (degenerate): At n=1 the quotient root maps to 1.
+- TauCeti.RootStack.affineUnitToCyclic.test_cube (computation): At n=3, F_3(t_3^4)=e_[1].
+- TauCeti.RootStack.affineUnitToCyclic.test_zeroRing (degenerate): Over a zero ring, F_n sends every element to zero.
+
+Acceptance:
+
+- Construct F_n:B_n→ₐ[A]A[Z/n] sending t_n to e_[1].
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Polynomial-to-cyclic root evaluation
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root. Lemma. Native name: TauCeti.RootStack.affineUnitToCyclic.root.
+
+F_n(t_n)=e_[1].
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Evaluate the existing quotient lift at its root.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic, mathlib:AdjoinRoot.liftAlgHom_root.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- F_n(t_n)=e_[1].
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### The cyclic-to-polynomial coordinate map
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic. Construction. Native name: TauCeti.RootStack.affineUnitFromCyclic.
+
+Construct G_n:A[Z/n]→ₐ[A]B_n as the native MonoidAlgebra.lift of χ_n.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Apply the native group-algebra universal property to the already constructed multiplicative root character. No new generic group algebra or cyclic group universal property is defined.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character, mathlib:MonoidAlgebra.lift.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+API:
+
+- TauCeti.RootStack.affineUnitFromCyclic.single (simp): For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k).
+- TauCeti.RootStack.affineUnitCyclic.left_inverse (compatibility): G_n∘F_n=id_B_n as actual A-algebra homomorphisms.
+- TauCeti.RootStack.affineUnitCyclic.right_inverse (compatibility): F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.
+
+Unit tests:
+
+- TauCeti.RootStack.affineUnitFromCyclic.test_constant (degenerate): At n=1, G_1(a e_[0]) is the algebra-map image of a.
+- TauCeti.RootStack.affineUnitFromCyclic.test_nontrivial_basis (computation): At n=4, G_4(2 e_[3])=2·t_4^3 over arbitrary A, including rings with 2-torsion.
+- TauCeti.RootStack.affineUnitFromCyclic.test_multiplication (compatibility): At n=2, G_2(e_[1]e_[1])=1, using the actual group-algebra multiplication.
+
+Acceptance:
+
+- Construct G_n:A[Z/n]→ₐ[A]B_n as the native MonoidAlgebra.lift of χ_n.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Cyclic basis evaluation in the root chart
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single. Lemma. Native name: TauCeti.RootStack.affineUnitFromCyclic.single.
+
+For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k).
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Evaluate the native lift on a single basis vector.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic, mathlib:MonoidAlgebra.lift_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- For k:ZMod n and a∈A, G_n(a e_[k])=a·t_n^val(k).
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### The polynomial coordinate inverse law
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-left-inverse. Lemma. Native name: TauCeti.RootStack.affineUnitCyclic.left_inverse.
+
+G_n∘F_n=id_B_n as actual A-algebra homomorphisms.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. AdjoinRoot extensionality reduces to t_n. The character formula at k=1 gives t_n, including n=1 where the displayed representative is zero.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root, FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-character-power, mathlib:MonoidAlgebra.lift_single, mathlib:AdjoinRoot.algHom_ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- G_n∘F_n=id_B_n as actual A-algebra homomorphisms.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### The cyclic coordinate inverse law
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-right-inverse. Lemma. Native name: TauCeti.RootStack.affineUnitCyclic.right_inverse.
+
+F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Use native group-algebra extensionality. On e_[k], the composite gives e_[val(k)]=e_[k]; coefficient maps agree because both maps are A-algebra homomorphisms.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single, FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root, FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:ZMod.natCast_zmod_val, mathlib:MonoidAlgebra.algHom_ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- F_n∘G_n=id_A[Z/n] as actual A-algebra homomorphisms.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite unit-root cyclic coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence. Construction. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.
+
+The specified mutually inverse maps give E_n:B_n≃ₐ[A]A[Z/n]. It works for arbitrary commutative A and every n>0; it does not split the group algebra into a product or discard nilpotents.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Bundle the two actual inverse laws with the existing AlgEquiv.ofAlgHom. This finite polynomial-coordinate comparison is explicitly left separate in the pinned Tau Ceti roots-of-unity source.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-left-inverse, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-right-inverse, mathlib:AlgEquiv.ofAlgHom.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+API:
+
+- TauCeti.RootStack.affineUnitCyclicEquiv.root (simp): E_n(t_n)=e_[1].
+- TauCeti.RootStack.affineUnitCyclicEquiv.inverse_single (simp): E_n⁻¹(a e_[k])=a·t_n^val(k).
+- TauCeti.RootStack.affineUnitCyclicEquiv.coaction (compatibility): (id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication.
+- TauCeti.RootStack.affineUnitCyclicEquiv.divisibility_single (simp): For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n.
+- TauCeti.RootStack.affineUnitCyclicEquiv.counit (compatibility): ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1.
+- TauCeti.RootStack.affineUnitCyclicEquiv.antipode_root (simp): S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1.
+
+Unit tests:
+
+- TauCeti.RootStack.affineUnitCyclicEquiv.test_transition_two_six (compatibility): Over Z, the transported 2|6 transition sends e_[1] to e_[3], not e_[1].
+- TauCeti.RootStack.affineUnitCyclicEquiv.test_wild_nilpotent (non-example): Over ZMod 2 and n=2, x=t_2−1 is nonzero and x²=0. The equivalence must preserve this nilpotent rather than replace μ_2 by its set of field points.
+- TauCeti.RootStack.affineUnitCyclicEquiv.test_zeroRing (degenerate): Over a zero ring the actual forward and inverse maps compose to the identity for every n>0.
+
+Acceptance:
+
+- The specified mutually inverse maps give E_n:B_n≃ₐ[A]A[Z/n]. It works for arbitrary commutative A and every n>0; it does not split the group algebra into a product or discard nilpotents.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite cyclic equivalence on the root
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.root.
+
+E_n(t_n)=e_[1].
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The bundled equivalence has forward map F_n.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence, FunctionFieldArithmeticPartII:RS.2/unit-to-cyclic-root.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- E_n(t_n)=e_[1].
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite cyclic equivalence on inverse basis coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.inverse_single.
+
+E_n⁻¹(a e_[k])=a·t_n^val(k).
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The bundled equivalence has inverse map G_n.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence, FunctionFieldArithmeticPartII:RS.2/unit-from-cyclic-single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- E_n⁻¹(a e_[k])=a·t_n^val(k).
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite cyclic coordinates intertwine comultiplication
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-coaction. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.coaction.
+
+(id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. On t_n both sides are e_[1]⊗e_[1]. Apply native quotient-root extensionality. This compares actual algebra maps, not a newly assumed Hopf compatibility field.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root, FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.comul_single, mathlib:Algebra.TensorProduct.map, mathlib:AdjoinRoot.algHom_ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- (id⊗E_n)∘ρ_1,n=Δ∘E_n, where ρ_1,n is the inherited actual root coaction and Δ is the native group-algebra comultiplication.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Cyclic coordinates of divisibility transitions
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-divisibility. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.divisibility_single.
+
+For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. Apply the inverse single formula, the inherited transition t_n↦t_N^(N/n), multiplicativity and the character-power formula. The displayed coefficient is preserved; no field or separability argument is used.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root, FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-inverse, FunctionFieldArithmeticPartII:RS.2/affine-divisibility-root, FunctionFieldArithmeticPartII:RS.0/affine-character-power.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- For positive n|N, E_N∘d_n,N∘E_n⁻¹ sends a e_[k] to a e_[(N/n)val(k)] in A[Z/N]. The direction is the character-group inclusion Z/n→Z/N, dual to μ_N→μ_n.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite cyclic coordinates identify the counit
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-counit. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.counit.
+
+ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The two algebra maps agree at t_n, where the group-like generator has counit one; use native quotient extensionality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root, mathlib:MonoidAlgebra.counit_single, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.algHom_ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- ε∘E_n is the actual AdjoinRoot algebra lift evaluating t_n at 1.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
+
+### Finite cyclic coordinates identify root inversion
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-antipode. Lemma. Native name: TauCeti.RootStack.affineUnitCyclicEquiv.antipode_root.
+
+S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1.
+
+Hypotheses:
+
+- A is an arbitrary commutative ring in one fixed universe; n is a positive natural number. If N occurs it is positive and n divides N. No nontriviality, reducedness, field, Noetherian, characteristic or invertibility-of-n hypothesis is imposed.
+- B_n is the inherited actual AffineRing (1:A) n = AdjoinRoot(X^n−C1); t_n is its root. The target is the inherited MuHopf A n = MonoidAlgebra A (Multiplicative (ZMod n)); e_[k]=single(ofAdd k) 1. This is the unity-parameter coordinate algebra of μ_n, not the arbitrary-f chart algebra.
+- The finite comparison supplies one input to identifying the factorial unity-root Hopf algebra with A[Q/Z]. That infinite Hopf identification, rational-circle maps, arbitrary-universe adapters, affine Spec limits, coherent frame torsors and fpqc quotient comparison remain open.
+
+Construction or proof:
+
+1. The antipode sends e_[1] to e_[−1]. Since n>0, [(n−1)]=−[1] in Z/n, and the root-power formula identifies the right side.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/unit-cyclic-equivalence-root, FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:MonoidAlgebra.antipode_single.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Identify the finite unity-root coordinate algebras and their actual transition/Hopf formulas before the separate A[Q/Z] colimit and fpqc geometric comparisons.
+
+Acceptance:
+
+- S(E_n(t_n))=E_n(t_n^(n−1)), using the native group-algebra antipode. This includes n=1.
+
+Sources:
+
+- FiniteCyclicCoordinates-codex-7e92bd, Immutable PR5957 handoff: opening coordinate-summary paragraphs and “Verification and remaining work” native-proof archive; this named adapter is an authored deduction, not a named prose declaration in that handoff. An authored deduction from the exact pinned universal properties, motivated by Talpo–Vistoli §3.1 p.14 finite Cartier-dual groups. Not a claim that the paper prints this Lean-coordinate lemma.
 
 # Coefficient naturality of coherent root-chart scaling
 
@@ -5511,7 +7032,7 @@ The packet has 218 unchecked nodes, with 24 new leaves. All 194 incoming mathema
 
 This comparison completes an algebraic leaf. Coherent reindexing of root-object groupoids must still carry actual arrows and transition isomorphisms. The diagonalizable grading and action, affine Spec-limit identification, fpqc frame torsors, and infinite quotient groupoid comparison remain separate obligations. Finite fppf Kummer theory and infinite fpqc torsors retain their distinct topology contracts. No stage, gap, route or geometric target is marked closed.
 
-The complete 2,875-line native prototype elaborated against exact Mathlib with no errors, warnings or admissions, including 116 examples and 111 axiom audits. The 1,746-line admitted Mathlib projection elaborated with 269 admission warnings and no other warnings or errors. The full 2,657-line geometric planning file remains uncompiled because required exact-pin Tau Ceti compiled imports are absent in the existing build. Its original 2,389-line block is retained unchanged. The positive index, its factorial exponent adapter and native DirectLimit carrier abbreviations remain visible as type plumbing; new construction and proof bodies are admitted. No implementation is claimed.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The complete 2,875-line native prototype elaborated against exact Mathlib with no errors, warnings or admissions, including 116 examples and 111 axiom audits. The 1,746-line admitted Mathlib projection elaborated with 269 admission warnings and no other warnings or errors. The full 2,657-line geometric planning file remains uncompiled because required exact-pin Tau Ceti compiled imports are absent in the existing build. Its original 2,389-line block is retained unchanged. The positive index, its factorial exponent adapter and native DirectLimit carrier abbreviations remain visible as type plumbing; new construction and proof bodies are admitted. No implementation is claimed.
 
 ## New declarations and their API
 
@@ -5771,7 +7292,7 @@ The packet has 194 unchecked nodes, 152 API records (150 on definitions/construc
 
 The reviewed FA.0–FA.7 library audit and REV-AUDIT-20 are the ownership baseline: existing function-field algebra is imported, while its adelic/class-field and curve-side gaps are not replanned here. Generic colimits are already in Mathlib. A bounded upstream search found [Mathlib PR #39341](https://github.com/leanprover-community/mathlib4/pull/39341), which adds star-algebra variants of the existing direct-limit API; it supplies no additional ordinary-algebra prerequisite here. The [Zulip discussion of DirectLimit and categorical colimits](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Q.2FZ.20as.20colimit.20of.20Z.2FnZ.html) supports making the categorical comparison explicit. No external implementation is copied.
 
-The separate native proof file passes 95 examples and 86 axiom audits, with no errors, admissions or warnings. The Mathlib-only extraction of the submitted signatures passes 95 examples with 222 admission warnings and no others. The complete geometric suggested file is uncompiled because the existing pinned build lacks required Tau Ceti modules. The [handoff](../handoff/DESIGN-FunctionFieldArithmeticPartII.md) gives the exact archive, hashes, recovery commands and graph checks. Proof evidence does not change the packet's unchecked statuses.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The separate native proof file passes 95 examples and 86 axiom audits, with no errors, admissions or warnings. The Mathlib-only extraction of the submitted signatures passes 95 examples with 222 admission warnings and no others. The complete geometric suggested file is uncompiled because the existing pinned build lacks required Tau Ceti modules. The [handoff](../handoff/DESIGN-FunctionFieldArithmeticPartII.md) gives the exact archive, hashes, recovery commands and graph checks. Proof evidence does not change the packet's unchecked statuses.
 
 ## Added declaration plans
 
@@ -6061,7 +7582,7 @@ All 173 inherited statement contracts and 172 entire node objects are preserved.
 
 Fresh source reading covers Talpo–Vistoli's root transition setup and factorial cofinal-system construction on printed pp.12–14 of arXiv:1410.1164v2, and the local chart setup and full Lemma 3.7 proof on p.15. The rank-one native algebra functor is an authored specialization, not a printed geometric comparison theorem. Earlier whole-paper and erratum receipts remain credited to their original workers.
 
-The separate native prototype passes with 84 proved examples and 71 axiom audits, without errors, warnings or admissions. The Mathlib-only extraction of the submitted signatures passes with 84 examples and 193 admission warnings. The complete geometric suggested file is uncompiled because the shared exact-pin build lacks required Tau Ceti imports. No status is promoted to implemented. The handoff provides immutable source receipts and reproducible extraction/assembly instructions.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The separate native prototype passes with 84 proved examples and 71 axiom audits, without errors, warnings or admissions. The Mathlib-only extraction of the submitted signatures passes with 84 examples and 193 admission warnings. The complete geometric suggested file is uncompiled because the shared exact-pin build lacks required Tau Ceti imports. No status is promoted to implemented. The handoff provides immutable source receipts and reproducible extraction/assembly instructions.
 
 ### Added RS.2 declaration plans
 
@@ -6285,7 +7806,7 @@ The inherited reading receipt records every proof in Yun–Zhang’s Appendix A,
 
 The Mathlib/Tau Ceti pins are recorded in the packet. Reviewed AUDIT-20 says the parent’s function-field carrier and much of its divisor theory are built, while function-field adeles, reciprocity and the geometric L-function targets are missing. AUDIT-01 distinguishes native line bundles and function-field Riemann–Roch from missing algebraic stacks, Picard schemes and coherent-family Riemann–Roch. Positive baseline claims here come from actual declaration statements, not names in an index. The pinned abstract stack condition is effective pseudofunctor descent; it has no algebraic atlas. The native exterior-power type does not by itself prove the graded cohomology comparison.
 
-D0 supplies ordinary quotient groupoids and two-fibre products; R09.4 supplies finite-quotient algebraicity, R09.5 the coarse universal property, and SF.1 the scheme/affine descent comparisons; SF.3 integrates upstream JacobianChallenge and AlgebraicCurves for ordinary curve/Picard geometry. The parent supplies adeles and arithmetic reciprocity. IG.0–IG.1 supply the scheme fundamental group and tame inertia. Scheme EDC duality is an input, while the coordinated EtaleDualityAndPerverseSheavesPartIIStacks proposal must supply the required tame-DM lisse and sheaf operations. Its provisional stage keys are not registered prerequisites. This packet records that missing interface rather than treating a scheme theorem as a stack theorem.
+D0 supplies ordinary quotient groupoids and two-fibre products; R09.4 supplies finite-quotient algebraicity, R09.5 the coarse universal property, and SF.1 the scheme/affine descent comparisons; SF.3 integrates upstream JacobianChallenge and AlgebraicCurves for ordinary curve/Picard geometry, and AlgebraicVectorBundles L0A–L0B for tensorSection, tensor/unit comparisons and coherent invertibility-preserving pullback. The parent supplies adeles and arithmetic reciprocity. IG.0–IG.1 supply the scheme fundamental group and tame inertia. Scheme EDC duality is an input, while the coordinated EtaleDualityAndPerverseSheavesPartIIStacks proposal must supply the required tame-DM lisse and sheaf operations. Its provisional stage keys are not registered prerequisites. This packet records that missing interface rather than treating a scheme theorem as a stack theorem.
 
 The older paper extraction assigned generic roots to SF.1. This issue’s explicit reserved key-definition assignment fixes the owner here. The proposed rescope retains SF.1’s foundational stack infrastructure and moves root consumers to RS.0–RS.2. A broad reverse dependency from all of SF.1 to this packet would create a cycle and is not proposed. The unramified YZ17 character and exterior-power routes coalesce with the empty-R specializations here. Ordinary Picard and Jacobian targets remain upstream.
 
@@ -6331,13 +7852,13 @@ Native invertible-sheaf tensor and section powers, canonical trivial-power coord
 
 ### Tensor powers used by root objects
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/tensor-power. Construction.
+Declaration: FunctionFieldArithmeticPartII:RS.0/tensor-power. Construction. Native name: TauCeti.RootStack.tensorPower.
 
 For a native invertible sheaf M on a scheme T define M⁰=O_T and Mⁿ⁺¹=Mⁿ⊗M, with coherent transport of line-bundle isomorphisms. This is a root-object interface over the existing tensor operation, not a new definition of line bundles.
 
 Hypotheses:
 
-- The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology.
+- The exponent n is a natural number, including zero; the scheme or stack base and all base changes use the stated fppf topology.
 
 Construction or proof:
 
@@ -6345,6 +7866,8 @@ Construction or proof:
 2. Transport an isomorphism by the native tensor congruences; the recursion fixes parentheses.
 
 Inputs: tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrRight, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductAssoc, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialLeftIso, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso.
+
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
 
 API uses:
 
@@ -6366,26 +7889,28 @@ Acceptance:
 
 - Zero exponent is the native trivial sheaf; exponent one is canonically M.
 
-Source:
+Sources:
 
-- AGV08, B.1–B.2 pp. 52–54. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, B.1–B.2 pp. 52–54 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Powers of sections
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/section-power. Construction.
+Declaration: FunctionFieldArithmeticPartII:RS.0/section-power. Construction. Native name: TauCeti.RootStack.sectionPower.
 
 For t∈Γ(T,M), define tⁿ∈Γ(T,Mⁿ) using the native sheaf tensor product; t⁰ is the unit section and tⁿ⁺¹=tⁿ⊗t.
 
 Hypotheses:
 
-- The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology.
+- The exponent n is a natural number, including zero; the scheme or stack base and all base changes use the stated fppf topology.
 
 Construction or proof:
 
 1. Use the canonical bilinear section map into the sheafified tensor product and the unit section.
-2. Recurse with the same parentheses as tensor powers. The general sheaf tensor/unit identification is an upstream JacobianChallenge interface, recorded as request JAC-A.
+2. Recurse with the same parentheses as tensor powers. Import AlgebraicVectorBundles L0A tensorSection and its tensor/unit comparisons through SF.3/JAC-A; the remaining adapter is their native invertible-sheaf coordinate identification, not a second generic sheaf tensor construction.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power, mathlib:AlgebraicGeometry.Scheme.Modules.presheaf, SchemeAndStackFoundations:SF.3, mathlib:SheafOfModules.freeSection, mathlib:AlgebraicGeometry.Scheme.Modules.Hom.app.
+
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
 
 API uses:
 
@@ -6408,13 +7933,13 @@ Acceptance:
 
 - Under a trivialization this is ordinary fⁿ; zero sections are allowed.
 
-Source:
+Sources:
 
-- AGV08, B.2 p. 53. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, B.2 p. 53 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Root objects over a test scheme
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/root-object. Definition.
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-object. Definition. Native name: TauCeti.RootStack.RootObject.
 
 For n≥1, (L,s) on T, an object consists of a native invertible sheaf M, t∈Γ(T,M), and an isomorphism φ:Mⁿ≅L satisfying φ(tⁿ)=s. Arrows are invertible sheaf isomorphisms preserving t and commuting with φ.
 
@@ -6428,6 +7953,8 @@ Construction or proof:
 2. Use only invertible arrows from the core; impose the two compatibility equations on their isomorphisms.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power, FunctionFieldArithmeticPartII:RS.0/section-power, mathlib:CategoryTheory.Core.
+
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
 
 API uses:
 
@@ -6451,13 +7978,13 @@ Acceptance:
 
 - A zero section gives valid root objects; replacing arrows by all module maps is incorrect.
 
-Source:
+Sources:
 
-- AGV08, B.2 p. 53. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, B.2 p. 53 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Diagonalizable action on the affine root chart
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/affine-action. Construction.
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-action. Construction. Native name: TauCeti.RootStack.affineAction.
 
 For a commutative ring A, f∈A and n≥1, each ζ∈rootsOfUnity(n,A) induces an A-algebra automorphism of the existing AdjoinRoot(Tⁿ−f) sending T to ζT. The construction is natural on A-algebras and represents the μ_n group-scheme action, including infinitesimal points.
 
@@ -6493,9 +8020,9 @@ Acceptance:
 
 - In characteristic p the μ_p action is not detected by its geometric-point set.
 
-Source:
+Sources:
 
-- TV17, §3.1 pp. 14–16, P=N and Corollary 3.13. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- TV17, §3.1 pp. 14–16, P=N and Corollary 3.13 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Canonical quotient-root relation
 
@@ -6761,7 +8288,7 @@ Source:
 
 ### Canonical coordinates for powers of the trivial line
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism. Construction.
+Declaration: FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism. Construction. Native name: TauCeti.RootStack.tensorPower.trivialIso.
 
 For any scheme X and n≥0, let O be the native free rank-one invertible sheaf. Construct c_n:Oⁿ≅O with c_0=id and c_{n+1}=(c_n⊗id_O) followed by the native right-unit isomorphism. The parentheses agree with tensorPower; these are canonical coordinates for that recursion, not a new tensor product.
 
@@ -6776,6 +8303,8 @@ Construction or proof:
 3. For the section-unit API use the existing bilinear tensor-section/unit contract JAC-A; no generic section tensor map is constructed here.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso, SchemeAndStackFoundations:SF.3.
+
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
 
 API uses:
 
@@ -6798,13 +8327,13 @@ Acceptance:
 
 - The exponent-one comparison is the native right-unit map, not an arbitrarily chosen scalar multiple.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### Section powers in native coordinates
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization. Lemma.
+Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization. Lemma. Native name: TauCeti.RootStack.sectionPower.in_trivialization.
 
 For an invertible sheaf M on X, a specified trivialization e:M≅O, a section t and n≥0, transporting tⁿ by eⁿ followed by c_n gives the global function zⁿ, where z is the coefficient of e(t). Coefficients use the existing freePUnitIsoUnit map on global sections.
 
@@ -6820,17 +8349,19 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/section-power, FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism, tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit, SchemeAndStackFoundations:SF.3, FunctionFieldArithmeticPartII:RS.0/section-power-transport.
 
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
+
 Acceptance:
 
 - At n=0 the result is 1 even for t=0. At positive n zero gives zero. Over Z/4 the coefficient 2 has square zero.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### The unit coefficient of a root identification
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/root-identification-unit. Lemma.
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-identification-unit. Lemma. Native name: TauCeti.RootStack.RootObject.powerIdentification_isUnit.
 
 For an actual n-th root object a=(M,t,φ) of (L,s), n≥1, and specified trivializations e:M≅O and l:L≅O, form α=c_n⁻¹ followed by (e⁻¹)ⁿ, φ and l, an automorphism of O. Let u be the coefficient of α(1). Then u is a unit in Γ(X,O_X); for every v∈Γ(X,Mⁿ), the coefficient of lφ(v) equals u times the coefficient of c_n eⁿ(v).
 
@@ -6851,13 +8382,13 @@ Acceptance:
 
 - Multiplication by 2 on O over Spec(Z/4) is not an allowed root identification. Nilpotents in the base do not invalidate multiplication by a unit.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### The native root equation in coordinates
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation. Theorem.
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation. Theorem. Native name: TauCeti.RootStack.RootObject.trivializationEquation.
 
 With the native root object and chosen trivializations above, the computed coefficient u is a unit and u zⁿ=f, where z is the coefficient of the root section under e and f is the coefficient of s under l. The coefficient u is part of the comparison; no choice of an n-th root of u is assumed.
 
@@ -6879,13 +8410,13 @@ Acceptance:
 
 Planet: Root objects in coordinates.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### Scalar equations for arrows of root objects
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars. Comparison.
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars. Comparison. Native name: TauCeti.RootStack.RootObject.arrow_scalar_equations.
 
 For root objects a,b of the same (L,s,n), chosen trivializations e_a,e_b of their root lines and l of L, every actual root arrow h:a→b has a unit coefficient w. The section coordinates satisfy z_b=w z_a and the computed root-identification coefficients satisfy u_b wⁿ=u_a. Retain both equations and the unit condition, including when sections vanish.
 
@@ -6906,13 +8437,13 @@ Acceptance:
 
 - For a=b with zero section and u_a=u_b, the power condition still forces wⁿ=1; forgetting it incorrectly makes every unit an automorphism. Composition multiplies w coefficients.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### Isomorphism transport of section powers
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-transport. Comparison.
+Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-transport. Comparison. Native name: TauCeti.RootStack.sectionPower.mapIso.
 
 For any scheme X, invertible sheaves M,N, an actual isomorphism e:M≅N, section t of M and n≥0, eⁿ carries tⁿ to (e(t))ⁿ in the fixed recursive tensor powers. The transport at exponent zero is the identity of the native tensor unit; identity and composition use the coherent tensor-power transport.
 
@@ -6928,13 +8459,15 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power, FunctionFieldArithmeticPartII:RS.0/section-power, SchemeAndStackFoundations:SF.3.
 
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
+
 Acceptance:
 
 - For n=0 even the zero section maps to the same unit. For multiplication by a unit w on a trivial line, the transported n-th section power has coefficient wⁿ.
 
-Source:
+Sources:
 
-- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation. Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
+- AGV08, Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma.
 
 ### Finite action comparison and its exact obstruction
 
@@ -7315,7 +8848,7 @@ Sources: TV17 §3.1 pp.14–16, finite P=N grading and chart; [Stacks Tag 040N](
 
 #### Weighted comparison determinant
 
-Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-determinant. theorem. Native name: TauCeti.RootStack.affineTorsorComparison.determinant.
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-determinant. Theorem. Native name: TauCeti.RootStack.affineTorsorComparison.determinant.
 
 In the specified source and target pair-indexed bases, the comparison matrix has entry M_(r,c)=f^⌊(c₁+c₂)/n⌋ if r₁=c₁ and r₂=(c₁+c₂) mod n, and zero otherwise. With E=n(n−1)/2, det M=(−1)^((n−1)E) f^E. The same pair ordering is used for rows and columns; this is not an endomorphism determinant without chosen identifications.
 
@@ -7325,19 +8858,27 @@ Hypotheses:
 
 Construction or proof:
 
-1. The monomial formula gives a weighted permutation matrix. The Leibniz determinant has only the σ term.
-2. In row block i the permutation is the ith power of the cyclic rotation on n letters. Its sign is (−1)^((n−1)i), using the native cycle-range sign at the last index; multiply block signs.
-3. The wrapping columns in row i are exactly i, so there are Σ_i i=E weights f and all remaining weights are 1. Multiply weights and signs. Both calculations take place integrally before specialization to A.
+1. Consume matrix_reindex for the specified monomial support and inverse coefficient permutation. Apply the pinned determinant-permutation and diagonal determinant formulas.
+2. Consume coefficientPermutation_sign and the native inverse-sign law. Cast the already computed integer-unit sign into A.
+3. Consume weight_product for the exact column weights. Their count E is computed in natural numbers, not by dividing by2 in A. Combine sign and weight without cancellation.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, mathlib:Matrix.det_apply, mathlib:Fin.sign_cycleRange.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, mathlib:Matrix.det_apply, mathlib:Fin.sign_cycleRange, FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-sign, FunctionFieldArithmeticPartII:RS.0/affine-torsor-weight-product, FunctionFieldArithmeticPartII:RS.0/affine-torsor-matrix-reindex, mathlib:Matrix.det_permute, mathlib:Matrix.det_diagonal, mathlib:Equiv.Perm.sign_symm.
 
-- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+Unit tests:
+
+- TauCeti.RootStack.affineTorsorComparison.determinant.test_exponent_one (degenerate): At n=1 the specified matrix has determinant1 for every commutative A and every f, including f=0.
+- TauCeti.RootStack.affineTorsorComparison.determinant.test_three (computation): At n=3 the determinant is f³ over any commutative A; using (−1)^E instead of (−1)^((n−1)E) would incorrectly negate it.
+- TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring (degenerate): For A=ZMod1, n=2 and f=0, the determinant is0 in the zero ring; numerical polynomial degree is not substituted for the chosen index.
+- TauCeti.RootStack.affineTorsorComparison.determinant.test_wild (compatibility): For A=ZMod2, n=2 and f=1, the determinant is1 even though n is zero in A.
 
 Acceptance:
 
 - For n=2 the determinant is −f, including f=0 and nonreduced coefficient rings.
 
-Sources: TV17 §3.1 pp.14–16, finite P=N grading and chart; [Stacks Tag 040N](https://stacks.math.columbia.edu/tag/040N), the unit-parameter finite-free cover. The coordinate calculations are derived here, not asserted to be printed standalone theorems in either source.
+Sources:
+
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper.
+- STACKS-KUMMER, Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred.
 
 #### Rank loss at the zero section
 
@@ -7366,8 +8907,8 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “induces an action”. The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper.
-- STACKS-KUMMER, Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof: “finite free of rank”. The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper.
+- STACKS-KUMMER, Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof. The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred.
 
 ## RS.1. Finite root stacks
 
@@ -7375,7 +8916,7 @@ The canonical root stack of a line bundle with section, including stack bases, C
 
 ### Root stacks of line bundles and sections
 
-Declaration: FunctionFieldArithmeticPartII:key/root-stacks. Definition.
+Declaration: FunctionFieldArithmeticPartII:key/root-stacks. Definition. Native name: TauCeti.RootStack.rootStack.
 
 For n≥1 and a line bundle with section (L,s) on a scheme X or an algebraic stack X, define √[n]{(L,s)/X} on T→X as the groupoid of root objects of (L_T,s_T). Pullback and its coherent isomorphisms define the fibred stack. For an effective Cartier divisor D use (O_X(D),s_D). Arbitrary exponents use the fppf topology; the étale description is asserted only when n is invertible.
 
@@ -7391,11 +8932,13 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/root-object, SchemeAndStackFoundations:SF.1, mathlib:CategoryTheory.Pseudofunctor.Grothendieck, mathlib:CategoryTheory.Pseudofunctor.IsStack, mathlib:AlgebraicGeometry.Scheme.fppfTopology, DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products, DiamondsAndVStacks:D0.
 
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
+
 API uses:
 
 - Bresciani pp. 135–136 — Finite and infinite DVR roots use arbitrary n.
 - Yun–Zhang Appendix A — Square roots of evaluation sections define root symmetric powers.
-- AGV Appendix B — Makes root constructions relative over algebraic stacks.
+- AGV Appendix B — Supplies the scheme-base root construction; algebraic-stack bases use the separately requested atlas descent.
 
 API:
 
@@ -7403,6 +8946,12 @@ API:
 - TauCeti.RootStack.rootStack.forget (projection): Forget root data to the base T→X.
 - TauCeti.RootStack.rootStack.baseChange (functoriality): A base morphism induces pullback of root data with identity/composition coherence.
 - TauCeti.RootStack.rootStack.universalRoot (universal-property): The stack carries the universal line bundle, section and n-th-power isomorphism; maps into it are equivalent to such root data.
+- TauCeti.RootStack.rootStack.affinePresentation (compatibility): For a scheme affine chart X=Spec A and a trivialized (L,s)=(O,f), the root stack is [Spec A[t]/(t^n−f)/μ_n] with the grading action; this is the RS.1/affine-chart comparison, including wild exponents.
+- TauCeti.RootStack.rootStack.coarseComparison (universal-property): For a scheme base the projection is the coarse moduli map, is an isomorphism away from V(s), and has affine invariant algebra A. For an algebraic-stack base use the relative coarse assertion after scheme base change (RS.1/coarse-space).
+- TauCeti.RootStack.rootStack.closedFibre (characterisation): Over a geometric zero of s the full fibre is [Spec k[t]/(t^n)/μ_n], while its reduction is Bμ_n; this exposes RS.1/closed-fibre without discarding nilpotent root sections.
+- TauCeti.RootStack.rootStack.regularDM (compatibility): For a regular scheme X and regular Cartier divisor D the root stack is regular; it is DM when n is invertible. A geometric branch point of characteristic dividing n has non-étale μ_n inertia (RS.1/regular-dm).
+- TauCeti.RootStack.rootStack.transitionLimit (functoriality): The finite map from order nm to n sends (M,t) to (M^m,t^m), coherently under composition and base change. The infinite root stack is the genuine groupoid two-limit with these transition isomorphisms (RS.2/transition and infinite-root-stack).
+- TauCeti.RootStack.rootStack.dvrGerbe (compatibility): For a DVR, after choosing a neutralization the reduced infinite closed fibre is B_k lim_n μ_n in the fpqc topology; its isomorphism classes are H1_fpqc(k,lim_n μ_n), with the origin dependent on that choice (RS.2/dvr-infinite-gerbe and dvr-kummer-classes).
 
 Unit tests:
 
@@ -7410,6 +8959,12 @@ Unit tests:
 - TauCeti.RootStack.rootStack.test_unit_section (compatibility): For (O_X,1), every exponent gives a stack equivalent to X.
 - TauCeti.RootStack.rootStack.test_zero_section (non-example): Over an algebraically closed field, (O,0) at invertible n>1 has μ_n automorphisms and is not the coarse point.
 - TauCeti.RootStack.rootStack.test_stack_base (compatibility): At n=1 over BG the output is BG, rather than Spec k.
+- TauCeti.RootStack.rootStack.test_affine_cartier (computation): For X=Spec k[x], f=x and n=3, recover [Spec k[x,t]/(t³−x)/μ_3] with ζ·t=ζt, retaining the stack action as well as the ring.
+- TauCeti.RootStack.rootStack.test_coarse_grading (non-example): In characteristic p with n=p, the μ_p grading still gives (A[t]/(t^p−f))^{μ_p}=A; using only geometric μ_p(k)-points would incorrectly make every function invariant.
+- TauCeti.RootStack.rootStack.test_nilpotent_fibre (non-example): For n=2 and k of characteristic not two, the root t=ε over k[ε]/(ε²) is a nonzero section in the zero fibre, which a pure Bμ_2 replacement would lose.
+- TauCeti.RootStack.rootStack.test_wild_branch (non-example): For X=Spec k[x], D=V(x), char k=p and n=p, the root stack is regular but not DM along x=0; the unit-section case remains X even at this exponent.
+- TauCeti.RootStack.rootStack.test_transition_coherence (compatibility): A fourth root maps to its square at order two and then to its fourth power at order one, agreeing with the direct transition and its base changes. Unrelated finite roots without transition isomorphisms are not an infinite object.
+- TauCeti.RootStack.rootStack.test_dvr_origin (compatibility): For a DVR the reduced infinite fibre has lim_n μ_n automorphisms after neutralization; changing the chosen origin translates its H1_fpqc coordinate, rather than canonically identifying all torsor classes with the trivial one.
 
 Acceptance:
 
@@ -7417,9 +8972,9 @@ Acceptance:
 
 Planet: Root stacks.
 
-Source:
+Sources:
 
-- AGV08, B.2 pp. 53–54; stack-base sentence p. 54; TV §3 pp. 12–13. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, Appendix B.2, pp. 53–54: scheme-base triples and classifying-stack fibre product; algebraic-stack bases are an atlas-descent extension, not a sentence in this appendix. AGV gives the root-object definition for scheme bases. The extension to an algebraic-stack base uses the separately requested atlas and descent infrastructure; AGV Appendix B does not itself state that extension.
 
 ### Root stacks as a two-fibre product
 
@@ -7443,9 +8998,9 @@ Acceptance:
 
 - The isomorphism φ is retained, even when all geometric coarse points agree.
 
-Source:
+Sources:
 
-- AGV08, B.2 pp. 53–54 displayed fibre-product diagram. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, Appendix B.2, p. 54: U=[A¹/G_m] and the displayed S×_U U description. The final B.2 display identifies the scheme-base root construction as this fibre product; the stack-base version uses the requested geometric descent interface.
 
 ### Base change for finite root stacks
 
@@ -7559,17 +9114,17 @@ Source:
 
 Declaration: FunctionFieldArithmeticPartII:RS.1/regular-dm. Theorem.
 
-If X is regular and D is a regular effective Cartier divisor, √[n]{(O(D),s_D)/X} is regular; when n is invertible on X it is Deligne–Mumford with μ_n inertia over D and trivial inertia outside D. If a geometric branch point has characteristic dividing n, its μ_n inertia is not étale, so the stack is not DM there. An empty divisor still gives X in every characteristic.
+If X is a regular scheme and D is a regular effective Cartier divisor, √[n]{(O(D),s_D)/X} is regular; when n is invertible on X it is Deligne–Mumford with μ_n inertia over D and trivial inertia outside D. If a geometric branch point has characteristic dividing n, its μ_n inertia is not étale, so the stack is not DM there. An empty divisor still gives X in every characteristic.
 
 Hypotheses:
 
-- The exponent n is a positive integer; the scheme or stack base and all base changes use the stated fppf topology.
+- X is a regular scheme, D is a regular effective Cartier divisor (possibly empty), and n is a positive integer. Use fppf root stacks for arbitrary n; the DM assertion requires n invertible on X.
 
 Construction or proof:
 
-1. Locally choose a regular parameter f cutting out D; the equation tⁿ=f replaces that parameter and gives a regular chart.
-2. For invertible n the finite diagonalizable stabilizer is étale; descend regularity through the atlas.
-3. At an actual branch point use the computed μ_n inertia and its nonreduced characteristic-dividing part to obstruct the DM diagonal.
+1. On a local trivialization use the smooth G_m-torsor atlas V_σ from AGV B.2, with coordinates z,q,q⁻¹ and equation zⁿ=qf. At z=0, f cuts out a regular divisor, so zⁿ−qf has a nonzero linear regular-parameter term. At z≠0 the equation forces f to be a unit and solves for q. Verify these local rings are regular with the requested regular-divisor interface.
+2. Descend regularity along this smooth G_m atlas. The finite chart Spec A[t]/(tⁿ−f)→root stack is only a μ_n torsor in general; when n is not invertible it is not a smooth atlas and must not by itself be used for smooth-local regularity descent.
+3. For invertible n the branch inertia μ_n is étale, giving the DM condition. At a branch point of characteristic dividing n the same inertia is non-étale and obstructs DM; outside the divisor the root stack is the base.
 
 Inputs: FunctionFieldArithmeticPartII:RS.1/affine-chart, FunctionFieldArithmeticPartII:RS.1/closed-fibre, SchemeAndStackFoundations:SF.1, AlgebraicModuliForArithmeticGeometry:R09.4.
 
@@ -7577,9 +9132,9 @@ Acceptance:
 
 - On a DVR the n=2 root is regular in odd residue characteristic; the assertion is not that arbitrary sections cut regular divisors.
 
-Source:
+Sources:
 
-- AGV08, B.2 p. 54 smooth/normal-crossing root construction; YZ19 A.1.4 pp. 516–517. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- AGV08, Appendix B.2, pp. 53–54: the G_m quotient atlas; regularity is the local regular-parameter argument in proofSteps, rather than a smooth/normal-crossing theorem printed here. The G_m atlas can test regularity even at wild exponents. The requested regular-divisor and geometric quotient interfaces supply the commutative-algebra and descent details; Appendix B does not state a general regularity theorem.
 
 ### Invariants of an affine root chart
 
@@ -7647,7 +9202,7 @@ Divisibility transitions and coherent inverse limits; finite DVR reduced fibres 
 
 ### Divisibility transition morphisms
 
-Declaration: FunctionFieldArithmeticPartII:RS.2/transition. Construction.
+Declaration: FunctionFieldArithmeticPartII:RS.2/transition. Construction. Native name: TauCeti.RootStack.transition.
 
 For positive m,n the transition √[mn]{(L,s)}→√[n]{(L,s)} sends (M,t,φ) to (Mᵐ,tᵐ,φ), using the coherent identification (Mᵐ)ⁿ≅Mᵐⁿ. Transitions are compatible with base change and with multiplication of positive integers.
 
@@ -7662,6 +9217,8 @@ Construction or proof:
 3. The supplier’s monoidal coherence identifies composite transitions on root objects and arrows.
 
 Inputs: FunctionFieldArithmeticPartII:key/root-stacks, FunctionFieldArithmeticPartII:RS.0/tensor-power, FunctionFieldArithmeticPartII:RS.0/section-power, FunctionFieldArithmeticPartII:RS.1/base-change.
+
+Upstream imports: UPSTREAM:AlgebraicVectorBundles:L0A, UPSTREAM:AlgebraicVectorBundles:L0B.
 
 API uses:
 
@@ -7684,9 +9241,9 @@ Acceptance:
 
 - The map is over X; n divides mn, and the direction goes from the finer root to the coarser root.
 
-Source:
+Sources:
 
-- TV17, Proposition 3.2 and divisibility functors p. 13. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- TV17, Proposition 3.2 and divisibility functors p. 13 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Infinite root stacks
 
@@ -7781,9 +9338,9 @@ Acceptance:
 
 - For A=Z_(p), a unit need not have an n-th root; the stack construction is nevertheless uniformizer-independent.
 
-Source:
+Sources:
 
-- B24, p. 135 finite-root definition and uniformizer independence. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- B24, p. 135 finite-root definition and uniformizer independence The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The infinite reduced DVR fibre
 
@@ -8436,11 +9993,12 @@ Source:
 
 Declaration: FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion. Lemma.
 
-For a smooth Z over the algebraically closed base, a map Z→[A^r/G_m^r] given by r line bundles with sections is smooth exactly when their zero divisors are smooth and meet transversely, including the empty strata.
+Let Z be a smooth irreducible scheme over an algebraically closed field and let r line bundles with sections determine f:Z→[A^r/G_m^r]. Assume no section vanishes identically on Z, so each scheme-theoretic zero locus D_i is an effective Cartier divisor, possibly empty. Then f is smooth if and only if every D_i is smooth and all their intersections are transverse, with each nonempty intersection indexed by I of codimension |I|.
 
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- Z is smooth and irreducible over an algebraically closed field; each section is not identically zero. Vanishing loci and their intersections are scheme-theoretic; an empty divisor is allowed.
 
 Construction or proof:
 
@@ -8454,9 +10012,9 @@ Acceptance:
 
 - A zero section on all of Z fails the smooth divisor condition.
 
-Source:
+Sources:
 
-- YZ19, Lemma A.3 p. 516. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, Claim in the proof of Lemma A.4(1), p. 516; Definition A.3 on that page is a different item. The source claim assumes Z smooth and irreducible and each section not identically zero. Its scheme-theoretic vanishing divisors are smooth and meet transversely precisely when the classifying map is smooth.
 
 ### Smoothness of root symmetric powers
 
@@ -8747,11 +10305,11 @@ Source:
 
 - YZ19, Lemma A.5 p. 519 and proof. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
-### Root divisors supported away from R
+### The signed root-divisor groupoid
 
-Declaration: FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid. Comparison.
+Declaration: FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid. Construction. Native name: TauCeti.RamifiedClassField.rootDivisorGroupoid.
 
-The groupoid of root divisors used in §6.2.3 is the effective open X_d^√R(k) with its root data and automorphisms; forgetting the root gives the ordinary divisor. The character on differences of such objects is evaluated through the adelic root-Picard equivalence, not through an unweighted set bijection.
+Define Div^√R(X) to be the action groupoid A_F×/O_{√R}× for the actual homomorphism O_{√R}×→A_F×. It contains signed divisors in all degrees; neither quotient by F× nor an effectivity condition is imposed. The forgetful map to A_F×/O×=Div(X) uses E(a)=Σ_x v_x(a_x)x. With this valuation convention its Abel–Jacobi functor lands in the double quotient Pic_X^√R(k) and has underlying line bundle O_X(−E(a)), with the retained square-root line along R. The quadratic character is pulled back along this functor. Effective section moduli are a separate construction; they are not identified with this entire groupoid.
 
 Hypotheses:
 
@@ -8759,19 +10317,44 @@ Hypotheses:
 
 Construction or proof:
 
-1. Identify the effective global section with its Cartier divisor using the imported divisor dictionary.
-2. Retain the line and root isomorphisms in the morphism groupoid.
-3. Apply root Abel–Jacobi and the adelic equivalence to differences.
+1. Form the right-action groupoid of the modified-unit homomorphism. Arrows retain their full labels, including the kernel ∏_{x∈R}μ₂(k(x)); an orbit set would lose these automorphisms.
+2. Use the parent’s divisor/idele dictionary E(a)=Σv_x(a_x)x to obtain the ordinary signed divisor, without imposing nonnegative valuations or dividing by F×.
+3. Apply the canonical functor to the double quotient and Lemma A.5. Its sign is fixed by a uniformizer π_x⁻¹: E=−x and the associated Picard line is O_X(x). At branch points retain the root line and square isomorphism.
+4. Pull back the idele character along this Abel–Jacobi functor; the specialized matrix quotient and 1/#Aut integration remain with ShtukaSpecialCyclesAndHigherSiegelWeil.
 
-Inputs: FunctionFieldArithmeticPartII:GC.1/root-symmetric-space, FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid.
+Inputs: FunctionFieldArithmeticPartII:GC.2/root-units, FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid, FunctionFieldArithmetic:FA.2, SchemeAndStackFoundations:SF.3, mathlib:CategoryTheory.Groupoid.
+
+API uses:
+
+- Yun–Zhang §6.2.3, p. 498, definition of Div^√R(X) and simultaneous translation on four root divisors — Signed root divisors form a group-like action groupoid before quotienting by principal ideles; this supplies the matrix-stack inputs and their automorphisms.
+- Yun–Zhang Lemma 6.4, (6.9), p. 499 — The pulled-back quadratic character is evaluated on a difference E₁^♮−E₂^♮ and the groupoid sum keeps automorphism weights.
+
+API:
+
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.ofIdele (constructor): An idele a determines its object in the right-action groupoid.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.arrow (constructor): A modified unit h gives the arrow a→a·forget(h); its label h is retained even when forget(h)=1.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.forget (projection): The ordinary signed divisor is E(a)=Σ_x v_x(a_x)x, and modified-unit arrows preserve it.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.tensor (structure): Idele multiplication supplies addition of root divisors; identity and inverse give the unit and additive inverse, with their groupoid coherence.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.abelJacobi (functoriality): The right quotient maps to F×\A_F×/O_{√R}×; its underlying line is O_X(−E) in the stated valuation convention.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.automorphisms (characterisation): The automorphism group of every idele object is ker(O_{√R}×→A_F×)=∏_{x∈R}μ₂(k(x)); at R=∅ it is trivial.
+
+Unit tests:
+
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.test_empty_R_signed (non-example): For R=∅ the groupoid is equivalent to the discrete groupoid of all signed divisors. A uniformizer idele and its inverse give x and −x; both occur.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.test_uniformizer_sign (computation): For x∉R the idele equal to π_x⁻¹ at x and 1 elsewhere has E=−x and Abel–Jacobi line O_X(x).
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.test_branch_kernel (characterisation): At any branch point in odd characteristic, the modified unit with u=1,v=−1 there and identity elsewhere gives a nonidentity automorphism of the unit idele.
+- TauCeti.RamifiedClassField.rootDivisorGroupoid.test_principal_not_quotiented (non-example): For R=∅ and a nonconstant f∈F× with nonzero principal divisor, the identity and diagonal-f objects are not isomorphic in the right quotient, but their images in the double Picard quotient are isomorphic.
 
 Acceptance:
 
-- Any matrix-stack integration consumer retains the factor 1/#Aut; constructing that specialized matrix stack belongs to ShtukaSpecialCyclesAndHigherSiegelWeil.
+- At R=∅, both x and −x occur as signed divisors; neither is discarded by an effectivity condition.
+- A scalar from F× changes the signed divisor by a principal divisor and only becomes identified after the further Picard quotient.
+- At x∉R, π_x⁻¹ has E=−x but its Abel–Jacobi line is O_X(x).
+- At a branch point a nontrivial modified-unit kernel label remains a nontrivial automorphism; matrix integration retains 1/#Aut.
 
-Source:
+Sources:
 
-- YZ19, §6.2.3 p. 499, Lemma 6.4 (6.9); Definition A.2 p. 515. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, §6.2.3, p. 498: definition of Div^√R(X), its two maps and O_X(−E); Lemma 6.4, (6.9), p. 499. The source defines the right idele action quotient on all signed divisors. The left F× quotient occurs only in the subsequent Picard map; it is not an effective symmetric-power moduli problem.
 
 ## GC.3. Symmetric local systems
 
@@ -8801,13 +10384,13 @@ Acceptance:
 
 Planet: Tame root-curve local systems.
 
-Source:
+Sources:
 
-- YZ19, A.2 first paragraph p. 519; A.2.3 p. 520. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.2 first paragraph, p. 519; the tame order-two inertia condition. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Symmetric tensor local systems
 
-Declaration: FunctionFieldArithmeticPartII:GC.3/symmetric-local-system. Construction.
+Declaration: FunctionFieldArithmeticPartII:GC.3/symmetric-local-system. Construction. Native name: TauCeti.RamifiedClassField.symmetricLocalSystem.
 
 For L as above and d≥0 define K_d=(p_{d,!}L^{⊠d})^{S_d} with no shift, and L_d=H⁰(K_d). The collision and middle-extension lemmas prove K_d≅L_d, with L_d lisse rank one and L_d[d] perverse. The invariant projector is d!⁻¹Σσ over Q̄ℓ, including when ℓ divides d!.
 
@@ -8847,9 +10430,9 @@ Acceptance:
 
 Planet: Symmetric tensor local systems.
 
-Source:
+Sources:
 
-- YZ19, A.2.1 p. 519, corrected perverse shift (source issue E26). The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.2.1 p. 519, corrected perverse shift (packet source issue E1; upstream PAPER-YUN-ZHANG-19/E26). The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Collision kernels act trivially on the tensor line
 
@@ -9230,12 +10813,13 @@ Source:
 
 Declaration: FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected. Theorem.
 
-The weighted quotient [A^n minus {0}/G_m] with weights (2^{n−ρ},1^ρ), ρ≥1 and n≥ρ+1, has no nontrivial connected finite étale cover. Thus every rank-one lisse Q̄ℓ-local system on it is geometrically constant.
+After base change to an algebraically closed field K of characteristic not two, the weighted quotient [A_K^n minus {0}/G_m,K] with weights (2^{n−ρ},1^ρ), ρ≥1 and n≥ρ+1, has no nontrivial connected finite étale cover. Thus every rank-one lisse Q̄ℓ-local system on the original quotient is geometrically constant.
 
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
 - ρ≥1; n≥ρ+1.
+- The simple-connectivity assertion is on the geometric base change to an algebraically closed field K; ρ≥1 and n≥ρ+1.
 
 Construction or proof:
 
@@ -9251,9 +10835,9 @@ Acceptance:
 
 Planet: Weighted quotient simple connectivity.
 
-Source:
+Sources:
 
-- YZ19, Claim in proof of Lemma A.9 p. 521. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, Claim in proof of Lemma A.9 p. 521 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Triviality of the symmetric sheaf along Abel–Jacobi fibres
 
@@ -9555,9 +11139,9 @@ Acceptance:
 
 Planet: All-degree Abel–Jacobi comparison.
 
-Source:
+Sources:
 
-- YZ19, Lemma A.10 p. 522 (source issue E68). The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, Lemma A.10, p. 522; the packet finding is E6, inherited from PAPER-YUN-ZHANG-19/E68. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The unit trivialization of the character sheaf
 
@@ -9609,9 +11193,9 @@ Acceptance:
 
 - The corrected diagram has a product domain, matching the multiplicative target.
 
-Source:
+Sources:
 
-- YZ19, Proof of Proposition A.11 p. 523 (source issues E35/E69). The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, Proof of Proposition A.11, p. 523; product Abel–Jacobi correction E4 and Picard-superscript correction E7. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Multiplication in every integer degree
 
@@ -9695,7 +11279,7 @@ Source:
 
 ### Character sheaves on hat section spaces
 
-Declaration: FunctionFieldArithmeticPartII:GC.5/hat-character-pullback. Construction.
+Declaration: FunctionFieldArithmeticPartII:GC.5/hat-character-pullback. Construction. Native name: TauCeti.RamifiedClassField.hatCharacter.
 
 For every integer degree in which the hat section moduli problem is defined, set hatL_d=hatAJ_d*L_d^Pic. On the effective open it is canonically L_d for d≥0. This is a pullback along the entire hat map, so its zero-section stalks remain rank one.
 
@@ -9734,9 +11318,9 @@ Acceptance:
 
 Planet: Hat Abel–Jacobi character pullback.
 
-Source:
+Sources:
 
-- YZ19, §6.2.1 pp. 496–497. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, §6.2.1 pp. 496–497 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ## GC.6. Ramified norms and quadratic traces
 
@@ -9815,13 +11399,14 @@ Source:
 
 ### Ramified norm of Picard objects
 
-Declaration: FunctionFieldArithmeticPartII:GC.6/root-norm. Construction.
+Declaration: FunctionFieldArithmeticPartII:GC.6/root-norm. Construction. Native name: TauCeti.RamifiedClassField.rootNorm.
 
 The sheaf map Nm^√R=(Nm,r_{R′}):ν_*G_m,X′→G_m,X^√R induces the root norm Pic_X′→Pic_X^√R, sending L′ to (Nm L′,L′|_{R′},ι). It lifts the ordinary norm and respects tensor products.
 
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -9854,9 +11439,9 @@ Acceptance:
 
 Planet: Ramified root norm.
 
-Source:
+Sources:
 
-- YZ19, A.3.1 p. 524. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.1 p. 524 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Étale-local surjectivity of the root norm on units
 
@@ -9867,6 +11452,7 @@ Nm^√R:ν_*G_m,X′→G_m,X^√R is surjective as an étale sheaf under the odd
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -9880,9 +11466,9 @@ Acceptance:
 
 - This is local surjectivity of sheaves, not surjectivity on every ring’s global units.
 
-Source:
+Sources:
 
-- YZ19, A.3.1 p. 524 local surjectivity calculation. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.1 p. 524 local surjectivity calculation The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Local Hilbert 90 with root normalization
 
@@ -9893,6 +11479,7 @@ As étale sheaves, ker Nm^√R is the image of u↦u/(σu), and ker(1−σ)=G_m,
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -9906,9 +11493,9 @@ Acceptance:
 
 - Ordinary norm-one residue −1 is excluded by the root normalization; 1+u would fail there.
 
-Source:
+Sources:
 
-- YZ19, A.3.3 p. 524. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.3 p. 524 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The exact ramified norm sheaf sequence
 
@@ -9919,6 +11506,7 @@ The étale sheaf complex 1→G_m,X→ν_*G_m,X′→^{1−σ}ν_*G_m,X′→^{Nm
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -9934,9 +11522,9 @@ Acceptance:
 
 Planet: Ramified norm sheaf exactness.
 
-Source:
+Sources:
 
-- YZ19, A.3.3 p. 524 displayed exact sheaf sequence. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.3 p. 524 displayed exact sheaf sequence The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### Descent obstructions for the Picard-stack sequence
 
@@ -9947,6 +11535,7 @@ Let K=ker Nm^√R. Interpret the exact sheaf complex as the two short exact sequ
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -9960,19 +11549,20 @@ Acceptance:
 
 - For ν:P¹→P¹, t↦t², O_{P¹}(1) is σ-invariant but is not pullback from downstairs because pullback doubles degree. This rules out naive kernel exactness at the first upstairs Picard group.
 
-Source:
+Sources:
 
-- YZ19, A.3.3 p. 525 (A.11), source-interpretation gap. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.3 p. 525 (A.11), source-interpretation gap The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The norm on hat section spaces
 
-Declaration: FunctionFieldArithmeticPartII:GC.6/hat-root-norm. Construction.
+Declaration: FunctionFieldArithmeticPartII:GC.6/hat-root-norm. Construction. Native name: TauCeti.RamifiedClassField.hatRootNorm.
 
 Send (L′,a′) on X′ to (Nm L′,L′|_{R′},ι,Nm a′,a′|_{R′}) on hatX_d^√R. It commutes with hat Abel–Jacobi and the root norm, and restricts to effective sections.
 
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -10002,19 +11592,20 @@ Acceptance:
 
 - Zero upstairs sections map to zero sections with their root lines retained.
 
-Source:
+Sources:
 
-- YZ19, A.3.2 (A.10) p. 524. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.2 (A.10) p. 524 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The quadratic root-curve local system
 
-Declaration: FunctionFieldArithmeticPartII:GC.6/quadratic-input. Construction.
+Declaration: FunctionFieldArithmeticPartII:GC.6/quadratic-input. Construction. Native name: TauCeti.RamifiedClassField.quadraticInput.
 
 For the geometrically connected double cover, ν_*Q̄ℓ decomposes into the ± eigensheaves of σ; its anti-invariant restriction to U is rank one, geometrically nontrivial and has inertia −1 exactly at R. Extend it to the root curve through the tame correspondence. The parent’s arithmetic reciprocity gives η_{F′/F}:F×\A_F×→{±1}, which is trivial on the image of O_{√R}×.
 
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -10046,9 +11637,9 @@ Acceptance:
 
 Planet: Quadratic root-curve local system.
 
-Source:
+Sources:
 
-- YZ19, A.3.4 p. 525; §6.2.1 p. 496. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, A.3.4 p. 525; §6.2.1 p. 496 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ### The Frobenius trace is a character
 
@@ -10137,6 +11728,7 @@ For the geometrically connected double cover, the Frobenius trace of its all-deg
 Hypotheses:
 
 - For GC layers: k is finite of characteristic p≠2; X/k is smooth, projective and geometrically connected; R⊂X is a reduced finite divisor, possibly empty; ρ=deg R, and g is the curve genus. Coefficients are Q̄ℓ with ℓ≠p; geometric Frobenius is used.
+- ν:X′→X is finite flat of degree two, X′ smooth projective geometrically connected, R its reduced branch divisor, R′≃R.
 
 Construction or proof:
 
@@ -10152,9 +11744,9 @@ Acceptance:
 
 Planet: Ramified geometric class field theory.
 
-Source:
+Sources:
 
-- YZ19, Proposition A.12 pp. 525–526. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
+- YZ19, Proposition A.12 pp. 525–526 The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
 ## First-route coverage
 
@@ -10458,7 +12050,7 @@ The packet carries the eight independently confirmed YZ19 corrections and the ne
 - mathlib:Module.finrank_eq_card_basis — Over a nontrivial strong-rank-condition ring, a finite basis computes finrank; used only over a field here. Source: Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean.
 - mathlib:LinearMap.finrank_range_add_finrank_ker — Rank-nullity for a linear map from a finite-dimensional vector space over a division ring. Source: Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean.
 
-The finite comparison signatures and eight examples are checked as a targeted Mathlib-native fragment, with the native character generator expanded to its actual definition. The earlier extraction admitted the coaction; a separate proof prototype checks its native quotient lift, weight, counit and coassociativity and the elementary tensor comparison. The submitted suggested bodies are admitted as required by PROTOCOL §13. This is not compilation of the full suggested file: its native Tau Ceti line-bundle/points imports have no compiled build available at the pin. All mathematical implementations and all ten stages remain unchecked and partial; the unchanged geometric omission ledger is still binding.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The finite comparison signatures and eight examples are checked as a targeted Mathlib-native fragment, with the native character generator expanded to its actual definition. The earlier extraction admitted the coaction; a separate proof prototype checks its native quotient lift, weight, counit and coassociativity and the elementary tensor comparison. The submitted suggested bodies are admitted as required by PROTOCOL §13. This is not compilation of the full suggested file: its native Tau Ceti line-bundle/points imports have no compiled build available at the pin. All mathematical implementations and all ten stages remain unchecked and partial; the unchanged geometric omission ledger is still binding.
 
 ## Native coaction proof continuation — codex-rtOQ9t
 
@@ -10466,7 +12058,7 @@ Four new lemmas expose the quotient relation, Euclidean root-power reduction, na
 
 Fresh reading is TV17 v2 §3.1 pp14–16, the full finite-chart setup and cited proofs. The PDF hash matches the inherited receipt. Current reviewed FA.0–FA.7 audit records and supplier scopes were checked. Earlier broad paper readings, AV sibling contracts and source findings retain their original provenance.
 
-The separate Mathlib proof extraction checks this algebra branch and its wild-characteristic, nonunit, nilpotent and exponent-one computations. It leaves the coordinate equivalences, kernel/cokernel, inverse, determinant/rank and nonvanishing examples admitted. The exact-pin Tau Ceti compiled imports remain unavailable, so the complete suggested file is uncompiled. All123 proposed nodes stay unchecked and all ten stages remain partial; the geometric, stack, sheaf and infinite-tower gaps are retained.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The separate Mathlib proof extraction checks this algebra branch and its wild-characteristic, nonunit, nilpotent and exponent-one computations. It leaves the coordinate equivalences, kernel/cokernel, inverse, determinant/rank and nonvanishing examples admitted. The exact-pin Tau Ceti compiled imports remain unavailable, so the complete suggested file is uncompiled. All123 proposed nodes stay unchecked and all ten stages remain partial; the geometric, stack, sheaf and infinite-tower gaps are retained.
 
 Additional native baseline statements read at Mathlib082e2d3:
 
@@ -10486,7 +12078,7 @@ The submitted suggested file follows PROTOCOL §13: declaration and example bodi
 
 The separate native proof prototype now checks the source and target existence-and-uniqueness lemmas. The suggested file keeps admitted declaration and example bodies as required by PROTOCOL §13. Their subsingleton branch covers the zero ring without a degree assertion. Their nontrivial branch uses the native monic AdjoinRoot basis; the target uses every group-algebra character and therefore retains wild-characteristic information. Two specified coefficient linear equivalences make their inverse formulas available to the kernel and module-cokernel work.
 
-Fresh reading is TV17 v2 §3.1 pp14–16 and the full Stacks040N unit-cover statement/proof. Other paper readings, source findings and AV sibling contracts keep predecessor provenance. The separate proof extraction, preserved at immutable commita7077b385885fa9b790ff4216098ad3871a87fa8, has554 lines and20 examples, with0 errors,18 admitted-body warnings and0 other warnings. All26 audited algebra declarations exclude admission axioms. At that predecessor checkpoint, the kernel/image criteria, sharp criteria, kernel/cokernel maps, inverse, determinant/rank and geometric work remained open. The current weighted-coefficient continuation below supersedes that proof boundary while preserving the distinct historical receipt. The full Tau Ceti file remains uncompiled and all ten stages partial.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): Fresh reading is TV17 v2 §3.1 pp14–16 and the full Stacks040N unit-cover statement/proof. Other paper readings, source findings and AV sibling contracts keep predecessor provenance. The separate proof extraction, preserved at immutable commita7077b385885fa9b790ff4216098ad3871a87fa8, has554 lines and20 examples, with0 errors,18 admitted-body warnings and0 other warnings. All26 audited algebra declarations exclude admission axioms. At that predecessor checkpoint, the kernel/image criteria, sharp criteria, kernel/cokernel maps, inverse, determinant/rank and geometric work remained open. The current weighted-coefficient continuation below supersedes that proof boundary while preserving the distinct historical receipt. The full Tau Ceti file remains uncompiled and all ten stages partial.
 
 Declaration: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence. construction. Native name: TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv.
 
@@ -11136,7 +12728,7 @@ Sources: [Stacks Tag040N](https://stacks.math.columbia.edu/tag/040N), Lemma59.28
 
 The current native proof extraction has37 examples, all with actual bodies, and22 printed declaration axiom audits. It has zero errors, two admitted assertions (the determinant and the general field-rank theorem), and no other warnings. The unit-inverse declarations have no admission dependency. The four inherited direct examples now have actual proofs: the nonzero branch tensor, the wild unit nilpotent, failure of injectivity preservation under Z→F₂, and the full Z/8 cokernel-equivalence example with an element of order four. The five new unit-chart tests compute the exponent-one character, the wild inverse, the inverse coefficient3 over F₅, the zero ring and the unchanged right factor.
 
-The distinct proposed native signature extraction has37 examples, zero errors,100 admitted-body warnings and no other warnings. The final suggested signatures and examples are admitted under PROTOCOL13. Exact-pin compiled Tau Ceti line-bundle and roots-of-unity modules remain unavailable, so the complete suggested file is uncompiled. All149 nodes stay unchecked and all ten stages stay partial. The eight geometric gaps and thirteen supplier requests remain open. The handoff gives immutable source commits, byte-exact reconstruction recipes and the native atlas projection receipt.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): The distinct proposed native signature extraction has37 examples, zero errors,100 admitted-body warnings and no other warnings. The final suggested signatures and examples are admitted under PROTOCOL13. Exact-pin compiled Tau Ceti line-bundle and roots-of-unity modules remain unavailable, so the complete suggested file is uncompiled. All149 nodes stay unchecked and all ten stages stay partial. The eight geometric gaps and thirteen supplier requests remain open. The handoff gives immutable source commits, byte-exact reconstruction recipes and the native atlas projection receipt.
 
 ## Native zero-section rank continuation — 2 October 2026
 
@@ -11183,7 +12775,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 ## RS.0 continuation — specified determinant dependencies
 
@@ -11324,7 +12916,7 @@ Additional tests:
 - `TauCeti.RootStack.affineTorsorComparison.determinant.test_zero_ring` (degenerate): For A=ZMod1, n=2 and f=0, the determinant is0 in the zero ring; numerical polynomial degree is not substituted for the chosen index.
 - `TauCeti.RootStack.affineTorsorComparison.determinant.test_wild` (compatibility): For A=ZMod2, n=2 and f=1, the determinant is1 even though n is zero in A.
 
-Verification boundary: the complete separate native extraction is 1716 lines with 62 proved examples and 42 axiom audits. It passed at the exact Mathlib pin with no errors, warnings or admissions; the reconstructed 946-line admitted signature extraction passed with only its 142 expected admission warnings. The public archive [checked root determinant](https://github.com/CBirkbeck/tauceti-explorer/blob/6df00ac8cb82d19130a90b5d1ea473e803fd8eae/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) contains the exact native body and submitted head. Reconstruction verifies all three SHA-256 values, six determinant/helper signatures and eleven new test statements. Native source SHA-256: d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7; signature source SHA-256: c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01. The full 1964-line geometric/TauCeti-importing suggested file was not compiled: the existing exact-pin build lacks both required TauCeti line-bundle and root-of-unity artifacts. These prototype checks are not a library implementation or a certification of the remaining geometric/source work.
+Historical validation receipt (the present full-file elaboration is recorded at the start of this document): Verification boundary: the complete separate native extraction is 1716 lines with 62 proved examples and 42 axiom audits. It passed at the exact Mathlib pin with no errors, warnings or admissions; the reconstructed 946-line admitted signature extraction passed with only its 142 expected admission warnings. The public archive [checked root determinant](https://github.com/CBirkbeck/tauceti-explorer/blob/6df00ac8cb82d19130a90b5d1ea473e803fd8eae/research/blueprint/suggested/FunctionFieldArithmeticPartII.lean) contains the exact native body and submitted head. Reconstruction verifies all three SHA-256 values, six determinant/helper signatures and eleven new test statements. Native source SHA-256: d40ac61960c10d4640c4ecaa3204968021303cdcdd7dedc4ef4b0b81835938e7; signature source SHA-256: c688fbc69edc77647a553185633a2a5cc9838fd7c7beaa0f62ba793450b83f01. The full 1964-line geometric/TauCeti-importing suggested file was not compiled: the existing exact-pin build lacks both required TauCeti line-bundle and root-of-unity artifacts. These prototype checks are not a library implementation or a certification of the remaining geometric/source work.
 
 All implementations remain unchecked and all ten stages partial. This matrix determinant does not close normalized-coframe descent, quotient-stack algebraicity/coarse comparisons, the infinite fpqc tower or ramified geometric class-field theory. Full-file elaboration still requires the actual geometric/TauCeti imports.
 
@@ -11357,7 +12949,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Number of killed root columns
@@ -11386,7 +12978,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Specified zero-section kernel coordinates
@@ -11428,7 +13020,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Extract zero-section kernel coefficients
@@ -11453,7 +13045,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Recover zero-section kernel tensors
@@ -11478,7 +13070,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Dimension of the root tensor source
@@ -11508,7 +13100,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Dimension of the zero-section kernel
@@ -11538,7 +13130,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 
 ### Dimension of the zero-section image
@@ -11569,7 +13161,7 @@ Acceptance:
 
 Sources:
 
-- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+- TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
 
 ## RS.2 continuation — finite affine transition proofs
 
@@ -12727,162 +14319,418 @@ No freeness follows: if a chart point kills every u_i then every point action fi
 
 ### The represented action on root-chart points
 
-`TauCeti.RootStack.factorialPointAction` — construction. For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action. Construction. Native name: TauCeti.RootStack.factorialPointAction.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B.
 
-Construction or proof: Compose the inherited coaction ρ_f with the imported tensor lift of g.ofConv and x. Their images commute because B is commutative; no new generic tensor construction is planned.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction`, `mathlib:Algebra.TensorProduct.lift`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Compose the inherited coaction ρ_f with the imported tensor lift of g.ofConv and x. Their images commute because B is commutative; no new generic tensor construction is planned.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction, mathlib:Algebra.TensorProduct.lift.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
 
 API:
 
-- `TauCeti.RootStack.factorialPointAction.root`: For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
-- `TauCeti.RootStack.factorialPointAction.one`: For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
-- `TauCeti.RootStack.factorialPointAction.mul`: For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
-- `TauCeti.RootStack.factorialPointAction.naturality`: For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
-- `TauCeti.RootStack.factorialPointAction.scaling`: For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
-- `TauCeti.RootStack.factorialPointAction.universal`: Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
+- TauCeti.RootStack.factorialPointAction.root (simp): For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
+- TauCeti.RootStack.factorialPointAction.one (simp): For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+- TauCeti.RootStack.factorialPointAction.mul (structure): For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+- TauCeti.RootStack.factorialPointAction.naturality (functoriality): For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
+- TauCeti.RootStack.factorialPointAction.scaling (compatibility): For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
+- TauCeti.RootStack.factorialPointAction.universal (compatibility): Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
 
 Unit tests:
 
-- `pointActionTests.degree_two` (value): At A=B=ZMod4 and f=0, the order-two root evaluates under the action as the product of the unity-root point value and the chart-point value.
-- `pointActionTests.identity` (degenerate): For every f and every B-valued chart point, the convolution identity acts as the identity.
-- `pointActionTests.universal` (compatibility): The actual tensor-inclusion universal points recover the whole inherited coaction.
-- `pointActionTests.fixed_zero_roots` (non-example): In characteristic two with f=0, any chart point evaluating every root to zero is fixed by every convolution point; this action alone is not a freeness certificate.
+- pointActionTests.degree_two (value): At A=B=ZMod4 and f=0, the order-two root evaluates under the action as the product of the unity-root point value and the chart-point value.
+- pointActionTests.identity (degenerate): For every f and every B-valued chart point, the convolution identity acts as the identity.
+- pointActionTests.universal (compatibility): The actual tensor-inclusion universal points recover the whole inherited coaction.
+- pointActionTests.fixed_zero_roots (non-example): In characteristic two with f=0, any chart point evaluating every root to zero is fixed by every convolution point; this action alone is not a freeness certificate.
+
+Acceptance:
+
+- For arbitrary f∈A, g∈WithConv(AlgHom_A(H_A,B)) and x∈AlgHom_A(C_A(f),B), define α_f(g,x)=lift(g.ofConv,x)∘ρ_f using the native tensor-algebra lift. This is an actual A-algebra homomorphism C_A(f)→B.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction in the immutable matching reader, line 7618; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### The action on each finite root
 
-`TauCeti.RootStack.factorialPointAction.root` — lemma. For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-root. Lemma. Native name: TauCeti.RootStack.factorialPointAction.root.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
 
-Construction or proof: Apply the coaction root formula and the imported pure-tensor evaluation formula.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `mathlib:Algebra.TensorProduct.lift_tmul`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Apply the coaction root formula and the imported pure-tensor evaluation formula.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root, mathlib:Algebra.TensorProduct.lift_tmul.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every index i, α_f(g,x)(u_i)=g.ofConv(h_i)·x(u_i).
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.root in the immutable matching reader, line 7644; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### The action on coefficients
 
-`TauCeti.RootStack.factorialPointAction.constant` — lemma. For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a).
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-constant. Lemma. Native name: TauCeti.RootStack.factorialPointAction.constant.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a).
 
-Construction or proof: Use the coefficient-preservation field of the actual composite A-algebra homomorphism.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Use the coefficient-preservation field of the actual composite A-algebra homomorphism.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every a∈A, α_f(g,x)(ι_C(a))=ι_B(a).
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.constant in the immutable matching reader, line 7654; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### The convolution identity acts identically
 
-`TauCeti.RootStack.factorialPointAction.one` — lemma. For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-one. Lemma. Native name: TauCeti.RootStack.factorialPointAction.one.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
 
-Construction or proof: Compare the maps on all u_i. The inherited convolution identity evaluates each h_i to1, so multiplication leaves x(u_i) fixed.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/convolution-one-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Compare the maps on all u_i. The inherited convolution identity evaluates each h_i to1, so multiplication leaves x(u_i) fixed.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/convolution-one-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.one in the immutable matching reader, line 7664; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Convolution composition of actions
 
-`TauCeti.RootStack.factorialPointAction.mul` — lemma. For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-mul. Lemma. Native name: TauCeti.RootStack.factorialPointAction.mul.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
 
-Construction or proof: Compare all distinguished roots by actual colimit extensionality. Convolution evaluates h_i to g(h_i)h(h_i); associativity in B gives the equality.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/convolution-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Compare all distinguished roots by actual colimit extensionality. Convolution evaluates h_i to g(h_i)h(h_i); associativity in B gives the equality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/convolution-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.mul in the immutable matching reader, line 7674; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### The native root-chart point action
 
-`TauCeti.RootStack.factorialPointMulAction` — construction. The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-mul-action. Construction. Native name: TauCeti.RootStack.factorialPointMulAction.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra.
 
-Construction or proof: Fill the native action fields with α_f, its identity law and its product law. Do not construct a replacement generic monoid or group.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `mathlib:MulAction`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Fill the native action fields with α_f, its identity law and its product law. Do not construct a replacement generic monoid or group.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action, FunctionFieldArithmeticPartII:RS.2/point-action-one, FunctionFieldArithmeticPartII:RS.2/point-action-mul, mathlib:MulAction.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
 
 API:
 
-- `TauCeti.RootStack.factorialPointMulAction.smul`: After locally installing factorialPointMulAction f, g•x=α_f(g,x).
-- `TauCeti.RootStack.factorialPointAction.one`: For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
-- `TauCeti.RootStack.factorialPointAction.mul`: For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
+- TauCeti.RootStack.factorialPointMulAction.smul (simp): After locally installing factorialPointMulAction f, g•x=α_f(g,x).
+- TauCeti.RootStack.factorialPointAction.one (simp): For every chart point x, α_f(1,x)=x; the convolution identity is the counit point, not the identity endomorphism of H_A.
+- TauCeti.RootStack.factorialPointAction.mul (structure): For every g,h and chart point x, α_f(g*h,x)=α_f(g,α_f(h,x)).
 
 Unit tests:
 
-- `pointMulActionTests.identity` (degenerate): After local native action installation, the convolution unit fixes every point.
-- `pointMulActionTests.composition` (compatibility): After local native action installation, a convolution product acts as the successive two actions.
-- `pointMulActionTests.zero_ring` (value): At A=B=ZMod1 and f=0, the locally installed native action includes the zero-ring chart points and satisfies the unit law.
+- pointMulActionTests.identity (degenerate): After local native action installation, the convolution unit fixes every point.
+- pointMulActionTests.composition (compatibility): After local native action installation, a convolution product acts as the successive two actions.
+- pointMulActionTests.zero_ring (value): At A=B=ZMod1 and f=0, the locally installed native action includes the zero-ring chart points and satisfies the unit law.
+
+Acceptance:
+
+- The operation α_f equips AlgHom_A(C_A(f),B) with a native MulAction of the imported convolution monoid WithConv(AlgHom_A(H_A,B)); this is installed locally using the inherited factorial bialgebra.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointMulAction in the immutable matching reader, line 7684; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Identification of scalar action
 
-`TauCeti.RootStack.factorialPointMulAction.smul` — lemma. After locally installing factorialPointMulAction f, g•x=α_f(g,x).
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-mul-action-smul. Lemma. Native name: TauCeti.RootStack.factorialPointMulAction.smul.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+After locally installing factorialPointMulAction f, g•x=α_f(g,x).
 
-Construction or proof: Unfold only the root-specific instance field; the equality is definitional.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-mul-action`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Unfold only the root-specific instance field; the equality is definitional.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-mul-action.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- After locally installing factorialPointMulAction f, g•x=α_f(g,x).
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointMulAction.smul in the immutable matching reader, line 7706; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Naturality in the test algebra
 
-`TauCeti.RootStack.factorialPointAction.naturality` — lemma. For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-naturality. Lemma. Native name: TauCeti.RootStack.factorialPointAction.naturality.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
 
-Construction or proof: Apply root extensionality. The two root values agree because k preserves products.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Apply root extensionality. The two root values agree because k preserves products.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every A-algebra homomorphism k:B→C, k∘α_f(g,x)=α_f(toConv(k∘g.ofConv),k∘x).
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.naturality in the immutable matching reader, line 7716; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Recovery of the existing coefficient-valued scaling
 
-`TauCeti.RootStack.factorialPointAction.scaling` — lemma. For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-scaling. Lemma. Native name: TauCeti.RootStack.factorialPointAction.scaling.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
 
-Construction or proof: Compare all root values. Evaluation gives s_i, while the inherited scaling sends u_i to ι_C(s_i)u_i; x preserves coefficients and products.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Compare all root values. Evaluation gives s_i, while the inherited scaling sends u_i to ι_C(s_i)u_i; x preserves coefficients and products.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-scalar-evaluation-root, FunctionFieldArithmeticPartII:RS.2/factorial-root-scaling-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every coherent A-unit family s and chart point x, α_f(toConv(ι_B∘E_s),x)=x∘factorialScale(f,s), where E_s is the actual inherited evaluation map H_A→A.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.scaling in the immutable matching reader, line 7726; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Universal recovery of the coaction
 
-`TauCeti.RootStack.factorialPointAction.universal` — lemma. Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-universal. Lemma. Native name: TauCeti.RootStack.factorialPointAction.universal.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
 
-Construction or proof: Compare each root using the native left/right tensor inclusions: (h_i⊗1)(1⊗u_i)=h_i⊗u_i. This recovers the whole coaction, not merely geometric-point values.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Compare each root using the native left/right tensor inclusions: (h_i⊗1)(1⊗u_i)=h_i⊗u_i. This recovers the whole coaction, not merely geometric-point values.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/factorial-universal-coaction-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- Taking B=H_A⊗_A C_A(f), g=toConv(includeLeft) and x=includeRight gives α_f(g,x)=ρ_f as actual algebra homomorphisms; all roots and nilpotents are retained.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.universal in the immutable matching reader, line 7736; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Antipode cancellation on the left
 
-`TauCeti.RootStack.factorialPointAction.left_inverse` — lemma. For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-left-inverse. Lemma. Native name: TauCeti.RootStack.factorialPointAction.left_inverse.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x.
 
-Construction or proof: Use the product action law backwards, the inherited left convolution inverse equation, then the identity action law.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/convolution-left-inverse`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Use the product action law backwards, the inherited left convolution inverse equation, then the identity action law.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-mul, FunctionFieldArithmeticPartII:RS.2/point-action-one, FunctionFieldArithmeticPartII:RS.2/convolution-left-inverse.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every algebra map g:H_A→B and chart point x, α_f(toConv(g∘S),α_f(toConv(g),x))=x.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.left_inverse in the immutable matching reader, line 7746; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Antipode cancellation on the right
 
-`TauCeti.RootStack.factorialPointAction.right_inverse` — lemma. For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-right-inverse. Lemma. Native name: TauCeti.RootStack.factorialPointAction.right_inverse.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x.
 
-Construction or proof: Use the product action law backwards, the inherited right convolution inverse equation, then the identity action law.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-mul`, `FunctionFieldArithmeticPartII:RS.2/point-action-one`, `FunctionFieldArithmeticPartII:RS.2/convolution-right-inverse`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+
+Construction or proof:
+
+1. Use the product action law backwards, the inherited right convolution inverse equation, then the identity action law.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-mul, FunctionFieldArithmeticPartII:RS.2/point-action-one, FunctionFieldArithmeticPartII:RS.2/convolution-right-inverse.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- For every algebra map g:H_A→B and chart point x, α_f(toConv(g),α_f(toConv(g∘S),x))=x.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.right_inverse in the immutable matching reader, line 7756; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
 
 ### Zero-root points are fixed
 
-`TauCeti.RootStack.factorialPointAction.fixed_zero_roots` — lemma. If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action.
+Declaration: FunctionFieldArithmeticPartII:RS.2/point-action-fixed-zero-roots. Lemma. Native name: TauCeti.RootStack.factorialPointAction.fixed_zero_roots.
 
-Hypotheses: A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed. C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid. This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
+If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action.
 
-Construction or proof: Every acted root evaluates to g(h_i)·0=0. Root extensionality identifies the actual algebra maps.
+Hypotheses:
 
-Dependencies: `FunctionFieldArithmeticPartII:RS.2/point-action-root`, `FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext`.
+- A,B,C are arbitrary commutative rings in one fixed universe, with specified A-algebra structures on B and C; f∈A is arbitrary and k:B→C is an arbitrary A-algebra homomorphism where used. Zero rings, wild characteristic, nonreduced fibres and nonunit f are included. No field, domain, reducedness, finite-type, invertible-order, flatness or nontriviality hypothesis is imposed.
+- C_A(f) is the inherited factorial affine root colimit with u_i^(i+1)!=f. H_A=C_A(1) has inherited roots h_i, coaction ρ_f, counit ε, antipode S, coherent families and evaluation E_s. Install only the inherited factorialBialgebra A locally; use the native imported convolution monoid.
+- This is an action on actual affine-chart algebra-valued points, not a new generic comodule action. The existing Tau Ceti comodule pointsRepresentation acts on scalar-extended modules, a distinct carrier. The A[Q/Z] coordinate comparison, arbitrary-universe adapters, Spec transport, coherent root-object groupoids, fpqc frame torsors and quotient-stack equivalence remain separate obligations. Fixed zero-root points explicitly preclude a freeness claim.
 
-Acceptance: all thirteen named signatures and seven test types agree with the checked native proof. Preserve the general reserved root-stack definition, relative roots, full nonreduced fibres, arbitrary exponents and coherent infinite systems. All312 inherited contracts and all stage dependencies remain. Current totals:325 nodes,256 raw API records,265 raw tests,39 planets,201 baseline citations,8 gaps and13 requests. Every stage remains partial and every implementation unchecked.
+Construction or proof:
 
-Sources: Talpo–Vistoli, [arXiv:1410.1164v2](https://arxiv.org/pdf/1410.1164v2), complete printed/PDF pp.14–16 personally read2026-10-03; the point-coordinate action identities above are authored deductions from actual inherited native maps, not printed named theorems. The two original joining briefs and source-route inventories are retained. The whole geometric suggested file remains uncompiled; only its exact whole Mathlib-only extraction and the native proof are checked with the existing pin.
+1. Every acted root evaluates to g(h_i)·0=0. Root extensionality identifies the actual algebra maps.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/point-action-root, FunctionFieldArithmeticPartII:RS.2/factorial-affine-colimit-ext.
+
+API uses:
+
+- FunctionFieldArithmeticPartII:RS.2/infinite-affine-quotient — Supply the actual natural root-chart point action and its universal coaction recovery before the distinct geometric grading, Spec-limit, frame-torsor and quotient comparisons.
+
+Acceptance:
+
+- If x(u_i)=0 for every i, then α_f(g,x)=x for every convolution point g. Hence no freeness or torsor claim follows from the existence of this action.
+
+Sources:
+
+- FactorialPointAction-codex-a71f92, Authored declaration TauCeti.RootStack.factorialPointAction.fixed_zero_roots in the immutable matching reader, line 7766; the surrounding statement/proof section, not an assertion printed by Talpo–Vistoli. Authored algebraic deduction from inherited actual carriers and native baseline maps, motivated by Talpo–Vistoli §3.1 pp.14–16; not a printed quotient or torsor theorem.
