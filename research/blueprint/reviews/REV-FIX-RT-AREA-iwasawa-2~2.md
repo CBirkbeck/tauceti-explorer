@@ -1,17 +1,19 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-mrjVtq`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-pzP6uF`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105393160).
-Review base: `5ef4331ec4198234c77f9a74652b98acfd786d96`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105591960).
+Review base: `98e12a03c5d9478e5c37363f8a3daa086ac341cd`.
 This session authored none of the fixes under review.
 
 ## Verdict and scope blocker
 
 The bounded six-finding correction review is ready to finish, with three
 accepted packet decisions and PMIA's justified `needs_changes`. L3 and PMIA
-now record this session's fresh checks under this review job, with their
-predecessor reviews archived intact. Two prepared metadata-only records would
+already record the preceding session's decisions under this review job, with
+their predecessor reviews archived intact. Their files are unchanged in this
+continuation; another identical history entry serves no purpose.
+Two prepared metadata-only records would
 finish its queue obligations: L3-2 and D.1. Their full earlier reviews, with 79 and
 72 node decisions respectively, are archived intact in each candidate's
 `reviewHistory`; every mathematical field is unchanged.
@@ -30,6 +32,9 @@ The complete earlier mathematical review remains available in the
 [attributed six-finding report](https://github.com/CBirkbeck/tauceti-explorer/blob/303b02c8bda26170394f9f96f6c691391a2f8611/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
 The [immediately preceding report](https://github.com/CBirkbeck/tauceti-explorer/blob/5ef4331ec4198234c77f9a74652b98acfd786d96/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 preserves subsequent readings and elaborations with their original attribution.
+The [input report for this continuation](https://github.com/CBirkbeck/tauceti-explorer/blob/98e12a03c5d9478e5c37363f8a3daa086ac341cd/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+records `codex-mrjVtq`'s checks. The two candidate records retain
+`codex-jIGDIK`'s original attribution and dates.
 The handoff reproduces the exact remaining records, not a fresh exhaustive
 node audit. Installing them requires only scope authorization or a corrected
 live issue; another mathematical audit cannot resolve that restriction.
@@ -46,7 +51,7 @@ session are identified in the following sections.
 | /2 Ferrero–Greenberg | Accept L3-2's bounded correction; record prepared | Direct character weights, the even branch, conductor correction and strict endpoint are explicit. Convergence and arithmetic nonvanishing remain separate inputs. |
 | /3 Classical log-syntomic comparison | Accept D.1's bounded correction; record prepared | Distinct divided/undivided complexes, directed comparison maps, factorial twist, exact integral range and rational exponential scaling are retained. CS.0–CS.3 remain producer obligations. |
 | /4 Character orders, Fitting ideals and transpose | Record PMIA's `needs_changes` | Fresh source checks confirm the arithmetic repairs. Five generic plans duplicate current native Tau Ceti declarations, freshly verified below. Reader, Suggested and consumer plans need coordinated revision. |
-| /5 Finite slope for complexes | Retain the LAD correction | The current packet distinguishes representative-wise compactness and the auxiliary nonalternating degree product from invariant cohomological spectral support. Stronger homotopy, Stein and solid comparisons retain their gaps. The source audit remains the predecessor's. |
+| /5 Finite slope for complexes | Retain the LAD correction | Fresh readings of BCGP21 v3 §6.1.1 p.139 and BCGP25 Definition 2.2.17 p.21/§4.6.46–Remark 4.6.47 pp.93–94 support representative-wise compactness, the auxiliary nonalternating degree product and invariant cohomological spectral support. Stronger homotopy, Stein and solid comparisons retain their gaps. |
 | /6 Main-conjecture proof routes | Retain the verifier's rejection | Read the accepted RS-16 decision for I.5: it deliberately retains independent Hecke/congruence and Euler-system methods. There is no basis for replacing one by an import of the other. |
 
 LAD and the restructuring decision are read-only context. PMIA's negative
@@ -55,7 +60,7 @@ to a separate job.
 
 ## Direct source checks in this session
 
-Fetched seven public PDFs on 11 October 2026; their hashes are in the handoff.
+Fetched nine public PDFs on 11 October 2026; their hashes are in the handoff.
 Read the text layers at the locators below and visually inspected the Morita
 and Gross–Koblitz pages.
 
@@ -105,6 +110,23 @@ The cardinality comparison retains finiteness and nonzerodivisor hypotheses;
 the higher-adjugate repair specifies its right-sided image. Eighteen gaps and
 three requests remain explicit. These arithmetic repairs do not remove the
 ownership defect below.
+
+For /5, [Boxer–Calegari–Gee–Pilloni 2021, v3](https://arxiv.org/pdf/1812.09269v3),
+§6.1.1 p.139, defines compactness through a bounded projective Banach
+representative. The degreewise characteristic-series product supplies an
+auxiliary spectral space; the support of its cohomology sheaves is the invariant
+object. Read the current LAD nodes `compact-complex-representative`,
+`representative-fredholm-product`, `representative-product-dependence` and
+`finite-slope-perfect-complex`: they retain this distinction and the selected
+finite-window condition. The two-term acyclic example has auxiliary product
+(1−aT)² while its zero model has product 1.
+[Boxer–Calegari–Gee–Pilloni 2025](https://arxiv.org/pdf/2502.20645),
+Definition 2.2.17 p.21, requires dense restriction maps in a countable affinoid
+exhaustion, with relative compactness added for Stein spaces. §4.6.46 and
+Remark 4.6.47 pp.93–94 define the derived solid functor by pulling to the
+character space and pushing back; this imposes more than monoid inversion.
+The existing producer and comparison obligations remain explicit. This fresh
+source check does not convert those obligations into implemented suppliers.
 
 Read the actual pinned statements of `ContinuousMap.unitsOfForallIsUnit`
 in `Mathlib/Topology/ContinuousMap/Units.lean`, `gaussSum` in
@@ -156,8 +178,8 @@ Mathlib `082e2d3`/Tau Ceti `f790474` declaration index: zero errors. L3 retains
 have none. Both exact candidates also pass with zero errors and warnings.
 All four packets contain no `excerpt` field. Entire existing reviews and
 histories, node ledgers, sources, gaps and requests are preserved in each
-candidate. L3 and PMIA change only `review` and `reviewHistory`; all four
-Suggested files and the other two actual packets remain byte-identical to the
+candidate. All four actual packets and all four
+Suggested files remain byte-identical to the
 review base. Actual `deliverables_complete` is false; the read-only
 candidate diagnostic is true, with the predicate and queue unchanged.
 
@@ -166,10 +188,11 @@ checking available memory. L3 stops at line 1 with an unknown `research`
 module prefix; its body was not elaborated. L3-2, D.1 and PMIA succeed with
 111, 307 and 1,075 `sorry` warnings respectively and no other diagnostics.
 This reproduces the earlier results with this session's own evidence.
-The seven source-PDF hashes and actual Suggested hashes are in the handoff.
+The nine source-PDF hashes and actual Suggested hashes are in the handoff.
 No book was used and source passages remain outside the repository.
 
-This checkpoint changes L3/PMIA review metadata, this report and the handoff.
+This continuation changes only this report and the handoff. It does not repeat
+the L3/PMIA metadata updates already installed by the preceding session.
 Resume the two exact installations after scope authorization or repair of
 the live issue.
 Then require actual dispatch completeness to be true and submit the finished
