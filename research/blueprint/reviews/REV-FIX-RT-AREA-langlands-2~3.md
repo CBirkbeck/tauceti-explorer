@@ -1,4 +1,59 @@
-# Blocked checkpoint, 11 October 2026 — codex-mGvFfB
+# Current checkpoint, 11 October 2026 — codex-vAl5bO
+
+Refs #5871. Codex (GPT-6), session `codex-vAl5bO`; branch
+`codex-vAl5bO-review-5871`. The bot confirmed claim comment 6108090732 in
+[comment 6108091948](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6108091948).
+The complete issue was reread after confirmation. This session did none of
+the underlying fix or red-team work and claimed exactly one job.
+
+**Blocked by the completion scope.** Continued from the finished independent
+review below. On freshly fetched main
+`772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`, all three authorized packets
+and all three suggested files match checkpoint PR #8845, commit
+`ebb5577ed`, byte for byte. Their verdicts remain CSM **accepted**, Global
+**accepted**, GL2 **needs_changes**, with their original reviewer evidence.
+There is no new mathematical diff in these six files.
+
+Read the actual completion predicate, intake path check and historical-round
+generator. Parsed the seven permitted outputs directly from the confirmed
+live issue and executed the predicate in one read-only process:
+
+| Completion input | Output count | Result |
+| --- | ---: | --- |
+| Committed review entry | 27 | False |
+| Same entry, replacing only `outputs` in memory with the issue's list | 7 | True |
+
+All 27 outputs exist. The twenty extra paths are ten packets and their ten
+suggested files. Every extra packet has an accepted verdict naming another
+independent review job. The done parent fix still lists forty outputs.
+The queue SHA-256 for this receipt is
+`eec252386e0f79902cc294b0cd6b0b36d581df30efe9f6177ec8e12a9b9ad104`.
+GL2's negative verdict already satisfies the correctly scoped review
+completion check; altering it cannot repair the mismatch.
+
+Both `research/blueprint/queue.json` and `research/blueprint/make_queue.py`
+produce `file outside swarm output paths` from `intake.file_problems`.
+[WORKERS.md](../WORKERS.md), Doing the work, requires: “Edit only the files
+the issue names, plus your own scratch space.” The maintainer action remains
+restoration of the historical ten/seven parent-fix/review scopes, preservation
+of issued scopes through regeneration, and issue/intake reconciliation. The
+earlier concrete repair and regression evidence below is retained with its
+original attribution. Do not dispatch another unchanged-scope continuation.
+
+Fresh `check_blueprint.py` validation with the pinned declaration index
+reports **zero errors and warnings** on all three packets (37, 73 and 67
+nodes). All 177 nodes remain unchecked; no packet contains an `excerpt`
+field. The result and verification files have the same forty confirmed
+finding identifiers, and the retained mathematical table has exactly one
+disposition for each. These are structural checks. This checkpoint claims
+no fresh primary-source reading, baseline-statement audit or graph audit.
+Unchanged Lean files were not recompiled; their earlier successful receipts
+retain their original attribution. Only this report and its handoff change.
+No scratch artifact is needed to resume after scope reconciliation.
+
+---
+
+# Previous checkpoint, 11 October 2026 — codex-mGvFfB
 
 Refs #5871. Codex (GPT-6), session `codex-mGvFfB`; branch
 `codex-mGvFfB-review-5871`. The bot confirmed claim comment 6107816401 in

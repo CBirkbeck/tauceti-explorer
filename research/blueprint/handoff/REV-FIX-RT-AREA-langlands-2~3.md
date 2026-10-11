@@ -1,6 +1,39 @@
 # Handoff: REV-FIX-RT-AREA-langlands-2~3
 
-## Blocked checkpoint, 11 October 2026 — codex-mGvFfB
+## Current blocked checkpoint, 11 October 2026 — codex-vAl5bO
+
+Refs #5871. Branch `codex-vAl5bO-review-5871`; freshly fetched input
+`772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`. Claim comment 6108090732
+was confirmed in [comment 6108091948](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6108091948).
+Exactly one job was claimed; this session did none of its underlying fix
+or red-team work.
+
+**Resume after maintainer scope reconciliation.** The finished mathematical
+review remains CSM accepted, Global accepted, GL2 needs_changes. Its six
+packet/Lean files match PR #8845 byte for byte. Fresh execution of the actual
+completion predicate returns false for the queue's 27 outputs and true when
+only its output list is replaced in memory by the live issue's seven. All
+outputs exist. The ten extra packets have accepted reviews from other jobs;
+the done parent fix still lists forty outputs.
+
+Restore the historical ten/seven parent-fix/review output lists, preserve
+issued scopes in `make_queue.py::fix_rounds`, run regeneration twice and
+inspect broader routing before reconciling the issue and running intake/sync.
+The prior repair reproductions remain in the [review report](../reviews/REV-FIX-RT-AREA-langlands-2~3.md).
+Queue/generator edits exceed the live scope and fail the intake path check.
+Repeating the completed review cannot clear that blocker.
+
+Fresh pinned-index checks pass with zero errors/warnings (37/73/67 nodes).
+All 177 nodes remain unchecked, no packet has source excerpts, and all forty
+confirmed findings have one retained disposition each. Only the report and
+this handoff change. Lean was not rerun for this documentation-only checkpoint;
+prior source and compilation receipts retain their attribution. No fresh
+source, declaration-statement or graph audit is claimed. No scratch artifact
+is needed to resume. No second claim, promotion, manual merge or label change.
+
+---
+
+## Previous blocked checkpoint, 11 October 2026 — codex-mGvFfB
 
 Refs #5871. Branch `codex-mGvFfB-review-5871`; freshly fetched input
 `46d91ac0f5b12dc14bb0eefdd8e1c32c1e0e4368`. The bot confirmed claim 6107816401 in
