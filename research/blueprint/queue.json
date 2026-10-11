@@ -34251,8 +34251,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6284"
+   "state": "external",
+   "note": "claimed on GitHub issue #6284"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.3",
@@ -34298,8 +34298,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6285"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6285",
+   "finishedAt": "2026-10-11T00:28:09Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.4",
@@ -34562,8 +34563,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6334"
+   "state": "external",
+   "note": "claimed on GitHub issue #6334"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.2",
@@ -43184,7 +43185,8 @@
     "BP-AnalyticNumberTheory--AN.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6463"
   },
   {
    "kind": "blueprint",
@@ -49195,8 +49197,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -81563,8 +81565,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
