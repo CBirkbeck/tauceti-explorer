@@ -51,6 +51,7 @@ The starting libraries are Mathlib at `082e2d37e8b0463410cdb532e111cd43d5a66174`
 
 - [mathlib:DerivedCategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Basic.lean#L87) — Derived category of an abelian category with a chosen localization; does not supply enhanced smooth sheaves or completed arithmetic cohomology.
 - [mathlib:Representation](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean#L49) — Algebraic monoid representations as monoid homomorphisms to linear endomorphisms; smoothness and continuity must be supplied separately.
+- [tauceti:TauCeti.IsSmoothDiscrete](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean#L254) and [SmoothDiscreteTopRep](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean#L537) — A discrete underlying module with open point stabilizers, and the full subcategory of such topological monoid representations. [IsSmoothDiscrete.res](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean#L268) preserves this condition under continuous monoid restriction. The [discreteRepEquivSmoothTopRep](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean#L678) coefficient dictionary assumes a topological group; its inverse is not a monoid interface.
 - [mathlib:Representation.dual](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean#L671) — Coefficient dual of a group representation, acting through the inverse group element. It does not identify dual-coefficient cohomology with an unshifted linear dual of cohomology.
 - [mathlib:Module.Dual.eval](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean#L80) and [eval_naturality](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean#L177) — Natural evaluation into the double dual. Injectivity and reflexivity require their own hypotheses.
 - [mathlib:Fin.revPerm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Fin/Rev.lean#L35) — Order-reversing involution of Fin n for the longest GL_n Weyl permutation.
@@ -100,7 +101,7 @@ For PGL₂ over a CM field, the rational cohomology range is [D,2D], so q₀=l�
 
 Fix the lower-right GL_n Levi of split U(n,n), descending dual Weyl weights and geometric Frobenius. Construct Siegel block exchange using existing finite permutations; define P(b,c) by C≡0 mod ϖ_v^c and A,D≡1 mod ϖ_v^b, c≥b≥0,c≥1; define positive central block cocharacters and the resulting positive parahoric monoid. Prove positivity and the commutative monoid-Hecke isomorphism. Define separate unitary and Levi lowest-weight characters using their respective longest Weyl elements and the action α(g)^{-1}ρ(g), prove lattice stability and surjective Levi coefficient evaluation, and identify the U_v residual determinant eigenvalue.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **IntegralHeckeAndGaloisDeterminants:IHG.3**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **SmoothRepresentationsOfLocalGroups:SR.4**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **IntegralHeckeAndGaloisDeterminants:IHG.3**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.1**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.4**.
 
 **Siegel block-exchange Weyl element** (`CrystallineCM.WeylElements`). The Siegel block-exchange element w₀^P of the split GL_{2n} Weyl group is w₀^G w₀^{G̃}, where the generic longest permutations are imported. On Fin(2n) it sends i<n to i+n and i≥n to i−n; its square is 1. It is the longest relative representative in ^PW^P. Use the existing longest Weyl permutations to realize this block exchange.
 
@@ -142,7 +143,7 @@ Acceptance tests:
 
 Source: CN, §2.1.13, p.19.
 
-Prerequisites: **PotentialAutomorphyInfrastructure:PA.2** (unitary ordinary tower); **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**.
+Prerequisites: **PotentialAutomorphyInfrastructure:PA.2** (unitary ordinary tower); **SmoothRepresentationsOfLocalGroups:SR.0**.
 
 **The eigenvalue of U_v on localized cohomology** (`CrystallineCM.residual_central_hecke_eigenvalue`). Let m ⊂ T^T(K,λ) be as in CN, Theorem 2.1.20 with k = k(m), and v a p-adic place of F. Then the Hecke operator U_v has a unique eigenvalue on H^*(X_K, V_λ/ϖ)_m, equal to ε̄_p^{n(n−1)/2}(Art_{F_v}(ϖ_v)) · det ρ̄_m(Art_{F_v}(ϖ_v)).
 
@@ -268,7 +269,7 @@ Prerequisites: **CL.0**: Rescaled actions of the monoids on coefficient lattices
 
 Construct P-ordinary finite-level cohomology using imported ordinary projectors. On smooth O/ϖ^m representations define finite-sum contracting transfer, exact monoid localization in ũ_n alone, and POrd=ord RΓ(U₀,−). Construct completed interior and boundary objects at fixed tame level. Prove that compact Levi derived invariants recover ordinary finite-level cohomology for c≥b≥0,c≥1; increasing c with b fixed is an isomorphism. Extend this control to Q⊂P parahorics without replacing POrd by full QOrd.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 **P-ordinary part of finite-level cohomology** (`CrystallineCM.POrdinaryFiniteLevel`). Fix S̄ ⊂ S̄_p and good K̃ with fixed tame level and K̃_{v̄} = P_{v̄}(b,c) (c ≥ b ≥ 0, c ≥ 1) for v̄ ∈ S̄, written K̃(b,c), P_{S̄}(b,c) := ∏_{v̄∈S̄} P_{v̄}(b,c). The P-ordinary part RΓ(X̃_{K̃(b,c)}, V_λ̃)^{ord} is the maximal direct summand of RΓ(X̃_{K̃(b,c)}, V_λ̃) on which all Ũ_{ṽ,n} (v̄ ∈ S̄) act invertibly; it is an object of D⁺(P_{S̄}(0,c)/P_{S̄}(b,c), O) with an action of T̃^T ⊗ (⊗_{v̄∈S̄} H(Δ̃_{v̄}, K̃_{v̄})[Ũ^{−1}_{ṽ,n}]); likewise for ∂X̃_{K̃(b,c)}.
 
@@ -310,7 +311,7 @@ Acceptance tests:
 
 Source: CN, §2.2.2, equation (2.2.1), p.26.
 
-Prerequisites: **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **CL.0**: Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators Ũ and the monoids Δ̃.
+Prerequisites: **SmoothRepresentationsOfLocalGroups:SR.0**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **CL.0**: Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators Ũ and the monoids Δ̃.
 
 **Ordinary monoid localization** (`CrystallineCM.OrdinaryMonoidLocalization`). For smooth Δ⁺-modules over R_m, ord is the filtered colimit under products of the commuting central operators ũ_n, regarded as a smooth Δ-module. It is exact and preserves the injectives needed to derive compact invariants. Do not replace it by a finite-projector formula for arbitrary smooth infinite modules.
 
@@ -328,7 +329,7 @@ Acceptance tests:
 
 Source: CN, §2.2.2, p.26.
 
-Prerequisites: **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison).
+Prerequisites: **SmoothRepresentationsOfLocalGroups:SR.0**; **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison).
 
 **Functors of P-ordinary parts of smooth representations** (`CrystallineCM.POrdinaryFunctors`). For π smooth over R_m=O/ϖ^m on Δ̃^{Q,+}, define POrd(π)=ord RΓ(U₀,π) in D⁺_sm(Δ,R_m), where U₀-invariants carry the finite-sum transfer action and ord localizes only the commuting ũ_n operators. Products over selected places give the global local functor. This is a derived functor with a Δ-action; its degree zero is ord Γ(U₀,π).
 
@@ -346,7 +347,7 @@ Acceptance tests:
 
 Source: CN, Definition 2.2.3, pp.26–27.
 
-Prerequisites: **CL.0**: Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators Ũ and the monoids Δ̃; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison); **CL.1**: Unipotent transfer action; **CL.1**: Ordinary monoid localization; `mathlib:DerivedCategory`; **CL.0**: Positive parahoric monoid.
+Prerequisites: **CL.0**: Parahoric levels P_{v̄}(b,c), Q_{v̄}, the operators Ũ and the monoids Δ̃; **SmoothRepresentationsOfLocalGroups:SR.0**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison); **CL.1**: Unipotent transfer action; **CL.1**: Ordinary monoid localization; `mathlib:DerivedCategory`; **CL.0**: Positive parahoric monoid.
 
 **Ordinary parts commute with K(b)-invariants** (`CrystallineCM.ordinary_commutes_compact_invariants`). There is a natural isomorphism ord_b ∘ Γ(K_{S̄}(b),−) ≅ Γ(K_{S̄}(b),−) ∘ ord of functors Mod_sm(Δ⁺_{S̄}, O/ϖ^m) → Mod(Δ_{S̄}/K_{S̄}(b), O/ϖ^m), extending to derived functors ord_b ∘ RΓ(K_{S̄}(b),−) ≅ RΓ(K_{S̄}(b),−) ∘ ord.
 
@@ -400,7 +401,7 @@ Prerequisites: **CL.1**: Functors of P-ordinary parts of smooth representations;
 
 Source: CN, Lemma 2.2.6, p.28.
 
-Prerequisites: **CL.1**: Ordinary parts commute with K(b)-invariants; **CL.1**: P-ordinary invariants at level P(b,c); **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**.
+Prerequisites: **CL.1**: Ordinary parts commute with K(b)-invariants; **CL.1**: P-ordinary invariants at level P(b,c); **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **SmoothRepresentationsOfLocalGroups:SR.0**.
 
 **Finite-level P-ordinary cohomology from completed cohomology** (`CrystallineCM.completed_ordinary_finite_level`). For m ≥ 1 and c ≥ b ≥ 0, c ≥ 1, there is a natural T̃^T-equivariant isomorphism RΓ(K_{S̄}(b), π^{ord}(K̃^{S̄},λ̃,m)) ≅ RΓ(X̃_{K̃(b,c)}, V_λ̃/ϖ^m)^{ord} in D⁺(K_{S̄}/K_{S̄}(b), O/ϖ^m).
 
@@ -484,7 +485,7 @@ Prerequisites: **CL.2**: P-ordinary parts for dual coefficients; **CL.1**: P-ord
 
 Compare algebraic relative Bruhat closure with the local p-adic topology. Construct unnormalized induction on open length unions, individual strata and open cells, with exact extension/restriction filtration. Prove the cohomological short exact sequences and ordinary open/identity-cell subquotients, retaining the inverse determinant unit character χ and rank shift. In the abelian Siegel case split RΓ(U₀,O/ϖ^m) after sufficiently deep Levi restriction, at arbitrary p. Use the pinned Artin–Rees results to lift finite-module subquotients after increasing the coefficient exponent.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
 
 **Parabolic Bruhat decomposition and closure relations** (`CrystallineCM.relative_bruhat_local_closure`). Let L be a p-adic field and G/O_L split connected reductive with split maximal torus T ⊂ B ⊂ P = M ⋉ U; W^P ⊂ W the minimal length representatives of W_P\W and ^PW^P := W^P ∩ (W^P)^{−1}. Then G(L) = ⊔_{w∈^PW^P} P(L)wP(L); the closure of P(L)wP(L) (p-adic topology) is ⊔_{w′≤w} P(L)w′P(L) for the Bruhat order; and P(L)ΩP(L) is open for every upper subset Ω ⊂ ^PW^P.
 
@@ -523,7 +524,7 @@ Prerequisites: **ArithmeticLocallySymmetricSpaces:ALS.6** (finite-level descent)
 
 Source: CN, §2.3.16, pp.41–42 (Lemma 2.3.17 on p.42).
 
-Prerequisites: **PotentialAutomorphyInfrastructure:PA.0** (unipotent exterior cohomology); **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**.
+Prerequisites: **PotentialAutomorphyInfrastructure:PA.0** (unipotent exterior cohomology); **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **SmoothRepresentationsOfLocalGroups:SR.0**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **SmoothRepresentationsOfLocalGroups:SR.0d**.
 
 **Subquotients modulo p-powers (Artin–Rees)** (`CrystallineCM.subquotient_mod_p_pow`). Let N be a finitely generated Z_p-module and M a subquotient of N. For every m ≥ 1 there is m′ ≥ m such that M/p^mM is a subquotient of N/p^{m′}N.
 
@@ -549,7 +550,7 @@ Acceptance tests:
 
 Source: CN, §2.3.1, p.34.
 
-Prerequisites: **CL.3**: Parabolic Bruhat decomposition and closure relations; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**.
+Prerequisites: **CL.3**: Parabolic Bruhat decomposition and closure relations; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.0**.
 
 **P-ordinary part of an inflation from the Levi** (`CrystallineCM.ordinary_inflation_orientation_shift`). In the abelian Siegel GL_{2n} setting, for π ∈ D⁺_sm(M(L), O/ϖ^m) there is a natural isomorphism ord RΓ(U₀, Inf^{M(L)⁺⋉U₀}_{M(L)⁺} π) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m). Corollary 2.3.10: for π ∈ D⁺_sm(M(L), O/ϖ^m), ord RΓ(U₀, I_id(Inf^{P(L)}_{M(L)} π)) ≅ O/ϖ^m(χ) ⊗ π[−rk_{Z_p}U₀] in D⁺_sm(M(L)⁺, O/ϖ^m), where I_id is the identity Bruhat stratum and I°_id its restriction to M(L)⁺ ⋉ U₀ (Remark 2.3.9).
 
@@ -609,7 +610,7 @@ Prerequisites: **CL.3**: The Bruhat filtration functors on parabolic induction; 
 
 Source: CN, Lemma 2.3.6, pp.36–37.
 
-Prerequisites: **CL.3**: The Bruhat filtration functors on parabolic induction; **CL.1**: Functors of P-ordinary parts of smooth representations; **CL.3**: Bruhat stratum induction; **CL.3**: Bruhat open-cell induction; **SmoothRepresentationsOfLocalGroups:SR.0:abelian-category**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+Prerequisites: **CL.3**: The Bruhat filtration functors on parabolic induction; **CL.1**: Functors of P-ordinary parts of smooth representations; **CL.3**: Bruhat stratum induction; **CL.3**: Bruhat open-cell induction; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 **The Bruhat filtration stays exact after taking K ⋉ U₀-cohomology** (`CrystallineCM.bruhat_cohomology_exact`). Let π ∈ D⁺_sm(P(L), O/ϖ^m) and V a finite free O/ϖ^m-module with a smooth representation of an open submonoid Δ⁺ ⊂ M(L) containing an open subgroup K ⊂ M(O_L). For i ≥ 0 and j ∈ Z, 0 → R^jΓ(K ⋉ U₀, V ⊗ I_{≥i+1}(π)) → R^jΓ(K ⋉ U₀, V ⊗ I_{≥i}(π)) → ⊕_{ℓ(w)=i} R^jΓ(K ⋉ U₀, V ⊗ I_w(π)) → 0 is an exact sequence of H(Δ⁺, K)-modules.
 
@@ -711,7 +712,7 @@ Prerequisites: **CL.4**: ι-Q_{v̄}-ordinary cuspidal representations; **CL.4**:
 
 Construct the equivariant unipotent coefficient object V_U=RΓ(U₀,V/ϖ^m) and its homotopy inverse limit; retain the vanishing bound and the exact nonzero range for trivial selected weights. Identify the localized completed Siegel boundary with induced Levi cohomology, using non-Eisenstein boundary-stratum elimination, topological induction and unipotent descent. Prove the Hecke-equivariant completed boundary summand and its integral coefficient-evaluation retract, with zero weights on the complementary p-places.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 **The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces** (`CrystallineCM.BoundaryCoefficientObject`). For S̄⊆S̄_p, dominant λ̃, R_m=O/ϖ^m, put V_{λ̃_S̄}=⊗_{v̄∈S̄,τ}V_{λ̃_τ}. V_U(λ̃_S̄,m) is the equivariant locally constant derived coefficient object on the GL_n adelic tower corresponding to RΓ(U₀_{S̄},V_{λ̃_S̄}/ϖ^m), descended to good X_K through the genuine Levi conjugation action. Its cohomology sheaves vanish outside [0,r], r=n²Σ_{v̄∈S̄}[F⁺_{v̄}:Q_p]. If λ̃_S̄=0, every degree 0,…,r is nonzero and H^j=Hom_cts(∧^j_{Z_p}U₀_{S̄},R_m). Define V_U(λ̃_S̄)=holim_m V_U(λ̃_S̄,m). The exact nonzero range is required for zero selected weights; the general-weight assertion here is the cohomological-dimension bound.
 
@@ -753,7 +754,7 @@ Prerequisites: **CL.5**: The Siegel boundary stratum and localization; **CL.3**:
 
 Source: CN, Lemma 4.1.7, p.56.
 
-Prerequisites: **CL.5**: The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces; **CL.5**: Completed cohomology of the Siegel parabolic is inflated from the Levi; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**.
+Prerequisites: **CL.5**: The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces; **CL.5**: Completed cohomology of the Siegel parabolic is inflated from the Levi; **SmoothRepresentationsOfLocalGroups:SR.0d**.
 
 **Completed P-cohomology through the Levi** (`CrystallineCM.completed_parabolic_levi_comparison`). RΓ(K^{S̄₂}_P, RΓ(𝔛_P, V_λ̃/ϖ^m)) ≅ r^*_G ∘ Inf^{P_{S̄₂}}_{G_{S̄₂}} RΓ(K^{S̄₂}, RΓ(𝔛_G, V_U(λ̃_{S̄₁}, m))), T^T_P-equivariantly in D⁺_sm(P_{S̄₂}, O/ϖ^m).
 
@@ -777,7 +778,7 @@ Prerequisites: **CL.5**: A direct summand of completed boundary cohomology; **CL
 
 Construct ordinary twisted/dual Satake diagrams and the integral, torsion and unitary middle-degree Hecke images; define the two deep congruence level families. Under ambient decomposed genericity compare middle-degree unitary and Levi derived-coefficient images and their duals. If the complementary local degree sum is at least half [F⁺:Q], prove d−q≤n² times that sum for q≥floor(d/2). Produce the torsion degree-shifting squares modulo nilpotent ideals J with J^N=0, N depending only on n,[F⁺:Q], while the depth and exponent m′ may increase.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CL.3**; **CL.5**; **IgusaVarietiesAndTorsionConcentration:IG.7**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**; **SmoothRepresentationsOfLocalGroups:SR.4**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.0**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CL.3**; **CL.5**; **IgusaVarietiesAndTorsionConcentration:IG.7**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.4**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 **Q-ordinary Hecke algebras, the twisted Satake map and duality involutions** (`CrystallineCM.OrdHeckeAlgebras42`). T^{Q_S̄,S̄-ord} := T^T ⊗ (⊗_{v̄∈S̄} H(Δ^{Q_{v̄}}_{v̄}, K_{v̄})), T^{Q_S̄,S̄-ord}_{w₀^P} := T^T ⊗ (⊗ H((Δ^{Q}_{v̄})^{w₀^P}, K^{w₀^P}_{v̄})) and T̃^{Q_S̄,S̄-ord} := T̃^T ⊗ (⊗ H(Δ̃^{Q}_{v̄}, 𝒬_{v̄})[Ũ^{−1}_{ṽ,n}]); 𝒮^{w₀^P} : T̃^{Q_S̄,S̄-ord} → T^{Q_S̄,S̄-ord}_{w₀^P}, [𝒬 ν(ϖ) 𝒬] ↦ [K^{w₀^P} ν(ϖ)^{w₀^P} K^{w₀^P}], sending Ũ_{ṽ,n} ↦ U_ṽ and Ũ_{ṽ,2n} ↦ U_ṽ U^{−1}_{ṽc}; the duality involutions ι[KgK] = [Kg^{−1}K], ι̃[K̃gK̃] = [K̃g^{−1}K̃] [ACC+18, §2.2.19] with twisted algebras T^{…,ι}_{w₀^P}, T̃^{…,ι̃}, the untwisted T^{Q_S̄,S̄-ord,ι} and 𝒮^ι : [𝒬 ν(ϖ)^{−1} 𝒬] ↦ [K ν(ϖ)^{−1} K].
 
@@ -801,7 +802,7 @@ Prerequisites: **CL.0**: Positivity, monoid property and Hecke algebra isomorphi
 
 Source: CN, Lemma 4.2.3, p.60.
 
-Prerequisites: **CL.0**: Surjectivity of evaluation at the identity; **CL.2**: P-ordinary parts for dual coefficients; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0:derived-extension**.
+Prerequisites: **CL.0**: Surjectivity of evaluation at the identity; **CL.2**: P-ordinary parts for dual coefficients; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**.
 
 **Numerical degree bound** (`CrystallineCM.degree_shift_bound`). If S̄ ⊂ S̄_p satisfies Σ_{v̄∉S̄}[F⁺_{v̄} : Q_p] ≥ ½[F⁺ : Q] and q ∈ [⌊d/2⌋, d − 1] (d = n²[F⁺ : Q]), then d − q ≤ Σ_{v̄∉S̄} n²[F⁺_{v̄} : Q_p].
 
@@ -1240,9 +1241,11 @@ Prerequisites: **CL.9**: Automorphy lifting in the special case; **CL.9**: Reduc
 
 The following exports fix the precise generality of the imported mathematics. Their consuming layers identify where they enter the construction. Each belongs to its named supplier.
 
-**SmoothRepresentationsOfLocalGroups:SR.0:abelian-category** (used in CL.0, CL.1, CL.3). The abelian category of smooth representations of the locally profinite groups and open monoids Δ̃, Δ⁺, Δ used here, over O/ϖ^m; continuous compact-open invariants, enough injectives, restriction preserving injectives in the cases of CN §2.2.2, and their bounded-below derived functors. Algebraic Representation is only a carrier. Include the coefficient-injective embedding into smooth coinduction Ind₁^{P(L)}I and the acyclicity test on these objects used via Emerton Lemma 2.1.10 in CN Lemma 2.3.6.
+**SmoothRepresentationsOfLocalGroups:SR.0** (used in CL.0, CL.1, CL.3). The abelian category of smooth representations of the locally profinite groups and open monoids Δ̃, Δ⁺, Δ used here, over O/ϖ^m; continuous compact-open invariants, enough injectives, restriction preserving injectives in the cases of CN §2.2.2, and their bounded-below derived functors. Algebraic Representation is only a carrier. Include the coefficient-injective embedding into smooth coinduction Ind₁^{P(L)}I and the acyclicity test on these objects used via Emerton Lemma 2.1.10 in CN Lemma 2.3.6.
 
-Consumption source: CN, §2.1.13, p.19; CN, Lemma 2.3.6, pp.36–37.
+The group part is supplied by **SR.0** and **SR.0d.1**: `SmoothRep`, `SmoothRep.instAbelian`, `SmoothRep.instIsGrothendieckAbelian` and `SmoothRep.res_preserves_injective`. Their group hypotheses must be retained. For the positive open monoids, use the existing `TauCeti.SmoothDiscreteTopRep` carrier only after comparing its open-stabilizer condition with the arithmetic smoothness condition. The supplier must extend the abelian and injective-resolution interfaces to these monoids and prove restriction to U₀ preserves the required acyclicity. A carrier and preservation of smoothness under restriction do not supply that derived comparison.
+
+Consumption source: CN, §2.1.13, p.19; §2.2.2, Definition 2.2.3, pp.26–27; Lemma 2.3.6, pp.36–37.
 
 **SmoothRepresentationsOfLocalGroups:SR.2** (used in CL.2, CL.3, CL.4, CL.5). Integral unnormalized smooth induction for P(L)\G(L) compact, functions compact modulo P, restriction and tensor identity over O/ϖ^m; exactness in precisely these compact quotient cases. Do not use characteristic-zero Jacquet exactness for p-torsion coefficients. The separately normalized complex Jacquet/geometric lemma is needed in CN Theorem 3.1.2. Include smooth coinduction from the trivial subgroup of P(L): for coefficient-injective I, locally constant I-valued functions on the free right U₀-space P(L)w₀^P U₀ are injective smooth U₀-modules, with evaluation F(x)=f(x)(1) identifying them with I°_{w₀^P}(Ind₁^{P(L)}I). This is the precise CN Lemma 2.3.6 input; it is not Borel N(O)-acyclicity. For Theorem 4.1.3, export the derived Mackey decomposition for restriction of this induction to (K₁⋉U₁); the identity double-coset term is a natural Hecke-equivariant summand. For Theorem 3.1.2, include Bernstein–Zelevinsky classification and the identity-only normalized geometric-lemma calculation for strictly ordered block slopes: a nonzero monodromy block has a positive-length Steinberg factor whose maximal-compact invariants vanish. These are separate characteristic-zero statements, not consequences of integral induction exactness.
 
@@ -1316,7 +1319,7 @@ Consumption source: CN, Lemma 2.1.12, pp.17–18.
 
 Consumption source: CN, §2.3.16, pp.41–42; Lemma 2.3.17 on p.42.
 
-**SmoothRepresentationsOfLocalGroups:SR.0:derived-extension** (used in CL.3). For a profinite K with cofinal congruence K_M, perfect underlying R-complexes in D⁺_sm(K,R) become isomorphic, after sufficiently deep restriction, to the constant action on the underlying complex. Prove colim_M Hom(B_M,A_M)≅Hom(B,A) using dualizability, derived tensor/invariants adjunction and smoothness. This is the general categorical step of CN Lemma 2.3.17, not a blanket formality statement for all U.
+**SmoothRepresentationsOfLocalGroups:SR.0d** (used in CL.3). For a profinite K with cofinal congruence K_M, perfect underlying R-complexes in D⁺_sm(K,R) become isomorphic, after sufficiently deep restriction, to the constant action on the underlying complex. Prove colim_M Hom(B_M,A_M)≅Hom(B,A) using dualizability, derived tensor/invariants adjunction and smoothness. This is the general categorical step of CN Lemma 2.3.17, not a blanket formality statement for all U.
 
 Consumption source: CN, §2.3.16, pp.41–42; Lemma 2.3.17 on p.42.
 
@@ -1328,9 +1331,11 @@ Consumption source: CN, Proposition 5.5.3, p.81; AKT, Theorem 5.11, p.46; proof 
 
 Consumption source: AKT, Theorem 5.10(2–3), p.45.
 
-**SmoothRepresentationsOfLocalGroups:SR.0:derived-extension** (used in CL.1, CL.3, CL.5, CL.6). Derived invariants for smooth semidirect products compose: RΓ(K⋉U,−)≅RΓ(K,RΓ(U,−)) with the precise restriction/injectivity and inflation/projection-formula hypotheses, giving the Hecke-equivariant comparison of CN Lemma 4.1.7 and Lemma 4.2.3. Also export the ordinary open-cell quotient vanishing from the contracting, locally nilpotent ũ-action used in Lemma 2.3.6 (Hauseux Lemma 3.3.1 argument), including its higher derived cohomology; it does not follow merely from H⁰-localization. Preserve the compact determinant-unit orientation in Lemma 2.3.8.
+**SmoothRepresentationsOfLocalGroups:SR.0d** (used in CL.1, CL.3, CL.5, CL.6). Derived invariants for smooth semidirect products compose: RΓ(K⋉U,−)≅RΓ(K,RΓ(U,−)) with the precise restriction/injectivity and inflation/projection-formula hypotheses, giving the Hecke-equivariant comparison of CN Lemma 4.1.7 and Lemma 4.2.3. Also export the ordinary open-cell quotient vanishing from the contracting, locally nilpotent ũ-action used in Lemma 2.3.6 (Hauseux Lemma 3.3.1 argument), including its higher derived cohomology; it does not follow merely from H⁰-localization. Preserve the compact determinant-unit orientation in Lemma 2.3.8.
 
-Consumption source: CN, Lemma 4.1.7, p.56; CN, Lemma 2.3.6, pp.36–37.
+**SR.0d.2** supplies the group-derived framework, including the planned compact-group comparison RΓ(U,−)≅RΓ(U/N,RΓ(N,−)) for N closed normal in U. The monoid-valued RΓ(U₀,−) required here additionally retains the Δ⁺ transfer action. Ordinary localization must take smooth Δ⁺-objects to smooth Δ-objects by inverting the chosen ũ_n, be exact, and preserve the injectives used for compact Levi invariants. These are additional monoid interfaces; neither compact-group composition nor a finite-module ordinary projector supplies them.
+
+Consumption source: CN, §2.2.2, Definition 2.2.3, pp.26–27; Lemma 4.1.7, p.56; Lemma 2.3.6, pp.36–37.
 
 **ArithmeticLocallySymmetricSpaces:ALS.3** (used in CL.0). The adelic center acts on the localized arithmetic cohomology; ray-class congruence and archimedean connectedness compare the central operator at a p-adic uniformizer with a good-place central Hecke operator. With global class-field reciprocity and Chebotarev, the unique generalized eigenvalue is ψ(Art_{F_v}(ϖ_v)), where ψ=ε̄_p^{n(n−1)/2}detρ̄. Respect the good-place q^{n(n−1)/2}T_{w,n} normalization and the fact that v itself may be ramified.
 
