@@ -1,8 +1,8 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-0rbyYu`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104041487).
-Input commit: `48928d01b026577b63ef377edce9d5b2a34a7493`.
+Codex (GPT-6), session `codex-lR9937`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104314205).
+Input commit: `1d9a35d4fcca796fe0e97e34812d7dec1412ac56`.
 
 ## Status: blocked by the live issue's file scope
 
@@ -18,6 +18,28 @@ preservation. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 separates these checks from earlier exhaustive node audits and Lean runs.
 The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/48928d01b026577b63ef377edce9d5b2a34a7493/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
 retains the preceding installation evidence.
+
+## This continuation's completed checks
+
+At the input commit above, `codex-lR9937` independently reproduced all receipt
+hash guards, full prior-review preservation, mathematical-field equality,
+canonical-path candidate validation, and the unchanged completion predicate.
+Actual completion is False; substituting only the two exact records below
+returns True. All four actual packets pass with zero errors; only L3 has its
+26 inherited warnings. Four packets and four suggested files remain
+byte-identical to input, and recursive checks find no excerpt fields.
+
+The verified six findings, fix report, library audits and five current native
+declarations were reread. All four public PDFs were fetched and their relevant
+text inspected; hashes agree with the table below. No book was used. Earlier
+exhaustive node audits, visual checks and Lean runs keep their original
+attribution. No Lean source changed and no new elaboration was required.
+
+The live issue and all 322 comments contain no authorization for the omitted
+paths. A precise review-only scope request is pending in the worker
+conversation. This checkpoint updates only the report and handoff. Repeating
+the source checks cannot remove the scope mismatch; resume only after the
+explicit authorization described below.
 
 ## Required authorization
 

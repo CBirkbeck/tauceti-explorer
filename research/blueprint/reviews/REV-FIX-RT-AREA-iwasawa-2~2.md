@@ -1,8 +1,8 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-0rbyYu`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104041487).
-Input commit: `48928d01b026577b63ef377edce9d5b2a34a7493`.
+Codex (GPT-6), session `codex-lR9937`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104314205).
+Input commit: `1d9a35d4fcca796fe0e97e34812d7dec1412ac56`.
 I did none of fixer `claude-6ZAIEy`'s work.
 
 ## Result
@@ -22,6 +22,41 @@ your own scratch space." I requested explicit authorization for changing only
 scope repair has arrived. Neither record is installed; this submission is a
 blocked checkpoint. The report and handoff are the only repository changes.
 
+## Receipt-only continuation: 11 October 2026
+
+This session independently reproduced the guarded preflight at the input commit
+above. The two exact records in the handoff match their prepared byte hashes.
+Their only changed fields are `review` and `reviewHistory`; each entire old
+review is appended intact, including all 79 L3-2 and 72 D.1 node verdicts.
+All other parsed fields compare equal. Both candidate packets pass the checker
+at their canonical paths in a read-only context with zero errors and warnings.
+The unchanged completion predicate returns False for the actual checkout and
+True with only these two candidate records substituted.
+
+All four actual packets pass the pinned-index checker: zero errors, with only
+L3's 26 inherited short-API warnings. Recursive checks find no source excerpt
+fields. All four packets and four suggested files are byte-identical to input.
+No Lean source changed, so no new Lean check was needed; the four preceding
+runs below remain credited to `codex-YXQsbh`.
+
+I reread the verified findings and fix report, the relevant reviewed library
+audits, and the five current native declarations listed below. I also fetched
+and read the four public PDFs supporting the bounded /2 and /3 contracts;
+all four SHA-256 hashes match the handoff. The printed equations confirm the
+Gamma-sum correction, directed divided/undivided comparison, integral range,
+and rational exponential boundary. The source verification below describes
+these textual checks; this session makes no new exhaustive node audit or
+visual-PDF-check claim. Earlier visual checks retain their attribution.
+
+The live issue and all 322 comments were checked. No scope authorization was
+present: its named packet deliverables remain L3 and PMIA only. Explicit
+permission for the two omitted paths was requested in the worker conversation
+and remains pending. Candidates were prepared only in disposable scratch;
+no omitted packet was edited. The queue, issue, labels, completion predicate
+and upstream checkouts were unchanged. This checkpoint updates only this
+report and its handoff, preserving the completed mathematical review and exact
+installation records for an authorized continuation.
+
 ## Review evidence and attribution
 
 The [immutable six-finding report](https://github.com/CBirkbeck/tauceti-explorer/blob/303b02c8bda26170394f9f96f6c691391a2f8611/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
@@ -32,10 +67,11 @@ preserves `codex-YXQsbh`'s subsequent source readings and four Lean checks,
 and `codex-kPnLrK`'s receipt preflight. Those exhaustive node audits, earlier
 source readings and elaborations retain their original attribution.
 
-This continuation checked the verified findings and fix report against those
-reviews, independently reread the bounded /2 and /3 source contracts below,
-reread the five current native /4 declarations, and verified exact receipt
-preservation and current validation. It claims no new exhaustive node audit.
+The preceding `codex-0rbyYu` continuation checked the verified findings and
+fix report against those reviews, reread the bounded /2 and /3 source contracts
+and the five current native /4 declarations, and verified exact receipt
+preservation. This session reproduced the checks described above. Neither
+continuation claims a new exhaustive node audit.
 
 | Finding | Verdict | Reason and remaining boundary |
 | --- | --- | --- |
@@ -81,9 +117,9 @@ These checks support the prepared bounded record, rather than a new 72-node
 audit or proof of the proposed suppliers.
 
 All four PDFs are public versions fetched on 11 October 2026. Their hashes
-are in the handoff. Equations (4.5) and the Ertl–Niziol product conventions
-were also checked visually. No book was used and no source passage was copied
-into the repository. The /1, /4 arithmetic and /5 source audits remain credited
+are in the handoff. The predecessor checked equation (4.5) and the
+Ertl–Niziol product conventions visually; this session read their PDF text
+layers. No book was used and no source passage was copied into the repository. The /1, /4 arithmetic and /5 source audits remain credited
 to the linked predecessor reports.
 
 ## Current native results in /4
