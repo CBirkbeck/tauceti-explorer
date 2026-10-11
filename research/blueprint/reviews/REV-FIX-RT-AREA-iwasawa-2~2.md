@@ -1,8 +1,8 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-lR9937`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104314205).
-Input commit: `1d9a35d4fcca796fe0e97e34812d7dec1412ac56`.
+Codex (GPT-6), session `codex-KJ9aP3`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104451173).
+Input commit: `eccdf026cbd070c504e73fb84e754a66f9760210`.
 I did none of fixer `claude-6ZAIEy`'s work.
 
 ## Result
@@ -22,40 +22,43 @@ your own scratch space." I requested explicit authorization for changing only
 scope repair has arrived. Neither record is installed; this submission is a
 blocked checkpoint. The report and handoff are the only repository changes.
 
-## Receipt-only continuation: 11 October 2026
+## This continuation: 11 October 2026
 
-This session independently reproduced the guarded preflight at the input commit
-above. The two exact records in the handoff match their prepared byte hashes.
-Their only changed fields are `review` and `reviewHistory`; each entire old
-review is appended intact, including all 79 L3-2 and 72 D.1 node verdicts.
-All other parsed fields compare equal. Both candidate packets pass the checker
-at their canonical paths in a read-only context with zero errors and warnings.
-The unchanged completion predicate returns False for the actual checkout and
-True with only these two candidate records substituted.
+This session reproduced the two guarded candidates from the preceding handoff.
+The old and proposed byte hashes still match. Each candidate changes only
+`review` and `reviewHistory`, appends the entire prior review, and preserves
+all 79 L3-2 or 72 D.1 node verdicts and their original attribution. Every other
+parsed field is equal. Both candidates pass the pinned-index checker at their
+canonical paths in a read-only context with zero errors and warnings.
+The unchanged completion predicate returns False on the actual checkout and
+True when only those two exact records are substituted.
 
-All four actual packets pass the pinned-index checker: zero errors, with only
-L3's 26 inherited short-API warnings. Recursive checks find no source excerpt
-fields. All four packets and four suggested files are byte-identical to input.
-No Lean source changed, so no new Lean check was needed; the four preceding
-runs below remain credited to `codex-YXQsbh`.
+All four actual packets pass the checker with zero errors. Only L3 retains
+warnings: its 26 inherited short API outlines, outside the six-finding scope.
+The source PDFs listed in the handoff were fetched on 11 October; their four
+SHA-256 hashes match. This session read Zhao's general-prime setup and the
+Ferrero–Greenberg argument on printed pp.471–473, Ertl–Niziol §§2.1–2.2 on
+pp.4–7, Colmez–Niziol Corollary 3.16 on p.37, and Nekovar–Niziol Proposition
+4.13 on pp.53–54. The exact contracts below agree with those readings.
+These were PDF text-layer checks; earlier visual and exhaustive node audits
+retain their original attribution.
 
-I reread the verified findings and fix report, the relevant reviewed library
-audits, and the five current native declarations listed below. I also fetched
-and read the four public PDFs supporting the bounded /2 and /3 contracts;
-all four SHA-256 hashes match the handoff. The printed equations confirm the
-Gamma-sum correction, directed divided/undivided comparison, integral range,
-and rational exponential boundary. The source verification below describes
-these textual checks; this session makes no new exhaustive node audit or
-visual-PDF-check claim. Earlier visual checks retain their attribution.
+This session read the relevant reviewed library audit entries and the five
+current native declarations in the table below. Git object checks confirm
+that their three source files are absent at the programme pin. The
+ArithmeticDirichletSeries and StableReduction roadmap boundaries were also
+consulted in the read-only upstream checkout. No upstream file was changed,
+and no Lake command ran there.
 
-The live issue and all 322 comments were checked. No scope authorization was
-present: its named packet deliverables remain L3 and PMIA only. Explicit
-permission for the two omitted paths was requested in the worker conversation
-and remains pending. Candidates were prepared only in disposable scratch;
-no omitted packet was edited. The queue, issue, labels, completion predicate
-and upstream checkouts were unchanged. This checkpoint updates only this
-report and its handoff, preserving the completed mathematical review and exact
-installation records for an authorized continuation.
+No mathematical packet or suggested Lean file changed. No new Lean run was
+needed for the prepared metadata edits. The four previous elaboration results
+remain credited to `codex-YXQsbh`, including L3's unresolved import failure.
+
+The live issue lists L3 and PMIA but omits the two required packet paths.
+Explicit authorization for their exact review-only changes was requested in
+the worker conversation. It has not arrived; the candidates remain in
+scratch. The issue, queue, labels and completion predicate were unchanged.
+This is a blocked checkpoint, with exact records preserved in the handoff.
 
 ## Review evidence and attribution
 
@@ -67,11 +70,11 @@ preserves `codex-YXQsbh`'s subsequent source readings and four Lean checks,
 and `codex-kPnLrK`'s receipt preflight. Those exhaustive node audits, earlier
 source readings and elaborations retain their original attribution.
 
-The preceding `codex-0rbyYu` continuation checked the verified findings and
+The preceding `codex-0rbyYu` and `codex-lR9937` continuations checked the verified findings and
 fix report against those reviews, reread the bounded /2 and /3 source contracts
 and the five current native /4 declarations, and verified exact receipt
-preservation. This session reproduced the checks described above. Neither
-continuation claims a new exhaustive node audit.
+preservation. This session reproduced the checks described above. None of these
+continuations claims a new exhaustive node audit.
 
 | Finding | Verdict | Reason and remaining boundary |
 | --- | --- | --- |

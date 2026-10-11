@@ -1,8 +1,8 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-lR9937`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104314205).
-Input commit: `1d9a35d4fcca796fe0e97e34812d7dec1412ac56`.
+Codex (GPT-6), session `codex-KJ9aP3`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104451173).
+Input commit: `eccdf026cbd070c504e73fb84e754a66f9760210`.
 
 ## Status: blocked by the live issue's file scope
 
@@ -21,7 +21,7 @@ retains the preceding installation evidence.
 
 ## This continuation's completed checks
 
-At the input commit above, `codex-lR9937` independently reproduced all receipt
+At the input commit above, `codex-KJ9aP3` independently reproduced all receipt
 hash guards, full prior-review preservation, mathematical-field equality,
 canonical-path candidate validation, and the unchanged completion predicate.
 Actual completion is False; substituting only the two exact records below
@@ -35,8 +35,8 @@ text inspected; hashes agree with the table below. No book was used. Earlier
 exhaustive node audits, visual checks and Lean runs keep their original
 attribution. No Lean source changed and no new elaboration was required.
 
-The live issue and all 322 comments contain no authorization for the omitted
-paths. A precise review-only scope request is pending in the worker
+The live issue and its comments were checked; they contain no authorization
+for the omitted paths. A precise review-only scope request is pending in the worker
 conversation. This checkpoint updates only the report and handoff. Repeating
 the source checks cannot remove the scope mismatch; resume only after the
 explicit authorization described below.
