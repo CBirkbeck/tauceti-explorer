@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Codex (codex-a71f92), Codex (codex-hjdg0j), Claude Code (cc-39fac3), Codex (codex-F8Bvum)
+Authors: Codex (codex-a71f92), Codex (codex-hjdg0j), Claude Code (cc-39fac3), Codex (codex-F8Bvum), Codex (codex-XHLCjD)
 -/
 import Mathlib.NumberTheory.NumberField.Ideal.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
@@ -1425,7 +1425,7 @@ theorem abs_maynardLambdaOfY_le {k W : ℕ} {R : ℝ} {y : (Fin k → ℕ) → �
 /-- SV.4/s1-diagonalization. Maynard Lemma 5.1. -/
 theorem sieveSumS1_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
     (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) :
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) :
     ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
       D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
       v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
@@ -1441,7 +1441,7 @@ theorem sieveSumS1_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injec
 enters. -/
 theorem sieveSumS2_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
     (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) (hk : 2 ≤ k) (hlevel : PrimesHaveLevel θ) (m : Fin k) (A : ℝ) (hA : 0 < A) :
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) (hk : 2 ≤ k) (hlevel : PrimesHaveLevel θ) (m : Fin k) (A : ℝ) (hA : 0 < A) :
     ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
       D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
       v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
@@ -1459,7 +1459,7 @@ theorem sieveSumS2_diagonal (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injec
 /-- SV.4/y-m-relation. Maynard Lemma 5.3: if `rₘ = 1`,
 `y⁽ᵐ⁾_r = ∑_{aₘ} y_{r[m ↦ aₘ]}/φ(aₘ) + O(y_max φ(W) log R/(W D₀))`. -/
 theorem maynardYm_sub_sum_le (k : ℕ) (m : Fin k) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) :
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) :
     ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W : ℕ),
       D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
       ∀ (y : (Fin k → ℕ) → ℝ) (ymax : ℝ), (∀ r, ¬ IsMaynardSupport k W R r → y r = 0) →
@@ -1474,7 +1474,7 @@ theorem maynardYm_sub_sum_le (k : ℕ) (m : Fin k) (θ δ : ℝ) (hθ : 0 < θ) 
 /-- SV.4/s1-asymptotic. Maynard Lemma 6.2. -/
 theorem sieveSumS1_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
     (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) :
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) :
     ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
       D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
       v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
@@ -1490,7 +1490,7 @@ theorem sieveSumS1_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injecti
 /-- SV.4/s2-asymptotic. Maynard Lemma 6.3. -/
 theorem sieveSumS2_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
     (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) (hlevel : PrimesHaveLevel θ) (m : Fin k) :
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) (hlevel : PrimesHaveLevel θ) (m : Fin k) :
     ∃ C N₀ : ℝ, ∀ N : ℕ, N₀ ≤ N → ∀ (D₀ R : ℝ) (W v₀ : ℕ),
       D₀ = Real.log (Real.log (Real.log N)) → W = wModulus D₀ →
       v₀ = wResidue (Finset.univ.image h) D₀ → R = (N : ℝ) ^ (θ / 2 - δ) →
@@ -1507,7 +1507,7 @@ theorem sieveSumS2_smooth (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injecti
 /-- SV.4/maynard-sum-asymptotics. Maynard Proposition 4.1. -/
 theorem tendsto_sieveSums (k : ℕ) (h : Fin k → ℕ) (hinj : Function.Injective h)
     (hH : IsAdmissible (Finset.univ.image h)) (θ δ : ℝ) (hθ : 0 < θ) (hθ1 : θ ≤ 1)
-    (hδ : 0 < δ) (hlevel : PrimesHaveLevel θ) (F : (Fin k → ℝ) → ℝ) (hF : ContDiff ℝ ⊤ F)
+    (hδ : 0 < δ) (hδθ : δ < θ / 2) (hlevel : PrimesHaveLevel θ) (F : (Fin k → ℝ) → ℝ) (hF : ContDiff ℝ ⊤ F)
     (hsupp : ∀ t, t ∉ maynardSimplex k → F t = 0) (hI : maynardI k F ≠ 0)
     (hJ : ∀ m, maynardJ k m F ≠ 0) (W v₀ : ℕ → ℕ) (R : ℕ → ℝ)
     (hW : ∀ N : ℕ, W N = wModulus (Real.log (Real.log (Real.log N))))
@@ -2390,10 +2390,11 @@ theorem binary_smooth_large_factor_average (d : ℕ) (Af B C r ε κ : ℝ)
         f a * rhoCorrected Q a / (a : ℝ)^2) ≤
         C' * Real.exp (-s*α*κ) * densitySum f Q z := by sorry
 /-- SV.1/binary-extremely-smooth-average. Includes α=0, excludes a=0. -/
-theorem binary_extremely_smooth_average (C r β : ℝ)
-    (hC : 0 < C) (hr : 0 < r) (hr' : r ≤ 1) (hβ : 0 < β) :
+theorem binary_extremely_smooth_average (C r α β : ℝ)
+    (hC : 0 < C) (hr : 0 < r) (hr' : r ≤ 1)
+    (hα : 0 ≤ α) (hα' : α ≤ 1) (hβ : 0 < β) :
     ∃ C' : ℝ, 0 < C' ∧ ∀ Q : BinaryPolynomial, localBound Q C r →
-      ∀ α z : ℝ, 0 ≤ α → α ≤ 1 → 3 ≤ z →
+      ∀ z : ℝ, 3 ≤ z →
       (∑ a ∈ (Icc 1 ⌊z⌋₊).filter (fun (a : ℕ) => Real.rpow z α ≤ (a : ℝ) ∧
           ∀ p ∈ a.primeFactors, (p : ℝ) ≤ Real.log z * Real.log (Real.log z)),
         rhoCorrected Q a / (a : ℝ)^2) ≤ C' * Real.rpow z (-r*α+β) := by sorry
