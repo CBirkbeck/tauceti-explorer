@@ -228,6 +228,32 @@ lemma rees_module_unit : rees_module R M ⊤ = ⊤ := by sorry
 -- DeformationAndDerivedPatchingAlgebraPartII:K3/rees-module-zero-ideal
 lemma rees_module_zero_ideal (p : PolynomialModule R M) : p ∈ rees_module R M ⊥ ↔ ∀ n, 0 < n → p.coeff n = 0 := by sorry
 
+-- Additional reusable coefficient API; these are not new scheme-blowup targets.
+lemma rees_module_ext (I : Ideal R) (p q : rees_module R M I)
+    (h : ∀ n, (p : PolynomialModule R M).coeff n =
+      (q : PolynomialModule R M).coeff n) : p = q := by sorry
+
+section ReesMaps
+variable {N P : Type u} [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R P]
+
+-- Restrict PolynomialModule.map R f to the coefficient submodules; the next
+-- equation fixes the map, including its action in degree zero.
+noncomputable def rees_module_map (I : Ideal R) (f : M →ₗ[R] N) :
+    rees_module R M I →ₗ[reesAlgebra I] rees_module R N I := by sorry
+
+lemma rees_module_map_coeff (I : Ideal R) (f : M →ₗ[R] N)
+    (p : rees_module R M I) (n : ℕ) :
+    ((rees_module_map R M I f p : rees_module R N I) : PolynomialModule R N).coeff n =
+      f ((p : PolynomialModule R M).coeff n) := by sorry
+
+lemma rees_module_map_id (I : Ideal R) :
+    rees_module_map R M I (LinearMap.id : M →ₗ[R] M) = LinearMap.id := by sorry
+
+lemma rees_module_map_comp (I : Ideal R) (f : M →ₗ[R] N) (g : N →ₗ[R] P) :
+    rees_module_map R M I (g.comp f) =
+      (rees_module_map R N I g).comp (rees_module_map R M I f) := by sorry
+end ReesMaps
+
 -- TauCeti.Kawasaki.rees_module_degree_zero
 example (I : Ideal R) (m : M) : PolynomialModule.single R 0 m ∈ rees_module R M I := by sorry
 
@@ -269,7 +295,8 @@ lemma schenzel_torsion_bound [IsNoetherianRing R] [IsLocalRing R] [Module.Finite
     (rs : List R) (h : secant R M rs) (hne : rs ≠ []) (d : ℕ)
     (hd : Module.supportDim R M = (d : WithBot ℕ∞)) :
     ∀ x : prefixQuotient R M (rs.take (rs.length - 1)),
-      rs.getLast hne • x = 0 → ∀ a ∈ annihilator_product R M
+      ∀ n : ℕ, 0 < n → (rs.getLast hne)^n • x = 0 →
+      ∀ a ∈ annihilator_product R M
         (IsLocalRing.maximalIdeal R) d, a • x = 0 := by sorry
 
 -- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-secant-extend-parameters
@@ -367,9 +394,9 @@ abbrev prefixConditions [IsLocalRing R] (rs : List R) : Prop :=
 
 -- DeformationAndDerivedPatchingAlgebraPartII:K2/kawasaki-robustness
 lemma kawasaki_robustness [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
-    (rs as : List R) (h : ∀ s ≤ rs.length, prefixConditions R M (rs.take s))
+    (rs as : List R) (h : prefixConditions R M rs)
     (ha : secant R (prefixQuotient R M rs) as) :
-    ∀ s ≤ rs.length, prefixConditions R (prefixQuotient R M as) (rs.take s) := by sorry
+    prefixConditions R (prefixQuotient R M as) rs := by sorry
 
 
 -- Use the group/ring structures consistently when chart modules are quotiented.
@@ -457,6 +484,24 @@ variable {N P : Type u} [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R
 -- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map
 noncomputable def module_blowup_map (I : Ideal R) (f : M →ₗ[R] N) :
     module_blowup R M I ⟶ module_blowup R N I := by sorry
+
+-- Restriction of the localized f to the image spans. The chart-ring-linear
+-- map is uniquely fixed by this equation on the images of M.
+noncomputable def chartModuleMap (I : Ideal R) (i : R) (f : M →ₗ[R] N) :
+    chartModule R M I i →ₗ[chartRing R I i] chartModule R N I i := by sorry
+
+lemma chartModuleMap_mk (I : Ideal R) (i : R) (f : M →ₗ[R] N) (m : M) :
+    (chartModuleMap R M I i f
+      ⟨LocalizedModule.mkLinearMap (Submonoid.powers i) M m,
+        Submodule.subset_span ⟨m, rfl⟩⟩ : LocalizedModule (Submonoid.powers i) N) =
+      LocalizedModule.mkLinearMap (Submonoid.powers i) N (f m) := by sorry
+
+-- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-chart
+lemma module_blowup_map_chart (I : Ideal R) (i : R) (hi : i ∈ I) (f : M →ₗ[R] N) :
+    (Scheme.Modules.pullback (chartMap R I i hi)).map (module_blowup_map R M I f) ≫
+      (module_blowup_chart R N I i hi).hom =
+    (module_blowup_chart R M I i hi).hom ≫
+      tilde.map (ModuleCat.ofHom (chartModuleMap R M I i f)) := by sorry
 
 -- DeformationAndDerivedPatchingAlgebraPartII:K3/module-blowup-map-id
 lemma module_blowup_map_id (I : Ideal R) :
@@ -683,6 +728,18 @@ lemma claim_vanishing [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
       p.asIdeal = IsLocalRing.maximalIdeal R)
     (hgen : Ideal.map (previousImage R rs s v p) (Ideal.ofList (rs.take (s-1))) =
       Ideal.span {previousImage R rs s v p (rs[i]'(by omega))})
+    (ih : letI := p.isPrime
+      ∀ k : ℕ, k < s-1 →
+        Subsingleton ((localCohomology
+          (IsLocalRing.maximalIdeal (previousRing R rs s v p)) k).obj
+          (ModuleCat.of (previousRing R rs s v p) (previousModule R M rs s v p))))
+    (ihQuot : letI := p.isPrime
+      ∀ m : ℕ, 0 < m → ∀ k : ℕ, k < s-1 →
+        Subsingleton ((localCohomology
+          (IsLocalRing.maximalIdeal (previousRing R rs s v p)) k).obj
+          (ModuleCat.of (previousRing R rs s v p)
+            (previousModule R (prefixQuotient R M [(rs[s-1]'(by omega))^m])
+              rs s v p))))
     (j j' : ℕ) (hj : j < s-2) :
     letI := p.isPrime
     let A := previousRing R rs s v p
@@ -729,29 +786,60 @@ lemma arbitrary_blowup_nonexample :
     ∃ A : Type u, ∃ _ : CommRing A, ∃ _ : IsNoetherianRing A,
       ∃ _ : IsLocalRing A, cm A A ∧ ¬ blowupCM A A (IsLocalRing.maximalIdeal A) := by sorry
 
--- The following two prototypes deliberately omit the AS.1 normalized-dualizing
--- complex hypothesis, which has no supplier signature at the pin. They are not
--- valid assertions at this generality. The roadmap's mathematical statements
--- retain that hypothesis; these omissions are the explicit duality-interface gap.
--- No arbitrary Prop field is introduced to pretend that hypothesis is available.
--- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator
-lemma cm_locus_annihilator [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
-    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞))
-    (hequidim : ∀ p (hp : p ∈ Module.support R M), IsMin (show Module.support R M from ⟨p, hp⟩) →
-      ringKrullDim (R ⧸ p.asIdeal) = (d : WithBot ℕ∞)) :
-    PrimeSpectrum.zeroLocus (annihilator_product R M (IsLocalRing.maximalIdeal R) d) =
-      {p : PrimeSpectrum R | p ∈ Module.support R M ∧ ¬ localCM R M p} := by sorry
-
--- The defect set is stated with its first nonvanishing LC degree rather than
--- a fictitious native depth function. AS.1's coheight/normalization input is omitted.
+-- Conditional consequences of concrete normalized-duality data. AS.1 must still
+-- construct C = RHom(M,ω), the annihilator comparison, and these localized
+-- vanishing comparisons with δ(p) = dim(R/p). No normalized-dualizing hypothesis
+-- is dropped, and no arbitrary proposition stands in for a missing carrier.
+-- The full roadmap theorems have the normalized-dualizing-complex hypothesis;
+-- these signatures describe only the consequences once its actual data is given.
 -- DeformationAndDerivedPatchingAlgebraPartII:K0/nonequidimensional-defect
 lemma nonequidimensional_defect [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
-    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞)) :
+    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞))
+    (C : CochainComplex (ModuleCat R) ℤ)
+    (hfinite : ∀ k : ℕ, Module.Finite R (C.homology (-(k : ℤ))))
+    (hann : ∀ k : ℕ, k < d →
+      Module.annihilator R ((localCohomology (IsLocalRing.maximalIdeal R) k).obj
+        (ModuleCat.of R M)) = Module.annihilator R (C.homology (-(k : ℤ))))
+    (δ : PrimeSpectrum R → ℕ)
+    (hδ : ∀ p, ringKrullDim (R ⧸ p.asIdeal) = (δ p : WithBot ℕ∞))
+    (hneg : ∀ p k, k < δ p →
+      Subsingleton (localModule R (C.homology (-(k : ℤ))) p))
+    (hloc : ∀ p j, letI := p.isPrime
+      Subsingleton (localModule R (C.homology (-((j + δ p : ℕ) : ℤ))) p) ↔
+        Subsingleton ((localCohomology
+          (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) j).obj
+            (ModuleCat.of (Localization.AtPrime p.asIdeal) (localModule R M p)))) :
     PrimeSpectrum.zeroLocus (annihilator_product R M (IsLocalRing.maximalIdeal R) d) =
       {p : PrimeSpectrum R | p ∈ Module.support R M ∧ ∃ j : ℕ,
         (j : WithBot ℕ∞) + ringKrullDim (R ⧸ p.asIdeal) < (d : WithBot ℕ∞) ∧
         ¬ Subsingleton ((localCohomology
           (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) j).obj
             (ModuleCat.of (Localization.AtPrime p.asIdeal) (localModule R M p)))} := by sorry
+
+-- Equidimensional support and the duality-induced dimension function supply
+-- hdim. It is stated on actual localizations, rather than inferred for an
+-- arbitrary local ring from equidimensionality alone.
+-- DeformationAndDerivedPatchingAlgebraPartII:K0/cm-locus-annihilator
+lemma cm_locus_annihilator [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
+    (d : ℕ) (hd : Module.supportDim R M = (d : WithBot ℕ∞))
+    (C : CochainComplex (ModuleCat R) ℤ)
+    (hfinite : ∀ k : ℕ, Module.Finite R (C.homology (-(k : ℤ))))
+    (hann : ∀ k : ℕ, k < d →
+      Module.annihilator R ((localCohomology (IsLocalRing.maximalIdeal R) k).obj
+        (ModuleCat.of R M)) = Module.annihilator R (C.homology (-(k : ℤ))))
+    (δ : PrimeSpectrum R → ℕ)
+    (hδ : ∀ p, ringKrullDim (R ⧸ p.asIdeal) = (δ p : WithBot ℕ∞))
+    (hneg : ∀ p k, k < δ p →
+      Subsingleton (localModule R (C.homology (-(k : ℤ))) p))
+    (hloc : ∀ p j, letI := p.isPrime
+      Subsingleton (localModule R (C.homology (-((j + δ p : ℕ) : ℤ))) p) ↔
+        Subsingleton ((localCohomology
+          (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) j).obj
+            (ModuleCat.of (Localization.AtPrime p.asIdeal) (localModule R M p))))
+    (hdim : ∀ p ∈ Module.support R M, letI := p.isPrime
+      Module.supportDim (Localization.AtPrime p.asIdeal) (localModule R M p) +
+        (δ p : WithBot ℕ∞) = (d : WithBot ℕ∞)) :
+    PrimeSpectrum.zeroLocus (annihilator_product R M (IsLocalRing.maximalIdeal R) d) =
+      {p : PrimeSpectrum R | p ∈ Module.support R M ∧ ¬ localCM R M p} := by sorry
 
 end TauCeti.Kawasaki
