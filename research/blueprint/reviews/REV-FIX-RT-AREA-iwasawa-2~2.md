@@ -1,10 +1,13 @@
 # Independent review of FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-NP5JM2`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-Yjzufy`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input commit: `772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6108107972).
-I did none of the fixes under review.
+Input commit: `897618096af2bb002a83d22044f03ed8e63fd066`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6108363611).
+I did none of the fixes under review. This pass independently rechecked the
+bounded correction contracts. The preceding report and its earlier audit
+remain available at the input commit; the full packet review histories are
+retained.
 
 ## Status
 
@@ -28,7 +31,7 @@ This is a bounded correction review. I read the six original findings, the
 verification, the round-two fix report, the affected nodes and the preceding
 reviews. The earlier complete 79-node L3-2 and 72-node D.1 audits retain their
 attribution; I checked the corrections relevant to /2 and /3. The
-[preceding review](https://github.com/CBirkbeck/tauceti-explorer/blob/772d9e5f9c5bc35afa5aba5078d7ac113ea52b12/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+[preceding review](https://github.com/CBirkbeck/tauceti-explorer/blob/897618096af2bb002a83d22044f03ed8e63fd066/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 is the input record, not evidence of a completed submission.
 
 ## Decisions and source checks
@@ -139,9 +142,17 @@ are newer than the programme pin:
 | --- | --- |
 | higher-fitting-ideal | `TauCeti.fittingIdeal`, RingTheory/FittingIdeal/Basic.lean:343, over commutative rings for finitely generated modules. |
 | higher-fitting-independence | `Submodule.minorsIdeal_ker_eq_of_surjective`, Basic.lean:304, and `TauCeti.fittingIdeal_eq_minorsIdeal_ker`, Basic.lean:349, for finite free surjections. |
-| relation-minors-add-generator | Generating-family independence is supplied; arbitrary families still require a span/image adapter. |
+| Kernel generators | `Submodule.minorsIdeal_span`, Generators.lean:75; `TauCeti.minorsIdealOfSet_eq_of_span_eq`, :99; `TauCeti.fittingIdeal_eq_minorsIdealOfSet`, :109. Arbitrary sets of kernel generators are supported, without a finite-relation hypothesis; the last theorem requires a finite free surjection onto a finitely generated module. |
+| relation-minors-add-generator | Use the preceding APIs on the finite span/image of the family. A non-generating family is not a presentation of its ambient module. |
 | higher-fitting-base-change | `TauCeti.fittingIdeal_baseChange`, FittingIdeal/BaseChange.lean:134; arbitrary commutative algebra base change, with no flatness hypothesis. |
 | transpose-stable-equivalence | `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`, StableTranspose.lean:91; exact surjective projective presentations over any ring, without finiteness. |
+
+This pass refines the preceding handoff: general computation from arbitrary
+sets of kernel generators is already implemented. Only the concrete coordinate
+minor comparison and application to an arbitrary family's image need adapters.
+For example, the family ((2,0)) in Z² has degree-one relation-minors ideal Z,
+whereas Fitt¹(Z²)=0. Identifying the family's image with its ambient module
+would therefore be false.
 
 The packet, reader, Suggested file and consumers must be revised together.
 Retain image-order mathematics, inverse-character scalar transport,
@@ -160,7 +171,9 @@ ledgers in the same manner. No packet or candidate has an `excerpt` field.
 
 All four actual packets and both prepared candidates pass
 `python3 scripts/check_blueprint.py` with zero errors. L3 retains 26 inherited
-short-API warnings; all others have none. Sequential `lean-check` runs, with
+short-API warnings; all others have none. The exact candidates were checked
+through a read-only overlay at their canonical packet paths, preserving the
+checker's cross-packet ownership checks. Sequential `lean-check` runs, with
 more than 20 GB available before each, give:
 
 | File | Fresh result |
