@@ -1,39 +1,42 @@
-# Handoff: #6217 remains blocked by scope mismatch
+# Handoff: #6217 needs scope reconciliation before reassignment
 
-Codex — **codex-gFeYC4**, 11 October 2026. Branch:
-`codex-gFeYC4-review-iwasawa`. Input commit:
-`8076e348807e479667d4020d429028f01a1fa6f2`.
-Claim confirmed in [comment 6106614750](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106614750).
-Only #6217 was successfully claimed. Another worker won the attempted
-claim on #7462; no work on that job was submitted.
+Codex — **codex-ifgMVV**, 11 October 2026. Input commit:
+`a51b147164c4e9cd0643f8039a45f10f1b22423f`. Branch:
+`codex-ifgMVV-review-6217`. Claim confirmed in
+[comment 6106772121](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106772121).
+Only #6217 was claimed. This is a blocked checkpoint.
 
-The live issue authorizes HE.0, its suggested file and its review report.
-The local and freshly fetched main queue require eleven packet/Lean pairs
-and the report. The actual completion function returns false for the
-23-output queue entry and true for an in-memory copy restricted to the
-issue's three outputs. All files exist. HE.0 already has an accepted verdict
-for this review job; the other ten retain other reviewer identifiers,
-including ES.0's needs_changes. Repeating HE.0's review cannot finish the
-queue assignment.
+The live issue still assigns the HE.0 packet, its suggested file and its
+review report. HE.0 already has this review job's accepted verdict. Local
+and freshly fetched main queues require eleven packet/Lean pairs instead.
+All 23 outputs exist. The real completion function returns false for that
+queue entry and true for an in-memory copy with the issue's three outputs.
+The report lists the ten additional packets and their existing reviewers;
+ES.0 retains needs_changes. No extra packet received a verdict this run.
 
-The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) records the fresh
-review-marker inventory and preserves the prior proposed scope-repair
-patch, regression scripts and mathematical reviews with their attribution.
-The patch still passes git apply --check at this input commit. Queue and
-generator edits are outside the live issue's file scope and fail swarm
-path validation. No repair was applied, no extra packet was reviewed, and
-no approval was requested or rejected in this session.
+The report preserves the concrete unified patch and self-contained regression
+scripts. The patch still applies cleanly. Both focused regression scripts
+were rerun and pass. The full generator was replayed read-only with the two
+historical round-two output lists restored from `88f9bcd44`. Stock generation
+expands round two to 27/15 fix/review outputs. Both candidate guards retain
+4/3 and route new work to a 30/17 round three. A full all-existing-successor
+replay preserves every output list across a second generation. The
+stock-to-completed-only comparison changes 38 existing job records and adds
+18, with no removals; inspect those wider scheduling effects before applying.
+No queue generation on disk, issue synchronization or promotion was run.
 
-**Reconcile scope before reassignment.** The maintainer can apply and
-validate the proposed repair, check its wider scheduling effects, and
-synchronize the issue; alternatively, explicitly authorize the expanded
-review. Keep unrelated verdicts intact. The proposed generator change alone
-preserves an already-expanded list, so restoring the historical lists is
-also necessary. Earlier regression/full-generator results are historical;
-this continuation did not repeat those experiments.
+**Maintainer action:** reconcile the issued scope and queue before another
+assignment. Apply and validate the proposed scope repair and synchronize the
+issue, or explicitly authorize the ten extra reviews. The generator guard
+alone preserves an already-expanded list; restoring the historical arrays
+is also required. Preserve unrelated review markers. WORKERS.md restricts
+edits to issue-named files, and intake rejects the queue and generator paths.
+A scope extension was requested and not received before this checkpoint;
+no automatic approval review occurred. No repair was applied.
 
-Only the review report and this required handoff change. HE.0's checker
-passes with zero errors/warnings. No source rereading or new mathematical
-verdict is claimed. Lean was not rerun for Markdown-only work; prior
-successful elaborations remain attributed in the report. No process is
-left running and no scratch artifact is required for resumption.
+Only the report and this handoff changed. The current HE.0 checker passes
+with zero errors/warnings; no mathematical verdict or source verification
+is newly claimed. Lean was not rerun for Markdown-only changes. Earlier
+mathematical reviews, source locators and compilation receipts remain in
+the report with attribution. No process remains running and no scratch
+artifact is needed for resumption.

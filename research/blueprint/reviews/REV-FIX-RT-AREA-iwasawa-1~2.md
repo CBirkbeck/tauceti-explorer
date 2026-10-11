@@ -1,3 +1,106 @@
+# #6217: current scope blocker and freshly replayed repair
+
+Codex — **codex-ifgMVV**, 11 October 2026. Input commit:
+`a51b147164c4e9cd0643f8039a45f10f1b22423f`. Branch:
+`codex-ifgMVV-review-6217`. The bot confirmed the claim in
+[comment 6106772121](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106772121),
+responding to [comment 6106771114](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6106771114).
+This session did none of the fixes under review and claimed only this job.
+
+**Blocked checkpoint.** The whole live issue was reread after confirmation.
+It assigns this report, the HE.0 packet and its suggested file. The permitted
+mathematical review already has an accepted verdict. Both the checked-out
+queue and a fresh read of GitHub main require eleven packet/Lean pairs and
+this report. This continuation establishes the outstanding completion blocker
+and reruns the proposed repair experiments. It adds no mathematical verdict.
+
+## Current completion evidence
+
+The actual `issues.deliverables_complete` returns **false** for the current
+23-output queue entry, although every file exists. It returns **true** for
+an in-memory copy restricted to the live issue's three deliverables. The
+function requires this job's reviewer identifier on every listed packet;
+ten currently have other identifiers. Their inventory is:
+
+| Packet stem | Verdict | Reviewer job |
+|---|---|---|
+| HeegnerPointEulerSystems--HE.7s | accepted | REV-HeegnerPointEulerSystems--HE.7s~2 |
+| HeegnerPointEulerSystems--HE.0 | accepted | REV-FIX-RT-AREA-iwasawa-1~2 |
+| GrossZagierAndArithmeticHeights--GZ.0 | accepted | REV-FIX-RT-AREA-algebraicgeometry~2 |
+| RankZeroOneBSD--BSD.0 | accepted | REV-RankZeroOneBSD--BSD.0~2 |
+| RankZeroOneBSD--BSD.7 | accepted | REV-RankZeroOneBSD--BSD.7 |
+| EulerSystemsAndKolyvaginSystems--ES.0 | needs_changes | REV-EulerSystemsAndKolyvaginSystems--ES.0~2 |
+| GeneralizedHeegnerCycles--GH.0 | accepted | REV-GeneralizedHeegnerCycles--GH.0~2 |
+| GrossZagierAndArithmeticHeights--GZ.8 | accepted | REV-GrossZagierAndArithmeticHeights--GZ.8~2 |
+| PadicHodgeRegulators--D.1 | accepted | REV-PadicHodgeRegulators--D.1~2 |
+| EulerSystemsAndKolyvaginSystems--ES.8 | accepted | REV-EulerSystemsAndKolyvaginSystems--ES.8 |
+| KatoEulerSystems | accepted | REV-KatoEulerSystems~2 |
+
+This is an inventory of existing markers, not a review of the extra packets.
+In particular, replacing those markers to satisfy intake would not constitute
+an independent review of their fixes.
+
+## Fresh repair validation
+
+The unified patch preserved below still passes `git apply --check` against
+this input. It restores the historical round-two output lists from
+`88f9bcd44` and changes the successor guard to preserve every existing round.
+Neither queue nor generator was edited.
+
+Both preserved focused regression scripts passed: the six pending/external/done
+state and new-input/send-back fixtures, repeated generation, saved rejection
+reason and absent-successor cases; and the seven earlier completed-round
+cases. These execute the actual nested `fix_rounds` helper with boundary stubs.
+
+The self-contained full-generator replay below was also rerun, with writes
+forbidden and only the two historical round-two output arrays restored in
+memory. Results at this input:
+
+| Generator | Round-two fix/review outputs | Round-three fix/review outputs |
+|---|---|---|
+| Stock | 27 / 15 | No new round |
+| Preserve completed successors | 4 / 3 | 30 / 17 |
+| Preserve all existing successors | 4 / 3 | 30 / 17 |
+
+Both candidate runs preserve the historical Iwasawa round-two lists over a
+second generation. A separate full run of the all-existing candidate confirms
+that **no job's output list changes** between its first and second generations.
+The stock-to-completed-only comparison changes 38 existing job records, adds
+18 job records and removes none. The affected areas include algebraic geometry,
+automorphic forms, combinatorics, étale cohomology, geometric Langlands, all
+three Iwasawa parts, K-theory, Langlands, p-adic geometry and topology. These
+are scheduling effects of a general guard change, not reviewed mathematical
+changes; inspect them before applying the proposal. GitHub issue refresh and
+queue synchronization were not run.
+
+## Authorized scope and resumption
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” `intake.file_problems` separately rejects both
+`queue.json` and `make_queue.py` as outside swarm output paths. Scope extension
+was requested in this session; none was received before submission. No
+automatic approval review was requested or rejected.
+
+The maintainer must reconcile the issue and queue: apply and validate the
+proposed repair, including its wider scheduling effects, then synchronize the
+issued scope; or explicitly authorize the extra ten reviews. Do not reassign
+this unchanged scope to another worker: its mathematical review is complete,
+and repeating HE.0 cannot satisfy the expanded completion predicate. Keep
+unrelated review markers until their files have actually been reviewed within
+an authorized assignment.
+
+Current HE.0 checker: **zero errors and warnings**, 78 nodes (71 theorems,
+one comparison, four constructions, two definitions), 24 API items, eighteen
+unit tests, 43 planets, thirteen baseline declarations, 21 gaps and 63 requests.
+All eight stages remain planned. No source was reread and no Lean signature
+changed. Lean was not rerun for these Markdown-only edits; earlier compilation
+receipts retain their attribution below. The handoff requires no scratch file.
+
+---
+
+The prior reports and their mathematical verdicts remain below with their
+original authors and verification limits.
+
 # #6217: scope mismatch still prevents completion
 
 Codex — **codex-gFeYC4**, 11 October 2026. Input commit:
