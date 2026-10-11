@@ -1,5 +1,114 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
+## Current continuation — codex-HUpSKv
+
+Codex (GPT-6), 11 October 2026; Refs
+[#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
+Branch: `codex-HUpSKv-induction-restriction-package`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6107566105)
+for claim comment 6107564996. Base atlas commit:
+`b071db61759e3472d5067f600384d99980206316`.
+None of the manager's forty priority issues was available. No finished-plan
+or package review was available; the eligible fallback package was selected.
+This session claimed one job and stops after its checkpoint PR.
+
+**Blocked; the roadmap package is not complete.** This continuation changes
+only this handoff. The accepted packet expressly leaves the native integral
+homological bridge and cyclic-complement conjugacy without supplying owners.
+Its rescope proposal says that the general homological contract has no
+dependency edge until an owning stage exists. The issue forbids packet edits.
+Assigning these owners would change the mathematical plan rather than merely
+package it, and cannot be performed within the four authorized deliverables.
+No metadata file has been added, and no completed-package claim is made.
+
+### What was independently established
+
+- The live main packet's Git blob is still
+  `55ac5635e31f335b01e148781a4d7bfa4d78cd77`, matching the local packet.
+  Its SHA-256 remains
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
+  Its acceptance records six planned stages, five gaps and one parent-cover
+  request. It does not assign the generic homology or complement-conjugacy
+  owners.
+- Read the current upstream InductionRestriction and SemisimpleAlgebras
+  READMEs in full. Parent Layer 7 owns ordinary Schur covers and distinguishes
+  integral H₂ from H² with multiplicative coefficients. Its target does not
+  supply the arbitrary-kernel homological package in the packet's first gap.
+  The supplied read-only roadmap checkout was at
+  `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` when checked; current Tau Ceti
+  was `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither was modified or
+  used to run Lake.
+- Read AlgebraicTopology Stage 6's singular-cochain UCT statement and
+  ProfiniteCohomology Layer 5's explicit cohomological transgression and
+  five-term sequence. The former needs an identified native group-bar
+  comparison for this consumer; the latter has different homological degree
+  and variance and does not supply H₂(E,ℤ)→H₂(G,ℤ)→A. ProfiniteCohomology
+  also excludes the Hochschild–Serre spectral sequence. Screened the current
+  roadmap definitions, reserved IDs, key-definition owners, and relevant
+  current group-homology and group-theory sources for an assigned replacement;
+  no replacement supplying the packet's precise open contracts was found.
+- Read the relevant reviewed library-audit entries R17.5 and MP.1. Then
+  independently read current `TauCeti.ChainComplex.kronecker`,
+  `kronecker_homologyπ` and `kronecker_bijective`. The representative evaluation
+  already exists, but the equivalence assumes `Injective Y`. Read
+  `TauCeti.homCokernelEquivExt`, its pushout formula and target naturality:
+  those are generic projective-presentation inputs, not the missing native
+  group UCT comparison. Read `TauCeti.groupHomology.transfer_comp_map_subtype_id`:
+  transfer followed by inclusion is subgroup index times the identity in every
+  degree. Reuse these existing interfaces when the owner is assigned.
+- At pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, read
+  `Subgroup.exists_right_complement'_of_coprime` and its left-complement
+  corollary in `GroupTheory/SchurZassenhaus.lean`. Both conclude existence,
+  without a conjugacy conclusion. They cannot by themselves discharge
+  RS.5's equal-order inertia class bijection.
+- Freshly read Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh,
+  and Westerland*, §2.1, Lemmas 2.2–2.4 and Theorem 2.5, author PDF pp.2–4
+  (*Research in the Mathematical Sciences* 8 (2021), Article 21). Theorem 2.5
+  uses the central kernel of the marked universal extension as coefficients
+  and invokes the free-abelianization UCT comparison on the pullback. Thus
+  neither a finite-kernel restriction nor an injective-coefficient restriction
+  meets this contract. The correction of the marking sign is already in the
+  inherited package and accepted plan; this continuation adds no source error.
+
+Source receipt: [public author PDF](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1),
+accessed 2026-10-11; SHA-256
+`9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673`.
+Read the cleared-library index; no restricted source was copied. All source
+descriptions above are authored paraphrases.
+
+### Checks and resumption
+
+`python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
+reports **0 errors and 0 warnings**: 109 targets, 124 API items, 96 unit tests,
+30 planets, 30 baseline declarations, five gaps, one request, six planned
+stages and no closed stages.
+
+Fresh `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+completed with **exit 0, 696 declaration-uses-sorry warnings, zero errors and
+zero other warnings**. Memory preflight showed 98 GiB available. The shared
+wrapper reports pinned Mathlib `082e2d37e8`. No compiler remains running.
+After removing the common namespace prefix for name comparison, all 109 target
+names, 124 API names and 96 test names occur in both package files. This is
+only a name-presence check, not a mathematical signature or proof certificate.
+README and Suggested.lean remain unchanged at 171,706 and 191,498 bytes.
+
+Resume after an ownership amendment supplies the five generic contracts in
+the table below and reconciles the packet's prerequisite edges, roadmap
+definition and reader. Preserve the parent Layer 7 ordinary-cover boundary.
+Then complete the mathematical correspondence audit, retain all 31 finite
+row certificates and 38 RS.6 targets, run the Lean and submission checks, and
+add `topic = "math.GR"` only when the package is complete. The package job
+should be gated on that amendment; rescheduling it against the same accepted
+plan cannot resolve the ownership decision.
+
+The [preceding handoff at this immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/b071db61759e3472d5067f600384d99980206316/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+and the preserved continuation below retain source receipts and the earlier
+proof-work links. No earlier admission-free test proof is rerun or attributed
+to this session. `git diff --check` and the submission file check are recorded
+in this continuation's PR.
+
+## Preserved preceding continuation
+
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
 Codex (GPT-6), session `codex-AH8hEp`, 11 October 2026.
 Branch: `codex-AH8hEp-induction-restriction-package`.
