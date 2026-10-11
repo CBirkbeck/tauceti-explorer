@@ -1,16 +1,18 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-Ocof1q`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-mrjVtq`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105241649).
-Input commit: `1e39b91ecd76e1bfdf116c6502efc2f2b5fd3b7f`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105393160).
+Input commit: `5ef4331ec4198234c77f9a74652b98acfd786d96`.
 
 ## Status: blocked by file-scope authorization
 
 The six-finding correction review is ready. Preserve the attribution in the
 [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) and its immutable
-predecessor links. L3 already records acceptance under this review job; PMIA
-already records its justified `needs_changes`. The queue finishes when the
+predecessor links. L3 now records this session's bounded acceptance; PMIA
+records its justified `needs_changes` with fresh source/native evidence.
+Their entire previous review objects were appended intact to their histories;
+only these metadata fields changed. The queue finishes when the
 exact L3-2 and D.1 records below are installed. Their original
 `codex-jIGDIK` attribution must remain.
 
@@ -44,7 +46,7 @@ All four actual packets pass the exact pinned-index checker with zero errors;
 L3 retains 26 inherited short-API warnings, the other three have none. Both
 scratch candidates pass with zero errors and warnings. Actual completion is
 false; a read-only substitution of exactly the two candidates makes it true.
-The actual four packets and four Suggested files retain their input hashes.
+The two omitted packets and all four Suggested files retain their input hashes.
 No packet contains an `excerpt` field.
 
 Read all six finding claims, verifier decisions and the round-two fix report.
@@ -52,24 +54,31 @@ Directly checked Zhao §1.2 p.461, §4 pp.471–473 and Appendix A p.473;
 Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7;
 Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54;
 Nekovář–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54.
-Text readings and visual checks of Zhao p.472 and Ertl–Niziol p.7 agree with
-the bounded /2 and /3 contracts. Five gaps/eight requests in L3-2 and nine
-gaps/twenty requests in D.1 remain explicit. Four public-PDF hashes reproduced
-below; no book used and no source passage copied into the repository.
+Text readings agree with the bounded /2 and /3 contracts. Five gaps/eight
+requests in L3-2 and nine gaps/twenty requests in D.1 remain explicit.
+Also fetched and visually read Morita §1 Lemma 1/Theorem 1 pp.255–256 and
+Gross–Koblitz §1 equations (1.2), (1.5), (1.6)/Theorem 1.7 pp.570–571.
+Read Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26 and
+§6.1/Lemma 6.1 p.40. The /1 and /4 source checks support the earlier bounded
+correction verdicts. Seven public-PDF hashes reproduced below; no book used
+and no source passage copied into the repository.
 
 Read the five current native Fitting/transpose declarations named in the
 report and their PMIA counterparts. Their exact hypotheses support PMIA's
-negative ownership verdict. Consulted current ArithmeticDirichletSeries and
-StableReduction README/Suggested interfaces. Current read-only upstream heads
+negative ownership verdict. Read the pinned continuous-unit lift, positive
+Gauss sum, Teichmüller lift and opposite-ring transpose definition. Earlier
+consultations of ArithmeticDirichletSeries and StableReduction interfaces
+retain their attribution. Current read-only upstream heads
 are TauCetiRoadmap `070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the current LAD complex
 conventions and RS-16 I.5 proof-route decision. These checks preserve earlier
 full source/node audits with their original attribution.
 
-Lean was not repeated for metadata-only candidates. The unchanged Suggested
-hashes below preserve `codex-YXQsbh`'s evidence: L3 fails at its `research`
-import; L3-2, D.1 and PMIA elaborate with 111, 307 and 1,075 admission warnings
-only. This session makes no fresh compilation claim.
+Ran all four Suggested files sequentially through `lean-check` after checking
+memory. L3 exits 1 at line 1 with an unknown `research` module prefix, without
+body elaboration. L3-2, D.1 and PMIA exit 0 with 111, 307 and 1,075 `sorry`
+warnings only. No Lean code changed; these fresh checks reproduce the
+predecessor results. Nothing remains compiling in the background.
 
 ## Installation guards
 
@@ -82,6 +91,13 @@ evidence or mathematics.
 | --- | --- | --- |
 | L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
 | D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
+
+The issue-named packet hashes after this session's metadata updates are L3
+`209f46501fd667a585ba591ea805d2cab7180294f3f92eefcf9f3b09fc8d1cce`
+and PMIA `96b645e4e42fc93fcc9c1199cace46c803e77af96b2d5bf1ab7ed7a3a93b41b3`.
+Their histories have 44 and 45 entries respectively. Do not overwrite these
+fresh records or add identical review-history entries when installing the
+two remaining candidates.
 
 ## Exact remaining records
 
@@ -137,6 +153,9 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 | [Ertl–Niziol v2](https://arxiv.org/pdf/1603.01705v2) | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
 | [Colmez–Niziol v4](https://arxiv.org/pdf/1505.06471v4) | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
 | [Nekovář–Niziol v5](https://arxiv.org/pdf/1309.7620v5) | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
+| [Morita](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
+| [Gross–Koblitz](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf) | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
+| [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3) | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 
 ## Unchanged Suggested-file hashes
 
@@ -149,7 +168,8 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 
 ## Checkpoint scope
 
-Only this handoff and the review report change. Both exact candidates are
+Only this handoff, the review report and the two issue-named packets' review
+metadata change. Both exact candidates are
 fully specified here and validated; disposable scratch is unnecessary to
 resume. Actual dispatch remains incomplete because scope authorization is
 pending. Only #6219 was claimed; opening this checkpoint ends this run.
