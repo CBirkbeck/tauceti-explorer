@@ -1,6 +1,110 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex (GPT-6). Session: `codex-G3Ag4g`. Date: 2026-10-11.
+Branch: `codex-G3Ag4g-crystalline-package`. Input commit: `3c1b280982a2481cd37a45e929918db2ecc0623a`.
+Claim confirmed in [comment 6106305991](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106305991),
+responding to [comment 6106305088](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106305088).
+All forty manager-priority issues were checked; none was available. This was
+then the eligible focus package under WORKERS.md's fallback order. Only this
+issue was claimed.
+
+## Result and blocking evidence
+
+**The package remains blocked on missing supplier interfaces.** This run changes
+only this handoff, preserving the mathematical deliverables. It does not certify
+completion. The issue's assertion that the plan is complete means its planning
+pass has finished: the accepted packet contains 97 nodes, 27 requests and 40
+gaps; all ten stages are planned and none is closed.
+
+Two sufficient blockers were checked afresh in the local accepted plans and
+current read-only upstream trees:
+
+1. **Integral coefficients.** `REQ-INTEGRAL-WEYL` needs integral dual-Weyl
+   lattices, coefficient reduction, Levi evaluation and an integral splitting
+   for CL.0, CL.2, CL.5 and CL.6. The parent
+   `PotentialAutomorphyInfrastructure` packet explicitly assigns the general
+   theory to `ReductiveGroupsIntegralRepresentationsPartII` and records that
+   its exporting stages do not exist. There is still no owner packet,
+   suggested file or package, nor a matching roadmap in current upstream.
+   Owner design [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357)
+   remains open and available; this worker did not claim it.
+   Read the actual `TauCeti.YoungTableau.weylModule` statement at the pinned
+   commit: `RepresentationTheory/ClassicalGroups/WeylModule.lean`, lines
+   105–116, requires `[Algebra ℚ k]`. In the current library the declaration
+   has moved to `WeylModule/Basic.lean`, lines 122–132, and retains that
+   assumption. The current file therefore does not remedy the coefficient
+   obstruction over O or O/ϖ^m. A characteristic-zero tensor-image module
+   cannot be substituted for the requested integral dual-Weyl interface.
+2. **Arithmetic towers.** `REQ-TOWER` still names ALS.6. Read the accepted
+   RS-09 result: ALS.6 keeps finite-level descent, while CC.0, CC.1, CC.2,
+   CC.4, CC.6 and CC.7 of `CompletedCohomologyPartII` own tower assembly,
+   smooth colimits, completed objects, equivariant chain models, completed
+   descent and the boundary triangle. There is still no packet, suggested
+   file or package for that owner, nor a matching current upstream roadmap.
+   The reviewed `data/library-coverage.json` entry for ALS.6 explicitly
+   distinguishes generic limits from the absent arithmetic tower. Those
+   generic constructions do not provide the actual adelic tower and its
+   arithmetic actions. The package already records the owner correction;
+   updating the accepted packet requires a separately authorized edit.
+
+The current roadmap tree was checked at
+`070dc2becd74419e76303ede84b465ed4a69461f` and its Tau Ceti dependency at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the upstream ReductiveGroups
+and PeripheralActions READMEs and searched the current roadmap/library trees
+for the relevant integral-Weyl and completed-tower exports. No build was run
+in either read-only tree. No restricted source was required for this blocker
+check; no new mathematical source claim is introduced.
+
+The issue permits only the package's README, Suggested.lean, metadata and this
+handoff, expressly excluding packet edits. PROTOCOL.md sections 13, 15 and 20
+require honest signatures, reuse of the owning roadmap and a complete package.
+Constructing these general supplier theories here would violate those boundaries.
+WORKERS.md's blocked-checkpoint rule applies independently of the eight-hour
+limit. This is a dependency block, not exhaustion of that limit.
+
+## Validation in this session
+
+- `check_blueprint.py`: **0 errors, 0 warnings**; accepted packet unchanged.
+- `lean-check` on the inherited package Suggested.lean: **exit 0, no errors,
+  107 warnings, all declaration-uses-sorry warnings**. Available memory was
+  100 GB before checking. No Lean server or library build was started; no
+  check remains running. This confirms only the supplied declarations.
+- Independently stripped nested block comments and compared declarations and
+  named-example labels with the accepted packet: **17 of 97 target names,
+  44 of 103 API names and 45 of 104 named tests have typed cores/signatures**.
+  The remaining **80/59/59** remain omitted. The typed cores still require
+  the arithmetic specializations described in the inherited record.
+- Intake `check-files`: **1 file, 0 problems**; `git diff --check` passes.
+- No metadata is added: the package remains a checkpoint. The inherited
+  README, Suggested.lean and packet are byte-for-byte unchanged, with hashes
+  `849ad358d9d9c5dd53fd3c90c838bb5b84883871356e69fbe68fae9f406eae61`,
+  `9e32ee66611e8eaa3c35f82ae7a41c48886ca968c42b0d3a7c54e14058fe69fb`,
+  and `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
+
+## Where to resume
+
+Supply the integral coefficient exports in their existing owner and the
+completed arithmetic tower exports in CC; supply the smooth-monoid enhancements
+recorded below. A job allowed to edit the accepted packet must reconcile its
+supplier stages, integral-coefficient requests and stale NT16 locator. Then
+specialize the typed cores to the arithmetic carriers, replace all omitted
+signatures/API/tests, elaborate the complete file and add metadata. Preserve the
+qualified Barsotti–Tate endpoint and the normalization corrections below.
+
+The manager should route these owner jobs before scheduling this package for
+another completion attempt. This worker has not changed labels, claimed a
+supplier job or opened a second job. No scratch artifact is needed to resume;
+the full inherited implementation history and exact required interfaces follow.
+
+## Inherited handoff (historical validation)
+
+The following record is retained for continuity. Its checks describe the named
+preceding sessions, except where repeated and recorded above.
+
+# PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex (GPT-6). Session: `codex-nw6xyR`. Date: 2026-10-11.
 Branch: `codex-nw6xyR-crystalline-package`.
 Input commit: `c8ca27292e25c7c8c1811aba80f0696d58eaa08f`.
