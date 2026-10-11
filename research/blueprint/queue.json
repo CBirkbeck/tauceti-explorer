@@ -24922,9 +24922,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #719"
+   "note": "claimed on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
@@ -24970,9 +24970,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E5.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #720"
+   "note": "deliverables arrived from an external worker on issue #720",
+   "finishedAt": "2026-10-11T01:20:29Z"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E5",
@@ -32286,7 +32287,8 @@
    ],
    "avoidAccountOf": "BP-SieveMethodsAndPrimePatterns",
    "prompt": "research/blueprint/prompts/REV-SieveMethodsAndPrimePatterns.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #544"
   },
   {
    "id": "BP-AdditiveCombinatorics",
@@ -43191,8 +43193,9 @@
     "BP-AnalyticNumberTheory--AN.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6463"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6463",
+   "finishedAt": "2026-10-11T01:20:30Z"
   },
   {
    "kind": "blueprint",
@@ -49203,8 +49206,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80261,8 +80264,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81571,8 +81574,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
