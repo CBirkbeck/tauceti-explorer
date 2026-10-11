@@ -1911,6 +1911,10 @@ end DistinctInvolutionClassesExample
 section FiniteIntegralHomologyContract
 -- These are consequences of existing transfer and finite integral bar chains,
 -- not a second construction of transfer. The supplier remains to be assigned.
+-- Reuse CategoryTheory.ShortComplex.finite_homology for finite generation:
+-- the middle term of the native integral chain complex is finite free over ℤ.
+-- This current Tau Ceti module is outside the compilation pin used here.
+-- Module.Finite also holds in degree zero; Finite additionally needs annihilation.
 lemma integral_homology_finite (G : Type) [Group G] [Finite G] (n : ℕ) :
     Finite (groupHomology (Rep.trivial ℤ G ℤ) (n + 1)) := by sorry
 
