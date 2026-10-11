@@ -103,12 +103,28 @@ Source: Wood (2021), §2.1 p.2 and Lemma 2.2 p.3, for the oriented class-map com
 
 For finite G and n>0, H_n(G,ℤ) is finite and |G| annihilates it. For annihilation, reuse `TauCeti.groupHomology.transfer_comp_map_subtype_id` from `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`, applied to the trivial subgroup, and Mathlib's `groupHomology.isZero_groupHomology_succ_of_subsingleton`. For finiteness, the integral bar groups are finitely generated in each degree, so their homology is finitely generated over ℤ; combine this with the annihilator. A separate construction of homological transfer is unnecessary.
 
+The two required consequences use the existing carrier `groupHomology (Rep.trivial ℤ G ℤ) (n + 1)`. The successor degree excludes H₀, which is ℤ even for finite G. `integral_homology_finite` supplies finiteness of this carrier; `integral_homology_card_smul` states `(Nat.card G) • z = 0` for every element z. Neither conclusion identifies H_n with a coefficient-dependent Schur multiplier. An annihilator alone does not imply finiteness: finite generation from the integral bar chains is a separate input.
+
+Unit tests:
+
+- `finite_integral_homology_test_1`: a trivial group has subsingleton integral homology in every positive degree. This also tests the order-one annihilator.
+- `finite_integral_homology_test_2`: for C₂, H_(2n+1)(C₂,ℤ) has cardinality two, while H_(2n+2)(C₂,ℤ) is zero. This detects a degree shift or a proposed vanishing theorem for all finite groups. Reuse Mathlib's `Rep.FiniteCyclicGroup.groupHomologyIsoOdd` and `groupHomologyIsoEven`, rather than constructing a second cyclic resolution.
+- `finite_integral_homology_test_3`: H₀(C₂,ℤ) is infinite, and twice the class of 1 is nonzero. Mathlib's `groupHomology.H0IsoOfIsTrivial` identifies that class with 1∈ℤ. This detects either finiteness or order annihilation asserted in degree zero.
+
 For finite coprime H,Γ and φ:Γ→Aut(H), let ρ be the Γ-action on M(H) with ρ(γ)=M(φ(γ)). The required `coprime_degree_two_edge` identifies the actual kernel of M(H⋊Γ)→M(Γ) with Mathlib's `Representation.Coinvariants ρ`. The induced inclusion from M(H) sends z to its coinvariant class under this identification. The standard Γ-section splits the quotient edge, hence
 M(H⋊Γ)≅M(H)_Γ⊕M(Γ), with these specified inclusions and projection.
 
 Proof route: use E²_(p,q)=H_p(Γ,H_q(H,ℤ)). For p,q>0 these groups vanish: |H| annihilates the coefficient group and is coprime to |Γ|, so averaging is invertible. In total degree two the remaining terms are H₂(H,ℤ)_Γ and H₂(Γ,ℤ). The possible incoming d₃ to E³_(0,2) originates in H₃(Γ,ℤ). The source is killed by |Γ| and the target by |H|, so every such homomorphism is zero by Bézout. The outgoing d₂ from E²_(2,0) likewise has target killed by |H|. Other incoming or outgoing differentials meet zero terms or leave the first quadrant. The section splits the surviving edge filtration. This supplies the primary-kernel and odd-index-two reductions without assuming a collapse solely from the E² terms.
 
-Needs: the native degree-two extension-spectral-sequence contract; the existing transfer formula; native coinvariants; Mathlib's finite abelian primary decomposition. Source: Löh (2019), Theorem 1.7.15 p.64, Theorem 3.2.12 pp.123–124, Proposition 3.2.13 pp.124–125 and Remark 3.2.14 p.125. The finite-generation and coprime-differential conclusions are the displayed deductions from these interfaces.
+Unit tests:
+
+- `coprime_degree_two_edge_test_1`: with trivial Γ, the actual multiplier map induced by H→H⋊Γ is bijective. This tests the inclusion in the edge contract, rather than merely an abstract equality of cardinalities.
+- `coprime_degree_two_edge_test_2`: take H=C₃² and Γ=C₂ acting by inversion. On M(H)=Λ²H≅C₃ the action is the identity: inversion on both basis vectors has determinant +1. The inclusion induces a bijection onto M(H⋊Γ), of cardinality three, because M(C₂)=0. Replacing the induced multiplier action by inversion would incorrectly kill this coinvariant group.
+- `coprime_degree_two_edge_test_3`: with trivial action on C₂×C₂, both factor multipliers vanish but the total multiplier and the projection kernel have cardinality two. The inclusion from the first factor is not surjective. Its missing class is the tensor product of the two H₁ generators. This detects an edge theorem asserted without coprimality.
+
+The last two tests use the integral product formula: H₂(A×B,ℤ)≅H₂(A,ℤ)⊕H₂(B,ℤ)⊕(H₁(A,ℤ)⊗H₁(B,ℤ)). Thus C₃² has multiplier C₃, and C₂² has multiplier C₂. The exterior-square identification for an abelian group gives the induced automorphism used in the inversion test. These are acceptance calculations for the displayed native maps, not implementations of the general spectral-sequence contract.
+
+Needs: the native degree-two extension-spectral-sequence contract; the existing transfer formula; native coinvariants; Mathlib's finite abelian primary decomposition. Source: Löh (2019), Corollary 1.6.13 p.49 for the cyclic calculations, Theorem 1.7.15 p.64 for transfer, Theorem 3.2.12 pp.123–124, Proposition 3.2.13 pp.124–125 and Remark 3.2.14 p.125 for the extension spectral sequence, and §3.2.5, Theorem 3.2.22 p.135 and Corollary 3.2.23 pp.136–137 for the product formula. The finite-generation, exterior-square and coprime-differential conclusions are the displayed deductions from these interfaces.
 
 ### Cyclic complement conjugacy
 
