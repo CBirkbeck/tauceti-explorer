@@ -1,158 +1,66 @@
-# Handoff: finish only after file scope is repaired
-
-Codex (GPT-6), session `codex-Sp4gYu`, 11 October 2026. Refs
-[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105853327).
-Input commit: `8a128b3b1`. This session authored none of the fixes under review.
-
-**Scope-blocked checkpoint.** The live issue still omits the two queue-required
-packet paths listed below. I prepared their exact review-only candidates,
-validated them, and requested explicit authorization through the worker
-conversation. The request remains unanswered. Only this handoff and the review
-report change. No packet, Suggested file or review history changes.
-
-The review's bounded six-finding decisions are ready: L3 is accepted, L3-2 and
-D.1 have prepared acceptances, and PMIA retains `needs_changes`. PMIA's
-coordinated revision belongs to a separate job and does not prevent this
-review from finishing. The outstanding installation is exactly:
-
-- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
-- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
-
-[WORKERS.md](../WORKERS.md), Doing the work, says:
-“Edit only the files the issue names, plus your own scratch space.”
-The live issue names L3 and PMIA, whereas its current queue outputs also
-include L3-2 and D.1. Queue ownership and passing intake checks do not remove
-this explicit file restriction. Authorize the two paths or update the live
-issue before redispatching. The exact installation recipe below remains
-sufficient; another unchanged audit cannot resolve the scope mismatch.
-
-Both guarded input hashes and candidate hashes reproduce exactly. Every
-non-review field is equal; each candidate history is its entire previous
-history plus its entire prior review. The 79-node and 72-node decision ledgers
-remain intact. Candidate records retain `codex-jIGDIK` attribution and dates.
-L3 and PMIA already have this job's verdicts: do not add another duplicate
-history entry. All eight packet/Suggested hashes match the receipts below.
-
-Fresh checks:
-
-- All four actual packets and both candidates pass the existing declaration
-  index at the programme pins with zero errors. L3 retains 26 inherited
-  unrelated short-API warnings; the other five checks have no warnings.
-- Both candidates pass intake file rules; the packets and candidates contain
-  no `excerpt` field. Actual `deliverables_complete` is false with the queue
-  and predicate unchanged.
-- All nine public source PDFs were fetched again and their hashes match the
-  receipts below. Direct readings and locators are in this session's report;
-  Morita and Gross–Koblitz pages were inspected visually. No book was used.
-- Read all six finding/verifier records and the round-two fix report, the four
-  relevant reviewed library-coverage records, RS-16's I.5 decision, the pinned
-  continuous-unit lift, positive Gauss sum and Teichmüller section, and the five
-  current native Fitting/transpose statements with their hypotheses and PMIA
-  counterparts. The read-only current upstream heads remain unchanged below.
-  Earlier exhaustive node audits retain their original attribution.
-- Fresh sequential `lean-check` commands, after checking available memory:
-  L3 exits 1 before body elaboration because the shared build cannot resolve
-  its `research` imports. L3-2, D.1 and PMIA exit 0 with respectively 111, 307
-  and 1,075 `sorry` warnings and no other diagnostics. No Lean code changed;
-  no compilation remains running.
-- `git diff --check` and intake file checks pass for the report and handoff.
-
-Only #6219 was claimed. This run submits a checkpoint because the required
-scope authorization is absent, not because the time budget expired. The next
-worker needs no disposable scratch: exact records, source receipts, guarded
-hashes and installation checks are preserved below.
-
----
-
-The preceding handoff, including exact records, guards and source receipts,
-is preserved below with its own attribution.
-
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-pzP6uF`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-k2zZva`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105591960).
-Input commit: `98e12a03c5d9478e5c37363f8a3daa086ac341cd`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6106025819).
+Input commit: `5cbcf764a67eb29027a3af3f4518b483c8f950ea`.
+Only #6219 was claimed; this session authored none of the fixes under review.
 
-## Status: blocked by file-scope authorization
+## Status: scope-blocked checkpoint
 
-The six-finding correction review is ready. Preserve the attribution in the
-[report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) and its immutable
-predecessor links. L3 already records the preceding session's bounded acceptance;
-PMIA already records its justified `needs_changes`. Both records and their
-entire histories are unchanged in this continuation. The queue finishes when the
-exact L3-2 and D.1 records below are installed. Their original
-`codex-jIGDIK` attribution must remain.
+The bounded six-finding review is ready. L3's acceptance and PMIA's
+`needs_changes` already use this review job's identifier. The remaining work
+is to install the two exact review-only candidates below. I reconstructed them
+in scratch, reproduced the guarded hashes, preserved all non-review fields and
+entire previous reviews/histories, and validated both candidates. A read-only
+substitution makes the unmodified completion predicate true; actual completion
+is false. PMIA's negative verdict completes its part of this review and its
+coordinated revision belongs to a separate job.
 
-The live issue omits these queue-required packets:
+The live issue still omits these queue-required paths:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
 [WORKERS.md](../WORKERS.md), Doing the work, says:
 “Edit only the files the issue names, plus your own scratch space.”
-The issue also restricts edits to its named files under review. After
-preparing and validating the concrete two-record changes, I asked through
-the worker conversation for authorization to change only `review` and
-`reviewHistory` in those two packets. The question remains unanswered.
-Neither packet was edited; queue ownership and intake eligibility do not
-supersede this instruction.
+After preparing the concrete two-record changes, I requested explicit
+permission through the worker conversation. No answer has arrived. Neither
+packet was edited. Authorize these paths or update the live issue before
+redispatching. Queue ownership and passing intake checks do not override this
+restriction; another unchanged mathematical audit cannot resolve it.
 
-Authorize these two paths or repair the live issue before redispatch.
-Repeating the completed review cannot finish the scope-blocked job.
-Negative PMIA review does not prevent this review finishing; its coordinated
-revision is a separate job. Do not change the completion predicate, add
-another identical L3/PMIA history entry or replan existing upstream work.
+## Work and checks completed
 
-## Fresh checks in this continuation
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) gives a reason for each
+finding and precise source locators. Earlier exhaustive audits keep their
+attribution; the exact candidate records retain `codex-jIGDIK`'s attribution
+and dates. The 79-node and 72-node prior ledgers remain intact. L3 and PMIA get
+no additional duplicate history entries.
 
-Prepared the exact two candidates from the preceding handoff and matched
-both input/candidate hashes below. Their full prior reviews retain 79 and
-72 `checked` node decisions. Asserted that every non-review field is equal
-and each history equals the prior history plus the entire prior review.
-All four actual packets pass the exact pinned-index checker with zero errors;
-L3 retains 26 inherited short-API warnings, the other three have none. Both
-scratch candidates pass with zero errors and warnings. Actual completion is
-false; a read-only substitution of exactly the two candidates makes it true.
-The two omitted packets and all four Suggested files retain their input hashes.
-No packet contains an `excerpt` field.
+Freshly fetched all nine public PDFs below and matched their hashes. Read the
+bounded correction evidence, visually inspecting Morita and Gross–Koblitz;
+read the six claims/verifier records, round-two fix report, relevant pinned
+native statements, five current Fitting/transpose statements and corresponding
+PMIA contracts, four library-coverage records, RS-16 I.5, and current upstream
+owner interfaces. No book was used; no source passage enters the repository.
+Current read-only heads: TauCetiRoadmap
+`070dc2becd74419e76303ede84b465ed4a69461f`; Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-Read all six finding claims, verifier decisions and the round-two fix report.
-Directly checked Zhao §1.2 p.461, §4 pp.471–473 and Appendix A p.473;
-Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7;
-Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54;
-Nekovář–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54.
-Text readings agree with the bounded /2 and /3 contracts. Five gaps/eight
-requests in L3-2 and nine gaps/twenty requests in D.1 remain explicit.
-Also fetched and visually read Morita §1 Lemma 1/Theorem 1 pp.255–256 and
-Gross–Koblitz §1 equations (1.2), (1.5), (1.6)/Theorem 1.7 pp.570–571.
-Read Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26 and
-§6.1/Lemma 6.1 p.40. The /1 and /4 source checks support the earlier bounded
-correction verdicts. Nine public-PDF hashes reproduced below; no book used
-and no source passage copied into the repository.
+All four actual packets and both candidates pass the programme-pinned index
+checker with zero errors. L3 retains 26 inherited short-API warnings; the other
+five checks have none. Both candidates pass intake file rules. No packet or
+candidate has an `excerpt` field. All eight actual packet/Suggested hashes
+match below. Four sequential `lean-check` runs finish: L3 fails before body
+elaboration on its unresolved `research` imports; L3-2/D.1/PMIA succeed with
+111/307/1,075 `sorry` warnings only. No compilation remains running.
+`git diff --check` and intake checks pass for the report and handoff.
 
-Read the five current native Fitting/transpose declarations named in the
-report and their PMIA counterparts. Their exact hypotheses support PMIA's
-negative ownership verdict. Read the pinned continuous-unit lift, positive
-Gauss sum, Teichmüller lift and opposite-ring transpose definition. Earlier
-consultations of ArithmeticDirichletSeries and StableReduction interfaces
-retain their attribution; this session also read their current README and
-Suggested interfaces relevant to the owner boundary. Current read-only upstream heads
-are TauCetiRoadmap `070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the current LAD complex
-conventions and RS-16 I.5 proof-route decision. Also fetched and read BCGP21 v3
-§6.1.1 p.139 and BCGP25 Definition 2.2.17 p.21/§4.6.46–Remark 4.6.47
-pp.93–94. Their distinction between the representative product and invariant
-cohomological support, and between derived solid localization and mere monoid
-inversion, agrees with the retained /5 correction. These checks preserve earlier
-full source/node audits with their original attribution.
-
-Ran all four Suggested files sequentially through `lean-check` after checking
-memory. L3 exits 1 at line 1 with an unknown `research` module prefix, without
-body elaboration. L3-2, D.1 and PMIA exit 0 with 111, 307 and 1,075 `sorry`
-warnings only. No Lean code changed; these fresh checks reproduce the
-predecessor results. Nothing remains compiling in the background.
+This checkpoint changes only the report and handoff. It is blocked on scope,
+not elapsed time. Disposable scratch is unnecessary to resume: exact records,
+guarded hashes, receipts and installation checks are preserved below, from the
+preceding attributed handoff.
 
 ## Installation guards
 
@@ -241,11 +149,3 @@ Public PDFs fetched on 11 October 2026; full locators are in the report.
 | DirichletPadicLFunctions--L3-2 | `d8be865820fe7491d3bd196c4a47c78e753595786bd939e8328ac20b121fa2a2` |
 | PadicHodgeRegulators--D.1 | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` |
 | PadicMeasuresIwasawaAlgebras | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` |
-
-## Checkpoint scope
-
-Only this handoff and the review report change. No packet or Suggested file
-changes, and no repeated metadata history is added. Both exact candidates are
-fully specified here and validated; disposable scratch is unnecessary to
-resume. Actual dispatch remains incomplete because scope authorization is
-pending. Only #6219 was claimed; opening this checkpoint ends this run.
