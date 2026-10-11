@@ -7126,19 +7126,20 @@
    "hypotheses": [
     "The base field is Q and D is the diagram of pairs of Definition 1.1, localised at (G_m, {1}, 1).",
     "The two representations are algebraic de Rham cohomology and singular cohomology of pairs, in the degree of the vertex; the comparison isomorphism plays no part in the identification.",
-    "On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the suggested file): for other structures the products of P_eff and of A_{1,2} need not agree on generators."
+    "On the diagram of all pairs the two cohomologies are not graded multiplicative representations, so the algebra structures are taken through the diagram of good pairs (finding E37), with the graded multiplicative structures of the exterior and cross products and the product of pairs (PairDiagram.ProductCompatible in the suggested file): for other structures the products of P_eff and of A_{1,2} need not agree on generators. Use the convention already fixed in MC.5/nori-tensor-category: the inverse de Rham Künneth map is (-1)^{ij} times the exterior product, and the inverse singular map evaluates to (-1)^{ij} times the product of the two evaluations. Both signs are necessary and cancel in the comparison coefficient, leaving the formal-period product unsigned."
    ],
    "proofSteps": [
     "Effective case: identify the generators and the three families of relations of P^+ with those of P^eff_{1,2}, using that H_d(X(C), D(C), Q) is the dual of H^d(X(C), D(C), Q); relation (2) is change of variables along the functoriality edges and relation (3) along the coboundary edges.",
     "Route the algebra structure through good pairs: the comparison algebras of all pairs and of good pairs are identified (the analogue for two representations of Corollary 1.7, MC.5/diagram-comparison), and on good pairs both cohomologies are graded multiplicative, so Theorem 2.6 applies as a statement about algebras (finding E37).",
-    "Apply Theorem 2.6 (MC.6/periods-equal-comparison-algebra) to obtain P^eff_{1,2} = A^eff_{1,2} and check that the resulting identification with P^+ is multiplicative on generators, where it is the Künneth product.",
+    "Apply Theorem 2.6 (MC.6/periods-equal-comparison-algebra) to obtain P^eff_{1,2} = A^eff_{1,2} and check that the resulting identification with P^+ is multiplicative on generators, where it is the Künneth product. On a product of degree i and degree j the two inverse Künneth signs contribute (-1)^{2ij}=1; omitting only one of them would give the wrong product for two odd pairs.",
     "Localise: both sides are localised at the class of (G_m, {1}, 1), by the analogue of Proposition B.22 for comparison algebras (MC.5/diagram-localisation)."
    ],
    "acceptance": [
     "The theorem identifies three algebras and turns a presentation by generators and relations into a Tannakian object.",
     "The identification is of algebras, not only of vector spaces; the multiplicative structure is carried by good pairs.",
     "The evaluation to the complex numbers plays no part in the theorem; its injectivity is the period conjecture, which the source does not address.",
-    "The exported comparison explicitly commutes with the two localization maps and carries the Tate inverse to the inverse of the comparison Tate class. MC.6/formal-periods provides the one presentation; PS.2 owns the integration/evaluation application, not another Nori category or torsor proof."
+    "The exported comparison explicitly commutes with the two localization maps and carries the Tate inverse to the inverse of the comparison Tate class. MC.6/formal-periods provides the one presentation; PS.2 owns the integration/evaluation application, not another Nori category or torsor proof.",
+    "For two degree-one good pairs the two inverse Künneth maps each have sign -1. On coefficient factors 2 and 3 the paired product is (-2)(-3)=6; leaving just one side unsigned gives -6. The proved odd-degree regression in the suggested file distinguishes both defects."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/formal-periods",
@@ -7153,6 +7154,11 @@
      "sourceId": "HMS.2014",
      "locator": "Theorem 2.10 with its proof (page 11), arXiv:1105.0865v5",
      "match": "The node is Theorem 2.10. Its two parenthetical cross references are misprinted (finding E1), and its proof applies Theorem 2.6 as a statement about algebras on the diagram of all pairs (finding E37)."
+    },
+    {
+     "sourceId": "HMS.2014",
+     "locator": "Definition B.14, pp.20–21, with the convention recorded in MC.5/nori-tensor-category (E29); arXiv:1105.0865v5",
+     "match": "The shared degree sign in both inverse Künneth maps agrees with the packet’s existing first-variable convention and cancels in the period coefficient product."
     }
    ],
    "implementationStatus": "unchecked",
@@ -7166,6 +7172,11 @@
      "name": "FormalPeriods.localizeComparison_ofEff",
      "role": "simp",
      "statement": "The induced localized comparison sends ofEff(x) to the canonical image of e(x), for every effective element x, in particular the Tate class."
+    },
+    {
+     "name": "PairDiagram.ProductCompatible.signs_cancel",
+     "role": "compatibility",
+     "statement": "For a parity a in Z/2 and u,v in Q, ((-1)^a u)((-1)^a v)=uv. The de Rham and singular inverse Künneth maps must use the same MC.5 sign for the coefficient product to agree with the unsigned formal-period product."
     }
    ]
   },
@@ -12667,10 +12678,10 @@
    ],
    "title": "The comparison isomorphism as a complex point of the period torsor",
    "kind": "construction",
-   "statement": "Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps, unital and compatible with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C, sending L^-1 to the inverse of the nonzero period of L. This is the coefficient embedding of the period torsor that the layer exports to PeriodsAndSpecialValues.",
+   "statement": "Let φ : H*_dR ⊗ C → H* ⊗ C be the comparison isomorphism between algebraic de Rham and singular cohomology of pairs of varieties over Q, natural in morphisms of pairs, compatible with connecting maps, unital and compatible with products (request ComplexComparisonPartII:C5). Then φ defines a complex point of X_{1,2} = Iso⊗(H*_dR, H*), that is, a Q-algebra homomorphism per : A_{1,2} → C sending the class of (p, ω, γ) to γ(φ_p(ω)). Composed with P = A_{1,2} (MC.6/formal-periods-equal-comparison-algebra) it is a ring homomorphism P → C, sending L^-1 to the inverse of the nonzero period of L. This is the complex evaluation map of the period torsor that the layer exports to PeriodsAndSpecialValues; its injectivity is the period conjecture and is not asserted.",
    "hypotheses": [
     "The comparison isomorphism is an isomorphism of unital graded multiplicative representations of the diagram of pairs after extension of scalars to C (request ComplexComparisonPartII:C5; finding E36): natural for morphisms of pairs, compatible with the connecting maps of triples, sending the period of (Spec Q, ∅, 1, [pt]) to 1, and multiplicative for the exterior product in de Rham cohomology and the cross product in singular homology. In the suggested file this is the typed contract PairDiagram.PeriodComparison. A family of complex-linear isomorphisms natural for pullbacks alone does not qualify.",
-    "On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the suggested file). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators.",
+    "On good pairs the graded multiplicative structures of de Rham and singular cohomology are those of the exterior and cross products, with the product of good pairs the product of pairs (finding E37; PairDiagram.ProductCompatible in the suggested file). For these structures the comparison is a tensor isomorphism, and the products of P_eff and of A_{1,2} agree on generators. With the MC.5 convention, both inverse Künneth maps carry (-1)^{ij} for degrees i,j; the two signs cancel in the period product. PairDiagram.ProductCompatible records these signs explicitly rather than changing the supplied exterior or cross products.",
     "No rational point of X_{1,2} is asserted.",
     "At the Tate pair, PairHomology.gm_finrank supplies the rank-one calculation and PeriodData supplies nonzero dlog and circle. These hypotheses, together with the comparison isomorphism, justify period_tate_ne_zero and extension through the Tate localization; nonzero vectors in arbitrary finite-dimensional dual spaces would not suffice."
    ],
@@ -13879,7 +13890,7 @@
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.7"
    ],
-   "detail": "Milne's notes say that Murre conjectured a decomposition of the diagonal modulo rational equivalence with certain properties, and that his conjecture is equivalent to the existence of a filtration on the Chow groups conjectured by Beilinson and Bloch. The properties and the filtration axioms are what give both statements their content, and neither is stated in any source read for this packet. The node states the part that is precise, the existence of a Chow-level orthogonal idempotent decomposition, and records the rest as missing. NEXT SOURCE ACTION: obtain Murre's two 1993 papers in Indagationes Mathematicae, or Jannsen's article on motivic sheaves and filtrations on Chow groups in the 1991 motives proceedings, and add the conditions verbatim before anything is built on them."
+   "detail": "Milne's notes say that Murre conjectured a decomposition of the diagonal modulo rational equivalence with certain properties, and that his conjecture is equivalent to the existence of a filtration on the Chow groups conjectured by Beilinson and Bloch. The properties and the filtration axioms are what give both statements their content, and neither is stated in any source read for this packet. The node states the part that is precise, the existence of a Chow-level orthogonal idempotent decomposition, and records the rest as missing. NEXT SOURCE ACTION: obtain Murre's two 1993 papers in Indagationes Mathematicae, or Jannsen's article on motivic sheaves and filtrations on Chow groups in the 1991 motives proceedings, and state the exact conditions in the worker’s own words with theorem and page locators before anything is built on them."
   },
   {
    "title": "The proofs behind the K3 entries of the register were not read",
@@ -15388,9 +15399,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-11",
-  "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /4 and /31 preserve the geometric-Hodge supplier gap and C5/SF.6 comparison ownership. The typed finite-dual coefficient map, induced products and distinguishing examples from the newer Iwasawa review remain intact. Retain needs_changes for the separate relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes; the assigned area fixes do not repair those defects. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
+  "notes": "Codex (GPT-6), session codex-dM5x45: bounded independent review of FIX-RT-AREA-iwasawa-3~3, following the complete independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record archived unchanged in reviewHistory. Freshly checked all eight findings against HMS v5, BDP and Kato, and the six MC.5/MC.6 supplier nodes against their contracts, tests and pinned localization APIs. Corrected the typed good-pair product contract to use the MC.5 degree sign on both inverse Künneth maps, with proved cancellation/odd-degree checks, and replaced unsupported coefficient-embedding wording by a complex evaluation map with injectivity explicitly conjectural. Preserve the canonical finite-dual coefficient-map repair, rank-one Tate nonvanishing, typed comparison, supplier ownership and all previous audit qualifications. The relative Beck preservation adapter, reconstruction carriers and fifteen API/four theorem prototype obligations remain unresolved, so needs_changes remains. The GH.1 model parenthetical and Kato r-prime Hecke scalar require edits outside the live issue scope; see report/handoff. No implementation or proof closure is claimed."
  },
  "reviewHistory": [
   {
@@ -16468,6 +16479,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-11",
    "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /4 and /31 retain the separate geometric-Hodge gap and C5/SF.6 comparison imports. The typed finite-dual coefficient map and its distinguishing examples are preserved. The relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes remain separate revision obligations; retain needs_changes. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-11",
+   "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /4 and /31 preserve the geometric-Hodge supplier gap and C5/SF.6 comparison ownership. The typed finite-dual coefficient map, induced products and distinguishing examples from the newer Iwasawa review remain intact. Retain needs_changes for the separate relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes; the assigned area fixes do not repair those defects. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
   }
  ],
  "fixes": {
