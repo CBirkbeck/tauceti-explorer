@@ -2666,8 +2666,9 @@ namespace level_eisenstein
 /-- The meromorphic continuation of `level_eisenstein N z` in `s`. -/
 def continued (N : ℕ) [NeZero N] (z : UpperHalfPlane) : ℂ → ℂ := by sorry
 
-theorem continued_eq (N : ℕ) [NeZero N] (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    continued N z s = level_eisenstein N z s := by sorry
+theorem continued_eq (N : ℕ) [NeZero N] (z : UpperHalfPlane) :
+    CommonDenominator Set.univ (continued N z) ∧
+      ∀ s : ℂ, 1 < s.re → continued N z s = level_eisenstein N z s := by sorry
 
 def unrestrictedPairs (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' p : ℤ × ℤ, if p = (0, 0) then 0 else
@@ -4442,8 +4443,12 @@ def cohomology (C : CochainData.{u}) (q : ℤ) : Type u :=
   (LinearMap.ker (C.d q)) ⧸
     (LinearMap.range (previousDifferential C q)).comap (LinearMap.ker (C.d q)).subtype
 namespace cohomology
-instance add (C : CochainData.{u}) (q : ℤ) : AddCommGroup (cohomology C q) := by sorry
-instance module (C : CochainData.{u}) (q : ℤ) : Module ℂ (cohomology C q) := by sorry
+instance add (C : CochainData.{u}) (q : ℤ) : AddCommGroup (cohomology C q) :=
+  inferInstanceAs (AddCommGroup ((LinearMap.ker (C.d q)) ⧸
+    (LinearMap.range (previousDifferential C q)).comap (LinearMap.ker (C.d q)).subtype))
+instance module (C : CochainData.{u}) (q : ℤ) : Module ℂ (cohomology C q) :=
+  inferInstanceAs (Module ℂ ((LinearMap.ker (C.d q)) ⧸
+    (LinearMap.range (previousDifferential C q)).comap (LinearMap.ker (C.d q)).subtype))
 end cohomology
 
 
