@@ -185484,14 +185484,15 @@
     "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
     "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
     "the author's publications page, which lists the Duke reference and no corrigendum",
-    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+    "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebraPartII",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebraPartII.json",
    "citation": "Sources of the blueprint of DeformationAndDerivedPatchingAlgebraPartII",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+   "reviewReason": "Independently read the displayed convention on arXiv v2 p. 4. Off-support zero stalks have infinite depth and empty-support dimension, so the equality must be support-restricted. This review did not re-read the separate author manuscript or the Duke version."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E5",
@@ -185506,14 +185507,15 @@
     "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
     "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
     "the author's publications page, which lists the Duke reference and no corrigendum",
-    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+    "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebraPartII",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebraPartII.json",
    "citation": "Sources of the blueprint of DeformationAndDerivedPatchingAlgebraPartII",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+   "reviewReason": "Independently read Remark 3.9 on arXiv v2 p. 12 and checked the counterexample over k[[t,u]] with M=R/(u)⊕R. The d-sequence has zero t-torsion but nonzero tu-torsion equal to its u-torsion; the later index is required."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E6",
@@ -185528,14 +185530,15 @@
     "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
     "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
     "the author's publications page, which lists the Duke reference and no corrigendum",
-    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+    "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebraPartII",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebraPartII.json",
    "citation": "Sources of the blueprint of DeformationAndDerivedPatchingAlgebraPartII",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+   "reviewReason": "Independently read Proposition 3.11(iii) on arXiv v2 p. 13 and its application on p. 14. The antecedent must refer to the last auxiliary parameter, which is the regular element actually used in the proof."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E7",
@@ -185550,14 +185553,15 @@
     "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
     "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
     "the author's publications page, which lists the Duke reference and no corrigendum",
-    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+    "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebraPartII",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebraPartII.json",
    "citation": "Sources of the blueprint of DeformationAndDerivedPatchingAlgebraPartII",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+   "reviewReason": "Independently read the product definition on arXiv v2 p. 15 and checked it against Proposition 3.11 on p. 13 and the iterated-blowup recurrence. Only the product of successive prefix ideals supplies the required recurrence."
   },
   {
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E8",
@@ -185572,14 +185576,15 @@
     "the author's manuscript dated 28 July 2020 and arXiv:1810.04493v2 at the locator; the two texts agree",
     "the arXiv abstract page for 1810.04493 (read 2026-09-24), which lists v1 (10 October 2018) and v2 (3 September 2020, 'final version') and announces no erratum",
     "the author's publications page, which lists the Duke reference and no corrigendum",
-    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2"
+    "the Duke version of record (doi 10.1215/00127094-2020-0063) was not read: Project Euclid refuses scripted access (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026), so this finding is scoped to the author's manuscript and arXiv v2",
+    "Independent review on 11 October 2026: arXiv abstract/version history and the author’s publication list were checked; a bounded title/author corrigendum search found no applicable notice. No assertion is made about the unread Duke version of record."
    ],
    "owner": "DeformationAndDerivedPatchingAlgebraPartII",
    "file": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebraPartII.json",
    "citation": "Sources of the blueprint of DeformationAndDerivedPatchingAlgebraPartII",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
+   "reviewReason": "Independently read display (3.14.10) and the surrounding chart exact sequence on arXiv v2 p. 16. Both coefficients annihilate the cohomology, but the map feeding the next sequence is multiplication by r_bT−r_a."
   },
   {
    "id": "DeligneWeightsAndPurity/E1",
@@ -191139,6 +191144,326 @@
    "status": "rejected",
    "reviewedBy": "REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2",
    "reviewReason": "The recorded texts use different compatibility conventions, but that distinction does not demonstrate an error in KW Corollary 10.2(i), p. 21. A geometric compatibility argument can supply the omitted background, and Carayol §0.6 expressly permits a finite coefficient extension. GT.3 has a direct Serre/Ribet proof; GT.4 separately requests the stronger comparison. No source contradiction or counterexample has been established."
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E1",
+   "kind": "misprint",
+   "locator": "Corollary 2.3.2, p.866",
+   "printed": "The mod-three target matrix group is labelled GL₃(F₃).",
+   "correction": "It is GL₂(F₃).",
+   "reason": "The prescribed residual representation has two-dimensional upper-triangular shape and is realized on elliptic three-torsion.",
+   "affects": "nothing",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E2",
+   "kind": "misprint",
+   "locator": "§6.3, p.900, and §6.4, p.901",
+   "printed": "The square of the order-four inertia generator is assigned order three.",
+   "correction": "γ₄² has order two.",
+   "reason": "It negates β and its square fixes all generators.",
+   "affects": "nothing",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E3",
+   "kind": "misprint",
+   "locator": "§6.4, p.902",
+   "printed": "Two Galois-group field labels in the negative quadratic construction use the positive quadratic subscript three.",
+   "correction": "The labels refer to the negative quadratic fields F₋₃ and F′₋₃.",
+   "reason": "The calculation is in the paragraph defining the negative quadratic extension, with its own uniformizer and automorphisms.",
+   "affects": "nothing",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.7.1, p.899",
+   "printed": "The cross-reference calls Lemma 5.2.1 a theorem, and an undefined Γ₁ appears in the descent argument.",
+   "correction": "Use Lemma 5.2.1(5) and the inertia subgroup acting trivially on the residue field and congruent to one on the uniformizer.",
+   "reason": "The rank-one identity N◦φ₁=0 is Lemma 5.2.1(5), p.886; the subsequent calculation uses the first ramification subgroup.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E5",
+   "kind": "misprint",
+   "locator": "§8.3, p.918",
+   "printed": "The comparison cites Theorem 4.4.1.",
+   "correction": "The intended comparison is Theorem 4.5.1.",
+   "reason": "The proof is in the ramified-quadratic branch; its unique residual model is the statement of 4.5.1.",
+   "affects": "nothing",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E6",
+   "kind": "misprint",
+   "locator": "§7.4 rank-four descent display, p.910",
+   "printed": "The fourth displayed left-hand side repeats the ω-labelled lifted vector.",
+   "correction": "It is the descent action on e′₁.",
+   "reason": "There are four different basis vectors; its right-hand side is the transformation of the fourth one.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E8",
+   "kind": "misprint",
+   "locator": "References, p.939",
+   "printed": "The same citation label is assigned to Tate and Tunnell.",
+   "correction": "Distinguish the labels by author and title.",
+   "reason": "The full references and their roles are unambiguous; the lifting and Tate-full-faithfulness steps cite them by name here.",
+   "affects": "nothing",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E9",
+   "kind": "error",
+   "locator": "§6.4 uniformizer assertion, p.902",
+   "printed": "The negative quadratic uniformizer is given as α/β with α³=4.",
+   "correction": "Use (α−1)/β and recalculate the subsequent Eisenstein and descent data at it.",
+   "reason": "α is a unit, so v₃(α/β)=−1/4. The Eisenstein equation for α−1 gives valuation 1/3, hence the corrected quotient has valuation 1/12 and norm −3.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E10",
+   "kind": "misprint",
+   "locator": "§7.4 rank-four γ₃ display, p.910",
+   "printed": "The second row adds its g term in the second lifted ω direction.",
+   "correction": "That term is g eω, the original ω vector.",
+   "reason": "The displayed action must descend to the earlier rank-three submodule; the incorrect vector would change its quotient action.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E11",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.2.6, p.908",
+   "printed": "The second filtration generator is written with the wrong leading power/vector.",
+   "correction": "Use u²e′+(b+b′u)u e.",
+   "reason": "This is the weight-two self-extension filtration in the statement of Lemma 7.2.6; its reduction gives the claimed relation.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E12",
+   "kind": "misprint",
+   "locator": "Theorem 4.6.3, p.878",
+   "printed": "The residual symbol and coefficient field are used where the varying Artin representation and its prime field are intended.",
+   "correction": "Write the family as ρ_N and its coefficients as F₃[T]/(Tᴺ).",
+   "reason": "The target group and compatible construction in §9.5 use the fixed prime-field residual representation.",
+   "affects": "a stated result",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E13",
+   "kind": "error",
+   "locator": "Theorem 4.6.3(3), p.878",
+   "printed": "Nontrivial specialization modulo T² is asserted for every positive N.",
+   "correction": "Assert that clause only for N≥2; at N=1 the representation is the original residual representation.",
+   "reason": "F₃[T]/(T) has no nontrivial T-direction, so the N=1 assertion cannot hold.",
+   "affects": "a stated result",
+   "known": "The proof in §9.5, p.933, explicitly includes the N≥2 qualifier; the theorem statement omits it.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E14",
+   "kind": "gap",
+   "locator": "Proof of Corollary 4.6.4, p.879",
+   "printed": "The argument treats endomorphisms of 3D as restrictions of endomorphisms of an arbitrary finite Witt module D.",
+   "correction": "Replace that lift step with the annihilator proof in extended-characteristic-three-rings: F kills D[3] and F²=−3, so D[9]=D[3], and finite three-primary length implies 3D=0.",
+   "reason": "Endomorphism extension from 3D is not automatic. For example, in Z/9⊕Z/3 the map taking the generator of 3(Z/9) to the nonzero Z/3 summand cannot extend to an endomorphism of D. The annihilator argument proves the required conclusion without such a lift.",
+   "affects": "the proof",
+   "known": "No separate published correction located in the author-hosted paper or the erratum search of 2026-10-11.",
+   "searched": [
+    "Published source and author-hosted version at the corresponding locators.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E15",
+   "kind": "misprint",
+   "locator": "SBT author-hosted version, Lemma 1.1, p.3",
+   "printed": "For a representation over an arbitrary characteristic-zero field K, the rational projective line is labelled over Q.",
+   "correction": "The twist is isomorphic to P¹_K; the application here has K=Q.",
+   "reason": "The cocycle and its trivialization in the proof are over K.",
+   "affects": "nothing",
+   "known": "No separate correction located; these two label issues were checked in the author-hosted version only, not against the published version.",
+   "searched": [
+    "Author-hosted version at the cited locator; these two label issues are not asserted of the published version.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E16",
+   "kind": "misprint",
+   "locator": "SBT author-hosted version, proof of Lemma 1.1, p.3",
+   "printed": "One lifted source group is labelled SL₅(F₅).",
+   "correction": "The source is SL₂(F₅).",
+   "reason": "The surrounding double-cover construction and all adjacent formulas are two-dimensional.",
+   "affects": "nothing",
+   "known": "No separate correction located; these two label issues were checked in the author-hosted version only, not against the published version.",
+   "searched": [
+    "Author-hosted version at the cited locator; these two label issues are not asserted of the published version.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EllipticCurveModularityWild3Adic/E17",
+   "kind": "misprint",
+   "locator": "Manoharmayum proof of Proposition 3.6, p.744",
+   "printed": "The quartic-splitting argument points to Proposition 3.4.",
+   "correction": "The reference is Proposition 3.5.",
+   "reason": "Item 3.4 is a definition of the harmless residual type; Proposition 3.5 supplies the three-division polynomial and splitting field actually used.",
+   "affects": "nothing",
+   "known": "No separate correction located in the author publication page and title/erratum web search of 2026-10-11.",
+   "searched": [
+    "Published source at the cited locator.",
+    "Author publication page and web search for the paper title with erratum/correction, 2026-10-11."
+   ],
+   "owner": "EllipticCurveModularityWild3Adic",
+   "file": "research/blueprint/packets/EllipticCurveModularityWild3Adic.json",
+   "citation": "Sources of the blueprint of EllipticCurveModularityWild3Adic",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "EllipticKTheory/E17",
