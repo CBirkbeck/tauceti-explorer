@@ -1,20 +1,23 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-YqdEV6`, 11 October 2026.
-Branch: `codex-YqdEV6-induction-restriction-checkpoint`.
-Base atlas commit: `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6107970551)
-against claim comment 6107969213; the full issue was reread after confirmation.
+Codex (GPT-6), session `codex-2akCZv`, 11 October 2026.
+Branch: `codex-2akCZv-package-induction-restriction`.
+Base atlas commit: `9ed13b38327bb8500c9e4c307e8f08979a7a04d1`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6108282707)
+against claim comment 6108281779; the full issue was reread after confirmation.
 None of the manager's forty priority issues appeared in the available swarm
-inventory. No eligible finished-plan or package review was available; this
-was the available fallback package. Only this job was claimed.
+inventory. The available focus plan reviews inspected already had finished
+issued-scope reviews and unresolved issue/queue scope mismatches. This was
+the available fallback package. Only this job was claimed.
 
 **Blocked; the package remains unfinished.** This continuation updates only
 the handoff. The accepted plan requires prerequisite ownership assignments
 that this package job cannot make: the issue permits only the three package
 files and this handoff, and explicitly prohibits packet edits. This is an
 ownership and scope obstruction, not a time limit or compilation failure.
+The worker requested supplier IDs or a scope amendment; none was supplied
+before submission. The missing inputs remain the blocker.
 
 ## What prevents completion
 
@@ -51,6 +54,38 @@ signature compilation resolves neither issue.
 
 ## Fresh checks in this continuation
 
+- A comment-masked declaration scan found actual Lean declarations for all
+  124 API names required by the accepted packet, rather than merely finding
+  those names in comments. All 96 planned test labels lead to Lean `example`
+  statements: 89 immediately, seven after intervening comments or `include`.
+  Those seven were read individually: marking-correction test 2,
+  square-obstruction test 3, compatible-covers test 3, reduction-certificate
+  tests 2–3 and finite-parity-algorithm tests 2–3. This checks signature
+  presence, not truth of admitted statements or finite-model certification.
+
+  | Layer | Accepted targets | API declarations located | Test examples located |
+  | --- | ---: | ---: | ---: |
+  | RS.1 | 14 | 29 | 21 |
+  | RS.2 | 16 | 29 | 21 |
+  | RS.3 | 11 | 28 | 24 |
+  | RS.4 | 19 | 22 | 18 |
+  | RS.5 | 11 | 4 | 3 |
+  | RS.6 | 38 | 12 | 9 |
+  | Total | 109 | 124 | 96 |
+
+  The file has 555 named declarations and additional examples; these counts
+  concern only API/test names required by the packet. This does not complete
+  the mathematical correspondence audit of all 109 targets.
+- Rechecked the native UCT and five-term signatures and the finite-homology,
+  coprime-edge and complement-conjugacy sections with their hypotheses. The
+  contracts to reconcile are `integral_uct_evaluation`,
+  `integral_uct_ext_inclusion` and their exactness/naturality API;
+  `extension_class_map`, `homological_commutator_central_extension`,
+  `extension_class_map_five_term` and the following exactness/surjectivity
+  statements; `integral_homology_finite`, `integral_homology_card_smul`;
+  `coprime_degree_two_edge`; and `cyclic_coprime_complement_conjugacy`.
+  They retain arbitrary UCT coefficients, positive-degree homology, the native
+  projection kernel and a single complement conjugator.
 - Rechecked the packet, its accepted review, rescope proposal, roadmap
   definition and inherited handoff. The packet remains SHA-256
   `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
@@ -58,30 +93,20 @@ signature compilation resolves neither issue.
   `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec` and current Tau Ceti at
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the parent Layer 7
   boundary, related upstream documentation and the relevant library-audit
-  entries at R17.5 and MP.1. No upstream files were changed or used to run Lake.
-- Read `TauCeti.ChainComplex.kronecker_naturality` and
-  `kronecker_bijective` with their hypotheses in
-  `TauCeti/Algebra/Homology/Kronecker.lean`. They supply generic evaluation
-  naturality and bijectivity for an injective coefficient object, respectively;
-  the latter is insufficient for arbitrary abelian coefficients.
-- Read `TauCeti.homCokernelEquivExt`, its representative formula and coefficient
-  naturality in `TauCeti/Algebra/Homology/Ext/Presentation.lean`. They compute
-  Ext¹ from a short exact sequence with projective middle term. The native
-  group-bar comparison and full two-variable UCT still need their assigned
-  supplier. These current declarations are reuse evidence beyond the old pin,
-  not an assertion that the pinned suggested file imports them.
-- Read `TauCeti.groupHomology.transfer_comp_map_subtype_id` in
-  `TauCeti/RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`.
-  It gives transfer followed by inclusion as the subgroup index times the
-  identity in every degree; the supplier must reuse this API.
-- Read pinned Mathlib `Subgroup.exists_right_complement'_of_coprime` and its
-  left-complement corollary in `Mathlib/GroupTheory/SchurZassenhaus.lean`.
-  They conclude existence of a complement, not conjugacy. Rechecked the
-  RS.5 `admissible-inertia-classes` node's exact missing use.
-- Targeted checks of roadmap definitions, reserved IDs and key-definition
-  owners did not find a replacement ownership assignment for the specified
-  contracts. This is a scoped search result, not a catalogue-wide absence
-  theorem. The supplied upstream/library commits match the preceding handoff.
+  entries at R17.5 and MP.1. Those entries concern cohomological lifting and
+  factor-set interfaces and identify the parent owner; neither assigns the
+  integral bridge. The packet records no reviewed row for this roadmap, its
+  alias or parent stage. No upstream files were changed or used to run Lake.
+- Read the current `TauCeti.ChainComplex.kronecker_bijective` statement in
+  `TauCeti/Algebra/Homology/Kronecker.lean`: it requires an injective coefficient
+  object, so it does not discharge the arbitrary-coefficient UCT. The singular
+  UCT in AlgebraicTopology also does not supply the full native group bridge.
+- Targeted searches of the current roadmap/library interfaces found generic
+  Kronecker, Ext-presentation and transfer reuse leads, but no replacement
+  supplier assignment for the required contracts. This is a scoped search
+  result, not a catalogue-wide absence theorem. The preceding handoff's
+  statement-level receipts for these APIs and pinned complement existence
+  remain inherited evidence; they are not new readings claimed here.
 - Read the cleared-library index. This continuation makes no new source
   extraction or source-error claim and copies no restricted source material.
 
@@ -93,7 +118,7 @@ signature compilation resolves neither issue.
   remain explicit; structural validation does not close them.
 - Fresh `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
   **exit 0; 696 declaration-uses-sorry warnings, zero errors and zero other
-  warnings**. Memory preflight found 94 GiB available. The wrapper used the
+  warnings**. Memory preflight found 95 GiB available. The wrapper used the
   shared pinned build and reported Mathlib `082e2d37e8`. The check completed;
   no compiler remains running.
 - README remains 171,706 bytes, SHA-256
@@ -123,7 +148,7 @@ the ownership amendment and its suppliers, instead of asking another package
 worker to repeat the same check. Queue edits and manual relabelling are outside
 this job's scope.
 
-The [preceding handoff at this immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/517d1829d0fc041f39f5b88fd54e5ba8459ba55c/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+The [preceding handoff at this immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/9ed13b38327bb8500c9e4c307e8f08979a7a04d1/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
 preserves source receipts and links to earlier finite-model, mutation and
 boundary-proof evidence. Those results are inherited, not new work by this
 session. No scratch file is needed to resume.
