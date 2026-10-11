@@ -1,4 +1,16 @@
-import Mathlib
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.GroupTheory.SpecificGroups.Alternating
+import Mathlib.LinearAlgebra.Dimension.Finrank
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Permutation
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.Logic.Equiv.Fin.Basic
+import Mathlib.NumberTheory.Padics.RingHoms
+import Mathlib.RepresentationTheory.Invariants
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.Tactic.NormNum
 import TauCeti.RingTheory.Ideal.ArtinRees
 
 /-!
