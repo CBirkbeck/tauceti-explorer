@@ -1,0 +1,137 @@
+{
+  "id": "PolynomialGaloisGroupsPartII",
+  "title": "Galois groups of polynomials, Part II: ramified merging and random partitions",
+  "area": "grouptheory",
+  "parent": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+  "summary": "Extend the faithful polynomial root action to specialisation at ramified primes, where equal factor-degree occurrences merge into Frobenius cycles. Develop higher irreducibility through stabilizers of ordered root tuples, then prove a uniform criterion for arbitrary partition laws that rules out every transitive Galois group except the alternating and symmetric groups. The primitive and imprimitive arguments preserve their quantitative ranges and the repeated-part conventions.",
+  "readme": "This continuation starts from PolynomialGaloisGroups layers0,1,5 and9. It imports the pinned root action, full cycle partitions, factor-degree multiset, ramified arithmetic Frobenius and finite-field orbit theorems. Seven layers supply bounded equal-part merging, ramified fibres, the higher-root-tuple adapter, the three-premise partition law and five anatomy events, the Babai–Bochert minimum-degree proof, subgroup exclusions and Proposition12.1. Analytic divisor and Mertens inputs belong to AnalyticNumberTheory. Concrete coefficient distributions and their probability estimates belong to ArithmeticStatisticsPartIIRandomPolynomials, which consumes this criterion; there is no reverse dependency.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+    "AnalyticNumberTheory"
+  ],
+  "stages": [
+    {
+      "key": "PG2.0",
+      "title": "Bounded equal-part merging",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Bounded equal-part merging.** For real y≥1 and partitions a,b of the same integer, EqualPartMerging y a.parts b.parts holds iff the occurrences of a are partitioned into nonempty blocks, each of cardinal≤y, all entries in a block equal, and b is the multiset of their sums. A witness is a multiset of multisets whose flattening is a and whose multiset of sums is b. The raw-multiset relation also handles the empty partition.\n\n**Permutations with merged cycle type.** For a partition ρ of n, MergePerms y ρ is the set of permutations σ of α for which EqualPartMerging y ρ.parts σ.fullCycleType. Membership forces n=card α. Fixed points contribute1. Relabeling transports both sets and preserves this membership.\n\n**Bad transitive permutation set.** BadTransitive α is the union of the underlying sets of all subgroups G≤Sym(α) that act pretransitively and are distinct from alternatingGroup α and top. It is an existential union of groups, not itself declared a subgroup. A permutation in A_n or S_n can still belong via a different witness.\n\n**Cycle lengths over cyclic fibres.** Let finite nonempty X map surjectively and equivariantly to Y under permutations σ,ψ. Suppose ψ has one full cycle of length d>0 and every fibre has m>0 points. Then each σ-orbit has length d·m_i with1≤m_i≤m, meets each fibre in exactly m_i points, and Σ_i m_i=m. Consequently fullCycleType σ is an m-merging of the multiset containing m copies of d.\n\n**Acceptance.** The statement preserves every displayed range, multiplicity and hypothesis. The statement preserves every displayed range, multiplicity and hypothesis. The statement preserves every displayed range, multiplicity and hypothesis. Test d=1,m=2 with identity and swap upstairs; cycles(1,1) and(2) are both permitted. The fibre partition sums to m, including fixed points; an orbit-length divisibility statement alone does not discharge this target.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
+      ]
+    },
+    {
+      "key": "PG2.1",
+      "title": "Ramified Frobenius and factor multiplicities",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Maximum irreducible-factor multiplicity.** For a polynomial f over a field, maxFactorMultiplicity f is the maximum count of an irreducible normalized factor in normalizedFactors f, with maximum0 on the empty list. Thus units and the library’s empty normalizedFactors convention at0 have value0; its arithmetic use always has nonzero monic reduction. Distinct factors of the same degree are not identified.\n\n**Reduction fibres count root multiplicities.** For a commutative ring R, a field K, a ring homomorphism r:R→K, a finite set S⊆R and z∈K, the root multiplicity of z in ∏_{x∈S}(X−r(x)) equals #{x∈S:r(x)=z}. In the integral-root application, for each irreducible q dividing A mod p with exponent m, every residue root of q has exactly m integral roots of A above it.\n\n**Ramified Frobenius merging theorem.** Let A∈ℤ[X] be monic of degree n>0, with its image in ℚ[X] separable, and let p be any prime. Put M=maxFactorMultiplicity(A mod p). There exists σ in Gal(A/ℚ) whose faithful action on the n roots has fullCycleType an M-merging of Polynomial.factorDegrees A p. There is no squarefree-reduction, discriminant or unramified-prime hypothesis.\n\n**Acceptance.** The statement preserves every displayed range, multiplicity and hypothesis. The ring R need not be a field and r need not be injective: integral reduction has collisions. For R=ℤ,r reduction mod2,S={0,2}, the fibre at0 has cardinal2 and the polynomial is X². A=X²−2 at p=2 has repeated factor X² and M=2, so the theorem must elaborate without an unramified hypothesis. For monic squarefree reduction M=1, the conclusion specializes to exact factorDegrees=fullCycleType. Degree0 is excluded here; units have empty factors and M=0 rather than an undefined maximum.",
+      "requires": [
+        "PolynomialGaloisGroupsPartII:PG2.0",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-5-frobenius-specialization"
+      ]
+    },
+    {
+      "key": "PG2.2",
+      "title": "Higher irreducibility and ordered root actions",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Polynomial over a tuple root field.** For f∈F[X] over a field and an injection x:Fin j→roots(f) in its splitting field L, let K_x=F(adjoin range x). Define tupleRootQuotient f x as f mapped to K_x, divided monically by ∏_{i<j}(X−x_i) formed in K_x. For separable f, the division is exact; mapping back to L gives the remaining-root polynomial.\n\n**Higher irreducibility.** IsKFoldIrreducible f k holds exactly when f is separable of positive degree,1≤k≤deg f, and for every j<k and every injection x of j distinct splitting-field roots, tupleRootQuotient f x is irreducible over K_x. The j=0 condition includes ordinary irreducibility. Zero-fold and over-degree conditions are false by convention, preventing vacuous transitivity tests.\n\n**Tuple stabilizer and root-generated field.** For an injection x of j roots of f into its splitting field L, the stabilizer of x for the componentwise Gal(f/F) action on embeddings equals K_x.fixingSubgroup. Restricting this stabilizer to L over K_x identifies its faithful action on unselected roots with the Galois action needed by the quotient irreducibility test.\n\n**Higher irreducibility and multiple transitivity.** For any field F, separable f∈F[X] of positive degree n, and1≤k≤n, IsKFoldIrreducible f k iff MulAction.IsMultiplyPretransitive f.Gal (f.rootSet f.SplittingField) k. At k=1 reuse the pinned irreducibility/orbit theorem; at k=2 reuse the pinned double-transitivity quotient adapter.\n\n**Alternating or symmetric recognition from higher irreducibility.** For separable f over a field with n=deg f≥3, IsKFoldIrreducible f(n−2) iff the image of its faithful root action contains alternatingGroup of its n roots. Equivalently this image is alternating or symmetric. The degree lower bound makes n−2 a permitted positive k.\n\n**Acceptance.** The statement preserves every displayed range, multiplicity and hypothesis. The statement preserves every displayed range, multiplicity and hypothesis. j=0 gives the full automorphism group and the base field. j=1 reduces to the pinned simple-root stabilizer theorem. L is not assumed to be the splitting field of the quotient over K_x. The statement preserves every displayed range, multiplicity and hypothesis. At n=3 this reduces to irreducibility of a separable cubic; at n≤2 this target is not invoked. No independently planned generic permutation-recognition theorem duplicates the pinned alternating-group result.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
+      ]
+    },
+    {
+      "key": "PG2.3",
+      "title": "Anatomy of an arbitrary partition law",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Three-premise partition law.** For a probability measure ν on Nat.Partition n (discrete measurable space), constants C≥1,0<t<1,0<κ≤1,0<δ≤1/10 define PartitionLaw by three bounds: (a) ν({k,ℓ}≤ρ.parts)≤C/(kℓ) for integers2≤k,ℓ≤n/4, requiring two occurrences if k=ℓ; (b) ν(∃U≤ρ.parts,ΣU=k)≤C k^(−δ) for integers n^(1−δ/2)≤k≤n/2; (c) for f:ℕ→{0,1},1≤m≤n/log n, L=Σ_{k=1}^m f(k)/k, ν(Σ_{k∈ρ.parts,k≤m} f(k)≤tL)≤C exp(−κL). The last sum counts occurrences, and all displayed endpoints are inclusive integer cutoffs.\n\n**Five partition anatomy events.** For n,t,κ,δ,α real parameters and a partitionρ, GoodEvent i (i=0,…,4) is E₁,…,E₅*: E₁ forbids occurrence pairs k,ℓ≤n/4 with gcd(k,ℓ)≥n^(κα); E₂ forbids a submultiset sum nj/r for r∣n,2≤r≤n^(δ/2),1≤j<r; E₃ requires at least(αt/2)log n parts in[n^(1−α),n/log n]; E₄ requires at least(t/4)log n parts k≤√n/3 with a prime divisor p>n^(1/8); E₅* requires, for each integer r≥2, at least FOUR parts in[n^(1−2α),n/log n] not divisible by r. Every count retains multiplicity. During the criterion α=δ/4−θ/2∈[ε/2,1/40].\n\n**Uniform long-interval harmonic masses.** Fix ε>0. Uniformly for α∈[ε/2,1/40] and sufficiently large n, the harmonic mass of integers in[n^(1−α),n/log n] is α log n−log log n+O_ε(1). For2≤r≤n^α, the harmonic mass in[n^(1−2α),n/log n] not divisible by r is(1−1/r)(2α log n−log log n)+O_ε(1), uniformly in r. Floor/ceiling changes are included in the error.\n\n**Harmonic mass of parts with a large prime factor.** For all sufficiently large n, Σ_{1≤k≤√n/3, ∃p prime:p∣k,p>n^(1/8)}1/k ≥(log n)/4. In fact the sum is at least(1/2−e^γ/8)log n+O(1), where γ is the existing Euler constant; e^γ<2 makes the coefficient strictly greater than1/4.\n\n**Large-gcd pair probability.** Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E1 is≤B·(log n)² n^(−κα), with α=δ/4−θ/2.\n\n**Block-fraction subsum probability.** Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E2 is≤B·n^(−δ/4), with α=δ/4−θ/2.\n\n**Long-part lower-tail probability.** Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E3 is≤B·(log n)^κ n^(−κα), with α=δ/4−θ/2.\n\n**Large-prime part probability.** Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E4 is≤B·n^(−κ/4), with α=δ/4−θ/2.\n\n**Four nondivisible long parts with high probability.** Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E5* is≤B·(log n)² n^(−κα), with α=δ/4−θ/2.\n\n**Acceptance.** The statement preserves every displayed range, multiplicity and hypothesis. The statement preserves every displayed range, multiplicity and hypothesis. One error constant and one threshold work for the entire α,r range; a separately chosen constant for each θ is insufficient. The sharp main constant is required; record the supplier’s unresolved constant-identification proof explicitly. The rate has one constant and one threshold for all laws and all permitted θ. The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem. The rate has one constant and one threshold for all laws and all permitted θ. The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem. The rate has one constant and one threshold for all laws and all permitted θ. The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem. The rate has one constant and one threshold for all laws and all permitted θ. The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem. The rate has one constant and one threshold for all laws and all permitted θ. The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem.",
+      "requires": [
+        "PolynomialGaloisGroupsPartII:PG2.0",
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.5"
+      ]
+    },
+    {
+      "key": "PG2.4",
+      "title": "Primitive minimum degree",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Minimum support of a permutation group.** For G≤Sym(α) on a finite carrier, minSupport G is none if G is trivial; otherwise it is some m, where m is the minimum support cardinality among σ∈G,σ≠1. The nonempty case attains its minimum and has m≥2. No minimum over an empty set is silently assigned0.\n\n**Orbital distinguishers.** For G≤Sym(α) and x,y∈α, orbitalDistinguishers G x y is the finite set of z for which no g∈G fixes z while sending x to y. Equivalently(x,z),(y,z) lie in different orbits for the diagonal action on α×α, or x,y lie in different orbits of the stabilizer of z. This uses existing orbits and stabilizers; it introduces no coherent-configuration carrier.\n\n**Connectivity of primitive orbital graphs.** For a primitive permutation subgroup G on a finite carrier and x≠y, the undirected relation joining u,v when(u,v) or(v,u) belongs to the G-orbit of(x,y) is connected: every a,b are related by its reflexive transitive closure.\n\n**Babai’s distinguisher lower bound.** Let G≤Sym(α) be primitive but not2-pretransitive, with n=card α≥5. For every x≠y, #{z:no element of G fixes z and sends x to y}≥√n/2. Hence every nonidentity element has support at least√n/2.\n\n**Bochert’s doubly transitive minimum degree.** For a2-pretransitive subgroup G≤Sym(α) of degree n≥38 that does not contain alternatingGroup α, minSupport G=some m implies m≥n/4.\n\n**Primitive minimum degree.** For a primitive G≤Sym(α),n=card α≥5,G≠A_n,G≠S_n, minSupport G=some m implies m≥(√n−1)/2.\n\n**Acceptance.** The statement preserves every displayed range, multiplicity and hypothesis. The statement preserves every displayed range, multiplicity and hypothesis. Connectivity is for an undirected orbital graph, not a claim that every primitive action is doubly transitive. The existing IsPreprimitive vocabulary is used; x≠y and degree restrictions control degenerate actions. The diameter-two claim applies to the complement where indicated; confusing it with the orbital graph makes the argument false. The large-diameter case includes the weighted suborbit spanning-tree count, not just the easy triangle inequality. Retain n≥38; do not cite an unqualified n/4 bound for small degrees. Use explicit noncommuting conjugates and their counts rather than an unsupported average-intersection assertion. The primitive proof covers the non-doubly-transitive case; Jordan’s prime-cycle theorem alone does not prove it. The small-degree branch is explicit and does not rely on a Bochert bound outside its read source range.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products"
+      ]
+    },
+    {
+      "key": "PG2.5",
+      "title": "Primitive and imprimitive exclusions",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Cycle arithmetic in a block orbit.** Let a permutationσ preserve a block system of r blocks of common cardinal s. A point cycle L of lengthℓ meets one block orbit of size r′ and has s′ points in each of these blocks, where1≤r′≤r,1≤s′≤s,ℓ=r′s′. The union X of these blocks isσ-invariant of cardinal r′s, and every point cycle in X has length divisible by r′. Different point cycles have either equal or disjoint block orbits. This includes singleton cycles.\n\n**Exclusion of proper primitive groups.** Fix0<t,0<κ≤1,0<δ≤1/10 and0<ε<δ/2. Uniformly in θ∈[0,δ/2−ε] and sufficiently large n, ifρ∈E₁∩E₄, then no n^(1/8)-merging ofρ belongs to a primitive subgroup unequal to A_n and S_n. In particular this excludes n^θ-mergings since θ≤1/20<1/8.\n\n**Exclusion of transitive imprimitive groups.** With the same parameter ranges and uniformity as primitive-exclusion, ifρ∈E₁∩E₂∩E₃∩E₄∩E₅*, no n^θ-merging ofρ belongs to any transitive imprimitive subgroup of S_n. E₄ is harmless in this statement but unused in its proof; E₅* is the strengthened four-part event.\n\n**Acceptance.** The output r′ is the actual cardinality of the block orbit, not merely an arbitrary divisor ofℓ. For a fixed point the point-cycle length is1, even though cycleOf.support is empty. No Frobenius or probability-law assumption enters this deterministic combinatorial theorem. The exponent kills every other cycle and does not kill the chosen one; a claim of a single p-cycle is unnecessary. Middle range uses five disjoint block orbits, accounting for one filled orbit and three possible long companion cycles. Large range uses four nondivisible long parts, not the source’s single witness. Every invocation of E₁ checks both original parts≤n/4.",
+      "requires": [
+        "PolynomialGaloisGroupsPartII:PG2.0",
+        "PolynomialGaloisGroupsPartII:PG2.3",
+        "PolynomialGaloisGroupsPartII:PG2.4",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products"
+      ]
+    },
+    {
+      "key": "PG2.6",
+      "title": "The arbitrary-law Galois criterion",
+      "description": "Construct and prove the following targets, using the pinned conventions in the companion reader.\n\n**Generalized Łuczak–Pyber criterion.** Fix C≥1,0<t<1,0<κ≤1,0<δ≤1/10,0<ε<δ/2. There are B≥0 and integer N≥3 depending only on C,t,κ,δ,ε such that, for every n≥N, every probability measureν on partitions of n satisfying PartitionLaw, and every θ∈[0,δ/2−ε], ν({ρ:∃σ∈BadTransitive(Fin n),σ∈MergePerms(n^θ)ρ})≤B(log n)² n^(−κ(δ/4−θ/2)). The law may vary with n; B and N do not depend on ν or θ.\n\n**Polynomial-side bad-group certificate.** Let A∈ℤ[X] be monic, separable and irreducible overℚ, and p prime. If the faithful root-action image is neither alternating nor symmetric and maxFactorMultiplicity(A mod p)≤y, then an element in that image witnesses a y-merging of A.factorDegrees p in the bad-transitive set on its n roots. Transporting the roots to Fin n gives the event bounded by generalized-luczak-pyber. Therefore any random-polynomial application bounds its bad-group event by the union of the large-multiplicity event and this partition event.\n\n**Acceptance.** The endpoint θ=0 permits only identity merging, while θ=δ/2−ε still has α=ε/2>0. The theorem has all three law premises and exposes constant dependence; it is independent of concrete coefficient measures. At a ramified prime the element exists even when reduction is not squarefree. Do not claim that transitivity alone gives irreducibility for a nonseparable polynomial, e.g.(X²−2)².",
+      "requires": [
+        "PolynomialGaloisGroupsPartII:PG2.1",
+        "PolynomialGaloisGroupsPartII:PG2.2",
+        "PolynomialGaloisGroupsPartII:PG2.3",
+        "PolynomialGaloisGroupsPartII:PG2.5",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-9-sₙ-as-a-galois-group-over-ℚ"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "bskk-v3",
+      "title": "Irreducibility of random polynomials: general measures",
+      "authors": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma",
+      "edition": "arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+      "read": "2026-10-11",
+      "readSections": [
+        "Introduction pp.4–5, k-fold irreducibility",
+        "§11.2 pp.56–57, Definition11.2, Lemma11.3, Claim11.4",
+        "§12 pp.59–63, Proposition12.1 and all proofs of Lemmas12.2–12.9"
+      ]
+    },
+    {
+      "id": "babai-notes",
+      "title": "Primitive coherent configurations and the order of uniprimitive permutation groups",
+      "authors": "László Babai; original lecture scribe Tom Hayes",
+      "edition": "Author exposition, October21,2018; graph proof of Babai1981 with Zemlyachenko’s simplification",
+      "url": "https://people.cs.uchicago.edu/~laci/papers/uni-update.pdf",
+      "sha256": "0727084ac9c61fcf0fd54be97bae96adb8605901369e868a29cf5b1232a3bb67",
+      "read": "2026-10-11",
+      "readSections": [
+        "§§2–4 pp.3–5, orbital configurations and primitivity",
+        "§6 pp.5–6, distinguishers",
+        "§8 pp.7–9, full proof of Theorem6.6",
+        "§9 p.10, Exercise9.5 and Corollary9.6"
+      ]
+    },
+    {
+      "id": "schomburg",
+      "title": "Bochert’s results on the minimal degree of multiply transitive permutation groups",
+      "authors": "Bernd Schomburg",
+      "edition": "arXiv:2209.12049v1, September24,2022",
+      "url": "https://arxiv.org/pdf/2209.12049v1",
+      "sha256": "6374c9c7916eb0fe5d1a436e094e18e156686d3a2aced5de9e424e52717ffdfb",
+      "read": "2026-10-11",
+      "readSections": [
+        "§2 pp.1–4, commutator support and Lemmas2.3–2.5",
+        "§3 pp.4–5, Theorem3.1 and its entire proof"
+      ]
+    },
+    {
+      "id": "bsk",
+      "title": "Irreducible polynomials of bounded height",
+      "authors": "Lior Bary-Soroker, Gady Kozma",
+      "edition": "Public arXiv:1710.05165 PDF read October11,2026; published Duke Math. J.169 (2020),579–598",
+      "url": "https://arxiv.org/pdf/1710.05165",
+      "sha256": "30e999fd06601abcb2a88b3a1917675a53b134d0bf1a0c40b17ccd50063808b8",
+      "read": "2026-10-11",
+      "readSections": [
+        "Claim1 and proof, pp.9–10, primitive minimum degree source route"
+      ]
+    }
+  ],
+  "status": "draft"
+}
