@@ -1,52 +1,60 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-## Blocked checkpoint: codex-dcA0Fs, 11 October 2026
+## Blocked checkpoint: codex-9tlKfF, 11 October 2026
 
-Codex (GPT-6), session `codex-dcA0Fs`. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104967696).
-Input commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
+Codex (GPT-6), session `codex-9tlKfF`. Refs #6219.
+[Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105080539); the bot confirmed this session won the claim.
+Input commit: `e6ff4c204473491a6961e671d9ae761a017bc59f`.
 This session did none of the fixes under review.
 
-The bounded review of all six findings is complete in the attributed evidence
-below. L3 carries this job's accepted verdict and PMIA its justified
-`needs_changes` verdict. Completion requires installing the two exact L3-2
-and D.1 review records preserved in the handoff. Their mathematical content,
-prior node reviews and open supplier obligations are unchanged.
+The six-finding mathematical correction review is complete in the attributed
+evidence below. L3 carries this job's accepted record and PMIA its justified
+`needs_changes` record. The only remaining completion step is installation of
+the two exact L3-2 and D.1 records in the handoff. Their prior full reviews are
+preserved intact, and no mathematical field changes.
 
-The live issue omits both packet paths. The queue and the unchanged
-`issues.deliverables_complete` require them. [WORKERS.md](../WORKERS.md)
-says, "Edit only the files the issue names, plus your own scratch space."
-Explicit authorization to change only `review` and `reviewHistory` in the two
-omitted packets was requested through the asynchronous worker-conversation
-question, after reconstructing and checking both exact candidate records. No
-approval has arrived; neither packet has been edited. The permitted report and
-handoff record the concrete, checked changes ready for installation.
+The live issue lists L3 and PMIA but omits L3-2 and D.1. The queue requires
+all four packets. [WORKERS.md](../WORKERS.md) says,
+"Edit only the files the issue names, plus your own scratch space."
+After reproducing and validating the two concrete candidates, this session
+requested explicit authorization through the worker conversation to change
+only `review` and `reviewHistory` in the omitted packets. Authorization is
+pending; neither packet has been edited. The queue and completion rule are
+unchanged.
 
 ## Checks performed by this session
 
-Read the live issue after claim confirmation, original six findings, verifier
-decisions, fix report, preceding review and handoff, and completion rule.
-Reproduced both candidates from the exact handoff records. Their input and
-candidate SHA-256 hashes match the predecessor's guards. Each candidate appends
-the entire prior top review to `reviewHistory`, preserving all 79 L3-2 and
-72 D.1 checked-node verdicts with their original attribution. Every parsed field
-other than `review` and `reviewHistory` is identical.
+Read the live issue after bot confirmation, all six findings and their
+verified decisions, the fix report, preceding report and handoff, and the
+completion rule. Reconstructed the exact candidates from the handoff and
+matched both guarded input and candidate SHA-256 hashes. Each candidate
+preserves the entire existing top review in `reviewHistory`, including all
+79 L3-2 and 72 D.1 node verdicts with their original attribution. Every parsed
+field other than `review` and `reviewHistory` is equal to its input value.
 
-All four actual packets pass `check_blueprint.py` with the existing declaration
-index at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`: zero errors. L3 has 26 inherited
-short-API warnings; the other three have zero warnings. The two prepared
-candidates pass at their canonical paths in a read-only checker context with
-zero errors and warnings. Actual completion is False; substitution of only
-the exact two prepared records makes it True. This is a diagnostic check,
-not a change to the completion rule or a claim that the records are installed.
+Ran `check_blueprint.py` on all four actual packets with the existing
+pinned declaration index: zero errors. L3 has 26 inherited short-API warnings;
+the other packets have no warnings. Both candidate records pass the same
+checker at canonical paths in a read-only context with zero errors and
+warnings. The actual repository completion check is False. A read-only
+substitution of only the candidate records makes it True; this diagnostic
+neither installs a record nor changes the completion predicate.
 
-Current read-only TauCetiRoadmap and Tau Ceti retain the commits cited below.
-No source rereading or Lean elaboration was repeated for these metadata-only
-changes. Earlier source and Lean checks remain credited to their original
-sessions. All four actual packets and all four suggested files are unchanged.
-No process remains running, and no upstream file, issue body, label, queue or
-completion rule was edited.
+Freshly read all five native declarations listed under finding /4 below in
+the current read-only Tau Ceti checkout. Confirmed finite-module and
+finite-free-surjection hypotheses, arbitrary commutative-algebra base change
+without flatness, and the exact opposite-ring projective-transpose comparison
+without a finiteness assumption. The two upstream commits remain unchanged.
+Read ArithmeticDirichletSeries and StableReduction's current README and
+relevant suggested interfaces for the library ownership boundary.
+
+Recursively checked that all four packets contain no `excerpt` fields. All
+four actual packets and four suggested files retain their input byte hashes.
+No mathematical statement, API, test, source issue, supplier request, gap or
+Lean file changes. Earlier source readings and Lean elaborations remain the
+original sessions' evidence; no PDF was fetched, no book was used, and no
+Lean check was repeated for these metadata-only candidates. No process is
+left running and no upstream checkout was changed.
 
 ## Review evidence and attribution
 
@@ -61,9 +69,10 @@ source readings and elaborations retain their original attribution.
 The preceding `codex-0rbyYu` and `codex-lR9937` continuations checked the verified findings and
 fix report against those reviews, reread the bounded /2 and /3 source contracts
 and the five current native /4 declarations, and verified exact receipt
-preservation. These predecessor source readings remain their evidence; this session
-reproduced only the metadata preservation and completion checks. No new
-exhaustive node audit is claimed.
+preservation. These predecessor source readings remain their evidence. This session
+reproduced the metadata preservation and completion checks and additionally
+read the five current native statements. No new exhaustive node audit is
+claimed.
 
 | Finding | Verdict | Reason and remaining boundary |
 | --- | --- | --- |
