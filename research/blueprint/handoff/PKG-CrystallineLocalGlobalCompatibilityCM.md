@@ -1,91 +1,147 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
-## Current continuation: codex-I5TwoD
+## Current continuation: codex-zHCNz6
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex. Session: `codex-I5TwoD`. Date: 2026-10-08.
-Input commit: `ce1d55eb786cfb064e3499f7deee2e755dcbef1e`.
-Branch: `codex-I5TwoD-crystalline-package`.
+Agent: Codex. Session: `codex-zHCNz6`. Date: 2026-10-11.
+Input commit: `f20f6eaf4bd1e9d8a7b93bdf60f42b25626d3dec`.
+Branch: `codex-zHCNz6-crystalline-cm-package`.
 Claim confirmed by the bot in comment
-[6069778264](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6069778264).
+[6104372269](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6104372269).
 
-**Blocked checkpoint.** The missing supplier interfaces and the incorrect
-completed-tower supplier assignment remain present. This run independently
-checked their current files, reviewed audit and exact pinned source statements.
-It changes only this handoff, consolidating repeated continuation reports into
-one dependency gate while retaining the substantive mathematical work below.
-The assembled README, suggested file and all input plans are unchanged.
+**Blocked checkpoint.** The previous gate incorrectly says that the smooth
+supplier has no packet or package. Those files now exist, and its package review
+was accepted on 2026-10-09. This continuation replaces that stale absence claim
+with an inventory of the actual group signatures and the remaining open-monoid
+obligation. Integral dual-Weyl coefficients and completed arithmetic towers
+still lack their supplying interfaces. The tower request still names the wrong
+owner. These external blockers prevent a complete faithful suggested file.
 
-The issue requires faithful typed forms of the plan's definitions, theorems,
-API and examples. [PROTOCOL.md](../PROTOCOL.md), sections 13 and 15, requires
-honest omission when the genuine types cannot be stated and sole ownership of
-supplier mathematics. The issue authorizes only this package's three files
-and this handoff. Developing those missing suppliers or repairing their
-consumer requests here would exceed that scope. These are sufficient external
-blockers; this run does not claim a fresh exhaustive audit of all 27 requests.
+Only this handoff changes. The assembled reader, suggested file and accepted
+plans remain intact. The issue requires typed definitions, theorem statements,
+API and examples; a catalogue of mathematical statements in comments is not
+that deliverable. [PROTOCOL.md](../PROTOCOL.md), sections 13, 15 and 20, requires
+honest omission, sole ownership of supplier mathematics and typed package
+signatures. This issue permits neither supplier development nor packet
+revision. This run checks sufficient blockers, rather than claiming a new
+exhaustive audit of all 27 requests.
 
-## Dependency gate: inspect before attempting another package continuation
+## Dependency gate: inspect before another continuation
 
-Resume when the following interfaces exist and the tower request has been
-corrected through an authorized plan revision. Acceptance of a plan and
-elaboration of algebraic cores do not establish those interfaces. If the
-fingerprinted inputs below remain unchanged, first check for newly supplied
-files; repeating the existing package compilation cannot resolve this gate.
+Resume after the missing interfaces are supplied and the tower request has
+been corrected through an authorized plan revision. Check new supplier files
+before repeating compilation. Successful elaboration of the existing algebraic
+cores does not construct their missing arithmetic inputs.
 
-1. **`REQ-SMOOTH`:** the abelian smooth coefficient categories for the specified
-   locally profinite groups and open monoids over O/ϖ^m, enough injectives,
-   compact derived invariants, restriction/injective compatibility and smooth
-   coinduction with the stated acyclicity test. There is still no packet,
-   reader or suggested file for `SmoothRepresentationsOfLocalGroups` in this
-   checkout. Its SR.0 planning issue
-   [#996](https://github.com/CBirkbeck/tauceti-explorer/issues/996) is still
-   `state:available`. AUDIT-41's SR.0 and derived-extension entries distinguish
-   this absent structure from the existing smoothness predicate.
-2. **`REQ-INTEGRAL-WEYL`:** integral dual Weyl lattices, coefficient extension
-   and reduction, Levi evaluation, its kernel weight description and the
-   integral Levi splitting. The parent
-   [PotentialAutomorphyInfrastructure plan](../packets/PotentialAutomorphyInfrastructure.json)
-   retains its explicit integral highest-weight gap, owned by
-   `ReductiveGroupsIntegralRepresentationsPartII` with no assigned stage.
-   No packet or suggested file for that owner exists. Obtain its exports and
-   the parent's arithmetic specialization; preserve the owner and do not
-   invent stage identifiers.
-3. **`REQ-TOWER`:** completed arithmetic towers and their supported equivariant
-   complexes, compact-open derived recovery, coefficient descent and homotopy
-   inverse limits. The request still names
-   `ArithmeticLocallySymmetricSpaces:ALS.6`, contrary to accepted
-   [RS-09](../restructure/RS-09.result.json). ALS.6 keeps finite-level descent;
-   tower assembly and completion belong to `CompletedCohomologyPartII`.
-   There is no packet or suggested file for the latter owner, and its CC.0
-   planning issue [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701)
-   is still `state:available`. The current ALS suggested file explicitly omits
-   `LocallySymmetric.finite_level_descent` and excludes tower assembly from
-   ALS.6. Correct the request and consuming prerequisites before importing
-   the actual exports; completing ALS.6 alone will not supply completion.
+### Smooth supplier: partly available; the old absence claim is retired
 
-Pinned source checks in this continuation:
+The accepted [smooth package](../packages/SmoothRepresentationsOfLocalGroups/README.md)
+and its [review](../packages/SmoothRepresentationsOfLocalGroups/review.json)
+now exist. Its `Suggested.lean`, lines 230–263, gives `SRPlan.SmoothRep`, the
+full subcategory of `Rep A G` on smooth objects, an abelian instance, the
+smooth-part adjunction and a Grothendieck-abelian instance. These signatures
+are for **groups**, with `[Group G]`; they do not define the requested categories
+for the open monoids Δ̃, Δ⁺ and Δ.
 
-- At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`,
-  `IsSmoothDiscrete` supplies discrete topology and open stabilizers, and
-  `SmoothDiscreteTopRep` is the corresponding full subcategory of `TopRep`
-  (`SmoothDiscrete.lean`, lines 245–272 and 530–552). Neither supplies the
-  requested abelian/derived interface. Searching the pinned continuous
-  cohomology subtree for `Abelian` and `EnoughInjectives` returns no matches.
-- At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
-  `DerivedCategory` requires an abelian input and a chosen localization
-  (`Algebra/Homology/DerivedCategory/Basic.lean`, lines 65–87). It does not
-  construct that missing input category.
-- At the same Tau Ceti pin, `YoungTableau.weylModule` requires `Algebra ℚ k`
-  and uses a rational Young symmetrizer (`ClassicalGroups/WeylModule.lean`,
-  lines 114–124). It is not the required O or O/ϖ^m dual Weyl lattice.
-- The reviewed `data/library-coverage.json` ALS.6 entry records the arithmetic
-  tower as absent; generic category-theoretic limits do not construct it.
+The accepted [SR.0 packet](../packets/SmoothRepresentationsOfLocalGroups--SR.0.json)
+has a more extensive [stage prototype](../suggested/SmoothRepresentationsOfLocalGroups--SR.0.lean)
+in namespace `TauCeti.SmoothRep`:
+
+- Lines 1173–1244 give locally profinite group hypotheses, the Grothendieck
+  instance, `DerivedCat`, `DerivedCatPlus`, derived open-subgroup restriction,
+  bounded-below derived invariants, the continuous-cohomology comparison,
+  compact-open restriction preserving injectives and actual K-injective
+  resolution data. Ordinary higher-invariant vanishing requires
+  `HasUnitProOrder`; that hypothesis cannot be substituted for the p-torsion
+  setting of this package.
+- Lines 1042–1070 give smooth induction as smooth vectors in Mathlib's
+  algebraic coinduction. They do not supply the coefficient-injective
+  open-cell acyclicity required by CN Lemma 2.3.6, pp.36–37.
+- Lines 2080–2097 give quotient-action derived invariants and composition for
+  a compact group and a closed normal subgroup. This is useful existing
+  supplier planning, but does not certify all action, restriction and
+  ordinary open-cell clauses of `REQ-DERIVED-INVARIANTS`.
+- Lines 1980–2022 type total tensor complexes, K-flat replacement data and
+  derived tensor/internal Hom. The packet explicitly records the missing
+  equivariant K-flat construction. `REQ-DEEP-PERFECT` still needs the exact
+  deep-restriction statement of CN Lemma 2.3.17, p.42, including its colimit
+  comparison; no such export was found in these supplying signatures.
+- Lines 2461 onward leave the parabolic-pair and positive-monoid interface in
+  an omission ledger. No abelian/derived smooth open-monoid export or
+  contracting open-cell higher-acyclicity export was found in the packet's
+  prototype or the package prototype.
+
+The basic monoid carrier itself already exists at the Tau Ceti pin:
+`IsSmoothDiscrete` and `SmoothDiscreteTopRep` allow `[Monoid G]`
+(`Homological/ContCohomology/SmoothDiscrete.lean`, lines 245–272 and 530–552).
+The missing input is its requested abelian/injective/derived structure and
+acyclicity comparison, not a smoothness predicate or a full-subcategory carrier.
+
+The package and stage prototypes use distinct namespaces and carry different
+amounts of typed material. Do not treat the stage's derived declarations as
+already exported by the package: the latter records them in its closing
+inventory, around lines 1522–1669. Reconcile actual supplying signatures before
+using them in a completed consumer package; do not copy either development
+into this package. SR.0 issue [#996](https://github.com/CBirkbeck/tauceti-explorer/issues/996)
+was `state:submitted` when checked, rather than the previous handoff's
+`state:available`.
+
+The remaining `REQ-SMOOTH` obligation is the O/ϖ^m **open-monoid** abelian and
+bounded-below derived interface, its restriction/injectivity compatibility and
+coefficient-injective smooth coinduction with the CN Lemma 2.3.6 acyclicity test.
+The general group category is no longer an absent supplier.
+
+### Integral coefficients: still missing
+
+`REQ-INTEGRAL-WEYL` needs integral dual Weyl lattices, coefficient extension and
+reduction, Levi evaluation, the kernel weight description and the integral
+Levi-equivariant splitting. Its application supplier is
+[PotentialAutomorphyInfrastructure:PA.0](../packets/PotentialAutomorphyInfrastructure.json).
+That packet retains the explicit integral highest-weight gap, whose general
+owner is `ReductiveGroupsIntegralRepresentationsPartII` with no assigned stage.
+No packet, suggested file or package for that owner exists in this checkout.
+
+Live design issue [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357)
+contains the KP18 and KPZ26 route briefs for this candidate. It was
+`state:available` when checked. This identifies a planning route, not a supplied
+stage or authorization to invent one. Obtain the general exports and PA.0's
+arithmetic specialization before typing CL.0/lem-2-1-12 and its consumers.
+
+At the exact Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`,
+`YoungTableau.weylModule` requires `Algebra ℚ k` and uses a rational Young
+symmetrizer (`RepresentationTheory/ClassicalGroups/WeylModule.lean`,
+lines 114–124). The current library retains that rational-coefficient
+requirement in `ClassicalGroups/WeylModule/Basic.lean`. This carrier cannot
+stand in for O or O/ϖ^m dual Weyl lattices. The reviewed LP3 audit likewise
+distinguishes rational highest-weight theory from the missing integral theory.
+
+### Arithmetic towers: still missing and assigned to the wrong supplier
+
+`REQ-TOWER` needs completed arithmetic towers, supported equivariant complexes,
+compact-open derived recovery, coefficient descent and homotopy inverse limits.
+It still names `ArithmeticLocallySymmetricSpaces:ALS.6`, contrary to accepted
+[RS-09](../restructure/RS-09.result.json). ALS.6 keeps finite-level descent;
+completed towers belong to `CompletedCohomologyPartII`. There is no packet,
+suggested file or package for that owner. Its CC.0 planning issue
+[#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701) was
+`state:available` when checked. The current ALS suggested file explicitly
+omits `LocallySymmetric.finite_level_descent` and excludes tower assembly from
+ALS.6. Completing ALS.6 alone would not provide the completed objects.
+
+The reviewed ALS.6 library audit identifies the missing arithmetic tower;
+generic limits do not construct its arithmetic spaces or supported coefficients.
+Scoped searches of the current upstream ReductiveGroups, AlgebraicVectorBundles,
+PeripheralActions, ProfiniteArithmetic and IntegralHeckeAndGaloisDeterminants
+suggested files, and current Tau Ceti's representation/number-theory sources,
+did not supply these integral coefficient or arithmetic tower interfaces.
+This does not assert that all unrelated completion notions are absent.
 
 ## Tower request correction worklist
 
 The stale `REQ-TOWER` supplies CL.1/p-ordinary-completed, CL.3/lem-2-3-14,
 CL.5/boundary-coefficient-object, CL.5/lem-4-1-6, CL.5/prop-4-1-4,
-CL.8/pgl2-cohomology and CL.8/prop-5-5-3. Split it by the existing owners:
+CL.8/pgl2-cohomology and CL.8/prop-5-5-3. Match its subrequests to the existing
+owners before revising the accepted consumer plan:
 
 | Input to match against an actual supplying statement | Owner |
 |---|---|
@@ -97,46 +153,42 @@ CL.8/pgl2-cohomology and CL.8/prop-5-5-3. Split it by the existing owners:
 | Continuous completed descent and compact-open derived comparison | `CompletedCohomologyPartII:CC.6` |
 | Boundary/support triangle through the derived tower | `CompletedCohomologyPartII:CC.7` |
 
-Retain the ALS.2 nilmanifold fibration and the exact integral unipotent
-congruence-limit acyclicity obligation in CL.5/lem-4-1-6. The finite
-characteristic-zero Lie-algebra calculation does not establish that integral
-limit statement. Match every subrequest before rewriting its prerequisites;
-this table does not certify a currently supplying declaration.
+Retain ALS.2's nilmanifold fibration and CL.5/lem-4-1-6's integral unipotent
+congruence-limit acyclicity obligation. The characteristic-zero Lie-algebra
+calculation does not establish positive torsion cohomology dying in the full
+level direct limit. This table assigns ownership, not available declarations.
+RS-09 was accepted by `independent-review-REV-RS-09~2` on 2026-09-30.
 
-RS-09's review is accepted, by `independent-review-REV-RS-09~2`, dated
-2026-09-30. Its ALS.6 narrowing and CC.0/CC.1 assignments give the ownership
-above. The arithmetic packet has four finite-level ALS.6 nodes and follows
-that split. Its current `needs_changes` review concerns other reader
-statements and is not evidence for a new ALS.6 mathematical error.
+## Checks and limits in this continuation
 
-## Checks in this continuation
-
-- `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
-  **0 errors, 0 warnings**; 97 nodes, 103 API items, 104 tests, 37 planets,
-  nine baseline declarations, 27 requests and 40 gaps. All ten layers are
-  planned; none is closed. The plan is unchanged.
+- Blueprint checker: **0 errors, 0 warnings**. The unchanged accepted plan has
+  97 nodes (19 definitions, 15 constructions, 63 theorems), 103 API items,
+  104 tests, 37 planets, nine baseline declarations, 27 requests and 40 gaps.
+  All CL.0–CL.9 layers are planned; none is closed.
 - `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
-  **exit 0, no errors, 48 warnings, all `declaration uses sorry`**.
-  Available memory was 111 GB. The check finished with no background process.
-  Mathlib is exactly the stated pin. The package imports only Mathlib;
-  elaboration does not certify Tau Ceti imports at the older pin, whose
-  relevant source statements were separately read at that exact commit.
-- README: 167,983 bytes; suggested file: 134,008 bytes. The prior substantive
-  reconciliation below retains the precise omitted-signature counts. This
-  continuation does not present that earlier reconciliation as a new audit.
-- Read WORKERS, both protocols, UPSTREAM_GUIDE, the whole issue, the full
-  upstream ReductiveGroups and Multiquadratic READMEs, the supplier requests,
-  prototype gaps, relevant AUDIT-41 entries and its accepted review, the
-  reviewed ALS.6 audit, RS-09 and the pinned declarations listed above.
-  No restricted source was needed, and no source passage is added.
-- `python3 research/blueprint/intake.py check-files` on this handoff:
-  **0 problems**. `git diff --check` passes. Only this authorized handoff
-  changes. `issues.deliverables_complete` is **false** because metadata
-  remains absent, preserving checkpoint treatment.
+  **exit 0, no errors, 48 warnings, all `declaration uses sorry`**. Available
+  memory was 97 GB. The check finished and left no background process.
+  The shared Mathlib is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  The package imports only Mathlib; this compilation does not certify imports
+  from the older Tau Ceti pin. The relevant pinned smooth and rational Weyl
+  source statements were read separately at that exact commit.
+- Current read-only upstream roadmap revision:
+  `070dc2becd74419e76303ede84b465ed4a69461f`; current read-only Tau Ceti:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read both the full ReductiveGroups
+  and PeripheralActions READMEs, and the relevant supplier signatures, requests,
+  reviews, audited ALS.6/LP3 entries and accepted RS-09 ownership. No restricted
+  source was needed and no source passage is added.
+- Reader size: 167,983 bytes; suggested file: 134,008 bytes. The inherited
+  reconciliation below records 10 typed target declarations and **87 untyped
+  targets, 82 untyped API entries and 83 untyped tests**. This run preserves
+  those forms and does not report a new exhaustive name reconciliation.
+- Intake file check on this handoff: **0 problems**. `git diff --check` passes.
+  Only the authorized handoff changes. `issues.deliverables_complete` is
+  **false** with metadata absent, preserving checkpoint treatment.
 
 ## Input fingerprints for the next continuation
 
-SHA-256 hashes of the relevant files checked at the input commit:
+SHA-256 hashes at the input commit:
 
 | File, relative to the repository | SHA-256 |
 |---|---|
@@ -146,11 +198,17 @@ SHA-256 hashes of the relevant files checked at the input commit:
 | `research/blueprint/packets/PotentialAutomorphyInfrastructure.json` | `eb472418e07c0614e6ee0a0b34e57306c769ff2444e5891ab1858cd924303650` |
 | `research/blueprint/suggested/ArithmeticLocallySymmetricSpaces.lean` | `8f2bbd1412a1913523b3901a3bc9227ef007aa27466ebfbabcd56c6a7776e3e8` |
 | `research/blueprint/restructure/RS-09.result.json` | `235bae7182f594ea6c4ccbd5fbf319ca9659a4d00fad93a8328237c1667c36da` |
+| `research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.0.json` | `75dd0ad6a287e7f19d317c849a89cf5c0bc92ce345dafcd343a6b35e627b9b1c` |
+| `research/blueprint/suggested/SmoothRepresentationsOfLocalGroups--SR.0.lean` | `e91fb373504d496c47810324e64523f1fa4bcb90e4b96679ff7eb14c4fa0cf79` |
+| `research/blueprint/packages/SmoothRepresentationsOfLocalGroups/Suggested.lean` | `0ef464a4b493b4f0abbde6226516ef17b242167d37d935daf90a8ed132e34af4` |
+| `research/blueprint/packages/SmoothRepresentationsOfLocalGroups/review.json` | `9457eaf8f56dc92deb8e538ebdf5c4d57a5f987b10cf52b49af450d9441690f1` |
 
-Add `metadata.toml` with `topic = "math.NT"` only when the package meets its
-full requirement, so intake does not mistake this checkpoint for completion.
-The exact remaining signature worklist and all substantive inherited results
-follow. No second job is claimed; scratch is disposable.
+Add `metadata.toml` with `topic = "math.NT"` only when the full package
+requirement is met; intake otherwise recognizes this unfinished package as
+complete solely from its output paths. The substantive inherited results and
+remaining signature worklist follow. They describe the earlier continuation;
+the smooth-supplier availability findings above supersede its older absence
+claims. No second job is claimed, and scratch is disposable.
 
 ## Previous continuation: codex-975TMe (retained)
 
