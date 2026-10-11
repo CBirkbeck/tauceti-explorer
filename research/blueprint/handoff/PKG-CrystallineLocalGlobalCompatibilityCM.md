@@ -1,6 +1,116 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex (GPT-6). Session: `codex-8O7aRe`. Date: 2026-10-11.
+Branch: `codex-8O7aRe-crystalline-package`.
+Input commit: `99ad329a9`.
+Claim [6107029105](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107029105)
+confirmed by [6107030064](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107030064).
+None of the manager's priority issues was available; this was the eligible
+focus package. This session claimed no other job.
+
+## Current outcome
+
+**The package cannot be completed within this issue's allowed files.** This
+checkpoint updates only the handoff with a fresh verification of the blockers
+and current owner-job statuses. It introduces no mathematical change and claims
+no additional formalization. The package README and Suggested.lean are preserved.
+The detailed mathematical resume contracts from the preceding continuation are
+retained below and explicitly attributed to that session.
+
+The input remains an accepted **planning pass**, with 97 nodes, 103 API entries,
+104 tests, 27 requests and 40 gaps. All ten layers are planned, none closed.
+Removing nested block comments and comparing actual declaration names against
+the plan confirms that Suggested.lean still types 17 of 97 target names:
+CL.0 6/10, CL.1 1/13, CL.2 0/6, CL.3 2/16, CL.4 0/5, CL.5 0/8,
+CL.6 7/13, CL.7 0/7, CL.8 0/7, CL.9 1/12. These cores are not full
+arithmetic specializations. Successful elaboration cannot certify the 80
+omitted targets. The preceding 44/103 API and 45/104 named-test counts are
+historical; this session did not recalculate them.
+
+## Blockers checked in this continuation
+
+1. **Integral dual-Weyl coefficients.** The accepted parent plan explicitly
+   assigns the induced/Weyl/dual-Weyl continuation to
+   `ReductiveGroupsIntegralRepresentationsPartII`, with no exporting stage.
+   There is still no packet, suggested file, package or current upstream
+   roadmap for that owner. Upstream ReductiveGroups layer 9 supplies integral
+   group schemes, not integral highest-weight modules, Levi evaluation and
+   reduction, or the integral splitting required by `REQ-INTEGRAL-WEYL`.
+   The pinned `TauCeti.YoungTableau.weylModule` statement was read directly:
+   it assumes `[Algebra ℚ k]`; the current `WeylModule/Basic.lean` retains
+   that assumption. It cannot supply O/ϖ^m coefficients. General algebraic
+   induction supplied by IHG does not remove these additional obligations.
+   Consumers and the exact integral splitting contract are retained below.
+2. **Completed arithmetic towers.** Accepted RS-09 narrows ALS.6 to
+   finite-level descent and assigns the actual tower, smooth level colimit,
+   completion, equivariant completed complexes, continuous descent and
+   completed boundary triangle to CC.0, CC.1, CC.2, CC.4, CC.6 and CC.7.
+   The owner still has no packet, suggested file, package or current upstream
+   roadmap. The ALS.6 reviewed library audit explicitly distinguishes generic
+   limits from the absent arithmetic tower. Its older ownership wording is
+   superseded by RS-09. A postulated diagram or a generic derived category
+   cannot discharge the actual arithmetic construction.
+
+These two blockers suffice; this is not a new audit of every source or every
+open request. The issue expressly forbids editing its accepted packet. Building
+the missing general theories in the consumer would violate PROTOCOL.md §15,
+and replacing them with unspecified proposition fields would violate §13.
+A complete §20 package therefore requires work outside this issue's scope,
+not simply more time in this run.
+
+Current owner-job status, checked through GitHub on 2026-10-11:
+
+| Work to route first | Issue | Status |
+|---|---|---|
+| Integral representation continuation within the ReductiveGroups Part III routing brief | [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357) | Open, state:available, kind:design; a routing brief, not a supplying export |
+| Completed towers from CC.0 | [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701) | Open, state:available, kind:blueprint |
+| Completed towers from CC.8 | [#702](https://github.com/CBirkbeck/tauceti-explorer/issues/702) | Open, state:available, kind:blueprint |
+
+The maintainer should route the owner exports and a packet-authorized
+reconciliation before scheduling another completion attempt on this package.
+No owner job was claimed, and no issue label was changed.
+
+## Validation and resume
+
+- Read the current upstream ReductiveGroups and PeripheralActions READMEs;
+  checked the parent supplier requests, RS-09 ownership and ALS.6 library audit.
+- Current read-only roadmap commit: `070dc2becd74419e76303ede84b465ed4a69461f`;
+  current Tau Ceti commit: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+  No build was run in either read-only tree.
+- `python3 scripts/check_blueprint.py` on the accepted input: **0 errors,
+  0 warnings**, confirming the planning-pass counts above.
+- `lean-check` on the preserved package Suggested.lean: **exit 0, no errors,
+  107 warnings, all declaration-uses-sorry warnings**. Available memory was
+  102 GB before checking. No language server or library build was started;
+  the check finished and no process remains running.
+- Accepted packet SHA-256:
+  `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
+  Preserved Suggested.lean SHA-256:
+  `5922b280fb37c7640ff2fd841f70a247d6d279e7b5668a329220922b3788ad41`.
+- Intake `check-files` on the changed handoff: **1 file, 0 problems**;
+  `git diff --check` passes.
+- `metadata.toml` remains absent: intake treats existence of all three package
+  outputs as completion. The incomplete signatures must not be certified by
+  creating that final file. No packet, original reader or original suggested
+  file was edited. No scratch artifact is needed to resume.
+
+Resume with the four steps at the end of the preserved note below: obtain the
+owner exports; reconcile the packet's supplier references in an authorized
+job; type every arithmetic target, API and test against the real carriers;
+then elaborate the full package and add metadata.
+
+---
+
+## Preserved preceding continuation (codex-CVFqAw)
+
+The following record is historical. Its source-reading claims, signature
+inventory, corrections and validation belong to codex-CVFqAw and earlier
+sessions; the fresh checks for codex-8O7aRe are listed above.
+
+### PKG-CrystallineLocalGlobalCompatibilityCM — previous blocked checkpoint
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex (GPT-6). Session: `codex-CVFqAw`. Date: 2026-10-11.
 Branch: `codex-CVFqAw-crystalline-package`.
 Input commit: `32a48adf74c89c57233daf6787470378752ce311`.
