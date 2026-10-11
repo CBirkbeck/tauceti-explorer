@@ -218390,6 +218390,72 @@
    "reviewReason": "Inspected p.582: period-one symmetric X shifts identify D modulo CS. Replacing that quotient by NCS repeats each class N³ times while preserving the restrictions, so S₀ uses D mod C."
   },
   {
+   "id": "ModularCurvesPartII/E1",
+   "kind": "misprint",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 120",
+   "printed": "For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)².",
+   "correction": "The determinant is (q+1)²−T_q². The two expressions differ by −1, a unit, so their invertibility tests agree.",
+   "reason": "The 2×2 determinant formula gives a²−b²; at T_q=0 the determinant equals (q+1)².",
+   "affects": "nothing",
+   "known": "Present in both author copies read. The publisher lists a 2021 correction but its text was unavailable; confirmation against that correction is requested, and no novelty claim is made.",
+   "searched": [
+    "https://arxiv.org/abs/1207.4224",
+    "https://math.uchicago.edu/~fcale/research.html",
+    "https://doi.org/10.1007/s00222-017-0749-x",
+    "https://link.springer.com/article/10.1007/s00222-021-01095-5"
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+   "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, arXiv:1207.4224 author preprint, fetched 11 October 2026; comparison with author-hosted Springer-layout copy, PDF pp. 120–123",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E2",
+   "kind": "misprint",
+   "locator": "Lemma 9.6 proof, arXiv author preprint p. 90; author-hosted Springer-layout PDF p. 122",
+   "printed": "The displayed Lyndon segment places H^{i−1}(G) directly before H^i(Γ)²→H^i(H).",
+   "correction": "The segment is H^i(G)→H^i(Γ)²→H^i(H)→H^{i+1}(G), with the two subgroup restrictions and their difference.",
+   "reason": "Serre Trees II §2.8 Proposition 13, pp. 168–170, or the long exact sequence of the tree cochain short exact sequence, fixes the degrees. Degree-zero invariants already require H⁰(G) before H⁰(Γ)².",
+   "affects": "the proof",
+   "known": "Present in both author copies read. The publisher lists a 2021 correction but its text was unavailable; confirmation against that correction is requested, and no novelty claim is made.",
+   "searched": [
+    "https://arxiv.org/abs/1207.4224",
+    "https://math.uchicago.edu/~fcale/research.html",
+    "https://doi.org/10.1007/s00222-017-0749-x",
+    "https://link.springer.com/article/10.1007/s00222-021-01095-5"
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+   "citation": "Frank Calegari and David Geraghty, Modularity lifting beyond the Taylor–Wiles method, arXiv:1207.4224 author preprint, fetched 11 October 2026; comparison with author-hosted Springer-layout copy, PDF pp. 120–123",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E3",
+   "kind": "misprint",
+   "locator": "Lemma 4.5.11, second displayed invariant dimension and ensuing semisimplification claim: author preprint p. 31; published JAMS offprint p. 663, proof p. 664 and application pp. 664–665",
+   "printed": "The level-5 term uses F₃ coefficients and claims zero SL₂(F₅)-invariants, also after semisimplification.",
+   "correction": "Use F₅ in the level-5 term, as the proof of Theorem 4.5.2 requires when ℓ=5. Keep F₃ at level 3 and F₂ at levels 4/8/16. The printed level-5/F₃ invariant-vanishing assertion cannot be exported.",
+   "reason": "X(5) has genus zero and 12 cusps. Its ordinary H¹ with F₃ coefficients identifies through residues with the kernel of the total-sum map F₃^{12}→F₃. The constant vector is a nonzero SL₂(F₅)-invariant vector in that kernel because 12=0 in F₃. Thus the printed zero dimension is false. With F₅, this counterexample disappears and the stated level-5 Brauer-character calculation supplies the case used in Theorem 4.5.2.",
+   "affects": "a stated result",
+   "known": "Present in the author preprint and published offprint read. No correction was found in the publisher or author listings searched; novelty remains unconfirmed. The intended coefficient is determined by the proof’s ℓ=5 application.",
+   "searched": [
+    "https://arxiv.org/abs/2109.09040",
+    "https://doi.org/10.1090/jams/1053",
+    "https://math.uchicago.edu/~fcale/research.html",
+    "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf"
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+   "citation": "Frank Calegari, Vesselin Dimitrov and Yunqing Tang, The unbounded denominators conjecture, arXiv:2109.09040 author preprint dated 18 September 2024, fetched 11 October 2026; compared with the author-hosted published JAMS 38 (2025), 627–702 offprint in §§4.4–4.6, pp. 659–666. Node locators distinguish preprint and journal pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ModularSymbolsPadicLFunctions/E1",
    "kind": "error",
    "locator": "Theorem 2.6 and Corollary 2.7, p. 12; Theorem 2.9 and Corollary 2.10, pp. 13–14 (Numdam PDF of the published article; printed page = PDF page − 1)",
@@ -266724,7 +266790,6 @@
  ],
  "older": [],
  "unchecked": [
-  "GlobalShtukasAndFunctionFieldLanglands",
-  "ModularCurvesPartII"
+  "GlobalShtukasAndFunctionFieldLanglands"
  ]
 }
