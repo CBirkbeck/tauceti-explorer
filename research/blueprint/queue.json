@@ -17078,7 +17078,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AnalyticToricGeometryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4583"
   },
   {
    "id": "REV-DESIGN-AnalyticToricGeometryPartII",
@@ -22312,9 +22313,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #673"
+   "note": "claimed on GitHub issue #673"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -24994,8 +24995,9 @@
    ],
    "avoidAccountOf": "BP-EnhancedDerivedSheaves--E5",
    "prompt": "research/blueprint/prompts/REV-EnhancedDerivedSheaves--E5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #397"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #397",
+   "finishedAt": "2026-10-11T01:46:07Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -29235,9 +29237,10 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #982"
+   "note": "deliverables arrived from an external worker on issue #982",
+   "finishedAt": "2026-10-11T01:46:11Z"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -49298,8 +49301,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80265,8 +80268,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
