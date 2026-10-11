@@ -1,0 +1,2361 @@
+{
+  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+  "protocol": "blueprint-v1",
+  "part": "NC.5",
+  "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.5"
+  ],
+  "status": "complete",
+  "summary": "Plans quadratic Chabauty over Q at target level: rational Neron–Severi contributions, the depth-two quotient and its height module, all local height terms, discwise analytic pairs and basis-certified determinants, and the split Cartan curve of level 13. Shared geometry, nonabelian cohomology, period theory, integration and generic heights are imported. Statements use the Mordell–Weil image and signed bad-place correction sets. Native interfaces elaborate separately from the explicitly missing geometric and computational proof inputs.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "module": "Mathlib.Algebra.Module.Submodule.Ker",
+        "provides": "Kernel of a semilinear map as the inverse image of the zero submodule; membership is exactly f(x)=0.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/Algebra/Module/Submodule/Ker.lean:60",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/Submodule/Ker.lean#L60"
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "module": "Mathlib.LinearAlgebra.Isomorphisms",
+        "provides": "For a surjective linear map f over a ring, identifies its source modulo ker(f) with its target by a linear equivalence.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/Isomorphisms.lean:47",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Isomorphisms.lean#L47"
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "module": "Mathlib.LinearAlgebra.TensorProduct.Defs",
+        "provides": "Tensor product of modules over a commutative semiring, defined by the additive and scalar-balancing quotient relations.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean:71",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Defs.lean#L71"
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "module": "Mathlib.LinearAlgebra.TensorProduct.Map",
+        "provides": "Tensors two semilinear maps with the same scalar homomorphism; pure tensors map to the tensor of their images.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/TensorProduct/Map.lean:53",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Map.lean#L53"
+      },
+      {
+        "ref": "mathlib:TensorProduct.comm",
+        "module": "Mathlib.LinearAlgebra.TensorProduct.Basic",
+        "provides": "Linear equivalence exchanging the factors of a tensor product over its commutative base.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean:264",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Basic.lean#L264"
+      },
+      {
+        "ref": "mathlib:TensorProduct.lift",
+        "module": "Mathlib.LinearAlgebra.TensorProduct.Basic",
+        "provides": "Descends a bilinear map to a linear map on the tensor product, also in the stated semilinear setting.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean:122",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Basic.lean#L122"
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ",
+        "module": "Mathlib.LinearAlgebra.Quotient.Defs",
+        "provides": "The native linear projection from a module to its quotient by a submodule.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/Quotient/Defs.lean:227",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Defs.lean#L227"
+      },
+      {
+        "ref": "mathlib:Submodule.liftQ",
+        "module": "Mathlib.LinearAlgebra.Quotient.Basic",
+        "provides": "Descends a semilinear map to a module quotient when the submodule lies in its kernel.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/Quotient/Basic.lean:118",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Basic.lean#L118"
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "module": "Mathlib.LinearAlgebra.Dual.Defs",
+        "provides": "Abbreviation for the module of linear maps from M to the scalar semiring.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/Dual/Defs.lean:62",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dual/Defs.lean#L62"
+      },
+      {
+        "ref": "mathlib:Set.Finite.image",
+        "module": "Mathlib.Data.Set.Finite.Basic",
+        "provides": "The image of a finite set under any function is finite.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/Data/Set/Finite/Basic.lean:568",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Set/Finite/Basic.lean#L568"
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "module": "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "provides": "Leibniz determinant of a square matrix over a commutative ring with a finite decidable index type.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:60",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean#L60"
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval",
+        "module": "Mathlib.Algebra.MvPolynomial.Eval",
+        "provides": "Ring-homomorphism evaluation of a multivariate polynomial over a commutative semiring at assigned coordinates.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/Algebra/MvPolynomial/Eval.lean:256",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Eval.lean#L256"
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd",
+        "module": "Mathlib.Analysis.Analytic.Basic",
+        "provides": "Analyticity at each point of a set, using a convergent formal multilinear series at that point; it does not impose a single global power series.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/Analysis/Analytic/Basic.lean:120",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Analytic/Basic.lean#L120"
+      },
+      {
+        "ref": "mathlib:Padic",
+        "module": "Mathlib.NumberTheory.Padics.PadicNumbers",
+        "provides": "For a prime p, the Cauchy completion of Q in its p-adic norm, with its native field structure.",
+        "checkedAt": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "locator": "Mathlib/NumberTheory/Padics/PadicNumbers.lean:531",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicNumbers.lean#L531"
+      }
+    ],
+    "audit": {
+      "reviewedLibraryAudit": "data/library-coverage.json, AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "nativeChecks": "Read all 14 statements in the existing Mathlib source checkout at the pin, whose git HEAD was checked; no guessed declaration is used. Native module, tensor, determinant, polynomial and analytic carriers are reused, not replanned.",
+      "currentRoadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
+      "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "currentChecks": "Read current JacobianChallenge and GlobalNumberFields documents and the nearby Suggested interfaces; screened all nine newer roadmaps and the current Tau Ceti tree for NS, Chabauty, mixed extensions and p-adic heights. Existing vector bundle, Tannakian and Jacobian plans remain imports through NC.2, SF.3 and A2. No exact quadratic height implementation was found.",
+      "nearMisses": [
+        "WeierstrassCurve.Affine.Point.canonicalHeight is the real-valued elliptic canonical height, not the selected p-adic mixed-extension height.",
+        "The current WeilDivisorDegreeImage basic interface explicitly does not supply NS; A2/A6 remain its owners.",
+        "The native analytic predicate is local analyticity; joint density on every subdisc is required here to rule out a function vanishing on one open component.",
+        "The existing ED.6 packet already has the plane model and all X_s(13) arithmetic/computational targets; NC.5 supplies their height prerequisites, never duplicates them."
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "bdmtv",
+      "title": "Explicit Chabauty–Kim for the split Cartan modular curve of level 13",
+      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk",
+      "edition": "Annals of Mathematics 189 (2019), 885–944",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+      "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8",
+      "readSections": [
+        "§1.4–1.7, pp.890–895",
+        "§2, pp.896–901",
+        "§3, pp.901–909",
+        "§4.4, pp.913–915",
+        "§5.4–5.5, pp.923–926",
+        "§6, pp.926–934"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "bd1",
+      "title": "Quadratic Chabauty and rational points I: p-adic heights",
+      "authors": "Jennifer S. Balakrishnan and Netan Dogra",
+      "edition": "arXiv:1601.00388v2, 1 May 2018; PDF pagination",
+      "url": "https://arxiv.org/pdf/1601.00388v2",
+      "sha256": "1b8006eed69c262ab051e398e614478da38d46be73f8ed91a892834d2b38ae25",
+      "readSections": [
+        "§1, pp.3–6",
+        "§2.3–2.5, pp.9–10",
+        "§3, pp.11–12",
+        "§4, pp.12–17",
+        "§5.1–5.2, pp.17–22",
+        "§6.1–6.4, pp.23–29",
+        "§8.1–8.3, pp.32–36"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "bd2",
+      "title": "Quadratic Chabauty and rational points II: generalised height functions on Selmer varieties",
+      "authors": "Jennifer S. Balakrishnan and Netan Dogra",
+      "edition": "arXiv:1705.00401v2, July 2018; PDF pagination",
+      "url": "https://arxiv.org/pdf/1705.00401v2",
+      "sha256": "ed0c4e8aa3296c7b986a01216c798ccfd0541978e7d9e26367983e6531c0319f",
+      "readSections": [
+        "§1.1, pp.3–6 (scope screen)",
+        "§3.1–3.4, pp.12–20",
+        "§4, pp.20–22",
+        "§4.1 and §5, pp.23–26",
+        "§7.5, pp.45–46 (boundary screen)"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "kt",
+      "title": "A refined Selmer variety for the thrice-punctured projective line",
+      "authors": "Minhyong Kim and Akio Tamagawa",
+      "edition": "Author accepted manuscript, 2 February 2008; PDF pagination",
+      "url": "https://ora.ox.ac.uk/objects/uuid:debfa65b-85aa-4877-96f7-40dc0f29c272/files/mb07826c07e1bc11e2aa481362bb229ae",
+      "sha256": "fb2365247c678e992ef313b373d625373f62d78ba1ae5fc3b0d0d7c6b662a1a9",
+      "readSections": [
+        "Theorem0.1 and Corollary0.2, pp.1–2",
+        "§1, pp.2–5",
+        "§2, p.6"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "bdmtv23",
+      "title": "Quadratic Chabauty for modular curves: algorithms and examples",
+      "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Muller, Jan Tuitman and Jan Vonk",
+      "edition": "arXiv:2101.01862v4, 2023; PDF pagination",
+      "url": "https://arxiv.org/pdf/2101.01862v4",
+      "sha256": "738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d",
+      "readSections": [
+        "§3.5.2, Remark3.17, p.16 (correction to the Tate-class converse)"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "cartan-data",
+      "title": "Numerical data for X_s(13)",
+      "authors": "Balakrishnan, Dogra, Muller, Tuitman and Vonk",
+      "edition": "Supplement to BDMTV2019; Git commit e0dad89b5771312da3354531fc51e1e335a72ee3",
+      "url": "https://raw.githubusercontent.com/jtuitman/Cartan13/e0dad89b5771312da3354531fc51e1e335a72ee3/data.pdf",
+      "sha256": "a94006979deaa4187aaf1332b396536fef329a71b96ed1000a07decaaa2d52e9",
+      "readSections": [
+        "§1, pp.1–3: model, twenty residues and first-chart roots",
+        "§2, pp.3–4: second chart and roots",
+        "§3, pp.4–5: exceptional-disc data"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "cartan-u1",
+      "title": "Cartan13 supplementary first-chart Magma script",
+      "authors": "Balakrishnan, Dogra, Muller, Tuitman and Vonk",
+      "edition": "Supplement to BDMTV2019; Git commit e0dad89b5771312da3354531fc51e1e335a72ee3",
+      "url": "https://raw.githubusercontent.com/jtuitman/Cartan13/e0dad89b5771312da3354531fc51e1e335a72ee3/U1.m",
+      "sha256": "306fbaf1cbfe337b78ab364860b135ef24991853fdff3edbc1d679163e5e89ef",
+      "readSections": [
+        "First-chart setup, Hodge vectors, anchor features and root enumeration",
+        "Lines305–373: exceptional-disc basepoint change and the two height determinants; line358 checked against the helper"
+      ],
+      "accessed": "2026-10-11"
+    },
+    {
+      "id": "cartan-heights",
+      "title": "Cartan13 supplementary height and tensor helpers",
+      "authors": "Balakrishnan, Dogra, Muller, Tuitman and Vonk",
+      "edition": "Supplement to BDMTV2019; Git commit e0dad89b5771312da3354531fc51e1e335a72ee3",
+      "url": "https://raw.githubusercontent.com/jtuitman/Cartan13/e0dad89b5771312da3354531fc51e1e335a72ee3/heights.m",
+      "sha256": "21d4a797a1981d1419770ac6fe705a7401b5966fdad8eaad13dcfd9d40b640fd",
+      "readSections": [
+        "Height formula and E1_tensor_E2, lines287–334"
+      ],
+      "accessed": "2026-10-11"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Nice rational correspondence",
+      "kind": "definition",
+      "statement": "Let X/Q be smooth, proper and geometrically connected, of genus g>1, with b in X(Q). In C=Pic(X×X)⊗Q let P be the sum of the two pullback subspaces. A correspondence Z is nice when swap*Z−Z belongs to P, its H1⊗H1 Kunneth component cl(Z) is nonzero, and the induced endomorphism E_Z of H1 has trace zero. Nontrivial means nonzero in this component, not merely a nonzero divisor or Picard class. The same predicate applies after scalar extension, but a p-adic class is not thereby a rational correspondence.",
+      "hypotheses": [
+        "The Kunneth cycle-class map, correspondence action and principal polarization come from their geometric owners.",
+        "Rational coefficients permit subtracting the scalar trace part."
+      ],
+      "proofSteps": [
+        "Form the pullback subspace in the rational Picard group and impose symmetry in its quotient.",
+        "Extract the H1⊗H1 component; impose its nonvanishing and trace zero. On supplied native modules the three conditions are an explicit predicate."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "mathlib:LinearMap.ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§2.3, definition before Lemma2.4, p.900",
+          "match": "Specifies symmetry modulo pullbacks and the trace-zero correspondence used to construct U_Z."
+        }
+      ],
+      "acceptance": [
+        "Zero and a nonzero pullback class cannot be nice.",
+        "Symmetry modulo pullbacks is distinct from equality of divisors under swapping."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "IsNiceCorrespondence"
+      },
+      "api": [
+        {
+          "name": "IsNiceCorrespondence.nonzero",
+          "role": "relation",
+          "statement": "A nice class is nonzero."
+        },
+        {
+          "name": "IsNiceCorrespondence.smul",
+          "role": "compatibility",
+          "statement": "Multiplication by a nonzero coefficient preserves niceness."
+        },
+        {
+          "name": "IsNiceCorrespondence.add_pullback",
+          "role": "compatibility",
+          "statement": "Adding d in the pullback subspace preserves niceness when swap(d)−d stays in that subspace and both trace and cl vanish on it."
+        }
+      ],
+      "tests": [
+        {
+          "name": "nice_nonzero_primitive",
+          "kind": "computation",
+          "statement": "For C=Q², P=0, swap=id, trace=first coordinate and cl=second coordinate, (0,1) is nice."
+        },
+        {
+          "name": "nice_nonzero_trace",
+          "kind": "non-example",
+          "statement": "With these data (1,1) is not nice."
+        },
+        {
+          "name": "nice_zero_class",
+          "kind": "non-example",
+          "statement": "For trace=0 and cl=second coordinate, the nonzero element (1,0) is not nice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV §2.3",
+          "how": "Selects a nonzero primitive rational cycle for a one-dimensional central quotient."
+        },
+        {
+          "where": "NC.5 worked curve",
+          "how": "Distinguishes certified rational Hecke correspondences from arbitrary p-adic Tate classes."
+        }
+      ],
+      "planet": {
+        "name": "Nice correspondence"
+      },
+      "prototypeBoundary": "Native linear predicate and its three API items/tests are present. Pic(X×X), cycle action and the geometric instantiation IsNiceCorrespondence.geometric are omitted at G1.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Primitive class and trace criterion",
+      "kind": "theorem",
+      "statement": "For a symmetric rational correspondence Z on X whose Jacobian is absolutely simple, its Kunneth tensor is alternating (with the graded Kunneth sign). Its cup product is zero exactly when E_Z has trace zero, under the trace H2(X)(1)≅coefficient field. Consequently Z is nice exactly when cl(Z) is nonzero and cup(cl(Z))=0. The nonzero qualification is essential; the zero correspondence satisfies the latter equation alone.",
+      "hypotheses": [
+        "X and the polarization as in nice-correspondence.",
+        "Use the duality conventions of H1 and V=H1_et(Xbar,Qp)*, with their Tate twist."
+      ],
+      "proofSteps": [
+        "Import the rational NS-to-Rosati-symmetric-Hom identification from A2; the alternating tensor is its cohomological realization.",
+        "The correspondence trace equals cup followed by H2 trace. Combine with the explicit nonzero condition; do not use the unqualified converse in the printed Lemma2.4."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma2.4 and proof, p.900",
+          "match": "Provides the Rosati and cup/trace comparisons; the zero-class qualification repairs the final equivalence."
+        }
+      ],
+      "acceptance": [
+        "A primitive zero class is rejected.",
+        "The Kunneth sign explains why geometric symmetry gives an alternating H1 tensor."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "nice_trace_criterion"
+      },
+      "prototypeBoundary": "Full geometric signature is omitted at G1; the native IsNiceCorrespondence predicate keeps nonvanishing explicit.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/depth-two-quotient",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Depth-two height quotient",
+      "kind": "construction",
+      "statement": "Put V=VpJ and W2=coker(Qp(1)→∧²V), the cup-dual relation. The imported proper depth-two group has central exact sequence 1→W2→U2→V→1. A nonzero alternating cup-zero rational cycle class gives a G_Q-equivariant surjection q_Z:W2→Qp(1). Define U_Z=U2/ker(q_Z), as an fpqc group-scheme quotient, so 1→Qp(1)→U_Z→V→1 is central and its commutator is q_Z applied to the imported commutator. At the linear central grade the carrier is W2/ker q_Z, identified with Qp(1) by the existing first isomorphism theorem.",
+      "hypotheses": [
+        "A nonzero alternating cup-zero rational cycle class supplies q_Z by duality.",
+        "The kernel is closed, normal and Galois stable; characteristic zero and finite type come from NC.2.",
+        "A nice correspondence supplies this class under nice-trace-criterion, which retains its absolutely-simple-J hypothesis. The general rank criterion instead obtains primitive classes directly from rational NS and does not use that hypothesis."
+      ],
+      "proofSteps": [
+        "Use the proper cup-dual presentation of U2, not the affine free fundamental group.",
+        "Factor the cycle functional through W2 because it kills the cup-dual relation. Nonzero to a one-dimensional target is surjective.",
+        "Import the schematic central pushout and preserve the Galois action; use the native module quotient only for its central grade."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/central-quotients",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+        "mathlib:LinearMap.quotKerEquivOfSurjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§2.3, pp.900–901 and exact sequence(10), p.897",
+          "match": "Constructs U_Z by pushing the proper central quotient to a Tate line."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "§3, Lemma3.2, pp.11–12",
+          "match": "Uses the same primitive NS contributions for the rank criterion."
+        }
+      ],
+      "acceptance": [
+        "The centre is a Tate line only for a nonzero functional.",
+        "Retain the proper cup relation and the schematic quotient."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "DepthTwoHeightQuotient"
+      },
+      "api": [
+        {
+          "name": "DepthTwoHeightQuotient.centralMap",
+          "role": "projection",
+          "statement": "The central projection is the native quotient map W2→W2/ker q."
+        },
+        {
+          "name": "DepthTwoHeightQuotient.centralEquiv",
+          "role": "equivalence",
+          "statement": "For surjective q, the central quotient is linearly equivalent to its Tate target."
+        },
+        {
+          "name": "DepthTwoHeightQuotient.centralEquiv_apply",
+          "role": "simp",
+          "statement": "The equivalence takes the class of z to q(z)."
+        },
+        {
+          "name": "DepthTwoHeightQuotient.centralMap_eq_zero",
+          "role": "characterisation",
+          "statement": "The central class of z is zero exactly when q(z)=0."
+        },
+        {
+          "name": "DepthTwoHeightQuotient.central_exact",
+          "role": "structure",
+          "statement": "The geometric central extension has the stated kernel, projection and commutator."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quotient_coordinate",
+          "kind": "computation",
+          "statement": "For q:Q²→Q the first coordinate, (3,5) and (3,0) give the same central class and q is surjective."
+        },
+        {
+          "name": "quotient_zero_map",
+          "kind": "degenerate",
+          "statement": "For q=0 every central class vanishes."
+        },
+        {
+          "name": "quotient_retains_nonzero_class",
+          "kind": "non-example",
+          "statement": "For the coordinate projection, the class of (1,0) is nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV §3.4",
+          "how": "Supplies the group acting on the height module."
+        },
+        {
+          "where": "NC.4 / NC.5",
+          "how": "Projects the depth-two Selmer locus to a smaller height quotient without losing rational points."
+        }
+      ],
+      "prototypeBoundary": "The geometric DepthTwoHeightQuotient constructor is explicitly omitted. Its central module carrier and four API signatures are native. Geometric quotient, projection, central_exact and commutator are individually omitted at G1; an abstract quotient of point groups is insufficient.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Quadratic Chabauty rank criterion",
+      "kind": "theorem",
+      "statement": "Let X/Q be smooth, projective and geometrically connected with genus g>1 and rational basepoint, J its Jacobian, p a prime of good reduction, r=rank J(Q), and rho_Q=rank NS(J/Q). With the NC.4 Selmer locus defined by crystalline conditions at p, actual local Kummer images at all bad places and projection to the global Mordell–Weil Kummer image, r<g+rho_Q−1 implies X(Qp)_2 is finite. It contains X(Q). No equality between global H1_f(G_T,V) and J(Q)⊗Qp, no ordinary-reduction hypothesis and no replacement of rho_Q by the geometric Picard number are assumed.",
+      "hypotheses": [
+        "Use p-adic coefficients and the reduced Selmer variety convention of BD I §2.3, as fixed in NC.4.",
+        "The number field is Q; the extra unit and splitting hypotheses for other fields are outside this selected theorem."
+      ],
+      "proofSteps": [
+        "From A2/A6 import rational NS and its symmetric-Hom injection and finite rank. Primitive rational NS classes form a space of dimension rho_Q−1 after removing the theta/trace direction.",
+        "Push U2 to an extension of V by rho_Q−1 Tate lines. The global crystalline/unramified Tate-line kernel has dimension zero over Q, using the S-unit/Kummer and local conditions; finite bad Kummer images contribute no dimension. The Mordell–Weil cut bounds the global Selmer dimension by r.",
+        "The local crystalline quotient has dimension g+rho_Q−1 by strict extension classification and the Bloch–Kato dimension formula. The strict inequality gives non-dominance. Import NC.4 discwise density and analytic finiteness to conclude."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/depth-two-quotient",
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "AbelianSchemesAndArithmeticModuli:A6/neron-severi-rank",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4",
+        "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
+        "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+        "HeightsRationalPointsAndObstructions:RP.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd1",
+          "locator": "§2.3 and Remark2.3, p.9; §3, Lemma3.2 and proof, pp.11–12",
+          "match": "Defines the Mordell–Weil cut and proves the selected rank/Picard criterion."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "Theorem2.3, p.899",
+          "match": "Restates the criterion; its global dimension sketch is used only after the Mordell–Weil cut."
+        }
+      ],
+      "acceptance": [
+        "When rho_Q=1 the strict bound reduces to r<g.",
+        "The boundary r=g+rho_Q−1 does not assert finiteness.",
+        "A larger geometric NS rank without rational descent does not improve this bound."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "rank_picard_criterion"
+      },
+      "planet": {
+        "name": "Quadratic Chabauty rank criterion"
+      },
+      "prototypeBoundary": "The geometric locus and dimension theorem signature are omitted at G1 and the NC.4 contract. The node is a theorem plan, not a numerical surrogate.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/admissible-tate-class",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Admissible de Rham Tate class",
+      "kind": "definition",
+      "statement": "For H=H1_dR(X/Qp) with Frobenius phi at a good prime p, define admissibility of Z in H⊗H by five explicit conditions: Z≠0; (phi⊗phi)(Z)=pZ; Z belongs to Fil1(H⊗H); cup(Z)=0; and swap(Z)=−Z. The filtration is the tensor filtration; phi is on H1, not on its Tate dual. These are necessary conditions for a nice rational correspondence, and they do not construct one.",
+      "hypotheses": [
+        "The geometric specialization is over Qp, so phi is linear; a ramified coefficient-field extension requires its imported semilinear comparison.",
+        "The nonzero condition is added to the four source conditions for use as a quotient."
+      ],
+      "proofSteps": [
+        "Use the native tensor product, its commutor and the tensor of phi with itself.",
+        "Impose membership in the supplied tensor filtration and the kernel of cup, with the eigenvalue and alternating condition.",
+        "Keep algebraicity and rational descent as separate evidence in nice-class-realization."
+      ],
+      "prerequisites": [
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.comm",
+        "mathlib:LinearMap.ker",
+        "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§4.4, conditions(a)–(d), pp.913–914",
+          "match": "Lists the de Rham constraints for the height connection."
+        },
+        {
+          "sourceId": "bdmtv23",
+          "locator": "§3.5.2, Remark3.17, p.16",
+          "match": "Explains why the earlier converse does not follow from these constraints."
+        }
+      ],
+      "acceptance": [
+        "Changing to the dual Frobenius without the twist changes the eigenvalue and is rejected.",
+        "Admissibility is never used as an algebraic-cycle lifting theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "IsAdmissibleTateClass"
+      },
+      "api": [
+        {
+          "name": "IsAdmissibleTateClass.nonzero",
+          "role": "relation",
+          "statement": "An admissible class is nonzero."
+        },
+        {
+          "name": "IsAdmissibleTateClass.smul",
+          "role": "compatibility",
+          "statement": "A nonzero scalar multiple remains admissible."
+        },
+        {
+          "name": "IsAdmissibleTateClass.not_zero",
+          "role": "characterisation",
+          "statement": "The zero tensor is never admissible."
+        }
+      ],
+      "tests": [
+        {
+          "name": "tate_wedge_eigenvalue",
+          "kind": "computation",
+          "statement": "For H=Q², phi=diag(1,2), Fil1=all and cup=0, e1⊗e2−e2⊗e1 is admissible with eigenvalue2. This is a linear test, not a geometric curve."
+        },
+        {
+          "name": "tate_zero_rejected",
+          "kind": "degenerate",
+          "statement": "With the same data zero is rejected."
+        },
+        {
+          "name": "tate_symmetric_tensor_rejected",
+          "kind": "non-example",
+          "statement": "e1⊗e1 is rejected."
+        },
+        {
+          "name": "tate_wrong_frobenius",
+          "kind": "non-example",
+          "statement": "The nonzero wedge is rejected with phi=id and required eigenvalue2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV §4.4 / §5.4",
+          "how": "Defines the linear conditions used to construct the specialized height connection."
+        },
+        {
+          "where": "NC.5 worked curve",
+          "how": "Checks the cohomological matrices only after rational Hecke-cycle provenance is supplied."
+        }
+      ],
+      "prototypeBoundary": "Native tensor predicate, API and all four linear tests elaborate. Its H1_dR geometric instantiation uses the imported period/cycle interface at G1."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Realization of a rational nice class",
+      "kind": "theorem",
+      "statement": "A nonzero rational nice correspondence produces an admissible de Rham Tate class at every good prime, under the tensor-compatible crystalline cycle comparison. Only this forward implication is asserted. An arbitrary p-adic linear combination satisfying the admissibility conditions need not belong to the rational algebraic-correspondence space, even when the two stated Picard ranks agree.",
+      "hypotheses": [
+        "Use the rational class, its symmetric Hom/NS realization and the good-reduction crystalline cycle class, with tensor and cup compatibility.",
+        "The nice-to-alternating implication here uses nice-trace-criterion, including absolute simplicity. For the general rank theorem, rational NS classes give alternating classes on H2(J) directly; that theorem does not depend on this specialized correspondence implication."
+      ],
+      "proofSteps": [
+        "A rational divisor cycle has the required Frobenius eigenvalue and Hodge filtration by cycle comparison.",
+        "Apply the alternating and cup/trace criterion and injectivity on rational divisor classes.",
+        "The proposed converse would confuse the intersection of a rational lattice with a filtration with the intersection of its p-adic span; it is excluded."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/admissible-tate-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma4.7, pp.913–914, forward part only",
+          "match": "The forward cycle-class properties suffice for constructing the height module."
+        },
+        {
+          "sourceId": "bdmtv23",
+          "locator": "Remark3.17, p.16",
+          "match": "Supplies the published correction to the converse."
+        }
+      ],
+      "acceptance": [
+        "Input includes an actual rational cycle, with no inferred lift from de Rham linear algebra."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "nice_class_realization"
+      },
+      "prototypeBoundary": "Omitted geometric realization signature at G1.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Depth-two height module",
+      "kind": "construction",
+      "statement": "Let A2(b)=A(b)/I³ be the imported length-two pointed universal module for the proper curve. Its central grade T=coker(Qp(1)→V⊗²) embeds in A2(b). The correspondence functional q_Z:T→Qp(1) factors through the proper relation. Define A_Z(b)=A2(b)/i(ker q_Z), with its Galois action, weight filtration and identified grades Qp,V,Qp(1). Its U2 action factors faithfully through U_Z. Its de Rham version is the analogous pushout of the proper universal connection; it is a module, not a Hopf-algebra quotient.",
+      "hypotheses": [
+        "The augmentation length is2, so the exponent is3; it is separate from the lower central indexing.",
+        "The functional on V⊗² restricts to the alternating quotient and kills the cup-dual relation.",
+        "Use the alternating cup-zero rational class as input. When it is selected through the named nice-correspondence theorem, retain the absolutely-simple-J hypothesis."
+      ],
+      "proofSteps": [
+        "Import A2 and its graded representation from NC.2/length-algebra and finite-path-module.",
+        "Quotient only the kernel in the central grade; keep the top and middle grades and the pointer.",
+        "The kernel of the U2 representation is exactly ker q_Z, by the explicit unipotent action on the length-two quotient. Descend the action and connection."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/depth-two-quotient",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/length-algebra",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-module",
+        "mathlib:Submodule.mkQ",
+        "mathlib:Submodule.liftQ"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§3.4, pp.906–907; §4.4, pp.914–915",
+          "match": "Uses the central pushout of A2 to produce the height module and connection."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "§5.1, pp.17–20",
+          "match": "Constructs the mixed extension module, its action and twisting realization."
+        }
+      ],
+      "acceptance": [
+        "The retained dimension is2g+2.",
+        "No Hopf structure on the single augmentation quotient is asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "DepthTwoHeightModule"
+      },
+      "api": [
+        {
+          "name": "DepthTwoHeightModule.mk",
+          "role": "projection",
+          "statement": "The projection A2→A_Z is the native quotient map."
+        },
+        {
+          "name": "DepthTwoHeightModule.relation",
+          "role": "simp",
+          "statement": "If q(z)=0, the class of i(z) vanishes."
+        },
+        {
+          "name": "DepthTwoHeightModule.lift",
+          "role": "universal-property",
+          "statement": "A linear map on A2 killing i(ker q) descends uniquely to A_Z."
+        },
+        {
+          "name": "DepthTwoHeightModule.lift_mk",
+          "role": "simp",
+          "statement": "The descended map evaluates on a quotient class as the original map."
+        },
+        {
+          "name": "DepthTwoHeightModule.grades",
+          "role": "structure",
+          "statement": "Identifies the weight grades with Qp,V,Qp(1), preserving their specified identifications."
+        },
+        {
+          "name": "DepthTwoHeightModule.action",
+          "role": "structure",
+          "statement": "The imported U2 action descends to a faithful U_Z action."
+        },
+        {
+          "name": "DepthTwoHeightModule.deRham",
+          "role": "compatibility",
+          "statement": "Gives the proper filtered connection pushout with its pointer."
+        }
+      ],
+      "tests": [
+        {
+          "name": "module_zero_quotient",
+          "kind": "degenerate",
+          "statement": "For A=T=Q, i=id and q=0, the whole quotient vanishes."
+        },
+        {
+          "name": "module_identity_quotient",
+          "kind": "computation",
+          "statement": "For i=q=id on Q, the class of1 survives."
+        },
+        {
+          "name": "module_other_grades_preserved",
+          "kind": "non-example",
+          "statement": "For i:Q→Q² the second-coordinate inclusion and q=0, the class of (1,0) survives. This detects quotienting the whole ambient module."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV equation(18)",
+          "how": "Its twists are the inputs to the height function."
+        },
+        {
+          "where": "BDMTV Lemma5.4",
+          "how": "Compares its Galois and de Rham realizations with the same quotient relation."
+        }
+      ],
+      "planet": {
+        "name": "Depth-two height module"
+      },
+      "prototypeBoundary": "Native central-submodule quotient and four API signatures/tests elaborate. Geometric grades, action and deRham instantiation are named omissions at G1.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Twisted height module",
+      "kind": "construction",
+      "statement": "For a right U_Z torsor P with compatible Galois action, define HeightModuleTwist(P)=P×^{U_Z}A_Z(b), using the faithful left U_Z action on the module. It is a mixed extension with the fixed graded identifications Qp,V,Qp(1). For the path torsor from b to x write A_Z(b,x). Contracted product, endpoint transport and the neutral torsor identification are those of NC.3; NC.5 applies them to this particular representation.",
+      "hypotheses": [
+        "P is a genuine nonabelian torsor, not an arbitrary cocycle without quotient equivalence.",
+        "Retain top and bottom grade rigidifications; isomorphisms induce the identity on the named grades."
+      ],
+      "proofSteps": [
+        "Import torsor classification and twisting, then descend the U_Z-equivariant vector-space/representation sheaf along P.",
+        "The central weight flag is U_Z stable and therefore descends with the graded identifications.",
+        "Use neutral torsor and composition compatibility to recover A_Z(b) and endpoint functoriality."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/tensor-paths"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§3.4, definition of A_Z(b,x), pp.906–907",
+          "match": "Applies the twisting map to the height module."
+        },
+        {
+          "sourceId": "bd2",
+          "locator": "§3.1, pp.12–14",
+          "match": "Explains the general twist of the length-two module and its two extension projections."
+        }
+      ],
+      "acceptance": [
+        "Transport acts on the source side with the convention inherited from NC.2.",
+        "Changing a torsor representative does not change the mixed-extension isomorphism class."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "HeightModuleTwist"
+      },
+      "api": [
+        {
+          "name": "HeightModuleTwist.neutral",
+          "role": "characterisation",
+          "statement": "Twisting by the neutral torsor recovers A_Z(b) with its flag and grades."
+        },
+        {
+          "name": "HeightModuleTwist.compose",
+          "role": "functoriality",
+          "statement": "Composing endpoint path torsors induces the corresponding transport isomorphism of twisted modules."
+        },
+        {
+          "name": "HeightModuleTwist.classes",
+          "role": "projection",
+          "statement": "The upper and lower extension projections are the imported mixed-extension pi1 and pi2, with the fixed graded identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "twist_neutral",
+          "kind": "comparison",
+          "statement": "For P=U_Z with its neutral torsor structure the twist is A_Z(b)."
+        },
+        {
+          "name": "twist_endpoint",
+          "kind": "degenerate",
+          "statement": "For x=b the depth-one upper class is0; the lower class is the Chow–Heegner constant c, which need not vanish."
+        },
+        {
+          "name": "twist_nontrivial_center",
+          "kind": "non-example",
+          "statement": "Twisting a fixed pair of adjacent extensions by a nonzero crystalline Tate-line class changes the central mixed-extension class; it is not killed by forgetting the centre."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV equation(18)",
+          "how": "Defines theta by applying h_p to this mixed extension."
+        },
+        {
+          "where": "NC.6 and ED.6",
+          "how": "Retains the cohomological object underlying any numerical height value."
+        }
+      ],
+      "prototypeBoundary": "HeightModuleTwist and all three API and test signatures are omitted, individually named in Suggested.lean, because the imported geometric representation/torsor/mixed-extension categories have no native instantiation at this pin (G1,G2).",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-two-classes",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Adjacent extension classes of the twist",
+      "kind": "theorem",
+      "statement": "For x in X(Q), pi1(A_Z(b,x))=kappa(x−b) and pi2(A_Z(b,x))=E_Z kappa(x−b)+c_Z, where c_Z=[I A_Z(b)] is the Kummer realization of a rational Chow–Heegner point. After localization and the Bloch–Kato logarithm these become AJ_b(x) and E_Z AJ_b(x)+c_Z in W=H0(X_Qp,Omega1)*. Both global classes lie in the Mordell–Weil Kummer image; the statement does not identify that image with the entire global H1_f.",
+      "hypotheses": [
+        "Duality identifies V*(1) with V via the chosen principal polarization.",
+        "Use the actual rational-cycle Chow–Heegner comparison; no assumption that c_Z=0."
+      ],
+      "proofSteps": [
+        "The upper quotient of the length-two twist is the depth-one path representation, giving kappa(x−b).",
+        "The lower subextension is the correspondence image of this class plus its value at b; compare with the divisor construction in chow-heegner-class to establish rational Mordell–Weil provenance.",
+        "Apply the imported Bloch–Kato and Coleman/Jacobian logarithm compatibility."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/depth-one-jacobian",
+        "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+        "ColemanIntegration:L1/coleman-integral"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd1",
+          "locator": "§5.2, Proposition5.5, pp.20–22",
+          "match": "Describes the two classes and restricts the pairing to the required Mordell–Weil image."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma3.7 proof and Remark3.11, pp.907–908",
+          "match": "Identifies E and c for the height equations."
+        }
+      ],
+      "acceptance": [
+        "At b the first class is0 and the second is c_Z.",
+        "No Tate–Shafarevich finiteness assumption is inserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "twist_two_classes"
+      },
+      "prototypeBoundary": "Omitted geometric mixed-extension projection theorem at G1,G2.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-injective",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Injectivity of the specialized twisting map",
+      "kind": "theorem",
+      "statement": "The twisting map tau:H1_f(G,U_Z)→mixed extensions with graded pieces Qp,V,Qp(1) is injective for the specified global or local Galois group and height-module representation. The proof must show that, for every twist arising from a torsor, the G-fixed locus of the pointed quotient Aut_gr(A_Z)/U_Z consists exactly of its distinguished coset. It is never empty: the neutral coset is fixed. Faithfulness of U_Z→Aut_gr(A_Z) alone does not imply injectivity on H1.",
+      "hypotheses": [
+        "Aut_gr means flag-preserving automorphisms inducing the identity on all named graded pieces.",
+        "The negative-weight quotient representations and their torsor twists have no invariant vectors for these Galois groups; finite-dimensional continuity and the group-theoretic exact sequence come from NC.3."
+      ],
+      "proofSteps": [
+        "Translate a fibre of H1(U_Z)→H1(Aut_gr(A_Z)) to the neutral fibre by the imported nonabelian twisting equivalence.",
+        "Filter the homogeneous quotient by its negative-weight vector-space pieces and prove that a fixed coset is the neutral one, successively; rational Frobenius weight arguments also hold on the twisted graded pieces.",
+        "Use the fixed-coset/nonabelian exact sequence, not an empty fixed-locus claim, to obtain injectivity on every fibre."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd2",
+          "locator": "§4, Lemma4.2 and proof, pp.21–22",
+          "match": "Proves injectivity via the pointed automorphism quotient; the printed fixed-point claim is corrected."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "§5.1, pp.18–20",
+          "match": "Provides the specialized faithful action and mixed-extension classifier."
+        }
+      ],
+      "acceptance": [
+        "The neutral coset is fixed.",
+        "The argument addresses every twisted fibre, not just the kernel of a map of pointed sets."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "twist_injective"
+      },
+      "prototypeBoundary": "Omitted native Galois torsor/flag automorphism signature at G1,G2; the proof obligation on every twisted quotient is explicit.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Crystalline comparison for the height module",
+      "kind": "comparison",
+      "statement": "For X/Qp with good reduction and the actual rational cycle Z, the crystalline path comparison induces a strict, tensor- and cycle-compatible isomorphism D_cris(A_Z^et(b,x))≅A_Z^dR(b,x). It preserves the pointer, weight grades, Hodge filtration, Frobenius and the cup-dual quotient functional, after passing to the proper quotient and its central pushout. Applying ordinary H1 comparison alone does not prove that the mixed extension is crystalline.",
+      "hypotheses": [
+        "The whole finite path module is crystalline by the imported nonlinear comparison; b,x are good-reduction local points.",
+        "The good-reduction cycle class comparison sends the same rational correspondence to its de Rham functional."
+      ],
+      "proofSteps": [
+        "Import NC.2 finite path comparison and genuine D_cris with its exact strict tensor structure from R06.2.",
+        "Pass to the proper quotient, and use compatibility of cycle classes, cup and tensor duality to identify the two central kernels.",
+        "Apply strict exactness to the quotient A_Z and to its path twist; preserve the pointed normalization."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/crystalline-path-coordinates",
+        "PadicHodgeTheory:R06.2/period-functors",
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+        "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§5.4, Lemma5.4 and proof, pp.923–924",
+          "match": "Compares A_Z using Olsson for the path object and Faltings for the cycle quotient."
+        }
+      ],
+      "acceptance": [
+        "Use the mixed extension, not only its semisimplified graded pieces.",
+        "The comparison is strict filtered and phi-equivariant."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "height_module_comparison"
+      },
+      "prototypeBoundary": "Full geometric comparison signature is omitted at G1,G2. Existing native quotient does not stand for a period functor.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-prevalue",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Specialized local height formula",
+      "kind": "construction",
+      "statement": "Choose the Hodge splitting V_dR=Fil0⊕W, with complementary projections s1 onto Fil0 and s2 onto W. In a fixed weight-graded frame, let alpha_phi,beta_phi,gamma_phi be the Frobenius splitting coordinates and beta_Fil,gamma_Fil the Hodge coordinates of the compared A_Z(b,x). Define HeightPrevalue=gamma_phi−gamma_Fil−beta_phi(s1 alpha_phi)−beta_Fil(s2 alpha_phi). The local height is the chosen Qp-linear character functional chi_p on the Tate-line de Rham quotient applied to this prevalue. This is linear evaluation after identifying the Tate-line coordinate, not an application of an idele character to a multiplicative scalar.",
+      "hypotheses": [
+        "The lower and upper splitting coordinates have the imported weight-graded normalization.",
+        "The two projections sum to the identity and come from the same Hodge splitting; the native formula itself is defined for arbitrary supplied linear maps."
+      ],
+      "proofSteps": [
+        "Apply the shared mixed-extension height construction to the strictly compared module.",
+        "Compute the difference of the unique Frobenius splitting and the chosen Hodge splitting; use the chosen projection to subtract both beta terms with negative signs.",
+        "Identify the resulting Tate-line class and apply the local linear functional."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison",
+        "mathlib:Module.Dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§3.3, equations(16)–(17), pp.905–906; Lemma5.5, p.924",
+          "match": "Gives the scalar preheight and its evaluation on the compared module."
+        }
+      ],
+      "acceptance": [
+        "Both beta terms have negative signs.",
+        "Holding the adjacent classes fixed does not force the local height to be fixed under a central change."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "HeightPrevalue"
+      },
+      "api": [
+        {
+          "name": "HeightPrevalue.zero_alpha",
+          "role": "simp",
+          "statement": "For alpha=0 the prevalue is gamma_phi−gamma_Fil."
+        },
+        {
+          "name": "HeightPrevalue.gamma_add",
+          "role": "compatibility",
+          "statement": "Adding a to gamma_phi adds a to the prevalue."
+        },
+        {
+          "name": "HeightPrevalue.character_smul",
+          "role": "compatibility",
+          "statement": "A Qp-linear local character sends a*z to a*chi(z)."
+        },
+        {
+          "name": "HeightPrevalue.local_height",
+          "role": "compatibility",
+          "statement": "Under the genuine mixed-extension splitting hypotheses, h_p(A_Z(b,x)) equals chi_p(HeightPrevalue)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "preheight_two_negative_terms",
+          "kind": "computation",
+          "statement": "For V=Q², s1(x,y)=(x,0), s2(x,y)=(0,y), alpha=(1,2), beta_phi=2*first, beta_Fil=3*second, gamma_phi=7 and gamma_Fil=1, the result is−2."
+        },
+        {
+          "name": "preheight_zero_alpha",
+          "kind": "degenerate",
+          "statement": "Changing alpha to0 gives6."
+        },
+        {
+          "name": "preheight_central_variation",
+          "kind": "non-example",
+          "statement": "With alpha=(1,2) as before, changing gamma_phi from7 to8 gives−1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV equation(18) and Lemma5.5",
+          "how": "Computes theta from explicit connection splitting coordinates."
+        },
+        {
+          "where": "ED.6",
+          "how": "Specifies the exact sign and character normalization a certified numerical routine must implement."
+        }
+      ],
+      "prototypeBoundary": "The scalar formula, three linear API items and three tests elaborate. HeightPrevalue.local_height is omitted at G2 until actual filtered mixed extensions and heights exist.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/local-height-coordinates",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Height and first extension as local coordinates",
+      "kind": "theorem",
+      "statement": "For a nonzero nice quotient U_Z and a nonzero chosen local height functional chi_p, the map (pi1,h_p∘tau_p):H1_f(G_p,U_Z)→H1_f(G_p,V)×Qp is an isomorphism of schemes. In an affine presentation of a central fibre, h_p has the form a*(gamma−F(alpha)) with a≠0, so its inverse is gamma=h/a+F(alpha). The height is algebraic on this Selmer variety even though its pullback to the curve is analytic. Nonzero chi_p is indispensable.",
+      "hypotheses": [
+        "The mixed-extension classifier, crystalline extension groups and the faithful twist are genuine imported objects.",
+        "Over Qp, the chosen local character is an isomorphism on the Tate-line de Rham quotient."
+      ],
+      "proofSteps": [
+        "Classify the crystalline central fibre as a torsor for H1_f(G_p,Qp(1))≅Qp.",
+        "The preheight formula has a nonzero linear coefficient in the central coordinate, giving a polynomial fibre inverse.",
+        "Use the imported global algebraic classifier and strict filtrations to patch these coordinates; the native set equivalence alone does not prove a scheme isomorphism."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-prevalue",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-injective",
+        "SelmerIwasawaCohomology:L4/bloch-kato-condition"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd2",
+          "locator": "§3.3, Lemmas3.6–3.7, p.18",
+          "match": "Constructs the preheight fibre coordinate and algebraic inverse; specialize the central grade to a Tate line and evaluate by a nonzero local character."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "§4.3.2, Lemma4.8, p.16",
+          "match": "Establishes algebraicity of the scalar local height; it alone is not the coordinate-isomorphism theorem."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma3.7 proof, pp.907–908",
+          "match": "Uses the specialized height-coordinate isomorphism for joint density."
+        }
+      ],
+      "acceptance": [
+        "A zero local functional collapses the central fibre and gives no such isomorphism."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "local_height_coordinates"
+      },
+      "prototypeBoundary": "heightCoordinates is the native fibre set equivalence with a nonzero coefficient. The scheme-theoretic/Galois specialization is individually omitted at G1,G2.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Vanishing for potentially unramified extensions",
+      "kind": "application",
+      "statement": "For v≠p, a mixed extension M of Qp,V,Qp(1) which becomes unramified over a finite local extension satisfies h_v(M)=0. The hypothesis is on the whole mixed extension, not merely its graded pieces. In particular, proper path modules and their height pushouts at places of potential good reduction satisfy it by the imported path theorem after good-reduction base change.",
+      "hypotheses": [
+        "Use the shared generic away-from-p height and its functorial splitting/extraction.",
+        "The finite local extension may be chosen Galois."
+      ],
+      "proofSteps": [
+        "Invoke the generic vanishing theorem; its proof splits the V extensions away from p and reduces to a Tate-line extension.",
+        "The Tate-line class becomes zero over the unramified extension. Inflation–restriction and zero local Tate invariants make restriction injective, so it was zero already.",
+        "Apply to the actual path twist using proper potential-good reduction, not to an arbitrarily manufactured unramified semisimplification."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4",
+        "SelmerIwasawaCohomology:L2/finite-condition-rational-duality"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§3.2, Lemma3.2 and proof, p.903",
+          "match": "Specializes away-from-p height vanishing to potentially unramified mixed extensions."
+        }
+      ],
+      "acceptance": [
+        "A ramified extension with unramified graded pieces is not covered."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "away_height_vanishes"
+      },
+      "prototypeBoundary": "Omitted actual local mixed-extension/height signature at G2; the generic theorem belongs to the shared height owner.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Finitely many bad-place heights",
+      "kind": "application",
+      "statement": "For every finite place v≠p, the proper depth-two local Kummer map j2,v:X(Qv)→H1(G_v,U2) has finite image. Projecting to U_Z, twisting by A_Z and applying h_v therefore gives a finite set Gamma_v. At good places Gamma_v={0}. Thus only finitely many bad places enter the correction set, and all of them must be retained. Finiteness supplies no algorithm for computing Gamma_v.",
+      "hypotheses": [
+        "X is a proper smooth curve over Q; for an affine integral variant the corresponding local domain and boundary hypotheses must be supplied separately.",
+        "Use the p-adic unipotent quotient of the local path fundamental group with v≠p."
+      ],
+      "proofSteps": [
+        "Import the local finite-image theorem from NC.4, where the general Kim–Tamagawa specialization belongs.",
+        "Take the image through the actual quotient, twist and height maps; a function on a finite image still has finite image.",
+        "Use generic good-place vanishing outside a finite set. No bad contribution is discarded on grounds of finiteness alone."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.4",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+        "mathlib:Set.Finite.image"
+      ],
+      "sources": [
+        {
+          "sourceId": "kt",
+          "locator": "Corollary0.2, p.2; §2, p.6",
+          "match": "The finite-image result extends to the proper curve local points and unipotent quotients."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "Theorem3.6 and equation(19), p.907",
+          "match": "Applies this finite-image result to the height constants."
+        }
+      ],
+      "acceptance": [
+        "The result is finite image, not identically zero at every bad place."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "finite_bad_height_image"
+      },
+      "prototypeBoundary": "Omitted local Kummer/height signature at G1,G2 and the NC.4 supplier contract.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Signed away-place correction set",
+      "kind": "construction",
+      "statement": "For a finite index set T0 of all bad places different from p and finite local image sets Gamma_v⊆Qp, define Upsilon={−sum_v t_v : t_v in Gamma_v for every v}. It is finite, equals{0} for T0 empty or all Gamma_v={0}, and is a sound correction set even if Gamma_v are finite proved upper bounds rather than exact images. For globalHeight=heightAtP+sum_v t_v, the residual heightAtP−globalHeight lies in Upsilon. This fixes the positive sign printed in BDMTV equation(19).",
+      "hypotheses": [
+        "Finite local images or proved finite supersets are supplied for every bad place.",
+        "All height functions use one common idele character and compatible global/local normalization."
+      ],
+      "proofSteps": [
+        "Form the finite product of the Gamma_v and map it by negative summation.",
+        "For a global path extension, apply the generic local-to-global height sum identity and the membership of each local term.",
+        "A proved finite enlargement preserves rational containment; exact equality of local images is separate evidence."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
+        "mathlib:Set.Finite.image"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd1",
+          "locator": "Theorem1.2(ii), p.4 and Proposition5.5, p.21",
+          "match": "Uses the negative sum of away-place heights as the finite correction set."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "equations(18)–(19), Lemma3.7, pp.907–908",
+          "match": "Provides the construction and local/global identity; the equation(19) sign is repaired."
+        }
+      ],
+      "acceptance": [
+        "A singleton away-place value3 produces correction−3, not3 or0.",
+        "Upper bounds do not certify the exact depth-two locus."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "AwayHeightConstants"
+      },
+      "api": [
+        {
+          "name": "AwayHeightConstants.finite",
+          "role": "structure",
+          "statement": "Finite local sets and a finite index set give a finite correction set."
+        },
+        {
+          "name": "AwayHeightConstants.mem",
+          "role": "constructor",
+          "statement": "Every tuple of allowed local values yields its negative sum in Upsilon."
+        },
+        {
+          "name": "AwayHeightConstants.mono",
+          "role": "relation",
+          "statement": "Enlarging each local set enlarges Upsilon."
+        },
+        {
+          "name": "AwayHeightConstants.all_zero",
+          "role": "simp",
+          "statement": "All singleton-zero local sets give Upsilon={0}."
+        },
+        {
+          "name": "AwayHeightConstants.height_sum",
+          "role": "compatibility",
+          "statement": "The global height sum identity puts heightAtP−globalHeight in Upsilon."
+        }
+      ],
+      "tests": [
+        {
+          "name": "away_empty",
+          "kind": "degenerate",
+          "statement": "For the empty place set the correction set is{0}."
+        },
+        {
+          "name": "away_nonzero_one_place",
+          "kind": "computation",
+          "statement": "One local set{2} gives correction set{−2}."
+        },
+        {
+          "name": "away_nonzero_two_places",
+          "kind": "computation",
+          "statement": "Local sets{1} and{2} give{−3}."
+        },
+        {
+          "name": "away_nonzero_cannot_be_dropped",
+          "kind": "non-example",
+          "statement": "For local set{3}, neither3 nor0 belongs to the correction set."
+        }
+      ],
+      "uses": [
+        {
+          "where": "pair-of-heights",
+          "how": "Supplies the residual values containing every rational point."
+        },
+        {
+          "where": "HeightDeterminant",
+          "how": "Determines the correction in every candidate and anchor row."
+        }
+      ],
+      "prototypeBoundary": "The finite-index set definition, five API items and all four tests are native. Actual arithmetic Gamma_v require G2 and NC.4.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Quadratic Chabauty pair",
+      "kind": "definition",
+      "statement": "Fix W=H0(X_Qp,Omega1)*, AJ_b:X(Qp)→W, a finite correction set Upsilon⊆Qp, an endomorphism E:W→W, a constant c in W and a Qp-bilinear form B:W×W→Qp. A quadratic Chabauty pair consists of theta:X(Qp)→Qp and Upsilon with these associated data such that: on every residue disc the joint map (AJ_b,theta) is given by convergent power series and is Zariski dense on every nonempty open subdisc; and for every x in X(Q), theta(x)−B(AJ_b(x),E AJ_b(x)+c) belongs to Upsilon. Native charts cover the local domain by finitely many images of the closed p-adic unit ball after rescaling. Native density is the explicit assertion that a polynomial vanishing on any such open subdisc is the zero polynomial.",
+      "hypotheses": [
+        "The curve application has g>1; the native genus-zero example only tests the interface.",
+        "Charts are analytic on neighborhoods of the compact rescaled domains. The residue-disc power-series theorem supplies density on subdiscs."
+      ],
+      "proofSteps": [
+        "Form joint coordinates indexed by one height coordinate and g Abel–Jacobi coordinates.",
+        "Express analyticity with the native power-series predicate and density by multivariate polynomial evaluation, with no opaque density placeholder.",
+        "Require finite corrections and rational containment in the residual locus. A theta-only density statement is insufficient."
+      ],
+      "prerequisites": [
+        "mathlib:AnalyticOnNhd",
+        "mathlib:Padic",
+        "mathlib:MvPolynomial.eval"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§1.4, conditions(a)–(b), equation(5), pp.890–891",
+          "match": "Defines the joint analytic pair and its finite residual values."
+        }
+      ],
+      "acceptance": [
+        "A constant Abel–Jacobi coordinate violates joint density even when theta is nonconstant.",
+        "Analyticity only on an arbitrary disconnected neighborhood does not justify a zero bound without the subdisc density condition."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "IsQuadraticChabautyPair"
+      },
+      "api": [
+        {
+          "name": "IsQuadraticChabautyPair.rational_mem",
+          "role": "projection",
+          "statement": "A rational point belongs to the local domain and has residual in Upsilon."
+        },
+        {
+          "name": "IsQuadraticChabautyPair.weaken_constants",
+          "role": "relation",
+          "statement": "Replacing Upsilon by a finite superset preserves the pair."
+        },
+        {
+          "name": "IsQuadraticChabautyPair.non_graph",
+          "role": "characterisation",
+          "statement": "On no nonempty open subdisc can theta equal a polynomial in the Abel–Jacobi coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "pair_identity_height",
+          "kind": "computation",
+          "statement": "For g=0, X=Qp, one identity chart on Zp, theta(t)=t, rational test set{0}, Upsilon={0}, and E=c=B=0, the native pair predicate holds. This is not a geometric genus-zero QC theorem."
+        },
+        {
+          "name": "pair_constant_abel_jacobi_rejected",
+          "kind": "non-example",
+          "statement": "With g=1 and AJ=0 constant, theta(t)=t and the same chart, the pair predicate fails since the polynomial AJ-coordinate vanishes."
+        },
+        {
+          "name": "pair_wrong_correction_rejected",
+          "kind": "non-example",
+          "statement": "For the g=0 identity interface, replacing Upsilon={0} by{1} loses the rational test point0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV Lemma1.5",
+          "how": "Supplies the finite height relation expressed by a determinant."
+        },
+        {
+          "where": "NC.6 and ED.6",
+          "how": "Exports rational containment and analytic finiteness separately from rational-point completeness."
+        }
+      ],
+      "planet": {
+        "name": "Quadratic Chabauty pair"
+      },
+      "prototypeBoundary": "Native analytic/density/containment predicate and three unit tests elaborate. rational_mem is native; weaken_constants and non_graph are added as native APIs. Geometric AJ/height instantiation is omitted at G1,G2."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Quadratic Chabauty pair from heights",
+      "kind": "theorem",
+      "statement": "Assume the good-reduction proper-curve hypotheses, a nonzero rational nice correspondence, r=g and an isomorphism J(Q)⊗Qp→W induced by the p-adic logarithm (equivalently the required finite-index closure hypothesis together with r=g). Choose the nonzero idele character and Hodge splitting of the shared height theory. Set theta(x)=h_p(A_Z(b,x)), Upsilon to the negative sum of all away-place image sets, E=E_Z, c=c_Z, and B to the global bilinear height restricted to the Mordell–Weil image and transported to W. These data form a quadratic Chabauty pair. No assertion that the entire global H1_f equals this image is needed.",
+      "hypotheses": [
+        "The two adjacent extension classes lie in the Mordell–Weil image by twist-two-classes, including the rational Chow–Heegner constant.",
+        "The nonzero local character gives the height-coordinate isomorphism.",
+        "The splitting is any allowed shared-height splitting; ordinary reduction or Panchishkin conditions are not added to this selected proper-curve theorem.",
+        "For the selected nice-correspondence source chain, J is absolutely simple. An extension to nonsimple J needs a separately verified correspondence-to-alternating comparison; the general rank/Picard theorem is already nonsimple."
+      ],
+      "proofSteps": [
+        "Use local-height-coordinates and NC.4 subdisc unipotent Albanese density to obtain the required joint density. Import Coleman/NC.2 power-series descriptions for analyticity.",
+        "Restrict the shared global bilinear pairing to the two Mordell–Weil classes and transport it along the actual logarithm isomorphism.",
+        "Apply the global sum of local heights: theta−B=−sum_away h_v, so the corrected Upsilon gives containment. Use finite-bad-height-image for finiteness of Upsilon."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/local-height-coordinates",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-two-classes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4",
+        "ColemanIntegration:L1/coleman-integration-characterisation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§1.4, p.890; Lemma3.7 and proof, pp.907–908",
+          "match": "Builds the pair from heights, with the corrected MW-image and correction-set sign."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "Proposition5.5, pp.20–22",
+          "match": "Supports the restriction to the actual global point classes and the negative away sum."
+        }
+      ],
+      "acceptance": [
+        "Rank g alone does not certify the logarithm isomorphism.",
+        "The local height is used without falsely asserting that it is itself globally bilinear."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "pair_of_heights"
+      },
+      "prototypeBoundary": "Omitted actual geometric height-construction theorem at G1,G2. No fake geometry structure assumes this conclusion.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Finiteness of the residual height locus",
+      "kind": "theorem",
+      "statement": "For a quadratic Chabauty pair, the set {x in X(Qp): theta(x)−B(AJ_b(x),E AJ_b(x)+c) in Upsilon} is finite and contains X(Q). More generally the native finite-chart interface has a finite residual locus on its covered local domain. This is a finite p-adic superset, not a rational-point completeness theorem and not in general the exact depth-two Chabauty–Kim locus.",
+      "hypotheses": [
+        "Use the compact closed chart domains and density on every nonempty open subdisc.",
+        "NC.4 supplies the analytic zero theorem for the imported convergent series, with the relevant compactness/subdisc hypotheses."
+      ],
+      "proofSteps": [
+        "For each alpha in Upsilon the polynomial T−B(W,E W+c)−alpha is nonzero because its T coefficient is1. Joint subdisc density makes its analytic pullback nonzero on every open subdisc.",
+        "Invoke the NC.4 analytic zero theorem on each compact chart, then take finite unions of finite zero sets and their chart images.",
+        "Use rational_mem for containment. Identifying every surviving point as rational requires a separate certified exclusion argument."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4",
+        "mathlib:Set.Finite.image"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§1.4, explanation after equation(5), p.891",
+          "match": "Explains the analytic finite-superset conclusion of a quadratic Chabauty pair."
+        }
+      ],
+      "acceptance": [
+        "A density assertion on one disc cannot be applied to an unchecked disc.",
+        "An analytic function allowed to vanish identically on an open subdisc is rejected."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "pair_finite_locus"
+      },
+      "prototypeBoundary": "The geometric theorem is omitted at G1. A native conditional form importing the missing NC.4 analytic zero theorem is not fabricated.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-determinant",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Corrected height determinant",
+      "kind": "construction",
+      "statement": "Let psi(x) in k^m be the coordinate vector of the height feature AJ_b(x)⊗(E AJ_b(x)+c), in a selected tensor-feature space, and anchors P1,…,Pm with known residuals alpha_i. For a candidate residual alpha form the (m+1)×(m+1) matrix whose first row is (theta(x)−alpha,psi(x)) and ith anchor row is (theta(P_i)−alpha_i,psi(P_i)). HeightDeterminant is its native Matrix.det. Candidate and anchor residuals are subtracted separately. To use its vanishing as a height equation, the anchor feature matrix must have nonzero determinant.",
+      "hypotheses": [
+        "k is a field; the geometric application uses Qp.",
+        "For arithmetic use alpha and all alpha_i belong to the complete signed correction set.",
+        "X may index pairs (correspondence, point): candidate and anchor features may come from different correspondences if their corrected heights are evaluations of the same global functional on the same balanced feature space. This is the cross-class anchor convention used by ED.6 for X_s(13)."
+      ],
+      "proofSteps": [
+        "Index rows and columns by a distinguished height entry and m feature coordinates.",
+        "Construct the matrix from the explicit formula and apply the existing determinant.",
+        "Use row subtraction to prove the equation theorem when the anchor feature matrix is invertible."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma1.5, equation(6) and proof, pp.891–892",
+          "match": "Gives the corrected-height determinant using a basis of the feature space."
+        }
+      ],
+      "acceptance": [
+        "A singular anchor feature matrix can make the determinant vanish identically.",
+        "m counts independent features, not merely available rational points."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "HeightDeterminant"
+      },
+      "api": [
+        {
+          "name": "HeightDeterminant.matrix_first",
+          "role": "simp",
+          "statement": "The top-left matrix entry is theta(x)−alpha."
+        },
+        {
+          "name": "HeightDeterminant.duplicate_row",
+          "role": "simp",
+          "statement": "At an anchor with the same residual correction, the candidate row repeats an anchor row, so the determinant is0."
+        },
+        {
+          "name": "HeightDeterminant.equation",
+          "role": "characterisation",
+          "statement": "If the feature matrix is invertible and anchor corrected heights equal a linear functional L on their features, determinant0 is equivalent to theta(x)−L(psi(x))=alpha."
+        }
+      ],
+      "tests": [
+        {
+          "name": "determinant_empty_features",
+          "kind": "degenerate",
+          "statement": "For m=0, theta(x)=x, candidate x=7 and alpha=2, the determinant is5."
+        },
+        {
+          "name": "determinant_nonzero_corrections",
+          "kind": "computation",
+          "statement": "For m=1, psi(x)=x, theta(x)=x+5, anchor4 with correction−1 and candidate2 with correction2, the matrix is ((5,2),(10,4)), so its determinant is0; dropping the corrections gives10."
+        },
+        {
+          "name": "determinant_basis_cannot_be_omitted",
+          "kind": "non-example",
+          "statement": "For m=1 and the identically zero feature, any candidate has determinant0, including x=7 with theta(x)=x and alpha=0. This is not a finite equation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BDMTV §6.4.1",
+          "how": "Recovers the two height equations from three independent balanced features."
+        },
+        {
+          "where": "ED.6",
+          "how": "Specifies what the anchor and correction certificates must establish before numerical root searches."
+        }
+      ],
+      "planet": {
+        "name": "Quadratic Chabauty determinant"
+      },
+      "prototypeBoundary": "Matrix, determinant, three API signatures and three tests are native. Actual height features and certified basis data use G1--G3."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/determinant-criterion",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Basis-certified determinant criterion",
+      "kind": "theorem",
+      "statement": "Under the pair hypotheses, suppose the selected feature vectors psi(P_i) form a basis of the height-feature space and the anchor residuals alpha_i are correct. Then for each alpha in Upsilon, HeightDeterminant_alpha(x)=0 is equivalent to theta(x)−B(AJ_b(x),E AJ_b(x)+c)=alpha. Its zero set is therefore finite; the union over alpha contains X(Q). Without the feature-basis certificate none of these finiteness or equivalence conclusions follows merely from a determinant.",
+      "hypotheses": [
+        "The bilinear pairing factors through a linear functional on the selected feature space.",
+        "Feature coordinates are expressed in a fixed basis and the anchor feature matrix is invertible."
+      ],
+      "proofSteps": [
+        "Subtract the column combination representing the actual height functional from the height column; anchor height entries become zero.",
+        "Expand by that column: determinant is the candidate residual minus alpha, times the nonzero anchor feature determinant.",
+        "Apply pair-finite-locus for the finite union of residual levels."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-determinant",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Lemma1.5, pp.891–892",
+          "match": "Derives determinant vanishing from the height linear functional and its basis data."
+        }
+      ],
+      "acceptance": [
+        "The zero-feature determinant example fails the required basis hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "determinant_height_equivalence"
+      },
+      "prototypeBoundary": "The native linear-algebra equivalence is HeightDeterminant.equation. Geometric finiteness specialization is omitted with pair_finite_locus at G1."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/balanced-height-features",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Equivariant balanced height features",
+      "kind": "comparison",
+      "statement": "Let K_p=K⊗Qp be a commutative finite etale Qp-algebra acting on W. If the chosen Hodge splitting is K_p-equivariant and the polarized height satisfies B(a u,v)=B(u,a v), the Qp-valued bilinear form factors through a Qp-linear functional on W⊗_{K_p}W. If W is free of rank1 over K_p and dim_Qp K_p=g, this balanced feature space has Qp dimension g, whereas W⊗_{Qp}W has dimension g². The selected rational-point features must still be a Qp-basis. A Qp-valued form is not asserted K_p-linear into Qp without a K_p-module structure on that target.",
+      "hypotheses": [
+        "The balancing action is the adjoint-compatible action for the selected polarization; equality with the same a on each side is verified for the real-multiplication application.",
+        "K_p can be a product of fields. Freeness over K_p, rather than vector-space dimension alone, is required."
+      ],
+      "proofSteps": [
+        "Import tensor-product universal properties and the shared equivariant splitting variation theorem. Balancing kills the defining tensor relations.",
+        "Use a rank-one K_p basis to identify the balanced tensor with K_p, then restrict scalars to Qp.",
+        "Read off dimensions and require the anchor feature determinant to certify the basis used for interpolation."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-prevalue",
+        "mathlib:TensorProduct",
+        "mathlib:TensorProduct.lift",
+        "AbelianSchemesAndArithmeticModuli:A2/rosati-involution"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "§1.7, pp.894–895; Remark3.9, p.908; §6.4.1, p.932",
+          "match": "Uses equivariant heights to reduce the number of features from g² to g."
+        },
+        {
+          "sourceId": "bd2",
+          "locator": "§4.1, Lemma4.3, p.23; §5, Lemma5.2(1), p.24 and Lemma5.3, p.25",
+          "match": "Establishes the equivariant height factorization supporting these balanced relations."
+        }
+      ],
+      "acceptance": [
+        "For K_p=Qp×Qp and W=K_p, the balanced dimension is2 while the ordinary tensor dimension is4.",
+        "For the cubic real-multiplication example dimensions are3 and9; three dependent vectors still do not form a basis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "equivariant_height_balanced_tensor"
+      },
+      "prototypeBoundary": "Generic tensor algebra is imported. The actual equivariant height/action/adjoint realization signature is omitted at G1,G2.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/potential-good-pair",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Pair for potentially good reduction",
+      "kind": "application",
+      "statement": "Under the pair-of-heights hypotheses, if X has potentially good reduction at every finite place, every away-from-p height image is{0}, so the corrected correction set is{0}. Then (theta,{0}) is a quadratic Chabauty pair. Potential good reduction at a single bad place does not dispose of another bad place.",
+      "hypotheses": [
+        "The imported path representation is potentially unramified at every v≠p after a good-reduction extension.",
+        "The same nonzero character and Hodge splitting are used throughout."
+      ],
+      "proofSteps": [
+        "Apply away-height-vanishes at each place to the actual path twist.",
+        "Use AwayHeightConstants.all_zero, and then pair-of-heights with that set."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Corollary3.8 and proof, p.908",
+          "match": "Applies potential good reduction to make every local correction vanish."
+        }
+      ],
+      "acceptance": [
+        "All finite places are accounted for before the singleton-zero set is used."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "potential_good_height_constants"
+      },
+      "prototypeBoundary": "Omitted actual arithmetic height/path signature at G1,G2.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/choices-independence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Independence of height choices",
+      "kind": "theorem",
+      "statement": "Changing the allowed Hodge splitting changes theta and the transported global bilinear pairing by the same bilinear expression D(AJ_b(x),E AJ_b(x)+c), so their residual and its height locus agree. Rescaling the idele character by a nonzero scalar a changes theta,B and every local image set by a; Upsilon becomes a*Upsilon and the residual-membership locus agrees. The zero character is excluded. Arbitrary unrelated characters are not identified by this scaling argument.",
+      "hypotheses": [
+        "Use the shared generic height variation theorem, restricted to the two Mordell–Weil classes.",
+        "Use a single global character with its compatible local components; in the selected Q setting the stated nonzero rescaling is the comparison."
+      ],
+      "proofSteps": [
+        "Apply the generic splitting-change formula to the local height and the global pairing; cancel identical bilinear changes.",
+        "All away-place height values scale with the character. The signed correction set scales likewise.",
+        "Multiplication by a nonzero scalar is injective, giving equivalence of memberships. A zero scalar destroys the obstruction."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants"
+      ],
+      "sources": [
+        {
+          "sourceId": "bdmtv",
+          "locator": "Remark3.12, pp.908–909",
+          "match": "Discusses cancellation under splitting changes and character rescaling."
+        },
+        {
+          "sourceId": "bd1",
+          "locator": "Remark4.9, p.17",
+          "match": "Gives the bilinear splitting-change formula."
+        },
+        {
+          "sourceId": "bd2",
+          "locator": "§3.4, after Lemma3.8, p.19",
+          "match": "Describes the more general preheight variation."
+        }
+      ],
+      "acceptance": [
+        "The change in theta alone is not claimed to vanish.",
+        "For a=0, the example residual7−2 is falsely accepted after scaling; this is excluded."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "choices_independence"
+      },
+      "prototypeBoundary": "Native splitting_residual and character_scale express both identities, with an explicit zero-character counterexample. The geometric specialization is omitted at G2.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "title": "Rational Chow–Heegner constant",
+      "kind": "comparison",
+      "statement": "For a rational divisor correspondence Z intersecting the endpoint fibres and diagonal properly, choose a rational auxiliary point o avoiding the supports. Put D_Z(b,x)=Delta*Z−i_b*Z−i_x*Z+(Z·X_b+Z·X_x−Z·Delta)o, a degree-zero divisor. The relative-cohomology mixed-extension comparison identifies the twist A_Z(b,x) with the generic divisor-height mixed extension for x−b and D_Z(b,x), with the Tate dual convention fixed. Hence c_Z=[I A_Z(b)] is the Kummer class of the associated rational Chow–Heegner divisor class. In the normalized de Rham frame its local logarithm is C*(beta_phi(b,b)−beta_Fil(b)), with C the cup matrix in the stated H1 convention. The first statement, not this numerical formula alone, proves rational Mordell–Weil provenance.",
+      "hypotheses": [
+        "Use proper intersections or a proved moving lemma; handle x=b by the pointed limiting/base-fibre construction rather than the distinct-endpoint relative cohomology formula alone.",
+        "Auxiliary-point and representative changes are controlled by the imported cycle/relative-cohomology functoriality."
+      ],
+      "proofSteps": [
+        "Check degree zero using the intersection-number correction. Import the general relative-cohomology realization of the length-two path module.",
+        "Pull it back by the rational cycle class and compare via cycle support/excision with the divisor-height mixed extension. This is the BD I Theorem6.3 comparison, not a new definition of generic heights.",
+        "Take the lower extension at the basepoint to obtain the rational class, then use strict path comparison and cup duality to obtain the local formula."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-module"
+      ],
+      "sources": [
+        {
+          "sourceId": "bd1",
+          "locator": "§6.3, Theorem6.1, pp.24–25; Definition6.2 and Theorem6.3, pp.26–29",
+          "match": "Supplies the relative-cohomology and divisor comparison identifying the rational class."
+        },
+        {
+          "sourceId": "bdmtv",
+          "locator": "Remark3.11, p.908; Remark5.6 and equation(47), p.925",
+          "match": "Identifies the Chow–Heegner constant and its de Rham logarithm."
+        }
+      ],
+      "acceptance": [
+        "Its degree is0 after the explicit correction.",
+        "The constant c is not forced to0 by pi1(A_Z(b,b))=0."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Chabauty/Quadratic",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC5",
+        "name": "chow_heegner_class"
+      },
+      "prototypeBoundary": "Omitted Picard/divisor/relative-cohomology/mixed-extension signature at G1,G2; the exact Beilinson realization and endpoint specialization are requested/recorded in G1.",
+      "blockedBy": [
+        "AnabelianGeometryAndNonabelianChabauty/G501",
+        "AnabelianGeometryAndNonabelianChabauty/G502"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "MotivesAndAlgebraicCycles:MC.0",
+      "need": "Rational Picard/divisor correspondences on X×X modulo pullbacks; proper intersection/moving and Kunneth H1⊗H1 cycle action; compatibility of swapping, cup contraction and polarized trace. The specific Beilinson/relative-cohomology mixed-extension comparison is not claimed supplied by MC.0: G1 records it.",
+      "needBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class"
+      ]
+    },
+    {
+      "supplier": "HeightsRationalPointsAndObstructions:RP.1",
+      "need": "Finite generation of the actual rational Jacobian Mordell–Weil group and the rational Kummer image, with rank and localization conventions. This is not a certificate of rank for the concrete genus-three Jacobian.",
+      "needBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights"
+      ]
+    },
+    {
+      "supplier": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+      "need": "The depth-two proper-curve Selmer variety with a Mordell–Weil cut, crystalline p-condition and actual bad-place local images; finite image for v≠p from Kim–Tamagawa; nonlinear Albanese density on every open residue subdisc; the compact-chart analytic zero theorem. Also supply good-reduction proper etale paths unramified at v≠p, and potential good reduction implies potentially unramified paths after finite base change. NC.2 crystalline p-comparison alone is not this away-place theorem.",
+      "needBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+      "need": "Use the existing k-defined NS injection, together with A6 finite rank. Supply rational coefficient descent for the Rosati-symmetric-Hom comparison when it is invoked over Q: A2/rational-ns-and-ample-cone states its isomorphism over an algebraically closed field. Do not identify geometric NS or its integral Galois invariants with Q-defined line classes without descent. The generic rank bound needs only the rational NS injection into H2(J), not the Tate-conjecture equality.",
+      "needBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "status": "planned",
+      "remaining": [
+        "G1: native geometric instantiations, schematic central pushout and exact relative-cohomology/divisor comparison including the basepoint endpoint.",
+        "G2: map the precise generic height contract to actual stages/nodes when the shared Part II design supplies them; verify its original height proof and remove the missing native signatures.",
+        "NC.4 request: verify the MW-cut Selmer/dimension, every-subdisc density, compact analytic zero and away-place path/local-image contracts.",
+        "G3: the already-owned ED.6 worked-curve targets require corrected class2 exceptional-disc replay and full arithmetic/precision/root/matching certificates; no numerical execution is claimed by this pass.",
+        "Independent review of all 25 own targets, 14 pinned declarations, 19 preserved paper routes and the ten paraphrased source findings."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/G501",
+      "title": "G1: native geometric realizations and the relative-cohomology bridge",
+      "detail": "The cited NC.2/NC.3, A2/A6, period and integration suppliers are genuine mathematical plans, not native implementations of these geometric signatures at the pins. Missing instances are Pic(X×X) with pullbacks/cycle action, the proper finite path group and cup relation, equivariant schematic central pushout, universal length-two Galois module and faithful quotient action, contracted-product twist, actual graded automorphism quotient on every twisted fibre, strict filtered D_cris pushout comparison, and Abel–Jacobi chart specialization. The specific Beilinson length-two relative-cohomology comparison used in BD I Theorem6.1 pp.24–25 and its divisor specialization in Theorem6.3 pp.26–29, including the x=b endpoint specialization, has no confirmed exact native supplier. MC.0 cycle formalism alone is insufficient. Verify and assign that comparison to the geometric path/cycle owners without rebuilding generic mixed extensions here; retain it as a proof input until then. The helper module quotient and fibre equivalence do not stand for these geometric objects.",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/depth-two-quotient",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-two-classes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/local-height-coordinates",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/G502",
+      "title": "G2: shared generic mixed extensions and p-adic heights have no stage yet",
+      "detail": "The pending SelmerIwasawaCohomology Part II design, alias SelmerComplexesAndPadicHeights, is coordinated by issue3430 and has no stage/node identifier to cite. It must supply actual flagged Galois mixed extensions with grades Qp,V,Qp(1), rigidified isomorphisms and pi1/pi2, their nonabelian classifier, crystalline filtered-phi mixed extensions and strict D_cris compatibility; a continuous global idele-class character chi with nonzero p-component and a chosen Hodge splitting; local height extraction away from p, potential-unramified vanishing, local Frobenius/Hodge preheight coordinates at p, the global bilinear pairing and its sum of local terms; equivariance, splitting variation and common-character scaling. This is the curve specialization in BD I §4 pp.12–17 and BD II §3.2–3.4 pp.15–20; ordinary/Panchishkin assumptions from the separate cycle branch are not inserted. Nekovar’s original height construction was not obtained at the author URL and is not cited as read. The supplier must verify its original proof. It must not import NC.5. These generic objects are not locally duplicated, and no fabricated stage reference or opaque proposition replaces them.",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-two-classes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/twist-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/height-prevalue",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/local-height-coordinates",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/balanced-height-features",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/potential-good-pair",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/choices-independence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class"
+      ],
+      "coordinationIssue": "https://github.com/CBirkbeck/tauceti-explorer/issues/3430"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/G503",
+      "title": "G3: imported worked-curve evidence needs corrected replay",
+      "detail": "The complete X_s(13) computation and its arithmetic/numerical certificates belong to EffectiveDiophantineMethods:ED.6, not a second NC.5 plan. Its existing model, RM/rank, Hecke classes, anchor, first-chart, second-chart, P0-disc and rational-points nodes were read and matched with the primary passages. The published conclusion is the seven-point theorem, not a claim of replay in this run. Require ED.6 to replay the two actual height functions on all20 discs, with correct class-specific Hodge vectors: supplementary U1.m line358 passes betafil1 to the Z2 feature, while the helper subtracts that vector from the lower extension class. Replace it by betafil2 and certify the resulting root lists before using them. Require bounds for every omitted coefficient after t=17s, root uniqueness/Hensel and disjointness or exact matching, the actual global logarithm isomorphism, rational cycle provenance, and the shared-functional anchor basis. Code and data were read, not executed; precision20 and a list agreeing with known points are not these proof certificates. The arithmetic rank assembly must use the exact GZ.8/HE.7 RM contracts and CN.4 enclosures already requested by ED.6; no rank theorem or root-certification algorithm is replanned here.",
+      "importedNodes": [
+        "EffectiveDiophantineMethods:ED.6/qc-certificate-sound",
+        "EffectiveDiophantineMethods:ED.6/xs13-plane-model",
+        "EffectiveDiophantineMethods:ED.6/xs13-endomorphism-algebra",
+        "EffectiveDiophantineMethods:ED.6/xs13-rank-three",
+        "EffectiveDiophantineMethods:ED.6/xs13-tate-classes",
+        "EffectiveDiophantineMethods:ED.6/xs13-equivariant-height-matrices",
+        "EffectiveDiophantineMethods:ED.6/xs13-first-chart-points",
+        "EffectiveDiophantineMethods:ED.6/xs13-second-chart-points",
+        "EffectiveDiophantineMethods:ED.6/xs13-p0-disc",
+        "EffectiveDiophantineMethods:ED.6/xs13-rational-points"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E501",
+      "kind": "error",
+      "locator": "BDMTV2019 Lemma4.7 and proof, pp.913–914; sequel arXiv2101.01862v4 Remark3.17 p.16",
+      "printed": "The stated converse lifts a class satisfying the Frobenius, filtration, cup and alternating constraints to a rational nice correspondence if the two Picard ranks agree.",
+      "correction": "Use only rational nice correspondence implies admissible class. Preserve rational algebraic provenance as input; equality of the stated ranks does not supply the inverse lift.",
+      "reason": "Intersection of a rational lattice with a filtration can differ from the intersection of its Qp-span with that filtration. The authors explicitly correct this argument in the sequel.",
+      "affects": "a stated result",
+      "known": "Corrected in BDMTV2023 Remark3.17; also PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E5.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E502",
+      "kind": "gap",
+      "locator": "BDMTV2019 Lemma3.7 proof p.907; Theorem2.3 sketch p.899",
+      "printed": "The global finite cohomology space is identified with the local logarithm space from rank and finite-index closure alone.",
+      "correction": "Restrict the global pairing and Selmer projection to the actual Mordell–Weil Kummer image, and establish both twist projections lie in that image using Chow–Heegner provenance. Do not identify full global H1_f without the missing Sha input.",
+      "reason": "Rank/logarithm information only gives the MW-image isomorphism. BD I §2.3 and Proposition5.5 use that image, and the two rational divisor classes suffice.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E8.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E503",
+      "kind": "gap",
+      "locator": "BDMTV2019 Corollary6.7 proof p.929; first model p.930",
+      "printed": "The proof cites the local13-adic model theorem as support for potential good reduction at all primes.",
+      "correction": "Combine Theorem6.6 for13 with good reduction of the first Baran model away from13. Its intrinsic good reduction at2 is retained even though the monic model has a bad2-fibre.",
+      "reason": "A local theorem at13 says nothing about2. The first rationally isomorphic model supplies the missing good-away13 argument.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E12.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E504",
+      "kind": "misprint",
+      "locator": "BDMTV2019 equations(18)–(19) and Lemma3.7, pp.907–908; BD I Theorem1.2(ii) p.4 and Proposition5.5 p.21",
+      "printed": "The set in equation(19) is formed from positive sums of the away-place heights, while the pair residual is heightAtP minus the global pairing.",
+      "correction": "Use negative sums: Upsilon={−sum_v h_v}. Every local value and every anchor correction follows the same convention.",
+      "reason": "The source global identity is h=h_p+sum_away h_v; subtracting h from h_p gives the negative away sum. A local value3 therefore contributes−3. The worked example with all heights0 hides the sign.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Read both versions of the residual/local sum in BDMTV2019 and BD I.",
+        "Searched the authors’ split-Cartan publication and correction references for an equation(19) erratum; none found.",
+        "Read sequel Remark3.17 and the existing extraction’s13 findings; this sign correction is not among them."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E505",
+      "kind": "error",
+      "locator": "BDMTV2019 Lemma2.4, p.900",
+      "printed": "For a symmetric correspondence the final equivalence characterizes niceness solely by the zero cup image.",
+      "correction": "Require both a nonzero Kunneth class and zero cup image. Keep the absolutely-simple-J hypothesis of this source lemma.",
+      "reason": "The zero correspondence is symmetric and cup-zero but fails the nontrivial condition in the immediately preceding definition. The repaired criterion explicitly includes nonvanishing.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Read Lemma2.4 and the preceding definition.",
+        "Searched the published lemma and split-Cartan erratum references; no correction found.",
+        "Checked the sequel correction and paper extraction findings; neither lists the missing nonzero qualification."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E506",
+      "kind": "error",
+      "locator": "BD II arXiv1705.00401v2 Lemma4.2 proof, p.22",
+      "printed": "The homogeneous automorphism quotient used for injectivity is asserted to have no Galois fixed points.",
+      "correction": "Its G-fixed locus must consist only of its distinguished neutral coset, on every cocycle twist. Apply the arbitrary-closed-embedding exact sequence from NC.3 and the weight argument to all fibres.",
+      "reason": "The neutral coset of the Galois-stable subgroup is automatically fixed. Faithfulness of the group representation alone cannot prove injectivity on H1. The intended negative-weight argument rules out additional fixed cosets.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Read arXiv1705.00401v2 Lemma4.2 and the published IMRN statement/proof passage available through the publisher.",
+        "Searched the lemma’s fixed-point assertion and correction references; no published repair located."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E507",
+      "kind": "misprint",
+      "locator": "Cartan13 U1.m at commit e0dad89b5771312da3354531fc51e1e335a72ee3, line358; heights.m lines318–334; BDMTV2019 §6.4 p.931",
+      "printed": "The exceptional-disc second-class tensor feature passes the first class’s Hodge vector, although its height row uses the second vector.",
+      "correction": "Pass betafil2 to E1_tensor_E2 for PhiAZ2P0_to_z. ED.6 must replay the corrected determinants and root certificates.",
+      "reason": "The helper subtracts the supplied Hodge vector to form the lower extension. The two source Hodge vectors differ, so using the first vector changes the Z2 feature. Agreement at the basepoint, where the upper class is0, cannot detect the error.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Read U1.m line358 and its class2 block, heights.m E1_tensor_E2, and the two vectors on published p.931.",
+        "Read the latest Cartan13 commit and its U1.m commit history through GitHub on2026-10-11; the latest file still has this argument.",
+        "Checked the numerical data exceptional-disc paragraph and the existing ED.6 omission/review register; no corrected replay is claimed here."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E508",
+      "kind": "misprint",
+      "locator": "BDMTV2019 §4.5 step(i), p.918, compared with equation(30) p.916",
+      "printed": "The residue-cancellation recipe uses the product with derivative on the opposite side from its defining gauge equation.",
+      "correction": "Use Omega transpose times Z times dOmega minus eta, with vanishing residues at the boundary. This is a normalization requirement on ED.6 connection certificates.",
+      "reason": "For alternating Z, exchanging the differentiated factor changes the sign. The gauge equation(30) fixes the orientation.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E509",
+      "kind": "misprint",
+      "locator": "BDMTV2019 §5.3.2 transport display p.923, compared with equation(41) p.921",
+      "printed": "The integral limits in the endpoint transport matrices are reversed relative to the preceding parallel-transport convention.",
+      "correction": "Use left multiplication by I(x0,x) and right multiplication by I(b,b0), consistently in all entries. This is required for ED.6 to supply actual height coordinates.",
+      "reason": "Equation(41) fixes the two ordered endpoint transports; the printed integrals reverse them and conflict with the already correctly oriented iterated entry.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E3.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E510",
+      "kind": "gap",
+      "locator": "BDMTV2019 §4.1 p.909 and Hodge computation §4.5 pp.916–918",
+      "printed": "The stated differential basis conditions give a symplectic second-kind basis without specifying that the first g forms are holomorphic.",
+      "correction": "Require its first g elements to form H0(X,Omega1), as in the actual worked-curve basis. The ED.6 Hodge certificate must use that adapted basis.",
+      "reason": "The Hodge construction distinguishes the first g coordinates; a general symplectic basis need not be adapted to that filtration.",
+      "affects": "the proof",
+      "known": "Already recorded in PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E4.",
+      "searched": [
+        "Read the cited published passage and adjacent argument.",
+        "Checked the 2023 sequel Remark3.17 and the existing paper extraction sourceIssues for a correction; no correction to this item was found there."
+      ],
+      "recordingConvention": "The source claim is paraphrased; no verbatim source passage is stored."
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [
+    {
+      "title": "Preserve existing ownership and dependency direction",
+      "detail": "NS, its symmetric Hom injection and rank are existing A2/A6 targets, resolving RT-AREA-algebraicgeometry/8. The maintainer should retarget BDMTV/9 to those exact nodes. Generic mixed extensions/heights remain the pending shared Part II; no fabricated stage, second owner or NC.5 foundation is added. Existing ED.6 nodes already own the worked model, arithmetic/rank assembly, precision bounds and rational completeness. NC.5 exports generic height contracts to ED.6; its worked illustration does not import ED.6 as a prerequisite and create a cycle. Source E507 requires an ED.6 corrected exceptional-disc replay."
+    }
+  ],
+  "paperRouting": [
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/11",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/12",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-determinant"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/13",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/balanced-height-features"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/22",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-trace-criterion"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-vanishes"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-prevalue"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/33",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-twist"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/35",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-of-heights"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/36",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/potential-good-pair"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/37",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/choices-independence"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/38",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/chow-heegner-class"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/46",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/admissible-tate-class"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/47",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-class-realization"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/48",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/62",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/height-module-comparison"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/20",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/21",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/nice-correspondence"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/23",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/depth-two-quotient"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/34",
+      "target": "AnabelianGeometryAndNonabelianChabauty:NC.5/finite-bad-height-image"
+    },
+    {
+      "itemId": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/9",
+      "target": "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+      "note": "Logical retarget for RT-AREA-algebraicgeometry/8; actual packet routing is maintained by the maintainer. A6 supplies rank. No local NS definition."
+    }
+  ],
+  "sharedHeightItems": {
+    "items": [
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/24",
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/30",
+      "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31"
+    ],
+    "owner": "pending SelmerIwasawaCohomology Part II / SelmerComplexesAndPadicHeights",
+    "gap": "AnabelianGeometryAndNonabelianChabauty/G502"
+  },
+  "consumerDemonstration": {
+    "title": "Worked X_s(13) application through its existing owner",
+    "owner": "EffectiveDiophantineMethods:ED.6",
+    "direction": "NC.5 height targets supply ED.6. No ED.6-to-NC.5 prerequisite is introduced.",
+    "targets": [
+      "EffectiveDiophantineMethods:ED.6/qc-certificate-sound",
+      "EffectiveDiophantineMethods:ED.6/xs13-plane-model",
+      "EffectiveDiophantineMethods:ED.6/xs13-endomorphism-algebra",
+      "EffectiveDiophantineMethods:ED.6/xs13-rank-three",
+      "EffectiveDiophantineMethods:ED.6/xs13-tate-classes",
+      "EffectiveDiophantineMethods:ED.6/xs13-equivariant-height-matrices",
+      "EffectiveDiophantineMethods:ED.6/xs13-first-chart-points",
+      "EffectiveDiophantineMethods:ED.6/xs13-second-chart-points",
+      "EffectiveDiophantineMethods:ED.6/xs13-p0-disc",
+      "EffectiveDiophantineMethods:ED.6/xs13-rational-points"
+    ],
+    "statement": "BDMTV Theorem1.1 p.886 gives exactly seven rational points in the monic quartic model. Existing ED.6 targets assemble that theorem. The selected application uses p=17, g=r=rho_Q=3, two rational nice Hecke classes and K=Q(alpha), alpha³+2alpha²−alpha−1=0. NC.5 exports the MW-restricted pair, all-local-term vanishing, strict mixed-extension height formula, common K-balanced height functional and basis-certified determinant. All20 residue discs must be covered:17 in the first chart,2 at infinity,1 at P0. Full rational completeness is the existing ED.6 qc-certificate-sound conclusion, not the finite-padicsuperset conclusion of pair-finite-locus.",
+    "evidence": [
+      "The two class matrices have the 2×2 minor determinant24 at entries(1,4),(1,5), certifying linear independence. Their rational Hecke-cycle provenance is a separate input.",
+      "The displayed anchor coefficient rows (352,818,294),(162,406,150),(−36,−62,−18) have determinant13440. These are published supporting data; actual p-adic feature and logarithm certificates remain with ED.6.",
+      "The first Baran model has good reduction away from13, including2. Theorem6.6 supplies potential good reduction at13, so all away heights vanish.",
+      "The same global height functional can use Z1 anchors for Z2 candidate rows, only because the balanced feature space and pairing are shared.",
+      "Supplementary U1.m line358 must use betafil2 for the second feature. G3 records the correction and replay obligation."
+    ],
+    "sources": [
+      {
+        "sourceId": "bdmtv",
+        "locator": "Theorem1.1, p.886; §6.1–6.6, pp.926–934",
+        "match": "Provides the imported theorem and its arithmetic, height and all-disc inputs."
+      },
+      {
+        "sourceId": "cartan-data",
+        "locator": "§§1–3, pp.1–5",
+        "match": "Provides twenty residues and three chart-region data tables."
+      },
+      {
+        "sourceId": "cartan-u1",
+        "locator": "Lines305–373",
+        "match": "Pins the exceptional-disc source calculation and the class-specific correction."
+      }
+    ],
+    "implementationStatus": "unchecked"
+  }
+}
