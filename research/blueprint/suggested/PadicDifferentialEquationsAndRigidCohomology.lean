@@ -17,10 +17,10 @@ object>`. Objects of other roadmaps are never invented here: where a statement n
 comment, or it enters as a parameter whose properties are hypotheses.
 
 Organisation. One section per pair of layers:
-* `PartA` (RD.0, RD.1). The Laurent-series rings on annuli belong to
-  PadicHodgeTheory:P7:annulus-foundations and the dagger algebras to AdicSpacesPartII:F1, so the
-  Robba ring appears as a concrete stand-in of coefficient families `ℤ → K` with the Cauchy
-  product. Differential modules, generic radii, Frobenius modules, slopes and the
+* `PartA` (RD.0, RD.1). RD.0 owns the Laurent-series coefficient carrier under the
+  upstream tier rule. AdicSpacesPartII:F1 supplies dagger algebras. The Robba ring is a subtype
+  of coefficient families `ℤ → K` with Cauchy convolution; its Fréchet/LF topologies remain
+  missing. Differential modules, generic radii, Frobenius modules, slopes and the
   Harder-Narasimhan formalism are stated on it.
 * `PartB` (RD.2, RD.3). Unipotent differential modules over a ring with derivation, the
   logarithmic extension R[ℓ] with its Frobenius and monodromy operator, and the solution space.
@@ -119,26 +119,29 @@ open scoped DiscreteConvolution Isocrystal
 
 /-! # RD.0 — Dagger algebras and Robba rings -/
 
-/-! ## Stand-ins for `PadicHodgeTheory:P7:annulus-foundations` -/
+/-! ## RD.0 Laurent coefficient carriers: `RD.0/frobenius-lift-on-robba-ring`
+
+The API below describes the coefficient algebra. It does not construct the radius-chart
+Fréchet topology or the inductive-limit topology. Higher-tier P7 imports this single carrier. -/
 
 variable (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
 
 /-- Coefficient families of Laurent series converging on the open annulus `r < |t| < 1`
-(stand-in for P7's ring of functions on the annulus). -/
+Positive radii are explicit; applications assume `0 < r < 1`. -/
 def annulusCoeffs (r : ℝ) : Submodule K (ℤ → K) where
-  carrier := {a | ∀ ρ ∈ Set.Ioo r 1, Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)}
+  carrier := {a | ∀ ρ ∈ Set.Ioo r 1, 0 < ρ → Tendsto (fun n : ℤ => ‖a n‖ * ρ ^ n) cofinite (𝓝 0)}
   add_mem' := by sorry
   zero_mem' := by sorry
   smul_mem' := by sorry
 
 /-- Coefficient families of germs converging on some annulus `r < |t| < 1`. -/
 def robbaCoeffs : Submodule K (ℤ → K) where
-  carrier := {a | ∃ r < (1 : ℝ), a ∈ annulusCoeffs K r}
+  carrier := {a | ∃ r : ℝ, 0 < r ∧ r < 1 ∧ a ∈ annulusCoeffs K r}
   add_mem' := by sorry
   zero_mem' := by sorry
   smul_mem' := by sorry
 
-/-- The Robba ring `R_K` (stand-in for P7's ring), with the Cauchy product. -/
+/-- The Robba ring `R_K` (RD.0 coefficient carrier), with the Cauchy product. -/
 abbrev RobbaRing := ↥(robbaCoeffs K)
 
 /-- Coefficient families of the Amice ring `E`: bounded, tending to `0` as `n → −∞`. -/
@@ -148,10 +151,11 @@ def amiceCoeffs : Submodule K (ℤ → K) where
   zero_mem' := by sorry
   smul_mem' := by sorry
 
-/-- The Amice ring `E` (stand-in for P7's ring). -/
+/-- The Amice ring `E` (RD.0 coefficient carrier). -/
 abbrev AmiceRing := ↥(amiceCoeffs K)
 
-/-- The `ρ`-Gauss norm `|f|_ρ = sup_n |a_n| ρ^n` of a coefficient family. -/
+/-- The radius expression `sup_n |a_n| ρ^n`. It is a Gauss norm only at positive radii
+where the series converges; no norm interpretation is asserted for unbounded families. -/
 def gaussNorm (ρ : ℝ) (a : ℤ → K) : ℝ := ⨆ n : ℤ, ‖a n‖ * ρ ^ n
 
 namespace RobbaRing
@@ -209,6 +213,18 @@ def integral : Subring (RobbaRing K) where
 
 end RobbaRing
 
+/-- Test `robba_coordinate_inverse` (computation). -/
+example : RobbaRing.T (K := K) * RobbaRing.Tinv = 1 := by sorry
+
+/-- Test `robba_constants_coefficients` (compatibility). -/
+example (c : K) (n : ℤ) :
+    (RobbaRing.C c : ℤ → K) n = if n = 0 then c else 0 := by sorry
+
+/-- Test `robba_negative_tail_nonexample` (non-example). -/
+example :
+    (fun n : ℤ => if n < 0 then (1 : K) else 0) ∉ robbaCoeffs K ∧
+    (fun n : ℤ => if n < 0 then (1 : K) else 0) ∉ amiceCoeffs K := by sorry
+
 /-- `K` is discretely valued: there is a largest absolute value `< 1`. -/
 def IsDiscretelyValued : Prop :=
   ∃ ϖ : K, 0 < ‖ϖ‖ ∧ ‖ϖ‖ < 1 ∧ ∀ x : K, ‖x‖ < 1 → ‖x‖ ≤ ‖ϖ‖
@@ -217,7 +233,9 @@ def IsDiscretelyValued : Prop :=
 
 /-- A Frobenius lift on the Robba ring: `σ_K`-semilinear on constants, `σ(t) ∈ R^int`,
 `σ(t) − t^q ∈ π·R^int`. Weak continuity on `R^int` is part of the intended definition but is
-not expressible without P7's topology; it is left out rather than replaced by a `Prop` field. -/
+not expressible without the missing integral weak topology. This is only its algebraic data
+record: coefficient-residue Frobenius and continuity are also absent. Analytic properties
+requiring these conditions are not asserted from the record. -/
 structure RobbaRing.FrobeniusLift (q : ℕ) (π : K) where
   σK : K →+* K
   toRingHom : RobbaRing K →+* RobbaRing K
@@ -229,74 +247,37 @@ structure RobbaRing.FrobeniusLift (q : ℕ) (π : K) where
 namespace RobbaRing.FrobeniusLift
 variable {K} {q : ℕ} {π : K}
 
-/-- The lift with prescribed image `u` of the coordinate. -/
-def ofImage (σK : K →+* K) (u : RobbaRing K) (hu : u ∈ RobbaRing.integral (K := K))
-    (hq : ∃ h ∈ RobbaRing.integral (K := K), u - RobbaRing.T ^ q = RobbaRing.C π * h) :
-    RobbaRing.FrobeniusLift K q π := sorry
+-- RobbaRing.FrobeniusLift.ofImage: not stated; needs coefficient-residue Frobenius,
+-- isometry of σK, q = p^a with a > 0, a genuine uniformiser and weakly continuous substitution.
+-- RobbaRing.FrobeniusLift.ofImage_T: not stated; needs the full ofImage construction.
+-- RobbaRing.FrobeniusLift.ext: not stated; needs weak continuity and the full Frobenius object.
+-- RobbaRing.FrobeniusLift.toBounded: not stated; needs the full continuous lift.
+-- RobbaRing.FrobeniusLift.toAmice: not stated; needs the Amice algebra and weak topology.
 
-theorem ofImage_T (σK : K →+* K) (u : RobbaRing K) (hu) (hq) :
-    (ofImage (q := q) (π := π) σK u hu hq).toRingHom RobbaRing.T = u := sorry
-
-/-- Extensionality: a lift is determined by `σ_K` and the image of `t`
-(uses weak continuity, see the structure docstring). -/
-theorem ext (σ₁ σ₂ : RobbaRing.FrobeniusLift K q π) (hK : σ₁.σK = σ₂.σK)
-    (hT : σ₁.toRingHom RobbaRing.T = σ₂.toRingHom RobbaRing.T) : σ₁ = σ₂ := sorry
-
-/-- The lift preserves `R^bd`. -/
-theorem toBounded (σ : RobbaRing.FrobeniusLift K q π) :
-    ∀ f ∈ RobbaRing.bounded (K := K), σ.toRingHom f ∈ RobbaRing.bounded (K := K) := sorry
-
--- RobbaRing.FrobeniusLift.toAmice: not stated; needs the ring structure on P7's Amice ring `E`
--- (the coefficient submodule `amiceCoeffs` is defined above) and the weak topology.
-
-/-- The lift as an endomorphism of the Robba ring. -/
+/-- The Robba endomorphism component of the algebraic data record. -/
 abbrev toRobba (σ : RobbaRing.FrobeniusLift K q π) : RobbaRing K →+* RobbaRing K := σ.toRingHom
 
-/-- Near the boundary, `|σ f|_{ρ^{1/q}} = |f|_ρ`. -/
-theorem gaussNorm_apply (σ : RobbaRing.FrobeniusLift K q π) :
-    ∃ r < (1 : ℝ), ∀ ρ ∈ Set.Ioo r 1, ∀ f : RobbaRing K, (f : ℤ → K) ∈ annulusCoeffs K r →
-      gaussNorm K (ρ ^ (1 / (q : ℝ))) (σ.toRingHom f : ℤ → K) = gaussNorm K ρ (f : ℤ → K) :=
-  sorry
-
-/-- The standard lift `t ↦ t^q`. -/
-def standard (σK : K →+* K) : RobbaRing.FrobeniusLift K q π := sorry
-
-theorem standard_T (σK : K →+* K) :
-    (standard (q := q) (π := π) σK).toRingHom RobbaRing.T = RobbaRing.T ^ q := sorry
-
-/-- Modulo `π`, the lift is the `q`-power map on `R^int / π = k((t))`. -/
-theorem reduction (σ : RobbaRing.FrobeniusLift K q π) :
-    ∀ f ∈ RobbaRing.integral (K := K), ∃ h ∈ RobbaRing.integral (K := K),
-      σ.toRingHom f - f ^ q = RobbaRing.C π * h := sorry
+-- RobbaRing.FrobeniusLift.gaussNorm_apply: not stated; needs the full lift with isometric
+-- coefficient Frobenius, positive radii, and analytic substitution on a sufficiently small annulus.
+-- RobbaRing.FrobeniusLift.standard: not stated; needs the full continuous substitution construction.
+-- RobbaRing.FrobeniusLift.standard_T: not stated; needs the standard construction.
+-- RobbaRing.FrobeniusLift.reduction: not stated; needs coefficient Frobenius modulo π.
 
 end RobbaRing.FrobeniusLift
 
-/-- Test `frobeniusLift_standard_apply` (computation). -/
-example (q : ℕ) (π : K) (σK : K →+* K) :
-    (RobbaRing.FrobeniusLift.standard (q := q) (π := π) σK).toRingHom RobbaRing.Tinv =
-      RobbaRing.Tinv ^ q := by sorry
+-- frobeniusLift_standard_apply: not stated; needs the full standard lift.
+-- frobeniusLift_cyclotomic_log: not stated; needs the RD.0 logarithm series and continuous
+-- substitution t ↦ (1 + t)^p − 1 over ℚ_p.
 
--- frobeniusLift_cyclotomic_log: not stated; needs `log (1 + t) ∈ R` (a P7 series) and the
--- lift `t ↦ (1 + t)^p − 1` over `K = ℚ_p`.
-
-/-- Test `frobeniusLift_reduction` (compatibility). -/
+/-- Test `frobeniusLift_reduction` (compatibility): only the coordinate congruence in the
+algebraic data record. Reduction on all integral series needs the full continuous object. -/
 example (q : ℕ) (π : K) (σ : RobbaRing.FrobeniusLift K q π) :
     ∃ h ∈ RobbaRing.integral (K := K),
       σ.toRingHom RobbaRing.T - RobbaRing.T ^ q = RobbaRing.C π * h :=
   σ.image_sub_pow
 
-/-- Test `frobeniusLift_not_on_fixed_annulus` (non-example): the standard lift does not map
-the functions on a fixed annulus `r < |t| < 1` into themselves. -/
-example (q : ℕ) (hq : 2 ≤ q) (π : K) (σK : K →+* K) (r : ℝ) (hr0 : 0 < r) (hr1 : r < 1) :
-    ∃ f : RobbaRing K, (f : ℤ → K) ∈ annulusCoeffs K r ∧
-      ((RobbaRing.FrobeniusLift.standard (q := q) (π := π) σK).toRingHom f : ℤ → K) ∉
-        annulusCoeffs K r := by sorry
-
-/-- Test `frobeniusLift_ext_image` (characterisation). -/
-example (q : ℕ) (π : K) (σ₁ σ₂ : RobbaRing.FrobeniusLift K q π) (hK : σ₁.σK = σ₂.σK)
-    (hT : σ₁.toRingHom RobbaRing.T = σ₂.toRingHom RobbaRing.T) (f : RobbaRing K) :
-    σ₁.toRingHom f = σ₂.toRingHom f := by
-  rw [RobbaRing.FrobeniusLift.ext σ₁ σ₂ hK hT]
+-- frobeniusLift_not_on_fixed_annulus: not stated; needs the full standard lift on radius charts.
+-- frobeniusLift_ext_image: not stated; needs weak continuity in the full object.
 
 /-! ## RD.0/witt-partial-valuations (unramified case `O = W(k₀)`, `π = p`) -/
 
@@ -423,7 +404,7 @@ theorem RobbaRing.faithfullyFlat_over_bounded (hK : IsDiscretelyValued K) :
 -- RD.0/vector-bundles-on-half-open-intervals-free, RD.0/semiunit-presentation,
 -- RD.0/analytic-ring-membership-and-intersections, RD.0/units-of-analytic-ring,
 -- RD.0/finite-separable-extensions-of-analytic-rings: not stated; need the annulus rings
--- `Γ_I` (for the Robba ring: P7's rings of functions on closed annuli with their Gauss norms).
+-- `Γ_I` (for the Robba ring: RD.0's rings of functions on closed annuli with their Gauss norms).
 
 /-! ## RD.0/extended-robba-ring and RD.0/frobenius-equivariant-embedding -/
 -- ExtendedRobba.ring: not stated; needs AnalyticRing.analyticRing for ℓ = completed algebraic
@@ -470,7 +451,7 @@ theorem gaussNorm_derivative_le (r : ℝ) (f : RobbaRing K) (hf : (f : ℤ → K
 theorem derivative_restrict (r r' : ℝ) (h : r ≤ r') (f : RobbaRing K)
     (hf : (f : ℤ → K) ∈ annulusCoeffs K r) : (derivative K f : ℤ → K) ∈ annulusCoeffs K r := sorry
 
--- RobbaRing.continuous_derivative: not stated; needs P7's Fréchet and LF topologies.
+-- RobbaRing.continuous_derivative: not stated; needs RD.0's Fréchet and LF topologies.
 -- RobbaRing.kaehler_free: not stated; needs continuous differentials (the algebraic Kähler
 --   differentials of `R` over `K` are not free of rank one).
 
@@ -505,7 +486,7 @@ example (p : ℕ) [Fact p.Prime] (hp : ‖(p : K)‖ = (p : ℝ)⁻¹) (ρ : ℝ
 
 /-! ## RD.0/change-of-frobenius-lift-taylor-formula and RD.0/completion-versus-overconvergence -/
 -- RD.0/change-of-frobenius-lift-taylor-formula: not stated; needs convergent series in `R`
---   (P7's Fréchet topology).
+--   (RD.0's Fréchet topology).
 
 /-- RD.0/completion-versus-overconvergence (c): `Σ_{n ≥ 0} p^n t^{-p^n}` lies in `E` but not
 in `R`. -/
@@ -575,7 +556,7 @@ def baseChange (B : Type*) [CommRing B] [Algebra A B] (δB : Derivation ℤ B B)
     (E : DifferentialModule A δ M) : DifferentialModule B δB (TensorProduct A B M) := sorry
 
 -- DifferentialModule.boundaryEquivalence: not stated; needs ∇-modules on the annuli
--- `A[r, 1)` as coherent sheaves (P7's annulus rings) and the direct limit over `r → 1`.
+-- `A[r, 1)` as coherent sheaves (RD.0's annulus rings) and the direct limit over `r → 1`.
 
 end DifferentialModule
 
@@ -909,7 +890,7 @@ example : DifferentialModule.swanConductor {1} ≠ DifferentialModule.swanConduc
 -- RD.1/generic-radius-basic-properties, RD.1/dwork-transfer-generic-disc,
 -- RD.1/frobenius-antecedent, RD.1/radius-function-piecewise-linear, RD.1/break-decomposition,
 -- RD.1/swan-conductor-integrality: not stated; they need `F_ρ` (the completion of `K(t)` for the
--- `ρ`-Gauss norm), the ring structure on `TwistedPolynomial`, and ∇-modules over P7's annulus
+-- `ρ`-Gauss norm), the ring structure on `TwistedPolynomial`, and ∇-modules over RD.0's annulus
 -- rings.
 
 /-! ## RD.1/frobenius-module -/
@@ -1279,7 +1260,7 @@ RD.1/splitting-of-exact-sequences-by-polygons, RD.1/frobenius-stable-lattices,
 RD.1/generic-slope-decomposition-and-descent, RD.1/generic-newton-polygon-from-cyclic-vector,
 RD.1/change-of-frobenius-for-frobenius-structures, RD.1/frobenius-structure-forces-solvability,
 RD.1/dwork-exponential-module (algebraic parts above), RD.1/slope-and-irregularity-are-independent:
-not stated; they need `R^alg`, `F_ρ` and the σ-module category over P7's rings. -/
+not stated; they need `R^alg`, `F_ρ` and the σ-module category over RD.0's rings. -/
 
 section FrobeniusTests
 variable {A : Type*} [CommRing A] [Nontrivial A] (σ : A →+* A)
@@ -1616,7 +1597,7 @@ example (m : ℕ) (f : R) :
 example [IsDomain R] [CharZero R] (f : RobbaLog R) (hf : f.natDegree = 0) : monodromy f = 0 := by
   sorry
 
--- RobbaLog.berger_compat: not stated; needs Berger's B†_rig,Q_p (PadicHodgeTheory:P7:annulus-foundations).
+-- RobbaLog.berger_compat: not stated; needs Berger's B†_rig,Q_p (RD.2 downward-moved ring comparison, an explicit gap).
 -- RobbaLog.log_not_in_robba: not stated; needs the Robba ring (the residue of du/u is 1;
 --   RD.2/robba-ring-antiderivative).
 
@@ -1706,7 +1687,7 @@ end SolutionSpace
 -- local-monodromy-finite-etale-form: not stated; needs RobbaExtension.robba.
 -- logarithmic-form-of-local-monodromy: not stated; needs R^L_log over the Robba ring.
 -- monodromy-representation-equivalence: not stated; needs SolutionSpace.frobenius and galoisAction.
--- berger-form-of-local-monodromy: not stated; needs Berger's rings (PadicHodgeTheory:P7:annulus-foundations).
+-- berger-form-of-local-monodromy: not stated; needs Berger's rings (RD.2 downward-moved ring comparison, an explicit gap).
 
 /-! ## RD.3 — overconvergent isocrystals and frames
 
@@ -1777,7 +1758,7 @@ none of the RD.3 objects can be declared honestly here. -/
 -- OverconvergentIsocrystal.unit_proper: not stated; needs OverconvergentIsocrystal.
 -- OverconvergentIsocrystal.restriction_iso: not stated; needs OverconvergentIsocrystal.
 -- OverconvergentIsocrystal.convergent_not_overconvergent: not stated; needs convergent
---   isocrystals (CrystallineCohomology:CR.3).
+--   isocrystals (the RD.3 convergent category using early CR.3 crystalline/Frobenius data).
 -- OverconvergentIsocrystal.pullbackFunctor: not stated; needs Frame.Hom.
 -- OverconvergentIsocrystal.pullback_id: not stated; needs pullbackFunctor.
 -- OverconvergentIsocrystal.pullback_comp: not stated; needs pullbackFunctor.
@@ -1788,12 +1769,12 @@ none of the RD.3 objects can be declared honestly here. -/
 -- OverconvergentIsocrystal.pullback_comp_test: not stated; needs pullbackFunctor.
 -- OverconvergentIsocrystal.pullback_not_equiv_nonsmooth: not stated; needs pullbackFunctor.
 -- IsocDagger: not stated; needs OverconvergentIsocrystal and Nagata compactifications
---   (SchemeAndStackFoundations:SF.0).
+--   (AdicCoefficientsAndComparisons:L2/nagata-factorisation-as-used-in-27-4).
 -- IsocDagger.ofFrame: not stated; needs IsocDagger.
 -- IsocDagger.pullback: not stated; needs IsocDagger.
 -- IsocDagger.isStack: not stated; needs IsocDagger.
 -- IsocDagger.monoidal: not stated; needs IsocDagger.
--- IsocDagger.proper_eq_convergent: not stated; needs convergent isocrystals (CrystallineCohomology:CR.3).
+-- IsocDagger.proper_eq_convergent: not stated; needs convergent isocrystals (the RD.3 convergent category using early CR.3 crystalline/Frobenius data).
 -- IsocDagger.affineLine: not stated; needs IsocDagger.
 -- IsocDagger.point: not stated; needs IsocDagger.
 -- IsocDagger.proper_convergent: not stated; needs IsocDagger.
@@ -1814,7 +1795,7 @@ none of the RD.3 objects can be declared honestly here. -/
 --   and WittVector.isocrystal_classification).
 -- FIsocDagger.twist: not stated; needs FIsocDagger.
 -- FIsocDagger.no_frobenius_example: not stated; needs FIsocDagger.
--- FIsocDagger.restrictConvergent: not stated; needs convergent F-isocrystals (CrystallineCohomology:CR.3).
+-- FIsocDagger.restrictConvergent: not stated; needs convergent F-isocrystals (the RD.3 convergent category using early CR.3 crystalline/Frobenius data).
 -- FIsocDagger.restrictConvergent_tensor: not stated; needs restrictConvergent.
 -- FIsocDagger.restrictConvergent_pullback: not stated; needs restrictConvergent.
 -- FIsocDagger.restrictConvergent_faithful: not stated; needs restrictConvergent.
@@ -1859,7 +1840,9 @@ theorem rigidQuillenSuslin (K : Type u) [NontriviallyNormedField K] [CompleteSpa
     Module.Free (overconvergentPowerSeries K n) M := by
   sorry
 
--- RD.3 named theorems (all need Frame, IsocDagger or FIsocDagger):
+-- Frame/coefficient named theorems (all need Frame, IsocDagger or FIsocDagger).
+-- The packet assigns mixed full faithfulness, boundary acceptance and the finite-étale affine
+-- cover to RD.5; their RD.3-prefixed integrated IDs are preserved for link stability:
 -- weak-fibration-theorem, strong-fibration-theorem, independence-of-frame,
 -- independence-of-compactification, affine-smooth-description-of-overconvergent-f-isocrystals,
 -- splitting-of-slope-separated-extensions, de-jong-tensor-injectivity, de-jong-rank-one-image,
@@ -3257,7 +3240,7 @@ example (w : ℝ) : IsPurelyDetWeight [(1, w)] w := by
 
 -- monodromyGroup, fibreFunctor, tannakaEquiv, monodromyGroup_irreducible,
 --   monodromyGroup_trivial_on_constant, weilGroup, frobenius_normalises: not stated; need the
---   Tannakian formalism of MotivesAndAlgebraicCycles:MC.6 and modules with connection over
+--   general neutral Tannakian reconstruction (a recorded RD.6 gap) and modules with connection over
 --   dagger algebras (RD.3).
 -- Tests `monodromyGroup_constant`, `monodromyGroup_dwork`, `monodromyGroup_twist_invariant`,
 --   `monodromyGroup_rankOne`: not stated; need the same.

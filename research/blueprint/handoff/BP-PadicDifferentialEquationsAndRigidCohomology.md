@@ -1,297 +1,212 @@
 # BP-PadicDifferentialEquationsAndRigidCohomology — handoff
 
-Blueprint for **P-adic differential equations, rigid cohomology and p-adic weights**
-(`PadicDifferentialEquationsAndRigidCohomology`), stages RD.0–RD.7.
+Job #964, agent Codex, session `codex-FXlUXu`, 11 October 2026. The bot confirmed
+[the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/964#issuecomment-6108050201).
+The work starts from atlas commit `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`.
 
-The input was the reviewed decomposition `data/decompositions/PadicDifferentialEquationsAndRigidCohomology.json`:
-two RD.2 nodes (Kedlaya's local monodromy theorem and the slope filtration), two links and four gaps.
-Both node ids are kept, refined to declaration granularity, with their verified locators. The reviewed
-library audit AUDIT-37 (accepted) finds every RD layer "not built". None of the supplier roadmaps has a
-packet yet, so every cross-roadmap input is a `requests` entry.
+## Submission status and deliverables
 
-- Packet: `research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json` — **304 nodes**:
-  | layer | nodes |
-  | --- | --- |
-  | RD.0 | 26 |
-  | RD.1 | 42 |
-  | RD.2 | 30 |
-  | RD.3 | 30 |
-  | RD.4 | 33 |
-  | RD.5 | 65 |
-  | RD.6 | 67 |
-  | RD.7 | 11 |
+This is a **complete blueprint pass at the binding node budget**, ready for independent review.
+It is not a checkpoint or a closed roadmap. The input already contained 304 nodes, exceeding
+this issue's 300-node budget; the issue expressly requires adding no nodes, reconciling the
+coverage, gaps, document and suggested file, and setting the packet to complete. All 304
+inherited IDs are retained. Every node's implementation status is still unchecked.
 
-  By kind: 50 definitions, 30 constructions, 111 lemmas, 97 theorems, 4 comparisons and 12 applications.
-- Document: `research/blueprint/readmes/PadicDifferentialEquationsAndRigidCohomology.md`
-- Suggested Lean: `research/blueprint/suggested/PadicDifferentialEquationsAndRigidCohomology.lean`
-  (3496 lines, namespace `TauCeti.RigidCohomology`)
+- [Packet](../packets/PadicDifferentialEquationsAndRigidCohomology.json): status complete;
+  50 definitions, 30 constructions, 111 lemmas, 97 theorems, 4 comparisons, 12 applications.
+- [Reader](../readmes/PadicDifferentialEquationsAndRigidCohomology.md): the same definitions,
+  hypotheses, APIs, tests, proof outlines, prerequisites and source locators in prose.
+  Source passages and excerpt blocks were removed; assertions are paraphrased.
+- [Suggested Lean](../suggested/PadicDifferentialEquationsAndRigidCohomology.lean): 3,478 lines,
+  namespace `TauCeti.RigidCohomology`, Mathlib imports only. Its partial models and unstated
+  interfaces are explicitly identified; elaboration is not mathematical implementation.
 
-Other counts:
-- 545 API items and 345 unit tests;
-- 45 planets (6 in each of RD.0–RD.6, 3 in RD.7);
-- 79 baseline declarations;
-- 28 gaps, 28 requests and 23 restructuring proposals;
-- 67 source issues and 26 sources.
+There are **554 API items, 348 unit tests, 44 planets, 79 baseline declarations, 46 gaps,
+9 supplier requests, 24 restructuring proposals, 71 source issues and 34 sources**.
 
-## Checks run
+| Stage | Nodes | Planets | Coverage |
+| --- | ---: | ---: | --- |
+| RD.0 | 26 | 6 | partial |
+| RD.1 | 42 | 6 | partial |
+| RD.2 | 30 | 6 | partial |
+| RD.3 | 22 | 5 | partial |
+| RD.4 | 33 | 6 | partial |
+| RD.5 | 73 | 6 | partial |
+| RD.6 | 67 | 6 | partial |
+| RD.7 | 11 | 3 | partial |
 
-- `scripts/check_blueprint.py --index <baseline declarations index>`: **0 errors, 0 warnings**.
-- `scripts/check_errata.py` on the source issues and versions: ok.
-- `research/blueprint/intake.py check-files` on the three deliverables: 0 problems.
-- Own checks:
-  - no dangling prerequisite;
-  - no prerequisite on a later layer;
-  - no dependency cycle;
-  - nodes in dependency order;
-  - excerpts at most 300 characters;
-  - every test has a kind;
-  - planets only on definitions, constructions and theorems.
-- **Lean: compiled.** `lean` v4.34.0-rc2 against Mathlib 082e2d3, Mathlib imports only. Exit code 0; the
-  only messages are 293 `declaration uses 'sorry'` warnings. No Mathlib or Tau Ceti build was run.
-- Every definition, API item and unit test of the packet occurs in the Lean file under its packet name:
-  as a declaration, an `example` with docstring "Test `name`", or a `-- name: not stated; needs …` comment.
-  The nodes without a declaration of their own are listed at the end of the file.
+## Mathematical and ownership reconciliation
 
-## What the consumers get
+WORKERS' current upstream order puts RD in tier 12 before PadicHodgeTheory in tier 13.
+The Laurent coefficient carrier, bounded/integral/Amice carriers, radius norms and their
+remaining topology therefore belong to RD.0. The existing
+`RD.0/frobenius-lift-on-robba-ring` target now includes that interface; no duplicate carrier
+node was added. Higher-tier P7 must import it. This supersedes the older P7 assignment in
+RT-AREA-padic-2/31 and RS-26. The Robba–Cohen/Witt comparison remains a separate target.
+The broader ring-identification input for Berger's application is an explicit downward-moved
+RD.2 gap. Upward P7/PG dependencies and stray VB, Motives, Weil-conjecture and finite-field
+character suppliers were removed from active prerequisite lists.
 
-- **ColemanIntegration L1.** Its four requests are served by nodes whose statements are exactly the
-  request:
+The following stable RD.3-prefixed IDs now have RD.5 as their actual parent and realised stage:
 
-  | layer | node |
-  | --- | --- |
-  | RD.0 | `RD.0/frobenius-lift-on-dagger-algebra` |
-  | RD.0 | `RD.0/frobenius-lifts-induce-homotopic-maps` |
-  | RD.4 | `RD.4/mw-comparison-for-affine-curves` |
-  | RD.5 | `RD.5/finiteness-for-affine-curves-constant-coefficients` |
-  | RD.6 | `RD.6/weights-of-h1-of-affine-curve`, through the Gysin sequence and purity, so RD.6 does not depend on RD.7 |
+- `RD.3/splitting-of-slope-separated-extensions`
+- `RD.3/de-jong-tensor-injectivity`
+- `RD.3/de-jong-rank-one-image`
+- `RD.3/local-full-faithfulness`
+- `RD.3/full-faithfulness-overconvergent-to-convergent`
+- `RD.3/full-faithfulness-requires-frobenius`
+- `RD.3/punctured-curve-boundary-acceptance`
+- `RD.3/etale-cover-of-affine-space`
 
-  The dimension formula 2g + d − 1 is its own node, with one gap.
-- **PadicHodgeTheory R06.3.** `RD.2/logarithmic-form-of-local-monodromy` and the comparison node
-  `RD.2/berger-form-of-local-monodromy`. This settles the decomposition's third gap up to the
-  identifications that P7 and PG.0 own, which are requested.
-- **WeilConjectures WC.6.** `RD.7/weil-factor-export`: equality in Q[T], and integrality of each factor
-  separately from the alternating product.
+The seven mixed coefficient/local targets use both RD.1–2 and RD.3; RD.5 is their first common
+downstream stage. The eighth target supplies the finite-étale affine-cover input to RD.5 and
+RD.6. No node depends on a later stage of this roadmap. External atlas links and owner records
+need maintainer reconciliation; this submission does not edit them.
 
-## Main findings (source issues)
+Supplier imports now use exact available F1/R2/R3, CR.2, DWP.0/2/4/7, L2 and arithmetic Swan
+node statements rather than treating broad stage labels as proofs. The Nagata and smooth
+projective purity requests were answered and removed. The purely schematic alteration input
+is requested from the proposed `L5:alterations` owner: that substage is absent from the live
+packet, and the existing L5 étale descent node does not supply rigid descent. The former SF.4
+node is identified as statement evidence, not silently reinstated as the settled owner.
 
-The 67 issues are numbered `E1`–`E67`. The ones that matter most:
+The corrected tube convention distinguishes classical inverse-image tubes from the interior
+of the inverse image under continuous adic specialization. The j† acyclicity statement
+requires quasi-Stein intersections over every target affinoid. The affine coefficient
+comparison requires a compatible affine lifting and cofinal affinoid neighbourhoods. Dwork
+Taylor convergence is on the diagonal tube, not a disc of differences larger than one.
+Pointwise weights explicitly require a complex embedding; arbitrary complete coefficient
+fields are not asserted to admit one.
 
-- **Kedlaya, Weil II, §4.3 (E13).** The Dwork isocrystal's Frobenius has the wrong sign: exp(πx − πx^q)
-  is not horizontal for ∇e = πe dx. The correct Frobenius is exp(πx^q − πx), which PARI confirms to
-  order 298.
-- **Kedlaya, Weil II, other items.**
-  - The functional equation §6.6(b) lacks q^{−n} and is false for P¹ as printed (E63).
-  - The explicit formula for the Fourier automorphism ρ is misprinted (E58).
-  - Two proof steps are only asserted (E61, E64).
-- **Kedlaya, Finiteness.**
-  - The v5 → v6 corrections (§§7.5, 8.3–8.5, 9.3), identified by diffing the two versions.
-  - The author's errata-page items.
-  - New items:
-    - Proposition 9.1.2 needs pure dimension (E41);
-    - the dimension remark after Proposition 6.2.10 needs geometric irreducibility (E40);
-    - Remark 4.3.5 prints the forget-supports map as an isomorphism (E30).
-- **Van der Put, (7.4).** The claim that the Frobenius eigenvalues lie in W(F_q) fails for supersingular
-  curves: T² + 7 for y² = x³ − x over F_7 is irreducible over Q_7 (E54).
-- **Kedlaya, Full faithfulness.** p appears where q is meant, and there are k/K slips. The Davis–Schneider
-  erratum is recorded as known (E20).
-- **Kedlaya, point counting.** Lemma 3 is known to be wrong; the correction is taken from Harvey's public
-  paper. There are also new misprints in the reduction to a_1…a_g.
-- **Berthelot, Mém. SMF 23, p. 19.** "propre sur K" should read "propre sur k" (E22). Three parts found this
-  independently; it is recorded once.
+Fargues–Fontaine Proposition 11.2.24, p. 378, is not a fully faithful equivalence on all
+Frobenius modules, and Lemme 11.2.25, p. 379, requires bijective integral Frobenius. E218/E219
+record the independently confirmed findings with their corrected scope. E68/E69 record the
+Xu–Zhu author-preprint Dwork sign and p-versus-q errors, by differentiating the displayed
+multipliers; they await independent review and version-of-record collation. The first 67
+source issues and their numerical evidence remain historical inherited records, not fresh
+verification claims.
 
-## How the packet was produced
+## Libraries and upstream checked
 
-Four authoring passes ran in parallel:
-- **A:** RD.0–1;
-- **B:** RD.2–3;
-- **C:** RD.4–5;
-- **D:** RD.6–7.
+The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The 79 inherited declaration statements were
+read before reuse. AUDIT-37 is accepted and identifies the roadmap's analytic/cohomological
+targets as not built; elementary library fragments do not implement those targets.
 
-They shared a fixed list of interface ids for the objects each consumes from another. I merged the four
-parts and made these changes at the merge.
+Current upstream main was checked at `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`, and current
+Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. AdicSpaces and OperatorTheory reader
+roadmaps were read in full; targeted statements were checked in the nine newer roadmaps and
+current library. AlgebraicVectorBundles' finite locally free sheaves and DifferentialGeometry's
+real-manifold de Rham theory do not provide the rigid coefficient categories. OperatorTheory's
+real/complex Hilbert-space ideals do not prove the nonarchimedean nuclear LF trace theorem.
+ReductiveGroups' comodule reconstruction is a partial input, not general neutral Tannaka duality.
 
-**Overlapping nodes merged.** Six overlapping nodes, each written by two parts, became three:
-- **Finite étale pushforward.** B's RD.3 node and C's RD.4 node became `RD.3/finite-etale-pushforward-of-isocrystals`.
-  Its API is the union in B's namespace, with the Lean comments renamed to match.
-- **The Monsky–Washnitzer realisation.** B's RD.3 comparison and C's RD.4 theorem became
-  `RD.3/affine-smooth-description-of-overconvergent-f-isocrystals`, with C's more precise statement. C's
-  definition of (σ,∇)-modules over dagger algebras moved with it to RD.3, so that no RD.3 node depends on
-  RD.4.
-- **Étale covers of affine space.** B's RD.3 lemma and C's RD.5 theorem became
-  `RD.3/etale-cover-of-affine-space`. C had read Kedlaya's arXiv:math/0303382, which closed B's gap.
+An additional upstream dependency was checked directly:
+[CohomologicalPointCounting PR 196](https://github.com/TauCetiProject/TauCetiRoadmap/pull/196),
+head `4bd72379658126cbe9be935656396f0c9dac4de0`, is **open** on 11 October 2026.
+TraceFormula Layers 12–13 give the matching all-power constant-sheaf étale trace formula and
+arithmetic/cohomological zeta identity. They are absent from the checked main and library.
+SF.2's upstreamIntegration entry names this pending PR; it does not prove it is installed.
+The packet records a precise gap and request through the registered SF.2 supplier stage.
+When upstream adopts it, read its final signatures and replace that request with exact imports.
+No duplicate trace/zeta roadmap is proposed here.
 
-**Duplicate dropped.** C's RD.5 copy of the finite étale form of local monodromy was dropped for
-`RD.2/local-monodromy-finite-etale-form`.
+## Checks actually run
 
-**Three RD.6 slugs renamed** to avoid clashes with RD.4/RD.5 ids of other lemmas: tate-twist,
-horizontal-sections-descend and robba-matrix-factorisation.
+- `python3 scripts/check_blueprint.py` on the packet: **0 errors, 0 warnings**.
+- `scripts/check_errata.py`'s checker on an `errata-v1` view of the packet's source issue/version
+  records: **0 errors**; the packet itself correctly remains `blueprint-v1`.
+- `research/blueprint/intake.py check-files` on all four deliverables: **0 problems**.
+- Stable-ID comparison: no additions or deletions. Prerequisite ordering, cycles and planet limits
+  pass. Every API/test name appears in the reader and in a namespace-resolved Lean declaration,
+  named example or explicit unstated-interface comment.
+- **Lean compiled with exit code 0**, using `lean-check` at the pinned Mathlib build. Its only
+  diagnostics are **286 declaration-uses-sorry warnings**. Memory was checked before compilation;
+  no build, cache download, library update or language server was started. No compile remains running.
+- `git diff --check`: passed.
 
-**Stage-level citations replaced.** D had cited the stages RD.5 and RD.2 where it did not know C's node
-ids. These became C's node ids:
-- the étale-cover lemma;
-- the generic pushforward theorem;
-- the Leray sequence;
-- relative duality;
-- Crew's curve duality;
-- the relative Robba ring;
-- the special-versus-generic Newton polygon.
+The suggested file has 367 lines containing explicit unstated-interface notes. In particular,
+the Frobenius data record gives algebraic ring maps and a specified coordinate image, but
+not a topological Frobenius lift. Extensionality, general reduction, norm preservation and
+continuous substitution are not stated from that insufficient record. The three added Laurent
+carrier tests are subtype/convolution signatures, including rejection of a nondecaying negative
+tail. Finite-dimensional output types in the prototype do not prove cohomological finiteness.
 
-**Interface statements tightened to what D consumes.**
-- The excision sequence is Frobenius-equivariant in every map, the connecting maps included.
-- Poincaré duality reads ⟨Φa, Φb⟩ = q^d⟨a, b⟩ into K(−d), compatible with the excision sequences.
+## Precise resumption work
 
-**Errata and sources consolidated.**
-- Duplicate source issues across parts were merged: the Dwork sign, the Berthelot misprint and one
-  point-counting errata item.
-- Two of A's issues are marked as known from Kedlaya's errata lists, which B had read.
-- The two ids for Kedlaya's local-monodromy overview were unified.
+Use each stage's `coverage.remaining` and the gap register as the worklist. No stage is closed.
+The independent reviewer should check corrected statements and ownership first; stage follow-ups
+must complete the following missing targets and proof interiors before packaging:
 
-**Gaps removed.**
-- D's "consumed interfaces" gap was resolved by the merge.
-- B's "published versions not accessible" is a sourcing note, not missing mathematics; it moved to
-  coverage.
+- **RD.0:** build the single Laurent carrier's Fréchet/LF and integral weak topologies, continuous
+  substitution and full Frobenius API; prove Arabia's lift/homotopy inputs; add open-annulus/disc
+  Bézout and closed-ideal/divisor classification with the correct spherical-completeness scope.
+- **RD.1:** finish cyclic vectors, differential-break proofs and the Dwork overconvergence argument;
+  build the corrected E† completion/isoclinic comparison and equal-characteristic classification;
+  add dense-open global slopes, reverse filtration and the Robba kernel–cokernel residue duality.
+- **RD.2:** supply the unit-root local-monodromy proof and completed-algebraic-closure input;
+  construct André's MC/MCF Tannakian group and its logarithmic solution interface, keeping
+  modules admitting Frobenius distinct from modules with a chosen Frobenius structure;
+  complete the downward-moved Berger ring identification.
+- **RD.3:** prove fibration, frame/compactification independence, gluing and j† acyclicity under
+  the stated chart hypotheses; construct the ordinary convergent site and Frobenius-bearing
+  crystalline comparison; supply finite étale pushforward, Crew's global unit-root correspondence
+  with its precise coefficient/F^n conventions, and Étesse's abelian-scheme overconvergence.
+- **RD.4:** finish the rigid and compact-support constructions, supported Poincaré/Gysin inputs,
+  log proper-support spectral sequences, algebraic de Rham specialization/cospecialization,
+  the special-fibre dagger–Berthelot comparison for AG2.4, and the Igusa theta-cokernel construction.
+- **RD.5:** reconcile the moved full-faithfulness targets with dense-open subquotient closure,
+  docility and semistable reduction; import the purely schematic alteration owner and construct
+  rigid hypercover descent; finish Crew duality and curve index arguments; prove Igusa finiteness
+  separately and smooth proper convergent direct images of perfect Frobenius complexes.
+- **RD.6:** supply the p-adic trace proof, precise nuclear LF input, index formula and Irr=Swan;
+  construct neutral Tannakian and additive-character inputs; add Kummer coefficients and the
+  Kloosterman middle-cohomology application with its rank, purity and hypersurface hypotheses.
+- **RD.7:** finish crystalline comparison with coefficients and its Frobenius compatibility,
+  degreewise rational/integral weight-separated factors, pending étale trace imports and
+  point-count precision proofs; supply the Kloosterman semistable realization, with its explicit
+  prime/weight bounds and downward-moved period-ring comparison input.
 
-**Restructure merged.** A's and B's restructure entries on where the slope filtration theorem lives were
-combined.
+The nine remaining supplier requests concern SF.0 graph closures; CR.3 early crystalline data;
+L5 schematic alterations; AlgebraicCurves differential/residue comparison; L4 nuclear LF traces;
+ReductiveGroups Lie algebras; F1 polynomial homotopy; R2 formal-projective comparisons; and
+SF.2's pending upstream trace/zeta import. Their exact statements and consumers are in the packet.
 
-## What remains
+Maintainer actions include the P7/RS-26 carrier owner update, RD.5 parent/link updates, ordinary
+convergent-category ownership at RD.3, the L5:alterations split, DWP number-weight ownership,
+and AG2.4 links to RD.4 comparison, RD.5 finiteness and RD.6 weights. RD.0 should provide the
+shared residue/primitive interface to RD.2 and ColemanIntegration; the proposal records that
+placement without adding a node. F∞ divisibility-colimit and compactified Igusa log-monodromy
+extensions belong to their routed Part II, not silently to the parent category here.
 
-Every stage is `partial`. The coverage entries list what remains for each layer; the main items are
-below.
+## Source reading receipts and limits
 
-- **RD.0–RD.1.**
-  - Arabia's proofs behind the Frobenius-lift nodes.
-  - Katz's cyclic vector algorithm: the node rests on Magid's Picard–Vessiot argument.
-  - A public proof of the overconvergence of Dwork's splitting function (numerical evidence only).
-  - Kedlaya–Xiao's break decomposition, and Kedlaya's key calculation (Lemma 4.12) beyond its first step.
-  - Christol–Mebkhout index theory and Irr = Swan, which are not planned.
-- **RD.2.** Tsuzuki's unit-root theorem is imported with a gap. The algebraic closedness of the completed
-  algebraic closure of k((t)) in characteristic p has no read source.
-- **RD.3.** The following rest on Berthelot's unpublished preprints and Le Stum: the proofs of the weak and
-  strong fibration theorems, the gluing for independence of the frame, the stack property, and Theorems
-  A/B for j†O. Also missing are Tsuzuki's finite étale pushforward and Abe's counterexample.
-- **RD.4–RD.5.** Missing inputs:
-  - Berthelot's boundary study behind his Théorèmes 1 and 4, and the automatic convergence of the Taylor
-    isomorphism;
-  - Tsuzuki's Gysin (1999) and hypercovering descent (2003);
-  - Berthelot's *Finitude* and *Dualité*;
-  - the lattice-index step of dim H¹ = 2g + d − 1;
-  - the functional analysis inside Crew and Schneider.
-- **RD.6–RD.7.** Missing inputs:
-  - the Étesse–Le Stum trace formula details;
-  - nuclear operator theory, requested from LocallyAnalyticDistributions L4;
-  - Tsuzuki's rank-one finiteness;
-  - the Grothendieck–Ogg–Shafarevich inputs;
-  - Tannakian reconstruction, requested from MotivesAndAlgebraicCycles MC.6;
-  - Berthelot's crystalline comparison beyond its outline;
-  - Katz–Messing.
+Eight additional public sources were read at target-relevant sections in this run. The packet
+stores URLs, full SHA-256 hashes, editions and exact sections/pages:
 
-**Requests (28).**
+- Fargues–Fontaine author-served text dated 16 April 2017: Pierre Colmez's Préface Théorème 2.30
+  and Remarque 2.31, pp. 24–25; Proposition 11.2.24 and Lemme 11.2.25, pp. 378–379;
+  Remarque 11.3.4, p. 382. Not collated with the 2018 version of record.
+- D'Addezio, arXiv:2012.12879v4: §2.2, p. 6; Proposition 3.3.4, p. 11; Theorems 4.1.6
+  and 4.2.6, pp. 12, 14–15; Definition 4.4.1, p. 19; §4.4.11, p. 23;
+  proof of Theorem 5.1.6, p. 25.
+- Dospinescu–Le Bras, Annals 186: Proposition 6.4 and Robba duality citation, pp. 356–357.
+- Guo–Reinecke, Inventiones 236: Definition 2.12, Theorem 2.14, Remark 2.15 and
+  Proposition 2.17, pp. 35–37; Theorem 6.13 and proof, pp. 97–98.
+- Disegni–Liu author-served journal text: Appendix B.1–B.3, Definitions B.1/B.4,
+  Lemmas B.3/B.5/B.6, PDF pp. 113–121; footnote 31, PDF p. 115.
+- Xu–Zhu author preprint: §2.1.5, p. 10; §2.2 and Proposition 2.2.5, pp. 11–13;
+  §2.9.1, p. 25; Appendix A §A.2, p. 64. Published edition not collated.
+- Fresán–Sabbah–Yu preprint: §3.2.2, p. 25; Proposition 5.23, Corollary 5.27
+  and Remark 5.28, pp. 49–52. Published edition not collated.
+- Pan, arXiv:2209.06366v1: Definition 5.1.6 and Proposition 5.1.7, pp. 53–54.
+  Not collated with Annals 203 (2026).
 
-| supplier | count |
-| --- | --- |
-| AdicSpacesPartII F1 | 4 |
-| AdicSpacesPartII R2 | 2 |
-| AdicSpacesPartII R3 | 2 |
-| PadicHodgeTheory P7 annulus foundations | 2 |
-| CrystallineCohomology CR.3 | 2 |
-| SchemeAndStackFoundations SF.0 | 1 |
-| PhiGammaModulesAndIwasawaCohomology PG.0 | 1 |
-| AdicCoefficientsAndComparisons L2 (Nagata) | 1 |
-| AdicCoefficientsAndComparisons L5 (alterations) | 1 |
-| WeilConjectures WC.1 | 1 |
-| WeilConjectures WC.3 | 1 |
-| DeligneWeightsAndPurity DWP.0 | 1 |
-| DeligneWeightsAndPurity DWP.2 | 1 |
-| DeligneWeightsAndPurity DWP.4 | 1 |
-| DeligneWeightsAndPurity DWP.7 | 1 |
-| CrystallineCohomology CR.2 | 1 |
-| LocallyAnalyticDistributions L4 | 1 |
-| MotivesAndAlgebraicCycles MC.6 | 1 |
-| ArithmeticGaloisRepresentations R01.3 | 1 |
-| Tau Ceti AlgebraicCurves layer 9 (Kähler versus Weil differentials) | 1 |
-| Tau Ceti ReductiveGroups layer 2 (Lie algebras) | 1 |
-
-Each request names the exact statement needed and the nodes that need it.
-
-**Restructuring proposals (23).** The main ones:
-- **Ownership:**
-  - the Laurent-series rings go to P7, and RD.0 keeps their structure theory;
-  - F1 owns dagger algebras and the overconvergent de Rham complex;
-  - weights of numbers go to DWP.0;
-  - the weight-separated identification of the factors P_i goes to WC.3.
-- **Placement:**
-  - the slope filtration theorem stays in RD.2, and the RD.1 stage text should be updated;
-  - absolute local monodromy is RD.2 and relative local monodromy is RD.5.
-- **Overlaps with other roadmaps:** VB0 (Dieudonné–Manin conventions), PG.2, CR.3 and R34.5/DWP.5.
-- **Missing or unclear owners:**
-  - nonarchimedean locally convex duality has no owner;
-  - de Jong's alterations need an owner.
-- **Sub-layers for the atlas:** RD.1 (differential modules / Frobenius modules), RD.5 and RD.6 (trace
-  formula / Fourier transform / weights).
-- **Residues and primitives on annuli (proposal 7).** Part B asked for a foundational owner. Since then
-  the ColemanIntegration packet (merged in pull request 2914) has planned them at
-  `ColemanIntegration:L0/annulus-residue` and `L0/annulus-log-primitive`. RD.2 could cite those nodes:
-  Coleman L0 depends on no RD layer, so this creates no cycle. The reviewer should decide.
-
-## Numerical checks
-
-All were run in PARI/GP 2.17.4; the roadmap document lists them in full.
-- **Exponentials:**
-  - exp(πx) has radius 1;
-  - Dwork's splitting function satisfies coefficient bounds consistent with overconvergence;
-  - the Dwork module has generic radius ρ², highest break 1 and Swan conductor 1;
-  - Dwork's θ₃(1) and the character sum;
-  - the corrected Dwork Frobenius is horizontal.
-- **Newton polygons:** the slopes {0, 1} and {1/2, 1/2}, generic versus special.
-- **Convergent but not overconvergent:** the extension on A¹ satisfies σ*ω − ω = −dt through degree p⁶.
-- **Curves:**
-  - Monsky–Washnitzer characteristic polynomials of Legendre curves;
-  - affine point counts for nine primes;
-  - Künneth and trace bookkeeping;
-  - the dual-twist products;
-  - T² + 7 over Q_7;
-  - ordinary and supersingular slopes over F_5, F_7, F_11, F_13 and F_49;
-  - a genus-2 Frobenius polynomial recovered at precision N₁ = 3;
-  - the Weyl-algebra normal ordering.
-
-## Sources
-
-All sources were read from public copies on 25 September 2026. The packet has the URLs, the full hashes
-and the sections read.
-
-| id | edition | SHA-256 |
-| --- | --- | --- |
-| kedlaya-monodromy-2003 | arXiv:math/0110124v4 (Ann. of Math. 160 (2004)) | `f38f45d4…` |
-| kedlaya-monodromy-annals | Ann. of Math. 160 (2004), version of record | `983760b7…` |
-| kedlaya-slope-filtrations | arXiv:math/0504204v4 (Doc. Math. 10 (2005)) | `da801016…` |
-| kedlaya-slope-filtrations-errata | author's errata list | `732b023d…` |
-| kedlaya-local-monodromy-overview | arXiv:math/0501361v2 (with the author's errata file) | `31d9e39e…` |
-| kedlaya-isocrystals | arXiv:1606.01321v6 | `7fa7ab31…` |
-| kedlaya-full-faithfulness | arXiv:math/0110125v4 | `cfda26e7…` |
-| kedlaya-finiteness | arXiv:math/0208027v6 (v5 `f7a60e94…` compared) | `a4668e61…` |
-| kedlaya-finiteness-errata | author's errata page | `0d7931c4…` |
-| kedlaya-weil-ii | arXiv:math/0210149v3 | `b678f13c…` |
-| kedlaya-mw-counting | arXiv:math/0105031v2 (errata `87b70cbc…`) | `88e18397…` |
-| kedlaya-etale-covers | arXiv:math/0303382v3 | `23ac7240…` |
-| kedlaya-swan-conductors-1 | arXiv:math/0611835v3 | `d0e2c76c…` |
-| kedlaya-xiao-polyannuli | arXiv:0804.1495v4 | `18645e0d…` |
-| harvey-kedlaya-larger-characteristic | arXiv:math/0610973v2 | `947c3a79…` |
-| berthelot-msmf23 | Mém. SMF 23 (1986) 7–32, numdam | `dcbbfffe…` |
-| vanderput-mw | Mém. SMF 23 (1986) 33–59, numdam | `a5195632…` |
-| crew-finiteness-curves | Ann. Sci. ÉNS 31 (1998) 717–763, numdam | `52e2391a…` |
-| chiarellotto-tsuzuki-descent | Rend. Sem. Mat. Univ. Padova 109 (2003), numdam | `f332fdec…` |
-| christol-dwork-1994 | Ann. Inst. Fourier 44 (1994), Centre Mersenne | `3028f5d5…` |
-| arabia-relevements | Comment. Math. Helv. 76 (2001), EMS Press | `ca1b510d…` |
-| magid-cyclic-vector | arXiv:2212.04643v2 | `927410ca…` |
-| andre-hasse-arf | arXiv:math/0203248v1 | `e1d5cd3a…` |
-| berger-padic-differential-2002 | arXiv:math/0102179v3 | `142e7948…` |
-
-**Not accessible, and never cited as read:**
-- Berthelot's *Finitude et pureté* and his Rennes preprints (the author's page is gone and IRMAR is behind
-  a bot wall);
-- Le Stum's and Kedlaya's books;
-- Tsuzuki's papers;
-- Étesse–Le Stum;
-- Katz–Messing;
-- the published Documenta version of *Slope filtrations revisited* and its erratum.
+The inherited source spine's September 25 receipts remain unchanged; this run is not a new
+full proof audit of that spine. The library clearance index was read. Kedlaya's differential-equations
+book and Le Stum's rigid-cohomology book are not cleared there and were not obtained or read.
+Their missing proof inputs remain gaps. Berthelot's unpublished finiteness/duality material,
+Tsuzuki's cited papers, Étesse–Le Stum and Katz–Messing proof interiors also remain unread
+inputs as specified in the gap register. Historical access failures do not certify current
+unavailability. No source files or passages are included in the repository. No durable step
+requires the run's scratch files; their deletion after PR opening is safe.
