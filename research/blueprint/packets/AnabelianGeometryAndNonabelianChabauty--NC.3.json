@@ -103,10 +103,17 @@
         "checked": "Actual statement read at the recorded commit on 2026-10-11; for Tau Ceti cohomology modules the source bytes also match the pinned lean-check build."
       },
       {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientCocone1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
+        "provides": "The named degree-one inflation cocone; its apex is AddCommGrpCat.of (H1 G M), and its legs are explicitInfl1.",
+        "checked": "Actual definition, apex and legs read at the recorded commit on 2026-10-11; source bytes match the pinned lean-check build."
+      },
+      {
         "ref": "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientColimit1",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/FiniteQuotient/Colimit.lean",
-        "provides": "Colimit of the reverse-inclusion finite-quotient H1 system for compact totally disconnected topological G and discrete topological M. This does not apply to Qp coefficients.",
+        "provides": "IsColimit of explicitFiniteQuotientCocone1: it certifies that the named inflation cocone with apex AddCommGrpCat.of (H1 G M) is universal. Requires compact totally disconnected topological G and discrete topological M; it is not a carrier and does not apply to Qp coefficients.",
         "checked": "Actual statement read at the recorded commit on 2026-10-11; for Tau Ceti cohomology modules the source bytes also match the pinned lean-check build."
       },
       {
@@ -135,7 +142,7 @@
   "sources": [
     {
       "id": "kim2005",
-      "title": "The motivic fundamental group of P1 minus {0,1,infinity} and the theorem of Siegel",
+      "title": "The motivic fundamental group of the projective line minus three points and the theorem of Siegel",
       "authors": "Minhyong Kim",
       "edition": "arXiv math/0409456v1, 2004 preprint of Inventiones Mathematicae 161 (2005), 629–656",
       "url": "https://arxiv.org/pdf/math/0409456v1",
@@ -149,14 +156,38 @@
       "id": "kim2009",
       "title": "The unipotent Albanese map and Selmer varieties for curves",
       "authors": "Minhyong Kim",
-      "edition": "arXiv math/0510441v4, preprint of Publications RIMS 45 (2009), 89–133",
+      "edition": "Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; version of record, DOI 10.2977/PRIMS/1234361156",
+      "url": "https://content.ems.press/assets/public/full-texts/serials/prims/45/1/2127/online/10.2977-prims-1234361156.pdf",
+      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566",
+      "accessDate": "2026-10-11",
+      "readSections": [
+        "Introduction, printed pp. 93–95: depth indexing and Jacobian/Albanese comparison",
+        "Section 2, printed pp. 116–119: filtered torsors, de Rham/crystalline distinction, Lemma 5 and crystalline boundary",
+        "Section 4, printed pp. 127–129: revised unramified induction, fixed potential conditions, central Selmer fibres and dimension"
+      ]
+    },
+    {
+      "id": "kim2009v4",
+      "title": "The unipotent Albanese map and Selmer varieties for curves",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv math/0510441v4; superseded preprint",
       "url": "https://arxiv.org/pdf/math/0510441v4",
       "sha256": "7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19",
       "accessDate": "2026-10-11",
       "readSections": [
-        "Introduction, printed p. 5: abelianized Jacobian comparison and indexing",
-        "Section 2, printed pp. 18–20: de Rham and crystalline torsors, Lemma 5",
-        "Section 3, printed pp. 25–26: finite ramification conditions and central Selmer dimension argument"
+        "Introduction p. 5, section 2 pp. 18–20 and section 4 pp. 25–26; comparison with the revised argument"
+      ]
+    },
+    {
+      "id": "kim2009v5",
+      "title": "The unipotent Albanese map and Selmer varieties for curves",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv math/0510441v5; revised preprint",
+      "url": "https://arxiv.org/pdf/math/0510441v5",
+      "sha256": "4f8f523dac11ad758e8f3c1166f9d7b71fe197532641133176e57183f85d6286",
+      "accessDate": "2026-10-11",
+      "readSections": [
+        "Introduction p. 5, section 2 pp. 18–20 and section 4 pp. 25–27; inertia correction and crystalline invariant notation"
       ]
     }
   ],
@@ -211,7 +242,7 @@
       ],
       "title": "Abelian finite-quotient transport",
       "kind": "comparison",
-      "statement": "For profinite G (compact Hausdorff and totally disconnected) and discrete additive M with continuous G-action, the canonical comparisons identify parent nonabelian descent, inflation and reverse-inclusion transition H1(G/U,(Multiplicative M)^U)→H1(G/V,(Multiplicative M)^V), V≤U, with Tau Ceti descendZ1, explicitInfl1 and explicitFiniteQuotientTransition1, after the canonical invariant-coefficient identification. They induce the comparison of the Set-colimit with the underlying set of explicitFiniteQuotientColimit1. Descent requires a representative pointwise neutral on U; neutral restriction of its class alone first requires a gauge correction.",
+      "statement": "For profinite G (compact Hausdorff and totally disconnected) and discrete additive M with continuous G-action, the canonical comparisons identify parent nonabelian descent, inflation and reverse-inclusion transition H1(G/U,(Multiplicative M)^U)→H1(G/V,(Multiplicative M)^V), V≤U, with Tau Ceti descendZ1, explicitInfl1 and explicitFiniteQuotientTransition1, after the canonical invariant-coefficient identification. They induce the comparison of the Set-colimit with the underlying set of the apex of explicitFiniteQuotientCocone1, namely Tau Ceti H1 G M. The declaration explicitFiniteQuotientColimit1 is the IsColimit certificate for this named cocone. Descent requires a representative pointwise neutral on U; neutral restriction of its class alone first requires a gauge correction.",
       "hypotheses": [
         "G profinite (compact Hausdorff totally disconnected) topological group",
         "M discrete topological additive abelian group",
@@ -221,7 +252,7 @@
         "Identify invariant coefficients by unchanged underlying values and their native induced topologies.",
         "Apply canonical-comparison-naturality to the quotient homomorphisms and invariant inclusions.",
         "Evaluate descended cocycles on quotient representatives and use the parent killing/descent theorem.",
-        "Use the parent finite-quotient Set universal property and the underlying Set colimit of the filtered additive system; all transitions go from U to V when V≤U."
+        "Transport the parent Type-valued inflation cocone to the underlying cocone with apex Tau Ceti H1 G M. The reverse-inclusion index is filtered, so forgetting additive groups preserves this colimit; explicitFiniteQuotientColimit1 certifies universality, rather than naming another carrier."
       ],
       "acceptance": [
         "The transition for U=V is identity; a finer level inflates to the same global class; no discrete-coefficient theorem is invoked for Qp."
@@ -233,6 +264,7 @@
         "tauceti:TauCeti.ContCohomology.descendZ1",
         "tauceti:TauCeti.ContCohomology.explicitInfl1",
         "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientTransition1",
+        "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientCocone1",
         "tauceti:TauCeti.ContCohomology.explicitFiniteQuotientColimit1"
       ],
       "sources": [
@@ -335,7 +367,7 @@
           "how": "Provides the exact cohomology and local-condition domain for the period map."
         },
         {
-          "where": "Kim2009, section 3, printed pp. 25–26",
+          "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
       ],
@@ -535,7 +567,7 @@
         "Geometric instantiation requires unipotent-point-topology."
       ],
       "acceptance": [
-        "The interface does not identify H1 with Hom(G,P(R)) unless the action is trivial."
+        "For trivial G-action, Z1 is the set of continuous homomorphisms, while H1 is its quotient by constant conjugation. The interface never substitutes Hom for this gauge quotient."
       ],
       "prerequisites": [
         "mathlib:CommAlgCat",
@@ -620,6 +652,11 @@
           "name": "TauCeti.NonabelianCohomology.NC3.GaloisCoefficientFamily.identity_test",
           "kind": "compatibility",
           "statement": "P(id_R)(x)=x for every point, excluding a constant coefficient-map family."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.NC3.GaloisCoefficientFamily.composition_test",
+          "kind": "compatibility",
+          "statement": "For every pair of algebra maps f:R→S and g:S→T, P(g∘f)(x)=P(g)(P(f)(x)); identity alone does not determine these transitions."
         }
       ],
       "uses": [
@@ -628,7 +665,7 @@
           "how": "Provides the exact cohomology and local-condition domain for the period map."
         },
         {
-          "where": "Kim2009, section 3, printed pp. 25–26",
+          "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
       ]
@@ -645,7 +682,7 @@
       "hypotheses": [
         "G compact Hausdorff",
         "B complete Hausdorff topological field with continuous field automorphism action",
-        "K⊂B^G finite degree",
+        "K is a subfield of F=B^G and [F:K]<∞.",
         "finite-type filtered Hopf coordinates with finite-rank G-stable filtration and compatible semilinear action."
       ],
       "proofSteps": [
@@ -759,6 +796,11 @@
           "name": "TauCeti.NonabelianCohomology.NC3.cohomologyFunctor_gauge_test",
           "kind": "characterisation",
           "statement": "[x·c] and [c] have the same image under every coefficient map."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.NC3.cohomologyFunctor_representative_test",
+          "kind": "characterisation",
+          "statement": "If d(g)=P(f)(c(g)) for all g, coefficient change takes [c] to [d]; a map merely preserving neutral classes and gauges does not satisfy this representative test."
         }
       ],
       "uses": [
@@ -767,7 +809,7 @@
           "how": "Provides the exact cohomology and local-condition domain for the period map."
         },
         {
-          "where": "Kim2009, section 3, printed pp. 25–26",
+          "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
       ],
@@ -826,12 +868,12 @@
       ],
       "title": "Filtered affine torsor comparison",
       "kind": "comparison",
-      "statement": "For the filtered finite-type unipotent U_n over B⊗_K R, classify equivariant affine right U_n-torsors with a strict exhaustive coordinate filtration whose graded ranks match U_n and with continuous semilinear G-action on every finite filtration piece. Isomorphisms are equivariant filtered affine torsor isomorphisms. Under the supplier theorem that these split-unipotent fppf torsors over the affine coefficient base have a point and that trivializations preserve this filtration, evaluation at a point gives a natural bijection of their isomorphism classes with H1(G,U_n(B⊗R)). Require effectivity of coefficient-base descent and compatibility of the filtered affine structure; the parent nonempty topological torsor bijection alone supplies neither.",
+      "statement": "For filtered finite-type unipotent U_n over B⊗_K R, classify equivariant affine right U_n-torsors whose coordinate rings have an exhaustive filtration by finite-rank locally free pieces of the same ranks as the corresponding pieces of the group coordinate ring. Require the filtration inclusions to be locally split and universally injective, the torsor coaction to preserve the filtration, and the semilinear G-action on each finite piece to be continuous. Isomorphisms are equivariant filtered affine torsor isomorphisms. Under the supplier theorem that split-unipotent fppf torsors over this affine coefficient base have a point and admit a strict filtered trivialization, evaluation at a point gives a natural bijection of their isomorphism classes with H1(G,U_n(B⊗R)). Coefficient-base descent and the reconstruction by a cocycle must be effective in this filtered affine category; a nonempty topological torsor bijection alone does not establish these facts.",
       "hypotheses": [
         "Characteristic zero",
         "smooth split unipotent finite-depth group",
         "affine coefficient base",
-        "strict finite-rank filtration",
+        "Exhaustive locally free finite-rank filtration pieces, locally split universally injective inclusions, and filtration-compatible torsor coaction.",
         "supplied affine torsor triviality, compatible filtered trivialization and effective descent."
       ],
       "proofSteps": [
@@ -924,16 +966,16 @@
       ],
       "title": "Invariant coset representability",
       "kind": "theorem",
-      "statement": "Suppose U is as above and defined over K, with the G-stable subgroup U_n(R)⊂U_n(B⊗_K R). The quotient here is the coset G-set of elements bH, even when the subgroup is nonnormal. With continuous vector-quotient cochains commuting with coefficient extension and finite-dimensional K-vector invariants and H1 for W_i=V_i(B)/V_i(K), the functor R↦H0(G,U_n(B⊗R)/U_n(R)) is affine finite type. In the central induction its kernel is H0(G,W_i⊗_K R) and its image is I_i=ker(ob_i) inside the previous invariant-coset variety, with ob_i landing in H1(G,W_i). A choice of universal section yields the product H0(G,W_i)×I_i.",
+      "statement": "Suppose U is as above and defined over K, with the G-stable subgroup U_n(R)⊂U_n(B⊗_K R) and a closed topological embedding on these points for each R. The quotient here is the coset G-set of elements bH, even when the subgroup is nonnormal. With continuous vector-quotient cochains commuting with coefficient extension and finite-dimensional K-vector invariants and H1 for W_i=V_i(B)/V_i(K), the functor R↦H0(G,U_n(B⊗R)/U_n(R)) is affine finite type. In the central induction its kernel is H0(G,W_i⊗_K R) and its image is I_i=ker(ob_i) inside the previous invariant-coset variety, with ob_i landing in H1(G,W_i). A choice of universal section yields the product H0(G,W_i)×I_i.",
       "hypotheses": [
-        "K-defined tower and G-stable embedded U_n(R)",
+        "K-defined tower, with G-stable U_n(R) and a closed topological embedding U_n(R)→U_n(B⊗_K R) for every R; verify this in the chosen final topologies.",
         "left-coset action on bH, not quotient group",
         "quotient cochain base change",
         "finite H0(W_i), H1(W_i)",
         "central lifting and effectiveness of coset construction."
       ],
       "proofSteps": [
-        "Use the parent nonnormal invariant-coset connecting construction to define ob_i.",
+        "Use the parent nonnormal invariant-coset connecting construction to define ob_i. Retain its closed-embedding hypothesis, which supplies continuous recovery of the kernel-valued cocycle.",
         "Identify the central vector kernel W_i and use quotient-cochain scalar extension.",
         "Take the zero fibre of the vector obstruction and construct a universal lift by splitting vector coboundaries.",
         "Identify each fibre as a torsor under H0(W_i); obtain the product after choosing its universal section."
@@ -991,7 +1033,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 2, de Rham/crystalline torsors and local H1_g,H1_f, printed pp. 18–20",
+          "locator": "Section 2, de Rham/crystalline torsors and local H1_g,H1_f, printed pp. 116–119",
           "match": "A local class is selected by being neutral after restriction or period-coefficient extension."
         }
       ],
@@ -1070,7 +1112,7 @@
           "how": "Provides the exact cohomology and local-condition domain for the period map."
         },
         {
-          "where": "Kim2009, section 3, printed pp. 25–26",
+          "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
       ]
@@ -1083,20 +1125,20 @@
       ],
       "title": "Local condition geometry",
       "kind": "theorem",
-      "statement": "For the geometric étale U_n and a fixed local p-adic field k_v, construct represented local H1 and show the crystalline neutralLocus is represented by an affine finite-type closed subfunctor under the needed finite vector cohomology, vanishing-invariant and period-quotient descent hypotheses. Compare this functor with filtered affine torsors trivial over B_cris. The invariant-coset boundary from H0(G_v,U_n(B_cris⊗R)/U_n(R)) has this neutral locus as its image on all R only after proving the effective quotient and base-change lifting statement. The analogous fixed unramified or fixed-H_v condition is represented closed when its vector conditions and central compatibility satisfy the same induction.",
+      "statement": "For the geometric étale U_n over a local field k_v/Qp, use finite-level-representability to represent local H1. Assume finite vector cohomology and the stated invariant vanishing on every central layer, actual period-ring topologies, and effective filtered-torsor/coset descent over every coefficient algebra. In the central product chart H1(V_i)×I_i, assume the lower local condition cuts out a represented closed base J_i⊂I_i and that universal quotient neutralizations yield finitely many natural defect maps to vector spaces W_ij: the next local condition on (x,y) is exactly ell_ij(x)+b_ij(y)=0, for all algebras, where ell_ij is linear and b_ij is natural in J_i. Then induction represents the crystalline neutralLocus by a closed affine finite-type subfunctor. The invariant-coset boundary has this functor as its pointwise image only with effective coset lifting and descent on all algebras; no field-point image substitutes for this assertion. The same criterion constructs fixed unramified and fixed finite-index H_v conditions. For unramifiedness use the revised central induction through vector inertia conditions; do not assume H1(I_v,U_n) is represented by a variety.",
       "hypotheses": [
-        "Local k_v finite over Qp",
-        "finite depth",
-        "actual period ring actions/topologies",
-        "specified fixed inertia or open finite-index subgroup H_v",
-        "finite vector cohomology and stable local central conditions",
-        "effective invariant-coset quotient."
+        "Local k_v finite over Qp, finite depth, and the finite-level representability hypotheses.",
+        "Actual period coefficient actions/topologies; B_cris is not treated as the complete topological field in Kim2005.",
+        "Fixed inertia or specified finite-index subgroup H_v; vector neutral conditions and detection spaces W_ij are finite-dimensional and commute with coefficient extension.",
+        "Effective invariant-coset and strictly filtered torsor descent, including universal quotient neutralizations over each J_i.",
+        "The displayed affine-linear defect criterion is proved on all algebras and is independent of chosen neutralization after passing to cohomology."
       ],
       "proofSteps": [
-        "Use local-neutral-locus with actual inertia/period coefficient maps; use Bcris→BDR for H1_f⊂H1_g.",
-        "Apply invariant-coset-representability in the period coefficient setting, with all its quotient hypotheses verified rather than applying the field statement blindly to Bcris.",
-        "Identify the boundary image functor by the nonabelian exact sequence and prove descent and universal lifts of invariant cosets over coefficient algebras.",
-        "Induct through central layers to prove closedness from vector local-condition subspaces and compatible invariant lifting. Image representability is not proved by calling the image of a morphism a subvariety."
+        "Form local-neutral-locus with the actual inertia/period maps; Bcris→BDR gives H1_f⊂H1_g.",
+        "Apply the period analogue of invariant-coset-representability only after its topology and effective quotient hypotheses have been proved; the field theorem alone does not cover Bcris.",
+        "Use central-lift-exactness and effective filtered torsors to identify the invariant-coset boundary image with the neutralization functor on every algebra.",
+        "Over the closed base J_i, a universal quotient neutralization reduces the next condition to the finite vector equations ell_ij(x)+b_ij(y)=0. Yoneda represents b_ij by a morphism to its vector scheme, and these equations give closed zero fibres.",
+        "For inertia, repeat this argument with the vector restrictions. The corrected Kim2009 argument does not require finite-type representability of the full nonabelian inertia target. Verify the universal-neutralization criterion for the geometric tower under G3."
       ],
       "acceptance": [
         "Keep H1_f distinct from H1_g; if inertia acts trivially a neutral restricted class has representative identically one; potential conditions use a fixed H_v, not an uncontrolled union."
@@ -1116,8 +1158,8 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 2, Lemma 5 and the crystalline boundary discussion, printed pp. 18–20; section 3, printed pp. 25–26",
-          "match": "The source obtains crystalline classes from invariant period cosets and imposes finite fixed local ramification conditions. The all-algebra effective image and closedness inputs are explicitly separated here."
+          "locator": "Section 2, Lemma 5 and crystalline boundary, printed pp. 118–119; section 4, revised unramified induction and fixed potential conditions, printed pp. 127–128",
+          "match": "The published text contains the revised vector central induction for inertia. Its crystalline boundary motivates this construction; the explicit all-algebra closedness criterion remains an additional proof obligation, not an inference from an arbitrary morphism image."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1161,7 +1203,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 3, global Selmer varieties and bad-place conditions, printed pp. 25–26",
+          "locator": "Section 4, fixed local conditions and global Selmer intersection, printed pp. 127–128",
           "match": "Global classes are constrained at each selected place; central differences must obey all of those conditions."
         }
       ],
@@ -1216,7 +1258,7 @@
         {
           "name": "TauCeti.NonabelianCohomology.NC3.selmerFunctor_empty_test",
           "kind": "degenerate",
-          "statement": "An empty local index type gives the full global functor."
+          "statement": "For an empty local index type, there is an equivalence to the global functor at every algebra whose forward map is the actual inclusion x↦x.val, not an arbitrary equicardinality witness."
         },
         {
           "name": "TauCeti.NonabelianCohomology.NC3.selmerFunctor_bad_place_test",
@@ -1226,7 +1268,7 @@
         {
           "name": "TauCeti.NonabelianCohomology.NC3.selmerFunctor_universal_test",
           "kind": "characterisation",
-          "statement": "If every C_v is the full local functor, Sel_T(U_n) is the global functor."
+          "statement": "For universal local conditions, the inclusion x↦x.val is bijective at every algebra; an arbitrary equivalence of carriers does not suffice."
         }
       ],
       "uses": [
@@ -1235,7 +1277,7 @@
           "how": "Provides the exact cohomology and local-condition domain for the period map."
         },
         {
-          "where": "Kim2009, section 3, printed pp. 25–26",
+          "where": "Kim2009, section 4, printed pp. 127–129 (version of record)",
           "how": "Defines the global Selmer locus and its central-depth transitions."
         }
       ],
@@ -1275,7 +1317,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 2 printed pp. 18–20 and section 3 printed pp. 25–26",
+          "locator": "Section 2, printed pp. 116–119; section 4, printed pp. 127–128; the all-algebra closed-fibre-product formulation is the present refinement",
           "match": "The Selmer locus is the simultaneous local-condition pullback, once representability of its factors and maps has been established."
         }
       ],
@@ -1317,7 +1359,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 2 local/global diagrams printed pp. 18–20; section 3 central tower printed pp. 25–26",
+          "locator": "Introduction, global/local diagram, printed p. 95; section 2, printed pp. 116–119; section 4, central Selmer tower, printed pp. 128–129",
           "match": "Localizations and coefficient/depth maps are induced by the actual cohomology construction."
         }
       ],
@@ -1335,20 +1377,19 @@
       ],
       "title": "Central Selmer dimension bound",
       "kind": "theorem",
-      "statement": "For 1→V→U_{n+1}→U_n→1 with V a vector group, assume represented finite-type Selmer schemes, vanishing twisted H0(G_{k,T},U_n) and local compatibility making the difference of two Selmer lifts a class in the LINEAR Selmer group Sel_T(V). At p require surjectivity on invariant B_cris points U_{n+1}(B_cris)^{H_v}→U_n(B_cris)^{H_v}; at fixed unramified places prove the analogous difference condition. Then every nonempty geometric fibre of Sel_T(U_{n+1})→Sel_T(U_n) is a torsor under the vector Sel_T(V), compatibly after residue-field extensions. Thus dim Sel_T(U_{n+1})≤dim Sel_T(U_n)+dim_Qp Sel_T(V). The obstruction zero fibre may make the inequality strict.",
+      "statement": "For a central vector sequence 1→V→U_{n+1}→U_n→1, suppose the Selmer functors and depth map are represented by finite-type schemes. Require the global H1(V)-action and difference classification on all coefficient algebras and after field extension, with all corresponding twisted quotient invariants trivial so that this action is free. Require addition by a linear Selmer class to preserve every local condition, and the unique difference of two Selmer lifts to satisfy exactly those linear conditions, on all these algebras. At p this requires surjectivity U_{n+1}(B_cris⊗R)^{H_v}→U_n(B_cris⊗R)^{H_v} on the relevant invariant points, with their actual crystalline comparison; at fixed unramified places use the analogous inertia difference calculation. Then every nonempty geometric fibre is a torsor under the vector scheme Sel_T(V). After choosing a point it is isomorphic to that vector scheme on all algebras over the geometric residue field. Consequently dim Sel_T(U_{n+1})≤dim Sel_T(U_n)+dim_Qp Sel_T(V); the obstruction zero fibre can make the inequality strict.",
       "hypotheses": [
-        "Central vector sequence",
-        "finite-type scheme representations",
-        "free global central H1 action from vanishing twisted invariants",
-        "local differences exactly linear conditions",
-        "local invariant lifting",
-        "geometric fibre torsor theorem valid after field extension."
+        "Central vector sequence and represented finite-type Selmer schemes and depth morphism.",
+        "The global central H1 action, orbit classification and vanishing twisted invariants hold over every coefficient algebra and remain valid after field extension.",
+        "Local addition and difference conditions agree exactly with linear Selmer conditions on all those algebras.",
+        "Invariant crystalline lifting for every relevant B_cris⊗R and fixed H_v, and the analogous fixed unramified difference theorem.",
+        "Sel_T(V) is the finite-dimensional vector Selmer functor, with scalar extension to the geometric residue fields."
       ],
       "proofSteps": [
         "The parent central extension identifies global fibres as H1(V)-orbits; vanishing twisted invariants makes the action free.",
-        "For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline.",
+        "For two local crystalline lifts, compare period trivializations and lift their quotient invariant through the specified surjective invariant map; the resulting vector difference is crystalline. Its invariant realization is crystalline U_cr over the absolutely unramified field; U_DR is obtained after scalar extension, as recorded in E5.",
         "At fixed unramified places use the actual inertia restriction; for trivial inertia action neutral means the vector cocycle is zero.",
-        "Conversely addition by a linear Selmer class preserves every local condition; this proves the geometric fibre torsor claim.",
+        "Addition by a linear Selmer class preserves the local conditions. After a point of a geometric fibre is chosen, the all-algebra action/difference identities give inverse natural maps between that fibre functor and the vector Selmer functor. Yoneda makes this a scheme isomorphism; a bijection merely on field-valued points would not suffice.",
         "Apply the finite-type scheme fibre-dimension inequality, not a dimension field stored as an assumption."
       ],
       "acceptance": [
@@ -1365,7 +1406,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Section 3, central Selmer fibres and dimension calculation, printed pp. 25–26",
+          "locator": "Section 4, central Selmer fibres and dimension calculation, printed pp. 128–129; crystalline invariant notation corrected as source issue E5",
           "match": "The argument restricts the central cohomology action to a linear Selmer action using local invariant lifting before taking dimensions."
         }
       ],
@@ -1411,7 +1452,7 @@
       "sources": [
         {
           "sourceId": "kim2009",
-          "locator": "Introduction, printed p. 5, and section 2 local/global Albanese diagrams, printed pp. 18–20",
+          "locator": "Introduction, first quotient and Jacobian diagram, printed pp. 93–95; section 2, local/global Albanese maps, printed pp. 116–119",
           "match": "Depth one is the abelian cohomology comparison underlying the nonabelian Selmer construction."
         }
       ],
@@ -1438,11 +1479,11 @@
       "proofSteps": [
         "Use bilinearity for associativity, inverse and central kernel; the projection to X×Y is split by z=0 as a continuous set map.",
         "Evaluate positiveDefect and identify β(a(g),g·b(h)); use continuous-central-obstruction and central-lift-exactness.",
-        "Import continuous cup-product convention and p-adic Tate duality; choose a nonzero H1(Qp) class and a dual class with nonzero pairing.",
+        "Import the continuous cup convention and rational local Tate duality. For V=Qp, H0 has dimension 1 and H2 is dual to H0(Qp(1))=0; the local Euler characteristic therefore gives dim H1(Qp)=1+[k:Qp]>0. Choose a nonzero class and a dual Qp(1) class with nonzero pairing, identified by the local invariant with H2(Qp(1))≃Qp.",
         "As a separate explicit sign check take discrete G=Z², X=Y=Z=Q, trivial action and coordinate homomorphisms. The two-cochain m(g)n(h) is not a coboundary because all trivial-action one-cochain coboundaries on abelian G are symmetric, while it takes 1 and 0 on the swapped coordinate generators."
       ],
       "acceptance": [
-        "The cup order is a(g) paired with g·b(h); swapping source sign negates its H2 class but preserves nonliftability; the actual Galois example requires the requested p-adic duality theorem."
+        "The cup order is a(g) paired with g·b(h); swapping source sign negates its H2 class but preserves nonliftability; the actual Galois example requires the already planned rational p-adic duality supplier and the requested continuous cup-convention comparison."
       ],
       "prerequisites": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3/central-lift-exactness",
@@ -1460,7 +1501,7 @@
         },
         {
           "sourceId": "kim2009",
-          "locator": "Section 3, central quotient obstruction and Selmer induction, printed pp. 25–26",
+          "locator": "Section 4, central quotient and Selmer induction, printed pp. 128–129; the Heisenberg cup computation is derived here using the cited continuous duality supplier",
           "match": "Higher depth imposes additional obstruction conditions beyond the vector first level."
         }
       ],
@@ -1519,9 +1560,10 @@
     },
     {
       "supplier": "PadicHodgeTheory:R06.2",
-      "need": "Period-admissibility inputs ensuring local crystalline vector subspaces and invariant-lift surjectivity for the specific central geometric extensions, after the fixed H_v restriction. Supply exact hypotheses, not the assertion that all extensions of crystalline objects have crystalline cocycle classes.",
+      "need": "Period-admissibility inputs ensuring local crystalline vector subspaces and invariant-lift surjectivity for the specific central geometric extensions, after the fixed H_v restriction. Supply exact hypotheses, not the assertion that all extensions of crystalline objects have crystalline cocycle classes. Prove the invariant-lifting and local addition/difference criteria for B_cris⊗R on every coefficient algebra and after residue-field extension; identify the invariants through U_cr over K0 before de Rham base change.",
       "neededBy": [
-        "AnabelianGeometryAndNonabelianChabauty:NC.3/local-condition-geometry"
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/local-condition-geometry",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/central-selmer-dimension"
       ]
     },
     {
@@ -1543,11 +1585,12 @@
     {
       "title": "G1 — Compact-image and quotient-cochain topology",
       "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/unipotent-point-topology",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/cochain-scalar-extension",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-representability",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/local-condition-geometry"
       ],
-      "detail": "Prove the compact-image finite-coefficient lemma for the exact final topologies used, including vector period quotients. Kim2005 Lemma 4 motivates the field case; the proof obligations for B_cris quotients and arbitrary algebras are not supplied by discrete ProfiniteCohomology."
+      "detail": "Prove the compact-image finite-coefficient lemma for the exact final topologies used, including vector period quotients. Kim2005 Lemma 4 motivates the field case; the proof obligations for B_cris quotients and arbitrary algebras are not supplied by discrete ProfiniteCohomology. Include the finite-product final-topology and polynomial continuity lemmas needed to instantiate the coefficient family."
     },
     {
       "title": "G2 — Filtered algebraic torsor and coset effectivity",
@@ -1556,7 +1599,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-level-representability",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-representability"
       ],
-      "detail": "Supplier group-scheme triviality, strict filtered trivialization and descent must be verified over every coefficient algebra; parent nonempty topological torsor classification is insufficient. Relate naive point cosets to the effective quotient used in representability."
+      "detail": "Supplier group-scheme triviality, strict filtered trivialization and descent must be verified over every coefficient algebra; parent nonempty topological torsor classification is insufficient. Relate naive point cosets to the effective quotient used in representability. Verify locally free filtration pieces and locally split universally injective inclusions, and the closed point embeddings required by the imported coset connecting map."
     },
     {
       "title": "G3 — Closed crystalline loci and local fibre compatibility",
@@ -1565,7 +1608,7 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-representability",
         "AnabelianGeometryAndNonabelianChabauty:NC.3/central-selmer-dimension"
       ],
-      "detail": "Establish an effective all-algebra invariant-coset image and a central induction proving represented closed local loci, together with actual local invariant-lift surjectivity for the geometric tower. A morphism image need not be closed and an image on field points need not describe all algebra points; neither claim is inferred without proof."
+      "detail": "Establish an effective all-algebra invariant-coset image and a central induction proving represented closed local loci, together with actual local invariant-lift surjectivity for the geometric tower. A morphism image need not be closed and an image on field points need not describe all algebra points; neither claim is inferred without proof. In particular construct universal quotient neutralizations and the finite affine-linear local defect criterion on each central product chart; use the revised inertia induction. Prove local addition/difference and crystalline invariant lifting after arbitrary coefficient and residue-field extension, not just on Qp-points."
     },
     {
       "title": "G4 — Native geometric and inherited prototype signatures",
@@ -1595,11 +1638,56 @@
       "remaining": [
         "Resolve G1–G3 and the eight precise supplier requests; verify all hypotheses for the actual geometric étale tower, including its bad-place conditions.",
         "Assemble native inherited twist/finite-quotient and filtered Hopf/period interfaces and add the fourteen individually identified omitted signatures (G4).",
-        "Independently review the positive H2 convention, all-algebra representability and the actual Galois nonzero depth-two example; retain inherited E1 without asserting a new source review."
+        "Apply the independently reviewed obstruction and cup conventions while verifying all geometric supplier hypotheses. Acceptance of this planning pass leaves G1–G4 open; it does not mark NC.3 closed."
       ]
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E4",
+      "source": "kim2009v4",
+      "kind": "error",
+      "locator": "arXiv math/0510441v4, section 4, printed p. 25; superseded by v5 section 4 p. 25 and published section 4 p. 127",
+      "printed": "The v4 unramified-locus argument treats nonabelian inertia cohomology with trivial inertia action as a representable variety of continuous homomorphisms.",
+      "correction": "Do not assume finite-type representability of H1(I_v,U_n). Construct the unramified locus by induction through vector central-layer inertia restrictions, with the needed finite vector and descent hypotheses. Retain the constant-conjugation quotient even when the inertia action is trivial.",
+      "reason": "The revised preprint and version of record explicitly remove the inertia representability assumption and supply a central vector induction. This packet now cites that revised argument, with its all-algebra proof obligations explicit. For a noncommutative coefficient group with trivial action, actual H1 is continuous homomorphisms modulo conjugation, not the unquotiented homomorphism functor. This is also required by the packet’s gauge convention.",
+      "affects": "the proof",
+      "known": "Corrected in arXiv math/0510441v5 and Publications RIMS 45 (2009), section 4 p. 127.",
+      "searched": [
+        "2026-10-11: arXiv math/0510441 submission history and v4/v5 PDFs compared.",
+        "2026-10-11: EMS Press article 2127 and the freely served version of record, DOI 10.2977/PRIMS/1234361156.",
+        "2026-10-11: Minhyong Kim academic-publications page; no separate correction for this paper listed.",
+        "2026-10-11: web searches for the title with erratum/correction and crystalline image, and the arXiv identifier with inertia representability."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared v4 and v5 at the locator and read published p. 127. The finding is about the superseded preprint; the published argument already corrects it.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.3"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E5",
+      "source": "kim2009",
+      "kind": "misprint",
+      "locator": "Version of record, section 4, printed p. 129, invariant B_cr points in the central Selmer difference argument; also arXiv v5 p. 26",
+      "printed": "The invariant points of the étale group over B_cr are identified with U_DR, and surjectivity of the U_DR depth map is used to lift that invariant.",
+      "correction": "Use the crystalline invariant realization U_cr over the absolutely unramified subfield K0: U_et(B_cr⊗R)^{G_v} corresponds to U_cr(K0⊗R) in the admissible setting. The de Rham realization follows by extension K0→k_v; its point surjectivity alone does not supply the required B_cr invariant lift.",
+      "reason": "Section 2, published p. 119, defines D_cr by B_cr invariants and gives D=D_cr⊗K0 k_v. These are different coefficient fields. The p. 129 notation should retain U_cr; the actual invariant-lifting statement is a hypothesis to verify for the geometric tower in G3. The displayed symbol was also checked in the published page image.",
+      "affects": "nothing",
+      "known": "new; no correction found in the scoped search, and the same symbol remains in v5 and the published version",
+      "searched": [
+        "2026-10-11: arXiv math/0510441 submission history and v4/v5 PDFs compared.",
+        "2026-10-11: EMS Press article 2127 and the freely served version of record, DOI 10.2977/PRIMS/1234361156.",
+        "2026-10-11: Minhyong Kim academic-publications page; no separate correction for this paper listed.",
+        "2026-10-11: web searches for the title with erratum/correction and crystalline image, and the arXiv identifier with inertia representability."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The section 2 crystalline/de Rham base-change comparison and the printed p. 129 display determine the correct realization. This is a notation misprint; it does not refute the intended dimension result.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.3"
+      }
+    }
+  ],
   "upstreamNotes": [
     {
       "roadmaps": [
@@ -1614,5 +1702,182 @@
       "fromPacket": "AnabelianGeometryAndNonabelianChabauty.json",
       "detail": "Use the previously independently reviewed correction of Kim2005 Proposition 3, printed p. 10: the induction product factor is the invariant VECTOR quotient H0(G,V(B tensor R)/V(R)), not the previous unipotent stage. No new independent source-issue verdict is asserted here."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "citation": "The motivic fundamental group of the projective line minus three points and the theorem of Siegel; arXiv math/0409456v1, 2004 preprint of Inventiones Mathematicae 161 (2005), 629–656",
+      "read": "2026-10-11",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
+    },
+    {
+      "kind": "published",
+      "url": "https://content.ems.press/assets/public/full-texts/serials/prims/45/1/2127/online/10.2977-prims-1234361156.pdf",
+      "citation": "The unipotent Albanese map and Selmer varieties for curves; Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; version of record, DOI 10.2977/PRIMS/1234361156",
+      "read": "2026-10-11",
+      "sha256": "b06562bc28c5648152b54d5539af8b8a4cf902192eeb37f36b0db5dfc45a4566"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0510441v4",
+      "citation": "The unipotent Albanese map and Selmer varieties for curves; arXiv math/0510441v4; superseded preprint",
+      "read": "2026-10-11",
+      "sha256": "7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0510441v5",
+      "citation": "The unipotent Albanese map and Selmer varieties for curves; arXiv math/0510441v5; revised preprint",
+      "read": "2026-10-11",
+      "sha256": "4f8f523dac11ad758e8f3c1166f9d7b71fe197532641133176e57183f85d6286"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
+    "date": "2026-10-11",
+    "notes": "Independent target-level review accepted after in-place corrections. All 22 nodes checked; 8 verified, 14 corrected, none added or unverifiable. All 18 baseline declarations checked at the pins. Acceptance concerns the finished planning pass; coverage remains planned and G1–G4 remain open. The packet corrections are authoritative until assembly synchronizes the read-only reader.",
+    "checked": [
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/canonical-comparison-naturality",
+        "verdict": "verified",
+        "note": "The identity on additive representatives sends the chosen gauge to subtraction of d0; the actual compatible-pair formula is f(c(φh)). Restriction, coefficients and neutral elements commute."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-quotient-comparison",
+        "verdict": "corrected",
+        "note": "Replaced the nonexistent carrier of an IsColimit certificate with the named cocone apex H1 G M and added its pinned definition. Checked transition direction and pointwise descent versus gauge-normalized neutral restriction."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/positive-defect",
+        "verdict": "verified",
+        "note": "Ordered multiplication gives the positive defect; it is continuous, maps to the kernel, equals b(1) at (1,1), and converts to the pinned positive d1. All four APIs and sign/order tests match."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-central-obstruction",
+        "verdict": "verified",
+        "note": "Associativity and centrality give d2=0. Changing lift by i(a) adds d1 a, so the continuous B2 quotient gives lift independence. The Lean signature uses an actual continuous kernel cochain."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-lift-exactness",
+        "verdict": "verified",
+        "note": "H2pi=0 is exactly existence of a continuous primitive. Correction by its negative gives a cocycle; arbitrary lift differences need the explicitly stated kernel homeomorphism for continuity."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-obstruction-descent",
+        "verdict": "verified",
+        "note": "A continuous section and the central kernel homeomorphism recover continuous cochains. Lifting a constant gauge proves representative independence; compatible pairs prove naturality, and the zero fibre is exactly the image. The full signature remains honestly omitted under G4."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-orbit-transport",
+        "verdict": "verified",
+        "note": "Transport through the parent named/embedded kernel equivalence conjugates the actual invariant action and its stabilizers. Translation d(g)c(g) targets the fibre over [c], and classifies orbits rather than unique kernel classes."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/galois-coefficient-family",
+        "verdict": "corrected",
+        "note": "Native topological groups, jointly continuous automorphism actions, and continuous equivariant coefficient homomorphisms are correctly bundled. Added a composition test and corrected the downstream source locator; structural projections are existing API. Clarified that trivial action identifies Z1 with homomorphisms, whereas H1 still quotients by conjugation."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/unipotent-point-topology",
+        "verdict": "corrected",
+        "note": "Clarified the direction and degree of K⊂B^G. The native unipotent category is consumed, not replanned. Added its final-topology product/polynomial obligations to G1; no field theorem is applied to Bcris."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/cohomology-functor",
+        "verdict": "corrected",
+        "note": "The carrier is the actual gauge quotient and coefficient maps act on representatives. Added a representative test excluding maps that only preserve gauges and the neutral class; source use now points to published section 4."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/cochain-scalar-extension",
+        "verdict": "verified",
+        "note": "The cochain tensor map requires compact-image finite coefficient containment and continuous coordinate projections. Exact tensoring over a field then carries kernels, boundaries and cohomology through degrees 1 and 2. G1 retains the period-quotient obligation."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/filtered-affine-torsor-comparison",
+        "verdict": "corrected",
+        "note": "Specified locally free finite filtration pieces with matching piece ranks, locally split universally injective inclusions, and compatible coaction. Strict affine trivialization and effective descent remain supplied hypotheses in G2."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-level-representability",
+        "verdict": "verified",
+        "note": "With the stated scalar-extension and graded H0 hypotheses, the universal obstruction gives a closed zero fibre. A continuous universal primitive and freeness give a noncanonical H1(vector) product on all algebras. Finite depth is finite type; the inverse system is proalgebraic."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/invariant-coset-representability",
+        "verdict": "corrected",
+        "note": "Retained the closed point-embedding hypothesis of the imported connecting map. The quotient is the nonnormal coset G-set bH; its central invariant factor is H0(vector quotient), as in inherited E1, and its obstruction is in H1 of that vector quotient."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/local-neutral-locus",
+        "verdict": "corrected",
+        "note": "The concrete subtype and coefficient maps express neutralization on every algebra; membership, injection and unique factorization are correct. Changed the Lean extensionality signature to the packet’s iff and replaced the source locator with the version of record."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/local-condition-geometry",
+        "verdict": "corrected",
+        "note": "Replaced vague stable local conditions by an explicit universal affine-linear vector defect criterion proving closedness. Switched to the published revised inertia induction, retained effective all-algebra image/descent, and kept Bcris outside the field case. G3 is still open."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-functor",
+        "verdict": "corrected",
+        "note": "The actual subtype imposes every specified local condition and maps by coefficient stability. Strengthened empty/universal tests to require the equivalence to be the actual inclusion, and corrected the published section/page locator."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-representability",
+        "verdict": "corrected",
+        "note": "Finite fibre products of represented closed local subfunctors give the claimed closed affine finite-type scheme on all algebras, including nilpotents. Corrected its source locator; no field-point intersection is used as a scheme proof."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-localization-naturality",
+        "verdict": "corrected",
+        "note": "Representative maps commute with local restriction, coefficients and central obstruction. Enlarging ramification uses G_Tprime→G_T while preserving the new local conditions. Corrected source locators; no mathematics was replaced."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-selmer-dimension",
+        "verdict": "corrected",
+        "note": "Removed the geometric fibre torsor conclusion from the hypotheses. Required the all-algebra global action, local differences and invariant lifting, then used a chosen geometric point and Yoneda to obtain the vector-scheme fibre. Distinguished U_cr invariants from U_DR base change (E5) and corrected the locator to pp. 128–129."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/depth-one-selmer-comparison",
+        "verdict": "corrected",
+        "note": "NC.2 supplies the geometric Jacobian/Tate path comparison; the additive comparison preserves the precise rational local conditions, and the existing request retains rational Jacobian Kummer input. The proper/open distinction is sound; source locator corrected."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.3/depth-two-cup-obstruction",
+        "verdict": "corrected",
+        "note": "The Heisenberg positive defect is β(a(g),g·b(h)). Made nonzero H1(Qp) explicit using the supplier’s Euler characteristic, and distinguished the existing rational duality theorem from the requested cup-convention comparison. The nonliftable example is not an H0-vanishing representability example; source locator corrected."
+      }
+    ]
+  },
+  "independentReviewAudit": {
+    "job": "REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
+    "issue": 6301,
+    "agent": "Codex",
+    "session": "codex-3kESmR",
+    "authorSession": "codex-9XMBCH",
+    "date": "2026-10-11",
+    "sourceMethod": "Fresh reads of the original v1/v4 source ranges, revised v5 and the published Kim2009 ranges, with a page-image check of published p. 129. No source passage reproduced.",
+    "baselineMethod": "Read every referenced statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; eight unique source modules match the shared lean-check build byte for byte.",
+    "supplierMethod": "Resolved each parent NC.3 and NC.2 node and external node; read ArithmeticGaloisDuality D7, PadicHodgeTheory R06.1/R06.2 and SelmerIwasawaCohomology L4 stage contracts and the eight requests. Read the reviewed library audit and current read-only TauCetiRoadmap JacobianChallenge, ProfiniteCohomology and ReductiveGroups interfaces; screened post-snapshot roadmap suggestions and current Tau Ceti for overlap.",
+    "corrections": [
+      "Finite quotient: named cocone apex versus IsColimit certificate; one baseline citation added.",
+      "Published Kim2009 source and exact section 2/4 locators, including dimension p. 129; retained v4/v5 comparison receipts.",
+      "Locally free filtered torsor pieces and inherited closed point-embedding hypothesis.",
+      "Explicit all-algebra local vector-equation criterion and revised unramified induction.",
+      "All-algebra Selmer action/differences instead of assuming the geometric fibre torsor conclusion; crystalline invariant realization corrected.",
+      "Two extra family/H1 tests; Selmer equivalences fixed to the actual inclusion; neutral-locus extensionality aligned. Clarified trivial-action Z1 versus conjugacy-quotient H1.",
+      "Nonzero local H1(Qp) proved from the existing rational duality/Euler supplier, with cup comparison still requested.",
+      "G1–G3 refined and completed independent review removed from remaining work; no stage closed."
+    ],
+    "readerFollowup": "Assembly must synchronize the read-only NC.3 reader: old kim2009 v4 metadata and section-3/page locators, the colimit carrier wording, filtered pieces, local closedness criterion, all-algebra fibre hypotheses, and the strengthened/additional tests. This review issue does not authorize editing that reader.",
+    "verification": {
+      "blueprintChecker": "0 errors, 0 warnings, including the pinned declaration index.",
+      "leanCheck": "Exit 0 at the pinned shared build; 68 unproved-prototype warnings, no other warnings or errors. All 19 proposed tests elaborate.",
+      "apiTests": "All 35 API names and 19 test names correspond to active signatures/examples or structural projections; extensionality and the inclusion-valued Selmer equivalences inspected mathematically.",
+      "sourceIssues": "Both findings and four source-version receipts pass the section-18 schema checks.",
+      "scope": "Only the packet, suggested file, review report and this job’s handoff change; no parent/NC.2/reader/base atlas file changes."
+    }
+  }
 }
