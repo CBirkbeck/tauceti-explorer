@@ -1,4 +1,105 @@
-# PKG-JacobianChallengePartII — blocked supplier checkpoint
+# PKG-JacobianChallengePartII — supplier gates still unresolved
+
+Refs #7593. Codex (GPT-6), session `codex-c0KRcm`, 11 October 2026.
+Branch: `codex-c0KRcm-jacobian-package`. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6105949857)
+for claim comment `6105948875`. This run claims only this issue.
+
+**Blocked checkpoint.** This continuation independently rechecked the current
+supplier trees, their mathematical contracts and the scheduling gate. The
+requirements recorded below are still unresolved. Only this handoff changes;
+the package cannot meet the upstream ordering and native-signature requirements
+within this issue's authorized paths. The predecessor's target correspondence,
+source receipts and resumption worklist are retained below.
+
+## Fresh dependency check
+
+The atlas main inspected was
+`1e244e56b469b0c84906f48d7f670d09780fd895`, also the clone's starting commit.
+Current remote TauCetiRoadmap main was
+`4b002f622e9d68b627bdce9f6224897305a68bdc`. The complete directory listings of
+the [75 atlas packages](https://github.com/CBirkbeck/tauceti-explorer/tree/1e244e56b469b0c84906f48d7f670d09780fd895/research/blueprint/packages)
+and [50 upstream roadmaps](https://github.com/TauCetiProject/TauCetiRoadmap/tree/4b002f622e9d68b627bdce9f6224897305a68bdc/TauCetiRoadmap)
+contain neither `AbelianSchemesAndArithmeticModuli` nor
+`StableReductionPartII`. The atlas has
+`AbelianSchemesAndArithmeticModuliPartII`, which extends its parent and does
+not replace the missing parent A1–A3 contracts.
+
+I re-read the accepted supplying nodes and the four consuming JC1/JC7
+targets. The dependency contracts remain:
+
+| Required supplier | Exact input that prevents completion |
+| --- | --- |
+| AbelianSchemesAndArithmeticModuli A1 | Rigidity on arbitrary bases, including nilpotent thickenings, and the relative cube/power comparisons. |
+| AbelianSchemesAndArithmeticModuli A2 | Represented dual abelian schemes, normalized Poincaré bundles, biduality and their arbitrary-base-change comparisons. |
+| AbelianSchemesAndArithmeticModuli A3 | Finite locally free multiplication by every nonzero integer, including integers not invertible on the base. |
+| StableReductionPartII MC.4 | Full symplectic level and the fine smooth-curve scheme with its universal curve, over the fixed cyclotomic pairing component. |
+
+The arithmetic R09.4 supplier is still `needs_changes`, dated 2026-10-09.
+The existing AlgebraicModuliForArithmeticGeometry package states relative
+Picard-sheaf and descent targets, but its scope sends polarized abelian
+moduli to AbelianSchemesAndArithmeticModuli. Its README and Suggested.lean do
+not carry the `arith-abelian-scheme`, `arith-relative-abelian-rigidity` or
+`arith-relative-dual` contracts imported by the abelian-scheme packet.
+Accordingly, a package directory with this name does not settle those inputs.
+The predecessor's detailed reconciliation requirement below remains in force.
+
+The direct node prerequisites establish the internal sequence
+**JC1 relative Jacobian/base change/polarization → MC.4 full level → MC.4
+fine-level scheme → JC7 universal-level Jacobian**. This is a coupled bundle
+requirement, rather than an ordering of two whole packages. The queue still
+contains neither missing supplier package job, and this job still has
+`after: []`. `focus.json` and the upstream tier document still provide no
+StableReductionPartII bundle entry. Completion needs the maintainer to arrange
+the supplying packages and that bundle before this package is resumed.
+
+The read-only upstream checkout is
+`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. I read the complete upstream
+JacobianChallenge and AlgebraicVectorBundles READMEs, the reviewed A1–A3
+library audit, and the actual `AbelianVariety` and
+`rigidifiedPicardFunctor` signatures. `AbelianVariety K` has a field base
+`Spec K`; the rigidified functor requires a chosen section and makes no
+section-free representability assertion. The abelian-variety carrier was
+also read at Tau Ceti `f790474`. These interfaces cannot replace the missing
+arbitrary-base contracts. No mathematical target was moved or replanned.
+The cleared-library index was read; no book or source passage was copied.
+
+## Fresh validation and resumption
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
+  **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
+  11 baseline declarations, 14 gaps and 13 requests. All eight layers are
+  planned and none is closed. This is a structural check of the inherited plan.
+- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
+  **exit 0; 78 warnings, all `declaration uses sorry`; zero errors and zero
+  other warnings.** Available memory was 102 GiB. The wrapper is configured
+  for Tau Ceti `f790474` and Mathlib `082e2d3`; the shared Mathlib HEAD was
+  independently confirmed as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  As in the predecessor run, the shared Tau Ceti tree has no Git metadata,
+  so its designation is the wrapper's rather than an independently
+  authenticated commit. No compiler or language server remains running.
+- The checked Suggested.lean SHA-256 is
+  `7378b6dd8878a4bbeac2de54baab772c9b6628d82bd1f27257ad91b63cfc6560`.
+  Its successful elaboration does not supply the 42 omitted geometric
+  targets or the geometric identifications of the existing companions.
+- `git diff --check` and the intake `check-files` check on this handoff:
+  **passed**. The PR changes only this authorized handoff.
+
+Metadata remains absent so that the intake continues to classify this as a
+checkpoint. Fresh inspection of `issues.py:deliverables_complete` confirms
+that package completion is determined by the existence of all outputs;
+adding metadata while the supplier and signature requirements remain unmet
+would falsely classify the job as finished.
+
+Resume from the retained worklist only after the two supplier packages,
+arithmetic-contract reconciliation and coupled bundle are available. This
+issue permits only its package files and handoff; it cannot make those
+external changes. The upstream-tier rule in WORKERS.md permits package
+citations to lower-tier packages and members of the same bundle. That rule
+and the explicit issue path restriction require this blocked checkpoint.
+
+## Predecessor checkpoint and retained continuation details
 
 Refs #7593. Codex (GPT-6), session `codex-yA3Fsq`, 11 October 2026.
 Branch: `codex-yA3Fsq-jacobian-package`.
