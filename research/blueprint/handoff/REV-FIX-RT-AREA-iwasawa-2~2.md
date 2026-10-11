@@ -1,68 +1,78 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-kPnLrK`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103517050).
-Input commit: `0a5333428b0eb64b02aab302dca00b4495a91ef6`.
+Codex (GPT-6), session `codex-0rbyYu`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104041487).
+Input commit: `48928d01b026577b63ef377edce9d5b2a34a7493`.
 
 ## Status: blocked by the live issue's file scope
 
-The bounded six-finding correction review is finished. L3's accepted receipt
-and PMIA's `needs_changes` receipt are already installed. L3-2 and D.1 have
-accepted receipts prepared by `codex-jIGDIK`, reproduced exactly below.
-PMIA's negative verdict is finished review work; do not accept duplicate
-plans merely to obtain positive verdicts everywhere.
+The six-finding bounded correction review is complete. L3's accepted receipt
+and PMIA's justified `needs_changes` receipt are already installed. L3-2 and
+D.1 have accepted records prepared by `codex-jIGDIK`, reproduced exactly below.
+PMIA's negative verdict is completed review work.
 
-This continuation freshly checked all four packets, reread the five current
-native Fitting/stable-transpose declarations, and validated a read-only candidate
-receipt installation. It preserved all mathematical/planning fields and the
-predecessor's full node audits. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-separates this preflight from the predecessor's source review and Lean checks.
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/0a5333428b0eb64b02aab302dca00b4495a91ef6/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
-also retains the earlier audit chain and installation rationale.
+This continuation independently checked the bounded Ferrero–Greenberg and
+classical log-syntomic source contracts, reread the five current native
+Fitting/stable-transpose declarations, and validated exact candidate
+preservation. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+separates these checks from earlier exhaustive node audits and Lean runs.
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/48928d01b026577b63ef377edce9d5b2a34a7493/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+retains the preceding installation evidence.
 
-## Exact scope repair required
+## Required authorization
 
-The live issue #6219 still omits:
+Issue #6219's file list omits:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-The queue lists both as outputs; `issues.deliverables_complete(job)` requires
-their top reviews to name this job. Actual completion is False. Installing
-only the two exact records below in a read-only candidate set makes it True.
-WORKERS.md says, "Edit only the files the issue names, plus your own scratch
-space." Explicit authorization for changing only `review` and `reviewHistory`
-in these two paths was requested in the worker conversation; no answer has
-arrived. Neither elapsed waiting time nor the queue/intake allowlist is approval.
+The queue lists these outputs and the unchanged completion predicate requires
+their top reviews to name this job. Actual completion is False; read-only
+substitution of the exact records below makes it True.
+[WORKERS.md](../WORKERS.md) says, "Edit only the files the issue names, plus
+your own scratch space." Explicit authorization for changing only `review`
+and `reviewHistory` in the two omitted paths was requested in the worker
+conversation and has not arrived. Neither elapsed time nor a queue/intake
+allowlist supplies approval. No scope repair appeared in the live issue.
 
-Resume only when the live issue names both paths or explicit maintainer/user
-authorization permits these two review-only edits. Do not repeat the completed
-source review or append another L3/PMIA receipt. All packets and suggested
-files are byte-identical to this continuation's input commit.
+Resume only after the issue lists these two paths or explicit maintainer/user
+authorization permits those review-only changes. Keep their original review
+attribution. Do not repeat completed source audits or append another L3/PMIA
+receipt. This checkpoint changes only the report and handoff.
 
-## Current validation
+## Validation and open obligations
 
-All four actual packets pass `check_blueprint.py` using the existing pinned
-declaration index with zero errors. L3 has 26 inherited short-API warnings;
-the other three have none. The two candidate packets have zero errors and
-zero warnings. Recursive checks find no excerpt fields. Candidate preservation
-assertions require exact equality of every field except `review` and
-`reviewHistory`, and new history equals old history plus the entire old review,
-including its 79-node or 72-node checked array and original attribution.
+All four packets pass `check_blueprint.py` with zero errors using the pinned
+declaration index. L3 retains 26 inherited short-API warnings; the others have
+none. Both candidate packets pass with zero errors and zero warnings at their
+canonical paths in a read-only context. No recursive excerpt field exists.
+All mathematical/planning fields are equal to input, and each new history is
+old history plus the entire old top review, including all 79 L3-2 or 72 D.1
+checked verdicts. All actual packets and suggested files are byte-identical
+to input. The exact hashes below still match.
 
-No Lean source changed and no new Lean run was performed. Predecessor
-`codex-YXQsbh` ran all four suggested files: L3 fails before body elaboration
-on an unknown `research` import; L3-2, D.1 and PMIA elaborate with respectively
-111, 307 and 1,075 expected proof-placeholder warnings only. Do not weaken the
-owned sibling interfaces to bypass the missing compiled prototype artifacts.
+No Lean source changed and no new Lean run was performed. `codex-YXQsbh`'s
+four runs remain attributed to that session: L3 fails before body elaboration
+on an unknown `research` import; L3-2, D.1 and PMIA elaborate with 111, 307 and
+1,075 expected proof-placeholder warnings only. No process remains running.
 
-Current Tau Ceti remains at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-The five native declarations listed in the report were reread; they still
-supply the generic Fitting and projective-transpose targets duplicated by
-PMIA. Their newer commit must not be attributed to programme pin `f790474`.
-The coordinated PMIA reader/suggested/consumer revision remains required.
-No source PDF was fetched in this continuation; earlier source audits and
-elaborations retain their original attribution. No process remains running.
+Current Tau Ceti is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The report lists the five native imports PMIA must use. Their files are absent
+at programme pin `f790474`. The coordinated PMIA reader/suggested/consumer
+revision remains required. No upstream file was edited or Lake run there.
+
+## Public sources checked in this continuation
+
+The report gives exact theorem, section and printed-page locators. These four
+public PDFs were fetched on 11 October 2026; hashes are SHA-256. No book or
+restricted source was used, and no source passage enters this checkpoint.
+
+| Source | Hash |
+| --- | --- |
+| [Zhao](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1DF77ECEC0EE657089F2E26C0F8AA351/S0013091522000177a.pdf/sum_expressions_for_kubotaleopoldt_padic_lfunctions.pdf) | `923b85f7e3e7e55b4636ff98be2ca5f11a469ec10abe1ee15d6ede55a6936661` |
+| [Ertl–Niziol v2](https://arxiv.org/pdf/1603.01705v2) | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
+| [Colmez–Niziol v4](https://arxiv.org/pdf/1505.06471v4) | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
+| [Nekovar–Niziol v5](https://arxiv.org/pdf/1309.7620v5) | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
 
 ## Installation guards
 
@@ -119,3 +129,7 @@ predicate or queue edit is authorized. Update the report and handoff with
 explicit authorization and the actual installation results, then submit a
 finished review PR with Refs #6219, accurate checks and attribution. A finished
 review retains PMIA's justified `needs_changes` verdict.
+
+Final submission checks: `git diff --check` passes; `intake.py check-files`
+reports two files and zero problems. Actual completion remains False, and the
+read-only candidate completion remains True.
