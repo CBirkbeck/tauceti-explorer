@@ -166532,6 +166532,48 @@
    "reviewReason": "Confirmed at Theorem 4.2, p. 910, against Kim Lemma 3, pp. 108–110: the prescribed input is a basepoint fibre vector. A nonconstant unit-bundle section cannot be the horizontal image of the empty word."
   },
   {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-tail-truncation",
+   "kind": "error",
+   "locator": "Published Lemma 4.7, p.1136; same tail condition in arXiv:2101.01862v4, p.25.",
+   "printed": "The truncation index is constrained only at coefficient indices satisfying ord_p(F_i) + i = n.",
+   "correction": "For all i ≥ m require ord_p(F_i) + i ≥ n, using ord_p(0) = infinity; retain the convergence and multiplicity obligations of the ED.6 root-determination-precision node.",
+   "reason": "The coefficient of T^i in G(T) = p^(−k)F(pT) has valuation ord_p(F_i) + i − k. A polynomial truncation of degree below m modulo p^(n−k) therefore needs a bound for every tail index. For F(x) = p^5 − p x + x^2, m = 2, n = 5, k = 2, the only equality index is 0, whereas G(T) = p^3 − T + T^2 has a unit coefficient in degree 2. This repeats the obstruction already recorded by the ED supplier; it supplies no new root-isolation proof.",
+   "affects": "a stated result",
+   "known": "Already recorded as EffectiveDiophantineMethods/E21, confirmed by REV-EffectiveDiophantineMethods~3. Freshly checked here in the published and v4 passages; not claimed new.",
+   "searched": [
+    "Published Compositio 159 (2023), p.1136",
+    "arXiv:2101.01862v4, p.25",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json, E21"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for Modular Curves: Algorithms and Examples, Compositio Mathematica 159 (2023), 1111–1152; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC6-phi-branch",
+   "kind": "misprint",
+   "locator": "arXiv:2101.01862v4, p.24, final branch equality before Proposition 4.6; compared with published (4.21), p.1134, and branch equality, p.1136.",
+   "printed": "The eventual branch for phi(i) includes an additional c1.",
+   "correction": "The branch is phi(i) = −2 floor(log_p i). Add c1 when applying the separate splitting estimate, as in the final coefficient bound.",
+   "reason": "Substituting the eventual minimum into the published definition (4.21) gives two negative floor-log terms. The published branch agrees; c1 remains in Proposition 4.6's final bound.",
+   "affects": "nothing",
+   "known": "Corrected in the published Compositio 159 (2023), p.1136; already recorded as EffectiveDiophantineMethods/E30.",
+   "searched": [
+    "arXiv:2101.01862v4, pp.24–25",
+    "Published Compositio 159 (2023), pp.1134–1136",
+    "research/blueprint/packets/EffectiveDiophantineMethods.json, E30"
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.6.json",
+   "citation": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk, Quadratic Chabauty for Modular Curves: Algorithms and Examples, arXiv:2101.01862v4; retained only for the version comparison",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AnabelianGeometryAndNonabelianChabauty/E1",
    "kind": "misprint",
    "locator": "arXiv:math/0409456v1, §1, proof of Proposition 3, printed p.10, final displayed product isomorphism (preprint only; version of record not served)",
