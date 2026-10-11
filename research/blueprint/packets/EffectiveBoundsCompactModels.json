@@ -87,11 +87,11 @@
         "checked": "Statement read in the Mathlib source at the pinned commit."
       },
       {
-        "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
-        "provides": "Finite-index ratio of covolumes for full coordinate lattices.",
-        "checked": "Statement read in the Mathlib source at the pinned commit."
+        "provides": "Finite-index ratio of covolumes for full lattices in a finite-dimensional real inner product space, with its intrinsic volume.",
+        "checked": "Independently read the general inner-product-space statement at the pinned Mathlib commit; both lattices must be full in the common intrinsic span."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv",
@@ -120,6 +120,13 @@
         "module": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
         "provides": "Existing explicit cardinal bound for finite-dimensional embedded intermediate fields of inclusive bounded absolute discriminant; ST.0 passes fixed-ambient finiteness to isomorphism-class families.",
         "checked": "Statement read at f790474; the shared-build source was byte-compared with that revision."
+      },
+      {
+        "ref": "mathlib:NumberField.discr_eq_basisMatrix_det_sq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "The discriminant equals the square of the canonical integral-basis embeddings determinant in ℂ. For any other integral basis, unimodular basis change preserves its squared modulus.",
+        "checked": "Independently read at the pinned Mathlib commit; the canonical-basis convention and the unimodular change needed by finiteIndexGram were checked."
       }
     ]
   },
@@ -281,7 +288,8 @@
         "Global conventions in the reader apply; every additional hypothesis is included in the statement."
       ],
       "proofSteps": [
-        "Use the supremum unit body and canonical covolume in GN.1’s second theorem. Use its simultaneous independent minimum witnesses. Nonzero integral elements have house≥1. The ordered-product bound gives hᵢ≤δ^(n/(2(n−i))); for i<m the exponent is≤1."
+        "Identify the native mixed space with Euclidean real coordinates by multiplying each complex coordinate by √2. The real determinant is 2^s, so Euclidean volume pulls back to μcan. Transport the native supremum unit body and the integer lattice along this linear equivalence; the body remains compact, convex, centrally symmetric and has zero in its interior. Apply GN.1’s second theorem and simultaneous independent minimum witnesses to that body, then transport back. This preserves the supremum gauge rather than replacing it by Euclidean length.",
+        "The unit-body volume is at least 2^n, giving the product bound. Nonzero integral elements have house≥1. The ordered-product bound gives hᵢ≤δ^(n/(2(n−i))); for i<floor(n/2)+1 the exponent is≤1."
       ],
       "acceptance": [
         "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
@@ -817,7 +825,8 @@
         "Global conventions in the reader apply; every additional hypothesis is included in the statement."
       ],
       "proofSteps": [
-        "GN.0’s primitive orthogonal-covolume theorem applies to the saturated kernel inside the unimodular coefficient lattice. The finite-index change-of-volume gives covol(D)=q covol(L). Gram determinants compute the transpose image volume. The genuine integral-basis embeddings matrix changes B to A and its determinant has squared modulus |disc K|."
+        "GN.0’s primitive orthogonal-covolume theorem applies to the saturated kernel inside the unimodular coefficient lattice. Regard D and L⊥ℤ as full lattices in their common real span W⊥ with its intrinsic Euclidean measure. The general inner-product-space covolume/index theorem gives covol(D)=q covol(L⊥ℤ)=q covol(L), not a ratio of lower-rank ambient volumes.",
+        "Gram determinants compute the transpose image volume. Write A=T B using the embeddings matrix T of the actual integral basis b. The native discr_eq_basisMatrix_det_sq is stated for the canonical integral basis; a unimodular integral change of basis, with determinant ±1, gives |det T|²=|disc K| for b. Taking determinants of A A*=T(B Bᵀ)T* gives the stated identity. Rational surjectivity makes B full row rank and its Gram determinant positive."
       ],
       "acceptance": [
         "For κ=2i,d=1 the identity reads 4=16/4; omitting the index or treating α as an integral basis fails."
@@ -826,7 +835,8 @@
         "EffectiveBoundsCompactModels:CM.2/transpose-image",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
-        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex"
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'",
+        "mathlib:NumberField.discr_eq_basisMatrix_det_sq"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
@@ -1343,6 +1353,11 @@
           "name": "NumberField.CompactModel.coefficientBox_mono",
           "role": "relation",
           "statement": "Increasing B or d gives an inclusion of boxes for fixed r."
+        },
+        {
+          "name": "NumberField.CompactModel.coefficientBox_floor",
+          "role": "compatibility",
+          "statement": "For a real F≥0, E∈ℬ(r,d,floor₊F) iff every equation has total degree≤d and every integer coefficient, cast to ℝ, has absolute value≤F."
         }
       ],
       "tests": [
@@ -1386,7 +1401,7 @@
         "Global conventions in the reader apply; every additional hypothesis is included in the statement."
       ],
       "proofSteps": [
-        "The coefficient equivalence makes the box a finite product of rM copies of [−B,B], each of size 2B+1. Integer absolute values≤F iff they are≤floor₊F. No sparsity, monicity or nonsingularity filter is assumed."
+        "The coefficient equivalence makes the box a finite product of rM copies of [−B,B], each of size 2B+1. Use coefficientBox_floor for the equivalence between a nonnegative real height and its natural floor. No sparsity, monicity or nonsingularity filter is assumed."
       ],
       "acceptance": [
         "At r=1,d=0,B=1 the exact count is 3; replacing 2B+1 by 2B loses the zero choice."
@@ -1568,7 +1583,7 @@
       "sources": [
         {
           "sourceId": "COUVEIGNES20",
-          "locator": "Theorem 2, p. 487; §4, p. 496",
+          "locator": "Theorem 2, p. 488; §4, p. 496",
           "match": "The small-model theorem covers the cutoff by component models; counting all components rather than one tuple per field supplies the multiplicity factor."
         }
       ],
@@ -1612,7 +1627,7 @@
       "sources": [
         {
           "sourceId": "COUVEIGNES20",
-          "locator": "Theorem 2, p. 487; §4, p. 496",
+          "locator": "Theorem 2, p. 488; §4, p. 496",
           "match": "Theorem 2 and its proof give the logarithmic-cubic discriminant exponent after counting coefficients and isolated components."
         }
       ],
@@ -1666,5 +1681,148 @@
     }
   ],
   "gaps": [],
-  "sourceIssues": []
+  "sourceIssues": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EffectiveBoundsCompactModels",
+    "date": "2026-10-11",
+    "notes": "Independent complete review by Codex, session codex-xn7VMm, of all 27 nodes, the entire published Couveignes paper, all 16 final pinned declarations, exact supplier contracts, current upstream boundaries, APIs/tests, suggested signatures and planets. Corrected volume transport, intrinsic index citation, a missing discriminant prerequisite, the floor API/signature and two page locators. No contradiction remains. The single explicit SF.5 arbitrary-dimensional isolated Bézout request remains an honest supplier dependency; acceptance is of the plan, not implementation. No source erratum was found.",
+    "checked": [
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.0/canonical-measure",
+        "verdict": "verified",
+        "note": "Verified §2 p.489, the native product measure and supremum norm, the factor 2 per complex place, all three API items and three normalization tests."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.0/canonical-covolume",
+        "verdict": "verified",
+        "note": "Verified §2 pp.489–490 against the pinned product-measure covolume theorem and rootDiscr; scaling cancels 2^(−s) and |disc|≥1 gives δ≥1."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.0/first-half-minima",
+        "verdict": "corrected",
+        "note": "Made the √2 coordinate transport explicit so GN’s inner-product-space theorem applies to the transported supremum body with exactly μcan. Checked the ordered-product bound, parity of floor(n/2)+1, and independence rather than integral-basis status."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.0/product-span",
+        "verdict": "verified",
+        "note": "Verified §2 p.490. A nonzero annihilating functional gives a nondegenerate multiplication pairing over any finite field extension, including inseparable ones; dim V≤n−dim V is the required contradiction."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.0/short-integers",
+        "verdict": "verified",
+        "note": "Verified Proposition 1 p.490: products from a subspace of dimension greater than n/2 span K and have house≤δ². The additional Q(i) example correctly rejects the integral-basis inference."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.1/parameter-tuple",
+        "verdict": "verified",
+        "note": "Verified §3 p.491 and native integral sums. Checked signed parameters, embedding compatibility, the nBA house bound and the zero, coordinate and negative tests."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+        "verdict": "verified",
+        "note": "Verified §3 pp.491–492 and GI.5 generic-affine/minor-degree. The invertible embeddings change preserves a nonzero minor; its parameter degree is≤dn(r+1), so the inclusive grid has degree+1 values. Printed d≥5 and r≥1 are retained."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.1/evaluation-surjective",
+        "verdict": "verified",
+        "note": "Verified §3 pp.492–493 and GI.1 first-jet/value-kernel split. Separable embeddings and faithful scalar extension descend the rational value map; integral surjectivity is not asserted."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.2/integral-evaluation",
+        "verdict": "verified",
+        "note": "Verified §3 p.493, GI.0 coefficient coordinates and native aeval. Checked linearity and coefficient/polynomial compatibility against the constant, zero-tuple and square tests."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.2/relation-lattice",
+        "verdict": "verified",
+        "note": "Verified §3 p.493. Torsion-free target makes the integer kernel saturated; rational surjectivity gives rank M−n and the real kernel. All volumes are intrinsic, and all three tests distinguish actual relations."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.2/transpose-image",
+        "verdict": "verified",
+        "note": "Verified §3 p.493 and native dualMap. The transpose lies in the integral orthogonal complement but can have positive index greater than one. Checked all three API items and the Q(i), κ=2i index-two test."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.2/finite-index-gram",
+        "verdict": "corrected",
+        "note": "Replaced the coordinate-only index citation by its general inner-product-space variant, added the direct native discriminant determinant citation, and specified common-span volume and unimodular change from the canonical integral basis. Independently derived A=T B and the q² identity."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.2/relation-covolume",
+        "verdict": "verified",
+        "note": "Verified §3 pp.493–494 and GN.0 Hermitian Gram Hadamard. Monomial modulus≤C gives diagonal≤MC²; q≥1 and |disc|≥1 yield both displayed bounds with the same metric."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.3/short-relations",
+        "verdict": "verified",
+        "note": "Verified §3 pp.494–495 and the exact GN.1 witnesses, ball-volume and ordered-product suppliers. The first k=ℓ+1−n indices have ℓ−i≥n, giving H₀ and codimension n−1; the capacity implies k≥r."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.3/full-rank-block",
+        "verdict": "verified",
+        "note": "Verified §3 p.494 independently: n disjoint nonzero block covectors would annihilate an image of codimension≤n−1. Dimension alone establishes one full block, which is precisely the statement."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.3/common-minor",
+        "verdict": "verified",
+        "note": "Verified §3 pp.494–495. One selected r-minor evaluates to a nonzero element of K and injective embeddings propagate that same minor. Native pderiv/evaluation conventions and the retained coefficient bound agree."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.3/model-algebra",
+        "verdict": "verified",
+        "note": "Verified §3 pp.491,495 and the exact SF.0 Jacobian-localization contract. Native quotient/Away permits the zero algebra; the lift is unique and a surjection to a field gives a direct factor. All three tests detect repeated roots, two components or a positive-dimensional discarded locus."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.3/explicit-model",
+        "verdict": "verified",
+        "note": "Verified Proposition 2 p.495 with r≥1,d≥5 and M≥n(r+1). The H₀ exponents agree with the successive-minima proof, and the generating tuple makes the localized map onto K."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.4/central-parameter",
+        "verdict": "verified",
+        "note": "Verified §4 p.495, least positive r and the total convention r(0)=1. Checked specification, minimality, monotonicity and r(1)=1,r(2)=2,r(3)=3."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.4/central-estimates",
+        "verdict": "verified",
+        "note": "Independently checked the explicit variant of §4 equation (1), pp.495–496: r₀=ceil(2log n/log2), consecutive Catalan ratio<4, and all logarithmic contributions. The threshold 65536 and height exponent 40 satisfy the displayed inequalities."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.4/uniform-model",
+        "verdict": "verified",
+        "note": "Verified Theorem 1 p.487 and §4 pp.495–496. The explicit threshold ensures d=r≥5; centralEstimates retains height exponent 40 and its weakening to Q=65536."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/coefficient-box",
+        "verdict": "corrected",
+        "note": "Added coefficientBox_floor to the API and suggested file so the real-height/natural-floor bridge used by the count has an explicit signature. Checked inclusive endpoints, zero equations and all three existing tests."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/coefficient-box-card",
+        "verdict": "corrected",
+        "note": "Linked the real-height clause to the new floor API. Verified exactly r·choose(d+r,d) independent integer coefficients and 2B+1 choices each, without a nonsingularity or monicity restriction."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/component-class",
+        "verdict": "verified",
+        "note": "Verified §4 p.496 and ST.0’s native embedded-field quotient contract. A residue field is embedded into ℚbar only to choose its isomorphism class; embedding independence, quotient characterization and all three factor tests agree."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/isolated-components",
+        "verdict": "verified",
+        "note": "Verified §4 p.496 and the precise open SF.5 request. Homogenization plus isolated-intersection lengths bounds simple Jacobian-open points even with other positive-dimensional components. Zero/constant equations are handled separately; the plane-only supplier is not overstated."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/finite-surjection",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 2’s printed page to 488. Verified δ≤H^(1/n), the floor bridge, and coverage of cutoff classes by the finite union of model components. The d^r multiplicity factor avoids choosing one equation tuple injectively per field."
+      },
+      {
+        "nodeId": "EffectiveBoundsCompactModels:CM.5/field-count",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 2’s printed page to 488. Independently checked the logarithmic bound≤2000n(log n)^4+1920(log n)^3log H and absorption by Q=65536, including real H=1. Pinned Hermite results supply fixed-ambient finiteness, not the new degree-sensitive bound."
+      }
+    ]
+  }
 }

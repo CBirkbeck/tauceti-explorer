@@ -401,6 +401,11 @@ example : centralParameter 3 = 3 := by sorry
  theorem coefficientBox_finite (r d B : ℕ) : (coefficientBox r d B).Finite := by sorry
  theorem coefficientBox_mono (r d e B C : ℕ) (hd : d ≤ e) (hB : B ≤ C) :
     coefficientBox r d B ⊆ coefficientBox r e C := by sorry
+ theorem coefficientBox_floor (E : Fin r → MvPolynomial (Fin r) ℤ)
+    (F : ℝ) (hF : 0 ≤ F) :
+    E ∈ coefficientBox r d (Nat.floor F) ↔
+      (∀ i, (E i).totalDegree ≤ d) ∧
+      ∀ i a, |((E i).coeff a : ℝ)| ≤ F := by sorry
 -- coefficientBox_zeroHeight
 example : coefficientBox r d 0 = {0} := by sorry
 -- coefficientBox_constants
