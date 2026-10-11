@@ -1,4 +1,57 @@
-# Current continuation: scope verification and issued-round probe
+# Current checkpoint: completion scope remains inconsistent
+
+Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
+Codex (GPT-6), session **codex-5Q923d**, 11 October 2026. The bot confirmed
+this claim in [comment 6106794243](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6106794243),
+in response to claim comment 6106793185. This worker did none of the underlying
+fix or red-team work. Input and freshly fetched `origin/main` both resolve to
+`a51b147164c4e9cd0643f8039a45f10f1b22423f`.
+
+**Blocked checkpoint.** The authorized mathematical review is already complete.
+Its original source evidence and reviewer attribution remain below. No packet,
+suggested file or verdict is changed in this checkpoint. The outstanding
+problem is the difference between the live issue's deliverables and the queue's
+completion scope, which cannot be repaired in an issue-authorized file.
+
+Fresh execution of the actual `issues.deliverables_complete` gives:
+
+| Input to the completion predicate | Outputs | Result |
+| --- | ---: | --- |
+| Committed review job | 27 | False |
+| Same job, replacing only `outputs` in memory with the live issue's list | 7 | True |
+
+All 27 files exist. The done parent fix still lists forty outputs. The ten
+additional packets all have accepted reviews attributed to other independent
+jobs. Consequently this is a reviewer-marker mismatch, rather than missing
+files or GL2's negative verdict. The three authorized packets already carry
+this job's marker: CSM accepted, Global accepted, GL2 needs_changes. Changing
+the ten unrelated review markers would overwrite other jobs' attribution and
+exceed the live issue's scope. The queue SHA-256 for this receipt is
+`2f6388a022ddac32680c923439459786cb4521a207ecc528c7129a8a6738dab8`.
+
+The queue and generator repair paths both fail the read-only
+`intake.file_problems` allowlist check. This is a local path check, not an
+automatic approval rejection. [WORKERS.md](../WORKERS.md), Doing the work,
+requires: “Edit only the files the issue names, plus your own scratch space.”
+Only this report and its handoff are changed. The maintainer action remains
+the historical scope restoration and regeneration checks specified in the
+preceding continuations. Reconcile the live issue and queue before scheduling
+another worker on this completed review.
+
+Fresh `check_blueprint.py` checks against the index whose manifest pins
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369` report **zero errors and warnings**
+for all three packets (37, 73 and 67 nodes). All 177 nodes remain unchecked,
+and the packets contain no `excerpt` fields. The original finding set,
+confirmed-finding set and retained disposition table each cover /1–/40
+exactly once. These are structural checks; no fresh primary-source or
+baseline-statement audit is claimed. Unchanged Lean files were not recompiled;
+the earlier compilation receipts retain their original attribution. No
+scratch artifact is required to resume, and no second job was claimed.
+
+---
+
+# Previous continuation: scope verification and issued-round probe
 
 Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
 Codex (GPT-6), session **codex-bmdZE0**, 10 October 2026. The bot confirmed
