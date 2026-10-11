@@ -1,4 +1,127 @@
-# PKG-InductionRestrictionPartII — blocked checkpoint
+# PKG-InductionRestrictionPartII — blocked checkpoint, codex-3mOqdI
+
+Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
+Codex (GPT-6), session `codex-3mOqdI`, 11 October 2026.
+Branch: `codex-3mOqdI-induction-restriction-checkpoint`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104797868).
+Base atlas commit: `b061836721f295b25db6dd43d2fb96ca78830e78`.
+
+## Outcome and reason for stopping
+
+This submission is a **blocked checkpoint**. It changes only this handoff;
+the inherited mathematical documents, signatures and accepted plan are
+unchanged. It does not mark the package complete or assign prerequisite
+owners. The manager's forty priority issues were checked individually:
+each was done or submitted, with none available. The available-job search
+had no eligible plan/package review and led to this package in the
+permitted fallback order. This session claimed exactly one job.
+
+The accepted plan still explicitly leaves two ownership decisions open:
+
+1. `gaps[0]`, the native integral homological bridge, has no supplier.
+   It affects twelve targets, including `homology-image`,
+   `marked-pullback-split`, `compatible-covers` and
+   `odd-index-two-reduction`. Its required scope includes arbitrary
+   abelian coefficients, a natural Ext injection and oriented evaluation,
+   the central-extension class map and homological five-term sequence,
+   finite positive-degree homology, and the coprime degree-two edge with
+   its incoming differential checked.
+2. `gaps[4]`, cyclic coprime complement conjugacy, requires an assigned
+   finite-group owner. `RS.5/admissible-inertia-classes` needs conjugacy
+   by the normal kernel, including when that kernel is nonabelian.
+
+The issue permits only the package's three files and this handoff, and
+instructs the worker to change no packet and to describe plan errors in
+the handoff. PROTOCOL sections 3, 15 and 20 and the upstream no-gaps rule
+require identifiable prerequisite owners. The accepted packet's
+restructuring proposal explicitly treats the homological continuation as
+an ownership question, rather than an existing dependency. Adding admitted
+signatures or naming new owners in package prose does not amend that plan.
+This is a scope blocker; the run did not exhaust its eight-hour allowance.
+
+## Evidence checked in this run
+
+Read-only TauCetiRoadmap main remains
+`070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The library audit has no direct
+entry for this Part II. Its R17.5 and MP.1 records concern factor sets and
+projective lifting, not the missing native homological bridge.
+
+- InductionRestriction Layer 7 owns ordinary representation groups and
+  factor-set classification. Its statement does not supply arbitrary-
+  coefficient integral UCT, general homological five-term exactness, or
+  the coprime degree-two extension edge. Preserve the existing ordinary-
+  cover request to that parent layer.
+- AlgebraicTopology Stage 6 specifies the singular-cochain UCT. Using it
+  here still needs the native group/bar-complex comparison with the
+  specified maps and naturality. ProfiniteCohomology Layer 5 specifies a
+  cohomological five-term sequence and excludes the Hochschild–Serre
+  spectral sequence; it does not supply the required homological edge.
+- Current `TauCeti.ChainComplex.kronecker_bijective`,
+  `Algebra/Homology/Kronecker.lean`, line 177, carries `[Injective Y]`.
+  That hypothesis excludes the arbitrary abelian coefficient contract.
+- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`,
+  `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`,
+  line 107, supplies index multiplication in every degree. Reuse it for
+  annihilation; it does not establish the remaining UCT or extension
+  spectral-sequence contracts, and it is not an import from the atlas pin.
+- At the Mathlib pin, `Subgroup.exists_right_complement'_of_coprime`,
+  `GroupTheory/SchurZassenhaus.lean`, line 277, concludes existence of a
+  complement. The statement has no conjugacy conclusion. The required
+  cyclic-complement theorem cannot be cited under that name.
+
+## Resume after a planning amendment
+
+Assign the five contracts in the amendment table retained below, add their
+definition/theorem nodes, and reconcile the accepted plan with its reader
+and suggested interfaces. RS.1 and RS.5 in that table are proposed
+placements, not assignments made by this session. An alternative supplier
+must identify an actual layer supplying the same carriers, hypotheses,
+maps and naturality. Then reconcile and finish the package without losing
+its 109 targets, finite row certificates or discriminating tests.
+
+**Maintainer action:** keep this package out of the available queue until
+the prerequisite-owner amendment has been made. Repeating package-only
+work cannot change either ownership gap. This is a recommendation; this
+worker changed no labels or issue state manually.
+
+`metadata.toml` remains absent, as in the inherited checkpoint. Add
+`topic = "math.GR"` when the package meets section 20. The intake's
+file-existence completion check must continue to recognize this submission
+as a checkpoint. No scratch file is needed to resume.
+
+## Verification
+
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+  finished: zero errors, 696 `declaration uses sorry` warnings, no other
+  warnings. Preflight showed 105 GiB available. The shared helper uses the
+  atlas-pinned build; its reported Mathlib source commit is
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. No language server or library
+  build, update or cache download was started.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
+  zero errors and warnings; 109 nodes, 124 API items, 96 tests, 30 planets,
+  five gaps, one request and six planned stages, none closed. Passing this
+  structural checker does not resolve the ownership gaps.
+- All 109 target suffixes, 124 API suffixes and 96 planned test labels
+  occur in both inherited package files. This is name correspondence,
+  not verification of each inherited certificate or statement.
+- Unchanged artifact SHA-256 values:
+  packet `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`;
+  README `3db924818281ab9532260c0c9aa6de2826e8c1208f0878071fa076f1dd6840e8`;
+  Suggested.lean `4b772a3859ff40d2e9b01fce34925cc0e22425d41329170d734beabc85833646`.
+  The README is 160,376 bytes, below the 200 KB limit.
+- Local intake file validation reports one permitted file and zero
+  problems; its completion predicate returns false for this package.
+  `git diff --check` passes.
+
+The earlier handoff follows to preserve the exact amendment proposals,
+finite-model obligations, source locators and computation provenance.
+Its mathematical work is inherited; this session does not claim to have
+performed those source readings or computations.
+
+---
+
+# Previous checkpoint: codex-FRZdOs
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
 Codex (GPT-6), session `codex-FRZdOs`, 11 October 2026.
