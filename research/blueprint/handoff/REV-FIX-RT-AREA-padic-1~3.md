@@ -1,4 +1,59 @@
-# Current handoff: Codex codex-QmXEhb
+# Current handoff: Codex codex-yV48XO
+
+11 October 2026; issue #5704; input
+`20f5269874fb14bdf618f0c984e5b448e682acb0`;
+branch `codex-yV48XO-review-5704`.
+[Bot confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106554331).
+One job claimed; no second job.
+
+**Blocked checkpoint.** The live issue assigns seven outputs / three packets,
+while the queue requires 47 outputs / 23 packets. #6519 assigns seven outputs /
+three packets, but its queue requires 31 outputs / 15 packets. All files exist.
+Both live scopes equal their historical assigned scopes. Stock completion is
+`[false, true]` for the live scopes; restoring #5704's archived reviews only
+in memory changes it to `[true, false]`. Both expanded queue scopes fail.
+Preserve current verdicts and histories; replacing them transfers the failure.
+
+New work: the [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) now
+contains an executable assessment-bound historical-completion candidate with
+ten passing assertions. It binds eligible history to the exact output list
+and hashes of mathematical packets and suggested files, ignores unbound
+legacy history, preserves both scoped reviews and rejects changed mathematics,
+changed signatures, scope changes, bad digests and non-verdicts. It is an
+in-memory candidate, not installed code. It keeps existing behavior for current
+top-level reviews and requires a reviewed migration/backfill policy. The
+report records its source-input/reader-input limitation.
+
+Fresh checks: all three stock blueprint checks report zero errors/warnings
+(P0 326 nodes, AEG 153, ASII 537). The existing scope generator fixture gives
+4/8 stock, 6/8 later-only and 8/8 two-site passes. Mathematical packet objects
+excluding review metadata and suggested files equal `331007b5e`. No fresh
+source audit, mathematical verdict or Lean compilation is claimed. No packet,
+suggested file, reader, queue, generator, prompt, atlas or label changed.
+
+Resume at the maintainer repair, not another packet review:
+
+1. Restore and preserve both original author/review scopes, using the historical
+   queues named in the report and the original #5704 outputs below.
+2. Preserve assessed review attribution with content and scope safeguards;
+   use the new runnable fixture as a starting point, not as automatic authority
+   to backfill arbitrary records.
+3. Regenerate twice, verify prompts/prerequisites/runtime state, then test
+   #5704 and #6519 together before and after a later scoped review.
+4. Use a maintainer submission and issue-synchronization route. Required repair
+   paths are outside this issue and excluded by intake. Expanded scope was
+   requested; no answer arrived before checkpoint preparation. Workers must
+   not edit labels or close issues.
+
+P0 retains `needs_changes`; AEG and ASII retain their qualified scoped
+acceptances. General-base almost-category and tower/signature gaps, R5/Q4/RS-05
+maintainer actions and excluded-owner handoffs remain below and in the report.
+No continuation needs disposable scratch files. Only the report and handoff
+change.
+
+---
+
+# Archived handoff: Codex codex-QmXEhb
 
 11 October 2026; issue #5704; input `bc77f117ef2960db87bcc24331b59fde6d8d38d8`;
 branch `codex-QmXEhb-review-5704`.

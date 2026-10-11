@@ -1,4 +1,276 @@
-# Current checkpoint: Codex codex-QmXEhb, 11 October 2026
+# Current checkpoint: Codex codex-yV48XO, 11 October 2026
+
+Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
+input `20f5269874fb14bdf618f0c984e5b448e682acb0`;
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6106554331).
+This is a **blocked checkpoint**. The assigned three-packet mathematical
+review already exists below. This continuation verifies its administrative
+blockers and adds a reproducible candidate for preserving assessed review
+history. It adds no mathematical verdict and changes no packet or suggested
+file. One issue was claimed; no second job was taken.
+
+## Fresh evidence
+
+The output lists were parsed from the live issue bodies and independently
+compared with the historical queues at `c69e5b6c9` and `888f12f5c9`.
+
+| Job | Live outputs / packets | Queue outputs / packets | Additional packets |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | 20 |
+| #6519 | 7 / 3 | 31 / 15 | 12 |
+
+Every queue output exists. The unmodified completion function produces
+`[false, true]` for the two original issue scopes and `[false, false]` for the
+expanded queue scopes. Restoring #5704's archived verdicts only in memory
+produces `[true, false]` for the original scopes. Thus overwriting current
+reviews would transfer the failure to #6519. No verdict was overwritten.
+
+The three assigned packets, after excluding only `review` and `reviewHistory`,
+equal their mathematical objects at `331007b5e`. All three suggested files
+are byte-identical to that commit. This comparison preserves the earlier
+review's evidence; it does not constitute a fresh source audit. Current
+Perfectoid P0 `needs_changes` and the scoped AEG/ASII acceptances retain all
+qualifications recorded below.
+
+The stock blueprint checker reports zero errors and zero warnings for P0
+(326 nodes), AdicEtaleGeometry (153) and AdicSpacesPartII (537). The existing
+eight-case generator fixture again gives 4/8 passing stock cases, 6/8 for the
+later-round-only candidate and 8/8 for the two-site scope-preservation
+candidate. No link map or restructuring proposal is assigned to this review.
+No Lean file changed or was compiled in this continuation; earlier successful
+elaborations remain attributed to the workers who ran them.
+
+## Content-bound review-history candidate
+
+The prior checkpoint requires content and scope safeguards before an archived
+verdict can count. The new fixture below supplies an executable candidate for
+that fallback. It binds a historical review to its exact output list and to
+SHA-256 digests of every packet and suggested file in that list. Packet hashes
+exclude only top-level review metadata; suggested-file hashes include every
+byte. The report remains an existence requirement rather than a hashed input,
+so adding a continuation to the report does not create a self-referential hash.
+
+For #5704, binding is performed only after checking assessed mathematical
+content against its earlier review merge at `331007b5e`. #6519's current
+verdicts are bound to the current scoped files. Both bindings are made only in
+memory. Legacy history without such an assessment is ignored. A matching
+historical verdict completes review work; it does not promote a packet or
+replace the current verdict used by promotion.
+
+All ten fixture assertions pass:
+
+| Scenario | #5704 | #6519 |
+| --- | --- | --- |
+| Bound original scopes, candidate | true | true |
+| Same bound histories, stock predicate | false | true |
+| Expanded queue scopes | false | false |
+| Move a bound current verdict into history | true | true |
+| Change a packet's mathematical statement | false | true |
+| Add unrelated review metadata | true | true |
+| Change a suggested file | false | true |
+| Narrow #5704's output list | false | true |
+| Corrupt #5704's archived digest | false | true |
+| Replace #5704's archived disposition with a non-verdict | false | true |
+
+The last six assertions exercise invalidation and metadata stability. They
+preserve stock treatment of an applicable top-level review, so #6519's `true`
+in the changed-content cases is compatibility behavior, not a new assessment
+of changed mathematics. This candidate deliberately addresses historical
+completion only. It is not a complete migration, a whole-generator test, an
+assessment of omitted supplier mathematics, or an authorization to stamp
+arbitrary historical records. Review producers, archival handling and
+backfilling must establish what each review actually assessed; the fixture's
+content equality is evidence for this specific historical comparison only.
+The owner must also decide how to record source inputs and any assessed
+reader files outside a review's editable output list.
+
+## Required maintainer action
+
+[WORKERS.md](../WORKERS.md) says: "Edit only the files the issue names,
+plus your own scratch space." `make_queue.py`, `issues.py`, `queue.json`
+and the generated prompts are outside this assignment; all four classes of
+path fail `intake.ALLOWED`. The repair needs explicit expanded scope and a
+maintainer submission route. Those were requested during this run; no
+response or authorization was received before this checkpoint was prepared.
+
+Restore both author and review scopes for #5704 and #6519, preserve issued
+assignments during regeneration, and bind eligible historical assessments
+using established content evidence. Check both original scopes together
+before and after another legitimate scoped review. Regenerate twice; verify
+stable output lists, prompts, prerequisites and runtime state. Arrange issue
+synchronization through the maintainer route. Newly available owner work needs
+its own scoped assignments. Workers must not change labels or close issues.
+
+Only this report and its handoff change. The next continuation should resume
+at that repair, using the executable candidate below and the existing
+scope-preservation fixture, rather than repeat the completed packet review.
+All mathematical gaps and excluded-owner handoffs below remain intact.
+
+<details><summary>Read-only assessment-bound history regression fixture</summary>
+
+Run from the repository root. All substitutions, metadata bindings and test
+mutations occur in memory. It invokes a candidate derived from the actual
+stock completion function and writes no repository file. The assertions
+were run against this checkpoint's input commit.
+
+```python
+import ast, copy, hashlib, json, subprocess, sys
+from pathlib import Path
+from unittest.mock import patch
+sys.dont_write_bytecode = True
+sys.path.insert(0, 'research/blueprint')
+import issues
+ROOT = Path.cwd()
+FIRST = 'REV-FIX-RT-AREA-padic-1~3'
+SECOND = 'REV-FIX-RT-AREA-padic-2~4'
+queue = {j['id']: j for j in json.loads(
+    (ROOT / 'research/blueprint/queue.json').read_text())['jobs']}
+jobs = []
+for jid, commit in [(FIRST, 'c69e5b6c9'), (SECOND, '888f12f5c9')]:
+    old = json.loads(subprocess.check_output(
+        ['git', 'show', commit + ':research/blueprint/queue.json'], text=True))
+    old = {j['id']: j for j in old['jobs']}
+    job = copy.deepcopy(queue[jid])
+    job['outputs'] = old[jid]['outputs']
+    assert len(job['outputs']) == 7
+    jobs.append(job)
+
+# Proposal: metadata-only changes do not invalidate a mathematical assessment.
+# Everything else in the JSON and every byte of Suggested.lean is assessed.
+def digest(path, root):
+    file = root / path
+    if file.suffix == '.json':
+        data = json.loads(file.read_text())
+        for key in ('review', 'reviewHistory'):
+            data.pop(key, None)
+        content = json.dumps(data, sort_keys=True, ensure_ascii=False,
+                             separators=(',', ':')).encode('utf-8')
+    else:
+        content = file.read_bytes()
+    return hashlib.sha256(content).hexdigest()
+
+def assessed_paths(job):
+    return sorted(p for p in job['outputs'] if
+        Path(p).parent.name in ('packets', 'links', 'keydefs', 'restructure')
+        and p.endswith('.json') or p.startswith('research/blueprint/suggested/'))
+
+def assessment(job, root):
+    return {'outputs': sorted(job['outputs']),
+            'sha256': {p: digest(p, root) for p in assessed_paths(job)}}
+
+def review_complete(path, job, root):
+    data = json.loads(path.read_text())
+    def belongs(review):
+        return (isinstance(review, dict) and
+                review.get('reviewer') == 'independent-review-' + job['id'] and
+                review.get('status') in ('accepted', 'needs_changes', 'rejected'))
+    # Keep existing behavior for top-level verdicts. Only the archived fallback
+    # is proposed here; this is not a complete orchestration migration.
+    if belongs(data.get('review')):
+        return True
+    expected = assessment(job, root)
+    return any(belongs(r) and r.get('assessment') == expected
+               for r in data.get('reviewHistory', []))
+
+# Substitute only the relevant block of the real completion function in memory.
+node = next(n for n in ast.walk(ast.parse(Path(issues.__file__).read_text()))
+            if isinstance(n, ast.FunctionDef) and n.name == 'deliverables_complete')
+code = ast.unparse(node)
+old = "reviews = [json.loads(path.read_text()).get('review') or {} for path in reviewed]\n                    return all((review.get('reviewer') == f\"independent-review-{job['id']}\" and review.get('status') in ('accepted', 'needs_changes', 'rejected') for review in reviews))"
+assert old in code
+code = code.replace(old, 'return all(review_complete(path, job, root) for path in reviewed)')
+env = dict(vars(issues), review_complete=review_complete)
+exec(compile(code, '<assessment candidate>', 'exec'), env)
+candidate = env['deliverables_complete']
+
+def results(function):
+    return [function(j) for j in jobs]
+assert results(issues.deliverables_complete) == [False, True]
+assert results(candidate) == [False, True]  # Unbound legacy history cannot count.
+
+# Bind FIRST only after separately verifying its assessed mathematics against
+# the old review merge. Bind SECOND only to its current assessed files.
+for p in assessed_paths(jobs[0]):
+    file = ROOT / p
+    previous = subprocess.check_output(['git', 'show', '331007b5e:' + p])
+    if p.endswith('.json'):
+        now, then = json.loads(file.read_text()), json.loads(previous)
+        for data in (now, then):
+            for key in ('review', 'reviewHistory'):
+                data.pop(key, None)
+        assert now == then, p
+    else:
+        assert file.read_bytes() == previous, p
+
+virtual = {}
+for job in jobs:
+    bound = assessment(job, ROOT)
+    for p in assessed_paths(job):
+        if not p.endswith('.json'):
+            continue
+        path = ROOT / p
+        data = virtual.setdefault(path, json.loads(path.read_text()))
+        for r in [data.get('review', {})] + data.get('reviewHistory', []):
+            if r.get('reviewer') == 'independent-review-' + job['id']:
+                r['assessment'] = copy.deepcopy(bound)
+
+read_text, read_bytes = Path.read_text, Path.read_bytes
+lean_changes = {}
+def virtual_text(path, *args, **kwargs):
+    if path.resolve() in virtual:
+        return json.dumps(virtual[path.resolve()])
+    return read_text(path, *args, **kwargs)
+def virtual_bytes(path, *args, **kwargs):
+    return lean_changes.get(path.resolve(), read_bytes(path, *args, **kwargs))
+
+cases = []
+def check(name, expected, fn=candidate, selected=jobs):
+    got = [fn(j) for j in selected]
+    assert got == expected, (name, got, expected)
+    cases.append({'case': name, 'complete': got})
+
+with patch.object(Path, 'read_text', virtual_text), patch.object(Path, 'read_bytes', virtual_bytes):
+    check('bound original scopes', [True, True])
+    check('stock still collides', [False, True], issues.deliverables_complete)
+    check('expanded scopes rejected', [False, False], selected=[queue[FIRST], queue[SECOND]])
+    p0 = ROOT / 'research/blueprint/packets/PerfectoidSpaces--P0.json'
+    saved = copy.deepcopy(virtual[p0])
+    archived = next(r for r in reversed(virtual[p0]['reviewHistory'])
+                    if r['reviewer'] == 'independent-review-' + FIRST)
+    virtual[p0]['reviewHistory'].append(virtual[p0]['review'])
+    virtual[p0]['review'] = copy.deepcopy(archived)
+    check('later review can move to history', [True, True])
+    virtual[p0] = copy.deepcopy(saved)
+    virtual[p0]['nodes'][0]['statement'] += ' changed'
+    check('mathematical change invalidates archive', [False, True])
+    virtual[p0] = copy.deepcopy(saved)
+    virtual[p0]['reviewHistory'].append({'reviewer': 'unrelated', 'status': 'accepted'})
+    check('unrelated review metadata preserves assessment', [True, True])
+    virtual[p0] = copy.deepcopy(saved)
+    lean = ROOT / 'research/blueprint/suggested/PerfectoidSpaces--P0.lean'
+    lean_changes[lean] = read_bytes(lean) + b'\n-- changed\n'
+    check('suggested-file change invalidates archive', [False, True])
+    lean_changes.clear()
+    altered = copy.deepcopy(jobs)
+    altered[0]['outputs'] = altered[0]['outputs'][1:]
+    check('narrowed output scope rejected', [False, True], selected=altered)
+    for r in virtual[p0]['reviewHistory']:
+        if r.get('reviewer') == 'independent-review-' + FIRST:
+            r['assessment']['sha256'][str(p0.relative_to(ROOT))] = '0' * 64
+    check('mismatched digest rejected', [False, True])
+    virtual[p0] = copy.deepcopy(saved)
+    for r in virtual[p0]['reviewHistory']:
+        if r.get('reviewer') == 'independent-review-' + FIRST:
+            r['status'] = 'pending'
+    check('nonverdict rejected', [False, True])
+print(json.dumps(cases, indent=2))
+```
+
+</details>
+
+---
+
+# Archived checkpoint: Codex codex-QmXEhb, 11 October 2026
 
 Issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704),
 input `bc77f117ef2960db87bcc24331b59fde6d8d38d8`;
