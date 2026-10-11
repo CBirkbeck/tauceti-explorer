@@ -1,135 +1,141 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex. Session: `codex-wdRttK`. Date: 2026-10-11.
-Branch: `codex-wdRttK-crystalline-package`.
-Input commit: `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`.
-Claim [6107845953](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107845953)
-confirmed by [6107847278](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6107847278).
-None of the manager-priority issues was available at selection; the worker
-order selected this focus package. This session claimed only this job.
+Agent: Codex. Session: `codex-6vB7kY`. Date: 2026-10-11.
+Branch: `codex-6vB7kY-crystalline-package`.
+Input commit: `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`.
+Claim [6108004717](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6108004717)
+was confirmed by the claim bot at 10:19:23 UTC.
+None of the manager-priority issues was available in the initial list of 684
+open available swarm issues. The worker order selected this focus package.
+This session claimed only this job.
 
-## Outcome
+## Outcome and permitted scope
 
-**Blocked on supplier interfaces outside this issue's permitted edits.** This
-checkpoint changes only the handoff. It independently rechecks two sufficient
-blockers, corrects the inherited CC.8 review status, reconfirms the partial
-file's coverage by layer, and gives a concrete readiness condition for resuming.
-The existing reader and Lean file are retained; no new arithmetic interface is claimed.
+**Blocked on absent supplier interfaces outside this issue's allowed edits.**
+This checkpoint updates only this handoff. It independently checks the integral
+coefficient and completed-tower requirements, reads the relevant pinned and
+current library interfaces, recounts the actual Lean declarations and examples,
+and elaborates the existing suggested file. The mathematical package is
+unchanged from [#8846](https://github.com/CBirkbeck/tauceti-explorer/pull/8846).
 
-The accepted input is a complete target-level planning pass, not a closed
-plan: 97 nodes, 103 API entries, 104 tests, 27 requests and 40 gaps; ten layers
-planned and none closed. Its 2026-10-07 review explicitly accepts the pass
-while retaining supplier, cubic-tetrahedral, general-coefficient nonvanishing
-and journal-collation gaps. A complete pass is not a complete package.
+The input contains 97 targets, 103 API entries, 104 unit tests, 27 requests
+and 40 gaps. All ten layers are planned and none is closed. Its accepted
+2026-10-07 review explicitly retains the supplier and prototype gaps. The
+issue's assertion that the plan is complete describes a completed planning
+pass; it does not establish that the missing arithmetic signatures can be
+packaged faithfully.
 
-## Sufficient blockers freshly checked
+The issue allows changes only to the package README, Suggested.lean, metadata
+and this handoff, and explicitly forbids packet changes. WORKERS.md also limits
+edits to the issue's deliverables. PROTOCOL §15 assigns the general missing
+objects to their existing owners; §13 prohibits replacing missing conditions
+by arbitrary proposition fields or admitted proposition definitions. The
+request reconciliation and owner developments below therefore cannot be
+completed within this claim. No implemented proof is required to resume:
+faithful supplier roadmap signatures with admitted proofs can suffice.
 
-### Integral dual-Weyl coefficients
+## Integral coefficient requirement freshly checked
 
-`REQ-INTEGRAL-WEYL` needs integral dual-Weyl lattices, coefficient extension and
-reduction, Levi evaluation onto V_{λ_τ̃} ⊗ V_{−w₀λ_{τ̃c}}, residue-field
-Schubert evaluation surjectivity and positive-root weights in its kernel. It
-also needs the integral Levi-equivariant splitting V_{λ̃} = V_λ ⊕ W,
-W ⊗ E = (1−U)V_{λ̃,E}, and P(O)-stability. An E-linear splitting is insufficient.
+Read Caraiani–Newton [arXiv:2301.10509v3](https://arxiv.org/abs/2301.10509v3),
+the coefficient setup and Lemma 2.1.12 with its proof, printed pp.17–18.
+The source uses an integral dual-Weyl coefficient lattice and its finite-free
+reductions, rather than an arbitrary representation over the fraction field.
+Transitivity of algebraic induction identifies the Levi evaluation target.
+After passage to the residue field, evaluation is restriction of sections to
+the relevant Schubert variety. Surjectivity there and Nakayama yield integral
+surjectivity. Thus residue-field base change and the actual integral
+coefficient carrier are inputs to the first missing coefficient theorem.
 
-Freshly read Caraiani–Newton, [arXiv:2301.10509v3](https://arxiv.org/abs/2301.10509v3),
-Lemma 2.1.12 and its proof, printed pp.17–18: transitivity identifies the
-induced coefficient object; evaluation becomes surjective after residue-field
-reduction, using restriction to the relevant Schubert variety, and Nakayama
-then gives integral surjectivity. This requires the integral coefficient
-objects and their base-change comparison before the arithmetic theorem can
-be typed. The characteristic-zero representation alone cannot substitute.
+Freshly read `TauCeti.YoungTableau.weylModule` at the exact Tau Ceti pin
+`f790474821cf4256814db967cb154e7af3d0c369`, in
+`RepresentationTheory/ClassicalGroups/WeylModule.lean`, lines 114–130.
+Also read the current declaration in `WeylModule/Basic.lean`, lines 122–138.
+Both require a rational algebra as coefficient ring and construct an image of
+a Young symmetrizer. They do not provide the required dual-Weyl lattice over
+O or its reduction modulo the uniformizer. A rational-algebra structure would
+make the residue characteristic invertible, which is incompatible with these
+coefficient rings; this is a coefficient obstruction, not a missing instance
+to be inserted in the consumer.
 
-The [parent plan](../packets/PotentialAutomorphyInfrastructure.json), in its
-integral highest-weight gap and restructuring record, assigns these modules
-and evaluation maps to `ReductiveGroupsIntegralRepresentationsPartII`, with
-no exporting stage ids. A file inventory of roadmap definitions, packets,
-suggested files, packages and current upstream roadmaps finds no such owner
-exports. Current
-upstream ReductiveGroups Layer 9 supplies integral group schemes, rather than
-these highest-weight modules and their evaluation/splitting API. Do not invent
-an owner stage or rebuild the general supplier in this consumer.
+Read the parent packet's integral-highest-weight gap and owner record. They
+assign integral induced/Weyl/dual-Weyl theory, reduction, evaluation and its
+splitting input to `ReductiveGroupsIntegralRepresentationsPartII`, with no
+exporting stage ids yet. The owner direction appears in the available design
+issue [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357), whose
+deliverables are named `ReductiveGroupsPartIII`. A fresh inventory finds no
+definition, packet, reader, suggested file or package under either owner name.
+Do not invent a stage id to bridge the two names.
 
-Read the pinned `ClassicalGroups/WeylModule.lean`, lines 114–130, and current
-`ClassicalGroups/WeylModule/Basic.lean`, lines 122–138:
-`TauCeti.YoungTableau.weylModule` requires `[Algebra ℚ k]` in both. It therefore
-does not provide the required O- or O/ϖ^m-coefficient carrier. General algebraic
-induction already belongs to IHG §0.7; its inherited reuse contract is below.
+Read current upstream ReductiveGroups in full: its Layer 9 provides pinned
+integral group schemes and root maps, rather than these general dual-Weyl
+modules. Read LieHighestWeight's coefficient conventions and General section
+of Suggested.lean: the representation theory uses an algebraically closed
+field of characteristic zero. An integral weight there is not an integral
+coefficient module with reduction. Neither interface discharges
+`REQ-INTEGRAL-WEYL`.
 
-The current **LieHighestWeight** roadmap is another insufficient near match:
-its standing representation-theory coefficients are an algebraically closed
-field of characteristic zero (README §Conventions, lines 75–85;
-Suggested.lean, lines 256–258). An integral *weight* there constrains coroot
-pairings; it does not supply an integral coefficient lattice or reduction
-modulo ϖ. **ReductiveGroupsPartII**'s minuscule fixer-immersion target uses
-chosen highest-weight lattice data (README lines 4085–4104), rather than
-exporting the general dual-Weyl construction needed here. Those existing
-targets must be cited in the owner development, not treated as this missing
-coefficient interface.
+Consumers are CL.0/lem-2-1-12, CL.0/lem-2-1-17, CL.2/lem-2-2-14,
+CL.2/lem-2-2-16, CL.5/cor-4-1-9 and CL.6/lem-4-2-3. The full request also
+requires an integral Levi-equivariant splitting with the specified generic
+complement and P(O)-stability. The inherited algebraic-induction reuse
+contract below remains essential. The package already corrects the splitting
+citation to NT16 **Proposition 2.10**; the packet still says “Lemma 2.10”.
+That packet correction requires another authorized job.
 
-Consumers: CL.0/lem-2-1-12, CL.0/lem-2-1-17, CL.2/lem-2-2-14,
-CL.2/lem-2-2-16, CL.5/cor-4-1-9 and CL.6/lem-4-2-3. The reader retains the
-preceding correction to NT16 **Proposition 2.10**; the request still says
-“Lemma 2.10”. Reconcile that in a packet-authorized job; this session did not
-repeat the full NT16 audit.
+## Completed-tower requirement freshly checked
 
-### Completed arithmetic towers
+Read CN v3 §2.2.7, Proposition 2.2.8 and Corollary 2.2.9, printed p.28.
+The completed coefficient object is derived arithmetic cohomology with its
+smooth monoid and Hecke actions. Derived parahoric invariants recover the
+finite-level coefficient complex. Ordinary localization, compact Levi
+invariants and the finite-module ordinary projector then give the
+level-independence comparison; the boundary version has the same comparisons.
+An abstract diagram of modules without these arithmetic actions and recovery
+maps is not the object specified by CL.1/p-ordinary-completed.
 
-`REQ-TOWER` still cites ALS.6. Freshly read accepted
-[RS-09](../restructure/RS-09.result.json): ALS.6 supplies finite normal covers,
-finite-cover Hochschild–Serre/descent and support/Hecke qualifications. It does
-not own completed towers. Their ownership is:
+`REQ-TOWER` still requests this at ALS.6. Read the accepted
+[RS-09](../restructure/RS-09.result.json) owner assignments afresh: ALS.6 is
+finite-level normal-cover descent, not the completed-tower owner.
 
-| Required input | RS-09 owner |
+| Required input | Owner after RS-09 |
 |---|---|
 | Actual level indexing, conjugation and tower assembly | CC.0 |
 | Smooth action on the level colimit | CC.1 |
-| Completion, order of limits and Milnor/reduction comparison | CC.2 |
+| Completion, order of limits, Milnor and coefficient recovery | CC.2 |
 | Completed equivariant chain models and finite recovery | CC.4 |
 | Continuous completed descent and derived invariants | CC.6 |
-| Completed boundary and support triangle | CC.7 |
+| Completed support and boundary triangle | CC.7 |
 
-A fresh file inventory finds no CC.0–CC.7 packet/package or current upstream
-completed-cohomology roadmap. The existing
-[CC.8 packet](../packets/CompletedCohomologyPartII--CC.8.json), reader and
-suggested file cover only CC.8 (12 nodes, status `complete`). **Correction to
-#8841:** the packet now has an accepted independent review,
-`independent-review-REV-CompletedCohomologyPartII--CC.8`, dated 2026-10-11,
-by Codex session `codex-hFEHBg` (issue #377). This session did not write or
-review CC.8. The review reconciles its supplier assignments with RS-09 and
-retains three carrier/supplier gaps. Its corrected `sameRoadmapContracts`
-still request CC.0–CC.7; accepting CC.8 does not export those earlier layers.
-CC.2 supplies completion and coefficient recovery, CC.4 finite deck-coinvariant
-recovery, CC.6 completed descent, and CC.7 supports. The present consumer's
-`REQ-TOWER` still needs packet-authorized reconciliation and those actual
-exports. CC.8 does not discharge the tower request. Packet SHA-256:
+Read the reviewed ALS.6 library-audit entry. It records the missing arithmetic
+tower separately from the available generic category limits. Its older owner
+wording is superseded by RS-09. A fresh inventory of atlas packets, suggested
+files and packages, and of current upstream roadmaps, finds no CC.0–CC.7
+exports. Owner issue [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701)
+is open and available at this check; it has not supplied those files.
+
+The [CC.8 packet](../packets/CompletedCohomologyPartII--CC.8.json) has an
+accepted independent review dated 2026-10-11. Read its scope and contracts:
+its 12 nodes cover CC.8 only, retain three gaps and explicitly request
+CC.0–CC.7. In particular, it assigns coefficient recovery to CC.2, finite
+derived coinvariant recovery to CC.4, completed descent to CC.6 and supports
+to CC.7. Accepting the application layer does not supply these earlier
+arithmetic interfaces. Packet SHA-256:
 `5ed4d50f64c36cf9ebfa2676c18f6e7aa4198bf7ffbf46dbab77c915b3e440b7`.
 
-The reviewed ALS.6 entry in `data/library-coverage.json` distinguishes generic
-category limits from the absent arithmetic tower and its Hecke action. Its
-older ownership wording is superseded by RS-09. A supplied abstract diagram
-cannot replace actual adelic levels, arithmetic coefficient systems and
-comparison maps.
-
-Consumers: CL.1/p-ordinary-completed, CL.3/lem-2-3-14,
+Consumers are CL.1/p-ordinary-completed, CL.3/lem-2-3-14,
 CL.5/boundary-coefficient-object, CL.5/lem-4-1-6, CL.5/prop-4-1-4,
-CL.8/pgl2-cohomology and CL.8/prop-5-5-3. Preserve the reader's corrected
-citations. Arithmetic nilmanifold fibrations and integral congruence-limit
-acyclicity remain separate inputs, not consequences of a characteristic-zero
-Lie-algebra formula.
+CL.8/pgl2-cohomology and CL.8/prop-5-5-3. Preserve the separate arithmetic
+nilmanifold/congruence-limit input: a characteristic-zero Lie-algebra formula
+alone does not give the integral tower acyclicity. These two supplier checks
+suffice to establish the blocker; this session did not re-audit all 27 requests.
 
-These two blockers suffice; this is not a fresh audit of all 27 requests.
-The issue permits only the package and handoff, expressly forbidding packet
-changes. Duplicating missing general theories conflicts with PROTOCOL §15;
-substituting arbitrary proposition fields conflicts with §13. Additional
-isolated signatures would leave the same missing carriers in place.
+## Actual suggested-file coverage
 
-## Coverage of the existing Suggested.lean
-
-This session independently counted actual named declarations after removing
-Lean comments, and accepted test labels followed by an actual `example` through
-only comments/whitespace. The resulting inventory is:
+Freshly counted named declarations after removing nested block and line
+comments. A test name counts only when its label is followed by an actual
+Lean `example`, ignoring intervening comments and whitespace. The inventory
+agrees with the preceding checkpoint:
 
 | Layer | Target names | API names | Named examples |
 |---|---:|---:|---:|
@@ -145,84 +151,60 @@ only comments/whitespace. The resulting inventory is:
 | CL.9 | 1/12 | 2/13 | 3/13 |
 | Total | 17/97 | 44/103 | 45/104 |
 
-Nine supplementary anonymous examples and supplementary signatures are outside
-this inventory. Name presence is not certification of the arithmetic
-specialization or of source faithfulness. Elaboration cannot certify the
-80 omitted target names, 59 omitted API names and 59 omitted named examples.
-The independent recount agrees with #8841. The preceding
-compression/inventory record is in
-[#8826](https://github.com/CBirkbeck/tauceti-explorer/pull/8826).
+Name presence does not certify the arithmetic specialization. Supplementary
+signatures and anonymous examples are outside this count. Successful
+elaboration cannot discharge the 80 absent target names, 59 absent API names
+and 59 absent named examples. Adding metadata while this remains incomplete
+would let the output-existence check in `issues.deliverables_complete`
+misclassify it as a finished package, so metadata remains absent.
 
-## Readiness condition and where to resume
+## Resume conditions and validation
 
-Before another attempt can complete this package, obtain both:
+Resume when the integral coefficient owner exports actual stage ids and typed
+lattice, base-change, Levi evaluation and splitting interfaces, and CC.0–CC.7
+export the arithmetic tower interfaces above. The consumer packet then needs
+authorized reconciliation of the stale supplier labels and NT16 locator.
+These are necessary conditions, not a claim that the other requests are
+resolved. The inherited smooth-monoid, continuity, coefficient and arithmetic
+contracts below still apply.
 
-1. An owner roadmap for integral highest-weight theory with real stage ids and
-   typed integral lattice, base-change, evaluation and splitting exports,
-   reusing IHG §0.7. Roadmap signatures with `sorry` suffice at this planning
-   stage; implemented proofs are not a prerequisite for packaging.
-2. CC.0–CC.7 arithmetic tower exports and packet-authorized reconciliation of
-   `REQ-TOWER` with RS-09, including the coefficient/support/Hecke comparisons
-   required by the listed consumers.
+Once those conditions hold, specialize every absent target, API item and named
+example to the genuine arithmetic objects, complete the Lean file, finish the
+reader and add `topic = "math.NT"`. Retain the qualified Barsotti–Tate endpoint
+and the cubic-tetrahedral exception. For queue management, keep this job blocked
+until its prerequisites change; releasing another checkpoint does not change
+the mathematical inputs. This session changed no issue labels and claimed no
+owner job.
 
-These are necessary conditions, not an assertion that the other requests are
-resolved. The smooth positive-monoid enhancements, actual stage ids, torsion
-reconstruction contract and arithmetic/continuity obligations below still need
-checking. Also reconcile NT16 Proposition 2.10 in the accepted input.
-
-Owner jobs checked on 2026-10-11:
-
-| Owner work | Issue | State |
-|---|---|---|
-| Integral representation continuation in ReductiveGroups Part III brief | [#3357](https://github.com/CBirkbeck/tauceti-explorer/issues/3357) | Open, available, design; brief rather than export |
-| Completed towers from CC.0 | [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701) | Open, available, blueprint |
-| Completed Hecke application CC.8 | [#702](https://github.com/CBirkbeck/tauceti-explorer/issues/702) | Open, submitted; local packet independently accepted, earlier tower interfaces still requested |
-
-For queue management, the maintainer should keep this package blocked until
-these necessary conditions change, then provide a packet-authorized route for
-reconciliation. Automatically releasing a checkpoint does not resolve its
-mathematical dependencies. No label was changed manually and no owner job was
-claimed in this session.
-
-Once the suppliers are available, type and specialize every omitted target,
-API and named example to the actual arithmetic objects, elaborate the complete
-file, finish the reader and only then add `topic = "math.NT"` as metadata.
-Retain the qualified Barsotti–Tate endpoint and the inherited conventions below.
-
-## Validation in this session
-
-- Read WORKERS.md, both protocols and UPSTREAM_GUIDE.md. Read current upstream
-  PeripheralActions and ReductiveGroups READMEs in full. Checked the
-  parent owner record, RS-09, reviewed ALS.6 audit, CC.8 scope/contracts and
-  pinned/current Weyl coefficient assumptions.
+- Read WORKERS.md, both protocols and UPSTREAM_GUIDE.md; read current upstream
+  ReductiveGroups and PeripheralActions READMEs in full. Read the relevant
+  source passages, owner records, reviewed audit, RS-09 and CC.8 contracts
+  specified above.
 - Read-only roadmap commit: `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`;
   current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  Neither tree was built or edited.
-- Accepted input checker: **0 errors, 0 warnings**. Packet SHA-256:
+  Neither tree was edited or built.
+- Accepted-input `check_blueprint.py`: **0 errors, 0 warnings**. Packet hash:
   `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
-- `git diff --check` passes. Intake `check-files`: **1 file, 0 problems**.
-  Only this permitted handoff is changed.
-- `lean-check` on the existing Suggested.lean: **exit 0, no errors,
-  109 warnings, all declaration-uses-sorry**. The approved shared build uses
-  the configured Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`;
-  Mathlib HEAD was checked as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  Available memory was 91 GB before checking. No language server or library
-  build was started; no check remains running.
-- Suggested.lean SHA-256:
+- `lean-check` on the unchanged package Suggested.lean: **exit 0, no errors,
+  109 warnings, all declaration-uses-sorry**. Memory available before checking:
+  92 GB. The shared wrapper is configured for Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`; its Mathlib HEAD was verified as
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The pinned Weyl statement was
+  independently read with `git show` at the exact Tau Ceti commit. No language
+  server or library build was started, and no check remains running.
+- Suggested.lean hash:
   `28b20bcb74a0e2433b287a7c99da1d60e146a74f6c6955d58cb615df4c2bbcb6`.
-  Reader SHA-256:
+  README hash:
   `b4d490214debf0f054e4c1dd14f4fa879e15757ec3f244eed4a4bcb8ccfa10ed`;
-  size **196,980 bytes**, below the 200 KB ceiling. Both are unchanged.
-- `metadata.toml` remains absent. `issues.deliverables_complete` uses output
-  existence for package jobs, so adding it would misclassify this incomplete
-  package. No accepted packet, original reader/suggested file or supplier was
-  edited. No scratch artifact is required to resume.
-- Fresh CN v3 PDF SHA-256:
+  **196,980 bytes**, below the 200 KB ceiling. Both are unchanged.
+- Public CN v3 PDF, accessed 2026-10-11, SHA-256:
   `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
-  Accessed the public v3 source on 2026-10-11. Only Lemma 2.1.12, its
-  pp.17–18 proof and the adjacent coefficient setup were reread for this
-  checkpoint;
-  the source audits below remain inherited. No source passage is copied here.
+  Fresh source reading is limited to printed pp.17–18 and p.28. No source
+  passage or PDF is submitted; the records below are explicitly inherited.
+- `git diff --check` passes; intake `check-files`: **1 file, 0 problems**.
+  Only this permitted handoff is changed. The checkpoint needs no scratch
+  artifact to resume.
+
 
 ## Previous checkpoint additions to retain
 
@@ -247,7 +229,7 @@ The preceding complete check record remains in #8833.
 ## Inherited mathematical resume contracts
 
 These are the preceding workers' authored source and interface checks, preserved
-for continuity. They are not fresh source-reading claims for `codex-wdRttK`.
+for continuity. They are not fresh source-reading claims for `codex-6vB7kY`.
 For the preceding full audit records, see
 [#8807](https://github.com/CBirkbeck/tauceti-explorer/pull/8807) and
 [#8800](https://github.com/CBirkbeck/tauceti-explorer/pull/8800).
