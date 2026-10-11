@@ -15459,7 +15459,8 @@
    "avoidAccountOf": "DESIGN-WeightZeroCrystallineAutomorphyLifting",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-WeightZeroCrystallineAutomorphyLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7107"
   },
   {
    "id": "DESIGN-SheafTheoreticSmithTheory",
@@ -30880,7 +30881,7 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/BP-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-K2SymbolsBrauer--T.1",
@@ -30889,7 +30890,7 @@
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1012"
+   "note": "claimed on GitHub issue #1012"
   },
   {
    "id": "REV-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -32520,8 +32521,9 @@
    ],
    "avoidAccountOf": "BP-ExponentialSumsAndCircleMethod",
    "prompt": "research/blueprint/prompts/REV-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #547"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #547",
+   "finishedAt": "2026-10-11T10:58:34Z"
   },
   {
    "id": "BP-ProbabilisticAndMetricNumberTheory",
@@ -37970,7 +37972,8 @@
     "DESIGN-FunctionFieldArithmeticPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-FunctionFieldArithmeticPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6392"
   },
   {
    "kind": "design",
@@ -47763,8 +47766,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49296,8 +49299,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80354,8 +80357,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80577,8 +80580,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
