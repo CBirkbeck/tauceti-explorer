@@ -4,7 +4,7 @@
   "area": "analysis",
   "parent": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
   "summary": "This extension connects the existing Fuchsian quotient and compactification theory to sharp hyperbolic curve-volume estimates and gonality. It fixes metric and current normalizations, builds analytic cycles and positive potentials, distinguishes complex and conjugate diagonals, and relates conformal area to gonality through Li–Yau while importing the automorphic spectral gap.",
-  "readme": "This roadmap extends Fuchsian groups and orbifold Riemann surfaces. It imports projective actions, quotient and cusp charts, compactification and finite-map degree theory. It adds analytic curve cycles and their singular integration, positive currents, sharp point/diagonal volume bounds, conjugate-diagonal relative growth, and gonality/conformal-area comparisons. It imports ordinary differential forms, Stokes, de Rham and Riemannian gradient/Laplacian from the current DifferentialGeometry roadmap. Function-field Riemann–Roch and projective models remain in AlgebraicCurves, algebraic intersections in SF.5, and analytification/algebraization in ComplexComparisonPartII. Congruence spectral gaps remain in the separate AutomorphicSpectralTheory extension.\n\nCurvature is −1, d₁ is twice the pinned PoincareDisc distance, product neighborhoods use maximum distance, and curve area uses the sum two-form. The convention dᶜ=i(∂̄−∂)/(4π) makes ddᶜlog|h|² a unit divisor current; it is half Demailly’s operator. Primitive normalization branches and cycle weights prevent source-cover degree from disappearing. The conjugate diagonal is totally real and has no algebraic intersection pairing. Compact injectivity bounds and canonical-area identities are kept separate from cusp singular metrics.\n\nAll eight stages have target-level specifications, APIs and discriminating tests. This is a partial checkpoint, not a complete design or closed proof graph. The explicit gaps include inaccessible original Hwang–To proofs, analytic normalization foundations, global carrier-dependent signatures, product-diagonal tie limits, linked limit-series contracts, restricted sphere geometry and cusp form-domain compatibility. No node is claimed implemented. The packet, reader and handoff identify what the next worker must establish.\n",
+  "readme": "This roadmap extends Fuchsian groups and orbifold Riemann surfaces. It imports projective actions, quotient/cusp charts, compactification, covolume and finite-map degree theory. It develops analytic curve cycles and normalization integration, positive currents, point and diagonal volume estimates, relative conjugate-diagonal growth, and gonality/conformal-area comparisons. Ordinary forms, Stokes, mapping degree and Riemannian gradient/Green identity come from current DifferentialGeometry. Smooth Riemannian measures use the existing TauCeti.riemannianVolume; quotient-metric descent through the imported isometric charts, comparisons and extension over a finite singular set belong here. Function-field Riemann–Roch and projective models remain in AlgebraicCurves; algebraic intersections belong to SF.5, and analytification/algebraization to ComplexComparisonPartII. C5 owns general analytic-cycle integration and Chern/intersection comparison; this roadmap adds normalization and hyperbolic convention adapters. ModularForms 10B supplies analytic Riemann–Roch and analytic/topological genus. The compact analytic/algebraic curve and degree comparison remains a separate contract. Automorphic spectral gaps are external.\n\nCurvature is −1 and d₁ is twice the pinned PoincareDisc distance. Product neighborhoods use maximum distance, whereas curve area uses the sum two-form. The convention dᶜ=i(∂̄−∂)/(4π) makes ddᶜlog|h|² a unit divisor current. Primitive normalization branches and cycle weights retain source-cover degree. The double diagonal pairs corresponding coordinates across the two blocks. The conjugate diagonal is totally real and has no algebraic intersection pairing. Compact injectivity gives an injective local isometry for r<ρ; pairwise ambient isometry needs r<ρ/2. Compact canonical-area identities are separate from singular cusp metrics.\n\nThe remaining mathematical obligations are analytic normalization foundations, the point-volume comparison proof, product-diagonal tie limits, proper linked-series dimension contracts, restricted sphere geometry, and closed Dirichlet-form/compact spectral realization with cusp approximation. Singular Stokes must include logarithmic pole flux and a boundary-flux variant for an independently positive potential; convex composition does not cover the concave conjugate profile. The nonnegative spectral operator is −laplaceBeltrami. Global carrier signatures and their APIs/tests remain incomplete, so these stages remain draft specifications.\n",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
     "tauceti:TauCetiRoadmap/AlgebraicCurves",
@@ -13,7 +13,8 @@
     "tauceti:TauCetiRoadmap/DifferentialGeometry",
     "AlgebraicModuliForArithmeticGeometry",
     "tauceti:TauCetiRoadmap/StableReduction",
-    "tauceti:TauCetiRoadmap/JacobianChallenge"
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/ModularForms"
   ],
   "stages": [
     {
@@ -33,14 +34,16 @@
     {
       "key": "HV.2",
       "title": "Analytic cycles and normalization integration",
-      "description": "Define locally finite effective complex one-cycles, analytic normalization and integration of Σprᵢ*ω_X with cycle weights. Define branch multiplicity and mult_ξ(C), including degree-d parameterizations and proper finite-map pushforward laws. Construct quotient metric/form descent via Fuchsian charts and compare to the existing invariant half-plane measure. Prove chart independence and weighted integration. Supply local sum-density and nonnegative source-integral formulas, fibre equality a(r), anti-graph equality 2a(r), the power-map degree factor, and zero contribution of a constant cusp coordinate. Pin ρ_X as half the compact systole; do not use a positive global pointwise injectivity radius for a cusped quotient.",
+      "description": "Define locally finite effective complex one-cycles, analytic normalization and integration of Σprᵢ*ω_X with cycle weights. Define branch multiplicity and mult_ξ(C), including degree-d parameterizations and proper finite-map pushforward laws. Import free quotient charts from Fuchsian Layers 0–1 and the upstairs metric/measure and covolume comparison from Layer 2; descend the invariant metric/form through those isometric charts; reuse current TauCeti.riemannianVolume and extend the regular-locus measure by zero over the finite coarse singular set. Prove chart independence and weighted integration. Supply local sum-density and nonnegative source-integral formulas, fibre equality a(r), anti-graph equality 2a(r), the power-map degree factor, and zero contribution of a constant cusp coordinate. Pin ρ_X as half the compact systole; do not use a positive global pointwise injectivity radius for a cusped quotient.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.0",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-0-the-effective-projective-möbius-action",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates",
-        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces",
+        "ComplexComparisonPartII:C5",
+        "ComplexComparisonPartII:C0"
       ],
       "upstreamRequires": [
         "tauceti:TauCetiRoadmap/DifferentialGeometry (current layers 0,1,5,6,10,12; exact URLs in packet)"
@@ -49,7 +52,7 @@
     {
       "key": "HV.3",
       "title": "Positive currents, singular Stokes and canonical area",
-      "description": "Import ordinary smooth forms and Stokes from current DifferentialGeometry; reuse Mathlib’s LF coefficient test-function topology and assemble the global test-form topology, currents and positive (1,1)-currents with chart independence and actual continuity topology; construct extended-real psh functions and their locally integrable distributional derivatives. Set dᶜ=i(∂̄−∂)/(4π) on real functions, ddᶜ=i∂∂̄/(2π), half Demailly’s normalization. Prove ddᶜlog|h|²=[div(h)] and singular Stokes on normalized curve branches by regular-level approximation, with atomic multiplicities. Prove μ=χ/(1+√(1−χ))² is smooth across Δ, compute the normalized Hessians, and prove log μ is psh with value −∞ on Δ, F is psh and ddᶜF≤ω_D². Construct Hermitian line-bundle curvature and Chern–Weil comparison for K_X; prove c₁(K_X)=[ω_X]/(2π) and vol(C)=2π(K_Xⁿ·C), including cycle weights. Import algebraic intersections and analytification/GAGA, not analytic currents, from SF.5/C0–C4.",
+      "description": "Import ordinary smooth forms and Stokes from current DifferentialGeometry; reuse Mathlib’s LF coefficient test-function topology and assemble the global test-form topology, currents and positive (1,1)-currents with chart independence and actual continuity topology; construct extended-real psh functions and their locally integrable distributional derivatives. Set dᶜ=i(∂̄−∂)/(4π) on real functions, ddᶜ=i∂∂̄/(2π), half Demailly’s normalization. Prove ddᶜlog|h|²=[div(h)] and singular Stokes on normalized curve branches by regular-level approximation, with atomic multiplicities. Prove μ=χ/(1+√(1−χ))² is smooth across Δ, compute the normalized Hessians, and prove log μ is psh with value −∞ on Δ, F is psh and ddᶜF≤ω_D². Import the C0 holomorphic-bundle dictionary and C1 Chern-connection carrier; import C5 integration and Chern/intersection comparison, and construct the rank-one hyperbolic normalization and normalized-branch comparison for K_X; prove c₁(K_X)=[ω_X]/(2π) and vol(C)=2π(K_Xⁿ·C), including cycle weights. Import algebraic intersections and analytification/GAGA, not analytic currents, from SF.5 and ComplexComparison C0/C1/C2/C4. Include logarithmic poles with finite limiting slope even when the potential tends to −∞, and the independently-positive boundary-flux variant for the conjugate profile. Real current pushforward has the parity sign (−1)^(target dimension−source dimension); complex direct images commute.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.1",
         "HyperbolicCurveVolumesAndGonality:HV.2",
@@ -58,16 +61,20 @@
         "ComplexComparisonPartII:C2",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-4-repartitions-weil-differentials-and-riemannroch",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "ComplexComparisonPartII:C1",
+        "ComplexComparisonPartII:C5",
+        "ComplexComparisonPartII:C4"
       ],
       "upstreamRequires": [
-        "tauceti:TauCetiRoadmap/DifferentialGeometry (current layers 0,1,5,6,10,12; exact URLs in packet)"
+        "tauceti:TauCetiRoadmap/DifferentialGeometry (current layers 0,1,5,6,10,12; exact URLs in packet)",
+        "tauceti:TauCetiRoadmap/ModularForms (current Layer 10B; exact URL in packet)"
       ]
     },
     {
       "key": "HV.4",
       "title": "Hwang–To point and diagonal volumes",
-      "description": "For compact curvature −1 hyperbolic X, ρ_X>0, an effective curve cycle C and 0<r<ρ_X, prove vol(C∩B∞(ξ,r))≥a(r)mult_ξ(C). For 0<r<ρ_X/2 and no diagonal component, prove vol(C∩{d_X(x,y)<2r})≥2a(r)(C·Δ). Define I(r)=∫ddᶜF, prove I(r)/a(r) monotone and its Lelong limit at least 2(C·Δ). For Δ₂={(x,y,x,y)}⊂X⁴, and every component of C not contained in Δ₂, prove vol(C∩B∞(Δ₂,r))≥2a(r)Σ_{ξ∈C∩Δ₂}mult_ξ(C); this is a point sum, not divisor intersection with a codimension-two locus. Prove the global midpoint lens bound using the existing geodesic-normalizing isometries.",
+      "description": "For compact curvature −1 hyperbolic X, ρ_X>0, an effective curve cycle C and 0<r<ρ_X, prove vol(C∩B∞(ξ,r))≥a(r)mult_ξ(C). For 0<r<ρ_X/2 and no diagonal component, prove vol(C∩{d_X(x,y)<2r})≥2a(r)(C·Δ). Define I(r)=∫ddᶜF, prove I(r)/a(r) monotone and its Lelong limit at least 2(C·Δ). For Δ₂={(x,y,x,y)}⊂X⁴, and every component of C not contained in Δ₂, prove vol(C∩B∞(Δ₂,r))≥2a(r)Σ_{ξ∈C∩Δ₂}mult_ξ(C); this is a point sum, not divisor intersection with a codimension-two locus. Prove the global midpoint lens bound using the existing geodesic-normalizing isometries. In two-block coordinates ((x₁,x₂),(y₁,y₂)), compare xᵢ with yᵢ.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.3",
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
@@ -77,7 +84,7 @@
     {
       "key": "HV.5",
       "title": "Relative diagonal and conjugate-diagonal volumes",
-      "description": "For C with no diagonal component, construct ddᶜlog(χ/(1−χ))=ω/(4π)+[Δ], with the corrected smooth coefficient, and prove V_Δ(r)/cosh r monotone for 0<r<ρ_X/2. On X×Xbar construct the real analytic conjugate diagonal, its tubes and conjugate-chart invariance; prove i∂∂̄(f∘ψ)=ω/2 and i∂∂̄(g∘f∘ψ)≥0 as currents. Singular Stokes gives V_barΔ(r)=2sinh r·∫i∂∂̄(g∘f∘ψ), hence V_barΔ(r)/√a(2r) monotone. For 0<r<R<ρ_X/2 prove V_barΔ(r)≤(sinh r/sinh R)V_barΔ(R); the reciprocal printed in the erratum is rejected. Rescale radii, ρ and forms for curvature −1/λ²; use cosh(r/λ) and √a_λ(2r). Define no algebraic intersection with barΔ.",
+      "description": "For C with no diagonal component, construct ddᶜlog(χ/(1−χ))=ω/(4π)+[Δ], with the corrected smooth coefficient, and prove V_Δ(r)/cosh r monotone for 0<r<ρ_X/2. On X×Xbar construct the real analytic conjugate diagonal, its tubes and conjugate-chart invariance; prove i∂∂̄(f∘ψ)=ω/2 and i∂∂̄(g∘f∘ψ)≥0 as currents. The independently-positive boundary-flux version of singular Stokes gives V_barΔ(r)=2sinh r·∫i∂∂̄(g∘f∘ψ), hence V_barΔ(r)/√a(2r) monotone. For 0<r<R<ρ_X/2 prove V_barΔ(r)≤(sinh r/sinh R)V_barΔ(R); the reciprocal printed in the erratum is rejected. Rescale radii, ρ and forms for curvature −1/λ²; use cosh(r/λ) and √a_λ(2r). Define no algebraic intersection with barΔ.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.1",
         "HyperbolicCurveVolumesAndGonality:HV.3",
@@ -97,7 +104,6 @@
         "ComplexComparisonPartII:C0",
         "ComplexComparisonPartII:C1",
         "ComplexComparisonPartII:C2",
-        "ComplexComparisonPartII:C3",
         "ComplexComparisonPartII:C4",
         "AlgebraicModuliForArithmeticGeometry:R09.1",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
@@ -107,7 +113,7 @@
     {
       "key": "HV.7",
       "title": "Conformal area, finite-area cusps and Li–Yau",
-      "description": "Define V_c(n,φ)=sup_{A∈Conf(Sⁿ)}Area(A∘φ) for nondegenerate branched conformal immersions, V_c(n,M)=inf_φ V_c(n,φ), and stable conformal area A_c. Prove conformal invariance, degree-d comparison, and V_c(n,S²)=4π for n≥2. Prove λ₁Area≤2A_c≤8πgon for compact Riemann surfaces by conformal barycenter balancing and the Rayleigh quotient. Extend to the finite-area hyperbolic metric with cusps/elliptic singularities, using λ′₁=inf positive Rayleigh quotients, identified with min(λ₁,1/4) when the discrete eigenvalue exists. Prove coordinate test functions have finite Dirichlet energy and mean-zero normalization by Abramovich’s conformal argument. Import the congruence spectral gap from the separately routed AutomorphicSpectralTheory extension; never prove that automorphic theorem here. State the resulting gonality lower bound gon≥λ′₁Area/(8π), with modular-curve area/index inputs imported.",
+      "description": "Define V_c(n,φ)=sup_{A∈Conf(Sⁿ)}Area(A∘φ) for nondegenerate branched conformal immersions, V_c(n,M)=inf_φ V_c(n,φ), and stable conformal area A_c. Prove conformal invariance, degree-d comparison, and V_c(n,S²)=4π for n≥2. Prove λ₁Area≤2A_c≤8πgon for compact Riemann surfaces by conformal barycenter balancing and the Rayleigh quotient. Extend to the finite-area hyperbolic metric with cusps/elliptic singularities, using λ′₁=inf positive Rayleigh quotients, identified with min(λ₁,1/4) when the discrete eigenvalue exists. Prove coordinate test functions have finite Dirichlet energy and mean-zero normalization by Abramovich’s conformal argument. Import the congruence spectral gap from the separately routed AutomorphicSpectralTheory extension; never prove that automorphic theorem here. State the resulting gonality lower bound gon≥λ′₁Area/(8π), with modular-curve area/index inputs imported. The operator is −laplaceBeltrami under the imported div∘grad convention. Closed-form/Friedrichs construction and the compact positive-eigenvalue comparison require the additional analytic contracts recorded in G10.",
       "requires": [
         "HyperbolicCurveVolumesAndGonality:HV.2",
         "HyperbolicCurveVolumesAndGonality:HV.6",
@@ -116,7 +122,8 @@
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications"
       ],
       "upstreamRequires": [
-        "tauceti:TauCetiRoadmap/DifferentialGeometry (current layers 0,1,5,6,10,12; exact URLs in packet)"
+        "tauceti:TauCetiRoadmap/DifferentialGeometry (current layers 0,1,5,6,10,12; exact URLs in packet)",
+        "tauceti:TauCetiRoadmap/ModularForms (current Layer 10B; exact URL in packet)"
       ]
     }
   ],
@@ -155,7 +162,7 @@
       "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/analgeom/agbook.pdf",
       "edition": "Version of Thursday June 21, 2012",
       "readSections": [
-        "I §2 (2.1)–(2.14) pp.13–17; I §5 (5.1)–(5.12) pp.39–41; II §7 (7.7)–(7.13) pp.113–115; III (1.13)–(1.20) pp.132–135, (2.3),(2.7),(2.14)–(2.15) pp.139–144, (3.1)–(3.7) pp.144–148, (5.4)–(5.8) pp.158–159, (7.1)–(7.7) pp.166–168; V (12.6)–(12.8),(13.2)–(13.4) pp.269–271."
+        "I (2.1)–(2.14), pp.13–17; (4.12)–(4.21), pp.33–36; (5.1)–(5.12), pp.39–41; II (5.3)–(5.4), pp.102–103; (7.6)–(7.15), pp.113–116; III (1.13)–(1.20), pp.132–135; (2.3), (2.6)–(2.15), pp.139–144; (3.1)–(3.7), pp.144–148; (4.12), pp.156–157; (5.4)–(5.10), pp.158–159; (7.1)–(7.7), pp.166–168; V (12.6)–(12.8), p.269 and (13.1)–(13.4), p.271."
       ],
       "accessed": "2026-10-11",
       "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f"
@@ -199,7 +206,7 @@
       "url": "https://aif.centre-mersenne.org/item/10.5802/aif.2209.pdf",
       "accessed": "2026-10-11",
       "sha256": "f27d7b75d5ad834d460920b9ae6dd91964548a9df8c1a5a606511403f2a585fe",
-      "readSections": "§§3–6 statements and Theorem 5.3/Proposition 6.6 proofs; Appendix A definitions, exactness, density, tangent-dimension and Theorem A.15, pp.1170–1188,1194–1203.",
+      "readSections": "Definition 2.1, p.1168; Definitions 4.2–4.5, pp.1173–1176; Lemmas 5.1–5.2 and Theorem 5.3 with proof, pp.1176–1181; Proposition 6.6 and proof, pp.1185–1188; Appendix A Definitions A.2/A.4/A.10, Lemmas A.9/A.11/A.12/A.14, Proposition A.13 and Theorem A.15 with proofs, pp.1194–1203. General smoothing-family conditions are read with BN Definition 3.2, p.5; no full-paper reading is claimed.",
       "authors": "Brian Osserman",
       "edition": "Published Annales de l’Institut Fourier 56 (2006), 1165–1205"
     },
