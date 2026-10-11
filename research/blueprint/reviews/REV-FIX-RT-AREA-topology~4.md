@@ -1,5 +1,154 @@
 # Independent review of topology fix round 4
 
+Refs #6521. Codex (GPT-6), session `codex-r5QH15`, 11 October 2026;
+branch `codex-r5QH15-review-topology-6521`, input commit
+`1c06f95484a07926ea860dbcec1344dc75b9c275`.
+The bot confirmed this session's
+[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6107797977).
+This session did none of the fix or plan work reviewed here. No manager-priority
+issue was available; this is the only job claimed.
+
+The assigned supplier corrections are accepted for Polylogarithms /7 and
+HabiroNahmSeries /11. QSeries /13 remains **needs_changes**: its packet and
+Lean signatures include the lower-boundary multiplier correction, while its
+reader still states the naive inverse eta multiplier. These are bounded fix
+verdicts. They do not replace the separately attributed whole-plan audits or
+establish mathematical closure. Each predecessor packet review is preserved
+whole in `reviewHistory`.
+
+## Completion boundary
+
+The live issue was re-read after the bot confirmed the claim and again during
+validation. It names three packets and their suggested files. The queue requires
+two additional packets and their suggested files: Polylogarithms--P.2 and
+ArithmeticQuantumTopology. All eleven outputs exist, but the actual
+`issues.deliverables_complete` result is **false**, since those two packets
+retain their whole-plan reviewer IDs.
+
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus your
+own scratch space.” Authorization was requested for the four omitted paths.
+While that answer is pending, this is a scope-blocked checkpoint. The missing
+work is concrete: preserve the P.2 and QT whole-plan audits, record bounded fix
+verdicts, and add `Polylogarithms:P.2/hyperbolic-volume` to the direct inputs of
+`ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`. The latter already
+uses that formula in its statement. Read-only substitution of exactly those
+two proposed packet objects passes the checker with its pinned declaration
+index and makes the unchanged completion predicate **true**. The added edge
+has no reverse path in the blueprint node graph.
+
+## Independent checks and dispositions
+
+Read all 27 assigned claims and their verifier reasons, the complete
+[round-four fix report](../redteam/RT-AREA-topology.fixes-4.md), affected supplier
+statements, hypotheses, prerequisites, sources, APIs, tests and Lean signatures.
+Read the accepted library-coverage entries for P.2, HB.4, HB.8, HB.10 and QM.5.
+The source checks below support the contracts; existing source corrections and
+open proof obligations were retained rather than treated as proved by this review.
+
+| Finding | This session's verdict and reason |
+|---|---|
+| /1 | Accept the handoff to GT 1/4/5. Reuse framed diagram presentations; the realization, tangles, linking matrix and surgery calculus still require geometric suppliers. |
+| /2 | Accept the admissible-link route. Habiro v1 Theorems 9.4 and 10.1–10.2, pp.34–35, use the restricted Hoste calculus; ordinary Kirby moves do not preserve algebraically split ±1 presentations. |
+| /3 | Accept the named quantum-specific ribbon/completion/tangle contracts over existing braided, rigid and Hopf foundations. They are obligations, not implemented objects. |
+| /4 | Accept the rank-one/general-type distinction; the latter needs its own quantum algebra, colors and root-order hypotheses. |
+| /5 | Accept the Jones comparison obligation. Current Tau Ceti has a Markov-invariant trace with unknot value delta, so the QT normalization cannot be inferred from the representation alone. |
+| /6 | Accept P.1/P.2 and V.3/V.4/V.6 as suppliers. Extra QT.0/V.5 inputs need specific mathematical uses. |
+| /7 | Accept the supplier correction. P.2 owns tetrahedron volume after GT 7/8; the missing direct QT input is drafted but outside live scope. Preserve region, signed-integration and regulator-calibration gaps. |
+| /8 | Accept the early ideal-geometry prefix before the cusped-manifold extension. A closed-manifold Mostow contract cannot provide cusped completeness or ideal face-pairings. |
+| /9 | Accept the extended Bloch/flattening/Rogers contracts and period/sign distinction. An ordinary Bloch element does not select a preferred extended lift. |
+| /10 | Accept the conditional NZ-to-Nahm dictionary and qualified arithmetic inputs. GSWZ v2 §1.8, pp.16–17, retains unimodular B; a matrix recipe alone does not prove topological invariance. |
+| /11 | Accept the six exports with their distinct domains and follow-up qualifications. An invertible formal Hessian and a positive-definite analytic Nahm matrix are different hypotheses. |
+| /12 | Accept the fixed-color root evaluation and case ledger as a handoff, retaining conjectural status for the unrestricted volume limit. |
+| /13 | Accept scalar QM.5 ownership and the eight export contracts; needs_changes for the reader's multiplier mismatch. The separate full-plan QSeries objections remain in force. |
+| /14 | Accept one formal-pentagon owner and a separate analytic Faddeev/AK construction with explicit domains, contours and admissible moves. |
+| /15 | Accept the proved/conjectural ledger and phase tests. No general resurgence theorem follows from that ledger. |
+| /16 | Accept the relative-Habiro/MMR/Alexander follow-up and the stated Bouis–Gazda exclusion. |
+| /23 | Accept the based-pair handoff with NDR reserved for comparison theorems. Current AT Suggested.lean already defines the groups without NDR; its README still needs reconciliation. |
+| /24 | Accept the filtered-chain convergence, edge-map and naturality request. Spectral pages alone do not supply convergence. |
+| /26 | Accept the explicit CW approximation/compression and degree-one Hurewicz suppliers; consumers must import their exact contracts. |
+| /29 | Accept maintainer coordination of upstream AT dependencies and restructuring. Generated atlas extracts must not be edited as a substitute. |
+| /33 | Accept relative theory extending the existing absolute homotopy map and path-based change-of-basepoint APIs at the pin. |
+| /81 | Accept geometric corner/handle/collar requests using DG's abstract boundary and face theory. The subset boundary does not preserve face multiplicity. |
+| /82 | Accept DG 3.3 homogeneity on connected finite-dimensional boundaryless manifolds. Supported extension and gluing transport remain stronger suppliers. |
+| /87 | Accept a single surface/mapping-class owner, boundary connected sum and an explicit triangulation or Morse route to Heegaard existence. |
+| /91 | Accept upstream GT dependency coordination. Current GT 7 consumes the shared Hopf–Rinow connection and existing Riemannian volume; neither needs replanning. |
+| /103 | Accept the existing DG forms, derivative, orientation and Stokes owner. Retain C1/compact-support and outward-first hypotheses in Floer comparisons. |
+| /105 | Accept the four-dimensional handle, Spin-c, intersection/signature and rational-grading requests; retain rational-homology-sphere scope for correction terms. |
+
+For /7, re-read [Zagier's dilogarithm article](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf),
+I.3 equations (3),(5), p.11 and I.4 equations (7)–(9), pp.13–14, and
+[Neumann v2](https://arxiv.org/pdf/math/0307092v2), Theorem 2.6 and §3,
+pp.420–421. Exact rational-complex checks of all 24 orders of `(0,1,-i,2)`
+confirm reciprocal cross-ratio conventions and the odd-permutation sign.
+These checks establish conventions rather than a geometric carrier.
+
+For /11, re-read [GSWZ v2](https://arxiv.org/pdf/2412.04241v2),
+Theorems 3/5 p.14, §1.8 pp.16–17, §2.5 equations (110)–(111) p.28,
+Definition 2.11 and equations (117)–(119) pp.29–30, equation (126) p.31,
+and Theorem 8 pp.35–36. The identification uses Laurent coefficients in x
+before t-completion; its auxiliary-order restriction survives the source's
+broader printed quantifier. Read [GZ v1](https://arxiv.org/pdf/1812.07690v1),
+pp.2–3 and Theorem 3.1 pp.5–6: the analytic result requires a positive-definite
+rational datum and odd coprime root order. Independently checked the figure-eight
+matrix's null vector `(1,-1)` and the mixed moment `-h/3` for Hessian
+`[[2,1],[1,2]]`. The completed operator's translation API remains beyond the
+suggested h=1 real-polynomial prototype; accepted export contracts retain that
+limitation and the prefactor, regularity, Kummer and gluing gaps.
+
+For /13, read [Zagier's quantum-modular article](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf),
+p.2 and Examples 3–5 pp.10–12, and [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf),
+Theorems 1–2 and the periodic mean-zero proposition pp.98–99, §4 pp.103–104.
+Inspected rendered [Strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf),
+§6 equations (38)–(39), pp.958–959, to verify the exponent and branch directly.
+The piecewise epsilon correction is a convention comparison, not a formula
+quoted from the source. At `-I`, the lower-boundary weight is `i`; corrected
+epsilon is `-i`, giving identity action, whereas the naive inverse gives `-1`.
+Finite terminating products independently give `F(1)=1`, `F(-1)=3`,
+`F(i)=8-3i`. Formal evaluation does not establish analytic radial limits.
+
+Read [Habiro v1](https://arxiv.org/pdf/math/0605314v1), §9.2 Theorem 9.4 p.34
+and §10 Theorems 10.1–10.2 p.35, for /2's admissible-calculus restriction.
+All source descriptions above are in this reviewer's own words. No downloaded
+source or passage is committed.
+
+## Baseline, current owners and validation
+
+The baseline metadata identifies Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Read the pinned Gaussian density,
+framed PD code, Jones representation, homotopy maps/basepoint transport and
+SmoothTwoForm statements, and the Mathlib principal complex power, neighborhood
+analyticity, trapezoidal error and periodic L-function definitions. In particular,
+Gaussian density requires positive-definite covariance; trapezoidal error is a
+signed difference, with its estimate a separate result. These tools do not supply
+the completed Gaussian or all-orders Euler–Maclaurin theorem.
+
+Read current upstream AT and DG documents and signatures and GT 7/8 contracts
+at roadmap HEAD `c251d2e42c66f14c279d1e5c2708c5a91d8c8aec`. Read the current
+Tau Ceti Jones/Markov trace, upper-half-space metric and transitive isometry action,
+and Riemannian volume at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+These owners are imports. No Lake command ran in the read-only trees.
+
+All five packets pass `scripts/check_blueprint.py` with the pinned declaration
+index: zero errors and warnings. Counts remain P 75/19/21, HB 109/22/9,
+QSeries 537/24/27, P.2 14/2/3 and QT 106/8/19 (nodes/gaps/requests).
+All five suggested files elaborate through serial `lean-check` calls, exit 0,
+with only `sorry` warnings: P 462, HB 441, QSeries 1491, P.2 52, QT 65.
+Suggested files remain unchanged. These are signature checks, not proofs.
+Structural comparison verifies unchanged mathematical fields in the three edited
+packets and whole predecessor reviews appended once. The two omitted-packet
+proposals pass read-only validation; their canonical files remain unchanged.
+
+Intake check-files accepts all five changed paths and git diff --check is clean.
+All 27 assigned dispositions and whole predecessor-report preservation were checked.
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) gives every remaining
+step without relying on scratch material. Queue and completion code are unchanged.
+
+<details>
+<summary>Predecessor report by codex-8VNvtM, retained as historical evidence</summary>
+
+# Independent review of topology fix round 4
+
 Refs #6521. Codex (GPT-6), session `codex-8VNvtM`, 11 October 2026,
 branch `codex-8VNvtM-review-topology-6521`. The bot confirmed the
 [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6107486245).
@@ -233,3 +382,5 @@ predicate remains false, while exactly that two-object substitution returns
 true. Intake check-files accepts all five submission paths and git diff
 --check is clean. The live issue was re-read and still omits the two packets;
 with scope authorization pending, this submission is a checkpoint.
+
+</details>
