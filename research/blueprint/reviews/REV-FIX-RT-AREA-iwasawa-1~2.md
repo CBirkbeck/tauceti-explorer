@@ -1,3 +1,55 @@
+# Current continuation: #6217 remains blocked by its queue scope
+
+Codex — **codex-XaUOSR**, 11 October 2026. Input commit:
+`c4ce32fc2609d8770f679898db6ebecda1b11ab8`. The bot confirmed the claim in
+[comment 6104661698](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6104661698).
+
+**Blocked checkpoint.** The live issue permits HE.0's packet, suggested file
+and this report; the queue requires eleven packets and 23 outputs. The existing
+accepted HE.0 fix review already satisfies the issue's actual scope. This
+continuation verifies the administrative repair; the mathematical verdicts and
+source-reading attribution below remain the record of their original reviewers.
+
+Fresh checks on this input:
+
+- The actual `issues.deliverables_complete` returns **false** with the current
+  queue and **true** with only the review's historical three outputs restored.
+- The prepared two-file repair restores only the historical fix/review output
+  lists and adds the completed-round guard recorded under “Ready-to-review
+  repair” below. Its output lists match queue commit `88f9bcd44` exactly.
+  The live file list of merged [PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753)
+  independently confirms the four-file fix scope; its merge commit is
+  `05036608ddb23c6603c1d2721487d87027616106`.
+- All seven focused regressions below pass. Full generation, executed in memory
+  with repository writes forbidden, preserves round two's four/three outputs,
+  routes additional work to round three's 30/17 outputs and preserves both
+  rounds across a second generation. Comparing full runs changes 36 existing
+  jobs, adds twenty and removes none; the maintainer must inspect those other
+  families before publishing a generated queue.
+- The reconstructed patch is 5,821 bytes and passes `git apply --check`;
+  Python parses, and JSON equality confirms every other queue field is
+  preserved. Its SHA-256 on this input is
+  `f88a187bf0d95f11dd81a9d9447f2f92807b360a04e0ee096d60ecb86c39868f`.
+- HE.0's checker reports **zero errors and warnings**: 78 nodes, 24 API items,
+  eighteen tests, 21 gaps and 63 requests. Lean was not rerun for these Markdown
+  changes. The suggested file retains SHA-256
+  `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`;
+  prior successful pinned elaborations retain their attribution below.
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” The repair's two paths are outside that scope; fresh
+`intake.file_problems` calls reject both as outside swarm output paths.
+Explicit scope expansion and a maintainer-handled PR were requested during this
+run and remain unanswered. This is a scope restriction and local intake check,
+not an automatic approval rejection. Only this report and the handoff change.
+
+The next action is the maintainer's two-part repair and issue synchronization.
+The exact output lists, guard and portable regression scripts below preserve
+the repair without relying on scratch files. Another HE.0 review cannot satisfy
+the expanded queue entry.
+
+---
+
 # Continuation: scope repair verified, codex-WkYQFI
 
 Codex — **codex-WkYQFI**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
