@@ -178,6 +178,8 @@ private def ternaryValue (c : Fin 10 → ℤ) (x : Fin 3 → ℚ) : ℚ :=
 private lemma ternary_box_finite (T : ℕ) :
     {c : Fin 10 → ℤ | ∀ i, |c i| ≤ (T : ℤ)}.Finite := by sorry
 -- refinement-positive-plane-cubic-solubility: actual coefficient-box denominator.
+-- Plane-cubic Theorem 2 p.3, proof pp.11–13; the multiset-to-vector
+-- proof uses the fixed multiplicity bound recorded in the packet.
 theorem positive_plane_cubic_solubility :
     0 < liminf (fun T : ℕ =>
       ({c : Fin 10 → ℤ | (∀ i, |c i| ≤ (T : ℤ)) ∧
@@ -199,7 +201,7 @@ Omitted: Native supplier carriers, maps or normalized arithmetic counts are not 
 
 ArithmeticStatistics:ST.4/refinement-generic-weierstrass-class
 Proposed declaration: ArithmeticSelmerRefinement.generic_weierstrass_class
-In the coefficient-height genus-g model family, after a density-zero exceptional set, W[2], the two-cover J¹→J²≅J, is nonzero in Sel₂(J) and J(Q)[2]=0. Both assertions also hold relatively inside every sieve-controlled congruence subfamily of positive lower density with locally soluble actual Div¹.
+In the coefficient-height genus-g model family, outside a density-zero exceptional set, the finite J[2]-torsor W[2]={P∈J¹:2P=d}, the fibre of the canonical map J¹→J² over the hyperelliptic class d, defines a nonzero class in H¹(Q,J[2]), and J(Q)[2]=0. On the subfamily with everywhere locally soluble actual Div¹, W[2] belongs to Sel₂(J). These conclusions hold relatively in every such sieve-controlled congruence subfamily of positive lower density.
 Omitted: Native supplier carriers, maps or normalized arithmetic counts are not exported at the pin; see G-native and the node’s direct supplier requests.
 
 ArithmeticStatistics:ST.4/refinement-pencil-local-global-weight
@@ -229,7 +231,7 @@ Omitted: Native supplier carriers, maps or normalized arithmetic counts are not 
 
 ArithmeticStatistics:ST.4/refinement-hyperelliptic-weighted-upper-bound
 Proposed declaration: ArithmeticSelmerRefinement.hyperelliptic_weighted_upper_bound
-Let n=2g+2, g≥1, and let F be a positive-mass sieve-controlled congruence family contained in the locally actual-Div¹-soluble locus, with all coefficients in 16Z. The Selmer numerator is at most 2 μ_∞({f:H(f)<X}) Π_p μ_p(F_p)+o_F(X^(n+1)). Real root strata are summed, and τ(SL_n/μ₂)=2 is the preceding central-quotient target, with an explicit general-formula supplier gap. This is an upper bound; the infinite-weight count supplies no matching lower bound.
+Let n=2g+2, g≥1, and F be a positive-mass sieve-controlled congruence family contained in the everywhere actual-Div¹-soluble locus, with all coefficients in 16Z. For each non-negative-definite real root stratum I(m), let its allowed part be F_∞∩I(m); use the full strata when no extra real restriction is imposed. Assuming the corresponding real-region count, the Selmer numerator is at most 2 Σ_m μ_∞({f∈F_∞∩I(m):H(f)<X}) Π_p μ_p(F_p)+o_F(X^(n+1)). Here F_∞ is a union of these strata; more general real restrictions require the matching counting extension. The same allowed real mass occurs in the coefficient denominator. The value τ(SL_n/μ₂)=2 has the explicit general-formula supplier gap. The infinite-weight count gives an upper bound without a matching lower bound.
 Omitted: Native supplier carriers, maps or normalized arithmetic counts are not exported at the pin; see G-native and the node’s direct supplier requests.
 
 ArithmeticStatistics:ST.4/refinement-hyperelliptic-average-two
@@ -279,7 +281,7 @@ Omitted: Native supplier carriers, maps or normalized arithmetic counts are not 
 
 ArithmeticStatistics:ST.4/refinement-odd-residue-field-models
 Proposed declaration: ArithmeticSelmerRefinement.odd_residue_field_models
-Let K/Q_p be finite with p odd, residue field F_q, and let C:y²=f(x) be a smooth hyperelliptic curve with integral coefficients. (i) If f̄ is squarefree of degree n and has an F_q-root, J has good reduction and every quadratic twist of C has a K-point. (ii) If f̄=(x−a)²h, h squarefree of degree n−2, h(a) a nonzero square, and h has an F_q-root, J is split semistable of toric rank one and every quadratic twist has a K-point. (iii) If f̄ is not a scalar multiple of a square and q>4n², then C(K)≠∅. In (ii) the root of h is automatically different from a and simple. In (iii) the factorisation f̄=l h² does not require l,h coprime.
+Let K/Q_p be finite with p odd, residue field F_q, and let C:y²=f(x) be a smooth hyperelliptic curve with integral coefficients and degree n≥3, hence genus ⌊(n−1)/2⌋. Reduction may drop degree in (iii), but (i) and (ii) retain degree n. (i) If f̄ is squarefree of degree n and has an F_q-root, J has good reduction and every quadratic twist of C has a K-point. (ii) If f̄=(x−a)²h, h squarefree of degree n−2, h(a) a nonzero square, and h has an F_q-root, J is split semistable of toric rank one and every quadratic twist has a K-point. (iii) If f̄ is not a scalar multiple of a square and q>4n², then C(K)≠∅. In (ii) the root of h is automatically different from a and simple. In (iii) the factorisation f̄=l h² does not require l,h coprime.
 Omitted: Native supplier carriers, maps or normalized arithmetic counts are not exported at the pin; see G-native and the node’s direct supplier requests.
 
 ArithmeticStatistics:ST.4/refinement-full-family-corank-parities
@@ -369,7 +371,7 @@ Omitted: Native supplier carriers, maps or normalized arithmetic counts are not 
 
 ArithmeticStatistics:ST.4/refinement-soluble-ternary-fundamental-count
 Proposed declaration: ArithmeticSelmerRefinement.soluble_ternary_fundamental_count
-For the integral ternary-cubic representation and H_AB invariant height, there is a finite-volume real fundamental multiset F₁, and F_t=tF₁ corresponds to H_AB<t^12. Generic integral points, with its stated orbit multiplicities, satisfy N_gen(F_t)=c₁t^10+o(t^10), c₁>0. At least c₃t^10+o(t^10) of them have a rational projective zero, c₃>0. The equality for total generic points and the lower soluble count use compatible measure and stabilizer conventions.
+For the integral ternary-cubic representation and H_AB invariant height, take a finite-volume real fundamental region F₁ with compatible orbit and stabilizer multiplicities. Require a fixed finite bound M≥1 on the multiplicity of each coefficient vector, with M=1 for a set of representatives; boundary choices must satisfy the same convention. Its dilate F_t=tF₁ corresponds to H_AB<t^12. Weighted generic integral points satisfy N_gen(F_t)=c₁t^10+o(t^10), c₁>0, and weighted generic points with a rational projective zero have count at least c₃t^10+o(t^10), c₃>0. The total, soluble and bounded-intersection counts use this one convention. Passing from a multiset count to distinct coefficient vectors divides a lower bound by at most M.
 Omitted: Native supplier carriers, maps or normalized arithmetic counts are not exported at the pin; see G-native and the node’s direct supplier requests.
 -/
 end ArithmeticSelmerRefinement
