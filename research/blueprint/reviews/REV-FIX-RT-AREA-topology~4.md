@@ -1,3 +1,94 @@
+# Current checkpoint: codex-kCCEnu
+
+Refs #6521. Codex (GPT-6), session `codex-kCCEnu`, 11 October 2026,
+branch `codex-kCCEnu-review-topology-6521`. The bot confirmed
+[claim 6107135532](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6107135532).
+This session did not author the reviewed fix or plans.
+
+The bounded verdicts remain **accepted** for Polylogarithms /7 and
+HabiroNahmSeries /11, and **needs_changes** for QSeries /13. Updated the
+three authorized review objects and preserved their preceding objects whole
+in `reviewHistory`. No mathematical payload or suggested file changed.
+The preceding report, including all 27 finding dispositions and the
+separately attributed full-plan reviews, is retained below as historical
+evidence. This run checked the findings, verifier reasons and fix report,
+then independently tested the volume, formal/analytic and scalar/knot
+boundaries; it does not claim a new whole-roadmap audit.
+
+## Fresh evidence
+
+Re-read the portions of the public sources cited below for /7, /11 and /13,
+plus Habiro Theorems 9.4, 10.1 and 10.2, pp.34-35, for /2. Eight fresh
+public PDF downloads have the same hashes as the preceding receipt. No
+source passage, PDF or private-library material is committed. The older
+rendered-page receipt for the Strange identity remains attributed to the
+preceding reviewer; this run's multiplier check is the packet/Lean/reader
+comparison and the exact -I test.
+
+For /11, GSWZ v2 Theorem 8, (163)-(166), pp.35-36 identifies formal
+collections in `Q[zeta]((x))[[t]]`. Its referenced definition (126), p.31,
+requires the auxiliary orders to be coprime; the packet explicitly retains
+that restriction. The printed theorem's broader wording is not used to
+remove it. This is distinct from the nondegenerate specialization and
+coefficient-ring conditions of Theorems 3/5, p.14. The completed bracket
+(110)-(111), p.28 and regularized pieces (117)-(119), pp.29-30 are not
+replaced by a real-polynomial h=1 prototype. Garoufalidis-Zagier v1 Theorem
+3.1, pp.4-6 instead requires positive-definite analytic data and radial
+remainder control.
+
+Exact standard-library rational arithmetic reproduced all 24 ordered
+cross-ratio reciprocal and odd-permutation identities on `(0,1,-i,2)`;
+the selected values are `(1+i)/4` and `2-2i`. It also checked the
+figure-eight Hessian's null vector `(1,-1)`, mixed formal moment `-h/3`
+for Hessian `[[2,1],[1,2]]`, finite values F(1)=1 and F(-1)=3, and the
+corrected -I multiplier product 1. These checks test conventions and
+hypotheses; none constructs a geometric carrier, a completed formal
+integration API or an analytic radial limit.
+
+Current read-only upstream/Tau Ceti remain the commits recorded below.
+Checked the arbitrary-based-pair relative homotopy definition and NDR
+comparison hypotheses, current DG owners, the Jones/Markov normalization,
+hyperbolic metric and Riemannian volume. No Lake command ran there. Fresh
+pinned statement reads of Gaussian density, neighborhood analyticity,
+ZMod.LFunction and the inverse-square estimate retain their actual
+hypotheses rather than supplying the missing exports.
+
+All five packets passed the blueprint checker with zero errors and
+warnings. Serial `lean-check` runs on Polylogarithms, HabiroNahmSeries and
+QSeries exited 0 with respectively 462, 441 and 1491 `sorry` warnings and
+no other diagnostics. These validate signatures, not proofs. The three
+files are unchanged and no compiler remains running.
+
+## Scope blocker and concrete completion path
+
+The live issue still authorizes only three packets; its queue requires five.
+All eleven queue outputs exist. The actual unchanged completion predicate
+returns false because P.2 and QT have their full-plan reviewer IDs. Two
+prepared packet objects pass the checker, including the pinned declaration
+index, under read-only canonical-path substitution and make that predicate
+return true. The QT addition has no prerequisite cycle.
+
+The concrete edits are to preserve both old reviews, record this bounded
+review in P.2 and QT, and add the missing
+`Polylogarithms:P.2/hyperbolic-volume` prerequisite to
+`ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`. Neither packet was
+edited: [WORKERS.md](../WORKERS.md) says “Edit only the files the issue
+names, plus your own scratch space.” Scope authorization was requested
+for those two paths and has not arrived. This is therefore a checkpoint.
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) specifies the edits
+without relying on scratch. Queue and completion code remain unchanged.
+Negative review verdicts are valid completed outcomes; the output-scope
+mismatch is the blocker.
+
+Final checks on this submission: all three updated packets pass with zero
+errors/warnings, intake `check-files` accepts all five changed paths, and
+`git diff --check` is clean. A structural comparison confirms that the
+three mathematical payloads are unchanged and each predecessor is retained
+whole. The final actual predicate remains false; the two-path read-only
+substitution remains true.
+
+## Preceding review retained with its original attribution
+
 # Independent review of topology fix round 4
 
 Refs #6521. Codex (GPT-6), session `codex-T33A8J`, 11 October 2026,
