@@ -532,11 +532,23 @@ Prerequisites: **PotentialAutomorphyInfrastructure:PA.0** (unipotent exterior co
 
 **Subquotients modulo p-powers (Artin–Rees)** (`CrystallineCM.subquotient_mod_p_pow`). Let N be a finitely generated Z_p-module and M a subquotient of N. For every m ≥ 1 there is m′ ≥ m such that M/p^mM is a subquotient of N/p^{m′}N.
 
-Additional hypotheses and conventions: Here finite Z_p-module means finitely generated; M is a module quotient of a submodule of N, not a subquotient of underlying sets.
+Additional hypotheses and conventions: Here finite Z_p-module means finitely generated; choose a submodule N′ ⊆ N and a surjective Z_p-linear map f : N′ → M. This is a quotient of modules, with its chosen maps retained.
 
-Source: CN, Lemma 2.3.18, p.43.
+**Canonical comparison and coefficient depth.** Put J=(p) ⊆ Z_p, write q_X,e : X → X/J^eX for the quotient map, and let T_e be the image of N′ → N/J^eN. The suggested signature chooses m′ ≥ m and a surjection g : T_m′ → M/J^mM satisfying g ∘ (q_N,m′ ∘ inclusion, with codomain restricted to its image) = q_M,m ∘ f. Thus the witness is the actual image of the chosen submodule, with the natural square; it is not an unrelated submodule that happens to have an isomorphic quotient. The private Lean abbreviations `adicSubmoduleImage` and `adicSubmoduleImageMap` reuse Mathlib's `LinearMap.range`, `rangeRestrict` and `Submodule.mkQ`; they introduce no new general quotient theory.
 
-Prerequisites: `mathlib:Ideal.exists_pow_inf_eq_pow_smul`; `tauceti:TauCeti.ArtinRees.exists_controlled_lift`.
+**Supplementary comparison API** (`CrystallineCM.subquotient_mod_p_pow_uniform`). There is a shift k₀ depending only on N′ ⊆ N such that, for every quotient f and every m ≥ 1, this same natural surjection exists at m′=m+k₀. The choice of k₀ precedes f and m. Use Artin–Rees to ensure N′ ∩ J^(m+k₀)N ⊆ J^mN′, then descend q_M,m ∘ f through T_(m+k₀). Its surjectivity follows from those of f and q_M,m. This is a specialization of the existing generic Artin–Rees supplier, not another plan for that theorem.
+
+The square determines g uniquely because N′ → T_m′ is surjective. Consequently it preserves any supplied endomorphism actions that preserve N′ and commute with f and the quotient maps. This is the map data needed when applying the subquotient lemma to Hecke modules in the proof of CN Proposition 4.2.6, especially p.64. Neither the scalar-linear signature nor its naturality constructs the arithmetic Hecke actions; those remain prerequisites of CL.6.
+
+Authored acceptance tests (supplementary to the accepted packet's inventory, typed as examples in `Suggested.lean`):
+
+- **Whole ambient submodule:** If N′=N and f is surjective, the natural comparison works with m′=m, without finite-generation or positive-depth assumptions. This detects an unnecessary depth increase in this special case.
+- **Depth one fails for a proper submodule:** Take N=Z_p, N′=pZ_p, M=N′ and f=id, with m=1. The image T_1 in Z_p/pZ_p is zero, while N′/pN′ is nonzero. No map from T_1 can satisfy the required square. An abstract subquotient statement alone would miss this failure, since N′/pN′ is abstractly isomorphic to Z_p/pZ_p.
+- **Depth two repairs that example:** With the same N, N′ and f, the natural image T_2=pZ_p/p²Z_p maps bijectively to N′/pN′, and the square commutes. This distinguishes the ambient adic filtration from the intrinsic one on N′.
+
+Source: CN, Lemma 2.3.18 and its proof, p.43; consumer Proposition 4.2.6 and proof, pp.63–65. The three examples are authored tests, not examples attributed to CN. Proofs in the suggested file remain `sorry`.
+
+Prerequisites: `mathlib:Ideal.exists_pow_inf_eq_pow_smul`; `tauceti:TauCeti.ArtinRees.exists_controlled_lift`; Mathlib's module quotients and linear-map ranges. Reuse the pinned Tau Ceti import `TauCeti.RingTheory.Ideal.ArtinRees` for the general coefficient-depth control.
 
 **The Bruhat filtration functors on parabolic induction** (`CrystallineCM.InductionFiltrationFunctors`). For a smooth P(L)-module π, define I_{≥i}(π) as locally constant functions on G_{≥i}=⋃_{ℓ(w)≥i}P(L)wP(L), compactly supported modulo P(L), satisfying f(pg)=pf(g), with right P(L)-translation. This is unnormalized induction on the open Bruhat union. I_{≥0} is Res_P Ind_P^{G̃}. The individual stratum and open-cell functors are separate declarations.
 
