@@ -1976,6 +1976,16 @@ example :
 end CoprimeEdgeTests
 
 section ComplementConjugacyTests
+-- extension_five_term_test_4: a split noncentral kernel can vanish in abelianization.
+example (φ₃ : Two →* MulAut C3)
+    (hφ₃ : ∀ t : Two, ∀ h : C3, φ₃ t h = if t = 1 then h else h⁻¹) :
+    let S := SemidirectProduct.toGroupExtension φ₃
+    Nonempty S.Splitting ∧
+    (∃ a : C3, ∃ e : C3 ⋊[φ₃] Two, S.inl a * e ≠ e * S.inl a) ∧
+    (Abelianization.of.comp S.inl).toAdditive = 0 ∧
+    ¬ Function.Injective (Abelianization.of.comp S.inl).toAdditive ∧
+    Function.Bijective (Abelianization.map S.rightHom).toAdditive := by sorry
+
 -- cyclic_complement_conjugacy_test_1: a trivial quotient has only the trivial complement.
 example {H Γ : Type} [Group H] [Group Γ] [Finite H] [Finite Γ] [Subsingleton Γ]
     (φ : Γ →* MulAut H) (K : Subgroup (H ⋊[φ] Γ))
