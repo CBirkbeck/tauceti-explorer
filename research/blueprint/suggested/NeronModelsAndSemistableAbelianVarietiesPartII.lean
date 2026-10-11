@@ -717,12 +717,14 @@ scheme-existence signature appears above; these names locate all remaining named
 * G.0/conductor-square: the affine form is FerrandPushout.conductor above; the native global
   ideal-sheaf, quotient-chart, cartesian, geometric/categorical and flat-recomputed forms
   appear below. Their SF.0 proof dependencies remain required.
-* G.1/canonical-type-classification: full geometric Kodaira incidence, not just the root graph.
+* G.1/canonical-type-classification: I₀, Iₙ (n≥1), II, III, IV, Iₙ* (n≥0), IV*, III*, II*,
+  with full geometric incidence and primitive multiplicities.
 * G.1/five-f2-classes: actual pointed elliptic-curve isomorphism classes, not coefficient equality.
 * G.2/transverse-divisor: regular horizontal DVR Cartier divisor, intersection Spec k, length m.
 * G.2/multiple-fiber-isogeny: genuine good-reduction elliptic schemes and regular torsor models,
   with henselization and Raynaud (N)* hypotheses retained.
-* G.2/llr-kodaira-comparison: algebraically closed residue field, actual period and symbol mT.
+* G.2/llr-kodaira-comparison: henselian DVR with algebraically closed residue field,
+  actual local torsor period and symbol mT.
 * G.3/rational-canonical: relative/absolute dualizing sheaves and the section intersection −1.
 * G.3/even-complement: geometric Picard realization in the existing IntegralLattice carrier.
 * G.3/relative-cubic-contraction: actual evaluation map and normal cubic, contracting vertical
