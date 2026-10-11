@@ -1,86 +1,85 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-YXQsbh`, 10 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103387238).
+Codex (GPT-6), session `codex-kPnLrK`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103517050).
+Input commit: `0a5333428b0eb64b02aab302dca00b4495a91ef6`.
 
-## Status: blocked by the live issue’s file scope
+## Status: blocked by the live issue's file scope
 
-The six-finding bounded correction review was completed by `codex-jIGDIK`.
-This run verified the two prepared receipts against their packet contracts
-and fresh public sources, rechecked PMIA’s current native duplication,
-reran all four packet checkers and freshly ran all four suggested Lean files.
-The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-distinguishes those fresh checks from the predecessor’s audits and links the
-immutable input report at `303b02c8bda26170394f9f96f6c691391a2f8611`.
-No new exhaustive node audit is claimed.
+The bounded six-finding correction review is finished. L3's accepted receipt
+and PMIA's `needs_changes` receipt are already installed. L3-2 and D.1 have
+accepted receipts prepared by `codex-jIGDIK`, reproduced exactly below.
+PMIA's negative verdict is finished review work; do not accept duplicate
+plans merely to obtain positive verdicts everywhere.
 
-L3’s installed accepted receipt and PMIA’s installed `needs_changes` receipt
-are unchanged. PMIA needs coordinated replacement of five generic plans by
-current Tau Ceti Fitting/stable-transpose results, including the reader and
-consumers. Its negative verdict is finished review work, not a completion
-blocker. The remaining two accepted receipts are reproduced below exactly
-as prepared by the predecessor. All packets and suggested files remain
-byte-identical to this run’s input commit
-`1613c403b8210425d2aa3d37a18ad3e85a3aa3f1`.
+This continuation freshly checked all four packets, reread the five current
+native Fitting/stable-transpose declarations, and validated a read-only candidate
+receipt installation. It preserved all mathematical/planning fields and the
+predecessor's full node audits. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+separates this preflight from the predecessor's source review and Lean checks.
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/0a5333428b0eb64b02aab302dca00b4495a91ef6/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+also retains the earlier audit chain and installation rationale.
 
-## Required scope repair before another worker resumes
+## Exact scope repair required
 
-The live issue #6219 omits these packet paths:
+The live issue #6219 still omits:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-The queue lists both among this job’s outputs. Its unchanged completion
-predicate requires their top review records to name this job. WORKERS.md
-says “Edit only the files the issue names, plus your own scratch space.”
-This run requested explicit authorization to change only `review` and
-`reviewHistory` in those two paths; no answer has arrived. The live issue
-still omits them, and a fresh search of its human comments found no prior
-authorization. Do not treat a new claim, elapsed waiting time or an intake
-allowlist as authorization to override this restriction.
+The queue lists both as outputs; `issues.deliverables_complete(job)` requires
+their top reviews to name this job. Actual completion is False. Installing
+only the two exact records below in a read-only candidate set makes it True.
+WORKERS.md says, "Edit only the files the issue names, plus your own scratch
+space." Explicit authorization for changing only `review` and `reviewHistory`
+in these two paths was requested in the worker conversation; no answer has
+arrived. Neither elapsed waiting time nor the queue/intake allowlist is approval.
 
-Actual `issues.deliverables_complete(job)` is False. A read-only substitution
-of both prepared records below makes it True. Preservation assertions verify
-that only `review` and `reviewHistory` differ, and each new history equals
-old history + [entire old review]. That retains the earlier full 79-node and
-72-node audits and their original attribution. The resulting candidate packet
-set also passes the unchanged packet checker with zero errors or warnings,
-using the existing declaration index. No queue, predicate or labels
-were changed. No mathematical correction remains necessary for installing
-these two bounded review verdicts.
+Resume only when the live issue names both paths or explicit maintainer/user
+authorization permits these two review-only edits. Do not repeat the completed
+source review or append another L3/PMIA receipt. All packets and suggested
+files are byte-identical to this continuation's input commit.
 
-Do not repeat the source review or add another L3/PMIA receipt merely to
-change the worker’s name. Resume when the live issue lists both paths or
-explicit maintainer authorization permits these two edits. Then install the
-records, archive each entire current top review and perform the verification
-below. Accepting PMIA’s duplicate plans would be wrong; `needs_changes` is a
-valid final review outcome.
+## Current validation
 
-## Checks in this run
+All four actual packets pass `check_blueprint.py` using the existing pinned
+declaration index with zero errors. L3 has 26 inherited short-API warnings;
+the other three have none. The two candidate packets have zero errors and
+zero warnings. Recursive checks find no excerpt fields. Candidate preservation
+assertions require exact equality of every field except `review` and
+`reviewHistory`, and new history equals old history plus the entire old review,
+including its 79-node or 72-node checked array and original attribution.
 
-All four actual packets pass check_blueprint.py with zero errors. L3 has
-26 inherited short-API warnings; the other three have none. No excerpt fields
-exist. Fresh sequential lean-check runs used the pinned shared build, with
-94–96 GB available before each invocation. L3 fails at line 1, unknown module
-prefix `research`, before elaborating the body. L3-2, D.1 and PMIA exit 0
-with respectively 111, 307 and 1,075 `sorry` warnings only. All four are this
-session's fresh checks. Do not weaken L3’s owned sibling interfaces to bypass
-missing compiled prototype artifacts. No Lean process remains running.
+No Lean source changed and no new Lean run was performed. Predecessor
+`codex-YXQsbh` ran all four suggested files: L3 fails before body elaboration
+on an unknown `research` import; L3-2, D.1 and PMIA elaborate with respectively
+111, 307 and 1,075 expected proof-placeholder warnings only. Do not weaken the
+owned sibling interfaces to bypass the missing compiled prototype artifacts.
 
-Eight public PDFs were fetched and checked in this run: Morita,
-Gross–Koblitz, Robert, Zhao, Ertl–Niziol, Colmez–Niziol, Nekovar–Niziol
-and Dasgupta–Kakde. Their hashes match the immutable input report; fresh
-source locators and reading boundaries are in the current report. BCGP
-readings and earlier exhaustive audits retain their original attribution.
-No book was used,
-no source passage was committed, and no ephemeral scratch path is needed
-to resume. Current native declarations were read in the read-only Tau Ceti
-checkout and distinguished from the programme pins.
+Current Tau Ceti remains at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The five native declarations listed in the report were reread; they still
+supply the generic Fitting and projective-transpose targets duplicated by
+PMIA. Their newer commit must not be attributed to programme pin `f790474`.
+The coordinated PMIA reader/suggested/consumer revision remains required.
+No source PDF was fetched in this continuation; earlier source audits and
+elaborations retain their original attribution. No process remains running.
+
+## Installation guards
+
+Hashes below are SHA-256 of the exact UTF-8 JSON files. Candidates use
+`json.dumps(..., ensure_ascii=False, indent=2)` plus one final newline.
+If an input has changed, inspect the intervening edits before installing a
+receipt; do not replace new mathematics or erase newer review evidence.
+
+| Packet | Expected input | Prepared candidate |
+| --- | --- | --- |
+| L3-2 | `d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14` | `71f6162cd144fe45eaef0ed07832db8f88e2006e9d7382894cbfe44de32d5223` |
+| D.1 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` | `510b0ca6219eef4450391bfedcee0d0dc6b7d27b198edf2f25a67365ca410caf` |
 
 ## Remaining records
 
-The records below were prepared and validated by codex-jIGDIK. They accept the
-corrections, not closure of the explicitly open supplier obligations.
+These exact records were prepared by `codex-jIGDIK`. They accept the bounded
+corrections and preserve open supplier obligations. Keep that attribution.
 
 ### DirichletPadicLFunctions--L3-2
 
@@ -104,35 +103,19 @@ corrections, not closure of the explicitly open supplier obligations.
 }
 ```
 
-## Installation verification after authorization
+## Final installation checks after authorization
 
-For each extra packet, compare parsed JSON before and after while excluding
-only review and reviewHistory. Require exact equality of every remaining
-field; require new history == old history + [old review]. This keeps each
-former full audit intact and attributed, rather than splicing its checked array
-into a new bounded review. L3 and PMIA should remain byte-identical to input
-commit `1613c403b8210425d2aa3d37a18ad3e85a3aa3f1`; do not append redundant
-receipts there. Recursively reject new excerpt fields.
+For each extra packet, archive the entire existing top review in
+`reviewHistory`, then install the corresponding record above. Require exact
+parsed equality of all fields except `review` and `reviewHistory`; require
+new history == old history + [entire old review]. Keep L3, PMIA and every
+suggested file byte-identical to input. Recursively reject excerpt fields.
 
-Run the packet checker for all four packets, git diff --check and the intake
-path screen. Then run the unchanged completion predicate:
-
-```python
-import importlib.util
-import json
-from pathlib import Path
-
-spec = importlib.util.spec_from_file_location("blueprint_issues", "research/blueprint/issues.py")
-issues = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(issues)
-queue = json.loads(Path("research/blueprint/queue.json").read_text())
-job = next(j for j in queue["jobs"] if j["id"] == "REV-FIX-RT-AREA-iwasawa-2~2")
-assert issues.deliverables_complete(job)
-```
-
-Update the report and this handoff to record the authorization and completed
-receipt installation. A finished review may retain PMIA's needs_changes status;
-accepting an outstanding duplicate plan merely to make every verdict positive
-would be wrong. Open the one-job PR with Refs #6219, the agent/session and
-accurate checker and Lean results. Never change the completion rule to bypass
-the scope mismatch.
+Run the packet checker on all four packets with the pinned declaration index,
+`git diff --check`, and `intake.py check-files` on changed paths. Run the
+unchanged completion predicate with the actual repository root and require
+True. The code for that check is in the predecessor's linked handoff; no
+predicate or queue edit is authorized. Update the report and handoff with
+explicit authorization and the actual installation results, then submit a
+finished review PR with Refs #6219, accurate checks and attribution. A finished
+review retains PMIA's justified `needs_changes` verdict.

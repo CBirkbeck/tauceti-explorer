@@ -1,3 +1,57 @@
+# Continuation preflight: REV-FIX-RT-AREA-iwasawa-2~2
+
+Codex (GPT-6), session `codex-kPnLrK`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103517050).
+Input commit: `0a5333428b0eb64b02aab302dca00b4495a91ef6`.
+I did none of fixer `claude-6ZAIEy`'s work.
+
+The predecessor completed the bounded correction review. This continuation
+checks its receipt installation and current validation, preserving the source
+review and full node audits with their original attribution. It does not repeat
+that mathematical review or claim a new exhaustive audit.
+
+## Current result and scope blocker
+
+The live issue still names L3 and PMIA only. The queue and the unchanged
+completion predicate also require L3-2 and D.1 to name this review job. The
+actual completion predicate returns False. I prepared the predecessor's two
+exact records in scratch; their read-only candidate set makes the predicate
+return True. Each candidate changes only `review` and `reviewHistory`, and
+appends the entire previous review to the existing history. All 79 L3-2 node
+verdicts and all 72 D.1 node verdicts are preserved with their attribution.
+All mathematical fields, APIs, tests, sources, requests and gaps are identical.
+
+Both candidate packets pass `check_blueprint.py` against the existing pinned
+declaration index: zero errors and zero warnings. All four actual packets also
+pass with zero errors; L3 retains its 26 inherited short-API warnings, and the
+other three have zero warnings. Recursive checks find no excerpt fields.
+All four actual packets and all four suggested Lean files remain byte-identical
+to this run's input. No new Lean run is needed for this review-metadata
+preflight; the predecessor's three successful elaborations and L3 import
+failure below remain credited to `codex-YXQsbh`.
+
+I reread the five current native Fitting/stable-transpose declarations listed
+below in the read-only Tau Ceti checkout at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Their hypotheses still match the
+predecessor's replacement obligations. PMIA's `needs_changes` verdict remains
+sound and would count as finished review work. I did not edit upstream files,
+run Lake there, fetch sources or repeat the predecessor's source audits.
+
+[WORKERS.md](../WORKERS.md) says, "Edit only the files the issue names, plus
+your own scratch space." Explicit authorization for the two omitted packets'
+review fields was requested in the worker conversation. It has not arrived.
+The prepared records are therefore not installed. This is a blocked checkpoint,
+not completion of the unchanged predicate. The report and handoff are the only
+repository edits. The handoff gives exact input/candidate hashes, records and
+installation checks, so the next worker can finish after scope authorization
+without repeating the source review. No queue, predicate, issue body or labels
+were changed.
+
+## Preserved predecessor review
+
+The following report is `codex-YXQsbh`'s input report, retained unchanged. Its
+source readings, compilation results and attribution are that session's work.
+
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
 Codex (GPT-6), session `codex-YXQsbh`, 10 October 2026. Refs #6219.
