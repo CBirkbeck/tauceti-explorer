@@ -1,39 +1,46 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
-Agent: Codex (GPT-6). Session: `codex-TrHWwa`. Date: 2026-10-11.
-Branch: `codex-TrHWwa-crystalline-package`.
-Input commit: `bc77f117ef2960db87bcc24331b59fde6d8d38d8`.
-Claim confirmed in [comment 6106440436](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106440436),
-responding to [comment 6106439383](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106439383).
+Agent: Codex (GPT-6). Session: `codex-na9zBZ`. Date: 2026-10-11.
+Branch: `codex-na9zBZ-crystalline-package`.
+Input commit: `8076e348807e479667d4020d429028f01a1fa6f2`.
+Claim confirmed in [comment 6106608981](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106608981),
+responding to [comment 6106607982](https://github.com/CBirkbeck/tauceti-explorer/issues/7462#issuecomment-6106607982).
 None of the forty manager-priority issues was available. This was the eligible
 focus package under WORKERS.md's fallback order. Only this issue was claimed.
 
-## Outcome and change
+## Outcome and changes
 
-**Blocked on missing supplier interfaces; this is not a complete package.**
+**Blocked on missing supplier exports; this is not a complete package.**
 The accepted planning pass has 97 targets, 103 API entries, 104 named tests,
-27 requests and 40 gaps. All ten layers are planned; none is closed. The
-inherited Suggested.lean supplies typed cores for only 17 target names.
-Its remaining catalogue entries are comments, not arithmetic signatures.
+27 requests and 40 gaps. All ten stages are planned; none is closed. The
+package retains typed cores for 17 target names, rather than arithmetic
+signatures for all 97 targets. Owner work must precede package completion.
 
-This continuation corrects the README's induction reuse boundary. Current
-upstream **IntegralHeckeAndGaloisDeterminants**, Layer 0, §0.7 already plans
-`AlgebraicInduction.module`: the cotensor equalizer for a map of flat
-commutative Hopf algebras, with `moduleComodule`, Frobenius `reciprocity` and
-counit evaluation `reciprocity_apply`. Reuse these in the integral highest-weight
-owner rather than introducing a second general induction carrier. Its convention
-F(hg)=hF(g) compares by inversion with the left-translation convention in
-Jantzen I.3.3–3.7, pp.38–41. Those sections were read directly in the cleared
-second edition; no source passage was copied. IHG §6.4's integral GL₂ induced
-modules and good-filtration theory do not supply arbitrary GL_{2n} Siegel
-Levi evaluation and the integral splitting required here. These are upstream
-suggested interfaces, not implemented declarations at either the atlas pin
-or current Tau Ceti.
+This continuation improves the inherited package's upstream presentation:
 
-No Lean declaration was changed. This note consolidates the preceding
-handoffs, retaining their mathematical resume contracts below. Historical
-source checks are distinguished from checks repeated in this session.
+- The README now has the roadmap title, scope, conventions, exact supplier
+  contracts before the build, decimal layer/subsection numbering, definition
+  **Checks**, per-layer examples and dependencies, downstream consumers and
+  references. All 98 inherited target paragraphs (including the supplementary
+  Artin–Rees interface), 207 API/test bullets and 97 source/prerequisite pairs
+  are retained. The only added worked specialization is the direct n=2,
+  weight-zero Hodge–Tate calculation in Layer 7.
+- Suggested.lean uses `import Mathlib` and its actual Tau Ceti Artin–Rees
+  import, the `TauCetiRoadmap.CrystallineLocalGlobalCompatibilityCM` namespace
+  with the existing `CrystallineCM` subnamespace, ordered Layer 0–9 sections,
+  `theorem` spelling and mathematical declaration docstrings. The independent
+  unipotent transfer and degree-bound blocks now appear in their layers.
+- Removed the 116 KB commented omission catalogue from Suggested.lean. The
+  full specification stays in the README and the untouched accepted packet;
+  a short closing comment names the missing arithmetic carriers. Comments
+  do not count as signatures. No mathematical Lean statement or proof body
+  was changed, except that declarations are qualified by the outer namespace.
+
+The fresh supplier/source checks below establish a dependency block within the
+issue's authorized scope. This note retains the earlier continuations'
+mathematical resume contracts. It does not certify a full source audit or
+independent package review.
 
 ## Two sufficient blockers checked afresh
 
@@ -55,11 +62,12 @@ invent stage ids. Broad routing design
 integral-representation continuation and was checked open and available;
 it is not an export and was not claimed here.
 
-The pinned `TauCeti.YoungTableau.weylModule` in
+The inherited pinned-library check establishes that `TauCeti.YoungTableau.weylModule` in
 `RepresentationTheory/ClassicalGroups/WeylModule.lean` requires `[Algebra ℚ k]`.
-Current `ClassicalGroups/WeylModule/Basic.lean` retains that assumption.
+A fresh read of current `ClassicalGroups/WeylModule/Basic.lean` confirms
+that it retains that assumption.
 Neither supplies the requested lattice over O or reduction over O/ϖ^m.
-The newly identified IHG cotensor interface removes a general carrier duplication,
+The existing upstream IHG cotensor interface removes a general carrier duplication,
 but leaves coordinate-algebra flatness, weight characters, base-change, Levi
 restriction and the integral splitting to their owners.
 
@@ -68,7 +76,8 @@ CL.2/lem-2-2-16, CL.5/cor-4-1-9 and CL.6/lem-4-2-3.
 The inherited source audit identifies CN v3 Lemma 2.1.12, pp.17–18,
 and Lemma 4.2.3, p.60. Preserve **NT16 Proposition 2.10**, as the README
 already does; the request's stale “Lemma 2.10” needs a packet-authorized edit.
-This run did not repeat that CN/NT16 source audit.
+This run read CN v3 Lemma 2.1.12 and its proof, pp.17–18, directly.
+The NT16 locator correction is inherited and was not re-audited here.
 
 ### Completed arithmetic towers
 
@@ -92,8 +101,7 @@ ALS.6 entry separates generic limits from the absent arithmetic tower.
 Generic derived categories and limits do not give its actual adelic level
 system, actions or comparison maps. Owner work
 [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701), from CC.0,
-and [#702](https://github.com/CBirkbeck/tauceti-explorer/issues/702), from CC.8,
-was checked open and available; neither issue was claimed.
+was checked open and available; it was not claimed.
 
 Consumers: CL.1/p-ordinary-completed, CL.3/lem-2-3-14,
 CL.5/boundary-coefficient-object, CL.5/lem-4-1-6, CL.5/prop-4-1-4,
@@ -109,11 +117,21 @@ this consumer would violate those boundaries. This is a dependency block,
 not exhaustion of the eight-hour allowance. These blockers are sufficient
 without an exhaustive audit of the 27 requests.
 
+Fresh source reads also covered CN v3 §2.2.7, p.28, and Lemma 4.1.6
+with its proof, pp.55–56. The former needs equivariant arithmetic completion
+and finite-level recovery. The latter kills positive torsion cohomology in
+the actual unipotent congruence tower using the arithmetic nilmanifold
+fibration, Leray–Serre and strong approximation. A generic derived limit
+or a rational Lie-algebra computation does not furnish either input.
+These are sufficient blockers; this run did not audit every inherited target.
+
 ## Preserved mathematical resume contracts
 
 The following is the preceding continuations' authored resume record. Source
 and upstream checks attributed to them are historical, not additional checks
-in session codex-TrHWwa. Code and detailed formulas remain in the package.
+in this session. The current run independently rechecked the monoid/group
+boundary in the current library and the upstream group-category declarations.
+Code and detailed formulas remain in the package.
 
 ### Smooth monoids and derived ordinary parts
 
@@ -232,8 +250,12 @@ Preserve HT(ε⁻¹)=+1 alongside the other normalization conventions above.
 
 ## Inventory and validation in this session
 
-Independently removed nested block comments, compared target/API names with
-actual declarations and associated named-test labels with actual examples:
+The inherited typed-name inventory remains as follows. The current run
+independently strips nested Lean comments and checks that all 140 declarations
+and examples have the same signatures and bodies, allowing section order and
+`lemma` → `theorem`. It also verifies conservation of every README target,
+API/test bullet, source locator and prerequisite payload. Neither comments nor
+supplementary Artin–Rees entries increase the accepted-plan typed inventory.
 
 | Layer | Targets typed/total | API typed/total | Named tests typed/total |
 |---|---:|---:|---:|
@@ -249,38 +271,37 @@ actual declarations and associated named-test labels with actual examples:
 | CL.9 | 1/12 | 2/13 | 3/13 |
 | Total | **17/97** | **44/103** | **45/104** |
 
-The omitted counts remain 80/59/59. Some typed cores also still need their
-arithmetic specializations. Supplementary Artin–Rees signatures/tests do not
-count as omitted accepted-plan entries. The catalogue in Suggested.lean
-retains every omitted name; its commentary does not count as a signature.
 
-- `check_blueprint.py` on the accepted packet: **0 errors, 0 warnings**.
-- `lean-check` on package Suggested.lean: **exit 0, no errors, 107 warnings,
-  all declaration-uses-sorry warnings**. Available memory was 102 GB before
-  checking. No Lean server or library build was started; no check remains
-  running. Elaboration validates the supplied cores, not the omitted targets.
-- Intake `check-files`: **2 files, 0 problems**; `git diff --check` passes.
-  README is 190,227 bytes, below 200 KB. Only the README and this handoff
-  are changed.
+The omitted counts remain 80/59/59. Several typed cores still require their
+arithmetic specializations. Removed comment catalogue entries are fully
+specified in the README; they remain untyped.
+
+- Accepted packet checker: **0 errors, 0 warnings**.
+- `lean-check` on the final package Suggested.lean: **exit 0, no errors,
+  107 warnings, all declaration-uses-sorry warnings**. Available memory was
+  98 GB before the initial check. No Lean server or library build was started;
+  no check remains running. Elaboration validates only the supplied cores.
+- Intake `check-files`: **3 files, 0 problems**; `git diff --check` passes.
+  README is below the 200 KB cap. Only README, Suggested.lean and this handoff
+  are changed. No packet, original reader or original suggested file was edited.
 - Current read-only roadmap commit:
   `070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti commit:
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the upstream ReductiveGroups
-  and PeripheralActions READMEs, IHG §0.7/§6.4 carrier declarations,
-  pinned/current Weyl assumptions, PA's owner gap, accepted RS-09 and reviewed
-  ALS.6 audit. No build was run in either read-only tree.
-- Suggested.lean is unchanged, SHA-256
-  `9e32ee66611e8eaa3c35f82ae7a41c48886ca968c42b0d3a7c54e14058fe69fb`.
-  The accepted packet is unchanged, SHA-256
+  and PeripheralActions READMEs, IHG induction interfaces, current Weyl-module
+  assumptions, current smooth-monoid and upstream group-category declarations,
+  PA's owner gap, accepted RS-09 and reviewed ALS.6 audit. No build was run in
+  either read-only tree. Generic supplier interfaces were reused, not replanned.
+- The accepted packet is unchanged, SHA-256
   `116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d`.
-- Historical CN audit used arXiv:2301.10509v3, PDF SHA-256
+- Fresh CN reads used arXiv:2301.10509v3, PDF SHA-256
   `57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3`.
-  This run did not repeat that PDF audit. Only authored statements and source
-  locators enter the package.
+  The additional numerical locator is Lemma 4.2.5, p.62. The earlier Jantzen
+  cleared-book check and NT16 correction are inherited, not fresh reads.
+  No source passage or cleared library file enters this repository.
 
 `metadata.toml` remains absent because intake currently infers package completion
-from output existence. Add `topic = "math.NT"` only once the entire package
-standard is met. No packet, original reader or original suggested file was
-edited. Intake and diff checks are also recorded in the pull request.
+from output existence. Add `topic = "math.NT"` only when the entire package
+standard is met. The blocked checkpoint must not trigger package completion.
 
 ## Where to resume
 
@@ -290,12 +311,16 @@ edited. Intake and diff checks are also recorded in the pull request.
    supplier. These are owner jobs, not additional work claimed by this worker.
 2. A packet-authorized job must connect those actual declarations, retarget
    `REQ-TOWER`, reconcile smooth stage ids and the induction reuse boundary,
-   and correct NT16 Proposition 2.10.
-3. Specialize the inherited cores to arithmetic objects and type every remaining
+   and correct NT16 Proposition 2.10. Do not invent an integral highest-weight
+   stage id where the parent explicitly records none.
+3. Specialize the retained cores to arithmetic objects and type every remaining
    target, API item and named test. Preserve all normalization and exception
    contracts above, including the qualified Barsotti–Tate endpoint.
-4. Elaborate the complete file, finish the upstream-style reader and add metadata.
+4. Elaborate the complete file, finish the reader and add metadata. The outer
+   namespace is now `TauCetiRoadmap.CrystallineLocalGlobalCompatibilityCM`;
+   the short `CrystallineCM` names and all mathematical formulas are unchanged.
 
 The manager should route owner work before returning this package for another
-completion attempt. No label was changed by this worker. No scratch artifact
-is needed to resume, and no second job is claimed.
+completion attempt. Repeating presentation or source-locator checks cannot
+supply the two missing owners. No label was changed by this worker. No scratch
+artifact is needed to resume, and no second job was claimed.
