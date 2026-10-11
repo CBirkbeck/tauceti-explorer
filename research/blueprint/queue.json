@@ -30677,7 +30677,8 @@
    ],
    "avoidAccountOf": "BP-DrinfeldModulesAndTModules--DM.8",
    "prompt": "research/blueprint/prompts/REV-DrinfeldModulesAndTModules--DM.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #515"
   },
   {
    "id": "BP-GlobalShtukasAndFunctionFieldLanglands",
@@ -36741,8 +36742,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6299"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6299",
+   "finishedAt": "2026-10-11T00:14:28Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
@@ -43155,8 +43157,9 @@
    ],
    "revisionOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6511",
+   "finishedAt": "2026-10-11T00:14:31Z"
   },
   {
    "priority": 2,
@@ -49192,8 +49195,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80250,8 +80253,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81560,8 +81563,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
