@@ -7,9 +7,11 @@ Mathlib baseline: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369.
 The expressible cores below use only individual Mathlib imports.
 
-The four CL.0 objects expose algebraic cores: block exchange, positive exponent
-cone, integral block subgroup and scalar rescaling. CL.3 adds the p-adic
-normalization of a supplied determinant-norm character. CL.6 exposes integral
+The five CL.0 objects expose algebraic cores: block exchange, positive exponent
+cone, integral block subgroup, lowest-weight scaling character and scalar rescaling.
+The character uses an actual supplied exponent map and retains separate full
+and blockwise Weyl permutations; arithmetic exponent construction is not supplied.
+CL.3 adds the p-adic normalization of a supplied determinant-norm character. CL.6 exposes integral
 and torsion image algebras of supplied actions, their factorization and the
 scalar-extension map. It also constructs deep levels from actual integral
 component maps on a supplied subgroup; Levi selection is pulled back from F⁺.
@@ -30,6 +32,9 @@ ring formula does not assert openness or compactness over arbitrary rings.
 -/
 import Mathlib.Logic.Equiv.Fin.Basic
 import Mathlib.Data.Fin.Rev
+import Mathlib.Algebra.Group.Submonoid.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Tactic.NormNum
 import Mathlib.LinearAlgebra.Matrix.Permutation
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.Block
@@ -183,6 +188,102 @@ example :
     g ∈ ParahoricPVBC 1 0 1 (0 : ZMod 3) (by decide) ∧
     g ∉ ParahoricPVBC 1 1 1 (0 : ZMod 3) (by decide) := by
   sorry
+
+/- CL.0/lowest-weight-scaling-character: supplied exponent maps, CN §2.1.13. -/
+section LowestWeightScaling
+variable {D E Emb : Type*} [Monoid D] [Field E] [Fintype Emb] {r : ℕ}
+
+/-- The character from the supplied central-exponent map; the Weyl permutation
+acts on the weight by inverse reindexing. Compact elements have exponent zero.
+The arithmetic double-coset exponent map is a separate required input. -/
+def LowestWeightScalingCharacter (π : Emb → Eˣ) (lam : Emb → Fin r → ℤ)
+    (w : Equiv.Perm (Fin r)) (ν : D →* Multiplicative (Fin r → ℤ)) : D →* Eˣ where
+  toFun g := ∏ τ, π τ ^ (∑ i, (ν g).toAdd i * lam τ (w.symm i))
+  map_one' := by sorry
+  map_mul' := by sorry
+
+lemma LowestWeightScalingCharacter_compact (π : Emb → Eˣ)
+    (lam : Emb → Fin r → ℤ) (w : Equiv.Perm (Fin r))
+    (ν : D →* Multiplicative (Fin r → ℤ)) (q : D) (hq : ν q = 1) :
+    LowestWeightScalingCharacter π lam w ν q = 1 := by
+  sorry
+
+lemma LowestWeightScalingCharacter_cocharacter (π : Emb → Eˣ)
+    (lam : Emb → Fin r → ℤ) (w : Equiv.Perm (Fin r))
+    (ν : D →* Multiplicative (Fin r → ℤ)) (a : Fin r → ℤ)
+    (g : D) (hg : ν g = Multiplicative.ofAdd a) :
+    LowestWeightScalingCharacter π lam w ν g =
+      ∏ τ, π τ ^ (∑ i, a i * lam τ (w.symm i)) := by
+  sorry
+
+lemma LowestWeightScalingCharacter_mul (π : Emb → Eˣ)
+    (lam : Emb → Fin r → ℤ) (w : Equiv.Perm (Fin r))
+    (ν : D →* Multiplicative (Fin r → ℤ)) (g h : D) :
+    LowestWeightScalingCharacter π lam w ν (g*h) =
+      LowestWeightScalingCharacter π lam w ν g *
+        LowestWeightScalingCharacter π lam w ν h := by
+  sorry
+
+/-- Adjoining the inverse of one selected operator, with its extended exponent
+map, constructs a unique character. Other positive operators need not become
+invertible, and the selected Weyl permutation is unchanged. -/
+lemma LowestWeightScalingCharacter_extension (π : Emb → Eˣ)
+    (lam : Emb → Fin r → ℤ) (w : Equiv.Perm (Fin r))
+    (ν : D →* Multiplicative (Fin r → ℤ))
+    {H : Type*} [Monoid H] (j : D →* H)
+    (νH : H →* Multiplicative (Fin r → ℤ)) (hν : νH.comp j = ν)
+    (u : D) (uH : Hˣ) (hu : (uH : H) = j u)
+    (hgen : Submonoid.closure (Set.range j ∪ {((uH⁻¹ : Hˣ) : H)}) = ⊤) :
+    (∃! χ : H →* Eˣ, χ.comp j = LowestWeightScalingCharacter π lam w ν) ∧
+      LowestWeightScalingCharacter π lam w νH (uH⁻¹ : Hˣ) =
+        (LowestWeightScalingCharacter π lam w ν u)⁻¹ := by
+  sorry
+
+-- CrystallineCM.LowestWeightScalingCharacter_test_zero_weight
+example (π : Emb → Eˣ) (w : Equiv.Perm (Fin r))
+    (ν : D →* Multiplicative (Fin r → ℤ)) :
+    LowestWeightScalingCharacter π (fun _ _ => 0) w ν = 1 := by
+  sorry
+
+-- CrystallineCM.LowestWeightScalingCharacter_test_rank_one
+example (π : Eˣ) (a b : ℤ) :
+    LowestWeightScalingCharacter (fun _ : Unit => π)
+      (fun _ => ![a,b]) Fin.revPerm
+      (MonoidHom.id (Multiplicative (Fin 2 → ℤ)))
+      (Multiplicative.ofAdd ![1,0]) = π ^ b := by
+  simp [LowestWeightScalingCharacter, Fin.sum_univ_two, Fin.revPerm]
+
+-- CrystallineCM.LowestWeightScalingCharacter_test_compact_value
+example (π : Emb → Eˣ) (lam : Emb → Fin r → ℤ)
+    (w : Equiv.Perm (Fin r)) (ν : D →* Multiplicative (Fin r → ℤ))
+    (K : Submonoid D) (hK : ∀ q : K, ν q = 1) (q : K) :
+    LowestWeightScalingCharacter π lam w ν q = 1 := by
+  sorry
+
+-- CrystallineCM.LowestWeightScalingCharacter_test_distinct_weyl
+example :
+    let π := Units.mk0 (2 : ℚ) (by decide)
+    let lam : Unit → Fin 4 → ℤ := fun _ => ![1,1,0,0]
+    let ν := MonoidHom.id (Multiplicative (Fin 4 → ℤ))
+    let a : Multiplicative (Fin 4 → ℤ) := Multiplicative.ofAdd ![1,1,0,0]
+    let αU := LowestWeightScalingCharacter (fun _ : Unit => π) lam Fin.revPerm ν
+    let αL := LowestWeightScalingCharacter (fun _ : Unit => π) lam
+      (WeylElements 2 * Fin.revPerm) ν
+    (αU a : ℚ) = 1 ∧ (αL a : ℚ) = 4 ∧ αU a ≠ αL a := by
+  have hU : (∑ i : Fin 4, (![1,1,0,0] : Fin 4 → ℤ) i *
+      (![1,1,0,0] : Fin 4 → ℤ) i.rev) = 0 := by
+    simp only [Fin.sum_univ_succ]
+    decide
+  have hL : (∑ i : Fin 4, (![1,1,0,0] : Fin 4 → ℤ) i *
+      (![1,1,0,0] : Fin 4 → ℤ) ((WeylElements 2 * Fin.revPerm).symm i)) = 2 := by
+    simp only [Fin.sum_univ_succ]
+    decide
+  norm_num [LowestWeightScalingCharacter, hU, hL]
+  intro h
+  have hc := congrArg (fun u : ℚˣ => (u : ℚ)) h
+  norm_num at hc
+
+end LowestWeightScaling
 
 /- CL.0/rescaled-actions: rescale an actual representation by an actual character. -/
 def RescaledActions {E G V : Type*} [Field E] [Monoid G] [AddCommGroup V] [Module E V]
@@ -756,16 +857,16 @@ Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.0/parahoric-P-v(b
 Source: CN25v3 Lemma 2.1.15, p.20; Remark 2.1.16
 
 CrystallineLocalGlobalCompatibilityCM:CL.0/lowest-weight-scaling-character
-OMITTED signature: CrystallineCM.LowestWeightScalingCharacter
+PARTIAL signature: CrystallineCM.LowestWeightScalingCharacter; the character from an actual exponent homomorphism is typed above. The arithmetic positive monoids, double-coset exponent maps and compact-zero specialization remain omitted. The selected-operator extension uses an extended exponent map, not inversion of all positive elements. Arithmetic lattice agreement and Levi coefficient comparison remain omitted.
 For the dual Weyl weight λ̃ and Q, define α̃_λ̃:Δ̃^Q→E×, trivial on 𝒬, by α̃_λ̃(ν(ϖ))=∏_τ τ(ϖ)^{⟨ν,w₀^{G̃}λ̃_τ⟩}. Separately define α_λ:Δ^Q→E×, trivial on K_Q, by α_λ(ν(ϖ))=∏_τ τ(ϖ)^{⟨ν,w₀^Gλ̃_τ⟩}, with ν in the actual lower-right/conjugate-dual Levi embedding and w₀^G reversing each n-block. Extend the latter to inverse powers of ũ_n. The two longest Weyl elements differ; equality of α̃ restricted to the Levi and α_λ is not asserted.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.0/lem-2-1-15; CrystallineLocalGlobalCompatibilityCM:CL.0/weyl-elements; PotentialAutomorphyInfrastructure:PA.0/unitary-levi-weight-dictionary; CrystallineLocalGlobalCompatibilityCM:CL.0/positive-parahoric-monoid
-OMITTED API signature: CrystallineCM.LowestWeightScalingCharacter_compact — α̃(q)=1 for q∈𝒬.
-OMITTED API signature: CrystallineCM.LowestWeightScalingCharacter_cocharacter — α̃(ν(ϖ))=∏_τ τ(ϖ)^{⟨ν,w₀λ̃_τ⟩}.
-OMITTED API signature: CrystallineCM.LowestWeightScalingCharacter_mul — Each of α̃ and α_λ is multiplicative on its own monoid; the Levi character extends uniquely when ũ_n is inverted. Their relation in coefficient comparison uses the explicit w₀^P block exchange, rather than equality by restriction.
-OMITTED example: CrystallineCM.LowestWeightScalingCharacter_test_zero_weight — For λ̃=0, α̃ is the trivial character.
-OMITTED example: CrystallineCM.LowestWeightScalingCharacter_test_rank_one — For GL₂, λ̃=(a,b) and ν=(1,0), α̃(ν(ϖ))=ϖ^b at the identity embedding.
-OMITTED example: CrystallineCM.LowestWeightScalingCharacter_test_compact_value — A compact parahoric element has α̃=1, agreeing with the original integral lattice action.
-OMITTED example: CrystallineCM.LowestWeightScalingCharacter_test_distinct_weyl — For n=2, λ̃=(1,1,0,0) and ν=(1,1,0,0), α̃(ν(ϖ))=1 while α_λ(ν(ϖ))=ϖ² at one embedding. Equality by restriction would fail this allowed Siegel example.
+CORE API signature: CrystallineCM.LowestWeightScalingCharacter_compact — α̃(q)=1 for q∈𝒬.
+CORE API signature: CrystallineCM.LowestWeightScalingCharacter_cocharacter — α̃(ν(ϖ))=∏_τ τ(ϖ)^{⟨ν,w₀λ̃_τ⟩}.
+CORE API signature: CrystallineCM.LowestWeightScalingCharacter_mul — Each of α̃ and α_λ is multiplicative on its own monoid; the Levi character extends uniquely when ũ_n is inverted. Their relation in coefficient comparison uses the explicit w₀^P block exchange, rather than equality by restriction.
+CORE example: CrystallineCM.LowestWeightScalingCharacter_test_zero_weight — For λ̃=0, α̃ is the trivial character.
+CORE example: CrystallineCM.LowestWeightScalingCharacter_test_rank_one — For GL₂, λ̃=(a,b) and ν=(1,0), α̃(ν(ϖ))=ϖ^b at the identity embedding.
+CORE example: CrystallineCM.LowestWeightScalingCharacter_test_compact_value — A compact parahoric element has α̃=1, agreeing with the original integral lattice action.
+CORE example: CrystallineCM.LowestWeightScalingCharacter_test_distinct_weyl — For n=2, λ̃=(1,1,0,0) and ν=(1,1,0,0), α̃(ν(ϖ))=1 while α_λ(ν(ϖ))=ϖ² at one embedding. Equality by restriction would fail this allowed Siegel example.
 Source: CN25v3 §2.1.13, p.20 (unitary character); CN25v3 §2.1.13, p.21 (Levi character)
 
 CrystallineLocalGlobalCompatibilityCM:CL.0/lem-2-1-17
