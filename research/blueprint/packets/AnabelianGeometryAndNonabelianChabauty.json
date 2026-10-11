@@ -24369,7 +24369,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-11",
-    "notes": "Codex (GPT-6), session codex-DqjAZa; bounded independent review of FIX-RT-AREA-algebraicgeometry~2, 11 October 2026. This follows the complete preceding area-review record archived unchanged in reviewHistory; exhaustive node/source ledgers and unchanged elaboration receipts remain attributed to their named predecessors. No mathematical field was changed. Finding /8: checked NC.5’s A2 request for Pic/Pic⁰, its injection into symmetric Hom, finite generation and Picard rank, with A6 as finite-generation supplier rather than a second owner. Preserve all predecessor node/source decisions and supplier requests. Zero pinned-index errors/warnings; unchanged full-file elaboration receipt is attributed and hash-verified."
+    "notes": "Codex (GPT-6), session codex-LmPUk7; bounded independent review of FIX-RT-AREA-algebraicgeometry~2, 11 October 2026. This follows codex-DqjAZa’s complete preceding area-review record, archived unchanged in reviewHistory; exhaustive node/source ledgers and unchanged elaboration receipts remain attributed to their named predecessors. No mathematical field was changed. Finding /8: checked NC.5’s A2 request for Pic/Pic⁰, its injection into symmetric Hom, finite generation and Picard rank, with A6 as finite-generation supplier rather than a second owner. Preserve all predecessor node/source decisions and supplier requests. Zero pinned-index errors/warnings; unchanged full-file elaboration receipt is attributed and hash-verified."
   },
   "independentReviewAudit": {
     "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty",
@@ -27876,6 +27876,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-10",
       "notes": "Codex (GPT-6), session codex-8afbzy: bounded independent round-two area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full and unchanged in reviewHistory. Finding /8: NC.5 imports the quotient Pic/Pic0, its injection into symmetric Hom, finite generation and Picard rank from A2. A6 supplies finite generation without duplicating the quotient or map. This consumer contract is an honest supplier request, with NC.5 refinements still explicit. Earlier exhaustive node/source/baseline audits and unchanged Lean receipts remain attributed to their reviewers. This review checks the assigned finding corrections and records no formalisation or proof-closure claim."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-11",
+      "notes": "Codex (GPT-6), session codex-DqjAZa; bounded independent review of FIX-RT-AREA-algebraicgeometry~2, 11 October 2026. This follows the complete preceding area-review record archived unchanged in reviewHistory; exhaustive node/source ledgers and unchanged elaboration receipts remain attributed to their named predecessors. No mathematical field was changed. Finding /8: checked NC.5’s A2 request for Pic/Pic⁰, its injection into symmetric Hom, finite generation and Picard rank, with A6 as finite-generation supplier rather than a second owner. Preserve all predecessor node/source decisions and supplier requests. Zero pinned-index errors/warnings; unchanged full-file elaboration receipt is attributed and hash-verified."
     }
   ]
 }
