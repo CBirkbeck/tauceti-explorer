@@ -1,241 +1,195 @@
-# Handoff: BP-ReductiveGroupsPartII (checkpoint)
+# BP-ReductiveGroupsPartII — complete target-level plan
 
-Worker: Claude Code, session cc-cbcdea, 2026-10-09. Stopped early on the coordinator's instruction
-(work moves to the Codex workers). Packet status: **partial**.
+Job #982, completed by Codex, session `codex-QmBZXg`, on 2026-10-09. This continues
+the merged checkpoint from Claude Code, session `cc-cbcdea`, PR #7979. Its valid
+node identifiers are retained. The packet is `complete`; the next step is its
+independent review, followed by packaging after acceptance.
 
-## What is done
+## Coverage and deliverables
 
-- **Packet** `research/blueprint/packets/ReductiveGroupsPartII.json`: 84 nodes (11 definitions,
-  21 constructions, 45 theorems, 2 comparisons, 5 applications), 207 API items, 129 unit tests,
-  18 planets, 46 baseline declarations (each read at the pinned commits), 13 requests (all to Tau
-  Ceti roadmap layers), 8 source issues, 3 gaps. `python3 scripts/check_blueprint.py
-  research/blueprint/packets/ReductiveGroupsPartII.json --index <pinned declarations.tsv>`:
-  **0 errors, 0 warnings**.
-  - RG2.0 (16 nodes) and RG2.0a (15 nodes): planned completely.
-  - RG2.1 (29 nodes): planned completely (including the arithmetic invariants moved down, below).
-  - RG2.3: the second half (24 nodes, from `associated-parahorics` to `torus-parahoric-example`) is
-    written. Where these nodes need a node of a layer not yet written, the prerequisite is the stage
-    id (`ReductiveGroupsPartII:RG2.2`, `:RG2.3`, …); replace each by the node id listed below once
-    that node exists (the intended targets are in the node's proof steps).
-  - RG2.2, RG2.4, RG2.5 and the first half of RG2.3: not written (coverage `not_read` / `partial`
-    with precise `remaining`).
-- **Reader document** `research/blueprint/readmes/ReductiveGroupsPartII.md`: introduction,
-  conventions, and the chapters for RG2.0, RG2.0a, RG2.1 and the second half of RG2.3, rendered from
-  the packet (so they agree with it).
-- **Suggested Lean file** `research/blueprint/suggested/ReductiveGroupsPartII.lean`: header, a
-  shared spine of carriers (point topology, Ĕ, Weil restriction, abstract valued root data,
-  apartments, imported local and absolute root data, π₁, building, Bruhat–Tits and parahoric
-  group schemes, Iwahori–Weyl group, dual group and L-group), and the sections for RG2.0, RG2.0a
-  and the second half of RG2.3. **Compiled** with
-  the swarm's `lean-check` tool on `research/blueprint/suggested/ReductiveGroupsPartII.lean`
-  (Tau Ceti f790474 + Mathlib 082e2d3): exit 0, only `declaration uses sorry` warnings. Every API,
-  unit-test and declaration name of the RG2.0, RG2.0a and RG2.3 nodes appears in it. The RG2.1
-  section is drafted in the worker's scratch but did not yet elaborate (field notation on
-  `RootDatum.weylNormalizer`, `TauCeti.HopfIdeal.IsBorel` needs `TauCeti.Algebra.AlgebraicGroup.Borel.Basic`
-  — check it is compiled in the shared build —, `Matrix.GeneralLinearGroup.diagonal` does not exist,
-  no topology on `Apartment`); it is not in the file. Shared-build caveat: `TauCeti.GroupTheory.TitsSystem.*`,
-  `TauCeti.GroupTheory.Coxeter.*`, `TauCeti.LinearAlgebra.RootSystem.*` and
-  `TauCeti.Topology.Algebra.Group.Profinite.*` are not compiled there and cannot be imported.
+The four deliverables agree: the packet, complete mathematical reader,
+suggested Lean file and this handoff. There are 179 target-level nodes: 23
+definitions, 36 constructions, 109 theorems, 2 comparisons and 9 applications.
+They contain 365 API items, 246 unit tests, 38 planets, 60 pinned baseline
+references, 17 lower-tier supplier contracts, 37 source records and 9 source
+corrections. Every implementation status remains `unchecked`.
 
-## Decisions taken (keep them)
+| Layer | Targets | Coverage | Remaining target work |
+| --- | ---: | --- | --- |
+| RG2.0 | 16 | planned | none |
+| RG2.0a | 15 | planned | none |
+| RG2.1 | 29 | planned | none |
+| RG2.2 | 25 | planned | none |
+| RG2.3 | 54 | planned | none |
+| RG2.4 | 28 | planned | none |
+| RG2.5 | 12 | planned | none |
 
-- RS-31 (accepted) is followed: title "Reductive algebraic groups, Part II: local structure and
-  arithmetic models", first prerequisite `tauceti:TauCetiRoadmap/ReductiveGroups`; unvalued relative
-  roots, absolute root data with Galois action, parabolics and abstract BN-pair theory are imported
-  from anchor Layer 7, the pinned Chevalley–Demazure construction from Layer 9; RG2.0a owns the
-  Deligne torus (ShimuraData D1 imports it).
-- **Upward citation removed**: the stage prerequisite `AlgebraicModuliForArithmeticGeometry:R09.1`
-  (projective parameter spaces) is not used. The affine representing algebra is constructed in
-  RG2.0a (`weil-restriction-representing-algebra`, after Bruhat–Tits II 1.5.7), descent of points
-  uses Tau Ceti `AlgHom.faithfullyFlatDescentMulEquiv`, and no projective Weil restriction is
-  asserted. The stage edge R09.1 → RG2.0a should be dropped; R09.3 can import RG2.0a.
-- **RT-AREA-algebraicgeometry/11**: Tau Ceti *Modular curves* 0F is cited as prerequisite of the
-  RG2.0a functor and representing algebra (edge 0F → RG2.0a); RG2.0a extends it to arbitrary affine
-  targets over finite locally free maps and records compatibility (`functor_compat_modularCurves`,
-  `res_compat_modularCurves`). R09.3 keeps only algebraic spaces; the LAWRENCE-SAWIN-25 finite étale
-  case can point at RG2.0a.
-- **Moved down from BunGAndNewtonStrata:BG1** (tier rule; confirmed RT-PAPER-KISIN-ZHOU-25/6, /11
-  and RT-PAPER-KISIN-PAPPAS-18/10): the algebraic fundamental group π₁(G)
-  (`RG2.1/algebraic-fundamental-group`), z-extensions and their existence (`RG2.1/z-extension`,
-  `/z-extension-existence`), the Kottwitz homomorphisms κ_T and κ_G : G(Ĕ) → π₁(G)_I
-  (`/kottwitz-homomorphism-torus`, `/kottwitz-homomorphism`). BG1 should import these and keep only
-  the B(G)-level κ and Newton maps.
-- Lang's theorem has its single owner in RG2.3 (`RG2.3/lang-theorem`), reconciling
-  LIPNOWSKI-TSIMERMAN-18/lang-theorem, KISIN-ZHOU-25/R14, HE-18/L19 and KISIN-PAPPAS-18/A02;
-  WeilConjectures and GN.3 import it.
-- Fintzen /9 (Adler–Roche form) and /2a (tameness of tori) are not planned here: confirmed
-  RT-PAPER-FINTZEN-21/1 and /18 move them to Reductive algebraic groups, Part III. Zhu G24
-  (Grassmannian embedding comparison) belongs to GeometricSatakeAndFusion GS0
-  (RT-PAPER-ZHU-17/22). KPZ `dh-adjoint-classification` is Shimura-datum classification, not RG2.
-- RS-31's correction: the Cartan double-coset set is infinite; RG2.4 must state finiteness per
-  compact double coset with the index formula.
-- Paper-item dispositions for the written nodes are recorded per node (sources and proof steps);
-  the remaining items are attached to the remaining nodes below.
+There are no recorded mathematical gaps or unfinished refinements. The layers
+are `planned`, rather than `closed`, because their prerequisite chains include
+explicit roadmap-stage supplier contracts. These are the imported lower-tier
+boundaries below, rather than missing targets in this plan. Internal nodes are
+ordered topologically within each layer.
 
-## Proposals for the follow-up (not yet in `restructure`)
+The reader states every target, its hypotheses and dependencies, its proof or
+construction outline, source locators and acceptance properties. Definitions
+and constructions have their complete API and discriminating tests. The Lean
+file contains suggested forms for all target and API declaration names and
+examples for every test name. PROTOCOL section 13 governs conditions whose
+future API cannot yet be expressed: the accompanying comments explain those
+omissions, while the reader and packet give the full hypotheses. Such
+conditions are not replaced by empty proposition stubs. This is a plan and
+prototype, with no formalization claim.
 
-- Several consumers (BG1/BG2, ES5/ES6, LP) ask for an RG2.6 layer: z-extensions (now RG2.1),
-  z-embeddings, central pushouts G ×_Z T, Henniart–Vignéras images, Prasad–Yu fixed points (planned
-  as `RG2.2/finite-group-fixed-points-reductive`). Consider a sub-layer "RG2.1a arithmetic
-  invariants" (π₁, z-extensions, κ) and an "RG2.6 central extensions and z-embeddings" proposal.
+## Boundaries and ownership
 
-## What remains, layer by layer
+Accepted RS-31 is followed. Unvalued reductive-group structure remains in the
+Tau Ceti ReductiveGroups anchor. RG2 adds valued and integral structure. The
+reviewed library audit and the pinned source statements were checked before
+extending existing APIs. The 17 contracts import:
 
-Each item gives the planned node id, kind, title, content, prerequisites (TC = Tau Ceti roadmap
-layer) and the routed paper items it covers. Planets: at most six per layer (marked).
+- ReductiveGroups Layers 0, 2, 3, 4, 5, 6, 7 and 9: Hopf points, Lie algebras,
+  components and quotients, multiplicative-type character modules, unipotent
+  radicals, reductivity and simply connected covers, root and parabolic
+  structure, and pinned integral groups.
+- LocalFieldsRamification Layers 0, 1, 2 and 3: valuation extensions, unit norm
+  surjectivity in an unramified quadratic extension, unramified extensions and
+  Frobenius, and tame ramification. The Layer 3 contract explicitly includes
+  maximal tame-extension compatibility `F^t = F·ℚ_p^t` in a common closure,
+  used from KPZ Lemma 6.1.2, arXiv v3 pp. 64–65.
+- ProfiniteProPGroups Layer 3: the inverse-limit characterization of pro-p
+  groups.
+- ModularCurves Layer 0F: affine finite-presentation Weil restriction and its
+  base change. RG2.0a constructs the arbitrary-affine extension and proves
+  agreement with that case; general algebraic-space restriction remains with
+  its other owner.
+- RootSystems Layers 3 and 4: general Coxeter combinatorics and finite chamber
+  theory.
+- ClassFieldTheory Layer 9: the local Weil group and its map to the absolute
+  Galois group.
 
-### RG2.2 — nodes still to write (25)
+Moves and consumer corrections for the programme's maintainer:
 
-- `ReductiveGroupsPartII:RG2.2/building` (construction) **The Bruhat–Tits building** — planet: Bruhat–Tits building. B^e(G,K) := G(K) × A / ~ with (g,x) ~ (h,y) iff ∃ n ∈ N(K): y = ν(n)x and g^{-1}hn ∈ P_x (P_x generated by Z(K)^1 and U_{a,x}); G(K) acts by left translation; A ↪ B; apartments gA. BT I 7.4.1–7.4.2; Tits 1979 §2.1. *Prerequisites:* RG2.1/apartment, RG2.1/affine-roots-and-filtrations, RG2.1/valued-root-datum-existence. *Paper items:* HE-21/3.
-- `ReductiveGroupsPartII:RG2.2/building-apartment-axioms` (theorem) **Apartments and the building axioms**. Any two points (indeed any two facets) lie in a common apartment; the intersection of two apartments is closed convex and there is g ∈ G(K) fixing it pointwise and carrying one apartment to the other; the stabilizer of A is N(K) acting via ν; retractions onto apartments. BT I 7.4.8, 7.4.18. *Prerequisites:* RG2.2/building.
-- `ReductiveGroupsPartII:RG2.2/building-metric` (theorem) **The building is a complete CAT(0) space**. A W_0-invariant Euclidean metric on V extends to a G(K)-invariant metric d on B (normalized distance), complete, geodesic, uniquely geodesic, satisfying the Bruhat–Tits negative-curvature inequality (CAT(0)); |α(x−y)| ≤ d(x,y) for x, y in a common apartment. BT I 7.4.20, 2.5; Fintzen §3 p.12. *Prerequisites:* RG2.2/building-apartment-axioms.
-- `ReductiveGroupsPartII:RG2.2/bruhat-tits-fixed-point-theorem` (theorem) **The Bruhat–Tits fixed point theorem** — planet: Bruhat–Tits fixed point theorem. Every bounded subgroup of G(K) (relatively compact for E) fixes a point of B (circumcentre of a bounded orbit, BT I 3.2.4); maximal bounded subgroups of G(K)^1 are stabilizers of vertices / barycentres of facets (BT I 3.3, 8.2); a compact subgroup of G(E) fixes a point of the enlarged building iff it lies in G(E)^1. Tits 1979 §3.2, 3.6.1. *Prerequisites:* RG2.2/building-metric.
-- `ReductiveGroupsPartII:RG2.2/facets-and-special-points` (definition) **Facets, chambers and special points of the building**. Facets of B (G(K)-translates of facets of A), closure order, chambers, vertices, special and hyperspecial... (special here; hyperspecial in RG2.3), types and type-preserving elements; the facet complex is a polysimplicial complex. *Prerequisites:* RG2.2/building, RG2.1/affine-chamber-structure. *Paper items:* HE-21/3.
-- `ReductiveGroupsPartII:RG2.2/stabilizers-and-fixers` (definition) **Stabilizers and pointwise fixers in the building**. For Ω ⊂ B bounded nonempty: G(K)_Ω (pointwise fixer), Stab(Ω); for Ω ⊂ A: generated by its intersection with N(K) and U_{a,Ω}; compact open in G(E)^1 / G(E) for enlarged building; compact modulo the centre for the reduced building; full facet stabilizer vs fixer. *Prerequisites:* RG2.2/building, RG2.2/facets-and-special-points. *Paper items:* VANHOFTEN-24/R01.
-- `ReductiveGroupsPartII:RG2.2/enlarged-and-reduced-building` (construction) **Reduced versus enlarged building**. B^e(G) ≅ B(G) × V_Z with V_Z = X_*(A_G) ⊗ ℝ (A_G maximal split central torus) acting by translation; reduced building B(G) = B(G^ad) = B(G_der)-image; comparison G(K)-equivariant; stabilizers in reduced building = stabilizers in enlarged up to the centre. *Prerequisites:* RG2.2/building, RG2.1/torus-valuation-map.
-- `ReductiveGroupsPartII:RG2.2/building-cocompact-action` (theorem) **Cocompact action and fundamental domain**. The closure of a chamber is a fundamental domain for the type-preserving subgroup on the reduced building; G(E) acts cocompactly on B^e modulo V_Z translations; finitely many G(E)-orbits of facets; same for each tame twisted Levi. Fintzen §6 p.23; BT I 7.4.?. *Prerequisites:* RG2.2/facets-and-special-points, RG2.2/enlarged-and-reduced-building.
-- `ReductiveGroupsPartII:RG2.2/building-independence-of-choices` (theorem) **Independence of the building from choices**. B(G,K) with its G(K)-action, apartments, facets and metric is independent of the maximal split torus and of the valuation in its equipollence class, up to unique G(K)-equivariant isometry respecting apartments. *Prerequisites:* RG2.2/building, RG2.1/transport-under-choices.
-- `ReductiveGroupsPartII:RG2.2/unramified-descent-of-building` (theorem) **Unramified descent of the building**. B(G,K) = B(G,K')^Gal for K'/K unramified (Galois), in particular B(G,E) = B(G,L)^σ, with apartments A(S) = A(S_L)^σ and facets of B(G,E) = σ-stable facets; BT II 5.1.25. *Prerequisites:* RG2.2/building, RG2.1/unramified-descent-of-valuation.
-- `ReductiveGroupsPartII:RG2.2/finite-group-fixed-points-reductive` (theorem) **Fixed points of finite groups of invertible order**. If a finite group Γ of order prime to char acts on connected reductive G by automorphisms (over a field, or semilinearly over a Galois extension), the identity component of G^Γ is reductive (Prasad–Yu 2002 Thm 2.1; Prasad 2017 §2); input to tame descent. *Prerequisites:* TC ReductiveGroups#layer-6-reductive-and-semisimple-groups.
-- `ReductiveGroupsPartII:RG2.2/tame-descent-of-building` (theorem) **Tame descent of buildings** — planet: Tame descent of buildings. For G over K split over a finite tame Galois K̃/K with group Γ: B^e(G,K) = B^e(G,K̃)^Γ and B(G,K) = B(G,K̃)^Γ G(K)-equivariantly (Rousseau; Prasad–Yu 2002; Prasad 2017 Thm), with inertia variant B(G,K̃)^{I} = B(G,K̃^I); for a maximal K-torus T split over K̃, A(T,K̃) ∩ B(G,K) ≠ ∅; inclusion B(G,K) ⊂ B(G,K̃) rescales distances by e. *Prerequisites:* RG2.2/unramified-descent-of-building, RG2.2/finite-group-fixed-points-reductive. *Paper items:* KISIN-PAPPAS-18/tame-descent-buildings, KISIN-PAPPAS-ZHOU-26/T02, KISIN-PAPPAS-18/tame-twisted-form-presentation.
-- `ReductiveGroupsPartII:RG2.2/building-field-extension-embedding` (theorem) **Buildings under finite field extensions**. For a finite separable extension K'/K (complete DVFs) there is a canonical injective G(K)-equivariant map i_{K,K'}: B(G,K) → B(G,K') which is affine on apartments (S ⊂ S' maximal split tori) with distances scaled by the ramification index, compatible with towers, Gal(K'/K)-equivariant with image in the fixed points (equal to them for tame Galois K'/K); hyperspecial points of B(G,K) stay hyperspecial in B(G,K'); hyperspecial vertices of B(G,K) form one orbit under G^ad(K) acting through its image. Tits 1979 §2.6, 1.10; Rousseau. *Prerequisites:* RG2.2/tame-descent-of-building, RG2.2/building-independence-of-choices.
-- `ReductiveGroupsPartII:RG2.2/weil-restriction-building` (theorem) **Buildings of Weil restrictions**. For finite separable K'/K and G over K': B(Res_{K'/K}G, K) ≅ B(G,K') equivariantly for (Res G)(K) = G(K'), metric scaled by [K':K]-normalization; apartments correspond. *Prerequisites:* RG2.2/building, RG2.0a/weil-restriction-group-scheme. *Paper items:* KISIN-PAPPAS-ZHOU-26/T01.
-- `ReductiveGroupsPartII:RG2.2/building-functoriality-central-extensions` (theorem) **Buildings under central extensions and quotients**. For a central extension or quotient α: G → G' (isogeny or epimorphism with central kernel) there is a canonical G(K)-equivariant toral map α_*: B(G,K) → B(G',K) (isomorphism on reduced buildings), Gal(K^ur/K)-equivariant, mapping hyperspecial vertices to hyperspecial vertices; Landvogt 2000 Thm 2.1.8; BT II 4.2.15. *Prerequisites:* RG2.2/building, RG2.2/enlarged-and-reduced-building. *Paper items:* KISIN-PAPPAS-18/landvogt-quotient-map, KISIN-PAPPAS-18/G02.
-- `ReductiveGroupsPartII:RG2.2/building-products-and-levis` (theorem) **Products and Levi subgroups**. B(∏ G_i) = ∏ B(G_i); for a Levi subgroup M ⊂ G (of a K-parabolic) there is an M(K)-equivariant toral embedding B^e(M) → B^e(G), unique up to translation by X_*(A_M)⊗ℝ; for the block Levi ∏ GL(V_i) ⊂ GL(⊕ V_i) it is the direct sum of graded chains. Landvogt Prop. 2.1.5–2.1.6. *Prerequisites:* RG2.2/building, RG2.2/enlarged-and-reduced-building. *Paper items:* KISIN-PAPPAS-18/landvogt-levi-product.
-- `ReductiveGroupsPartII:RG2.2/twisted-levi-subgroup` (definition) **Twisted Levi subgroups and their buildings**. A closed K-subgroup G' ⊂ G that becomes a Levi subgroup over some finite extension (Fintzen Def. 3.3); for G' tame twisted Levi, the embeddings over a tame splitting extension descend to G'(K)-equivariant B(G',K) → B(G,K) with image independent of choices up to V_{Z(G')} translation (Fintzen Rem. 3.9). *Prerequisites:* RG2.2/building-products-and-levis, RG2.2/tame-descent-of-building. *Paper items:* FINTZEN-21/8, FINTZEN-21/8a.
-- `ReductiveGroupsPartII:RG2.2/toral-embedding-into-gl-building` (theorem) **Equivariant toral embeddings into the GL building**. For a faithful representation G → GL(V): existence of G(K^ur)-equivariant toral isometric embeddings B(G,K^ur) → B(GL(V),K^ur), Galois equivariant when the base point is Galois fixed (Landvogt Thm 2.2.9, Prop. 2.2.10, 2.5.2); G(K^ur)-equivariant toral maps determined by one image point; uniqueness up to real translation for irreducible minuscule faithful ρ (KP18 Cor. 1.2.11); translated maps t + ι (KP18 Rem. 1.2.7). *Prerequisites:* RG2.2/gl-building-lattice-chains, RG2.2/building-products-and-levis. *Paper items:* KISIN-PAPPAS-18/landvogt-toral-embedding, KISIN-PAPPAS-18/G10, KISIN-PAPPAS-18/remark-1-2-7-translated-maps.
-- `ReductiveGroupsPartII:RG2.2/minuscule-toral-embedding` (theorem) **Kisin–Pappas minuscule building embeddings**. KP18 Prop. 1.2.3 with Lemma 1.2.5 (split, hyperspecial base point, lattices stable under G_O(O^ur)), and Prop. 1.2.21 with §§1.2.22–1.2.26 (Galois-equivariance for minuscule ρ, inertia fixed points), tame twisted-form presentation §1.2.14, and the comparison diagram (1.3.11)–(1.3.12) over a tame splitting field. *Prerequisites:* RG2.2/toral-embedding-into-gl-building, RG2.2/tame-descent-of-building, RG2.1/minuscule-coweight. *Paper items:* KISIN-PAPPAS-18/G08, KISIN-PAPPAS-18/G09, KISIN-PAPPAS-18/G11, KISIN-PAPPAS-18/tame-twisted-form-presentation, KISIN-PAPPAS-18/tame-reduction-diagram-1-3-11.
-- `ReductiveGroupsPartII:RG2.2/gl-building-lattice-chains` (construction) **The building of GL(V) via norms and lattice chains** — planet: Building of GL(V) via lattice chains. B^e(GL(V),K) ≅ additive norms on V (Goldman–Iwahori) ≅ graded periodic O-lattice chains ({Λ}, c) (BT classiques Prop. 1.8, Thm 2.11; KP18 §1.1.9; KPZ §2.3 determining segment and total lattice tot(L) = Λ_0 ⊕ ⋯ ⊕ Λ_{s−1}); reduced building: vertices = homothety classes of lattices, facets = periodic chains; stabilizers. *Prerequisites:* RG2.2/building, mathlib:Submodule.IsLattice. *Paper items:* KISIN-PAPPAS-18/G05, KISIN-PAPPAS-ZHOU-26/D03, KISIN-PAPPAS-ZHOU-26/C01.
-- `ReductiveGroupsPartII:RG2.2/gsp-building-self-dual-chains` (theorem) **The building of GSp(V) via self-dual chains**. Points of B(GSp(V),K) ↔ almost self-dual graded periodic lattice chains (Λ^∨ in the chain, c(Λ^∨) = −c(Λ) + m); B(GSp) ⊂ B(GL); standard indexing (1.1.12) with a ∈ {0,1}; symplectic total lattice Λ' with ψ' integral. BT classiques; KP18 §1.1.11. *Prerequisites:* RG2.2/gl-building-lattice-chains. *Paper items:* KISIN-PAPPAS-18/G06, KISIN-PAPPAS-18/symplectic-total-lattice.
-- `ReductiveGroupsPartII:RG2.2/division-algebra-building` (theorem) **Buildings of GL_m over a division algebra**. For D central division over K and V = D^m: points of B(GL_m(D)) ↔ graded periodic right O_D-lattice chains; stabilizer group scheme = O_D-automorphisms of the chain. BT classiques; KPZ §6.3.1. *Prerequisites:* RG2.2/gl-building-lattice-chains, RG2.0a/weil-restriction-group-scheme. *Paper items:* KISIN-PAPPAS-ZHOU-26/bt84-lattice-chains-for-division-algebras.
-- `ReductiveGroupsPartII:RG2.2/sl2-tree` (construction) **The Bruhat–Tits tree of SL_2** — planet: Bruhat–Tits tree. The reduced building of SL_2(K) (= of PGL_2(K), GL_2(K)) is the tree whose vertices are homothety classes of O-lattices in K² and edges pairs [Λ ⊋ Λ' ⊋ ϖΛ]; (q+1)-regular for |κ| = q; SL_2(K) acts without inversion with two vertex orbits; PGL_2(K) acts transitively on vertices and edges (with inversions). *Prerequisites:* RG2.2/gl-building-lattice-chains.
-- `ReductiveGroupsPartII:RG2.2/ihara-amalgam` (theorem) **Ihara's theorem: SL_2 as an amalgam**. SL_2(K) ≅ SL_2(O) *_{Γ_0(ϖ)} SL_2(O)^{g} (g = diag(ϖ,1)-conjugate; amalgam of the stabilizers of two adjacent vertices over the Iwahori), likewise PSL_2(K); PGL_2(K) is not this amalgam (it contains edge inversions). Serre, Trees II.1.4 Thm 3; Calegari–Geraghty Rem. 9.7. *Prerequisites:* RG2.2/sl2-tree, mathlib:Monoid.PushoutI. *Paper items:* CALEGARI-GERAGHTY-18/ext-ihara-serre-PSL2-amalgam.
-- `ReductiveGroupsPartII:RG2.2/building-of-tori-and-anisotropic-groups` (application) **Buildings of tori and anisotropic groups**. For a torus T: B^e(T,K) = X_*(T)_K... = V (affine space under X_*(S_T)⊗ℝ), reduced building a point; for anisotropic G (S central) the reduced building is a point and G(E) is compact (Bruhat–Tits–Rousseau); nonsplit norm-one torus: enlarged building a point. *Prerequisites:* RG2.2/enlarged-and-reduced-building, RG2.1/nonsplit-torus-example, RG2.2/bruhat-tits-fixed-point-theorem.
+- **Lang and lifting move down to RG2.3.** Finite-field Lang, smooth connected
+  integral torsors, inverse-limit Lang and Frobenius-fixed coset lifting are
+  supplied here. EtaleCohomology ET.0 and GeometricNumberTheory GN.3 should
+  import these statements. There is no upward dependency on either roadmap.
+- **Arithmetic lattice invariants move down.** Algebraic fundamental groups,
+  z-extensions and the Kottwitz map are owned here, for consumers such as
+  BasicAlgebraicGroups BG.1. The cocharacter-invariant lifting and adjoint
+  Cartan-coset lifting of Kisin Lemmas 1.2.3–1.2.4 are explicit RG2.4 targets.
+  They distinguish lifting a coset from lifting an arbitrary adjoint point.
+- **Affine Weil restriction stays foundational.** The arbitrary-affine
+  extension in RG2.0a addresses RT-AREA-algebraicgeometry/11 while importing
+  ModularCurves 0F. RelativeFrobeniusAndWeilRestriction R09.3 and affine
+  Lawrence–Sawin uses can import it. General algebraic-space representability
+  remains outside this roadmap, and is not an upward prerequisite here.
+- **Tame representation theory remains in Part III.** Fintzen's representation
+  results, including the accepted routing of PAPER-FINTZEN-21/9 and /2a, are
+  consumers of these local structures, rather than new RG2 targets.
+- **Affine Grassmannian geometry remains in GeometricSatakeAndFusion GS.0.**
+  Zhu's group-level lattice and Cartan inputs and the local faithful linear
+  realization are supplied here; the geometric continuation is imported by
+  its owner.
+- **Classical local matrix models belong here.** Quaternionic Hermitian
+  standard-basis and lattice results used by KPZ are explicit targets with a
+  reduced-norm argument. Classification of Shimura data and the `DH` consumer
+  belong to ShimuraData. Higher arithmetic generation of Shimura-point groups
+  remains with the arithmetic consumer.
 
-### RG2.3 — nodes still to write (26)
+## Mathematical corrections and review focus
 
-- `ReductiveGroupsPartII:RG2.3/smooth-affine-model` (definition) **Smooth affine integral models**. For G affine of finite type over K: a smooth affine O-group scheme 𝒢 (smooth finitely generated Hopf O-algebra) with an isomorphism 𝒢_K ≅ G; 𝒢(O) ⊂ G(K) (flatness); 𝒢(O^sh) ⊂ G(K^sh); morphisms of models; connected special fibre; identity component 𝒢° (open subgroup scheme with connected special fibre). *Prerequisites:* RG2.0/integral-points-compact-open, tauceti:TauCeti.smoothCommHopfAlgProperty, TC ReductiveGroups#layer-3-subgroups-quotients-components. *Paper items:* ZHU-17/reductive-group-scheme-over-O.
-- `ReductiveGroupsPartII:RG2.3/reductive-model` (definition) **Reductive models over O and hyperspecial subgroups**. A smooth affine O-model whose special fibre is connected reductive (generic fibre connected reductive); equivalently a reductive group scheme over O; its O-points are hyperspecial subgroups; existence iff G is unramified (quasi-split, split over unramified extension). *Prerequisites:* RG2.3/smooth-affine-model, tauceti:TauCeti.reductiveCommHopfAlgProperty, TC ReductiveGroups#layer-6-reductive-and-semisimple-groups. *Paper items:* ZHU-17/reductive-group-scheme-over-O.
-- `ReductiveGroupsPartII:RG2.3/schematic-closure` (construction) **Schematic closure in an integral model**. For a flat O-model 𝒳 = Spec A and a closed K-subscheme Y ⊂ 𝒳_K, the schematic closure Ȳ = Spec(A / (A ∩ I_Y)); flat, the unique flat closed subscheme with generic fibre Y; a subgroup scheme when Y is a subgroup; universal property; points Ȳ(O') = Y(K') ∩ 𝒳(O') for flat O'. *Prerequisites:* RG2.3/smooth-affine-model, tauceti:TauCeti.HopfIdeal. *Paper items:* KISIN-PAPPAS-18/closed-immersion-criterion-via-schematic-closure.
-- `ReductiveGroupsPartII:RG2.3/extension-principle` (theorem) **The Bruhat–Tits extension principle** — planet: Bruhat–Tits extension principle. BT II 1.7.6 (schémas étoffés): for O henselian with strict henselization O^sh and smooth affine O-schemes (O-groups) 𝒢, 𝒢' with generic fibres G, G': a K-morphism f extends (uniquely) to 𝒢 → 𝒢' iff f(𝒢(O^sh)) ⊂ 𝒢'(O^sh); a smooth affine model is determined up to unique isomorphism by its O^sh-points in G(K^sh). *Prerequisites:* RG2.3/smooth-affine-model. *Paper items:* KISIN-PAPPAS-18/bt-extension-criterion-1-7-6, KISIN-PAPPAS-ZHOU-26/bt-etoffe-1-7-6, GLEASON-LIM-XU-26/T28.
-- `ReductiveGroupsPartII:RG2.3/big-cell-criteria` (theorem) **Big-cell criteria**. BT II 1.2.13: a homomorphism of smooth affine O-groups with connected fibres that is an isomorphism from a fibrewise dense open neighbourhood of the identity onto an open subscheme is an isomorphism; BT II 2.2.3/2.2.5: if the schematic closures of T and of the root groups U_a in a smooth affine O-group are smooth, the closure of G contains ∏_{a<0}𝒰_a × 𝒯 × ∏_{a>0}𝒰_a as a smooth open big cell and is smooth. *Prerequisites:* RG2.3/schematic-closure. *Paper items:* KISIN-PAPPAS-18/bt-big-cell-isomorphism-1-2-13, KISIN-PAPPAS-18/bt-big-cell-smoothness-criterion.
-- `ReductiveGroupsPartII:RG2.3/quotients-over-a-dvr` (theorem) **Quotients of smooth groups over a DVR**. Anantharaman 1973 §4: over a Dedekind base of dimension 1 (in particular Spec O), the fppf quotient of a smooth affine group scheme by a flat closed normal subgroup scheme is representable by a (smooth) group scheme. *Prerequisites:* RG2.3/smooth-affine-model, TC ReductiveGroups#layer-3-subgroups-quotients-components. *Paper items:* KISIN-PAPPAS-18/anantharaman-quotient.
-- `ReductiveGroupsPartII:RG2.3/reductive-closed-immersion-criterion` (theorem) **Prasad–Yu closed-immersion criterion**. PY06 Cor. 1.3 (published Cor. 5.2): for a DVR O, a reductive O-group 𝒢, an affine O-group 𝒢' of finite type and f: 𝒢 → 𝒢' whose generic fibre is a closed immersion: if the residue characteristic ≠ 2 or no normal subgroup of 𝒢_{K̄} is isomorphic to SO_{2n+1}, f is a closed immersion (e.g. into GL(Λ)). *Prerequisites:* RG2.3/reductive-model. *Paper items:* KISIN-PAPPAS-ZHOU-26/prasad-yu-closed-immersion.
-- `ReductiveGroupsPartII:RG2.3/faithful-representations-of-models` (theorem) **Faithful representations of integral models**. For a smooth affine group scheme over a Dedekind domain there is a closed immersion into GL_n with quasi-affine quotient GL_n/𝒢 (Pappas–Rapoport 2008 §1.b); for reductive 𝒢 the quotient can be chosen affine (Alper 2014 Cor. 9.7.7). *Prerequisites:* RG2.3/smooth-affine-model, RG2.3/quotients-over-a-dvr. *Paper items:* ZHU-17/cited-PR08-quasi-affine-faithful-representation, ZHU-17/cited-Alp14-affine-quotient-for-reductive.
-- `ReductiveGroupsPartII:RG2.3/neron-lft-model-of-torus` (construction) **The lft Néron model of a torus**. For a torus T over K: the smooth separated O-group scheme 𝒯^lft locally of finite type with the Néron mapping property (𝒯^lft(O^sh) = T(K^sh)); not of finite type in general (component group X_*(T)_I); Res_{O'/O} of the lft Néron model is the lft Néron model of Res T. BLR 10.1 Prop. 6/Thm, 7.6/6; BT II 4.4. *Prerequisites:* RG2.3/smooth-affine-model, RG2.0a/integral-weil-restriction, mathlib:AlgebraicGeometry.Scheme. *Paper items:* KISIN-ZHOU-25/R01, KISIN-PAPPAS-ZHOU-26/neron-lft-weil-restriction.
-- `ReductiveGroupsPartII:RG2.3/neron-finite-type-and-connected-models` (construction) **Finite-type and connected Néron models of tori**. 𝒯^ft ⊂ 𝒯^lft (open, finite type, affine) with 𝒯^ft(O^sh) = T(K^sh)^1 maximal bounded, component group (X_*(T)_I)_tors; 𝒯° identity component with 𝒯°(O_L) = T(L)_0 = ker κ_T; on E-points T°(O_E) = ker(κ_T on T(E)); if x lies in the apartment of a maximal torus T, T°(O) ⊂ parahoric. *Prerequisites:* RG2.3/neron-lft-model-of-torus, RG2.1/kottwitz-homomorphism-torus. *Paper items:* KISIN-ZHOU-25/R02, KISIN-PAPPAS-18/kottwitz-kernel-and-parahoric-membership.
-- `ReductiveGroupsPartII:RG2.3/r-smooth-torus` (definition) **R-smooth tori and groups**. T over K is R-smooth if its schematic closure T_c in the lft Néron model of Res_{K̃/K}T_{K̃} (K̃ a splitting field) is smooth; independent of K̃; then T_c = 𝒯^lft; invariant under passage to L; G is R-smooth if the centralizer of a maximal L-split torus is R-smooth. KZ Def. 2.4.3; KPZ §2.1.4. *Prerequisites:* RG2.3/neron-lft-model-of-torus, RG2.3/schematic-closure. *Paper items:* KISIN-ZHOU-25/R03, KISIN-ZHOU-25/R04, KISIN-PAPPAS-ZHOU-26/D02.
-- `ReductiveGroupsPartII:RG2.3/r-smoothness-criteria` (theorem) **Criteria for R-smoothness**. Tamely split tori are R-smooth (Edixhoven); products of Res_{K_i/K} T_i with T_i tamely split over K_i are R-smooth even for wild K_i/K (quasi-tame); extensions of R-smooth tori are R-smooth. KZ §2.4.5, Prop. 2.4.6(1)(2); KPZ Prop. 2.1.5(1)(2). *Prerequisites:* RG2.3/r-smooth-torus, RG2.0a/tame-fixed-points-of-weil-restriction. *Paper items:* KISIN-ZHOU-25/R07, KISIN-ZHOU-25/R08, KISIN-PAPPAS-ZHOU-26/T03, KISIN-PAPPAS-ZHOU-26/T04.
-- `ReductiveGroupsPartII:RG2.3/neron-model-closed-immersions` (theorem) **Closed immersions of Néron models**. A closed immersion of tori T → T' with T R-smooth extends to a closed immersion of lft Néron models and of finite-type Néron models; for centralizers of maximal L-split tori in R-smooth G ⊂ G' the finite-type models embed closed. KZ Lemma 2.4.4(1)(2). *Prerequisites:* RG2.3/r-smooth-torus, RG2.3/neron-finite-type-and-connected-models. *Paper items:* KISIN-ZHOU-25/R05, KISIN-ZHOU-25/R06, KISIN-PAPPAS-ZHOU-26/kz25-neron-closed-immersion.
-- `ReductiveGroupsPartII:RG2.3/quasi-tame-group` (definition) **Quasi-tame and essentially tame groups**. G quasi-tame if G ≅ ∏ Res_{K_i/K} H_i with each H_i split over a tamely ramified extension of K_i (K_i/K possibly wild); essentially tame if G^ad is quasi-tame. KPZ Def. 3.1.4. *Prerequisites:* RG2.0a/weil-restriction-group-scheme. *Paper items:* KISIN-PAPPAS-ZHOU-26/D04, KISIN-PAPPAS-ZHOU-26/essentially-tame, KISIN-PAPPAS-ZHOU-26/classical-tamely-ramified-setup.
-- `ReductiveGroupsPartII:RG2.3/torus-models-exact-sequences` (theorem) **Exact sequences of tori and their models**. For 1 → T' → T → T'' → 1 with T tamely split: an exact sequence of smooth O-groups 1 → 𝒮' → 𝒯° → 𝒯''° → 1 with 𝒮'° = 𝒯'° and component group of 𝒮'_κ ⊂ (X_*(T')_I)_tors (= 𝒯'° when X_*(T')_I torsion-free); positive-depth filtrations 1 → A(K)_r → B(K)_r → C(K)_r → 1 exact for r > 0 (tame). Pappas–Rapoport Lemma 6.7; Kaletha 2019 Lemma 3.1.3. *Prerequisites:* RG2.3/neron-finite-type-and-connected-models, RG2.3/quotients-over-a-dvr. *Paper items:* KISIN-PAPPAS-18/pappas-rapoport-torus-kernel, FINTZEN-21/20.
-- `ReductiveGroupsPartII:RG2.3/bruhat-tits-group-scheme` (construction) **The Bruhat–Tits group scheme of a bounded subset**. For Ω ⊂ A(G,S,K) bounded nonempty: smooth affine O-group 𝒢_Ω with generic fibre G and 𝒢_Ω(O^sh) = fixer of Ω in G(K^sh) (enlarged building); quasi-split case built from the schematic root datum (BT II 4.6.26), general case by étale descent (BT II 5.1.9); big cell ∏𝒰_{-a,Ω} × 𝒯 × ∏𝒰_{a,Ω} open; independence of the apartment; equivariance 𝒢_{gΩ} = g𝒢_Ωg^{-1}. *Prerequisites:* RG2.3/extension-principle, RG2.3/big-cell-criteria, RG2.3/neron-finite-type-and-connected-models, RG2.2/unramified-descent-of-building, RG2.2/stabilizers-and-fixers. *Paper items:* KISIN-PAPPAS-18/bt-quasisplit-parahoric-structure, VANHOFTEN-24/R01.
-- `ReductiveGroupsPartII:RG2.3/parahoric-group-scheme` (construction) **Parahoric group schemes** — planet: Parahoric group scheme. 𝒢°_Ω := identity component of 𝒢_Ω (BT II 4.6.28, 5.2.?): smooth affine with connected special fibre, generic fibre G, root charts (open big cell with 𝒯°), characterized by 𝒢°_Ω(O^sh) = connected fixer P°_Ω; for a facet F depends only on F (BT 4.6.27/1.7.6). *Prerequisites:* RG2.3/bruhat-tits-group-scheme. *Paper items:* KISIN-PAPPAS-18/G01.
-- `ReductiveGroupsPartII:RG2.3/parahoric-subgroup` (definition) **Parahoric, Iwahori and pro-p Iwahori subgroups**. P ⊂ G(K) parahoric iff P = 𝒢°_F(O) for a facet F (E: σ-fixed points of the L-parahoric); Iwahori subgroup I = 𝒢°_C(O) for an alcove C; pro-p Iwahori I^+; maximal parahorics ↔ vertices; finitely many conjugacy classes; compact open (E); normalizer contains the full stabilizer; for E: depends on a σ-stable facet of B(G,L). *Prerequisites:* RG2.3/parahoric-group-scheme, RG2.0/integral-points-compact-open. *Paper items:* HE-21/3, GLEASON-LIM-XU-26/D01, ZHU-17/G26.
-- `ReductiveGroupsPartII:RG2.3/parahoric-kottwitz-characterization` (theorem) **Parahorics as fixers in the Kottwitz kernel** — planet: Parahoric = fixer ∩ Kottwitz kernel. Haines–Rapoport Prop. 3: for Ω ⊂ A bounded, G(L)°_Ω = G(L)_Ω ∩ ker κ_G = G(L)_{Ω̄} ∩ ker κ_G (Ω̄ image in the reduced building); hence over E: P°_Ω = Fix(Ω) ∩ ker κ_G; 𝒢_Ω(O_L)/𝒢°_Ω(O_L) is a finite abelian subgroup of (π₁(G)_I)_tors; stabilizers in the extended building: G(L)_x = G(L)_{x̄} ∩ G(L)^1 (BT II 4.2.16, HR Rem. 11). *Prerequisites:* RG2.3/parahoric-group-scheme, RG2.1/kottwitz-homomorphism. *Paper items:* KISIN-PAPPAS-18/G01, KISIN-PAPPAS-ZHOU-26/kottwitz-stabilizer-formula, KISIN-PAPPAS-18/kottwitz-kernel-and-parahoric-membership.
-- `ReductiveGroupsPartII:RG2.3/fixer-versus-parahoric` (theorem) **Full fixers versus connected parahorics**. 𝒢_F = 𝒢°_F iff the component group vanishes; π₁(G)_I torsion-free ⇒ connected for all facets (van Hoften Lemma 2.2.2); smaller facets inherit connectedness (Lemma 2.2.4); simply connected G ⇒ fixer = parahoric = stabilizer of facet (type-preserving); very special vertex with G_der a product of restrictions of split groups and X_*(G_ab)_I torsion-free ⇒ fixer connected (KZ Lemma 4.2.4); PGL_2: stabilizer of the edge barycentre ⊋ Iwahori. *Prerequisites:* RG2.3/parahoric-kottwitz-characterization. *Paper items:* VANHOFTEN-24/R02, VANHOFTEN-24/R03, KISIN-ZHOU-25/S20, VANHOFTEN-24/R01.
-- `ReductiveGroupsPartII:RG2.3/reductive-quotient-of-special-fibre` (construction) **The reductive quotient of the special fibre** — planet: Reductive quotient of the special fibre. For a facet F: 𝒢̄_F := 𝒢°_{F,κ}/R_u(𝒢°_{F,κ}), a connected reductive κ-group; its root system = gradients of affine roots vanishing on F; its maximal torus = reduction of 𝒯°; P°_F/P_F^+ ≅ 𝒢̄_F(κ) (κ finite or algebraically closed); compatible with unramified base change; G_x := 𝒢̄_x with action on V_{x,r}. BT II 4.6.12, 5.1.31–5.1.32; Fintzen §3. *Prerequisites:* RG2.3/parahoric-group-scheme, TC ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical, TC ReductiveGroups#layer-6-reductive-and-semisimple-groups. *Paper items:* FINTZEN-21/7d.
-- `ReductiveGroupsPartII:RG2.3/pro-unipotent-radical-and-nested-facets` (theorem) **Pro-unipotent radicals, reduction and nested facets**. P_F^+ := ker(P°_F → 𝒢̄_F(κ)) normal, pro-p (E local); reduction maps surjective; for F ⊂ closure(F') the identity of G extends to 𝒢°_{F'} → 𝒢°_F, P°_{F'} ⊂ P°_F, P_F^+ ⊂ P_{F'}^+, and the image of P°_{F'} in 𝒢̄_F(κ) is the κ-points of a parabolic subgroup with Levi quotient 𝒢̄_{F'}; facets containing F in their closure ↔ parabolics of 𝒢̄_F. BT II 4.6.? , 5.1.32. *Prerequisites:* RG2.3/reductive-quotient-of-special-fibre, RG2.0/smooth-model-congruence-quotients.
-- `ReductiveGroupsPartII:RG2.3/unramified-base-change-of-parahorics` (theorem) **Parahorics under unramified base change**. For K'/K unramified, 𝒢°_{F} ⊗_O O_{K'} ≅ 𝒢°_{F,K'} (F viewed in B(G,K')), compatible with σ; the E-parahoric of a σ-stable facet is the σ-fixed points of the L-parahoric; the Iwahori of E is the fixed points of an L-Iwahori of a σ-stable alcove. BT II 5.1.? , 5.2.? *Prerequisites:* RG2.3/parahoric-group-scheme, RG2.2/unramified-descent-of-building.
-- `ReductiveGroupsPartII:RG2.3/hyperspecial-vertices` (theorem) **Hyperspecial vertices**. x ∈ B(G,K) hyperspecial (special in B(G,K') for every unramified K') ⇔ 𝒢°_x reductive ⇔ 𝒢_x reductive; hyperspecial vertices exist iff G is unramified; reductive models ↔ hyperspecial vertices (𝒢_O(O) = 𝒢°_x(O)); hyperspecial points stay hyperspecial over finite extensions; for split H, x hyperspecial iff its image in B(H^der) is; ramified groups (e.g. ramified quasi-split SU_3) have none. Tits 1979 §1.10, 3.8.1; BT II 4.6.31; KPZ proof of Prop. 2.2.2. *Prerequisites:* RG2.3/reductive-quotient-of-special-fibre, RG2.3/reductive-model. *Paper items:* KISIN-PAPPAS-ZHOU-26/hyperspecial-base-change-and-derived.
-- `ReductiveGroupsPartII:RG2.3/compact-elements-in-hyperspecial-subgroups` (theorem) **Compact subgroups lie in hyperspecial subgroups after extension**. For connected reductive G over E and a compact subgroup (e.g. the closure of a compact element) H ⊂ G(E): there is a finite extension E'/E splitting G (and, for an element, the torus of its semisimple part) such that H lies in a hyperspecial subgroup 𝒢_{x'}(O_{E'}) of G(E'), i.e. H preserves a reductive O_{E'}-model; obtained from the Bruhat–Tits fixed point theorem in B(G,E) and the embedding into B(G,E'), where the image point becomes hyperspecial after a suitable extension. KZ Lemma 6.2.1; BHKT Thm 4.8 use. *Prerequisites:* RG2.2/bruhat-tits-fixed-point-theorem, RG2.2/building-field-extension-embedding, RG2.3/hyperspecial-vertices. *Paper items:* KISIN-ZHOU-25/A06.
-- `ReductiveGroupsPartII:RG2.3/generic-points-and-connected-stabilizers` (theorem) **Generic points of facets and connected stabilizers**. x generic in its facet if 𝒢_x = 𝒢_{x'} for x' near x in the facet (definition); if 𝒢_x is connected and y is generic in the smallest facet containing x then 𝒢_y = 𝒢_x; for unramified G, a parahoric contained in a hyperspecial subgroup equals 𝒢_{x'} for a generic x'. KPZ footnote 3 and §2.2; KP18 Rem. 4.2.14 b). *Prerequisites:* RG2.3/fixer-versus-parahoric, RG2.3/hyperspecial-vertices. *Paper items:* KISIN-PAPPAS-ZHOU-26/generic-in-facet, KISIN-PAPPAS-ZHOU-26/parahoric-stabilizers-generic, KISIN-PAPPAS-18/connected-stabilizer-in-unramified-case.
+The reader and packet pin the negative-valuation apartment translation, the
+positive-valuation Kottwitz map, multipliable-root normalizations, chosen
+central metrics, connected parahorics versus full fixers, and enlarged versus
+reduced buildings. Ordered positive-root products are asserted at positive
+depth; depth zero uses generation and big-cell charts. Filtrations use their
+correct left-continuity convention. The pro-p statement tests open normal
+finite quotients. Residual cocharacters lift through a chosen lifted torus,
+with uniqueness confined to that torus. Mock exponentials use a common map
+with the stated multiplication and commutator error depths.
 
-### RG2.4 — nodes still to write (25)
+The finite Kaletha multiplicative-type quotient is the fppf quotient of
+restriction of roots of unity by the diagonal subgroup. Its character group
+is the augmentation kernel in the finite coefficient module. Transition maps
+repeat embedding coordinates with the divisibility factor; it is not treated
+as a torus or as a cocharacter lattice. Three additional finite computations
+test this distinction.
 
-- `ReductiveGroupsPartII:RG2.4/iwahori-weyl-group` (definition) **The Iwahori–Weyl group** — planet: Iwahori–Weyl group. W̃ := N(K)/Z(K)_0 with Z(K)_0 the unique parahoric of Z(K) (over L: T(L)_0 = ker κ_T); acts on A via ν; contains W_a; Ω := stabilizer of a base alcove; over E: W̃_E = W̃_L^σ (Richarz). Haines–Rapoport §1; Richarz Def. 1.?; He 2018 §1.1; GLX §2.1. *Prerequisites:* RG2.1/apartment-action-kernel, RG2.3/neron-finite-type-and-connected-models, RG2.1/affine-weyl-group. *Paper items:* HE-18/A2, GLEASON-LIM-XU-26/D02, HE-21/4, ZHU-17/G26, VANHOFTEN-24/R05.
-- `ReductiveGroupsPartII:RG2.4/iwahori-weyl-exact-sequences` (theorem) **Structure of the Iwahori–Weyl group**. 1 → Z(K)/Z(K)_0 → W̃ → W_0 → 1 with Z(L)/Z(L)_0 = X_*(T)_I; W̃ = W_a ⋊ Ω; Ω ≅ π₁(G)_I over L (≅ (π₁(G)_I)^σ over E) via κ; a special vertex gives W̃ ≅ X_*(T)_I ⋊ W_0, not σ-equivariant in general; the kernel of W̃ → Aff(A) is finite ((X_*(T)_I)_tors). Haines–Rapoport Lemma 14, Prop. 8; Richarz; KZ 2.1.2. *Prerequisites:* RG2.4/iwahori-weyl-group, RG2.1/kottwitz-homomorphism, RG2.1/algebraic-fundamental-group. *Paper items:* KISIN-ZHOU-25/N02, GLEASON-LIM-XU-26/T01, GLEASON-LIM-XU-26/T02, HE-21/5, HE-18/A9.
-- `ReductiveGroupsPartII:RG2.4/length-and-bruhat-order` (definition) **Length and Bruhat order on the Iwahori–Weyl group**. ℓ(wτ) = ℓ_{W_a}(w) for w ∈ W_a, τ ∈ Ω; ℓ(w) = number of affine root hyperplanes separating the base alcove a and w(a); Bruhat order wτ ≤ w'τ' iff τ = τ' and w ≤ w' in W_a; Ω = length-zero elements; for E, ℓ̆ on W̃_L restricted vs ℓ on W̃_E. *Prerequisites:* RG2.4/iwahori-weyl-exact-sequences, TC RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free. *Paper items:* HE-21/5, HE-18/A2.
-- `ReductiveGroupsPartII:RG2.4/iwahori-bruhat-decomposition` (theorem) **The Iwahori–Bruhat decomposition** — planet: Iwahori–Bruhat decomposition. For an Iwahori subgroup I fixing a σ-stable alcove: W̃ → I\G(K)/I, w ↦ IẇI is a bijection; G(K) = ⊔_{w ∈ W̃} IẇI (compact open cells for E). Haines–Rapoport Prop. 8; Richarz Thm 1.4; He 2018 §1.1. *Prerequisites:* RG2.4/affine-tits-system, RG2.4/iwahori-weyl-exact-sequences, RG2.3/parahoric-subgroup. *Paper items:* HE-18/A5, HE-21/15.
-- `ReductiveGroupsPartII:RG2.4/affine-tits-system` (theorem) **The affine Tits system of the parahoric subgroup** — planet: Affine Tits system. Let G(K)_1 = subgroup generated by parahoric subgroups (= ker κ_G over L), N_1 = N(K) ∩ G(K)_1: (G(K)_1, I, N_1, S_aff) is a Tits system (TauCeti.TitsSystem) with Weyl group W_a; G(K) = G(K)_1 ⋊-like extension by lifts of Ω normalizing I (double Tits system, BT I 5.2.12); the Tau Ceti Bruhat covering theorem then applies to G(K)_1 and componentwise to G(K). BT I 6.5, 5.2.12; He 2018 §1.1. *Prerequisites:* RG2.3/parahoric-kottwitz-characterization, RG2.1/affine-weyl-group, tauceti:TauCeti.TitsSystem, tauceti:TauCeti.TitsSystem.bruhatCells_eq_univ. *Paper items:* HE-18/A7.
-- `ReductiveGroupsPartII:RG2.4/kottwitz-quotient` (theorem) **The Kottwitz quotient G(K) → Ω**. κ: G(K) → G(K)/G(K)_1 ≅ N(K)/N_1 ≅ Ω, surjective with kernel G(K)_1, constant equal to pr_Ω(w) on IẇI, compatible with κ_G of RG2.1 under Ω ≅ π₁(G)_I; for an automorphism θ: κ(θg) = θκ(g), κ(hgθ(h)^{-1}) = κ(g) + (1−θ)κ(h), only the image in Ω_θ is invariant under twisted conjugation. He 2018 §1.1, §2.6. *Prerequisites:* RG2.4/iwahori-bruhat-decomposition, RG2.1/kottwitz-homomorphism. *Paper items:* HE-18/A10.
-- `ReductiveGroupsPartII:RG2.4/kottwitz-rational-surjectivity` (theorem) **Surjectivity of the Kottwitz map on rational points**. For connected reductive G over E: κ_G: G(E) → (π₁(G)_I)^σ is surjective; G(E)/(image of G_sc(E) · 𝒢(O_E)) ≅ (π₁(G)_I)^σ for a parahoric 𝒢 (tame case van Hoften Lemma 3.4.2); for G over Z_p reductive: X_*(T)^Γ → π₁(G)^Γ surjective and κ̃_G: G(Q_p) → π₁(G)^Γ surjective (Kisin 2017 Lemma 1.2.3); adjoint Cartan coset lifting (Lemma 1.2.4). *Prerequisites:* RG2.4/kottwitz-quotient, RG2.4/iwahori-weyl-exact-sequences. *Paper items:* VANHOFTEN-24/R06, KISIN-17/G02, KISIN-17/G03.
-- `ReductiveGroupsPartII:RG2.4/parahoric-double-cosets` (theorem) **Double cosets of parahoric subgroups**. For standard parahorics P = P_F, Q = P_{F'} with finite Weyl groups W_F, W_{F'} ⊂ W_a: P\G(K)/Q ≅ W_F\W̃/W_{F'}, represented by minimal-length elements ^F W̃ ^{F'}. Haines–Rapoport Prop. 8; Richarz Prop. 1.?; He 2018 Thm 22 proof. *Prerequisites:* RG2.4/iwahori-bruhat-decomposition, RG2.4/length-and-bruhat-order. *Paper items:* HE-18/A6.
-- `ReductiveGroupsPartII:RG2.4/simple-cell-multiplication` (theorem) **Multiplication of Iwahori double cosets**. For s ∈ S̃ and w ∈ W̃: IṡI·IẇI = IṡẇI if ℓ(sw) = ℓ(w) + 1, and = IṡẇI ⊔ IẇI if ℓ(sw) = ℓ(w) − 1; right analogue; I_n g_1 I_n ⊆ g_1 I_{n−1} for g_1 ∈ IṡI (He 2018 Lemma 17 proof); finite multiplier sets (He 2018 §2.6 replacement). *Prerequisites:* RG2.4/iwahori-bruhat-decomposition, RG2.4/length-and-bruhat-order, RG2.3/positive-depth-filtration-basis. *Paper items:* HE-18/N2, HE-18/L11, HE-18/N18.
-- `ReductiveGroupsPartII:RG2.4/double-coset-cardinalities` (theorem) **Cardinalities of Iwahori double cosets**. For E: #(IẇI/I) = q^{ℓ(w)}; for n ≥ 1 and g ∈ IẇI, #(I_n g I_n/I_n) = q^{ℓ̆(w)} (via rank-one quotient counts #(I_nṡI_n/I_n) = q^{ℓ̆(s)} and reduced-word contracted products), length additivity under unramified base change, hence IẇI contains [I:I_n] double cosets of I_n. He 2018 Lemma 16; Richarz Prop. 1.11; Iwahori–Matsumoto. *Prerequisites:* RG2.4/simple-cell-multiplication, RG2.3/frobenius-fixed-coset-lifting. *Paper items:* HE-18/L6, HE-18/L7, HE-18/L8, HE-18/L9.
-- `ReductiveGroupsPartII:RG2.4/compact-double-coset-finiteness` (theorem) **Finiteness of compact double cosets**. For a topological group G with compact open subgroups K, K' and g ∈ G: KgK' is a finite disjoint union of single cosets hK', their number [K : K ∩ gK'g^{-1}]; Haar-volume formula vol(KgK') = [K : K ∩ gK'g^{-1}] vol(K'); the double-coset space K\G/K is in general infinite (Cartan), so finiteness is per double coset. *Prerequisites:* RG2.0/congruence-neighbourhood-basis, mathlib:Subgroup.index, mathlib:MeasureTheory.Measure.haar.
-- `ReductiveGroupsPartII:RG2.4/dominant-coinvariant-cocharacters` (definition) **Dominant inertia-coinvariant cocharacters**. X_*(T)_I with the image of the dominant chamber for the échelonnage system; dominant representative λ_w of w ∈ W_0 t^λ W_0; σ-average λ^♦ in X_*(T)_I ⊗ ℚ; order λ ≤ λ' iff λ' − λ is a non-negative integral combination of positive coroots of Σ (corrected order); Hodge coweight. *Prerequisites:* RG2.4/iwahori-weyl-exact-sequences, RG2.1/echelonnage-root-system, RG2.1/minuscule-coweight. *Paper items:* HE-21/23, VANHOFTEN-24/V01, ZHU-17/split-reductive-coweight-notation, ZHU-17/notation-coweights-dominance-dual-group, KISIN-PAPPAS-18/rational-representative-of-cocharacter-class.
-- `ReductiveGroupsPartII:RG2.4/translation-length-formula` (theorem) **Length of translations**. For λ ∈ X_*(T)_I: ℓ(t^λ) = ⟨λ_dom, 2ρ_Σ⟩; for dominant λ in the quasi-split setup ν_{t^λ} = λ^♦, ℓ(x t^λ) = ℓ(x) + ℓ(t^λ) for x ∈ W_0, η(x t^λ) = x. KZ 2.1.5; He 2021 §4.3. *Prerequisites:* RG2.4/length-and-bruhat-order, RG2.4/dominant-coinvariant-cocharacters. *Paper items:* KISIN-ZHOU-25/N06, HE-21/51.
-- `ReductiveGroupsPartII:RG2.4/dominant-normal-form` (theorem) **Dominant double-coset normal form**. Every w ∈ W̃ is uniquely x t^λ y with λ dominant, x, y ∈ W_0 and t^λ y ∈ ^S W̃; ℓ(w) = ℓ(x) + ℓ(t^λ) − ℓ(y). He 2021 §2.2 (2.1). *Prerequisites:* RG2.4/translation-length-formula. *Paper items:* HE-21/18.
-- `ReductiveGroupsPartII:RG2.4/admissible-set` (definition) **The μ-admissible set** — planet: Admissible set. For a geometric conjugacy class {μ} with image μ̄ in X_*(T)_I dominant: Adm(μ) = {w ∈ W̃ : w ≤ t^{x(μ̄)} for some x ∈ W_0}; parahoric version Adm^K(μ) = W_K Adm(μ) W_K; finite, closed downwards. GLX §2.1 (2.3); Kottwitz–Rapoport. *Prerequisites:* RG2.4/length-and-bruhat-order, RG2.4/dominant-coinvariant-cocharacters. *Paper items:* GLEASON-LIM-XU-26/D04.
-- `ReductiveGroupsPartII:RG2.4/cartan-decomposition` (theorem) **The Cartan decomposition** — planet: Cartan decomposition. For K = P_x the parahoric (or full stabilizer) at a special vertex x of the apartment: G(K) = K Z(K) K; K\G(K)/K ≅ W_0\W̃/W_0 ≅ (Z(K)/Z(K)_0)/W_0 (≅ X_*(T)_I^σ/W_0-type dominant elements); for split G with hyperspecial K = G(O): G(K) = ⊔_{λ ∈ X_*(T)^+} K λ(ϖ) K. BT I 4.4.3, 7.?; Tits 1979 §3.3.3; Haines–Rapoport; Zhu Prop. 1.23. *Prerequisites:* RG2.4/parahoric-double-cosets, RG2.4/dominant-coinvariant-cocharacters. *Paper items:* ZHU-17/G12, KISIN-17/G01.
-- `ReductiveGroupsPartII:RG2.4/iwasawa-decomposition` (theorem) **The Iwasawa decomposition** — planet: Iwasawa decomposition. For K the fixer of a special vertex and P = Z U a minimal K-parabolic: G(K) = K P(K) = K Z(K) U(K); G(K) = ⊔_{w ∈ W_0\W̃} K ẇ U(K)-cells; for G(E) a special maximal compact. BT I 7.3.1, 4.4.3; Tits 1979 §3.3.2. *Prerequisites:* RG2.4/parahoric-double-cosets, RG2.3/parahoric-subgroup.
-- `ReductiveGroupsPartII:RG2.4/iwasawa-integration-and-unimodularity` (theorem) **Unimodularity and the Iwasawa integration formula**. G(E) is unimodular (from an Iwahori–Bruhat decomposition with extended Weyl group and simple lifts n_s, n_s² ∈ I); for a special maximal compact K and minimal parabolic P = M N: ∫_G f = ∫_K ∫_M ∫_N f(mnk) δ_P(m)^{-1} dn dm dk with normalized Haar measures; K ∩ P(E) compact. He 2018 continuation (N22); Casselman §1. *Prerequisites:* RG2.4/iwasawa-decomposition, RG2.4/compact-double-coset-finiteness, mathlib:MeasureTheory.Measure.haar. *Paper items:* HE-18/N22.
-- `ReductiveGroupsPartII:RG2.4/iwahori-factorization` (theorem) **The Iwahori factorization**. For an Iwahori (or parahoric P_F, or Moy–Prasad G_{x,r}, r > 0) and a parabolic P = M N with opposite N^-: P_F = (P_F ∩ N^-)(P_F ∩ M)(P_F ∩ N) in any order (product map bijective); ordered root-group factorization of Ĭ and Ĭ ∩ ṡĬṡ^{-1} at shifted depth n (He 2018 Lemma 16 proof); contraction of positive elements of M: for z ∈ Z(E) with ⟨a, v(z)⟩ ≤ 0 on N... the monoid Δ_M. *Prerequisites:* RG2.3/moy-prasad-filtration, RG2.3/parahoric-subgroup, RG2.1/valued-commutator-estimates. *Paper items:* HE-18/L5.
-- `ReductiveGroupsPartII:RG2.4/levi-kottwitz-kernel` (theorem) **Non-injectivity of the Kottwitz map for proper Levis**. For adjoint Q_p-simple G and a proper rational parabolic with Levi M, π₁(M)_I^φ → π₁(G)_I^φ is not injective. GLX Lemma 4.12. *Prerequisites:* RG2.1/algebraic-fundamental-group, RG2.4/iwahori-weyl-exact-sequences. *Paper items:* GLEASON-LIM-XU-26/T47.
-- `ReductiveGroupsPartII:RG2.4/split-torus-coset-infinitude` (theorem) **Rational coset spaces are infinite**. If G quasi-split adjoint Q_p-simple contains a nontrivial Q_p-split torus S and K is compact open, the uniformizer section λ ↦ λ(p)K embeds the cocharacter lattice into the set G(Q_p)/K, which is therefore infinite. GLX Prop. 4.11 proof (4.13), corrected. *Prerequisites:* RG2.4/cartan-decomposition. *Paper items:* GLEASON-LIM-XU-26/T48.
-- `ReductiveGroupsPartII:RG2.4/unramified-combinatorial-comparison` (theorem) **Transport of root combinatorics to an unramified comparison group**. For the adjoint root data of the reduction, there is an unramified quasi-split comparison group whose échelonnage datum, σ, coweight lattice, Levi subsets, μ and Kottwitz data identify with those of G (van Hoften A.3.2); lattice comparison for σ-stable Q^∨ ⊂ Λ ⊂ P^∨ preserving pairings, dominance, length, coroot comparisons (He 2021 §§5.2–5.4, 6.3; GHN 2015 §2.2 with erratum). *Prerequisites:* RG2.4/dominant-coinvariant-cocharacters, RG2.4/translation-length-formula. *Paper items:* VANHOFTEN-24/A13, HE-21/127.
-- `ReductiveGroupsPartII:RG2.4/hyperspecial-generation` (theorem) **Generation of hyperspecial points by root groups and the torus**. For a split reductive group over a strictly henselian (or local) DVR O_L: 𝒢(O_L) is generated by 𝒯(O_L) and the 𝒰_a(O_L), and by the integral points of the rank-one Levis (rank zero: the torus); via the Iwasawa/Iwahori decomposition of 𝒢(O_L). *Prerequisites:* RG2.4/iwahori-factorization, RG2.3/hyperspecial-vertices.
-- `ReductiveGroupsPartII:RG2.4/gl-n-decompositions` (application) **Decompositions for GL_n**. GL_n(E) = ⊔_λ GL_n(O) ϖ^λ GL_n(O) over dominant λ ∈ ℤ^n (Smith normal form over the DVR O); Iwasawa GL_n(E) = GL_n(O)B(E); Iwahori–Bruhat with W̃ = S_n ⋉ ℤ^n; Zhu Lemma 1.8: GL_n(W(k)) acts transitively on Gr_μ(k), Gr(k) = ⊔ Gr_μ(k); index [K ϖ^λ K : K] for λ = (1,0,…,0) equals (q^n − 1)/(q − 1). *Prerequisites:* RG2.4/cartan-decomposition, RG2.4/iwasawa-decomposition, mathlib:Module.Basis.SmithNormalForm. *Paper items:* ZHU-17/G12.
-- `ReductiveGroupsPartII:RG2.4/rank-one-and-nonsplit-examples` (application) **Rank-one and nonsplit Cartan sets**. SL_2 vs PGL_2: K\G/K ↔ ℕ (via diag(ϖ^n, ϖ^{-n})) vs ℕ with odd translations present only for PGL_2 at the non-hyperspecial... ; indices [Kϖ^λK:K] = (q+1)q^{n−1}; unramified U_3: K\G/K ↔ ℕ with index q^{3n} + ... ; ramified SU_3: the two special vertices are not conjugate and give different index formulas, so the split simply connected formula fails; the Cartan set is infinite (correction recorded by RS-31). *Prerequisites:* RG2.4/cartan-decomposition, RG2.1/unitary-rank-one-example, RG2.4/double-coset-cardinalities.
+Checkpoint statements also use the half-unit SL₂ wall spacing and the correct
+Levi descent criterion: Frobenius stability of its vanishing-root subsystem.
+A fixed vector is sufficient, while central nonfixed vectors give the same
+descended torus. The échelonnage non-example uses ramified SU₆, with relative
+type C₃ and wall-spacing type B₃, avoiding ambiguous reduced-part conventions.
+Five additional compatibility tests cover subgroup normalizers, root
+pairings, coroot quotients, convex facet carriers and split échelonnage data.
 
-### RG2.5 — nodes still to write (12)
+Nine source issues are recorded with their correction searches, including
+Lang lifting versus an unjustified pro-p argument, finite tame descent versus
+infinite Weil restriction, connected-special-fibre hypotheses, the direction
+of the Iwahori inclusion, and Adler Proposition 1.4.1 at depth zero. The latter
+has the explicit ramified norm-one-torus counterexample: `−1` acquires a
+depth-zero component after the ramified splitting extension. Positive-depth
+group intersection and all-depth Lie-lattice intersection are retained.
 
-- `ReductiveGroupsPartII:RG2.5/dual-based-root-datum` (construction) **The dual based root datum with its Galois action** — planet: Dual based root datum. From the absolute based root datum Ψ(G) = (X^*(T), Δ, X_*(T), Δ^∨) with its Γ_K-action μ_G (anchor Layer 7): Ψ^∨ := flip (Mathlib RootPairing.flip with Base.flip), Γ_K acting through Aut(Ψ) ≅ Aut(Ψ^∨) (f ↦ (f^∨)^{-1}), finite image (factors through Gal(K'/K) for a splitting field). *Prerequisites:* TC ReductiveGroups#layer-7-structure-theory, mathlib:RootPairing.flip, mathlib:RootPairing.Base.flip. *Paper items:* KALETHA-16/P14.
-- `ReductiveGroupsPartII:RG2.5/langlands-dual-group` (construction) **The Langlands dual group over ℤ** — planet: Langlands dual group. Ĝ := the pinned split reductive group over ℤ attached to Ψ^∨ by the anchor's Chevalley–Demazure construction (Layer 9), with pinning (T̂, B̂, {X_α̂}) and identification X^*(T̂) = X_*(T), roots of T̂ = coroots of T; base change to any ring; no √q inserted. *Prerequisites:* RG2.5/dual-based-root-datum, TC ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ.
-- `ReductiveGroupsPartII:RG2.5/pinned-automorphisms` (theorem) **Pinned automorphisms of the dual group**. Aut(Ĝ, pinning) ≅ Aut(Ψ^∨) (from the isomorphism theorem for pinned groups, anchor Layer 9); Aut(Ĝ) = Inn(Ĝ) ⋊ Aut(Ĝ, pinning); hence a homomorphism Γ_K → Aut(Ĝ, pinning) with finite image. *Prerequisites:* RG2.5/langlands-dual-group, TC ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ.
-- `ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group` (construction) **The Galois action on the dual group**. μ̂_G: Γ_K → Aut(Ĝ, pinning) induced by μ_G, continuous with finite image (open kernel), trivial iff G is an inner form of a split group; for Weil-group form, composed with W_K → Γ_K (Tau Ceti ClassFieldTheory Layer 9). *Prerequisites:* RG2.5/pinned-automorphisms, mathlib:Field.absoluteGaloisGroup.
-- `ReductiveGroupsPartII:RG2.5/l-group` (construction) **The L-group** — planet: L-group. ^LG := Ĝ ⋊ Γ (Γ = Gal(K'/K), Γ_K or W_K acting through μ̂_G), as a group functor R ↦ Ĝ(R) ⋊ Γ over ℤ; projection ^LG → Γ, inclusion of Ĝ, action law (g,γ)(g',γ') = (g·γ(g'), γγ'); finite Galois form vs Weil form comparison. Borel 1979 §2; Buzzard–Gee §2.1. *Prerequisites:* RG2.5/galois-action-on-dual-group, mathlib:SemidirectProduct, TC ClassFieldTheory#layer-9-the-local-weil-group. *Paper items:* KALETHA-16/P14.
-- `ReductiveGroupsPartII:RG2.5/l-group-change-of-pinning` (theorem) **Independence of the L-group from choices**. Different choices of (T, B), pinnings and splitting fields give isomorphic L-groups by isomorphisms that are Ĝ-conjugations commuting with projections, canonical up to conjugation by Ĝ^Γ... (T̂^Γ); the based root datum is canonical up to unique isomorphism. *Prerequisites:* RG2.5/l-group.
-- `ReductiveGroupsPartII:RG2.5/dual-centre-and-fundamental-group` (theorem) **Centre of the dual group and π₁**. X^*(Z(Ĝ)) ≅ π₁(G) Γ-equivariantly; X^*(Z(Ĝ)^I) = π₁(G)_I (Haines–Rapoport form of the Kottwitz target); Z(Ĝ) connected iff π₁(G) torsion-free... (iff G_der simply connected). *Prerequisites:* RG2.5/langlands-dual-group, RG2.1/algebraic-fundamental-group.
-- `ReductiveGroupsPartII:RG2.5/l-group-levi-embedding` (construction) **Levi embeddings of L-groups**. For a K-parabolic P with Levi M: an embedding ^LM ↪ ^LG over Γ, Ĝ-conjugacy class canonical; its image is a Levi of a parabolic of ^LG; compatible with the standard Levis of Ĝ. Borel 1979 §3. *Prerequisites:* RG2.5/l-group, TC ReductiveGroups#layer-7-structure-theory.
-- `ReductiveGroupsPartII:RG2.5/dual-isogenies-and-products` (theorem) **Dual groups of isogenies, products and z-extensions**. A central isogeny G → Ḡ = G/Z induces a dual isogeny Ĝ̄ → Ĝ with compatible maximal tori, coroot lattices and Γ-actions (Kaletha 2016 §§4.1, 5.3); products ^L(G × G') = ^LG ×_Γ ^LG'; a z-extension G̃ → G gives Ĝ ↪ Ĝ̃ with central torus quotient. *Prerequisites:* RG2.5/l-group, RG2.1/z-extension. *Paper items:* KALETHA-16/P14.
-- `ReductiveGroupsPartII:RG2.5/dual-of-weil-restriction` (theorem) **The L-group of a Weil restriction**. For K'/K finite separable and G over K': (Res_{K'/K}G)^∨ = Ĝ^{Hom_K(K',K^sep)} with Γ_K acting by permutation twisted by μ̂; ^L(Res G) ≅ the induced group (Shapiro); for tori via induced character modules. *Prerequisites:* RG2.5/l-group, RG2.0a/weil-restriction-character-lattices.
-- `ReductiveGroupsPartII:RG2.5/torus-and-gl-dual-groups` (application) **Dual groups of tori and GL_n**. For a torus T: T̂ = D(X_*(T)) (split torus over ℤ with character group X_*(T)), ^LT = T̂ ⋊ Γ; split torus: T̂ = G_m^n with trivial action; GL_n: Ĝ = GL_n with standard pinning and trivial action; SL_n ↔ PGL_n; norm-one torus: T̂ = G_m with σ acting by inversion. *Prerequisites:* RG2.5/l-group, tauceti:TauCeti.SplitTorus.pointsMulEquiv.
-- `ReductiveGroupsPartII:RG2.5/gsp4-self-dual` (theorem) **GSp_4 is its own dual** — planet: Self-duality of GSp4. In Pilloni's coordinates X^*(T) = {(a1,a2;c): c ≡ a1+a2 mod 2} with basis e1, e2, e3 and X_*(T) with dual basis f1, f2, f3: the map i with matrix ((1,1,1),(1,0,1),(1,1,2)) is an isomorphism of based root data Ψ(GSp_4) ≅ Ψ(GSp_4)^∨ for the corrected base α1 = e2 − e1, α2 = −2e2 + e3, α1^∨ = f2 − f1, α2^∨ = −f2 (exchanging long and short roots), so Ĝ(GSp_4) ≅ GSp_4 over ℤ. Pilloni 2020 §5.1.1 p. 20; Roberts–Schmidt Lemma 2.3.1. *Prerequisites:* RG2.5/langlands-dual-group. *Paper items:* PILLONI-20/gsp4-self-dual-root-datum.
+The GSp4 calculation uses the corrected base from
+`PAPER-PILLONI-20/gsp4-self-dual-root-datum`, correction E20. Its character and
+cocharacter bases, pairings and two integral matrices are given explicitly;
+the determinant and inverse-transpose identities were checked in Lean. This
+is distinct from this packet's E47, which concerns van Hoften's Iwahori
+inclusion.
 
-## Exact next steps
+The independent reviewer should inspect these normalization and component
+boundaries, the finite quotient transitions, the tame hyperspecial and
+quaternionic inputs, and the inverse-limit lifting arguments. There is no
+remaining planning chapter to resume before review.
 
-1. Write the RG2.2 nodes, then the first half of RG2.3, then RG2.4 and RG2.5 (in that order: the
-   written RG2.3 nodes depend on RG2.2 and the first half of RG2.3). Use the same node format as
-   the existing nodes (uses ≥ 2, api ≥ 4, tests ≥ 3 with a compatibility and a non-example).
-2. Replace the stage-id prerequisites of the written RG2.3 nodes by the new node ids.
-3. Write the reader-document chapters for the new layers and the RG2.1 Lean section; add Lean
-   sections for the new layers; re-run `lean-check` on the whole file.
-4. Run the checker, set `status` to `complete`, and record any further moves in this note.
+## Source access and provenance
 
-## Sources downloaded (read 2026-10-09; texts kept only in worker scratch)
+The packet's source catalogue gives editions, URLs, access dates, public-file
+hashes where obtained, and target-specific theorem, section and page numbers.
+The reader bibliography agrees. Statements and arguments are written in our
+own words; neither document contains a source passage or an excerpt field.
 
-- `bt1`: François Bruhat, Jacques Tits, *Groupes réductifs sur un corps local. I. Données radicielles valuées*, Publications mathématiques de l’IHÉS 41 (1972), 5–251 (Numdam scan) — http://www.numdam.org/item/10.1007/BF02715544.pdf (sha256 0250583927c80b8a…)
-- `bt2`: François Bruhat, Jacques Tits, *Groupes réductifs sur un corps local. II. Schémas en groupes. Existence d’une donnée radicielle valuée*, Publications mathématiques de l’IHÉS 60 (1984), 5–184 (Numdam scan) — http://www.numdam.org/item/10.1007/BF02700560.pdf (sha256 8ebdf6e30e6c9613…)
-- `bt-classiques`: François Bruhat, Jacques Tits, *Schémas en groupes et immeubles des groupes classiques sur un corps local*, Bulletin de la Société Mathématique de France 112 (1984), 259–301 (Numdam scan) — http://www.numdam.org/item/10.24033/bsmf.2006.pdf (sha256 5a3513de54b40c87…)
-- `haines-rapoport`: Thomas J. Haines, Michael Rapoport, *On parahoric subgroups*, Appendix to G. Pappas and M. Rapoport, Twisted loop groups and their affine flag varieties, Advances in Mathematics 219 (2008), 118–198; author copy — https://www.math.umd.edu/~tjh/HRParahoric3.pdf (sha256 b37df378b6099ba0…)
-- `pappas-rapoport-twisted`: Georgios Pappas, Michael Rapoport, *Twisted loop groups and their affine flag varieties*, arXiv:math/0607130v2 (2008); Advances in Mathematics 219 (2008), 118–198 — https://arxiv.org/abs/math/0607130 (sha256 6fbdb2748ef12fc7…)
-- `richarz`: Timo Richarz, *On the Iwahori–Weyl group*, arXiv:1310.4635v1 (2013); Bulletin de la Société Mathématique de France 144 (2016), 117–124 — https://arxiv.org/abs/1310.4635 (sha256 7d96c75268645d66…)
-- `conrad-adelic`: Brian Conrad, *Weil and Grothendieck approaches to adelic points*, L’Enseignement Mathématique 58 (2012), 61–97; author copy — https://math.stanford.edu/~conrad/papers/adelictop.pdf (sha256 fe4a9193aff4ef57…)
-- `stacks`: The Stacks Project Authors, *The Stacks Project, Section 97.11 (Tag 05Y8, Restriction of scalars) and Tag 05YF*, online, read 2026-10-09 — https://stacks.math.columbia.edu/tag/05Y8 (sha256 9cf8669c607156d3…)
-- `milne-iag`: J. S. Milne, *Algebraic Groups: the theory of group schemes of finite type over a field*, Version 2.00 (20 December 2015), preliminary version of the book (Cambridge University Press, 2017); numbering differs from the book — https://www.jmilne.org/math/CourseNotes/iAG200.pdf (sha256 385dd0d5a65db056…)
-- `milne-isv`: J. S. Milne, *Introduction to Shimura Varieties*, Revised 16 September 2017 (numbering as in the published version, Clay Math. Proc. 4 (2005)) — https://www.jmilne.org/math/xnotes/svi.pdf (sha256 f637e61735ff9cf9…)
-- `casselman`: W. Casselman, *Introduction to the theory of admissible representations of p-adic reductive groups*, Draft of 1 May 1995 (notes revised by the Séminaire Paul Sally); author copy — https://personal.math.ubc.ca/~cass/research/pdf/p-adic-book.pdf (sha256 78b921fc6331ad2b…)
-- `prasad-yu-06`: Gopal Prasad, Jiu-Kang Yu (appendix by Brian Conrad), *On quasi-reductive group schemes*, arXiv:math/0405381; Journal of Algebraic Geometry 15 (2006), 507–549 — https://arxiv.org/abs/math/0405381 (sha256 96d18638f804ff78…)
-- `prasad-17`: Gopal Prasad, *Finite group actions on reductive groups and buildings and tamely-ramified descent in Bruhat–Tits theory*, arXiv:1705.02906v5 (2018); American Journal of Mathematics 142 (2020), 1239–1267 — https://arxiv.org/abs/1705.02906 (sha256 f08c2889823b7f5f…)
-- `haines-dualities`: Thomas J. Haines, *Dualities for root systems with automorphisms and applications to non-split groups*, arXiv:1604.01468v2 (2018); Representation Theory 22 (2018), 1–26 — https://arxiv.org/abs/1604.01468 (sha256 47836d5daf1c4e66…)
-- `buzzard-gee`: Kevin Buzzard, Toby Gee, *The conjectural connections between automorphic representations and Galois representations*, arXiv:1009.0785v3 (2015); Automorphic Forms and Galois Representations, Vol. 1, LMS Lecture Note Series 414 (2014), 135–187 — https://arxiv.org/abs/1009.0785 (sha256 52e4f5bf0215a7c0…)
-- `edixhoven-92`: Bas Edixhoven, *Néron models and tame ramification*, Compositio Mathematica 81 (1992), 291–306 (Numdam scan) — http://www.numdam.org/item/CM_1992__81_3_291_0.pdf (sha256 5ddfbee91284ef88…)
-- `anantharaman-73`: Sivaramakrishna Anantharaman, *Schémas en groupes, espaces homogènes et espaces algébriques sur une base de dimension 1*, Mémoires de la Société Mathématique de France 33 (1973), 5–79 (Numdam scan) — http://www.numdam.org/item/MSMF_1973__33__5_0.pdf (sha256 6e0f2d295215a294…)
-- `garrett-buildings`: Paul Garrett, *Buildings and Classical Groups*, Chapman & Hall (1997); author PDF — https://www-users.cse.umn.edu/~garrett/m/buildings/book.pdf (sha256 1aa8eb5760b94d77…)
-- `kisin-pappas-18`: Mark Kisin, Georgios Pappas, *Integral models of Shimura varieties with parahoric level structure*, arXiv:1512.01149v3 (2018); Publications mathématiques de l’IHÉS 128 (2018), 121–218 — https://arxiv.org/abs/1512.01149 (sha256 7577bb3ea98e4294…)
-- `kisin-pappas-zhou-26`: Mark Kisin, Georgios Pappas, Rong Zhou, *Integral models of Shimura varieties with parahoric level structure, II*, arXiv:2409.03689v3; Forum of Mathematics, Pi 14 (2026), e14 — https://arxiv.org/abs/2409.03689 (sha256 d0834555eb84db29…)
-- `kisin-zhou-25`: Mark Kisin, Rong Zhou, *Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties*, arXiv:2103.09945v2 (2024); Annals of Mathematics 202 (2025), no. 3, 1077–1156 — https://arxiv.org/abs/2103.09945 (sha256 62d26eb931f27140…)
-- `he-18`: Xuhua He, *Cocenters of p-adic groups, I: Newton decomposition*, arXiv:1610.04791v3 (2018); Forum of Mathematics, Pi 6 (2018), e2 — https://arxiv.org/abs/1610.04791 (sha256 605d7e9cbf381d48…)
-- `he-21`: Xuhua He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*, arXiv:2001.03325v1 (2020); Forum of Mathematics, Pi 9 (2021), e9 — https://arxiv.org/abs/2001.03325 (sha256 818873a568bf37ec…)
-- `fintzen-21`: Jessica Fintzen, *Types for tame p-adic groups*, arXiv:1810.04198v2 (3 November 2020); Annals of Mathematics 193 (2021), no. 1, 303–346 — https://arxiv.org/abs/1810.04198 (sha256 bd332fd739560826…)
-- `zhu-17`: Xinwen Zhu, *Affine Grassmannians and the geometric Satake in mixed characteristic*, arXiv:1407.8519v3 (2016); Annals of Mathematics 185 (2017), no. 2, 403–492 — https://arxiv.org/abs/1407.8519 (sha256 2c23e397d21e8481…)
-- `kaletha-16`: Tasho Kaletha, *Rigid inner forms of real and p-adic groups*, arXiv:1304.3292v5 (2015); Annals of Mathematics 184 (2016), no. 2, 559–632 — https://arxiv.org/abs/1304.3292 (sha256 8f88e61e4a86c69e…)
-- `gleason-lim-xu-26`: Ian Gleason, Dong Gyu Lim, Yujie Xu, *The connected components of affine Deligne–Lusztig varieties*, arXiv:2208.07195v3; Inventiones mathematicae 243 (2026), 805–861 — https://arxiv.org/abs/2208.07195 (sha256 d2249ddbe1ae2f47…)
-- `vanhoften-24`: Pol van Hoften (Appendix A by Rong Zhou), *Mod p points on Shimura varieties of parahoric level*, arXiv:2010.10496v4 (2024); Forum of Mathematics, Pi 12 (2024), e20 — https://arxiv.org/abs/2010.10496 (sha256 593ccc39d59ebdd7…)
-- `kisin-17`: Mark Kisin, *Mod p points on Shimura varieties of abelian type*, Journal of the American Mathematical Society 30 (2017), no. 3, 819–914; author copy — https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf (sha256 d3c19cddc9e8b073…)
-- `calegari-geraghty-18`: Frank Calegari, David Geraghty, *Modularity lifting beyond the Taylor–Wiles method*, arXiv:1207.4224v2 (2017); Inventiones mathematicae 211 (2018), no. 1, 297–433 — https://arxiv.org/abs/1207.4224 (sha256 67896c8532588019…)
-- `pilloni-20`: Vincent Pilloni, *Higher coherent cohomology and p-adic modular forms of singular weights*, Duke Mathematical Journal 169 (2020), no. 9, 1647–1807; the HAL copy (hal-01393374) refused automated download on 2026-10-09, so the GSp4 example is checked by direct computation against the reviewed extraction PAPER-PILLONI-20 — https://doi.org/10.1215/00127094-2019-0075
-- `cesnavicius-19`: Kęstutis Česnavičius, *Purity for the Brauer group*, arXiv:1711.06456v4 (2018); Duke Mathematical Journal 168 (2019), no. 8, 1461–1486 — https://arxiv.org/abs/1711.06456 (sha256 a62a12bbe26595ae…)
-- `lipnowski-tsimerman-18`: Michael Lipnowski, Jacob Tsimerman, *How large is A_g(F_q)?*, arXiv:1511.02212v1 (2015); Duke Mathematical Journal 167 (2018), no. 18, 3403–3453 — https://arxiv.org/abs/1511.02212 (sha256 5ceed8168ce37b75…)
-- `harpaz-wittenberg-20`: Yonatan Harpaz, Olivier Wittenberg, *Zéro-cycles sur les espaces homogènes et problème de Galois inverse*, arXiv:1802.09605v2 (2019); Journal of the American Mathematical Society 33 (2020), no. 3, 775–805 — https://arxiv.org/abs/1802.09605 (sha256 54cd8757102b7e67…)
+Primary local-structure sources consulted at the cited locators include BT I,
+BT II, the classical-groups article, Conrad on point topologies and
+quasi-reductive schemes, Anantharaman on quotients, Edixhoven, Prasad, Adler,
+Milne's Version 2.00 notes, Haines–Rapoport, Haines on root-system dualities,
+Richarz and Pappas–Rapoport. The arithmetic adapters were checked against
+Kisin, Kisin–Pappas, Kisin–Pappas–Zhou, Kisin–Zhou, He, Kaletha,
+Gleason–Lim–Xu, van Hoften and Calegari–Geraghty, with the recorded version
+pagination. The public Kisin author PDF was read through the browser; its
+checkpoint source hash is retained. Source records retained from the
+checkpoint include reviewed-extraction provenance where that was the access
+basis.
 
-Not obtainable publicly and therefore not used: Tits, *Reductive groups over local fields*
-(Corvallis 1979; the AMS site now requires login), Kaletha–Prasad, *Bruhat–Tits theory: a new
-approach* (CUP 2023), Bosch–Lütkebohmert–Raynaud, *Néron models*, Kottwitz 1997 (*Isocrystals II*,
-cited through Haines–Rapoport and Pappas–Rapoport), Landvogt 2000 (cited through Kisin–Pappas),
-Moy–Prasad 1994/1996 and Yu 2001 (cited through Fintzen), Serre, *Trees* (cited through
-Calegari–Geraghty Remark 9.7), and Pilloni 2020 (HAL refused automated download; the GSp4 example
-must be checked by direct computation against the reviewed extraction PAPER-PILLONI-20, with its
-corrected base, issue E20).
+The maintainer-cleared Corvallis Part 1 copy was read for Tits, *Reductive
+groups over local fields*, pp. 29–69, including §§1.10–1.15, §§2.1–2.9 and
+§§3.1–3.8.1 as cited in the targets. No file or passage from it was copied to
+scratch or the repository. Corvallis Part 2 was not read. The dual/L-group
+construction uses public Buzzard–Gee and explicit lattice derivations, with
+the anchor's classification of pinned groups.
+
+Pilloni's full text was unavailable through its public automated-download
+endpoint; the GSp4 target uses the reviewed extraction with an independent
+matrix verification. Uncleared books, including the Néron-model and
+Bruhat–Tits monographs and the books referenced by higher consumers, were
+not read through another copy. The quotient, tame-model and quaternionic
+arguments instead use the cited accessible results and the proof outlines
+here. No source file or extracted source text is committed.
+
+## Validation
+
+- `scripts/check_blueprint.py`, with the pinned declaration index: **0 errors,
+  0 warnings**; 179 nodes, all seven layers planned with empty remaining lists,
+  0 gaps and 17 supplier requests.
+- `lean-check research/blueprint/suggested/ReductiveGroupsPartII.lean` in the
+  shared pinned build: **exit 0**, with `sorry` warnings only and no linter warnings. No Lean server or library build was
+  started.
+- A separate elaboration audit checked all **487 unique target/API names**:
+  **exit 0**, with the same `sorry` warnings only.
+- All **246 packet test names** have actual Lean example or theorem forms and
+  appear in the reader. All 179 node IDs, target declaration names and 365 API
+  entries appear in the reader. All implementation statuses are `unchecked`.
+- Only the issue's four deliverable files are changed. Scratch holds work logs
+  and public source copies during submission and is deleted after the pull
+  request opens; nothing needed for review depends on it.
