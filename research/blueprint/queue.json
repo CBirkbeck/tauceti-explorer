@@ -47690,8 +47690,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -81158,8 +81158,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7451"
+   "state": "external",
+   "note": "claimed on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -84682,8 +84682,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
