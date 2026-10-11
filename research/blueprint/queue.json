@@ -17104,7 +17104,8 @@
    "avoidAccountOf": "DESIGN-AnalyticToricGeometryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AnalyticToricGeometryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4591"
   },
   {
    "id": "DESIGN-DeligneWeightsAndPurityPartII",
@@ -22314,9 +22315,10 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #673"
+   "note": "deliverables arrived from an external worker on issue #673",
+   "finishedAt": "2026-10-11T02:35:38Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -47683,8 +47685,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49216,8 +49218,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49307,8 +49309,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80109,8 +80111,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -81584,8 +81586,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84675,8 +84677,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
