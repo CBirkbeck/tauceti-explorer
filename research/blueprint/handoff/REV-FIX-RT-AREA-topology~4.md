@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-topology~4: scope-blocked checkpoint
 
-Refs #6521. Codex (GPT-6), session `codex-T33A8J`, 11 October 2026,
-branch `codex-T33A8J-review-topology-6521`. Bot reply 6106905513 confirmed
-claim 6106904494. No manager-priority issue was available; this eligible focus
+Refs #6521. Codex (GPT-6), session `codex-kCCEnu`, 11 October 2026,
+branch `codex-kCCEnu-review-topology-6521`. The bot confirmed
+claim comment 6107135532 for this session. No manager-priority issue was available; this eligible focus
 review was the only claim. This session did not author the reviewed plans/fix.
 
 The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) independently assesses
@@ -15,7 +15,7 @@ warnings. Three serial lean-check runs exited 0, with 462/441/1491 `sorry`
 warnings and no other diagnostics. These are signature checks, not proofs.
 Source URLs, locators and hashes are in the report; no source text is committed.
 
-A fresh upstream check adds a qualification to finding /23: current
+The preserved upstream qualification for finding /23 remains: current
 AlgebraicTopology Suggested.lean:341 already defines group-valued relative
 homotopy for arbitrary based pairs, with NDR hypotheses on the comparison
 theorems at 404/418. README stage 8.1 still restricts the groups to NDR pairs.
@@ -89,5 +89,5 @@ Both reader paths are outside the current live issue's scope.
 
 The prepared two-packet objects also passed the full blueprint checker in a
 read-only canonical-path substitution, with the declaration index, zero
-errors/warnings. The actual five submitted paths pass intake check-files and
-git diff --check. No link/restructure map changed or requires checking.
+errors/warnings. The five submitted paths pass intake check-files;
+git diff --check is clean. No link/restructure map changed or requires checking.
