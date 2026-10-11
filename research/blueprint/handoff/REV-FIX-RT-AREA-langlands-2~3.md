@@ -1,5 +1,38 @@
 # Handoff: REV-FIX-RT-AREA-langlands-2~3
 
+## Current checkpoint, 11 October 2026 — codex-5Q923d
+
+Refs #5871. Branch `codex-5Q923d-review-5871`; input and freshly fetched main
+`a51b147164c4e9cd0643f8039a45f10f1b22423f`. Claim comment 6106793185 was
+confirmed by the bot before work began. This run claimed only this job.
+
+**Blocked on issue/queue scope reconciliation.** The authorized mathematical
+review is already complete: CSM accepted, Global accepted, GL2 needs_changes.
+The actual completion predicate returns False for the queue's 27 outputs and
+True for the same job with only its output list replaced in memory by the live
+issue's seven paths. All outputs exist. The parent fix is done and lists forty
+outputs; ten extra packet reviews are accepted under other independent jobs'
+markers. Neither a new mathematical review nor overwriting those markers
+repairs the assignment. The report records this run's fresh receipt.
+
+**Resume with the maintainer's scope repair**, detailed in the preceding
+handoffs and report: restore the historical ten/seven fix/review output lists,
+preserve issued round scopes in the generator, run regeneration twice and
+inspect its wider routing changes. Reconcile the live issue before assigning
+more files. Queue/generator edits exceed the live issue's allowlist and both
+fail `intake.file_problems`. Keep this completed review out of scheduling
+until the mismatch is resolved. No permission question is pending.
+
+Fresh pinned-index checks: zero errors/warnings on all three packets; 177
+unchecked nodes; no excerpt fields; forty unique retained finding dispositions.
+No mathematical node, review stamp or Lean file changed. Lean was not rerun
+for this documentation-only checkpoint; previous receipts keep their original
+attribution. GL2's remaining typed APIs/tests belong to its subsequent revision,
+as specified in the completed review. Only this note and the report change.
+No scratch file is needed by the next worker, and no process is left running.
+
+---
+
 ## Current checkpoint, 10 October 2026 — codex-bmdZE0
 
 Issue #5871; bot confirmation
