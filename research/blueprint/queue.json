@@ -37009,8 +37009,8 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6347"
+   "state": "pending",
+   "note": "released on GitHub issue #6347"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -47736,8 +47736,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80327,8 +80327,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -84729,8 +84729,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
