@@ -1,177 +1,66 @@
-# Scope blocker confirmed: Codex codex-Wrws1L, 10 October 2026
+# REV-FIX-RT-AREA-padic-1~3: intake scope repair evidence
 
-Issue #5704; base `15da55e6f65878bbea28010a47d360dbd47cf57c`.
+Codex, session `codex-tGrBnk`, 10 October 2026; issue [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Base commit `06bdf5afcf3a17691f3047d4244381ff708a77ed`.
 The bot confirmed this session's claim in
-[comment 6093026776](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093026776).
-This continuation preserves the completed mathematical review below, including
-P0's `needs_changes` verdict and the two scoped acceptances. It makes no fresh
-source-audit, mathematical acceptance or Lean-compilation claim.
+[comment 6093131025](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093131025).
+Only this job was claimed.
 
-Fresh checks of the live issue body, current queue and stock intake establish:
+The original three-packet mathematical review is finished and preserved below:
+PerfectoidSpaces P0 `needs_changes`; AdicEtaleGeometry and AdicSpacesPartII
+accepted for their scoped corrections. This continuation adds a full-generator
+simulation and a tested, narrow intake repair. It does not replace the source
+reviews, review objects, mathematical contracts or Lean verification with new
+claims.
 
-- The issue names seven outputs covering three packets; the queue names 47
-  outputs covering 23 packets. Every queue output exists.
-- `issues.deliverables_complete` returns true with the issue's exact output
-  list and false with the unmodified queue. All 20 extra packets carry another
-  job's review. The honest P0 verdict is not the completion blocker.
-- Intake computes completion from the queue after merge, independently of the
-  PR's description. Both queue and generator paths fail its output allowlist.
-- The historical queue at `c69e5b6c9` reproduces the original ten author
-  outputs and seven review outputs, listed in the handoff below.
-- All three stock packet checks pass with zero errors and zero warnings:
-  PerfectoidSpaces P0 326 nodes, AdicEtaleGeometry 153, AdicSpacesPartII 537.
-- Rerunning the preserved read-only AST regression fixture reproduces all
-  eight passing cases for the two-site scope-preservation candidate. Stock
-  fails four cases; the later-round-only candidate fails two. This does not
-  certify full queue regeneration or authorize applying the candidate.
+## Confirmed completion blocker
 
-Requested explicit permission to reconcile the queue scope. No authorization
-has arrived. WORKERS.md restricts edits to issue-named files and the handoff,
-so this submission is a **blocked checkpoint**, changing only this report and
-the handoff. No packet verdict, suggested file, queue, generator, prompt,
-atlas record or label is changed. Lean was not rerun because no suggested
-file changed and this continuation concerns only the scope blocker; the
-earlier successful elaborations remain their original workers' evidence.
+The current issue's exact deliverables, parsed from its live body, are seven
+files covering three packets. The queue requires 47 files covering 23 packets.
+Every queue file exists, but the twenty additional packets have their own
+review jobs' verdicts. No one should change those reviewer identities to make
+this unrelated review finish.
 
-The next action is the maintainer repair already specified below: restore
-both author and review scopes, preserve published scopes during generation,
-and verify stable regeneration and intake synchronization. Repeating the
-completed three-packet review cannot resolve this mismatch.
+Calling the stock `issues.deliverables_complete` returns **true** for the
+issue's seven paths and **false** for the current queue. The P0
+`needs_changes` verdict is a completed review disposition; it does not cause
+this failure. At author merge `c69e5b6c9` the fix had ten outputs and its review
+had seven, exactly matching the published assignments.
 
----
+WORKERS.md permits edits only to the issue-named files and the job handoff.
+Both `research/blueprint/queue.json` and `research/blueprint/make_queue.py`
+also fail intake's `ALLOWED` path expression. Scope expansion was requested;
+no authorization is assumed. The proposed repair was tested in memory without
+editing either file. The submission remains blocked on a maintainer scope
+repair, and uses a draft PR to retain the submission for the maintainer rather
+than release the same already-reviewed assignment for another worker.
 
-# Blocked continuation: Codex codex-B7F2hV, 10 October 2026
+## Narrow repair, ready for maintainer review
 
-Issue #5704; base `e0374256903bf50963674b4ec9ba17807347620e`.
-The bot confirmed this session's claim in
-[comment 6092681996](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092681996).
-This continuation preserves the completed mathematical review and all its
-verdicts. It adds no source audit or mathematical acceptance claim.
+Restore **only** the `outputs` arrays of these two jobs from queue commit
+`c69e5b6c9`; retain their current runtime metadata and other fields:
 
-Fresh read-only checks reproduce the existing scope blocker:
+- `FIX-RT-AREA-padic-1~3`: its fixes-3 report and the packet, reader and
+  suggested file for PerfectoidSpaces P0, AdicEtaleGeometry and AdicSpacesPartII
+  (ten outputs).
+- `REV-FIX-RT-AREA-padic-1~3`: this report and those same three packets and
+  three suggested files (seven outputs).
 
-| Check | Result |
-| --- | --- |
-| Live issue deliverables | 7 files, including 3 packets |
-| Queue deliverables | 47 files, including 23 packets |
-| Every queue output exists | true |
-| Stock completion predicate, live issue scope | true |
-| Stock completion predicate, unmodified queue | false |
-| Extra packets carrying another review job's verdict | 20 of 20 |
-| Intake permits queue or generator edits | false for both paths |
+A queue-only restoration is sufficient for this assignment. In two complete
+stock-generator dry-run simulations, the restored scopes remain ten and seven
+outputs. With those scopes, the existing verdicts satisfy stock completion,
+and the stock issue-transition function returns `done`, `state:done`. This is
+an in-memory transition check; no issue label, issue state or queue state was
+changed by this worker.
 
-The issue outputs were parsed from its live body, rather than reconstructed
-from the prior handoff. Both completion evaluations invoked the stock
-`issues.deliverables_complete` with the same repository contents; only the
-in-memory output list differed. `intake.merge` uses the queue entry after
-merge, so changing the submission description cannot make this a complete
-job. The permitted repair still belongs to the maintainer.
+After installing the narrow repair through a maintainer submission route,
+regenerate and check the two job entries and prompts, then run ordinary intake
+and synchronization. The original mathematical follow-ups remain with their
+owners; accepting this independent review does not accept P0's mathematics.
 
-Fresh stock blueprint checks return **zero errors and zero warnings** for
-PerfectoidSpaces P0 (326 nodes), AdicEtaleGeometry (153) and AdicSpacesPartII
-(537). No packet or suggested file changed; Lean was not rerun. The earlier
-successful elaborations remain their original workers' evidence.
+## Broader generator proposal: distinct consequences
 
-Scope reconciliation was requested during this run. No expanded scope or
-repair authorization has been received. This is a **blocked checkpoint**,
-changing only this report and the handoff. Before another mathematical worker
-continues #5704, restore and preserve its original author/review scopes or
-publish a reconciled assignment and submission route. The existing repair
-fixture and mathematical follow-ups below are preserved.
-
----
-
-# Current blocked continuation: 10 October 2026
-
-Codex, session `codex-0zxhBp`, claimed issue #5704; bot confirmation
-[6092606975](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092606975).
-Base: `8a53daaaae8b929368fd89963c6b220443fcb164`. This continuation
-verifies the completion blocker identified below. It preserves the completed
-three-packet review and makes no new mathematical verdict or source-audit claim.
-
-The live issue still names seven deliverables. The generated queue names 47,
-including 20 additional packets. Every queue-listed file exists, so missing
-files do not explain the failure. A fresh invocation of the stock
-`issues.deliverables_complete` returns **true** for a copy of the job with
-exactly the live issue's seven paths and **false** for the unmodified queue
-entry. All 20 additional packets name other review jobs; none names
-`independent-review-REV-FIX-RT-AREA-padic-1~3`. P0's honest `needs_changes`
-verdict satisfies the predicate for the authorized scope.
-
-Re-read the intake's actual merge path: it evaluates completion from the
-queue job, independently of the submission's description, then releases an
-incomplete job as available. Calling this submission complete cannot resolve
-that mismatch. Both `queue.json` and `make_queue.py` fail intake's output-path
-allowlist, in addition to being outside this issue's deliverables. The
-historical author-merge queue at `c69e5b6c9` still confirms ten author outputs
-and seven review outputs, both covering only these three packets.
-
-Fresh stock `check_blueprint.py` runs report **zero errors and zero warnings**
-for P0 (326 nodes), AEG (153) and ASII (537). No packet or suggested file
-changed. Lean was not rerun: the preceding session's successful sequential
-elaborations remain its evidence, not a fresh compilation claim.
-
-Scope reconciliation was requested from the manager during this run. No
-answer or repair authorization has been received. Only this report and the
-job handoff change. This is a blocked checkpoint under WORKERS.md, rather than
-another mathematical review of the three already reviewed packets.
-
-The maintainer must restore and preserve the original author/review scopes,
-or publish an explicitly expanded assignment with a permitted submission
-route. Until then, this issue should be held out of available worker selection;
-otherwise automatic checkpoint intake releases the same blocked assignment
-again. Workers must not change its labels themselves. The detailed repair
-candidate, regression fixture, historical scopes and mathematical follow-ups
-below remain available to the maintainer.
-
----
-
-# Scope-preservation regression checks: 10 October 2026
-
-Codex, session `codex-AQARNU`, continued issue #5704 from
-`7717a66bbabd800f7cccc4efbd991743cceca516`. The bot confirmed the claim
-in comment 6092370661. The preceding mathematical review is preserved:
-PerfectoidSpaces P0 needs_changes; AdicEtaleGeometry and AdicSpacesPartII
-accepted for their scoped corrections. This continuation adds reproducible
-regression evidence for the unresolved scope blocker; it does not replace
-any verdict or claim a new source audit.
-
-## Current completion boundary
-
-The live issue still authorizes seven deliverables, covering three packets.
-The current generated queue requires 47 deliverables, covering 23 packets.
-At author merge `c69e5b6c9`, the author fix had ten deliverables and this review
-had seven, agreeing with the issue. The current author fix has 78. Fresh
-`issues.deliverables_complete` results remain false for the current queue
-and true for a copy containing the issue's seven paths. P0's needs_changes
-verdict is a valid completed review disposition; the twenty additional packets
-cause the completion failure.
-
-WORKERS.md limits edits to the issue's named files and the job handoff.
-The queue, generator, generator tests and generated prompts are outside that
-scope. Moreover, `intake.py` excludes generator and queue paths from its
-submission allowlist. Applying the repair requires a maintainer-owned change
-or explicit authorization and a maintainer-reviewed submission route. A scope
-question was sent during this run; no reply or repair authorization is assumed.
-No queue, generator, prompt, packet or suggested file was changed. This is a
-blocked checkpoint, not an unfinished repeat of the three-packet review.
-
-## Additional defects and candidate correction
-
-The preceding checkpoint's proposed change at `made` preserves existing later
-rounds. It does not protect an existing **first** round: `fix_rounds` reuses its
-old outputs only when its state is done. A first round with state external
-(already claimed) or pending can therefore acquire a newly available owner
-without an updated issue. Both cases fail the later-round-only candidate.
-
-A separate fixture shows that, even when outputs happen to be unchanged, an
-existing later round's `after` can change from the preceding author job to its
-review when a send-back is detected. Unconditional reuse of the existing later
-round preserves the stored prerequisite as well as its paths. This matters
-because regeneration must not rewrite the instructions of an assignment
-already issued to a worker.
-
-The tested two-site candidate is:
+The preceding workers proposed preserving existing fix scopes at two sites:
 
 ```diff
 -        if states.get(current) == "done" and current in previous_outputs:
@@ -182,61 +71,164 @@ The tested two-site candidate is:
 +            made = previous_jobs.get(following)
 ```
 
-This is a candidate policy of preserving every existing fix assignment,
-including pending ones. The maintainer must decide whether an unpublished
-pending assignment may be recomputed and, if so, identify it explicitly;
-state pending alone does not establish that an issue was never published.
-New assignments continue to acquire new owners and follow a finished review
-when that review sends the preceding round back.
+The preserved eight focused regression cases pass for this candidate. Stock
+fails four; a later-round-only change fails two. These fixtures establish a
+real scope-mutation risk beyond this particular assignment, but they do not
+choose the scheduling policy.
 
-## Focused regression results
+The new full-generator test processes the actual repository inputs, captures
+the complete merged queue and prompts, and feeds the first generated queue
+back into a second pass. All writes are disabled; the final lock is omitted
+from the in-memory AST, and `Path.write_text` raises on any unexpected write.
+It runs neither intake synchronization nor GitHub mutations.
 
-The fixture extracts the actual nested function with Python's AST. All other
-dependencies are inert fixtures, and generated jobs and prompts are captured
-in memory. It writes no repository file. Pass means expected output paths
-are retained; the existing-send-back case also checks its original `after`.
-The full candidate additionally checks author/reviewer path and prompt
-agreement, preserved prerequisites for existing rounds, and the review
-prerequisite for a new send-back round.
+Results with the restored author and review scopes:
 
-| Fixture | Stock | Later-round-only candidate | Two-site candidate |
-| --- | --- | --- | --- |
-| Claimed first round, new owner | fail | fail | pass |
-| Pending first round, new owner | fail | fail | pass |
-| Finished first round, unchanged owners | pass | pass | pass |
-| Existing later round, new owner | fail | pass | pass |
-| Existing later round, new send-back | fail | pass | pass |
-| New round required by new owner | pass | pass | pass |
-| New round required by send-back | pass | pass | pass |
-| Existing third round, new owner | pass | pass | pass |
+| Check | Result |
+| --- | --- |
+| Jobs generated, each candidate pass | 5,111 |
+| Existing jobs retaining all recorded runtime fields | 4,423 |
+| Original author/review outputs after both passes | 10 / 7 |
+| Original author/review prerequisite lists | preserved |
+| Author/review prompts across both passes | identical |
+| Original scopes after two stock-generator passes | also preserved |
+| Existing fix output lists preserved by the candidate | all generated existing fix jobs |
+| Current queue completion | false |
+| Restored queue completion | true |
+| Simulated original-scope issue transition | done / state:done |
+| Repository files written by the fixture | zero |
 
-All eight focused cases pass for the two-site candidate. The final row does
-not vindicate stock behavior: its already-done preceding second round can
-absorb the new owner before the third round is visited. The fourth row is the
-fixture that catches that mutation directly.
+The full test reveals policy consequences the earlier focused fixtures did
+not establish. Compared with stock regeneration, the candidate retains the
+existing scopes of **21 other fix assignments** that stock would broaden.
+After restoring the third round's scope, both approaches generate a new
+`FIX-RT-AREA-padic-1~4` for remaining owner work. Thus the broader generator
+change needs a maintainer decision about published versus unpublished scopes,
+allocation of new owner work and revision limits. It should not be presented
+as a two-line change with effects confined to #5704. The queue-only repair
+finishes this review independently of that decision.
 
-This does not certify full generation, all job kinds, downstream scheduling,
-the final state merge or automatic issue synchronization. Restoring only the
-review's seven paths is insufficient: the author round's original ten paths
-must be restored too, otherwise regeneration derives the broadened review
-from the broadened author assignment. Newly available owner work still needs
-its own properly scoped assignments. Any repair must regenerate twice and
-compare queue entries, prompts, prerequisites and completion before intake.
+The candidate's stable prompt hashes for this fixture's dummy input paths are:
 
-## Validation and next action
+- Author: `2e04ac4e71995be0b7be6d56a2801aa21fd2a27fabbdf9bc659f97296dd97a95`.
+- Review: `6d291e1b4fe4a819206081ec4ce13439c86332296dc7cd91ce9636a301aacb53`.
 
-Fresh stock `check_blueprint.py` checks report zero errors and zero warnings
-for all three issue-named packets: P0 326 nodes; AEG 153; ASII 537. The pinned
-declaration index was found by the checker. No Lean signature changed and
-Lean was not rerun; the preceding report's successful sequential elaborations
-remain that session's evidence. No new mathematical completeness or source
-verification is claimed.
+## Checks in this continuation
 
-Only this report and the handoff change. The next action is a maintainer scope
-repair, rather than another independent audit of the completed three-packet
-review. The handoff gives the exact historical deliverables, preserved
-mathematical follow-ups and repair acceptance conditions. The runnable fixture
-below preserves all new evidence without relying on disposable scratch files.
+Fresh stock blueprint checks report zero errors and warnings for all three
+issue-named packets: P0 326 nodes, AdicEtaleGeometry 153, AdicSpacesPartII 537.
+The packets contain no `excerpt` or `quote` fields. No packet or suggested
+file changed. Lean was not rerun because no signature changed; the archived
+review's successful elaborations remain that session's evidence.
+
+This report replaces repeated scope-blocker continuation notes with the
+material new evidence and retains the mathematical review and its complete
+finding table below. The handoff gives the next action without requiring any
+scratch file from this run. No queue, generator, prompt, other owner's packet,
+atlas data or labels were modified.
+
+<details><summary>Full generator simulation, with all writes disabled</summary>
+
+Run from the repository root as a disposable scratch script. It reads the
+historical queue through `git show`; it neither checks out nor copies a
+repository. It prints the results and writes no output file.
+
+```python
+import ast,contextlib,copy,hashlib,io,json,subprocess,sys
+from pathlib import Path
+from unittest.mock import patch
+
+sys.dont_write_bytecode=True
+ROOT=Path.cwd()
+BP=ROOT/'research/blueprint'
+sys.path.insert(0,str(BP))
+import issues,intake
+source=(BP/'make_queue.py').read_text()
+candidate=source.replace(
+    'if states.get(current) == "done" and current in previous_outputs:',
+    'if current in previous_outputs:').replace(
+    'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None',
+    'made = previous_jobs.get(following)')
+queue=json.loads((BP/'queue.json').read_text())
+IDS=['FIX-RT-AREA-padic-1~3','REV-FIX-RT-AREA-padic-1~3']
+historical=json.loads(subprocess.check_output([
+    'git','show','c69e5b6c9:research/blueprint/queue.json']))
+original_jobs={j['id']:j for j in historical['jobs']}
+restored=copy.deepcopy(queue)
+for j in restored['jobs']:
+    if j['id'] in IDS:j['outputs']=original_jobs[j['id']]['outputs']
+read=Path.read_text
+
+class Capture(ast.NodeTransformer):
+    def visit_Assign(self,node):
+        if any(isinstance(t,ast.Name) and t.id=='lock' for t in node.targets):
+            return ast.copy_location(ast.Pass(),node)
+        return self.generic_visit(node)
+    def visit_Expr(self,node):
+        if isinstance(node.value,ast.Call) and isinstance(node.value.func,ast.Attribute) and ast.unparse(node.value.func)=='fcntl.flock':
+            return ast.copy_location(ast.Pass(),node)
+        return self.generic_visit(node)
+    def visit_If(self,node):
+        if ast.unparse(node.test)=='args.dry_run' and len(node.body)==1 and isinstance(node.body[0],ast.Return):
+            node.body.insert(0,ast.parse("globals()['CAPTURED'] = (merged, prompts)").body[0])
+        return self.generic_visit(node)
+
+def run(code,previous):
+    data=json.dumps(previous)
+    def load(path,*a,**kw):
+        return data if path==BP/'queue.json' else read(path,*a,**kw)
+    def forbidden(*a,**kw):
+        raise AssertionError('Unexpected generator write')
+    tree=Capture().visit(ast.parse(code))
+    env={'__name__':'scope_repair_fixture','__file__':str(BP/'make_queue.py')}
+    with patch.object(Path,'read_text',load),patch.object(Path,'write_text',forbidden),patch.object(Path,'mkdir',lambda *a,**kw:None),patch.object(sys,'argv',['make_queue','--library','fixture-library','--baseline','fixture-baseline','--workers','fixture-workers','--dry-run']),contextlib.redirect_stdout(io.StringIO()):
+        exec(compile(ast.fix_missing_locations(tree),str(BP/'make_queue.py'),'exec'),env)
+        env['main']()
+    jobs,prompts=env['CAPTURED']
+    return {'purpose':previous['purpose'],'jobs':jobs},prompts
+
+stock,_=run(source,restored)
+stock_second,_=run(source,stock)
+first,prompts1=run(candidate,restored)
+second,prompts2=run(candidate,first)
+base={j['id']:j for j in restored['jobs']}
+stockjobs={j['id']:j for j in stock['jobs']}
+firstjobs={j['id']:j for j in first['jobs']}
+secondjobs={j['id']:j for j in second['jobs']}
+rows=[]
+for jid in IDS:
+    original=base[jid];a=firstjobs[jid];b=secondjobs[jid]
+    assert original['outputs']==a['outputs']==b['outputs']
+    assert original['after']==a['after']==b['after']
+    assert prompts1[a['prompt']]==prompts2[b['prompt']]
+    runtime=('state','account','lane','attempts','startedAt','finishedAt','seconds','result','note','promptPreface','integrated')
+    for key in runtime:
+        if key in original:assert original[key]==a[key]==b[key],(jid,key)
+    rows.append({'job':jid,'restored_outputs':len(original['outputs']),'stock_outputs':len(stockjobs[jid]['outputs']),'first_outputs':len(a['outputs']),'second_outputs':len(b['outputs']),'prompt_sha256':hashlib.sha256(prompts1[a['prompt']].encode()).hexdigest()})
+assert all(not intake.ALLOWED.match(path) for path in ['research/blueprint/make_queue.py','research/blueprint/queue.json'])
+review=firstjobs[IDS[1]]
+assert issues.deliverables_complete(review,ROOT)
+assert not issues.deliverables_complete(next(j for j in queue['jobs'] if j['id']==IDS[1]),ROOT)
+assert issues.transition(review,['state:claimed'],True,True)==('done','state:done')
+# Isolate scope differences from unrelated generator drift.
+assert all(j['id'] not in IDS or j['outputs']==base[j['id']]['outputs'] for j in second['jobs'])
+runtime_preserved=0
+for jid,old in base.items():
+    if jid in firstjobs:
+        for key in ('state','account','lane','attempts','startedAt','finishedAt','seconds','result','note','promptPreface','integrated'):
+            if key in old:assert firstjobs[jid][key]==old[key],(jid,key)
+        runtime_preserved+=1
+        if jid.startswith('FIX-'):
+            assert firstjobs[jid]['outputs']==old['outputs'],jid
+stock_second_jobs={j['id']:j for j in stock_second['jobs']}
+for jid in IDS:assert stockjobs[jid]['outputs']==stock_second_jobs[jid]['outputs']==base[jid]['outputs']
+changed_fix_scopes=[jid for jid,old in base.items() if jid.startswith('FIX-') and jid in stockjobs and stockjobs[jid]['outputs']!=firstjobs[jid]['outputs']]
+new_fix_rounds=[j['id'] for j in first['jobs'] if j['id'].startswith('FIX-RT-AREA-padic-1') and j['id'] not in base]
+result={'runtime_preserved_existing_jobs':runtime_preserved,'stock_vs_candidate_changed_fix_scopes':changed_fix_scopes,'new_padic_fix_rounds':new_fix_rounds,'stock_restored_scope_stable_twice':True,'jobs_generated_first':len(first['jobs']),'jobs_generated_second':len(second['jobs']),'rows':rows,'current_queue_complete':False,'restored_candidate_complete':True,'simulated_issue_transition':['done','state:done'],'repair_paths_intake_allowed':False,'repository_files_written':0}
+print(json.dumps(result,indent=2))
+```
+
+</details>
 
 <details><summary>Read-only regression fixture</summary>
 
@@ -307,114 +299,8 @@ print(json.dumps(result,indent=2))
 
 </details>
 
----
 
-# REV-FIX-RT-AREA-padic-1~3
-
-## Read-only generator reproduction: 10 October 2026
-
-Codex, session `codex-oCcEpY`, continued issue #5704 from `bb373205d`.
-The bot confirmed this claim. The issue still lists the original seven
-outputs; the queue still lists 47. The preceding scoped review is finished.
-No new mathematical verdict, source audit or Lean compilation is claimed.
-The three current verdicts and all earlier evidence remain unchanged.
-
-Fresh `issues.deliverables_complete` results are **false** for the unmodified
-queue entry and **true** for an in-memory copy with the issue's seven paths.
-All three named packets pass the stock checker with zero errors and warnings.
-Exactly 20 additional packets carry other review jobs' verdicts.
-
-A controlled, read-only reproduction now demonstrates the generator's
-broadening, rather than only identifying a possible code path. Extracted the
-actual nested `fix_rounds` function with Python's AST, executed it with captured
-`add` calls and inert prompt templates, and supplied this minimal fixture:
-
-- A completed first round contains one original packet.
-- An already published second round has state `external`, the same packet and
-  its second-round report, and follows the first round's review.
-- The newly computed blueprint list adds one new owner packet; no review has
-  sent work back.
-
-The stock function adds the new owner's packet to both the published second
-round and its review. The cause is `missing`: it disables reuse of the existing
-second-round job at the `made` assignment. In the same isolated fixture,
-replacing that assignment's value with `previous_jobs.get(following)` preserves
-both scopes. Both assertions pass. The generator, queue and prompts were not
-executed or edited; the fixture wrote no repository files. This is a candidate
-repair, not a tested complete generator change. A maintainer repair must also
-check first-round preservation, send-back cases, new-round creation, prompt
-consistency and full regeneration.
-
-The author-merge queue at `c69e5b6c9` independently confirms ten fix outputs
-and seven review outputs, with exactly the three issue-named packets. Restore
-those historical scopes before checking the preservation change; retaining
-already broadened outputs alone would preserve the defect.
-
-Scope clarification was requested in this run. Without explicit authorization,
-WORKERS' issue-path restriction prevents applying the queue/generator repair.
-This submission is a checkpoint for that administrative blocker. Only this
-report and the handoff change. The next worker should obtain scope resolution
-and repair the metadata, rather than repeat the completed mathematical review.
-
-## Scope diagnostic continuation: 10 October 2026
-
-Codex, session `codex-I2abtS`, continued issue #5704 from commit
-`91df8604a`. The bot confirmed this session's claim. The preceding scoped
-review is finished; this continuation leaves its mathematical verdicts and
-validation history intact. It adds evidence about the administrative blocker,
-rather than claiming another independent source audit.
-
-The mismatch arose after the author submission. At the author-fix merge
-`c69e5b6c9` (#6883), the queue lists **10 outputs and three packets** for
-`FIX-RT-AREA-padic-1~3`, and **seven outputs and three packets** for its review.
-Those seven review outputs agree exactly with the current issue body. At
-`109496aed` (#8083), `331007b5e` (#8131), and this continuation's base, the
-same fix has **78 outputs and 23 packets**, and the review has **47 outputs
-and 23 packets**. Thus the current broad queue is not evidence that the author
-submitted fixes to the additional 20 packets in this round.
-
-Executed the stock `issues.deliverables_complete` on the unmodified checkout:
-
-| Output list supplied to the predicate | Result |
-| --- | --- |
-| Current queue entry, all 47 outputs | false |
-| Copy of that entry with exactly the issue's seven outputs | true |
-
-Every additional packet has another job's review object. None has this job's
-reviewer. The predicate requires this job's reviewer in every listed packet;
-it accepts an honest `needs_changes` verdict, so P0's disposition is not the
-reason completion fails. The two scope evaluations require no packet edit.
-
-The generator's `fix_rounds` function in `make_queue.py` derives review outputs
-from the fix's promotable outputs and suggested files. When choosing a later
-fix round, it preserves `previous_jobs[following]` only if neither `missing`
-nor `sent_back` holds. Otherwise it computes the round's outputs again,
-including newly available blueprints. The final queue merge preserves job
-state and other runtime metadata, but does not preserve historical `outputs`.
-These code paths explain how scope can expand during regeneration; they were
-inspected, not executed or changed in this run. The exact invocation that
-first broadened this particular round has not been identified.
-
-The maintainer can reconcile the scope by restoring this review's original
-seven outputs and preserving the author round's original three-packet scope
-across regeneration. Newly available owner work needs explicit separate
-assignments or an explicitly expanded issue, followed by actual independent
-reviews; copying their existing verdicts under this job's name would not
-discharge that work. A queue-only correction should be checked against
-`fix_rounds` so that regeneration does not reintroduce the mismatch. The
-handoff records the exact seven paths.
-
-Fresh stock checks of the three issue-named packets report zero errors and
-zero warnings. The configured pinned declaration index was present (316,811
-lines). No suggested file changed, and Lean was not rerun; the preceding
-successful elaborations remain that session's evidence. No packet, reader,
-source, generator, queue, label or existing verdict was changed here.
-
-A scope clarification was requested during this continuation. In the absence
-of an answer, WORKERS' issue-path restriction still applies. This submission
-is a checkpoint for the scope blocker. The next mathematical worker should
-resume only after scope reconciliation, rather than repeat the finished
-three-packet review.
+# Preserved mathematical continuation
 
 ## Current continuation: 10 October 2026
 
@@ -494,6 +380,9 @@ assigning those verdicts or editing the queue is unauthorized. A scope
 clarification was requested during this continuation and remains unanswered.
 The handoff gives the concrete reconciliation needed; this blocker is the
 reason for the checkpoint, not incomplete scoped review work.
+
+
+# Preserved mathematical review
 
 ## Archived review: 9 October 2026
 
