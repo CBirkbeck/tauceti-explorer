@@ -7,8 +7,12 @@ Mathlib baseline: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369.
 The expressible cores below use only individual Mathlib imports.
 
-The five CL.0 objects expose algebraic cores: block exchange, positive exponent
-cone, integral block subgroup, lowest-weight scaling character and scalar rescaling.
+The six CL.0 objects expose algebraic cores: block exchange, positive exponent
+cone, integral block subgroup, positive parahoric monoid, lowest-weight scaling
+character and scalar rescaling. The positive monoid is the actual double-coset
+union over a DVR; its Levi pullback and selected central inverse adjunction are
+typed. Split-place identification, topological smoothness and the action on the
+arithmetic unipotent group remain separate required interfaces.
 The character uses an actual supplied exponent map and retains separate full
 and blockwise Weyl permutations; arithmetic exponent construction is not supplied.
 CL.3 adds the p-adic normalization of a supplied determinant-norm character. CL.6 exposes integral
@@ -45,6 +49,8 @@ import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
 import Mathlib.RingTheory.Ideal.Quotient.Defs
 import Mathlib.RingTheory.Filtration
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.GroupTheory.SpecificGroups.Alternating
@@ -188,6 +194,115 @@ example :
     g ∈ ParahoricPVBC 1 0 1 (0 : ZMod 3) (by decide) ∧
     g ∉ ParahoricPVBC 1 1 1 (0 : ZMod 3) (by decide) := by
   sorry
+
+/- CL.0/positive-parahoric-monoid: explicit split matrix model over a DVR. -/
+private def blockParahoric {O I : Type*} [CommRing O] [Fintype I] [DecidableEq I]
+    {t : ℕ} (block : I → Fin t) (π : O) :
+    Subgroup (Matrix.GeneralLinearGroup I O) where
+  carrier := {g | ∀ i j, block j < block i → g i j ∈ Ideal.span {π}}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+private def blockCentralMatrix {K I : Type*} [Field K] [Fintype I] [DecidableEq I]
+    {t : ℕ} (block : I → Fin t) (πK : Kˣ) (a : Fin t → ℤ) :
+    Matrix.GeneralLinearGroup I K where
+  val := Matrix.diagonal (fun i => (πK ^ a (block i)).val)
+  inv := Matrix.diagonal (fun i => ((πK ^ a (block i))⁻¹).val)
+  val_inv := by sorry
+  inv_val := by sorry
+
+private def uniformizerUnit {O K : Type*} [CommRing O] [IsDomain O]
+    [Field K] [Algebra O K] [IsFractionRing O K]
+    (π : O) (hπ : Irreducible π) : Kˣ :=
+  Units.mk0 (algebraMap O K π) (by sorry)
+
+section PositiveParahoric
+variable {O K I : Type*} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [Field K] [Algebra O K] [IsFractionRing O K] [Fintype I] [DecidableEq I]
+  {t : ℕ}
+
+/-- The union of compact parahoric double cosets of positive block-central
+cocharacters, in the split matrix model over a DVR and its fraction field.
+The integral subgroup is the inverse image of the block upper-triangular
+parabolic modulo the local uniformizer. This definition asserts no topology. -/
+def PositiveParahoricMonoid (block : I → Fin t) (π : O) (hπ : Irreducible π) :
+    Submonoid (Matrix.GeneralLinearGroup I K) where
+  carrier := {g | ∃ a : Fin t → ℤ, a ∈ PositiveCentralCocharacters t ∧
+    ∃ q₁ q₂ : blockParahoric block π,
+      g = Matrix.GeneralLinearGroup.map (algebraMap O K) q₁.val *
+        blockCentralMatrix block (uniformizerUnit (K := K) π hπ) a *
+        Matrix.GeneralLinearGroup.map (algebraMap O K) q₂.val}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+
+lemma PositiveParahoricMonoid_double_coset (block : I → Fin t)
+    (π : O) (hπ : Irreducible π) (a : Fin t → ℤ) (ha : a ∈ PositiveCentralCocharacters t)
+    (q₁ q₂ : blockParahoric block π) :
+    Matrix.GeneralLinearGroup.map (algebraMap O K) q₁.val *
+      blockCentralMatrix block (uniformizerUnit (K := K) π hπ) a *
+      Matrix.GeneralLinearGroup.map (algebraMap O K) q₂.val ∈
+        PositiveParahoricMonoid (K := K) block π hπ := by
+  sorry
+
+private def positiveLeviMonoid {M : Type*} [Group M] (block : I → Fin t)
+    (π : O) (hπ : Irreducible π) (ι : M →* Matrix.GeneralLinearGroup I K) :
+    Submonoid M := (PositiveParahoricMonoid block π hπ).comap ι
+
+/-- Pullback along the actual Levi homomorphism retains its multiplication. -/
+lemma PositiveParahoricMonoid_levi_intersection {M : Type*} [Group M]
+    (block : I → Fin t) (π : O) (hπ : Irreducible π)
+    (ι : M →* Matrix.GeneralLinearGroup I K) (g h : M) :
+    (g ∈ positiveLeviMonoid block π hπ ι ↔
+      ι g ∈ PositiveParahoricMonoid block π hπ) ∧
+      ι (g*h) = ι g * ι h := by
+  sorry
+
+private def positiveLeviInverted {M : Type*} [Group M] (D : Submonoid M) (u : D) :
+    Submonoid M := Submonoid.closure ((D : Set M) ∪ {((u : M)⁻¹)})
+
+private def positiveLeviInclusion {M : Type*} [Group M] (D : Submonoid M) (u : D) :
+    D →* positiveLeviInverted D u where
+  toFun g := ⟨g.val, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- Invert one central Siegel element in the positive Levi monoid. The target
+may be an endomorphism monoid; invertibility is required only at this element. -/
+lemma PositiveParahoricMonoid_localization {M T : Type*} [Group M] [Monoid T]
+    (block : I → Fin t) (π : O) (hπ : Irreducible π)
+    (ι : M →* Matrix.GeneralLinearGroup I K)
+    (u : positiveLeviMonoid block π hπ ι)
+    (hu : ∀ g : positiveLeviMonoid block π hπ ι, Commute u g)
+    (f : positiveLeviMonoid block π hπ ι →* T) (hfu : IsUnit (f u)) :
+    ∃! f' : positiveLeviInverted (positiveLeviMonoid block π hπ ι) u →* T,
+      f'.comp (positiveLeviInclusion (positiveLeviMonoid block π hπ ι) u) = f := by
+  sorry
+
+-- CrystallineCM.PositiveParahoricMonoid_test_identity
+example (block : I → Fin t) (π : O) (hπ : Irreducible π)
+    (q : blockParahoric block π) :
+    Matrix.GeneralLinearGroup.map (algebraMap O K) q.val ∈
+      PositiveParahoricMonoid (K := K) block π hπ ∧
+      1 ∈ PositiveParahoricMonoid (K := K) block π hπ := by
+  sorry
+
+-- CrystallineCM.PositiveParahoricMonoid_test_negative_central
+example (block : I → Fin t) (π : O) (hπ : Irreducible π) :
+    Matrix.GeneralLinearGroup.scalar I (uniformizerUnit (K := K) π hπ)⁻¹ ∈
+      PositiveParahoricMonoid (K := K) block π hπ := by
+  sorry
+
+private def siegelBlock (n : ℕ) (i : Fin (n+n)) : Fin 2 :=
+  if i.val < n then 0 else 1
+
+-- CrystallineCM.PositiveParahoricMonoid_test_partial_inverse
+example (n : ℕ) (hn : 0 < n) (π : O) (hπ : Irreducible π) :
+    blockCentralMatrix (siegelBlock n) (uniformizerUnit (K := K) π hπ)
+      ![(0 : ℤ),1] ∉ PositiveParahoricMonoid (K := K) (siegelBlock n) π hπ := by
+  sorry
+
+end PositiveParahoric
 
 /- CL.0/lowest-weight-scaling-character: supplied exponent maps, CN §2.1.13. -/
 section LowestWeightScaling
@@ -839,15 +954,15 @@ Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-sy
 Source: CN25v3 Lemma 2.1.12, pp.17–18
 
 CrystallineLocalGlobalCompatibilityCM:CL.0/positive-parahoric-monoid
-OMITTED signature: CrystallineCM.PositiveParahoricMonoid
+PARTIAL signature: CrystallineCM.PositiveParahoricMonoid; the split DVR matrix double-coset union, its Levi pullback and selected central inverse adjunction are typed above. The split-place arithmetic identification, compact-open topology and semidirect action on U₀ remain omitted. No abstract assumption of double-coset closure replaces the explicit integral matrix carrier.
 Δ̃^Q=⋃_{ν∈X_Q}𝒬ν(ϖ)𝒬⊂G̃(L); Δ^{Q,+}=Δ̃^Q∩G(L), and Δ^Q is obtained by adjoining the inverse of ũ_n to Δ^{Q,+}. The semidirect submonoid acting through P is Δ^{Q,+}⋉U₀. Δ^Q inverts ũ_n, not every positive partial block cocharacter.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.0/positive-central-cocharacters; CrystallineLocalGlobalCompatibilityCM:CL.0/parahoric-P-v(b,c)
-OMITTED API signature: CrystallineCM.PositiveParahoricMonoid_double_coset — Each g∈𝒬ν(ϖ)𝒬 with ν∈X_Q maps to Δ̃^Q.
-OMITTED API signature: CrystallineCM.PositiveParahoricMonoid_levi_intersection — Its intersection with the embedded G(L) is exactly Δ^{Q,+}, with the same multiplication.
-OMITTED API signature: CrystallineCM.PositiveParahoricMonoid_localization — A Δ^{Q,+}-action with ũ_n invertible extends uniquely to Δ^Q.
-OMITTED example: CrystallineCM.PositiveParahoricMonoid_test_identity — The zero cocharacter gives all of 𝒬, including the identity.
-OMITTED example: CrystallineCM.PositiveParahoricMonoid_test_negative_central — ϖ^{-1}1_{2n} belongs because its block-exponent differences are zero.
-OMITTED example: CrystallineCM.PositiveParahoricMonoid_test_partial_inverse — For two blocks diag(1_n,ϖ1_n) is not positive although it is invertible in G̃(L); positivity is not the whole group.
+CORE API signature: CrystallineCM.PositiveParahoricMonoid_double_coset — Each g∈𝒬ν(ϖ)𝒬 with ν∈X_Q maps to Δ̃^Q.
+CORE API signature: CrystallineCM.PositiveParahoricMonoid_levi_intersection — Its intersection with the embedded G(L) is exactly Δ^{Q,+}, with the same multiplication.
+CORE API signature: CrystallineCM.PositiveParahoricMonoid_localization — A Δ^{Q,+}-action with ũ_n invertible extends uniquely to Δ^Q.
+CORE example: CrystallineCM.PositiveParahoricMonoid_test_identity — The zero cocharacter gives all of 𝒬, including the identity.
+CORE example: CrystallineCM.PositiveParahoricMonoid_test_negative_central — ϖ^{-1}1_{2n} belongs because its block-exponent differences are zero.
+CORE example: CrystallineCM.PositiveParahoricMonoid_test_partial_inverse — For two blocks diag(1_n,ϖ1_n) is not positive although it is invertible in G̃(L); positivity is not the whole group.
 Source: CN25v3 §2.1.13, pp.19–20
 
 CrystallineLocalGlobalCompatibilityCM:CL.0/lem-2-1-15
@@ -950,7 +1065,7 @@ Source: CN25v3 Lemma 2.2.6, p.28
 CrystallineLocalGlobalCompatibilityCM:CL.1/p-ordinary-completed
 OMITTED signature: CrystallineCM.POrdinaryCompleted
 π(K̃^{S̄}, λ̃, m) := RΓ(K̃^{S̄}, RΓ(𝔛̄_{G̃}, V_λ̃/ϖ^m)) ∈ D⁺_sm(Δ̃_{S̄}, O/ϖ^m) with T̃^T-action (using lem-2-1-8), satisfying RΓ(P_{S̄}(b,c), π(K̃^{S̄},λ̃,m)) ≅ RΓ(X̃_{K̃(b,c)}, V_λ̃/ϖ^m); π^{ord}(K̃^{S̄},λ̃,m) ∈ D⁺_sm(Δ_{S̄}, O/ϖ^m) is its P-ordinary part (Definition 2.2.3), and π^{ord}_∂ the boundary analogue.
-Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.1/p-ordinary-functors; ArithmeticLocallySymmetricSpaces:ALS.6; ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison
+Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.1/p-ordinary-functors; ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.1; CompletedCohomologyPartII:CC.2; CompletedCohomologyPartII:CC.6; ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison
 OMITTED API signature: CrystallineCM.POrdinaryCompleted_sections — The underlying completed object is RΓ(K̃^{S̄},RΓ(𝔛̄_{G̃},V/ϖ^m)); its POrd is the object defined by the local functor.
 OMITTED API signature: CrystallineCM.POrdinaryCompleted_tame — Tame Hecke correspondences act and commute with the local ordinary operators.
 OMITTED API signature: CrystallineCM.POrdinaryCompleted_boundary — Restriction to boundary intertwines the two completed POrd objects and the finite-level recovery maps.
@@ -1142,7 +1257,7 @@ Source: CN25v3 Corollary 2.3.12, p.39
 CrystallineLocalGlobalCompatibilityCM:CL.3/lem-2-3-14
 OMITTED signature: CrystallineCM.induced_space_cohomology
 For G split reductive over O_L, K = G(O_L), K_P = K ∩ P(L), and X a compact Hausdorff space with a continuous P(L)-action on which K_P acts freely: X ×^P G (the quotient of X × G(L) by (x,g)·p = (xp, p^{−1}g)) is K-equivariantly homeomorphic to X ×^{K_P} K, and there is a natural isomorphism RΓ(X ×^P G, O/ϖ^m) ≅ Ind^{G(L)}_{P(L)} RΓ(X, O/ϖ^m) in D⁺_sm(G(L), O/ϖ^m).
-Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6; SmoothRepresentationsOfLocalGroups:SR.2; ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison
+Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.1; CompletedCohomologyPartII:CC.6; SmoothRepresentationsOfLocalGroups:SR.2; ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison
 Source: CN25v3 §2.3.13, Lemma 2.3.14, pp.39–40
 
 CrystallineLocalGlobalCompatibilityCM:CL.3/lem-2-3-17
@@ -1202,7 +1317,7 @@ Source: CN25v3 Theorem 3.1.2, pp.43–44
 CrystallineLocalGlobalCompatibilityCM:CL.5/boundary-coefficient-object
 OMITTED signature: CrystallineCM.BoundaryCoefficientObject
 For S̄⊆S̄_p, dominant λ̃, R_m=O/ϖ^m, put V_{λ̃_S̄}=⊗_{v̄∈S̄,τ}V_{λ̃_τ}. V_U(λ̃_S̄,m) is the equivariant locally constant derived coefficient object on the GL_n adelic tower corresponding to RΓ(U₀_{S̄},V_{λ̃_S̄}/ϖ^m), descended to good X_K through the genuine Levi conjugation action. Its cohomology sheaves vanish outside [0,r], r=n²Σ_{v̄∈S̄}[F⁺_{v̄}:Q_p]. If λ̃_S̄=0, every degree 0,…,r is nonzero and H^j=Hom_cts(∧^j_{Z_p}U₀_{S̄},R_m). Define V_U(λ̃_S̄)=holim_m V_U(λ̃_S̄,m). The printed exact nonvanishing claim for arbitrary λ̃ is not exported without the missing argument recorded in E18.
-Direct prerequisites: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees; ArithmeticLocallySymmetricSpaces:ALS.6; ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system; CrystallineLocalGlobalCompatibilityCM:CL.3/lem-2-3-17
+Direct prerequisites: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees; ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.1; CompletedCohomologyPartII:CC.2; CompletedCohomologyPartII:CC.7; ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system; CrystallineLocalGlobalCompatibilityCM:CL.3/lem-2-3-17
 OMITTED API signature: CrystallineCM.BoundaryCoefficientObject_fiber — Its local derived coefficient fiber is RΓ(U₀,V_{λ̃_S̄}/ϖ^m), with the genuine Levi conjugation action.
 OMITTED API signature: CrystallineCM.BoundaryCoefficientObject_descent — Restriction to a good arithmetic level is compatible with the equivariant locally constant coefficient descent.
 OMITTED API signature: CrystallineCM.BoundaryCoefficientObject_amplitude — Its cohomology sheaves vanish outside [0,n²Σ_{v̄∈S̄}[F⁺_{v̄}:Q_p]]; exact nonvanishing across this range is asserted here only for zero λ̃ on S̄.
@@ -1214,7 +1329,7 @@ Source: CN25v3 §4.1.1, p.53
 CrystallineLocalGlobalCompatibilityCM:CL.5/prop-4-1-4
 OMITTED signature: CrystallineCM.localized_siegel_stratum
 (1) There is a G̃(𝔸_{F⁺,f})-equivariant closed immersion (𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}) ↪ ∂𝔛_{G̃} whose complement is a disjoint union of locally closed (𝔛_Q × G̃(𝔸_{F⁺,f}))/Q(𝔸_{F⁺,f}) for standard parabolics Q ⊄ P. (2) Under the assumptions of thm-4-1-3, pullback gives a T̃^T-equivariant isomorphism RΓ(K̃^{S̄₂}, RΓ(∂𝔛_{G̃}, V_λ̃/ϖ^m))_{m̃} ≅ RΓ(K̃^{S̄₂}, RΓ((𝔛_P × G̃(𝔸_{F⁺,f}))/P(𝔸_{F⁺,f}), V_λ̃/ϖ^m))_{m̃}.
-Direct prerequisites: PotentialAutomorphyInfrastructure:PA.0; ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification; ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula; ArithmeticLocallySymmetricSpaces:ALS.6
+Direct prerequisites: PotentialAutomorphyInfrastructure:PA.0; ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification; ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula; ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.1; CompletedCohomologyPartII:CC.7
 Source: CN25v3 Proposition 4.1.4, pp.54–55
 
 CrystallineLocalGlobalCompatibilityCM:CL.5/lem-4-1-5
@@ -1226,7 +1341,7 @@ Source: CN25v3 Lemma 4.1.5, p.55
 CrystallineLocalGlobalCompatibilityCM:CL.5/lem-4-1-6
 OMITTED signature: CrystallineCM.parabolic_cohomology_inflation
 Pullback along 𝔛_P ↠ 𝔛_G gives a natural isomorphism Inf^{P(𝔸_{F⁺,f})}_{G(𝔸_{F⁺,f})} RΓ(𝔛_G, O/ϖ^m) ≅ RΓ(𝔛_P, O/ϖ^m) in D⁺_sm(P(𝔸_{F⁺,f}), O/ϖ^m).
-Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6; ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre; ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration
+Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.1; CompletedCohomologyPartII:CC.6; ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre; ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration
 Source: CN25v3 Lemma 4.1.6, pp.55–56
 
 CrystallineLocalGlobalCompatibilityCM:CL.5/lem-4-1-7
@@ -1412,7 +1527,7 @@ Source: CN25v3 §4.3, Theorem 4.3.1, p.73
 CrystallineLocalGlobalCompatibilityCM:CL.8/pgl2-cohomology
 OMITTED signature: CrystallineCM.Pgl2Cohomology
 For F imaginary CM, G = PGL_{2,F}, K = ∏K_v ⊂ PGL₂(Ô_F) (not necessarily neat), S ⊇ S_p with K_v = PGL₂(O_{F_v}) for v ∉ S, R = O or O/ϖ^m and V an R[K_S]-module finite free over R with V/ϖ^r smooth: C•(K,V) := holim_r RΓ(K, RΓ(𝔛_G, V/ϖ^r)) ∈ D⁺(R) and C•(K/K′,V) ∈ D⁺(R[K/K′]) for open normal K′ with K′^S = K^S, with H(G^S,K^S)-actions (T_{v,i} images of GL₂ operators, T_{v,2} = 1, P_v(X)); RΓ(K/K′, C•(K/K′,V)) = C•(K,V); cohomology finitely generated, Hecke algebras T^S_G(C•(K/K′,V)) O-finite, localizations cut out by idempotents e_m.
-Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6; ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent; ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action
+Direct prerequisites: ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.2; CompletedCohomologyPartII:CC.4; CompletedCohomologyPartII:CC.6; ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action
 OMITTED API signature: CrystallineCM.Pgl2Cohomology_quotient_descent — For K′⊴K with unchanged tame level, RΓ(K/K′,C•(K/K′,V))≅C•(K,V).
 OMITTED API signature: CrystallineCM.Pgl2Cohomology_coefficient — Finite-free coefficient maps induce morphisms compatible with derived reduction and the Hecke action.
 OMITTED API signature: CrystallineCM.Pgl2Cohomology_central_operator — T_{v,2}=1 and P_v(X)=X²−T_{v,1}X+q_v on this PGL₂ complex.
@@ -1448,7 +1563,7 @@ Source: CN25v3 Proposition 5.5.2, pp.80–81
 CrystallineLocalGlobalCompatibilityCM:CL.8/prop-5-5-3
 OMITTED signature: CrystallineCM.nonneat_localized_perfectness
 Let m ⊂ T^S_G(C•(K,V)) be maximal with residue field k; assume V ⊗ k ≅ k with trivial K_S-action, p odd with ρ̄_m absolutely irreducible, and ζ_p ∈ F. Then H^i(C•(K,V))_m = 0 for i > dim_R X_G; in particular C•(K,V)_m is a perfect complex of R-modules.
-Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.8/prop-5-5-2; CrystallineLocalGlobalCompatibilityCM:CL.8/lem-5-5-1; ArithmeticLocallySymmetricSpaces:ALS.6
+Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.8/prop-5-5-2; CrystallineLocalGlobalCompatibilityCM:CL.8/lem-5-5-1; ArithmeticLocallySymmetricSpaces:ALS.6 (finite-level descent); CompletedCohomologyPartII:CC.0; CompletedCohomologyPartII:CC.2; CompletedCohomologyPartII:CC.4; CompletedCohomologyPartII:CC.6
 Source: CN25v3 Proposition 5.5.3, p.81
 
 CrystallineLocalGlobalCompatibilityCM:CL.9/prepared-pgl2-level
