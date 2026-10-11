@@ -1370,7 +1370,7 @@ Let F be a local field of characteristic zero, H*_m a quasi-split symplectic, sp
 Assume: The tempered packets and the general-linear correspondence are given data with three properties: members of tempered packets are irreducible and tempered; the quasi-split tempered packet of a generic parameter has a generic member; and the Langlands–Shahidi factors of that member equal the Artin factors of the parameter.
 
 API:
-- `mem_iff`: σ∈Π_φ(H_m) iff σ is the Langlands quotient of one of the displayed standard modules (SR.3 Langlands classification).
+- `mem_iff`: σ∈Π_φ(H_m) iff σ is the Langlands quotient of one of the displayed standard modules (Langlands classification: SR.3, and `AF.1/langlands-classification` for archimedean F).
 - `tempered`: for t=0, Π_φ(H_m)=Π_{φ₀}(H_m).
 - `local_factor`: L(s,τ×σ)=L(s,τ×σ°) and ε(s,τ×σ,ψ)=ε(s,τ×σ°,ψ) for every member σ.
 
@@ -1381,7 +1381,7 @@ Tests:
 
 Source: S20, Appendix B (B.1)–(B.2), pp.84–85; the generic member, proof of Theorem B.2, p.86, citing Arthur's and Mok's endoscopic classifications.
 
-Uses: SR.2; SR.3; AS.2.1.
+Uses: SR.2; SR.3; `AF.1/langlands-classification`; AS.2.1.
 
 ### AS.2.7 — Classical-group Shahidi normalization
 

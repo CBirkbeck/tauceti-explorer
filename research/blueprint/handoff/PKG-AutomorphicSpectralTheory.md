@@ -81,7 +81,7 @@ Also:
   tests. The other 103 items (68 targets, 34 API items, one test) are in the closing list, together
   with Arthur's multiplier theorem. The remaining API item, `congruence_adapter`, became
   `coprime_pairs`.
-- README: 209,134 bytes, above the 200 KB guide. The input already sat at 199,944 bytes; the
+- README: 209223 bytes, above the 200 KB guide. The input already sat at 199,944 bytes; the
   five moved-down targets and the neighbouring-roadmap section add about 12 KB, and Lean-fixture
   remarks were removed to offset part of it. Every remaining byte is specification. Accepted
   packages above the guide include IntegralHeckeAndGaloisDeterminants (202 KB),
