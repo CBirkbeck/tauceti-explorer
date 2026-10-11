@@ -23,168 +23,168 @@
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/Poincare/MetricSpace.lean",
         "provides": "The existing metric instance reads as hyperbolicDist, whose normalization is artanh of the pseudohyperbolic expression.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.PoincareDisc.dist_toPoincare_zero_right",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/Poincare/MetricSpace.lean",
         "provides": "Distance to zero is artanh of the Euclidean modulus, before the new factor-two conversion.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.PoincareDisc.dist_map_le",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/Poincare/SchwarzPick.lean",
         "provides": "Schwarz–Pick for a represented holomorphic disc self-map with DifferentiableOn ℂ and the coordinate representation hypothesis. It is imported, not re-proved.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:UpperHalfPlane.discCoordinateEquiv",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/UpperHalfPlane/DiscCoordinate.lean",
         "provides": "The explicit Cayley equivalence ℍ≃Complex.UnitDisc centered at an upper-half-plane point.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:UpperHalfPlane.norm_discCoordinate",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/UpperHalfPlane/DiscCoordinate.lean",
         "provides": "‖discCoordinate a z‖=tanh(dist(z,a)/2), with the existing UpperHalfPlane curvature −1 metric.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.hyperbolicDist_unitDiscMoebius",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/Distance.lean",
         "provides": "Common unit-disc Möbius transformations preserve the scalar hyperbolicDist; all a,z,w are UnitDisc points.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.pseudoHyperbolicExpr",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/PseudoHyperbolic.lean",
         "provides": "The actual quotient modulus ‖(z−w)/(1−w̄z)‖ as a total scalar expression; geometric interpretations require disc hypotheses.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.tanh_hyperbolicDist",
         "kind": "declaration",
         "module": "TauCeti/Analysis/Complex/Conformal/Hyperbolic/ClosedForm.lean",
         "provides": "For ‖z‖,‖w‖<1, tanh(hyperbolicDist z w)=pseudoHyperbolicExpr z w.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Real.artanh_tanh",
         "kind": "declaration",
         "module": "Mathlib/Analysis/SpecialFunctions/Artanh.lean",
         "provides": "artanh(tanh x)=x for every real x.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.withDensity",
         "kind": "declaration",
         "module": "Mathlib/MeasureTheory/Measure/WithDensity.lean",
         "provides": "A density against a measure gives an actual measure, not an abstract area record.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:MeasureTheory.withDensity_apply",
         "kind": "declaration",
         "module": "Mathlib/MeasureTheory/Measure/WithDensity.lean",
         "provides": "On a measurable set, the weighted measure equals the nonnegative integral of its density.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Complex.lintegral_comp_polarCoord_symm",
         "kind": "declaration",
         "module": "Mathlib/Analysis/SpecialFunctions/PolarCoord.lean",
         "provides": "Complex nonnegative integrals become radial-angular integrals with the radial Jacobian factor. It requires no prior integrability hypothesis.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:MeasureTheory.lintegral_image_eq_lintegral_abs_det_fderiv_mul",
         "kind": "declaration",
         "module": "Mathlib/MeasureTheory/Function/Jacobian.lean",
         "provides": "The nonnegative change-of-variables theorem on a measurable set with derivative hypotheses and InjOn; it cannot be applied to a degree-d power map as though it were injective.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:UpperHalfPlane.volume_def",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean",
-        "provides": "The pinned invariant upper-half-plane area measure has density y⁻² relative to real Lebesgue measure; its global Riemannian comparison remains in FuchsianOrbifolds Layer 2.",
-        "checked": "Statement and hypotheses re-read at the pinned commit on 2026-10-11; no current-only declaration counted as baseline."
+        "provides": "The pinned invariant upper-half-plane area measure has density y⁻². Its quotient metric/covolume comparison belongs to FuchsianOrbifolds Layer 2; the current TauCeti equality UpperHalfPlane.riemannianVolume_eq_volume is recorded separately in upstreamPrerequisites, not counted at this pin.",
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:TestFunction",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "Bundled smooth compactly supported functions with values in a real normed space on an open subset of a real normed space.",
-        "checked": "Read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-11; source repository HEAD equals this pin."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:TestFunction.topologicalSpace",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "Existing locally convex inductive-limit topology on coefficient test functions; applied with continuous alternating maps as coefficient space.",
-        "checked": "Read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-11; source repository HEAD equals this pin."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:TestFunction.continuous_iff_continuous_comp",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
         "provides": "A linear map to a locally convex space is continuous exactly when its restrictions along all fixed-compact-support inclusions are continuous.",
-        "checked": "Read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-11; source repository HEAD equals this pin."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Distribution",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Vector-valued distributions as the compact-convergence continuous real-linear dual of scalar test functions.",
-        "checked": "Read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-11; source repository HEAD equals this pin."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Distribution.ofFun",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Embeds locally integrable functions using integration against test functions; its evaluation formula requires local integrability, and it is zero outside that domain.",
-        "checked": "Read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-11; source repository HEAD equals this pin."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Distribution.delta",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Existing Dirac evaluation on scalar test functions; zero when the point is outside the open domain.",
-        "checked": "Statement read at the pinned commit on 2026-10-11."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Distribution.lineDerivCLM",
         "kind": "declaration",
         "module": "Mathlib/Analysis/Distribution/Distribution.lean",
         "provides": "Continuous real-linear distributional directional derivative, defined as negative precomposition with the test derivative; n=k=∞ is used explicitly in the local ddᶜ model.",
-        "checked": "Statement read at the pinned commit on 2026-10-11."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.IsFunctionField",
         "kind": "declaration",
         "module": "TauCeti/FieldTheory/FunctionField/Basic.lean",
         "provides": "There exists a transcendental generator x with F finite-dimensional over k(x); this is an explicit proposition, not a typeclass.",
-        "checked": "Statement read at the pinned commit on 2026-10-11."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.genus",
         "kind": "declaration",
         "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
         "provides": "Natural-valued supremum of divisor degree-plus-one-minus-dimension; agrees with geometric genus with the exact-constant-field and projective-model comparisons.",
-        "checked": "Statement read at the pinned commit on 2026-10-11."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_add_one_sub_genus_le_dim",
         "kind": "declaration",
         "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
         "provides": "Riemann inequality ℓ(D)≥deg(D)+1−g for IsFunctionField k F; imported for the gonality g+1 bound, not re-proved.",
-        "checked": "Statement read at the pinned commit on 2026-10-11."
+        "checked": "Independently read the full declaration and ambient hypotheses at the recorded exact pin on 2026-10-11 by REV-DESIGN-HyperbolicCurveVolumesAndGonality. Current-library additions are kept separate."
       }
     ]
   },
@@ -223,7 +223,7 @@
       "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/analgeom/agbook.pdf",
       "edition": "Version of Thursday June 21, 2012",
       "readSections": [
-        "I §2 (2.1)–(2.14) pp.13–17; I §5 (5.1)–(5.12) pp.39–41; II §7 (7.7)–(7.13) pp.113–115; III (1.13)–(1.20) pp.132–135, (2.3),(2.7),(2.14)–(2.15) pp.139–144, (3.1)–(3.7) pp.144–148, (5.4)–(5.8) pp.158–159, (7.1)–(7.7) pp.166–168; V (12.6)–(12.8),(13.2)–(13.4) pp.269–271."
+        "I (2.1)–(2.14), pp.13–17; (4.12)–(4.21), pp.33–36; (5.1)–(5.12), pp.39–41; II (5.3)–(5.4), pp.102–103; (7.6)–(7.15), pp.113–116; III (1.13)–(1.20), pp.132–135; (2.3), (2.6)–(2.15), pp.139–144; (3.1)–(3.7), pp.144–148; (4.12), pp.156–157; (5.4)–(5.10), pp.158–159; (7.1)–(7.7), pp.166–168; V (12.6)–(12.8), p.269 and (13.1)–(13.4), p.271."
       ],
       "accessed": "2026-10-11",
       "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f"
@@ -267,7 +267,7 @@
       "url": "https://aif.centre-mersenne.org/item/10.5802/aif.2209.pdf",
       "accessed": "2026-10-11",
       "sha256": "f27d7b75d5ad834d460920b9ae6dd91964548a9df8c1a5a606511403f2a585fe",
-      "readSections": "§§3–6 statements and Theorem 5.3/Proposition 6.6 proofs; Appendix A definitions, exactness, density, tangent-dimension and Theorem A.15, pp.1170–1188,1194–1203.",
+      "readSections": "Definition 2.1 p.1168; Definition 3.1 and Theorem 3.4 with proof pp.1170–1172; Definitions 4.2–4.5 pp.1173–1176; Lemmas 5.1–5.2 and Theorem 5.3 with proof pp.1176–1181; Proposition 6.6 with proof pp.1185–1188; Appendix A Definitions A.2/A.4/A.10, Lemmas A.9/A.11/A.12/A.14, Proposition A.13 and Theorem A.15 with proofs pp.1194–1203. No full-paper reading is claimed.",
       "authors": "Brian Osserman",
       "edition": "Published Annales de l’Institut Fourier 56 (2006), 1165–1205"
     },
@@ -309,7 +309,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "BT fixes curvature −1; the pinned disc distance is artanh of the quotient modulus, so the factor two is required. No new metric instance is planned."
         }
       ],
       "implementationStatus": "unchecked",
@@ -401,7 +401,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "The pinned norm_discCoordinate formula is tanh(dist/2); combine it with the pinned disc distance at zero and artanh_tanh. BT supplies the normalization, not this Lean comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -434,7 +434,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "BT’s centered disc has Euclidean radius tanh(r/2). Nonpositive radii give the empty set; the local signatures and three examples preserve that boundary."
         }
       ],
       "implementationStatus": "unchecked",
@@ -511,7 +511,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "Converting BT’s 2i dz∧d z̄ form into dx∧dy gives 4/(1−|z|²)². Tests distinguish the factor four, conjugation and boundary blowup."
         }
       ],
       "implementationStatus": "unchecked",
@@ -598,7 +598,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "The restricted weighted Lebesgue construction matches the form. Added the half-disc value 4π/3 because every old test also admitted the zero measure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -648,6 +648,11 @@
           "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_outside",
           "kind": "non-example",
           "statement": "The complement of D has zero ν_D-measure."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.discAreaMeasure_half_radius",
+          "kind": "computation",
+          "statement": "The Euclidean disc of radius 1/2 centred at zero has discAreaMeasure 4π/3. This excludes the zero measure and the unscaled density."
         }
       ]
     },
@@ -677,7 +682,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "BT’s a(r)=4πsinh²(r/2) applies geometrically for r≥0. The total scalar formula and tests make no negative-radius area claim."
         }
       ],
       "implementationStatus": "unchecked",
@@ -760,7 +765,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "Polar integration of the density gives 4πt²/(1−t²), t=tanh(r/2), including zero radius. The pinned nonnegative polar theorem needs no integrability hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -795,7 +800,7 @@
         {
           "sourceId": "bt",
           "locator": "Remark 24, p.735",
-          "match": "The curvature rescaling convention; length and area factors are derived explicitly, not suppressed."
+          "match": "BT Remark 24 permits constant tensor scaling. In dimension two area gains λ², distance gains λ, and the radius argument becomes r/λ; scalar signatures do not assert an unbuilt curvature theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -872,7 +877,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "BT uses coordinatewise maximum neighborhoods with the sum area form. Empty Fin 0 products and nonpositive radii are treated separately; no sum-distance substitution occurs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -952,7 +957,7 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 13 and Figure 2, pp.724–725",
-          "match": "The Euclidean lens enclosure and its hyperbolic radius, with s=tanh(R/2)."
+          "match": "BT Lemma 13/Figure 2 gives M(R)=2artanh√tanh(R/2), with cosh M=e^R. Positivity, monotonicity and this identity detect radius normalization errors."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1037,7 +1042,7 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 13 proof and Figure 2, pp.724–725",
-          "match": "After moving the midpoint to zero and the endpoints to the real axis, the proof becomes the displayed Euclidean lens calculation."
+          "match": "BT’s isometry-normalized intersection of the two balls gives the stated enclosure for 0≤a<1 and R>0, including a=0. The quotient version later retains simultaneous lifts."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1071,7 +1076,7 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+          "match": "BT uses tanh²(d₁/4). Because hyperbolicDist=d₁/2 at the pin, the local scalar definition uses tanh²(hyperbolicDist/2)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1157,7 +1162,7 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+          "match": "BT’s quotient modulus squared equals tanh²(d₁/2). The local total formula has geometric meaning only with both arguments in the disc."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1242,7 +1247,7 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+          "match": "The hyperbolic double-angle identity gives χ=4μ/(1+μ)² and 1−χ=(1−μ)²/(1+μ)². All denominators are positive on the disc."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1275,7 +1280,7 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+          "match": "The erratum replaces the second coordinate by its conjugate; expansion gives |z−w̄|²/|1−zw|² and the real conjugate graph as zero set."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1354,7 +1359,7 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+          "match": "The erratum treats the conjugate graph as totally real. The vectors (1,1) and (i,i) explicitly separate its tangent plane from a complex line."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1387,7 +1392,7 @@
         {
           "sourceId": "bt",
           "locator": "§5.1, pp.732–733",
-          "match": "The invariant distance potentials and their relation. Scalar identities here precede the current and plurisubharmonicity arguments."
+          "match": "BT sets F=−8πlog(1−μ). It is finite across μ=0; its nonnegativity is local scalar algebra, while positivity and domination are separate HV.3 claims."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1464,7 +1469,7 @@
         {
           "sourceId": "bt",
           "locator": "Proposition 23 proof, p.735",
-          "match": "The logarithmic reparameterization and its boundary slope. The first current-display prefactors are corrected separately in sourceIssues."
+          "match": "BT Proposition 23 expands log(χ/(1−χ)) as H(log μ). The s<0 domain and derivative cosh r are correct; the pole value is handled by currents, not Real.log at zero."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1540,7 +1545,7 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+          "match": "The erratum uses −log(1−ψ)=2log cosh(d/2). The scalar domain is 0≤ψ<1; the current identity is separately specified."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1617,7 +1622,7 @@
         {
           "sourceId": "erratum",
           "locator": "§3, Proposition 3.1 proof, pp.2–3",
-          "match": "Conjugation changes the second coordinate; its graph is real analytic. The scalar potential precedes the positive-current computation."
+          "match": "The erratum uses g(t)=2asin√(1−e^(−t)) with derivative 1/√(e^t−1). Its derivative decreases; positivity of the composite cannot be inferred from convex composition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1697,7 +1702,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "Pull back BT’s sum form along holomorphic coordinates: each density contributes b(f_i)|f_i′|². Constant coordinates vanish; the derivative chain rule gives reparameterization compatibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1780,7 +1785,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "Integrating the nonnegative pulled-back density counts source multiplicity. Added the positive half-disc fibre test because the old zero/constant/additivity tests admitted identically zero volume."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1835,6 +1840,11 @@
           "name": "TauCeti.HyperbolicVolumes.parameterVolume_zero_dimension",
           "kind": "degenerate",
           "statement": "There is zero pulled-back sum area in D⁰."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.parameterVolume_fibre_half",
+          "kind": "computation",
+          "statement": "For t↦(t,0), the parameter disc |t|<1/2 has volume 4π/3. This excludes an identically zero volume."
         }
       ]
     },
@@ -1866,7 +1876,7 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19 and equality discussion, p.732",
-          "match": "The point estimate is sharp on fibers. Here the equality is computed in the actual local parametrized integral."
+          "match": "Direct integration of the local fibre density gives a(r). BT’s Theorem 19 equality model is the one-coordinate fibre, independent of the fixed disc coordinate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1903,7 +1913,7 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19 equality discussion, p.732",
-          "match": "The factor two is attained in the normalized anti-diagonal disc, where the sum form has twice the single-disc density."
+          "match": "On t↦(t,−t) both densities agree, μ=|t|² and the diagonal order is one; BT’s equality example therefore has volume 2a(r)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1942,7 +1952,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3, pp.712–713",
-          "match": "The curvature −1 distance, density and area conventions; the new signatures expose the comparisons to the pinned libraries."
+          "match": "This is a derived polar integral, not a separately named BT theorem. The derivative d t^(d−1) yields d times the image-disc area; injective change of variables alone would lose that factor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1959,11 +1969,12 @@
       ],
       "title": "Hyperbolic area on quotient charts",
       "kind": "construction",
-      "statement": "For a torsion-free cocompact discrete projective group Γ, descend the curvature −1 disc form to X=Γ\\D and construct its Borel area measure. The metric is the existing quotient metric; in every isometric disc chart the density is 4/(1−|z|²)². For cofinite Γ with elliptic points and cusps, use this measure on the regular locus and extend by zero over the finite exceptional set; the resulting coarse-surface measure has finite total mass. It is not a smooth metric at the exceptional points.",
+      "statement": "For a torsion-free cocompact projective Fuchsian group Γ, import the free quotient atlas from FuchsianOrbifolds Layers 0–1 and the upper-half-plane metric/area comparison and fundamental-domain covolume from Layer 2. Descend the invariant hyperbolic metric/form through the free isometric charts, recording this quotient comparison explicitly. Use the existing TauCeti.riemannianVolume on the smooth quotient X, with the smooth metric, finite-dimensional charted manifold, Borel and Lindelof hypotheses of that construction; do not define another smooth Riemannian measure. Compare its free disc-chart expression with discAreaMeasure, density 4/(1−|z|²)². For cofinite Γ with elliptic points and cusps, use this regular-locus measure and extend it by zero over the finite exceptional set. This coarse compactification extension is a new comparison construction with finite total mass, rather than a smooth metric at the exceptional points.",
       "hypotheses": [],
       "proofSteps": [
-        "Use invariance of the disc density and the existing invariant half-plane measure comparison from Fuchsian Layer 2.",
-        "Glue local density measures, prove agreement on overlaps, then use a truncated fundamental polygon and cusp area integrals for finiteness."
+        "Consume the existing invariant half-plane measure and Fuchsian Layer 2 metric/measure comparison. At current TauCeti, UpperHalfPlane.riemannianVolume_eq_volume already identifies the smooth Riemannian measure with volume; its chart-measure uniqueness theorem is not re-planned here.",
+        "Use the free quotient covering charts and Möbius metric invariance to glue the local smooth metric and sum area form. Fuchsian Layer 2 provides the upstairs metric/measure comparison, not a named quotient-tensor descent theorem. Its actual chart/manifold signature remains G11.",
+        "Compare the descended free disc chart with the local density model. Push the regular-locus measure through the open embedding into the coarse compactification and assign zero to the finite complement; use the imported covolume and cusp charts for finite mass."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
@@ -1975,13 +1986,18 @@
         "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
       ],
       "acceptance": [
-        "For a torsion-free cocompact discrete projective group Γ, descend the curvature −1 disc form to X=Γ\\D and construct its Borel area measure. The metric is the existing quotient metric; in every isometric disc chart the density is 4/(1−|z|²)². For cofinite Γ with elliptic points and cusps, use this measure on the regular locus and extend by zero over the finite exceptional set; the resulting coarse-surface measure has finite total mass. It is not a smooth metric at the exceptional points."
+        "For a torsion-free cocompact projective Fuchsian group Γ, import the free quotient atlas from FuchsianOrbifolds Layers 0–1 and the upper-half-plane metric/area comparison and fundamental-domain covolume from Layer 2. Descend the invariant hyperbolic metric/form through the free isometric charts, recording this quotient comparison explicitly. Use the existing TauCeti.riemannianVolume on the smooth quotient X, with the smooth metric, finite-dimensional charted manifold, Borel and Lindelof hypotheses of that construction; do not define another smooth Riemannian measure. Compare its free disc-chart expression with discAreaMeasure, density 4/(1−|z|²)². For cofinite Γ with elliptic points and cusps, use this regular-locus measure and extend it by zero over the finite exceptional set. This coarse compactification extension is a new comparison construction with finite total mass, rather than a smooth metric at the exceptional points."
       ],
       "sources": [
         {
           "sourceId": "abramovich",
-          "locator": "§§1.2–1.3, p.2; BT §1.3 pp.712–713",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "§§1.2–1.3, p.2",
+          "match": "The finite-area quotient metric and extension over the finite cusp/elliptic set motivate the construction; this paper does not supply the quotient manifold or Riemannian measure carrier."
+        },
+        {
+          "sourceId": "bt",
+          "locator": "§1.3, pp.712–713",
+          "match": "The disc area form fixes the curvature −1 free-chart density 4/(1−|z|²)². The free quotient atlas is imported; invariant-metric descent is a new chart comparison, not a named Layer 2 theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2042,7 +2058,9 @@
         "name": "Hyperbolic area on quotient charts"
       },
       "upstreamPrerequisites": [
-        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/DifferentialGeometry/README.md#L246"
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/DifferentialGeometry/README.md#L653",
+        "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Geometry/Manifold/Riemannian/VolumeDensity/Volume.lean#L76",
+        "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Analysis/Complex/UpperHalfPlane/PoincareMetric.lean#L181"
       ]
     },
     {
@@ -2056,10 +2074,12 @@
       "statement": "A reduced closed pure-one-dimensional complex analytic subset A of a complex manifold admits a Riemann surface normalization ν:Ã→A, proper with finite fibres and biholomorphic over Areg. The fibre over ξ indexes the local irreducible branches. Normalizations are unique up to a unique holomorphic isomorphism commuting with ν. Analytic subsets mean locally common zero sets of holomorphic functions, with the reduced structure sheaf; no arbitrary closed-set carrier is sufficient.",
       "hypotheses": [],
       "proofSteps": [
-        "Use local analytic Noetherianity, the finite universal-denominator integral closure, and Oka normalization (7.12); these exact analytic-algebra inputs are recorded as gap G1.",
+        "Import analytic local-ring Noetherianity from ComplexComparisonPartII C0/noetherian-germs. The finite universal-denominator integral closure and analytic closure argument used in Oka normalization (7.12) still require the exact contracts in G1.",
         "Normal complex curves are regular by (7.7). Glue the branch normalizations by uniqueness (7.11), retaining the proper finite map."
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "ComplexComparisonPartII:C0"
+      ],
       "acceptance": [
         "A reduced closed pure-one-dimensional complex analytic subset A of a complex manifold admits a Riemann surface normalization ν:Ã→A, proper with finite fibres and biholomorphic over Areg. The fibre over ξ indexes the local irreducible branches. Normalizations are unique up to a unique holomorphic isomorphism commuting with ν. Analytic subsets mean locally common zero sets of holomorphic functions, with the reduced structure sheaf; no arbitrary closed-set carrier is sufficient."
       ],
@@ -2067,7 +2087,7 @@
         {
           "sourceId": "demailly",
           "locator": "II §7, (7.7) pp.113–114, (7.9)–(7.12) pp.114–115",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly II7.7/7.9–7.12 gives the reduced pure curve normalization. C0 supplies Noetherian germs, but universal denominators/analytic closure and the global construction remain missing (G1,G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2139,11 +2159,13 @@
       "statement": "An effective analytic one-cycle on a complex manifold M is a locally finite sum C=Σ m_j[A_j] of distinct irreducible reduced closed pure-one-dimensional analytic subsets, with positive integer coefficients; zero is the empty sum. For compact M the support has finitely many components. Equality compares the coefficient of every irreducible component; a parameterization is not itself a cycle.",
       "hypotheses": [],
       "proofSteps": [
+        "Use the shared analytic subset/cycle vocabulary required by C5/analytic-cycle-integration. Specify the positive one-dimensional subobject and its normalization data, not a parallel generic analytic-cycle carrier. The global carrier compatibility remains G11.",
         "Use the local finite branch decomposition and compatible irreducible components from the analytic-algebra input G1.",
         "Represent coefficients with locally finite support and take their pointwise addition; use finiteness on compact sets."
       ],
       "prerequisites": [
-        "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization"
+        "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
+        "ComplexComparisonPartII:C5"
       ],
       "acceptance": [
         "An effective analytic one-cycle on a complex manifold M is a locally finite sum C=Σ m_j[A_j] of distinct irreducible reduced closed pure-one-dimensional analytic subsets, with positive integer coefficients; zero is the empty sum. For compact M the support has finitely many components. Equality compares the coefficient of every irreducible component; a parameterization is not itself a cycle."
@@ -2151,8 +2173,8 @@
       "sources": [
         {
           "sourceId": "demailly",
-          "locator": "II §5 analytic components and divisors; III (2.14) p.143 and (4.12) pp.156–157",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "II (5.3), pp.102–103; III (2.14), p.143 and (4.12), pp.156–157",
+          "match": "Demailly’s locally finite irreducible decomposition supports positive weighted cycles. The one-dimensional carrier must share C5’s analytic-cycle vocabulary; its global API/tests are not prototyped (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2231,14 +2253,16 @@
       "proofSteps": [
         "Integrate pulled-back positive real two-forms on the smooth normalization using DifferentialGeometry Layer 5.",
         "Use change of variables off the discrete branch set; its measure is zero. Uniqueness of normalization gives choice independence.",
-        "Locally finite mass extends the regular-locus integration across singularities; do not integrate a set image while dropping covering degree."
+        "Locally finite mass extends the regular-locus integration across singularities; do not integrate a set image while dropping covering degree.",
+        "Compare this one-dimensional normalization measure with the imported C5 analytic-cycle integration pairing; do not construct a second integration current."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.2/effective-cycle",
         "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
         "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area",
         "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
-        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications"
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+        "ComplexComparisonPartII:C5"
       ],
       "acceptance": [
         "On a product Xⁿ of smooth compact curvature −1 surfaces, let ω=Σ pr_i*ω_X. For an effective analytic curve C=Σm_j[A_j] and Borel E⊂Xⁿ define vol(C,E)=Σm_j∫_{ν_j⁻¹(E)}ν_j*ω as a nonnegative extended real measure, retaining weights. The measure is chart independent and finite on compact sets. For a finite holomorphic parameterization f:S→A of degree d, its source integral equals d times the reduced image integral."
@@ -2247,7 +2271,7 @@
         {
           "sourceId": "demailly",
           "locator": "I (2.4), (2.13)–(2.14) pp.14–17; III (2.7) pp.140–141",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Normalization integration retains weights and finite-cover degree, consistent with Demailly’s current pairing. The global measure and C5 comparison signatures are missing (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2342,7 +2366,7 @@
         {
           "sourceId": "demailly",
           "locator": "III (7.5)–(7.7), p.168; II (7.10), p.114",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly identifies generic projection multiplicity with branch order. The primitive normalization/minimum-order definition is valid; the global local-order API and tests are absent (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2433,7 +2457,7 @@
         {
           "sourceId": "demailly",
           "locator": "I (2.13)–(2.14), pp.16–17; III (1.17) p.134",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly’s proper direct image and generically finite image degree give the weighted projection formula. Contracted one-dimensional components contribute zero; complex dimensions avoid E3’s odd-parity sign."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2469,7 +2493,7 @@
         {
           "sourceId": "bt",
           "locator": "§1.3 pp.712–713; §5.1 p.732",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The definition matches BT. Corrected the false r<ρ ambient pairwise isometry: use injective local isometry/center distances, or r<ρ/2 for pairwise isometry. Global quotient signatures remain absent (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2496,7 +2520,7 @@
         {
           "name": "TauCeti.HyperbolicVolumes.injectivityRadius_ball",
           "role": "characterisation",
-          "statement": "For 0<r<ρ_X an upstairs r-ball maps isometrically and injectively to X."
+          "statement": "For 0<r<ρ_X the upstairs r-ball maps injectively and by a local isometry to X; distances from its centre are preserved. Pairwise ambient distances are preserved on an r-ball under the stronger condition 0<r<ρ_X/2."
         },
         {
           "name": "TauCeti.HyperbolicVolumes.injectivityRadius_scale",
@@ -2519,6 +2543,11 @@
           "name": "TauCeti.HyperbolicVolumes.injectivityRadius_tube",
           "kind": "compatibility",
           "statement": "The product diagonal tube theorem uses r<ρ_X/2, not r<ρ_X."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.injectivityRadius_pairwise_nonexample",
+          "kind": "non-example",
+          "statement": "On an axis of a shortest closed geodesic of length 2ρ_X, endpoints at parameters ±s with ρ_X/2<s<r<ρ_X lie in the r-ball. Their upstairs distance is 2s, but quotient distance is at most 2ρ_X−2s<2s; thus an injective ball need not preserve pairwise ambient distances."
         }
       ]
     },
@@ -2547,8 +2576,8 @@
       "sources": [
         {
           "sourceId": "abramovich",
-          "locator": "§1.3, p.2; Fuchsian Layer 3 q-coordinate contract",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "§1.3, p.2",
+          "match": "Abramovich uses the singular finite-area metric. The q-density and order-e cancellation are calculations using Fuchsian cusp coordinates; the constant q=0 case is separate. Removed a supplier citation from the source locator."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2565,7 +2594,7 @@
       ],
       "title": "Compactly supported test forms",
       "kind": "definition",
-      "statement": "For an oriented real m-manifold and degree k, D^k is the real vector space of compactly supported smooth k-forms from DifferentialGeometry. On each fixed compact K use all chart seminorms sup_K |D^αη_I| for finite derivative orders; give D^k the locally convex inductive-limit topology over a compact exhaustion. Equivalently, a linear functional is continuous exactly when its restriction to every fixed-support Frechet space is continuous. The subspace topology from all smooth forms is not this topology. In Euclidean charts take Mathlib TestFunction Ω (ContinuousAlternatingMap ℝ E ℝ (Fin k)) ⊤ directly. Its LF topology and fixed-support continuity theorem are baseline inputs, never new targets here. The new target is their manifold assembly with DifferentialGeometry forms and coordinate transitions.",
+      "statement": "For a finite-dimensional oriented smooth Hausdorff second-countable real m-manifold (in particular with a compact exhaustion) and 0≤k≤m, D^k is the real vector space of compactly supported smooth k-forms from DifferentialGeometry. On each fixed compact K use all chart seminorms sup_K |D^αη_I| for finite derivative orders; give D^k the locally convex inductive-limit topology over a compact exhaustion. Equivalently, a linear functional is continuous exactly when its restriction to every fixed-support Frechet space is continuous. The subspace topology from all smooth forms is not this topology. In Euclidean charts take Mathlib TestFunction Ω (ContinuousAlternatingMap ℝ E ℝ (Fin k)) ⊤ directly. Its LF topology and fixed-support continuity theorem are baseline inputs, never new targets here. The new target is their manifold assembly with DifferentialGeometry forms and coordinate transitions.",
       "hypotheses": [],
       "proofSteps": [
         "Use the pinned coefficient-valued TestFunction LF topology. Trivialize the imported differential-form bundle on a locally finite atlas, and define compact-support forms by matching their coefficient test functions on overlaps.",
@@ -2577,13 +2606,13 @@
         "mathlib:TestFunction.continuous_iff_continuous_comp"
       ],
       "acceptance": [
-        "For an oriented real m-manifold and degree k, D^k is the real vector space of compactly supported smooth k-forms from DifferentialGeometry. On each fixed compact K use all chart seminorms sup_K |D^αη_I| for finite derivative orders; give D^k the locally convex inductive-limit topology over a compact exhaustion. Equivalently, a linear functional is continuous exactly when its restriction to every fixed-support Frechet space is continuous. The subspace topology from all smooth forms is not this topology."
+        "For a finite-dimensional oriented smooth Hausdorff second-countable real m-manifold (in particular with a compact exhaustion) and 0≤k≤m, D^k is the real vector space of compactly supported smooth k-forms from DifferentialGeometry. On each fixed compact K use all chart seminorms sup_K |D^αη_I| for finite derivative orders; give D^k the locally convex inductive-limit topology over a compact exhaustion. Equivalently, a linear functional is continuous exactly when its restriction to every fixed-support Frechet space is continuous. The subspace topology from all smooth forms is not this topology. In Euclidean charts take Mathlib TestFunction Ω (ContinuousAlternatingMap ℝ E ℝ (Fin k)) ⊤ directly. Its LF topology and fixed-support continuity theorem are baseline inputs, never new targets here. The new target is their manifold assembly with DifferentialGeometry forms and coordinate transitions."
       ],
       "sources": [
         {
           "sourceId": "demailly",
           "locator": "I (2.1)–(2.3), pp.13–14",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly’s fixed-support topology is consistent with the exact pinned LF theorem. Corrected countability/exhaustion and global properness requirements; only a Euclidean coefficient model is present (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2625,7 +2654,7 @@
         {
           "name": "TauCeti.HyperbolicVolumes.testForm_pullback",
           "role": "functoriality",
-          "statement": "A smooth proper map pulls test forms back continuously; properness can be restricted to the current support."
+          "statement": "A smooth map proper on the whole source pulls D^k test forms back continuously. Properness only on Supp T instead defines current pushforward by pairing with a cutoff equal to one near Supp T∩f⁻¹(Supp η); it does not make the bare pullback a compactly supported test form."
         }
       ],
       "tests": [
@@ -2643,6 +2672,11 @@
           "name": "TauCeti.HyperbolicVolumes.testForm_escape_nonexample",
           "kind": "non-example",
           "statement": "Translated nonzero bumps escaping to infinity converge locally smoothly to zero but do not converge to zero in D^k."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.testForm_support_proper_nonexample",
+          "kind": "non-example",
+          "statement": "Projection ℝ²→ℝ is proper on the support of a point current, but the pullback of a nonzero compactly supported bump on ℝ is constant in the second coordinate and has noncompact support."
         }
       ],
       "planet": {
@@ -2660,11 +2694,12 @@
       ],
       "title": "Currents and distributional differentiation",
       "kind": "definition",
-      "statement": "A real current of degree q on an oriented m-manifold is a continuous real-linear functional on D^(m−q). Set ⟨dT,η⟩=(−1)^(q+1)⟨T,dη⟩. Wedge with a smooth form, restriction and proper direct image are defined by transposing the corresponding test-form operations. Locally integrable coefficients embed by T_α(η)=∫α∧η. Complexify these carriers to split into (p,q)-types on complex manifolds.",
+      "statement": "For the manifold hypotheses of test-forms and 0≤q≤m, a real current of degree q is a continuous real-linear functional on D^(m−q). Degrees outside [0,m] are zero, rather than using truncated natural subtraction. Set ⟨dT,η⟩=(−1)^(q+1)⟨T,dη⟩, with d zero on top degree. Wedge with smooth forms and restriction are defined by transposition. For f:M^m→N^n smooth and proper on Supp T, the bare pairing (f_*T)(η)=T(f*η), interpreted with a support cutoff, preserves current dimension and changes degree to q+n−m. Under this pairing d(f_*T)=(−1)^(n−m)f_*(dT); it commutes for complex manifolds, whose dimension difference is even. Locally integrable coefficients embed by T_α(η)=∫α∧η. Complexify to split into (p,q)-types.",
       "hypotheses": [],
       "proofSteps": [
         "Transpose the upstream continuous differential/pullback/wedge maps on each fixed-support space.",
-        "Use ordinary Stokes to prove distributional d agrees with smooth d; the signs depend on current degree, not dimension."
+        "Use ordinary Stokes to prove distributional d agrees with smooth d; the signs depend on current degree, not dimension.",
+        "Compare the two pairing signs after the degree shift: (−1)^(q+n−m+1)/(−1)^(q+1)=(−1)^(n−m). Demailly I (2.14)(b) omits this parity in the general real case; see E3. For complex maps no correction is needed."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.3/test-forms",
@@ -2675,13 +2710,13 @@
         "mathlib:Distribution.ofFun"
       ],
       "acceptance": [
-        "A real current of degree q on an oriented m-manifold is a continuous real-linear functional on D^(m−q). Set ⟨dT,η⟩=(−1)^(q+1)⟨T,dη⟩. Wedge with a smooth form, restriction and proper direct image are defined by transposing the corresponding test-form operations. Locally integrable coefficients embed by T_α(η)=∫α∧η. Complexify these carriers to split into (p,q)-types on complex manifolds."
+        "For the manifold hypotheses of test-forms and 0≤q≤m, a real current of degree q is a continuous real-linear functional on D^(m−q). Degrees outside [0,m] are zero, rather than using truncated natural subtraction. Set ⟨dT,η⟩=(−1)^(q+1)⟨T,dη⟩, with d zero on top degree. Wedge with smooth forms and restriction are defined by transposition. For f:M^m→N^n smooth and proper on Supp T, the bare pairing (f_*T)(η)=T(f*η), interpreted with a support cutoff, preserves current dimension and changes degree to q+n−m. Under this pairing d(f_*T)=(−1)^(n−m)f_*(dT); it commutes for complex manifolds, whose dimension difference is even. Locally integrable coefficients embed by T_α(η)=∫α∧η. Complexify to split into (p,q)-types."
       ],
       "sources": [
         {
           "sourceId": "demailly",
           "locator": "I (2.3)–(2.14), pp.14–17",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Corrected degree truncation, target-degree shift and odd real pushforward parity. The bounded chart dual is useful, but manifold differentiation/pushforward and the new sign tests are absent (E3,G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2723,7 +2758,7 @@
         {
           "name": "TauCeti.HyperbolicVolumes.current_pushforward",
           "role": "functoriality",
-          "statement": "For f proper on support, (f_*T)(η)=T(f*η), with identity/composition and d-compatibility."
+          "statement": "Support-proper smooth f has (f_*T)(η)=T(f*η) using a cutoff; it preserves dimension, has degree shift n−m, and satisfies identity/composition. With the degree-sign differential, d(f_*T)=(−1)^(n−m)f_*(dT). Holomorphic direct images therefore commute with d."
         },
         {
           "name": "TauCeti.HyperbolicVolumes.current_restrict",
@@ -2746,6 +2781,16 @@
           "name": "TauCeti.HyperbolicVolumes.current_derivative_sign",
           "kind": "computation",
           "statement": "For a degree-zero current dT applied to a complementary one-form is −T(dη)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.current_pushforward_odd_sign",
+          "kind": "computation",
+          "statement": "For i:ℝ→ℝ², i(t)=(t,0), and T the integration current of [0,1], dT=δ₀−δ₁ but d(i_*T)=δ_(1,0)−δ_(0,0)=−i_*(dT)."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.current_degree_range",
+          "kind": "characterisation",
+          "statement": "On a complex n-chart a current degree belongs to Fin(2n+1); degree 2n+1 cannot become a zero-form dual through Nat subtraction. Global out-of-range degrees are zero."
         }
       ],
       "planet": {
@@ -2780,7 +2825,7 @@
         {
           "sourceId": "demailly",
           "locator": "III (1.13)–(1.17), pp.132–134",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly III1.13–1.17 gives positivity and measure coefficients with bidimension conventions. No global positive-current constructor, compatibility API or discriminating examples is present (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2869,8 +2914,8 @@
       "sources": [
         {
           "sourceId": "demailly",
-          "locator": "I (5.1)–(5.12), pp.39–41; III §1.18, p.135",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "I (4.17)–(4.18) pp.35–36, (5.1)–(5.12) pp.39–41; III (1.18) p.135",
+          "match": "Demailly I4.17/I5 and III1.18 support the extended-real definition and Hessian criterion. Added componentwise nontriviality and radial smoothing conditions; actual psh carriers/APIs/tests remain missing (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2907,7 +2952,7 @@
         {
           "name": "TauCeti.HyperbolicVolumes.psh_regularization",
           "role": "constructor",
-          "statement": "Local convolutions are smooth psh and decrease to u as the smoothing radius decreases to zero."
+          "statement": "If u is not identically −∞ on any connected component, convolution of its locally integrable representative with a fixed nonnegative smooth radial mollifier of unit mass is smooth psh on the smaller chart; these regularizations decrease to u as the radius decreases to zero."
         },
         {
           "name": "TauCeti.HyperbolicVolumes.psh_locallyIntegrable",
@@ -2966,7 +3011,7 @@
         {
           "sourceId": "demailly",
           "locator": "III §3, p.144, with factor one-half; I §2.B, p.15",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The one-variable distribution model correctly has Δ/(4π), half Demailly’s convention, and unit logarithmic atoms. Global complex-type/pullback/positivity APIs and the packet’s named test agreement remain incomplete (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3030,27 +3075,28 @@
       "realises": [
         "HyperbolicCurveVolumesAndGonality:HV.3"
       ],
-      "title": "Integration current of an analytic cycle",
+      "title": "Normalization formula for the imported integration current",
       "kind": "theorem",
-      "statement": "The weighted normalization pairing [C](η)=Σm_j∫_{Ã_j}ν_j*η defines a closed positive current of bidimension (1,1). It agrees with regular-locus integration, has locally finite mass at singularities, and its trace pairing with the product area form gives cycleVolume.",
+      "statement": "Import the closed positive integration current of analytic cycles from ComplexComparisonPartII C5/analytic-cycle-integration. For an effective one-cycle C, prove its regular-locus pairing agrees with the weighted normalization formula [C](η)=Σm_j∫_{Ã_j}ν_j*η. Its trace pairing with the product area form equals cycleVolume. Generic Lelong integration and closed-current extension remain imports.",
       "hypotheses": [],
       "proofSteps": [
-        "Local generic projections prove finite mass and show the exceptional set has zero mass.",
-        "Apply the closed-current extension theorem or integrate on the proper smooth normalization and transpose Stokes."
+        "Use the imported C5 integration current, closedness, positivity and finite local mass rather than proving them again.",
+        "Compare regular loci by the normalization biholomorphism. The omitted singular fibres have zero normalization area; retain all cycle weights and identify the trace with cycleVolume."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
         "HyperbolicCurveVolumesAndGonality:HV.3/currents",
-        "HyperbolicCurveVolumesAndGonality:HV.3/positive-currents"
+        "HyperbolicCurveVolumesAndGonality:HV.3/positive-currents",
+        "ComplexComparisonPartII:C5"
       ],
       "acceptance": [
-        "The weighted normalization pairing [C](η)=Σm_j∫_{Ã_j}ν_j*η defines a closed positive current of bidimension (1,1). It agrees with regular-locus integration, has locally finite mass at singularities, and its trace pairing with the product area form gives cycleVolume."
+        "Import the closed positive integration current of analytic cycles from ComplexComparisonPartII C5/analytic-cycle-integration. For an effective one-cycle C, prove its regular-locus pairing agrees with the weighted normalization formula [C](η)=Σm_j∫_{Ã_j}ν_j*η. Its trace pairing with the product area form equals cycleVolume. Generic Lelong integration and closed-current extension remain imports."
       ],
       "sources": [
         {
           "sourceId": "demailly",
           "locator": "III (2.3) p.139, (2.7) pp.140–141; I (2.14) p.17",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "C5 already owns Lelong integration and closed-current extension. The node now compares that imported current with weighted one-dimensional normalization integration; it no longer re-plans those general theorems."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3085,7 +3131,7 @@
         {
           "sourceId": "demailly",
           "locator": "III (2.15), pp.143–144",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly III2.15 rescales to ddᶜlog|h|²=[div h]. The local log-power example detects the atom and sign; nontriviality on each component and meromorphic negative poles are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3105,12 +3151,13 @@
       ],
       "title": "Singular Stokes for curve sublevels",
       "kind": "theorem",
-      "statement": "Let u be psh on a normalized curve, smooth off finitely many logarithmic poles on each relatively compact sublevel Ω_s={u<s}, and let h be C² increasing convex with h(u) locally integrable and finite inner-boundary limit. With the ddᶜ mass interpreted including its atoms, ∫_{Ω_s}ddᶜ(h∘u)=h′(s)∫_{Ω_s}ddᶜu whenever s is a regular value and the relevant masses are finite. Extend by left limits to all s. For a nonsmooth bounded potential use truncation and decreasing regularization; equality requires the derivative-side convention at a level atom.",
+      "statement": "On a normalized curve let u be psh, smooth away from finitely many logarithmic poles in each relatively compact Ω_s={u<s}. Let h be C² increasing convex on an interval containing the finite range up to s, with h(u) locally integrable, finite masses, and finite limiting slope ℓ=lim_{t→−∞}h′(t)≥0 at poles; the value h(−∞) may be −∞. At a regular value s, ∫_{Ω_s}ddᶜ(h∘u)=h′(s)∫_{Ω_s}ddᶜu, including the atomic mass eℓ at a pole u=e log|t|²+smooth. Extend by monotone left limits when sublevel boundaries are singular, retaining the open-sublevel convention. Also prove the boundary-flux variant: for relatively compact Ω with smooth boundary and v locally integrable psh, smooth near ∂Ω, its ddᶜ mass on Ω equals ∫_{∂Ω}dᶜv. If v=h(u) near a regular boundary u=s, this flux equals h′(s)∫_{∂Ω}dᶜu. This variant needs no convexity of h when positivity of v has already been proved independently; it applies to the conjugate-diagonal profile.",
       "hypotheses": [],
       "proofSteps": [
-        "Excise small discs at each pole and apply imported ordinary Stokes; retain the inner-boundary contribution rather than declaring it zero.",
-        "Use h equal to its affine boundary tangent on an interior truncation and monotone positive-measure convergence.",
-        "Use max(u,−N) and weak-current convergence for psh limits. Demailly (5.5) gives the general weight version after normalization adjustment."
+        "Excise discs around the logarithmic poles and apply imported ordinary Stokes on the resulting smooth domain. For u=e log|t|²+smooth, the missing inner flux tends to eℓ and is restored by the distributional atom of ddᶜh(u); finite value at the pole is not required.",
+        "Equivalently use the generalized weight formula Demailly III (5.5), pp.158–159, with the half normalization and squared logarithms. Approximate regular levels from below to preserve the open-sublevel mass convention.",
+        "For the boundary-flux variant choose a smooth cutoff equal to one off a collar of ∂Ω, regularize the locally integrable positive current in the interior, and use weak-current convergence with the unchanged smooth boundary germ. Ordinary Stokes leaves exactly the boundary flux.",
+        "In HV.5/conjugate-hessian positivity is proved for v=g(f(ψ)) directly. Since g is concave on t>0, apply this independently-positive boundary-flux variant, not the convex-composition variant."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.3/ddc",
@@ -3118,13 +3165,13 @@
         "HyperbolicCurveVolumesAndGonality:HV.3/positive-currents"
       ],
       "acceptance": [
-        "Let u be psh on a normalized curve, smooth off finitely many logarithmic poles on each relatively compact sublevel Ω_s={u<s}, and let h be C² increasing convex with h(u) locally integrable and finite inner-boundary limit. With the ddᶜ mass interpreted including its atoms, ∫_{Ω_s}ddᶜ(h∘u)=h′(s)∫_{Ω_s}ddᶜu whenever s is a regular value and the relevant masses are finite. Extend by left limits to all s. For a nonsmooth bounded potential use truncation and decreasing regularization; equality requires the derivative-side convention at a level atom."
+        "On a normalized curve let u be psh, smooth away from finitely many logarithmic poles in each relatively compact Ω_s={u<s}. Let h be C² increasing convex on an interval containing the finite range up to s, with h(u) locally integrable, finite masses, and finite limiting slope ℓ=lim_{t→−∞}h′(t)≥0 at poles; the value h(−∞) may be −∞. At a regular value s, ∫_{Ω_s}ddᶜ(h∘u)=h′(s)∫_{Ω_s}ddᶜu, including the atomic mass eℓ at a pole u=e log|t|²+smooth. Extend by monotone left limits when sublevel boundaries are singular, retaining the open-sublevel convention. Also prove the boundary-flux variant: for relatively compact Ω with smooth boundary and v locally integrable psh, smooth near ∂Ω, its ddᶜ mass on Ω equals ∫_{∂Ω}dᶜv. If v=h(u) near a regular boundary u=s, this flux equals h′(s)∫_{∂Ω}dᶜu. This variant needs no convexity of h when positivity of v has already been proved independently; it applies to the conjugate-diagonal profile."
       ],
       "sources": [
         {
           "sourceId": "demailly",
           "locator": "III (3.1) p.144, (3.2),(3.6)–(3.7) pp.145–148, (5.4)–(5.5) pp.158–159",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly’s sublevel/flux formulas justify regular-level Stokes with atoms. Replaced finite pole value by finite limiting slope and added a boundary-flux variant for an independently positive potential, needed by the concave g profile."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3144,7 +3191,7 @@
       "statement": "For an effective analytic one-cycle C and ξ, the usual Euclidean area ratio lim_{ε↓0}area(C∩B(ξ,ε))/(πε²) equals mult_ξ C. Equivalently, with our ddᶜ, the limiting mass on the normalization of ddᶜlog max_i|z_i−z_i(ξ)|² is mult_ξ C. Bounded changes to logarithmic weights preserve this limiting mass.",
       "hypotheses": [],
       "proofSteps": [
-        "Compare max and Euclidean logarithmic norms; the ratio tends to one.",
+        "The logarithmic weights log‖z−ξ‖₂² and log max_i|z_i−ξ_i|² differ by a bounded amount, so the ratio of these logarithmic weights tends to one at ξ. The ratio of the underlying norms need not tend to one (for (t,t) it is √2). Use the logarithmic comparison theorem, not a raw norm ratio.",
         "Use a generic finite projection and its sheet number to compute the mass; compensate our half operator by squared logarithms."
       ],
       "prerequisites": [
@@ -3159,7 +3206,7 @@
         {
           "sourceId": "demailly",
           "locator": "III (5.4)–(5.8) pp.158–159, (7.1)–(7.3) pp.166–167, (7.5)–(7.7) p.168",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly’s comparison theorem uses logarithmic weight equivalence. Euclidean and max norms have bounded log difference, not raw norm ratio tending to one; corrected that step and retained cycle weights."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3200,12 +3247,12 @@
         {
           "sourceId": "bt",
           "locator": "§5.1 Lemma 20 and ensuing F computation, pp.732–733",
-          "match": "The direct-computation route is expanded into explicit coefficient matrices here, without importing the unread HT12 Lemma 5 criterion."
+          "match": "Lemma 20 and the ensuing F computation give positivity of log μ and the comparison ddᶜF≤ω; the packet displays the local Hermitian matrices and extends across the diagonal."
         },
         {
           "sourceId": "demailly",
           "locator": "I (5.8)–(5.12), pp.40–41; III (1.18), p.135; III (2.15), pp.143–144",
-          "match": "Smooth Hessian criterion, upper extension of psh potentials across analytic poles, and the divisor atom justify extending the off-diagonal computations to currents."
+          "match": "The complex Hessian criterion and distributional psh extension justify interpreting the calculated semipositive matrices as positive currents."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3222,11 +3269,11 @@
       ],
       "title": "Curvature of a Hermitian line metric",
       "kind": "construction",
-      "statement": "Given an imported holomorphic line bundle L with smooth positive Hermitian metric h, a holomorphic frame e has c₁(L,h)=−ddᶜlog h(e,e). If e′=g e with nonvanishing holomorphic g, this real closed (1,1)-form is unchanged. On a compact normalized curve ∫c₁(L,h)=deg L; the pairing includes cycle weights and coincides with algebraic degree after GAGA.",
+      "statement": "For the imported rank-one Chern form of a holomorphic line bundle L with smooth positive Hermitian metric h, identify its local expression in this packet’s convention as c₁(L,h)=−ddᶜlog h(e,e) for a holomorphic frame e. Frame, metric, tensor and pullback identities are compatibility statements with the shared Chern form. Import general Chern–Weil/intersection comparison from ComplexComparison C5. On a compact normalized analytic curve use the imported meromorphic-section theorem to identify the integral with analytic divisor degree; on a projective algebraic model it equals algebraic degree, retaining cycle weights.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the imported holomorphic bundle transitions and the rank-one weight −log h; avoid reconstructing vector-bundle carriers or connections.",
-        "Choose a meromorphic section, apply the metric Poincaré–Lelong identity, and integrate the exact current on the compact normalization. Compare its divisor degree with SF.5/GAGA."
+        "Use C0/holomorphic-bundle-dictionary and the Hermitian/Chern-connection input of C1/bochner-kodaira. Specialize the imported curvature to the rank-one weight −log h with this packet’s ddᶜ convention; do not construct another bundle carrier or connection.",
+        "Use ModularForms 10B for a nonzero meromorphic section on the compact normalized curve and apply metric Poincaré–Lelong to compare the rank-one expression with analytic divisor degree. For a projective algebraic model import C5/chern-fubini-study-intersection; the model/analytification adapter is G12."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.3/ddc",
@@ -3234,16 +3281,19 @@
         "SchemeAndStackFoundations:SF.5",
         "ComplexComparisonPartII:C2",
         "ComplexComparisonPartII:C4",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C1",
+        "ComplexComparisonPartII:C5"
       ],
       "acceptance": [
-        "Given an imported holomorphic line bundle L with smooth positive Hermitian metric h, a holomorphic frame e has c₁(L,h)=−ddᶜlog h(e,e). If e′=g e with nonvanishing holomorphic g, this real closed (1,1)-form is unchanged. On a compact normalized curve ∫c₁(L,h)=deg L; the pairing includes cycle weights and coincides with algebraic degree after GAGA."
+        "For the imported rank-one Chern form of a holomorphic line bundle L with smooth positive Hermitian metric h, identify its local expression in this packet’s convention as c₁(L,h)=−ddᶜlog h(e,e) for a holomorphic frame e. Frame, metric, tensor and pullback identities are compatibility statements with the shared Chern form. Import general Chern–Weil/intersection comparison from ComplexComparison C5. On a compact normalized analytic curve use the imported meromorphic-section theorem to identify the integral with analytic divisor degree; on a projective algebraic model it equals algebraic degree, retaining cycle weights."
       ],
       "sources": [
         {
           "sourceId": "demailly",
           "locator": "V (12.6)–(12.8) p.269, (13.2)–(13.4) p.271",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Demailly’s line metric and first Chern normalization match −ddᶜlog h. Generic Chern/intersection theory is now imported from C5; meromorphic sections come from ModularForms10B. Global adapters remain absent (G11,G12)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3307,7 +3357,8 @@
       ],
       "upstreamPrerequisites": [
         "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/DifferentialGeometry/README.md#L246",
-        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/DifferentialGeometry/README.md#L481"
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/DifferentialGeometry/README.md#L481",
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/ModularForms/README.md#L1068"
       ]
     },
     {
@@ -3327,7 +3378,8 @@
         "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
         "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
         "SchemeAndStackFoundations:SF.5",
-        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "ComplexComparisonPartII:C5"
       ],
       "acceptance": [
         "For a smooth compact curvature −1 hyperbolic curve X, c₁(K_X,h)=[ω_X]/(2π). On Xⁿ let K_{Xⁿ}=⊗_i pr_i*K_X, so for every effective analytic curve C, vol(C,Xⁿ)=2π deg(ν*C K_{Xⁿ})=2π(K_{Xⁿ}·C), retaining weights and normalization. This identity is for the compact smooth hyperbolic metric, not the singular cusp metric on its completion."
@@ -3335,8 +3387,13 @@
       "sources": [
         {
           "sourceId": "bt",
-          "locator": "Canonical-degree discussion, §6 p.736; Demailly V (13.4) p.271",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "Canonical-degree discussion, §6 p.736",
+          "match": "The canonical-degree paragraph uses vol(C)=2π(K·C) for the compact curvature −1 sum form. It is not a cusp-metric identity."
+        },
+        {
+          "sourceId": "demailly",
+          "locator": "V (13.4), p.271",
+          "match": "The Hermitian first Chern normalization identifies curvature with divisor degree; the canonical metric gives c₁(K)=ω/(2π). General Chern/intersection comparison is imported from C5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3346,7 +3403,10 @@
       },
       "planet": {
         "name": "Canonical degree and hyperbolic area"
-      }
+      },
+      "upstreamPrerequisites": [
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/ModularForms/README.md#L1068"
+      ]
     },
     {
       "id": "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-tube",
@@ -3373,7 +3433,7 @@
         {
           "sourceId": "bt",
           "locator": "§5.1 pp.732,734",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT pairs corresponding coordinates across the two X² blocks. Fixed the Lean product-coordinate pairing and added two examples that fail the old definition; quotient descent remains an explicit missing API item (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3405,7 +3465,7 @@
         {
           "name": "TauCeti.HyperbolicVolumes.doubleDiagonalTube_mem",
           "role": "characterisation",
-          "statement": "Membership requires both coordinate-pair inequalities."
+          "statement": "For ((x₁,x₂),(y₁,y₂)), membership is d(x₁,y₁)<2r and d(x₂,y₂)<2r. These comparisons cross the two blocks; they do not compare x₁ with x₂ or y₁ with y₂."
         },
         {
           "name": "TauCeti.HyperbolicVolumes.diagonalTube_lift",
@@ -3428,6 +3488,16 @@
           "name": "TauCeti.HyperbolicVolumes.doubleDiagonalTube_max",
           "kind": "non-example",
           "statement": "A point outside either pair tube is outside B(Δ₂,r), regardless of the other pair distance."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.doubleDiagonalTube_diagonal",
+          "kind": "computation",
+          "statement": "For r>0 every ((a,b),(a,b)) lies in the double-diagonal tube, even when a and b are far apart."
+        },
+        {
+          "name": "TauCeti.HyperbolicVolumes.doubleDiagonalTube_wrong_pairing",
+          "kind": "non-example",
+          "statement": "If 2r≤d(a,b), then ((a,a),(b,b)) is outside the double-diagonal tube. This detects the incorrect within-block pairing."
         }
       ],
       "planet": {
@@ -3460,7 +3530,7 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19(a), p.732, attributed to HT02 Theorem 2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Theorem19(a) states the bound with maximum balls, sum area, weights and 0<r<ρ. The original HT02 Theorem2 proof is unavailable and its supporting argument is not closed (G3)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3500,8 +3570,13 @@
       "sources": [
         {
           "sourceId": "bt",
-          "locator": "Equation (7), p.733; Demailly III (7.1) p.166",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "Equation (7), p.733",
+          "match": "Equation (7) uses the log μ pole on the diagonal and its intersection-order mass. The positive leading factor is now explicitly prototyped."
+        },
+        {
+          "sourceId": "demailly",
+          "locator": "III (7.1), p.166",
+          "match": "The generalized Lelong-number comparison for equivalent logarithmic weights converts the bounded correction to the local divisor-order mass."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3537,7 +3612,7 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 21 and equation (6), p.733",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Lemma21/equation6 and the corrected singular Stokes formula give I(r)=2a(r)∫ddᶜlog μ. Positivity yields monotonicity and the Hessian comparison gives I≤volume."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3571,7 +3646,7 @@
         {
           "sourceId": "bt",
           "locator": "Theorem 19(b), p.732; alternative proof pp.732–733, attributed to HT12 Theorem 1",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT supplies its own alternative proof of Theorem19(b), so the mathematical target follows from Hessian/growth/Lelong inputs despite inaccessible HT12. The anti-graph equality and r<ρ/2 are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3610,7 +3685,7 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 22, pp.734–735",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Lemma22 supplies the max-potential two-region argument. The codimension-two RHS is point multiplicity, not Cartier intersection; the positive-current limit on tie interfaces still lacks a proof contract (G4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3647,7 +3722,7 @@
         {
           "sourceId": "bt",
           "locator": "Lemma 13 and Figure 2, pp.724–725",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Lemma13 reduces the disc lens by an isometry to opposite points. The quotient statement now explicitly requires simultaneous lifts; arbitrary unrelated deck choices cannot satisfy the same enclosure."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3683,7 +3758,7 @@
         {
           "sourceId": "bt",
           "locator": "Proof of Proposition 23, p.735; source issue E2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Proposition23’s final formula agrees with the direct logarithm expansion: ddᶜQ=ω/(4π)+[Δ]. E2’s extra factor in the intermediate printed lines is not used."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3704,7 +3779,8 @@
       "hypotheses": [],
       "proofSteps": [
         "Use Q=H(log μ) and the boundary derivative H′=cosh r.",
-        "The right side is a nested positive mass. Subtract (C·Δ)/cosh r; its negative is increasing because C·Δ≥0 and cosh grows. This explains why J-monotonicity implies V-monotonicity."
+        "The right side is a nested positive mass. Subtract (C·Δ)/cosh r; its negative is increasing because C·Δ≥0 and cosh grows. This explains why J-monotonicity implies V-monotonicity.",
+        "H is convex on (−∞,0), H′ tends to 1 at −∞ and H tends to −∞. Use the logarithmic-pole version of singular Stokes; do not impose a finite pole value."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.5/relative-current",
@@ -3719,7 +3795,7 @@
         {
           "sourceId": "bt",
           "locator": "Proposition 23 and its proof, p.735",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT Proposition23 uses the logarithmic H profile, whose pole value is −∞ but limiting slope is one. The corrected Stokes contract applies, giving the cosh ratio with the proper small/large orientation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3757,7 +3833,7 @@
         {
           "sourceId": "erratum",
           "locator": "Proposition 3.1 and proof, pp.2–3",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The erratum’s locus is totally real in X×X̄, with deck action (γ,γ̄). The local ψ formula is correct; the actual conjugate-surface/quotient tube carrier and all APIs/tests are missing (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3846,7 +3922,7 @@
         {
           "sourceId": "erratum",
           "locator": "Proof of Proposition 3.1, p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The erratum’s f and g yield i∂∂̄f(ψ)=ω/2 and the displayed Hermitian formula for h∘ψ. Nonnegative principal minors and continuous extension prove positivity without assuming g convex."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3868,7 +3944,8 @@
       "proofSteps": [
         "On a regular tube boundary, f∘ψ=2log cosh r, and g′ at that value is 1/sinh r.",
         "Boundary Stokes gives V_barΔ(r)=2sinh r∫_{C∩tube}i∂∂̄(g∘f∘ψ). The latter is a nested positive mass; extend to all radii by left limits.",
-        "The singular Stokes general statement is applied after source-branch regularization; do not claim g is convex as a function of f."
+        "The singular Stokes general statement is applied after source-branch regularization; do not claim g is convex as a function of f.",
+        "g′(t)=(eᵗ−1)^(-1/2) is decreasing, so g is concave. The separately established psh potential v=g(f(ψ)) is locally integrable and smooth near each positive regular tube boundary. Apply the boundary-flux variant of singular Stokes, then pass to left limits; convex composition of g cannot justify this step."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.5/conjugate-hessian",
@@ -3883,7 +3960,7 @@
         {
           "sourceId": "erratum",
           "locator": "Proposition 3.1, pp.2–3; source issue E1",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The erratum gives monotonicity of V(r)/sinh r. Replaced the invalid convex-composition Stokes step by the independently positive boundary-flux variant; E1’s reversed ratio is corrected."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3921,8 +3998,13 @@
       "sources": [
         {
           "sourceId": "bt",
-          "locator": "Remark 24 p.735; erratum Proposition 3.1 p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "Remark 24, p.735",
+          "match": "Remark 24 changes the radius by the distance scale and area by its square; the packet records the general λ>0 substitution."
+        },
+        {
+          "sourceId": "erratum",
+          "locator": "Proposition 3.1, pp.2–3",
+          "match": "Proposition 3.1 supplies the conjugate monotonicity factor, hence the rescaled small/large ratio sinh(r/λ)/sinh(R/λ)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3955,8 +4037,13 @@
       "sources": [
         {
           "sourceId": "abramovich",
-          "locator": "§1.1, p.2; Osserman Remark 1.2(iv) p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "§1.1, p.2",
+          "match": "The minimum degree of a nonconstant morphism to P¹ and its geometric base-change convention support the curve definition. The function-field equality uses AlgebraicCurves12."
+        },
+        {
+          "sourceId": "bn",
+          "locator": "Remark 1.2(iv), p.2",
+          "match": "Remark 1.2(iv) distinguishes geometric parameter-space nonemptiness from rational points over a nonclosed field. No nonsplit conic is assigned gonality one from genus alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4054,7 +4141,7 @@
         {
           "sourceId": "bn",
           "locator": "Theorem 1.1 and ramification convention pp.1–2; Remark 1.3 p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Osserman’s rank-two section space and base-divisor removal produce a degree degL−degE map, with basis change in PGL₂. Actual line-bundle/section-space constructors, API and tests are absent (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4128,8 +4215,11 @@
       ],
       "title": "Relative parameter scheme of pencils",
       "kind": "construction",
-      "statement": "For a smooth proper geometrically connected family B→S of fixed genus and fixed d, construct G¹_d(B/S) representing line bundles of relative degree d with rank-two subbundles V→π_*L whose maps V_T→π_{T*}L_T stay injective after every base change, modulo line bundles pulled from S; this functor is fppf sheafified, with a Poincaré bundle after a section rigidifies the relative Picard functor. It is proper over S and commutes with base change. For a fixed curve over algebraically closed k, every component has dimension at least ρ=2d−g−2. The base-point-free locus is open. Generic emptiness is read from this proper parameter scheme, not from an unspecified set of maps.",
-      "hypotheses": [],
+      "statement": "For a smooth proper geometrically connected family B→S of fixed genus satisfying the smooth-case Osserman smoothing-family hypotheses below, and fixed d≥1, construct G¹_d(B/S) representing line bundles of relative degree d with rank-two subbundles V→π_*L whose maps V_T→π_{T*}L_T stay injective after every base change, modulo line bundles pulled from S; this functor is fppf sheafified, with a Poincaré bundle after a section rigidifies the relative Picard functor. It is proper over S and commutes with base change to another such family. The functor itself has cartesian pullback on all test schemes. For a fixed curve over algebraically closed k, every component has dimension at least ρ=2d−g−2. The base-point-free locus is open. Generic emptiness is read from this proper parameter scheme, not from an unspecified set of maps.",
+      "hypotheses": [
+        "For the cited relative construction, restrict to the smooth case of Osserman Definition 3.1: regular connected Noetherian base, flat proper geometrically connected genus-g fibres, and smooth sections meeting each fibre, with section rigidification or fppf descent. Broader-base representability is not asserted from Theorem 5.3.",
+        "d≥1; the zero-degree empty space remains a unit test."
+      ],
       "proofSteps": [
         "Import the Picard and relative Grassmannian carriers; use a high auxiliary divisor to present section spaces and determinantal incidence conditions.",
         "Glue across choices/Picard rigidifications; properness follows from the relative Grassmannian construction with degree fixed. Record the exact Picard representability/specialization request, not a new Picard carrier."
@@ -4141,18 +4231,18 @@
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
       ],
       "acceptance": [
-        "For a smooth proper geometrically connected family B→S of fixed genus and fixed d, construct G¹_d(B/S) representing line bundles of relative degree d with rank-two subbundles V→π_*L whose maps V_T→π_{T*}L_T stay injective after every base change, modulo line bundles pulled from S; this functor is fppf sheafified, with a Poincaré bundle after a section rigidifies the relative Picard functor. It is proper over S and commutes with base change. For a fixed curve over algebraically closed k, every component has dimension at least ρ=2d−g−2. The base-point-free locus is open. Generic emptiness is read from this proper parameter scheme, not from an unspecified set of maps."
+        "For a smooth proper geometrically connected family B→S of fixed genus satisfying the smooth-case Osserman smoothing-family hypotheses below, and fixed d≥1, construct G¹_d(B/S) representing line bundles of relative degree d with rank-two subbundles V→π_*L whose maps V_T→π_{T*}L_T stay injective after every base change, modulo line bundles pulled from S; this functor is fppf sheafified, with a Poincaré bundle after a section rigidifies the relative Picard functor. It is proper over S and commutes with base change to another such family. The functor itself has cartesian pullback on all test schemes. For a fixed curve over algebraically closed k, every component has dimension at least ρ=2d−g−2. The base-point-free locus is open. Generic emptiness is read from this proper parameter scheme, not from an unspecified set of maps."
       ],
       "sources": [
         {
           "sourceId": "bn",
           "locator": "Remark 1.3, p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Remark 1.3 describes a proper Grassmannian/Schubert construction over Pic^d and the expected dimensional lower bound."
         },
         {
           "sourceId": "limit",
-          "locator": "Definitions 4.2–4.5, pp.1173–1175; Lemmas 5.1–5.2 and Theorem 5.3 (smooth case), pp.1176–1180",
-          "match": "Universal injectivity after base change is the correct relative subbundle condition even when π_*L is not locally free. Twisting by a large divisor presents it by Grassmannians and evaluation equations."
+          "locator": "Definition 3.1, p.1170 (smooth case); Definitions 4.2–4.5, pp.1173–1175; Lemmas 5.1–5.2 and Theorem 5.3, pp.1176–1181",
+          "match": "Definitions 3.1/4.2–4.5 and Theorem 5.3 give the precise smooth-family scope, universally injective section subbundles and representability/base-change contracts. Rank is r+1 as recorded in E4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4228,11 +4318,13 @@
       "proofSteps": [
         "Base-change a minimizing finite map; finite degree is preserved.",
         "For the converse take a K-point of the nonempty base-point-free degree-d locus, spread its finite-presentation data to a finitely generated k-algebra, then specialize in its nonempty open locus to a closed point. Algebraic closedness makes the residue field k.",
-        "Equivalently a nonempty finite-type k-scheme of base-point-free pencils has a k-point. Preserve degree before specializing, rather than merely specializing an arbitrary rational formula."
+        "Equivalently a nonempty finite-type k-scheme of base-point-free pencils has a k-point. Preserve degree before specializing, rather than merely specializing an arbitrary rational formula.",
+        "Alternatively use R09.2/hom-representability with projective source B and target P¹: choose the finite-presentation graph-polynomial piece fixing degree d, then specialize a nonempty locus over algebraically closed k. The full Hom scheme is not taken to be finite type."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.6/gonality",
-        "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space"
+        "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
       ],
       "acceptance": [
         "For a field extension K/k and B smooth projective geometrically connected, gon_K(B_K)≤gon_k(B). If k is algebraically closed, equality holds. Extension monotonicity does not imply equality for arbitrary k; a nonsplit conic becomes gonality one after splitting."
@@ -4240,8 +4332,13 @@
       "sources": [
         {
           "sourceId": "abramovich",
-          "locator": "§1.1, p.2; Osserman Remark 1.2(iv), p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "§1.1, p.2",
+          "match": "The geometric gonality convention is unchanged by extension of algebraically closed fields; a finite map also gives extension monotonicity over arbitrary fields."
+        },
+        {
+          "sourceId": "bn",
+          "locator": "Remark 1.2(iv), p.2",
+          "match": "Remark 1.2(iv) gives base-change-compatible linear-series parameter schemes. Finite-presentation descent and an algebraically closed closed point yield the converse degree inequality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4283,7 +4380,7 @@
         {
           "sourceId": "li-yau",
           "locator": "§1 Fact 1 discussion p.272; §2 consequence pp.276–277",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Li–Yau’s g+1 consequence is the algebraically closed degree-one-point argument. The actual pinned Riemann inequality supplies two sections of (g+1)P; the function-field prototype preserves its hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4303,7 +4400,7 @@
       ],
       "title": "Proper smoothing input for limit pencils",
       "kind": "theorem",
-      "statement": "For a regular smoothing of a compact-type curve Y∪_Q Z over a DVR, the limit-pencil moduli scheme is proper, has generic fibre G¹_d of the smooth curve, every component has dimension at least ρ+1, and maps set-theoretically surjectively to pairs of degree-d pencils whose vanishing orders obey a^Y_j+a^Z_{1−j}≥d. The fibre dimension is at most Σ_{j=0}¹(a^Y_j+a^Z_{1−j}−d). Do not assert that this map factors scheme-theoretically through the Eisenbud–Harris locus.",
+      "statement": "For a regular two-component smoothing family in Osserman Definition 3.1/Situation 4.4 over a Noetherian DVR, with split compact-type special fibre Y∪_Q Z and smooth sections meeting both components, the limit-pencil moduli scheme is proper, has generic fibre G¹_d of the smooth curve, every component has dimension at least ρ+1, and its special-fibre aspect map is set-theoretically surjective to pairs of degree-d pencils whose vanishing orders obey a^Y_j+a^Z_{1−j}≥d. The fibre dimension is at most Σ_{j=0}¹(a^Y_j+a^Z_{1−j}−d). Do not assert that this map factors scheme-theoretically through the Eisenbud–Harris locus.",
       "hypotheses": [],
       "proofSteps": [
         "Use the proper linked-linear-series construction cited by Osserman, with the requested nodal smoothing from StableReduction.",
@@ -4314,23 +4411,23 @@
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
       ],
       "acceptance": [
-        "For a regular smoothing of a compact-type curve Y∪_Q Z over a DVR, the limit-pencil moduli scheme is proper, has generic fibre G¹_d of the smooth curve, every component has dimension at least ρ+1, and maps set-theoretically surjectively to pairs of degree-d pencils whose vanishing orders obey a^Y_j+a^Z_{1−j}≥d. The fibre dimension is at most Σ_{j=0}¹(a^Y_j+a^Z_{1−j}−d). Do not assert that this map factors scheme-theoretically through the Eisenbud–Harris locus."
+        "For a regular two-component smoothing family in Osserman Definition 3.1/Situation 4.4 over a Noetherian DVR, with split compact-type special fibre Y∪_Q Z and smooth sections meeting both components, the limit-pencil moduli scheme is proper, has generic fibre G¹_d of the smooth curve, every component has dimension at least ρ+1, and its special-fibre aspect map is set-theoretically surjective to pairs of degree-d pencils whose vanishing orders obey a^Y_j+a^Z_{1−j}≥d. The fibre dimension is at most Σ_{j=0}¹(a^Y_j+a^Z_{1−j}−d). Do not assert that this map factors scheme-theoretically through the Eisenbud–Harris locus."
       ],
       "sources": [
         {
           "sourceId": "bn",
           "locator": "Definition 3.2 p.5; Theorems 3.8,3.11 and Remark 3.9 p.6",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The cited two-component EH compatibility and proper limit-series/excess statements are the exact inputs used by the induction, rather than a scheme-theoretic EH factorization."
         },
         {
           "sourceId": "limit",
-          "locator": "Definition 4.5, pp.1175–1176; Theorem 5.3, pp.1178–1181; Proposition 6.6, pp.1185–1188; Appendix A Definitions A.2/A.4/A.10 and Theorem A.15, pp.1194–1203",
-          "match": "Constructs the proper relative linked-series moduli scheme and its lower-dimensional bound, and gives set-theoretic surjectivity to EH aspects without a general scheme-theoretic factorization."
+          "locator": "Definition 3.1, p.1170; Situation 4.4 and Definition 4.5, pp.1174–1176; Theorem 5.3, pp.1178–1181; Proposition 6.6, pp.1185–1188; Appendix A Definitions A.2/A.4/A.10 and Theorem A.15, pp.1194–1203",
+          "match": "Definition 3.1/Situation 4.4 fixes the smoothing hypotheses; Theorem 5.3 gives proper representability/local dimension, Proposition 6.6 the special-fibre aspect surjectivity, and Appendix A the linked Grassmannian argument."
         },
         {
           "sourceId": "linked",
           "locator": "Theorem 5.3, p.12; Lemma 5.4 and Corollary 5.5, pp.12–14",
-          "match": "Bounds each fibre of the aspect map above by the sum of excess vanishing orders."
+          "match": "Theorem 5.3, Lemma 5.4 and Corollary 5.5 give the endpoint-fibre upper bound by total excess vanishing. Their intermediate incidence strata still need explicit contracts (G5)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4365,7 +4462,7 @@
         {
           "sourceId": "bn",
           "locator": "Theorem 1.1 and Remark 1.2(i) pp.1–2; Lemma 2.1 pp.3–5; induction pp.6–8",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Osserman Theorem1.1 with zero ramification supports the stated characteristic-zero restriction, existence for every curve and generic dimension/emptiness. Marked base cases, linked dimension and smoothing induction remain undecomposed (G5)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4400,7 +4497,7 @@
         {
           "sourceId": "bn",
           "locator": "Theorem 1.1, Remark 1.2(i) pp.1–2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "The arithmetic consequence of Brill–Noether is correct: take ceil((g+2)/2), and exclude finitely many smaller degree loci for general curves. Closure depends on the unresolved moduli/Brill–Noether contracts (G5,G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4428,7 +4525,6 @@
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.6/gonality",
         "HyperbolicCurveVolumesAndGonality:HV.6/riemann-roch-bound",
-        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
       ],
       "acceptance": [
@@ -4437,8 +4533,13 @@
       "sources": [
         {
           "sourceId": "abramovich",
-          "locator": "§1.1, p.2; Osserman Lemma 2.1 pp.3–5",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "§1.1, p.2",
+          "match": "The morphism-degree definition gives the genus-zero rational model as gonality one. The degree-one isomorphism implication is supplied by the algebraic curve dictionary."
+        },
+        {
+          "sourceId": "bn",
+          "locator": "Lemma 2.1, pp.3–5",
+          "match": "The genus-zero/one linear-series base cases are consistent with the elementary algebraically closed RR checks. The packet derives gonality two for genus one separately."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4471,7 +4572,7 @@
         {
           "sourceId": "li-yau",
           "locator": "§1 equation (1.1), p.271",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Li–Yau defines source-area of a branched conformal immersion, so multiplicity and exclusion of constants matter. Actual round-sphere, branched-map, area compatibility APIs and tests are not prototyped (G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4559,7 +4660,7 @@
         {
           "sourceId": "li-yau",
           "locator": "§1 equations (1.2)–(1.4) p.271, Facts 2,4 and (1.8) pp.272–273",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Li–Yau’s sup over ambient conformal maps and inf over admissible immersions give the n-dependent/stable invariant, with ENNReal empty-inf convention. The carrier, embedding functoriality and tests are absent (G6,G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4652,14 +4753,17 @@
         {
           "sourceId": "li-yau",
           "locator": "§1 Facts 1–4, pp.271–273; §3 Proposition 1, p.279; Corollary 4, pp.282–283",
-          "match": "Degree functoriality and dimension monotonicity supply the upper-envelope argument; the equatorial sphere specialization of the minimal-surface computation gives 4π in each ambient dimension."
+          "match": "Li–Yau’s degree inequality and sphere value yield A_c≤4πgon. The higher-dimensional equatorial sphere comparison and actual algebraic/analytic degree bridge remain explicit gaps (G6,G12)."
         }
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/Analysis/Complex/HyperbolicVolumes/HV7",
         "namespace": "TauCeti.HyperbolicVolumes"
-      }
+      },
+      "upstreamPrerequisites": [
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/ModularForms/README.md#L1068"
+      ]
     },
     {
       "id": "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom",
@@ -4669,23 +4773,23 @@
       ],
       "title": "Variational spectral bottom",
       "kind": "definition",
-      "statement": "For a finite-area metric on M minus a finite singular set, take the infimum λ′₁ of E_h(u)/∫u²dμ_h over nonzero real functions in the closed Dirichlet-form domain with ∫u dμ_h=0. E_h is the integral of |∇u|², with the weak gradient obtained by closure of compactly supported smooth functions and constants. Use the Friedrichs nonnegative Laplacian. In the smooth compact case this is λ₁. In the cofinite hyperbolic case it is min(λ_disc,1/4) when a positive discrete eigenvalue exists, and 1/4 otherwise.",
+      "statement": "For a finite-area metric on M minus a finite singular set, take the infimum λ′₁ of E_h(u)/∫u²dμ_h over nonzero real functions in the closed Dirichlet-form domain with ∫u dμ_h=0. E_h is the integral of |∇u|², with the weak gradient obtained by closure of compactly supported smooth functions and constants. The nonnegative Friedrichs operator is −laplaceBeltrami because DifferentialGeometry defines laplaceBeltrami=div∘grad. Closability, the closed-form/Friedrichs correspondence and compact spectral realization are additional analytic proof inputs, not consequences supplied by DifferentialGeometry Layer 12; see G10. In the smooth compact case this is λ₁. In the cofinite hyperbolic case it is min(λ_disc,1/4) when a positive discrete eigenvalue exists, and 1/4 otherwise.",
       "hypotheses": [],
       "proofSteps": [
-        "Import the Riemannian gradient/Green identity from DifferentialGeometry; close the quadratic form on L².",
+        "Import gradient and Green identity from DifferentialGeometry Layer 12 with its div∘grad sign. Specify and prove closability and the Friedrichs representation for the chosen finite-area surface form, including constants; this and compact positive-eigenvalue realization are the explicit analytic gap G10.",
         "The variational characterization is the needed consumer interface. Continuous-spectrum identification belongs to the automorphic supplier, not this definition."
       ],
       "prerequisites": [
         "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area"
       ],
       "acceptance": [
-        "For a finite-area metric on M minus a finite singular set, take the infimum λ′₁ of E_h(u)/∫u²dμ_h over nonzero real functions in the closed Dirichlet-form domain with ∫u dμ_h=0. E_h is the integral of |∇u|², with the weak gradient obtained by closure of compactly supported smooth functions and constants. Use the Friedrichs nonnegative Laplacian. In the smooth compact case this is λ₁. In the cofinite hyperbolic case it is min(λ_disc,1/4) when a positive discrete eigenvalue exists, and 1/4 otherwise."
+        "For a finite-area metric on M minus a finite singular set, take the infimum λ′₁ of E_h(u)/∫u²dμ_h over nonzero real functions in the closed Dirichlet-form domain with ∫u dμ_h=0. E_h is the integral of |∇u|², with the weak gradient obtained by closure of compactly supported smooth functions and constants. The nonnegative Friedrichs operator is −laplaceBeltrami because DifferentialGeometry defines laplaceBeltrami=div∘grad. Closability, the closed-form/Friedrichs correspondence and compact spectral realization are additional analytic proof inputs, not consequences supplied by DifferentialGeometry Layer 12; see G10. In the smooth compact case this is λ₁. In the cofinite hyperbolic case it is min(λ_disc,1/4) when a positive discrete eigenvalue exists, and 1/4 otherwise."
       ],
       "sources": [
         {
           "sourceId": "abramovich",
           "locator": "§§1.4–1.5, p.2",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Abramovich distinguishes the cofinite positive spectral bottom from a first discrete eigenvalue. Corrected the Laplacian sign; closed-form/Friedrichs/compact-spectrum contracts and all global APIs/tests are missing (G10,G11)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4780,7 +4884,7 @@
         {
           "sourceId": "li-yau",
           "locator": "Theorem 1 proof, (2.4)–(2.5), p.274",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Li–Yau’s ball-of-conformal-transformations argument uses nonatomic image measure and the no-retraction theorem. Current DifferentialGeometry Layer10 owns Brouwer; the point-mass non-example prevents dropping the measure hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4820,8 +4924,13 @@
       "sources": [
         {
           "sourceId": "li-yau",
-          "locator": "Theorem 1 (2.6)–(2.9), pp.274–275; Abramovich §1.6 p.3",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "Theorem 1, (2.6)–(2.9), pp.274–275",
+          "match": "Theorem 1 equations (2.6)–(2.9) use the conformal coordinate energy identity with factor two and the unit-sphere sum of squares."
+        },
+        {
+          "sourceId": "abramovich",
+          "locator": "§1.6, p.3",
+          "match": "Section 1.6 explains conformal energy finiteness for the singular metric. Membership in the chosen closed Dirichlet-form domain is a further cutoff contract recorded in G7."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4855,8 +4964,13 @@
       "sources": [
         {
           "sourceId": "li-yau",
-          "locator": "Theorem 1 inequality (2.1) pp.273–275; Abramovich §§1.6–1.7 p.3",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "locator": "Theorem 1, inequality (2.1), pp.273–275",
+          "match": "Theorem 1 gives λ₁Area≤2V_c(n,M); taking the stable infimum and the sphere-degree bound yields λ₁Area≤8πgon."
+        },
+        {
+          "sourceId": "abramovich",
+          "locator": "§§1.6–1.7, p.3",
+          "match": "Sections 1.6–1.7 extend the Rayleigh argument to the cofinite singular metric with λ′₁. The form-domain/realization details remain explicit obligations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4866,7 +4980,10 @@
       },
       "planet": {
         "name": "Li–Yau gonality inequality"
-      }
+      },
+      "upstreamPrerequisites": [
+        "https://github.com/TauCetiProject/TauCetiRoadmap/blob/070dc2becd74419e76303ede84b465ed4a69461f/TauCetiRoadmap/ModularForms/README.md#L1068"
+      ]
     },
     {
       "id": "HyperbolicCurveVolumesAndGonality:HV.7/congruence-application",
@@ -4894,7 +5011,7 @@
         {
           "sourceId": "abramovich",
           "locator": "Theorem 0.1 p.1; §§1.5,1.7 pp.2–3",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "Abramovich’s substitution gives cArea/(8π), and πD/3 gives cD/24. The automorphic gap has no assigned supplier stage, so the final application remains conditional rather than assumed (G8)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4928,7 +5045,7 @@
         {
           "sourceId": "bt",
           "locator": "Equation (5) and equation (7), p.733",
-          "match": "Supplies the stated construction or proof input, with the normalization and scope specified here."
+          "match": "BT’s closed μ expression gives leading factor 1/[4(1−|z|²)²]. Replaced the Lean diagonal-value-only stub with the punctured-neighborhood asymptotic; a finite Real.log convention does not supply the pole."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4949,14 +5066,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-1-elliptic-points-and-coarse-quotient-charts",
-      "need": "Cyclic elliptic quotient charts and their metric-density descent, degree m and area division by m.",
+      "need": "Import the cyclic elliptic quotient chart u=z^m, its local multiplicity m and transition law. The metric density/area division by m is derived in this packet’s quotient-area comparison using that chart and finite-map change of variables; Layer 1 itself asserts no metric descent theorem.",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
-      "need": "Geodesic midpoints and disc isometry normalization; invariant-measure/Riemannian area comparison; measurable fundamental domains and modular area πD/3.",
+      "need": "Import disc isometry/geodesic normalization, invariant measure/Riemannian comparison, measurable fundamental domains and the polygon Gauss–Bonnet formula. The modular covolume π/3 is obtained from the usual modular polygon and scaled by index; it is not a named modular-area theorem already supplied by Layer 2.",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area",
         "HyperbolicCurveVolumesAndGonality:HV.2/compact-injectivity",
@@ -4984,11 +5101,10 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
-      "need": "Finite nonconstant holomorphic map local orders, degree/fibre sums and degree-one biholomorphism, compatible with algebraic degrees.",
+      "need": "Import finite nonconstant holomorphic maps, local normal-form multiplicities, fibre-sum degree and degree-one biholomorphism. This module uses topological genus and explicitly supplies no analytic/algebraic genus comparison. Compare algebraic map degree separately through analytification/local orders (G12).",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.2/branch-multiplicity",
         "HyperbolicCurveVolumesAndGonality:HV.2/finite-pushforward",
-        "HyperbolicCurveVolumesAndGonality:HV.6/small-gonality",
         "HyperbolicCurveVolumesAndGonality:HV.7/sphere-degree"
       ]
     },
@@ -5019,7 +5135,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Proper curve/Cartier-divisor intersection and line-bundle degree on smooth projective products; analytic normalization orders agree with proper algebraic diagonal intersection. No intersection with barΔ or Cartier interpretation of Δ₂.",
+      "need": "Import SF.5/first-chern, cartier-gysin, degree and curve-product-graphs on smooth projective products. These give algebraic Cartier intersection and degree, including Δ²=2−2g. Identification with holomorphic normalization orders is a new comparison using ComplexComparison C0/C2/C4, not a theorem already stated by SF.5. No Cartier intersection with barΔ or codimension-two Δ₂ is requested.",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
         "HyperbolicCurveVolumesAndGonality:HV.3/canonical-area",
@@ -5043,7 +5159,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
-      "need": "Projective bundles and relative Grassmannians with universal rank-two subbundles and base-change, needed to construct the pencil incidence scheme.",
+      "need": "Import R09.1/coherent-grassmannian, grassmann-smoothness and rank-locus: the source uses rank-d quotients, so a rank-two subbundle of a rank-N bundle is the kernel of its rank-(N−2) quotient. Retain the universal bundle, determinantal equations and arbitrary base change; do not presume R09.1 constructs a Picard scheme.",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.6/pencils",
         "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space"
@@ -5051,9 +5167,8 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
-      "need": "Picard parameter space and representability for smooth proper curve families, plus finite-type descent and specialization of a nonempty base-point-free locus with fixed degree. This request extends the existing moduli supplier; it does not presume its current packet already proves this contract.",
+      "need": "R09.2/hom-representability supplies the graph-open Hom scheme for projective flat source and quasi-projective target over a Noetherian base; each fixed graph-polynomial piece is of finite presentation. It is an alternative degree-d parameter for the base-change argument, after checking that the chosen graph polynomial fixes degree. The full Hom scheme is not finite type. Picard representability is imported from JacobianChallenge D, not requested from R09.2.",
       "neededBy": [
-        "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space",
         "HyperbolicCurveVolumesAndGonality:HV.6/base-change"
       ]
     },
@@ -5070,7 +5185,7 @@
         "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space",
         "HyperbolicCurveVolumesAndGonality:HV.6/limit-pencil-input"
       ],
-      "need": "Relative degree-d Picard schemes for smooth projective families and compact-type two-component families; properness, fppf descent, base change and Poincaré bundles after section rigidification. Quotient Pic(X_T)/Pic(T) alone is not representable without handling its sheafification/obstruction."
+      "need": "Import the fppf-sheafified Picard functor, section rigidification/Poincaré bundle and proper Pic⁰ from Layer D for smooth projective geometrically connected families; Pic^d is a proper torsor when available. Layer D states geometrically integral fibres. The compact-type reducible family needs an extension giving fixed-multidegree Picard components and their base-change/properness contracts (G5); the total-degree union of all multidegrees is not asserted proper."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
@@ -5079,6 +5194,32 @@
         "HyperbolicCurveVolumesAndGonality:HV.6/limit-pencil-input"
       ],
       "need": "High-divisor twisting, vanishing of R¹π_*L(D), locally free π_*L(D), arbitrary-base-change compatibility and evaluation maps along flat effective Cartier divisors for the Grassmannian construction."
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C0",
+      "need": "Import C0/noetherian-germs (including quotients) for local analytic normalization, and C0/holomorphic-bundle-dictionary for the existing holomorphic line-bundle carrier. Finite universal denominators and analytic normalization closure remain G1, rather than being attributed to coherent GAGA.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C1",
+      "need": "Reuse the Hermitian holomorphic bundle/Chern-connection input of C1/bochner-kodaira. This packet plans the rank-one ddᶜ normalization, metric change and compact curve degree comparison, not another bundle or Chern-connection theory. C1 does not itself assert the required algebraic degree integral.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "Import C5/analytic-cycle-integration, closed-current-extension and chern-fubini-study-intersection. This packet compares weighted curve-normalization integration with that existing integration current and fixes the curvature −1/ddᶜ convention; it does not re-plan Lelong integration, Skoda–El Mir extension or general Chern–Weil/intersection comparison. Reconcile the shared current/analytic-cycle carriers before seeding signatures.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/effective-cycle",
+        "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
+        "HyperbolicCurveVolumesAndGonality:HV.3/integration-current",
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
+        "HyperbolicCurveVolumesAndGonality:HV.3/canonical-area"
+      ]
     }
   ],
   "coverage": [
@@ -5096,14 +5237,17 @@
       "stageId": "HyperbolicCurveVolumesAndGonality:HV.2",
       "status": "planned",
       "remaining": [
-        "Close analytic local-algebra input G1; reconcile imported current DifferentialGeometry stage IDs G9."
+        "Close analytic local-algebra input G1; reconcile imported current DifferentialGeometry stage IDs G9.",
+        "Complete actual global signatures and packet API/test agreement (G11)."
       ]
     },
     {
       "stageId": "HyperbolicCurveVolumesAndGonality:HV.3",
       "status": "planned",
       "remaining": [
-        "Complete the global carrier-dependent current, analytic-cycle and Hermitian-bundle signatures (G1/G9). The diagonal Hessian proof is explicit; LF coefficient topology is pinned baseline."
+        "Complete the global carrier-dependent current, analytic-cycle and Hermitian-bundle signatures (G1/G9). The diagonal Hessian proof is explicit; LF coefficient topology is pinned baseline.",
+        "Complete actual global signatures and packet API/test agreement (G11).",
+        "State the compact analytic/algebraic model and degree adapters (G12), without re-planning C5 integration/Chern comparison."
       ]
     },
     {
@@ -5117,21 +5261,26 @@
       "stageId": "HyperbolicCurveVolumesAndGonality:HV.5",
       "status": "planned",
       "remaining": [
-        "Instantiate the global current/normalization suppliers and singular Stokes branch limits from HV.2–HV.4."
+        "Instantiate the global current/normalization suppliers and singular Stokes branch limits from HV.2–HV.4.",
+        "Complete actual global signatures and packet API/test agreement (G11)."
       ]
     },
     {
       "stageId": "HyperbolicCurveVolumesAndGonality:HV.6",
       "status": "planned",
       "remaining": [
-        "Decompose the now-read proper linked-series inputs G5 and prototype the relative Picard/Grassmannian contracts."
+        "Decompose the now-read proper linked-series inputs G5 and prototype the relative Picard/Grassmannian contracts.",
+        "Complete actual global signatures and packet API/test agreement (G11)."
       ]
     },
     {
       "stageId": "HyperbolicCurveVolumesAndGonality:HV.7",
       "status": "planned",
       "remaining": [
-        "Close the higher-dimensional equatorial-sphere value G6 and cusp form-domain cutoff G7; attach actual congruence-gap stage G8 and current upstream signatures G9."
+        "Close the higher-dimensional equatorial-sphere value G6 and cusp form-domain cutoff G7; attach actual congruence-gap stage G8 and current upstream signatures G9.",
+        "Complete actual global signatures and packet API/test agreement (G11).",
+        "Assign and state the analytic closed-form/compact-spectrum contracts G10, with the −laplaceBeltrami sign.",
+        "State the compact analytic/algebraic model and degree adapters (G12), without re-planning C5 integration/Chern comparison."
       ]
     }
   ],
@@ -5143,7 +5292,7 @@
         "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
         "HyperbolicCurveVolumesAndGonality:HV.2/effective-cycle"
       ],
-      "detail": "Demailly II (7.12) uses analytic local-ring Noetherianity, finite universal denominators, and the analytic closure theorem II (5.4). These are not supplied by algebraic GAGA. The normalization target and full API/tests are planned, but these foundational proof inputs need precise local analytic-algebra nodes or an identified owner. No closure is claimed."
+      "detail": "ComplexComparisonPartII C0/noetherian-germs supplies analytic local-ring Noetherianity. Demailly II (7.12) also uses finite universal denominators and analytic closure theorem II (5.4); neither follows from algebraic GAGA or Noetherianity alone. Identify their exact supplier contracts or plan the local analytic-algebra targets. The normalization API/tests are specified, but closure is not claimed."
     },
     {
       "id": "G3",
@@ -5168,7 +5317,7 @@
         "HyperbolicCurveVolumesAndGonality:HV.6/limit-pencil-input",
         "HyperbolicCurveVolumesAndGonality:HV.6/brill-noether"
       ],
-      "detail": "The original primary inputs are now read: Osserman 2006 Definition 4.5/Theorem 5.3/Proposition 6.6 and Appendix A, plus math/0605372 §5 Corollary 5.5. The target-level limit-pencil node is exact, but full linked-Grassmannian definitions, exactness/open-density/tangent-dimension APIs and the endpoint-fibre stratification need their own nodes and checked prototypes. Smoothing requires the explicit StableReduction extension request. No source-access gap remains for these inputs."
+      "detail": "The original primary inputs are now read: Osserman 2006 Definition 4.5/Theorem 5.3/Proposition 6.6 and Appendix A, plus math/0605372 §5 Corollary 5.5. The target-level limit-pencil node is exact, but full linked-Grassmannian definitions, exactness/open-density/tangent-dimension APIs and the endpoint-fibre stratification need their own nodes and checked prototypes. Smoothing requires the explicit StableReduction extension request. No source-access gap remains for these inputs. JacobianChallenge D does not cover reducible fibres: the fixed-multidegree Picard comparison is an extension, and arbitrary total-degree Picard components are not proper. The Brill–Noether proof also needs its genus-zero/one marked base cases and the Schubert/endpoint incidence dimension contracts rather than a bare unramified induction."
     },
     {
       "id": "G6",
@@ -5205,7 +5354,56 @@
         "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom",
         "HyperbolicCurveVolumesAndGonality:HV.7/balancing"
       ],
-      "detail": "Current DifferentialGeometry at commit 070dc2becd74419e76303ede84b465ed4a69461f supplies layers 0,1,5,6,10,11,12. Their exact public URL contracts are in upstreamPrerequisites/upstreamRequests, since these stage IDs are absent from the atlas and cannot be added to this issue’s allowlist. The boundary is an import, never a duplicate set of smooth-form/Stokes/Laplacian targets. Suggested signatures use existing local Mathlib types; global contracts are not replaced by arbitrary predicates."
+      "detail": "Current DifferentialGeometry at commit 070dc2becd74419e76303ede84b465ed4a69461f supplies layers 0,1,5,6,10,12. Their exact public URL contracts are in upstreamPrerequisites/upstreamRequests, since these stage IDs are absent from the atlas and cannot be added to this issue’s allowlist. The boundary is an import, never a duplicate set of smooth-form/Stokes/Laplacian targets. Suggested signatures use existing local Mathlib types; global contracts are not replaced by arbitrary predicates."
+    },
+    {
+      "id": "G10",
+      "title": "Closed Dirichlet form and compact spectral realization",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom",
+        "HyperbolicCurveVolumesAndGonality:HV.7/energy-area",
+        "HyperbolicCurveVolumesAndGonality:HV.7/li-yau"
+      ],
+      "detail": "DifferentialGeometry Layer 12 gives gradient and Green identity with laplaceBeltrami=div∘grad. It explicitly leaves analytic theory to PDE. The atlas PDE roadmap inspected does not state the required global finite-area surface form realization. Supply precise closability, Friedrichs representation for −laplaceBeltrami, and first positive compact eigenvalue/Rayleigh identification contracts; coordinate functions also need the G7 form-domain approximation. The cofinite positive-spectrum threshold and congruence gap still belong to the external automorphic request G8. No unassigned surface spectral theorem is counted as an import."
+    },
+    {
+      "id": "G11",
+      "title": "Global signatures and API/test agreement",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area",
+        "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
+        "HyperbolicCurveVolumesAndGonality:HV.2/effective-cycle",
+        "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
+        "HyperbolicCurveVolumesAndGonality:HV.2/branch-multiplicity",
+        "HyperbolicCurveVolumesAndGonality:HV.2/compact-injectivity",
+        "HyperbolicCurveVolumesAndGonality:HV.3/test-forms",
+        "HyperbolicCurveVolumesAndGonality:HV.3/currents",
+        "HyperbolicCurveVolumesAndGonality:HV.3/positive-currents",
+        "HyperbolicCurveVolumesAndGonality:HV.3/psh",
+        "HyperbolicCurveVolumesAndGonality:HV.3/ddc",
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
+        "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-tube",
+        "HyperbolicCurveVolumesAndGonality:HV.5/conjugate-tube",
+        "HyperbolicCurveVolumesAndGonality:HV.6/gonality",
+        "HyperbolicCurveVolumesAndGonality:HV.6/pencils",
+        "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space",
+        "HyperbolicCurveVolumesAndGonality:HV.7/branched-conformal-map",
+        "HyperbolicCurveVolumesAndGonality:HV.7/conformal-area",
+        "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom"
+      ],
+      "detail": "The suggested file supplies local scalar, density, parameterization, chart-distribution and Hessian models plus a function-field gonality minimum. These are useful but do not state the global manifold test-form/current assembly, positive-current and psh carriers, effective-cycle/normalization/line-bundle constructors, surface/pencil/moduli/conformal-map carriers, or their full declared APIs and tests. No abstract desired estimate may be substituted for these carriers. The review report inventories missing packet names. Complete these actual signatures and consumer comparisons before calling the design ready to package."
+    },
+    {
+      "id": "G12",
+      "title": "Compact analytic/algebraic curve and degree comparison",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3/canonical-area",
+        "HyperbolicCurveVolumesAndGonality:HV.7/sphere-degree",
+        "HyperbolicCurveVolumesAndGonality:HV.7/li-yau",
+        "HyperbolicCurveVolumesAndGonality:HV.7/congruence-application",
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature"
+      ],
+      "detail": "AlgebraicCurves Layer 12 compares function fields with algebraic models and explicitly excludes compact Riemann-surface comparison. Fuchsian Layer 5 gives analytic degree/topological genus; ModularForms 10B gives analytic RR and analytic/topological genus and explicitly excludes algebraic comparison. Import these existing inputs plus ComplexComparison C0/C2/C4, but state the actual projective algebraization, preservation of local orders/map degree, and genus adapters needed by these consumers. Proper GAGA alone starts with an algebraic source and does not algebraize an arbitrary compact Riemann surface. C5 already owns general analytic-cycle integration and Chern/intersection comparison: only normalization and hyperbolic convention adapters are new here."
     }
   ],
   "sourceIssues": [
@@ -5223,7 +5421,12 @@
       ],
       "id": "HyperbolicCurveVolumesAndGonality/E1",
       "source": "erratum",
-      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E4"
+      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E4",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+        "reason": "Independently read the full author erratum: increasing V(r)/sinh r gives V(r)≤sinh(r)/sinh(R)·V(R), so the reciprocal in the final Proposition 4.1 proof step is reversed."
+      }
     },
     {
       "kind": "misprint",
@@ -5239,62 +5442,123 @@
       ],
       "id": "HyperbolicCurveVolumesAndGonality/E2",
       "source": "bt",
-      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E10"
+      "relatedFinding": "PAPER-BAKKER-TSIMERMAN-16/E10",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+        "reason": "Independently expanded χ/(1−χ)=|z−w|²/((1−|z|²)(1−|w|²)) with dᶜ=i(∂̄−∂)/(4π). Differentiating the smooth logarithm has coefficient −1, yielding ω/(4π)+[Δ]; the extra reciprocal 2π in the two intermediate printed lines is inconsistent."
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality/E3",
+      "source": "demailly",
+      "kind": "error",
+      "locator": "June 21, 2012 author book, I (2.14)(b), p.17, compared with I (2.6), p.15 and (2.13), p.16; visual PDF page checked.",
+      "printed": "Bare current pushforward is asserted to commute with d for arbitrary oriented real source and target manifolds.",
+      "correction": "With the preceding degree-sign definition and unsigned pushforward pairing, d(f_*T)=(−1)^(n−m)f_*(dT) for f:M^m→N^n. Ordinary commutation holds when n−m is even, including holomorphic maps. A dimension-sign current differential would be a different convention.",
+      "reason": "Pushforward preserves current dimension and changes degree q to q+n−m. The two defining signs therefore differ by (−1)^(n−m). For proper inclusion i:ℝ→ℝ², t↦(t,0), and T=[0,1], I (2.7) gives dT=δ₀−δ₁ and d(i_*T)=δ_(1,0)−δ_(0,0), the negative of i_*(dT).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Author June 21, 2012 public PDF, I (2.6), (2.7), (2.13), (2.14); no local qualification to even dimension.",
+        "Searches for Demailly (2.14) current-pushforward sign errata on the author domain and publicly indexed errata, 2026-10-11, found no correction. Author homepage/manuscript index endpoints were inaccessible; no claim of an exhaustive errata search."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+        "reason": "The degree-shift computation and the compact interval integration-current counterexample independently give the odd-parity sign. The complex-manifold specialization used for holomorphic cycles remains valid."
+      }
+    },
+    {
+      "id": "HyperbolicCurveVolumesAndGonality/E4",
+      "source": "limit",
+      "kind": "misprint",
+      "locator": "Published AIF 56 (2006), Definition 4.5 cases (1)–(3), p.1175, compared with Definition 2.1, p.1168 and Theorem 5.3 proof, pp.1180–1181; visual PDF page checked.",
+      "printed": "The subbundles parametrizing a degree-d, dimension-r linear series are assigned rank r in all three cases.",
+      "correction": "Their rank is r+1 in the paper’s g_d^r convention, so a pencil has rank two. Generic rank-r linked Grassmannians in Appendix A use their own rank parameter and are unaffected.",
+      "reason": "Definition 2.1 fixes dimension r as an (r+1)-dimensional section space. The representability/dimension proof counts rank V=r+1 and uses (r+1)-st exterior powers. On ℙ¹ a g¹₁ uses all two sections of O(1), whereas rank-one subspaces parameterize a different object.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published publisher PDF and journal metadata/DOI record, 2026-10-11.",
+        "The arXiv math/0407496 PDF served 2026-10-11 also retains rank r in Definition 4.5 (SHA-256 ad56a473fb2438847e666e468265a6c032b6b7187433ad317aefe22677a8e639).",
+        "Public searches for Osserman limit-linear-series moduli-scheme rank errata found no correction; author research endpoints were inaccessible."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+        "reason": "Compared the actual typesetting with the initial linear-series convention and the rank count in Theorem 5.3. The packet already uses rank two for pencils; this finding records the source slip rather than changing the intended theorem."
+      }
     }
   ],
   "sourceVersions": [
     {
-      "kind": "Annals of Mathematics 184 (2016), no.3, 709–744, published version",
+      "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p02-p.pdf",
       "read": "2026-10-11",
-      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a"
+      "sha256": "814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "edition": "Annals of Mathematics 184 (2016), no.3, 709–744, published version"
     },
     {
-      "kind": "Undated five-page author erratum; no publication date inferred",
+      "kind": "author copy",
       "url": "https://benjamin-bakker.github.io/P.torsion.erratum.pdf",
       "read": "2026-10-11",
-      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1"
+      "sha256": "db8effa1d3ef6a96c843e8ffad085a0ad03cd86a486f5e6cc3956bd14352acc1",
+      "edition": "Undated five-page author erratum; no publication date inferred"
     },
     {
-      "kind": "Version of Thursday June 21, 2012",
+      "kind": "author copy",
       "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/source_files/analgeom/agbook.pdf",
       "read": "2026-10-11",
-      "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f"
+      "sha256": "f41eb026184088b5b14e3127a0bf693e6c51e176a63a8896ffd6e0818db8098f",
+      "edition": "Version of Thursday June 21, 2012"
     },
     {
-      "kind": "arXiv alg-geom/9609012v1 (16 September 1996); regenerated internal heading October 23, 2018",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/alg-geom/9609012",
       "read": "2026-10-11",
-      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779"
+      "sha256": "5ff2134fbfb6bd702fa7051637027405c8e0d77a595830a63e8ad36f50791779",
+      "edition": "arXiv alg-geom/9609012v1 (16 September 1996); regenerated internal heading October 23, 2018"
     },
     {
-      "kind": "Inventiones mathematicae 69 (1982), 269–291; public scanned PDF viewed through browser",
+      "kind": "published",
       "url": "https://math.jhu.edu/~js/Math748/li-yau.conformal.pdf",
-      "read": "2026-10-11"
+      "read": "2026-10-11",
+      "edition": "Inventiones mathematicae 69 (1982), 269–291; public scanned PDF viewed through browser"
     },
     {
-      "kind": "arXiv:1108.4967v1, 24 August 2011",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1108.4967",
       "read": "2026-10-11",
-      "sha256": "4c41acaea0191139128490abdd9dda29813c6f9551e75008fc6d015fb93be62b"
+      "sha256": "4c41acaea0191139128490abdd9dda29813c6f9551e75008fc6d015fb93be62b",
+      "edition": "arXiv:1108.4967v1, 24 August 2011"
     },
     {
-      "kind": "Published Annales de l’Institut Fourier 56 (2006), 1165–1205",
+      "kind": "published",
       "url": "https://aif.centre-mersenne.org/item/10.5802/aif.2209.pdf",
       "read": "2026-10-11",
-      "sha256": "f27d7b75d5ad834d460920b9ae6dd91964548a9df8c1a5a606511403f2a585fe"
+      "sha256": "f27d7b75d5ad834d460920b9ae6dd91964548a9df8c1a5a606511403f2a585fe",
+      "edition": "Published Annales de l’Institut Fourier 56 (2006), 1165–1205"
     },
     {
-      "kind": "arXiv author preprint math/0605372",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0605372",
       "read": "2026-10-11",
-      "sha256": "4561bae659f418f5498a84688a048e6fe4fac6cf11ac4cdecde56e9af571d460"
+      "sha256": "4561bae659f418f5498a84688a048e6fe4fac6cf11ac4cdecde56e9af571d460",
+      "edition": "arXiv author preprint math/0605372"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0407496",
+      "read": "2026-10-11",
+      "sha256": "ad56a473fb2438847e666e468265a6c032b6b7187433ad317aefe22677a8e639",
+      "scope": "Only Definition 4.5 was checked as an existing-correction search for E4. The finding is against the separately recorded published version."
     }
   ],
   "libraryAudit": {
     "read": "2026-10-11",
     "file": "data/library-coverage.json",
-    "notes": "Read reviewed Fuchsian 0–5 and AlgebraicCurves 4/5/7/12, SF.5 and complex-comparison boundaries. Read current DifferentialGeometry and AlgebraicVectorBundles for new ownership, Fuchsian and ConformalMapping complete documents. Local density and metric APIs are imported at pins; actual Riemann-surface degrees at current TauCeti are beyond f790474 and remain upstream contracts."
+    "notes": "Independently read reviewed AUDIT-01 AlgebraicCurves Layers 4/5/7/12 and SF.5, and AUDIT-06 FuchsianOrbifolds Layers 0–5. Function-field Riemann–Roch is built and imported; scheme/analytic degree comparison, quotient compactification and general intersections are supplier targets rather than pinned facts. Read complete current FuchsianOrbifolds and ConformalMapping documents, plus DifferentialGeometry ordinary forms/Stokes/degree and Layer 12 signatures, and AlgebraicVectorBundles analytic/topological realization boundaries at 070dc2becd74419e76303ede84b465ed4a69461f. Read current TauCeti riemannianVolume, its chart uniqueness and UpperHalfPlane.riemannianVolume_eq_volume at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039: reuse these without introducing a second smooth measure. Brouwer degree/no-retraction is DifferentialGeometry Layer 10, not 11. Gradient/Green formula alone does not supply the closed-form/spectral claims; G10 records that boundary. Also read exact ComplexComparison C0/C1/C2/C4/C5, R09.1 Grassmannian/rank loci and R09.2 Hom statements, and current JacobianChallenge C/D, StableReduction3, AlgebraicCurves12 and ModularForms10B. Existing C5 integration/Chern targets are imports; G12 records the analytic/algebraic adapter boundary."
   },
   "upstreamRequests": [
     {
@@ -5306,16 +5570,30 @@
         5,
         6,
         10,
-        11,
         12
       ],
-      "need": "Use RoughForm/SmoothForm, mextDeriv, integralTopForm and ordinary Stokes, de Rham integration, degree/Brouwer no-retraction, Riemannian measure and gradient/LaplaceBeltrami. These are actual current roadmap targets read in README and Suggested.lean, not existing pinned declarations.",
+      "need": "Use RoughForm/SmoothForm, mextDeriv, integralTopForm and ordinary Stokes, de Rham integration, degree/Brouwer no-retraction, Riemannian measure and gradient/LaplaceBeltrami. These are actual current roadmap targets read in README and Suggested.lean, not existing pinned declarations. Layer 10 supplies Brouwer; Layer 11 is not used. The nonnegative analytic spectral operator is the negative of Layer 12 laplaceBeltrami.",
       "neededBy": [
         "HyperbolicCurveVolumesAndGonality:HV.3/test-forms",
         "HyperbolicCurveVolumesAndGonality:HV.3/currents",
         "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
         "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom",
-        "HyperbolicCurveVolumesAndGonality:HV.7/balancing"
+        "HyperbolicCurveVolumesAndGonality:HV.7/balancing",
+        "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area"
+      ]
+    },
+    {
+      "supplier": "ModularForms",
+      "commit": "070dc2becd74419e76303ede84b465ed4a69461f",
+      "layers": [
+        "10B"
+      ],
+      "need": "Import compact-Riemann-surface analytic Riemann–Roch, meromorphic sections of holomorphic line bundles, and analyticGenus_eq_topologicalGenus. Its own README excludes the analytic/algebraic comparison. The projective algebraization and algebraic/analytic map-degree/genus adapters remain explicit new contracts in G12.",
+      "neededBy": [
+        "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
+        "HyperbolicCurveVolumesAndGonality:HV.3/canonical-area",
+        "HyperbolicCurveVolumesAndGonality:HV.7/sphere-degree",
+        "HyperbolicCurveVolumesAndGonality:HV.7/li-yau"
       ]
     }
   ],
@@ -5331,7 +5609,403 @@
     {
       "title": "Current subharmonic carrier beyond the pin",
       "note": "Current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 has continuous real-valued SubharmonicOn in Analysis/InnerProductSpace/Harmonic/Subharmonic.lean, absent at f790474. Reuse when available; it does not supply extended-real psh functions with logarithmic poles."
+    },
+    {
+      "title": "Relative moduli and analytic bundle ownership",
+      "note": "The independent review read ComplexComparison C0/C1/C2/C4 and R09.1/R09.2 supplier statements. C0 owns analytic local-ring Noetherianity and the holomorphic-bundle dictionary; C1 uses the shared Chern connection. R09.2 owns Hom graph representability, not Picard schemes. JacobianChallenge D owns smooth integral-family Picard theory; fixed-multidegree compact-type reducible Picard components require an extension."
+    },
+    {
+      "title": "Existing C5 integration/Chern ownership and curve comparison",
+      "note": "The review found C5/analytic-cycle-integration, closed-current-extension and chern-fubini-study-intersection in the accepted ComplexComparison packet. They are imported; HV.3 retains normalization/hyperbolic convention comparisons. Current AlgebraicCurves Layer 12 and ModularForms 10B both exclude the analytic/algebraic curve comparison, so G12 records the missing adapters explicitly. No existing roadmap file is changed."
     }
   ],
-  "planningLevel": "target"
+  "planningLevel": "target",
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-DESIGN-HyperbolicCurveVolumesAndGonality",
+    "date": "2026-10-11",
+    "notes": "Completed independent review of all 76 nodes, all 24 exact-pin baseline declarations, source locators and four source findings, API/test/prototype agreement and supplier ownership. Clear errors were corrected in place. The packet remains partial: unresolved global signatures, analytic normalization and curve/model adapters, original HT02 access, product-diagonal interface, linked-series foundations and spectral/form-domain inputs prevent readiness for packaging. Detailed counts, corrections, verified imports and remaining obligations are in the review report. This is a completed review, not a checkpoint.",
+    "checked": [
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance",
+        "verdict": "verified",
+        "note": "BT fixes curvature −1; the pinned disc distance is artanh of the quotient modulus, so the factor two is required. No new metric instance is planned."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/cayley-distance",
+        "verdict": "verified",
+        "note": "The pinned norm_discCoordinate formula is tanh(dist/2); combine it with the pinned disc distance at zero and artanh_tanh. BT supplies the normalization, not this Lean comparison."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/disc-balls",
+        "verdict": "verified",
+        "note": "BT’s centered disc has Euclidean radius tanh(r/2). Nonpositive radii give the empty set; the local signatures and three examples preserve that boundary."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-density",
+        "verdict": "verified",
+        "note": "Converting BT’s 2i dz∧d z̄ form into dx∧dy gives 4/(1−|z|²)². Tests distinguish the factor four, conjugation and boundary blowup."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/disc-area-measure",
+        "verdict": "corrected",
+        "note": "The restricted weighted Lebesgue construction matches the form. Added the half-disc value 4π/3 because every old test also admitted the zero measure."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/area-profile",
+        "verdict": "verified",
+        "note": "BT’s a(r)=4πsinh²(r/2) applies geometrically for r≥0. The total scalar formula and tests make no negative-radius area claim."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/disc-ball-area",
+        "verdict": "verified",
+        "note": "Polar integration of the density gives 4πt²/(1−t²), t=tanh(r/2), including zero radius. The pinned nonnegative polar theorem needs no integrability hypothesis."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/scaled-area",
+        "verdict": "verified",
+        "note": "BT Remark 24 permits constant tensor scaling. In dimension two area gains λ², distance gains λ, and the radius argument becomes r/λ; scalar signatures do not assert an unbuilt curvature theorem."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/max-product-balls",
+        "verdict": "verified",
+        "note": "BT uses coordinatewise maximum neighborhoods with the sum area form. Empty Fin 0 products and nonpositive radii are treated separately; no sum-distance substitution occurs."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/lens-radius",
+        "verdict": "verified",
+        "note": "BT Lemma 13/Figure 2 gives M(R)=2artanh√tanh(R/2), with cosh M=e^R. Positivity, monotonicity and this identity detect radius normalization errors."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.0/normalized-lens",
+        "verdict": "verified",
+        "note": "BT’s isometry-normalized intersection of the two balls gives the stated enclosure for 0≤a<1 and R>0, including a=0. The quotient version later retains simultaneous lifts."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-mu",
+        "verdict": "verified",
+        "note": "BT uses tanh²(d₁/4). Because hyperbolicDist=d₁/2 at the pin, the local scalar definition uses tanh²(hyperbolicDist/2)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-chi",
+        "verdict": "verified",
+        "note": "BT’s quotient modulus squared equals tanh²(d₁/2). The local total formula has geometric meaning only with both arguments in the disc."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/chi-mu-relation",
+        "verdict": "verified",
+        "note": "The hyperbolic double-angle identity gives χ=4μ/(1+μ)² and 1−χ=(1−μ)²/(1+μ)². All denominators are positive on the disc."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-psi",
+        "verdict": "verified",
+        "note": "The erratum replaces the second coordinate by its conjugate; expansion gives |z−w̄|²/|1−zw|² and the real conjugate graph as zero set."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-tangent",
+        "verdict": "verified",
+        "note": "The erratum treats the conjugate graph as totally real. The vectors (1,1) and (i,i) explicitly separate its tangent plane from a complex line."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/diagonal-positive-profile",
+        "verdict": "verified",
+        "note": "BT sets F=−8πlog(1−μ). It is finite across μ=0; its nonnegativity is local scalar algebra, while positivity and domination are separate HV.3 claims."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/relative-log-profile",
+        "verdict": "verified",
+        "note": "BT Proposition 23 expands log(χ/(1−χ)) as H(log μ). The s<0 domain and derivative cosh r are correct; the pole value is handled by currents, not Real.log at zero."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-f-profile",
+        "verdict": "verified",
+        "note": "The erratum uses −log(1−ψ)=2log cosh(d/2). The scalar domain is 0≤ψ<1; the current identity is separately specified."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/conjugate-g-profile",
+        "verdict": "verified",
+        "note": "The erratum uses g(t)=2asin√(1−e^(−t)) with derivative 1/√(e^t−1). Its derivative decreases; positivity of the composite cannot be inferred from convex composition."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/parameter-area-density",
+        "verdict": "verified",
+        "note": "Pull back BT’s sum form along holomorphic coordinates: each density contributes b(f_i)|f_i′|². Constant coordinates vanish; the derivative chain rule gives reparameterization compatibility."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/parameter-volume",
+        "verdict": "corrected",
+        "note": "Integrating the nonnegative pulled-back density counts source multiplicity. Added the positive half-disc fibre test because the old zero/constant/additivity tests admitted identically zero volume."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/fibre-volume",
+        "verdict": "verified",
+        "note": "Direct integration of the local fibre density gives a(r). BT’s Theorem 19 equality model is the one-coordinate fibre, independent of the fixed disc coordinate."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/antigraph-volume",
+        "verdict": "verified",
+        "note": "On t↦(t,−t) both densities agree, μ=|t|² and the diagonal order is one; BT’s equality example therefore has volume 2a(r)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/power-parameter-volume",
+        "verdict": "verified",
+        "note": "This is a derived polar integral, not a separately named BT theorem. The derivative d t^(d−1) yields d times the image-disc area; injective change of variables alone would lose that factor."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/quotient-area",
+        "verdict": "unverifiable",
+        "note": "The density normalization is confirmed and existing Riemannian measure is imported. The finite exceptional-set extension, chart comparisons and all global API/test signatures remain absent (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/analytic-normalization",
+        "verdict": "unverifiable",
+        "note": "Demailly II7.7/7.9–7.12 gives the reduced pure curve normalization. C0 supplies Noetherian germs, but universal denominators/analytic closure and the global construction remain missing (G1,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/effective-cycle",
+        "verdict": "unverifiable",
+        "note": "Demailly’s locally finite irreducible decomposition supports positive weighted cycles. The one-dimensional carrier must share C5’s analytic-cycle vocabulary; its global API/tests are not prototyped (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/cycle-volume",
+        "verdict": "unverifiable",
+        "note": "Normalization integration retains weights and finite-cover degree, consistent with Demailly’s current pairing. The global measure and C5 comparison signatures are missing (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/branch-multiplicity",
+        "verdict": "unverifiable",
+        "note": "Demailly identifies generic projection multiplicity with branch order. The primitive normalization/minimum-order definition is valid; the global local-order API and tests are absent (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/finite-pushforward",
+        "verdict": "verified",
+        "note": "Demailly’s proper direct image and generically finite image degree give the weighted projection formula. Contracted one-dimensional components contribute zero; complex dimensions avoid E3’s odd-parity sign."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/compact-injectivity",
+        "verdict": "unverifiable",
+        "note": "The definition matches BT. Corrected the false r<ρ ambient pairwise isometry: use injective local isometry/center distances, or r<ρ/2 for pairwise isometry. Global quotient signatures remain absent (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.2/cusp-pullback",
+        "verdict": "corrected",
+        "note": "Abramovich uses the singular finite-area metric. The q-density and order-e cancellation are calculations using Fuchsian cusp coordinates; the constant q=0 case is separate. Removed a supplier citation from the source locator."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/test-forms",
+        "verdict": "unverifiable",
+        "note": "Demailly’s fixed-support topology is consistent with the exact pinned LF theorem. Corrected countability/exhaustion and global properness requirements; only a Euclidean coefficient model is present (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/currents",
+        "verdict": "unverifiable",
+        "note": "Corrected degree truncation, target-degree shift and odd real pushforward parity. The bounded chart dual is useful, but manifold differentiation/pushforward and the new sign tests are absent (E3,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/positive-currents",
+        "verdict": "unverifiable",
+        "note": "Demailly III1.13–1.17 gives positivity and measure coefficients with bidimension conventions. No global positive-current constructor, compatibility API or discriminating examples is present (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/psh",
+        "verdict": "unverifiable",
+        "note": "Demailly I4.17/I5 and III1.18 support the extended-real definition and Hessian criterion. Added componentwise nontriviality and radial smoothing conditions; actual psh carriers/APIs/tests remain missing (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/ddc",
+        "verdict": "unverifiable",
+        "note": "The one-variable distribution model correctly has Δ/(4π), half Demailly’s convention, and unit logarithmic atoms. Global complex-type/pullback/positivity APIs and the packet’s named test agreement remain incomplete (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/integration-current",
+        "verdict": "corrected",
+        "note": "C5 already owns Lelong integration and closed-current extension. The node now compares that imported current with weighted one-dimensional normalization integration; it no longer re-plans those general theorems."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/poincare-lelong",
+        "verdict": "verified",
+        "note": "Demailly III2.15 rescales to ddᶜlog|h|²=[div h]. The local log-power example detects the atom and sign; nontriviality on each component and meromorphic negative poles are retained."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/singular-stokes",
+        "verdict": "corrected",
+        "note": "Demailly’s sublevel/flux formulas justify regular-level Stokes with atoms. Replaced finite pole value by finite limiting slope and added a boundary-flux variant for an independently positive potential, needed by the concave g profile."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/lelong-multiplicity",
+        "verdict": "corrected",
+        "note": "Demailly’s comparison theorem uses logarithmic weight equivalence. Euclidean and max norms have bounded log difference, not raw norm ratio tending to one; corrected that step and retained cycle weights."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/diagonal-hessian",
+        "verdict": "verified",
+        "note": "BT’s local comparison and the stated two Hermitian matrices give semipositivity and ddᶜF≤ω. The smooth μ expression and bounded-log extension handle Δ; matrix computations are local, not a global current prototype."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/line-curvature",
+        "verdict": "unverifiable",
+        "note": "Demailly’s line metric and first Chern normalization match −ddᶜlog h. Generic Chern/intersection theory is now imported from C5; meromorphic sections come from ModularForms10B. Global adapters remain absent (G11,G12)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.3/canonical-area",
+        "verdict": "unverifiable",
+        "note": "BT’s canonical degree factor and Demailly’s Chern normalization agree: vol=2π(K·C). The statement is compact/smooth; the actual analytic/algebraic model and degree adapter is not supplied by AlgebraicCurves12 (G12)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-tube",
+        "verdict": "corrected",
+        "note": "BT pairs corresponding coordinates across the two X² blocks. Fixed the Lean product-coordinate pairing and added two examples that fail the old definition; quotient descent remains an explicit missing API item (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/point-volume",
+        "verdict": "unverifiable",
+        "note": "BT Theorem19(a) states the bound with maximum balls, sum area, weights and 0<r<ρ. The original HT02 Theorem2 proof is unavailable and its supporting argument is not closed (G3)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-lelong",
+        "verdict": "corrected",
+        "note": "BT equation7 and Demailly’s Lelong comparison give the local diagonal-order lower bound via the positive μ/|z−w|² factor. Split the locators; proper intersection excludes diagonal components."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-growth",
+        "verdict": "verified",
+        "note": "BT Lemma21/equation6 and the corrected singular Stokes formula give I(r)=2a(r)∫ddᶜlog μ. Positivity yields monotonicity and the Hessian comparison gives I≤volume."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/diagonal-volume",
+        "verdict": "verified",
+        "note": "BT supplies its own alternative proof of Theorem19(b), so the mathematical target follows from Hessian/growth/Lelong inputs despite inaccessible HT12. The anti-graph equality and r<ρ/2 are retained."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/double-diagonal",
+        "verdict": "unverifiable",
+        "note": "BT Lemma22 supplies the max-potential two-region argument. The codimension-two RHS is point multiplicity, not Cartier intersection; the positive-current limit on tie interfaces still lacks a proof contract (G4)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.4/midpoint-lens",
+        "verdict": "verified",
+        "note": "BT Lemma13 reduces the disc lens by an isometry to opposite points. The quotient statement now explicitly requires simultaneous lifts; arbitrary unrelated deck choices cannot satisfy the same enclosure."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/relative-current",
+        "verdict": "verified",
+        "note": "BT Proposition23’s final formula agrees with the direct logarithm expansion: ddᶜQ=ω/(4π)+[Δ]. E2’s extra factor in the intermediate printed lines is not used."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/relative-diagonal",
+        "verdict": "corrected",
+        "note": "BT Proposition23 uses the logarithmic H profile, whose pole value is −∞ but limiting slope is one. The corrected Stokes contract applies, giving the cosh ratio with the proper small/large orientation."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/conjugate-tube",
+        "verdict": "unverifiable",
+        "note": "The erratum’s locus is totally real in X×X̄, with deck action (γ,γ̄). The local ψ formula is correct; the actual conjugate-surface/quotient tube carrier and all APIs/tests are missing (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/conjugate-hessian",
+        "verdict": "verified",
+        "note": "The erratum’s f and g yield i∂∂̄f(ψ)=ω/2 and the displayed Hermitian formula for h∘ψ. Nonnegative principal minors and continuous extension prove positivity without assuming g convex."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/relative-conjugate",
+        "verdict": "corrected",
+        "note": "The erratum gives monotonicity of V(r)/sinh r. Replaced the invalid convex-composition Stokes step by the independently positive boundary-flux variant; E1’s reversed ratio is corrected."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.5/scaled-tubes",
+        "verdict": "corrected",
+        "note": "BT Remark24 supplies constant rescaling; the erratum supplies the conjugate estimate. Split the references and retained λ² area, λ radius/injectivity and the correct sinh(r/λ)/sinh(R/λ) ratio."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/gonality",
+        "verdict": "unverifiable",
+        "note": "Abramovich’s minimum-degree definition matches the function-field model at the pin. Smooth/projective existence needs the stated restrictions; the curve/model equality and two declared APIs are absent (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/pencils",
+        "verdict": "unverifiable",
+        "note": "Osserman’s rank-two section space and base-divisor removal produce a degree degL−degE map, with basis change in PGL₂. Actual line-bundle/section-space constructors, API and tests are absent (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/pencil-parameter-space",
+        "verdict": "unverifiable",
+        "note": "Restored Osserman’s smooth-family hypotheses and rank-two universal injectivity; E4 records the source rank slip. Picard/Grassmannian inputs are precise, but incidence/cohomology constructions and global signatures are not closed (G5,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/base-change",
+        "verdict": "corrected",
+        "note": "Abramovich states geometric base-change invariance; Osserman Remark1.2(iv) supplies the parameter functor. Descent to a finite-presentation degree locus and an algebraically closed residue point gives equality; no equality is claimed for nonsplit conics."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/riemann-roch-bound",
+        "verdict": "verified",
+        "note": "Li–Yau’s g+1 consequence is the algebraically closed degree-one-point argument. The actual pinned Riemann inequality supplies two sections of (g+1)P; the function-field prototype preserves its hypotheses."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/limit-pencil-input",
+        "verdict": "unverifiable",
+        "note": "The published Osserman construction and linked excess bound are read. Restored split two-component smoothing hypotheses and special-fibre aspect map; linked incidence, fixed-multidegree Picard and smoothing contracts still need nodes (G5)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/brill-noether",
+        "verdict": "unverifiable",
+        "note": "Osserman Theorem1.1 with zero ramification supports the stated characteristic-zero restriction, existence for every curve and generic dimension/emptiness. Marked base cases, linked dimension and smoothing induction remain undecomposed (G5)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/sharp-bound",
+        "verdict": "unverifiable",
+        "note": "The arithmetic consequence of Brill–Noether is correct: take ceil((g+2)/2), and exclude finitely many smaller degree loci for general curves. Closure depends on the unresolved moduli/Brill–Noether contracts (G5,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.6/small-gonality",
+        "verdict": "corrected",
+        "note": "The algebraic RR upper bound and degree-one curve/function-field isomorphism give gon(P¹)=1 and genus-one gon=2. Removed the analytic degree import; nonclosed genus-zero fields retain the nonsplit-conic exception."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/branched-conformal-map",
+        "verdict": "unverifiable",
+        "note": "Li–Yau defines source-area of a branched conformal immersion, so multiplicity and exclusion of constants matter. Actual round-sphere, branched-map, area compatibility APIs and tests are not prototyped (G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/conformal-area",
+        "verdict": "unverifiable",
+        "note": "Li–Yau’s sup over ambient conformal maps and inf over admissible immersions give the n-dependent/stable invariant, with ENNReal empty-inf convention. The carrier, embedding functoriality and tests are absent (G6,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/sphere-degree",
+        "verdict": "unverifiable",
+        "note": "Li–Yau’s degree inequality and sphere value yield A_c≤4πgon. The higher-dimensional equatorial sphere comparison and actual algebraic/analytic degree bridge remain explicit gaps (G6,G12)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/rayleigh-bottom",
+        "verdict": "unverifiable",
+        "note": "Abramovich distinguishes the cofinite positive spectral bottom from a first discrete eigenvalue. Corrected the Laplacian sign; closed-form/Friedrichs/compact-spectrum contracts and all global APIs/tests are missing (G10,G11)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/balancing",
+        "verdict": "verified",
+        "note": "Li–Yau’s ball-of-conformal-transformations argument uses nonatomic image measure and the no-retraction theorem. Current DifferentialGeometry Layer10 owns Brouwer; the point-mass non-example prevents dropping the measure hypothesis."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/energy-area",
+        "verdict": "unverifiable",
+        "note": "Li–Yau gives ΣE=2Area and Σψ_i²=1; Abramovich extends finite energy across finitely many singular points. Closed-form-domain cutoff convergence is still a separate missing proof input (G7,G10)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/li-yau",
+        "verdict": "unverifiable",
+        "note": "Li–Yau Theorem1 gives λ₁Area≤2A_c; Abramovich gives the singular-metric variational extension. The gonality constant 8π is correct, but sphere/degree/form-domain/realization prerequisites remain unresolved (G6,G7,G10,G12)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.7/congruence-application",
+        "verdict": "unverifiable",
+        "note": "Abramovich’s substitution gives cArea/(8π), and πD/3 gives cD/24. The automorphic gap has no assigned supplier stage, so the final application remains conditional rather than assumed (G8)."
+      },
+      {
+        "nodeId": "HyperbolicCurveVolumesAndGonality:HV.1/mu-log-singularity",
+        "verdict": "corrected",
+        "note": "BT’s closed μ expression gives leading factor 1/[4(1−|z|²)²]. Replaced the Lean diagonal-value-only stub with the punctured-neighborhood asymptotic; a finite Real.log convention does not supply the pole."
+      }
+    ]
+  }
 }

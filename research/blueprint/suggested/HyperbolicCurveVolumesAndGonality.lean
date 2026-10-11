@@ -1,14 +1,14 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
-converge on names and signatures. This checkpoint types the local metric, density, parameter-volume, distribution,
+converge on names and signatures. This file types the local metric, density, parameter-volume, distribution,
 Hessian and function-field-gonality contracts. It is not an exhaustive suggested
 file: the packet records the omitted global carrier-dependent signatures.
 No record assumes a desired volume or gonality estimate.
 
-The imported Tau Ceti source statements were checked at f790474; the existing
-shared elaboration build has pinned Mathlib and newer Tau Ceti. Only imported
-source interfaces are used, and no current upstream build is run here.
+The imported Tau Ceti source statements were checked at f790474. The shared
+elaboration build has Mathlib 082e2d3, and all 55 transitive Tau Ceti source
+imports match f790474. No current upstream build is run here.
 -/
 import TauCeti.Analysis.Complex.Conformal.Poincare.SchwarzPick
 import TauCeti.Analysis.Complex.Conformal.Hyperbolic.ClosedForm
@@ -142,6 +142,11 @@ example (z : ℂ) : discAreaMeasure {z} = 0 := by
 
 -- TauCeti.HyperbolicVolumes.discAreaMeasure_outside
 example : discAreaMeasure (Metric.ball (0 : ℂ) 1)ᶜ = 0 := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.discAreaMeasure_half_radius
+example : discAreaMeasure (Metric.ball (0 : ℂ) (1 / 2)) =
+    ENNReal.ofReal (4 * Real.pi / 3) := by
   sorry
 
 
@@ -512,6 +517,11 @@ example {n : ℕ} (c : Fin n → ℂ) (U : Set ℂ) : parameterVolume (fun i _ =
 example (f : Fin 0 → ℂ → ℂ) (U : Set ℂ) : parameterVolume f U = 0 := by
   sorry
 
+-- TauCeti.HyperbolicVolumes.parameterVolume_fibre_half
+example : parameterVolume ![fun z => z, fun _ => (0 : ℂ)]
+    (Metric.ball (0 : ℂ) (1 / 2)) = ENNReal.ofReal (4 * Real.pi / 3) := by
+  sorry
+
 
 -- HyperbolicCurveVolumesAndGonality:HV.2/fibre-volume
 theorem fibre_volume (c : ℂ) (hc : ‖c‖ < 1) {r : ℝ} (hr : 0 ≤ r) :
@@ -540,8 +550,12 @@ current DifferentialGeometry carriers and are recorded as incomplete. -/
 abbrev ChartTestForm (n k : ℕ) (Ω : TopologicalSpace.Opens (Fin n → ℂ)) :=
   TestFunction Ω ((Fin n → ℂ) [⋀^(Fin k)]→L[ℝ] ℝ) ⊤
 
-abbrev ChartCurrent (n q : ℕ) (Ω : TopologicalSpace.Opens (Fin n → ℂ)) :=
-  ChartTestForm n (2 * n - q) Ω →L[ℝ] ℝ
+-- Bound the degree so Nat subtraction cannot turn an out-of-range current
+-- into a scalar distribution. Global differentiation also needs zero degrees
+-- outside this interval, including the derivative of a top-degree current.
+abbrev ChartCurrent (n : ℕ) (q : Fin (2 * n + 1))
+    (Ω : TopologicalSpace.Opens (Fin n → ℂ)) :=
+  ChartTestForm n (2 * n - q.val) Ω →L[ℝ] ℝ
 
 theorem testForm_ext {n k : ℕ} {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
     (α β : ChartTestForm n k Ω) (h : ∀ x, α x = β x) : α = β := by
@@ -555,7 +569,8 @@ theorem testForm_continuous_dual {n k : ℕ}
       Continuous (T ∘ TestFunction.ofSupportedIn hK) := by
   sorry
 
-theorem current_ext {n q : ℕ} {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
+theorem current_ext {n : ℕ} {q : Fin (2 * n + 1)}
+    {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
     (T S : ChartCurrent n q Ω) (h : ∀ α, T α = S α) : T = S := by
   sorry
 
@@ -611,8 +626,14 @@ example {Ω : TopologicalSpace.Opens ℂ} (e : ℕ) :
 noncomputable def extendedDiagonalLog (z w : ℂ) : EReal :=
   if z = w then ⊥ else (Real.log (diagonalMu z w) : EReal)
 
--- HV.1/mu-log-singularity: a real scalar log is used only off its zero locus.
-theorem mu_log_singularity (z : ℂ) : extendedDiagonalLog z z = ⊥ := by
+theorem extendedDiagonalLog_self (z : ℂ) : extendedDiagonalLog z z = ⊥ := by
+  sorry
+
+-- HV.1/mu-log-singularity: the leading coefficient is positive in the disc.
+-- This asymptotic supplies the bounded logarithmic correction used by HV.4.
+theorem mu_log_singularity (z : ℂ) (hz : ‖z‖ < 1) :
+    Tendsto (fun w : ℂ => diagonalMu z w / ‖z - w‖ ^ 2)
+      (nhdsWithin z ({z}ᶜ)) (nhds (1 / (4 * (1 - ‖z‖ ^ 2) ^ 2))) := by
   sorry
 
 noncomputable def secondRealDerivative (u : (ℂ × ℂ) → ℝ)
@@ -667,7 +688,7 @@ def diagonalTube {X : Type*} [PseudoMetricSpace X] (r : ℝ) : Set (X × X) :=
 
 def doubleDiagonalTube {X : Type*} [PseudoMetricSpace X] (r : ℝ) :
     Set ((X × X) × (X × X)) :=
-  {p | p.1 ∈ diagonalTube r ∧ p.2 ∈ diagonalTube r}
+  {p | (p.1.1, p.2.1) ∈ diagonalTube r ∧ (p.1.2, p.2.2) ∈ diagonalTube r}
 
 theorem diagonalTube_mem {X : Type*} [PseudoMetricSpace X] (x y : X) (r : ℝ) :
     (x, y) ∈ diagonalTube r ↔ dist x y < 2 * r := by
@@ -679,8 +700,8 @@ theorem diagonalTube_mono {X : Type*} [PseudoMetricSpace X] {r R : ℝ}
 
 theorem doubleDiagonalTube_mem {X : Type*} [PseudoMetricSpace X]
     (p : (X × X) × (X × X)) (r : ℝ) :
-    p ∈ doubleDiagonalTube r ↔ dist p.1.1 p.1.2 < 2 * r ∧
-      dist p.2.1 p.2.2 < 2 * r := by
+    p ∈ doubleDiagonalTube r ↔ dist p.1.1 p.2.1 < 2 * r ∧
+      dist p.1.2 p.2.2 < 2 * r := by
   sorry
 
 -- TauCeti.HyperbolicVolumes.diagonalTube_empty
@@ -689,10 +710,21 @@ example {X : Type*} [PseudoMetricSpace X] : diagonalTube (X := X) 0 = ∅ := by
 
 -- TauCeti.HyperbolicVolumes.doubleDiagonalTube_max
 example {X : Type*} [PseudoMetricSpace X] (p : (X × X) × (X × X)) (r : ℝ)
-    (h : 2 * r ≤ dist p.1.1 p.1.2) : p ∉ doubleDiagonalTube r := by
+    (h : 2 * r ≤ dist p.1.1 p.2.1) : p ∉ doubleDiagonalTube r := by
   sorry
 
--- The UnitDisc distance is curvature −1/4, so its raw tube radius is doubled.
+-- TauCeti.HyperbolicVolumes.doubleDiagonalTube_diagonal
+example {X : Type*} [PseudoMetricSpace X] (a b : X) (r : ℝ) (hr : 0 < r) :
+    ((a, b), (a, b)) ∈ doubleDiagonalTube r := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.doubleDiagonalTube_wrong_pairing
+example {X : Type*} [PseudoMetricSpace X] (a b : X) (r : ℝ)
+    (h : 2 * r ≤ dist a b) : ((a, a), (b, b)) ∉ doubleDiagonalTube r := by
+  sorry
+
+-- distOne is twice the imported PoincareDisc distance (curvature −4).
+-- Complex.UnitDisc itself carries the Euclidean subtype metric.
 -- TauCeti.HyperbolicVolumes.diagonalTube_antigraph
 example (z w : Complex.UnitDisc) (hw : (w : ℂ) = -(z : ℂ)) (r : ℝ) :
     distOne z w < 2 * r ↔ distOne z 0 < r := by
