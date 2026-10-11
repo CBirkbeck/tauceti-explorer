@@ -87,6 +87,8 @@ Required API:
 - `homological_commutator_central_extension`: τ_S(⟨x,y⟩) is Additive.ofMul(κ_S(x,y)). Indeed φ(x,y)−φ(y,x) is the kernel commutator when xy=yx. This fixes the transgression sign.
 - `extension_class_map_natural`: for a map of extensions with kernel map a, total-group map e and quotient map f, satisfying e∘inl=inl′∘a and π′∘e=f∘π, one has τ_S′∘f_*=a∘τ_S. The specified maps are retained.
 - `extension_class_map_five_term`: im(H₂(E,ℤ)→M(G))=kerτ_S. More fully, the sequence H₂(E,ℤ)→M(G)→A→Additive(E^ab)→Additive(G^ab)→0 is exact, with the third arrow induced by inl. It applies to infinite kernels and infinite total groups as well.
+- `extension_class_map_exact_at_kernel`: imτ_S=ker(inl^ab), where inl^ab is `(Abelianization.of.comp S.inl).toAdditive`. Thus τ_S records exactly the kernel elements that become trivial in the total-group abelianization.
+- `extension_class_map_exact_at_abelianization`: im(inl^ab)=ker(π^ab), where π^ab is `(Abelianization.map S.rightHom).toAdditive`. `extension_class_map_abelianization_surjective` states that π^ab is onto. These last two conclusions need only the group extension and an abelian kernel; centrality is unnecessary. The existing abelianization carrier supplies the H₁ identifications.
 - `extension_class_map_split`: a homomorphic section forces τ_S=0. The converse additionally requires the vanishing of the UCT Ext term, for example free abelian G^ab.
 
 Unit tests:
@@ -95,9 +97,15 @@ Unit tests:
 - `extension_class_map_test_2`: C₄→C₂ with kernel C₂ has zero class map but has no homomorphic section. Its nonzero extension class lies in the Ext term.
 - `extension_class_map_test_3`: the specified D₈→C₂² extension sends the oriented commuting class of the two basis elements to the nonidentity central element.
 
+Three further tests distinguish the remaining arrows:
+
+- `extension_five_term_test_1`: for every split central extension, inl^ab is injective and π^ab is onto, including for infinite kernels. A splitting and centrality identify the total group with A×G, whose abelianization is A×G^ab.
+- `extension_five_term_test_2`: for every extension C₂→C₄→C₂, inl^ab is injective and ker(π^ab) has order two, so π^ab is not injective. The total group is already abelian. Thus an injective kernel arrow does not imply a homomorphic section, and the projection need not be an isomorphism when τ_S is zero.
+- `extension_five_term_test_3`: for the specified D₈→C₂² extension, inl^ab is zero, π^ab is bijective, and τ_S is onto. Its order-two kernel is the commutator subgroup. This detects an incorrect injectivity assertion for the kernel arrow, or a proposed class map that discards the nontrivial multiplier class.
+
 Needs: the preceding native UCT evaluation, Mathlib's `GroupExtension`, and Tau Ceti's factor-set and splitting interfaces; the central-extension five-term contract. Its construction uses the low-degree filtration of the homological extension spectral sequence. Identify H₁(A,ℤ) with Additive A, and its quotient-group action as trivial by centrality. Compare the low-degree connecting map with the displayed section formula. Exactness gives the full kernel, rather than only a vanishing composite. For the chosen reduced cover this map is the quotient M(G)→M(G,c), giving `homology_image`.
 
-Source: Wood (2021), §2.1 p.2 and Lemma 2.2 p.3, for the oriented class-map comparison and vanishing composite; Löh (2019), Theorem 3.2.12 pp.123–124 and Remark 3.2.14 p.125, for the natural homological extension spectral sequence. The five-term sequence is its low-degree edge sequence; the section computation identifies its connecting map up to the pinned sign.
+Source: Wood (2021), §2.1 p.2 and Lemma 2.2 p.3, for the oriented class-map comparison and vanishing composite; Löh (2019), Theorem 3.2.12 pp.123–124 and Remark 3.2.14 p.125, for the natural homological extension spectral sequence, and Theorem 1.4.1 pp.20–22 for H₁ as abelianization. The five-term sequence is deduced from its low-degree edge filtration; the section computation identifies its connecting map up to the pinned sign. Löh's proof of Theorem 3.2.18 pp.129–131 illustrates this filtration argument for a free total group, rather than asserting that extra hypothesis here. The three tail tests follow from the displayed group abelianizations and the specified D₈ class-map computation.
 
 ### Finite homology and the coprime edge
 

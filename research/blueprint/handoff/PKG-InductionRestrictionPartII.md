@@ -1,12 +1,13 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Issue [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Worker: Codex, session `codex-dQ202u`, 2026-10-11.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6103795959).
-Branch: `codex-dQ202u-induction-restriction-package`.
-This continues merged checkpoint [#8659](https://github.com/CBirkbeck/tauceti-explorer/pull/8659).
-Its handoff retains the earlier session receipts; this note consolidates the
-resumption requirements and supersedes the compiler counts.
+Worker: Codex, session `codex-pYtfSw`, 2026-10-11.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6104130586).
+Branch: `codex-pYtfSw-induction-restriction-package`.
+This continues merged checkpoint [#8662](https://github.com/CBirkbeck/tauceti-explorer/pull/8662),
+which continued [#8659](https://github.com/CBirkbeck/tauceti-explorer/pull/8659).
+Those handoffs retain the earlier calculation receipts. This note consolidates
+the resumption requirements and supersedes the compiler counts.
 Exactly one issue was claimed.
 
 ## Blocker and resumption gate
@@ -45,7 +46,7 @@ eligibility until that amendment; this worker changed no labels.
 | Contract | Proposed owner and exact output |
 | --- | --- |
 | Native integral UCT | RS.1, before reduced covers: H²(G,A)→Hom(M(G),A), for arbitrary G and abelian A, with its oriented cycle formula, surjectivity and specified Ext¹(G^ab,A) injection. Preserve group and coefficient naturality of both maps. Add the definition, API and three tests already in the package. |
-| Central extension class map and five-term exactness | RS.1, before `homology_image`: section-independent class-map construction, the full extension diagram and exact image/kernel theorem for arbitrary abelian kernels. Preserve the sign convention and reuse Tau Ceti factor-set interfaces. Add construction and key-theorem nodes. |
+| Central extension class map and five-term exactness | RS.1, before `homology_image`: section-independent class-map construction and exactness of the full sequence through total-group and quotient abelianizations, for arbitrary abelian kernels. Preserve the sign convention and reuse Tau Ceti factor-set and Mathlib abelianization interfaces. Add construction and key-theorem nodes. |
 | Finite integral homology consequences | RS.1, before `commutator_order`: `integral_homology_finite` and `integral_homology_card_smul` in positive degrees. Reuse current native transfer and trivial-group vanishing; use finite generation of integral bar chains for finiteness. Retain the three new degree tests. |
 | Coprime degree-two edge | RS.5, before primary-kernel/compatible-cover results: `coprime_degree_two_edge`, with its coinvariant-kernel isomorphism and specified inclusion. Establish the native filtered-resolution input and the d₃ argument. RS.6 imports the result. Retain the three new edge tests. |
 | Cyclic complement conjugacy | RS.5, before admissible inertia classes: `cyclic_coprime_complement_conjugacy`, finite coprime H,C and C cyclic, without solvability of H. Add its key-theorem node, Sylow induction and three existing conjugacy tests; or record the exact layer of an alternative finite-group owner. |
@@ -62,39 +63,43 @@ four-output job. Add `topic = "math.GR"` only when the package meets §20.
 
 ## Changes in this session
 
-The general finite-homology consequences now have explicit native signatures,
-using `groupHomology (Rep.trivial ℤ G ℤ) (n + 1)`. The successor degree prevents
-an accidental degree-zero assertion. The README separates the transfer
-annihilator from the finite-generation input needed for finiteness.
+The README already specified the full homological five-term sequence, but
+Suggested stated exactness only at M(G). Three new native API signatures
+complete its remaining arrows:
 
-Three new admitted examples test these consequences:
+- `extension_class_map_exact_at_kernel`: the image of τ equals the kernel of
+  `(Abelianization.of.comp S.inl).toAdditive`.
+- `extension_class_map_exact_at_abelianization`: the image of that inclusion
+  equals the kernel of `(Abelianization.map S.rightHom).toAdditive`.
+- `extension_class_map_abelianization_surjective`: the last map is onto.
 
-1. A trivial group has zero homology in every positive degree.
-2. C₂ has cardinality-two integral homology in odd degrees and zero homology
-   in positive even degrees. Reuse the existing cyclic resolution interfaces.
-3. H₀(C₂,ℤ) is infinite, and twice the class of 1 is nonzero.
+Only the first statement needs centrality. The last two use an arbitrary
+extension with abelian kernel. The maps retain the specified inclusion and
+projection; no private H₁ carrier or extra definition was introduced. This
+spells out an existing package contract without assigning its missing owner.
 
-Three more examples test the coprime edge using actual multiplier maps:
+Three new admitted examples, `extension_five_term_test_1` through `_3`,
+distinguish the tail maps:
 
-1. For trivial quotient Γ, the inclusion map induces a bijection.
-2. For C₃²⋊C₂ with inversion action, the action on M(C₃²) is the identity,
-   the inclusion induces a bijection, and the total multiplier has order
-   three. Inversion on both basis vectors acts by determinant +1 on their
-   exterior product. Using inversion on the multiplier would kill it.
-3. With trivial action on C₂×C₂, the total multiplier and the projection
-   kernel have order two, while inclusion from the first factor is not
-   surjective. The mixed H₁ tensor class detects missing coprimality.
+1. Every split central extension, including infinite kernels, has injective
+   inclusion into total-group abelianization and surjective projection.
+2. Every C₂→C₄→C₂ extension has injective kernel inclusion, while the final
+   projection has a kernel of order two and is not injective. This holds
+   despite the absence of a splitting.
+3. For the specified D₈→C₂² extension, the kernel inclusion into abelianization
+   is zero, the final projection is bijective, and τ is onto. The nontrivial
+   central kernel is the commutator subgroup.
 
-These conclusions follow from the integral product formula, cyclic integral
-homology, and the displayed coprime-edge argument. They are acceptance
-statements, not new formal proofs. Two declarations and six admitted examples
-were added; no new carrier, transfer theory or cyclic resolution was planned.
+These are acceptance statements with admitted proofs. The README now names
+the same API and tests and distinguishes the spectral-sequence deduction
+from the free-total-group example used to illustrate it in the source.
 
 Fresh primary-source reading: Löh, *Group Cohomology*, 30 July 2019,
 [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf),
-Corollary 1.6.13 p.49; Theorem 1.7.15 p.64; §3.2.5, Theorem 3.2.22 p.135
-and Corollary 3.2.23 pp.136–137. The product calculations and induced action
-are deductions stated in our own words. The cleared-source index was read.
+Theorem 1.4.1 pp.20–22, Theorem 3.2.12 pp.123–124, Remark 3.2.14 p.125,
+and the proof of Theorem 3.2.18 pp.129–131. The full sequence for arbitrary
+central extensions is a deduction from the low-degree filtration, not a
+claim that Theorem 3.2.18 has an arbitrary total group. The cleared-source index was read.
 No source passage or section-by-section source summary was added.
 
 ## Library and roadmap checks
@@ -144,6 +149,13 @@ The coprime edge still needs its explicit d₃ check. Preserve the cyclic
 Sylow-induction proof and all three conjugacy tests, especially the inverse
 conjugator for C₃⋊C₂ and the noncoprime diagonal counterexample.
 
+Retain the previous checkpoint's two finite positive-degree homology
+signatures and six tests. The positive-degree tests cover the trivial group,
+C₂ parity, and the failure of finiteness/order annihilation in H₀. The
+coprime-edge tests cover trivial quotient, C₃²⋊C₂ with inversion acting
+trivially on the multiplier, and the extra tensor class when coprimality
+fails for C₂×C₂. Their source and calculation receipts remain in #8662.
+
 The accepted packet also records ordinary-cover input with a named parent
 owner, finite table/order-96 certificates, and original signatures requiring
 missing carriers. This session does not certify those inherited obligations
@@ -159,8 +171,8 @@ version hashes are in the handoff merged by #8659.
 ## Verification
 
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
-  exit 0; 689 warnings, all `declaration uses sorry`; zero errors or other
-  warnings. Preflight showed 101 GiB available. The check finished; no
+  exit 0; 695 warnings, all `declaration uses sorry`; zero errors or other
+  warnings. Preflight showed 97 GiB available. The check finished; no
   language server, library build, update or cache download was started.
 - The helper uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
   Mathlib source HEAD is `082e2d37e8b0463410cdb532e111cd43d5a66174`.
@@ -169,16 +181,16 @@ version hashes are in the handoff merged by #8659.
   six planned stages and zero closed stages. The packet is unchanged.
 - All 109 target suffixes, 124 API suffixes and 96 test labels occur in both
   package files; all 32 definition/construction nodes have at least three
-  tests. All six new test labels occur in both files. This is correspondence
+  tests. The three new API names and three new test labels occur in both files. This is correspondence
   coverage, not a mathematical audit of every inherited target.
-- README: 157,618 bytes, below the 200 KB limit.
+- README: 159,497 bytes, below the 200 KB limit.
 - Local intake file checks: three permitted changed files, zero problems.
   `git diff --check` passed.
 
 | Artifact | SHA-256 |
 | --- | --- |
 | `packets/InductionRestrictionPartII.json` (unchanged) | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `de85a9b3a5431bef19520598a1cee7ef5543ac8036b7559e40b21158652ecfdd` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `9db96d1277b860e03ca501009ae735acaabdb693e1261a418267dea818869b76` |
+| `packages/InductionRestrictionPartII/README.md` | `6cd57a8e2f41f751f13a7858440f893a2a5abcf313c23725150e65b47159e982` |
+| `packages/InductionRestrictionPartII/Suggested.lean` | `1ffdde971a3f1f8232519d48cabf0f0b9f1172a5c92c0ec2e6b2258a075fb959` |
 
 No scratch artifact is needed to resume. No second job was claimed.
