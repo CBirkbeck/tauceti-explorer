@@ -16537,8 +16537,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3476"
+   "state": "external",
+   "note": "claimed on GitHub issue #3476"
   },
   {
    "id": "REV-DESIGN-DeformationAndDerivedPatchingAlgebraPartII",
@@ -16924,7 +16924,8 @@
    "avoidAccountOf": "DESIGN-AnalyticNumberTheoryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AnalyticNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5051"
   },
   {
    "id": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -27970,12 +27971,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #777"
+   "note": "deliverables arrived from an external worker on issue #777",
+   "finishedAt": "2026-10-11T06:49:41Z"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
@@ -49250,8 +49252,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80308,8 +80310,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -88253,7 +88255,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EffectiveBoundsCompactModels.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1696"
   },
   {
    "id": "REV-DESIGN-EffectiveBoundsCompactModels",
