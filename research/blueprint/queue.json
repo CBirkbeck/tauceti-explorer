@@ -16993,7 +16993,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityWild3Adic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7103"
   },
   {
    "id": "REV-DESIGN-EllipticCurveModularityWild3Adic",
@@ -25636,8 +25637,9 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmetic",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #409"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #409",
+   "finishedAt": "2026-10-11T07:05:38Z"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
@@ -27998,7 +28000,8 @@
    ],
    "avoidAccountOf": "BP-ModularSymbolsPadicLFunctions",
    "prompt": "research/blueprint/prompts/REV-ModularSymbolsPadicLFunctions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #454"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.1",
@@ -36900,8 +36903,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6345"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6345",
+   "finishedAt": "2026-10-11T07:05:41Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
@@ -47719,8 +47723,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49343,8 +49347,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -88324,8 +88328,9 @@
    "avoidAccountOf": "DESIGN-HyperbolicCurveVolumesAndGonality",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HyperbolicCurveVolumesAndGonality.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1726"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1726",
+   "finishedAt": "2026-10-11T07:05:43Z"
   },
   {
    "id": "DESIGN-GeometricFreyMazur",
