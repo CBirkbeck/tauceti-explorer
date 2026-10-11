@@ -126,7 +126,7 @@ section TateClass
 variable {k : Type u} [Field k]
 variable {H : Type v} [AddCommGroup H] [Module k H]
 
-/-- The four de Rham conditions, including the nonzero condition. -/
+/-- Nonvanishing and the four de Rham conditions of BDMTV section 4.4. -/
 def IsAdmissibleTateClass (p : k) (phi : H →ₗ[k] H)
     (Fil1 : Submodule k (H ⊗[k] H)) (cup : (H ⊗[k] H) →ₗ[k] k)
     (Z : H ⊗[k] H) : Prop :=
@@ -159,6 +159,12 @@ def testPhi : (ℚ × ℚ) →ₗ[ℚ] ℚ × ℚ where
   map_smul' := by sorry
 def testWedge : (ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ) :=
   (1, 0) ⊗ₜ[ℚ] (0, 1) - (0, 1) ⊗ₜ[ℚ] (1, 0)
+-- An explicit bilinear functional detecting e1 ⊗ e2, used only in the linear tests.
+def testCup : ((ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ)) →ₗ[ℚ] ℚ :=
+  TensorProduct.lift {
+    toFun := fun z => z.1 • LinearMap.snd ℚ ℚ ℚ
+    map_add' := by sorry
+    map_smul' := by sorry }
 -- test: tate_wedge_eigenvalue
 example : IsAdmissibleTateClass 2 testPhi (⊤ : Submodule ℚ _)
     (0 : ((ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ)) →ₗ[ℚ] ℚ) testWedge := by sorry
@@ -168,11 +174,17 @@ example : ¬ IsAdmissibleTateClass 2 testPhi (⊤ : Submodule ℚ _)
 -- test: tate_symmetric_tensor_rejected
 example : ¬ IsAdmissibleTateClass 2 testPhi (⊤ : Submodule ℚ _)
     (0 : ((ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ)) →ₗ[ℚ] ℚ)
-    ((1, 0) ⊗ₜ[ℚ] (1, 0)) := by sorry
+    ((1, 0) ⊗ₜ[ℚ] (0, 1) + (0, 1) ⊗ₜ[ℚ] (1, 0)) := by sorry
 -- test: tate_wrong_frobenius
 example : ¬ IsAdmissibleTateClass 2 (LinearMap.id : (ℚ × ℚ) →ₗ[ℚ] ℚ × ℚ)
     (⊤ : Submodule ℚ _)
     (0 : ((ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ)) →ₗ[ℚ] ℚ) testWedge := by sorry
+-- test: tate_wrong_filtration
+example : ¬ IsAdmissibleTateClass 2 testPhi (⊥ : Submodule ℚ _)
+    (0 : ((ℚ × ℚ) ⊗[ℚ] (ℚ × ℚ)) →ₗ[ℚ] ℚ) testWedge := by sorry
+-- test: tate_nonzero_cup_rejected
+example : ¬ IsAdmissibleTateClass 2 testPhi (⊤ : Submodule ℚ _)
+    testCup testWedge := by sorry
 end TateTests
 
 section HeightModule
@@ -197,6 +209,10 @@ def lift (i : T →ₗ[k] A) (q : T →ₗ[k] k) (f : A →ₗ[k] M)
 
 theorem lift_mk (i : T →ₗ[k] A) (q : T →ₗ[k] k) (f : A →ₗ[k] M)
     (hf : q.ker.map i ≤ f.ker) (a : A) : lift i q f hf (mk i q a) = f a := by sorry
+
+theorem lift_unique (i : T →ₗ[k] A) (q : T →ₗ[k] k) (f : A →ₗ[k] M)
+    (hf : q.ker.map i ≤ f.ker) (g : DepthTwoHeightModule i q →ₗ[k] M)
+    (hg : ∀ a, g (mk i q a) = f a) : g = lift i q f hf := by sorry
 
 -- DepthTwoHeightModule.geometric, grades, action, deRham:
 -- omitted Galois representation, faithful U_Z action and connection realization. Gap G1.
@@ -231,7 +247,8 @@ section Preheight
 variable {k : Type u} [Field k]
 variable {V : Type v} [AddCommGroup V] [Module k V]
 
-/-- The scalar inside the height-character evaluation, with both negative beta terms. -/
+/-- The scalar inside the height-character evaluation, with both negative beta terms.
+Geometrically s1 projects onto the chosen complement W and s2 onto Fil0. -/
 def HeightPrevalue (s1 s2 : V →ₗ[k] V) (alpha : V)
     (betaPhi betaFil : Module.Dual k V) (gammaPhi gammaFil : k) : k :=
   gammaPhi - gammaFil - betaPhi (s1 alpha) - betaFil (s2 alpha)
@@ -254,6 +271,7 @@ theorem character_smul (chi : k →ₗ[k] k) (a z : k) : chi (a * z) = a * chi z
 -- Requires G2, chosen Hodge splitting and the nonzero local linear character.
 end HeightPrevalue
 
+-- In this test frame W is the first coordinate and Fil0 is the second coordinate.
 def firstProjection : (ℚ × ℚ) →ₗ[ℚ] ℚ × ℚ where
   toFun z := (z.1, 0)
   map_add' := by sorry
@@ -271,6 +289,9 @@ example : HeightPrevalue firstProjection secondProjection (0, 0)
 -- test: preheight_central_variation
 example : HeightPrevalue firstProjection secondProjection (1, 2)
     (2 • LinearMap.fst ℚ ℚ ℚ) (3 • LinearMap.snd ℚ ℚ ℚ) 8 1 = -1 := by sorry
+-- test: preheight_projection_order
+example : HeightPrevalue secondProjection firstProjection (1, 2)
+    (2 • LinearMap.fst ℚ ℚ ℚ) (3 • LinearMap.snd ℚ ℚ ℚ) 7 1 = 6 := by sorry
 end Preheight
 
 section HeightCoordinates
@@ -484,6 +505,10 @@ end Choices
 -- /xs13-second-chart-points, /xs13-p0-disc and /xs13-rational-points.
 -- They are illustrated in the reader and imported-target register, not defined again.
 -- NC.5 supplies their generic pair, mixed-extension height and determinant inputs.
+-- chow_heegner_class: the relative-cohomology object is E_Z = A_Z(b,x)^*(1).
+-- Its divisor-height comparison preserves Q_p,V,Q_p(1); Tate-dual height symmetry
+-- gives the height identity for A_Z. The distinct-endpoint and x=b signatures
+-- remain omitted at G1,G2. The extra (-1) in arXiv BD I Theorem 6.3 is not used.
 -- Correct U1.m line358 to use betafil2 in the Z2 feature and replay its certificates;
 -- no numerical execution or rational-point completeness replay is claimed here.
 
