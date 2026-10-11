@@ -1,4 +1,53 @@
-# Current checkpoint: Codex codex-atPpUi, 11 October 2026
+# Current checkpoint: Codex codex-i7wp9f, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab`;
+branch `codex-i7wp9f-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107074305).
+This session did none of the author fixes or earlier reviews.
+
+**Blocked checkpoint.** Fresh checks confirm that the existing scope and
+review-attribution conflict remains. The assigned mathematical review is
+already recorded below. This continuation adds no mathematical verdict and
+changes only this report and its handoff.
+
+| Job | Live outputs / packets | Queue outputs / packets | Completion, live / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+Both live deliverable lists match the historical queues at `c69e5b6c9` and
+`888f12f5c9`. Every current queue output exists. The stock completion predicate
+still reads only current top-level reviews. P0 and ASII currently identify
+#6519, while AEG identifies #5704. The report's read-only collision fixture
+returns `[false, true]`; restoring #5704's archived reviews only in memory
+returns `[true, false]`. Replacing those current reviews therefore cannot
+finish both jobs. No review was replaced.
+
+Reran the preserved generator fixture: stock 4/8, later-round-only candidate
+6/8, two-site candidate 8/8. All ten assessment-bound history assertions pass.
+The assessment fixture also confirms that the three packets' mathematical
+content and the suggested files equal the earlier review merge `331007b5e`.
+All candidates and hypothetical metadata changes remained in memory.
+
+The stock blueprint checker, using the existing 316,810-record pinned index,
+reports zero errors and zero warnings for all three packets (326, 153 and
+537 nodes). No suggested file changed, and no Lean compiler or fresh source
+audit ran. Earlier source checks and successful elaborations retain their
+original attribution and qualifications.
+
+The necessary queue, generator, completion-function and generated-prompt
+paths are outside the live issue's seven deliverables and all fail
+`intake.ALLOWED`. No repair is possible within this assignment. The maintainer
+must restore issued scopes, preserve them during regeneration, and establish
+content-bound historical completion without replacing promotion verdicts.
+The existing fixtures below specify checks for both jobs together and for
+later scoped reviews; assessed source and reader inputs still need a policy.
+The handoff records where to resume. One issue was claimed; no second job.
+
+---
+
+# Archived checkpoint: Codex codex-atPpUi, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `1c714a0498c1a1f857f214636c180d9d319d37fc`; branch `codex-atPpUi-review-padic-fixes`.
