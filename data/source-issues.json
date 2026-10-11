@@ -166699,16 +166699,17 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "EMS published article and journal search: https://ems.press/journals/prims/articles/2127",
-    "arXiv record and version history: https://arxiv.org/abs/math/0510441",
-    "Web search for Kim 2009 unipotent Albanese erratum; the returned 2011 Massey-product corrigendum concerns a different article."
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "The finite completion and integral/crystalline datum on pp.101–102 show that the place must be nonarchimedean."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E2",
@@ -166720,16 +166721,105 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "EMS published article and journal search: https://ems.press/journals/prims/articles/2127",
-    "arXiv record and version history: https://arxiv.org/abs/math/0510441",
-    "Web search for Kim 2009 unipotent Albanese erratum; the returned 2011 Massey-product corrigendum concerns a different article."
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
    ],
    "owner": "AnabelianGeometryAndNonabelianChabauty",
    "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
    "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "The diagrams on pp.95 and 120 and the preceding dimension argument use U_dR/F⁰. Only that realization has the Hodge subgroup and admits the regular function pulled back by j_dR."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC4-3",
+   "kind": "error",
+   "locator": "Published §1, proof of Theorem 1, p.112; compare the path direction p.103 and word connection pp.107–109",
+   "printed": "After defining p_φu=g with g having word coordinate 1, the source identifies u with the forward horizontal word element.",
+   "correction": "Write I for the forward horizontal path; then u=I⁻¹ and the period representative is I⁻¹γ. Use antipode coefficients in the density proof.",
+   "reason": "The right source action is composition on the right. The equation is Iu=1, so u=I⁻¹. Already in degree one I=1+aT gives u=1−aT modulo T², whereas the forward horizontal solution has coefficient +a. NC.4 already uses the correct inverse, and the added nonidentity-path test checks it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "The right source action is composition on the right. The equation is Iu=1, so u=I⁻¹. Already in degree one I=1+aT gives u=1−aT modulo T², whereas the forward horizontal solution has coefficient +a. NC.4 already uses the correct inverse, and the added nonidentity-path test checks it."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC4-4",
+   "kind": "gap",
+   "locator": "Published §1, first paragraph of the proof of Theorem 1, p.111",
+   "printed": "The proper-curve reduction chooses an integral rational point outside the base point residue disc without an extra existence hypothesis.",
+   "correction": "Remove a relative finite étale divisor supported away from the chosen special point; it may have degree greater than one. Apply the extending quotient on that auxiliary affine chart.",
+   "reason": "A smooth proper curve can have only one rational special-fibre point, so every integral rational point lies in the same disc. For example y²+y=x⁵+x³+1 over ℤ₂ has smooth genus-two special fibre with only infinity over 𝔽₂: at x=0,1 the right side is 1 and y²+y=0. At infinity the chart v²+u³v=u+u³+u⁶ is smooth. A different closed special-fibre point lifts to a finite étale divisor; NC.4 already allows this repair.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "A smooth proper curve can have only one rational special-fibre point, so every integral rational point lies in the same disc. For example y²+y=x⁵+x³+1 over ℤ₂ has smooth genus-two special fibre with only infinity over 𝔽₂: at x=0,1 the right side is 1 and y²+y=0. At infinity the chart v²+u³v=u+u³+u⁶ is smooth. A different closed special-fibre point lifts to a finite étale divisor; NC.4 already allows this repair."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC4-5",
+   "kind": "misprint",
+   "locator": "Published §1, free word-algebra construction, p.107",
+   "printed": "The free associative algebra on the word generators is identified with the group algebra of a free group.",
+   "correction": "Use the free associative tensor algebra, completed in its augmentation ideal, with primitive generators.",
+   "reason": "With one generator the first algebra is K[T] and the free-group algebra is K[z,z⁻¹]; their units differ. The subsequent primitive-generator coproduct and word connection use the tensor algebra, which is the NC.2/NC.4 convention.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "With one generator the first algebra is K[T] and the free-group algebra is K[z,z⁻¹]; their units differ. The subsequent primitive-generator coproduct and word connection use the tensor algebra, which is the NC.2/NC.4 convention."
+  },
+  {
+   "id": "AnabelianGeometryAndNonabelianChabauty/E-NC4-6",
+   "kind": "misprint",
+   "locator": "Published §1, Lemma 2 proof, p.108, elementary gauge calculation",
+   "printed": "For G=I−aE_ij the derivative term G⁻¹dG is assigned the positive sign.",
+   "correction": "With the displayed G use G⁻¹dG=−da E_ij and choose a to correct ω_ij−da; alternatively choose G=I+aE_ij throughout.",
+   "reason": "For i≠j, E_ij²=0, so G⁻¹=I+aE_ij and (I+aE_ij)(−da E_ij)=−da E_ij. The triangular induction survives the consistent sign correction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-11: EMS article record https://ems.press/journals/prims/articles/2127 and the version-of-record PDF; no separate correction located.",
+    "2026-10-11: arXiv version history https://arxiv.org/abs/math/0510441 and direct comparison with v5 https://arxiv.org/pdf/math/0510441v5; these six affected steps still occur there. The published p.108 inverse matrix is corrected relative to v5, but its derivative sign remains incorrect.",
+    "2026-10-11: author publication list https://www.minhyongkim.net/research/academic-publications; its 2011 Massey-product erratum concerns another article.",
+    "2026-10-11: web searches for the paper title with erratum, correction, inverse and residue-disc point choice; no correction to these findings located."
+   ],
+   "owner": "AnabelianGeometryAndNonabelianChabauty",
+   "file": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+   "citation": "Minhyong Kim, The Unipotent Albanese Map and Selmer Varieties for Curves, Published version, Publications of the Research Institute for Mathematical Sciences 45 (2009), 89–133; DOI 10.2977/PRIMS/1234361156",
+   "status": "confirmed",
+   "reviewedBy": "REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+   "reviewReason": "For i≠j, E_ij²=0, so G⁻¹=I+aE_ij and (I+aE_ij)(−da E_ij)=−da E_ij. The triangular induction survives the consistent sign correction."
   },
   {
    "id": "AnabelianGeometryAndNonabelianChabauty/E501",
@@ -185385,8 +185475,8 @@
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E4",
    "kind": "misprint",
    "locator": "§1.14 (Notation and conventions), first paragraph, the displayed Cohen–Macaulay condition (page 4; TeX l. 893) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
-   "printed": "It calls 𝓜 Cohen–Macaulay when (S_n) holds for every n, equivalently requiring depth_{O_x}(𝓜_x) = dim(Supp(𝓜_x)) at every x ∈ X.",
-   "correction": "'… for all x ∈ Supp(𝓜)'.",
+   "printed": "The displayed depth equality is quantified over the entire scheme.",
+   "correction": "Quantify the equality only at points in the module’s support.",
    "reason": "For x ∉ Supp(𝓜) the stalk is 0, whose depth is +∞, while dim(Supp(𝓜_x)) = dim(∅) = −∞ by the convention just recalled; so the equality fails there although '(S_n) for every n' holds. Read literally, only modules with full support could be Cohen–Macaulay, which contradicts Definition 3.1(ii), where M/(r_1,…,r_s)M has proper support, and Remark 1.4, which states Supp(𝓜) = X as a separate hypothesis.",
    "affects": "nothing",
    "known": "new",
@@ -185407,8 +185497,8 @@
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E5",
    "kind": "misprint",
    "locator": "Remark 3.9 (page 12; TeX l. 1387) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
-   "printed": "The source deduces from the definition that, whenever 1 ≤ i ≤ i' ≤ s, the submodules of M/(r_1,…,r_{i−1})M killed by r_i and by r_ir_{i'} coincide.",
-   "correction": "'the r_{i'}-torsion and the r_ir_{i'}-torsion submodules … agree', i.e. ((r_1,…,r_{i−1})M : r_ir_{i'}) = ((r_1,…,r_{i−1})M : r_{i'}), which is Huneke's condition.",
+   "printed": "The stated single-element torsion uses the earlier index i.",
+   "correction": "Use the later-index r_j torsion, equated with r_i r_j torsion in the quotient before i.",
    "reason": "The corrected form follows from Definition 3.8: if r_ir_{i'}x = 0 in M̄ := M/(r_1,…,r_{i−1})M then y := r_{i'}x ∈ 𝔯M̄ is r_i-torsion, so y = 0. The printed form fails: over R = k[[t,u]] take M = R/(u) ⊕ R and (r_1, r_2) = (t, u), a d-sequence for M (t is injective on 𝔯M = tk[[t]] ⊕ (t,u)R, and u on 𝔯(M/tM) = 0 ⊕ uk[[u]]); for i = 1, i' = 2 the t-torsion of M is 0 but its tu-torsion is R/(u) ⊕ 0, which is the u-torsion.",
    "affects": "nothing",
    "known": "new",
@@ -185429,8 +185519,8 @@
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E6",
    "kind": "misprint",
    "locator": "Proposition 3.11(iii) (page 13; TeX l. 1443) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
-   "printed": "The source sets M' := M/(r'_1,…,r'_{s'−1})M and asserts that regularity of r_{s'} on M'/(r_1,…,r_s)M' implies regularity on M' and on M'/I_s^nM' whenever n > 0.",
-   "correction": "'if r'_{s'} is (M'/(r_1,…,r_s)M')-regular'.",
+   "printed": "The regularity antecedent uses an element of the original sequence with the auxiliary index.",
+   "correction": "Use the last auxiliary element a_u in that antecedent.",
    "reason": "s' indexes the auxiliary secant sequence, whose first s' − 1 terms define M'; the next term is r'_{s'}. As printed, for s' ≤ s the element r_{s'} kills M'/(r_1,…,r_s)M', and for s' > s̃ it is undefined. The proof of Theorem 3.14 applies (iii) with s' = 1, M' = M and an M̄-regular r' (TeX l. 1541).",
    "affects": "nothing",
    "known": "new",
@@ -185451,8 +185541,8 @@
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E7",
    "kind": "misprint",
    "locator": "The proof of Theorem 3.14, the definition of I_s (page 15; TeX l. 1550) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
-   "printed": "It defines I_s := ∏_{i=1}^s (r_1,…,r_s), with 0 ≤ s ≤ s̃.",
-   "correction": "I_s := ∏_{i=1}^s (r_1,…,r_i)",
+   "printed": "Every factor in the displayed product uses the full s-th prefix ideal.",
+   "correction": "The i-th factor must be the i-th prefix ideal, giving I_s=I_{s−1}(r₁,…,r_s).",
    "reason": "Proposition 3.11 defines I_j := ∏_{i=1}^j (r_1,…,r_i) (TeX l. 1421) and the theorem's I is I_{s̃}; the proof needs I_{s̃} = I and uses Bl_{I_s}(R) ≅ Bl_{(r_1,…,r_s)}(Bl_{I_{s−1}}(R)) from §3.13, which needs I_s = (r_1,…,r_s)·I_{s−1}. The printed ideal is (r_1,…,r_s)^s, which satisfies neither.",
    "affects": "nothing",
    "known": "new",
@@ -185473,8 +185563,8 @@
    "id": "DeformationAndDerivedPatchingAlgebraPartII/E8",
    "kind": "misprint",
    "locator": "The proof of Theorem 3.14, display (3.14.10) (page 16; TeX l. 1628) of the author's manuscript dated 28 July 2020; the same in arXiv:1810.04493v2",
-   "printed": "The source claims that r_aT − r_b acts by zero on H^1_{(r_a,r_b)}(R'[T], M' ⊗_{R'} R'[T]).",
-   "correction": "'multiplication by r_bT − r_a'",
+   "printed": "The annihilation display swaps the two coefficients compared with the chart’s relation.",
+   "correction": "Use multiplication by r_bT−r_a, the map in the chart exact sequence; both coefficient combinations annihilate cohomology, but only this one is the relevant map.",
    "reason": "The exact sequence (3.14.7) that the argument feeds into is multiplication by r_bT − r_a, and (3.14.11) uses r_bT − r_a. The printed statement is also true (by Claim 3.14.5 and (3.14.8) both r_a and r_b act by zero), so nothing is lost.",
    "affects": "nothing",
    "known": "new",
@@ -217991,9 +218081,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed against the published boundary relation and Theorems 2.6/2.9. Applying the boundary map, with D′=−∂e′, gives the recorded opposite translation sign; the Γ₀(2) divisor check independently detects it."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E2",
@@ -218010,15 +218100,15 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed on published p.11: the one-element orbit relation must use its primed edge, as Theorem 2.6 does."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E3",
    "kind": "misprint",
    "locator": "Corollary 2.10, p. 14",
-   "printed": "Paraphrase (not a source quotation): The order-three condition drops its identity term, and the specified values of the two exceptional orbit types are interchanged.",
+   "printed": "Paraphrase: In the order-three condition the linear stabilizer term has one prime instead of two; the identity term is present. The prescribed exceptional values are named by undefined m variables rather than the given v variables.",
    "correction": "v″_i|(1 + γ″_i + (γ″_i)²) = 0, and φ(D′_i) = v′_i, φ(D″_i) = v″_i.",
    "reason": "Theorem 2.9 has the three-term relation (1 + γ″_i + (γ″_i)²)D″_i = 0 with γ″_i throughout, and the symbols m′_i, m″_i are not defined anywhere; the data are the v′_i, v″_i of the corollary's hypothesis.",
    "affects": "nothing",
@@ -218029,9 +218119,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed after correcting the finding itself: Corollary 2.10 has the identity term, but uses γ′ in the linear term where γ″ is needed, and gives undefined m′,m″ names. No interchange of values is printed."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E4",
@@ -218048,9 +218138,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed as a normalization mismatch when the same periods are used in (1) and (2). Direct character summation gives the minus-component sign; changing the minus period absorbs it. No substantive existence theorem is contradicted."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E5",
@@ -218059,7 +218149,7 @@
    "printed": "Paraphrase (not a source quotation): The unramified interpolation case omits the factor produced by restricting a distribution from Z_p to its units.",
    "correction": "For n = 0 (χ trivial, conductor 1) the right side needs the factor (1 − p^j/α): μ_f(z^j) = (1 − p^j/α)·j!/(2πi)^j·L(f, j + 1)/Ω^± (with E4's sign), where f is the U_p-eigenform of level Γ₀. For f the p-stabilisation of a newform f° of level prime to p, L(f, j + 1) = (1 − ε(p)p^{k−j}/α)L(f°, j + 1) gives the second Euler factor.",
    "reason": "By the distribution relation in the proof of Proposition 6.3 (with a = 0, n = 1), Φ_f({∞} − {0})(z^j·1_{pℤ_p}) = α^{−1}p^jΦ_f({∞} − {0})(z^j), so restricting to ℤ_p^× multiplies the value on ℤ_p by 1 − p^j/α, and the value on ℤ_p is (2) with n = 0. Since p^j/α ≠ 0, the factor is never 1; for 11a1 at p = 3 with k = j = 0, (1) and the restriction differ by 1 − 1/α while L(f, 1) ≠ 0. RJW Theorem B.1 (this packet's L1/rjw-b1-comparison) carries the factor (1 − χ(p)p^j/α_p), which is 1 − p^j/α_p exactly for n = 0.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
@@ -218067,9 +218157,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed: the units restriction subtracts α⁻¹p^j times the total moment at the trivial character, so the displayed unramified interpolation result needs 1−p^j/α. Its absence affects that stated formula."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E6",
@@ -218086,9 +218176,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed on published p.29: the j-th moment requires the complex value at j+1, as the cited Proposition 6.3 computation gives."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E7",
@@ -218105,9 +218195,9 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed: the polynomial degree is k and the form weight k+2 throughout the defining theta map and Theorem 5.14."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E8",
@@ -218116,7 +218206,7 @@
    "printed": "Paraphrase (not a source quotation): The action and contraction claims are extended to radii where the fractional transformation has a pole.",
    "correction": "Both hold for r < p (every r ∈ |ℂ_p^×| is allowed in §3.1); for r ≥ p the formula does not preserve A[r].",
    "reason": "For r ≥ 1, B[ℤ_p, r] is the closed disc of radius r about 0. Take γ = (1 0; p 1) ∈ Σ₀(p), k = 0 and f(z) = z: γ ·₀ f = z/(1 + pz) has a pole at −1/p, of absolute value p, which lies in B[ℤ_p, r] when r ≥ p. For r < p, a + cz is a unit on B[ℤ_p, r] and the action and the contraction hold.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
     "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
@@ -218124,29 +218214,30 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed outside the radii actually used: for k=0 and γ=(1 0;p 1), the test function z becomes z/(1+pz), with a pole at −1/p. Thus the unrestricted-radius action statement fails; r<p repairs it."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E9",
    "kind": "misprint",
    "locator": "§1.4.3, (5), p. 8 (arXiv v1)",
-   "printed": "Paraphrase (not a source quotation): The arXiv-v1 formula labels the beta refinement but uses the other root in its Euler denominators. The published journal version has not been compared.",
+   "printed": "Paraphrase: The arXiv-v1 formula labels the beta refinement but uses the other root in its Euler denominators. The published journal version has not been compared. The author-hosted preprint retains the same denominators.",
    "correction": "e_p(β, ϕt^j) = β^{−ν}(1 − ϕ̄(p)ε(p)p^{k−j}/β)(1 − ϕ(p)p^j/β): the factors of the refinement f_β have β, its U_p-eigenvalue, in the denominators.",
    "reason": "For the refinement f_β (U_p f_β = βf_β, v_p(β) = k + 1 at critical slope), the distribution contributes 1 − ϕ(p)p^j/β and the p-stabilisation L(f_β, s) = (1 − αp^{−s})L(f, s) contributes 1 − ϕ̄(p)ε(p)p^{k−j}/β at s = j + 1 (using αβ = ε(p)p^{k+1}); the prefactor β^{−ν} already has β. With α the formula would be that of the other refinement f_α (Mazur–Tate–Teitelbaum).",
    "affects": "a stated result",
-   "known": "new: arXiv v1 is the only arXiv version; the Inventiones text was not obtained",
+   "known": "new in arXiv v1 and the author-hosted preprint; journal version not obtained",
    "searched": [
     "arXiv 0912.2925 (v1 only).",
-    "The published version (Invent. Math. 189 (2012)) was not obtained."
+    "The published version (Invent. Math. 189 (2012)) was not obtained.",
+    "2026-10-11: author-hosted critical.pdf (SHA-256 5c47b15c4836d1a834f5ab9622075c04a4b7aba0b6a6ab28f3e641fcf6d0074b) has the same formula (5), p.8. The publisher PDF endpoint returned a cookie-error HTML page, so no published-version verdict is made."
    ],
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Joël Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed only for the two preprints read: beta is the Up eigenvalue and belongs in both denominators. The author-hosted copy agrees with arXiv v1. The journal endpoint did not supply a PDF, so its text remains unchecked."
   },
   {
    "id": "ModularSymbolsPadicLFunctions/E10",
@@ -218163,9 +218254,66 @@
    "owner": "ModularSymbolsPadicLFunctions",
    "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
    "citation": "Robert Pollack, On the p-adic L-function of a modular form at a supersingular prime, Duke Math. J. 118 (2003), no. 3, 523–558; the published article as posted on the author's Boston University page (36 pages; printed page = PDF page + 522). The server's TLS chain did not verify, so the file was fetched without certificate verification; its hash is recorded.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Confirmed against Pollack Lemma 4.6 and the published correction in Sprung Lemma 4.26. Reciprocal cyclotomic degrees give the two nonconstant unit exponents for the original products, including the p=2 first-factor convention."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E11",
+   "kind": "error",
+   "locator": "§4.5, Proposition 4.16 and proof, pp.51–52 (arXiv:1809.04645v1)",
+   "printed": "Paraphrase: The parabolic dimension subtracts every cusp without distinguishing the negative parabolic lifts in odd coefficient degree.",
+   "correction": "Subtract c_k, the sum of cusp invariant dimensions: all cusps for even k, regular cusps only for odd k. Use the projective index μ.",
+   "reason": "Γ₁(4) has projective index 6, cusps ∞,0,1/2, with (1 −1;4 −3) a negative parabolic generator at 1/2. For k=1, a negative unipotent acts with all eigenvalues −1 and has zero invariants/coinvariants. The formula subtracting all three cusps gives −1, whereas subtracting the two regular cusps gives 0. The proof on p.52 treats every cusp lift as positive T^w; current ModularForms 10C supplies the correct distinction.",
+   "affects": "a stated result",
+   "known": "new in arXiv v1; published chapter not compared",
+   "searched": [
+    "2026-10-11: arXiv abstract/version history lists only v1. Author notes index was sought but timed out; no claim is made about an erratum or a later published chapter."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Gabor Wiese, Computational Arithmetic of Modular Forms (course notes), arXiv:1809.04645v1 (12 September 2018), 81 pages; printed page = PDF page. Also published in Modular Forms and Related Topics in Number Theory (Springer, 2019); the arXiv version was read.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "Γ₁(4) has projective index 6, cusps ∞,0,1/2, with (1 −1;4 −3) a negative parabolic generator at 1/2. For k=1, a negative unipotent acts with all eigenvalues −1 and has zero invariants/coinvariants. The formula subtracting all three cusps gives −1, whereas subtracting the two regular cusps gives 0. The proof on p.52 treats every cusp lift as positive T^w; current ModularForms 10C supplies the correct distinction."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E12",
+   "kind": "misprint",
+   "locator": "§4.5, proof of Proposition 4.16, p.52 (arXiv:1809.04645v1)",
+   "printed": "Paraphrase: The displayed dimension of the order-three invariant space omits the dimension of the coefficient module.",
+   "correction": "In source weight w, dim H⁰(⟨τ⟩,M)=(w−1)μ/3; in this packet degree k it is (k+1)μ/3.",
+   "reason": "The free order-three orbits each contribute a full copy of V_{w−2}. The preceding order-two computation includes w−1, and the following algebra uses the restored factor.",
+   "affects": "nothing",
+   "known": "new in arXiv v1; published chapter not compared",
+   "searched": [
+    "2026-10-11: arXiv abstract/version history lists only v1. Author notes index was sought but timed out; no claim is made about an erratum or a later published chapter."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Gabor Wiese, Computational Arithmetic of Modular Forms (course notes), arXiv:1809.04645v1 (12 September 2018), 81 pages; printed page = PDF page. Also published in Modular Forms and Related Topics in Number Theory (Springer, 2019); the arXiv version was read.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "The free order-three orbits each contribute a full copy of V_{w−2}. The preceding order-two computation includes w−1, and the following algebra uses the restored factor."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E13",
+   "kind": "error",
+   "locator": "Corollaries 2.7 and 2.10, published pp.12 and 14",
+   "printed": "Paraphrase: the compatibility uses v∞, but the list of values the unique symbol must attain omits φ(D∞)=v∞.",
+   "correction": "Add φ(D∞)=v∞ to both uniqueness statements, as already required in symbols-generator-values.",
+   "reason": "For Γ₀(2) and trivial ℚ coefficients the two cusp orbits give a nonzero boundary symbol that distinguishes ∞ and 0. Its values on the torsion generators vanish (their finite-order relations force this), while its D∞ value is nonzero. Adding multiples of it preserves the listed generator values, so uniqueness fails without prescribing D∞.",
+   "affects": "a stated result",
+   "known": "new in the published PDF checked",
+   "searched": [
+    "2026-10-11: Numdam article entry and targeted searches for Pollack–Stevens Corollaries 2.7/2.10 errata; no correction was located."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ModularSymbolsPadicLFunctions",
+   "reviewReason": "The published lists omit D∞ in both corollaries. The Γ₀(2) trivial-coefficient boundary symbol supplies distinct solutions with the same other generator values."
   },
   {
    "id": "ModularityAndLanglandsExtensions/E1",
