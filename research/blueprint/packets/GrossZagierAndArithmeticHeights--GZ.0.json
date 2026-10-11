@@ -33207,9 +33207,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-GrossZagierAndArithmeticHeights--GZ.0~2",
-    "date": "2026-10-10",
-    "notes": "Independent review by Codex session codex-57X7se: 243 nodes (211 verified, 30 corrected, 2 added), all 50 pinned baseline declarations confirmed, 78 precise supplier requests checked, all 86 source issues independently decided (85 confirmed, E47 rejected), and five supplied red-team ownership findings reconciled. Corrected exceptional-CM local/global tensor conventions, starred torus integration versus averaging, exact public-draft locators, real-period inputs and partial signature and absent-example classification. Reader and Lean ledgers synchronized. Current upstream library normalization differs from the pin and is recorded for migration. Explicit carrier/proof/edition gaps remain; no closed or implemented claim is made.",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-GrossZagierAndArithmeticHeights--GZ.0~2 and archiving its entire review unchanged. Finding /26 follows the newer accepted GZ.0 review: general models, graphs, surface intersections and semistable base change import StableReduction 1/4/5/7. GZ retains admissible arithmetic specialization, Green functions and global height gluing; general graph analysis belongs to TB.3. Preserve the pin-specific height normalization and current-library migration note. The 243-row checked ledger, 78 requests and 86 source decisions remain attributed to the predecessor. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance.",
     "checked": [
       {
         "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
@@ -35659,6 +35659,1229 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
       "date": "2026-10-08",
       "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Finding /19 is correct in packet and reader: quadratic-field binary norms stay anisotropic, division ternary data use the convergent identity, and the generic split second-term formula does not provide the separately normalized exact Shimizu pairing. No further fix-region correction is required. BP-GrossZagierAndArithmeticHeights--GZ.0~2 and its review must still resolve the broad review source-version, supplier and suggested-carrier/API/test correspondence obligations. The exact 2013 YZZ pagination is not newly certified; obsolete excerpt requirements are superseded by the standing no-quotation rule. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-GrossZagierAndArithmeticHeights--GZ.0~2",
+      "date": "2026-10-10",
+      "notes": "Independent review by Codex session codex-57X7se: 243 nodes (211 verified, 30 corrected, 2 added), all 50 pinned baseline declarations confirmed, 78 precise supplier requests checked, all 86 source issues independently decided (85 confirmed, E47 rejected), and five supplied red-team ownership findings reconciled. Corrected exceptional-CM local/global tensor conventions, starred torus integration versus averaging, exact public-draft locators, real-period inputs and partial signature and absent-example classification. Reader and Lean ledgers synchronized. Current upstream library normalization differs from the pin and is recorded for migration. Explicit carrier/proof/edition gaps remain; no closed or implemented claim is made.",
+      "checked": [
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+          "verdict": "corrected",
+          "note": "Replaced an inaccessible LMFDB knowl citation with the independently read 37.a1 generator/BSD page, retaining Müller–Stoll and the pinned code for the general height convention. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against muller-stoll-2016: §1, p. 1 (arXiv v2); lmfdb-2026: Elliptic curve 37.a1, BSD invariants (accessed 2026-09-28); muller-stoll-2016: Remark 3.1, p. 4 (arXiv v2). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against lmfdb-2026: Elliptic curve 37.a1, BSD invariants (accessed 2026-09-28); muller-stoll-2016: §1, p. 1 (arXiv v2); muller-stoll-2016: Remark 3.1, p. 4 (arXiv v2). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+          "verdict": "corrected",
+          "note": "Reclassified the written elliptic comparison as a partial signature of the larger dictionary. The numerical LMFDB citation now uses the accessible 37.a1 curve page rather than an unread knowl. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/canonical-height-rational",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §1, after Theorem 1.1, p. 2 (arXiv v2). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §1, after Theorem 1.1, p. 2 (arXiv v2). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §1.2, p. 4 (arXiv v2). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/heegner-unit-index",
+          "verdict": "corrected",
+          "note": "Completed the unit-index proof chain using five additional pinned library inputs for the product formula, torsion criterion, parity and cyclotomic degree bound. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against conrad-2004: §1, 'Some conventions', p. 69; conrad-2004: §1, 'Some conventions', p. 69. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
+          "verdict": "corrected",
+          "note": "Added the existing full-period supplier to the graph and distinguished the component comparison it does not supply. The numerical LMFDB citation now uses the accessible 37.a1 curve page rather than an unread knowl. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-erratum: items 4, 5, 10, 13, 15. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/identity-rescaling",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §1, normalizations; §2, local toric integrals. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.1.1, Theorems 7.1.1–7.1.2 and Proposition 7.1.3, pp. 217–219. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/coefficient-valued-height",
+          "verdict": "corrected",
+          "note": "Corrected the public-draft locator for the coefficient/character height. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing",
+          "verdict": "corrected",
+          "note": "Corrected the public-draft locator for the coefficient/character height. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.1/elliptic-poincare-comparison",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: I §4 (4.3), p.228; yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.1.1, Theorems 7.1.1–7.1.2 and Proposition 7.1.3, pp. 217–219. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §4, (4.2), p. 228; yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.1.3–§7.1.7, Theorem 7.1.4 and (7.1.1)–(7.1.2), pp. 220–224. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.1.3–§7.1.7, Theorem 7.1.4 and (7.1.1)–(7.1.2), pp. 220–224. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §4, (4.3), p. 228 (quoted, Lang [24]); yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.1.3–§7.1.7, Theorem 7.1.4 and (7.1.1)–(7.1.2), pp. 220–224. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §3.1.3, Lemma 3.1.1, pp. 70–71. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/rational-xi-realization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §3.2.3, pp. 86–87. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/strict-gl2-realization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, Theorem 3.2.6 and Lemma 3.2.7, pp. 87–88. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/composition-pairing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §3.2.4, Lemma 3.2.9 and Theorem 3.2.10, pp. 89–91. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: I §6, p.230; yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §3.3.1 and §3.3.3, pp. 94–99; §3.6.3–§3.6.4, Theorem 3.6.2, pp. 110–113. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/manin-constant",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cesnavicius-neururer-saha-2022: Introduction, p.2; gross-zagier-1986: Published Invent. Math. 84 (1986), Chapter V, §2, p.310. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cesnavicius-neururer-saha-2022: Introduction p.2; Lemma6.5; jetchev-2008: §1, p.812. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/manin-isogeny-twist-transfer",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cesnavicius-neururer-saha-2022: Introduction pp.2–3. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/manin-degree-divisibility",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cesnavicius-neururer-saha-2022: Theorems1.1–1.2, p.3. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/toric-hom-space",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §3.1, p.21. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §3.1, theorem preceding Lemma3.1; saito-1993: §1, pp.99–100; §2 proof, pp.100–108. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/normalized-toric-integral",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §3.1, pp.21–22. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/unramified-toric-value",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §3.1, spherical-value paragraph. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/admissible-toric-order",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: Definition1.3 and preceding conditions, pp.5–6. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: Definition1.4; Proposition3.7; §3.3. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gan-qiu-takeda-2014: arXiv:1207.4709v3 §1.7, pp.3–4; yzz-gross-zagier-shimura-curves-2011-draft: Public 2011 draft, §2.2.1, Proposition 2.2.1 and proof, printed pp.47–49; waldspurger-1985: II.1, pp.182–184; II.2, Proposition3 and corollary, pp.184–187. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §2 equation(2.1), pp.12–13; gross-zagier-1986: published Invent. Math.84(1986), ChapterIV §5, p.292, discussion of the squares furnished by Waldspurger’s theorem; yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §1.4.2 Theorem1.4.2 pp.20–23; §2.4 pp.53–55; waldspurger-1985: II.1, pp.182–184; II.2, Proposition3 and corollary, pp.184–187. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/toric-period-nonvanishing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: §3.1 and Theorem1.8. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/finite-vector-variation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against cai-shu-tian-2014: Theorem1.9, pp.11–12. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-erratum: item30 and §2; yuan-zhang-2018: published Annals 187 (2018), §8.1 pp605–607. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/cm-degree-zero-class",
+          "verdict": "corrected",
+          "note": "Added an independently read public-draft source, preserving the separate unread 2013 edition. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series",
+          "verdict": "corrected",
+          "note": "Corrected the exact public-draft pagination and retained its stated normalization/hypotheses. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel",
+          "verdict": "corrected",
+          "note": "Corrected the starred torus integral to compact central probability averaging, distinguished it from the normalized average by vol([T]), added a volume conversion API/test, and corrected the public-draft locator to §1.6.7 pp.34–35. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/incoherent-central-derivative",
+          "verdict": "corrected",
+          "note": "Added an independently read public-draft source, preserving the separate unread 2013 edition. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/arithmetic-theta-lifting",
+          "verdict": "corrected",
+          "note": "Corrected the exact public-draft pagination and retained its stated normalization/hypotheses. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity",
+          "verdict": "corrected",
+          "note": "Added an independently read public-draft source, preserving the separate unread 2013 edition. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-classes",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, Assumptions 5.2.1–5.2.5 and Proposition 5.2.7, pp. 185–187; Propositions 5.3.1–5.3.2, pp. 189–191; Proposition 5.4.1 and proof, pp. 191–193. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/good-local-arithmetic-identity",
+          "verdict": "corrected",
+          "note": "Corrected the exact public-draft pagination and retained its stated normalization/hypotheses. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/nearby-coherent-orthogonality",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.4.3, pp. 236–237. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yzz-gross-zagier-shimura-curves-2011-draft: 6 November 2011 draft, §7.4.2–§7.4.3, Theorem 7.4.1 and (7.4.1), pp. 235–237. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/boundary-cusp-correction",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: II §§2,5; IV §6; V §1. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/arakelov-probability-form",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.102. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/archimedean-admissible-metric",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.102. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/admissible-green-function",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.102. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/admissible-metric-existence",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.102. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.103. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/arakelov-dualizing-metric",
+          "verdict": "corrected",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.1, p.103. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status. Corrected the correspondence of absent Lean examples: arakelovDualizingMetric_genus_one, arakelovDualizingMetric_genus_two. The mathematical tests remain planned, and their actual-carrier gates are explicit."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/graph-admissible-measure",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.5, pp.115–116. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/explicit-skeleton-measure",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, Proposition A.5, pp.117–118. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/real-admissible-descent",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-bigness-2026: 21 August 2024 author manuscript, §A.6, p.119. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-theta",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §6.2, pp. 579–580. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-comparison",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §6.2, equation (6.2.1), p. 581. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-automorphic",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma6.1(1) pp582–583. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-weight-cancel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma6.1(2) pp582–583. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/mixed-theta-eisenstein",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, pp. 583–584 (from [YZZ13, §5.1.1]); vanishing I(0,g,φ) = 0 stated in §1.3, p. 540. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker",
+          "verdict": "corrected",
+          "note": "Specified the standard Gaussian for the archimedean s-dependent zero coefficient. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status. Corrected the correspondence of absent Lean examples: normalizedWhittaker_standard_zero. The mathematical tests remain planned, and their actual-carrier gates are explicit."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-torus-average",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1 p585;§8.1 pp606–609. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, pp. 585–586 (k p. 585, c p. 586); coherent formulas valid for all φ_v in §7.3, pp. 594 and 600. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-projected-derivative",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, Theorem 7.2, p. 588; proof pp. 589–590. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.2 pp590–592. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-order-sandwich",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma7.3 p592. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, pp. 593–594 (D_n(a) and α_v p. 593, D_n p. 594). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-inert",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.5(1), p. 594; proof p. 595. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-ramified",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.5(2), p. 594; proof p. 595. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-k-inert",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.4(1), pp. 592–593; proof pp. 596–597. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-k-ramified",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.4(2), p. 593; proof pp. 597–598. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-c-arch",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.6(1), p. 599 (via [YZZ13, Prop. 2.11]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, Lemma 7.6(2), p. 599; proof pp. 599–604. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-series-automorphy",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.1, Theorem 8.1, p. 606 (= [YZZ13, Theorem 3.17]); cuspidality of the height series: §8.1, p. 607 (= [YZZ13, Lemma 3.19]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-omega-self",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.1, pp. 608–609 (the coefficient of [t2]_U in Z_*(g)t1 and Ω_φ); Theorem 8.6(1)–(2), p. 616 (i_0 and i_v(t2,t2) = ∫_{C_U} ī_v(tt2,tt2)dt). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-green",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.2, pp. 609–610. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-proper",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.2, Proposition 8.2, p. 610. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.2 pp611–616. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-nonsplit-proper",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Proposition8.3 pp611–612. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-ordinary-pairing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.2, Lemma 8.4, pp. 613–614; ν2 version and m_v̄, i_v̄, pp. 614–615. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-split-proper",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Proposition8.5 pp615–616. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-height-decomposition-series",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Theorem8.6 pp616–617. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-inert",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.7(1), first case pp617–618. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-ramified",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.7(1), second case pp617–618. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-division",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.7(1), third case pp617–619. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-n",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.7(2) pp617–619. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-superspecial-m",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.8 pp619–621. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-pseudo",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma8.9,Remark8.10 pp622–624. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-split-zero",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.3 p621. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-kernel-schwartz",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.1 pp625–627. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-nonsplit",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.1, Proposition 9.2(1), pp. 627–628. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-split",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Proposition9.2(2) p628. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-nonzero-theta",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.1, p. 628. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/colmez-residue-line",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.2, pp. 629–630. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-arch",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.2 pp631–632. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-small-level-diagonal",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.2, Lemma 9.5, p. 634 (split case, p. 635). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-modified-projection",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Lemma9.4 pp632–635, with E18 caveat. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-finite",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §9.2 pp633–634. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-arithmetic-adjunction",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Theorem9.3 pp629–635. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), Assumption 7.1 p587. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-derivative-of-the-mixed-theta",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, 'Decomposition of the constant term', pp. 585–586 (from [YZZ13, §6.1.2, Prop. 6.7]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-archimedean-holomorphic-projection-of-log",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, proof of Theorem 7.2, pp. 589–590. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-local-whittaker-series-for-incoherent",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.3, pp. 593–594 (a ≠ 0) and pp. 599–600 (a = 0, correcting [YZZ13, Prop. 6.10(1)]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-archimedean-derivative-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §7.1, Theorem 7.2(1), p. 588. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-corrected-cm-multiplicity-at-split",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.3, proof of Lemma 8.7, p. 618 (correcting [YZZ13, Lemma 8.6] and [Zha01, Lemma 5.5.2]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-hodge-class-terms-vanish-and",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against yuan-zhang-2018: published Annals 187 (2018), §8.1, pp. 607–608 ([YZZ13, Prop. 7.5]). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §5, (5.3), p. 229; §9, p. 233; Chapter IV, (0.1), p. 267. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/classical-rankin-normalization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §5, (5.4), p. 229. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-absolute-convergence",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §5, p. 229 ('It is not difficult to show'; no proof given); gross-zagier-1986: Chapter IV, introduction, p. 267, after (0.1). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-entire-functional-equation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §5, (5.5) Proposition, p. 229; proved in Chapter IV: continuation via Rankin's method (§1, Proposition (1.2)), functional equation (0.2) proved in §4, pp. 282–283 ('This completes the proof of the functional equation'). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §6, (6.1) Theorem, p. 230; proved in Chapter V, §1, p. 306 (formal argument: for any ℚ-linear α: 𝕋 → ℂ, Σ α(T_m) qᵐ ∈ S₂(Γ₀(N)), via the perfect pairing 𝕋 × S₂(Γ₀(N), ℚ) → ℚ, (T, f) ↦ a₁(Tf); here α(T) = ⟨c, T c^σ⟩); gross-zagier-1986: published Invent. Math. 84 (1986), Chapter V, §1, p. 306 (proof of the first assertion of Theorem (6.1) of Chap. I). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/classical-relative-field-heights",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §6, (6.4), p. 230. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/classical-eigendifferential-period",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §6, p. 230. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §9, (9.1) Proposition, p. 232 ('it is easy to show'); refined in Chapter III, (4.3) Proposition, p. 258 (the multiplicity of x in T_m x^σ is r_𝒜(m), m prime to N) and Chapter II §5, p. 249. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/classical-cm-action-conventions",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §1, pp. 235–236 (i), (ii); p. 243. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.1), pp. 236–237 (recalling Chap. I §4). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-height-green-characterization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.2), (2.3), p. 237. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.10)–(2.12), p. 239. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.13), p. 239. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.19), p. 240. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-marked-green-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.15), (2.20), pp. 239–241. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-green-constant",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.21), p. 241. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-archimedean-height",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.22) Proposition, p. 241. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, pp. 241–242. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.24), p. 242. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-archimedean-height",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.23) Proposition, p. 242. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-atkin-lehner-invariance",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §2, (2.25), p. 242. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-cm-kernel-invariants",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.1)–(3.3), pp. 242–243. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-cm-genus-orbits",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, p. 243. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hyperbolic-norm-parameter",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.4), (3.5), p. 244. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-pair-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.6)–(3.11) Proposition, pp. 244–245. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-congruence-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.12), p. 246. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-prime-discriminant-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.13), p. 246. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-genus-pair-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.14), (3.15), pp. 246–247. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.16) Proposition, p. 247. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, (3.17) Corollary, p. 247. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-genus-character-filter",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §3, p. 247. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/classical-archimedean-height-sum",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §4, first two displays, p. 248. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-cm-eisenstein-sum",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §4, (4.1) and the paragraph after it, p. 248. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-disjoint-archimedean-sum",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, (4.2) Proposition, p. 249 (derivation pp. 248–249). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.1), pp. 249–250; gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §9, p. 232; constructed in Chapter II, §5, pp. 249–252 and Chapter III, §8, pp. 262–264; gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.3), p. 250. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.2) and the following paragraph, p. 250. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.4) and the two paragraphs after it, p. 250. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-complex-tangent-asymptotic",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.5), p. 251. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-archimedean-height",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.6), p. 251. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-green-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, (5.7) and the paragraph after it, p. 251. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-renormalized-self-value",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, p. 251. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-self-value-orbit-sum",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, §5, first display, p. 252. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter II, (5.8) Proposition, p. 252. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, introduction, (0.1), p. 252. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-degree-one-intersection",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, introduction, (0.4) and following paragraph, p. 253. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-supersingular-eichler-order",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, introduction, p. 253. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, introduction, (0.5), p. 253 (general version (9.2)–(9.3), p. 265). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-norm-one-generators",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, introduction, (0.6)–(0.7), p. 254. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, (3.1) Proposition, p. 256. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-component-orthogonality",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, (3.2) Corollary and proof, pp. 256–257. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-finite-intersection-height",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, (3.3) Proposition, p. 257 (announced as (0.2), p. 252). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, (4.4) Proposition, p. 258 (announced as (0.3), p. 252; proved in §§5–6). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §4, last sentence before §5, p. 258. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §8, Lemma (8.2), p. 263 (Aut^{new}) and (8.4) with the following paragraph, p. 264 (Hom^{new}, and the reading b₋ ≠ 0); uses (4.5), p. 258. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-prime-to-p-hom-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §5, (5.1), p. 258. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-isomorphism-intersection-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §6, (6.1) Proposition, p. 259 (proof pp. 259–260, including (6.2)). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-split-vanishing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §7, (7.1) Proposition, p. 261. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-endomorphism-congruence-order",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §7, (7.3) Proposition part 1), p. 262. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-hom-quaternion-realization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §7, (7.3) Proposition part 2), p. 262 (with (4.2), p. 257). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-disjoint-intersection",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §7, (7.4) Corollary part 1), p. 262. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-disjoint-intersection",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §7, (7.4) Corollary part 2), p. 262. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-self-intersection-tangent",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §8, (8.1), p. 263 (with Ch. II §5, (5.1)–(5.4), pp. 249–250). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-new-automorphism-length",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §8, (8.2) Lemma, p. 263. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §8, (8.3), p. 263. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection",
+          "verdict": "corrected",
+          "note": "Extended the new-Hom formula using its correct modified pairing, while retaining the restricted eta corollary. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection",
+          "verdict": "corrected",
+          "note": "Corrected the inert total formula to use the modified pairing at exceptional stabilizers. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection",
+          "verdict": "corrected",
+          "note": "Corrected the ramified total formula to use the modified pairing at exceptional stabilizers. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection",
+          "verdict": "corrected",
+          "note": "Corrected the split total formula to use the modified pairing at exceptional stabilizers. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection",
+          "verdict": "corrected",
+          "note": "Included the discriminant correction in the level intersection formula. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum",
+          "verdict": "corrected",
+          "note": "Defined the p-height contribution by the modified pairing with its discriminant correction and added a level tensor test. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-split-height-sum",
+          "verdict": "corrected",
+          "note": "Propagated the tensor normalization into the split p-height sum. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-hom-lattice",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §9, (9.3), p. 265. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-norm-ideal-map",
+          "verdict": "corrected",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §9, (9.4)–(9.6), p. 265. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status. Corrected the correspondence of absent Lean examples: inertNormIdeals_nonzero. The mathematical tests remain planned, and their actual-carrier gates are explicit."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-height-sum",
+          "verdict": "corrected",
+          "note": "Propagated the tensor normalization into the inert p-height sum. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-inert-unit-count",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §9, proof of Proposition (9.7), p. 266. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-order-model",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter III, §9, pp. 266 ((9.8)–(9.10)). API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-height-sum",
+          "verdict": "corrected",
+          "note": "Propagated the tensor normalization into the ramified p-height sum. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/classical-genus-character-factorization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, introduction, (0.3)–(0.4), p. 268. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §1, pp. 270–271. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §1, p. 271. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §1, pp. 271–272. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, (1.2) Proposition and (1.3), p. 272. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §1, (1.2) Proposition, p. 272. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §1, Remark after (1.2) and (1.3), p. 272. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-transformation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, (2.2), pp. 273–274. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-trace-coset-classification",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, p. 276. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, p. 276. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, (2.4) Proposition and the note after it, pp. 276–277. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-u-formula",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, (2.4) Proposition, p. 276. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-eisenstein-combination",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §2, note after (2.4), p. 277. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, (3.1), p. 277. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function",
+          "verdict": "corrected",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, (3.2) Proposition, p. 277. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status. Corrected the correspondence of absent Lean examples: rankinGenusSign_negative_index. The mathematical tests remain planned, and their actual-carrier gates are explicit."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, (3.2) Proposition (first formula), p. 277; proof pp. 278–279. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, (3.2) Proposition (second formula), p. 277; proof p. 279. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-meromorphic-continuation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, implicit in Corollary (3.4) ('Φ̃_{−r}(z)', p. 281) and in §4 (p. 282); the paper states continuation only for V_s(t) (pp. 280–281). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, (3.4) Corollary, pp. 281–282. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-central-kernel-holomorphy",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §3, after (3.4), p. 282. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-coefficient-functional-equation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, (4.1)–(4.2) and the two displays after (4.2), p. 282. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-reversal",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, (4.3) and its proof, pp. 282–283. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-l-functional-equation",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math.84(1986), ChapterIV (0.2), p.267; completion of the functional-equation proof in §4, pp.282–283. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, Proposition (4.4) (σ_A, p_{k−1}), p. 283; Proposition (4.5) (σ′_A), p. 284. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-central-value-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, (4.4) Proposition, p. 283. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-different-reindexing",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, used in (4.4) and (4.5) (the n = 0 term of Cor. (3.4), r_A(mδ − 0·N), is printed as r_A(m)), pp. 283–284; Theorems (5.6), (5.8) use both forms. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, pp. 283–284: the three derivative displays and (4.5) Proposition. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-sign-multiplicativity",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, proof of (4.6a), p. 286 (also used in (4.6b), p. 287, and the remark on p. 288). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, (4.6) Proposition a), p. 285; proof pp. 285–287. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, (4.6) Proposition b), p. 285; proof p. 287. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-prime-coefficient-parity",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, Remark 2 after (4.6), p. 285. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-single-prime-logarithm",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §4, remark following the proof of (4.6), p. 288. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §5, (5.6) Theorem, p. 291. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/classical-central-value-endpoints",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §5, p. 291 (paragraph after Theorem (5.6)). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/classical-genus-sum-filter",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §5, p. 292 (first half). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection",
+          "verdict": "corrected",
+          "note": "Corrected the factored Fourier convention in the weight-two projection formula. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-mellin-asymptotics",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, proof of (6.2), pp. 298-299. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, proof of (6.2), pp. 297-298. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, proof of (6.2), p. 298 ('the function Σ_{M|N}{α(M)F(Mz) + β(M)E(Mz)}, which is orthogonal to cusp forms'). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, pp. 299-300, (6.6). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-projection-boundary-coefficients",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, (6.7) Proposition, pp. 300-301. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-cusp-constants",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, (6.8) Proposition and proof, pp. 301-303. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-boundary-coefficients",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, display after (6.8), p. 303. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-mellin-regularization",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, §6, pp. 303-304. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, (6.9) Theorem (i), p. 305; gross-zagier-1986: published Invent. Math. 84 (1986), Chapter I, §9, (9.2) with k = 1, p. 233; proved in Chapter IV, Theorem (6.9), p. 305 (via Rankin's method §§1–3, the functional equation §4 and holomorphic projection with Hecke's trick §6). Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-coefficients",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter IV, (6.9) Theorem (ii), p. 305. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-global-local-archimedean-sum",
+          "verdict": "corrected",
+          "note": "Linked the archimedean aggregate to the same global tensor decomposition as the finite terms. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-finite-height-sum",
+          "verdict": "corrected",
+          "note": "Specified the tensor-normalized convention of the aggregate finite height. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.3/classical-modular-period-degree",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter V, §2, p. 310. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.0/classical-twist-real-period",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter V, §2, p. 312. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/classical-definite-period-announcement",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter V, §3, p. 314. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/classical-definite-square-class",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against gross-zagier-1986: published Invent. Math. 84 (1986), Chapter V, §3, p. 314. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.5/half-weight-waldspurger-value",
+          "verdict": "verified",
+          "note": "Checked the exact mathematical hypotheses, normalization and target-level proof route against duke-imamoglu-toth-2016: published Annals 184 (2016), §5 Theorem4 pp.965–966 and (5.17) p.966. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height",
+          "verdict": "corrected",
+          "note": "Made the generic field explicit and replaced the missing pairing dictionary by explicit modified/global comparison nodes. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection",
+          "verdict": "added",
+          "note": "Added the modified CM intersection pairing with five API items and three discriminating mathematical tests. API and discriminating mathematical tests checked; the Lean correspondence records their actual carrier status."
+        },
+        {
+          "nodeId": "GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition",
+          "verdict": "added",
+          "note": "Added the global tensor comparison that justifies combining the modified finite terms with the eta-normalized archimedean terms. Direct prerequisite route and source specialization checked; implementation remains unchecked."
+        }
+      ]
     }
   ],
   "revision": {

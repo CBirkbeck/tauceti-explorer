@@ -7032,9 +7032,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-ShimuraCompactifications--C0~2",
-    "date": "2026-10-10",
-    "notes": "Completed independent revision-round-2 review of all 90 mathematical contracts, all 14 pinned baseline statements, source locators, 119 API items, 92 tests, 34 planets, current upstream/library ownership, supplier requests, RS-32 and RT3/27/34. Corrected 23 nodes, source pagination, two supplier interfaces and baseline reading metadata; confirmed E1/E2 freshly and added confirmed E3 for the reversed level-group clause in Lan 2017 Proposition 7.5. Full Suggested file elaborates at the pins with 51 admitted-proof warnings and no errors. Needs changes for PROTOCOL section 13: only 7/90 full node contracts, 11/119 full API contracts and 12/92 full packet tests have typed counterparts; 3 nodes, 6 APIs and 5 tests have partial local/affine counterparts. The remaining full geometric declarations remain comment-ledger omissions. Recorded proof/interface gaps and partial status are not themselves grounds for this verdict; no implementation or closed-stage claim is made.",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-ShimuraCompactifications--C0~2 and archiving its entire review unchanged. Findings /3, /27 and /34 preserve the analytic-carrier request, Hodge L2 import and unique arbitrary-ring finite-fan toric owner; formal/adic/perfectoid extensions import it. Retain needs_changes from the complete preceding review: only 7/90 full node, 11/119 full API and 12/92 full test contracts have typed counterparts, with partial fragments for three nodes, six APIs and five tests. Successful elaboration does not supply the missing full geometric signatures. The 90-row checked ledger and coverage are retained from the predecessor; these revisions are separate work. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance.",
     "checked": [
       {
         "nodeId": "ShimuraCompactifications:C0/face-projection",
@@ -7818,5 +7818,465 @@
     "reviewedBy": "REV-ShimuraCompactifications--C0~2",
     "reviewDate": "2026-10-10",
     "reviewNote": "Independently audited the actual code outside comments and compiled the full file at the pins. Seven node contracts are fully represented; three have local or affine specializations. Eleven of 119 API contracts and twelve of 92 packet tests have full typed counterparts, with six and five respectively represented only partially. Compilation does not check the outstanding geometric ledger."
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-ShimuraCompactifications--C0~2",
+      "date": "2026-10-10",
+      "notes": "Completed independent revision-round-2 review of all 90 mathematical contracts, all 14 pinned baseline statements, source locators, 119 API items, 92 tests, 34 planets, current upstream/library ownership, supplier requests, RS-32 and RT3/27/34. Corrected 23 nodes, source pagination, two supplier interfaces and baseline reading metadata; confirmed E1/E2 freshly and added confirmed E3 for the reversed level-group clause in Lan 2017 Proposition 7.5. Full Suggested file elaborates at the pins with 51 admitted-proof warnings and no errors. Needs changes for PROTOCOL section 13: only 7/90 full node contracts, 11/119 full API contracts and 12/92 full packet tests have typed counterparts; 3 nodes, 6 APIs and 5 tests have partial local/affine counterparts. The remaining full geometric declarations remain comment-ledger omissions. Recorded proof/interface gaps and partial status are not themselves grounds for this verdict; no implementation or closed-stage claim is made.",
+      "checked": [
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-projection",
+          "verdict": "verified",
+          "note": "The face condition, not injectivity alone, makes coefficient restriction multiplicative. The native AlgHom and four face/non-face examples have the stated arbitrary-ring scope."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-projection-coeff",
+          "verdict": "verified",
+          "note": "The coefficient formula is the restriction to subtype degrees. It agrees with the native injective comapDomain operation without claiming that operation is always an algebra map."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-projection-section",
+          "verdict": "verified",
+          "note": "The degree-inclusion algebra map is a genuine right inverse, so surjectivity follows. No flatness, field or reducedness assumption is needed."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-projection-kernel",
+          "verdict": "verified",
+          "note": "The kernel is the ideal generated by off-face monomials. It is not replaced by its radical; the Z/4Z example retains the coefficient nilpotent."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-quotient",
+          "verdict": "verified",
+          "note": "The identified kernel and actual right inverse satisfy the pinned quotientKerAlgEquivOfRightInverse hypotheses. Quotient and target use native algebra carriers."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-projection-coefficient-change",
+          "verdict": "verified",
+          "note": "Both coefficient maps preserve degrees and the monomial-or-zero formula, giving the stated commuting square over arbitrary unital coefficient maps."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/face-kernel-coefficient-change",
+          "verdict": "verified",
+          "note": "The ideal statement uses extension along the coefficient map. It does not substitute contraction or assume faithful flatness."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-torus-embedding",
+          "verdict": "verified",
+          "note": "The weight-line algebra uses actual torsor multiplication and coherent rigidifications. Relative Spec is imported from its existing owner/current implementation, with generic torsor descent still requested."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-face-open",
+          "verdict": "verified",
+          "note": "The face comparison is ordinary monomial localization and descends through transition units. Completion is excluded from this localization theorem."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-regular-coordinates",
+          "verdict": "verified",
+          "note": "Integral regularity gives N^r times Z^(d-r), rather than mere simpliciality. Coefficient and nontrivial torsor forms remain separate from a global product claim."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-stratum-quotient",
+          "verdict": "verified",
+          "note": "The off-face ideal gives the scheme-theoretic stratum over arbitrary coefficients. The unreduced Z/4Z stratum distinguishes it from the false reduction in source issue E2."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-boundary-coordinates",
+          "verdict": "verified",
+          "note": "On regular charts the boundary-union ideal is the product of ray coordinates; the closed-stratum ideal is generated by them. The distinction survives base change and is tested."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/arithmetic-admissible-fan",
+          "verdict": "verified",
+          "note": "The packet distinguishes possibly infinite cones from finitely many arithmetic orbits and local finiteness inside C. Typed local actions/fans do not supply global cusp compatibility."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/compatible-common-refinement",
+          "verdict": "corrected",
+          "note": "Pink 9.22–9.23 is on pp. 157–158. The local typed intersection construction requires a real finite-overlap witness; the global compatible arithmetic construction remains an outstanding signature."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/smooth-projective-refinement",
+          "verdict": "corrected",
+          "note": "Corrected Pink range to pp. 154–158. The invariant projective support function and integral regularity are retained, with finite simultaneous compatibility rather than compatibility with every Hecke element at once."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+          "verdict": "verified",
+          "note": "The native affine coefficient square is genuinely Cartesian, including valuation/nonreduced coefficients. The complete arbitrary-ring fan scheme and face gluing remain imports/extensions, not supplied by that affine theorem alone."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C0/relative-fan-properness",
+          "verdict": "corrected",
+          "note": "Added nonempty source fan to necessity as well as nonempty base. The empty-source map is proper while its support is empty, so it cannot detect a nonempty target support containing zero. Pink 6.25 starts p. 112."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/mixed-boundary-datum",
+          "verdict": "corrected",
+          "note": "Corrected Pink 4.12 range through p. 63. The group, central U, unipotent W and weight filtration are actual mixed data; no universal abelian scheme is assumed for an arbitrary pure datum."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/boundary-mixed-hodge-structure",
+          "verdict": "corrected",
+          "note": "Pink 4.12 compares an ambient representation restricted to the boundary, at corresponding points; it does not extend every boundary representation. The native MHS carrier and induced graded filtration are imported; locator now includes p. 63."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/boundary-torsor-tower",
+          "verdict": "verified",
+          "note": "Pink 3.12–3.22 separates central torus and abelian torsor stages with their arithmetic lattices. The negative weight/line-dual convention and level dependence are retained."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/cusp-label",
+          "verdict": "corrected",
+          "note": "The label is an arithmetic/adelic equivalence class with its stabilizer and lattice, not an unlabelled parabolic. Corrected the stratum proof range through p. 121."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/arithmetic-stabilizer",
+          "verdict": "verified",
+          "note": "The finite group is the effective image on the local chart. An ineffective central kernel may be infinite, so the packet does not assert finiteness of the full cusp group."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C1/boundary-incidence",
+          "verdict": "corrected",
+          "note": "Pink 4.15 is p. 64. The rational closure and nested-boundary quotient maps retain mixed lineality; pure self-adjoint positivity is not imposed on every mixed cone."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/partial-boundary-charts",
+          "verdict": "corrected",
+          "note": "Restored Pink 6.13's controlled open Int_Y(closure_Y(U0)) and its C1 positivity prerequisite. Ambient torus embeddings and gluing domains are distinct. The rank-one test now compares ambient C with the controlled q-disc."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/quotient-separation",
+          "verdict": "corrected",
+          "note": "Specified that the relation acts on the controlled positive-domain opens. Closed graph and quotient topology use Pink's neighbourhood/reduction argument, whose AMRT leaf remains recorded."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/arithmetic-gluing",
+          "verdict": "corrected",
+          "note": "Specified controlled opens and restricted elementary identifications as gluing domains. Existing atlas/descent API and modular q-disc test then agree with Pink 6.13 and 6.24."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/normal-open-dense",
+          "verdict": "verified",
+          "note": "Normal saturated monoid charts and finite invariant quotients supply local normality. Density concerns the actual controlled interior and is not inferred from an assumed smooth resolution."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/compactness-properness",
+          "verdict": "verified",
+          "note": "Completeness plus arithmetic finite-type/separation gives the compact quotient. Infinite unquotiented arithmetic fans are not themselves declared proper; AMRT reduction remains an explicit leaf."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/smooth-normal-crossings",
+          "verdict": "corrected",
+          "note": "Neatness and regular cones give local relative crossings; global no-self-intersection needs the extra fan compatibility. Pink 9.20–9.21 locator corrected to pp. 156–157."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/projective-algebraization",
+          "verdict": "corrected",
+          "note": "Pink 9.24 is pp. 158–159. The projective ample-cover case is separated from general algebraic-space algebraization. The C4 supplier now has a planned space Hom version, but still does not prove existence of this algebraization."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/minimal-boundary-map",
+          "verdict": "corrected",
+          "note": "The continuous map precedes compactness and algebraization, avoiding the earlier circle. Its subsequent properness/algebraicity is separate. Corrected the strata proof range through p. 121."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2/canonical-toroidal-model",
+          "verdict": "corrected",
+          "note": "Corrected Pink 12.1–12.8 range through p. 200. Mixed boundary canonical models and descent remain distinct requested inputs beyond pure V8 model maps; the general result is an algebraic space."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C2.general/general-toroidal-descent",
+          "verdict": "verified",
+          "note": "The level/coarse descent conditions preserve the algebraic-space conclusion. A proper Hom GAGA comparison does not by itself construct an algebraization or descend arbitrary mixed canonical data."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/refinement-map",
+          "verdict": "verified",
+          "note": "The comparison is induced by actual compatible chart inclusions and unchanged cusp support, with identity/composition API. Properness is not inferred from finite orbit count alone."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/level-datum-functoriality",
+          "verdict": "corrected",
+          "note": "Corrected Pink 6.25 to pp. 112–113. The group/level morphism and cone compatibility are explicit; datum functoriality is not an arbitrary map of underlying spaces."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/hecke-span",
+          "verdict": "verified",
+          "note": "A finite ordered Hecke correspondence needs one common fan compatible with its two level maps. Its legs import V8's actual span and do not ask one fan to support all Hecke elements simultaneously."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/choice-comparison",
+          "verdict": "verified",
+          "note": "Common refinements compare models and canonical maps. Choice independence is through these specified morphisms, not an equality of different fan realizations."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/toric-structure-sheaf-vanishing",
+          "verdict": "verified",
+          "note": "Lan 7.1.1.4 gives the arbitrary-coefficient Cech argument with its Dedekind/torsion reduction. The integral KKMS p. 44 proof input remains a precise gap, not an appeal to a real support slogan."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/refinement-structure-sheaf",
+          "verdict": "corrected",
+          "note": "Added the correct normal inclusion H in Hprime and deck group Hprime/H, independently detecting the reversed clause in Lan 7.5. Equal-level O pushforward remains separate from higher vanishing."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/refinement-higher-structure-sheaf",
+          "verdict": "verified",
+          "note": "All positive-degree direct images need the universal toric/local quotient argument and proper formal functions. Degree-zero O equality alone does not establish them."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/refinement-boundary-ideal",
+          "verdict": "corrected",
+          "note": "The source boundary-union ideal is used rather than the generally smaller pullback ideal. Added corrected Hprime/H invariants for changed levels; the blow-up exceptional multiplicity regression still detects the false equality."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/coherent-cohomology-invariance",
+          "verdict": "verified",
+          "note": "The locally free coefficient/projection-formula hypotheses and exact integral coefficient extension are retained. Arbitrary modules require the source's reduction; they are not treated as automatically flat bundles."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/partial-ordinary-formal-invariance",
+          "verdict": "verified",
+          "note": "The ordinary/Igusa specialization imports its actual quotient charts. Formal inverse-limit comparison needs the stated ML/formal-functions inputs and does not follow just from completed ring identification."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/klingen-correspondence-compactification",
+          "verdict": "verified",
+          "note": "The level-p^(n+1) subgroup ([p]^-1 H_n+L)/L and G/L target match the corrected source route. The distinct first projection is retained; generic finite flatness is not promoted to the boundary."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3/klingen-correspondence-acyclicity",
+          "verdict": "verified",
+          "note": "Pilloni's first-projection acyclicity assertion lacks the local proof in the inspected passage. The packet records that exact gap and requires a boundary-chart factorization rather than deriving vanishing from properness."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C3.general/general-map-descent",
+          "verdict": "verified",
+          "note": "Reflex-field composita and the ordered source/target cone data are explicit. Algebraic-space model morphisms require the requested descent interface beyond pure complex analytic functoriality."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/semi-abelian-scheme",
+          "verdict": "verified",
+          "note": "The fibrewise smooth separated group definition agrees with FC I.2.3 and allows jumping torus rank. G_a is excluded; a global fixed torus extension is asserted only in its separate constant-rank setting."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/constructible-character-sheaf",
+          "verdict": "verified",
+          "note": "FC I.2.10–2.11 gives the constructible etale character sheaf/base change and constant-rank specialization. It is not a globally constant lattice on an arbitrary degenerating base."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/poincare-extension-classification",
+          "verdict": "verified",
+          "note": "Lan 3.1.5.1 uses negative-character pushouts and the inverse Poincare convention. Fixed-A,H extension classification imports the actual rigidified dual/Poincare supplier."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/polarized-degeneration-data",
+          "verdict": "verified",
+          "note": "DD_pol in Lan 4.4.6 is distinguished from the auxiliary ample tuple. The 2phi/2lambda choices of Remark 4.4.7 and isomorphism-groupoid morphisms are retained."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/mumford-quotient",
+          "verdict": "corrected",
+          "note": "Corrected the nonexistent Corollary 4.5.2.16: it is a display inside the Proposition 4.5.2.15 construction. The formal period quotient and ample algebraization keep unread relatively complete/theta leaves explicit."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/degeneration-effectivity",
+          "verdict": "verified",
+          "note": "Lan 4.4.16 supplies equivalence on structure-preserving isomorphisms, not all arbitrary Hom arrows. Full faithfulness extends an isomorphism and its inverse; relative effectivity leaves remain recorded."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/formal-universal-degeneration",
+          "verdict": "verified",
+          "note": "The universal formal family is on the precise completed degeneration chart, with its rigidified PEL structures. It is not an algebraic family obtained by taking an unqualified inverse limit."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/homomorphism-extension",
+          "verdict": "verified",
+          "note": "FC I.2.7 requires the normal Noetherian base and dense open; its locally Noetherian use is by local gluing. Boundary uniqueness does not imply finite flatness of an extended isogeny kernel."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/endomorphism-extension",
+          "verdict": "verified",
+          "note": "O-action identities extend through dense-open uniqueness. Polarization/dual data use their genuine abelian and degeneration comparisons, not an unrestricted semi-abelian dual construction."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/boundary-level-comparison",
+          "verdict": "verified",
+          "note": "Level structures on boundary extensions keep exact invertibility, rank and normalization hypotheses. A generic p-level point is not automatically a smooth boundary level structure."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/extended-isogeny-kernel",
+          "verdict": "verified",
+          "note": "The q-to-q^p Tate specialization permits loss of kernel rank. The extension may have a quasi-finite flat kernel in the stated source setting; generic finite flatness does not supply finite flatness on the boundary."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/tate-degeneration-comparison",
+          "verdict": "verified",
+          "note": "The rank-one q-period specialization imports the generalized elliptic/Tate owner. The missing exact R13.3 supplier contract remains requested rather than duplicating modular-curve theory."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/tate-log-kodaira-spencer",
+          "verdict": "verified",
+          "note": "The logarithmic q coordinate gives dq/q and retains the factor under q=u^n. This is a specialization of the requested Kodaira–Spencer comparison, not ordinary differentials across a singular fibre."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/good-algebraic-model",
+          "verdict": "verified",
+          "note": "Lan 6.3.2.5 has two ring embeddings into the completed strict local chart; they are not silently identified. Smooth compatible cone and approximation conditions remain, with earlier approximation proofs explicit gaps."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/etale-chart-relation",
+          "verdict": "corrected",
+          "note": "Replaced false 6.3.3.7 normalization locator by (6.3.3.10) and the paragraph after Remark 6.3.3.12. The relation is the normalized interior fibre product, with etaleness and cocycle laws from 6.3.3.13–14."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/integral-toroidal-space",
+          "verdict": "corrected",
+          "note": "Corrected Definition 6.3.3.4 to p. 509 and the theorem range to pp. 519–523. The ordinary smooth compatible fan quotient separates neat spaces, non-neat stacks and projective scheme descent."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/formal-completion",
+          "verdict": "verified",
+          "note": "Completion is along the specified locally closed stratum after deleting the unwanted strata, on the ordinary smooth model. It is not identified automatically with every higher-level singular normalization chart."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/valuative-properness",
+          "verdict": "corrected",
+          "note": "Properness is Proposition 6.3.3.17; the distinct all-traits cone criterion is 6.4.1.1(6), pp. 521–522. Semistable reduction, separatedness and valuative descent are all required."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/neat-boundary-intersection-smooth",
+          "verdict": "verified",
+          "note": "The intersection is smooth over the good base by the actual compatible regular chart coordinates. Neatness alone on an arbitrary fan does not prove this relative assertion."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/neat-boundary-open-fiberwise-dense",
+          "verdict": "verified",
+          "note": "The open stratum is fibrewise dense in the stated closure/intersection on each permitted chart. Total-space density alone would not imply this property."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/neat-stratum-closure-component",
+          "verdict": "verified",
+          "note": "Connected regular closures identify the specified irreducible components of the intersection. The pinned scheme stalk lemma is only a specialization; the space/fibre interface is explicitly requested."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/neat-stratum-closure-proper",
+          "verdict": "verified",
+          "note": "Properness comes from the actual closed closure in the proper toroidal model and remains relative to the good base. Nonproper open strata do not inherit this theorem."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/neat-strata-detect-geometric-components",
+          "verdict": "verified",
+          "note": "Stacks 76.36.9 makes the smooth proper Stein factor finite etale. The requested generic detector uses clopen images of proper closures and fibrewise-dense opens; no reverse B5 dependency is introduced."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/nonneat-boundary-descent",
+          "verdict": "verified",
+          "note": "The finite-level/relative-branch transport remains a precise gap. Absolute branch normalization does not prove globally simple crossings or geometric-component coverage for a non-neat coarse model."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/log-kodaira-spencer",
+          "verdict": "verified",
+          "note": "The PEL logarithmic comparison retains its representation and polarization conventions and imports the differential-bundle owner. It is not a generic comparison for every semi-abelian degeneration."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/hodge-semiampleness",
+          "verdict": "verified",
+          "note": "Lan 7.2.1.1 and cleared FC V.2.1 support relative semiampleness. The Moret-Bailly/direct theta proof leaves are still recorded; the toroidal Hodge line is not claimed ample."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/graded-section-finite-generation",
+          "verdict": "corrected",
+          "note": "Restored Corollary 7.2.2.6's flat preliminary Stein target hypothesis. Over the Dedekind good base it follows from the flat source's torsion-free coherent Stein algebra before constructing Proj; arbitrary integral base change is not asserted."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/integral-minimal-space",
+          "verdict": "verified",
+          "note": "The section-ring/Stein construction supplies O_min=pi_*O_tor and fan independence under the stated hypotheses. Its formal/special-fibre transfer is a separate requested comparison, not fan-refinement invariance."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/minimal-hodge-ampleness",
+          "verdict": "verified",
+          "note": "The finite Stein map and ample pullback supply ampleness on the minimal model. Coarse auxiliary-level descent gives the stated Q-line and retains stabilizer hypotheses."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/open-quasiprojectivity",
+          "verdict": "verified",
+          "note": "The open immersion into the projective minimal model supplies the claimed quasi-projectivity over the good base. This does not make every nonprojective toroidal fan a projective scheme."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/higher-level-toroidal-normalization",
+          "verdict": "verified",
+          "note": "Same-fan finite normalization is distinguished from normalized projective blow-ups with exceptional fibres. Higher p-level structures and arbitrary nonsmooth fans are not extended by the ordinary smooth moduli construction."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/normalized-chart-finiteness",
+          "verdict": "verified",
+          "note": "Finiteness refers to the same-fan normalization and its exact chart comparison. A toroidal subdivision can have positive-dimensional fibres, so it is not called finite."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/integral-coefficient-extension",
+          "verdict": "verified",
+          "note": "Lan Definition 8.5 requires the actual integral formally canonical functor with finite filtration and specified graded pieces. A characteristic-zero B3 canonical extension does not already provide it."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/normalized-koecher",
+          "verdict": "verified",
+          "note": "The simple-algebra and dimension-one/nonempty-boundary exception of the author erratum are retained. Strict positivity and the cited coefficient-growth proof remain a gap beyond generic normal Hartogs."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/siegel-koecher-arbitrary-coefficients",
+          "verdict": "verified",
+          "note": "CG 5.2/BPS 5.2 use the exact genus/dimension and coefficient hypotheses. Mod pi^n and arbitrary-module extension need the universal toric/coefficient inputs; they are not inferred from characteristic-zero extension alone."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/ordinary-koecher",
+          "verdict": "verified",
+          "note": "The ordinary special-fibre assertion is separated from generic Hartogs. Pilloni's inspected passage asserts it without the missing proof, so the precise formal/special-fibre input stays a gap."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/hilbert-siegel-boundary-codimension",
+          "verdict": "verified",
+          "note": "BCGP arXiv v3 p. 240 gives minimal-boundary codimension 2d. This is not the codimension of the toroidal boundary divisor; source metadata now uses arXiv pagination consistently."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/formal-hilbert-siegel-koecher",
+          "verdict": "verified",
+          "note": "The normal formal minimal model and codimension at least two give the stated H0 extension for the specified line. Formal Stein comparison and model transfer remain required; no higher/torsion theorem is inferred."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/prime-Q-subgroup-extension",
+          "verdict": "verified",
+          "note": "The subgroup in the extended boundary group need not lie in the identity semi-abelian component. The prime-to-base kernel/level hypotheses and missing finite-flat extension proof remain explicit."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/prime-Q-generator-cover",
+          "verdict": "verified",
+          "note": "The finite etale Isom torsor and compatible trivializations give a genuine compactified generator cover. It is not obtained by asserting a generator exists Zariski locally without its torsor."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/siegel-canonical-bundle",
+          "verdict": "verified",
+          "note": "In the stated genus-two setting CG gives omega_(3,3)(-D); the boundary twist and duality sign are retained. The general bundle comparison is imported from its owner."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/good-boundary-cohomology-export",
+          "verdict": "verified",
+          "note": "BCGP Theorem 1.8.29 uses hyperspecial good-reduction geometry plus Lan–Stroh nearby-cycle/open comparison and duality. The latter exact cohomological input stays requested, not deduced from smoothness of the open variety."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C4/semiabelian-tate-module",
+          "verdict": "corrected",
+          "note": "Made m dividing n explicit for the [n/m] transition. The full divisibility-indexed profinite sequence is not a prime-power cofinal limit; compact inverse-limit exactness/comparison remains the R02.1 request."
+        },
+        {
+          "nodeId": "ShimuraCompactifications:C5/projective-normalized-blowup",
+          "verdict": "verified",
+          "note": "Lan Construction 3.12's normalized projective model is a separate key construction. Its nonfinite subdivision example distinguishes it from same-fan finite normalization; the referenced ramified Sections 4–5 proof remains a gap."
+        }
+      ]
+    }
+  ]
 }

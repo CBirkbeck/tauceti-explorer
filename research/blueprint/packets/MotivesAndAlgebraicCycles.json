@@ -15390,7 +15390,7 @@
   "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-11",
-  "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /4 and /31 retain the separate geometric-Hodge gap and C5/SF.6 comparison imports. The typed finite-dual coefficient map and its distinguishing examples are preserved. The relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes remain separate revision obligations; retain needs_changes. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
+  "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 and archiving its entire review unchanged. Findings /4 and /31 preserve the geometric-Hodge supplier gap and C5/SF.6 comparison ownership. The typed finite-dual coefficient map, induced products and distinguishing examples from the newer Iwasawa review remain intact. Retain needs_changes for the separate relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes; the assigned area fixes do not repair those defects. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance."
  },
  "reviewHistory": [
   {
@@ -16462,6 +16462,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-11",
    "notes": "Codex (GPT-6), session codex-lJBXyn; bounded independent area-fix review following Codex session codex-LmPUk7’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /4 and /31: retain geometric Hodge and C5/SF.6 ownership; preserve the newer canonical finite-dual coefficient-map repair. The relative Beck adapter and reconstruction carrier, fifteen API and four theorem prototypes remain revision obligations. Exhaustive unrelated node/source audits remain attributed to their predecessors. See the current area review report for fresh checks and elaboration provenance."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-11",
+   "notes": "Codex (GPT-6), session codex-rKeSUF; bounded independent area-fix review following codex-lJBXyn’s preceding independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 record, archived in full and unchanged in reviewHistory. Findings /4 and /31 retain the separate geometric-Hodge gap and C5/SF.6 comparison imports. The typed finite-dual coefficient map and its distinguishing examples are preserved. The relative Beck adapter, reconstruction carriers, fifteen API contracts and four theorem prototypes remain separate revision obligations; retain needs_changes. Unrelated exhaustive node/source audits remain attributed to their predecessors; exact Suggested-file hashes were freshly verified against the attributed receipts. See the area report for checks and the unresolved live-issue scope mismatch."
   }
  ],
  "fixes": {

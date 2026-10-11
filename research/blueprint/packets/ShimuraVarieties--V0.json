@@ -4797,9 +4797,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-ShimuraVarieties--V0~2",
-    "date": "2026-10-10",
-    "notes": "Completed independent target-level review of all 69 nodes, five full exact-pin baseline statements, nine object APIs (58 items), 29 discriminating test specifications, 41 planets, every V0–V7 target and supplier contract, current upstream roadmaps/library, primary source locators and both assigned red-team findings. The revised adapted-coordinate automorphic boundary predicate resolves the previous unverifiable definition; the reader and omission manifest are synchronized. Eight nodes were corrected to use precise source hypotheses or existing supplier nodes. All fifteen source findings have own verdicts: fourteen confirmed, E8 rejected; E15 is the newly checked CM commutant misprint. Accept this complete planning pass with eight planned stages, zero closed stages, nineteen explicit refinements and eighteen supplier requests. Every implementation remains unchecked. Lean elaboration validates only the native Mathlib group-action/Artin-conversion prototypes, not advanced Shimura mathematics.",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "date": "2026-10-11",
+    "notes": "Codex (GPT-6), session codex-iBDlUc; completed bounded independent review of FIX-RT-AREA-algebraicgeometry~2, following independent-review-REV-ShimuraVarieties--V0~2 and archiving its entire review unchanged. Findings /3 and /28 retain explicit nilpotent-preserving analytic-carrier and holomorphic-gluing supplier requests, rather than claiming that proposed external milestones are native declarations. The newer adapted-coordinate correction remains intact. The full 69-row checked ledger, eighteen requests and nineteen refinements are retained from the preceding review, not claimed as a new exhaustive audit. Exhaustive earlier node/source/library audits and unchanged elaboration receipts remain attributed to their named reviewers. This decision accepts planning corrections or precise requests, not formalisation or proof closure. The refreshed live issue now authorizes all eleven packet/Suggested pairs; see the area report and handoff for checks and completion provenance.",
     "checked": [
       {
         "nodeId": "ShimuraVarieties:V0/stabilizer-arithmetic",
@@ -5147,5 +5147,360 @@
         "note": "Milne descent Theorem 2.3 combines the continuous canonical cocycle with effective quasi-projective descent, then compatible maps and finite quotients. The special action and auxiliary-choice independence were established beforehand. It is a justified target-level endpoint with recorded supplier/proof leaves, not an implemented existence theorem."
       }
     ]
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-ShimuraVarieties--V0~2",
+      "date": "2026-10-10",
+      "notes": "Completed independent target-level review of all 69 nodes, five full exact-pin baseline statements, nine object APIs (58 items), 29 discriminating test specifications, 41 planets, every V0–V7 target and supplier contract, current upstream roadmaps/library, primary source locators and both assigned red-team findings. The revised adapted-coordinate automorphic boundary predicate resolves the previous unverifiable definition; the reader and omission manifest are synchronized. Eight nodes were corrected to use precise source hypotheses or existing supplier nodes. All fifteen source findings have own verdicts: fourteen confirmed, E8 rejected; E15 is the newly checked CM commutant misprint. Accept this complete planning pass with eight planned stages, zero closed stages, nineteen explicit refinements and eighteen supplier requests. Every implementation remains unchecked. Lean elaboration validates only the native Mathlib group-action/Artin-conversion prototypes, not advanced Shimura mathematics.",
+      "checked": [
+        {
+          "nodeId": "ShimuraVarieties:V0/stabilizer-arithmetic",
+          "verdict": "verified",
+          "note": "SVI 3.2 and 5.13 separate the rational arithmetic subgroup from its discrete effective domain image. Current AA already supplies pairwise commensurability; the faithful-integral and compact-kernel bridge is explicitly requested rather than attributed to structural ReductiveGroups."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V0/stabilizer-commensurable",
+          "verdict": "verified",
+          "note": "The two arbitrary adelic representatives give commensurable compact opens, hence commensurable rational stabilizers by the read AA contract. The exact conjugacy formula additionally requires a common double coset and a component-preserving rational element."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V0/neat-sublevels",
+          "verdict": "verified",
+          "note": "The read AA.4/neat-level-exists contract includes normality and finite index. Both AA and D5 quantify over rational points in every adelic conjugate; their convention bridge and cofinality specialize existing work without duplicating neat existence."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V0/effective-proper-action",
+          "verdict": "verified",
+          "note": "The discrete effective arithmetic image and the ALS proper symmetric action give the required local quotient argument. D5 removes effective stabilizers at neat level; rational central units can survive. Holomorphic chart gluing remains an explicit supplier gap."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V0/component-decomposition",
+          "verdict": "verified",
+          "note": "SVI 5.11–5.13 gives the finite plus-double-coset decomposition and rational transport of representatives. The topological quotient retains the domain coordinate, and its analytic upgrade uses the recorded effective quotient charts. The GL₂ component count keeps both half-planes."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V0/simply-connected-components",
+          "verdict": "verified",
+          "note": "SVI 5.18–5.21 gives the precise positive rational image in the torus quotient. Current AA already plans Lang/Hensel integral lifts and finite-adelic abelianization. Positivity and local openness remain its specialization request; strong approximation is restricted to the noncompact simply connected derived factors."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/analytic-points",
+          "verdict": "verified",
+          "note": "The quotient in SVI p.57 is the actual rational diagonal action on domain times finite-level cosets. The native prototype uses inverse right multiplication to obtain a left product action; replacing the subgroup element by its inverse gives the stated equivalence. Topology and literal datum tests are explicitly omitted."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/analytic-structure",
+          "verdict": "verified",
+          "note": "The componentwise effective arithmetic quotient supports the normal analytic target of SVI pp.57–58. Neat charts are manifolds and non-neat charts use finite invariant local rings. CA.0 and holomorphic gluing are requested foundations, not asserted consequences of a topological carrier."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/holomorphic-level-maps",
+          "verdict": "verified",
+          "note": "The finite map and locally biholomorphic neat-target case match SVI p.58. The effective quotient-action group is only a subgroup of the automorphisms over the base. The disconnected C₆ versus S₆ example correctly prevents an unrestricted deck-group equality."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/right-translation",
+          "verdict": "verified",
+          "note": "Conjugating K to g⁻¹Kg makes the right multiplication formula well-defined. The intermediate conjugated level gives R_h after R_g equal to R_gh. SVI pp.58–59 supplies the right-action convention and compatibility with projections."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/holomorphic-hecke",
+          "verdict": "verified",
+          "note": "The right arrow from K∩gKg⁻¹ lands back at level K and factors through a translation and projection. Composition uses the actual fibre product and double-coset multiplicities. The stronger AA single-intersection product formula is used only with its extra hypothesis."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V1/datum-analytic-map",
+          "verdict": "verified",
+          "note": "SVI 5.16 supports holomorphic tower maps and the closed-immersion result for suitably small compatible levels. Equivariance gives the displayed point formula; no arbitrary coarse-level immersion is asserted. Reflex-field functoriality remains outside the complex-algebraization step."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/rational-boundary",
+          "verdict": "verified",
+          "note": "BB 1.8–1.11, 3.3(ii) and 3.5–3.7 support the rational-normalizer criterion, arithmetic boundary action and adapted projection. The boundary line factor comes from the ambient Jacobian. Product/nested realization and reductive classification proof interfaces remain explicit refinements."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/satake-compactness",
+          "verdict": "verified",
+          "note": "BB 4.8–4.11 constructs the topology and good neighborhoods before any analytic compactification. The isotropy and incidence conditions support the local extension predicate. Compactness and Hausdorffness use arithmetic reduction and orbit separation, whose detailed interfaces stay recorded as gaps."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/analytic-automorphic-ring",
+          "verdict": "verified",
+          "note": "BB 8.2–8.5 specifies the revised definition: adapted unbounded coefficients extend continuously in Satake topology and holomorphically on each incident stratum. Jacobian transport and induced boundary factors remove the previous ambiguity and circular algebraic definition. All ten APIs and five discriminating tests match these conventions."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/poincare-eisenstein",
+          "verdict": "verified",
+          "note": "BB sections 6–8 and 10 support sufficiently high-weight convergent separating sections with controlled boundary restrictions. The packet keeps convergence, estimates and germ separation as non-routine proof refinements. It does not infer them merely from compactness or a graded-ring name."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/normal-analytic-compactification",
+          "verdict": "verified",
+          "note": "The BB normal analytic target uses continuous functions holomorphic on every arithmetic stratum and agrees with the projective realization. Its normality and analyticity proof depend on separating sections and recorded primary-proof gaps. This normal object does not replace the nilpotent ambient analytic category."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/automorphic-finite-generation",
+          "verdict": "corrected",
+          "note": "Added BB 10.14 and its no-three-dimensional-Q-normal-subgroup restriction. BB 10.6–10.11 alone supplies a finite separating subring; equality with the full admissible ring needs the stated curve/logarithmic-canonical and mixed-factor comparisons outside 10.14. The general target remains an honest proof refinement."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/baily-borel",
+          "verdict": "verified",
+          "note": "SVI 3.12–3.13 and BB sections 9–10 support a normal projective minimal compactification with the arithmetic quotient as an open subvariety. The route constructs analytic strata and sections first, then algebraizes; the graded ring is not defined by this later algebraic variety."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/koecher",
+          "verdict": "corrected",
+          "note": "Added the primary BB 3.15 and 10.14 locators, preserving their stronger sufficient hypothesis. SVI 3.13(c) states the sharper split-PGL₂ exception. The review does not identify those hypotheses or apply the full-ring assertion to the modular-curve case."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V2/minimal-level-extension",
+          "verdict": "verified",
+          "note": "The finite-level extension follows the automorphic pullback and the identified minimal projective model, with uniqueness on the dense open quotient. Right translations and Hecke spans retain level compatibility. It does not claim that boundary extensions remain étale."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/borel-extension",
+          "verdict": "verified",
+          "note": "SVI 3.15 states extension from a punctured polydisk to the minimal compactification with a torsion-free effective target. Dense-open uniqueness is routine once separatedness is supplied. The inaccessible primary multivariable metric argument remains a precisely named source gap."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/borel-algebraicity",
+          "verdict": "corrected",
+          "note": "Replaced a duplicate R09.7d request with the existing R09.7/snc-compactification contract, read with its smooth quasi-projective characteristic-zero hypotheses. Added C0 for holomorphic SNC charts. Proper graph GAGA and local gluing give the stated smooth-source result; torsion targets remain excluded."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/unique-algebraization",
+          "verdict": "verified",
+          "note": "SVI 3.16 follows by applying Borel to the prescribed analytic identity and its inverse, then faithful analytification. Uniqueness is relative to that comparison. It neither asserts canonical-model descent nor assumes that arbitrary analytic maps into coarse torsion quotients algebraize."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/algebraic-data-maps",
+          "verdict": "verified",
+          "note": "Borel algebraizes the datum maps at neat target, while SVI 5.16 supplies the suitable-level closed immersion. Faithful analytification transfers identity, composition and level compatibility. The statement correctly distinguishes these complex maps from V8 reflex-field functoriality."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/finite-quotient-algebraization",
+          "verdict": "corrected",
+          "note": "Imported SF.1/finite-group-quotient, whose finite-orbit affine-cover hypothesis holds for a quasi-projective C-scheme. Retained only the descended ample-power/quasi-projectivity extension request and added C0 analytic comparison. Normalization is componentwise in the source fields; stabilizers prevent general étaleness."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/definable-target-comparison",
+          "verdict": "verified",
+          "note": "The BKT erratum requires the fixed maximal compact and compatible Cartan data. The target additionally needs an independent comparison with the algebraic definable structure, explicitly requested from C4. This comparison is not proved by assuming the Borel conclusion it will help establish."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V3/definable-borel",
+          "verdict": "verified",
+          "note": "BKT 4.12–4.13 uses a genuine polarized variation/period map, the independent target comparison and o-minimal Chow. The packet records these named inputs separately and uses a closed analytic definable graph. It does not claim every arbitrary holomorphic map is automatically definable."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/geometric-artin",
+          "verdict": "verified",
+          "note": "The CM source p.21 uses inverse arithmetic reciprocity. Inversion is a homomorphism because the target is abelian; it preserves kernel and norm compatibility. Native Lean tests cover this supplied-homomorphism conversion, while actual ideles, continuity and cyclotomic reciprocity remain mathematical obligations."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/reflex-norm",
+          "verdict": "verified",
+          "note": "SVI p.114 gives restriction of the marked cocharacter followed by torus norm, with the printed sum corrected to a multiplicative product. Its split, principal and field-change APIs agree. Current RG Part II G_m norm does not yet supply the arbitrary-torus cocharacter norm extension."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/reciprocity-finite-action",
+          "verdict": "verified",
+          "note": "Milne descent pp.3–4 gives the finite torus Galois action. Principal ideles, connected infinite ideles and continuity kill the Artin kernel at finite level. The full-tower output retains closure of T(Q); the stronger CM norm-kernel equality is not asserted for every torus."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/canonical-model",
+          "verdict": "corrected",
+          "note": "Corrected the p.115 locator to Definition 12.10. The condition quantifies over every actual D4 special pair and finite-adelic representative, with its true reflex field and geometric Artin action. Construction/extensionality APIs and the noncanonical split K(5) example prevent an empty-subset substitute."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/torus-model",
+          "verdict": "corrected",
+          "note": "Removed the unnecessary R09.3 descent dependency: AGHMP p.416 and current ModularCurves 0D already supply the finite-continuous-Galois-set/finite-étale-scheme construction and morphisms. The actual torus action, real cyclotomic K(5) example and coarse/stack distinction are retained."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/aghmp-stack-comparison",
+          "verdict": "corrected",
+          "note": "Replaced generic R09.4/R09.5 requests with the existing SF.1 quotient-stack, algebraicity, coarse and presentation nodes. Finite étale torus schemes are affine and satisfy their hypotheses; common neat refinement gives a free finite étale torsor. AGHMP pp.415–416 retains non-neat inertia and excludes arbitrary infinite-unit torus stacks."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/special-existence",
+          "verdict": "verified",
+          "note": "SVI 13.3 constructs rational regular semisimple approximants inside the open compact-mod-centre Cartan locus. Their tori give actual special points near any domain point. The arithmetic real-density and torus-conjugacy specialization exceeds structural RG Layer 7 and remains explicitly requested."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V4/hecke-density",
+          "verdict": "verified",
+          "note": "SVI 13.5 uses real density of rational component-preserving points, then the diagonal quotient relation, to obtain algebraic density in each component. This is not adelic strong approximation or density of one arithmetic domain orbit. For a torus the finite Hecke orbit is the whole finite set."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/weight-one-algebraization",
+          "verdict": "verified",
+          "note": "SVI 14.8 supplies the target. The current A5 contract gives analytic polarized families, without a converse algebraization theorem; V3 Borel and independent M3 generic moduli charts supply that step. The proof does not import M4 canonical existence, which consumes V5."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-abelian-variety",
+          "verdict": "verified",
+          "note": "SVI 14.9 and CM preliminaries support a full degree-2g commutative CM action on the actual abelian variety, including products. The homological type and compatible Rosati involution are retained. Seven APIs and three tests distinguish full CM from a scalar or insufficient-degree action."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-tate-rank-one",
+          "verdict": "verified",
+          "note": "The full-degree CM action gives rank-one rational Betti and finite-adelic Tate modules; CM 1.7 distinguishes maximal-order integral freeness from a general nonmaximal order. Quasi-isogeny faithfulness is imported through the read Hom/Tate contracts, not inferred from an arbitrary scalar matrix."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-number-field-model",
+          "verdict": "verified",
+          "note": "SVI 10.3 supports number-field descent with finitely specified CM action, polarization and level after finite extension. The CM rigidity/spreading proof is a concrete refinement rather than a statement for all complex abelian varieties. The field must define the action before E-linear Galois arguments."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-potential-good-reduction",
+          "verdict": "verified",
+          "note": "The existing R11 semistable-extension and square-zero-inertia nodes, corroborated by Conrad pp.9,17–18,23–24, repair the SVI inertia error. Rank-one multiplication in reduced E⊗Q_ℓ kills the unipotent action, and NOS gives potential good reduction. No virtual pro-p absolute-inertia claim is used."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-frobenius",
+          "verdict": "corrected",
+          "note": "Replaced the stronger positive-characteristic Hom request by existing A4 good-reduction comparison and A6 finite-rank, scalar-extended Hom injectivity, normal-base extension and integral characteristic-polynomial nodes. The centralizer dimension bound gives C=E without Tate surjectivity. CM Corollary 1.5 p.6 has a newly recorded F/E misprint; Rosati gives ππbar=q."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/shimura-taniyama",
+          "verdict": "verified",
+          "note": "SVI 10.10 and CM 2.1 give the normalized valuation/type-counting formula. The ramified statement retains ord_v(q), while the later prime-generation argument can use good unramified primes. Integral eigenspace splitting is localized at the chosen prime, and product CM algebras use the torus norm interface."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-ideal-reciprocity",
+          "verdict": "verified",
+          "note": "CM 3.2 requires a continuous ray-class comparison and enough good primes to generate every class. The packet retains arithmetic Artin for this ideal formula, finite excluded-prime control and an explicit prime-generation request. Equality at a few Frobenius elements is not treated as sufficient."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/main-cm",
+          "verdict": "verified",
+          "note": "CM 3.10 fixes the geometric Artin convention and a supplied idele for the unique E-linear quasi-isogeny. Lemmas 3.6–3.12 remove the closure ambiguity only in the CM norm situation. Changing the lift changes the quasi-isogeny by its rational scalar; generic torus lift equality is not assumed."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/cm-polarization-level",
+          "verdict": "verified",
+          "note": "CM 3.11(c) gives the χ_cyc/N similitude in the displayed quasi-isogeny convention. The Rosati relation and actual Tate twist yield the polarization identity. Applying it to the actual symplectic level orbit, with quasi-isogeny retained, is stronger than an unpolarized isogeny-class comparison."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/siegel-special-cm",
+          "verdict": "verified",
+          "note": "SVI 14.9–14.11 identifies Siegel special points with full CM objects through the torus Mumford–Tate criterion. Product CM algebras are necessary to cover all points. The target imports the actual Siegel datum and polarized Hodge/endomorphism inputs rather than defining a new type of special point."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V5/siegel-canonical",
+          "verdict": "verified",
+          "note": "SVI 14.12 and its existence proof use the rational generic polarized moduli model, actual adelic level and full CM theorem on every special point. Independent M3 uniformization does not assume M4 canonical existence. V4 verifies the field Q and polarization-sensitive reciprocity, then finite quotients give all levels."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/hodge-inheritance",
+          "verdict": "verified",
+          "note": "SVI 14.14 uses suitable-level closed images, dense special points and disjoint special reflex fields to descend a subdatum. The imported V8 disjointness result was checked as foundational rather than dependent on V6/V7 existence. Arbitrary complex subvarieties do not descend by mere containment in a model."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/hodge-canonical",
+          "verdict": "verified",
+          "note": "The D4 Hodge-type witness provides the symplectic embedding. Siegel existence followed by subdatum inheritance gives the target, and conditional V8 uniqueness compares candidate embeddings only after canonicity is established. No absolute-Hodge-cycle route or general-existence theorem is silently assumed."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/connected-tower",
+          "verdict": "verified",
+          "note": "The 1983 Appendix p.263 uses adjoint S-maps and congruence-completed rational symmetry, not an S-map into the simply connected cover. The pro-object and its levelwise mapping API are well specified. Deligne connected Galois-extension/coherence data remains a named refinement; a bare inverse-limit point set cannot reconstruct the full model."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/connected-full-equivalence",
+          "verdict": "verified",
+          "note": "SVI 14.15 states reconstruction using the connected canonical structure with its completion/Galois extension. The packet retains finite components and torus reciprocity, and shares the exact extension/gluing refinement with connected-tower. Forgetting that symmetry invalidates the proposed equivalence."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/connected-products",
+          "verdict": "verified",
+          "note": "SVI 14.16(a) supports products of the connected canonical objects with product congruence completions and coherent Galois action. The reflex norm gives special-pair compatibility. The full product reflex field is a compositum, while the connected extension formulas remain a shared proof refinement."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/central-isogeny-descent",
+          "verdict": "verified",
+          "note": "SVI 14.16(b) must start with the G₁ model, as E4 records. Finite effective quotient images of the completion kernel give the target connected tower. A central isogeny identifies adjoint S-maps without constructing a full S-map lift to the semisimple cover; completion/coherence proof inputs remain explicit."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V6/abelian-canonical",
+          "verdict": "verified",
+          "note": "SVI pp.127–128 applies products and central-isogeny descent to the Hodge witness at connected derived level, then reconstructs full components with reciprocity. The statement keeps the target reflex field rather than identifying it with the witness. This branch is independent of V7 general conjugation."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/simple-connected-reduction",
+          "verdict": "verified",
+          "note": "Milne 1983 3.9 and the connected appendix reduce the marked comparison to semisimple simply connected almost-Q-simple data. Restriction of scalars and the real Cartan condition require the recorded RG Part II arithmetic extension. Central components are restored through V6, not discarded."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/auxiliary-cm-splitting",
+          "verdict": "verified",
+          "note": "Milne 1983 6.4 uses a totally real extension making the compact special torus split over a quadratic CM field. The real conjugation action on the character lattice supports the CM splitting-field construction. The adjoint marked torus is pulled back to the cover, and the embedded-tower comparison remains required."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/rank-one-subdata",
+          "verdict": "verified",
+          "note": "Milne 1983 3.10 constructs the reductive subgroup containing the torus and the ±α root groups. Its derived A₁ cover carries the projected adjoint S-map, without a full-datum lift. The precise polarized A₁/CM marked-comparison bridge remains a gap rather than an inference from existence alone."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/rank-one-central-separation",
+          "verdict": "verified",
+          "note": "Milne 1983 Proposition 4.3 and Corollary 4.4 give the centre and adelic-intersection identities. The rational quotient is retained in the torus calculation. Root-lattice and cohomological interfaces belong to the recorded reductive supplier extensions and force the residual marked adjustment to be rational."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/conjugated-datum",
+          "verdict": "verified",
+          "note": "Milne–Shih pp.280–281 and Milne 1983 section 1 define the contracted-product twist from the Serre torsor and marked adjoint cocharacter. The torus is unchanged under the inner action and the distinguished finite-adelic trivialization is retained. CM.S owns the missing extension construction; the SL₂ test correctly avoids an impossible full S-map lift."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/kazhdan-uniformization",
+          "verdict": "verified",
+          "note": "Milne 1983 3.2 states the Hermitian uniformization target for arbitrary complex conjugation. The packet explicitly leaves the exceptional E₆/E₇/mixed-D primary analytic proof to refinement. This theorem is an input to weak comparison, not an axiom assuming the desired full conjugation theorem."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/weak-conjugation",
+          "verdict": "verified",
+          "note": "Milne 1983 sections 2–3 recover an arithmetic group and adelic comparison using ranked S-arithmetic rigidity and corrected centre cohomology. The Platonov–Rapinchuk source gives semisimple perfection, not literal reductive simplicity. The missing passage to the marked-torus adjustment is recorded as E12 and its own gap."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/marked-conjugation",
+          "verdict": "verified",
+          "note": "Milne 1983 sections 4–5 compare tangent characters and the embedded A₁ comparisons, then remove the residual central adjustment. The marked point and distinguished adelic map specify uniqueness. The A₁ and density proof interfaces remain explicit, so weak comparison alone is not treated as marked conjugation."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/completed-conjugation-equivariance",
+          "verdict": "verified",
+          "note": "Milne 1983 Proposition 6.1 and Milne–Shih section 8 require compatible totally real extensions and congruence-completion density. The annotated deletion of an extra generator family is respected. The precise density argument remains recorded; current author comments on real A₁ generation do not restore an unconditional rational generation claim."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/special-independence",
+          "verdict": "verified",
+          "note": "Milne 1983 6.3–6.5 compares marked tori after simultaneous splitting and inducts on real Weyl length. Compact normalizers, noncompact A₁ reflection changes and norm/weak-approximation inputs are distinct. The transitive comparison and auxiliary-choice independence remain conditional on those precisely requested interfaces."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/conjugation-cocycle",
+          "verdict": "verified",
+          "note": "Milne 1983 section 7 normalizes the reflex-field-fixing cocharacter class and uses special-independent transitions to obtain the composition law. Full components and special reciprocity are reconstructed. The cocycle theorem is kept separate from the continuity criterion needed for effective descent."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/finite-rigidifying-points",
+          "verdict": "verified",
+          "note": "Milne descent Lemma 2.2 and Theorem 2.3 use finite automorphisms and a finite subset of a dense special Hecke orbit. The exact ALS normalizer-finiteness extension is requested. Zero-dimensional levels use all geometric points, and open reciprocity stabilizers give a finite field fixing the rigidifying set."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/continuous-descent",
+          "verdict": "verified",
+          "note": "Milne descent Theorem 1.1 and Corollary 1.2 require splitting over a finitely generated extension. Spread the variety and rigidifying points, then compare descent maps on that set. The packet correctly uses this criterion rather than the older continuity-free lemma corrected in Remark 1.3(c)."
+        },
+        {
+          "nodeId": "ShimuraVarieties:V7/general-canonical",
+          "verdict": "verified",
+          "note": "Milne descent Theorem 2.3 combines the continuous canonical cocycle with effective quasi-projective descent, then compatible maps and finite quotients. The special action and auxiliary-choice independence were established beforehand. It is a justified target-level endpoint with recorded supplier/proof leaves, not an implemented existence theorem."
+        }
+      ]
+    }
+  ]
 }
