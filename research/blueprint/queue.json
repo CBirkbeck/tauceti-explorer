@@ -32516,7 +32516,8 @@
    ],
    "avoidAccountOf": "BP-ExponentialSumsAndCircleMethod",
    "prompt": "research/blueprint/prompts/REV-ExponentialSumsAndCircleMethod.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #547"
   },
   {
    "id": "BP-ProbabilisticAndMetricNumberTheory",
@@ -37934,7 +37935,8 @@
    ],
    "revisionOf": "DESIGN-FunctionFieldArithmeticPartII",
    "prompt": "research/blueprint/prompts/DESIGN-FunctionFieldArithmeticPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6380"
   },
   {
    "priority": 2,
@@ -49288,8 +49290,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49379,8 +49381,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80346,8 +80348,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80569,8 +80571,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81095,8 +81097,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -82551,8 +82553,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6519"
+   "state": "pending",
+   "note": "released on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
