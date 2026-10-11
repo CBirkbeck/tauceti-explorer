@@ -1,56 +1,63 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-dcA0Fs`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104967696).
-Input commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
+Codex (GPT-6), session `codex-9tlKfF`, 11 October 2026. Refs #6219.
+[Claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6105080539); the bot confirmed this session won the claim.
+Input commit: `e6ff4c204473491a6961e671d9ae761a017bc59f`.
 
 ## Status: blocked by missing file-scope authorization
 
-The six-finding correction review is complete. Its attributed verdicts and
-primary-source evidence are in the [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
-L3 already carries this job's accepted receipt; PMIA carries its justified
-`needs_changes` receipt. Only installation of the exact L3-2 and D.1 records
-below remains. Preserve their `codex-jIGDIK` attribution.
+The six-finding correction review is complete; preserve its original
+attribution in the [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+L3 carries this job's accepted record and PMIA its justified `needs_changes`
+record. Completion requires only installation of the exact L3-2 and D.1
+records below, retaining their `codex-jIGDIK` attribution.
 
-Issue #6219 omits these two packets from its deliverable list:
+The live issue #6219 omits these two queue-required packets:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-The queue requires both records. [WORKERS.md](../WORKERS.md) says,
+[WORKERS.md](../WORKERS.md) says,
 "Edit only the files the issue names, plus your own scratch space."
-This session requested explicit authorization through the worker conversation
-to change only `review` and `reviewHistory` in those two packets. The checked
-candidates are ready, but no approval has arrived and no packet has been edited. Queue/intake allowlists
-alone do not override the issue's file-scope restriction.
+After preparing and validating both concrete changes, this session requested
+explicit authorization through the worker conversation to change only
+`review` and `reviewHistory` in these packets. Authorization is pending;
+neither packet has been edited. The queue's output list and intake allowlist
+do not repair the live issue's narrower file-scope instruction.
 
-Do not repeat the completed mathematical review, append another L3/PMIA
-receipt, or edit the queue/completion rule. Resume installation after explicit
-authorization or repair of the live issue's list. A finished correction review
-retains PMIA's justified `needs_changes` verdict.
+Do not repeat the completed mathematical review, append further L3 or PMIA
+records, or alter the queue/completion rule. Resume the two installations
+after explicit authorization or repair of the live issue's list. A finished
+review preserves PMIA's justified `needs_changes` verdict.
 
 ## This session's verification
 
-Reproduced both exact candidates from the preceding handoff. All input and
-candidate hashes match the guards below. The entire 79-node L3-2 review and
-72-node D.1 review are preserved in history, with original attribution; every
-non-review parsed field is identical. All four actual packets pass the
-pinned-index checker with zero errors (L3 has 26 inherited short-API warnings,
-all others zero). Both candidates pass at canonical paths in a read-only
-context with zero errors/warnings. Actual completion is False; substituting
-only these two records makes it True. No repository packet was substituted.
+Reconstructed the two exact candidates from the predecessor's handoff.
+All guarded input and candidate hashes below match. Their histories preserve
+the complete 79-node L3-2 and 72-node D.1 reviews, with original attribution;
+every non-review parsed field is unchanged. All four actual packets pass
+`check_blueprint.py` with the existing pinned index: zero errors, 26 inherited
+short-API warnings in L3, and no warnings in the other three. Both candidates
+pass at their canonical paths in a read-only context with no errors or
+warnings. Actual `deliverables_complete` is False; read-only substitution
+of exactly the two records makes it True. No actual packet was substituted.
 
-All four actual packets and all four suggested files retain their input byte
-hashes. No source audit or Lean elaboration was repeated. The report preserves
-previous source and Lean evidence with its original attribution. The current
+Freshly read the five current native declarations for /4 named in the
+report, confirming their exact hypotheses and module conventions. The
 read-only upstream commits remain TauCetiRoadmap
 `070dc2becd74419e76303ede84b465ed4a69461f` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-Previous `codex-YXQsbh` Lean results remain that session's checks: L3 fails on
-an unknown `research` import before body elaboration; L3-2, D.1 and PMIA
-elaborate with 111, 307 and 1,075 expected proof-placeholder warnings only.
-No Lean source changed, and no process remains running.
+All four actual packets and four suggested files retain their input byte
+hashes, and no packet contains an `excerpt` field. No PDF was fetched, no
+book was used and no source passage was copied. Predecessor source and Lean
+checks are preserved with their attribution; no Lean elaboration was
+repeated for the metadata-only candidates.
+
+The `codex-YXQsbh` elaboration results remain that session's checks: L3 fails
+at its `research` import before body elaboration; L3-2, D.1 and PMIA elaborate
+with 111, 307 and 1,075 expected proof-placeholder warnings only. No Lean
+source changed, and no process remains running.
 
 ## Preserved source evidence
 
