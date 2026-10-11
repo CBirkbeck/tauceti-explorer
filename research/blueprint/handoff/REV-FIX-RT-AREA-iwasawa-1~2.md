@@ -1,40 +1,44 @@
-# Handoff: #6217 blocked by issue/queue scope mismatch
+# Handoff: #6217 requires scope reconciliation
 
-Codex — **codex-MQrMj0**, 11 October 2026. Input commit: `1c06f9548`.
-Branch: `codex-MQrMj0-review-6217`. Claim confirmed in
-[comment 6107751142](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107751142).
-Only #6217 was claimed. This is a blocked checkpoint.
+Refs #6217. Codex, session **codex-eCgVtV**, 11 October 2026.
+Input revision: `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`.
+Branch: `codex-eCgVtV-review-6217`.
+Claim comment 6108063267 was confirmed in
+[bot comment 6108064390](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6108064390).
+Exactly one job was claimed. This is a **blocked checkpoint**.
 
-The published issue assigns only HE.0, its suggested file and this review
-report. That mathematical review is already complete. The queue instead
-requires eleven packet reviews and 23 total outputs. The real completion
-predicate remains false for that scope and true for the published three outputs.
-All outputs exist; the ten additional packets retain unrelated reviewers.
-No extra mathematical review was performed or verdict overwritten.
+The issued HE.0 mathematical review is already complete and accepted.
+The live issue still permits three outputs; the queue requires 23 outputs,
+including ten additional packet reviews. All files exist. Fresh execution
+of `issues.deliverables_complete` returns False for the actual queue entry
+and True when only its outputs are replaced in memory with the three issued
+paths. Independently fetched GitHub main has identical ordered outputs and
+the same conditional successor-preservation guard. Additional packets keep
+other reviewers' verdicts. No verdict was changed merely to satisfy intake.
 
-Fresh work: reproduced the completion predicate, reran both focused regressions
-and the full current generator in memory, and refreshed the concrete scope
-repair patch. All checks pass. The proposed unconditional issued-round guard
-preserves the historical four fix outputs and three review outputs across two
-generations, routing additional work to round three (33 fix and 19 review
-outputs). Compared with the stock replay it changes 44 existing records,
-adds 20 and removes 0. The report includes the unapplied patch and
-self-contained regression scripts; inspect those wider effects before applying.
-No repository generation or issue synchronization ran.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) preserves the completed
+mathematical review, public source and Lean receipts, exact unapplied repair
+patch, historical output arrays and self-contained regression reproducers.
+Fresh `git apply --check` accepts that patch at this input revision. The
+previous full-generator experiments were not repeated in this session.
 
-The packet checker passes with zero errors and warnings. Its accepted
-mathematical review, 21 gaps, 63 requests and prior source/Lean receipts are
-untouched. No primary source was reread. Lean was not rerun for Markdown-only
-changes. No process remains running.
+**Maintainer action before another continuation:** restore the issued
+four-output fix and three-output review scopes, preserve issued rounds in
+the generator, inspect wider routing effects, and reconcile queue, prompts
+and live issue. Alternatively, explicitly publish the expanded scope before
+assigning its ten additional independent reviews. The guard alone retains
+already-expanded arrays, so it does not suffice. Keep genuine prior reviewer
+markers until each additional review is actually done.
 
-**Required maintainer action:** authorize and apply the historical queue-array
-restoration plus the issued-round guard, or expressly assign the ten extra
-reviews. Synchronize the live issue, queue and prompts. The guard alone does
-not shrink the expanded arrays. WORKERS.md excludes those automation files
-from #6217's editable paths; intake rejects them independently. A concrete
-scope-extension request is pending with no authorization received. This was
-not an automatic approval-review rejection.
+WORKERS.md permits only issue-named files and scratch; the actual intake
+allowlist rejects queue.json and make_queue.py. A scope question was asked;
+no authorization or external repair arrived. No automatic approval rejection
+occurred. Queue, generator, issues, labels and promotion data were not edited.
 
-Only the review report and this handoff change. Do not reassign this unchanged
-HE.0-only scope for another mathematical review: it is already complete, and
-only the scope repair or an explicit expansion can finish the queue job.
+Fresh HE.0 pinned-index check: zero errors and warnings; 78 nodes, 24 API
+items, eighteen tests, thirteen baseline entries, 21 gaps, 63 requests and
+eight planned stages. Packet and Lean files are unchanged. No primary source
+was reread or Lean rerun for documentation-only work; prior receipts retain
+their original attribution. Submission-file and whitespace checks pass.
+No process remains running. Nothing in scratch is needed to resume.
+Do not repeat an unchanged HE.0 review before resolving this metadata blocker.

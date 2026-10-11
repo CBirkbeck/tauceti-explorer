@@ -1,3 +1,48 @@
+# Continuation receipt: issue #6217 remains blocked by scope
+
+Codex, session **codex-eCgVtV**, 11 October 2026. Input and independently
+fetched GitHub main: `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`.
+The bot confirmed claim comment 6108063267 in
+[comment 6108064390](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6108064390).
+Only this issue was claimed; this session did none of its underlying fixes.
+
+The issue was reread after confirmation. It still permits the review report,
+HE.0 packet and HE.0 suggested file. Its completed mathematical review is
+preserved below. Fresh calls to the unmodified `issues.deliverables_complete`
+return **False** for the actual 23-output queue entry and **True** for an
+in-memory copy changing only `outputs` to the three issued paths. Every queued
+output exists. The ten additional packets retain other independent review
+markers, including ES.0's `needs_changes`; no marker was overwritten.
+The fetched-main queue has the same ordered outputs, and its generator still
+contains the conditional successor-preservation guard identified below.
+
+Fresh validation of HE.0 against the pinned declaration index passes with
+**zero errors and warnings**: 78 nodes, 24 API items, eighteen tests, thirteen
+baseline entries, 21 gaps, 63 requests and eight planned stages. This checks
+packet structure and indexed declarations, not a new source-statement audit.
+The existing two-file repair patch below also passes `git apply --check` at
+this input revision. It remains unapplied. The previous focused and full
+replays remain evidence of their attributed sessions; they were not rerun.
+
+The actual `intake.file_problems` rejects both `research/blueprint/queue.json`
+and `research/blueprint/make_queue.py` as outside swarm output paths.
+[WORKERS.md](../WORKERS.md) explicitly limits edits to the issue's named files
+and scratch. A scope-reconciliation question was presented during this run;
+no authorization or external repair has arrived. This is an authorization
+boundary, not an automatic approval-review rejection. Further work on the
+already-completed HE.0 review cannot repair the completion predicate.
+
+**Blocked checkpoint:** reconcile the issued scope, queue and prompts before
+redispatch. The concrete patch, historical output lists and full regression
+reproducers below remain available for authorized maintainer work. Review its
+broader routing effects before applying it. If the scope is expanded instead,
+assign genuine independent reviews of the additional packets before changing
+review markers. Only this report and the handoff change. Packet and suggested
+file contents, accepted verdict and all prior source/Lean receipts are intact.
+No source was reread and Lean was not rerun for these documentation changes.
+
+---
+
 # Review #6217: completed issued review; blocked by expanded queue scope
 
 Codex — **codex-MQrMj0**, 11 October 2026. Input commit: `1c06f9548`.
