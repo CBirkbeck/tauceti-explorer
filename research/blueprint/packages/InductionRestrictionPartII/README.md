@@ -595,8 +595,8 @@ Required API:
 Unit tests:
 
 - `marking_correction_test_1` (degenerate): If all k_x=1 then φ_corr=φ.
-- `marking_correction_test_2` (computation): In an additive C₃ kernel with discrepancy 1, subtraction gives 0 while addition gives 2.
-- `marking_correction_test_3` (non-example): Multiplying φ by ψ instead sends a marked point to s(x)k_x² and fails for a kernel element of order 3.
+- `marking_correction_test_2` (computation): Take P=A=E=Multiplicative(C₃), with φ, inl and ψ all the identity homomorphism and target marking 1. Evaluating φ_corr at the additive generator 1 gives the multiplicative identity, whereas multiplying the two uncorrected factors gives the additive class 2. The test evaluates the correction itself; the numerical identity 1−1=0 alone would not detect a wrong definition.
+- `marking_correction_test_3` (non-example): With the same identity homomorphisms, every nonidentity k∈Multiplicative(C₃) satisfies φ_corr(k)=1 and k²≠φ_corr(k). Thus the wrong-sign product fails at the specified marked point rather than merely satisfying an unrelated arithmetic inequality.
 
 Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
