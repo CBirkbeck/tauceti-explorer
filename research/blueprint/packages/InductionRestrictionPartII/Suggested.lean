@@ -537,6 +537,12 @@ lemma reduced_multiplier_map_comp (f : G →* H) (g : H →* K)
     (hcd : Set.MapsTo f c d) (hde : Set.MapsTo g d e) :
     reduced_multiplier_map (g.comp f) c e (fun _ h => hde (hcd h)) =
       (reduced_multiplier_map g d e hde).comp (reduced_multiplier_map f c d hcd) := by sorry
+-- Native proof route for commutator_order: write z(a,y)=[a|y]-[y|a] and
+-- T(a,b;y)=[a|b|y]-[a|y|b]+[y|a|b]. If a,b commute with y, then
+-- d₃ T(a,b;y)=z(a,y)+z(b,y)-z(a*b,y), by groupHomology.d₃₂_single.
+-- B_n = (sum k<n, T(x^k,x;y)) - T(1,1;y) has boundary
+-- n • z(x,y)-z(x^n,y), including n=0. Use boundaries₂ and H2π_eq_iff.
+-- This existing target needs no UCT, cover or torus-homology comparison.
 lemma commutator_order (x y : G) (hxy : Commute x y) (n : ℕ) :
     homological_commutator (x^n) y (hxy.pow_left n) =
       n • homological_commutator x y hxy := by sorry
