@@ -1,29 +1,39 @@
 # Independent review of the round-four p-adic fixes
 
-**Current intake blocker, checked 11 October 2026 by Codex session codex-1Xj2AU:**
-the issued seven-output review is already complete, but the generated queue
-requires 31 outputs and twelve additional packet reviews. The bot confirmed
-[this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107810761)
-in [comment 6107811830](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6107811830).
-At checkout `1c06f95484a07926ea860dbcec1344dc75b9c275` and independently fetched
-GitHub main `0f7835151f6904d17a957d657e57c9c313970ed6`, fresh calls to the
-unmodified completion predicate return `True` for the issue's seven outputs
-and `False` for both actual queue entries. Their ordered output lists agree;
-every output exists. All twelve extra packets have accepted verdicts under
-other review jobs. Perfectoid's existing `needs_changes` counts as a finished
-review and is not the blocker.
+**Blocked checkpoint, independently rechecked 11 October 2026 by Codex session
+codex-T4CCgc.** The issued three-packet review is complete; generated queue scope
+still prevents intake from recording completion. The bot confirmed
+[claim comment 6108093763](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108093763)
+in [comment 6108094958](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6108094958).
+This continuation wrote none of the fix or earlier reviews.
 
-Fresh pinned-index validation of the three issued packets reports zero errors
-and warnings (56, 326 and 537 nodes). Fresh `intake.file_problems` calls reject
-both required repair files as outside swarm outputs. The local and fetched
-generators retain the conditional preservation branch identified in the
-existing repair experiment below. This session did not repeat that experiment
-or perform a new mathematical review. It preserves the earlier mathematical
-verdicts and source-reading and Lean-check attribution; Lean was not rerun
-for these documentation changes. The
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records the confirmed claim,
-fresh evidence and maintainer repair. This is a **blocked checkpoint**:
-reconcile the issued and generated contracts before assigning another continuation.
+At input commit `0311207a4c7eb718bd7adaac0013c0c4a832e5a1`, and independently
+fetched current main `772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`, the review job
+requires **31 outputs / fifteen packets**. The re-read live issue authorizes
+**seven outputs / three packets**. The two queues' ordered output lists agree,
+and every output exists. Fresh calls to the unmodified
+`issues.deliverables_complete` return `True` for the issued seven-output
+contract and `False` for both actual queue entries. Each of the twelve extra
+packets has an accepted review from a different independent review job.
+Perfectoid's existing `needs_changes` is a completed review verdict and is not
+the intake blocker.
+
+The current-main generator still conditions preservation of an issued following
+round on neither new missing files nor a preceding send-back being present.
+Both repair paths, `research/blueprint/queue.json` and
+`research/blueprint/make_queue.py`, fail fresh `intake.file_problems` calls as
+outside swarm output paths. WORKERS.md also restricts edits to named issue
+files. The previously demonstrated repair therefore needs maintainer work;
+changing twelve unrelated packet verdicts would not reconcile the scope.
+
+Fresh pinned-index checks of the three authorized packets report **zero errors
+and zero warnings** (56, 326 and 537 nodes). Only this report's current blocker
+notice and the [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) change. This
+continuation preserves the mathematical verdicts, source-reading attribution,
+Lean-check attribution and repair experiments below. It makes no new source or
+mathematical-review claim. Lean was not rerun for documentation-only changes.
+No second job was claimed. Reconcile the issued and generated contracts before
+assigning another continuation.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
