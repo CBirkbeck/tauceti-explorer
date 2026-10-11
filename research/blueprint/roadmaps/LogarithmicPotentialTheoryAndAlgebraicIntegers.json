@@ -1,0 +1,268 @@
+{
+  "id": "LogarithmicPotentialTheoryAndAlgebraicIntegers",
+  "title": "Logarithmic potential theory and the distribution of conjugates of algebraic integers",
+  "area": "algebraicnt",
+  "parent": null,
+  "summary": "Build singular logarithmic potential theory on arbitrary compact subsets of the complex plane, then its weighted equilibrium and real polynomial interfaces. Native measures, empirical laws, resultants and lattice/classical arithmetic suppliers support a precise real conjugate realization theorem and auxiliary completeness. Exact trace witnesses lead, through one shared Honda–Tate interface, to simple finite-field point-count bounds. The complete target-level planning pass exposes source-proof and native application gaps.",
+  "readme": "The companion reader fixes conventions, gives all thirteen layers with mathematical contracts, proof routes, APIs, discriminating unit tests and supplier boundaries. Complex potential theory precedes every real-root specialization. Realization retains countably many components and capacity strictly above one; finite-field infinitude counts isogeny classes.",
+  "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "ClassicalArithmeticCompletion",
+    "AbelianSchemesAndArithmeticModuliPartII",
+    "DeligneWeightsAndPurity"
+  ],
+  "stages": [
+    {
+      "key": "LP.0",
+      "title": "Complex logarithmic potentials and energy",
+      "description": "Fix the singular complex kernel and native Borel measure conventions. Establish descent and strict energy before minimization. Targets: For z,w∈ℂ, k(z,w)=−log|z−w| off the diagonal and k(z,z)=+∞. The value at the diagonal is an extended real, rather than the totalized value of Real.log 0. For a finite positive Borel measure μ with compact support in ℂ, Uμ(z)=∫k(z,w)dμ(w), using the extended integral of the positive part minus the finite negative part. Uμ may equal +∞ and is never −∞. The private integral helper is used only when at least one part is finite. For a finite positive compactly supported measure, I(μ)=∬k(z,w)dμ(z)dμ(w)=∫Uμdμ. Its negative part is finite, so finite energy means I(μ)<+∞, with this sign convention. Potentials are lower semicontinuous. If probability measures μn supported on a common compact K⊂ℂ converge weakly to μ, then Uμ(z)≤liminf Uμn(z) for every z and I(μ)≤liminf I(μn). For two compactly supported complex probability measures μ,ν of finite logarithmic energy, their mutual energy is finite and I(μ)+I(ν)−2I(μ,ν)≥0, with equality exactly when μ=ν. This expresses the positive energy of their signed difference of total mass zero without replacing native signed measures.",
+      "requires": [],
+      "sources": [
+        "smith",
+        "saff",
+        "levenberg"
+      ]
+    },
+    {
+      "key": "LP.1",
+      "title": "Complex capacity and equilibrium",
+      "description": "Build complex compact capacity, inner capacity, polar null sets, equilibrium, Frostman, domination and the transfinite-diameter comparison. Retain compact versus Borel continuity domains. Targets: For compact K⊂ℂ, V(K)=inf{I(μ): μ a probability supported on K}, with inf∅=+∞, and cap K=exp(−V(K)), where exp(−∞)=0. For arbitrary Borel E the inner capacity is sup{cap L: L⊂E compact}. On compact sets these agree. This normalization has cap of a disk equal to its radius. A Borel set E is polar when every compact subset has capacity zero. A predicate holds quasi-everywhere on K when its failure set inside K is polar. Finite-energy measures ignore such Borel failure sets; they are not merely sets of ambient area zero. If μ is a finite positive compactly supported measure with I(μ)<+∞ and E is Borel and polar, then μ(E)=0. Countable Borel unions of polar sets are polar. When K⊂ℂ is compact and cap K>0, there is a unique probability μK supported on K attaining V(K). The construction chooses this minimizer. At zero capacity no uniqueness claim is made; the totalized value has no specified mathematical meaning. For compact K⊂ℂ with positive capacity, UμK(z)≤V(K)=−log cap K on all of ℂ and UμK(z)=V(K) quasi-everywhere on K. Let μ,ν be finite positive compactly supported measures on ℂ, with 0<μ(ℂ) and ν(ℂ)≤μ(ℂ), I(μ)<+∞, and c∈ℝ. If Uμ≤Uν+c μ-almost everywhere, then the inequality holds at every complex point. For increasing bounded Borel sets En⊂ℂ, innerCap(⋃En)=supn innerCap(En). For decreasing nonempty compact Kn, cap(⋂Kn)=infn cap(Kn). In particular an increasing interval exhaustion whose union omits only a polar subset of K eventually has capacity above any fixed number smaller than cap K. For n≥2, δn(K) is the maximum over z1,…,zn∈K of (∏i<j|zi−zj|)^(2/(n(n−1))); the maximum is 0 for empty K or when no distinct n-tuple exists. The transfinite diameter is lim δn, equivalently infn≥2 δn. No logarithm of a coincident pair is totalized to zero. For every compact K⊂ℂ, cap K=transfiniteDiameter K, including empty and polar compact sets. Fekete weak convergence is an implementation consequence, proved by the same truncation argument, rather than an additional target.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0"
+      ],
+      "sources": [
+        "saff",
+        "levenberg",
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.2",
+      "title": "Admissible fields and weighted equilibrium",
+      "description": "Use admissible lower-semicontinuous fields on compact complex sets. Keep weighted minimum V_Q distinct from the modified Robin constant F_Q, then specify weighted polynomial norms. Targets: On a compact K⊂ℂ an admissible external field Q:K→ℝ∪{+∞} is lower semicontinuous, bounded below and finite on a nonpolar subset. Its weight is w=e^(−Q), with w=0 at Q=+∞. Equivalently w is nonnegative upper semicontinuous and positive on a nonpolar subset. Only the compact version is needed by the weighted polynomial inputs. For an admissible Q on compact K and supported probability μ, I_Q(μ)=I(μ)+2∫Qdμ. The extended values are valid because both negative parts are finite. The coefficient 2 fixes the weighted-capacity and Robin conventions. The admissible compact problem has a unique minimizing probability μK,Q. Write V_Q=I_Q(μK,Q) and F_Q=V_Q−∫QdμK,Q=I(μK,Q)+∫QdμK,Q. F_Q is the modified Robin constant, and need not equal V_Q. Both are finite for the minimizer. For compact K and admissible Q, the weighted equilibrium has finite energy, Uμ+Q≥F_Q quasi-everywhere on K, and equality μ-almost everywhere. For continuous finite Q on a regular compact K, the inequalities hold everywhere on K, with equality on supp μ. Conversely a finite-energy supported probability satisfying the two quasi-everywhere/measure conditions minimizes I_Q. Regularity here means UμK=V(K) at every point of K. For compact K, weight w≥0 and real exponent t, ||P||K,w,t=supx∈K w(x)^t |P(x)|, with the real-power convention. In Smith’s specialization wμ=exp(Uμ), finite and strictly positive for compactly supported Hölder μ. Integer t=n is the n-norm; real exponents also permit the shifts used in Lemma 4.9.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0"
+      ],
+      "sources": [
+        "levenberg",
+        "saff",
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.3",
+      "title": "Real regularity and weighted polynomial limits",
+      "description": "Specialize only the polynomial distribution arguments to ℝ. Pin Hölder mass regularity, finite intervals, countable components, native empirical root laws, weighted zero limits, Remez and root removal. Normalize the existing Chebyshev measure for equilibrium adapters. Targets: A finite positive real Borel measure is η-Hölder if η>0 and there exists C>0 such that μ([x,y])≤C(y−x)^η for every x≤y. A Hölder measure has some such exponent; its support may have gaps. This is interval mass regularity, not a Hölder density condition. A finite interval set is a nonempty compact subset of ℝ with finitely many connected components and no one-point components; equivalently it is a union of finitely many separated closed intervals [ai,bi] with ai<bi. Use an ordered list only as witness data. For a compactly supported finite η-Hölder measure with 0<η<1, its potential is finite and η-Hölder on ℝ. A bound follows by layer-cake estimates on distances below |x−y| and integration of the remaining tail. The real potential determines a continuous complex potential as well. If μ is a compactly supported Hölder probability on a compact real K, then for Q=−Uμ, μ is the weighted equilibrium on K and F_Q=0. The field is admissible: Uμ is finite continuous, and μ has finite energy, forcing K nonpolar. For a positive-degree polynomial that splits over ℝ, normalize its multiset of real roots with multiplicity to a probability. This is the existing empirical law applied to a numbering of that multiset. A totalized polynomial-to-law adapter returns δ0 when no real roots exist; every mathematical theorem uses splitting and positive degree, so this default never supplies missing complex roots. Let μ be a Hölder probability supported on a compact real K. Monic real polynomials Pi, of degrees ni→∞, with every root in K and ||Pi||K,wμ,ni^(1/ni)→1 have root laws converging weakly to μ. Real support is retained: a complex compact set can have different measures with the same exterior potential. For m≥1, a complex polynomial of degree at most m, and measurable E⊂[−1,1] with Lebesgue measure at least 2−m^(−2), its supremum on [−1,1] is at most e^5 times its supremum on E. The complex-valued form follows by rotating a value at a maximum and applying the real Remez inequality to its real part. For a Hölder probability μ supported on a finite interval set K there is C>0, depending only on K,μ, such that for n≥0 and real P of degree m≥1 with complex root α, the complex weighted norm of P/(X−α) is at most (2 max(n,m))^C times that of P. No root-in-K condition on α is needed. For a<b, the real interval equilibrium is the affine pushforward of π⁻¹ times Tau Ceti’s native Chebyshev T measure on [−1,1]. Its density is 1/(πsqrt((b−x)(x−a))) on (a,b). It is zero when a≥b. This adapter adds interval parameters and probability normalization; it does not rebuild the Chebyshev measure. For a finite interval set K, the equilibrium law is 1/2-Hölder. For 0<a<b, its interval potential at 0 is −log((a+b+2sqrt(ab))/4). The proof uses the finite-gap density |∏(x−cj)|/(πsqrt(|∏(x−aj)(x−bj)|)), with one cj in each gap fixed by vanishing gap integrals. A real set has countably many components when the set of its connected components meeting the set is countable. Empty sets qualify. This is weaker than having finitely many interval components and stronger than arbitrary compact real support; the Cantor set fails.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1"
+      ],
+      "sources": [
+        "smith",
+        "levenberg",
+        "saff",
+        "csz"
+      ]
+    },
+    {
+      "key": "LP.4",
+      "title": "Arithmetic measures and quantiles",
+      "description": "Define singular integer-polynomial logarithmic moments and arithmetic admissibility. Construct every-degree quantile polynomials, determinant/norm estimates and the moment semicontinuity bridge. Targets: For nonzero Q∈ℤ[X] and a compactly supported finite real measure μ, Lμ(Q)=∫log|Q(x)|dμ in ℝ∪{−∞}. The logarithm is −∞ at a zero, its positive part is bounded on compact support, and ordinary Bochner totalization at a singular atom is not used. A finite real measure μ is arithmetically admissible when Lμ(Q)≥0 for every nonzero integer polynomial Q. Probability and compact support are separate hypotheses of realization theorems. The zero measure satisfies the inequality, whereas an algebraic atom does not. For n≥1, μ a Hölder probability supported on compact real K, αi is the least x∈K with μ((−∞,x])=(i+1)/n, for i=0,…,n−1. Pn,μ=∏i(X−αi); P0,μ=1 is an explicit empty-product extension. Closed-interval discrepancies of the root law are at most 1/n. For compact real K and Hölder probability μ supported on K, there is C>0 such that for every n≥2, ∏i<j|αi−αj|≥n^(−Cn) exp(−n² I(μ)/2), and for every x∈K, n^(−C)ρn(x)≤wμ(x)^n|Pn,μ(x)|≤n^Cρn(x), where ρn is the nearest-root distance. Absolute value on P is essential. For compact real K and Q≠0 integer, μ↦Lμ(Q) is upper semicontinuous on supported probabilities: under weak μn→μ, Lμ(Q)≥limsup Lμn(Q). Singular zeros are allowed. Applied to distinct irreducible monic root laws, eventual resultant integrality proves Serre’s necessary admissibility implication. For a compact real K and a supported Hölder probability μ, for every positive degree n there is a monic real polynomial Pn, splitting with all its roots in K, and ||Pn||K,wμ,n^(1/n) tends to 1. This is the potential-weight instance needed by weighted zero distribution; no assertion about roots of arbitrary complex weighted extremizers is made.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.5",
+      "title": "Lattice bounds and squarefree approximation",
+      "description": "Import GN successive minima, evaluation polytope and flatness, and CA.3 bounded squarefree combinations. Prove the weighted norm products, energy sign and subexponential squarefree approximation. Targets: Let μ be a Hölder probability supported on compact real K, m,n≥0, Q0,…,Qm independent integer polynomials of degrees≤m, and R≠0 integer with Lμ(R)≥0. Then ∏i||QiR||n≥exp((mn−m²/2+n−m/2)I(μ))/(m+1)!. For a Hölder probability μ supported on a finite interval set K, there is C>0 such that at every n≥2 one can choose n+1 independent integer polynomials Qi of degrees≤n with ∏i||Qi||n≤n^(Cn)exp(n²I(μ)/2). A compactly supported arithmetically admissible Hölder probability on ℝ has logarithmic energy≤0. The set containing its support need not be a finite interval set. For a finite interval set K and supported Hölder probability μ, there is C>0 such that for n≥2, squarefree Q∈ℤ[X] of degree n and real P of degree≤n−1, an integer R of degree≤n−1 satisfies ||P−R||n≤n^C||Q||n. Q need not be monic or have its roots in K. For supported Hölder probability on a finite interval set, there is C>0: whenever 0≤k≤m≤n, n≥2, independent integer Q0,…,Qm have degree≤n and nondecreasing n-norms, G=gcd(Q0,…,Qk) has Lμ(G)≥0, and max_i≤k deg(Qi/G)=m, their norm product is at least n^(−Cn) exp((mn−m²/2)I(μ)). For compact real K and an admissible Hölder probability μ supported there, there is C>0 such that for every n≥2 there is a squarefree integer polynomial Rn of degree n with ||Rn||n≤n^(C√n). This statement asserts neither monicity, irreducibility nor root support.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0",
+        "ClassicalArithmeticCompletion:CA.3"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.6",
+      "title": "Pruned Chebyshev and complementary polynomials",
+      "description": "Use real Chebyshev alternation with roots in the convex hull. Prune component-extreme and gap roots, adjust coefficients, and construct complementary polynomials with uniform parity, avoidance, root and slope bounds. Targets: For nonpolar compact real K and r≥1, Tr is the unique monic real degree-r polynomial minimizing the uniform norm on K. It has r+1 alternating extremal points. Its roots are simple and real in the convex hull of K; each gap of K contains at most one root. For a finite interval set there is C>0 with cap(K)^r≤||Tr||K≤C cap(K)^r. A pruned polynomial for a simple splitting P and finite interval set K is the monic product of a chosen subset of its roots in K, excluding the least and greatest P-root in every interval component that meets those roots. This is a relation with explicit retained-root data; no degree is promised until enough eligible roots are counted. If K has k0 nondegenerate interval components and κ=cap K, then for each r≥2 one can prune Tr+3k0 to a degree-r polynomial Sr with ||Sr||K≤r^C κ^r. There are r+k1 ordered points in K, k1≤k0, with |Sr|≥C⁻¹κ^r. Between consecutive such points either a gap contains no Sr-root, or a subinterval of K contains exactly one Sr-root. Constants depend only on K. Fix a finite interval set K with κ>1, and a constant C1≥2 valid for the pruned Chebyshev bounds. Set D=ceil(4 C1²/(κ−1)). For monic real P of degree n and r≥2 there is monic real T of degree r such that the coefficients of T^D P at degrees (D−1)r+n,…,Dr+n−1 are even integers, T/Sr≥1/2 at the chosen alternation points, and ||T||K≤r^C1 κ^r+2C1 r κ^r. With K, C1, D and adjusted T as above, put Q0=∏j=0,…,D−1(T−(2j+1)κ^r/(4DC1)), d=Dr−r and C2=8(4DC1)^D. Choose εi∈[0,2] in descending degree so that (Q0+Σi=1,…,d εi Ti)P has even coefficients at degrees n+1,…,n+Dr−1. Add the least real N≥0 for which |Q(α)|≥κ^(Dr)/(n C2) at every complex root of P, when n>0. For n=0 set N=0 and omit the avoidance condition. Choose C1 and D uniformly from K once; the prototype stores D(K) and Q(K,P,r). At r=0 it returns 1. The reader specifies the full triangular recipe, while the public API fixes degree, parity and complex-root avoidance. For all sufficiently large r, every complementary Q of degree Dr is squarefree and has all roots in K. Each root β has an isolating interval [x,y]⊂K whose endpoints have |Q|≥C⁻¹κ^(Dr). The least-shift argument gives N≤2C2⁻¹κ^(Dr) for n>0. All D level intervals, indexed 0≤j<D, contribute roots. For all sufficiently large r, complementary Q satisfies ||Q||K,||Q′||K≤r^Cκ^(Dr); around every root β, on [β−r^(−C),β+r^(−C)]⊂K, |Q(x)|≥C⁻¹κ^(Dr)|x−β|. Constants are uniform in the parent P and its degree.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.2"
+      ],
+      "sources": [
+        "smith",
+        "csz"
+      ]
+    },
+    {
+      "key": "LP.7",
+      "title": "Real roots with integer-rounding margins",
+      "description": "Produce interior quantiles and the degree-n real polynomial with even high coefficients and disjoint weighted root brackets. These margins are the quantitative input to Eisenstein rounding. Targets: For K a finite interval set and μ a supported Hölder probability, and every integer d, there is C>0 such that for n≥2 a monic simple splitting polynomial P̃n of degree n has each root α isolated in [α−n^(−C),α+n^(−C)]⊂K and satisfies wμ^(n+d)|P̃n|≥n^(−C)dist(x,roots P̃n) on K, with ||P̃n||n+d≤n^C. For finite interval K with κ>1, supported Hölder probability μ and B>0, there is C>3 such that for every integer n>C, with m=floor(B√n log n), a monic simple real degree-n polynomial Pn has all roots in K, ||Pn||n−m≤n^Cκ^m, even-integer coefficients at degrees n−m,…,n−1, and disjoint root brackets in K whose endpoints have weighted modulus wμ^(n−m)|Pn|≥n^(−C)κ^m. The threshold includes m<n and all auxiliary degrees at least 2.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.6",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.8",
+      "title": "Smoothing, sweetening and support reduction",
+      "description": "Normalize the inverse-interval kernel, retain the convolution mass factor, and sweeten against positive-capacity equilibrium. Establish finite energy before deleting singleton components, then approximate inside real finite interval subsets. Targets: For 0<a<b, ν[a,b] has density sqrt(ab)/(πt sqrt((b−t)(t−a))) on (a,b), zero elsewhere. It is a probability, is 1/2-Hölder, has mean sqrt(ab), and is the inversion pushforward of the probability equilibrium measure of [1/b,1/a]. Outside the valid range the measure is explicitly zero. For 0<a<b, Uν(z)+log|z|≤log((a+2sqrt(ab)+b)/(b−a)) on ℂ, with equality on [a,b]. At z=0 the logarithm is −∞ and the inequality remains meaningful. Also Uν(0)=log((a+2sqrt(ab)+b)/(4ab)). Let μ be finite positive and compactly supported, with mass M, and 0<ε<1/2. The native convolution μ∗ν[ε²,ε] is 1/2-Hölder, supported on supp μ+[ε²,ε], and has potential at most Uμ+M log((ε²+2ε^(3/2)+ε)/(ε−ε²)). This logarithm is O(sqrt ε) uniformly for 0<ε<1/2. The coefficient M is necessary. The convolutions converge weakly to μ as ε→0+, within a common compact support. For compact real K with κ>1, supported probability μ, and a compactly supported subprobability ν (not necessarily supported on K), set γ=1−ν(ℝ), B=sup over points with finite Uμ of (Uν+γUμK−Uμ). Assume B is finite and nonnegative. Put β=B/(B+log κ) and S=(β+γ−βγ)μK+(1−β)ν. Then S is a probability and US≤(1−β)Uμ. If ν is supported on K, S is too. Under polynomial moment nonnegativity for μ this inequality makes S admissible. Every compactly supported arithmetically admissible real probability has logarithmic energy≤0, hence finite energy. No component-count or capacity assumption on its support is needed. For compact real K with countably many connected components and cap K>1, each supported admissible probability μ is a weak limit of admissible Hölder probabilities μj supported on finite unions of nondegenerate intervals Kj⊂K with cap Kj>1. One-point components may accumulate; they are discarded because their union is countable and polar, not because they are isolated.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.0",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.9",
+      "title": "Prescribed conjugate distributions",
+      "description": "Prove the real compact countable-component capacity>1 realization criterion, including pairwise distinct irreducibles and resultant necessity. Preserve every root in K. Targets: For compact real K with countably many connected components and cap K>1, a supported probability μ satisfies all integer-polynomial log-moment inequalities if and only if there is a sequence of pairwise distinct monic irreducible integer polynomials of positive degree, all roots in K, whose normalized root distributions converge weakly to μ. No complex-support or capacity=1 realization is asserted.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.7",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.10",
+      "title": "Auxiliary completeness and optimal measures",
+      "description": "Use cofinite polynomial indexing and positive auxiliary coefficients. Reduce coercive closed supports to a fixed compact set and identify the auxiliary supremum with an attained admissible minimum. Targets: For closed real Σ and continuous F, let IΣ be the monic irreducible positive-degree integer polynomials with every root in Σ. Define λ(Σ,F) as the supremum of c for which only finitely many P∈IΣ have root-average F below c. This is the cofinite liminf and is independent of ordering or repeated choices of a conjugate. Define λSmyth as the supremum of c admitting finitely many nonzero integer Qi and strictly positive ai with F(x)≥c+Σai log|Qi(x)| on Σ. Empty certificates are allowed. Let Σ⊂ℝ be closed with countably many components and inner capacity>1, meaning that some compact L⊂Σ has cap L>1. Let F be continuous on Σ and F(x)/log|x|→+∞ along |x|→∞ within Σ. Then there is compact Σ0⊂Σ with cap Σ0>1 such that each compactly supported probability on Σ not supported on Σ0 can be replaced by a probability supported on Σ0 with strictly smaller F-integral, preserving every individual integer-polynomial inequality Lμ(Q)≥0. Under the closed countable-component, capacity>1 and superlogarithmic-growth hypotheses, λ(Σ,F)=λSmyth(Σ,F) is finite and equals the minimum F-integral over compactly supported admissible probabilities on Σ. The minimum is attained on a fixed compact subset. Certificate coefficients are strictly positive as stated in the theorem.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.9"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.11",
+      "title": "Trace witnesses and optimal support",
+      "description": "Prove the potential-majorant admissibility criterion, certify Serre’s rational witness, import the classical SSS constant and prove its strict bound. Specify the log-moment and support obstruction for optimal measures. Targets: Let μ be a compactly supported real probability. Let distinct primitive irreducible integer Qi of positive degree and ai>0 satisfy Σai deg Qi≤1, Uμ(z)≤−Σai log|Qi(z)| on all ℂ, and Lμ(Qi)≥0. Then μ is arithmetically admissible. For real compact support K with countably many components and cap K>1, realization then gives the conjugate approximation conclusion. The moment implication does not require the capacity or component hypotheses. Take a=87353/1000000, b=4411076/1000000 and γ=215485/1000000 exactly, and μ=γν[a,b]+(1−γ)μ[a,b], with μ[a,b] the interval equilibrium probability. Its mean is γsqrt(ab)+(1−γ)(a+b)/2. The exact potential and log-moment bounds make it admissible, and its mean lies strictly between 1.898303 and 1.898304, hence below 1.89831. The decimal parameters are exact rationals; numerical floating-point evaluation alone is insufficient. The Schur–Siegel–Smyth cofinite trace constant, imported from CA.6, is strictly less than 1.89831. Equivalently cofiniteMean([0,∞),id)<1.89831, with the CA.6 identification included as a required interface. Under the optimization hypotheses let μ be an admissible compactly supported minimizer. If monic irreducible nonconstant integer P has every root in the interior of Σ and conjugateMean(P,F)<λ(Σ,F), then Lμ(P)=0 and supp μ is disjoint from every root of P. The interior condition cannot be dropped, nor can this be asserted for arbitrary nonoptimal witnesses.",
+      "requires": [
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.9",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.8",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "ClassicalArithmeticCompletion:CA.6",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10"
+      ],
+      "sources": [
+        "smith"
+      ]
+    },
+    {
+      "key": "LP.12",
+      "title": "Simple finite-field point counts",
+      "description": "Import the one shared Honda–Tate classification and DWP Weil inputs. Retain multiplicity and dimension factors, optimize both signs of log point counts, and obtain the two explicit bounds for large square prime powers. Targets: For an integer prime power q and monic irreducible P∈ℤ[X] with all roots in [−2sqrt q,2sqrt q], let x be a root and π a root of T²−xT+q. Away from the finitely many endpoint exceptions, π is a q-Weil algebraic integer. Honda–Tate supplies its simple Fq isogeny class; if its multiplicity is e and deg P=d, dim A=ed and #A(Fq)=∏i(q+1−xi)^e. Thus (log #A(Fq))/dim A is the P-root average of log(q+1−x), independent of e. Distinct P give distinct classes. For a prime power q, Σq=[−2sqrt q,2sqrt q] has capacity sqrt q>1. Put Fq(x)=log(q+1−x). For every ε>0 infinitely many simple Fq-isogeny classes have normalized point count at most exp(λ(Σq,Fq)+ε), and infinitely many have at least exp(−λ(Σq,−Fq)−ε). Only finitely many lie below exp(λ(Σq,Fq)−ε) or above exp(−λ(Σq,−Fq)+ε). These are isogeny classes, not infinitely many representatives of one class. For every ε>0 and all sufficiently large square prime powers q, infinitely many simple Fq-isogeny classes have #A(Fq)≥(q+2sqrt q+1−λSSS−ε)^dim A, and infinitely many have #A(Fq)≤(q−2sqrt q+1+λSSS+ε)^dim A. Square q is required because ±2sqrt q must be integers for translation of conjugates to preserve integrality. For all sufficiently large square prime powers q there are infinitely many simple Fq-isogeny classes with #A(Fq)≥(q+2sqrt q−0.89831)^dim A, and infinitely many with #A(Fq)≤(q−2sqrt q+2.89831)^dim A.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:F3",
+        "DeligneWeightsAndPurity:DWP.1",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.3",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.10",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.11",
+        "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.4",
+        "ClassicalArithmeticCompletion:CA.6"
+      ],
+      "sources": [
+        "smith"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "smith",
+      "title": "Algebraic integers with conjugates in a prescribed distribution",
+      "authors": "Alexander Smith",
+      "edition": "arXiv:2111.12660v2, 16 March 2024; journal metadata: Annals of Mathematics 200 (2024), 71–122, DOI 10.4007/annals.2024.200.1.2",
+      "url": "https://arxiv.org/pdf/2111.12660v2",
+      "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
+      "readSections": [
+        "§1, pp.1–4",
+        "§2, pp.5–12",
+        "§3, pp.12–21",
+        "§4, pp.21–31",
+        "§5, pp.31–45; references checked"
+      ],
+      "readDate": "2026-10-11"
+    },
+    {
+      "id": "saff",
+      "title": "Logarithmic Potential Theory with Applications to Approximation Theory",
+      "authors": "Edward B. Saff",
+      "edition": "Surveys in Approximation Theory 5 (2010), 165–200; public arXiv:1010.3760 PDF",
+      "url": "https://arxiv.org/pdf/1010.3760",
+      "sha256": "cfbeaad8cf695fc1b5528fd56295d7e3053056634c6841765a434ce9b074d862",
+      "readSections": [
+        "§1, pp.165–177",
+        "§2, pp.178–183",
+        "§3, pp.183–187",
+        "§6, pp.196–200"
+      ],
+      "readDate": "2026-10-11"
+    },
+    {
+      "id": "levenberg",
+      "title": "Ten lectures on weighted pluripotential theory",
+      "authors": "Norman Levenberg",
+      "edition": "Dolomites Research Notes on Approximation 5 (2012), 1–59, public journal PDF",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/DRNA/pdf/levenberg-2012-wpt.pdf",
+      "sha256": "461e6a5657bd7135d68ceaef422ce89bb6cafbd807c812243fdbb5c967277f37",
+      "readSections": [
+        "§1, pp.2–7: potentials and the continuity/comparison principles",
+        "§2, pp.8–12: energy, diameter, polar sets, Frostman and domination; Exercise 3, p.13",
+        "§5, pp.23–25: admissible weights, variational conditions and Fekete convergence"
+      ],
+      "readDate": "2026-10-11"
+    },
+    {
+      "id": "csz",
+      "title": "Asymptotics of Chebyshev Polynomials, I: Subsets of ℝ",
+      "authors": "Jacob S. Christiansen; Barry Simon; Maxim Zinchenko",
+      "edition": "Inventiones Mathematicae 208 (2017), 217–245, author PDF",
+      "url": "https://math.caltech.edu/SimonPapers/336.pdf",
+      "sha256": "e79397783e4d928e6cafd1a2ea55a7654565479629ecbd95cd125c40d0faf1d2",
+      "readSections": [
+        "§1, pp.218–222: Theorems 1.1, 1.3 and 1.4",
+        "§2, pp.228–232: Theorem 2.6 and its density proof",
+        "§3, pp.235–236: Theorems 3.2–3.3",
+        "§4, pp.236–237: proof of Theorem 1.4"
+      ],
+      "readDate": "2026-10-11"
+    }
+  ],
+  "status": "draft"
+}
