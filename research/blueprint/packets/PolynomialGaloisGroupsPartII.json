@@ -1,0 +1,2341 @@
+{
+  "roadmapId": "PolynomialGaloisGroupsPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "status": "complete",
+  "agent": "Codex",
+  "session": "codex-jw5Scx",
+  "detail": "target",
+  "summary": "Ramified equal-part merging links finite-field factor degrees to the faithful polynomial Galois action. A general probability law on partitions then excludes every transitive permutation subgroup other than the alternating and symmetric groups. The plan includes the higher irreducibility adapter, the actual primitive minimum-degree proofs, and the strengthened long-part event needed to repair the imprimitive argument.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Nat.Partition",
+        "module": "Mathlib/Combinatorics/Enumerative/Partition/Basic.lean",
+        "provides": "Positive natural multiset with sum n; existing Fintype, parts and extensionality.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Equiv.Perm.fullCycleType",
+        "module": "TauCeti/GroupTheory/Perm/Partition.lean",
+        "provides": "All cycle lengths including a part1 for each fixed point; no private cycle-type definition.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Equiv.Perm.sum_fullCycleType",
+        "module": "TauCeti/GroupTheory/Perm/Partition.lean",
+        "provides": "The sum of fullCycleType is Fintype.card of the carrier.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Equiv.Perm.fullCycleType_eq_of_isConj",
+        "module": "TauCeti/GroupTheory/Perm/Partition.lean",
+        "provides": "Full cycle type is conjugacy invariant.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Equiv.Perm.fullCycleType_permCongr",
+        "module": "TauCeti/GroupTheory/Perm/Partition.lean",
+        "provides": "Full cycle type preserved by relabeling along an equivalence.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Polynomial.factorDegrees",
+        "module": "TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+        "provides": "Reduction factor degrees via normalizedFactors, with repetitions retained.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Polynomial.Monic.sum_factorDegrees",
+        "module": "TauCeti/RingTheory/Polynomial/FactorDegrees.lean",
+        "provides": "For monic integral A and prime p the degrees sum to A.natDegree.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:NumberField.exists_isArithFrobAt_int_of_liesOver",
+        "module": "TauCeti/NumberTheory/NumberField/Frobenius.lean",
+        "provides": "In a Galois number field a prime over p admits an arithmetic Frobenius lift; unramifiedness is not required.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:TauCeti.FiniteField.exists_orbit_eq_rootSet_factor",
+        "module": "TauCeti/FieldTheory/GaloisGroups/FrobeniusOrbits.lean",
+        "provides": "For nonzero finite-field polynomial splitting in algebraic E, an irreducible factor’s roots form one Frobenius orbit of cardinal its degree.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:Ideal.exists_maximal_ideal_liesOver_of_isIntegral",
+        "module": "Mathlib/RingTheory/Ideal/GoingUp.lean",
+        "provides": "An integral faithful algebra admits a maximal ideal over any maximal base ideal.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:Polynomial.Gal.galActionHom",
+        "module": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+        "provides": "Permutation representation of the Galois group on roots in a splitting extension; Fact of splitting required for this transported version.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:Polynomial.Gal.galActionHom_injective",
+        "module": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+        "provides": "Faithfulness of the root representation, with Fact that the polynomial splits.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:Polynomial.Gal.restrict_surjective",
+        "module": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+        "provides": "For a polynomial splitting in a normal extension, restriction from extension automorphisms to its polynomial Galois group is surjective.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:TauCeti.isPretransitive_iff_irreducible",
+        "module": "TauCeti/FieldTheory/GaloisGroups/Orbits.lean",
+        "provides": "For a separable positive-degree polynomial splitting in E, pretransitivity of its Galois root action iff irreducible.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:TauCeti.stabilizer_eq_fixingSubgroup_adjoin_simple",
+        "module": "TauCeti/FieldTheory/GaloisGroups/Stabilizer.lean",
+        "provides": "Root-point stabilizer equals fixing subgroup of its simple root field.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:TauCeti.is_two_pretransitive_iff_irreducible_divByMonic",
+        "module": "TauCeti/FieldTheory/GaloisGroups/MultipleTransitivity.lean",
+        "provides": "Existing k=2 quotient adapter for irreducible separable polynomials of degree>1; imported, not replanned.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:MulAction.isMultiplyPretransitive_iff",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "Multiple pretransitivity is existence of transport between any two injections Fin k into the carrier.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:SubMulAction.ofStabilizer.isMultiplyPretransitive",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "For a pretransitive action, (k+1)-pretransitivity iff the point stabilizer on the complement is k-pretransitive.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:MulAction.isMultiplyPretransitive_of_le",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "On a finite carrier, n-pretransitivity implies m-pretransitivity when m≤n≤Nat.card of the carrier.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:IsMultiplyPretransitive.alternatingGroup_le",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "A (Nat.card α−2)-pretransitive permutation subgroup contains alternatingGroup α.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:alternatingGroup.isMultiplyPretransitive",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "Alternating group is (Nat.card α−2)-pretransitive.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:MulAction.IsPreprimitive",
+        "module": "Mathlib/GroupTheory/GroupAction/Primitive.lean",
+        "provides": "Existing pretransitive action with only trivial blocks; degree hypotheses separately prevent degenerate carriers.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:MulAction.isPreprimitive_of_is_two_pretransitive",
+        "module": "Mathlib/GroupTheory/GroupAction/MultipleTransitivity.lean",
+        "provides": "Every2-pretransitive action is preprimitive; used before primitive small-support recognition.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:harmonic_le_one_add_log",
+        "module": "Mathlib/NumberTheory/Harmonic/Bounds.lean",
+        "provides": "For all natural n, real harmonic sum is at most1+log n.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:log_add_one_le_harmonic",
+        "module": "Mathlib/NumberTheory/Harmonic/Bounds.lean",
+        "provides": "For all natural n, log(n+1) is at most the real harmonic sum.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniConstant_lt_two_thirds",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "Existing bound γ<2/3; together with the elementary logarithm estimate2/3<log2 it gives e^γ<2.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      },
+      {
+        "ref": "tauceti:Equiv.Perm.IsCycle.pow_apply_eq_self_iff",
+        "module": "TauCeti/GroupTheory/Perm/CyclePower.lean",
+        "provides": "A power fixes a moved point of a cycle iff its order divides the exponent; nonidentity powers retain its full support.",
+        "checked": "Statement read at pinned commit, 2026-10-11"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "bskk-v3",
+      "title": "Irreducibility of random polynomials: general measures",
+      "authors": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma",
+      "edition": "arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+      "read": "2026-10-11",
+      "readSections": [
+        "Introduction pp.4–5, k-fold irreducibility",
+        "§11.2 pp.56–57, Definition11.2, Lemma11.3, Claim11.4",
+        "§12 pp.59–63, Proposition12.1 and all proofs of Lemmas12.2–12.9"
+      ]
+    },
+    {
+      "id": "babai-notes",
+      "title": "Primitive coherent configurations and the order of uniprimitive permutation groups",
+      "authors": "László Babai; original lecture scribe Tom Hayes",
+      "edition": "Author exposition, October21,2018; graph proof of Babai1981 with Zemlyachenko’s simplification",
+      "url": "https://people.cs.uchicago.edu/~laci/papers/uni-update.pdf",
+      "sha256": "0727084ac9c61fcf0fd54be97bae96adb8605901369e868a29cf5b1232a3bb67",
+      "read": "2026-10-11",
+      "readSections": [
+        "§§2–4 pp.3–5, orbital configurations and primitivity",
+        "§6 pp.5–6, distinguishers",
+        "§8 pp.7–9, full proof of Theorem6.6",
+        "§9 p.10, Exercise9.5 and Corollary9.6"
+      ]
+    },
+    {
+      "id": "schomburg",
+      "title": "Bochert’s results on the minimal degree of multiply transitive permutation groups",
+      "authors": "Bernd Schomburg",
+      "edition": "arXiv:2209.12049v1, September24,2022",
+      "url": "https://arxiv.org/pdf/2209.12049v1",
+      "sha256": "6374c9c7916eb0fe5d1a436e094e18e156686d3a2aced5de9e424e52717ffdfb",
+      "read": "2026-10-11",
+      "readSections": [
+        "§2 pp.1–4, commutator support and Lemmas2.3–2.5",
+        "§3 pp.4–5, Theorem3.1 and its entire proof"
+      ]
+    },
+    {
+      "id": "bsk",
+      "title": "Irreducible polynomials of bounded height",
+      "authors": "Lior Bary-Soroker, Gady Kozma",
+      "edition": "Public arXiv:1710.05165 PDF read October11,2026; published Duke Math. J.169 (2020),579–598",
+      "url": "https://arxiv.org/pdf/1710.05165",
+      "sha256": "30e999fd06601abcb2a88b3a1917675a53b134d0bf1a0c40b17ccd50063808b8",
+      "read": "2026-10-11",
+      "readSections": [
+        "Claim1 and proof, pp.9–10, primitive minimum degree source route"
+      ]
+    }
+  ],
+  "scope": [
+    "PolynomialGaloisGroupsPartII:PG2.0",
+    "PolynomialGaloisGroupsPartII:PG2.1",
+    "PolynomialGaloisGroupsPartII:PG2.2",
+    "PolynomialGaloisGroupsPartII:PG2.3",
+    "PolynomialGaloisGroupsPartII:PG2.4",
+    "PolynomialGaloisGroupsPartII:PG2.5",
+    "PolynomialGaloisGroupsPartII:PG2.6"
+  ],
+  "nodes": [
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.0",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.0"
+      ],
+      "title": "Bounded equal-part merging",
+      "kind": "definition",
+      "statement": "For real y≥1 and partitions a,b of the same integer, EqualPartMerging y a.parts b.parts holds iff the occurrences of a are partitioned into nonempty blocks, each of cardinal≤y, all entries in a block equal, and b is the multiset of their sums. A witness is a multiset of multisets whose flattening is a and whose multiset of sums is b. The raw-multiset relation also handles the empty partition.",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:Nat.Partition"
+      ],
+      "proofSteps": [
+        "Use occurrence blocks, not a set of lengths, so repetitions are retained. Nonemptiness prohibits creating zero parts.",
+        "Each block with length k and cardinal m contributes m·k, and 1≤m≤y; flattening proves total-sum conservation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Definition11.2 and example, p.56",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging.refl",
+          "role": "constructor",
+          "statement": "Every multiset merges to itself if1≤y."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging.mono",
+          "role": "relation",
+          "statement": "A y-merging is a z-merging if y≤z."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging.sum_eq",
+          "role": "compatibility",
+          "statement": "Merging preserves the sum of all parts."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging.eq_of_lt_two",
+          "role": "characterisation",
+          "statement": "If y<2, every merging is the identity."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.EqualPartMerging.pullback_submultiset",
+          "role": "compatibility",
+          "statement": "Each submultiset v of output parts is the sum of a submultiset u of input occurrences."
+        }
+      ],
+      "tests": [
+        {
+          "name": "merge_two_equal",
+          "statement": "(1,1,2,3,4) is a2-merging of(1,1,2,2,2,3).",
+          "kind": "computation"
+        },
+        {
+          "name": "merge_rejects_three",
+          "statement": "(2,3,6) is not a2-merging of(1,1,2,2,2,3).",
+          "kind": "non-example"
+        },
+        {
+          "name": "merge_empty",
+          "statement": "The empty partition1-merges to itself.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "merge_not_transitive",
+          "statement": "(1,1,2)2-merges to(2,2), which2-merges to(4), but(4) is not a4-merging of(1,1,2).",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.1",
+          "how": "Group equal-degree occurrences according to cycles of a ramified Frobenius lift."
+        },
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.5",
+          "how": "Pull invariant cycle sums back to sums of original parts; preserve uniquely occurring parts."
+        }
+      ],
+      "planet": {
+        "name": "Bounded equal-part merging"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.0/merge-perms",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.0",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.0"
+      ],
+      "title": "Permutations with merged cycle type",
+      "kind": "definition",
+      "statement": "For a partition ρ of n, MergePerms y ρ is the set of permutations σ of α for which EqualPartMerging y ρ.parts σ.fullCycleType. Membership forces n=card α. Fixed points contribute1. Relabeling transports both sets and preserves this membership.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "tauceti:Equiv.Perm.fullCycleType",
+        "tauceti:Equiv.Perm.sum_fullCycleType",
+        "tauceti:Equiv.Perm.fullCycleType_eq_of_isConj",
+        "tauceti:Equiv.Perm.fullCycleType_permCongr"
+      ],
+      "proofSteps": [
+        "Take the inverse image of the merging relation under the existing fullCycleType.",
+        "Conjugacy and relabeling statements follow from the pinned fullCycleType invariance."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "§12.2 notation, p.61",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.MergePerms"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mem_mergePerms",
+          "role": "characterisation",
+          "statement": "Membership is exactly the equal-part-merging relation to fullCycleType."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mergePerms_mono",
+          "role": "relation",
+          "statement": "MergePerms y ρ⊆MergePerms z ρ for y≤z."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mergePerms_card",
+          "role": "compatibility",
+          "statement": "If σ belongs to MergePerms yρ, then n=card α."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mergePerms_conj",
+          "role": "compatibility",
+          "statement": "gσg⁻¹ belongs iff σ belongs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "merge_identity_includes_fixed_points",
+          "statement": "The identity belongs to MergePerms1ρ iff ρ has exactly card α copies of1.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "merge_full_cycle",
+          "statement": "A full5-cycle belongs to MergePerms1 of the one-part partition(5).",
+          "kind": "computation"
+        },
+        {
+          "name": "merge_empty_carrier",
+          "statement": "The unique permutation of an empty carrier belongs to MergePerms1 of the empty partition.",
+          "kind": "degenerate"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.6",
+          "how": "The measurable bad event quantifies a permutation in this set and a proper transitive witness group."
+        }
+      ],
+      "planet": {
+        "name": "Merged cycle types"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.0/bad-transitive",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.0",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.0"
+      ],
+      "title": "Bad transitive permutation set",
+      "kind": "definition",
+      "statement": "BadTransitive α is the union of the underlying sets of all subgroups G≤Sym(α) that act pretransitively and are distinct from alternatingGroup α and top. It is an existential union of groups, not itself declared a subgroup. A permutation in A_n or S_n can still belong via a different witness.",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:MulAction.IsPreprimitive"
+      ],
+      "proofSteps": [
+        "Quantify a permutation subgroup with a proof of pretransitivity and two inequalities.",
+        "Conjugate the witness subgroup to prove invariance. Degree≤3 has no permitted witness; a regular C5 is a permitted witness in degree5."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Equation(11.1), §11 p.54; Proposition12.1 p.59",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.BadTransitive"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mem_badTransitive",
+          "role": "characterisation",
+          "statement": "Membership iff there exists a transitive subgroup witness unequal to alternating and symmetric."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.badTransitive_conj",
+          "role": "compatibility",
+          "statement": "Membership is invariant under conjugation."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.badTransitive_witness",
+          "role": "constructor",
+          "statement": "Any element of a permitted witness group belongs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "bad_small_degrees",
+          "statement": "BadTransitive(Fin n)=∅ for n≤3.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "bad_identity",
+          "statement": "The identity in degree5 belongs, witnessed by the regular cyclic subgroup.",
+          "kind": "non-example"
+        },
+        {
+          "name": "bad_five_cycle",
+          "statement": "Every full5-cycle belongs, witnessed by its cyclic subgroup.",
+          "kind": "computation"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.6",
+          "how": "Exclude existence of any proper transitive witness, rather than testing membership outside the underlying sets of A_n and S_n."
+        }
+      ],
+      "planet": {
+        "name": "Bad transitive permutations"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.0/equivariant-cycle-fibres",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.0",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.0"
+      ],
+      "title": "Cycle lengths over cyclic fibres",
+      "kind": "theorem",
+      "statement": "Let finite nonempty X map surjectively and equivariantly to Y under permutations σ,ψ. Suppose ψ has one full cycle of length d>0 and every fibre has m>0 points. Then each σ-orbit has length d·m_i with1≤m_i≤m, meets each fibre in exactly m_i points, and Σ_i m_i=m. Consequently fullCycleType σ is an m-merging of the multiset containing m copies of d.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "tauceti:Equiv.Perm.fullCycleType",
+        "tauceti:Equiv.Perm.sum_fullCycleType"
+      ],
+      "proofSteps": [
+        "The first return to a chosen fibre is σ^d. Its disjoint orbits have cardinalities m_i and partition that fibre.",
+        "Going around the d bottom points transports each return orbit bijectively; its full σ-orbit has d·m_i points.",
+        "The identity Σ_i m_i=m supplies the complete merging witness, not just a bound on individual cycle lengths."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Claim11.4 and proof, p.57",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "Test d=1,m=2 with identity and swap upstairs; cycles(1,1) and(2) are both permitted.",
+        "The fibre partition sums to m, including fixed points; an orbit-length divisibility statement alone does not discharge this target."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.equivariant_cycle_fibres"
+      },
+      "planet": {
+        "name": "Cycles over cyclic fibres"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.1/max-factor-multiplicity",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.1",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.1"
+      ],
+      "title": "Maximum irreducible-factor multiplicity",
+      "kind": "definition",
+      "statement": "For a polynomial f over a field, maxFactorMultiplicity f is the maximum count of an irreducible normalized factor in normalizedFactors f, with maximum0 on the empty list. Thus units and the library’s empty normalizedFactors convention at0 have value0; its arithmetic use always has nonzero monic reduction. Distinct factors of the same degree are not identified.",
+      "hypotheses": [],
+      "prerequisites": [
+        "tauceti:Polynomial.factorDegrees"
+      ],
+      "proofSteps": [
+        "Take the finite supremum of the count function over the factors’ finset.",
+        "For nonzero nonunits, UFD factorization identifies these counts with the largest exponent m for which an irreducible q satisfies q^m∣f."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma11.3, p.56",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.maxFactorMultiplicity"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.maxFactorMultiplicity_unit",
+          "role": "simp",
+          "statement": "A unit polynomial has value0."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.count_le_maxFactorMultiplicity",
+          "role": "projection",
+          "statement": "Every normalized factor count is bounded by the maximum."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.maxFactorMultiplicity_le_iff",
+          "role": "characterisation",
+          "statement": "The maximum≤m iff every occurring normalized factor has count≤m."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.maxFactorMultiplicity_eq_one_iff",
+          "role": "compatibility",
+          "statement": "For nonzero nonunits, maximum1 iff squarefree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "multiplicity_unit",
+          "statement": "The polynomial1 over F₂ has value0.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "multiplicity_cube",
+          "statement": "(X+1)^3 over F₂ has value3.",
+          "kind": "computation"
+        },
+        {
+          "name": "multiplicity_not_degree_multiplicity",
+          "statement": "X(X−1) over F₃ has value1, although its degree multiset is(1,1).",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.1",
+          "how": "Bound the number of equal factor-degree occurrences merged by one Frobenius cycle."
+        },
+        {
+          "where": "ArithmeticStatisticsPartIIRandomPolynomials",
+          "how": "Separate large repeated-factor probability from the bad merging event."
+        }
+      ],
+      "planet": {
+        "name": "Maximum factor multiplicity"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.1/fibre-card-eq-rootMultiplicity",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.1",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.1"
+      ],
+      "title": "Reduction fibres count root multiplicities",
+      "kind": "theorem",
+      "statement": "For a commutative ring R, a field K, a ring homomorphism r:R→K, a finite set S⊆R and z∈K, the root multiplicity of z in ∏_{x∈S}(X−r(x)) equals #{x∈S:r(x)=z}. In the integral-root application, for each irreducible q dividing A mod p with exponent m, every residue root of q has exactly m integral roots of A above it.",
+      "hypotheses": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "The factors X−r(x) are nonzero. Add root multiplicities through the finite product: each contributes1 or0.",
+        "For the arithmetic application, factor A mod p in its splitting residue field. Irreducible finite-field factors are separable and different factors have disjoint root sets, so the multiplicity at a root of q is precisely q’s exponent."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma11.3 proof, pp.56–57, fibre construction preceding Claim11.4",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The ring R need not be a field and r need not be injective: integral reduction has collisions.",
+        "For R=ℤ,r reduction mod2,S={0,2}, the fibre at0 has cardinal2 and the polynomial is X²."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.fibre_card_eq_rootMultiplicity"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.1/ramified-merging",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.1",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.1"
+      ],
+      "title": "Ramified Frobenius merging theorem",
+      "kind": "theorem",
+      "statement": "Let A∈ℤ[X] be monic of degree n>0, with its image in ℚ[X] separable, and let p be any prime. Put M=maxFactorMultiplicity(A mod p). There exists σ in Gal(A/ℚ) whose faithful action on the n roots has fullCycleType an M-merging of Polynomial.factorDegrees A p. There is no squarefree-reduction, discriminant or unramified-prime hypothesis.",
+      "hypotheses": [
+        "Monic A",
+        "A over ℚ separable",
+        "n>0",
+        "p prime"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.1/max-factor-multiplicity",
+        "PolynomialGaloisGroupsPartII:PG2.1/fibre-card-eq-rootMultiplicity",
+        "PolynomialGaloisGroupsPartII:PG2.0/equivariant-cycle-fibres",
+        "tauceti:Polynomial.factorDegrees",
+        "tauceti:Polynomial.Monic.sum_factorDegrees",
+        "tauceti:NumberField.exists_isArithFrobAt_int_of_liesOver",
+        "tauceti:TauCeti.FiniteField.exists_orbit_eq_rootSet_factor",
+        "mathlib:Ideal.exists_maximal_ideal_liesOver_of_isIntegral",
+        "mathlib:Polynomial.Gal.galActionHom",
+        "mathlib:Polynomial.Gal.galActionHom_injective"
+      ],
+      "proofSteps": [
+        "Monicity makes each splitting-field root integral over ℤ. Separability lists n distinct roots; mapping the product of their linear factors to the residue field gives the reduction polynomial.",
+        "Choose a maximal ideal of the ring of integers above(p), using the pinned lying-over theorem. The existing arithmetic Frobenius lift at this ideal acts equivariantly on root-reduction fibres.",
+        "For an irreducible factor q of degree d and multiplicity m, the pinned finite-field theorem identifies a d-cycle of residue roots, and the fibre-cardinality identity gives m roots per fibre.",
+        "Apply equivariant-cycle-fibres on each such component; concatenate the blocks. Since m≤M, the full root permutation is an M-merging of the repeated factor-degree multiset."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma11.3 and Claim11.4, pp.56–57",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "A=X²−2 at p=2 has repeated factor X² and M=2, so the theorem must elaborate without an unramified hypothesis.",
+        "For monic squarefree reduction M=1, the conclusion specializes to exact factorDegrees=fullCycleType.",
+        "Degree0 is excluded here; units have empty factors and M=0 rather than an undefined maximum."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.ramified_merging"
+      },
+      "planet": {
+        "name": "Ramified Frobenius merging"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.2/tuple-root-quotient",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.2"
+      ],
+      "title": "Polynomial over a tuple root field",
+      "kind": "construction",
+      "statement": "For f∈F[X] over a field and an injection x:Fin j→roots(f) in its splitting field L, let K_x=F(adjoin range x). Define tupleRootQuotient f x as f mapped to K_x, divided monically by ∏_{i<j}(X−x_i) formed in K_x. For separable f, the division is exact; mapping back to L gives the remaining-root polynomial.",
+      "hypotheses": [],
+      "prerequisites": [
+        "tauceti:TauCeti.stabilizer_eq_fixingSubgroup_adjoin_simple",
+        "tauceti:TauCeti.is_two_pretransitive_iff_irreducible_divByMonic"
+      ],
+      "proofSteps": [
+        "Use IntermediateField.adjoin for K_x; each selected root belongs by the existing subset_adjoin inclusion.",
+        "The selected roots are distinct because x is an injection. Divide by their monic linear-factor product.",
+        "Separability and exact factorization identify the complement roots and degree deg f−j, and prove the quotient separable and split in L."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Introduction p.5, definition of k-fold irreducibility; field-general adapter of the existing pinned double-transitivity proof",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.tupleRootQuotient"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.tupleRootQuotient_factor",
+          "role": "characterisation",
+          "statement": "Over L, the quotient times the removed linear-factor product equals f mapped to L."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.tupleRootQuotient_natDegree",
+          "role": "projection",
+          "statement": "For separable f the quotient has degree deg f−j."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.tupleRootQuotient_separable",
+          "role": "compatibility",
+          "statement": "For separable f the quotient is separable."
+        }
+      ],
+      "tests": [
+        {
+          "name": "quotient_empty_tuple",
+          "statement": "At j=0, mapping the quotient to L yields f mapped to L.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "quotient_all_roots",
+          "statement": "For monic separable f and j=deg f the quotient is1.",
+          "kind": "computation"
+        },
+        {
+          "name": "quotient_one_root",
+          "statement": "At j=1 this is division by X−x₀ in the simple root field, agreeing with the pinned k=2 adapter.",
+          "kind": "compatibility"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.2",
+          "how": "Irreducibility over the field generated by selected roots describes transitivity of their pointwise stabilizer on the remaining roots."
+        }
+      ],
+      "planet": {
+        "name": "Tuple root quotient"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.2/is-k-fold-irreducible",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.2"
+      ],
+      "title": "Higher irreducibility",
+      "kind": "definition",
+      "statement": "IsKFoldIrreducible f k holds exactly when f is separable of positive degree,1≤k≤deg f, and for every j<k and every injection x of j distinct splitting-field roots, tupleRootQuotient f x is irreducible over K_x. The j=0 condition includes ordinary irreducibility. Zero-fold and over-degree conditions are false by convention, preventing vacuous transitivity tests.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.2/tuple-root-quotient",
+        "tauceti:TauCeti.isPretransitive_iff_irreducible"
+      ],
+      "proofSteps": [
+        "Use ordered distinct roots as Fin j embeddings, matching Mathlib’s multiple-pretransitivity carrier.",
+        "Quantify the genuine quotient irreducibility condition and explicit admissible k range; do not replace it with the Galois-action conclusion."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Introduction p.5, k-fold irreducibility and its Galois interpretation",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.IsKFoldIrreducible"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.IsKFoldIrreducible.one_iff",
+          "role": "compatibility",
+          "statement": "For separable positive-degree f,1-fold irreducibility iff ordinary Irreducible f."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.IsKFoldIrreducible.mono",
+          "role": "relation",
+          "statement": "k-fold implies l-fold for1≤l≤k."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.IsKFoldIrreducible.degree_bound",
+          "role": "projection",
+          "statement": "k-fold gives1≤k≤deg f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "kfold_zero",
+          "statement": "No polynomial is0-fold irreducible.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "kfold_exceeds_degree",
+          "statement": "No polynomial is k-fold irreducible when k>deg f.",
+          "kind": "non-example"
+        },
+        {
+          "name": "kfold_cyclotomic",
+          "statement": "Φ₁₁ overℚ is1-fold but not2-fold irreducible.",
+          "kind": "non-example"
+        },
+        {
+          "name": "kfold_nonseparable",
+          "statement": "(X²−2)² overℚ is not1-fold irreducible; its transitive action on distinct roots does not rescue it.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.2",
+          "how": "Convert analytic irreducibility statements to multiple transitivity and the n−2 recognition endpoint."
+        },
+        {
+          "where": "ArithmeticStatisticsPartIIRandomPolynomials",
+          "how": "State polynomial-side consequences after supplying distribution estimates."
+        }
+      ],
+      "planet": {
+        "name": "Higher irreducibility"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.2/tuple-stabilizer-eq-fixingSubgroup",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.2"
+      ],
+      "title": "Tuple stabilizer and root-generated field",
+      "kind": "theorem",
+      "statement": "For an injection x of j roots of f into its splitting field L, the stabilizer of x for the componentwise Gal(f/F) action on embeddings equals K_x.fixingSubgroup. Restricting this stabilizer to L over K_x identifies its faithful action on unselected roots with the Galois action needed by the quotient irreducibility test.",
+      "hypotheses": [],
+      "prerequisites": [
+        "tauceti:TauCeti.stabilizer_eq_fixingSubgroup_adjoin_simple",
+        "PolynomialGaloisGroupsPartII:PG2.2/tuple-root-quotient",
+        "mathlib:Polynomial.Gal.restrict_surjective"
+      ],
+      "proofSteps": [
+        "An automorphism fixes the tuple iff it fixes every selected root.",
+        "Fixing the selected generators is equivalent to fixing their intermediate-field adjoin; use the Galois correspondence and extend embeddings inside the normal splitting field.",
+        "The quotient splits in L, which need not be its minimal splitting field. Use the surjective restriction of automorphisms to that splitting field, so orbit transitivity descends and lifts."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Introduction p.5; extension of the point-stabilizer argument in the pinned MultipleTransitivity module",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "j=0 gives the full automorphism group and the base field.",
+        "j=1 reduces to the pinned simple-root stabilizer theorem.",
+        "L is not assumed to be the splitting field of the quotient over K_x."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.tuple_stabilizer_eq_fixingSubgroup"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.2/kfold-iff-multiplyPretransitive",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.2"
+      ],
+      "title": "Higher irreducibility and multiple transitivity",
+      "kind": "theorem",
+      "statement": "For any field F, separable f∈F[X] of positive degree n, and1≤k≤n, IsKFoldIrreducible f k iff MulAction.IsMultiplyPretransitive f.Gal (f.rootSet f.SplittingField) k. At k=1 reuse the pinned irreducibility/orbit theorem; at k=2 reuse the pinned double-transitivity quotient adapter.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.2/is-k-fold-irreducible",
+        "PolynomialGaloisGroupsPartII:PG2.2/tuple-stabilizer-eq-fixingSubgroup",
+        "tauceti:TauCeti.isPretransitive_iff_irreducible",
+        "tauceti:TauCeti.is_two_pretransitive_iff_irreducible_divByMonic",
+        "mathlib:MulAction.isMultiplyPretransitive_iff",
+        "mathlib:SubMulAction.ofStabilizer.isMultiplyPretransitive",
+        "mathlib:MulAction.isMultiplyPretransitive_of_le"
+      ],
+      "proofSteps": [
+        "Induct on k using the Mathlib action on Fin k embeddings and the stabilizer recursion for multiple pretransitivity.",
+        "For a j-tuple, the remaining-root quotient is separable and has positive degree n−j. Identify its roots with the complement of the tuple image.",
+        "Apply the pinned orbit/irreducibility theorem over K_x to the surjective stabilizer restriction; assemble the criterion for every tuple."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Introduction p.5; own-word field-general formalization of the stated equivalence",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.kfold_iff_multiplyPretransitive"
+      },
+      "planet": {
+        "name": "Irreducibility–transitivity dictionary"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.2/kfold-degree-sub-two",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.2"
+      ],
+      "title": "Alternating or symmetric recognition from higher irreducibility",
+      "kind": "theorem",
+      "statement": "For separable f over a field with n=deg f≥3, IsKFoldIrreducible f(n−2) iff the image of its faithful root action contains alternatingGroup of its n roots. Equivalently this image is alternating or symmetric. The degree lower bound makes n−2 a permitted positive k.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.2/kfold-iff-multiplyPretransitive",
+        "mathlib:IsMultiplyPretransitive.alternatingGroup_le",
+        "mathlib:alternatingGroup.isMultiplyPretransitive",
+        "mathlib:Polynomial.Gal.galActionHom_injective"
+      ],
+      "proofSteps": [
+        "Apply the k-fold adapter at k=n−2 and identify root cardinality with degree by separability.",
+        "The pinned multiple-pretransitivity theorem gives containment of alternatingGroup; the pinned alternating action gives the reverse direction by enlarging the acting group.",
+        "Index2 of alternatingGroup implies every containing subgroup is alternatingGroup or top."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Introduction p.5, n−2 conclusion",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "At n=3 this reduces to irreducibility of a separable cubic; at n≤2 this target is not invoked.",
+        "No independently planned generic permutation-recognition theorem duplicates the pinned alternating-group result."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.kfold_degree_sub_two"
+      },
+      "planet": {
+        "name": "Alternating-or-symmetric recognition"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Three-premise partition law",
+      "kind": "definition",
+      "statement": "For a probability measure ν on Nat.Partition n (discrete measurable space), constants C≥1,0<t<1,0<κ≤1,0<δ≤1/10 define PartitionLaw by three bounds: (a) ν({k,ℓ}≤ρ.parts)≤C/(kℓ) for integers2≤k,ℓ≤n/4, requiring two occurrences if k=ℓ; (b) ν(∃U≤ρ.parts,ΣU=k)≤C k^(−δ) for integers n^(1−δ/2)≤k≤n/2; (c) for f:ℕ→{0,1},1≤m≤n/log n, L=Σ_{k=1}^m f(k)/k, ν(Σ_{k∈ρ.parts,k≤m} f(k)≤tL)≤C exp(−κL). The last sum counts occurrences, and all displayed endpoints are inclusive integer cutoffs.",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:Nat.Partition"
+      ],
+      "proofSteps": [
+        "Record the real-parameter ranges as proposition fields and write the three event bounds as genuine quantified mathematical conditions.",
+        "Use the existing probability measure, finite partition type and real-valued event measure. Indicators are Bool-valued; harmonicMass is the displayed finite sum notation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Proposition12.1(a)–(c), p.59",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.PartitionLaw"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.PartitionLaw.pair_diagonal",
+          "role": "projection",
+          "statement": "Premise(a) at k=ℓ bounds the event countρ(k)≥2, not mere membership."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.PartitionLaw.enlarge_constant",
+          "role": "relation",
+          "statement": "Increasing C preserves all three premises."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.PartitionLaw.weaken_kappa",
+          "role": "relation",
+          "statement": "Replacing κ by0<κ′≤κ preserves the law."
+        }
+      ],
+      "tests": [
+        {
+          "name": "law_indicator_zero",
+          "statement": "For a PartitionLaw and the zero indicator at m=7 in range, the lower-tail field bounds ν(count≤0) by C, since L=0.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "law_indicator_singleton",
+          "statement": "For a PartitionLaw and m=4≤n/log n, its lower-tail field gives ν(countρ(2)≤t/2)≤C exp(−κ/2), since L=1/2.",
+          "kind": "computation"
+        },
+        {
+          "name": "law_diagonal_counts_two",
+          "statement": "For n≥8, PartitionLaw gives ν(countρ(2)≥2)≤C/4, counting two occurrences. A membership-only condition is a different event.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.3",
+          "how": "Use only(a) for E1,(b) for E2,(c) for E3/E4,and(a),(c) for the strengthened E5 estimate."
+        },
+        {
+          "where": "ArithmeticStatisticsPartIIRandomPolynomials",
+          "how": "Its coefficient-law estimates supply this interface only after the arbitrary-law theorem is available."
+        }
+      ],
+      "planet": {
+        "name": "Partition-law criterion premises"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Five partition anatomy events",
+      "kind": "definition",
+      "statement": "For n,t,κ,δ,α real parameters and a partitionρ, GoodEvent i (i=0,…,4) is E₁,…,E₅*: E₁ forbids occurrence pairs k,ℓ≤n/4 with gcd(k,ℓ)≥n^(κα); E₂ forbids a submultiset sum nj/r for r∣n,2≤r≤n^(δ/2),1≤j<r; E₃ requires at least(αt/2)log n parts in[n^(1−α),n/log n]; E₄ requires at least(t/4)log n parts k≤√n/3 with a prime divisor p>n^(1/8); E₅* requires, for each integer r≥2, at least FOUR parts in[n^(1−2α),n/log n] not divisible by r. Every count retains multiplicity. During the criterion α=δ/4−θ/2∈[ε/2,1/40].",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:Nat.Partition",
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law"
+      ],
+      "proofSteps": [
+        "Use integer parts and real cutoff comparisons; E₂ retains δ/2 independently of α.",
+        "Strengthen the source’s single-witness E₅ to four occurrences. E₁ makes sufficiently long counted parts distinct at the asymptotic thresholds used in the proof."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemmas12.2–12.6, pp.59–61; repaired use in Lemma12.9 p.63",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.GoodEvent"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.goodEvent_one_diagonal",
+          "role": "projection",
+          "statement": "E₁ implies countρ(k)≤1 whenever n^(κα)≤k≤n/4."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.goodEvent_two_complement",
+          "role": "compatibility",
+          "statement": "For U≤ρ.parts its complement has sum n−ΣU, the symmetry used by E₂."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.goodEvent_five_four",
+          "role": "projection",
+          "statement": "E₅* supplies four nondivisible long occurrences for every integer r≥2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "good_event_repeated_part",
+          "statement": "ρ=(2,2,4),n=8,κ=1,α=0 fails E₁ because gcd(2,2)=2≥1.",
+          "kind": "non-example"
+        },
+        {
+          "name": "good_event_boundary_zero",
+          "statement": "At n=1,α=0 the E₃ threshold is0, so the unique partition passes.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "good_event_four_not_one",
+          "statement": "Every partition of3 fails E₅* atα=0; one occurrence cannot meet the threshold4.",
+          "kind": "non-example"
+        },
+        {
+          "name": "good_event_subsum",
+          "statement": "ρ=(3,3),n=6,δ=2 fails E₂ at r=2,j=1. Parameters here test the definition outside the law’s asymptotic range.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.5",
+          "how": "E₁/E₄ exclude primitive groups; all five events with strengthened E₅* exclude imprimitive groups. Four witnesses prevent uncontrolled parts>n/4 entering the gcd contradiction."
+        }
+      ],
+      "planet": {
+        "name": "Partition anatomy events"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/anatomy-harmonic-masses",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Uniform long-interval harmonic masses",
+      "kind": "theorem",
+      "statement": "Fix ε>0. Uniformly for α∈[ε/2,1/40] and sufficiently large n, the harmonic mass of integers in[n^(1−α),n/log n] is α log n−log log n+O_ε(1). For2≤r≤n^α, the harmonic mass in[n^(1−2α),n/log n] not divisible by r is(1−1/r)(2α log n−log log n)+O_ε(1), uniformly in r. Floor/ceiling changes are included in the error.",
+      "hypotheses": [
+        "ε>0",
+        "α∈[ε/2,1/40]"
+      ],
+      "prerequisites": [
+        "mathlib:harmonic_le_one_add_log",
+        "mathlib:log_add_one_le_harmonic"
+      ],
+      "proofSteps": [
+        "Subtract upper/lower harmonic-sum bounds at the inclusive integer endpoints. Their differences from logarithms are uniformly bounded.",
+        "For divisible parts put k=rj and subtract(1/r) times the corresponding harmonic interval; r≤n^α ensures the lower endpoint stays≥n^(1−3α), so no empty or below1 cutoff invalidates the logarithm calculation."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemmas12.4 and12.6 proofs, pp.60–61",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "One error constant and one threshold work for the entire α,r range; a separately chosen constant for each θ is insufficient."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.anatomy_harmonic_masses"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/nonsmooth-harmonic-mass",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Harmonic mass of parts with a large prime factor",
+      "kind": "theorem",
+      "statement": "For all sufficiently large n, Σ_{1≤k≤√n/3, ∃p prime:p∣k,p>n^(1/8)}1/k ≥(log n)/4. In fact the sum is at least(1/2−e^γ/8)log n+O(1), where γ is the existing Euler constant; e^γ<2 makes the coefficient strictly greater than1/4.",
+      "hypotheses": [],
+      "prerequisites": [
+        "AnalyticNumberTheory:AN.2/mertens-prime-product",
+        "mathlib:harmonic_le_one_add_log",
+        "mathlib:log_add_one_le_harmonic",
+        "mathlib:Real.eulerMascheroniConstant_lt_two_thirds"
+      ],
+      "proofSteps": [
+        "The total harmonic mass through √n/3 is(1/2)log n+O(1).",
+        "Every integer whose prime factors are≤n^(1/8) contributes to the full positive reciprocal Euler product over those primes, which is an upper bound even without a size cutoff.",
+        "Invoke exactly the imported Mertens product with leading constant e^γ, and the standard Euler-constant bound γ<log2. A generic O(log x) comparison has no sufficient coefficient."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.5 proof, pp.60–61",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The sharp main constant is required; record the supplier’s unresolved constant-identification proof explicitly."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.nonsmooth_harmonic_mass"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/pair-gcd-failure",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Large-gcd pair probability",
+      "kind": "theorem",
+      "statement": "Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E1 is≤B·(log n)² n^(−κα), with α=δ/4−θ/2.",
+      "hypotheses": [
+        "Probability lawν",
+        "PartitionLaw premises",
+        "0<ε<δ/2",
+        "0≤θ≤δ/2−ε"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "mathlib:harmonic_le_one_add_log"
+      ],
+      "proofSteps": [
+        "For each possible common divisor r≥n^(κα), union-bound the pair events(ri,rj) with i,j≤n/(4r), retaining the diagonal case.",
+        "Premise(a) gives C/r² times two harmonic sums. Sum r^(−2) above the threshold, obtaining O((log n)² n^(−κα))."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.2, pp.59–60",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The rate has one constant and one threshold for all laws and all permitted θ.",
+        "The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.pair_gcd_failure"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/block-subsum-failure",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Block-fraction subsum probability",
+      "kind": "theorem",
+      "statement": "Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E2 is≤B·n^(−δ/4), with α=δ/4−θ/2.",
+      "hypotheses": [
+        "Probability lawν",
+        "PartitionLaw premises",
+        "0<ε<δ/2",
+        "0≤θ≤δ/2−ε"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound"
+      ],
+      "proofSteps": [
+        "Replace U by its complement so j≤r/2. For r≤n^(δ/2), the sum nj/r lies in the precise premise(b) interval.",
+        "Summing C(nj/r)^(−δ) over j≤r/2 gives O(n^(−δ)r). Sum over divisors r of n to get O(n^(−δ/2)τ(n)).",
+        "Apply the imported divisor subpower bound with exponentδ/4; retain its δ-dependent constant."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.3, p.60",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The rate has one constant and one threshold for all laws and all permitted θ.",
+        "The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.block_subsum_failure"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/long-parts-failure",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Long-part lower-tail probability",
+      "kind": "theorem",
+      "statement": "Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E3 is≤B·(log n)^κ n^(−κα), with α=δ/4−θ/2.",
+      "hypotheses": [
+        "Probability lawν",
+        "PartitionLaw premises",
+        "0<ε<δ/2",
+        "0≤θ≤δ/2−ε"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.3/anatomy-harmonic-masses"
+      ],
+      "proofSteps": [
+        "Apply premise(c) to the indicator of[n^(1−α),n/log n], using m=floor(n/log n).",
+        "The harmonic mass is αlog n−log log n+O(1). Uniform α≥ε/2 ensures the E₃ failure threshold is≤tL for n sufficiently large.",
+        "Exponentiation yields the stated logarithmic factor and power, with uniform constants."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.4, p.60",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The rate has one constant and one threshold for all laws and all permitted θ.",
+        "The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.long_parts_failure"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/large-prime-parts-failure",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Large-prime part probability",
+      "kind": "theorem",
+      "statement": "Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E4 is≤B·n^(−κ/4), with α=δ/4−θ/2.",
+      "hypotheses": [
+        "Probability lawν",
+        "PartitionLaw premises",
+        "0<ε<δ/2",
+        "0≤θ≤δ/2−ε"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.3/nonsmooth-harmonic-mass"
+      ],
+      "proofSteps": [
+        "Use the indicator of k≤√n/3 with some prime factor>n^(1/8); choose m=floor(√n/3)≤n/log n for large n.",
+        "The imported harmonic mass is≥log n/4, so E₄ failure is inside premise(c)’s event. Exponentiate its bound."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.5, pp.60–61",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The rate has one constant and one threshold for all laws and all permitted θ.",
+        "The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.large_prime_parts_failure"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.3/four-nondivisible-parts-failure",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.3"
+      ],
+      "title": "Four nondivisible long parts with high probability",
+      "kind": "theorem",
+      "statement": "Fix C,t,κ,δ with the PartitionLaw ranges and ε∈(0,δ/2). There are B≥0,N≥3 depending only on C,t,κ,δ,ε such that for every n≥N, every probability lawν satisfying the three premises, and every θ∈[0,δ/2−ε], the failure probability of E5* is≤B·(log n)² n^(−κα), with α=δ/4−θ/2.",
+      "hypotheses": [
+        "Probability lawν",
+        "PartitionLaw premises",
+        "0<ε<δ/2",
+        "0≤θ≤δ/2−ε"
+      ],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.3/anatomy-harmonic-masses",
+        "PolynomialGaloisGroupsPartII:PG2.3/pair-gcd-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/long-parts-failure"
+      ],
+      "proofSteps": [
+        "On E₁∩E₃ there are at least five distinct long parts for uniformly large n. For r≥n^(κα), at most one is divisible by r, so four are not.",
+        "For2≤r≤n^(κα), the indicator of long parts not divisible by r has L_r=(1−1/r)(2αlog n−log log n)+O(1). Fewer than four parts means count≤3≤tL_r uniformly for large n.",
+        "Apply premise(c), giving O((log n)^κ n^(−2κα(1−1/r))). Sum separately r=2,3≤r≤log n,and log n<r≤n^(κα).",
+        "Combine E₁ and E₃ exceptional probabilities; the four-part threshold changes only the uniform starting n, not the final rate."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.6 proof, p.61; strengthened for repaired Lemma12.9",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The rate has one constant and one threshold for all laws and all permitted θ.",
+        "The proof uses only the premise fields cited in its steps, not an arithmetic-statistics theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.four_nondivisible_parts_failure"
+      },
+      "planet": {
+        "name": "Four nondivisible long parts"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/min-support",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Minimum support of a permutation group",
+      "kind": "definition",
+      "statement": "For G≤Sym(α) on a finite carrier, minSupport G is none if G is trivial; otherwise it is some m, where m is the minimum support cardinality among σ∈G,σ≠1. The nonempty case attains its minimum and has m≥2. No minimum over an empty set is silently assigned0.",
+      "hypotheses": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "Use the finite nonidentity part of the subgroup. Its support-cardinality image has an attained natural minimum if nonempty.",
+        "Return Option ℕ so the trivial group is explicit; support0 occurs only for the identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "§12.2 notation and Lemma12.7, pp.61–62",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.minSupport"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.minSupport_eq_none",
+          "role": "characterisation",
+          "statement": "minSupport G=none iff G=bot."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.minSupport_eq_some",
+          "role": "characterisation",
+          "statement": "minSupport G=some m iff a nonidentity element attains m and every nonidentity element has support≥m."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.minSupport_le",
+          "role": "projection",
+          "statement": "A nonidentity element of G has support at least any some m returned by minSupport."
+        }
+      ],
+      "tests": [
+        {
+          "name": "minimum_trivial",
+          "statement": "Sym(Fin0) has minSupport none.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "minimum_symmetric",
+          "statement": "Sym(Fin2) has minSupport some2.",
+          "kind": "computation"
+        },
+        {
+          "name": "minimum_alternating",
+          "statement": "A₃ has minSupport some3.",
+          "kind": "computation"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.4",
+          "how": "The primitive lower bound is compared to the support of a nontrivial power of a merged permutation."
+        }
+      ],
+      "planet": {
+        "name": "Minimum degree"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/orbital-distinguishers",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Orbital distinguishers",
+      "kind": "definition",
+      "statement": "For G≤Sym(α) and x,y∈α, orbitalDistinguishers G x y is the finite set of z for which no g∈G fixes z while sending x to y. Equivalently(x,z),(y,z) lie in different orbits for the diagonal action on α×α, or x,y lie in different orbits of the stabilizer of z. This uses existing orbits and stabilizers; it introduces no coherent-configuration carrier.",
+      "hypotheses": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "Define the finite set through the explicit stabilizer transport test.",
+        "The equivalence with pair orbitals follows by reading the two coordinates; inverse group elements prove symmetry.",
+        "If g sends x to y, a distinguisher z cannot be fixed by g, so it belongs to g.support."
+      ],
+      "sources": [
+        {
+          "sourceId": "babai-notes",
+          "locator": "Babai notes Definition6.1 and Exercise6.2, pp.5–6",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The statement preserves every displayed range, multiplicity and hypothesis."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.orbitalDistinguishers"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.mem_orbitalDistinguishers",
+          "role": "compatibility",
+          "statement": "Membership iff x,y are in different orbits of the stabilizer of z."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.orbitalDistinguishers_symm",
+          "role": "relation",
+          "statement": "Swapping x,y preserves the finite set."
+        },
+        {
+          "name": "TauCeti.PolynomialGaloisGroupsPartII.orbitalDistinguishers_subset_support",
+          "role": "projection",
+          "statement": "For g∈G, D(x,gx)⊆support g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "distinguisher_diagonal",
+          "statement": "D(x,x)=∅ for every G.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "distinguisher_trivial",
+          "statement": "For G=bot and x≠y, D(x,y) is the whole carrier.",
+          "kind": "computation"
+        },
+        {
+          "name": "distinguisher_symmetric",
+          "statement": "For G=Sym(α),x≠y, D(x,y)={x,y}.",
+          "kind": "compatibility"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolynomialGaloisGroupsPartII:PG2.4",
+          "how": "A graph-counting bound on distinguishers forces every moved-point element to have large support."
+        }
+      ],
+      "planet": {
+        "name": "Orbital distinguishers"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/orbital-walk-connectivity",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Connectivity of primitive orbital graphs",
+      "kind": "theorem",
+      "statement": "For a primitive permutation subgroup G on a finite carrier and x≠y, the undirected relation joining u,v when(u,v) or(v,u) belongs to the G-orbit of(x,y) is connected: every a,b are related by its reflexive transitive closure.",
+      "hypotheses": [],
+      "prerequisites": [
+        "mathlib:MulAction.IsPreprimitive"
+      ],
+      "proofSteps": [
+        "The graph is G-invariant. Its connected components form a G-invariant block partition.",
+        "Primitivity makes a component either a singleton or the whole carrier; the non-diagonal edge excludes the singleton case for its endpoints, and transitivity excludes singleton components elsewhere.",
+        "Translating vertices or endpoint pairs gives bijections proving valency and intersection-count constancy. These are proof infrastructure for the next target, not a new general coherent-configuration library."
+      ],
+      "sources": [
+        {
+          "sourceId": "babai-notes",
+          "locator": "Babai notes §§3–4, Exercises3.4,4.4–4.8, pp.4–5",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "Connectivity is for an undirected orbital graph, not a claim that every primitive action is doubly transitive.",
+        "The existing IsPreprimitive vocabulary is used; x≠y and degree restrictions control degenerate actions."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.orbital_walk_connectivity"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/babai-distinguishers",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Babai’s distinguisher lower bound",
+      "kind": "theorem",
+      "statement": "Let G≤Sym(α) be primitive but not2-pretransitive, with n=card α≥5. For every x≠y, #{z:no element of G fixes z and sends x to y}≥√n/2. Hence every nonidentity element has support at least√n/2.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.4/orbital-distinguishers",
+        "PolynomialGaloisGroupsPartII:PG2.4/orbital-walk-connectivity"
+      ],
+      "proofSteps": [
+        "Work with the diagonal pair orbits as colours. Their non-diagonal valencies ρ_i and distinguisher numbers D(i) are constant by orbit transport.",
+        "For a noncomplete symmetrized orbital graph its COMPLEMENT has diameter2 (Babai Lemma8.5); the regular diameter-two count gives ρ_i≤n−1−√(n−1). If the symmetrization is complete, the paired valency is(n−1)/2. Counting triples gives average distinguisher number Dbar≥n−ρmax>√n.",
+        "Along an orbital path, D(a,b) lies in the union of the edge distinguisher sets. Thus if a symmetrized orbital has diameter2, D(i)≥Dbar/2>√n/2.",
+        "If its diameter≥3, a shortest path of length3 has disjoint endpoint neighborhoods, both contained in D(a,b); the path union bound gives D(i)≥2ρ_i/3.",
+        "For fixed z, form the weighted graph of z’s suborbits joined by orbital-i edges. Connectivity follows from the orbital graph. A spanning tree, oriented away from the singleton suborbit, has total weight≥n−1 because the edge between suborbits of valencies ρ_j,ρ_k has weight≥max(ρ_j,ρ_k).",
+        "Double-count distinguished ordered orbital-i pairs to get D(i)≥(n−1)/ρ_i. Combining with2ρ_i/3 yields D(i)²≥2(n−1)/3>n/4.",
+        "Use D(x,gx)⊆support g for a moved point x. No group-order or base-size estimate is substituted for the support theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "babai-notes",
+          "locator": "Babai notes Theorem6.6; Lemmas8.5–8.18, Corollary8.19; Exercise9.5 and Corollary9.6, pp.7–10",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The diameter-two claim applies to the complement where indicated; confusing it with the orbital graph makes the argument false.",
+        "The large-diameter case includes the weighted suborbit spanning-tree count, not just the easy triangle inequality."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.babai_distinguishers"
+      },
+      "planet": {
+        "name": "Babai’s minimum-degree bound"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/bochert-min-support",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Bochert’s doubly transitive minimum degree",
+      "kind": "theorem",
+      "statement": "For a2-pretransitive subgroup G≤Sym(α) of degree n≥38 that does not contain alternatingGroup α, minSupport G=some m implies m≥n/4.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.4/min-support",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+        "mathlib:MulAction.isMultiplyPretransitive_iff",
+        "mathlib:MulAction.isPreprimitive_of_is_two_pretransitive"
+      ],
+      "proofSteps": [
+        "The imported primitive3-cycle/transposition recognition excludes m≤3. Choose u of minimal support m>3, a moved α and β=uα. The case m=n already satisfies the bound.",
+        "Conjugate u by the stabilizer of α. Double transitivity makes its action on the other n−1 points transitive, so the fraction of conjugates fixing β is(n−m)/(n−1), and the fraction moving any specified γ≠α is(m−1)/(n−1). These proportions follow by counting an invariant incidence relation in both orders (Schomburg Lemmas2.3–2.5).",
+        "Every conjugate v fixing β moves α and fails to commute with u. The commutator has support contained in Δ∪uΔ∪vΔ, Δ=support u∩support v. Minimality gives|Δ|≥m/3.",
+        "Sum|Δ| over these conjugates. The upper bound is their cardinal plus(m−2) times the total conjugate cardinal times(m−1)/(n−1). Cancel the nonempty conjugacy-class factor to obtain n≤4m+6/(m−3).",
+        "If n≥38 then m≥10; the final correction is≤6/7, and integrality gives m≥n/4."
+      ],
+      "sources": [
+        {
+          "sourceId": "schomburg",
+          "locator": "Schomburg Theorem3.1 proof, pp.4–5; Lemmas2.3–2.5 pp.3–4; commutator inclusion(2.1) pp.1–2",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "Retain n≥38; do not cite an unqualified n/4 bound for small degrees.",
+        "Use explicit noncommuting conjugates and their counts rather than an unsupported average-intersection assertion."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.bochert_minSupport"
+      },
+      "planet": {
+        "name": "Bochert’s minimum-degree bound"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.4/primitive-min-support",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.4"
+      ],
+      "title": "Primitive minimum degree",
+      "kind": "theorem",
+      "statement": "For a primitive G≤Sym(α),n=card α≥5,G≠A_n,G≠S_n, minSupport G=some m implies m≥(√n−1)/2.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.4/min-support",
+        "PolynomialGaloisGroupsPartII:PG2.4/babai-distinguishers",
+        "PolynomialGaloisGroupsPartII:PG2.4/bochert-min-support",
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products"
+      ],
+      "proofSteps": [
+        "Containing A_n would force G=A_n or S_n by its index2, so the hypotheses exclude it.",
+        "If G is not2-pretransitive, apply Babai’s support bound. If it is2-pretransitive and n≥38, apply Bochert and compare n/4 to(√n−1)/2.",
+        "For5≤n<38, primitive small-support recognition gives m≥4, which is larger than(√n−1)/2 throughout this finite range."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "BSKK Lemma12.7 p.62; Bary-Soroker–Kozma Claim1 pp.9–10 (combine the two independently read proofs above)",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The primitive proof covers the non-doubly-transitive case; Jordan’s prime-cycle theorem alone does not prove it.",
+        "The small-degree branch is explicit and does not rely on a Bochert bound outside its read source range."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.primitive_minSupport"
+      },
+      "planet": {
+        "name": "Primitive minimum degree"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.5/block-orbit-cycle-divisibility",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.5",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.5"
+      ],
+      "title": "Cycle arithmetic in a block orbit",
+      "kind": "theorem",
+      "statement": "Let a permutationσ preserve a block system of r blocks of common cardinal s. A point cycle L of lengthℓ meets one block orbit of size r′ and has s′ points in each of these blocks, where1≤r′≤r,1≤s′≤s,ℓ=r′s′. The union X of these blocks isσ-invariant of cardinal r′s, and every point cycle in X has length divisible by r′. Different point cycles have either equal or disjoint block orbits. This includes singleton cycles.",
+      "hypotheses": [],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products"
+      ],
+      "proofSteps": [
+        "Represent the block system as a surjective equivariant quotient b:X→Fin r with all fibres of cardinal s, importing the parent’s block-system construction.",
+        "The projected σ-orbit is exactly the orbit of its block under the induced permutation. Equivariance bijects its intersections with the blocks.",
+        "A σ-cycle in the same block orbit visits every block in that orbit; its length is a positive multiple of r′. Block orbits partition the blocks, proving the equal-or-disjoint dichotomy."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.9, observation before the case split, p.62",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The output r′ is the actual cardinality of the block orbit, not merely an arbitrary divisor ofℓ.",
+        "For a fixed point the point-cycle length is1, even though cycleOf.support is empty."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.block_orbit_cycle_divisibility"
+      },
+      "planet": {
+        "name": "Block-orbit cycle arithmetic"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.5/primitive-exclusion",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.5",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.5"
+      ],
+      "title": "Exclusion of proper primitive groups",
+      "kind": "theorem",
+      "statement": "Fix0<t,0<κ≤1,0<δ≤1/10 and0<ε<δ/2. Uniformly in θ∈[0,δ/2−ε] and sufficiently large n, ifρ∈E₁∩E₄, then no n^(1/8)-merging ofρ belongs to a primitive subgroup unequal to A_n and S_n. In particular this excludes n^θ-mergings since θ≤1/20<1/8.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "PolynomialGaloisGroupsPartII:PG2.0/merge-perms",
+        "PolynomialGaloisGroupsPartII:PG2.4/primitive-min-support",
+        "tauceti:Equiv.Perm.IsCycle.pow_apply_eq_self_iff"
+      ],
+      "proofSteps": [
+        "There are at most three original parts>n/4. Each has at most eight prime divisors>n^(1/8), so at most24 exceptional primes arise.",
+        "E₁ permits at most one small part divisible by each such prime. E₄ supplies(t/4)log n distinct parts k≤√n/3 with a prime factor>n^(1/8); for large n choose one not meeting these exceptional primes. Its chosen prime p divides no other original part.",
+        "The selected k has multiplicity1 and survives any allowed equal-part merging. Other output lengths are mℓ with m≤n^(1/8)<p and p∤ℓ, so p divides only the k-cycle.",
+        "Raise the merged permutation to p^(v_p(k)−1) times the prime-to-p part of the least common multiple of its cycle lengths. All other cycles die; the k-cycle remains nonidentity and moves exactly k points, by the pinned cycle-power support theorem.",
+        "Its support≤√n/3<(√n−1)/2 for n>9 contradicts primitive minimum degree. The required comparison is n^(κα)≤n^(1/40)<n^(1/8)<p."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.8, p.62",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "No Frobenius or probability-law assumption enters this deterministic combinatorial theorem.",
+        "The exponent kills every other cycle and does not kill the chosen one; a claim of a single p-cycle is unnecessary."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.primitive_exclusion"
+      },
+      "planet": {
+        "name": "Primitive-group exclusion"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.5/imprimitive-exclusion",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.5",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.5"
+      ],
+      "title": "Exclusion of transitive imprimitive groups",
+      "kind": "theorem",
+      "statement": "With the same parameter ranges and uniformity as primitive-exclusion, ifρ∈E₁∩E₂∩E₃∩E₄∩E₅*, no n^θ-merging ofρ belongs to any transitive imprimitive subgroup of S_n. E₄ is harmless in this statement but unused in its proof; E₅* is the strengthened four-part event.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "PolynomialGaloisGroupsPartII:PG2.0/merge-perms",
+        "PolynomialGaloisGroupsPartII:PG2.5/block-orbit-cycle-divisibility"
+      ],
+      "proofSteps": [
+        "Supposeσ preserves r equal blocks of size s=n/r with1<r<n, and put α=δ/4−θ/2. Long parts in the chosen intervals lie≤n/log n≤n/4 and≥n^(κα) for uniformly large n, so E₁ makes each unique and unchanged by merging.",
+        "If2≤r≤n^(δ/2), choose a long partℓ not divisible by r via E₅*. Its block orbit has r′<r. Its invariant union has size nr′/r. Pulling the contained cycle lengths back through merging yields a submultiset sum forbidden by E₂.",
+        "If n^(δ/2)<r<n^(1−α), choose FIVE distinct E₃ parts. For eachℓ, r′≥ℓ/s>n^(δ/2−α)>n^(κα). Two selected cycles cannot have the same block orbit, since their gcd would then be≥r′; thus their block unions are disjoint. At most one selected cycle fills its blocks, since s>n^α and two such lengths would violate E₁.",
+        "A permutation has at most three cycles>n/4. Of the five disjoint block unions, choose one whose selected cycle does not fill its blocks and that contains no cycle>n/4. It has a companion cycle m·k≤n/4, with k an original part and m≤n^θ. Then gcd(k,ℓ)≥r′/m>n^(δ/2−α−θ)=n^α≥n^(κα), contradicting E₁ within its actual small-part range.",
+        "If n^(1−α)≤r<n, then s≥2. Choose FOUR E₅* long parts not divisible by s. Each leaves unused points in its block orbit and has r′>n^(1−3α). Their block unions are disjoint by E₁; at most three contain a cycle>n/4.",
+        "In the fourth union choose a companion m·k≤n/4. Then gcd(k,ℓ)≥r′/n^θ>n^(1−3α−θ)≥n^(κα), again contradicting E₁. This repairs the unbounded-companion step while preserving the probability exponent."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma12.9, pp.62–63; own-word repair of extraction finding E12",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "Middle range uses five disjoint block orbits, accounting for one filled orbit and three possible long companion cycles.",
+        "Large range uses four nondivisible long parts, not the source’s single witness.",
+        "Every invocation of E₁ checks both original parts≤n/4."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RandomPartitions",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.imprimitive_exclusion"
+      },
+      "planet": {
+        "name": "Imprimitive-group exclusion"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.6/generalized-luczak-pyber",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.6",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.6"
+      ],
+      "title": "Generalized Łuczak–Pyber criterion",
+      "kind": "theorem",
+      "statement": "Fix C≥1,0<t<1,0<κ≤1,0<δ≤1/10,0<ε<δ/2. There are B≥0 and integer N≥3 depending only on C,t,κ,δ,ε such that, for every n≥N, every probability measureν on partitions of n satisfying PartitionLaw, and every θ∈[0,δ/2−ε], ν({ρ:∃σ∈BadTransitive(Fin n),σ∈MergePerms(n^θ)ρ})≤B(log n)² n^(−κ(δ/4−θ/2)). The law may vary with n; B and N do not depend on ν or θ.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.0/bad-transitive",
+        "PolynomialGaloisGroupsPartII:PG2.0/merge-perms",
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.3/pair-gcd-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/block-subsum-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/long-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/large-prime-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/four-nondivisible-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.5/primitive-exclusion",
+        "PolynomialGaloisGroupsPartII:PG2.5/imprimitive-exclusion"
+      ],
+      "proofSteps": [
+        "On the intersection of the five good events the primitive and imprimitive exclusions leave no bad-transitive witness. Every permitted witness group is in one of these cases.",
+        "The bad event is therefore contained in the union of their complements. All events are measurable in the discrete finite partition space.",
+        "Use the five failure estimates. Since α≤δ/4,κ≤1, their powers and logarithmic factors are each bounded by a constant times(log n)² n^(−κα).",
+        "Take the maximum of the finitely many uniform thresholds and sum the constants. The α lower bound ε/2 makes this choice uniform up to θ=δ/2−ε."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Proposition12.1 and proof, pp.59,63",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "The endpoint θ=0 permits only identity merging, while θ=δ/2−ε still has α=ε/2>0.",
+        "The theorem has all three law premises and exposes constant dependence; it is independent of concrete coefficient measures."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.generalized_luczak_pyber"
+      },
+      "planet": {
+        "name": "Generalized Łuczak–Pyber criterion"
+      }
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII:PG2.6/galois-merging-certificate",
+      "parentStageId": "PolynomialGaloisGroupsPartII:PG2.6",
+      "realises": [
+        "PolynomialGaloisGroupsPartII:PG2.6"
+      ],
+      "title": "Polynomial-side bad-group certificate",
+      "kind": "theorem",
+      "statement": "Let A∈ℤ[X] be monic, separable and irreducible overℚ, and p prime. If the faithful root-action image is neither alternating nor symmetric and maxFactorMultiplicity(A mod p)≤y, then an element in that image witnesses a y-merging of A.factorDegrees p in the bad-transitive set on its n roots. Transporting the roots to Fin n gives the event bounded by generalized-luczak-pyber. Therefore any random-polynomial application bounds its bad-group event by the union of the large-multiplicity event and this partition event.",
+      "hypotheses": [],
+      "prerequisites": [
+        "PolynomialGaloisGroupsPartII:PG2.1/ramified-merging",
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "PolynomialGaloisGroupsPartII:PG2.0/bad-transitive",
+        "tauceti:TauCeti.isPretransitive_iff_irreducible",
+        "mathlib:Polynomial.Gal.galActionHom",
+        "mathlib:Polynomial.Gal.galActionHom_injective",
+        "tauceti:Equiv.Perm.fullCycleType_permCongr",
+        "PolynomialGaloisGroupsPartII:PG2.6/generalized-luczak-pyber"
+      ],
+      "proofSteps": [
+        "Irreducibility gives transitivity; characteristic0 and the stated separability give exactly n roots.",
+        "Ramified-merging supplies a Galois element. Monotonicity increases M to y; its image subgroup is a permitted bad-transitive witness.",
+        "Transport the finite root carrier to Fin n, preserving fullCycleType and the alternating/symmetric subgroup inequalities. The pointwise implication yields the event inclusion on any coefficient probability space.",
+        "Concrete laws, repeated-factor tails and quantitative irreducibility estimates are consumers supplied by ArithmeticStatisticsPartIIRandomPolynomials; no such theorem is an input to the arbitrary-law criterion."
+      ],
+      "sources": [
+        {
+          "sourceId": "bskk-v3",
+          "locator": "Lemma11.3; §11.3 reduction following(11.2), pp.57–58; Proposition12.1",
+          "match": "Own-word statement of the cited result; proof route checked in the stated version."
+        }
+      ],
+      "acceptance": [
+        "At a ramified prime the element exists even when reduction is not squarefree.",
+        "Do not claim that transitivity alone gives irreducibility for a nonseparable polynomial, e.g.(X²−2)²."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/FieldTheory/GaloisGroups/RamifiedMerging",
+        "namespace": "TauCeti.PolynomialGaloisGroupsPartII",
+        "declaration": "TauCeti.PolynomialGaloisGroupsPartII.galois_merging_certificate"
+      },
+      "planet": {
+        "name": "Ramified bad-group certificate"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "PG2-R1",
+      "supplier": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-1-permutation-groups-blocks-and-wreath-products",
+      "need": "Import the existing roadmap’s finite imprimitivity block-system construction for a faithful transitive permutation subgroup: r∣n,1<r<n, equal block size n/r and a surjective equivariant block quotient. Also import primitive small-support recognition: a primitive subgroup containing a transposition is symmetric, and one containing a3-cycle contains alternatingGroup (n≥5; the n=5 case is elementary if a chosen Jordan statement requires n≥6). Do not duplicate generic blocks, wreath products or Jordan theory here.",
+      "neededBy": [
+        "PolynomialGaloisGroupsPartII:PG2.5/block-orbit-cycle-divisibility",
+        "PolynomialGaloisGroupsPartII:PG2.4/bochert-min-support",
+        "PolynomialGaloisGroupsPartII:PG2.4/primitive-min-support"
+      ],
+      "status": "open"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "PG2-G1",
+      "title": "Inherited Mertens leading-constant proof boundary",
+      "neededBy": [
+        "PolynomialGaloisGroupsPartII:PG2.3/nonsmooth-harmonic-mass",
+        "PolynomialGaloisGroupsPartII:PG2.3/large-prime-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.6/generalized-luczak-pyber"
+      ],
+      "supplier": "AnalyticNumberTheory:AN.2/mertens-prime-product",
+      "detail": "The exact supplier node exists, but AnalyticNumberTheory--AN.0 explicitly records its own Mertens constant and error gap (and the prerequisite Mertens first theorem gap). This packet imports its mathematical statement and does not close or re-plan that analytic proof. Before calling the whole prerequisite chain closed, the supplier must discharge its uniform tilted-product/pole and Euler-constant integral comparison inputs. A generic O(log x) Euler-product bound does not establish the needed coefficient>1/4."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PolynomialGaloisGroupsPartII/E1",
+      "source": "bskk-v3",
+      "kind": "gap",
+      "locator": "proof of Lemma 12.9, Cases 2b and 3, p. 63 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+      "printed": "In Case 2b, the source uses r_i′ | mk to infer gcd(r_i′, k) ⩾ r_i′/m > n^{δ/2−α−θ} = n^α, then gcd(k, ℓ_i) > n^α, claiming a contradiction to ρ ∈ E₁. In Case 3 it derives gcd(k, ℓ) ⩾ r′/m ⩾ r′/n^θ and again claims a contradiction to ρ ∈ E₁.",
+      "correction": "E₁ concerns only pairs of parts ≤ n/4, and nothing bounds the part k. Repair (this continuation): in Case 2 take five distinct parts ℓ ∈ ρ ∩ [n^{1−α}, n/log n] (E₁, E₃). The unions X_ℓ of the blocks met by their cycles are single block orbits of g, pairwise disjoint because X_ℓ = X_ℓ′ would force r_ℓ′ > n^α to divide ℓ and ℓ′. At most one ℓ has s_ℓ′ = s (Case 2a), and g has at most three cycles longer than n/4, so some ℓ has s_ℓ′ < s and only cycles of length ≤ n/4 in X_ℓ outside its own cycle; their parts k are ≤ n/4 and the printed argument applies. In Case 3 argue the same way with four parts ℓ ∈ ρ ∩ [n^{1−2α}, n/log n] not divisible by s, which a strengthened E₅ supplies with the same probability bound as Lemma 12.6.",
+      "reason": "The companion original part may exceed n/4, outside the exact E₁ hypothesis. Five middle-range block orbits and four large-range block orbits allow one to avoid every cycle longer than n/4. The four-part lower-tail estimate uses count≤3≤tL_r and retains the original rate.",
+      "affects": "the proof",
+      "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12; no journal text or new published correction was established in this run.",
+      "searched": [
+        "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12",
+        "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+        "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+      ],
+      "provenance": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E12"
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII/E2",
+      "source": "bskk-v3",
+      "kind": "error",
+      "locator": "Introduction, p. 4; §11, p. 54 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+      "printed": "The source asserts equivalence between irreducibility of a polynomial and transitivity of its Galois group.",
+      "correction": "For separable polynomials of positive degree. Every use in the paper goes from irreducible to transitive, which holds.",
+      "reason": "The reducible polynomial(X²−2)² has a transitive action on its two distinct roots. The pinned orbit/irreducibility equivalence requires separability and positive degree, which every use here retains.",
+      "affects": "nothing",
+      "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16; no journal text or new published correction was established in this run.",
+      "searched": [
+        "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16",
+        "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+        "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+      ],
+      "provenance": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E16"
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII/E3",
+      "source": "bskk-v3",
+      "kind": "misprint",
+      "locator": "proof of Lemma 12.8, p. 62 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+      "printed": "The source says that E₁’s condition is satisfied whenever p ⩾ n^{κα} ⩾ n^{1/40}, and therefore covers p ∈ P.",
+      "correction": "n^{κα} ≤ n^{1/40} < n^{1/8} < p.",
+      "reason": "α ≤ 1/40 and κ ≤ 1, so n^{κα} ≤ n^{1/40}; the argument needs p ≥ n^{κα}, which holds because p > n^{1/8}.",
+      "affects": "nothing",
+      "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24; no journal text or new published correction was established in this run.",
+      "searched": [
+        "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24",
+        "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+        "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+      ],
+      "provenance": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E24"
+    },
+    {
+      "id": "PolynomialGaloisGroupsPartII/E4",
+      "source": "bskk-v3",
+      "kind": "misprint",
+      "locator": "proof of Lemma 12.9, Case 1, p. 63 (arXiv v3; the published pagination was not seen)",
+      "printed": "The source reasons that merging parts of ρ produces these lengths, so some subset U of the parts of ρ must satisfy Σ_{u∈U} = nr′/r.",
+      "correction": "Σ_{u∈U} u = nr′/r.",
+      "reason": "The E₂ argument needs the sum of the part values, not an expression without a summand. The preceding construction and the next invocation of Lemma12.3 uniquely determine the intended statement.",
+      "affects": "nothing",
+      "known": "Inherited confirmed finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26; no journal text or new published correction was established in this run.",
+      "searched": [
+        "Reviewed extraction and its independent review of arXiv v3; finding PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26",
+        "arXiv v3 source passage read again 2026-10-11; latest version listing checked",
+        "Public Springer DOI metadata / arXiv search; no freely read journal PDF or correction located"
+      ],
+      "provenance": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/E26"
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+      "detail": "Import the faithful permutation-image block system from layer1; the reviewed link map’s caveat on abstract nonfaithful groups is respected. Layers0 and5 are largely pinned baseline: do not replan fullCycleType, factorDegrees or arithmetic Frobenius existence. Layer9 supplies polynomial S_n context, not a prerequisite coefficient-law construction for this arbitrary-law criterion."
+    },
+    {
+      "roadmapId": "AnalyticNumberTheory",
+      "detail": "Exact AN.5 divisor-subpower and AN.2 Mertens-product nodes are cited rather than replaced by stage-wide requests. The Mertens leading constant and first-theorem proof gaps are inherited visibly in PG2-G1. No changes to that packet are made."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "read": "2026-10-11",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1"
+    }
+  ],
+  "inputCoverage": [
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/42",
+      "node": "PolynomialGaloisGroupsPartII:PG2.2/is-k-fold-irreducible",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/43",
+      "node": "PolynomialGaloisGroupsPartII:PG2.2/kfold-iff-multiplyPretransitive",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/91",
+      "node": "PolynomialGaloisGroupsPartII:PG2.0/bad-transitive",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/92",
+      "node": "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/93",
+      "node": "PolynomialGaloisGroupsPartII:PG2.1/max-factor-multiplicity",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/99",
+      "node": "PolynomialGaloisGroupsPartII:PG2.0/equivariant-cycle-fibres",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/100",
+      "node": "PolynomialGaloisGroupsPartII:PG2.1/ramified-merging",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/103",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/104",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/105",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/106",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/107",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/108",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/109",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/pair-gcd-failure",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/110",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/block-subsum-failure",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/111",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/long-parts-failure",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/112",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/large-prime-parts-failure",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/113",
+      "node": "PolynomialGaloisGroupsPartII:PG2.3/four-nondivisible-parts-failure",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/114",
+      "node": "PolynomialGaloisGroupsPartII:PG2.4/min-support",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/115",
+      "node": "PolynomialGaloisGroupsPartII:PG2.4/primitive-min-support",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/116",
+      "node": "PolynomialGaloisGroupsPartII:PG2.5/primitive-exclusion",
+      "disposition": "planned"
+    },
+    {
+      "item": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/117",
+      "node": "PolynomialGaloisGroupsPartII:PG2.5/imprimitive-exclusion",
+      "disposition": "planned"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.0",
+      "status": "closed",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.0/equal-part-merging",
+        "PolynomialGaloisGroupsPartII:PG2.0/merge-perms",
+        "PolynomialGaloisGroupsPartII:PG2.0/bad-transitive",
+        "PolynomialGaloisGroupsPartII:PG2.0/equivariant-cycle-fibres"
+      ],
+      "remaining": []
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.1",
+      "status": "closed",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.1/max-factor-multiplicity",
+        "PolynomialGaloisGroupsPartII:PG2.1/fibre-card-eq-rootMultiplicity",
+        "PolynomialGaloisGroupsPartII:PG2.1/ramified-merging"
+      ],
+      "remaining": []
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.2",
+      "status": "closed",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.2/tuple-root-quotient",
+        "PolynomialGaloisGroupsPartII:PG2.2/is-k-fold-irreducible",
+        "PolynomialGaloisGroupsPartII:PG2.2/tuple-stabilizer-eq-fixingSubgroup",
+        "PolynomialGaloisGroupsPartII:PG2.2/kfold-iff-multiplyPretransitive",
+        "PolynomialGaloisGroupsPartII:PG2.2/kfold-degree-sub-two"
+      ],
+      "remaining": []
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.3",
+      "status": "planned",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.3/partition-law",
+        "PolynomialGaloisGroupsPartII:PG2.3/good-event",
+        "PolynomialGaloisGroupsPartII:PG2.3/anatomy-harmonic-masses",
+        "PolynomialGaloisGroupsPartII:PG2.3/nonsmooth-harmonic-mass",
+        "PolynomialGaloisGroupsPartII:PG2.3/pair-gcd-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/block-subsum-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/long-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/large-prime-parts-failure",
+        "PolynomialGaloisGroupsPartII:PG2.3/four-nondivisible-parts-failure"
+      ],
+      "remaining": [
+        "Discharge the inherited AN.2 Mertens proof boundary at its owner (PG2-G1)."
+      ]
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.4",
+      "status": "planned",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.4/min-support",
+        "PolynomialGaloisGroupsPartII:PG2.4/orbital-distinguishers",
+        "PolynomialGaloisGroupsPartII:PG2.4/orbital-walk-connectivity",
+        "PolynomialGaloisGroupsPartII:PG2.4/babai-distinguishers",
+        "PolynomialGaloisGroupsPartII:PG2.4/bochert-min-support",
+        "PolynomialGaloisGroupsPartII:PG2.4/primitive-min-support"
+      ],
+      "remaining": [
+        "Confirm parent layer1 supplies its requested small-support recognition statements."
+      ]
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.5",
+      "status": "planned",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.5/block-orbit-cycle-divisibility",
+        "PolynomialGaloisGroupsPartII:PG2.5/primitive-exclusion",
+        "PolynomialGaloisGroupsPartII:PG2.5/imprimitive-exclusion"
+      ],
+      "remaining": [
+        "Confirm the parent layer1 faithful block-system contract and the requested minimum-degree recognition input."
+      ]
+    },
+    {
+      "stageId": "PolynomialGaloisGroupsPartII:PG2.6",
+      "status": "planned",
+      "targets": [
+        "PolynomialGaloisGroupsPartII:PG2.6/generalized-luczak-pyber",
+        "PolynomialGaloisGroupsPartII:PG2.6/galois-merging-certificate"
+      ],
+      "remaining": [
+        "Resolve inherited analytic proof boundary PG2-G1 and parent request PG2-R1 to close the entire chain."
+      ]
+    }
+  ],
+  "verification": {
+    "libraryAudit": "Reviewed data/library-coverage.json for parent layers0,1,5,9; current readonly TauCetiRoadmap and TauCeti searched for overlap. Existing fullCycleType, factorDegrees, finite-field orbits, ramified arithmetic Frobenius and k=2 adapter are baseline citations, never nodes.",
+    "currentRoadmapsRead": [
+      "PolynomialGaloisGroups/README.md and Suggested.lean",
+      "NumberFieldArithmetic/README.md; root README.md and CONTRIBUTING.md"
+    ],
+    "sourceReadDate": "2026-10-11",
+    "lean": "lean-check research/blueprint/suggested/PolynomialGaloisGroupsPartII.lean: exit0, only expected admitted-proof warnings, 2026-10-11; this checks signatures, not proofs.",
+    "checker": "python3 scripts/check_blueprint.py research/blueprint/packets/PolynomialGaloisGroupsPartII.json:0errors,0warnings, 2026-10-11."
+  }
+}
