@@ -36817,8 +36817,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6300"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6300",
+   "finishedAt": "2026-10-11T04:19:58Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.3",
@@ -47694,8 +47695,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80285,8 +80286,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81595,8 +81596,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
