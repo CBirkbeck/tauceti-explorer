@@ -13,6 +13,9 @@ These suggested Lean forms help contributors and reviewers agree on names and si
 All proofs remain unimplemented. Native arithmetic statements requiring supplier interfaces
 are explicitly listed at the end; no arbitrary propositions stand in for those interfaces.
 The accepted parent supplies the existing group distributions and finite-field counting laws.
+The coefficient-height conjectures require G-source-family; no transfer to minimal
+invariant-height models is asserted. Generic product probability and Borel–Cantelli
+are already in pinned Mathlib; the isotropic inverse-system adapter remains G-lc-duality.
 -/
 
 noncomputable section
@@ -105,6 +108,9 @@ lemma maximalIsotropics_injective (D : LCQuadraticData V) :
 
 lemma maximalIsotropics_closed (D : LCQuadraticData V) (Z : D.MaximalIsotropics) :
     IsClosed (Z.val : Set V) := by sorry
+
+lemma maximalIsotropics_isotropic (D : LCQuadraticData V) (Z : D.MaximalIsotropics)
+    (x : V) (hx : x ∈ Z.val) : D.quadratic x = 0 := by sorry
 
 lemma maximalIsotropics_self_orthogonal (D : LCQuadraticData V) (Z : D.MaximalIsotropics) :
     D.orthogonal Z.val = Z.val := by sorry
@@ -286,23 +292,23 @@ Sources: pr Proposition 3.3 and proof, pp. 13–14
 
 ArithmeticStatistics:ST.5/refinement-selmer-quadratic-intersection
 ArithmeticStatistics.ST5.selmer_quadratic_intersection
-Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A).
+Let k be global, A/k abelian, and λ:A→Â a self-dual isogeny of odd degree or induced by a symmetric line bundle. The theta-group quadratic maps into local Brauer groups, followed by invariants in R/Z, have polarization equal to the negative Weil-cup pairing (without division by 2) and make V=∏′_v H¹(k_v,A[λ]) a second-countable weakly metabolic locally compact quadratic module. The Kummer subgroup W=∏_v im(Â(k_v)/λA(k_v)) is compact-open maximal isotropic; the image Z of H¹(k,A[λ]) is maximal isotropic. Sel_λ(A)/Sha¹(k,A[λ])≅Z∩W. In characteristic dividing deg λ all cohomology is fppf. Sha¹ of the finite group scheme is not Sha(A).
 Hypotheses: All parameter restrictions in the statement are hypotheses.
 Omission: Finite quadratic reductions, their transition maps, probability topology, or fppf/theta cohomology interfaces are not exported together at the pin; see G-lc-duality and G-fppf-theta.
-Sources: pr Theorem 4.13, Sections 4.1–4.3, pp. 14–21
+Sources: pr Corollary 4.6, pp. 15–16; Theorem 4.13 and Sections 4.1–4.3, pp. 14–21
 
 ArithmeticStatistics:ST.5/refinement-squarefree-selmer-conjecture
 ArithmeticStatistics.ST5.squarefree_selmer_conjecture
-For squarefree n>1, minimal integral short Weierstrass models over Q ordered by H=max(4|A|³,27B²), the joint dimensions dim_Fp Sel_p(E), p|n, have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n tends to ∏_{p|n}∏_{j=1}^m(p^j+1). A limiting distribution alone does not establish these unbounded moments. For n=1 the group is trivial.
+Fix a global field k and a squarefree integer n>1. In the source’s coefficient-model family from Conjecture 1.1, use short Weierstrass coefficients a,b in k of height bounded by B when char(k) is not 2 or 3, and the source’s long Weierstrass equations in characteristics 2 and 3; discard singular models and let B tend to infinity. The joint dimensions dim_Fp Sel_p(E), p|n, are conjectured to have the common-parity product law. Separately, every positive m-th cardinality moment of Sel_n is conjectured to tend to ∏_{p|n}∏_{j=1}^m(p^j+1). Distribution convergence alone does not establish these unbounded moments. At n=1 the group is trivial. The denominator counts these coefficient models, not minimal integral Q-isomorphism classes ordered by invariant height.
 Hypotheses: This is a stated conjectural proposition, not an established arithmetic limit.
 Omission: Needs the supplied arithmetic family, quotient height count, Selmer/Kummer maps, geometric Jacobian, or elliptic L-function carrier; see the node’s direct requests and G-native.
 API ArithmeticStatistics.ST5.squarefree_selmer_conjecture.distribution: Project the empirical joint-frequency assertion.
 API ArithmeticStatistics.ST5.squarefree_selmer_conjecture.moments: Project each separately quantified cardinality-moment assertion.
-API ArithmeticStatistics.ST5.squarefree_selmer_conjecture.average: The m=1 assertion recovers the parent σ(n) conjecture for squarefree n.
+API ArithmeticStatistics.ST5.squarefree_selmer_conjecture.average: At m=1 the predicted numerical constant is σ(n), as in the parent. Transfer to the parent’s different minimal-model invariant-height denominator requires a separate family comparison and is not asserted.
 Test ArithmeticStatistics.ST5.squarefree_selmer_conjecture.test_one: n=1 has mass and every moment 1.
 Test ArithmeticStatistics.ST5.squarefree_selmer_conjecture.test_two_primes: Mixed parity has limiting mass zero for n=pq.
 Test ArithmeticStatistics.ST5.squarefree_selmer_conjecture.test_moment: n=6,m=1 predicts 12, while independent distribution convergence is insufficient to prove it.
-Sources: pr Conjecture 1.4(a)–(b), p. 3
+Sources: pr Conjecture 1.1 and its coefficient-height convention, p. 2; Conjecture 1.4(a)–(c), pp. 3–4
 
 ArithmeticStatistics:ST.5/refinement-odd-degree-jacobian-conjecture
 ArithmeticStatistics.ST5.odd_degree_jacobian_conjecture
@@ -436,7 +442,7 @@ API ArithmeticStatistics.ST5.global_image_splitting_conjecture.density: The exce
 API ArithmeticStatistics.ST5.global_image_splitting_conjecture.one: n=1 has trivial cohomology and splitting.
 API ArithmeticStatistics.ST5.global_image_splitting_conjecture.family: The family uses the source height and characteristic-appropriate equations.
 Test ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_one: n=1 satisfies splitting for every model.
-Test ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_local_global: A local complement alone does not supply a complement to the global image.
+Test ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_local_global: As a module diagnostic, the distinguished local subgroup 0 of Z/4 is a direct summand, while the putative global subgroup 2(Z/4) has no complementary Z/4-submodule. This tests that the conjecture checks the actual global image; it is not an arithmetic counterexample.
 Test ArithmeticStatistics.ST5.global_image_splitting_conjecture.test_char_two: In characteristic2 the denominator does not use short Weierstrass equations.
 Sources: bklpr Conjecture 6.9, p. 28
 
@@ -578,7 +584,7 @@ ArithmeticStatistics.ST5.endomorphism_rank_bound
 Let ψ:A→A factor over F as a nonempty chain of degree3 isogenies φ_i. Assume additionally a constant c>0, independent of s, such that log₃#(A_s(F)/ψ_s A_s(F))≥c·rank_Z A_s(F) for every quadratic twist s. Then limsup average rank A_s(F)≤c^(−1)Σ_i(1+average c(φ_(i,s)))<∞. The source’s unrestricted ψ claim is retained as G-endomorphism, because its e/t index estimate is not justified for a general Z[ψ]-module.
 Hypotheses: All parameter restrictions in the statement are hypotheses.
 Omission: Needs the supplied arithmetic family, quotient height count, Selmer/Kummer maps, geometric Jacobian, or elliptic L-function carrier; see the node’s direct requests and G-native.
-Sources: bklos Theorem 2.2, p. 3; Section 9 proof, pp. 12–13, corrected conditional formulation
+Sources: bklos Theorem 2.2, p. 3; Lemma 9.1 and Section 9 proof, pp. 12–13, corrected conditional formulation
 
 ArithmeticStatistics:ST.5/refinement-multiplication-three-rank-bound
 ArithmeticStatistics.ST5.multiplication_three_rank_bound
@@ -606,7 +612,7 @@ ArithmeticStatistics.ST5.signature_positive_twists
 For a number field F and an elliptic curve E/F with a3-isogeny: if F is totally real, positive lower proportions of twists have rank0 and3-Selmer rank1; if F has at most one complex place and at least one real place, a positive lower proportion has3-Selmer rank1; if F is imaginary quadratic, a positive lower proportion has Mordell–Weil rank0 or1 in union. These statements use the squareclass height; the last does not give both proportions separately.
 Hypotheses: All parameter restrictions in the statement are hypotheses.
 Omission: Needs the supplied arithmetic family, quotient height count, Selmer/Kummer maps, geometric Jacobian, or elliptic L-function carrier; see the node’s direct requests and G-native.
-Sources: bklos Theorem 2.6(i)–(iii), pp. 4–5; Sections 10.3,10.4, pp. 16–18
+Sources: bklos Theorem 2.6(i)–(iii), pp. 4–5; Section 10 local ratios, pp. 13–16; Section 11 signature proof, pp. 17–18
 
 ArithmeticStatistics:ST.5/refinement-complex-place-obstruction
 ArithmeticStatistics.ST5.complex_place_obstruction
