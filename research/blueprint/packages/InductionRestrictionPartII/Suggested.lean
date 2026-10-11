@@ -1899,6 +1899,40 @@ lemma cyclic_coprime_complement_conjugacy [IsCyclic Γ]
       SemidirectProduct.inr g.val.right * (SemidirectProduct.inl h)⁻¹ := by sorry
 end CoprimeEdgeContract
 
+section ComplementConjugacyTests
+-- cyclic_complement_conjugacy_test_1: a trivial quotient has only the trivial complement.
+example {H Γ : Type} [Group H] [Group Γ] [Finite H] [Finite Γ] [Subsingleton Γ]
+    (φ : Γ →* MulAut H) (K : Subgroup (H ⋊[φ] Γ))
+    (hK : Function.Bijective
+      ((SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp K.subtype)) :
+    K = ⊥ := by sorry
+
+-- cyclic_complement_conjugacy_test_2: inversion on C₃ fixes the conjugator's orientation.
+example (φ₃ : Two →* MulAut C3)
+    (hφ₃ : ∀ t : Two, ∀ h : C3, φ₃ t h = if t = 1 then h else h⁻¹) :
+    let a : C3 := Multiplicative.ofAdd (1 : ZMod 3)
+    let t : Two := Multiplicative.ofAdd (1 : ZMod 2)
+    let x : C3 ⋊[φ₃] Two := SemidirectProduct.inl a * SemidirectProduct.inr t
+    let K := Subgroup.zpowers x
+    Function.Bijective
+      ((SemidirectProduct.rightHom : C3 ⋊[φ₃] Two →* Two).comp K.subtype) ∧
+    (∀ g : K, g.val = SemidirectProduct.inl a⁻¹ *
+      SemidirectProduct.inr g.val.right * (SemidirectProduct.inl a⁻¹)⁻¹) ∧
+    SemidirectProduct.inl a * SemidirectProduct.inr t *
+      (SemidirectProduct.inl a)⁻¹ ≠ x := by sorry
+
+-- cyclic_complement_conjugacy_test_3: the diagonal in C₂ × C₂ needs coprimality.
+example :
+    let φ : Two →* MulAut Two := 1
+    let a : Two := Multiplicative.ofAdd (1 : ZMod 2)
+    let x : Two ⋊[φ] Two := SemidirectProduct.inl a * SemidirectProduct.inr a
+    let K := Subgroup.zpowers x
+    Function.Bijective
+      ((SemidirectProduct.rightHom : Two ⋊[φ] Two →* Two).comp K.subtype) ∧
+    ¬ (∃ h : Two, ∀ g : K, g.val = SemidirectProduct.inl h *
+      SemidirectProduct.inr g.val.right * (SemidirectProduct.inl h)⁻¹) := by sorry
+end ComplementConjugacyTests
+
 section CoprimePrimarySupport
 variable {H Γ : Type} [Group H] [Group Γ]
 
