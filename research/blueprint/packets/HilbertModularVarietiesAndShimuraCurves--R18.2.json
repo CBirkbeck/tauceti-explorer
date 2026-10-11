@@ -4944,9 +4944,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
-    "date": "2026-10-08",
-    "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Findings /12 and /31: generic algebraic forms are imported from AF, transfer from R17.3 has its discrete/non-norm scope, and definite degeneracy injectivity has the finite residual k-module/non-Eisenstein hypotheses of Khare–Wintenberger II Lemma 7.1. The residual norm branch and integral Taylor–Wiles control route are retained. All 58 reader contracts match; pro-component comparison is over a common algebraic closure and descent over K remains a gap. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~4",
+    "date": "2026-10-11",
+    "notes": "Codex session codex-Mt7g2N, independent of FIX-RT-AREA-langlands-2~4. Follows independent-review-REV-FIX-RT-AREA-automorphic-1~5 (2026-10-08, accepted); its full review is retained in reviewHistory. Checked ownership of quaternionic Taylor–Wiles freeness and dyadic twisting, with the Galois-dependent rank/coinvariant comparison left to GL2 lifting. This is a bounded review of the forty confirmed findings and round-four fixes, not a new whole-packet source/proof-closure certification; existing coverage, open requests and gaps are retained. All baseline declarations were checked in the pinned Lean sources. The packet checker reports zero errors and zero warnings; its suggested Lean file was freshly elaborated serially with lean-check at the pins, with only expected proof-placeholder warnings. See REV-FIX-RT-AREA-langlands-2~4.md for source receipts, dependency checks, exact verdicts and limits."
   },
   "reviewHistory": [
     {
@@ -5258,6 +5258,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
       "date": "2026-10-08",
       "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-HilbertModularVarietiesAndShimuraCurves--R18.2 (accepted, promoted). Reviewed every change since the promoted version (e90263172): the ψ central-character domain in 18 R18.3 nodes, definite-degeneracy and tw-localised-control (now Khare–Wintenberger II Lemma 7.1 for residual coefficients and the Corollary 7.5 integral-control route, checked in the author copy pp.57–66), and the assembly commit's retargeting of R18.2 and R18.5 prerequisites to R18.1 nodes (all exist in the H0 packet and supply what is used; descent over K is a recorded gap). Findings /12 and /31 are correctly fixed: R18.3 and R18.4 import existing R17.3 nodes with norm characters excluded and no integral lattice equality inferred; definite-specialisation imports AF.5 with the central-quotient request. Corrected: R18.3/norm-branch now also covers the residual coefficients that the corrected degeneracy proof uses (packet and suggested ledger). The suggested file elaborates at the Mathlib pin. Remaining, for the next fix round (reader only, unchanged since promotion): reader ~528/530 still claims degeneracy injectivity over arbitrary coefficient algebras from Lemma 7.1; ~115 says the identity pro-components are identified over K, where the supplier works over an algebraic closure; line 5 and the gap list omit the descent-over-K gap; the ψ hypothesis paragraphs lag. Details in the review report."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+      "date": "2026-10-08",
+      "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Findings /12 and /31: generic algebraic forms are imported from AF, transfer from R17.3 has its discrete/non-norm scope, and definite degeneracy injectivity has the finite residual k-module/non-Eisenstein hypotheses of Khare–Wintenberger II Lemma 7.1. The residual norm branch and integral Taylor–Wiles control route are retained. All 58 reader contracts match; pro-component comparison is over a common algebraic closure and descent over K remains a gap. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
     }
   ]
 }
