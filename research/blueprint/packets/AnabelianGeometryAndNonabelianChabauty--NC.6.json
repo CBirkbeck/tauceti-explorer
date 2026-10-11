@@ -6,7 +6,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "NC.6 is a process endpoint whose listed outputs belong to NC.1–NC.5 and EffectiveDiophantineMethods ED.6. This checkpoint completes its ownership and dependency screen and proposes removing the stage, preserving the existing NC.5 to ED.6 edge. It introduces no mathematical nodes. Coverage remains partial because no accepted restructuring result drops NC.6; source-scoped reconstruction, finite local loci and certified global enumeration retain separate hypotheses and owners.",
+  "summary": "NC.6 is a process endpoint whose outputs belong to NC.1–NC.5 and EffectiveDiophantineMethods ED.6. The removal proposal preserves the existing NC.5 to ED.6 edge and introduces no mathematical nodes. This continuation indexes the fine-grained supplier exports and their exact locus, path and height conventions, while retaining their hypotheses and open gaps. Coverage remains partial: no accepted restructuring result drops NC.6, and the checker rejects both node-free planned closure and an under-budget complete pass with an open scope.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -88,7 +88,7 @@
       "status": "partial",
       "remaining": [
         "Obtain independent acceptance of a restructuring result with layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop and the suppliers and preserved NC.5 to ED.6 link specified below. The present blueprint proposal and the accepted parent planning pass do not supply that acceptance.",
-        "After that acceptance, an authorized integration removes NC.6 and its two incoming edges; update this scoped packet to closed coverage with no nodes, citing the accepted result. These steps require files outside issue #6347's deliverables."
+        "When the accepted drop is available in the checker registry, cite that result here, set coverage to closed with remaining empty, clear the structural gap and set packet status closed. Authorized integration removes NC.6 and its two incoming edges while preserving the direct NC.5 to ED.6 dependency; integration is outside this issue and is not a further mathematical prerequisite."
       ]
     }
   ],
@@ -96,7 +96,7 @@
     {
       "title": "NC.6 removal awaits accepted restructuring",
       "neededBy": [],
-      "detail": "PROTOCOL §15 permits node-free closed coverage only for a layer dropped by an accepted restructuring. At this checkpoint, no research/blueprint/restructure/RS-*.result.json records an accepted NC.6 drop. Its parent packet still explicitly leaves removal pending acceptance. Adding a process node or duplicating NC.1–NC.5 mathematics would violate the issue. The permitted deliverables can make the proposal reviewable but cannot record the external acceptance or change the atlas. This is a structural blocker, not a new mathematical gap in the supplier layers."
+      "detail": "The reviewed AUDIT-08 entry and the accepted parent pass classify NC.6 as process-only export work. Its mathematical outputs already have the owners and exact fine-grained nodes indexed in supplierExports. PROTOCOL sections 11 and 15 forbid inventing process nodes or duplicating those targets, and permit node-free closed coverage only for an accepted structural drop. No accepted RS result records that drop at the input commit in closureCheck. The status probes reproduce the checker rejection of premature complete/planned/closed claims. The only remaining decision is independent restructuring acceptance outside the permitted files; supplier mathematical gaps remain with their owners."
     }
   ],
   "restructure": [
@@ -286,10 +286,11 @@
   ],
   "ownershipEvidence": {
     "audit": "data/library-coverage.json: AnabelianGeometryAndNonabelianChabauty, NC.6, verdict process (AUDIT-08).",
-    "parentPacket": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json: accepted planning pass; NC.6 coverage not_read, expressly pending restructuring acceptance; no NC.6 nodes.",
+    "parentPacket": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json: latest accepted review independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, 2026-10-11. NC.6 coverage remains not_read with removal explicitly pending acceptance; no parent node realises NC.6. This acceptance of planning corrections is not acceptance of a restructuring result.",
     "existingNode": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification is an authored topological torsor/H1 comparison. Its statement was read; it does not supply the geometric Selmer-variety export.",
     "consumerPacket": "research/blueprint/packets/EffectiveDiophantineMethods.json: latest review needs_changes (REV-EffectiveDiophantineMethods~3, 2026-10-08). ED.6/certified-solution-set, padic-candidate-comparison, qc-disc-certificate, qc-certificate-sound, height-series-valuation-bound, root-determination-precision and qc-modular-algorithm identify the owner and open interfaces; none is imported as completed or formalised.",
-    "graph": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json and EffectiveDiophantineMethods.json: NC.1 and NC.5 feed NC.6; NC.6 has no consumers; NC.5 already feeds ED.6."
+    "graph": "research/blueprint/atlas/roadmaps/AnabelianGeometryAndNonabelianChabauty.json and EffectiveDiophantineMethods.json: NC.1 and NC.5 feed NC.6; NC.6 has no consumers; NC.5 already feeds ED.6.",
+    "scopedSuppliers": "The exact NC.1–NC.5 exports in supplierExports were read afresh in this continuation. NC.2–NC.5 have accepted complete planning passes with planned coverage and retained gaps; NC.1 has needs_changes. These node ids establish ownership without introducing duplicate NC.6 declarations or treating source/supplier gaps as closed."
   },
   "libraryScreen": {
     "upstreamRoadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
@@ -306,5 +307,196 @@
     "A finite-level locus contains the specified global rational or integral points through the local/global diagram. Finiteness under verified dimension or quadratic-height hypotheses is distinct from equality with the global set.",
     "Eventual equality in BDCKW §3.1 uses that source's minimal Z-model and stringent local conditions. Do not generalize it to arbitrary number fields or identify it with Kim 2009 Conjecture 1's dimension inequality.",
     "Any unresolved Bloch–Kato, Fontaine–Mazur, logarithm-rank, reduction or local-height input remains an explicit condition on every downstream assertion. FAIL or unresolved candidate balls yield an open computation."
+  ],
+  "supplierExports": [
+    {
+      "output": "Source-qualified profinite curve reconstruction",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.1.json",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/relative-outer-isom",
+        "AnabelianGeometryAndNonabelianChabauty:NC.1/number-field-isom"
+      ],
+      "conditions": "Use continuous arithmetic extension equivalences over the fixed G_K, modulo target geometric inner conjugation. Distinguish the pointed Theorem 10.1 from the outer-action Theorem 10.2; the unpointed extension formulation retains the NC.1 comparison obligations. The supplier is under revision, so this index does not certify its statement or close its four gaps.",
+      "snapshot": {
+        "sha256": "e7b268ef9496b07dd9385b701e7e1bf38561cff86c1991940387d643090a3466",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "needs_changes",
+        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
+        "reviewDate": "2026-10-10",
+        "gaps": 4
+      }
+    },
+    {
+      "output": "Geometric unipotent groups, tensor paths and comparisons",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.2.json",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/tannakian-groups",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/tensor-paths",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2/finite-path-comparison"
+      ],
+      "conditions": "Use functors on all coefficient algebras and geometric right path torsors, rather than pointwise topological H1. Retain the length transitions, composition, filtration and Frobenius. The ramified base-change clause covers models and endpoints descending from the stated unramified setup; general ramified-model comparison remains requested.",
+      "snapshot": {
+        "sha256": "baaa6d4930fc3ff95af3b49e4b34df736d2181fdb4645310cd08c5cd085e6a00",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "accepted",
+        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.2",
+        "reviewDate": "2026-10-11",
+        "gaps": 3
+      }
+    },
+    {
+      "output": "Represented Selmer varieties and localization",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.3.json",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-functor",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-representability",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/selmer-localization-naturality"
+      ],
+      "conditions": "Retain every specified bad-place and crystalline local condition, actual localization natural transformations and their all-algebra representability hypotheses. The closed fibre-product construction does not supply its own representability inputs. The parent topological torsor-classification node is not a substitute.",
+      "snapshot": {
+        "sha256": "1157ed4bdc0b5e13494c616de043e05435e59fe59a1d050b2fdcf514f8175b5f",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "accepted",
+        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
+        "reviewDate": "2026-10-11",
+        "gaps": 4
+      }
+    },
+    {
+      "output": "Albanese coordinates, local loci and conditional finiteness",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.4.json",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.4/local-albanese",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4/iterated-coordinates",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4/kim-loci",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4/rational-integral-containment",
+        "AnabelianGeometryAndNonabelianChabauty:NC.4/dimension-finiteness"
+      ],
+      "conditions": "With the supplier right-path convention, the period representative is I(b,x) inverse times gamma(x). Preserve the distinct crystalline, de Rham period-image and geometric-image-closure loci and their forward inclusions. The selected dimension theorem over Q assumes a verified strict inequality and all geometric inputs; it proves finiteness, not eventual global-point equality.",
+      "snapshot": {
+        "sha256": "0123cb29c96ebfb16b0572dfaa2529d1984f35a59a664fab52ca6a6f1071f73c",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "accepted",
+        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.4",
+        "reviewDate": "2026-10-11",
+        "gaps": 4
+      }
+    },
+    {
+      "output": "Quadratic pairs, signed away-place heights and finite supersets",
+      "owner": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "packet": "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty--NC.5.json",
+      "nodes": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/rank-picard-criterion",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/away-height-constants",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/quadratic-chabauty-pair",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5/pair-finite-locus"
+      ],
+      "conditions": "The rank criterion uses the rational Neron-Severi rank and the Mordell-Weil-cut Selmer convention. Upsilon is the negative sum of all away-place height alternatives. A finite residual locus is a superset of the rational points and need not equal the exact depth-two locus. Preserve analytic density on every open subdisc and compact chart coverage; certify the logarithm separately when ED.6 requires it.",
+      "snapshot": {
+        "sha256": "63ec06ed33bbb6859d51f596f452fb265edcf8f157951675076b39f78ab96e4f",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "accepted",
+        "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.5",
+        "reviewDate": "2026-10-11",
+        "gaps": 3
+      }
+    },
+    {
+      "output": "Finite precision, exhaustive local root coverage and exact global certification",
+      "owner": "EffectiveDiophantineMethods:ED.6",
+      "packet": "research/blueprint/packets/EffectiveDiophantineMethods.json",
+      "nodes": [
+        "EffectiveDiophantineMethods:ED.6/certified-solution-set",
+        "EffectiveDiophantineMethods:ED.6/padic-candidate-comparison",
+        "EffectiveDiophantineMethods:ED.6/qc-disc-certificate",
+        "EffectiveDiophantineMethods:ED.6/qc-certificate-sound",
+        "EffectiveDiophantineMethods:ED.6/height-series-valuation-bound",
+        "EffectiveDiophantineMethods:ED.6/root-determination-precision",
+        "EffectiveDiophantineMethods:ED.6/qc-modular-algorithm"
+      ],
+      "conditions": "ED.6 owns finite coefficient/precision data, sound exhaustive root or disc coverage, simple-root uniqueness or its separately justified replacement, and matching or exclusion of every candidate against exact global points. Its review remains needs_changes. NC.6 supplies no root-isolation theorem, verifier or numerical replay and adds no reconstruction dependency to this algorithm.",
+      "snapshot": {
+        "sha256": "3faceaa4a24e8859577e4b00f8629999f2060c96dda09ebce42db8a0214b4e7c",
+        "status": "complete",
+        "coverage": "planned",
+        "reviewStatus": "needs_changes",
+        "reviewer": "independent-review-REV-EffectiveDiophantineMethods~3",
+        "reviewDate": "2026-10-08"
+      }
+    }
+  ],
+  "closureCheck": {
+    "agent": "Codex",
+    "session": "codex-lFtp5b",
+    "issue": 6347,
+    "date": "2026-10-11",
+    "inputCommit": "3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab",
+    "checker": "scripts/check_blueprint.py",
+    "checkerSha256": "75b2dfb8e323750c7098cc36ed32070f760c2216e9b7585cdfa91906bb30750b",
+    "acceptedDropFound": false,
+    "scanned": "research/blueprint/restructure/RS-*.result.json and the checker DROPPED_STAGES registry; no NC.6 drop. The same ownership screen checks all scoped NC packets and canonical atlas edges.",
+    "probes": [
+      {
+        "candidate": "current",
+        "status": "partial",
+        "coverage": "partial",
+        "errors": [],
+        "warnings": []
+      },
+      {
+        "candidate": "complete-with-open-scope",
+        "status": "complete",
+        "coverage": "partial",
+        "errors": [
+          "complete with 0 nodes, under the budget of 300, while stages are not planned: AnabelianGeometryAndNonabelianChabauty:NC.6"
+        ],
+        "warnings": []
+      },
+      {
+        "candidate": "complete-with-node-free-planned-scope",
+        "status": "complete",
+        "coverage": "planned",
+        "errors": [
+          "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: planned but no node realises it"
+        ],
+        "warnings": []
+      },
+      {
+        "candidate": "closed-without-accepted-drop",
+        "status": "closed",
+        "coverage": "closed",
+        "errors": [
+          "coverage AnabelianGeometryAndNonabelianChabauty:NC.6: closed but no node realises it"
+        ],
+        "warnings": []
+      }
+    ],
+    "interpretation": "Only the current partial checkpoint is valid. Do not change the checker, manufacture a process node, reuse another stage realisation as NC.6, or substitute source_decomposed coverage for an unaccepted removal.",
+    "releaseCondition": "An independent accepted RS result records layers[AnabelianGeometryAndNonabelianChabauty:NC.6].action = drop with the suppliers and graph treatment in restructure[0]. The maintainer routes and accepts that structural decision; this blueprint session cannot author its own acceptance.",
+    "afterAcceptance": "Once that accepted result is available to the checker, this packet can cite it, set its sole coverage to closed with remaining empty, remove the structural gap and set status closed. Atlas stage/edge removal is performed by authorized integration; it is not an additional #6347 deliverable or a prerequisite for recognizing the already accepted drop."
+  },
+  "continuationSourceChecks": [
+    {
+      "sourceId": "mochizuki-1996",
+      "locator": "Section 10, Theorems 10.1–10.2 and proof, printed pp.624–626",
+      "date": "2026-10-11",
+      "extent": "Fresh selected reading of the published source: pointed arithmetic extension version, outer geometric-action version, and descent argument; no new audit of NC.1 proof closure."
+    },
+    {
+      "sourceId": "kim-2009",
+      "locator": "Introduction, printed pp.89–96",
+      "date": "2026-10-11",
+      "extent": "Fresh selected reading of the section-conjecture boundary, finite-depth objects, local/global diagram, and the conditional implication following Conjecture 1; no new decomposition of NC.2–NC.5."
+    }
   ]
 }
