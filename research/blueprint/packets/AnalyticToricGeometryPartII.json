@@ -1,0 +1,2223 @@
+{
+  "roadmapId": "AnalyticToricGeometryPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "AnalyticToricGeometryPartII:NT.0",
+    "AnalyticToricGeometryPartII:NT.1",
+    "AnalyticToricGeometryPartII:NT.2",
+    "AnalyticToricGeometryPartII:NT.3",
+    "AnalyticToricGeometryPartII:NT.4",
+    "AnalyticToricGeometryPartII:NT.5",
+    "AnalyticToricGeometryPartII:NT.6"
+  ],
+  "status": "complete",
+  "summary": "A target-level design of integral divisor modules, unit toric formal generic fibres, perfectoid power towers, the five toric tilting/topos comparisons, prime-to-p torsion cohomology and dense-field hypersurface and complete-intersection approximation. All seven layers are planned, with exact imported supplier contracts and explicitly bounded prototype limitations. No implementation or supplier closure is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Principal.lean",
+        "provides": "The native order system and its principal divisors/linear equivalence for integral noetherian schemes; used only for the field toric fibres.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.Toric.Fan",
+        "kind": "structure",
+        "module": "TauCeti/Geometry/Toric/Algebraic/Fan/Basic.lean",
+        "provides": "Finite fans on the integral-lattice and pointed-cone carrier, with face and intersection axioms.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.Toric.IsToricCone",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Toric/Algebraic/Cone.lean",
+        "provides": "Rational polyhedral salient cones in an integral lattice.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.Toric.primitiveGenerator",
+        "kind": "def",
+        "module": "TauCeti/Geometry/Toric/Algebraic/Ray/Primitive.lean",
+        "provides": "The uniquely chosen primitive lattice generator of a rational toric ray, assuming the integral-lattice and toric-cone hypotheses.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
+        "provides": "Integer Finsupp divisors on codimension-one points; the generic carrier is imported.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.sheaf",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Sheaf.lean",
+        "provides": "Divisorial subsheaf of rational functions for an integral locally noetherian scheme; used only on normal field fibres, never on a general K° model.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "mathlib:AddMonoidAlgebra",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Additive monoid algebras as Finsupp coefficient functions with convolution multiplication.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      },
+      {
+        "ref": "mathlib:ZeroAtInftyContinuousMap",
+        "kind": "structure",
+        "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+        "provides": "Continuous functions vanishing at infinity; on the discrete weight set these give the native c₀ coefficient carrier.",
+        "checked": "Statement and hypotheses read in the pinned source tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "SCH12",
+      "title": "Perfectoid spaces",
+      "authors": "Peter Scholze",
+      "edition": "Published version, Publ. Math. IHÉS 116 (2012), 245–313",
+      "doi": "10.1007/s10240-012-0042-x",
+      "url": "https://www.numdam.org/article/PMIHES_2012__116__245_0.pdf",
+      "sha256": "7e7f7a3b6309ead9d8ee376106c92c644f25b22d75ffa6d7382508a36cf7814a",
+      "accessDate": "2026-10-11",
+      "readSections": [
+        "§1, Theorems 1.5, 1.13 and Lemma 1.16, pp. 247, 249–251",
+        "§5, Proposition 5.20, p. 280",
+        "§6, Lemma 6.5 and Remark 6.6, pp. 288–290",
+        "§7, Definition 7.14, Proposition 7.16, Theorem 7.17 and Corollaries 7.18–7.19, pp. 302–303",
+        "§8, Definitions 8.1–8.2, Theorem 8.3, Definition/Proposition 8.4, Theorem 8.5, Propositions 8.6–8.7 and Corollary 8.8, pp. 303–307"
+      ]
+    },
+    {
+      "id": "FS25",
+      "title": "On non-projective complete toric varieties",
+      "authors": "Osamu Fujino and Hiroshi Sato",
+      "edition": "Author version 0.27, dated 2025-07-12",
+      "url": "https://www.math.kyoto-u.ac.jp/~fujino/toric-projectivity11.pdf",
+      "sha256": "b5a280ea395c76ff32f7aae0a2c3857d3b73c94c61f924d2a638e05050014d4b",
+      "accessDate": "2026-10-11",
+      "readSections": [
+        "Example 4.1, pp. 7–8"
+      ]
+    },
+    {
+      "id": "FS94",
+      "title": "Intersection theory on toric varieties",
+      "authors": "William Fulton and Bernd Sturmfels",
+      "edition": "arXiv:alg-geom/9403002v1, 1 March 1994; preprint pagination",
+      "url": "https://arxiv.org/pdf/alg-geom/9403002v1",
+      "sha256": "24e90e348d8b9353b593b696eddf11798f64b3642cfd3472da1b4808b746f9d9",
+      "accessDate": "2026-10-11",
+      "readSections": [
+        "Proposition 1.1, p. 4; complete degree map, p. 5",
+        "Theorem 2.1, p. 6; Corollary 2.4, p. 7",
+        "Proposition 3.1, p. 10; Theorem 3.2, p. 11, proof pp. 12–13"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/invariant-divisor",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Invariant toric divisors",
+      "kind": "construction",
+      "statement": "On X_{Σ,k} over a field k, let D_i be the reduced closure of the codimension-one orbit in U_{ρ_i}=A¹×G_m^{rank N−1}. Construct the injective homomorphism from integer ray coefficients to the native scheme Weil divisors, a↦Σ a_iD_i, and identify its image with invariant divisors. Over an arbitrary ring A, use the same monomial orbit ideals and Cartier data when available, without asserting that X_{Σ,A} is normal or that these are prime Weil divisors.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i.",
+        "k is a field for the Weil-divisor interpretation."
+      ],
+      "proofSteps": [
+        "Import X_{Σ,A}, orbit ideals, torus action and base change from C0.",
+        "Use the primitive ray chart to identify its boundary coordinate; take its closure and codimension-one generic point.",
+        "Map ray Finsupp coefficients to the native SchemeWeilDivisor by the injective ray-point map; do not reconstruct the generic divisor carrier."
+      ],
+      "acceptance": [
+        "All ray identifications agree on overlaps; coefficients retain multiplicities."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "tauceti:TauCeti.Toric.primitiveGenerator",
+        "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.invariantDivisor"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Definition/Proposition 8.4, p. 304",
+          "match": "The ray boundary gives an invariant prime divisor over a field and the invariant divisor group is freely generated by these boundaries."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor",
+          "role": "constructor",
+          "statement": "Map a finitely supported integer ray coefficient function to the sum of the associated native point divisors."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_coeff",
+          "role": "simp",
+          "statement": "The coefficient at D_i is a_i, and at a codimension-one point outside the ray boundary it is zero."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_injective",
+          "role": "extensionality",
+          "statement": "Two invariant divisors agree exactly when their ray coefficients agree."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_principal",
+          "role": "compatibility",
+          "statement": "For u∈M the character divisor has coefficient <u,v_i> at ray i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_p1",
+          "kind": "computation",
+          "statement": "For the P¹ fan with rays +1 and −1, the character t has divisor D_+−D_−."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_torus",
+          "kind": "degenerate",
+          "statement": "For the zero-cone fan there are no boundary rays and the invariant divisor group is zero."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.invariantDivisor_multiplicity",
+          "kind": "non-example",
+          "statement": "On P¹, 2D_+ differs from D_+; the coefficient is 2, not a reduced support indicator."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.0 section formula and NT.5 hypersurface approximation",
+          "how": "Invariant coefficients transport line bundles across coefficient fields without choosing equations twice."
+        }
+      ],
+      "planet": {
+        "name": "Invariant toric divisors"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/section-weights",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Divisor character weights",
+      "kind": "definition",
+      "statement": "Define W_Σ(D)={u∈M : <u,v_i>≥−a_i for every ray i}. For a single cone σ impose only its rays, obtaining W_σ(D). Each local W_σ(D) is a module over its dual monoid P_σ=σ∨∩M under addition; no such action on the global weight set by an individual chart monoid is asserted. They need not contain zero and need not be monoids. Local Cartier data m_σ satisfy <m_σ,v_i>=−a_i on the rays of σ, so W_σ(D)=m_σ+P_σ.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i."
+      ],
+      "proofSteps": [
+        "Pair the dual lattice with each primitive ray; use finite conjunctions of integral inequalities.",
+        "On a regular cone extend its primitive rays to a lattice basis to construct m_σ.",
+        "Translate the inequalities by m_σ; keep the negative coefficient sign."
+      ],
+      "acceptance": [
+        "No effectivity or ampleness assumption is built into W_Σ(D)."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "AnalyticToricGeometryPartII:NT.0/invariant-divisor"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.sectionWeights"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Definition/Proposition 8.4 and the integral-trivialization paragraph in the proof of Proposition 8.7, pp. 304, 306",
+          "match": "The character section inequalities specify the weight set; character generators on regular cones give the integral local description."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights",
+          "role": "constructor",
+          "statement": "The subset of M cut out by all ray inequalities for D."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.mem_sectionWeights",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to <u,v_i>+a_i≥0 for every i."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights_principalShift",
+          "role": "compatibility",
+          "statement": "W(D+div χ^m)=W(D)−m."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights_add",
+          "role": "relation",
+          "statement": "u∈W(D) and w∈W(E) imply u+w∈W(D+E)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights_p1",
+          "kind": "computation",
+          "statement": "For P¹ and D=dD_−, W(D) is exactly the integers 0≤u≤d."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights_negative",
+          "kind": "non-example",
+          "statement": "For P¹ with D=−D_−, W(D) is empty."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.sectionWeights_torus",
+          "kind": "degenerate",
+          "statement": "For the zero-cone fan and D=0, W(D)=M, not {0}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.0 algebraic sections; NT.2 perfected sections and divisor cone",
+          "how": "The same inequalities index sections over A, K and K♭."
+        }
+      ],
+      "planet": {
+        "name": "Divisor character weights"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/divisor-sections",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Monomial divisor sections",
+      "kind": "construction",
+      "statement": "For every commutative ring A, define the A-module S_A(D)=⊕_{u∈W_Σ(D)} Aχ^u inside A[M]. On cone charts use S_{A,σ}(D) indexed by W_σ(D), with the dual-monoid action and face restrictions, and glue their associated modules. When D is Cartier these give O(D) on X_{Σ,A}; over a normal field fibre for an arbitrary invariant Weil divisor they agree with the native divisorial sheaf. Global sections identify with S_A(D). Multiplication maps S_A(D)⊗_A S_A(E)→S_A(D+E); they are not asserted isomorphisms.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i.",
+        "A is any commutative ring; Cartier is required for the line-bundle interpretation."
+      ],
+      "proofSteps": [
+        "Work in the native additive monoid algebra A[M], with Finsupp support in W(D).",
+        "Localize the character modules along the ordinary face maps supplied by C0.",
+        "Intersect the local character support conditions in A[M]; monomial independence gives exactly W_Σ(D), even for rings with nilpotents.",
+        "Identify the field-fibre module with the native Weil-divisor sheaf using the character orders along D_i."
+      ],
+      "acceptance": [
+        "Arbitrary coefficient change A→B gives B⊗_A S_A(D)≅S_B(D); singular charts do not silently make O(D) invertible."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/section-weights",
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "ShimuraCompactifications:C0/relative-face-open",
+        "mathlib:AddMonoidAlgebra",
+        "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.sheaf"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.divisorSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Definition/Proposition 8.4, p. 304; proof of Proposition 8.7, p. 306",
+          "match": "The field formula indexes characters by ray bounds; the proof uses the same toric modules over the valuation ring. The arbitrary-ring statement follows by monomial chart construction, rather than a generic Weil-divisor theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections",
+          "role": "constructor",
+          "statement": "The support-constrained A-submodule of A[M]."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_monomial",
+          "role": "constructor",
+          "statement": "For u∈W(D), χ^u is a basis element."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_coeff",
+          "role": "extensionality",
+          "statement": "Two sections agree iff all character coefficients agree."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_baseChange",
+          "role": "functoriality",
+          "statement": "Coefficient change acts on each monomial coefficient and satisfies identity and composition; it induces the tensor base-change isomorphism."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_mul",
+          "role": "structure",
+          "statement": "Convolution multiplication sends S_A(D)×S_A(E) to S_A(D+E), associatively and with the unit in S_A(0)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_p1",
+          "kind": "computation",
+          "statement": "For P¹ and d≥0 the sections of O(dD_−) are free on 1,t,…,t^d, of rank d+1."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_nilpotents",
+          "kind": "compatibility",
+          "statement": "For A=k[ε]/ε² and D=0 on P¹, S_A(0)=A, including its nonzero nilpotent ε."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorSections_zeroRing",
+          "kind": "degenerate",
+          "statement": "For the zero coefficient ring, every divisor section module is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.0 integral models and NT.5 denominator clearing",
+          "how": "Finite character expansions and arbitrary coefficient change turn a tilted finite-support expression into an algebraic section."
+        }
+      ],
+      "planet": {
+        "name": "Monomial divisor sections"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/invariant-representative",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Invariant divisor representatives",
+      "kind": "theorem",
+      "statement": "Every Weil divisor on X_{Σ,k} for a field k is linearly equivalent to an invariant divisor. In particular, on a regular fan every effective Cartier hypersurface Y has O(Y)≅O(D) for an integer invariant D and an equation f∈S_k(D) whose zero scheme is Y, with its original multiplicity.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "k is a field; regularity is required only to make all invariant divisors Cartier."
+      ],
+      "proofSteps": [
+        "Restrict the divisor to the dense split torus Spec k[M].",
+        "Choose a lattice basis: k[M] is a Laurent polynomial UFD, so the restricted divisor is principal.",
+        "Subtract that principal divisor. Its remaining support lies in the ray boundary, giving integer coefficients D.",
+        "Transport the defining section through the induced invertible-sheaf isomorphism; this does not replace the equation by its squarefree part."
+      ],
+      "acceptance": [
+        "The hypersurface x²=0 on an affine chart retains coefficient multiplicity two."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/invariant-divisor",
+        "AnalyticToricGeometryPartII:NT.0/divisor-sections",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.invariantDivisorRepresentative"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Definition/Proposition 8.4 and start of proof of Proposition 8.7, pp. 304, 306",
+          "match": "The invariant representative is recalled and then used to replace a hypersurface equation by a section in an invariant line bundle."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Invariant divisor representatives"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Integral toric line bundles",
+      "kind": "construction",
+      "statement": "For a regular fan and integer D, construct O(D) on X_{Σ,A} for every commutative ring A using local generators χ^{m_σ}, where <m_σ,v_i>=−a_i for rays in σ. On overlaps the ratio χ^{m_σ−m_τ} is a unit. Specialize A=K° and complete to obtain the tautological integral line bundle whose generic fibre is O(D). Changes of integral generator have valuation one at every generic-fibre point, since both the unit and its inverse are integral. The model, rather than the generic line bundle alone, fixes section bounds.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "K is a complete nontrivially valued rank-one nonarchimedean field; K° is its valuation ring and ϖ is a chosen pseudouniformizer."
+      ],
+      "proofSteps": [
+        "Use the regular-cone lattice basis to solve the Cartier equations.",
+        "Translate S_{A,σ}(D) by m_σ to a free rank-one A[P_σ]-module.",
+        "Use ordinary face localization to verify transition units and the triple-overlap cocycle.",
+        "Import admissible completion and generic-fibre functor from R2; use its section-valuation domains."
+      ],
+      "acceptance": [
+        "K° is not assumed noetherian or discretely valued."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/divisor-sections",
+        "AdicSpacesPartII:R2/admissible-formal-scheme",
+        "AdicSpacesPartII:R2/section-valuation-domain"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, proof of Proposition 8.7, p. 306",
+          "match": "The approximation proof evaluates a line-bundle section by choosing integral trivializations; their ratios have valuation one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel",
+          "role": "constructor",
+          "statement": "Build the character trivializations and their integral invertible sheaf for a Cartier divisor."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_generator",
+          "role": "data",
+          "statement": "On σ the generator has character weight m_σ satisfying the negative coefficient equations."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_transition",
+          "role": "relation",
+          "statement": "The overlap transition is χ^{m_σ−m_τ}; transition products telescope on triple overlaps."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_baseChange",
+          "role": "functoriality",
+          "statement": "The sheaf and character generators commute with arbitrary coefficient change."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_unitNorm",
+          "role": "compatibility",
+          "statement": "Integral change of frame preserves section valuation because the transition and its inverse are bounded by one."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_p1",
+          "kind": "computation",
+          "statement": "For O(dD_−) on P¹, the two chart generators have weights 0 and d; the transition is t^{−d} in the first-to-second convention."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_zero",
+          "kind": "degenerate",
+          "statement": "D=0 admits weight-zero generators and the trivial integral line bundle."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.cartierIntegralModel_rescale",
+          "kind": "non-example",
+          "statement": "Replacing a section f by cf scales its bound by |c|; the same radius gives the same locus for |c|=1, but this is false for arbitrary c∈K×."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.5 tube basis and hypersurface approximation",
+          "how": "Well-defined section inequalities are needed to transfer neighbourhoods across tilting."
+        }
+      ],
+      "planet": {
+        "name": "Integral toric line bundles"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.0/divisor-class-relations",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.0",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.0"
+      ],
+      "title": "Toric divisor class relations",
+      "kind": "theorem",
+      "statement": "For X_{Σ,k} over any field, the invariant-divisor map induces the presentation M→Z^{Σ(1)}→Cl(X_{Σ,k})→0, with the first map u↦(<u,v_i>)_i. An invariant divisor is principal exactly when its coefficient vector is the character-divisor vector of some u∈M. The first map need not be injective for an incomplete fan. Thus the presentation canonically identifies class groups across coefficient fields, using the same fan. For regular Σ it also identifies Pic with this class group. When Σ is complete and regular, a full-dimensional regular cone gives an identity minor for the character map; the quotient is free abelian, so no nonzero divisor class is killed by a positive integer.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i.",
+        "k is a field; regularity is required for Pic=Cl. Completeness and regularity are both required for the asserted free quotient."
+      ],
+      "proofSteps": [
+        "Use the invariant-representative theorem for surjectivity onto the class group.",
+        "If an invariant divisor equals div(f), then f has no torus zeros or poles. The Laurent polynomial UFD identifies f|_T as a unit aχ^u, so its ray coefficients equal <u,v_i>. The character divisor gives the converse.",
+        "The resulting integer presentation uses no coefficient-field data. For regular Σ every Weil divisor is Cartier; on a complete regular fan choose a full-dimensional cone whose primitive rays form a lattice basis, making the map split with free cokernel."
+      ],
+      "acceptance": [
+        "For P¹, Cl=Pic=Z with degree a_++a_−. A nonempty effective divisor has a nonzero class which stays nonzero over the tilted field and after multiplication by p^N.",
+        "An incomplete smooth fan need not have torsion-free Pic: the two separate rays (1,0),(1,2) in Z² give cokernel Z/2."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/invariant-representative",
+        "AnalyticToricGeometryPartII:NT.0/invariant-divisor",
+        "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Divisors",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.invariantDivisorClassRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Definition/Proposition 8.4 and its use in Proposition 8.7, pp. 304, 306",
+          "match": "The invariant representatives and character-divisor formula give the class presentation by the split-torus unit argument; Fulton–Sturmfels Corollary 2.4 recalls the corresponding Cartier/Picard presentation."
+        },
+        {
+          "sourceId": "FS94",
+          "locator": "Corollary 2.4 and proof, p. 7",
+          "match": "Cartier character data modulo principal characters present the Picard group. The native class-group presentation is obtained by the explicit torus-unit argument stated here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric divisor class relations"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.1",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.1"
+      ],
+      "title": "Unit toric adic spaces",
+      "kind": "construction",
+      "statement": "Define A_{Σ,K} as the generic fibre of the ϖ-adic completion of X_{Σ,K°}. For each cone σ its affinoid chart is Spa(K⟨P_σ⟩,K°⟨P_σ⟩), where P_σ=σ∨∩M and restricted sums use the coefficient supremum norm. A face τ⊂σ is the formal localization in a monomial χ^m, m∈P_σ∩τ⊥ exposing the face, and its generic-fibre chart is the rational unit locus |χ^m|=1. Glue these charts along the fan intersections. The plus subring is explicit and agrees with the integral closure of the model ring.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a complete nontrivially valued rank-one nonarchimedean field; K° is its valuation ring and ϖ is a chosen pseudouniformizer."
+      ],
+      "proofSteps": [
+        "Import arbitrary-ring fan gluing and the ordinary algebraic face maps from C0.",
+        "Complete the monoid chart K°[P_σ] ϖ-adically, then invert ϖ; Gordan finite generation supplies topological finite presentation.",
+        "Use R2 generic fibres of formal opens, which are completed localizations, to obtain rational unit overlaps.",
+        "Apply parent AdicSpaces gluing to the finite compatible affinoid cover."
+      ],
+      "acceptance": [
+        "Do not replace a formal face overlap by the entire analytification of D(χ^m)."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "ShimuraCompactifications:C0/relative-face-open",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "AdicSpacesPartII:R2/raynaud-generic-fibre",
+        "AdicSpacesPartII:R2/good-reduction-locus"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/FormalModel",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.unitToricSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, paragraph following Definition/Proposition 8.4, p. 304",
+          "match": "The adic toric object is built from completed semigroup charts as a formal generic fibre, with affine space giving the unit ball."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace",
+          "role": "constructor",
+          "statement": "The glued adic space A_{Σ,K}, with its structure and plus sheaves."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_chart",
+          "role": "projection",
+          "statement": "Each σ has its named open affinoid embedding, and these images cover A_{Σ,K}."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_face",
+          "role": "compatibility",
+          "statement": "The face embedding agrees with the rational unit localization of the monoid chart."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_baseChange",
+          "role": "functoriality",
+          "statement": "Complete valued-field extension gives the corresponding base change of A_{Σ,K}, preserving the chart cover and integral models."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_disc",
+          "kind": "computation",
+          "statement": "For the positive ray fan in Z, A_{Σ,K}=Spa(K⟨t⟩,K°⟨t⟩), the closed unit disc."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_unitTorus",
+          "kind": "non-example",
+          "statement": "For the zero-cone fan in Z, A_{Σ,K}=Spa(K⟨t,t⁻¹⟩,K°⟨t,t⁻¹⟩) and |t|=1; it is not the full analytification of G_m."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.unitToricSpace_p1",
+          "kind": "compatibility",
+          "statement": "For the complete P¹ fan, the two unit discs glued along |t|=1 give the whole P¹ analytification."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.2 perfected chart tower and NT.3 comparison",
+          "how": "This is the finite-level object in the φ-tower; incomplete fans require the integral unit space."
+        }
+      ],
+      "planet": {
+        "name": "Unit toric adic spaces"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.1/analytification-comparison",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.1",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.1"
+      ],
+      "title": "Toric analytification comparison",
+      "kind": "theorem",
+      "statement": "The model comparison is an open embedding A_{Σ,K}→(X_{Σ,K})^{an}; its image consists of points whose valued residue-field morphism extends to X_{Σ,K°}. If Σ is complete, X_{Σ,K°} is proper over K° and this map is an isomorphism. Regularity and projectivity are unnecessary. For incomplete fans no equality with analytification is asserted.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a complete nontrivially valued rank-one nonarchimedean field; K° is its valuation ring and ϖ is a chosen pseudouniformizer."
+      ],
+      "proofSteps": [
+        "Apply R2 good-reduction-locus to the imported finite-type separated toric model.",
+        "Use the complete-fan valuative properness criterion for X_{Σ,K°} supplied by C0.",
+        "Properness gives all valued points an integral extension, hence surjectivity of the comparison."
+      ],
+      "acceptance": [
+        "The smooth complete nonprojective threefold of Fujino–Sato Example 4.1 satisfies this comparison.",
+        "A classical point t=ϖ⁻¹ of A¹ lies in analytification and outside the unit disc."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+        "AdicSpacesPartII:R2/good-reduction-locus",
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "ShimuraCompactifications:C0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/FormalModel",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricAnalytificationComparison"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, formal-generic-fibre paragraph, p. 304",
+          "match": "The source identifies the formal-model generic fibre with analytification when the toric scheme is proper."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Example 4.1, pp. 7–8",
+          "match": "The displayed finite fan gives a smooth complete nonprojective threefold, a concrete test that these targets do not require projectivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric analytification comparison"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.1/power-map",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.1",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.1"
+      ],
+      "title": "Toric power morphisms",
+      "kind": "construction",
+      "statement": "For every integer q≥1, multiplication by q on M preserves each P_σ, gives χ^u↦χ^{qu}, and glues to an endomorphism φ_q of X_{Σ,A}, its formal model and A_{Σ,K}. It commutes with coefficient change and preserves every toric stratum. Put φ=φ_p. In characteristic p this is relative Frobenius on characters with coefficients fixed; absolute Frobenius additionally acts on coefficients.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier."
+      ],
+      "proofSteps": [
+        "Apply the native monoid-algebra map to u↦qu; retain fixed coefficients.",
+        "Check compatibility with face localization and completion.",
+        "Glue the compatible chart maps and specialize q=p."
+      ],
+      "acceptance": [
+        "The tower uses φ_p, rather than a coefficient-changing absolute Frobenius over K."
+      ],
+      "prerequisites": [
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "ShimuraCompactifications:C0/relative-face-open",
+        "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+        "mathlib:AddMonoidAlgebra"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/FormalModel",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricPowerMap"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, paragraph immediately preceding Theorem 8.5, p. 304",
+          "match": "Multiplication by p on the character lattice gives the common transition morphism of all toric constructions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap",
+          "role": "constructor",
+          "statement": "The coefficient-linear endomorphism φ_q on a toric chart, glued to the toric model."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_monomial",
+          "role": "simp",
+          "statement": "φ_q*χ^u=χ^{qu} and φ_q*a=a."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_comp",
+          "role": "functoriality",
+          "statement": "φ_1=id and φ_q∘φ_r=φ_{qr}."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_divisor",
+          "role": "compatibility",
+          "statement": "φ_q*D=qD for invariant Cartier D; section weights multiply by q."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_p1",
+          "kind": "computation",
+          "statement": "On P¹, φ_p sends [x₀:x₁] to [x₀^p:x₁^p], preserving zero and infinity."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_identity",
+          "kind": "degenerate",
+          "statement": "q=1 fixes every monomial and coefficient."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricPowerMap_coefficients",
+          "kind": "non-example",
+          "statement": "In characteristic p the coefficient-linear map fixes every a∈K; it does not send arbitrary a to a^p."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.3 inverse limits; NT.4 cohomology; NT.5 clearing denominators",
+          "how": "The same lattice power map controls the tower and rescales divisor classes."
+        }
+      ],
+      "planet": {
+        "name": "Toric power morphisms"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.2",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.2"
+      ],
+      "title": "Perfectoid toric spaces",
+      "kind": "construction",
+      "statement": "Let P_σ[1/p] be the additive submonoid of M[1/p] consisting of u/p^n with u∈P_σ. Construct B_{σ,K}=K⟨P_σ[1/p]⟩ with plus ring K°⟨P_σ[1/p]⟩ and glue their Spa spectra by the perfected unit face localizations, obtaining T_{Σ,K}. Each chart is perfectoid, and the glued space is perfectoid. Supply compatible maps pr_n:T_{Σ,K}→A_{Σ,K}, characterized by χ^u↦χ^{u/p^n}. No regularity or completeness is required.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Use the P2 perfected-cone-algebra request, specialized to σ∨, for the Banach algebra, its plus ring, perfectoidness and monomial-compatible tilt.",
+        "Perfect the face maps and use P2 rational localization and gluing.",
+        "At each level the monomial embedding is u↦u/p^n, so φ∘pr_{n+1}=pr_n."
+      ],
+      "acceptance": [
+        "The zero cone produces a perfected unit torus, retaining invertible characters."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+        "AnalyticToricGeometryPartII:NT.1/power-map",
+        "PerfectoidSpaces:P2",
+        "PerfectoidSpaces:P2/rational-localization-of-perfectoid-affinoids",
+        "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Perfection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, perfectoid-chart paragraph before Theorem 8.5, p. 304; Proposition 5.20, p. 280",
+          "match": "The perfected toric charts are asserted perfectoid by the same integral-completion/Frobenius calculation as the perfected polydisc."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace",
+          "role": "constructor",
+          "statement": "Glue the perfected chart spectra to T_{Σ,K}."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_chart",
+          "role": "projection",
+          "statement": "Its cone charts are the named perfected monoid spectra, with unit face overlaps."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_projection",
+          "role": "projection",
+          "statement": "pr_n on a chart pulls χ^u back to χ^{u/p^n}; φ∘pr_{n+1}=pr_n."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_baseChange",
+          "role": "functoriality",
+          "statement": "Perfectoid valued-field extension and fan-compatible maps commute with the chart construction and projections."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_disc",
+          "kind": "computation",
+          "statement": "For the positive ray, the chart algebra is K⟨t^{1/p^∞}⟩ with the usual Gauss plus ring."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_torus",
+          "kind": "non-example",
+          "statement": "For the zero cone in Z, the algebra contains both t^{1/p^n} and their inverses; it is not the perfected disc algebra."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectoidToricSpace_rankZero",
+          "kind": "degenerate",
+          "statement": "For the rank-zero nonempty fan the space is Spa(K,K°) and every projection is the identity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.2 line bundles; NT.3 all comparisons",
+          "how": "Perfectoid charts are the common intermediate object linking K and K♭."
+        }
+      ],
+      "planet": {
+        "name": "Perfectoid toric spaces"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.2/perfected-divisor-sections",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.2",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.2"
+      ],
+      "title": "Perfected divisor sections",
+      "kind": "construction",
+      "statement": "For D=Σ a_iD_i with a_i∈Z[1/p], define W^p_Σ(D)={u∈M[1/p]:<u,v_i>≥−a_i}. Localize the character modules indexed by these sets and complete in the coefficient supremum norm; this defines the toric divisorial sheaf O_T(D) on T_{Σ,K}. Its global sections are c₀(W^p_Σ(D),K): coefficient families with only finitely many coefficients of norm ≥ε for every ε>0. For regular Σ these are line bundles with perfected character frames. General fans retain divisorial modules; no unsupported invertibility on singular cones is asserted.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i.",
+        "Coefficients may have p-power denominators; regularity is required for all O_T(D) to be invertible."
+      ],
+      "proofSteps": [
+        "Extend the ray inequalities to M[1/p].",
+        "Identify finite-level character modules and clear a common p-power denominator to descend integral D.",
+        "Complete the monomial span; finite support is dense, and compatible chart coefficients satisfy exactly the global ray bounds.",
+        "On regular cones translate by the local perfected Cartier character and glue the resulting rank-one modules."
+      ],
+      "acceptance": [
+        "Use c₀, not the unrestricted product K^{W^p(D)}."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/section-weights",
+        "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+        "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+        "mathlib:ZeroAtInftyContinuousMap"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Perfection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, perfectoid divisor paragraph before Theorem 8.5, p. 304; proof of Proposition 8.7, p. 306",
+          "match": "The sheaf and its global sections are described as the Banach-completed character span for p-localized divisor coefficients."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections",
+          "role": "constructor",
+          "statement": "The Banach coefficient module c₀(W^p(D),K), with its chartwise divisorial-sheaf interpretation."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_coeff",
+          "role": "extensionality",
+          "statement": "Equality is coefficientwise and the norm is the supremum of coefficient norms."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_dense",
+          "role": "universal-property",
+          "statement": "The finite-support monomial span is dense and its bounded maps uniquely extend to the completion."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_mul",
+          "role": "structure",
+          "statement": "Convolution gives a bounded product Ŝ(D)×Ŝ(E)→Ŝ(D+E)."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_descent",
+          "role": "compatibility",
+          "statement": "Finite-support sections with common denominator p^n become algebraic sections after the characteristic-p p^n power, in O(p^nD)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_p1",
+          "kind": "computation",
+          "statement": "For P¹ and D=D_−, the coefficient index is Z[1/p]∩[0,1], which includes every 1/p^n."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_zero",
+          "kind": "degenerate",
+          "statement": "For a complete fan and D=0 the module is K, since only the zero weight is allowed."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.perfectedDivisorSections_constantFamily",
+          "kind": "non-example",
+          "statement": "For P¹ and D=D_−, the family with coefficient 1 at every admissible weight is not a section: it fails the c₀ condition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.2 graded divisor algebra and NT.5 dense-field perturbation",
+          "how": "Banach sections can be truncated to finitely many characters before clearing denominators."
+        }
+      ],
+      "planet": {
+        "name": "Perfected divisor sections"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.2/divisor-cone",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.2",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.2"
+      ],
+      "title": "Graded divisor cones",
+      "kind": "definition",
+      "statement": "Define the rational polyhedral cone C_D={(u,j)∈M_R×R : <u,v_i>+j a_i≥0 for all rays i}, for integer invariant D. Let Q_D=C_D∩(M[1/p]×Z[1/p]), an additive monoid, graded by (u,j)↦j. Its degree-j fibre is W^p_Σ(jD). If Σ is complete, Q_D in degree zero consists solely of (0,0). Negative degrees remain part of the definition; when D is effective their nonzero fibres can vanish, but no positive-degree truncation is silently substituted.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i."
+      ],
+      "proofSteps": [
+        "Use the simultaneous homogeneous linear inequalities in M_R×R.",
+        "Check addition, p-divisibility and the grading.",
+        "For complete Σ, the rays generate N_R as a cone; a linear functional nonnegative on every cone and its opposite is zero."
+      ],
+      "acceptance": [
+        "Degree zero equals K only after imposing completeness; this hypothesis is needed by the homogeneous P2 approximation request."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/section-weights",
+        "AnalyticToricGeometryPartII:NT.2/perfected-divisor-sections",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Perfection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.divisorCone"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, graded ring in the proof of Proposition 8.7, p. 306",
+          "match": "The section inequalities in degree j assemble into one perfected rational cone monoid, making the claimed graded completion precise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone",
+          "role": "constructor",
+          "statement": "The homogeneous ray-inequality cone C_D and its perfected lattice monoid Q_D."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_grade",
+          "role": "projection",
+          "statement": "The grading sends (u,j) to j and its fibre is the weight set of jD."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_add",
+          "role": "structure",
+          "statement": "Q_D is closed under addition and division by p."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_principal",
+          "role": "compatibility",
+          "statement": "For D′=D+div χ^m, (u,j)↦(u−jm,j) identifies Q_D with Q_D′ and preserves degrees."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_p1",
+          "kind": "computation",
+          "statement": "For P¹ and D=D_−, Q_D consists of p-local rational pairs with 0≤u≤j."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_zeroDivisor",
+          "kind": "degenerate",
+          "statement": "For a complete fan and D=0, Q_D={0}×Z[1/p], with negative degrees present."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.divisorCone_incompleteDegreeZero",
+          "kind": "non-example",
+          "statement": "For the positive-ray fan and D=0, degree zero contains every nonnegative p-local weight, so its completed algebra is not K."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.2 graded-algebra identification and NT.5 homogeneous approximation",
+          "how": "It identifies the exact cone and linear grading to pass to the P2 supplier."
+        }
+      ],
+      "planet": {
+        "name": "Graded divisor cones"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.2/graded-divisor-algebra",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.2",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.2"
+      ],
+      "title": "Graded divisor algebras",
+      "kind": "construction",
+      "statement": "For integer D define R_D to be the coefficient-Gauss completion of the algebraic direct sum over j∈Z[1/p] of H⁰(T_{Σ,K},O_T(jD)); use convolution products and the integral coefficient lattice. Identify it isometrically with the P2 completed monoid algebra K⟨Q_D⟩, with homogeneous degree-j subspace c₀(W^p(jD),K). Thus R_D is perfectoid and R_D♭≅K♭⟨Q_D⟩, monomial compatibly. The completed grading is a c₀ direct sum, not a product, and sharp preserves homogeneous degrees but is not additive. When Σ is complete R_D has degree-zero part K and satisfies the exact hypotheses of the P2 homogeneous approximation request.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "The distinct rays ρ_i of Σ have primitive generators v_i; D=Σ_i a_i D_i uses the sign convention div(χ^u)=Σ_i <u,v_i>D_i."
+      ],
+      "proofSteps": [
+        "Send the degree-j monomial χ^u to the monomial χ^{(u,j)} of Q_D.",
+        "Check products and the integral coefficient lattices; complete the isometric monomial identification.",
+        "Import perfected-cone perfectoidness/tilt from P2, rather than reproduce its Frobenius proof.",
+        "For complete Σ use the divisor-cone degree-zero calculation and import P2 homogeneous approximation; the toric application is NT.5."
+      ],
+      "acceptance": [
+        "No arbitrary completion topology or ordinary Proj construction replaces the Gauss completion."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.2/divisor-cone",
+        "AnalyticToricGeometryPartII:NT.2/perfected-divisor-sections",
+        "PerfectoidSpaces:P2"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Perfection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, proof of Proposition 8.7, p. 306; Proposition 5.20, p. 280; Lemma 6.5 and Remark 6.6, pp. 288–290",
+          "match": "The proof uses this completion and its tilted homogeneous approximation. The cone formulation fixes its coefficient norm and grading while leaving the general approximation induction with P2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra",
+          "role": "constructor",
+          "statement": "The P2 completed cone algebra indexed by Q_D, identified with the completed graded section sum."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_homogeneous",
+          "role": "characterisation",
+          "statement": "Degree-j elements have coefficients only at Q_D weights of grading j."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_section",
+          "role": "compatibility",
+          "statement": "The degree-j piece is isometrically Ŝ(jD), and products add degrees."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_tilt",
+          "role": "equivalence",
+          "statement": "The tilt has the same perfected monomial cone over K♭, with sharp preserving a homogeneous degree."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_degreeZero",
+          "role": "characterisation",
+          "statement": "For complete Σ the degree-zero piece is exactly K."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_p1",
+          "kind": "computation",
+          "statement": "For P¹ with D=D_−, Q_D is the perfected two-generator cone under (u,j)↦(u,j−u), so R_D is K⟨s^{1/p^∞},t^{1/p^∞}⟩ graded by total degree."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_zeroDivisor",
+          "kind": "degenerate",
+          "statement": "For D=0 on a complete fan, R_D=K⟨z^{±1/p^∞}⟩, not K; only its degree-zero piece is K."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.gradedDivisorAlgebra_product",
+          "kind": "non-example",
+          "statement": "A coefficient-one family in infinitely many different degrees is excluded by the outer c₀ condition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.5 hypersurface approximation",
+          "how": "Approximate an integral homogeneous degree-one equation without changing its divisor class."
+        }
+      ],
+      "planet": {
+        "name": "Graded divisor algebras"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/tilting",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Toric tilting comparison",
+      "kind": "theorem",
+      "statement": "For every Σ, T_{Σ,K}♭≅T_{Σ,K♭}, preserving cone charts, plus rings, perfected characters and p-local divisor models. On a chart the tilted algebra is K♭⟨P_σ[1/p]⟩. This is an isomorphism of perfectoid spaces; it does not identify the unperfected K and K♭ toric spaces as ringed spaces.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Apply the P2 cone tilt and monomial correspondence chartwise.",
+        "Use compatibility with rational unit face localization, then glue by the common fan cocycle."
+      ],
+      "acceptance": [
+        "For the positive ray this is the usual perfected-disc tilt."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+        "PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting",
+        "PerfectoidSpaces:P2"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricTiltingComparison"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Theorem 8.5(i) and proof, pp. 304–305",
+          "match": "The source proves the comparison affinoid-locally by the perfected-monomial tilting calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric tilting comparison"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/tilde-limit",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Toric perfectoid tilde-limits",
+      "kind": "theorem",
+      "statement": "The compatible projections give T_{Σ,K} ~ lim_{φ_p} A_{Σ,K}. Here ~ is the P7 perfectoid tilde-limit, with both the homeomorphism of underlying spaces and dense finite-level functions on an affinoid cover. On cone charts the completed colimit of K⟨P_σ⟩ under u↦pu is K⟨P_σ[1/p]⟩. This is not a claim of a categorical inverse limit in all adic spaces.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Use the shared pseudouniformizer and coefficient-Gauss integral lattices in the P7 completed-colimit theorem.",
+        "Identify the algebraic colimit by u at level n↦u/p^n; its image is dense in the perfected chart.",
+        "Apply the P7 gluing theorem to the stable finite toric cover."
+      ],
+      "acceptance": [
+        "Check both the topological and density conditions, including for the rank-zero fan."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+        "AnalyticToricGeometryPartII:NT.1/power-map",
+        "PerfectoidSpaces:P7/tilde-limit-from-completed-colimit",
+        "PerfectoidSpaces:P7/tilde-limit-gluing"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricTildeLimit"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Theorem 8.5(ii) and proof, p. 305; Definition 7.14 and Theorem 7.17, p. 302",
+          "match": "The perfected toric charts are the completed power-tower colimits. The stronger chart-dense tilde-limit supplies the source residue-field comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric perfectoid tilde-limits"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/topological-limit",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Toric inverse-limit homeomorphism",
+      "kind": "theorem",
+      "statement": "There is a canonical homeomorphism |A_{Σ,K♭}|≅lim_{φ_p}|A_{Σ,K}|, where the right side is the inverse limit of topological spaces. Use the characteristic-p perfection homeomorphism |T_{Σ,K♭}|≅|A_{Σ,K♭}|, the perfectoid tilting homeomorphism and the K tilde-limit. All cone restrictions and toric strata correspond.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "In characteristic p φ_p has purely inseparable residue extensions and is a universal homeomorphism on each toric chart.",
+        "Apply P7 perfection-tilde-limit and tilting preservation of underlying spaces.",
+        "Compose with the K tilde-limit homeomorphism and glue."
+      ],
+      "acceptance": [
+        "For projective space it sends a tilted point to its compatible p-power-root sequence."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.3/tilting",
+        "AnalyticToricGeometryPartII:NT.3/tilde-limit",
+        "PerfectoidSpaces:P7/perfection-tilde-limit"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricTopologicalLimit"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Theorem 8.5(iii) and proof, p. 305",
+          "match": "The comparison combines characteristic-p perfection with the same topological space under perfectoid tilting."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric inverse-limit homeomorphism"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/projection",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Toric tilting projections",
+      "kind": "construction",
+      "statement": "Define π:|A_{Σ,K♭}|→|A_{Σ,K}| by the preceding homeomorphism followed by level-zero projection. On classical projective coordinates π([x₀:…:x_n])=[x₀♯:…:x_n♯]. On a monomial chart, evaluation of χ^u after π agrees with sharp applied to its perfected-character lift. π is continuous, surjective and compatible with the toric cover and strata. It comes with a morphism of étale topoi from the following comparison. No morphism of K/K♭ locally ringed spaces or additive sharp map is asserted.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Compose the explicitly named topological comparison with evaluation at level zero.",
+        "Surjectivity follows from characteristic-p perfection and existence of compatible tower lifts chartwise.",
+        "For projective coordinates use multiplicativity of sharp to verify independence of the common nonzero scalar."
+      ],
+      "acceptance": [
+        "Additivity of sharp is never required."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.3/topological-limit"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricProjection"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, sentence following Theorem 8.5, p. 305; §1, discussion after Theorem 1.13, pp. 249–250",
+          "match": "The source introduces π on topological spaces and étale topoi; the coordinate sharp formula is homogeneous because sharp is multiplicative."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection",
+          "role": "constructor",
+          "statement": "The level-zero continuous projection from the tilted unit toric space."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_coordinates",
+          "role": "simp",
+          "statement": "On P^n classical points it is given by homogeneous coordinate sharp."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_power",
+          "role": "compatibility",
+          "statement": "π∘φ_p=φ_p∘π on underlying spaces."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_strata",
+          "role": "compatibility",
+          "statement": "The inverse image of each toric stratum is the corresponding tilted stratum."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_preimage",
+          "role": "projection",
+          "statement": "For every open U the set V=π⁻¹(U) is open and carries the restricted topological map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_p1",
+          "kind": "computation",
+          "statement": "π fixes the zero and infinity strata of P¹ and maps t to t♯ on tilted classical affine points."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_scaling",
+          "kind": "compatibility",
+          "statement": "Multiplying all projective coordinates by λ multiplies their sharp images by λ♯, so the projective point is unchanged."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricProjection_line",
+          "kind": "non-example",
+          "statement": "For the line x₀+x₁+x₂=0 in P², its π-preimage is modeled topologically by the tower of equations x₀^{p^n}+x₁^{p^n}+x₂^{p^n}=0. It is not obtained by the algebraic line x₀+x₁+x₂=0 over K♭; sharp does not preserve sums."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.5 neighbourhood pullback; NT.4 cohomology; DeligneWeightsAndPurityPartII and MotivesAndAlgebraicCyclesPartII",
+          "how": "The projection transfers open tubes and, through the site comparison, cohomology."
+        }
+      ],
+      "planet": {
+        "name": "Toric tilting projections"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/etale-topos",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Toric étale topos comparison",
+      "kind": "theorem",
+      "statement": "The étale topos of A_{Σ,K♭} is the projective limit of the fibred diagram of étale topoi of A_{Σ,K} under φ_p, with its level projections. Construct this as an equivalence with the sheaves on the finite-stage colimit étale site, not a pointwise limit of categories. The associated level-zero geometric morphism has underlying continuous map π. It respects finite étale objects, covering families and constant torsion coefficients.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Convert the chart-dense tilde-limit to the residue-field tilde-limit using P7.",
+        "Use P7 étale-topos comparison for the qcqs locally noetherian finite-level unit toric spaces.",
+        "Identify the K♭ tower with its level-zero étale topos by inseparable-tower invariance, then use P3 site tilting."
+      ],
+      "acceptance": [
+        "For the P^n fan this is Theorem 1.13; unperfected tilted spaces are not assumed perfectoid."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.3/tilde-limit",
+        "AnalyticToricGeometryPartII:NT.3/tilting",
+        "AnalyticToricGeometryPartII:NT.3/projection",
+        "PerfectoidSpaces:P7/tilde-limit-implies-residue-field-tilde-limit",
+        "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+        "PerfectoidSpaces:P7/etale-topos-invariance-under-inseparable-towers",
+        "PerfectoidSpaces:P3/etale-site-tilting-equivalence",
+        "AdicEtaleGeometry:A1/etale-site"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricEtaleComparison"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Theorem 8.5(iv), p. 305; Theorem 7.17 and Corollary 7.19, pp. 302–303",
+          "match": "The projective-limit topos comes from finite-stage étale descent and characteristic-p inseparable invariance."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric étale topos comparison"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/open-topos",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Open toric topos restrictions",
+      "kind": "theorem",
+      "statement": "For every open U⊂A_{Σ,K}, put V=π⁻¹(U)⊂A_{Σ,K♭}. There is a geometric morphism Sh(V_ét)→Sh(U_ét), and its square with the inclusions in the two global étale topoi commutes up to the canonical natural isomorphism. It is obtained by restricting the tower to φ_p^{-n}(U). U need not be φ-stable or quasicompact; arbitrary opens are covered by rational finite-stage opens.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "U is any open subset of the unit toric space."
+      ],
+      "proofSteps": [
+        "Use P7 tilde-limit rational restriction and étale base change at each finite level.",
+        "Tilt the restricted perfectoid opens using P2 open-subspace compatibility.",
+        "Apply site descent on a rational cover to remove quasicompactness; the canonical isomorphisms give the commuting topos square."
+      ],
+      "acceptance": [
+        "Take U to be a small neighbourhood of an algebraic hypersurface; U is not required to be invariant under φ."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.3/etale-topos",
+        "PerfectoidSpaces:P7/tilde-limit-rational-restriction",
+        "PerfectoidSpaces:P7/tilde-limit-base-change",
+        "PerfectoidSpaces:P2/open-subspaces-of-perfectoid-spaces"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricOpenTopos"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Theorem 8.5(v), p. 305; Proposition 7.16, p. 302",
+          "match": "The étale comparison restricts to inverse images of arbitrary open subsets through étale base change."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Open toric topos restrictions"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.3/affine-line",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.3",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.3"
+      ],
+      "title": "Affine-line sharp comparison",
+      "kind": "application",
+      "statement": "Theorem 1.5 concerns full analytification: |(A¹_{K♭})^{an}|≅lim_{t↦t^p}|(A¹_K)^{an}|. Derive it by applying the complete P¹ comparison and restricting to the complement of infinity, which φ preserves and whose π-preimage is the corresponding complement. Its level-zero projection is sharp on classical affine points. The unit-disc version is only the positive-ray instance of Theorem 8.5 and is distinguished explicitly.",
+      "hypotheses": [
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°."
+      ],
+      "proofSteps": [
+        "Apply the complete-fan analytification comparison to P¹.",
+        "Use φ^{-1}(∞)={∞} and the matching tilted stratum under π.",
+        "Restrict the global inverse-limit homeomorphism to the compatible open complements; equivalently all tower coordinates avoid infinity."
+      ],
+      "acceptance": [
+        "The point t=ϖ⁻¹ is admitted by the affine-line statement although it is excluded from the unit-disc statement."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.1/analytification-comparison",
+        "AnalyticToricGeometryPartII:NT.3/topological-limit",
+        "AnalyticToricGeometryPartII:NT.3/open-topos",
+        "AnalyticToricGeometryPartII:NT.3/projection"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Comparison",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.affineLineSharpComparison"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§1, Theorem 1.5, p. 247; §8, Theorem 8.5(iii),(v), p. 305",
+          "match": "The introduction states the affine-line homeomorphism; the complete P¹ fan and invariant complement recover its full analytic domain."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.4/power-cohomology",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.4",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.4"
+      ],
+      "title": "Power-map cohomology invariance",
+      "kind": "theorem",
+      "statement": "Let Σ be complete and regular, K algebraically closed perfectoid of residue characteristic p, ℓ≠p prime and m≥1. For every i≥0, φ_p* is an automorphism of H^i((X_{Σ,K})^{an}_ét,Z/ℓ^m). Compare with the geometric special fibre of the common smooth proper K° toric scheme, where φ_p is a relative Frobenius and hence a universal homeomorphism. Invertibility is asserted, not identity: on H²(P¹,Z/ℓ^m(1)), it is multiplication by p.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ is complete; K is algebraically closed; ℓ is a prime different from p, m≥1."
+      ],
+      "proofSteps": [
+        "Use H5 proper algebraic/analytic cohomology comparison.",
+        "Apply SF.2 smooth proper base change over the rank-one valuation ring K° with invertible torsion, compatibly with φ_p.",
+        "In characteristic p the monomial power map is a universal homeomorphism (absolute Frobenius after the coefficient twist); use SF.2 topological invariance of the étale site.",
+        "Transport the automorphism back to the analytic generic fibre."
+      ],
+      "acceptance": [
+        "The P¹ top-degree action distinguishes an automorphism from the identity; ℓ=p is excluded."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.1/power-map",
+        "AnalyticToricGeometryPartII:NT.1/analytification-comparison",
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "ShimuraCompactifications:C0",
+        "ClassicalAdicEtaleCohomology:H5",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Cohomology",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricPowerCohomology"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Proposition 8.6 and proof, pp. 305–306",
+          "match": "The source reduces power-map invertibility on torsion cohomology to the purely inseparable special-fibre map by proper base change."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Power-map cohomology invariance"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.4/projection-cohomology",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.4",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.4"
+      ],
+      "title": "Toric torsion cohomology comparison",
+      "kind": "theorem",
+      "statement": "Under the preceding hypotheses, the level-zero geometric morphism associated with π induces π*:H^i((X_{Σ,K})^{an}_ét,Z/ℓ^m)≅H^i((X_{Σ,K♭})^{an}_ét,Z/ℓ^m) for every i≥0. It is natural under the named toric maps and compatible with cup products and constant-coefficient pullback. Negative cohomological degrees vanish. No Z_ℓ comparison is asserted without a separate inverse-limit argument.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ complete; K algebraically closed; ℓ≠p prime; m≥1."
+      ],
+      "proofSteps": [
+        "Use P7 cohomological continuity with constant torsion on the finite-stage tower.",
+        "Identify the tilted topos with the tower-limit topos from NT.3.",
+        "All φ_p* transitions are isomorphisms by the preceding node, so the map from level zero to their filtered colimit is an isomorphism.",
+        "Cup compatibility is functoriality of inverse image of sheaves and derived cohomology, imported from H0."
+      ],
+      "acceptance": [
+        "For P¹, H⁰ and H² are identified and H¹=0; no mixed-characteristic ringed-space morphism is used."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.4/power-cohomology",
+        "AnalyticToricGeometryPartII:NT.3/etale-topos",
+        "PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison",
+        "ClassicalAdicEtaleCohomology:H0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Cohomology",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricProjectionCohomology"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Proposition 8.6, pp. 305–306",
+          "match": "The projection comparison is the torsion-cohomology consequence of the topos limit and invertible power transitions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric torsion cohomology comparison"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.5/tube-neighbourhoods",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.5",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.5"
+      ],
+      "title": "Toric section neighbourhoods",
+      "kind": "theorem",
+      "statement": "Let Σ be complete and regular and let f₁,…,f_s be finitely many nonzero sections of invariant integral Cartier models O(D₁),…,O(D_s), with nonempty common zero locus Y. Normalize each section into its tautological integral lattice by a scalar and fix those normalizations. For every open neighbourhood U of Y^{an}, some rational c>0 makes the common section domain N_c(f₁,…,f_s)=∩_i{x:|f_i(x)|≤|ϖ(x)|^c} lie in U. It contains Y^{an} and is a quasicompact open. The s=1 case is the hypersurface neighbourhood used in Proposition 8.7. For a fractional c=a/b use |f_i|^b≤|ϖ|^a; higher-rank points use their ordered valuation groups, not an imposed real-valued point norm. The domains are independent of integral frames, but depend on the chosen section scale and integral model.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a complete nontrivially valued rank-one nonarchimedean field; K° is its valuation ring and ϖ is a chosen pseudouniformizer.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ complete; the family is finite and each f_i defines an effective Cartier hypersurface; U contains the full common adic zero locus."
+      ],
+      "proofSteps": [
+        "Import R2 section-valuation domains on the completed tautological line bundle.",
+        "Use finitely many integral toric charts and rational localization to express the zero-locus neighbourhoods.",
+        "Each rational section domain is closed in the compact constructible topology, while the complement of U in X^{an} is constructibly closed and compact. Continuity of the point valuations makes the intersection over c of the common domains exactly Y^{an}. The finite intersection property on the complement of U in X^{an} gives one common c for which the domain avoids that complement.",
+        "For f^r, compare |f^r|≤|ϖ|^{rc}; unchanged reduced zero locus does not imply unchanged radius."
+      ],
+      "acceptance": [
+        "Rescaling by c∈K× scales the threshold; a nonreduced equation f^r uses threshold exponent multiplied by r."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+        "AnalyticToricGeometryPartII:NT.1/analytification-comparison",
+        "AdicSpacesPartII:R2/section-valuation-domain"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Hypersurface",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricSectionNeighbourhoods"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, proof of Proposition 8.7, p. 306; proof of Corollary 8.8, p. 307",
+          "match": "The proof replaces a small neighbourhood by a bound on an integral line-bundle equation. This node spells out frame independence, cofinality and fractional valuation bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric section neighbourhoods"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.5/dense-field-approximation",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.5",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.5"
+      ],
+      "title": "Dense-field section approximation",
+      "kind": "theorem",
+      "statement": "Let Σ be complete and regular, D integer invariant, f an integral degree-one section of R_D, and choose rational c≥0 and ε∈Z[1/p], 0<ε<1. The P2 homogeneous approximation gives a degree-one g∈R_D♭° with |f−g♯|≤|ϖ^{1−ε}|max(|f|,|ϖ^c|) at every point of Spa(R_D,R_D°), and hence equality of the corresponding bounded maxima. Via integral chart frames this identifies the pulled-back toric section domains on T_{Σ,K♭}, then on A_{Σ,K♭} using its perfection homeomorphism. For any dense subfield k₀⊂K♭, g can be replaced by a finite-support degree-one g₀ with coefficients in k₀ and uniformly smaller perturbation than the chosen threshold. If a common p^N clears its weight denominators, h=g₀^{p^N} is an algebraic section of O(p^N D) over k₀; its zero locus lies in the pulled-back section domain.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ complete; k₀ is a specified dense subfield, not necessarily perfect or algebraically closed."
+      ],
+      "proofSteps": [
+        "Use R_D=K⟨Q_D⟩ and its tilt with degree-zero K. Invoke the P2 cone-homogeneous approximation request exactly once.",
+        "On each integral frame, map the graded cone algebra to the perfected chart by (u,j)↦u−jm_σ. This is a bounded monomial map, so the pointwise estimate restricts to the chart.",
+        "Finite support is Gauss-dense; approximate its finitely many coefficients by k₀ within an error strictly below |(ϖ♭)^c|. Nonarchimedean inequalities preserve the truncated norm domain.",
+        "Choose N clearing the finitely many p-denominators. In characteristic p, taking p^N powers raises coefficients and weights termwise; coefficients remain in k₀, even if k₀ is imperfect.",
+        "Use the characteristic-p perfection homeomorphism to transfer vanishing and containment down to the algebraic hypersurface analytification."
+      ],
+      "acceptance": [
+        "The perturbed equation is kept nonzero by preserving a selected nonzero coefficient; it is not interpreted as a global regular function on a proper variety."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.2/graded-divisor-algebra",
+        "AnalyticToricGeometryPartII:NT.2/perfected-divisor-sections",
+        "AnalyticToricGeometryPartII:NT.3/projection",
+        "AnalyticToricGeometryPartII:NT.5/tube-neighbourhoods",
+        "PerfectoidSpaces:P2"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Hypersurface",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.denseFieldSectionApproximation"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, proof of Proposition 8.7, p. 306; Lemma 6.5 and Remark 6.6, pp. 288–290",
+          "match": "The proof combines a homogeneous sharp estimate, finite-support dense-field perturbation and p-power denominator clearing. The last object is a line-bundle section, as corrected by the confirmed extraction issue E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dense-field section approximation"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.5/hypersurface-approximation",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.5",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.5"
+      ],
+      "title": "Toric hypersurface approximation",
+      "kind": "theorem",
+      "statement": "Let Σ be complete and regular, K perfectoid, Y⊂X_{Σ,K} a nonempty effective Cartier hypersurface (possibly nonreduced), and U an open neighbourhood of Y^{an}. For every specified dense subfield k₀⊂K♭ there is an algebraic hypersurface Z⊂X_{Σ,K♭}, defined over k₀, with Z^{an}⊂π⁻¹(U). For an invariant divisor representative D of Y, one may produce Z as the zero locus of a nonzero section of O(p^N D) for some N≥0. Projectivity and algebraic closedness are not hypotheses of this result.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ complete; Y is a nonempty effective Cartier hypersurface; k₀⊂K♭ is dense."
+      ],
+      "proofSteps": [
+        "Represent Y by f in an invariant O(D) using NT.0.",
+        "Choose an integral normalization and a section domain N_c(f)⊂U.",
+        "Apply the preceding dense-field approximation and denominator-clearing theorem, then take the zero locus of h.",
+        "The preceding character-lattice class presentation identifies Pic across K and K♭. Completeness and regularity make it torsion-free, and a nonempty effective divisor on the proper geometrically integral toric variety has nonzero class. Hence its class stays nonzero under p^N; a nowhere-vanishing section would trivialize it. Thus Z is a hypersurface, not an empty or whole-space zero locus."
+      ],
+      "acceptance": [
+        "Apply to a line in P², to a nonreduced equation f², and to a hypersurface on the smooth complete nonprojective fan of Fujino–Sato Example 4.1."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/invariant-representative",
+        "AnalyticToricGeometryPartII:NT.0/divisor-class-relations",
+        "AnalyticToricGeometryPartII:NT.5/tube-neighbourhoods",
+        "AnalyticToricGeometryPartII:NT.5/dense-field-approximation"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/Hypersurface",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricHypersurfaceApproximation"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Proposition 8.7 and proof, pp. 306–307; §1, Lemma 1.16, p. 251",
+          "match": "The endpoint is a tilted algebraic hypersurface in the projection-preimage of the prescribed neighbourhood, with arbitrary dense-field coefficients."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Example 4.1, pp. 7–8",
+          "match": "The displayed finite fan gives a smooth complete nonprojective threefold, a concrete test that these targets do not require projectivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric hypersurface approximation"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.6/intersection-weights",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.6",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.6"
+      ],
+      "title": "Toric intersection weights",
+      "kind": "construction",
+      "statement": "For a complete fan Σ of rank n, define MW^j(Σ) as the integer functions c on cones σ of codimension j satisfying the following balancing equations: for every cone τ of codimension j+1 and u in the annihilator M(τ), sum over σ⊃τ of <u,n_{σ,τ}>c(σ)=0, where n_{σ,τ} is the primitive positive generator of N_σ/N_τ and N_σ=N∩span_R σ. A basis of each M(τ) gives a finite integral relation matrix. Import the operational Chow group from SF.5 and identify A^j(X_{Σ,k}) with MW^j(Σ), by evaluation on the orbit closures V(σ). Cartier line bundles give degree-one weights: for adjacent maximal cones ρ,ρ′ with wall σ and local section weights m_ρ,m_ρ′, m_ρ′−m_ρ=c(σ)b_{ρ,σ}, where b_{ρ,σ} is the primitive annihilator positive on ρ.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "Σ complete; 0≤j≤n; k is a field. Cartier data use the section-generator convention <m_ρ,v_i>=−a_i."
+      ],
+      "proofSteps": [
+        "Express orbit-closure cycle relations using characters of M(τ); they give exactly the balancing matrix.",
+        "Apply the requested SF.5 finite-orbit Kronecker-duality theorem to the split torus action on the complete toric variety. Together with the orbit-cycle presentation this identifies the integer functionals annihilating the character relations.",
+        "For a Cartier divisor, compare local equations χ^{−m_ρ}; their wall difference yields the stated degree-one coefficient, with the opposite sign from the local section generator."
+      ],
+      "acceptance": [
+        "Changing lattice bases or annihilator bases produces a canonically identified kernel, not a different Chow group."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/CompleteIntersection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights"
+      },
+      "sources": [
+        {
+          "sourceId": "FS94",
+          "locator": "Proposition 1.1, p. 4; Proposition 1.4 and Theorem 2.1, p. 6; Corollary 2.4, p. 7",
+          "match": "Orbit-cycle relations give balancing; operational Chow classes and Cartier degrees have the stated weight presentation. Local divisor equations have the negative of the section-generator weight."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights",
+          "role": "constructor",
+          "statement": "The Z-submodule of integer cone weights annihilated by the finite character balancing matrix."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights_mem",
+          "role": "characterisation",
+          "statement": "A weight belongs exactly when every character balancing sum vanishes."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights_ext",
+          "role": "extensionality",
+          "statement": "Two intersection weights agree exactly when their values on all indexed cones agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights_p1",
+          "kind": "computation",
+          "statement": "Degree-zero weights of the P¹ fan give the same integer to its two maximal cones; the relation matrix is [1,−1]."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights_product",
+          "kind": "compatibility",
+          "statement": "For P¹×P¹, degree-one weights on rays (+e₁,+e₂,−e₁,−e₂) have equal opposite values. The two balancing rows are [1,0,−1,0] and [0,1,0,−1]."
+        },
+        {
+          "name": "TauCeti.Toric.Nonarchimedean.toricIntersectionWeights_unbalanced",
+          "kind": "non-example",
+          "statement": "The P¹×P¹ ray assignment (1,0,0,0) is not balanced."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NT.6 fan displacement and positive degree",
+          "how": "Finite integer balancing gives a field-independent representation of the relevant Chow classes."
+        }
+      ],
+      "planet": {
+        "name": "Toric intersection weights"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.6/intersection-product",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.6",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.6"
+      ],
+      "title": "Toric fan displacement products",
+      "kind": "theorem",
+      "statement": "For complete Σ, codimension-a and codimension-b balanced weights c,d multiply as follows. At a cone γ of codimension a+b, choose a generic displacement in (N/N_γ)_R. Sum c(σ)d(τ)[N:N_σ+N_τ] over σ,τ containing γ, of codimensions a,b, whose images meet after the displacement in that quotient. This is the weight of the SF.5 cup product, independent of the generic displacement. Iterating on the Cartier weights and evaluating the degree-n weight at the zero cone computes deg(L₁⋯L_n∩[X]); all lattice indices and coefficients depend only on Σ and the Cartier data, hence are independent of k and its characteristic.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "Σ complete; k is a field; a,b≥0 and a+b≤rank N. Generic displacement avoids the finite exceptional linear subspaces; indices in contributing terms are finite."
+      ],
+      "proofSteps": [
+        "Apply the diagonal torus deformation to the lattice N/N_γ; its multiplicities are the indices [N:N_σ+N_τ].",
+        "Use the diagonal formula for the operational Chow cup product and the balanced-weight evaluation pairing.",
+        "Iterate the product and evaluate at the zero cone; top-degree evaluation equals degree. The formula involves only integer lattice data."
+      ],
+      "acceptance": [
+        "On P¹×P¹ the degree of O(a,b)·O(c,d) is ad+bc. In particular O(2,0)·O(1,1) has degree 2."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.6/intersection-weights",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/CompleteIntersection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricFanDisplacementProduct"
+      },
+      "sources": [
+        {
+          "sourceId": "FS94",
+          "locator": "Proposition 3.1, p. 10; Theorem 3.2, p. 11, proof pp. 12–13",
+          "match": "The diagonal deformation computes the cup product by a generic fan displacement and integer lattice indices; the top weight is the intersection degree."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric fan displacement products"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.6/intersection-degree",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.6",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.6"
+      ],
+      "title": "Toric complete-intersection degrees",
+      "kind": "theorem",
+      "statement": "Let X_{Σ,k} be smooth projective of dimension n, D₁,…,D_c invariant Cartier divisors whose sections cut out a nonempty set-theoretic complete intersection of codimension c, and H ample. Then δ=deg(c₁(H)^{n−c}c₁(O(D₁))⋯c₁(O(D_c))∩[X]) is a positive integer determined by the fan and divisor data, independent of the coefficient field. Replacing D_i by p^{N_i}D_i multiplies δ by p^{Σ N_i}. For arbitrary sections of the replaced bundles, even with excess intersection, the refined intersection class is supported on their common zero locus and has this positive degree after ample intersection; hence that zero locus cannot be empty.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ projective; 0≤c≤n; the initial sections form a proper intersection of effective Cartier divisors, set-theoretically of codimension c; H ample."
+      ],
+      "proofSteps": [
+        "A smooth toric scheme is Cohen–Macaulay. Codimension c for c Cartier equations gives a regular-sequence intersection cycle with positive generic lengths.",
+        "Apply SF.5 Chern classes and ample degree positivity to this nonzero effective (n−c)-cycle.",
+        "Apply the preceding fan displacement product to its Cartier weights; the resulting integral degree is unchanged by coefficient field or characteristic.",
+        "Apply SF.5 refined Gysin support and projection/excess formulas to arbitrary tilted equations in the same powered divisor classes. A positive-degree class cannot be supported on an empty scheme."
+      ],
+      "acceptance": [
+        "For type (2,0) on P¹×P¹, H=O(1,1) gives degree 2 for two disjoint fibres; positivity does not assert connectedness."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.6/intersection-product",
+        "AnalyticToricGeometryPartII:NT.0/cartier-integral-model",
+        "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/CompleteIntersection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricIntersectionDegree"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Corollary 8.8 and proof, p. 307",
+          "match": "The corollary uses a positive combinatorial complete-intersection degree for nonemptiness. Refined intersection makes that argument valid when the new equations have excess intersection."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric complete-intersection degrees"
+      }
+    },
+    {
+      "id": "AnalyticToricGeometryPartII:NT.6/complete-intersection-approximation",
+      "parentStageId": "AnalyticToricGeometryPartII:NT.6",
+      "realises": [
+        "AnalyticToricGeometryPartII:NT.6"
+      ],
+      "title": "Toric complete-intersection approximation",
+      "kind": "theorem",
+      "statement": "Let Σ be smooth projective, K perfectoid, and nonempty Y⊂X_{Σ,K} be set-theoretically the intersection of c effective Cartier hypersurfaces, where c=codim(Y). Given any open neighbourhood U of Y^{an} and any dense subfield k₀⊂K♭, there exists a closed reduced k₀-defined subvariety Z⊂X_{Σ,K♭} with Z^{an}⊂π⁻¹(U) and dim Z=dim Y. Here subvariety means a reduced closed subscheme, possibly reducible. This theorem does not promise geometric irreducibility or connectedness; those require additional component/field-extension work in the consumer.",
+      "hypotheses": [
+        "N is a finite-rank free Z-module, M=Hom_Z(N,Z), and Σ is a nonempty finite rational strongly convex fan in N_R, on the parent carrier.",
+        "K is a perfectoid field of residue characteristic p, with tilt K♭; choose ϖ♭ with ϖ=(ϖ♭)♯ and ϖ^p dividing p in K°.",
+        "Σ is regular (smooth over every coefficient ring); completeness means properness, and projectivity is a separate hypothesis.",
+        "Σ projective; Y nonempty of codimension c and cut out set-theoretically by exactly c hypersurfaces; k₀⊂K♭ dense."
+      ],
+      "proofSteps": [
+        "Apply the finite-family section-neighbourhood theorem to the defining equations. Put U_i=N_c(f_i), so each contains its hypersurface and their intersection is contained in U; no normality or arbitrary closed-set separation claim is used.",
+        "Apply NT.5 to each equation, producing Z_i defined over k₀ in the powered invariant divisor classes.",
+        "The positive refined degree from the preceding node forces W=∩Z_i nonempty. The height bound gives dim W≥n−c.",
+        "If its dimension exceeds n−c, cut W successively by sufficiently general ample hypersurfaces defined over the infinite field k₀. Avoid each geometric top-dimensional component and use projective ample intersection positivity to keep the intersection nonempty, until its maximal dimension equals n−c.",
+        "Take the reduced structure. All cuts stay in W^{an}⊂π⁻¹(U); reduction and field extension preserve the support and dimension."
+      ],
+      "acceptance": [
+        "For P¹×P¹ and the two disjoint fibres of type (2,0), the conclusion permits a disconnected one-dimensional Z.",
+        "For c=0 the construction returns the whole toric variety.",
+        "A hypersurface in P^n is the c=1 case; a collection with fewer or more equations than codimension is not a set-theoretic complete-intersection input."
+      ],
+      "prerequisites": [
+        "AnalyticToricGeometryPartII:NT.5/hypersurface-approximation",
+        "AnalyticToricGeometryPartII:NT.6/intersection-degree",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Toric/Nonarchimedean/CompleteIntersection",
+        "namespace": "TauCeti.Toric.Nonarchimedean",
+        "declaration": "TauCeti.Toric.Nonarchimedean.toricCompleteIntersectionApproximation"
+      },
+      "sources": [
+        {
+          "sourceId": "SCH12",
+          "locator": "§8, Corollary 8.8 and proof, p. 307",
+          "match": "Intersect the approximating hypersurfaces, establish nonemptiness by degree and reduce excess dimension with additional hypersurfaces."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Toric complete-intersection approximation"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+      "need": "Import Layer 0 dual semigroup σ∨∩M and Gordan finite generation, cones/fans/primitive rays and the complex fan scheme; use the current main additions rather than replanning them. The invariant divisor conventions must use its same lattice/fan carrier.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.0/section-weights",
+        "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+        "AnalyticToricGeometryPartII:NT.2/divisor-cone"
+      ]
+    },
+    {
+      "supplier": "ShimuraCompactifications:C0",
+      "need": "Export, for the finite-fan scheme of C0/arbitrary-ring-toric-charts over every commutative ring A, regular-fan smoothness and complete-fan properness over Spec A, with integral Cartier character gluing and compatibility at A=C with the parent fan scheme. The accepted RS-32 general-base owner includes XΣ,A; these properties are needed also when A=K° is nonnoetherian.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.1/analytification-comparison",
+        "AnalyticToricGeometryPartII:NT.4/power-cohomology"
+      ]
+    },
+    {
+      "supplier": "PerfectoidSpaces:P2",
+      "need": "For a finite-rank lattice L and rational polyhedral cone C⊂L_R, construct K⟨C∩L[1/p]⟩ with its coefficient-Gauss integral subring, prove perfectoidness and monomial-compatible tilt K♭⟨C∩L[1/p]⟩, including cones with lineality. For a Z[1/p]-valued linear grading whose degree-zero part is K, prove the homogeneous analogue of Lemma 6.5: integral homogeneous f of degree d, rational c≥0 and ε∈Z[1/p] with 0<ε<1 admit an integral homogeneous g of degree d with |f(x)−g♯(x)|≤|ϖ^{1−ε}(x)|max(|f(x)|,|ϖ^c(x)|) at every Spa point, hence equality of bounded maxima. Assume K perfectoid, ϖ=(ϖ♭)♯, ϖ^p|p. General perfected cone algebras and approximation induction remain in P2; NT.2 supplies only its toric specializations and the identification for C_D.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+        "AnalyticToricGeometryPartII:NT.2/graded-divisor-algebra",
+        "AnalyticToricGeometryPartII:NT.3/tilting",
+        "AnalyticToricGeometryPartII:NT.5/dense-field-approximation"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Supply the lattice-basis Laurent polynomial UFD calculation for the split torus and its divisor class triviality; effective Cartier divisors/zero sections and dimension/height facts for smooth Cohen–Macaulay varieties, including regular-sequence intersections and dimension after generic hyperplane cuts over an infinite coefficient field.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.0/invariant-representative",
+        "AnalyticToricGeometryPartII:NT.0/divisor-class-relations",
+        "AnalyticToricGeometryPartII:NT.6/intersection-degree",
+        "AnalyticToricGeometryPartII:NT.6/complete-intersection-approximation"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Smooth proper base change for Z/ℓ^m cohomology over an arbitrary rank-one valuation ring with algebraically closed fraction field, ℓ invertible, and topological invariance of the étale site under universal homeomorphisms. Preserve naturality for the coefficient-linear toric power morphism.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.4/power-cohomology"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Integral Chow groups and operational Chow groups, Chern classes of invertible sheaves, the Kronecker evaluation duality for complete schemes with a split connected solvable group acting with finitely many orbits (the general theorem applied in Fulton–Sturmfels Proposition 1.4, p. 6), refined intersection support/projection/excess formulas, positivity of ample degree on a nonzero effective cycle, and general ample-hypersurface cuts over infinite fields that remain nonempty in positive dimension. No connectedness premise or conclusion is used. NT.6 owns the toric fan computation and field-independence application.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.6/intersection-weights",
+        "AnalyticToricGeometryPartII:NT.6/intersection-product",
+        "AnalyticToricGeometryPartII:NT.6/intersection-degree",
+        "AnalyticToricGeometryPartII:NT.6/complete-intersection-approximation"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H5",
+      "need": "Proper algebraic/adic comparison for the smooth proper toric variety with constant Z/ℓ^m coefficients, ℓ≠p, natural for φ_p; no inverse-limit upgrade to Z_ℓ is assumed.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.4/power-cohomology"
+      ]
+    },
+    {
+      "supplier": "ClassicalAdicEtaleCohomology:H0",
+      "need": "Ordinary torsion étale cohomology, functorial pullback along geometric morphisms and its cup-product compatibility, with the P7 perfectoid-limit continuity supplying the tower comparison.",
+      "neededBy": [
+        "AnalyticToricGeometryPartII:NT.4/projection-cohomology"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.0",
+      "status": "planned",
+      "remaining": [
+        "Discharge the parent Layer 0 import and SF.0 Laurent-UFD/effective-Cartier contract; use C0 toric schemes in the invariant-representative signature.",
+        "Replace character-frame prototypes by the C0/R2 invertible sheaf and integral completion; state the full native-sheaf comparison, tensor base change and monomial-basis tests."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.1",
+      "status": "planned",
+      "remaining": [
+        "Discharge the C0 smooth/proper arbitrary-base property export, including K°; import the R2 generic-fibre diagram.",
+        "Replace the TopCat chart-gluing shapes by the adic construction, completed field base change and named disc/torus/P¹ fixture identifications."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.2",
+      "status": "planned",
+      "remaining": [
+        "Discharge the P2 cone-algebra contract with lineality, its plus subring, tilt and homogeneous grading.",
+        "Identify the discrete c₀ carrier with the chartwise divisorial sheaf and the convolution algebra; strengthen coordinate-only degree-zero and descent signatures to their general-fan forms."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.3",
+      "status": "planned",
+      "remaining": [
+        "Instantiate the P2/P3/P7 and A1 supplier spaces, sites and finite-stage colimit-site construction.",
+        "State the full ringed perfectoid tilt, chart-density tilde-limit and geometric-morphism adjunction, and tie the sharp/stratum/P¹-minus-infinity signatures to their named toric objects."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.4",
+      "status": "planned",
+      "remaining": [
+        "Discharge SF.2 smooth proper valuation-ring base change and universal-homeomorphism invariance, H5 proper comparison, and H0 ordinary-cohomology functoriality.",
+        "Replace abstract torsion modules and pullback maps by the identified étale cohomology groups and add the P¹ top-degree action signature."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge P2 homogeneous sharp approximation on C_D, with its stated ε,c,ϖ hypotheses.",
+        "Replace the coefficient-truncation prototype by the full homogeneous estimate and section-domain comparison; tie the nonzero algebraic equation to O(p^N D), its zero scheme and the specified dense subfield."
+      ]
+    },
+    {
+      "stageId": "AnalyticToricGeometryPartII:NT.6",
+      "status": "planned",
+      "remaining": [
+        "Discharge SF.5 operational Chow/refined-support/ample-positivity and SF.0 dimension/Cohen–Macaulay contracts.",
+        "Extract the balancing matrix and displacement indices from the native fan, identify them with the Chow operations, and replace the degree/subvariety shapes by the full positive-class and dimension conclusions."
+      ]
+    }
+  ],
+  "gaps": [],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+        "ShimuraCompactifications"
+      ],
+      "note": "At current main, the parent and Tau Ceti already supply dualSemigroup, Gordan finite generation and the complex fan scheme, beyond the pinned baseline. Import their Layer 0 interfaces; do not infer a missing construction from the older audit. Generic-ring finite fan gluing now belongs to C0/arbitrary-ring-toric-charts, so the extraction brief’s conditional owner question is resolved in favour of C0."
+    }
+  ],
+  "routeCoverage": {
+    "PAPER-SCHOLZE-12/4": [
+      "AnalyticToricGeometryPartII:NT.3/affine-line"
+    ],
+    "PAPER-SCHOLZE-12/118": [
+      "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+    ],
+    "PAPER-SCHOLZE-12/120": [
+      "ShimuraCompactifications:C0/arbitrary-ring-toric-charts"
+    ],
+    "PAPER-SCHOLZE-12/121": [
+      "Fan-parametrized XΣ is the input; full classification is unnecessary for every target."
+    ],
+    "PAPER-SCHOLZE-12/122": [
+      "AnalyticToricGeometryPartII:NT.0/invariant-divisor",
+      "AnalyticToricGeometryPartII:NT.0/divisor-sections",
+      "AnalyticToricGeometryPartII:NT.0/invariant-representative"
+    ],
+    "PAPER-SCHOLZE-12/123": [
+      "AnalyticToricGeometryPartII:NT.1/unit-toric-space",
+      "AnalyticToricGeometryPartII:NT.1/power-map"
+    ],
+    "PAPER-SCHOLZE-12/124": [
+      "AnalyticToricGeometryPartII:NT.2/perfectoid-toric-space",
+      "AnalyticToricGeometryPartII:NT.2/perfected-divisor-sections"
+    ],
+    "PAPER-SCHOLZE-12/125": [
+      "AnalyticToricGeometryPartII:NT.3/tilting"
+    ],
+    "PAPER-SCHOLZE-12/126": [
+      "AnalyticToricGeometryPartII:NT.3/tilde-limit"
+    ],
+    "PAPER-SCHOLZE-12/127": [
+      "AnalyticToricGeometryPartII:NT.3/topological-limit",
+      "AnalyticToricGeometryPartII:NT.3/projection"
+    ],
+    "PAPER-SCHOLZE-12/128": [
+      "AnalyticToricGeometryPartII:NT.3/etale-topos"
+    ],
+    "PAPER-SCHOLZE-12/129": [
+      "AnalyticToricGeometryPartII:NT.3/open-topos"
+    ],
+    "PAPER-SCHOLZE-12/130": [
+      "AnalyticToricGeometryPartII:NT.4/projection-cohomology"
+    ],
+    "PAPER-SCHOLZE-12/133": [
+      "AnalyticToricGeometryPartII:NT.2/graded-divisor-algebra",
+      "PerfectoidSpaces:P2",
+      "AnalyticToricGeometryPartII:NT.5/dense-field-approximation"
+    ],
+    "PAPER-SCHOLZE-12/134": [
+      "AnalyticToricGeometryPartII:NT.5/hypersurface-approximation"
+    ],
+    "PAPER-SCHOLZE-12/135": [
+      "AnalyticToricGeometryPartII:NT.6/complete-intersection-approximation"
+    ]
+  },
+  "sourceIssueReferences": [
+    {
+      "id": "PAPER-SCHOLZE-12/E11",
+      "locator": "Proof of Proposition 8.7, p. 306",
+      "correction": "The cleared-denominator p-power is a section of O(p^N D). The existing independently confirmed source issue is used without reopening an errata job."
+    }
+  ],
+  "currentLibraryCheck": {
+    "roadmapCommit": "070dc2becd74419e76303ede84b465ed4a69461f",
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "read": [
+      "AnalyticToricGeometry/README.md and Suggested.lean",
+      "AdicSpaces/README.md",
+      "Current TauCeti toric lattice, cones, dual semigroups, rays, finite fans, monoid rings and complex scheme files",
+      "Pinned TauCeti scheme Weil divisors and divisorial sheaves",
+      "Reviewed library coverage for parent and C0; accepted RS-32 ownership; C0 arbitrary-ring-toric-charts and relative-face-open",
+      "PerfectoidSpaces P1–P3/P7 supplier descriptions and exact relevant packet nodes",
+      "AdicSpacesPartII R1/R2, AdicEtaleGeometry A1, ClassicalAdicEtaleCohomology H0/H5, SchemeAndStackFoundations SF.0/SF.2/SF.5 descriptions"
+    ]
+  }
+}
