@@ -44869,7 +44869,8 @@
     "REV-EnhancedDerivedSheaves--E5"
    ],
    "prompt": "research/blueprint/prompts/ASM-EnhancedDerivedSheaves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #227"
   },
   {
    "id": "ASM-EtaleDualityAndPerverseSheaves",
@@ -47023,8 +47024,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -83600,8 +83601,8 @@
     "FIX-RT-AREA-ktheory-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5159"
+   "state": "pending",
+   "note": "released on GitHub issue #5159"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -83828,8 +83829,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5161"
+   "state": "pending",
+   "note": "released on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
