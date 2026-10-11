@@ -1,0 +1,3 @@
+# Preview: PerfectoidSpaces roadmap (Layers P0–P7) before its TauCetiRoadmap pull request
+
+Snapshot of the lane-2 branch of the adic package on 2026-10-11, for reading only. `README.md`, `Suggested.lean` and `metadata.toml` are the package as it will be opened as a draft PR (branch `roadmap/perfectoid-spaces`, stacked on AdicSpacesPartIV and AdicEtaleGeometry); `review/` holds the adversarial reads, the final reads, the repair ledger, the split report, the stack-consistency follow-up, the mechanical check and the binder audit. Line numbers in the reports refer to earlier snapshots; locate declarations by name.
