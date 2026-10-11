@@ -1,92 +1,296 @@
-# #6217: blocked checkpoint — issue and queue scopes differ
+# #6217: blocked checkpoint — preserve issued review scope
 
-Codex — **codex-bbmvKh**, 11 October 2026. Input commit:
-`98e12a03c5d9478e5c37363f8a3daa086ac341cd`. Branch:
-`codex-bbmvKh-review-6217`. Claim confirmed in
-[comment 6105640834](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6105640834).
+Codex — **codex-XyECDt**, 11 October 2026. Input commit:
+`43d1333d8377cdfa82317a22d2a67ec03b9fdab6`. Branch:
+`codex-XyECDt-review-6217`. The bot confirmed this claim in
+[comment 6105801105](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6105801105).
 
-**The issue-named HE.0 fix review is already accepted; queue completion remains
-blocked.** The issue authorizes its review report, HE.0 packet and suggested
-file. The current local queue and GitHub main instead require this report,
-eleven packets and eleven suggested files. The other ten packets have their
-own reviewer markers. Another HE.0 review cannot complete that expanded job.
+**The issue-named HE.0 fix review is already accepted; completion remains
+blocked by a different queue scope.** After claiming, this session reread the
+whole live issue: it names the report, HE.0 packet and its suggested file.
+The queue instead requires this report, eleven packets and eleven suggested
+files. All 23 outputs exist. The ten additional packets retain other jobs'
+review markers, including ES.0's `needs_changes`. The actual
+`issues.deliverables_complete` returns false for the current queue entry and
+true for an in-memory copy with just the issue's three outputs. No verdict
+or mathematical statement was changed to satisfy the expanded predicate.
 
-This continuation checks the administrative blocker and consolidates repeated
-administrative checkpoints into one diagnosis and portable repair instructions.
-The three historical mathematical reports below retain their original
-attribution, verdicts, source-reading scope and elaboration receipts. Their
-packet review and Lean file receive no new stamp from this session.
+This session checked the blocker and the proposed repair, rather than
+repeating the already accepted mathematical review. The three mathematical
+reports below retain their authors, source-reading scope and Lean receipts.
+No source was fetched or reread; no mathematical result is newly certified.
 
-## Fresh verification
+## New repair evidence
 
-- Re-read the live issue after claim confirmation. Its three deliverables match
-  the historical review output list at `88f9bcd44`.
-- The actual `issues.deliverables_complete` returns **false** for the current
-  23-output queue job and **true** for an in-memory copy with just those three
-  issue-named outputs. All 23 outputs exist. The ten additional packets retain
-  other reviewers; ES.0 retains `needs_changes`. The predicate permits that
-  verdict when its reviewer marker matches, so the scope mismatch is the blocker.
-- Live GitHub main and this clone have identical output lists for the review.
-  Merged [PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753)
-  independently confirms the original four fix files. Its merge commit is
-  `05036608ddb23c6603c1d2721487d87027616106`; the historical queue supplies the
-  corresponding four/three fix/review output lists.
-- Read `make_queue.py::fix_rounds` and reran the preserved focused regression
-  against its actual AST. All seven cases pass: reproduce the expansion bug,
-  retain completed scope, route new work onward, preserve two generations,
-  expand unfinished work, and retain both rejection dependencies. The proposed
-  guard runs only in memory. The full-generator script and its historical
-  results remain below; this session did not rerun that broader replay.
-- HE.0 passes `check_blueprint.py` with **zero errors and warnings**: 78 nodes
-  (71 theorems, one comparison, four constructions, two definitions), 24 API
-  items, eighteen tests, 43 planets, thirteen baseline declarations, 21 gaps
-  and 63 requests. All eight stages are planned; none is closed.
-- Suggested-file SHA-256 remains
-  `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
-  Lean was not rerun for these Markdown-only changes. Earlier successful
-  elaborations remain attributed below. No source was fetched or reread and
-  no mathematical statement is newly certified here.
+The earlier completed-round guard fixes this completed fix round, but leaves
+another way to change a worker's assigned scope. A focused replay of the
+actual nested `fix_rounds` AST tests saved rounds in states `pending`,
+`external` and `done`, each with a new-input or send-back trigger. When new
+inputs arrive, the stock generator and completed-only guard both expand
+pending and external rounds. Preserving every existing successor retains
+those scopes. It also retains the saved rejection reason and permits a new
+successor when none exists. Each fixture preserves the saved fix/review
+output lists across a second generation. The earlier seven-case regression
+for the completed-only proposal also passes, but deliberately accepts
+expansion of unfinished work; it does not test the issued-scope requirement.
 
-## Required next action and edit boundary
+The revised candidate therefore uses
+`made = previous_jobs.get(following)`. This deliberately freezes existing
+pending scopes as well as completed ones: newly arrived work joins another
+round after the saved round finishes. It needs maintainer review of that
+scheduling policy. Restoring the historical four/three output lists remains
+necessary; preserving an already expanded list does not repair it.
 
-Restore only the two historical output lists and preserve completed following
-rounds in the generator, using the concrete repair below. Then synchronize the
-issue and queue and assign newly routed work to its own round. Restoring only
-the lists lets regeneration expand them again; changing only the guard preserves
-an already incorrect scope. Review the full-generator script's broader effects
-before publishing regenerated jobs.
+The standalone focused replay below reproduces these checks without changing
+repository files. The full-generator comparison and its limits are recorded
+below. These are proposed repairs for the maintainer, not changes to the
+queue or generator in this submission.
 
-[WORKERS.md](../WORKERS.md) explicitly says, “Edit only the files the issue
-names, plus your own scratch space.” The required generator and queue edits
-are outside #6217's named files. Fresh `intake.file_problems` calls also reject
-both paths as outside swarm output paths. This is an observed scope restriction
-and local intake check. No automatic approval review rejected an action.
+## Fresh full-generator comparison
 
-The run therefore submits a blocked checkpoint, as the task instructions
-require when a job cannot be completed. It changes only this report and the
-handoff, and claims no second job. A maintainer-handled scope repair is needed
-before another worker can finish the queue job.
+The actual generator was run in memory with repository writes forbidden,
+its lock redirected to scratch and dry-run changed only to return jobs and
+prompts. Only the two Iwasawa round-two output arrays were restored from
+`88f9bcd44`; all other queue entries were current at the input commit above.
+
+| Candidate | Round-two fix/review outputs | Round-three fix/review outputs |
+| --- | --- | --- |
+| Stock | 27 / 15 | No new round |
+| Completed-only | 4 / 3 | 30 / 17 |
+| All existing rounds | 4 / 3 | 30 / 17 |
+
+Both candidates retain the historical round-two lists and route additional
+work to round three. Neither changes any job's output list on its second
+full generation. Compared with stock, completed-only changes 36 jobs, adds
+twenty and removes none. All-existing differs from completed-only in just
+`FIX-RT-AREA-finitefields~2` and its review, adding/removing no jobs. The
+finite-fields difference demonstrates that freezing pending scopes has a
+real effect beyond this fixture. A maintainer must inspect those wider
+family changes before publishing generated metadata.
+
+This replay does not test issue refresh, GitHub claims, intake, or deployment.
+It evaluates proposed scheduling behavior only. The standalone replay below
+preserves the exact experiment; first save the historical queue as directed
+in the historical full-generator section. Pass task scratch as its argument.
+No repository snapshot, source document, or scratch artifact is needed.
+
+```python
+import ast
+import builtins
+import contextlib
+import copy
+import io
+import json
+import sys
+from pathlib import Path
+from unittest.mock import patch
+
+REPO=Path.cwd()
+SCRATCH=Path(sys.argv[1])
+source_path=REPO/'research/blueprint/make_queue.py'
+source=source_path.read_text()
+old='made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new='''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+rt='RT-AREA-iwasawa-1'; base='FIX-'+rt
+current=json.loads((REPO/'research/blueprint/queue.json').read_text())
+historical={j['id']:j for j in json.loads((SCRATCH/'historical-queue.json').read_text())['jobs']}
+restored=copy.deepcopy(current)
+for j in restored['jobs']:
+    if j['id'] in (base+'~2','REV-'+base+'~2'):
+        j['outputs']=historical[j['id']]['outputs'][:]
+
+real_read=Path.read_text
+real_open=builtins.open
+
+def generate(source, queue):
+    tree=ast.parse(source)
+    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+    dry=next(n for n in main.body if isinstance(n,ast.If) and isinstance(n.test,ast.Attribute) and n.test.attr=='dry_run')
+    dry.body=[ast.Return(value=ast.Dict(keys=[ast.Constant('jobs'),ast.Constant('prompts')],values=[ast.Name(id='merged',ctx=ast.Load()),ast.Name(id='prompts',ctx=ast.Load())]))]
+    ast.fix_missing_locations(tree)
+    namespace={'__file__':str(source_path),'__name__':'scope_repair_dry_run'}
+    exec(compile(tree,str(source_path),'exec'),namespace)
+    def read(path,*args,**kwargs):
+        return json.dumps(queue) if path==REPO/'research/blueprint/queue.json' else real_read(path,*args,**kwargs)
+    def open_safe(file,*args,**kwargs):
+        if Path(file)==REPO/'research/blueprint/.queue.lock': file=SCRATCH/'generation.lock'
+        return real_open(file,*args,**kwargs)
+    sys.path.insert(0,str(REPO/'research/blueprint'))
+    with patch.object(Path,'read_text',read), patch.object(Path,'write_text',side_effect=AssertionError('dry-run attempted write')), patch('builtins.open',open_safe), patch.object(sys,'argv',[str(source_path),'--library','library','--baseline','baseline','--workers','workers','--dry-run']), contextlib.redirect_stdout(io.StringIO()):
+        return namespace['main']()
+
+runs={}
+for label,src in [('stock',source),('completed_only',source.replace(old,new)),
+                  ('all_existing',source.replace(old,'made = previous_jobs.get(following)'))]:
+    first=generate(src,restored)
+    jobs={j['id']:j for j in first['jobs']}
+    print(label,[(jid,len(j['outputs'])) for jid,j in jobs.items()
+                 if jid.startswith((base,'REV-'+base))])
+    runs[label]=first
+    if label!='stock':
+        assert jobs[base+'~2']['outputs']==historical[base+'~2']['outputs']
+        assert jobs['REV-'+base+'~2']['outputs']==historical['REV-'+base+'~2']['outputs']
+        second=generate(src,{'jobs':first['jobs']})
+        second_jobs={j['id']:j for j in second['jobs']}
+        changes=[jid for jid,j in jobs.items() if jid in second_jobs and
+                 j['outputs']!=second_jobs[jid]['outputs']]
+        print(label,'second-generation output changes:', changes)
+        for jid in (base+'~2','REV-'+base+'~2',base+'~3','REV-'+base+'~3'):
+            assert second_jobs[jid]['outputs']==jobs[jid]['outputs']
+        if label=='all_existing':
+            assert not changes
+for a,b in [('stock','completed_only'),('completed_only','all_existing')]:
+    aj={j['id']:j for j in runs[a]['jobs']};bj={j['id']:j for j in runs[b]['jobs']}
+    changed=sorted(jid for jid in aj.keys()&bj.keys() if aj[jid]!=bj[jid])
+    added=sorted(bj.keys()-aj.keys());removed=sorted(aj.keys()-bj.keys())
+    print(a,'to',b,'changed:',len(changed),'added:',len(added),'removed:',len(removed))
+    print('changed jobs:',changed);print('added:',added);print('removed:',removed)
+```
+
+## Packet and submission boundary
+
+HE.0's checker reports zero errors and warnings: 78 nodes, 24 API items,
+eighteen tests, 43 planets, thirteen baseline declarations, 21 gaps and 63
+requests; all eight stages are planned and none is closed. The suggested
+file remains SHA-256
+`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+Lean was not rerun for this Markdown-only checkpoint; earlier successful
+elaborations retain their attribution below.
+
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus
+your own scratch space.” The required queue and generator repair paths are
+outside that scope; fresh `intake.file_problems` calls reject both as outside
+swarm output paths. No mutation was submitted for automatic approval.
+The authorized work cannot resolve that blocker, so this run submits the
+checkpoint the task permits when blocked. Only this report and the required
+handoff change. Synchronize the issue and queue before reassigning this job.
+
+## Issued-scope focused replay
+
+Run from the repository root. This compiles only the real nested helper and
+stubs its boundaries. It makes no repository edit and needs no source file.
+
+```python
+"""Exercise the real fix_rounds function without changing repository files."""
+import ast
+import copy
+import re
+from pathlib import Path
+
+source = Path('research/blueprint/make_queue.py').read_text()
+old = 'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new = '''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+assert source.count(old) == 1
+base = 'FIX-RT-FIXTURE'
+report = 'research/blueprint/redteam/RT-FIXTURE.fixes.md'
+packet = 'research/blueprint/packets/Fixture.json'
+suggested = 'research/blueprint/suggested/Fixture.lean'
+added_packet = 'research/blueprint/packets/NewFixture.json'
+added_suggested = 'research/blueprint/suggested/NewFixture.lean'
+round_two = [report.replace('.fixes.md', '.fixes-2.md'), packet, suggested]
+historical = [
+    {'id': base, 'state': 'done', 'outputs': [report]},
+    {'id': base + '~2', 'state': 'done', 'outputs': round_two, 'after': [base]},
+    {'id': 'REV-' + base + '~2', 'state': 'pending', 'outputs': []},
+]
+
+def generate(src, prior, blueprints, verdicts=None):
+    function = next(n for n in ast.walk(ast.parse(src))
+                    if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
+    module = ast.Module(body=[function], type_ignores=[])
+    jobs = {}
+    env = {
+        'states': {j['id']: j['state'] for j in prior},
+        'previous_outputs': {j['id']: j['outputs'] for j in prior},
+        'previous_jobs': {j['id']: j for j in prior},
+        'PROMOTABLE': re.compile(r'^research/blueprint/packets/'),
+        'review_of': lambda p: (verdicts or {}).get(p, {}),
+        'findings_text': lambda *args: '', 'fill': {},
+        'FIX_TEMPLATE': '', 'FIX_REVIEW_TEMPLATE': '',
+        'add': lambda job, prompt: jobs.update({job['id']: job}),
+    }
+    exec(compile(module, '<real fix_rounds>', 'exec'), env)
+    env['fix_rounds']('RT-FIXTURE', 'fixture', 'fixture', [], 0, {}, [],
+                      [report], blueprints, {}, [])
+    return jobs
+
+
+completed_only = source.replace(old, new)
+all_existing = source.replace(old, 'made = previous_jobs.get(following)')
+checks = 0
+for state in ['pending', 'external', 'done']:
+    for trigger in ['new_input', 'send_back']:
+        prior = copy.deepcopy(historical)
+        prior[0]['outputs'] = [report, packet, suggested]
+        prior[1]['state'] = state
+        verdicts = {}
+        blueprint_list = [packet, suggested]
+        if trigger == 'new_input':
+            blueprint_list += [added_packet, added_suggested]
+        else:
+            prior += [{'id': 'REV-' + base, 'state': 'done', 'outputs': []}]
+            verdicts = {packet: {'status': 'needs_changes',
+                                 'reviewer': 'independent-review-REV-' + base}}
+        original = generate(source, prior, blueprint_list, verdicts)
+        limited = generate(completed_only, prior, blueprint_list, verdicts)
+        preserved = generate(all_existing, prior, blueprint_list, verdicts)
+        original_grows = original[base + '~2']['outputs'] != round_two
+        limited_grows = limited[base + '~2']['outputs'] != round_two
+        assert preserved[base + '~2']['outputs'] == round_two
+        assert preserved[base + '~2']['after'] == prior[1]['after']
+        if trigger == 'send_back':
+            assert original[base + '~2']['after'] == ['REV-' + base]
+            assert limited[base + '~2']['after'] == (prior[1]['after'] if state == 'done' else ['REV-' + base])
+        expected = trigger == 'new_input'
+        assert original_grows == expected
+        assert limited_grows == (expected and state != 'done')
+        for key in [base + '~2', 'REV-' + base + '~2']:
+            again = [dict(j, state=next((p['state'] for p in prior if p['id']==jid), 'pending'))
+                     for jid,j in preserved.items()]
+            twice = generate(all_existing, again, blueprint_list, verdicts)
+            assert twice[key]['outputs'] == preserved[key]['outputs']
+        checks += 1
+        print(state, trigger, 'stock grows:', original_grows,
+              'completed-only grows:', limited_grows, 'all-existing stable: True')
+# A saved rejection round keeps its reason even when the prior review changes.
+prior = copy.deepcopy(historical)
+prior[1]['state'] = 'external'
+prior[1]['after'] = ['REV-' + base]
+out = generate(all_existing, prior, [packet, suggested, added_packet, added_suggested])
+assert out[base + '~2']['after'] == ['REV-' + base]
+assert out[base + '~2']['outputs'] == round_two
+# No saved successor: new work must still form the next round.
+prior = [historical[0]]
+out = generate(all_existing, prior, [packet, suggested, added_packet, added_suggested])
+assert added_packet in out[base + '~2']['outputs']
+print('PASS:', checks, 'state/trigger fixtures, repeat generation, rejection reason, new successor')
+```
+
+---
 
 ## Ready-to-review repair
 
 Apply the following patch to `research/blueprint/make_queue.py`. It preserves
-a completed following round even when more finished blueprints have arrived.
+every existing following round even when more finished blueprints have arrived.
 The existing `after` value continues to distinguish a rejection round from a
 round that applies newly available blueprints.
 
 ```diff
 --- a/research/blueprint/make_queue.py
 +++ b/research/blueprint/make_queue.py
-@@ -1954,7 +1954,9 @@
+@@ -1954,7 +1954,7 @@
              earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
              # A round an earlier run made is kept as it was made, though its files may now carry a later
              # round's verdict: the rounds after it are then still found, and a later send-back still counts.
 -            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
-+            made = previous_jobs.get(following) if (
-+                states.get(following) == "done" or (following in states and not (missing or sent_back))
-+            ) else None
++            made = previous_jobs.get(following)
              if made:
                  sent_back = made.get("after") == [review]
+             why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
 ```
 
 Also restore the two historical `outputs` lists in `queue.json` from historical queue commit
@@ -116,12 +320,13 @@ only after restoring them. Newly routed work then belongs to a separate
 round-three fix and its independent review, with matching live issue bodies.
 Do not change the ten extra packet reviewer names to force completion.
 
-## Reproducible focused regression
+## Historical completed-only focused regression
 
 Run the following from the repository root, saving the script in task scratch.
 It compiles only the actual nested function's AST and stubs its input/output
 boundary. It writes no repository file, fetches no source and calls no GitHub API.
-The full-generator replay below separately checks actual routing.
+This historical replay tests the earlier completed-only candidate, not the
+issued-scope candidate above. Its unfinished-expansion expectation is intentional.
 
 ```python
 """Exercise the real fix_rounds function without changing repository files."""
@@ -214,7 +419,7 @@ print('PASS: original bug, completed scope, new-work routing, repeat generation,
 
 ---
 
-Earlier continuations and mathematical reviews follow with their original attribution.
+Earlier mathematical reviews follow with their original attribution.
 
 ## Preserved broader validation
 
@@ -225,7 +430,8 @@ routed additional work to round three at 30/17. Both repaired rounds remained
 stable across a second generation. That comparison changed 36 existing jobs,
 added twenty and removed none. These are historical receipts, not results from
 codex-bbmvKh; inspect the other affected families before applying a full
-regeneration. The focused script above is this session's fresh regression.
+regeneration. Those receipts belong to earlier continuations; the fresh comparison is
+recorded separately above.
 
 ## Self-contained full-generator regression replay
 
