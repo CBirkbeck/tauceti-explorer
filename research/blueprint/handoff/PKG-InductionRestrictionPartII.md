@@ -1,58 +1,66 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
 Refs [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Codex (GPT-6), session `codex-Tr7yZR`, 11 October 2026.
-Branch: `codex-Tr7yZR-induction-restriction-package`.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106252581),
-identifying claim comment 6106251524. One issue was claimed; no second job
+Codex (GPT-6), session `codex-Sab9f8`, 11 October 2026.
+Branch: `codex-Sab9f8-induction-restriction-package`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6106392582),
+identifying claim comment 6106391584. One issue was claimed; no second job
 was taken. None of the manager's priority issues appeared in the open
 `swarm`, `state:available` inventory, so selection followed the fallback
 package priority in WORKERS.md.
 
-Base atlas commit: `2790a6eabe10c8b46527cb1a6333eee4d577e572`.
+Base atlas commit: `9dc0fd5222fd32551e4379b6893ff72744f7f682`.
 
 ## Outcome and new work
 
 **Blocked checkpoint; this package is unfinished.** The remaining supplier
 ownership decisions require changes outside this issue's permitted files.
-This continuation replaces the order-bound target's indirect torus proof
-with an explicit native bar-chain proof, independently checked in Lean at
-the Mathlib pin without admissions. The README gives the complete boundary
-formula and its hypotheses; Suggested.lean has matching proof-route
-comments. Its executable declarations are unchanged.
+This continuation gives a direct proof route for the existing
+`integral_uct_evaluation_free` specialization and uses its injectivity in
+`marked_pullback_split`. It reduces what the latter's final splitting step
+requires, including when the marked group and kernel are infinite. The
+README contains the argument; Suggested.lean has matching comments. Its
+executable declarations are unchanged. No new target or supplier is added.
 
-For z(a,y)=[a|y]−[y|a], set
-T(a,b;y)=[a|b|y]−[a|y|b]+[y|a|b]. If a and b each commute with y, then
+For the integral trivial-action bar complex, Z₁=C₁. If H₁ is free, split
+q:C₁→H₁ by s and put r₁(c)=c−s(q(c)). This retracts the free C₁ onto B₁,
+so B₁ is projective as a direct summand. Split d₂:C₂→B₁ by t and put
+r₂(c)=c−t(d₂(c)); this retracts C₂ onto Z₂.
 
-- d₃T(a,b;y)=z(a,y)+z(b,y)−z(ab,y).
-- d₃T(1,1;y)=z(1,y), including the unnormalized unit chains.
-- For Bₙ=Σ_(0≤k<n) T(xᵏ,x;y)−T(1,1;y),
-  d₃Bₙ=n z(x,y)−z(xⁿ,y), for every n≥0.
+- A two-cocycle F with zero evaluation vanishes on Z₂. Set ψ=F∘t.
+  Then F=ψ∘d₂, and ψ∘r₁ is a one-cochain whose coboundary is F.
+- A functional h:H₂→A gives λ:Z₂→A by the native homology quotient.
+  The cochain λ∘r₂ restricts to λ. Since r₂ fixes B₂ and λ kills B₂,
+  it is a cocycle and evaluates to h.
 
-Thus the native H2π quotient gives ⟨xⁿ,y⟩=n⟨x,y⟩. Its n=0 case gives
-⟨1,y⟩=0; its n=2 specialization for x²=1 gives 2⟨x,y⟩=0. There is no
-finiteness, cover, UCT or torus-generator assumption. The calculation only
-needs each of a,b to commute with y, not commutation between a and b.
+Thus evaluation is bijective in this specialization without constructing
+the general Ext injection or using arbitrary-rank subgroup-freeness.
+Splittings occur only in the proof; the evaluation map remains canonical.
+For the marked pullback, only this injectivity is needed once its
+evaluation is zero and its abelianization is identified with the free
+degree lattice. Native evaluation, group-map naturality and the comparison
+with the existing factor-set splitting criterion are still required.
 
-The scratch verification defined z and T as finitely supported integer
-chains, proved the differential identity, the finite-sum telescoping
-identity, cycle membership, the homology power law, unit vanishing and the
-involution bound. `lean-check` completed with **zero errors, zero warnings,
-and no `sorry`**. The proof used the exact-pin statements of
-`groupHomology.d₂₁_single`, `groupHomology.d₃₂_single`,
-`groupHomology.boundaries₂` and `groupHomology.H2π_eq_iff` from
-`RepresentationTheory/Homological/GroupHomology/LowDegree.lean`, plus the
-existing additive and finite-sum APIs. The repository remains a plan; this
-scratch check does not claim a Tau Ceti implementation.
+The independent scratch Lean check proved the module mechanism over an
+arbitrary ring: a surjection to a projective module has a kernel
+retraction; a projective middle term makes that kernel projective;
+functionals extend along the retraction; a functional vanishing on the
+kernel factors through the surjection; and the two degree-two consequences
+above follow. The quotient specialization was checked as well. The final
+`lean-check` returned **zero errors, zero warnings and no `sorry`**.
+It used the exact-pin statements of `Module.Projective.of_free`,
+`LinearMap.exists_rightInverse_of_surjective`,
+`Module.Projective.of_split`, and the existing linear-map quotient APIs.
+This check does not implement the native bar/dual comparisons or prove the
+package's admitted declarations.
 
-Wood's author copy, *An algebraic lifting invariant of Ellenberg, Venkatesh,
-and Westerland*, §2.1, author PDF p.2, was read for the oriented cycle;
-Lemma 2.2 and its proof on p.3 were read for the homology comparison. The
-boundary proof is our deduction from the cycle and the library differential,
-not a theorem attributed to Wood. Source URL:
-https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1.
-Accessed 2026-10-11; SHA-256
-`9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673`.
+Read Hatcher, *Algebraic Topology*, §3.1, printed pp.191–196: in particular
+the cycle/boundary argument on pp.191–193, Lemma 3.1 on pp.194–195,
+Theorem 3.2 on p.195 and naturality on p.196. The direct projective-quotient
+proof is our deduction, using the library lifting statements, rather than
+a separately attributed theorem. Public author copy:
+https://pi.math.cornell.edu/~hatcher/AT/AT.pdf. Accessed 2026-10-11;
+SHA-256 `bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618`.
 No source passage enters the package or handoff.
 
 ## Blocking evidence and required external amendment
@@ -84,15 +92,20 @@ roadmap definition, reader, native suggested interfaces and consumer edges.
 Ordinary Schur covers remain in the parent InductionRestriction Layer 7.
 This run does not move a target or invent a supplier.
 
-One refinement is ready for that amendment: remove
-`InductionRestrictionPartII:RS.1/commutator-order` from the first gap's
-`neededBy` list and replace its proof route by the direct boundary above.
-Its existing prerequisite, `RS.1/homological-commutator`, already supplies
-the native cycle formula it uses. The basic unit-cycle test also has this
-direct proof. This does **not** remove the homological-commutator node from
-the bridge gap: its UCT/central-extension comparison API and oriented torus
-comparison still require their own inputs. Other bridge consumers remain.
-No packet was edited.
+Two refinements are ready for that amendment:
+
+- For `RS.2/marked-pullback-split`, replace the general UCT-exactness/Ext
+  proof step by native evaluation and its free-abelianization injectivity
+  as above. Keep the native evaluation adapter as an input: this target
+  cannot be removed wholesale from the bridge gap yet.
+- The predecessor's direct bar-boundary proof, retained in the README,
+  removes `RS.1/commutator-order` from the first gap's `neededBy` list.
+  The homological-commutator node still needs its UCT/extension and oriented
+  torus comparisons. The immutable predecessor handoff below records the
+  boundary formula and admission-free verification.
+
+Other bridge consumers remain. No packet was edited; its SHA-256 remains
+`85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
 
 ## Supplier checks
 
@@ -127,11 +140,9 @@ existence, not conjugacy. These exact statement checks preserve the
 predecessor's distinction between reusable declarations and missing
 contracts. No Lake command ran in either read-only tree.
 
-Remote upstream main was also queried and returned
-`4b002f622e9d68b627bdce9f6224897305a68bdc`. It differs from the supplied
-read-only checkout. The API could not compare those hashes (HTTP 404), so
-this run's declaration/scope checks are expressly against the supplied
-checkout, not a claimed audit of every remote difference.
+These scope checks are against the supplied read-only checkouts. No
+external ownership amendment was available during this run. The manager
+was asked for the missing supplying layers; none is invented here.
 
 ## Validation and continuation
 
@@ -140,14 +151,14 @@ checkout, not a claimed audit of every remote difference.
   30 baseline declarations, five gaps, one request and six planned stages.
 - `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
   **zero errors; 696 warnings, all declaration uses `sorry`; zero other
-  warnings.** Memory preflight showed 102 GiB available. The wrapper
+  warnings.** Memory preflight showed 101 GiB available. The wrapper
   designates Tau Ceti f790474; the shared Mathlib source HEAD independently
   matches the full pin. The Tau Ceti build tree lacks Git metadata, so its
   pin designation is the wrapper's. No compiler is left running.
 - Inventory confirms every one of the 109 target suffixes, 124 API names
   and 96 test labels remains in both package files. This is a correspondence
   check, not certification of all inherited mathematical statements or
-  finite certificates. README size: 169,431 bytes, within the 200 KB limit.
+  finite certificates. README size: 171,268 bytes, within the 200 KB limit.
 - `git diff --check` and the intake file check pass. Changes are confined to
   the README proof outline, Suggested comments and this handoff. The accepted
   packet, reader and author Suggested file are unchanged.
@@ -160,12 +171,13 @@ the 31 finite row certificates, 38 RS.6 targets and ten accepted source
 findings. Complete the remaining mathematical audit, replace contract
 references with their assigned suppliers, synchronize the target/API/test
 inventory, run `lean-check`, and then add `topic = "math.GR"` metadata.
-The new boundary proof requires no surviving scratch artifact: its exact
-formula and quotient argument are in the README and above.
+The direct free-abelianization proof requires no surviving scratch artifact:
+its retractions, functional extensions and coboundary argument are in the
+README and above. Scratch files are removed after the pull request opens.
 
-The prior UCT refinement, supplier mismatch details and accumulated finite
-model receipts remain in
-[the predecessor handoff at the immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/2790a6eabe10c8b46527cb1a6333eee4d577e572/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
+The prior native boundary proof, UCT refinement, supplier mismatch details
+and accumulated finite model receipts remain in
+[the predecessor handoff at the immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/9dc0fd5222fd32551e4379b6893ff72744f7f682/research/blueprint/handoff/PKG-InductionRestrictionPartII.md)
 and its continuation links. Those receipts cover rows 13/24, 16/17,
 22/23 and 30/31; no finite certificate is claimed proved here. The cleared
 source index was read; no restricted book was fetched or copied.

@@ -808,6 +808,8 @@ variable (s : c → reduced_cover π hc τ c)
       s ⟨reduced_cover_projection π hc τ c e * x.val *
         (reduced_cover_projection π hc τ c e)⁻¹, hclosed _ _ x.property⟩ = e*s x*e⁻¹)
 -- Arbitrary abelian kernels are allowed, including the infinite kernel of U(G,c).
+-- Use integral_uct_evaluation_free for the free abelianization of this fiber
+-- product. Its direct projective-quotient proof needs no general Ext injection.
 include hπ hstem horient hgen hseq in
 lemma marked_pullback_split {A E : Type} [CommGroup A] [Group E]
     (M : marked_extension A E G c) :
@@ -904,6 +906,14 @@ lemma integral_uct_evaluation_exact :
     Function.Injective (integral_uct_ext_inclusion (G := G) (A := A)) ∧
     (integral_uct_ext_inclusion (G := G) (A := A)).range =
       (integral_uct_evaluation (G := G) (A := A)).ker := by sorry
+-- For this specialization H₁ is projective: split q : C₁ → H₁ and retract
+-- C₁ onto B₁ by c ↦ c - s(q c). Module.Projective.of_split makes B₁
+-- projective, so d₂ : C₂ → B₁ also splits. Its analogous retraction onto Z₂
+-- extends a functional H₂ → A to a cocycle. A cochain with zero evaluation
+-- factors through B₁ and extends along the first retraction to a coboundary.
+-- Reuse Module.Projective.of_free and LinearMap.exists_rightInverse_of_surjective.
+-- This proves bijectivity for infinite G and A without the general Ext injection
+-- or arbitrary-rank subgroup-freeness. The sections do not define evaluation.
 lemma integral_uct_evaluation_free [Module.Free ℤ (Additive (Abelianization G))] :
     Function.Bijective (integral_uct_evaluation (G := G) (A := A)) := by sorry
 -- integral_uct_ext_inclusion_test_1: every cyclic integral class is an Ext class.
