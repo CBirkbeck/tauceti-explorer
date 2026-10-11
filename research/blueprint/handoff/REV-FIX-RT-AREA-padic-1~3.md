@@ -1,58 +1,71 @@
 # Handoff: REV-FIX-RT-AREA-padic-1~3
 
-Codex, session `codex-OyLXWL`, 11 October 2026. Refs
+Codex, session `codex-iJ9Di6`, 11 October 2026. Refs
 [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`;
-branch `codex-OyLXWL-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107928215).
-Continues the `codex-XBKxEG` handoff; this session wrote none of the author
-fixes or prior reviews. No second job was claimed.
+Input `6e02d93641e95e6ad7a4a6f4697807219720e9c2`;
+branch `codex-iJ9Di6-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107992602).
+Continues `codex-OyLXWL`; this session wrote none of the author fixes or
+previous reviews. No second job was claimed.
 
-**Blocked checkpoint.** The assigned mathematical review is recorded in the
-[report](../reviews/REV-FIX-RT-AREA-padic-1~3.md), together with runnable
-repair fixtures. The live issue still assigns seven outputs and three packets,
-while its queue requires 47 outputs and 23 packets. #6519 likewise assigns
-seven outputs and three packets, against 31 outputs and 15 packets in its
-queue. Fresh live scopes exactly match historical queues at `c69e5b6c9` and
-`888f12f5c9`; every current queue output exists.
+**Blocked checkpoint.** Fresh live scopes and read-only fixtures confirm the
+same unresolved assignment/completion conflict. #5704 issues seven outputs,
+including three packets, but its queue demands 47 outputs and 23 packets.
+#6519 issues seven outputs and three packets against 31 outputs and 15 packets
+in the queue. Both issued lists still exactly match the historical queues at
+`c69e5b6c9` and `888f12f5c9`, respectively. All queued outputs exist.
 
-Stock completion is `[false, true]` for live scopes and `[false, false]` for
-queue scopes. P0 and ASII currently identify #6519. Restoring #5704's archived
-verdicts only in memory yields `[true, false]`. Overwriting reviews cannot
-finish both jobs. Queue, generator, completion-function and generated-prompt
-repair paths are outside the issued scope and fail the intake allowlist.
+The stock completion function uses only current top-level reviews: P0 and
+ASII identify #6519; AEG identifies #5704. The fresh paired fixture gives
+`[false, true]` for issued scopes and `[false, false]` for queue scopes.
+Restoring #5704's archived reviews only in memory gives `[true, false]`.
+Overwriting reviews would make the other issued job incomplete. Repair needs
+queue, generator, completion and prompt files outside this issue's outputs;
+all four path classes fail the intake allowlist. No production repair or
+review metadata was changed.
 
-Fresh checks: all three packets pass the stock checker with zero errors and
-warnings using its configured pinned declaration index. The preserved generator
-cases pass 4/8 stock, 6/8 later-only and 8/8 two-site; all ten assessment-history
-cases pass. Packet content excluding review metadata and all three suggested
-files match `331007b5e`. No Lean compiler or fresh source audit ran. Earlier
-workers' mathematical evidence and elaboration remain attributed to them.
-Only the report and handoff changed; no scratch file is needed to resume.
+Fresh validation: all three packet checks pass with zero errors/warnings using
+the configured pinned declaration index (P0 326 nodes, AEG 153, ASII 537).
+The preserved generator cases pass 4/8 stock, 6/8 later-only and 8/8 two-site;
+all ten assessment-history cases pass. The assessment fixture also verifies
+packet content excluding review metadata and suggested-file bytes against
+`331007b5e`. The report preserves these executable repair fixtures. No scratch
+file is needed to reproduce them.
 
-Retained mathematical dispositions: P0 needs_changes for general-base almost
-category comparisons, Cohen/tower supplier interfaces and omitted Lean tower
-signatures/tests; AEG accepted for its constructed characteristic-p boundary;
-ASII accepted for its pending 19-node sousperfectoid prefix. Q4/RS-05 and
-stage/edge/reparenting installation remain maintainer actions. The report
-preserves every finding's qualified disposition.
+Fresh sequential `lean-check` runs on all three issued suggested files exit
+**0**, with only admitted-proof warnings: P0 1,285; AEG 361; ASII 912. Checked
+available memory before compiling (93 GB); no build, update, cache download or
+language server was started. Read the P7 tower sections directly: both named
+theorems and their negative contracts are still comments. Elaboration certifies
+only declarations present, not the missing signatures or the recorded
+mathematical gaps.
 
-## Maintainer repair and resumption gate
+No fresh source audit or independent mathematical verdict is claimed. The
+archived scoped review retains its source attribution and findings:
+P0 needs_changes for general-base almost-category comparisons, Cohen/tower
+supplier interfaces and omitted P7 signatures/tests; AEG accepted for the
+constructed characteristic-p boundary; ASII accepted for the pending
+19-node sousperfectoid prefix. Q4/RS-05 and stage/edge/reparenting installation
+remain maintainer actions. Only the report and this handoff changed.
 
-1. Remove #5704 from worker selection until the external repair is installed.
-   Workers may not change labels; repeated review dispatch cannot resolve it.
-2. Restore both issued author/review scopes from the historical queues above,
+## Resumption gate
+
+The next action requires a maintainer repair, not another packet audit:
+
+1. Suspend repeat dispatch of #5704 until that repair is installed.
+2. Reconcile both issued author/review scopes with their historical assignments,
    preserving outputs, prompts and prerequisites during regeneration.
-3. Establish assessment-bound historical completion without replacing current
-   promotion reviews. Decide how assessed sources and reader inputs are bound;
-   legacy histories without evidence cannot simply count.
-4. Verify both jobs simultaneously, including a later scoped review. Regenerate
-   twice and check stable scopes, prompts, prerequisites and runtime state.
-5. Arrange an authorized repair submission and issue synchronization for the
-   excluded queue, generator, completion-function and generated-prompt files.
-   Then redispatch this review only if assigned work remains.
+3. Support assessment-bound historical completion while preserving current
+   promotion reviews. Establish the source/reader-input binding policy;
+   unbound legacy history must not simply count.
+4. Test both jobs simultaneously, including a later scoped review. Regenerate
+   twice and verify stable scopes, prompts, prerequisites and runtime state.
+5. Use an authorized submission and issue-synchronization route for excluded
+   repair files. Redispatch this review only if assigned work remains.
 
-The earlier draft [#8206](https://github.com/CBirkbeck/tauceti-explorer/pull/8206)
-is documented in the report; its queue-only proposal does not resolve the
-current verdict collision. The report's runnable fixtures remain the repair's
-starting evidence, subject to the assessment-policy qualification above.
+The report contains the collision, scope-preservation and assessment-history
+fixtures and the full qualified mathematical dispositions. The older draft
+[#8206](https://github.com/CBirkbeck/tauceti-explorer/pull/8206) offers a
+queue-only proposal; restoring scopes alone does not resolve the current
+review-attribution collision. Workers may not change labels or other sessions'
+branches. No second issue may be claimed in this run.

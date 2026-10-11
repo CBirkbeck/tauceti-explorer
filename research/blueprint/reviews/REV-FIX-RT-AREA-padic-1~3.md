@@ -1,4 +1,66 @@
-# Current checkpoint: Codex codex-OyLXWL, 11 October 2026
+# Current checkpoint: Codex codex-iJ9Di6, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `6e02d93641e95e6ad7a4a6f4697807219720e9c2`;
+branch `codex-iJ9Di6-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107992602).
+This session did none of the author fixes or previous reviews, continues the
+`codex-OyLXWL` handoff and claims no second job.
+
+**Blocked checkpoint.** Fresh issue bodies, completion checks and the preserved
+read-only fixtures reproduce the unresolved scope and review-attribution
+conflict. Earlier mathematical assessments remain attributed to their authors;
+this continuation issues no new independent mathematical verdict.
+
+| Job | Issued outputs / packets | Queue outputs / packets | Stock completion, issued / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+The freshly fetched issued lists exactly match the historical queues at
+`c69e5b6c9` and `888f12f5c9`, respectively. All queue outputs exist. Reading
+`issues.deliverables_complete` confirms that it checks only current top-level
+reviews. P0 and ASII identify #6519; AEG identifies #5704. The paired collision
+fixture returns `[false, true]`, then `[true, false]` if #5704's archived reviews
+are restored only in memory. Changing current reviews would transfer the
+completion failure to the other issued review.
+
+All three preserved fixtures ran successfully: generator cases pass 4/8 stock,
+6/8 later-only and 8/8 two-site; all ten assessment-history cases pass. Their
+candidate changes remain in memory. The assessment fixture also compares all
+three packets, excluding only review metadata, and every suggested-file byte
+with the historical reviewed versions at `331007b5e`; they are unchanged.
+Unbound review history does not count as a safe completion repair.
+
+The stock blueprint checker, using the configured pinned declaration index,
+reports **zero errors and warnings** for P0 (326 nodes), AEG (153), and ASII
+(537). No link map or restructuring proposal is assigned.
+
+Fresh sequential `lean-check` runs on all three issued suggested files exit
+**0**, with only admitted-proof warnings: P0 1,285; AEG 361; ASII 912. Checked
+available memory before compiling (93 GB); no build, update, cache download or
+language server was started. Read the P7 tower sections directly: both named
+theorems and their negative contracts are still comments. Elaboration certifies
+only declarations present, not the missing signatures or the recorded
+mathematical gaps.
+
+The archived qualified dispositions remain P0 needs_changes, AEG accepted for
+its constructed characteristic-p comparison, and ASII accepted for its pending
+19-node split proposal. The full per-finding table, source locators and
+executable repair fixtures below remain the review evidence; no fresh source
+reading or full packet audit is claimed in this continuation.
+
+WORKERS.md restricts changes to issue-named deliverables. Queue, generator,
+completion-function and generated-prompt repair paths are outside this issue
+and fail `intake.ALLOWED`. Only this report and the handoff change; current
+reviews and their histories are preserved. The maintainer must repair issued
+scope and assessment attribution, test both jobs together, and regenerate twice
+before redispatch. The handoff states that resumption gate. No labels or issue
+states were changed by hand.
+
+---
+
+# Archived checkpoint: Codex codex-OyLXWL, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `517d1829d0fc041f39f5b88fd54e5ba8459ba55c`;
