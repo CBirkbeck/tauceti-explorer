@@ -36845,8 +36845,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6344"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6344",
+   "finishedAt": "2026-10-11T04:59:58Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.3",
@@ -36979,8 +36980,8 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6347"
+   "state": "pending",
+   "note": "released on GitHub issue #6347"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -49326,8 +49327,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80293,8 +80294,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81603,8 +81604,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84694,8 +84695,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -88280,8 +88281,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HyperbolicCurveVolumesAndGonality.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1697"
+   "state": "external",
+   "note": "claimed on GitHub issue #1697"
   },
   {
    "id": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
