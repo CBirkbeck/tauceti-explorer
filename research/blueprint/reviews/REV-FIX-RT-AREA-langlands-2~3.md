@@ -1,4 +1,46 @@
-# Current checkpoint: completion scope remains inconsistent
+# Blocked checkpoint, 11 October 2026 — codex-mGvFfB
+
+Refs #5871. Codex (GPT-6), session `codex-mGvFfB`; branch
+`codex-mGvFfB-review-5871`. The bot confirmed claim comment 6107816401 in
+[comment 6107817321](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6107817321).
+The issue was reread after confirmation. This session did none of the
+underlying fix or red-team work and claimed only this job.
+
+**The existing mathematical review is finished; completion remains blocked by
+its queue scope.** On freshly fetched main `46d91ac0f5b12dc14bb0eefdd8e1c32c1e0e4368`,
+the actual `issues.deliverables_complete` returns **false** for the committed
+27-output entry and **true** for an in-memory copy whose only change is the
+seven outputs parsed from the live issue. All 27 files exist. The done parent
+fix lists forty outputs. Ten additional packets carry accepted verdicts from
+other independent review jobs; their ten suggested files also exceed the
+live issue's scope. Queue SHA-256:
+`4bdaa410e88fe01bc6605ff7603df26cca06c9ba90703a6c56e0f9ed33ac10c1`.
+
+Both `research/blueprint/queue.json` and `research/blueprint/make_queue.py`
+fail the read-only `intake.file_problems` path check. [WORKERS.md](../WORKERS.md),
+Doing the work, requires: “Edit only the files the issue names, plus your own
+scratch space.” The maintainer must restore the historical ten/seven fix/review
+output lists and preserve issued scopes during regeneration, then reconcile
+this issue and run normal intake/sync. The repair evidence and reproducible
+checks remain below. Another unchanged mathematical review cannot make the
+extra reviewer markers match this job.
+
+Fresh packet validation against the declaration index whose `BASELINE.json`
+records Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`: **zero errors and warnings** for
+37 CSM, 73 GL2 and 67 Global nodes. All 177 nodes remain unchecked; no packet
+has an `excerpt` field. The forty confirmed findings have exactly one retained
+report disposition each. CSM accepted, Global accepted and GL2 needs_changes
+are preserved with their original evidence and attribution.
+
+This checkpoint updates only this report and its handoff. It claims no fresh
+primary-source or baseline-statement audit. Unchanged Lean files were not
+recompiled; earlier compilation receipts remain historical evidence. No
+scratch artifact is required to resume. Resume after scope reconciliation.
+
+---
+
+# Previous checkpoint: completion scope remains inconsistent
 
 Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
 Codex (GPT-6), session **codex-5Q923d**, 11 October 2026. The bot confirmed

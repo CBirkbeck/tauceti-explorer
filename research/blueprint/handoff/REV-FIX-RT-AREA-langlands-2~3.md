@@ -1,35 +1,38 @@
 # Handoff: REV-FIX-RT-AREA-langlands-2~3
 
-## Current checkpoint, 11 October 2026 — codex-5Q923d
+## Blocked checkpoint, 11 October 2026 — codex-mGvFfB
 
-Refs #5871. Branch `codex-5Q923d-review-5871`; input and freshly fetched main
-`a51b147164c4e9cd0643f8039a45f10f1b22423f`. Claim comment 6106793185 was
-confirmed by the bot before work began. This run claimed only this job.
+Refs #5871. Branch `codex-mGvFfB-review-5871`; freshly fetched input
+`46d91ac0f5b12dc14bb0eefdd8e1c32c1e0e4368`. The bot confirmed claim 6107816401 in
+[comment 6107817321](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6107817321).
+Only this job was claimed. This session did none of its underlying fix or
+red-team work.
 
-**Blocked on issue/queue scope reconciliation.** The authorized mathematical
-review is already complete: CSM accepted, Global accepted, GL2 needs_changes.
-The actual completion predicate returns False for the queue's 27 outputs and
-True for the same job with only its output list replaced in memory by the live
-issue's seven paths. All outputs exist. The parent fix is done and lists forty
-outputs; ten extra packet reviews are accepted under other independent jobs'
-markers. Neither a new mathematical review nor overwriting those markers
-repairs the assignment. The report records this run's fresh receipt.
+**Resume after maintainer scope reconciliation.** The mathematical review is
+already finished: CSM accepted, Global accepted, GL2 needs_changes. The actual
+completion predicate is false for the queue's 27 outputs and true with only
+its outputs replaced in memory by the live issue's seven. All files exist.
+The done parent fix has forty outputs; ten extra packets bear other independent
+reviews. Neither redoing the scoped review nor changing its GL2 verdict repairs
+this mismatch.
 
-**Resume with the maintainer's scope repair**, detailed in the preceding
-handoffs and report: restore the historical ten/seven fix/review output lists,
-preserve issued round scopes in the generator, run regeneration twice and
-inspect its wider routing changes. Reconcile the live issue before assigning
-more files. Queue/generator edits exceed the live issue's allowlist and both
-fail `intake.file_problems`. Keep this completed review out of scheduling
-until the mismatch is resolved. No permission question is pending.
+The [review report](../reviews/REV-FIX-RT-AREA-langlands-2~3.md) preserves the
+original mathematical evidence, historical scopes and repair reproductions.
+The maintainer must restore the original ten/seven parent-fix/review outputs,
+preserve issued scopes in `make_queue.py::fix_rounds`, run regeneration twice
+and inspect broader routing changes before reconciling the live issue and
+running intake/sync. Queue and generator repairs exceed the issue's allowed
+paths and fail `intake.file_problems`. Do not schedule another unchanged-input
+continuation before that repair. No permission question is pending.
 
-Fresh pinned-index checks: zero errors/warnings on all three packets; 177
-unchecked nodes; no excerpt fields; forty unique retained finding dispositions.
-No mathematical node, review stamp or Lean file changed. Lean was not rerun
-for this documentation-only checkpoint; previous receipts keep their original
-attribution. GL2's remaining typed APIs/tests belong to its subsequent revision,
-as specified in the completed review. Only this note and the report change.
-No scratch file is needed by the next worker, and no process is left running.
+Fresh packet checks against the pinned declaration index: zero errors and
+warnings, 37/73/67 nodes; 177 unchecked nodes; no packet excerpts; forty unique
+confirmed finding dispositions. Only the report and this handoff change.
+Lean was not rerun for this documentation-only checkpoint. Earlier source and
+compilation receipts retain their attribution; no fresh source or declaration
+statement audit is claimed. GL2's missing typed APIs/tests belong to its
+subsequent revision. No scratch artifact is needed to resume, and no process
+is left running.
 
 ---
 
