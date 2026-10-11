@@ -1,14 +1,14 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These statements suggest Lean forms so contributors and reviewers
-converge on names and signatures. This checkpoint types only the local scalar,
-measure and parametrized-volume nodes; global currents and gonality are recorded
-as open work in the packet, not encoded as records assuming the desired estimates.
+converge on names and signatures. This checkpoint types the local metric, density, parameter-volume, distribution,
+Hessian and function-field-gonality contracts. It is not an exhaustive suggested
+file: the packet records the omitted global carrier-dependent signatures.
+No record assumes a desired volume or gonality estimate.
 
-The imports below were read at the atlas pins. The shared elaboration build has
-the pinned Mathlib and newer Tau Ceti; the imported Tau Ceti source files were
-checked unchanged against f790474. Elaboration stopped at a missing SchwarzPick
-object file; no signature-elaboration success is claimed.
+The imported Tau Ceti source statements were checked at f790474; the existing
+shared elaboration build has pinned Mathlib and newer Tau Ceti. Only imported
+source interfaces are used, and no current upstream build is run here.
 -/
 import TauCeti.Analysis.Complex.Conformal.Poincare.SchwarzPick
 import TauCeti.Analysis.Complex.Conformal.Hyperbolic.ClosedForm
@@ -17,10 +17,15 @@ import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.Analysis.SpecialFunctions.PolarCoord
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Inverse
 import Mathlib.MeasureTheory.Function.Jacobian
+import Mathlib.Analysis.Distribution.Distribution
+import Mathlib.Analysis.Normed.Module.Alternating.Basic
+import Mathlib.Analysis.Matrix.PosDef
+import Mathlib.Data.EReal.Basic
+import TauCeti.FieldTheory.FunctionField.RiemannRoch.Genus
 
 noncomputable section
 open MeasureTheory Set Filter
-open scoped ENNReal
+open scoped ENNReal ComplexOrder
 namespace TauCeti.HyperbolicVolumes
 
 -- HyperbolicCurveVolumesAndGonality:HV.0/curvature-one-distance
@@ -525,6 +530,245 @@ theorem power_parameter_volume (d : ℕ) (hd : 0 < d) (c : ℂ) (hc : ‖c‖ < 
     (s : ℝ) (hs : 0 ≤ s) (hs1 : s < 1) :
     parameterVolume ![fun z => z ^ d, fun _ => c] (Metric.ball (0 : ℂ) s) =
       ENNReal.ofReal ((d : ℝ) * 4 * Real.pi * s ^ (2 * d) / (1 - s ^ (2 * d))) := by
+  sorry
+
+
+/- Local coefficient models reuse Mathlib's LF topology. These are chart
+specializations of HV.3, not replacement manifold form bundles. The global
+change-of-chart, restriction and pushforward signatures still require the
+current DifferentialGeometry carriers and are recorded as incomplete. -/
+abbrev ChartTestForm (n k : ℕ) (Ω : TopologicalSpace.Opens (Fin n → ℂ)) :=
+  TestFunction Ω ((Fin n → ℂ) [⋀^(Fin k)]→L[ℝ] ℝ) ⊤
+
+abbrev ChartCurrent (n q : ℕ) (Ω : TopologicalSpace.Opens (Fin n → ℂ)) :=
+  ChartTestForm n (2 * n - q) Ω →L[ℝ] ℝ
+
+theorem testForm_ext {n k : ℕ} {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
+    (α β : ChartTestForm n k Ω) (h : ∀ x, α x = β x) : α = β := by
+  sorry
+
+theorem testForm_continuous_dual {n k : ℕ}
+    {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
+    (T : ChartTestForm n k Ω →ₗ[ℝ] ℝ) :
+    Continuous T ↔ ∀ (K : TopologicalSpace.Compacts (Fin n → ℂ))
+      (hK : (K : Set (Fin n → ℂ)) ⊆ Ω),
+      Continuous (T ∘ TestFunction.ofSupportedIn hK) := by
+  sorry
+
+theorem current_ext {n q : ℕ} {Ω : TopologicalSpace.Opens (Fin n → ℂ)}
+    (T S : ChartCurrent n q Ω) (h : ∀ α, T α = S α) : T = S := by
+  sorry
+
+-- The scalar distribution is the oriented complex-line top-degree current.
+-- This is the actual baseline Dirac evaluation, not a field postulating mass.
+-- TauCeti.HyperbolicVolumes.current_dirac
+example {Ω : TopologicalSpace.Opens ℂ} (z : ℂ)
+    (φ : TestFunction Ω ℝ ⊤) :
+    (Distribution.delta z : Distribution Ω ℝ ⊤) φ = φ z := by
+  sorry
+
+-- HV.3/ddc, in one complex chart. Two minus signs from distributional
+-- differentiation give the positive-coordinate Laplacian/(4π).
+noncomputable def ddcChart {Ω : TopologicalSpace.Opens ℂ}
+    (T : Distribution Ω ℝ ⊤) : Distribution Ω ℝ ⊤ :=
+  (1 / (4 * Real.pi)) •
+    ((Distribution.lineDerivCLM (n := ⊤) (k := ⊤) (1 : ℂ))
+      ((Distribution.lineDerivCLM (n := ⊤) (k := ⊤) (1 : ℂ)) T) +
+     (Distribution.lineDerivCLM (n := ⊤) (k := ⊤) Complex.I)
+      ((Distribution.lineDerivCLM (n := ⊤) (k := ⊤) Complex.I) T))
+
+theorem ddc_linear {Ω : TopologicalSpace.Opens ℂ}
+    (a b : ℝ) (T S : Distribution Ω ℝ ⊤) :
+    ddcChart (a • T + b • S) = a • ddcChart T + b • ddcChart S := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.ddc_constant
+example {Ω : TopologicalSpace.Opens ℂ} (c : ℝ) :
+    ddcChart (Distribution.ofFun Ω (fun _ : ℂ => c) volume ⊤) = 0 := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.ddc_normSquare
+example {Ω : TopologicalSpace.Opens ℂ} :
+    ddcChart (Distribution.ofFun Ω (fun z : ℂ => ‖z‖ ^ 2) volume ⊤) =
+      Distribution.ofFun Ω (fun _ : ℂ => 1 / Real.pi) volume ⊤ := by
+  sorry
+
+-- HV.3/poincare-lelong. The locally integrable representative may be assigned
+-- any finite value at zero. The EReal psh representative instead takes −∞.
+theorem poincare_lelong_chart {Ω : TopologicalSpace.Opens ℂ}
+    (h0 : (0 : ℂ) ∈ Ω) :
+    ddcChart (Distribution.ofFun Ω (fun z : ℂ => Real.log (‖z‖ ^ 2)) volume ⊤) =
+      (Distribution.delta (0 : ℂ) : Distribution Ω ℝ ⊤) := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.ddc_log_power
+example {Ω : TopologicalSpace.Opens ℂ} (e : ℕ) :
+    ddcChart (Distribution.ofFun Ω
+      (fun z : ℂ => Real.log (‖z ^ e‖ ^ 2)) volume ⊤) =
+      (e : ℝ) • (Distribution.delta (0 : ℂ) : Distribution Ω ℝ ⊤) := by
+  sorry
+
+noncomputable def extendedDiagonalLog (z w : ℂ) : EReal :=
+  if z = w then ⊥ else (Real.log (diagonalMu z w) : EReal)
+
+-- HV.1/mu-log-singularity: a real scalar log is used only off its zero locus.
+theorem mu_log_singularity (z : ℂ) : extendedDiagonalLog z z = ⊥ := by
+  sorry
+
+noncomputable def secondRealDerivative (u : (ℂ × ℂ) → ℝ)
+    (p v w : ℂ × ℂ) : ℝ := (fderiv ℝ (fderiv ℝ u) p v) w
+
+def coordinateDirection (j : Fin 2) : ℂ × ℂ :=
+  if j = 0 then (1, 0) else (0, 1)
+
+-- Coefficients of ∂∂bar u, with scalar-valued u and the real second derivative.
+noncomputable def complexHessian (u : (ℂ × ℂ) → ℝ) (p : ℂ × ℂ) :
+    Matrix (Fin 2) (Fin 2) ℂ := fun j k =>
+  let v := coordinateDirection j
+  let w := coordinateDirection k
+  (1 / 4 : ℂ) *
+    ((secondRealDerivative u p v w : ℂ) +
+     (secondRealDerivative u p (Complex.I • v) (Complex.I • w) : ℂ) +
+     Complex.I * ((secondRealDerivative u p v (Complex.I • w) : ℂ) -
+       (secondRealDerivative u p (Complex.I • v) w : ℂ)))
+
+-- HV.3/diagonal-hessian. At (0,w), t = sqrt(1−|w|²).
+theorem diagonal_log_hessian (w : ℂ) (hw : ‖w‖ < 1) (h0 : w ≠ 0) :
+    complexHessian (fun p => Real.log (diagonalMu p.1 p.2)) (0, w) =
+      let t := Real.sqrt (1 - ‖w‖ ^ 2)
+      (1 / (2 * t ^ 3) : ℂ) •
+        ((!![t ^ 4, t ^ 2; t ^ 2, 1] : Matrix (Fin 2) (Fin 2) ℝ).map Complex.ofReal) := by
+  sorry
+
+theorem diagonal_area_hessian (w : ℂ) (hw : ‖w‖ < 1) :
+    complexHessian (fun p => diagonalAreaPotential p.1 p.2) (0, w) =
+      let t := Real.sqrt (1 - ‖w‖ ^ 2)
+      (2 * Real.pi : ℂ) •
+        ((!![2 - t, -(1 / t); -(1 / t), (2 - t) / t ^ 4] :
+          Matrix (Fin 2) (Fin 2) ℝ).map Complex.ofReal) := by
+  sorry
+
+theorem diagonal_area_hessian_positive (w : ℂ) (hw : ‖w‖ < 1) :
+    let t := Real.sqrt (1 - ‖w‖ ^ 2)
+    ( (!![2 - t, -(1 / t); -(1 / t), (2 - t) / t ^ 4] :
+      Matrix (Fin 2) (Fin 2) ℂ)).PosSemidef ∧
+    ( (!![t, 1 / t; 1 / t, 1 / t ^ 3] :
+      Matrix (Fin 2) (Fin 2) ℂ)).PosSemidef := by
+  sorry
+
+theorem diagonalMu_smooth_formula (z w : ℂ) (hz : ‖z‖ < 1) (hw : ‖w‖ < 1) :
+    diagonalMu z w = diagonalChi z w /
+      (1 + Real.sqrt (1 - diagonalChi z w)) ^ 2 := by
+  sorry
+
+-- HV.4/diagonal-tube: explicit metric definitions, before quotient descent.
+def diagonalTube {X : Type*} [PseudoMetricSpace X] (r : ℝ) : Set (X × X) :=
+  {p | dist p.1 p.2 < 2 * r}
+
+def doubleDiagonalTube {X : Type*} [PseudoMetricSpace X] (r : ℝ) :
+    Set ((X × X) × (X × X)) :=
+  {p | p.1 ∈ diagonalTube r ∧ p.2 ∈ diagonalTube r}
+
+theorem diagonalTube_mem {X : Type*} [PseudoMetricSpace X] (x y : X) (r : ℝ) :
+    (x, y) ∈ diagonalTube r ↔ dist x y < 2 * r := by
+  sorry
+
+theorem diagonalTube_mono {X : Type*} [PseudoMetricSpace X] {r R : ℝ}
+    (h : r ≤ R) : diagonalTube (X := X) r ⊆ diagonalTube R := by
+  sorry
+
+theorem doubleDiagonalTube_mem {X : Type*} [PseudoMetricSpace X]
+    (p : (X × X) × (X × X)) (r : ℝ) :
+    p ∈ doubleDiagonalTube r ↔ dist p.1.1 p.1.2 < 2 * r ∧
+      dist p.2.1 p.2.2 < 2 * r := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.diagonalTube_empty
+example {X : Type*} [PseudoMetricSpace X] : diagonalTube (X := X) 0 = ∅ := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.doubleDiagonalTube_max
+example {X : Type*} [PseudoMetricSpace X] (p : (X × X) × (X × X)) (r : ℝ)
+    (h : 2 * r ≤ dist p.1.1 p.1.2) : p ∉ doubleDiagonalTube r := by
+  sorry
+
+-- The UnitDisc distance is curvature −1/4, so its raw tube radius is doubled.
+-- TauCeti.HyperbolicVolumes.diagonalTube_antigraph
+example (z w : Complex.UnitDisc) (hw : (w : ℂ) = -(z : ℂ)) (r : ℝ) :
+    distOne z w < 2 * r ↔ distOne z 0 < r := by
+  sorry
+
+-- HV.2/cusp-pullback: a constant q=0 coordinate is defined separately.
+noncomputable def cuspPullbackDensity (q : ℂ → ℂ) (z : ℂ) : ℝ :=
+  if q z = 0 then 0 else
+    ‖deriv q z‖ ^ 2 / (‖q z‖ ^ 2 * Real.log ‖q z‖ ^ 2)
+
+theorem cusp_pullback_constant (z : ℂ) :
+    cuspPullbackDensity (fun _ => 0) z = 0 := by
+  sorry
+
+theorem cusp_pullback_power (e : ℕ) (he : 0 < e) (z : ℂ) (hz : z ≠ 0)
+    (hz1 : ‖z‖ < 1) :
+    cuspPullbackDensity (fun t => t ^ e) z =
+      1 / (‖z‖ ^ 2 * Real.log ‖z‖ ^ 2) := by
+  sorry
+
+theorem cusp_pullback_power_mass (e : ℕ) (he : 0 < e) (s : ℝ)
+    (hs : 0 < s) (hs1 : s < 1) :
+    (∫⁻ z in Metric.ball (0 : ℂ) s,
+      ENNReal.ofReal (cuspPullbackDensity (fun t => t ^ e) z)) =
+      ENNReal.ofReal (-2 * Real.pi / Real.log s) := by
+  sorry
+
+/- HV.6/gonality uses the actual function-field carrier at the pin. The
+curve/model equality and base-change signatures still need AlgebraicCurves
+Layer 12. No abstract Curve record assumes any gonality conclusion. -/
+noncomputable def rationalSubfieldDegrees (k F : Type*) [Field k] [Field F]
+    [Algebra k F] : Set ℕ :=
+  {d | 0 < d ∧ ∃ φ : RatFunc k →ₐ[k] F,
+    letI : Algebra (RatFunc k) F := φ.toRingHom.toAlgebra
+    FiniteDimensional (RatFunc k) F ∧ Module.finrank (RatFunc k) F = d}
+
+noncomputable def gonality (k F : Type*) [Field k] [Field F] [Algebra k F] : ℕ :=
+  sInf (rationalSubfieldDegrees k F)
+
+theorem gonality_pos (k F : Type*) [Field k] [Field F] [Algebra k F]
+    (hF : TauCeti.IsFunctionField k F) : 0 < gonality k F := by
+  sorry
+
+theorem gonality_attained (k F : Type*) [Field k] [Field F] [Algebra k F]
+    (hF : TauCeti.IsFunctionField k F) : gonality k F ∈ rationalSubfieldDegrees k F := by
+  sorry
+
+theorem gonality_le_degree (k F : Type*) [Field k] [Field F] [Algebra k F]
+    (d : ℕ) (h : d ∈ rationalSubfieldDegrees k F) : gonality k F ≤ d := by
+  sorry
+
+theorem gonality_iso (k F G : Type*) [Field k] [Field F] [Field G]
+    [Algebra k F] [Algebra k G] (e : F ≃ₐ[k] G) : gonality k F = gonality k G := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.gonality_projectiveLine
+example (k : Type*) [Field k] : gonality k (RatFunc k) = 1 := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.gonality_genusOne
+example (k F : Type*) [Field k] [IsAlgClosed k] [Field F] [Algebra k F]
+    (hF : TauCeti.IsFunctionField k F) (hg : TauCeti.genus k F = 1) :
+    gonality k F = 2 := by
+  sorry
+
+-- TauCeti.HyperbolicVolumes.gonality_conic_nonexample
+-- For a nonsplit conic the curve/function-field dictionary supplies hnonrat.
+example (k F : Type*) [Field k] [Field F] [Algebra k F]
+    (hF : TauCeti.IsFunctionField k F)
+    (hnonrat : ¬ Nonempty (F ≃ₐ[k] RatFunc k)) : gonality k F ≠ 1 := by
+  sorry
+
+-- HV.6/riemann-roch-bound in the existing function-field vocabulary.
+theorem gonality_riemann_roch_bound (k F : Type*) [Field k] [IsAlgClosed k]
+    [Field F] [Algebra k F] (hF : TauCeti.IsFunctionField k F) :
+    gonality k F ≤ TauCeti.genus k F + 1 := by
   sorry
 
 end TauCeti.HyperbolicVolumes
