@@ -1,84 +1,101 @@
 # REV-FIX-RT-AREA-topology~4: scope-blocked checkpoint
 
-Refs #6521. Codex (GPT-6), session `codex-ZF9PrD`, 11 October 2026;
-branch `codex-ZF9PrD-review-topology`. Bot-confirmed claim comment 6104618034.
-This session wrote none of the original plans/fixes and claimed one job only.
-No manager-priority issue appeared in the open swarm/available query, so this
-focus review was selected in the permitted fallback order.
+Refs #6521. Codex (GPT-6), session `codex-igEEJo`, 11 October 2026,
+branch `codex-igEEJo-review-topology`. Bot-confirmed claim comment 6104841327.
+No manager-priority issue was available; this focus review was selected in the
+permitted fallback order. This worker did none of the original plans/fixes and
+claimed only this job.
 
-## Done
+## Completed work
 
-Independently read the 27 assigned claims, verifier reasons and round-four
-fix dispositions. The [report](../reviews/REV-FIX-RT-AREA-topology~4.md)
-records every verdict, bounded primary-source reads and hashes, exact
-arithmetic, current owners and pinned-library checks. Replaced all three
-issue-listed packet reviews with this session's verdicts while retaining each
-complete predecessor object in reviewHistory:
+Read all 27 assigned findings, verifier reasons and round-four dispositions.
+The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) records each verdict,
+fresh public-source reads, pinned declarations, current upstream owners and
+exact convention diagnostics. Updated the three live-issue packet reviews,
+preserving every complete predecessor object exactly in `reviewHistory`:
 
-- Polylogarithms: accepted for /7's single-owner and geometric-import fix.
-- HabiroNahmSeries: accepted for /11's six separate formal/analytic/arithmetic
-  export contracts.
-- QSeries: needs_changes. /13's scalar ownership fix is correct; the newer
-  full negative review by codex-jnfi6H, issue #6469, remains preserved, with
-  its unresolved proof/supplier obligations. The reader's Kontsevich theorem
-  still omits the full negative-real-cut multiplier correction. Its packet
-  says epsilon(-I)=-i; the boundary factor is i, so the product is 1.
+- Polylogarithms: accepted for /7's sole tetrahedron owner and geometry imports.
+- HabiroNahmSeries: accepted for /11's six formal/analytic/arithmetic exports.
+- QSeries: needs_changes. Preserve the full negative review by codex-jnfi6H,
+  #6469, and its proof/supplier obligations. The scalar ownership fix is sound,
+  but the reader's Kontsevich theorem still omits the general negative-real-cut
+  multiplier correction. The packet says epsilon(-I)=-i and the boundary factor
+  is i; their product is 1. Naive inverse eta gives -1.
 
-All five packets pass fresh checks with zero errors/warnings. Inventories
-(nodes/gaps/requests): Polylogarithms 75/19/21; Habiro 109/22/9;
-QSeries 537/24/27; QT 106/8/19; P.2 14/2/3. Fresh serial lean-check on the
-three issue-listed suggested files exits 0, with 462/441/1491 sorry warnings
-and no other diagnostics. These are signature elaborations, not proofs.
-Three pinned Tau Ceti build modules match Git objects at f790474 byte for
-byte; Mathlib HEAD is 082e2d3. Current read-only upstream commits and precise
-library hypotheses are in the report. No mathematical payload, gap, request,
-coverage or suggested file changed. No atlas/upstream file was edited or built.
+All five packets pass fresh checks with zero errors/warnings. Fresh serial
+lean-check on the three issue-listed suggested files exits 0 with
+462/441/1491 admitted-declaration warnings and no other diagnostics. These
+checks elaborate signatures, not proofs. No mathematical payload, gap,
+request, coverage entry or suggested file changed. Current upstream remains
+read-only; no Lake command ran there. No scratch material is needed to resume.
 
-Final intake path check: five files, zero problems. `git diff --check` passes.
+## Blocker
 
-## Blocking condition and exact next action
+The live issue names seven outputs and explicitly three packets under review.
+The actual queue names eleven outputs and five packets. All outputs exist;
+the queue-only packets have reviews from other jobs. The referenced prompt is
+absent. The unmodified `issues.deliverables_complete` returns false. An
+in-memory copy restricted to the seven issue-listed outputs returns true.
+Negative verdicts are allowed; the discrepancy, rather than the mathematics,
+prevents completion.
 
-The live issue names seven outputs (three packets); the actual queue names
-eleven (five packets). The referenced prompt is absent. WORKERS.md says:
-“Edit only the files the issue names, plus your own scratch space.”
-Authorization for these two paths was requested after preparing their concrete
-updates, and remains unanswered:
+[WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue names,
+plus your own scratch space.” The two concrete packet changes below were
+prepared and authorization requested. No answer arrived, so neither extra
+packet, the queue nor the completion code was changed. The issue's reader
+paths are also outside the authorized scope. Repeating another review of the
+same three suppliers cannot resolve this discrepancy.
 
-- `research/blueprint/packets/Polylogarithms--P.2.json`;
-- `research/blueprint/packets/ArithmeticQuantumTopology.json`.
+## Exact next action
 
-The real unmodified completion checker returns false. Restricting its input
-to the seven listed paths returns true; supplying only the two proposed
-review objects in memory also returns true. Every output exists, and
-needs_changes is an accepted review outcome. No queue/code/extra packet was
-changed. The report has a write-free reproducer.
+First obtain authorization for these two packet paths or repair the live issue
+scope. Then make only these bounded changes:
 
-First authorize these paths or repair the live issue's scope. Then preserve
-each complete prior review in reviewHistory and use reviewer
-`independent-review-REV-FIX-RT-AREA-topology~4`, the actual date and:
+1. `research/blueprint/packets/Polylogarithms--P.2.json`: append the entire
+   current `independent-review-REV-Polylogarithms--P.2` review to reviewHistory.
+   Replace review with status `accepted`, reviewer
+   `independent-review-REV-FIX-RT-AREA-topology~4`, the actual date and notes
+   accepting /7's sole ownership/geometric imports. Preserve its two gaps,
+   three requests, canonical ideal region, signed-integral and Borel-map
+   calibration obligations. Acceptance here is bounded to the fix.
+2. `research/blueprint/packets/ArithmeticQuantumTopology.json`: add
+   `Polylogarithms:P.2/hyperbolic-volume` to the prerequisites of
+   `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`. Preserve the
+   entire current `independent-review-REV-ArithmeticQuantumTopology~2` review
+   in reviewHistory. Replace review with status `needs_changes`, this fix
+   review's reviewer ID and the actual date. Notes must retain the geometric
+   carrier, ordered orientation and manifold-incidence comparison under G4/G5,
+   all eight gaps and nineteen requests. For a fixed ordered tuple,
+   rQ=1/rP. `(0,1,-i,2)` gives `(1+i)/4` and `2-2i`, with opposite nonzero D
+   signs; a vertex transposition already reverses signed volume. Do not add
+   an unexplained second minus. Retain the ordinary/extended Bloch distinction.
 
-1. P.2: accepted for bounded /7 ownership/imports, following its full
-   `independent-review-REV-Polylogarithms--P.2` review. Preserve both gaps,
-   three requests, Borel-map calibration and canonical-region/signed-volume
-   obligations.
-2. QT: add `Polylogarithms:P.2/hyperbolic-volume` to the prerequisites of
-   `QT.5/volume-and-chern-simons`. Record needs_changes for the geometric
-   carrier, ordered orientation and manifold-incidence comparison, following
-   `independent-review-REV-ArithmeticQuantumTopology~2`. Preserve all eight
-   gaps and nineteen requests, especially G4/G5. The ordered conventions are
-   reciprocal: `(0,1,-i,2)` gives `(1+i)/4` and `2-2i`, with opposite nonzero
-   D signs. A transposition already changes orientation; do not add an
-   unsupported second minus.
+These two verdicts, including the negative QT verdict, suffice to complete the
+review. Completing the missing proofs or changing extra suggested files is
+not required for the completion predicate. Synchronize QSeries's reader on a
+separately authorized path. Current Markov/Jones trace, upper-half-space
+metric and Riemannian measure are existing library suppliers; current DG owns
+forms/d, Stokes, homogeneity and abstract corner boundaries. Import their
+precise contracts, never plan them again.
 
-The full proof need not be completed to finish a negative review. No additional
-Lean edit is required for completion. QSeries reader synchronization is a
-separate authorized-path task. Current Markov/Jones trace and Riemannian-volume
-APIs are existing suppliers; DifferentialGeometry already owns forms/d,
-Stokes, homogeneity and abstract corner boundaries. Import them, never plan
-them again. Their precise limits are in the report.
+After the two authorized updates, validate the packets and preservation of
+all prior reviews/gaps/requests, then run the actual completion predicate:
 
-After those two updates, validate the changed packets and intake paths, check
-that predecessor reviews/gaps/requests are retained, and confirm actual queue
-completion. All continuation material is in this note, the report and packet
-histories; scratch is removed after the checkpoint PR opens. Repeating another
-supplier-only continuation cannot resolve this scope discrepancy.
+```python
+import importlib.util
+import json
+from pathlib import Path
+
+spec = importlib.util.spec_from_file_location(
+    "blueprint_issues", "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+queue = json.loads(Path("research/blueprint/queue.json").read_text())
+job = next(j for j in queue["jobs"]
+           if j["id"] == "REV-FIX-RT-AREA-topology~4")
+print(issues.deliverables_complete(job))
+```
+
+Run the intake path check and git diff check, submit with Refs #6521 and the
+worker/check information, and stop after this job. This checkpoint's final
+intake path check covers five files with zero problems; git diff check passes.
