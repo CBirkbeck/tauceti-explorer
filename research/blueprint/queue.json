@@ -24947,7 +24947,8 @@
    ],
    "avoidAccountOf": "BP-EnhancedDerivedSheaves--E0",
    "prompt": "research/blueprint/prompts/REV-EnhancedDerivedSheaves--E0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #396"
   },
   {
    "id": "BP-EnhancedDerivedSheaves--E5",
@@ -32293,8 +32294,9 @@
    ],
    "avoidAccountOf": "BP-SieveMethodsAndPrimePatterns",
    "prompt": "research/blueprint/prompts/REV-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #544"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #544",
+   "finishedAt": "2026-10-11T02:10:25Z"
   },
   {
    "id": "BP-AdditiveCombinatorics",
@@ -47679,8 +47681,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80270,8 +80272,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
