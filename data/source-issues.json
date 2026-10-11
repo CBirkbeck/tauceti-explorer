@@ -223703,7 +223703,7 @@
    "correction": "by Proposition 2.6.5, J′ is principal",
    "reason": "The proof cites the proposition being proved; the principality of Γ_r is Proposition 2.6.5.",
    "affects": "nothing",
-   "known": "known: Kedlaya's 'Additional errata for Slope filtrations revisited' (https://kskedlaya.org/papers/slope-filt-errata2.pdf, read 2026-09-25): 'the reference to Proposition 2.6.8 in the proof should be to Proposition 2.6.5'",
+   "known": "Known: Kedlaya’s Additional errata for Slope filtrations revisited, https://kskedlaya.org/papers/slope-filt-errata2.pdf, inherited reading dated 2026-09-25; it corrects this citation to Proposition 2.6.5.",
    "searched": [
     "arXiv listing of math/0504204 (versions v1-v4; v4 read)",
     "Documenta Mathematica volume 10 page for the article (no erratum listed)",
@@ -223787,7 +223787,7 @@
    "correction": "max in place of min",
    "reason": "With min, the trivial module (D_s = 0 for s ≥ 1) would have |T|_{ρ,sp} = 0 and R(E, ρ) = ∞, and every module would have R(E, ρ) ≥ ρ, contradicting Lemma 5.4.7 (breaks n > 0) and Christol-Dwork's definition ‖δ‖_Sp = max(lim sup T(δ^s, E)^{1/s}, ‖D‖_Sp) (p. 668).",
    "affects": "nothing",
-   "known": "known: Kedlaya's errata for the overview (overview-errata.txt on his papers page, read 2026-09-25), which reads, for Definition 5.3 of the published numbering, 'the min should be a max'",
+   "known": "Known: the overview-errata.txt file on Kedlaya’s papers page, inherited reading dated 2026-09-25, changes the extremum in published Definition 5.3 to a maximum.",
    "searched": [
     "arXiv listing of math/0501361 (v1-v2; v2 read)",
     "Kedlaya's Swan conductors I and Kedlaya-Xiao, which record other misprints of this paper",
@@ -223966,7 +223966,7 @@
    "locator": "Remark 4.7, p. 9 (arXiv v6)",
    "printed": "The source cites [52, Proposition 5.11] for the claim that having a unique filtration on E implies that E has a filtration that is unique.",
    "correction": "one can show [52, Proposition 5.11] that E admits a unique filtration",
-   "reason": "A duplicated clause ('implies that E admits a unique filtration') makes the sentence ungrammatical; the intended claim is the existence and uniqueness of the reverse slope filtration.",
+   "reason": "The sentence repeats the clause asserting a unique filtration. Removing the repetition gives the intended reverse-slope filtration assertion.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -224067,7 +224067,7 @@
    "correction": "Lemma 6.2: 'discrete' should be 'rank 1'. Theorem 6.7: the statement for O⟨t_1..t_n⟩† requires K to be discretely valued.",
    "reason": "Recorded by C. Davis and P. Schneider (erratum on the author's papers page); RD.3/rigid-quillen-suslin states the corrected hypothesis.",
    "affects": "a stated result",
-   "known": "Erratum by Chris Davis and Peter Schneider, listed on kskedlaya.org/papers ('Lemma 6.2: replace \"discrete\" with \"rank 1\". Theorem 6.7: the result for O requires K to be discretely valued.')",
+   "known": "Chris Davis and Peter Schneider’s author-listed erratum corrects Lemma 6.2 to rank-one valuations and restricts the integral form of Theorem 6.7 to discretely valued K.",
    "searched": [
     "Kedlaya's papers page: the Davis-Schneider erratum listed there (read)",
     "arXiv math/0110125 (v4 read)"
@@ -224114,7 +224114,7 @@
    ],
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
-   "citation": "Pierre Berthelot, Géométrie rigide et cohomologie des variétés algébriques de caractéristique p, Mém. Soc. Math. France (N.S.) 23 (1986) 7-32 (numdam scan; excerpts typed from the page images)",
+   "citation": "Pierre Berthelot, Géométrie rigide et cohomologie des variétés algébriques de caractéristique p, Mém. Soc. Math. France (N.S.) 23 (1986) 7-32 (numdam scan; historical locators checked against page images)",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -224250,7 +224250,7 @@
    "kind": "gap",
    "locator": "Proof of Lemma 2.6.7, p. 22 (arXiv v4)",
    "printed": "The source further asserts that, if it drops below minn<0 {vn,r′ (ul x)}+ c, the least minimizing index n for minn {vn,r′ (ul+1x)} exceeds the least minimizing index n for minn {vn,r′ (ul x)}.",
-   "correction": "Continue: 'then the smallest value of n for which v_{n,r0}(u_{l+1}x) ≤ min_{n<0}{v_{n,r0}(u_l x)} + c is strictly greater than the smallest value of n for which v_{n,r0}(u_l x) ≤ min_{n<0}{v_{n,r0}(u_l x)} + c.'",
+   "correction": "Complete the induction by proving that the first n attaining v_(n,r0)(u_(l+1)x) ≤ min_(n<0) v_(n,r0)(u_l x)+c is strictly larger than the first n attaining the same bound for u_l x.",
    "reason": "Recorded by the author.",
    "affects": "the proof",
    "known": "Kedlaya, 'Additional errata for Slope filtrations revisited' (12 Feb 13)",
@@ -224547,7 +224547,7 @@
    "locator": "Section 8.4 of arXiv v5 (Propositions 8.4.1–8.4.3, Corollary 8.4.4 and the observation on localisations)",
    "printed": "In v5, every dagger algebra A and f ∈ A give a localization A → A⟨f^{-1}⟩† asserted to be strict and to have closed image. Proposition 8.4.2 makes both claims for ∇ : M → M ⊗RA Ω1RA/A; Corollary 8.4.4 makes both claims for every differential.",
    "correction": "v6: localisation A → A⟨f^{-1}⟩† is strict when |f|_sup = 1 (Proposition 8.4.1, new proof); ∇ over R_A and ∇_v over A⟨x⟩† are strict with closed image only after localising A (Propositions 8.4.3, 8.4.4); strictness of all differentials is only claimed when the cohomology is finite dimensional and separated (Proposition 8.4.5); Corollary 8.4.4 of v5 is removed.",
-   "reason": "Recorded from the comparison of v5 with v6 (the v6 comment reads 'corrections to 8.3, 8.4, 9.3'). The v5 argument deduced strictness of a map from strictness of the rows and one column of a diagram, which fails in general (see E46).",
+   "reason": "The inherited comparison of arXiv v5 and v6 identifies this as one of the revisions to §§8.3, 8.4 and 9.3. In v5, strict rows and one strict column of a diagram are used to deduce strictness of another map; E46 explains why these hypotheses do not suffice.",
    "affects": "a stated result",
    "known": "arXiv v6 (3 Nov 2005), comment: v6: corrections to 8.3, 8.4, 9.3",
    "searched": [
@@ -224707,7 +224707,7 @@
    "id": "PadicDifferentialEquationsAndRigidCohomology/E51",
    "kind": "error",
    "locator": "Definition 8.3.2, p. 55 (arXiv v6)",
-   "printed": "The definition uses LF, expanded as “limit-of-Fréchet”, for a separated, locally convex space obtainable as a direct limit of spaces that are Fréchet.",
+   "printed": "The definition uses LF, expanded as an inductive limit of Fréchet spaces, for a separated, locally convex space obtainable as a direct limit of spaces that are Fréchet.",
    "correction": "'Direct limit' must be read as 'locally convex direct limit' in the sense of Bourbaki.",
    "reason": "Kedlaya's published errata.",
    "affects": "nothing",
@@ -225035,7 +225035,7 @@
    "locator": "Lemma 3, p. 5",
    "printed": "For m ≥ 0, the lemma takes ω = A(x)y 2m+1 dx and claims that its reduction becomes integral after multiplication by p⌊logp (2m+1)⌋ .",
    "correction": "Corrected in the errata: for F_j(x) y^e dx the multiplier is p^m with m = ⌊log_p((2g + 1)(e + 2) − 2)⌋ (as quoted by Harvey, arXiv math/0610973v2 §3).",
-   "reason": "Harvey: 'Lemma 3 as stated in [Ked01] is incorrect. A corrected version is in the errata to [Ked01], and a proof is given in Lemma 4.3.5 of [Edi03].'",
+   "reason": "Harvey §3 points out the error in the original Lemma 3, cites its corrected statement in Kedlaya’s errata and directs the reader to Edixhoven Lemma 4.3.5 for a proof.",
    "affects": "a stated result",
    "known": "Kedlaya, Errata, J. Ramanujan Math. Soc. 18 (2003) 417–418; Edixhoven, Point counting after Kedlaya (2003), Lemma 4.3.5",
    "searched": [
@@ -225046,6 +225046,86 @@
    "owner": "PadicDifferentialEquationsAndRigidCohomology",
    "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
    "citation": "Kiran S. Kedlaya, Counting points on hyperelliptic curves using Monsky-Washnitzer cohomology, arXiv:math/0105031v2; J. Ramanujan Math. Soc. 16 (2001) 323-338.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E218",
+   "kind": "error",
+   "locator": "Proposition 11.2.24, statement, p. 378, author copy courbe.pdf (16 avril 2017); page image checked",
+   "printed": "The source asserts that completion ϕ-Mod_{E†} −→ ϕ-Mod_ℰ is an equivalence of categories, and therefore applies Dieudonné-Manin classification to ϕ-Mod_{E†}.",
+   "correction": "Only a filtration descends (Kedlaya [45] Prop. 5.11): every (V, ϕ) ∈ ϕ-Mod_{E†} has a unique filtration by saturated sub-ϕ-modules with isoclinic graded pieces of strictly decreasing Dieudonné–Manin slopes (each a direct sum of E†(λ) when F is algebraically closed). The completion functor is essentially surjective and an equivalence on isoclinic objects, but not fully faithful, and ϕ-modules over E† are not in general direct sums of E†(λ).",
+   "reason": "Choose c of absolute value greater than one. In the rank-two example F(e₁)=e₁+[c]e₂ and F(e₂)=πe₂, the completed fixed vector uses y=Σ_(k≥0)π^k[c^(q^k)]. This solves y−πF(y)=[c] in the π-adic completion but fails every positive-radius overconvergence bound. Thus completion adds a fixed vector, and an integral endomorphism of determinant π cannot satisfy the claimed invariant descent. The matrix equation for a fixed vector is X=A F(X); applying the source’s argument requires the integral inverse of A.",
+   "affects": "a stated result",
+   "known": "Known in the atlas: PAPER-FARGUES-FONTAINE-18/E218, independently confirmed by REV-PAPER-FARGUES-FONTAINE-18. No published correction was located in that review’s 2026-09-29 search.",
+   "searched": [
+    "Inherited search: Fargues’s publications page and the SMF Astérisque 406 page, checked by REV-PAPER-FARGUES-FONTAINE-18 on 2026-09-29.",
+    "This pass read the author PDF at the locator and the independently confirmed extraction record; it did not repeat the errata-web search."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Laurent Fargues and Jean-Marc Fontaine; Préface by Pierre Colmez, Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author-served text dated 16 April 2017 of the book published as Astérisque 406 (2018); this copy’s printed pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E219",
+   "kind": "error",
+   "locator": "Lemme 11.2.25, statement and proof (equation (7)), p. 379, author copy courbe.pdf (16 avril 2017); page image checked",
+   "printed": "The source takes a finite-rank free O_{E†}-module Λ with a semilinear endomorphism ϕ and asserts a bijection Λ^{ϕ=Id} ⥲ Λ̂^{ϕ=Id}. It subsequently chooses X ∈ O_ℰ^n satisfying (7) ϕ(X) = AX.",
+   "correction": "Assume ϕ bijective on Λ (matrix A ∈ GL_n(O_{E†})). Then a fixed vector satisfies X = Aϕ(X), i.e. ϕ(X) = A^{−1}X, and the printed argument applies to A^{−1} (after rescaling the basis so that A^{−1} mod π ∈ M_n(O_F)).",
+   "reason": "Choose c of absolute value greater than one. In the rank-two example F(e₁)=e₁+[c]e₂ and F(e₂)=πe₂, the completed fixed vector uses y=Σ_(k≥0)π^k[c^(q^k)]. This solves y−πF(y)=[c] in the π-adic completion but fails every positive-radius overconvergence bound. Thus completion adds a fixed vector, and an integral endomorphism of determinant π cannot satisfy the claimed invariant descent. The matrix equation for a fixed vector is X=A F(X); applying the source’s argument requires the integral inverse of A.",
+   "affects": "a stated result",
+   "known": "Known in the atlas: PAPER-FARGUES-FONTAINE-18/E219, independently confirmed by REV-PAPER-FARGUES-FONTAINE-18. No published correction was located in that review’s 2026-09-29 search.",
+   "searched": [
+    "Inherited search: Fargues’s publications page and the SMF Astérisque 406 page, checked by REV-PAPER-FARGUES-FONTAINE-18 on 2026-09-29.",
+    "This pass read the author PDF at the locator and the independently confirmed extraction record; it did not repeat the errata-web search."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Laurent Fargues and Jean-Marc Fontaine; Préface by Pierre Colmez, Courbes et fibrés vectoriels en théorie de Hodge p-adique, Author-served text dated 16 April 2017 of the book published as Astérisque 406 (2018); this copy’s printed pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E68",
+   "kind": "error",
+   "locator": "§2.1.5, p. 10, arXiv:1910.13391 (SHA-256 recorded in sources)",
+   "printed": "In §2.1.5(i) the connection has positive πdt, and the pullback-to-module map is multiplication by exp(π(t−t^p)).",
+   "correction": "For that connection and map direction, use exp(π(t^p−t)); equivalently the printed exponential gives the reverse map. The trace-character normalization must invert at the same time.",
+   "reason": "A horizontal multiplier h must satisfy dh/h=π(pt^(p−1)−1)dt. Differentiating the printed multiplier gives its negative. This is the same sign obstruction independently recorded for Kedlaya in E13.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Bessel F-isocrystals, Xu–Zhu, errata and corrections on 2026-10-11 found the arXiv entry and journal copies, but no correction notice. This is a limited search, not a claim that no correction exists.",
+    "The author preprint at https://arxiv.org/pdf/1910.13391 was read at §2.1.5; published numbering has not been collated."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Daxin Xu and Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391, author preprint; printed preprint numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicDifferentialEquationsAndRigidCohomology/E69",
+   "kind": "misprint",
+   "locator": "§2.1.5, p. 10, arXiv:1910.13391 (SHA-256 recorded in sources)",
+   "printed": "In §2.1.5(ii), over F_q with σ=id, the pullback connection is displayed using the coefficient ap while the Frobenius multiplier is t^((q−1)a).",
+   "correction": "For the q-power pullback that admits this multiplier, the connection coefficient is aq. A p-power pullback would instead require t^((p−1)a) together with its coefficient Frobenius.",
+   "reason": "The multiplier satisfies dh/h=(q−1)a dt/t. Horizontality for ∇=d−a dt/t therefore requires the pulled-back coefficient qa, and the stated integrality condition (q−1)a∈Z also fixes that q convention.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Web search for Bessel F-isocrystals, Xu–Zhu, errata and corrections on 2026-10-11 found the arXiv entry and journal copies, but no correction notice. This is a limited search, not a claim that no correction exists.",
+    "The author preprint at https://arxiv.org/pdf/1910.13391 was read at §2.1.5; published numbering has not been collated."
+   ],
+   "owner": "PadicDifferentialEquationsAndRigidCohomology",
+   "file": "research/blueprint/packets/PadicDifferentialEquationsAndRigidCohomology.json",
+   "citation": "Daxin Xu and Xinwen Zhu, Bessel F-isocrystals for reductive groups, arXiv:1910.13391, author preprint; printed preprint numbering",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
