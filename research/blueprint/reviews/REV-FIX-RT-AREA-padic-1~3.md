@@ -1,4 +1,56 @@
-# Current checkpoint: Codex codex-i7wp9f, 11 October 2026
+# Current checkpoint: Codex codex-1ppOB3, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `cea943b81895e62a7b416df4373809b718fa47d1`;
+branch `codex-1ppOB3-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6107356259).
+This session did none of the author fixes or earlier reviews.
+
+**Blocked checkpoint.** The existing mathematical review and its qualifications
+remain below. Fresh checks establish that the scope and review-attribution
+conflict still prevents completion. This continuation changes the report and
+handoff only; it supplies no new mathematical verdict.
+
+| Job | Live outputs / packets | Queue outputs / packets | Completion, live / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+Parsed both live issue bodies afresh. Their output lists equal the historical
+queues at `c69e5b6c9` and `888f12f5c9`, respectively. All current queue outputs
+exist. P0 and ASII current verdicts identify #6519; AEG identifies #5704.
+The preserved read-only collision fixture returns `[false, true]`; restoring
+#5704's archived verdicts in memory returns `[true, false]`. Therefore replacing
+current verdicts would transfer the completion failure between the jobs.
+
+Ran all three preserved fixtures from this report. The generator's eight
+cases pass 4/8 stock, 6/8 with the later-round-only candidate and 8/8 with the
+two-site candidate. All ten assessment-history assertions pass. These are
+in-memory repair demonstrations, not installed fixes. Independently compared
+the three packet objects excluding only top-level review metadata and all
+three suggested files against `331007b5e`; their assessed content is unchanged.
+
+The stock blueprint checker, using the configured pinned declaration index,
+reports zero errors and zero warnings for P0 (326 nodes), AEG (153 nodes) and
+ASII (537 nodes). No Lean compilation or fresh mathematical source audit ran;
+the earlier workers' source and elaboration evidence keeps its attribution.
+No link map or restructuring proposal is assigned to this review.
+
+[WORKERS.md](../WORKERS.md) restricts edits to issue-named files and scratch.
+The necessary queue, generator, completion-function and generated-prompt paths
+are outside those deliverables and each fails `intake.ALLOWED`. No production
+repair or review replacement was made. Resume after the maintainer restores
+and preserves issued scopes, establishes assessed historical completion
+without replacing promotion verdicts, and provides an authorized submission
+route. Verify both jobs together and after another scoped review; regenerate
+twice and check stable outputs, prompts, prerequisites and runtime state.
+The historical-assessment candidate still needs a policy for source and
+reader inputs. The existing fixtures and mathematical dispositions below
+remain the resumption evidence. One job claimed; no second job.
+
+---
+
+# Archived checkpoint: Codex codex-i7wp9f, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `3bb796f9d239e9568caaf90e1f4c18fe2bfcb2ab`;
