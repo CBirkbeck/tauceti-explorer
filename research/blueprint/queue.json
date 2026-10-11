@@ -11753,8 +11753,9 @@
    "avoidAccountOf": "DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3566"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3566",
+   "finishedAt": "2026-10-11T10:00:40Z"
   },
   {
    "id": "DESIGN-LocallyAnalyticDistributionsPartII",
@@ -22875,8 +22876,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicCongruences--L5b",
    "prompt": "research/blueprint/prompts/REV-AutomorphicCongruences--L5b.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #358"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #358",
+   "finishedAt": "2026-10-11T10:00:44Z"
   },
   {
    "id": "BP-AutomorphicFormsOnReductiveGroups",
@@ -23881,8 +23883,9 @@
    ],
    "avoidAccountOf": "BP-CompletedCohomologyPartII--CC.8",
    "prompt": "research/blueprint/prompts/REV-CompletedCohomologyPartII--CC.8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #377"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #377",
+   "finishedAt": "2026-10-11T10:00:47Z"
   },
   {
    "id": "BP-ComplexComparisonPartII",
@@ -32483,7 +32486,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -32491,7 +32494,8 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1040"
+   "note": "deliverables arrived from an external worker on issue #1040",
+   "finishedAt": "2026-10-11T10:00:50Z"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
@@ -49375,8 +49379,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80342,8 +80346,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80565,8 +80569,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5869"
+   "state": "external",
+   "note": "claimed on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81091,8 +81095,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -82547,8 +82551,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -84744,8 +84748,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
