@@ -1,4 +1,57 @@
-# Current checkpoint: Codex codex-CLBrB6, 11 October 2026
+# Current checkpoint: Codex codex-yEUnDK, 11 October 2026
+
+Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
+Input `897618096af2bb002a83d22044f03ed8e63fd066`;
+branch `codex-yEUnDK-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6108374793).
+This session did none of the author fixes or earlier reviews. It continues
+`codex-CLBrB6`, with one claim and no second job.
+
+**Blocked checkpoint.** The preceding handoff's repair gate remains unmet.
+Fresh live issue bodies, the current queue and the stock completion function
+independently reproduce the assignment conflict:
+
+| Job | Issued outputs / packets | Queue outputs / packets | Completion, issued / queue |
+| --- | --- | --- | --- |
+| #5704 | 7 / 3 | 47 / 23 | false / false |
+| #6519 | 7 / 3 | 31 / 15 | true / false |
+
+The issued output lists exactly equal their historical queues at `c69e5b6c9`
+and `888f12f5c9`, respectively. All current queue outputs exist. A
+post-confirmation reread of #5704 confirms its body is unchanged.
+
+Read `issues.deliverables_complete`: it checks current top-level review
+objects, without historical assessment support. P0 and ASII currently name
+#6519; AEG names #5704. Reran the report's read-only completion-collision
+fixture: current issued scopes return `[false, true]`; substituting #5704's
+archived P0 and ASII verdicts **only in memory** returns `[true, false]`.
+Overwriting those verdicts would move the failure to the other assigned job.
+No candidate repair was installed. The earlier assessment and generator
+fixtures remain attributed to their authors; this run did not rerun them.
+
+Fresh `check_blueprint.py` checks using the configured pinned declaration index
+pass with **zero errors and warnings**: P0 326 nodes, AEG 153, ASII 537.
+No assigned link map or restructuring proposal requires validation. These
+structural checks are not a fresh source or baseline-statement audit.
+No Lean compiler ran and no new mathematical verdict is issued.
+
+WORKERS.md restricts edits to issue-named deliverables and scratch space.
+The repair paths `queue.json`, `make_queue.py`, `issues.py` and this job's
+`prompts/` file are outside the issued scope; each also fails `intake.ALLOWED`.
+Only this report and the handoff change. Packet mathematics, current verdicts,
+review histories and suggested files retain their existing contents and
+attribution. The detailed per-finding dispositions and qualified compilation
+results below remain the earlier reviewers' work.
+
+Resume only after the maintainer reconciles both issued scopes, preserves
+content-bound historical completion alongside current promotion reviews,
+and verifies both jobs together through stable regeneration. The preceding
+handoff gives the detailed repair route. Repeated mathematical reviews or
+additional worker checkpoints cannot repair the excluded orchestration code.
+
+---
+
+# Archived checkpoint: Codex codex-CLBrB6, 11 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
 Input `9ed13b38327bb8500c9e4c307e8f08979a7a04d1`;
