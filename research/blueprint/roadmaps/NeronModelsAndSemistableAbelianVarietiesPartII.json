@@ -24,7 +24,6 @@
         "SchemeAndStackFoundations:SF.1",
         "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
         "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
-        "NeronModelsAndSemistableAbelianVarieties:R11.2",
         "SchemeAndStackFoundations:SF.3"
       ]
     },
@@ -46,7 +45,7 @@
     {
       "key": "G.2",
       "title": "Multiple fibers over excellent discrete valuation rings",
-      "description": "Prove the regular-model adapters in Schröer 8.1–8.3: the transverse horizontal DVR divisor has reduced intersection Spec k but schematic fiber length m; normalize its base change, lift the section, verify Raynaud (N)*, and obtain cohomological flatness, h⁰=1 and h¹=1 from χ=0. Construct the reduced-fiber isogeny, deduce all finite extension counts and the F₂ isomorphism. Use LLR 6.6 only with algebraically closed residue field and retain its hypotheses; finite-field nonsplit descent is a separate result.",
+      "description": "Prove the regular-model adapters in Schröer 8.1–8.3: the transverse horizontal DVR divisor has reduced intersection Spec k but schematic fiber length m; normalize its base change, lift the section, verify Raynaud (N)*, and obtain cohomological flatness, h⁰=1 and h¹=1 from χ=0. Construct the reduced-fiber isogeny, deduce all finite extension counts and the F₂ isomorphism. Use LLR 6.6 over a henselian DVR with algebraically closed residue field and its local torsor period; finite-field nonsplit descent is a separate result.",
       "requires": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
         "NeronModelsAndSemistableAbelianVarieties:R11.2",
