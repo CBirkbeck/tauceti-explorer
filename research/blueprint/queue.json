@@ -36962,7 +36962,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.5",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6303"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.6",
@@ -37485,7 +37486,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.5",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6315"
   },
   {
    "id": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
@@ -47709,8 +47711,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -49333,8 +49335,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80135,8 +80137,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80300,8 +80302,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81610,8 +81612,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -88287,8 +88289,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HyperbolicCurveVolumesAndGonality.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1697"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1697",
+   "finishedAt": "2026-10-11T05:39:43Z"
   },
   {
    "id": "REV-DESIGN-HyperbolicCurveVolumesAndGonality",
