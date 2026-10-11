@@ -1,6 +1,7 @@
 import Mathlib.Topology.Compactification.OnePoint.ProjectiveLine
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.RepresentationTheory.Basic
+import Mathlib.RepresentationTheory.Coinvariants
 import Mathlib.LinearAlgebra.Finsupp.LinearCombination
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.Algebra.MonoidAlgebra.Basic
@@ -10,11 +11,27 @@ import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.NumberTheory.Zsqrtd.GaussianInt
 import Mathlib.Tactic.Linarith
 import Mathlib.LinearAlgebra.Projection
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.Algebra.Algebra.Subalgebra.Lattice
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.LowDegree
+import Mathlib.RingTheory.TensorProduct.Basic
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.Algebra.Module.FinitePresentation
+import Mathlib.Analysis.Normed.Operator.Basic
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.NumberTheory.DirichletCharacter.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.RingTheory.PowerSeries.Binomial
+import Mathlib.RingTheory.RootsOfUnity.Basic
+import Mathlib.Analysis.Normed.Module.Basic
+import TauCeti.NumberTheory.ModularForms.Newforms.Newform
+import TauCeti.NumberTheory.ModularForms.Degeneracy
+import TauCeti.NumberTheory.ModularForms.HeckeSlash.BadPrime.Eigenvector
 
 /-!
 # Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L4)
@@ -44,9 +61,14 @@ Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
 -/
 
 open Matrix OnePoint
-open scoped MatrixGroups
+open scoped MatrixGroups TensorProduct
+
+set_option maxHeartbeats 1500000
+set_option linter.unusedVariables false
 
 noncomputable section
+
+attribute [local instance] Classical.propDecidable
 
 namespace TauCeti.ModularSymbol
 
@@ -152,7 +174,7 @@ variable (R : Type*) [CommRing R] (k : ℕ)
 
 /-- **`L0/polynomial-coefficients`** (Pollack–Stevens §3.4). `V_k(R) = Sym^k(R²)`, the
 homogeneous polynomials of degree `k` in `X, Y`. -/
-abbrev Vk : Submodule R (MvPolynomial (Fin 2) R) := MvPolynomial.homogeneousSubmodule (Fin 2) R k
+abbrev Vk : Submodule R (MvPolynomial (Fin 2) R) := _root_.MvPolynomial.homogeneousSubmodule (Fin 2) R k
 
 /-- The right action `(P | γ)(X, Y) = P(d X - c Y, -b X + a Y)` of an integral matrix `γ`
 (through its adjugate), a right action of the monoid `M₂(ℤ)`. -/
@@ -160,8 +182,8 @@ def slashVk (γ : Matrix (Fin 2) (Fin 2) ℤ) : Vk R k →ₗ[R] Vk R k := sorry
 
 theorem slashVk_apply (γ : Matrix (Fin 2) (Fin 2) ℤ) (P : Vk R k) :
     ((slashVk R k γ P : Vk R k) : MvPolynomial (Fin 2) R) =
-      MvPolynomial.aeval ![(γ 1 1 : R) • MvPolynomial.X 0 - (γ 1 0 : R) • MvPolynomial.X 1,
-        -(γ 0 1 : R) • MvPolynomial.X 0 + (γ 0 0 : R) • MvPolynomial.X 1] (P : MvPolynomial (Fin 2) R) :=
+      _root_.MvPolynomial.aeval ![(γ 1 1 : R) • _root_.MvPolynomial.X 0 - (γ 1 0 : R) • _root_.MvPolynomial.X 1,
+        -(γ 0 1 : R) • _root_.MvPolynomial.X 0 + (γ 0 0 : R) • _root_.MvPolynomial.X 1] (P : MvPolynomial (Fin 2) R) :=
   sorry
 
 /-- API: `P | (γ δ) = (P | γ) | δ` (right action). -/
@@ -368,8 +390,8 @@ def vkPairing (hk : IsUnit ((k.factorial : ℕ) : R)) : Vk R k →ₗ[R] Vk R k 
 
 theorem vkPairing_linearForm_pow (hk : IsUnit ((k.factorial : ℕ) : R)) (u v s t : R) :
     vkPairing R k hk
-        ⟨(MvPolynomial.C u * MvPolynomial.X 0 + MvPolynomial.C v * MvPolynomial.X 1) ^ k, sorry⟩
-        ⟨(MvPolynomial.C s * MvPolynomial.X 0 + MvPolynomial.C t * MvPolynomial.X 1) ^ k, sorry⟩ =
+        ⟨(_root_.MvPolynomial.C u * _root_.MvPolynomial.X 0 + _root_.MvPolynomial.C v * _root_.MvPolynomial.X 1) ^ k, sorry⟩
+        ⟨(_root_.MvPolynomial.C s * _root_.MvPolynomial.X 0 + _root_.MvPolynomial.C t * _root_.MvPolynomial.X 1) ^ k, sorry⟩ =
       (u * t - v * s) ^ k := sorry
 
 /-- The pairing is perfect. -/
@@ -380,18 +402,18 @@ end Pairing
 
 section Periods
 
-open Matrix.SpecialLinearGroup in
+open _root_.Matrix.SpecialLinearGroup in
 /-- **`L0/period-symbol`**. `ψ_f({s} - {r}) = 2πi ∫_r^s f(z) (zX + Y)^k dz` for a cusp form `f` of
 weight `k + 2` on `Γ`. -/
 def periodSymbol (Γ : Subgroup SL(2, ℤ)) (k : ℕ) :
     CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ) + 2) →ₗ[ℂ] (Delta0 →ₗ[ℤ] Vk ℂ k) := sorry
 
-open Matrix.SpecialLinearGroup in
+open _root_.Matrix.SpecialLinearGroup in
 theorem periodSymbol_mem (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
     (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ) + 2)) :
     periodSymbol Γ k f ∈ symbols Γ (vkRep ℂ k Γ) := sorry
 
-open Matrix.SpecialLinearGroup in
+open _root_.Matrix.SpecialLinearGroup in
 /-- **`L0/eichler-shimura-isomorphism`** (injectivity on cusp forms, Wiese Theorem 6.15): the
 Eichler–Shimura class of `f` determines `f`. -/
 theorem periodSymbol_toH1_injective (N k : ℕ) (hN : 4 ≤ N) :
@@ -399,7 +421,7 @@ theorem periodSymbol_toH1_injective (N k : ℕ) (hN : 4 ≤ N) :
       toH1 (CongruenceSubgroup.Gamma1 N) (vkRep ℂ k _) ⟨periodSymbol _ k f, periodSymbol_mem _ k f⟩ :=
   sorry
 
-open Matrix.SpecialLinearGroup in
+open _root_.Matrix.SpecialLinearGroup in
 /-- **`L0/eichler-shimura-isomorphism`** (dimension): `dim H¹_par = 2 dim S_{k+2}` for `Γ₁(N)`,
 `N ≥ 4`. -/
 theorem finrank_H1par_eq_two_mul (N k : ℕ) (hN : 4 ≤ N) :
@@ -409,108 +431,894 @@ theorem finrank_H1par_eq_two_mul (N k : ℕ) (hN : 4 ≤ N) :
 
 end Periods
 
-section CriticalValues
+section TypedHomAPI
 
-/-!
-### L1: periods and critical values (signatures; comment only)
+variable {R V : Type} [CommRing R] [AddCommGroup V] [Module R V]
 
-```
--- L1/period-lines (K_f from Tau Ceti ModularForms Layer 8)
-def periodLine (f : Newform N (k + 2) ε) (s : Sign) : Submodule K_f (Symb (Gamma1 N) (vkRep K_f k))
-theorem periodLine_finrank : Module.finrank K_f (periodLine f s) = 1
-def period (φ : periodLine f s) (hφ : φ ≠ 0) : ℂˣ         -- ψ_f^s = period φ • φ
-theorem period_smul (c : K_fˣ) : period (c • φ) _ = c⁻¹ • period φ _
--- L1/twisted-mellin-formula (L-functions from Tau Ceti ModularForms Layer 7)
-theorem twisted_mellin (χ : DirichletCharacter ℂ m) (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k) :
-    ∑ a : ZMod m, χ a * twistedPeriod f j a = gaussSum χ (ZMod.stdAddChar) * (j ! / (-2 * π * I) ^ j) *
-      LSeries (fun n ↦ (χ n)⁻¹ * coeff f n) (j + 1)
--- L1/critical-value-algebraicity
-theorem critical_value_mem (hs : s = (-1) ^ (k - j) * χ (-1)) : … ∈ K_f⟮χ⟯
-```
--/
+/-- The coefficient module structure on equivariant additive maps. -/
+instance symbolsModule (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    Module R (symbols Γ ρ) := sorry
 
-end CriticalValues
+/-- Cusp orbits; representatives are chosen only in the cusp-coordinate equivalence. -/
+def cuspSetoid (Γ : Subgroup SL(2, ℤ)) : Setoid P1Q where
+  r x y := ∃ γ : Γ, toGLQ γ • x = y
+  iseqv := sorry
 
-section SmallSlope
+abbrev Cusps (Γ : Subgroup SL(2, ℤ)) := Quotient (cuspSetoid Γ)
 
-/-!
-### L2: refinements and small slope
+def cuspStabilizer (Γ : Subgroup SL(2, ℤ)) (x : P1Q) : Subgroup Γ where
+  carrier := {γ | toGLQ γ • x = x}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
 
-`Σ₀(p)` over `ℤ_p` is stated here as `Sigma0p` (the integral `Sigma0 N` above is L0's Hecke
-monoid). The distribution spaces `A[r]`, `D[r]`, `D(ℤ_p)` are requested from
-LocallyAnalyticDistributions L0, and h-admissibility from its L2, so the remaining signatures
-are comments.
+def cuspInvariants (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (x : P1Q) :
+    Submodule R V where
+  carrier := {v | ∀ γ : cuspStabilizer Γ x, ρ γ.val v = v}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
 
-```
--- L2/p-stabilisation (Tau Ceti `CuspForm.levelRaise` is V_p)
-def pStabilisation (f : Newform N (k + 2)) (α β : ℂ) : CuspForm (Gamma1 (N * p)) (k + 2) :=
-  f - β • CuspForm.levelRaise p _ f
-theorem pStabilisation_Up (hαβ : α + β = a_p f) (hαβ' : α * β = ε p * p ^ (k + 1)) :
-    heckeUCuspNat (k + 2) p _ _ (pStabilisation f α β) = α • pStabilisation f α β
--- L2/refinement
-structure Refinement (N k p) where
-  f : Newform N (k + 2)
-  α : ℚ̄_p
-  isRoot : if p ∣ N then α = a_p f ∧ α ≠ 0 else α ^ 2 - a_p f * α + ε p * p ^ (k + 1) = 0
-def Refinement.slope (r : Refinement N k p) : ℚ := padicValuation r.α
--- L2/refined-eigenline
-theorem refinedLine_finrank (r : Refinement N k p) (s : Sign) : finrank K (refinedLine r s) = 1
--- L2/weight-k-distributions, L2/specialisation-map (D[r] from LocallyAnalyticDistributions L0)
-def distWeight (k : ℕ) (r : ℝ≥0) (hr : r < p) : Representation ℚ_[p] (Sigma0p p)ᵐᵒᵖ (Dist r)
-def specialise (k : ℕ) : Dist 1 →ₗ[ℚ_[p]] Vk ℚ_[p] k    -- μ ↦ ∫ (Y - z X)^k dμ
-theorem specialise_smul (γ : Sigma0p p) (μ) :
-    specialise k (μ ∣ γ) = slashVk _ k γ (specialise k μ)
--- L2/control-theorem
-theorem control (h : slope < k + 1) :
-    Function.Bijective
-      (specialiseSymb k : SymbSlopeLT (k + 1) (DistAn p) → SymbSlopeLT (k + 1) (Vk _ k))
--- L2/p-adic-l-function, L2/interpolation-and-uniqueness
-def padicLFunction (r : Refinement N k p) (hr : r.slope < k + 1) (φ : Sign → refinedLine r _) :
-    DistAn (ℤ_[p]ˣ)
-theorem padicLFunction_interpolation (χ) (hχ : conductor χ = p ^ n) (j ≤ k) :
-    padicLFunction r hr φ (z ^ j * χ) =
-      e n j * α⁻¹ ^ n * p ^ (n * j) * gaussSum χ * j ! / (2πi) ^ j *
-        L (f_α) χ⁻¹ (j + 1) / Ω (sign ((-1) ^ j * χ (-1)))
-```
--/
+/-- At finite index the product below is the finite direct sum over cusps. -/
+def bsymbolsEquivCusps (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    bsymbols Γ ρ ≃+ ((c : Cusps Γ) → cuspInvariants Γ ρ c.out) := sorry
 
-variable (p : ℕ) [Fact p.Prime]
+namespace bsymbols
 
-/-- **`L2/weight-k-distributions`**: `Σ₀(p) = {(a b; c d) ∈ M₂(ℤ_p) : p ∤ a, p ∣ c, det ≠ 0}`. -/
+def res (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    bsymbols Γ ρ →+ symbols Γ ρ := sorry
+
+theorem res_coe (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (ψ : bsymbols Γ ρ) :
+    ((res Γ ρ ψ : symbols Γ ρ) : Delta0 →ₗ[ℤ] V) = TauCeti.ModularSymbol.res ψ.val := sorry
+
+end bsymbols
+
+def symbolCocycle (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (φ : symbols Γ ρ) (x : P1Q) : groupCohomology.cocycles₁ (Rep.of ρ) :=
+  ⟨fun γ ↦ φ.val (divisorOf x (toGLQ γ • x)), sorry⟩
+
+theorem toH1_cocycle (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (φ : symbols Γ ρ) (x : P1Q) :
+    toH1 Γ ρ φ = (groupCohomology.H1π (Rep.of ρ)).hom (symbolCocycle Γ ρ φ x) := sorry
+
+/-- Native restriction in group cohomology to a cusp stabilizer. -/
+def cuspRestriction (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) (x : P1Q) :
+    groupCohomology (Rep.of ρ) 1 →ₗ[R]
+      groupCohomology (Rep.of (ρ.comp (cuspStabilizer Γ x).subtype)) 1 := sorry
+
+theorem mem_H1par_iff (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (c : groupCohomology (Rep.of ρ) 1) :
+    c ∈ H1par Γ ρ ↔ ∀ x : P1Q, cuspRestriction Γ ρ x c = 0 := sorry
+
+/-- Cohomological double-coset operator, with the same coefficient action as on symbols. -/
+def cohomologyHecke (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V) (ℓ : ℕ) :
+    Module.End R (groupCohomology (Rep.of ρ) 1) := sorry
+
+theorem toH1_hecke (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) (φ : symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    toH1 _ ρ ⟨heckeT N act ℓ φ.val, heckeT_mem_symbols N act ρ hact ℓ hℓ hℓN φ.property⟩ =
+      cohomologyHecke N ρ act ℓ (toH1 _ ρ φ) := sorry
+
+theorem H1par_hecke (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N)
+    (c : groupCohomology (Rep.of ρ) 1) (hc : c ∈ H1par _ ρ) :
+    cohomologyHecke N ρ act ℓ c ∈ H1par _ ρ := sorry
+
+theorem eisSymbols_hecke (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N)
+    (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ eisSymbols _ ρ) :
+    heckeT N act ℓ φ ∈ eisSymbols _ ρ := sorry
+
+/-- Coefficient extension on the native polynomial module. -/
+def vkMap {S : Type} [CommRing S] (ι : R →+* S) (k : ℕ) : Vk R k →ₛₗ[ι] Vk S k := sorry
+
+def coefficientBaseChange {S : Type} [CommRing S] [Algebra R S]
+    (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    Representation S Γ (S ⊗[R] V) := sorry
+
+/-- Flat base change uses the finite presentation of the congruence group and its cusps.
+The generic finite-index presentation hypotheses are left explicit. -/
+def H1par_baseChange {S : Type} [CommRing S] [Algebra R S] [Module.Flat R S]
+    [Module.FinitePresentation R V] (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
+    (ρ : Representation R Γ V) :
+    (S ⊗[R] H1par Γ ρ) ≃ₗ[S] H1par Γ (coefficientBaseChange Γ ρ (S := S)) := sorry
+
+def diamondHom (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) :
+    (ZMod N)ˣ →* Module.End ℤ (symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ)) := sorry
+
+theorem diamondHom_coe (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (d : (ZMod N)ˣ) (φ : symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ)) :
+    ((diamondHom N ρ d φ : symbols _ _) : Delta0 →ₗ[ℤ] V) = diamond N ρ d φ.val := sorry
+
+theorem diamond_eq_of_Gamma0Map_eq (N : ℕ)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (γ : CongruenceSubgroup.Gamma0 N) (d : (ZMod N)ˣ)
+    (hd : CongruenceSubgroup.Gamma0Map N γ = (d : ZMod N))
+    (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ))
+    (D : Delta0) :
+    diamond N ρ d φ D = ρ γ⁻¹ (φ (steinbergRep (toGLQ γ) D)) := sorry
+
+theorem fixed_diamond_eq (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) :
+    {φ : Delta0 →ₗ[ℤ] V | φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ) ∧
+      ∀ d, diamond N ρ d φ = φ} = (symbols (CongruenceSubgroup.Gamma0 N) ρ : Set _) := sorry
+
+/-- The σ_ℓ diagonal summand is essential at Γ₁ level. -/
+def sigmaHecke (N ℓ : ℕ) : CongruenceSubgroup.Gamma0 N := sorry
+
+theorem sigmaHecke_lower_right (N ℓ : ℕ) (h : Nat.Coprime ℓ N) :
+    (sigmaHecke N ℓ).val.val 1 1 ≡ (ℓ : ℤ) [ZMOD (N : ℤ)] := sorry
+
+def heckeTGamma1 (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ℓ : ℕ) : (Delta0 →ₗ[ℤ] V) →+ (Delta0 →ₗ[ℤ] V) := sorry
+
+theorem heckeTGamma1_formula (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : Nat.Coprime ℓ N) (φ : Delta0 →ₗ[ℤ] V) :
+    heckeTGamma1 N act ℓ φ =
+      (∑ a ∈ Finset.range ℓ, slash N act ⟨!![1, (a : ℤ); 0, (ℓ : ℤ)], sorry⟩ φ) +
+      slash N act ⟨(sigmaHecke N ℓ).val.val * !![(ℓ : ℤ), 0; 0, 1], sorry⟩ φ := sorry
+
+def heckeUGamma1 (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (q : ℕ) : (Delta0 →ₗ[ℤ] V) →+ (Delta0 →ₗ[ℤ] V) :=
+  { toFun := heckeU N act q, map_zero' := sorry, map_add' := sorry }
+
+theorem heckeTGamma1_restrict (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N)
+    (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    heckeTGamma1 N act ℓ φ = heckeT N act ℓ φ := sorry
+
+theorem heckeTGamma1_comm (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ m : ℕ) (hℓ : ℓ.Prime) (hm : m.Prime) (hℓN : ¬ ℓ ∣ N) (hmN : ¬ m ∣ N)
+    (φ : Delta0 →ₗ[ℤ] V)
+    (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ)) :
+    heckeTGamma1 N act ℓ (heckeTGamma1 N act m φ) =
+      heckeTGamma1 N act m (heckeTGamma1 N act ℓ φ) := sorry
+
+theorem diamond_comm_hecke (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) (d : (ZMod N)ˣ)
+    (φ : Delta0 →ₗ[ℤ] V)
+    (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N ρ)) :
+    diamond N ρ d (heckeTGamma1 N act ℓ φ) = heckeTGamma1 N act ℓ (diamond N ρ d φ) := sorry
+
+/-- The positive twist on the left representation is the inverse twist on the right action. -/
+def twistRep (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (ε : (ZMod N)ˣ →* Rˣ) : Representation R (CongruenceSubgroup.Gamma0 N) V := sorry
+
+def symbolsChar_equiv (N : ℕ) (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (ε : (ZMod N)ˣ →* Rˣ) : symbolsChar N ρ ε ≃+ symbols (CongruenceSubgroup.Gamma0 N) (twistRep N ρ ε) := sorry
+
+theorem symbolsChar_hecke (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V)
+    (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V)
+    (hact : ∀ (γ : CongruenceSubgroup.Gamma0 N) (v : V),
+      act (MulOpposite.op ⟨(γ.val : Matrix (Fin 2) (Fin 2) ℤ),
+        Gamma0_le_Sigma0 N γ.val γ.property⟩) v = ρ γ⁻¹ v)
+    (ε : (ZMod N)ˣ →* Rˣ) (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N)
+    (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbolsChar N ρ ε) :
+    heckeTGamma1 N act ℓ φ ∈ symbolsChar N ρ ε := sorry
+
+end TypedHomAPI
+
+
+
+section SignedPeriods
+
+open _root_.Matrix.SpecialLinearGroup CongruenceSubgroup
+open scoped _root_.ModularForm
+
+variable {N k : ℕ} [NeZero N]
+
+abbrev Form (N k : ℕ) := CuspForm ((Gamma1 N).map (mapGL ℝ)) ((k : ℤ) + 2)
+
+abbrev Newform (N k : ℕ) [NeZero N] := HeckeRing.GL2.Newform N ((k : ℤ) + 2)
+
+def formCoeff (f : Form N k) (n : ℕ) : ℂ := (UpperHalfPlane.qExpansion 1 f).coeff n
+
+/-- Supplier ModularForms Layer 8: the field generated by all Fourier and character values. -/
+def newformField (f : Newform N k) : IntermediateField ℚ ℂ :=
+  IntermediateField.adjoin ℚ (Set.range (formCoeff f.toCuspForm) ∪
+    Set.range (fun d : (ZMod N)ˣ ↦ (f.χ d : ℂ)))
+
+def newformCoeff (f : Newform N k) (n : ℕ) : newformField f :=
+  ⟨formCoeff f.toCuspForm n, sorry⟩
+
+def newformChar (f : Newform N k) : (ZMod N)ˣ →* (newformField f)ˣ := sorry
+
+def vkSigmaAction (R : Type) [CommRing R] (k N : ℕ) :
+    (Sigma0 N)ᵐᵒᵖ →* Module.End R (Vk R k) := sorry
+
+def iotaSymbol {R : Type} [CommRing R] (k : ℕ) :
+    (Delta0 →ₗ[ℤ] Vk R k) →ₗ[R] (Delta0 →ₗ[ℤ] Vk R k) := sorry
+
+theorem iotaSymbol_apply {R : Type} [CommRing R] (k : ℕ)
+    (φ : Delta0 →ₗ[ℤ] Vk R k) (D : Delta0) :
+    iotaSymbol k φ D = slashVk R k !![-1, 0; 0, 1] (φ (steinbergRep iota D)) := sorry
+
+/-- A sign is a choice of the +1 or -1 eigenspace, not a choice of period basis. -/
+inductive Sign | plus | minus
+
+def Sign.scalar (R : Type) [Ring R] : Sign → R | .plus => 1 | .minus => -1
+
+def signedPeriodSymbol (f : Form N k) (s : Sign) : Delta0 →ₗ[ℤ] Vk ℂ k :=
+  periodSymbol _ k f + s.scalar ℂ • iotaSymbol k (periodSymbol _ k f)
+
+/-- The simultaneous eigenspace, including all U_q at primes dividing the level. -/
+def periodLine (f : Newform N k) (s : Sign) :
+    Submodule (newformField f) (Delta0 →ₗ[ℤ] Vk (newformField f) k) where
+  carrier := {φ | φ ∈ symbols (Gamma1 N) (vkRep (newformField f) k _) ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ¬ ℓ ∣ N →
+      heckeTGamma1 N (vkSigmaAction (newformField f) k N) ℓ φ = newformCoeff f ℓ • φ) ∧
+    (∀ q : ℕ, q.Prime → q ∣ N →
+      heckeU N (vkSigmaAction (newformField f) k N) q φ = newformCoeff f q • φ) ∧
+    (∀ d : (ZMod N)ˣ, diamond N (vkRep (newformField f) k (Gamma0 N)) d φ =
+      (newformChar f d : newformField f) • φ) ∧
+    iotaSymbol k φ = s.scalar (newformField f) • φ}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem periodLine_finrank (f : Newform N k) (s : Sign) :
+    Module.finrank (newformField f) (periodLine f s) = 1 := sorry
+
+def mapSymbolCoeffs {R S : Type} [CommRing R] [CommRing S] (ι : R →+* S) (k : ℕ)
+    (φ : Delta0 →ₗ[ℤ] Vk R k) : Delta0 →ₗ[ℤ] Vk S k := sorry
+
+theorem mapSymbolCoeffs_apply {R S : Type} [CommRing R] [CommRing S] (ι : R →+* S) (k : ℕ)
+    (φ : Delta0 →ₗ[ℤ] Vk R k) (D : Delta0) :
+    mapSymbolCoeffs ι k φ D = vkMap ι k (φ D) := sorry
+
+/-- The nonzero scalar relating the signed complex period symbol to the chosen basis. -/
+def period (f : Newform N k) (s : Sign) (φ : periodLine f s) (hφ : φ ≠ 0) : ℂˣ := sorry
+
+theorem psi_eq_period_smul (f : Newform N k) (s : Sign) (φ : periodLine f s) (hφ : φ ≠ 0) :
+    signedPeriodSymbol f.toCuspForm s = (period f s φ hφ : ℂ) •
+      mapSymbolCoeffs (newformField f).subtype k φ.val := sorry
+
+theorem period_smul (f : Newform N k) (s : Sign) (φ : periodLine f s) (hφ : φ ≠ 0)
+    (c : (newformField f)ˣ) :
+    (period f s ((c : newformField f) • φ) (by sorry) : ℂ) =
+      ((c : newformField f) : ℂ)⁻¹ * (period f s φ hφ : ℂ) := sorry
+
+/-- Abstract saturated integral lattice. The ambient line, coefficient ring and field maps
+are explicit so local completions never acquire an implicit complex embedding. -/
+def integralPeriodLattice (O K : Type) [CommRing O] [Field K] [Algebra O K]
+    (k : ℕ) (Γ : Subgroup SL(2, ℤ)) (L : Submodule K (Delta0 →ₗ[ℤ] Vk K k)) :
+    Submodule O (symbols Γ (vkRep O k Γ)) where
+  carrier := {φ | mapSymbolCoeffs (algebraMap O K) k φ.val ∈ L}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem integralPeriodLattice_free (O K : Type) [CommRing O] [IsDomain O]
+    [IsPrincipalIdealRing O] [Field K] [Algebra O K] [IsFractionRing O K]
+    (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ)
+    (L : Submodule K (Delta0 →ₗ[ℤ] Vk K k)) (hL : Module.finrank K L = 1)
+    (hSymb : ∀ φ ∈ L, φ ∈ symbols Γ (vkRep K k Γ)) :
+    Module.Free O (integralPeriodLattice O K k Γ L) ∧
+      Module.finrank O (integralPeriodLattice O K k Γ L) = 1 := sorry
+
+/-- A scalar period from a lattice generator requires a specified K→ℂ map and a complex
+period vector in the scalar-extended line. -/
+def integralPeriod (O K : Type) [CommRing O] [Field K] [Algebra O K]
+    (ι : K →+* ℂ) (k : ℕ) (Γ : Subgroup SL(2, ℤ))
+    (L : Submodule K (Delta0 →ₗ[ℤ] Vk K k))
+    (ψ : Delta0 →ₗ[ℤ] Vk ℂ k) (φ : integralPeriodLattice O K k Γ L)
+    (hφ : Submodule.span O {φ} = ⊤)
+    (hψ : ∃ c : ℂˣ, ψ = (c : ℂ) •
+      mapSymbolCoeffs ι k (mapSymbolCoeffs (algebraMap O K) k φ.val.val)) : ℂˣ := sorry
+
+theorem integralPeriod_unit (O K : Type) [CommRing O] [IsDomain O]
+    [Field K] [Algebra O K] [IsFractionRing O K] (ι : K →+* ℂ)
+    (k : ℕ) (Γ : Subgroup SL(2, ℤ)) (L : Submodule K (Delta0 →ₗ[ℤ] Vk K k))
+    (ψ : Delta0 →ₗ[ℤ] Vk ℂ k) (φ φ' : integralPeriodLattice O K k Γ L)
+    (hφ : Submodule.span O {φ} = ⊤) (hφ' : Submodule.span O {φ'} = ⊤)
+    (hψ : ∃ c : ℂˣ, ψ = (c : ℂ) • mapSymbolCoeffs ι k
+      (mapSymbolCoeffs (algebraMap O K) k φ.val.val))
+    (hψ' : ∃ c : ℂˣ, ψ = (c : ℂ) • mapSymbolCoeffs ι k
+      (mapSymbolCoeffs (algebraMap O K) k φ'.val.val)) :
+    ∃ u : Oˣ, φ' = (u : O) • φ ∧
+      (integralPeriod O K ι k Γ L ψ φ' hφ' hψ' : ℂ) =
+        (ι (algebraMap O K (u : O)))⁻¹ * (integralPeriod O K ι k Γ L ψ φ hφ hψ : ℂ) := sorry
+
+/-- Imported analytic continuation from ModularForms Layer 7; this is NOT the raw `tsum`
+Dirichlet series at a critical integer outside its half-plane of absolute convergence. -/
+def cuspLValue (f : Form N k) {m : ℕ} (χ : DirichletCharacter ℂ m) (j : ℕ) : ℂ := sorry
+
+def gaussComplex {m : ℕ} [NeZero m] (χ : DirichletCharacter ℂ m) : ℂ :=
+  ∑ a : ZMod m, χ a * Complex.exp (2 * Real.pi * Complex.I * (a.val : ℂ) / m)
+
+/-- λ_{j,x}(P)=(j!/k!) ∂_Y^{k-j}P(1,-x). -/
+def mellinEvaluation (k j : ℕ) (x : ℂ) : Vk ℂ k →ₗ[ℂ] ℂ := sorry
+
+theorem mellinEvaluation_pow (k j : ℕ) (hj : j ≤ k) (x z : ℂ) :
+    mellinEvaluation k j x ⟨(_root_.MvPolynomial.C z * _root_.MvPolynomial.X 0 + _root_.MvPolynomial.X 1)^k, sorry⟩ =
+      (z - x)^j := sorry
+
+theorem twisted_mellin (f : Form N k) (m : ℕ) [NeZero m]
+    (χ : DirichletCharacter ℂ m) (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k) :
+    ∑ a : ZMod m, χ a * mellinEvaluation k j ((a.val : ℂ) / m)
+      (periodSymbol _ k f (divisorOf ∞ (((a.val : ℚ) / m : ℚ) : P1Q))) =
+    gaussComplex χ * (j.factorial : ℂ) / (-2 * Real.pi * Complex.I)^j *
+      cuspLValue f χ⁻¹ j := sorry
+
+/-- Algebraicity is stated by membership in the character-value extension of K_f. -/
+theorem critical_value_mem (f : Newform N k) (m : ℕ) [NeZero m]
+    (χ : DirichletCharacter ℂ m) (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k)
+    (s : Sign) (hs : s.scalar ℂ = (-1 : ℂ)^(k-j) * χ (-1))
+    (φ : periodLine f s) (hφ : φ ≠ 0) :
+    gaussComplex χ * (j.factorial : ℂ) / (-2 * Real.pi * Complex.I)^j *
+      cuspLValue f.toCuspForm χ⁻¹ j / (period f s φ hφ : ℂ) ∈
+      IntermediateField.adjoin ℚ ((newformField f : Set ℂ) ∪ Set.range χ) := sorry
+
+end SignedPeriods
+
+section Refinements
+
+open _root_.Matrix.SpecialLinearGroup CongruenceSubgroup
+open scoped _root_.ModularForm
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+
+/-- Native degeneracy operators, with both terms explicitly at Γ₁(pN). -/
+def pStabilisation (f : Newform N k) (β : ℂ) : Form (p * N) k :=
+  TauCeti.CuspForm.levelRaise 1 (TauCeti.Gamma1_map_le_conjAct_scaleGL_of_dvd (by simp)) f.toCuspForm -
+    β • TauCeti.CuspForm.levelRaise p (TauCeti.Gamma1_map_le_conjAct_scaleGL N p) f.toCuspForm
+
+theorem pStabilisation_coeff (f : Newform N k) (β : ℂ) (n : ℕ) :
+    formCoeff (pStabilisation (p := p) f β) n = formCoeff f.toCuspForm n -
+      β * (if p ∣ n then formCoeff f.toCuspForm (n / p) else 0) := sorry
+
+/-- The Dirichlet extension of the newform character, with zero at nonunits. -/
+def newformEpsilon (f : Newform N k) : DirichletCharacter (newformField f) N :=
+  MulChar.ofUnitHom (newformChar f)
+
+theorem pStabilisation_Up (f : Newform N k) (hpN : ¬ p ∣ N) (α β : ℂ)
+    (hab : α + β = formCoeff f.toCuspForm p)
+    (hmul : α * β = ((newformEpsilon f (p : ZMod N) : newformField f) : ℂ) * p^(k+1)) :
+    HeckeRing.GL2.heckeUCuspNat ((k : ℤ)+2) p (Fact.out) (dvd_mul_right p N)
+      (pStabilisation (p := p) f β) = α • pStabilisation (p := p) f β := sorry
+
+theorem pStabilisation_heckeT (f : Newform N k) (hpN : ¬ p ∣ N) (α β : ℂ)
+    (hab : α + β = formCoeff f.toCuspForm p)
+    (hmul : α * β = ((newformEpsilon f (p : ZMod N) : newformField f) : ℂ) * p^(k+1))
+    (ℓ : ℕ) [NeZero ℓ] (hℓ : ℓ.Prime) (hℓNp : ¬ ℓ ∣ p*N) :
+    HeckeRing.GL2.heckeTCuspNat ((k : ℤ)+2) ℓ (pStabilisation (p := p) f β) =
+      formCoeff f.toCuspForm ℓ • pStabilisation (p := p) f β := sorry
+
+variable (N k p) (K : Type) [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- A nonzero eigenvalue at the specified p-adic place. -/
+structure Refinement where
+  f : Newform N k
+  embedding : newformField f →+* K
+  α : K
+  ne_zero : α ≠ 0
+  isRoot : if p ∣ N then α = embedding (newformCoeff f p) else
+    α^2 - embedding (newformCoeff f p) * α +
+      embedding (newformEpsilon f (p : ZMod N)) * (p : K)^(k+1) = 0
+
+variable {N k p K}
+
+def Refinement.slope (r : Refinement N k p K) : ℝ := -Real.log ‖r.α‖ / Real.log p
+
+theorem Refinement.slope_le (r : Refinement N k p K) (hpN : ¬ p ∣ N) :
+    0 ≤ r.slope ∧ r.slope ≤ k+1 := sorry
+
+theorem refinement_ap_zero (f : Newform N k) (hpN : p ∣ N)
+    (ha : newformCoeff f p = 0) : ¬ ∃ r : Refinement N k p K, r.f = f := sorry
+
+end Refinements
+
+section DistributionSuppliers
+
+open Filter
+
+variable (p : ℕ) [Fact p.Prime] (K : Type) [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Supplier LocallyAnalyticDistributions L0: local Taylor expansions on closed p-adic balls.
+The topology below is the inductive limit of the analytic Banach stages, NOT pointwise topology. -/
+def locallyAnalyticTests : Submodule K (ℤ_[p] → K) where
+  carrier := {g | ∀ x : ℤ_[p], ∃ n : ℕ, ∃ a : ℕ → K,
+    Tendsto (fun j ↦ ‖a j‖ * ((p : ℝ)^(-(n : ℤ)))^j) atTop (nhds 0) ∧
+    ∀ z : ℤ_[p], ‖z-x‖ ≤ (p : ℝ)^(-(n : ℤ)) →
+      g z = ∑' j : ℕ, a j * (algebraMap ℚ_[p] K ((z : ℚ_[p])-(x : ℚ_[p])))^j}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Imported LF topology; replace this supplier stand-in by the supplier's named instance. -/
+instance locallyAnalyticTopology : TopologicalSpace (locallyAnalyticTests p K) := sorry
+
+abbrev LocAnDist := (locallyAnalyticTests p K) →L[K] K
+
+/-- The native bounded moment model of the dual of A[1] (Pollack–Stevens Proposition 3.1). -/
+def boundedMoments : Submodule K (ℕ → K) where
+  carrier := {c | ∃ C : ℝ, ∀ j, ‖c j‖ ≤ C}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- The native subexponential moment model of D†. -/
+def daggerMoments : Submodule K (ℕ → K) where
+  carrier := {c | ∀ r : ℝ, 1 < r → Tendsto (fun j ↦ ‖c j‖ / r^j) atTop (nhds 0)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Tate algebra coefficients tend to zero; the imported Banach norm is the Gauss norm. -/
+def tateCoefficients : Submodule K (ℕ → K) where
+  carrier := {a | Tendsto (fun j ↦ ‖a j‖) atTop (nhds 0)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+instance tateTopology : TopologicalSpace (tateCoefficients K) := sorry
+
+/-- Supplier Proposition 3.1: a continuous functional on A[1] is exactly a bounded moment
+sequence. Its evaluation on the j-th unit vector is the j-th moment. -/
+def distMoments : (tateCoefficients K →L[K] K) ≃ₗ[K] boundedMoments K := sorry
+
+theorem distMoments_apply (μ : tateCoefficients K →L[K] K) (j : ℕ) :
+    (distMoments K μ).val j = μ ⟨fun n ↦ if n=j then 1 else 0, sorry⟩ := sorry
+
+/-- Σ₀(p) over ℤ_p. -/
 def Sigma0p : Submonoid (Matrix (Fin 2) (Fin 2) ℤ_[p]) where
   carrier := {γ | IsUnit (γ 0 0) ∧ γ 1 0 ∈ IsLocalRing.maximalIdeal ℤ_[p] ∧ γ.det ≠ 0}
   mul_mem' := sorry
   one_mem' := sorry
 
-end SmallSlope
+/-- The weight-k right action on the continuous dual of locally analytic tests. -/
+def distWeight (k : ℕ) : Representation K (Sigma0p p)ᵐᵒᵖ (LocAnDist p K) := sorry
 
-section CriticalSlope
+/-- Analytic test action: (γ·g)(z)=(a+cz)^k g((b+dz)/(a+cz)). -/
+def distTestAction (k : ℕ) (γ : Sigma0p p) :
+    locallyAnalyticTests p K →ₗ[K] locallyAnalyticTests p K := sorry
 
-/-!
-### L3: critical slope, and L4: examples (signatures; comment only)
+theorem distWeight_apply (k : ℕ) (γ : Sigma0p p) (μ : LocAnDist p K)
+    (g : locallyAnalyticTests p K) :
+    distWeight p K k (MulOpposite.op γ) μ g = μ (distTestAction p K k γ g) := sorry
 
-Criticality, θ-criticality and Bellaïche's critical and secondary p-adic L-functions are planned
-by PadicFamilies L3 (RS-08); this packet specialises them to a single refinement.
+/-- Imported analytic-stage dual norm, on restriction to the radius-r test space. -/
+def distAnalyticNorm (r : ℝ) (μ : LocAnDist p K) : ℝ := sorry
 
-```
--- L3/non-theta-critical-lift (IsThetaCritical from PadicFamilies L3/refinement-criticality)
-def criticalSlopePadicL (r : Refinement N k p) (hs : r.slope = k + 1) (hθ : ¬ r.IsThetaCritical)
-    (φ : Sign → refinedLine r _) : DistAn (ℤ_[p]ˣ)
-theorem criticalSlopePadicL_lift_unique (Φ : Sign → SymbEigen r (DistAn p))
-    (hΦ : ∀ s, specialiseSymb k (Φ s) = φ s) : Φ = criticalLift r hs hθ φ
-theorem criticalSlopePadicL_admissible : IsAdmissible (k + 1) (criticalSlopePadicL r hs hθ φ)
--- L3/critical-slope-interpolation: the formula of padicLFunction_interpolation
--- L3/critical-slope-non-uniqueness
-theorem exists_admissible_vanishing (k : ℕ) :
-    ∃ μ : DistAn (ℤ_[p]ˣ), μ ≠ 0 ∧ IsAdmissible (k + 1) μ ∧
-      ∀ j ≤ k, ∀ χ : DirichletCharacter ℂ_[p] (p ^ n), μ (z ^ j * χ) = 0
--- L4/euler-factor-comparison (αβ = ε(p)p^{k+1})
-theorem eulerFactor_eq (χ) (hχ : conductor χ = 1) (j ≤ k) :
-    e r χ j = (1 - χ p * p ^ j / α) * (1 - (χ p)⁻¹ * ε p * p ^ (k - j) / α)
-```
--/
+theorem distWeight_norm_le (k : ℕ) (r : ℝ) (hr : 0 < r) (hrp : r < p)
+    (n : ℕ) (γ : Sigma0p p) (hdet : γ.val.det = (p : ℤ_[p])^n) (μ : LocAnDist p K) :
+    distAnalyticNorm p K (r / (p : ℝ)^n) (distWeight p K k (MulOpposite.op γ) μ) ≤
+      distAnalyticNorm p K r μ := sorry
 
-end CriticalSlope
+/-- Monomials are locally analytic; evaluation gives distribution moments. -/
+def monomialTest (j : ℕ) : locallyAnalyticTests p K :=
+  ⟨fun z ↦ (algebraMap ℚ_[p] K (z : ℚ_[p]))^j, sorry⟩
+
+def dirac (a : ℤ_[p]) : LocAnDist p K := sorry
+
+theorem dirac_apply (a : ℤ_[p]) (g : locallyAnalyticTests p K) : dirac p K a g = g.val a := sorry
+
+/-- Only the first k+1 moments enter this polynomial. -/
+def specialise (k : ℕ) : LocAnDist p K →ₗ[K] Vk K k := sorry
+
+theorem specialise_coeff (k j : ℕ) (hj : j ≤ k) (μ : LocAnDist p K) :
+    (specialise p K k μ).val.coeff (Finsupp.single 0 j + Finsupp.single 1 (k-j)) = (-1 : K)^j * (k.choose j : K) * μ (monomialTest p K j) := sorry
+
+def slashVkPadic (k : ℕ) (γ : Matrix (Fin 2) (Fin 2) ℤ_[p]) : Vk K k →ₗ[K] Vk K k := sorry
+
+theorem specialise_smul (k : ℕ) (γ : Sigma0p p) (μ : LocAnDist p K) :
+    specialise p K k (distWeight p K k (MulOpposite.op γ) μ) =
+      slashVkPadic p K k γ.val (specialise p K k μ) := sorry
+
+theorem specialise_eq_zero_iff (k : ℕ) [CharZero K] (μ : LocAnDist p K) :
+    specialise p K k μ = 0 ↔ ∀ j ≤ k, μ (monomialTest p K j) = 0 := sorry
+
+/-- The actual refinement group: it is Γ₁(N) when p divides N. -/
+def RefinementGroup (N p : ℕ) : Subgroup SL(2, ℤ) :=
+  CongruenceSubgroup.Gamma1 N ⊓ CongruenceSubgroup.Gamma0 p
+
+/-- Coefficient action on Γ₁(N) ∩ Γ₀(p), with the required p-divisibility built in. -/
+def distGamma1Rep (N k : ℕ) : Representation K (RefinementGroup N p) (LocAnDist p K) := sorry
+
+abbrev DistSymbols (N k : ℕ) := symbols (R := K) (V := LocAnDist p K) (RefinementGroup N p) (distGamma1Rep p K N k)
+abbrev ClassicalSymbols (N k : ℕ) := symbols (RefinementGroup N p) (vkRep K k _)
+
+def specialiseSymb (N k : ℕ) : DistSymbols p K N k →ₗ[K] ClassicalSymbols p K N k := sorry
+
+def upDist (N k : ℕ) : Module.End K (DistSymbols p K N k) := sorry
+def upClassical (N k : ℕ) : Module.End K (ClassicalSymbols p K N k) := sorry
+
+theorem specialiseSymb_apply (N k : ℕ) (Φ : DistSymbols p K N k) (D : Delta0) :
+    (specialiseSymb p K N k Φ).val D = specialise p K k (Φ.val D) := sorry
+
+/-- Stevens' control theorem on generalized α-eigenspaces. -/
+theorem control (N k : ℕ) [CompleteSpace K] [CharZero K] [FiniteDimensional ℚ_[p] K]
+    (α : K) (hα : α ≠ 0) (hh : -Real.log ‖α‖ / Real.log p < k+1) :
+    Function.Bijective (fun Φ : (upDist p K N k).genEigenspace α ⊤ ↦
+      (⟨specialiseSymb p K N k Φ.val, by sorry⟩ :
+        (upClassical p K N k).genEigenspace α ⊤)) := sorry
+
+/-- Admissibility: the defining local moment estimate, not a placeholder proposition. -/
+def ballMonomial (a : ℤ_[p]) (n j : ℕ) : locallyAnalyticTests p K :=
+  ⟨fun z ↦ if ‖z-a‖ ≤ (p : ℝ)^(-(n : ℤ)) then
+    (algebraMap ℚ_[p] K ((z : ℚ_[p])-(a : ℚ_[p])))^j else 0, sorry⟩
+
+/-- Restriction to the units is represented by zero extension of test functions. -/
+def restrictUnits (μ : LocAnDist p K) : LocAnDist p K := sorry
+
+theorem restrictUnits_apply (μ : LocAnDist p K) (g : locallyAnalyticTests p K) :
+    restrictUnits p K μ g = μ ⟨fun z ↦ if IsUnit z then g.val z else 0, sorry⟩ := sorry
+
+/-- Φ({∞}-{0}), restricted to units. -/
+def padicLFunction (N k : ℕ) (Φ : DistSymbols p K N k) : LocAnDist p K :=
+  restrictUnits p K (Φ.val (divisorOf ((0 : ℚ) : P1Q) ∞))
+
+theorem padicLFunction_admissible (N k : ℕ) (Φ : DistSymbols p K N k) (α : K)
+    (hα : α ≠ 0) (hΦ : upDist p K N k Φ = α • Φ) (hh : 0 ≤ -Real.log ‖α‖ / Real.log p)
+    (j : ℕ) : ∃ C : ℝ, 0 ≤ C ∧ ∀ (a : ℤ_[p]) (n : ℕ),
+    ‖padicLFunction p K N k Φ (ballMonomial p K a n j)‖ ≤
+      C * (p : ℝ)^((n : ℝ)*(-Real.log ‖α‖ / Real.log p - j)) := sorry
+
+/-- Distribution relation with the test g(a+p^n z), valid before restriction to units. -/
+def translatedTest (a : ℕ) (n : ℕ) (g : locallyAnalyticTests p K) : locallyAnalyticTests p K :=
+  ⟨fun z ↦ g.val ((a : ℤ_[p])+(p : ℤ_[p])^n*z), sorry⟩
+
+theorem padicLFunction_distrib (N k : ℕ) (Φ : DistSymbols p K N k) (α : K)
+    (hα : α ≠ 0) (hΦ : upDist p K N k Φ = α • Φ)
+    (a n : ℕ) (g : locallyAnalyticTests p K) :
+    Φ.val (divisorOf ((0 : ℚ) : P1Q) ∞)
+      ⟨fun z ↦ if ‖z-(a : ℤ_[p])‖ ≤ (p : ℝ)^(-(n : ℤ)) then g.val z else 0, sorry⟩ =
+    α⁻¹^n * Φ.val (divisorOf (((a : ℚ)/(p : ℚ)^n : ℚ) : P1Q) ∞)
+      (translatedTest p K a n g) := sorry
+
+theorem padicLFunction_smul (N k : ℕ) (c : K) (Φ : DistSymbols p K N k) :
+    padicLFunction p K N k (c • Φ) = c • padicLFunction p K N k Φ := sorry
+
+end DistributionSuppliers
+
+section FullEigensystems
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Double-coset actions on distribution symbols, with the integral matrices embedded in Σ₀(p). -/
+def distHeckeT (N k ℓ : ℕ) : Module.End K (DistSymbols p K N k) := sorry
+def classicalHeckeT (N k ℓ : ℕ) : Module.End K (ClassicalSymbols p K N k) := sorry
+def distIota (N k : ℕ) : Module.End K (DistSymbols p K N k) := sorry
+def classicalIota (N k : ℕ) : Module.End K (ClassicalSymbols p K N k) := sorry
+def distHeckeU (N k ℓ : ℕ) : Module.End K (DistSymbols p K N k) := sorry
+def classicalHeckeU (N k ℓ : ℕ) : Module.End K (ClassicalSymbols p K N k) := sorry
+def distDiamond (N k : ℕ) (u : (ZMod (p*N))ˣ) : Module.End K (DistSymbols p K N k) := sorry
+def classicalDiamond (N k : ℕ) (u : (ZMod (p*N))ˣ) : Module.End K (ClassicalSymbols p K N k) := sorry
+
+/-- Character inflated along the actual reduction from pN to N. -/
+def refinedCharacter (r : Refinement N k p K) (u : (ZMod (p*N))ˣ) : K :=
+  r.embedding (newformEpsilon r.f (ZMod.castHom (dvd_mul_left N p) (ZMod N) u.val))
+
+def refinedLine (r : Refinement N k p K) (s : Sign) : Submodule K (ClassicalSymbols p K N k) where
+  carrier := {φ | upClassical p K N k φ = r.α • φ ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ¬ ℓ ∣ p*N →
+      classicalHeckeT (p := p) (K := K) N k ℓ φ = r.embedding (newformCoeff r.f ℓ) • φ) ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ℓ ∣ N → ℓ ≠ p →
+      classicalHeckeU (p := p) (K := K) N k ℓ φ = r.embedding (newformCoeff r.f ℓ) • φ) ∧
+    (∀ u : (ZMod (p*N))ˣ,
+      classicalDiamond (p := p) (K := K) N k u φ = refinedCharacter r u • φ) ∧
+    classicalIota (p := p) (K := K) N k φ = s.scalar K • φ}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Full away-from-level Hecke eigensystem and sign; critical uniqueness never means U_p alone. -/
+def distEigenline (r : Refinement N k p K) (s : Sign) : Submodule K (DistSymbols p K N k) where
+  carrier := {Φ | upDist p K N k Φ = r.α • Φ ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ¬ ℓ ∣ p*N →
+      distHeckeT (p := p) (K := K) N k ℓ Φ = r.embedding (newformCoeff r.f ℓ) • Φ) ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ℓ ∣ N → ℓ ≠ p →
+      distHeckeU (p := p) (K := K) N k ℓ Φ = r.embedding (newformCoeff r.f ℓ) • Φ) ∧
+    (∀ u : (ZMod (p*N))ˣ,
+      distDiamond (p := p) (K := K) N k u Φ = refinedCharacter r u • Φ) ∧
+    distIota (p := p) (K := K) N k Φ = s.scalar K • Φ}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem refinedLine_finrank (r : Refinement N k p K) (s : Sign) :
+    Module.finrank K (refinedLine r s) = 1 := sorry
+
+end FullEigensystems
+
+section CriticalSpecialisations
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+variable (r : Refinement N k p K) (s : Sign) (φ : refinedLine r s)
+
+/-- PadicFamilies L3 supplies the unique full Hecke eigenlift at a non-θ-critical refinement.
+The lifting condition is explicit; no opaque `Prop` flag substitutes for θ-criticality. -/
+def criticalLift (hlift : ∃! Φ : distEigenline r s,
+    specialiseSymb p K N k Φ.val = φ.val) : distEigenline r s := hlift.exists.choose
+
+def criticalSlopePadicL (hlift : ∃! Φ : distEigenline r s,
+    specialiseSymb p K N k Φ.val = φ.val) : LocAnDist p K :=
+  padicLFunction p K N k (criticalLift r s φ hlift).val
+
+theorem criticalSlopePadicL_lift_unique (hlift : ∃! Φ : distEigenline r s,
+    specialiseSymb p K N k Φ.val = φ.val) (Φ : distEigenline r s)
+    (hs : specialiseSymb p K N k Φ.val = φ.val) : Φ = criticalLift r s φ hlift := sorry
+
+theorem criticalSlopePadicL_admissible (hslope : r.slope = k+1)
+    (hlift : ∃! Φ : distEigenline r s, specialiseSymb p K N k Φ.val = φ.val)
+    (j : ℕ) : ∃ C : ℝ, 0 ≤ C ∧ ∀ (a : ℤ_[p]) (n : ℕ),
+      ‖criticalSlopePadicL r s φ hlift (ballMonomial p K a n j)‖ ≤
+        C * (p : ℝ)^((n : ℝ)*((k : ℝ)+1-j)) := sorry
+
+/-- Bellaïche's primary eigenvector must have the same full eigensystem and specialisation. -/
+theorem criticalSlopePadicL_eq_bellaiche (hlift : ∃! Φ : distEigenline r s,
+    specialiseSymb p K N k Φ.val = φ.val) (ΦBella : distEigenline r s)
+    (hnorm : specialiseSymb p K N k ΦBella.val = φ.val) :
+    criticalSlopePadicL r s φ hlift = padicLFunction p K N k ΦBella.val := sorry
+
+/-- The imported θ-critical theorem places the full Hecke eigenline in the kernel. -/
+theorem theta_critical_no_lift (hφ : φ ≠ 0)
+    (hker : ∀ Φ : distEigenline r s, specialiseSymb p K N k Φ.val = 0) :
+    ¬ ∃ Φ : distEigenline r s, specialiseSymb p K N k Φ.val = φ.val := sorry
+
+end CriticalSpecialisations
+
+
+section PollackHalfLogs
+
+open Filter PowerSeries
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The p^m-th cyclotomic factor for m≥1. -/
+def cyclotomicFactor (m : ℕ) (U : PowerSeries ℚ_[p]) : PowerSeries ℚ_[p] :=
+  ∑ t ∈ Finset.range p, U^(p^(m-1)*t)
+
+def halfLogPartial (plus : Bool) (γ : ℚ_[p]ˣ) (j n : ℕ) : PowerSeries ℚ_[p] :=
+  PowerSeries.C (p : ℚ_[p])⁻¹ * ∏ i ∈ Finset.range n,
+    (PowerSeries.C (p : ℚ_[p])⁻¹ * cyclotomicFactor p
+      (if plus then 2*(i+1) else 2*i+1)
+      (PowerSeries.C ((γ : ℚ_[p])⁻¹^j) * (1+PowerSeries.X)))
+
+/-- Genuine coefficient limits of the even and odd products; convergence is part of the API. -/
+def halfLogPlus (γ : ℚ_[p]ˣ) (j : ℕ) : PowerSeries ℚ_[p] :=
+  PowerSeries.mk fun m ↦ limUnder atTop (fun n ↦ PowerSeries.coeff m (halfLogPartial p true γ j n))
+
+def halfLogMinus (γ : ℚ_[p]ˣ) (j : ℕ) : PowerSeries ℚ_[p] :=
+  PowerSeries.mk fun m ↦ limUnder atTop (fun n ↦ PowerSeries.coeff m (halfLogPartial p false γ j n))
+
+/-- Evaluation is justified by summability on the open unit disc. -/
+def seriesEval {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+    (F : PowerSeries ℚ_[p]) (t : K) : K :=
+  ∑' n : ℕ, algebraMap ℚ_[p] K (PowerSeries.coeff n F) * t^n
+
+def logOnePlus {K : Type} [NormedField K] (t : K) : K :=
+  ∑' n : ℕ, (-1 : K)^n * t^(n+1) / (n+1 : K)
+
+theorem halfLog_coeff_tendsto (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (j m : ℕ) :
+    Tendsto (fun n ↦ PowerSeries.coeff m (halfLogPartial p true γ j n)) atTop
+      (nhds (PowerSeries.coeff m (halfLogPlus p γ j))) ∧
+    Tendsto (fun n ↦ PowerSeries.coeff m (halfLogPartial p false γ j n)) atTop
+      (nhds (PowerSeries.coeff m (halfLogMinus p γ j))) := sorry
+
+theorem halfLogPlus_zeros {K : Type} [NormedField K] [CompleteSpace K]
+    [NormedAlgebra ℚ_[p] K] (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (j : ℕ) (t : K) (ht : ‖t‖ < 1) :
+    seriesEval p (halfLogPlus p γ j) t = 0 ↔
+      ∃ n : ℕ, 0 < n ∧ IsPrimitiveRoot
+        (algebraMap ℚ_[p] K ((γ : ℚ_[p])⁻¹^j) * (1+t)) (p^(2*n)) := sorry
+
+theorem halfLogMinus_zeros {K : Type} [NormedField K] [CompleteSpace K]
+    [NormedAlgebra ℚ_[p] K] (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (j : ℕ) (t : K) (ht : ‖t‖ < 1) :
+    seriesEval p (halfLogMinus p γ j) t = 0 ↔
+      ∃ n : ℕ, 0 < n ∧ IsPrimitiveRoot
+        (algebraMap ℚ_[p] K ((γ : ℚ_[p])⁻¹^j) * (1+t)) (p^(2*n-1)) := sorry
+
+theorem halfLog_mul {K : Type} [NormedField K] [CompleteSpace K]
+    [NormedAlgebra ℚ_[p] K] (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (j : ℕ) (t : K) (ht : ‖t‖ < 1) :
+    let u := algebraMap ℚ_[p] K ((γ : ℚ_[p])⁻¹^j) * (1+t)
+    (p : K)^2 * (u-1) * seriesEval p (halfLogPlus p γ j) t *
+      seriesEval p (halfLogMinus p γ j) t = logOnePlus (u-1) := sorry
+
+/-- Full weight products, with k+1 translated factors. -/
+def weightHalfLogPlus (γ : ℚ_[p]ˣ) (k : ℕ) : PowerSeries ℚ_[p] :=
+  ∏ j ∈ Finset.range (k+1), halfLogPlus p γ j
+
+def weightHalfLogMinus (γ : ℚ_[p]ˣ) (k : ℕ) : PowerSeries ℚ_[p] :=
+  ∏ j ∈ Finset.range (k+1), halfLogMinus p γ j
+
+theorem halfLog_growth (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1) (k : ℕ) :
+    ∃ C : ℝ, 0 < C ∧ ∀ n : ℕ,
+      ‖PowerSeries.coeff n (weightHalfLogPlus p γ k)‖ ≤ C*(n+1 : ℝ)^((k+1 : ℝ)/2) ∧
+      ‖PowerSeries.coeff n (weightHalfLogMinus p γ k)‖ ≤ C*(n+1 : ℝ)^((k+1 : ℝ)/2) := sorry
+
+namespace halfLog
+
+/-- Weight two: γ drops out when j=0. -/
+theorem test_weight_two_product (γ : ℚ_[p]ˣ) (t : ℚ_[p]) (ht : ‖t‖ < 1) :
+    (p : ℚ_[p])^2 * t * seriesEval p (halfLogPlus p γ 0) t *
+      seriesEval p (halfLogMinus p γ 0) t = logOnePlus t := sorry
+example (γ : ℚ_[p]ˣ) (t : ℚ_[p]) (ht : ‖t‖ < 1) :
+    (p : ℚ_[p])^2*t*seriesEval p (halfLogPlus p γ 0) t*
+      seriesEval p (halfLogMinus p γ 0) t = logOnePlus t := sorry
+
+theorem test_value_first_level {K : Type} [NormedField K] [CompleteSpace K]
+    [NormedAlgebra ℚ_[p] K] (γ : ℚ_[p]ˣ) (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (ht : ‖ζ-1‖ < 1) :
+    seriesEval p (halfLogMinus p γ 0) (ζ-1) = 0 ∧
+      seriesEval p (halfLogPlus p γ 0) (ζ-1) = (p : K)⁻¹ := sorry
+example {K : Type} [NormedField K] [CompleteSpace K] [NormedAlgebra ℚ_[p] K]
+    (γ : ℚ_[p]ˣ) (ζ : K) (hζ : IsPrimitiveRoot ζ p) (ht : ‖ζ-1‖ < 1) :
+    seriesEval p (halfLogPlus p γ 0) (ζ-1) = (p : K)⁻¹ := sorry
+
+/-- Sprung's correction: the accumulated reciprocal factors are nonconstant units. -/
+theorem test_functional_equation (γ : ℚ_[p]ˣ) (t : ℚ_[p]) (ht : ‖t‖ < 1) :
+    seriesEval p (halfLogPlus p γ 0) ((1+t)⁻¹-1) =
+      seriesEval p (PowerSeries.binomialSeries ℚ_[p] ((p : ℚ_[p])/(p+1))) t *
+        seriesEval p (halfLogPlus p γ 0) t ∧
+    seriesEval p (halfLogMinus p γ 0) ((1+t)⁻¹-1) =
+      seriesEval p (PowerSeries.binomialSeries ℚ_[p] (1/(p+1 : ℚ_[p]))) t *
+        seriesEval p (halfLogMinus p γ 0) t := sorry
+example (γ : ℚ_[p]ˣ) (t : ℚ_[p]) (ht : ‖t‖ < 1) :
+    seriesEval p (halfLogMinus p γ 0) ((1+t)⁻¹-1) =
+      seriesEval p (PowerSeries.binomialSeries ℚ_[p] (1/(p+1 : ℚ_[p]))) t *
+        seriesEval p (halfLogMinus p γ 0) t := sorry
+
+theorem test_linear_coefficients (γ : ℚ_[p]ˣ) :
+    PowerSeries.coeff 0 (halfLogPlus p γ 0) = (p : ℚ_[p])⁻¹ ∧
+    PowerSeries.coeff 0 (halfLogMinus p γ 0) = (p : ℚ_[p])⁻¹ ∧
+    PowerSeries.coeff 1 (halfLogPlus p γ 0) = -1/(2*(p+1 : ℚ_[p])) ∧
+    PowerSeries.coeff 1 (halfLogMinus p γ 0) = -1/(2*p*(p+1 : ℚ_[p])) := sorry
+example (γ : ℚ_[p]ˣ) : PowerSeries.coeff 1 (halfLogPlus p γ 0) = -1/(2*(p+1 : ℚ_[p])) := sorry
+
+theorem test_not_bounded (γ : ℚ_[p]ˣ) :
+    ¬ (∃ C : ℝ, ∀ n, ‖PowerSeries.coeff n (halfLogPlus p γ 0)‖ ≤ C) ∧
+    ¬ (∃ C : ℝ, ∀ n, ‖PowerSeries.coeff n (halfLogMinus p γ 0)‖ ≤ C) := sorry
+example (γ : ℚ_[p]ˣ) : ¬ ∃ C : ℝ, ∀ n, ‖PowerSeries.coeff n (halfLogPlus p γ 0)‖ ≤ C := sorry
+
+end halfLog
+end PollackHalfLogs
+
+section EulerDeletion
+
+open _root_.Matrix.SpecialLinearGroup CongruenceSubgroup
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+
+/-- All terms are placed at Γ₁(Nℓ²); in the bad case one may first work at Nℓ. -/
+def eulerDepletion (f : Newform N k) (ℓ : ℕ) [NeZero ℓ] : Form (ℓ^2*N) k :=
+  TauCeti.CuspForm.levelRaise 1 (TauCeti.Gamma1_map_le_conjAct_scaleGL_of_dvd (by simp)) f.toCuspForm -
+    formCoeff f.toCuspForm ℓ • TauCeti.CuspForm.levelRaise ℓ
+      (TauCeti.Gamma1_map_le_conjAct_scaleGL_of_dvd (by sorry)) f.toCuspForm +
+    (if ℓ ∣ N then 0 else
+      (((newformEpsilon f (ℓ : ZMod N) : newformField f) : ℂ) * (ℓ : ℂ)^(k+1)) •
+        TauCeti.CuspForm.levelRaise (ℓ^2) (TauCeti.Gamma1_map_le_conjAct_scaleGL N (ℓ^2)) f.toCuspForm)
+
+theorem eulerDepletion_coeff (f : Newform N k) (ℓ : ℕ) [NeZero ℓ] (hℓ : ℓ.Prime) (n : ℕ) :
+    formCoeff (eulerDepletion f ℓ) n = if ℓ ∣ n then 0 else formCoeff f.toCuspForm n := sorry
+
+variable (p : ℕ) [Fact p.Prime] (K : Type) [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Scaling by an actual p-adic unit. It never admits the nonunit p as input. -/
+def scaleDistribution (u : ℤ_[p]ˣ) : Module.End K (LocAnDist p K) := sorry
+
+theorem scaleDistribution_apply (u : ℤ_[p]ˣ) (μ : LocAnDist p K)
+    (g : locallyAnalyticTests p K) :
+    scaleDistribution p K u μ g = μ ⟨fun z ↦ g.val ((u : ℤ_[p])*z), sorry⟩ := sorry
+
+def primeUnit (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) : ℤ_[p]ˣ := ⟨ℓ, sorry, sorry, sorry⟩
+
+theorem primeUnit_val (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) :
+    (primeUnit p ℓ hℓp : ℤ_[p]) = ℓ := sorry
+
+/-- Good-prime quadratic and bad-prime linear Euler deletion. The power ℓ^{k-1} is written
+ℓ^{k+1}/ℓ², so weight two is represented correctly without truncated natural subtraction. -/
+def eulerDeletion (good : Bool) (ℓ k : ℕ) (hℓp : Nat.Coprime ℓ p) (a ε : K) :
+    Module.End K (LocAnDist p K) :=
+  (1 : Module.End K (LocAnDist p K)) + (-(a/(ℓ : K))) • scaleDistribution p K (primeUnit p ℓ hℓp)⁻¹ +
+    (if good then (ε*(ℓ : K)^(k+1)/(ℓ : K)^2) •
+      scaleDistribution p K ((primeUnit p ℓ hℓp)⁻¹)^2 else 0)
+
+/-- Character-monomial evaluation only needs the exact scaling law of the test function. -/
+theorem eulerDeletion_eval (good : Bool) (ℓ k j : ℕ) (hℓp : Nat.Coprime ℓ p)
+    (a ε χℓ : K) (hχ : χℓ ≠ 0) (μ : LocAnDist p K) (g : locallyAnalyticTests p K)
+    (hscale : ∀ z : ℤ_[p],
+      g.val ((((primeUnit p ℓ hℓp)⁻¹ : ℤ_[p]ˣ) : ℤ_[p])*z) = χℓ⁻¹/(ℓ : K)^j * g.val z) :
+    eulerDeletion p K good ℓ k hℓp a ε μ g =
+      (1-a*χℓ⁻¹/(ℓ : K)^(j+1) +
+        if good then ε*χℓ⁻¹^2*(ℓ : K)^(k+1)/(ℓ : K)^(2*(j+1)) else 0) * μ g := sorry
+
+theorem eulerDeletion_comm (good good' : Bool) (ℓ m k : ℕ)
+    (hℓp : Nat.Coprime ℓ p) (hmp : Nat.Coprime m p) (a ε b η : K) :
+    eulerDeletion p K good ℓ k hℓp a ε * eulerDeletion p K good' m k hmp b η =
+      eulerDeletion p K good' m k hmp b η * eulerDeletion p K good ℓ k hℓp a ε := sorry
+
+/-- L4's Hom-side V_d dictionary. The scalar d^{−k−1} includes the path Jacobian.
+It is proved from the imported homological degeneracy and period comparison. -/
+def degenerateRawSymbol (d k : ℕ) (hd : d ≠ 0)
+    (φ : Delta0 →ₗ[ℤ] Vk K k) : Delta0 →ₗ[ℤ] Vk K k where
+  toFun D := ((d : K)^(k+1))⁻¹ • slashVk K k !![(d : ℤ),0;0,1]
+    (φ (steinbergRep (toGLQ' !![(d : ℤ),0;0,1] (by sorry)) D))
+  map_add' := sorry
+  map_smul' := sorry
+
+/-- Exact symbol depletion at the common level pNℓ², with the same period basis. -/
+def depleteClassicalSymbol (N k ℓ : ℕ) [NeZero ℓ] (good : Bool) (a ε : K) :
+    ClassicalSymbols p K N k →ₗ[K] ClassicalSymbols p K (ℓ^2*N) k where
+  toFun φ := ⟨φ.val - a • degenerateRawSymbol K ℓ k (NeZero.ne _) φ.val +
+    (if good then (ε*(ℓ : K)^(k+1)) •
+      degenerateRawSymbol K (ℓ^2) k (pow_ne_zero _ (NeZero.ne _)) φ.val else 0), sorry⟩
+  map_add' := sorry
+  map_smul' := sorry
+
+/-- Compatible period normalization means the specialised depleted symbol is the actual
+V_ℓ-degeneracy of the original, rather than an independently chosen generator. -/
+theorem padicLFunction_depletion [CompleteSpace K] [CharZero K] [FiniteDimensional ℚ_[p] K]
+    (N k ℓ : ℕ) [NeZero ℓ] (good : Bool) (hℓp : Nat.Coprime ℓ p) (a ε α : K) (hα : α ≠ 0)
+    (hh : -Real.log ‖α‖ / Real.log p < k+1)
+    (Φ : DistSymbols p K N k) (Φdel : DistSymbols p K (ℓ^2*N) k)
+    (heigen : upDist p K N k Φ = α • Φ)
+    (heigenDel : upDist p K (ℓ^2*N) k Φdel = α • Φdel)
+    (hnorm : specialiseSymb p K (ℓ^2*N) k Φdel =
+      depleteClassicalSymbol p K N k ℓ good a ε (specialiseSymb p K N k Φ)) :
+    padicLFunction p K (ℓ^2*N) k Φdel =
+      eulerDeletion p K good ℓ k hℓp a ε (padicLFunction p K N k Φ) := sorry
+
+end EulerDeletion
+
+section CoefficientTransport
+
+variable {N k : ℕ} [NeZero N]
+
+/-- Transport of algebraic coefficients, with no σ action on transcendental periods. -/
+theorem coefficient_embedding_comparison (f f' : Newform N k)
+    (σ : newformField f ≃+* newformField f')
+    (hcoeff : ∀ n, σ (newformCoeff f n) = newformCoeff f' n)
+    (hchar : ∀ d, σ (newformChar f d : newformField f) = (newformChar f' d : newformField f'))
+    (s : Sign) (φ : periodLine f s) :
+    mapSymbolCoeffs σ.toRingHom k φ.val ∈ periodLine f' s := sorry
+
+variable (p : ℕ) [Fact p.Prime] {K K' : Type} [NormedField K] [NormedField K']
+    [NormedAlgebra ℚ_[p] K] [NormedAlgebra ℚ_[p] K']
+
+/-- Coefficient transport of continuous distributions at the transported p-adic place. -/
+def transportDistribution (σ : K ≃+* K') (hσ : ∀ x, ‖σ x‖ = ‖x‖)
+    (hbase : ∀ x : ℚ_[p], σ (algebraMap ℚ_[p] K x) = algebraMap ℚ_[p] K' x)
+    (μ : LocAnDist p K) : LocAnDist p K' := sorry
+
+theorem transportDistribution_eval (σ : K ≃+* K') (hσ : ∀ x, ‖σ x‖ = ‖x‖)
+    (hbase : ∀ x : ℚ_[p], σ (algebraMap ℚ_[p] K x) = algebraMap ℚ_[p] K' x)
+    (μ : LocAnDist p K) (g : locallyAnalyticTests p K) :
+    transportDistribution p σ hσ hbase μ ⟨fun z ↦ σ (g.val z), sorry⟩ = σ (μ g) := sorry
+
+theorem transport_slope (σ : K ≃+* K') (hσ : ∀ x, ‖σ x‖ = ‖x‖) (α : K) :
+    -Real.log ‖σ α‖ / Real.log p = -Real.log ‖α‖ / Real.log p := sorry
+
+end CoefficientTransport
 
 end TauCeti.ModularSymbol
 
@@ -555,11 +1363,11 @@ example : eisSymbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (�
 
 /-- `k = 1`: the pairing is the determinant pairing `⟨X, Y⟩ = 1`. -/
 example (R : Type) [CommRing R] :
-    vkPairing R 1 (by simp) ⟨MvPolynomial.X 0, sorry⟩ ⟨MvPolynomial.X 1, sorry⟩ = 1 := sorry
+    vkPairing R 1 (by simp) ⟨_root_.MvPolynomial.X 0, sorry⟩ ⟨_root_.MvPolynomial.X 1, sorry⟩ = 1 := sorry
 
 /-- `k = 2`: the pairing is not integral, `⟨XY, XY⟩ = -1/2`. -/
-example : vkPairing ℚ 2 (by norm_num [Nat.factorial]) ⟨MvPolynomial.X 0 * MvPolynomial.X 1, sorry⟩
-    ⟨MvPolynomial.X 0 * MvPolynomial.X 1, sorry⟩ = -1 / 2 := sorry
+example : vkPairing ℚ 2 (by norm_num [Nat.factorial]) ⟨_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1, sorry⟩
+    ⟨_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1, sorry⟩ = -1 / 2 := sorry
 
 /-- `dim H¹_par(Γ₁(11), ℂ) = 2`, twice the genus of `X₁(11)`. -/
 example : Module.finrank ℂ (H1par (CongruenceSubgroup.Gamma1 11) (vkRep ℂ 0 _)) = 2 := sorry
@@ -721,7 +1529,7 @@ def h1HeckeAlgebra (N k : ℕ) : Subalgebra ℚ (Module.End ℚ (RationalH1 N k)
 /-- **`L0/rational-hecke-separation`**. A good Hecke-algebra element has coprime
 annihilators on the parabolic subspace and the boundary quotient. The range condition
 is the precise assertion that `Q(A)` annihilates the quotient. The higher-weight
-source proof is recorded as a gap; this is a proposed theorem, not an assumption
+source proof is Shokurov Theorem 4.3; its exact coefficient-system transport is recorded as a gap; this is a proposed theorem, not an assumption
 silently bundled into a representation. -/
 theorem rational_hecke_separation (N k : ℕ) (hN : 3 ≤ N) :
     ∃ (A : h1HeckeAlgebra N k) (P Q : Polynomial ℚ), IsCoprime P Q ∧
@@ -810,4 +1618,866 @@ example (s : (ℤ × ℤ) →ₗ[ℤ] ℤ) (hs : s (1, 0) = 1) :
     ¬ ∀ v : ℤ × ℤ, s (v.2, 2 * v.2) = 0 := sorry
 
 end DrinfeldManinTest
+end TauCeti.ModularSymbol
+namespace TauCeti.ModularSymbol
+
+abbrev RationalTrivialSymbols (N : ℕ) := symbols (CongruenceSubgroup.Gamma0 N)
+  (Representation.trivial ℚ (CongruenceSubgroup.Gamma0 N) ℚ)
+
+instance rationalTrivialSymbolsFinite (N : ℕ) [NeZero N] :
+    FiniteDimensional ℚ (RationalTrivialSymbols N) := sorry
+
+def trivialSymbolHecke (N ℓ : ℕ) : Module.End ℚ (RationalTrivialSymbols N) := sorry
+
+theorem trivialSymbolHecke_coe (N ℓ : ℕ) (φ : RationalTrivialSymbols N) :
+    (trivialSymbolHecke N ℓ φ).val =
+      heckeT N (1 : (Sigma0 N)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val := sorry
+
+/-- The diagonal contribution whose diamond multiplier is missing in the naive Γ₁ formula. -/
+def diagonalContribution {R V : Type} [CommRing R] [AddCommGroup V] [Module R V]
+    (N : ℕ) (act : (Sigma0 N)ᵐᵒᵖ →* Module.End R V) (ℓ : ℕ)
+    (φ : Delta0 →ₗ[ℤ] V) : Delta0 →ₗ[ℤ] V :=
+  if h : (ℓ : ℤ) ≠ 0 ∧ IsCoprime (ℓ : ℤ) (N : ℤ) then
+    slash N act ⟨!![(ℓ : ℤ), 0; 0, 1], sorry⟩ φ else 0
+
+/-- Packet test `symbols_SL2Z_trivial`. -/
+theorem symbols_SL2Z_trivial  :
+    symbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) = ⊥ := sorry
+example  :
+    symbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) = ⊥ := sorry
+
+/-- Packet test `symbols_Gamma0_11_rank`. -/
+theorem symbols_Gamma0_11_rank  :
+    Module.finrank ℤ (symbols (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℤ (CongruenceSubgroup.Gamma0 11) ℤ)) = 3 := sorry
+example  :
+    Module.finrank ℤ (symbols (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℤ (CongruenceSubgroup.Gamma0 11) ℤ)) = 3 := sorry
+
+/-- Packet test `symbols_zero`. -/
+theorem symbols_zero (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) :
+    (0 : Delta0 →ₗ[ℤ] V) ∈ symbols Γ ρ := sorry
+example (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) :
+    (0 : Delta0 →ₗ[ℤ] V) ∈ symbols Γ ρ := sorry
+
+/-- Packet test `vk_rank`. -/
+theorem vk_rank (R : Type) [CommRing R] [Nontrivial R] (k : ℕ) :
+    Module.finrank R (Vk R k) = k+1 := sorry
+example (R : Type) [CommRing R] [Nontrivial R] (k : ℕ) :
+    Module.finrank R (Vk R k) = k+1 := sorry
+
+/-- Packet test `vk_scalar`. -/
+theorem vk_scalar (R : Type) [CommRing R] (k : ℕ) (c : ℤ) (P : Vk R k) :
+    slashVk R k (c • (1 : Matrix (Fin 2) (Fin 2) ℤ)) P = ((c : R)^k) • P := sorry
+example (R : Type) [CommRing R] (k : ℕ) (c : ℤ) (P : Vk R k) :
+    slashVk R k (c • (1 : Matrix (Fin 2) (Fin 2) ℤ)) P = ((c : R)^k) • P := sorry
+
+/-- Packet test `vk_zero`. -/
+theorem vk_zero (R : Type) [CommRing R] (γ : Matrix (Fin 2) (Fin 2) ℤ) (P : Vk R 0) :
+    slashVk R 0 γ P = P := sorry
+example (R : Type) [CommRing R] (γ : Matrix (Fin 2) (Fin 2) ℤ) (P : Vk R 0) :
+    slashVk R 0 γ P = P := sorry
+
+/-- Packet test `sigma0_upper`. -/
+theorem sigma0_upper (N : ℕ) (a ℓ : ℤ) (hℓ : ℓ ≠ 0) :
+    !![1,a;0,ℓ] ∈ Sigma0 N := sorry
+example (N : ℕ) (a ℓ : ℤ) (hℓ : ℓ ≠ 0) :
+    !![1,a;0,ℓ] ∈ Sigma0 N := sorry
+
+/-- Packet test `sigma0_diag`. -/
+theorem sigma0_diag (N : ℕ) (ℓ : ℤ) (hℓ : ℓ ≠ 0) :
+    !![ℓ,0;0,1] ∈ Sigma0 N ↔ IsCoprime ℓ (N : ℤ) := sorry
+example (N : ℕ) (ℓ : ℤ) (hℓ : ℓ ≠ 0) :
+    !![ℓ,0;0,1] ∈ Sigma0 N ↔ IsCoprime ℓ (N : ℤ) := sorry
+
+/-- Packet test `sigma0_gamma0`. -/
+theorem sigma0_gamma0 (N : ℕ) (γ : CongruenceSubgroup.Gamma0 N) :
+    (γ.val : Matrix (Fin 2) (Fin 2) ℤ) ∈ Sigma0 N := sorry
+example (N : ℕ) (γ : CongruenceSubgroup.Gamma0 N) :
+    (γ.val : Matrix (Fin 2) (Fin 2) ℤ) ∈ Sigma0 N := sorry
+
+/-- Packet test `iota_zero`. -/
+theorem iota_zero  :
+    iota • ((0 : ℚ) : P1Q) = ((0 : ℚ) : P1Q) ∧ iota • (∞ : P1Q) = ∞ := sorry
+example  :
+    iota • ((0 : ℚ) : P1Q) = ((0 : ℚ) : P1Q) ∧ iota • (∞ : P1Q) = ∞ := sorry
+
+/-- Packet test `iota_sq`. -/
+theorem iota_sq  :
+    iota*iota=1 := sorry
+example  :
+    iota*iota=1 := sorry
+
+/-- Packet test `iota_not_SL2`. -/
+theorem iota_not_SL2  :
+    ¬ ∃ γ : SL(2, ℤ), toGLQ γ = iota := sorry
+example  :
+    ¬ ∃ γ : SL(2, ℤ), toGLQ γ = iota := sorry
+
+/-- Packet test `bsymbols_SL2Z`. -/
+theorem bsymbols_SL2Z  :
+    Nonempty (bsymbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) ≃+ ℤ) := sorry
+example  :
+    Nonempty (bsymbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) ≃+ ℤ) := sorry
+
+/-- Packet test `bsymbols_Gamma0_p`. -/
+theorem bsymbols_Gamma0_p (p : ℕ) (hp : p.Prime) :
+    Nonempty (bsymbols (CongruenceSubgroup.Gamma0 p) (Representation.trivial ℤ (CongruenceSubgroup.Gamma0 p) ℤ) ≃+ (ℤ × ℤ)) := sorry
+example (p : ℕ) (hp : p.Prime) :
+    Nonempty (bsymbols (CongruenceSubgroup.Gamma0 p) (Representation.trivial ℤ (CongruenceSubgroup.Gamma0 p) ℤ) ≃+ (ℤ × ℤ)) := sorry
+
+/-- Packet test `eis_eq_bot_of_V_trivial_level_one`. -/
+theorem eis_eq_bot_of_V_trivial_level_one  :
+    eisSymbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) = ⊥ := sorry
+example  :
+    eisSymbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ) = ⊥ := sorry
+
+/-- Packet test `bsymbols_res_ne_injective`. -/
+theorem bsymbols_res_ne_injective (Γ : Subgroup SL(2, ℤ)) :
+    ¬ Function.Injective (bsymbols.res Γ (Representation.trivial ℤ Γ ℤ)) := sorry
+example (Γ : Subgroup SL(2, ℤ)) :
+    ¬ Function.Injective (bsymbols.res Γ (Representation.trivial ℤ Γ ℤ)) := sorry
+
+/-- Packet test `toH1_base_point`. -/
+theorem toH1_base_point (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) (φ : symbols Γ ρ) :
+    (groupCohomology.H1π (Rep.of ρ)).hom (symbolCocycle Γ ρ φ ∞) = (groupCohomology.H1π (Rep.of ρ)).hom (symbolCocycle Γ ρ φ ((0 : ℚ) : P1Q)) := sorry
+example (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) (φ : symbols Γ ρ) :
+    (groupCohomology.H1π (Rep.of ρ)).hom (symbolCocycle Γ ρ φ ∞) = (groupCohomology.H1π (Rep.of ρ)).hom (symbolCocycle Γ ρ φ ((0 : ℚ) : P1Q)) := sorry
+
+/-- Packet test `toH1_res_eq_zero`. -/
+theorem toH1_res_eq_zero (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) (ψ : bsymbols Γ ρ) :
+    toH1 Γ ρ (bsymbols.res Γ ρ ψ) = 0 := sorry
+example (Γ : Subgroup SL(2, ℤ)) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R Γ V) (ψ : bsymbols Γ ρ) :
+    toH1 Γ ρ (bsymbols.res Γ ρ ψ) = 0 := sorry
+
+/-- Packet test `toH1_level_one_trivial`. -/
+theorem toH1_level_one_trivial (φ : symbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ)) :
+    toH1 _ _ φ = 0 := sorry
+example (φ : symbols (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℤ (⊤ : Subgroup SL(2, ℤ)) ℤ)) :
+    toH1 _ _ φ = 0 := sorry
+
+/-- Packet test `H1par_Gamma0_11`. -/
+theorem H1par_Gamma0_11  :
+    Module.finrank ℚ (H1par (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℚ (CongruenceSubgroup.Gamma0 11) ℚ)) = 2 := sorry
+example  :
+    Module.finrank ℚ (H1par (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℚ (CongruenceSubgroup.Gamma0 11) ℚ)) = 2 := sorry
+
+/-- Packet test `H1par_level_one`. -/
+theorem H1par_level_one  :
+    H1par (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℚ (⊤ : Subgroup SL(2, ℤ)) ℚ) = ⊥ := sorry
+example  :
+    H1par (⊤ : Subgroup SL(2, ℤ)) (Representation.trivial ℚ (⊤ : Subgroup SL(2, ℤ)) ℚ) = ⊥ := sorry
+
+/-- Packet test `H1par_ne_H1`. -/
+theorem H1par_ne_H1  :
+    H1par (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℚ (CongruenceSubgroup.Gamma0 11) ℚ) ≠ ⊤ := sorry
+example  :
+    H1par (CongruenceSubgroup.Gamma0 11) (Representation.trivial ℚ (CongruenceSubgroup.Gamma0 11) ℚ) ≠ ⊤ := sorry
+
+/-- Packet test `diamond_neg_one_Vk`. -/
+theorem diamond_neg_one_Vk (N k : ℕ) (φ : Delta0 →ₗ[ℤ] Vk ℤ k) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N (vkRep ℤ k (CongruenceSubgroup.Gamma0 N)))) :
+    diamond N (vkRep ℤ k (CongruenceSubgroup.Gamma0 N)) (-1) φ = (-1 : ℤ)^k • φ := sorry
+example (N k : ℕ) (φ : Delta0 →ₗ[ℤ] Vk ℤ k) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma1 N) (restrictGamma1 N (vkRep ℤ k (CongruenceSubgroup.Gamma0 N)))) :
+    diamond N (vkRep ℤ k (CongruenceSubgroup.Gamma0 N)) (-1) φ = (-1 : ℤ)^k • φ := sorry
+
+/-- Packet test `diamond_trivial_Gamma0`. -/
+theorem diamond_trivial_Gamma0 (N : ℕ) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) (d : (ZMod N)ˣ) (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    diamond N ρ d φ = φ := sorry
+example (N : ℕ) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) (d : (ZMod N)ˣ) (φ : Delta0 →ₗ[ℤ] V) (hφ : φ ∈ symbols (CongruenceSubgroup.Gamma0 N) ρ) :
+    diamond N ρ d φ = φ := sorry
+
+/-- Packet test `diamond_upper_left_wrong`. -/
+theorem diamond_upper_left_wrong (ρ : Representation ℂ (CongruenceSubgroup.Gamma0 5) (Vk ℂ 1)) (d : (ZMod 5)ˣ) (ε : (ZMod 5)ˣ →* ℂˣ) (hε : (ε d : ℂ)^2 ≠ 1) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (hφ : φ ∈ symbolsChar 5 ρ ε) (hφ0 : φ ≠ 0) :
+    diamond 5 ρ d φ ≠ diamond 5 ρ d⁻¹ φ := sorry
+example (ρ : Representation ℂ (CongruenceSubgroup.Gamma0 5) (Vk ℂ 1)) (d : (ZMod 5)ˣ) (ε : (ZMod 5)ˣ →* ℂˣ) (hε : (ε d : ℂ)^2 ≠ 1) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (hφ : φ ∈ symbolsChar 5 ρ ε) (hφ0 : φ ≠ 0) :
+    diamond 5 ρ d φ ≠ diamond 5 ρ d⁻¹ φ := sorry
+
+/-- Packet test `symbolsChar_trivial`. -/
+theorem symbolsChar_trivial (N : ℕ) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) :
+    symbolsChar N ρ 1 = symbols (CongruenceSubgroup.Gamma0 N) ρ := sorry
+example (N : ℕ) {R V : Type} [CommRing R] [AddCommGroup V] [Module R V] (ρ : Representation R (CongruenceSubgroup.Gamma0 N) V) :
+    symbolsChar N ρ 1 = symbols (CongruenceSubgroup.Gamma0 N) ρ := sorry
+
+/-- Packet test `symbolsChar_parity`. -/
+theorem symbolsChar_parity (N k : ℕ) (ε : (ZMod N)ˣ →* ℂˣ) (hε : (ε (-1) : ℂ) ≠ (-1 : ℂ)^k) :
+    symbolsChar N (vkRep ℂ k (CongruenceSubgroup.Gamma0 N)) ε = ⊥ := sorry
+example (N k : ℕ) (ε : (ZMod N)ˣ →* ℂˣ) (hε : (ε (-1) : ℂ) ≠ (-1 : ℂ)^k) :
+    symbolsChar N (vkRep ℂ k (CongruenceSubgroup.Gamma0 N)) ε = ⊥ := sorry
+
+/-- Packet test `symbolsChar_wrong_twist`. -/
+theorem symbolsChar_wrong_twist (ρ : Representation ℂ (CongruenceSubgroup.Gamma0 5) (Vk ℂ 1)) (ε : (ZMod 5)ˣ →* ℂˣ) (d : (ZMod 5)ˣ) (hε : (ε d : ℂ)^2 ≠ 1) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (hφ : φ ∈ symbolsChar 5 ρ ε) (hφ0 : φ ≠ 0) :
+    φ ∉ symbolsChar 5 ρ ε⁻¹ := sorry
+example (ρ : Representation ℂ (CongruenceSubgroup.Gamma0 5) (Vk ℂ 1)) (ε : (ZMod 5)ˣ →* ℂˣ) (d : (ZMod 5)ˣ) (hε : (ε d : ℂ)^2 ≠ 1) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (hφ : φ ∈ symbolsChar 5 ρ ε) (hφ0 : φ ≠ 0) :
+    φ ∉ symbolsChar 5 ρ ε⁻¹ := sorry
+
+/-- Packet test `hecke_T2_Gamma0_11`. -/
+theorem hecke_T2_Gamma0_11  :
+    (trivialSymbolHecke 11 2).charpoly = (Polynomial.X-Polynomial.C 3)*(Polynomial.X+Polynomial.C 2)^2 := sorry
+example  :
+    (trivialSymbolHecke 11 2).charpoly = (Polynomial.X-Polynomial.C 3)*(Polynomial.X+Polynomial.C 2)^2 := sorry
+
+/-- Packet test `hecke_T3_Gamma0_11`. -/
+theorem hecke_T3_Gamma0_11  :
+    (trivialSymbolHecke 11 3).charpoly = (Polynomial.X-Polynomial.C 4)*(Polynomial.X+Polynomial.C 1)^2 := sorry
+example  :
+    (trivialSymbolHecke 11 3).charpoly = (Polynomial.X-Polynomial.C 4)*(Polynomial.X+Polynomial.C 1)^2 := sorry
+
+/-- Packet test `hecke_preserves`. -/
+theorem hecke_preserves (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ 11) (φ : RationalTrivialSymbols 11) :
+    heckeT 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val ∈ RationalTrivialSymbols 11 := sorry
+example (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ 11) (φ : RationalTrivialSymbols 11) :
+    heckeT 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val ∈ RationalTrivialSymbols 11 := sorry
+
+/-- Packet test `heckeT_Gamma1_restrict`. -/
+theorem heckeT_Gamma1_restrict (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ 11) (φ : RationalTrivialSymbols 11) :
+    heckeTGamma1 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val = heckeT 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val := sorry
+example (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ 11) (φ : RationalTrivialSymbols 11) :
+    heckeTGamma1 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val = heckeT 11 (1 : (Sigma0 11)ᵐᵒᵖ →* Module.End ℚ ℚ) ℓ φ.val := sorry
+
+/-- Packet test `heckeT_Gamma1_Gamma0_part`. -/
+theorem heckeT_Gamma1_Gamma0_part  :
+    (trivialSymbolHecke 11 2).charpoly = (Polynomial.X-Polynomial.C 3)*(Polynomial.X+Polynomial.C 2)^2 := sorry
+example  :
+    (trivialSymbolHecke 11 2).charpoly = (Polynomial.X-Polynomial.C 3)*(Polynomial.X+Polynomial.C 2)^2 := sorry
+
+/-- Packet test `heckeT_Gamma1_missing_sigma`. -/
+theorem heckeT_Gamma1_missing_sigma (act : (Sigma0 5)ᵐᵒᵖ →* Module.End ℂ (Vk ℂ 1)) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (c : ℂ) (hc : c ≠ 1) (hD : diagonalContribution 5 act 2 φ ≠ 0) :
+    c • diagonalContribution 5 act 2 φ ≠ diagonalContribution 5 act 2 φ := sorry
+example (act : (Sigma0 5)ᵐᵒᵖ →* Module.End ℂ (Vk ℂ 1)) (φ : Delta0 →ₗ[ℤ] Vk ℂ 1) (c : ℂ) (hc : c ≠ 1) (hD : diagonalContribution 5 act 2 φ ≠ 0) :
+    c • diagonalContribution 5 act 2 φ ≠ diagonalContribution 5 act 2 φ := sorry
+
+
+end TauCeti.ModularSymbol
+namespace TauCeti.ModularSymbol
+
+section RemainingL0
+
+open _root_.Matrix.SpecialLinearGroup
+
+variable {R V : Type} [CommRing R] [AddCommGroup V] [Module R V]
+
+/-- Manin functions before choosing coset representatives: equivariance and all three relations. -/
+def maninFunctions (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    Submodule R (SL(2, ℤ) → V) where
+  carrier := {F | (∀ (γ : Γ) (g : SL(2, ℤ)), F (γ.val*g) = ρ γ (F g)) ∧
+    (∀ g, F g + F (g*σ) = 0) ∧ (∀ g, F g + F (g*τ) + F (g*τ^2) = 0) ∧
+    (∀ g, F (g*(-1)) = F g)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- L0/symbols-coset-description; finite-index coset coordinates are the finite restriction
+of this equivariant function module, not an unrestricted product of copies of V. -/
+def symbolsManinEquiv (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    symbols Γ ρ ≃ₗ[R] maninFunctions Γ ρ := sorry
+
+theorem symbolsManinEquiv_apply (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V)
+    (φ : symbols Γ ρ) (g : SL(2, ℤ)) :
+    (symbolsManinEquiv Γ ρ φ).val g =
+      φ.val (divisorOf (toGLQ g • (∞ : P1Q)) (toGLQ g • ((0 : ℚ) : P1Q))) := sorry
+
+/-- Boundary exactness already uses native kernels; this is the induced quotient equivalence. -/
+def symbolsModEisensteinEquiv (Γ : Subgroup SL(2, ℤ)) (ρ : Representation R Γ V) :
+    (symbols Γ ρ ⧸ (eisSymbols Γ ρ).addSubgroupOf (symbols Γ ρ)) ≃+ H1par Γ ρ := sorry
+
+/-- The right Hom action is encoded as the left inverse action. -/
+def homCoefficientRep (Γ : Subgroup SL(2, ℤ)) {W M : Type}
+    [AddCommGroup W] [AddCommGroup M] (ρW : Representation ℤ Γ W) :
+    Representation ℤ Γ (W →ₗ[ℤ] M) :=
+  ρW.linHom (Representation.trivial ℤ Γ M)
+
+/-- Genuine coinvariants of the diagonal tensor representation. -/
+def symbolsCoinvariantsEquiv (Γ : Subgroup SL(2, ℤ)) {W M : Type}
+    [AddCommGroup W] [AddCommGroup M] (ρW : Representation ℤ Γ W) :
+    symbols Γ (homCoefficientRep Γ (M := M) ρW) ≃ₗ[ℤ]
+      (Representation.Coinvariants
+        (_root_.Representation.tprod (steinbergRep.comp (toGLQ.comp Γ.subtype)) ρW) →ₗ[ℤ] M) := sorry
+
+/-- Arbitrary flat extension of coefficients on the Hom module. -/
+def symbols_baseChange {S : Type} [CommRing S] [Algebra R S] [Module.Flat R S]
+    [Module.FinitePresentation R V] (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex]
+    (ρ : Representation R Γ V) :
+    (S ⊗[R] symbols Γ ρ) ≃ₗ[S] symbols Γ (coefficientBaseChange Γ ρ (S := S)) := sorry
+
+/-- Signed splitting, stated directly for a native involutive endomorphism. -/
+theorem plus_minus_decomposition {K M : Type} [Field K] [CharZero K]
+    [AddCommGroup M] [Module K M] (J : Module.End K M) (hJ : J*J=1) (x : M) :
+    x = (2 : K)⁻¹ • (x+J x) + (2 : K)⁻¹ • (x-J x) ∧
+    J ((2 : K)⁻¹ • (x+J x)) = (2 : K)⁻¹ • (x+J x) ∧
+    J ((2 : K)⁻¹ • (x-J x)) = -((2 : K)⁻¹ • (x-J x)) := sorry
+
+/-- Layer 8 supplies the convergent vector-valued cusp integral (no 2πi factor). -/
+def cuspPeriodIntegral (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (r s : P1Q) : Vk ℂ k := sorry
+
+theorem periodSymbol_apply (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (r s : P1Q) :
+    periodSymbol Γ k f (divisorOf r s) = (2*Real.pi*Complex.I) • cuspPeriodIntegral Γ k f r s := sorry
+
+/-- Layer 8's homological period pairing, on D⊗Q, in its left coefficient convention. -/
+def homologicalPeriodPairing (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (D : Delta0) (Q : Vk ℂ k) : ℂ := sorry
+
+def swapPolynomial (k : ℕ) : Vk ℂ k →ₗ[ℂ] Vk ℂ k := sorry
+
+theorem swapPolynomial_apply (k : ℕ) (Q : Vk ℂ k) :
+    (swapPolynomial k Q).val = _root_.MvPolynomial.aeval
+      ![_root_.MvPolynomial.X 1,_root_.MvPolynomial.X 0] Q.val := sorry
+
+theorem periodSymbol_eq_periodMap (Γ : Subgroup SL(2, ℤ)) (k : ℕ)
+    (f : CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) (D : Delta0) (Q : Vk ℂ k) :
+    vkPairing ℂ k (by sorry) (periodSymbol Γ k f D) Q =
+      (2*Real.pi*Complex.I) * homologicalPeriodPairing Γ k f D (swapPolynomial k Q) := sorry
+
+theorem periodSymbol_injective (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) :
+    Function.Injective (periodSymbol Γ k) := sorry
+
+theorem periodSymbol_hecke {N k : ℕ} [NeZero N] (ℓ : ℕ) [NeZero ℓ]
+    (hℓ : ℓ.Prime) (hℓN : ¬ ℓ ∣ N) (f : Form N k) :
+    periodSymbol _ k (HeckeRing.GL2.heckeTCuspNat ((k : ℤ)+2) ℓ f) =
+      heckeTGamma1 N (vkSigmaAction ℂ k N) ℓ (periodSymbol _ k f) := sorry
+
+/-- Eichler–Shimura isomorphism on the torsion-free Γ₁(N) carrier. The anti-holomorphic
+summand is anti-holomorphic. This signature is the underlying real-linear isomorphism;
+the complex version twists scalar multiplication on the second summand. -/
+def eichlerShimura (N k : ℕ) (hN : 4 ≤ N) :
+    (Form N k × Form N k) ≃ₗ[ℝ]
+      H1par (CongruenceSubgroup.Gamma1 N) (vkRep ℂ k _) := sorry
+
+end RemainingL0
+end TauCeti.ModularSymbol
+
+namespace TauCeti.ModularSymbol
+
+section RemainingTests
+
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+open _root_.Matrix.SpecialLinearGroup CongruenceSubgroup
+
+theorem periodSymbol_zero (Γ : Subgroup SL(2, ℤ)) (k : ℕ) :
+    periodSymbol Γ k 0 = 0 := sorry
+example (Γ : Subgroup SL(2, ℤ)) (k : ℕ) :
+    periodSymbol Γ k 0 = 0 := sorry
+
+theorem periodSymbol_Lvalue {N k : ℕ} [NeZero N] (f : Form N k) :
+    (periodSymbol (Gamma1 N) k f (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff (Finsupp.single 1 k) = cuspLValue f (1 : DirichletCharacter ℂ 1) 0 := sorry
+example {N k : ℕ} [NeZero N] (f : Form N k) :
+    (periodSymbol (Gamma1 N) k f (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff (Finsupp.single 1 k) = cuspLValue f (1 : DirichletCharacter ℂ 1) 0 := sorry
+
+theorem periodSymbol_Gamma0_11_real (f : CuspForm ((Gamma0 11).map (mapGL ℝ)) (2 : ℤ)) (hreal : ∀ n, ((UpperHalfPlane.qExpansion 1 f).coeff n).im = 0) :
+    ((periodSymbol (Gamma0 11) 0 f (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff 0).im = 0 := sorry
+example (f : CuspForm ((Gamma0 11).map (mapGL ℝ)) (2 : ℤ)) (hreal : ∀ n, ((UpperHalfPlane.qExpansion 1 f).coeff n).im = 0) :
+    ((periodSymbol (Gamma0 11) 0 f (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff 0).im = 0 := sorry
+
+/-- Wrong action: no adjugate; this changes the coefficient representation. -/
+def unadjugatedRep (k : ℕ) (Γ : Subgroup SL(2, ℤ)) : Representation ℂ Γ (Vk ℂ k) := sorry
+theorem unadjugatedRep_apply (k : ℕ) (Γ : Subgroup SL(2, ℤ)) (γ : Γ) (P : Vk ℂ k) :
+    (unadjugatedRep k Γ γ P).val = _root_.MvPolynomial.aeval
+      ![((γ⁻¹).val.val 0 0 : ℂ) • _root_.MvPolynomial.X 0 + ((γ⁻¹).val.val 1 0 : ℂ) • _root_.MvPolynomial.X 1,
+        ((γ⁻¹).val.val 0 1 : ℂ) • _root_.MvPolynomial.X 0 + ((γ⁻¹).val.val 1 1 : ℂ) • _root_.MvPolynomial.X 1] P.val := sorry
+
+theorem periodSymbol_wrong_action (f : CuspForm ((Gamma0 11).map (mapGL ℝ)) (4 : ℤ)) (hf : f ≠ 0) :
+    periodSymbol (Gamma0 11) 2 f ∉ symbols (Gamma0 11) (unadjugatedRep 2 (Gamma0 11)) := sorry
+example (f : CuspForm ((Gamma0 11).map (mapGL ℝ)) (4 : ℤ)) (hf : f ≠ 0) :
+    periodSymbol (Gamma0 11) 2 f ∉ symbols (Gamma0 11) (unadjugatedRep 2 (Gamma0 11)) := sorry
+
+theorem psiPlus_eleven_a (f : Newform 11 0) (hchar : f.χ = 1) :
+    (signedPeriodSymbol f.toCuspForm Sign.plus (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff 0 = 2*cuspLValue f.toCuspForm (1 : DirichletCharacter ℂ 1) 0 := sorry
+example (f : Newform 11 0) (hchar : f.χ = 1) :
+    (signedPeriodSymbol f.toCuspForm Sign.plus (divisorOf ∞ ((0 : ℚ) : P1Q))).val.coeff 0 = 2*cuspLValue f.toCuspForm (1 : DirichletCharacter ℂ 1) 0 := sorry
+
+theorem psi_no_line {N k : ℕ} [NeZero N] (f : Newform N k) :
+    Module.finrank (newformField f) (periodLine f Sign.plus) + Module.finrank (newformField f) (periodLine f Sign.minus) = 2 ∧
+      Module.finrank ℂ (Submodule.span ℂ {periodSymbol (Gamma1 N) k f.toCuspForm}) = 1 := sorry
+example {N k : ℕ} [NeZero N] (f : Newform N k) :
+    Module.finrank (newformField f) (periodLine f Sign.plus) + Module.finrank (newformField f) (periodLine f Sign.minus) = 2 ∧
+      Module.finrank ℂ (Submodule.span ℂ {periodSymbol (Gamma1 N) k f.toCuspForm}) = 1 := sorry
+
+theorem integralPeriod_k0 (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+    ∃ D : Delta0, (φ.val.val D).val.coeff 0 ∉ IsLocalRing.maximalIdeal ℤ_[p] := sorry
+example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] 0)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] 0 Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+    ∃ D : Delta0, (φ.val.val D).val.coeff 0 ∉ IsLocalRing.maximalIdeal ℤ_[p] := sorry
+
+theorem integralPeriod_not_saturated (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+    ¬ ∃ ψ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L, φ = (p : ℤ_[p]) • ψ := sorry
+example (p : ℕ) [Fact p.Prime] (Γ : Subgroup SL(2, ℤ)) (k : ℕ) (L : Submodule ℚ_[p] (Delta0 →ₗ[ℤ] Vk ℚ_[p] k)) (hL : Module.finrank ℚ_[p] L = 1) (φ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L) (hφ : Submodule.span ℤ_[p] {φ} = ⊤) :
+    ¬ ∃ ψ : integralPeriodLattice ℤ_[p] ℚ_[p] k Γ L, φ = (p : ℤ_[p]) • ψ := sorry
+
+theorem pStabilisation_coeff_coprime {N k p : ℕ} [NeZero N] [Fact p.Prime] (f : Newform N k) (β : ℂ) (n : ℕ) (hn : ¬ p ∣ n) :
+    formCoeff (pStabilisation (p := p) f β) n = formCoeff f.toCuspForm n := sorry
+example {N k p : ℕ} [NeZero N] [Fact p.Prime] (f : Newform N k) (β : ℂ) (n : ℕ) (hn : ¬ p ∣ n) :
+    formCoeff (pStabilisation (p := p) f β) n = formCoeff f.toCuspForm n := sorry
+
+theorem pStabilisation_ne {N k p : ℕ} [NeZero N] [Fact p.Prime] (f : Newform N k) (α β : ℂ) (h : α ≠ β) :
+    pStabilisation (p := p) f α ≠ pStabilisation (p := p) f β := sorry
+example {N k p : ℕ} [NeZero N] [Fact p.Prime] (f : Newform N k) (α β : ℂ) (h : α ≠ β) :
+    pStabilisation (p := p) f α ≠ pStabilisation (p := p) f β := sorry
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+theorem refinement_slope_add (r r' : Refinement N k p K) (hpN : ¬ p ∣ N) (hf : r'.f = r.f) (he : HEq r'.embedding r.embedding) (hmul : r.α*r'.α = r.embedding (newformEpsilon r.f (p : ZMod N))*(p : K)^(k+1)) :
+    r.slope + r'.slope = k+1 := sorry
+example (r r' : Refinement N k p K) (hpN : ¬ p ∣ N) (hf : r'.f = r.f) (he : HEq r'.embedding r.embedding) (hmul : r.α*r'.α = r.embedding (newformEpsilon r.f (p : ZMod N))*(p : K)^(k+1)) :
+    r.slope + r'.slope = k+1 := sorry
+
+theorem refinement_ordinary_slopes (r r' : Refinement N k p K) (hpN : ¬ p ∣ N) (hf : r'.f = r.f) (he : HEq r'.embedding r.embedding) (hsum : r.α+r'.α = r.embedding (newformCoeff r.f p)) (hmul : r.α*r'.α = r.embedding (newformEpsilon r.f (p : ZMod N))*(p : K)^(k+1)) (ha : ‖r.embedding (newformCoeff r.f p)‖ = 1) :
+    (r.slope = 0 ∧ r'.slope = k+1) ∨ (r'.slope = 0 ∧ r.slope = k+1) := sorry
+example (r r' : Refinement N k p K) (hpN : ¬ p ∣ N) (hf : r'.f = r.f) (he : HEq r'.embedding r.embedding) (hsum : r.α+r'.α = r.embedding (newformCoeff r.f p)) (hmul : r.α*r'.α = r.embedding (newformEpsilon r.f (p : ZMod N))*(p : K)^(k+1)) (ha : ‖r.embedding (newformCoeff r.f p)‖ = 1) :
+    (r.slope = 0 ∧ r'.slope = k+1) ∨ (r'.slope = 0 ∧ r.slope = k+1) := sorry
+
+theorem dist_dirac_moments (j : ℕ) :
+    dirac p K 0 (monomialTest p K j) = if j=0 then 1 else 0 := sorry
+example (j : ℕ) :
+    dirac p K 0 (monomialTest p K j) = if j=0 then 1 else 0 := sorry
+
+theorem dist_mem_iff_bounded (c : daggerMoments K) :
+    c.val ∈ boundedMoments K ↔ ∃ C : ℝ, ∀ j, ‖c.val j‖ ≤ C := sorry
+example (c : daggerMoments K) :
+    c.val ∈ boundedMoments K ↔ ∃ C : ℝ, ∀ j, ‖c.val j‖ ≤ C := sorry
+
+theorem dist_inv_succ_not_bounded  :
+    (fun j : ℕ ↦ ((j+1 : ℕ) : ℚ_[p])⁻¹) ∈ daggerMoments ℚ_[p] ∧
+      (fun j : ℕ ↦ ((j+1 : ℕ) : ℚ_[p])⁻¹) ∉ boundedMoments ℚ_[p] := sorry
+example  :
+    (fun j : ℕ ↦ ((j+1 : ℕ) : ℚ_[p])⁻¹) ∈ daggerMoments ℚ_[p] ∧
+      (fun j : ℕ ↦ ((j+1 : ℕ) : ℚ_[p])⁻¹) ∉ boundedMoments ℚ_[p] := sorry
+
+theorem specialise_zero_weight (μ : LocAnDist p K) :
+    (specialise p K 0 μ).val.coeff 0 = μ (monomialTest p K 0) := sorry
+example (μ : LocAnDist p K) :
+    (specialise p K 0 μ).val.coeff 0 = μ (monomialTest p K 0) := sorry
+
+theorem specialise_dirac (k : ℕ) :
+    (specialise p K k (dirac p K 0)).val = _root_.MvPolynomial.X 1 ^ k := sorry
+example (k : ℕ) :
+    (specialise p K k (dirac p K 0)).val = _root_.MvPolynomial.X 1 ^ k := sorry
+
+/-- Taylor-coefficient functional: the (k+1)-st derivative divided by (k+1)!. -/
+def taylorFunctional (m : ℕ) : LocAnDist p K := sorry
+theorem taylorFunctional_monomial (m j : ℕ) : taylorFunctional (p := p) (K := K) m (monomialTest p K j) = if j=m then 1 else 0 := sorry
+
+theorem specialise_not_injective (k : ℕ) [CharZero K] :
+    taylorFunctional (p := p) (K := K) (k+1) ≠ 0 ∧
+      specialise p K k (taylorFunctional (p := p) (K := K) (k+1)) = 0 := sorry
+example (k : ℕ) [CharZero K] :
+    taylorFunctional (p := p) (K := K) (k+1) ≠ 0 ∧
+      specialise p K k (taylorFunctional (p := p) (K := K) (k+1)) = 0 := sorry
+
+theorem padicLFunction_weight_two (N : ℕ) (Φ : DistSymbols p K N 0) (α : K) (hα : α ≠ 0) (hΦ : upDist p K N 0 Φ = α • Φ) (a n : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) :
+    padicLFunction p K N 0 Φ (ballMonomial p K a n 0) = α⁻¹^n * (((specialiseSymb p K N 0 Φ).val (divisorOf (((a : ℚ)/(p : ℚ)^n : ℚ) : P1Q) ∞)).val.coeff 0) := sorry
+example (N : ℕ) (Φ : DistSymbols p K N 0) (α : K) (hα : α ≠ 0) (hΦ : upDist p K N 0 Φ = α • Φ) (a n : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) :
+    padicLFunction p K N 0 Φ (ballMonomial p K a n 0) = α⁻¹^n * (((specialiseSymb p K N 0 Φ).val (divisorOf (((a : ℚ)/(p : ℚ)^n : ℚ) : P1Q) ∞)).val.coeff 0) := sorry
+
+theorem padicLFunction_smul_plus (N k : ℕ) (Φ : DistSymbols p K N k) (c : K) (hplus : distIota (p := p) (K := K) N k Φ = Φ) :
+    padicLFunction p K N k (c • Φ) = c • padicLFunction p K N k Φ := sorry
+example (N k : ℕ) (Φ : DistSymbols p K N k) (c : K) (hplus : distIota (p := p) (K := K) N k Φ = Φ) :
+    padicLFunction p K N k (c • Φ) = c • padicLFunction p K N k Φ := sorry
+
+theorem padicLFunction_orientation (N k : ℕ) (Φ : DistSymbols p K N k) :
+    restrictUnits p K (Φ.val (divisorOf ∞ ((0 : ℚ) : P1Q))) = -padicLFunction p K N k Φ := sorry
+example (N k : ℕ) (Φ : DistSymbols p K N k) :
+    restrictUnits p K (Φ.val (divisorOf ∞ ((0 : ℚ) : P1Q))) = -padicLFunction p K N k Φ := sorry
+
+theorem criticalSlopePadicL_11_3 (r : Refinement 11 0 3 ℚ_[3]) (s : Sign) (φ : refinedLine r s) (hh : r.slope = 1) (hlift : ∃! Φ : distEigenline r s, specialiseSymb 3 ℚ_[3] 11 0 Φ.val = φ.val) :
+    specialiseSymb 3 ℚ_[3] 11 0 (criticalLift r s φ hlift).val = φ.val := sorry
+example (r : Refinement 11 0 3 ℚ_[3]) (s : Sign) (φ : refinedLine r s) (hh : r.slope = 1) (hlift : ∃! Φ : distEigenline r s, specialiseSymb 3 ℚ_[3] 11 0 Φ.val = φ.val) :
+    specialiseSymb 3 ℚ_[3] 11 0 (criticalLift r s φ hlift).val = φ.val := sorry
+
+theorem criticalSlopePadicL_11_5 (r : Refinement 11 0 5 ℚ_[5]) (s : Sign) (φ : refinedLine r s) (hh : r.slope = 1) (hlift : ∃! Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 11 0 Φ.val = φ.val) :
+    specialiseSymb 5 ℚ_[5] 11 0 (criticalLift r s φ hlift).val = φ.val := sorry
+example (r : Refinement 11 0 5 ℚ_[5]) (s : Sign) (φ : refinedLine r s) (hh : r.slope = 1) (hlift : ∃! Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 11 0 Φ.val = φ.val) :
+    specialiseSymb 5 ℚ_[5] 11 0 (criticalLift r s φ hlift).val = φ.val := sorry
+
+theorem criticalSlopePadicL_CM_excluded (r : Refinement 32 0 5 ℚ_[5]) (s : Sign) (φ : refinedLine r s) (hφ : φ ≠ 0) (hker : ∀ Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 32 0 Φ.val = 0) :
+    ¬ ∃ Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 32 0 Φ.val = φ.val := sorry
+example (r : Refinement 32 0 5 ℚ_[5]) (s : Sign) (φ : refinedLine r s) (hφ : φ ≠ 0) (hker : ∀ Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 32 0 Φ.val = 0) :
+    ¬ ∃ Φ : distEigenline r s, specialiseSymb 5 ℚ_[5] 32 0 Φ.val = φ.val := sorry
+
+theorem depletion_good_weight_two (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) (a ε : K) (μ : LocAnDist p K) :
+    eulerDeletion p K true ℓ 0 hℓp a ε μ (monomialTest p K 0) = (1-a/(ℓ : K)+ε/(ℓ : K))*μ (monomialTest p K 0) := sorry
+example (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) (a ε : K) (μ : LocAnDist p K) :
+    eulerDeletion p K true ℓ 0 hℓp a ε μ (monomialTest p K 0) = (1-a/(ℓ : K)+ε/(ℓ : K))*μ (monomialTest p K 0) := sorry
+
+theorem depletion_bad_weight_two (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) (a ε : K) (μ : LocAnDist p K) :
+    eulerDeletion p K false ℓ 0 hℓp a ε μ (monomialTest p K 0) = (1-a/(ℓ : K))*μ (monomialTest p K 0) := sorry
+example (ℓ : ℕ) (hℓp : Nat.Coprime ℓ p) (a ε : K) (μ : LocAnDist p K) :
+    eulerDeletion p K false ℓ 0 hℓp a ε μ (monomialTest p K 0) = (1-a/(ℓ : K))*μ (monomialTest p K 0) := sorry
+
+theorem depletion_coeff_divisible (f : Newform N k) (ℓ : ℕ) [NeZero ℓ] (hℓ : ℓ.Prime) :
+    formCoeff (eulerDepletion f ℓ) ℓ = 0 ∧ formCoeff (eulerDepletion f ℓ) (ℓ^2) = 0 ∧ formCoeff (eulerDepletion f ℓ) 1 = 1 := sorry
+example (f : Newform N k) (ℓ : ℕ) [NeZero ℓ] (hℓ : ℓ.Prime) :
+    formCoeff (eulerDepletion f ℓ) ℓ = 0 ∧ formCoeff (eulerDepletion f ℓ) (ℓ^2) = 0 ∧ formCoeff (eulerDepletion f ℓ) 1 = 1 := sorry
+
+theorem depletion_excludes_p  :
+    ¬ IsUnit (p : ℤ_[p]) := sorry
+example  :
+    ¬ IsUnit (p : ℤ_[p]) := sorry
+
+end RemainingTests
+end TauCeti.ModularSymbol
+
+namespace TauCeti.ModularSymbol
+
+section KeyTheorems
+open _root_.Matrix.SpecialLinearGroup CongruenceSubgroup
+
+/-- Wiese §4.2: averaging over a finite level quotient in characteristic zero. -/
+theorem symbols_level_descent {K V : Type} [Field K] [CharZero K]
+    [AddCommGroup V] [Module K V] (Γ Γ' : Subgroup SL(2, ℤ)) (h : Γ' ≤ Γ)
+    (ρ : Representation K Γ V) (φ : Delta0 →ₗ[ℤ] V) :
+    φ ∈ symbols Γ ρ ↔ φ ∈ symbols Γ' (ρ.comp (Subgroup.inclusion h)) ∧
+      ∀ γ : Γ, ∀ D, φ (steinbergRep (toGLQ γ.val) D) = ρ γ (φ D) := sorry
+
+/-- Character projections as the complete native simultaneous-diamond decomposition. -/
+theorem nebentypus_decomposition {N : ℕ} [NeZero N] (k : ℕ)
+    (φ : symbols (Gamma1 N) (vkRep ℂ k _)) :
+    ∃ F : ((ZMod N)ˣ →* ℂˣ) →₀ (Delta0 →ₗ[ℤ] Vk ℂ k),
+      (∀ ε, F ε ∈ symbolsChar N (vkRep ℂ k (Gamma0 N)) ε) ∧
+      F.sum (fun _ ψ ↦ ψ) = φ.val := sorry
+
+/-- The underlying real Eichler–Shimura isomorphism at arbitrary finite index;
+anti-holomorphic scalar multiplication is represented by realification. -/
+def eichlerShimuraGeneral (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) :
+    (CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2) ×
+      CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) ≃ₗ[ℝ] H1par Γ (vkRep ℂ k Γ) := sorry
+
+theorem parabolic_cohomology_dimension (Γ : Subgroup SL(2, ℤ)) [Γ.FiniteIndex] (k : ℕ) :
+    Module.finrank ℂ (H1par Γ (vkRep ℂ k Γ)) =
+      2*Module.finrank ℂ (CuspForm (Γ.map (mapGL ℝ)) ((k : ℤ)+2)) := sorry
+
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- The weight-k action on test functions is specified, rather than hidden in its dual. -/
+theorem distTestAction_apply (k : ℕ) (γ : Sigma0p p) (g : locallyAnalyticTests p K)
+    (z : ℤ_[p]) :
+    (distTestAction p K k γ g).val z =
+      (algebraMap ℚ_[p] K ((γ.val 0 0 : ℚ_[p])+(γ.val 1 0 : ℚ_[p])*(z : ℚ_[p])))^k *
+        g.val ⟨((γ.val 0 1 : ℚ_[p])+(γ.val 1 1 : ℚ_[p])*(z : ℚ_[p])) /
+          ((γ.val 0 0 : ℚ_[p])+(γ.val 1 0 : ℚ_[p])*(z : ℚ_[p])), sorry⟩ := sorry
+
+/-- Norm equality for the Tate dual, without treating its LF counterpart as normed. -/
+theorem distMoments_norm (μ : tateCoefficients K →L[K] K) (C : ℝ) (hC : 0 ≤ C) :
+    (∀ a : tateCoefficients K, ‖μ a‖ ≤ C * sSup (Set.range (fun j ↦ ‖a.val j‖))) ↔
+      ∀ j, ‖(distMoments K μ).val j‖ ≤ C := sorry
+
+/-- Specialisation commutes with the actual U_p actions. -/
+theorem specialiseSymb_up (N k : ℕ) (Φ : DistSymbols p K N k) :
+    specialiseSymb p K N k (upDist p K N k Φ) =
+      upClassical p K N k (specialiseSymb p K N k Φ) := sorry
+
+/-- Stevens control gives a unique full Hecke eigensymbol, not merely an arbitrary lift. -/
+theorem small_slope_unique_lift [CompleteSpace K] [CharZero K] [FiniteDimensional ℚ_[p] K]
+    (r : Refinement N k p K) (hh : r.slope < k+1) (s : Sign) (φ : refinedLine r s) :
+    ∃! Φ : distEigenline r s, specialiseSymb p K N k Φ.val = φ.val := sorry
+
+/-- Explicit admissibility estimate used also at the critical boundary. -/
+def IsAdmissible (h : ℝ) (μ : LocAnDist p K) : Prop :=
+  ∀ j : ℕ, ∃ C : ℝ, 0 ≤ C ∧ ∀ (a : ℤ_[p]) (n : ℕ),
+    ‖μ (ballMonomial p K a n j)‖ ≤ C*(p : ℝ)^((n : ℝ)*(h-j))
+
+/-- Imported analytic character tests on the units, extended by zero to Z_p. -/
+def finiteCharacterTest (n j : ℕ) (χ : DirichletCharacter K (p^n)) : locallyAnalyticTests p K := sorry
+
+theorem finiteCharacterTest_apply (n j : ℕ) (χ : DirichletCharacter K (p^n)) (z : ℤ_[p]) :
+    (finiteCharacterTest (p := p) n j χ).val z =
+      (if IsUnit z then χ (PadicInt.toZModPow n z) *
+        (algebraMap ℚ_[p] K (z : ℚ_[p]))^j else 0) := sorry
+
+/-- Local polynomial uniqueness needs no roots-of-unity assumption on the finite coefficient field.
+To deduce this from character values, first extend coefficients to a splitting field
+for each finite quotient and apply finite Fourier inversion there. -/
+theorem interpolation_unique_local [CompleteSpace K] [FiniteDimensional ℚ_[p] K]
+    (h : ℝ) (hh : h < k+1) (μ ν : LocAnDist p K)
+    (hμ : IsAdmissible (p := p) h μ) (hν : IsAdmissible (p := p) h ν)
+    (hvalues : ∀ a : ℤ_[p], ∀ n j : ℕ, j ≤ k →
+      μ (ballMonomial p K a n j) = ν (ballMonomial p K a n j)) : μ = ν := sorry
+
+/-- Interpolation before embedding the complex periods: every local moment is a finite
+sum of the specialized symbol's coefficients. L1 then supplies the complex L-value. -/
+theorem interpolation_local_moments (N k : ℕ) [CharZero K]
+    (Φ : DistSymbols p K N k) (α : K) (hα : α ≠ 0)
+    (hΦ : upDist p K N k Φ = α • Φ)
+    (a n j : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) (hj : j ≤ k) :
+    padicLFunction p K N k Φ (ballMonomial p K a n j) =
+      α⁻¹^n * (p : K)^(n*j) * (-1 : K)^j / (k.choose j : K) *
+        (((specialiseSymb p K N k Φ).val
+          (divisorOf (((a : ℚ)/(p : ℚ)^n : ℚ) : P1Q) ∞)).val.coeff
+          (Finsupp.single 0 j+Finsupp.single 1 (k-j))) := sorry
+
+/-- Ordinary integrality separates boundedness from the choice of a saturated lattice. -/
+theorem ordinary_integral_measure (N k : ℕ) (Φ : DistSymbols p K N k)
+    (α : K) (hα : ‖α‖ = 1) (hΦ : upDist p K N k Φ = α • Φ)
+    (hφ : ∀ D : Delta0,
+      ‖((specialiseSymb p K N k Φ).val D).val.coeff (Finsupp.single 1 k)‖ ≤ 1)
+    (a n : ℕ) (ha : Nat.Coprime a p) (hn : 0 < n) :
+    ‖padicLFunction p K N k Φ (ballMonomial p K a n 0)‖ ≤ 1 := sorry
+
+/-- The critical-order obstruction uses a nonzero distribution on a tame component,
+not the scalar polynomial ∏(s−γ^i). -/
+theorem critical_interpolation_not_unique [CompleteSpace K] [FiniteDimensional ℚ_[p] K] :
+    ∃ μ : LocAnDist p K, μ ≠ 0 ∧ restrictUnits p K μ = μ ∧
+      IsAdmissible (p := p) ((k : ℝ)+1) μ ∧
+      ∀ n j : ℕ, j ≤ k → ∀ χ : DirichletCharacter K (p^n),
+        μ (finiteCharacterTest n j χ) = 0 := sorry
+
+/-- A theta-critical full eigenvector has no classical moments when it specializes to zero. -/
+theorem theta_critical_moments_vanish (N k : ℕ) [CharZero K]
+    (Φ : DistSymbols p K N k) (hs : specialiseSymb p K N k Φ = 0)
+    (α : K) (hα : α ≠ 0) (hΦ : upDist p K N k Φ = α • Φ)
+    (n j : ℕ) (hj : j ≤ k) (χ : DirichletCharacter K (p^n)) :
+    padicLFunction p K N k Φ (finiteCharacterTest n j χ) = 0 := sorry
+
+end KeyTheorems
+end TauCeti.ModularSymbol
+
+namespace TauCeti.ModularSymbol
+
+section ClassicalEulerComparison
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+
+/-- Layer 7's trivial character is taken at modulus one, not an imprimitive p-character. -/
+theorem stabilised_critical_LValue (f : Newform N k) (hpN : ¬ p ∣ N)
+    (β : ℂ) (j : ℕ) (hj : j ≤ k) :
+    cuspLValue (pStabilisation (p := p) f β) (1 : DirichletCharacter ℂ 1) j =
+      (1-β/(p : ℂ)^(j+1))*cuspLValue f.toCuspForm (1 : DirichletCharacter ℂ 1) j := sorry
+
+theorem stabilised_twisted_LValue (f : Newform N k) (β : ℂ)
+    (n : ℕ) (hn : 0 < n) (χ : DirichletCharacter ℂ (p^n))
+    (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k) :
+    cuspLValue (pStabilisation (p := p) f β) χ j = cuspLValue f.toCuspForm χ j := sorry
+
+/-- Classical side of RJW B.1, with the inverse character and all normalization constants.
+The analytic distribution and its zero-conductor Euler factor are separate L2 targets. -/
+theorem rjw_B1_classical_dictionary (f : Form N k) (n : ℕ) (hn : 0 < n)
+    (χ : DirichletCharacter ℂ (p^n)) (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k)
+    (α Ω : ℂ) (hα : α ≠ 0) (hΩ : Ω ≠ 0) :
+    -α⁻¹^n * gaussComplex χ * (j.factorial : ℂ) * (p : ℂ)^(n*j) /
+      ((2*Real.pi*Complex.I)^(j+1)*Ω) * cuspLValue f χ⁻¹ j =
+    (-1 : ℂ)^(j+1)/(2*Real.pi*Complex.I*Ω) * α⁻¹^n * (p : ℂ)^(n*j) *
+      ∑ a : ZMod (p^n), χ a * mellinEvaluation k j ((a.val : ℂ)/(p : ℂ)^n)
+        (periodSymbol _ k f (divisorOf ∞ (((a.val : ℚ)/(p : ℚ)^n : ℚ) : P1Q))) := sorry
+end ClassicalEulerComparison
+
+section LiftModels
+open Filter
+variable {N k p : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Imported analytic actions in the two explicit moment models of Proposition 3.1. -/
+def boundedGammaRep (N k : ℕ) : Representation K (RefinementGroup N p) (boundedMoments K) := sorry
+def daggerGammaRep (N k : ℕ) : Representation K (RefinementGroup N p) (daggerMoments K) := sorry
+abbrev BoundedSymbols (N k : ℕ) := symbols (RefinementGroup N p) (boundedGammaRep (p := p) (K := K) N k)
+abbrev DaggerSymbols (N k : ℕ) := symbols (RefinementGroup N p) (daggerGammaRep (p := p) (K := K) N k)
+
+def specialiseMoments (k : ℕ) (c : ℕ → K) : Vk K k :=
+  ⟨∑ j ∈ Finset.range (k+1), _root_.MvPolynomial.C ((-1 : K)^j*(k.choose j : K)*c j) *
+    _root_.MvPolynomial.X 0^j * _root_.MvPolynomial.X 1^(k-j), sorry⟩
+
+def specialiseBounded (N k : ℕ) : BoundedSymbols (p := p) (K := K) N k →ₗ[K] ClassicalSymbols p K N k := sorry
+def specialiseDagger (N k : ℕ) : DaggerSymbols (p := p) (K := K) N k →ₗ[K] ClassicalSymbols p K N k := sorry
+
+theorem specialiseBounded_apply (N k : ℕ) (Φ : BoundedSymbols (p := p) (K := K) N k) (D : Delta0) :
+    (specialiseBounded N k Φ).val D = specialiseMoments k (Φ.val D).val := sorry
+
+theorem specialiseDagger_apply (N k : ℕ) (Φ : DaggerSymbols (p := p) (K := K) N k) (D : Delta0) :
+    (specialiseDagger N k Φ).val D = specialiseMoments k (Φ.val D).val := sorry
+
+theorem overconvergent_lift_dagger [CompleteSpace K] [CharZero K]
+    (N k : ℕ) : Function.Surjective (specialiseDagger (p := p) (K := K) N k) := sorry
+
+/-- Corollary 5.4 uses the nonzero U_p eigenspace, not surjectivity onto arbitrary boundary data. -/
+theorem overconvergent_lift_bounded [CompleteSpace K] [CharZero K]
+    (N k : ℕ) (φ : ClassicalSymbols p K N k) (α : K) (hα : α ≠ 0)
+    (hφ : upClassical p K N k φ = α • φ) :
+    ∃ Φ : BoundedSymbols (p := p) (K := K) N k, specialiseBounded N k Φ = φ := sorry
+
+/-- Supplier topology on the bounded symbol space: the finite-generator Banach norm. -/
+instance boundedSymbolsTopology (N k : ℕ) : TopologicalSpace (BoundedSymbols (p := p) (K := K) N k) := sorry
+def boundedUp (N k : ℕ) : Module.End K (BoundedSymbols (p := p) (K := K) N k) := sorry
+
+def specialisationFibre (N k : ℕ) (φ : ClassicalSymbols p K N k) :
+    Submodule K (BoundedSymbols (p := p) (K := K) N k) :=
+  (Submodule.span K {φ}).comap (specialiseBounded N k)
+
+/-- Proposition 5.7 at an actual fibre. The operator-theory decomposition itself is imported. -/
+theorem slope_decomposition_fibre [CompleteSpace K] [FiniteDimensional ℚ_[p] K]
+    (N k : ℕ) (φ : ClassicalSymbols p K N k) (α : K) (hα : α ≠ 0)
+    (hφ : upClassical p K N k φ = α • φ) :
+    ∃ P Q : Submodule K (BoundedSymbols (p := p) (K := K) N k),
+      P ⊔ Q = specialisationFibre N k φ ∧ Disjoint P Q ∧ Module.Finite K P ∧
+      (∀ x ∈ Q, Tendsto (fun n ↦ ((α⁻¹ • boundedUp N k)^n) x) atTop (nhds 0)) ∧
+      (∀ x ∈ P, ∃ y ∈ P, (α⁻¹ • boundedUp N k) y = x) := sorry
+end LiftModels
+
+section CriticalFamilyDictionary
+variable {p N k : ℕ} [NeZero N] [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Actual Jordan chain supplied by PadicFamilies, with nonzero top classical symbol.
+It exhibits why the normalized classical symbol cannot come from the primary vector. -/
+theorem theta_secondary_comparison (N k : ℕ) (φ : ClassicalSymbols p K N k) (hφ : φ ≠ 0)
+    (e : ℕ) (he : 1 < e) (v : Fin e → DistSymbols p K N k)
+    (hprimary : specialiseSymb p K N k (v ⟨0, by omega⟩) = 0)
+    (htop : specialiseSymb p K N k (v ⟨e-1, by omega⟩) = φ) :
+    v ⟨0, by omega⟩ ≠ v ⟨e-1, by omega⟩ := sorry
+
+/-- Reduced affinoid identity principle in the supplier's ring of analytic functions.
+The exact algebraic separation condition is the density input, rather than a Prop flag. -/
+theorem family_comparison_principle {A : Type} [CommRing A]
+    {Y : Type} (ev : Y → A →+* K) (hdense : (⨅ y, RingHom.ker (ev y)) = ⊥)
+    (F G c : A) (hc : IsUnit c) (hagrees : ∀ y, ev y F = ev y c * ev y G) :
+    F = c*G := sorry
+end CriticalFamilyDictionary
+
+section AnalyticHalfLogConsequences
+open Filter
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Radial Gauss norm, used only for series converging on the open disc. -/
+def radialNorm {K : Type} [NormedField K] (F : PowerSeries K) (r : ℝ) : ℝ :=
+  sSup (Set.range fun n : ℕ ↦ ‖PowerSeries.coeff n F‖*r^n)
+
+/-- Two-sided growth is the input needed when dividing, stronger than a coefficient upper bound. -/
+theorem halfLog_growth_exact (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1) (k : ℕ) :
+    ∃ c C r₀ : ℝ, 0 < c ∧ 0 < C ∧ 0 < r₀ ∧ r₀ < 1 ∧
+      ∀ r : ℝ, r₀ < r → r < 1 →
+      c*radialNorm (PowerSeries.mk fun n ↦ if n = 0 then 0 else (-1 : ℚ_[p])^(n-1)/(n : ℚ_[p])) r ^ ((k+1 : ℝ)/2) ≤
+        radialNorm (weightHalfLogPlus p γ k) r ∧
+      radialNorm (weightHalfLogPlus p γ k) r ≤
+        C*radialNorm (PowerSeries.mk fun n ↦ if n = 0 then 0 else (-1 : ℚ_[p])^(n-1)/(n : ℚ_[p])) r ^ ((k+1 : ℝ)/2) ∧
+      c*radialNorm (PowerSeries.mk fun n ↦ if n = 0 then 0 else (-1 : ℚ_[p])^(n-1)/(n : ℚ_[p])) r ^ ((k+1 : ℝ)/2) ≤
+        radialNorm (weightHalfLogMinus p γ k) r ∧
+      radialNorm (weightHalfLogMinus p γ k) r ≤
+        C*radialNorm (PowerSeries.mk fun n ↦ if n = 0 then 0 else (-1 : ℚ_[p])^(n-1)/(n : ℚ_[p])) r ^ ((k+1 : ℝ)/2) := sorry
+
+/-- Simplicity is tested by the derivative series on an actual finite extension. -/
+def seriesDerivative (F : PowerSeries ℚ_[p]) : PowerSeries ℚ_[p] :=
+  PowerSeries.mk fun n ↦ (n+1 : ℚ_[p])*PowerSeries.coeff (n+1) F
+
+theorem halfLog_zeros_simple {K : Type} [NormedField K] [CompleteSpace K]
+    [NormedAlgebra ℚ_[p] K] (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (j : ℕ) (t : K) (ht : ‖t‖ < 1) :
+    (seriesEval p (halfLogPlus p γ j) t = 0 →
+      seriesEval p (seriesDerivative p (halfLogPlus p γ j)) t ≠ 0) ∧
+    (seriesEval p (halfLogMinus p γ j) t = 0 →
+      seriesEval p (seriesDerivative p (halfLogMinus p γ j)) t ≠ 0) := sorry
+
+/-- Pollack Theorem 5.1 as the division interface. The inputs G± are the even/odd combinations
+of the two actual refined Mellin transforms; L4 must supply their zeros and growth first. -/
+theorem pollack_plus_minus_division (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (k : ℕ) (Gplus Gminus : PowerSeries ℚ_[p])
+    (hdivplus : ∃ H : PowerSeries ℚ_[p], Gplus = weightHalfLogPlus p γ k * H ∧
+      ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n H‖*r^n) atTop (nhds 0))
+    (hdivminus : ∃ H : PowerSeries ℚ_[p], Gminus = weightHalfLogMinus p γ k * H ∧
+      ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n H‖*r^n) atTop (nhds 0))
+    (hgrowth : ∃ C r₀ : ℝ, 0 < r₀ ∧ r₀ < 1 ∧ ∀ r, r₀ < r → r < 1 →
+      radialNorm Gplus r ≤ C*radialNorm (weightHalfLogPlus p γ k) r ∧
+      radialNorm Gminus r ≤ C*radialNorm (weightHalfLogMinus p γ k) r) :
+    ∃ Lplus Lminus : PowerSeries ℚ_[p],
+      (∃ C : ℝ, ∀ n, ‖PowerSeries.coeff n Lplus‖ ≤ C ∧ ‖PowerSeries.coeff n Lminus‖ ≤ C) ∧
+      Gplus = Lplus*weightHalfLogPlus p γ k ∧
+      Gminus = Lminus*weightHalfLogMinus p γ k := sorry
+
+/-- The p=2 elliptic convention is an explicit change of normalization.
+Replacing 1/2 by 1 changes every nonzero minus component. -/
+theorem pollack_two_integral_dictionary (γ : ℚ_[2]ˣ) (Lminus : PowerSeries ℤ_[2])
+    (hL : Lminus ≠ 0) (α : ℚ_[2]) (hα : α ≠ 0) :
+    PowerSeries.C (α/2)*(PowerSeries.map (algebraMap ℤ_[2] ℚ_[2]) Lminus*halfLogPlus 2 γ 0) ≠
+      PowerSeries.C α*(PowerSeries.map (algebraMap ℤ_[2] ℚ_[2]) Lminus*halfLogPlus 2 γ 0) := sorry
+end AnalyticHalfLogConsequences
+
+section ExampleAcceptance
+local instance : Fact (Nat.Prime 11) := ⟨by decide⟩
+variable (p : ℕ) [Fact p.Prime]
+
+/-- A certified finite q-expansion computation from the eta product, used before any p-adic root claims. -/
+def levelElevenEtaCoeffs : ℕ → ℤ := fun n ↦
+  Polynomial.coeff (Polynomial.X * ∏ i ∈ Finset.range (n+1),
+    (1-Polynomial.X^(i+1))^2*(1-Polynomial.X^(11*(i+1)))^2 : Polynomial ℤ) n
+
+theorem levelEleven_eta_small_coefficients :
+    levelElevenEtaCoeffs 1 = 1 ∧ levelElevenEtaCoeffs 2 = -2 ∧
+    levelElevenEtaCoeffs 3 = -1 ∧ levelElevenEtaCoeffs 5 = 1 ∧
+    levelElevenEtaCoeffs 11 = 1 ∧ levelElevenEtaCoeffs 19 = 0 ∧ levelElevenEtaCoeffs 29 = 0 := sorry
+example : levelElevenEtaCoeffs 2 = -2 ∧ levelElevenEtaCoeffs 19 = 0 := sorry
+
+/-- Slope-one-half at a_p=0 holds over the actual finite extension containing the root. -/
+theorem supersingular_ap_zero_slope {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+    (α : K) (hα : α^2 = -(p : K)) : -Real.log ‖α‖/Real.log p = (1/2 : ℝ) := sorry
+
+/-- The integral trivial-zero criterion checks exact constant term and a unit linear term.
+The algorithm must provide these two certificates; a decimal approximation alone cannot. -/
+theorem levelEleven_trivial_zero_invariants (F : PowerSeries ℤ_[11])
+    (hzero : PowerSeries.coeff 0 F = 0) (hunit : IsUnit (PowerSeries.coeff 1 F)) :
+    PowerSeries.coeff 0 F = 0 ∧ PowerSeries.coeff 1 F ≠ 0 ∧
+      (∀ n < 1, ¬ IsUnit (PowerSeries.coeff n F)) := sorry
+end ExampleAcceptance
+
+end TauCeti.ModularSymbol
+
+namespace TauCeti.ModularSymbol
+
+section TameAndSupersingularSignatures
+open Filter
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type} [NormedField K] [NormedAlgebra ℚ_[p] K]
+
+/-- Finite-level weight-two masses on the genuine inverse-limit group
+(Z/MZ)^× × Z_p^×; analyticity and its distribution carrier belong to the suppliers. -/
+def tameLocalMass (M : ℕ) (α ε : K) (lam : ℕ → ℕ → K) (n a : ℕ) : K :=
+  α⁻¹^n * lam (M*p^n) a - ε*α⁻¹^(n+1)*lam (M*p^(n-1)) a
+
+theorem tame_mass_distribution (M : ℕ) (α ε ap : K) (hα : α ≠ 0)
+    (hroot : α^2-ap*α+ε*(p : K)=0) (lam : ℕ → ℕ → K)
+    (hperiod : ∀ m a b, lam m (a+b*m)=lam m a)
+    (hhecke : ∀ n a, 0 < n →
+      (∑ b ∈ Finset.range p, lam (M*p^(n+1)) (a+b*(M*p^n))) =
+        ap*lam (M*p^n) a - ε*(p : K)*lam (M*p^(n-1)) a)
+    (n a : ℕ) (hn : 0 < n) :
+    (∑ b ∈ Finset.range p, tameLocalMass (p := p) M α ε lam (n+1) (a+b*(M*p^n))) =
+      tameLocalMass (p := p) M α ε lam n a := sorry
+
+/-- Source Euler factors for the unramified and ramified branches, on actual scalars.
+The epsilon value at p is that of the tame character, before extension by zero at level pN. -/
+theorem euler_factor_comparison (α β ε χp : K) (hα : α ≠ 0) (hχ : χp ≠ 0)
+    (k j : ℕ) (hj : j ≤ k) (hab : α*β=ε*(p : K)^(k+1)) :
+    (1-χp*(p : K)^j/α)*(1-χp⁻¹*β/(p : K)^(j+1)) =
+      (1-χp*(p : K)^j/α)*(1-χp⁻¹*ε*(p : K)^(k-j)/α) := sorry
+
+def evalPowerSeries (F : PowerSeries K) (t : K) : K :=
+  ∑' n : ℕ, PowerSeries.coeff n F*t^n
+
+/-- Mazur's different-slope criterion, with exact refined interpolation identities in a
+complete algebraically closed p-adic extension. It asserts infinitude in the open disc. -/
+theorem supersingular_different_slopes [CompleteSpace K] [IsAlgClosed K]
+    (α β : K) (hα : α ≠ 0) (hβ : β ≠ 0) (hdifferent : ‖α‖ ≠ ‖β‖)
+    (F G : PowerSeries K)
+    (hF : ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n F‖*r^n) atTop (nhds 0))
+    (hG : ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n G‖*r^n) atTop (nhds 0))
+    (hvalues : ∀ n : ℕ, 0 < n → ∀ ζ : K, IsPrimitiveRoot ζ (p^n) →
+      α^(n+(if p=2 then 2 else 1))*evalPowerSeries F (ζ-1) =
+      β^(n+(if p=2 then 2 else 1))*evalPowerSeries G (ζ-1)) :
+    {t : K | ‖t‖ < 1 ∧ evalPowerSeries F t = 0}.Infinite ∨
+      {t : K | ‖t‖ < 1 ∧ evalPowerSeries G t = 0}.Infinite := sorry
+
+/-- Pole removal is an analytic statement: formal divisibility by the logarithm, whose
+constant coefficient is invertible, provides no zero information and is insufficient. -/
+theorem pollack_plus_minus (γ : ℚ_[p]ˣ) (hγ : ‖(γ : ℚ_[p])-1‖ < 1)
+    (k : ℕ) (Gplus Gminus : PowerSeries ℚ_[p])
+    (hdivplus : ∃ H : PowerSeries ℚ_[p], Gplus=weightHalfLogPlus p γ k*H ∧
+      ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n H‖*r^n) atTop (nhds 0))
+    (hdivminus : ∃ H : PowerSeries ℚ_[p], Gminus=weightHalfLogMinus p γ k*H ∧
+      ∀ r : ℝ, 0 < r → r < 1 → Tendsto (fun n ↦ ‖PowerSeries.coeff n H‖*r^n) atTop (nhds 0))
+    (hgrowth : ∃ C r₀ : ℝ, 0 < r₀ ∧ r₀ < 1 ∧ ∀ r, r₀ < r → r < 1 →
+      radialNorm Gplus r ≤ C*radialNorm (weightHalfLogPlus p γ k) r ∧
+      radialNorm Gminus r ≤ C*radialNorm (weightHalfLogMinus p γ k) r)
+    (α : K) :
+    ∃ Lplus Lminus : PowerSeries ℚ_[p],
+      (∃ C : ℝ, ∀ n, ‖PowerSeries.coeff n Lplus‖ ≤ C ∧ ‖PowerSeries.coeff n Lminus‖ ≤ C) ∧
+      PowerSeries.map (algebraMap ℚ_[p] K) Gplus +
+        PowerSeries.C α*PowerSeries.map (algebraMap ℚ_[p] K) Gminus =
+      PowerSeries.map (algebraMap ℚ_[p] K) (Lplus*weightHalfLogPlus p γ k) +
+        PowerSeries.C α*PowerSeries.map (algebraMap ℚ_[p] K) (Lminus*weightHalfLogMinus p γ k) := sorry
+end TameAndSupersingularSignatures
 end TauCeti.ModularSymbol
