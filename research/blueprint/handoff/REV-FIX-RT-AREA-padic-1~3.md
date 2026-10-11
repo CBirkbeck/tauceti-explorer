@@ -1,4 +1,73 @@
-# Current handoff: Codex codex-Wrws1L
+# Current handoff: Codex codex-fyvoiO
+
+11 October 2026; issue #5704; input
+`5cbcf764a67eb29027a3af3f4518b483c8f950ea`; branch
+`codex-fyvoiO-review-5704`. Bot confirmed claim comment 6106044152.
+One job claimed; no second job.
+
+**Blocked checkpoint.** The issue authorizes seven outputs and three packets;
+the queue demands 47 outputs and 23 packets. There is now a second blocker:
+another review has displaced two of this job's top-level verdicts. The
+original scoped completion predicate is now false, superseding the earlier
+true result below. No authorization to edit the excluded repair files has
+arrived. Only this report's companion handoff and the review report change.
+
+## New evidence and where to resume
+
+At merge `f5f5175aca241e538a5607637724f8f7349826b4` (#8468), the
+`REV-FIX-RT-AREA-padic-2~4` review moved this job's P0 and ASII verdicts to
+history and installed its own top-level reviews. In the stock completion
+predicate, only top-level `review` counts. Fresh evaluations on each live
+issue's original seven paths give #5704 false and #6519 true. Restoring this
+job's archived reviews **only in memory** reverses those values. Do not
+overwrite the other job's current reviews merely to satisfy this job.
+
+All three mathematical packet objects, after excluding only review metadata,
+are identical to `331007b5e`; the three suggested files are byte-identical.
+The old scoped assessments still exist and no mathematical content changed.
+Their attribution has been lost from completion, not from the files' history.
+The [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) gives the current
+results, historical merge and required joint acceptance check.
+
+The maintainer repair must handle **both** defects:
+
+1. Restore this author's ten outputs and review's seven from `c69e5b6c9`,
+   preserving published scopes and prerequisites during regeneration. The
+   exact lists and the tested generator candidate remain below and in the
+   report. Newly available owner work belongs to separately scoped jobs.
+2. Preserve completion of both #5704 and #6519 when the same unchanged packet
+   receives another scoped review. A historical-verdict rule needs content
+   and scope safeguards; blindly counting every old review is not sufficient
+   after mathematical changes. Review metadata must not oscillate between jobs.
+3. Regenerate twice, verify prompts, prerequisites and runtime state, then
+   check both jobs before and after another scoped review. Arrange maintainer
+   submission and issue synchronization because queue/generator paths are
+   excluded by intake. Hold this unresolved assignment out of worker selection;
+   workers must not edit its labels or close it.
+
+## Verification and preserved mathematics
+
+Fresh stock packet checks: zero errors and warnings, P0 326 nodes, AEG 153,
+ASII 537. The existing in-memory generator fixture reproduces 4/8 passing
+stock cases, 6/8 for the later-round-only candidate and 8/8 for the two-site
+candidate. Those focused tests do not certify full regeneration or resolve
+the newly discovered review collision. No suggested file changed and Lean was
+not rerun; the successful checks below remain the earlier sessions' evidence.
+
+P0 retains `needs_changes`; AEG and ASII retain scoped acceptances with their
+existing limitations. Every current review/history record is preserved,
+including the newer #6519 verdicts. The precise P0 supplier/signature gaps,
+pending R5/Q4/RS-05 maintainer actions and excluded-owner handoffs remain below
+and in the report. No fresh source audit or mathematical acceptance is claimed.
+No queue, generator, prompt, packet, suggested file or reader changed.
+
+No disposable scratch file is required to resume. Start with the maintainer
+scope and review-attribution repair, not another repetition of the completed
+three-packet mathematical review.
+
+---
+
+# Archived handoff: Codex codex-Wrws1L
 
 10 October 2026; issue #5704; base
 `15da55e6f65878bbea28010a47d360dbd47cf57c`. Bot confirmation:
