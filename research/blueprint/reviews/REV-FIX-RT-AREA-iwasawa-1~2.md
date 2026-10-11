@@ -1,97 +1,92 @@
-# Review #6217: issued scope complete; queue reconciliation required
+# Review #6217: completed issued review; blocked by expanded queue scope
 
-Codex — **codex-7RoyI0**, 11 October 2026. Input commit: `cea943b81`.
-Branch: `codex-7RoyI0-review-6217`. Claim confirmed in
-[comment 6107375568](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107375568).
+Codex — **codex-MQrMj0**, 11 October 2026. Input commit: `1c06f9548`.
+Branch: `codex-MQrMj0-review-6217`. The bot confirmed the claim in
+[comment 6107751142](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6107751142).
 This session did none of the fixes and claimed only this issue.
 
-**Blocked checkpoint.** The live issue assigns this report, the HE.0 packet
-and its suggested file. Those mathematical reviews are complete, as recorded
-below by their authors. The queue instead assigns eleven packet/Lean pairs.
-The current scope cannot finish without a maintainer decision. This session
-validated the scope repair against the full current generator, including its
-wider effects; no mathematical verdict or signature was changed.
+**Blocked checkpoint.** The live issue names this report, the HE.0 packet and
+its suggested file. Their mathematical review is already complete and accepted,
+with source and Lean receipts preserved below. The queue instead requires ten
+additional packet reviews. Repeating HE.0 cannot finish that expanded queue job.
+This session independently reproduced the completion mismatch, reran both
+focused regressions and the full current generator, and refreshed the concrete
+repair patch. No mathematical verdict or signature was changed.
 
-## Fresh verification in this session
+## Current completion evidence
 
-The actual `issues.deliverables_complete` returns **false** for the queue's
-23-output review and **true** for a copy with precisely the live issue's three
-outputs. Every queued output exists. The ten additional packets retain other
-reviewers; none was stamped as reviewed by this job. The saved issue history
-contains nineteen prior checkpoint-intake comments. Further repetition of
-HE.0's review cannot resolve this mismatch.
+The real `issues.deliverables_complete` returns **false** for the current
+23-output review and **true** for an in-memory copy with precisely the live
+issue's three outputs. Every queued file exists. The ten additional packets
+retain other reviewers, including ES.0's `needs_changes` verdict; they were not
+reviewed or stamped by this session. Historical commit `88f9bcd44` records the
+round-two fix's four outputs and review's three, matching the published issues.
 
-At historical commit `88f9bcd44`, the round-two fix had four outputs and its
-review had three; today they have forty and twenty-three. The prepared patch
-below restores those original arrays and preserves an existing round whenever
-`previous_jobs` contains it. It remains **unapplied**; `git apply --check` succeeds at this input commit.
-
-Both preserved focused regressions pass: six state/trigger fixtures with
-repeat generation, rejection-dependency and absent-successor checks; and seven
-completed-round cases. This session also reran the complete generator in memory
-using the unconditional issued-round guard in the prepared patch. Repository
-writes were intercepted and forbidden; the generator lock was redirected to
-scratch. Historical output arrays were restored only in the in-memory input.
-
-| Generated family | Original guard | Prepared issued-round guard |
-|---|---|---|
-| Round-two fix outputs | 27 | 4 |
-| Round-two review outputs | 15 | 3 |
-| Round-three fix/review outputs | No new round | 30 / 17 |
-
-The patched generator keeps round two's original outputs across two successive
-generations and assigns additional work to round three. Against the stock
-counterfactual, it changes forty existing job records and adds eighteen job
-records across the other fix families, removing none. The counts above describe
-the generator replay, not the current on-disk queue. This wider scheduling
-impact must be examined when the maintainer applies the repair. The earlier
-full replay below used the narrower completed-round guard; its historical
-receipts are retained with their original attribution.
-
-The HE.0 packet checker passes with **zero errors and warnings**: 78 nodes,
+The packet checker passes with **zero errors and warnings**: 78 nodes,
 24 API items, eighteen tests, thirteen baseline declarations, 21 gaps and
-63 requests. All eight stages remain planned. No primary source was reread in
-this continuation. The packet's accepted verdict and prior source/compilation
-receipts are preserved. Lean was not rerun because this session changes only
-Markdown and makes no mathematical or signature correction.
+63 requests. All eight stages remain planned. The accepted review marker,
+source receipts and `unchecked` implementation statuses are preserved.
+No primary source was reread. Lean was not rerun for these Markdown-only edits;
+the earlier successful pinned compilation with only `sorry` warnings is
+historical evidence, not a fresh compile by this session.
 
-## Action needed before reassignment
+## Repair verification
 
-Restore the historical output arrays and inspect the prepared generator repair,
-or explicitly authorize the ten additional independent reviews. The guard
-alone preserves the already-expanded arrays. Synchronize the issue and queue
-before giving this job to another worker. Leave unrelated mathematical review
-markers intact until their reviews occur.
+The unapplied patch below restores the historical output arrays and keeps an
+already-issued successor's scope whenever it exists in `previous_jobs`.
+`git apply --check` succeeds at the input commit. The guard alone would retain
+the already-expanded arrays, so both changes are required.
 
-WORKERS.md restricts edits to issue-named files and scratch; queue.json and
-make_queue.py are not named here. `intake.file_problems` separately rejects
-those paths as outside swarm outputs. A text clarification was requested from
-the user this session; no scope extension has been received. This is a scope
-restriction, not an automatic approval-review rejection. The PR therefore
-contains only this report and its handoff.
+The focused checks pass: six state/trigger fixtures, repeated generation,
+preservation of rejection dependencies and creation of an absent successor;
+and seven completed-round cases. The first suite directly checks the proposed
+unconditional guard against pending, external and completed issued rounds.
+The second suite exercises the narrower completed-round alternative retained
+for comparison; it is not the proposed patch.
 
-## Reproducing the new full-generator check
+The complete current generator was then run **in memory** with both historical
+arrays restored. Repository text writes were intercepted and forbidden; its
+lock was redirected to task scratch. No queue, prompt, issue or promotion was
+written. Both generation passes preserve the restored issued scopes.
 
-The third Python script preserved below already captures the full generator
-in memory and forbids repository writes. Extract it to scratch, save the queue
-from `git show 88f9bcd44:research/blueprint/queue.json` as `historical-queue.json`
-there, and replace that script's multiline `new` value by the string
-`made = previous_jobs.get(following)`. Run it with the scratch directory as its
-sole argument. Its assertions test both historical scopes, additional-work
-routing and stability across a second generation. The two focused scripts can
-be extracted and run directly. No scratch artifact is needed to resume.
+| Generated family | Stock guard | Proposed issued-round guard |
+|---|---|---|
+| Round-two fix outputs | 30 | 4 |
+| Round-two review outputs | 17 | 3 |
+| Round-three fix/review outputs | No new round | 33 / 19 |
 
-## Preserved scope-repair proposal
+The patched replay assigns the additional work to round three. Against the
+stock counterfactual it changes **44 existing job records**, adds **20**
+and removes **0** across the fix families. These are fresh replay counts;
+they do not describe a queue applied to the repository. This wider scheduling
+effect needs maintainer inspection before the repair is applied.
 
-This proposal was prepared by codex-AatBZG from codex-XyECDt's guard repair,
-using the historical arrays at `88f9bcd44`. It is **not applied**. Refresh
-patch context as needed, validate the wider scheduling effects, and reconcile
-the live issue and generated prompts when the maintainer applies it.
+## Required action before reassignment
+
+Authorize and apply the concrete historical-array restoration plus the generator
+guard after examining its wider effects, or explicitly assign the ten additional
+reviews. Synchronize issue scope, queue and generated prompts. Leave other jobs'
+review markers intact until those independent reviews actually take place.
+Do not send another worker through the unchanged HE.0-only scope: that review
+is complete and its repetition cannot satisfy the expanded completion predicate.
+
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus your
+own scratch space.” Neither queue.json nor make_queue.py is named by #6217.
+The actual `intake.file_problems` independently rejects both as outside swarm
+output paths. A scope-extension request with this concrete repair is pending;
+no authorization has been received in this run. This is a scope restriction,
+not an automatic approval-review rejection. Only this report and its handoff
+are changed, and the submission is a blocked checkpoint.
+
+## Concrete unapplied patch
+
+The proposal follows the earlier scope repair. This patch was refreshed against
+the current input commit and validated without applying it.
 
 ```diff
 --- a/research/blueprint/queue.json
 +++ b/research/blueprint/queue.json
-@@ -80042,45 +80042,9 @@
+@@ -80080,45 +80080,9 @@
     ],
     "outputs": [
      "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
@@ -138,7 +133,7 @@ the live issue and generated prompts when the maintainer applies it.
     ],
     "after": [
      "FIX-RT-AREA-iwasawa-1"
-@@ -80108,28 +80072,8 @@
+@@ -80146,28 +80110,8 @@
     ],
     "outputs": [
      "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
@@ -181,9 +176,7 @@ the live issue and generated prompts when the maintainer applies it.
              why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
 ```
 
-## Preserved issued-scope regression (codex-XyECDt)
-
-This preserved script was rerun in this session from task scratch.
+## Issued-round regression
 
 ```python
 """Exercise the real fix_rounds function without changing repository files."""
@@ -283,9 +276,7 @@ assert added_packet in out[base + '~2']['outputs']
 print('PASS:', checks, 'state/trigger fixtures, repeat generation, rejection reason, new successor')
 ```
 
-## Preserved completed-round regression
-
-This preserved script was rerun in this session from task scratch.
+## Completed-round alternative regression
 
 ```python
 """Exercise the real fix_rounds function without changing repository files."""
@@ -376,19 +367,13 @@ print('PASS: original bug, completed scope, new-work routing, repeat generation,
       'unfinished expansion, rejection dependency, historical dependency')
 ```
 
-## Self-contained full-generator regression replay
+## Full-generator regression with the proposed guard
 
-Save the Python below as `full_generation.py` in task scratch. First save the
-historical queue there using the read-only command
-`git show 88f9bcd44:research/blueprint/queue.json > "$TASK_SCRATCH/historical-queue.json"`.
-Run `python3 "$TASK_SCRATCH/full_generation.py" "$TASK_SCRATCH"` from the
-repository root. It executes the module from its existing tree in memory;
-there is no repository copy, queue generation on disk, synchronization or
-promotion. It raises if the generator tries to write any file with
-`Path.write_text`, and redirects its lock file into scratch. The only AST
-change besides the proposed guard is returning the generated jobs/prompts
-when `--dry-run` would otherwise return no value. Counts reflect the inputs
-at the recorded commit and may differ after new work lands.
+Run from the repository root. Save the historical queue with
+`git show 88f9bcd44:research/blueprint/queue.json` to `historical-queue.json`
+in task scratch. Extract this script there and pass that scratch directory as
+its sole argument. The preceding two scripts need no arguments. All three
+scripts are preserved here, so no deleted scratch artifact is needed.
 
 ```python
 import ast
@@ -406,9 +391,7 @@ SCRATCH=Path(sys.argv[1])
 source_path=REPO/'research/blueprint/make_queue.py'
 source=source_path.read_text()
 old='made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
-new='''made = previous_jobs.get(following) if (
-                states.get(following) == "done" or (following in states and not (missing or sent_back))
-            ) else None'''
+new='made = previous_jobs.get(following)'
 rt='RT-AREA-iwasawa-1'; base='FIX-'+rt
 current=json.loads((REPO/'research/blueprint/queue.json').read_text())
 historical={j['id']:j for j in json.loads((SCRATCH/'historical-queue.json').read_text())['jobs']}
@@ -459,9 +442,6 @@ added=list(repaired.keys()-original.keys())
 removed=list(original.keys()-repaired.keys())
 print('different jobs:',sorted(changed));print('added jobs:',sorted(added));print('removed jobs:',sorted(removed))
 ```
-
----
-
 
 ## Preserved mathematical reviews
 
