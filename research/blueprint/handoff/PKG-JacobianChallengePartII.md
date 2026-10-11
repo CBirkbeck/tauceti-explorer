@@ -1,266 +1,131 @@
 # PKG-JacobianChallengePartII — blocked supplier checkpoint
 
-Refs #7593. Codex (GPT-6), session `codex-8IVJPY`, 11 October 2026.
-Branch: `codex-8IVJPY-jacobian-package`.
-The bot [confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6105407625)
-for claim comment `6105406854`. This run holds only this claim.
+Refs #7593. Codex (GPT-6), session `codex-ng9hTD`, 11 October 2026.
+Branch: `codex-ng9hTD-jacobian-package`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6105625082)
+for claim comment `6105624017`. This run takes only this job.
 
-**Blocked checkpoint, not a completed package.** The missing supplier packages
-and coupled-bundle decision recorded below remain unresolved. This run changes
-only the handoff, after independently checking their current state and rerunning
-the required validation. The README and Suggested.lean retain their inherited
-mathematics. Metadata remains absent so the intake recognizes the submission as
-a checkpoint. No package, source, theorem or geometric interface was added.
+**Blocked checkpoint.** The two missing supplier packages and the coupled-bundle
+schedule remain unresolved. This continuation independently checked those gates
+and validated the inherited Lean file and packet. Only this handoff changes.
+The README and Suggested.lean remain inherited work; their successful checks
+are not a claim that the omitted geometry has been prototyped or implemented.
 
-## Fresh checks in this continuation
+## Evidence checked in this run
 
-The clone and remote atlas main were both
-`5ef4331ec4198234c77f9a74652b98acfd786d96`. Remote TauCetiRoadmap main was
+Atlas clone and remote main were
+`98e12a03c5d9478e5c37363f8a3daa086ac341cd`; remote TauCetiRoadmap main was
 `4b002f622e9d68b627bdce9f6224897305a68bdc`.
-Directory listings fetched at those exact commits contain 75 atlas package
-entries and 50 upstream roadmap entries. Neither contains
-`AbelianSchemesAndArithmeticModuli` or `StableReductionPartII`. The existing
-`AbelianSchemesAndArithmeticModuliPartII` package extends the missing parent;
-it does not replace A1–A3. These listings can be checked in the
-[atlas package tree](https://github.com/CBirkbeck/tauceti-explorer/tree/5ef4331ec4198234c77f9a74652b98acfd786d96/research/blueprint/packages)
-and the [upstream roadmap tree](https://github.com/TauCetiProject/TauCetiRoadmap/tree/4b002f622e9d68b627bdce9f6224897305a68bdc/TauCetiRoadmap).
+The [atlas package tree](https://github.com/CBirkbeck/tauceti-explorer/tree/98e12a03c5d9478e5c37363f8a3daa086ac341cd/research/blueprint/packages)
+has 75 entries and the [upstream roadmap tree](https://github.com/TauCetiProject/TauCetiRoadmap/tree/4b002f622e9d68b627bdce9f6224897305a68bdc/TauCetiRoadmap)
+has 50. Neither contains `AbelianSchemesAndArithmeticModuli` or
+`StableReductionPartII`. The atlas's existing
+`AbelianSchemesAndArithmeticModuliPartII` extends the missing parent; it does
+not supply the required parent layers A1–A3.
 
-The parent packet is still accepted by
-`independent-review-REV-AbelianSchemesAndArithmeticModuli`, dated 2026-10-09.
-Its A1 relative-rigidity and cube/power targets and A2 double-normalized
-Poincaré/biduality target are genuine arbitrary-base contracts. The consumer’s
-A3 request includes finite locally free multiplication for nonzero integers
-without imposing invertibility on the base.
+The accepted parent packet's review is
+`independent-review-REV-AbelianSchemesAndArithmeticModuli`, 2026-10-09.
+Its A1 relative rigidity and cube/power comparisons and A2 normalized
+Poincaré/biduality comparisons require arbitrary bases, including nilpotent
+thickenings. JC2 and JC5 additionally consume A3 finite locally free
+multiplication by every nonzero integer, including when that integer is not
+invertible on the base. These contracts cannot be replaced by field-only
+abelian varieties or by merely citing the imported R09.4 carriers.
 
-The curve-moduli packet is still accepted by
-`independent-review-REV-DESIGN-StableReductionPartII~2`, dated 2026-10-10.
-Its `MC.4/full-level` node directly imports JC1’s relative Jacobian, base-change
-comparison and principal polarization. Its `MC.4/fine-level-scheme` node
-imports `full-level`. JC7’s `universal-level-jacobian` node imports both MC.4
-nodes. Thus the checked mathematical order is
-**JC1 → MC.4 full level → MC.4 fine-level scheme → JC7**. The two roadmap
-packages must be scheduled together as a coupled bundle; reciprocal
-whole-package dependencies would hide this order and create a cycle.
+The accepted curve-moduli packet's review is
+`independent-review-REV-DESIGN-StableReductionPartII~2`, 2026-10-10.
+Freshly read prerequisite lists give this exact sequence:
 
-The queue still contains neither `PKG-AbelianSchemesAndArithmeticModuli` nor
-`PKG-StableReductionPartII`. `PKG-JacobianChallengePartII` still has `after: []`.
-Neither `focus.json` nor `upstream/CaraianiNewton.md` mentions
-`StableReductionPartII`; the latter still reports the parent abelian-scheme
-package as absent. Those scheduling files are outside this issue’s deliverables.
-The action needed is to supply the parent package, supply the curve-moduli
-package, and establish the coupled bundle before another package continuation.
-This run changed no scheduling file, supplier, label or packet.
+**JC1 relative Jacobian, base change and principal polarization → MC.4 full
+level → MC.4 fine-level scheme → JC7 universal-level Jacobian.**
 
-The read-only roadmap checkout remains
-`070dc2becd74419e76303ede84b465ed4a69461f`; its Tau Ceti dependency remains
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. This run read the complete upstream
-JacobianChallenge and AlgebraicVectorBundles READMEs, the parent library-audit
-entries, and the actual current declarations of `AbelianVariety` and
-`rigidifiedPicardFunctor`. The former is based on `Spec K` for a field; the
-latter takes a chosen section and constructs its functor. Neither supplies the
-missing arbitrary-base, section-free contracts. No Lake command ran in these
-read-only checkouts. The cleared-library index was read; no restricted book was
-obtained and no new source reading is claimed.
+The fine-level scheme is the fixed symplectic component over
+Z[1/N, ζ_N], for g≥2 and N≥3, with its universal smooth projective curve.
+The MC.4 nodes explicitly consume JC1, and JC7 explicitly consumes both MC.4
+nodes. The two packages therefore need a coupled bundle with this internal
+order. Reciprocal dependencies between whole packages would create a cycle;
+MC.4 must not become an input to the generic JC0–JC5 construction.
 
-Validation completed in this run:
+The current queue still has neither `PKG-AbelianSchemesAndArithmeticModuli`
+nor `PKG-StableReductionPartII`. `PKG-JacobianChallengePartII` has `after: []`.
+Neither `focus.json` nor `upstream/CaraianiNewton.md` names
+`StableReductionPartII`; the upstream order document still reports the parent
+abelian-scheme package as absent. These scheduling files and supplier outputs
+are outside this issue's authorized paths.
+
+The read-only upstream checkout is
+`070dc2becd74419e76303ede84b465ed4a69461f`; the current Tau Ceti checkout is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. This run read the full upstream
+JacobianChallenge and AlgebraicVectorBundles READMEs, the reviewed A1–A3
+library-audit entries, and the actual current `AbelianVariety` and
+`rigidifiedPicardFunctor` declarations. `AbelianVariety` has a field base
+`Spec K`. `rigidifiedPicardFunctor` requires a chosen section and constructs
+a functor; it does not supply section-free Picard representability. The
+field/pointed Jacobian and general tensor/dual/determinant ownership boundaries
+remain intact. No Lake command ran in either read-only checkout.
+
+The cleared-library index was read. BLR and MFK are not cleared, and this run
+obtained no copy of either. No new primary-source verification or geometric
+proof is claimed. Earlier source receipts and mathematical work remain
+attributed to their workers in the
+[predecessor handoff at the immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/98e12a03c5d9478e5c37363f8a3daa086ac341cd/research/blueprint/handoff/PKG-JacobianChallengePartII.md).
+
+## Validation
 
 - `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
-  **exit 0, 78 `declaration uses sorry` warnings, no errors and no other
-  warnings**. Available memory was 100 GiB before the check. The designated
-  wrapper reports Mathlib `082e2d37e8` and specifies Tau Ceti `f790474`; the full
-  pins and the limits of the build-tree authentication are recorded below.
+  **exit 0; 78 warnings, all `declaration uses sorry`; zero errors and zero
+  other warnings.** Available memory was 100 GiB before checking. The shared
+  wrapper designates Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and
+  Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Mathlib HEAD was independently
+  checked. This run does not claim a new Git authentication of the shared Tau
+  Ceti build tree. No compile or language server is left running.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
-  **0 errors, 0 warnings**, with 48 nodes, 60 API items, 52 tests, 24 planets,
+  **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
   11 baseline declarations, 14 gaps and 13 requests. All eight layers are
-  planned; none is closed.
-- The inherited README is 100,860 bytes and Suggested.lean is 30,594 bytes.
-  Signature elaboration does not discharge the inherited proof or interface
-  obligations.
-- `research/blueprint/issues.py:deliverables_complete` still decides package
-  completion by output-file existence. Keeping metadata absent preserves honest
-  checkpoint classification while the supplier and prototype obligations remain.
-
-Resume instructions and the complete target correspondence are retained below.
-Their earlier source-reading and calculation receipts remain attributed to the
-predecessor; this continuation does not claim to have repeated them. No process
-is left running. The checkpoint follows WORKERS.md’s stopping rule because
-completion requires work outside this issue’s authorized paths.
-
----
-
-## Retained predecessor handoff (codex-SILxkg)
-
-# PKG-JacobianChallengePartII — supplier and scheduling checkpoint
-
-Refs #7593. Codex (GPT-6), session `codex-SILxkg`, 11 October 2026.
-Branch: `codex-SILxkg-jacobian-package`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6105147526)
-for claim comment `6105146576`. This is the only claim in this run; no second
-job is taken.
-
-**Blocked checkpoint.** The inherited README and suggested signatures are
-preserved. This continuation freshly verifies the external supplier and
-scheduling gates and reruns validation. It adds no geometric declaration and
-makes no completion or upstream-readiness claim. The required fixes are outside
-this job's four authorized paths.
-
-## Current evidence and the exact gates
-
-The clone and the remotely checked atlas main are
-`763d46d25cf18f42a878f7e8b6e242ab2b575f83`. The remote TauCetiRoadmap main is
-`4b002f622e9d68b627bdce9f6224897305a68bdc`.
-Fresh GitHub directory listings pinned to those commits contain 75 atlas
-package entries and 50 upstream roadmap entries. Neither listing contains
-`AbelianSchemesAndArithmeticModuli` or `StableReductionPartII`.
-`AbelianSchemesAndArithmeticModuliPartII` exists among the atlas packages, but
-its extension does not replace the required parent owner.
-
-The local accepted suppliers were read at the same atlas commit:
-
-| Required supplier | Accepted contract and consumer | Gate to resolve outside this job |
-| --- | --- | --- |
-| `AbelianSchemesAndArithmeticModuli:A1–A3` | The parent packet was accepted by `independent-review-REV-AbelianSchemesAndArithmeticModuli` on 2026-10-09. A1 supplies arbitrary-base rigidity and cube/power comparisons; A2 supplies double-normalized Poincaré and biduality; A3 supplies finite locally free multiplication by nonzero integers, including inseparable cases. The corresponding basic carriers imported from `AlgebraicModuliForArithmeticGeometry:R09.4` do not replace these additional parent targets. | Provide the parent roadmap package with these exact layer contracts as the lower-tier supplier. This job cannot re-plan its parent's mathematics. |
-| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The supplier packet was accepted by `independent-review-REV-DESIGN-StableReductionPartII~2` on 2026-10-10. `full-level` explicitly imports JC1's relative Jacobian, base change and principal polarization; `fine-level-scheme` imports `full-level` and supplies the smooth quasi-projective scheme and universal smooth projective curve over the fixed symplectic component Z[1/N, ζ_N], g≥2, N≥3. JC7 consumes this scheme. | Provide the separate curve-moduli package and declare a coupled bundle for joint upstream submission. Its reference back to JC1 rules out treating the entire supplier package as an independently lower-tier prerequisite. |
-
-The exact dependency sequence is **JC1 → MC.4 full level → MC.4 fine-level
-scheme → JC7**. The generic JC0–JC5 construction remains independent of MC.4.
-Do not create reciprocal whole-package `after` dependencies: use the coupled
-bundle while preserving the internal mathematical order.
-
-The queue still gives `PKG-JacobianChallengePartII` `after: []` and contains no
-exact `PKG-AbelianSchemesAndArithmeticModuli` or `PKG-StableReductionPartII`
-job. `focus.json` and `upstream/CaraianiNewton.md` do not declare this coupled
-bundle. The upstream order document explicitly reports the parent package as
-not yet present. This explains why a continuation is selectable despite the
-same external gates recorded by earlier checkpoints.
-
-**Maintainer scheduling action:** arrange the missing supplier package jobs and
-the bundle, and gate further package continuations on those inputs. Simply
-releasing this job again cannot supply its missing owners. No labels, queue
-entries, supplier files or bundle schedule were changed by this worker.
-
-[WORKERS.md, Upstream tiers](../WORKERS.md#upstream-tiers) says:
-“A package (PROTOCOL.md section 20) cites, for each target, only Mathlib, Tau
-Ceti, its own layers, the other roadmaps of its bundle and the layers of
-lower-tier packages.” It also requires dependencies to go upstream first or
-together in their bundle. The issue authorizes only this package and handoff
-and says: “Change no packet; if the plan has a mistake, describe it in the
-handoff note.” These are the binding reasons a complete package cannot be
-submitted within this job's scope. The blocked checkpoint follows
-[WORKERS.md, Claiming](../WORKERS.md#claiming).
-
-## Validation in this continuation
-
-- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`
-  completed with **exit 0, 78 warnings, all `declaration uses sorry`, zero
-  errors and zero other warnings**. `free -g` showed 100 GiB available before
-  the check. The designated shared build uses Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174` and the worker wrapper's Tau Ceti
-  pin `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib HEAD was checked;
-  the build's Tau Ceti source directory has no Git metadata, so this run does
-  not claim a new independent Git authentication of that tree. No build or
-  language server was started and no process was left running.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`
-  completed with **0 errors and 0 warnings**: 48 nodes, 60 API items,
-  52 tests, 24 planets, 11 baseline declarations, 14 gaps and 13 requests.
-  All eight layers are planned, none closed. Its existing acceptance is
+  planned; none is closed. Existing acceptance remains
   `independent-review-REV-DESIGN-JacobianChallengePartII`, 2026-10-05.
-- The README remains 100,860 bytes; the suggested file remains 30,594 bytes.
-  The inherited file has 84 executable declarations (10 definitions,
-  41 theorem signatures and 33 examples). Successful signature elaboration
-  does not discharge the geometric proof and interface obligations below.
-- `git diff --check` and `python3 research/blueprint/intake.py check-files`
-  on this handoff pass. Only this authorized handoff is changed.
+- The inherited README is 100,860 bytes; Suggested.lean is 30,594 bytes.
+  Its closing omission list and the predecessor's correspondence still leave
+  42 geometric targets without their native signatures, plus the geometric
+  identifications of the §2.6 and §5.2–§5.4 companions and supplier input in
+  §5.6. Elaboration of the available signatures does not discharge these.
+- `git diff --check` and the swarm `intake.py check-files` check are run on
+  the handoff before submission; their results are reported in the PR.
 
-**Metadata remains absent.** The fresh reading of
-`research/blueprint/issues.py:deliverables_complete` confirms that, for a
-package, existence of every output is enough to report completion. It does
-not read the blocked handoff. Adding the otherwise straightforward
-`topic = "math.AG"` now would therefore misclassify this checkpoint as a
-complete package. Add it only when the supplier and package conditions hold.
+**Metadata remains absent.** Fresh inspection of
+`research/blueprint/issues.py:deliverables_complete` shows that a package is
+classified complete when all its outputs exist; it does not inspect a blocked
+handoff. Adding `topic = "math.AG"` now would misclassify this checkpoint.
+Add it when the supplier and prototype requirements have been met.
 
-## Current-library and ownership check
+## Required action and resumption
 
-The read-only roadmap checkout is
-`070dc2becd74419e76303ede84b465ed4a69461f`, and its current Tau Ceti dependency
-is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. This run read the complete
-JacobianChallenge and AlgebraicVectorBundles READMEs, the reviewed parent
-A1–A3 audit entries, and the current declarations of `AbelianVariety` and
-`rigidifiedPicardFunctor`. No Lake command was run in those checkouts.
+[WORKERS.md, Upstream tiers](../WORKERS.md#upstream-tiers) requires package
+citations to use “the other roadmaps of its bundle and the layers of
+lower-tier packages”. The issue says “Change no packet; if the plan has a
+mistake, describe it in the handoff note” and authorizes only this package
+and handoff. Completion currently requires supplier and scheduling work
+outside that scope; this is why the run submits a checkpoint.
 
-`AbelianVariety K` still has a field base `Spec K`; it does not supply the
-arbitrary-base abelian-scheme contract. `rigidifiedPicardFunctor` explicitly
-requires a chosen section and constructs a functor, not the section-free
-Picard representability theorem. Field and pointed Jacobians remain owned by
-JacobianChallenge; general finite locally free duals and determinants remain
-owned by AlgebraicVectorBundles L0A–L0C. No new local stand-in was introduced
-for these owners. The README's current-library actual line-bundle class group
-and its distinction from the older compile pin are retained.
+Before another continuation, arrange both missing supplier packages and the
+coupled bundle, and gate this package job on those inputs. Reconcile their
+final identifiers and contracts with the README's *Needs* paragraphs. Verify
+the combined supplier graph with the JC1 → MC.4 → JC7 order. Then retain all
+48 prose targets, express the remaining geometric definitions/API/tests against
+their native supplying interfaces, and rerun Lean and submission checks.
+Unavailable conditions must not become arbitrary `Prop` fields, empty
+predicates or assumed geometric conclusions. Add metadata only at completion.
 
-The cleared-library index was read. BLR and MFK are not cleared and were
-neither obtained nor read. No primary-paper verification or finite-coordinate
-calculation is claimed as new in this continuation. Their inherited receipts,
-including the Yuan v4 source hash and the prior 516 inverse-composite checks,
-are available in the [predecessor handoff at this run's immutable base](https://github.com/CBirkbeck/tauceti-explorer/blob/763d46d25cf18f42a878f7e8b6e242ab2b575f83/research/blueprint/handoff/PKG-JacobianChallengePartII.md).
-No source passage or private filesystem path is copied into the deliverables.
+The inherited proof obligations remain: representability and properness;
+polarization descent on nonreduced bases; relative Abel immersion; normalized
+Poincaré signs/seesaw; arbitrary-degree-one theta pullbacks and curve-square
+calculation; nonsymmetric cube recurrence; actual Picard algebraic equivalence
+and relative autoduality; bi-Picard lifts preserving both conditions;
+axis-normalized square comparison; and stable rank-g duality before determinants.
+The predecessor handoff linked above records exact source locators, proof
+receipts, unresolved auxiliary readings and native companion signatures.
 
-## Where to resume
-
-Resume after the parent package, the fine-level supplier package and the
-coupled bundle are supplied. Reconcile their final layer identifiers and
-contracts with every *Needs* paragraph. Verify the combined supplier graph
-for cycles using the JC1 → MC.4 → JC7 order. Resolve any change to the accepted
-mathematics through its owner; this job is not authorized to edit its packet.
-Retain all 48 prose targets and their discriminating tests, reconcile native
-interfaces with the pinned libraries, and rerun Lean, packet and submission
-checks. Add metadata only when honest package completion is possible.
-
-The retained native signatures cover the pointed difference companion (§2.6),
-shifted maps and factorization companions (§5.2–§5.6). The remaining geometric
-targets stay in the README and the suggested file's closing comment. Such
-comments do not count as elaborated geometric declarations or unit tests.
-Unavailable conditions must never become arbitrary `Prop` fields, empty
-predicates or assumed geometric conclusions.
-
-### Inherited proof/interface obligations
-
-| Inherited gap | Affected targets |
-| --- | --- |
-| Algebraic equivalence of geometric-fibre actual line classes | §4.1, §4.2, §4.8, §3.10 |
-| Fine-level supplier assembly | §7.1, §7.2 |
-| Relative Picard representability proof inputs | §0.3 |
-| Relative properness and canonical polarization descent | §1.1, §1.4 |
-| Relative pointed Abel immersion bridge | §2.4 |
-| Poincaré sign and normalized seesaw | §3.1, §3.6, §3.11 |
-| Translated theta pullback calculation | §3.4, §3.5 |
-| Arbitrary-alpha curve-square computation | §3.7 |
-| Nonsymmetric cube recurrence in theta doubling | §3.8 |
-| Relative autoduality over nonreduced bases | §4.3, §4.5 |
-| Bi-Picard lifts preserving the other projection condition | §4.6, §4.7 |
-| Axis-normalized square comparison proof | §4.9 |
-| Stable relative duality and determinant API | §6.1, §6.2, §6.3 |
-| Native geometric prototypes absent at the pin | 42 omitted targets; identifications in §2.6, §5.2–§5.4 and supplier theorem in §5.6 |
-
-The inherited representability/properness inputs include BLR 8.2/1, 8.2/5,
-8.4/2–3, 9.2/13, 9.3/5 and MFK 6.9. The pointed relative immersion requires
-proof and descent. Relative autoduality must be an identity on all test schemes,
-including nonreduced bases. The axis-normalized comparison needs the auxiliary
-Zhang argument or the full currying/Albanese/seesaw proof. Layer 6 needs its
-specified rank-g comparison before taking a determinant.
-
-Earlier pointed-difference proof receipts use `GrpObj.comp_div` and binary
-product laws. The cocycle uses `div_mul_div_cancel'` on (a(y),a(x),a(z));
-translation uses `toUnit_unique` and `mul_div_mul_left_eq_div`. The base-change
-proof uses the pulled-back group object, its Hom monoid homomorphism and
-`map_div`, then product comparisons. These are inherited proof receipts,
-not an implementation claim.
-
-### Target correspondence
-
-The native §5.5 interface is present. §2.6, §5.2–§5.4 and §5.6 have native
-companions taking their earlier geometric inputs explicitly. The other 42
-geometric targets remain in the README and the short closing comment. Comments
-are not counted as elaborated geometric declarations or tests.
+## Retained target correspondence
 
 | Package target | Accepted node suffix | Kind |
 | --- | --- | --- |
