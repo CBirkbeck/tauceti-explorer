@@ -15,7 +15,10 @@ typed. Split-place identification, topological smoothness and the action on the
 arithmetic unipotent group remain separate required interfaces.
 The character uses an actual supplied exponent map and retains separate full
 and blockwise Weyl permutations; arithmetic exponent construction is not supplied.
-CL.3 adds the p-adic normalization of a supplied determinant-norm character. CL.6 exposes integral
+CL.6 also exposes unitary-middle and dual-coefficient image ranges, the
+conditional rational injection and descent of a supplied perfect adjoint pairing.
+Coefficient dual tests reuse Mathlib; arithmetic duality and cuspidal realization
+remain supplier interfaces. CL.3 adds the p-adic normalization of a supplied determinant-norm character. CL.6 exposes integral
 and torsion image algebras of supplied actions, their factorization and the
 scalar-extension map. It also constructs deep levels from actual integral
 component maps on a supplied subgroup; Levi selection is pulled back from F⁺.
@@ -60,6 +63,8 @@ import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.Algebra.Algebra.Prod
 
 open scoped TensorProduct BigOperators
 
@@ -630,6 +635,136 @@ example :
       (LinearMap.ker (LinearMap.lsmul (ZMod 3) (ZMod 3) (3 : ZMod 3))) = ⊤ := by
   sorry
 end HeckeImages
+
+/- CN §4.2.1, pp.61,65; Propositions 4.2.2,4.2.4,4.2.11.
+The integral, torsion and dual-coefficient modules are actual supplied modules,
+with their actual localized Hecke actions. Their ranges are defined here;
+their arithmetic construction is a supplier interface. In particular,
+H^q(V^dual) is not identified with the linear dual of H^q(V) over O.
+The perfect pairing below applies only where the appropriate shifted
+Poincaré comparison supplies it. No cohomological degree is suppressed.
+-/
+section MiddleAndDualImages
+variable {R H M : Type*} [CommRing R] [CommRing H] [Algebra R H]
+  [AddCommGroup M] [Module R M]
+
+abbrev UnitaryMiddleHeckeImage (middleAction : H →ₐ[R] Module.End R M) :
+    Subalgebra R (Module.End R M) := HeckeImagesA middleAction
+
+lemma UnitaryMiddleHeckeImage_mem (middleAction : H →ₐ[R] Module.End R M)
+    (b : Module.End R M) :
+    b ∈ UnitaryMiddleHeckeImage middleAction ↔ ∃ h, middleAction h = b := by
+  exact middleAction.mem_range
+
+lemma UnitaryMiddleHeckeImage_rational_injective
+    (middleAction : H →ₐ[R] Module.End R M)
+    (E : Type*) [Field E] [Algebra R E]
+    (hinj : Function.Injective (fun x : M => (1 : E) ⊗ₜ[R] x)) :
+    Function.Injective (HeckeImagesA_integral_to_rational middleAction E) := by
+  exact HeckeImagesA_integral_to_rational_injective middleAction E hinj
+
+-- operators must list *all* the rescaled partial-block operators. This statement
+-- only evaluates a supplied character; CL.7 provides its cuspidal realization.
+lemma UnitaryMiddleHeckeImage_character
+    (middleAction : H →ₐ[R] Module.End R M)
+    {E : Type*} [Field E] [Algebra R E] {ι : Type*}
+    (operators : ι → H) (χ : UnitaryMiddleHeckeImage middleAction →ₐ[R] E) :
+    ∀ i, (χ.comp middleAction.rangeRestrict) (operators i) =
+      χ (middleAction.rangeRestrict (operators i)) := by
+  intro i
+  rfl
+
+-- CrystallineCM.UnitaryMiddleHeckeImage_test_zero
+example {Z : Type*} [AddCommGroup Z] [Module R Z] [Subsingleton Z]
+    (middleAction : H →ₐ[R] Module.End R Z) :
+    Subsingleton (UnitaryMiddleHeckeImage middleAction) := by
+  infer_instance
+
+-- CrystallineCM.UnitaryMiddleHeckeImage_test_torsion_free
+-- Ambient genericity supplies hinj, rather than being assumed of every image.
+example (middleAction : H →ₐ[R] Module.End R M)
+    (E : Type*) [Field E] [Algebra R E]
+    (hinj : Function.Injective (fun x : M => (1 : E) ⊗ₜ[R] x))
+    (r : R) (hr : algebraMap R E r ≠ 0)
+    (b : UnitaryMiddleHeckeImage middleAction) :
+    r • (b : Module.End R M) = 0 → b = 0 := by
+  sorry
+
+-- Supplementary discriminator: equal Siegel values do not determine a
+-- character on all partial operators. Both displayed partial values are units.
+-- The cuspidal matching test named in the catalogue still needs CL.7.
+example :
+    let action := Algebra.lmul ℚ (ℚ × ℚ)
+    ∃ χ₁ χ₂ : UnitaryMiddleHeckeImage action →ₐ[ℚ] ℚ,
+      χ₁ (action.rangeRestrict (1,1)) = 1 ∧
+      χ₂ (action.rangeRestrict (1,1)) = 1 ∧
+      χ₁ (action.rangeRestrict (1,2)) = 1 ∧
+      χ₂ (action.rangeRestrict (1,2)) = 2 := by
+  sorry
+
+-- Use this same range construction separately for the integral, mod-varpi^m
+-- and unitary-middle actions on their respective dual-coefficient cohomology.
+-- The action argument already includes the inversion involution and ideal.
+abbrev HeckeImagesDual (dualAction : H →ₐ[R] Module.End R M) :
+    Subalgebra R (Module.End R M) := dualAction.range
+
+lemma HeckeImagesDual_coefficient (dualAction : H →ₐ[R] Module.End R M) :
+    HeckeImagesDual dualAction = dualAction.range := rfl
+
+-- Descend the actual adjoint actions to their faithful images. The supplied
+-- perfect pairing need not be an integral arithmetic Poincaré pairing: this
+-- signature also applies after inverting p, where the source uses it.
+-- Pairing equivariance is a hypothesis on the abstract operators; the result
+-- constructs the induced image-algebra isomorphism and its generator formula.
+lemma HeckeImagesDual_adjoint
+    (action : H →ₐ[R] Module.End R M)
+    {N : Type*} [AddCommGroup N] [Module R N]
+    (dualAction : H →ₐ[R] Module.End R N) (ι : H ≃ₐ[R] H)
+    (hι : Function.Involutive ι)
+    (pairing : N ≃ₗ[R] Module.Dual R M)
+    (hseparates : Function.Injective (Module.Dual.eval R M))
+    (hadjoint : ∀ h y x,
+      pairing (dualAction (ι h) y) x = pairing y (action h x)) :
+    ∃ e : HeckeImagesA action ≃ₐ[R] HeckeImagesDual dualAction,
+      ∀ h, e (action.rangeRestrict h) = dualAction.rangeRestrict (ι h) := by
+  sorry
+
+lemma HeckeImagesDual_unitary (dualMiddleAction : H →ₐ[R] Module.End R M) :
+    HeckeImagesDual dualMiddleAction = UnitaryMiddleHeckeImage dualMiddleAction := rfl
+
+-- CrystallineCM.HeckeImagesDual_test_zero_cohomology
+example {Z : Type*} [AddCommGroup Z] [Module R Z] [Subsingleton Z]
+    (dualAction : H →ₐ[R] Module.End R Z) :
+    Subsingleton (HeckeImagesDual dualAction) := by
+  infer_instance
+
+-- CrystallineCM.HeckeImagesDual_test_scalar_inverse
+-- Use Mathlib's actual coefficient dual, including the inverse group element.
+example (a : Rˣ) (φ : Module.Dual R R) (x : R) :
+    let ρ : Representation R Rˣ R := {
+      toFun := fun u => LinearMap.lsmul R R (u : R)
+      map_one' := by sorry
+      map_mul' := by sorry }
+    ρ.dual a φ x = (↑(a⁻¹) : R) * φ x := by
+  sorry
+
+-- CrystallineCM.HeckeImagesDual_test_involution
+-- Evaluation gives the double-dual compatibility without claiming that every
+-- torsion module is reflexive. The maximal ideal is transported by comap.
+example {G : Type*} [Group G] (ρ : Representation R G M) (g : G)
+    (ι : H ≃ₐ[R] H) (hι : Function.Involutive ι) (m : Ideal H) :
+    ρ.dual.dual g ∘ₗ Module.Dual.eval R M =
+      Module.Dual.eval R M ∘ₗ ρ g ∧
+    Ideal.comap ι.toRingHom (Ideal.comap ι.toRingHom m) = m := by
+  sorry
+
+-- A supplementary integral counterexample: the R-linear dual of a torsion
+-- cohomology module can vanish. Thus H^q(V^dual) must come from the actual
+-- dual-coefficient complex, not an unshifted Hom_R(H^q(V),R) substitute.
+example : Subsingleton (Module.Dual ℤ (ZMod 3)) ∧
+    ¬ Subsingleton (ZMod 3) := by
+  sorry
+end MiddleAndDualImages
 
 /- CL.6/deep-levi-level and deep-unitary-level, CN §4.2.1, pp.61–62.
 The ambient group can be the adelic group. Integral component maps are defined
@@ -1423,16 +1558,18 @@ CORE example: CrystallineCM.TorsionHeckeImage_test_new_torsion — Torsion H^{q+
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/unitary-middle-hecke-image
-OMITTED signature: CrystallineCM.UnitaryMiddleHeckeImage
+PARTIAL signature (typed range core; arithmetic middle-degree module and action absent): CrystallineCM.UnitaryMiddleHeckeImage
 Ã(K̃,λ̃,S̄)=image of T̃^{Q^{w₀^P},S̄-ord} in End_O(H^d(X̃_{K̃},V_λ̃)^{P-ord}_{m̃}). Under the generic middle-degree injection this is a finite torsion-free O-algebra inside its rational image. Q-unit eigensystems are selected by the maximal ideal, not by redefining POrd.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/hecke-images-A; CrystallineLocalGlobalCompatibilityCM:CL.6/prop-4-2-2; mathlib:AlgHom.range
-OMITTED API signature: CrystallineCM.UnitaryMiddleHeckeImage_mem — b∈Ã iff it is an ordinary abstract Hecke action on the indicated integral unitary H^d.
-OMITTED API signature: CrystallineCM.UnitaryMiddleHeckeImage_rational_injective — Under the decomposed-generic middle-degree injection, the natural map Ã→Ã[1/p] is injective.
-OMITTED API signature: CrystallineCM.UnitaryMiddleHeckeImage_character — A characteristic-zero algebra character is evaluated on all rescaled partial operators, not only Ũ_n.
-OMITTED example: CrystallineCM.UnitaryMiddleHeckeImage_test_zero — Vanishing ordinary H^d gives the zero image.
-OMITTED example: CrystallineCM.UnitaryMiddleHeckeImage_test_torsion_free — Under ambient genericity, a nonzero ϖ-torsion Hecke endomorphism is impossible because its action embeds in rational H^d.
+CORE API signature: CrystallineCM.UnitaryMiddleHeckeImage_mem — b∈Ã iff it is an ordinary abstract Hecke action on the indicated integral unitary H^d.
+CORE API signature: CrystallineCM.UnitaryMiddleHeckeImage_rational_injective — Under the decomposed-generic middle-degree injection, the natural map Ã→Ã[1/p] is injective.
+CORE API signature: CrystallineCM.UnitaryMiddleHeckeImage_character — A characteristic-zero algebra character is evaluated on all rescaled partial operators, not only Ũ_n.
+CORE example: CrystallineCM.UnitaryMiddleHeckeImage_test_zero — Vanishing ordinary H^d gives the zero image.
+CORE example: CrystallineCM.UnitaryMiddleHeckeImage_test_torsion_free — Under ambient genericity, a nonzero ϖ-torsion Hecke endomorphism is impossible because its action embeds in rational H^d.
 OMITTED example: CrystallineCM.UnitaryMiddleHeckeImage_test_characters — Its characteristic-zero characters match the cuspidal Q-ordinary eigensystems in Proposition 4.2.11 when CTG and all-unit hypotheses hold.
 Source: CN25v3 §4.2.1, p.61
+
+The rational-injection core takes the actual injection M→E⊗M, supplied by ambient genericity. Character evaluation is typed for all supplied partial operators. The cuspidal realization test remains omitted; the regular ℚ×ℚ example above separately detects the insufficiency of a single Siegel value. Finiteness and the arithmetic genericity implication are not supplied by the range core.
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/deep-levi-level
 PARTIAL signature (typed level construction above; arithmetic component maps supplied externally): CrystallineCM.DeepLeviLevel
@@ -1465,16 +1602,18 @@ Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/prop-4-2-2; Cry
 Source: CN25v3 Proposition 4.2.6, pp.62–65
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/hecke-images-dual
-OMITTED signature: CrystallineCM.HeckeImagesDual
+PARTIAL signature (typed ranges for actual dual-coefficient actions; arithmetic actions and comparison absent): CrystallineCM.HeckeImagesDual
 For S̄_p = S̄₁ ∪ S̄₂ ∪ S̄₃: A^∨(K,λ,q) := T^{Q_{S̄₃},S̄₃-ord,ι}(H^q(X_K, V^∨_λ)_{m^∨}), A^∨(K,λ,q,m) the same with V^∨_λ/ϖ^m, Ã^∨(K̃,λ̃,S̄₃) := T̃^{Q_{S̄₃},S̄₃-ord,ι̃}(H^d(X̃_{K̃}, V^∨_λ̃)^{ord∨}_{𝒮^*m^∨}).
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/hecke-images-A; CrystallineLocalGlobalCompatibilityCM:CL.2/dual-p-ordinary; CrystallineLocalGlobalCompatibilityCM:CL.6/ord-hecke-algebras-4-2
-OMITTED API signature: CrystallineCM.HeckeImagesDual_coefficient — A^∨ uses the inverse-coset action on H^q(X_K,V_λ^∨)_{m^∨}, with the integral and mod-ϖ^m variants distinguished.
-OMITTED API signature: CrystallineCM.HeckeImagesDual_adjoint — Poincaré pairing identifies dual Hecke operators with the involution g↦g^{-1}.
-OMITTED API signature: CrystallineCM.HeckeImagesDual_unitary — Ã^∨ is the image on unitary middle-degree dual POrd, localized at S^*(m^∨).
-OMITTED example: CrystallineCM.HeckeImagesDual_test_zero_cohomology — All dual Hecke images vanish on the zero module.
-OMITTED example: CrystallineCM.HeckeImagesDual_test_scalar_inverse — A double-coset operator acting by a unit a on a perfect dual pair acts adjointly through its inverse coset, so the relevant scalar is a^{-1} when the group action is one-dimensional.
-OMITTED example: CrystallineCM.HeckeImagesDual_test_involution — Applying the coefficient dual and Hecke inversion twice recovers the original action and maximal ideal.
+CORE API signature: CrystallineCM.HeckeImagesDual_coefficient — A^∨ uses the inverse-coset action on H^q(X_K,V_λ^∨)_{m^∨}, with the integral and mod-ϖ^m variants distinguished.
+CORE API signature: CrystallineCM.HeckeImagesDual_adjoint — Poincaré pairing identifies dual Hecke operators with the involution g↦g^{-1}.
+CORE API signature: CrystallineCM.HeckeImagesDual_unitary — Ã^∨ is the image on unitary middle-degree dual POrd, localized at S^*(m^∨).
+CORE example: CrystallineCM.HeckeImagesDual_test_zero_cohomology — All dual Hecke images vanish on the zero module.
+CORE example: CrystallineCM.HeckeImagesDual_test_scalar_inverse — A double-coset operator acting by a unit a on a perfect dual pair acts adjointly through its inverse coset, so the relevant scalar is a^{-1} when the group action is one-dimensional.
+CORE example: CrystallineCM.HeckeImagesDual_test_involution — Applying the coefficient dual and Hecke inversion twice recovers the original action and maximal ideal.
 Source: CN25v3 §4.2.1, p.65
+
+The adjoint core descends supplied compatible actions through a perfect pairing to an image-algebra isomorphism, with the inversion formula. It does not construct arithmetic Poincaré duality, identify integral H^q(V^dual) with Hom(H^q(V),O), or remove any cohomological shift. The scalar and double-dual tests reuse Representation.dual and Module.Dual.eval; the ideal is transported twice by the actual involution. The integral ℤ/3 counterexample above checks why the dual-coefficient module must be supplied separately.
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/prop-4-2-8
 OMITTED signature: CrystallineCM.dual_torsion_degree_shifting
