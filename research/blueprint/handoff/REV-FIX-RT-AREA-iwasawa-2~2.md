@@ -1,9 +1,9 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-NP5JM2`, 11 October 2026. Refs
+Codex (GPT-6), session `codex-Yjzufy`, 11 October 2026. Refs
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-Input: `772d9e5f9c5bc35afa5aba5078d7ac113ea52b12`.
-Branch: `codex-NP5JM2-review-iwasawa-2`. One job; none of its fixes were mine.
+Input: `897618096af2bb002a83d22044f03ed8e63fd066`.
+Branch: `codex-Yjzufy-review-iwasawa-2`. One job; none of its fixes were mine.
 
 ## Resumption gate
 
@@ -55,16 +55,23 @@ attributed to the older pin. ProfiniteArithmetic and StableReduction were
 read as upstream examples; they were not replanned.
 
 PMIA requires a separate coordinated packet/reader/Suggested/consumer revision
-to reuse `TauCeti.fittingIdeal`, `Submodule.minorsIdeal_ker_eq_of_surjective`,
+to reuse `TauCeti.fittingIdeal`,
+`Submodule.minorsIdeal_span`, `TauCeti.minorsIdealOfSet_eq_of_span_eq`,
+`TauCeti.fittingIdeal_eq_minorsIdealOfSet`, `Submodule.minorsIdeal_ker_eq_of_surjective`,
 `TauCeti.fittingIdeal_eq_minorsIdeal_ker`, `TauCeti.fittingIdeal_baseChange` and
 `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`. Exact
 hypotheses and file locations are in the report. Keep arithmetic image orders,
 inverse-character sharp scalar transport, arbitrary-family span/image
-adapters, nonflat examples and dual factors P0×Q1 versus P1×Q0. Scheme-level
+adapters, nonflat examples and dual factors P0×Q1 versus P1×Q0.
+This pass narrows the previous handoff: the current Generators module already
+supplies arbitrary kernel-generator sets without finite-relation assumptions.
+A family not generating its ambient module must use its finite span/image:
+the family ((2,0)) in Z² has degree-one relation-minors ideal Z, whereas
+Fitt¹(Z²)=0. Concrete coordinate-minor comparisons remain adapters. Scheme-level
 Fitting targets still need their scheme-level work. PMIA's negative verdict
 must not be treated as acceptance or erased to complete this review job.
 
-The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/772d9e5f9c5bc35afa5aba5078d7ac113ea52b12/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+The [input handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/897618096af2bb002a83d22044f03ed8e63fd066/research/blueprint/handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
 retains the previous checkpoint history. No disposable scratch file is needed.
 
 ## Guarded records
@@ -83,23 +90,23 @@ records = json.loads(r'''[
   {
     "path": "research/blueprint/packets/DirichletPadicLFunctions--L3-2.json",
     "inputSha256": "d671033f9875533c41aeccd7a9382f87feb616c4f947376109f907713b26cd14",
-    "candidateSha256": "9d9f380deed028e32debcb621c0e96eff193bb979e490883ca8734c3e232001e",
+    "candidateSha256": "20728fb00b86035fbde0712ef9a8deeb5657eec794cc1f5d52a990a1b07ebb90",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded correction review by Codex (GPT-6), session codex-NP5JM2. Follows independent-review-REV-DirichletPadicLFunctions--L3-2; its entire 79-node checked ledger is archived intact. Independently checked finding /2 against Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474. The primitive odd tame character determines the even chi-omega branch; weights are chi(a) directly and the additional term is (1-chi(p))*B1,chi*log_p(N). It disappears only under chi(p)=1. Dyadic branch conventions, the E37 strict endpoint repair, convergence and separate arithmetic nonvanishing requests are retained. Finite permutation/congruence/strict-filtration controls passed for (5,3,25),(2,3,4),(2,3,16),(3,1,9), including the N=1 auxiliary control. Checker: zero errors/warnings. Fresh lean-check: exit0,111 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
+      "notes": "Bounded correction review by Codex (GPT-6), session codex-Yjzufy. Follows independent-review-REV-DirichletPadicLFunctions--L3-2; its entire 79-node checked ledger is archived intact. Independently checked finding /2 against Zhao section 1.2 p.461, section 4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix B p.474. The primitive odd tame character determines the even chi-omega branch; weights are chi(a) directly and the additional term is (1-chi(p))*B1,chi*log_p(N). It disappears only under chi(p)=1. Dyadic branch conventions, the E37 strict endpoint repair, convergence and separate arithmetic nonvanishing requests are retained. Finite permutation/congruence/strict-filtration controls passed for (5,3,25),(2,3,4),(2,3,16),(3,1,9), including the N=1 auxiliary control. Checker: zero errors/warnings. Fresh lean-check: exit0,111 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
     }
   },
   {
     "path": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
     "inputSha256": "2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c",
-    "candidateSha256": "e9f412342d14fb122526d9406a38d7169a0e7376cc5bd6a30b827c4a0461ad75",
+    "candidateSha256": "6c860191e54187e99495c5039cdd9b4b42bcea459be03816d99d192daa0145db",
     "review": {
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-11",
-      "notes": "Bounded correction review by Codex (GPT-6), session codex-NP5JM2. Follows independent-review-REV-PadicHodgeRegulators--D.1~2; its entire 72-node checked ledger is archived intact. Independently checked finding /3 against Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54, and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. The lifted divisible ideal, divided/undivided complexes, omega and tau directions with p^r composites, omega product compatibility, modified Tate twist and exact small-weight range are correct. Integral bounded error is kept separate from rational exponential comparison; boundary sign and scaling are explicit. CS.0–CS.3 remain shared producer requests. Checker: zero errors/warnings. Fresh lean-check: exit0,307 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
+      "notes": "Bounded correction review by Codex (GPT-6), session codex-Yjzufy. Follows independent-review-REV-PadicHodgeRegulators--D.1~2; its entire 72-node checked ledger is archived intact. Independently checked finding /3 against Ertl–Niziol v2 sections 2.1–2.2 pp.4–8/Theorems 2.2–2.3, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54, and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. The lifted divisible ideal, divided/undivided complexes, omega and tau directions with p^r composites, omega product compatibility, modified Tate twist and exact small-weight range are correct. Integral bounded error is kept separate from rational exponential comparison; boundary sign and scaling are explicit. CS.0–CS.3 remain shared producer requests. Checker: zero errors/warnings. Fresh lean-check: exit0,307 admission warnings only. This is a bounded correction review, not a repetition of the complete layer audit. No mathematical or Suggested field changed."
     }
   }
 ]''')
