@@ -1,8 +1,8 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-aNVzdW`, 11 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104747484).
-Input commit: `9e77d5c183d3c758c5971353e4069181095b2b2c`.
+Codex (GPT-6), session `codex-dcA0Fs`, 11 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6104967696).
+Input commit: `bc4260a13e69365200d657c1ddf2fe7a5ffe877c`.
 
 ## Status: blocked by missing file-scope authorization
 
@@ -19,9 +19,9 @@ Issue #6219 omits these two packets from its deliverable list:
 
 The queue requires both records. [WORKERS.md](../WORKERS.md) says,
 "Edit only the files the issue names, plus your own scratch space."
-This session requested explicit authorization to change only `review` and
-`reviewHistory` in those two packets. The checked candidates are ready, but
-no approval has arrived and no packet has been edited. Queue/intake allowlists
+This session requested explicit authorization through the worker conversation
+to change only `review` and `reviewHistory` in those two packets. The checked
+candidates are ready, but no approval has arrived and no packet has been edited. Queue/intake allowlists
 alone do not override the issue's file-scope restriction.
 
 Do not repeat the completed mathematical review, append another L3/PMIA
@@ -134,8 +134,10 @@ this remaining scope mismatch.
 Only this handoff and the review report are changed. The two exact candidates
 were checked and are fully specified above. No mathematical or Lean file was
 edited. Actual completion remains False; approval or live-issue scope repair
-is required before their installation. Do not submit another scope-only
-checkpoint without an external change to that blocker.
+is required before their installation. The manager’s run instruction permits
+a checkpoint when blocked. This continuation submits the allowed report and handoff because the scope request
+remains unanswered. The next worker should resume only after authorization or
+a repair of the live issue; the completed mathematical review needs no repeat.
 
 Final submission checks: `git diff --check` passes and
 `intake.py check-files` reports two files and zero problems.
