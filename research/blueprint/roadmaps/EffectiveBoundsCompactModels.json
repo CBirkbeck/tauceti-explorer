@@ -1,0 +1,120 @@
+{
+  "id": "EffectiveBoundsCompactModels",
+  "title": "Effective arithmetic bounds and geometry of numbers, Part II: compact models and degree-sensitive field counts",
+  "area": "algebraicnt",
+  "parent": "tauceti:Completed/EffectiveBounds",
+  "summary": "This extension of EffectiveBounds constructs small integer equations whose Jacobian-open rational scheme has a given number field as an irreducible component. It combines independent short integers, bounded first-jet parameters, saturated relation lattices and successive minima, then enumerates the resulting coefficient boxes to prove a field-count bound with discriminant exponent cubic in the logarithm of the degree.",
+  "readme": "Build on Completed/EffectiveBounds for discriminants, primitive generators and Hermite–Minkowski finiteness. The new direction is Couveignes’s compact multivariate models and degree-sensitive count. GN owns general minima and covolumes, GI owns interpolation, SF owns generic Jacobian/étale and isolated-intersection geometry, and ST.0 owns field-isomorphism-class carriers. Six layers run from the canonical measure to an unweighted count. All equation presentations are over ℚ after integer coefficients are chosen; they do not present the full ring of integers. The arbitrary-dimensional isolated Bézout input is requested from SF.5 rather than inferred from a plane-curve special case.",
+  "prerequisites": [
+    "tauceti:Completed/EffectiveBounds",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GenericDoublePointInterpolation",
+    "SchemeAndStackFoundations",
+    "ArithmeticStatistics"
+  ],
+  "stages": [
+    {
+      "key": "CM.0",
+      "title": "Weighted Minkowski space and short integers",
+      "description": "For a number field K with signature (r₁,s), on Mathlib’s mixedEmbedding.mixedSpace K put μcan = 2^s times its native product Haar measure. It is the volume measure of the real inner product Σρ xρyρ + 2Σσ Re(xσ conjugate(yσ)). The gauge g is the native coordinate supremum norm, not the norm of that inner product. The mixed-embedding integer lattice has μcan-covolume √|disc K| = δ^(n/2), where n=[K:ℚ]≥1 and δ=|disc K|^(1/n)≥1. There are n algebraic integers ωᵢ, linearly independent over ℚ, with nondecreasing houses hᵢ≥1 and ∏hᵢ≤δ^(n/2). With m=floor(n/2)+1, every i<m satisfies hᵢ≤δ. These are simultaneous successive-minimum witnesses, not a chosen integral basis. For any finite-dimensional field extension K/k and k-subspace V⊆K with 2 dimₖV>[K:k], the k-span of {ab:a,b∈V} is all of K. No separability or integral-basis assumption is required. Every degree-n number field has n ℚ-linearly independent algebraic integers αᵢ with house(αᵢ)≤δ², hence |τ(αᵢ)|≤δ² for every embedding τ:K→ℂ. This is not a claim that they form a ℤ-basis of 𝓞 K.",
+      "requires": [
+        "mathlib:NumberField.mixedEmbedding.mixedSpace",
+        "mathlib:NumberField.mixedEmbedding.covolume_integerLattice",
+        "mathlib:NumberField.rootDiscr",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound",
+        "mathlib:NumberField.one_le_house_of_isIntegral",
+        "mathlib:Module.Dual",
+        "mathlib:NumberField.house_mul_le"
+      ]
+    },
+    {
+      "key": "CM.1",
+      "title": "Integral parameters and full first jets",
+      "description": "For α:Fin n→𝓞 K and u:Fin n→Fin r→ℤ, define κⱼ=Σᵢ uᵢⱼαᵢ in 𝓞 K. The construction admits arbitrary signed integer parameters; the existence theorem chooses parameters in the inclusive box 0≤uᵢⱼ≤dn(r+1). Let n=[K:ℚ], r≥1,d≥5 and M=choose(d+r,d)≥n(r+1). For an independent integral family α with houses≤δ² there exist parameters 0≤uᵢⱼ≤B=dn(r+1) for which the distinct embedding points Pτ=(τκⱼ) have surjective degree-≤d first-jet evaluation over ℂ. Every |τκⱼ|≤n²d(r+1)δ². For κ produced by parameterJetChoice, degree-≤d evaluation ℚ[x₁,…,xᵣ]≤d→K is surjective, and the unrestricted ℚ-algebra map aeval κ is surjective. After extension to ℂ, the value-kernel gradients surject onto ⊕τℂ^r. Consequently κ generates K over ℚ; no integral-surjectivity assertion is made.",
+      "requires": [
+        "EffectiveBoundsCompactModels:CM.0/short-integers",
+        "GenericDoublePointInterpolation:GI.5/generic-affine",
+        "GenericDoublePointInterpolation:GI.5/minor-degree",
+        "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset",
+        "GenericDoublePointInterpolation:GI.1/jet-kernel-split",
+        "GenericDoublePointInterpolation:GI.1/first-jet-map"
+      ]
+    },
+    {
+      "key": "CM.2",
+      "title": "Saturated relations and finite-index covolumes",
+      "description": "In GI.0 coefficient coordinates, Vℤ=ℤ^𝓜 with 𝓜={a∈ℕ^r:Σaⱼ≤d}, define the ℤ-linear map ε(c)=Σa cₐκ^a into 𝓞 K. It is exactly native aeval on MvPolynomial.restrictTotalDegree, transported along GI.0’s coefficient equivalence. Define Lκ,d=ker ε as a native ℤ-submodule of Vℤ. Give its real span W the Euclidean inner product making the admissible monomials orthonormal, and give L its intrinsic covolume in W. Once εℚ is onto, rankℤL=M−n=ℓ and W=ker εℝ. Saturated means that for a≠0 in ℤ, ac∈L implies c∈L. Define Dκ,d in Vℤ to be the image of Homℤ(𝓞 K,ℤ) under f↦(f(κ^a))a. This is the native dual evaluation map followed by the coefficient dot-product identification Vℤ≃Vℤ∨. It is contained in L⊥ℤ=W⊥∩Vℤ; once εℚ is onto both have rank n and D has finite index q=[L⊥ℤ:D]≥1. Assume εℚ is onto. In any actual integral basis b of 𝓞 K, let B be the n×M integer coordinate matrix of ε and Aτ,a=τ(κ^a). Then q² covol(L)² = covol(D)² = det(B Bᵀ) = det(A A*)/|disc K|, where q=[L⊥ℤ:D]. All determinants on the right are real and positive, and A* is conjugate transpose. The covolumes use intrinsic coefficient Euclidean measure. For bounded full-jet κ let C=(n²d(r+1))^d δ^(2d) and D₀=M C². Then covol(L)≤D₀^(n/2)/√|disc K|≤D₀^(n/2). In particular all embedding evaluation entries are≤C in modulus. The coefficient Euclidean metric is unrelated to the supremum metric used to find α.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.0/coefficient-coordinates",
+        "mathlib:MvPolynomial.restrictTotalDegree",
+        "mathlib:MvPolynomial.aeval",
+        "EffectiveBoundsCompactModels:CM.1/evaluation-surjective",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
+        "mathlib:LinearMap.dualMap",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume",
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard"
+      ]
+    },
+    {
+      "key": "CM.3",
+      "title": "Short equations and Jacobian-open components",
+      "description": "Set ℓ=M−n and k=ℓ+1−n. Under d≥5,r≥1,M≥n(r+1), ℓ≥nr≥1 and k≥r. There are ℓ independent integral relations Eᵢ ordered by coefficient ℓ² norm, with each norm≥1, product≤ℓ^(ℓ/2)D₀^(n/2). Retaining exactly the first k gives norm and every coefficient≤H₀=ℓ^(ℓ/(2n))√M(n²d(r+1))^dδ^(2d). Their span has codimension n−1 in the full relation space. Let J:Lℂ→⊕τℂ^r be the surjective gradient map and U the span of the k retained relations, of codimension n−1. There is one embedding τ for which the projection J(U)→ℂ^r is onto. This assertion does not say that every block is automatically onto by dimension alone. Choose r of the retained integral relations whose gradient determinant is nonzero at the full-rank embedding point. For these same r equations, J(κ)=det(∂Eᵢ/∂xⱼ(κ)) is a nonzero element of K and τ(J(κ))≠0 for every embedding τ. Their degrees are≤d and their coefficients are≤H₀. For an ordered r-tuple E of integer polynomials in r variables, base change coefficients to ℚ, form R=ℚ[x]/(E₁,…,Eᵣ), and define A_E=R[J_E^−1] using native Ideal.Quotient and Localization.Away. J_E is the determinant of the formal derivative matrix. This is the coordinate algebra of the Jacobian-open part, and can be the zero ring. For every degree-n number field K, r≥1,d≥5,M=choose(d+r,d)≥n(r+1), and ℓ=M−n, there exist r integer polynomials of total degree≤d and coefficient absolute value≤ℓ^(ℓ/(2n))√M(n²d(r+1))^dδ^(2d), and a surjective ℚ-algebra map A_E→K. Thus Spec K is one irreducible component of the finite étale Jacobian-open model.",
+      "requires": [
+        "EffectiveBoundsCompactModels:CM.2/relation-covolume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/intrinsic-ball-lower-bound",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound",
+        "EffectiveBoundsCompactModels:CM.1/evaluation-surjective",
+        "mathlib:MvPolynomial.pderiv",
+        "SchemeAndStackFoundations:SF.0/jacobian-etale-algebra",
+        "mathlib:Localization.Away",
+        "EffectiveBoundsCompactModels:CM.0/short-integers",
+        "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice"
+      ]
+    },
+    {
+      "key": "CM.4",
+      "title": "Central-binomial parameters and uniform models",
+      "description": "For n≥1 define r(n) as the least positive integer r satisfying n(r+1)≤choose(2r,r), and put d(n)=r(n). For a total natural-number API set r(0)=1. Existence follows from exponential growth; the eventual model theorem still requires n large enough that r(n)≥5. With n≥65536, L=log n, r=r(n), M=choose(2r,r), ℓ=M−n, we have 5≤r≤3L, n(r+1)≤M<4n(r+1)≤16nL, ℓ/(2n)≤8L, log M and log ℓ≤3L, and log(r(r+1))≤2L. For δ≥1, the explicit coefficient bound with d=r is≤(nδ)^(40L). There is one absolute constant Q=65536 such that every degree n≥Q number field admits r,d≤Q log n, M≤Qn log n and r integer equations of degree≤d with all coefficients≤(nδ)^(Q log n), whose Jacobian-open model contains Spec K as an irreducible component. The stronger choices d=r=r(n) and height≤(nδ)^(40 log n) are retained for counting.",
+      "requires": [
+        "EffectiveBoundsCompactModels:CM.3/explicit-model"
+      ]
+    },
+    {
+      "key": "CM.5",
+      "title": "Coefficient enumeration and unweighted field counts",
+      "description": "For natural r,d,B, define the set ℬ(r,d,B) of ordered r-tuples of native integer polynomials whose total degrees are≤d and every coefficient has absolute value≤B. Equivalently it is the product of rM copies of the integer interval [−B,B], using GI.0’s coefficient coordinates. Zero polynomials and zero equations are included. The unweighted cardinality of ℬ(r,d,B) is (2B+1)^(r·choose(d+r,d)). If a real height bound F≥0 bounds integer coefficients, membership is exactly the bound B=⌊F⌋₊; the floor must be preserved before counting. Use ST.0’s embedded finite extensions in ℚbar and its quotient by ℚ-algebra isomorphism. For a finite-dimensional commutative ℚ-algebra A and a maximal ideal p, send p to the class of the residue field A/p, embedded in ℚbar by any ℚ-embedding. This class is independent of that embedding. Apply it to A_E; no weight by automorphisms or embeddings is attached. For r≥1 and r equations of degrees≤d over ℚ, the number of maximal ideals of their Jacobian-open algebra is finite and≤d^r. More precisely after extension to an algebraic closure its isolated local lengths sum to≤the product of positive equation degrees≤d^r; each Jacobian-open geometric point is simple. Other components of the whole zero locus may have positive dimension. A zero equation or constant nonzero equation yields an empty Jacobian-open part. For n≥65536 and real H≥1, put r=d=r(n), M=choose(2r,r), F=(n H^(1/n))^(40 log n), B=⌊F⌋₊. The disjoint union, over E∈ℬ(r,d,B), of maximal ideals of A_E maps by componentClass onto ST.0’s unweighted set of exact-degree-n ℚ-isomorphism classes with |disc|≤H, after restricting the domain to components satisfying that cutoff. Its domain cardinality is at most (2B+1)^(rM)d^r. For the same absolute Q=65536, every integer n≥Q and real H≥1 satisfy Nₙ(H)≤n^(Q n (log n)^3) H^(Q (log n)^3), where Nₙ(H) is the ordinary cardinality of exact-degree-n number fields up to ℚ-isomorphism with |disc|≤H. The bound is inclusive, unweighted and uniform in both variables.",
+      "requires": [
+        "GenericDoublePointInterpolation:GI.0/coefficient-coordinates",
+        "mathlib:MvPolynomial.restrictTotalDegree",
+        "ArithmeticStatistics:ST.0/number-fields-ordered-by-discriminant",
+        "EffectiveBoundsCompactModels:CM.3/model-algebra",
+        "SchemeAndStackFoundations:SF.5",
+        "EffectiveBoundsCompactModels:CM.4/uniform-model",
+        "EffectiveBoundsCompactModels:CM.4/central-estimates",
+        "mathlib:NumberField.finite_of_discr_bdd",
+        "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "COUVEIGNES20",
+      "title": "Enumerating number fields",
+      "authors": "Jean-Marc Couveignes",
+      "edition": "Annals of Mathematics 192 (2020), 487–497, published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Entire paper, pp. 487–497, including the references"
+      ]
+    }
+  ],
+  "status": "draft"
+}

@@ -1,0 +1,1670 @@
+{
+  "roadmapId": "EffectiveBoundsCompactModels",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "EffectiveBoundsCompactModels:CM.0",
+    "EffectiveBoundsCompactModels:CM.1",
+    "EffectiveBoundsCompactModels:CM.2",
+    "EffectiveBoundsCompactModels:CM.3",
+    "EffectiveBoundsCompactModels:CM.4",
+    "EffectiveBoundsCompactModels:CM.5"
+  ],
+  "status": "complete",
+  "summary": "This extension of EffectiveBounds constructs small integer equations whose Jacobian-open rational scheme has a given number field as an irreducible component. It combines independent short integers, bounded first-jet parameters, saturated relation lattices and successive minima, then enumerates the resulting coefficient boxes to prove a field-count bound with discriminant exponent cubic in the logarithm of the degree.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.mixedEmbedding.mixedSpace",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/CanonicalEmbedding/Basic.lean",
+        "provides": "Native real-place/complex-place product, with native product measure and supremum norm.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:NumberField.mixedEmbedding.covolume_integerLattice",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "Native product-measure integer-lattice covolume 2^(−s)√|disc|.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:NumberField.rootDiscr",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "Real root discriminant |disc|^(1/finrank).",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:NumberField.one_le_house_of_isIntegral",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/House.lean",
+        "provides": "Nonzero integral elements have house at least one.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:NumberField.house_mul_le",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/House.lean",
+        "provides": "Submultiplicativity of the embedding-supremum house.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "Native linear dual of a module.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset",
+        "kind": "theorem",
+        "module": "Mathlib/Combinatorics/Nullstellensatz.lean",
+        "provides": "Polynomial vanishing on a product grid larger than each variable degree is zero, over any domain.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.restrictTotalDegree",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+        "provides": "Native bounded total-degree polynomial submodule.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Native multivariate polynomial algebra evaluation.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:LinearMap.dualMap",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "Native transpose map on linear duals, applying f to evaluation.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "provides": "Finite-index ratio of covolumes for full coordinate lattices.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.pderiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/PDeriv.lean",
+        "provides": "Formal native multivariate partial derivative.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:Localization.Away",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/MonoidLocalization/Away.lean",
+        "provides": "Native quotient localization at the powers of one element; ring and algebra structures are supplied by RingTheory/Localization/Away/Basic.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "mathlib:NumberField.finite_of_discr_bdd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "Hermite finiteness for embedded finite extensions with inclusive absolute integer discriminant cutoff.",
+        "checked": "Statement read in the Mathlib source at the pinned commit."
+      },
+      {
+        "ref": "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/EffectiveBounds/HermiteCount/Basic.lean",
+        "provides": "Existing explicit cardinal bound for finite-dimensional embedded intermediate fields of inclusive bounded absolute discriminant; ST.0 passes fixed-ambient finiteness to isomorphism-class families.",
+        "checked": "Statement read at f790474; the shared-build source was byte-compared with that revision."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "COUVEIGNES20",
+      "title": "Enumerating number fields",
+      "authors": "Jean-Marc Couveignes",
+      "edition": "Annals of Mathematics 192 (2020), 487–497, published version",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "accessed": "2026-10-11",
+      "readSections": [
+        "Entire paper, pp. 487–497, including the references"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "read": "2026-10-11",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EffectiveBoundsCompactModels:CM.0/canonical-measure",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.0",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.0"
+      ],
+      "title": "Canonical Minkowski measure",
+      "kind": "definition",
+      "statement": "For a number field K with signature (r₁,s), on Mathlib’s mixedEmbedding.mixedSpace K put μcan = 2^s times its native product Haar measure. It is the volume measure of the real inner product Σρ xρyρ + 2Σσ Re(xσ conjugate(yσ)). The gauge g is the native coordinate supremum norm, not the norm of that inner product.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Each complex plane has metric matrix 2I₂ and volume factor 2; each real coordinate has factor 1. Transport the product Haar measure, preserving the separate supremum gauge."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.mixedEmbedding.mixedSpace"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.canonicalMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§2, p. 489",
+          "match": "The weighted real metric and supremum unit body determine the extra factor 2 per complex place; this node expresses it relative to the native product measure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Canonical Minkowski measure"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_apply",
+          "role": "data",
+          "statement": "For any measurable set U, μcan(U)=2^s volume(U)."
+        },
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_haar",
+          "role": "instance",
+          "statement": "μcan is a nonzero additive Haar measure."
+        },
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_unitBody",
+          "role": "compatibility",
+          "statement": "For U={x:g(x)≤1}, μcan(U)=2^r₁(2π)^s≥2^n; equality in the last comparison holds when s=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_totallyReal",
+          "kind": "compatibility",
+          "statement": "If s=0, μcan equals the native product measure."
+        },
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_oneComplex",
+          "kind": "computation",
+          "statement": "If s=1, μcan is twice product measure, not product measure."
+        },
+        {
+          "name": "NumberField.CompactModel.canonicalMeasure_rationalBody",
+          "kind": "computation",
+          "statement": "For K=ℚ, μcan({x:g(x)≤1})=2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.0/first-half-minima",
+          "how": "Normalize the supremum unit body and the lattice volume for Minkowski’s second theorem."
+        },
+        {
+          "where": "Couveignes §2, pp. 489–490",
+          "how": "Retain the factor 2 per complex place in the discriminant covolume."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.0/canonical-covolume",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.0",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.0"
+      ],
+      "title": "Discriminant covolume",
+      "kind": "theorem",
+      "statement": "The mixed-embedding integer lattice has μcan-covolume √|disc K| = δ^(n/2), where n=[K:ℚ]≥1 and δ=|disc K|^(1/n)≥1.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Read the native product-measure formula 2^(−s)√|disc K|, multiply the measure by 2^s, and use discr_ne_zero and the real-power laws. The result is not the unscaled product covolume."
+      ],
+      "acceptance": [
+        "For an imaginary quadratic field the product-measure and canonical covolumes differ by 2."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.0/canonical-measure",
+        "mathlib:NumberField.mixedEmbedding.covolume_integerLattice",
+        "mathlib:NumberField.rootDiscr"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.canonicalCovolume"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§2, pp. 489–490",
+          "match": "The embeddings Gram determinant equals the absolute discriminant; rescaling the native mixed-embedding covolume gives the canonical one."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Discriminant covolume"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.0/first-half-minima",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.0",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.0"
+      ],
+      "title": "Short first-half integers",
+      "kind": "theorem",
+      "statement": "There are n algebraic integers ωᵢ, linearly independent over ℚ, with nondecreasing houses hᵢ≥1 and ∏hᵢ≤δ^(n/2). With m=floor(n/2)+1, every i<m satisfies hᵢ≤δ. These are simultaneous successive-minimum witnesses, not a chosen integral basis.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use the supremum unit body and canonical covolume in GN.1’s second theorem. Use its simultaneous independent minimum witnesses. Nonzero integral elements have house≥1. The ordered-product bound gives hᵢ≤δ^(n/(2(n−i))); for i<m the exponent is≤1."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.0/canonical-covolume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound",
+        "mathlib:NumberField.one_le_house_of_isIntegral"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.firstHalfMinima"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§2, p. 490",
+          "match": "The second-minimum product estimate and the ordered norm argument bound the first floor(n/2)+1 independent integers by δ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Short first-half integers"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.0/product-span",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.0",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.0"
+      ],
+      "title": "Products of a large subspace",
+      "kind": "theorem",
+      "statement": "For any finite-dimensional field extension K/k and k-subspace V⊆K with 2 dimₖV>[K:k], the k-span of {ab:a,b∈V} is all of K. No separability or integral-basis assumption is required.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "If the product span is proper, choose a nonzero k-linear functional f annihilating it. The form (a,b)↦f(ab) is nondegenerate since K is a field: a≠0 and f(c)≠0 permit b=c/a. Thus V injects into its annihilator of dimension n−dimV, contrary to 2dimV>n."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Dual"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.productSpan"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§2, p. 490, product argument (general field-extension form)",
+          "match": "The functional-on-products argument rules out a proper product span for a subspace of dimension above n/2; this node states its general field-extension form."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Products of a large subspace"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.0/short-integers",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.0",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.0"
+      ],
+      "title": "Short independent algebraic integers",
+      "kind": "theorem",
+      "statement": "Every degree-n number field has n ℚ-linearly independent algebraic integers αᵢ with house(αᵢ)≤δ², hence |τ(αᵢ)|≤δ² for every embedding τ:K→ℂ. This is not a claim that they form a ℤ-basis of 𝓞 K.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Take the span of the first m integers from firstHalfMinima. productSpan shows its products span K; choose n independent products. Products are integral and the house is submultiplicative."
+      ],
+      "acceptance": [
+        "For ℚ the one-element family (1) satisfies the bound.",
+        "Do not use the short family as the integral basis in the discriminant determinant.",
+        "shortIntegers_nonBasis: In K=ℚ(i) the family (1,2i) is rationally independent and has houses 1,2≤δ²=4, but its integral span has index 2 in 𝓞 K; it must be accepted by the theorem without being labeled an integral basis."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.0/first-half-minima",
+        "EffectiveBoundsCompactModels:CM.0/product-span",
+        "mathlib:NumberField.house_mul_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.shortIntegers"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "Proposition 1, p. 490",
+          "match": "Proposition 1 asserts n independent integers with all conjugates bounded by δ²; the proof selects products rather than an integral basis."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Short independent algebraic integers"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.1/parameter-tuple",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.1",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.1"
+      ],
+      "title": "Integral parameter tuples",
+      "kind": "construction",
+      "statement": "For α:Fin n→𝓞 K and u:Fin n→Fin r→ℤ, define κⱼ=Σᵢ uᵢⱼαᵢ in 𝓞 K. The construction admits arbitrary signed integer parameters; the existence theorem chooses parameters in the inclusive box 0≤uᵢⱼ≤dn(r+1).",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use the native ℤ-module structure of the ring of integers and finite sums."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.0/short-integers"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.parameterTuple"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, pp. 491–492",
+          "match": "The short integers are combined using rational-integer parameters in r columns."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral parameter tuples"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.parameterTuple_apply",
+          "role": "simp",
+          "statement": "The j-th coordinate is Σᵢ uᵢⱼαᵢ."
+        },
+        {
+          "name": "NumberField.CompactModel.parameterTuple_embedding",
+          "role": "functoriality",
+          "statement": "Every embedding τ sends κⱼ to Σᵢ uᵢⱼτ(αᵢ)."
+        },
+        {
+          "name": "NumberField.CompactModel.parameterTuple_house",
+          "role": "compatibility",
+          "statement": "If |uᵢⱼ|≤B and house αᵢ≤A with A,B≥0, house κⱼ≤nBA."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.parameterTuple_zero",
+          "kind": "degenerate",
+          "statement": "All-zero parameters give all-zero κ."
+        },
+        {
+          "name": "NumberField.CompactModel.parameterTuple_coordinate",
+          "kind": "computation",
+          "statement": "A column with a single coefficient 1 and all others 0 returns that αᵢ."
+        },
+        {
+          "name": "NumberField.CompactModel.parameterTuple_negative",
+          "kind": "computation",
+          "statement": "A single −1 coefficient returns −αᵢ, so signed parameters are not truncated."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.1/parameter-jet-choice",
+          "how": "Apply the invertible embeddings-matrix parameter change and bound all conjugates of κ."
+        },
+        {
+          "where": "Couveignes §3, p. 492",
+          "how": "Choose bounded integral combinations of the short independent family."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.1",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.1"
+      ],
+      "title": "Bounded full-jet parameters",
+      "kind": "theorem",
+      "statement": "Let n=[K:ℚ], r≥1,d≥5 and M=choose(d+r,d)≥n(r+1). For an independent integral family α with houses≤δ² there exist parameters 0≤uᵢⱼ≤B=dn(r+1) for which the distinct embedding points Pτ=(τκⱼ) have surjective degree-≤d first-jet evaluation over ℂ. Every |τκⱼ|≤n²d(r+1)δ².",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "The embeddings matrix of the ℚ-basis α is invertible. On each of the r columns it gives an invertible linear change from parameters to point coordinates. Pull back a nonzero generic jet minor supplied by GI.5; its polynomial is nonzero and each parameter degree≤dn(r+1). Apply the native Nullstellensatz box lemma to the B+1 distinct integer values in ℂ. This argument allows complex coefficients and does not assume that the pulled-back minor has integer coefficients. The house estimate follows from parameterTuple_house."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.1/parameter-tuple",
+        "GenericDoublePointInterpolation:GI.5/generic-affine",
+        "GenericDoublePointInterpolation:GI.5/minor-degree",
+        "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.parameterJetChoice"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, pp. 491–492",
+          "match": "A nonzero first-jet minor survives the invertible embeddings parameter change and an inclusive bounded integer grid provides a nonvanishing specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Bounded full-jet parameters"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.1/evaluation-surjective",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.1",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.1"
+      ],
+      "title": "Degree-bounded evaluation surjectivity",
+      "kind": "theorem",
+      "statement": "For κ produced by parameterJetChoice, degree-≤d evaluation ℚ[x₁,…,xᵣ]≤d→K is surjective, and the unrestricted ℚ-algebra map aeval κ is surjective. After extension to ℂ, the value-kernel gradients surject onto ⊕τℂ^r. Consequently κ generates K over ℚ; no integral-surjectivity assertion is made.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use GI.1’s first-jet/value/gradient split, the embeddings identification K⊗ℂ≃ℂ^n and faithful extension of scalars to descend the full rank of the value map. Surjectivity of the degree-bounded map implies that of the full algebra map."
+      ],
+      "acceptance": [
+        "K=ℚ(i), κ=2i gives rational generation although ℤ[2i]≠ℤ[i]."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+        "GenericDoublePointInterpolation:GI.1/jet-kernel-split",
+        "GenericDoublePointInterpolation:GI.1/first-jet-map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.evaluationSurjective"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, pp. 492–493",
+          "match": "Full first jets imply full value evaluation and the corresponding rational field map is a closed immersion on spectra; the native jet split makes the gradient conclusion precise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Degree-bounded evaluation surjectivity"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.2/integral-evaluation",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.2",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.2"
+      ],
+      "title": "Integral bounded evaluation",
+      "kind": "construction",
+      "statement": "In GI.0 coefficient coordinates, Vℤ=ℤ^𝓜 with 𝓜={a∈ℕ^r:Σaⱼ≤d}, define the ℤ-linear map ε(c)=Σa cₐκ^a into 𝓞 K. It is exactly native aeval on MvPolynomial.restrictTotalDegree, transported along GI.0’s coefficient equivalence.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Evaluate each monomial in the native ring of integers and extend ℤ-linearly. Use the supplied coefficient equivalence, rather than define a second bounded polynomial type."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "GenericDoublePointInterpolation:GI.0/coefficient-coordinates",
+        "mathlib:MvPolynomial.restrictTotalDegree",
+        "mathlib:MvPolynomial.aeval"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.evalIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 493",
+          "match": "The degree-bounded integer evaluation map into the ring of integers is the map whose kernel and transpose enter the volume estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Integral bounded evaluation"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.evalIntegral_apply",
+          "role": "simp",
+          "statement": "ε(c)=Σa cₐκ^a."
+        },
+        {
+          "name": "NumberField.CompactModel.evalIntegral_monomial",
+          "role": "simp",
+          "statement": "The coordinate unit vector at a maps to κ^a."
+        },
+        {
+          "name": "NumberField.CompactModel.evalIntegral_polynomial",
+          "role": "compatibility",
+          "statement": "For a native bounded polynomial p, ε(coeff p)=aeval κ p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.evalIntegral_constants",
+          "kind": "degenerate",
+          "statement": "At d=0 evaluation sends the sole coefficient c to c·1."
+        },
+        {
+          "name": "NumberField.CompactModel.evalIntegral_zeroTuple",
+          "kind": "computation",
+          "statement": "At κ=0 only the constant coefficient contributes."
+        },
+        {
+          "name": "NumberField.CompactModel.evalIntegral_square",
+          "kind": "computation",
+          "statement": "For r=1,d=2,κ=2, the coefficient vector of x² evaluates to 4, not 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.2/relation-lattice",
+          "how": "Take the saturated kernel in the coefficient lattice."
+        },
+        {
+          "where": "CM.2/transpose-image",
+          "how": "Take the native transpose on the dual of the ring of integers."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.2/relation-lattice",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.2",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.2"
+      ],
+      "title": "Saturated relation lattice",
+      "kind": "definition",
+      "statement": "Define Lκ,d=ker ε as a native ℤ-submodule of Vℤ. Give its real span W the Euclidean inner product making the admissible monomials orthonormal, and give L its intrinsic covolume in W. Once εℚ is onto, rankℤL=M−n=ℓ and W=ker εℝ. Saturated means that for a≠0 in ℤ, ac∈L implies c∈L.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use the native linear-map kernel. Saturation follows from torsion-freeness of 𝓞 K. Rational evaluation has rank n; scalar extension commutes with this kernel. Embed coefficient vectors in the Euclidean space of dimension M, restricting measure to W; never take ambient M-dimensional volume of a lower-rank lattice."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.2/integral-evaluation",
+        "EffectiveBoundsCompactModels:CM.1/evaluation-surjective",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.relationLattice"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 493",
+          "match": "The integral relation lattice is the intersection of the real evaluation kernel with the monomial coefficient lattice, of rank M−n."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Saturated relation lattice"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.relationLattice_mem",
+          "role": "characterisation",
+          "statement": "c∈L iff ε(c)=0."
+        },
+        {
+          "name": "NumberField.CompactModel.relationLattice_saturated",
+          "role": "structure",
+          "statement": "a≠0 and ac∈L imply c∈L."
+        },
+        {
+          "name": "NumberField.CompactModel.relationLattice_rank",
+          "role": "compatibility",
+          "statement": "If bounded rational evaluation is onto, rank L=M−n and its scalar-extended span is the real evaluation kernel."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.relationLattice_zeroTuple",
+          "kind": "computation",
+          "statement": "For κ=0,d≥1, the vector of x₁ is a relation."
+        },
+        {
+          "name": "NumberField.CompactModel.relationLattice_constant",
+          "kind": "non-example",
+          "statement": "The vector of the constant polynomial 1 is never a relation."
+        },
+        {
+          "name": "NumberField.CompactModel.relationLattice_scaledQuadratic",
+          "kind": "non-example",
+          "statement": "If i²=−1 in K and κ=2i, x²+4 is a relation but x²+1 is not."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.2/finite-index-gram",
+          "how": "Use saturation in the unimodular orthogonal-covolume identity."
+        },
+        {
+          "where": "CM.3/short-relations",
+          "how": "Apply intrinsic Euclidean successive minima to its full real span."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.2/transpose-image",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.2",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.2"
+      ],
+      "title": "Transpose evaluation image",
+      "kind": "construction",
+      "statement": "Define Dκ,d in Vℤ to be the image of Homℤ(𝓞 K,ℤ) under f↦(f(κ^a))a. This is the native dual evaluation map followed by the coefficient dot-product identification Vℤ≃Vℤ∨. It is contained in L⊥ℤ=W⊥∩Vℤ; once εℚ is onto both have rank n and D has finite index q=[L⊥ℤ:D]≥1.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use LinearMap.dualMap and GI.0’s monomial coefficient pairing. Every relation is annihilated. The rational transpose has rank n, so the two integral lattices have the same span and a finite positive relative index."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.2/relation-lattice",
+        "mathlib:LinearMap.dualMap"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.transposeImage"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 493",
+          "match": "The dual of the ring of integers maps into the orthogonal integral lattice, without an assertion of equality; the node retains the finite-index comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Transpose evaluation image"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.transposeImage_mem",
+          "role": "characterisation",
+          "statement": "v∈D iff there is f:Homℤ(𝓞 K,ℤ) with vₐ=f(κ^a)."
+        },
+        {
+          "name": "NumberField.CompactModel.transposeImage_orthogonal",
+          "role": "relation",
+          "statement": "For v∈D and c∈L, Σa vₐcₐ=0."
+        },
+        {
+          "name": "NumberField.CompactModel.transposeImage_finiteIndex",
+          "role": "compatibility",
+          "statement": "If εℚ is onto then [L⊥ℤ:D] is a positive finite integer; equality of D with L⊥ℤ is not presumed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.transposeImage_rational",
+          "kind": "computation",
+          "statement": "For K=ℚ,κ=2,d=1, D=ℤ(1,2) and annihilates ℤ(−2,1)."
+        },
+        {
+          "name": "NumberField.CompactModel.transposeImage_strictIndex",
+          "kind": "non-example",
+          "statement": "For K=ℚ(i),κ=2i,d=1, in the integral basis (1,i), D=ℤ(1,0)+ℤ(0,2), L=0 and [L⊥ℤ:D]=2."
+        },
+        {
+          "name": "NumberField.CompactModel.transposeImage_constant",
+          "kind": "degenerate",
+          "statement": "For K=ℚ,d=0, D is the full one-coordinate integer lattice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.2/finite-index-gram",
+          "how": "Compare its volume to the orthogonal lattice with the positive finite index q."
+        },
+        {
+          "where": "Couveignes §3, p. 493",
+          "how": "Compute its volume using an actual integral basis and the embeddings Gram matrix."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.2/finite-index-gram",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.2",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.2"
+      ],
+      "title": "Finite-index discriminant identity",
+      "kind": "theorem",
+      "statement": "Assume εℚ is onto. In any actual integral basis b of 𝓞 K, let B be the n×M integer coordinate matrix of ε and Aτ,a=τ(κ^a). Then q² covol(L)² = covol(D)² = det(B Bᵀ) = det(A A*)/|disc K|, where q=[L⊥ℤ:D]. All determinants on the right are real and positive, and A* is conjugate transpose. The covolumes use intrinsic coefficient Euclidean measure.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "GN.0’s primitive orthogonal-covolume theorem applies to the saturated kernel inside the unimodular coefficient lattice. The finite-index change-of-volume gives covol(D)=q covol(L). Gram determinants compute the transpose image volume. The genuine integral-basis embeddings matrix changes B to A and its determinant has squared modulus |disc K|."
+      ],
+      "acceptance": [
+        "For κ=2i,d=1 the identity reads 4=16/4; omitting the index or treating α as an integral basis fails."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.2/transpose-image",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/primitive-orthogonal-covolume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram",
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.finiteIndexGram"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 493",
+          "match": "The integral-basis change relates the transpose Gram determinant to the embeddings Gram determinant divided by absolute discriminant; the consumer keeps the intervening index explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-index discriminant identity"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.2/relation-covolume",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.2",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.2"
+      ],
+      "title": "Relation covolume bound",
+      "kind": "theorem",
+      "statement": "For bounded full-jet κ let C=(n²d(r+1))^d δ^(2d) and D₀=M C². Then covol(L)≤D₀^(n/2)/√|disc K|≤D₀^(n/2). In particular all embedding evaluation entries are≤C in modulus. The coefficient Euclidean metric is unrelated to the supremum metric used to find α.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Bound each monomial using degree≤d and n²d(r+1)δ²≥1. Every diagonal entry of A A* is≤M C². Apply Hermitian Gram Hadamard, then finiteIndexGram with q≥1 and |disc K|≥1."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.2/finite-index-gram",
+        "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0/hermitian-gram-hadamard"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.relationCovolume"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, pp. 493–494",
+          "match": "Monomial evaluation height and Hadamard bound the relation covolume by D₀^(n/2), with the discriminant denominator retained in the stronger form."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Relation covolume bound"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.3/short-relations",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.3",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.3"
+      ],
+      "title": "Truncated short relations",
+      "kind": "theorem",
+      "statement": "Set ℓ=M−n and k=ℓ+1−n. Under d≥5,r≥1,M≥n(r+1), ℓ≥nr≥1 and k≥r. There are ℓ independent integral relations Eᵢ ordered by coefficient ℓ² norm, with each norm≥1, product≤ℓ^(ℓ/2)D₀^(n/2). Retaining exactly the first k gives norm and every coefficient≤H₀=ℓ^(ℓ/(2n))√M(n²d(r+1))^dδ^(2d). Their span has codimension n−1 in the full relation space.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Apply GN.1’s intrinsic Euclidean ball lower bound and second theorem in W, then its genuine simultaneous minimum witnesses. Integral nonzero coefficient vectors have norm≥1. The ordered-product root bound has denominator ℓ−i; for zero-based i<k this is≥n. Independence gives precisely the asserted codimension."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.2/relation-covolume",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/intrinsic-ball-lower-bound",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1/ordered-product-root-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.shortRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 494",
+          "match": "The intrinsic Euclidean ball estimate and second minima bound allow discarding the largest n−1 relations and bound the retained coefficients."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Truncated short relations"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.3/full-rank-block",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.3",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.3"
+      ],
+      "title": "A full-rank gradient block",
+      "kind": "theorem",
+      "statement": "Let J:Lℂ→⊕τℂ^r be the surjective gradient map and U the span of the k retained relations, of codimension n−1. There is one embedding τ for which the projection J(U)→ℂ^r is onto. This assertion does not say that every block is automatically onto by dimension alone.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "The image J(U) has codimension at most n−1. If every block projection were deficient, choose a nonzero covector on each of the n blocks vanishing on that projection. These block-supported covectors are independent and annihilate J(U), forcing codimension≥n."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.3/short-relations",
+        "EffectiveBoundsCompactModels:CM.1/evaluation-surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.fullRankBlock"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, p. 494, cotangent-space argument",
+          "match": "Codimension n−1 of the retained relation span forces one full cotangent block."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "A full-rank gradient block"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.3/common-minor",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.3",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.3"
+      ],
+      "title": "A common nonzero Jacobian minor",
+      "kind": "theorem",
+      "statement": "Choose r of the retained integral relations whose gradient determinant is nonzero at the full-rank embedding point. For these same r equations, J(κ)=det(∂Eᵢ/∂xⱼ(κ)) is a nonzero element of K and τ(J(κ))≠0 for every embedding τ. Their degrees are≤d and their coefficients are≤H₀.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Select an r×r minor of the one full-rank block. Evaluation and formal partial derivatives commute with embeddings, so it equals the image of one element of K. Injectivity of any field embedding propagates nonvanishing of that same determinant. No assumption that K is Galois and no independent choices of minors at different embeddings are needed."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.3/full-rank-block",
+        "mathlib:MvPolynomial.pderiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.commonMinor"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, pp. 494–495",
+          "match": "A selected gradient minor at one embedding is nonzero at every embedding; the proof here uses injectivity on its single field-valued determinant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "A common nonzero Jacobian minor"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.3/model-algebra",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.3",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.3"
+      ],
+      "title": "Jacobian-open arithmetic models",
+      "kind": "construction",
+      "statement": "For an ordered r-tuple E of integer polynomials in r variables, base change coefficients to ℚ, form R=ℚ[x]/(E₁,…,Eᵣ), and define A_E=R[J_E^−1] using native Ideal.Quotient and Localization.Away. J_E is the determinant of the formal derivative matrix. This is the coordinate algebra of the Jacobian-open part, and can be the zero ring.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Specialize SF.0’s native Jacobian localization; quotient by the actual ideal of equations and localize at the actual determinant. It is finite étale over ℚ. For a generating κ annihilating E with J_E(κ)≠0, the quotient and localization universal properties give a unique surjective ℚ-algebra map A_E→K."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.3/common-minor",
+        "SchemeAndStackFoundations:SF.0/jacobian-etale-algebra",
+        "mathlib:Localization.Away"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.modelAlgebra"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§3, Proposition 2, p. 495",
+          "match": "The scheme defined by the equations with its Jacobian determinant inverted is the smooth zero-dimensional model; the node gives its native coordinate algebra."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Jacobian-open arithmetic models"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_finiteEtale",
+          "role": "structure",
+          "statement": "A_E is finite-dimensional and étale over ℚ, allowing the zero algebra."
+        },
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_lift",
+          "role": "universal-property",
+          "statement": "A tuple in a ℚ-algebra annihilating E whose evaluated J is a unit induces a unique algebra map A_E→the algebra; it sends each variable to the tuple."
+        },
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_fieldFactor",
+          "role": "compatibility",
+          "statement": "If that map to a field K is onto, its kernel is maximal and K is a direct factor, hence Spec K is an open-and-closed irreducible component of Spec A_E."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_repeatedRoot",
+          "kind": "degenerate",
+          "statement": "For r=1,E=x², J=2x and A_E is the zero algebra; the repeated root contributes no component."
+        },
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_twoRational",
+          "kind": "computation",
+          "statement": "For E=x²−1, A_E≃ℚ×ℚ as ℚ-algebras, with two components."
+        },
+        {
+          "name": "NumberField.CompactModel.modelAlgebra_extraDimension",
+          "kind": "non-example",
+          "statement": "For r=2,E=(xy,x(y−1)), V(E) is a line but its Jacobian-open algebra is zero; the whole zero locus need not be zero-dimensional."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.3/explicit-model",
+          "how": "Lift the generating tuple to a surjective map to K and identify a field factor."
+        },
+        {
+          "where": "CM.5/component-class",
+          "how": "Enumerate every field component of a fixed tuple, permitting multiple components."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.3/explicit-model",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.3",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.3"
+      ],
+      "title": "Explicit compact model bound",
+      "kind": "theorem",
+      "statement": "For every degree-n number field K, r≥1,d≥5,M=choose(d+r,d)≥n(r+1), and ℓ=M−n, there exist r integer polynomials of total degree≤d and coefficient absolute value≤ℓ^(ℓ/(2n))√M(n²d(r+1))^dδ^(2d), and a surjective ℚ-algebra map A_E→K. Thus Spec K is one irreducible component of the finite étale Jacobian-open model.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Combine shortIntegers, parameterJetChoice, saturated relations, the truncated minima bound and commonMinor. Use evaluationSurjective and modelAlgebra_lift to get the quotient map to K; constants and the generating tuple ensure surjectivity. Apply the field-factor API from SF.0."
+      ],
+      "acceptance": [
+        "The coefficient bound is the exact Proposition 2 expression, not an asymptotic replacement.",
+        "The presentation describes K as a component over ℚ, not 𝓞 K as an integral quotient."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.0/short-integers",
+        "EffectiveBoundsCompactModels:CM.1/parameter-jet-choice",
+        "EffectiveBoundsCompactModels:CM.3/model-algebra",
+        "EffectiveBoundsCompactModels:CM.3/common-minor"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.explicitModel"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "Proposition 2, p. 495",
+          "match": "Proposition 2 supplies the exact multivariate coefficient bound and the field as one irreducible component of the Jacobian-open scheme."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Explicit compact model bound"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.4/central-parameter",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.4",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.4"
+      ],
+      "title": "Least central-binomial parameter",
+      "kind": "definition",
+      "statement": "For n≥1 define r(n) as the least positive integer r satisfying n(r+1)≤choose(2r,r), and put d(n)=r(n). For a total natural-number API set r(0)=1. Existence follows from exponential growth; the eventual model theorem still requires n large enough that r(n)≥5.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "The lower bound choose(2r,r)≥2^r implies that choose(2r,r)/(r+1) tends to infinity. Choose the least positive witness, not an arbitrary large parameter."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.centralParameter"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, p. 495",
+          "match": "The smallest positive central-binomial-capacity parameter is chosen with d=r."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Least central-binomial parameter"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.centralParameter_spec",
+          "role": "characterisation",
+          "statement": "r(n)>0 and n(r(n)+1)≤choose(2r(n),r(n))."
+        },
+        {
+          "name": "NumberField.CompactModel.centralParameter_minimal",
+          "role": "characterisation",
+          "statement": "If 0<s<r(n), then choose(2s,s)<n(s+1)."
+        },
+        {
+          "name": "NumberField.CompactModel.centralParameter_mono",
+          "role": "relation",
+          "statement": "n≤m implies r(n)≤r(m)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.centralParameter_one",
+          "kind": "computation",
+          "statement": "r(1)=1, which lies outside d≥5."
+        },
+        {
+          "name": "NumberField.CompactModel.centralParameter_two",
+          "kind": "computation",
+          "statement": "r(2)=2: choose(4,2)=6=2·3."
+        },
+        {
+          "name": "NumberField.CompactModel.centralParameter_three",
+          "kind": "computation",
+          "statement": "r(3)=3: at r=2 the capacity is 6<9; at r=3 it is 20≥12."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.4/central-estimates",
+          "how": "Use leastness at r−1 to control capacity as well as eventual logarithmic size."
+        },
+        {
+          "where": "CM.5/finite-surjection",
+          "how": "Fix one common variable and degree choice for every degree-n field in a discriminant cutoff."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.4/central-estimates",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.4",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.4"
+      ],
+      "title": "Effective central-binomial estimates",
+      "kind": "theorem",
+      "statement": "With n≥65536, L=log n, r=r(n), M=choose(2r,r), ℓ=M−n, we have 5≤r≤3L, n(r+1)≤M<4n(r+1)≤16nL, ℓ/(2n)≤8L, log M and log ℓ≤3L, and log(r(r+1))≤2L. For δ≥1, the explicit coefficient bound with d=r is≤(nδ)^(40L).",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Take r₀=ceil(2L/log2). Since r₀≥6 and r₀+1≤2^(r₀/2), choose(2r₀,r₀)≥2^r₀≥n(r₀+1); hence r≤r₀≤3L. Minimality and the ratio of consecutive choose(2r,r)/(r+1), strictly below 4, give M<4n(r+1). Elementary logarithmic inequalities at L≥log65536 give the displayed estimates. The four logarithmic contributions to the height are at most 24L², 1.5L, 12L² and 6L logδ, absorbed by 40L²+40L logδ."
+      ],
+      "acceptance": [
+        "r(1)=1 prevents claiming d≥5 uniformly in all degrees.",
+        "Verify the strict minimality step at r−1 and retain the inclusive capacity inequality."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.4/central-parameter",
+        "EffectiveBoundsCompactModels:CM.3/explicit-model"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.centralEstimates"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, equation (1), pp. 495–496 (explicit threshold and constants supplied by this proof)",
+          "match": "Equation (1) bounds the capacity and parameter eventually; the given elementary proof makes that threshold and the height constants explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Effective central-binomial estimates"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.4/uniform-model",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.4",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.4"
+      ],
+      "title": "Uniform logarithmic-size models",
+      "kind": "theorem",
+      "statement": "There is one absolute constant Q=65536 such that every degree n≥Q number field admits r,d≤Q log n, M≤Qn log n and r integer equations of degree≤d with all coefficients≤(nδ)^(Q log n), whose Jacobian-open model contains Spec K as an irreducible component. The stronger choices d=r=r(n) and height≤(nδ)^(40 log n) are retained for counting.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Apply explicitModel with the least central parameter and use centralEstimates. Increasing the exponent from 40 to Q is valid since nδ≥1. The same constant Q is used for threshold, parameter and height bounds."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.4/central-estimates",
+        "EffectiveBoundsCompactModels:CM.3/explicit-model"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.uniformModel"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "Theorem 1, p. 487; §4, pp. 495–496",
+          "match": "Theorem 1 combines logarithmic parameter, capacity and coefficient bounds for one absolute eventual constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Uniform logarithmic-size models"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/coefficient-box",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Finite equation coefficient boxes",
+      "kind": "definition",
+      "statement": "For natural r,d,B, define the set ℬ(r,d,B) of ordered r-tuples of native integer polynomials whose total degrees are≤d and every coefficient has absolute value≤B. Equivalently it is the product of rM copies of the integer interval [−B,B], using GI.0’s coefficient coordinates. Zero polynomials and zero equations are included.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use the native bounded-degree submodule and the supplied coefficient equivalence. The interval is inclusive and B is a natural number."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "GenericDoublePointInterpolation:GI.0/coefficient-coordinates",
+        "mathlib:MvPolynomial.restrictTotalDegree"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.coefficientBox"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, p. 496",
+          "match": "The proof counts the rM integer coefficients needed to specify an ordered tuple of equations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite equation coefficient boxes"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.coefficientBox_mem",
+          "role": "characterisation",
+          "statement": "Membership is exactly degree≤d and |coeff|≤B, for every equation and exponent."
+        },
+        {
+          "name": "NumberField.CompactModel.coefficientBox_finite",
+          "role": "structure",
+          "statement": "ℬ(r,d,B) is finite, including r=0,d=0,B=0."
+        },
+        {
+          "name": "NumberField.CompactModel.coefficientBox_mono",
+          "role": "relation",
+          "statement": "Increasing B or d gives an inclusion of boxes for fixed r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.coefficientBox_zeroHeight",
+          "kind": "degenerate",
+          "statement": "With B=0 the unique tuple has every equation zero."
+        },
+        {
+          "name": "NumberField.CompactModel.coefficientBox_constants",
+          "kind": "computation",
+          "statement": "For r=1,d=0,B=1 the box has exactly three elements: −1,0,1."
+        },
+        {
+          "name": "NumberField.CompactModel.coefficientBox_endpoint",
+          "kind": "computation",
+          "statement": "For r=1,d=1,B=2, 2x−2 belongs to the box but 3x does not."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.5/coefficient-box-card",
+          "how": "Count every integral coefficient choice including both endpoints and zero."
+        },
+        {
+          "where": "CM.5/finite-surjection",
+          "how": "Place all compact models with height≤F in the single box with B=floor₊F."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/coefficient-box-card",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Exact coefficient enumeration",
+      "kind": "theorem",
+      "statement": "The unweighted cardinality of ℬ(r,d,B) is (2B+1)^(r·choose(d+r,d)). If a real height bound F≥0 bounds integer coefficients, membership is exactly the bound B=⌊F⌋₊; the floor must be preserved before counting.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "The coefficient equivalence makes the box a finite product of rM copies of [−B,B], each of size 2B+1. Integer absolute values≤F iff they are≤floor₊F. No sparsity, monicity or nonsingularity filter is assumed."
+      ],
+      "acceptance": [
+        "At r=1,d=0,B=1 the exact count is 3; replacing 2B+1 by 2B loses the zero choice."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.5/coefficient-box"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.coefficientBoxCard"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, p. 496",
+          "match": "The coefficient enumeration is made exact with an inclusive interval and a natural floor before the estimate is simplified."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Exact coefficient enumeration"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/component-class",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Isomorphism classes of model components",
+      "kind": "construction",
+      "statement": "Use ST.0’s embedded finite extensions in ℚbar and its quotient by ℚ-algebra isomorphism. For a finite-dimensional commutative ℚ-algebra A and a maximal ideal p, send p to the class of the residue field A/p, embedded in ℚbar by any ℚ-embedding. This class is independent of that embedding. Apply it to A_E; no weight by automorphisms or embeddings is attached.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "A maximal quotient of a finite-dimensional ℚ-algebra is a finite number field and embeds in ℚbar. The chosen embedded copy has a well-defined ST.0 quotient class because any two copies are ℚ-isomorphic. Characterize the class through any surjective algebra map with kernel p."
+      ],
+      "acceptance": [
+        "Establish the stated bound or equivalence with the exact constants, ranks and inclusive inequalities."
+      ],
+      "prerequisites": [
+        "ArithmeticStatistics:ST.0/number-fields-ordered-by-discriminant",
+        "EffectiveBoundsCompactModels:CM.3/model-algebra"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.componentClass"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, p. 496, multiple-field-component observation",
+          "match": "The proof observes that several number fields can appear in one model; taking their rational isomorphism classes gives the correct unweighted covering map."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Isomorphism classes of model components"
+      },
+      "api": [
+        {
+          "name": "NumberField.CompactModel.componentClass_quotient",
+          "role": "characterisation",
+          "statement": "For any surjective φ:A→ₐℚK with kernel p, componentClass(p) equals the class of K."
+        },
+        {
+          "name": "NumberField.CompactModel.componentClass_embedding",
+          "role": "functoriality",
+          "statement": "Changing the embedding A/p→ℚbar leaves its quotient class unchanged."
+        },
+        {
+          "name": "NumberField.CompactModel.componentClass_finiteImage",
+          "role": "structure",
+          "statement": "The image of the component-class map is finite; distinct components may have the same class."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NumberField.CompactModel.componentClass_repeatedRoot",
+          "kind": "degenerate",
+          "statement": "For E=x² the component domain and its image are empty."
+        },
+        {
+          "name": "NumberField.CompactModel.componentClass_twoRational",
+          "kind": "non-example",
+          "statement": "For E=x²−1 the domain has two components but its class image is the singleton [ℚ]."
+        },
+        {
+          "name": "NumberField.CompactModel.componentClass_twoQuadratics",
+          "kind": "computation",
+          "statement": "For E=(x²−2)(x²−3), the class image consists of the two distinct classes [ℚ(√2)] and [ℚ(√3)]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CM.5/finite-surjection",
+          "how": "Send component models onto unweighted field-isomorphism classes without an injective field-to-tuple choice."
+        },
+        {
+          "where": "Couveignes §4, p. 496",
+          "how": "Account for multiple field components in one tuple, while discarding duplicate isomorphism classes."
+        }
+      ]
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/isolated-components",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Isolated-component Bézout bound",
+      "kind": "theorem",
+      "statement": "For r≥1 and r equations of degrees≤d over ℚ, the number of maximal ideals of their Jacobian-open algebra is finite and≤d^r. More precisely after extension to an algebraic closure its isolated local lengths sum to≤the product of positive equation degrees≤d^r; each Jacobian-open geometric point is simple. Other components of the whole zero locus may have positive dimension. A zero equation or constant nonzero equation yields an empty Jacobian-open part.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Use the requested SF.5 arbitrary-dimensional isolated-intersection bound after homogenizing in projective r-space. Restrict to affine isolated points and use the nonzero determinant to give local length 1. Finite étale factors each contribute at least one geometric point, so the component count is no larger. Handle zero or constant equations separately before using positive degrees."
+      ],
+      "acceptance": [
+        "Do not replace this by SF.5’s two-plane-curve result when r>2.",
+        "The line-only example (xy,x(y−1)) has zero Jacobian-open components."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.3/model-algebra",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.isolatedComponents"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "§4, p. 496, intersection-number argument",
+          "match": "The intersection-number argument bounds the isolated points even in a zero locus with other components; the generic arbitrary-dimensional theorem remains an explicit SF.5 input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Isolated-component Bézout bound"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/finite-surjection",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Bounded models cover field classes",
+      "kind": "theorem",
+      "statement": "For n≥65536 and real H≥1, put r=d=r(n), M=choose(2r,r), F=(n H^(1/n))^(40 log n), B=⌊F⌋₊. The disjoint union, over E∈ℬ(r,d,B), of maximal ideals of A_E maps by componentClass onto ST.0’s unweighted set of exact-degree-n ℚ-isomorphism classes with |disc|≤H, after restricting the domain to components satisfying that cutoff. Its domain cardinality is at most (2B+1)^(rM)d^r.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "For every field in the cutoff, δ≤H^(1/n); uniformModel in its stronger 40-exponent form supplies a tuple in the box and a surjective map A_E→K. Its kernel maps to the required class. Bound all components in the full finite union by isolatedComponents and coefficientBoxCard. Do not select an injective map from field classes to equation tuples."
+      ],
+      "acceptance": [
+        "Multiple fields can share an equation tuple; the factor d^r accounts for this.",
+        "Different embedded copies or multiple equal residue factors count a class once."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.4/uniform-model",
+        "EffectiveBoundsCompactModels:CM.5/coefficient-box-card",
+        "EffectiveBoundsCompactModels:CM.5/component-class",
+        "EffectiveBoundsCompactModels:CM.5/isolated-components",
+        "ArithmeticStatistics:ST.0/number-fields-ordered-by-discriminant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.finiteSurjection"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "Theorem 2, p. 487; §4, p. 496",
+          "match": "The small-model theorem covers the cutoff by component models; counting all components rather than one tuple per field supplies the multiplicity factor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Bounded models cover field classes"
+      }
+    },
+    {
+      "id": "EffectiveBoundsCompactModels:CM.5/field-count",
+      "parentStageId": "EffectiveBoundsCompactModels:CM.5",
+      "realises": [
+        "EffectiveBoundsCompactModels:CM.5"
+      ],
+      "title": "Degree-sensitive field count",
+      "kind": "theorem",
+      "statement": "For the same absolute Q=65536, every integer n≥Q and real H≥1 satisfy Nₙ(H)≤n^(Q n (log n)^3) H^(Q (log n)^3), where Nₙ(H) is the ordinary cardinality of exact-degree-n number fields up to ℚ-isomorphism with |disc|≤H. The bound is inclusive, unweighted and uniform in both variables.",
+      "hypotheses": [
+        "Global conventions in the reader apply; every additional hypothesis is included in the statement."
+      ],
+      "proofSteps": [
+        "Retain the finite bound (2floor₊F+1)^(rM)d^r. With L=log n use rM≤48nL², logF=40L²+(40L/n)logH, log(2floor₊F+1)≤log3+logF, and log(d^r)≤3L². The logarithm of the finite bound is≤2000nL⁴+1920L³logH, which is≤QnL⁴+QL³logH. Exponentiate; the n-power has exponent QnL³. ST.0 supplies the carrier and baseline Hermite finiteness, not this asymptotic estimate.",
+        "For the finiteness bridge, ST.0’s isoFamily is the quotient image of the finite fixed-ambient embedded family. For real H≥1 use the integer cutoff floor₊H, then restrict to degree n and take the quotient image. This imports ST.0’s Northcott argument and the existing explicit Hermite infrastructure rather than defining another arithmetic family."
+      ],
+      "acceptance": [
+        "At H=1 the H-factor is 1; no logH division occurs.",
+        "n=1 is outside the asserted threshold; no false r≥5 claim follows.",
+        "No dependence on ArithmeticStatistics:ST.3, nor any algorithmic runtime claim."
+      ],
+      "prerequisites": [
+        "EffectiveBoundsCompactModels:CM.5/finite-surjection",
+        "EffectiveBoundsCompactModels:CM.4/central-estimates",
+        "mathlib:NumberField.finite_of_discr_bdd",
+        "tauceti:NumberField.ncard_setOf_finiteDimensional_abs_discr_le_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EffectiveBounds/CompactModels",
+        "namespace": "NumberField.CompactModel",
+        "leanName": "NumberField.CompactModel.fieldCount"
+      },
+      "sources": [
+        {
+          "sourceId": "COUVEIGNES20",
+          "locator": "Theorem 2, p. 487; §4, p. 496",
+          "match": "Theorem 2 and its proof give the logarithmic-cubic discriminant exponent after counting coefficients and isolated components."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Degree-sensitive field count"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Over an algebraically closed characteristic-zero field, for r≥1 nonzero homogeneous forms in projective r-space of positive degrees e₁,…,eᵣ, the sum of local intersection lengths at isolated points of their common zero locus is≤∏eᵢ, even when the locus has other positive-dimensional components. In particular r affine equations of degrees≤d have at most d^r simple isolated points. Supply finiteness and the native local-length interpretation; zero and nonzero constant equations are handled separately by the consumer. The existing SF.5 isolated-plane-bezout node has only r=2 and does not provide this input.",
+      "neededBy": [
+        "EffectiveBoundsCompactModels:CM.5/isolated-components"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.0",
+      "status": "planned",
+      "remaining": []
+    },
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.1",
+      "status": "planned",
+      "remaining": []
+    },
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.2",
+      "status": "planned",
+      "remaining": []
+    },
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.3",
+      "status": "planned",
+      "remaining": []
+    },
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.4",
+      "status": "planned",
+      "remaining": []
+    },
+    {
+      "stageId": "EffectiveBoundsCompactModels:CM.5",
+      "status": "planned",
+      "remaining": [
+        "Resolve the explicit arbitrary-dimensional isolated-intersection supplier request in SF.5."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": []
+}
