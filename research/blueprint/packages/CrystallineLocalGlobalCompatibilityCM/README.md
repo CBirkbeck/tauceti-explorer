@@ -411,19 +411,11 @@ The source is CN, Lemma 2.1.17, p.20.
 
 *Needs:* **CL.0**: Rescaled actions of the monoids on coefficient lattices; **CL.0**: Surjectivity of evaluation at the identity; **PotentialAutomorphyInfrastructure:PA.0**.
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `IntegralHeckeAndGaloisDeterminants`; `PotentialAutomorphyInfrastructure`; `SmoothRepresentationsOfLocalGroups`; `mathlib`. Each result above names the particular local input it consumes.
-
 ## Layer 1: P-ordinary functors and completed level control
 
 Construct P-ordinary finite-level cohomology using imported ordinary projectors. On smooth O/ϖ^m representations define finite-sum contracting transfer, exact monoid localization in ũ_n alone, and POrd=ord RΓ(U₀,−). Construct completed interior and boundary objects at fixed tame level. Prove that compact Levi derived invariants recover ordinary finite-level cohomology for c≥b≥0,c≥1; increasing c with b fixed is an isomorphism. Extend this control to Q⊂P parahorics without replacing POrd by full QOrd.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **IntegralHeckeAndGaloisDeterminants:IHG.2**; **PadicFamilies:L0a**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.6.5**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 ### 1.1 P-ordinary part of finite-level cohomology
 
@@ -493,7 +485,7 @@ Provide the following interface:
 
 The source is CN, §2.2.2, p.26.
 
-*Needs:* **SmoothRepresentationsOfLocalGroups:SR.0**; **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison).
+*Needs:* **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.6.5** (underlying module localization and stable-operator comparison); **IntegralHeckeAndGaloisDeterminants:IHG.2** (ordinary localization comparison). The smooth positive-monoid action, exactness and injective-preservation comparison are the additional supplier contracts specified above.
 
 ### 1.4 Functors of P-ordinary parts of smooth representations
 
@@ -611,14 +603,6 @@ The source is CN, Corollary 2.2.9, p.28.
 
 *Needs:* **CL.1**: Finite-level P-ordinary cohomology from completed cohomology; **ArithmeticLocallySymmetricSpaces:ALS.1** (level pullback).
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `CompletedCohomologyPartII`; `IntegralHeckeAndGaloisDeterminants`; `PadicFamilies`; `SmoothRepresentationsOfLocalGroups`; `Mathlib`; `Tau Ceti`. Each result above names the particular local input it consumes.
-
 ## Layer 2: Weight independence and dual ordinary parts
 
 Identify the GL_n coefficient tensor through the conjugate-dual Levi embedding. Prove ũ_n^m annihilates the evaluation kernel modulo ϖ^m, giving ordinary weight independence by removing selected weights and tensoring V_{w₀^Pλ}. Prove the boundary analogue. Construct dual ordinary parts using lower-congruence unipotents and ũ_n^{-1}, and establish the inverse-coset Hecke-equivariant level comparison.
@@ -685,19 +669,11 @@ The source is CN, Lemma 2.2.19, p.32.
 
 *Needs:* **CL.2**: P-ordinary parts for dual coefficients; **CL.1**: P-ordinary parts at parahoric level with their Hecke actions.
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `PotentialAutomorphyInfrastructure`; `SmoothRepresentationsOfLocalGroups`. Each result above names the particular local input it consumes.
-
 ## Layer 3: Bruhat induction and deep unipotent cohomology
 
 Compare algebraic relative Bruhat closure with the local p-adic topology. Construct unnormalized induction on open length unions, individual strata and open cells, with exact extension/restriction filtration. Prove the cohomological short exact sequences and ordinary open/identity-cell subquotients, retaining the inverse determinant unit character χ and rank shift. In the abelian Siegel case split RΓ(U₀,O/ϖ^m) after sufficiently deep Levi restriction, at arbitrary p. Use the pinned Artin–Rees results to lift finite-module subquotients after increasing the coefficient exponent.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.0**; **CL.1**; **CL.2**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:R03.3**; **PotentialAutomorphyInfrastructure:PA.0**; **PotentialAutomorphyInfrastructure:PA.2**; **SmoothRepresentationsOfLocalGroups:SR.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**; **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**.
 
 ### 3.1 Parabolic Bruhat decomposition and closure relations
 
@@ -894,14 +870,6 @@ The source is CN, Corollary 2.3.12, p.39.
 
 *Needs:* **CL.3**: P-ordinary cohomology of a parabolic induction; **CL.2**: Dual P-ordinary parts at parahoric level; **CL.2**: P-ordinary parts for dual coefficients.
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `CompletedCohomologyPartII`; `DeformationAndDerivedPatchingAlgebra`; `PotentialAutomorphyInfrastructure`; `SmoothRepresentationsOfLocalGroups`; `Mathlib`; `Tau Ceti`. Each result above names the particular local input it consumes.
-
 ## Layer 4: Q-ordinary automorphic representations and Galois blocks
 
 Define rescaled partial Q-Hecke operators for partitions refining (n,n), their polynomial/Laurent algebra and the all-unit generalized-eigenvalue subspace. Define ι-Q-ordinary cuspidal representations by cohomological weight and a nonzero unit eigenvector. Prove Newton–Hodge partial-sum inequalities and the equality-induced Galois subrepresentation. Deduce crystalline diagonal blocks, increasing labelled Hodge–Tate weights, a one-dimensional ordinary line and partial determinant reciprocity formulas.
@@ -984,19 +952,11 @@ The source is CN, Theorem 3.1.2, pp.43–44.
 
 *Needs:* **CL.4**: ι-Q_{v̄}-ordinary cuspidal representations; **CL.4**: Newton above Hodge for semistable representations, and its equality case; **AutomorphicGaloisRepresentationsPartII:AG2.2**; **AutomorphicGaloisRepresentationsPartII:AG2.5**; **SmoothRepresentationsOfLocalGroups:SR.2**; **SmoothRepresentationsOfLocalGroups:SR.4**.
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `AutomorphicGaloisRepresentationsPartII`; `PadicFamilies`; `PadicHodgeTheory`; `SmoothRepresentationsOfLocalGroups`. Each result above names the particular local input it consumes.
-
 ## Layer 5: The localized completed Siegel boundary
 
 Construct the equivariant unipotent coefficient object V_U=RΓ(U₀,V/ϖ^m) and its homotopy inverse limit; retain the vanishing bound and the exact nonzero range for trivial selected weights. Identify the localized completed Siegel boundary with induced Levi cohomology, using non-Eisenstein boundary-stratum elimination, topological induction and unipotent descent. Prove the Hecke-equivariant completed boundary summand and its integral coefficient-evaluation retract, with zero weights on the complementary p-places.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.1**; **ArithmeticLocallySymmetricSpaces:ALS.2**; **ArithmeticLocallySymmetricSpaces:ALS.4**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CL.2**; **CL.3**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.1**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.6**; **CompletedCohomologyPartII:CC.7**; **PotentialAutomorphyInfrastructure:PA.0**; **SmoothRepresentationsOfLocalGroups:SR.0d**; **SmoothRepresentationsOfLocalGroups:SR.2**; **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**.
 
 ### 5.1 The coefficient object V_U(λ̃_S̄, m) on the Levi locally symmetric spaces
 
@@ -1073,14 +1033,6 @@ Prove `CrystallineCM.integral_levi_boundary_retract`. Let K̃ be good, decompose
 The source is CN, Corollary 4.1.9, p.57.
 
 *Needs:* **CL.5**: A direct summand of completed boundary cohomology; **CL.2**: The Levi coefficient module as a tensor product over the two places; **PotentialAutomorphyInfrastructure:PA.0**.
-
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `CompletedCohomologyPartII`; `PotentialAutomorphyInfrastructure`; `SmoothRepresentationsOfLocalGroups`; `tauceti`. Each result above names the particular local input it consumes.
 
 ## Layer 6: Degree shifting and nilpotent Hecke comparisons
 
@@ -1318,14 +1270,6 @@ The source is CN, Proposition 4.2.8, pp.65–66.
 
 *Needs:* **CL.6**: Degree shifting for torsion coefficients at deep auxiliary level; **CL.6**: Dual Hecke images A^∨ and Ã^∨; **CL.6**: Degree shifting with dual coefficients.
 
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `IgusaVarietiesAndTorsionConcentration`; `IntegralHeckeAndGaloisDeterminants`; `PotentialAutomorphyInfrastructure`; `SmoothRepresentationsOfLocalGroups`; `Mathlib`; `Tau Ceti`. Each result above names the particular local input it consumes.
-
 ## Layer 7: Crystalline local–global compatibility
 
 For all-unit Q-localized non-Eisenstein torsion Hecke systems, produce local finite-flat characteristic-zero lifts with crystalline blocks, labelled weights and determinant characters. Use CTG perturbation and a separating character twist, then import compatible local reconstruction. Assemble a global Hecke-valued representation modulo a uniformly nilpotent ideal factoring through crystalline/semistable-ordinary local deformation rings in the three specified partitions. Export fixed-determinant compatibility for p∤n and crystallinity of unramified characteristic-zero GL_n representations under residual irreducibility and decomposed genericity. Reuse IHG.1, §1.6, whose compatible local reconstruction allows a henselian local target with torsion. Supply its corner identifications and prove continuity of the resulting local lift. In the char-zero endpoint, choose a cyclic CM extension where the selected p-places split completely, so their local fields are unchanged.
@@ -1394,15 +1338,11 @@ The source is CN, §4.3, Theorem 4.3.1, p.73.
 
 For n=2 and λ_τ=(0,0), the ordered list h_{τ,i}=λ_{τ,n−i+1}+i−1 in §7.4 is (0,1), and its sum gives determinant weight 1. At p=3 or p=5 the condition p∤n in §7.6 holds. These numerical specializations still require the stated Hecke support, local splitting, residual genericity and deformation conditions.
 
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `AutomorphicGaloisRepresentationsPartII`; `IntegralHeckeAndGaloisDeterminants`; `LocalGaloisDeformationRings`; `ModularityAndLanglandsExtensions`; `PadicHodgeTheory`; `PotentialAutomorphyInfrastructure`; `PotentialModularityAndCompatibleSystems`; `tauceti`. Each result above names the particular local input it consumes.
-
 ## Layer 8: Two-component patching and PGL₂ cohomology
 
 Package common-residual perfect complexes, finite derived Hecke images modulo nilpotents, equidimensional local rings and unique generic generalizations. Prove two-system automorphic component propagation and pointwise augmentation support. Import exact BT and semistable-ordinary local component results from LocalGaloisDeformationRings. Construct non-neat PGL₂ equivariant cohomology by homotopy limits, identify it with the AKT complex, and obtain its finite Hecke Galois representation; under p odd, ζ_p∈F and trivial residual coefficients, prove localized vanishing and perfectness.
 
-**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **DeformationAndDerivedPatchingAlgebra:P8**; **DeformationAndDerivedPatchingAlgebra:P9**; **GlobalGaloisDeformations:R04.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.3**.
+**Layer prerequisites:** **ArithmeticLocallySymmetricSpaces:ALS.3**; **ArithmeticLocallySymmetricSpaces:ALS.6**; **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.4**; **CompletedCohomologyPartII:CC.6**; **DeformationAndDerivedPatchingAlgebra:P8**; **DeformationAndDerivedPatchingAlgebra:P9**; **GlobalGaloisDeformations:R04.2**; **IntegralHeckeAndGaloisDeterminants:IHG.5**; **PotentialAutomorphyInfrastructure:PA.3**.
 
 ### 8.1 Cohomology of PGL₂ locally symmetric spaces at non-neat level
 
@@ -1483,14 +1423,6 @@ Prove `CrystallineCM.nonneat_localized_perfectness`. Let m ⊂ T^S_G(C•(K,V)) 
 The source is CN, Proposition 5.5.3, p.81.
 
 *Needs:* **CL.8**: Galois representations for PGL₂ over CM fields; **CL.8**: Comparison with the Allen–Khare–Thorne complexes; **ArithmeticLocallySymmetricSpaces:ALS.6** (finite-level descent); **CompletedCohomologyPartII:CC.0**; **CompletedCohomologyPartII:CC.2**; **CompletedCohomologyPartII:CC.4**; **CompletedCohomologyPartII:CC.6**.
-
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticLocallySymmetricSpaces`; `CompletedCohomologyPartII`; `DeformationAndDerivedPatchingAlgebra`; `GlobalGaloisDeformations`; `IntegralHeckeAndGaloisDeterminants`; `PotentialAutomorphyInfrastructure`; `mathlib`. Each result above names the particular local input it consumes.
 
 ## Layer 9: Barsotti–Tate automorphy lifting and solvable descent
 
@@ -1650,14 +1582,6 @@ Prove `CrystallineCM.potentially_barsotti_tate_lifting_qualified`. Let F be an i
 The source is CN, §5.1, Theorem 5.2, pp.73–74.
 
 *Needs:* **CL.9**: Automorphy lifting in the special case; **CL.9**: Reduction of Theorem 5.2 to Proposition 5.6.1 by solvable base change; **CL.9**: A reducibility criterion for mod-p representations (variant of DDT 4.11); **ModularityAndLanglandsExtensions:ML.5**.
-
-### Examples
-
-Use the named **Checks** above as the worked computations and negative controls for this layer.
-
-### Dependencies
-
-`ArithmeticGaloisRepresentations`; `ArithmeticLocallySymmetricSpaces`; `AutomorphicGaloisRepresentationsPartII`; `DeformationAndDerivedPatchingAlgebra`; `GlobalGaloisDeformations`; `LocalGaloisDeformationRings`; `ModularityAndLanglandsExtensions`; `PotentialAutomorphyInfrastructure`; `PotentialModularityAndCompatibleSystems`. Each result above names the particular local input it consumes.
 
 ## Downstream consumers
 
