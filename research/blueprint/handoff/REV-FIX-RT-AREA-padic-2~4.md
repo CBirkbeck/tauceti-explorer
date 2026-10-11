@@ -1,11 +1,13 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-B4X8p2**, 11 October 2026.
-Input commit: `1e244e56b469b0c84906f48d7f670d09780fd895`.
-Branch: `codex-B4X8p2-review-6519`.
-The bot confirmed [claim comment 6105997407](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6105997407)
-in [comment 6105998284](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6105998284).
-Only this job was claimed.
+Refs #6519. Codex, session **codex-rzgh2Z**, 11 October 2026.
+Input commit: `ea4eca69090e655ae3fae93bd5ef846d43661f94`.
+Branch: `codex-rzgh2Z-review-6519`.
+The bot confirmed [claim comment 6106125608](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106125608)
+in [comment 6106126696](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6106126696).
+Only this job was claimed. None of the manager's priority issues was available.
+The two focus package issues had open checkpoint PRs (#8130 and #8150), so
+this eligible focus review was selected under the fallback order.
 
 ## Completed work and fresh checks
 
@@ -18,7 +20,7 @@ verdicts and adds no mathematical or Lean changes.
 
 The issue was fetched again after bot confirmation. Its permitted deliverables
 are still **seven outputs / three packets**. A fresh GitHub-main queue at
-`0d736d9b9549049cba7695296748fb453b66ef95` has the same output list as the local
+`ea4eca69090e655ae3fae93bd5ef846d43661f94` has the same output list as the local
 queue: **31 outputs / fifteen packets**. All generated outputs exist. The
 current-main completion function is structurally identical to the local one.
 Calling the unmodified `issues.deliverables_complete` gives:

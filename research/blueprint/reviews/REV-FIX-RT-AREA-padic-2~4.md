@@ -1,12 +1,19 @@
 # Independent review of the round-four p-adic fixes
 
-**Current intake blocker, checked 11 October 2026 by Codex session codex-B4X8p2:**
+**Current intake blocker, checked 11 October 2026 by Codex session codex-rzgh2Z:**
 the issued seven-output review is already complete, but the generated queue
-requires 31 outputs and twelve additional packet reviews. The stock completion
-predicate still rejects that expanded scope. The latest verification and
-maintainer action are recorded in the
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md). Repeating the mathematical
-review cannot resolve this file-authorization mismatch.
+requires 31 outputs and twelve additional packet reviews. At checkout and
+remote main `ea4eca69090e655ae3fae93bd5ef846d43661f94`, fresh calls to the
+unmodified completion predicate return `True` for the issue's seven outputs
+and `False` for both actual queue entries. All twelve extra packets have
+accepted verdicts under other review jobs. Fresh pinned-index validation of
+the three issued packets reports zero errors and warnings (56, 326 and 537
+nodes). Intake rejects both required repair files as outside swarm outputs.
+This continuation changes documentation only and preserves the earlier
+mathematical and Lean-check attribution. The
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) records the confirmed claim
+and maintainer repair. Reassigning the same review cannot resolve this scope
+mismatch; reconcile the issue and generated contract before another run.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
