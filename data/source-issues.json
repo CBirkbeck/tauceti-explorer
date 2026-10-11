@@ -183015,6 +183015,48 @@
    "reviewReason": "The exact diameter formula and Cauchy–Schwarz require the inverse factor. The intended upper bound and exclusion conclusion remain valid after restoring it. Actual published glyphs were checked."
   },
   {
+   "id": "CongruenceSpectralGap/E1",
+   "kind": "misprint",
+   "locator": "LRS95 published author scan, p.395, normalization before (3.6) and its k(0) consequence",
+   "printed": "In mathematical paraphrase: the cutoff is normalized by its ordinary dx integral, while its Mellin transform uses dy/y and its value at zero is then asserted to be one.",
+   "correction": "Normalize ∫₀∞f(y)dy/y=1, equivalently mellin(f,0)=1.",
+   "reason": "At s=0 the displayed transform is the multiplicative integral. An ordinary unit integral does not fix it. Rescale any smooth nonzero positive compact cutoff by its multiplicative integral.",
+   "affects": "the proof",
+   "known": "No applicable published correction found in the checked records; no novelty claim is made.",
+   "searched": [
+    "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
+    "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
+    "Public search for the title with erratum/correction and author names, 2026-10-11."
+   ],
+   "owner": "CongruenceSpectralGap",
+   "file": "research/blueprint/packets/CongruenceSpectralGap.json",
+   "citation": "Sources of the blueprint of CongruenceSpectralGap",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "CongruenceSpectralGap/E2",
+   "kind": "misprint",
+   "locator": "LRS95 published author scan, p.397, (3.12), compared with (3.11)",
+   "printed": "In mathematical paraphrase: the principal-character subtraction in the reorganized primal sum excludes the two residue classes ±1.",
+   "correction": "Subtract ∑(n,q)=1 b(n)n⁻ᵝF₁(n/Y) over all coprime n, including n≡±1.",
+   "reason": "The exact even nonprincipal sum on ±1 is (q−1)/2−1. For n=1 the printed reorganization leaves coefficient (q−1)/2 instead. Including those classes restores orthogonality; the extra subtraction has the same bounded error and does not change Proposition 3.1.",
+   "affects": "the proof",
+   "known": "No applicable published correction found in the checked records; no novelty claim is made.",
+   "searched": [
+    "Rudnick author publications page and hosted published scan, checked 2026-10-11.",
+    "Springer GAFA article record for On Selberg’s eigenvalue conjecture, checked 2026-10-11.",
+    "Public search for the title with erratum/correction and author names, 2026-10-11."
+   ],
+   "owner": "CongruenceSpectralGap",
+   "file": "research/blueprint/packets/CongruenceSpectralGap.json",
+   "citation": "Sources of the blueprint of CongruenceSpectralGap",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "CrystallineCohomology/E1",
    "kind": "misprint",
    "locator": "Lemma23.5.3(tag07GS), proof, final p-adic-digit display; live text 2026-09-26",
@@ -192881,6 +192923,266 @@
    "status": "confirmed",
    "reviewedBy": "REV-EnhancedDerivedSheaves--E5",
    "reviewReason": "In the pinned author copy BS17 Remark 11.24, p. 45, the attributed hypothesis controls algebra generators only; the cited Mathew Corollary 3.33, p. 24, controls both generators and relations. This confirms a citation/hypothesis gap, not falsity of countable-generation descendability. The packet conservatively uses countable presentation."
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E1",
+   "kind": "gap",
+   "locator": "proof of Proposition 5.5, p. 16 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+   "printed": "A Witt-field cover is identified with an odd-prime global cover without controlling the twist.",
+   "correction": "Replace that identification by the four global Q₂ twists and local étale class-five twist, with projective scheme models.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E3/four-twist-good-reduction. Existing canonical finding PAPER-SCHROER-23/E6 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E6",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E2",
+   "kind": "gap",
+   "locator": "proof of Proposition 9.2, p. 24 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+   "printed": "The smooth-point proof assumes every singular dual graph has a terminal vertex.",
+   "correction": "Treat cycles and the IV triple intersection directly, and use multiplicity-one smooth points of the whole fibre.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E4/simple-fibre-isomorphism. Existing canonical finding PAPER-SCHROER-23/E12 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E12",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E3",
+   "kind": "error",
+   "locator": "proof of Proposition 9.3(v), p. 25 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+   "printed": "The function field F₂(t) is treated as having zero Brauer group by Tsen.",
+   "correction": "Use Tsen only over F̄₂(t), then descend Galois-fixed MW sections.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E4/mordell-weil-descent. Existing canonical finding PAPER-SCHROER-23/E13 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E13",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E4",
+   "kind": "misprint",
+   "locator": "proof of Proposition 12.3, p. 43 (arXiv v3, identical to the author version of 19 July 2022; the published pagination was not seen)",
+   "printed": "The finite lattice quotient is identified with all of the generic Picard group.",
+   "correction": "Identify it with Pic⁰ and retain the independent infinite degree summand.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E6/generic-pic-zero-quotient. Existing canonical finding PAPER-SCHROER-23/E17 supplies the earlier independent analysis.",
+   "affects": "nothing",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E17",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E5",
+   "kind": "misprint",
+   "locator": "proof of Proposition 5.4(iii), p. 15 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Canonical-cover multiplication applies the trivialization inverse to elements of the wrong line-bundle power.",
+   "correction": "Use the dual map on L^(−2) for O⊕L^(−1).",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E2/canonical-family. Existing canonical finding PAPER-SCHROER-23/E30 supplies the earlier independent analysis.",
+   "affects": "nothing",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E30",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E6",
+   "kind": "error",
+   "locator": "Theorem 10.4, p. 29, and its proof, p. 31 (twisted semistable case); the count in the introduction to Section 10, p. 28 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The rational elliptic model list omits three twists satisfying the numerical restrictions.",
+   "correction": "Import the corrected fourteen-model list and require its separate completeness proof.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E5/elliptic-candidate-reduction. Existing canonical finding PAPER-SCHROER-23/E34 supplies the earlier independent analysis.",
+   "affects": "a stated result",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E34",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E7",
+   "kind": "gap",
+   "locator": "proof of Proposition 9.3(iv), p. 25 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "Matching smooth Kodaira type I₀ is used without proving the Jacobian ordinary.",
+   "correction": "Apply Corollary 8.3 to the ordinary multiple reduction; its Jacobian is isomorphic to that ordinary curve.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E4/one-semistable-or-supersingular. Existing canonical finding PAPER-SCHROER-23/E38 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E38",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E8",
+   "kind": "gap",
+   "locator": "Proposition 11.2 and its proof, p. 34 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The I₈ exclusion omits the nonexceptional hypothesis needed for a partner.",
+   "correction": "Carry nonexceptional throughout this exclusion.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E5/no-i8. Existing canonical finding PAPER-SCHROER-23/E39 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E39",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E9",
+   "kind": "misprint",
+   "locator": "proof of Proposition 11.3, case IV, p. 38 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The IV proof uses the wrong original half-fibre in its first intersection inequality.",
+   "correction": "Use the I₁* indecomposable half-fibre at zero, so the simple partner fibre inequality has the stated multiplicity bound.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E5/no-iv. Existing canonical finding PAPER-SCHROER-23/E40 supplies the earlier independent analysis.",
+   "affects": "nothing",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E40",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E10",
+   "kind": "gap",
+   "locator": "proof of Proposition 11.3, case IV, p. 38 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The IV reduction leaves the same-partner-fibre branch unproved.",
+   "correction": "Use the A₂ component weights in the simple I₄* completion to contradict intersection at most two.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E5/no-iv. Existing canonical finding PAPER-SCHROER-23/E41 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E41",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E11",
+   "kind": "error",
+   "locator": "proof of Proposition 12.2, p. 42 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "A spinor congruence is used to assert a particular incidence with C₈.",
+   "correction": "Enumerate all fifteen patterns and justify the terminal-symmetry normalization.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E6/spinor-incidences. Existing canonical finding PAPER-SCHROER-23/E42 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E42",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E12",
+   "kind": "gap",
+   "locator": "proof of Proposition 14.1, p. 47 (arXiv v3 = author version of 19 July 2022)",
+   "printed": "A characteristic-two partner proposition is invoked for a statement in every characteristic.",
+   "correction": "Use the characteristic-independent partner theorem outside characteristic two.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E7/restricted-configurations-impossible. Existing canonical finding PAPER-SCHROER-23/E43 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E43",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EnriquesSurfacesAndIntegralNonexistence/E13",
+   "kind": "gap",
+   "locator": "Proposition 11.1, table (12), p. 33, and the proof of Theorem 15.1, pp. 49–50 (hence Theorem 5.1) (arXiv v3 = author version of 19 July 2022)",
+   "printed": "The eight-case reduction leaves three additional elliptic cases untreated.",
+   "correction": "Require their separate Enriques exclusion before the F₂ or integral endpoint.",
+   "reason": "Read at the corresponding author-copy locator; the corrected contract and repair are in EnriquesSurfacesAndIntegralNonexistence:E5/omitted-configurations-exclusion. Existing canonical finding PAPER-SCHROER-23/E44 supplies the earlier independent analysis.",
+   "affects": "the proof",
+   "known": "Existing atlas source finding PAPER-SCHROER-23/E44",
+   "searched": [
+    "Canonical PAPER-SCHROER-23 sourceIssues and their attributed review/versionEvidence",
+    "Annals article page accessed 2026-10-11; full published text not read"
+   ],
+   "owner": "EnriquesSurfacesAndIntegralNonexistence",
+   "file": "research/blueprint/packets/EnriquesSurfacesAndIntegralNonexistence.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Third revised author version, 19 July 2022, 52 pages; Annals 197 (2023), 1–63 has different pagination and was not read in full",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "ErdosProgressionPowers/E1",
@@ -230708,7 +231010,7 @@
   {
    "id": "PolynomialGaloisGroupsPartII/E1",
    "kind": "gap",
-   "locator": "proof of Lemma 12.9, Cases 2b and 3, p. 63 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "locator": "proof of Lemma 12.9, Cases 2b and 3, p. 63 (arXiv v3 only; journal text not read)",
    "printed": "In Case 2b, the source uses r_i′ | mk to infer gcd(r_i′, k) ⩾ r_i′/m > n^{δ/2−α−θ} = n^α, then gcd(k, ℓ_i) > n^α, claiming a contradiction to ρ ∈ E₁. In Case 3 it derives gcd(k, ℓ) ⩾ r′/m ⩾ r′/n^θ and again claims a contradiction to ρ ∈ E₁.",
    "correction": "E₁ concerns only pairs of parts ≤ n/4, and nothing bounds the part k. Repair (this continuation): in Case 2 take five distinct parts ℓ ∈ ρ ∩ [n^{1−α}, n/log n] (E₁, E₃). The unions X_ℓ of the blocks met by their cycles are single block orbits of g, pairwise disjoint because X_ℓ = X_ℓ′ would force r_ℓ′ > n^α to divide ℓ and ℓ′. At most one ℓ has s_ℓ′ = s (Case 2a), and g has at most three cycles longer than n/4, so some ℓ has s_ℓ′ < s and only cycles of length ≤ n/4 in X_ℓ outside its own cycle; their parts k are ≤ n/4 and the printed argument applies. In Case 3 argue the same way with four parts ℓ ∈ ρ ∩ [n^{1−2α}, n/log n] not divisible by s, which a strengthened E₅ supplies with the same probability bound as Lemma 12.6.",
    "reason": "The companion original part may exceed n/4, outside the exact E₁ hypothesis. Five middle-range block orbits and four large-range block orbits allow one to avoid every cycle longer than n/4. The four-part lower-tail estimate uses count≤3≤tL_r and retains the original rate.",
@@ -230722,14 +231024,14 @@
    "owner": "PolynomialGaloisGroupsPartII",
    "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
    "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PolynomialGaloisGroupsPartII",
+   "reviewReason": "At the cited v3 page, E1 controls only pairs with both parts at most n/4, whereas the companion part in Cases2b and3 has no such bound. The packet’s five/four disjoint-orbit repair avoids the at most three cycles longer than n/4, and its four-witness lower-tail proof retains the required rate."
   },
   {
    "id": "PolynomialGaloisGroupsPartII/E2",
    "kind": "error",
-   "locator": "Introduction, p. 4; §11, p. 54 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "locator": "Introduction, p. 4; §11, p. 54 (arXiv v3 only; journal text not read)",
    "printed": "The source asserts equivalence between irreducibility of a polynomial and transitivity of its Galois group.",
    "correction": "For separable polynomials of positive degree. Every use in the paper goes from irreducible to transitive, which holds.",
    "reason": "The reducible polynomial(X²−2)² has a transitive action on its two distinct roots. The pinned orbit/irreducibility equivalence requires separability and positive degree, which every use here retains.",
@@ -230743,14 +231045,14 @@
    "owner": "PolynomialGaloisGroupsPartII",
    "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
    "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PolynomialGaloisGroupsPartII",
+   "reviewReason": "Both cited v3 passages state the unqualified equivalence for the action on distinct roots. The repeated polynomial(X²−2)² is a counterexample to the reverse direction. The packet retains separability and positive degree in every use of the pinned equivalence."
   },
   {
    "id": "PolynomialGaloisGroupsPartII/E3",
    "kind": "misprint",
-   "locator": "proof of Lemma 12.8, p. 62 (arXiv v3; the author version of 24 May 2023 has the same text and pages; the published pagination was not seen)",
+   "locator": "proof of Lemma 12.8, p. 62 (arXiv v3 only; journal text not read)",
    "printed": "The source says that E₁’s condition is satisfied whenever p ⩾ n^{κα} ⩾ n^{1/40}, and therefore covers p ∈ P.",
    "correction": "n^{κα} ≤ n^{1/40} < n^{1/8} < p.",
    "reason": "α ≤ 1/40 and κ ≤ 1, so n^{κα} ≤ n^{1/40}; the argument needs p ≥ n^{κα}, which holds because p > n^{1/8}.",
@@ -230764,14 +231066,14 @@
    "owner": "PolynomialGaloisGroupsPartII",
    "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
    "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PolynomialGaloisGroupsPartII",
+   "reviewReason": "The v3 proof reverses the comparison between n^(κα) and n^(1/40). With κ≤1,α≤1/40,n≥1, the former is at most the latter; the prime bound p>n^(1/8) still supplies the required threshold."
   },
   {
    "id": "PolynomialGaloisGroupsPartII/E4",
    "kind": "misprint",
-   "locator": "proof of Lemma 12.9, Case 1, p. 63 (arXiv v3; the published pagination was not seen)",
+   "locator": "proof of Lemma 12.9, Case 1, p. 63 (arXiv v3 only; journal text not read)",
    "printed": "The source reasons that merging parts of ρ produces these lengths, so some subset U of the parts of ρ must satisfy Σ_{u∈U} = nr′/r.",
    "correction": "Σ_{u∈U} u = nr′/r.",
    "reason": "The E₂ argument needs the sum of the part values, not an expression without a summand. The preceding construction and the next invocation of Lemma12.3 uniquely determine the intended statement.",
@@ -230785,9 +231087,9 @@
    "owner": "PolynomialGaloisGroupsPartII",
    "file": "research/blueprint/packets/PolynomialGaloisGroupsPartII.json",
    "citation": "Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma, Irreducibility of random polynomials: general measures, arXiv:2007.14567v3, final preprint, June 2023; published Invent. Math. 233 (2023), 1041–1120, DOI 10.1007/s00222-023-01193-6. Locators below use the 65-page preprint, not the journal pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-PolynomialGaloisGroupsPartII",
+   "reviewReason": "The v3 displayed sum in Case1 omits its summand. Its context requires the sum of part values equal to the size of the invariant union, so adding u repairs the formula without altering the argument."
   },
   {
    "id": "PotentialAutomorphyInfrastructure/E1",
@@ -249057,9 +249359,9 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "The published preparation condition (2), p. 32, prints a global field degree over Q_p. The corrected global degree over Q is also the one used in the local-degree sum and the analogous ACC/MT preparation."
   },
   {
    "id": "WeightZeroCrystallineAutomorphyLifting/E2",
@@ -249078,9 +249380,9 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "The displayed polynomial on p. 31 has a positive final term. Its preceding alternating formula and the n=1 and n=3 characteristic-polynomial specializations require the stated sign."
   },
   {
    "id": "WeightZeroCrystallineAutomorphyLifting/E3",
@@ -249099,9 +249401,9 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "The initial g values on ACC pp. 174 and 185 subtract n²f, while the later recollections on pp. 175 and 186 subtract nf. MT Proposition 6.7, p. 22, changes qn to q while retaining n²f; the packet dimension identity confirms that count."
   },
   {
    "id": "WeightZeroCrystallineAutomorphyLifting/E4",
@@ -249119,9 +249421,9 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "ACC Proposition 6.5.13 states every-place local identities, but its proof on pp. 175–176 explicitly compares almost all places. The parent supplier includes the missing actual local base-change/LLC input; Frobenius uniqueness alone does not supply monodromy at bad places."
   },
   {
    "id": "WeightZeroCrystallineAutomorphyLifting/E5",
@@ -249139,9 +249441,9 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "The quadratic example on ACC p. 178 omits congruences at the finite test set that its preceding splitting requirement needs. Including those congruences is compatible with the bad-prime choices and is necessary for the claimed test-place image argument."
   },
   {
    "id": "WeightZeroCrystallineAutomorphyLifting/E6",
@@ -249160,9 +249462,29 @@
    "owner": "WeightZeroCrystallineAutomorphyLifting",
    "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
    "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "BCGNT Theorem 3.2.5 has no cyclotomic noncontainment assumption, whereas MT Proposition 6.7 explicitly has it. The prepared conditions do not imply noncontainment. This confirms a missing justification for that method at ζ_p∈F, not a counterexample; the separate G7 gap remains honest and the final theorem supplies noncontainment."
+  },
+  {
+   "id": "WeightZeroCrystallineAutomorphyLifting/E7",
+   "kind": "gap",
+   "locator": "§2 selected-block projector, pp. 7–9; §3 parahoric diamond definition, pp. 10–11; §5 partitions and localized polynomial order, pp. 18–20; Theorem 7.6, p. 26, published PDF",
+   "printed": "The local projector and diamond construction use the last block, but the later global partitions and polynomial ordering put the selected eigenvalue block first. This records the discrepancy in our own words.",
+   "correction": "Use one consistent ordered-block convention throughout the local and global comparison. This packet specifies (n−d,d) with the selected block last; SR.2/SR.5/ALS.6 must verify the matching projector, level-growth map, boundary Hecke map and diamond-linear Galois deformation condition together.",
+   "reason": "For unequal block sizes, the last-block determinant in the printed (d,n−d) partition belongs to the complement, while the selected eigenvalue polynomial has degree d. Permuting only the partition leaves the diamond action and selected polynomial inconsistent.",
+   "affects": "the proof",
+   "known": "No resolution established in the consulted published text or atlas source-issue register. This is a comparison obligation, not a claim that the automorphy theorem is false.",
+   "searched": [
+    "MT published §§2–3, §5 and Theorems 7.6–7.7",
+    "Atlas data/source-issues.json and available MT references in paper/parent packets"
+   ],
+   "owner": "WeightZeroCrystallineAutomorphyLifting",
+   "file": "research/blueprint/packets/WeightZeroCrystallineAutomorphyLifting.json",
+   "citation": "Sources of the blueprint of WeightZeroCrystallineAutomorphyLifting",
+   "status": "confirmed",
+   "reviewedBy": "REV-DESIGN-WeightZeroCrystallineAutomorphyLifting",
+   "reviewReason": "The displayed first-block selected polynomial on pp. 18–20 and 26 disagrees with the last-block kernel and projector on pp. 7–11. The repaired specification is internally consistent; the full global comparison is explicitly requested rather than assumed."
   },
   {
    "id": "WeightsInEtaleCohomology/E1",
