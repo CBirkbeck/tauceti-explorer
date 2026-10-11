@@ -1880,6 +1880,31 @@ end DistinctInvolutionClassesExample
 
 /-! ## RS.5: native semidirect-product interfaces -/
 
+section FiniteIntegralHomologyContract
+-- These are consequences of existing transfer and finite integral bar chains,
+-- not a second construction of transfer. The supplier remains to be assigned.
+lemma integral_homology_finite (G : Type) [Group G] [Finite G] (n : ℕ) :
+    Finite (groupHomology (Rep.trivial ℤ G ℤ) (n + 1)) := by sorry
+
+lemma integral_homology_card_smul (G : Type) [Group G] [Finite G] (n : ℕ)
+    (z : groupHomology (Rep.trivial ℤ G ℤ) (n + 1)) :
+    (Nat.card G) • z = 0 := by sorry
+
+-- finite_integral_homology_test_1: the trivial group has no positive homology.
+example (G : Type) [Group G] [Subsingleton G] (n : ℕ) :
+    Subsingleton (groupHomology (Rep.trivial ℤ G ℤ) (n + 1)) := by sorry
+
+-- finite_integral_homology_test_2: cyclic positive homology distinguishes parity.
+example (n : ℕ) :
+    Nat.card (groupHomology (Rep.trivial ℤ Two ℤ) (2 * n + 1)) = 2 ∧
+    Subsingleton (groupHomology (Rep.trivial ℤ Two ℤ) (2 * (n + 1))) := by sorry
+
+-- finite_integral_homology_test_3: degree zero is infinite and not order-annihilated.
+example :
+    Infinite (groupHomology.H0 (Rep.trivial ℤ Two ℤ)) ∧
+    (2 : ℕ) • groupHomology.H0π (Rep.trivial ℤ Two ℤ) (1 : ℤ) ≠ 0 := by sorry
+end FiniteIntegralHomologyContract
+
 section CoprimeEdgeContract
 variable {H Γ : Type} [Group H] [Group Γ] [Finite H] [Finite Γ]
 lemma coprime_degree_two_edge (φ : Γ →* MulAut H)
@@ -1898,6 +1923,32 @@ lemma cyclic_coprime_complement_conjugacy [IsCyclic Γ]
     ∃ h : H, ∀ g : K, g.val = SemidirectProduct.inl h *
       SemidirectProduct.inr g.val.right * (SemidirectProduct.inl h)⁻¹ := by sorry
 end CoprimeEdgeContract
+
+section CoprimeEdgeTests
+-- coprime_degree_two_edge_test_1: a trivial quotient retains the inclusion map.
+example {H Γ : Type} [Group H] [Group Γ] [Finite H] [Subsingleton Γ]
+    (φ : Γ →* MulAut H) :
+    Function.Bijective
+      (integral_multiplier_map (SemidirectProduct.inl : H →* H ⋊[φ] Γ)) := by sorry
+
+-- coprime_degree_two_edge_test_2: inversion on C₃² acts trivially on its exterior square.
+example (φ : Two →* MulAut (C3 × C3))
+    (hφ : ∀ t : Two, ∀ h : C3 × C3, φ t h = if t = 1 then h else h⁻¹) :
+    (∀ t : Two, integral_multiplier_map (φ t).toMonoidHom =
+      AddMonoidHom.id (IntegralMultiplier (C3 × C3))) ∧
+    Function.Bijective (integral_multiplier_map
+      (SemidirectProduct.inl : C3 × C3 →* (C3 × C3) ⋊[φ] Two)) ∧
+    Nat.card (IntegralMultiplier ((C3 × C3) ⋊[φ] Two)) = 3 := by sorry
+
+-- coprime_degree_two_edge_test_3: a shared prime contributes a mixed product class.
+example :
+    let φ : Two →* MulAut Two := 1
+    Nat.card (IntegralMultiplier (Two ⋊[φ] Two)) = 2 ∧
+    Nat.card (integral_multiplier_map
+      (SemidirectProduct.rightHom : Two ⋊[φ] Two →* Two)).ker = 2 ∧
+    ¬ Function.Surjective (integral_multiplier_map
+      (SemidirectProduct.inl : Two →* Two ⋊[φ] Two)) := by sorry
+end CoprimeEdgeTests
 
 section ComplementConjugacyTests
 -- cyclic_complement_conjugacy_test_1: a trivial quotient has only the trivial complement.
