@@ -200596,6 +200596,201 @@
    "reviewReason": null
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E301",
+   "kind": "error",
+   "locator": "Corollary 3.6.2, p.20, authors' final version (arXiv:2106.15038)",
+   "printed": "The derivative difference ∂Den^ε(L) − ∂Den^ε(L̃) is given by a multiple of Den^{♭ε}(1,L^♭) in each case of χ(L^♭), including c = εχ(L^♭) = +1.",
+   "correction": "For c = +1 the difference is −2(Den^{♭ε})′(1,L^♭); for c = 0 it is 2Den^{♭ε}(1,L^♭) and for c = −1 it is Den^{♭ε}(1,L^♭).",
+   "reason": "Differentiating A(X) = X²B(X) + (1 − X²)D(X)/(1 − cX) at X = 1 with A(1) = B(1) = 0: for c = +1 the quotient is (1 + X)D(X) with D(1) = 0, whose derivative at 1 is 2D′(1), so the printed term (a multiple of D(1) = 0) loses it.",
+   "affects": "a stated result",
+   "known": "Recorded in the extraction of this paper as PAPER-LI-ZHANG-22/E8; no published correction found",
+   "searched": [
+    "arXiv listing of 2106.15038 (all versions)",
+    "PAPER-LI-ZHANG-22 extraction and its review in this repository"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Chao Li and Wei Zhang, On the arithmetic Siegel–Weil formula for GSpin Shimura varieties, arXiv:2106.15038 (authors' final version of 2 March 2022; Invent. Math. 228 (2022))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E302",
+   "kind": "error",
+   "locator": "Lemma 3.2.1, p.11 (simplified form)",
+   "printed": "The simplified closed formula for #O(U,V) is asserted for all U of dimension n ≤ m.",
+   "correction": "Use the orbit–stabilizer count; the simplified expression fails for U = 0 with m even, where the count is 1.",
+   "reason": "Brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3): 160 of 166 configurations agree, the six exceptions being U = 0 with m even.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-LI-ZHANG-22/E1; no published correction found",
+   "searched": [
+    "arXiv listing of 2106.15038",
+    "PAPER-LI-ZHANG-22 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Chao Li and Wei Zhang, On the arithmetic Siegel–Weil formula for GSpin Shimura varieties, arXiv:2106.15038 (authors' final version of 2 March 2022; Invent. Math. 228 (2022))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E303",
+   "kind": "error",
+   "locator": "Lemmas 8.2.4 and 8.2.6, pp.56–59",
+   "printed": "For every non-maximal full-type L there is an index-q overlattice M with the relative identity μ_{0,+}(L,M) = μ_{0,−}(L,M) (t odd) or μ_+(L,M) + μ_0(L,M) = qμ_+(L,M) (t even).",
+   "correction": "The existence holds under the additional hypothesis a_t ≥ 3; in general it fails.",
+   "reason": "Counterexamples over Z_3: diag(3,3,9), diag(3,3) and diag(9,9) have no such index-3 full-type overlattice.",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-LI-ZHANG-22/E10; no published correction found",
+   "searched": [
+    "arXiv listing of 2106.15038",
+    "PAPER-LI-ZHANG-22 extraction and review"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Chao Li and Wei Zhang, On the arithmetic Siegel–Weil formula for GSpin Shimura varieties, arXiv:2106.15038 (authors' final version of 2 March 2022; Invent. Math. 228 (2022))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E304",
+   "kind": "error",
+   "locator": "§5.4.3, (51), p.30, and §5.4.5, (55), p.31 (arXiv:1511.02212v1)",
+   "printed": "The logarithm of the mass of unimodular hermitian lattices grows like [K:Q]n² log n, and n_{L,n} is bounded with leading coefficient 1.",
+   "correction": "The leading coefficient is (1/2)[K:Q], and (55) bounds log n_{L,n}.",
+   "reason": "The factorial product displayed in (39) gives Σ_{d=1}^n log((d−1)!) = (1/2)n² log n − (3/4)n² + O(n log n).",
+   "affects": "a stated result",
+   "known": "Recorded as PAPER-LIPNOWSKI-TSIMERMAN-18/E13; the published version was not collated",
+   "searched": [
+    "arXiv listing of 1511.02212",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Michael Lipnowski and Jacob Tsimerman, How large is A_g(F_q)?, arXiv:1511.02212v1 (Duke Math. J. 167 (2018))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E305",
+   "kind": "misprint",
+   "locator": "§5.4.1, (41), p.27",
+   "printed": "The real absolute values of the discriminant of (1, π) are p sin²θ.",
+   "correction": "They are 4p sin²θ, so N_{K/Q}(D_{L/K}) ≤ (4p)^{[K:Q]}.",
+   "reason": "disc(1,π) = (π − π̄)² and |π − π̄| = 2√p|sin θ|.",
+   "affects": "nothing",
+   "known": "Recorded in PAPER-LIPNOWSKI-TSIMERMAN-18 (relative-discriminant item); no published correction found",
+   "searched": [
+    "PAPER-LIPNOWSKI-TSIMERMAN-18 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Michael Lipnowski and Jacob Tsimerman, How large is A_g(F_q)?, arXiv:1511.02212v1 (Duke Math. J. 167 (2018))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E306",
+   "kind": "error",
+   "locator": "Lemma 9.6, pp.74–75, authors' final version",
+   "printed": "For L^♭ of rank n − 1 and x ∉ L^♭ ⊥ W there are L′^♭ and x′ with smaller val(L′^♭) and the same span.",
+   "correction": "True when the top invariant a′_n of L^♭ + ⟨x⟩ is even; when a′_n is odd and a′_1 + … + a′_{n−1} = val(L^♭) − 1 every rank-(n−1) summand has even valuation ≥ val(L^♭).",
+   "reason": "The proof shows a′_1 + … + a′_{n−1} < val(L^♭) via minors, which does not produce a summand of smaller valuation in a hyperbolic block of odd invariant.",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-HE-LI-SHI-ETAL-23/E7; no published correction found",
+   "searched": [
+    "arXiv listing of 2208.07988",
+    "PAPER-HE-LI-SHI-ETAL-23 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, A proof of the Kudla–Rapoport conjecture for Krämer models, arXiv:2208.07988, authors' final version of 21 July 2023 (Invent. Math. 2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E307",
+   "kind": "error",
+   "locator": "(5.8), p.36, branch n even and ϵ = −1",
+   "printed": "A closed formula for c_{t_max} in both signs ϵ.",
+   "correction": "Only the ϵ = +1 branch holds; c_t is defined by Corollary 5.10.",
+   "reason": "The table of Example 5.11 covers χ(V) = +1 only; recomputation from Corollary 6.2 contradicts the other branch.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-HE-LI-SHI-ETAL-23/E22; the paper presents (5.8) as observed, not proved",
+   "searched": [
+    "PAPER-HE-LI-SHI-ETAL-23 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, A proof of the Kudla–Rapoport conjecture for Krämer models, arXiv:2208.07988, authors' final version of 21 July 2023 (Invent. Math. 2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E308",
+   "kind": "misprint",
+   "locator": "Remark 2.4, p.581 (published version)",
+   "printed": "In the torsion-module form of the Cho–Yamauchi formula the weight is m(t′(Q′);T).",
+   "correction": "The weight is m(t′(Q′^⊥/Q′);T).",
+   "reason": "Q′ corresponds to L′/L and the type is that of the dual quotient L′^∨/L′ = Q′^⊥/Q′.",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-FENG-YUN-ZHANG-24/E4; no published correction found",
+   "searched": [
+    "PAPER-FENG-YUN-ZHANG-24 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Tony Feng, Zhiwei Yun and Wei Zhang, Higher Siegel–Weil formula for unitary groups: the non-singular terms, Invent. Math. 236 (2024); arXiv:2103.11514",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E309",
+   "kind": "error",
+   "locator": "§4.1, (4.2), pp.15–16, and Lemma 4.2, p.16 (arXiv:1909.07473)",
+   "printed": "s_i is the number of Jordan blocks with ν_j = i.",
+   "correction": "s_i is the total rank Σ_{j:ν_j=i} rank L_j, as in Hanke p.360; at p = 2 rank-two blocks count twice.",
+   "reason": "For Q = ab + cd + 2t² and m = 2 at p = 2, the reduction factor 2^{5−s_0} matches the counts 32/16 and 640/320 only with s_0 = 4.",
+   "affects": "the proof",
+   "known": "Recorded as PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E7; odd-prime formulas unaffected",
+   "searched": [
+    "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields, Forum Math. Pi 10 (2022), e21; arXiv:1909.07473 (pages of the arXiv version)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E310",
+   "kind": "misprint",
+   "locator": "Example 3.5.2, p.18 (arXiv:1908.01701v3)",
+   "printed": "The rank-one derivative formula is conditioned on val(L^♭) being odd.",
+   "correction": "The condition is that val(L) is odd.",
+   "reason": "In rank one there is no L^♭; the formula ∂Den(L) = (val(L) + 1)/2 follows from Theorem 3.5.1 for odd val(L).",
+   "affects": "nothing",
+   "known": "Recorded as PAPER-LI-ZHANG-22-B/E4",
+   "searched": [
+    "PAPER-LI-ZHANG-22-B extraction"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json",
+   "citation": "Chao Li and Wei Zhang, Kudla–Rapoport cycles and derivatives of local densities, arXiv:1908.01701v3 (J. Amer. Math. Soc. 35 (2022)); arXiv pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "kind": "error",
    "locator": "§3, second paragraph, top of printed p. 5 (the paragraph begins on p. 4; arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
