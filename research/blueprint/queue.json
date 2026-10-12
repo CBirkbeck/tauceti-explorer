@@ -50175,8 +50175,9 @@
     "PKG-AbelianSchemesAndArithmeticModuli"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianSchemesAndArithmeticModuli.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8893"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8893",
+   "finishedAt": "2026-10-12T18:18:11Z"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuliPartII",
@@ -51827,7 +51828,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8890"
   },
   {
    "id": "REV-PKG-CrystallineCohomology",
