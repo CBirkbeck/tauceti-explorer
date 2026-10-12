@@ -82,11 +82,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "cb57586",
       "review": {
-        "recommendation": "approve",
-        "head": "4ec3f29",
+        "recommendation": "changes",
+        "head": "cb57586",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head cb57586 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "AdicEtaleGeometry": {
