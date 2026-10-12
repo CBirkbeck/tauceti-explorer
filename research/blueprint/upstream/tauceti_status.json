@@ -29,8 +29,8 @@
     "ReductiveGroupsPartII": {
       "stage": "pr",
       "pr": 785,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "ac5bdc8",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "ce48de2",
       "review": {
         "recommendation": "approve",
         "head": "bd3d0c3",
@@ -44,8 +44,8 @@
       "depends_on": [
         785
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "a603af7",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "adc06c2",
       "review": {
         "recommendation": "approve",
         "head": "d3a280e",
@@ -59,8 +59,8 @@
       "depends_on": [
         785
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "f2dd8d9",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "8d696f3",
       "review": {
         "recommendation": "approve",
         "head": "b4232aa",
@@ -74,8 +74,8 @@
       "depends_on": [
         793
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "5fa34bd",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "adf0421",
       "review": {
         "recommendation": "approve",
         "head": "645d8e4",
@@ -89,24 +89,24 @@
       "depends_on": [
         813
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "7477eae",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "98f8173",
       "review": {
         "recommendation": "approve",
         "head": "980fbe3",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
     "AdicSpacesPartII": {
       "stage": "pr",
       "pr": 817,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "97e909a",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "b4e4fc8",
       "review": {
         "recommendation": "approve",
         "head": "97e909a",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
@@ -116,24 +116,24 @@
       "depends_on": [
         818
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "24496fb",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "6f237d3",
       "review": {
         "recommendation": "approve",
         "head": "24496fb",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
     "PerfectoidSpaces": {
       "stage": "pr",
       "pr": 818,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "fd02d44",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "d800237",
       "review": {
         "recommendation": "approve",
         "head": "fd02d44",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
@@ -143,12 +143,12 @@
       "depends_on": [
         817
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "0d300a1",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "2ad395f",
       "review": {
         "recommendation": "approve",
         "head": "c67b41e",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
@@ -158,12 +158,12 @@
       "depends_on": [
         814
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "dbd7b77",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "6c9b3ff",
       "review": {
         "recommendation": "approve",
         "head": "dbd7b77",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
@@ -173,12 +173,12 @@
       "depends_on": [
         818
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "4c57000",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
+      "head": "88de410",
       "review": {
         "recommendation": "approve",
         "head": "4c57000",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     }
