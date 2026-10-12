@@ -50174,7 +50174,8 @@
     "PKG-AbelianSchemesAndArithmeticModuli"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8893"
   },
   {
    "id": "PKG-AbelianSchemesAndArithmeticModuliPartII",
@@ -54194,8 +54195,9 @@
     "PKG-InverseGaloisAndArithmeticFundamentalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8896"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8896",
+   "finishedAt": "2026-10-12T17:41:25Z"
   },
   {
    "id": "PKG-JacobianChallengePartII",
