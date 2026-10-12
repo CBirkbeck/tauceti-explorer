@@ -218478,6 +218478,107 @@
    "reviewReason": "Found in this review and read at the locator in the author's DVI. The node L7/height-lattice-moduli (4) states the module as projective and records the difference."
   },
   {
+   "id": "LocallyAnalyticDistributions/E7",
+   "kind": "misprint",
+   "locator": "Proof of Theorem II.3.2(ii), the display defining b_{i,k}, printed p. 33 of the author PDF (page image checked)",
+   "printed": "b_{i,k} is displayed as the integral over i + p^{ℓ(i)}ℤ_p of p^{[rℓ(i)]} times ((x − a)/p^n)^k against μ.",
+   "correction": "The integrand is p^{[rℓ(i)]}((x − i)/p^{ℓ(i)})^k, that is b_{i,k} = ∫ e_{i,k,r} μ.",
+   "reason": "At this point of the proof a and n are not bound. The first equality in the same display is b_{i,k} = ∫e_{i,k,r}μ, and e_{i,k,r} is p^{[ℓ(i)r]}1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k by its definition on p. 21; the bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1 that follows uses exactly this ball and variable. Recorded in LocallyAnalyticDistributions:L2/wavelet-value-bound.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "12 October 2026: searched the atlas errata register (research/errata/REGISTER.md) and every blueprint packet's sourceIssues for this source: no entry concerns this passage (the parent packet LocallyAnalyticDistributions.json has none for Colmez).",
+    "Colmez's IMJ-PRG page lists only the author PDF used here (hash above); the Astérisque 330 version of record is not freely readable and was not checked. Bounded search, not proof that no correction exists."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L2.json",
+   "citation": "Pierre Colmez, Fonctions d'une variable p-adique, Author's PDF on his IMJ-PRG page (47 pages, its own pagination 1–47, equal to the PDF page numbers); published in Astérisque 330 (2010). Page numbers below are those of the PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E8",
+   "kind": "error",
+   "locator": "Proposition I.5.6 and its one-line proof, printed p. 20 of the author PDF (page image checked)",
+   "printed": "If φ_1 : ℤ_p → ℤ_p and φ_2 : ℤ_p → L are of class C^r, then φ_2∘φ_1 is of class C^r; the proof refers to the composition of limited expansions in the archimedean case. No restriction on r ≥ 0 is stated.",
+   "correction": "The statement holds for r = 0 and for r ≥ 1 (De Ieso's proof of his Proposition 2.12 with F = ℚ_p), and for 0 < r < 1 when φ_1 is Lipschitz (v_p(φ_1(x) − φ_1(y)) ≥ v_p(x − y) − c), for example locally analytic or of class C^1. For 0 < r < 1 and φ_1 merely of class C^r it is false. LocallyAnalyticDistributions:L2/cr-composition states the corrected version.",
+   "reason": "Take r = 1/2 and d(x) = Σ_n a_n(x)p^{⌊2n/3⌋} for x = Σ_n a_n(x)p^n with digits 0 ≤ a_n(x) < p. If v_p(y) ≥ h the digits of x and x + y agree below h, so v_p(d(x + y) − d(x)) ≥ ⌊2h/3⌋, and ⌊2h/3⌋ − h/2 → ∞: d is of class C^{1/2} (with d^{(0)} = d), with values in ℤ_p. But d(p^m) = p^{⌊2m/3⌋} and d(d(p^m)) − d(d(0)) = p^{⌊2⌊2m/3⌋/3⌋}, of valuation at most 4m/9, so inf_{x, y∈p^mℤ_p} v_p(d∘d(x + y) − d∘d(x)) − m/2 ≤ −m/18 → −∞ and d∘d is not of class C^{1/2}. The archimedean analogue fails in the same way: Hölder exponents multiply under composition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "12 October 2026: searched the atlas errata register (research/errata/REGISTER.md) and every blueprint packet's sourceIssues for this source: no entry concerns this passage (the parent packet LocallyAnalyticDistributions.json has none for Colmez).",
+    "Colmez's IMJ-PRG page lists only the author PDF used here (hash above); the Astérisque 330 version of record is not freely readable and was not checked. Bounded search, not proof that no correction exists."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L2.json",
+   "citation": "Pierre Colmez, Fonctions d'une variable p-adique, Author's PDF on his IMJ-PRG page (47 pages, its own pagination 1–47, equal to the PDF page numbers); published in Astérisque 330 (2010). Page numbers below are those of the PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E9",
+   "kind": "error",
+   "locator": "Proposition 2.12 (composition of functions), printed p. 12, and the first sentence of its proof, printed p. 13 (page images checked)",
+   "printed": "For every r ≥ 0 and every h : O_F → O_F of class C^{r,id}, f ↦ f∘h maps C^r(O_F, E) continuously to itself; the proof treats [r] ≥ 1 and calls the case [r] = 0 easy, leaving it to the reader.",
+   "correction": "Restrict the case [r] = 0 to r = 0, or to 0 < r < 1 with h Lipschitz. The proof given for [r] ≥ 1 is unaffected.",
+   "reason": "For F = ℚ_p (O_F = ℤ_p) and r = 1/2, the digit map d of LocallyAnalyticDistributions/E8 is of class C^{1/2,id} (its first differences on p^kℤ_p have valuation ≥ ⌊2k/3⌋, so the quantity C_{h,r}(k) of Definition 2.10 tends to 0), and f = d is of class C^{1/2}, but f∘h = d∘d is not.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "12 October 2026: arXiv lists only v1 of 1203.6766; no later version or erratum is attached to the record.",
+    "Searched the atlas errata register and the blueprint packets' sourceIssues for De Ieso: no entry. The journal version, if any, was not located or read. Bounded search."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L2.json",
+   "citation": "Marco De Ieso, Espaces de fonctions de classe C^r sur O_F, arXiv:1203.6766v1, 30 March 2012, 33 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E10",
+   "kind": "misprint",
+   "locator": "Definition 2.10, the display defining ε_{h,[r]}, printed p. 12 (page image checked)",
+   "printed": "The remainder of h is displayed as f(x + y) minus the Taylor polynomial Σ_{i≤[r]} h^{(i)}(x)y^i/i!.",
+   "correction": "The remainder is h(x + y) − Σ_{i≤[r]} h^{(i)}(x)y^i/i!.",
+   "reason": "Definition 2.10 defines a property of h alone; f is the unrelated function of the preceding paragraph, and Lemma 2.11 and the norm ‖h‖_{C^{r,id}} on the same page use the remainder of h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "12 October 2026: arXiv lists only v1 of 1203.6766; no later version or erratum is attached to the record.",
+    "Searched the atlas errata register and the blueprint packets' sourceIssues for De Ieso: no entry. The journal version, if any, was not located or read. Bounded search."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L2.json",
+   "citation": "Marco De Ieso, Espaces de fonctions de classe C^r sur O_F, arXiv:1203.6766v1, 30 March 2012, 33 pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E11",
+   "kind": "error",
+   "locator": "arXiv:1304.4042v2, Definition 12 and Remark 13, printed p. 6; arXiv:1304.4042v1, Definition 2.12 and Remark 2.13, printed pp. 4–5",
+   "printed": "v2 defines order (r_1, …, r_g) by the simultaneous first-difference quantity minus Σ r_im_i tending to infinity along the filter of cofinite subsets of ℕ^g, exactly as v3 does, and claims the same completed-tensor identification; v1 states the limit only as (m_1, …, m_g) → ∞, without naming the filter, and defines the valuation as the infimum over all tuples.",
+   "correction": "As for LocallyAnalyticDistributions/E3: use the completed projective tensor of the one-variable spaces, characterised by mixed van der Put differences (LocallyAnalyticDistributions:L2/vector-order-mixed-differences).",
+   "reason": "In v2 the counterexample of E3 applies verbatim: for r = (1/2, 0), f(x_1, x_2) = 1_{pℤ_p}(x_2) has first-difference quantity 0 at every (m_1, 0), so the condition fails, though f = 1 ⊗ 1_{pℤ_p}. In v1, the cofinite reading fails the same way; under the reading in which every m_i tends to infinity the limit condition holds for f (the quantity is +∞ once m_2 ≥ 1), but the stated valuation includes the tuples (m_1, 0) and equals −∞, so the space is not normed by it. Either reading fails Remark 2.13.",
+   "affects": "a stated result",
+   "known": "known",
+   "searched": [
+    "12 October 2026: read Definition 2.12/12 and Remark 2.13/13 in arXiv v1, v2 and v3 (hashes in sources); the v3 listing comment says the revision corrects interpolation formulae, and §2.3 is unchanged from v2.",
+    "The Warwick repository record 75859 holds the accepted manuscript as padicLfunc-springer.pdf, but the file returns HTTP 401 to the public; the Springer chapter (DOI 10.1007/978-3-642-55245-8_12) is behind a paywall. The published chapter was therefore not read; v2 is typeset in the proceedings' format.",
+    "No author erratum or correction concerning §2.3 was located; bounded search."
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L2.json",
+   "citation": "David Loeffler, P-adic integration on ray class groups and non-ordinary p-adic L-functions, arXiv:1304.4042v2, 22 August 2013, typeset in the format of the Springer proceedings (Definition 12, Remark 13, Theorem 15)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LocallyAnalyticDistributions/E1",
    "kind": "error",
    "locator": "Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.",
