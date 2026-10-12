@@ -18,9 +18,11 @@ and the Chern normalisation, for regular singular connections (Deligne's Riemann
 and nonproper comparison), and for proper log-smooth schemes over the standard log point (Kato's
 logarithmic structures and the logarithmic monodromy triangle).
 
-The roadmap continues the CohomologicalPointCounting/ComplexComparison roadmap of Tau Ceti, whose
-comparison is between étale and singular cohomology with finite coefficients; that roadmap
-excludes coherent GAGA and de Rham comparison, and this one supplies them. The analytic local
+The roadmap continues in the direction of the proposed Tau Ceti roadmap
+CohomologicalPointCounting/ComplexComparison (an open TauCetiRoadmap pull request, not yet on its
+main branch), whose comparison is between étale and singular cohomology with finite coefficients;
+that proposal excludes coherent GAGA and de Rham comparison, and this roadmap supplies them without
+depending on it. The analytic local
 algebra (convergent germs, Weierstrass preparation and division, Oka coherence), the category of
 complex analytic spaces with nilpotents, analytification of schemes and algebraic spaces, flatness
 of the analytic local rings over the algebraic ones, and proper coherent GAGA itself are built in
@@ -89,8 +91,9 @@ log point.
   isomorphism of completions, and analytification of coherent modules is exact); and proper coherent
   GAGA: `properSchemeGagaPushforward` (for proper `f` between schemes of finite type over `ℂ` and
   coherent `F`, the canonical map `(R^q f_*F)^an → R^q f^an_* F^an` is an isomorphism for all `q`;
-  the base need not be proper), `properSchemeGagaEquivalence` (on a proper scheme, analytification is
-  an exact equivalence of coherent categories comparing cohomology and every global Ext group) and
+  the base need not be proper; as a consequence, on a proper scheme coherent cohomology and every
+  global Ext group are compared), `properSchemeGagaEquivalence` (on a proper scheme, analytification
+  is an exact equivalence of coherent categories) and
   `properSpaceComplexGaga` (the same for proper algebraic spaces, with proper pushforward). Projective
   coherent GAGA is the projective case of these statements. Since the local map is a flat local
   homomorphism of local rings, it is faithfully flat (Mathlib's flat-local criterion).
@@ -110,13 +113,11 @@ log point.
   pullback and pushforward, its perfect generator and Tor-independent base change
   (`SF.2/derived-quasi-coherent-category`, `SF.2/derived-pullback-pushforward-qcoh`,
   `SF.2/perfect-generator`, `SF.2/tor-independent-base-change`); Chow's lemma (SF.4c).
-- *DiamondsAndVStacks, D0.* The comparison of the Čech complex of an acyclic cover with derived
-  sheaf cohomology (`D0/cech-to-derived-comparison`).
+- *DiamondsAndVStacks, D0.19.* The Čech-to-derived spectral sequence and the comparison of the
+  Čech complex of an acyclic cover with derived sheaf cohomology.
 
-**Tau Ceti roadmaps this roadmap builds on.** CohomologicalPointCounting/ComplexComparison
-(finite-coefficient Artin comparison; not used for the arbitrary-coefficient comparison of C5);
-AlgebraicVectorBundles (general sheaf-module tensor product, internal Hom, finite local freeness,
-exterior powers, duals and determinants); DifferentialGeometry (smooth differential forms on
+**Tau Ceti roadmaps this roadmap builds on.** AlgebraicVectorBundles (general sheaf-module tensor
+product, internal Hom, finite local freeness, exterior powers, duals and determinants); DifferentialGeometry (smooth differential forms on
 manifolds, wedge product, exterior derivative, integration and Stokes, smooth de Rham cohomology and
 its products, the Laplace–Beltrami operator); AlgebraicTopology (singular chains and cochains with
 arbitrary coefficients, cup products, manifold duality and trace); PDE (scalar elliptic estimates on
@@ -128,6 +129,17 @@ Layers 6 and 12); StableReduction (coherent curve theory); and the completed Hod
 their directions (Hodge stars, Kähler identities, compact elliptic theory on bundles, Ehresmann's
 theorem, Chern connections), the additional target is stated here with its exact relation to the
 supplier.
+
+**Already in the Tau Ceti library.** Montel's theorem for open subsets of `ℂ` is `TauCeti.montel`
+(at the pinned commit); `montelTheorem` in C1.6 is its several-variable form. The current library
+(after the pinned commit) also has singular cohomology with coefficients and its cup product
+(`TopCat.singularCohomology`, `TopCat.singularCup`), the complex of singular chains small for an
+open cover with its subdivision homotopy (`TopCat.smallSingularSubcomplex`,
+`TauCeti.smallSingularSubdivisionHomotopy`), and the stability of Fredholm operators under compact
+perturbation (`ContinuousLinearMap.IsFredholm.add_of_isCompactOperator`). These are used, not
+restated: `SmallSingularCochains` (C5.1) measures smallness by a nesting of neighbourhoods attached
+to the barycentres of the faces of a simplex rather than by one open cover, and `schwartzFiniteness` (C1.6) perturbs a surjection
+whose kernel may be infinite-dimensional, so it is not a statement about Fredholm operators.
 
 **Not built here.** Definable Chow and o-minimal algebraization
 (LogicAndDefinabilityInNumberTheory, LD.6); Borel's algebraicity theorem for maps into arithmetic
@@ -156,7 +168,7 @@ normalisation of modular curves (ModularCurvesPartII, R12.5).
   stalks alone do not give it.
 - **Cohomology** is Mathlib's `Sheaf.H` (Ext from the constant sheaf) and the derived categories of
   sheaves of modules; Čech complexes are Mathlib's `cechComplexFunctor`, compared with derived
-  cohomology through D0.
+  cohomology through DiamondsAndVStacks D0.19.
 - **Linearity of differentials.** Exterior derivatives, connections and differential operators are
   `ℂ`-linear (relative ones `f⁻¹O_S`-linear), never `O_X`-linear. A de Rham complex is a complex of
   sheaves of `ℂ`-vector spaces whose terms happen to be coherent `O_X`-modules; its comparison runs
@@ -220,6 +232,15 @@ normalisation of modular curves (ModularCurvesPartII, R12.5).
   `F^{n+1−p}` complementary): the abstract pure Hodge structure that C5.3 instantiates.
 - `TauCeti.holomorphicSheaf E`: the sheaf of `E`-valued holomorphic functions on `ℂ` (one variable;
   types-valued), used only as a sanity check for the `n = 1` holomorphic sheaf.
+- `TauCeti.montel`: Montel's theorem for a locally bounded sequence of holomorphic maps from an open
+  subset of `ℂ` to a proper complex normed space (subsequence converging locally uniformly, with
+  holomorphic limit); C1.6 extends it to open subsets of `ℂⁿ`.
+- In the current library, after the pinned commit, and used where named: `TopCat.singularCohomology`
+  and `TopCat.singularCup` (singular cohomology with coefficients and cup product),
+  `TopCat.smallSingularSubcomplex` and `TauCeti.smallSingularSubdivisionHomotopy` (chains small for
+  an open cover, and the subdivision homotopy to all chains), and
+  `ContinuousLinearMap.IsFredholm.add_of_isCompactOperator` (compact perturbations of Fredholm
+  operators are Fredholm).
 
 ### From TauCetiRoadmap roadmaps
 
@@ -250,9 +271,6 @@ normalisation of modular curves (ModularCurvesPartII, R12.5).
   fields.
 - **Completed HodgeStructures.** Abstract pure, polarized and mixed Hodge structures, Tate twists and
   morphisms, implemented as the Tau Ceti declarations above.
-- **CohomologicalPointCounting/ComplexComparison.** The finite-coefficient comparison of étale and
-  singular cohomology; this roadmap is its coherent and de Rham sequel and does not use it for
-  arbitrary coefficients.
 
 ### From AlgebraicModuliForArithmeticGeometry, SchemeAndStackFoundations and DiamondsAndVStacks
 
@@ -271,8 +289,9 @@ normalisation of modular curves (ModularCurvesPartII, R12.5).
   `HigherImageComparison` of C0.
 - **SchemeAndStackFoundations.** SF.1 (algebraic spaces, étale sites, effective descent); SF.2 (the site-cohomology, quasi-coherent cohomology and derived
   quasi-coherent declarations named in *Scope and ownership*); SF.4c (Chow's lemma).
-- **DiamondsAndVStacks.** `D0/cech-to-derived-comparison`: on a cover all of whose finite
-  intersections are acyclic for `F`, the Čech complex computes `Sheaf.H F`.
+- **DiamondsAndVStacks.** D0.19 (the Čech-to-derived spectral sequence and acyclic-basis
+  comparison): on a cover all of whose finite intersections are acyclic for `F`, the Čech complex
+  computes `Sheaf.H F`.
 
 ## How to read the build
 
@@ -310,7 +329,7 @@ structure sheaf `O_T` on the objects satisfying `SheafOfModules.IsFinitePresenta
 all `O_T`-linear morphisms of sheaves of modules. Because `O_T` is coherent, finite presentation is
 equivalent to coherence in the classical sense: finite local generation, and finite local
 generation of the relation sheaf of every local finite family of sections (Demailly, *Complex
-Analytic and Differential Geometry*, II.3.11–3.16, pp. 87–89). The API is
+Analytic and Differential Geometry*, II.3.11–3.16, pp. 87–88). The API is
 `CoherentAnalyticModule.ofPresentation` (a local finite cokernel presentation `O^p → O^q → F → 0`
 on a cover gives an object), `CoherentAnalyticModule.presentation_iff` (local finite presentation
 is equivalent to the classical coherence condition over coherent `O_T`) and
@@ -337,9 +356,12 @@ compatible gluing isomorphisms on an open cover glue to a coherent module. Conse
 `CoherentAnalyticModule T` is an abelian full subcategory of all `O_T`-modules, closed under
 extensions. The proof reduces each operation to kernels and cokernels of maps between finite free
 modules, using coherence of `O_T`; Hom is presented as the kernel of a map between finite sums of
-the second argument, and gluing is sheaf descent. The general monoidal structure and internal Hom of
-sheaves of modules are AlgebraicVectorBundles'; this theorem adds coherence of the outputs
-(Demailly, II.3.13–3.16, pp. 88–89, and II.9.12, p. 124). *Needs:* `CoherentAnalyticModule`;
+the second argument, the tensor product as the cokernel of such a map (tensor a local presentation
+of the first argument with the second), and gluing is sheaf descent. The general monoidal structure
+and internal Hom of sheaves of modules are AlgebraicVectorBundles'; this theorem adds coherence of
+the outputs (Demailly, II.3.13–3.16, pp. 87–88, for kernels, images, cokernels and extensions;
+II §9.4, p. 124, for analytic spaces with nilpotents; II, Exercise 11.3 c), p. 127, for Hom; the
+tensor product is the cokernel argument just given). *Needs:* `CoherentAnalyticModule`;
 TauCetiRoadmap.AlgebraicVectorBundles (sheaf-module tensor and internal Hom).
 
 ### C0.2 Coherent analytic ideals and nilpotent quotients
@@ -351,7 +373,7 @@ radical. The API is `CoherentAnalyticIdeal.quotient` (the structure sheaf of the
 `O_T/I`), `CoherentAnalyticIdeal.quotientMap` (`O_T → O_T/I` is surjective with kernel exactly
 `I`) and `CoherentAnalyticIdeal.pullbackQuotientIso` (for a morphism `g : T' → T`, the pullback of
 `O_T/I` is `O_{T'}/I·O_{T'}`: pullback extends the ideal, it does not take the preimage of the
-zero set) (Demailly, II.9.10–9.14, pp. 123–124). *Needs:* `coherentOperations`;
+zero set) (Demailly, II.9.10–9.13, p. 124). *Needs:* `coherentOperations`;
 AlgebraicModuliForArithmeticGeometry §7.10.1 `ComplexAnalyticSpace.closedSubspace`.
 
 **Checks.**
@@ -406,8 +428,11 @@ Prove `coherentAnalytification_faithful`: for `X` locally of finite type over `�
 analytification is faithful and reflects isomorphisms and zero objects. A nonzero coherent module
 has a closed point in its support (finite type over `ℂ` is Jacobson), closed points are complex
 points, and at a complex point `O_{X,x} → O_{X^an,x}` is a flat local homomorphism, hence faithfully
-flat, so the stalk of the analytification is nonzero; apply this to kernels, cokernels and images.
-The functor is not full when `X` is not proper (SGA 1, XII, §1.3 and its proof, printed p. 241).
+flat, so the stalk of the analytification is nonzero; apply this to kernels, cokernels and images
+(SGA 1, XII, Proposition 1.3.1 and its proof, printed pp. 241–242). The functor is not full when `X`
+is not proper: on `A¹` multiplication by `exp(z)` is an endomorphism of `O_{A¹,an}` that is not
+algebraic (Serre, *GAGA*, n° 12, Remarque 1, printed p. 20, notes that the comparison theorems fail
+for affine varieties).
 *Needs:* `CoherentAnalytification`; AlgebraicModuliForArithmeticGeometry §7.10.3
 `completedAnalyticStalkComparison.flat`; Mathlib (a flat local homomorphism of local rings is
 faithfully flat); Mathlib `JacobsonSpace` (schemes locally of finite type over a field).
@@ -417,8 +442,8 @@ products and internal Hom of coherent modules, with dual and determinant of fini
 modules, with restriction to opens, with direct image along closed immersions and with short exact
 sequences. For internal Hom present the first argument by two finite free modules and use exactness
 of analytification on the resulting kernel; tensor, exterior powers and determinants follow from
-the monoidal structure of pullback and local frames (Serre, *GAGA*, §14, Lemma 6 and its proof,
-printed pp. 22–23; SGA 1, XII, §1.3, printed p. 241). *Needs:* `coherentAnalytification_faithful`;
+the monoidal structure of pullback and local frames (Serre, *GAGA*, n° 14, Lemma 6 and its proof,
+printed p. 22; SGA 1, XII, 1.1 a) and 1.3, printed pp. 240–241). *Needs:* `coherentAnalytification_faithful`;
 `coherentOperations`; `completedAnalyticStalkComparison.coherentPullbackExact`.
 
 ### C0.5 The exchange map for higher direct images
@@ -434,7 +459,9 @@ for all `f`; properness is only used to prove it invertible, which is
 pullback–pushforward adjunction map), `HigherImageComparison.naturality` (a morphism of modules
 gives commuting squares in every degree) and `HigherImageComparison.composition` (for composable
 `f`, `g` the derived `θ` of `g ∘ f` is the composite of the exchange maps, compatibly with the Leray
-edge maps) (SGA 1, XII, §4.1–4.2, printed pp. 247–249). *Needs:* `CoherentAnalytification`;
+edge maps) (SGA 1, XII, 4.1 and (4.1.1), printed pp. 247–248, for the degreewise maps `θ^q` and
+their invertibility for proper `f` in Theorem 4.2, pp. 248–249; the derived form and the
+composition law are the construction given here). *Needs:* `CoherentAnalytification`;
 SchemeAndStackFoundations `SF.2/site-derived-pushforward`, `SF.2/site-leray-spectral-sequence`.
 
 **Checks.**
@@ -457,8 +484,9 @@ structure). Properness is not assumed. Upper semicontinuity of the fibre dimensi
 II.8.2, p. 116) shows `A_k` is closed; analyticity is the stronger statement (Peterzil–Starchenko,
 *Complex analytic geometry in a nonstandard setting*, Theorem 7.2 and Lemma 8.2, author PDF
 pp. 21–23, where analyticity of `A_k` is quoted from Whitney, *Complex Analytic Varieties*,
-Theorem 9F, p. 240). Nilpotents do not change local fibre dimensions. The image statement for
-proper maps is in C4 (`remmertProperImage`). *Needs:* AlgebraicModuliForArithmeticGeometry §7.10.1
+Theorem 9F, p. 240, whose proof is the one relied on). Nilpotents do not change local fibre
+dimensions. Only the `B_k` statement of `remmertProperImage` (C4.1) uses the analyticity; elsewhere
+closedness suffices. *Needs:* AlgebraicModuliForArithmeticGeometry §7.10.1
 (`ComplexAnalyticSpace`, `ComplexAnalyticSpace.fibreProduct`).
 
 ### Examples
@@ -503,10 +531,11 @@ Cauchy–Green integral of `g` times a cutoff, differentiates under the integral
 parameters, and removes the `dz̄ⱼ` components one variable at a time, shrinking the polydisc so the
 cutoffs stay inside. The base case `n = 1`, `q = 1` is `localDolbeault_oneVariable`: for smooth
 compactly supported `g`, the Cauchy–Green transform `cauchyGreen g (z) = π⁻¹ ∫ g(w)/(z − w) dλ(w)`
-is smooth and `dbar (cauchyGreen g) = g`, where `dbar f = ½(∂f/∂x + i ∂f/∂y)` (Demailly, I.3.29 and
-its proof, pp. 28–29; Serre, *Faisceaux analytiques sur
-l'espace projectif*, Séminaire Henri Cartan 6 (1953–54), exposé 18, §1, nos. 1–3,
-pp. 18-1–18-4). *Needs:* Mathlib `ContDiff`, `fderiv`, Lebesgue integration on `ℂ`;
+is smooth and `dbar (cauchyGreen g) = g`, where `dbar f = ½(∂f/∂x + i ∂f/∂y)` (Demailly, I.3.29,
+p. 28, for the statement, whose proof there uses the Bochner–Martinelli kernel instead; I.3.2–3.4,
+p. 21, for the one-variable Cauchy–Green solution; Exercise I.8.5, p. 61, for the proof one
+variable at a time; Serre, *Faisceaux analytiques sur l'espace projectif*, Séminaire Henri Cartan 6
+(1953–54), exposé 18, §1, nos. 1–3, pp. 18-1–18-4, for the parameter version). *Needs:* Mathlib `ContDiff`, `fderiv`, Lebesgue integration on `ℂ`;
 TauCetiRoadmap.DifferentialGeometry (forms on manifolds, Layers 0–1).
 
 ### C1.2 The Hodge star, formal adjoints and the Kähler identities
@@ -536,7 +565,8 @@ formal `L²` adjoint of `d`, so on a compact manifold without boundary
 convention is `div ∘ grad`, as is Mathlib's `Δ`; `hodgeLaplacianFun f = −Δ f` records the sign). The API is `HodgeLaplacian.formalAdjoint` (`⟨dα, β⟩ = ⟨α, δβ⟩` for
 compactly supported `α`, `β`, by Stokes and the wedge identity), `HodgeLaplacian.energy` (the
 displayed identity on a compact manifold without boundary) and `HodgeLaplacian.commute_d`
-(`Δd = dΔ` and `Δδ = δΔ`) (Demailly, VI.1.1–1.2, pp. 287–288; VI.3.9–3.14, pp. 293–294).
+(`Δd = dΔ` and `Δδ = δΔ`, immediate from `d² = 0` and `δ² = 0`) (Demailly, VI.1.5, p. 288, for
+formal adjoints; VI.3.9–3.14, pp. 292–294; the energy identity follows (3.15), p. 295).
 *Needs:* `HodgeStar`; TauCetiRoadmap.DifferentialGeometry (Stokes, Layer 5; `laplaceBeltrami`,
 Layer 12).
 
@@ -642,12 +672,16 @@ ambient chart and pass along a countable exhaustion by sublevel sets with Runge-
 
 Prove `montelTheorem`: for an open `Ω ⊆ ℂⁿ`, a sequence of holomorphic functions on `Ω` that is
 uniformly bounded on every compact subset has a subsequence converging uniformly on compact
-subsets; equivalently, for `Ω' ⋐ Ω` the restriction map between the Fréchet spaces of holomorphic
-functions is compact (Demailly, I.3.12, p. 23). *Needs:* Mathlib Arzelà–Ascoli, Cauchy estimates.
+subsets, and the limit is holomorphic; equivalently, for `Ω' ⋐ Ω` the restriction map between the
+Fréchet spaces of holomorphic functions is compact (Demailly, I.3.12, p. 23). It differs from Tau
+Ceti's `TauCeti.montel` only in allowing several variables: Cauchy estimates on polydiscs give
+equicontinuity on compacts and the Arzelà–Ascoli argument of the one-variable proof applies
+unchanged. *Needs:* Tau Ceti `TauCeti.montel` (the one-variable case and its compactness
+argument); Mathlib Arzelà–Ascoli, Cauchy estimates.
 
 Prove `schwartzFiniteness` (L. Schwartz): let `E`, `F` be Fréchet spaces, `g : E → F` a continuous
 linear surjection and `h : E → F` a compact linear map. Then `g + h` has closed image of finite
-codimension (Demailly, IX.1.8–1.9, p. 406). Its special case for Banach spaces is
+codimension (Demailly, IX.1.8–1.9, pp. 406–407). Its special case for Banach spaces is
 `schwartzFiniteness_banach`. *Needs:* Mathlib open mapping theorem for Fréchet spaces,
 `IsCompactOperator`.
 
@@ -655,11 +689,10 @@ Prove `cartanSerreFiniteness`: for a compact complex analytic space `T` (nilpote
 coherent analytic module `F`, every `H^q(T, F)` is a finite-dimensional complex vector space, and
 `H^q(T, F) = 0` for `q > dim T`. The sections of a coherent module on a distinguished chart carry a
 Fréchet topology induced from a local presentation; for finite covers `U'_α ⋐ U_α` by strongly
-1-complete charts both Čech complexes compute `H^q` (Cartan B and D0), the refinement map is
+1-complete charts both Čech complexes compute `H^q` (Cartan B and D0.19), the refinement map is
 compact by Montel and surjective on cohomology, and Schwartz's theorem gives finite dimension
 (Demailly, IX.4.6–4.8 and proof, pp. 422–424; vanishing above the dimension IX.4.15, p. 428).
-*Needs:* `montelTheorem`; `schwartzFiniteness`; `cartanTheoremB`; DiamondsAndVStacks
-`D0/cech-to-derived-comparison`.
+*Needs:* `montelTheorem`; `schwartzFiniteness`; `cartanTheoremB`; DiamondsAndVStacks D0.19.
 
 ### C1.7 Projective charts and analytic twisting sheaves
 
@@ -667,8 +700,9 @@ Prove `projectiveLerayCover`: on the analytification of `Pʳ`, the standard affi
 `Uᵢ = {Zᵢ ≠ 0}` and all their finite intersections (repeated indices allowed) are isomorphic to
 `ℂᵃ × (ℂ*)ᵇ`, hence strongly 1-complete; so for every coherent analytic module on `Pʳ_an`, or on a
 closed analytic subspace, the alternating Čech complex of this cover computes `Sheaf.H` in every
-degree (Serre, exposé 18, §2, no. 5, Proposition 4 and the chart intersections, pp. 18-5–18-6).
-*Needs:* `cartanTheoremB`; DiamondsAndVStacks `D0/cech-to-derived-comparison`; Mathlib
+degree (Serre, exposé 18, §2, no. 5, Proposition 4 and its corollary, pp. 18-5–18-6, for the standard
+cover; that the intersections are products of affine and punctured lines is read off the charts).
+*Needs:* `cartanTheoremB`; DiamondsAndVStacks D0.19; Mathlib
 `cechComplexFunctor`, `Sheaf.H`.
 
 Define `AnalyticTwist r k` for `r ≥ 0`, `k ∈ ℤ`: the invertible analytic module `O(k)` on `Pʳ_an`
@@ -678,14 +712,18 @@ are homogeneous of degree `k`; equivalently, glued from `O_{Uᵢ}` with transiti
 `AnalyticTwist.chartTransition` (the transition factor is `(Zⱼ/Zᵢ)ᵏ`), `AnalyticTwist.tensorIso`
 (`O(k) ⊗ O(l) ≅ O(k + l)`) and `AnalyticTwist.analytificationIso` (the analytification of the
 algebraic `O(k)` of AlgebraicModuliForArithmeticGeometry Layer 1 is `O(k)`, by the same homogeneous
-frames) (Serre, exposé 18, §2, nos. 5–6, pp. 18-5–18-8). *Needs:* `coherentOperations`;
+frames) (Serre, exposé 18, §2, nos. 5–6, pp. 18-5–18-8; Serre, *GAGA*, n° 16, printed p. 24, for
+the analytification of the algebraic twists). *Needs:* `coherentOperations`;
 `CoherentAnalytification`.
 
 **Checks.**
 
 - `AnalyticTwist.zero`: `O(0) ≅ O`.
-- `AnalyticTwist.dual`: `O(k)^∨ ≅ O(−k)`; this fixes the direction of the transition factor, which
-  a definition with `(Zᵢ/Zⱼ)ᵏ` would reverse.
+- `AnalyticTwist.degreeOneSections`: on `P¹_an`, `H⁰(O(1))` is two-dimensional with basis `Z₀, Z₁`.
+  This fixes the direction of the transition factor: the reversed factor `(Zᵢ/Zⱼ)ᵏ` glues `O(−1)`,
+  which has no nonzero global section, and a definition ignoring `k` gives the one-dimensional
+  `H⁰(O)`. (The duality `O(k)^∨ ≅ O(−k)` does not detect the direction, since it also holds for
+  the reversed convention.)
 - `AnalyticTwist.hyperplaneSection`: `Zᵢ` is a global section of `O(1)` whose zero scheme is the
   reduced hyperplane `Zᵢ = 0`.
 
@@ -699,6 +737,7 @@ intersections) is a quasi-isomorphism and identifies these bases, products and c
 proof expands sections on the Čech intersections in convergent Laurent series and splits by the sign
 pattern of the exponents: every pattern except "all nonnegative" and "all negative" gives an
 acyclic piece (Serre, exposé 18, §2, no. 5, Proposition 4, pp. 18-5–18-7; no. 7, Proposition 7,
+and Remarks 1–2 (Remark 2 is this Laurent-series method),
 the hyperplane sequence and Remark 1, pp. 18-9–18-10). *Needs:* `AnalyticTwist`;
 `projectiveLerayCover`; SchemeAndStackFoundations `SF.2/projective-space-cohomology` (the
 algebraic calculation).
@@ -707,26 +746,30 @@ algebraic calculation).
 
 Prove `analyticSerreGeneration` (Serre's analytic theorem A): for a coherent analytic module `F` on
 `Pʳ_an` (supported on any closed analytic subspace, nilpotents allowed) there is `k₀` such that for
-every `k ≥ k₀` the twist `F(k)` is generated by finitely many global sections. The proof is by
-induction on `r` using a hyperplane `H` not containing associated points, the sequences
-`0 → F(k−1) → F(k) → F(k)|_H` up to coherent kernels, finiteness of `H¹` (Cartan–Serre) to make
-`H⁰(F(k)) → H⁰(F(k)|_H)` surjective for large `k`, Nakayama at each point and compactness (Serre,
-*Faisceaux analytiques sur l'espace projectif (suite)*, Séminaire Henri Cartan 6 (1953–54),
-exposé 19, §8, Théorème A and proof, pp. 19-1–19-4). It uses no algebraization. *Needs:*
-`cartanSerreFiniteness`; `AnalyticTwist`; `coherentOperations`.
+every `k ≥ k₀` the twist `F(k)` is generated by finitely many global sections. The proof is a
+joint induction on `r` with `analyticSerreVanishing`. By compactness it suffices to generate the
+stalk at one point `x` for large `k`. Choose a hyperplane `H ∋ x` with equation `z₀`;
+multiplication by `z₀` gives `0 → P → F(−1) → F → Q → 0` with `P` and `Q` coherent and supported on
+`H ≅ P^{r−1}`. Vanishing on `H` for large twists makes `dim H¹(F(k))` (finite by Cartan–Serre)
+nonincreasing, hence eventually constant, and then `H⁰(F(k)) → H⁰(Q(k))` is surjective; generation
+of `Q(k)` on `H` and Nakayama at `x` give generation of `F(k)_x` (Serre, *Faisceaux analytiques sur
+l'espace projectif (suite)*, Séminaire Henri Cartan 6 (1953–54), exposé 19, §3, no. 8,
+pp. 19-1–19-4; the statement is exposé 18, no. 7, p. 18-8). It uses no algebraization. *Needs:*
+`cartanSerreFiniteness`; `AnalyticTwist`; `coherentOperations`; `analyticSerreVanishing` on
+`P^{r−1}` (the joint induction).
 
 Prove `analyticSerreVanishing` (Serre's analytic theorem B): for `F` as above there is `k₁` with
 `H^q(Pʳ_an, F(k)) = 0` for all `q ≥ 1` and `k ≥ k₁`; one `k₁` can be chosen for finitely many
 modules at once. Generation gives `O(−a)ⁿ → F → 0`; descending induction on `q` from `q > r`
 (vanishing above the dimension) with the coherent kernel and `analyticTwistCohomology` closes the
-argument (Serre, exposé 19, §9, Théorème B and proof, pp. 19-4–19-5). *Needs:*
+argument (Serre, exposé 19, §3, no. 9, pp. 19-4–19-5). *Needs:*
 `analyticSerreGeneration`; `analyticTwistCohomology`.
 
 Prove `twistPresentations`: every coherent analytic module `F` on `Pʳ_an` has an exact sequence
 `O(−b)^m → O(−a)^n → F → 0` with finite `a, b, m, n`, and the construction iterates to any
 prescribed finite length of a resolution by sums of twists. No global finite locally free
-resolution is claimed on a singular or nonreduced support (Serre, exposé 19, §§8–9,
-pp. 19-1–19-5; Serre, *GAGA*, §§16–17, Lemma 8 and the finite presentation, printed pp. 25–27).
+resolution is claimed on a singular or nonreduced support (Serre, exposé 19, §3, nos. 8–9,
+pp. 19-1–19-5; Serre, *GAGA*, nos. 16–17, Lemma 8 and the finite presentation, printed pp. 24–27).
 *Needs:* `analyticSerreGeneration`; `coherentOperations`.
 
 ### Examples
@@ -745,7 +788,8 @@ pp. 19-1–19-5; Serre, *GAGA*, §§16–17, Lemma 8 and the finite presentation
 ### Dependencies
 
 C0; AlgebraicModuliForArithmeticGeometry §7.10.1 and Layer 1; SchemeAndStackFoundations SF.2;
-DiamondsAndVStacks D0; TauCetiRoadmap.DifferentialGeometry (Layers 0–2, 5 and 12); Mathlib analysis
+DiamondsAndVStacks D0.19; Tau Ceti `TauCeti.montel`; TauCetiRoadmap.DifferentialGeometry (Layers 0–2, 5
+and 12); Mathlib analysis
 (smooth functions, integration, Arzelà–Ascoli, open mapping theorem).
 
 <a id="c2"></a>
@@ -779,7 +823,8 @@ hypotheses of the algebraic cohomology-and-base-change theorem (flatness of `F` 
 surjectivity conditions of JacobianChallenge Layer C and StableReduction Layer 2), never for jumping
 cohomology. All three statements are diagram chases on the derived exchange maps before taking
 cohomology, using that finite locally free factors commute with pullback and pushforward (SGA 1,
-Exposé XII, §4.2 and its functoriality, printed pp. 248–249). *Needs:* `HigherImageComparison`;
+Exposé XII, 4.1–4.2, printed pp. 247–249, for the exchange maps and their invertibility; the
+compatibilities themselves are the diagram chases just described and are not stated there). *Needs:* `HigherImageComparison`;
 AlgebraicModuliForArithmeticGeometry `properSchemeGagaPushforward`; SchemeAndStackFoundations
 `SF.2/tor-independent-base-change`; TauCetiRoadmap.JacobianChallenge (Layer C);
 TauCetiRoadmap.StableReduction (Layer 2).
@@ -799,7 +844,9 @@ projective one), nilpotents allowed. Then:
 
 For (1) algebraize the ideal as a coherent submodule of `O_X` and its inclusion by full faithfulness;
 the ideal property and the quotient are checked by faithfulness. For (3) use that finite projectivity
-descends along the faithfully flat local maps of C0 (SGA 1, XII, §4.4–4.5, printed pp. 249–251).
+descends along the faithfully flat local maps of C0 (SGA 1, XII, Corollary 4.3, Theorem 4.4 and
+Corollary 4.5, printed pp. 249–251, for (1) and (2); the descent argument for (3) is the one just
+given).
 *Needs:* AlgebraicModuliForArithmeticGeometry `properSchemeGagaEquivalence`;
 `CoherentAnalyticIdeal`; `coherentAnalytification_faithful`; `coherentPullbackOperations`;
 `holomorphicBundleDictionary`.
@@ -843,8 +890,11 @@ descent datum gives a functor `SpaceCoherentAnalytification X`, independent of t
 to canonical isomorphism, extending `CoherentAnalytification` on schemes, exact and faithful, and
 compatible with the algebraic étale descent of AlgebraicModuliForArithmeticGeometry Layer 3 and
 SchemeAndStackFoundations SF.1. The charts `U` need not be proper and no GAGA statement is made about
-them (Hall, *GAGA theorems*, §9, Theorem 9.1 and its applications, pp. 20–21; SGA 1, XII, §1,
-printed pp. 239–242). *Needs:* AlgebraicModuliForArithmeticGeometry `complexSpaceAnalytification`;
+them (Hall, *GAGA theorems*, Example 9.8, pp. 23–24, for the analytification of locally separated
+algebraic spaces, under which étale morphisms become local isomorphisms; SGA 1, XII, §1, printed
+pp. 239–242, and §3, 3.1 (iii), 3.2 (i) and Remark 3.3 a), printed pp. 244–247, for étale and
+surjective morphisms of schemes; the effective descent of coherent modules along the surjective
+local biholomorphism `U^an → X^an` is sheaf gluing on the analytic side and is proved here). *Needs:* AlgebraicModuliForArithmeticGeometry `complexSpaceAnalytification`;
 `CoherentAnalytification`; `coherentAnalytification_faithful`; SchemeAndStackFoundations SF.1;
 AlgebraicModuliForArithmeticGeometry Layer 3.
 
@@ -899,14 +949,15 @@ allowed, and `c : X^an → X_ét` the morphism of ringed topoi given by the éta
 triangulated categories. On hearts it is the coherent analytification of C3.1, so it recovers the
 abelian equivalence and the cohomology comparison of `properSpaceComplexGaga`, and on a proper scheme
 it agrees with `properSchemeGagaEquivalence`. The proof checks the hypotheses of Hall's
-reconstruction theorem with the family of closed points: `RΓ(X^an, −)` has finite-dimensional
+Tor-independent GAGA theorem (Theorem 9.1) with the family of closed points: `RΓ(X^an, −)` has finite-dimensional
 cohomology on bounded coherent complexes (`cartanSerreFiniteness`); `c` is flat and Tor-independent
 of each closed point (`completedAnalyticStalkComparison.flat`); at a closed point the residue fields
 agree and pullback is an equivalence on the residue-field modules (`completionIso`); `O_X` is
-coherent; and the residue fields of the closed points form a pseudo-conservative family on both
-sides (Nakayama on top cohomology and the Jacobson property). Full faithfulness and essential
-surjectivity then follow from the adjunction of C3.2 (Hall, Theorem 9.1 and the proof of Theorem A,
-pp. 20–21; Lemma 5.5, p. 12; Lemma 7.4, p. 19). *Needs:* `DQCohSpace`;
+coherent (and `O_{X^an}` is coherent by Oka's theorem, `ComplexAnalyticSpace.coherentStructure`); and
+the residue fields of the closed points form a pseudo-conservative family on both sides (Nakayama on
+top cohomology and the Jacobson property). Full faithfulness and essential surjectivity then follow
+from the adjunction of C3.2 (Hall, Theorem 9.1 and the proof of Theorem A, pp. 20–21; Lemma 5.5,
+p. 12; Examples 7.1–7.2, p. 18, and Lemma 7.4, p. 19, for pseudo-conservative families). *Needs:* `DQCohSpace`;
 `pseudoCoherenceDetection`; `analyticEtaleDescent`; `cartanSerreFiniteness`;
 AlgebraicModuliForArithmeticGeometry `completedAnalyticStalkComparison`, `properSpaceComplexGaga`.
 
@@ -947,15 +998,16 @@ handled separately through coherent ideals. In particular, for proper `f` the se
 the simultaneous induction on dimension with `remmertSteinExtension`: away from a lower-dimensional
 critical image the image is described by finite projections and symmetric functions of the sheets,
 and the extension theorem fills in the critical image; closedness is topological properness
-(Demailly, II.8.8 with the simultaneous proof of II.8.7, pp. 118–120, using the semicontinuity
+(Demailly, II.8.8 with the simultaneous proof of II.8.7, pp. 118–121, using the semicontinuity
 results II.8.2–8.6, pp. 116–118). *Needs:* AlgebraicModuliForArithmeticGeometry §7.10.1
 (`ComplexAnalyticSpace`, `convergentWeierstrassPreparation`, `coherentStructure`);
 `fibreDimensionLoci` for the `B_k` statement.
 
 Prove `remmertSteinExtension`: let `T` be a complex analytic space, `E ⊆ T` a closed analytic subset
 of dimension at most `p`, and `Z` an analytic subset of `T ∖ E` with `dim_x Z > p` at every
-`x ∈ Z`. Then the closure of `Z` in `T` is analytic. The strict inequality is necessary (Demailly,
-II.8.7 and the simultaneous proof, pp. 118–120). *Needs:* `remmertProperImage` (in the simultaneous
+`x ∈ Z`. Then the closure of `Z` in `T` is analytic (Demailly, II.8.7 and the simultaneous proof,
+pp. 118–121). The strict inequality cannot be weakened: a sequence of points converging to a point
+of a zero-dimensional `E` has non-analytic closure (see the Examples). *Needs:* `remmertProperImage` (in the simultaneous
 induction); `convergentWeierstrassPreparation`.
 
 ### C4.2 Chow's theorem with nilpotents
@@ -966,7 +1018,8 @@ reduced `Z` this is Chow's theorem. The proof generates `I(k)` for large `k` by 
 sections (`analyticSerreGeneration`), identifies them with homogeneous polynomials
 (`analyticTwistCohomology` in degree `0`), and algebraizes the inclusion and the quotient, keeping every
 nilpotent order; the reduced statement can also be read off from `remmertSteinExtension` applied to
-the cone in `ℂ^{r+1}` (Serre, exposé 19, §10, Proposition 9, pp. 19-5–19-7; Demailly, II.8.10,
+the cone in `ℂ^{r+1}` (Serre, exposé 19, §4, no. 10, Propositions 8–9 and the corollary,
+pp. 19-5–19-7; Demailly, II.8.10,
 p. 121). It says nothing about closed analytic subsets of `Aⁿ`. *Needs:* `analyticSerreGeneration`;
 `analyticTwistCohomology`; `projectiveGeometricDictionaries`; `remmertSteinExtension`.
 
@@ -990,7 +1043,9 @@ for a unique closed subscheme `W ⊆ Y`, proper over `ℂ`, nilpotents included.
 not covered. Choose a compactification `Y ⊆ Ȳ`; the support of `G` is closed in `Ȳ^an`, so `G`
 extended by zero is coherent; apply `properSchemeGagaEquivalence` on `Ȳ`; faithfulness puts the
 support of the algebraic module inside `Y`, and full faithfulness makes the result independent of the
-compactification (SGA 1, XII, §4.4–4.5, printed pp. 249–251, with the compactification reduction).
+compactification (SGA 1, XII, Theorem 4.4, printed pp. 249–250, applied on `Ȳ`; Serre, *GAGA*,
+n° 19, Proposition 14, printed p. 29, for reduced compact analytic subsets; the reduction to a
+compactification is the argument just given).
 *Needs:* `nagataCompactification`; AlgebraicModuliForArithmeticGeometry
 `properSchemeGagaEquivalence`; `coherentAnalytification_faithful`; AlgebraicModuliForArithmeticGeometry
 `complexSchemeAnalytification.openSubspace`.
@@ -1004,8 +1059,10 @@ Prove `properSourceMorphismAlgebraicity`: for a proper scheme `X` over `ℂ` and
 compact support; `properSupportAlgebraization` makes it `Γ^an` for a closed subscheme
 `Γ ⊆ X × Y`; the first projection `Γ → X` is proper and quasi-finite, hence finite, and the map
 `O_X → p_*O_Γ` becomes an isomorphism after analytification, hence is one by faithfulness; compose its
-inverse with the second projection (SGA 1, XII, §4.5 and the application of §4.4, printed
-pp. 250–251; Serre, *GAGA*, §19, for the reduced projective case). *Needs:*
+inverse with the second projection (SGA 1, XII, Corollary 4.5 and its graph argument, printed
+pp. 250–251, for `X` and `Y` both proper; Serre, *GAGA*, n° 19, Propositions 14–15, printed
+pp. 29–30, for reduced complete `X` and arbitrary `Y`; the general case is the graph argument just
+given). *Needs:*
 `properSupportAlgebraization`; `CoherentAnalyticIdeal`; `coherentAnalytification_faithful`;
 AlgebraicModuliForArithmeticGeometry `properSchemeGagaEquivalence`, `complexSchemeAnalytification.homEquiv`,
 `complexSchemeAnalytification.fibreProduct`.
@@ -1015,8 +1072,10 @@ Prove `algebraicGraphRegular`: let `X`, `Y` be reduced schemes of finite type ov
 algebraic subvariety `Γ ⊆ X × Y`, then `h` is the analytification of a morphism `X → Y`. Neither
 properness nor smoothness of `X` is assumed; for nonreduced sources the graph must be algebraic as a
 subspace. The first projection `Γ → X` is bijective on complex points and an analytic isomorphism;
-Zariski's main theorem in Serre's form makes it a homeomorphism and birational on components, and
-the flat local comparison identifies the local rings (Serre, *GAGA*, §8, Propositions 8–9 and proofs,
+Serre's comparison of the usual and Zariski closures of an image (*GAGA*, n° 7, Proposition 7,
+printed p. 12) makes it a homeomorphism for the Zariski topology, a count of generic fibre degrees
+makes it birational on components, and the flat local comparison identifies the local rings (Serre,
+*GAGA*, n° 8, Propositions 8–9 and proofs,
 printed pp. 13–15). This is the second step of the definable-Chow route of Bakker–Klingler–Tsimerman
 (Theorem 4.12, printed p. 933), whose first step — making a nonproper graph algebraic — is
 LogicAndDefinabilityInNumberTheory LD.6. *Needs:* AlgebraicModuliForArithmeticGeometry
@@ -1044,7 +1103,7 @@ isomorphism), with the open immersion `U → C` from Layer 6's valuation and hol
 Then `D = C ∖ U` is a finite set of closed points (a proper closed subset of an irreducible
 one-dimensional Noetherian scheme), and `U^an = C^an ∖ D` as an open analytic subspace. Holomorphic
 functions on `U^an` are not the coordinate ring of `U` (AlgebraicCurves, Layers 12B–12C and 6, for
-the model; SGA 1, XII, §1, printed pp. 239–242, for open immersions under analytification). *Needs:* TauCetiRoadmap.AlgebraicCurves
+the model; SGA 1, XII, 1.1 a), printed p. 240, for open immersions under analytification). *Needs:* TauCetiRoadmap.AlgebraicCurves
 (Layers 6 and 12B–12C); AlgebraicModuliForArithmeticGeometry `complexSchemeAnalytification.openSubspace`;
 Mathlib `topologicalKrullDim`.
 
@@ -1110,10 +1169,11 @@ spaces with finite locally free terms; `H^q_dR(X/ℂ)` is its hypercohomology. T
 `AlgebraicDeRham.d_on_generator` (the displayed formula), `AlgebraicDeRham.d_squared`
 (`d ∘ d = 0`) and `AlgebraicDeRham.pullback` (a morphism of smooth schemes induces pullback of forms
 commuting with `d`) (Grothendieck, *On the de Rham cohomology of algebraic varieties*, Publ. Math.
-IHÉS 29 (1966), Theorems 1–2 and notation, printed pp. 95–97; Deligne, *Équations différentielles à
-points singuliers réguliers*, LNM 163 (1970), II.6.2). *Needs:* Mathlib `KaehlerDifferential.D`,
+IHÉS 29 (1966), notation (1)–(4), printed pp. 95–96; Deligne, *Équations différentielles à points
+singuliers réguliers*, LNM 163 (1970), I.2.20.3–2.21, printed pp. 13–14). *Needs:* Mathlib `KaehlerDifferential.D`,
 `exteriorPower.ιMulti`; TauCetiRoadmap.AlgebraicVectorBundles (L0C exterior powers of locally free
-sheaves); SchemeAndStackFoundations SF.2 (hypercohomology on the Zariski site).
+sheaves); Mathlib `DerivedCategory` (hypercohomology of a bounded complex of sheaves of `ℂ`-vector
+spaces on the Zariski site, as morphisms from the constant sheaf in the derived category).
 
 **Checks.**
 
@@ -1128,7 +1188,7 @@ Define `HolomorphicDeRham T` for a complex manifold `T`: `Ω^p_T` the coherent s
 `ℂ`-vector spaces with `Ω⁰_T = O_T` and `ℂ`-linear, not `O_T`-linear, differential. The API is
 `HolomorphicDeRham.degreeZero` (`Ω⁰_T = O_T`), `HolomorphicDeRham.d_squared` (`d² = 0`) and
 `HolomorphicDeRham.pullback` (holomorphic maps induce pullbacks commuting with `d`) (Deligne 1970,
-I.2.17–2.23, printed pp. 11–17). *Needs:* `holomorphicBundleDictionary`; TauCetiRoadmap.AlgebraicVectorBundles
+I.2.10–2.15, printed pp. 9–11, with the canonical connection `∇f = df` of I.2.7.3, p. 8). *Needs:* `holomorphicBundleDictionary`; TauCetiRoadmap.AlgebraicVectorBundles
 (L0C).
 
 **Checks.**
@@ -1143,7 +1203,8 @@ Prove `holomorphicPoincare`: on a complex manifold `T`, the inclusion of the con
 `Ω^•_T` is a quasi-isomorphism. On a coordinate ball every closed holomorphic `p`-form with `p ≥ 1` is
 exact on a smaller ball, and the kernel of `d : O → Ω¹` is the sheaf of locally constant functions.
 The radial homotopy `K` with `dK + Kd = id − ev₀` proves it, the parameter integral preserving
-holomorphy (Deligne 1970, I.2.17–2.23 and proof, printed pp. 11–17). *Needs:* `HolomorphicDeRham`.
+holomorphy (Deligne 1970, I.2.19 and I.2.23 (ii) with 2.23.2–2.23.3, printed pp. 13–17, where the
+homotopy integrates power series term by term). *Needs:* `HolomorphicDeRham`.
 
 Define `IsDifferentialOperator m D` for a commutative `k`-algebra `A`, `A`-modules `M`, `N` and a
 `k`-linear map `D : M → N` (Grothendieck's definition): order `≤ 0` means `A`-linear; order `≤ m + 1`
@@ -1159,7 +1220,8 @@ and an algebraic differential operator `D` of order `≤ m`, analytify the facto
 analytification of `O`-linear maps), `DifferentialOperatorAnalytification.composition`
 (`(D ∘ E)^an = D^an ∘ E^an`, orders adding) and `DifferentialOperatorAnalytification.deRham` (the
 analytification of the algebraic exterior derivative is the holomorphic one) (Deligne 1970, II.6.6,
-printed pp. 100–101). *Needs:* `CoherentAnalytification`; `CoherentAnalyticIdeal` (the diagonal
+printed pp. 100–101, stated there for proper `X`; the construction through principal parts is
+local). *Needs:* `CoherentAnalytification`; `CoherentAnalyticIdeal` (the diagonal
 ideal); `coherentPullbackOperations`.
 
 **Checks.**
@@ -1178,26 +1240,38 @@ coherent `O_X`-modules whose differentials are `ℂ`-linear differential operato
 and a bounded complex of coherent modules with `f⁻¹O_S`-linear differential operators as
 differentials, `(Rf_*K)^an → Rf^an_* K^an` is a quasi-isomorphism (on cohomology sheaves after
 analytification of coherent hypercohomology sheaves). Compatible short exact sequences of such
-complexes give compatible triangles and connecting maps. The stupid filtration reduces to the terms,
-which are compared by `properSchemeGagaPushforward`; analytified operators make the first pages
-compatible; boundedness gives convergence (Deligne 1970, II.6.6 and proof, printed p. 101; Qian,
-*Ordinarity of local Galois representation arising from Dwork motives*, arXiv:2103.00106, Proposition
-3.6, pp. 18–19). *Needs:* `DifferentialOperatorAnalytification`; `HigherImageComparison`;
-AlgebraicModuliForArithmeticGeometry `properSchemeGagaPushforward`; SchemeAndStackFoundations SF.2
-(hypercohomology spectral sequence).
+complexes give compatible triangles and connecting maps. Induct on the length of `K` with the
+brutal truncation triangles `σ^{≥p+1}K → σ^{≥p}K → K^p[−p] →`, which analytification respects
+because the analytified operators are the differentials of `K^an`; the terms are compared by
+`properSchemeGagaPushforward`, and the five lemma closes the induction (equivalently, the first pages
+of the spectral sequences of the stupid filtration agree and boundedness gives convergence)
+(Deligne 1970, II.6.5–6.6 and proof, printed pp. 100–101, for the absolute statement; the relative
+statement is proved here by the same induction, with `properSchemeGagaPushforward` for the terms;
+Qian, *Ordinarity of local Galois representation arising from Dwork motives*, arXiv:2103.00106,
+Proposition 3.6, pp. 18–19, applies it to logarithmic de Rham complexes). *Needs:* `DifferentialOperatorAnalytification`; `HigherImageComparison`;
+AlgebraicModuliForArithmeticGeometry `properSchemeGagaPushforward`; SchemeAndStackFoundations
+`SF.2/site-derived-pushforward` (higher direct images); Mathlib `DerivedCategory` (its triangulated
+structure, for the truncation triangles).
 
 Define `SmallSingularCochains T A` for a topological space `T` and an abelian group `A` (Sella's
-construction): for every finite list of points choose a nested system of neighbourhoods; a singular
-simplex is small for the nesting when every face lies in the prescribed neighbourhood of its
-vertices. Small `A`-valued cochains, taken in the directed colimit over refinements of nestings, form
-a complex of flasque sheaves on `T` with degree-zero augmentation from the constant sheaf `A`. The
-API is `SmallSingularCochains.augmentation` (locally constant `A`-valued functions are the degree-zero
-cocycles), `SmallSingularCochains.restriction_surjective` (every restriction map of the cochain
+construction). A nesting assigns an open set to every finite sequence of points of `T`, the whole
+space to the empty sequence and a neighbourhood of `x₁` to `(x₁, …, x_n)` whenever `x₁` lies in the
+set assigned to `(x₂, …, x_n)`; the set of a sequence lies in the set of every sequence obtained from
+it by a nondecreasing reindexing, in particular of every subsequence. A
+singular simplex is small for the nesting when, for every chain of faces `σ₁ ⊂ ⋯ ⊂ σ_m` of it, the
+face `σ₁` lies in the set assigned to the images of the barycentres of `σ₁, …, σ_m`. Small
+`A`-valued cochains, taken in the directed colimit over refinements of nestings, form a complex of
+flasque sheaves on `T` with degree-zero augmentation from the constant sheaf `A`. The API is
+`SmallSingularCochains.augmentation` (on a semilocally contractible `T`, the degree-zero cocycles
+are the locally constant `A`-valued functions; on a totally path-disconnected space every function
+is a cocycle), `SmallSingularCochains.restriction_surjective` (every restriction map of the cochain
 sheaves is surjective, so the sheaves are flasque) and
-`SmallSingularCochains.small_inclusion_equivalence` (on each open, small cochains are chain homotopy
-equivalent to all singular cochains, by subdivision and prism homotopies corrected on faces)
-(Sella, *Comparison of sheaf cohomology and singular cohomology*, arXiv:1602.06674v3, Lemma 0.1,
-Example 0.3 and Steps 1–3, pp. 1–19). *Needs:* TauCetiRoadmap.AlgebraicTopology (Stage 6, singular
+`SmallSingularCochains.small_inclusion_equivalence` (for each nesting on an open, the small chains
+include into all singular chains by a chain homotopy equivalence, built from subdivision and prism
+homotopies corrected on faces; in the colimit over nestings the map from all singular cochains to
+the small ones is a quasi-isomorphism) (Sella, *Comparison of sheaf cohomology and singular
+cohomology*, arXiv:1602.06674v3, the definition of nestings, p. 6, Lemma 0.1, pp. 2–4, and
+Steps 1–3, pp. 7–19). *Needs:* TauCetiRoadmap.AlgebraicTopology (Stage 6, singular
 cochains with coefficients); Mathlib `AlgebraicTopology.singularChainComplexFunctor`.
 
 **Checks.**
@@ -1205,18 +1279,21 @@ cochains with coefficients); Mathlib `AlgebraicTopology.singularChainComplexFunc
 - `SmallSingularCochains.point`: on a point the cohomology of global sections is `A` in degree `0`
   and zero in positive degrees.
 - `SmallSingularCochains.empty`: on the empty space every cochain group is zero.
-- `SmallSingularCochains.nonHausdorff`: on Sella's five-point non-Hausdorff space the naive
-  sheafification of all singular cochains fails to compute singular cohomology, while the nesting
-  construction still gives flasque restriction maps.
+- `SmallSingularCochains.nonHausdorff`: on Sella's five-point locally contractible non-Hausdorff
+  space, the map from singular `1`-cochains to global sections of the sheafification of the presheaf
+  of all singular `1`-cochains is not surjective, so an argument through the naive sheafification
+  breaks down there, while the nesting construction still has surjective restriction maps (Sella,
+  Example 0.3, p. 5).
 
 Prove `sheafSingularComparison`: for a space `T` in which every neighbourhood of every point contains a
-smaller neighbourhood whose inclusion is null-homotopic (semilocal contractibility; it holds for
-manifolds and for analytic spaces, and follows from Mathlib's `LocallyContractibleSpace`), and for every
-abelian group `A`, the canonical map `Sheaf.H(T, A) → H^q_sing(T, A)` is an isomorphism in every
-degree, natural in `T` and `A`. No Hausdorff or finiteness assumption on `A` is made. The small
-cochains are a flasque resolution of the constant sheaf (`TauCeti.Topology.subsingleton_H_succ_of_isFlasque`
-makes it acyclic), and their global sections are homotopy equivalent to singular cochains (Sella,
-Theorem and Lemma 0.1, pp. 1–3; the subdivision construction and proof, pp. 6–19). This is additive;
+smaller neighbourhood whose inclusion is null-homotopic (semilocal contractibility, which is Mathlib's
+`LocallyContractibleSpace`; manifolds satisfy it through coordinate balls, and these are the only
+spaces to which this roadmap applies it), and for every abelian group `A`, the canonical map
+`Sheaf.H(T, A) → H^q_sing(T, A)` is an isomorphism in every degree, natural in `T` and `A`. No
+Hausdorff assumption on `T` and no finiteness assumption on `A` is made. The small cochains are a
+flasque resolution of the constant sheaf (`TauCeti.Topology.subsingleton_H_succ_of_isFlasque` makes
+it acyclic), and their global sections are quasi-isomorphic to the singular cochains (Sella, the
+Theorem, p. 2, and Lemma 0.1, pp. 2–4; the subdivision construction and proof, pp. 6–19). This is additive;
 compatibility with cup products is `multiplicativePeriodInterface`. *Needs:*
 `SmallSingularCochains`; Tau Ceti `TauCeti.Topology.subsingleton_H_succ_of_isFlasque`; Mathlib
 `Sheaf.H`, `LocallyContractibleSpace`; TauCetiRoadmap.AlgebraicTopology (Stage 6).
@@ -1225,9 +1302,9 @@ Prove `properDeRhamBetti` (Grothendieck): for a smooth proper scheme `X` over `�
 there is a canonical `ℂ`-linear isomorphism `H^q_dR(X/ℂ) ≅ H^q_sing(X^an, ℂ)`, natural for morphisms of
 smooth proper schemes. It is the composite of `boundedOperatorHyperGaga` for `Ω^•_X` (whose
 analytification is `Ω^•_{X^an}` by local coordinates), `holomorphicPoincare` and
-`sheafSingularComparison`. Projectivity is not assumed; smoothness is, since the ordinary de Rham
-complex of a singular scheme does not compute Betti cohomology (Grothendieck 1966, Theorem 1′ and the
-proper comparison, printed pp. 95–96). *Needs:* `AlgebraicDeRham`; `HolomorphicDeRham`;
+`sheafSingularComparison`. Projectivity is not assumed (Grothendieck 1966, Theorem 1′ and the remark
+on complete schemes, printed p. 96); smoothness is, since the ordinary de Rham complex of a singular
+scheme does not compute Betti cohomology in general. *Needs:* `AlgebraicDeRham`; `HolomorphicDeRham`;
 `boundedOperatorHyperGaga`; `holomorphicPoincare`; `sheafSingularComparison`.
 
 Prove `multiplicativePeriodInterface`: the isomorphism of `properDeRhamBetti` is compatible with
@@ -1237,9 +1314,10 @@ degree, `∫_{X^an}` with the complex orientation, to the manifold trace. Keep `
 torsion subgroup and its image in `H^q_sing(X^an, ℂ)` distinct: the image of integral cohomology is a
 lattice of full rank in the real subspace, and the coefficient-change map `H_ℤ ⊗ ℂ → H_ℂ` is the named
 comparison; finite generation of `H_ℤ` uses that compact manifolds are of finite CW type. The period
-of the positively oriented loop on `G_m` against `dz/z` is `2πi` (Grothendieck 1966, Theorems 1–2,
-printed pp. 95–97; Dimitrov–Gao–Habegger, *Uniformity in Mordell–Lang for curves*, arXiv:2001.10276,
-Proposition 4.2, for the normalisation). *Needs:* `properDeRhamBetti`; TauCetiRoadmap.DifferentialGeometry
+of the positively oriented loop on `G_m` against `dz/z` is `2πi`, the integral
+`circleIntegral.integral_sub_inv_of_mem_ball` (Grothendieck 1966, Theorem 1, printed p. 95, for the
+comparison on the affine `G_m`; the product, trace and period compatibilities are assembled here from
+the suppliers named below). *Needs:* `properDeRhamBetti`; TauCetiRoadmap.DifferentialGeometry
 (Layers 5, 6, 8 and 9); TauCetiRoadmap.AlgebraicTopology (Stages 6 and 8).
 
 ### C5.2 Families, Ehresmann and the Gauss–Manin connection
@@ -1250,7 +1328,7 @@ holomorphic de Rham complex `Ω^•_{T/S}` (with `f⁻¹O_S`-linear differential
 resolves the sheaf of relatively horizontal sections. The degree-zero kernel is `f⁻¹O_S`, not the
 constant sheaf `ℂ`. Apply the radial homotopy in the fibre coordinates of a local product chart; the
 parameter integral keeps holomorphic dependence on the base (Deligne 1970, I.2.22–2.23 and proof,
-printed pp. 15–17). *Needs:* `HolomorphicDeRham`; `holomorphicPoincare`.
+printed pp. 14–19). *Needs:* `HolomorphicDeRham`; `holomorphicPoincare`.
 
 Prove `ehresmannFibration`: a proper surjective submersion `f : M → N` of smooth manifolds is a
 locally trivial fibre bundle: every `y ∈ N` has a neighbourhood `V` with a diffeomorphism
@@ -1265,8 +1343,8 @@ Prove `relativeBettiLocalSystem`: for a proper smooth holomorphic map `f : T →
 stalk `H^q_sing(f⁻¹(s), A)` at `s`; for `A = ℂ` (or `ℚ`) it has finite rank, and for `A = ℤ` finitely
 generated stalks. Local triviality comes from `ehresmannFibration`; on a trivialized `V × F` with `V`
 contractible, `R^q f_*A|_V` is the constant sheaf `H^q(F, A)` by `sheafSingularComparison` and homotopy
-invariance; finiteness uses that the compact fibre has finite CW type (Deligne 1970, I.2.23 and II.7
-for the setup; tom Dieck, Corollary 2.2.4, p. 53). *Needs:* `ehresmannFibration`;
+invariance; finiteness uses that the compact fibre has finite CW type (Deligne 1970, I.2.24–2.25,
+printed p. 19, for the stalks of `R^q f_*`; tom Dieck, Corollary 2.2.4, p. 53). *Needs:* `ehresmannFibration`;
 `sheafSingularComparison`; TauCetiRoadmap.AlgebraicTopology (Stage 8, finite CW type).
 
 Define `AlgebraicConnection E` for a smooth scheme `X` over a field `k` of characteristic zero and a
@@ -1276,7 +1354,8 @@ its curvature `∇ ∘ ∇ : E → Ω² ⊗ E` is `O_X`-linear, and `∇` is int
 vanishes, equivalently when `(Ω^• ⊗ E, ∇)` is a complex — the de Rham complex of `(E, ∇)`. The API is
 `AlgebraicConnection.leibniz` (the displayed rule), `AlgebraicConnection.tensor` (`∇_E ⊗ 1 + 1 ⊗ ∇_F`
 on `E ⊗ F`, and the dual connection) and `AlgebraicConnection.curvature_iff_square` (zero curvature
-iff the extended `∇` squares to zero; `AlgebraicConnection.exists_trivial` records `(A, d)`) (Deligne 1970, I.2.3–2.15, printed pp. 6–11). The same
+iff the extended `∇` squares to zero; `AlgebraicConnection.exists_trivial` records `(A, d)`) (Deligne 1970, I.2.3–2.15, printed pp. 6–11, for holomorphic bundles, and I.2.20.3–2.21, pp. 13–14,
+for smooth schemes). The same
 definitions on complex manifolds give holomorphic connections, and analytification carries one to the
 other. *Needs:* `AlgebraicDeRham`; `coherentOperations`; Mathlib `Derivation`, `KaehlerDifferential`.
 
@@ -1298,10 +1377,11 @@ is a connection, and it is integrable: the first page of the spectral sequence o
 `Ω^p_S ⊗ H^q_dR(X/S)` with differential the extension of `∇`, and its square is zero. The API is
 `GaussManin.connection` (the connecting-map definition), `GaussManin.integrable` (zero curvature) and
 `GaussManin.horizontalComparison` (over `ℂ`, the analytic horizontal sections of
-`(H^q_dR(X/S)^an, ∇^an)` form the local system `R^q f^an_* ℂ`) (Deligne 1970,
-II.7.4–7.8, printed pp. 114–118; Katz–Oda, *On the differentiation of de Rham cohomology classes with
-respect to parameters*, J. Math. Kyoto Univ. 8 (1968), §1, pp. 199–201, §2, Theorem 1 and proof,
-pp. 201–204, and §3, pp. 204–206). *Needs:* `AlgebraicDeRham`; `AlgebraicConnection`;
+`(H^q_dR(X/S)^an, ∇^an)` form the local system `R^q f^an_* ℂ`) (Katz–Oda, *On the differentiation of
+de Rham cohomology classes with respect to parameters*, J. Math. Kyoto Univ. 8 (1968), §1,
+pp. 199–201, §2, Theorem 1 and proof, pp. 201–204, and §3, sequence (13), pp. 204–205, for the
+filtration construction and integrability; Deligne 1970, II.7.7, printed p. 117, for
+`horizontalComparison`, and II.7.8, pp. 117–118). *Needs:* `AlgebraicDeRham`; `AlgebraicConnection`;
 `relativePoincare`; `relativeBettiLocalSystem`; `boundedOperatorHyperGaga`;
 SchemeAndStackFoundations SF.2.
 
@@ -1320,8 +1400,9 @@ holomorphic modules carrying `∇^an` to the connection `d ⊗ 1` whose horizont
 `R^q f^an_* ℂ`, compatible with base change and with the fibrewise `properDeRhamBetti`. No projectivity
 is assumed. Compare the relative operator complexes by `boundedOperatorHyperGaga`, resolve
 `f^{an,−1}O_{S^an}` by `relativePoincare`, and use `relativeBettiLocalSystem` with the projection
-formula (Deligne 1970, I.2.23 and II.7; Deligne, *Théorème de Lefschetz et critères de dégénérescence
-de suites spectrales*, Publ. Math. IHÉS 35 (1968), Theorem 5.5). *Needs:* `GaussManin`;
+formula (Deligne 1970, I.2.27–2.29, printed pp. 19–21, and II.7.7, p. 117; Deligne, *Théorème de
+Lefschetz et critères de dégénérescence de suites spectrales*, Publ. Math. IHÉS 35 (1968), Theorem 5.5,
+printed pp. 123–125, for local freeness). *Needs:* `GaussManin`;
 `relativePoincare`; `relativeBettiLocalSystem`; `boundedOperatorHyperGaga`.
 
 ### Examples (C5.1–C5.2)
@@ -1347,8 +1428,9 @@ then `u ∈ H^{s+2}` with the corresponding estimate, so weak solutions with smo
 forms, `Δ` maps the smooth forms orthogonal to `ker Δ` bijectively onto themselves, and the inverse
 is bounded in every `Hˢ`. In local frames the operator is `−Σ gⁱʲ ∂ᵢ∂ⱼ` times the identity plus lower
 order terms, so the scalar Euclidean estimates of the PDE roadmap apply componentwise up to terms
-absorbed by the partition of unity; compactness then gives (3)–(4) (Demailly, VI.1.6, pp. 288–289,
-and VI.2.2–2.4, pp. 289–291, which state these results and refer to the standard texts for proofs).
+absorbed by the partition of unity; compactness then gives (3)–(4) (Demailly, VI.1.5–1.8,
+pp. 288–289, for formal adjoints, symbols and ellipticity; VI.2.1–2.4, pp. 289–290, where 2.1–2.3
+are stated with references to the standard texts and 2.4 is proved).
 *Needs:* `HodgeLaplacian`; TauCetiRoadmap.PDE (Lane A: Sobolev spaces and Rellich; Lane D: Gårding;
 Lane E: interior regularity).
 
@@ -1359,7 +1441,7 @@ projection `H_r` onto `ℋʳ = ker Δ_r` (finite-dimensional, smooth) and the Gr
 coexact, and each de Rham class has a unique harmonic representative. The API is
 `HarmonicGreen.projection_idempotent` (`H² = H`, `H` self-adjoint), `HarmonicGreen.green_identity`
 (`ΔG = GΔ = id − H`) and `HarmonicGreen.cohomologyEquiv` (`ℋʳ → H^r_dR(M)` of DifferentialGeometry is an
-isomorphism) (Demailly, VI.2.4, pp. 290–291; VI.3.15–3.17, pp. 294–295). *Needs:* `compactEllipticHodge`;
+isomorphism) (Demailly, VI.2.4, pp. 289–290; VI.3.15–3.17, pp. 294–295). *Needs:* `compactEllipticHodge`;
 `HodgeLaplacian`; TauCetiRoadmap.DifferentialGeometry (`deRhamCohomology`, Layer 6).
 
 **Checks.**
@@ -1379,9 +1461,10 @@ structure of weight `n` in the sense of `TauCeti.Hodge.HodgeStructureOn` (with t
 degenerates at `E₁`. Because `Δ_d = 2Δ_∂̄` preserves bidegree (`kaehlerIdentities`), the harmonic
 representative splits by type; Dolbeault's resolution (`localDolbeault`) identifies the pieces with
 coherent cohomology; the `∂∂̄`-lemma gives filtration compatibility (Demailly, VI.8.1–8.6,
-pp. 309–311). `E₁`-degeneration on a general compact complex manifold identifies dimensions but does
-not produce this canonical splitting (Demailly, VI.11.3, pp. 322–323, gives degeneration and the
-graded pieces only). *Needs:* `HarmonicGreen`; `kaehlerIdentities`; `localDolbeault`; Tau Ceti
+pp. 310–311). On a general compact complex manifold, `E₁`-degeneration of the Hodge-to-de Rham
+spectral sequence (Demailly, VI.11.3, pp. 322–323) does not by itself give Hodge symmetry or a
+splitting by harmonic forms; Demailly's strong Hodge decomposition (VI.12.5, p. 326) is the notion
+that does, and compact Kähler manifolds have it. *Needs:* `HarmonicGreen`; `kaehlerIdentities`; `localDolbeault`; Tau Ceti
 `TauCeti.Hodge.HodgeStructureOn`, `TauCeti.Hodge.Conjugation`.
 
 Prove `properPureHodge`: for a smooth proper scheme `X` over `ℂ`, projective or not, `H^n_sing(X^an, ℚ)`
@@ -1389,9 +1472,10 @@ carries a pure Hodge structure of weight `n` whose Hodge filtration is, under `p
 filtration of `H^n_dR(X/ℂ)` by form degree (the image of the hypercohomology of `Ω^{≥p}_X`). A
 nonprojective `X^an` need not be Kähler, so the structure is transported: Chow's lemma and resolution of
 singularities in characteristic zero give a smooth projective `Y` with a birational proper `π : Y → X`;
-`π^*` is injective on cohomology with a retraction given by the trace (Poincaré duality), it is
-compatible with the algebraic filtrations, and the Kähler Hodge structure of `Y^an` restricts (Deligne
-1968, Proposition 4.3 and Proposition 5.3, printed pp. 120–123). The completed HodgeStructures roadmap
+`π^*` is injective on cohomology with a retraction given by the trace (Poincaré duality on Betti
+cohomology; on Hodge cohomology the coherent trace of Grothendieck duality, Deligne 1968, (4.2) and
+Proposition 4.3, printed p. 120), it is compatible with the algebraic filtrations, and the Kähler
+Hodge structure of `Y^an` restricts (Deligne 1968, Proposition 5.3, printed pp. 121–123). The completed HodgeStructures roadmap
 supplies only the linear algebra; no geometric theorem is attributed to it. *Needs:*
 `kaehlerHodgeDecomposition`; `properDeRhamBetti`; `multiplicativePeriodInterface` (trace);
 AlgebraicModuliForArithmeticGeometry Layer 2 (`devissageViaChow`) and Layer 9 (resolution);
@@ -1407,8 +1491,9 @@ summand for a character is again finite locally free and inherits the filtration
 Reduce by Noetherian approximation to `S` of finite type, then to Artin local thickenings of points;
 over fields embed into `ℂ` and use `properPureHodge` (equality of Hodge and de Rham dimensions); on an
 Artin base, length counting forces degeneration, freeness and base change; idempotents of the group
-algebra cut out direct summands (Deligne 1968, Theorem 5.5 and proof, printed pp. 123–125; Qian,
-*Potential automorphy for GL_n*, Lemma 3.10(2), printed p. 1266). *Needs:* `properPureHodge`;
+algebra cut out direct summands (Deligne 1968, Theorem 5.5 and proof, printed pp. 123–125; the
+character summands are the argument just given, and Qian, *Potential automorphy for GL_n*, Lemma
+3.10(2), printed p. 1266, applies them to the Dwork family). *Needs:* `properPureHodge`;
 `relativeDeRhamBetti`; TauCetiRoadmap.JacobianChallenge (Layer C, cohomology and base change); Mathlib
 `AlgebraicGeometry.IsLocallyNoetherian`, `SheafOfModules.IsLocallyFree`.
 
@@ -1438,8 +1523,9 @@ TauCetiRoadmap.DifferentialGeometry (integration, Layer 5).
 **Checks.**
 
 - `AnalyticCycleIntegration.point`: for a reduced point `Z = {a}`, `[Z](f) = f(a)` on functions.
-- `AnalyticCycleIntegration.line`: for the coordinate line `{z₂ = 0} ⊂ ℂ²` and `η = χ(|z₁|²) (i/2) dz₁ ∧ dz̄₁`
-  with `χ ≥ 0`, `[Z](η) ≥ 0`: the complex orientation `dx ∧ dy = (i/2)dz ∧ dz̄` is used, not its negative.
+- `AnalyticCycleIntegration.line`: for the coordinate line `{z₂ = 0} ⊂ ℂ²` and
+  `η = χ(|z₁|² + |z₂|²) (i/2) dz₁ ∧ dz̄₁` with `χ ≥ 0` smooth and compactly supported and `χ(0) > 0`,
+  `[Z](η) > 0`: the complex orientation `dx ∧ dy = (i/2)dz ∧ dz̄` is used, not its negative.
 - `AnalyticCycleIntegration.doubleLine`: the cycle `2[L]` integrates to twice `[L]`; integrating over the
   reduced regular locus of the double line would lose the multiplicity.
 
@@ -1448,7 +1534,8 @@ are positive, and if `α`, `β` and `α − β` are semipositive `(1,1)`-forms o
 `d`-dimensional analytic set `Z`, then `∫_Z χ βᵈ ≤ ∫_Z χ αᵈ` for every nonnegative compactly supported
 smooth `χ`; every mixed term `(α − β)^j ∧ β^{d−j}` integrates nonnegatively. Pointwise this is
 `det B ≤ det A` for Hermitian matrices `0 ≤ B ≤ A` (`det_le_det_of_posSemidef`) (Demailly, III.1.7–1.12, pp. 131–132;
-Dimitrov–Gao–Habegger, Proposition 4.2, PDF pp. 16–18). *Needs:* `AnalyticCycleIntegration`;
+Dimitrov–Gao–Habegger, proof of Proposition 4.2, display (4.3), PDF p. 17). *Needs:*
+`AnalyticCycleIntegration`;
 Mathlib `Matrix.PosSemidef`.
 
 Prove `chernFubiniStudyIntersection`: for a Hermitian holomorphic line bundle `L`, the form
@@ -1468,10 +1555,12 @@ Prove `dghIntegrationApplication`: in the setting of Dimitrov–Gao–Habegger, 
 estimate on an analytic component is obtained as follows: represent the line bundle on the product of
 projective spaces by the Segre pullback of the normalised Fubini–Study form, keep the pullback along
 the paper's second projection (the bundle `O(0,1,1)` on the triple product, not `O(1,1,1)`), apply
-`semipositiveWedge` to the semipositive difference of the two forms compared there on each compact
-cutoff of the analytic component, pass to the limit using finite mass, and identify the total with the
-algebraic intersection degree by `chernFubiniStudyIntersection` after discarding the contribution of
-the lower-dimensional boundary (Dimitrov–Gao–Habegger, Proposition 4.2 and proof, PDF pp. 16–18).
+`semipositiveWedge` to the semipositive difference of the two forms compared there, with compact
+support supplied by a cutoff pulled back from the base and the integrals over the smooth locus made
+finite by Lelong's theorem (`AnalyticCycleIntegration`), and identify the total with the algebraic
+intersection degree by `chernFubiniStudyIntersection` after discarding the contribution of the
+lower-dimensional boundary (Dimitrov–Gao–Habegger, Proposition 4.2 and proof, PDF pp. 16–19, with
+the integration–intersection identity at (4.9), p. 18).
 *Needs:* `AnalyticCycleIntegration`; `semipositiveWedge`; `chernFubiniStudyIntersection`.
 
 ### Examples (C5.3–C5.4)
@@ -1516,7 +1605,7 @@ morphism of ringed spaces with a compatible map from the pulled-back monoid shea
 `LogStructure.unitsIso` (the inverse-image unit map is the stated isomorphism), `LogStructure.trivial`
 (the trivial log structure `O_T^× ⊆ O_T`) and `LogStructure.restrict` (restriction preserves the unit
 condition). On a ring the condition reads: every unit has exactly one preimage (`IsLogStructure`;
-the standard log point is `standardLogPoint`) (Kato, §1.2–1.4, printed pp. 192–194). *Needs:* `PrelogStructure`.
+the standard log point is `standardLogPoint`) (Kato, §1.2–1.5(2), printed pp. 193–194). *Needs:* `PrelogStructure`.
 
 **Checks.**
 
@@ -1531,7 +1620,7 @@ Define `AssociatedLog` (logification): for a prelog structure `α : M → O_T`, 
 map to `O_T`. It is left adjoint to forgetting a log structure to its prelog structure. The API is
 `AssociatedLog.unit` (the canonical prelog map `M → M^a`), `AssociatedLog.lift_unique` (prelog maps to a
 log structure factor uniquely through `M^a`) and `AssociatedLog.idempotent` (logification of a log
-structure is itself) (Kato, §1.3 with the pushout description, printed pp. 192–193). *Needs:*
+structure is itself) (Kato, §1.3 with the pushout description, printed p. 193). *Needs:*
 `LogStructure`.
 
 **Checks.**
@@ -1564,8 +1653,9 @@ such charts exist étale locally. Fine does not imply saturated. The API is
 `FineLogChart.groupCompletionEmbedding` (integral monoids embed in their group completion),
 `FineLogChart.logificationIso` (the chosen chart logifies to `M`) and `FineLogChart.etaleLocal` (fine
 charts exist étale locally and pull back along `LogPullback`); the monoid conditions are
-`IsFineMonoid` and `IsSaturatedSubmonoid` (Kato, §2.1–2.5 and §2.9–2.10, printed
-pp. 197–200). *Needs:* `AssociatedLog`; `LogPullback`; Mathlib `Monoid.FG`, `GrothendieckGroup`.
+`IsFineMonoid` and `IsSaturatedSubmonoid` (Kato, §2.1–2.5 and §2.9–2.10, printed pp. 197–200, for
+integral and fine monoids and charts; Kato does not use saturation, which is recorded here only to
+make explicit that nothing below assumes it). *Needs:* `AssociatedLog`; `LogPullback`; Mathlib `Monoid.FG`, `GrothendieckGroup`.
 
 **Checks.**
 
@@ -1616,7 +1706,8 @@ locally of finite presentation and every square-zero lifting problem with an exa
 the test object; log étale if the solution is moreover unique. Fibre products are taken in the fine
 category (integralizing when needed). The API is `LogSmooth.lift` (the lifting property),
 `LogSmooth.strict_iff` (for strict `f`, log smooth iff smooth) and `LogSmooth.baseChange` (stable under
-fine base change) (Kato, Definitions 3.1–3.3, pp. 200–201). *Needs:* `FineLogChart`;
+fine base change) (Kato, Definitions 3.1–3.3, pp. 200–201; Proposition 3.8, p. 203, for the strict
+case; (2.8), p. 199, for fine fibre products). *Needs:* `FineLogChart`;
 `LogDifferentials`; Mathlib `Algebra.FormallySmooth`.
 
 **Checks.**
@@ -1633,7 +1724,8 @@ the torsion part of the cokernel of `Q^gp → P^gp` are finite of order invertib
 `X → Y ×_{Spec ℤ[Q]} Spec ℤ[P]` is étale; `f` is log étale if and only if the same holds with the
 whole cokernel finite of invertible order. Log smoothness implies that `Ω¹_log(X/Y)` is finite
 locally free. No saturation is assumed (Kato,
-Proposition 3.4, Theorem 3.5 and its proof 3.13, pp. 201–205; Proposition 3.10, p. 203). *Needs:*
+Proposition 3.4, pp. 201–202, Theorem 3.5, p. 202, with Remark 3.6 and the proof 3.13,
+pp. 202–205; Proposition 3.10, p. 203). *Needs:*
 `LogSmooth`; `LogDifferentials`.
 
 Define `LogDeRham`: for a fine log morphism, `Ω^p_log = Λ^p Ω¹_log` with the differential extending the
@@ -1642,7 +1734,8 @@ universal log derivation by `d(dlog p) = 0` and the graded Leibniz rule; it is a
 smooth. For a divisorial structure with SNC boundary it is the classical `Ω^•_X(log D)` generated by the
 `dzᵢ/zᵢ` and the remaining `dzⱼ`. The API is `LogDeRham.dlogClosed` (`d(dlog p) = 0`),
 `LogDeRham.d_squared` (`d² = 0`) and `LogDeRham.SNC` (agreement with `Ω^•_X(log D)`) (Kato, §1.9, p. 196,
-and Proposition 3.10, p. 203; Qian, Proposition 3.6). *Needs:* `LogDifferentials`; `logChartCriterion`;
+and Proposition 3.10, p. 203; the agreement with `Ω^•_X(log D)` follows from the chart formula (1.8),
+p. 196; Qian, Proposition 3.6, pp. 18–19, uses it over the standard log point). *Needs:* `LogDifferentials`; `logChartCriterion`;
 `AlgebraicDeRham`.
 
 **Checks.**
@@ -1671,8 +1764,8 @@ on the compactification. The equivalence uses Deligne's corrected proof of II.4.
 a uniform pole bound by a Baire argument, extension across codimension two), not the withdrawn
 II.1.23–1.24. The API is `RegularSingular.restrict` (restriction to an open), `RegularSingular.pullback`
 (pullback along morphisms of smooth varieties) and `RegularSingular.tensor` (tensor products and duals)
-(Deligne 1970, II.4.1 and II.5.1–5.9, printed pp. 91–98, with the replacement proof of II.4.1 in the
-author's 1971 erratum). *Needs:* `AlgebraicConnection`; `DivisorialLog`; `LogDifferentials`;
+(Deligne 1970, II.4.1–4.6, printed pp. 85–91, and II.5.1–5.9, pp. 91–98, with the replacement proof of
+II.4.1 in the author's 1971 erratum, pp. 1–3). *Needs:* `AlgebraicConnection`; `DivisorialLog`; `LogDifferentials`;
 AlgebraicModuliForArithmeticGeometry Layer 9 (`sncCompactification`).
 
 **Checks.**
@@ -1693,7 +1786,8 @@ by the corresponding exponentials; moderate growth glues and characterizes the e
 `CanonicalLogExtension.residueSpectrum` (residue eigenvalues in `τ`), `CanonicalLogExtension.monodromy`
 (monodromy `exp(−2πi Res)`, `localMonodromy`; strip representatives `residueStripRep`) and
 `CanonicalLogExtension.uniqueness` (uniqueness of an extension with the
-strip condition) (Deligne 1970, II.5.1–5.5 and proof, printed pp. 91–95). *Needs:* `RegularSingular`;
+strip condition) (Deligne 1970, II.5.1–5.6, printed pp. 91–96: the choice of `τ` in II.5.3, misnumbered
+4.3 in print, and Proposition 5.4, p. 94; the monodromy in Corollary 5.6, p. 96). *Needs:* `RegularSingular`;
 `LogDifferentials`; AlgebraicModuliForArithmeticGeometry Layer 9 (`analyticPolydisc`).
 
 **Checks.**
@@ -1713,8 +1807,9 @@ smooth quasi-projective `U`, take the canonical logarithmic extension on an SNC 
 (`sncCompactification`), algebraize it and its logarithmic connection by proper GAGA
 (`properSchemeGagaEquivalence` and `DifferentialOperatorAnalytification`), and algebraize horizontal
 maps by moderate growth; a general `U` is covered by quasi-projective opens (Deligne 1970, II.5.7–5.9
-and proof, printed pp. 95–98, with the corrected II.4.1; Caraiani–Scholze, *On the generic part of the
-cohomology of compact unitary Shimura varieties*, §2.3, PDF p. 17, for the proper case used there).
+and proof, printed pp. 96–98, with the corrected II.4.1; Caraiani–Scholze, *On the generic part of the
+cohomology of compact unitary Shimura varieties*, arXiv:1511.02418v1, §2.3, PDF p. 17, which uses it
+on a Hodge-type Shimura variety to make horizontal Hodge tensors algebraic).
 *Needs:* `CanonicalLogExtension`; `relativePoincare`; `DifferentialOperatorAnalytification`;
 AlgebraicModuliForArithmeticGeometry `properSchemeGagaEquivalence`, `sncCompactification`;
 SchemeAndStackFoundations SF.1.
@@ -1726,8 +1821,9 @@ residue eigenvalues are not positive integers, `Ω^•_X(log D) ⊗ Ē → Rj_*(
 quasi-isomorphism (after analytification); an arbitrary logarithmic lattice need not compute the same
 cohomology. On a boundary polydisc expand in Laurent series and contract the negative-exponent part with
 the inverses of `k + Res` (available because no residue eigenvalue is a positive integer); then apply
-`boundedOperatorHyperGaga` and the coefficient Poincaré lemma (Deligne 1970, II.6.7–6.10 and proof,
-printed pp. 102–105). *Needs:* `deligneRiemannHilbert`; `boundedOperatorHyperGaga`; `LogDeRham`;
+`boundedOperatorHyperGaga` and the coefficient Poincaré lemma (Deligne 1970, Theorem II.6.2, printed
+p. 98, and II.6.7–6.10 and proof, pp. 101–105, with II.3.13–3.15, pp. 80–85, for the passage from
+logarithmic to meromorphic forms). *Needs:* `deligneRiemannHilbert`; `boundedOperatorHyperGaga`; `LogDeRham`;
 `sheafSingularComparison`; `relativePoincare`.
 
 ### C5.7 Curves and the proper logarithmic comparison
@@ -1737,10 +1833,13 @@ and `U = C ∖ D`: the logarithmic complex `Ω^•_C(log D) = [O_C → Ω¹_C(D)
 `Ω^•_C(log D)(−D) = [O_C(−D) → Ω¹_C]`, with `ℂ`-linear differentials. The first computes `H^•_dR(U)`, the
 second `H^•_c(U)`, and the inclusion of the second into the first induces the natural map
 `H¹_c(U) → H¹(U)`, whose image is the parabolic cohomology. The local logarithmic Poincaré lemma
-identifies the complexes with `Rj_*ℂ` and `j_!ℂ`. The API is `CurveLogComplex.ordinary` (terms `O_C`,
+identifies the first complex with `Rj_*ℂ`. The second is identified with `j_!ℂ` by a local
+computation: at `p ∈ D` with coordinate `z`, `d` maps `zℂ{z}` isomorphically onto `ℂ{z} dz`
+(`z^{n+1} ↦ (n+1)zⁿ dz`), so the stalk at `p` is acyclic, as is `(j_!ℂ)_p`. The API is `CurveLogComplex.ordinary` (terms `O_C`,
 `Ω¹_C(D)`), `CurveLogComplex.compactSupport` (terms `O_C(−D)`, `Ω¹_C`) and `CurveLogComplex.parabolic`
-(parabolic `H¹` is the image of `H¹_c → H¹`) (Grothendieck 1966, Theorem 2, printed p. 96; Deligne 1970,
-II.6.9–6.10, printed pp. 103–105). *Needs:* `LogDeRham`; `regularSingularDeRhamComparison`;
+(parabolic `H¹` is the image of `H¹_c → H¹`) (Grothendieck 1966, Theorem 2, printed p. 97, for the
+meromorphic de Rham complex; Deligne 1970, II.6.9–6.10, printed pp. 102–105, for the logarithmic
+one; the compact-support identification is the computation just given). *Needs:* `LogDeRham`; `regularSingularDeRhamComparison`;
 `affineCurveCompletionInterface`.
 
 **Checks.**
@@ -1756,9 +1855,10 @@ coordinate `z` at `p`. Its hypercohomology sequence is the de Rham localization 
 the Betti localization sequence, the residue map corresponding to `2πi` times the Betti residue along the
 positive loop; the sum of residues of a global logarithmic form is `0`, compatibly with the trace; and
 the pairing between compact-support and ordinary `H¹` induces the nondegenerate pairing on parabolic
-`H¹` with the same normalisations. *Needs:* `CurveLogComplex`; `multiplicativePeriodInterface`;
-`boundedOperatorHyperGaga` (Grothendieck 1966, Theorem 2, printed pp. 96–97; Deligne 1970,
-II.6.9–6.10).
+`H¹` with the same normalisations (Deligne 1970, II.3.5–3.7, printed pp. 75–78, for the Poincaré
+residue, and II.6.10, p. 105, for the identification with `Rj_*ℂ`; Grothendieck 1966, Theorem 2,
+printed p. 97). *Needs:* `CurveLogComplex`; `multiplicativePeriodInterface`;
+`boundedOperatorHyperGaga`.
 
 Prove `properLogGagaMonodromy`: let `X` be a proper fine log-smooth log scheme over the standard log
 point `0^† = (Spec ℂ, ℕ → ℂ, 1 ↦ 0)`. Analytification compares the hypercohomology of the relative log
@@ -1816,10 +1916,11 @@ an instance of the named targets, not a separate theorem.
    (`curveResidueLocalization`, `HolomorphicDeRham.torusPeriod`). `Ω^•(log D)(−D)` computes compact
    support cohomology and its image in `H¹` is the parabolic part, which vanishes for `G_m`
    (`CurveLogComplex`).
-4. **Modular normalisation.** Under the Kodaira–Spencer isomorphism of ModularCurvesPartII (R12.5),
-   `f(q)(du/u)²` corresponds to `f(q) dq/q`; with `q = e^{2πiτ}`, `dq/q = 2πi dτ`. Here `du/u` is the
-   relative differential of the Tate curve and `dq/q` a differential on the base; the comparison
-   maps of this roadmap carry these factors and do not construct Kodaira–Spencer again.
+4. **Modular normalisation.** With `q = e^{2πiτ}`, `dq/q = 2πi dτ`: the factor `2πi` is the period
+   of `dz/z` fixed above (`HolomorphicDeRham.torusPeriod`), and the comparison maps of this roadmap
+   carry it unchanged. A downstream Kodaira–Spencer identification, such as that of
+   ModularCurvesPartII matching `f(q)(du/u)²` (with `du/u` the relative differential of the Tate
+   curve) to `f(q) dq/q` on the base, is not constructed or used here.
 5. **Proper moduli fibres.** The proper ambient spaces of PEL moduli and of Baily–Borel
    compactifications, with their nilpotent coherent ideals, use the analytic carrier of C0; the
    proper-source comparison keeps graph projections (`properSourceMorphismAlgebraicity`), while the
@@ -1893,16 +1994,15 @@ an instance of the named targets, not a separate theorem.
   (<http://math.haifa.ac.il/kobi/Newton.pdf>); H. Whitney, *Complex Analytic Varieties*,
   Addison-Wesley 1972, Theorem 9F, p. 240 (quoted there).
 - L. Qian, *Ordinarity of local Galois representation arising from Dwork motives*, arXiv:2103.00106v1;
-  L. Qian, *Potential automorphy for GL_n*, NSF public access version
-  (<https://par.nsf.gov/servlets/purl/10388233>).
+  L. Qian, *Potential automorphy for GL_n*, Invent. Math. 231 (2023), 1239–1275; NSF public access
+  version (<https://par.nsf.gov/servlets/purl/10388233>).
 - V. Dimitrov, Z. Gao and P. Habegger, *Uniformity in Mordell–Lang for curves*, Ann. of Math. 194
   (2021); arXiv:2001.10276v3.
 - B. Bakker, B. Klingler and J. Tsimerman, *Tame topology of arithmetic quotients and algebraicity of
   Hodge loci*, J. Amer. Math. Soc. 33 (2020), 917–939.
 - A. Caraiani and P. Scholze, *On the generic part of the cohomology of compact unitary Shimura
-  varieties*, Ann. of Math. 186 (2017); arXiv:1511.02418.
+  varieties*, Ann. of Math. 186 (2017); arXiv:1511.02418v1.
 - N. Mok, J. Pila and J. Tsimerman, *Ax–Schanuel for Shimura varieties*, Ann. of Math. 189 (2019);
   arXiv:1711.02189v3 (motivation for the graph interface of C4.4).
 - TauCetiRoadmap: AlgebraicVectorBundles, DifferentialGeometry, AlgebraicTopology, PDE,
-  JacobianChallenge, StableReduction, AlgebraicCurves, CohomologicalPointCounting/ComplexComparison and
-  the completed HodgeStructures roadmap, as cited in *Exact supplier contracts*.
+  JacobianChallenge, StableReduction, AlgebraicCurves and the completed HodgeStructures roadmap, as cited in *Exact supplier contracts*.

@@ -4,6 +4,7 @@ import TauCeti.Topology.Sheaves.Flasque
 import TauCeti.Geometry.Hodge.Structure
 import TauCeti.Geometry.Hodge.Conjugation
 import TauCeti.Analysis.Complex.HolomorphicSheaf
+import TauCeti.Analysis.Complex.Conformal.Montel.Basic
 
 /-!
 # ComplexComparisonPartII: representative target signatures
@@ -83,6 +84,8 @@ noncomputable section
 #check @Set.Countable.isPathConnected_compl_of_one_lt_rank
 -- The one-variable holomorphic sheaf on `ℂ` (the `n = 1` case of the analytic structure sheaf).
 #check @TauCeti.holomorphicSheaf
+-- Montel's theorem on open subsets of `ℂ` (C1.6 states the several-variable case).
+#check @TauCeti.montel
 
 /-! ## Layer C0: Coherent analytic modules and coherent analytification -/
 
@@ -106,7 +109,8 @@ instance (X : LocallyRingedSpace.{u}) (M : CoherentAnalyticModule X) :
     M.obj.IsFinitePresentation :=
   M.property
 
-/-- `CoherentAnalyticModule.free` in rank one: the structure sheaf is coherent. -/
+/-- `CoherentAnalyticModule.free` in rank one: the structure sheaf is finitely presented, so it
+is an object of `CoherentAnalyticModule X` over every locally ringed space. -/
 theorem CoherentAnalyticModule.unit_isFinitePresentation (X : LocallyRingedSpace.{u}) :
     (SheafOfModules.unit (ringSheaf X)).IsFinitePresentation := sorry
 
@@ -146,12 +150,14 @@ theorem localDolbeault_oneVariable (g : ℂ → ℂ)
 
 /-- **C1.6, `montelTheorem`.** On an open subset of a finite-dimensional complex normed space, a
 sequence of holomorphic functions that is uniformly bounded on every compact subset has a
-subsequence converging locally uniformly. -/
+subsequence converging locally uniformly, with holomorphic limit. Tau Ceti's `TauCeti.montel` is
+the case of an open subset of `ℂ`; the several-variable domain is what the restriction maps
+between polydisc charts need. -/
 theorem montelTheorem {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
     [FiniteDimensional ℂ E] {Ω : Set E} (hΩ : IsOpen Ω) (f : ℕ → E → ℂ)
     (hf : ∀ n, DifferentiableOn ℂ (f n) Ω)
     (hb : ∀ K ⊆ Ω, IsCompact K → ∃ C : ℝ, ∀ n, ∀ z ∈ K, ‖f n z‖ ≤ C) :
-    ∃ (φ : ℕ → ℕ) (g : E → ℂ), StrictMono φ ∧
+    ∃ (φ : ℕ → ℕ) (g : E → ℂ), StrictMono φ ∧ DifferentiableOn ℂ g Ω ∧
       TendstoLocallyUniformlyOn (fun n => f (φ n)) g Filter.atTop Ω := sorry
 
 /-- **C1.6, `schwartzFiniteness`, Banach case.** A compact perturbation of a continuous linear
@@ -302,10 +308,11 @@ completion) and finitely generated. Saturation is a separate condition. -/
 def IsFineMonoid (Q : Type*) [AddCommMonoid Q] : Prop :=
   IsCancelAdd Q ∧ AddMonoid.FG Q
 
-/-- **Saturation** of a submonoid of an abelian group (an integral monoid inside its group
-completion): `n • x ∈ Q` with `n > 0` forces `x ∈ Q`. -/
+/-- **Saturation** of a submonoid `Q` of an abelian group, measured in the subgroup `Q^gp` that
+`Q` generates (its group completion): an element `x` of `Q^gp` with `n • x ∈ Q` for some `n > 0`
+lies in `Q`. Quantifying over `Q^gp` rather than the ambient group makes the notion intrinsic. -/
 def IsSaturatedSubmonoid {G : Type*} [AddCommGroup G] (Q : AddSubmonoid G) : Prop :=
-  ∀ (x : G) (n : ℕ), 0 < n → n • x ∈ Q → x ∈ Q
+  ∀ x ∈ AddSubgroup.closure (Q : Set G), ∀ n : ℕ, 0 < n → n • x ∈ Q → x ∈ Q
 
 /-- `FineLogChart.free`: `ℕʳ` is fine, including `r = 0`. -/
 example (r : ℕ) : IsFineMonoid (Fin r → ℕ) := sorry
@@ -314,6 +321,10 @@ example (r : ℕ) : IsFineMonoid (Fin r → ℕ) := sorry
 saturated (`2 • 1 ∈ Q` while `1 ∉ Q`). -/
 example : IsFineMonoid (AddSubmonoid.closure ({2, 3} : Set ℤ)) ∧
     ¬ IsSaturatedSubmonoid (AddSubmonoid.closure ({2, 3} : Set ℤ)) := sorry
+
+/-- Saturation is intrinsic: `2ℕ ⊆ ℤ` is a copy of `ℕ` and is saturated, although `2 • 1 ∈ 2ℕ`
+and `1 ∉ 2ℕ`; a condition quantifying over all of `ℤ` would wrongly call it unsaturated. -/
+example : IsSaturatedSubmonoid (AddSubmonoid.closure ({2} : Set ℤ)) := sorry
 
 /-- `FineLogChart.noncancellative`: `ℕ ∪ {∞}` with `∞` absorbing is finitely generated but not
 cancellative (`0 + ∞ = 1 + ∞`). -/
