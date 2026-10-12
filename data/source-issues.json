@@ -200576,6 +200576,26 @@
    "reviewReason": "Added by the reviewer from the rendered page 19 of the SLMath file; checked by the two-dimensional example in the reason."
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E201",
+   "kind": "error",
+   "locator": "15.4.5 and Lemma 15.4.7, printed p.239, in the post-publication v1.0.7u (5 August 2026); the same statements are in the 2021 Springer edition",
+   "printed": "For projective R-lattices I ⊆ J in a quaternion algebra, 15.4.5 deduces discrd(I) = [J : I]·discrd(J), and Lemma 15.4.7 asserts disc(I) = discrd(I)² for every projective R-lattice I.",
+   "correction": "Both hold for R-orders (more generally for lattices containing R·1 as a saturated direct summand, so that the index can be computed in B/F); for general lattices discrd(I)² = disc(I) fails. The packet states them for orders.",
+   "reason": "For I = 2M₂(ℤ) ⊆ J = M₂(ℤ): m is trilinear, so discrd(I) = 2³discrd(J) = 8ℤ, while [J : I] = 2⁴ and disc(I) = 2⁸disc(J) = 256ℤ ≠ 64ℤ = discrd(I)². The proof of 15.4.7 uses m(α_1, α_2, α_3)² = −d(1, α_1, α_2, α_3), and the values d(1, α_1, α_2, α_3) generate disc(I) only when 1 ∈ I behaves as for an order.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Voight’s errata list at quatalg.org as reflected in the post-publication v1.0.7u (which incorporates the errata)",
+    "the text of v1.0.7u itself (statements unchanged)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.2.json",
+   "citation": "John Voight, Quaternion algebras, Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 in Chapters 9–13 and physical − 28 in Chapters 14–15",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "kind": "error",
    "locator": "§3, second paragraph, top of printed p. 5 (the paragraph begins on p. 4; arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
