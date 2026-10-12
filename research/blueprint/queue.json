@@ -32018,7 +32018,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -32028,7 +32028,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1031"
+   "note": "claimed on GitHub issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
@@ -50684,8 +50684,9 @@
     "PKG-ArithmeticGaloisDuality"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisDuality.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8894"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8894",
+   "finishedAt": "2026-10-12T18:38:34Z"
   },
   {
    "id": "PKG-ArithmeticLocallySymmetricSpaces",
