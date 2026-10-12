@@ -13,7 +13,7 @@
     "ClassicalArithmeticCompletion:CA.6",
     "ClassicalArithmeticCompletion:CA.7"
   ],
-  "summary": "Revision round 2 completes the budgeted reconciliation of 333 inherited targets, adding no nodes. It preserves the independent review, checks retained corrections, adds or strengthens 20 native contracts within 16 targets, and presents one reader aligned with the corrected packet. CA.0 retains its reviewed planning closure; CA.1–CA.7 remain partial with all 196 review findings and 20 inherited source/ownership frontiers visible. Complete means this budgeted pass is complete, not gap-free mathematics or accepted review.",
+  "summary": "Revision round 3 completes the budgeted pass again without adding nodes (the packet already holds 333 targets, above the 300-node budget). It checks and keeps all 23 corrections of the second independent review, carries them into the reader, and regenerates the reader from the packet so that every statement, hypothesis, API item, unit test, acceptance check, proof sketch, prerequisite, source locator, gap and request appears there. It applies the upstream tier rule: this tier-5 roadmap no longer cites K2SymbolsBrauer T.7, QSeriesPartitionsAndMockModularForms QM.0, ArithmeticDynamics DY.1 or KTheoryLowDegrees Z.1 and Z.4; the degree-n norm-residue symbol (CA.1), the Jacobi triple product identities (CA.4) and the K₀ bridges of the locally free class group (CA.7) are recorded CA-owned inputs, and the power-map canonical height (CA.6) is computed as Tate's limit. CA.0 keeps its reviewed planning closure; CA.1–CA.7 remain partial with explicit frontiers. Complete means this budgeted pass is complete, not gap-free mathematics or accepted review.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4230,6 +4230,14 @@
         "provides": "In an algebraic extension of the fraction field of a domain, the field is the localization of the integral closure at the nonzero base elements; this supplies its spanning property.",
         "checked": "Statement and surrounding hypotheses read independently at Mathlib 082e2d3; line 65.",
         "addedBy": "REV-ClassicalArithmeticCompletion~2"
+      },
+      {
+        "ref": "tauceti:TauCeti.SplitK0.map",
+        "kind": "def",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+        "provides": "The additive map SplitK0 C →+ SplitK0 D induced by an additive functor C ⥤ D between preadditive categories with binary biproducts; SplitK0.map_of evaluates it on classes.",
+        "checked": "statement read at the pinned commit (line 275; map_of at line 279)",
+        "addedBy": "BP-ClassicalArithmeticCompletion~3"
       }
     ]
   },
@@ -7105,8 +7113,7 @@
       ],
       "prerequisites": [
         "ClassicalArithmeticCompletion:CA.1/power-residue-symbol",
-        "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-and-frobenius",
-        "K2SymbolsBrauer:T.7"
+        "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-and-frobenius"
       ],
       "upstreamPrerequisites": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
@@ -7121,7 +7128,7 @@
         {
           "sourceId": "milne-cft-2020",
           "locator": "Chapter III, Theorem 4.4 and Remark 4.5 (pp. 113–114)",
-          "match": "Skew-symmetry is used in step 3. Milne's orientation is the opposite of Shastri's: Milne's (a, b) is Shastri's ⟨b, a⟩; the node pins Shastri's orientation, and the request to K2SymbolsBrauer:T.7 asks for that orientation."
+          "match": "Skew-symmetry is used in step 3. Milne's orientation is the opposite of Shastri's: Milne's (a, b) is Shastri's ⟨b, a⟩; the node pins Shastri's orientation, and the CA.1-owned symbol recorded in the gap on the degree-n norm-residue symbol is defined in that orientation."
         }
       ],
       "implementationStatus": "unchecked"
@@ -7149,8 +7156,7 @@
         "For K = ℚ(ζ₃), n = 3, a = ζ₃ and b = 1 - ζ₃ the finitely many nontrivial factors multiply to 1 (only the place above 3 can contribute)."
       ],
       "prerequisites": [
-        "ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula",
-        "K2SymbolsBrauer:T.7"
+        "ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula"
       ],
       "upstreamPrerequisites": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
@@ -7196,8 +7202,7 @@
         "ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n",
         "ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula",
         "ClassicalArithmeticCompletion:CA.1/power-residue-symbol-of-an-ideal",
-        "mathlib:jacobiSym.quadratic_reciprocity",
-        "K2SymbolsBrauer:T.7"
+        "mathlib:jacobiSym.quadratic_reciprocity"
       ],
       "planet": {
         "name": "Power reciprocity law"
@@ -15521,7 +15526,7 @@
         "Identity of formal power series; each coefficient on the right is a finite sum and an integer."
       ],
       "proofSteps": [
-        "Square Jacobi's identity ∏(1 − xⁿ)³ = ½ Σ_{n∈ℤ} (−1)ⁿ(2n + 1)x^{(n²+n)/2} (supplied by QSeriesPartitionsAndMockModularForms:QM.0) to get ¼ Σ_{m,n}(−1)^{m+n}(2m + 1)(2n + 1)x^{(m²+n²+m+n)/2}.",
+        "Square Jacobi's identity ∏(1 − xⁿ)³ = ½ Σ_{n∈ℤ} (−1)ⁿ(2n + 1)x^{(n²+n)/2} (the CA.4-owned triple-product input recorded as a gap) to get ¼ Σ_{m,n}(−1)^{m+n}(2m + 1)(2n + 1)x^{(m²+n²+m+n)/2}.",
         "Split according to the parity of m + n. For m ≡ n put r = (m + n)/2, s = (m − n)/2; for m ≢ n put r = (m − n − 1)/2, s = (m + n + 1)/2. Each substitution is a bijection onto ℤ², the exponent becomes r² + r + s², and the signed coefficient becomes (2r + 1)² − (2s)² in both cases.",
         "The two sums coalesce into twice the same sum, giving the factor ½."
       ],
@@ -15530,7 +15535,7 @@
         "Coefficient of x: pairs (0, ±1), (−1, ±1) give ½·4·(1 − 4) = −6, matching (1 − x)⁶ = 1 − 6x + ⋯."
       ],
       "prerequisites": [
-        "QSeriesPartitionsAndMockModularForms:QM.0"
+        "mathlib:PowerSeries"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SumsOfSquares/RepresentationCount",
@@ -15559,7 +15564,7 @@
       ],
       "proofSteps": [
         "Split the right side of hirschhorn-sixth-power-identity as ½(Σ_s x^{s²} · (1 + 4x d/dx)Σ_r x^{r²+r} − Σ_r x^{r²+r} · 4x d/dx Σ_s x^{s²}), using (2r + 1)²x^{r²+r} = (1 + 4x d/dx)x^{r²+r} and (2s)²x^{s²} = 4x d/dx x^{s²}.",
-        "Substitute the product forms Σ_s x^{s²} = ∏(1 + x^{2n−1})²(1 − x^{2n}) and Σ_r x^{r²+r} = 2∏(1 + x^{2n})²(1 − x^{2n}) (both consequences of the Jacobi triple product identity, supplied by QM.0).",
+        "Substitute the product forms Σ_s x^{s²} = ∏(1 + x^{2n−1})²(1 − x^{2n}) and Σ_r x^{r²+r} = 2∏(1 + x^{2n})²(1 − x^{2n}) (both consequences of the Jacobi triple product identity, the CA.4-owned input recorded as a gap).",
         "Apply the product rule in logarithmic-derivative form, x d/dx log ∏(1 + x^j)^{e} = e Σ j x^j/(1 + x^j) and x d/dx log ∏(1 − x^j)^{e} = −e Σ j x^j/(1 − x^j), and collect terms: the Σ 2n x^{2n}/(1 − x^{2n}) terms cancel."
       ],
       "acceptance": [
@@ -15567,7 +15572,6 @@
       ],
       "prerequisites": [
         "ClassicalArithmeticCompletion:CA.4/hirschhorn-sixth-power-identity",
-        "QSeriesPartitionsAndMockModularForms:QM.0",
         "mathlib:PowerSeries",
         "mathlib:PowerSeries.derivative"
       ],
@@ -15598,7 +15602,7 @@
       ],
       "proofSteps": [
         "Divide hirschhorn-logarithmic-derivative-identity by ∏(1 + xⁿ)⁴(1 − xⁿ)² = ∏(1 + x^{2n−1})²(1 + x^{2n})²(1 − x^{2n})² to get ∏((1 − xⁿ)/(1 + xⁿ))⁴ = 1 − 8Σ((2n − 1)x^{2n−1}/(1 + x^{2n−1}) − 2nx^{2n}/(1 + x^{2n})).",
-        "Use Gauss's identity ∏(1 − xⁿ)/(1 + xⁿ) = Σ_{n∈ℤ}(−1)ⁿx^{n²} (a consequence of the triple product identity, supplied by QM.0) and substitute −x for x.",
+        "Use Gauss's identity ∏(1 − xⁿ)/(1 + xⁿ) = Σ_{n∈ℤ}(−1)ⁿx^{n²} (a consequence of the triple product identity, the CA.4-owned input recorded as a gap) and substitute −x for x.",
         "Rewrite: Σ((2n − 1)x^{2n−1}/(1 − x^{2n−1}) + 2nx^{2n}/(1 + x^{2n})) = Σ nxⁿ/(1 − xⁿ) − Σ 4nx^{4n}/(1 − x^{4n}), since 2nx^{2n}/(1 − x^{2n}) − 2nx^{2n}/(1 + x^{2n}) = 4nx^{4n}/(1 − x^{4n}).",
         "The difference Σ nxⁿ/(1 − xⁿ) − Σ 4nx^{4n}/(1 − x^{4n}) is Σ_{4∤n} nxⁿ/(1 − xⁿ)."
       ],
@@ -15607,7 +15611,6 @@
       ],
       "prerequisites": [
         "ClassicalArithmeticCompletion:CA.4/hirschhorn-logarithmic-derivative-identity",
-        "QSeriesPartitionsAndMockModularForms:QM.0",
         "mathlib:PowerSeries"
       ],
       "library": {
@@ -21679,13 +21682,13 @@
       "statement": "Let d ≥ 2 and f(x) = x^d on P¹. For every α (in a field of characteristic 0), d^{−n} h(f^{∘n}(α)) = h(α) for all n, so Tate's limit defining the canonical height exists and ĥ_f(α) = h(α) = log M(α)/deg α; also ĥ_f(∞) = 0 = h(∞). Consequently, for algebraic α, ĥ_f(α) = 0 iff α is 0 or a root of unity, and ĥ_f(∞) = 0 (these are the preperiodic points of f), and the dynamical Lehmer problem for f is Lehmer's problem.",
       "hypotheses": [
         "d ≥ 2; h is Mathlib's absLogHeight₁ on affine points, h(∞) = 0 (the height of [1 : 0]).",
-        "ĥ_f is ArithmeticDynamics:DY.1's canonical height of the polarised morphism f (f*O(1) ≅ O(d))."
+        "ĥ_f(α) denotes Tate's limit lim_{n→∞} d^{−n} h(f^{∘n}(α)), whose existence is part of the statement. The general canonical height of a polarised endomorphism of P¹ belongs to the later roadmap ArithmeticDynamics (DY.1), which imports this computation as its power-map instance; nothing from DY.1 is used here."
       ],
       "proofSteps": [
         "f^{∘n}(α) = α^{d^n} and h(α^{d^n}) = dⁿ h(α) (CA.6/abs-log-height-pow), so the sequence is constant.",
-        "Its limit is h(α); by DY.1's characterisation (the unique function with ĥ − h bounded and ĥ∘f = d ĥ, or directly as the limit) ĥ_f = h.",
+        "Its limit is h(α), so ĥ_f = h on P¹(Q̄), with ĥ_f(∞) = h(∞) = 0. In particular h satisfies ĥ∘f = d·ĥ and ĥ − h = 0, the two properties that characterise the canonical height of a polarised morphism; this is how the later general theory recognises the computation, and it is not an input here.",
         "h(α) = log M(α)/deg α (DiophantineApproximationAndTranscendence:DT.0/height-comparisons).",
-        "Zero height: CA.6/weil-height-eq-zero-iff. (DY.1's general zero-height criterion rests on Northcott, which for a fixed number field is Mathlib's NumberField.finite_setOfPred_mulHeight₁_le; for the power map Kronecker gives it directly.)"
+        "Zero height: CA.6/weil-height-eq-zero-iff. (The general zero-height criterion for canonical heights rests on Northcott, which for a fixed number field is Mathlib's NumberField.finite_setOfPred_mulHeight₁_le; for the power map Kronecker gives it directly.)"
       ],
       "acceptance": [
         "f = x²: ĥ(2) = log 2, ĥ(φ) = (log φ)/2, ĥ(i) = 0 (i is preperiodic: i ↦ −1 ↦ 1).",
@@ -21695,7 +21698,6 @@
         "ClassicalArithmeticCompletion:CA.6/abs-log-height-pow",
         "ClassicalArithmeticCompletion:CA.6/weil-height-eq-zero-iff",
         "DiophantineApproximationAndTranscendence:DT.0/height-comparisons",
-        "ArithmeticDynamics:DY.1",
         "mathlib:NumberField.absLogHeight₁",
         "mathlib:NumberField.finite_setOfPred_mulHeight₁_le"
       ],
@@ -21703,7 +21705,7 @@
         {
           "sourceId": "smyth-mahler-survey-2008",
           "locator": "Section 12, printed pp. 338-339",
-          "match": "The definition consumed from DY.1."
+          "match": "Tate's limit definition of the canonical height, which the node evaluates for the power map."
         },
         {
           "sourceId": "smyth-mahler-survey-2008",
@@ -24646,7 +24648,7 @@
       ],
       "title": "The locally free class group of an order",
       "kind": "construction",
-      "statement": "Let A be a Dedekind domain that is not a field with fraction field K and Λ an A-order in a finite-dimensional semisimple K-algebra (for instance 𝓞_K[G] ⊆ K[G], or ℤ[G] ⊆ ℚ[G]). Let K₀(Λ) be the Grothendieck group of finitely generated projective Λ-modules (Tau Ceti's split K₀, with the ring-level interface of KTheoryLowDegrees Z.1). The locally free class group Cl(Λ) is the subgroup of K₀(Λ) generated by the classes [M] − n[Λ] of the locally free Λ-lattices M of rank n (projective by locally-free-lattice-is-projective). [M] − n[Λ] = 0 exactly when M is stably free: M ⊕ Λ^k ≅ Λ^{n+k}. For Λ = A, Cl(A) is the ideal class group. For an order Λ′ ⊇ Λ (a maximal order), extension of scalars gives Cl(Λ) → Cl(Λ′), whose kernel is the kernel group D(Λ).",
+      "statement": "Let A be a Dedekind domain that is not a field with fraction field K and Λ an A-order in a finite-dimensional semisimple K-algebra (for instance 𝓞_K[G] ⊆ K[G], or ℤ[G] ⊆ ℚ[G]). Let K₀(Λ) be the Grothendieck group of finitely generated projective Λ-modules (Tau Ceti's SplitK0 of the category finiteProjectiveModules Λ). The locally free class group Cl(Λ) is the subgroup of K₀(Λ) generated by the classes [M] − n[Λ] of the locally free Λ-lattices M of rank n (projective by locally-free-lattice-is-projective). [M] − n[Λ] = 0 exactly when M is stably free: M ⊕ Λ^k ≅ Λ^{n+k}. For Λ = A, Cl(A) is the ideal class group. For an order Λ′ ⊇ Λ (a maximal order), extension of scalars gives Cl(Λ) → Cl(Λ′), whose kernel is the kernel group D(Λ).",
       "hypotheses": [
         "A Dedekind domain; Λ module-finite over A.",
         "K₀ is the split Grothendieck group of finitely generated projective left Λ-modules.",
@@ -24655,10 +24657,10 @@
       "proofSteps": [
         "Define Cl(Λ) as the additive subgroup generated by the classes; the class of a locally free lattice of rank n is [M] − n[Λ].",
         "Direct sums: [M ⊕ N] − (n + m)[Λ] is the sum of the two classes (SplitK0 additivity).",
-        "Stable freeness: equality of classes in K₀ is stable isomorphism (KTheoryLowDegrees Z.1).",
+        "Stable freeness: in SplitK0 of finitely generated projective modules, two classes are equal exactly when the modules are stably isomorphic, P ⊕ Λ^k ≅ Q ⊕ Λ^k for some k; this criterion is a CA.7-owned input recorded as a gap.",
         "Every element is the class of a locally free lattice of rank one (Reiner's theorem, locally-free-class-represented-by-rank-one).",
-        "Λ = A: locally free lattices are the finitely generated projective modules of constant rank, and K₀(A) ≅ ℤ ⊕ Pic(A) (KTheoryLowDegrees Z.4); the rank-zero part is Pic(A) = Cl(A).",
-        "Extension of scalars along Λ → Λ′ maps locally free lattices to locally free lattices of the same rank (KTheoryLowDegrees Z.1 scalar extension)."
+        "Λ = A: locally free lattices are the finitely generated projective modules of constant rank, and by Steinitz's theorem (every such module of rank n is A^{n−1} ⊕ I, and I ⊕ J ≅ A ⊕ IJ, a CA.7-owned input recorded as a gap) the rank-zero part of K₀(A) is the ideal class group Cl(A).",
+        "Extension of scalars along Λ → Λ′ maps locally free lattices to locally free lattices of the same rank, and acts on classes through TauCeti.SplitK0.map applied to the additive functor Λ′ ⊗_Λ −, which preserves finitely generated projective modules."
       ],
       "acceptance": [
         "Cl(ℤ) = 0; Cl(ℤ[√−5]) ≅ ℤ/2.",
@@ -24670,9 +24672,8 @@
         "tauceti:TauCeti.SplitK0",
         "tauceti:TauCeti.SplitK0.of",
         "tauceti:TauCeti.SplitK0.of_biprod",
+        "tauceti:TauCeti.SplitK0.map",
         "tauceti:TauCeti.finiteProjectiveModules",
-        "KTheoryLowDegrees:Z.1",
-        "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
         "mathlib:ClassGroup"
       ],
       "sources": [
@@ -24798,7 +24799,7 @@
         "Rank one sums: by weak approximation move one locally free ideal to be locally trivial at the primes where the other is not; the sum map to Λ is then locally surjective, hence surjective and split, with locally free kernel (the argument of Voight Proposition 20.7.4 for simple algebras)."
       ],
       "acceptance": [
-        "For Λ = A this is the Steinitz identity I ⊕ J ≅ A ⊕ IJ (KTheoryLowDegrees Z.4)."
+        "For Λ = A this is the Steinitz identity I ⊕ J ≅ A ⊕ IJ (the Steinitz comparison recorded with the locally free class group)."
       ],
       "prerequisites": [
         "ClassicalArithmeticCompletion:CA.7/locally-free-class-group",
@@ -25869,10 +25870,11 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.1",
       "status": "partial",
-      "note": "RS-03 narrows CA.1 to higher reciprocity and power-residue and Hilbert-symbol extensions, including the place 2, the infinite places and ramification conventions, with quadratic reciprocity and the Gauss/Jacobi specialisations retained by import and explicit comparison, with finite-sum normalization obtained from the pinned library and the remaining reciprocity inputs owned by this lower tier. Built and cited: quadratic reciprocity with both supplements, Euler's criterion, the Legendre and Jacobi symbols, χ₄, χ₈, χ₈', Gauss and Jacobi sums with their product identities, the cyclicity criterion for (ℤ/n)ˣ and ZMod.orderOf_five, Dirichlet characters with conductor and primitivity, fundamental discriminants, and Tau Ceti's prime-discriminant and genus characters. Imported from Tau Ceti roadmaps: the quadratic Hilbert symbol at finite places with its closed formulas (Quadratic Form Invariants 6C), its archimedean value and the localized product formula (Global Quadratic Forms 4.4, Class Field Theory 14), local and global Artin reciprocity (Class Field Theory 6 and 11), and from K2SymbolsBrauer T.7 the degree-n norm-residue symbol. Planned here: the units modulo a power of two and the power residue criteria (kept from the first pass, corrected); the primitive quadratic character of a rational square class with its conductor, including the 2-adic bound, from Bennett–Siksek; the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, with the dyadic comparison through χ₄ and χ₈; the n-th power residue symbol at primes and at ideals prime to n, with Euler's criterion, Galois equivariance and the Frobenius comparison; the tame formula for the degree-n Hilbert symbol, its product formula and the general power reciprocity law; cubic reciprocity with its supplement at 1 - ω; and the Eisenstein reciprocity law, whose Stickelberger input is FiniteFieldsAndCharacterSums FF.1's Stickelberger relation and whose two further inputs are a recorded gap. Artin reciprocity itself is Class Field Theory's (Layers 11 and 12, including rayClassArtinMap) and is not re-planned; its application to power residue symbols is the Frobenius comparison node together with the degree-n product formula. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required.",
+      "note": "RS-03 narrows CA.1 to higher reciprocity and power-residue and Hilbert-symbol extensions, including the place 2, the infinite places and ramification conventions, with quadratic reciprocity and the Gauss/Jacobi specialisations retained by import and explicit comparison, with finite-sum normalization obtained from the pinned library and the remaining reciprocity inputs owned by this lower tier. Built and cited: quadratic reciprocity with both supplements, Euler's criterion, the Legendre and Jacobi symbols, χ₄, χ₈, χ₈', Gauss and Jacobi sums with their product identities, the cyclicity criterion for (ℤ/n)ˣ and ZMod.orderOf_five, Dirichlet characters with conductor and primitivity, fundamental discriminants, and Tau Ceti's prime-discriminant and genus characters. Imported from Tau Ceti roadmaps: the quadratic Hilbert symbol at finite places with its closed formulas (Quadratic Form Invariants 6C), its archimedean value and the localized product formula (Global Quadratic Forms 4.4, Class Field Theory 14), local and global Artin reciprocity (Class Field Theory 6 and 11), and the cohomological local Hilbert pairing localSymbol (Class Field Theory 5). The degree-n norm-residue symbol in the Artin orientation, formerly requested from K2SymbolsBrauer T.7, is a recorded CA.1-owned input. Planned here: the units modulo a power of two and the power residue criteria (kept from the first pass, corrected); the primitive quadratic character of a rational square class with its conductor, including the 2-adic bound, from Bennett–Siksek; the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, with the dyadic comparison through χ₄ and χ₈; the n-th power residue symbol at primes and at ideals prime to n, with Euler's criterion, Galois equivariance and the Frobenius comparison; the tame formula for the degree-n Hilbert symbol, its product formula and the general power reciprocity law; cubic reciprocity with its supplement at 1 - ω; and the Eisenstein reciprocity law, whose three inputs (Φ with Stickelberger's ideal relation, the primary unit factor and the cross-prime residue identity) are a recorded CA.1-owned gap. Artin reciprocity itself is Class Field Theory's (Layers 11 and 12, including rayClassArtinMap) and is not re-planned; its application to power residue symbols is the Frobenius comparison node together with the degree-n product formula. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required. Revision round 3 synchronises the reader with the reviewed packet and moves down the notions this layer cited from roadmaps that do not precede its upstream tier.",
       "remaining": [
         "Biquadratic (quartic) reciprocity in ℤ[i] with its supplements. The one public statement read (Relyea, Theorem 4.4) is misstated and leaves primary undefined (source issues E203, E204), and gives no proof; Ireland–Rosen chapter 9, Lemmermeyer and Cassels–Fröhlich are not public. A continuation job should obtain a public source that defines primary Gaussian integers (α ≡ 1 mod (1 + i)^3), the quartic character at composite primary elements, and proves the law by Jacobi sums as for cubic reciprocity, and plan it on the power residue symbol with n = 4 in ℚ(i).",
         "Complete the three CA.1-owned inputs of Eisenstein reciprocity at the exact contracts in the local request: Phi and Stickelberger, its primary unit factor, and the cross-prime residue identity. Read Katre or another public proof. Smaller proof steps stay within the existing target under PROTOCOL section 2. FF.1 imports these results after this lower-tier package exists.",
+        "Plan the degree-n norm-residue symbol (a, b)_v = Art_v(a)(β)/β as a CA.1 definition node with API and unit tests, at the contract of the gap 'The degree-n norm-residue symbol in the Artin orientation is a CA.1-owned input': independence of the root, bimultiplicativity, the Steinberg relation, skew-symmetry, the norm criterion, the archimedean values and agreement with Class Field Theory Layer 5's localSymbol (kummerCupPairing ζ). Build it on Tau Ceti's local Artin map; K2SymbolsBrauer T.7 imports it afterwards.",
         "The explicit reciprocity laws at the places above n (the Hilbert symbol (a, b)_v for v | n, n > 2), which the power reciprocity law leaves as a product of local symbols: Artin–Hasse and Iwasawa formulas, for which no public source was read. The power reciprocity law is planned with those factors kept as Hilbert symbols, so no statement depends on them.",
         "Koymans–Milovic items 3–4 need the number-field quadratic law with explicit dyadic and infinite factors, dependence on the denominator modulo 8 times the numerator, and norm compatibility in a Galois extension. The existing power-reciprocity-law supplies the coprime odd case with unevaluated local symbols; power-residue-symbol-galois-equivariance is not the relative-norm formula. Read FIMR at its full hypotheses before decomposition. Import Hilbert reciprocity and the local symbols from their existing Tau Ceti owners; do not reconstruct them here.",
         "Calegari–Geraghty ext-zeros-binary-quadratic-form-mod-p remains an exact missing adapter: for odd p and a nonzero binary quadratic form, the number of projective zeros is 1 plus the Legendre symbol of r²−4mn. Separate the chart with m nonzero, the point at infinity when m=0, the repeated-root case and the excluded zero form. The discriminant is not the determinant of the symmetric coefficient matrix.",
@@ -25979,12 +25981,13 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.4",
       "status": "partial",
-      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization imports FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required.",
+      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization is a CA.4-owned comparison with Mathlib's gaussSum (the local request), not an import from FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required. The Jacobi triple product identities that Hirschhorn's proof consumes, formerly cited from QSeriesPartitionsAndMockModularForms QM.0, are a recorded CA.4-owned input. Revision round 3 synchronises the reader with the reviewed packet and moves down the notions this layer cited from roadmaps that do not precede its upstream tier.",
       "remaining": [
         "Chen 9,10,90: markoff-coefficient-one-zero-orbits already proves the integral scaling and equivariance comparison using the coefficient-three root-generation node. The ring-valued coefficient-one carrier, localization isomorphism over Z[1/3], positive-orbit adapter at (3,3,3), and their typed API still need decomposition. Multiplication by 3 is not an isomorphism over Z or in characteristic 3. Coalesce the general carrier with GMR and Ghosh–Sarnak.",
         "Gamburd–Magee–Ronan 1–5: the n-variable equation sum of squares = a times product + k, all coordinate moves, exceptional families, signed-to-positive comparison with its bounded error, compact-set estimates and terminating descent remain missing. The existing n=a=3,k=0 nodes provide only that specialization. Coalesce n=3,a=1 with the Ghosh–Sarnak level-k carrier. Keep Proposition 16/18 restricted to unexceptional points outside the compact set.",
         "All 25 Ghosh–Sarnak requests remain open at their corrected packet contracts: level-k carriers and quotient, exceptionality, Delta, fundamental sets, finiteness, local solubility, reciprocity obstructions, Hasse-failure families and certified enumeration. The three existing comparison nodes do not close this list. For item 7 retain the coordinate-two exceptional branch explicitly, as the accepted fix requires, rather than copying the older extraction sentence. For item 13 distinguish orbit points from nodes modulo narrow equivalence before using the stated one/two-element counts. The conjectural item 62 is not a proved bound. The finite-field Gauss normalization comparison moves down to this CA.4 continuation; the pending NonabelianLevelStructures trace prefix is not a prerequisite of the direct Corollary 6.3 substitution.",
         "Koymans–Pagano 2–4: the existing generalized-Pell norm fibre and local obstruction are reusable inputs. Package the squarefree negative-Pell set and truncation, the exact rational-solubility criterion and the prime 1 mod 4 integral-solubility theorem. A congruence obstruction is not a sufficient integral criterion: d=34 has the rational solution (5/3,1/3) but no integral solution. Treat d=1 separately from quadratic-field comparisons; class-group and full-ring-of-integers comparisons belong in CA.5.",
+        "Plan the Jacobi triple product identity in ℤ⟦x⟧ and the four specialisations Hirschhorn uses, at the contract of the gap 'The Jacobi triple product identity and its specialisations are a CA.4-owned input', with infinite products as x-adic limits in the convention of Mathlib's pentagonal number theorem for power series. Read a public proof first; QSeriesPartitionsAndMockModularForms QM.0 imports these identities afterwards.",
         "Typed signatures for markoff-coefficient-one-zero-orbits, markoff-positive-root-orbits and markoff-exceptional-class-number-lower-bound are absent from the inherited suggested file. The general level-k carrier and finite quotient must be provided before their dependent signatures can be checked without fake assumptions.",
         "Independent review frontier: 45 existing targets have the mathematical or interface obligations recorded under gaps. Resume those IDs directly; revisionResponse records corrections and checked signatures, without claiming their remaining proofs closed."
       ],
@@ -26077,7 +26080,7 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.6",
       "status": "partial",
-      "note": "RS-03 narrows CA.6 to Pisot/Salem numbers, the selected lower bounds (Smyth, Dobrowolski, Schinzel-Zassenhaus by Dimitrov) and the dynamical-height comparison, with the Mahler measure, house, absolute height, Kronecker and Northcott imported. The layer is planned from Smyth's Mahler-measure survey (now obtained, arXiv:math/0701397), Smyth's Salem survey, Dimitrov's paper and Berrevoets's thesis (complete proofs of Dobrowolski's house bound and of Dobrowolski's theorem with constant 1/11700): 45 nodes. The Mahler measure of an algebraic number, the house, the primitive minimal polynomial and the comparison log M(α) = deg α · h(α) are DiophantineApproximationAndTranscendence:DT.0 nodes and are cited, not re-planned; Mathlib supplies M of polynomials, Kronecker and Northcott. Two analytic inputs have no source or no owner (the gaps), and the embedding-product Siegel form and dynamical height are requested from lower-tier DT.0 and DY.1; the exact dyadic prime count is a local CA.6 continuation. Lehmer's problem is a conjecture and is recorded in the document only. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required.",
+      "note": "RS-03 narrows CA.6 to Pisot/Salem numbers, the selected lower bounds (Smyth, Dobrowolski, Schinzel-Zassenhaus by Dimitrov) and the dynamical-height comparison, with the Mahler measure, house, absolute height, Kronecker and Northcott imported. The layer is planned from Smyth's Mahler-measure survey (now obtained, arXiv:math/0701397), Smyth's Salem survey, Dimitrov's paper and Berrevoets's thesis (complete proofs of Dobrowolski's house bound and of Dobrowolski's theorem with constant 1/11700): 45 nodes. The Mahler measure of an algebraic number, the house, the primitive minimal polynomial and the comparison log M(α) = deg α · h(α) are DiophantineApproximationAndTranscendence:DT.0 nodes and are cited, not re-planned; Mathlib supplies M of polynomials, Kronecker and Northcott. Two analytic inputs have no source or no owner (the gaps), and the embedding-product Siegel form is requested from lower-tier DT.0; the canonical height of the power map is Tate's limit, computed here and imported by the later ArithmeticDynamics DY.1; the exact dyadic prime count is a local CA.6 continuation. Lehmer's problem is a conjecture and is recorded in the document only. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required. Revision round 3 synchronises the reader with the reviewed packet and moves down the notions this layer cited from roadmaps that do not precede its upstream tier.",
       "remaining": [
         "Decompose the analytic step of Smyth's theorem (Schur's coefficient conditions for functions bounded by 1 on the disc, applied to F = f/g) once Smyth 1971 or another public proof is obtained; until then CA.6/smyth-nonreciprocal-lower-bound and CA.6/plastic-number-least-pisot rest on the gap 'The analytic core of Smyth's nonreciprocal bound has no public source'.",
         "Give the potential-theoretic inputs of Dimitrov's theorem (transfinite diameter, Dubinin's hedgehog theorem, Bertrandias's rationality theorem) an owner (restructure proposal) and replace the gap by its node ids in CA.6/schinzel-zassenhaus-dimitrov.",
@@ -26130,12 +26133,13 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.7",
       "status": "partial",
-      "note": "Integral Galois module structure, planned from Johnston's Notes on Galois Modules (read in full), Ullom 1969, Taylor 1981 (statements), Voight's Quaternion Algebras (orders and locally free lattices), Conrad's two expository articles, Ferri–Greither and Acciaro. The layer's targets are all realised by nodes: group-ring modules for rings of integers, the rational normal basis map, normal integral bases, tame ramification and the trace, local and global Noether theorems, the Hilbert–Speiser theorem with Gauss periods, orders, maximal orders and the associated order, resolvents and the resolvent–discriminant relation, locally free lattices and class groups, the Galois module class, and the Fröhlich–Taylor theorems stated source-scoped. The two acceptance gates are nodes: ℚ(i)/ℚ (a rational normal basis that is not integral, wild) and a nonprincipal ideal (local freeness without freeness). Three recorded gaps keep the layer partial. Independent review distinguishes target-name presence from lemma closure: missing direct suppliers and owner-dependent commented signatures remain node-specific review gaps. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required.",
+      "note": "Integral Galois module structure, planned from Johnston's Notes on Galois Modules (read in full), Ullom 1969, Taylor 1981 (statements), Voight's Quaternion Algebras (orders and locally free lattices), Conrad's two expository articles, Ferri–Greither and Acciaro. The layer's targets are all realised by nodes: group-ring modules for rings of integers, the rational normal basis map, normal integral bases, tame ramification and the trace, local and global Noether theorems, the Hilbert–Speiser theorem with Gauss periods, orders, maximal orders and the associated order, resolvents and the resolvent–discriminant relation, locally free lattices and class groups, the Galois module class, and the Fröhlich–Taylor theorems stated source-scoped. The two acceptance gates are nodes: ℚ(i)/ℚ (a rational normal basis that is not integral, wild) and a nonprincipal ideal (local freeness without freeness). Three recorded gaps keep the layer partial. Independent review distinguishes target-name presence from lemma closure: missing direct suppliers and owner-dependent commented signatures remain node-specific review gaps. Revision round 2 reconciles the complete independent-review frontier with this layer. Node splitting is governed by the current target-level protocol; substantive suppliers remain required. Tau Ceti's SplitK0 of finiteProjectiveModules is the K₀ carrier; the stable-isomorphism criterion, scalar change and the Steinitz comparison, formerly cited from KTheoryLowDegrees Z.1 and Z.4, are a recorded CA.7-owned input. Revision round 3 synchronises the reader with the reviewed packet and moves down the notions this layer cited from roadmaps that do not precede its upstream tier.",
       "remaining": [
         "The proofs of Fröhlich's kernel-group theorem and Taylor's Theorem 1 (see the gap on the Fröhlich–Taylor theorems): Fröhlich's Hom-description of Cl(ℤΓ), the root number class t(W), Galois Gauss sums and the group logarithm.",
         "Jacobinski's cancellation theorem under the Eichler condition, needed for the freeness corollary of Taylor's theorem.",
         "Reiner's Theorem 27.4 for orders in semisimple algebras (every locally free class is represented by a locally free ideal), public only for simple algebras (Voight Proposition 20.7.4).",
-        "Keep rational normal bases separate from integral normal bases and local freeness separate from global freeness. The inherited Fröhlich–Taylor, cancellation and semisimple rank-one class gaps remain. KTheoryLowDegrees is a supplier of K0 infrastructure, not a reason to reconstruct it in CA.7. The existing split proposals are proposals only; accepted RS-03 keeps this stage and its arithmetic interfaces in place.",
+        "Plan the K₀ inputs of the locally free class group at the contract of the gap 'Stable equality, scalar change and the Steinitz comparison for K₀ of an order are CA.7-owned inputs': the stable-isomorphism criterion in SplitK0 of finitely generated projective modules, extension and restriction of scalars along maps of orders, and Steinitz's theorem for Dedekind domains. KTheoryLowDegrees Z.1 and Z.4 import them afterwards.",
+        "Keep rational normal bases separate from integral normal bases and local freeness separate from global freeness. The inherited Fröhlich–Taylor, cancellation and semisimple rank-one class gaps remain. Tau Ceti's SplitK0 of finiteProjectiveModules is the K₀ carrier and is not reconstructed in CA.7. The existing split proposals are proposals only; accepted RS-03 keeps this stage and its arithmetic interfaces in place.",
         "Independent review frontier: 49 existing targets have the mathematical or interface obligations recorded under gaps. Resume those IDs directly; revisionResponse records corrections and checked signatures, without claiming their remaining proofs closed."
       ],
       "reviewFrontier": [
@@ -26378,7 +26382,7 @@
       ],
       "detail": "The T.7 atlas stage describes the degree-n symbol but is still needs_source_decomposition. No exact symbol/formula supplier node was obtained; the stage-only prerequisite does not close this planned contract.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the T.7 stage prerequisite is removed under the upstream tier rule; the exact missing supplier is now the CA.1-owned gap 'The degree-n norm-residue symbol in the Artin orientation is a CA.1-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -26394,7 +26398,7 @@
       ],
       "detail": "The T.7 atlas stage describes the degree-n symbol but is still needs_source_decomposition. No exact symbol/formula supplier node was obtained; the stage-only prerequisite does not close this planned contract.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the T.7 stage prerequisite is removed under the upstream tier rule; the exact missing supplier is now the CA.1-owned gap 'The degree-n norm-residue symbol in the Artin orientation is a CA.1-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -26410,7 +26414,7 @@
       ],
       "detail": "The T.7 atlas stage describes the degree-n symbol but is still needs_source_decomposition. No exact symbol/formula supplier node was obtained; the stage-only prerequisite does not close this planned contract.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the T.7 stage prerequisite is removed under the upstream tier rule; the exact missing supplier is now the CA.1-owned gap 'The degree-n norm-residue symbol in the Artin orientation is a CA.1-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -26520,9 +26524,9 @@
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.1/eisenstein-reciprocity"
       ],
-      "detail": "An inherited explicit gap affects this planned proof: Eisenstein reciprocity still lacks two exact inputs, and least-Pisot still relies on the unresolved analytic Smyth core. The theorem statement is source-supported but this node is not a closed lemma plan.",
+      "detail": "An inherited explicit gap affects this planned proof: Eisenstein reciprocity rests on three inputs that are not yet supplied (the construction of Φ with Stickelberger's ideal relation, the unit factor ±1 for primary elements, and the cross-prime residue identity), recorded in the gap 'The three unsupplied inputs of Eisenstein reciprocity belong to CA.1'. The theorem statement is source-supported but this node is not a closed lemma plan.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3 corrected the count of missing inputs from two to three, since the review moved Stickelberger's relation from FF.1 into CA.1, and removed a clause about the least Pisot number, which has its own record.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -27434,7 +27438,7 @@
       ],
       "detail": "Coefficient-local infinite-product stabilization and parity-index reindexing need own lemmas; node uses QM stage reference instead of exact Jacobi identity supplier.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the QM.0 stage prerequisite is removed under the upstream tier rule; the exact identities consumed are stated in the CA.4-owned gap 'The Jacobi triple product identity and its specialisations are a CA.4-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -27450,7 +27454,7 @@
       ],
       "detail": "Entire consumed product-rule identity has no native signature; split coefficient-local derivative of product and theta product substitutions.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the QM.0 stage prerequisite is removed under the upstream tier rule; the exact identities consumed are stated in the CA.4-owned gap 'The Jacobi triple product identity and its specialisations are a CA.4-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -27466,7 +27470,7 @@
       ],
       "detail": "The external FF.1/QM.0 stage does not identify the exact consumed character-normalisation/Jacobi-product identity. Supply its lemma contract as a direct prerequisite; the local composition is conditional on that missing adapter.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the QM.0 stage prerequisite is removed under the upstream tier rule; the exact identities consumed are stated in the CA.4-owned gap 'The Jacobi triple product identity and its specialisations are a CA.4-owned input'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -28634,7 +28638,7 @@
       ],
       "detail": "The native file only provides the affine constant-sequence/limit theorem; projective infinity, canonical-height comparison and preperiodic classification need separate signatures and exact DY.1 supplier.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier.",
+      "revisionResponse": "Retain the exact mathematical obligation in this frontier. Current PROTOCOL §2 and detail.json use target-level granularity: separate Lean declarations may remain within this existing target, with smaller steps in its proof sketch. This does not discharge any missing theorem, carrier, hypothesis or proof supplier. Revision round 3: the canonical height is now Tate's limit itself, whose existence and value the node proves, so no DY.1 supplier is needed; DY.1 (a later roadmap) imports the computation. The separate typed signatures for the point at infinity and the preperiodic classification remain to be added with the node's continuation.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -29322,7 +29326,7 @@
       ],
       "detail": "Native RingK0 is an unrelated placeholder Type with ad hoc group/class definitions, rather than pinned TauCeti SplitK0. classOf also omits module-finiteness/nonfield requirements needed for projectivity. At least class group, classOf, scalar map, kernel group and equivalence constructions must be split. Removed the executable invented RingK0 type and class map. Preserved the downstream class-group and Froehlich–Taylor signatures as pending typed comments until the real finite-projective owner carrier and projectivity bridge are available.",
       "reportedBy": "REV-ClassicalArithmeticCompletion",
-      "revisionResponse": "The invented RingK0 carrier remains removed. Use the existing finite-projective categorical Grothendieck group; the locally-free-to-projective class map, stable-isomorphism bridge and order scalar extension still need the owner interface. Comments are not elaborated declarations.",
+      "revisionResponse": "The invented RingK0 carrier remains removed. Use the existing finite-projective categorical Grothendieck group; the locally-free-to-projective class map, stable-isomorphism bridge and order scalar extension still need the owner interface. Comments are not elaborated declarations. Revision round 3: the KTheoryLowDegrees Z.1 and Z.4 prerequisites are removed under the upstream tier rule; the stable-isomorphism bridge, scalar change and the Steinitz comparison are now the CA.7-owned gap 'Stable equality, scalar change and the Steinitz comparison for K₀ of an order are CA.7-owned inputs'.",
       "reviewAssessment": {
         "by": "REV-ClassicalArithmeticCompletion~2",
         "date": "2026-10-09",
@@ -29482,6 +29486,34 @@
       ],
       "detail": "The explicit Chebyshev-type count of primes in dyadic intervals (Rosser and Schoenfeld, Approximate formulas for some functions of prime numbers, Illinois J. Math. 6 (1962), 64-94, Corollary 3): for every real x ≥ 41/2, π(2x) − π(x) > 3x/(5 log x), with π Mathlib's Nat.primeCounting. Mathlib's Chebyshev bounds (Chebyshev.theta_le_log4_mul_x, Chebyshev.theta_ge') do not give a positive lower bound for π(2x) − π(x). This exact input moves down from AN.2 to CA.6 under the upstream tier rule. Its proof remains a local continuation; the Rosser-Schoenfeld attribution in Berrevoets Lemma 4.5 is not a declaration or a claim to have read the original paper.",
       "addedBy": "REV-ClassicalArithmeticCompletion~2"
+    },
+    {
+      "title": "The degree-n norm-residue symbol in the Artin orientation is a CA.1-owned input",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula",
+        "ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n",
+        "ClassicalArithmeticCompletion:CA.1/power-reciprocity-law"
+      ],
+      "detail": "The three degree-n nodes use the symbol (a, b)_v := Art_v(a)(β)/β ∈ μ_n for a local field K_v containing μ_n, a, b ∈ K_vˣ and β any root of Xⁿ − b in a separable closure, with Art_v Tau Ceti ClassFieldTheory's local Artin map (Layers 6–7, localArtinMap, in the reciprocity direction pinned by its convention 2.5). CA.1 must supply: independence of the chosen root (two roots differ by an element of μ_n ⊆ K_v, which Art_v(a) fixes); bimultiplicativity; the Steinberg relation (a, 1 − a)_v = 1 for a ≠ 0, 1; (a, −a)_v = 1 and skew-symmetry (b, a)_v = (a, b)_v⁻¹; (a, b)_v = 1 exactly when a is a norm from K_v(β); at archimedean places, the sign symbol at real places for n = 2 and the trivial symbol at complex places, from the archimedean Artin package of Class Field Theory Layer 10; and, as its compatibility item, agreement with Class Field Theory Layer 5's cohomological pairing localSymbol (kummerCupPairing ζ) read through muNRepEquivZMod ζ, with the sign that the two conventions fix. K2SymbolsBrauer is not among the roadmaps that go to Tau Ceti before this tier (research/blueprint/upstream/CaraianiNewton.md lists it among the citations outside the 94), so this carrier moves down from K2SymbolsBrauer:T.7 (classical local symbols) to CA.1, and T.7 imports it afterwards. The packet has passed its node budget, so the definition node with its API and unit tests is the first item of CA.1's continuation rather than a node of this pass.",
+      "addedBy": "BP-ClassicalArithmeticCompletion~3"
+    },
+    {
+      "title": "The Jacobi triple product identity and its specialisations are a CA.4-owned input",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4/hirschhorn-sixth-power-identity",
+        "ClassicalArithmeticCompletion:CA.4/hirschhorn-logarithmic-derivative-identity",
+        "ClassicalArithmeticCompletion:CA.4/theta-fourth-power-lambert-series"
+      ],
+      "detail": "Hirschhorn's proof of Jacobi's four-square theorem needs, in ℤ⟦x⟧ with infinite products taken as x-adic limits: the Jacobi triple product identity ∏_{n≥1}(1 + a x^{2n−1})(1 + a⁻¹x^{2n−1})(1 − x^{2n}) = Σ_{n∈ℤ} aⁿx^{n²} with coefficients Laurent polynomials in a; and its specialisations (i) Jacobi's identity ∏_{n≥1}(1 − xⁿ)³ = ½Σ_{n∈ℤ}(−1)ⁿ(2n + 1)x^{(n²+n)/2} (Hardy–Wright, Theorem 357); (ii) ∏_{n≥1}(1 + x^{2n−1})²(1 − x^{2n}) = Σ_{n∈ℤ}x^{n²}; (iii) 2∏_{n≥1}(1 + x^{2n})²(1 − x^{2n}) = Σ_{r∈ℤ}x^{r²+r}; (iv) Gauss's identity ∏_{n≥1}(1 − xⁿ)/(1 + xⁿ) = Σ_{n∈ℤ}(−1)ⁿx^{n²}. Mathlib has the pentagonal number theorem for power series (Mathlib/Combinatorics/Enumerative/Pentagonal/PowerSeries.lean, with the x-adic multipliability of ∏(1 − x^{n+k+1})), which fixes the topology and the product convention, but not the triple product. QSeriesPartitionsAndMockModularForms is not among the roadmaps that go to Tau Ceti before this tier, so these identities move down from its layer QM.0 to CA.4, and QM.0 imports them afterwards. Hirschhorn (1987, §2) cites them without proof; the continuation must read a public proof of the triple product before planning them. The packet has passed its node budget, so they are recorded here rather than as nodes of this pass.",
+      "addedBy": "BP-ClassicalArithmeticCompletion~3"
+    },
+    {
+      "title": "Stable equality, scalar change and the Steinitz comparison for K₀ of an order are CA.7-owned inputs",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.7/locally-free-class-group"
+      ],
+      "detail": "Ring K₀ is Tau Ceti's SplitK0 of finiteProjectiveModules Λ, with classes, biproduct additivity and functoriality along additive functors (SplitK0.map) already in the pinned library. Still missing, and needed by the locally free class group: (a) for every ring Λ, of P = of Q in SplitK0 (finiteProjectiveModules Λ) exactly when P ⊕ Λ^k ≅ Q ⊕ Λ^k for some k (each finitely generated projective module is a direct summand of a finite free module); (b) the extension-of-scalars functor Λ′ ⊗_Λ − on finiteProjectiveModules along a ring homomorphism Λ → Λ′, as an additive functor, with [Λ] ↦ [Λ′]; (c) restriction of scalars along Λ → Λ′ when Λ′ is finitely generated and projective as a left Λ-module (as for ℤ[G] → 𝓞_K[G]); (d) for a Dedekind domain A, Steinitz's theorem: every finitely generated projective A-module of rank n ≥ 1 is A^{n−1} ⊕ I for an invertible ideal I, and I ⊕ J ≅ A ⊕ IJ, so the rank-zero part of K₀(A) is ClassGroup A. KTheoryLowDegrees is not among the roadmaps that go to Tau Ceti before this tier, so (a)–(d) move down from its layers Z.1 and Z.4 to CA.7, and those layers import them afterwards. The packet has passed its node budget, so they are recorded here rather than as nodes of this pass.",
+      "addedBy": "BP-ClassicalArithmeticCompletion~3"
     }
   ],
   "requests": [
@@ -29490,15 +29522,6 @@
       "need": "For an odd prime l and K=Q(zeta_l), construct Phi(P)=g(P)^l for primes P prime to l, show it is in K, and extend it multiplicatively to ideals. With chi_P the inverse power-residue character and the trace additive character, prove (Phi(P))=P^gamma, gamma=sum_{1<=t<l} t*sigma_t^(-1). For primary alpha show Phi((alpha))/alpha^gamma is a unit equal to +/-1. For P,P' with coprime norms prove (Phi(P)/P')_l=(N(P')/P)_l. The exact contracts are Adhikari Propositions 4.2-4.6 and the relation before (25), pp. 70-73. They move down from FF.1; their proofs are a recorded local continuation, not a supplied theorem.",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.1/eisenstein-reciprocity"
-      ]
-    },
-    {
-      "supplier": "K2SymbolsBrauer:T.7",
-      "need": "The degree-n norm-residue (Hilbert) symbol (a, b)_v of the completion K_v of a number field containing μ_n, at every place v (finite, real and complex), in the pinned orientation (a, b)_v = Art_v(a)(ⁿ√b) / ⁿ√b with Art_v the local Artin map (Class Field Theory Layers 6–7, and the archimedean Artin package of Layer 11), together with its bimultiplicativity, (a, 1 - a)_v = 1, (a, -a)_v = 1 and skew-symmetry (b, a)_v = (a, b)_v^(-1). This is K2SymbolsBrauer:T.7/classical-local-symbols' normResidueSymbol with its orientation pinned; CA.1 uses it and does not define a second symbol. Note for the supplier: the product formula of degree n > 2 is not Class Field Theory Layer 14's (which is the case n = 2); CA.1 plans it as hilbert-product-formula-of-degree-n.",
-      "neededBy": [
-        "ClassicalArithmeticCompletion:CA.1/tame-hilbert-symbol-formula",
-        "ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n",
-        "ClassicalArithmeticCompletion:CA.1/power-reciprocity-law"
       ]
     },
     {
@@ -29545,15 +29568,6 @@
       ]
     },
     {
-      "supplier": "QSeriesPartitionsAndMockModularForms:QM.0",
-      "need": "The Jacobi triple product identity as an identity of formal power series in x with coefficients Laurent polynomials in a: ∏_{n≥1}(1 + a x^{2n−1})(1 + a⁻¹x^{2n−1})(1 − x^{2n}) = Σ_{n∈ℤ} aⁿx^{n²}; together with its specialisations in ℤ[[x]] used by Hirschhorn: (i) Jacobi's identity ∏_{n≥1}(1 − xⁿ)³ = ½Σ_{n∈ℤ}(−1)ⁿ(2n + 1)x^{(n²+n)/2} (Hardy–Wright, Theorem 357); (ii) ∏_{n≥1}(1 + x^{2n−1})²(1 − x^{2n}) = Σ_{n∈ℤ}x^{n²}; (iii) 2∏_{n≥1}(1 + x^{2n})²(1 − x^{2n}) = Σ_{r∈ℤ}x^{r²+r}; (iv) Gauss's identity ∏_{n≥1}(1 − xⁿ)/(1 + xⁿ) = Σ_{n∈ℤ}(−1)ⁿx^{n²}. Infinite products are limits in the x-adic topology (coefficientwise finite).",
-      "neededBy": [
-        "ClassicalArithmeticCompletion:CA.4/hirschhorn-sixth-power-identity",
-        "ClassicalArithmeticCompletion:CA.4/hirschhorn-logarithmic-derivative-identity",
-        "ClassicalArithmeticCompletion:CA.4/theta-fourth-power-lambert-series"
-      ]
-    },
-    {
       "supplier": "DiophantineApproximationAndTranscendence:DT.0",
       "need": "Siegel's lemma over a number field with rational-integer unknowns in product form (Berrevoets, Lemma 3.2, printed p. 11): let K be a number field of degree d with complex embeddings σ₁, …, σ_d, let N > dM, and let a_ij ∈ 𝓞_K (1 ≤ i ≤ M, 1 ≤ j ≤ N) with every row i containing a nonzero a_ij. Then Σ_j a_ij x_j = 0 (1 ≤ i ≤ M) has a solution x ∈ ℤ^N ∖ {0} with max_j |x_j| ≤ ((2√2N)^{dM} ∏_{i=1}^{M} ∏_{k=1}^{d} max_j |σ_k(a_ij)|)^{1/(N−dM)}. DT.0/siegel-lemma-number-field bounds the solution through a uniform bound A on the houses, which loses the product over the embeddings (it gives house(α)^{dN} where Dobrowolski's argument needs M(α)^N); the product form is the generalisation that node's proof gives with the same pigeonhole argument.",
       "neededBy": [
@@ -29565,13 +29579,6 @@
       "need": "The explicit Chebyshev-type count of primes in dyadic intervals (Rosser and Schoenfeld, Approximate formulas for some functions of prime numbers, Illinois J. Math. 6 (1962), 64-94, Corollary 3): for every real x ≥ 41/2, π(2x) − π(x) > 3x/(5 log x), with π Mathlib's Nat.primeCounting. Mathlib's Chebyshev bounds (Chebyshev.theta_le_log4_mul_x, Chebyshev.theta_ge') do not give a positive lower bound for π(2x) − π(x). This exact input moves down from AN.2 to CA.6 under the upstream tier rule. Its proof remains a local continuation; the Rosser-Schoenfeld attribution in Berrevoets Lemma 4.5 is not a declaration or a claim to have read the original paper.",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.6/exists-prime-power-not-root"
-      ]
-    },
-    {
-      "supplier": "ArithmeticDynamics:DY.1",
-      "need": "The canonical height of a polarised endomorphism of P¹ over Q̄, normalised against Mathlib's absolute logarithmic Weil height: for f : P¹ → P¹ of degree d ≥ 2 defined over a number field (f*O(1) ≅ O(d)) and h([x : 1]) = NumberField.absLogHeight₁ x, h([1 : 0]) = 0, the limit ĥ_f(P) = lim_{n→∞} d^{−n} h(fⁿ(P)) exists for every P ∈ P¹(Q̄), |ĥ_f − h| is bounded, ĥ_f ∘ f = d·ĥ_f, and ĥ_f is the unique function with these two properties.",
-      "neededBy": [
-        "ClassicalArithmeticCompletion:CA.6/canonical-height-power-map"
       ]
     },
     {
@@ -29614,13 +29621,6 @@
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.7/taylor-no-symplectic-stably-free",
         "ClassicalArithmeticCompletion:CA.7/taylor-odd-order-free"
-      ]
-    },
-    {
-      "supplier": "KTheoryLowDegrees:Z.1",
-      "need": "Ring K₀ for an arbitrary (noncommutative) ring Λ as TauCeti.SplitK0 of TauCeti.finiteProjectiveModules Λ, with: the class [P] of a finitely generated projective module; [P] = [Q] exactly when P ⊕ Λ^k ≅ Q ⊕ Λ^k for some k (stable equality criterion); scalar extension along a ring homomorphism Λ → Λ′, [P] ↦ [Λ′ ⊗_Λ P]; and restriction of scalars along a ring homomorphism Λ → Λ′ that makes Λ′ finitely generated and projective as a left Λ-module (as for ℤ[G] → 𝓞_K[G]).",
-      "neededBy": [
-        "ClassicalArithmeticCompletion:CA.7/locally-free-class-group"
       ]
     },
     {
@@ -51242,21 +51242,21 @@
     }
   ],
   "checks": {
-    "agent": "Codex — codex-tkotD7",
-    "date": "2026-10-09",
-    "validation": "scripts/check_blueprint.py with the pinned declaration index: zero errors, zero warnings. All 333 IDs preserved; 618 unique baseline citations, 90 source findings, 502 API items, 286 planned tests and 42 planets audited. Source-finding schema passes. The four authorized deliverables and handoff are scoped; reader synchronization is an explicit acceptance blocker.",
-    "compile": "lean-check suggested/ClassicalArithmeticCompletion.lean: exit 0 at Mathlib 082e2d3 / Tau Ceti f790474; 968 warnings, all for admitted planning proofs. Commented owner-dependent interfaces are not elaborated or proved.",
-    "nativeFileSha256": "f3f2162bf9fb04988124c75d5620136ea1ab4865f3e61ce8c7990347f9fd4e88",
-    "nativeFileBytes": 303201
+    "agent": "Claude — claude-zb226n",
+    "date": "2026-10-12",
+    "validation": "scripts/check_blueprint.py with the pinned declaration index (TAUCETI_BASELINE worker baseline): 0 errors, 0 warnings. 333 node ids preserved; reader/packet field check: 0 packet strings missing from the reader; every packet API item and unit test name occurs in the suggested file.",
+    "compile": "lean-check research/blueprint/suggested/ClassicalArithmeticCompletion.lean: exit 0 at Mathlib 082e2d3 in the shared build; 969 warnings, all for admitted planning proofs, no other diagnostics. Owner-dependent commented interfaces are not elaborated.",
+    "nativeFileSha256": "b4f87f52ab0d815503ac5d12fda26e18887ddeb5ce1504a8840f5cca94c1fc5f",
+    "nativeFileBytes": 304320
   },
   "provenance": {
-    "agent": "Codex — codex-tkotD7",
-    "issue": 6465,
-    "claim": 6089249883,
-    "baseCommit": "10e80ac4b",
-    "reading": "Independent review by a session that authored neither blueprint pass. Fresh selected source and complete declaration readings are in the new review/sourceVersions receipts. Earlier evidence remains attributed in history. No restricted book was used.",
-    "scope": "Only review deliverables and its handoff. One job; no atlas promotion, upstream mutation or separate Lake build.",
-    "confirmation": 6089252431
+    "agent": "Claude — claude-zb226n",
+    "issue": 8899,
+    "claim": 6125203557,
+    "confirmation": 6125205931,
+    "baseCommit": "4d725cf9e",
+    "reading": "Revision round 3 of another session’s reviewed packet. The review corrections were checked against the packet text and the pinned Mathlib; the upstream tier placement against research/blueprint/upstream/CaraianiNewton.md; supplier ownership against the read-only TauCetiRoadmap checkout and the pinned and current Tau Ceti sources. No new source passage was read and no restricted book was used.",
+    "scope": "Only the four issue deliverables and the handoff note. No atlas promotion, upstream edit, second job, lake build, update or cache download."
   },
   "checksHistory": [
     {
@@ -51293,6 +51293,14 @@
       "compile": "lean-check research/blueprint/suggested/ClassicalArithmeticCompletion.lean: exit 0 at Mathlib 082e2d3 / Tau Ceti f790474. Exactly 966 admitted-proof warnings, no other diagnostics. Commented owner-dependent interfaces are not claimed as elaborated.",
       "nativeFileSha256": "bf8178c3f0115e784064b837b63c136a8bcc92e74ca6302a46735bc37771aa3f",
       "nativeFileBytes": 302566
+    },
+    {
+      "agent": "Codex — codex-tkotD7",
+      "date": "2026-10-09",
+      "validation": "scripts/check_blueprint.py with the pinned declaration index: zero errors, zero warnings. All 333 IDs preserved; 618 unique baseline citations, 90 source findings, 502 API items, 286 planned tests and 42 planets audited. Source-finding schema passes. The four authorized deliverables and handoff are scoped; reader synchronization is an explicit acceptance blocker.",
+      "compile": "lean-check suggested/ClassicalArithmeticCompletion.lean: exit 0 at Mathlib 082e2d3 / Tau Ceti f790474; 968 warnings, all for admitted planning proofs. Commented owner-dependent interfaces are not elaborated or proved.",
+      "nativeFileSha256": "f3f2162bf9fb04988124c75d5620136ea1ab4865f3e61ce8c7990347f9fd4e88",
+      "nativeFileBytes": 303201
     }
   ],
   "provenanceHistory": [
@@ -51324,192 +51332,263 @@
       "baseCommit": "ad273a796",
       "reading": "Revision of another session’s reviewed packet. Historical independent verdicts are unchanged. Fresh selected source reading is limited to revisionAudit.freshSourceReading; the other source records and 90 source findings remain inherited attributed evidence. No restricted book was used.",
       "scope": "Only the four issue deliverables. No atlas promotion, upstream edit, second job, lake build, update or cache download."
+    },
+    {
+      "agent": "Codex — codex-tkotD7",
+      "issue": 6465,
+      "claim": 6089249883,
+      "baseCommit": "10e80ac4b",
+      "reading": "Independent review by a session that authored neither blueprint pass. Fresh selected source and complete declaration readings are in the new review/sourceVersions receipts. Earlier evidence remains attributed in history. No restricted book was used.",
+      "scope": "Only review deliverables and its handoff. One job; no atlas promotion, upstream mutation or separate Lake build.",
+      "confirmation": 6089252431
     }
   ],
   "revisionAudit": {
-    "job": "BP-ClassicalArithmeticCompletion~2",
-    "issue": 6513,
-    "agent": "Codex",
-    "session": "codex-y0ztZt",
-    "date": "2026-10-09",
-    "granularity": "Current WORKERS/PROTOCOL §2/detail.json: target level. The issue prohibits new nodes when the inherited packet exceeds 300. All 333 node IDs and the independent review object are preserved; zero nodes added. Separate signatures and smaller steps stay with the existing target.",
-    "reviewScope": "Read the reviewer correction and closure ledger and all 196 recorded unresolved node findings. Checked the retained corrected contracts in packet/native, added or strengthened 20 native contracts within 16 existing nodes, clarified normalized square-root representatives and the field trace branch. Remaining source and supplier obligations are retained, not silently accepted.",
-    "signatureChanges": {
-      "power-residue-criterion-in-a-finite-field": [
-        "card_nonzero_pow_roots"
-      ],
-      "jacobi-four-square-theorem": [
-        "jacobi_four_square_odd",
-        "jacobi_four_square_even"
-      ],
-      "negative-pell-solution-ordering": [
-        "negativePell_pos_of_one_lt"
-      ],
-      "negative-pell-local-obstruction": [
-        "pellNormSet_mod_prime"
-      ],
-      "apery-set-unique-decomposition": [
-        "closure_insert_aperySet_eq",
-        "exists_finset_generators"
-      ],
-      "genus-frobenius-inequality": [
-        "numericalFrobenius_reflects_to_gap",
-        "numericalFrobenius_card_partition"
-      ],
-      "sylvester-egyptian-identity": [
-        "hasSum_one_div_sylvesterSeq",
-        "sylvesterSeq_strict_greedy"
-      ],
-      "markoff-triple-coordinates-coprime": [
-        "markoffVieta_pairwise_gcd"
-      ],
-      "class-number-divides-relation-determinant": [
-        "natAbs_det_eq_classNumber_iff"
-      ],
-      "mahler-measure-of-unit-le-house": [
-        "mahlerMeasure_minpoly_inv"
-      ],
-      "smyth-integer-power-series": [
-        "smyth_quotient_series"
-      ],
-      "class-number-regulator-certificate": [
-        "relations_and_units_complete_of_lt_two_mul"
-      ],
-      "fermat-right-triangle-theorem": [
-        "fermat_right_triangle_int"
-      ],
-      "bernoulli-generating-function-on-its-disc": [
-        "not_summable_bernoulli_mul_pow"
-      ],
-      "secant-plus-tangent-on-its-disc": [
-        "not_summable_zigzag_mul_pow"
-      ],
-      "local-solubility-of-a-primitive-zero": [
-        "IsPrimitiveZero.locally_soluble"
-      ]
-    },
-    "freshSourceReading": [
+    "job": "BP-ClassicalArithmeticCompletion~3",
+    "issue": 8899,
+    "agent": "Claude",
+    "session": "claude-zb226n",
+    "date": "2026-10-12",
+    "granularity": "Target level (PROTOCOL section 2, detail.json). The packet held 333 nodes at the start, above the 300-node budget, so no node was added; all 333 node ids and the independent review object are preserved.",
+    "reviewCorrectionsChecked": "All 23 node corrections of REV-ClassicalArithmeticCompletion~2 were re-derived and kept: the cyclotomic power-basis and unit inputs of the primary-element nodes; the termwise transport replacing FF.1 in the cubic Jacobi/Gauss-sum and cubic reciprocity nodes; the removal of FF.1 from Eisenstein reciprocity with its three inputs moved to CA.1; the Hasse-derivative product rule; the direct automaton for eventually periodic sequences including base one; the Thue–Morse nonperiodicity argument (odd period forces eventual constancy, contradicted at 2^j and 3·2^j); the determinant-one coprimality of Stern–Brocot mediants including the sentinel (1,0); Stein p. 20 locators; Micciancio for Hermite uniqueness; the characteristic-two norm argument in the 2-power Capelli case; the floor(k/2) valuation bound for k ≥ 2 in Ramanujan–Nagell; the intrinsic CA.5 certificate criteria; the fundamental theorem of symmetric polynomials and the subset-product (exterior-power) polynomial; the dyadic prime count as a CA.6-owned input; the Dobrowolski constant chain (M = ceil(7L) with 20 ≤ M ≤ d − 1, log M ≥ 6u/7 + 1, 26·(15/2)^3 = 10968.75 < 11700); the universal-coefficient proof of the root-power polynomial with the ZMod 4 test; integrally closed bases for integral closures and the explicit nondegenerate regular-trace premise for orders and maximal orders (the regular trace of M_p(F) vanishes in characteristic p). The nine declarations the review added were reopened at the pinned Mathlib.",
+    "readerSynchronization": "The reader was regenerated from the packet by a renderer that reproduces the round-2 reader byte for byte from the round-2 packet. Added: the Tau Ceti roadmap layers each node uses, the requests grouped by supplier, and the layer-level and packet-level gaps. A whitespace-normalised check finds every node, gap, coverage and request text of the packet in the reader. The two contradictions named in the review (lines 10332/10344 and 10361/10473 of the round-2 reader) are replaced by the corrected statements.",
+    "tierMoves": [
       {
-        "sourceId": "dimitrov-schinzel-zassenhaus-2019",
-        "url": "https://arxiv.org/pdf/1912.12545v1",
-        "sha256": "c8a3798fe62e565838e7c4abf03e61f6c97b6801c75eff33bf7957da8def73ee",
-        "pages": "PDF/printed pp.4–5",
-        "read": "Proposition 2.2 and Lemma 2.3, including their proofs and the root-product congruence above them",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        "from": "K2SymbolsBrauer:T.7",
+        "to": "ClassicalArithmeticCompletion:CA.1",
+        "what": "the degree-n norm-residue symbol (a, b)_v = Art_v(a)(β)/β with its root independence, bimultiplicativity, Steinberg relation, skew-symmetry, norm criterion, archimedean values and comparison with Class Field Theory Layer 5 localSymbol",
+        "nodes": [
+          "CA.1/tame-hilbert-symbol-formula",
+          "CA.1/hilbert-product-formula-of-degree-n",
+          "CA.1/power-reciprocity-law"
+        ],
+        "record": "gap"
       },
       {
-        "sourceId": "conrad-descent-2026",
-        "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/descent.pdf",
-        "sha256": "6fc8ca52ce0c7a3f086f3dec296a25666d14b5568ad8dfed97b6910bab9d63e4",
-        "pages": "PDF/printed pp.7–8",
-        "read": "Theorem 3.10, both parity cases and integral absolute-value reduction",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        "from": "QSeriesPartitionsAndMockModularForms:QM.0",
+        "to": "ClassicalArithmeticCompletion:CA.4",
+        "what": "the Jacobi triple product identity in ℤ⟦x⟧ and the four specialisations Hirschhorn uses",
+        "nodes": [
+          "CA.4/hirschhorn-sixth-power-identity",
+          "CA.4/hirschhorn-logarithmic-derivative-identity",
+          "CA.4/theta-fourth-power-lambert-series"
+        ],
+        "record": "gap"
       },
       {
-        "sourceId": "conrad-pell-one-2025",
-        "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn1.pdf",
-        "sha256": "69c8b41949356fa19e4cd4b74b523e016cc5a1fe6e70357c94168641da9da7a5",
-        "pages": "PDF/printed p.11",
-        "read": "Lemmas 7.3 and 7.4, statements and proofs",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        "from": "ArithmeticDynamics:DY.1",
+        "to": "ClassicalArithmeticCompletion:CA.6",
+        "what": "the canonical height of the power map, now Tate's limit computed in the node itself",
+        "nodes": [
+          "CA.6/canonical-height-power-map"
+        ],
+        "record": "restated node; no gap needed"
       },
       {
-        "sourceId": "wuthrich-gaussian-integers-2011",
-        "url": "https://www.maths.nottingham.ac.uk/plp/pmzcw/download/fnt_chap5.pdf",
-        "sha256": "15600303147215790dd55cbf589614bfaac6e03cc803e6683f316528cbdaedb6",
-        "pages": "PDF/printed p.7",
-        "read": "Theorem 5.14, equivalent odd/even formula; source states it without proof",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "assi-garcia-sanchez-numerical-semigroups-2014",
-        "url": "https://arxiv.org/pdf/1411.6093v1",
-        "sha256": "9c0456be2931b5ca1cfb109795a8b2351a5b77de29ae35df1de994ed3fd73643",
-        "pages": "PDF/printed pp.4,6",
-        "read": "Proposition 6, Corollary 7 and Lemma 14, statements and proofs",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "biasse-fieker-classgroup-2014",
-        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4387ACB036E3358143A563F196E386CB/S1461157014000345a.pdf/div-class-title-subexponential-class-group-and-unit-group-computation-in-large-degree-number-fields-div.pdf",
-        "sha256": "d747aad470df993bb183b0a97037569d9f21b13ae92eee0333ca9b59ba9a43c0",
-        "pages": "PDF pp.15–16, printed pp.399–400",
-        "read": "§4.3 certification argument and its explicit accuracy bounds",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "cahen-chabert-intvalued-2016",
-        "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Cahen-Chabert.pdf",
-        "sha256": "a763fe4a9a8ecdd348bdec2cdcec7b7808586c47a0e5dedb8a9996ef1fe44128",
-        "pages": "PDF p.6, printed p.315",
-        "read": "Proposition 6 and Theorem 7, including the factorization-length example",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "chun-egyptian-2011",
-        "url": "https://math.osu.edu/sites/math.osu.edu/files/Egyptian_Fractions.pdf",
-        "sha256": "7aa046ff7d3d188fa5d71e1bf889af581f950678e8a9c420f90b1aa4d50f8ef8",
-        "pages": "PDF/printed pp.1–3",
-        "read": "§1.1, §1.3.1 and §1.4, including greedy termination, restricted proper-fraction calculation and 5/31 example",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "christol-suitesalgebriques-1980",
-        "url": "https://www.numdam.org/item/10.24033/bsmf.1926.pdf",
-        "sha256": "ca6bc2485bca42d07fd0a47084f2f282fb58427872f279296d2665bcd824cf40",
-        "pages": "PDF pp.3–4, printed pp.402–403",
-        "read": "§2 algebraic-series conventions and the Morse-series example",
-        "date": "2026-10-09",
-        "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
-      },
-      {
-        "sourceId": "johnston-galois-modules-2016",
-        "url": "https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf",
-        "sha256": "dbedcf63ddd0194aa064fdc2423114a3ab29e0c5c1ce26943849071b05c539f2",
-        "pages": "PDF/printed pp.2,6,16–17,19,27–28",
-        "read": "Remark 1.5, Definition 1.6, Example 3.16, Theorem 9.5 and its split-extension proof, Corollary 9.10, §15.1–15.3 stable classes and cancellation boundary",
-        "date": "2026-10-09",
-        "scope": "Selected pages only. Not a whole-book reading or new independent source-issue review."
-      },
-      {
-        "sourceId": "voight-quaternion-2021",
-        "url": "https://jvoight.github.io/quat-book.pdf",
-        "sha256": "a9316b834dbd500c52cd3a981c3205c9f4145b217042b213d23f696aee84b0f0",
-        "pages": "PDF pp.338,346,348; printed pp.318,326,328",
-        "read": "20.2.6–20.2.8, Proposition 20.7.4 with proof and Remark 20.7.13; distinction between source setting and the general semisimple supplier",
-        "date": "2026-10-09",
-        "scope": "Selected pages only. Not a whole-book reading or new independent source-issue review."
+        "from": "KTheoryLowDegrees:Z.1 and Z.4",
+        "to": "ClassicalArithmeticCompletion:CA.7",
+        "what": "stable equality in SplitK0 of finitely generated projective modules, extension and restriction of scalars, and the Steinitz comparison for Dedekind domains",
+        "nodes": [
+          "CA.7/locally-free-class-group"
+        ],
+        "record": "gap"
       }
     ],
-    "currentUpstream": {
-      "roadmapCommit": "df8020193b157c047bcaa0381c3f0d6c3f605dcb",
-      "tauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-      "readOnly": true,
-      "checkedRoadmaps": [
-        "AlgebraicVectorBundles",
-        "DifferentialGeometry",
-        "IntegralLattices",
-        "LocalGaloisGroups",
-        "OperatorTheory",
-        "OrthogonalSpinGroups",
-        "PeripheralActions",
-        "ProfiniteArithmetic",
-        "RealAlgebraicGeometry"
+    "tierEvidence": "research/blueprint/upstream/CaraianiNewton.md (statuses of 2026-10-12) places ClassicalArithmeticCompletion in tier 5 and lists K2SymbolsBrauer, KTheoryLowDegrees, QSeriesPartitionsAndMockModularForms and ArithmeticDynamics as its citations outside the 94 roadmaps. DiophantineApproximationAndTranscendence DT.0 (tier 4) and the Tau Ceti roadmaps remain suppliers.",
+    "otherChanges": [
+      "Corrected the inherited review gap on Eisenstein reciprocity, which still counted two missing inputs after the review moved Stickelberger's relation into CA.1.",
+      "Coverage notes of CA.1, CA.4 and CA.6 no longer name FF.1, K2SymbolsBrauer or DY.1 as suppliers; CA.1, CA.4 and CA.7 gained remaining items for the moved notions.",
+      "Suggested file: added the missing unit test zsqrtdToRingOfIntegers_degree_one_excluded, renamed the trace-pairing premise of the order theorems from hsep to htrace, and updated the comments that named the removed suppliers.",
+      "Added the pinned declaration tauceti:TauCeti.SplitK0.map (line 275 of TauCeti/CategoryTheory/GrothendieckGroup/Split.lean)."
+    ],
+    "upstreamChecked": "TauCetiRoadmap main (read-only checkout of 2026-10-12): ClassFieldTheory Layer 5 owns localSymbol (kummerCupPairing ζ) with bilinearity, Steinberg relation, antisymmetry and the norm-group criterion, and says higher power reciprocity laws are follow-on work; no Tau Ceti roadmap or library file has the Jacobi triple product (Mathlib has only the pentagonal number theorem for power series); Tau Ceti has SplitK0 and finiteProjectiveModules but no stable-isomorphism criterion."
+  },
+  "revisionAuditHistory": [
+    {
+      "job": "BP-ClassicalArithmeticCompletion~2",
+      "issue": 6513,
+      "agent": "Codex",
+      "session": "codex-y0ztZt",
+      "date": "2026-10-09",
+      "granularity": "Current WORKERS/PROTOCOL §2/detail.json: target level. The issue prohibits new nodes when the inherited packet exceeds 300. All 333 node IDs and the independent review object are preserved; zero nodes added. Separate signatures and smaller steps stay with the existing target.",
+      "reviewScope": "Read the reviewer correction and closure ledger and all 196 recorded unresolved node findings. Checked the retained corrected contracts in packet/native, added or strengthened 20 native contracts within 16 existing nodes, clarified normalized square-root representatives and the field trace branch. Remaining source and supplier obligations are retained, not silently accepted.",
+      "signatureChanges": {
+        "power-residue-criterion-in-a-finite-field": [
+          "card_nonzero_pow_roots"
+        ],
+        "jacobi-four-square-theorem": [
+          "jacobi_four_square_odd",
+          "jacobi_four_square_even"
+        ],
+        "negative-pell-solution-ordering": [
+          "negativePell_pos_of_one_lt"
+        ],
+        "negative-pell-local-obstruction": [
+          "pellNormSet_mod_prime"
+        ],
+        "apery-set-unique-decomposition": [
+          "closure_insert_aperySet_eq",
+          "exists_finset_generators"
+        ],
+        "genus-frobenius-inequality": [
+          "numericalFrobenius_reflects_to_gap",
+          "numericalFrobenius_card_partition"
+        ],
+        "sylvester-egyptian-identity": [
+          "hasSum_one_div_sylvesterSeq",
+          "sylvesterSeq_strict_greedy"
+        ],
+        "markoff-triple-coordinates-coprime": [
+          "markoffVieta_pairwise_gcd"
+        ],
+        "class-number-divides-relation-determinant": [
+          "natAbs_det_eq_classNumber_iff"
+        ],
+        "mahler-measure-of-unit-le-house": [
+          "mahlerMeasure_minpoly_inv"
+        ],
+        "smyth-integer-power-series": [
+          "smyth_quotient_series"
+        ],
+        "class-number-regulator-certificate": [
+          "relations_and_units_complete_of_lt_two_mul"
+        ],
+        "fermat-right-triangle-theorem": [
+          "fermat_right_triangle_int"
+        ],
+        "bernoulli-generating-function-on-its-disc": [
+          "not_summable_bernoulli_mul_pow"
+        ],
+        "secant-plus-tangent-on-its-disc": [
+          "not_summable_zigzag_mul_pow"
+        ],
+        "local-solubility-of-a-primitive-zero": [
+          "IsPrimitiveZero.locally_soluble"
+        ]
+      },
+      "freshSourceReading": [
+        {
+          "sourceId": "dimitrov-schinzel-zassenhaus-2019",
+          "url": "https://arxiv.org/pdf/1912.12545v1",
+          "sha256": "c8a3798fe62e565838e7c4abf03e61f6c97b6801c75eff33bf7957da8def73ee",
+          "pages": "PDF/printed pp.4–5",
+          "read": "Proposition 2.2 and Lemma 2.3, including their proofs and the root-product congruence above them",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "conrad-descent-2026",
+          "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/descent.pdf",
+          "sha256": "6fc8ca52ce0c7a3f086f3dec296a25666d14b5568ad8dfed97b6910bab9d63e4",
+          "pages": "PDF/printed pp.7–8",
+          "read": "Theorem 3.10, both parity cases and integral absolute-value reduction",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "conrad-pell-one-2025",
+          "url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn1.pdf",
+          "sha256": "69c8b41949356fa19e4cd4b74b523e016cc5a1fe6e70357c94168641da9da7a5",
+          "pages": "PDF/printed p.11",
+          "read": "Lemmas 7.3 and 7.4, statements and proofs",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "wuthrich-gaussian-integers-2011",
+          "url": "https://www.maths.nottingham.ac.uk/plp/pmzcw/download/fnt_chap5.pdf",
+          "sha256": "15600303147215790dd55cbf589614bfaac6e03cc803e6683f316528cbdaedb6",
+          "pages": "PDF/printed p.7",
+          "read": "Theorem 5.14, equivalent odd/even formula; source states it without proof",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "assi-garcia-sanchez-numerical-semigroups-2014",
+          "url": "https://arxiv.org/pdf/1411.6093v1",
+          "sha256": "9c0456be2931b5ca1cfb109795a8b2351a5b77de29ae35df1de994ed3fd73643",
+          "pages": "PDF/printed pp.4,6",
+          "read": "Proposition 6, Corollary 7 and Lemma 14, statements and proofs",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "biasse-fieker-classgroup-2014",
+          "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/4387ACB036E3358143A563F196E386CB/S1461157014000345a.pdf/div-class-title-subexponential-class-group-and-unit-group-computation-in-large-degree-number-fields-div.pdf",
+          "sha256": "d747aad470df993bb183b0a97037569d9f21b13ae92eee0333ca9b59ba9a43c0",
+          "pages": "PDF pp.15–16, printed pp.399–400",
+          "read": "§4.3 certification argument and its explicit accuracy bounds",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "cahen-chabert-intvalued-2016",
+          "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Cahen-Chabert.pdf",
+          "sha256": "a763fe4a9a8ecdd348bdec2cdcec7b7808586c47a0e5dedb8a9996ef1fe44128",
+          "pages": "PDF p.6, printed p.315",
+          "read": "Proposition 6 and Theorem 7, including the factorization-length example",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "chun-egyptian-2011",
+          "url": "https://math.osu.edu/sites/math.osu.edu/files/Egyptian_Fractions.pdf",
+          "sha256": "7aa046ff7d3d188fa5d71e1bf889af581f950678e8a9c420f90b1aa4d50f8ef8",
+          "pages": "PDF/printed pp.1–3",
+          "read": "§1.1, §1.3.1 and §1.4, including greedy termination, restricted proper-fraction calculation and 5/31 example",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "christol-suitesalgebriques-1980",
+          "url": "https://www.numdam.org/item/10.24033/bsmf.1926.pdf",
+          "sha256": "ca6bc2485bca42d07fd0a47084f2f282fb58427872f279296d2665bcd824cf40",
+          "pages": "PDF pp.3–4, printed pp.402–403",
+          "read": "§2 algebraic-series conventions and the Morse-series example",
+          "date": "2026-10-09",
+          "scope": "Selected passages only. This is not a whole-source reread or a re-review of all inherited source findings."
+        },
+        {
+          "sourceId": "johnston-galois-modules-2016",
+          "url": "https://empslocal.ex.ac.uk/people/staff/hj241/GM_CourseNotes109.pdf",
+          "sha256": "dbedcf63ddd0194aa064fdc2423114a3ab29e0c5c1ce26943849071b05c539f2",
+          "pages": "PDF/printed pp.2,6,16–17,19,27–28",
+          "read": "Remark 1.5, Definition 1.6, Example 3.16, Theorem 9.5 and its split-extension proof, Corollary 9.10, §15.1–15.3 stable classes and cancellation boundary",
+          "date": "2026-10-09",
+          "scope": "Selected pages only. Not a whole-book reading or new independent source-issue review."
+        },
+        {
+          "sourceId": "voight-quaternion-2021",
+          "url": "https://jvoight.github.io/quat-book.pdf",
+          "sha256": "a9316b834dbd500c52cd3a981c3205c9f4145b217042b213d23f696aee84b0f0",
+          "pages": "PDF pp.338,346,348; printed pp.318,326,328",
+          "read": "20.2.6–20.2.8, Proposition 20.7.4 with proof and Remark 20.7.13; distinction between source setting and the general semisimple supplier",
+          "date": "2026-10-09",
+          "scope": "Selected pages only. Not a whole-book reading or new independent source-issue review."
+        }
       ],
-      "findings": [
-        "IntegralLattices imports square nonzero-determinant Smith existence; general rectangular certificates and algorithmic gaps here remain distinct. No integral lattice quadratic theory is replanned.",
-        "LocalGaloisGroups imports existing reciprocity and field normal bases. LocalFieldsRamification and ClassFieldTheory remain suppliers, not reconstructed theories.",
-        "Current CartanMap/Basic contains finiteProjectiveModules and categorical exact K₀. Do not invent a RingK0 carrier or replan that categorical theory; the missing locally free class-map and order-extension adapters remain here/at KTheoryLowDegrees.",
-        "Current Matrix/SmithNormalForm retains square nonzero-determinant existence and diagonal uniqueness, plus first-invariant and 2×2 equivalence APIs; it does not supply the general rectangular algorithm."
-      ]
+      "currentUpstream": {
+        "roadmapCommit": "df8020193b157c047bcaa0381c3f0d6c3f605dcb",
+        "tauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+        "readOnly": true,
+        "checkedRoadmaps": [
+          "AlgebraicVectorBundles",
+          "DifferentialGeometry",
+          "IntegralLattices",
+          "LocalGaloisGroups",
+          "OperatorTheory",
+          "OrthogonalSpinGroups",
+          "PeripheralActions",
+          "ProfiniteArithmetic",
+          "RealAlgebraicGeometry"
+        ],
+        "findings": [
+          "IntegralLattices imports square nonzero-determinant Smith existence; general rectangular certificates and algorithmic gaps here remain distinct. No integral lattice quadratic theory is replanned.",
+          "LocalGaloisGroups imports existing reciprocity and field normal bases. LocalFieldsRamification and ClassFieldTheory remain suppliers, not reconstructed theories.",
+          "Current CartanMap/Basic contains finiteProjectiveModules and categorical exact K₀. Do not invent a RingK0 carrier or replan that categorical theory; the missing locally free class-map and order-extension adapters remain here/at KTheoryLowDegrees.",
+          "Current Matrix/SmithNormalForm retains square nonzero-determinant existence and diagonal uniqueness, plus first-invariant and 2×2 equivalence APIs; it does not supply the general rectangular algorithm."
+        ]
+      }
     }
-  }
+  ]
 }

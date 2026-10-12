@@ -212,7 +212,8 @@ prime-discriminant factorisation of a fundamental discriminant, `fundamentalDisc
 
 Imported from roadmaps (not built at the pin): the norm-equation Hilbert symbol of
 Quadratic Form Invariants 6C, restated below as `normEquationSymbol` only so that the comparison
-statements elaborate; the degree-`n` norm-residue symbol of `K2SymbolsBrauer:T.7`; the local and
+statements elaborate; the degree-`n` norm-residue symbol, which this layer owns (it moved down from
+`K2SymbolsBrauer:T.7` and is recorded as a gap until its definition node is planned); the local and
 global Artin maps of Class Field Theory, Layers 6 and 11. The three theorems that need the last two
 (the tame formula, the degree-`n` Hilbert product formula and the power reciprocity law) cannot be
 stated with the pinned libraries and are recorded as comments with their intended form.
@@ -799,7 +800,8 @@ theorem powerResidueSymbol_frobenius {L : Type*} [Field L] [NumberField L] [Alge
 /-! ### Degree-`n` Hilbert symbols and the power reciprocity law
 
 These three theorems need the degree-`n` norm-residue symbol `(a, b)_v = Art_v(a)(ⁿ√b) / ⁿ√b`
-(`K2SymbolsBrauer:T.7`), the local Artin map with its Frobenius normalisation (Class Field Theory,
+(a CA.1-owned input recorded as a gap, formerly requested from `K2SymbolsBrauer:T.7`), the local
+Artin map with its Frobenius normalisation (Class Field Theory,
 Layer 6) and global Artin reciprocity (Class Field Theory, Layer 11). None of these is in the pinned
 libraries, and a local stand-in would restate class field theory, so they are not prototyped.
 Intended forms, with `hilbertSymbolDeg n v a b` for that symbol at a place `v` of `K`:
@@ -2923,9 +2925,9 @@ Suggested forms for the declarations of layer CA.4; the roadmap document is defi
 What the pinned libraries already contain is imported, not restated: Mathlib's `Pell`
 (solutions of x² − dy² = 1 and the fundamental solution), `Nat.eq_sq_add_sq_iff`,
 `Nat.sum_four_squares`, `PythagoreanTriple`, the x⁴ + y⁴ = z² theorem (`Fermat42`),
-`Int.gcd_dvd_iff` and `FrobeniusNumber`. The Jacobi triple product identity used in the
-proof of the four-square theorem is supplied by `QSeriesPartitionsAndMockModularForms:QM.0`
-and is not prototyped here.
+`Int.gcd_dvd_iff` and `FrobeniusNumber`. The Jacobi triple product identity and the four
+specialisations used in the proof of the four-square theorem are a CA.4-owned input, recorded as a
+gap (they moved down from `QSeriesPartitionsAndMockModularForms:QM.0`), and are not prototyped here.
 -/
 
 open scoped LinearAlgebra.Projectivization
@@ -4383,6 +4385,15 @@ example {d : ℤ} {θ : 𝓞 K} (hθ : θ * θ = d) (hmin : minpoly ℤ θ = X ^
     Algebra.norm ℤ (zsqrtdToRingOfIntegers θ hθ ⟨3, 2⟩) = 9 - 4 * d := by
   sorry
 
+/-- Unit test `TauCeti.ClassicalArithmetic.zsqrtdToRingOfIntegers_degree_one_excluded`: at `d = 1`,
+`θ = 1` and `K = ℚ` the ring map exists but is not injective, since `√1 - 1` maps to zero, and the
+field norm of `φ 2 = 2` is `2`, not `Zsqrtd.norm 2 = 4`; the quadratic-field hypotheses of the
+bijectivity and norm comparisons cannot be dropped. -/
+example (hθ : (1 : 𝓞 ℚ) * 1 = ((1 : ℤ) : 𝓞 ℚ)) :
+    ¬ Function.Injective (zsqrtdToRingOfIntegers (K := ℚ) (d := 1) 1 hθ) ∧
+      Algebra.norm ℤ (zsqrtdToRingOfIntegers (K := ℚ) (d := 1) 1 hθ 2) ≠ (2 : ℤ√1).norm := by
+  sorry
+
 /-- **Pell solutions are the norm-one units** (CA.5/pell-solutions-are-norm-one-units). -/
 theorem nonempty_pell_mulEquiv_normOneUnits {d : ℤ} {θ : 𝓞 K} (hθ : θ * θ = d)
     (hmin : minpoly ℤ θ = X ^ 2 - C d) (hgen : Algebra.adjoin ℚ {(θ : K)} = ⊤)
@@ -4434,8 +4445,9 @@ Conventions (pinned in the roadmap document, section CA.6):
 * The house `⌈α⌉` is DT.0's `DiophantineApproximation.house` (not built); below it appears either as
   Mathlib's `NumberField.house` for an element of a number field, or through the complex roots of
   `minpoly ℤ α`.
-* The canonical height of a polarised endomorphism is ArithmeticDynamics:DY.1's (not built); the
-  comparison for the power map is stated through Tate's limit of `NumberField.absLogHeight₁`.
+* The general canonical height of a polarised endomorphism belongs to the later roadmap
+  ArithmeticDynamics (DY.1), which imports the power-map computation from here; the comparison for
+  the power map is stated through Tate's limit of `NumberField.absLogHeight₁`.
 -/
 
 namespace TauCeti.ClassicalArithmetic
@@ -4953,7 +4965,7 @@ theorem absLogHeight₁_eq_zero_iff {K : Type*} [Field K] [CharZero K] {α : K}
     NumberField.absLogHeight₁ α = 0 ↔ α = 0 ∨ ∃ n : ℕ, 0 < n ∧ α ^ n = 1 := by sorry
 
 /-- CA.6/canonical-height-power-map: for the power map `x ↦ x^d`, `d ≥ 2`, Tate's sequence
-`d^{-n} h(f^n(α))` is constant, so the canonical height of ArithmeticDynamics:DY.1 is the Weil height:
+`d^{-n} h(f^n(α))` is constant, so Tate's limit, the canonical height of the power map, is the Weil height:
 `ĥ_{x^d}(α) = h(α) = log M(α) / deg α`. -/
 theorem tendsto_absLogHeight₁_iterate_pow {K : Type*} [Field K] [CharZero K] (α : K) {d : ℕ}
     (hd : 2 ≤ d) :
@@ -5483,7 +5495,7 @@ theorem IsOrder.isIntegral {Λ : Subalgebra R E} (h : IsOrder R F E Λ) (x : Λ)
 
 theorem isOrder_of_isIntegral [IsNoetherianRing R] [IsIntegrallyClosed R] (Λ : Subalgebra R E)
     (hspan : Submodule.span F (Λ : Set E) = ⊤) (hint : ∀ x : Λ, IsIntegral R x)
-    (hsep : ∀ x : E, (∀ y : E, LinearMap.trace F E (LinearMap.mulLeft F (x * y)) = 0) → x = 0) :
+    (htrace : ∀ x : E, (∀ y : E, LinearMap.trace F E (LinearMap.mulLeft F (x * y)) = 0) → x = 0) :
     IsOrder R F E Λ := by sorry
 
 variable (R F) in
@@ -5548,7 +5560,7 @@ theorem IsMaximalOrder.eq_of_le {Λ Λ' : Subalgebra R E} (h : IsMaximalOrder R 
     (h' : IsOrder R F E Λ') (hle : Λ ≤ Λ') : Λ' = Λ := h.2 Λ' h' hle
 
 theorem exists_isMaximalOrder_ge [IsNoetherianRing R] [IsIntegrallyClosed R]
-    (hsep : ∀ x : E, (∀ y : E, LinearMap.trace F E (LinearMap.mulLeft F (x * y)) = 0) → x = 0)
+    (htrace : ∀ x : E, (∀ y : E, LinearMap.trace F E (LinearMap.mulLeft F (x * y)) = 0) → x = 0)
     {Λ : Subalgebra R E} (h : IsOrder R F E Λ) :
     ∃ Λ' : Subalgebra R E, Λ ≤ Λ' ∧ IsMaximalOrder R F E Λ' := by sorry
 
@@ -5767,10 +5779,13 @@ theorem isNIBGenerator_iff_discr_eq (K : Type*) [Field K] [NumberField K] [IsGal
 end GaloisResolvent
 
 /- REVIEW PENDING OWNER TYPES — REV-ClassicalArithmeticCompletion.
-The typed specifications below depend on the actual RingK0 of
-KTheoryLowDegrees:Z.1, defined using TauCeti.SplitK0 of the finite-projective
-module category. Its finite-order hypotheses and the locally-free-to-projective
-bridge must be supplied before these commands can be activated. No local K0
+The typed specifications below depend on ring K₀ as TauCeti.SplitK0 of
+TauCeti.finiteProjectiveModules Λ (Tau Ceti modules absent from the shared build)
+and on the CA.7-owned inputs recorded as a gap: the stable-isomorphism criterion,
+scalar change and the Steinitz comparison, which moved down from
+KTheoryLowDegrees Z.1 and Z.4. Its finite-order hypotheses and the
+locally-free-to-projective bridge must be supplied before these commands can be
+activated. No local K0
 type or object-class replacement is defined. These signatures are comments,
 not elaborated declarations or formalised results.
 
