@@ -25,7 +25,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 2
 
 - **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: pull request #792 open** · reviewer recommends approval (at earlier head d3a280e; current head adc06c2) · move down: ModularCurvesPartII (2)
-- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 3/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #779 open** · reviewer recommends approval (at earlier head 6cb6d5b; current head a92de96) · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
+- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 3/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #779 open** · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
 - **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 1/2 accepted · package not yet · CN needs 10/11 layers · **Tau Ceti: pull request #793 open** · reviewer recommends approval (at earlier head b4232aa; current head 8d696f3) · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
 
 ## Tier 3
