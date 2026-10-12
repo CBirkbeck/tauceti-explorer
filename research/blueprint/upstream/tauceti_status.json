@@ -185,8 +185,8 @@
       "head": "ed244ce",
       "review": {
         "recommendation": "approve",
-        "head": "4c57000",
-        "current": false,
+        "head": "88de410",
+        "current": true,
         "date": "2026-10-12",
         "note": "head ed244ce differs only by re-stacks on the parent"
       }
