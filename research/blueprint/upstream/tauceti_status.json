@@ -124,8 +124,8 @@
       "head": "7962ccc",
       "review": {
         "recommendation": "approve",
-        "head": "24496fb",
-        "current": false,
+        "head": "6f237d3",
+        "current": true,
         "date": "2026-10-12",
         "note": "head 7962ccc differs only by re-stacks on the parent"
       }
