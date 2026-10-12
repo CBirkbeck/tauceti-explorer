@@ -192904,7 +192904,7 @@
    "reviewReason": "Confirmed by reading and visually inspecting the recorded-hash author copy, Lemma 3.3.2, p. 18. Full-RHom comparisons fail in positive degrees for the shifted integer complex; the mapping-space comparison and adjunction remain valid."
   },
   {
-   "id": "EnhancedDerivedSheaves/E1",
+   "id": "EnhancedDerivedSheaves/E5",
    "kind": "gap",
    "locator": "BS17 author PDF, Remark 11.24, p. 45; Mathew Corollary 3.33, p. 24",
    "printed": "The remark attributes faithful-flat descendability under countable generation alone to Mathew.",
