@@ -267,7 +267,8 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E0/right-mapping-space",
-        "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category"
+        "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
+        "EnhancedDerivedSheaves:E0/mapping-space-kan-and-equivalences"
       ],
       "sources": [
         {
@@ -343,7 +344,8 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:abstract/infinity-operad",
-        "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category"
+        "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
+        "EnhancedDerivedSheaves:E0/coherent-functors"
       ],
       "sources": [
         {
@@ -419,7 +421,8 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad",
-        "EnhancedDerivedSheaves:E5:abstract/infinity-operad"
+        "EnhancedDerivedSheaves:E5:abstract/infinity-operad",
+        "EnhancedDerivedSheaves:E0/coherent-functors"
       ],
       "sources": [
         {
@@ -907,7 +910,9 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening",
-        "EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion"
+        "EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion",
+        "EnhancedDerivedSheaves:E0/coherent-functors",
+        "EnhancedDerivedSheaves:E0/higher-category-carrier"
       ],
       "sources": [
         {
@@ -1190,7 +1195,8 @@
         "EnhancedDerivedSheaves:E5:abstract/module-objects",
         "EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals",
         "EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison",
-        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E2/pro-towers",
+        "EnhancedDerivedSheaves:E2/coherent-towers-and-roos",
         "EnhancedDerivedSheaves:E5:presentability/presentable-categories"
       ],
       "sources": [
@@ -1327,7 +1333,8 @@
         "EnhancedDerivedSheaves:E5:abstract/descendable-algebras",
         "EnhancedDerivedSheaves:E1",
         "EnhancedDerivedSheaves:E2",
-        "EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality"
+        "EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality",
+        "EnhancedDerivedSheaves:E2/coherent-towers-and-roos"
       ],
       "sources": [
         {
@@ -1972,7 +1979,9 @@
         "EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories",
         "EnhancedDerivedSheaves:E1/enhanced-derived-category",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "EnhancedDerivedSheaves:E0/coherent-functors",
+        "EnhancedDerivedSheaves:E0/higher-category-carrier"
       ],
       "sources": [
         {
@@ -2760,7 +2769,7 @@
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:animation/sifted-colimits",
         "EnhancedDerivedSheaves:E0/limits-colimits-and-slices",
-        "EnhancedDerivedSheaves:E2"
+        "EnhancedDerivedSheaves:E2/space-sheaves-and-postnikov"
       ],
       "sources": [
         {
@@ -3295,6 +3304,15 @@
       "title": "Separate generic supplier statements from their concrete applications",
       "proposal": "In the E0–E4 part, refine the broad prerequisites of E3/left-kan-extension-along-a-full-inclusion and E3/adjoint-functor-theorem-and-localisations. E1/presentability-and-derived-tensor is an application of E5/presentable-categories and the monoidal module interface, not a prerequisite of their definitions. Preserve existing node ownership and ids; remove only application-to-foundation edges when their generic proofs do not use those applications.",
       "reason": "The current broad stage inputs create apparent E1/E3/E5 cycles. They are explicitly unresolved until the supplier refinement is accepted."
+    },
+    {
+      "title": "Sub-layer E5:descent, and formal tensor inversion in E5:presentability",
+      "action": "sublayers",
+      "roadmaps": [
+        "EnhancedDerivedSheaves"
+      ],
+      "detail": "E5:presentability/presentable-categories is used by E5:abstract/descendable-algebras and E5:abstract/formal-tensor-inversion, and E5:presentability/limits-of-presentable-categories by E5:abstract/module-descent-and-functoriality, while E5:presentability uses the monoidal E5:abstract declarations (left-derivable-cocartesian-families, module-objects and others). The induced layer edges E5:abstract -> E5:presentability -> E5:abstract form a cycle. No other E5:abstract declaration and no E5:presentability declaration uses the three descent declarations or formal-tensor-inversion.",
+      "proposal": "Add a sub-layer E5:descent, \"Descendable algebras and module descent\", with parent E5, holding E5:abstract/descendable-algebras (keeping its planet \"Descendable algebras\"), E5:abstract/module-descent-and-functoriality and E5:abstract/uniform-index-colimits under their present identifiers; give E5:abstract/formal-tensor-inversion (Robalo's inversion in presentable categories) the parent E5:presentability. Layer edges: E5:abstract -> E5:presentability -> E5:descent, with E2:towers -> E5:descent -> E2 (see the E2:towers proposal in the E0 part). With both proposals the layer graph of the roadmap is acyclic."
     }
   ],
   "signatureOmissions": [
@@ -3325,7 +3343,7 @@
   ],
   "sourceIssues": [
     {
-      "id": "EnhancedDerivedSheaves/E1",
+      "id": "EnhancedDerivedSheaves/E5",
       "kind": "gap",
       "locator": "BS17 author PDF, Remark 11.24, p. 45; Mathew Corollary 3.33, p. 24",
       "printed": "The remark attributes faithful-flat descendability under countable generation alone to Mathew.",
@@ -3342,7 +3360,8 @@
         "verdict": "confirmed",
         "reason": "In the pinned author copy BS17 Remark 11.24, p. 45, the attributed hypothesis controls algebra generators only; the cited Mathew Corollary 3.33, p. 24, controls both generators and relations. This confirms a citation/hypothesis gap, not falsity of countable-generation descendability. The packet conservatively uses countable presentation.",
         "by": "REV-EnhancedDerivedSheaves--E5"
-      }
+      },
+      "recordedAs": "EnhancedDerivedSheaves/E1"
     }
   ],
   "sourceCoverage": [

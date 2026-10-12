@@ -7680,7 +7680,8 @@
         "EnhancedDerivedSheaves:E1/perfect-finite-tor-dimension",
         "EnhancedDerivedSheaves:E2/perfect-h-boundedness",
         "EnhancedDerivedSheaves:E1/quasicoherent-derived-sheaves",
-        "EnhancedDerivedSheaves:E2/perfect-h-cover-descendability"
+        "EnhancedDerivedSheaves:E2/perfect-h-cover-descendability",
+        "EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality"
       ],
       "sources": [
         {
@@ -8914,6 +8915,24 @@
       "kind": "split-layer",
       "title": "Acyclic foundation interfaces",
       "detail": "Foundations now have explicit E0 accessibility/stability, E1 tensor/presentability and E3 representability/adjoint nodes. E5 consumes them. The only remaining E5 supplier request is generic algebraic module descent for E2 h-Čech descent; extract it as an acyclic interface. Canonical DGAInfinity stage imports are restored as ordinary prerequisites accepted by the current checker."
+    },
+    {
+      "title": "Sub-layer E2:towers for coherent towers and pro-towers",
+      "action": "sublayers",
+      "roadmaps": [
+        "EnhancedDerivedSheaves"
+      ],
+      "detail": "E5:abstract/descendable-algebras uses E2/pro-towers and E2/coherent-towers-and-roos (the Amitsur tower and its pro-constancy), and E5:abstract/uniform-index-colimits uses E2/coherent-towers-and-roos; E2/perfect-h-cech-descent applies E5:abstract/module-descent-and-functoriality for Čech effectivity. The node graph is acyclic, but the induced layer edges E2 -> E5:abstract -> E2 form a cycle. The two tower declarations use only E0 and E1/enhanced-derived-category; neither uses another E2 declaration or anything of E5.",
+      "proposal": "Add a sub-layer E2:towers, \"Coherent towers and pro-towers\", with parent E2, holding E2/coherent-towers-and-roos (keeping its planet \"Derived inverse limits\") and E2/pro-towers under their present identifiers. The multiplicative derived-limit filtration for a finite-cohomological-dimension index category, still a gap of E5:abstract/uniform-index-colimits, belongs in this sub-layer; the stage reference EnhancedDerivedSheaves:E2 of that node then becomes the new declaration. Layer edges: E0, E1 -> E2:towers -> E2 and E2:towers -> E4 and the E5 descent declarations; E5 descent -> E2."
+    },
+    {
+      "title": "Replace the atlas edge E2 -> E3 by E3 -> E2",
+      "action": "rescope",
+      "roadmaps": [
+        "EnhancedDerivedSheaves"
+      ],
+      "detail": "The atlas records the stage edge E2 -> E3, but no E3 declaration uses an E2 declaration: E3 uses E0 and E1 only. Conversely E2/space-sheaves-and-postnikov uses E3/accessible-localizations, so the declarations induce E3 -> E2, and together with the recorded edge the atlas sees a two-cycle.",
+      "proposal": "Remove the stage edge E2 -> E3 and record E3 -> E2. The order of construction is then E0, E1, E3, E2, E4, as the declarations already require; E3's accessible localizations are an input to the sheaves of spaces of E2, and E4 uses both."
     }
   ],
   "idMigrations": [
