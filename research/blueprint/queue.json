@@ -39414,7 +39414,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9329"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
@@ -51829,8 +51830,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8890"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8890",
+   "finishedAt": "2026-10-12T18:57:32Z"
   },
   {
    "id": "REV-PKG-CrystallineCohomology",
