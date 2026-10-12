@@ -1,21 +1,42 @@
 {
-  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs).",
+  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
   "updated": "2026-10-12",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "pr",
       "pr": 779,
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "13788cf",
+      "review": {
+        "recommendation": "approve",
+        "head": "6cb6d5b",
+        "current": false,
+        "date": "2026-10-11"
+      }
     },
     "PadicMeasuresIwasawaAlgebras": {
       "stage": "pr",
       "pr": 780,
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "b7712a0",
+      "review": {
+        "recommendation": "approve",
+        "head": "4c2b687",
+        "current": false,
+        "date": "2026-10-09"
+      }
     },
     "ReductiveGroupsPartII": {
       "stage": "pr",
       "pr": 785,
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "ac5bdc8",
+      "review": {
+        "recommendation": "approve",
+        "head": "bd3d0c3",
+        "current": false,
+        "date": "2026-10-10"
+      }
     },
     "AdelicAlgebraicGroups": {
       "stage": "pr",
@@ -23,7 +44,14 @@
       "depends_on": [
         785
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "a603af7",
+      "review": {
+        "recommendation": "approve",
+        "head": "d3a280e",
+        "current": false,
+        "date": "2026-10-10"
+      }
     },
     "SmoothRepresentationsOfLocalGroups": {
       "stage": "pr",
@@ -31,7 +59,14 @@
       "depends_on": [
         785
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "f2dd8d9",
+      "review": {
+        "recommendation": "approve",
+        "head": "b4232aa",
+        "current": false,
+        "date": "2026-10-11"
+      }
     },
     "IntegralHeckeAndGaloisDeterminants": {
       "stage": "pr",
@@ -39,7 +74,14 @@
       "depends_on": [
         793
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "5fa34bd",
+      "review": {
+        "recommendation": "approve",
+        "head": "645d8e4",
+        "current": false,
+        "date": "2026-10-10"
+      }
     },
     "AdicEtaleGeometry": {
       "stage": "pr",
@@ -47,12 +89,26 @@
       "depends_on": [
         813
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "7477eae",
+      "review": {
+        "recommendation": "approve",
+        "head": "980fbe3",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "AdicSpacesPartII": {
       "stage": "pr",
       "pr": 817,
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "97e909a",
+      "review": {
+        "recommendation": "approve",
+        "head": "97e909a",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "DiamondsAndVStacks": {
       "stage": "pr",
@@ -60,12 +116,26 @@
       "depends_on": [
         818
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "24496fb",
+      "review": {
+        "recommendation": "approve",
+        "head": "24496fb",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "PerfectoidSpaces": {
       "stage": "pr",
       "pr": 818,
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "fd02d44",
+      "review": {
+        "recommendation": "approve",
+        "head": "fd02d44",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "AdicSpacesPartIII": {
       "stage": "pr",
@@ -73,7 +143,14 @@
       "depends_on": [
         817
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "0d300a1",
+      "review": {
+        "recommendation": "approve",
+        "head": "c67b41e",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "AdicSpacesPartIV": {
       "stage": "pr",
@@ -81,7 +158,14 @@
       "depends_on": [
         814
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "dbd7b77",
+      "review": {
+        "recommendation": "approve",
+        "head": "dbd7b77",
+        "current": true,
+        "date": "2026-10-12"
+      }
     },
     "PerfectoidTowers": {
       "stage": "pr",
@@ -89,7 +173,14 @@
       "depends_on": [
         818
       ],
-      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
+      "head": "4c57000",
+      "review": {
+        "recommendation": "approve",
+        "head": "4c57000",
+        "current": true,
+        "date": "2026-10-12"
+      }
     }
   }
 }
