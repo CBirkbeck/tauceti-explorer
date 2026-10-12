@@ -1,0 +1,42 @@
+# Handoff: BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3
+
+Job: plan stage GN.3 (Reduction, mass and theta series) as a follow-up of the accepted base packet. Worker: Claude (Opus 5.5), session claude-nr5zuB. Issue #9327.
+
+## Deliverables
+
+- `research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.3.json` — status `complete`, scope GN.3, coverage `planned`. 72 nodes (11 definitions, 12 constructions, 44 theorems, 4 lemmas, 1 application), 129 API items, 92 unit tests, 6 planets, 27 baseline declarations (all found in the declaration index at the pins and read in their files), 4 requests, 5 gaps, 10 source issues (E301–E310). `python3 scripts/check_blueprint.py` reports 0 errors and 0 warnings.
+- `research/blueprint/readmes/GeometryOfNumbersAndQuadraticArithmetic--GN.3.md` — rendered from the packet (so the two agree), with boundaries, conventions, six sections 3A–3F, dependencies, open inputs, source issues, acceptance tests and references.
+- `research/blueprint/suggested/GeometryOfNumbersAndQuadraticArithmetic--GN.3.lean` — 534 lines. **Compiled** with `lean-check` at Mathlib 082e2d3 / Tau Ceti f790474: no errors, only `declaration uses 'sorry'` warnings. Real-bodied light definitions (`MinkowskiReduced`, `MinusCF.digit/next`, `IsMinusReduced`, `pellAutomorph`, `gaussianBinomial`, `soEvenOrder`, `soOddOrder`, `unitaryIsotropicCount`, `symplecticIsometryCount`, `latticeThetaSeries`, `genusThetaAverage`, `quadraticRepCount`, `normalizedRepCount`, `stabilizationIndex`, the Siegel-series weights, `MaximalMassLocalType`, `maximalMassWittSign`, `maximalLocalMassFactor`, `rankOneHermitianSiegel`, `hermitianDerivativeWeight`, `ramifiedWeight`, `splitHermitianWeight`, `hlsyPrimitiveDerivative`, `familyMass`, `orthogonalArchimedeanConstant`, `orthogonalSkewBasisVolume`, `orthogonalMassGaugeScale`, `goodOrthogonalVolumeOdd`, `punctualHilbertCount`), several examples proved by `decide`/`simp`/`norm_num`, and a closing comment "Statements not typed at the pins" grouped by missing carrier plus an automatically generated list of every remaining packet theorem/API/test name (30 nodes). No `True` placeholders or tautological signatures (one tautological finite-sum "doubling" theorem was removed and moved to the untyped list).
+
+## What is planned
+
+- **3A Reduction**: Minkowski-reduced bases of real lattices (BSW) with their Siegel-set containment over AA.3.2; minus continued fractions, reduction cycles of narrow classes, Pell automorphs (Duke–Imamoḡlu–Tóth §2), beyond IntegralLattices B2–B5.
+- **3B Finite counts**: Gaussian binomials, finite orthogonal group orders, quadratic isometry/subspace counts (Li–Zhang GSpin Lemmas 3.2.1–3.2.2 with their 0/0 boundary corrected), unitary isotropic subspaces, symplectic isometries, F_{q²}/F_q norm fibres.
+- **3C Quadratic densities**: definition and stabilization, Hanke's solution types and reduction maps (SSTT §4 with the total-rank convention), closed odd-p formulas, good-prime and lower bounds, local-term and discriminant-sensitive bounds, Li–Zhang's orthogonal Cho–Yamauchi formula, Siegel series and Ikeda's functional equations, the induction formula (corrected corollary), horizontal lattices, valuation reduction, full-type identities, Siegel's main theorem (Hanke AWS Thm 2.5.1) and MST Theorem 7.15.
+- **3D Hermitian densities** (beyond the base packet's sixteen nodes, which are cited): representation scheme, stabilization, primitive smooth count, saturation sum, cancellation, ∂Den, special values (and Leslie's m_0), Terstiege induction, almost self-dual targets, the split case (FYZ), Hironaka's integrals and functional equation with the density transform and finite Fourier count, ramified densities (Li–Liu), primitive densities and the He–Li–Shi–Yang formula, μ-invariants, ramified lattice lemmas.
+- **3E Mass**: trace lattices and bounded endomorphisms, proper/ordinary doubling, Kirschmer's local types and factors, Gan–Hanke–Yu smooth models and canonical local volumes, archimedean constants (with IntegralLattices 7E), Euler products at integers ≥ 2, Weil operators, fibre distributions, the Siegel–Weil formula for m > 4, Tamagawa stabilizer comparison, τ(PGL_1(D)) = 2, τ(SO_Q) = 2; hermitian genus mass, unitary mass formula, Minkowski's GL_N(ℤ) bound, mass/class-count comparison, mass asymptotic (coefficient 1/2), model-ring orbit counts, Yun's punctual Hilbert count, local orbit bounds.
+- **3F Theta**: theta series of a definite lattice, mass-weighted genus average, Hecke Eisenstein average over a totally real field (Li 2023).
+
+## Decisions, with reasons
+
+- **Upstream ownership.** AdelicAlgebraicGroups (now in TauCetiRoadmap main) owns Haar/Tamagawa measures, τ(G), Siegel sets and reduction (AA.0/2/3): cited through requests. IntegralLattices (main) owns the ℤ/ℤ_p cases (2A–2C, 2G, B2–B5, 7A, 7C, 7E): cited in proof text, not re-planned. It names Theta Series and OrthogonalTamagawaAndLatticeMass as owners of the theta series, τ(SO_Q) = 2 and the SMS formula; neither exists in TauCetiRoadmap main or the atlas, so GN.3 plans them (restructure proposal 2 and an upstream note record this).
+- **No continuation of ζ_K is needed.** The GN package Layer 3 plans a completed-zeta continuation to convert Gan–Hanke–Yu's negative-integer factors; Kirschmer's Theorem 3.3 states the formula with ζ_K and ζ_E/ζ_K at integers ≥ 2, where Tau Ceti's `TauCeti.dedekindZeta_eulerProduct_hasProd` applies (node `good-place-volume-euler-product`). The package's `continuedDedekindZeta` target can be dropped when the package is revised.
+- **Locator correction for the package.** Gan–Hanke–Yu has no numbered "Propositions 7.4–7.5"; §7 (pp.118–120) is cited instead. GHY Tables 3–4 (pp.115–116), Prop. 2.13 (p.105), (2.10)–(2.11) (p.104) and Props 6.12–6.17 were confirmed in the authors' copy.
+- **Base-packet observation (not edited).** `GN.3/maximal-integral-mass-formula` restricts to degree d ≥ 2; Kirschmer's Theorem 3.3 holds for every totally real K including ℚ. A fix job can drop the restriction.
+- **Planets.** Six in this packet (Minkowski-reduced bases, quadratic local densities, orthogonal local Siegel series, Siegel's main theorem, local mass factors of maximal lattices, Tamagawa number of SO(Q)); a sub-layer split GN.3a–d is proposed in `restructure`, with four further planets named there.
+- **Routed items not planned here**: DIT items on closed geodesics, equidistribution, Weyl sums (24–26, 51–55, 69–71, 146–154) belong to GN.4; DIT 101–102 (genus character) and Charles-16 items and Leslie 30 (Jacobowitz orbits) are GN.2's (open PR #9345 plans most of them). LT items on extension shears and the Yun resultant are folded into `local-lattice-orbit-bounds`.
+
+## Red-team finding handed to this job
+
+RT-AREA-algebraicnt-1/1 (roadmap-level prerequisites/consumers metadata): this is metadata on `research/blueprint/atlas/roadmaps/...` and the Tau Ceti roadmaps' `consumers`, outside this job's editable files. The packet records the supplier relations machine-readably through its `requests` (AdelicAlgebraicGroups AA.0, AA.2, AA.3; ReductiveGroupsPartII RG2.3) and an `upstreamNotes` entry for IntegralLattices; the base packet's upstream note already forwards the QuadraticFormInvariants/GlobalQuadraticForms/IntegralLattices consumer edges to the maintainer.
+
+## What remains (precisely)
+
+1. Re-read Weil 1964 and Weil 1965 at the locators carried from the GN package (gap 3) and Cho–Yamauchi arXiv:1805.01666v2 §3.1, Thm 3.9–Cor 3.11 (gap 4).
+2. Acquire Gan–Yu, "Group schemes and local densities" (Duke 2000), Thm 10.20 and §10.9, for the dyadic/ramified unitary local factors (gap 2).
+3. Repair Li–Zhang GSpin §8.2's induction for a_t ≤ 2 (gap 1); fix a primary source for generic uniqueness of Minkowski-reduced bases (gap 5).
+4. Lemma-level splits of `hlsy-primitive-derivative-formula` and `hermitian-siegel-functional-equation-proof` when the roadmap moves to lemma level.
+
+## Sources read (2026-10-12)
+
+arXiv texts: Li–Zhang 1908.01701v3, Li–Zhang 2106.15038, He–Li–Shi–Yang 2208.07988, Li–Liu 2101.09485, Feng–Yun–Zhang 2103.11514, Shankar–Shankar–Tang–Tayou 1909.07473, Lipnowski–Tsimerman 1511.02212v1, Bhargava–Shankar–Wang 1611.09806v3, Hanke 1105.5759v3, Hironaka 0904.4304v3, Li 2106.13653v2; Kirschmer's maxgen.pdf; Gan–Hanke–Yu authors' copy. Locators were spot-checked page by page in these texts. Not re-read: Weil 1964/1965, Cho–Yamauchi, Yun 2013, Voight Ch. 29 (locators carried, flagged in the packet). No book from ~/atlas-library was needed.
