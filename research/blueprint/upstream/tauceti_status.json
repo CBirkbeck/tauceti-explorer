@@ -137,8 +137,8 @@
       "head": "2e8c062",
       "review": {
         "recommendation": "approve",
-        "head": "fd02d44",
-        "current": false,
+        "head": "d800237",
+        "current": true,
         "date": "2026-10-12",
         "note": "head 2e8c062 differs only by re-stacks on the parent"
       }
