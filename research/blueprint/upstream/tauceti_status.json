@@ -60,12 +60,12 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "8d696f3",
+      "head": "7e42a1c",
       "review": {
-        "recommendation": "approve",
-        "head": "b4232aa",
+        "recommendation": "changes",
+        "head": "8d696f3",
         "current": false,
-        "date": "2026-10-11"
+        "date": "2026-10-12"
       }
     },
     "IntegralHeckeAndGaloisDeterminants": {
@@ -75,7 +75,7 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "adf0421",
+      "head": "ff028fc",
       "review": {
         "recommendation": "approve",
         "head": "645d8e4",
