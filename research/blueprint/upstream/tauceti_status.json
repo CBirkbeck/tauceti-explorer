@@ -32,13 +32,13 @@
       "stage": "pr",
       "pr": 785,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "1f50c48",
+      "head": "7950420",
       "review": {
         "recommendation": "changes",
         "head": "b81656d",
         "current": false,
         "date": "2026-10-12",
-        "note": "final-review repairs applied at 1f50c48; confirmation pass pending"
+        "note": "final-review repairs at 1f50c48; README-only touch-up at 7950420 (three AA references); confirmation pass pending"
       }
     },
     "AdelicAlgebraicGroups": {
@@ -48,13 +48,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "9c360bd",
+      "head": "70542d8",
       "review": {
         "recommendation": "changes",
         "head": "ef156f9",
         "current": false,
         "date": "2026-10-12",
-        "note": "final-review repairs applied at 9c360bd; confirmation pass pending"
+        "note": "final-review repairs at 9c360bd; head 70542d8 differs only by the re-stack on #785"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -64,12 +64,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "427236c",
+      "head": "31d1353",
       "review": {
         "recommendation": "changes",
         "head": "427236c",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 31d1353; confirmation pass pending"
       }
     },
     "IntegralHeckeAndGaloisDeterminants": {
@@ -79,13 +80,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "c6d12a1",
+      "head": "cb57586",
       "review": {
         "recommendation": "approve",
         "head": "4ec3f29",
         "current": true,
         "date": "2026-10-12",
-        "note": "head c6d12a1 differs only by re-stacks on the parent"
+        "note": "head cb57586 differs only by re-stacks on the parent"
       }
     },
     "AdicEtaleGeometry": {
