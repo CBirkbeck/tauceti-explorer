@@ -33,9 +33,9 @@
       "head": "ce48de2",
       "review": {
         "recommendation": "approve",
-        "head": "bd3d0c3",
-        "current": false,
-        "date": "2026-10-10"
+        "head": "ce48de2",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AdelicAlgebraicGroups": {
