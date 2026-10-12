@@ -1,55 +1,95 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs).",
-  "updated": "2026-10-10",
+  "updated": "2026-10-12",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "pr",
-      "pr": 779
+      "pr": 779,
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "PadicMeasuresIwasawaAlgebras": {
       "stage": "pr",
-      "pr": 780
+      "pr": 780,
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "ReductiveGroupsPartII": {
       "stage": "pr",
-      "pr": 785
+      "pr": 785,
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "AdelicAlgebraicGroups": {
       "stage": "pr",
       "pr": 792,
       "depends_on": [
         785
-      ]
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "SmoothRepresentationsOfLocalGroups": {
       "stage": "pr",
       "pr": 793,
       "depends_on": [
         785
-      ]
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "IntegralHeckeAndGaloisDeterminants": {
       "stage": "pr",
       "pr": 789,
       "depends_on": [
         793
-      ]
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "AdicEtaleGeometry": {
-      "stage": "gate",
-      "note": "adversarial reads, per-row repairs and the final read done; waits for the part chain build; will stack on Part III"
+      "stage": "pr",
+      "pr": 814,
+      "depends_on": [
+        813
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "AdicSpacesPartII": {
-      "stage": "gate",
-      "note": "split on Tau Ceti into AdicSpacesPartII (R0,R1), AdicSpacesPartIII (F0,R2,R3), AdicSpacesPartIV (R4,R5,F1); each part gets its own pull request, stacked II ← III ← IV; per-row repairs after two adversarial reads in progress"
+      "stage": "pr",
+      "pr": 817,
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "DiamondsAndVStacks": {
-      "stage": "gate",
-      "note": "adversarial reads, per-row repairs and the final read done; waits for PerfectoidSpaces"
+      "stage": "pr",
+      "pr": 820,
+      "depends_on": [
+        818
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     },
     "PerfectoidSpaces": {
-      "stage": "gate",
-      "note": "four adversarial reads done, per-row repairs in progress; P8–P9 depend on DiamondsAndVStacks (import cycle) — split into a towers roadmap proposed"
+      "stage": "pr",
+      "pr": 818,
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+    },
+    "AdicSpacesPartIII": {
+      "stage": "pr",
+      "pr": 813,
+      "depends_on": [
+        817
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+    },
+    "AdicSpacesPartIV": {
+      "stage": "pr",
+      "pr": 815,
+      "depends_on": [
+        814
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
+    },
+    "PerfectoidTowers": {
+      "stage": "pr",
+      "pr": 816,
+      "depends_on": [
+        818
+      ],
+      "note": "compacted 2026-10-12 to the size of the existing TauCetiRoadmap roadmaps (Suggested.lean keeps real-bodied definitions and statable end theorems; every target stays in the README)"
     }
   }
 }
