@@ -9,8 +9,8 @@
       "head": "42ab8a1",
       "review": {
         "recommendation": "changes",
-        "head": "c16514b",
-        "current": false,
+        "head": "42ab8a1",
+        "current": true,
         "date": "2026-10-12"
       }
     },
