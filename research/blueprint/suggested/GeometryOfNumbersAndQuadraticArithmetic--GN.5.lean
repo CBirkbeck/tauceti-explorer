@@ -12,6 +12,7 @@ import Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic
 import Mathlib.NumberTheory.NumberField.Discriminant.Basic
 import Mathlib.NumberTheory.NumberField.House
 import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.NumberTheory.Height.NumberField
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.UnitaryGroup
@@ -142,7 +143,10 @@ theorem LLLStep.cursor_eq {s t : LLLState E n} (h : LLLStep s t) :
 theorem LLLStep.gramSchmidt_eq_of_case2 {s t : LLLState E n} (h : LLLStep s t)
     (h2 : t.cursor = s.cursor + 1) : gramSchmidt ℝ t.family = gramSchmidt ℝ s.family := by sorry
 
+/-- Independence is needed: from the dependent family `(e, 2e)` a size move and a swap reach
+`(0, e)`, whose potential is `0`. -/
 theorem LLLStep.potential_of_case1 {s t : LLLState E n} (h : LLLStep s t)
+    (hli : LinearIndependent ℝ s.family)
     (hgram : ∀ i j, ∃ z : ℤ, inner ℝ (s.family i) (s.family j) = (z : ℝ))
     (h1 : t.cursor ≠ s.cursor + 1) :
     0 < lllPotential t.family ∧ 4 * lllPotential t.family < 3 * lllPotential s.family := by sorry
@@ -181,7 +185,7 @@ theorem lllStep_swap_count (b : Fin n → E) (hb : LinearIndependent ℝ b)
     (hstep : ∀ i < M, LLLStep (f i) (f (i + 1))) :
     (((Finset.range M).filter (fun i => (f (i + 1)).cursor ≠ (f i).cursor + 1)).card : ℝ) ≤
         Real.logb (4/3) (lllPotential b) ∧
-      (M : ℝ) ≤ (n - 1 : ℝ) + 2 * Real.logb (4/3) (lllPotential b) := by sorry
+      (M : ℝ) ≤ ((n - 1 : ℕ) : ℝ) + 2 * Real.logb (4/3) (lllPotential b) := by sorry
 
 theorem lllPotential_le_pow (b : Fin n → E) (B : ℝ) (hB : 1 ≤ B) (hb : ∀ i, ‖b i‖ ^ 2 ≤ B) :
     lllPotential b ≤ B ^ (n * (n - 1) / 2) := by sorry
@@ -209,10 +213,14 @@ example : ¬ LovaszFails
       Fin 2 → EuclideanSpace ℝ (Fin 2)) 1 := by sorry
 
 -- Test TauCeti.GeometryOfNumbersPlan.lll_step_exactLLL: the native full-row move (descending
--- nearest-integer reduction of row k, then the test) is a step of the relation.
+-- nearest-integer reduction of row k, then the test) is a step of the relation: the swap when
+-- the Lovász test fails strictly, the advance otherwise.
 example (b : Fin n → E) (hb : LinearIndependent ℝ b) (k : Fin n) (hk : 1 ≤ k.val)
     (r : Fin n → ℤ) (hr : ∀ l : Fin n, l < k → |lllCoefficient (sizeMove b k r) k l| ≤ 1/2) :
-    ∃ t, LLLStep ⟨k.val, b⟩ t := by sorry
+    (LovaszFails (sizeMove b k r) k →
+      LLLStep ⟨k.val, b⟩ ⟨max 1 (k.val - 1), sizeMove b k r ∘ Equiv.swap (predIdx k) k⟩) ∧
+    (¬ LovaszFails (sizeMove b k r) k → LLLStep ⟨k.val, b⟩ ⟨k.val + 1, sizeMove b k r⟩) := by
+  sorry
 
 end Step
 
@@ -235,10 +243,15 @@ def LLL115.init (b : Fin n → E) : LLL115.State E n :=
 /-- One step of Fig. 1 (LLL 1982, Algorithm (1.15)). -/
 def LLL115.step (s : LLL115.State E n) : LLL115.State E n := by sorry
 
-theorem LLL115.step_isStep (s : LLL115.State E n) (hs : 1 ≤ s.cursor) (hn : s.cursor < n) :
+/-- A source step is a step of the relation, provided the stored data are those of the family
+(the step decides from `s.mu` and `s.normSq`, never from the family itself). -/
+theorem LLL115.step_isStep (s : LLL115.State E n) (hs : 1 ≤ s.cursor) (hn : s.cursor < n)
+    (hli : LinearIndependent ℝ s.family)
+    (hmu : ∀ i j, s.mu i j = lllCoefficient s.family i j)
+    (hB : ∀ i, s.normSq i = ‖gramSchmidt ℝ s.family i‖ ^ 2) :
     LLLStep ⟨s.cursor, s.family⟩ ⟨(LLL115.step s).cursor, (LLL115.step s).family⟩ := by sorry
 
-theorem LLL115.data_spec (s : LLL115.State E n)
+theorem LLL115.data_spec (s : LLL115.State E n) (hli : LinearIndependent ℝ s.family)
     (hs : ∀ i j, s.mu i j = lllCoefficient s.family i j)
     (hB : ∀ i, s.normSq i = ‖gramSchmidt ℝ s.family i‖ ^ 2) :
     (∀ i j, (LLL115.step s).mu i j = lllCoefficient (LLL115.step s).family i j) ∧
@@ -314,8 +327,17 @@ example (b : Fin 1 → E) (hb : LinearIndependent ℝ b)
     (LLL115.run b hb hgram).family = b ∧ (LLL115.run b hb hgram).swaps = 0 := by sorry
 
 -- Test TauCeti.GeometryOfNumbersPlan.lll115_tie_untouched: on ((2,0),(1,5)), μ₁₀ = 1/2 is left
--- alone; the native variant's (−1,5) differs, and both families are LLL-reduced.
-example : IsLLLReduced (![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] :
+-- alone and the run returns its input; the native variant's (−1,5) differs, and both families
+-- are LLL-reduced.
+example (hb : LinearIndependent ℝ
+      (![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] : Fin 2 → EuclideanSpace ℝ (Fin 2)))
+    (hgram : ∀ i j, ∃ z : ℤ, inner ℝ
+      ((![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] : Fin 2 → EuclideanSpace ℝ (Fin 2)) i)
+      ((![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] : Fin 2 → EuclideanSpace ℝ (Fin 2)) j) =
+        (z : ℝ)) :
+    (LLL115.run _ hb hgram).family = ![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] ∧
+      (LLL115.run _ hb hgram).swaps = 0 ∧
+    IsLLLReduced (![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![1, 5]] :
       Fin 2 → EuclideanSpace ℝ (Fin 2)) ∧
     IsLLLReduced (![WithLp.toLp 2 ![2, 0], WithLp.toLp 2 ![-1, 5]] :
       Fin 2 → EuclideanSpace ℝ (Fin 2)) := by sorry
@@ -348,14 +370,28 @@ theorem lll_intermediate_size_bounds (b : Fin n → EuclideanSpace ℝ (Fin n))
     (∀ i j, j < i → |lllCoefficient s.family i j| ≤ 2 ^ (n - 1) * Real.sqrt (n * B ^ (n - 1))) ∧
     (∀ i, ‖s.family i‖ ^ 2 ≤ (n : ℝ) ^ 2 * (4 * B) ^ n) := by sorry
 
-/-- A cost-instrumented integral run: final state and number of integer operations charged. -/
-def lllCostedRun (b : Fin n → Fin n → ℤ) (hb : (Matrix.of b).det ≠ 0) : ℕ × ℕ := by sorry
+/-- What a cost-instrumented integral run of Algorithm (1.15) records: the output basis, the
+number of integer operations charged (one unit per addition, subtraction, multiplication or
+exact division), the largest absolute value of an integer it stores (a coordinate of some `b_i`,
+a prefix determinant `d_i` or a numerator `d_j μ_ij`), and the largest absolute value of an
+operand of an operation. -/
+structure LLLCost (n : ℕ) where
+  output : Fin n → Fin n → ℤ
+  operations : ℕ
+  maxStored : ℕ
+  maxOperand : ℕ
 
-/-- GN.5/lll-arithmetic-complexity (Proposition (1.26)). -/
+/-- A cost-instrumented integral run on the rows of `b`. -/
+def lllCostedRun (b : Fin n → Fin n → ℤ) (hb : (Matrix.of b).det ≠ 0) : LLLCost n := by sorry
+
+/-- GN.5/lll-arithmetic-complexity (Proposition (1.26)), with the explicit integer bounds of the
+formal version. -/
 theorem lll_arithmetic_complexity :
     ∃ C : ℝ, 0 < C ∧ ∀ (n : ℕ) (b : Fin n → Fin n → ℤ) (hb : (Matrix.of b).det ≠ 0) (B : ℝ),
       2 ≤ B → (∀ i, ((∑ j, (b i j) ^ 2 : ℤ) : ℝ) ≤ B) →
-      ((lllCostedRun b hb).2 : ℝ) ≤ C * n ^ 4 * Real.log B := by sorry
+      ((lllCostedRun b hb).operations : ℝ) ≤ C * n ^ 4 * Real.log B ∧
+      ((lllCostedRun b hb).maxStored : ℝ) ≤ n * (4 * B) ^ (2 * n) ∧
+      ((lllCostedRun b hb).maxOperand : ℝ) ≤ 2 * n ^ 2 * (4 * B) ^ (4 * n) := by sorry
 
 end Complexity
 
@@ -411,15 +447,18 @@ theorem primitivePrefixConst_succ (A : ℝ) (i : ℕ) :
     primitivePrefixConst A (i + 1) = 1 + (1/2) * ∑ j ∈ Finset.range (i + 1), primitivePrefixConst A j :=
   by sorry
 
-/-- GN.5/primitive-prefix-reduced-basis. -/
+/-- GN.5/primitive-prefix-reduced-basis: the greedy basis through `u`, with its bounds (ii) and
+its ordering (iii) (from `b_1` on, and from `b_0` when `A = 1`). -/
 theorem primitive_prefix_reduced_basis (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
     (A : ℝ) (hA : 1 ≤ A) (u : L) (hu : TauCeti.IsPrimitive u)
     (hshort : ∀ w : L, w ≠ 0 → ‖(u : E)‖ ≤ A * ‖(w : E)‖) :
     ∃ b : Module.Basis (Fin (Module.finrank ℝ E)) ℤ L,
       (∀ h : 0 < Module.finrank ℝ E, b ⟨0, h⟩ = u) ∧
-      ∀ (i : Fin (Module.finrank ℝ E)) (w : L),
+      (∀ (i : Fin (Module.finrank ℝ E)) (w : L),
         (w : E) ∉ Submodule.span ℝ ((fun j => (b j : E)) '' {j | j < i}) →
-        ‖(b i : E)‖ ≤ primitivePrefixConst A i * ‖(w : E)‖ := by sorry
+        ‖(b i : E)‖ ≤ primitivePrefixConst A i * ‖(w : E)‖) ∧
+      (∀ i j : Fin (Module.finrank ℝ E), 1 ≤ i.val → i ≤ j → ‖(b i : E)‖ ≤ ‖(b j : E)‖) ∧
+      (A = 1 → Monotone fun i => ‖(b i : E)‖) := by sorry
 
 theorem primitivePrefixConst_one (i : ℕ) : primitivePrefixConst 1 i = (3/2 : ℝ) ^ i := by sorry
 
@@ -454,7 +493,7 @@ theorem quadraticCompletion_spec (G : Matrix (Fin n) (Fin n) ℚ) (hG : G.IsSymm
 theorem quadraticCompletion_pivots_pos_iff (G : Matrix (Fin n) (Fin n) ℚ) (hG : G.IsSymm) :
     (∃ q U, quadraticCompletion G = some (q, U) ∧ ∀ i, 0 < q i) ↔ G.PosDef := by sorry
 
-theorem quadraticCompletion_det (G : Matrix (Fin n) (Fin n) ℚ) (q : Fin n → ℚ)
+theorem quadraticCompletion_det (G : Matrix (Fin n) (Fin n) ℚ) (hG : G.IsSymm) (q : Fin n → ℚ)
     (U : Matrix (Fin n) (Fin n) ℚ) (h : quadraticCompletion G = some (q, U)) :
     G.det = ∏ i, q i := by sorry
 
@@ -477,8 +516,11 @@ example : quadraticCompletion (!![2, 1; 1, 2] : Matrix (Fin 2) (Fin 2) ℚ) =
 -- Test TauCeti.GeometryOfNumbersPlan.quadraticCompletion_identity.
 example : quadraticCompletion (1 : Matrix (Fin 3) (Fin 3) ℚ) = some (fun _ => 1, 1) := by sorry
 
--- Test TauCeti.GeometryOfNumbersPlan.quadraticCompletion_indefinite.
-example : ¬ (!![1, 2; 2, 1] : Matrix (Fin 2) (Fin 2) ℚ).PosDef := by sorry
+-- Test TauCeti.GeometryOfNumbersPlan.quadraticCompletion_indefinite: the second pivot is −3, and
+-- the matrix is not positive definite.
+example : quadraticCompletion (!![1, 2; 2, 1] : Matrix (Fin 2) (Fin 2) ℚ) =
+      some (![1, -3], !![1, 2; 0, 1]) ∧
+    ¬ (!![1, 2; 2, 1] : Matrix (Fin 2) (Fin 2) ℚ).PosDef := by sorry
 
 -- Test TauCeti.GeometryOfNumbersPlan.quadraticCompletion_LDL_compat.
 example (h : (!![2, 1; 1, 2] : Matrix (Fin 2) (Fin 2) ℝ).PosDef) :
@@ -494,7 +536,9 @@ theorem isLLLReducedGram_iff {E : Type*} [NormedAddCommGroup E] [InnerProductSpa
     (b : Fin n → E) (hb : LinearIndependent ℝ b) (hG : (Matrix.gram ℝ b).PosDef) :
     IsLLLReducedGram (Matrix.gram ℝ b) hG ↔ IsLLLReduced b := by sorry
 
-/-- The Fincke–Pohst enumeration `fpEnumeration G t R` (de Weger §3.6, Figure 2). -/
+/-- The Fincke–Pohst enumeration `fpEnumeration G t R` (de Weger §3.6, Figure 2), listing both
+signs and the boundary. As a total function it is `∅` when a pivot of the quadratic completion of
+`G` vanishes or is negative. -/
 def fpEnumeration (G : Matrix (Fin n) (Fin n) ℚ) (t : Fin n → ℚ) (R : ℚ) :
     Finset (Fin n → ℤ) := by sorry
 
@@ -557,7 +601,8 @@ theorem lll_ball_count {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ
     (S.card : ℝ) ≤ ∏ i : Fin n, (1 + (2 : ℝ) ^ (1 + (i.val : ℝ) / 2) * Real.sqrt R / ‖b ⟨0, hn⟩‖) :=
   by sorry
 
-/-- GN.5/certified-representation-number. -/
+/-- GN.5/certified-representation-number. The left side is the representation number
+`r_L(m) = (L.vectorsOfNorm m).ncard` of current Tau Ceti main (not at the pin), written out. -/
 theorem certified_representation_number {V : Type*} [AddCommGroup V] [Module ℚ V]
     (L : TauCeti.IntegralLattice V) (hL : L.IsPosDef) (e : Module.Basis (Fin n) ℤ L)
     (m : ℤ) :
@@ -745,22 +790,32 @@ end NumberFieldAdapters
 
 section NumberFieldTests
 open NumberField NumberField.mixedEmbedding
+open scoped nonZeroDivisors Classical
 
--- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_gaussian: for ℚ(i), 𝓞_K has
--- Euclidean covolume `2⁻¹ · √4 = 1`.
-example : (2⁻¹ : ℝ) ^ 1 * Real.sqrt |(-4 : ℝ)| = 1 := by sorry
+-- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_gaussian: for K = ℚ(i) (a quadratic
+-- field containing a square root `z` of −1) and I = 𝓞_K the lattice is ℤ[i] ⊂ ℂ, with Euclidean
+-- covolume `2⁻¹ · √4 = 1`, and `z` has length 1.
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) (z : K)
+    (hz : z ^ 2 = -1) :
+    ZLattice.covolume (euclideanIdealLattice K 1) = 1 ∧ ‖euclideanEmbedding K z‖ ^ 2 = 1 := by
+  sorry
 
--- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_rat: for ℚ and I = (2) the covolume is 2.
-example : (2 : ℝ) * (2⁻¹) ^ 0 * Real.sqrt |(1 : ℝ)| = 2 := by sorry
+-- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_rat: for ℚ and I = (2) the lattice is
+-- 2ℤ ⊂ ℝ, of covolume 2.
+example : ZLattice.covolume (euclideanIdealLattice ℚ
+    (Units.mk0 (FractionalIdeal.spanSingleton (𝓞 ℚ)⁰ (2 : ℚ))
+      (FractionalIdeal.spanSingleton_ne_zero_iff.mpr two_ne_zero))) = 2 := by sorry
 
 -- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_not_trace: in ℚ(i) the Euclidean
--- length of `i` is 1 while `Σ_σ |σ i|² = 2`.
-example : Complex.normSq Complex.I = 1 ∧
-    Complex.normSq Complex.I + Complex.normSq (starRingEnd ℂ Complex.I) = 2 := by sorry
+-- length of `i` is 1 while the trace form `Σ_σ |σ i|²` over both embeddings gives 2.
+example (K : Type*) [Field K] [NumberField K] (hK : Module.finrank ℚ K = 2) (z : K)
+    (hz : z ^ 2 = -1) :
+    ‖euclideanEmbedding K z‖ ^ 2 = 1 ∧ ∑ σ : K →+* ℂ, ‖σ z‖ ^ 2 = 2 := by sorry
 
--- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_totally_real: in ℚ(√2),
--- `‖ι(√2)‖² = 2 + 2 = 4 = Tr(√2 · √2)`.
-example : (Real.sqrt 2) ^ 2 + (-Real.sqrt 2) ^ 2 = 4 := by sorry
+-- Test TauCeti.GeometryOfNumbersPlan.euclideanIdealLattice_totally_real: on a totally real field
+-- the Euclidean norm is the trace form (in ℚ(√2), `‖ι(√2)‖² = 2 + 2 = 4 = Tr(√2 · √2)`).
+example (K : Type*) [Field K] [NumberField K] (hK : IsTotallyReal K) (a : K) :
+    ‖euclideanEmbedding K a‖ ^ 2 = ((Algebra.trace ℚ K (a * a) : ℚ) : ℝ) := by sorry
 
 end NumberFieldTests
 
@@ -785,6 +840,15 @@ theorem lll_reduced_gram_bounds (b : Fin n → E) (h : IsLLLReduced b) :
 
 theorem lll_reduced_isReduced (b : Fin n → E) (h : IsLLLReduced b) :
     RealSiegel.IsReduced ((2 : ℝ) ^ (n * (n - 1) / 2) + 2 ^ n) (Matrix.gram ℝ b) := by sorry
+
+/-- The certificate form: if `UᵀAU` is LLL-reduced, then `U` is an explicit witness `γ` for
+AdelicAlgebraicGroups' `RealSiegel.exists_reduced_GLZ`, whose forms move by `b ↦ γᵀ b γ`. -/
+theorem lll_certificate_isReduced (A : Matrix (Fin n) (Fin n) ℝ)
+    (U : Matrix.GeneralLinearGroup (Fin n) ℤ)
+    (hUpos : ((U.1.map (Int.cast : ℤ → ℝ))ᵀ * A * U.1.map (Int.cast : ℤ → ℝ)).PosDef)
+    (hred : IsLLLReducedGram _ hUpos) :
+    RealSiegel.IsReduced ((2 : ℝ) ^ (n * (n - 1) / 2) + 2 ^ n)
+      ((U.1.map (Int.cast : ℤ → ℝ))ᵀ * A * U.1.map (Int.cast : ℤ → ℝ)) := by sorry
 
 /-- GN.5/lll-siegel-domain-certificate: the Siegel parameter `u_n`. -/
 def siegelU (n : ℕ) : ℝ := (1/2) * (3/2 : ℝ) ^ (n - 2)
