@@ -46291,8 +46291,9 @@
     "BP-ClassicalArithmeticCompletion~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8898"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8898",
+   "finishedAt": "2026-10-12T17:59:44Z"
   },
   {
    "kind": "blueprint",
@@ -50682,7 +50683,8 @@
     "PKG-ArithmeticGaloisDuality"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisDuality.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8894"
   },
   {
    "id": "PKG-ArithmeticLocallySymmetricSpaces",
