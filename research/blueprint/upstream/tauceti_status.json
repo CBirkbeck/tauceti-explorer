@@ -5,12 +5,12 @@
     "SchemeAndStackFoundations": {
       "stage": "pr",
       "pr": 779,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92",
-      "head": "f302a92",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435; AC01–AC02 fixed at f302a92; AD01–AD02 fixed at c16514b",
+      "head": "c16514b",
       "review": {
         "recommendation": "changes",
         "head": "f302a92",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
