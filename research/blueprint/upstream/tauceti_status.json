@@ -50,11 +50,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "ef156f9",
       "review": {
-        "recommendation": "approve",
-        "head": "adc06c2",
+        "recommendation": "changes",
+        "head": "ef156f9",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head ef156f9 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
