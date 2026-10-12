@@ -1,0 +1,192 @@
+{
+ "id": "AutomorphyLiftingBeyondTaylorWiles",
+ "title": "Reusable infrastructure for potential automorphy over CM fields, Part II: conditional automorphy lifting for GL_n over arbitrary number fields",
+ "area": "langlands",
+ "parent": "PotentialAutomorphyInfrastructure",
+ "summary": "This Part II starts where PotentialAutomorphyInfrastructure stops: it plans the conditional framework from which the unconditional CM-field theory grew, automorphy lifting for GL_n over an arbitrary number field in defect l_0, where localized cohomology of Res PGL_n occupies degrees [q_0, q_0 + l_0]. Assuming Conjecture B (Galois representations for torsion classes, local–global compatibility, vanishing, and no new cohomology at Taylor–Wiles level), it patches complexes of length l_0 to prove near faithfulness (Calegari–Geraghty Theorem 9.19) and modularity lifting (Theorem 5.16), in forms corrected for the source errors recorded in the extraction.",
+ "readme": "The definitive document is research/blueprint/readmes/AutomorphyLiftingBeyondTaylorWiles.md. This roadmap starts where PotentialAutomorphyInfrastructure stops: the parent plans the unconditional ACC+ argument over CM fields; this Part II plans the conditional Calegari–Geraghty argument over every number field, importing patching algebra (DeformationAndDerivedPatchingAlgebra P8, P9, R03.6), deformation theory (GlobalGaloisDeformations, LocalGaloisDeformationRings), arithmetic quotients and Hecke images (ArithmeticLocallySymmetricSpaces, IntegralHeckeAndGaloisDeterminants) and the local block theory of SmoothRepresentationsOfLocalGroups SR.5. Conjecture B is stated as named hypotheses and never asserted. Non-goals: the unconditional CM-field results (parent PA.3–PA.4, CrystallineLocalGlobalCompatibilityCM), the defect-one GL_2 theory of weight one and Bianchi forms, the coherent-cohomology version (§7.2 of the source), and CG18 Theorem 1.1, which ModularityAndLanglandsExtensions ML.2 assembles.",
+ "prerequisites": [
+  "PotentialAutomorphyInfrastructure",
+  "AdelicAlgebraicGroups",
+  "ArithmeticGaloisDuality",
+  "ArithmeticGaloisRepresentations",
+  "ArithmeticLocallySymmetricSpaces",
+  "AutomorphicFormsOnReductiveGroups",
+  "AutomorphicSpectralTheory",
+  "DeformationAndDerivedPatchingAlgebra",
+  "GlobalGaloisDeformations",
+  "IntegralHeckeAndGaloisDeterminants",
+  "KTheoryLowDegrees",
+  "LocalGaloisDeformationRings",
+  "ModularCurvesPartII",
+  "PadicHodgeTheory",
+  "ReductiveGroupsPartII",
+  "SmoothRepresentationsOfLocalGroups",
+  "tauceti:TauCetiRoadmap/Chebotarev",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory"
+ ],
+ "stages": [
+  {
+   "key": "BT.0",
+   "title": "Hecke algebras at Taylor–Wiles level",
+   "description": "For G = Res_{F/ℚ}PGL_n over an arbitrary number field F: the Iwahori character local systems O(ψ) at a finite set R; the unnormalized Hecke operators T_{α,k}, V_x and diamond operators at Taylor–Wiles level; the Hecke algebras T^an_{Q,ψ} and T_{Q,ψ} of CG18 Definition 9.1, taken on the cohomology of every level between L_Q and K_Q with all coefficients O/ϖ^m; the Taylor–Wiles maximal ideal m_Q and projector e_Q = lim ∏ Q_x(V_x)^{k!}; the residual independence of the character ψ and the dual local system on homology; and Serre modularity of minimal level as the existence of a mod p class at Iwahori level.",
+   "requires": [
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality"
+   ]
+  },
+  {
+   "key": "BT.1",
+   "title": "The Galois side: Ihara-avoidance data and the numerical coincidence",
+   "description": "A standing datum (F, n, p, O, r̄, ξ = ε^{n(n−1)/2}, R = R_triv ⊔ R_reg, χ) with r̄ Fontaine–Laffaille at p, trivial on R_triv and a single unipotent block on R_reg; the local rings R^1_loc and R^χ_loc (Fontaine–Laffaille, Taylor's unipotent and χ-rings, minimally ramified rings); Lemma 8.2 in corrected form (equidimensional with characteristic-0 minimal primes, R^1/ϖ = R^χ/ϖ, Spec R^χ_loc irreducible, unique components above special components); the global data S_Q, S^χ_Q with their O[Δ_Q]-structure; Lemma 8.3 and Proposition 8.4; the numerical coincidence of Proposition 8.5 with g = q + |T| − 1 − [F:ℚ]n(n−1)/2 − l_0; the type-S criterion for lifts; and the GL_1 example with l_0 = r_1 + r_2 − 1.",
+   "requires": [
+    "LocalGaloisDeformationRings:L7",
+    "ArithmeticGaloisRepresentations:G7",
+    "ArithmeticGaloisDuality:R02.6",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.0",
+    "LocalGaloisDeformationRings:R08.2",
+    "GlobalGaloisDeformations:R04.2",
+    "GlobalGaloisDeformations:G8",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "GlobalGaloisDeformations:R04.3",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "GlobalGaloisDeformations:R04.4",
+    "ArithmeticGaloisDuality:R02.5",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "GlobalGaloisDeformations:R04.5",
+    "PadicHodgeTheory:R06.4",
+    "AdelicAlgebraicGroups:AA.5",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+   ]
+  },
+  {
+   "key": "BT.2",
+   "title": "Conjecture B as hypotheses",
+   "description": "Conjecture B of CG18 §9.3 as named propositions, never conclusions: residual and integral Galois representations for T^an_{Q,ψ} (B^gal), local–global compatibility at p, at Taylor–Wiles primes and at R together with the added compatibility of diamond operators at Taylor–Wiles primes (B^lgc), vanishing outside [q_0, q_0 + l_0] and on the Borel–Serre boundary (B^van), and the Taylor–Wiles level comparison (B^tw); their bundle; dévissage; the surjection R_{S_Q} ↠ T^an_{Q,ψ,m} of O[Δ_Q]-algebras; and B^van(a) in small rank (imaginary quadratic GL_2 unconditionally; GL_3/ℚ and CM quartic GL_2 under the congruence subgroup property).",
+   "requires": [
+    "AutomorphyLiftingBeyondTaylorWiles:BT.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "GlobalGaloisDeformations:R04.2",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.1",
+    "LocalGaloisDeformationRings:R08.2",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "ArithmeticLocallySymmetricSpaces:ALS.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+    "KTheoryLowDegrees:U.4"
+   ]
+  },
+  {
+   "key": "BT.3",
+   "title": "No new cohomology at Taylor–Wiles level",
+   "description": "Condition (5) of Conjecture B: for n = 2, Lemma 9.6 through the PSL_2 reduction, the S-arithmetic Ihara amalgam Γ^1 ∗_{Γ^1_0(x)} Γ^1, the operator U_{x²}, the Hecke-equivariant Lyndon sequence and localization at (m, U_x − α_x); for GL_n at primes with distinct Frobenius eigenvalues, the comparison e_α : H^*(X)_{m_∅} ≅ H^*(X_0(x))_m through the block category of SmoothRepresentationsOfLocalGroups SR.5, under local–global compatibility at x.",
+   "requires": [
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.6",
+    "ReductiveGroupsPartII:RG2.2",
+    "AdelicAlgebraicGroups:AA.4",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "ModularCurvesPartII:R14.4",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.2",
+    "SmoothRepresentationsOfLocalGroups:SR.5"
+   ]
+  },
+  {
+   "key": "BT.4",
+   "title": "Taylor–Wiles complexes and patching data",
+   "description": "The minimal perfect complexes D̃_N and D̃^χ_N over O[Δ_N] in degrees q_0, …, q_0 + l_0 computing the projected localized homology of the intermediate covers; the two patching data of Theorem 9.19 (S_∞, O^□, R^i_∞ = R^i_loc⟦x_1, …, x_g⟧, (R^i, H^i), the reflected residual complex T, D^i_N, compatible surjections φ^i_N); their comparisons modulo ϖ; and the verification of hypotheses (a)–(d) of the patching theorem and of its two-datum version.",
+   "requires": [
+    "AutomorphyLiftingBeyondTaylorWiles:BT.0",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:P8"
+   ]
+  },
+  {
+   "key": "BT.5",
+   "title": "Theorem 9.19 and Theorem 5.16",
+   "description": "The patched complexes P^{i,□}_∞; near faithfulness on the χ side by depth and irreducibility, transfer to the unipotent side by Taylor's lemma, and descent to R_S: Theorem 9.19; minimal R = T and freeness when the local rings are smooth; cuspidal recognition of the support of H^{q_0}(Y)_m; production of m from hypothesis (8); Theorem 5.16 in corrected form, conditional on Conjecture B; and the specializations to n = 2 over imaginary quadratic and totally real fields. Theorem 5.16 is exported to ModularityAndLanglandsExtensions ML.2 as a conditional endpoint.",
+   "requires": [
+    "AutomorphyLiftingBeyondTaylorWiles:BT.4",
+    "DeformationAndDerivedPatchingAlgebra:P8",
+    "DeformationAndDerivedPatchingAlgebra:P9",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.2",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "ArithmeticLocallySymmetricSpaces:ALS.5",
+    "AutomorphicSpectralTheory:AS.5",
+    "AutomorphicSpectralTheory:AS.4",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "PadicHodgeTheory:R06.4",
+    "AutomorphyLiftingBeyondTaylorWiles:BT.3"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "CG18",
+   "title": "Modularity lifting beyond the Taylor–Wiles method",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "Inventiones mathematicae 211 (2018), 297–433, DOI 10.1007/s00222-017-0749-x; published layout, author-hosted copy (137 pp., created 27 July 2017); Correction, Invent. Math. 227 (2022), 855–856",
+   "url": "http://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+   "accessed": "2026-10-12",
+   "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+   "readSections": [
+    "Part 2: Theorem 5.16 and remarks, pp. 383–384",
+    "§6 (Lemmas 6.1–6.2, Theorems 6.3–6.4, Remark 6.5, Proposition 6.6), pp. 384–391",
+    "§7.1 (Lemmas 7.1–7.4 and the localizing operator), pp. 391–395",
+    "§8.1–8.6 (outline, GL_1 case, l_0 and q_0, deformation rings, Lemma 8.2, Lemma 8.3, Propositions 8.4–8.5), pp. 401–411",
+    "§9 (arithmetic quotients, Hecke operators, Definition 9.1, Conjecture B, Remarks 9.2–9.5, Lemma 9.6, Remarks 9.7–9.8, §9.4, §9.5 and Theorem 9.19), pp. 411–428",
+    "§10 (proof of Theorem 1.1), pp. 428–429",
+    "the source issues recorded for these pages in research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json (E12, E125–E126, E130, E132–E134, E142, E165, E169, E176, E180–E214, E229)"
+   ]
+  },
+  {
+   "id": "CG18v2",
+   "title": "Modularity lifting beyond the Taylor–Wiles method (arXiv version)",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "arXiv:1207.4224v2 (16 July 2017), the accepted version; §9 subsections numbered 9.1–9.3 there for published 9.3–9.5",
+   "url": "https://arxiv.org/abs/1207.4224v2",
+   "accessed": "2026-10-12",
+   "sha256": "67896c853258801967270f8927e5bb33c0315989d3a4188d53435a9305993ebb",
+   "readSections": [
+    "Table of contents and §9 section numbering, compared with the published version for locators"
+   ]
+  },
+  {
+   "id": "CGH20",
+   "title": "Bloch–Kato conjectures for automorphic motives (published as the appendix to Calegari–Geraghty, Modularity lifting for non-regular symplectic representations, Duke Math. J. 169 (2020), pp. 881–889)",
+   "authors": "Frank Calegari, David Geraghty and Michael Harris",
+   "edition": "arXiv:1907.08694v1 (19 July 2019); statement numbers of the arXiv version (Theorem 1.2 = published A.2, Lemma 3.1 = A.3, Theorem 3.2 = A.4)",
+   "url": "https://arxiv.org/abs/1907.08694v1",
+   "accessed": "2026-10-12",
+   "sha256": "8389edfec6576b92aea1fd4dbf6c96ccb86b2186a6f244ab46c4abf1c02e2bed",
+   "readSections": [
+    "§1, Theorems 1.1–1.2 and the discussion of Conjecture B, pp. 1–3",
+    "§3.1, Lemma 3.1 and Theorem 3.2, pp. 4–6",
+    "§4, proofs, pp. 7–8"
+   ]
+  }
+ ],
+ "status": "draft"
+}
