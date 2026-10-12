@@ -200516,6 +200516,26 @@
    "reviewReason": "Confirmed at Zhu p436: boundary supports do not give the complementary filtration; replacing them by supports in the closures gives the correct opposite filtration. The intended two-filtration argument is also used by FS VI.7.6 p220. Reuses PAPER-ZHU-17/E51."
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
+   "kind": "error",
+   "locator": "§3, second paragraph, printed p. 4 (arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
+   "printed": "The paper says that the length on the ring of integers induced by the conjugate trace pairing equals the sum of the squares of all archimedean absolute values, and identifies it with the usual Euclidean length of the embedding into ℝ^r × ℂ^s (ℂ identified with ℝ²), in which the ring of integers has covolume 2^{−s}·|Disc(K)|^{1/2}.",
+   "correction": "The conjugate trace pairing gives |x|² = Σ_σ |σ(x)|² over all n embeddings, which counts each complex place twice; the usual Euclidean length on ℝ^r × ℂ^s counts it once. The two agree only for totally real K; in general |x|_usual² ≤ |x|_trace² ≤ 2|x|_usual², and the covolume 2^{−s}|Disc(K)|^{1/2} is that of the usual length, the trace length giving |Disc(K)|^{1/2}.",
+   "reason": "For K = ℚ(i) and x = i: the trace length is |i|² + |−i|² = 2, the usual length of i ∈ ℂ = ℝ² is 1; ℤ[i] has covolume 1 = 2^{−1}·√4 in ℂ = ℝ², and covolume 2 for the trace form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 1701.02458 (single version v1)",
+    "the paper extraction PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20, whose findings E1–E17 do not record it; its trace-metric item rescales the complex coordinates by √2 without naming this sentence"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
+   "citation": "M. Bhargava, A. Shankar, T. Taniguchi, F. Thorne, J. Tsimerman, Y. Zhao, Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves, arXiv:1701.02458v1 (10 January 2017; the only arXiv version); published J. Amer. Math. Soc. 33 (2020), 1087–1099, not opened",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
    "kind": "misprint",
    "locator": "Couveignes2020, §3, published p.493 (PDF p.7).",
