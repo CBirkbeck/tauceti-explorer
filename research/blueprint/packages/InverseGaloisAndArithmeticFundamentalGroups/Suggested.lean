@@ -370,10 +370,11 @@ theorem nonempty_surjectiveFreeHom_iff (G : Type*) [Group G] [Group.FG G] (r : �
 example : Group.rank (Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) = 2 ∧
     IsEmpty (ExteriorEpi 1 (Multiplicative (ZMod 2) × Multiplicative (ZMod 2))) := sorry
 
-/-- Chen's transitivity conjecture, a named open statement: for every finite `G` and
-`r ≥ d(G) + 1`, any two surjections `F_r ↠ G` differ by an automorphism of `F_r` and conjugation
-in `G`. No theorem of the roadmap assumes it. -/
-def ChenTransitivity : Prop :=
+/-- The Nielsen transitivity conjecture (Garion; recorded by Chen, *Nonabelian level structures*,
+Conjecture 1.1.3), a named open statement: for every finite `G` and `r ≥ d(G) + 1`, any two
+surjections `F_r ↠ G` differ by an automorphism of `F_r` and conjugation in `G`. Wiegold's
+conjecture is its case of nonabelian finite simple groups. No theorem of the roadmap assumes it. -/
+def NielsenTransitivity : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (r : ℕ), Group.rank G + 1 ≤ r →
     ∀ φ ψ : SurjectiveFreeHom r G, ∃ (α : MulAut (FreeGroup (Fin r))) (g : G),
       ∀ x, ψ.val x = g * φ.val (α x) * g⁻¹
