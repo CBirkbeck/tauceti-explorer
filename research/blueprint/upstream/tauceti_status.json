@@ -8,9 +8,9 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only); AA01–AA03 fixed at eb3658f (resolution_of_curves normalises in the function field); AB01–AB02 fixed at 7079435",
       "head": "7079435",
       "review": {
-        "recommendation": "changes",
-        "head": "eb3658f",
-        "current": false,
+        "recommendation": "approve",
+        "head": "7079435",
+        "current": true,
         "date": "2026-10-12"
       }
     },
@@ -80,10 +80,9 @@
       "head": "4ec3f29",
       "review": {
         "recommendation": "approve",
-        "head": "adf0421",
+        "head": "4ec3f29",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head 4ec3f29 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "AdicEtaleGeometry": {
@@ -153,10 +152,9 @@
       "head": "a521a2c",
       "review": {
         "recommendation": "approve",
-        "head": "2ad395f",
-        "current": false,
-        "date": "2026-10-12",
-        "note": "non-blocking one-line repairs pushed after the recommendation"
+        "head": "a521a2c",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AdicSpacesPartIV": {
