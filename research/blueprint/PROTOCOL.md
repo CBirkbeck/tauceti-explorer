@@ -517,6 +517,12 @@ only warning, and says so in the handoff; a worker who cannot says that the file
 was not compiled. The file claims no implementation: `implementationStatus`
 stays `"unchecked"`.
 
+The package's `Suggested.lean` (section 20) keeps only the compact subset of
+these files — real-bodied light definitions, end theorems and layer milestones
+statable at the pins, a few `example`s — as `PACKAGE_REVIEW.md`, "Shape of a
+roadmap (2026-10-12)", prescribes; the rest of a blueprint's suggested file
+becomes README prose.
+
 ## 14. Planets and structure for the atlas
 
 The workers who develop a roadmap also decide how it appears in the atlas.
@@ -1006,11 +1012,14 @@ A package job (`PKG-<roadmap>`) writes `research/blueprint/packages/<Name>/`:
     or another roadmap's layer by id.
   Write everything in your own words (section 5). Say nothing about this
   programme's process: no packet names, job ids, reviews, checkpoints or
-  coverage statuses. Typically 50–150 KB, at most 200 KB.
-- `Suggested.lean`: one file in the form of upstream's `Suggested.lean`
-  (section 13), joined from the roadmap's suggested files. It holds the plan's
-  definitions and theorems with `sorry` proofs, their API lemmas and their unit
-  tests. It must elaborate against the pinned Mathlib and Tau Ceti with no
+  coverage statuses. Every target, Check and worked example stays; size is
+  whatever that needs (the 2026-10-12 shape section).
+- `Suggested.lean`: one SHORT file in the form of upstream's `Suggested.lean`
+  (at most about 1,500 lines), following `PACKAGE_REVIEW.md`, "Shape of a
+  roadmap (2026-10-12)": light definitions with real bodies, the end theorems
+  and layer milestones statable at the pins (proved by `sorry`), one or two
+  `example`s per kept definition; no sorry'd data definitions; heavy
+  definitions and everything else stay in the README as targets. It must elaborate against the pinned Mathlib and Tau Ceti with no
   errors, only `sorry` warnings. Check this with `lean-check` and record the
   result in the handoff note.
 - `metadata.toml`: `topic = "<arXiv category>"`, for example

@@ -392,10 +392,10 @@ Its plan is complete: every layer is planned in accepted packets{ASSEMBLED}. The
    - Then give its layers in order. For each target, give: the definitions, with the API they need; the theorems, with their exact hypotheses; the source, cited by theorem, section and page; and the prerequisites (Mathlib, Tau Ceti, an earlier layer, or another roadmap's layer by id).
    - Everything is in your own words: no passage of a source, and no section-by-section summary of one.
    - Nothing about this programme's process: no packet names, job ids, reviews, checkpoints or coverage statuses.
-   - Typically 50-150 KB, at most 200 KB: a roadmap, not the blueprint. Keep every target, and leave the node-by-node detail to the packets.
-2. Suggested.lean: one file in the form of upstream's Suggested.lean, for example
-   https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/Suggested.lean.
-   - Join the suggested files above: the plan's definitions and theorems with `sorry` proofs, their API lemmas and their unit tests, with one header note, one import block and consistent names.
+   - Keep every target, every definition's API and Checks (at least three discriminating unit tests, in prose), the worked examples and the exact hypotheses and locators; open with a `**Summary.**` paragraph. Size is whatever that content needs: this is the detailed document (research/blueprint/PACKAGE_REVIEW.md, "Shape of a roadmap (2026-10-12)", is binding).
+2. Suggested.lean: one SHORT file (at most about 1,500 lines) in the form of upstream's Suggested.lean, for example
+   https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdicSpaces/Suggested.lean, following PACKAGE_REVIEW.md "Shape of a roadmap (2026-10-12)" exactly.
+   - From the suggested files above keep only: light definitions with REAL bodies (never `def … := sorry`, no sorry'd data, abbrev or data instance, nothing that mentions one); the end theorems and each layer's milestone, proved by `sorry`, when every carrier in the statement exists at the pins or is a kept real-bodied definition; one or two discriminating `example`s per kept definition. Heavy definitions (a site, a building, a tilt, a moduli stack, a completion whose construction is a theorem) and everything else are README targets only. One header note, one import block, consistent names, `theorem` not `lemma`, no `#print axioms`.
    - It must elaborate against the pinned Mathlib and Tau Ceti with no errors, only `sorry` warnings. Run `lean-check {PKGDIR}/Suggested.lean`, fix every error, and put the final result in the handoff note.
 3. metadata.toml: one line, `topic = "<arXiv category>"`, for example `topic = "math.NT"`.
 RULES: edit only these three files, the handoff note research/blueprint/handoff/{JOB}.md and scratch files. Change no packet; if the plan has a mistake, describe it in the handoff note. Do not run git. No private paths in the repository.
@@ -411,7 +411,7 @@ REVIEW: the roadmap package {PKGDIR}/ (README.md, Suggested.lean, metadata.toml)
 2. Fidelity to the plan. Every target of the plan is in the README, with its exact statement and hypotheses. The README claims nothing the plan does not support. Its boundaries and prerequisites agree with the packets and the link maps.
 3. Own words. There is no passage of a source and no section-by-section summary of one. Every source is cited by theorem, section and page.
 4. No process. There are no packet names, job ids, reviews, checkpoints or coverage statuses.
-5. Suggested.lean. Run `lean-check {PKGDIR}/Suggested.lean`. It must elaborate with no errors, only `sorry` warnings, and its declarations must match the README's targets.
+5. Suggested.lean. Run `lean-check {PKGDIR}/Suggested.lean`. It must elaborate with no errors, only `sorry` warnings, and its declarations must match the README's targets. It must have the shape of PACKAGE_REVIEW.md "Shape of a roadmap (2026-10-12)": at most about 1,500 lines, no sorry'd data definitions, only real-bodied light definitions, end theorems and milestones statable at the pins, a few `example`s; everything heavier belongs in the README. A README that drops targets, Checks or hypotheses to look small is a defect.
 6. metadata.toml is the single line `topic = "<arXiv category>"`, with a fitting category.
 Then write {PKGDIR}/review.json:
 {{"review": {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected, with the lean-check result>"}}}}

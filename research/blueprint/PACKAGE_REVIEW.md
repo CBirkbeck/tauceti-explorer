@@ -57,6 +57,24 @@ No planning residue: never leave "(removed)" stubs — a target that exists else
 under "Prerequisites and boundaries". Notions Tau Ceti already has (library or an upstream roadmap) are mentioned only in
 that boundaries section as deferrals, never in layer summaries, the layer table or target lists; a kept variant states in
 one clause how it differs from the Tau Ceti statement.
+## Shape of a roadmap (maintainer, 2026-10-12) — binding for packages, reviews and ports; overrides older size notes
+The README carries the full detail; the Suggested.lean is short.
+- README.md: every target with its exact hypotheses and its source locator; every definition with its API list and its
+  Checks (at least three discriminating unit tests, written in prose: the computed value, the degenerate case, agreement
+  with the library notion, the non-example); worked examples; exact supplier contracts; an opening `**Summary.**`
+  paragraph. Size is whatever that content needs (the thirteen tier 1–4 roadmaps run 4,000–15,000 lines). Own words,
+  no process narrative, nothing dropped to look smaller.
+- Suggested.lean: at most about 1,500 lines (the thirteen run 1,000–1,200). It holds only (a) light definitions with REAL
+  bodies — predicates, structures bundling data that exists at the pins, specialisations of library notions; (b) the end
+  theorems and the milestone of each layer, proved by `sorry`, and only when every carrier in the statement exists in
+  Mathlib or Tau Ceti at the pins or is a kept real-bodied definition; (c) one or two discriminating `example`s per
+  kept definition and the negative controls a review recorded; `#check` only to pin a library declaration. No data
+  definition, `abbrev` or data `instance` with a `sorry` body, and nothing that mentions one. A heavy definition — a
+  site or topos, a building, a tilt, a moduli stack, an analytification functor, a completion whose construction is a
+  theorem — is a README target with its intended signature and never appears in the Lean: formalising it is Tau Ceti's
+  work, and the roadmap is the deliverable. Everything absent from the Lean lives on in the README.
+Why: Tau Ceti's review rubric holds a contributor to the exact signatures in Suggested.lean, so every statement kept
+there must be one we are sure of, and a sorry'd carrier would block correct contributions.
 ## Suggested.lean in TauCetiRoadmap form (maintainer, 2026-10-09) — binding for packages, reviews and ports
 Model: `the current TauCetiRoadmap checkout the runner names (TauCetiRoadmap/<Name>/{README.md,Suggested.lean})` (read it, and one more).
 - `import Mathlib` (plus the Tau Ceti modules actually used), then ONE module docstring: "<Name>: representative
@@ -67,7 +85,7 @@ Model: `the current TauCetiRoadmap checkout the runner names (TauCetiRoadmap/<Na
   states the mathematics and, where useful, the source and the design choice ("belongs to Layer 2", "agrees with
   Mathlib's X once it exists").
 - Declarations: `def`/`noncomputable def`/`abbrev`/`structure`/`class`/`instance` for the objects, `theorem` (never
-  `lemma`) for statements, bodies `sorry`. Unit tests are `example`s. `#check` only to pin a library declaration
+  `lemma`) for statements; definitions have real bodies and theorems are proved by `sorry` (see the 2026-10-12 shape section). Unit tests are `example`s. `#check` only to pin a library declaration
   the roadmap builds on; **no `#print axioms`, no `#eval`, no `#synth`, no catalogues of names, no process comments**
   (packet ids, "catalogue", "stand-in", "lean-check", budgets). Statements that cannot be typed at the pins are
   simply absent from the file (the README still states them); a short closing comment may list them by name.
@@ -92,13 +110,12 @@ Shape (headings as upstream uses them):
    locators in parentheses at the claim. Definitions give their API as a short list of named lemmas in the prose, and
    their unit tests as a `**Checks.**` bullet list under the subsection — one bullet per test, each saying what is computed
    and what value or property a wrong definition would fail (the computed value, the degenerate case, agreement with
-   the library notion, the non-example); the same tests appear as `example`s in Suggested.lean. Every layer ends with `### Examples` (worked examples /
+   the library notion, the non-example); the key tests of the kept definitions also appear as `example`s in Suggested.lean. Every layer ends with `### Examples` (worked examples /
    checks along the way, if any) and `### Dependencies` (layers and roadmaps it needs).
 7. `## Worked examples` (optional), `## Downstream consumers` (who uses this roadmap), `## References`.
 
 Rules: no target numbering tables (no `**T017**` blocks, no `Hypotheses:/API:/Tests:/Sources:/Requires:` field lists);
-no truncation markers; no planning residue; own words with locators; `Suggested.lean` holds the signatures and the
-`example` tests — the README names them, it does not paste them. Size is whatever the content needs (upstream runs 25–95 KB; ours will often be 100–300 KB because of the tests and
+no truncation markers; no planning residue; own words with locators; `Suggested.lean` holds only the compact set of the 2026-10-12 shape section — the README names its declarations, it does not paste them. Size is whatever the content needs (upstream runs 25–95 KB; ours will often be 100–300 KB because of the tests and
 hypotheses); never shrink by dropping tests, hypotheses or locators. A roadmap that is unwieldy is split into Parts.
 ## Adversarial mathematics pass (maintainer, 2026-10-09) — mandatory before any TauCetiRoadmap PR
 A `sorry` build checks elaboration, not truth. The reviewer of PR #780 found false identities, a 0/0, reversed

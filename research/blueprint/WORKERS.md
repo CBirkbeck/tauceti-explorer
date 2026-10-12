@@ -25,7 +25,13 @@ are in [PROTOCOL.md](PROTOCOL.md), section 15.
 The deliverable is a roadmap in TauCetiRoadmap's form: a README that states
 each layer's targets, with every definition's API and at least three unit
 tests a wrong definition would fail, a `Suggested.lean` that elaborates with
-`sorry` as its only warning, and `metadata.toml`. The blueprint exists to plan
+`sorry` as its only warning, and `metadata.toml`. Since 2026-10-12 the shape is fixed
+(PACKAGE_REVIEW.md, "Shape of a roadmap"): the README carries the full detail —
+every target, hypothesis, locator, Check and worked example — while the
+`Suggested.lean` is short (about 1,000–1,500 lines): real-bodied light
+definitions, the end theorems and layer milestones statable at the pins, a few
+`example`s, and no sorry'd data; heavy definitions are README targets, because
+formalising them is Tau Ceti's work. The blueprint exists to plan
 that roadmap well and to find gaps, not to plan every Lean declaration:
 
 1. **Plan at target level** (PROTOCOL.md section 2; `detail.json`): one node
