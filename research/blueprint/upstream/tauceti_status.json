@@ -5,8 +5,8 @@
     "SchemeAndStackFoundations": {
       "stage": "pr",
       "pr": 779,
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "13788cf",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; Stacks citation repairs 2026-10-12 after a source sweep (README only)",
+      "head": "a92de96",
       "review": {
         "recommendation": "approve",
         "head": "6cb6d5b",
