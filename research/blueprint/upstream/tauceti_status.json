@@ -99,10 +99,9 @@
       "head": "42b79be",
       "review": {
         "recommendation": "approve",
-        "head": "98f8173",
+        "head": "42b79be",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head 42b79be differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "AdicSpacesPartII": {
