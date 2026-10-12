@@ -96,6 +96,19 @@ I.5, II.1–II.4); Loeffler arXiv:1304.4042 v1, v2, v3 (§2); De Ieso arXiv:1203
 Williams arXiv:2309.15692v2 (Appendix B.2.1). Not read: the published Loeffler chapter (Iwasawa 2012, Springer) and
 the Astérisque 330 version of Colmez; neither is freely available or in the cleared library.
 
+## Checks run
+
+- `scripts/check_blueprint.py` with the pinned declaration index: 0 errors, 0 warnings.
+- `lean-check` on the suggested file: exit 0, only `sorry` warnings.
+- A script confirmed that every packet API and unit-test name occurs in the Lean file.
+- Every Colmez, De Ieso, Loeffler (v1–v3) and Rodrigues Jacinto–Williams locator was checked against the PDFs by
+  page. Misprints and errors were checked on rendered page images.
+- An independent mechanical cross-check (a Sonnet subagent) read all 19 baseline declarations at the pinned Mathlib
+  and found every `provides` sentence accurate. It recomputed every numerical test: one acceptance line had C(N − 1)
+  for C(N), now corrected. It listed API items whose Lean statement was weaker than the packet text: three Lean
+  statements were strengthened (`boxIndicator_mul`, `tensorWavelet_basis`, `isoCr_locallyConstant_dense`), and the
+  packet texts now say what the Lean states, with the norm statements marked as README targets.
+
 ## For the reviewer
 
 The new nodes refine predecessor nodes but cannot edit them; the assembly should add the refining ids to the

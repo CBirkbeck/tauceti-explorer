@@ -495,8 +495,10 @@ theorem boxIndicator_refine (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) (t : Fin
   sorry
 
 theorem boxIndicator_mul (a a' : Fin g → ℤ_[p]) (m m' : Fin g → ℕ) :
-    boxIndicator p K a m * boxIndicator p K a' m' = 0 ∨
-      ∃ a'', boxIndicator p K a m * boxIndicator p K a' m' = boxIndicator p K a'' (m ⊔ m') := by
+    (Disjoint (padicBox p a m) (padicBox p a' m') →
+      boxIndicator p K a m * boxIndicator p K a' m' = 0) ∧
+    ((padicBox p a m ∩ padicBox p a' m').Nonempty →
+      ∃ a'', boxIndicator p K a m * boxIndicator p K a' m' = boxIndicator p K a'' (m ⊔ m')) := by
   sorry
 
 theorem locallyConstant_mem_span_boxIndicator (f : LocallyConstant (Fin g → ℤ_[p]) K) :
@@ -570,8 +572,10 @@ theorem LPmulti_mono {N N' : Fin g → ℕ} {h h' : ℕ} (hN : N ≤ N') (hh : h
   sorry
 
 theorem tensorWavelet_basis (r : Fin g → ℝ) (h : ℕ) :
-    Submodule.span K (Set.range fun nk : (Fin g → Fin (p ^ h)) × (Fin g → ℕ) =>
-      if ∀ j, nk.2 j ≤ ⌊r j⌋₊ then tensorWavelet p K r (fun j => nk.1 j) nk.2 else 0) =
+    LinearIndependent K (fun nk : (Fin g → Fin (p ^ h)) × ((j : Fin g) → Fin (⌊r j⌋₊ + 1)) =>
+      tensorWavelet p K r (fun j => nk.1 j) (fun j => nk.2 j)) ∧
+    Submodule.span K (Set.range fun nk : (Fin g → Fin (p ^ h)) × ((j : Fin g) → Fin (⌊r j⌋₊ + 1)) =>
+      tensorWavelet p K r (fun j => nk.1 j) (fun j => nk.2 j)) =
       LPmulti p K (fun j => ⌊r j⌋₊) h := by
   sorry
 
@@ -654,8 +658,9 @@ theorem isoCr_mul (r : ℝ) {f f' : (Fin g → ℤ_[p]) → K} (hf : f ∈ isoCr
   sorry
 
 theorem isoCr_locallyConstant_dense (r : ℝ) (hr : r < 1) (f : (Fin g → ℤ_[p]) → K) (hf : f ∈ isoCr p K r) :
-    ∀ ε > 0, ∃ φ : LocallyConstant (Fin g → ℤ_[p]) K, ∀ m x y, (∀ j, ‖y j‖ ≤ (p : ℝ) ^ (-(m : ℤ))) →
-      ‖(f - φ) (x + y) - (f - φ) x‖ ≤ ε * (p : ℝ) ^ (-(r * m)) := by
+    ∀ ε > 0, ∃ φ : LocallyConstant (Fin g → ℤ_[p]) K, (∀ x, ‖(f - φ) x‖ ≤ ε) ∧
+      ∀ m x y, (∀ j, ‖y j‖ ≤ (p : ℝ) ^ (-(m : ℤ))) →
+        ‖(f - φ) (x + y) - (f - φ) x‖ ≤ ε * (p : ℝ) ^ (-(r * m)) := by
   sorry
 
 /-- The isotropic wavelet characterisation: `f ∈ C^r_iso` iff `|c_n(f)| p^{r max_j ℓ(n_j)} → 0`. -/

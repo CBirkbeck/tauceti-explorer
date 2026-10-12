@@ -82,8 +82,8 @@ For h ∈ ℕ and N ∈ ℕ, LP^{[0,N]}_h(ℤ_p, L) is the L-vector space of fun
 - `TauCeti.LocallyAnalytic.LP_mono` (relation): LP N h ≤ LP N' h' whenever N ≤ N' and h ≤ h'.
 - `TauCeti.LocallyAnalytic.mem_LP_iff` (characterisation): φ ∈ LP N h iff for every a ∈ {0, …, p^h − 1} some polynomial P_a of degree ≤ N agrees with φ on a + p^hℤ_p.
 - `TauCeti.LocallyAnalytic.LP_zero_eq_locallyConstant` (compatibility): LPAll 0 is the image of Mathlib's LocallyConstant ℤ_p L under the coercion to functions.
-- `TauCeti.LocallyAnalytic.LP_basis` (characterisation): The local monomials 1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k, i < p^h, k ≤ N, form a basis of LP N h; finrank_L (LP N h) = p^h(N + 1).
-- `TauCeti.LocallyAnalytic.LP_mul` (structure): The product of an element of LP N h and an element of LP M h lies in LP (N + M) h; LPAll N is a module over LPAll 0.
+- `TauCeti.LocallyAnalytic.LP_basis` (characterisation): finrank_L (LP N h) = p^h(N + 1); a basis is given by the local monomials 1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k, i < p^h, k ≤ N (colmezWavelet_basis).
+- `TauCeti.LocallyAnalytic.LP_mul` (structure): The product of an element of LP N h and an element of LP M h lies in LP (N + M) h.
 - `TauCeti.LocallyAnalytic.LP_comp_affine` (functoriality): For b ∈ ℤ_p and n ∈ ℕ, φ ↦ (x ↦ φ(b + p^n x)) maps LP N (h + n) into LP N h.
 
 *Unit tests.*
@@ -145,7 +145,7 @@ Let N ∈ ℕ, C(N) = Σ_{n=1}^{N} v_p(n!), and a_0, …, a_N ∈ L. For every h
 1. The top coefficient is the N-th forward difference with step p^h: a_N = p^{−Nh} Σ_{j=0}^{N} (−1)^{N−j} binom(N, j) P(x + jp^h), with P(x) = Σ a_k x^k/k!; taking x ∈ p^hℤ_p gives v_p(a_N) + Nh ≥ inf_{p^hℤ_p} v_p(P).
 2. Subtract the top term: Q = P − a_N x^N/N! has inf_{p^hℤ_p} v_p(Q) ≥ inf_{p^hℤ_p} v_p(P) − v_p(N!); conclude by induction on N.
 
-*Acceptance.* N = 0: v_p(a_0) ≥ inf v_p(a_0), with C(0) = 0. For P = x^N/N! and h = 0 the bound reads 0 ≥ −v_p(N!) − C(N − 1).
+*Acceptance.* N = 0: v_p(a_0) ≥ inf v_p(a_0), with C(0) = 0. For P = x^N/N! and h = 0 the bound reads 0 ≥ −v_p(N!) − C(N).
 
 *Needs:* Mathlib `fwdDiff_iter_eq_sum_shift`.
 
@@ -346,9 +346,9 @@ Let G be a compact abelian p-adic Lie group of dimension 1 and κ : ℤ_p → H 
 4. Density of LA by taylor-truncation-density in each chart; D_r ⊆ D_s for r ≤ s by the Amice characterisation of LocallyAnalyticDistributions:L2/order-r-distributions.
 
 *API.*
-- `TauCeti.LocallyAnalytic.CrOn` (constructor): CrOn κ r : the L-Banach space C^r(G, L) defined through the chart κ.
-- `TauCeti.LocallyAnalytic.CrOn_chart_independent` (characterisation): For two charts κ, κ′ the identity of functions is a continuous linear equivalence CrOn κ r ≃ CrOn κ′ r.
-- `TauCeti.LocallyAnalytic.CrOn_zero_eq_continuous` (compatibility): CrOn κ 0 = C(G, L) with an equivalent norm.
+- `TauCeti.LocallyAnalytic.CrOn` (constructor): CrOn κ r : the L-subspace of functions G → L that are C^r on every coset in the chart κ; its norm, the minimum of the coset valuations, is a README target.
+- `TauCeti.LocallyAnalytic.CrOn_chart_independent` (characterisation): For two charts κ, κ′ onto open subgroups of a compact G, CrOn κ r = CrOn κ′ r; the two norms are equivalent (README).
+- `TauCeti.LocallyAnalytic.CrOn_zero_eq_continuous` (compatibility): For a chart onto an open subgroup of a compact G, f ∈ CrOn κ 0 iff f is continuous; the norm is equivalent to the sup norm (README).
 - `TauCeti.LocallyAnalytic.DistOrderOn` (constructor): DistOrderOn κ r = (CrOn κ r)′, the order-r distributions on G.
 - `TauCeti.LocallyAnalytic.DistOrderOn_zero_equiv_abstractMeasure` (compatibility): DistOrderOn κ 0 ≃ AbstractMeasure G L L (Mathlib's D(G, L)).
 - `TauCeti.LocallyAnalytic.DistOrderOn_restrict` (functoriality): For U ⊆ ℤ_p compact open, DistOrderOn U r ≃ {μ ∈ DistOrder r | μ = 1_U·μ}.
@@ -394,7 +394,7 @@ For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms 
 - `TauCeti.LocallyAnalytic.admissibleNorm` (data): admissibleNorm r N μ = sup_{a,n,k≤N} |μ(localMonomial a n k)|·p^{−rn} = p^{−v_{D_r,N}(μ)}, the admissibility norm in multiplicative form.
 - `TauCeti.LocallyAnalytic.IsAdmissible` (characterisation): IsAdmissible r N μ ↔ ∃ C, ∀ a n k, k ≤ N → ‖μ(localMonomial a n k)‖ ≤ C·p^{rn}, i.e. v_{D_r,N}(μ) > −∞.
 - `TauCeti.LocallyAnalytic.AdmissibleAlgDist` (constructor): The L-subspace D^{[0,N]}_r of AlgDist N cut out by IsAdmissible r N, normed by admissibleNorm.
-- `TauCeti.LocallyAnalytic.isAdmissible_mono` (relation): IsAdmissible r N μ → IsAdmissible s N μ for r ≤ s; restriction to LPAll N′ with [r] ≤ N′ ≤ N preserves admissibility.
+- `TauCeti.LocallyAnalytic.isAdmissible_mono` (relation): IsAdmissible r N μ → IsAdmissible s N μ for r ≤ s.
 - `TauCeti.LocallyAnalytic.isAdmissible_iff_topDegree` (characterisation): For finite N ≥ [r], IsAdmissible r N μ holds iff the bound holds for k = N alone.
 - `TauCeti.LocallyAnalytic.restrictAlg` (projection): ι : D(ℤ_p, L) → AlgDist N, restriction to locally polynomial functions; ι maps D_r into AdmissibleAlgDist r N.
 
@@ -607,7 +607,7 @@ For a ∈ ℤ_p^g and a radius tuple m ∈ ℕ^g, the box B(a, m) is the fibre o
 - `TauCeti.AnalyticDistributions.boxIndicator` (constructor): boxIndicator a m : LocallyConstant (Fin g → ℤ_p) K, the indicator of padicBox a m (Mathlib's LocallyConstant.charFn).
 - `TauCeti.AnalyticDistributions.mem_padicBox_iff` (characterisation): x ∈ padicBox a m ↔ ∀ j, toZModPow (m j) (x j) = toZModPow (m j) (a j).
 - `TauCeti.AnalyticDistributions.boxIndicator_refine` (relation): boxIndicator a m = Σ_{c<p} boxIndicator (a + c·p^{m_t}e_t) (m + e_t) for each coordinate t.
-- `TauCeti.AnalyticDistributions.boxIndicator_mul` (simp): boxIndicator a m·boxIndicator a′ m′ is boxIndicator a″ (max m m′) when the boxes meet and 0 otherwise.
+- `TauCeti.AnalyticDistributions.boxIndicator_mul` (simp): boxIndicator a m·boxIndicator a′ m′ is 0 when the boxes are disjoint, and boxIndicator a″ (m ⊔ m′) for some a″ when they meet.
 - `TauCeti.AnalyticDistributions.locallyConstant_mem_span_boxIndicator` (characterisation): Every f ∈ LocallyConstant (Fin g → ℤ_p) K lies in the span of the boxIndicator a (fun _ ↦ h) for some h.
 - `TauCeti.AnalyticDistributions.boxIndicator_translate` (functoriality): Translation by b sends boxIndicator a m to boxIndicator (a + b) m.
 
@@ -656,7 +656,7 @@ For N ∈ ℕ^g and h ∈ ℕ, LP^N_h(ℤ_p^g, K) is the space of functions f : 
 - `TauCeti.AnalyticDistributions.LPmulti` (constructor): LPmulti N h : the K-subspace of functions ℤ_p^g → K polynomial of separate degree ≤ N on each box of radius (h, …, h); LPmultiAll N is the union.
 - `TauCeti.AnalyticDistributions.LPmulti_eq_tensor` (characterisation): The product map ⊗_j LPAll (N j) → LPmultiAll N is a linear isomorphism.
 - `TauCeti.AnalyticDistributions.tensorWavelet` (constructor): tensorWavelet r n k x = ∏_j colmezWavelet (r j) (n j) (k j) (x j).
-- `TauCeti.AnalyticDistributions.tensorWavelet_basis` (characterisation): The tensorWavelet r n k with k_j ≤ [r_j] form a basis of LPmultiAll [r].
+- `TauCeti.AnalyticDistributions.tensorWavelet_basis` (characterisation): For each h, the tensorWavelet r n k with n_j < p^h and k_j ≤ [r_j] are linearly independent and span LPmulti [r] h; with n ranging over ℕ^g they form a basis of LPmultiAll [r].
 - `TauCeti.AnalyticDistributions.LPmulti_mono` (relation): LPmulti N h ≤ LPmulti N′ h′ for N ≤ N′, h ≤ h′.
 - `TauCeti.AnalyticDistributions.LPmulti_zero_eq_locallyConstant` (compatibility): LPmultiAll 0 is the image of LocallyConstant (Fin g → ℤ_p) K.
 - `TauCeti.AnalyticDistributions.LPmulti_mul` (structure): LPmulti N h·LPmulti M h ⊆ LPmulti (N + M) h.
@@ -797,12 +797,12 @@ Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ pu
 
 *API.*
 - `TauCeti.AnalyticDistributions.IsIsotropicCr` (characterisation): IsIsotropicCr r f ↔ ∀ ε > 0, ∃ m₀, ∀ m ≥ m₀, ∀ x y, (∀ j, ‖y_j‖ ≤ p^{−m}) → ‖f(x + y) − f(x)‖ ≤ ε·p^{−rm}.
-- `TauCeti.AnalyticDistributions.isoCr` (constructor): isoCr r : the K-Banach space C^r_iso(ℤ_p^d, K) with the valuation v_r.
-- `TauCeti.AnalyticDistributions.isoCr_one_dim` (compatibility): For d = 1, isoCr r = C^r(ℤ_p, K) with v_r = v′_{C^r}.
-- `TauCeti.AnalyticDistributions.isoCr_aut_invariant` (functoriality): f ↦ f∘A is an isometry of isoCr r for every continuous automorphism A of ℤ_p^d.
-- `TauCeti.AnalyticDistributions.isoCr_locallyConstant_dense` (characterisation): LocallyConstant (Fin d → ℤ_p) K is dense in isoCr r.
-- `TauCeti.AnalyticDistributions.isoCr_mono` (relation): isoCr s ⊆ isoCr r continuously for r ≤ s < 1.
-- `TauCeti.AnalyticDistributions.isoCr_mul` (structure): isoCr r is a Banach algebra: ε_m(fg) ≥ min(ε_m(f) + inf v_p(g), inf v_p(f) + ε_m(g)).
+- `TauCeti.AnalyticDistributions.isoCr` (constructor): isoCr r : the K-subspace C^r_iso(ℤ_p^d, K) of continuous f with IsIsotropicCr r f; its valuation v_r is a README target.
+- `TauCeti.AnalyticDistributions.isoCr_one_dim` (compatibility): For d = 1 and 0 ≤ r < 1, f ∈ isoCr r iff f is of class C^r in Colmez's sense; moreover v_r = v′_{C^r} (README).
+- `TauCeti.AnalyticDistributions.isoCr_aut_invariant` (functoriality): f ↦ f∘A preserves isoCr r for every bicontinuous additive automorphism A of ℤ_p^d, isometrically for v_r (README).
+- `TauCeti.AnalyticDistributions.isoCr_locallyConstant_dense` (characterisation): For r < 1, every f ∈ isoCr r is approximated by locally constant φ: for each ε > 0 some φ has ‖f − φ‖_∞ ≤ ε and increments of f − φ bounded by ε·p^{−rm} on p^mℤ_p^d.
+- `TauCeti.AnalyticDistributions.isoCr_mono` (relation): isoCr s ⊆ isoCr r for r ≤ s (continuously, README).
+- `TauCeti.AnalyticDistributions.isoCr_mul` (structure): isoCr r is closed under products, by ε_m(fg) ≥ min(ε_m(f) + inf v_p(g), inf v_p(f) + ε_m(g)); it is a Banach algebra for v_r.
 
 *Unit tests.*
 - `AnalyticDistributionTests.isoCr_box_value` (computation): v_r(1_{p²ℤ_p × ℤ_p}) = −r: ε_0 = ε_1 = 0 and ε_m = +∞ for m ≥ 2.
@@ -865,12 +865,12 @@ Let G be a compact abelian p-adic Lie group with a quasi-factorization Lie G = �
 3. Independence: within a block, isotropic spaces are invariant under GL_{d_i}(ℤ_p) and commensurable subgroups (isotropic-order-functions); across blocks use tensor-chart-pullback.
 
 *API.*
-- `TauCeti.AnalyticDistributions.blockVectorOrderSpace` (constructor): blockVectorOrderSpace d r : the K-Banach space ⊗̂_iC^{r_i}_iso(ℤ_p^{d_i}, K), realized as functions on ∏_iℤ_p^{d_i}.
+- `TauCeti.AnalyticDistributions.blockVectorOrderSpace` (constructor): blockVectorOrderSpace b r : the continuous functions on ℤ_p^D with ‖c_n(f)‖·p^{Σ_i r_i·max_{j∈ block i}ℓ(n_j)} → 0 cofinitely, blocks given by b : Fin D → Fin g; for r_i < 1 this is the realization of ⊗̂_iC^{r_i}_iso(ℤ_p^{d_i}, K), normed by blockNorm.
 - `TauCeti.AnalyticDistributions.blockVectorOrderSpace_basis` (characterisation): The scaled indicators p^{Σ_i⌊r_i·max_jℓ(n^{(i)}_j)⌋}1_{S(n)} form a Banach basis.
-- `TauCeti.AnalyticDistributions.mem_blockVectorOrderSpace_iff` (characterisation): f ∈ blockVectorOrderSpace d r ↔ f is continuous and v_p(c_n(f)) − Σ_i r_i·max_jℓ(n^{(i)}_j) → +∞ cofinitely.
-- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_one_dim_blocks` (compatibility): For d = (1, …, 1), blockVectorOrderSpace d r is the vector-order space V_r of anisotropic-tensor-wavelets.
-- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_single_block` (compatibility): For g = 1, blockVectorOrderSpace (d) (r) = isoCr r.
-- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_chart_independent` (functoriality): Changing the compatible subgroups or the coordinates within blocks gives the same space with an equivalent norm.
+- `TauCeti.AnalyticDistributions.mem_blockVectorOrderSpace_iff` (characterisation): f ∈ blockVectorOrderSpace b r ↔ f is continuous and v_p(c_n(f)) − Σ_i r_i·max_jℓ(n^{(i)}_j) → +∞ cofinitely.
+- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_one_dim_blocks` (compatibility): For one-dimensional blocks (b = id), blockVectorOrderSpace b r is the vector-order space V_r of anisotropic-tensor-wavelets (vectorOrderSpace).
+- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_single_block` (compatibility): For a single block and r < 1, blockVectorOrderSpace b r = isoCr r.
+- `TauCeti.AnalyticDistributions.blockVectorOrderSpace_chart_independent` (functoriality): Translations and unit scalings x_j ↦ t_j + c_jx_j of the coordinates preserve blockVectorOrderSpace b r; changing the compatible subgroups gives the same space with an equivalent norm (README).
 
 *Unit tests.*
 - `AnalyticDistributionTests.blockVectorOrder_weight` (computation): For d = (2, 1), r = (1/2, 1/4) and n = (p², 1, p⁵): the block maxima are ℓ = 3 and 6, so the scaling is p^{⌊3/2⌋+⌊6/4⌋} = p².
