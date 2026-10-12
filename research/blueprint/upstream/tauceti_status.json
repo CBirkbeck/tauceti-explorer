@@ -18,12 +18,13 @@
       "stage": "pr",
       "pr": 780,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day",
-      "head": "b7712a0",
+      "head": "93d4bcc",
       "review": {
         "recommendation": "changes",
         "head": "b7712a0",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "Fable final deep review; repairs F01–F07 applied at 93d4bcc"
       }
     },
     "ReductiveGroupsPartII": {
