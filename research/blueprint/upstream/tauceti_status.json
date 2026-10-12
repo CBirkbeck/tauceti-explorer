@@ -48,13 +48,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "1661187",
+      "head": "ef156f9",
       "review": {
         "recommendation": "approve",
         "head": "adc06c2",
         "current": true,
         "date": "2026-10-12",
-        "note": "head 1661187 differs only by re-stacks on the parent"
+        "note": "head ef156f9 differs only by re-stacks on the parent"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -64,12 +64,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "da5b23f",
+      "head": "427236c",
       "review": {
         "recommendation": "approve",
         "head": "da5b23f",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head 427236c differs only by re-stacks on the parent"
       }
     },
     "IntegralHeckeAndGaloisDeterminants": {
@@ -79,12 +80,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "4ec3f29",
+      "head": "c6d12a1",
       "review": {
         "recommendation": "approve",
         "head": "4ec3f29",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head c6d12a1 differs only by re-stacks on the parent"
       }
     },
     "AdicEtaleGeometry": {
