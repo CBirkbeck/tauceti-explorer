@@ -19,10 +19,10 @@ The file records the light definitions of the roadmap with real bodies, and the 
 carriers exist in the pinned Mathlib and Tau Ceti: the relative carrier `AbelianScheme`, isogenies
 and multiplication maps over a base, the degree of a homomorphism of abelian varieties over a field,
 simple abelian varieties, the finiteness, semisimplicity and characteristic-polynomial theorems,
-coefficient Hom spaces, Riemann forms, the alternating elementary-divisor theorem and the Siegel
-space. Statements whose carriers are not yet in the libraries (the dual abelian scheme,
-polarizations, Tate modules of abelian schemes, de Rham realizations, Barsotti–Tate groups, the
-complex uniformization, Weil restriction) are specified in the README and listed at the end.
+coefficient Hom spaces, the alternating elementary-divisor theorem and the Siegel space. Statements
+whose carriers are not yet in the libraries (the dual abelian scheme, polarizations, Tate modules of
+abelian schemes, de Rham realizations, Barsotti–Tate groups, the complex uniformization, Weil
+restriction) are specified in the README and listed at the end.
 
 Design choices made explicit here:
 * An abelian scheme is a group object in `Over S` with proper, smooth and geometrically connected
@@ -34,8 +34,9 @@ Design choices made explicit here:
   `A.dim = g`.
 * The degree of an isogeny is Mathlib's `Scheme.Hom.finrank`, which counts inseparable degree; a
   non-isogeny has degree `0`.
-* A Riemann form uses a Hermitian form linear in the first variable, `H(v, w) = E(Jv, w) + i E(v, w)`,
-  and positivity `E(Jv, v) > 0`; principal means unimodular on the lattice.
+* Riemann forms are Tau Ceti's `IsRiemannForm`, with positivity `E(Jv, v) > 0`; the Hermitian form
+  is linear in the first variable, `H(v, w) = E(Jv, w) + i E(v, w)`, and principal means unimodular
+  on the lattice (README A5.2).
 -/
 
 open CategoryTheory Limits MonoidalCategory AlgebraicGeometry MonObj Polynomial
@@ -174,10 +175,20 @@ group object. -/
 noncomputable def mulBy (A : AbelianScheme S) (n : ℤ) : A.toOver ⟶ A.toOver :=
   𝟙 A.toOver ^ n
 
-/-- An **isogeny** of abelian schemes over `S`: its scheme morphism is finite, flat, locally of
-finite presentation and surjective (README A3.1). -/
+/-- Check: on the dimension-zero abelian scheme every multiplication map, `[p]` included, is an
+isomorphism; a definition requiring positive dimension excludes this object (README A0.1). -/
+example (S : Scheme.{u}) (n : ℤ) : IsIso ((identity S).mulBy n) := by
+  sorry
+
+/-- An **isogeny** of abelian schemes over `S`: its scheme morphism is finite, flat and surjective
+(README A3.1). Over an affine base this is the condition of Tau Ceti's
+`TauCeti.GroupScheme.IsIsogeny`; local finite presentation follows. -/
 def IsAbelianIsogeny {A B : AbelianScheme S} (f : A.toOver ⟶ B.toOver) : Prop :=
-  IsFinite f.left ∧ Flat f.left ∧ LocallyOfFinitePresentation f.left ∧ Surjective f.left
+  IsFinite f.left ∧ Flat f.left ∧ Surjective f.left
+
+/-- Check: the identity of an abelian scheme is an isogeny. -/
+example (A : AbelianScheme S) : IsAbelianIsogeny (𝟙 A.toOver) := by
+  refine ⟨?_, ?_, ?_⟩ <;> rw [Over.id_left] <;> infer_instance
 
 /-- **Multiplication maps** over an arbitrary base: for `n ≠ 0` on an abelian scheme of relative
 dimension `g`, `[n]` is an isogeny of constant rank `|n|^(2g)` (README A3.2). -/
@@ -257,7 +268,8 @@ example (A : AbelianVariety K) (hg : A.dim = 1) : Hom.deg (mulBy A 2) = 4 := by
 example (A : AbelianVariety K) : Hom.deg (mulBy A (-1)) = 1 := by
   sorry
 
-/-- Check: in positive dimension the zero endomorphism has degree `0` and the identity degree `1`. -/
+/-- Check: in positive dimension the zero endomorphism has degree `0` and the identity degree
+`1`. -/
 example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hpos : 0 < g) :
     Hom.deg (AbelianVariety.End.toHom (0 : AbelianVariety.End A)) = 0 ∧ Hom.deg (𝟙 A) = 1 := by
   sorry
@@ -266,15 +278,21 @@ example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hp
 through which the homomorphism factors by a surjection (README A6.3). -/
 theorem exists_abelianImage {A C : AbelianVariety K} (f : A ⟶ C) :
     ∃ (B : AbelianVariety K) (q : A ⟶ B) (i : B ⟶ C),
-      IsClosedImmersion (AbelianVariety.Hom.toSchemeHom i) ∧ Surjective (AbelianVariety.Hom.toSchemeHom q) ∧ q ≫ i = f := by
+      IsClosedImmersion (AbelianVariety.Hom.toSchemeHom i) ∧
+        Surjective (AbelianVariety.Hom.toSchemeHom q) ∧ q ≫ i = f := by
   sorry
 
 /-- An abelian variety is **simple** if it is not zero-dimensional and each of its abelian
 subvarieties (closed-immersion homomorphisms into it) is zero-dimensional or an isomorphism
 (README A6.4). -/
 def IsSimple (A : AbelianVariety K) : Prop :=
-  A.dim ≠ 0 ∧ ∀ (B : AbelianVariety K) (i : B ⟶ A), IsClosedImmersion (AbelianVariety.Hom.toSchemeHom i) →
+  A.dim ≠ 0 ∧ ∀ (B : AbelianVariety K) (i : B ⟶ A),
+    IsClosedImmersion (AbelianVariety.Hom.toSchemeHom i) →
     B.dim = 0 ∨ IsIso i
+
+/-- Check: a zero-dimensional abelian variety is not simple, so that `End⁰` of a simple abelian
+variety is never the zero ring. -/
+example (A : AbelianVariety K) (hA : A.dim = 0) : ¬ IsSimple A := fun h => h.1 hA
 
 /-- A nonzero endomorphism of a simple abelian variety is an isogeny. -/
 theorem isIsogeny_of_isSimple {A : AbelianVariety K} (hA : IsSimple A) (α : AbelianVariety.End A)
@@ -282,7 +300,8 @@ theorem isIsogeny_of_isSimple {A : AbelianVariety K} (hA : IsSimple A) (α : Abe
   sorry
 
 /-- `End⁰` of a simple abelian variety is a division algebra (README A6.4). -/
-theorem isUnit_of_isSimple {A : AbelianVariety K} (hA : IsSimple A) (x : ℚ ⊗[ℤ] AbelianVariety.End A)
+theorem isUnit_of_isSimple {A : AbelianVariety K} (hA : IsSimple A)
+    (x : ℚ ⊗[ℤ] AbelianVariety.End A)
     (hx : x ≠ 0) : IsUnit x := by
   sorry
 
@@ -312,7 +331,8 @@ theorem homFreeFinite (A B : AbelianVariety K) (gA gB : ℕ) (hA : A.dim = (gA :
 
 /-- **`End⁰(A)` is a finite-dimensional semisimple `ℚ`-algebra** (README A6.8). -/
 theorem endQ_isSemisimple (A : AbelianVariety K) :
-    IsSemisimpleRing (ℚ ⊗[ℤ] AbelianVariety.End A) ∧ Module.Finite ℚ (ℚ ⊗[ℤ] AbelianVariety.End A) := by
+    IsSemisimpleRing (ℚ ⊗[ℤ] AbelianVariety.End A) ∧
+      Module.Finite ℚ (ℚ ⊗[ℤ] AbelianVariety.End A) := by
   sorry
 
 /-- **Polynomials determined by `ℓ`-adic absolute values** (README A6.9; Milne, Lemma 10.21). -/
@@ -336,18 +356,23 @@ degree `2g` whose value at every integer `r` is `deg(α − r)` (README A6.10). 
 theorem exists_charpoly (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞))
     (α : AbelianVariety.End A) :
     ∃! P : ℤ[X], P.Monic ∧ P.natDegree = 2 * g ∧
-      ∀ r : ℤ, P.eval r = (Hom.deg (AbelianVariety.End.toHom (α - (r : AbelianVariety.End A))) : ℤ) := by
+      ∀ r : ℤ,
+        P.eval r = (Hom.deg (AbelianVariety.End.toHom (α - (r : AbelianVariety.End A))) : ℤ) := by
   sorry
 
 /-- Check: `(X − n)^(2g)` has the defining property of the characteristic polynomial of `[n]`. -/
 example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (n : ℤ) (r : ℤ) :
-    ((X - C n) ^ (2 * g) : ℤ[X]).eval r = (Hom.deg (AbelianVariety.End.toHom ((n : AbelianVariety.End A) - (r : AbelianVariety.End A))) : ℤ) := by
+    ((X - C n) ^ (2 * g) : ℤ[X]).eval r =
+      (Hom.deg (AbelianVariety.End.toHom
+        ((n : AbelianVariety.End A) - (r : AbelianVariety.End A))) : ℤ) := by
   sorry
 
 /-- Check: the characteristic polynomial is not the minimal polynomial; for `g > 0` the linear
 polynomial `X − n` does not have the defining property for `[n]`. -/
 example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hpos : 0 < g) (n : ℤ) :
-    ¬ ∀ r : ℤ, ((X - C n : ℤ[X])).eval r = (Hom.deg (AbelianVariety.End.toHom ((n : AbelianVariety.End A) - (r : AbelianVariety.End A))) : ℤ) := by
+    ¬ ∀ r : ℤ, ((X - C n : ℤ[X])).eval r =
+      (Hom.deg (AbelianVariety.End.toHom
+        ((n : AbelianVariety.End A) - (r : AbelianVariety.End A))) : ℤ) := by
   sorry
 
 /-- **Lemma 14.5 of Milne's notes**: a root of unity of the form `1 + nπ` with `π` an algebraic
@@ -409,84 +434,12 @@ end OverField
 
 /-! ## Layer A5: Complex uniformization and families -/
 
-/-- A **Riemann form** on a full lattice `Λ` of a finite-dimensional real vector space with complex
-structure `J`: an alternating real bilinear form, integral on `Λ`, `J`-invariant and positive in the
-sense `E(Jv, v) > 0` for `v ≠ 0` (README A5.2). -/
-structure RiemannForm {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
-    (Λ : Submodule ℤ V) (J : TauCeti.AlmostComplexStructure V) where
-  /-- The real bilinear form `E`. -/
-  form : V →ₗ[ℝ] V →ₗ[ℝ] ℝ
-  alternating : ∀ v, form v v = 0
-  integral : ∀ x y : Λ, ∃ n : ℤ, form x y = (n : ℝ)
-  invariant : ∀ v w, form (J v) (J w) = form v w
-  positive : ∀ v, v ≠ 0 → 0 < form (J v) v
-
-namespace RiemannForm
-
-variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
-  {Λ : Submodule ℤ V} {J : TauCeti.AlmostComplexStructure V}
-
-/-- The Hermitian form `H(v, w) = E(Jv, w) + i E(v, w)`, linear in the first variable for the
-complex structure `J`; its imaginary part is `E`. -/
-def hermitian (E : RiemannForm Λ J) (v w : V) : ℂ :=
-  (E.form (J v) w : ℂ) + Complex.I * (E.form v w : ℂ)
-
-theorem im_hermitian (E : RiemannForm Λ J) (v w : V) : (E.hermitian v w).im = E.form v w := by
-  simp [hermitian]
-
-/-- `H(v, v) = E(Jv, v)` is real and positive for `v ≠ 0`. -/
-theorem hermitian_self_pos (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) :
-    0 < (E.hermitian v v).re := by
-  simpa [hermitian, E.alternating v] using E.positive v hv
-
-/-- **Principal** Riemann forms: the map `Λ → Hom(Λ, ℤ)` given by `E` is bijective. -/
-def IsPrincipal (E : RiemannForm Λ J) : Prop :=
-  ∀ φ : Λ →+ ℤ, ∃! x : Λ, ∀ y : Λ, E.form x y = (φ y : ℝ)
-
-/-- A positive integer multiple of a Riemann form is a Riemann form. -/
-def scale (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) : RiemannForm Λ J where
-  form := (n : ℝ) • E.form
-  alternating v := by simp [E.alternating v]
-  integral x y := by
-    obtain ⟨m, hm⟩ := E.integral x y
-    exact ⟨n * m, by simp [hm]⟩
-  invariant v w := by simp [E.invariant v w]
-  positive v hv := by
-    have := E.positive v hv
-    simp only [LinearMap.smul_apply, smul_eq_mul]
-    positivity
-
-theorem scale_form (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) :
-    (E.scale n hn).form = (n : ℝ) • E.form :=
-  rfl
-
-/-- Two Riemann forms with the same real form are equal. -/
-@[ext] theorem ext {E E' : RiemannForm Λ J} (h : E.form = E'.form) : E = E' := by
-  cases E; cases E'; cases h; rfl
-
-/-- Check: `−E` fails positivity. -/
-example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) : ¬ 0 < -(E.form (J v) v) := by
-  have := E.positive v hv
-  linarith
-
-/-- Check of the homological sign: with Weil operator `C = −J` and polarizing form `Q = −E`,
-`Q(Cv, v) = E(Jv, v) > 0`. -/
-example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) : 0 < -(E.form (-(J v)) v) := by
-  simpa using E.positive v hv
-
-/-- Check: doubling a principal form on a nonzero lattice keeps positivity and integrality but
-loses principality. -/
-example [Nontrivial Λ] (E : RiemannForm Λ J) (hE : E.IsPrincipal) :
-    ¬ (E.scale 2 (by norm_num)).IsPrincipal := by
-  sorry
-
-end RiemannForm
-
 /-- **Alternating elementary divisors** (README A5.4(1)): a nondegenerate integral alternating form
 on `ℤ^(2g)` has, in a suitable basis, the matrix `[[0, D], [−D, 0]]` with `D` diagonal, positive and
 divisibility-ordered; the determinant is `(∏ dᵢ)²`. -/
 theorem alternating_elementaryDivisors {g : ℕ}
-    (E : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℤ) (halt : E.transpose = -E) (hdiag : ∀ i, E i i = 0)
+    (E : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℤ) (halt : E.transpose = -E)
+    (hdiag : ∀ i, E i i = 0)
     (hdet : E.det ≠ 0) :
     ∃ (P : Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℤ) (d : Fin g → ℕ),
       IsUnit P.det ∧ (∀ i, 0 < d i) ∧ (∀ i j, i ≤ j → d i ∣ d j) ∧
@@ -542,16 +495,17 @@ example (g : ℕ) (hg : 0 < g) : (0 : Matrix (Fin g) (Fin g) ℂ) ∉ SiegelUppe
 /-!
 ## Targets of the README not typed here
 
-These need carriers that are not in the pinned Mathlib or Tau Ceti; the README states each of them
-with its hypotheses.
+The README states each of these with its hypotheses; most need carriers that are not in the pinned
+Mathlib or Tau Ceti.
 
 * **Relative Picard objects** (AlgebraicModuli Layer 7 carriers): `abelianPicardInputs`,
   `relativeSeesaw`, `relativeCube`, `torsionRestriction`, `raynaudRepresentability`,
   `AbelianScheme.dual`, `normalizedPoincare`, `mumfordMap`, `Polarization`,
-  `polarizationRepresentatives`, `Polarization.graphBundle`, `projectivePresentation`,
-  `nefNormalizedLines`, `AbelianNS`, `ThetaGroup`, `polarizedWeilPairing`,
-  `dualIsogenyCartierKernel`, `Polarization.rosati`, `divisorAmpleCriterion`, `principalQuotient`,
-  `polarizedIsogenyDegree`, `rosatiPositivity`, `rationalNSAmpleCone`, `neronSeveriRank`,
+  `polarizationRepresentatives`, `Polarization.graphBundle` (with `graphBundle_spec`),
+  `projectivePresentation`, `nefNormalizedLines`, `AbelianNS` (with `AbelianNS.tensorQ`),
+  `ThetaGroup`, `polarizedWeilPairing`, `dualIsogenyCartierKernel`, `Polarization.rosati`,
+  `divisorAmpleCriterion`, `principalQuotient`, `polarizedIsogenyDegree`, `polarizationType` (parts
+  (2) and (3)), `rosatiPositivity`, `rationalNSAmpleCone`, `neronSeveriRank`,
   `reducedTraceComparison`, `polarizedAutomorphisms`, `polarizationOrbits`, `realIsometries`,
   `WeakPolarization`, `Morikawa`.
 * **Coherent and intersection-theoretic carriers**: `relativeInvariantForms`,
@@ -564,9 +518,14 @@ with its hypotheses.
   `BarsottiTate`, `AbelianPD`, `grothendieckMessing`, `polarizedEffectivity`, `serreTate`,
   `SerreTate.q`, `ordinaryFrobeniusWeighted`, `oddPrimeLifting`, `dyadicOrdinaryLifting`,
   `genusTwoJacobianLifting`.
+* **Riemann forms** (Tau Ceti's `IsRiemannForm`, current library): `RiemannForm.hermitian`,
+  `RiemannForm.im_hermitian`, `RiemannForm.hermitian_self_pos`, `RiemannForm.IsPrincipal`,
+  `RiemannForm.scale`, `RiemannForm.pullback`, `RiemannForm.homological`, `RiemannForm.hodgeDual`.
 * **Complex analytic carriers**: `AbelianLattice`, `appellHumbert`, `polarizedHodgeEquivalence`,
   `analyticFamilies`, `realizationConventions`, `SiegelFamily` (beyond the Siegel space above),
   `cmIsotypic`.
+* **Products and boundaries over a base**: `relativeProductsAndDimension` (beyond the
+  dimension-zero case above), `fieldAndEllipticBoundary`.
 * **Algebraic spaces and relative Hom**: `relativeEllipticEquivalence`, `relativeHom`,
   `CoefficientIsog`, `AbelianTwist`, `twistRealizations`, `weilRestriction`,
   `weilRestrictionSplits`, `weilRestrictionAbelian`, `QuadraticAbelianTwist`, `CurveGenerated`.

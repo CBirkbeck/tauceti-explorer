@@ -11,7 +11,7 @@ prime-to-characteristic Tate module, the universal vector extension and first de
 Barsotti–Tate groups and the degree-one divided-power realization. It proves the deformation
 theorems of Serre–Tate and Grothendieck–Messing, with ordinary Serre–Tate coordinates and the
 finite-level lifting statements used for abelian surfaces. Over ℂ it supplies the lattice
-uniformization, Riemann forms, the Appell–Humbert theorem, the polarized Hodge equivalence and the
+uniformization, the Hermitian and homological structure of Riemann forms, the Appell–Humbert theorem, the polarized Hodge equivalence and the
 Siegel universal family. Over a field it proves the arithmetic of Hom: degrees,
 characteristic polynomials, ℓ-independence, finiteness of Hom, Poincaré complete reducibility,
 semisimplicity of the endomorphism algebra, positivity of the Rosati involution, finiteness and
@@ -32,7 +32,7 @@ Hodge structure.
 | A2 | Duality, polarizations and ample classes | `raynaudRepresentability`, `AbelianScheme.dual`, `mumfordMap`, `Polarization`, `Polarization.graphBundle`, `ampleCohomologyAndDegree`, `projectivePresentation`, `nefNormalizedLines`, `AbelianNS` |
 | A3 | Isogenies, finite-flat quotients, torsion and pairings | `IsAbelianIsogeny`, `multiplicationAndDensity`, `AbelianQuotient`, `torsionDivisibility`, `dualIsogenyCartierKernel`, `ThetaGroup`, `polarizedWeilPairing`, `FullLevel`, `Polarization.rosati`, `principalQuotient` |
 | A4 | Realizations and deformations | `AbelianTate`, `AbelianVectorExtension`, `AbelianH1dR`, `exteriorCohomology`, `BarsottiTate`, `AbelianPD`, `grothendieckMessing`, `serreTate`, `SerreTate.q`, `oddPrimeLifting`, `dyadicOrdinaryLifting` |
-| A5 | Complex uniformization and families | `AbelianLattice`, `RiemannForm`, `polarizationType`, `appellHumbert`, `polarizedHodgeEquivalence`, `analyticFamilies`, `SiegelFamily` |
+| A5 | Complex uniformization and families | `AbelianLattice`, `RiemannForm.homological`, `polarizationType`, `appellHumbert`, `polarizedHodgeEquivalence`, `analyticFamilies`, `SiegelFamily` |
 | A6 | Arithmetic Hom and exports | `Hom.deg`, `exists_charpoly`, `homFreeFinite`, `poincareReducibility`, `endQ_isSemisimple`, `charpolyTate`, `rosatiPositivity`, `polarizedAutomorphisms`, `CoefficientHom`, `LocalizedHom`, `AbelianTwist`, `weilRestriction`, `QuadraticAbelianTwist`, `Morikawa`, `AbelianHodgeLine` |
 
 ## Scope and ownership
@@ -56,7 +56,7 @@ sequence and Gauss–Manin connection; the exterior structure of all cohomology;
 of arbitrary height over arbitrary bases; the degree-one divided-power realization; Grothendieck–
 Messing and Serre–Tate for abelian schemes with structures; ordinary Serre–Tate coordinates and the
 weighted polarization equations; polarized effectivity; the odd-prime and dyadic finite-level lifting
-theorems and the genus-two Jacobian comparison. Over ℂ: lattice uniformization, Riemann forms,
+theorems and the genus-two Jacobian comparison. Over ℂ: lattice uniformization, the Hermitian, principal and homological structure of Riemann forms,
 polarization types, Appell–Humbert and algebraicity, the polarized Hodge equivalence, analytic
 families and the Siegel universal family. Over a field: degree, characteristic polynomial and
 trace of endomorphisms with their ℓ-adic comparison, finiteness and saturation of Hom, complete
@@ -73,24 +73,32 @@ Matsusaka–Morikawa endomorphism, the CM isotypic decomposition and the Hodge l
   integral group scheme over `Spec K`, with smoothness, geometric connectedness, integrality and
   commutativity derived), its category with commutative Hom groups, `End A` as a ring,
   `mulBy A n`, products `prod`, `fst`, `snd`, `lift`, base change along field extensions,
-  `IsIsogeny` (finite and surjective), `TangentSpace` with `finrank_tangentSpace_eq_dim`; the
-  rigidified Picard functor `rigidifiedPicardFunctor` and `RigidifiedLineBundle`; closed subgroup
+  `IsIsogeny` (finite and surjective), `TangentSpace` with
+  `finrank_tangentSpace_eq_finrank_cotangentSpace`; isogenies of group schemes over an affine base,
+  `TauCeti.GroupScheme.IsIsogeny` (finite, flat and surjective); closed subgroup
   schemes `ClosedSubgroupScheme`; the Hodge structures `TauCeti.Hodge.HodgeStructureOn`,
   `HodgeStructure`, `HodgeStructureOn.dual`, `IsPolarization`, `Polarization`, the weight-one
   criterion `isPolarization_of_weilOperator_invariant_on_realPoints_of_pos`, and
   `TauCeti.AlmostComplexStructure`; the Lie exponential `lieExp` with
   `isLocalDiffeomorphAt_lieExp_zero`; the Cartier duality base-change equivalence
   `FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDualBaseChangeIso`. The current library also
-  supplies, and this roadmap uses: the Tate module of an abelian group `TauCeti.TateModule p A`
+  supplies, and this roadmap uses: `finrank_tangentSpace_eq_dim`; the rigidified Picard functor
+  `rigidifiedPicardFunctor` and `RigidifiedLineBundle`; the Tate module of an abelian group
+  `TauCeti.TateModule p A`
   with its `ℤ_p`-module structure and `TateModule.free_of_natCard`; kernels of homomorphisms of
   group schemes over a base with their base change (`TauCeti/AlgebraicGeometry/GroupScheme/Kernel`);
   over a field, `isMonHom_of_one_hom` (a pointed morphism of abelian varieties is a homomorphism)
-  and `AbelianVariety.equivPointed`; and the Albanese predicate `AbelianVariety.IsAlbanese`.
-- *JacobianChallenge, Layers D and E.* Over a field: the dual abelian variety, the theorem of the
-  cube and the square, polarizations (with the principal polarization of a Jacobian), `[n]` as an
-  isogeny, the relative Picard functor of a pointed curve, the Jacobian `Pic⁰` and the Abel–Jacobi
-  universal property. Everything here over a general base, or beyond those field statements, extends
-  them; over a field the targets below are stated against their carriers.
+  and `AbelianVariety.Hom.equivPointed`; the Albanese predicate `AbelianVariety.IsAlbanese`; Riemann
+  forms `TauCeti.AlmostComplexStructure.IsRiemannForm`, with the weight-one Hodge structure
+  `latticeHodgeStructure` of a complex structure on a lattice, `latticeHodgeStructureEquiv`,
+  `IsRiemannForm.polarization` and `isRiemannForm_iff_isPolarization`; and symplectic bases of
+  nondegenerate alternating forms over a field, `LinearMap.BilinForm.IsAlt.exists_basis_toMatrix_eq_J`.
+- *JacobianChallenge, Layers D, E and F.* Over a field: the relative Picard functor of a pointed
+  curve, its rigidification by the Poincaré bundle and the Jacobian `Pic⁰` (Layer D); the dual
+  abelian variety, the theorem of the cube and the square, polarizations (with the principal
+  polarization of a Jacobian) and `[n]` as an isogeny (Layer E); the Abel–Jacobi morphism and its
+  Albanese universal property (Layer F). Everything here over a general base, or beyond those
+  field statements, extends them; over a field the targets below are stated against their carriers.
 - *ModularCurves.* Finite locally free commutative group schemes and Cartier duality (0B);
   relative Weierstrass models and pole sheaves (1C); the scheme-theoretic group law (1D);
   multiplication, isogenies, quotients, the Picard dual, Cartier–Nishi duality and the Weil pairing
@@ -180,7 +188,9 @@ the Hom statements here are faithfulness and saturation.
 - **Degrees and torsion.** The degree of an isogeny is the rank of the finite locally free
   morphism (Mathlib `Scheme.Hom.finrank`), which counts inseparable degree; a non-isogeny between
   varieties of equal dimension has degree `0`. `A[n]` is the scheme-theoretic kernel of `[n]`; a
-  finite flat group of order `p²` is never replaced by its geometric points.
+  finite flat group of order `p²` is never replaced by its geometric points. A polarization of
+  degree `d` is one whose kernel has rank `d²`, so that `deg λ = d²` as an isogeny: on an elliptic
+  curve `φ_{O(2·0)}` is a polarization of degree `2` with `deg φ_{O(2·0)} = 4`.
 - **Realizations.** For `ℓ` invertible on the base, `T_ℓ A` is free of rank `2g` and its pairing with
   `T_ℓ A^∨` lands in `ℤ_ℓ(1) = lim μ_{ℓ^r}`. Cohomological `H¹` is the dual of `T_ℓ` and carries the
   inverse cyclotomic multiplier. In ordinary characteristic-`p` deformation theory the étale part of
@@ -235,12 +245,14 @@ forms satisfying the Hodge–Riemann relations.
 
 ### From TauCetiRoadmap roadmaps
 
-- *JacobianChallenge, Layer E*: the field abelian variety, Hom and End, products, `[n]`, the cube
-  and square, the dual abelian variety and polarizations over a field. This contract supplies no
+- *JacobianChallenge, Layer E*: `[n]` as an isogeny, the cube and square, the dual abelian variety
+  and polarizations over a field; the field carrier with its Hom, End and products is the Tau Ceti
+  library's. This contract supplies no
   relative geometry, and no theorem that the image of a homomorphism of abelian varieties over an
   imperfect field is an abelian subvariety; that theorem is A6.3 here.
-- *JacobianChallenge, Layer D*: the rigidified relative Picard functor of a pointed smooth proper
-  curve, its Jacobian and the Albanese universal property. For a singular curve one first normalizes
+- *JacobianChallenge, Layers D and F*: the rigidified relative Picard functor of a pointed smooth
+  proper curve and its Jacobian (Layer D), and the Abel–Jacobi morphism with the Albanese universal
+  property (Layer F). For a singular curve one first normalizes
   and chooses a point of the normalization.
 - *ModularCurves 0B, 1C, 1D, 2A–2F, 7E, 7F*: as listed above; the elliptic Picard dual is matched with
   the positive self-duality of the Conventions.
@@ -253,11 +265,15 @@ Each statement listed above is consumed with its own hypotheses. In particular:
 `relative_picard_algebraicSpace` needs a proper flat finitely presented morphism with universal
 functions, which `universal_functions` supplies for proper flat finitely presented morphisms with
 geometrically reduced and geometrically connected fibres; `picard_zero_criterion` needs a locally
-Noetherian base (or formal smoothness along the neutral component over a nonreduced base);
-`homAndIsomSchemes` needs a projective flat source over a locally Noetherian base;
-`r093RestrictionAlgebraicity` needs a finite locally free map; `grothendieck-existence` and
-`properSpaceCompletionEquivalence` need a complete Noetherian base; the SF.5 intersection theory is
-over a field. Where a target below needs more than a supplier states, the additional statement is
+Noetherian base and identity components of the geometric fibres that are smooth of locally constant
+dimension (for an algebraic-space Picard sheaf through the neutral-component construction
+`spaceSectionComponentCriterion` of AlgebraicModuli §7.9), and over a nonreduced base formal smoothness along the neutral component;
+`homAndIsomSchemes` needs a projective flat source and a quasi-projective target over a locally
+Noetherian base; `r093RestrictionAlgebraicity` needs a finite locally free map;
+`grothendieck-existence` and `properSpaceCompletionEquivalence` need a complete Noetherian base; the
+SF.5 intersection theory is over a field, with intersection products on smooth schemes and
+Grothendieck–Riemann–Roch for projective morphisms of smooth quasi-projective schemes with rational
+coefficients. Where a target below needs more than a supplier states, the additional statement is
 itself a target here.
 
 ## How to read the build
@@ -294,7 +310,7 @@ group-object structure `GrpObj toOver`, and the three properties `IsProper toOve
 `Smooth toOver.hom` and `GeometricallyConnected toOver.hom`. The underlying scheme is
 `toScheme = toOver.left` and the zero section is `zeroSection = η[toOver].left : S ⟶ toScheme`. No
 commutativity axiom, no dimension and no ample line bundle is part of the structure
-(Kass, *Notes on abelian schemes*, Definition 1 and Theorem 1, pp. 1–3; Olsson, *Compactifications of
+(Kass, *Notes on abelian schemes*, §1, the definition on p. 1 and Theorem 1, p. 2; Olsson, *Compactifications of
 moduli of abelian varieties: an introduction*, §2.1.4, p. 298; Faltings–Chai I.1.1–1.2, pp. 1–2).
 
 The API is: `AbelianScheme.zeroSection_comp` (the zero section is a section of the structure
@@ -304,10 +320,12 @@ connectedness are stable under base change) and `AbelianScheme.baseChange_toOver
 object is exactly `(Over.pullback f).obj A.toOver`); `AbelianScheme.ofAbelianVariety` (a Tau Ceti
 `AbelianVariety K` is an abelian scheme over `Spec K`, using its derived `smooth` and
 `geometricallyConnected` instances); `AbelianScheme.toAbelianVariety` (over `Spec K`, an abelian
-scheme is geometrically integral, since a smooth group scheme with geometrically connected fibres
-over a field is geometrically irreducible and geometrically reduced, hence an `AbelianVariety K`)
-with `AbelianScheme.field_roundtrip` (the two adapters are inverse on underlying group objects);
-`AbelianScheme.identity` (the identity `S ⟶ S` with its trivial group law is an abelian scheme);
+scheme is geometrically integral, `AbelianScheme.geometricallyIntegral`, since a smooth group scheme
+with geometrically connected fibres over a field is geometrically irreducible and geometrically
+reduced, hence an `AbelianVariety K`) with `AbelianScheme.toAbelianVariety_ofAbelianVariety` (the
+two adapters are inverse on underlying group objects); `AbelianScheme.identity` (the identity
+`S ⟶ S` with its trivial group law is an abelian scheme; its fibres are geometrically connected,
+`geometricallyConnected_id`);
 `AbelianScheme.relativeDimension` (the function `s ↦ dim A_s`, locally constant by A1.1, and
 pulled back by composition under base change); `AbelianScheme.fieldEquivalence` (over `Spec K`
 the adapters give an equivalence between abelian schemes with zero-preserving morphisms and Tau
@@ -338,8 +356,8 @@ isogenies, and the dual and Poincaré data of A2.2 restrict to those of Jacobian
 (2) Abelian schemes of relative dimension one are exactly ModularCurves' elliptic curves over `S`
 (A1.6 gives the comparison with structures). (3) The dual of an elliptic curve and its Poincaré
 rigidification agree with ModularCurves 2D, and the positive self-duality `a ↦ O([−a] − [0])` of
-the Conventions is the canonical principal polarization; the divisor-class map `a ↦ O([a] − [0])`
-differs from it by the sign `[−1]`. (4) Finite locally free subgroups and their Cartier duals are
+the Conventions is the canonical principal polarization; the divisor-class map `a ↦ O([a] − [0])`,
+which is ModularCurves 2D's `λ_E`, differs from it by the sign `[−1]`. (4) Finite locally free subgroups and their Cartier duals are
 those of ModularCurves 0B. In dimension zero the object is `S` itself and every comparison is the
 identity. The proof uses smoothness of geometric fibres to recover geometric integrality over a
 field, and Tau Ceti's smoothness theorem in the converse direction; group laws are transported
@@ -361,7 +379,8 @@ bundles rigidified along `e`: `Pic_{A/S}(T) ≅ ker(e_T^* : Pic(A_T) → Pic(T))
 bundle on `A_T`, unique up to unique rigidified isomorphism. (3) The identity-component subsheaf
 `Pic⁰_{A/S}` of AlgebraicModuli `PicardZeroSheaf` is defined, and `picard_zero_criterion` applies
 over a locally Noetherian base once its fibrewise hypotheses are checked (A2.1 checks them). (4) For
-abelian schemes `A, B` over a locally Noetherian `S` with `A` projective, the Hom functor of
+abelian schemes `A, B` over a locally Noetherian `S` with `A` projective and `B` quasi-projective
+over `S`, the Hom functor of
 `S`-morphisms is represented by an open subscheme of the Hilbert scheme of `A ×_S B`
 (`homAndIsomSchemes`); the closed subfunctor of homomorphisms is cut out by the group-law equations.
 Each conclusion is used only under the hypotheses of the supplier that proves it; a Picard sheaf is
@@ -404,7 +423,8 @@ smooth proper fibres give local constancy of the dimension; a smooth proper geom
 zero-dimensional fibre is a single rational point, so the zero section is a surjective open and
 closed immersion (Faltings–Chai I.1.1–1.2, pp. 1–2; Milne, *Abelian varieties* (2022 revision),
 §20, pp. 42–43). On a base with two components carrying dimensions one and two the dimension
-function takes both values; the product with the identity scheme `S` is canonically `A`. *Needs:*
+function takes both values; the product with the identity scheme `S` is canonically `A`.
+`Suggested.lean` states the dimension-zero case as `isIso_zeroSection_of_relDim_zero`. *Needs:*
 A0.1; Mathlib `SmoothOfRelativeDimension`, `IsProper`, `GeometricallyConnected`.
 
 ### A1.2 Rigidity over arbitrary bases
@@ -423,8 +443,8 @@ Proposition 20.1 and Corollary 20.2, pp. 42–43; Katz, *Serre–Tate local modu
 1.1.3, pp. 141–143). Over a field, (1) for zero-preserving maps is Tau Ceti's `isMonHom_of_one_hom`;
 the content here is the arbitrary base. Translation by a nonzero section is not zero-preserving, and
 on `S = Spec K[ε]` an infinitesimal translation of `E_S` is a morphism different from the zero map.
-`Suggested.lean` states (1) for zero-preserving morphisms as `isMonHom_of_zero_preserving` and (2) as
-`isCommMonObj`. *Needs:* A0.1, A0.3; SchemeAndStackFoundations SF.4 `formally-smooth-morphism`.
+`Suggested.lean` states (1) for zero-preserving morphisms as `isMonHom_of_zero_preserving`, (2) as
+`isCommMonObj` and (4) as `eq_of_restrict_nilpotent`. *Needs:* A0.1, A0.3; SchemeAndStackFoundations SF.4 `formally-smooth-morphism`.
 
 ### A1.3 Invariant differentials
 
@@ -435,8 +455,8 @@ and `Lie(A/S) = ω_A^∨`. These maps commute with arbitrary base change. The tr
 relative bundles; nothing is asserted about absolute tangent bundles over a varying base. The proof
 reuses the invariant-differential isomorphism for group schemes, universal functions from A0.3 and
 the projection formula (Faltings–Chai I.1.1–1.2, pp. 1–2; Conrad, *Abelian varieties* (notes by
-T. Feng), Lemma 2.2.1, p. 17, and §1.5, pp. 8–10; Caro–Pasten §§7.1 and 9.3, pp. 25–26 and 36–37,
-for the lattice of differentials over a discrete valuation ring). Over a discrete valuation ring
+T. Feng), Lemma 2.2.1, p. 17, and §1.5, pp. 8–10; Caro–Pasten §8.1, p. 26, and Lemma 9.7 with its
+proof, p. 31, for the lattice of differentials over a discrete valuation ring). Over a discrete valuation ring
 `ω_A` is free of rank `g` and restricts to the invariant differentials of both fibres; for `g = 0` it
 is zero. *Needs:* A0.1, A0.3; SchemeAndStackFoundations SF.3 `invariant-differentials`;
 AlgebraicModuli Layer 1; AlgebraicVectorBundles L0B.
@@ -471,7 +491,7 @@ rigidified `L` the sum–difference map `(x, y) ↦ (x + y, x − y)` pulls `L �
 proof extends the field cube trivialization of JacobianChallenge Layer E to rigidified Picard
 sections using A1.2 and A1.4, applies the cube recurrence to integer multiplication (negative `n`
 included), and normalizes at zero for uniqueness (Faltings–Chai, Theorem I.1.3, p. 1; Xie–Yuan,
-Lemma 4.1(1), pp. 19–20; Conrad–Feng, Theorem 3.1.6, pp. 27–28). For `n = 0` the pullback is `O_A`
+Lemma 4.1(1), pp. 19–20; Conrad–Feng, Theorem 3.1.6 and its proof, pp. 26–28). For `n = 0` the pullback is `O_A`
 after rigidification, and for `n = −1` the formula returns `[−1]^*L`; the exponent of `L` in `[2]^*L`
 is three, not the symmetric four, unless `L` is symmetric. On `E × E` the mixed biextension term
 cancels in the sum–difference pullback. *Needs:* A0.3, A1.2, A1.4; JacobianChallenge Layer E.
@@ -502,13 +522,13 @@ torsion multisection contained in `A[n]`, connected non-étale torsion included.
 bound avoids dividing by two in `Pic` (Xie–Yuan, Lemma 4.1(2) and its proof, p. 20). No
 reduced-points argument is used on `μ_p` or `α_p`. Here `A[n]` is the scheme-theoretic kernel of
 `[n]` (Tau Ceti's kernel of a group-scheme homomorphism); the statement does not need its finite
-flatness, which is A3.2. *Needs:* A1.5; Tau Ceti `GroupScheme/Kernel`.
+flatness, which is A3.2. *Needs:* A1.5; Tau Ceti `GroupScheme/Kernel` (current library).
 
 ### Examples
 
 For `E/K` and `L = O(0)`: `[2]^*L ≅ L⁴` because `O(0)` is symmetric, while for the antisymmetric
-rigidified class `O([a] − [−a])` one has `[2]^*` acting by `2`. On `E × E` with `L = O(0) ⊠ O(0)`,
-the sum–difference pullback is `L² ⊠ L²`, not a diagonal pullback.
+rigidified class `O([a] − [−a])` one has `[2]^*` acting by `2`. On `E × E` with `L = O(0)`, the
+sum–difference map pulls `L ⊠ L` back to `L² ⊠ L²`, not to a diagonal pullback.
 
 ### Dependencies
 
@@ -561,8 +581,8 @@ pp. 3–5; Kass §3, Theorems 5–7, pp. 5–6, for the field case). The API is:
 `dualMap_id` and `dualMap_comp` contravariant); `AbelianScheme.bidual` (evaluation on the Poincaré
 bundle gives a group isomorphism `κ_A : A ≅ A^∨∨`, natural in `A`, with `f^∨∨ ∘ κ_A = κ_B ∘ f`);
 `AbelianScheme.dual_prod` (`(A ×_S B)^∨ ≅ A^∨ ×_S B^∨`, with Poincaré bundle the tensor product of the
-two pullbacks); `AbelianScheme.dual_field` (over `Spec K` this is JacobianChallenge Layer E's dual
-with the same normalized Poincaré bundle); `AbelianScheme.dual_elliptic` (for an elliptic curve it
+two pullbacks); `AbelianScheme.dual_field` (over `Spec K` this is the dual abelian variety of
+JacobianChallenge Layer E, with its Poincaré bundle rigidified along both zero sections); `AbelianScheme.dual_elliptic` (for an elliptic curve it
 is ModularCurves 2D's Picard dual).
 
 Prove the comparison `normalizedPoincare`: two pairs `(B, Q)` of an abelian scheme and a doubly
@@ -579,8 +599,8 @@ rigidifications. *Needs:* A0.2, A0.3, A1.2, A2.1; JacobianChallenge Layer E; Mod
 
 - `AbelianScheme.dual_zero`: the dual of the dimension-zero abelian scheme `S` is `S`, and its
   Poincaré bundle is `O_S` with the identity rigidifications.
-- `AbelianScheme.dual_field`: over `Spec K` the dual and the Poincaré bundle are those of
-  JacobianChallenge Layer E; a definition by all of `Pic_{A/S}` instead of `Pic⁰` would contain the
+- `AbelianScheme.dual_field`: over `Spec K` the dual is the dual abelian variety of JacobianChallenge
+  Layer E, with its doubly rigidified Poincaré bundle; a definition by all of `Pic_{A/S}` instead of `Pic⁰` would contain the
   Néron–Severi components and fail this.
 - `AbelianScheme.dual_product`: `(E × E′)^∨ ≅ E^∨ × E′^∨`, and the Poincaré bundle is the exterior
   tensor product of the two; a definition without rigidification would differ by a base line bundle.
@@ -617,9 +637,10 @@ with a multiplier prime to the characteristic, its trace, and Serre vanishing; t
 `deg φ_L = χ(L)²` computes the Euler characteristic of the Mumford bundle `(id × φ_L)^*P` in two
 ways, by the projection formula for the finite map `id × φ_L` (counting inseparable kernel length)
 and `χ(P) = (−1)^g`, and by Künneth after the shear `(x, y) ↦ (x, x + y)`; the family statements use coherent base change and the projection formula
-(Milne 2022, Theorem 13.3, p. 25; Faltings–Chai I.1.6, p. 4; Conrad–Feng §7.5, pp. 69–72). For
-`O(d·0)` on an elliptic curve `h⁰ = d` and `deg φ = d²`; on `E²` with the product of degrees `1` and
-`2`, `h⁰ = 2`, the top self-intersection is `4` and the polarization has degree `4`. *Needs:* A1.3,
+(Milne 2022, Theorem 13.3, p. 25; Faltings–Chai I.1.6, p. 4; Conrad–Feng, Theorem 7.2.1, p. 63, for
+`χ(P) = (−1)^g`, and §7.5, pp. 71–72). For `O(d·0)` on an elliptic curve `h⁰ = d` and `deg φ = d²`;
+on `E²` with the product of degrees `1` and `2`, `h⁰ = 2`, the top self-intersection is `4`, and
+`deg φ_L = 4`: `φ_L` is a polarization of degree `d = 2` in the sense of A2.5. *Needs:* A1.3,
 A2.3; SchemeAndStackFoundations SF.5 `grothendieck-riemann-roch`, `first-chern-class`;
 AlgebraicModuli Layers 1 and 7 (`perfect_proper_pushforward`).
 
@@ -627,8 +648,9 @@ AlgebraicModuli Layers 1 and 7 (`perfect_proper_pushforward`).
 
 Define `Polarization A` for an abelian scheme `A/S` as a homomorphism `λ : A → A^∨` such that for
 every geometric point `s̄` of `S` the fibre `λ_{s̄}` equals `φ_L` for an ample line bundle `L` on
-`A_{s̄}`. Its degree is `d ≥ 1` when `λ` is finite locally free of rank `d²` (by A2.4, `h⁰(L) = d` on
-every geometric fibre); `λ` is principal when `d = 1`. An isomorphism `(A, λ) → (B, μ)` is an
+`A_{s̄}`. It has degree `d ≥ 1` when `λ` is finite locally free of rank `d²` (by A2.4, `h⁰(L) = d` on
+every geometric fibre), so that its degree as an isogeny is `deg λ = d²`; this is Olsson's
+convention, while Milne calls `d²` the degree of the polarization. `λ` is principal when `d = 1`. An isomorphism `(A, λ) → (B, μ)` is an
 isomorphism `f : A → B` with `f^∨ ∘ μ ∘ f = λ`. The polarization is the datum `λ`; a representing line
 bundle exists only locally (A2.6) (Olsson, §§2.1.1–2.1.7, pp. 297–299; Milne, *Abelian varieties*
 (course notes, version 2.00, 2008), §11, p. 53; Faltings–Chai I.1.6, p. 4). The API is
@@ -797,7 +819,10 @@ group needs a chosen splitting, not only an isotropic subgroup.
 ### A3.1 Isogenies over a base
 
 Define `IsAbelianIsogeny f` for a homomorphism `f : A → B` of abelian schemes over `S`: the scheme
-morphism of `f` is finite, flat, locally of finite presentation and surjective. Its kernel `ker f`
+morphism of `f` is finite, flat and surjective; it is then of finite presentation, both schemes
+being of finite presentation over `S`. Over an affine base `S = Spec R` this is the condition of
+Tau Ceti's `TauCeti.GroupScheme.IsIsogeny`, which is stated for group schemes over `Spec R`; the
+target here is the same condition over an arbitrary base. Its kernel `ker f`
 (the scheme-theoretic kernel, Tau Ceti's group-scheme kernel) is then finite locally free, `f` is an
 fppf torsor under `ker f`, and the rank of `f` (Mathlib `Scheme.Hom.finrank`) equals the rank of
 `ker f` and is locally constant (Faltings–Chai I.1, p. 5). The API is `IsAbelianIsogeny.kernel` (the
@@ -805,10 +830,12 @@ finite locally free kernel with its closed immersion); `IsAbelianIsogeny.quotien
 homomorphism `g : A → C`, `g` factors uniquely through `f` iff it kills `ker f`; this is A3.3);
 `IsAbelianIsogeny.baseChange`; `IsAbelianIsogeny.comp_rank` (ranks multiply under composition); and
 `IsAbelianIsogeny.field_iff` (over `Spec K` it is equivalent to Tau Ceti's `IsIsogeny`, finite and
-surjective: a surjective homomorphism of smooth connected groups of equal dimension is flat). The
+surjective: a surjective homomorphism of smooth connected groups of equal dimension is flat; stated
+in `Suggested.lean` as `OverField.isAbelianIsogeny_iff`). The
 proof uses that a finite locally free surjection is an fppf cover; translation identifies
 `A ×_B A` with `A × ker f`; flatness over a field is homogeneity plus miracle flatness on a regular
-source. *Needs:* A0.1, A1.2; Tau Ceti `IsIsogeny`, `GroupScheme/Kernel`; SchemeAndStackFoundations SF.1.
+source. *Needs:* A0.1, A1.2; Tau Ceti `IsIsogeny`, `GroupScheme.IsIsogeny`, `GroupScheme/Kernel`
+(current library); SchemeAndStackFoundations SF.1.
 
 **Checks.**
 
@@ -832,10 +859,12 @@ reduces to the fibres. There `[n]` is finite because `[n]^*L ≅ L^{n²}` is amp
 then gives finite local freeness; étaleness is the differential `n` on `Lie(A)`. For (2), the
 closure of the torsion is a subgroup whose identity component `B` would have dimension `b < g`;
 boundedly many components would then contain the `ℓ^{2gr}` points of `A[ℓ^r]`, while each meets
-`A[ℓ^r]` in at most `ℓ^{2br}` points (Milne 2022, Theorem 20.7, pp. 43–44, and §8, pp. 13–14; Kass,
-Corollary 1, p. 3; Xie–Yuan §1.1, p. 3, and §5.3, p. 27). `[p]` is not étale on a positive-dimensional
-fibre in characteristic `p`; on the zero-dimensional object `[p]` is étale even in characteristic
-`p`. *Needs:* A1.1, A1.5, A2.4, A3.1; JacobianChallenge Layer E.
+`A[ℓ^r]` in at most `ℓ^{2br}` points (Milne 2022, Proposition 20.7, p. 44, and §8, Theorem 8.2 and
+its proof, pp. 13–14; Kass, Corollary 1, p. 3; Xie–Yuan §1.1, p. 3, and §5.3, p. 27). `[p]` is not
+étale on a positive-dimensional fibre in characteristic `p`; on the zero-dimensional object `[p]` is
+étale even in characteristic `p`. `Suggested.lean` states (1) as `mulBy_isAbelianIsogeny` and
+`etale_mulBy`, for the multiplication map `mulBy`, and (2) as `OverField.dense_primeToChar_torsion`.
+*Needs:* A1.1, A1.5, A2.4, A3.1; JacobianChallenge Layer E.
 
 ### A3.3 Quotients by finite locally free subgroups
 
@@ -870,9 +899,10 @@ finite flat kernel: no criterion using only prime-to-characteristic realizations
 `p`-denominators in characteristic `p` (the realization form of the criterion for `ℓ` invertible is
 A4.1). The proof
 uses `A/A[n] ≅ A` (A3.3) and the quotient property; uniqueness holds because `n · h = 0` makes `h`
-land in the finite group `B[n]`, and a smooth connected source maps trivially to it (Milne 2022, §12,
-pp. 22–24, and §19, pp. 40–42; Lipnowski–Tsimerman §4.5, pp. 21–22). On a supersingular `E`,
-vanishing on `E[p](K̄)` does not imply divisibility by `p`. *Needs:* A3.2, A3.3.
+land in the finite group `B[n]`, and a smooth connected source maps trivially to it (Milne 2022, §8,
+p. 12, and Lemmas 12.2 and 12.6, pp. 20–21; Lipnowski–Tsimerman §4.5, pp. 21–22). On a supersingular
+`E`, vanishing on `E[p](K̄)` does not imply divisibility by `p`. `Suggested.lean` states
+torsion-freeness over a field as `OverField.hom_torsionFree`. *Needs:* A3.2, A3.3.
 
 ### A3.5 Dual isogenies, Cartier-dual kernels and Weil pairings
 
@@ -899,7 +929,7 @@ commutator pairing on `K(L)` is strongly alternating (`e(x, x) = 1`, also in cha
 perfect when `L` is ample. A finite subgroup scheme `H ⊆ K(L)` together with a splitting of the theta
 extension over `H` (a level subgroup) is exactly the datum for descending `L` along `A → A/H`;
 isotropy alone does not choose the descent (Faltings–Chai I.1.6, p. 4, and the introduction to I.5,
-p. 25; Milne 2022, §13, Theorem 13.3, p. 25). The construction composes translated isomorphisms,
+p. 25; Milne 2022, Theorem 13.3(a), p. 25, for the order `χ(L)²` of `K(L)`). The construction composes translated isomorphisms,
 identifies the scalar kernel through `O_S ≅ π_*O_A` (A1.3), identifies the commutator with the
 biextension of A2.3, and descends invertible sheaves along the `H`-torsor. The API is
 `ThetaGroup.mk`, `ThetaGroup.commutator` (the strongly alternating pairing on `K(L)`),
@@ -911,9 +941,10 @@ biextension of A2.3, and descends invertible sheaves along the `H`-torsor. The A
 - `ThetaGroup.trivial`: for `L = O_A`, `K(L) = A` and the extension splits; `K(L)` is not finite when
   `g > 0`, so `O_A` is not ample.
 - `ThetaGroup.elliptic_degree_two`: for a line bundle of degree two on `E`, `K(L) = E[2]` of rank `4`.
-- `ThetaGroup.characteristic_two`: a skew self-duality of a finite group scheme in characteristic `2`
-  (for instance on `α₂ × α₂`) need not be strongly alternating; the commutator of a theta group is,
-  so the two notions are distinct.
+- `ThetaGroup.strongly_alternating`: on `(ℤ/2)²` over `ℚ` the `μ₂`-valued pairing
+  `((a₁, a₂), (b₁, b₂)) ↦ (−1)^{a₁b₁ + a₂b₂}` is skew-symmetric and perfect, but `e(x, x) = −1` for
+  `x = (1, 0)`; the commutator pairing of a theta group always has `e(x, x) = 1`, so a definition
+  asking only for skew symmetry fails.
 
 ### A3.7 Polarized Weil pairings
 
@@ -1020,7 +1051,7 @@ even-cardinality subsets of `{1, …, 6}` modulo the full set, `𝔽₂`-symplec
 `S₆ ≅ Sp₄(𝔽₂)`. The proof represents each difference by its divisor class, uses the hyperelliptic
 functions `x − x(w_i)` to show `2[w_i − w_j] = 0`, shows distinct pairs give distinct classes, counts
 `16`, and computes the pairing with disjoint representatives (Boxer–Calegari–Gee–Pilloni,
-*Modularity theorems for abelian surfaces*, §8.1.1, pp. 181–182, arXiv v1). Two disjoint pairs pair to
+*Modularity theorems for abelian surfaces*, §8.1 and equation (8.1.1), p. 180, arXiv v1). Two disjoint pairs pair to
 `+1`; pairs with one common point pair to `−1`. *Needs:* A3.7; JacobianChallenge Layers D and E.
 
 ### Examples
@@ -1056,7 +1087,7 @@ invertible on `S`: the inverse system of finite étale group schemes `A[ℓ^r]` 
 Tau Ceti's `TateModule ℓ (A(s̄))`, the inverse limit of the `ℓ^r`-torsion of the group of geometric
 points, with the continuous action of the étale fundamental group; over a field `K` it is
 `T_ℓ A = TateModule ℓ (A(K^{sep}))` with its continuous `Gal(K^{sep}/K)`-action, and
-`V_ℓ A = T_ℓ A ⊗ ℚ_ℓ` (Milne 2022, §18, pp. 38–40; Stanford VIGRE notes *Complex theory of abelian
+`V_ℓ A = T_ℓ A ⊗ ℚ_ℓ` (Milne 2022, Remark 8.4, p. 14; Stanford VIGRE notes *Complex theory of abelian
 varieties*, §1.2, pp. 3–4, for the complex case). The API is `AbelianTate.mk`; `AbelianTate.rank`
 (free of rank `2g`, from `TateModule.free_of_natCard` and `#A[ℓ^r](K^{sep}) = ℓ^{2gr}`);
 `AbelianTate.modPow` (`T_ℓ A / ℓ^r ≅ A[ℓ^r]`, compatibly with transitions); `AbelianTate.map`
@@ -1079,7 +1110,7 @@ pairings `e_{ℓ^r}` of A3.5, with `ℤ_ℓ(1) = lim μ_{ℓ^r}`); `AbelianTate.
 ### A4.2 The universal vector extension
 
 Define `AbelianVectorExtension A` for an abelian scheme `π : A → S`: with `V(F) = Spec_S Sym(F^∨)`
-the vector group of a finite locally free `O_S`-module `F` (AlgebraicVectorBundles L2A), the canonical
+the vector group of a finite locally free `O_S`-module `F` (AlgebraicVectorBundles L2B), the canonical
 extension
 ```text
 0 → V(ω_{A^∨}) → E(A) → A → 0
@@ -1101,7 +1132,7 @@ is `AbelianVectorExtension.mk`, `AbelianVectorExtension.pushout` (the universal 
 `AbelianVectorExtension.baseChange`, `AbelianVectorExtension.invariantForms`
 (`ω_{E(A)} ≅ H¹_dR(A/S)` with the Hodge sequence) and `AbelianVectorExtension.ext` (maps of extensions
 are determined by their maps on vector kernels and on `A`). *Needs:* A1.3, A2.2;
-AlgebraicVectorBundles L0B, L2A; AlgebraicModuli Layer 7 (`perfect_proper_pushforward`);
+AlgebraicVectorBundles L0B, L2B; AlgebraicModuli Layer 7 (`perfect_proper_pushforward`);
 SchemeAndStackFoundations SF.1, SF.2 `qcoh-higher-direct-images`.
 
 **Checks.**
@@ -1380,7 +1411,7 @@ ranks of `H^n_dR` are `1, 4, 6, 4, 1`.
 ### Dependencies
 
 A0–A3; Tau Ceti `TateModule`; ModularCurves 0B, 7E, 7F; JacobianChallenge Layer D; AlgebraicVectorBundles
-L0B, L2A; AlgebraicModuli Layer 7; SchemeAndStackFoundations SF.1–SF.4; ComplexComparisonPartII C5.1;
+L0B, L2B; AlgebraicModuli Layer 7; SchemeAndStackFoundations SF.1–SF.4; ComplexComparisonPartII C5.1;
 Mathlib `DividedPowers`.
 
 <a id="a5"></a>
@@ -1424,27 +1455,35 @@ A4.1; Mathlib `IsZLattice`; Tau Ceti `lieExp`, `isLocalDiffeomorphAt_lieExp_zero
 
 ### A5.2 Riemann forms
 
-Define `RiemannForm Λ J` for a finite-dimensional real vector space `V` with a full lattice `Λ`
-(`IsZLattice`) and a complex structure `J` (Tau Ceti `AlmostComplexStructure`): a real bilinear form
-`E` on `V` that is alternating, takes integer values on `Λ × Λ`, is `J`-invariant
-(`E(Jv, Jw) = E(v, w)`), and is positive in the sense `E(Jv, v) > 0` for `v ≠ 0`. Its Hermitian form,
-linear in the first variable, is `H(v, w) = E(Jv, w) + i E(v, w)`, so `E = Im H`. Its type is given by the
-elementary divisors of `E` on `Λ` (A5.4); `E` is principal when the induced map `Λ → Hom(Λ, ℤ)` is an
-isomorphism (unimodular). The associated homological Hodge structure has weight `−1` and types
-`(−1, 0)`, `(0, −1)`, with `H^{−1,0}` the `+i`-eigenspace of `J`; its Weil operator is `C = −J` and the
-polarizing form in Tau Ceti's convention is `Q = −E`, which satisfies `Q(Cv, v) = E(Jv, v) > 0`. The
-weight-one Riemann criterion is Tau Ceti's
-`isPolarization_of_weilOperator_invariant_on_realPoints_of_pos`, applied to the dual structure
-`HodgeStructureOn.dual` (Stanford VIGRE notes, Definitions 1.13–1.14 and Lemma 1.16, pp. 5–6;
-Faltings–Chai I.6, pp. 29–30, for the Siegel cone). The API is `RiemannForm.hermitian`
-(with `hermitian_formula`), `RiemannForm.integralPairing` (the `ℤ`-bilinear pairing on `Λ`),
-`RiemannForm.IsPrincipal`, `RiemannForm.pullback` (along an injective complex-linear map carrying
-lattice into lattice), `RiemannForm.scale` (a positive integer multiple is again a Riemann form; this
-does not preserve principality), `RiemannForm.hodgeDual` (dualize the homological structure to weight
-one, transporting the sign `Q = −E`) and `RiemannForm.ext` (two Riemann forms with the same real form
-are equal). *Needs:* A5.1; Mathlib `IsZLattice`; Tau Ceti `AlmostComplexStructure`,
-`TauCeti.Hodge.HodgeStructureOn`, `HodgeStructureOn.dual`, `IsPolarization`, `Polarization`,
-`isPolarization_of_weilOperator_invariant_on_realPoints_of_pos`.
+A Riemann form is Tau Ceti's `TauCeti.AlmostComplexStructure.IsRiemannForm J E` (current library): for
+an integral module `Λ` with an almost complex structure `J` on its realification `V = ℝ ⊗ Λ`, an
+integral bilinear form `E` on `Λ` that is alternating, whose real extension is `J`-invariant
+(`E(Jv, Jw) = E(v, w)`), and which is positive in the sense `E(Jv, v) > 0` for `v ≠ 0`. On a free `Λ`
+these are exactly the forms polarizing Tau Ceti's effective weight-one structure
+`latticeHodgeStructure` of `J`, whose Weil operator is `J` (`isRiemannForm_iff_isPolarization`,
+`IsRiemannForm.polarization`). For a complex torus `V/Λ` it is applied with `Λ` the period lattice
+(Mathlib `IsZLattice`) and `J` multiplication by `i`. This roadmap adds the following API on Tau
+Ceti's predicate. The Hermitian form `RiemannForm.hermitian`, linear in the first variable, is
+`H(v, w) = E(Jv, w) + i E(v, w)`, with `RiemannForm.im_hermitian` (`E = Im H`) and
+`RiemannForm.hermitian_self_pos` (`H(v, v) = E(Jv, v) > 0` for `v ≠ 0`). The type of `E` is given by
+its elementary divisors on `Λ` (A5.4); `RiemannForm.IsPrincipal`: `E` is principal when the induced
+map `Λ → Hom(Λ, ℤ)` is an isomorphism, that is when `E` is a perfect pairing (Mathlib
+`LinearMap.IsPerfPair`, unimodular). `RiemannForm.scale`: a positive integer multiple of a Riemann
+form is a Riemann form, and this does not preserve principality. `RiemannForm.pullback`: along an
+injective complex-linear map carrying lattice into lattice. `RiemannForm.homological`: the
+homological Hodge structure on `Λ = H₁` has weight `−1` and types `(−1, 0)`, `(0, −1)`, with
+`H^{−1,0}` the `+i`-eigenspace of `J`; its Weil operator is `C = −J`, and the polarizing form in Tau
+Ceti's sign convention `0 < Q(Cx, x)` is `Q = −E`, which satisfies `Q(Cv, v) = E(Jv, v) > 0`. This
+differs from `latticeHodgeStructure`, which puts on the same lattice the weight-one structure with
+Weil operator `J` and polarizing form `E`. `RiemannForm.hodgeDual`: the cohomological structure on
+`H¹ = Hom(Λ, ℤ)` is the weight-one dual `HodgeStructureOn.dual` of the homological one, transporting
+the sign `Q = −E`, and the weight-one Riemann criterion
+`isPolarization_of_weilOperator_invariant_on_realPoints_of_pos` applies to it (Stanford VIGRE notes,
+Definitions 1.13–1.14 and Lemma 1.16, pp. 5–6; Faltings–Chai I.6, pp. 29–30, for the Siegel cone).
+*Needs:* A5.1; Mathlib `IsZLattice`, `LinearMap.IsPerfPair`; Tau Ceti `IsRiemannForm`,
+`latticeHodgeStructure`, `isRiemannForm_iff_isPolarization` (current library),
+`AlmostComplexStructure`, `TauCeti.Hodge.HodgeStructureOn`, `HodgeStructureOn.dual`, `IsPolarization`,
+`Polarization`, `isPolarization_of_weilOperator_invariant_on_realPoints_of_pos`.
 
 **Checks.**
 
@@ -1493,8 +1532,12 @@ constant étale group of elementary divisors. The proof of (1) is the alternatin
 theorem over a principal ideal domain; (2) combines the Pfaffian identity with A2.4 and the lattice
 cokernel `Λ^*/E(Λ) ≅ ker λ`; (3) passes to the finite étale kernel locally and uses A3.7 (Stanford VIGRE
 notes, §1, Definitions 1.13–1.14 and Theorems 1.17–1.18, pp. 5–8; Faltings–Chai I.1.6–1.8, pp. 4–5).
-Type `(1, 2)` for `g = 2` has `d = 2`, `deg λ = 4` and `(L²) = 4`; for `g = 0`, `d = 1`. *Needs:* A2.4,
-A3.7, A5.2, A5.3 for (2); Mathlib Smith normal form for (1).
+Type `(1, 2)` for `g = 2` has `d = 2`, `deg λ = 4` and `(L²) = 4`; for `g = 0`, `d = 1`. Over a field
+the analogue of (1), with every `d_i = 1`, is Tau Ceti's symplectic basis theorem
+`LinearMap.BilinForm.IsAlt.exists_basis_toMatrix_eq_J` (current library); the integral statement with
+elementary divisors is the target here, stated in `Suggested.lean` as
+`alternating_elementaryDivisors`. *Needs:* A2.4, A3.7, A5.2, A5.3 for (2); Mathlib Smith normal form
+for (1).
 
 ### A5.5 The polarized Hodge equivalence
 
@@ -1505,16 +1548,18 @@ and integral Hodge morphisms (with the pullback condition when polarizations are
 Principal polarizations correspond to unimodular forms. On cohomology the equivalence is contravariant
 of weight one: `Hom(A, B) ≅ Hom_{HS}(H¹(B, ℤ), H¹(A, ℤ))`. The Hodge structures and polarizations are Tau
 Ceti's `HodgeStructure` and `Polarization`; the content here is the geometric realization and the
-weight and sign adapter of A5.2, in which `E` corresponds to `Q = −E` with `C = −J`. The proof uses the
-weight-one complex-structure equivalence on the real vector space with the lattice as extra data,
-constructs the torus, algebraizes it by A5.3, identifies morphisms by linear covering lifts and A5.1,
+weight and sign adapter of A5.2, in which `E` corresponds to `Q = −E` with `C = −J`. The proof uses
+Tau Ceti's equivalence between complex structures on `ℝ ⊗ Λ` and effective weight-one Hodge
+structures on `Λ` (`latticeHodgeStructureEquiv`) and `isRiemannForm_iff_isPolarization` (current
+library), transported to the homological weight `−1` by the adapter of A5.2, constructs the torus, algebraizes it by A5.3, identifies morphisms by linear covering lifts and A5.1,
 and dualizes `H₁` to `H¹` with its sign (Stanford VIGRE notes, §§1.2–1.3, pp. 3–8; Charles, *Birational
 boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate
 conjecture*, proof of Lemma 3.15, p. 516, for the Hodge-class description of Hom, which the integral
 contravariant statement refines). For `A = B = E` without complex multiplication the integral Hodge
 endomorphism ring is `ℤ`; a rational Hodge morphism is a quasi-homomorphism and need not be integral.
 *Needs:* A5.1, A5.2, A5.3; Tau Ceti `HodgeStructure`, `HodgeStructureOn.dual`, `IsPolarization`,
-`Polarization`, `AlmostComplexStructure`.
+`Polarization`, `AlmostComplexStructure`, `latticeHodgeStructureEquiv` and `IsRiemannForm` (current
+library).
 
 ### A5.6 Analytic families and the algebraic comparison
 
@@ -1543,8 +1588,9 @@ Prove `realizationConventions`. For a polarized abelian variety over a field and
 characteristic and to the polarization degree: `H¹_et(A_{K̄}, ℚ_ℓ) = V_ℓ(A)^*`; the polarization
 identifies `V_ℓ(A) ≅ H¹_et(A_{K̄}, ℚ_ℓ)(1)`, and the cohomological similitude multiplier is `χ_ℓ^{-1}`.
 Over `ℂ`, `H₁ = Λ`, `H¹ = Λ^*`, and the de Rham comparison carries invariant differentials to `Fil¹` in
-cohomological weight one; Tau Ceti's homological convention has Weil operator `−J` and polarizing form
-`−E`, and cohomological duality transports this sign together with the weight. The Hodge–Tate and Sen
+cohomological weight one; the homological convention of A5.2 has Weil operator `−J` and polarizing
+form `−E` (Tau Ceti's `latticeHodgeStructure` puts weight one, Weil operator `J` and form `E` on the
+lattice instead), and cohomological duality transports this sign together with the weight. The Hodge–Tate and Sen
 weight conventions are stated for their consumers and are not derived from the complex comparison. The
 proof dualizes the Weil pairing (A3.7, A4.1) and tracks the cyclotomic twist; over `ℂ` it identifies
 singular homology with the exponential lattice and uses the proper de Rham comparison on the Hodge
@@ -1559,14 +1605,16 @@ family `(ℂ^g × H_g)/ℤ^{2g}` with fibre `X_Ω = ℂ^g/(ℤ^g + Ωℤ^g)` ove
 alternating form, `E(Ωe_i, e_j) = δ_{ij}` and `E` zero on `ℤ^g` and on `Ωℤ^g`, with
 `H(z, w) = zᵀ (Im Ω)^{-1} w̄`, is a principal polarization of every fibre. `Sp_{2g}(ℤ)` acts by
 `Ω ↦ (AΩ + B)(CΩ + D)^{-1}` and on fibres by `z ↦ (CΩ + D)^{-T} z`, in the column convention for the
-lattice `ℤ^g + Ωℤ^g`; integral monodromy is this lattice action. Full level `N` is a symplectic
-trivialization of the lattice modulo `N` with its `μ_N`-valued Weil pairing; for `N ≥ 3` it removes
-stabilizers. Nonprincipal types use their own lattice automorphism groups (Faltings–Chai I.6,
+lattice `ℤ^g + Ωℤ^g`; integral monodromy is this lattice action. A symplectic level-`N` structure, a
+full level-`N` structure (A3.8) in which the matrix of the Weil pairing is the standard symplectic
+matrix times a primitive `N`-th root of unity, is on this family a symplectic trivialization of the
+lattice modulo `N`; for `N ≥ 3` it removes stabilizers. Nonprincipal types use their own lattice automorphism groups (Faltings–Chai I.6,
 pp. 29–30). The construction checks that the lattice action on the total space is properly
 discontinuous, builds local quotient charts and the holomorphic zero section, computes the action on
 periods and fibre coordinates (checking the transpose), and identifies torsion with the lattice modulo
 `N`. The API is `SiegelFamily.fibre`, `SiegelFamily.polarization`, `SiegelFamily.symplecticAction`
-(the compatible period, lattice and fibre actions) and `SiegelFamily.level`. *Needs:* A3.7, A3.8, A5.2,
+(the compatible period, lattice and fibre actions) and `SiegelFamily.level`. `Suggested.lean` states
+the period space as `SiegelUpperHalfSpace`, with `siegelAction` and `siegelAction_mem`. *Needs:* A3.7, A3.8, A5.2,
 A5.6; Mathlib `Matrix.symplecticGroup`, `Matrix.PosDef`.
 
 **Checks.**
@@ -1584,12 +1632,12 @@ A5.6; Mathlib `Matrix.symplecticGroup`, `Matrix.PosDef`.
 For `Λ = ℤ + iℤ` and `H(v, w) = v w̄`, the Riemann form is principal of type `(1)`, `E(i, 1) = 1`, and the
 corresponding elliptic curve has `j = 1728`. For `g = 2` and `Ω = diag(τ₁, τ₂)` the fibre is
 `E_{τ₁} × E_{τ₂}` with the product polarization. For type `(1, 2)` on `ℂ²` with lattice `D ℤ² + Ω ℤ²`,
-`D = diag(1, 2)`, the polarization has degree `4`.
+`D = diag(1, 2)`, the polarization has degree `d = 2` and `deg λ = 4`.
 
 ### Dependencies
 
 A2–A4; Mathlib `IsZLattice`, `Matrix.symplecticGroup`; Tau Ceti Hodge library, `AlmostComplexStructure`,
-`lieExp`; AlgebraicModuli §§7.10.1, 7.10.3; ComplexComparisonPartII C3.3, C4.2, C4.4, C5.1, C5.2.
+`IsRiemannForm` and `latticeHodgeStructure` (current library), `lieExp`; AlgebraicModuli §§7.10.1, 7.10.3; ComplexComparisonPartII C3.3, C4.2, C4.4, C5.1, C5.2.
 
 <a id="a6"></a>
 
@@ -1614,7 +1662,7 @@ dimension, `deg(f ≫ h) = deg f · deg h`: a composite of equal-dimensional map
 both factors are); `deg_mulBy` (`deg [n] = |n|^{2g}`, with `0⁰ = 1` in dimension zero, from A3.2);
 `isIsogeny_iff_deg_ne_zero` (for equal dimensions); `deg_dual` (`deg f^∨ = deg f`, from A3.5);
 `deg_functionField` (the comparison with the function-field degree, through SchemeAndStackFoundations
-`proper-pushforward`); `degree_dimension_zero` (every endomorphism of a zero-dimensional abelian variety
+`proper-pushforward`); `deg_dimension_zero` (every endomorphism of a zero-dimensional abelian variety
 has degree one); and `End.degRat`, the extension to `End⁰(A)` by `deg(q) = deg(nq)/n^{2g}` for any `n > 0`
 with `nq ∈ End A`, independent of `n` because `End A` is torsion-free (A3.4), and nonzero exactly on
 units of `End⁰(A)`. An endomorphism with finite kernel has a quasi-inverse through the quotient
@@ -1656,7 +1704,8 @@ a group scheme, hence smooth over the perfect field `K̄` (Stacks, Lemma 39.8.4,
 characteristic zero Lemma 39.8.2, tag 047N); so `f(A)` is geometrically integral and proper, an abelian
 variety; `A → f(A)` is surjective between smooth varieties and flat by A3.1. No cited abelian-variety
 source states this over imperfect fields; the argument above is the proof to be formalized. Over an
-arbitrary base a connected kernel need not be smooth, and nothing is asserted there. *Needs:* A3.1;
+arbitrary base a connected kernel need not be smooth, and nothing is asserted there.
+`Suggested.lean` states the factorization as `OverField.exists_abelianImage`. *Needs:* A3.1;
 JacobianChallenge Layer E; Tau Ceti `ClosedSubgroupScheme`.
 
 ### A6.4 Simple abelian varieties
@@ -1673,7 +1722,8 @@ definition and p. 43 for the division algebra; the argument there through the co
 the kernel needs geometric reducedness over an imperfect field, which A6.3 avoids). A supersingular
 elliptic curve over `𝔽̄_p` has `End⁰` the quaternion algebra over `ℚ` ramified at `p` and `∞`, a division
 algebra; `E × E` is not simple (the diagonal is an abelian subvariety) and `End⁰(E × E) = M₂(End⁰ E)` is
-not a division algebra. *Needs:* A3.1, A3.3, A3.4, A6.3; Tau Ceti `prod`, `fst`, `snd`.
+not a division algebra. `Suggested.lean` states `IsSimple` with `isIsogeny_of_isSimple` and
+`isUnit_of_isSimple`. *Needs:* A3.1, A3.3, A3.4, A6.3; Tau Ceti `prod`, `fst`, `snd`.
 
 **Checks.**
 
@@ -1693,7 +1743,7 @@ fields included. The proof chooses an ample `L` over `K` (A2.8(1) over a field);
 `i : B → A`, `λ_B = i^∨ φ_L i` is a polarization of `B`, so `r = λ_B^{-1} i^∨ φ_L ∈ Hom⁰(A, B)` satisfies
 `r i = 1`; an integer multiple of the projector `1 − i r` has an abelian image `B′` by A6.3; then `B ∩ B′`
 is finite and the sum is an isogeny; induct on dimension; uniqueness follows from A6.4
-(Conrad–Feng, Theorem 7.6.1, pp. 73–74; Milne 2022, Theorem 12.1, pp. 22–23). For non-isogenous elliptic
+(Conrad–Feng, Theorem 7.6.1, pp. 73–74; Milne 2022, Proposition 12.1, p. 19). For non-isogenous elliptic
 curves `E`, `E′`, the abelian subvarieties of `E × E′` are `0`, `E × 0`, `0 × E′` and `E × E′`; for the
 diagonal of `E × E` the antidiagonal is a complement and the addition map has kernel of order `4`.
 *Needs:* A2.3, A2.5, A2.8, A3.4, A6.3, A6.4.
@@ -1765,7 +1815,9 @@ conventions `δ(α − X)` and `δ(X − α)` agree. The proof splits `G = c ∏
 uses `δ(c · 1) = c^d` and multiplicativity, and replaces `δ(α − b_j)` by `(−1)^d P_α(b_j)`; homogeneity,
 normalization and scalar extension are hypotheses, which a merely multiplicative function lacks
 (Milne 2008, Lemma 10.22, p. 51). For `E = M₂(F)` and `δ = det`, `det G(M) = ∏ G(a_i)` over the
-eigenvalues. *Needs:* Mathlib `Padic`, `PadicAlgCl`, `Polynomial.roots`, `Matrix.charpoly`.
+eigenvalues. `Suggested.lean` states the first lemma as `eq_of_padicNorm_roots_products` and the
+determinant case of the second as `det_aeval_eq_prod_roots`. *Needs:* Mathlib `Padic`, `PadicAlgCl`,
+`Polynomial.roots`, `Matrix.charpoly`.
 
 ### A6.10 The characteristic polynomial and the trace
 
@@ -1819,8 +1871,8 @@ quadratic, `f = 2 = 2g` and `deg α = Nm(α)`. *Needs:* A6.8, A6.11.
 ### A6.13 Degrees of polarized isogenies
 
 Prove `polarizedIsogenyDegree`. For an isogeny `α : A → B` and a polarization `λ′` of `B`,
-`α^*λ′ = α^∨ ∘ λ′ ∘ α` is a polarization of `A` and `deg(α^*λ′) = deg(λ′) · deg(α)²`; the degree of a
-polarization is a square, `deg φ_L = χ(L)²`, and principal polarizations have degree one. The proof
+`α^*λ′ = α^∨ ∘ λ′ ∘ α` is a polarization of `A` and `deg(α^*λ′) = deg(λ′) · deg(α)²`; the isogeny
+degree of a polarization is a square, `deg φ_L = χ(L)²`, and principal polarizations have degree one. The proof
 writes `λ′ = φ_{L′}` over `K̄`, uses `α^∨ φ_{L′} α = φ_{α^*L′}` (A2.3) with `α^*L′` ample since `α` is finite,
 and `deg α^∨ = deg α` (A6.1) (Milne 2008, Remark 13.9, p. 60, and Theorem 11.1, p. 54). For the principal
 polarization of `E` and `α = [n]`, `deg([n]^*λ) = n⁴ = deg(n²λ)`. *Needs:* A2.3, A2.4, A2.5, A6.1.
@@ -1841,7 +1893,7 @@ divisor (the image of `α` is a positive-dimensional abelian subvariety meeting 
 positive by A2.7; clearing denominators and polarizing gives the form statement, and positivity over `ℚ`
 implies it over `ℝ` because the radical of a positive semidefinite rational form is rational (Milne 2008,
 Theorem 14.3, p. 62, for the statement and formula; Milne 2022, Theorem 17.3 and Lemma 17.4,
-pp. 35–37, for an alternative proof through exterior étale cohomology; Conrad, *Polarizations*,
+pp. 35–36, for an alternative proof through exterior étale cohomology; Conrad, *Polarizations*,
 Theorem 3.4, pp. 9–10). For an elliptic curve with principal `λ`, `α^† = α̂` and `Tr(αα^†) = 2 deg α > 0`; for
 `End E = ℤ[i]`, `Tr((a + bi)(a − bi)) = 2(a² + b²)`. *Needs:* A2.3, A2.4, A2.7, A3.9, A6.3, A6.10, A6.13.
 
@@ -1888,22 +1940,27 @@ A6.14.
 
 Prove `polarizedAutomorphisms`. (1) For a polarized abelian variety `(A, λ)` over a field, `Aut(A, λ)` is
 finite, and over an algebraically closed field the polarization-preserving automorphism group scheme is
-finite étale. (2) If `n ≥ 3` is not divisible by the characteristic and an automorphism of `(A, λ)` is the
-identity on `A[n]`, it is the identity. (3) For a polarized abelian scheme over any base the
+finite étale. (2) If `n ≥ 3` and an automorphism of `(A, λ)` is the identity on the finite group scheme
+`A[n]`, it is the identity; when `n` is not divisible by the characteristic, `A[n]` is étale and it
+suffices that the automorphism fix the points `A[n](K̄)`. (3) For a polarized abelian scheme over any base the
 polarization-preserving Isom functor is unramified, and an automorphism that is the identity on a full
 level-`N` structure (A3.8), `N ≥ 3` invertible, is the identity; so full level `N ≥ 3` is a rigid level
-structure in the sense of AlgebraicModuli `rigidLevelStructure`. In (2) the condition on the
-characteristic is necessary: for the supersingular curve `y² + y = x³` over `𝔽̄₂`, `E[4](𝔽̄₂) = 0` while
-`(x, y) ↦ (ζx, y)` with `ζ³ = 1, ζ ≠ 1` is a nontrivial automorphism preserving the principal
-polarization. The proof of (1): `α ∈ Aut(A, λ)` iff `α^†α = 1`, so `Tr(α^†α) = 2g` and `α` lies in the
+structure in the sense of AlgebraicModuli `rigidLevelStructure`. The test on points in (2) needs `n`
+prime to the characteristic: for the supersingular curve `y² + y = x³` over `𝔽̄₂`, `E[4](𝔽̄₂) = 0`, so
+every automorphism fixes the points of `E[4]`, while `α : (x, y) ↦ (ζx, y)` with `ζ³ = 1, ζ ≠ 1` is a
+nontrivial automorphism preserving the principal polarization; it is not the identity on the group
+scheme `E[4]`, since `deg(α − 1) = 3`, while an endomorphism killing `E[4]` is divisible by `4` (A3.4)
+and has degree divisible by `16`. The proof of (1): `α ∈ Aut(A, λ)` iff `α^†α = 1`, so `Tr(α^†α) = 2g` and `α` lies in the
 intersection of the lattice `End A` (A6.7) with the compact ellipsoid `{x ∈ End⁰(A)_ℝ : Tr(x^†x) = 2g}`
-(A6.14), which is finite. For (2): `α − 1` kills `A[n]`, which is étale, so `α − 1 = nβ` with `β ∈ End A` (A3.4);
+(A6.14), which is finite. For (2): `α − 1` kills `A[n]`, so `α − 1 = nβ` with `β ∈ End A` (A3.4);
 the eigenvalues of `α` (A6.11) are roots of unity of the form `1 + nπ` with `π` an algebraic integer, hence
 equal to `1` by `eq_one_of_root_of_unity`; so `β` is nilpotent; `β^† = (α^{-1} − 1)/n` commutes with `β`, so
 `β^†β` is nilpotent and `Tr(β^†β) = 0`, and positivity gives `β = 0`. (3) follows from (2) on geometric
 fibres and A1.2 (Milne 2008, Proposition 14.4, p. 62, and Lemma 14.5, p. 63; Olsson, Theorem 2.1.11 and
 its proof, pp. 301–302; Kass, Theorem 8, p. 7). In Milne's proof of (1) the compact set must be the
-ellipsoid, not `End(A) ⊗ ℝ`, and in (2) the nilpotence of `β^†β` uses that `β` and `β^†` commute. For `E` with
+ellipsoid, not `End(A) ⊗ ℝ`, and in (2) the nilpotence of `β^†β` uses that `β` and `β^†` commute;
+Milne states (2) on the points `A[n](k̄)` for every `n ≥ 3`, a form that needs `n` prime to the
+characteristic. For `E` with
 `j = 1728` over `ℂ`, `Aut(E, λ) = μ₄` and `[i]` acts nontrivially on `E[3]`. *Needs:* A1.2, A3.4, A3.8, A6.7,
 A6.11, A6.14; AlgebraicModuli Layer 5 §5.2, Layer 7 §7.6.3 (`polarisedIsomScheme`).
 
@@ -1918,7 +1975,8 @@ totally positive units of the real suborder modulo norms `u ū`. These examples 
 endomorphism order and an existing `λ₀`. The proof identifies `Hom(A, A^∨)` with `End A` through `λ₀^{-1}`,
 transports positivity (A6.15) and pullback (A6.13); degree one is the unit condition (Lipnowski–Tsimerman,
 Proposition 4.11 and Examples 4.12–4.13, pp. 19–20). On `E²` the identity matrix gives the product
-polarization; `2I` is ample of degree `16` and not principal. *Needs:* A6.13, A6.15, A6.17.
+polarization; `2I` gives the polarization `2λ₀`, of degree `d = 4` with `deg 2λ₀ = 16`, which is
+not principal. *Needs:* A6.13, A6.15, A6.17.
 
 ### A6.20 Full-level descent of homomorphisms
 
@@ -2134,7 +2192,7 @@ Prove `weilRestrictionAbelian`. (1) For `S′ → S` finite étale of constant d
 not proper. The proof of (1): étale locally `S′ ≅ ⊔_{i=1}^d S`, so `Res(A) = ∏ A_i`; properness, smoothness,
 geometric connectedness and the group structure descend along the étale cover; `Res(A)` is an algebraic
 space (A6.30) and étale locally an abelian scheme, hence an abelian scheme by A2.1. For (2), `Res_{D/K}(X_D)`
-is the first jet space (Poonen, Example 4.6.8, p. 112; Stacks, Lemma 97.11.2, tag 05YC). For `L/K` finite
+is the first jet space (Poonen, Example 4.6.8, p. 112). For `L/K` finite
 separable, `Res_{L/K}(A)` is an abelian variety of dimension `[L : K] dim A`. *Needs:* A1.1, A2.1, A6.30.
 
 ### A6.33 The Tate module of a Weil restriction
@@ -2180,13 +2238,13 @@ SchemeAndStackFoundations SF.1 `galois-descent-quasi-projective`.
 
 Define `CurveGenerated C c̃₀` for a geometrically integral projective curve `C ⊆ A` over an algebraically
 closed field, with normalization `C̃` and a point `c̃₀ ∈ C̃` over `c₀ ∈ C`: the image (A6.3) of the homomorphism
-`Jac(C̃) → A` induced by `C̃ → A` and the base point `c̃₀` (JacobianChallenge Layer D's Albanese property,
-Tau Ceti `IsAlbanese`). It is the smallest abelian subvariety containing `C − c₀`, independent of `c₀`, and
+`Jac(C̃) → A` induced by `C̃ → A` and the base point `c̃₀` (JacobianChallenge Layer F's Albanese property,
+Tau Ceti `IsAlbanese`, current library). It is the smallest abelian subvariety containing `C − c₀`, independent of `c₀`, and
 `C` generates `A` iff the map is surjective; the translate by `c₀` matters, since `C` need not contain zero
 (Caro–Pasten, *A Chabauty–Coleman bound for surfaces*, §5.1, p. 16). The API is `CurveGenerated.mk`,
 `CurveGenerated.minimal` (factorization through any abelian subvariety containing `C − c₀`),
 `CurveGenerated.basepoint` and `CurveGenerated.generates_iff`. *Needs:* A3.1, A6.3; JacobianChallenge
-Layers D and E; Tau Ceti `IsAlbanese`.
+Layers D, E and F; Tau Ceti `IsAlbanese` (current library).
 
 **Checks.**
 
@@ -2269,7 +2327,7 @@ to isomorphism. For `L/K` quadratic and `E/K`, `Res_{L/K}(E_L) ∼ E × E^χ` by
 ### Dependencies
 
 A0–A5; Tau Ceti `AbelianVariety`, `End`, `IsIsogeny`, `prod`, `ClosedSubgroupScheme`, `IsAlbanese`,
-`leftComp`, `rightComp`; JacobianChallenge Layers D and E; AlgebraicModuli Layers 1–3, 5 and 7;
+`leftComp`, `rightComp`; JacobianChallenge Layers D, E and F; AlgebraicModuli Layers 1–3, 5 and 7;
 SchemeAndStackFoundations SF.1, SF.5; AlgebraicVectorBundles L0C; Mathlib polynomial, matrix,
 semisimplicity and `p`-adic libraries.
 
