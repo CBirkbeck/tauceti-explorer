@@ -277,11 +277,15 @@ theorem ellipsoid_smul (T : E ≃L[ℝ] E) (c : ℝ) (hc : 0 < c) :
 theorem ellipsoid_eq_iff (T T' : E ≃L[ℝ] E) :
     ellipsoid T = ellipsoid T' ↔ ∀ x, ‖T.symm (T' x)‖ = ‖x‖ := by sorry
 
-/-- Quadratic description: `E(T) = {x | ⟪x, P x⟫ ≤ 1}` with `P = (T Tᴴ)⁻¹`. -/
+/-- Quadratic description: `E(T) = {x | ⟪x, P x⟫ ≤ 1}` with `P = (T Tᴴ)⁻¹`, and conversely every
+positive definite self-adjoint `P` arises (from `T = P^{-1/2}`). -/
 theorem ellipsoid_eq_quadratic (T : E ≃L[ℝ] E) :
-    ∃ P : E →L[ℝ] E, (∀ x y, inner ℝ (P x) y = inner ℝ x (P y)) ∧
+    (∃ P : E →L[ℝ] E, (∀ x y, inner ℝ (P x) y = inner ℝ x (P y)) ∧
       (∀ x, x ≠ 0 → 0 < inner ℝ x (P x)) ∧
-      (ellipsoid T : Set E) = {x | inner ℝ x (P x) ≤ 1} := by sorry
+      (ellipsoid T : Set E) = {x | inner ℝ x (P x) ≤ 1}) ∧
+    ∀ P : E →L[ℝ] E, (∀ x y, inner ℝ (P x) y = inner ℝ x (P y)) →
+      (∀ x, x ≠ 0 → 0 < inner ℝ x (P x)) →
+      ∃ T' : E ≃L[ℝ] E, (ellipsoid T' : Set E) = {x | inner ℝ x (P x) ≤ 1} := by sorry
 
 variable [MeasurableSpace E] [BorelSpace E]
 
@@ -482,11 +486,14 @@ example (h : Function.Injective (![0, 1] : Fin 2 → ℝ)) :
 section Cofactors
 variable {n : ℕ}
 
-/-- GN.1/cofactor-polynomials: `Q_i = Q / (X - α_i)` in `ℂ[X]`. -/
+/-- GN.1/cofactor-polynomials: `Q_i = Q / (X - α_i)` in `ℂ[X]`. The hypotheses below ask `Q` to be
+squarefree over `ℚ` (distinct roots), as Smith's "squarefree integer polynomial" does; its content
+is arbitrary, so `4X - 4` is allowed although it is not squarefree in `ℤ[X]`. -/
 def cofactor (Q : ℤ[X]) (α : Fin n → ℂ) (i : Fin n) : ℂ[X] :=
   (Q.map (Int.castRingHom ℂ)) /ₘ (X - C (α i))
 
-variable (Q : ℤ[X]) (hQ : Squarefree Q) (hdeg : Q.natDegree = n) (α : Fin n → ℂ)
+variable (Q : ℤ[X]) (hQ : Squarefree (Q.map (Int.castRingHom ℚ))) (hdeg : Q.natDegree = n)
+  (α : Fin n → ℂ)
   (hα : Function.Injective α) (hroot : ∀ i, (Q.map (Int.castRingHom ℂ)).IsRoot (α i))
 include hQ hdeg hα hroot
 
@@ -547,7 +554,13 @@ example (c a : ℤ) (hc : c ≠ 0) :
 
 /-- Test `cofactor_not_squarefree`. -/
 example : cofactor (X ^ 2) ![(0 : ℂ), 0] 0 = X ∧ cofactor (X ^ 2) ![(0 : ℂ), 0] 1 = X ∧
-    ¬ Squarefree (X ^ 2 : ℤ[X]) := by sorry
+    ¬ Squarefree ((X ^ 2 : ℤ[X]).map (Int.castRingHom ℚ)) := by sorry
+
+/-- Squarefree over `ℚ` is the hypothesis, not squarefree in `ℤ[X]`: `4X - 4` has the single
+cofactor `4`. -/
+example : cofactor (C 4 * X - C 4) ![(1 : ℂ)] 0 = C (4 : ℂ) ∧
+    ¬ Squarefree (C 4 * X - C 4 : ℤ[X]) ∧
+    Squarefree ((C 4 * X - C 4 : ℤ[X]).map (Int.castRingHom ℚ)) := by sorry
 
 section RealCofactors
 variable {n : ℕ}
@@ -559,7 +572,8 @@ def realCofactor (Q : ℤ[X]) (α : Fin n → ℂ) (τ : Fin n → Fin n) (i : F
     else if i < τ i then Real.sqrt 2 * ((cofactor Q α i).coeff j).re
     else -(Real.sqrt 2 * ((cofactor Q α (τ i)).coeff j).im)) * X ^ j
 
-variable (Q : ℤ[X]) (hQ : Squarefree Q) (hdeg : Q.natDegree = n) (α : Fin n → ℂ)
+variable (Q : ℤ[X]) (hQ : Squarefree (Q.map (Int.castRingHom ℚ))) (hdeg : Q.natDegree = n)
+  (α : Fin n → ℂ)
   (hα : Function.Injective α) (hroot : ∀ i, (Q.map (Int.castRingHom ℂ)).IsRoot (α i))
   (τ : Fin n → Fin n) (hτ : ∀ i, α (τ i) = starRingEnd ℂ (α i)) (hτ2 : ∀ i, τ (τ i) = i)
 include hQ hdeg hα hroot hτ hτ2
@@ -644,7 +658,8 @@ end GaussianCovering
 
 /-- GN.4/smith-cofactor-adjustment (Smith, Theorem 3.2): every real polynomial of degree `< n` is
 an integer polynomial plus `∑ β_i Q_i` with `∑ |β_i| < 3√2 n √(log(8n)/π) ≤ 9 n log(2n)`. -/
-theorem smith_cofactor_adjustment {n : ℕ} (hn : 1 ≤ n) (Q : ℤ[X]) (hQ : Squarefree Q)
+theorem smith_cofactor_adjustment {n : ℕ} (hn : 1 ≤ n) (Q : ℤ[X])
+    (hQ : Squarefree (Q.map (Int.castRingHom ℚ)))
     (hdeg : Q.natDegree = n) (α : Fin n → ℂ) (hα : Function.Injective α)
     (hroot : ∀ i, (Q.map (Int.castRingHom ℂ)).IsRoot (α i)) (P : ℝ[X]) (hP : P.degree < n) :
     ∃ β : Fin n → ℂ, ∑ i, ‖β i‖ < 3 * Real.sqrt 2 * n * Real.sqrt (Real.log (8 * n) / Real.pi) ∧

@@ -94,6 +94,7 @@ Let E be a finite-dimensional real normed space of dimension d, L a discrete ful
 2. a_0 = 1 is the empty product; the successor law splits off the factor with i.val = k.
 3. Positivity follows from successive-minimum-pos; the comparison inequalities from successive-minimum-monotone.
 4. Scaling and linear invariance follow factorwise from successive-minimum-smul-body and successive-minimum-linear-equiv.
+5. successiveMinProd_top_bounds is minkowski-second-lower and minkowski-second-upper, with a_d = ∏_i λ_i by successiveMinProd_of_le.
 
 *Checks.*
 
@@ -101,7 +102,7 @@ Let E be a finite-dimensional real normed space of dimension d, L a discrete ful
 - For d = 0 every a_k equals 1.
 - a_k is the product of the first k minima, not the first k+1: for the box above a_1 = 2, not 6.
 
-*Needs:* `GN.1/successive-minimum` (base plan); `GN.1/successive-minimum-pos` (base plan); `GN.1/successive-minimum-monotone` (base plan); `GN.1/successive-minimum-smul-body` (base plan); `GN.1/successive-minimum-linear-equiv` (base plan).
+*Needs:* `GN.1/successive-minimum` (base plan); `GN.1/successive-minimum-pos` (base plan); `GN.1/successive-minimum-monotone` (base plan); `GN.1/successive-minimum-smul-body` (base plan); `GN.1/successive-minimum-linear-equiv` (base plan); `GN.1/minkowski-second-lower` (base plan); `GN.1/minkowski-second-upper` (base plan).
 
 *Source:* Ananth N. Shankar (SSTT2022), Definition 7.4, p.36 (arXiv:1909.07473v3): Defines one-based successive minima μ_i of a positive definite quadratic lattice through independent vectors with Q(v) ≤ y², and the partial products a_i = μ_1⋯μ_i with a_0 = 1; the definition here is the convex-body version in zero-based indexing. Davesh Maulik (MST2020), Definition 7.8, p.28 (arXiv:2011.08887v1): The same partial products a_i(n), a_0(n) = 1, for the nested lattices L_n; Lemma 7.9 there uses a_i ≥ a_1^i, which is the lower comparison in the API.
 
@@ -116,12 +117,12 @@ Let L be a positive definite Tau Ceti integral lattice (TauCeti.IntegralLattice 
 
 - L positive definite: β(x,x) > 0 for x ≠ 0 in V.
 - ι additive with ‖ι x‖² = integralNorm_L(x) for x ∈ L; the image of ι is discrete and spans E (IsZLattice).
-- finrank_R E = finrank_Z L; i is zero-based; c is a natural number.
+- finrank_R E = finrank_Z L; this follows from the other hypotheses (ZLattice.rank for Λ, and ι is injective onto Λ); i is zero-based; c is a natural number.
 - No basis and no orthonormal coordinates are chosen; the comparison is stated through the defining rank condition only.
 
 *Proof sketch.*
 
-1. Injectivity: ι x = 0 forces integralNorm_L(x) = 0, hence x = 0 by positive definiteness.
+1. Injectivity: ι x = 0 forces integralNorm_L(x) = 0, hence x = 0 by positive definiteness. So ι is an isomorphism of L onto Λ, and finrank_Z L = finrank_Z Λ = finrank_R E (ZLattice.rank), which transports the index.
 2. By gauge_closedBall the gauge of B̄ is the norm, so successive-minimum-le-iff at r = √c says λ_i ≤ √c iff the lattice vectors of norm at most √c span a real subspace of dimension at least i+1.
 3. Vectors of the discrete full lattice Λ are real-linearly independent iff they are Z-linearly independent (a Z-basis of Λ is a real basis, Module.Basis.ofZLatticeBasis), and ι transports Z-independence because it is injective.
 4. ‖ι x‖ ≤ √c iff integralNorm_L(x) ≤ c; combine the three equivalences.
@@ -133,7 +134,7 @@ Let L be a positive definite Tau Ceti integral lattice (TauCeti.IntegralLattice 
 - The hexagonal lattice A_2 scaled to norm 2 (Gram matrix [[2,−1],[−1,2]]): both norm-valued minima equal 2 and both Euclidean minima equal √2.
 - The scaled lattice √2·Z in R with integralNorm(x) = 2x² has Euclidean minimum √2 and norm-valued minimum 2: the comparison squares, it does not take square roots of the index.
 
-*Needs:* `GN.1/successive-minimum-le-iff` (base plan); `GN.1/successive-minimum-witnesses` (base plan); Mathlib `gauge_closedBall`; Mathlib `Module.Basis.ofZLatticeBasis`; Mathlib `LinearIndependent.restrict_scalars`; Tau Ceti `TauCeti.IntegralLattice`; Tau Ceti `TauCeti.IntegralLattice.integralNorm`; Tau Ceti `TauCeti.IntegralLattice.IsPosDef`.
+*Needs:* `GN.1/successive-minimum-le-iff` (base plan); `GN.1/successive-minimum-witnesses` (base plan); Mathlib `gauge_closedBall`; Mathlib `Module.Basis.ofZLatticeBasis`; Mathlib `LinearIndependent.restrict_scalars`; Tau Ceti `TauCeti.IntegralLattice`; Tau Ceti `TauCeti.IntegralLattice.integralNorm`; Tau Ceti `TauCeti.IntegralLattice.IsPosDef`; Mathlib `ZLattice.rank`.
 
 *Source:* Jan-Hendrik Evertse (EvertseGeometry), §2.3, Example 1 after Theorem 2.9, p.25: For the Euclidean ball the successive minima are the lengths of successively shortest independent lattice vectors; this is the real-valued side of the comparison. Tau Ceti contributors (TauCetiRoadmapIntegralLattices), IntegralLattices README, milestone 2F (lines 801–811 at commit 0d144d0): Defines the norm-valued successive minima of a positive definite integral lattice, one-based, as least norms c such that the vectors of norm at most c span a subgroup of rank at least i; the comparison identifies them with squared Euclidean minima. Tau Ceti contributors (TauCetiSuccessiveMinimaDocs), Module TauCeti.LinearAlgebra.IntegralLattice.PosDef.SuccessiveMinima (current main documentation): Implements successiveMinimum L i with i : Fin (finrank Z L), natural-number values and the characterisation successiveMinimum_le_iff by Z-independent families of bounded integral norm, which is the right-hand side of the comparison.
 
@@ -154,7 +155,7 @@ Let Λ be a discrete full lattice in a real inner-product space E of dimension r
 1. Lower bound: successive-minimum-witnesses gives a real basis v of lattice vectors with ‖v_i‖ = μ_i; lattice-determinant-lower-bound gives covol(Λ) ≤ |det_o(v)| for an orthonormal basis o, and orthonormal-coordinate-hadamard gives |det_o(v)| ≤ ∏‖v_i‖ = ∏μ_i.
 2. Upper bound: minkowski-second-upper for the symmetric convex body B̄ gives (∏μ_i)·vol(B̄) ≤ 2^r covol(Λ), and InnerProductSpace.volume_closedBall gives vol(B̄) = V_r.
 3. Gram form: realise (M,Q) as a lattice in R^r with ‖v‖² = Q(v) (Cholesky factorisation of the Gram matrix of b); covolume-square-gram gives covol² = det(b).
-4. For integral lattices the upper bound is the Minkowski bound of IntegralLattices milestone 2F read through integral-norm-minima-comparison; the statement here is for arbitrary real lattices and adds the Hadamard lower bound.
+4. For integral lattices, IntegralLattices milestone 2F asks for the sharper bound ∏λ_i ≤ γ_r^r det L on the norm-valued minima; read through integral-norm-minima-comparison it gives ∏μ_i ≤ γ_r^{r/2}·covol(Λ), and γ_r^{r/2} ≤ 2^r/V_r by Minkowski's convex-body theorem. The statement here holds for arbitrary real lattices, needs only the convex-body form of Minkowski's second theorem, and adds the Hadamard lower bound.
 
 *Checks.*
 
@@ -189,7 +190,7 @@ Let E be a finite-dimensional real normed space of dimension d, L a discrete ful
 2. Take a Z-basis b of L with the same real flags as v (integral-rational-flag): span_R(b_0..b_i) = span_R(v_0..v_i) for every i.
 3. Write b_i = Σ_{j≤i} t_j v_j with real t_j. Since v_i ∈ L ∩ span(v_0..v_i) = span_Z(b_0..b_i) has a nonzero integer coefficient m on b_i, t_i = 1/m and |t_i| ≤ 1.
 4. For j < i, v_j ∈ span_Z(b_0..b_{i−1}); replacing b_i by b_i − Σ_{j<i} k_j v_j with k_j the nearest integer to t_j keeps a Z-basis with the same flags and makes |t_j| ≤ 1/2.
-5. By gauge_add_le, gauge_smul and gauge_neg, gauge_K(b_i) ≤ Σ_{j<i} |t_j|λ_j + |t_i|λ_i ≤ λ_0+⋯+λ_i; monotonicity of the minima gives (i+1)λ_i.
+5. K is absorbent (absorbent_nhds_zero, as 0 ∈ interior K) and balanced (balanced_iff_neg_mem, as K is convex and symmetric), so gauge_add_le and gauge_smul apply: gauge_K(b_i) ≤ Σ_{j<i} |t_j|λ_j + |t_i|λ_i ≤ λ_0+⋯+λ_i; monotonicity of the minima gives (i+1)λ_i.
 
 *Checks.*
 
@@ -197,7 +198,7 @@ Let E be a finite-dimensional real normed space of dimension d, L a discrete ful
 - Z² with the unit square: the vectors (1,1),(1,−1) attain both minima but do not form a basis; the theorem returns a basis such as (1,0),(0,1) with gauges 1 ≤ 1, 1 ≤ 2.
 - In dimension 5, the lattice Z^5 + Z(1/2,…,1/2) with the Euclidean ball has all minima 1 attained by e_1,…,e_5, which span a sublattice of index 2; a basis must contain a vector of norm at least √5/2 > 1, and the bound i+1 accommodates it.
 
-*Needs:* `GN.1/successive-minimum-witnesses` (base plan); `GN.0/integral-rational-flag` (base plan); `GN.1/successive-minimum-monotone` (base plan); Mathlib `gauge_add_le`; Mathlib `gauge_smul`; Mathlib `gauge_neg`.
+*Needs:* `GN.1/successive-minimum-witnesses` (base plan); `GN.0/integral-rational-flag` (base plan); `GN.1/successive-minimum-monotone` (base plan); Mathlib `gauge_add_le`; Mathlib `gauge_smul`; Mathlib `gauge_neg`; Mathlib `balanced_iff_neg_mem`; Mathlib `absorbent_nhds_zero`.
 
 *Source:* Jan-Hendrik Evertse (EvertseGeometry), §2.3, Exercise 2.8 and the remark before it, p.24: States that the lattice has a basis whose i-th vector lies in (λ_1+⋯+λ_i)C, after remarking that vectors attaining the minima need not form a basis; the hint is Lemma 2.1 (bases adapted to a rational flag), as used in the proof steps.
 
@@ -220,14 +221,16 @@ Every discrete full lattice L in a real inner-product space E of dimension n has
 4. By induction P has a basis p_1,…,p_{n−1} with ∏‖p_j‖ ≤ (4/3)^{(n−1)(n−2)/4} covol(P).
 5. Lift each p_j to w_j ∈ L with π(w_j) = p_j and |⟨w_j, v⟩| ≤ ‖v‖²/2, subtracting an integer multiple of v. Then ‖w_j‖² ≤ ‖p_j‖² + ‖v‖²/4 ≤ ‖p_j‖² + ‖w_j‖²/4 because w_j ≠ 0 is at least as long as v, so ‖w_j‖² ≤ (4/3)‖p_j‖².
 6. v, w_1,…,w_{n−1} is a Z-basis of L (prescribed-primitive-basis with projected-adapted-basis), and ∏ ≤ ‖v‖·(4/3)^{(n−1)/2}·(4/3)^{(n−1)(n−2)/4}·covol(L)/‖v‖ = (4/3)^{n(n−1)/4} covol(L).
+7. Reverse inequality: for any Z-basis b, lattice-determinant-lower-bound gives covol(L) ≤ |det_o(b)| for an orthonormal basis o, and orthonormal-coordinate-hadamard gives |det_o(b)| ≤ ∏‖b_i‖.
 
 *Checks.*
 
 - n = 1: the generator has length covol(L), constant 1.
 - A_2 with minimal length 1 and basis (1,0),(1/2,√3/2): product 1 = (4/3)^{1/2}·(√3/2), so the bound is attained in dimension 2.
 - Z^n with its standard basis: product 1 = covol.
+- Hermite's inequality for the first minimum: λ_0(L,B̄) ≤ ‖b_i‖ for every i gives λ_0(L,B̄)^n ≤ (4/3)^{n(n−1)/4}·covol(L). For a positive definite integral lattice, through integral-norm-minima-comparison and covol² = det, this is min L ≤ (4/3)^{(n−1)/2}(det L)^{1/n}, the Hermite inequality of IntegralLattices milestone 2E, which is a consequence here and is not planned again.
 
-*Needs:* `GN.1/successive-minimum-first` (base plan); `GN.1/successive-minimum-witnesses` (base plan); `GN.0/covolume-projection` (base plan); `GN.0/projected-adapted-basis` (base plan); `GN.0/prescribed-primitive-basis` (base plan); `GN.0/orthonormal-coordinate-hadamard` (base plan); Mathlib `ZLattice.covolume`.
+*Needs:* `GN.1/successive-minimum-first` (base plan); `GN.1/successive-minimum-witnesses` (base plan); `GN.0/covolume-projection` (base plan); `GN.0/projected-adapted-basis` (base plan); `GN.0/prescribed-primitive-basis` (base plan); `GN.0/orthonormal-coordinate-hadamard` (base plan); Mathlib `ZLattice.covolume`; `GN.1/lattice-determinant-lower-bound` (base plan).
 
 *Source:* Jan-Hendrik Evertse (EvertseGeometry), §2.3, Theorem 2.11, p.28; proof with Lemmas 2.16–2.19, pp.29–30: States the basis product bound with constant (4/3)^{n(n−1)/4} and proves it by induction on the dimension, projecting along a shortest vector, lifting with the 4/3 length loss (Lemma 2.19) and computing d(L) = λ_1·d(L') (Lemma 2.18). Jan-Hendrik Evertse (EvertseGeometry), §2.3, Exercise 2.11, p.31: Hadamard's inequality d(L) ≤ ∏‖v_i‖ for every basis, recorded in the statement as the reverse bound.
 
@@ -245,8 +248,8 @@ Let L be a discrete full lattice in an n-dimensional real inner-product space E.
 *Proof sketch.*
 
 1. (a) Order the basis of hermite-basis by length: b_(0) ≤ … ≤ b_(n−1). The first i+1 of them are independent with norm at most ‖b_(i)‖, so λ_i ≤ ‖b_(i)‖ by successive-minimum-le-iff; multiply.
-2. (b) By successive-minimum-linear-equiv, λ_i(L, E(T)) = λ_i(T^{-1}L, B̄); covol(T^{-1}L) = covol(L)/|det T| and vol(E(T)) = |det T|·V_n (central-ellipsoid); apply (a).
-3. (c) The linear change y_i = (Ax)_i/A_i maps C to the cube [−1,1]^n, which contains the Euclidean unit ball, and Z^n to a lattice of covolume |det A|/∏A_i; use successive-minimum-antitone-body and (a).
+2. (b) By successive-minimum-linear-equiv, λ_i(L, E(T)) = λ_i(T^{-1}L, B̄); covol(T^{-1}L) = covol(L)/|det T| (covolume-square-gram: the Gram determinant of the basis T^{-1}b is det(T)^{-2} times that of b) and vol(E(T)) = |det T|·V_n (central-ellipsoid); apply (a).
+3. (c) The linear change y_i = (Ax)_i/A_i maps C to the cube [−1,1]^n, which contains the Euclidean unit ball, and Z^n to a lattice of covolume |det A|/∏A_i (covolume-square-gram); use successive-minimum-antitone-body and (a).
 
 *Checks.*
 
@@ -254,7 +257,7 @@ Let L be a discrete full lattice in an n-dimensional real inner-product space E.
 - (a) for A_2 with minimal length 1: ∏λ_i = 1 = (4/3)^{1/2}·√3/2, equality.
 - Comparison of constants in (b) with the ellipsoid case of minkowski-second-upper: (4/3)^{n(n−1)/4}V_n < 2^n for 2 ≤ n ≤ 8 (n = 3: ≈ 6.45 < 8; n = 8: ≈ 227.7 < 256), equality 2 = 2 for n = 1, and the reverse from n = 9 on ((4/3)^{18}V_9 ≈ 585 > 512).
 
-*Needs:* [Hermite's basis theorem](#hermite-basis) (`GN.1/hermite-basis`); [Central ellipsoids](#central-ellipsoid) (`GN.1/central-ellipsoid`); `GN.1/successive-minimum-le-iff` (base plan); `GN.1/successive-minimum-linear-equiv` (base plan); `GN.1/successive-minimum-antitone-body` (base plan); Mathlib `MeasureTheory.Measure.addHaar_image_continuousLinearEquiv`.
+*Needs:* [Hermite's basis theorem](#hermite-basis) (`GN.1/hermite-basis`); [Central ellipsoids](#central-ellipsoid) (`GN.1/central-ellipsoid`); `GN.1/successive-minimum-le-iff` (base plan); `GN.1/successive-minimum-linear-equiv` (base plan); `GN.1/successive-minimum-antitone-body` (base plan); Mathlib `MeasureTheory.Measure.addHaar_image_continuousLinearEquiv`; `GN.0/covolume-square-gram` (base plan).
 
 *Source:* Jan-Hendrik Evertse (EvertseGeometry), §2.3, Corollaries 2.12 and 2.13, p.28; Exercise 2.12, p.31: Corollary 2.12 bounds the product of the Euclidean minima by (4/3)^{n(n−1)/4} d(L) from Theorem 2.11; Corollary 2.13 transfers it to central ellipsoids by a linear change of variables; Exercise 2.12 is the version for a box cut out by n linear forms.
 
@@ -447,7 +450,7 @@ Fix m ≥ 0, pairwise distinct reals α_0,…,α_m and positive reals v_0,…,v_
 *Uses.*
 
 - Smith, Proposition 3.4, pp.14–15: the minima of K with respect to the integer polynomials are bounded through Minkowski's second theorem and the Vandermonde volume.
-- Smith, Proposition 3.5, pp.15–16: applied with v_i = |R(α_i)| w(α_i)^n at nodes maximising an energy integrand, giving lower bounds for products of weighted sup-norms of independent integer polynomials.
+- Smith, Proposition 3.5, pp.15–16: applied with v_i = |R(α_i)| w(α_i)^n at nodes α_i ∈ Σ chosen so that ∏|R(α_i)|w(α_i)^n·∏_{i<j}|α_i − α_j| is at least the exponential of the mean of its logarithm (Smith (3.3)), giving lower bounds for products of weighted sup-norms of independent integer polynomials.
 - Smith, Proposition 3.6, pp.16–17: applied at the roots of the approximating polynomial to produce independent integer polynomials of small weighted norm.
 - LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 (norm-product-lower, norm-product-upper, gcd-norm-bound): imports the volume formula and the two product bounds (request R1 of that packet).
 
@@ -477,7 +480,7 @@ Fix m ≥ 0, pairwise distinct reals α_0,…,α_m and positive reals v_0,…,v_
 
 1. Write K as the preimage of the compact convex box under the linear map V; V is invertible because det V = ∏_{i<j}(α_j − α_i) ≠ 0 (Matrix.det_vandermonde, Matrix.det_vandermonde_ne_zero_iff), so K is compact, convex, symmetric and contains a neighbourhood of 0.
 2. The gauge of K at a is max_k v_k|P_a(α_k)|, because the box's gauge is the weighted sup-norm and gauges pull back along linear isomorphisms (gauge-linear-equiv).
-3. The integer lattice is the Z-span of the standard basis; its covolume is 1 (ZLattice.covolume_eq_det).
+3. The integer lattice is the Z-span of the standard basis of EuclideanSpace R (Fin (m+1)), the comap of the standard lattice of Fin (m+1) → R along the measure-preserving identification of PiLp.volume_preserving_ofLp; ZLattice.covolume_comap and ZLattice.covolume_eq_det give covolume |det I| = 1.
 
 *Checks.*
 
@@ -485,7 +488,7 @@ Fix m ≥ 0, pairwise distinct reals α_0,…,α_m and positive reals v_0,…,v_
 - m = 1, α = (0,1), v = (1,1): K = {|a_0| ≤ 1, |a_0 + a_1| ≤ 1}, of area 4.
 - With repeated nodes the set is unbounded, so injectivity of α is required.
 
-*Needs:* Mathlib `Matrix.vandermonde`; Mathlib `Matrix.det_vandermonde`; Mathlib `Matrix.det_vandermonde_ne_zero_iff`; Mathlib `Polynomial.degreeLTEquiv`; Mathlib `ConvexBody`; Mathlib `ZLattice.covolume_eq_det`; `GN.1/successive-minimum` (base plan); `GN.1/gauge-linear-equiv` (base plan).
+*Needs:* Mathlib `Matrix.vandermonde`; Mathlib `Matrix.det_vandermonde`; Mathlib `Matrix.det_vandermonde_ne_zero_iff`; Mathlib `Polynomial.degreeLTEquiv`; Mathlib `ConvexBody`; Mathlib `ZLattice.covolume_eq_det`; `GN.1/successive-minimum` (base plan); `GN.1/gauge-linear-equiv` (base plan); Mathlib `ZLattice.covolume_comap`; Mathlib `PiLp.volume_preserving_ofLp`.
 
 *Source:* Alexander Smith (Smith2024), Proposition 3.4 (statement), p.14, and its proof, pp.14–15 (arXiv:2111.12660v2): Defines the set K of real polynomials of degree at most m with v_i|P(α_i)| ≤ 1, regards it as a centrally symmetric convex body in coefficient space, and writes it as the preimage of a box under the Vandermonde matrix.
 
@@ -525,7 +528,7 @@ With m, α, v as in evaluation-polytope, let λ_0 ≤ … ≤ λ_m be the succes
 
 *Hypotheses.*
 
-- α injective, every v_k > 0; the minima are nonnegative (Smith's 'least real number' is read as least nonnegative real, sourceIssue E1 of this packet).
+- α injective, every v_k > 0; the minima are nonnegative (Smith's 'least real number' is read as least nonnegative real, sourceIssue E101 of this packet).
 
 *Proof sketch.*
 
@@ -545,18 +548,18 @@ With m, α, v as in evaluation-polytope, let λ_0 ≤ … ≤ λ_m be the succes
 
 ### 1.10 Cofactors of a squarefree integer polynomial
 
-For a squarefree integer polynomial Q with roots α_i, the cofactors Q/(z − α_i) form a basis of the polynomials of degree below deg Q in which every nonzero integer coefficient functional is detected with size at least one. This is the arithmetic input of Smith's coefficient adjustment.
+For an integer polynomial Q that is squarefree over Q (distinct roots α_i; its content is arbitrary, as in Smith's usage), the cofactors Q/(z − α_i) form a basis of the polynomials of degree below deg Q in which every nonzero integer coefficient functional is detected with size at least one. This is the arithmetic input of Smith's coefficient adjustment.
 
 <a id="cofactor-polynomials"></a>
 #### Cofactors of a squarefree integer polynomial
 
 `GN.1/cofactor-polynomials` · construction
 
-Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] be squarefree of degree n ≥ 1 with leading coefficient c = a_n ≠ 0, and let α_1,…,α_n be its pairwise distinct complex roots, indexed by Fin n. The i-th cofactor is Q_i = Q/(z − α_i) = c·∏_{k≠i}(z − α_k) ∈ C[z], computed as the exact division of Q (mapped to C[z]) by the monic X − α_i. Then deg Q_i = n − 1, (z − α_i)Q_i = Q, Q_i(α_k) = 0 for k ≠ i and Q_i(α_i) = Q'(α_i) ≠ 0; the coefficients are coeff_j(Q_i) = Σ_{k=j+1}^n a_k α_i^{k−j−1}; the family (Q_i) is a C-basis of the polynomials of degree < n, with P = Σ_i P(α_i)/Q'(α_i)·Q_i; every coefficient of every Q_i is an algebraic integer; and a field automorphism σ of C with σ(α_i) = α_{π(i)} maps Q_i to Q_{π(i)} coefficientwise.
+Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] have degree n ≥ 1 and leading coefficient c = a_n ≠ 0, and be squarefree as a polynomial over Q (Smith's 'squarefree integer polynomial': its n complex roots α_1,…,α_n are pairwise distinct, and the content of Q is arbitrary), with the roots indexed by Fin n. The i-th cofactor is Q_i = Q/(z − α_i) = c·∏_{k≠i}(z − α_k) ∈ C[z], computed as the exact division of Q (mapped to C[z]) by the monic X − α_i. Then deg Q_i = n − 1, (z − α_i)Q_i = Q, Q_i(α_k) = 0 for k ≠ i and Q_i(α_i) = Q'(α_i) ≠ 0; the coefficients are coeff_j(Q_i) = Σ_{k=j+1}^n a_k α_i^{k−j−1}; the family (Q_i) is a C-basis of the polynomials of degree < n, with P = Σ_i P(α_i)/Q'(α_i)·Q_i; every coefficient of every Q_i is an algebraic integer; and a field automorphism σ of C with σ(α_i) = α_{π(i)} maps Q_i to Q_{π(i)} coefficientwise.
 
 *Hypotheses.*
 
-- Q ∈ Z[z], squarefree (so its complex roots are simple), natDegree Q = n ≥ 1, leading coefficient c ≠ 0 of either sign.
+- Q ∈ Z[z] with natDegree Q = n ≥ 1 and leading coefficient c ≠ 0 of either sign, squarefree in Q[z] (equivalently its complex roots are simple). Squarefreeness in Z[z] is not assumed: Q = 4z − 4 = 4(z − 1) is allowed.
 - The roots are enumerated by Fin n; nothing depends on the enumeration.
 
 *Uses.*
@@ -584,7 +587,7 @@ Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] be squarefree of degree n ≥ 1 with leadin
 - `cofactor_sq_sub_two` (computation): For Q = X² − 2 with roots ±√2, the cofactors are X + √2 and X − √2.
 - `cofactor_two_sq_sub_one_integral` (computation): For Q = 2X² − 1 the cofactor at 1/√2 is 2X + √2: its coefficients 2 and √2 are integral over Z although the root 1/√2 is not.
 - `cofactor_degree_one` (degenerate): For Q = cX − a (c ≠ 0) the only cofactor is the constant c.
-- `cofactor_not_squarefree` (non-example): For Q = X², dividing by X at the double root 0 gives X twice; the two 'cofactors' are not a basis of the polynomials of degree < 2, which is why squarefreeness is assumed.
+- `cofactor_not_squarefree` (non-example): For Q = X², dividing by X at the double root 0 gives X twice; the two 'cofactors' are not a basis of the polynomials of degree < 2, which is why squarefreeness in Q[z] (distinct roots) is assumed.
 
 *Proof sketch.*
 
@@ -599,6 +602,7 @@ Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] be squarefree of degree n ≥ 1 with leadin
 - Q = z² − 2: cofactors z + √2 and z − √2.
 - Q = 2z² − 1: cofactors 2z + √2 and 2z − √2, whose coefficients are algebraic integers although the roots ±1/√2 are not.
 - n = 1, Q = cz − a: the single cofactor is the constant c.
+- Q = 4z − 4, squarefree in Q[z] but not in Z[z]: the single cofactor is the constant 4.
 
 *Needs:* Mathlib `Polynomial.divByMonic`; Mathlib `Polynomial.mul_divByMonic_eq_iff_isRoot`; Mathlib `Polynomial.coeff_divByMonic_X_sub_C`; Mathlib `Polynomial.map_divByMonic`; Mathlib `Polynomial.derivative`; Mathlib `Squarefree`; Mathlib `Lagrange.basis`; Mathlib `Lagrange.interpolate`; Mathlib `IsIntegral`; Mathlib `Polynomial.degreeLTEquiv`.
 
@@ -609,11 +613,11 @@ Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] be squarefree of degree n ≥ 1 with leadin
 
 `GN.1/cofactor-integer-functional` · theorem · Lean: `exists_one_le_norm_cofactor_functional`
 
-With Q, α, Q_i as in cofactor-polynomials, let d = (d_0,…,d_{n−1}) ∈ Z^n be nonzero and s_i = Σ_{j<n} d_j·coeff_j(Q_i). Then the product of the nonzero s_i is a nonzero rational integer; in particular max_i |s_i| ≥ 1. Equivalently, in coefficient coordinates the cross-polytope spanned by ±Q_1,…,±Q_n has polar body containing no nonzero integer functional in its interior.
+With Q, α, Q_i as in cofactor-polynomials, let d = (d_0,…,d_{n−1}) ∈ Z^n be nonzero and s_i = Σ_{j<n} d_j·coeff_j(Q_i). Then the product of the nonzero s_i is a nonzero rational integer; in particular max_i |s_i| ≥ 1. Equivalently, no nonzero d ∈ Z^n satisfies |Σ_j d_j·coeff_j(Q_i)| < 1 for every i.
 
 *Hypotheses.*
 
-- Q squarefree in Z[z] of degree n ≥ 1; d ∈ Z^n, d ≠ 0.
+- Q ∈ Z[z] of degree n ≥ 1, squarefree in Q[z] (pairwise distinct complex roots, any content); d ∈ Z^n, d ≠ 0.
 
 *Proof sketch.*
 
@@ -637,11 +641,11 @@ With Q, α, Q_i as in cofactor-polynomials, let d = (d_0,…,d_{n−1}) ∈ Z^n 
 
 `GN.1/real-cofactor-basis` · construction
 
-With Q, α, Q_i as in cofactor-polynomials, let τ be the involution of Fin n with α_{τ(i)} = conj(α_i). Define real polynomials Q°_i of degree < n by Q°_i = Q_i if α_i is real, Q°_i = √2·Re(Q_i) if i < τ(i), and Q°_i = −√2·Im(Q_{τ(i)}) if i > τ(i) (real and imaginary parts taken coefficientwise; equivalently (Q_i + Q_{τ i})/√2 and √−1(Q_{τ i} − Q_i)/√2 up to the labelling). Then (a) (Q°_i) is an R-basis of the real polynomials of degree < n; (b) every nonzero d ∈ Z^n satisfies max_i |Σ_j d_j coeff_j(Q°_i)| ≥ 1; (c) for real γ_1,…,γ_n, Σ_i γ_iQ°_i = Σ_i β_iQ_i for complex β with Σ|β_i| ≤ √2·Σ|γ_i|.
+With Q, α, Q_i as in cofactor-polynomials, let τ be the involution of Fin n with α_{τ(i)} = conj(α_i). Define real polynomials Q°_i of degree < n by Q°_i = Q_i if α_i is real, Q°_i = √2·Re(Q_i) if i < τ(i), and Q°_i = −√2·Im(Q_{τ(i)}) if i > τ(i) (real and imaginary parts taken coefficientwise; equivalently, for i < τ(i), Q°_i = (Q_i + Q_{τ i})/√2 and Q°_{τ i} = √−1(Q_i − Q_{τ i})/√2, Smith's normalisation). Then (a) (Q°_i) is an R-basis of the real polynomials of degree < n; (b) every nonzero d ∈ Z^n satisfies max_i |Σ_j d_j coeff_j(Q°_i)| ≥ 1; (c) for real γ_1,…,γ_n, Σ_i γ_iQ°_i = Σ_i β_iQ_i for complex β with Σ|β_i| ≤ √2·Σ|γ_i|.
 
 *Hypotheses.*
 
-- Q squarefree in Z[z] of degree n ≥ 1; real coefficients make τ well defined (cofactor_conj).
+- Q ∈ Z[z] of degree n ≥ 1, squarefree in Q[z] (pairwise distinct complex roots, any content); real coefficients make τ well defined (cofactor_conj).
 
 *Uses.*
 
@@ -659,10 +663,10 @@ With Q, α, Q_i as in cofactor-polynomials, let τ be the involution of Fin n wi
 
 *Unit tests.*
 
-- `realCofactor_X_sq_add_one` (computation): For Q = X² + 1 with roots i, −i, the realified family is (√2·X, −√2) up to order.
+- `realCofactor_X_sq_add_one` (computation): For Q = X² + 1 with roots enumerated α = (i, −i) and τ the swap, the realified family is (√2·X, −√2).
 - `realCofactor_totally_real_example` (degenerate): For Q = X² − 2 the realified family equals the cofactor family X + √2, X − √2.
 - `realCofactor_functional_example` (characterisation): For Q = X² + 1 and d = (1,1), the values are ±√2, of absolute value ≥ 1.
-- `realCofactor_needs_sqrt_two` (non-example): For Q = X² − X + 1 and d = (1,0) the unnormalised Re and Im of d(Q_i) are 1/2 and ±√3/2, both < 1; only with the factor √2 does some value reach absolute value ≥ 1.
+- `realCofactor_needs_sqrt_two` (non-example): For Q = X² − X + 1 and d = (1,0) the unnormalised real and imaginary parts of d(Q_i) = −1/2 ± (√3/2)i have absolute values 1/2 and √3/2, both < 1; only with the factor √2 does some value reach absolute value ≥ 1.
 
 *Proof sketch.*
 
@@ -674,8 +678,8 @@ With Q, α, Q_i as in cofactor-polynomials, let τ be the involution of Fin n wi
 *Checks.*
 
 - Totally real Q: Q°_i = Q_i.
-- Q = z² + 1: Q° = (√2·z, −√2) in some order, and every nonzero (d_0,d_1) gives max(√2|d_1|, √2|d_0|) ≥ √2.
-- Q = z² − z + 1, d = (1,0): Re and Im of d(Q_i) are 1/2 and ±√3/2, both below 1; the √2 normalisation is needed for (b).
+- Q = z² + 1 with roots enumerated (√−1, −√−1): Q° = (√2·z, −√2) (the other enumeration gives (√2·z, √2)), and every nonzero (d_0,d_1) gives max(√2|d_1|, √2|d_0|) ≥ √2.
+- Q = z² − z + 1, d = (1,0): d(Q_i) = −1/2 ± (√3/2)√−1, whose real and imaginary parts have absolute values 1/2 and √3/2, both below 1; the √2 normalisation is needed for (b).
 
 *Needs:* [Cofactors of a squarefree integer polynomial](#cofactor-polynomials) (`GN.1/cofactor-polynomials`); [Integer functionals detect a cofactor](#cofactor-integer-functional) (`GN.1/cofactor-integer-functional`); Mathlib `Polynomial.degreeLTEquiv`.
 
@@ -709,7 +713,7 @@ Let Λ be a discrete full lattice in a finite-dimensional real inner-product spa
 
 *Needs:* `GN.4/lattice-gaussian-sum` (base plan); `GN.4/gaussian-lattice-summable` (base plan); `GN.4/gaussian-shift-maximum` (base plan).
 
-*Source:* Chris Peikert (Peikert2007), Lemma 5.3 (tail inequality) with d = 1, and Claims 5.4–5.5, pp.15–16 (ECCC TR06-148 rev. 1): Bounds the Gaussian mass of a shifted lattice outside a slab of width r around the centre by 2^d e^{−πr²/d} times the mass of the lattice, by a cosh tilt, completing the square and the shift bound ρ_c(Λ) ≤ ρ(Λ) of its Lemma 2.7; d = 1 is the statement here.
+*Source:* Chris Peikert (Peikert2007), Lemma 5.3 (tail inequality) with d = 1, and Claims 5.4–5.5, pp.15–16 (ECCC TR06-148 rev. 1): For d orthonormal directions u_k and the norm Σ_k |⟨·,u_k⟩|, bounds the Gaussian mass of the lattice points x with ‖x − c‖ > r by 2^d e^{−πr²/d} times the mass of the lattice, by a cosh tilt (Claims 5.4–5.5), completing the square and the shift bound ρ_c(Λ) ≤ ρ(Λ) of its Lemma 2.7. For d = 1 the excluded region is the complement of the slab |⟨x − c,u⟩| ≤ r, and after the translation x ↦ x − c this is the statement here.
 
 <a id="gaussian-coordinate-tails"></a>
 #### Sup-norm and ℓ¹ tails of a shifted lattice Gaussian
@@ -735,7 +739,7 @@ Let Λ be a discrete full lattice in a real inner-product space E of dimension n
 
 *Needs:* [Directional tail of a shifted lattice Gaussian](#gaussian-directional-tail) (`GN.4/gaussian-directional-tail`); `GN.4/lattice-gaussian-sum` (base plan); Mathlib `integral_gaussian`.
 
-*Source:* Chris Peikert (Peikert2007), Lemmas 3.1 (case p = 1) and 3.3, p.8, with the moment computation in the proof of Theorem 5.1, pp.14–15 (ECCC TR06-148 rev. 1): Lemma 3.3 bounds the mass of Λ + v outside r·B_∞ by 2n e^{−πr²}ρ(Λ) and Lemma 3.1 the mass outside r·B_1 by n/r times ρ(Λ), both quoted from Banaszczyk 1995 (Lemmas 2.10, 2.9); the integral formula for moments in the proof of Theorem 5.1 is the layer-cake step used here.
+*Source:* Chris Peikert (Peikert2007), Lemmas 3.1 (case p = 1) and 3.3, p.8, with the moment computation in the proof of Theorem 5.1, p.15 (ECCC TR06-148 rev. 1): Lemma 3.3 bounds the mass of Λ + v outside r·B_∞ by 2n e^{−πr²}ρ(Λ) and Lemma 3.1 the mass outside r·B_1 by n/r times ρ(Λ), both quoted from Banaszczyk 1995 (Lemmas 2.10, 2.9); the integral formula for moments in the proof of Theorem 5.1 is the layer-cake step used here.
 
 <a id="l1-covering-transference"></a>
 #### ℓ¹ covering against the dual sup-norm minimum
@@ -772,11 +776,11 @@ Let n ≥ 1, E a real inner-product space of dimension n with orthonormal basis 
 
 `GN.4/smith-cofactor-adjustment` · theorem · Lean: `smith_cofactor_adjustment`
 
-Let Q ∈ Z[z] be squarefree of degree n ≥ 1 with leading coefficient c ≠ 0, α_1,…,α_n its complex roots and Q_i = Q/(z − α_i). For every real polynomial P of degree at most n − 1 there are complex numbers β_1,…,β_n with Σ_i |β_i| < 3√2·n·√(log(8n)/π) ≤ 9·n·log(2n) such that P − Σ_i β_iQ_i has integer coefficients (and degree at most n − 1).
+Let Q ∈ Z[z] have degree n ≥ 1, leading coefficient c ≠ 0 and pairwise distinct complex roots α_1,…,α_n (Q squarefree in Q[z]), and let Q_i = Q/(z − α_i). For every real polynomial P of degree at most n − 1 there are complex numbers β_1,…,β_n with Σ_i |β_i| < 3√2·n·√(log(8n)/π) ≤ 9·n·log(2n) such that P − Σ_i β_iQ_i has integer coefficients (and degree at most n − 1).
 
 *Hypotheses.*
 
-- Q squarefree in Z[z], natDegree n ≥ 1, c ≠ 0 of either sign (Smith states c ≥ 1; negating Q negates every Q_i and changes nothing).
+- Q ∈ Z[z] squarefree in Q[z] (distinct roots; Smith's 'squarefree', as his Lemma 2.10 produces it, allows any content), natDegree n ≥ 1, c ≠ 0 of either sign (Smith states c ≥ 1; negating Q negates every Q_i and changes nothing).
 - P ∈ R[z] with natDegree P ≤ n − 1.
 
 *Proof sketch.*
@@ -794,7 +798,7 @@ Let Q ∈ Z[z] be squarefree of degree n ≥ 1 with leading coefficient c ≠ 0,
 
 *Needs:* [ℓ¹ covering against the dual sup-norm minimum](#l1-covering-transference) (`GN.4/l1-covering-transference`); [The realified cofactor basis](#real-cofactor-basis) (`GN.1/real-cofactor-basis`); [Integer functionals detect a cofactor](#cofactor-integer-functional) (`GN.1/cofactor-integer-functional`); [Cofactors of a squarefree integer polynomial](#cofactor-polynomials) (`GN.1/cofactor-polynomials`); Mathlib `Polynomial.degreeLTEquiv`.
 
-*Source:* Alexander Smith (Smith2024), Theorem 3.2, pp.12–13, and its proof p.13 (arXiv:2111.12660v2): States the existence of β with Σ|β_i| ≤ Cn log 2n making P − Σβ_iQ_i integral, and proves it from the integrality and Galois argument and a flatness bound for the cross-polytope spanned by the realified cofactors; the citation of the simplex case of the flatness theorem needs the step recorded in sourceIssue E2 of this packet, and the covering bound used here replaces it. Wojciech Banaszczyk (BLPS1999), Corollary 2.5, p.10 (author copy): Flatness bound Cn(1 + log n) for simplices, the result Smith cites; its consequence for Smith's body is explained in sourceIssue E2.
+*Source:* Alexander Smith (Smith2024), Theorem 3.2, pp.12–13, and its proof p.13 (arXiv:2111.12660v2): States the existence of β with Σ|β_i| ≤ Cn log 2n making P − Σβ_iQ_i integral, and proves it from the integrality and Galois argument and a flatness bound for the cross-polytope spanned by the realified cofactors; the citation of the simplex case of the flatness theorem needs the step recorded in sourceIssue E102 of this packet, and the covering bound used here replaces it. Wojciech Banaszczyk (BLPS1999), Corollary 2.5, p.10 (author copy): Flatness bound Cn(1 + log n) for simplices, the result Smith cites; its consequence for Smith's body is explained in sourceIssue E102.
 
 ## Dependencies
 
@@ -811,5 +815,7 @@ Every definition above lists its unit tests and every theorem its checks. The de
 ## Notes on the sources
 
 - In Smith's Proposition 3.4 the minimum `λ_i` is to be read as the least *nonnegative* real with the stated property; the body is symmetric, so the least real one does not exist.
-- The proof of Smith's Theorem 3.2 cites the flatness theorem for simplices for a body that is a cross-polytope. The missing step is a simplex inside the cross-polytope of lattice width at least one: `conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i)` has it, because some `|d(Q°_i)| ≥ 1` and the last vertex takes a value on the other side. The plan here does not use the flatness theorem: the coordinate Gaussian tails of §4.4a give the covering bound for the cross-polytope directly, with constant `3n√(log(8n)/π)`.
+- The proof of Smith's Theorem 3.2 cites the flatness theorem for simplices (Banaszczyk–Litvak–Pajor–Szarek, Corollary 2.5) for a body that is a cross-polytope. One missing step is a simplex inside the cross-polytope of lattice width at least one: `conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i)` has it, because some `|d(Q°_k)| ≥ 1`, and either another vertex has a value of the opposite sign or zero, or the last vertex does. Another is the polytope case of their Theorem 2.4 (a cross-polytope has `2n` vertices) with their Proposition 2.3. The plan here does not use the flatness theorem: the coordinate Gaussian tails of §4.4a give the covering bound for the cross-polytope directly, with constant `3n√(log(8n)/π)`.
+- Smith's "squarefree integer polynomial" means squarefree over `ℚ`, that is with distinct roots: his Lemma 2.10 produces such polynomials by a discriminant argument and does not control their content. The cofactor results above are stated in that generality; `4z − 4` is an example that is not squarefree in `ℤ[z]`.
+- In Ball's proof of John's theorem (p.19) the volume of the perturbed ellipsoid `{x : xᵀ(I_n + δH)x ≤ 1}` is printed as `v_n/∏μ_j`; it is `v_n/∏μ_j^{1/2}`. The argument only uses `∏μ_j ≤ 1`, so nothing else changes; `john-decomposition` uses the correct formula.
 - Evertse states Theorem 2.14 and Corollary 2.15 without proof, referring to Schmidt's lecture notes; the proof planned here is Ball's (Lecture 3), in the symmetric case.
