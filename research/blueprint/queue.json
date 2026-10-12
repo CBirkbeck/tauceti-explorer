@@ -28363,8 +28363,8 @@
    ],
    "avoidAccountOf": "BP-PadicDifferentialEquationsAndRigidCohomology",
    "prompt": "research/blueprint/prompts/REV-PadicDifferentialEquationsAndRigidCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #460"
+   "state": "pending",
+   "note": "released on GitHub issue #460"
   },
   {
    "id": "BP-PadicFamilies",
@@ -28604,9 +28604,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--R06.5.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #969"
+   "note": "released on GitHub issue #969"
   },
   {
    "id": "REV-PadicHodgeTheory--R06.5",
@@ -30889,7 +30889,7 @@
     "REV-RS-28"
    ],
    "prompt": "research/blueprint/prompts/BP-HigherLocalFieldsAndHigherClassFieldTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-K2SymbolsBrauer--T.1",
@@ -30898,7 +30898,7 @@
     "BP-MotivicEtaleKTheory--M.5d",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1012"
+   "note": "released on GitHub issue #1012"
   },
   {
    "id": "REV-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -50885,8 +50885,8 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7890"
+   "state": "pending",
+   "note": "released on GitHub issue #7890"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~2",
@@ -50980,8 +50980,8 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7891"
+   "state": "pending",
+   "note": "released on GitHub issue #7891"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~2",
@@ -54441,8 +54441,8 @@
    ],
    "revisionOf": "PKG-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7910"
+   "state": "pending",
+   "note": "released on GitHub issue #7910"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings~2",
@@ -54712,8 +54712,8 @@
    ],
    "revisionOf": "PKG-MordellLawrenceVenkatesh",
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7911"
+   "state": "pending",
+   "note": "released on GitHub issue #7911"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh~2",
@@ -90724,8 +90724,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -90895,8 +90895,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -91888,8 +91888,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7451"
+   "state": "pending",
+   "note": "released on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -93731,8 +93731,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6519"
+   "state": "pending",
+   "note": "released on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -96011,8 +96011,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
