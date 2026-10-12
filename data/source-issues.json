@@ -200516,7 +200516,7 @@
    "reviewReason": "Confirmed at Zhu p436: boundary supports do not give the complementary filtration; replacing them by supports in the closures gives the correct opposite filtration. The intended two-filtration argument is also used by FS VI.7.6 p220. Reuses PAPER-ZHU-17/E51."
   },
   {
-   "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E101",
    "kind": "misprint",
    "locator": "Proposition 3.4, p.14, in arXiv:2111.12660v2 (16 March 2024); the published Annals text was not collated",
    "printed": "The minimum λ_i is described as the least real number for which λ_i K contains i+1 linearly independent integer polynomials.",
@@ -200531,17 +200531,17 @@
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
    "citation": "Alexander Smith, Algebraic integers with conjugates in a prescribed distribution, arXiv:2111.12660v2 (16 March 2024), 47 pages; Annals of Mathematics 200 (2024) not collated",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "reviewReason": "Checked at Proposition 3.4, p.14 of arXiv:2111.12660v2: λ_i is defined as the least real number with the property. K is symmetric, so λK = |λ|K and the admissible λ are unbounded below; the successive minima, as used in the proof through Minkowski's second theorem, are the least nonnegative such λ."
   },
   {
-   "id": "GeometryOfNumbersAndQuadraticArithmetic/E2",
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E102",
    "kind": "gap",
    "locator": "Proof of Theorem 3.2, p.13, in arXiv:2111.12660v2; citation of [5, Corollary 2.5]",
    "printed": "The proof concludes from the flatness theorem for simplices (Banaszczyk–Litvak–Pajor–Szarek, Corollary 2.5) that every translate of the body K = {Σβ_iQ°_i : Σ|β_i| ≤ C_0 n log 2n} contains an integer polynomial. K is a cross-polytope, not a simplex, and the step from the cited statement about simplices to a covering statement for K is not given.",
-   "correction": "Insert the step: S = conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i) lies in the unit cross-polytope; for every nonzero integer functional d one of d(Q°_i) has absolute value ≥ 1, and the value −(1/n)Σd(Q°_i) at the last vertex has the opposite sign or lies on the other side of 0 from it, so the lattice width of S is at least 1. Flt(S) ≤ Cn(1+log n) then gives that every translate of tS with t > Cn(1+log n) meets the integer polynomials, hence so does every translate of tK. Alternatively, as planned here (GN.4/l1-covering-transference), Banaszczyk's ℓ¹ and sup-norm Gaussian tail inequalities give the covering bound for K directly, with constant 3n√(log(8n)/π).",
-   "reason": "BLPS Corollary 2.5 bounds Flt(S) for an n-simplex S; a covering bound for another body follows only through a simplex inside it of lattice width bounded below, which the functional lower bound of the proof supplies but the proof does not state.",
+   "correction": "Insert the step: S = conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i) lies in the unit cross-polytope. For a nonzero integer functional d some |d(Q°_k)| ≥ 1, say d(Q°_k) ≥ 1 (the other sign is symmetric); either some vertex Q°_i has d(Q°_i) ≤ 0, or every d(Q°_i) is positive and the last vertex has the negative value −(1/n)Σ_i d(Q°_i). Either way d varies by at least 1 on S, so the lattice width of S is at least 1. Flt(S) ≤ Cn(1+log n) then gives that every translate of tS with t > Cn(1+log n) meets the integer polynomials, hence so does every translate of tK. Alternatively, BLPS's own Proposition 2.3 with the second part of their Theorem 2.4 (a polytope with 2n vertices) bounds Flt(K) by Cn(1+log n) directly; or, as planned here (GN.4/l1-covering-transference), Banaszczyk's ℓ¹ and sup-norm Gaussian tail inequalities give the covering bound for K directly, with constant 3n√(log(8n)/π).",
+   "reason": "BLPS Corollary 2.5 bounds Flt(S) for n-simplices S only. A covering bound for the cross-polytope K follows from it through a simplex of lattice width at least 1 inside K, or from the polytope case of BLPS Theorem 2.4; the proof states neither step.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -200551,9 +200551,29 @@
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
    "citation": "Alexander Smith, Algebraic integers with conjugates in a prescribed distribution, arXiv:2111.12660v2 (16 March 2024), 47 pages; Annals of Mathematics 200 (2024) not collated",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "reviewReason": "Checked at the proof of Theorem 3.2, p.13 of arXiv:2111.12660v2, and at BLPS (author copy) pp.9–10: Smith derives the covering property of the cross-polytope K from [5, Corollary 2.5], which BLPS state for n-simplices; their polytope bound is the second part of Theorem 2.4 combined with Proposition 2.3. The theorem holds and the step is missing. The reviewer added the polytope route to the correction and made the width argument explicit."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E103",
+   "kind": "misprint",
+   "locator": "Lecture 3, proof of John's Theorem (the harder direction), p.19, in Flavors of Geometry, MSRI Publications 31 (1997), file from the SLMath library",
+   "printed": "With μ_j the eigenvalues of I_n + δH, the volume of the ellipsoid E_δ = {x : xᵀ(I_n + δH)x ≤ 1} is given as v_n divided by the product of the μ_j.",
+   "correction": "vol(E_δ) = v_n/∏_j μ_j^{1/2} = v_n·det(I_n + δH)^{−1/2}, because E_δ is the image of the unit ball under (I_n + δH)^{−1/2}.",
+   "reason": "For n = 2, H = diag(1,−1) and δ = 1/2, E_δ = {(3/2)x² + (1/2)y² ≤ 1} has semi-axes √(2/3) and √2 and area 2π/√3 = π/√(3/4), not π/(3/4) = 4π/3. The argument only needs ∏μ_j ≤ 1, which gives vol(E_δ) ≥ v_n under either formula.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "web search for errata or corrections to Ball's lecture notes (none found)",
+    "the SLMath library page of MSRI Publications 31 and the Cambridge Core listing of the chapter (no correction listed)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
+   "citation": "Keith Ball, An elementary introduction to modern convex geometry, Flavors of Geometry, MSRI Publications 31 (1997), pp.1–58; file from the SLMath library",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
+   "reviewReason": "Added by the reviewer from the rendered page 19 of the SLMath file; checked by the two-dimensional example in the reason."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
