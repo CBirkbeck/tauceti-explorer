@@ -48109,8 +48109,9 @@
     "REV-EnhancedDerivedSheaves--E5"
    ],
    "prompt": "research/blueprint/prompts/ASM-EnhancedDerivedSheaves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #227"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #227",
+   "finishedAt": "2026-10-12T13:42:55Z"
   },
   {
    "id": "ASM-EtaleDualityAndPerverseSheaves",
