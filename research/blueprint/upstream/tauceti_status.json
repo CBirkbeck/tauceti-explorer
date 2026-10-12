@@ -141,10 +141,9 @@
       "head": "3feb1ed",
       "review": {
         "recommendation": "approve",
-        "head": "d800237",
+        "head": "3feb1ed",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head 3feb1ed differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "AdicSpacesPartIII": {
