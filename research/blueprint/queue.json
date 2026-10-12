@@ -46263,7 +46263,9 @@
    ],
    "revisionOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8899",
+   "finishedAt": "2026-10-12T14:40:50Z"
   },
   {
    "priority": 2,
@@ -50144,7 +50146,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8887"
   },
   {
    "id": "REV-PKG-AbelianSchemesAndArithmeticModuli",
@@ -50649,7 +50652,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticGaloisDuality.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8888"
   },
   {
    "id": "REV-PKG-ArithmeticGaloisDuality",
@@ -51535,7 +51539,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ComplexComparisonPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8889",
+   "finishedAt": "2026-10-12T14:40:52Z"
   },
   {
    "id": "REV-PKG-ComplexComparisonPartII",
@@ -54113,7 +54119,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8891",
+   "finishedAt": "2026-10-12T14:40:59Z"
   },
   {
    "id": "REV-PKG-InverseGaloisAndArithmeticFundamentalGroups",
@@ -55425,7 +55433,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SelmerIwasawaCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8892"
   },
   {
    "id": "REV-PKG-SelmerIwasawaCohomology",
