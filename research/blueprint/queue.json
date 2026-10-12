@@ -35113,7 +35113,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L2",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9250"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L3",
@@ -39264,8 +39265,9 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9283"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9283",
+   "finishedAt": "2026-10-12T20:57:45Z"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
