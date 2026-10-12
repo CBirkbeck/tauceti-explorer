@@ -93,25 +93,26 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "1022264",
+      "head": "d4a2300",
       "review": {
         "recommendation": "approve",
         "head": "98f8173",
         "current": true,
         "date": "2026-10-12",
-        "note": "head 1022264 differs only by re-stacks on the parent"
+        "note": "head d4a2300 differs only by re-stacks on the parent"
       }
     },
     "AdicSpacesPartII": {
       "stage": "pr",
       "pr": 817,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "b4e4fc8",
+      "head": "9fd29bb",
       "review": {
         "recommendation": "changes",
         "head": "b4e4fc8",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "Fable final deep review; repairs F01–F06 applied at 9fd29bb"
       }
     },
     "DiamondsAndVStacks": {
@@ -121,26 +122,26 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "7962ccc",
+      "head": "68aca6e",
       "review": {
         "recommendation": "approve",
         "head": "6f237d3",
         "current": true,
         "date": "2026-10-12",
-        "note": "head 7962ccc differs only by re-stacks on the parent"
+        "note": "head 68aca6e differs only by re-stacks on the parent"
       }
     },
     "PerfectoidSpaces": {
       "stage": "pr",
       "pr": 818,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "2e8c062",
+      "head": "6d19980",
       "review": {
         "recommendation": "approve",
         "head": "d800237",
         "current": true,
         "date": "2026-10-12",
-        "note": "head 2e8c062 differs only by re-stacks on the parent"
+        "note": "head 6d19980 differs only by re-stacks on the parent"
       }
     },
     "AdicSpacesPartIII": {
@@ -150,12 +151,13 @@
         817
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "a521a2c",
+      "head": "b472810",
       "review": {
         "recommendation": "approve",
         "head": "a521a2c",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head b472810 differs only by re-stacks on the parent"
       }
     },
     "AdicSpacesPartIV": {
@@ -165,13 +167,13 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "e8046af",
+      "head": "9bba6c9",
       "review": {
         "recommendation": "approve",
         "head": "6c9b3ff",
         "current": true,
         "date": "2026-10-12",
-        "note": "head e8046af differs only by re-stacks on the parent"
+        "note": "head 9bba6c9 differs only by re-stacks on the parent"
       }
     },
     "PerfectoidTowers": {
@@ -181,13 +183,13 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "ed244ce",
+      "head": "e016cc5",
       "review": {
         "recommendation": "approve",
         "head": "88de410",
         "current": true,
         "date": "2026-10-12",
-        "note": "head ed244ce differs only by re-stacks on the parent"
+        "note": "head e016cc5 differs only by re-stacks on the parent"
       }
     }
   }
