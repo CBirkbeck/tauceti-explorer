@@ -50146,8 +50146,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianSchemesAndArithmeticModuli.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8887"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8887",
+   "finishedAt": "2026-10-12T15:05:18Z"
   },
   {
    "id": "REV-PKG-AbelianSchemesAndArithmeticModuli",
@@ -51566,7 +51567,8 @@
     "PKG-ComplexComparisonPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexComparisonPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8895"
   },
   {
    "id": "PKG-ComplexMultiplicationAndExplicitReciprocity",
