@@ -29,7 +29,7 @@ The layers are:
 | D7 | Derived continuous cohomology and compact arithmetic duality | derived tensor and Matlis duality, Grothendieck local duality, admissible coefficients, `RΓ_cont`, compact Hochschild–Serre, derived local duality, compact support, derived Poitou–Tate duality, lattice Poitou–Tate, abelian-variety local duality |
 | R02.5 | Selmer duality and dimension formulas | Greenberg–Wiles formula, change of one local condition, Selmer complex comparison, function-field Greenberg–Wiles |
 | D8 | Cohomological fibres for determinant and coefficient change | trace-zero adjoint duality, first-order cocycle comparison, determinant fibres, Selmer coefficient change |
-| R02.6 | Auxiliary primes and patching numerics | Taylor–Wiles local count, dual-Selmer killing, `H¹(SL₂(F), ad⁰) = 0`, odd and dyadic auxiliary primes, archimedean adjoint dimensions |
+| R02.6 | Auxiliary primes and patching numerics | Taylor–Wiles local count, dual-Selmer killing, the group theory of Taylor–Wiles primes, odd and dyadic auxiliary primes, archimedean adjoint dimensions |
 
 The layer labels are the stage labels other roadmaps cite. They are built in the order
 R02.1, R02.2, R02.3, R02.4, D7, R02.5, D8, R02.6 (see *How to read the build*).
@@ -50,7 +50,7 @@ maps with the modified archimedean groups, `S`-ideles, `S`-units and `S`-idele c
 formations, the `S`-class formation with its reciprocity and the `S`-unit Kummer sequence; the
 class-field inputs for global function fields (ideles and `S`-units, restricted ramification, the
 equal-characteristic local duality and Euler characteristic prime to the characteristic, the
-global class formation, Chebotarev density); absolute and relative `Шⁱ` and the cyclotomic power
+global class formation); absolute and relative `Шⁱ` and the cyclotomic power
 kernel; exponent-two ramification fields, quadratic fields with one new ramified prime, the
 antiunit class-field rank and the absence of `ℤ_p`-extensions unramified at `p`. Ext of discrete
 modules, Tate's duality for a `P`-class formation and for the `S`-idele classes, archimedean local
@@ -76,11 +76,14 @@ and Khare–Wintenberger numerics of Layer R02.6.
 **Tau Ceti roadmaps this roadmap builds on.**
 
 - *ProfiniteCohomology* (all layers). The canonical carrier `TopRep`, `continuousCohomology` and
-  its compatible-pair functoriality (Layer 1); the explicit low-degree complex (Layer 2); the
-  comparison isomorphisms (Layer 3); the finite-quotient colimit description (Layers 4 and 10);
-  long exact sequences, inflation–restriction and the five-term sequence with its explicit
-  transgression (Layer 5); restriction, corestriction and conjugation (Layers 6 and 10); coinduced
-  modules and Shapiro's lemma in all degrees (Layers 7 and 10); cup products (Layers 8 and 12);
+  its compatible-pair functoriality (Layer 1); the explicit low-degree complex, with conjugation and
+  the triviality of inner conjugation in degrees `≤ 2` (Layer 2); the comparison isomorphisms
+  (Layer 3); the finite-quotient colimit description (Layers 4 and 10); the long exact sequence
+  through degree two, inflation–restriction and the five-term sequence with its explicit
+  transgression (Layer 5); the long exact sequence in every degree (`delta`, `longExact_exact`,
+  Layer 10); restriction, corestriction and conjugation (Layers 2, 6 and 10); coinduced modules and
+  Shapiro's lemma in all degrees (Layers 7 and 10); cup products (Layer 8 in degrees `p + q ≤ 2`,
+  Layer 12 in all degrees);
   Hilbert 90 and Kummer theory (Layer 9); cohomological dimension (Layer 11). That roadmap excludes
   the Hochschild–Serre spectral sequence and all theorems for non-discrete coefficients, profinite
   Sylow theory and Schur multipliers; the first two are owned here, the last two are not used.
@@ -114,11 +117,18 @@ and Khare–Wintenberger numerics of Layer R02.6.
   cohomology, and gerbe classes in `H²`.
 - *EnhancedDerivedSheaves* E1: K-flat complexes and the derived tensor product of sheaves of
   modules, of which the module case is used in Layer D7.
-- *AlgebraicModuliForArithmeticGeometry* R09.4: the dual abelian scheme and Giraud's
-  classification of abelian gerbes, used for local duality of abelian varieties.
-- *ArithmeticGaloisRepresentations*: decomposition and inertia groups at a place and restriction
-  to them with coherent change of embedding (R01.2); the Dickson classification and matrix
-  cocycles of `SL₂` in characteristic two (R01.4).
+- *AbelianSchemesAndArithmeticModuli* Layer A2: the dual abelian scheme with its Poincaré bundle
+  (`AbelianScheme.dual`, §A2.2), and *AlgebraicModuliForArithmeticGeometry* Layer 4: banded gerbes
+  and their classification by `H²` of the band (`gerbeClass`, §4.20, derived classification on
+  arbitrary sites); both are used for local duality of abelian varieties.
+- *ArithmeticGaloisRepresentations*: decomposition, inertia and wild inertia groups at a place and
+  restriction to them with coherent change of embedding (Layer 2, §2.1); the Dickson classification
+  of finite projective images (Layer 4, §4.4) and the residual image in characteristic two with
+  `H¹(SL₂(F₀), M₂(F)) = 0` (Layer 4, §4.7); Chebotarev density for global function fields
+  (Layer 5, `functionField_chebotarev`); the adjoint, the trace-zero adjoint and the perfect trace
+  pairing over any coefficient ring (Layer 7, §7.2); `H¹(SL₂(F), ad⁰) = 0` for `#F ≠ 5` in odd
+  characteristic (Layer 7, §7.7); Tate's vanishing `H²(G_F, ℚ/ℤ) = 0` for a number field (Layer 7,
+  `tate_h2_qz_eq_zero`).
 - *InverseGaloisAndArithmeticFundamentalGroups* IG.4.2 states, over the absolute Galois group of a
   number field, the finite-coefficient localisation kernels, the consequences of Poitou–Tate duality
   its embedding problems use (exact orthogonality of global `H¹` in the restricted product, the dual
@@ -137,9 +147,20 @@ Ceti's `TauCeti.ofDiscreteModule`, `TauCeti.DiscreteRep`, `TauCeti.InternalHom` 
 `TauCeti.kummerShortExact`, the periodicity of Tate cohomology of cyclic groups, Artin's induction
 theorem `TauCeti.ClassFunction.natCard_nsmul_mem_indVirtualCharacters_isCyclic`,
 `TauCeti.traceBilinForm` with `traceBilinForm_nondegenerate`, `TauCeti.slIdeal` and `TauCeti.Place`
-for function fields. The current Tau Ceti library also proves Sylow detection for group cohomology
-(`TauCeti.groupCohomology.isZero_of_isZero_sylow`), which *Finite-group universal coefficients and
-Sylow detection* cites rather than restates.
+for function fields. The current Tau Ceti library, newer than the pin, also proves Sylow detection
+for group cohomology (`TauCeti.groupCohomology.isZero_of_isZero_sylow`), which *Finite-group
+universal coefficients and Sylow detection* cites rather than restates; the triviality of inner
+conjugation on continuous cohomology in every degree
+(`TauCeti.ContinuousCohomology.map_eq_id_of_inner`), which *Localisation maps and the modified local
+groups* cites; the topology of
+factor-set extensions and their profinite-group structure (`TauCeti.FactorSet.Extension.homeomorphProd`,
+`isTopologicalGroup`, `continuous_canonicalSection`, `continuous_rescaleEquiv` and
+`TauCeti.ProfiniteGroupExtension.ofFactorSet`) and the classification of continuous profinite
+extensions by `TauCeti.ContCohomology.H2` (`TauCeti.ProfiniteGroupExtension.contCohomologyClassEquiv`),
+which *Continuous topology on factor-set extensions* and *Continuous Schreier classification and
+automorphisms* cite; and the class-formation structure of ClassFieldTheory Layer 2
+(`TauCeti.ClassFieldTheory.ClassFormation` with its `fundamentalClass`), on which *P-class
+formations* builds.
 
 **Not in this roadmap.** `ℓ`-primary coefficients over a global function field of characteristic
 `ℓ` (flat and Artin–Schreier duality); the finiteness of Tate–Shafarevich groups of abelian
@@ -235,10 +256,12 @@ as inputs; and Galois representations attached to automorphic forms.
   as topological representations.
 - `TauCeti.InternalHom`, `TauCeti.homAction`, `TauCeti.InternalHom.evalPairing`: the conjugation
   action on `Hom(M, N)` and the evaluation pairing; the pointwise `Hom` of Layer R02.1 agrees with
-  it for finitely generated sources.
+  it for finite sources (the continuity instance of `InternalHom` assumes a finite discrete source).
 - `TauCeti.exists_continuous_section`: normalized continuous sections of profinite quotients.
 - `TauCeti.FactorSet` and `TauCeti.FactorSet.Extension`: normalized factor sets and their group
-  extensions, to which Layer R02.1 adds a topology.
+  extensions. Their topology, the profinite extension `ProfiniteGroupExtension.ofFactorSet` and the
+  classification `ProfiniteGroupExtension.contCohomologyClassEquiv` are in the current Tau Ceti
+  library (newer than the pin), and Layer R02.1 cites them.
 - `TauCeti.KummerCoeff`, `TauCeti.kummerShortExact`: `μ_n` as a discrete Galois module and the
   Kummer sequence.
 - `Rep.FiniteCyclicGroup.tateCohomologyIsoEven`, `tateCohomologyIsoOdd` and
@@ -280,11 +303,17 @@ as inputs; and Galois representations attached to automorphic forms.
   derived internal Hom of O_X-modules*, the étale–Galois comparison for fields and *Second
   cohomology class of a central extension boundary and of an abelian-banded gerbe*.
 - `EnhancedDerivedSheaves` E1: *K-flat complexes of module sheaves*.
-- `AlgebraicModuliForArithmeticGeometry` R09.4: *Relative dual abelian scheme*, *Giraud's abelian
-  gerbe classification*.
-- `ArithmeticGaloisRepresentations` R01.2: *Decomposition, inertia and wild inertia groups at a
-  place of a number field*, *Local restriction and coherent change of embedding*; R01.4: *Dickson
-  classification and the dyadic refinement*, *Matrix cocycles for SL₂ in characteristic two*.
+- `AbelianSchemesAndArithmeticModuli` Layer A2, §A2.2: `AbelianScheme.dual`, the dual abelian
+  scheme with its Poincaré bundle (over a field, the dual abelian variety).
+- `AlgebraicModuliForArithmeticGeometry` Layer 4: banded gerbes and band-preserving morphisms
+  (§4.2) and their classification by `H²` of the band, `gerbeClass` (§4.20).
+- `ArithmeticGaloisRepresentations` Layer 2, §2.1: `decompositionGroup`, `inertiaGroup`,
+  `wildInertiaGroup`, `localEmbeddingMap` and `localRestriction` with its change-of-embedding
+  isomorphisms `localRestrictionIsoOfConj`; Layer 4, §4.4: `dickson_classification` and
+  `projective_image_of_absolutelyIrreducible`; Layer 4, §4.7: `charTwo_residual_image`; Layer 5:
+  `functionField_chebotarev`; Layer 7, §7.2: `ContinuousRep.ad`, `adZero`, `adQuot`,
+  `traceBilinForm_isPerfPair`; Layer 7, §7.7: `ResidualImage.h1_SL2_adZero`; Layer 7:
+  `tate_h2_qz_eq_zero`.
 - `InverseGaloisAndArithmeticFundamentalGroups` IG.4.2, as described under *Scope and ownership*.
 
 ## How to read the build
@@ -324,7 +353,10 @@ modules, where they agree.
 **lim and lim¹ of a tower.** Let `(A_n, φ_n : A_{n+1} → A_n)` be a tower of abelian groups indexed
 by `ℕ`, and let `δ : ∏ A_n → ∏ A_n` be the shift `(a_n) ↦ (a_n − φ_n(a_{n+1}))`. Define
 `lim A = ker δ` and `lim¹ A = coker δ`. Then `lim` and `lim¹` are `R⁰lim` and `R¹lim` on towers of
-abelian groups, and `Rᵖlim = 0` for `p > 1`. The vanishing in degrees `p > 1` is special to
+abelian groups, and `Rᵖlim = 0` for `p > 1`. In `Suggested.lean` a tower is the structure
+`CompactCoefficients.Tower` (terms and transition homomorphisms), with the shift `Tower.shift`, the
+composite transitions `Tower.mapIter` and the underlying functor
+`Tower.toFunctor : ℕᵒᵖ ⥤ AddCommGrpCat`. The vanishing in degrees `p > 1` is special to
 `ℕ`-indexed towers; for other index categories the higher derived limits need not vanish.
 
 The API:
@@ -344,7 +376,7 @@ identification with `Rlim` and the vanishing for `p > 1` are the Stacks Project 
 
 - `limOne_surjective_tower`: the tower `ℤ/p^{n+1} ↠ ℤ/p^n` has `lim = ℤ_p` and `lim¹ = 0`.
 - `limOne_mul_p`: for a prime `p`, the tower `ℤ ← ℤ ← ⋯` with every transition multiplication by
-  `p` has `lim = 0` and `lim¹ ≅ ℤ_p/ℤ ≠ 0`.
+  `p` (`mulTower p`) has `lim = 0` and `lim¹ ≅ ℤ_p/ℤ ≠ 0`.
 - `lim_constant`: the constant tower with identity transitions has `lim` equal to the diagonal
   copy of `A` and `lim¹ = 0`.
 
@@ -359,8 +391,9 @@ The API:
   Mittag-Leffler.
 - `CompactCoefficients.Tower.isMittagLeffler_of_finite`: towers of finite groups are
   Mittag-Leffler.
-- `CompactCoefficients.Tower.isMittagLeffler_iff_functor`: agreement with Mathlib's
-  `IsMittagLeffler` for the underlying functor `ℕᵒᵖ ⥤ Type`.
+- `CompactCoefficients.Tower.isMittagLeffler_iff_ranges`: the predicate, which is Mathlib's
+  `IsMittagLeffler` for the underlying functor `ℕᵒᵖ ⥤ Type`, holds exactly when for every `n` the
+  ranges of the composite transitions `A_{n+k} → A_n` are eventually constant.
 
 *Proof sketch.* View the tower as a functor on `ℕᵒᵖ` with values in abelian groups and forget to
 types. Take Mathlib's `Functor.IsMittagLeffler` as the predicate and prove its eventual-range
@@ -377,8 +410,8 @@ finite terms the ranges form a descending chain of finite subgroups, which stabi
   `A_n` are `p^kℤ`, which never stabilise.
 
 **Mittag-Leffler towers have vanishing lim¹.** If a tower `(A_n)` of abelian groups indexed by `ℕ`
-is Mittag-Leffler, then `lim¹ A = 0`. The converse holds for towers of countable groups but fails
-in general; it is not needed here.
+is Mittag-Leffler, then `lim¹ A = 0` (`Tower.limOne_subsingleton_of_isMittagLeffler`). The converse
+holds for towers of countable groups but fails in general; it is not needed here.
 
 *Proof sketch.* Replace `A_n` by its stable image; the stable images form a tower with surjective
 transitions and the same `lim¹`. For surjective transitions solve `a_n − φ_n(a_{n+1}) = b_n` by
@@ -401,6 +434,9 @@ exact sequence
 ```text
 0 → lim A → lim B → lim C → lim¹ A → lim¹ B → lim¹ C → 0.
 ```
+
+In `Suggested.lean` a morphism of towers is `Tower.Hom`, with its map `Hom.onProduct` on products
+and the induced map `Hom.limOneMap`; the `lim¹` half of the sequence is `Tower.limOne_exact`.
 
 *Proof sketch.* Apply the snake lemma to the shift maps on the short exact sequence
 `0 → ∏ A_n → ∏ B_n → ∏ C_n → 0` ([Stacks Project](https://stacks.math.columbia.edu), More on
@@ -440,8 +476,9 @@ lim¹*.
 
 **Lifting continuous cochains along finite surjections.** Let `X` be any topological space and
 `π : Y → Z` a surjection of discrete spaces. Then every continuous `f : X → Z` has a continuous
-lift `g : X → Y` with `π ∘ g = f`. In particular, surjective transitions of discrete `G`-modules
-induce surjective transitions on continuous cochains `C(Gⁱ, −)`.
+lift `g : X → Y` with `π ∘ g = f` (`CompactCoefficients.exists_continuous_lift`). In particular,
+surjective transitions of discrete `G`-modules induce surjective transitions on continuous cochains
+`C(Gⁱ, −)`.
 
 *Proof sketch.* Choose a section `s : Z → Y` of `π`. Every map out of a discrete space is
 continuous, so `g = s ∘ f` is a continuous lift. Apply this with `X = Gⁱ` in each cochain degree
@@ -561,8 +598,9 @@ sequence of a short exact sequence of complexes ([Rubin, *Euler
 Systems*](https://swc-math.github.io/notes/files/99RubinES.pdf), Appendix B, §2, Definition 2.1,
 printed pp. 151–152 (PDF pp. 161–162); [Neukirch–Schmidt–Wingberg, *Cohomology of Number
 Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter II, §7,
-Lemma 2.7.2, p. 137 (PDF p. 151)). *Needs:* *Continuous sections of coefficient surjections*;
-*Comparison with the canonical carrier for compact coefficients*; ProfiniteCohomology Layer 5.
+Lemma 2.7.2, p. 137 (PDF p. 154)). *Needs:* *Continuous sections of coefficient surjections*;
+*Comparison with the canonical carrier for compact coefficients*; ProfiniteCohomology Layers 5 and 10
+(the long exact sequence through degree two, and in every degree).
 
 **Checks.**
 
@@ -581,7 +619,9 @@ hence `C(X, V) = ⋃_n C(X, p^{−n}T) = C(X, T) ⊗ ℚ_p`. With `X = Gⁱ` thi
 *Proof sketch.* `f(X)` is compact, hence bounded in the `p`-adic norm, and the lattices `p^{−n}T`
 are open and exhaust `V` ([Rubin, *Euler
 Systems*](https://swc-math.github.io/notes/files/99RubinES.pdf), Appendix B, §2, Proposition 2.4,
-printed p. 152 (PDF p. 162)). *Needs:* nothing beyond Mathlib's `p`-adic numbers.
+printed p. 152 (PDF p. 162)). For `T = ℤ_pᵈ` the boundedness step is
+`CompactCoefficients.exists_pow_smul_mem_lattice`. *Needs:* nothing beyond Mathlib's `p`-adic
+numbers.
 
 **Checks.**
 
@@ -591,19 +631,28 @@ printed p. 152 (PDF p. 162)). *Needs:* nothing beyond Mathlib's `p`-adic numbers
 - For empty `X` both sides are `0`.
 
 **Rationalisation of lattice cohomology.** Let `G` be profinite and `T` a finitely generated
-`ℤ_p`-module, with the `p`-adic topology and a continuous `G`-action. Then `Hⁱ(G, T)` has no nonzero
-divisible elements and `Hⁱ(G, T) ⊗ ℚ_p ≅ Hⁱ(G, T ⊗ ℚ_p)`.
+`ℤ_p`-module, with the `p`-adic topology and a continuous `G`-action. Then
+`Hⁱ(G, T) ⊗ ℚ_p ≅ Hⁱ(G, T ⊗ ℚ_p)`, and `Hⁱ(G, T)` contains no nonzero divisible subgroup. The
+elements of `Hⁱ(G, T)` divisible by every `pⁿ` form the subgroup `∩_n pⁿHⁱ(G, T)`, which for
+torsion-free `T` is the term `lim¹ H^{i−1}(G, T/pⁿT)` of the Milnor sequence; it can be nonzero
+(Check), and it vanishes, so that `Hⁱ(G, T)` has no nonzero divisible elements, when every
+`H^{i−1}(G, T/pⁿT)` is finite.
 
 *Proof sketch.* The torsion submodule of `T` is killed by a power of `p` and contributes nothing
 after `⊗ ℚ_p`; for the torsion-free quotient *Continuous cochains into V land in a lattice* gives
-`C^•(G, V) = C^•(G, T) ⊗ ℚ_p`, and `⊗ ℚ_p` is exact. The absence of nonzero divisible elements does
-not follow from the vanishing of a Milnor `lim¹` in general; it is Tate's argument on the
-coefficients, quoted in Rubin, Appendix B, Proposition 2.4. When every `H^{i−1}(G, T/pⁿT)` is
-finite, *Tate's inverse-limit theorem* identifies `Hⁱ(G, T)` with `lim Hⁱ(G, T/pⁿT)`, an inverse
-limit of groups killed by `pⁿ`, and such a limit has no nonzero divisible elements ([Rubin, *Euler
+`C^•(G, V) = C^•(G, T) ⊗ ℚ_p`, and `⊗ ℚ_p` is exact. For torsion-free `T`, the sequences
+`0 → T → T → T/pⁿT → 0` (multiplication by `pⁿ`) give `pⁿHⁱ(G, T) = ker(Hⁱ(G, T) → Hⁱ(G, T/pⁿT))`,
+so `∩_n pⁿHⁱ(G, T)` is the kernel of `Hⁱ(G, T) → lim Hⁱ(G, T/pⁿT)`, the `lim¹` term of *Tate's
+inverse-limit theorem*. That sequence also shows that `Hⁱ(G, T)` is an extension of an inverse limit
+of groups killed by `pⁿ` by the `lim¹` of such a tower. Both are weakly `p`-complete in Jannsen's
+sense (`Hom` and `Ext¹` from `ℤ[1/p]` into them vanish), this property passes to extensions, and a
+weakly `p`-complete group has no nonzero `p`-divisible subgroup, which gives the divisible-subgroup
+statement ([Jannsen, *Continuous étale
+cohomology*](https://epub.uni-regensburg.de/26684/1/jannsen12.pdf), §4, Proposition 4.8 and
+Corollary 4.9, p. 227, Remark 4.14(b), p. 228; [Rubin, *Euler
 Systems*](https://swc-math.github.io/notes/files/99RubinES.pdf), Appendix B, §2, Proposition 2.4,
-printed p. 152 (PDF p. 162)). *Needs:* *Continuous cochains into V land in a lattice*; *Tate's
-inverse-limit theorem*.
+printed p. 152 (PDF p. 162), which states the result after Tate). *Needs:* *Continuous cochains
+into V land in a lattice*; *Tate's inverse-limit theorem*; *The six-term sequence of lim and lim¹*.
 
 **Checks.**
 
@@ -612,6 +661,12 @@ inverse-limit theorem*.
   `H¹(G, ℚ_p) = Hom_cts(ℤ_p, ℚ_p) = ℚ_p`.
 - `V` is not an inverse limit of finite modules: `Hⁱ(G, V)` is the colimit of
   `Hⁱ(G, T) → Hⁱ(G, T) → ⋯` under multiplication by `p`, not a limit.
+- Divisible elements need the finiteness hypothesis: for `G = ∏_{j≥1} ℤ/pʲ`, `T = ℤ_p` and `i = 2`,
+  the tower `Hom_cts(G, ℤ/pⁿ) = ⊕_j Hom(ℤ/pʲ, ℤ/pⁿ)` consists of countable groups and is not
+  Mittag-Leffler (the image of `Hom(G, ℤ/p^{n+k+1})` in `Hom(G, ℤ/pⁿ)` is strictly smaller than that
+  of `Hom(G, ℤ/p^{n+k})`, already on the factor `j = n + k`), so
+  `∩_n pⁿH²(G, ℤ_p) = lim¹ Hom_cts(G, ℤ/pⁿ) ≠ 0`, although `H²(G, ℤ_p)` has no nonzero divisible
+  subgroup.
 
 **Cohomology of the discrete quotient W = V/T.** Let `G` be profinite and `T` a finite free
 `ℤ_p`-module with continuous `G`-action. Then `W = V/T` with the quotient topology is discrete (`T`
@@ -657,7 +712,7 @@ no finiteness condition on `C`. Define `Hom_pt(C, A)` as the group of additive m
 topology induced from `A^C` (pointwise convergence) and the conjugation action
 `(g·u)(c) = g·u(g⁻¹c)`. Evaluation `Hom_pt(C, A) × C → A` is jointly continuous and equivariant, and
 the action of `Γ` is jointly continuous. For finitely generated `C` the topology is discrete, and
-`Hom_pt(C, A)` is Tau Ceti's internal Hom with `homAction`. No derived-functor (`Ext`)
+for finite `C`, `Hom_pt(C, A)` is Tau Ceti's `InternalHom` with `homAction`. No derived-functor (`Ext`)
 interpretation is attached to `Hom_pt` when its topology is not discrete.
 
 The API:
@@ -740,7 +795,7 @@ generated C: the discrete case*).
 ([Harpaz–Wittenberg, *The Massey vanishing conjecture for number
 fields*](https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf), §5, Lemma 5.5, p. 19
 (author final version)). *Needs:* *The splitting torsor*; *Pointwise Hom of discrete modules*;
-*Long exact sequences for continuous cohomology*; ProfiniteCohomology Layer 8.
+*Long exact sequences for continuous cohomology*; ProfiniteCohomology Layers 10 and 12.
 
 **Checks.**
 
@@ -796,42 +851,48 @@ pp. 104–106; journal pp. 285–288). *Needs:* *lim and lim¹ of a tower*; Math
 **Continuous topology on factor-set extensions.** Let `G` be profinite, `M` an abelian profinite
 group with a jointly continuous `G`-action, and `α` a normalised factor set that is jointly
 continuous. Tau Ceti's `FactorSet.Extension` of `G` by `M` with factor set `α`, with the product
-topology transported from `M × G`, is a profinite group (Tau Ceti's `ofFactorSet`): its group
-operations are continuous, its canonical section is continuous and the rescaling equivalence is a
-homeomorphism. The factor set, the abstract extension and the rescaling equivalence are Tau
-Ceti's; what is proved here is the comparison of the class of the extension with the continuous
-cohomology of *Comparison with the canonical carrier for compact coefficients*.
+topology transported from `M × G`, is a profinite group: its operations and its canonical section
+are continuous and rescaling is a homeomorphism. All of this is in the current Tau Ceti library and
+is cited, not rebuilt: `TauCeti.FactorSet.Extension.homeomorphProd`, `isTopologicalGroup`,
+`continuous_canonicalSection`, `continuous_rescaleEquiv` and the profinite extension
+`TauCeti.ProfiniteGroupExtension.ofFactorSet`. What is built here is the class of `α` in Mathlib's
+continuous cohomology: read as a continuous inhomogeneous `2`-cocycle with values in the compact
+module `M`, `α` defines a class in `H²(G, M)` (`continuousCohomology 2`) through *Comparison with
+the canonical carrier for compact coefficients*; the class depends only on `α` up to rescaling, and
+it is the class of the extension in `TauCeti.ContCohomology.H2` under the same comparison.
 
 The API:
 
-- `CompactCoefficients.factorSetTopology`: the product topology transported to
-  `FactorSet.Extension`.
-- `CompactCoefficients.factorSet_isTopologicalGroup`: the extension operations are continuous.
-- `CompactCoefficients.factorSet_section_continuous`: the canonical section is continuous.
-- `CompactCoefficients.factorSet_rescaleHomeomorph`: continuous rescaling is a homeomorphism of
-  extensions.
+- `CompactCoefficients.factorSetClass`: the class of `α` in `H²(G, M)` of `continuousCohomology`.
+- `CompactCoefficients.factorSetClass_rescale`: factor sets related by Tau Ceti's rescaling have the
+  same class.
+- `CompactCoefficients.factorSetClass_eq_extensionClass`: the class agrees, under the degree-two
+  comparison, with the class in `TauCeti.ContCohomology.H2` of `ProfiniteGroupExtension.ofFactorSet`.
+- `CompactCoefficients.factorSetClass_eq_zero_iff`: the class vanishes exactly when `α` is the
+  coboundary of a continuous normalised `1`-cochain, that is, when the extension has a continuous
+  homomorphic section.
 
-*Proof sketch.* The topology and its continuity properties are Tau Ceti's
-`FactorSet.Extension.homeomorphProd`, `isTopologicalGroup`, `continuous_canonicalSection` and
-`continuous_rescaleEquiv`, and the profinite extension is
-`ProfiniteGroupExtension.ofFactorSet`. Compare its factor set and class with `α` through the
-comparison between inhomogeneous and homogeneous cochains, using the coefficient maps and
-naturality of rescaling ([Kaletha, *Rigid inner forms of real and p-adic
-groups*](https://arxiv.org/pdf/1304.3292v5), §3.2, pp. 10–12, citing NSW Theorem 2.7.7;
-[Neukirch–Schmidt–Wingberg, *Cohomology of Number
+*Proof sketch.* The topology and its continuity properties are the cited Tau Ceti declarations.
+Compare the factor set and its class with `α` through the comparison between inhomogeneous and
+homogeneous cochains, using the coefficient maps and naturality of rescaling ([Kaletha, *Rigid
+inner forms of real and p-adic groups*](https://arxiv.org/pdf/1304.3292v5), §3.2, pp. 10–12, citing
+NSW Theorem 2.7.7; [Neukirch–Schmidt–Wingberg, *Cohomology of Number
 Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), §2.7, Theorem 2.7.7,
 pp. 142–143). *Needs:* *Comparison with the canonical carrier for compact coefficients*; Tau Ceti
-`TauCeti.FactorSet`; Tau Ceti `TauCeti.FactorSet.Extension`.
+`TauCeti.FactorSet`; Tau Ceti `TauCeti.FactorSet.Extension`; current Tau Ceti
+`TauCeti.FactorSet.Extension.homeomorphProd`, `isTopologicalGroup`, `continuous_canonicalSection`,
+`continuous_rescaleEquiv` and `TauCeti.ProfiniteGroupExtension.ofFactorSet`.
 
 **Checks.**
 
 - `factor_trivial_product`: trivial action and trivial factor set give `M × G` with the product
-  topology.
-- `factor_section`: the canonical normalised section followed by the projection is the identity
-  of `G`.
-- `factor_zero_kernel`: for `M = 0` the extension is `G` itself, as a profinite group.
+  topology, and the class `0`.
+- `factor_zero_kernel`: for `M = 0` the extension is `G` itself and `H²(G, 0) = 0`.
 - For the trivial factor set and a nontrivial action the extension is `M ⋊ G` with the product
-  topology.
+  topology, and the class is `0`.
+- For `G = M = ℤ/2` with trivial action, the factor set with `α(σ, σ) = 1` and all other values `0`
+  gives `ℤ/4` and the nonzero class of `H²(ℤ/2, ℤ/2) ≅ ℤ/2`; a definition that ignored `α` would
+  give `0`.
 - A discontinuous factor set is excluded even though it defines an abstract group: for
   `G = 𝔽₂^ℕ`, `M = 𝔽₂` and a discontinuous homomorphism `φ : G → 𝔽₂`, `α(g, h) = φ(g)φ(h)` is a
   `2`-cocycle, but multiplication on `M × G` is not continuous.
@@ -848,8 +909,9 @@ addition, the automorphisms of `E` inducing the identity on `M` and on `G` corre
 finiteness or countability assumption on `G` or `M` is needed, since continuous normalised sections
 of profinite quotient maps always exist.
 
-*Proof sketch.* The equivalence, the realisation theorem and the splitting criterion are Tau Ceti's
-(`TauCeti/Topology/Algebra/GroupExtension/Cohomology.lean`), including independence of the chosen
+*Proof sketch.* The equivalence, the realisation theorem and the splitting criterion are in the
+current Tau Ceti library (`TauCeti/Topology/Algebra/GroupExtension/Cohomology.lean`), cited and not
+rebuilt, including independence of the chosen
 normalised section; *Comparison with the canonical carrier for compact coefficients* transports the
 class to `continuousCohomology`. For an automorphism `σ` over both ends, `f(g) = σ(s(g))s(g)⁻¹`
 satisfies the continuous cocycle identity, and `σ` is recovered from `f` in the product coordinates;
@@ -928,7 +990,7 @@ compact coefficients*; ProfiniteCohomology Layer 12; Mathlib `tateCohomology`.
 
 ### Dependencies
 
-- TauCetiRoadmap ProfiniteCohomology: Layers 3, 4, 5, 8, 12.
+- TauCetiRoadmap ProfiniteCohomology: Layers 3, 4, 5, 10, 12.
 - Libraries: Mathlib `CategoryTheory.Functor.IsMittagLeffler`, Mathlib `continuous_pi_iff`,
   Mathlib `continuousCohomology`, Tau Ceti `TauCeti.exists_continuous_section`, Tau Ceti
   `TauCeti.homAction`, Mathlib `AdicCompletion`, Tau Ceti `TauCeti.FactorSet`, Tau Ceti
@@ -1006,9 +1068,9 @@ anticommuting differentials become the commuting differentials of Mathlib's `Hom
 after a sign depending on the degree; its totalisation uses `ComplexShape.TensorSigns`, and the
 pages and edge maps are transported through the same convention ([Neukirch–Schmidt–Wingberg,
 *Cohomology of Number Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf),
-Chapter II, §1, Proposition 2.1.1, printed p. 99 (PDF p. 113); [Neukirch–Schmidt–Wingberg,
+Chapter II, §1, Proposition 2.1.1, printed p. 99 (PDF p. 116); [Neukirch–Schmidt–Wingberg,
 *Cohomology of Number Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf),
-Chapter II, §2, Lemma 2.2.4, printed p. 105 (PDF p. 119)). *Needs:* Mathlib
+Chapter II, §2, Lemma 2.2.4, printed p. 105 (PDF p. 122)). *Needs:* Mathlib
 `HomotopyCategory.spectralObjectMappingCone`; Mathlib
 `CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor`; Mathlib
 `CategoryTheory.Abelian.SpectralObject.IsFirstQuadrant`; Mathlib
@@ -1068,9 +1130,9 @@ cohomology, which is Mathlib's `continuousCohomology` for discrete `A` (Profinit
 Layers 3 and 10). The edge maps, the morphisms along `(G′, H′)` and the cup products are checked on
 the double complex (NSW II §4, Exercises 1, 3 and 5) ([Neukirch–Schmidt–Wingberg, *Cohomology of
 Number Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter II, §4,
-Theorem 2.4.1, printed p. 111 (PDF p. 125); [Neukirch–Schmidt–Wingberg, *Cohomology of Number
+Theorem 2.4.1, printed p. 111 (PDF p. 128); [Neukirch–Schmidt–Wingberg, *Cohomology of Number
 Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter II, §4,
-Exercises 1, 3, 5, printed p. 119 (PDF p. 133)). *Needs:* *The spectral sequence of a
+Exercises 1, 3, 5, printed p. 119 (PDF p. 136)). *Needs:* *The spectral sequence of a
 first-quadrant double complex*; ProfiniteCohomology Layers 3, 7, 10 and 12; Mathlib
 `continuousCohomology`.
 
@@ -1110,7 +1172,7 @@ degenerates it (NSW (2.4.6), after Jannsen). (4) Two nonzero rows, or, when `cd(
 torsion, two nonzero columns (ProfiniteCohomology Layer 11), in *The spectral sequence of a
 first-quadrant double complex* (NSW II §4, Exercise 4; Lemma 2.1.3) ([Neukirch–Schmidt–Wingberg,
 *Cohomology of Number Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf),
-Chapter II, §4, Theorem 2.4.6, printed p. 118 (PDF p. 132)). *Needs:* *The Hochschild–Serre
+Chapter II, §4, Theorem 2.4.6, printed p. 118 (PDF p. 135)). *Needs:* *The Hochschild–Serre
 spectral sequence*; *The spectral sequence of a first-quadrant double complex*; ProfiniteCohomology
 Layer 11.
 
@@ -1154,7 +1216,7 @@ the resolution; `G/H`-invariance gives `b` with `d(b_{σ,ρ}) = ρx − σx`, wh
 (NSW (2.4.3), proof of Moser and Stix). The extended sequence is the vanishing-rows case of *The
 spectral sequence of a first-quadrant double complex* ([Neukirch–Schmidt–Wingberg, *Cohomology of
 Number Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter II, §4,
-Theorem 2.4.3, printed p. 113 (PDF p. 127)). *Needs:* *The Hochschild–Serre spectral sequence*;
+Theorem 2.4.3, printed p. 113 (PDF p. 130)). *Needs:* *The Hochschild–Serre spectral sequence*;
 *The spectral sequence of a first-quadrant double complex*; ProfiniteCohomology Layer 5.
 
 **Checks.**
@@ -1186,7 +1248,7 @@ products with inflation and `H¹(H, A) = colim_W H¹(H/W, A)` (ProfiniteCohomolo
 Closed `H`: the same argument with `u` in the cohomology with compact coefficients of Layer R02.1
 ([Neukirch–Schmidt–Wingberg, *Cohomology of Number
 Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter II, §4,
-Theorem 2.4.4, printed p. 114 (PDF p. 128)). Harpaz–Wittenberg's formula
+Theorem 2.4.4, printed p. 114 (PDF p. 131)). Harpaz–Wittenberg's formula
 `d₂^{1,1}[β] = [β ∪ f]` is this identity for their extension, up to sign. *Needs:* *The
 Hochschild–Serre spectral sequence*; *The five-term sequence and the transgression*; *Comparison
 with the canonical carrier for compact coefficients* (Layer R02.1); *Pointwise Hom of discrete
@@ -1223,7 +1285,7 @@ map is an isomorphism for discrete coefficients. The same coset maps and homotop
 lattice and rational continuous cochains; no finiteness of `Hⁱ(U, T/pⁿT)` is required
 ([Neukirch–Schmidt–Wingberg, *Cohomology of Number
 Fields*](https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf), Chapter I, §5,
-Corollary 1.5.7, printed p. 51 (PDF p. 65)). *Needs:* *The Hochschild–Serre spectral sequence*;
+Corollary 1.5.7, printed p. 51 (PDF p. 67)). *Needs:* *The Hochschild–Serre spectral sequence*;
 *Degeneration of the Hochschild–Serre spectral sequence*; *Tate's inverse-limit theorem*
 (Layer R02.1); *Rationalisation of lattice cohomology* (Layer R02.1); ProfiniteCohomology Layers 6
 and 10.
@@ -1284,7 +1346,12 @@ The full spectral sequence for compact coefficients is *Relative compact Hochsch
 does not use discreteness. (2) For `T` finitely generated over `ℤ_p`, apply *The five-term sequence
 and the transgression* to the discrete modules `T/pᵐT`; the hypotheses make every term finite, so
 the inverse limit over `m` is exact (*Mittag-Leffler towers have vanishing lim¹*, Layer R02.1), and
-*Tate's inverse-limit theorem* (Layer R02.1) identifies the limits with the cohomology of `T`. For a
+*Tate's inverse-limit theorem* (Layer R02.1) identifies the limits with the cohomology of `T`. The
+terms with coefficients `(T/pᵐT)^H` need one more step, since `(T/pᵐT)^H` is not `T^H/pᵐT^H` in
+general and the transitions of the tower `((T/pᵐT)^H)_m` need not be surjective: its limit is
+`(lim T/pᵐT)^H = T^H`, the groups are finite, and replacing each term by its stable image (the
+Mittag-Leffler condition) gives a tower with surjective transitions, the same limit and the same
+limit of cohomology groups, to which Tate's theorem applies. For a
 `ℚ_p`-space `V`, choose a `G`-stable lattice `T₀` and tensor the sequence for `T₀` with `ℚ_p`
 (*Rationalisation of lattice cohomology*, Layer R02.1) ([Rubin, *Euler
 Systems*](https://swc-math.github.io/notes/files/99RubinES.pdf), Appendix B, §2, Proposition 2.5,
@@ -1337,7 +1404,8 @@ vanishing conjecture for number fields*](https://www.math.univ-paris13.fr/~witte
 §3, Remark 3.4, pp. 10–11; [Chan, *Lectures on
 Orders*](https://web.maths.unsw.edu.au/~danielch/Lect_Orders.pdf), §8.1–8.3, Theorems 8.1, 8.7,
 8.10 and Lemma 8.9, pp. 24–30). *Needs:* *Degeneration of the Hochschild–Serre spectral sequence*;
-ProfiniteCohomology Layers 9 and 11; ClassFieldTheory Layer 5.
+ProfiniteCohomology Layers 9 and 11; ClassFieldTheory Layer 5 (local fields, that is, finite
+residue field; the Witt sequence for an arbitrary perfect residue field is proved here).
 
 **Checks.**
 
@@ -1382,7 +1450,9 @@ maximal extension unramified outside `S`, Hermite's finiteness theorem and the f
 `S`-units and `S`-idele classes as `G_S`-modules, `P`-class formations and the fact that
 `(G_S, C_S)` is one, with its reciprocity law and the Kummer sequence for `S`-units. It also states
 the class-field inputs for global function fields that the function-field duality theorems of
-Layer R02.4 need, since ClassFieldTheory treats global fields of characteristic zero only. Finally
+Layer R02.4 need, since ClassFieldTheory treats global fields of characteristic zero only;
+Chebotarev density for global function fields is ArithmeticGaloisRepresentations Layer 5
+(`functionField_chebotarev`) and is cited. Finally
 it defines the locally trivial groups `Шⁱ`, describes the cyclotomic power kernel, and proves four
 class-field applications: exponent-two ramification fields, quadratic reciprocity for one new
 ramified prime, the antiunit class-field rank and the absence of `ℤ_p`-extensions unramified at
@@ -1405,6 +1475,9 @@ function field*.
 
 The API:
 
+- `RestrictedRamification.IsUnramifiedOutside`: a finite subextension `L` of `K^s/K` is unramified
+  outside `S` when every prime of `𝓞_L` over a finite place `v ∉ S` is unramified over `𝓞_K`
+  (Mathlib's `Algebra.IsUnramifiedAt`); archimedean places impose nothing.
 - `RestrictedRamification.maxUnramifiedOutside`: `K_S` as an intermediate field of `K^s/K`.
 - `RestrictedRamification.galoisGroupS`: `G_{K,S} = Gal(K_S/K)` with its Krull topology, a
   profinite group.
@@ -1454,9 +1527,9 @@ Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, defini
 
 **Hermite: finitely many extensions of bounded degree unramified outside a finite set.** Let `K` be
 a number field, `S` a finite set of places of `K` and `n ≥ 1`. Then only finitely many subfields
-`L ⊆ K^s` with `K ⊆ L` and `[L : K] ≤ n` are unramified at every finite place outside `S`. The
-fields are counted as subfields of the fixed `K^s`, as in Mathlib's
-`NumberField.finite_of_discr_bdd`.
+`L ⊆ K^s` with `K ⊆ L` and `[L : K] ≤ n` are unramified at every finite place outside `S`
+(`RestrictedRamification.finite_unramifiedOutside_of_finrank_le`). The fields are counted as
+subfields of the fixed `K^s`, as in Mathlib's `NumberField.finite_of_discr_bdd`.
 
 *Proof sketch.* For such `L`, `|disc(L)| = |disc(K)|^{[L:K]} · N_{K/ℚ}(𝔡_{L/K})` (tower formula
 for the relative discriminant, NumberFieldArithmetic Layer 4). The relative discriminant
@@ -1480,7 +1553,8 @@ Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, proof 
 
 **Finiteness of H¹(G_{K,S}, M).** Let `S` be a finite set of places of the number field `K`
 containing the archimedean places, and `M` a finite discrete `G_S`-module, of any order (`#M` need
-not be a unit in `R_{K,S}`). Then `H¹(G_S, M)` is finite. In particular `Hom_cont(G_{F,S}, 𝔽_p)` is
+not be a unit in `R_{K,S}`). Then `H¹(G_S, M)` is finite
+(`RestrictedRamification.finite_H1_galoisGroupS`). In particular `Hom_cont(G_{F,S}, 𝔽_p)` is
 finite for every finite extension `F` of `K` in `K_S` and every prime `p`.
 
 *Proof sketch.* Choose a finite Galois `F ⊆ K_S` such that `Gal(K_S/F)` acts trivially on `M`
@@ -1537,23 +1611,27 @@ The API:
 - `RestrictedRamification.unramifiedSubgroup_two_eq_bot`: for finite `M` unramified at `v`,
   `H²_un(K_v, M) = 0`, because it is the image of `H²(g_v, M) = 0`.
 - `RestrictedRamification.locMap_eq_restriction`: at finite `v`, `loc_v` is the restriction to the
-  decomposition group of ArithmeticGaloisRepresentations Layer R01.2, *Local restriction and
-  coherent change of embedding*.
+  decomposition group along ArithmeticGaloisRepresentations' `localEmbeddingMap` (Layer 2, §2.1),
+  the map underlying its `localRestriction`.
 
-*Proof sketch.* Two embeddings differ by an element of `G_K`, which conjugates `G_v`; conjugation
-acts trivially on the cohomology of `G_S` (ProfiniteCohomology Layer 6), so `loc_v` is independent
-of the choice. `loc_v` is the map of the compatible pair `(G_v → G_S, id_M)`, so it commutes with
-connecting homomorphisms (ProfiniteCohomology Layer 10); at archimedean `v` compose with
-`H^r → Ĥ^r`. `H⁰_un = H⁰`; inflation `H¹(g_v, M) → H¹(G_v, M)` is injective, so
-`H¹_un ≅ H¹(g_v, M)`; for finite `M`, `H²(g_v, M) = 0` because `g_v ≅ Ẑ` has cohomological
-dimension `1` (ProfiniteCohomology Layer 11), so `H²_un = 0`. `loc_v` agrees with the restriction to
-the decomposition group of ArithmeticGaloisRepresentations Layer R01.2. ([Milne, *Arithmetic Duality
+*Proof sketch.* Two embeddings differ by an element of `G_K`, which conjugates `G_v`; conjugation by
+an element of `G_S` acts trivially on the cohomology of `G_S`, so `loc_v` is independent of the
+choice. In degrees `≤ 2` this triviality is ProfiniteCohomology Layer 2
+(`explicitConj1_eq_id_of_mem`); in every degree it is
+`TauCeti.ContinuousCohomology.map_eq_id_of_inner` of the current Tau Ceti library (for smooth
+discrete coefficients, by a prism homotopy on the coinduced resolution; Neukirch–Schmidt–Wingberg,
+Proposition 1.6.3, p. 61). `loc_v` is the map of the compatible pair `(G_v → G_S, id_M)`, so it
+commutes with connecting homomorphisms (ProfiniteCohomology Layer 10); at archimedean `v` compose
+with `H^r → Ĥ^r`. `H⁰_un = H⁰`; inflation `H¹(g_v, M) → H¹(G_v, M)` is injective, so
+`H¹_un ≅ H¹(g_v, M)`; for finite `M`, `H²(g_v, M) = 0` because `g_v ≅ Ẑ` has cohomological dimension
+`1` (ProfiniteCohomology Layer 11), so `H²_un = 0`. `loc_v` agrees with the restriction to the
+decomposition group of ArithmeticGaloisRepresentations Layer 2. ([Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, statement of the main
-theorem, p. 55 (PDF p. 63).) *Needs:* *The Galois group G_{K,S} of the maximal extension
-unramified outside S*; ProfiniteCohomology Layers 6, 10 and 11; ArithmeticGaloisRepresentations
-Layer R01.2, *Decomposition, inertia and wild inertia groups at a place of a number field*;
-ArithmeticGaloisRepresentations Layer R01.2, *Local restriction and coherent change of embedding*;
-Mathlib `tateCohomology`.
+theorem, p. 55 (PDF p. 63).) *Needs:* *The Galois group G_{K,S} of the maximal extension unramified
+outside S*; ProfiniteCohomology Layers 2, 10 and 11; current Tau Ceti
+`TauCeti.ContinuousCohomology.map_eq_id_of_inner`; ArithmeticGaloisRepresentations Layer 2, §2.1
+(`decompositionGroup`, `inertiaGroup`, `wildInertiaGroup`, `localEmbeddingMap`, `localRestriction`
+and `localRestrictionIsoOfConj`); Mathlib `tateCohomology`.
 
 **Checks.**
 
@@ -1629,8 +1707,8 @@ with its Krull topology. For each place `v` fix an embedding `F^s ↪ F_v^s` ove
 - `constantField_le_maxUnramifiedOutside`: every constant field extension `𝔽_{q^n} F` lies in
   `F_S`, so `G_{F,S}` surjects onto `Ẑ = Gal(𝔽̄_q F/F)`.
 - `pow_eq_one_mem_maxUnramifiedOutside`: for `n` prime to `ℓ`, `μ_n(F^s) ⊆ F_S` (the constant
-  field extension `𝔽_q(μ_n)F` is unramified everywhere); so every `n` prime to `ℓ` lies in the
-  set `P` of primes `p` with `p^∞ ∣ [F_S : F]`.
+  field extension `𝔽_q(μ_n)F` is unramified everywhere). Since `G_{F,S}` surjects onto `Ẑ`, every
+  prime, `ℓ` included, lies in the set `P` of primes `p` with `p^∞ ∣ [F_S : F]`.
 - `kummer_unramified_iff`: for `n` prime to `ℓ` and `a ∈ Fˣ`, `F(a^{1/n})/F` is unramified at
   `v` exactly when `n ∣ ord_v(a)`.
 
@@ -1727,30 +1805,6 @@ invariants) and Layer 7 (local reciprocity); ProfiniteCohomology Layer 7 (Shapir
 - The class formation is stated for `G_F`, not for `G_{F,∅}`: with `S` empty the `S`-idele class
   group is not the right coefficient module, which is why every `S`-statement assumes `S ≠ ∅`.
 
-**Chebotarev density for global function fields.** Let `L/F` be a finite Galois extension of
-global function fields and `C ⊆ Gal(L/F)` a conjugacy class. Prove `GlobalFunctionField.chebotarev`:
-the set of places `v` unramified in `L` with Frobenius class `C` has Dirichlet density
-`#C/#Gal(L/F)`; in particular infinitely many places of `F` split completely in `L`, and a finite
-abelian extension in which almost every place splits completely is trivial. When `L/F` contains a
-constant field extension the Frobenius classes over places of a fixed degree are constrained by
-the image in `Gal(𝔽_{q^n}/𝔽_q)`, and the density statement is the one over all places
-(Neukirch–Schmidt–Wingberg, IX §1, (9.1.3), p. 524, stated for global fields; Wood, *Nonabelian
-Cohen–Lenstra moments*, Lemma 3.2 and its proof, uses the everywhere-split abelian case). *Proof
-sketch.* The abelian case follows from the class formation (*The class formation of a global
-function field*) and the analytic theory of `L`-functions of idele class characters of finite
-order; the general case reduces to cyclic subextensions as in the number-field case of
-TauCetiRoadmap Chebotarev Layer 10. *Needs:* *The class formation of a global function field*;
-TauCetiRoadmap Chebotarev Layer 10 (the reduction to cyclic extensions).
-
-**Checks.**
-
-- For `L = 𝔽_{q²}(t)` over `F = 𝔽_q(t)`, a place splits exactly when its degree is even, a set of
-  density `½ = #{1}/#Gal(L/F)`.
-- A nontrivial abelian `L/F` has places with nontrivial Frobenius: the Hasse principle for
-  `Hom(G_F, ℤ/n)` that the obstruction calculations use fails without this density statement.
-- Dirichlet density, not natural density by degree, is the right notion: for constant field
-  extensions the proportion of split places among places of a fixed degree `d` is `0` or `1`.
-
 ### R02.3.3 `S`-ideles and the `S`-class formation
 
 **S-ideles, S-units and S-idele classes.** Let `S` contain the archimedean places. For a finite
@@ -1823,17 +1877,17 @@ the places of `S` split completely, and `Pic(R_{F,S}) → Pic(R_{F′,S})` corre
 `Gal(L/F)^ab → Gal(L/F′)`, where `L` is the maximal unramified abelian extension of `F′` in which
 the places of `S` split completely, so that `Gal(L/F′)` is the commutator subgroup of `Gal(L/F)`;
 the principal ideal theorem makes this transfer zero. Since `F′ ⊆ K_S`, the limit vanishes
-(ClassFieldTheory Layer 13). Next,
-`H^r(G_S, U_S) = lim_F ∏_{v∉S} H^r(Gal(F_w/K_v), Ô_w^×)`: finite-group cohomology commutes with
-products and Shapiro's lemma reduces to a decomposition group (ProfiniteCohomology Layers 4 and 7);
-`H^r(Gal(F_w/K_v), Ô_w^×) = 0` for `r ≥ 1` because `F_w/K_v` is unramified (ClassFieldTheory
-Layer 6). `(C^{H_S})^{G_S} = C_K` by Galois descent for idele classes (ClassFieldTheory Layer 10),
-and the long exact sequence (ProfiniteCohomology Layer 5) gives the rest. ([Milne, *Arithmetic
-Duality Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, proof of
-Proposition 4.3, p. 50 (PDF p. 58); [Milne, *Arithmetic Duality
+(ClassFieldTheory Layer 13). Next, `H^r(G_S, U_S) = lim_F ∏_{v∉S} H^r(Gal(F_w/K_v), Ô_w^×)`:
+finite-group cohomology commutes with products and Shapiro's lemma reduces to a decomposition group
+(ProfiniteCohomology Layers 4 and 7); `H^r(Gal(F_w/K_v), Ô_w^×) = 0` for `r ≥ 1` because `F_w/K_v`
+is unramified (ClassFieldTheory Layer 6). `(C^{H_S})^{G_S} = C_K` by Galois descent for idele
+classes (ClassFieldTheory Layer 10), and the long exact sequence in every degree
+(ProfiniteCohomology Layer 10) gives the rest. ([Milne, *Arithmetic Duality
+Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, proof of Proposition 4.3,
+p. 50 (PDF p. 58); [Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, proof of Lemma 4.4, p. 51
 (PDF p. 59).) *Needs:* *S-ideles, S-units and S-idele classes*; ClassFieldTheory Layers 6, 10 and
-13; ProfiniteCohomology Layers 4, 5 and 7.
+13; ProfiniteCohomology Layers 4, 7 and 10.
 
 **Checks.**
 
@@ -1871,12 +1925,13 @@ The API:
 - `ClassFormation.PClassFormation.fundamentalClass`: `u_{U/V} ∈ H²(U/V, C^V)`, the class of
   invariant `1/(U : V)`.
 
-*Proof sketch.* A class formation of ClassFieldTheory Layer 2 whose invariant maps are bijective is
-a `P`-class formation for every `P`. For `H` closed and normal in `G`, `(G/H, C^H)` is a `P`-class
-formation with `P = {ℓ : ℓ^∞ divides (G : H)}`: since `H¹(H, C) = 0`, inflation identifies
-`H²(U/H, C^H)` with the colimit of the `H²(U/V, C^V)` over open `V ⊇ H`, which `inv_U` maps onto
-the elements of `ℚ/ℤ` whose order divides the supernatural index `(U : H)` (ProfiniteCohomology
-Layer 10, ProfiniteProPGroups Layer 1). ([Milne, *Arithmetic Duality
+*Proof sketch.* A class formation of ClassFieldTheory Layer 2 (in the current Tau Ceti library the
+structure `TauCeti.ClassFieldTheory.ClassFormation`, with `fundamentalClass`) whose invariant maps
+are bijective is a `P`-class formation for every `P`. For `H` closed and normal in `G`, `(G/H, C^H)`
+is a `P`-class formation with `P = {ℓ : ℓ^∞ divides (G : H)}`: since `H¹(H, C) = 0`, inflation
+identifies `H²(U/H, C^H)` with the colimit of the `H²(U/V, C^V)` over open `V ⊇ H`, which `inv_U`
+maps onto the elements of `ℚ/ℤ` whose order divides the supernatural index `(U : H)`
+(ProfiniteCohomology Layer 10, ProfiniteProPGroups Layer 1). ([Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §1, a generalization, p. 25
 (PDF p. 33).) *Needs:* ClassFieldTheory Layer 2; ProfiniteCohomology Layer 10; ProfiniteProPGroups
 Layer 1.
@@ -2036,8 +2091,8 @@ Galois localization and Sha kernels*.
 - `Ш⁰(F, M) = 0` for every `M`: at a finite place `v`, `H⁰(G_F, M) → H⁰(F_v, M)` is the inclusion
   `M^{G_F} ⊆ M^{G_v}`.
 - `Ш¹(F, ℤ/n) = 0` for trivial action (`n` prime to the characteristic): a cyclic extension in
-  which every place splits completely is trivial, by Chebotarev (*Chebotarev density for global
-  function fields* in the function-field case).
+  which every place splits completely is trivial, by Chebotarev (ArithmeticGaloisRepresentations
+  Layer 5, `functionField_chebotarev`, in the function-field case).
 
 **Cyclotomic description of the power kernel.** Let `F` be a number field, `p` a prime, `r ≥ 1` and
 `K = F(μ_{pʳ})`; localisation is over every place of `F`, archimedean ones included. Inflation
@@ -2097,6 +2152,8 @@ The API:
 - `ArithmeticDuality.exponentTwoField_contains`: every quadratic extension unramified at the finite
   places outside `S` lies in `F(S)`.
 - `ArithmeticDuality.exponentTwoField_finite`: `F(S)/F` is finite.
+- `ArithmeticDuality.exponentTwoField_le`: `F(S)` lies in the maximal extension `F_{S ∪ S_∞}`
+  unramified outside `S`.
 
 *Proof sketch.* By class field theory, `Gal(F(S)/F)` is the maximal exponent-two quotient of a ray
 class group whose modulus is supported on `S` and the real places, which is finite. Equivalently,
@@ -2239,9 +2296,8 @@ ClassFieldTheory Layers 7, 12 and 13.
 - TauCetiRoadmap NumberFieldArithmetic: Layers 1, 4, 6.
 - TauCetiRoadmap ProfiniteProPGroups: Layer 1.
 - TauCetiRoadmap ProfiniteCohomology: Layers 4, 5, 6, 7, 9, 10, 11.
-- ArithmeticGaloisRepresentations: Layer R01.2, *Local restriction and coherent change of
-  embedding*; Layer R01.2, *Decomposition, inertia and wild inertia groups at a place of a number
-  field*.
+- ArithmeticGaloisRepresentations: Layer 2, §2.1 (decomposition, inertia and wild inertia groups;
+  local restriction and change of embedding); Layer 5 (`functionField_chebotarev`).
 - TauCetiRoadmap GlobalNumberFields: Layers 6, 7, 8.
 - TauCetiRoadmap ClassFieldTheory: Layers 2, 6, 7, 10, 11, 12, 13.
 - InverseGaloisAndArithmeticFundamentalGroups: IG.4.2 *Finite Galois localization and Sha kernels*.
@@ -2515,7 +2571,9 @@ The API:
 - `PoitouTate.restrictedProductCohomology`: `P^r_S(K, M)` as Mathlib's `RestrictedProduct` of the
   `H^r(K_v, M)` over the `H^r_un(K_v, M)`.
 - `PoitouTate.beta`: `β^r : H^r(G_S, M) → P^r_S(K, M)`, the product of the localisation maps.
-- `PoitouTate.sha`: `Ш^r_S(K, M) := ker β^r`.
+- `PoitouTate.sha`: `Ш^r_S(K, M) := ker β^r`; `PoitouTate.sha_eq_absoluteSha`: it is the kernel of
+  the family of localisation maps (`ArithmeticDuality.absoluteSha`, Layer R02.3), and
+  `PoitouTate.beta_apply` evaluates `β^r` at a place.
 - `PoitouTate.compactSpace_P0`: `P⁰_S(K, M)` is compact for finite `M`.
 - `PoitouTate.locallyCompactSpace_P1`: `P¹_S(K, M)` is locally compact.
 - `PoitouTate.restrictedProductCohomology_eq_sum`: for finite `M` and `r ≥ 2`,
@@ -2628,7 +2686,7 @@ in the second variable, and Shapiro
 reduces to the decomposition groups. At `v ∈ S ∖ T` use (b) with `T` in place of `S`; at `v ∈ T`,
 `Ext^r_{G_v}(M, K_v^{s×}) = H^r(G_v, M^d)` (ClassFieldTheory Layer 5). ([Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, Lemmas 4.12 and 4.13,
-p. 59 (PDF p. 67); [Milne, *Arithmetic Duality
+pp. 58–59 (PDF pp. 66–67); [Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §4, Remark 4.14, p. 61 (PDF
 p. 69).) *Needs:* *Ext of discrete G-modules*; *S-ideles, S-units and S-idele classes* (Layer
 R02.3); *The Kummer sequence for S-units* (Layer R02.3); *Restricted products of local cohomology
@@ -2665,7 +2723,11 @@ The pairing in (a) is natural in `M` (for `f : M → N`, `⟨f_* a, b⟩ = ⟨a,
 by an explicit cochain formula: represent `a` and `a′` by cocycles `α`, `α′`, choose local
 primitives `α_v = dβ_v`, `α′_v = dβ′_v` and a global `E_S`-valued `2`-cochain `ε` with
 `α ∪ α′ = dε` (possible since `H³(G_S, E_S)` has no element of order dividing `#M`); then
-`(α_v ∪ β′_v) − ε_v` is a local `2`-cocycle with class `c_v`, and `⟨a, a′⟩ = Σ_v inv_v(c_v)`.
+`(β_v ∪ α′_v) − ε_v` is a local `2`-cocycle with class `c_v`, and `⟨a, a′⟩ = Σ_v inv_v(c_v)`. With
+the Leibniz rule `d(x ∪ y) = dx ∪ y + (−1)^{deg x} x ∪ dy` of ProfiniteCohomology,
+`d(β_v ∪ α′_v) = α_v ∪ α′_v = dε_v`, while `d(α_v ∪ β′_v) = −α_v ∪ α′_v`; so the cocycle can also be
+written `−(α_v ∪ β′_v) − ε_v`, which differs from `(β_v ∪ α′_v) − ε_v` by the coboundary
+`d(β_v ∪ β′_v)`. Milne's printed formula uses another sign convention for cup products.
 
 *Proof sketch.* Take the long exact `Ext_{G_S}(M^D, −)` sequence of `0 → E_S → J_S → C_S → 0`.
 Replace `Ext^r(M^D, E_S) = H^r(G_S, M)` and `Ext^r(M^D, J_S) = P^r_S(K, M)` for `r ≥ 1` (*Ext into
@@ -2830,7 +2892,9 @@ p. 40).) *Needs:* *Surjectivity of the decomposition map*; Tau Ceti
 `G_S`-modules `M` whose order is a unit in `R_{K,S}`, let
 `χ(G_S, M) = #H⁰(G_S, M) · #H²(G_S, M)/#H¹(G_S, M)` and
 `φ(M) = χ(G_S, M) · ∏_{v arch} |#M|_v / #H⁰(G_v, M)`, with ordinary `H⁰(G_v, M) = M^{G_v}`. Then
-`φ(M) = φ(M′) · φ(M″)` for every short exact sequence `0 → M′ → M → M″ → 0` of such modules.
+`φ(M) = φ(M′) · φ(M″)` for every short exact sequence `0 → M′ → M → M″ → 0` of such modules. In
+`Suggested.lean`, `EulerCharacteristic.eulerChar` is the quotient `#H⁰ · #H² / #H¹` of three
+cardinalities and `EulerCharacteristic.archFactor` the archimedean factor `#H⁰(G_v, M)/|#M|_v`.
 
 *Proof sketch.* Truncate the long exact sequence at
 `H⁵(G_S, M′)′ = ker(H⁵(G_S, M′) → H⁵(G_S, M))`; all terms are finite (*Finiteness of Galois
@@ -2844,7 +2908,7 @@ cohomology of a cyclic group identifies the kernel in degree `5` with
 through a truncation at degree `2`. ([Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), Chapter I, §5, Lemma 5.3, p. 69 (PDF
 p. 77).) *Needs:* *Finiteness of Galois cohomology with restricted ramification*; *Poitou–Tate
-duality and the nine-term exact sequence*; ProfiniteCohomology Layer 5; Tau Ceti
+duality and the nine-term exact sequence*; ProfiniteCohomology Layer 10; Tau Ceti
 `TauCeti.TateCohomology.herbrandQuotient_eq_one_of_finite`; Tau Ceti
 `Rep.FiniteCyclicGroup.tateCohomologyIsoOdd`.
 
@@ -2864,9 +2928,11 @@ field `K` containing the archimedean places, and `M` a finite `G_S`-module whose
 ```
 
 where `H⁰(G_v, M) = M^{G_v}` is ordinary (not Tate) cohomology and `|·|_v` is the normalised
-absolute value. Equivalently `χ(G_S, M) = ∏_{v arch} #Ĥ⁰(G_v, M^D)/#H⁰(G_v, M^D)` (Milne's
-Remark 5.2(a), p. 67, prints `H⁰(G_v, M)` in this denominator; the `ℤ/3` check below shows that
-`M^D` is meant). Moreover `χ(G_S, M) · χ(G_S, M^D) = ∏_{v∈S} χ(K_v, M)`, where
+absolute value. For a totally complex `K` the right side is `(#M)^{−[K : ℚ]/2}`; this case is the
+milestone `eulerChar_galoisGroupS_of_isTotallyComplex` of `Suggested.lean`. Equivalently
+`χ(G_S, M) = ∏_{v arch} #Ĥ⁰(G_v, M^D)/#H⁰(G_v, M^D)` (Milne's Remark 5.2(a), p. 67, prints
+`H⁰(G_v, M)` in this denominator; the `ℤ/3` check below shows that `M^D` is meant). Moreover
+`χ(G_S, M) · χ(G_S, M^D) = ∏_{v∈S} χ(K_v, M)`, where
 `χ(K_v, M) = #H⁰(K_v, M) · #H²(K_v, M)/#H¹(K_v, M)` is formed with the local groups of the
 Conventions (Tate groups at the archimedean places).
 
@@ -3043,7 +3109,8 @@ all places of `F` (for the absolute group `G_F`, not for a finite `S`) are finit
 paired by cup product and the sum of the local invariants. For a number field the archimedean
 terms are the complete Tate groups, which agree with ordinary `H¹` and `H²`. For every finite
 extension `L/F`, restriction and corestriction preserve these kernels, and
-`⟨cor x, y⟩_F = ⟨x, res y⟩_L` for `x ∈ Ш¹(L, M^D)` and `y ∈ Ш²(F, M)`; coefficient maps satisfy the
+`⟨cor x, y⟩_F = ⟨x, res y⟩_L` for `x ∈ Ш¹(L, M^D)` and `y ∈ Ш²(F, M)`, and symmetrically
+`⟨res x, z⟩_L = ⟨x, cor z⟩_F` for `x ∈ Ш¹(F, M^D)` and `z ∈ Ш²(L, M)`; coefficient maps satisfy the
 corresponding dual adjunction.
 
 *Proof sketch.* Enlarge a finite `S` so that it contains the ramification of a representative, and
@@ -3119,15 +3186,20 @@ order, and `m ≥ 1`. The power sequence `1 → μ_m → μ_{mN} → μ_N → 1`
 has nonzero localisation at only finitely many places; at such a place, after adjoining `μ_m`, any
 local extension of degree divisible by `m` kills its invariant. For `m = 2`, `ℤ/2 = μ₂` canonically
 and `δχ` is a `2`-torsion Brauer class, so injectivity of `Br(F) → ⊕_v Br(F_v)` detects its
-vanishing. For general `m`, local vanishing determines `δχ` only up to `Ш²(F, ℤ/m)`; the
-identification of `ℤ/m` with `μ_m` (and so with Brauer classes) requires `μ_m ⊆ F`.
+vanishing. More generally, for `m` prime, restriction `H²(F, ℤ/m) → H²(F(μ_m), ℤ/m)` is injective
+because `[F(μ_m) : F]` divides `m − 1`, and over `F(μ_m)` the class is an `m`-torsion Brauer class;
+so `Ш²(F, ℤ/m) = 0` and local vanishing of `δχ` again implies `δχ = 0`. For composite `m`, local
+vanishing determines `δχ` only up to `Ш²(F, ℤ/m)`, which can be nonzero (dual to `Ш¹(F, μ_m)`, see
+*Grunwald–Wang with its exact dyadic obstruction*); the identification of `ℤ/m` with `μ_m` (and so
+with Brauer classes) requires `μ_m ⊆ F`.
 
 *Proof sketch.* The power sequence is a short exact sequence of discrete modules with trivial action;
 take its connecting map. Inflation from a finite quotient shows that only finitely many
 localisations can be nonzero, since unramified local `H²` with trivial finite coefficients
 vanishes. After adjoining roots of unity the local class is a `μ_m`-Brauer class, and restriction
-multiplies the local invariant by the local degree. For `m = 2` use the global Brauer sequence; for
-general `m` keep the all-place kernel and its dual `Ш¹(F, μ_m)`. ([Qian, *Potential automorphy for
+multiplies the local invariant by the local degree. For `m` prime use the global Brauer sequence
+over `F(μ_m)` and `cor ∘ res = [F(μ_m) : F]`, prime to `m`; for general `m` keep the all-place kernel
+and its dual `Ш¹(F, μ_m)`. ([Qian, *Potential automorphy for
 GL_n*](https://par.nsf.gov/servlets/purl/10388233), Proof of Lemma 2.1, pp. 1245–1247;
 [Boxer–Calegari–Gee–Newton–Thorne, *The Ramanujan and Sato–Tate conjectures for Bianchi modular
 forms*](https://arxiv.org/pdf/2309.15880), §5.3, proof of Lemma 5.3.3, author p. 56.) *Needs:*
@@ -3143,6 +3215,12 @@ ClassFieldTheory Layers 5 and 10.
   square of a character of `Gal(ℚ(ζ₅)/ℚ) ≅ ℤ/4`, whose values `±i` are not in `ℚ`; the quadratic
   character of `ℚ(i)/ℚ` has no square root at all, its obstruction being the quaternion class
   `(−1, −1) ≠ 0`.
+- Composite `m` can carry a global obstruction: `Ш²(ℚ(√7), ℤ/8)` is dual to `Ш¹(ℚ(√7), μ₈)`, which
+  contains the class of `16`. It is an eighth power in every completion of `ℚ(√7)` (at the dyadic
+  place because `ℚ₂(√7) = ℚ₂(i)` and `16 = (1 + i)⁸`; at an odd place because one of `2`, `−1`, `−2`
+  is a square there; at the real places because `16 > 0`), but not in `ℚ(√7)`, which contains none of
+  `√2`, `√−1`, `√−2`. So for `m = 8` local vanishing does not force `δχ = 0`; for `m` prime no such
+  class exists.
 
 **Totally real local base change with avoidance.** Let `F` be a number field, `L` a number field
 (the avoidance field), `T` a finite set of rational primes, and `Σ` a finite set of finite places of
@@ -3216,23 +3294,30 @@ extension `F′/F`, in which the places above `p` split and which is linearly di
 `η|_{G_{F′}}` a square; for totally real `F` local square roots at real places exist only for even
 characters. Coefficients are algebraically closed of characteristic `0` throughout.
 
-*Proof sketch.* Apply *Totally real local base change with avoidance* to the finite set of places
-where `δη` has nonzero local invariant, with local degrees divisible by `m[F_v(μ_m) : F_v]`,
-keeping `L` and the splitting conditions at `T`. Restriction multiplies the local invariants by the
-local degrees, so all local obstructions die over `FM`. For `m = 2` Brauer injectivity then kills
-`δη`; for general `m` the remaining class lies in `Ш²(FM, ℤ/m)`, which *Character roots and local
-Brauer obstructions* keeps and *Grunwald–Wang with its exact dyadic obstruction* controls. To make
-`ψ` unramified above `T`, twist it by a character `ε` with `ε^m = 1` whose restrictions to the
-inertia groups above `T` are `ψ^{−1}`, given by Grunwald–Wang with no obstruction since no dyadic
-place is involved. ([Boxer–Calegari–Gee–Newton–Thorne, *The Ramanujan and Sato–Tate conjectures for
-Bianchi modular forms*](https://arxiv.org/pdf/2309.15880), §5.3, Lemma 5.3.3, author p. 56;
-published p. 50; [Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne, *Potential
-automorphy over CM fields*](https://annals.math.princeton.edu/2023/197-3/p02), Proof of Theorem
-7.1.11, pp. 1103–1104; [Boxer–Calegari–Gee–Pilloni, *Abelian surfaces over totally real fields are
-potentially modular*](https://arxiv.org/pdf/1812.09269), §8.5, proof of Theorem 8.5.2, author
-pp. 248–249; §9.2, p. 257.) *Needs:* *Character roots and local Brauer obstructions*;
-*Grunwald–Wang with its exact dyadic obstruction*; *Cyclotomic description of the power kernel*
-(Layer R02.3); *Totally real local base change with avoidance*.
+*Proof sketch.* Taking roots successively, it suffices to treat `m` prime: if `m = m₁m₂` and
+`η|_{G_{FM₁}} = ψ₁^{m₁}`, apply the prime case again to `ψ₁` over the CM field `FM₁`, with avoidance
+field the Galois closure of `LM₁`, and use that a compositum of totally real Galois extensions of
+`ℚ` linearly disjoint in this way is linearly disjoint from `L`. For `m` prime, the obstruction `δη`
+lies in `H²(F, ℤ/m)`, which restricts injectively to `H²(F(μ_m), μ_m) = Br(F(μ_m))[m]` because
+`[F(μ_m) : F]` divides `m − 1` (*Character roots and local Brauer obstructions*). Its local
+invariants vanish outside the finite set of places where `η` ramifies, and at the places above `T`,
+where `η` is unramified. Apply *Totally real local base change with avoidance* to that finite set,
+with local degrees divisible by `m[F(μ_m) : ℚ]`, keeping `L` and the splitting conditions at `T`;
+restriction multiplies local invariants by local degrees, so every local invariant of `δη` dies over
+`F(μ_m)M`, and Brauer injectivity over `F(μ_m)M` together with the injectivity of restriction kills
+`δη` over `FM`. To make `ψ` unramified above `T`, twist it by a character `ε` with `ε^m = 1` whose
+restrictions to the inertia groups above `T` are `ψ^{−1}` (these have order dividing `m`, since `η`
+is unramified there), given by *Grunwald–Wang with its exact dyadic obstruction* with no
+obstruction, since no dyadic place is involved. ([Boxer–Calegari–Gee–Newton–Thorne, *The Ramanujan
+and Sato–Tate conjectures for Bianchi modular forms*](https://arxiv.org/pdf/2309.15880), §5.3, Lemma
+5.3.3, author p. 56; published p. 50; [Allen–Calegari–Caraiani–Gee–Helm–Le
+Hung–Newton–Scholze–Taylor–Thorne, *Potential automorphy over CM
+fields*](https://annals.math.princeton.edu/2023/197-3/p02), Proof of Theorem 7.1.11, pp. 1103–1104;
+[Boxer–Calegari–Gee–Pilloni, *Abelian surfaces over totally real fields are potentially
+modular*](https://arxiv.org/pdf/1812.09269), §8.5, proof of Theorem 8.5.2, author pp. 248–249; §9.2,
+p. 257.) *Needs:* *Character roots and local Brauer obstructions*; *Grunwald–Wang with its exact
+dyadic obstruction*; *Cyclotomic description of the power kernel* (Layer R02.3); *Totally real local
+base change with avoidance*.
 
 **Checks.**
 
@@ -3246,14 +3331,13 @@ pp. 248–249; §9.2, p. 257.) *Needs:* *Character roots and local Brauer obstru
 `char F`). Equivalently, every class in `H²(F, ℤ/n)` (trivial action) dies under some coefficient
 inclusion `ℤ/n → ℤ/N`. This concerns the direct limit of trivial cyclic coefficients, not the
 Brauer group `H²(F, μ_∞)`; and it is a statement about the absolute group `G_F`, not about
-`G_{F,S}`.
+`G_{F,S}`. For a number field the vanishing is ArithmeticGaloisRepresentations Layer 7
+(`tate_h2_qz_eq_zero`) and is cited; this target adds global function fields and the finite form.
 
 *Proof sketch.* The long exact sequence of `0 → ℤ → ℚ → ℚ/ℤ → 0` with trivial action, and the
 vanishing of positive-degree cohomology of `ℚ` (averaging over finite quotients), give
-`H²(G_F, ℚ/ℤ) ≅ H³(G_F, ℤ)`. For a number field, Milne's Corollary 4.17 shows that the odd-degree
-integral cohomology vanishes: an index-two subgroup of strict cohomological dimension two and the
-two-step permutation-lattice sequence make the degrees `≥ 3` two-periodic, and in degrees `≥ 4`
-finite Poitou–Tate compares with the real local terms, whose odd integral cohomology vanishes. For a
+`H²(G_F, ℚ/ℤ) ≅ H³(G_F, ℤ)`. For a number field this is the cited `tate_h2_qz_eq_zero`
+(equivalently Milne's Corollary 4.17: the odd-degree integral cohomology of `G_F` vanishes). For a
 global function field, Milne's Remark 1.12 gives strict cohomological dimension two away from the
 characteristic from the global class formation, so the prime-to-characteristic part of `H³(G_F, ℤ)`
 vanishes. Commutation of cohomology with filtered colimits of finite cyclic trivial coefficients
@@ -3266,7 +3350,7 @@ Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), I, Remark 1.12, p. 24;
 proof, p. 63.) *Needs:* *All-place Sha duality and transfer adjunction*; *Cyclotomic description of
 the power kernel* (Layer R02.3); *Local inputs at places of a global function field* (Layer R02.3);
 *The class formation of a global function field* (Layer R02.3); ProfiniteCohomology Layers 4 and
-11; ClassFieldTheory Layers 11 and 12; GlobalNumberFields Layer 7.
+11; ArithmeticGaloisRepresentations Layer 7 (`tate_h2_qz_eq_zero`).
 
 **Checks.**
 
@@ -3314,12 +3398,13 @@ choices.
 
 *Proof sketch.* The root-of-unity hypothesis makes `A^D = Hom(A, μ_e)` a constant finite module. A
 locally trivial class in `H¹(F, A^D)` is then an everywhere-split finite abelian extension, trivial
-by function-field Chebotarev, so `Ш¹(F, A^D) = 0`; by *All-place Sha duality and transfer
+by function-field Chebotarev (ArithmeticGaloisRepresentations Layer 5, `functionField_chebotarev`),
+so `Ш¹(F, A^D) = 0`; by *All-place Sha duality and transfer
 adjunction*, `Ш²(F, A) = 0`, which is the injectivity. ([Wood, *Nonabelian Cohen–Lenstra
 moments*](https://par.nsf.gov/servlets/purl/10152050), §3, Lemma 3.2 and its proof, published
 p. 389.) *Needs:* *All-place Sha duality and transfer adjunction*; *Local inputs at places of a
 global function field* (Layer R02.3); *The class formation of a global function field* (Layer
-R02.3); *Chebotarev density for global function fields* (Layer R02.3).
+R02.3); ArithmeticGaloisRepresentations Layer 5 (`functionField_chebotarev`).
 
 **Checks.**
 
@@ -3348,6 +3433,8 @@ R02.3); *Chebotarev density for global function fields* (Layer R02.3).
 - TauCetiRoadmap RepresentationTheory/InductionRestriction: Layer 6.
 - InverseGaloisAndArithmeticFundamentalGroups: IG.4.2 *Finite-coefficient Poitou–Tate input*; IG.4.2
   *Grunwald–Wang and its exceptional class*.
+- ArithmeticGaloisRepresentations: Layer 5 (`functionField_chebotarev`); Layer 7
+  (`tate_h2_qz_eq_zero`).
 - TauCetiRoadmap GlobalNumberFields: Layers 6, 7.
 - TauCetiRoadmap ReductiveGroups: tori and their character lattices.
 - Libraries: Tau Ceti `TauCeti.DiscreteRep`,
@@ -3698,6 +3785,8 @@ The API:
   for its `𝔪`-adic topology is admissible.
 - `ArithmeticDuality.IsIndAdmissible`: every element lies in a finitely generated stable
   subrepresentation whose action is admissible, equivalently continuous for its `𝔪`-adic topology.
+- `ArithmeticDuality.isIndAdmissible_of_isAdmissible`: an admissible module is ind-admissible (the
+  cyclic submodule `A_M · m` generated by an element is stable and admissible).
 
 *Proof sketch.* Impose finite generation and `𝔪`-adic continuity on the span of the image of the
 representation (Mathlib `TopRep`, Tau Ceti `TauCeti.DiscreteRep`), and work with stable
@@ -3901,10 +3990,13 @@ cochains in the derived category*; ProfiniteCohomology Layer 7.
 field (`O` the ring of integers of a finite extension of `ℚ_p`), and `ρ` a finite free `A`-module
 with continuous `G`-action. For every finitely generated `A`-module `M`, the natural degreewise map
 `C_cts(G, ρ) ⊗_A M → C_cts(G, ρ ⊗_A M)` is an isomorphism, and the cochain modules are flat over
-`A`. Let `P = ∏_I A` be pro-free, with its product topology, and `N → C_cts(G, ρ)` a
-quasi-isomorphism from a bounded complex `N` of finite projective `A`-modules (which exists by
-*Cohomological finiteness and perfect amplitude*); then `P ⊗ N ⊗ M → C_cts(G, P ⊗ ρ ⊗ M)` is a
-quasi-isomorphism, with the tensor topology of the source on the target coefficients. For smooth
+`A`. Let `P = ∏_I A` be pro-free, with its product topology, and suppose that `C_cts(G, ρ)` is
+perfect, that is, that there is a quasi-isomorphism `N → C_cts(G, ρ)` from a bounded complex `N` of
+finite projective `A`-modules. This holds for `G = G_{ℚ_ℓ}`, and for `G = G_{ℚ,Σ}` when `p` is odd,
+by *Cohomological finiteness and perfect amplitude*; for `p = 2` the real place makes
+`RΓ_cts(G_{ℚ,Σ}, ρ)` unbounded and it is not perfect, so perfectness is then a hypothesis, as in
+Nakamura's Lemma B.31. Under it, `P ⊗ N ⊗ M → C_cts(G, P ⊗ ρ ⊗ M)` is a quasi-isomorphism, with the
+tensor topology of the source on the target coefficients. For smooth
 admissible `Γ`-modules the comparison passes through the filtered union of their fixed parts, which
 are finitely generated over `A`, as in Corollary B.32.
 
@@ -4120,8 +4212,10 @@ The API:
 
 - `GaloisCohomology.compactCochains`: `C•_{c,cont}(G_{K,S}, M•)`, the shifted cone of `res_{S_f}`.
 - `GaloisCohomology.compactCohomology`: its cohomology `Hⁱ_{c,cont}(G_{K,S}, M•)`.
-- `GaloisCohomology.compactTriangle`: the exact triangle (5.3.1.1) and the long exact sequence
-  (5.3.1.2).
+- `GaloisCohomology.compactTriangle`: the exact triangle (5.3.1.1); `compactCohomology_exact`: the
+  long exact sequence (5.3.1.2).
+- `GaloisCohomology.compactMap`: the map of compactly supported cochains induced by a commutative
+  square of localisation maps.
 - `GaloisCohomology.compactCochains_embedding`: a change of embeddings gives a homotopy
   equivalence of cones.
 - `GaloisCohomology.compactCochains_finite`: over the Noetherian ring `R`, if global and local
@@ -4221,7 +4315,7 @@ it. Pass to the stated coefficients by limits, take the rowwise good truncation 
 totalise. Represent the inverse morphism into the K-injective complex `J[−3]`; two choices differ
 by a homotopy. ([Nekovář, *Selmer complexes*](https://www.numdam.org/item/AST_2006__310__R1_0.pdf),
 §5.4.1, pp. 125–126 (PDF 134–135); [Milne, *Arithmetic Duality
-Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), I, Lemma 4.12, p. 59, Corollary 4.18,
+Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), I, Lemma 4.12, pp. 58–59, Corollary 4.18,
 p. 63; Theorem 4.10, pp. 56–57.) *Needs:* *Continuous cochains with compact support*; *The local
 invariant map as a quasi-isomorphism*; *Poitou–Tate duality and the nine-term exact sequence*
 (Layer R02.4); *The Kummer sequence for S-units* (Layer R02.3); *Prime-to-characteristic
@@ -4467,14 +4561,15 @@ H¹(T)* (Layer R02.1); *Duality when p = 2 and K has real places*.
   has no real-place correction.
 
 **Local abelian-variety duality and gerbe evaluation.** Let `F` be a finite extension of `ℚ_ℓ` for a
-rational prime `ℓ`, `A` an abelian variety over `F` and `A∨` its dual (AlgebraicModuliForArithmeticGeometry
-R09.4). There are canonical identifications `H^r(F, A∨) ≅ Ext^{r+1}_ét(A, G_m)` for `r ≥ 0`, where
-Ext is taken in étale sheaves, not in abelian groups of points. Yoneda evaluation and the local
-invariant give perfect pairings `H^r(F, A) × H^{1−r}(F, A∨) → ℚ/ℤ` for `r = 0, 1`, continuous for
-the `ℓ`-adic topology on `A(F)` and the discrete topology on `H¹`: `A(F)` is profinite, `H¹(F, A)`
-is torsion and of cofinite type, and `H^r(F, A) = 0` for `r ≥ 2`. A torsor `t ∈ H¹(F, A∨)`
-corresponds to an `Ext²` gerbe `α_t`, and its character on `A(F)` is `a ↦ inv(a*α_t)`. Hence a
-nonzero torsor gives a nontrivial character, whose integral against Haar measure is zero.
+rational prime `ℓ`, `A` an abelian variety over `F` and `A∨` its dual
+(AbelianSchemesAndArithmeticModuli Layer A2, `AbelianScheme.dual`). There are canonical
+identifications `H^r(F, A∨) ≅ Ext^{r+1}_ét(A, G_m)` for `r ≥ 0`, where Ext is taken in étale
+sheaves, not in abelian groups of points. Yoneda evaluation and the local invariant give perfect
+pairings `H^r(F, A) × H^{1−r}(F, A∨) → ℚ/ℤ` for `r = 0, 1`, continuous for the `ℓ`-adic topology on
+`A(F)` and the discrete topology on `H¹`: `A(F)` is profinite, `H¹(F, A)` is torsion and of cofinite
+type, and `H^r(F, A) = 0` for `r ≥ 2`. A torsor `t ∈ H¹(F, A∨)` corresponds to an `Ext²` gerbe
+`α_t`, and its character on `A(F)` is `a ↦ inv(a*α_t)`. Hence a nonzero torsor gives a nontrivial
+character, whose integral against Haar measure is zero.
 
 *Proof sketch.* Over `F^s`, `Hom(A, G_m) = 0`, the Barsotti–Weil formula identifies
 `Ext¹_{F^s}(A, G_m)` with `A∨(F^s)`, and the higher sheaf `Ext` groups vanish (Milne, *Arithmetic
@@ -4493,8 +4588,9 @@ discussion, author p. 42; [Milne, *Arithmetic Duality
 Theorems*](https://www.jmilne.org/math/Books/ADTnot.pdf), I, Lemma 3.1, p. 40; Theorem 3.2, p. 41;
 Corollary 3.4, p. 43.) *Needs:* *Derived tensor, perfect amplitude and Tor*; *Matlis duality
 for arithmetic coefficients*; *Derived local Tate duality*; ClassFieldTheory Layer 5;
-AlgebraicModuliForArithmeticGeometry R09.4 *Relative dual abelian scheme*;
-AlgebraicModuliForArithmeticGeometry R09.4 *Giraud's abelian gerbe classification*;
+AbelianSchemesAndArithmeticModuli Layer A2, §A2.2 (`AbelianScheme.dual`);
+AlgebraicModuliForArithmeticGeometry Layer 4, §4.20 (`gerbeClass`, the classification of banded
+gerbes by `H²`);
 SchemeAndStackFoundations SF.2 (étale cohomology of a field is Galois cohomology).
 
 **Checks.**
@@ -4559,8 +4655,8 @@ ClassFieldTheory Layer 5.
 - EnhancedDerivedSheaves: E1 *K-flat complexes of module sheaves*.
 - TauCetiRoadmap ProfiniteCohomology: Layers 4, 7, 10, 12.
 - TauCetiRoadmap ClassFieldTheory: Layers 5, 7.
-- AlgebraicModuliForArithmeticGeometry: R09.4 *Relative dual abelian scheme*; R09.4 *Giraud's
-  abelian gerbe classification*.
+- AbelianSchemesAndArithmeticModuli: Layer A2, §A2.2 (the dual abelian scheme).
+- AlgebraicModuliForArithmeticGeometry: Layer 4, §4.20 (classification of banded gerbes).
 - Libraries: Mathlib `DerivedCategory`, Mathlib `HomologicalComplex₂.total`, Mathlib
   `CategoryTheory.Tor`, Mathlib `HomotopyCategory.spectralObjectMappingCone`, Mathlib
   `CategoryTheory.Abelian.SpectralObject.spectralSequence`, Mathlib
@@ -4846,12 +4942,19 @@ Selmer complexes under change of coefficients, using the derived statements of L
 
 **Trace-zero adjoint duality without division by n.** Let `k` be a field, `n ≥ 1`, `V` an
 `n`-dimensional `k`-vector space, `ad = End_k(V)` with the conjugation action, and
-`ad⁰ = ker(tr : ad → k)`. The trace pairing `(X, Y) ↦ tr(XY)` on `ad` is perfect and invariant
+`ad⁰ = ker(tr : ad → k)`. The adjoint and trace-zero adjoint representations, the perfect trace
+pairing and `(ad⁰)^∨ ≅ ad/k·Id` over any coefficient ring are ArithmeticGaloisRepresentations
+Layer 7, §7.2 (`ContinuousRep.adZero`, `adQuot`, `traceBilinForm_isPerfPair`), cited; this target
+adds the criterion for the restricted pairing on `ad⁰` and the boundary `δ` in continuous
+cohomology, which the fixed-determinant calculations use. The trace pairing `(X, Y) ↦ tr(XY)` on `ad` is perfect and invariant
 under conjugation, and `tr` is surjective (`tr(E₁₁) = 1`), whether or not `n` is invertible in `k`.
 Dualising `0 → ad⁰ → ad → k → 0` through the trace pairing gives the equivariant exact sequence
 `0 → k·Id → ad → (ad⁰)^∨ → 0`, so `(ad⁰)^∨ ≅ ad/k·Id`. The restriction of the trace pairing to
 `ad⁰` is perfect exactly when `n ≠ 0` in `k`; if `char k | n`, then `Id ∈ ad⁰` and the radical of
-the restricted pairing is `k·Id`. Only the self-duality of `ad⁰` needs `n` invertible. For a
+the restricted pairing is `k·Id`. Only the self-duality of `ad⁰` needs `n` invertible. In
+`Suggested.lean`, `ad⁰` is `Adjoint.traceZero`, the pairing is Tau Ceti's `TauCeti.traceBilinForm`
+(perfect by `TauCeti.traceBilinForm_nondegenerate`), and the criterion for `ad⁰` is
+`Adjoint.traceBilinForm_restrict_traceZero_nondegenerate_iff`. For a
 profinite group `G` acting continuously on `V` through `ρ` (with `k` discrete), these sequences give
 long exact sequences of continuous cohomology. The fixed-determinant theory is built from the trace
 map itself, and the boundary `δ : H⁰(G, k) → H¹(G, ad⁰)` of `0 → ad⁰ → ad → k → 0` is kept: it
@@ -4867,7 +4970,8 @@ Apply continuous cochains to the exact sequence of `G`-modules and take its long
 (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), §4.1.4–4.1.6 and remark after
 Lemma 5.3, pp. 41–42, 47–48; Paškūnas–Quast, *On local Galois deformation rings: generalised
 reductive groups*, §1.4.2, published p. 7; §13, Lemma 13.22, published p. 67.) *Needs:*
-ProfiniteCohomology Layer 5; Mathlib `groupCohomology`.
+ArithmeticGaloisRepresentations Layer 7, §7.2; Tau Ceti `TauCeti.traceBilinForm`;
+ProfiniteCohomology Layers 5 and 10; Mathlib `groupCohomology`.
 
 **Checks.**
 
@@ -4889,7 +4993,9 @@ by conjugation) form `Z¹(G, ad ρ)`, and the stabiliser of each framed lift is
 cochains to closed subgroups. Since `det(1 + εX) = 1 + ε tr X`, the derivative of the determinant is
 the trace: `det ρ_ε = det ρ` exactly when `tr ∘ c = 0`, i.e. `c ∈ Z¹(G, ad⁰ ρ)`, and equivalence
 classes of lifts with fixed determinant form `ker(H¹(G, ad ρ) → H¹(G, k)) = H¹(G, ad⁰ ρ)/δ(H⁰(G, k))`,
-with `δ` the boundary of the trace sequence.
+with `δ` the boundary of the trace sequence. In `Suggested.lean` the lift is
+`Adjoint.firstOrderLift ρ c`, the cocycle criterion is `Adjoint.firstOrderLift_mul_iff`, and the
+determinant identity is `Adjoint.det_one_add_eps`.
 
 *Proof sketch.* Multiply two first-order matrices and compare the `ε`-coefficient with the group
 law to get the cocycle condition. Compute conjugation by `1 + εX` and identify the difference as a
@@ -5046,15 +5152,17 @@ comparison*; SelmerIwasawaCohomology L2 *Selmer complex as a mapping fibre*.
 ### Dependencies
 
 - Earlier layers of this roadmap: R02.1, D7, R02.5.
-- TauCetiRoadmap ProfiniteCohomology: Layer 5.
+- TauCetiRoadmap ProfiniteCohomology: Layers 5 and 10.
 - SelmerIwasawaCohomology: L2 *Selmer complex as a mapping fibre*; L2 *Compact/rational
   compact/rational Selmer kernel and discrete comparison*.
-- Libraries: Mathlib `groupCohomology`.
+- ArithmeticGaloisRepresentations: Layer 7, §7.2 (adjoint and trace-zero adjoint, trace pairing).
+- Libraries: Mathlib `groupCohomology`, Mathlib `DualNumber`, Mathlib `Matrix.det_one_add_smul`,
+  Tau Ceti `TauCeti.traceBilinForm`.
 
 ## Layer R02.6: Auxiliary primes and patching numerics
 
 This layer proves the cohomological inputs to the Taylor–Wiles and Khare–Wintenberger patching
-arguments: the local cohomology at a Taylor–Wiles prime, the vanishing of `H¹(SL₂(F), ad⁰)`, the
+arguments: the local cohomology at a Taylor–Wiles prime, the
 group-theoretic criterion for auxiliary primes, the conditional dual-Selmer killing calculation,
 the relative tangent and relation bounds, the existence of odd and dyadic auxiliary sets,
 finite-order determinant twists and the archimedean adjoint dimensions. Every statement keeps its
@@ -5089,27 +5197,6 @@ Theorem*](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper
 - The distinct-eigenvalue hypothesis is needed: if `ρ̄(Frob_q)` is scalar, `Frob_q` acts trivially
   on `ad⁰ρ̄` and `H⁰(F_q, ad⁰ρ̄)` has dimension `3`.
 
-**H¹(SL₂(F), End⁰) vanishes.** Let `F` be a finite field of odd characteristic `ℓ` with `#F ≠ 5`.
-Then `H¹(SL₂(F), End⁰(F²)) = 0`.
-
-*Proof sketch.* `ℓ` does not divide the index `#F + 1` of the Borel subgroup `B`, so restriction
-`H¹(SL₂(F), M) → H¹(B, M)` is injective (*Restriction and corestriction descent for finite index*,
-Layer R02.2). `ℓ` does not divide `[B : U] = #F − 1` for the unipotent radical `U`, so
-`Hⁱ(B, M) = Hⁱ(U, M)^{B/U}`. For `#F = 3`, `U` is cyclic of order `3` and
-`H¹(U, M) = ker N/(σ − 1)M = 0` directly. For `#F > 5`, filter `End⁰(F²)` by `B`-stable subspaces
-`M₀ ⊂ M₁ ⊂ M₂ ⊂ M₃` with one-dimensional quotients and use the long exact sequences; for `#F = 9`
-also check that the `B/U`-fixed line of `H¹(U, M₃/M₂)` maps injectively to `H²(U, M₂/M₁)`. (The
-source also refers to the tables of Cline–Parshall–Scott, table 4.5.) ([Darmon–Diamond–Taylor,
-*Fermat's Last
-Theorem*](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf), §2.8, Lemma
-2.48, p. 82 (author PDF, revised 9 September 2007).) *Needs:* *Restriction and corestriction
-descent for finite index* (Layer R02.2); Mathlib `groupCohomology`.
-
-**Checks.**
-
-- The hypothesis `#F ≠ 5` is needed: `H¹(SL₂(𝔽₅), End⁰(𝔽₅²))` is nonzero, which is why the source
-  excludes `#F = 5`.
-
 **The group-theoretic input to Taylor–Wiles primes.** Let `ℓ` be odd, `ρ̄ : G_ℚ → GL₂(k)` with
 `ρ̄|_{G_L}` absolutely irreducible for `L = ℚ(√((−1)^{(ℓ−1)/2} ℓ))`, and for `m ≥ 0` let `F_m` be the
 extension of `ℚ(ζ_{ℓ^m})` cut out by `ad⁰ρ̄`. Then for every `n ≥ 1`,
@@ -5123,8 +5210,9 @@ transgression*, Layer R02.2): the `G_ℚ`-invariants
 `H¹(Gal(F_n/F₀), ad⁰ρ̄(1))^{G_ℚ} ≅ Hom(Gal(F_n/F₁), ad⁰ρ̄(1)^{G_ℚ})` vanish by absolute
 irreducibility over `L`. `H¹(Gal(F₀/ℚ), ad⁰ρ̄(1)^{G_{F₀}})` vanishes unless `ℓ` divides
 `#Gal(F₀/ℚ)` and `Gal(ℚ(ζ_ℓ)/ℚ)` is a quotient; by the classification of the projective image
-(ArithmeticGaloisRepresentations Layer R01.4, *Dickson classification of finite projective
-images*) this leaves `ℓ = 3` with image `PSL₂(𝔽_{3^r})`, which is *H¹(SL₂(F), End⁰) vanishes*. So
+(ArithmeticGaloisRepresentations Layer 4, §4.4, `dickson_classification`) this leaves `ℓ = 3` with image `PSL₂(𝔽_{3^r})`, where `H¹(SL₂(𝔽_{3^r}), ad⁰) = 0`
+(ArithmeticGaloisRepresentations Layer 7, §7.7, `ResidualImage.h1_SL2_adZero`, which also records
+that `#F = 5` is a genuine exception). So
 `ψ(G_{F_n}) ≠ 0`; some `g ∈ Gal(F_n/ℚ(ζ_{ℓⁿ}))` of order prime to `ℓ` fixes a nonzero element of
 `ψ(G_{F_n})`; lift `g` to `σ₀` and take `σ = τσ₀` with `τ ∈ G_{F_n}` chosen so that
 `ψ(τ) + ψ(σ₀) ∉ (σ₀ − 1) ad⁰ρ̄(1)`, which is possible since
@@ -5134,8 +5222,10 @@ Theorem*](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper
 of Theorem 2.49, p. 83 (author PDF, revised 9 September 2007); [Darmon–Diamond–Taylor, *Fermat's
 Last Theorem*](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf), §2.8,
 end of the proof of Theorem 2.49, p. 84 (author PDF, revised 9 September 2007).) *Needs:*
-*H¹(SL₂(F), End⁰) vanishes*; *The five-term sequence and the transgression* (Layer R02.2);
-ArithmeticGaloisRepresentations Layer R01.4, *Dickson classification of finite projective images*.
+ArithmeticGaloisRepresentations Layer 7, §7.7 (`ResidualImage.h1_SL2_adZero`); *The five-term
+sequence and the transgression* (Layer R02.2);
+ArithmeticGaloisRepresentations Layer 4, §4.4 (`dickson_classification`,
+`projective_image_of_absolutelyIrreducible`).
 
 **Checks.**
 
@@ -5145,7 +5235,8 @@ ArithmeticGaloisRepresentations Layer R01.4, *Dickson classification of finite p
 **Archimedean adjoint dimensions.** Let `k` be a field of characteristic different from `2` and
 `n ≥ 1`. For a rank-`n` representation at a real place whose complex conjugation has eigenspaces of
 dimensions `a` and `b` (`a + b = n`), `h⁰(ad⁰) = a² + b² − 1`; at a complex place
-`h⁰(ad⁰) = n² − 1`. If every real conjugation is balanced, `|a − b| ≤ 1`, then
+`h⁰(ad⁰) = n² − 1` (`Adjoint.finrank_traceZero_centralizer_involution`, for the real case). If every
+real conjugation is balanced, `|a − b| ≤ 1`, then
 
 ```text
 Σ_{v|∞} h⁰(F_v, ad⁰) = [F : ℚ] n(n − 1)/2 + l₀,   l₀ = r₁⌊(n − 1)/2⌋ + r₂(n − 1).
@@ -5289,9 +5380,9 @@ the abelian quotient. ([Khare–Wintenberger, *Serre's modularity conjecture
 (II)*](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf), §5.5, Proposition 5.6, Lemmas
 5.8–5.10, pp. 48–53.) *Needs:* *Khare–Wintenberger tangent and relation bounds*; *Cyclotomic
 description of the power kernel* (Layer R02.3); *The Kummer sequence for S-units* (Layer R02.3);
-Chebotarev Layer 10; ArithmeticGaloisRepresentations Layer R01.4, *Dickson classification of finite
-projective images*; ArithmeticGaloisRepresentations Layer R01.4, *Matrix cocycles for SL₂ in
-characteristic two*.
+Chebotarev Layer 10; ArithmeticGaloisRepresentations Layer 4, §4.4 (`dickson_classification`) and
+§4.7 (`charTwo_residual_image`: for `F₀` of order `2^r`, `r ≥ 2`, `H¹(SL₂(F₀), M₂(F)) = 0` and the
+`SL₂(F₀)`-submodules of `M₂(F)` are `0`, the scalars, `ad⁰` and `M₂(F)`).
 
 **Checks.**
 
@@ -5343,8 +5434,9 @@ Brauer obstructions* (Layer R02.4); ClassFieldTheory Layers 7 and 12; Chebotarev
 - Earlier layers of this roadmap: R02.2, R02.3, R02.4, R02.5, D8.
 - SelmerIwasawaCohomology: Layer L2, *The unramified condition*; Layer L2, *Poitou–Tate for Selmer
   groups*.
-- ArithmeticGaloisRepresentations: Layer R01.4, *Matrix cocycles for SL₂ in characteristic two*;
-  Layer R01.4, *Dickson classification of finite projective images*.
+- ArithmeticGaloisRepresentations: Layer 4, §4.4 (`dickson_classification`,
+  `projective_image_of_absolutelyIrreducible`) and §4.7 (`charTwo_residual_image`); Layer 7, §7.7
+  (`ResidualImage.h1_SL2_adZero`).
 - TauCetiRoadmap Chebotarev: Layer 10.
 - TauCetiRoadmap ClassFieldTheory: Layers 5, 7, 12.
 - Libraries: Mathlib `groupCohomology`.
@@ -5375,8 +5467,6 @@ Brauer obstructions* (Layer R02.4); ClassFieldTheory Layers 7 and 12; Chebotarev
   long exact sequences and rationalisation of Layer R02.1; `G_{K,S}` and the localisation maps of
   Layer R02.3; Poitou–Tate duality; compact support, derived local and global duality and the
   compactly supported Euler characteristic of Layer D7.
-- **ArithmeticGaloisRepresentations**: the carrier comparison and the lattice sequence (R02.1), the
-  localisation maps (R02.3), global duality (R02.4) and the group theory of Taylor–Wiles primes (R02.6).
 - **Deformation and modularity lifting** (GlobalGaloisDeformations, DeformationAndDerivedPatchingAlgebra,
   OrdinaryAutomorphicFormsAndModularityLifting, GL2ModularityLifting,
   PotentialAutomorphyInfrastructurePartII): Layers R02.3–R02.6, D7 and D8, in particular Poitou–Tate,
@@ -5390,7 +5480,7 @@ Brauer obstructions* (Layer R02.4); ClassFieldTheory Layers 7 and 12; Chebotarev
 - **Étale and motivic cohomology** (ClassicalAdicEtaleCohomology, DiamondEtaleCohomology,
   DeligneWeightsAndPurity, LefschetzPencilsAndVanishingCycles, IgusaVarietiesAndTorsionConcentration,
   CrystallineCohomology, MotivicEtaleKTheory, ArithmeticKTheory, KTheoryFiniteLocalFields,
-  StableHomotopyKTheory, EnhancedDerivedSheaves, HabiroNumberFields, ShimuraCompactifications,
+  StableHomotopyKTheory, HabiroNumberFields, ShimuraCompactifications,
   PadicHodgeTheory, ExcursionOperatorsAndSpectralAction): towers and `lim¹`, the spectral sequences
   of R02.2 and the derived duality of D7.
 - **AnabelianGeometryAndNonabelianChabauty**: the carrier comparison and local duality over
