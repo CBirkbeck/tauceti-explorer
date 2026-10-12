@@ -34,11 +34,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "b81656d",
       "review": {
-        "recommendation": "approve",
-        "head": "ce48de2",
-        "current": false,
-        "date": "2026-10-12",
-        "note": "non-blocking one-line repairs pushed after the recommendation"
+        "recommendation": "changes",
+        "head": "b81656d",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AdelicAlgebraicGroups": {
