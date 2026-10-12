@@ -30,12 +30,13 @@
       "stage": "pr",
       "pr": 785,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "ce48de2",
+      "head": "b81656d",
       "review": {
         "recommendation": "approve",
         "head": "ce48de2",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "non-blocking one-line repairs pushed after the recommendation"
       }
     },
     "AdelicAlgebraicGroups": {
@@ -45,12 +46,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "adc06c2",
+      "head": "1661187",
       "review": {
         "recommendation": "approve",
         "head": "adc06c2",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head 1661187 differs only by re-stacks on the parent"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -60,7 +62,7 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "c870e45",
+      "head": "da5b23f",
       "review": {
         "recommendation": "changes",
         "head": "7e42a1c",
@@ -75,13 +77,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "fdf30c5",
+      "head": "4ec3f29",
       "review": {
         "recommendation": "approve",
         "head": "adf0421",
         "current": true,
         "date": "2026-10-12",
-        "note": "head fdf30c5 differs only by re-stacks on #793"
+        "note": "head 4ec3f29 differs only by re-stacks on the parent"
       }
     },
     "AdicEtaleGeometry": {
@@ -91,12 +93,13 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "98f8173",
+      "head": "1022264",
       "review": {
         "recommendation": "approve",
         "head": "980fbe3",
         "current": false,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head 1022264 differs only by re-stacks on the parent"
       }
     },
     "AdicSpacesPartII": {
@@ -118,24 +121,26 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "6f237d3",
+      "head": "7962ccc",
       "review": {
         "recommendation": "approve",
         "head": "24496fb",
         "current": false,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head 7962ccc differs only by re-stacks on the parent"
       }
     },
     "PerfectoidSpaces": {
       "stage": "pr",
       "pr": 818,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "d800237",
+      "head": "2e8c062",
       "review": {
         "recommendation": "approve",
         "head": "fd02d44",
         "current": false,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head 2e8c062 differs only by re-stacks on the parent"
       }
     },
     "AdicSpacesPartIII": {
@@ -145,12 +150,13 @@
         817
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "2ad395f",
+      "head": "a521a2c",
       "review": {
         "recommendation": "approve",
         "head": "2ad395f",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "non-blocking one-line repairs pushed after the recommendation"
       }
     },
     "AdicSpacesPartIV": {
@@ -160,12 +166,13 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "6c9b3ff",
+      "head": "e8046af",
       "review": {
         "recommendation": "approve",
         "head": "6c9b3ff",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head e8046af differs only by re-stacks on the parent"
       }
     },
     "PerfectoidTowers": {
@@ -175,12 +182,13 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "88de410",
+      "head": "ed244ce",
       "review": {
         "recommendation": "approve",
         "head": "4c57000",
         "current": false,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "head ed244ce differs only by re-stacks on the parent"
       }
     }
   }
