@@ -46291,7 +46291,8 @@
     "BP-ClassicalArithmeticCompletion~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8898"
   },
   {
    "kind": "blueprint",
@@ -51567,8 +51568,9 @@
     "PKG-ComplexComparisonPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexComparisonPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8895",
+   "finishedAt": "2026-10-12T15:44:36Z"
   },
   {
    "id": "PKG-ComplexMultiplicationAndExplicitReciprocity",
