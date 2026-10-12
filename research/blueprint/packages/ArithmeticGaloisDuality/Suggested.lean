@@ -474,9 +474,10 @@ def IsIndAdmissible (I : Ideal R) (ρ : Representation R G M) : Prop :=
   ∀ m : M, ∃ N : Subrepresentation ρ, m ∈ N ∧
     Module.Finite R N.toSubmodule ∧ IsAdmissible I N.toRepresentation
 
-theorem isIndAdmissible_of_isAdmissible [IsNoetherianRing R] (I : Ideal R)
-    (ρ : Representation R G M) (hM : Module.Finite R M) (h : IsAdmissible I ρ) :
-    IsIndAdmissible I ρ := sorry
+/-- An admissible module is ind-admissible: each element lies in the stable submodule `A_M · m`,
+which is finitely generated, with image algebra a quotient of `A_M`. -/
+theorem isIndAdmissible_of_isAdmissible (I : Ideal R) (ρ : Representation R G M)
+    (h : IsAdmissible I ρ) : IsIndAdmissible I ρ := sorry
 
 /-- The trivial representation acts through the `R`-span of the identity. -/
 example : actionSpan (Representation.trivial R G M) = Submodule.span R {1} := by
@@ -612,8 +613,9 @@ formula, finite-index descent, the compact Hochschild–Serre and five-term sequ
 residue sequence and the cyclotomic power kernel; the localization maps with their modified
 archimedean groups; the `S`-ideles, `S`-units and `S`-idele classes, `P`-class formations, the
 `S`-class formation, its reciprocity and the `S`-unit Kummer sequence; the global function-field
-class-field inputs; the one-new-prime Kummer fields, the antiunit class-field rank and the absence
-of `ℤ_p`-extensions unramified at `p`; Ext of discrete modules, Tate's duality for a class
+class-field inputs (Chebotarev density for global function fields is cited from
+ArithmeticGaloisRepresentations); the one-new-prime Kummer fields, the antiunit class-field rank and
+the absence of `ℤ_p`-extensions unramified at `p`; Ext of discrete modules, Tate's duality for a class
 formation and for the `S`-idele classes, the finite dual `M^D`, archimedean local duality, the
 exact annihilators of unramified classes, the restricted-product self-duality, Poitou–Tate duality
 and the nine-term sequence, global finiteness, cohomological dimension, `H²` surjectivity,
@@ -627,9 +629,9 @@ derived category, the local and global invariant trivialisations, derived local 
 duality, compactly supported cup products and Euler characteristics, the lattice and rational
 Poitou–Tate sequences, abelian-variety local duality and the isogeny sequence; the Selmer
 comparisons and the Greenberg–Wiles formula; the Selmer tangent comparison and derived coefficient
-change; and the Taylor–Wiles local count, dual-Selmer killing, the vanishing of
-`H¹(SL₂(F), ad⁰)`, the `Σ`-criterion, the Khare–Wintenberger relation bounds, odd and dyadic
-Taylor–Wiles primes and finite-order determinant twists.
+change; and the Taylor–Wiles local count, dual-Selmer killing, the `Σ`-criterion, the
+Khare–Wintenberger relation bounds, odd and dyadic Taylor–Wiles primes and finite-order determinant
+twists.
 -/
 
 end TauCetiRoadmap.ArithmeticGaloisDuality
