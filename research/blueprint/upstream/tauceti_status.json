@@ -147,8 +147,8 @@
       "head": "2ad395f",
       "review": {
         "recommendation": "approve",
-        "head": "c67b41e",
-        "current": false,
+        "head": "2ad395f",
+        "current": true,
         "date": "2026-10-12"
       }
     },
