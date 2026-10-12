@@ -20,7 +20,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **FoundationsAndLibraryIntegration** — Foundations, existing libraries, and proof integrity. No plan yet · package not yet · CN needs 5/6 layers
 - **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: pull request #785 open** · reviewer recommends approval (at earlier head ce48de2; current head b81656d) · move down: AlgebraicModuliForArithmeticGeometry (1)
-- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open** · reviewer recommends approval
+- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open**
 
 ## Tier 2
 
@@ -31,7 +31,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 3
 
 - **IntegralHeckeAndGaloisDeterminants** — Integral Hecke actions, determinants and interpolation. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: pull request #789 open** · reviewer recommends approval · move down: ArithmeticGaloisDuality (6), DerivedDeRhamCohomology (6) · cites outside the 94: LanglandsParameterStacks (23)
-- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 1/1 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (2)
+- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 1/3 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (2)
 - **Merged package:** AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces
   - **AdicEtaleGeometry** — Analytic adic geometry required for diamonds. Plan 1/1 accepted · package accepted · CN needs 5/5 layers · **Tau Ceti: pull request #814 open** · reviewer recommends approval · move down: ClassicalAdicEtaleCohomology (2), PerfectoidQuotients (1)
   - **AdicSpacesPartII** — Adic Spaces PartII. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: pull request #817 open** · reviewer recommends approval · move down: AlgebraicModuliForArithmeticGeometry (11), ClassicalAdicEtaleCohomology (3), AdicCoefficientsAndComparisons (2), DeformationAndDerivedPatchingAlgebra (1), ModularCurvesPartII (1) · cites outside the 94: TropicalAndBerkovichArithmetic (1)
@@ -42,13 +42,13 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 2/2 accepted · package not yet · CN needs 7/11 layers · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
 - **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 8/10 accepted · package not yet · CN needs 10/12 layers
-- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 1/1 accepted · package not yet · CN needs 5/5 layers · move down: PadicDifferentialEquationsAndRigidCohomology (1)
+- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 1/2 accepted · package not yet · CN needs 5/5 layers · move down: PadicDifferentialEquationsAndRigidCohomology (1)
 - **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 1/1 accepted · package not yet · CN needs 2/6 layers · move down: ClassicalArithmeticCompletion (1)
 
 ## Tier 5
 
 - **ComplexComparisonPartII** — Complex Comparison PartII. Plan 1/1 accepted · package not yet · CN needs 6/7 layers
-- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 0/1 accepted · package not yet · CN needs 3/8 layers · cites outside the 94: ArithmeticDynamics (1), KTheoryLowDegrees (1)
+- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 1/1 accepted · package not yet · CN needs 3/8 layers · cites outside the 94: ArithmeticDynamics (1), KTheoryLowDegrees (1)
 
 ## Tier 6
 
@@ -71,7 +71,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **Merged package:** CrystallineCohomology + DerivedDeRhamCohomology
   - **CrystallineCohomology** — Crystalline cohomology, de Rham–Witt and logarithmic foundations. Plan 2/2 accepted · package not yet · CN needs 8/11 layers · move down: PadicDifferentialEquationsAndRigidCohomology (9), FiniteFlatGroupsAndIntegralPadicHodgeTheory (6), PadicHodgeTheory (4), AInfCohomology (3), LefschetzPencilsAndVanishingCycles (1)
   - **DerivedDeRhamCohomology** — Derived de Rham cohomology and its algebraic foundations. Plan 1/1 accepted · package accepted · CN needs 4/7 layers · move down: PerfectoidQuotients (16), AInfCohomology (3), PadicHodgeTheory (2)
-- **HeightsRationalPointsAndObstructions** — Heights, rational points and obstructions. Plan 0/1 accepted · package not yet · CN needs 2/7 layers · move down: FaltingsFinitenessAndIsogenyTheorems (1)
+- **HeightsRationalPointsAndObstructions** — Heights, rational points and obstructions. Plan 0/1 accepted · package not yet · CN needs 2/7 layers · move down: NeronModelsAndSemistableAbelianVarieties (5), FaltingsFinitenessAndIsogenyTheorems (2) · cites outside the 94: MordellLawrenceVenkatesh (1)
 
 ## Tier 10
 
