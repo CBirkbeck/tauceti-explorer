@@ -105,8 +105,8 @@
       "head": "b4e4fc8",
       "review": {
         "recommendation": "approve",
-        "head": "97e909a",
-        "current": false,
+        "head": "b4e4fc8",
+        "current": true,
         "date": "2026-10-12"
       }
     },
