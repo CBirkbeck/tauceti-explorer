@@ -1,0 +1,2703 @@
+{
+ "roadmapId": "LocallyAnalyticDistributions",
+ "protocol": "blueprint-v1",
+ "part": "L2",
+ "scope": [
+  "LocallyAnalyticDistributions:L2"
+ ],
+ "status": "complete",
+ "summary": "Follow-up plan for layer L2 (admissible growth and uniqueness) of the locally analytic distributions roadmap, continuing the accepted whole-roadmap packet, whose sixteen L2 nodes it cites. One variable: locally polynomial functions and Colmez's wavelets e_{i,k,r}; the Taylor-coefficient, wavelet-norm and amplitude-coefficient bounds; density of Taylor truncations; the wavelet basis of C^r and the Mahler criterion; surjectivity of d/dx with locally polynomial kernel; the Banach algebra structure; composition with charts, corrected (Colmez's Proposition I.5.6 and De Ieso's Proposition 2.12 fail for 0 < r < 1 without a Lipschitz chart, E8–E9); order r on one-dimensional groups such as ℤ_p^× with order 0 equal to Mathlib's AbstractMeasure; admissible algebraic distributions with the ball-moment valuation; the two halves of the Amice–Vélu–Vishik proof and the equivalent valuations; operations preserving order; the kernel of restriction at and beyond the critical order (d^{N+1}D_{r−N−1}); finite Fourier inversion and coefficient extension from Mathlib's character orthogonality; and uniqueness on ℤ_p^× from the values at χx^j, with its sharpness. Several variables: box indicators and their refinement, the multivariable van der Put basis by mixed differences, separate-degree locally polynomial functions, the injective realization of the completed tensor of C^{r_i} spaces, its mixed-difference characterisation (the corrected form of Loeffler's Definition 2.12, E3 and E11 across arXiv v1–v3), Loeffler's isotropic spaces with a proof of their wavelet basis and extension theorem, the tensor moment bounds and the coordinatewise subdivision proving multidegree uniqueness, chart changes for higher vector orders, and the block vector order for quasi-factorizations with higher-dimensional summands with its extension theorem. All prerequisites end in Mathlib, this roadmap's L0–L2 nodes or PadicMeasuresIwasawaAlgebras; there are no gaps or requests.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:PadicInt.mahlerEquiv",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+    "provides": "Isometric ℤ_p-linear equivalence C(ℤ_[p], E) ≃ C₀(ℕ, E) sending f to its Mahler coefficients Δ^n f(0) (Mahler's theorem).",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:PadicInt.toZModPow",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+    "provides": "The reduction ring homomorphism ℤ_[p] → ZMod (p^n).",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:PadicInt.ker_toZModPow",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+    "provides": "The kernel of toZModPow n is the ideal spanned by p^n, so its fibres are the balls a + p^nℤ_p.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:LocallyConstant",
+    "kind": "structure",
+    "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+    "provides": "Bundled locally constant functions X → Y, with their algebraic structure.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:LocallyConstant.charFn",
+    "kind": "def",
+    "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+    "provides": "The characteristic function of a clopen set as a locally constant function (coe_charFn: it is Set.indicator U 1).",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:AddChar.zmodChar",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+    "provides": "The additive character a ↦ ζ^{a.val} of ZMod n attached to ζ with ζ^n = 1.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+    "provides": "zmodChar n ζ is primitive when ζ is a primitive n-th root of unity.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:AddChar.sum_mulShift",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+    "provides": "For a primitive additive character ψ of a finite commutative ring R with values in a domain, Σ_x ψ(x·b) is #R if b = 0 and 0 otherwise.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/DirichletCharacter/Orthogonality.lean",
+    "provides": "If the domain R has enough roots of unity for (ZMod n)ˣ and a is a unit, Σ_χ χ(a⁻¹)χ(b) = φ(n) if a = b and 0 otherwise.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:HasEnoughRootsOfUnity.of_card_le",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/RootsOfUnity/EnoughRootsOfUnity.lean",
+    "provides": "A domain R with at least n n-th roots of unity has HasEnoughRootsOfUnity R n.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.card_rootsOfUnity",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "If ζ is a primitive n-th root of unity in a domain, rootsOfUnity n R has exactly n elements.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.zeta_spec",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "provides": "In an n-th cyclotomic extension, the chosen zeta is a primitive n-th root of unity.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:LinearMap.continuous_of_isClosed_graph",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Normed/Operator/Banach.lean",
+    "provides": "Closed graph theorem: a linear map between Banach spaces over a nontrivially normed field with closed graph is continuous.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:ContinuousLinearEquiv.ofBijective",
+    "kind": "def",
+    "module": "Mathlib/Analysis/Normed/Operator/Banach.lean",
+    "provides": "Open mapping theorem: a bijective continuous linear map between Banach spaces is a continuous linear equivalence.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:ZeroAtInftyContinuousMap",
+    "kind": "structure",
+    "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+    "provides": "Continuous functions vanishing at infinity; on a discrete index set I this is the Banach space c₀(I, E) of null families.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:AbstractMeasure",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+    "provides": "AbstractMeasure X R E, the continuous R-linear maps C(X, R) → E (notation D(X, R) when E = R): bounded measures.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.includeLeft_injective",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Flat/Basic.lean",
+    "provides": "A → A ⊗_R B is injective when A is flat over R and R → B is injective; over a field this makes coefficient extension faithful.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:Polynomial.iterate_derivative_eq_zero",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
+    "provides": "The k-th derivative of a polynomial of natDegree < k is zero.",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   },
+   {
+    "ref": "mathlib:fwdDiff_iter_eq_sum_shift",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+    "provides": "The n-th forward difference with step h is Σ_k (−1)^{n−k} binom(n, k) f(y + kh).",
+    "checked": "statement read in the source file at the pinned Mathlib commit 082e2d3, 2026-10-12"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "COLMEZ-FONCTIONS-2010",
+   "title": "Fonctions d'une variable p-adique",
+   "authors": "Pierre Colmez",
+   "edition": "Author's PDF on his IMJ-PRG page (47 pages, its own pagination 1–47, equal to the PDF page numbers); published in Astérisque 330 (2010). Page numbers below are those of the PDF.",
+   "url": "https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf",
+   "sha256": "a18e1b0f96033dbc6d27d39dd330974bed63808286092c11d5c8d232d412c380",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "§I.3.1–I.3.2 (LC_h, Lemma I.3.1, Proposition I.3.2, Definition I.3.3, Proposition I.3.4 and its proof), pp. 9–11",
+    "§I.5 in full (Remark I.5.1 through Lemma I.5.23 and the end of the proof of Theorem I.5.17), pp. 18–27; p. 20 rendered and checked as an image",
+    "§II.1–II.3 in full (Lemma II.1.1, Corollary II.1.2, Theorem II.2.2, Proposition II.3.1, §II.3.2, Theorem II.3.2 with proof, Proposition II.3.3 with proof), pp. 29–34; p. 33 rendered and checked as an image",
+    "§II.4.1–II.4.7 (operations, Proposition II.4.1, Lemma II.4.2, Propositions II.4.3, II.4.5, II.4.6), pp. 34–38"
+   ]
+  },
+  {
+   "id": "LOEFFLER-2014",
+   "title": "P-adic integration on ray class groups and non-ordinary p-adic L-functions",
+   "authors": "David Loeffler",
+   "edition": "arXiv:1304.4042v3, 23 June 2014 (published in Iwasawa 2012, Springer Contributions in Mathematical and Computational Sciences, 2014, pp. 357–378)",
+   "url": "https://arxiv.org/pdf/1304.4042v3",
+   "sha256": "6404d3ba7865121ca002bbf93970bcad71461a067c7f954ab443a13d49e1171e",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "§2.1–2.3 in full (Definitions 2.1, 2.5, 2.8, 2.11, 2.12, 2.14, Theorems 2.3, 2.9, 2.15, Remarks 2.2, 2.4, 2.6, 2.7, 2.10, 2.13, 2.16, footnote 2), printed pp. 2–5",
+    "arXiv listing of 1304.4042: version history and the v3 comment 'Revised version correcting some errors in the interpolation formulae'"
+   ]
+  },
+  {
+   "id": "LOEFFLER-2013-V1",
+   "title": "P-adic integration on ray class groups and non-ordinary p-adic L-functions",
+   "authors": "David Loeffler",
+   "edition": "arXiv:1304.4042v1, 15 April 2013",
+   "url": "https://arxiv.org/pdf/1304.4042v1",
+   "sha256": "ef4493fe0c0993b814d15e194f565039a0549c4b7e36b86815188b5aa3d50859",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "§2.3, Definitions 2.11–2.14, Remark 2.13, Theorem 2.15 and its proof, printed pp. 4–5"
+   ]
+  },
+  {
+   "id": "LOEFFLER-2013-V2",
+   "title": "P-adic integration on ray class groups and non-ordinary p-adic L-functions",
+   "authors": "David Loeffler",
+   "edition": "arXiv:1304.4042v2, 22 August 2013, typeset in the format of the Springer proceedings (Definition 12, Remark 13, Theorem 15)",
+   "url": "https://arxiv.org/pdf/1304.4042v2",
+   "sha256": "0562b3b7fe3fa9217d61dc46f7f7185ceb30b2473a297707cf6046274afd65f3",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "§2.3, Definitions 11–14, Remark 13, Theorem 15 and its proof, Remark 16, printed pp. 5–7"
+   ]
+  },
+  {
+   "id": "DEIESO-2012",
+   "title": "Espaces de fonctions de classe C^r sur O_F",
+   "authors": "Marco De Ieso",
+   "edition": "arXiv:1203.6766v1, 30 March 2012, 33 pages",
+   "url": "https://arxiv.org/pdf/1203.6766v1",
+   "sha256": "63e1f6d54885d0977e956055a88062eea307b7e00f981614ae96b4fd1abe3e28",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "§1 (introduction and statements, Theorems 1.1–1.2), pp. 1–5",
+    "§2.1, Definition 2.1 and Remark 2.2, pp. 5–6",
+    "§2.2, Corollary 2.8, Lemma 2.9 with proof, §2.2.1 Definition 2.10, Lemma 2.11, Proposition 2.12 with the beginning of its proof, pp. 10–14; pp. 12–13 rendered and checked as images"
+   ]
+  },
+  {
+   "id": "RJW-2024",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+   "edition": "arXiv:2309.15692v2, 85 pages; printed page = PDF page",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "accessDate": "2026-10-12",
+   "readSections": [
+    "Appendix B.2.1, Theorem B.1 and the paragraph after it, printed pp. 79–80"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "LocallyAnalyticDistributions:L2/locally-polynomial-functions",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Locally polynomial functions of bounded degree",
+   "kind": "definition",
+   "statement": "For h ∈ ℕ and N ∈ ℕ, LP^{[0,N]}_h(ℤ_p, L) is the L-vector space of functions φ : ℤ_p → L such that, for every a ∈ ℤ_p, the restriction of φ to the ball a + p^hℤ_p agrees with a polynomial in x of degree at most N (the polynomial is unique, since balls are infinite). LP^{[0,N]}(ℤ_p, L) is the increasing union of the LP^{[0,N]}_h over h. For real s ≥ 0, LP^{[0,s]} means LP^{[0,[s]]}; LC_h = LP^{[0,0]}_h and LC = LP^{[0,0]} is the space of locally constant functions. For 0 ≤ i ≤ p^h − 1 and 0 ≤ k ≤ N the local monomials 1_{i+p^{ℓ(i)}ℤ_p}(x)·((x − i)/p^{ℓ(i)})^k form a basis of LP^{[0,N]}_h, so dim_L LP^{[0,N]}_h = p^h(N + 1); with i ranging over ℕ they form a basis of LP^{[0,N]}. For N = 0 this is the van der Put basis 1_{i+p^{ℓ(i)}ℤ_p} of LC.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "The local monomials 1_{a+p^hℤ_p}((x − a)/p^h)^k, a ∈ {0,…,p^h − 1}, k ≤ N, are a basis of LP^{[0,N]}_h: on each ball a polynomial of degree ≤ N is a unique combination of the powers of (x − a)/p^h.",
+    "For i ≤ p^h − 1, 1_{i+p^{ℓ(i)}ℤ_p} is the sum of the indicators 1_{i+jp^{ℓ(i)}+p^hℤ_p}, 0 ≤ j < p^{h−ℓ(i)}; the transition matrix from the 1_{i+p^{ℓ(i)}ℤ_p} to the 1_{i+p^hℤ_p} is unitriangular with integer entries (Colmez, proof of Proposition I.3.2). Expanding ((x − i)/p^{ℓ(i)})^k on the sub-balls by the binomial theorem keeps the matrix triangular in (i, k) (Proposition I.5.8, which adapts I.3.2).",
+    "A locally constant function on the compact space ℤ_p has finitely many clopen fibres, each a finite union of balls, so it lies in some LC_h; the same holds for LP^{[0,N]} by definition."
+   ],
+   "acceptance": [
+    "x ↦ x lies in LP^{[0,1]}_0 and not in LC.",
+    "1_{pℤ_p} lies in LC_1 and not in LC_0.",
+    "The function equal to x on pℤ_p and to 0 elsewhere lies in LP^{[0,1]}_1."
+   ],
+   "prerequisites": [
+    "mathlib:LocallyConstant",
+    "mathlib:PadicInt.toZModPow",
+    "mathlib:PadicInt.ker_toZModPow"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§I.3.1, Proposition I.3.2 and its proof, printed pp. 9–10; §I.5.4, definition of LP^I_h and Proposition I.5.8, printed p. 21",
+     "match": "I.3.2 gives the van der Put basis of LC_h and LC with its unitriangular change of basis; §I.5.4 defines the locally polynomial spaces with degrees in a set I and Proposition I.5.8 gives the local monomial bases of LP^{[0,r]}_h and LP^{[0,r]}."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.LocallyAnalytic.LP",
+     "role": "constructor",
+     "statement": "LP N h : the L-subspace of functions ℤ_p → L that are polynomial of degree ≤ N on every ball a + p^hℤ_p; LPAll N is the union over h."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.LP_mono",
+     "role": "relation",
+     "statement": "LP N h ≤ LP N' h' whenever N ≤ N' and h ≤ h'."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.mem_LP_iff",
+     "role": "characterisation",
+     "statement": "φ ∈ LP N h iff for every a ∈ {0, …, p^h − 1} some polynomial P_a of degree ≤ N agrees with φ on a + p^hℤ_p."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.LP_zero_eq_locallyConstant",
+     "role": "compatibility",
+     "statement": "LPAll 0 is the image of Mathlib's LocallyConstant ℤ_p L under the coercion to functions."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.LP_basis",
+     "role": "characterisation",
+     "statement": "The local monomials 1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k, i < p^h, k ≤ N, form a basis of LP N h; finrank_L (LP N h) = p^h(N + 1)."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.LP_mul",
+     "role": "structure",
+     "statement": "The product of an element of LP N h and an element of LP M h lies in LP (N + M) h; LPAll N is a module over LPAll 0."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.LP_comp_affine",
+     "role": "functoriality",
+     "statement": "For b ∈ ℤ_p and n ∈ ℕ, φ ↦ (x ↦ φ(b + p^n x)) maps LP N (h + n) into LP N h."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Colmez, Theorem II.3.2",
+     "how": "algebraic distributions of degree ≤ N are the linear forms on LP^{[0,N]}"
+    },
+    {
+     "where": "Colmez, Proposition I.5.13",
+     "how": "the Taylor truncations φ_h of a C^r function lie in LP^{[0,r]}_h"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+     "how": "its domain"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/unit-character-determination",
+     "how": "the functions χ(x)x^j 1_{ℤ_p^×} span LP^{[0,N]} on ℤ_p^× level by level"
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+     "how": "the values of L_p on z^j·1_{a+p^nℤ_p} are values on LP^{[0,k]}"
+    }
+   ],
+   "tests": [
+    {
+     "name": "LocallyAnalyticTests.LP_finrank_two",
+     "kind": "computation",
+     "statement": "For p = 2, dim_L LP^{[0,1]}_1(ℤ_2, L) = 4: two balls, degree ≤ 1 on each."
+    },
+    {
+     "name": "LocallyAnalyticTests.LP_level_zero",
+     "kind": "degenerate",
+     "statement": "LP^{[0,N]}_0 is the space of restrictions to ℤ_p of polynomials of degree ≤ N, of dimension N + 1."
+    },
+    {
+     "name": "LocallyAnalyticTests.LP_zero_locallyConstant",
+     "kind": "compatibility",
+     "statement": "LP^{[0,0]}(ℤ_p, L) coincides with Mathlib's LocallyConstant ℤ_p L as a set of functions."
+    },
+    {
+     "name": "LocallyAnalyticTests.LP_square_not_linear",
+     "kind": "non-example",
+     "statement": "x ↦ x² lies in no LP^{[0,1]}_h: on every ball it is a polynomial of degree exactly 2."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/colmez-wavelets",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Colmez's wavelets e_{i,k,r}",
+   "kind": "construction",
+   "statement": "For r ≥ 0, i ∈ ℕ and k ∈ ℕ let e_{i,k,r}(x) = p^{[ℓ(i)r]}·1_{i+p^{ℓ(i)}ℤ_p}(x)·((x − i)/p^{ℓ(i)})^k. Then e_{i,k,r} ∈ LP^{[0,k]}_{ℓ(i)}(ℤ_p, ℚ_p), its sup norm is p^{−[ℓ(i)r]}, and for every h the e_{i,k,r} with 0 ≤ i ≤ p^h − 1 and 0 ≤ k ≤ [r] form a basis of LP^{[0,r]}_h(ℤ_p, L); with i ranging over ℕ they form a basis of LP^{[0,r]}(ℤ_p, L). The coordinates of φ ∈ LP^{[0,r]} in this basis are its amplitude coefficients b_{i,k}(φ). For j ≤ k and j ≤ r, (d/dx)^j e_{i,k,r} = k(k − 1)⋯(k − j + 1)·e_{i,k−j,r−j}.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "The basis statements follow from the local monomial bases of locally-polynomial-functions, since e_{i,k,r} is a nonzero scalar multiple of the local monomial (Colmez Lemma I.5.9).",
+    "Differentiate ((x − i)/p^{ℓ(i)})^k j times and use [ℓ(i)(r − j)] = [ℓ(i)r] − jℓ(i), as jℓ(i) is an integer (proof of Colmez Proposition I.5.16).",
+    "On the ball the factor ((x − i)/p^{ℓ(i)})^k has valuation ≥ 0, with a unit value at x = i + p^{ℓ(i)}, so the sup norm is |p^{[ℓ(i)r]}|."
+   ],
+   "acceptance": [
+    "e_{0,0,r} = 1 for every r.",
+    "e_{i,0,0} = 1_{i+p^{ℓ(i)}ℤ_p}, the van der Put basis vector."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§I.5.4, definition of e_{i,k,r} before Lemma I.5.9 and Lemma I.5.9, printed p. 21; proof of Proposition I.5.16, printed p. 24",
+     "match": "Defines the scaled local monomials e_{i,k,r} and states that for k ≤ r they are bases of LP^{[0,r]}_h and LP^{[0,r]}; the proof of I.5.16 records the derivative formula."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.LocallyAnalytic.colmezWavelet",
+     "role": "constructor",
+     "statement": "colmezWavelet r i k : ℤ_p → L, the function e_{i,k,r}."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.colmezWavelet_apply",
+     "role": "simp",
+     "statement": "colmezWavelet r i k x = p^{[ℓ(i)r]}·((x − i)/p^{ℓ(i)})^k if x ∈ i + p^{ℓ(i)}ℤ_p, and 0 otherwise."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.colmezWavelet_mem_LP",
+     "role": "data",
+     "statement": "colmezWavelet r i k ∈ LP k ℓ(i)."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.colmezWavelet_basis",
+     "role": "characterisation",
+     "statement": "For each h, the e_{i,k,r} with i < p^h and k ≤ [r] form a basis of LP [r] h."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.amplitudeCoeff",
+     "role": "projection",
+     "statement": "amplitudeCoeff r i k : LPAll [r] →ₗ L, the coordinate b_{i,k}; amplitudeCoeff r i k (e_{i',k',r}) is 1 if (i, k) = (i', k') and 0 otherwise."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.deriv_colmezWavelet",
+     "role": "relation",
+     "statement": "(d/dx)^j e_{i,k,r} = k!/(k − j)!·e_{i,k−j,r−j} for j ≤ k and j ≤ r."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.colmezWavelet_zero",
+     "role": "simp",
+     "statement": "colmezWavelet r 0 k x = x^k, since ℓ(0) = 0."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Colmez, Theorem I.5.14",
+     "how": "the e_{i,k,r} form a Banach basis of C^r"
+    },
+    {
+     "where": "Colmez, proof of Theorem II.3.2(ii)",
+     "how": "the values μ(e_{i,k,r}) of an admissible algebraic distribution are bounded"
+    },
+    {
+     "where": "Colmez, Proposition I.5.16",
+     "how": "the derivative formula proves surjectivity of d/dx on C^r"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/tensor-function-realization",
+     "how": "products of wavelets in each coordinate are the tensor wavelets"
+    }
+   ],
+   "tests": [
+    {
+     "name": "LocallyAnalyticTests.colmezWavelet_value",
+     "kind": "computation",
+     "statement": "For p = 3, r = 1/2, i = 4 (ℓ(4) = 2, [ℓ(4)/2] = 1) and k = 0: e_{4,0,1/2} = 3·1_{4+9ℤ_3}, with value 3 at x = 13 and 0 at x = 1."
+    },
+    {
+     "name": "LocallyAnalyticTests.colmezWavelet_level_zero",
+     "kind": "degenerate",
+     "statement": "e_{0,k,r}(x) = x^k on ℤ_p for every r."
+    },
+    {
+     "name": "LocallyAnalyticTests.colmezWavelet_r_zero",
+     "kind": "compatibility",
+     "statement": "e_{i,0,0} equals Mathlib's LocallyConstant.charFn of the clopen ball i + p^{ℓ(i)}ℤ_p."
+    },
+    {
+     "name": "LocallyAnalyticTests.colmezWavelet_count",
+     "kind": "computation",
+     "statement": "For p = 2, h = 2 and r = 1 there are 8 wavelets e_{i,k,1} with i < 4 and k ≤ 1, the dimension of LP^{[0,1]}_2(ℤ_2, L)."
+    },
+    {
+     "name": "LocallyAnalyticTests.colmezWavelet_scaling_needed",
+     "kind": "non-example",
+     "statement": "The unscaled indicators 1_{i+p^{ℓ(i)}ℤ_p} are not bounded in C^{1/2}: v′_{C^{1/2}}(1_{p^mℤ_p}) = −(m − 1)/2 → −∞, so the factor p^{[ℓ(i)r]} cannot be dropped."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/taylor-coefficient-bounds",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Coefficients of a polynomial are bounded by its values on a ball",
+   "kind": "lemma",
+   "statement": "Let N ∈ ℕ, C(N) = Σ_{n=1}^{N} v_p(n!), and a_0, …, a_N ∈ L. For every h ∈ ℤ, min_{0≤k≤N}(v_p(a_k) + kh) ≥ inf_{x ∈ p^hℤ_p} v_p(Σ_{k=0}^{N} a_k x^k/k!) − C(N).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "The top coefficient is the N-th forward difference with step p^h: a_N = p^{−Nh} Σ_{j=0}^{N} (−1)^{N−j} binom(N, j) P(x + jp^h), with P(x) = Σ a_k x^k/k!; taking x ∈ p^hℤ_p gives v_p(a_N) + Nh ≥ inf_{p^hℤ_p} v_p(P).",
+    "Subtract the top term: Q = P − a_N x^N/N! has inf_{p^hℤ_p} v_p(Q) ≥ inf_{p^hℤ_p} v_p(P) − v_p(N!); conclude by induction on N."
+   ],
+   "acceptance": [
+    "N = 0: v_p(a_0) ≥ inf v_p(a_0), with C(0) = 0.",
+    "For P = x^N/N! and h = 0 the bound reads 0 ≥ −v_p(N!) − C(N − 1)."
+   ],
+   "prerequisites": [
+    "mathlib:fwdDiff_iter_eq_sum_shift"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Lemma I.5.3 and its proof, printed p. 19",
+     "match": "States and proves this coefficient bound by the forward-difference formula and induction on N."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-derivatives",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Taylor coefficients of a C^r function are its derivatives",
+   "kind": "theorem",
+   "statement": "Let r ≥ 0 and φ ∈ C^r(ℤ_p, L) with Taylor data φ^{(j)}, 0 ≤ j ≤ [r]. Then the φ^{(j)} are uniquely determined by φ. If r ≥ 1, φ is differentiable at every point with φ′ = φ^{(1)} ∈ C^{r−1}(ℤ_p, L), and there is C_0(r) with v′_{C^{r−1}}(φ′) ≥ v′_{C^r}(φ) − C_0(r). More precisely, for 0 ≤ j ≤ [r], φ^{(j)} is the j-th derivative of φ, φ^{(j)} ∈ C^{r−j}(ℤ_p, L) with Taylor data (φ^{(j)})^{(k)} = φ^{(j+k)}, v′_{C^{r−j}}(φ^{(j)}) ≥ v′_{C^r}(φ) − C([r]) and C_{φ^{(j)}, r−j}(h) ≥ C_{φ,r}(h) − C([r]) for all h.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "C^r(ℤ_p, L), its remainder ε_{φ,r}(x, y) = φ(x + y) − Σ_{j≤[r]} φ^{(j)}(x)y^j/j!, the function C_{φ,r}(h) = inf_{x, y∈p^hℤ_p} v_p(ε_{φ,r}(x, y)) − rh and the valuation v′_{C^r} are those of LocallyAnalyticDistributions:L2/c-r-functions."
+   ],
+   "proofSteps": [
+    "Expanding ε(x, y + z) − ε(x + y, z) gives, for v_p(y), v_p(z) ≥ h, a polynomial identity in z whose coefficients are φ^{(j)}(x + y) − Σ_{k≤[r]−j} φ^{(j+k)}(x)y^k/k!, of valuation ≥ rh + C_{φ,r}(h).",
+    "taylor-coefficient-bounds turns this into v_p(φ^{(j)}(x + y) − Σ_k φ^{(j+k)}(x)y^k/k!) ≥ (r − j)h + C_{φ,r}(h) − C([r]), which gives membership of φ^{(j)} in C^{r−j}, the norm bound and the identity (φ^{(j)})^{(k)} = φ^{(j+k)}.",
+    "Uniqueness and the identification with derivatives follow: (φ(x + y) − φ(x))/y → φ^{(1)}(x), and induction on j."
+   ],
+   "acceptance": [
+    "For φ(x) = x², φ^{(1)} = 2x and φ^{(2)} = 2 for r = 2.",
+    "The digit-doubling function of c-r-functions has derivative 0 everywhere but is not C²; the theorem only applies to functions already known to be C^r."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/taylor-coefficient-bounds",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.4 and Remark I.5.5, printed pp. 19–20",
+     "match": "Proves that the Taylor data of a C^r function are its successive derivatives, lie in C^{r−j}, and records the bounds on v′_{C^{r−j}} and C_{φ^{(j)},r−j}."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Locally analytic functions are C^r with explicit bounds",
+   "kind": "lemma",
+   "statement": "For h ∈ ℕ and r ≥ 0, LA_h(ℤ_p, L) ⊆ C^r(ℤ_p, L), with v′_{C^r}(φ) ≥ v_{LA_h}(φ) − rh. For the Mahler valuation v_{C^r}(φ) = inf_n(v_p(a_n(φ)) − rℓ(n)) there is a constant C_1(r), independent of h, with v_{C^r}(φ) ≥ v_{LA_h}(φ) − rh − C_1(r) for every φ ∈ LA_h. In particular the normalised local monomial φ_{a,n,k} = 1_{a+p^nℤ_p}((x − a)/p^n)^k has v_{LA_n}(φ_{a,n,k}) = 0 and v_{C^r}(φ_{a,n,k}) ≥ −rn − C_1(r).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "LA_h(ℤ_p, L) and v_{LA_h} are those of LocallyAnalyticDistributions:L0/locally-analytic-radius."
+   ],
+   "proofSteps": [
+    "For φ ∈ LA_h, v_p(φ^{(j)}(x)/j!) ≥ v_{LA_h}(φ) − hj; the remainder is the analytic tail for v_p(y) ≥ h and a difference of values otherwise, which gives v′_{C^r}(φ) ≥ v_{LA_h}(φ) − rh (Colmez Proposition I.5.7).",
+    "For the Mahler valuation use Amice's orthonormal basis [n/p^h]!·binom(x, n) of LA_h and ℓ(k) ≤ log(k + 1)/log p + 1; minimise a/(p − 1) − (1 + r)log(a + 1)/log p − r over a ≥ 0 (Proposition I.5.19)."
+   ],
+   "acceptance": [
+    "Polynomials have v′_{C^r} ≥ v_{LA_0} for every r.",
+    "For r = 0 the bound is v_{C^0}(φ) ≥ v_{LA_h}(φ) − C_1(0)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+    "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.7, printed p. 20; Proposition I.5.19 and its proof, printed pp. 24–25",
+     "match": "I.5.7 proves LA_h ⊂ C^r with the v′ bound; I.5.19 proves the Mahler-valuation bound with the explicit constant C_1(r)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/wavelet-norm-bound",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Norms of Colmez's wavelets",
+   "kind": "lemma",
+   "statement": "For r ≥ 0 and k ≤ r: v′_{C^r}(e_{0,k,r}) = 0 and, for i ≥ 1, v′_{C^r}(e_{i,k,r}) ≥ [ℓ(i)r] − rℓ(i) + r − k ≥ −1. Consequently, for every bounded family (b_{i,k}) tending to 0, Σ_{i,k} b_{i,k}e_{i,k,r} converges in C^r(ℤ_p, L) and v′_{C^r}(Σ b_{i,k}e_{i,k,r}) ≥ inf_{i,k} v_p(b_{i,k}) − 1: the map c₀(ℕ × {0, …, [r]}, L) → C^r is continuous.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "For j ≤ r, v_p(e_{i,k,r}^{(j)}(x)/j!) ≥ [ℓ(i)r] − jℓ(i) ≥ [ℓ(i)r] − rℓ(i) + r − k.",
+    "The remainder ε(x, y) vanishes unless v_p(y) ≤ ℓ(i) − 1 and x or x + y lies in i + p^{ℓ(i)}ℤ_p; in the two remaining cases bound its valuation minus r·v_p(y) directly from the formula (Colmez's case analysis).",
+    "The final bound uses k ≤ r and [ℓ(i)r] − rℓ(i) > −1."
+   ],
+   "acceptance": [
+    "For r = 0, e_{i,0,0} = 1_{i+p^{ℓ(i)}ℤ_p} has v′_{C^0} = 0."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/colmez-wavelets",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Lemma I.5.10 and its proof, printed pp. 21–22; first sentence of the proof of Theorem I.5.14, printed p. 23",
+     "match": "Gives the lower bound for v′_{C^r}(e_{i,k,r}) and deduces continuity of the wavelet synthesis map on bounded null families."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/amplitude-coefficient-bound",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Amplitude coefficients are bounded by the C^r valuation",
+   "kind": "lemma",
+   "statement": "For r ≥ 0 there is a constant C′_0(r) such that every φ ∈ LP^{[0,r]}(ℤ_p, L) with amplitude coefficients b_{i,k}(φ) satisfies inf_{i,k} v_p(b_{i,k}(φ)) ≥ v′_{C^r}(φ) − C′_0(r). For locally constant φ = Σ_{i≤p^h−1} b_i e_{i,0,r}: inf_i v_p(b_i) ≥ v′_{C^r}(φ) − r.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "Locally constant case by induction on h: ε_{φ,r}(i, p^{h−1}) equals p^{[hr]}b_{i+p^{h−1}} for i < p^{h−1} and p^{[hr]}(b_{i+p^{h−1}} − b_i) for p^{h−1} ≤ i ≤ p^h − 1, which bounds the top-level coefficients; subtract the top level and use v′_{C^r}(e_{i,0,r}) ≥ [hr] − hr + r (Colmez Lemma I.5.11).",
+    "General case by induction on [r]: differentiate (cr-derivatives bounds v′_{C^{r−1}}(φ′)) to control the b_{i,k} with k ≥ 1 through deriv_colmezWavelet, then apply the locally constant case to φ − Σ_{k≥1} b_{i,k}e_{i,k,r}, using wavelet-norm-bound (Proposition I.5.12)."
+   ],
+   "acceptance": [
+    "For r = 0 the bound is the isometry of the van der Put expansion: inf v_p(b_i) = v_{C^0}(φ)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/colmez-wavelets",
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "LocallyAnalyticDistributions:L2/wavelet-norm-bound"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Lemma I.5.11 and Proposition I.5.12 with their proofs, printed p. 22",
+     "match": "Bounds the amplitude coefficients of a locally polynomial function below by its C^r valuation, first for locally constant functions and then by induction on [r]."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/taylor-truncation-density",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Taylor truncations converge in C^r",
+   "kind": "theorem",
+   "statement": "Let r ≥ 0 and φ ∈ C^r(ℤ_p, L). For h ∈ ℕ let φ_h = Σ_{i=0}^{p^h−1} 1_{i+p^hℤ_p}(x)·Σ_{k=0}^{[r]} φ^{(k)}(i)(x − i)^k/k! ∈ LP^{[0,r]}_h. Then v_{LA_{h+1}}(φ_{h+1} − φ_h) ≥ rh + C_{φ,r}(h) − C([r]) and φ_h → φ in C^r(ℤ_p, L). Hence LP^{[0,[r]]}(ℤ_p, L), and a fortiori LP^{[0,N]} for every N ≥ [r] and LA(ℤ_p, L), are dense in C^r(ℤ_p, L).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "On a + p^{h+1}ℤ_p with a = i + bp^h, rewrite φ_{h+1} − φ_h as Σ_{j≤[r]} p^{j(h+1)}/j!·(φ^{(j)}(a) − Σ_{l≤[r]−j} φ^{(j+l)}(i)(bp^h)^l/l!)·((x − a)/p^{h+1})^j.",
+    "cr-derivatives (Remark I.5.5(ii)) bounds each bracket by C_{φ,r}(h) − C([r]) + (r − j)h, which gives the LA_{h+1} bound; cr-locally-analytic-bound converts it into convergence in C^r.",
+    "The limit agrees with φ on ℕ, since φ_h(i) = φ(i) for i < p^h, hence everywhere by continuity."
+   ],
+   "acceptance": [
+    "r = 0: φ_h = Σ φ(i)1_{i+p^hℤ_p} and the statement is uniform continuity of φ (Colmez Lemma I.3.1).",
+    "For φ a polynomial of degree ≤ [r], φ_h = φ for every h."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.13 and its proof, printed p. 23",
+     "match": "Defines the Taylor truncations φ_h, bounds their successive differences in LA_{h+1}, and proves convergence to φ in C^r, hence density of LP^{[0,r]}."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The wavelet basis of C^r(ℤ_p, L)",
+   "kind": "theorem",
+   "statement": "For r ≥ 0 the family e_{i,k,r} (i ∈ ℕ, 0 ≤ k ≤ [r]) is a Banach basis of C^r(ℤ_p, L): the synthesis map c₀(ℕ × {0, …, [r]}, L) → C^r(ℤ_p, L), (b_{i,k}) ↦ Σ b_{i,k}e_{i,k,r}, is an isomorphism of L-Banach spaces, with inf v_p(b_{i,k}) − 1 ≤ v′_{C^r}(Σ b_{i,k}e_{i,k,r}) and v′_{C^r}(φ) − C′_0(r) ≤ inf v_p(b_{i,k}(φ)). The amplitude coefficients b_{i,k} extend to continuous linear forms on C^r. Dually, μ ↦ (μ(e_{i,k,r}))_{i,k} identifies D_r(ℤ_p, L) = C^r(ℤ_p, L)′ with the bounded families ℓ^∞(ℕ × {0, …, [r]}, L).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "wavelet-norm-bound gives continuity of the synthesis map on c₀.",
+    "amplitude-coefficient-bound shows that on LP^{[0,r]} the coefficient map is continuous for v′_{C^r}, so the synthesis map is an isomorphism of c₀ onto the closure of LP^{[0,r]}.",
+    "taylor-truncation-density says this closure is all of C^r.",
+    "The dual of c₀(I, L) is ℓ^∞(I, L) for the ultrametric norm: a bounded family defines Σ b_ic_i, which converges because c_i → 0."
+   ],
+   "acceptance": [
+    "r = 0: the van der Put basis 1_{i+p^{ℓ(i)}ℤ_p} is an orthonormal basis of C(ℤ_p, L) (Colmez Proposition I.3.2(iii)).",
+    "Every order-r distribution is determined by its values on the e_{i,k,r}."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/wavelet-norm-bound",
+    "LocallyAnalyticDistributions:L2/amplitude-coefficient-bound",
+    "LocallyAnalyticDistributions:L2/taylor-truncation-density",
+    "mathlib:ZeroAtInftyContinuousMap"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Theorem I.5.14 with its proof and Definition I.5.15, printed pp. 23–24",
+     "match": "The e_{i,k,r} form a Banach basis of C^r; the coordinates are the amplitude coefficients."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Wavelet basis of C^r"
+   }
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-mahler-criterion",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The Mahler criterion for C^r",
+   "kind": "theorem",
+   "statement": "Let r ≥ 0 and φ ∈ C(ℤ_p, L) with Mahler coefficients a_n(φ). Then φ ∈ C^r(ℤ_p, L) if and only if v_p(a_n(φ)) − rℓ(n) → +∞, and the Mahler valuation v_{C^r}(φ) = inf_n(v_p(a_n(φ)) − rℓ(n)) is equivalent to v′_{C^r}; the functions p^{[rℓ(n)]}binom(x, n), n ∈ ℕ, form a Banach basis of C^r(ℤ_p, L). Moreover, for a locally constant φ with van der Put coefficients b_i(φ): v_p(b_i(φ)) ≥ rℓ(i) + v_{C^r}(φ) if r < 1 and v_p(b_i(φ)) ≥ rℓ(i) + v_{C^r}(φ) − 1 if r ≥ 1.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "Mahler's theorem (the binom(x, n) are an orthonormal basis of C(ℤ_p, L), with a_n(φ) the n-th forward difference at 0) is Mathlib's PadicInt.mahlerEquiv."
+   ],
+   "proofSteps": [
+    "One inequality: v_{C^r}(e_{i,k,r}) ≥ −1 − C_1(r) by cr-locally-analytic-bound, since v_{LA_{ℓ(i)}}(e_{i,k,r}) = [rℓ(i)], and the wavelets form a Banach basis (Colmez Corollary I.5.20).",
+    "Other inequality: bound van der Put coefficients by Mahler coefficients (Colmez Propositions I.3.7–I.3.8, I.5.21 and Corollary I.5.22), then induct on [r] using the derivative as in Lemma I.5.23.",
+    "The two inequalities make (a_n) ↦ Σ a_n binom(x, n) an isomorphism of the weighted null sequences onto a closed subspace of C^r containing LA, which is dense by taylor-truncation-density."
+   ],
+   "acceptance": [
+    "r = 0 is Mahler's theorem.",
+    "At p = 3, r = 1 the function with a_{3^k} = 3^k and other coefficients 0 is continuous but not C¹: v_3(a_{3^k}) − ℓ(3^k) = −1 for every k."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+    "mathlib:PadicInt.mahlerEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Theorem I.5.17, Corollary I.5.18, Proposition I.5.19, Corollary I.5.20, Proposition I.5.21, Corollary I.5.22, Lemma I.5.23 and the end of the proof of I.5.17, printed pp. 24–27",
+     "match": "Characterises C^r by the growth of Mahler coefficients and proves the two valuations equivalent."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-derivative-surjection",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Differentiation is surjective on C^r with locally polynomial kernel",
+   "kind": "theorem",
+   "statement": "Let j ≥ 1 and r ≥ j. Then (d/dx)^j : C^r(ℤ_p, L) → C^{r−j}(ℤ_p, L) is a continuous surjection whose kernel is the closure of LP^{[0,j−1]}(ℤ_p, L) in C^r(ℤ_p, L); it induces an isomorphism of Banach spaces C^r/closure(LP^{[0,j−1]}) ≅ C^{r−j}. For j = 1: d/dx : C^r → C^{r−1} is surjective with kernel the closure of the locally constant functions, so a primitive is unique only up to that closure.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "In wavelet coordinates (d/dx)^j e_{i,k,r} = k!/(k − j)!·e_{i,k−j,r−j}, which vanishes for k < j; by cr-wavelet-basis both spaces are c₀ spaces, and the map is surjective because each basis vector e_{i,k−j,r−j} of C^{r−j} is the image of e_{i,k,r}/(k!/(k − j)!), with only finitely many factors k!/(k − j)!, k ≤ [r], all nonzero.",
+    "The kernel is the closed span of the e_{i,k,r} with k ≤ j − 1, which is the closure of LP^{[0,j−1]}.",
+    "The induced map on the quotient is a continuous bijection of Banach spaces, hence an isomorphism by the open mapping theorem."
+   ],
+   "acceptance": [
+    "The function 1_{pℤ_p} is locally constant, has derivative 0 and is not constant: d/dx is not injective on C^1, and its kernel is not the constants.",
+    "For r = j = 1, x ↦ x has the primitive x²/2."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+    "LocallyAnalyticDistributions:L2/colmez-wavelets",
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "mathlib:ContinuousLinearEquiv.ofBijective"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.16 and its proof, printed p. 24",
+     "match": "(d/dx)^j : C^r → C^{r−j} is surjective with kernel the closure of LP^{[0,j−1]}, by the derivative formula on wavelets."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "C^r(ℤ_p, L) is a Banach algebra",
+   "kind": "lemma",
+   "statement": "For r ≥ 0, C^r(ℤ_p, L) is an L-Banach algebra under pointwise multiplication: for φ, ψ ∈ C^r the product is in C^r with Taylor data (φψ)^{(k)} = Σ_{i+j=k} binom(k, i)φ^{(i)}ψ^{(j)} and v′_{C^r}(φψ) ≥ v′_{C^r}(φ) + v′_{C^r}(ψ). In particular, multiplication by a locally analytic function (for example x, z^x with v_p(z − 1) > 0, or the indicator 1_U of a compact open U ⊆ ℤ_p) is a continuous endomorphism of C^r(ℤ_p, L).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "De Ieso works on O_F with the norm sup(sup_{j,x}|φ^{(j)}(x)/j!|, sup_{x,y}|ε(x, y)|/|y|^r); for F = ℚ_p this is p^{−v′_{C^r}} and his Definition 2.1 is Colmez's definition of C^r."
+   ],
+   "proofSteps": [
+    "Expand the product of the two Taylor expansions; the remainder of φψ is a sum of terms each containing a remainder of φ or of ψ or a monomial of degree > [r] in y, which gives the norm inequality (De Ieso, proof of Lemma 2.9).",
+    "Locally analytic functions lie in C^r (cr-locally-analytic-bound)."
+   ],
+   "acceptance": [
+    "1_{pℤ_p}·1_{1+pℤ_p} = 0 and 1_{pℤ_p}² = 1_{pℤ_p}.",
+    "For r = 0 this is the Banach algebra C(ℤ_p, L) with the sup norm."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "DEIESO-2012",
+     "locator": "Lemma 2.9 and its proof, printed pp. 10–12; Definition 2.1, printed p. 5",
+     "match": "Proves that the space of C^r functions on O_F is a Banach algebra; with F = ℚ_p the definition is Colmez's."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§II.4.2, printed p. 34",
+     "match": "Notes that an order-r distribution can be multiplied by a C^r function, which uses this algebra structure."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/cr-composition",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Composition with charts preserves C^r",
+   "kind": "theorem",
+   "statement": "Let r ≥ 0 and φ_1 : ℤ_p → ℤ_p. Assume one of: (a) r = 0 and φ_1 is continuous; (b) 0 < r < 1 and φ_1 is Lipschitz, that is v_p(φ_1(x) − φ_1(y)) ≥ v_p(x − y) − c for some constant c (for example φ_1 locally analytic or of class C^1); (c) r ≥ 1 and φ_1 ∈ C^r(ℤ_p, L). Then φ_2 ↦ φ_2∘φ_1 is a continuous L-linear endomorphism of C^r(ℤ_p, L), and for r ≥ 1 the Taylor data of φ_2∘φ_1 are obtained by composing the two Taylor expansions. Without the Lipschitz hypothesis (b) fails: for r = 1/2 the digit map d(x) = Σ_n a_n(x)p^{⌊2n/3⌋} (x = Σ a_n(x)p^n, 0 ≤ a_n(x) < p) is of class C^{1/2} with values in ℤ_p, but d∘d is not of class C^{1/2}.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "(a) Composition of continuous maps.",
+    "(b) For φ_2 ∈ C^r with 0 < r < 1, v_p(φ_2(u) − φ_2(w)) − r·v_p(u − w) is bounded below and tends to +∞ as v_p(u − w) → ∞; substitute u − w = φ_1(x + y) − φ_1(x), of valuation ≥ v_p(y) − c.",
+    "(c) Follow De Ieso's proof of Proposition 2.12 with F = ℚ_p: insert φ_2(φ_1(x) + Σ_{i≥1}φ_1^{(i)}(x)y^i/i!), bound the first difference by the Lipschitz constant of φ_2 ∈ C^1 times the remainder of φ_1, and expand φ_2's Taylor polynomial at φ_1(x) (cr-derivatives, cr-banach-algebra for the products).",
+    "Continuity: convergence in C^r implies uniform convergence, so the graph of φ_2 ↦ φ_2∘φ_1 is closed and the closed graph theorem applies.",
+    "Counterexample: for v_p(y) ≥ h the digits of x and x + y agree below h, so v_p(d(x + y) − d(x)) ≥ ⌊2h/3⌋ ≥ h/2 + h/6 − 1, and d is C^{1/2}; but d(d(p^m)) − d(d(0)) = p^{⌊2⌊2m/3⌋/3⌋}, of valuation at most 4m/9, so C_{d∘d,1/2}(m) ≤ −m/18 → −∞."
+   ],
+   "acceptance": [
+    "Affine maps x ↦ b + ux (u ∈ ℤ_p) and x ↦ px satisfy every hypothesis, for every r.",
+    "The counterexample d shows that Colmez's Proposition I.5.6 needs a hypothesis on φ_1 when 0 < r < 1 (sourceIssues E8, E9)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+    "mathlib:LinearMap.continuous_of_isClosed_graph",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.6, printed p. 20 (page image checked)",
+     "match": "States that a composite of C^r maps is C^r for every r ≥ 0, with the proof referred to the archimedean case; the statement is false for 0 < r < 1 (E8) and is used here with the hypotheses above."
+    },
+    {
+     "sourceId": "DEIESO-2012",
+     "locator": "Definition 2.10, Lemma 2.11, Proposition 2.12 and its proof, printed pp. 12–14 (pages 12–13 checked as images)",
+     "match": "Proves composition with continuity for [r] ≥ 1 and leaves [r] = 0 to the reader; that case is false for 0 < r < 1 (E9)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/order-on-one-dimensional-groups",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "C^r functions and order-r distributions on a one-dimensional group",
+   "kind": "definition",
+   "statement": "Let G be a compact abelian p-adic Lie group of dimension 1 and κ : ℤ_p → H a topological group isomorphism onto an open subgroup H ⊆ G (a chart; for example G = ℤ_p with κ = id, G = ℤ_p^× with H = 1 + pℤ_p and κ(x) = (1 + p)^x for p odd, or H = 1 + 4ℤ_2 and κ(x) = 5^x for p = 2). C^r(G, L) is the space of f : G → L such that x ↦ f(aκ(x)) lies in C^r(ℤ_p, L) for every a ∈ G, normed by the minimum of the finitely many coset valuations; D_r(G, L) = C^r(G, L)′. Its topology does not depend on (H, κ) (the norm does). For a compact open U ⊆ ℤ_p, C^r(U, L) is the space of restrictions of C^r(ℤ_p, L), and D_r(U, L) is the space of order-r distributions on ℤ_p supported in U, that is 1_U·D_r(ℤ_p, L). For r = 0, C^0(G, L) = C(G, L) and D_0(G, L) is the space of bounded measures, Mathlib's AbstractMeasure G L L. LA(G, L) is dense in C^r(G, L), so D_r(G, L) ⊆ D(G, L), and D_r ⊆ D_s for r ≤ s.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "Two charts differ, on a common open subgroup p^mH, by a continuous isomorphism between open subgroups of ℤ_p, which is multiplication by some c ∈ ℚ_p^×, followed by translations between cosets; these affine maps preserve C^r continuously by cr-composition, with non-isometric constants (Loeffler, footnote 2).",
+    "Restriction to a compact open U and extension by zero are continuous because 1_U ∈ LA ⊆ C^r and C^r is a Banach algebra (cr-banach-algebra).",
+    "r = 0: C^0 = continuous functions (Colmez Remark I.5.1) and Mathlib's AbstractMeasure G L L is by definition the space of continuous linear forms on C(G, L).",
+    "Density of LA by taylor-truncation-density in each chart; D_r ⊆ D_s for r ≤ s by the Amice characterisation of LocallyAnalyticDistributions:L2/order-r-distributions."
+   ],
+   "acceptance": [
+    "G = ℤ_p, κ = id recovers C^r(ℤ_p, L) and D_r(ℤ_p, L).",
+    "On ℤ_p^×, the Dirac mass δ_1 has order 0, and dδ_1 (f ↦ f′(1)) has order 1 and no smaller order."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-composition",
+    "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+    "LocallyAnalyticDistributions:L2/taylor-truncation-density",
+    "LocallyAnalyticDistributions:L2/order-r-distributions",
+    "mathlib:AbstractMeasure"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.1, paragraph before Definition 2.1 extending the definitions to abelian groups of dimension 1, printed p. 2; §2.2, footnote 2, printed p. 3",
+     "match": "Extends C^r and D_r to abelian p-adic analytic groups of dimension 1 through an open subgroup isomorphic to ℤ_p, and notes that pullback along multiplication by p is continuous but not isometric."
+    },
+    {
+     "sourceId": "RJW-2024",
+     "locator": "Appendix B.2.1, Theorem B.1, printed pp. 79–80",
+     "match": "Uses distributions on ℤ_p^× with growth of order v_p(α_p), which are the order-v_p(α_p) distributions on G = ℤ_p^×."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.LocallyAnalytic.CrOn",
+     "role": "constructor",
+     "statement": "CrOn κ r : the L-Banach space C^r(G, L) defined through the chart κ."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.CrOn_chart_independent",
+     "role": "characterisation",
+     "statement": "For two charts κ, κ′ the identity of functions is a continuous linear equivalence CrOn κ r ≃ CrOn κ′ r."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.CrOn_zero_eq_continuous",
+     "role": "compatibility",
+     "statement": "CrOn κ 0 = C(G, L) with an equivalent norm."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.DistOrderOn",
+     "role": "constructor",
+     "statement": "DistOrderOn κ r = (CrOn κ r)′, the order-r distributions on G."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.DistOrderOn_zero_equiv_abstractMeasure",
+     "role": "compatibility",
+     "statement": "DistOrderOn κ 0 ≃ AbstractMeasure G L L (Mathlib's D(G, L))."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.DistOrderOn_restrict",
+     "role": "functoriality",
+     "statement": "For U ⊆ ℤ_p compact open, DistOrderOn U r ≃ {μ ∈ DistOrder r | μ = 1_U·μ}."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.DistOrderOn_translate",
+     "role": "functoriality",
+     "statement": "Translation by g ∈ G maps DistOrderOn κ r to itself continuously."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.DistOrderOn_mono",
+     "role": "relation",
+     "statement": "DistOrderOn κ r ⊆ DistOrderOn κ s inside D(G, L) for r ≤ s."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+     "how": "values of slope-h eigensymbols are h-admissible distributions on ℤ_p and ℤ_p^×"
+    },
+    {
+     "where": "PadicHodgeRegulators:L3/growth",
+     "how": "projections of the regulator are distributions of order h on the cyclotomic group"
+    },
+    {
+     "where": "RJW, Theorem B.1",
+     "how": "the analytic p-adic L-function is a distribution of order v_p(α_p) on ℤ_p^×"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/unit-character-determination",
+     "how": "its domain on ℤ_p^×"
+    }
+   ],
+   "tests": [
+    {
+     "name": "LocallyAnalyticTests.dirac_one_order_zero_units",
+     "kind": "computation",
+     "statement": "δ_1 ∈ D_0(ℤ_p^×, L), while dδ_1 ∈ D_1(ℤ_p^×, L) and dδ_1 ∉ D_r(ℤ_p^×, L) for r < 1."
+    },
+    {
+     "name": "LocallyAnalyticTests.CrOn_identity_chart",
+     "kind": "degenerate",
+     "statement": "For G = ℤ_p and κ = id, CrOn κ r = C^r(ℤ_p, L) and DistOrderOn κ r = D_r(ℤ_p, L)."
+    },
+    {
+     "name": "LocallyAnalyticTests.DistOrderOn_zero_units",
+     "kind": "compatibility",
+     "statement": "D_0(ℤ_p^×, L) is Mathlib's AbstractMeasure ℤ_[p]ˣ L L."
+    },
+    {
+     "name": "LocallyAnalyticTests.chart_scaling_not_isometric",
+     "kind": "characterisation",
+     "statement": "For p odd, r = 1/2 and the charts κ(x) = (1 + p)^x onto 1 + pℤ_p and κ′(x) = (1 + p)^{px} onto 1 + p²ℤ_p, the function 1_{1+p³ℤ_p} on ℤ_p^× transports to 1_{p²ℤ_p} and to 1_{pℤ_p}, with C^{1/2} valuations −1/2 and 0: the topology is chart-independent, the norm is not."
+    },
+    {
+     "name": "LocallyAnalyticTests.digit_chart_rejected",
+     "kind": "non-example",
+     "statement": "Pulling back along the digit map d of cr-composition does not preserve C^{1/2}; d is not a chart (it is not a group homomorphism and not Lipschitz)."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Admissible locally polynomial distributions",
+   "kind": "definition",
+   "statement": "For N ∈ ℕ ∪ {∞}, D^{[0,N]}_alg(ℤ_p, L) is the space of L-linear forms on LP^{[0,N]}(ℤ_p, L) (for N = ∞, on all locally polynomial functions). Equivalently, such a form is a family of values ∫_{a+p^nℤ_p} x^i μ (a ∈ ℤ_p, n ∈ ℕ, i ≤ N) depending on a only modulo p^n and additive under subdivision: ∫_{a+p^nℤ_p} x^i μ = Σ_{c=0}^{p−1} ∫_{a+cp^n+p^{n+1}ℤ_p} x^i μ. For r ≥ 0 with N ≥ [r] put v_{D_r,N}(μ) = inf_{a∈ℤ_p, k≤N, n∈ℕ}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) ∈ ℝ ∪ {±∞}. The r-admissible (order-r) algebraic distributions of degree ≤ N are D^{[0,N]}_r(ℤ_p, L) = {μ : v_{D_r,N}(μ) > −∞}, an L-Banach space for v_{D_r,N}. Restriction gives ι : D(ℤ_p, L) → D^{[0,N]}_alg(ℤ_p, L). When N is finite, v_{D_r,N} is equivalent on D^{[0,N]}_alg to the top-degree valuation v′_{D_r,N}(μ) = inf_{a,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^N μ) + rn).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "Pollack–Stevens' h-admissibility (‖μ‖ on balls of radius s is O(s^{−h})) is order h in this sense; see LocallyAnalyticDistributions:L2/order-r-distributions."
+   ],
+   "proofSteps": [
+    "Linear forms on LP^{[0,N]} correspond to compatible ball moments through the local monomial basis of locally-polynomial-functions.",
+    "v_{D_r,N} is an ultrametric valuation (inf of valuations of linear forms shifted by rn); completeness of D^{[0,N]}_r follows as for ℓ^∞.",
+    "Top degree: for k ≤ N there are rationals α_{k,i} with x^k = Σ_{i=0}^{N} α_{k,i}(x − i)^N, so ((x − a)/p^n)^k = Σ_i α_{k,i}((x − (a + ip^n))/p^n)^N, and a + ip^n + p^nℤ_p = a + p^nℤ_p; hence v_{D_r,N} ≥ v′_{D_r,N} + min v_p(α_{k,i}), while v′_{D_r,N} ≥ v_{D_r,N} trivially (Colmez, proof of Proposition II.3.3(iii))."
+   ],
+   "acceptance": [
+    "The Dirac mass δ_a lies in D^{[0,N]}_0 for every N.",
+    "The normalised Haar functional on LC lies in D^{[0,0]}_1 and in no D^{[0,0]}_r with r < 1."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§II.3.3, definition of D^I_alg and the compatibility relations before Theorem II.3.2, printed p. 32; definition of D^{[0,N]}_r and v_{D_r,N} in the proof of Theorem II.3.2(ii), printed p. 33; Proposition II.3.3(iii) and its proof, printed pp. 33–34",
+     "match": "Defines algebraic distributions as linear forms on LP^I, their ball-moment description, the admissibility valuation v_{D_r,N}, the subspace D^{[0,N]}_r, and the equivalent top-degree valuation."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.LocallyAnalytic.AlgDist",
+     "role": "constructor",
+     "statement": "AlgDist N = (LPAll N →ₗ[L] L), the algebraic distributions of degree ≤ N."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.AlgDist.ofBallMoments",
+     "role": "constructor",
+     "statement": "Builds an algebraic distribution from ball moments m(a, n, i) that depend on a mod p^n and are additive under subdivision."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.localMonomial",
+     "role": "data",
+     "statement": "localMonomial a n k = 1_{a+p^nℤ_p}·((x − a)/p^n)^k ∈ LPAll k."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.admissibleNorm",
+     "role": "data",
+     "statement": "admissibleNorm r N μ = sup_{a,n,k≤N} |μ(localMonomial a n k)|·p^{−rn} = p^{−v_{D_r,N}(μ)}, the admissibility norm in multiplicative form."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.IsAdmissible",
+     "role": "characterisation",
+     "statement": "IsAdmissible r N μ ↔ ∃ C, ∀ a n k, k ≤ N → ‖μ(localMonomial a n k)‖ ≤ C·p^{rn}, i.e. v_{D_r,N}(μ) > −∞."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.AdmissibleAlgDist",
+     "role": "constructor",
+     "statement": "The L-subspace D^{[0,N]}_r of AlgDist N cut out by IsAdmissible r N, normed by admissibleNorm."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.isAdmissible_mono",
+     "role": "relation",
+     "statement": "IsAdmissible r N μ → IsAdmissible s N μ for r ≤ s; restriction to LPAll N′ with [r] ≤ N′ ≤ N preserves admissibility."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.isAdmissible_iff_topDegree",
+     "role": "characterisation",
+     "statement": "For finite N ≥ [r], IsAdmissible r N μ holds iff the bound holds for k = N alone."
+    },
+    {
+     "name": "TauCeti.LocallyAnalytic.restrictAlg",
+     "role": "projection",
+     "statement": "ι : D(ℤ_p, L) → AlgDist N, restriction to locally polynomial functions; ι maps D_r into AdmissibleAlgDist r N."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Colmez, Theorem II.3.2",
+     "how": "source and target of the Amice–Vélu–Vishik extension"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+     "how": "the hypothesis of the extension theorem is that μ ∈ D^{[0,N]}_r"
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+     "how": "the values of a slope-h eigensymbol are h-admissible in this sense"
+    },
+    {
+     "where": "RJW, Theorem B.1",
+     "how": "growth of order v_p(α_p) of the analytic p-adic L-function"
+    }
+   ],
+   "tests": [
+    {
+     "name": "LocallyAnalyticTests.admissible_dirac",
+     "kind": "computation",
+     "statement": "For a ∈ ℤ_p, ι(δ_a) has v_{D_0,N}(ι δ_a) = 0: every normalised moment of δ_a is 0 or ((a − b)/p^n)^k with v_p ≥ 0, and the moment of 1_{ℤ_p} is 1."
+    },
+    {
+     "name": "LocallyAnalyticTests.admissible_haar",
+     "kind": "computation",
+     "statement": "The degree-0 functional μ(1_{a+p^nℤ_p}) = p^{−n} is additive and has v_{D_1,0}(μ) = 0, but v_{D_r,0}(μ) = −∞ for r < 1."
+    },
+    {
+     "name": "LocallyAnalyticTests.admissible_zero",
+     "kind": "degenerate",
+     "statement": "The zero functional has v_{D_r,N}(0) = +∞ and lies in every D^{[0,N]}_r."
+    },
+    {
+     "name": "LocallyAnalyticTests.admissible_restrict_compat",
+     "kind": "compatibility",
+     "statement": "For μ ∈ D(ℤ_p, L), v_{D_r,∞}(ι μ) = inf_n(v_{LA_n}(μ) + rn), Colmez's v_{D_r}(μ) (Proposition II.3.3(i))."
+    },
+    {
+     "name": "LocallyAnalyticTests.admissible_critical_restriction_zero",
+     "kind": "non-example",
+     "statement": "ι(dδ_0) = 0 on LP^{[0,0]} although dδ_0 ≠ 0: restriction to LC is not injective on D_1, so values on LC cannot determine an order-1 distribution."
+    }
+   ],
+   "planet": {
+    "name": "Admissible locally polynomial distributions"
+   }
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/moment-bound-necessity",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Order-r distributions satisfy the ball-moment bound",
+   "kind": "theorem",
+   "statement": "If μ ∈ D_r(ℤ_p, L), then for all a ∈ ℤ_p, k ∈ ℕ and n ∈ ℕ, v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ v′_{D_r}(μ) − C_1(r) − rn. Hence ι(μ) ∈ D^{[0,∞]}_r with v_{D_r,∞}(ι μ) ≥ v′_{D_r}(μ) − C_1(r); in particular ι(μ) ∈ D^{[0,N]}_r for every N.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "v′_{D_r} is the dual valuation of the Mahler valuation v_{C^r}, as in LocallyAnalyticDistributions:L2/order-r-distributions."
+   ],
+   "proofSteps": [
+    "The test function φ_{a,n,k} lies in LA_n with v_{LA_n}(φ_{a,n,k}) = 0, so v_{C^r}(φ_{a,n,k}) ≥ −rn − C_1(r) by cr-locally-analytic-bound.",
+    "Then v_p(μ(φ_{a,n,k})) ≥ v′_{D_r}(μ) + v_{C^r}(φ_{a,n,k})."
+   ],
+   "acceptance": [
+    "δ_a: all normalised moments have valuation ≥ 0.",
+    "dδ_0 has order 1: ∫_{p^nℤ_p}(x/p^n)·dδ_0 = p^{−n}, of valuation −n = −rn for r = 1."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+    "LocallyAnalyticDistributions:L2/order-r-distributions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Theorem II.3.2(i) and its proof, printed p. 32",
+     "match": "Proves the ball-moment bound for order-r distributions with C = v′_{D_r}(μ) − C_1(r)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/wavelet-value-bound",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Bounded wavelet values of an admissible distribution",
+   "kind": "lemma",
+   "statement": "Let N ∈ ℕ ∪ {∞} with N ≥ [r] and μ ∈ D^{[0,N]}_r(ℤ_p, L). For i ∈ ℕ and 0 ≤ k ≤ [r] put b_{i,k} = μ(e_{i,k,r}) = p^{[rℓ(i)]}·∫_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k μ. Then v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1 for all i, k, and there is a unique μ̃ ∈ D_r(ℤ_p, L) with μ̃(e_{i,k,r}) = b_{i,k} for all i and k ≤ [r]; its norm is bounded below by v_{D_r,N}(μ) minus a constant depending only on r. The integrand is ((x − i)/p^{ℓ(i)})^k, not the ((x − a)/p^n)^k printed in the source (sourceIssues E7).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "v_p(b_{i,k}) ≥ [rℓ(i)] + v_{D_r,N}(μ) − rℓ(i) > v_{D_r,N}(μ) − 1, using the ball i + p^{ℓ(i)}ℤ_p and k ≤ [r] ≤ N.",
+    "By cr-wavelet-basis, D_r(ℤ_p, L) is the space of bounded families on the wavelets, so the bounded family (b_{i,k}) defines a unique μ̃; its norm bound combines the bound above with amplitude-coefficient-bound."
+   ],
+   "acceptance": [
+    "r = 0, N = 0: b_i = μ(1_{i+p^{ℓ(i)}ℤ_p}) is bounded, and μ̃ is the bounded measure with these masses."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+    "LocallyAnalyticDistributions:L2/colmez-wavelets",
+    "LocallyAnalyticDistributions:L2/cr-wavelet-basis"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proof of Theorem II.3.2(ii), printed p. 33 (page image checked)",
+     "match": "Defines b_{i,k} as the value on e_{i,k,r}, bounds it by v_{D_r,N}(μ) − 1 and constructs μ̃ from the wavelet basis; the displayed integrand carries the wrong ball variables (E7)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/higher-degree-vanishing",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "An admissible distribution vanishing in low degree vanishes",
+   "kind": "lemma",
+   "statement": "Let N ∈ ℕ ∪ {∞} with N ≥ [r] and λ ∈ D^{[0,N]}_r(ℤ_p, L). If λ vanishes on LP^{[0,[r]]}(ℤ_p, L), then λ = 0 on LP^{[0,N]}(ℤ_p, L).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "Fix k ≤ N, a ∈ ℤ_p and n. For m ∈ ℕ decompose a + p^nℤ_p into the balls b_i + p^{n+m}ℤ_p, b_i = a + ip^n (0 ≤ i < p^m), and expand x^k = Σ_j binom(k, j)b_i^{k−j}(x − b_i)^j.",
+    "Terms with j ≤ [r] vanish by hypothesis. A term with j > r is p^{j(n+m)} times a normalised moment, so its valuation is at least (j − r)(n + m) + v_{D_r,N}(λ).",
+    "Letting m → ∞ gives ∫_{a+p^nℤ_p} x^k λ = 0 for all a, n, k ≤ N."
+   ],
+   "acceptance": [
+    "For r < 1 and N = ∞: an admissible functional vanishing on LC vanishes on all locally polynomial functions."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proof of Theorem II.3.2(ii), last paragraph, printed p. 33",
+     "match": "Shows that λ = ι(μ̃) − μ, which vanishes on LP^{[0,r]} and has finite v_{D_r,N}, vanishes on LP^{[0,N]} by subdividing balls."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/order-r-valuations",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Equivalent valuations on distributions of order r",
+   "kind": "theorem",
+   "statement": "On D_r(ℤ_p, L): (i) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) = inf_{a,k,n}(v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) + rn) is a valuation equivalent to v′_{D_r}; (ii) for N ∈ ℕ with N ≥ [r], v_{D_r,N}∘ι is equivalent to v_{D_r}; (iii) the top-degree valuation v′_{D_r,N}∘ι is equivalent to v_{D_r,N}∘ι. Moreover ι : D_r(ℤ_p, L) → D^{[0,N]}_r(ℤ_p, L) is an isomorphism of Banach spaces for every N ∈ ℕ ∪ {∞} with N ≥ [r]. Consequently, for μ ∈ D(ℤ_p, L) the following are equivalent: μ has order r; ‖μ‖_{LA_n} = O(p^{rn}); the ball moments of degree ≤ N (or of degree exactly N) are O(p^{rn}).",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "v_{LA_n}(μ) is the dual valuation of LA_n; the LA_n-orthonormal basis of locally-analytic-radius makes it the infimum of the normalised moments on balls of radius p^{−n}."
+   ],
+   "proofSteps": [
+    "By moment-bound-necessity, wavelet-value-bound, higher-degree-vanishing and density of LP^{[0,N]} (taylor-truncation-density), ι is a continuous bijection D_r → D^{[0,N]}_r: this is the Amice–Vélu–Vishik theorem of LocallyAnalyticDistributions:L2/amice-velu-vishik.",
+    "Both spaces are Banach, so the open mapping theorem makes ι an isomorphism, which gives (i) and (ii) (Colmez: 'conséquences du th. II.3.2 et du théorème de l'image ouverte').",
+    "(iii) by the change of basis to top-degree monomials recorded in admissible-algebraic-distributions."
+   ],
+   "acceptance": [
+    "Pollack–Stevens' h-admissibility ‖μ‖_s = O(s^{−h}) is v_{D_h}(μ) > −∞ with s = p^{−n}.",
+    "For r = 0 and a bounded measure μ, v_{D_0}(μ) = inf_{a,n} v_p(μ(1_{a+p^nℤ_p})), the measure norm: the moments with k ≥ 1 integrate functions of sup norm ≤ 1."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/moment-bound-necessity",
+    "LocallyAnalyticDistributions:L2/wavelet-value-bound",
+    "LocallyAnalyticDistributions:L2/higher-degree-vanishing",
+    "LocallyAnalyticDistributions:L2/taylor-truncation-density",
+    "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+    "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+    "mathlib:ContinuousLinearEquiv.ofBijective"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition II.3.3 and its proof, printed pp. 33–34; Theorem II.3.2, printed pp. 32–33",
+     "match": "Defines v_{D_r}, v_{D_r,N}, v′_{D_r,N} and proves them equivalent to v′_{D_r} by Theorem II.3.2 and the open mapping theorem."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/order-r-operations",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Operations preserving the order of a distribution",
+   "kind": "theorem",
+   "statement": "Let r, s ≥ 0 and μ ∈ D_r(ℤ_p, L). (a) For f ∈ C^r(ℤ_p, L) — in particular f locally analytic, f = x, f = z^x with v_p(z − 1) > 0, or f = 1_U for U ⊆ ℤ_p compact open — the distribution fμ : φ ↦ μ(fφ) lies in D_r; so does Res_U(μ) = 1_U·μ. (b) Translation by b ∈ ℤ_p, σ_a for a ∈ ℤ_p^×, φ and ψ map D_r(ℤ_p, L) continuously into itself. (c) The derivative d : D_r → D_{r+1}, (dμ)(φ) = μ(φ′), is continuous. (d) If λ ∈ D_r and μ ∈ D_s then λ ∗ μ ∈ D_{r+s}. (e) D_r ⊆ D_s for r ≤ s.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "The operations on D(ℤ_p, L) and their Amice transforms are those of LocallyAnalyticDistributions:L1/distribution-operations; the transpose convention (dμ)(f) = μ(f′) is that of LocallyAnalyticDistributions:L1/amice-derivative."
+   ],
+   "proofSteps": [
+    "(a) Multiplication by f is a continuous endomorphism of C^r (cr-banach-algebra); transpose it.",
+    "(b) Translation, σ_a and φ are pullbacks along x ↦ x + b, ax, px, continuous on C^r by cr-composition; ψ(μ)(φ) = μ(1_{pℤ_p}·φ(x/p)), and φ ↦ 1_{pℤ_p}φ(x/p) is continuous on C^r (the affine chart x ↦ x/p on pℤ_p, extended by zero).",
+    "(c) φ ↦ φ′ is continuous C^{r+1} → C^r by cr-derivatives.",
+    "(d) Amice transforms multiply under convolution, and orders add under products in R⁺ (Colmez Corollary II.1.2, Proposition II.4.3), with the Amice characterisation of LocallyAnalyticDistributions:L2/order-r-distributions.",
+    "(e) The Amice characterisation: v_p(b_n) + rℓ(n) bounded below implies the same with s ≥ r."
+   ],
+   "acceptance": [
+    "dδ_0 ∈ D_1 and dδ_0 ∉ D_r for r < 1 (LocallyAnalyticDistributions:L2/positive-order-nonmeasure): d raises the order by exactly 1 on δ_0.",
+    "Res_{ℤ_p^×}(μ) = (1 − φψ)(μ) has the same order as μ."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+    "LocallyAnalyticDistributions:L2/cr-composition",
+    "LocallyAnalyticDistributions:L2/cr-derivatives",
+    "LocallyAnalyticDistributions:L2/order-r-distributions",
+    "LocallyAnalyticDistributions:L1/distribution-operations",
+    "LocallyAnalyticDistributions:L1/amice-derivative"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§II.4.2, printed p. 34 (multiplying an order-r distribution by a C^r function); Corollary II.1.2, printed p. 29; Proposition II.4.3, printed p. 37",
+     "match": "Multiplication by C^r functions preserves order r; orders add under products of Amice transforms and under convolution."
+    },
+    {
+     "sourceId": "DEIESO-2012",
+     "locator": "Lemma 2.9 and Proposition 2.12, printed pp. 10–14",
+     "match": "Banach algebra structure and continuity of composition on C^r, transposed here (composition for r ≥ 1 or Lipschitz charts, see cr-composition)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/critical-kernel",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The kernel of restriction at and beyond the critical order",
+   "kind": "theorem",
+   "statement": "Let N ∈ ℕ and r ≥ N + 1. An order-r distribution μ ∈ D_r(ℤ_p, L) vanishes on LP^{[0,N]}(ℤ_p, L) if and only if μ = d^{N+1}ν for some ν ∈ D_{r−N−1}(ℤ_p, L), and ν is then unique. Thus the kernel of ι : D_r → D^{[0,N]}_alg is d^{N+1}(D_{r−N−1}(ℤ_p, L)); at the critical order r = N + 1 it is d^{N+1} of the bounded measures, an infinite-dimensional space, so values on locally polynomial functions of degree ≤ N determine an order-(N + 1) distribution only modulo d^{N+1}D_0. For r < N + 1 the kernel is zero (LocallyAnalyticDistributions:L2/amice-velu-vishik). An order-r distribution supported at a point a is a linear combination of the d^iδ_a with i ≤ r.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "d is the transpose derivative (dμ)(f) = μ(f′) of LocallyAnalyticDistributions:L1/amice-derivative; d^{N+1}ν has Amice transform log(1 + T)^{N+1}A_ν."
+   ],
+   "proofSteps": [
+    "If μ vanishes on LP^{[0,N]} it vanishes on its closure in C^r, which is the kernel of (d/dx)^{N+1} : C^r → C^{r−N−1} (cr-derivative-surjection).",
+    "(d/dx)^{N+1} induces an isomorphism C^r/closure(LP^{[0,N]}) ≅ C^{r−N−1} (open mapping), so μ = ν∘(d/dx)^{N+1} for a unique continuous ν on C^{r−N−1}; with the transpose convention ν∘(d/dx)^{N+1} = d^{N+1}ν.",
+    "Conversely d^{N+1}ν kills LP^{[0,N]} because (N + 1)-st derivatives of polynomials of degree ≤ N vanish, and d^{N+1}ν ∈ D_r by order-r-operations (c).",
+    "Point support: subtract Σ_{i≤[r]}(∫x^iμ/i!)d^iδ_0 after translating a to 0; the remainder kills LP^{[0,r]} and is zero by density (Colmez Proposition II.4.5)."
+   ],
+   "acceptance": [
+    "N = 0, r = 1: dν kills LC for every bounded measure ν; this is Loeffler's statement that an extension from LC is unique only modulo ℓ_0·D_{r−1}, ℓ_0 = dδ_0.",
+    "N = k, r = k + 1: the critical-slope non-uniqueness of ModularSymbolsPadicLFunctions:L3/critical-slope-non-uniqueness is an instance."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-derivative-surjection",
+    "LocallyAnalyticDistributions:L2/order-r-operations",
+    "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+    "LocallyAnalyticDistributions:L1/amice-derivative",
+    "mathlib:ContinuousLinearEquiv.ofBijective",
+    "mathlib:Polynomial.iterate_derivative_eq_zero"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.16(ii), printed p. 24; Proposition II.4.5 and its proof, printed p. 37",
+     "match": "The kernel of (d/dx)^j on C^r is the closure of LP^{[0,j−1]}; order-r distributions supported at a point are combinations of derivatives of the Dirac mass. The description of the kernel of ι is derived from these, not printed."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Remark 2.4, printed p. 3",
+     "match": "For r ≥ 1 an extension of a locally constant distribution of growth r is unique only modulo ℓ_0·D_{r−1}(G, E), the case N = 0."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/finite-fourier-inversion",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Finite Fourier inversion for p-adic balls",
+   "kind": "lemma",
+   "statement": "(a) Let m ∈ ℕ, g ≥ 1 and L′ a field of characteristic 0 containing a primitive p^m-th root of unity ζ. For b ∈ (ℤ/p^mℤ)^g let χ_b(x) = ζ^{b_1x_1 + ⋯ + b_gx_g}, a locally constant character of ℤ_p^g with values in L′. For a ∈ ℤ_p^g, 1_{B(a,(m,…,m))}(x) = p^{−mg} Σ_{b∈(ℤ/p^m)^g} χ_b(a)^{−1}χ_b(x); hence the χ_b form a basis of LC_m(ℤ_p^g, L′), and for a radius tuple m, 1_{B(a,m)} = ∏_j (p^{−m_j} Σ_{b_j mod p^{m_j}} ζ_{m_j}^{b_j(x_j − a_j)}) with ζ_{m_j} primitive p^{m_j}-th roots of unity. (b) Let n ≥ 1 and L′ a field of characteristic 0 containing a primitive e-th root of unity, e the exponent of (ℤ/p^nℤ)^×. For a ∈ ℤ_p^× and x ∈ ℤ_p, 1_{a+p^nℤ_p}(x) = φ(p^n)^{−1} Σ_χ χ(a)^{−1}χ(x), the sum over the Dirichlet characters χ modulo p^n with values in L′, viewed as functions on ℤ_p through reduction modulo p^n (χ(x) = 0 for x ∈ pℤ_p).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}.",
+    "Reduction ℤ_p → ℤ/p^nℤ is Mathlib's PadicInt.toZModPow, whose kernel is p^nℤ_p; the ball a + p^nℤ_p is its fibre over the residue of a."
+   ],
+   "proofSteps": [
+    "(a) For ψ = AddChar.zmodChar(p^m, ζ), which is primitive because ζ is a primitive p^m-th root of unity, Σ_{t∈ℤ/p^m} ψ(t·u) is p^m if u = 0 and 0 otherwise (AddChar.sum_mulShift). Apply this in each coordinate to u = x_j − a_j modulo p^{m_j} and multiply.",
+    "Counting: there are p^{mg} characters χ_b and dim LC_m(ℤ_p^g, L′) = p^{mg}; they span by the inversion formula (Colmez Proposition I.3.4 for g = 1).",
+    "(b) L′ has enough roots of unity for (ℤ/p^n)^×: the e-th roots of unity form a cyclic group of order e (HasEnoughRootsOfUnity.of_card_le with IsPrimitiveRoot.card_rootsOfUnity); then DirichletCharacter.sum_char_inv_mul_char_eq gives Σ_χ χ(a)^{−1}χ(x) = φ(p^n) if x ≡ a mod p^n and 0 otherwise.",
+    "A suitable L′ exists as a finite extension of L, for example the cyclotomic extension L(μ_{p^m}) (IsCyclotomicExtension.zeta_spec)."
+   ],
+   "acceptance": [
+    "g = 1, m = 1, p = 2, ζ = −1: 1_{2ℤ_2}(x) = (1 + (−1)^x)/2.",
+    "Without roots of unity the formula is unavailable: over ℚ_p with p odd the only p-th root of unity is 1, so the characters χ_b are not defined there."
+   ],
+   "prerequisites": [
+    "mathlib:AddChar.zmodChar",
+    "mathlib:AddChar.zmodChar_primitive_of_primitive_root",
+    "mathlib:AddChar.sum_mulShift",
+    "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq",
+    "mathlib:HasEnoughRootsOfUnity.of_card_le",
+    "mathlib:IsPrimitiveRoot.card_rootsOfUnity",
+    "mathlib:IsCyclotomicExtension.zeta_spec",
+    "mathlib:PadicInt.toZModPow",
+    "mathlib:PadicInt.ker_toZModPow"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§I.3.2, Proposition I.3.4 and its proof, printed pp. 10–11; §II.4.3, printed p. 35",
+     "match": "If L contains μ_{p^h}, the characters ζ^x form a basis of LC_h, with 1_{a+p^hℤ_p} = p^{−h}Σ_ζ ζ^{x−a}; restriction to a ball is written with the same roots-of-unity average."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.3, Definition 2.14, printed p. 5",
+     "match": "Growth on rectangular cosets a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g), whose indicators the product formula (a) expands into characters."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/coefficient-extension",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Finite extension of coefficients",
+   "kind": "lemma",
+   "statement": "Let L′/L be a finite extension of closed subfields of ℂ_p. (i) LP^{[0,N]}_h(ℤ_p^g, L′) = L′ ⊗_L LP^{[0,N]}_h(ℤ_p^g, L), and C^r(ℤ_p, L′) = L′ ⊗_L C^r(ℤ_p, L) with equivalent norms (both have bases defined over ℚ_p: local monomials and wavelets). (ii) Every L-linear form μ on LP^{[0,N]}(ℤ_p^g, L) has a unique L′-linear extension μ_{L′} to LP^{[0,N]}(ℤ_p^g, L′), given by μ_{L′}(Σ c_jφ_j) = Σ c_jμ(φ_j) for c_j ∈ L′ and L-valued φ_j; μ = 0 if and only if μ_{L′} = 0. (iii) For g = 1, v_{D_r,N}(μ_{L′}) is finite if and only if v_{D_r,N}(μ) is, and an L-linear μ on C^r(ℤ_p, L) is continuous if and only if μ_{L′} is; so μ ∈ D_r(ℤ_p, L) iff μ_{L′} ∈ D_r(ℤ_p, L′). The same holds for the multidegree moment bounds and the vector-order duals in g variables.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0."
+   ],
+   "proofSteps": [
+    "Choose an L-basis ω_1 = 1, …, ω_d of L′. Every L′-valued function decomposes uniquely as Σ ω_jφ_j with L-valued φ_j; the bases of locally-polynomial-functions and cr-wavelet-basis are ℚ_p-valued, so the decomposition respects LP and C^r.",
+    "All norms on the finite-dimensional L-space L′ are equivalent (L is complete), so the coordinate maps are bounded; this gives the equivalence of norms and of the moment bounds.",
+    "Faithfulness: the restriction of μ_{L′} to L-valued functions is μ."
+   ],
+   "acceptance": [
+    "L′ = L: the extension is the identity.",
+    "For L′ = L(μ_{p^n}) this is the coefficient extension in which the finite Fourier inversion of finite-fourier-inversion is applied."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions",
+    "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+    "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+    "mathlib:Algebra.TensorProduct.includeLeft_injective"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.3.4, printed p. 10 (hypothesis that L contains μ_{p^h}); Theorem I.5.14, printed p. 23 (a basis defined over ℚ_p)",
+     "match": "The character expansions need roots of unity in the coefficient field, and the wavelet basis is defined over ℚ_p, so coefficients can be extended; the extension statements are derived here."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2, opening paragraph, printed p. 2",
+     "match": "The coefficient field E is any complete discretely valued subfield of ℂ_p, so finite extensions are allowed."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/unit-character-determination",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Determination by locally algebraic characters on ℤ_p^×",
+   "kind": "theorem",
+   "statement": "Let N ∈ ℕ, 0 ≤ r < N + 1 and μ ∈ D_r(ℤ_p^×, L). For a finite-order character χ : ℤ_p^× → ℂ_p^× (equivalently a Dirichlet character of conductor p^n, n ≥ 0) and 0 ≤ j ≤ N, let μ(χx^j) = μ_{L(χ)}(χ(x)x^j·1_{ℤ_p^×}), computed after extending coefficients to the finite extension L(χ) generated by the values of χ. If μ(χx^j) = 0 for all such χ and j, then μ = 0. More precisely, for each n ≥ 1 the values μ(χx^j) with χ of conductor dividing p^n determine all ∫_{a+p^nℤ_p}x^jμ with a ∈ ℤ_p^×, j ≤ N. The hypotheses are sharp: (1) at r = N + 1, d^{N+1}ν is nonzero, of order N + 1, and vanishes at every χx^j with j ≤ N, for every nonzero bounded measure ν on ℤ_p^×; (2) for fixed n, the measure Σ_{i=0}^{N+1} c_iδ_{a+ip^{n+1}}, with (c_i) a nonzero solution of Σ_i c_i(a + ip^{n+1})^j = 0 for j ≤ N, is nonzero and vanishes at every χx^j with χ of conductor dividing p^n and j ≤ N.",
+   "hypotheses": [
+    "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p is the valuation with v_p(p) = 1, ℓ(n) is the number of base-p digits of n ∈ ℕ (ℓ(0) = 0) and [r] is the integer part of r ≥ 0.",
+    "μ ∈ D_r(ℤ_p^×, L) is an order-r distribution on ℤ_p supported in ℤ_p^× (order-on-one-dimensional-groups)."
+   ],
+   "proofSteps": [
+    "Fix n ≥ 1 and let L′ contain a primitive e-th root of unity, e the exponent of (ℤ/p^n)^× (coefficient-extension). Characters of conductor dividing p^n are exactly the Dirichlet characters modulo p^n.",
+    "By finite-fourier-inversion (b), for a ∈ ℤ_p^×, 1_{a+p^nℤ_p}·x^j = φ(p^n)^{−1}Σ_χ χ(a)^{−1}χ(x)x^j on ℤ_p, so ∫_{a+p^nℤ_p}x^jμ_{L′} = φ(p^n)^{−1}Σ_χ χ(a)^{−1}μ(χx^j) = 0.",
+    "Since μ is supported in ℤ_p^×, μ_{L′} also vanishes on functions supported in pℤ_p; the balls a + p^nℤ_p with a ∈ ℤ_p^× and pℤ_p cover ℤ_p, so μ_{L′} vanishes on LP^{[0,N]}(ℤ_p, L′).",
+    "The Amice–Vélu–Vishik uniqueness (LocallyAnalyticDistributions:L2/amice-velu-vishik, r < N + 1) gives μ_{L′} = 0, hence μ = 0 by coefficient-extension.",
+    "Sharpness (1) is critical-kernel; (2) is a Vandermonde count: N + 2 distinct points in one ball modulo p^n give N + 1 linear conditions on N + 2 unknowns, and every character of conductor dividing p^n is constant on that ball."
+   ],
+   "acceptance": [
+    "RJW Theorem B.1: for v_p(α_p) < k + 1 the analytic p-adic L-function of f is the unique order-v_p(α_p) distribution on ℤ_p^× with the prescribed values at χ(x)x^j, 0 ≤ j ≤ k.",
+    "At v_p(α_p) = k + 1 the values at χx^j, j ≤ k, do not determine the distribution (sharpness (1))."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/finite-fourier-inversion",
+    "LocallyAnalyticDistributions:L2/coefficient-extension",
+    "LocallyAnalyticDistributions:L2/order-on-one-dimensional-groups",
+    "LocallyAnalyticDistributions:L2/critical-kernel",
+    "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+    "mathlib:DirichletCharacter.sum_char_inv_mul_char_eq"
+   ],
+   "sources": [
+    {
+     "sourceId": "RJW-2024",
+     "locator": "Appendix B.2.1, Theorem B.1 and the paragraph after it, printed pp. 79–80",
+     "match": "Existence and uniqueness of the order-v_p(α_p) distribution on ℤ_p^× interpolating L(f, χ, j + 1) for all Dirichlet characters of p-power conductor and 0 ≤ j ≤ k, when v_p(α_p) < k + 1; the critical case is excluded."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.3.4, printed p. 10; Theorem II.3.2(ii), printed pp. 32–33",
+     "match": "Characters span locally constant functions after adjoining roots of unity; distributions of order r < N + 1 are determined by their values on LP^{[0,N]}."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.1, Theorem 2.3, printed pp. 2–3",
+     "match": "Amice–Vélu–Vishik on one-dimensional groups such as ℤ_p^×."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+    "namespace": "TauCeti.LocallyAnalytic"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Determination by locally algebraic characters"
+   }
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/box-indicators",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Box indicators and the refinement partition",
+   "kind": "construction",
+   "statement": "For a ∈ ℤ_p^g and a radius tuple m ∈ ℕ^g, the box B(a, m) is the fibre over the residues of a of the reduction map ℤ_p^g → ∏_j ℤ/p^{m_j}ℤ, x ↦ (x_j mod p^{m_j})_j; it is clopen, and its indicator 1_{B(a,m)} is a locally constant function ℤ_p^g → K. B(a, m) depends only on a modulo p^m; two boxes are disjoint or meet in a box, B(a, m) ∩ B(a′, m′) = B(a″, max(m, m′)) when nonempty. Refinement: for a coordinate t, B(a, m) = ⊔_{c=0}^{p−1} B(a + cp^{m_t}e_t, m + e_t), so 1_{B(a,m)} = Σ_c 1_{B(a+cp^{m_t}e_t, m+e_t)}; more generally, for m ≤ m′ componentwise, B(a, m) is the disjoint union of the ∏_j p^{m′_j − m_j} boxes of radius m′ it contains. Every locally constant function on ℤ_p^g is a finite combination of the indicators of the boxes of one equal radius (h, …, h), so LC(ℤ_p^g, K) = ∪_h LC_h(ℤ_p^g, K) with LC_h ≅ Maps((ℤ/p^hℤ)^g, K). A linear form on LC(ℤ_p^g, K) is the same as a function on boxes that is additive under refinement.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Membership in B(a, m) is a congruence in each coordinate; the fibre of PadicInt.toZModPow over a residue is the coset a_j + p^{m_j}ℤ_p (its kernel is p^{m_j}ℤ_p), so B(a, m) is a finite intersection of preimages of clopen sets.",
+    "Refinement: x_t ∈ a_t + p^{m_t}ℤ_p lies in exactly one a_t + cp^{m_t} + p^{m_t+1}ℤ_p, 0 ≤ c < p.",
+    "A locally constant function on the compact space ℤ_p^g has clopen fibres, each a finite union of boxes; by compactness one equal radius h serves for all of them (Colmez §I.3.1 for g = 1)."
+   ],
+   "acceptance": [
+    "m = 0: B(a, 0) = ℤ_p^g and 1_{B(a,0)} = 1.",
+    "For g = 1, 1_{B(a,m)} = 1_{a+p^mℤ_p}."
+   ],
+   "prerequisites": [
+    "mathlib:PadicInt.toZModPow",
+    "mathlib:PadicInt.ker_toZModPow",
+    "mathlib:LocallyConstant.charFn",
+    "mathlib:LocallyConstant",
+    "PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.2, Definition 2.8, printed p. 4; §2.3, Definition 2.14, printed p. 5",
+     "match": "Growth conditions are bounds on the values of a locally constant distribution on the indicators of cosets a + p^mH and a + (p^{m_1}H_1) × ⋯ × (p^{m_g}H_g)."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§I.3.1, definition of LC_h and the paragraph before Lemma I.3.1, printed p. 9",
+     "match": "Locally constant functions on the compact ℤ_p form the increasing union of the LC_h."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.AnalyticDistributions.padicBox",
+     "role": "constructor",
+     "statement": "padicBox a m : Set (Fin g → ℤ_p), the box B(a, m)."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.padicBox_isClopen",
+     "role": "data",
+     "statement": "padicBox a m is clopen."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.boxIndicator",
+     "role": "constructor",
+     "statement": "boxIndicator a m : LocallyConstant (Fin g → ℤ_p) K, the indicator of padicBox a m (Mathlib's LocallyConstant.charFn)."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.mem_padicBox_iff",
+     "role": "characterisation",
+     "statement": "x ∈ padicBox a m ↔ ∀ j, toZModPow (m j) (x j) = toZModPow (m j) (a j)."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.boxIndicator_refine",
+     "role": "relation",
+     "statement": "boxIndicator a m = Σ_{c<p} boxIndicator (a + c·p^{m_t}e_t) (m + e_t) for each coordinate t."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.boxIndicator_mul",
+     "role": "simp",
+     "statement": "boxIndicator a m·boxIndicator a′ m′ is boxIndicator a″ (max m m′) when the boxes meet and 0 otherwise."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.locallyConstant_mem_span_boxIndicator",
+     "role": "characterisation",
+     "statement": "Every f ∈ LocallyConstant (Fin g → ℤ_p) K lies in the span of the boxIndicator a (fun _ ↦ h) for some h."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.boxIndicator_translate",
+     "role": "functoriality",
+     "statement": "Translation by b sends boxIndicator a m to boxIndicator (a + b) m."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocallyAnalyticDistributions:L2/rectangular-growth",
+     "how": "the growth bound is a bound on μ(boxIndicator a m)"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/rectangular-extension",
+     "how": "the extension is determined by box masses and their refinement relations"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/finite-fourier-inversion",
+     "how": "box indicators expand into products of additive characters"
+    },
+    {
+     "where": "Loeffler, Theorem 2.15",
+     "how": "growth bounded by (r_1, …, r_g) is a bound on rectangular coset masses"
+    }
+   ],
+   "tests": [
+    {
+     "name": "AnalyticDistributionTests.boxIndicator_zero_radius",
+     "kind": "degenerate",
+     "statement": "boxIndicator a 0 = 1."
+    },
+    {
+     "name": "AnalyticDistributionTests.boxIndicator_refine_count",
+     "kind": "computation",
+     "statement": "For p = 2, g = 2, B(0, (0, 0)) is the disjoint union of the 2·4 = 8 boxes of radius (1, 2)."
+    },
+    {
+     "name": "AnalyticDistributionTests.boxIndicator_eq_charFn",
+     "kind": "compatibility",
+     "statement": "boxIndicator a m = LocallyConstant.charFn K (padicBox_isClopen a m); for g = 1 it is the indicator of a + p^mℤ_p."
+    },
+    {
+     "name": "AnalyticDistributionTests.boxIndicator_radii_not_symmetric",
+     "kind": "non-example",
+     "statement": "For g = 2, boxIndicator 0 (1, 0) ≠ boxIndicator 0 (0, 1): they differ at (0, 1)."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/multivariable-van-der-put",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The multivariable van der Put basis and mixed differences",
+   "kind": "lemma",
+   "statement": "For n ∈ ℕ^g let S(n) = B(n, (ℓ(n_1), …, ℓ(n_g))) = ∏_j (n_j + p^{ℓ(n_j)}ℤ_p). (i) For each radius tuple h, the indicators 1_{S(n)} with n_j < p^{h_j} form a basis of the functions constant on the boxes of radius h, related to the box indicators 1_{B(a,h)} by a unitriangular integer matrix; the 1_{S(n)}, n ∈ ℕ^g, form a basis of LC(ℤ_p^g, K). (ii) The coefficients of f = Σ_n c_n(f)1_{S(n)} are the mixed van der Put differences c_n(f) = Σ_{T⊆J(n)} (−1)^{|T|} f(n^T), where J(n) = {j : n_j ≥ 1}, n_j^− = n_j mod p^{ℓ(n_j)−1} is n_j without its leading base-p digit, and n^T replaces n_j by n_j^− for j ∈ T. (iii) Each c_n extends to a continuous linear form on C(ℤ_p^g, K) with |c_n(f)| ≤ ‖f‖_∞, and (1_{S(n)})_n is an orthonormal basis of C(ℤ_p^g, K): ‖f‖_∞ = max_n |c_n(f)| and f = Σ_n c_n(f)1_{S(n)} uniformly.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "(i) For g = 1 this is Colmez Proposition I.3.2; for g ≥ 1 the functions constant on boxes of radius h are the tensor product of the one-variable spaces LC_{h_j}, and products of bases are bases.",
+    "(ii) For x ∈ ℕ^g with x_j < p^{h_j}, f(x) = Σ c_n over the n with each n_j a truncation of x_j (x_j, x_j^−, x_j^{−−}, …, 0); Möbius inversion on this product of chains gives the alternating sum.",
+    "(iii) An alternating sum of 2^{|J(n)|} values has absolute value ≤ ‖f‖_∞ by the ultrametric inequality, and ‖Σ c_n1_{S(n)}‖_∞ ≤ max|c_n|; on LC this gives equality, and LC is dense in C(ℤ_p^g, K) by uniform continuity."
+   ],
+   "acceptance": [
+    "p = 2, g = 1: f = 1_{1+2ℤ_2} has c_0 = 0, c_1 = 1 and all other coefficients 0.",
+    "f(x_1, x_2) = 1_{pℤ_p}(x_2) has c_{(0,0)} = 1, c_{(0,a)} = −1 for 1 ≤ a ≤ p − 1, and all other coefficients 0."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/box-indicators",
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "§I.3.1, Proposition I.3.2 and its proof, Definition I.3.3, printed pp. 9–10",
+     "match": "The indicators 1_{i+p^{ℓ(i)}ℤ_p} are a basis of LC_h and LC and an orthonormal basis of C(ℤ_p, L), by a unitriangular change of basis."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Proof of Theorem 2.9, printed p. 4",
+     "match": "Uses the indicators of S(i_1, …, i_d) = (i_1 + p^{ℓ(i_1)}ℤ_p) × ⋯ × (i_d + p^{ℓ(i_d)}ℤ_p) as a wavelet basis of locally constant functions on ℤ_p^d."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/separate-degree-polynomials",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Locally polynomial functions of separate degree",
+   "kind": "definition",
+   "statement": "For N ∈ ℕ^g and h ∈ ℕ, LP^N_h(ℤ_p^g, K) is the space of functions f : ℤ_p^g → K whose restriction to every box of radius (h, …, h) agrees with a polynomial of degree ≤ N_j in x_j for each j; LP^N = ∪_h LP^N_h. It is the image of the algebraic tensor product ⊗_j LP^{[0,N_j]}(ℤ_p, K) under (φ_j) ↦ ∏_j φ_j(x_j), and this map is injective. For r ∈ ℝ_{≥0}^g, the tensor wavelets e_{n,k,r}(x) = ∏_j e_{n_j,k_j,r_j}(x_j), n ∈ ℕ^g, k_j ≤ [r_j], form a basis of LP^{[r]}(ℤ_p^g, K), where [r] = ([r_1], …, [r_g]). Separate degree is not total degree: x_1x_2 has separate degree (1, 1).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Products of the one-variable local monomial bases are a basis of the functions polynomial of separate degree ≤ N on the boxes of radius (h, …, h); this is the tensor product of the one-variable spaces.",
+    "The tensor wavelets are nonzero multiples of products of local monomials on the boxes S(n); colmez-wavelets gives the one-variable basis."
+   ],
+   "acceptance": [
+    "N = 0: LP^0 = LC(ℤ_p^g, K).",
+    "g = 1: LP^{(N)} = LP^{[0,N]}(ℤ_p, K)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/locally-polynomial-functions",
+    "LocallyAnalyticDistributions:L2/colmez-wavelets",
+    "LocallyAnalyticDistributions:L2/box-indicators"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.2, Remark 2.10, printed p. 4",
+     "match": "Refers to locally polynomial distributions of degree k in several variables (De Ieso) and their growth."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.5.8 and Lemma I.5.9, printed p. 21",
+     "match": "One-variable bases of locally polynomial functions, whose products give the separate-degree bases."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.AnalyticDistributions.LPmulti",
+     "role": "constructor",
+     "statement": "LPmulti N h : the K-subspace of functions ℤ_p^g → K polynomial of separate degree ≤ N on each box of radius (h, …, h); LPmultiAll N is the union."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.LPmulti_eq_tensor",
+     "role": "characterisation",
+     "statement": "The product map ⊗_j LPAll (N j) → LPmultiAll N is a linear isomorphism."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.tensorWavelet",
+     "role": "constructor",
+     "statement": "tensorWavelet r n k x = ∏_j colmezWavelet (r j) (n j) (k j) (x j)."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.tensorWavelet_basis",
+     "role": "characterisation",
+     "statement": "The tensorWavelet r n k with k_j ≤ [r_j] form a basis of LPmultiAll [r]."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.LPmulti_mono",
+     "role": "relation",
+     "statement": "LPmulti N h ≤ LPmulti N′ h′ for N ≤ N′, h ≤ h′."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.LPmulti_zero_eq_locallyConstant",
+     "role": "compatibility",
+     "statement": "LPmultiAll 0 is the image of LocallyConstant (Fin g → ℤ_p) K."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.LPmulti_mul",
+     "role": "structure",
+     "statement": "LPmulti N h·LPmulti M h ⊆ LPmulti (N + M) h."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocallyAnalyticDistributions:L2/tensor-multidegree-extension",
+     "how": "the domain of the functionals extended to the vector-order dual"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/locally-algebraic-determination",
+     "how": "the test functions χ(x)∏x_j^{k_j} span the separate-degree spaces level by level"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/tensor-higher-degree-vanishing",
+     "how": "the subdivision induction runs over separate degrees"
+    }
+   ],
+   "tests": [
+    {
+     "name": "AnalyticDistributionTests.LPmulti_finrank",
+     "kind": "computation",
+     "statement": "For p = 2, g = 2, N = (1, 0) and h = 1, dim_K LPmulti N h = 4·2 = 8."
+    },
+    {
+     "name": "AnalyticDistributionTests.LPmulti_one_variable",
+     "kind": "degenerate",
+     "statement": "For g = 1, LPmulti (N) h = LP N h."
+    },
+    {
+     "name": "AnalyticDistributionTests.LPmulti_zero_locallyConstant",
+     "kind": "compatibility",
+     "statement": "LPmultiAll 0 coincides with LocallyConstant (Fin g → ℤ_p) K as a set of functions."
+    },
+    {
+     "name": "AnalyticDistributionTests.LPmulti_separate_not_total",
+     "kind": "non-example",
+     "statement": "x_1x_2 ∈ LPmulti (1, 1) 0 but x_1x_2 ∉ LPmulti (2, 0) h for every h: separate degree differs from total degree."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/tensor-function-realization",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The vector-order space as a space of functions",
+   "kind": "theorem",
+   "statement": "Let r ∈ ℝ_{≥0}^g and V_r = ⊗̂_{π,j} C^{r_j}(ℤ_p, K), the vector-order space of LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets. (i) The tensor wavelets e_{n,k,r} (n ∈ ℕ^g, k_j ≤ [r_j]) form a Banach basis of V_r: synthesis c₀(ℕ^g × ∏_j{0, …, [r_j]}, K) → V_r is an isomorphism. (ii) The realization R : V_r → C(ℤ_p^g, K), Σ b_{n,k}e_{n,k,r} ↦ (x ↦ Σ b_{n,k}∏_j e_{n_j,k_j,r_j}(x_j)), is well defined, continuous, injective, and sends ⊗_jφ_j to x ↦ ∏_jφ_j(x_j). (iii) R(V_r) contains LP^N(ℤ_p^g, K) for every N ∈ ℕ^g and the locally analytic functions LA(ℤ_p^g, K); LP^{[r]} is dense in V_r, hence so are LP^N for N ≥ [r] and LA. (iv) For r = 0, R is an isometric isomorphism V_0 ≅ C(ℤ_p^g, K). Through R, a continuous linear form on V_r is determined by its values on LP^{[r]}, and the coordinate forms of (i) are the tensor amplitude coefficients.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "(i) Each factor has the Banach basis of cr-wavelet-basis; LocallyAnalyticDistributions:L0/product-analytic-tensor identifies the completed projective tensor of c₀ spaces with c₀ of the product index set.",
+    "(ii) |e_{n_j,k_j,r_j}| ≤ 1 pointwise, so the series converges uniformly. Injectivity by induction on g: if R(F) = 0, fix x_2, …, x_g; the function of x_1 is the C^{r_1} function with wavelet coefficients Σ_{n′,k′} b_{(n_1,n′),(k_1,k′)}∏_{j≥2}e(x_j), which must all vanish by uniqueness of the one-variable expansion, and each such coefficient family is the realization in g − 1 variables of a null family.",
+    "(iii) A one-variable local polynomial lies in LA ⊆ C^{r_j} (cr-locally-analytic-bound), so LP^N consists of finite sums of pure tensors; a locally analytic function of radius h is a sum of local monomials on the boxes of radius (h, …, h) with coefficients tending to 0, and these monomials have V_r-norms bounded by p^{Σ_j(r_jh + C_1(r_j))}. Finite sums of tensor wavelets are dense in c₀.",
+    "(iv) For r = 0 the tensor wavelets are the 1_{S(n)}, an orthonormal basis of C(ℤ_p^g, K) by multivariable-van-der-put."
+   ],
+   "acceptance": [
+    "g = 1: R is the identity of C^{r_1}(ℤ_p, K).",
+    "For r = (1/2, 0), 1 ⊗ 1_{pℤ_p} realizes to f(x_1, x_2) = 1_{pℤ_p}(x_2), an element of R(V_r) (contrast sourceIssues E3)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+    "LocallyAnalyticDistributions:L2/separate-degree-polynomials",
+    "LocallyAnalyticDistributions:L2/multivariable-van-der-put",
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets",
+    "LocallyAnalyticDistributions:L0/product-analytic-tensor"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Remark 2.13 and the proof of Theorem 2.15, printed p. 5",
+     "match": "The completed tensor product of the one-variable spaces gives an explicit Banach basis of the vector-order space; its realization as functions and the injectivity are derived here."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Theorem I.5.14, printed p. 23",
+     "match": "One-variable wavelet basis used in each factor."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/vector-order-mixed-differences",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Vector order by mixed van der Put differences",
+   "kind": "comparison",
+   "statement": "Let 0 ≤ r_j < 1 for every j and let f : ℤ_p^g → K be continuous, with multivariable van der Put coefficients c_n(f). Then f ∈ R(V_r) if and only if v_p(c_n(f)) − Σ_j r_jℓ(n_j) → +∞ along the cofinite filter of ℕ^g, and the norm of V_r is equivalent to w_r(f) = inf_n(v_p(c_n(f)) − Σ_j r_jℓ(n_j)): the c₀ valuation v of f in the scaled tensor-wavelet basis satisfies w_r(f) ≤ v(f) < w_r(f) + g. Each c_n(f) is a mixed difference Δ_{y_{j_1}}⋯Δ_{y_{j_s}}f of f at a lattice point, with steps y_j of valuation ℓ(n_j) − 1 in the coordinates j ∈ J(n). This replaces the single-difference condition of Loeffler's Definition 2.12: the function 1_{pℤ_p}(x_2) has finitely many nonzero c_n, so it lies in R(V_r) for every r, whereas the printed condition excludes it for r = (1/2, 0) (sourceIssues E3).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "For r_j < 1 only k = 0 occurs, so V_r has the Banach basis e_{n,0,r} = p^{Σ_j⌊r_jℓ(n_j)⌋}1_{S(n)} (tensor-function-realization (i)).",
+    "By injectivity of R and uniqueness of the van der Put expansion of a continuous function (multivariable-van-der-put (iii)), the coefficient of f on e_{n,0,r} is c_n(f)p^{−Σ_j⌊r_jℓ(n_j)⌋}; the c₀ condition is the stated limit, and Σ_j(r_jℓ(n_j) − ⌊r_jℓ(n_j)⌋) ∈ [0, g) gives w_r ≤ v < w_r + g.",
+    "Möbius inversion in multivariable-van-der-put (ii) writes c_n(f) as an iterated difference in the coordinates of J(n)."
+   ],
+   "acceptance": [
+    "r = 0: the condition is c_n(f) → 0, which holds for every continuous f.",
+    "For g = 1 and r < 1 the condition is v_p(b_i(φ)) − rℓ(i) → ∞, Colmez's wavelet description of C^r (cr-mahler-criterion)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/tensor-function-realization",
+    "LocallyAnalyticDistributions:L2/multivariable-van-der-put"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Definition 2.12 and Remark 2.13, printed pp. 4–5 (page images checked by the parent review)",
+     "match": "Defines vector order by simultaneous first differences with a cofinite filter and identifies it with the completed tensor; the identification fails as printed (E3) and is replaced by this characterisation."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proposition I.3.2, printed pp. 9–10; Theorem I.5.14, printed p. 23",
+     "match": "One-variable van der Put basis and wavelet basis of C^r for r < 1."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/isotropic-order-functions",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Isotropic functions of order r < 1 in several variables",
+   "kind": "definition",
+   "statement": "Let d ≥ 1 and 0 ≤ r < 1. For a continuous f : ℤ_p^d → K and m ∈ ℕ put ε_m(f) = inf_{x∈ℤ_p^d, y∈p^mℤ_p^d} v_p(f(x + y) − f(x)). Then f is of (isotropic) order r if ε_m(f) − rm → +∞; these f form C^r_iso(ℤ_p^d, K), a K-Banach space for v_r(f) = min(inf_x v_p(f(x)), inf_m(ε_m(f) − rm)); D^r_iso(ℤ_p^d, K) is its dual. The definition uses only the subgroups p^mℤ_p^d, so every continuous automorphism of ℤ_p^d (translations and GL_d(ℤ_p)) acts isometrically; for a compact abelian p-adic Lie group G with an open subgroup H ≅ ℤ_p^d, C^r_iso(G, K) is defined on the cosets of H and its topology does not depend on H. For d = 1 it is Colmez's C^r(ℤ_p, K) with v′_{C^r}.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "v_r is an ultrametric valuation and C^r_iso is complete (a uniform limit with uniform remainder bounds keeps the bounds).",
+    "An automorphism A of ℤ_p^d maps p^mℤ_p^d onto itself, so ε_m(f∘A) = ε_m(f); two open subgroups H, H′ ≅ ℤ_p^d are commensurable, which shifts m by a bounded amount.",
+    "For d = 1 and r < 1, [r] = 0 and the definitions agree (Loeffler Remark 2.6)."
+   ],
+   "acceptance": [
+    "Locally constant functions have ε_m = +∞ for large m, so LC ⊆ C^r_iso for every r < 1.",
+    "d = 0 (G finite): every function, Loeffler Remark 2.7."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/box-indicators",
+    "LocallyAnalyticDistributions:L2/c-r-functions"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.2, Definition 2.5, Remarks 2.6–2.7 and the paragraph on extension to groups, printed p. 3",
+     "match": "Defines order r < 1 on ℤ_p^d by first differences on p^mG, notes that it recovers Colmez's v′_{C^r} for d = 1, that locally constant functions are dense, and that the construction extends to abelian groups with an open subgroup ≅ ℤ_p^d."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.AnalyticDistributions.IsIsotropicCr",
+     "role": "characterisation",
+     "statement": "IsIsotropicCr r f ↔ ∀ ε > 0, ∃ m₀, ∀ m ≥ m₀, ∀ x y, (∀ j, ‖y_j‖ ≤ p^{−m}) → ‖f(x + y) − f(x)‖ ≤ ε·p^{−rm}."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr",
+     "role": "constructor",
+     "statement": "isoCr r : the K-Banach space C^r_iso(ℤ_p^d, K) with the valuation v_r."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr_one_dim",
+     "role": "compatibility",
+     "statement": "For d = 1, isoCr r = C^r(ℤ_p, K) with v_r = v′_{C^r}."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr_aut_invariant",
+     "role": "functoriality",
+     "statement": "f ↦ f∘A is an isometry of isoCr r for every continuous automorphism A of ℤ_p^d."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr_locallyConstant_dense",
+     "role": "characterisation",
+     "statement": "LocallyConstant (Fin d → ℤ_p) K is dense in isoCr r."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr_mono",
+     "role": "relation",
+     "statement": "isoCr s ⊆ isoCr r continuously for r ≤ s < 1."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.isoCr_mul",
+     "role": "structure",
+     "statement": "isoCr r is a Banach algebra: ε_m(fg) ≥ min(ε_m(f) + inf v_p(g), inf v_p(f) + ε_m(g))."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Loeffler, Theorem 2.9",
+     "how": "the extension theorem for locally constant distributions of growth r < 1 on abelian p-adic groups"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/rayclass-growth-adapter",
+     "how": "the equal-radius case applies the isotropic extension theorem"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/block-vector-order",
+     "how": "the factor spaces of a quasi-factorization with summands of dimension > 1"
+    }
+   ],
+   "tests": [
+    {
+     "name": "AnalyticDistributionTests.isoCr_box_value",
+     "kind": "computation",
+     "statement": "v_r(1_{p²ℤ_p × ℤ_p}) = −r: ε_0 = ε_1 = 0 and ε_m = +∞ for m ≥ 2."
+    },
+    {
+     "name": "AnalyticDistributionTests.isoCr_one_dim_compat",
+     "kind": "compatibility",
+     "statement": "For d = 1, IsIsotropicCr r f ↔ f is of class C^r in Colmez's sense, for 0 ≤ r < 1."
+    },
+    {
+     "name": "AnalyticDistributionTests.isoCr_order_zero",
+     "kind": "degenerate",
+     "statement": "For r = 0, isoCr 0 = C(ℤ_p^d, K) with the sup valuation."
+    },
+    {
+     "name": "AnalyticDistributionTests.isoCr_quarter_digit",
+     "kind": "non-example",
+     "statement": "f(x_1, x_2) = Σ_n a_n(x_1)p^{⌊n/4⌋} has ε_m(f) = ⌊m/4⌋, so f is of isotropic order r exactly for r < 1/4."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/isotropic-wavelet-basis",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "The wavelet basis of the isotropic spaces",
+   "kind": "theorem",
+   "statement": "For 0 ≤ r < 1 the functions e^{iso}_{n,r} = p^{⌊r·max_jℓ(n_j)⌋}1_{S(n)}, n ∈ ℕ^d, form a Banach basis of C^r_iso(ℤ_p^d, K): v_r(Σ b_ne^{iso}_{n,r}) ≥ inf_n v_p(b_n) − 1 for null families (b_n), and every f ∈ C^r_iso has van der Put coefficients with v_p(c_n(f)) ≥ v_r(f) + r(max_jℓ(n_j) − 1), so its coordinates b_n = c_n(f)p^{−⌊r·max_jℓ(n_j)⌋} satisfy inf v_p(b_n) ≥ v_r(f) − 1. Equivalently, a continuous f lies in C^r_iso iff v_p(c_n(f)) − r·max_jℓ(n_j) → +∞ along the cofinite filter of ℕ^d.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Let M = max_jℓ(n_j). 1_{S(n)} is invariant under p^Mℤ_p^d, so ε_m(1_{S(n)}) ≥ 0 for m < M and = +∞ for m ≥ M; hence v_r(1_{S(n)}) ≥ −r(M − 1) and v_r(e^{iso}_{n,r}) ≥ ⌊rM⌋ − rM + r > −1.",
+    "By multivariable-van-der-put (ii), c_n(f) is an alternating sum of 2^{|J(n)|−1} differences f(z + y) − f(z) with y of valuation M − 1 in a coordinate where ℓ(n_j) = M; each has valuation ≥ ε_{M−1}(f) ≥ v_r(f) + r(M − 1).",
+    "The two bounds and density of LC (isotropic-order-functions) make synthesis an isomorphism from c₀(ℕ^d, K)."
+   ],
+   "acceptance": [
+    "d = 1: the basis is Colmez's e_{i,0,r} for r < 1.",
+    "For d = 2, r = 1/2 and n = (p^m, p^m) the weight is p^{⌊(m+1)/2⌋}, not the p^{2⌊(m+1)/2⌋} of vector order (1/2, 1/2)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/isotropic-order-functions",
+    "LocallyAnalyticDistributions:L2/multivariable-van-der-put"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Proof of Theorem 2.9, printed p. 4",
+     "match": "Asserts that p^{sup_j⌊rℓ(i_j)⌋}1_{S(i_1,…,i_d)} is a Banach basis of C^r(ℤ_p^d, E), with the verification left to the reader; the argument above supplies it."
+    },
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Lemma I.5.11 and Theorem I.5.14, printed pp. 22–23",
+     "match": "One-variable model: bounds on wavelet coefficients by differences at the top level."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/isotropic-extension",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Extension of locally constant distributions of growth r < 1",
+   "kind": "theorem",
+   "statement": "Let G be a compact abelian p-adic Lie group, 0 ≤ r < 1, and μ a K-linear form on LC(G, K) with growth bounded by r: there are C ∈ ℝ and an open subgroup H ≅ ℤ_p^d with v_p(μ(1_{a+p^mH})) ≥ C − rm for all a ∈ G and m ≥ 0. Then μ extends uniquely to μ̃ ∈ D^r_iso(G, K). Conversely, the restriction to LC of every element of D^r_iso(G, K) has growth bounded by r, and whether μ has growth bounded by r does not depend on H (the constant does).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Reduce to G = H = ℤ_p^d using the finitely many cosets of H.",
+    "S(n) is a disjoint union of cosets of p^MH, M = max_jℓ(n_j) (box-indicators, refinement), so v_p(μ(1_{S(n)})) ≥ C − rM and v_p(μ(e^{iso}_{n,r})) ≥ C + ⌊rM⌋ − rM > C − 1.",
+    "A bounded family on the Banach basis of isotropic-wavelet-basis defines a unique continuous form; uniqueness of the extension is density of LC.",
+    "Converse: 1_{a+p^mH} is invariant under p^mH, so v_r(1_{a+p^mH}) ≥ −rm."
+   ],
+   "acceptance": [
+    "d = 1: Loeffler's Theorem 2.3(ii) (Amice–Vélu–Vishik for r < 1).",
+    "Bounded measures: r = 0."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/isotropic-wavelet-basis",
+    "LocallyAnalyticDistributions:L2/box-indicators"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.2, Definition 2.8, Theorem 2.9 and its proof, printed p. 4",
+     "match": "States the extension theorem for locally constant distributions with growth bounded by r < 1 on abelian p-adic analytic groups, with a proof sketch through the wavelet basis."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/tensor-moment-necessity",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Multidegree moment bounds for the vector-order dual",
+   "kind": "lemma",
+   "statement": "Let r ∈ ℝ_{≥0}^g and μ a continuous linear form on V_r. There is C such that for every a ∈ ℤ_p^g, radius tuple m and k ∈ ℕ^g: v_p(μ(1_{B(a,m)}·∏_j((x_j − a_j)/p^{m_j})^{k_j})) ≥ C − Σ_j r_jm_j, with C = v(μ) − Σ_j C_1(r_j) for the dual valuation v(μ).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "The test function is the realization of the pure tensor ⊗_jφ_{a_j,m_j,k_j}.",
+    "The projective tensor norm is a cross norm, so its valuation is at least Σ_j v_{C^{r_j}}(φ_{a_j,m_j,k_j}) ≥ −Σ_j(r_jm_j + C_1(r_j)) by cr-locally-analytic-bound."
+   ],
+   "acceptance": [
+    "g = 1: Colmez Theorem II.3.2(i).",
+    "r = 0 and k = 0: bounded measures on ℤ_p^g have bounded box masses."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/tensor-function-realization",
+    "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+    "LocallyAnalyticDistributions:L0/product-analytic-tensor"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Theorem II.3.2(i) and its proof, printed p. 32",
+     "match": "One-variable moment bound for order-r distributions, applied here in each tensor factor."
+    },
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "Remark 2.13, printed p. 5",
+     "match": "Identifies the vector-order space with the completed tensor product, whose cross norm gives the bound."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/tensor-wavelet-value-bound",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Bounded tensor wavelet values from multidegree moment bounds",
+   "kind": "lemma",
+   "statement": "Let r ∈ ℝ_{≥0}^g, N ∈ ℕ^g with N_j ≥ [r_j], and μ a K-linear form on LP^N(ℤ_p^g, K) such that v_p(μ(1_{B(a,m)}·∏_j((x_j − a_j)/p^{m_j})^{k_j})) ≥ C − Σ_j r_jm_j for all a, m and k ≤ N. Then v_p(μ(e_{n,k,r})) ≥ C − g for all n and k_j ≤ [r_j], and there is a unique continuous linear form μ̃ on V_r with μ̃(e_{n,k,r}) = μ(e_{n,k,r}).",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "e_{n,k,r} = p^{Σ_j⌊r_jℓ(n_j)⌋}·1_{S(n)}∏_j((x_j − n_j)/p^{ℓ(n_j)})^{k_j} and S(n) = B(n, ℓ(n)); apply the bound with m_j = ℓ(n_j) and use Σ_j(⌊r_jℓ(n_j)⌋ − r_jℓ(n_j)) > −g.",
+    "V_r has the Banach basis (e_{n,k,r}) (tensor-function-realization (i)), so a bounded family defines a unique continuous form."
+   ],
+   "acceptance": [
+    "r_j < 1 for all j and N = 0: this is the existence part of LocallyAnalyticDistributions:L2/rectangular-extension."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/tensor-function-realization",
+    "LocallyAnalyticDistributions:L2/separate-degree-polynomials"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proof of Theorem II.3.2(ii), printed p. 33",
+     "match": "One-variable bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1, extended here factor by factor."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/tensor-higher-degree-vanishing",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Vanishing in higher separate degree by coordinatewise subdivision",
+   "kind": "lemma",
+   "statement": "Let r ∈ ℝ_{≥0}^g, N ∈ ℕ^g with N_j ≥ [r_j], and λ a K-linear form on LP^N(ℤ_p^g, K) satisfying the multidegree moment bound of tensor-wavelet-value-bound. If λ vanishes on LP^{[r]}(ℤ_p^g, K), then λ = 0.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "For 0 ≤ t ≤ g let T_t be the span of the tests 1_{B(a,m)}∏_jx_j^{k_j} with k_j ≤ [r_j] for j ≤ t and k_j ≤ N_j for j > t; T_g = LP^{[r]} lies in the kernel and T_0 = LP^N.",
+    "Assume T_t ⊆ ker λ and take a test in T_{t−1} with exponent k_t ≤ N_t in coordinate t. Subdivide B(a, m) in coordinate t only, into the p^s boxes of radius m + se_t, and expand x_t^{k_t} binomially around their centres b: the terms with j ≤ [r_t] lie in T_t; a term with j > r_t is p^{j(m_t+s)} times a normalised moment, of valuation ≥ (j − r_t)(m_t + s) + C′ with C′ independent of s.",
+    "Let s → ∞. Subdividing in all coordinates at once would fail, since coordinates with exponent below r_j contribute negative multiples of their radii; the induction refines one coordinate at a time."
+   ],
+   "acceptance": [
+    "g = 1: Colmez's subdivision argument (higher-degree-vanishing).",
+    "N = [r]: nothing to prove."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/separate-degree-polynomials",
+    "LocallyAnalyticDistributions:L2/box-indicators"
+   ],
+   "sources": [
+    {
+     "sourceId": "COLMEZ-FONCTIONS-2010",
+     "locator": "Proof of Theorem II.3.2(ii), last paragraph, printed p. 33",
+     "match": "One-variable subdivision of balls; the coordinatewise induction for several variables is derived here."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/tensor-chart-pullback",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Chart changes on vector-order spaces",
+   "kind": "lemma",
+   "statement": "(i) If σ_1, …, σ_g : ℤ_p → ℤ_p are maps for which pullback is continuous on C^{r_j}(ℤ_p, K) (by cr-composition: affine maps for every r_j, Lipschitz maps for r_j < 1, maps of class C^{r_j} for r_j ≥ 1), then f ↦ f∘(σ_1 × ⋯ × σ_g) is a continuous endomorphism of V_r, compatible with the realization R. (ii) Translation by b ∈ ℤ_p^g, multiplication by box indicators and by functions of one variable lying in C^{r_j}, and the affine transport x ↦ a + (p^{m_1}x_1, …, p^{m_g}x_g) from B(a, m) to ℤ_p^g are continuous, with norm constants depending on m and r. (iii) Let G be a compact abelian p-adic Lie group with a quasi-factorization into one-dimensional summands and two choices of compatible subgroups and coordinates preserving the summands. On a common open subgroup the transition is a product of scalings x_j ↦ c_jx_j, c_j ∈ ℚ_p^×, followed by translations between cosets; hence the vector-order spaces, their duals and the growth conditions agree, with equivalent norms. This supplies the higher-order input of LocallyAnalyticDistributions:L2/quasifactor-chart-invariance.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "(i) The completed projective tensor product of continuous operators is continuous and agrees with the pullback on pure tensors, hence everywhere by density and continuity of R.",
+    "(ii) Translations and affine transports are products of one-variable affine maps; multiplication by a one-variable function is the tensor product of a multiplication operator (cr-banach-algebra) with identities.",
+    "(iii) A closed subgroup with one-dimensional Lie algebra is commensurable with any other such; a continuous isomorphism between open subgroups of ℤ_p is multiplication by an element of ℚ_p^×."
+   ],
+   "acceptance": [
+    "A swap of two coordinates with r_1 ≠ r_2 does not preserve V_r unless r is swapped too.",
+    "For r = 0 every homeomorphism of ℤ_p^g acts isometrically on C(ℤ_p^g, K)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/cr-composition",
+    "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+    "LocallyAnalyticDistributions:L2/tensor-function-realization",
+    "LocallyAnalyticDistributions:L2/box-indicators",
+    "LocallyAnalyticDistributions:L0/product-analytic-tensor"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.2, footnote 2, printed p. 3; Remark 2.13, printed p. 5",
+     "match": "Pullback along scaling is continuous but not isometric; the vector-order spaces are invariant under automorphisms preserving the quasi-factorization."
+    },
+    {
+     "sourceId": "DEIESO-2012",
+     "locator": "Proposition 2.12, printed pp. 12–14",
+     "match": "Continuity of composition on C^r for [r] ≥ 1, applied in each factor."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/block-vector-order",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Vector order for quasi-factorizations with higher-dimensional summands",
+   "kind": "construction",
+   "statement": "Let G be a compact abelian p-adic Lie group with a quasi-factorization Lie G = ⊕_{i=1}^{g} h_i, dim h_i = d_i ≥ 1, compatible closed subgroups H_i ≅ ℤ_p^{d_i} with ∏_iH_i open in G, and r = (r_1, …, r_g) with 0 ≤ r_i < 1. The block vector-order space is C^{(r)}(G, K) = {f ∈ C(G, K) : on every coset of ∏H_i the transported function lies in V^{blk}_r}, where V^{blk}_r = ⊗̂_{π,i}C^{r_i}_iso(ℤ_p^{d_i}, K); D^{(r)}(G, K) is its dual. For n ∈ ℕ^{d_1+⋯+d_g}, grouped into blocks n^{(i)} ∈ ℕ^{d_i}, the functions p^{Σ_i⌊r_i·max_jℓ(n^{(i)}_j)⌋}1_{S(n)} form a Banach basis, and a continuous f lies in V^{blk}_r iff v_p(c_n(f)) − Σ_i r_i·max_jℓ(n^{(i)}_j) → +∞. With all d_i = 1 this is the vector order of LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets (for r_i < 1); with g = 1 it is the isotropic space. The space does not depend on the compatible subgroups or on coordinates of the H_i.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Banach basis: the tensor product of the isotropic bases (isotropic-wavelet-basis) under the c₀ identification of LocallyAnalyticDistributions:L0/product-analytic-tensor.",
+    "Van der Put description: as in vector-order-mixed-differences, using injectivity of the realization (tensor-function-realization, whose induction applies to isotropic factors) and uniqueness of van der Put expansions.",
+    "Independence: within a block, isotropic spaces are invariant under GL_{d_i}(ℤ_p) and commensurable subgroups (isotropic-order-functions); across blocks use tensor-chart-pullback."
+   ],
+   "acceptance": [
+    "d = (1, …, 1): the parent vector-order space.",
+    "g = 1: C^{r_1}_iso(G, K)."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/isotropic-wavelet-basis",
+    "LocallyAnalyticDistributions:L2/tensor-function-realization",
+    "LocallyAnalyticDistributions:L2/tensor-chart-pullback",
+    "LocallyAnalyticDistributions:L2/vector-order-mixed-differences",
+    "LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets",
+    "LocallyAnalyticDistributions:L0/product-analytic-tensor"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.3, Definitions 2.11–2.12 and Remark 2.13, printed pp. 4–5; §2.2, Definition 2.5, printed p. 3",
+     "match": "Quasi-factorizations allow summands of any dimension, and the vector-order space is meant to be the completed tensor of the factor spaces; the factor spaces are those of Definition 2.5. Definition 2.12 is replaced by the tensor construction (E3)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.AnalyticDistributions.blockVectorOrderSpace",
+     "role": "constructor",
+     "statement": "blockVectorOrderSpace d r : the K-Banach space ⊗̂_iC^{r_i}_iso(ℤ_p^{d_i}, K), realized as functions on ∏_iℤ_p^{d_i}."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.blockVectorOrderSpace_basis",
+     "role": "characterisation",
+     "statement": "The scaled indicators p^{Σ_i⌊r_i·max_jℓ(n^{(i)}_j)⌋}1_{S(n)} form a Banach basis."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.mem_blockVectorOrderSpace_iff",
+     "role": "characterisation",
+     "statement": "f ∈ blockVectorOrderSpace d r ↔ f is continuous and v_p(c_n(f)) − Σ_i r_i·max_jℓ(n^{(i)}_j) → +∞ cofinitely."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.blockVectorOrderSpace_one_dim_blocks",
+     "role": "compatibility",
+     "statement": "For d = (1, …, 1), blockVectorOrderSpace d r is the vector-order space V_r of anisotropic-tensor-wavelets."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.blockVectorOrderSpace_single_block",
+     "role": "compatibility",
+     "statement": "For g = 1, blockVectorOrderSpace (d) (r) = isoCr r."
+    },
+    {
+     "name": "TauCeti.AnalyticDistributions.blockVectorOrderSpace_chart_independent",
+     "role": "functoriality",
+     "statement": "Changing the compatible subgroups or the coordinates within blocks gives the same space with an equivalent norm."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Loeffler, Theorem 2.15",
+     "how": "extension of locally constant distributions with growth bounded by (r_1, …, r_g) for general quasi-factorizations"
+    },
+    {
+     "where": "Loeffler, §3.1, Definition 3.1 and Theorem 3.3",
+     "how": "ray class groups of number fields, whose quasi-factorizations by primes above p have summands of dimension [K_𝔭 : ℚ_p]"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/rayclass-growth-adapter",
+     "how": "conductor growth bounds on compatible p-adic Lie factors"
+    },
+    {
+     "where": "LocallyAnalyticDistributions:L2/block-rectangular-extension",
+     "how": "its target space"
+    }
+   ],
+   "tests": [
+    {
+     "name": "AnalyticDistributionTests.blockVectorOrder_weight",
+     "kind": "computation",
+     "statement": "For d = (2, 1), r = (1/2, 1/4) and n = (p², 1, p⁵): the block maxima are ℓ = 3 and 6, so the scaling is p^{⌊3/2⌋+⌊6/4⌋} = p²."
+    },
+    {
+     "name": "AnalyticDistributionTests.blockVectorOrder_order_zero",
+     "kind": "degenerate",
+     "statement": "For r = 0, blockVectorOrderSpace d 0 = C(∏_iℤ_p^{d_i}, K)."
+    },
+    {
+     "name": "AnalyticDistributionTests.blockVectorOrder_one_dim_compat",
+     "kind": "compatibility",
+     "statement": "For d = (1, 1) and r = (1/2, 0) the space contains 1_{pℤ_p}(x_2) and agrees with the realization of C^{1/2} ⊗̂ C⁰."
+    },
+    {
+     "name": "AnalyticDistributionTests.blockVectorOrder_blocks_matter",
+     "kind": "non-example",
+     "statement": "For r = 1/2 on ℤ_p², the single block d = (2) and the split d = (1, 1) with r = (1/2, 1/2) differ: at n = (p^m, p^m) the weights are p^{⌊(m+1)/2⌋} and p^{2⌊(m+1)/2⌋}."
+    }
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions:L2/block-rectangular-extension",
+   "parentStageId": "LocallyAnalyticDistributions:L2",
+   "realises": [
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "title": "Extension of distributions with growth bounded by a vector of orders",
+   "kind": "theorem",
+   "statement": "Let G, (H_i) and r be as in block-vector-order. A K-linear form μ on LC(G, K) has growth bounded by (r_1, …, r_g) if there is C with v_p(μ(1_{a+(p^{m_1}H_1)×⋯×(p^{m_g}H_g)})) ≥ C − Σ_i r_im_i for all a ∈ G and m ∈ ℕ^g. Such μ extend uniquely to D^{(r)}(G, K); conversely restrictions to LC of elements of D^{(r)}(G, K) have bounded growth. The condition does not depend on the compatible subgroups (the constant does). The sum Σ_i r_i may exceed 1.",
+   "hypotheses": [
+    "K is a finite extension of ℚ_p with v_p(p) = 1; g ≥ 1 and ℤ_p^g has coordinates x_1, …, x_g; ℓ(n) is the number of base-p digits of n; a radius tuple m ∈ ℕ^g and a ∈ ℤ_p^g define the box B(a, m) = {x : v_p(x_j − a_j) ≥ m_j for every j}."
+   ],
+   "proofSteps": [
+    "Reduce to G = ∏_iH_i = ∏_iℤ_p^{d_i} on each coset (tensor-chart-pullback).",
+    "With M_i = max_jℓ(n^{(i)}_j), S(n) is a disjoint union of cosets of ∏_ip^{M_i}H_i, so v_p(μ(1_{S(n)})) ≥ C − Σ_ir_iM_i and the basis values satisfy v_p ≥ C + Σ_i(⌊r_iM_i⌋ − r_iM_i) > C − g.",
+    "Extend by the Banach basis of block-vector-order; uniqueness by density of LC; the converse from the cross-norm bound v(1_{a+∏p^{m_i}H_i}) ≥ −Σ_ir_im_i."
+   ],
+   "acceptance": [
+    "G = ℤ_p² with its natural quasi-factorization: Kim's case (Loeffler Remark 2.16).",
+    "One block: isotropic-extension.",
+    "All blocks one-dimensional: LocallyAnalyticDistributions:L2/rectangular-extension."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L2/block-vector-order",
+    "LocallyAnalyticDistributions:L2/box-indicators",
+    "LocallyAnalyticDistributions:L2/tensor-chart-pullback"
+   ],
+   "sources": [
+    {
+     "sourceId": "LOEFFLER-2014",
+     "locator": "§2.3, Definition 2.14, Theorem 2.15 and its proof, Remark 2.16, printed p. 5",
+     "match": "Defines growth bounded by (r_1, …, r_g) and states the unique extension to the dual of the vector-order space through the completed tensor basis."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
+    "namespace": "TauCeti.AnalyticDistributions"
+   },
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "LocallyAnalyticDistributions:L2",
+   "status": "planned",
+   "remaining": [
+    "Read the published chapter (Iwasawa 2012, Springer, 2014, pp. 357–378) when a copy is available, to confirm E3/E11 there; arXiv v1, v2 and v3 have been checked and the accepted manuscript in the Warwick repository is not public."
+   ],
+   "notes": "With the predecessor's sixteen L2 nodes, every target the stage states is a node whose prerequisites end in Mathlib, in this roadmap's L0/L1 nodes or in PadicMeasuresIwasawaAlgebras: order-r admissibility by ball estimates (admissible-algebraic-distributions), equivalences with coefficient growth (order-r-distributions, cr-mahler-criterion, order-r-valuations), Amice–Vélu–Vishik extension and uniqueness (amice-velu-vishik, refined by wavelet-value-bound and higher-degree-vanishing), order zero as bounded measures on ℤ_p and ℤ_p^× (order-zero-measures, order-on-one-dimensional-groups), the critical case (critical-kernel), vector radii and growth bounds (box-indicators through block-rectangular-extension), and uniqueness from locally algebraic characters (unit-character-determination, locally-algebraic-determination). The three items the predecessor left open are handled: the wavelet/density and tensor moment refinements, chart invariance for higher vector orders and finite Fourier inversion, and E3 checked against every freely readable version. No gaps and no requests."
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "LocallyAnalyticDistributions/E7",
+   "source": "COLMEZ-FONCTIONS-2010",
+   "kind": "misprint",
+   "locator": "Proof of Theorem II.3.2(ii), the display defining b_{i,k}, printed p. 33 of the author PDF (page image checked)",
+   "printed": "b_{i,k} is displayed as the integral over i + p^{ℓ(i)}ℤ_p of p^{[rℓ(i)]} times ((x − a)/p^n)^k against μ.",
+   "correction": "The integrand is p^{[rℓ(i)]}((x − i)/p^{ℓ(i)})^k, that is b_{i,k} = ∫ e_{i,k,r} μ.",
+   "reason": "At this point of the proof a and n are not bound. The first equality in the same display is b_{i,k} = ∫e_{i,k,r}μ, and e_{i,k,r} is p^{[ℓ(i)r]}1_{i+p^{ℓ(i)}ℤ_p}((x − i)/p^{ℓ(i)})^k by its definition on p. 21; the bound v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1 that follows uses exactly this ball and variable. Recorded in LocallyAnalyticDistributions:L2/wavelet-value-bound.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "12 October 2026: searched the atlas errata register (research/errata/REGISTER.md) and every blueprint packet's sourceIssues for this source: no entry concerns this passage (the parent packet LocallyAnalyticDistributions.json has none for Colmez).",
+    "Colmez's IMJ-PRG page lists only the author PDF used here (hash above); the Astérisque 330 version of record is not freely readable and was not checked. Bounded search, not proof that no correction exists."
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E8",
+   "source": "COLMEZ-FONCTIONS-2010",
+   "kind": "error",
+   "locator": "Proposition I.5.6 and its one-line proof, printed p. 20 of the author PDF (page image checked)",
+   "printed": "If φ_1 : ℤ_p → ℤ_p and φ_2 : ℤ_p → L are of class C^r, then φ_2∘φ_1 is of class C^r; the proof refers to the composition of limited expansions in the archimedean case. No restriction on r ≥ 0 is stated.",
+   "correction": "The statement holds for r = 0 and for r ≥ 1 (De Ieso's proof of his Proposition 2.12 with F = ℚ_p), and for 0 < r < 1 when φ_1 is Lipschitz (v_p(φ_1(x) − φ_1(y)) ≥ v_p(x − y) − c), for example locally analytic or of class C^1. For 0 < r < 1 and φ_1 merely of class C^r it is false. LocallyAnalyticDistributions:L2/cr-composition states the corrected version.",
+   "reason": "Take r = 1/2 and d(x) = Σ_n a_n(x)p^{⌊2n/3⌋} for x = Σ_n a_n(x)p^n with digits 0 ≤ a_n(x) < p. If v_p(y) ≥ h the digits of x and x + y agree below h, so v_p(d(x + y) − d(x)) ≥ ⌊2h/3⌋, and ⌊2h/3⌋ − h/2 → ∞: d is of class C^{1/2} (with d^{(0)} = d), with values in ℤ_p. But d(p^m) = p^{⌊2m/3⌋} and d(d(p^m)) − d(d(0)) = p^{⌊2⌊2m/3⌋/3⌋}, of valuation at most 4m/9, so inf_{x, y∈p^mℤ_p} v_p(d∘d(x + y) − d∘d(x)) − m/2 ≤ −m/18 → −∞ and d∘d is not of class C^{1/2}. The archimedean analogue fails in the same way: Hölder exponents multiply under composition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "12 October 2026: searched the atlas errata register (research/errata/REGISTER.md) and every blueprint packet's sourceIssues for this source: no entry concerns this passage (the parent packet LocallyAnalyticDistributions.json has none for Colmez).",
+    "Colmez's IMJ-PRG page lists only the author PDF used here (hash above); the Astérisque 330 version of record is not freely readable and was not checked. Bounded search, not proof that no correction exists."
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E9",
+   "source": "DEIESO-2012",
+   "kind": "error",
+   "locator": "Proposition 2.12 (composition of functions), printed p. 12, and the first sentence of its proof, printed p. 13 (page images checked)",
+   "printed": "For every r ≥ 0 and every h : O_F → O_F of class C^{r,id}, f ↦ f∘h maps C^r(O_F, E) continuously to itself; the proof treats [r] ≥ 1 and calls the case [r] = 0 easy, leaving it to the reader.",
+   "correction": "Restrict the case [r] = 0 to r = 0, or to 0 < r < 1 with h Lipschitz. The proof given for [r] ≥ 1 is unaffected.",
+   "reason": "For F = ℚ_p (O_F = ℤ_p) and r = 1/2, the digit map d of LocallyAnalyticDistributions/E8 is of class C^{1/2,id} (its first differences on p^kℤ_p have valuation ≥ ⌊2k/3⌋, so the quantity C_{h,r}(k) of Definition 2.10 tends to 0), and f = d is of class C^{1/2}, but f∘h = d∘d is not.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "12 October 2026: arXiv lists only v1 of 1203.6766; no later version or erratum is attached to the record.",
+    "Searched the atlas errata register and the blueprint packets' sourceIssues for De Ieso: no entry. The journal version, if any, was not located or read. Bounded search."
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E10",
+   "source": "DEIESO-2012",
+   "kind": "misprint",
+   "locator": "Definition 2.10, the display defining ε_{h,[r]}, printed p. 12 (page image checked)",
+   "printed": "The remainder of h is displayed as f(x + y) minus the Taylor polynomial Σ_{i≤[r]} h^{(i)}(x)y^i/i!.",
+   "correction": "The remainder is h(x + y) − Σ_{i≤[r]} h^{(i)}(x)y^i/i!.",
+   "reason": "Definition 2.10 defines a property of h alone; f is the unrelated function of the preceding paragraph, and Lemma 2.11 and the norm ‖h‖_{C^{r,id}} on the same page use the remainder of h.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "12 October 2026: arXiv lists only v1 of 1203.6766; no later version or erratum is attached to the record.",
+    "Searched the atlas errata register and the blueprint packets' sourceIssues for De Ieso: no entry. The journal version, if any, was not located or read. Bounded search."
+   ]
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E11",
+   "source": "LOEFFLER-2013-V2",
+   "kind": "error",
+   "locator": "arXiv:1304.4042v2, Definition 12 and Remark 13, printed p. 6; arXiv:1304.4042v1, Definition 2.12 and Remark 2.13, printed pp. 4–5",
+   "printed": "v2 defines order (r_1, …, r_g) by the simultaneous first-difference quantity minus Σ r_im_i tending to infinity along the filter of cofinite subsets of ℕ^g, exactly as v3 does, and claims the same completed-tensor identification; v1 states the limit only as (m_1, …, m_g) → ∞, without naming the filter, and defines the valuation as the infimum over all tuples.",
+   "correction": "As for LocallyAnalyticDistributions/E3: use the completed projective tensor of the one-variable spaces, characterised by mixed van der Put differences (LocallyAnalyticDistributions:L2/vector-order-mixed-differences).",
+   "reason": "In v2 the counterexample of E3 applies verbatim: for r = (1/2, 0), f(x_1, x_2) = 1_{pℤ_p}(x_2) has first-difference quantity 0 at every (m_1, 0), so the condition fails, though f = 1 ⊗ 1_{pℤ_p}. In v1, the cofinite reading fails the same way; under the reading in which every m_i tends to infinity the limit condition holds for f (the quantity is +∞ once m_2 ≥ 1), but the stated valuation includes the tuples (m_1, 0) and equals −∞, so the space is not normed by it. Either reading fails Remark 2.13.",
+   "affects": "a stated result",
+   "known": "known",
+   "knownFinding": "LocallyAnalyticDistributions/E3",
+   "searched": [
+    "12 October 2026: read Definition 2.12/12 and Remark 2.13/13 in arXiv v1, v2 and v3 (hashes in sources); the v3 listing comment says the revision corrects interpolation formulae, and §2.3 is unchanged from v2.",
+    "The Warwick repository record 75859 holds the accepted manuscript as padicLfunc-springer.pdf, but the file returns HTTP 401 to the public; the Springer chapter (DOI 10.1007/978-3-642-55245-8_12) is behind a paywall. The published chapter was therefore not read; v2 is typeset in the proceedings' format.",
+    "No author erratum or correction concerning §2.3 was located; bounded search."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "source": "LOEFFLER-2014",
+   "version": "arXiv:1304.4042v3",
+   "sha256": "6404d3ba7865121ca002bbf93970bcad71461a067c7f954ab443a13d49e1171e",
+   "note": "Hash identical to the predecessor's read."
+  },
+  {
+   "source": "LOEFFLER-2013-V2",
+   "version": "arXiv:1304.4042v2",
+   "sha256": "0562b3b7fe3fa9217d61dc46f7f7185ceb30b2473a297707cf6046274afd65f3",
+   "note": "§2.3 identical in content to v3."
+  },
+  {
+   "source": "LOEFFLER-2013-V1",
+   "version": "arXiv:1304.4042v1",
+   "sha256": "ef4493fe0c0993b814d15e194f565039a0549c4b7e36b86815188b5aa3d50859",
+   "note": "Definition 2.12 states the limit without naming the filter."
+  },
+  {
+   "source": "COLMEZ-FONCTIONS-2010",
+   "version": "author PDF",
+   "sha256": "a18e1b0f96033dbc6d27d39dd330974bed63808286092c11d5c8d232d412c380",
+   "note": "Hash identical to the predecessor's read."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "LocallyAnalyticDistributions"
+   ],
+   "detail": "Layer L2 now has 54 planned declarations (16 in LocallyAnalyticDistributions.json, 38 here), in two strands that the atlas can show separately: one-variable C^r functions and order-r distributions on ℤ_p and one-dimensional groups, and the several-variable vector-order theory.",
+   "proposal": "Divide L2 into two sub-layers for the atlas, keeping the stage id: 'L2a. Functions of class C^r and distributions of order r in one variable' (c-r-functions, order-r-distributions, order-zero-measures, amice-velu-vishik, positive-order-nonmeasure, and from this packet locally-polynomial-functions, colmez-wavelets, taylor-coefficient-bounds, cr-derivatives, cr-locally-analytic-bound, wavelet-norm-bound, amplitude-coefficient-bound, taylor-truncation-density, cr-wavelet-basis, cr-mahler-criterion, cr-derivative-surjection, cr-banach-algebra, cr-composition, order-on-one-dimensional-groups, admissible-algebraic-distributions, moment-bound-necessity, wavelet-value-bound, higher-degree-vanishing, order-r-valuations, order-r-operations, critical-kernel, finite-fourier-inversion, coefficient-extension, unit-character-determination) and 'L2b. Vector order and uniqueness in several variables' (anisotropic-tensor-wavelets, rectangular-wavelet-basis, rectangular-growth, rectangular-extension, rectangular-growth-necessity, quasifactor-chart-invariance, tensor-multidegree-extension, locally-algebraic-determination, critical-vector-counterexample, isotropic-anisotropic-distinction, rayclass-growth-adapter, and from this packet box-indicators, multivariable-van-der-put, separate-degree-polynomials, tensor-function-realization, vector-order-mixed-differences, isotropic-order-functions, isotropic-wavelet-basis, isotropic-extension, tensor-moment-necessity, tensor-wavelet-value-bound, tensor-higher-degree-vanishing, tensor-chart-pullback, block-vector-order, block-rectangular-extension). L2b depends on L2a; no other layer changes."
+  }
+ ],
+ "upstreamNotes": [],
+ "continuation": {
+  "predecessor": "research/blueprint/packets/LocallyAnalyticDistributions.json (accepted by REV-LocallyAnalyticDistributions), whose sixteen L2 nodes are cited by id and not repeated",
+  "refines": [
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/c-r-functions",
+    "by": [
+     "LocallyAnalyticDistributions:L2/locally-polynomial-functions",
+     "LocallyAnalyticDistributions:L2/colmez-wavelets",
+     "LocallyAnalyticDistributions:L2/taylor-coefficient-bounds",
+     "LocallyAnalyticDistributions:L2/cr-derivatives",
+     "LocallyAnalyticDistributions:L2/cr-locally-analytic-bound",
+     "LocallyAnalyticDistributions:L2/wavelet-norm-bound",
+     "LocallyAnalyticDistributions:L2/amplitude-coefficient-bound",
+     "LocallyAnalyticDistributions:L2/taylor-truncation-density",
+     "LocallyAnalyticDistributions:L2/cr-wavelet-basis",
+     "LocallyAnalyticDistributions:L2/cr-mahler-criterion",
+     "LocallyAnalyticDistributions:L2/cr-derivative-surjection",
+     "LocallyAnalyticDistributions:L2/cr-banach-algebra",
+     "LocallyAnalyticDistributions:L2/cr-composition"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+    "by": [
+     "LocallyAnalyticDistributions:L2/admissible-algebraic-distributions",
+     "LocallyAnalyticDistributions:L2/moment-bound-necessity",
+     "LocallyAnalyticDistributions:L2/wavelet-value-bound",
+     "LocallyAnalyticDistributions:L2/higher-degree-vanishing",
+     "LocallyAnalyticDistributions:L2/order-r-valuations",
+     "LocallyAnalyticDistributions:L2/critical-kernel"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/order-zero-measures",
+    "by": [
+     "LocallyAnalyticDistributions:L2/order-on-one-dimensional-groups"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets",
+    "by": [
+     "LocallyAnalyticDistributions:L2/tensor-function-realization",
+     "LocallyAnalyticDistributions:L2/vector-order-mixed-differences",
+     "LocallyAnalyticDistributions:L2/block-vector-order"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/rectangular-growth",
+    "by": [
+     "LocallyAnalyticDistributions:L2/box-indicators"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/rectangular-wavelet-basis",
+    "by": [
+     "LocallyAnalyticDistributions:L2/multivariable-van-der-put",
+     "LocallyAnalyticDistributions:L2/tensor-function-realization"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/tensor-multidegree-extension",
+    "by": [
+     "LocallyAnalyticDistributions:L2/separate-degree-polynomials",
+     "LocallyAnalyticDistributions:L2/tensor-moment-necessity",
+     "LocallyAnalyticDistributions:L2/tensor-wavelet-value-bound",
+     "LocallyAnalyticDistributions:L2/tensor-higher-degree-vanishing"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/quasifactor-chart-invariance",
+    "by": [
+     "LocallyAnalyticDistributions:L2/tensor-chart-pullback",
+     "LocallyAnalyticDistributions:L2/cr-composition",
+     "LocallyAnalyticDistributions:L2/block-vector-order"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/locally-algebraic-determination",
+    "by": [
+     "LocallyAnalyticDistributions:L2/finite-fourier-inversion",
+     "LocallyAnalyticDistributions:L2/coefficient-extension"
+    ]
+   },
+   {
+    "predecessorNode": "LocallyAnalyticDistributions:L2/rayclass-growth-adapter",
+    "by": [
+     "LocallyAnalyticDistributions:L2/isotropic-order-functions",
+     "LocallyAnalyticDistributions:L2/isotropic-wavelet-basis",
+     "LocallyAnalyticDistributions:L2/isotropic-extension",
+     "LocallyAnalyticDistributions:L2/block-rectangular-extension"
+    ]
+   }
+  ],
+  "assemblyNote": "When the parts are assembled, the predecessor nodes listed above should take the refining nodes as prerequisites; the predecessor's proof steps that cite 'wavelet density', 'Fourier inversion over the splitting field', 'the C^{r_i} bounded pullback theorem' or 'the isotropic extension theorem' are realised by these ids."
+ }
+}
