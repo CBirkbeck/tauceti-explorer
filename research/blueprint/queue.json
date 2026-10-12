@@ -32018,7 +32018,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -32028,7 +32028,8 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1031"
+   "note": "deliverables arrived from an external worker on issue #1031",
+   "finishedAt": "2026-10-12T19:42:03Z"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
@@ -35089,7 +35090,8 @@
    ],
    "followUpOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions--L2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9292"
   },
   {
    "id": "REV-LocallyAnalyticDistributions--L2",
@@ -39238,7 +39240,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9325"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.1",
@@ -39414,8 +39417,9 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9329"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9329",
+   "finishedAt": "2026-10-12T19:42:05Z"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
