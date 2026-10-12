@@ -1,0 +1,2111 @@
+{
+ "roadmapId": "GeometryOfNumbersAndQuadraticArithmetic",
+ "protocol": "blueprint-v1",
+ "part": "GN.1",
+ "scope": [
+  "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+ ],
+ "status": "complete",
+ "summary": "Follow-up plan for Layer GN.1 (convex bodies, successive minima and Minkowski's theorems), extending the accepted GeometryOfNumbersAndQuadraticArithmetic packet, whose 53 GN.1 nodes (successive minima, both sharp halves of Minkowski's second theorem, linear forms) are cited by id and not re-planned. It closes the three items that pass left open. (1) Conventions: the partial products a_k = λ_0⋯λ_{k−1} that the K3 papers of Shankar–Shankar–Tang–Tayou and Maulik–Shankar–Tang use, the exact bridge between the real-valued, zero-based gauge minima of this roadmap and the natural-number-valued, norm-based minima of Tau Ceti's integral lattices (IntegralLattices milestone 2F), and the two-sided comparison covol(Λ) ≤ ∏μ_i ≤ (2^r/V_r)covol(Λ) for Euclidean minima. (2) Evertse's §2.3 consequences: an integral basis with b_i ∈ (λ_0+⋯+λ_i)K, Hermite's basis theorem with constant (4/3)^{n(n−1)/4} and its corollaries for balls, ellipsoids and boxes, central ellipsoids as convex bodies, the maximal inscribed ellipsoid, John's decomposition of the identity and John's theorem E ⊆ K ⊆ √n E, and the weak Minkowski bound it yields. (3) Smith's geometry of numbers for integer polynomials: the evaluation polytope, its Vandermonde volume and the product bound D/(m+1)! ≤ λ_0⋯λ_m ≤ D (Proposition 3.4), the cofactors Q/(z − α_i) of a squarefree integer polynomial with the integrality and Galois argument, and Smith's coefficient adjustment theorem (Theorem 3.2). The covering step of Theorem 3.2 is planned through Banaszczyk's Gaussian tail inequalities in the coordinate ℓ¹ and sup-norms, as read in Peikert's paper, giving an explicit constant 9n log(2n); these four nodes rest on the Gaussian lattice sums of Layer 4 and are therefore attached to GN.4, so that Layer 1 does not depend on Layer 4.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:ContinuousLinearEquiv",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/Module/Equiv.lean",
+    "provides": "Continuous linear equivalences, the data of a central ellipsoid.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ConvexBody",
+    "kind": "structure",
+    "module": "Mathlib/Analysis/Convex/Body.lean",
+    "provides": "Compact convex nonempty sets in a real topological vector space.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ConvexBody.isCompact",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Body.lean",
+    "provides": "A convex body is compact.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:InnerProductSpace.volume_closedBall",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Lebesgue/VolumeOfBalls.lean",
+    "provides": "Volume of a closed ball in a finite-dimensional real inner-product space: r^n·π^{n/2}/Γ(n/2+1).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsCompact.exists_isMaxOn",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Order/Compact.lean",
+    "provides": "A continuous function attains its maximum on a nonempty compact set.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsCompact.image",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Compactness/Compact.lean",
+    "provides": "Continuous images of compact sets are compact.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegral",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/Defs.lean",
+    "provides": "Integrality of an element of an algebra over a ring.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegral.add",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+    "provides": "Sums of integral elements are integral.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegral.mul",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+    "provides": "Products of integral elements are integral.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegral.sum",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
+    "provides": "Finite sums of integral elements are integral.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegrallyClosed",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+    "provides": "Integrally closed domains (Z is one), used to see that rational algebraic integers are integers.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Lagrange.basis",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Lagrange.lean",
+    "provides": "Lagrange basis polynomials for distinct nodes.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Lagrange.interpolate",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Lagrange.lean",
+    "provides": "Lagrange interpolation as a linear map.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearIndependent.restrict_scalars",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean",
+    "provides": "Linear independence over a larger ring implies independence over a subring acting compatibly.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.dualSubmodule",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+    "provides": "The dual submodule of a submodule for a bilinear form (the inner dual lattice).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip_of_basis",
+    "kind": "lemma",
+    "module": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean",
+    "provides": "The dual of the dual of a submodule spanned by a basis is the submodule itself (for a nondegenerate form).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:LinearMap.det",
+    "kind": "irreducible_def",
+    "module": "Mathlib/LinearAlgebra/Determinant.lean",
+    "provides": "Determinant of an endomorphism.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.det_vandermonde",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+    "provides": "det of the Vandermonde matrix of v is ∏_{i<j}(v_j − v_i).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.det_vandermonde_ne_zero_iff",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+    "provides": "The Vandermonde determinant is nonzero iff the nodes are pairwise distinct.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.vandermonde",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+    "provides": "The Vandermonde matrix (v_i^j).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.addHaar_image_continuousLinearEquiv",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+    "provides": "Haar measure of the image of a set under a continuous linear equivalence scales by |det|.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.addHaar_preimage_linearMap",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+    "provides": "Haar measure of the preimage under a linear map of nonzero determinant scales by |det|^{-1}.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:MeasureTheory.Measure.addHaar_smul",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.lean",
+    "provides": "Haar measure of r•s is |r|^dim times that of s.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Module.Basis.ofZLatticeBasis",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+    "provides": "A Z-basis of a full lattice is a real basis of the ambient space.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:PiLp.volume_preserving_ofLp",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean",
+    "provides": "The identification EuclideanSpace R ι → (ι → R) preserves volume.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.Gal",
+    "kind": "def",
+    "module": "Mathlib/FieldTheory/PolynomialGaloisGroup.lean",
+    "provides": "The Galois group of a polynomial, acting on its roots in a splitting field.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.coeff_divByMonic_X_sub_C",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "Coefficients of p /ₘ (X − a): coeff_n = Σ_{i=n+1}^{deg p} a^{i−n−1} coeff_i(p).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.degreeLTEquiv",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
+    "provides": "Polynomials of degree < n are linearly equivalent to coefficient vectors Fin n → R.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.derivative",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
+    "provides": "The formal derivative of a polynomial.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.divByMonic",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "Division of a polynomial by a monic polynomial.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.map_divByMonic",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "Division by a monic polynomial commutes with ring homomorphisms.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.mul_divByMonic_eq_iff_isRoot",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Div.lean",
+    "provides": "(X − a)(p /ₘ (X − a)) = p iff a is a root of p.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Real.geom_mean_le_arith_mean_weighted",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/MeanInequalities.lean",
+    "provides": "Weighted AM–GM inequality.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Real.volume_Icc_pi",
+    "kind": "theorem",
+    "module": "Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean",
+    "provides": "Volume of a product of closed intervals in ι → R.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Squarefree",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+    "provides": "Squarefree elements of a monoid.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ZLattice.covolume",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+    "provides": "Covolume of a discrete full Z-lattice.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:ZLattice.covolume_eq_det",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+    "provides": "Covolume of a lattice in ι → R is |det| of a Z-basis matrix.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:convexHull_eq_union",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Caratheodory.lean",
+    "provides": "Carathéodory: the convex hull is the union of convex hulls of affinely independent finite subsets.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:gauge_add_le",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Gauge.lean",
+    "provides": "Subadditivity of the gauge of a convex absorbent set.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:gauge_closedBall",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Gauge.lean",
+    "provides": "The gauge of closedBall 0 r is ‖x‖/r.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:gauge_neg",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Gauge.lean",
+    "provides": "For a symmetric set, gauge(−x) = gauge(x).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:gauge_smul",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Convex/Gauge.lean",
+    "provides": "For a balanced set, gauge(r•x) = ‖r‖·gauge(x).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:geometric_hahn_banach_point_closed",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/LocallyConvex/Separation.lean",
+    "provides": "Strict separation of a point from a closed convex set by a continuous linear functional.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:integral_gaussian",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/SpecialFunctions/Gaussian/GaussianIntegral.lean",
+    "provides": "∫_R exp(−b x²) dx = √(π/b).",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice",
+    "kind": "structure",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+    "provides": "Integral symmetric lattice: a full Z-submodule of a Q-vector space with a symmetric Q-bilinear form integral on it.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice.IsPosDef",
+    "kind": "abbrev",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
+    "provides": "Positive definiteness of the form of an integral lattice.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice.integralNorm",
+    "kind": "def",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Norm.lean",
+    "provides": "The integral quadratic form x ↦ β(x,x) on the carrier.",
+    "checked": "statement read at the pinned commit"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "EvertseGeometry",
+   "title": "Diophantine approximation, Chapter 2: Geometry of numbers",
+   "authors": "Jan-Hendrik Evertse",
+   "edition": "Mastermath lecture notes, file dio19-2.pdf, 28 PDF pages, printed pp.11–38 (printed = PDF + 10)",
+   "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio19-2.pdf",
+   "sha256": "99194d1c4a670d42219e277d5b9945d5e80ef159c3969ac1e0e467c304586063",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§2.3 from Lemma 2.8 to Exercise 2.12, printed pp.23–31, including the proof of Theorem 2.11 with Lemmas 2.16–2.19 (pp.29–30)",
+    "§2.4 Theorem 2.20 and Corollary 2.21, printed pp.32–33, for the boundary with Layer 4"
+   ]
+  },
+  {
+   "id": "Smith2024",
+   "title": "Algebraic integers with conjugates in a prescribed distribution",
+   "authors": "Alexander Smith",
+   "edition": "arXiv:2111.12660v2 (16 March 2024), 47 pages; Annals of Mathematics 200 (2024) not collated",
+   "url": "https://arxiv.org/pdf/2111.12660v2",
+   "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§3 opening, Theorem 3.1, Theorem 3.2 with proof, Corollary 3.3, pp.12–14",
+    "Proposition 3.4 with proof, pp.14–15",
+    "Propositions 3.5, 3.6, Corollary 3.7 and Lemma 3.8 statement, pp.15–18 (uses of Proposition 3.4 and Theorem 3.2)",
+    "Reference [5], p.45"
+   ]
+  },
+  {
+   "id": "Peikert2007",
+   "title": "Limits on the hardness of lattice problems in ℓp norms",
+   "authors": "Chris Peikert",
+   "edition": "ECCC TR06-148, revision 1 (15 February 2007), 22 pages; journal version Computational Complexity 17 (2008) 300–351 not consulted",
+   "url": "https://eccc.weizmann.ac.il/report/2006/148/revision/1/download",
+   "sha256": "2118fd3b5c99832acba72df2e820d7e88938c7b84d1ccb8de7d69256d8381c09",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§2.2 and §2.4 (lattices, Gaussian measures, smoothing parameter, Lemmas 2.6–2.8), pp.5–7",
+    "§3 measure inequalities: Lemmas 3.1, 3.3, 3.5 and Corollaries 3.2, 3.4, pp.7–9",
+    "§5 Theorem 5.1 proof, Lemma 5.3 and Claims 5.4–5.5, pp.13–16"
+   ]
+  },
+  {
+   "id": "Ball1997",
+   "title": "An elementary introduction to modern convex geometry",
+   "authors": "Keith Ball",
+   "edition": "Flavors of Geometry, MSRI Publications 31 (1997), pp.1–58; file from the SLMath library",
+   "url": "https://library.slmath.org/books/Book31/files/ball.pdf",
+   "sha256": "e39f47bcf28af0cb730e3deab8f42ee688922049cc0b0ce1c55fe3665456a101",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "Lecture 3, Fritz John's theorem: Theorem 3.1, the √n inclusion for symmetric bodies and the full proof in the symmetric case, pp.13–19"
+   ]
+  },
+  {
+   "id": "BLPS1999",
+   "title": "The flatness theorem for nonsymmetric convex bodies via the local theory of Banach spaces",
+   "authors": "Wojciech Banaszczyk, Alexander E. Litvak, Alain Pajor, Stanislaw J. Szarek",
+   "edition": "Mathematics of Operations Research 24 (1999) 728–750; author copy wwBLPS2503.pdf, 32 pages",
+   "url": "https://www.math.ualberta.ca/~alexandr/papers/wwBLPS2503.pdf",
+   "sha256": "0341439faa4fb7b44b46987929ac82f29f9654b6b5f35bbff247dbd9092d01c6",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§1 introduction, pp.1–6",
+    "§2 notation and results: Lemmas 2.1–2.2, Proposition 2.3, Theorem 2.4, Corollary 2.5, Remarks 2.6–2.7, pp.6–10",
+    "§3 Proposition 3.1 with proof, Lemmas 3.3–3.5, pp.10–14",
+    "§4 opening, pp.14–19 (to see what the general case requires)"
+   ]
+  },
+  {
+   "id": "SSTT2022",
+   "title": "Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields",
+   "authors": "Ananth N. Shankar, Arul Shankar, Yunqing Tang, Salim Tayou",
+   "edition": "arXiv:1909.07473v3 (29 August 2022), 47 pages; Forum of Mathematics, Pi (2022) not collated",
+   "url": "https://arxiv.org/pdf/1909.07473v3",
+   "sha256": "37adf1c13e7aa3945e41d323b1137b68481c8391de8c1f88e2a48784b5e73680",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§7.1 Definition 7.4, Corollary 7.5 and Lemma 7.6, pp.36–37",
+    "§7.2 opening and Proposition 7.7 statement, pp.37–38"
+   ]
+  },
+  {
+   "id": "MST2020",
+   "title": "Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture",
+   "authors": "Davesh Maulik, Ananth N. Shankar, Yunqing Tang",
+   "edition": "arXiv:2011.08887v1 (17 November 2020), 39 pages; published version not collated",
+   "url": "https://arxiv.org/pdf/2011.08887v1",
+   "sha256": "0d8674a7ed0290b89b4187d0a1e8b39328edb20a9ca63ca0ab4da24e905f82ce",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "§7 Definition 7.8, Lemma 7.9 and the statements of Propositions 7.11 and 7.13, pp.28–30"
+   ]
+  },
+  {
+   "id": "TauCetiRoadmapIntegralLattices",
+   "title": "Integral lattices (roadmap README)",
+   "authors": "Tau Ceti contributors",
+   "edition": "TauCetiRoadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27 (11 October 2026), file TauCetiRoadmap/IntegralLattices/README.md",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/IntegralLattices/README.md",
+   "sha256": "c8d318905a5cbba2bfd00a417cbec20f5e115c3cc75dc0e7488d13978ed0da99",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "Layer 2, milestones 2A–2G and the prerequisite table, lines 770–828",
+    "STATUS.md layer summary for Layer 2"
+   ]
+  },
+  {
+   "id": "TauCetiSuccessiveMinimaDocs",
+   "title": "TauCeti.LinearAlgebra.IntegralLattice.PosDef.SuccessiveMinima (API documentation)",
+   "authors": "Tau Ceti contributors",
+   "edition": "Documentation of the current Tau Ceti main branch, read 2026-10-12; the module is not present at the pinned commit f790474",
+   "url": "https://taucetiproject.org/docs/TauCeti/LinearAlgebra/IntegralLattice/PosDef/SuccessiveMinima.html",
+   "accessed": "2026-10-12",
+   "readSections": [
+    "Module docstring and all declaration signatures: successiveMinimum, successiveMinimum_le_iff, monotone_successiveMinimum, IsPosSemidef.exists_linearIndependent_integralNorm_eq_successiveMinimum, IsPosDef.successiveMinimum_pos, Isometry.successiveMinimum_eq"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio19-2.pdf",
+   "read": "2026-10-12",
+   "sha256": "99194d1c4a670d42219e277d5b9945d5e80ef159c3969ac1e0e467c304586063"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2111.12660v2",
+   "read": "2026-10-12",
+   "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
+   "citation": "arXiv:2111.12660v2; the Annals text is paywalled and was not collated, so E1 and E2 are scoped to this version"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://eccc.weizmann.ac.il/report/2006/148/revision/1/download",
+   "read": "2026-10-12",
+   "sha256": "2118fd3b5c99832acba72df2e820d7e88938c7b84d1ccb8de7d69256d8381c09"
+  },
+  {
+   "kind": "published",
+   "url": "https://library.slmath.org/books/Book31/files/ball.pdf",
+   "read": "2026-10-12",
+   "sha256": "e39f47bcf28af0cb730e3deab8f42ee688922049cc0b0ce1c55fe3665456a101"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ualberta.ca/~alexandr/papers/wwBLPS2503.pdf",
+   "read": "2026-10-12",
+   "sha256": "0341439faa4fb7b44b46987929ac82f29f9654b6b5f35bbff247dbd9092d01c6"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1909.07473v3",
+   "read": "2026-10-12",
+   "sha256": "37adf1c13e7aa3945e41d323b1137b68481c8391de8c1f88e2a48784b5e73680"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2011.08887v1",
+   "read": "2026-10-12",
+   "sha256": "0d8674a7ed0290b89b4187d0a1e8b39328edb20a9ca63ca0ab4da24e905f82ce"
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
+   "source": "Smith2024",
+   "kind": "misprint",
+   "locator": "Proposition 3.4, p.14, in arXiv:2111.12660v2 (16 March 2024); the published Annals text was not collated",
+   "printed": "The minimum λ_i is described as the least real number for which λ_i K contains i+1 linearly independent integer polynomials.",
+   "correction": "λ_i is the least nonnegative real number with that property (the successive minimum of K); K is symmetric, so negative dilation factors give the same sets as positive ones and the unrestricted infimum is not the intended quantity.",
+   "reason": "For m = 0 and K = [−1/v_0, 1/v_0], λK contains the integer 1 for every real λ with |λ| ≥ v_0, so the least real such λ does not exist; the least nonnegative one is v_0, as the proposition's bounds D/1! = D = v_0 require.",
+   "affects": "nothing",
+   "known": "Recorded earlier in the atlas's extraction of this paper as PAPER-SMITH-24/E3; no published correction",
+   "searched": [
+    "arXiv abstract page of 2111.12660 (versions v1, v2; no erratum, no journal reference)",
+    "PAPER-SMITH-24 extraction in this repository"
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E2",
+   "source": "Smith2024",
+   "kind": "gap",
+   "locator": "Proof of Theorem 3.2, p.13, in arXiv:2111.12660v2; citation of [5, Corollary 2.5]",
+   "printed": "The proof concludes from the flatness theorem for simplices (Banaszczyk–Litvak–Pajor–Szarek, Corollary 2.5) that every translate of the body K = {Σβ_iQ°_i : Σ|β_i| ≤ C_0 n log 2n} contains an integer polynomial. K is a cross-polytope, not a simplex, and the step from the cited statement about simplices to a covering statement for K is not given.",
+   "correction": "Insert the step: S = conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i) lies in the unit cross-polytope; for every nonzero integer functional d one of d(Q°_i) has absolute value ≥ 1, and the value −(1/n)Σd(Q°_i) at the last vertex has the opposite sign or lies on the other side of 0 from it, so the lattice width of S is at least 1. Flt(S) ≤ Cn(1+log n) then gives that every translate of tS with t > Cn(1+log n) meets the integer polynomials, hence so does every translate of tK. Alternatively, as planned here (GN.4/l1-covering-transference), Banaszczyk's ℓ¹ and sup-norm Gaussian tail inequalities give the covering bound for K directly, with constant 3n√(log(8n)/π).",
+   "reason": "BLPS Corollary 2.5 bounds Flt(S) for an n-simplex S; a covering bound for another body follows only through a simplex inside it of lattice width bounded below, which the functional lower bound of the proof supplies but the proof does not state.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 2111.12660 (v1 24 Nov 2021, v2 16 Mar 2024; comments '47 pages'; no erratum)",
+    "PAPER-SMITH-24 extraction sourceIssues E1–E11 in this repository (not recorded there)"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-partial-product",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Partial products of successive minima",
+   "kind": "definition",
+   "statement": "Let E be a finite-dimensional real normed space of dimension d, L a discrete full Z-submodule of E and K a convex body in E with 0 in its interior, and write λ_i = λ_i(L,K) (i : Fin d, zero-based) for the successive minima of the inherited node successive-minimum. For every natural number k the k-th partial product is a_k(L,K) = ∏_{i : Fin d, i.val < k} λ_i. Thus a_0 = 1, a_{k+1} = a_k·λ_k for k < d, and a_k = λ_0⋯λ_{d−1} for every k ≥ d. In the one-based notation μ_1 ≤ … ≤ μ_d of Eskin–Katznelson and its users, μ_j = λ_{j−1} and a_k = μ_1⋯μ_k.",
+   "hypotheses": [
+    "E finite-dimensional real normed space, d = finrank_R E (d = 0 allowed).",
+    "L a Z-submodule of E with the discrete topology and IsZLattice R L; K : ConvexBody E with 0 ∈ interior K.",
+    "The index k is a natural number; no symmetry of K is assumed for the definition."
+   ],
+   "proofSteps": [
+    "Define a_k as the finite product of successiveMin L K i over the i : Fin d with i.val < k.",
+    "a_0 = 1 is the empty product; the successor law splits off the factor with i.val = k.",
+    "Positivity follows from successive-minimum-pos; the comparison inequalities from successive-minimum-monotone.",
+    "Scaling and linear invariance follow factorwise from successive-minimum-smul-body and successive-minimum-linear-equiv."
+   ],
+   "acceptance": [
+    "For L = Z² and K = {|x_0| ≤ 1/2, |x_1| ≤ 1/3}, (a_0,a_1,a_2) = (1,2,6).",
+    "For d = 0 every a_k equals 1.",
+    "a_k is the product of the first k minima, not the first k+1: for the box above a_1 = 2, not 6."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-pos",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-smul-body",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-linear-equiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "SSTT2022",
+     "locator": "Definition 7.4, p.36 (arXiv:1909.07473v3)",
+     "match": "Defines one-based successive minima μ_i of a positive definite quadratic lattice through independent vectors with Q(v) ≤ y², and the partial products a_i = μ_1⋯μ_i with a_0 = 1; the definition here is the convex-body version in zero-based indexing."
+    },
+    {
+     "sourceId": "MST2020",
+     "locator": "Definition 7.8, p.28 (arXiv:2011.08887v1)",
+     "match": "The same partial products a_i(n), a_0(n) = 1, for the nested lattices L_n; Lemma 7.9 there uses a_i ≥ a_1^i, which is the lower comparison in the API."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+    "namespace": "TauCeti.GeometryOfNumbersPlan"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Shankar–Shankar–Tang–Tayou, Lemma 7.6 and Proposition 7.7, pp.36–38",
+     "how": "a_i(n) ≫ a_1(n)^i and the lattice-point count Σ_i X^{i/2}/a_i are written with these partial products"
+    },
+    {
+     "where": "Maulik–Shankar–Tang, Lemma 7.9 and Propositions 7.11, 7.13, pp.29–30",
+     "how": "lower bounds a_i(n) ≫ n^{i/b} through a_i ≥ a_1^i, then uniform lattice-point counts in terms of a_i"
+    },
+    {
+     "where": "GeometryOfNumbersAndQuadraticArithmetic:GN.4, lattice-point counting",
+     "how": "uniform bounds of the form Σ_{k=0}^d X^k/a_k for #{x ∈ L : gauge_K(x) ≤ X}"
+    },
+    {
+     "where": "definite-minima-discriminant (this packet)",
+     "how": "a_d is the quantity compared with the covolume"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd",
+     "role": "data",
+     "statement": "a_k(L,K) = ∏_{i : Fin d, i.val < k} λ_i(L,K)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_zero",
+     "role": "simp",
+     "statement": "a_0(L,K) = 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_succ",
+     "role": "simp",
+     "statement": "For k < d, a_{k+1}(L,K) = a_k(L,K)·λ_⟨k⟩(L,K)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_of_le",
+     "role": "simp",
+     "statement": "For d ≤ k, a_k(L,K) = ∏_{i : Fin d} λ_i(L,K)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_pos",
+     "role": "other",
+     "statement": "0 < a_k(L,K) for every k."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_pow_le",
+     "role": "relation",
+     "statement": "For 1 ≤ k ≤ d: λ_0^k ≤ a_k ≤ λ_{k−1}^k (each factor lies between the first and the last one used)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_mul_pow_le",
+     "role": "relation",
+     "statement": "For k < j ≤ d: a_k·λ_k^{j−k} ≤ a_j."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_smul_body",
+     "role": "relation",
+     "statement": "For c > 0: a_k(L, c•K) = a_k(L,K)/c^{min(k,d)}."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_linearEquiv",
+     "role": "compatibility",
+     "statement": "For a linear equivalence e : E ≃ F, a_k(e(L), e(K)) = a_k(L,K)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_top_bounds",
+     "role": "compatibility",
+     "statement": "If E is an inner-product space with canonical volume and K is centrally symmetric: (2^d/d!)·covol(L) ≤ a_d·vol(K) ≤ 2^d·covol(L) (Minkowski's second theorem restated with a_d)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_box_example",
+     "kind": "computation",
+     "statement": "For L = Z² and K = {|x_0| ≤ 1/2, |x_1| ≤ 1/3}: a_0 = 1, a_1 = 2, a_2 = 6."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_dim_zero",
+     "kind": "degenerate",
+     "statement": "If finrank_R E = 0 then a_k(L,K) = 1 for every k."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_cube",
+     "kind": "compatibility",
+     "statement": "For L = Z^d and K = [−1,1]^d, a_k = 1 for every k."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.successiveMinProd_not_shifted",
+     "kind": "non-example",
+     "statement": "For the box with minima (2,3), a_1 = 2 ≠ 6 = λ_0·λ_1: the k-th partial product has k factors."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/integral-norm-minima-comparison",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Euclidean minima of an integral lattice and its norm-valued minima",
+   "kind": "comparison",
+   "statement": "Let L be a positive definite Tau Ceti integral lattice (TauCeti.IntegralLattice V over Q, with IsPosDef) whose carrier has Z-rank n, and let ι : L → E be an additive map into an n-dimensional real inner-product space with ‖ι x‖² = integralNorm_L(x) for every x ∈ L (integralNorm is the integral self-pairing β(x,x)), whose image Λ = ι(L) is a discrete full lattice. Then ι is injective, and for every zero-based index i (i : Fin n, transported to Fin (finrank_R E) along the rank equality) and every natural number c: λ_i(Λ, B̄)² ≤ c if and only if there are Z-linearly independent x_0,…,x_i ∈ L with integralNorm_L(x_j) ≤ c for all j ≤ i. Here B̄ is the closed unit ball of E. Consequently each λ_i(Λ,B̄)² is a natural number, and it equals the i-th norm-valued successive minimum of L in the sense of IntegralLattices milestone 2F (one-based there: the (i+1)-st minimum), which Tau Ceti's current main branch implements as IntegralLattice.successiveMinimum L i with a zero-based Fin index and natural-number values.",
+   "hypotheses": [
+    "L positive definite: β(x,x) > 0 for x ≠ 0 in V.",
+    "ι additive with ‖ι x‖² = integralNorm_L(x) for x ∈ L; the image of ι is discrete and spans E (IsZLattice).",
+    "finrank_R E = finrank_Z L; i is zero-based; c is a natural number.",
+    "No basis and no orthonormal coordinates are chosen; the comparison is stated through the defining rank condition only."
+   ],
+   "proofSteps": [
+    "Injectivity: ι x = 0 forces integralNorm_L(x) = 0, hence x = 0 by positive definiteness.",
+    "By gauge_closedBall the gauge of B̄ is the norm, so successive-minimum-le-iff at r = √c says λ_i ≤ √c iff the lattice vectors of norm at most √c span a real subspace of dimension at least i+1.",
+    "Vectors of the discrete full lattice Λ are real-linearly independent iff they are Z-linearly independent (a Z-basis of Λ is a real basis, Module.Basis.ofZLatticeBasis), and ι transports Z-independence because it is injective.",
+    "‖ι x‖ ≤ √c iff integralNorm_L(x) ≤ c; combine the three equivalences.",
+    "Integrality of λ_i²: successive-minimum-witnesses gives a lattice vector ι(x) with ‖ι x‖ = λ_i, so λ_i² = integralNorm_L(x) ∈ N; equality with the 2F minimum follows because both are the least c satisfying the same condition."
+   ],
+   "acceptance": [
+    "Z² with the standard form, ι the identity into R²: λ_0² = λ_1² = 1, the norm-valued minima (1,1).",
+    "The hexagonal lattice A_2 scaled to norm 2 (Gram matrix [[2,−1],[−1,2]]): both norm-valued minima equal 2 and both Euclidean minima equal √2.",
+    "The scaled lattice √2·Z in R with integralNorm(x) = 2x² has Euclidean minimum √2 and norm-valued minimum 2: the comparison squares, it does not take square roots of the index."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+    "mathlib:gauge_closedBall",
+    "mathlib:Module.Basis.ofZLatticeBasis",
+    "mathlib:LinearIndependent.restrict_scalars",
+    "tauceti:TauCeti.IntegralLattice",
+    "tauceti:TauCeti.IntegralLattice.integralNorm",
+    "tauceti:TauCeti.IntegralLattice.IsPosDef"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Example 1 after Theorem 2.9, p.25",
+     "match": "For the Euclidean ball the successive minima are the lengths of successively shortest independent lattice vectors; this is the real-valued side of the comparison."
+    },
+    {
+     "sourceId": "TauCetiRoadmapIntegralLattices",
+     "locator": "IntegralLattices README, milestone 2F (lines 801–811 at commit 0d144d0)",
+     "match": "Defines the norm-valued successive minima of a positive definite integral lattice, one-based, as least norms c such that the vectors of norm at most c span a subgroup of rank at least i; the comparison identifies them with squared Euclidean minima."
+    },
+    {
+     "sourceId": "TauCetiSuccessiveMinimaDocs",
+     "locator": "Module TauCeti.LinearAlgebra.IntegralLattice.PosDef.SuccessiveMinima (current main documentation)",
+     "match": "Implements successiveMinimum L i with i : Fin (finrank Z L), natural-number values and the characterisation successiveMinimum_le_iff by Z-independent families of bounded integral norm, which is the right-hand side of the comparison."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "successiveMin_closedBall_sq_le_iff"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/definite-minima-discriminant",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Product of Euclidean minima against the covolume",
+   "kind": "theorem",
+   "statement": "Let Λ be a discrete full lattice in a real inner-product space E of dimension r with its canonical volume, B̄ the closed unit ball and μ_i = λ_i(Λ, B̄) (i : Fin r). Then covol(Λ) ≤ ∏_i μ_i ≤ (2^r/V_r)·covol(Λ), where V_r = π^{r/2}/Γ(r/2+1) is the volume of B̄. In Gram form: for a positive definite quadratic Z-module (M,Q) of rank r with associated symmetric bilinear form b(x,y) = (Q(x+y) − Q(x) − Q(y))/2, so that Q(x) = b(x,x), and μ_i the successive minima of {Q(v) ≤ y²}, one has det(b)^{1/2} ≤ μ_1⋯μ_r ≤ (2^r/V_r)·det(b)^{1/2}; with the polar form B = 2b instead, det(B) = 2^r det(b). In the notation of the partial products a_r = μ_1⋯μ_r ≍_r Disc^{1/2}. For r = 0 all three quantities are 1.",
+   "hypotheses": [
+    "Λ is discrete and full (IsZLattice) in the finite-dimensional real inner-product space E; volume is the canonical intrinsic volume.",
+    "In the Gram form, b is positive definite and det(b) is the determinant of its Gram matrix in any Z-basis of M; the convention Q(x) = b(x,x) is pinned and the factor 2^r for the polar form is explicit."
+   ],
+   "proofSteps": [
+    "Lower bound: successive-minimum-witnesses gives a real basis v of lattice vectors with ‖v_i‖ = μ_i; lattice-determinant-lower-bound gives covol(Λ) ≤ |det_o(v)| for an orthonormal basis o, and orthonormal-coordinate-hadamard gives |det_o(v)| ≤ ∏‖v_i‖ = ∏μ_i.",
+    "Upper bound: minkowski-second-upper for the symmetric convex body B̄ gives (∏μ_i)·vol(B̄) ≤ 2^r covol(Λ), and InnerProductSpace.volume_closedBall gives vol(B̄) = V_r.",
+    "Gram form: realise (M,Q) as a lattice in R^r with ‖v‖² = Q(v) (Cholesky factorisation of the Gram matrix of b); covolume-square-gram gives covol² = det(b).",
+    "For integral lattices the upper bound is the Minkowski bound of IntegralLattices milestone 2F read through integral-norm-minima-comparison; the statement here is for arbitrary real lattices and adds the Hadamard lower bound."
+   ],
+   "acceptance": [
+    "Z^r: covol = 1 = ∏μ_i ≤ 2^r/V_r.",
+    "A_2 with minimal vectors of length 1: covol = √3/2 ≤ 1 ≤ (4/π)(√3/2) ≈ 1.1027.",
+    "r = 1: Λ = aZ gives μ_0 = a = covol, so both bounds are equalities (V_1 = 2).",
+    "The lower bound is an equality for every orthogonal lattice ⊕ a_i Z, showing the constant 1 cannot be raised."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/lattice-determinant-lower-bound",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthonormal-coordinate-hadamard",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper",
+    "mathlib:InnerProductSpace.volume_closedBall",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram"
+   ],
+   "sources": [
+    {
+     "sourceId": "SSTT2022",
+     "locator": "Corollary 7.5 and its proof, p.36 (arXiv:1909.07473v3)",
+     "match": "Uses that the product a_r of the successive minima of a positive definite lattice is bounded below by a constant multiple of Disc^{1/2}, quoting Eskin–Katznelson (5),(6); the lower bound here makes the constant 1."
+    },
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Example 1 after Theorem 2.9, p.25; Exercise 2.11 (Hadamard), p.31",
+     "match": "Example 1 derives ∏‖v_i‖ ≤ 2^n V(n)^{-1} d(L) for vectors attaining the Euclidean minima from Minkowski's second theorem; Exercise 2.11 is Hadamard's inequality d(L) ≤ ∏‖v_i‖ for a basis, which with the index argument of the lower-bound proof gives the left inequality."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/SuccessiveMinima",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "covolume_le_prod_successiveMin_closedBall_le"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/basis-from-minima",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "An integral basis bounded by sums of successive minima",
+   "kind": "theorem",
+   "statement": "Let E be a finite-dimensional real normed space of dimension d, L a discrete full Z-lattice in E, and K a centrally symmetric convex body with 0 in its interior, with successive minima λ_0 ≤ … ≤ λ_{d−1} (zero-based). Then L has a Z-basis b_0,…,b_{d−1} with gauge_K(b_i) ≤ λ_0 + λ_1 + ⋯ + λ_i for every i, that is b_i ∈ (λ_0+⋯+λ_i)·K; in particular gauge_K(b_i) ≤ (i+1)·λ_i. The basis can be chosen so that span_R(b_0,…,b_i) = span_R(v_0,…,v_i) for a family v attaining the minima.",
+   "hypotheses": [
+    "K : ConvexBody E, 0 ∈ interior K, and x ∈ K ⇒ −x ∈ K (symmetry is used for gauge(−x) = gauge(x)).",
+    "L discrete and full; d = 0 is allowed (empty basis)."
+   ],
+   "proofSteps": [
+    "Take witnesses v_0,…,v_{d−1} ∈ L with gauge_K(v_i) = λ_i (successive-minimum-witnesses).",
+    "Take a Z-basis b of L with the same real flags as v (integral-rational-flag): span_R(b_0..b_i) = span_R(v_0..v_i) for every i.",
+    "Write b_i = Σ_{j≤i} t_j v_j with real t_j. Since v_i ∈ L ∩ span(v_0..v_i) = span_Z(b_0..b_i) has a nonzero integer coefficient m on b_i, t_i = 1/m and |t_i| ≤ 1.",
+    "For j < i, v_j ∈ span_Z(b_0..b_{i−1}); replacing b_i by b_i − Σ_{j<i} k_j v_j with k_j the nearest integer to t_j keeps a Z-basis with the same flags and makes |t_j| ≤ 1/2.",
+    "By gauge_add_le, gauge_smul and gauge_neg, gauge_K(b_i) ≤ Σ_{j<i} |t_j|λ_j + |t_i|λ_i ≤ λ_0+⋯+λ_i; monotonicity of the minima gives (i+1)λ_i."
+   ],
+   "acceptance": [
+    "Z^d with the cube [−1,1]^d: the standard basis has all gauges 1 ≤ i+1.",
+    "Z² with the unit square: the vectors (1,1),(1,−1) attain both minima but do not form a basis; the theorem returns a basis such as (1,0),(0,1) with gauges 1 ≤ 1, 1 ≤ 2.",
+    "In dimension 5, the lattice Z^5 + Z(1/2,…,1/2) with the Euclidean ball has all minima 1 attained by e_1,…,e_5, which span a sublattice of index 2; a basis must contain a vector of norm at least √5/2 > 1, and the bound i+1 accommodates it."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/integral-rational-flag",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-monotone",
+    "mathlib:gauge_add_le",
+    "mathlib:gauge_smul",
+    "mathlib:gauge_neg"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Exercise 2.8 and the remark before it, p.24",
+     "match": "States that the lattice has a basis whose i-th vector lies in (λ_1+⋯+λ_i)C, after remarking that vectors attaining the minima need not form a basis; the hint is Lemma 2.1 (bases adapted to a rational flag), as used in the proof steps."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/MinimaBases",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_basis_gauge_le_sum_successiveMin"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Basis from successive minima"
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/hermite-basis",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Hermite's basis theorem",
+   "kind": "theorem",
+   "statement": "Every discrete full lattice L in a real inner-product space E of dimension n has a Z-basis b_0,…,b_{n−1} with ‖b_0‖·‖b_1‖⋯‖b_{n−1}‖ ≤ (4/3)^{n(n−1)/4}·covol(L). (Every basis satisfies the reverse Hadamard inequality covol(L) ≤ ∏‖b_i‖.)",
+   "hypotheses": [
+    "E finite-dimensional real inner-product space with canonical volume; L discrete and full; n = 0 allowed (empty product 1 = covol)."
+   ],
+   "proofSteps": [
+    "Induction on n; n ≤ 1 is immediate.",
+    "Let v be a shortest nonzero vector of L (successive-minimum-first with the Euclidean ball); v is primitive, since v = m·w with w ∈ L and |m| ≥ 2 would give a shorter vector.",
+    "Let W = Rv and π the orthogonal projection onto W⊥. Then P = π(L) is a discrete full lattice in W⊥ (projected-adapted-basis) with covol(P) = covol(L)/‖v‖ (covolume-projection, since L ∩ W = Zv).",
+    "By induction P has a basis p_1,…,p_{n−1} with ∏‖p_j‖ ≤ (4/3)^{(n−1)(n−2)/4} covol(P).",
+    "Lift each p_j to w_j ∈ L with π(w_j) = p_j and |⟨w_j, v⟩| ≤ ‖v‖²/2, subtracting an integer multiple of v. Then ‖w_j‖² ≤ ‖p_j‖² + ‖v‖²/4 ≤ ‖p_j‖² + ‖w_j‖²/4 because w_j ≠ 0 is at least as long as v, so ‖w_j‖² ≤ (4/3)‖p_j‖².",
+    "v, w_1,…,w_{n−1} is a Z-basis of L (prescribed-primitive-basis with projected-adapted-basis), and ∏ ≤ ‖v‖·(4/3)^{(n−1)/2}·(4/3)^{(n−1)(n−2)/4}·covol(L)/‖v‖ = (4/3)^{n(n−1)/4} covol(L)."
+   ],
+   "acceptance": [
+    "n = 1: the generator has length covol(L), constant 1.",
+    "A_2 with minimal length 1 and basis (1,0),(1/2,√3/2): product 1 = (4/3)^{1/2}·(√3/2), so the bound is attained in dimension 2.",
+    "Z^n with its standard basis: product 1 = covol."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-first",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-witnesses",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-projection",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/prescribed-primitive-basis",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthonormal-coordinate-hadamard",
+    "mathlib:ZLattice.covolume"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Theorem 2.11, p.28; proof with Lemmas 2.16–2.19, pp.29–30",
+     "match": "States the basis product bound with constant (4/3)^{n(n−1)/4} and proves it by induction on the dimension, projecting along a shortest vector, lifting with the 4/3 length loss (Lemma 2.19) and computing d(L) = λ_1·d(L') (Lemma 2.18)."
+    },
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Exercise 2.11, p.31",
+     "match": "Hadamard's inequality d(L) ≤ ∏‖v_i‖ for every basis, recorded in the statement as the reverse bound."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/MinimaBases",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_basis_prod_norm_le_hermite"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Hermite's basis theorem"
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/hermite-minima-product",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Hermite's bound for the minima of balls, ellipsoids and boxes",
+   "kind": "theorem",
+   "statement": "Let L be a discrete full lattice in an n-dimensional real inner-product space E. (a) For the closed unit ball B̄: ∏_i λ_i(L, B̄) ≤ (4/3)^{n(n−1)/4}·covol(L). (b) For a central ellipsoid E(T) = T(B̄) with T invertible: (∏_i λ_i(L, E(T)))·vol(E(T)) ≤ (4/3)^{n(n−1)/4}·V_n·covol(L), V_n = vol(B̄). (c) For E = R^n with the standard lattice Z^n, an invertible real matrix A and positive A_1,…,A_n, the box C = {x : |(Ax)_i| ≤ A_i for all i} satisfies ∏_i λ_i(Z^n, C) ≤ (4/3)^{n(n−1)/4}·|det A|/(A_1⋯A_n).",
+   "hypotheses": [
+    "L discrete and full; T : E ≃L[R] E; in (c) det A ≠ 0 and every A_i > 0."
+   ],
+   "proofSteps": [
+    "(a) Order the basis of hermite-basis by length: b_(0) ≤ … ≤ b_(n−1). The first i+1 of them are independent with norm at most ‖b_(i)‖, so λ_i ≤ ‖b_(i)‖ by successive-minimum-le-iff; multiply.",
+    "(b) By successive-minimum-linear-equiv, λ_i(L, E(T)) = λ_i(T^{-1}L, B̄); covol(T^{-1}L) = covol(L)/|det T| and vol(E(T)) = |det T|·V_n (central-ellipsoid); apply (a).",
+    "(c) The linear change y_i = (Ax)_i/A_i maps C to the cube [−1,1]^n, which contains the Euclidean unit ball, and Z^n to a lattice of covolume |det A|/∏A_i; use successive-minimum-antitone-body and (a)."
+   ],
+   "acceptance": [
+    "n = 1 in (a): λ_0 = covol(L), constant 1.",
+    "(a) for A_2 with minimal length 1: ∏λ_i = 1 = (4/3)^{1/2}·√3/2, equality.",
+    "Comparison of constants in (b) with the ellipsoid case of minkowski-second-upper: (4/3)^{n(n−1)/4}V_n < 2^n for 2 ≤ n ≤ 8 (n = 3: ≈ 6.45 < 8; n = 8: ≈ 227.7 < 256), equality 2 = 2 for n = 1, and the reverse from n = 9 on ((4/3)^{18}V_9 ≈ 585 > 512)."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/hermite-basis",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/central-ellipsoid",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-le-iff",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-linear-equiv",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-antitone-body",
+    "mathlib:MeasureTheory.Measure.addHaar_image_continuousLinearEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Corollaries 2.12 and 2.13, p.28; Exercise 2.12, p.31",
+     "match": "Corollary 2.12 bounds the product of the Euclidean minima by (4/3)^{n(n−1)/4} d(L) from Theorem 2.11; Corollary 2.13 transfers it to central ellipsoids by a linear change of variables; Exercise 2.12 is the version for a box cut out by n linear forms."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/MinimaBases",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "prod_successiveMin_closedBall_le_hermite"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/central-ellipsoid",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Central ellipsoids",
+   "kind": "definition",
+   "statement": "Let E be a finite-dimensional real inner-product space of dimension n and T : E ≃L[R] E a continuous linear equivalence. The central ellipsoid of T is E(T) = T(B̄), the image of the closed unit ball, regarded as a convex body; equivalently E(T) = {x : ‖T^{-1}x‖ ≤ 1} = {x : ⟨x, Px⟩ ≤ 1} with P = (T T*)^{-1} positive definite. Every positive definite self-adjoint P arises, from T = P^{-1/2}.",
+   "hypotheses": [
+    "E finite-dimensional real inner-product space, n = finrank_R E ≥ 0; T invertible (a singular T gives a degenerate set that is not a convex body with nonempty interior)."
+   ],
+   "proofSteps": [
+    "E(T) is compact and convex as the continuous linear image of B̄, and nonempty.",
+    "Membership: x ∈ T(B̄) iff ‖T^{-1}x‖ ≤ 1; hence gauge_{E(T)}(x) = ‖T^{-1}x‖ by gauge_closedBall composed with T^{-1}.",
+    "Volume: addHaar_image_continuousLinearEquiv gives vol(E(T)) = |det T|·vol(B̄), and InnerProductSpace.volume_closedBall gives vol(B̄) = π^{n/2}/Γ(n/2+1).",
+    "E(T) = E(T') iff T^{-1}T' maps B̄ onto itself, i.e. is a linear isometry."
+   ],
+   "acceptance": [
+    "E(id) = B̄.",
+    "For T = diag(2,3) on R², vol(E(T)) = 6π and gauge_{E(T)}(2,0) = 1.",
+    "n = 0: E(T) = {0} with volume 1."
+   ],
+   "prerequisites": [
+    "mathlib:ConvexBody",
+    "mathlib:ContinuousLinearEquiv",
+    "mathlib:gauge_closedBall",
+    "mathlib:MeasureTheory.Measure.addHaar_image_continuousLinearEquiv",
+    "mathlib:InnerProductSpace.volume_closedBall"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Corollary 2.13 and Theorem 2.14, p.28",
+     "match": "Uses central ellipsoids as linear images of the Euclidean ball and the invariance of the minima under linear maps."
+    },
+    {
+     "sourceId": "Ball1997",
+     "locator": "Lecture 3, opening paragraphs, p.13",
+     "match": "Describes an ellipsoid through an orthonormal basis and semi-axes α_j with volume v_n∏α_j, the coordinate form of E(T) for T diagonal in that basis."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/Ellipsoid",
+    "namespace": "TauCeti.GeometryOfNumbersPlan"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Evertse §2.3, Corollary 2.13, p.28",
+     "how": "minima of an ellipsoid are the Euclidean minima of a transformed lattice"
+    },
+    {
+     "where": "Evertse §2.3, Theorem 2.14 and Corollary 2.15, p.28",
+     "how": "a symmetric convex body is sandwiched between E and √n·E"
+    },
+    {
+     "where": "Ball, Lecture 3, Theorem 3.1, pp.13–19",
+     "how": "the maximal-volume ellipsoid and John's decomposition are stated for ellipsoids E(T)"
+    },
+    {
+     "where": "hermite-minima-product, john-ellipsoid (this packet)",
+     "how": "volume and gauge formulas"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid",
+     "role": "constructor",
+     "statement": "ellipsoid T : ConvexBody E with carrier T '' closedBall 0 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.mem_ellipsoid_iff",
+     "role": "characterisation",
+     "statement": "x ∈ ellipsoid T ↔ ‖T.symm x‖ ≤ 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.gauge_ellipsoid",
+     "role": "simp",
+     "statement": "gauge (ellipsoid T) x = ‖T.symm x‖."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_neg_mem",
+     "role": "structure",
+     "statement": "x ∈ ellipsoid T → −x ∈ ellipsoid T."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.zero_mem_interior_ellipsoid",
+     "role": "structure",
+     "statement": "0 ∈ interior (ellipsoid T)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.volume_ellipsoid",
+     "role": "characterisation",
+     "statement": "volume (ellipsoid T) = ENNReal.ofReal |det T| · volume (closedBall 0 1)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_refl",
+     "role": "simp",
+     "statement": "ellipsoid (ContinuousLinearEquiv.refl R E) has carrier closedBall 0 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.image_ellipsoid",
+     "role": "functoriality",
+     "statement": "S '' ellipsoid T = ellipsoid (T.trans S) for S : E ≃L[R] E."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_smul",
+     "role": "relation",
+     "statement": "For c > 0, c • ellipsoid T = ellipsoid (c • T)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_eq_iff",
+     "role": "extensionality",
+     "statement": "ellipsoid T = ellipsoid T' ↔ T.symm ∘ T' preserves the norm."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_eq_quadratic",
+     "role": "equivalence",
+     "statement": "ellipsoid T has carrier {x | ⟪x, P x⟫ ≤ 1} for P = (T ∘ T†)^{-1}, a positive definite self-adjoint operator; conversely every positive definite self-adjoint P is of this form."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_refl_eq_ball",
+     "kind": "compatibility",
+     "statement": "The carrier of ellipsoid (refl) is Metric.closedBall 0 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_diag_volume",
+     "kind": "computation",
+     "statement": "For T = diag(2,3) on EuclideanSpace R (Fin 2), volume (ellipsoid T) = ofReal (6π)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_diag_gauge",
+     "kind": "computation",
+     "statement": "For T = diag(2,3), gauge (ellipsoid T) (2,0) = 1 and gauge (ellipsoid T) (0,1) = 1/3."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.ellipsoid_dim_zero",
+     "kind": "degenerate",
+     "statement": "If finrank E = 0, ellipsoid T has carrier {0} and volume 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.square_not_ellipsoid",
+     "kind": "non-example",
+     "statement": "The unit square [−1,1]² is not ellipsoid T for any T: its gauge (the sup-norm) violates the parallelogram law at (1,0),(0,1)."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/maximal-inscribed-ellipsoid",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Existence of a maximal-volume inscribed ellipsoid",
+   "kind": "lemma",
+   "statement": "Let K be a centrally symmetric convex body with 0 in its interior in a real inner-product space E of dimension n. There is an invertible T with E(T) ⊆ K such that vol(E(T')) ≤ vol(E(T)) for every invertible T' with E(T') ⊆ K.",
+   "hypotheses": [
+    "K : ConvexBody E, 0 ∈ interior K, symmetric; n ≥ 0."
+   ],
+   "proofSteps": [
+    "The set S = {T ∈ End(E) : T(B̄) ⊆ K} is closed (K closed) and bounded (K ⊆ R·B̄ forces ‖T‖ ≤ R), hence compact.",
+    "S contains εI for some ε > 0 since 0 ∈ interior K, so max_S |det| ≥ ε^n > 0.",
+    "|det| is continuous; IsCompact.exists_isMaxOn gives a maximiser T, invertible because |det T| > 0.",
+    "vol(E(T)) = |det T|·V_n (central-ellipsoid), so T maximises volume among inscribed central ellipsoids."
+   ],
+   "acceptance": [
+    "K = B̄: the maximiser is an isometry and E(T) = B̄.",
+    "K = [−1,1]^n: the maximal central ellipsoid is B̄ (contact points ±e_i)."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/central-ellipsoid",
+    "mathlib:IsCompact.exists_isMaxOn",
+    "mathlib:LinearMap.det",
+    "mathlib:ConvexBody.isCompact"
+   ],
+   "sources": [
+    {
+     "sourceId": "Ball1997",
+     "locator": "Lecture 3, Theorem 3.1 (statement), p.13",
+     "match": "Asserts that every convex body contains a unique ellipsoid of maximal volume; the existence part is the compactness argument recorded in the proof steps."
+    },
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Theorem 2.14, p.28",
+     "match": "Uses the existence of a central ellipsoid E ⊆ C ⊆ √n E, which is obtained from a maximal one."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/Ellipsoid",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_isMaxOn_volume_ellipsoid_subset"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/john-decomposition",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "John's decomposition of the identity",
+   "kind": "theorem",
+   "statement": "Let K be a centrally symmetric convex body in a real inner-product space E of dimension n ≥ 1 such that the closed unit ball B̄ is a central ellipsoid of maximal volume in K (B̄ ⊆ K and no inscribed central ellipsoid has larger volume). Then there are finitely many contact points u_1,…,u_m with ‖u_i‖ = 1 and u_i in the frontier of K, and weights c_i > 0, such that x = Σ_i c_i⟨x,u_i⟩u_i for every x ∈ E (Σ c_i u_i⊗u_i = id); taking traces, Σ_i c_i = n.",
+   "hypotheses": [
+    "K symmetric convex body; B̄ ⊆ K maximal among inscribed central ellipsoids; n ≥ 1 so that contact points exist."
+   ],
+   "proofSteps": [
+    "The contact set U = {u : ‖u‖ = 1, u ∈ frontier K} is compact, hence so is {u⊗u : u ∈ U}; by Carathéodory (convexHull_eq_union) its convex hull is the continuous image of a compact set of simplex weights and tuples of contact points, so it is compact (IsCompact.image).",
+    "Suppose id/n is not in that convex hull. Separation (geometric_hahn_banach_point_closed) in the space of symmetric operators gives a symmetric H, normalised to trace 0, with ⟨Hu,u⟩ > 0 for every contact point u.",
+    "For small δ > 0 the ellipsoid {x : ⟨(I+δH)x, x⟩ ≤ 1} misses the contact points, stays inside K by compactness of the frontier, and a slight dilate still lies in K.",
+    "Its volume is V_n/∏√μ_j with μ_j the eigenvalues of I+δH; Σμ_j = n, so the AM–GM inequality (Real.geom_mean_le_arith_mean_weighted) gives ∏μ_j ≤ 1 and the dilate has volume larger than V_n, contradicting maximality.",
+    "Hence id/n is a convex combination of maps u⊗u, which is the decomposition with Σc_i = n."
+   ],
+   "acceptance": [
+    "K = [−1,1]^n: u_i = e_i, c_i = 1 (m = n), or ±e_i with weights 1/2.",
+    "Trace check: Σc_i = n in every instance."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/maximal-inscribed-ellipsoid",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/central-ellipsoid",
+    "mathlib:geometric_hahn_banach_point_closed",
+    "mathlib:convexHull_eq_union",
+    "mathlib:IsCompact.image",
+    "mathlib:Real.geom_mean_le_arith_mean_weighted"
+   ],
+   "sources": [
+    {
+     "sourceId": "Ball1997",
+     "locator": "Lecture 3, Theorem 3.1, pp.13–14; proof of the harder direction in the symmetric case, pp.17–19",
+     "match": "States that B̄ is the maximal ellipsoid iff there are contact points with weights decomposing the identity (and summing to zero in the nonsymmetric case), and proves the needed direction by separation and the AM–GM inequality, as in the proof steps."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/Ellipsoid",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_john_decomposition"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/john-ellipsoid",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "John's ellipsoid theorem",
+   "kind": "theorem",
+   "statement": "Let K be a centrally symmetric convex body with 0 in its interior in a real inner-product space E of dimension n. There is an invertible linear T such that E(T) ⊆ K ⊆ √n·E(T); any central ellipsoid of maximal volume in K has this property.",
+   "hypotheses": [
+    "K : ConvexBody E, symmetric, 0 ∈ interior K; n ≥ 0 (for n = 0 both sides are {0})."
+   ],
+   "proofSteps": [
+    "Take T maximal (maximal-inscribed-ellipsoid) and replace K by K' = T^{-1}(K), whose maximal central ellipsoid is B̄.",
+    "For each contact point u_i of john-decomposition the tangent hyperplane {⟨x,u_i⟩ = 1} supports K': if x ∈ K' had ⟨x,u_i⟩ > 1, the convex hull of B̄ and x would contain u_i in its interior, contradicting u_i ∈ frontier K'. By symmetry |⟨x,u_i⟩| ≤ 1 on K'.",
+    "For x ∈ K', ‖x‖² = Σ c_i⟨x,u_i⟩² ≤ Σ c_i = n, so K' ⊆ √n·B̄, i.e. K ⊆ √n·E(T)."
+   ],
+   "acceptance": [
+    "K = [−1,1]^n: E = B̄ and the corner (1,…,1) has norm √n, so √n is sharp.",
+    "K the cross-polytope {Σ|x_i| ≤ 1}: E = n^{−1/2}B̄ and K ⊆ B̄ = √n·E, sharp at the vertices.",
+    "n = 1: K = [−a,a] = E(a), factor 1 ≤ √1."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/maximal-inscribed-ellipsoid",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/john-decomposition",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/central-ellipsoid"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Theorem 2.14, p.28",
+     "match": "States that every central symmetric convex body C has a central ellipsoid E with E ⊆ C ⊆ √n E, referring to Schmidt's notes for the proof."
+    },
+    {
+     "sourceId": "Ball1997",
+     "locator": "Lecture 3, p.16",
+     "match": "Deduces K ⊆ √n E for symmetric K from John's decomposition by the supporting-hyperplane argument used in the proof steps."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/Ellipsoid",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_ellipsoid_subset_subset_sqrt_smul"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "John's ellipsoid theorem"
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/john-weak-minkowski-second",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Minkowski's second theorem with John's constant",
+   "kind": "theorem",
+   "statement": "Let L be a discrete full lattice and K a centrally symmetric convex body with 0 in its interior in an n-dimensional real inner-product space with canonical volume. Then (∏_i λ_i(L,K))·vol(K) ≤ c(n)·covol(L) with c(n) = n^{n/2}·(4/3)^{n(n−1)/4}·V_n, V_n = π^{n/2}/Γ(n/2+1).",
+   "hypotheses": [
+    "L discrete and full; K symmetric with 0 in its interior."
+   ],
+   "proofSteps": [
+    "Take E = E(T) ⊆ K ⊆ √n·E from john-ellipsoid.",
+    "E ⊆ K gives λ_i(L,K) ≤ λ_i(L,E) (successive-minimum-antitone-body).",
+    "hermite-minima-product (b) bounds ∏λ_i(L,E)·vol(E) by (4/3)^{n(n−1)/4} V_n covol(L).",
+    "vol(K) ≤ vol(√n E) = n^{n/2} vol(E) (MeasureTheory.Measure.addHaar_smul); combine."
+   ],
+   "acceptance": [
+    "n = 1: c(1) = 2, the sharp constant of minkowski-second-upper.",
+    "n = 2: c(2) = 2·(4/3)^{1/2}·π ≈ 7.26 > 4 = 2²: the statement is weaker than the sharp theorem, which it does not replace."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/john-ellipsoid",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/hermite-minima-product",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-antitone-body",
+    "mathlib:MeasureTheory.Measure.addHaar_smul"
+   ],
+   "sources": [
+    {
+     "sourceId": "EvertseGeometry",
+     "locator": "§2.3, Corollary 2.15, p.28",
+     "match": "States the weak form λ_1⋯λ_n ≤ c(n) d(L)/vol(C) of Minkowski's second theorem as a consequence of Theorem 2.14 and Corollary 2.13; the constant here is the one that argument produces."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/Ellipsoid",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "prod_successiveMin_mul_volume_le_john"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Evaluation polytopes of polynomials",
+   "kind": "definition",
+   "statement": "Fix m ≥ 0, pairwise distinct reals α_0,…,α_m and positive reals v_0,…,v_m. Identify a real polynomial P(z) = a_0 + a_1 z + ⋯ + a_m z^m of degree at most m with its coefficient vector a ∈ R^{m+1}, carried as EuclideanSpace R (Fin (m+1)) so that the standard basis is orthonormal and the volume is Lebesgue measure. The evaluation polytope is K_{α,v} = {a : v_k·|P_a(α_k)| ≤ 1 for k = 0,…,m}, a centrally symmetric convex body with 0 in its interior; it is the preimage under the Vandermonde matrix V = (α_k^j)_{k,j} of the box ∏_k [−1/v_k, 1/v_k]. The integer polynomials of degree at most m form the standard lattice Z^{m+1} of covolume 1, and the successive minima of K_{α,v} with respect to it are the minima of the inherited node successive-minimum.",
+   "hypotheses": [
+    "m ≥ 0; α : Fin (m+1) → R injective (pairwise distinct nodes); v : Fin (m+1) → R with every v_k > 0.",
+    "Coefficients are indexed from the constant term; the identification with polynomials is Polynomial.degreeLTEquiv."
+   ],
+   "proofSteps": [
+    "Write K as the preimage of the compact convex box under the linear map V; V is invertible because det V = ∏_{i<j}(α_j − α_i) ≠ 0 (Matrix.det_vandermonde, Matrix.det_vandermonde_ne_zero_iff), so K is compact, convex, symmetric and contains a neighbourhood of 0.",
+    "The gauge of K at a is max_k v_k|P_a(α_k)|, because the box's gauge is the weighted sup-norm and gauges pull back along linear isomorphisms (gauge-linear-equiv).",
+    "The integer lattice is the Z-span of the standard basis; its covolume is 1 (ZLattice.covolume_eq_det)."
+   ],
+   "acceptance": [
+    "m = 0: K = [−1/v_0, 1/v_0] and λ_0 = v_0.",
+    "m = 1, α = (0,1), v = (1,1): K = {|a_0| ≤ 1, |a_0 + a_1| ≤ 1}, of area 4.",
+    "With repeated nodes the set is unbounded, so injectivity of α is required."
+   ],
+   "prerequisites": [
+    "mathlib:Matrix.vandermonde",
+    "mathlib:Matrix.det_vandermonde",
+    "mathlib:Matrix.det_vandermonde_ne_zero_iff",
+    "mathlib:Polynomial.degreeLTEquiv",
+    "mathlib:ConvexBody",
+    "mathlib:ZLattice.covolume_eq_det",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/gauge-linear-equiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Proposition 3.4 (statement), p.14, and its proof, pp.14–15 (arXiv:2111.12660v2)",
+     "match": "Defines the set K of real polynomials of degree at most m with v_i|P(α_i)| ≤ 1, regards it as a centrally symmetric convex body in coefficient space, and writes it as the preimage of a box under the Vandermonde matrix."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/EvaluationPolytope",
+    "namespace": "TauCeti.GeometryOfNumbersPlan"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Smith, Proposition 3.4, pp.14–15",
+     "how": "the minima of K with respect to the integer polynomials are bounded through Minkowski's second theorem and the Vandermonde volume"
+    },
+    {
+     "where": "Smith, Proposition 3.5, pp.15–16",
+     "how": "applied with v_i = |R(α_i)| w(α_i)^n at nodes maximising an energy integrand, giving lower bounds for products of weighted sup-norms of independent integer polynomials"
+    },
+    {
+     "where": "Smith, Proposition 3.6, pp.16–17",
+     "how": "applied at the roots of the approximating polynomial to produce independent integer polynomials of small weighted norm"
+    },
+    {
+     "where": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5 (norm-product-lower, norm-product-upper, gcd-norm-bound)",
+     "how": "imports the volume formula and the two product bounds (request R1 of that packet)"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope",
+     "role": "constructor",
+     "statement": "evaluationPolytope α v hα hv : ConvexBody (EuclideanSpace R (Fin (m+1)))."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.mem_evaluationPolytope_iff",
+     "role": "characterisation",
+     "statement": "a ∈ evaluationPolytope α v ↔ ∀ k, v k * |∑ j, a j * α k ^ (j : ℕ)| ≤ 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.mem_evaluationPolytope_iff_eval",
+     "role": "equivalence",
+     "statement": "a ∈ evaluationPolytope α v ↔ ∀ k, v k * |(degreeLTEquiv.symm a).eval (α k)| ≤ 1, for the polynomial with coefficient vector a."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_eq_preimage",
+     "role": "characterisation",
+     "statement": "The carrier is the preimage of the box ∏_k [−1/v_k, 1/v_k] under the Vandermonde matrix of α acting on coefficient vectors."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.gauge_evaluationPolytope",
+     "role": "simp",
+     "statement": "gauge (evaluationPolytope α v) a = max_k v_k·|P_a(α_k)|."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_neg_mem",
+     "role": "structure",
+     "statement": "a ∈ K → −a ∈ K."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.zero_mem_interior_evaluationPolytope",
+     "role": "structure",
+     "statement": "0 ∈ interior K."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_smul",
+     "role": "relation",
+     "statement": "For c > 0, c • evaluationPolytope α v = evaluationPolytope α (v/c)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_antitone",
+     "role": "relation",
+     "statement": "If v ≤ v' pointwise then evaluationPolytope α v' ⊆ evaluationPolytope α v."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.intCoeffLattice",
+     "role": "data",
+     "statement": "The Z-span of the standard basis of EuclideanSpace R (Fin (m+1)): the integer polynomials of degree ≤ m; discrete, full, covolume 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.volume_evaluationPolytope",
+     "role": "characterisation",
+     "statement": "volume K = 2^{m+1}/(∏_k v_k·∏_{i<j}|α_i − α_j|); see evaluation-polytope-volume."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_m_zero",
+     "kind": "degenerate",
+     "statement": "For m = 0 the carrier is the interval [−1/v_0, 1/v_0] and the only minimum with respect to Z is v_0."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_area_example",
+     "kind": "computation",
+     "statement": "For m = 1, α = (0,1), v = (1,1): volume K = 4 and gauge K (1,0) = gauge K (0,1) = 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_gauge_one",
+     "kind": "computation",
+     "statement": "The constant polynomial 1 has gauge max_k v_k."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_vandermonde_compat",
+     "kind": "compatibility",
+     "statement": "The carrier equals (Matrix.vandermonde α).mulVec ⁻¹' {y | ∀ k, |y k| ≤ 1/v k}."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.evaluationPolytope_repeated_node",
+     "kind": "non-example",
+     "statement": "For m = 1 and α = (0,0) the defining set {|a_0| ≤ 1/v_0, |a_0| ≤ 1/v_1} is unbounded in a_1, so no convex body exists without injectivity of α."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope-volume",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Vandermonde volume of an evaluation polytope",
+   "kind": "lemma",
+   "statement": "With m, α, v as in evaluation-polytope, vol(K_{α,v}) = 2^{m+1}/(∏_{k=0}^m v_k · ∏_{0≤i<j≤m} |α_i − α_j|).",
+   "hypotheses": [
+    "α injective; every v_k > 0; volume is Lebesgue measure on EuclideanSpace R (Fin (m+1))."
+   ],
+   "proofSteps": [
+    "K is the preimage of the box B = ∏_k [−1/v_k, 1/v_k] under the Vandermonde matrix V.",
+    "MeasureTheory.Measure.addHaar_preimage_linearMap gives vol(K) = |det V|^{-1}·vol(B), transported from Fin (m+1) → R by PiLp.volume_preserving_ofLp.",
+    "vol(B) = ∏_k 2/v_k (Real.volume_Icc_pi) and |det V| = ∏_{i<j}|α_j − α_i| (Matrix.det_vandermonde)."
+   ],
+   "acceptance": [
+    "m = 0: vol = 2/v_0.",
+    "m = 1, α = (0,1), v = (1,1): vol = 4/(1·1·1) = 4.",
+    "m = 2, α = (−1,0,1), v = (1,1,1): vol = 8/(1·1·2) = 4."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope",
+    "mathlib:MeasureTheory.Measure.addHaar_preimage_linearMap",
+    "mathlib:Real.volume_Icc_pi",
+    "mathlib:Matrix.det_vandermonde",
+    "mathlib:PiLp.volume_preserving_ofLp"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Proof of Proposition 3.4, pp.14–15",
+     "match": "Computes the volume of K as |det V|^{-1} times the volume 2^{m+1}∏v_i^{-1} of the box, with the Vandermonde determinant ∏_{i<j}(α_j − α_i)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/EvaluationPolytope",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "volume_evaluationPolytope"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope-minima",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Smith's bound for the minima of an evaluation polytope",
+   "kind": "theorem",
+   "statement": "With m, α, v as in evaluation-polytope, let λ_0 ≤ … ≤ λ_m be the successive minima of K_{α,v} with respect to the integer polynomials of degree at most m: λ_i is the least nonnegative real such that λ_i·K contains i+1 linearly independent integer polynomials. Put D = ∏_{k=0}^m v_k·∏_{0≤i<j≤m}|α_i − α_j|. Then D/(m+1)! ≤ λ_0·λ_1⋯λ_m ≤ D.",
+   "hypotheses": [
+    "α injective, every v_k > 0; the minima are nonnegative (Smith's 'least real number' is read as least nonnegative real, sourceIssue E1 of this packet)."
+   ],
+   "proofSteps": [
+    "K is a symmetric convex body with 0 in its interior and the integer lattice has covolume 1 (evaluation-polytope).",
+    "minkowski-second-lower and minkowski-second-upper in dimension m+1 give (2^{m+1}/(m+1)!) ≤ (∏λ_i)·vol(K) ≤ 2^{m+1}.",
+    "Substitute vol(K) = 2^{m+1}/D (evaluation-polytope-volume) and divide."
+   ],
+   "acceptance": [
+    "m = 0: λ_0 = v_0 = D, both bounds equalities.",
+    "α = (0,1), v = (1,1): D = 1 and the integer polynomials 1 and z both have gauge 1, so λ_0 = λ_1 = 1 and the upper bound is attained.",
+    "α = (−1,1), v = (1,1): D = 2, K = {|a_0 − a_1| ≤ 1, |a_0 + a_1| ≤ 1}; again λ_0 = λ_1 = 1, so the lower bound D/2! = 1 is attained."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope-volume",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-lower",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-second-upper"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Proposition 3.4, p.14, with proof pp.14–15 (arXiv:2111.12660v2)",
+     "match": "States D/(m+1)! ≤ λ_0⋯λ_m ≤ D for the evaluation polytope and proves it from Minkowski's second theorem and the Vandermonde volume."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/EvaluationPolytope",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "evaluationPolytope_successiveMin_prod_bounds"
+   },
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Smith's evaluation-polytope bound"
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-polynomials",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Cofactors of a squarefree integer polynomial",
+   "kind": "construction",
+   "statement": "Let Q = a_n z^n + ⋯ + a_0 ∈ Z[z] be squarefree of degree n ≥ 1 with leading coefficient c = a_n ≠ 0, and let α_1,…,α_n be its pairwise distinct complex roots, indexed by Fin n. The i-th cofactor is Q_i = Q/(z − α_i) = c·∏_{k≠i}(z − α_k) ∈ C[z], computed as the exact division of Q (mapped to C[z]) by the monic X − α_i. Then deg Q_i = n − 1, (z − α_i)Q_i = Q, Q_i(α_k) = 0 for k ≠ i and Q_i(α_i) = Q'(α_i) ≠ 0; the coefficients are coeff_j(Q_i) = Σ_{k=j+1}^n a_k α_i^{k−j−1}; the family (Q_i) is a C-basis of the polynomials of degree < n, with P = Σ_i P(α_i)/Q'(α_i)·Q_i; every coefficient of every Q_i is an algebraic integer; and a field automorphism σ of C with σ(α_i) = α_{π(i)} maps Q_i to Q_{π(i)} coefficientwise.",
+   "hypotheses": [
+    "Q ∈ Z[z], squarefree (so its complex roots are simple), natDegree Q = n ≥ 1, leading coefficient c ≠ 0 of either sign.",
+    "The roots are enumerated by Fin n; nothing depends on the enumeration."
+   ],
+   "proofSteps": [
+    "Exactness of the division: α_i is a root, so (X − α_i)·(Q /ₘ (X − α_i)) = Q (Polynomial.mul_divByMonic_eq_iff_isRoot); the coefficient formula is Polynomial.coeff_divByMonic_X_sub_C.",
+    "Evaluation: Q_i = c∏_{k≠i}(z−α_k) vanishes at the other roots, and differentiating (z − α_i)Q_i = Q at α_i gives Q_i(α_i) = Q'(α_i), nonzero since the root is simple (Polynomial.derivative).",
+    "Basis: the evaluation matrix (Q_i(α_k)) is diagonal with nonzero entries, so the n polynomials of degree < n are independent; Lagrange interpolation gives the expansion (Lagrange.basis, Lagrange.interpolate).",
+    "Integrality (Smith, Gauss's lemma): in the ring of integers of the splitting field, at every prime the content of Q is the content of z − α_i times that of Q_i; the content of z − α_i is generated by 1 and α_i and so contains 1, while that of Q is integral; hence every coefficient of Q_i has nonnegative valuation everywhere and is an algebraic integer.",
+    "Galois action: σ fixes the coefficients of Q and permutes its roots, and the division is compatible with σ (Polynomial.map_divByMonic)."
+   ],
+   "acceptance": [
+    "Q = z² − 2: cofactors z + √2 and z − √2.",
+    "Q = 2z² − 1: cofactors 2z + √2 and 2z − √2, whose coefficients are algebraic integers although the roots ±1/√2 are not.",
+    "n = 1, Q = cz − a: the single cofactor is the constant c."
+   ],
+   "prerequisites": [
+    "mathlib:Polynomial.divByMonic",
+    "mathlib:Polynomial.mul_divByMonic_eq_iff_isRoot",
+    "mathlib:Polynomial.coeff_divByMonic_X_sub_C",
+    "mathlib:Polynomial.map_divByMonic",
+    "mathlib:Polynomial.derivative",
+    "mathlib:Squarefree",
+    "mathlib:Lagrange.basis",
+    "mathlib:Lagrange.interpolate",
+    "mathlib:IsIntegral",
+    "mathlib:Polynomial.degreeLTEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Theorem 3.2 (statement) pp.12–13 and its proof p.13 (arXiv:2111.12660v2)",
+     "match": "Defines Q_i = Q/(z − α_i) for a squarefree integer polynomial with distinct roots, proves that their coefficients are algebraic integers by Gauss's lemma over the discrete valuation rings of the ring of integers of Q(α_1,…,α_n), and notes that an automorphism taking α_i to α_k takes Q_i to Q_k; the cofactors are linearly independent."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CofactorCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Smith, Theorem 3.2 and its proof, pp.12–13",
+     "how": "the cofactors span the polynomials of degree < n and integer functionals detect them (cofactor-integer-functional)"
+    },
+    {
+     "where": "Smith, Corollary 3.3, pp.13–14, and Lemma 3.8, pp.17–18",
+     "how": "approximation of a real polynomial by an integer one with error Σβ_iQ_i, whose weighted norm is controlled by that of Q"
+    },
+    {
+     "where": "smith-cofactor-adjustment and real-cofactor-basis (this packet)",
+     "how": "the realified family and the covering argument"
+    },
+    {
+     "where": "LogarithmicPotentialTheoryAndAlgebraicIntegers:LP.5/integer-approximation",
+     "how": "imports the cofactor adjustment (request R2 of that packet)"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor",
+     "role": "constructor",
+     "statement": "cofactor Q α i = (Q.map (Int.castRingHom C)) /ₘ (X − C (α i))."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.X_sub_C_mul_cofactor",
+     "role": "characterisation",
+     "statement": "(X − C (α i)) * cofactor Q α i = Q.map (Int.castRingHom C)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.natDegree_cofactor",
+     "role": "simp",
+     "statement": "natDegree (cofactor Q α i) = n − 1 and its leading coefficient is c."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.coeff_cofactor",
+     "role": "characterisation",
+     "statement": "(cofactor Q α i).coeff j = Σ_{k ∈ Icc (j+1) n} α_i^{k−(j+1)}·a_k."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_eval_self",
+     "role": "simp",
+     "statement": "(cofactor Q α i).eval (α i) = (derivative Q).eval (α i), which is nonzero."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_eval_of_ne",
+     "role": "simp",
+     "statement": "For k ≠ i, (cofactor Q α i).eval (α k) = 0."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactorBasis",
+     "role": "structure",
+     "statement": "The cofactors form a basis of degreeLT C n, and P = Σ_i P(α_i)/Q'(α_i) · cofactor Q α i for every P of degree < n."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.isIntegral_coeff_cofactor",
+     "role": "other",
+     "statement": "For all i and j, IsIntegral Z ((cofactor Q α i).coeff j)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_map_ringEquiv",
+     "role": "functoriality",
+     "statement": "If σ is a ring automorphism of C sending α_i to α_{π i} for every i, then (cofactor Q α i).map σ = cofactor Q α (π i); the same holds for automorphisms of the splitting field."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_conj",
+     "role": "compatibility",
+     "statement": "If conj (α i) = α k then (cofactor Q α i).map conj = cofactor Q α k; for a real root the cofactor has real coefficients."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_sq_sub_two",
+     "kind": "computation",
+     "statement": "For Q = X² − 2 with roots ±√2, the cofactors are X + √2 and X − √2."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_two_sq_sub_one_integral",
+     "kind": "computation",
+     "statement": "For Q = 2X² − 1 the cofactor at 1/√2 is 2X + √2: its coefficients 2 and √2 are integral over Z although the root 1/√2 is not."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_degree_one",
+     "kind": "degenerate",
+     "statement": "For Q = cX − a (c ≠ 0) the only cofactor is the constant c."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.cofactor_not_squarefree",
+     "kind": "non-example",
+     "statement": "For Q = X², dividing by X at the double root 0 gives X twice; the two 'cofactors' are not a basis of the polynomials of degree < 2, which is why squarefreeness is assumed."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-integer-functional",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "Integer functionals detect a cofactor",
+   "kind": "theorem",
+   "statement": "With Q, α, Q_i as in cofactor-polynomials, let d = (d_0,…,d_{n−1}) ∈ Z^n be nonzero and s_i = Σ_{j<n} d_j·coeff_j(Q_i). Then the product of the nonzero s_i is a nonzero rational integer; in particular max_i |s_i| ≥ 1. Equivalently, in coefficient coordinates the cross-polytope spanned by ±Q_1,…,±Q_n has polar body containing no nonzero integer functional in its interior.",
+   "hypotheses": [
+    "Q squarefree in Z[z] of degree n ≥ 1; d ∈ Z^n, d ≠ 0."
+   ],
+   "proofSteps": [
+    "Each s_i is an algebraic integer (isIntegral_coeff_cofactor and closure of integral elements under sums and products).",
+    "An automorphism of the splitting field permutes the cofactors (cofactor_map_ringEquiv), hence permutes the s_i; so F(x) = ∏_i (x − s_i) has coefficients fixed by every automorphism, which are rational, and integral, hence in Z.",
+    "Not all s_i vanish: P ↦ Σ_j d_j coeff_j(P) is a nonzero functional on polynomials of degree < n and the Q_i form a basis (cofactorBasis).",
+    "Write F = x^k G with G(0) ≠ 0; G(0) = ±∏_{s_i≠0} s_i is a nonzero integer, so |∏_{s_i≠0} s_i| ≥ 1 and some |s_i| ≥ 1."
+   ],
+   "acceptance": [
+    "Q = z² − 2, d = (0,1): s = (1,1).",
+    "Q = z² − 2, d = (1,0): s = (√2, −√2), product −2.",
+    "Q = 2z² − 1, d = (1,0): s = (√2, −√2) again; the conclusion uses integrality of the cofactor coefficients, not of the roots."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-polynomials",
+    "mathlib:IsIntegral.add",
+    "mathlib:IsIntegral.mul",
+    "mathlib:IsIntegral.sum",
+    "mathlib:IsIntegrallyClosed",
+    "mathlib:Polynomial.Gal"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Proof of Theorem 3.2, p.13",
+     "match": "Shows that for rational integers d_j the numbers Σ_j d_j b_ij, i = 1,…,n, are the roots of a monic integer polynomial, so if one is nonzero some has absolute value at least one, and that they cannot all vanish because the Q_i are linearly independent."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CofactorCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_one_le_norm_cofactor_functional"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.1/real-cofactor-basis",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+   ],
+   "title": "The realified cofactor basis",
+   "kind": "construction",
+   "statement": "With Q, α, Q_i as in cofactor-polynomials, let τ be the involution of Fin n with α_{τ(i)} = conj(α_i). Define real polynomials Q°_i of degree < n by Q°_i = Q_i if α_i is real, Q°_i = √2·Re(Q_i) if i < τ(i), and Q°_i = −√2·Im(Q_{τ(i)}) if i > τ(i) (real and imaginary parts taken coefficientwise; equivalently (Q_i + Q_{τ i})/√2 and √−1(Q_{τ i} − Q_i)/√2 up to the labelling). Then (a) (Q°_i) is an R-basis of the real polynomials of degree < n; (b) every nonzero d ∈ Z^n satisfies max_i |Σ_j d_j coeff_j(Q°_i)| ≥ 1; (c) for real γ_1,…,γ_n, Σ_i γ_iQ°_i = Σ_i β_iQ_i for complex β with Σ|β_i| ≤ √2·Σ|γ_i|.",
+   "hypotheses": [
+    "Q squarefree in Z[z] of degree n ≥ 1; real coefficients make τ well defined (cofactor_conj)."
+   ],
+   "proofSteps": [
+    "Reality: for a real root Q_i has real coefficients; for a conjugate pair Q_{τ i} = conj Q_i, so √2 Re and √2 Im are real combinations of Q_i, Q_{τ i}.",
+    "(a) The change from (Q_i) to (Q°_i) is invertible over C, block diagonal with 2×2 blocks of determinant ±i, so (Q°_i) is a C-basis of complex polynomials of degree < n consisting of real polynomials, hence an R-basis of the real ones.",
+    "(b) For a real root d(Q°_i) = s_i. For a pair, d(Q°_i) = √2 Re s_i and d(Q°_{τ i}) = −√2 Im s_i, and max(√2|Re z|, √2|Im z|) ≥ |z|; apply cofactor-integer-functional.",
+    "(c) γ_a√2 Re Q_i − γ_b√2 Im Q_i = ((γ_a + √−1γ_b)/√2)Q_i + ((γ_a − √−1γ_b)/√2)Q_{τ i}, and the two coefficients have total modulus √2·|γ_a + √−1γ_b| ≤ √2(|γ_a| + |γ_b|)."
+   ],
+   "acceptance": [
+    "Totally real Q: Q°_i = Q_i.",
+    "Q = z² + 1: Q° = (√2·z, −√2) in some order, and every nonzero (d_0,d_1) gives max(√2|d_1|, √2|d_0|) ≥ √2.",
+    "Q = z² − z + 1, d = (1,0): Re and Im of d(Q_i) are 1/2 and ±√3/2, both below 1; the √2 normalisation is needed for (b)."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-polynomials",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-integer-functional",
+    "mathlib:Polynomial.degreeLTEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Proof of Theorem 3.2, p.13",
+     "match": "Introduces the list Q°_1,…,Q°_n consisting of Q_i for real roots and (Q_i + conj Q_i)/√2, √−1(Q_i − conj Q_i)/√2 for conjugate pairs, and observes that for every nonzero integer vector some Q°_i has functional value at least one in absolute value."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/CofactorCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "Smith, proof of Theorem 3.2, p.13",
+     "how": "the real cross-polytope spanned by ±Q°_i is the body whose translates must meet the integer polynomials"
+    },
+    {
+     "where": "smith-cofactor-adjustment (this packet)",
+     "how": "coordinates for the ℓ¹ covering argument and conversion back to complex β"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor",
+     "role": "constructor",
+     "statement": "realCofactor Q α τ i : R[X] of degree < n, defined casewise as above."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_of_isReal",
+     "role": "simp",
+     "statement": "If α i is real then realCofactor Q α τ i maps to cofactor Q α i in C[X]."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactorBasis",
+     "role": "structure",
+     "statement": "The family realCofactor Q α τ is a basis of degreeLT R n."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_functional",
+     "role": "characterisation",
+     "statement": "For d : Fin n → Z, d ≠ 0, there is i with 1 ≤ |Σ_j d_j (realCofactor Q α τ i).coeff j|."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_coord_transfer",
+     "role": "relation",
+     "statement": "For γ : Fin n → R there is β : Fin n → C with Σ_i γ_i·realCofactor_i = Σ_i β_i·cofactor_i in C[X] and Σ|β_i| ≤ √2·Σ|γ_i|."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_totallyReal",
+     "role": "compatibility",
+     "statement": "If every root is real, realCofactor Q α τ = cofactor Q α (after mapping to C[X])."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_X_sq_add_one",
+     "kind": "computation",
+     "statement": "For Q = X² + 1 with roots i, −i, the realified family is (√2·X, −√2) up to order."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_totally_real_example",
+     "kind": "degenerate",
+     "statement": "For Q = X² − 2 the realified family equals the cofactor family X + √2, X − √2."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_functional_example",
+     "kind": "characterisation",
+     "statement": "For Q = X² + 1 and d = (1,1), the values are ±√2, of absolute value ≥ 1."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.realCofactor_needs_sqrt_two",
+     "kind": "non-example",
+     "statement": "For Q = X² − X + 1 and d = (1,0) the unnormalised Re and Im of d(Q_i) are 1/2 and ±√3/2, both < 1; only with the factor √2 does some value reach absolute value ≥ 1."
+    }
+   ]
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-directional-tail",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Directional tail of a shifted lattice Gaussian",
+   "kind": "lemma",
+   "statement": "Let Λ be a discrete full lattice in a finite-dimensional real inner-product space E, c ∈ E, u a unit vector and r ≥ 0. With ρ(x) = exp(−π‖x‖²) (the lattice Gaussian sum of GN.4/lattice-gaussian-sum at parameter 1), Σ_{x ∈ Λ+c, |⟨x,u⟩| ≥ r} ρ(x) ≤ 2·e^{−πr²}·Σ_{x∈Λ} ρ(x).",
+   "hypotheses": [
+    "Λ discrete and full; ‖u‖ = 1; r ≥ 0; all sums are the absolutely convergent lattice Gaussian sums of GN.4."
+   ],
+   "proofSteps": [
+    "For real t, ρ(x)·e^{2πt⟨x,u⟩} = e^{πt²}·ρ(x − tu) (completing the square).",
+    "Summing over Λ + c and using gaussian-shift-maximum: Σ_{x∈Λ+c} ρ(x)e^{2πt⟨x,u⟩} = e^{πt²}ρ(Λ + c − tu) ≤ e^{πt²}ρ(Λ).",
+    "With t = r, the terms with ⟨x,u⟩ ≥ r have weight at least e^{2πr²}, so their ρ-mass is at most e^{−πr²}ρ(Λ); with t = −r the same for ⟨x,u⟩ ≤ −r; add."
+   ],
+   "acceptance": [
+    "E = R, Λ = Z, c = 0, u = 1, r = 0: the bound reads ρ(Z) ≤ 2ρ(Z).",
+    "For large r the right side decays like e^{−πr²}, matching a single Gaussian coordinate."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/lattice-gaussian-sum",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-lattice-summable",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-shift-maximum"
+   ],
+   "sources": [
+    {
+     "sourceId": "Peikert2007",
+     "locator": "Lemma 5.3 (tail inequality) with d = 1, and Claims 5.4–5.5, pp.15–16 (ECCC TR06-148 rev. 1)",
+     "match": "Bounds the Gaussian mass of a shifted lattice outside a slab of width r around the centre by 2^d e^{−πr²/d} times the mass of the lattice, by a cosh tilt, completing the square and the shift bound ρ_c(Λ) ≤ ρ(Λ) of its Lemma 2.7; d = 1 is the statement here."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/GaussianCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "gaussian_directional_tail"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-coordinate-tails",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Sup-norm and ℓ¹ tails of a shifted lattice Gaussian",
+   "kind": "lemma",
+   "statement": "Let Λ be a discrete full lattice in a real inner-product space E of dimension n with orthonormal basis e, c ∈ E, and write ‖x‖_{∞} = max_i |⟨x,e_i⟩| and ‖x‖_{1} = Σ_i |⟨x,e_i⟩|. With ρ as in gaussian-directional-tail: (a) for r ≥ 0, Σ_{x∈Λ+c, ‖x‖_∞ ≥ r} ρ(x) ≤ 2n·e^{−πr²}·ρ(Λ); (b) Σ_{x∈Λ+c} ρ(x)·‖x‖_1 ≤ n·ρ(Λ), hence for r > 0, Σ_{x∈Λ+c, ‖x‖_1 ≥ r} ρ(x) ≤ (n/r)·ρ(Λ).",
+   "hypotheses": [
+    "Λ discrete and full; e orthonormal; n = dim E ≥ 0."
+   ],
+   "proofSteps": [
+    "(a) {‖x‖_∞ ≥ r} is the union over i of {|⟨x,e_i⟩| ≥ r}; apply gaussian-directional-tail with u = e_i and sum over i.",
+    "(b) For each i, Σ_x ρ(x)|⟨x,e_i⟩| = ∫_0^∞ Σ_x ρ(x)·1[|⟨x,e_i⟩| ≥ t] dt (Tonelli) ≤ ∫_0^∞ 2e^{−πt²}dt·ρ(Λ) = ρ(Λ) by gaussian-directional-tail and integral_gaussian; sum over i.",
+    "The tail bound in (b) is Markov's inequality applied to the weights ρ(x)."
+   ],
+   "acceptance": [
+    "n = 1, Λ = Z: (a) and (b) reduce to gaussian-directional-tail and to Σ_k |k|e^{−πk²} ≤ Σ_k e^{−πk²}.",
+    "(b) at r = 3n gives mass at most ρ(Λ)/3, the input of l1-covering-transference."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-directional-tail",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/lattice-gaussian-sum",
+    "mathlib:integral_gaussian"
+   ],
+   "sources": [
+    {
+     "sourceId": "Peikert2007",
+     "locator": "Lemmas 3.1 (case p = 1) and 3.3, p.8, with the moment computation in the proof of Theorem 5.1, pp.14–15 (ECCC TR06-148 rev. 1)",
+     "match": "Lemma 3.3 bounds the mass of Λ + v outside r·B_∞ by 2n e^{−πr²}ρ(Λ) and Lemma 3.1 the mass outside r·B_1 by n/r times ρ(Λ), both quoted from Banaszczyk 1995 (Lemmas 2.10, 2.9); the integral formula for moments in the proof of Theorem 5.1 is the layer-cake step used here."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/GaussianCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "gaussian_coordinate_tails"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/l1-covering-transference",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "ℓ¹ covering against the dual sup-norm minimum",
+   "kind": "theorem",
+   "statement": "Let n ≥ 1, E a real inner-product space of dimension n with orthonormal basis e, ‖·‖_1 and ‖·‖_∞ the coordinate norms of gaussian-coordinate-tails, Λ a discrete full lattice and Λ* = {y : ⟨y,x⟩ ∈ Z for all x ∈ Λ} its inner dual. If m > 0 and every nonzero y ∈ Λ* satisfies ‖y‖_∞ ≥ m, then every t ∈ E has some v ∈ Λ with ‖t − v‖_1 < (3n/m)·√(log(8n)/π). In particular the ℓ¹ covering radius μ_1(Λ) and the dual sup-norm minimum λ_1^∞(Λ*) satisfy μ_1(Λ)·λ_1^∞(Λ*) ≤ 3n√(log(8n)/π) ≤ 6n·log(2n).",
+   "hypotheses": [
+    "n ≥ 1; Λ discrete and full; Λ* is LinearMap.BilinForm.dualSubmodule for the inner product, a discrete full lattice by GN.0/covolume-dual; m > 0."
+   ],
+   "proofSteps": [
+    "Rescale Λ by m to reduce to m = 1.",
+    "Put s = √(log(8n)/π) and M = s^{-1}Λ, whose dual is sΛ*; every nonzero vector of sΛ* has ‖·‖_∞ ≥ s.",
+    "gaussian-coordinate-tails (a) for the lattice sΛ* with c = 0 and every r < s, letting r → s: R := ρ(sΛ* ∖ {0}) ≤ 2n e^{−πs²}(1 + R) = (1 + R)/4, so R ≤ 1/3.",
+    "gaussian-poisson-error applied to sΛ*, whose dual is M (dual of the dual, LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip_of_basis): for every u, ρ(M + u) ≥ (2/3)covol(sΛ*) and ρ(M) ≤ (4/3)covol(sΛ*), so ρ(M + u) ≥ ρ(M)/2.",
+    "gaussian-coordinate-tails (b) for M with shift u and r = 3n: the mass of M + u with ‖x‖_1 ≥ 3n is at most ρ(M)/3 < ρ(M + u), so some x ∈ M + u has ‖x‖_1 < 3n.",
+    "With u = −t/s and x = (v − t)/s this is v ∈ Λ with ‖t − v‖_1 < 3ns. Finally √(log(8n)/π) ≤ 2 log(2n) for n ≥ 1."
+   ],
+   "acceptance": [
+    "Λ = Z^n: Λ* = Z^n has sup-norm minimum 1; the true ℓ¹ covering radius is n/2, below the bound 3n√(log(8n)/π).",
+    "n = 1, Λ = aZ: Λ* = a^{-1}Z, product of a/2 and 1/a is 1/2 ≤ 3√(log 8/π) ≈ 2.44.",
+    "The hypothesis is on the dual lattice in the sup-norm and the conclusion on the lattice in the ℓ¹ norm; the two norms are dual to each other."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-coordinate-tails",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-poisson-error",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/lattice-gaussian-sum",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual",
+    "mathlib:LinearMap.BilinForm.dualSubmodule",
+    "mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip_of_basis"
+   ],
+   "sources": [
+    {
+     "sourceId": "Peikert2007",
+     "locator": "Definition 2.5 and Lemma 2.7, p.7; Lemmas 3.1, 3.3, p.8; Lemma 3.5, p.9 (ECCC TR06-148 rev. 1)",
+     "match": "Lemma 3.5 bounds the smoothing parameter by n^{1/p}√(log(2n/ε)/π)/λ_1^p(Λ*), for p = ∞ through the sup-norm tail of Lemma 3.3; Lemma 2.7 says that above the smoothing parameter every shifted lattice carries Gaussian mass comparable to the lattice itself; with the ℓ¹ tail of Lemma 3.1 these give the covering bound, assembled in the proof steps."
+    },
+    {
+     "sourceId": "BLPS1999",
+     "locator": "§1 and §2: Lemma 2.1, Proposition 2.3, Theorem 2.4, Corollary 2.5, pp.2–10 (author copy)",
+     "match": "The general flatness and covering inequality μ(K,L)λ_1(H,L*) ≤ C ℓ(K)ℓ(H) and the bound Cn(1+log n) for polytopes with few vertices; the statement here is the case of the cross-polytope against the cube, proved without the majorizing-measure theorem that the general case uses."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/GaussianCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "exists_mem_sum_abs_inner_lt_of_dual"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.4/smith-cofactor-adjustment",
+   "parentStageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.4",
+   "realises": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+   ],
+   "title": "Smith's cofactor adjustment theorem",
+   "kind": "theorem",
+   "statement": "Let Q ∈ Z[z] be squarefree of degree n ≥ 1 with leading coefficient c ≠ 0, α_1,…,α_n its complex roots and Q_i = Q/(z − α_i). For every real polynomial P of degree at most n − 1 there are complex numbers β_1,…,β_n with Σ_i |β_i| < 3√2·n·√(log(8n)/π) ≤ 9·n·log(2n) such that P − Σ_i β_iQ_i has integer coefficients (and degree at most n − 1).",
+   "hypotheses": [
+    "Q squarefree in Z[z], natDegree n ≥ 1, c ≠ 0 of either sign (Smith states c ≥ 1; negating Q negates every Q_i and changes nothing).",
+    "P ∈ R[z] with natDegree P ≤ n − 1."
+   ],
+   "proofSteps": [
+    "Identify real polynomials of degree < n with EuclideanSpace R (Fin n) by coefficients; let T be the linear isomorphism sending the standard basis to the realified cofactors Q°_i (real-cofactor-basis (a)), and Λ = T^{-1}(Z^n), the integer polynomials in Q°-coordinates.",
+    "The inner dual of Λ is T^*(Z^n): a dual vector is d ∘ T for an integer coefficient functional d, with coordinates d(Q°_i). By real-cofactor-basis (b) every nonzero dual vector has sup-norm at least 1.",
+    "l1-covering-transference with m = 1 and t = T^{-1}(P) gives v ∈ Λ with ‖t − v‖_1 < 3n√(log(8n)/π): P − T(v) = Σ γ_iQ°_i with Σ|γ_i| < 3n√(log(8n)/π) and T(v) an integer polynomial of degree < n.",
+    "real-cofactor-basis (c) rewrites Σγ_iQ°_i = Σβ_iQ_i with Σ|β_i| ≤ √2Σ|γ_i|; 3√2·√(log(8n)/π) ≤ 9 log(2n) for n ≥ 1."
+   ],
+   "acceptance": [
+    "n = 1, Q = cz − a: Q_1 = c and P is a real constant p; β_1 = (p − k)/c with k the nearest integer to p has |β_1| ≤ 1/(2|c|) ≤ 1/2.",
+    "Q = z² − 2, P = z/2: P = (Q_1 + Q_2)/4 with Q_{1,2} = z ± √2, so β = (1/4, 1/4), Σ|β_i| = 1/2 and the integer polynomial is 0.",
+    "The constant 9n log(2n) is uniform in Q: it depends neither on the height nor on the discriminant of Q."
+   ],
+   "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/l1-covering-transference",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/real-cofactor-basis",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-integer-functional",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-polynomials",
+    "mathlib:Polynomial.degreeLTEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "Smith2024",
+     "locator": "Theorem 3.2, pp.12–13, and its proof p.13 (arXiv:2111.12660v2)",
+     "match": "States the existence of β with Σ|β_i| ≤ Cn log 2n making P − Σβ_iQ_i integral, and proves it from the integrality and Galois argument and a flatness bound for the cross-polytope spanned by the realified cofactors; the citation of the simplex case of the flatness theorem needs the step recorded in sourceIssue E2 of this packet, and the covering bound used here replaces it."
+    },
+    {
+     "sourceId": "BLPS1999",
+     "locator": "Corollary 2.5, p.10 (author copy)",
+     "match": "Flatness bound Cn(1 + log n) for simplices, the result Smith cites; its consequence for Smith's body is explained in sourceIssue E2."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/GeometryOfNumbers/GaussianCovering",
+    "namespace": "TauCeti.GeometryOfNumbersPlan",
+    "name": "smith_cofactor_adjustment"
+   },
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+   "status": "planned",
+   "note": "Every target of the GN.1 stage text (Blichfeldt, Minkowski I with boundary conventions, both halves of Minkowski II, ideal-class and unit applications) is planned in the accepted base packet; this follow-up plans the three items it left open: the supplier-convention bridge, Evertse's Hermite and John consequences, and Smith's evaluation-polytope and cofactor results, the last with its covering step attached to GN.4.",
+   "remaining": [
+    "Lemma-level split of hermite-basis (Evertse Lemmas 2.16–2.19) and john-decomposition (Ball pp.17–19) once the roadmap moves to lemma level.",
+    "When Tau Ceti's IntegralLattice.successiveMinimum reaches the pinned commit, restate integral-norm-minima-comparison as an equality with it instead of through its defining condition."
+   ]
+  }
+ ],
+ "gaps": [],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "detail": "Smith's coefficient adjustment (PAPER-SMITH-24/21) and its covering input (routed as PAPER-SMITH-24/68, the BLPS flatness bound) were routed to GN.1. Their proof needs the lattice Gaussian sums, Poisson summation and shift bound that this roadmap plans in GN.4 (§4.4), while GN.4 already consumes GN.1. Planning them under GN.1 would make Layer 1 depend on Layer 4.",
+   "proposal": "Keep the four nodes gaussian-directional-tail, gaussian-coordinate-tails, l1-covering-transference and smith-cofactor-adjustment in GN.4 (§4.4, covering and transference), as this packet does through their parentStageId; the GN.4 follow-up (BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4) cites them and does not plan them again. The evaluation-polytope and cofactor nodes stay in GN.1."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "detail": "Layer GN.1 shows six planets in the base packet (successive minima, attained minima, both halves of Minkowski II, linear forms, ordered-product bound). This follow-up adds three more key results.",
+   "proposal": "Divide GN.1 for the atlas into GN.1a 'Successive minima and Minkowski's theorems' (the base packet's GN.1 nodes and its six planets) and GN.1b 'Bases, ellipsoids and polynomial lattices' (the GN.1 nodes of this packet: successive-minimum-partial-product, integral-norm-minima-comparison, definite-minima-discriminant, basis-from-minima, hermite-basis, hermite-minima-product, central-ellipsoid, maximal-inscribed-ellipsoid, john-decomposition, john-ellipsoid, john-weak-minkowski-second, evaluation-polytope, evaluation-polytope-volume, evaluation-polytope-minima, cofactor-polynomials, cofactor-integer-functional, real-cofactor-basis), with planets Basis from successive minima, Hermite's basis theorem, John's ellipsoid theorem and Smith's evaluation-polytope bound."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "tauceti:TauCetiRoadmap/IntegralLattices",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+    "AdelicAlgebraicGroups",
+    "tauceti:Completed/IntegralLattices"
+   ],
+   "detail": "RT-AREA-algebraicnt-1/1 (confirmed): the roadmap names its suppliers in prose but records none of them as roadmap-level prerequisites, and the suppliers do not list it as a consumer. For GN.1 the relevant supplier is IntegralLattices (TauCetiRoadmap), whose milestone 2F defines the norm-valued successive minima that integral-norm-minima-comparison identifies with this layer's minima.",
+   "proposal": "Add tauceti:TauCetiRoadmap/QuadraticFormInvariants, tauceti:TauCetiRoadmap/GlobalQuadraticForms, AdelicAlgebraicGroups and tauceti:Completed/IntegralLattices (as the base packet proposes) and also tauceti:TauCetiRoadmap/IntegralLattices to this roadmap's prerequisites, with the reciprocal consumer entries; the GN.1-level edge is IntegralLattices Layer 2 (milestones 2E–2F) → GN.1 through integral-norm-minima-comparison and definite-minima-discriminant."
+  }
+ ],
+ "upstreamNotes": [
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/IntegralLattices"
+   ],
+   "note": "Milestone 2F of the IntegralLattices README indexes successive minima from 1 (1 ≤ i ≤ n), while the Tau Ceti implementation on main (IntegralLattice.successiveMinimum) indexes them by Fin (finrank) from 0, the i-th value being the (i+1)-st minimum of the README. The README could say so. Its Minkowski bound ∏λ_i ≤ γ_n^n det L for norm-valued minima is the squared Euclidean-ball case of the general convex-body theorem planned in GeometryOfNumbersAndQuadraticArithmetic GN.1 (minkowski-second-upper), through the comparison integral-norm-minima-comparison."
+  }
+ ],
+ "routing": [
+  {
+   "paperItem": "PAPER-SMITH-24/23",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope-volume",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/evaluation-polytope-minima"
+   ],
+   "status": "planned in GN.1; supplies LogarithmicPotentialTheoryAndAlgebraicIntegers request R1"
+  },
+  {
+   "paperItem": "PAPER-SMITH-24/21",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-polynomials",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/cofactor-integer-functional",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/real-cofactor-basis",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/smith-cofactor-adjustment"
+   ],
+   "status": "planned; the theorem node sits in GN.4 because its covering step uses Layer 4's Gaussian sums; supplies LogarithmicPotentialTheoryAndAlgebraicIntegers request R2"
+  },
+  {
+   "paperItem": "PAPER-SMITH-24/68",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-directional-tail",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/gaussian-coordinate-tails",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.4/l1-covering-transference"
+   ],
+   "status": "the covering input Smith needs is planned as the ℓ¹/sup-norm covering bound for the cross-polytope, from Banaszczyk's tail inequalities; the general BLPS flatness bound for simplices is not planned, because no target of the atlas needs it beyond this use and its proof rests on Talagrand's majorizing-measure theorem (BLPS Lemma 2.1), which no roadmap plans; see sourceIssue E2"
+  },
+  {
+   "paperItem": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/77",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-partial-product"
+   ],
+   "status": "planned (partial products a_i; the minima themselves are the base packet's successive-minimum)"
+  },
+  {
+   "paperItem": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/78",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/definite-minima-discriminant"
+   ],
+   "status": "planned"
+  },
+  {
+   "paperItem": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/79",
+   "nodes": [],
+   "status": "owned by GN.4 (lattice-point counting), as the route says; it imports successive-minimum-partial-product from here"
+  },
+  {
+   "paperItem": "PAPER-MAULIK-SHANKAR-TANG-22/74",
+   "nodes": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum-partial-product"
+   ],
+   "status": "planned"
+  },
+  {
+   "paperItem": "PAPER-MAULIK-SHANKAR-TANG-22/75",
+   "nodes": [],
+   "status": "owned by GN.4, as the route says; imports the partial products from here"
+  }
+ ],
+ "redTeamFindings": [
+  {
+   "finding": "RT-AREA-algebraicnt-1/1",
+   "handling": "Roadmap-level metadata in research/blueprint/atlas and data/ is outside this job's files. The dependency is stated in this packet: integral-norm-minima-comparison and definite-minima-discriminant name IntegralLattices milestone 2F as their supplier, and the restructure proposal adds tauceti:TauCetiRoadmap/IntegralLattices to the four prerequisites the base packet proposes, with reciprocal consumers."
+  }
+ ]
+}
