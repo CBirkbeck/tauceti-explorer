@@ -126,8 +126,9 @@ Use the cheapest model that can do each step, and keep the judgment on the stron
 - **Sonnet** (`model: sonnet`): mechanical cross-checks — README names against Lean declarations, tag numbers against
   fetched Stacks statements, diff inventories, link maps, attribution and errata bookkeeping.
 - **Opus** (the worker itself): the mathematics, the writing, every verdict and every edit.
-- **Fable** (the maintainer's own session): high-level planning (which roadmaps, in what order, what each owns) and the
-  final deep review of a package before it is approved; workers do not request it.
+- **Fable** (the maintainer's own session, or a subscription worker started with `--model fable`): high-level planning
+  (which roadmaps, in what order, what each owns) and the final deep review of a package before it is approved; package
+  and review workers do not request it.
 Subagents are allowed only in these forms, with the model named explicitly; a subagent that inherits the worker's
 model counts against the account's Opus cap, so never spawn one without `model:`.
 ## Adversarial mathematics pass (maintainer, 2026-10-09) — mandatory before any TauCetiRoadmap PR
