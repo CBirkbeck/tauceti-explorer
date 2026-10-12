@@ -48,9 +48,9 @@
       "head": "adc06c2",
       "review": {
         "recommendation": "approve",
-        "head": "d3a280e",
-        "current": false,
-        "date": "2026-10-10"
+        "head": "adc06c2",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
