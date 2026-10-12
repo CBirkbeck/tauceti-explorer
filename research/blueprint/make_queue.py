@@ -398,6 +398,7 @@ Its plan is complete: every layer is planned in accepted packets{ASSEMBLED}. The
    - From the suggested files above keep only: light definitions with REAL bodies (never `def … := sorry`, no sorry'd data, abbrev or data instance, nothing that mentions one); the end theorems and each layer's milestone, proved by `sorry`, when every carrier in the statement exists at the pins or is a kept real-bodied definition; one or two discriminating `example`s per kept definition. Heavy definitions (a site, a building, a tilt, a moduli stack, a completion whose construction is a theorem) and everything else are README targets only. One header note, one import block, consistent names, `theorem` not `lemma`, no `#print axioms`.
    - It must elaborate against the pinned Mathlib and Tau Ceti with no errors, only `sorry` warnings. Run `lean-check {PKGDIR}/Suggested.lean`, fix every error, and put the final result in the handoff note.
 3. metadata.toml: one line, `topic = "<arXiv category>"`, for example `topic = "math.NT"`.
+Delegation (WORKERS.md, "Models and delegation"): use `Agent` subagents with `model: haiku` for locating passages and pulling statements, `model: sonnet` for mechanical cross-checks, and do the mathematics, verdicts and edits yourself; never spawn a subagent without naming its model.
 RULES: edit only these three files, the handoff note research/blueprint/handoff/{JOB}.md and scratch files. Change no packet; if the plan has a mistake, describe it in the handoff note. Do not run git. No private paths in the repository.
 Finish with a summary under 200 words."""
 
@@ -405,6 +406,7 @@ PACKAGE_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti At
 
 READ FIRST (binding): research/blueprint/PACKAGE_REVIEW.md (the review method: upstream form, the adversarial mathematics pass, duplication against current Tau Ceti, Suggested.lean form), then research/blueprint/PROTOCOL.md sections 5, 13 and 20, and research/blueprint/UPSTREAM_GUIDE.md.
 
+Delegation (WORKERS.md, "Models and delegation"): use `Agent` subagents with `model: haiku` for locating passages and pulling statements, `model: sonnet` for mechanical cross-checks, and do the mathematics, verdicts and edits yourself; never spawn a subagent without naming its model.
 REVIEW: the roadmap package {PKGDIR}/ (README.md, Suggested.lean, metadata.toml) of {ROADMAP} ("{TITLE}"), against its accepted plan: {PACKETS}.
 {REVISION}Check each item, and correct it in place wherever the fix is clear:
 1. Upstream form. It follows UPSTREAM_GUIDE.md, and its structure, style and density match upstream roadmaps, for example https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdicSpaces/README.md (prose per layer; ours keep every definition's API and unit tests). Size is whatever that needs.

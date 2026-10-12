@@ -20,6 +20,20 @@ another roadmap plans is imported, never planned again. Where more is needed in
 an existing roadmap's direction, it becomes "<that roadmap>, Part II". The rules
 are in [PROTOCOL.md](PROTOCOL.md), section 15.
 
+## Models and delegation (maintainer, 2026-10-12) — binding for every Claude worker
+Use the cheapest model that can do each step, and keep the judgment on the strong one:
+- **Haiku** (`Agent` subagents with `model: haiku`, at most three at a time): retrieval and bookkeeping only — locate a
+  passage or theorem in a source text, pull its statement, list the declarations of a Lean file, count lines, build an
+  excerpt table, enumerate the citations of a section. A Haiku subagent returns quotes and locations; it never decides
+  whether something is correct, and nothing it reports is cited without the worker reading the quoted source line.
+- **Sonnet** (`model: sonnet`): mechanical cross-checks — README names against Lean declarations, tag numbers against
+  fetched Stacks statements, diff inventories, link maps, attribution and errata bookkeeping.
+- **Opus** (the worker itself): the mathematics, the writing, every verdict and every edit.
+- **Fable** (the maintainer's own session): high-level planning (which roadmaps, in what order, what each owns) and the
+  final deep review of a package before it is approved; workers do not request it.
+Subagents are allowed only in these forms, with the model named explicitly; a subagent that inherits the worker's
+model counts against the account's Opus cap, so never spawn one without `model:`.
+
 ## The streamlined pipeline (2026-10-09)
 
 The deliverable is a roadmap in TauCetiRoadmap's form: a README that states

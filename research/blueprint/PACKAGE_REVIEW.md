@@ -117,6 +117,19 @@ Shape (headings as upstream uses them):
 Rules: no target numbering tables (no `**T017**` blocks, no `Hypotheses:/API:/Tests:/Sources:/Requires:` field lists);
 no truncation markers; no planning residue; own words with locators; `Suggested.lean` holds only the compact set of the 2026-10-12 shape section — the README names its declarations, it does not paste them. Size is whatever the content needs (upstream runs 25–95 KB; ours will often be 100–300 KB because of the tests and
 hypotheses); never shrink by dropping tests, hypotheses or locators. A roadmap that is unwieldy is split into Parts.
+## Models and delegation (maintainer, 2026-10-12) — binding for every Claude worker
+Use the cheapest model that can do each step, and keep the judgment on the strong one:
+- **Haiku** (`Agent` subagents with `model: haiku`, at most three at a time): retrieval and bookkeeping only — locate a
+  passage or theorem in a source text, pull its statement, list the declarations of a Lean file, count lines, build an
+  excerpt table, enumerate the citations of a section. A Haiku subagent returns quotes and locations; it never decides
+  whether something is correct, and nothing it reports is cited without the worker reading the quoted source line.
+- **Sonnet** (`model: sonnet`): mechanical cross-checks — README names against Lean declarations, tag numbers against
+  fetched Stacks statements, diff inventories, link maps, attribution and errata bookkeeping.
+- **Opus** (the worker itself): the mathematics, the writing, every verdict and every edit.
+- **Fable** (the maintainer's own session): high-level planning (which roadmaps, in what order, what each owns) and the
+  final deep review of a package before it is approved; workers do not request it.
+Subagents are allowed only in these forms, with the model named explicitly; a subagent that inherits the worker's
+model counts against the account's Opus cap, so never spawn one without `model:`.
 ## Adversarial mathematics pass (maintainer, 2026-10-09) — mandatory before any TauCetiRoadmap PR
 A `sorry` build checks elaboration, not truth. The reviewer of PR #780 found false identities, a 0/0, reversed
 units/non-units, ℤ_p-only formulas stated over general O, and wrong determinant sign/parity conventions — none of which
