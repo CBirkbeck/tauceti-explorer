@@ -200578,7 +200578,7 @@
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "kind": "error",
-   "locator": "§3, second paragraph, printed p. 4 (arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
+   "locator": "§3, second paragraph, top of printed p. 5 (the paragraph begins on p. 4; arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
    "printed": "The paper says that the length on the ring of integers induced by the conjugate trace pairing equals the sum of the squares of all archimedean absolute values, and identifies it with the usual Euclidean length of the embedding into ℝ^r × ℂ^s (ℂ identified with ℝ²), in which the ring of integers has covolume 2^{−s}·|Disc(K)|^{1/2}.",
    "correction": "The conjugate trace pairing gives |x|² = Σ_σ |σ(x)|² over all n embeddings, which counts each complex place twice; the usual Euclidean length on ℝ^r × ℂ^s counts it once. The two agree only for totally real K; in general |x|_usual² ≤ |x|_trace² ≤ 2|x|_usual², and the covolume 2^{−s}|Disc(K)|^{1/2} is that of the usual length, the trace length giving |Disc(K)|^{1/2}.",
    "reason": "For K = ℚ(i) and x = i: the trace length is |i|² + |−i|² = 2, the usual length of i ∈ ℂ = ℝ² is 1; ℤ[i] has covolume 1 = 2^{−1}·√4 in ℂ = ℝ², and covolume 2 for the trace form.",
@@ -200591,9 +200591,47 @@
    "owner": "GeometryOfNumbersAndQuadraticArithmetic",
    "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
    "citation": "M. Bhargava, A. Shankar, T. Taniguchi, F. Thorne, J. Tsimerman, Y. Zhao, Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves, arXiv:1701.02458v1 (10 January 2017; the only arXiv version); published J. Amer. Math. Soc. 33 (2020), 1087–1099, not opened",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "reviewReason": "Read at the locator (arXiv v1, top of p. 5, sha256 99ee3527…6871): the sentence identifies the length from the conjugate trace pairing with the usual length of ℝ^r × ℂ^s. Tr(x x̄) sums |σ(x)|² over all n embeddings, so each complex place counts twice; for ℚ(i) and x = i the two squared lengths are 2 and 1. The locator was corrected from p. 4 to p. 5."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E52",
+   "kind": "misprint",
+   "locator": "§3.6, text on printed p. 51 against Figure 2 on printed p. 52, and the inhomogeneous variant on p. 53 (CWI Tract 65, 1989)",
+   "printed": "The text says the algorithm lists the lattice points x with |x| ≤ C, where |·| is the Euclidean length (l(Γ) in §3.4 is the least length of a nonzero lattice vector), and the inhomogeneous variant enlarges C by a length C′. Figure 2 initialises its running bound T at C and compares it with values of the quadratic form, that is, with squared lengths.",
+   "correction": "As printed, Figure 2 lists the x with |x|² ≤ C. To list |x| ≤ C, initialise T with C² (and use (C + C′)² in the inhomogeneous variant); equivalently, read C in the text as a bound on |x|².",
+   "reason": "In Figure 2, x_i runs over the integers with q_ii(x_i + U_i)² ≤ T_i and T_{i−1} = T_i − q_ii(x_i + U_i)², and Σ_i q_ii(x_i + U_i)² = xᵀAx = |x|² by the quadratic completion. For Γ = ℤ² and C = 2 the figure lists (1,1), of length √2, but not (2,0), of length 2 ≤ C.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the CWI repository record of Tract 65 (one PDF, no erratum attached)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
+   "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Amsterdam 1989 (thesis, 216 PDF pages), read 2026-10-12",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "reviewReason": "Found by this review at the locator; the enumeration nodes of this packet bound the squared length R explicitly, as the figure does."
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E53",
+   "kind": "misprint",
+   "locator": "§3.6, Figure 2, step (4), printed p. 52 (CWI Tract 65, 1989)",
+   "printed": "The sum defining U_i runs over j from i + 1 to m.",
+   "correction": "The upper limit is n, the rank of the lattice; no m is defined in §3.6.",
+   "reason": "U_i collects the contributions q_ij x_j of the coordinates x_{i+1}, …, x_n already chosen, as in the completion identity; m occurs nowhere else in the section or the figure.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the CWI repository record of Tract 65 (one PDF, no erratum attached)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.5.json",
+   "citation": "B. M. M. de Weger, Algorithms for Diophantine equations, CWI Tract 65, Amsterdam 1989 (thesis, 216 PDF pages), read 2026-10-12",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+   "reviewReason": "Found by this review at the locator."
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
