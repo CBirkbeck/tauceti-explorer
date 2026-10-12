@@ -107,7 +107,7 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "b4e4fc8",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
         "head": "b4e4fc8",
         "current": true,
         "date": "2026-10-12"
