@@ -383,13 +383,6 @@
     "checked": "statement read at the pinned commit 2026-10-12"
    },
    {
-    "ref": "tauceti:TauCeti.IntegralLattice.isPosDef_ofGramMatrix_iff",
-    "kind": "theorem",
-    "module": "TauCeti/LinearAlgebra/IntegralLattice/Signature.lean",
-    "provides": "A lattice given by an integer Gram matrix is positive definite iff the matrix is, over ℚ",
-    "checked": "statement read at the pinned commit 2026-10-12"
-   },
-   {
     "ref": "mathlib:Matrix.IsHermitian.eigenvalues",
     "kind": "def",
     "module": "Mathlib/Analysis/Matrix/Spectrum.lean",
@@ -423,6 +416,34 @@
     "module": "Mathlib/Analysis/Matrix/PosDef.lean",
     "provides": "A positive semidefinite matrix has nonnegative eigenvalues",
     "checked": "statement read at the pinned commit 2026-10-12"
+   },
+   {
+    "ref": "tauceti:TauCeti.exists_eq_zsmul_isPrimitive",
+    "kind": "theorem",
+    "module": "TauCeti/Algebra/Module/Primitive.lean",
+    "provides": "A nonzero vector of a free ℤ-module is a positive integer multiple d • w of a primitive vector w",
+    "checked": "statement read at the pinned commit 2026-10-12 by REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   },
+   {
+    "ref": "mathlib:Metric.finite_isBounded_inter_isClosed",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/MetricSpace/Bounded.lean",
+    "provides": "In a proper metric space a bounded set meets a closed discrete set in finitely many points",
+    "checked": "statement read at the pinned commit 2026-10-12 by REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   },
+   {
+    "ref": "tauceti:TauCeti.IntegralLattice.map_gramMatrix",
+    "kind": "theorem",
+    "module": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean",
+    "provides": "The Gram matrix of a carrier basis, cast to ℚ, is the matrix of the ambient form in the extended ℚ-basis",
+    "checked": "statement read at the pinned commit 2026-10-12 by REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
+   },
+   {
+    "ref": "mathlib:LinearMap.BilinForm.posDef_toQuadraticMap_iff_matrix",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+    "provides": "For a symmetric bilinear form and a basis, the quadratic map is positive definite iff its matrix is",
+    "checked": "statement read at the pinned commit 2026-10-12 by REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5"
    }
   ]
  },
@@ -1144,7 +1165,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram"
    ],
    "acceptance": [
-    "For an orthogonal basis both inequalities are equalities on the left.",
+    "For an orthogonal basis the left inequality is an equality.",
     "For ((1,0),(1/2,1)): covol = 1, ∏‖b_i‖ = (5/4)^{1/2} ≤ 2^{1/2}."
    ],
    "sources": [
@@ -1286,37 +1307,40 @@
    ],
    "title": "A reduced basis extending a prescribed primitive short vector",
    "kind": "theorem",
-   "statement": "Let Λ be a full lattice in a real inner-product space E of dimension n ≥ 1, A ≥ 1, and u ∈ Λ primitive with ‖u‖ ≤ A·λ_0(Λ) (λ_0 the first minimum for the unit ball). There is a ℤ-basis b_0 = u, b_1, …, b_{n−1} of Λ such that for every 0 ≤ i < n and every w ∈ Λ outside span_ℝ(b_0, …, b_{i−1}), ‖b_i‖ ≤ c_i·‖w‖, where c_0 = A and c_i = 1 + (1/2)·Σ_{j<i} c_j for i ≥ 1. For A = 1 this gives c_i = (3/2)^i. Moreover b_0, …, b_{i−1} is a ℤ-basis of Λ ∩ span_ℝ(b_0, …, b_{i−1}) for every i.",
+   "statement": "Let Λ be a full lattice in a real inner-product space E of dimension n ≥ 1, A ≥ 1, and u ∈ Λ primitive with ‖u‖ ≤ A·λ_0(Λ) (λ_0 the first minimum for the unit ball). Write V_{i−1} = span_ℝ(b_0, …, b_{i−1}), with V_{−1} = 0. There is a ℤ-basis b_0 = u, b_1, …, b_{n−1} of Λ such that (i) b_0, …, b_{i−1} is a ℤ-basis of Λ ∩ V_{i−1} for every i; (ii) for every 0 ≤ i < n and every w ∈ Λ outside V_{i−1}, ‖b_i‖ ≤ c_i·‖w‖, where c_0 = A and c_i = 1 + (1/2)·Σ_{j<i} c_j for i ≥ 1, so that c_i = (3/2)^{i−1}(1 + A/2) for i ≥ 1 and c_i = (3/2)^i when A = 1; (iii) ‖b_1‖ ≤ ‖b_2‖ ≤ ⋯ ≤ ‖b_{n−1}‖, and when A = 1 also ‖b_0‖ ≤ ‖b_1‖, so that the whole basis is nondecreasing in length. Such a basis is obtained greedily: for i ≥ 1, b_i is a shortest vector of Λ whose class in the free quotient Λ/(Λ ∩ V_{i−1}) is primitive.",
    "hypotheses": [
-    "No ordering ‖b_0‖ ≤ ‖b_1‖ ≤ ⋯ is asserted; BSTTTZ's ordering comes from Minkowski reduction, which is not used here.",
+    "For general A the prescribed b_0 = u may be longer than b_1 (A = 3, u = (2,1) in ℤ²), so (iii) starts at b_1. The ordering comes from the greedy choice, not from Minkowski reduction, which BSTTTZ cite (Siegel, Lectures X §6) and which is not used here.",
     "For lattice vectors, lying outside span_ℝ(b_0, …, b_{i−1}) is the same as lying outside its ℚ-span, since b_0, …, b_{i−1} is primitive."
    ],
    "proofSteps": [
-    "Induction on i keeping V_{i−1} = span_ℝ(b_0, …, b_{i−1}) with Λ ∩ V_{i−1} = span_ℤ(b_0, …, b_{i−1}); for i = 0 use primitivity of u (Λ ∩ ℝu = ℤu) and ‖u‖ ≤ Aλ_0 ≤ A‖w‖.",
-    "Step i ≥ 1: choose w_i ∈ Λ ∖ V_{i−1} of least norm (GN.1/minimum-outside-subspace). Extend b_0, …, b_{i−1} to a basis b_0, …, b_{i−1}, b′ of the saturated lattice Λ ∩ (V_{i−1} + ℝw_i) (GN.0/prescribed-primitive-basis).",
-    "Let π be the orthogonal projection onto V_{i−1}^⊥. π(w_i) is a nonzero integer multiple of π(b′), so ‖π(b′)‖ ≤ ‖w_i‖. Subtract from b′ the integer combination of b_0, …, b_{i−1} rounding the coordinates of b′ − π(b′) to get b_i with ‖b_i − π(b_i)‖ ≤ (1/2)Σ_{j<i}‖b_j‖.",
-    "Every w ∉ V_{i−1} has ‖w‖ ≥ ‖w_i‖ and w_i ∉ V_{j−1} for j < i, so by induction ‖b_j‖ ≤ c_j‖w_i‖ and ‖b_i‖ ≤ (1 + (1/2)Σ_{j<i}c_j)‖w_i‖ = c_i‖w_i‖ ≤ c_i‖w‖.",
+    "Induction on i, keeping L_i = Λ ∩ V_{i−1} = span_ℤ(b_0, …, b_{i−1}); L_i is saturated, so Λ/L_i is a free ℤ-module of rank n − i. For i = 1, primitivity of u gives Λ ∩ ℝu = ℤu (TauCeti.IsPrimitive), and ‖u‖ ≤ Aλ_0 ≤ A‖w‖ for every nonzero w ∈ Λ is (ii) at i = 0.",
+    "Step i ≥ 1: Λ/L_i ≠ 0, so some vector of Λ has primitive class there, and a ball meets the closed discrete subgroup Λ in finitely many points (Metric.finite_isBounded_inter_isClosed), so a shortest vector b_i with primitive class exists. The image of Λ ∩ (V_{i−1} + ℝb_i) in Λ/L_i is a saturated rank-one subgroup containing the primitive class of b_i, hence equal to ℤ·[b_i]; this is (i) for i + 1, and at i = n the basis of Λ is complete (TauCeti.IsPrimitive.exists_basis, GN.0/prescribed-primitive-basis).",
+    "(ii): let w ∈ Λ ∖ V_{i−1} and π the orthogonal projection onto V_{i−1}^⊥. The class of w in Λ/L_i is d·p with d ≥ 1 and p primitive (TauCeti.exists_eq_zsmul_isPrimitive), so a lift w′ of p has π(w′) = π(w)/d. Write w′ − π(w′) = Σ_{j<i} t_j b_j and put u′ = w′ − Σ_{j<i} round(t_j) b_j (abs_sub_round). Then u′ has primitive class, so ‖b_i‖ ≤ ‖u′‖ ≤ ‖π(w)‖/d + (1/2)Σ_{j<i}‖b_j‖ ≤ ‖w‖ + (1/2)Σ_{j<i}‖b_j‖.",
+    "Since w ∉ V_{j−1} ⊆ V_{i−1} for j < i, induction gives ‖b_j‖ ≤ c_j‖w‖, hence ‖b_i‖ ≤ (1 + (1/2)Σ_{j<i}c_j)‖w‖ = c_i‖w‖.",
+    "(iii): for i ≥ 1 the class of b_{i+1} in Λ/L_{i+1} is primitive, hence so is its class in Λ/L_i (pull a functional back along Λ/L_i → Λ/L_{i+1}); so b_{i+1} was a candidate at step i and ‖b_i‖ ≤ ‖b_{i+1}‖. For A = 1, ‖b_0‖ = ‖u‖ ≤ λ_0 ≤ ‖b_1‖.",
     "Evertse's projection-and-lift lemmas give the same saturation and lifting steps for the shortest-vector start A = 1."
    ],
    "prerequisites": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.1/minimum-outside-subspace",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.0/prescribed-primitive-basis",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.1/successive-minimum",
     "tauceti:TauCeti.IsPrimitive",
     "tauceti:TauCeti.IsPrimitive.exists_basis",
     "mathlib:Module.Basis.ofZLatticeBasis",
-    "mathlib:abs_sub_round"
+    "mathlib:abs_sub_round",
+    "tauceti:TauCeti.exists_eq_zsmul_isPrimitive",
+    "mathlib:Metric.finite_isBounded_inter_isClosed"
    ],
    "acceptance": [
-    "For Λ = ℤ², u = (1,0), A = 1: c_1 = 3/2 and b_1 = (0,1) satisfies ‖b_1‖ = 1 ≤ (3/2)‖w‖ for every w ∉ ℝu.",
+    "For Λ = ℤ², u = (1,0), A = 1: c_1 = 3/2, the greedy choice is b_1 = ±(0,1), ‖b_1‖ = 1 ≤ (3/2)‖w‖ for every w ∉ ℝu, and ‖b_0‖ ≤ ‖b_1‖.",
     "For n = 1 the basis is (u) and the only condition is ‖u‖ ≤ Aλ_0.",
-    "With A = 3 and u = (2,1) in ℤ² (primitive, ‖u‖ = √5 ≤ 3·1), c_1 = 5/2; the saturated completion b′ = (1,0) has coordinate 2/5 along u, which rounds to 0, so b_1 = (1,0) and ‖b_1‖ = 1 ≤ (5/2)‖w‖ for every w ∉ ℝu."
+    "With A = 3 and u = (2,1) in ℤ² (primitive, ‖u‖ = √5 ≤ 3·1), c_1 = 5/2; the class of (x, y) modulo ℤu is read off by x − 2y, the shortest vector of class ±1 is b_1 = ±(1,0), and ‖b_1‖ = 1 ≤ (5/2)‖w‖ for every w ∉ ℝu; here ‖b_0‖ = √5 > ‖b_1‖, which is why (iii) starts at b_1 when A > 1.",
+    "u = 2 in Λ = ℤ is not primitive, and no basis of ℤ begins with it."
    ],
    "sources": [
     {
      "sourceId": "BSTTZ2017",
      "locator": "§3, second paragraph, printed pp. 4–5 (arXiv v1)",
-     "match": "The paper uses a reduced basis of O_K beginning with 1 whose i-th vector is bounded by a constant times any lattice vector outside the span of the previous ones, with product comparable to √|Disc K|, citing Siegel's Lectures X §6; this node is the generic lattice statement with explicit constants, the number-field trace metric staying with the downstream owner."
+     "match": "The paper uses a reduced basis of O_K beginning with 1, nondecreasing in length, whose i-th vector is bounded by a constant times any lattice vector outside the span of the previous ones, with product comparable to √|Disc K|, citing Siegel's Lectures X §6; this node is the generic lattice statement with explicit constants, the number-field trace metric staying with the downstream owner."
     },
     {
      "sourceId": "EvertseGeometry",
@@ -1411,7 +1435,7 @@
    "sources": [
     {
      "sourceId": "deWeger1989",
-     "locator": "§3.6, Figure 2, initialisation, printed pp. 51–52",
+     "locator": "§3.6, Figure 2, initialisation, printed p. 52",
      "match": "The algorithm first replaces the Gram matrix by the coefficients q_ij of its quadratic completion, dividing each row by its pivot and updating the remaining entries, as in Fincke–Pohst (2.3)."
     },
     {
@@ -1454,7 +1478,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.IsLLLReducedGram",
      "role": "characterisation",
-     "statement": "A positive definite real form A is LLL-reduced when the subdiagonal entries of LDL.lower have absolute value at most 1/2 and consecutive LDL.diagEntries satisfy the Lovász inequality at δ = 3/4; for the Gram matrix of a family this is the parent IsLLLReduced (quadratic-completion-gram-schmidt). It expresses reducedness of a rational model UᵀG̃U without choosing vectors."
+     "statement": "A positive definite real form A is LLL-reduced when the entries of LDL.lower strictly below the diagonal have absolute value at most 1/2 and consecutive LDL.diagEntries satisfy the Lovász inequality at δ = 3/4; for the Gram matrix of a family this is the parent IsLLLReduced (quadratic-completion-gram-schmidt). It expresses reducedness of a rational model UᵀG̃U without choosing vectors."
     }
    ],
    "tests": [
@@ -1556,7 +1580,8 @@
    "statement": "Input: n ≥ 1, a symmetric G ∈ ℚ^{n×n} with positive quadratic-completion pivots, a centre t ∈ ℚ^n and a bound R ∈ ℚ. Put T_{n−1} = R. For k = n − 1, …, 0, given x_{k+1}, …, x_{n−1}, put U_k = Σ_{j>k} q_kj (x_j − t_j), let x_k run over all integers with q_kk·(x_k − t_k + U_k)² ≤ T_k (a finite interval of integers, decided by exact rational comparison), and put T_{k−1} = T_k − q_kk·(x_k − t_k + U_k)². fpEnumeration G t R ⊂ ℤ^n is the finite set of completed vectors x. Boundary points are included, both signs are produced, and for t = 0 and R ≥ 0 the zero vector is included. If R < 0 the set is empty.",
    "hypotheses": [
     "The input bound R is exact; a consumer that needs a safety margin enlarges R explicitly and keeps the excess vectors.",
-    "Fincke–Pohst's (2.8) lists only one of ±x and excludes zero; this construction lists the whole set, as the completeness theorem requires."
+    "The algorithm as de Weger gives it (Figure 2, after Fincke–Pohst (2.8)) stops when it reaches the zero vector, so it lists one vector of each pair ±x and omits 0; this construction lists the whole set, as the completeness theorem requires.",
+    "As a total function on symmetric rational matrices, fpEnumeration G t R is ∅ when a pivot of the quadratic completion of G vanishes or is negative; every statement about the enumeration assumes positive pivots unless it says otherwise."
    ],
    "proofSteps": [
     "The completion identity makes the partial sums Σ_{i≥k} q_ii(x_i − t_i + U_i)² nondecreasing as k decreases, so each level is a bounded set of integers.",
@@ -1588,7 +1613,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.fpEnumeration",
      "role": "data",
-     "statement": "The finite set of x ∈ ℤ^n produced by the recursion, as a Finset."
+     "statement": "The finite set of x ∈ ℤ^n produced by the recursion, as a Finset; it is ∅ when a pivot of G is not positive."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.fpEnumeration_of_neg",
@@ -1702,7 +1727,7 @@
     },
     {
      "sourceId": "deWeger1989",
-     "locator": "§3.6, text after Figure 2, printed p. 52",
+     "locator": "§3.6, text before and after Figure 2, printed pp. 51 and 53 (the figure fills p. 52)",
      "match": "Close vectors to a non-lattice point are found by translating the search by a nearby lattice point and enlarging the bound; here the centre is translated directly."
     }
    ],
@@ -1742,7 +1767,7 @@
    "sources": [
     {
      "sourceId": "deWeger1989",
-     "locator": "§3.6, Figure 2, coordinate bounds UB(x_i), printed pp. 51–52",
+     "locator": "§3.6, Figure 2, coordinate bounds UB(x_i), printed p. 52",
      "match": "Each coordinate ranges over the integers of an interval of half-length (T_i/q_ii)^{1/2} centred at −U_i; counting these integers level by level gives the product bound."
     },
     {
@@ -1765,10 +1790,10 @@
    ],
    "title": "Certified representation numbers of a positive definite lattice",
    "kind": "theorem",
-   "statement": "Let L be a positive definite Tau Ceti integral lattice (TauCeti.IntegralLattice with IsPosDef) whose carrier has a ℤ-basis e : Fin n → L, let G = gramMatrix e ∈ ℤ^{n×n}, and let m ∈ ℤ. The map x ↦ Σ_i x_i e_i is a bijection from {x ∈ fpEnumeration G 0 m : xᵀGx = m} onto the shell {v ∈ L : B(v, v) = m}. Hence the shell is finite and its cardinality r_L(m) — the representation number, TauCeti.IntegralLattice.representationNumber on current Tau Ceti main — is computed exactly by the enumeration; r_L(m) = 0 for m < 0 and r_L(0) = 1; L represents m exactly when the filtered enumeration is nonempty; and the minimum of B(v, v) over nonzero v ∈ L is the least m ≥ 1 with r_L(m) > 0, which the enumeration with R = G_00 finds.",
+   "statement": "Let L be a positive definite Tau Ceti integral lattice (TauCeti.IntegralLattice with IsPosDef) whose carrier has a ℤ-basis e : Fin n → L, let G = gramMatrix e ∈ ℤ^{n×n}, and let m ∈ ℤ. The map x ↦ Σ_i x_i e_i is a bijection from {x ∈ fpEnumeration G 0 m : xᵀGx = m} onto the shell {v ∈ L : B(v, v) = m}, so the enumeration computes the representation number r_L(m), the cardinality of that shell, exactly. Consequently L represents m exactly when the filtered enumeration is nonempty, and the minimum of B(v, v) over nonzero v ∈ L is the least m ≥ 1 for which it is nonempty, found by the single enumeration at R = G_00. The shells, their finiteness, r_L itself, r_L(m) = 0 for m < 0, r_L(0) = 1 and the minimum are not planned here: they are TauCetiRoadmap IntegralLattices milestones 2A–2B, built on current Tau Ceti main after the pin (IntegralLattice.IsPosDef.finite_vectorsOfNorm, representationNumber, IsPosSemidef.representationNumber_eq_zero_of_neg, representationNumber_zero_of_anisotropic, minimum); this node adds only their certified computation.",
    "hypotheses": [
     "The norm is B(v, v), Tau Ceti's IntegralLattice.norm; a quadratic form q = B/2 halves every value.",
-    "Positive definiteness of G over ℚ follows from IsPosDef by isPosDef_ofGramMatrix_iff applied to the basis, so the completion has positive pivots.",
+    "Positive definiteness of G over ℚ follows from IsPosDef: map_gramMatrix identifies the cast of G with the matrix of the ambient form in the ℚ-basis extending e, and LinearMap.BilinForm.posDef_toQuadraticMap_iff_matrix compares positive definiteness of a quadratic map with that of its matrix, so the completion has positive pivots. (isPosDef_ofGramMatrix_iff covers only lattices built by ofGramMatrix.)",
     "These are global finite tests; local representation densities over ℤ_p are the separate GN.2–GN.3 owners."
    ],
    "proofSteps": [
@@ -1783,12 +1808,13 @@
     "tauceti:TauCeti.IntegralLattice.gramMatrix",
     "tauceti:TauCeti.IntegralLattice.norm",
     "tauceti:TauCeti.IntegralLattice.IsPosDef",
-    "tauceti:TauCeti.IntegralLattice.isPosDef_ofGramMatrix_iff"
+    "tauceti:TauCeti.IntegralLattice.map_gramMatrix",
+    "mathlib:LinearMap.BilinForm.posDef_toQuadraticMap_iff_matrix"
    ],
    "acceptance": [
     "For ℤ² with G = I: r(1) = 4, r(2) = 4, r(3) = 0, r(5) = 8.",
     "For the hexagonal lattice G = [[2,1],[1,2]]: r(2) = 6 and the minimum is 2.",
-    "r_L(−1) = 0 and r_L(0) = 1 for every positive definite L."
+    "For every positive definite L the filtered enumeration is empty at m = −1 and is {0} at m = 0, matching r_L(−1) = 0 and r_L(0) = 1 on current Tau Ceti main."
    ],
    "sources": [
     {
@@ -1798,8 +1824,8 @@
     },
     {
      "sourceId": "TauCetiPin",
-     "locator": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean and Signature.lean at the pin; RepresentationNumber.lean on current main",
-     "match": "The pinned library has the Gram matrix of a basis and positive definiteness through the Gram matrix; current main defines r_L(n) as the number of lattice vectors of norm n, which this node computes."
+     "locator": "TauCeti/LinearAlgebra/IntegralLattice/Gram.lean (map_gramMatrix) and Signature.lean at the pin; PosDef/Finite.lean, PosDef/Minimum.lean and PosDef/RepresentationNumber.lean on current main",
+     "match": "The pinned library has the Gram matrix of a carrier basis, its comparison with the ambient form, and the positive-definiteness predicate; current main defines the shells, proves them finite, and defines the minimum and r_L(n) as the number of lattice vectors of norm n, which this node computes."
     }
    ],
    "library": {
@@ -1824,7 +1850,7 @@
    "proofSteps": [
     "Define the predicate by the two inequalities for all real x.",
     "Derive the bilinear bound |xᵀ(G − G̃)y| ≤ ε(xᵀG̃x)^{1/2}(yᵀG̃y)^{1/2} by Cauchy–Schwarz for the semidefinite forms εG̃ ± (G − G̃).",
-    "Change of basis: GramComparison G G̃ ε implies GramComparison (UᵀGU) (UᵀG̃U) ε for every real matrix U."
+    "Change of basis: GramComparison G G̃ ε implies GramComparison (UᵀGU) (UᵀG̃U) ε for every rational square matrix U (so that UᵀG̃U is again rational), in particular for U ∈ GL_n(ℤ)."
    ],
    "prerequisites": [
     "mathlib:Matrix.PosDef",
@@ -1870,7 +1896,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.GramComparison.congr",
      "role": "functoriality",
-     "statement": "The comparison is preserved by U ↦ UᵀGU, UᵀG̃U for every square U."
+     "statement": "The comparison is preserved by U ↦ UᵀGU, UᵀG̃U for every rational square matrix U."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.GramComparison.bilinear",
@@ -1936,7 +1962,7 @@
    ],
    "title": "From entrywise enclosures to a Loewner comparison",
    "kind": "lemma",
-   "statement": "Let G ∈ ℝ^{n×n} be symmetric, G̃ ∈ ℚ^{n×n} symmetric, η ≥ 0 and 0 < ε < 1 rational, with |G_ij − G̃_ij| ≤ η for all i, j. If G̃ − (nη/ε)·I_n has positive quadratic-completion pivots, then GramComparison G G̃ ε.",
+   "statement": "Let G ∈ ℝ^{n×n} be symmetric, G̃ ∈ ℚ^{n×n} symmetric, rationals η ≥ 0 and 0 < ε < 1, with |G_ij − G̃_ij| ≤ η for all i, j. If G̃ − (nη/ε)·I_n has positive quadratic-completion pivots, then GramComparison G G̃ ε.",
    "hypotheses": [
     "The hypothesis on G̃ is decided exactly in ℚ by the quadratic completion; only the enclosure |G_ij − G̃_ij| ≤ η concerns the real matrix."
    ],
@@ -1956,7 +1982,7 @@
     {
      "sourceId": "Belabas2004",
      "locator": "§4.2, Proposition 4.2 and Corollary 4.3, pp. 27–28",
-     "match": "Enough correct bits in the rational approximation of the Gram data give a reduction of guaranteed quality; this node is the exact entrywise criterion behind such a statement."
+     "match": "Belabas rounds 2^e times the Cholesky factor of T2 and shows that enough bits give a basis whose first vector is within an explicit factor of the T2 bound (Corollary 4.3); this node certifies the comparison of the two forms by an exact entrywise criterion instead, so that the factor κ is explicit."
     }
    ],
    "library": {
@@ -2021,7 +2047,7 @@
    ],
    "title": "Determinants are monotone in the Loewner order",
    "kind": "lemma",
-   "statement": "Let A, B ∈ ℝ^{n×n} be symmetric with A positive definite and B positive semidefinite, and xᵀBx ≤ xᵀAx for all x ∈ ℝ^n. Then det B ≤ det A. In particular, GramComparison G G̃ ε gives (1 − ε)^n·det G̃ ≤ det G ≤ (1 + ε)^n·det G̃.",
+   "statement": "Let A, B ∈ ℝ^{n×n} be symmetric with A positive definite and B positive semidefinite, and xᵀBx ≤ xᵀAx for all x ∈ ℝ^n. Then det B ≤ det A. In particular, if G̃ is positive definite, GramComparison G G̃ ε gives (1 − ε)^n·det G̃ ≤ det G ≤ (1 + ε)^n·det G̃.",
    "hypotheses": [
     "Mathlib at the pin has no monotonicity of the determinant in the Loewner order; this lemma supplies it for the transfer theorem."
    ],
@@ -2054,7 +2080,7 @@
     {
      "sourceId": "Belabas2004",
      "locator": "§4.2, proof of Proposition 4.2, pp. 27–28",
-     "match": "The comparison of the determinant of a lattice for T2 and for its integral approximation is the step this lemma isolates."
+     "match": "Belabas’s bound (3) for Proposition 4.2 carries the factor (det R^{(e)}/(2^{ne} det R))^{1/n}, which compares the covolumes of the lattice for T2 and for its integral approximation; this lemma controls that comparison through the Loewner order instead."
     }
    ],
    "library": {
@@ -2422,7 +2448,7 @@
    ],
    "title": "LLL-reduced bases are reduced in the sense of Siegel sets",
    "kind": "theorem",
-   "statement": "Let b be an LLL-reduced basis (δ = 3/4) of a rank-n lattice in a real inner-product space, with Gram matrix B_ij = ⟨b_i, b_j⟩. Then |B_ij| ≤ 2^{i+1}·B_ii for all i, j; B_ii ≤ 2^{n−1}·B_jj for i < j; and ∏_i B_ii ≤ 2^{n(n−1)/2}·det B. Consequently B is (e, C_n)-reduced for the standard basis e in the sense of AdelicAlgebraicGroups AA.3 (RealSiegel.IsReduced), with C_n = 2^{n(n−1)/2} + 2^n. For every positive definite form, the LLL certificate U of a basis gives an explicit γ = U^{−1} ∈ GL_n(ℤ) moving it into the reduced set T_{e,C_n}.",
+   "statement": "Let b be an LLL-reduced basis (δ = 3/4) of a rank-n lattice in a real inner-product space, with Gram matrix B_ij = ⟨b_i, b_j⟩. Then |B_ij| ≤ 2^{i+1}·B_ii for all i, j; B_ii ≤ 2^{n−1}·B_jj for i < j; and ∏_i B_ii ≤ 2^{n(n−1)/2}·det B. Consequently B is (e, C_n)-reduced for the standard basis e in the sense of AdelicAlgebraicGroups AA.3 (RealSiegel.IsReduced), with C_n = 2^{n(n−1)/2} + 2^n. For a positive definite form A on ℝ^n and U ∈ GL_n(ℤ) whose columns form an LLL-reduced basis for A (that is, UᵀAU is LLL-reduced), UᵀAU lies in T_{e,C_n}: U is an explicit witness γ for AA.3’s reduction theorem in the form b ↦ γᵀbγ of its suggested RealSiegel.exists_reduced_GLZ; for the action g·b = (g^{−1})ᵀbg^{−1} on forms the moving element is U^{−1}.",
    "hypotheses": [
     "All three inequalities are strict once C_n replaces the displayed constants, as AA.3's definition requires.",
     "For a real form, the existence of a reduced basis uses lll-step-termination (b); for a rational form the certificate is computed exactly."
@@ -2454,7 +2480,7 @@
     },
     {
      "sourceId": "TauCetiRoadmapAA",
-     "locator": "README, Layer AA.3, reduced forms T_{e,C}",
+     "locator": "README, Layer AA.3, reduced forms T_{e,C}; Suggested.lean, RealSiegel.IsReduced and RealSiegel.exists_reduced_GLZ",
      "match": "A positive definite form is (e, C)-reduced when its off-diagonal entries, the ratios of its diagonal entries and the product of the diagonal over the determinant are bounded by C."
     }
    ],
@@ -2540,7 +2566,7 @@
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "source": "BSTTZ2017",
    "kind": "error",
-   "locator": "§3, second paragraph, printed p. 4 (arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
+   "locator": "§3, second paragraph, top of printed p. 5 (the paragraph begins on p. 4; arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
    "printed": "The paper says that the length on the ring of integers induced by the conjugate trace pairing equals the sum of the squares of all archimedean absolute values, and identifies it with the usual Euclidean length of the embedding into ℝ^r × ℂ^s (ℂ identified with ℝ²), in which the ring of integers has covolume 2^{−s}·|Disc(K)|^{1/2}.",
    "correction": "The conjugate trace pairing gives |x|² = Σ_σ |σ(x)|² over all n embeddings, which counts each complex place twice; the usual Euclidean length on ℝ^r × ℂ^s counts it once. The two agree only for totally real K; in general |x|_usual² ≤ |x|_trace² ≤ 2|x|_usual², and the covolume 2^{−s}|Disc(K)|^{1/2} is that of the usual length, the trace length giving |Disc(K)|^{1/2}.",
    "reason": "For K = ℚ(i) and x = i: the trace length is |i|² + |−i|² = 2, the usual length of i ∈ ℂ = ℝ² is 1; ℤ[i] has covolume 1 = 2^{−1}·√4 in ℂ = ℝ², and covolume 2 for the trace form.",
@@ -2549,7 +2575,50 @@
    "searched": [
     "arXiv listing of 1701.02458 (single version v1)",
     "the paper extraction PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20, whose findings E1–E17 do not record it; its trace-metric item rescales the complex coordinates by √2 without naming this sentence"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "reason": "Read at the locator (arXiv v1, top of p. 5, sha256 99ee3527…6871): the sentence identifies the length from the conjugate trace pairing with the usual length of ℝ^r × ℂ^s. Tr(x x̄) sums |σ(x)|² over all n embeddings, so each complex place counts twice; for ℚ(i) and x = i the two squared lengths are 2 and 1. The locator was corrected from p. 4 to p. 5."
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E52",
+   "source": "deWeger1989",
+   "kind": "misprint",
+   "locator": "§3.6, text on printed p. 51 against Figure 2 on printed p. 52, and the inhomogeneous variant on p. 53 (CWI Tract 65, 1989)",
+   "printed": "The text says the algorithm lists the lattice points x with |x| ≤ C, where |·| is the Euclidean length (l(Γ) in §3.4 is the least length of a nonzero lattice vector), and the inhomogeneous variant enlarges C by a length C′. Figure 2 initialises its running bound T at C and compares it with values of the quadratic form, that is, with squared lengths.",
+   "correction": "As printed, Figure 2 lists the x with |x|² ≤ C. To list |x| ≤ C, initialise T with C² (and use (C + C′)² in the inhomogeneous variant); equivalently, read C in the text as a bound on |x|².",
+   "reason": "In Figure 2, x_i runs over the integers with q_ii(x_i + U_i)² ≤ T_i and T_{i−1} = T_i − q_ii(x_i + U_i)², and Σ_i q_ii(x_i + U_i)² = xᵀAx = |x|² by the quadratic completion. For Γ = ℤ² and C = 2 the figure lists (1,1), of length √2, but not (2,0), of length 2 ≤ C.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the CWI repository record of Tract 65 (one PDF, no erratum attached)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "reason": "Found by this review at the locator; the enumeration nodes of this packet bound the squared length R explicitly, as the figure does."
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E53",
+   "source": "deWeger1989",
+   "kind": "misprint",
+   "locator": "§3.6, Figure 2, step (4), printed p. 52 (CWI Tract 65, 1989)",
+   "printed": "The sum defining U_i runs over j from i + 1 to m.",
+   "correction": "The upper limit is n, the rank of the lattice; no m is defined in §3.6.",
+   "reason": "U_i collects the contributions q_ij x_j of the coordinates x_{i+1}, …, x_n already chosen, as in the completion identity; m occurs nowhere else in the section or the figure.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the CWI repository record of Tract 65 (one PDF, no erratum attached)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+    "reason": "Found by this review at the locator."
+   }
   }
  ],
  "sourceVersions": [
@@ -2564,6 +2633,12 @@
    "url": "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Lovasz/LovaszLenstraLenstrafactor.pdf",
    "read": "2026-10-12",
    "sha256": "dabefb8bcfb5dbb8b36a43745081f8ab6f18aadc85b1e252fd7c85abefc5f704"
+  },
+  {
+   "kind": "published",
+   "url": "https://ir.cwi.nl/pub/13190/13190D.pdf",
+   "read": "2026-10-12",
+   "sha256": "581a3632f6b2467282bc912dc3d1a6ee651d3df011fe0e50518487e21e38499c"
   }
  ],
  "restructure": [
@@ -2582,5 +2657,178 @@
   "agent": "Claude (claude-sz7OS4)",
   "date": "2026-10-12",
   "parentPacket": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json"
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-GeometryOfNumbersAndQuadraticArithmetic--GN.5",
+  "date": "2026-10-12",
+  "notes": "Every node was checked against its sources at the locators (LLL 1982 page images, de Weger 1989, Belabas 2004, Evertse ch. 2, BSTTTZ arXiv v1; sha256 of all five match the packet), every baseline declaration was read at the pins, every cross-roadmap supplier statement (parent GN.0/GN.1/GN.5 nodes, AdelicAlgebraicGroups AA.3 and the upstream AdelicAlgebraicGroups README and Suggested.lean, ED.1, CN.4, DT.4) was read, and every worked example was rerun in exact arithmetic. Corrections: the routed primitive-prefix ordering is restored through a greedy construction; certified representation numbers now cite TauCetiRoadmap IntegralLattices 2A–2B and current Tau Ceti main instead of restating them; one near-miss baseline citation (isPosDef_ofGramMatrix_iff) was replaced by map_gramMatrix and Mathlib’s posDef_toQuadraticMap_iff_matrix; four de Weger locators and the E51 page were corrected; two misprints in de Weger were added (E52, E53); the AA.3 action convention was pinned. In the suggested file, four statements that were false or unprovable as written were repaired (missing independence, n = 0, unchecked stored data, missing symmetry), vacuous number-field tests were replaced by tests of the definition, and the complexity theorem now states the integer bounds; the file elaborates with lean-check, its only warnings being for admitted proofs. No node was added; no gap was found. The stage is planned with a precise remaining list.",
+  "checked": [
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-step-relation",
+    "verdict": "corrected",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.15)–(1.21), Fig. 1; the relation, cursor convention max(1, k − 1) and tests checked by exact arithmetic. Suggested file: LLLStep.potential_of_case1 was false without independence (from (e, 2e) a size move and a swap reach (0, e), potential 0) and now assumes it; the lll_step_exactLLL test now states that the native swap or advance is a step, not only that some step exists."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-step-invariant",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.16)–(1.17) and Remark (1.37); zero-based shift checked."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-step-termination",
+    "verdict": "corrected",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.23)–(1.25) and the proof of (1.26): D only changes in Case 1, the Case 2 count, d_i ≤ B^i and the Hermite-type lower bound all match; the Minkowski replacement in (b) is sound. Suggested file: lllStep_swap_count was false for n = 0 (bound −1) and now uses the natural-number difference n − 1."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-source-algorithm",
+    "verdict": "corrected",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) Fig. 1 and (1.22): (*) only acts when |μ| > 1/2, \"if k > 2 then k := k − 1\" is max(1, k − 1) zero-based. Runs on ((2,0),(0,1)), ((1,0),(1,1)), ((2,0),(1,5)) rechecked. Suggested file: LLL115.step_isStep and data_spec now assume the stored μ and B are those of the family; the tie test now also checks that the run returns its input."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-variant-reconciliation",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37); lockstep argument checked; the tie example ((2,0),(1,1)) rerun exactly: outputs ((1,1),(1,−1)) and ((−1,1),(1,1))."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-denominator-integrality",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.27)–(1.29) on folio 35; zero-based shift and the example d_1 = d_2 = 4 checked."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-intermediate-size-bounds",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.30)–(1.36) and the two global bounds on folios 35–36."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-arithmetic-complexity",
+    "verdict": "corrected",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) Proposition (1.26), its Remark and Remark (1.38). The integer bounds of the formal version follow from (1.30)–(1.36). Suggested file: the costed run now records the largest stored integer and operand, and the theorem states the packet bounds n(4B)^{2n} and 2n²(4B)^{4n} as well as the operation count."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-basis-length-growth",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.7) and its proof, folio 29."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-orthogonality-defect",
+    "verdict": "corrected",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.8), (1.10); a garbled acceptance sentence was rewritten."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-first-vector-covolume",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.9)."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-independent-family-bound",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) (1.12)–(1.14), folio 30."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-successive-minima-bounds",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) remark after (1.12); zero-based form 2^{−i}λ_i² ≤ ‖b_i‖² ≤ 2^{n−1}λ_i² checked; GN.1 minima are gauge values, zero-based."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/primitive-prefix-reduced-basis",
+    "verdict": "corrected",
+    "note": "BSTTTZ arXiv v1 §3 pp. 4–5 and Evertse §2.3 read. The routed item asserts that the basis is nondecreasing (from b_1 on; from b_0 when A = 1), which the packet had dropped. The construction is now the greedy one (b_i shortest with primitive class modulo the prefix), which gives the bounds (ii) and the ordering (iii); the proof, prerequisites (TauCeti.exists_eq_zsmul_isPrimitive, Metric.finite_isBounded_inter_isClosed replace GN.1/minimum-outside-subspace), tests and suggested signature were updated."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/primitive-prefix-basis-product",
+    "verdict": "verified",
+    "note": "Uses only property (ii); Minkowski II and Hadamard suppliers read."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/quadratic-completion",
+    "verdict": "corrected",
+    "note": "de Weger 1989 §3.6 read at the locator (printed pp. 51–53); Figure 2 initialisation is on p. 52 (locator corrected); Mathlib LDL conventions read (S = L·D·Lᴴ). IsLLLReducedGram now says \"strictly below the diagonal\". Suggested file: quadraticCompletion_det needed a symmetry hypothesis; the indefinite test now evaluates the completion."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/quadratic-completion-gram-schmidt",
+    "verdict": "verified",
+    "note": "Identity q_ij = μ_ji and pivots ‖b*_i‖² checked; LDL.lowerInv_eq_gramSchmidtBasis read."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/fincke-pohst-enumeration",
+    "verdict": "corrected",
+    "note": "de Weger 1989 §3.6 read at the locator (printed pp. 51–53). The claim about Fincke–Pohst (2.8) is now attributed to de Weger’s Figure 2, which stops at the zero vector; the total-function convention (∅ for a nonpositive pivot) is stated in the packet and the suggested file. Counts 5 and 7 and the half-centre example rechecked."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/fincke-pohst-complete",
+    "verdict": "corrected",
+    "note": "de Weger 1989 §3.6 read at the locator (printed pp. 51–53); the inhomogeneous variant is on pp. 51 and 53, not p. 52 (locator corrected)."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/ellipsoid-point-count",
+    "verdict": "corrected",
+    "note": "Interval count checked; de Weger locator corrected to p. 52."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/certified-representation-number",
+    "verdict": "corrected",
+    "note": "Shells, their finiteness, r_L, r_L(m < 0) = 0, r_L(0) = 1 and the minimum are TauCetiRoadmap IntegralLattices 2A–2B and exist on current Tau Ceti main (PosDef/Finite, Minimum, RepresentationNumber); the node now cites them and adds only the computation. isPosDef_ofGramMatrix_iff was a near miss (only for ofGramMatrix lattices); replaced by IntegralLattice.map_gramMatrix and LinearMap.BilinForm.posDef_toQuadraticMap_iff_matrix. r(1), r(2), r(3), r(5) for ℤ² and r(2) = 6 for the hexagonal lattice rechecked."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/gram-comparison",
+    "verdict": "corrected",
+    "note": "Belabas §4.2 read (printed = PDF + 18). The congruence law needs a rational matrix U (G̃ is rational); the proof step and API statement said \"real\"/\"square\". The suggested file already had a rational U."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/entrywise-enclosure-comparison",
+    "verdict": "corrected",
+    "note": "Proof checked; Belabas rounds the Cholesky factor rather than enclosing entries, so the source match was reworded; rationality of η made explicit."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/reduction-transfer-under-comparison",
+    "verdict": "verified",
+    "note": "Factor κ·2^{n−1} and the covolume form checked from the comparison and loewner-det-monotone."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/loewner-det-monotone",
+    "verdict": "corrected",
+    "note": "The \"in particular\" clause needs G̃ positive definite for the lemma as stated; added. Belabas match reworded: his bound carries the factor (det R^{(e)}/(2^{ne} det R))^{1/n}."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/ideal-euclidean-lattice",
+    "verdict": "corrected",
+    "note": "Mathlib euclidean.mixedSpace (WithLp 2 product), toMixed, volumePreserving_toMixed, euclidean.integerLattice, idealLattice and covolume_idealLattice read. Suggested file: the four tests were arithmetic identities that never mentioned the lattice; they now state the covolume and lengths of euclideanIdealLattice for ℚ(i) and ℚ, and the trace-form comparison on totally real fields."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/euclidean-house-norm-bounds",
+    "verdict": "verified",
+    "note": "house, prod_eq_abs_norm, sum_mult_eq and weighted AM–GM read; Belabas §4.1 p. 26; examples 1 + i and 1 + √2 rechecked."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/integral-log-height-le-house",
+    "verdict": "verified",
+    "note": "logHeight₁_eq (unnormalised) and FinitePlace.norm_le_one read; agrees with DT.4/log-height-of-algebraic-integer-bound, which moves down here."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/ideal-short-element",
+    "verdict": "verified",
+    "note": "Constants (i)–(iv) rederived; the ℚ(i) example reduces (1 + i, 2) to (1 + i, 1 − i), |N| = 2 ≤ 2√2."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/ideal-class-small-representative",
+    "verdict": "verified",
+    "note": "ℚ(√−5) bound √10 ≈ 3.16 checked; Mathlib class-group proof read."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-simultaneous-approximation",
+    "verdict": "verified",
+    "note": "LLL 1982 read at the locator in the scanned reprint (page images, folios 28–37) Proposition (1.39) and its proof, folio 37."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced-is-siegel-reduced",
+    "verdict": "corrected",
+    "note": "AA.3 reduced forms read in the TauCetiRoadmap README and Suggested.lean (RealSiegel.IsReduced matches the restatement verbatim). Upstream moves forms by b ↦ γᵀbγ in exists_reduced_GLZ, so the certificate U itself is the witness; the statement now says so (U^{−1} for the action g·b = (g^{−1})ᵀbg^{−1}), and the suggested file gained lll_certificate_isReduced."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-siegel-domain-certificate",
+    "verdict": "verified",
+    "note": "Σ_n(u, t) read in the upstream README (v·diag(a)·k, a_i/a_{i+1} ≥ t); γ = U^{−1} is right for the left action on GL_n(ℝ); bound (N^{−1})_{ij} ≤ (1/2)(3/2)^{j−i−1} rederived."
+   }
+  ]
  }
 }
