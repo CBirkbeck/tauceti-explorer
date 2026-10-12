@@ -21,9 +21,9 @@
       "head": "b7712a0",
       "review": {
         "recommendation": "approve",
-        "head": "4c2b687",
-        "current": false,
-        "date": "2026-10-09"
+        "head": "b7712a0",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "ReductiveGroupsPartII": {

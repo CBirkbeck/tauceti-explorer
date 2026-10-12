@@ -20,7 +20,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **FoundationsAndLibraryIntegration** — Foundations, existing libraries, and proof integrity. No plan yet · package not yet · CN needs 5/6 layers
 - **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: pull request #785 open** · reviewer recommends approval (at earlier head bd3d0c3; current head ce48de2) · move down: AlgebraicModuliForArithmeticGeometry (1)
-- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open** · reviewer recommends approval (at earlier head 4c2b687; current head b7712a0)
+- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open** · reviewer recommends approval
 
 ## Tier 2
 
