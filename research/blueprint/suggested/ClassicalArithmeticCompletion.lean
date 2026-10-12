@@ -128,6 +128,9 @@ statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
 BP-ClassicalArithmeticCompletion~2: checked planning signatures, implementationStatus = unchecked.
+REV-ClassicalArithmeticCompletion~3 corrected statements that were false or too weak as typed and
+added the signatures its corrections introduce; the file still elaborates at both pins with admitted
+proofs only.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 Revision round 2 elaborates this file with lean-check in the existing shared build at both
@@ -266,7 +269,8 @@ example : ∀ u : (ZMod 8)ˣ, u ^ 2 = 1 := by
 example : orderOf (unitsTwoPowFive 1) = 4 := by
   sorry
 
-/-- Unit test `unitsTwoPow_test_not_cyclic`: for `e ≥ 3` the group is not cyclic, so no single
+/-- Unit test `unitsTwoPow_test_not_cyclic`: for every `e` the group of units modulo `2 ^ (e + 3)`
+is not cyclic (the index `e + 3` already encodes the modulus being at least `8`), so no single
 generator exists. -/
 example (e : ℕ) : ¬ IsCyclic (ZMod (2 ^ (e + 3)))ˣ := by
   sorry
@@ -598,10 +602,11 @@ noncomputable def normEquationSymbol (K : Type*) [Field K] (a b : K) : ℤ :=
 
 /-- `CA.1/hilbert-symbol`, the odd-prime reading: for `u`, `w` prime to `p`,
 `(p ^ α u, p ^ β w)_p = (-1) ^ (α β (p - 1) / 2) (u / p) ^ β (w / p) ^ α`. -/
-theorem normEquationSymbol_padic_odd {p : ℕ} [Fact p.Prime] (hp : p ≠ 2) {u w : ℤ}
-    (hu : ¬ (p : ℤ) ∣ u) (hw : ¬ (p : ℤ) ∣ w) (α β : ℕ) :
-    normEquationSymbol ℚ_[p] ((p : ℚ_[p]) ^ α * u) ((p : ℚ_[p]) ^ β * w) =
-      (-1) ^ (α * β * ((p - 1) / 2)) * legendreSym p u ^ β * legendreSym p w ^ α := by
+theorem normEquationSymbol_padic_odd {p : ℕ} [Fact p.Prime] (hp : p ≠ 2) {u w : ℚ}
+    (hu0 : u ≠ 0) (hw0 : w ≠ 0) (hu : padicValRat p u = 0) (hw : padicValRat p w = 0) (α β : ℤ) :
+    normEquationSymbol ℚ_[p] ((p : ℚ_[p]) ^ α * (u : ℚ_[p])) ((p : ℚ_[p]) ^ β * (w : ℚ_[p])) =
+      (-1) ^ (α.natAbs * β.natAbs * ((p - 1) / 2)) *
+        legendreSym p (u.num * u.den) ^ β.natAbs * legendreSym p (w.num * w.den) ^ α.natAbs := by
   sorry
 
 /-- The archimedean value, imported from Global Quadratic Forms 4.4 and recorded for the reader:
@@ -733,7 +738,7 @@ theorem powerResidueSymbolIdeal_of_isMaximal (𝔭 : Ideal (𝓞 K)) [𝔭.IsMax
     powerResidueSymbolIdeal n 𝔭 α = powerResidueSymbol n 𝔭 (Ideal.Quotient.mk 𝔭 α) := by
   sorry
 
-theorem powerResidueSymbolIdeal_mul_right {𝔞 𝔟 : Ideal (𝓞 K)}
+theorem powerResidueSymbolIdeal_mul_right {𝔞 𝔟 : Ideal (𝓞 K)} (h𝔞0 : 𝔞 ≠ ⊥) (h𝔟0 : 𝔟 ≠ ⊥)
     (h𝔞 : (Ideal.absNorm 𝔞).Coprime n) (h𝔟 : (Ideal.absNorm 𝔟).Coprime n) (α : 𝓞 K) :
     powerResidueSymbolIdeal n (𝔞 * 𝔟) α =
       powerResidueSymbolIdeal n 𝔞 α * powerResidueSymbolIdeal n 𝔟 α := by
@@ -749,7 +754,7 @@ theorem powerResidueSymbolIdeal_mul_left {𝔞 : Ideal (𝓞 K)} (h𝔞 : (Ideal
     powerResidueSymbolIdeal n ⊤ α = 1 := by
   sorry
 
-theorem powerResidueSymbolIdeal_eq_zero_iff {𝔞 : Ideal (𝓞 K)}
+theorem powerResidueSymbolIdeal_eq_zero_iff {𝔞 : Ideal (𝓞 K)} (h𝔞0 : 𝔞 ≠ ⊥)
     (h𝔞 : (Ideal.absNorm 𝔞).Coprime n) (α : 𝓞 K) :
     powerResidueSymbolIdeal n 𝔞 α = 0 ↔ ¬ IsCoprime (Ideal.span {α}) 𝔞 := by
   sorry
@@ -852,6 +857,16 @@ example [IsCyclotomicExtension {3} ℚ K] {ζ : 𝓞 K} (hζ : IsPrimitiveRoot �
     ¬ IsPrimaryEisenstein (3 + ζ) := by
   sorry
 
+/-- Unit test `isPrimaryEisenstein_test_one`: `1` is not primary, although it is congruent to a
+rational integer modulo `3`. -/
+example [IsCyclotomicExtension {3} ℚ K] : ¬ IsPrimaryEisenstein (1 : 𝓞 K) := by
+  sorry
+
+/-- Unit test `isPrimaryEisenstein_test_two_add_zeta`: `2 + ζ` is not primary. -/
+example [IsCyclotomicExtension {3} ℚ K] {ζ : 𝓞 K} (hζ : IsPrimitiveRoot ζ 3) :
+    ¬ IsPrimaryEisenstein (2 + ζ) := by
+  sorry
+
 /-- Unit test `isPrimaryEisenstein_test_one_sub_zeta`: the prime `1 - ζ` above `3` is not
 primary, which is why primes of norm `3` are excluded. -/
 example [IsCyclotomicExtension {3} ℚ K] {ζ : 𝓞 K} (hζ : IsPrimitiveRoot ζ 3) :
@@ -867,13 +882,14 @@ theorem jacobiSum_powerResidueSymbol_three [IsCyclotomicExtension {3} ℚ K]
       π := by
   sorry
 
-/-- `CA.1/cubic-gauss-sum-cube`: `g(χ_π) ^ 3 = p π` for any embedding into `ℂ` and any
-primitive additive character. -/
+/-- `CA.1/cubic-gauss-sum-cube`: `g(χ_π) ^ 3 = p π` for any injective ring map into a domain
+(for example `ℂ`, or the integers of `K(ζ_p)`) and any primitive additive character. -/
 theorem gaussSum_powerResidueSymbol_three_pow_three [IsCyclotomicExtension {3} ℚ K]
     [HasEnoughRootsOfUnity (𝓞 K) 3] {π : 𝓞 K} (hπ : Prime π) (hprim : IsPrimaryEisenstein π)
     {p : ℕ} (hp : p.Prime) (hp3 : p % 3 = 1) (hN : Ideal.absNorm (Ideal.span {π}) = p)
-    [(Ideal.span {π}).IsMaximal] [Fintype (𝓞 K ⧸ Ideal.span {π})] (φ : 𝓞 K →+* ℂ)
-    (ψ : AddChar (𝓞 K ⧸ Ideal.span {π}) ℂ) (hψ : ψ.IsPrimitive) :
+    [(Ideal.span {π}).IsMaximal] [Fintype (𝓞 K ⧸ Ideal.span {π})] {R : Type*} [CommRing R]
+    [IsDomain R] (φ : 𝓞 K →+* R) (hφ : Function.Injective φ)
+    (ψ : AddChar (𝓞 K ⧸ Ideal.span {π}) R) (hψ : ψ.IsPrimitive) :
     gaussSum ((powerResidueSymbol 3 (Ideal.span {π})).ringHomComp φ) ψ ^ 3 = p * φ π := by
   sorry
 
@@ -1000,12 +1016,17 @@ def IsLinearlyGenerated (s : ℕ → V) : Prop :=
 
 variable (F) in
 /-- The ideal of generating polynomials of `s` (Shoup Theorem 18.1). -/
-def generatingIdeal (s : ℕ → V) : Ideal F[X] := by sorry
+def generatingIdeal (s : ℕ → V) : Ideal F[X] where
+  carrier := {g | IsGeneratingPoly s g}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
 
 variable (F) in
 /-- The minimal polynomial of `s`: the monic generator of `generatingIdeal F s`, and `0` when
 `s` is not linearly generated. -/
-def minPoly (s : ℕ → V) : F[X] := by sorry
+noncomputable def minPoly (s : ℕ → V) : F[X] := by
+  classical exact normalize (Submodule.IsPrincipal.generator (generatingIdeal F s))
 
 theorem star_add (g h : F[X]) (s : ℕ → V) : star (g + h) s = star g s + star h s := by sorry
 
@@ -1480,7 +1501,11 @@ namespace PadicInt
 variable {p : ℕ} [Fact p.Prime]
 
 /-- The `p`-adic digit expansion `x = ∑ dᵢ pⁱ`, `0 ≤ dᵢ < p`, as an equivalence. -/
-def digitsEquiv : ℤ_[p] ≃ (ℕ → Fin p) := by sorry
+def digitsEquiv : ℤ_[p] ≃ (ℕ → Fin p) where
+  toFun x i := ⟨(PadicInt.toZModPow (i + 1) x).val / p ^ i, by sorry⟩
+  invFun d := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
 
 theorem hasSum_digitsEquiv (x : ℤ_[p]) :
     HasSum (fun i => ((digitsEquiv x i : ℕ) : ℤ_[p]) * (p : ℤ_[p]) ^ i) x := by sorry
@@ -1572,6 +1597,17 @@ def mapOutput {Δ' : Type*} (f : Δ → Δ') : DFAO α σ Δ' := ⟨M.step, M.st
 /-- The product automaton, outputting pairs. -/
 def prod {τ Δ' : Type*} (N : DFAO α τ Δ') : DFAO α (σ × τ) (Δ × Δ') :=
   ⟨fun s a => (M.step s.1 a, N.step s.2 a), (M.start, N.start), fun s => (M.output s.1, N.output s.2)⟩
+
+@[simp] theorem evalFrom_nil (s : σ) : M.evalFrom s [] = s := by sorry
+
+@[simp] theorem evalFrom_cons (s : σ) (a : α) (x : List α) :
+    M.evalFrom s (a :: x) = M.evalFrom (M.step s a) x := by sorry
+
+@[simp] theorem eval_mapOutput {Δ' : Type*} (f : Δ → Δ') (x : List α) :
+    (M.mapOutput f).eval x = M.eval x := by sorry
+
+@[simp] theorem eval_prod {τ Δ' : Type*} (N : DFAO α τ Δ') (x : List α) :
+    (M.prod N).eval x = (M.eval x, N.eval x) := by sorry
 
 /-- Unit test `DFAO.parity_eval`: the two-state parity automaton on binary words outputs the
 parity of the number of ones. -/
@@ -1704,7 +1740,10 @@ variable {K : Type*} [Field K]
 
 /-- For positive `q`, the Cartier operator `Λ_r` is `∑ aₙ Xⁿ ↦ ∑ a_{qn+r} Xⁿ`.
 At `q = 0` its junk value is zero. Preservation of power series requires `r < q`. -/
-def cartier (q r : ℕ) (f : K⸨X⸩) : K⸨X⸩ := by sorry
+def cartier (q r : ℕ) (f : K⸨X⸩) : K⸨X⸩ :=
+  if hq : q = 0 then 0 else
+    { coeff := fun n => f.coeff (q * n + r)
+      isPWO_support' := by sorry }
 
 theorem cartier_zero (r : ℕ) (f : K⸨X⸩) : cartier 0 r f = 0 := by sorry
 
@@ -1776,6 +1815,12 @@ theorem isAutomatic_of_isAlgebraic [NeZero (Fintype.card K)] (f : K⟦X⟧)
 Proposition 2.13). -/
 theorem isAlgebraic_of_isAutomatic [NeZero (Fintype.card K)] (a : ℕ → K)
     (ha : IsAutomatic (Fintype.card K) a) : IsAlgebraic K[X] (PowerSeries.mk a) := by sorry
+
+/-- Bridy, Proposition 2.13: a kernel with `m` elements gives degree at most `q ^ m - 1`. -/
+theorem exists_poly_natDegree_le_of_finite_kernel (a : ℕ → K)
+    (ha : (kernel (Fintype.card K) a).Finite) :
+    ∃ P : K[X][X], P ≠ 0 ∧ P.natDegree ≤ Fintype.card K ^ ha.toFinset.card - 1 ∧
+      Polynomial.aeval (PowerSeries.mk a) P = 0 := by sorry
 
 /-- **Christol's theorem.** Over a finite field of characteristic `p`, a power series is
 algebraic over `𝔽_q(X)` iff its coefficient sequence is `p`-automatic. -/
@@ -2299,9 +2344,7 @@ def hermiteBasis (A : Matrix (Fin m) (Fin n) ℤ) :
     Matrix (Fin m) (Fin (hermiteNormalForm A).rank) ℤ :=
   (hermiteNormalForm A).H
 
-/-- **Termination of the Hermite reduction.** A matrix whose bottom row is nonzero outside its
-first `j` columns is carried by a unimodular column operation to one whose bottom-row entries in
-those columns have strictly smaller total absolute value, until a single nonzero entry is left. -/
+/-- **Termination of the Hermite reduction.** If at least two entries of the bottom row are nonzero, some unimodular column operation strictly decreases the sum of the absolute values of the bottom-row entries (replace the larger entry a by its remainder modulo the smaller nonzero entry). -/
 theorem exists_unimodular_bottomRow_decrease (A : Matrix (Fin (m + 1)) (Fin n) ℤ)
     (h : 2 ≤ (Finset.univ.filter fun j => A (Fin.last m) j ≠ 0).card) :
     ∃ V : GL (Fin n) ℤ, ∑ j, ((A * (V : Matrix (Fin n) (Fin n) ℤ)) (Fin.last m) j).natAbs <
@@ -2860,8 +2903,13 @@ theorem C_mul (c : K) (hc : c ≠ 0) (r : ℝ) (f : K[X]) :
     newtonSlopeMultiplicity v r (C c * f) = newtonSlopeMultiplicity v r f := by
   sorry
 
-/-- Only finitely many slopes occur, and their widths add up to `deg f - ord₀ f`. -/
+/-- Only finitely many slopes occur. (The widths add up to `deg f - ord₀ f`; state that as a separate lemma `sum_eq`.) -/
 theorem finite_support (f : K[X]) : {r : ℝ | newtonSlopeMultiplicity v r f ≠ 0}.Finite := by
+  sorry
+
+/-- The widths add up to `deg f - ord₀ f`. -/
+theorem sum_eq (f : K[X]) (hf : f ≠ 0) :
+    ∑ᶠ r : ℝ, newtonSlopeMultiplicity v r f = f.natDegree - f.natTrailingDegree := by
   sorry
 
 /-- A monomial has no slopes. -/
@@ -3365,6 +3413,12 @@ theorem sumSquaresCount_two_pos_iff (n : ℕ) :
 
 theorem sumSquaresCount_four_pos (n : ℕ) : 0 < sumSquaresCount 4 n := by sorry
 
+theorem sumSquaresCount_one (n : ℕ) : sumSquaresCount 1 n = if n = 0 then 1 else if IsSquare n then 2 else 0 := by sorry
+
+theorem sumSquaresCount_genFun (k : ℕ) :
+    (PowerSeries.mk fun n => (sumSquaresCount k n : ℤ)) =
+      (PowerSeries.mk fun n => (sumSquaresCount 1 n : ℤ)) ^ k := by sorry
+
 /-- Unit test `sumSquaresCount_two_five`. -/
 example : sumSquaresCount 2 5 = 8 := by sorry
 
@@ -3444,6 +3498,11 @@ theorem pellNormSet.mul_mem {n n' : ℤ} {z w : ℤ√d} (hz : z ∈ pellNormSet
 
 theorem pellNormSet.solution_mul_mem {n : ℤ} (a : Pell.Solution₁ d) {z : ℤ√d}
     (hz : z ∈ pellNormSet d n) : (a : ℤ√d) * z ∈ pellNormSet d n := by sorry
+
+instance pellNormSet.instMulAction (n : ℤ) : MulAction (Pell.Solution₁ d) (pellNormSet d n) where
+  smul a z := ⟨(a : ℤ√d) * z, pellNormSet.solution_mul_mem a z.2⟩
+  one_smul := by sorry
+  mul_smul := by sorry
 
 theorem pellNormSet.star_mem {n : ℤ} {z : ℤ√d} (hz : z ∈ pellNormSet d n) :
     star z ∈ pellNormSet d n ∧ -z ∈ pellNormSet d n := by sorry
@@ -3570,6 +3629,10 @@ theorem rnRing_norm_euclidean (α β : RamanujanNagellRing) (hβ : β ≠ 0) :
     ∃ q r : RamanujanNagellRing, α = β * q + r ∧
       (QuadraticAlgebra.norm r).natAbs < (QuadraticAlgebra.norm β).natAbs := by sorry
 
+/-- CA.4/ramanujan-nagell-ring-norm-euclidean: the consequence used by the factorisation. -/
+theorem rnRing_uniqueFactorizationMonoid : UniqueFactorizationMonoid RamanujanNagellRing := by
+  sorry
+
 /-- CA.4/ramanujan-nagell-ring-units-and-primes. -/
 theorem rnRing_units_and_primes :
     (∀ u : RamanujanNagellRingˣ, (u : RamanujanNagellRing) = 1 ∨ (u : RamanujanNagellRing) = -1) ∧
@@ -3644,7 +3707,7 @@ theorem mem_of_numericalFrobenius_lt {S : AddSubmonoid ℕ} (hS : IsNumericalSem
     (hx : numericalFrobenius S < x) : x ∈ S := by sorry
 
 theorem numericalGenus_eq_zero_iff {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) :
-    numericalGenus S = 0 ↔ S = ⊤ := by sorry
+    (numericalGenus S = 0 ↔ S = ⊤) ∧ (numericalFrobenius S = -1 ↔ S = ⊤) := by sorry
 
 theorem frobeniusNumber_numericalFrobenius {s : Set ℕ}
     (hS : IsNumericalSemigroup (_root_.AddSubmonoid.closure s))
@@ -3840,7 +3903,10 @@ example (r : ℚ) (D : Finset ℕ) :
 /-- CA.4/greedy-egyptian-step. -/
 theorem greedy_egyptian_step {m n : ℕ} (hm : 0 < m) (hmn : m < n) (hcop : Nat.Coprime m n) :
     (m : ℚ) / n - 1 / ⌈(n : ℚ) / m⌉₊ = ((m * ⌈(n : ℚ) / m⌉₊ - n : ℕ) : ℚ) / (n * ⌈(n : ℚ) / m⌉₊) ∧
-      m * ⌈(n : ℚ) / m⌉₊ - n < m ∧ 2 ≤ ⌈(n : ℚ) / m⌉₊ := by sorry
+      m * ⌈(n : ℚ) / m⌉₊ - n < m ∧ 2 ≤ ⌈(n : ℚ) / m⌉₊ ∧
+      (0 < m * ⌈(n : ℚ) / m⌉₊ - n →
+        ⌈(n : ℚ) / m⌉₊ <
+          ⌈((n * ⌈(n : ℚ) / m⌉₊ : ℕ) : ℚ) / ((m * ⌈(n : ℚ) / m⌉₊ - n : ℕ) : ℚ)⌉₊) := by sorry
 
 /-- The greedy expansion with fuel: at most `fuel` steps. -/
 def egyptianGreedyAux : ℕ → ℚ → List ℕ
@@ -3981,6 +4047,7 @@ example : IsPrimitiveZero (X 0 ^ 2 + X 1 ^ 2 - X 2 ^ 2 : MvPolynomial (Fin 3) �
 theorem primitiveZero_projectivization {n e : ℕ} {F : MvPolynomial (Fin (n + 1)) ℤ}
     (hF : F.IsHomogeneous e) (he : 1 ≤ e) :
     ∃ f : {x // IsPrimitiveZero F x} → ℙ ℚ (Fin (n + 1) → ℚ),
+      (∀ x, ∃ a : ℚˣ, a • (fun i => ((x.1 i : ℤ) : ℚ)) = (f x).rep) ∧
       (∀ x, MvPolynomial.eval (f x).rep (F.map (Int.castRingHom ℚ)) = 0) ∧
       (∀ P : ℙ ℚ (Fin (n + 1) → ℚ), MvPolynomial.eval P.rep (F.map (Int.castRingHom ℚ)) = 0 →
         ∃ x, f x = P) ∧
@@ -4018,7 +4085,7 @@ CA.5). This section uses the matrix normal forms of section `CA3` (`IntMatrix.Sm
 rests on (`IsDedekindDomain.HeightOneSpectrum.classGroupMk`,
 `ClassGroup.mk0_mem_closure_of_count_eq`,
 `TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr`,
-`NumberField.discr_eq_of_integralBasis`, `NumberField.adjoin_gen_eq_top_of_mod_four_ne_one`,
+`NumberField.adjoin_gen_eq_top_of_mod_four_ne_one`,
 `NumberField.discr_eq_of_squarefree_of_mod_four_eq_one`,
 `NumberField.discr_eq_four_mul_of_mod_four_ne_one`) would be imported from
 `TauCeti.RingTheory.ClassGroup.HeightOneSpectrum`, `TauCeti.NumberTheory.NumberField.Index.Discriminant`,
@@ -4340,6 +4407,9 @@ namespace ZsqrtdToRingOfIntegers
 variable {d : ℤ} {θ : 𝓞 K} (hθ : θ * θ = d)
 
 /-- `√d` goes to `θ`. -/
+theorem apply (x y : ℤ) : zsqrtdToRingOfIntegers θ hθ ⟨x, y⟩ = x + y * θ := by
+  sorry
+
 theorem sqrtd : zsqrtdToRingOfIntegers θ hθ ⟨0, 1⟩ = θ := by
   sorry
 
@@ -4893,6 +4963,13 @@ theorem rootPowPoly_eq_minpoly_pow {K L : Type*} [Field K] [Field L] [Algebra K 
 theorem rootPowPoly_two_comp_X_sq {R : Type*} [CommRing R] (P : R[X]) (hP : P.Monic) :
     (rootPowPoly P hP 2).comp (X ^ 2) = (-1) ^ P.natDegree * (P * P.comp (-X)) := by sorry
 
+/-- The cyclotomic levels under squaring of the roots, used by
+`CA.6/root-power-polynomial-square-cyclotomic`. -/
+theorem rootPowPoly_two_cyclotomic (N : ℕ) :
+    rootPowPoly (cyclotomic N ℤ) (cyclotomic.monic N ℤ) 2 =
+      if Odd N then cyclotomic N ℤ
+      else if 4 ∣ N then cyclotomic (N / 2) ℤ ^ 2 else cyclotomic (N / 2) ℤ := by sorry
+
 /-- Unit test `rootPowPoly.test_X_sub_C`: `(X - a)_m = X - a^m`. -/
 example (a : ℤ) (m : ℕ) : rootPowPoly (X - C a) (monic_X_sub_C a) m = X - C (a ^ m) := by sorry
 
@@ -4966,13 +5043,19 @@ theorem absLogHeight₁_eq_zero_iff {K : Type*} [Field K] [CharZero K] {α : K}
 
 /-- CA.6/canonical-height-power-map: for the power map `x ↦ x^d`, `d ≥ 2`, Tate's sequence
 `d^{-n} h(f^n(α))` is constant, so Tate's limit, the canonical height of the power map, is the Weil height:
-`ĥ_{x^d}(α) = h(α) = log M(α) / deg α`. -/
+`ĥ_{x^d}(α) = h(α)`, which is `log M(α) / deg α` for algebraic `α`. -/
 theorem tendsto_absLogHeight₁_iterate_pow {K : Type*} [Field K] [CharZero K] (α : K) {d : ℕ}
     (hd : 2 ≤ d) :
     (∀ n : ℕ, NumberField.absLogHeight₁ ((fun x : K => x ^ d)^[n] α) / (d : ℝ) ^ n =
         NumberField.absLogHeight₁ α) ∧
       Tendsto (fun n : ℕ => NumberField.absLogHeight₁ ((fun x : K => x ^ d)^[n] α) / (d : ℝ) ^ n)
         atTop (𝓝 (NumberField.absLogHeight₁ α)) := by sorry
+
+/-- CA.6/canonical-height-power-map: the affine preperiodic points of `x ↦ x^d`, `d ≥ 2`, are `0`
+and the roots of unity. -/
+theorem exists_iterate_pow_eq_iff {K : Type*} [Field K] {d : ℕ} (hd : 2 ≤ d) (α : K) :
+    (∃ m n : ℕ, m < n ∧ (fun x : K => x ^ d)^[m] α = (fun x : K => x ^ d)^[n] α) ↔
+      α = 0 ∨ ∃ k : ℕ, 0 < k ∧ α ^ k = 1 := by sorry
 
 /-! Lehmer's problem, whether `inf {M(α) : M(α) > 1} > 1`, is a conjecture and is not stated here as
 a target; see the roadmap document, section CA.6. -/
@@ -5037,8 +5120,8 @@ def toGroupRingModule : B ≃ₗ[A] GroupRingModule A B G :=
     MonoidAlgebra.of A G g • toGroupRingModule A B G x = toGroupRingModule A B G (g • x) := by
   sorry
 
-instance isScalarTower : IsScalarTower A (MonoidAlgebra A G) (GroupRingModule A B G) := by
-  sorry
+instance isScalarTower : IsScalarTower A (MonoidAlgebra A G) (GroupRingModule A B G) :=
+  inferInstance
 
 theorem norm_smul [Fintype G] (x : B) :
     (∑ g : G, MonoidAlgebra.of A G g) • toGroupRingModule A B G x =
@@ -5291,6 +5374,15 @@ theorem IsNIBGenerator.intTrace {K F L : Type*} [Field K] [Field F] [Field L] [N
     (h : IsNIBGenerator (𝓞 K) (𝓞 L) (L ≃ₐ[K] L) α) :
     IsNIBGenerator (𝓞 K) (𝓞 F) (F ≃ₐ[K] F) (Algebra.intTrace (𝓞 F) (𝓞 L) α) := by sorry
 
+/-- Johnston, Proposition 6.1, in Galois-group form (number fields and local fields alike). -/
+theorem IsNIBGenerator.of_sum_subgroup {A B C : Type*} [CommRing A] [CommRing B] [CommRing C]
+    [IsDomain C] [Algebra A B] [Algebra A C] [Algebra B C] [FaithfulSMul B C]
+    [IsScalarTower A B C] {G Γ : Type*} [Group G] [Group Γ] [Fintype G] [Fintype Γ]
+    [MulSemiringAction G C] [MulSemiringAction Γ B] [IsGaloisGroup G A C]
+    [IsGaloisGroup Γ A B] (H : Subgroup G) [Fintype H] [IsGaloisGroup H B C] {α : C}
+    (hα : IsNIBGenerator A C G α) (β : B) (hβ : algebraMap B C β = ∑ h : H, (h : G) • α) :
+    IsNIBGenerator A B Γ β := by sorry
+
 theorem HasNIB.intTrace_surjective_of_tower {K F L : Type*} [Field K] [Field F] [Field L]
     [NumberField K] [NumberField F] [NumberField L] [Algebra K F] [Algebra F L] [Algebra K L]
     [IsScalarTower K F L] [IsGalois K L] (h : HasNIB (𝓞 K) (𝓞 L) (L ≃ₐ[K] L)) :
@@ -5326,6 +5418,10 @@ variable (A B G : Type*) [CommRing A] [CommRing B] [Algebra A B] [IsDedekindDoma
 theorem projective_of_isTamelyRamified (h : IsTamelyRamified A B) :
     Module.Projective (MonoidAlgebra A G) (GroupRingModule A B G) := by sorry
 
+/-- Ullom: the same over the group ring of every subgroup. -/
+theorem projective_subgroup_of_isTamelyRamified (H : Subgroup G) (h : IsTamelyRamified A B) :
+    Module.Projective (MonoidAlgebra A H) (GroupRingModule A B H) := by sorry
+
 theorem intTrace_surjective_of_projective
     [Module.Projective (MonoidAlgebra A G) (GroupRingModule A B G)] :
     Function.Surjective (Algebra.intTrace A B) := by sorry
@@ -5344,6 +5440,15 @@ variable (A B G : Type*) [CommRing A] [IsDomain A] [IsDiscreteValuationRing A]
 theorem local_hasNIB_of_unramified
     (h : ∀ (P : Ideal B) [P.IsPrime], P ≠ ⊥ → P.ramificationIdx A = 1) : HasNIB A B G := by
   sorry
+
+/-- If the conjugates of `α` span `B ⧸ 𝔪_A B` over the residue field of `A`, then `α` generates a
+normal integral basis. When `B/A` is unramified, `B ⧸ 𝔪_A B` is the residue field of `B`, so this is
+the statement that every lift of a residue normal basis generator generates. -/
+theorem local_isNIBGenerator_of_span_quotient (α : B)
+    (hα : Submodule.span (A ⧸ IsLocalRing.maximalIdeal A)
+      (Set.range fun g : G ↦
+        Ideal.Quotient.mk ((IsLocalRing.maximalIdeal A).map (algebraMap A B)) (g • α)) = ⊤) :
+    IsNIBGenerator A B G α := by sorry
 
 theorem local_isNIBGenerator_of_pow_eq_uniformizer (π : B) (ϖ : A) (hϖ : Irreducible ϖ)
     (hπ : π ^ Nat.card G = algebraMap A B ϖ)
@@ -5525,7 +5630,11 @@ example (G : Type*) [Group G] [Fintype G] :
 
 variable (R) in
 /-- The left order `{x ∈ E | x M ⊆ M}` of an `R`-submodule `M` of `E`. -/
-def leftOrder (M : Submodule R E) : Subalgebra R E := by sorry
+def leftOrder (M : Submodule R E) : Subalgebra R E where
+  carrier := {x | ∀ m ∈ M, x * m ∈ M}
+  mul_mem' := by sorry
+  add_mem' := by sorry
+  algebraMap_mem' := by sorry
 
 theorem mem_leftOrder_iff (M : Submodule R E) (x : E) :
     x ∈ leftOrder R M ↔ ∀ m ∈ M, x * m ∈ M := by sorry
@@ -5634,7 +5743,7 @@ theorem associatedOrder_eq_of_free {Γ : Subalgebra A (MonoidAlgebra K (L ≃ₐ
         (algebraMap B L α) = algebraMap B L b) :
     Γ = associatedOrder A K L B := by sorry
 
-theorem associatedOrder_eq_groupRing_iff [IsDedekindDomain A] [IsDedekindDomain B]
+theorem associatedOrder_eq_groupRing_iff [NumberField K] [IsDedekindDomain A] [IsDedekindDomain B]
     [Module.Finite A B] [Module.IsTorsionFree A B] [MulSemiringAction (L ≃ₐ[K] L) B]
     [IsGaloisGroup (L ≃ₐ[K] L) A B] :
     associatedOrder A K L B = groupRingSubalgebra A K (L ≃ₐ[K] L) ↔ IsTamelyRamified A B := by
@@ -5643,8 +5752,9 @@ theorem associatedOrder_eq_groupRing_iff [IsDedekindDomain A] [IsDedekindDomain 
 /-- The associated order of `ℚ(i)/ℚ` is the maximal order `ℤ e₁ ⊕ ℤ e₋₁`. -/
 theorem associatedOrder_gaussian (L : Type*) [Field L] [NumberField L]
     [IsCyclotomicExtension {4} ℚ L] [IsGalois ℚ L] (σ : L ≃ₐ[ℚ] L) (hσ : σ ≠ 1) :
-    (1 / 2 : ℚ) • (MonoidAlgebra.of ℚ _ 1 + MonoidAlgebra.of ℚ _ σ) ∈
-      associatedOrder ℤ ℚ L (𝓞 L) := by sorry
+    associatedOrder ℤ ℚ L (𝓞 L) =
+      Algebra.adjoin ℤ {(1 / 2 : ℚ) • (MonoidAlgebra.of ℚ _ 1 + MonoidAlgebra.of ℚ _ σ),
+        (1 / 2 : ℚ) • (MonoidAlgebra.of ℚ _ 1 - MonoidAlgebra.of ℚ _ σ)} := by sorry
 
 /-- Unit test `IntegralGaloisModule.associatedOrder_test_trivial`: for `L = K` the associated
 order is `A`. -/
