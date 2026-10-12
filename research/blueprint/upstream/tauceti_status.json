@@ -78,9 +78,10 @@
       "head": "ff028fc",
       "review": {
         "recommendation": "approve",
-        "head": "645d8e4",
-        "current": false,
-        "date": "2026-10-10"
+        "head": "adf0421",
+        "current": true,
+        "date": "2026-10-12",
+        "note": "head ff028fc differs only by the re-stack on #793"
       }
     },
     "AdicEtaleGeometry": {
