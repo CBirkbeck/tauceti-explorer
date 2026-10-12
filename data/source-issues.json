@@ -200516,6 +200516,46 @@
    "reviewReason": "Confirmed at Zhu p436: boundary supports do not give the complementary filtration; replacing them by supports in the closures gives the correct opposite filtration. The intended two-filtration argument is also used by FS VI.7.6 p220. Reuses PAPER-ZHU-17/E51."
   },
   {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E1",
+   "kind": "misprint",
+   "locator": "Proposition 3.4, p.14, in arXiv:2111.12660v2 (16 March 2024); the published Annals text was not collated",
+   "printed": "The minimum λ_i is described as the least real number for which λ_i K contains i+1 linearly independent integer polynomials.",
+   "correction": "λ_i is the least nonnegative real number with that property (the successive minimum of K); K is symmetric, so negative dilation factors give the same sets as positive ones and the unrestricted infimum is not the intended quantity.",
+   "reason": "For m = 0 and K = [−1/v_0, 1/v_0], λK contains the integer 1 for every real λ with |λ| ≥ v_0, so the least real such λ does not exist; the least nonnegative one is v_0, as the proposition's bounds D/1! = D = v_0 require.",
+   "affects": "nothing",
+   "known": "Recorded earlier in the atlas's extraction of this paper as PAPER-SMITH-24/E3; no published correction",
+   "searched": [
+    "arXiv abstract page of 2111.12660 (versions v1, v2; no erratum, no journal reference)",
+    "PAPER-SMITH-24 extraction in this repository"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
+   "citation": "Alexander Smith, Algebraic integers with conjugates in a prescribed distribution, arXiv:2111.12660v2 (16 March 2024), 47 pages; Annals of Mathematics 200 (2024) not collated",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E2",
+   "kind": "gap",
+   "locator": "Proof of Theorem 3.2, p.13, in arXiv:2111.12660v2; citation of [5, Corollary 2.5]",
+   "printed": "The proof concludes from the flatness theorem for simplices (Banaszczyk–Litvak–Pajor–Szarek, Corollary 2.5) that every translate of the body K = {Σβ_iQ°_i : Σ|β_i| ≤ C_0 n log 2n} contains an integer polynomial. K is a cross-polytope, not a simplex, and the step from the cited statement about simplices to a covering statement for K is not given.",
+   "correction": "Insert the step: S = conv(Q°_1,…,Q°_n, −(1/n)ΣQ°_i) lies in the unit cross-polytope; for every nonzero integer functional d one of d(Q°_i) has absolute value ≥ 1, and the value −(1/n)Σd(Q°_i) at the last vertex has the opposite sign or lies on the other side of 0 from it, so the lattice width of S is at least 1. Flt(S) ≤ Cn(1+log n) then gives that every translate of tS with t > Cn(1+log n) meets the integer polynomials, hence so does every translate of tK. Alternatively, as planned here (GN.4/l1-covering-transference), Banaszczyk's ℓ¹ and sup-norm Gaussian tail inequalities give the covering bound for K directly, with constant 3n√(log(8n)/π).",
+   "reason": "BLPS Corollary 2.5 bounds Flt(S) for an n-simplex S; a covering bound for another body follows only through a simplex inside it of lattice width bounded below, which the functional lower bound of the proof supplies but the proof does not state.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 2111.12660 (v1 24 Nov 2021, v2 16 Mar 2024; comments '47 pages'; no erratum)",
+    "PAPER-SMITH-24 extraction sourceIssues E1–E11 in this repository (not recorded there)"
+   ],
+   "owner": "GeometryOfNumbersAndQuadraticArithmetic",
+   "file": "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic--GN.1.json",
+   "citation": "Alexander Smith, Algebraic integers with conjugates in a prescribed distribution, arXiv:2111.12660v2 (16 March 2024), 47 pages; Annals of Mathematics 200 (2024) not collated",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E51",
    "kind": "error",
    "locator": "§3, second paragraph, printed p. 4 (arXiv:1701.02458v1, the only arXiv version); the published JAMS version was not opened",
