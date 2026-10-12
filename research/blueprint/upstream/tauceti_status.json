@@ -96,12 +96,13 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "42b79be",
+      "head": "765202a",
       "review": {
         "recommendation": "approve",
         "head": "42b79be",
         "current": true,
-        "date": "2026-10-12"
+        "date": "2026-10-12",
+        "note": "approved at 95d2863; twelve README/docstring/Check repairs applied at 765202a"
       }
     },
     "AdicSpacesPartII": {
@@ -169,13 +170,13 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "793c406",
+      "head": "6c21580",
       "review": {
         "recommendation": "approve",
         "head": "6c9b3ff",
         "current": true,
         "date": "2026-10-12",
-        "note": "head 793c406 differs only by re-stacks on the parent"
+        "note": "head 6c21580 differs only by re-stacks on the parent"
       }
     },
     "PerfectoidTowers": {
