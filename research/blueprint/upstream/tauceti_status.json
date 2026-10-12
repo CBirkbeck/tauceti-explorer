@@ -60,11 +60,11 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "7e42a1c",
+      "head": "c870e45",
       "review": {
         "recommendation": "changes",
         "head": "7e42a1c",
-        "current": true,
+        "current": false,
         "date": "2026-10-12"
       }
     },
@@ -75,13 +75,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "ff028fc",
+      "head": "fdf30c5",
       "review": {
         "recommendation": "approve",
         "head": "adf0421",
         "current": true,
         "date": "2026-10-12",
-        "note": "head ff028fc differs only by the re-stack on #793"
+        "note": "head fdf30c5 differs only by re-stacks on #793"
       }
     },
     "AdicEtaleGeometry": {
