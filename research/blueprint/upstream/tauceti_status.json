@@ -154,10 +154,9 @@
       "head": "b472810",
       "review": {
         "recommendation": "approve",
-        "head": "a521a2c",
+        "head": "b472810",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head b472810 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "AdicSpacesPartIV": {
