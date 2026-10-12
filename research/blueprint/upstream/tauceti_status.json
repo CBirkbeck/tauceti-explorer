@@ -96,8 +96,8 @@
       "head": "1022264",
       "review": {
         "recommendation": "approve",
-        "head": "980fbe3",
-        "current": false,
+        "head": "98f8173",
+        "current": true,
         "date": "2026-10-12",
         "note": "head 1022264 differs only by re-stacks on the parent"
       }
