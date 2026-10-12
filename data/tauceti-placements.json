@@ -10,6 +10,41 @@
    "galaxy": "grouptheory",
    "decided": "2026-10-07",
    "reason": "the generic profinite calculus (profinite integers and powers, automorphism groups of profinite groups), which its README calls group theory about every profinite group that no arithmetic roadmap should own. The README names four roadmaps in four areas."
+  },
+  "TauCetiRoadmap/OperatorTheory/OperatorIdeals": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "approximation numbers and symmetric operator ideals of bounded operators. Its README names RepresentationTheory, which put the whole family in representation theory; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/PolarDecomposition": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "the polar decomposition of bounded maps through the square root of the positive operator T†T. Its README names only OperatorIdeals, so it followed that into representation theory; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/PrincipalAngles": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "principal angles between subspaces of a Hilbert space and the projection gap. Its README names only PolarDecomposition, so it followed that; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/SpectralSubspacePerturbation": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "how a spectral subspace of a self-adjoint operator moves under perturbation (Sylvester equations, sin θ bounds). Its README names three siblings, two of them misplaced; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/Majorization": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "majorization, symmetric gauges and unitarily invariant norms, linking convex order with spectral inequalities. Neither its title nor its README settled an area; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/MatrixSpectralStatistics": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "low-rank factorizations, deterministic spectral control and probabilistic error bounds for Hermitian matrices. Neither its title nor its README settled an area; it is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
+  },
+  "TauCetiRoadmap/OperatorTheory/OrthogonalGeometry": {
+   "galaxy": "analysis",
+   "decided": "2026-10-12",
+   "reason": "Gram rigidity and coordinate isometries of finite configurations in inner product spaces. It has no layers yet, so it is not drawn; recorded so that it lands with its family when it has some. It is one of Tau Ceti's OperatorTheory roadmaps, whose README describes the family as the theory of bounded operators on Hilbert spaces and the spectral perturbation theory built on it, and which the README rule itself places in analysis, with SelfAdjointSpectralTheory."
   }
  }
 }

@@ -1,7 +1,7 @@
 {
-  "roadmaps": 245,
-  "stages": 5811,
-  "originalStages": 2219,
+  "roadmaps": 247,
+  "stages": 5819,
+  "originalStages": 2227,
   "sourceRefinements": 3592,
   "reviewedDecompositions": [
     {
@@ -152,7 +152,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 2147,
+  "terminalTargets": 2155,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -169,18 +169,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 245,
+  "mathematicalSummaries": 247,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5710,
+  "mathematicalStars": 5718,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 2396,
-  "stageEdges": 15202,
+  "stageEdges": 15208,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1457,8 +1457,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37791125,
-  "htmlSha256": "1515d0f15930a21adf0cc06234c3cb073bf5606207cfcf4a02c51350b71e4c28",
+  "htmlBytes": 37879576,
+  "htmlSha256": "886c77905b2915d2a7e92f147c18a3fb58399c7d8879448b33ceb30db4f4b861",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1468,7 +1468,7 @@
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
     "src/universe.js": "f4d7901cbf0ecb178584e5df93bfdee84862fba37032fd85d3e321ee6d6c09b1",
-    "src/graph.js": "0d303f7ebc800f0972a7f9b87dd31966e60119a7ac8bd71aa03decc1f42f81b9",
+    "src/graph.js": "7cdfddba35f1a4d9529db229018d453245d7d449cf80b1843d0a2677e4ed5d37",
     "src/camera.js": "a3a15b51c943a8dcee0e2d7a922700c11ce4c6f1de545ddc5da8fdfd2150a460",
     "src/progress.js": "ce2bcb7443a4bb483c4fc6cc08a4c0638e0453e085c8d4856e066773468f5c33",
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
@@ -2084,8 +2084,8 @@
   },
   "taucetiProgress": {
     "exportedAt": "2026-10-12T11:38:33Z",
-    "roadmaps": 76,
-    "unplaced": 4,
+    "roadmaps": 78,
+    "unplaced": 2,
     "layers": {
       "done": 311,
       "partial": 205,
@@ -2099,6 +2099,8 @@
       "tauceti:TauCetiRoadmap/DifferentialGeometry",
       "tauceti:TauCetiRoadmap/IntegralLattices",
       "tauceti:TauCetiRoadmap/LocalGaloisGroups",
+      "tauceti:TauCetiRoadmap/OperatorTheory/Majorization",
+      "tauceti:TauCetiRoadmap/OperatorTheory/MatrixSpectralStatistics",
       "tauceti:TauCetiRoadmap/OperatorTheory/OperatorIdeals",
       "tauceti:TauCetiRoadmap/OperatorTheory/PolarDecomposition",
       "tauceti:TauCetiRoadmap/OperatorTheory/PrincipalAngles",
