@@ -262,6 +262,23 @@
         "date": null,
         "note": "opened 2026-10-13 09:55Z; awaiting first review"
       }
+    },
+    "NeronModelsAndSemistableAbelianVarieties": {
+      "stage": "pr",
+      "pr": 852,
+      "head": "4d84f14",
+      "depends_on": [
+        779,
+        785
+      ],
+      "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 10:00Z; awaiting first review"
+      }
     }
   }
 }
