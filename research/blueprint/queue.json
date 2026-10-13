@@ -23411,12 +23411,13 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyPartII.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #9407"
+   "note": "deliverables arrived from an external worker on issue #9407",
+   "finishedAt": "2026-10-13T15:53:55Z"
   },
   {
    "id": "REV-CompletedCohomologyPartII",
@@ -24462,9 +24463,10 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9411"
+   "note": "deliverables arrived from an external worker on issue #9411",
+   "finishedAt": "2026-10-13T15:53:57Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.7",
@@ -26741,7 +26743,8 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4b",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9397"
   },
   {
    "id": "BP-ModularIwasawaMainConjectures",
@@ -27310,8 +27313,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9427"
   },
   {
    "id": "REV-PadicHodgeTheory",
@@ -27732,8 +27736,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9430"
   },
   {
    "id": "REV-PrismaticCohomology",
@@ -34792,8 +34797,9 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.5",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9380"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9380",
+   "finishedAt": "2026-10-13T15:53:59Z"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.6",
@@ -36538,7 +36544,8 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4a",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4a.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9396"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.5d",
@@ -48958,8 +48965,9 @@
     "PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9376"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9376",
+   "finishedAt": "2026-10-13T15:54:04Z"
   },
   {
    "id": "PKG-GL2AutomorphicRepresentationsAndTransfer",
