@@ -110,8 +110,9 @@ family. The multiplicative form is `H_max(y) := exp h_max(y)`, the maximum of `1
 - `F` has characteristic zero. A transcendental coordinate gets Mathlib's junk value `h = 0`, so
   statements about the height of a tuple assume every coordinate algebraic.
 - This is the maximum of the scalar heights, not the absolute height of the projective point
-  `[1 : y_1 : ⋯ : y_m]`. That projective height, and its comparison with `h_max`, belong to
-  HeightsRationalPointsAndObstructions, Layer RP.0.
+  `[1 : y_1 : ⋯ : y_m]`. That projective height, and the comparison
+  `max_i h(y_i) ≤ h([1 : y_1 : ⋯ : y_m]) ≤ Σ_i h(y_i)`, belong to HeightsRationalPointsAndObstructions,
+  Layer RP.0 (`RP.0/tuple-height-adapters`), a higher tier that imports `h_max` from here.
 
 *Uses.*
 
@@ -119,8 +120,9 @@ family. The multiplicative form is `H_max(y) := exp h_max(y)`, the maximum of `1
   coordinates, and the counting sets `A(g, h; Φ)` of (70), p. 19, bound `h(Φ(p))` in this sense.
 - Binyamini, Lemma 27, p. 19: the lower bound for an integer polynomial at an algebraic point is
   stated through `H(y)^{d(m+1)}` with `H(y) = exp h_max(y)`.
-- HeightsRationalPointsAndObstructions, Layer RP.0: the consumer named by the routing of Binyamini's
-  paper, which compares `h_max` with the projective tuple height.
+- HeightsRationalPointsAndObstructions, Layer RP.0 (`RP.0/tuple-height-adapters`): it compares
+  `max_i h(x_i)` with the height of `[1 : x_1 : ⋯ : x_m]` and calls `max_i h(x_i)` the counting height of
+  a tuple, which is `h_max`. The routing of Binyamini's paper names RP.0 as a consumer.
 
 *API.*
 
@@ -213,7 +215,8 @@ Lemma 3.2.
   contribution of the others.
 - Every row must have a nonzero entry. A zero row gives `P_i = 0` and the bound `0`, which no nonzero
   `x` meets. A zero row imposes no condition and can be deleted first.
-- `M = 0` is allowed (bound `1`, solution `e₁`); Berrevoets states `M ≥ 1`.
+- `M = 0` is allowed (bound `1`, solution `e₁`). Berrevoets's form of the bound, with the exponent
+  `1/(dM)`, presupposes `M ≥ 1`.
 - `σ₁, …, σ_d` run over all `d` ring homomorphisms `K → ℂ` (`NumberField.Embeddings.card`): each
   complex embedding appears together with its conjugate.
 
@@ -235,10 +238,11 @@ Lemma 3.2.
    (`Algebra.norm_eq_zero_iff`), and a nonzero integer has absolute value at least `1`
    (`Int.one_le_abs`). Hence `Σ_j a_ij x_j = 0` for every `i`.
 5. Counting: a nonzero entry `a_iℓ` has `|N(a_iℓ)| ≥ 1`, so `P_i ≥ ∏_k |σ_k(a_iℓ)| ≥ 1` and
-   `1 < 2√2·N·P_i^{1/d}`. Then `n_i < 2√2·N·(Y + 1)·P_i^{1/d}`, and the box condition holds once
-   `(Y + 1)^{N−dM} ≥ (2√2·N)^{dM}·∏_i P_i`. Take `Y` to be the integer part of
-   `((2√2·N)^{dM}·∏_i P_i)^{1/(N−dM)}`. That root is at least `1`, so `Y ≥ 1`; `Y + 1` exceeds the
-   root, and `Y` is at most the stated bound.
+   `1 < 2√2·N·P_i^{1/d}`. Then `n_i < 2√2·N·(Y + 1)·P_i^{1/d}`, so for `M ≥ 1` the box condition holds
+   once `(Y + 1)^{N−dM} ≥ (2√2·N)^{dM}·∏_i P_i`; for `M = 0` it reads `(Y + 1)^N > 1`. Take
+   `Y := ⌊((2√2·N)^{dM}·∏_i P_i)^{1/(N−dM)}⌋`, the integer part of the root, as Berrevoets does. The
+   root is at least `1` and `N − dM ≥ 1`, so `Y ≥ 1`; `Y + 1` exceeds the root, and `Y` is at most the
+   stated bound.
 
 *Checks.*
 
@@ -262,11 +266,11 @@ Lemma 3.2.
 
 *Source:* Berrevoets, Lemma 3.2, p. 11: the statement, with a number field of degree `d`,
 algebraic-integer coefficients and no zero row, `N > dM`, and the bound through the product over rows
-and embeddings with the constant `2√2·N`. Berrevoets, proof of Lemma 3.2, pp. 12–15: the box
-principle in the coordinates `τ_k`, the choice of `n_i`, the norm argument and the choice of `Y`,
-followed above with the corrections noted at the end of this document. Berrevoets, Remark 3.3,
-pp. 11–12: a nonzero solution exists because the system is `dM` rational equations in `N > dM`
-unknowns. Evertse, Theorem 3.20, p. 52: the uniform-house form that this refines.
+and embeddings with the constant `2√2·N`. Berrevoets, proof of Lemma 3.2, pp. 12–15: the box principle
+in the coordinates `τ_k`, the choice of `n_i`, the norm argument and the choice of `Y` as the integer
+part of the root, followed above with the corrections noted at the end of this document. Berrevoets,
+Remark 3.3, pp. 11–12: a nonzero solution exists because the system is `dM` rational equations in `N >
+dM` unknowns. Evertse, Theorem 3.20, p. 52: the uniform-house form that this refines.
 
 ### 0.4a The covering bound behind Kronecker's theorem
 
@@ -295,8 +299,8 @@ constant `n + 1`.
   product, and the columns of `(Bᵀ)⁻¹` form the basis of `L*` dual to the columns of `B`.
 - The hypothesis bounds the polar lattice from below, not `L` itself; a lattice without short vectors
   can cover badly (see the checks).
-- Evertse assumes `‖y‖ > R` strictly. The non-strict hypothesis suffices here, because the covering
-  transference is applied to the attained first minimum of `L*`.
+- Evertse's Corollary 2.21 has the same non-strict hypothesis `‖y‖₂ ≥ R`, which his proof uses as
+  `λ₁(L*) ≥ R`. Here it enters through the attained first minimum of `L*` (step 2 below).
 
 *Proof sketch.*
 
@@ -338,10 +342,10 @@ constant `n + 1`.
 `LinearMap.BilinForm.dualSubmodule`, `LinearMap.BilinForm.dualSubmodule_span_of_basis`, `IsZLattice`,
 `Subgroup.isClosed_of_discrete`, `IsClosed.exists_infDist_eq_dist`, `PiLp.norm_apply_le`.
 
-*Source:* Evertse, Chapter 2, Corollary 2.21, p. 33, proof pp. 33–34: the radius `n·c(n)/(2R)` under
-the strict hypothesis; the proof rounds the coordinates of `b` in a basis realising the successive
-minima of `L`. Evertse, §2.4, p. 32: the polar lattice, its basis `(Vᵀ)⁻¹`, `d(L*) = d(L)⁻¹`, and
-Theorem 2.20. Evertse, §2.5, proof of Theorem 2.22, pp. 35–36: the consumer.
+*Source:* Evertse, Chapter 2, Corollary 2.21, p. 33, proof pp. 33–34: the radius `n·c(n)/(2R)` when
+every nonzero polar vector has length at least `R`; the proof rounds the coordinates of `b` in a basis
+realising the successive minima of `L`. Evertse, §2.4, p. 32: the polar lattice, its basis `(Vᵀ)⁻¹`,
+`d(L*) = d(L)⁻¹`, and Theorem 2.20. Evertse, §2.5, proof of Theorem 2.22, pp. 35–36: the consumer.
 
 ### 0.6a Badly approximable numbers and partial quotients
 
@@ -375,10 +379,18 @@ quotients `a₁, a₂, …` are bounded.
 
 *Proof sketch.*
 
-1. As `ξ` is irrational the expansion does not terminate (`GenContFract.terminates_iff_rat`), so
-   every `a_{n+1}` exists and is an integer at least `1` (`GenContFract.of_one_le_get?_partDen`,
-   `GenContFract.exists_int_eq_of_partDen`). The `p_n`, `q_n` are integers, `q_n ≥ 1`, and
-   `p_n/q_n = ξ.convergent n` (`Real.convs_eq_convergent`).
+1. Write `p_n` and `q_n` for the numerators and denominators of `GenContFract.of ξ`. As `ξ` is
+   irrational the expansion does not terminate (`GenContFract.terminates_iff_rat`), so every `a_{n+1}`
+   exists and is an integer at least `1` (`GenContFract.of_one_le_get?_partDen`,
+   `GenContFract.exists_int_eq_of_partDen`), and every partial numerator is `1`
+   (`GenContFract.of_partNum_eq_one`). Mathlib has no lemma at the pin saying that `p_n` and `q_n` are
+   integers. It follows by induction from `p_0 = ⌊ξ⌋`, `q_0 = 1`, `p_1 = a_1·⌊ξ⌋ + 1`, `q_1 = a_1`
+   (`GenContFract.zeroth_num_eq_h`, `GenContFract.zeroth_den_eq_one`, `GenContFract.first_num_eq`,
+   `GenContFract.first_den_eq`) and the recurrences `GenContFract.nums_recurrence` and
+   `GenContFract.dens_recurrence`. Then `q_n ≥ q_0 = 1` (`GenContFract.of_den_mono`).
+   `GenContFract.determinant`, with all partial numerators `1`, gives `p_n·q_{n+1} − q_n·p_{n+1} = ±1`, so
+   `p_n` and `q_n` are coprime. Since `p_n/q_n = ξ.convergent n` (`Real.convs_eq_convergent`), the
+   reduced denominator of `ξ.convergent n` is `q_n`.
 2. (b) `GenContFract.abs_sub_convergents_le'` gives `|ξ − p_n/q_n| ≤ 1/(a_{n+1}·q_n²)`. With `q = q_n`:
    `c ≤ q_n·‖q_nξ‖ ≤ q_n·|q_nξ − p_n| ≤ 1/a_{n+1}`.
 3. (a) Let `q ≥ 1` and `p := round(qξ)`. If `q·‖qξ‖ ≥ 1/2` we are done, since `B ≥ 1` gives
@@ -386,7 +398,8 @@ quotients `a₁, a₂, …` are bounded.
    `|ξ − r| = ‖qξ‖/q < 1/(2q²) ≤ 1/(2·den(r)²)`, so Legendre's theorem
    (`Real.exists_rat_eq_convergent`) gives `r = ξ.convergent k` for some `k`, with `den(r) = q_k ≤ q`.
 4. `DT.0/convergent-error-lower-bound` gives `|ξ − r| > 1/(q_k(q_k + q_{k+1}))`. The recurrence
-   `q_{k+1} = a_{k+1}·q_k + q_{k−1}` (`GenContFract.dens_recurrence`, with `q_{−1} = 0`) and
+   `q_{k+1} = a_{k+1}·q_k + q_{k−1}` (`GenContFract.dens_recurrence` for `k ≥ 1`; for `k = 0`,
+   `q_1 = a_1` by `GenContFract.first_den_eq`) and
    `q_{k−1} ≤ q_k` (`GenContFract.of_den_mono`) give `q_{k+1} ≤ (B + 1)·q_k`. Hence
    `‖qξ‖ = q·|ξ − r| > q/((B + 2)·q_k²) ≥ 1/((B + 2)·q)`.
 5. (a) with `c = 1/(B + 2)` makes `ξ` badly approximable; (b) bounds the partial quotients of a badly
@@ -407,10 +420,14 @@ quotients `a₁, a₂, …` are bounded.
 Mathlib `GenContFract.of`, `GenContFract.partDens`, `GenContFract.terminates_iff_rat`,
 `GenContFract.of_one_le_get?_partDen`, `GenContFract.exists_int_eq_of_partDen`,
 `GenContFract.abs_sub_convergents_le'`, `GenContFract.dens_recurrence`, `GenContFract.of_den_mono`,
-`Real.convergent`, `Real.convs_eq_convergent`, `Real.exists_rat_eq_convergent`, `round`, `Irrational`.
+`Real.convergent`, `Real.convs_eq_convergent`, `Real.exists_rat_eq_convergent`, `round`, `Irrational`,
+`GenContFract.zeroth_num_eq_h`, `GenContFract.zeroth_den_eq_one`, `GenContFract.first_num_eq`,
+`GenContFract.first_den_eq`, `GenContFract.nums_recurrence`, `GenContFract.determinant`,
+`GenContFract.of_partNum_eq_one`.
 
-*Source:* Pottmeyer, Proposition 1.3.21, p. 21: the equivalence for irrational `α = ⟨a₀, a₁, …⟩`. Its
-proof is left as Exercise 1.13 (p. 21), and the sketch above supplies it. Pottmeyer, Definition
+*Source:* Pottmeyer, Proposition 1.3.21, p. 21: the equivalence for irrational `α = ⟨a₀, a₁, …⟩`. His
+bound also covers the single integer `a₀`, which changes nothing. The proof is left as Exercise 1.13
+(p. 21), and the sketch above supplies it. Pottmeyer, Definition
 1.3.19 and Remark 1.3.20, p. 20: the liminf definition. Pottmeyer, proof of Proposition 1.3.6,
 (1.8)–(1.9), p. 14, and Exercise 1.12(b), p. 21: the exact error of a convergent and Legendre's
 criterion. Evertse, Exercise 1.7(iv)–(v), p. 8, and Chapter 2, p. 23: the two-sided error bounds and
@@ -431,8 +448,8 @@ the definition used by `DT.0/badly-approximable`.
 - The first part's `DT.0/kronecker-approximation-theorem` uses §0.4a with constant `n + 1`.
 - ClassicalArithmeticCompletion, Layer CA.6 (`dobrowolski-auxiliary-polynomial`) uses §0.3a.
 - ProbabilisticAndMetricNumberTheory, Layer PM.4 (`bounded-digits-compact-orbit`) uses §0.6a.
-- HeightsRationalPointsAndObstructions, Layer RP.0, and the routed items of Binyamini's paper use
-  §0.2a.
+- HeightsRationalPointsAndObstructions, Layer RP.0 (`tuple-height-adapters`), and the routed items of
+  Binyamini's paper use §0.2a.
 
 **Re-pointing at assembly.** This part may not edit the first part's packet, so these edits are
 recorded for the assembly:
@@ -445,6 +462,8 @@ recorded for the assembly:
   non-strict inequalities at `∏a_i ≥ |det A|`, as `DT.0/dirichlet-approximation-from-minkowski` uses
   it. The stage anchors to GN.1 can be dropped.
 - CA.6 and PM.4 cite the stage DT.0 with a request each; they should cite the two nodes above.
+- `RP.0/tuple-height-adapters` restates the counting height `max_i h(x_i)` of a tuple; when that plan is
+  revised it should cite `DT.0/max-absolute-height-of-tuple` for it.
 
 ## Acceptance tests
 
@@ -465,10 +484,14 @@ these:
   justified by calling the `d`-th root of `∏_k |σ_k(a_iℓ)|` the norm of `a_iℓ`. It is the `d`-th root
   of the absolute norm. That root is still at least `1`, because the norm of a nonzero algebraic
   integer is a nonzero rational integer, so the argument stands (sourceIssue E601).
-- In the same proof the box principle is set up for an integer `Y ≥ 1` (p. 12). At the end (p. 14)
-  `Y` is set equal to the root `((2√2N)^{dM}·∏∏ max_j|σ_k(a_ij)|)^{1/(N−dM)}`, which in general is
-  not an integer (for `K = ℚ` and the row `(1, 1)` it is `4√2`). Taking the integer part repairs the
-  proof and leaves the lemma unchanged (sourceIssue E602).
+- In the same proof, the estimate for a complex embedding `σ_k` (`r₁ < k ≤ r₁ + r₂`, p. 13) bounds
+  the imaginary part by the half-length `A_{k+r₁,i}`. The imaginary part of `σ_k` is, up to sign, the
+  coordinate `τ_{k+r₂}`, so the index is `k + r₂`; the next line of the display is unaffected
+  (sourceIssue E603).
+- At the pigeonhole step (pp. 12–13) the two tuples are said to lie in `{0, …, Y}`; they lie in
+  `{0, …, Y}^N` (sourceIssue E604).
+- Berrevoets takes `Y` to be the integer part of the root (p. 14), as the pigeonhole step requires; the
+  proof needs no change there.
 - In the proof of Evertse's Theorem 2.22 (p. 35) the target vector is printed as
   `(θ₁, …, θₙ, 2Mε)`; the next display needs `(−θ₁, …, −θₙ, 2ε)`. The first part records this as
   its sourceIssue E4, confirmed by its review, and it does not affect §0.4a.

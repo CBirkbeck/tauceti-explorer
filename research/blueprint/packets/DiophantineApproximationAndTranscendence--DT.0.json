@@ -50,7 +50,7 @@
     "ref": "mathlib:PiLp.norm_apply_le",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Normed/Lp/PiLp.lean",
-    "provides": "Each coordinate of a vector of PiLp p β (p ≥ 1) has norm at most the norm of the vector; for EuclideanSpace this compares the maximum norm with the Euclidean norm.",
+    "provides": "Each coordinate of a vector of PiLp p β has norm at most the norm of the vector (p ≥ 1 is a section hypothesis); for EuclideanSpace this compares the maximum norm with the Euclidean norm.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -78,7 +78,7 @@
     "ref": "mathlib:Algebra.coe_norm_int",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/NumberField/Norm.lean",
-    "provides": "For x in the ring of integers of a number field K, the rational image of Algebra.norm ℤ x is Algebra.norm ℚ x: the norm of an algebraic integer is a rational integer.",
+    "provides": "For x in the ring of integers 𝓞 K of a number field K, the image in ℚ of Algebra.norm ℤ x is Algebra.norm ℚ (x : K); so the norm of an algebraic integer is a rational integer.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -148,7 +148,7 @@
     "ref": "mathlib:GenContFract.dens_recurrence",
     "kind": "theorem",
     "module": "Mathlib/Algebra/ContinuedFractions/ContinuantsRecurrence.lean",
-    "provides": "The denominators satisfy B_{n+2} = b·B_{n+1} + a·B_n for the (n+1)-st pair (a, b).",
+    "provides": "For a generalised continued fraction g whose pair (a, b) at 0-indexed position n + 1 of g.s exists, the denominators satisfy B_{n+2} = b·B_{n+1} + a·B_n (stated over a division ring).",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -162,7 +162,7 @@
     "ref": "mathlib:Real.convergent",
     "kind": "def",
     "module": "Mathlib/NumberTheory/DiophantineApproximation/Basic.lean",
-    "provides": "The n-th convergent of a real number, as a rational number, defined by the continued fraction recursion.",
+    "provides": "The n-th convergent of a real number as a rational number, by the recursion convergent ξ 0 = ⌊ξ⌋ and convergent ξ (n + 1) = ⌊ξ⌋ + (convergent (fract ξ)⁻¹ n)⁻¹.",
     "checked": "statement read at the pinned commit"
    },
    {
@@ -220,6 +220,55 @@
     "module": "Mathlib/Algebra/Order/Archimedean/Real/Basic.lean",
     "provides": "The real supremum of a function on an empty type is 0.",
     "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:GenContFract.zeroth_num_eq_h",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Translations.lean",
+    "provides": "The zeroth numerator of a generalised continued fraction is its head: A_0 = h.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.zeroth_den_eq_one",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Translations.lean",
+    "provides": "The zeroth denominator of a generalised continued fraction is 1: B_0 = 1.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.first_num_eq",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Translations.lean",
+    "provides": "If the pair at position 0 is (a, b), then the first numerator is A_1 = b·h + a.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.first_den_eq",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Translations.lean",
+    "provides": "If the pair at position 0 is (a, b), then the first denominator is B_1 = b.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.nums_recurrence",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/ContinuantsRecurrence.lean",
+    "provides": "For the pair (a, b) at 0-indexed position n + 1, the numerators satisfy A_{n+2} = b·A_{n+1} + a·A_n.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.determinant",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Determinant.lean",
+    "provides": "The determinant formula A_n·B_{n+1} − B_n·A_{n+1} = ∏_{i ≤ n} (−a_i), with a_i the partial numerators (read as 0 past termination), over a field.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
+   },
+   {
+    "ref": "mathlib:GenContFract.of_partNum_eq_one",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/ContinuedFractions/Computation/Approximations.lean",
+    "provides": "Every partial numerator of GenContFract.of v equals 1.",
+    "checked": "statement read at the pinned commit (added by REV-DiophantineApproximationAndTranscendence--DT.0)"
    }
   ]
  },
@@ -232,7 +281,7 @@
    "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio.shtml",
    "readSections": [
     "Chapter 1, §1.2 and Exercises 1.6–1.7 (printed pp. 7–9)",
-    "Chapter 2, §2.2 from Exercise 2.7 (printed p. 23), §2.4 Polar lattices with Theorem 2.20 and Corollary 2.21 and their proofs (printed pp. 31–34), §2.5 Theorem 2.22 with its proof and Theorem 2.23 (printed pp. 34–36)",
+    "Chapter 2, §2.2 from Exercise 2.7 (printed p. 23), §2.4 Polar lattices with Theorem 2.20 and Corollary 2.21 and their proofs (printed pp. 31–34), §2.5 Theorem 2.22 with its proof and Theorem 2.23 (printed pp. 34–37)",
     "Chapter 3, Lemma 3.19 and Theorem 3.20 (printed pp. 52–53)"
    ]
   },
@@ -286,7 +335,7 @@
     "n = dim E may be 0: then E = L = L* = 0, the hypothesis is empty and x = b = 0.",
     "L* is the polar for the inner product that defines ‖·‖. In coordinates the inner product is the standard dot product, and the columns of (Bᵀ)⁻¹ form the basis of L* dual to the columns of B.",
     "The hypothesis bounds the polar lattice from below, not L itself; a lattice without short vectors can cover badly (see the acceptance tests).",
-    "Evertse assumes ‖y‖ > R strictly. The non-strict hypothesis suffices here, because the covering transference is applied to the attained first minimum of L*."
+    "Evertse's Corollary 2.21 has the same non-strict hypothesis ‖y‖₂ ≥ R, which his proof uses as λ₁(L*) ≥ R; here it enters through the attained first minimum of L* (proof step 2)."
    ],
    "proofSteps": [
     "If n = 0 take x = 0. Let n ≥ 1. L* is a discrete full lattice: Mathlib's LinearMap.BilinForm.dualSubmodule_span_of_basis identifies it with the ℤ-span of the dual basis, and GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-dual records that it is full with covolume covol(L)⁻¹.",
@@ -324,7 +373,7 @@
     {
      "sourceId": "evertse-dio-notes",
      "locator": "Chapter 2, §2.4, Corollary 2.21, printed p. 33, proof pp. 33–34",
-     "match": "The statement with radius n·c(n)/(2R), under the strict hypothesis that every nonzero polar vector is longer than R; the proof takes independent vectors realising the successive minima of L and rounds the coordinates of b in that basis."
+     "match": "The statement with radius n·c(n)/(2R), under the hypothesis that every nonzero polar vector has Euclidean length at least R; the proof takes independent vectors realising the successive minima of L and rounds the coordinates of b in that basis."
     },
     {
      "sourceId": "evertse-dio-notes",
@@ -356,7 +405,7 @@
    "hypotheses": [
     "The unknowns are rational integers and the coefficients algebraic integers. The bound sees each row through its own embedding maxima, so one row with large coefficients does not enlarge the contribution of the others.",
     "Every row must have a nonzero entry: a zero row gives P_i = 0 and the bound 0, which no nonzero x meets. A zero row imposes no condition and can be deleted first.",
-    "M = 0 is allowed (bound 1, solution e₁); Berrevoets states M ≥ 1.",
+    "M = 0 is allowed (bound 1, solution e₁). Berrevoets's form of the bound, with the exponent 1/(dM), presupposes M ≥ 1.",
     "σ₁, …, σ_d run over all d ring homomorphisms K → ℂ (NumberField.Embeddings.card): each complex embedding appears together with its conjugate."
    ],
    "proofSteps": [
@@ -364,7 +413,7 @@
     "Cut each interval [−A_ki, A_ki] into n_i equal pieces, n_i := ⌊1 + 2√2·N·Y·P_i^{1/d}⌋, giving ∏_i n_i^d boxes. If (Y + 1)^N > ∏_i n_i^d, the box principle (Finset.exists_ne_map_eq_of_card_lt_of_maps_to) gives y ≠ y′ in one box, and x := y − y′ is nonzero with |x_j| ≤ Y.",
     "Each |τ_k(Σ_j a_ij x_j)| is at most 2A_ki/n_i. Combining the real and imaginary parts of a complex embedding costs a factor √2, so |σ_k(Σ_j a_ij x_j)| ≤ 2√2·N·Y·max_j|σ_k(a_ij)|/n_i for every k (conjugate embeddings have equal absolute values). Multiplying over k gives |N_{K/ℚ}(Σ_j a_ij x_j)| ≤ (2√2·N·Y·P_i^{1/d}/n_i)^d < 1 by the choice of n_i.",
     "The norm of an algebraic integer is a rational integer (Algebra.coe_norm_int) and is the product of the d conjugates (Algebra.norm_eq_prod_embeddings); it vanishes only at 0 (Algebra.norm_eq_zero_iff), and a nonzero integer has absolute value at least 1 (Int.one_le_abs). Hence Σ_j a_ij x_j = 0 for every i.",
-    "Counting: a nonzero entry a_iℓ has |N(a_iℓ)| ≥ 1, so P_i ≥ ∏_k |σ_k(a_iℓ)| ≥ 1 and 1 < 2√2·N·P_i^{1/d}. Then n_i < 2√2·N·(Y + 1)·P_i^{1/d}, and the box condition holds as soon as (Y + 1)^{N−dM} ≥ (2√2·N)^{dM}·∏_i P_i. Take Y := ⌊((2√2·N)^{dM}·∏_i P_i)^{1/(N−dM)}⌋, which is at least 1 because the base is at least 1 and N − dM ≥ 1; then Y + 1 exceeds the root and Y is at most the stated bound. (Berrevoets takes Y equal to the root itself, which need not be an integer; sourceIssue E602.)"
+    "Counting: a nonzero entry a_iℓ has |N(a_iℓ)| ≥ 1, so P_i ≥ ∏_k |σ_k(a_iℓ)| ≥ 1 and 1 < 2√2·N·P_i^{1/d}. Then n_i < 2√2·N·(Y + 1)·P_i^{1/d}, so for M ≥ 1 the box condition holds as soon as (Y + 1)^{N−dM} ≥ (2√2·N)^{dM}·∏_i P_i; for M = 0 it reads (Y + 1)^N > 1. Take Y := ⌊((2√2·N)^{dM}·∏_i P_i)^{1/(N−dM)}⌋, the integer part of the root, as Berrevoets does: Y ≥ 1 because the root is at least 1 and N − dM ≥ 1, Y + 1 exceeds the root, and Y is at most the stated bound."
    ],
    "acceptance": [
     "K = ℚ(i) (d = 2), M = 1, N = 3, row (1, i, 1 + i): each embedding has row maximum √2, so P_1 = 2 and the bound is ((6√2)²·2)^{1/1} = 144; x = (1, 1, −1) solves 1 + i − (1 + i) = 0 with max|x_j| = 1.",
@@ -400,7 +449,7 @@
     {
      "sourceId": "berrevoets-lehmer-2016",
      "locator": "Chapter 3, proof of Lemma 3.2, printed pp. 12–15",
-     "match": "The box principle in the real coordinates τ_k, the choice of n_i through the d-th root of the product, the norm argument, and the choice of Y; followed in the proof steps, with the corrections of E601 and E602."
+     "match": "The box principle in the real coordinates τ_k, the choice of n_i through the d-th root of the product, the norm argument, and the choice of Y as the integer part of the root; followed in the proof steps, with the corrections of E601 and E603."
     },
     {
      "sourceId": "berrevoets-lehmer-2016",
@@ -436,10 +485,10 @@
     "For 0 < ξ < 1 the a_n (n ≥ 1) are the digits of the Gauss map, the form used by ProbabilisticAndMetricNumberTheory:PM.4."
    ],
    "proofSteps": [
-    "Notation: q_n := (GenContFract.of ξ).dens n and p_n the numerators. As ξ is irrational the expansion does not terminate (GenContFract.terminates_iff_rat), so partDens.get? n = some a_{n+1} for every n, with a_{n+1} ≥ 1 an integer (GenContFract.of_one_le_get?_partDen, GenContFract.exists_int_eq_of_partDen). The p_n and q_n are integers, q_n ≥ 1, and p_n/q_n = ξ.convergent n (Real.convs_eq_convergent).",
+    "Notation: q_n := (GenContFract.of ξ).dens n and p_n := (GenContFract.of ξ).nums n. As ξ is irrational the expansion does not terminate (GenContFract.terminates_iff_rat), so partDens.get? n = some a_{n+1} for every n, with a_{n+1} ≥ 1 an integer (GenContFract.of_one_le_get?_partDen, GenContFract.exists_int_eq_of_partDen), and every partial numerator is 1 (GenContFract.of_partNum_eq_one). Mathlib has no lemma at the pin saying that the p_n and q_n are integers; it follows by induction from p_0 = ⌊ξ⌋, q_0 = 1, p_1 = a_1·⌊ξ⌋ + 1, q_1 = a_1 (GenContFract.zeroth_num_eq_h, GenContFract.zeroth_den_eq_one, GenContFract.first_num_eq, GenContFract.first_den_eq) and the recurrences GenContFract.nums_recurrence and GenContFract.dens_recurrence. Then q_n ≥ q_0 = 1 (GenContFract.of_den_mono). GenContFract.determinant with all partial numerators 1 gives p_n·q_{n+1} − q_n·p_{n+1} = ±1, so p_n and q_n are coprime; since p_n/q_n = ξ.convergent n (Real.convs_eq_convergent), the reduced denominator of ξ.convergent n is q_n.",
     "(b) GenContFract.abs_sub_convergents_le' gives |ξ − p_n/q_n| ≤ 1/(a_{n+1}·q_n²). With q = q_n: c ≤ q_n·‖q_nξ‖ ≤ q_n·|q_nξ − p_n| ≤ 1/a_{n+1}, so a_{n+1} ≤ 1/c.",
     "(a) Let q ≥ 1 and p := round(qξ). If q·‖qξ‖ ≥ 1/2 we are done, since B ≥ 1 gives 1/2 > 1/(B + 2). Otherwise r := p/q satisfies |ξ − r| = ‖qξ‖/q < 1/(2q²) ≤ 1/(2·den(r)²), so Legendre's theorem (Real.exists_rat_eq_convergent) gives r = ξ.convergent k for some k, with den(r) = q_k ≤ q.",
-    "DiophantineApproximationAndTranscendence:DT.0/convergent-error-lower-bound gives |ξ − r| > 1/(q_k(q_k + q_{k+1})). The recurrence q_{k+1} = a_{k+1}·q_k + q_{k−1} (GenContFract.dens_recurrence, with q_{−1} = 0) and q_{k−1} ≤ q_k (GenContFract.of_den_mono) give q_{k+1} ≤ (B + 1)·q_k. Hence ‖qξ‖ = q·|ξ − r| > q/((B + 2)·q_k²) ≥ 1/((B + 2)·q).",
+    "DiophantineApproximationAndTranscendence:DT.0/convergent-error-lower-bound gives |ξ − r| > 1/(q_k(q_k + q_{k+1})). The recurrence q_{k+1} = a_{k+1}·q_k + q_{k−1} (GenContFract.dens_recurrence for k ≥ 1; for k = 0, q_1 = a_1 by GenContFract.first_den_eq) and q_{k−1} ≤ q_k (GenContFract.of_den_mono) give q_{k+1} ≤ (B + 1)·q_k. Hence ‖qξ‖ = q·|ξ − r| > q/((B + 2)·q_k²) ≥ 1/((B + 2)·q).",
     "The equivalence: (a) with c = 1/(B + 2) shows that bounded partial quotients make ξ badly approximable, and (b) bounds the partial quotients of a badly approximable ξ by 1/c."
    ],
    "acceptance": [
@@ -463,7 +512,14 @@
     "mathlib:Real.convs_eq_convergent",
     "mathlib:Real.exists_rat_eq_convergent",
     "mathlib:round",
-    "mathlib:Irrational"
+    "mathlib:Irrational",
+    "mathlib:GenContFract.zeroth_num_eq_h",
+    "mathlib:GenContFract.zeroth_den_eq_one",
+    "mathlib:GenContFract.first_num_eq",
+    "mathlib:GenContFract.first_den_eq",
+    "mathlib:GenContFract.nums_recurrence",
+    "mathlib:GenContFract.determinant",
+    "mathlib:GenContFract.of_partNum_eq_one"
    ],
    "uses": [
     {
@@ -475,7 +531,7 @@
     {
      "sourceId": "pottmeyer-diophantine-approximation-2022",
      "locator": "Chapter 1, Proposition 1.3.21, printed p. 21",
-     "match": "The equivalence for irrational α = ⟨a₀, a₁, …⟩: badly approximable if and only if the a_n are bounded. The proof is left to the reader (Exercise 1.13, p. 21); the proof steps supply it."
+     "match": "The equivalence for irrational α = ⟨a₀, a₁, …⟩: badly approximable if and only if the a_n are bounded (his bound also covers the single integer a₀, which changes nothing). The proof is left to the reader (Exercise 1.13, p. 21); the proof steps supply it."
     },
     {
      "sourceId": "pottmeyer-diophantine-approximation-2022",
@@ -511,7 +567,7 @@
    "statement": "Let F be a field of characteristic zero, ι a finite type and y : ι → F. Define h_max(y) := max_{i∈ι} h(y_i), where h = NumberField.absLogHeight₁ is the absolute logarithmic Weil height, with h_max(y) := 0 when ι is empty; in Lean this is the real supremum ⨆ i, absLogHeight₁ (y i), which is 0 for an empty family. Its multiplicative form is H_max(y) := exp h_max(y), the maximum of 1 and the absMulHeight₁(y_i). For an algebraic x of degree d whose primitive minimal polynomial is a₀·∏_{i=1}^{d}(X − x_i) with a₀ > 0, h(x) = (log a₀ + Σ_i log max(1, |x_i|))/d.",
    "hypotheses": [
     "F has characteristic zero. A transcendental coordinate gets Mathlib's junk value h = 0, so statements about the height of a tuple assume every coordinate algebraic.",
-    "This is the maximum of the scalar heights, not the absolute height of the projective point [1 : y_1 : ⋯ : y_m]. The projective tuple height and its comparison with h_max belong to HeightsRationalPointsAndObstructions:RP.0."
+    "This is the maximum of the scalar heights, not the absolute height of the projective point [1 : y_1 : ⋯ : y_m]. The projective tuple height and its comparison max_i h(y_i) ≤ h([1 : y_1 : ⋯ : y_m]) ≤ Σ_i h(y_i) belong to HeightsRationalPointsAndObstructions:RP.0/tuple-height-adapters, a higher tier that imports h_max from here."
    ],
    "proofSteps": [
     "Define maxAbsLogHeight y := ⨆ i, NumberField.absLogHeight₁ (y i) in ℝ. The family is finite, hence bounded, and Real.iSup_of_isEmpty gives the value 0 for empty ι.",
@@ -545,8 +601,8 @@
      "how": "the lower bound for an integer polynomial at an algebraic point is stated through H(y)^{d(m+1)} with H(y) = exp h_max(y)"
     },
     {
-     "where": "HeightsRationalPointsAndObstructions:RP.0",
-     "how": "the consumer named by the paper's routing; RP.0 compares h_max with the projective tuple height"
+     "where": "HeightsRationalPointsAndObstructions:RP.0/tuple-height-adapters",
+     "how": "it compares max_i h(x_i) with the height of [1 : x_1 : ⋯ : x_m] and calls max_i h(x_i) the counting height of a tuple, which is h_max; PAPER-BINYAMINI-22/53 names RP.0 as a consumer"
     }
    ],
    "api": [
@@ -687,7 +743,12 @@
     "Leiden mathematics thesis repository page and PDF (no revised version), 2026-10-13",
     "ClassicalArithmeticCompletion packet sourceIssues for this thesis (E703–E721; none at Lemma 3.2), 2026-10-13",
     "research/errata/REGISTER.md entries for Berrevoets, 2026-10-13"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Rendered page 14 (PDF p. 15) of the version read prints the d-th root of ∏_k |σ_k(a_iℓ)| equal to |N_{K/ℚ}(a_iℓ)|; the product itself is |N(a_iℓ)|, so the root is |N(a_iℓ)|^{1/d}. The conclusion ≥ 1 still holds, so nothing else is affected.",
+    "by": "REV-DiophantineApproximationAndTranscendence--DT.0"
+   }
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E602",
@@ -703,7 +764,52 @@
     "Leiden mathematics thesis repository page and PDF (no revised version), 2026-10-13",
     "ClassicalArithmeticCompletion packet sourceIssues for this thesis (E703–E721; none at Lemma 3.2), 2026-10-13",
     "research/errata/REGISTER.md entries for Berrevoets, 2026-10-13"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "The rendered page 14 (PDF p. 15) sets Y equal to the floor of the root: integer-part brackets enclose the whole power. pdftotext drops the brackets, which is how the finding arose. With that Y the proof is correct as printed: Y ≥ 1, Y + 1 exceeds the root, so (12) and (10) hold, and Y is at most the bound.",
+    "by": "REV-DiophantineApproximationAndTranscendence--DT.0"
+   }
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E603",
+   "source": "berrevoets-lehmer-2016",
+   "kind": "misprint",
+   "locator": "Chapter 3, proof of Lemma 3.2, printed p. 13 (PDF p. 14), the estimate of |σ_k(Σ_j a_ij x_j)| for a complex embedding σ_k, r₁ < k ≤ r₁ + r₂",
+   "printed": "The bound for the imaginary part uses the interval half-length A_{k+r₁,i}.",
+   "correction": "It should be A_{k+r₂,i}. The imaginary part of σ_k is, up to sign, the coordinate τ_{k+r₂} = Im σ_{k+r₂}, since σ_{k+r₂} is the conjugate of σ_k and the τ with indices r₁ + r₂ < k ≤ r₁ + 2r₂ are the imaginary parts. The next line of the display bounds the term by N·Y·max_j|σ_k(a_ij)|, which holds for A_{k+r₂,i}, so the argument is unaffected.",
+   "reason": "The indices r₁ < k ≤ r₁ + r₂ shifted by r₁ give 2r₁ < k + r₁ ≤ 2r₁ + r₂, which are the indices of imaginary parts only when r₁ = r₂. For K = ℚ(∛2) (r₁ = 1, r₂ = 1) they agree; for K = ℚ(i) (r₁ = 0, r₂ = 1), k = 1 and A_{1,i} is the real-part half-length, not the imaginary one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden mathematics thesis repository PDF (the only version), 2026-10-13",
+    "research/errata/REGISTER.md entries for Berrevoets (ClassicalArithmeticCompletion and this roadmap), 2026-10-13"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review after reading the rendered page 13 (PDF p. 14) against the definition of τ_k on p. 12.",
+    "by": "REV-DiophantineApproximationAndTranscendence--DT.0"
+   }
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E604",
+   "source": "berrevoets-lehmer-2016",
+   "kind": "misprint",
+   "locator": "Chapter 3, proof of Lemma 3.2, printed pp. 12–13 (PDF pp. 13–14), the pigeonhole step after (10)",
+   "printed": "The two tuples given by the pigeonhole principle are said to lie in {0, …, Y}.",
+   "correction": "They lie in {0, …, Y}^N, the set of N-tuples on which the box principle was set up on p. 12.",
+   "reason": "The objects are N-tuples (y_1, …, y_N), and condition (10) counts (Y + 1)^N of them.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Leiden mathematics thesis repository PDF (the only version), 2026-10-13",
+    "research/errata/REGISTER.md entries for Berrevoets, 2026-10-13"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by the review from the rendered pages 12–13 (PDF pp. 13–14).",
+    "by": "REV-DiophantineApproximationAndTranscendence--DT.0"
+   }
   }
  ],
  "sourceVersions": [
@@ -842,6 +948,15 @@
    ],
    "detail": "Layer DT.0 already shows six planets in the base packet: Naive height of an algebraic number, Mahler measure of an algebraic number, Mahler measure versus absolute Weil height, Siegel's lemma over number fields, Simultaneous Dirichlet approximation, Irrationality exponent.",
    "proposal": "This packet adds no planet. The product-form Siegel lemma refines the existing planet 'Siegel's lemma over number fields'; Kronecker's theorem keeps its place as a named theorem of the layer without a planet."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "HeightsRationalPointsAndObstructions",
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "detail": "HeightsRationalPointsAndObstructions:RP.0/tuple-height-adapters (tier 9) restates, inside its statement, that the counting height of a tuple is max_i h(x_i). That convention is the definition DiophantineApproximationAndTranscendence:DT.0/max-absolute-height-of-tuple (tier 4), with its API and unit tests. Added by REV-DiophantineApproximationAndTranscendence--DT.0.",
+   "proposal": "When the HeightsRationalPointsAndObstructions plan is next revised, RP.0/tuple-height-adapters cites DiophantineApproximationAndTranscendence:DT.0/max-absolute-height-of-tuple for the counting height and states its comparison max_i h(x_i) ≤ h([1 : x_1 : ⋯ : x_m]) ≤ Σ_i h(x_i) for that h_max, rather than defining the convention again."
   }
  ],
  "provenance": {
@@ -849,5 +964,33 @@
   "worker": "Claude (claude-hV03pM)",
   "date": "2026-10-13",
   "basePacket": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json"
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DiophantineApproximationAndTranscendence--DT.0",
+  "date": "2026-10-13",
+  "notes": "Independent review of the four-node DT.0 follow-up (Claude, session claude-hY9Ivg, 2026-10-13). Sources: all six PDFs re-downloaded, SHA-256 equal to the recorded values; every locator checked, and every formula a finding or a correction rests on was read on the rendered page, not in the text layer. Baseline: all 30 cited declarations read at Mathlib 082e2d3 (modules and kinds correct); the provides texts of GenContFract.dens_recurrence, Algebra.coe_norm_int, Real.convergent and PiLp.norm_apply_le were made precise; seven GenContFract declarations were added (37 in all). Closure: the GN.0, GN.1 and GN.4 suppliers were read in the promoted GN packet; the CA.6 and PM.4 requests that the theorems supply were read and match; the base nodes cited were read in the accepted base packet. No overlap with TauCetiRoadmap main (IntegralLattices has dual lattices of integral lattices only) or the pinned Tau Ceti. Corrections: Evertse's Corollary 2.21 is non-strict; the partial-quotient proof now derives the integrality and coprimality of the convergents, which Mathlib lacks; the M = 0 box count; the exact RP.0 consumer node and a restructure entry so that RP.0/tuple-height-adapters imports h_max. Source issues: E601 confirmed; E602 rejected (the printed page takes the integer part of Y); E603 and E604 added and confirmed. The suggested file elaborates with lean-check at Tau Ceti f790474 and Mathlib 082e2d3, with only declaration-uses-placeholder warnings; its statements agree with the corrected packet and needed no change. Every API item and unit test name is in the file and the reader. The reader was brought in line with every correction. Coverage closed is right: with the base packet's 46 DT.0 nodes every stage target is planned, with no gaps or requests. The edits to the base packet and to the CA.6, PM.4 and RP.0 consumers stay recorded in restructure for the assembly.",
+  "checked": [
+   {
+    "nodeId": "DiophantineApproximationAndTranscendence:DT.0/polar-lattice-covering-bound",
+    "verdict": "corrected",
+    "note": "Statement, both forms, n = 0 case and the four checks verified (ℤ × kℤ, aℤ, ℤⁿ, Kronecker with constant n + 1). Prerequisites read: GN.4/covering-dual-transference (μ(L)·λ₁(L*) ≤ n for n ≥ 1, Euclidean polar), GN.4/covering-radius, GN.1/successive-minimum-first (attained first minimum), GN.0/covolume-dual (L* is a full lattice), all in the promoted GN packet. Locators checked on the rendered pages of Evertse ch. 2 (printed = PDF + 10). Corrected: Corollary 2.21 assumes ‖y‖₂ ≥ R, not a strict inequality, so the hypothesis note and the source match were wrong."
+   },
+   {
+    "nodeId": "DiophantineApproximationAndTranscendence:DT.0/siegel-lemma-number-field-product",
+    "verdict": "corrected",
+    "note": "Statement checked against Berrevoets, Lemma 3.2 (p. 11) and the proof (pp. 12–15) on the rendered pages; matches the ClassicalArithmeticCompletion CA.6 request exactly. Worked check over ℚ(i) (bound 144), house-form comparison with DT.0/siegel-lemma-number-field and the Dobrowolski row bound P_i ≤ N^{d·i}·M(α)^N recomputed. Corrected: Berrevoets takes Y to be the integer part of the root, so proof step 5 no longer reports a source error (E602 rejected); the M = 0 case of the box count is stated; the note that Berrevoets 'states M ≥ 1' became 'his exponent 1/(dM) presupposes M ≥ 1'. Two index misprints added (E603, E604)."
+   },
+   {
+    "nodeId": "DiophantineApproximationAndTranscendence:DT.0/badly-approximable-iff-bounded-partial-quotients",
+    "verdict": "corrected",
+    "note": "Both directions re-derived: (b) from abs_sub_convergents_le'; (a) from Legendre's theorem, DT.0/convergent-error-lower-bound and q_{k+1} ≤ (B + 1)q_k, giving q‖qξ‖ > 1/(B + 2). Checks recomputed (φ, √2 at q = 1, 2, 5, 12, ξ = 1/2, liouvilleNumber 10). Matches the PM.4 request. Corrected: Mathlib has no lemma at the pin that the numerators and denominators of GenContFract.of ξ are integers or that (ξ.convergent n).den is the n-th denominator; proof step 1 now derives both (induction plus GenContFract.determinant), with seven Mathlib lemmas added to the prerequisites and baseline; step 4 treats k = 0 by GenContFract.first_den_eq. Pottmeyer's bound also covers a₀, noted in the source match."
+   },
+   {
+    "nodeId": "DiophantineApproximationAndTranscendence:DT.0/max-absolute-height-of-tuple",
+    "verdict": "corrected",
+    "note": "Definition, 13 API items and 5 unit tests checked: values log 3, (log 2)/2, 0, and the non-example log 2 versus Height.logHeight ![2, 4, 1] = log 4; formula (1) against Binyamini §1.1.4, p. 2. Mathlib has no absLogHeight₁_nonneg at the pin, so that API item is not a duplicate. Corrected: the RP.0 consumer is the node RP.0/tuple-height-adapters, which restates max_i h(x_i) as the counting height; since HeightsRationalPointsAndObstructions is tier 9 and this roadmap tier 4, DT.0 owns h_max, and a restructure entry asks RP.0 to cite it."
+   }
+  ]
  }
 }
