@@ -187071,6 +187071,133 @@
    "reviewReason": "Added by the review from the rendered pages 12–13 (PDF pp. 13–14)."
   },
   {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-1",
+   "kind": "error",
+   "locator": "Proposition 13.6 proof, published p. 559",
+   "printed": "The proof puts every zero-sum weight vector divided by its positive maximum in [−1,1]^n.",
+   "correction": "The admissible region is [−(n−1),1]^n with sum zero. For the ε≤1/10 actually used later, discretize b_i=1−c_i/γ in the mass-n simplex; the same (3R/ε)^n bound follows. The unrestricted ε<1 version needs a separate check.",
+   "reason": "For n=3, (−2,1,1) has maximum 1 and is outside the claimed cube. The floor-simplex count repairs the actual quantitative route.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article and linked files",
+    "Evertse author publication list",
+    "arXiv 1008.2340v1 and available version listing"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Jan-Hendrik Evertse and Roberto G. Ferretti, A further improvement of the quantitative Subspace Theorem, Annals of Mathematics 177 (2013), 513–590, published version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-2",
+   "kind": "error",
+   "locator": "Author text §11, equation (11.19), printed p. 834",
+   "printed": "The small-height step uses a coefficient exp(−(5n)^(3n)) although the stated perturbation hypothesis only gives n^−1 exp(−(4n)^(3n)).",
+   "correction": "Use AV2009 Theorem 6.1 and its larger allowed budget to prove the parent perturbation cover, checking both height and numerical comparisons; do not silently strengthen the original hypothesis.",
+   "reason": "For n≥2 the substituted coefficient is strictly smaller and does not follow from the hypothesis. Specializing z=1 avoids this particular step but would not prove the full perturbation target.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article listing and author/arXiv text comparison",
+    "ESS authors’ publication pages",
+    "AV2009 §6 replacement proof"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Jan-Hendrik Evertse, Hans Peter Schlickewei and Wolfgang M. Schmidt, Linear equations in variables which lie in a multiplicative group, arXiv math/0409604v1 author text; published Annals of Mathematics 155 (2002), 807–836",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-3",
+   "kind": "error",
+   "locator": "Lemma 3.2(ii), printed p. 9",
+   "printed": "The unweighted coefficient Euclidean norm on a symmetric power is treated as unitary-invariant.",
+   "correction": "Use the symmetric tensor metric with reciprocal multinomial weights on vectors and the dual multinomial weights on polynomial coefficients; use the corrected absolute-basis proof.",
+   "reason": "A 45-degree rotation of x² gives coefficients (1/2,1,1/2), whose unweighted norm is sqrt(3/2), while the source vector has norm 1.",
+   "affects": "the proof",
+   "known": "Roy–Thunder, Addendum and erratum, J. reine angew. Math. 508 (1999), 47–51",
+   "searched": [
+    "Roy–Thunder erratum DOI/publisher preview",
+    "GDZ original journal scan",
+    "Roy author publications URL (currently unavailable)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Damien Roy and Jeffrey L. Thunder, An absolute version of Siegel’s lemma, J. reine angew. Math. 476 (1996), 1–26, GDZ scan",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-4",
+   "kind": "misprint",
+   "locator": "Proposition 2.5, published p. 392; proof introduction p. 393",
+   "printed": "The class-modulus proposition is stated for independent evaluated values.",
+   "correction": "It concerns Q-dependent evaluated values of Q-independent forms.",
+   "reason": "Dependence makes the conjugate determinants vanish and supplies the relation used in the induction. For n=1 it means the one value equals zero. The original Schmidt 2000 proposition and AV p.394 use dependence.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published IMPAN PDF and article record",
+    "HAL hal-00424780 author manuscript",
+    "Schmidt 2000 pp.616–630 original proposition",
+    "Journal and author-page correction searches"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Francesco Amoroso and Evelina Viada, On the zeros of linear recurrence sequences, Acta Arith. 147 (2011), 387–396, published IMPAN PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-5",
+   "kind": "misprint",
+   "locator": "Proposition 2.5(b), published p. 392; repeated in proofs pp.394–395",
+   "printed": "The non-torsion alternative omits the progression modulus from h(alpha_i/alpha_j).",
+   "correction": "The conclusion is h(alpha_i^m/alpha_j^m)≥exp(−6T^4), after restricting indices modulo m.",
+   "reason": "Schmidt 2000 p.630 proves m h(beta)>the threshold using the generated group order m. It yields no such lower bound for h(beta) before taking the power.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published IMPAN PDF",
+    "HAL author manuscript",
+    "Schmidt 2000 conclusion p.630",
+    "Journal and author-page correction searches"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Francesco Amoroso and Evelina Viada, On the zeros of linear recurrence sequences, Acta Arith. 147 (2011), 387–396, published IMPAN PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E-DT2-6",
+   "kind": "error",
+   "locator": "Original relative regularity definition and local-cohomology comparison; author erratum entire page",
+   "printed": "The relative-regularity argument identifies the required condition through one Koszul complex.",
+   "correction": "Quantify the Koszul vanishing condition over all homogeneous parameter sequences as in the published erratum. Corollary 3 used by AV is preserved.",
+   "reason": "The authors’ erratum identifies the invalid equivalence and supplies the corrected regularity notion; AV’s isolated-component Hilbert estimate must use that correction.",
+   "affects": "the proof",
+   "known": "Chardin–Philippon erratum, J. Algebraic Geom. 11 (2002), 599–600",
+   "searched": [
+    "Chardin’s official publication page",
+    "Author original PDF and erratum PDF"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.2.json",
+   "citation": "Marc Chardin and Patrice Philippon, Régularité et interpolation, Author preprint; J. Algebraic Geom. 8 (1999), 471–481",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DiophantineApproximationAndTranscendence/E601",
    "kind": "misprint",
    "locator": "Author PDF, §9.2.3, proof of Lemma 9.17, Step 1, p.281",
