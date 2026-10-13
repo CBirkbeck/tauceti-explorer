@@ -386,7 +386,8 @@
         856,
         850,
         849,
-        853
+        853,
+        869
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
@@ -414,6 +415,25 @@
         "current": false,
         "date": null,
         "note": "opened 2026-10-13 12:35Z; awaiting first review"
+      }
+    },
+    "SelmerIwasawaCohomology": {
+      "stage": "pr",
+      "pr": 869,
+      "head": "924c1d0",
+      "depends_on": [
+        858,
+        779,
+        780,
+        818
+      ],
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; the review open items settled, §4.28 analytic congruence narrowed (maintainer to confirm)",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 12:40Z; awaiting first review"
       }
     }
   }
