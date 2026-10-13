@@ -1,51 +1,60 @@
-# Current checkpoint: Codex codex-8XHE0J, 13 October 2026
+# Current checkpoint: Codex codex-EOSC2v, 13 October 2026
 
 Refs [#5704](https://github.com/CBirkbeck/tauceti-explorer/issues/5704).
-Input commit `ff0f8208385bcd1c86322de5ab38810faa4a8e54`;
-branch `codex-8XHE0J-review-5704`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6155245045)
-confirms claimant comment `6155242219`. This session did none of the author
+Input commit `4490514872d8f031b22a352370bb5e6a47501ea3`;
+branch `codex-EOSC2v-review-5704`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6157342663)
+confirms claimant comment `6157340268`. This session did none of the author
 fixes or earlier reviews. One issue claimed; no second job.
 
-**Blocked checkpoint.** The prior handoff's repair gate is still unmet.
-Fresh post-confirmation issue bodies and the stock completion function give:
+**Blocked checkpoint.** The prior handoff's orchestration repair remains
+uninstalled. Reread #5704 after claim confirmation and fetched #6519 afresh.
+The issued lists and the stock completion function give:
 
 | Job | Issued outputs / packets | Queue outputs / packets | Completion, issued / queue |
 | --- | --- | --- | --- |
 | #5704 | 7 / 3 | 47 / 23 | false / false |
-| #6519 | 7 / 3 | 21 / 10 | true / false |
+| #6519 | 7 / 3 | 23 / 11 | true / false |
 
-Both issued ordered lists still match their historical queues at `c69e5b6c9`
-and `888f12f5c9`. Every queued output exists. Since the last checkpoint,
-#6519's queue has shrunk from 15 packets to 10; it still exceeds the issued
-three-packet assignment. #5704's queue remains unchanged in size.
+Both ordered issued lists equal their historical queue assignments at
+`c69e5b6c9` and `888f12f5c9`. Every queued output exists. The #6519 queue has
+changed since the preceding checkpoint, from ten packets to eleven; it still
+conflicts with its issued three-packet scope.
 
 Read `issues.deliverables_complete` and reran the preserved read-only
-completion-collision reproduction below. It returns `[false, true]` for the
-issued scopes and `[true, false]` after restoring #5704's archived P0/ASII
-reviews only in memory. The completion function reads current top-level
-reviews, not review history. Replacing those verdicts would transfer the
-failure to #6519. No production verdict or history was changed.
+completion-collision reproduction. Issued scopes return `[false, true]`;
+restoring #5704's archived P0 and ASII reviews only in memory returns
+`[true, false]`. The function consults only current top-level reviews.
+Replacing those reviews would transfer the completion failure to #6519.
 
-Compared each assigned packet, excluding only its top-level `review` and
-`reviewHistory`, with review merge `331007b5e`: all three mathematical objects
-are equal, and all three suggested files are byte-identical. The older scoped
-review therefore remains relevant, with its original qualifications and
-attribution; this checkpoint issues no new mathematical verdict or source audit.
+Reran all ten assertions in the preserved assessment-bound history fixture.
+The candidate preserves current top-level verdicts and accepts the archived
+review only with a matching scoped assessment. Its tests reject expanded
+scopes and invalidate that historical fallback on changed mathematics,
+suggested files, output scope, mismatched digests and nonverdicts.
+These in-memory cases are regression evidence for a repair, not an installed
+completion mechanism. Source and reader inputs still need an explicit
+assessment-binding policy; unbound legacy review history must not count.
+The fixture also verifies that all three assigned packets, excluding only
+`review` and `reviewHistory`, and every byte of their suggested files are
+unchanged from the scoped review merge `331007b5e`.
 
-Fresh stock blueprint checks pass with **zero errors and warnings** for P0
-(326 nodes), AEG (153), and ASII (537). No link map or restructuring proposal
-is assigned. No Lean compiler ran: this continuation changes documentation
-only, and the earlier elaborations retain their original attribution.
-Generator and assessment-candidate fixtures were not rerun.
+Fresh stock blueprint checks, using the configured declaration index, report
+**zero errors and warnings** for P0 (326 nodes), AEG (153) and ASII (537).
+No link map or restructuring proposal is assigned. These are structural
+checks; this continuation issues no fresh mathematical verdict or source or
+baseline-statement audit. No Lean compilation ran for these documentation
+changes. Earlier elaborations retain their attribution and their limitation:
+the missing P7 tower signatures and tests were not elaborated.
 
-WORKERS.md restricts edits to issue-named files and scratch space. The needed
-queue, generator, completion-function and generated-prompt repair paths are
-outside this assignment and each fails `intake.ALLOWED`. Only this report and
-the handoff change. The existing finding dispositions and executable fixtures
-below are preserved for an authorized maintainer repair. Resume only after
-issued scopes and content-bound historical completion are reconciled and both
-jobs pass together; repeated review dispatch cannot repair the excluded code.
+WORKERS.md restricts edits to issue-named files and scratch space. The queue,
+generator, completion function and generated review prompt are outside this
+assignment; all four also fail `intake.ALLOWED`. Only this report's current
+checkpoint and the handoff change. The earlier finding dispositions and
+runnable fixtures below remain intact. Resume after an authorized repair
+reconciles issued scopes, preserves them through regeneration and allows both
+content-bound scoped reviews to finish together. Repeated review dispatch
+cannot resolve the excluded orchestration defect.
 
 ---
 
