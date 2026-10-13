@@ -25616,7 +25616,8 @@
    ],
    "avoidAccountOf": "BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
    "prompt": "research/blueprint/prompts/REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #408"
   },
   {
    "id": "BP-FunctionFieldArithmetic",
@@ -27861,9 +27862,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.3.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #774"
+   "note": "claimed on GitHub issue #774"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.3",
@@ -51120,8 +51121,9 @@
    ],
    "revisionOf": "PKG-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9158"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9158",
+   "finishedAt": "2026-10-13T11:05:15Z"
   },
   {
    "id": "REV-PKG-ArithmeticLocallySymmetricSpaces~2",
@@ -52315,8 +52317,9 @@
     "PKG-DeformationAndDerivedPatchingAlgebraPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9208"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9208",
+   "finishedAt": "2026-10-13T11:05:20Z"
   },
   {
    "id": "PKG-DeligneWeightsAndPurity",
@@ -54776,8 +54779,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LefschetzPencilsAndVanishingCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9179"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9179",
+   "finishedAt": "2026-10-13T11:05:24Z"
   },
   {
    "id": "REV-PKG-LefschetzPencilsAndVanishingCycles",
@@ -55303,7 +55307,8 @@
     "PKG-NeronModelsAndSemistableAbelianVarietiesPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9228"
   },
   {
    "id": "PKG-PELModuli",
@@ -55893,8 +55898,9 @@
     "PKG-SelmerIwasawaCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SelmerIwasawaCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8897"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8897",
+   "finishedAt": "2026-10-13T11:05:29Z"
   },
   {
    "id": "PKG-SemisimpleAlgebrasPartII",
