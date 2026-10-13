@@ -6,15 +6,15 @@ This file is not the roadmap and is not exhaustive: the roadmap document
 (`research/blueprint/readmes/DiophantineApproximationAndTranscendence--DT.4.md`) is definitive. The
 statements below suggest Lean forms, so that contributors and reviewers converge on names and
 signatures. Definitions have real bodies; every API lemma, unit test and named theorem is proved by
-`sorry`; nothing here is an implementation claim. The file imports only Mathlib (082e2d3). Tau Ceti's
-relative discriminant `TauCeti.relDiscr` (TauCeti/RingTheory/DedekindDomain/Discriminant/Basic.lean)
-is restated with its pinned body as `relDiscr` below, so that the statements can be checked against
-Mathlib alone; a formalisation imports the Tau Ceti declaration instead.
+`sorry`; nothing here is an implementation claim. The file imports Mathlib (082e2d3) and the pinned Tau Ceti (f790474) declaration
+`TauCeti.relDiscr` directly. Explicit source contracts whose dependency proofs have recorded gaps
+remain honest theorem statements; the reader document identifies those gaps.
 
 Results of the first part of DT.4 (Evertse's Chapter 5: unit equations, Thue equations over ℤ,
 Győry's theorem for finitely generated groups) are cited by name in docstrings, not restated.
 -/
 
+import TauCeti.RingTheory.DedekindDomain.Discriminant.Basic
 import Mathlib.Analysis.Polynomial.MahlerMeasure
 import Mathlib.NumberTheory.Chebyshev
 import Mathlib.NumberTheory.Height.NumberField
@@ -35,7 +35,7 @@ set_option linter.unusedSectionVars false
 
 noncomputable section
 
-open Polynomial NumberField IsDedekindDomain
+open Polynomial NumberField IsDedekindDomain TauCeti
 open scoped nonZeroDivisors
 
 namespace DiophantineApproximation.EffectiveApplications
@@ -131,9 +131,29 @@ theorem logHeight_coeff_le (f : K[X]) (i : ℕ) : absLogHeight₁ (f.coeff i) �
 theorem polyLogHeight_le_superellipticHeight (b : K) (f : K[X]) :
     polyLogHeight f ≤ superellipticHeight b f ∧ absLogHeight₁ b ≤ superellipticHeight b f := sorry
 
+theorem superellipticHeight_nonneg (b : K) (f : K[X]) :
+    0 ≤ superellipticHeight b f := sorry
+
+theorem superellipticHeight_map {L : Type*} [Field L] [NumberField L] [Algebra K L]
+    (b : K) (f : K[X]) :
+    superellipticHeight (algebraMap K L b) (f.map (algebraMap K L)) =
+      superellipticHeight b f := sorry
+
+theorem superellipticHeight_zero (f : K[X]) :
+    superellipticHeight (0 : K) f = polyLogHeight f := sorry
+
 theorem polyLogHeight_X_sub_C (α : K) : polyLogHeight (X - C α) = absLogHeight₁ α := sorry
 
 end PolynomialHeight
+
+/-- The coefficient 1 and the separate b coordinate both contribute to the height. -/
+example : superellipticHeight (2 : ℚ) X = Real.log 2 := sorry
+
+/-- The finite place contributes even when the archimedean b coordinate is small. -/
+example : superellipticHeight (1 / 2 : ℚ) X = Real.log 2 := sorry
+
+/-- Zero b does not change the height; monomials have height zero. -/
+example (n : ℕ) : superellipticHeight (0 : ℚ) (X ^ n) = 0 := sorry
 
 theorem polyLogHeight_int (f : ℤ[X]) :
     polyLogHeight (f.map (Int.castRingHom ℚ)) =
@@ -288,6 +308,18 @@ theorem exists_sUnit_absLogHeight_mul_pow_le {k : ℕ} {η : Fin k → Kˣ}
       absLogHeight₁ (α * (ε : K) ^ m) ≤
         (Real.log (sNorm S α) + m * (∑ i, sLogNorm S (η i : K)) / 2) / Module.finrank ℚ K := sorry
 
+/-- The exact BEG representative bound uses refined independent ordinary-unit heights;
+its quantitative height-product input is recorded as a gap in the reader. -/
+theorem exists_sUnit_absLogHeight_mul_pow_explicit_le {α : K}
+    (hα : α ∈ (S : Set (HeightOneSpectrum (𝓞 K))).integer K) (hα0 : α ≠ 0)
+    {m : ℕ} (hm : 0 < m) :
+    ∃ ε ∈ (S : Set (HeightOneSpectrum (𝓞 K))).unit K,
+      absLogHeight₁ (α * (ε : K) ^ m) ≤
+        Real.log (sNorm S α) / Module.finrank ℚ K +
+          m * (39 * (Module.finrank ℚ K : ℝ) ^ (Module.finrank ℚ K + 2) * Units.regulator K +
+            (classNumber K : ℝ) / Module.finrank ℚ K *
+              Real.log (∏ p ∈ S, (p.asIdeal.absNorm : ℝ))) := sorry
+
 /-- Unit test `isFundamentalSUnitSystem_rat_prime` (characterisation): for `K = ℚ` and `S = {(p)}`,
 `p` alone is a fundamental system of S-units. -/
 example (p : Nat.Primes) :
@@ -296,10 +328,22 @@ example (p : Nat.Primes) :
 
 end SUnits
 
+/-- The empty system captures the torsion-only ordinary rational units. -/
+example : IsFundamentalSUnitSystem (∅ : Set (HeightOneSpectrum (𝓞 ℚ)))
+    (fun i : Fin 0 => Fin.elim0 i) := sorry
+
+/-- A square generates a proper subgroup modulo torsion. -/
+example (p : Nat.Primes) :
+    ¬ IsFundamentalSUnitSystem ({ratPrime p} : Set (HeightOneSpectrum (𝓞 ℚ)))
+      ![(Units.mk0 ((p : ℕ) : ℚ) (by exact_mod_cast p.2.ne_zero)) ^ 2] := sorry
+
 /-- Unit test `sRegulatorOf_rat_prime` (computation): over `ℚ` with `S = {(p)}`, `R_S = log p`. -/
 example (p : Nat.Primes) :
     sRegulatorOf ![Units.mk0 ((p : ℕ) : ℚ) (by exact_mod_cast p.2.ne_zero)]
       ![(Sum.inr (ratPrime p) : Place ℚ)] = Real.log p := sorry
+
+/-- The determinant in rank zero is 1. -/
+example (ε : Fin 0 → ℚˣ) (v : Fin 0 → Place ℚ) : sRegulatorOf ε v = 1 := sorry
 
 section ClassGroup
 
@@ -345,13 +389,6 @@ namespace DiophantineApproximation.EffectiveApplications
 theorem contentIdeal_mul_eq {A : Type*} [CommRing A] [IsDedekindDomain A] (f g : A[X]) :
     (f * g).contentIdeal = f.contentIdeal * g.contentIdeal := sorry
 
-/-- Tau Ceti's relative discriminant ideal `relNorm (differentIdeal A B)`, restated with its pinned
-body (`TauCeti.relDiscr`). -/
-def relDiscr (A B : Type*) [CommRing A] [IsDedekindDomain A]
-    [CommRing B] [IsDedekindDomain B] [Algebra A B] [Module.Finite A B]
-    [Module.IsTorsionFree A B] : Ideal A :=
-  Ideal.relNorm A (differentIdeal A B)
-
 section Heights
 
 variable {K : Type*} [Field K] [NumberField K]
@@ -360,17 +397,37 @@ variable {K : Type*} [Field K] [NumberField K]
 theorem abs_polyLogHeight_prod_sub_sum_le {n : ℕ} (α : Fin n → K) :
     |polyLogHeight (∏ i, (X - C (α i))) - ∑ i, absLogHeight₁ (α i)| ≤ n * Real.log 2 := sorry
 
+/-- Nonmonic roots: the product formula removes the leading coefficient. -/
+theorem sum_absLogHeight_roots_le {n : ℕ} (α : Fin n → K) {a : K} (ha : a ≠ 0) :
+    (∑ i, absLogHeight₁ (α i)) ≤
+      polyLogHeight (C a * ∏ i, (X - C (α i))) + n * Real.log 2 := sorry
+
+/-- Evaluation needs the archimedean log(n+1) term. -/
+theorem absLogHeight_eval_le (f : K[X]) (x : K) :
+    absLogHeight₁ (f.eval x) ≤
+      polyLogHeight f + f.natDegree * absLogHeight₁ x + Real.log (f.natDegree + 1) := sorry
+
+/-- Loher–Masser in the form of Győry–Yu Proposition 1; the quantitative counting
+and Blichfeldt input remain recorded gaps. -/
+theorem independent_height_product_lower {n : ℕ} (hn : 0 < n) (α : Fin n → Kˣ)
+    (hind : Function.Injective (fun e : Fin n → ℤ => ∏ i, α i ^ e i)) :
+    let d : ℕ := Module.finrank ℚ K
+    let c : ℝ := if d = 1 then 17 else 58 * (d : ℝ) ^ (n + 1) * Real.log d
+    (Nat.card (Units.torsion K) : ℝ) ≤
+      c * (n.factorial : ℝ) * Real.exp n / (n : ℝ) ^ n *
+        ∏ i, absLogHeight₁ (α i : K) := sorry
+
 /-- BEG Lemma 3.7 (i) at an infinite place. -/
-theorem infinitePlace_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (w : InfinitePlace K) :
+theorem infinitePlace_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (hnpos : 1 ≤ n) (w : InfinitePlace K) :
     w f.discr ^ w.mult ≤
       ((n : ℝ) ^ (2 * n - 1) * (⨆ i : Fin (n + 1), w (f.coeff i)) ^ (2 * n - 2)) ^ w.mult := sorry
 
 /-- BEG Lemma 3.7 (i) at a finite place. -/
-theorem finitePlace_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (v : FinitePlace K) :
+theorem finitePlace_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (hnpos : 1 ≤ n) (v : FinitePlace K) :
     v f.discr ≤ (⨆ i : Fin (n + 1), v (f.coeff i)) ^ (2 * n - 2) := sorry
 
 /-- BEG Lemma 3.7 (ii). -/
-theorem absLogHeight_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (hD : f.discr ≠ 0) :
+theorem absLogHeight_discr_le (f : K[X]) {n : ℕ} (hn : f.natDegree = n) (hnpos : 1 ≤ n) (hD : f.discr ≠ 0) :
     absLogHeight₁ f.discr ≤ (2 * n - 1) * Real.log n + (2 * n - 2) * polyLogHeight f := sorry
 
 end Heights
@@ -750,11 +807,13 @@ theorem primitive_binaryForm_ideal {L : Type*} [Field L] [NumberField L] {f : �
 /-- The number of solutions of `F(x, y) = 1` is bounded in terms of the degree only. -/
 theorem uniform_thue_bound (n : ℕ) (hn : 3 ≤ n) :
     ∃ N : ℕ, ∀ f : ℤ[X], f.natDegree = n → f.discr ≠ 0 →
+      {p : ℤ × ℤ | binaryFormEval f n p.1 p.2 = 1}.Finite ∧
       {p : ℤ × ℤ | binaryFormEval f n p.1 p.2 = 1}.ncard ≤ N := sorry
 
 /-- Cubic forms: an absolute bound (ArithmeticStatistics ST.1). -/
 theorem uniform_cubic_thue_bound :
     ∃ N : ℕ, ∀ f : ℤ[X], f.natDegree = 3 → f.discr ≠ 0 →
+      {p : ℤ × ℤ | binaryFormEval f 3 p.1 p.2 = 1}.Finite ∧
       {p : ℤ × ℤ | binaryFormEval f 3 p.1 p.2 = 1}.ncard ≤ N := uniform_thue_bound 3 le_rfl
 
 /-- Check: `X³ − 2Y³ = 1` has the solutions `(1, 0)` and `(−1, −1)`. -/
