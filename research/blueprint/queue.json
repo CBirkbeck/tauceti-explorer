@@ -27865,9 +27865,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.3.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #774"
+   "note": "deliverables arrived from an external worker on issue #774",
+   "finishedAt": "2026-10-13T12:41:29Z"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.3",
@@ -35122,8 +35123,9 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L2",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9250"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9250",
+   "finishedAt": "2026-10-13T12:41:30Z"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L3",
@@ -39103,8 +39105,9 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9319"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9319",
+   "finishedAt": "2026-10-13T12:41:34Z"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.0",
@@ -39148,7 +39151,8 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9320"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.2",
@@ -39517,7 +39521,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9324"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.0",
@@ -39705,7 +39710,8 @@
    ],
    "followUpOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9328"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
