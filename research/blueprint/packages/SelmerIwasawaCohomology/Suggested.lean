@@ -55,24 +55,9 @@ def pCompletionMap {A B : Type*} [AddCommGroup A] [AddCommGroup B] (f : A →ₗ
     pCompletion p A →ₗ[ℤ] pCompletion p B :=
   (AdicCompletion.map (Ideal.span {(p : ℤ)}) f).restrictScalars ℤ
 
-/-- Completion preserves identity maps. -/
-theorem pCompletionMap_id (A : Type*) [AddCommGroup A] :
-    pCompletionMap (p := p) (LinearMap.id : A →ₗ[ℤ] A) = LinearMap.id := sorry
-
-/-- Completion preserves composition, in the same order as the input maps. -/
-theorem pCompletionMap_comp {A B C : Type*} [AddCommGroup A] [AddCommGroup B] [AddCommGroup C]
-    (f : A →ₗ[ℤ] B) (g : B →ₗ[ℤ] C) :
-    pCompletionMap (p := p) (g.comp f) =
-      (pCompletionMap (p := p) g).comp (pCompletionMap (p := p) f) := sorry
-
 /-- `AdicCompletion (p) ℤ ≅ ℤ_p`, so that `Â` is a `ℤ_p`-module. -/
 theorem adicCompletion_int_equiv_padicInt :
     Nonempty (AdicCompletion (Ideal.span {(p : ℤ)}) ℤ ≃+* ℤ_[p]) := sorry
-
-/-- for finitely generated `A`,
-`ℤ_p ⊗ A ≅ Â` (from `AdicCompletion.ofTensorProduct_bijective_of_finite_of_isNoetherian`). -/
-theorem pCompletion_bijective_of_finite (A : Type*) [AddCommGroup A] [Module.Finite ℤ A] :
-    Function.Bijective (AdicCompletion.ofTensorProduct (Ideal.span {(p : ℤ)}) A) := sorry
 
 /-- for a number field `F`, `E_F ⊗ ℤ_p ≅ Ê_F`, and `Ê_F → F̂ˣ` is
 injective because a unit that is a `p^m`-th power in `F` is the `p^m`-th power of a unit. -/
@@ -169,50 +154,32 @@ section Orthogonal
 variable {R : Type*} [CommRing R] {X X' Y : Type*} [AddCommGroup X] [Module R X]
   [AddCommGroup X'] [Module R X'] [AddCommGroup Y] [Module R Y]
 
-/-- `F^⊥ = {x' | b(F, x') = 0}` (Mazur–Rubin, Definition 1.6). -/
-def orthogonal (b : X →ₗ[R] X' →ₗ[R] Y) (F : Submodule R X) : Submodule R X' :=
-  ⨅ x ∈ F, LinearMap.ker (b x)
-
-/-- membership. -/
-theorem mem_orthogonal (b : X →ₗ[R] X' →ₗ[R] Y) (F : Submodule R X) (x' : X') :
-    x' ∈ orthogonal b F ↔ ∀ x ∈ F, b x x' = 0 := by
-  simp [orthogonal, Submodule.mem_iInf]
-
-/-- `F ↦ F^⊥` is antitone. -/
-theorem orthogonal_antitone (b : X →ₗ[R] X' →ₗ[R] Y) : Antitone (orthogonal b) := sorry
-
-/-- strict ↦ relaxed. -/
-theorem orthogonal_bot (b : X →ₗ[R] X' →ₗ[R] Y) : orthogonal b ⊥ = ⊤ := sorry
-
 /-- A perfect pairing: both curried maps are bijective. -/
 def IsPerfect (b : X →ₗ[R] X' →ₗ[R] Y) : Prop :=
   Function.Bijective b ∧ Function.Bijective b.flip
-
-/-- relaxed ↦ strict, for a perfect pairing. -/
-theorem orthogonal_top (b : X →ₗ[R] X' →ₗ[R] Y) (hb : IsPerfect b) : orthogonal b ⊤ = ⊥ := sorry
 
 /-- the image rule for adjoint maps, `(π F)^⊥ = ι^{-1}(F^⊥)`. -/
 theorem orthogonal_map_eq_comap {Z Z' : Type*} [AddCommGroup Z] [Module R Z] [AddCommGroup Z']
     [Module R Z'] (b : X →ₗ[R] X' →ₗ[R] Y) (bZ : Z →ₗ[R] Z' →ₗ[R] Y) (π : X →ₗ[R] Z)
     (ι : Z' →ₗ[R] X') (hadj : ∀ x z', bZ (π x) z' = b x (ι z')) (F : Submodule R X) :
-    orthogonal bZ (F.map π) = (orthogonal b F).comap ι := by
+    Submodule.orthogonalBilin bZ (F.map π) = (Submodule.orthogonalBilin b F).comap ι := by
   ext z'
-  simp [mem_orthogonal, hadj]
+  simp [Submodule.mem_orthogonalBilin, hadj]
 
-/-- double orthogonal, for a perfect pairing of finite modules. -/
+/-- Double annihilators recover a submodule for a perfect pairing of finite modules. -/
 theorem orthogonal_orthogonal {n : ℕ} [NeZero n] {A B : Type*}
     [AddCommGroup A] [Module (ZMod n) A] [AddCommGroup B] [Module (ZMod n) B]
     [Finite A] [Finite B] (b : A →ₗ[ZMod n] B →ₗ[ZMod n] ZMod n)
     (hb : IsPerfect b) (F : Submodule (ZMod n) A) :
-    orthogonal b.flip (orthogonal b F) = F := sorry
+    Submodule.orthogonalBilin b.flip (Submodule.orthogonalBilin b F) = F := sorry
 
 /-- The finite character-dual quotient pairing is perfect, not merely injective. -/
 theorem quotientPairing_perfect {n : ℕ} [NeZero n] {A B : Type*}
     [AddCommGroup A] [Module (ZMod n) A] [AddCommGroup B] [Module (ZMod n) B]
     [Finite A] [Finite B] (b : A →ₗ[ZMod n] B →ₗ[ZMod n] ZMod n)
     (hb : IsPerfect b) (F : Submodule (ZMod n) A) :
-    ∃ c : (A ⧸ F) →ₗ[ZMod n] (orthogonal b F) →ₗ[ZMod n] ZMod n,
-      IsPerfect c ∧ ∀ x (y : orthogonal b F), c (F.mkQ x) y = b x y := sorry
+    ∃ c : (A ⧸ F) →ₗ[ZMod n] (Submodule.orthogonalBilin b F) →ₗ[ZMod n] ZMod n,
+      IsPerfect c ∧ ∀ x (y : Submodule.orthogonalBilin b F), c (F.mkQ x) y = b x y := sorry
 
 end Orthogonal
 
@@ -221,21 +188,23 @@ satisfies `#F · #F^⊥ = #X`. -/
 theorem card_mul_card_orthogonal {n : ℕ} [NeZero n] {X X' : Type*} [AddCommGroup X]
     [Module (ZMod n) X] [AddCommGroup X'] [Module (ZMod n) X'] [Finite X] [Finite X']
     (b : X →ₗ[ZMod n] X' →ₗ[ZMod n] ZMod n) (hb : IsPerfect b) (F : Submodule (ZMod n) X) :
-    Nat.card F * Nat.card (orthogonal b F) = Nat.card X := sorry
+    Nat.card F * Nat.card (Submodule.orthogonalBilin b F) = Nat.card X := sorry
 
 namespace PairingChecks
 /-- The scalar pairing over ℤ/5 is perfect in both arguments. -/
 example : IsPerfect (LinearMap.mul (ZMod 5) (ZMod 5)) := sorry
 /-- A zero pairing on a nonzero module fails perfectness. -/
 example : ¬ IsPerfect (0 : ℚ →ₗ[ℚ] ℚ →ₗ[ℚ] ℚ) := sorry
+/-- Nondegeneracy without surjectivity does not give perfection over an integral lattice. -/
+example : ¬ IsPerfect ((3 : ℤ) • LinearMap.mul ℤ ℤ) := sorry
 /-- Zero condition has full annihilator, even without perfectness. -/
 example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X]
     [AddCommGroup X'] [Module R X'] [AddCommGroup Y] [Module R Y]
-    (b : X →ₗ[R] X' →ₗ[R] Y) : orthogonal b ⊥ = ⊤ := sorry
+    (b : X →ₗ[R] X' →ₗ[R] Y) : Submodule.orthogonalBilin b ⊥ = ⊤ := sorry
 /-- A zero pairing gives full annihilator for every condition. -/
 example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X]
     [AddCommGroup X'] [Module R X'] [AddCommGroup Y] [Module R Y]
-    (F : Submodule R X) : orthogonal (0 : X →ₗ[R] X' →ₗ[R] Y) F = ⊤ := sorry
+    (F : Submodule R X) : Submodule.orthogonalBilin (0 : X →ₗ[R] X' →ₗ[R] Y) F = ⊤ := sorry
 end PairingChecks
 
 /-! ## Layer 2: Selmer structures and complexes -/
@@ -428,7 +397,7 @@ namespace SelmerData
 under local pairings `b v : H¹(K_v, T) × H¹(K_v, T^*) → Y`. -/
 def dualCond (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'.loc v →ₗ[R] Y) :
     ∀ v, Submodule R (D'.loc v) :=
-  fun v => orthogonal (b v) (D.cond v)
+  fun v => Submodule.orthogonalBilin (b v) (D.cond v)
 
 /-- The dual Selmer data: the same global module and localisations as `D'`, with the dual
 conditions. -/
@@ -444,7 +413,7 @@ theorem dualCond_relax (D D' : SelmerData R ι) (b : ∀ v, D.loc v →ₗ[R] D'
 theorem dualCond_dualCond {n : ℕ} [NeZero n] (D D' : SelmerData (ZMod n) ι)
     (b : ∀ v, D.loc v →ₗ[ZMod n] D'.loc v →ₗ[ZMod n] ZMod n)
     (hb : ∀ v, IsPerfect (b v)) [∀ v, Finite (D.loc v)] [∀ v, Finite (D'.loc v)] (v : ι) :
-    orthogonal (b v).flip (dualCond D D' b v) = D.cond v := sorry
+    Submodule.orthogonalBilin (b v).flip (dualCond D D' b v) = D.cond v := sorry
 
 end SelmerData
 
@@ -512,6 +481,10 @@ example (x : ℤ) (h : ∀ n : ℕ, ∃ y : ℤ, x = 3 ^ n * y) : x = 0 := by
 example : ((4 : ℚ) ^ (-1 : ℤ)) * 4 = 1 := by norm_num
 /-- The opposite scalar fails the inverse-character normalization. -/
 example : (4 : ℚ) * 4 ≠ 1 := by norm_num
+/-- The zero twist has scalar one. -/
+example : (4 : ℚ) ^ (0 : ℤ) = 1 := by norm_num
+/-- The dual Tate generator reverses the twist and has scalar four. -/
+example : ((4 : ℚ) ^ (-1 : ℤ)) * ((4 : ℚ) ^ (1 : ℤ)) = 1 := by norm_num
 /-- Degree two contributes positively to the inverse-determinant divisor. -/
 example (length : ℤ) : (-1 : ℤ) ^ 2 * length = length := by norm_num
 /-- Degree one contributes negatively to the inverse-determinant divisor. -/
@@ -575,6 +548,14 @@ example {W M N : Type*} [CommRing W] [AddCommGroup M] [Module W M]
     {p : ℕ} {σ : W ≃+* W} (D : FontaineLaffailleModule W p σ M)
     (D' : FontaineLaffailleModule W p σ N) :
     ∃ f : FontaineLaffailleHom D D', f.map = 0 := sorry
+/-- A nonzero object has no support in a reversed interval. -/
+example (D : FontaineLaffailleModule ℤ 3 (RingEquiv.refl ℤ) ℤ) :
+    ¬ fontaineLaffaille_interval D 1 0 := sorry
+/-- The same filtration with different unit Frobenius excludes the underlying identity. -/
+example : ∃ D D' : FontaineLaffailleModule (ZMod 3) 3 (RingEquiv.refl (ZMod 3)) (ZMod 3),
+    fontaineLaffaille_interval D 0 0 ∧ fontaineLaffaille_interval D' 0 0 ∧
+    (∀ x : D.F 0, D.φ 0 x = x) ∧ (∀ x : D'.F 0, D'.φ 0 x = 2 * (x : ZMod 3)) ∧
+    ¬ (∃ f : FontaineLaffailleHom D D', f.map = LinearMap.id) := sorry
 end Tests
 
 /-- A native opposed Hodge structure together with a complex-linear real Betti involution exchanging Hodge pieces. -/
@@ -870,6 +851,8 @@ example (s : ℂ) : gammaFactor (tateArchimedean 2) s = Complex.Gammaℝ (s-2) :
 /-- Switching the real sign twice recovers the original involution. -/
 example (A : ArchimedeanRealization W ω w) :
     (oppositeRealSign (oppositeRealSign A)).FInfty = A.FInfty := sorry
+/-- The odd c4 parts in the two congruent-number root-sign witnesses differ modulo 16. -/
+example : (3 : ZMod 16) * 1^2 = 3 ∧ (3 : ZMod 16) * 5^2 = 11 := by decide
 end AdditionalChecks
 
 end TauCetiRoadmap.SelmerIwasawaCohomology
