@@ -17,7 +17,7 @@ The global Hilbert object uses geometric Frobenius, determinant
 χ_{π,λ} ε_ℓ⁻¹ and Hodge degrees ((w-k_τ+2)/2, (w+k_τ)/2).
 The classical arithmetic object is its dual in infinity type (k,k-2).
 Finite matrix counts, coefficient-normalisation calculations, Scholl averaging,
-ordinary lattice intersections and the division-free mixed determinant identity
+ordinary lattice intersections and quotients, and the division-free mixed determinant identity
 have actual signatures below. Their local algebraic models do not construct
 the imported global geometric objects.
 -/
@@ -42,6 +42,11 @@ import Mathlib.Analysis.Complex.Basic
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.AdicCompletion.Basic
 import Mathlib.RingTheory.LocalRing.ResidueField.Defs
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.LinearAlgebra.Dimension.Free
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.NumberTheory.Padics.Hensel
 
 namespace TauCeti.ModularGalois
 
@@ -356,10 +361,33 @@ theorem exists_lift_of_not_dvd_card {O : Type*} [CommRing O] [IsDomain O] [IsDis
     ∃ ρ : Γ →* GL (Fin n) O, (Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)).comp ρ = ρbar :=
   sorry
 
-/-- `…:R19.1/lifting-representations-of-groups-of-order-prime-to-l`, non-example: for `ℓ ≥ 5` a primitive `ℓ`-th
-root of unity has degree `ℓ − 1 > 2`, so `GL₂(ℤ_ℓ)` has no element of order `ℓ`. -/
-example (l : ℕ) (h : 5 ≤ l) : 2 < l - 1 := by
-  omega
+/-- Deligne–Serre §8.6, printed p.526: a faithful residual representation has a
+faithful lift; hence its finite image remains isomorphic to the residual image. -/
+theorem exists_faithful_lift_of_not_dvd_card {O : Type*} [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    [Finite (IsLocalRing.ResidueField O)] {Γ : Type*} [Group Γ] [Finite Γ]
+    (hΓ : ¬ ringChar (IsLocalRing.ResidueField O) ∣ Nat.card Γ) {n : ℕ}
+    (ρbar : Γ →* GL (Fin n) (IsLocalRing.ResidueField O))
+    (hfaith : Function.Injective ρbar) :
+    ∃ ρ : Γ →* GL (Fin n) O,
+      (Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)).comp ρ = ρbar ∧
+        Function.Injective ρ := by
+  obtain ⟨ρ, hρ⟩ := exists_lift_of_not_dvd_card hΓ ρbar
+  refine ⟨ρ, hρ, ?_⟩
+  intro x y hxy
+  apply hfaith
+  have h := congrArg (Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)) hxy
+  change ((Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)).comp ρ) x =
+    ((Matrix.GeneralLinearGroup.map (IsLocalRing.residue O)).comp ρ) y at h
+  simpa only [hρ] using h
+
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+/-- Prime-to-order hypothesis is necessary: the actual residual GL₂(F₅) has
+order-five elements, while characteristic-zero GL₂(Z₅) cannot contain them.
+This tests finite-image lifting rather than only the cyclotomic degree inequality. -/
+example : (∃ g : GL (Fin 2) (ZMod 5), orderOf g = 5) ∧
+    ¬ (∃ g : GL (Fin 2) ℤ_[5], orderOf g = 5) := sorry
 
 /-! ## R19.2 — Carayol's construction and proof (`AutomorphicGaloisRepresentations:R19.2/carayol-*`)
 
@@ -552,6 +580,33 @@ theorem schollProjector_idempotent (ρ : Representation K Γ V) (ε : Γ →* K�
     schollProjector ρ ε * schollProjector ρ ε = schollProjector ρ ε :=
   sorry
 
+/-- Finite averaging is natural under an actual intertwining linear map.
+Geometric level maps still have to be supplied by the cohomology owner. -/
+theorem schollProjector_intertwine {W : Type*} [AddCommGroup W] [Module K W]
+    (ρ : Representation K Γ V) (ρ' : Representation K Γ W) (ε : Γ →* Kˣ)
+    (u : V →ₗ[K] W) (hu : ∀ g, u.comp (ρ g) = (ρ' g).comp u) :
+    u.comp (schollProjector ρ ε) = (schollProjector ρ' ε).comp u := sorry
+
+/-- An operator commuting with every action commutes with their weighted average.
+This states the algebraic part of Hecke compatibility, including its precise hypothesis. -/
+theorem schollProjector_comm (ρ : Representation K Γ V) (ε : Γ →* Kˣ)
+    (u : Module.End K V) (hu : ∀ g, Commute u (ρ g)) :
+    Commute u (schollProjector ρ ε) := sorry
+
+/-- The two-element trivial action averages to identity over Q; omitting |Γ|⁻¹ fails. -/
+example : schollProjector (Representation.trivial ℚ (Equiv.Perm (Fin 2)) ℚ)
+    (1 : Equiv.Perm (Fin 2) →* ℚˣ) = LinearMap.id := sorry
+
+/-- Algebraic sign test on the actual permutation representation: unsigned averaging
+and sign-weighted averaging act differently on a basis vector. Identifying this with
+Scholl's graded Künneth action remains a geometric input. -/
+example :
+    let ρ := Representation.ofMulAction ℚ (Equiv.Perm (Fin 2)) (Fin 2)
+    let ε : Equiv.Perm (Fin 2) →* ℚˣ :=
+      (Units.map (Int.castRingHom ℚ).toMonoidHom).comp Equiv.Perm.sign
+    schollProjector ρ ε (MonoidAlgebra.single (0 : Fin 2) (1 : ℚ)) ≠
+      schollProjector ρ 1 (MonoidAlgebra.single (0 : Fin 2) (1 : ℚ)) := sorry
+
 -- The newformFactor prototype is its actual linear image, after the imported
 -- rational new Hecke algebra has supplied the orbit idempotent on cohomology.
 def newformFactor (e : Module.End K V) : Submodule K V := LinearMap.range e
@@ -581,16 +636,35 @@ section OrdinaryLattice
 variable {O K V : Type*} [CommRing O] [Field K] [Algebra O K]
   [AddCommGroup V] [Module K V] [Module O V] [IsScalarTower O K V]
 
-/-- The actual intersection of a fixed lattice with the ordinary K-line.
-Neither its Galois invariance nor its rank is assumed by this definition. -/
+/-- The actual intersection of the fixed lattice with the ordinary K-subspace.
+Invariance and rank are established separately with their hypotheses. -/
 def ordinaryLatticePlus (T : Submodule O V) (Vplus : Submodule K V) : Submodule O V :=
   T ⊓ Vplus.restrictScalars O
 
-@[simp] theorem ordinaryLatticePlus_mem (T : Submodule O V) (Vplus : Submodule K V)
-    (v : V) : v ∈ ordinaryLatticePlus T Vplus ↔ v ∈ T ∧ v ∈ Vplus := Iff.rfl
+/-- The intersection regarded as a submodule of T, so its quotient really is T/T⁺. -/
+def ordinaryLatticePlusIn (T : Submodule O V) (Vplus : Submodule K V) : Submodule O T :=
+  (ordinaryLatticePlus T Vplus).comap T.subtype
 
-/-- Saturation inside T, with nonzero scalar image stated explicitly. -/
-theorem ordinaryLatticePlus_saturated (T : Submodule O V) (Vplus : Submodule K V)
+/-- The integral ordinary quotient, retaining the chosen lattice rather than only its generic fibre. -/
+abbrev ordinaryLatticeQuotient (T : Submodule O V) (Vplus : Submodule K V) :=
+  T ⧸ ordinaryLatticePlusIn T Vplus
+
+@[simp] theorem ordinaryLatticePlusIn_mem (T : Submodule O V) (Vplus : Submodule K V)
+    (v : T) : v ∈ ordinaryLatticePlusIn T Vplus ↔ (v : V) ∈ Vplus := by
+  change ((v : V) ∈ T ∧ (v : V) ∈ Vplus) ↔ (v : V) ∈ Vplus
+  exact and_iff_right v.property
+
+/-- A stable lattice and stable ordinary line give a stable intersection. -/
+theorem ordinaryLatticePlus_stable {Γ : Type*} [Group Γ]
+    (ρ : Representation K Γ V) (T : Submodule O V) (Vplus : Submodule K V)
+    (hT : ∀ g v, v ∈ T → ρ g v ∈ T)
+    (hplus : ∀ g v, v ∈ Vplus → ρ g v ∈ Vplus) :
+    ∀ g v, v ∈ ordinaryLatticePlus T Vplus → ρ g v ∈ ordinaryLatticePlus T Vplus := by
+  intro g v hv
+  exact ⟨hT g v hv.1, hplus g v hv.2⟩
+
+/-- Saturation is cancellation inside the given lattice, not a choice of a smaller line lattice. -/
+theorem ordinaryLatticePlus_cancel (T : Submodule O V) (Vplus : Submodule K V)
     (c : O) (hc : algebraMap O K c ≠ 0) (v : V) (hv : v ∈ T)
     (hcv : c • v ∈ ordinaryLatticePlus T Vplus) :
     v ∈ ordinaryLatticePlus T Vplus := by
@@ -602,12 +676,92 @@ theorem ordinaryLatticePlus_saturated (T : Submodule O V) (Vplus : Submodule K V
   change v ∈ Vplus
   simpa only [smul_smul, inv_mul_cancel₀ hc, one_smul] using hi
 
-/-- Membership part of `ordinaryLatticePlus_saturation`. This example checks
-the intersection, but does not test the torsion quotient of a nonsaturated
-sublattice; that non-example still requires its own statement. -/
+/-- The actual integral quotient is torsion-free when O embeds in K. -/
+theorem ordinaryLatticeQuotient_isTorsionFree [IsDomain O]
+    (hinj : Function.Injective (algebraMap O K))
+    (T : Submodule O V) (Vplus : Submodule K V) :
+    Module.IsTorsionFree O (ordinaryLatticeQuotient T Vplus) := sorry
+
+/-- A spanning lattice has the whole ordinary line as the generic fibre of its intersection. -/
+theorem ordinaryLatticePlus_span [IsDomain O] [IsFractionRing O K]
+    (T : Submodule O V) (Vplus : Submodule K V)
+    (hspan : Submodule.span K (T : Set V) = ⊤) :
+    Submodule.span K (ordinaryLatticePlus T Vplus : Set V) = Vplus := sorry
+
+/-- The rank-one quotient contract in the plan, for a finite spanning rank-two DVR lattice. -/
+theorem ordinaryLatticePlus_saturated [IsDomain O] [IsDiscreteValuationRing O]
+    [IsFractionRing O K] [FiniteDimensional K V]
+    (T : Submodule O V) [Module.Finite O T] (Vplus : Submodule K V)
+    (hspan : Submodule.span K (T : Set V) = ⊤)
+    (hV : Module.finrank K V = 2) (hplus : Module.finrank K Vplus = 1) :
+    Module.IsTorsionFree O (ordinaryLatticeQuotient T Vplus) ∧
+      Module.Free O (ordinaryLatticeQuotient T Vplus) ∧
+      Module.finrank O (ordinaryLatticeQuotient T Vplus) = 1 := sorry
+
+@[simp] theorem ordinaryLatticePlus_mem (T : Submodule O V) (Vplus : Submodule K V)
+    (v : V) : v ∈ ordinaryLatticePlus T Vplus ↔ v ∈ T ∧ v ∈ Vplus := Iff.rfl
+
+/-- Membership acceptance test on the actual intersection. -/
 example (T : Submodule O V) (Vplus : Submodule K V) (v : V) (hv : v ∈ T)
     (hl : v ∈ Vplus) : v ∈ ordinaryLatticePlus T Vplus := ⟨hv, hl⟩
+
+/-- A zero lattice gives a zero ordinary quotient. -/
+example (Vplus : Submodule K V) :
+    Subsingleton (ordinaryLatticeQuotient (⊥ : Submodule O V) Vplus) := sorry
+
+/-- Zero ordinary subspace: the integral quotient is T itself. -/
+example (T : Submodule O V) :
+    ordinaryLatticePlusIn T (⊥ : Submodule K V) = ⊥ := sorry
+
+/-- Whole ordinary subspace: the quotient is zero, not rank one. -/
+example (T : Submodule O V) :
+    Subsingleton (ordinaryLatticeQuotient T (⊤ : Submodule K V)) := sorry
+
 end OrdinaryLattice
+
+section OrdinaryLatticeTests
+variable (O : Type*) [CommRing O] [IsDomain O] (K : Type*) [Field K] [Algebra O K]
+
+/-- O² inside K², expressed by a genuine scalar-extension map rather than an arbitrary lattice. -/
+private def coordinateLattice : Submodule O (Fin 2 → K) :=
+  LinearMap.range
+    ({
+      toFun := fun v : Fin 2 → O => fun i => algebraMap O K (v i)
+      map_add' := by intro x y; ext i; simp
+      map_smul' := by intro a x; ext i; simp [Algebra.smul_def]
+    } : (Fin 2 → O) →ₗ[O] (Fin 2 → K))
+
+/-- The first coordinate K-line. -/
+private def firstCoordinateLine : Submodule K (Fin 2 → K) :=
+  LinearMap.ker (LinearMap.proj (1 : Fin 2) : (Fin 2 → K) →ₗ[K] K)
+
+/-- The intersection is the O-span of the first basis vector. -/
+example (hinj : Function.Injective (algebraMap O K)) :
+    ordinaryLatticePlus (coordinateLattice O K) (firstCoordinateLine K) =
+      Submodule.span O {(![1, 0] : Fin 2 → K)} := sorry
+
+/-- For a nonzero nonunit c the smaller cOe₁ leaves a genuine nonzero c-torsion
+class in O²/cOe₁. This is the nonsaturation test, including its quotient. -/
+example (c : O) (hc : c ≠ 0) (hnu : ¬ IsUnit c) :
+    let W : Submodule O (Fin 2 → O) := Submodule.span O {(![c, 0] : Fin 2 → O)}
+    let z : (Fin 2 → O) ⧸ W := W.mkQ (![1, 0])
+    z ≠ 0 ∧ c • z = 0 := sorry
+
+/-- The full coordinate line leaves a free quotient of rank one. -/
+example :
+    let W : Submodule O (Fin 2 → O) := Submodule.span O {(![1, 0] : Fin 2 → O)}
+    Module.IsTorsionFree O ((Fin 2 → O) ⧸ W) ∧
+      Module.Free O ((Fin 2 → O) ⧸ W) ∧ Module.finrank O ((Fin 2 → O) ⧸ W) = 1 := sorry
+end OrdinaryLatticeTests
+
+/-- The 11a1 polynomial at 3 has exactly one unit root in the actual 3-adic integers. -/
+example : ∃! α : ℤ_[3], α ^ 2 + α + 3 = 0 ∧ IsUnit α := sorry
+
+/-- The nonordinary 11a1 polynomial at 2 has no unit root in the actual 2-adic integers. -/
+example : ¬ ∃ α : ℤ_[2], α ^ 2 + 2 * α + 2 = 0 ∧ IsUnit α := sorry
+
+/-- The unit root is not the trace a₃=-1: choosing the trace would give 3, not zero. -/
+example : (-1 : ℤ_[3]) ^ 2 + (-1) + 3 ≠ 0 := sorry
 
 section IntegralDeterminant
 variable {A : Type*} [CommRing A]
@@ -901,7 +1055,7 @@ AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-
 Representability of the geometric Hecke determinant (theorem).
 Let T_m be the complete local integral Hecke algebra, possibly nonreduced, and D its continuous rank-two geometric determinant constructed by the geometric-hecke-determinant node. Assume its reduction is det ρ̄ for a specified absolutely irreducible ρ̄:G_{F,S}→GL₂(k), where k is the finite residue field; ρ̄ is taken in the geometric convention of the law, so for a newform it is the dual of the arithmetic residual representation of R19.6/residual-representation-of-a-newform. Then D has a continuous representation ρ_T:G_{F,S}→GL₂(T_m) with characteristic polynomial X²−T_vX+Nv S_v at good geometric Frobenius in the geometric law’s convention. It is unique up to conjugacy; with the residual identification fixed, uniqueness is up to strict equivalence. Its determinant, coefficient change and characteristic polynomials commute with specialisation, including nonreduced quotients. This is the modular instance of IHG.1 reconstruction, not a second definition or proof of polynomial laws. Its dual is the arithmetic Hecke representation, with the same polynomial at arithmetic Frobenius and the inverse determinant character. Apply this dualisation before mapping an arithmetic universal deformation ring.
 Hypotheses: T_m is complete local henselian; the residual determinant is split because it is explicitly det ρ̄ over k. Absolute residual irreducibility is essential. Residually multiplicity-free reducible determinants generally give a generalised matrix algebra, not this conclusion. The determinant exists over the whole integral ring, not just its reduced generic fibre.
-Required imported carriers/interfaces: IntegralHeckeAndGaloisDeterminants:IHG.1, AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant, AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform.
+Required imported carriers/interfaces: tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction, AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant, AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform.
 
 AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition
 The Tate module of A_f decomposes into the λ-adic representations of f (weight two) (theorem).
@@ -931,7 +1085,7 @@ AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic
 The Galois representation over a localised quaternionic Hecke algebra (theorem).
 Setting of Khare–Wintenberger II §7: F totally real of even degree with p unramified in F, D the definite quaternion algebra over F ramified at all infinite places and at a finite set Σ of finite places (|Σ| even), U = ∏U_v an open subgroup compact modulo the centre of (D ⊗ A_F^∞)^×, S a finite set of places containing Σ, the places above p and those where U_v is not maximal, ψ a character of F^×\(A_F^∞)^× with values in O, k ≥ 2 a (parallel) weight (k = 2 when p = 2), S_{k,ψ}(U, O) the space of O-valued forms, and T_ψ(U) the O-algebra generated by the operators T_v, S_v (v ∉ S). A maximal ideal m is non-Eisenstein if it is not Eisenstein in the sense of KW II §7. Let m be a non-Eisenstein maximal ideal whose residual representation ρ̄_m is absolutely irreducible. Then there is a continuous representation ρ_m: G_F → GL_2(T_ψ(U)_m), unique up to conjugacy (up to strict equivalence after fixing the residual identification), unramified outside S, such that for v ∉ S the characteristic polynomial of ρ_m(Frob_v) (arithmetic Frobenius) is X² − T_vX + N(v)ψ(π_v) (the Eichler–Shimura relation). Its reduction modulo m is ρ̄_m, and for every O-algebra map x: T_ψ(U)_m → O′, with O′ the integer ring of a finite extension of E, the specialisation x ∘ ρ_m is the representation ρ_f of the Hecke eigenform f with eigenvalues x(T_v). Hence there is a unique map R^ψ_S → T_ψ(U)_m carrying the universal deformation of ρ̄_m to ρ_m.
 Hypotheses: Carayol's descent (Théorème 2 of Carayol, "Formes modulaires et représentations galoisiennes à valeurs dans un anneau local complet", Contemp. Math. 165, 1994) is quoted through KW II; it is not public. The same descent is the representability statement of AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra (Chenevier) together with the residue-field descent requested from IntegralHeckeAndGaloisDeterminants IHG.1. Absolute irreducibility of ρ̄_m is essential: for Eisenstein or residually reducible m the traces do not determine a representation over T_m (Skinner–Wiles work with pseudo-representations instead). The finite residue field poses no algebraic-closure obstruction: Chenevier 2.22(i) applies to the explicitly split absolutely irreducible residual determinant; use the geometric law first. Use KW II §7 pp. 58–59: O is the integer ring of a sufficiently large finite E/Q_p containing all embeddings F→E; D splits after extension to E at p; in Lemma 7.2 (p. 60) and in §9.1.1, Σ∩{v|p}=∅ if k>2. The coefficient representation τ has τ|U∩centre=ψ⁻¹, with ψ restricting on an open subgroup of the p-units to the norm power 2−k. For p=2 and noncompact U, fix one of the extensions of the trivial W₂ action from its maximal compact subgroup U⁰ to U·centre. The bad set S also contains infinity and places where τ is nontrivial.
-Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra, GL2AutomorphicRepresentationsAndTransfer:R17.3, IntegralHeckeAndGaloisDeterminants:IHG.1, AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation, ArithmeticGaloisRepresentations:R01.1, IntegralHeckeAndGaloisDeterminants:IHG.4, GlobalGaloisDeformations:R04.2/universal-deformation-ring, GlobalGaloisDeformations:R04.2/fixed-determinant-rings, GlobalGaloisDeformations:R04.3, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary.
+Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra, GL2AutomorphicRepresentationsAndTransfer:R17.3, tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction, AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation, ArithmeticGaloisRepresentations:R01.1, tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-4-interpolation-over-integral-coefficient-rings, GlobalGaloisDeformations:R04.2/universal-deformation-ring, GlobalGaloisDeformations:R04.2/fixed-determinant-rings, GlobalGaloisDeformations:R04.3, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary.
 
 AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations
 The full weight-two Hecke algebra, its representation on the Tate module and the residual representations ρ_m (construction).
@@ -1029,7 +1183,7 @@ AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation
 Galois representation of every cohomological Hilbert eigenform (construction).
 Let π be a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ; no finite discrete-series place is assumed when d is even. Let S_π be the set of finite places where π is ramified; for a finite place v ∉ S_π let q_v be the order of the residue field, ϖ_v a uniformiser, and t_v, s_v the eigenvalues of T_v = [GL₂(O_v) diag(ϖ_v,1) GL₂(O_v)] and S_v = [GL₂(O_v) ϖ_v GL₂(O_v)] on the line π_v^{GL₂(O_v)}; they generate a number field Q(π). For every sufficiently large finite extension E of Q(π) and every finite place λ | ℓ of E, construct a continuous semisimple representation ρ_{π,λ}: G_F → GL₂(E_λ), unramified outside S_π and the places above ℓ, such that for every finite v ∉ S_π with v ∤ ℓ the characteristic polynomial of ρ_{π,λ}(Frob_v), Frob_v a geometric Frobenius, is X² − t_vX + q_vs_v. It is unique up to isomorphism. This is the representation of Kisin §4.1 and of Skinner's equation (1), and it is this roadmap's single global object: Carayol's σ_λ(π), Saito's ρ_{f,λ}, the Skinner–Wiles representation, CDN's ρ_Π and the classical arithmetic ρ_{f,λ} are obtained from it by the explicit twists and duals of R19.2/hilbert-normalisation-dictionary. A minimal field of definition is not asserted.
 Hypotheses: Class field theory is normalised so that uniformisers correspond to geometric Frobenius elements (Carayol 0.4; Skinner §1; Kisin §4.1). T_v and S_v are the double cosets of diag(ϖ_v,1) and of the scalar ϖ_v. With ϖ_v^{−1} instead (Carayol, Saito) the eigenvalues are t_v/s_v and s_v^{−1}, and the same formal polynomial describes σ_λ(π), not ρ_{π,λ}. k_τ ≥ 2 and k_τ ≡ w mod 2 at every τ; d may be even without a finite discrete-series place. In the congruence branch the auxiliary primes vary with the precision; they impose no condition on π. E is enlarged so that the representation is realised over E_λ; descent to Q(π)_λ is not claimed.
-Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b, AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant, ArithmeticGaloisRepresentations:R01.1, ArithmeticGaloisRepresentations:R01.5, IntegralHeckeAndGaloisDeterminants:IHG.1, GL2AutomorphicRepresentationsAndTransfer:R17.3, HilbertModularVarietiesAndShimuraCurves:R18.4, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character.
+Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.2/carayol-theorem-b, AutomorphicGaloisRepresentations:R19.2/carayol-twisting-and-determinant, ArithmeticGaloisRepresentations:R01.1, ArithmeticGaloisRepresentations:R01.5, tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction, GL2AutomorphicRepresentationsAndTransfer:R17.3, HilbertModularVarietiesAndShimuraCurves:R18.4, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character.
 API signatures (unavailable carriers remain omitted):
   TauCeti.ModularGalois.hilbertGaloisRep [constructor]: The continuous semisimple ρ_{π,λ}: G_F → GL₂(E_λ) attached to π of infinity type (k,w) and λ.
   TauCeti.ModularGalois.hilbertGaloisRep_charpoly [characterisation]: For v ∉ S_π, v ∤ ℓ: charpoly ρ_{π,λ}(Frob_v^{geom}) = X² − t_vX + q_vs_v, with t_v, s_v the eigenvalues of T_v and S_v defined by ϖ_v.
@@ -1132,7 +1286,7 @@ AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime
 Kisin's coefficient-prime compatibility theorem (theorem).
 Kisin's Theorem 4.3 in this roadmap's normalisation: let π be a cuspidal automorphic representation of GL₂(A_F), F totally real of degree d, of infinity type (k,w): for every real place τ, π_τ is the discrete series D_{k_τ,w} with Blattner parameter k_τ and central character t ↦ sgn(t)^{k_τ}|t|^{−w} (Carayol 0.2–0.3; Skinner §1), with k_τ ≥ 2 and k_τ ≡ w mod 2 for all τ, λ | p, and suppose the semisimplified reduction of ρ_{π,λ} is absolutely irreducible. Then for every place v | p of F, ρ_{π,λ}|G_{F_v} is potentially semistable with Hodge degrees (w − k_τ + 2)/2 and (w + k_τ)/2 at each τ, and the Frobenius-semisimplification of its Weil–Deligne representation (Fontaine's covariant D_pst, Kisin §4.2) is ιRec_v(π_v ⊗ |·|_v^{−1/2}), preserving N. Kisin's ρ_{π,λ} is defined by the geometric Frobenius polynomial X² − t_vX + N(v)s_v with positive-uniformiser operators, so it is ρ_{π,λ} itself, and the local Langlands correspondence of his Theorem 4.3 is the one fixed by (4.3.1), tr(w | σ_v) = t_v. No unramified-base, parallel-weight or discrete-series hypothesis is imposed. In the proof the fixed-type quotient and its period module exist over an arbitrary complete Noetherian local coefficient algebra A°.
 Hypotheses: Residual absolute irreducibility is essential to this route; R19.5/skinner-full-hilbert-coefficient-prime removes it. The quotient property tests all finite Q_p-algebras, including algebras with nilpotents; field-valued points alone do not express it.
-Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary, AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime, LocalGaloisDeformationRings:R08.3/semistable-height-quotient, LocalGaloisDeformationRings:R08.3, IntegralHeckeAndGaloisDeterminants:IHG.1.
+Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation, AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary, AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime, LocalGaloisDeformationRings:R08.3/semistable-height-quotient, LocalGaloisDeformationRings:R08.3, tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction.
 
 AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime
 Skinner's full Hilbert coefficient-prime theorem (theorem).
@@ -1212,7 +1366,7 @@ AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant
 Geometric determinant over the integral Hecke algebra (construction).
 Let O be a complete coefficient DVR and T_m the completed local finite O-flat Hecke algebra of the fixed classical/Hilbert geometric eigensystem, allowing nilpotents. Extract from cohomology a faithful continuous generic rank-two T_m[1/p]-module with G_{F,S}-action commuting with T_m, retaining generalised oldform eigenspaces where present. Its determinant polynomial law descends to a continuous degree-two law D:T_m[G_{F,S}]→T_m: the good-prime coefficients are T_v and Nv S_v in the geometric-Frobenius convention, and all finite-quotient specialisations have the induced law. This descent retains the entire integral ring, not merely its reduced eigenform points. For torsion/non-flat Hecke settings the missing integral cohomological determinant construction is explicitly a gap, not an inference from field-valued points.
 Hypotheses: T_m is O-flat, so T_m→T_m[1/p] is injective even if T_m is nonreduced. The generic rank-two module is supplied by the geometric multiplicity-space construction, not reconstructed from reduced points. The arithmetic-dual convention must be translated before using a universal arithmetic deformation problem. In weight two the module is the cohomology H¹ of the modular curve, the dual of Darmon–Diamond–Taylor's V = T_ℓ(J) ⊗ Q_ℓ: on V an arithmetic Frobenius has polynomial X² − T_pX + p⟨p⟩, and the law here has those coefficients at geometric Frobenius. Its residual law is that of the dual of the arithmetic residual representation.
-Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent, AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction, AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations, IntegralHeckeAndGaloisDeterminants:IHG.4, ArithmeticGaloisRepresentations:R01.5, HilbertModularVarietiesAndShimuraCurves:R18.4.
+Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.1/newform-projector-and-coefficient-descent, AutomorphicGaloisRepresentations:R19.2/carayol-sigma-lambda-construction, AutomorphicGaloisRepresentations:R19.6/full-weight-two-hecke-algebra-and-its-galois-representations, tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-4-interpolation-over-integral-coefficient-rings, ArithmeticGaloisRepresentations:R01.5, HilbertModularVarietiesAndShimuraCurves:R18.4.
 API signatures (unavailable carriers remain omitted):
   TauCeti.ModularGalois.geometricHeckeDeterminant [constructor]: The integral degree-two law from the actual geometric generic rank-two Hecke family.
   TauCeti.ModularGalois.geometricHeckeDeterminant_goodFrob [simp]: Its characteristic polynomial at good geometric Frobenius has coefficients T_v,Nv S_v.
@@ -1236,7 +1390,7 @@ Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.6/ge
 
 /-
 Repair supplier contracts (/6, /14): determinants-and-representability-over-a-hecke-algebra
-imports IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible.
+imports tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#13-henselian-lifting-and-generalized-matrix-algebras.
 Kisin's coefficient-prime theorem imports LocalGaloisDeformationRings:R08.3/pst-quotient-in-families,
 beside semistable-height-quotient, for the arbitrary complete local coefficient algebra,
 finite-algebra tests and period-family specialisation. Kisin Theorems 2.5.5 and
