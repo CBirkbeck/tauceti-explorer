@@ -64,13 +64,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "dbe52a5",
+      "head": "fe82770",
       "review": {
         "recommendation": "changes",
-        "head": "31d1353",
+        "head": "dbe52a5",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 31d1353: B1 and N1, repaired at dbe52a5 (re-stacked on #785); awaiting re-review | re-review 07:44Z: R2.1, R2.2 coefficient corrections, fix in progress"
+        "note": "maintainer re-review at dbe52a5: R2.1, R2.2, repaired at fe82770; awaiting re-review"
       }
     },
     "IntegralHeckeAndGaloisDeterminants": {
@@ -80,13 +80,13 @@
         793
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "0fe13fe",
+      "head": "95fd65d",
       "review": {
         "recommendation": "changes",
         "head": "cb57586",
         "current": false,
         "date": "2026-10-12",
-        "note": "no maintainer findings; head 0fe13fe differs only by re-stacks on the parents"
+        "note": "no maintainer findings; head 95fd65d differs only by re-stacks on the parents"
       }
     },
     "AdicEtaleGeometry": {
