@@ -58,7 +58,10 @@ under "Prerequisites and boundaries". Notions Tau Ceti already has (library or a
 that boundaries section as deferrals, never in layer summaries, the layer table or target lists; a kept variant states in
 one clause how it differs from the Tau Ceti statement.
 ## Shape of a roadmap (maintainer, 2026-10-12) — binding for packages, reviews and ports; overrides older size notes
-The README carries the full detail; the Suggested.lean is short.
+The README carries the full detail; the Suggested.lean is short, and it is written short from the start: a package never
+produces a long Lean draft to be cut at review or port time. The swarm submission check rejects a package Suggested.lean
+over 1,600 lines or containing a sorry'd data definition, and a reviewer returns "needs_changes" on either without
+further reading.
 - README.md: every target with its exact hypotheses and its source locator; every definition with its API list and its
   Checks (at least three discriminating unit tests, written in prose: the computed value, the degenerate case, agreement
   with the library notion, the non-example); worked examples; exact supplier contracts; an opening `**Summary.**`
