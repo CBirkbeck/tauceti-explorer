@@ -21821,8 +21821,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-AInfCohomology.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9406"
   },
   {
    "id": "REV-AInfCohomology",
@@ -26716,9 +26717,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4b.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9426"
+   "note": "deliverables arrived from an external worker on issue #9426",
+   "finishedAt": "2026-10-13T15:31:55Z"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4b",
@@ -34790,7 +34792,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.5",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9380"
   },
   {
    "id": "BP-EtaleDualityAndPerverseSheaves--EDC.6",
@@ -34836,7 +34839,8 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.6",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9381"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R17.3",
@@ -36486,8 +36490,9 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9395"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9395",
+   "finishedAt": "2026-10-13T15:31:56Z"
   },
   {
    "id": "BP-ModularCurvesPartII--R13.4a",
@@ -36510,8 +36515,9 @@
    ],
    "followUpOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4a.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9425"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9425",
+   "finishedAt": "2026-10-13T15:32:00Z"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4a",
