@@ -6,7 +6,7 @@ This part builds from the integral compactified modular curves to their generic-
 
 The scope is exactly R13.4b, R13.5, R13.6 and R14.1–R14.6. The base is TauCetiRoadmap’s ModularCurves. Its affine level schemes and prime-level compactified diamond quotients over ℤ[1/N] are existing work. The earlier part supplies generalized elliptic curves, contraction, Drinfeld level structures, formal cusp charts and algebraic integral coarse curves. In particular, R13.4a constructs the coarse curves before the analytic comparison; R13.4 is a process aggregate with no mathematical ownership.
 
-All 75 targets in this scope already have canonical nodes in the independently accepted [R13.3 packet](../packets/ModularCurvesPartII--R13.3.json) and [R14.3 packet](../packets/ModularCurvesPartII--R14.3.json). The [packet for this part](../packets/ModularCurvesPartII--R13.4b.json) references those nodes through its imports and target inventory, rather than assigning new IDs to the same mathematics. The reader incorporates the corrections in both independent reviews. It also specifies 24 exact substitutions for broad references to stages now contained in this part. Those are contracts for the assembly of the accepted parts, with the original canonical packets left intact. Every target remains unchecked as an implementation. Each of the nine stages is planned; the nine gaps and 44 supplier contracts at the end give the remaining proof obligations. Complete planning does not mean that these obligations have been discharged.
+All 75 targets in this scope already have canonical nodes in the independently accepted [R13.3 packet](../packets/ModularCurvesPartII--R13.3.json) and [R14.3 packet](../packets/ModularCurvesPartII--R14.3.json). The [packet for this part](../packets/ModularCurvesPartII--R13.4b.json) references those nodes through its imports and target inventory, rather than assigning new IDs to the same mathematics. The reader incorporates the corrections in both independent reviews. It also specifies 35 exact substitutions for broad references to stages of this roadmap: those in this part, and R12.3, R12.5, R12.6 and R13.2, whose nodes are in the accepted [R12.1 packet](../packets/ModularCurvesPartII--R12.1.json). One further contract imports the existing tree, local amalgam and strong-approximation suppliers into the R14.4 amalgam target. Those are contracts for the assembly of the accepted parts, with the original canonical packets left intact. Every target remains unchecked as an implementation. Each of the nine stages is planned; the nine gaps and 38 supplier contracts at the end give the remaining proof obligations. Complete planning does not mean that these obligations have been discharged.
 
 StableReduction owns general blowups, normalization, dual multigraphs, semistable existence and stabilization. NeronModelsAndSemistableAbelianVarieties owns the general graph-character and monodromy sequences. Lower-tier LefschetzPencilsAndVanishingCycles LPV.7 owns the semistable curve specialization/nearby-cycle theory. This roadmap instantiates them on the explicit modular models. AlgebraicTopology supplies finite covers, relative and twisted cohomology and manifold duality; EtaleDualityAndPerverseSheaves supplies support maps, traces and duality. JacobianChallenge supplies field Jacobians and the generic Abel–Jacobi universal property. The required curve-specific relative polarization and norm theorem over ℤ[1/N] is a separate supplier obligation.
 
@@ -50,13 +50,13 @@ The pinned baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau 
 - `tauceti:SymmetricPower.finrank_eq` (TauCeti/LinearAlgebra/SymmetricPower/Basis.lean): For a finite free module over a commutative semiring with strong rank condition, the nth symmetric power has finrank multichoose(finrank M,n); supplies the rank checks for relative rank-two coefficients.
 - `mathlib:RingHom.quotientKerEquivRange` (Mathlib/RingTheory/Ideal/Quotient/Operations.lean): For a commutative ring R and a ring S, R/ker f is canonically ring-isomorphic to the image subring f.range. This is an integral image theorem, not a rational coefficient-field identification.
 
-The exact external stage requests are listed after the layers, with their consuming nodes. Direct node inputs include A3/polarized-weil-pairing, A4/etale-tate-module, A6/hom-is-free-of-finite-rank and relative-hom-and-normal-extension; A0-extension’s Picard representability, neutral-component and lifting nodes; R09.5’s finite-correspondence and tame descent nodes; R01.6/good-reduction-specialization; EDC.2’s flat trace, curve trace and cup-trace pairing; the four LPV.7 semistable-curve nodes; and R11.4’s normalization and character-homology nodes. Their exact statements were checked. A partially refined supplier is a planning contract, not an implemented theorem. SF.2 is requested for the specific finite/local-coefficient étale–Betti comparison corresponding to RS-06’s unresolved upstream owner label; a real de Rham comparison cannot replace it.
+The exact external stage requests are listed after the layers, with their consuming nodes. Direct node inputs include A3/polarized-weil-pairing, A4/etale-tate-module, A6/hom-is-free-of-finite-rank and relative-hom-and-normal-extension; A0-extension’s Picard representability, neutral-component and lifting nodes; R09.5’s finite-correspondence and tame descent nodes; R01.6/good-reduction-specialization; EDC.2’s flat trace, curve trace and cup-trace pairing; the four LPV.7 semistable-curve nodes; and R11.4’s normalization and character-homology nodes. The substitutions add the R12.1 packet’s nodes for R12.3 (compact uniformization, cusp parameters, cusp fields), R12.5 (regular differentials, Hodge line, the first-coefficient pairing and its perfection), R12.6 (generic descent, component fields, level compatibility) and R13.2 (level structures, proper flat stacks, small-level range, Katz–Mazur agreement, contraction maps), ReductiveGroupsPartII RG2.2/sl2-tree and RG2.2/ihara-amalgam, and AdelicAlgebraicGroups AA.4/strong-approximation-sufficiency and AA.4/strong-approximation-finite-places. Their exact statements were checked. A partially refined supplier is a planning contract, not an implemented theorem. SF.2 is requested for the specific finite/local-coefficient étale–Betti comparison corresponding to RS-06’s unresolved upstream owner label; a real de Rham comparison cannot replace it.
 
 ## How to read the build
 
 R13.4b compares the already algebraically constructed curves and maps with the analytic models. R13.5 computes bad fibres; R13.6 exports their graphs and functorial actions. The algebraic correspondence definitions in R14.1 can be constructed directly from R13.2/R13.4a and then used in the comparison, so printed layer order is not an additional dependency. R14.2 first supplies Jacobian, norm, polarization and Tate carriers without a rank-two claim. R14.3 proves the Hodge, comparison and rational rank-two results from that prefix. R14.4 applies the group/tree inputs to precisely specified level-change maps; R14.5 forms quotients; R14.6 exports the special-fibre and finite cover interfaces. The exact substitutions in the packet resolve broad cross-part references without a R14.2↔R14.3 cycle.
 
-The [suggested file](../suggested/ModularCurvesPartII--R13.4b.lean) contains representative statements available at the pins: finite HNF and degree arithmetic, the analytic Fricke formula, existing symmetric powers, ranges and coproducts of actual linear maps, eigencharacter kernels, degree-zero divisors and minus kernels. Its real-bodied definitions expose these choices. Missing modular curve, trace, Jacobian and cohomology carriers remain exact targets in this reader. The reader is definitive and the suggested file is not exhaustive.
+The [suggested file](../suggested/ModularCurvesPartII--R13.4b.lean) contains representative statements available at the pins: the split-Cartan ramification index and semistable-fibre genus count, finite HNF and degree arithmetic, the analytic Fricke formula, existing symmetric powers, ranges and coproducts of actual linear maps, eigencharacter kernels, degree-zero divisors and minus kernels. Its real-bodied definitions expose these choices. Missing modular curve, trace, Jacobian and cohomology carriers remain exact targets in this reader. The reader is definitive and the suggested file is not exhaustive.
 
 ## Layer R13.4b: generic-fibre and correspondence compatibility
 
@@ -74,7 +74,7 @@ Construct and prove this as follows. Apply the earlier component and uniformizat
 
 - Full level 5: four complex components before scalars, two after scalars, one after fixing an honest primitive pairing.
 
-*Needs:* `ModularCurvesPartII:R13.4a/integral-coarse-curves`; `ModularCurvesPartII:R13.4a/coarse-normalization-comparisons`; `ModularCurvesPartII:R13.3/gamma-one-twisted-tate-chart`; `ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient`; `ModularCurvesPartII:R12.3`; `ModularCurvesPartII:R12.6`.
+*Needs:* `ModularCurvesPartII:R13.4a/integral-coarse-curves`; `ModularCurvesPartII:R13.4a/coarse-normalization-comparisons`; `ModularCurvesPartII:R13.3/gamma-one-twisted-tate-chart`; `ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient`; `ModularCurvesPartII:R12.3/compact-modular-uniformization`; `ModularCurvesPartII:R12.3/tate-and-cusp-parameter-agreement`; `ModularCurvesPartII:R12.3/cusp-fields-and-component-labels`; `ModularCurvesPartII:R12.6/canonical-generic-fibre-descent`; `ModularCurvesPartII:R12.6/component-fields-and-twisted-descent`; `ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility`.
 
 ### R13.4b.2 Compactified map comparison
 
@@ -394,7 +394,7 @@ Construct and prove this as follows. Use the R13.2 disjoint Drinfeld level stack
 - N=11,p=2 gives degree 3; N=10,p=5 gives degree 5.
 - In characteristic p a leg can be inseparable on one component. Counting geometric points is not a degree computation.
 
-*Needs:* `ModularCurvesPartII:R13.4a/integral-coarse-curves`; `ModularCurvesPartII:R13.3/formal-level-cusp-charts`; `ModularCurvesPartII:R13.3/tate-power-isogeny`; `ModularCurvesPartII:R13.2`; `tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients`; `AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence`; `AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse`.
+*Needs:* `ModularCurvesPartII:R13.4a/integral-coarse-curves`; `ModularCurvesPartII:R13.3/formal-level-cusp-charts`; `ModularCurvesPartII:R13.3/tate-power-isogeny`; `ModularCurvesPartII:R13.2/gamma-level-structures`; `ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin`; `ModularCurvesPartII:R13.2/small-level-and-dm-boundaries`; `ModularCurvesPartII:R13.2/contraction-maps-between-levels`; `tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients`; `AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence`; `AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse`.
 
 ### R14.1.2 Diamond operators
 
@@ -539,7 +539,7 @@ Construct and prove this as follows. Compare the maps on the elliptic analytic o
 
 - For p∤N weight two has a_n(T_pf)=a_(np)+p a_(n/p)(⟨p⟩f); a pointwise average would give a different operator.
 
-*Needs:* Generic components and cusp fields (`ModularCurvesPartII:R13.4b/generic-component-comparison`); Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Cyclotomic Fricke involution (`ModularCurvesPartII:R14.1/atkin-lehner-involution`); Full and cyclic isogeny correspondences (`ModularCurvesPartII:R14.1/full-and-cyclic-correspondences`); `ModularCurvesPartII:R12.6`; `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
+*Needs:* Generic components and cusp fields (`ModularCurvesPartII:R13.4b/generic-component-comparison`); Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Cyclotomic Fricke involution (`ModularCurvesPartII:R14.1/atkin-lehner-involution`); Full and cyclic isogeny correspondences (`ModularCurvesPartII:R14.1/full-and-cyclic-correspondences`); `ModularCurvesPartII:R12.6/canonical-generic-fibre-descent`; `ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility`; `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
 
 ### R14.1.8 Integral coherent Hecke trace
 
@@ -760,7 +760,7 @@ Construct and prove this as follows. If β(T,f)=0 for all T, each Fourier coeffi
 - Γ₀(1): both sides have dimension 0. Γ₀(11): both have dimension 1.
 - A determinant of an integral pairing need not be ±1 merely because its rationalization is perfect.
 
-*Needs:* The geometric integral Hecke algebra (`ModularCurvesPartII:R14.2/integral-hecke-algebra`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); Classical and geometric Hecke actions (`ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences`); `ModularCurvesPartII:R12.5`.
+*Needs:* The geometric integral Hecke algebra (`ModularCurvesPartII:R14.2/integral-hecke-algebra`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); Classical and geometric Hecke actions (`ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences`); `ModularCurvesPartII:R12.5/weight-two-regular-differentials`; `ModularCurvesPartII:R12.5/first-coefficient-hecke-pairing`; `ModularCurvesPartII:R12.5/perfect-hecke-pairing`; `ModularCurvesPartII:R12.6/canonical-generic-fibre-descent`.
 
 ### R14.2.7 Integral Hecke realization comparison
 
@@ -786,7 +786,7 @@ X₁(5) has genus zero and four cusps. Its compact Jacobian is zero and its imag
 
 ### Dependencies
 
-`ModularCurvesPartII:R13.4a`; `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`; `AlgebraicModuliForArithmeticGeometry:A0-extension`; `AbelianSchemesAndArithmeticModuli:A2`; `NeronModelsAndSemistableAbelianVarieties:R11.1`; `ModularCurvesPartII:R14.1`; `AbelianSchemesAndArithmeticModuli:A6`; `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`; `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`; `AbelianSchemesAndArithmeticModuli:A3`; `AbelianSchemesAndArithmeticModuli:A4`; `ArithmeticGaloisRepresentations:R01.6`; `ModularCurvesPartII:R12.5`. Individual target dependencies above give the finer contracts.
+`ModularCurvesPartII:R13.4a`; `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`; `AlgebraicModuliForArithmeticGeometry:A0-extension`; `AbelianSchemesAndArithmeticModuli:A2`; `NeronModelsAndSemistableAbelianVarieties:R11.1`; `ModularCurvesPartII:R14.1`; `AbelianSchemesAndArithmeticModuli:A6`; `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`; `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`; `AbelianSchemesAndArithmeticModuli:A3`; `AbelianSchemesAndArithmeticModuli:A4`; `ArithmeticGaloisRepresentations:R01.6`; `ModularCurvesPartII:R12.5`; `ModularCurvesPartII:R12.6`. Individual target dependencies above give the finer contracts.
 
 ## Layer R14.3: cohomological realizations and pairings
 
@@ -806,7 +806,7 @@ Construct and prove this as follows. Hodge decomposition of the compact Riemann 
 
 - Conrad omits the proof of the compatibility; a complete proof must check the trace formula against the classical double coset (ModularCurvesPartII R12.5 normalises the differentials and Hecke operators).
 
-*Needs:* `ModularCurvesPartII:R12.5`; Classical and geometric Hecke actions (`ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences`); Integral coherent Hecke trace (`ModularCurvesPartII:R14.1/coherent-hecke-trace`); Modular Jacobians and norms (`ModularCurvesPartII:R14.2/jacobian-and-functoriality`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; Integral comparison and change of level (`ModularCurvesPartII:R14.3/integral-comparison`).
+*Needs:* `ModularCurvesPartII:R12.5/weight-two-regular-differentials`; `ModularCurvesPartII:R12.5/hodge-line-automorphy`; Classical and geometric Hecke actions (`ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences`); Integral coherent Hecke trace (`ModularCurvesPartII:R14.1/coherent-hecke-trace`); Modular Jacobians and norms (`ModularCurvesPartII:R14.2/jacobian-and-functoriality`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; Integral comparison and change of level (`ModularCurvesPartII:R14.3/integral-comparison`).
 
 ### R14.3.2 Cup product and the Petersson product
 
@@ -822,7 +822,7 @@ Construct and prove this as follows. Use the normalization of Sh in Conrad §5.1
 
 - Only adjoints matter downstream; the factor 4π is harmless.
 
-*Needs:* The weight-two Shimura isomorphism is Hecke-equivariant (`ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism`); `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `ModularCurvesPartII:R12.5`.
+*Needs:* The weight-two Shimura isomorphism is Hecke-equivariant (`ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism`); `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `ModularCurvesPartII:R12.5/weight-two-regular-differentials`.
 
 ### R14.3.3 Hecke operators are self-adjoint for the w_ζ-twisted pairing
 
@@ -887,7 +887,7 @@ Construct and prove this as follows. Import the universal family and proper smoo
 - For r=0 the coefficient system is constant; for r=1 its fibre has rank two.
 - No universal elliptic family is silently put on a coarse level-one curve.
 
-*Needs:* `ModularCurvesPartII:R13.2`; `AbelianSchemesAndArithmeticModuli:A4`; `tauceti:TauCeti.LocalCoefficientSystem`; `tauceti:TauCeti.LocalCoefficientSystem.pullback`; `tauceti:Representation.symmetricPower`; `EtaleDualityAndPerverseSheaves:EDC.0`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `tauceti:SymmetricPower.finrank_eq`.
+*Needs:* `ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin`; `ModularCurvesPartII:R13.2/small-level-and-dm-boundaries`; `ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes`; `AbelianSchemesAndArithmeticModuli:A4`; `tauceti:TauCeti.LocalCoefficientSystem`; `tauceti:TauCeti.LocalCoefficientSystem.pullback`; `tauceti:Representation.symmetricPower`; `EtaleDualityAndPerverseSheaves:EDC.0`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `tauceti:SymmetricPower.finrank_eq`.
 
 ### R14.3.6 Finite and adic parabolic cohomology
 
@@ -1114,12 +1114,14 @@ p and N are coprime; A is invertible over ℤ[1/p] and conjugates preserve reduc
 
 Construct and prove this as follows. Construct the lattice tree and verify connectivity and unique geodesics by elementary divisors over ℤ_p. Identify the standard adjacent-lattice stabilizers in SL₂ and their arithmetic intersections. Use strong approximation/density, together with surjectivity of reductions prime to p, to show the principal congruence arithmetic group has that edge as fundamental domain. Apply the tree presentation, retaining the two distinct embeddings of the edge subgroup.
 
+Existing suppliers replace the first two steps and the density input. The tree of SL₂(ℚ_p), its type-preserving action without inversion and the local amalgam SL₂(ℚ_p)=SL₂(ℤ_p)*_I gSL₂(ℤ_p)g⁻¹ are ReductiveGroupsPartII RG2.2/sl2-tree and RG2.2/ihara-amalgam, a TauCetiRoadmap roadmap; strong approximation for SL₂ with S={∞} and S={∞,p} is AdelicAlgebraicGroups AA.4. This target proves only the arithmetic step: Γ_N(ℤ[1/p]) is dense in SL₂(ℚ_p) and surjects onto SL₂(ℤ/N), so it has the standard edge as fundamental domain, and the segment-amalgam theorem gives the presentation.
+
 **Checks.**
 
 - At p|N the statement is not asserted.
 - An unrestricted PGL₂ action that exchanges vertex types does not have this same amalgam.
 
-*Needs:* `mathlib:groupCohomology.H1`.
+*Needs:* `mathlib:groupCohomology.H1`; `ReductiveGroupsPartII:RG2.2/sl2-tree`; `ReductiveGroupsPartII:RG2.2/ihara-amalgam`; `AdelicAlgebraicGroups:AA.4/strong-approximation-sufficiency`; `AdelicAlgebraicGroups:AA.4/strong-approximation-finite-places`.
 
 ### R14.4.3 Congruence subgroup property of SL₂(ℤ[1/p])
 
@@ -1278,7 +1280,7 @@ For Γ(3), ordinary mod-5 H¹ has dimension three whereas its congruence-class s
 
 ### Dependencies
 
-`ModularCurvesPartII:R14.1`; `ModularCurvesPartII:R14.3`; `mathlib:LinearMap.coprod`; `mathlib:groupCohomology.H1`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `mathlib:groupCohomology.coindIso`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `mathlib:CongruenceSubgroup.Gamma`; `mathlib:groupCohomology.H1IsoOfIsTrivial`; `tauceti:CongruenceSubgroup.Gamma_le_Gamma_of_dvd`; `ModularCurvesPartII:R14.2`. Individual target dependencies above give the finer contracts.
+`ModularCurvesPartII:R14.1`; `ModularCurvesPartII:R14.3`; `mathlib:LinearMap.coprod`; `mathlib:groupCohomology.H1`; `ReductiveGroupsPartII:RG2.2`; `AdelicAlgebraicGroups:AA.4`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `mathlib:groupCohomology.coindIso`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `mathlib:CongruenceSubgroup.Gamma`; `mathlib:groupCohomology.H1IsoOfIsTrivial`; `tauceti:CongruenceSubgroup.Gamma_le_Gamma_of_dvd`; `ModularCurvesPartII:R14.2`. Individual target dependencies above give the finer contracts.
 
 ## Layer R14.5: modular quotients
 
@@ -1489,7 +1491,7 @@ Construct and prove this as follows. On the ordinary dense locus, the good-prime
 
 - The extra w_ζ relation is part of the statement; it is used to identify the characteristic polynomial of Frobenius (AutomorphicGaloisRepresentations R19.1).
 
-*Needs:* Reduction of the supplied modular Hecke action (`ModularCurvesPartII:R14.6/neron-hecke-extension`); `ModularCurvesPartII:R13.2`; Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Integral étale correspondence trace (`ModularCurvesPartII:R14.1/integral-etale-trace`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); Polarization and Hecke adjoints (`ModularCurvesPartII:R14.2/weil-pairing-adjointness`); `AbelianSchemesAndArithmeticModuli:A4`.
+*Needs:* Reduction of the supplied modular Hecke action (`ModularCurvesPartII:R14.6/neron-hecke-extension`); `ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin`; `ModularCurvesPartII:R13.2/small-level-and-dm-boundaries`; `ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes`; `tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups`; Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Integral étale correspondence trace (`ModularCurvesPartII:R14.1/integral-etale-trace`); Upper and lower Jacobian Hecke operators (`ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian`); Polarization and Hecke adjoints (`ModularCurvesPartII:R14.2/weil-pairing-adjointness`); `AbelianSchemesAndArithmeticModuli:A4`.
 
 ### R14.6.3 Cusp-normalised Abel–Jacobi maps
 
@@ -1520,7 +1522,7 @@ Construct and prove this as follows. Import cusp fields and the precise moduli m
 - `abelJacobi_degeneracy_offset`: If [αc′−c]≠0, the uncorrected identity α_*AJ_{c′}=AJ_c∘α fails already at c′.
 - No modular parametrisation of an elliptic curve is asserted here.
 
-*Needs:* `ModularCurvesPartII:R12.3`; `ModularCurvesPartII:R13.2`; Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Cyclotomic Fricke involution (`ModularCurvesPartII:R14.1/atkin-lehner-involution`); Modular Jacobians and norms (`ModularCurvesPartII:R14.2/jacobian-and-functoriality`); `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`.
+*Needs:* `ModularCurvesPartII:R12.3/cusp-fields-and-component-labels`; `ModularCurvesPartII:R12.6/canonical-generic-fibre-descent`; `ModularCurvesPartII:R13.2/gamma-level-structures`; `ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes`; Compactified Hecke degeneracy maps (`ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`); Diamond operators (`ModularCurvesPartII:R14.1/diamond-operators`); Cyclotomic Fricke involution (`ModularCurvesPartII:R14.1/atkin-lehner-involution`); Modular Jacobians and norms (`ModularCurvesPartII:R14.2/jacobian-and-functoriality`); `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`.
 
 ### R14.6.4 The modular supersingular character lattice
 
@@ -1699,7 +1701,7 @@ For a supersingular set with one element the degree-zero character lattice is ze
 
 ### Dependencies
 
-`ModularCurvesPartII:R14.2`; `NeronModelsAndSemistableAbelianVarieties:R11.6`; `ModularCurvesPartII:R13.2`; `ModularCurvesPartII:R14.1`; `AbelianSchemesAndArithmeticModuli:A4`; `ModularCurvesPartII:R12.3`; `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`; `ModularCurvesPartII:R13.5`; `ModularCurvesPartII:R13.6`; `NeronModelsAndSemistableAbelianVarieties:R11.4`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `ModularCurvesPartII:R14.3`; `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `mathlib:groupCohomology.coindIso`; `ModularCurvesPartII:R14.4`; `mathlib:Module.free_of_flat_of_isLocalRing`. Individual target dependencies above give the finer contracts.
+`ModularCurvesPartII:R14.2`; `NeronModelsAndSemistableAbelianVarieties:R11.6`; `ModularCurvesPartII:R13.2`; `tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups`; `ModularCurvesPartII:R14.1`; `AbelianSchemesAndArithmeticModuli:A4`; `ModularCurvesPartII:R12.3`; `ModularCurvesPartII:R12.6`; `tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property`; `ModularCurvesPartII:R13.5`; `ModularCurvesPartII:R13.6`; `NeronModelsAndSemistableAbelianVarieties:R11.4`; `NeronModelsAndSemistableAbelianVarieties:R11.3`; `ModularCurvesPartII:R14.3`; `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `mathlib:groupCohomology.coindIso`; `ModularCurvesPartII:R14.4`; `mathlib:Module.free_of_flat_of_isLocalRing`. Individual target dependencies above give the finer contracts.
 
 ## Downstream consumers
 
@@ -1741,7 +1743,7 @@ The affected targets are `ModularCurvesPartII:R14.4/congruence-subgroup-property
 
 ### Tree fundamental edge and enhanced congruence-character proof
 
-Refine the principal-level fundamental-edge argument and CDT Corollary 4.5.3 conjugation-invariance criterion against existing finite-group and approximation APIs. The source statements and the target proof routes are read, but the strong-approximation/reduction-surjectivity and finite congruence quotient sublemmas are not yet supplier-closed. This is a proof-chain gap, not permission to erase the congruence subspace from ordinary Ihara. For congruence-invariance, supply the exact continuous-cohomology, Künneth and Hochschild–Serre proof interfaces, Lazard’s uniform-group calculation, adjoint-cohomology vanishing, and a reproducible proof of the level-8/16 computations used in CDT §4.5.11. These source inputs are not declarations established by the pinned ordinary H¹ carrier.
+The lattice tree of SL₂(ℚ_p), its type-preserving action without inversion and the local amalgam are imported from ReductiveGroupsPartII RG2.2/sl2-tree and RG2.2/ihara-amalgam, and strong approximation with reduction surjectivity prime to p from AdelicAlgebraicGroups AA.4/strong-approximation-sufficiency and AA.4/strong-approximation-finite-places (dependencyAdditions). Still missing for modular-amalgam: Serre’s theorem that a group acting on a tree without inversion with a segment as fundamental domain is the amalgam of the two vertex stabilizers over the edge stabilizer (Trees I §4.1 Theorem 6, p. 48), which ReductiveGroupsPartII uses inside the proof of ihara-amalgam but does not state as a target, and the finite congruence-quotient sublemmas of the principal-level argument. Refine the CDT Corollary 4.5.3 conjugation-invariance criterion against existing finite-group APIs. This is a proof-chain gap, not permission to erase the congruence subspace from ordinary Ihara. For congruence-invariance, supply the exact continuous-cohomology, Künneth and Hochschild–Serre proof interfaces, Lazard’s uniform-group calculation, adjoint-cohomology vanishing, and a reproducible proof of the level-8/16 computations used in CDT §4.5.11. These source inputs are not declarations established by the pinned ordinary H¹ carrier.
 
 The affected targets are `ModularCurvesPartII:R14.4/modular-amalgam`, `ModularCurvesPartII:R14.4/enhanced-ihara`, `ModularCurvesPartII:R14.4/congruence-invariance`.
 
@@ -1765,13 +1767,7 @@ The affected targets are `ModularCurvesPartII:R14.6/diamond-group-ring-local`.
 
 ## Supplier obligations for the assembly
 
-These contracts supplement the exact direct node references. They name missing interfaces with their consumers; the broad references to R13.5/R14.1/R14.2 inside this part have instead been resolved to existing nodes.
-
-### From `ModularCurvesPartII:R13.2`
-
-Refined Γ₀(n) compactification of Česnavičius Theorem 5.13, using decontractions and compatibility of cyclic subgroups, as well as honest Γ(n), fixed-pairing and Γ₁(n) stacks. In particular distinguish the regular DM refined stack from the naive Artin Γ₀ stack; their coarse spaces agree, not their stacks. Additional consuming contract: Actual smooth fine elliptic family, compactification, universal elliptic curve on its open locus, and good reduction over Z[1/N]. For Theorem 5.16 additionally supply the ordinary dense locus, the connected–étale decomposition of E[p], and lifting of its order-p subgroups after finite extension. R14.1 supplies the integral correspondence and its specialization.
-
-Consumed by `ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence`, `ModularCurvesPartII:R14.3/relative-coefficient-system`, `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura`, `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`.
+These contracts supplement the exact direct node references. They name missing interfaces with their consumers. The broad references to R13.5, R14.1 and R14.2 inside this part, and to R12.3, R12.5, R12.6 and R13.2 of the earlier part, have instead been resolved to existing nodes; a request is not repeated where the consumer already cites the supplier’s exact node.
 
 ### From `tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering`
 
@@ -1797,18 +1793,6 @@ Relative Weil pairing on elliptic torsion, alternating perfection and compatibil
 
 Consumed by `ModularCurvesPartII:R14.1/atkin-lehner-involution`.
 
-### From `ModularCurvesPartII:R12.3`
-
-Algebraic/analytic component identification of the already constructed coarse curves, including determinant orbits, cusp fields and honest full-level versus scalar-framed conventions. Additional consuming contract: Actual cusp fields and a Q-rational cusp on the chosen X₁(N) model; distinguish 0 on the (E,P) model from infinity on X₀(N).
-
-Consumed by `ModularCurvesPartII:R13.4b/generic-component-comparison`, `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`.
-
-### From `ModularCurvesPartII:R12.6`
-
-Canonical algebraic/analytic compactification comparison with its cusp parameters, descent maps and weight-two normalization; use R13.4a as its algebraic input, never the aggregate R13.4.
-
-Consumed by `ModularCurvesPartII:R13.4b/generic-component-comparison`, `ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences`.
-
 ### From `tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure`
 
 The universal ordinary elliptic deformation with Serre–Tate parameter and the supersingular one-dimensional deformation, including Frobenius/Verschiebung torsion and Drinfeld-generator conditions. The exact current ModularCurves Layer 7F–7H and Layer 8C outputs are imported, not re-planned.
@@ -1817,9 +1801,9 @@ Consumed by `ModularCurvesPartII:R13.5/igusa-components`.
 
 ### From `tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups`
 
-Import the existing elliptic PD-3 target: relative Frobenius and Verschiebung in characteristic p with V∘F=[p]=F∘V, together with the PD-1 finite locally free torsion levels and Cartier duality from Layer 2E. Quotients remain the existing Layer 2B interface; these elliptic notions are not new A3 definitions.
+Import the existing elliptic PD-3 target: relative Frobenius and Verschiebung in characteristic p with V∘F=[p]=F∘V, together with the PD-1 finite locally free torsion levels and Cartier duality from Layer 2E. Quotients remain the existing Layer 2B interface; these elliptic notions are not new A3 definitions. Additional consuming contract: for the ordinary-locus proof of the special-fibre Eichler–Shimura relation (Conrad, Theorem 5.16), use PD-2 (connected–étale sequence over a henselian local base, giving the connected and étale order-p subgroups of an ordinary curve and of its lifts) and PD-5 (the ordinary/supersingular dichotomy).
 
-Consumed by `ModularCurvesPartII:R13.5/igusa-components`.
+Consumed by `ModularCurvesPartII:R13.5/igusa-components`, `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura`.
 
 ### From `tauceti:TauCetiRoadmap/ModularCurves#7g-the-three-characteristic-p-calculations`
 
@@ -1911,18 +1895,6 @@ Import the existing integral symbol module 𝕄_N,k, its boundary map, diamond/b
 
 Consumed by `ModularCurvesPartII:R14.2/integral-hecke-algebra`, `ModularCurvesPartII:R14.2/integral-hecke-realization-comparison`, `ModularCurvesPartII:R14.3/betti-free-rank-two`, `ModularCurvesPartII:R14.3/geometric-hecke-coefficients`, `ModularCurvesPartII:R14.3/symbols-geometric-comparison`, `ModularCurvesPartII:R14.5/newform-hecke-prime`.
 
-### From `ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization`
-
-The prime-to-residue-characteristic good-reduction/unramified Tate-module criterion for an abelian variety; apply only the implication from the existing good abelian model, not a new isogeny or automorphic theorem.
-
-Consumed by `ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions`.
-
-### From `ModularCurvesPartII:R12.5`
-
-Weight-two cotangent identification and rational/cyclotomic q-expansion descent, with the correct coefficient field for Γ₀, Γ₁ and character components. Rational q-expansion determination and a_m(f)=a₁(T_m f) are imported from the earlier classical forms package. Additional consuming contract: Weight-two differentials/analytic S₂ comparison with the cotangent Hecke convention and q-expansion normalization.
-
-Consumed by `ModularCurvesPartII:R14.2/rational-coefficient-pairing`, `ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism`, `ModularCurvesPartII:R14.3/cup-product-petersson`.
-
 ### From `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`
 
 Existing field-curve Picard/Jacobian scheme theorem with dimension, principal polarization and field-base change. Use it for each geometric fibre; the relative norm/polarization extension is requested separately from A0-extension/A2.
@@ -1934,12 +1906,6 @@ Consumed by `ModularCurvesPartII:R14.2/jacobian-and-functoriality`.
 Import the canonical contraction of a proper prestable family of genus g≥2, its uniqueness and coherent arbitrary base change. For marked stability use Layer 9 with 2g−2+r>0 instead; do not attribute stabilization to Layer 7.
 
 Consumed by `ModularCurvesPartII:R13.5/prime-square-semistable-model`.
-
-### From `AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing`
-
-Import the existing finite-flat polarized Weil pairing, alternating also at even n and perfect for a principal polarization, with the pullback/dual-isogeny compatibility. Passing to the inverse limit gives the Tate pairing here.
-
-Consumed by `ModularCurvesPartII:R14.2/weil-pairing-adjointness`.
 
 ### From `AbelianSchemesAndArithmeticModuli:A4`
 
@@ -2033,9 +1999,9 @@ Consumed by `ModularCurvesPartII:R14.3/relative-coefficient-system`, `ModularCur
 
 ## Source corrections used in the targets
 
-Each record below comes from the named accepted independent review and was checked against the indicated available source in this run. The descriptions are paraphrases. For editions or correction texts that were inaccessible, the scope of the earlier review’s finding is retained explicitly.
+Each record below is registered, with its independent verdict, in the canonical packet named in its heading; this part lists them for the reader and does not register them again. The R13.3 and R14.3 packets both use the numbers E1–E3, for different findings, so a record is identified by its packet and number. The descriptions are paraphrases. For editions or correction texts that were inaccessible, the scope of the earlier review’s finding is retained explicitly.
 
-### ModularCurvesPartII/E1
+### ModularCurvesPartII/E1 (R13.3 packet)
 
 Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521. In our words: The singular exception is restricted to supersingular extra-automorphism points. For p>3 also include ordinary mixed (a,b), a,b>0, extra-automorphism points of the elliptic level pair; use Edixhoven’s resolution. At p=2,3 keep the wild calculation separate. At p=5,N=25, the ordinary j=1728 point on (1,1) has effective order-2 cotangent action (−x,−y), hence singular invariants. It is not supersingular.
 
@@ -2043,7 +2009,7 @@ Known: Edixhoven 1990 §1.1.4–1.1.5, pp.35–36, identifies the omission and g
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E1; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E2
+### ModularCurvesPartII/E2 (R13.3 packet)
 
 Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a. In our words: The scalar-equivalence framing problem is described as fine. Use its coarse moduli curve or rigidify the ubiquitous central inversion; do not claim a universal elliptic family descends to the scalar quotient. [−1] acts as scalar −1 on E[p], fixes a projective framing and is a nonidentity automorphism of its unrigidified object.
 
@@ -2051,7 +2017,7 @@ new; the linked metric erratum does not correct this moduli convention.
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E2; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E3
+### ModularCurvesPartII/E3 (R13.3 packet)
 
 Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a. In our words: The cyclic isogeny correspondence is assigned degree σ₁(m). Use ψ(m) for the cyclic correspondence; σ₁(m) is the degree of the full order-m subgroup correspondence. The unfiltered divisor boundary union is full-subgroup data, so filter by cyclicity for the cyclic definition. At m=4, subgroup E[2] is noncyclic: seven order-4 subgroups, six cyclic. The three (a,d) families have 4+2+1 branches but only 4+1+1 cyclic branches.
 
@@ -2059,7 +2025,7 @@ new; neither the author metric erratum nor the checked journal/arXiv listing giv
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E3; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E4
+### ModularCurvesPartII/E4 (R13.3 packet)
 
 Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a. In our words: The auxiliary C_(pm)→C_p map and the C_p power map have component domains written as ℤ/m. The first has component domain ℤ/(pm) and reduction modulo p; the second has domain ℤ/p and identity component index. The auxiliary first map has degree m² and is used only for its p-torsion identification; it is not the degree-m isogeny. C_r smooth locus is Gₘ×ℤ/r. The first map has smooth-locus kernel μ_m times a component subgroup of order m, while p∤m makes its map on p-torsion an isomorphism.
 
@@ -2067,7 +2033,7 @@ new; the inspected erratum does not address these domains.
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E4; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E5
+### ModularCurvesPartII/E5 (R13.3 packet)
 
 Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a. In our words: The unrigidified stack of generalized p-gons is assigned cusp stabilizer order p. Its raw pointed generalized-elliptic automorphism group is μ_p×{±1}, of order 2p in characteristic zero. Order p is the effective stabilizer after central inversion is rigidified; use that effective stack for the (2,3,p) orbifold. The source itself gives the two factors of the p-gon automorphism group; inversion persists on the unframed object. Correspondingly the raw interior orders 4,6 become effective 2,3. On Gₘ×ℤ/p, α_ζ(u,c)=(ζ^c u,c) and inversion ι(u,c)=(u⁻¹,−c) commute, so the pointed automorphism group may be written as a direct product. The order distinction is the finding.
 
@@ -2075,7 +2041,7 @@ new; the inspected metric erratum does not address this stack convention.
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E5; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E6
+### ModularCurvesPartII/E6 (R13.3 packet)
 
 Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8. In our words: For d>2 the component labels use both a unit b modulo d and a positive divisor r of d; the subsequent chart clause asserts a unique positive-divisor lift. Use φ(d)/2 cyclotomic components indexed by b modulo sign. A unit r modulo N/d selects an embedding of the cyclotomic field. Keep the marked twist exponent −r(b′)⁻¹, and allow arbitrary residue lifts rather than a unique positive divisor. Automorphisms identify r modulo N/d and inversion identifies (r,b) with (−r,−b). N=d=5 consequently has two 5-gon cusps, whereas the printed indexing gives eight; N=d=4 similarly has one rather than six. For N=d=5 the unique residue class modulo 1 has at least the positive-divisor lifts 1 and 5.
 
@@ -2083,7 +2049,7 @@ Known component overcount: Frederick Vu, 2023 UCLA dissertation A map in Sharifi
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E6; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E7
+### ModularCurvesPartII/E7 (R13.3 packet)
 
 Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8. In our words: The branchwise mth-power map between the proper formal Tate n-gon curves is asserted finite flat of degree m. Keep a finite pointed morphism of generic degree m and finite locally free rank-m restriction on the smooth loci. For m>1 the proper map is not flat at the nodes. After base change to a field the target node XY=tᵐ maps to xy=t via X=xᵐ,Y=yᵐ. Its closed-node fibre is k[x,y]/(xy,xᵐ,yᵐ), with basis 1,x,…,x^(m−1),y,…,y^(m−1) and length 2m−1. For m=2 this is 3, unlike generic rank 2. This obstruction is independent of the characteristic. The distinct moduli maps of Theorem 4.4.3 and the formal Gₘ power map used in §4.5 are unaffected.
 
@@ -2091,7 +2057,7 @@ Identified by REV-ModularCurvesPartII--R13.3, whose source/correction search fou
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R13.3.json; ModularCurvesPartII/E7; REV-ModularCurvesPartII--R13.3.
 
-### ModularCurvesPartII/E8
+### ModularCurvesPartII/E1 (R14.3 packet)
 
 Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120. For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)². The determinant is (q+1)²−T_q². The two expressions differ by −1, a unit, so their invertibility tests agree. The 2×2 determinant formula gives a²−b²; at T_q=0 the determinant equals (q+1)².
 
@@ -2099,7 +2065,7 @@ Present in both author copies read. The publisher lists a 2021 correction but it
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R14.3.json; ModularCurvesPartII/E1; REV-ModularCurvesPartII--R14.3.
 
-### ModularCurvesPartII/E9
+### ModularCurvesPartII/E2 (R14.3 packet)
 
 Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 122. The displayed Lyndon segment places H^{i−1}(G) directly before H^i(Γ)²→H^i(H). The segment is H^i(G)→H^i(Γ)²→H^i(H)→H^{i+1}(G), with the two subgroup restrictions and their difference. Serre Trees II §2.8 Proposition 13, pp. 168–170, or the long exact sequence of the tree cochain short exact sequence, fixes the degrees. Degree-zero invariants already require H⁰(G) before H⁰(Γ)².
 
@@ -2107,7 +2073,7 @@ Present in both author copies read. The publisher lists a 2021 correction but it
 
 Provenance: research/blueprint/packets/ModularCurvesPartII--R14.3.json; ModularCurvesPartII/E2; REV-ModularCurvesPartII--R14.3.
 
-### ModularCurvesPartII/E10
+### ModularCurvesPartII/E3 (R14.3 packet)
 
 Lemma 4.5.11, second displayed invariant dimension and ensuing semisimplification claim: author preprint p. 31; published JAMS offprint p. 663, proof p. 664 and application pp. 664–665. The level-5 term uses F₃ coefficients and claims zero SL₂(F₅)-invariants, also after semisimplification. Use F₅ in the level-5 term, as the proof of Theorem 4.5.2 requires when ℓ=5. Keep F₃ at level 3 and F₂ at levels 4/8/16. The printed level-5/F₃ invariant-vanishing assertion cannot be exported. X(5) has genus zero and 12 cusps. Its ordinary H¹ with F₃ coefficients identifies through residues with the kernel of the total-sum map F₃^{12}→F₃. The constant vector is a nonzero SL₂(F₅)-invariant vector in that kernel because 12=0 in F₃. Thus the printed zero dimension is false. With F₅, this counterexample disappears and the stated level-5 Brauer-character calculation supplies the case used in Theorem 4.5.2.
 
@@ -2147,7 +2113,7 @@ SHA-256: `cff6a257adcae5ca95a9859ec7a0319a363718bac3a40fe8afe146e59da5926a`.
 
 Kenneth A. Ribet and William A. Stein; appendix Brian Conrad. [Lectures on Serre’s conjectures, including Conrad’s The Shimura construction in weight 2](https://wstein.org/papers/serre/ribet-stein.pdf). Author revision dated 23 November 2010, not identified with the pagination of the 2001 published chapter. Printed page = PDF page minus 4.
 
-Read: §2.3.1 pp.28–29; §§3.5–3.6 pp.39–40; §§3.9–3.11 pp.43–50; Conrad appendix §§5.1–5.3 pp.64–79, including the complete ordinary-locus proof of Theorem 5.16. Accessed 2026-10-13.
+Read: §2.3.1 pp.28–29; §§3.5–3.6 pp.39–40; §§3.9–3.11 pp.43–50; Conrad appendix §§5.1–5.3 pp.64–79, including the complete ordinary-locus proof of Theorem 5.16. Accessed 2026-10-13. The R14.3 packet cites the same file as RIBET-STEIN-SERRE-LECTURES.
 
 SHA-256: `e1bf2b5cd14de064bcb48c4ca843251198db74dd8bcfaad63c26f6773f63f604`.
 

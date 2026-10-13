@@ -16,7 +16,7 @@
   "status": "complete",
   "title": "Modular curves, following Katz–Mazur, Part II: Uniformization, integral boundary and Hecke cohomology",
   "base": "tauceti:TauCetiRoadmap/ModularCurves",
-  "summary": "A complete target-level planning pass for generic-fibre compatibility, bad reduction and geometric Hecke cohomology through finite Taylor–Wiles control. All 75 required targets already have canonical accepted nodes in the R13.3 and R14.3 packets. This packet imports them without creating duplicate nodes, synchronizes the reader with the corrected statements and reconciles the cross-part dependency contracts. All nine stages are planned, with nine explicit gaps and the supplier requests retained. No stage is claimed closed or implemented.",
+  "summary": "A complete target-level planning pass for generic-fibre compatibility, bad reduction and geometric Hecke cohomology through finite Taylor–Wiles control. All 75 required targets already have canonical accepted nodes in the R13.3 and R14.3 packets. This packet imports them without creating duplicate nodes, synchronizes the reader with the corrected statements and records the assembly contracts: 35 resolutions of stage citations to exact accepted nodes (including the R12.1 packet’s R12.3, R12.5, R12.6 and R13.2 nodes) and one import of the ReductiveGroupsPartII tree and AdelicAlgebraicGroups strong approximation into R14.4/modular-amalgam. All nine stages are planned, with nine explicit gaps and 38 supplier requests retained. No stage is claimed closed or implemented.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -189,7 +189,11 @@
       "url": "https://wstein.org/papers/serre/ribet-stein.pdf",
       "sha256": "e1bf2b5cd14de064bcb48c4ca843251198db74dd8bcfaad63c26f6773f63f604",
       "bytes": 866421,
-      "accessed": "2026-10-13"
+      "accessed": "2026-10-13",
+      "aliases": [
+        "RIBET-STEIN-SERRE-LECTURES"
+      ],
+      "aliasNote": "The R14.3 packet cites the same file (same SHA-256) as RIBET-STEIN-SERRE-LECTURES."
     },
     {
       "id": "grosszagier",
@@ -1046,19 +1050,127 @@
         "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence"
       ],
       "reason": "The existing targets give the required correspondence, trace, component and action interfaces; retain their stated hypotheses and recorded gaps."
+    },
+    {
+      "consumer": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+      "stage": "ModularCurvesPartII:R12.3",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.3/compact-modular-uniformization",
+        "ModularCurvesPartII:R12.3/tate-and-cusp-parameter-agreement",
+        "ModularCurvesPartII:R12.3/cusp-fields-and-component-labels"
+      ],
+      "reason": "The accepted R12.1 packet states the compact analytic comparison, the cusp-width and Tate-parameter agreement and the cusp-field/determinant-label identification. The consumer adds only the descent by the determinant image of H and the scalar-framed component count.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+      "stage": "ModularCurvesPartII:R12.6",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent",
+        "ModularCurvesPartII:R12.6/component-fields-and-twisted-descent",
+        "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility"
+      ],
+      "reason": "Canonical generic models, component fields of the full-level curve and compatibility with level maps are exactly these accepted nodes; the last one names R13.4b as its consumer.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
+      "stage": "ModularCurvesPartII:R12.6",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent",
+        "ModularCurvesPartII:R12.6/generic-base-change-and-level-compatibility"
+      ],
+      "reason": "Generic-fibre descent by q-expansions and compatibility of the comparisons with level maps, diamonds and characteristic-zero Hecke actions are the R12.6 inputs this comparison uses.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+      "stage": "ModularCurvesPartII:R12.3",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.3/cusp-fields-and-component-labels",
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent"
+      ],
+      "reason": "The canonical Q-models of X₀(N) and X₁(N) and the Galois action on cyclotomic Tate-level cusp labels determine the cusp fields; choosing a rational cusp (0 on the point-of-exact-order model, ∞ or 0 on X₀(N)) is the consumer’s computation.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
+      "stage": "ModularCurvesPartII:R12.5",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.5/weight-two-regular-differentials",
+        "ModularCurvesPartII:R12.5/first-coefficient-hecke-pairing",
+        "ModularCurvesPartII:R12.5/perfect-hecke-pairing",
+        "ModularCurvesPartII:R12.6/canonical-generic-fibre-descent"
+      ],
+      "reason": "R12.5/perfect-hecke-pairing already proves perfection of β(T,f)=a₁(Tf) on V_Q=H⁰(X₀(N)_Q,Ω¹) for the cotangent Hecke image T_Q. The consumer’s own content is the identification of the Jacobian Hecke image tensored with Q with T_Q by faithfulness of the cotangent action; its nondegeneracy steps are the supplier’s proof and are imported, not proved again.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+      "stage": "ModularCurvesPartII:R12.5",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.5/weight-two-regular-differentials",
+        "ModularCurvesPartII:R12.5/hodge-line-automorphy"
+      ],
+      "reason": "S₂(Γ)≅H⁰(X,Ω¹) with its cusp and elliptic-point behaviour, and the 2πi dz frame of the Hodge line, are the R12.5 inputs of the Hodge decomposition step.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.3/cup-product-petersson",
+      "stage": "ModularCurvesPartII:R12.5",
+      "suppliedBy": [
+        "ModularCurvesPartII:R12.5/weight-two-regular-differentials"
+      ],
+      "reason": "The normalization f↦2πi f(τ)dτ fixes the forms whose wedge product is computed.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence",
+      "stage": "ModularCurvesPartII:R13.2",
+      "suppliedBy": [
+        "ModularCurvesPartII:R13.2/gamma-level-structures",
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/small-level-and-dm-boundaries",
+        "ModularCurvesPartII:R13.2/contraction-maps-between-levels"
+      ],
+      "reason": "The mixed Γ₁(N;n) level structure (with the disjointness condition [G_d+H_d]=Eˢᵐ[d]), properness and flatness of its stack, its DM/representability range and the contraction maps between levels are these accepted nodes. The refined Γ₀ construction is not an input of this node.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.3/relative-coefficient-system",
+      "stage": "ModularCurvesPartII:R13.2",
+      "suppliedBy": [
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/small-level-and-dm-boundaries",
+        "ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes"
+      ],
+      "reason": "For N≥5 the fine Γ₁(N) curve, smooth after inverting N, with its universal elliptic curve on the elliptic locus (the Katz–Mazur representing scheme) is supplied by these nodes.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+      "stage": "ModularCurvesPartII:R13.2",
+      "suppliedBy": [
+        "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+        "ModularCurvesPartII:R13.2/small-level-and-dm-boundaries",
+        "ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes",
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups"
+      ],
+      "reason": "Conrad’s proof of Theorem 5.16 needs the smooth proper fine X₁(N) over ℤ[1/N] (good reduction at p∤N) with its moduli interpretation on Y₁(N), and, on the ordinary locus, the connected–étale order-p subgroups of an ordinary curve and of its lifts (ModularCurves 7E PD-2, PD-5). Density of the ordinary locus and lifting of ordinary points follow from smoothness and are steps of the consumer’s proof. The earlier request to R13.2 for these ordinary-locus inputs named the wrong owner.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    },
+    {
+      "consumer": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+      "stage": "ModularCurvesPartII:R13.2",
+      "suppliedBy": [
+        "ModularCurvesPartII:R13.2/gamma-level-structures",
+        "ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes"
+      ],
+      "reason": "The point-of-exact-order Γ₁(N) moduli model and its agreement with the Katz–Mazur scheme fix the model on which the rational cusp is chosen.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
     }
   ],
   "requests": [
-    {
-      "supplier": "ModularCurvesPartII:R13.2",
-      "need": "Refined Γ₀(n) compactification of Česnavičius Theorem 5.13, using decontractions and compatibility of cyclic subgroups, as well as honest Γ(n), fixed-pairing and Γ₁(n) stacks. In particular distinguish the regular DM refined stack from the naive Artin Γ₀ stack; their coarse spaces agree, not their stacks. Additional consuming contract: Actual smooth fine elliptic family, compactification, universal elliptic curve on its open locus, and good reduction over Z[1/N]. For Theorem 5.16 additionally supply the ordinary dense locus, the connected–étale decomposition of E[p], and lifting of its order-p subgroups after finite extension. R14.1 supplies the integral correspondence and its specialization.",
-      "neededBy": [
-        "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence",
-        "ModularCurvesPartII:R14.3/relative-coefficient-system",
-        "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
-        "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi"
-      ]
-    },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
       "need": "Import the prime N≥5 diamond quotient cusp package over ℤ[1/N]: Tate torsion/level covers, integral closures, cusp labels, widths, characteristic-2/3 ramification and stabilizers; establish identity-compatible agreement rather than rebuilding it.",
@@ -1093,22 +1205,6 @@
       ]
     },
     {
-      "supplier": "ModularCurvesPartII:R12.3",
-      "need": "Algebraic/analytic component identification of the already constructed coarse curves, including determinant orbits, cusp fields and honest full-level versus scalar-framed conventions. Additional consuming contract: Actual cusp fields and a Q-rational cusp on the chosen X₁(N) model; distinguish 0 on the (E,P) model from infinity on X₀(N).",
-      "neededBy": [
-        "ModularCurvesPartII:R13.4b/generic-component-comparison",
-        "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi"
-      ]
-    },
-    {
-      "supplier": "ModularCurvesPartII:R12.6",
-      "need": "Canonical algebraic/analytic compactification comparison with its cusp parameters, descent maps and weight-two normalization; use R13.4a as its algebraic input, never the aggregate R13.4.",
-      "neededBy": [
-        "ModularCurvesPartII:R13.4b/generic-component-comparison",
-        "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7f-serretate-theory-with-level-structure",
       "need": "The universal ordinary elliptic deformation with Serre–Tate parameter and the supersingular one-dimensional deformation, including Frobenius/Verschiebung torsion and Drinfeld-generator conditions. The exact current ModularCurves Layer 7F–7H and Layer 8C outputs are imported, not re-planned.",
       "neededBy": [
@@ -1117,9 +1213,10 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
-      "need": "Import the existing elliptic PD-3 target: relative Frobenius and Verschiebung in characteristic p with V∘F=[p]=F∘V, together with the PD-1 finite locally free torsion levels and Cartier duality from Layer 2E. Quotients remain the existing Layer 2B interface; these elliptic notions are not new A3 definitions.",
+      "need": "Import the existing elliptic PD-3 target: relative Frobenius and Verschiebung in characteristic p with V∘F=[p]=F∘V, together with the PD-1 finite locally free torsion levels and Cartier duality from Layer 2E. Quotients remain the existing Layer 2B interface; these elliptic notions are not new A3 definitions. Additional consuming contract: for the ordinary-locus proof of the special-fibre Eichler–Shimura relation (Conrad, Theorem 5.16), use PD-2 (connected–étale sequence over a henselian local base, giving the connected and étale order-p subgroups of an ordinary curve and of its lifts) and PD-5 (the ordinary/supersingular dichotomy).",
       "neededBy": [
-        "ModularCurvesPartII:R13.5/igusa-components"
+        "ModularCurvesPartII:R13.5/igusa-components",
+        "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura"
       ]
     },
     {
@@ -1239,22 +1336,6 @@
       ]
     },
     {
-      "supplier": "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization",
-      "need": "The prime-to-residue-characteristic good-reduction/unramified Tate-module criterion for an abelian variety; apply only the implication from the existing good abelian model, not a new isogeny or automorphic theorem.",
-      "neededBy": [
-        "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions"
-      ]
-    },
-    {
-      "supplier": "ModularCurvesPartII:R12.5",
-      "need": "Weight-two cotangent identification and rational/cyclotomic q-expansion descent, with the correct coefficient field for Γ₀, Γ₁ and character components. Rational q-expansion determination and a_m(f)=a₁(T_m f) are imported from the earlier classical forms package. Additional consuming contract: Weight-two differentials/analytic S₂ comparison with the cotangent Hecke convention and q-expansion normalization.",
-      "neededBy": [
-        "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
-        "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
-        "ModularCurvesPartII:R14.3/cup-product-petersson"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
       "need": "Existing field-curve Picard/Jacobian scheme theorem with dimension, principal polarization and field-base change. Use it for each geometric fibre; the relative norm/polarization extension is requested separately from A0-extension/A2.",
       "neededBy": [
@@ -1266,13 +1347,6 @@
       "need": "Import the canonical contraction of a proper prestable family of genus g≥2, its uniqueness and coherent arbitrary base change. For marked stability use Layer 9 with 2g−2+r>0 instead; do not attribute stabilization to Layer 7.",
       "neededBy": [
         "ModularCurvesPartII:R13.5/prime-square-semistable-model"
-      ]
-    },
-    {
-      "supplier": "AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing",
-      "need": "Import the existing finite-flat polarized Weil pairing, alternating also at even n and perfect for a principal polarization, with the pullback/dual-isogeny compatibility. Passing to the inverse limit gives the Tate pairing here.",
-      "neededBy": [
-        "ModularCurvesPartII:R14.2/weil-pairing-adjointness"
       ]
     },
     {
@@ -1423,7 +1497,7 @@
       "stageId": "ModularCurvesPartII:R13.4b",
       "status": "planned",
       "remaining": [
-        "Reconcile component/cusp-field and map conventions with the R12.3/R12.6 suppliers; verify the integral trace comparison after those contracts are supplied."
+        "Verify the integral trace comparison of hecke-normalization-comparison once the SF.2 and R09.5 supplier contracts behind R14.1/coherent-hecke-trace are discharged. The R12.3/R12.6 inputs are resolved to exact accepted nodes in dependencyResolutions."
       ],
       "notes": "All stated targets are supplied by the canonical accepted nodes listed in targets. This complete planning pass reuses those nodes; it does not close their gaps or claim implementation.",
       "targets": [
@@ -1506,7 +1580,7 @@
       "status": "planned",
       "remaining": [
         "Discharge the finite/adic comparison supplier requests and the Sym^r boundary/lattice gap; refine integral symbol saturation.",
-        "Apply dependencyResolutions to use the existing R14.2 carrier/action prefix without a rational rank-two cycle; discharge the higher-weight integral boundary/lattice gap and the finite/adic comparison requests."
+        "Use the dependencyResolutions during assembly: the R14.2 carrier/action prefix and the R12.5 differential and pairing nodes, with no rank-two theorem as an input."
       ],
       "notes": "All stated targets are supplied by the canonical accepted nodes listed in targets. This complete planning pass reuses those nodes; it does not close their gaps or claim implementation.",
       "targets": [
@@ -1530,7 +1604,7 @@
       "stageId": "ModularCurvesPartII:R14.4",
       "status": "planned",
       "remaining": [
-        "Decompose the deep CSP and fundamental-edge inputs, verify the enhanced congruence criterion, and settle any requested extension beyond the stated compact/root-control range."
+        "Decompose the deep CSP input; on top of the imported ReductiveGroupsPartII tree and AdelicAlgebraicGroups strong approximation (dependencyAdditions), supply the segment-amalgam theorem and the arithmetic fundamental-edge step; verify the enhanced congruence criterion, and settle any requested extension beyond the stated compact/root-control range."
       ],
       "notes": "All stated targets are supplied by the canonical accepted nodes listed in targets. This complete planning pass reuses those nodes; it does not close their gaps or claim implementation.",
       "targets": [
@@ -1640,7 +1714,7 @@
         "ModularCurvesPartII:R14.4/enhanced-ihara",
         "ModularCurvesPartII:R14.4/congruence-invariance"
       ],
-      "detail": "Refine the principal-level fundamental-edge argument and CDT Corollary 4.5.3 conjugation-invariance criterion against existing finite-group and approximation APIs. The source statements and the target proof routes are read, but the strong-approximation/reduction-surjectivity and finite congruence quotient sublemmas are not yet supplier-closed. This is a proof-chain gap, not permission to erase the congruence subspace from ordinary Ihara. For congruence-invariance, supply the exact continuous-cohomology, Künneth and Hochschild–Serre proof interfaces, Lazard’s uniform-group calculation, adjoint-cohomology vanishing, and a reproducible proof of the level-8/16 computations used in CDT §4.5.11. These source inputs are not declarations established by the pinned ordinary H¹ carrier."
+      "detail": "The lattice tree of SL₂(ℚ_p), its type-preserving action without inversion and the local amalgam are imported from ReductiveGroupsPartII RG2.2/sl2-tree and RG2.2/ihara-amalgam, and strong approximation with reduction surjectivity prime to p from AdelicAlgebraicGroups AA.4/strong-approximation-sufficiency and AA.4/strong-approximation-finite-places (dependencyAdditions). Still missing for modular-amalgam: Serre’s theorem that a group acting on a tree without inversion with a segment as fundamental domain is the amalgam of the two vertex stabilizers over the edge stabilizer (Trees I §4.1 Theorem 6, p. 48), which ReductiveGroupsPartII uses inside the proof of ihara-amalgam but does not state as a target, and the finite congruence-quotient sublemmas of the principal-level argument. Refine the CDT Corollary 4.5.3 conjugation-invariance criterion against existing finite-group APIs. This is a proof-chain gap, not permission to erase the congruence subspace from ordinary Ihara. For congruence-invariance, supply the exact continuous-cohomology, Künneth and Hochschild–Serre proof interfaces, Lazard’s uniform-group calculation, adjoint-cohomology vanishing, and a reproducible proof of the level-8/16 computations used in CDT §4.5.11. These source inputs are not declarations established by the pinned ordinary H¹ carrier."
     },
     {
       "title": "Integral modular old/new and quaternionic pivot exactness",
@@ -1665,264 +1739,7 @@
       "detail": "The current Tau Ceti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 implements TauCeti.MonoidAlgebra.isLocalRing_of_isPGroup and isLocalHom_lift_one_of_isPGroup in TauCeti/Algebra/MonoidAlgebra/LocalRing.lean, with augmentation and ker_augmentation_eq_span in Exactness.lean. They are absent at f790474. Import the existing implementation when updating the baseline; do not plan or prove a duplicate. The pinned prototype does not import that post-pin module."
     }
   ],
-  "sourceIssues": [
-    {
-      "id": "ModularCurvesPartII/E1",
-      "kind": "error",
-      "locator": "Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
-      "printed": "In our words: The singular exception is restricted to supersingular extra-automorphism points.",
-      "correction": "For p>3 also include ordinary mixed (a,b), a,b>0, extra-automorphism points of the elliptic level pair; use Edixhoven’s resolution. At p=2,3 keep the wild calculation separate.",
-      "reason": "At p=5,N=25, the ordinary j=1728 point on (1,1) has effective order-2 cotangent action (−x,−y), hence singular invariants. It is not supersingular.",
-      "known": "Known: Edixhoven 1990 §1.1.4–1.1.5, pp.35–36, identifies the omission and gives the corrected locus and resolution.",
-      "searched": [
-        "Published Gross–Zagier III §1 pp.254–255.",
-        "Published Edixhoven §1.1 pp.34–36 and §1.3 pp.38–46."
-      ],
-      "affects": "a stated result",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed against GZ III Proposition (1.4), p.255, and Edixhoven §1.1.4–1.1.5, pp.35–36. The mixed ordinary order-2 example disproves the restricted locus; wild primes remain a separate gap.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E1",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E2",
-      "kind": "error",
-      "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
-      "printed": "In our words: The scalar-equivalence framing problem is described as fine.",
-      "correction": "Use its coarse moduli curve or rigidify the ubiquitous central inversion; do not claim a universal elliptic family descends to the scalar quotient.",
-      "reason": "[−1] acts as scalar −1 on E[p], fixes a projective framing and is a nonidentity automorphism of its unrigidified object.",
-      "known": "new; the linked metric erratum does not correct this moduli convention.",
-      "searched": [
-        "Bakker author publication page and its linked P.torsion.erratum.pdf, read 2026-10-13.",
-        "Annals article page and published PDF, read 2026-10-13.",
-        "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
-      ],
-      "affects": "the proof",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed at the fine-moduli assertion on BT p.715: central inversion fixes a scalar framing. The corrected coarse/rigidified convention avoids descending a universal elliptic family.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E2",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E3",
-      "kind": "error",
-      "locator": "Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
-      "printed": "In our words: The cyclic isogeny correspondence is assigned degree σ₁(m).",
-      "correction": "Use ψ(m) for the cyclic correspondence; σ₁(m) is the degree of the full order-m subgroup correspondence. The unfiltered divisor boundary union is full-subgroup data, so filter by cyclicity for the cyclic definition.",
-      "reason": "At m=4, subgroup E[2] is noncyclic: seven order-4 subgroups, six cyclic. The three (a,d) families have 4+2+1 branches but only 4+1+1 cyclic branches.",
-      "known": "new; neither the author metric erratum nor the checked journal/arXiv listing gives a correction to this convention.",
-      "searched": [
-        "Bakker author publication page and its linked P.torsion.erratum.pdf, read 2026-10-13.",
-        "Annals article page and published PDF, read 2026-10-13.",
-        "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
-      ],
-      "affects": "a stated result",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed at BT §2.5, p.717. The m=4 HNF count is 7 full versus 6 cyclic; (2,2,0) is the excluded E[2] branch. The printed full boundary union needs the cyclicity filter.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E3",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E4",
-      "kind": "misprint",
-      "locator": "Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
-      "printed": "In our words: The auxiliary C_(pm)→C_p map and the C_p power map have component domains written as ℤ/m.",
-      "correction": "The first has component domain ℤ/(pm) and reduction modulo p; the second has domain ℤ/p and identity component index. The auxiliary first map has degree m² and is used only for its p-torsion identification; it is not the degree-m isogeny.",
-      "reason": "C_r smooth locus is Gₘ×ℤ/r. The first map has smooth-locus kernel μ_m times a component subgroup of order m, while p∤m makes its map on p-torsion an isomorphism.",
-      "known": "new; the inspected erratum does not address these domains.",
-      "searched": [
-        "Bakker author publication page and its linked P.torsion.erratum.pdf, read 2026-10-13.",
-        "Annals article page and published PDF, read 2026-10-13.",
-        "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
-      ],
-      "affects": "the proof",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed against the two maps on BT pp.716–717. The auxiliary polygon has pm components and degree m²; the target power map has p components. The p-torsion identification is unchanged for p∤m.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E4",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E5",
-      "kind": "error",
-      "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
-      "printed": "In our words: The unrigidified stack of generalized p-gons is assigned cusp stabilizer order p.",
-      "correction": "Its raw pointed generalized-elliptic automorphism group is μ_p×{±1}, of order 2p in characteristic zero. Order p is the effective stabilizer after central inversion is rigidified; use that effective stack for the (2,3,p) orbifold.",
-      "reason": "The source itself gives the two factors of the p-gon automorphism group; inversion persists on the unframed object. Correspondingly the raw interior orders 4,6 become effective 2,3. On Gₘ×ℤ/p, α_ζ(u,c)=(ζ^c u,c) and inversion ι(u,c)=(u⁻¹,−c) commute, so the pointed automorphism group may be written as a direct product. The order distinction is the finding.",
-      "known": "new; the inspected metric erratum does not address this stack convention.",
-      "searched": [
-        "Bakker author publication page and its linked P.torsion.erratum.pdf, read 2026-10-13.",
-        "Annals article page and published PDF, read 2026-10-13.",
-        "arXiv:1403.7168 listing and targeted title/erratum search, checked 2026-10-13; no correction to the §2 conventions was located."
-      ],
-      "affects": "the proof",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed against BT §2.2, p.715. Before rigidifying central inversion, the pointed p-gon automorphism group has order 2p; the effective order p belongs to the rigidified orbifold. The explicit actions commute.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E5",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E6",
-      "kind": "error",
-      "locator": "Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
-      "printed": "In our words: For d>2 the component labels use both a unit b modulo d and a positive divisor r of d; the later chart clause asserts a unique positive-divisor lift.",
-      "correction": "Use φ(d)/2 cyclotomic components indexed by b modulo sign. A unit r modulo N/d selects an embedding of the cyclotomic field. Keep the marked twist exponent −r(b′)⁻¹, and allow arbitrary residue lifts rather than a unique positive divisor.",
-      "reason": "Automorphisms identify r modulo N/d and inversion identifies (r,b) with (−r,−b). N=d=5 consequently has two 5-gon cusps, whereas the printed indexing gives eight; N=d=4 similarly has one rather than six. For N=d=5 the unique residue class modulo 1 has at least the positive-divisor lifts 1 and 5.",
-      "known": "Known component overcount: Frederick Vu, 2023 UCLA dissertation A map in Sharifi’s conjecture for general non-exceptional characters and tame level, §3.2.2, discussion explicitly pointing out the error in Conrad Theorem 4.3.4 (eScholarship item 4th7g01n, indexed text inspected; PDF pagination unavailable through the access challenge). The related positive-lift uniqueness failure is checked here directly. Journal text was not accessible; this finding asserts the inspected author version only.",
-      "searched": [
-        "Conrad author publication page, its kmpaper.pdf and §4.3 proof pp.38–41 inspected 2026-10-13.",
-        "Cambridge DOI 10.1017/S1474748006000089 access attempted; journal text unavailable in this run, so no published-text comparison is claimed.",
-        "Targeted theorem/erratum search found Vu’s institutional dissertation https://escholarship.org/uc/item/4th7g01n; indexed correction text inspected 2026-10-13."
-      ],
-      "affects": "a stated result",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed for the inspected Conrad author PDF: pp.38–41 give φ(d)/2 components after the unit and sign identifications, contradicting positive-divisor labels and uniqueness. Vu’s institutional indexed text supports the known-overcount attribution; published journal wording was not checked.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E6",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E7",
-      "kind": "error",
-      "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
-      "printed": "In our words: The branchwise mth-power map between the proper formal Tate n-gon curves is asserted finite flat of degree m.",
-      "correction": "Keep a finite pointed morphism of generic degree m and finite locally free rank-m restriction on the smooth loci. For m>1 the proper map is not flat at the nodes.",
-      "reason": "After base change to a field the target node XY=tᵐ maps to xy=t via X=xᵐ,Y=yᵐ. Its closed-node fibre is k[x,y]/(xy,xᵐ,yᵐ), with basis 1,x,…,x^(m−1),y,…,y^(m−1) and length 2m−1. For m=2 this is 3, unlike generic rank 2. This obstruction is independent of the characteristic. The distinct moduli maps of Theorem 4.4.3 and the formal Gₘ power map used in §4.5 are unaffected.",
-      "known": "Identified by REV-ModularCurvesPartII--R13.3, whose source/correction search found no correction. The journal article was inaccessible, so the finding is scoped to the inspected author version; this consolidation makes no separate novelty claim.",
-      "searched": [
-        "Conrad’s primary author paper directory and kmpaper.pdf, Example 2.5.1 and §2.5, inspected 2026-10-13; no associated correction located there.",
-        "Targeted title, Example 2.5.1 and erratum searches, checked 2026-10-13; no correction to this whole-curve flatness assertion located.",
-        "Cambridge DOI 10.1017/S1474748006000089: journal text unavailable in this run; comparison remains limited to the author PDF."
-      ],
-      "affects": "a stated result",
-      "addedBy": "REV-ModularCurvesPartII--R13.3",
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed directly from the node equations displayed in Example 2.5.1, p.18. The closed fibre length 2m−1 contradicts flat rank m for m>1; the smooth-locus and generic-fibre statements remain valid.",
-        "by": "REV-ModularCurvesPartII--R13.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E7",
-        "independentReview": "REV-ModularCurvesPartII--R13.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E8",
-      "source": "CALEGARI-GERAGHTY",
-      "kind": "misprint",
-      "locator": "Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120",
-      "printed": "For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)².",
-      "correction": "The determinant is (q+1)²−T_q². The two expressions differ by −1, a unit, so their invertibility tests agree.",
-      "reason": "The 2×2 determinant formula gives a²−b²; at T_q=0 the determinant equals (q+1)².",
-      "affects": "nothing",
-      "known": "Present in both author copies read. The publisher lists a 2021 correction but its text was unavailable; confirmation against that correction is requested, and no novelty claim is made.",
-      "searched": [
-        "https://arxiv.org/abs/1207.4224",
-        "https://math.uchicago.edu/~fcale/research.html",
-        "https://doi.org/10.1007/s00222-017-0749-x",
-        "https://link.springer.com/article/10.1007/s00222-021-01095-5"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed visually in the arXiv formula on p. 88 and author-layout PDF p. 120. Direct 2×2 determinant calculation reverses the printed sign; −1 is a unit. This does not establish whether the later correction addresses it.",
-        "by": "REV-ModularCurvesPartII--R14.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E1",
-        "independentReview": "REV-ModularCurvesPartII--R14.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E9",
-      "source": "CALEGARI-GERAGHTY",
-      "kind": "misprint",
-      "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 122",
-      "printed": "The displayed Lyndon segment places H^{i−1}(G) directly before H^i(Γ)²→H^i(H).",
-      "correction": "The segment is H^i(G)→H^i(Γ)²→H^i(H)→H^{i+1}(G), with the two subgroup restrictions and their difference.",
-      "reason": "Serre Trees II §2.8 Proposition 13, pp. 168–170, or the long exact sequence of the tree cochain short exact sequence, fixes the degrees. Degree-zero invariants already require H⁰(G) before H⁰(Γ)².",
-      "affects": "the proof",
-      "known": "Present in both author copies read. The publisher lists a 2021 correction but its text was unavailable; confirmation against that correction is requested, and no novelty claim is made.",
-      "searched": [
-        "https://arxiv.org/abs/1207.4224",
-        "https://math.uchicago.edu/~fcale/research.html",
-        "https://doi.org/10.1007/s00222-017-0749-x",
-        "https://link.springer.com/article/10.1007/s00222-021-01095-5"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed visually on arXiv p. 89 and author-layout PDF p. 122; Serre Trees II §2.8 Proposition 13 pp. 168–169 gives H^i of the amalgam before the vertex H^i term.",
-        "by": "REV-ModularCurvesPartII--R14.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E2",
-        "independentReview": "REV-ModularCurvesPartII--R14.3"
-      }
-    },
-    {
-      "id": "ModularCurvesPartII/E10",
-      "source": "CDT-2025",
-      "kind": "misprint",
-      "locator": "Lemma 4.5.11, second displayed invariant dimension and ensuing semisimplification claim: author preprint p. 31; published JAMS offprint p. 663, proof p. 664 and application pp. 664–665",
-      "printed": "The level-5 term uses F₃ coefficients and claims zero SL₂(F₅)-invariants, also after semisimplification.",
-      "correction": "Use F₅ in the level-5 term, as the proof of Theorem 4.5.2 requires when ℓ=5. Keep F₃ at level 3 and F₂ at levels 4/8/16. The printed level-5/F₃ invariant-vanishing assertion cannot be exported.",
-      "reason": "X(5) has genus zero and 12 cusps. Its ordinary H¹ with F₃ coefficients identifies through residues with the kernel of the total-sum map F₃^{12}→F₃. The constant vector is a nonzero SL₂(F₅)-invariant vector in that kernel because 12=0 in F₃. Thus the printed zero dimension is false. With F₅, this counterexample disappears and the stated level-5 Brauer-character calculation supplies the case used in Theorem 4.5.2.",
-      "affects": "a stated result",
-      "known": "Present in the author preprint and published offprint read. No correction was found in the publisher or author listings searched; novelty remains unconfirmed. The intended coefficient is determined by the proof’s ℓ=5 application.",
-      "searched": [
-        "https://arxiv.org/abs/2109.09040",
-        "https://doi.org/10.1090/jams/1053",
-        "https://math.uchicago.edu/~fcale/research.html",
-        "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed in the preprint p. 31 and published offprint p. 663. The proof on p. 664 requires characteristic five. In characteristic three the constant residue vector on the 12 cusps of X(5) lies in the augmentation kernel and yields a nonzero SL₂(F₅)-invariant ordinary H¹ class.",
-        "by": "REV-ModularCurvesPartII--R14.3"
-      },
-      "provenance": {
-        "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
-        "sourceIssueId": "ModularCurvesPartII/E3",
-        "independentReview": "REV-ModularCurvesPartII--R14.3"
-      }
-    }
-  ],
+  "sourceIssues": [],
   "sourceVersions": [
     {
       "sourceId": "conrad07",
@@ -2050,7 +1867,8 @@
     ],
     "baselineBoundary": "Nineteen actual declaration statements were read at the pins. Existing local coefficient systems, symmetric powers, Shapiro and generic Hecke algebra relations are imports; they do not construct modular geometry.",
     "postPinBoundary": "Current TauCeti.MonoidAlgebra.isLocalRing_of_isPGroup and isLocalHom_lift_one_of_isPGroup, with augmentation and ker_augmentation_eq_span, supply the generic diamond group-ring algebra. The retained R14.6 application is a baseline-integration gap, never a new generic proof. Equation-level Tate data and current twisted singular cohomology remain existing work.",
-    "canonicalOwnership": "The new nodes list is deliberately empty: the required mathematical targets already exist in the accepted canonical packets. imports and importedTargets reference rather than restate those nodes. New coverage and the reader document carry their exact scope. dependencyResolutions are assembly contracts, not edits or new nodes in another job."
+    "canonicalOwnership": "The new nodes list is deliberately empty: the required mathematical targets already exist in the accepted canonical packets. imports and importedTargets reference rather than restate those nodes. New coverage and the reader document carry their exact scope. dependencyResolutions are assembly contracts, not edits or new nodes in another job.",
+    "reviewAdditions": "The independent review found that ReductiveGroupsPartII, now on TauCetiRoadmap main, plans the Bruhat–Tits tree of SL₂ and the local Ihara amalgam, which R14.4/modular-amalgam’s proof sketch constructed again; it is imported through dependencyAdditions together with AdelicAlgebraicGroups AA.4 strong approximation. AdelicAlgebraicGroups’ adelic Hecke correspondences and IntegralHeckeAndGaloisDeterminants’ determinant algebra do not plan the algebraic modular correspondences or the geometric Hecke algebra."
   },
   "restructure": [
     {
@@ -2157,14 +1975,6 @@
       "evidence": "Conrad appendix Theorem 5.16 pp.74–79; accepted RS-06 and RT-AREA-langlands-2/9."
     }
   ],
-  "upstreamNotes": [
-    "The accepted RS-06 dependency order R13.4a→R12.3→R12.6→R13.4b is retained; R13.4 is a process aggregate, never a supplier.",
-    "R13.6 imports the exact lower LPV.7 semistable-curve nodes. R14.6 imports lower R11.3/R11.4 for Tate/graph interfaces. No Weights R34.3 prerequisite is introduced.",
-    "SF.2 is the exact lower finite/local-coefficient étale–Betti comparison request corresponding to the unresolved RS-06 upstream label. DifferentialGeometry’s real de Rham comparison is not that theorem.",
-    "Canonical source nodes remain in their accepted packets. During assembly, apply dependencyResolutions and use this synchronized reader rather than the earlier pre-review reader prose.",
-    "The R14.6→R19.1 weight-two transfer is scoped in links. The R19 owner must import it as an input and retain only the genuinely higher-weight congruence argument.",
-    "The two-added-prime R20 case uses the R13.6 component maps, but the actual quaternionic J′_(pq) character exact sequence remains the R14.6 gap; a rational old/new isogeny cannot fill it."
-  ],
   "statistics": {
     "newNodes": 0,
     "importedNodes": 75,
@@ -2181,7 +1991,520 @@
     "planets": 36,
     "baselineDeclarations": 19,
     "gaps": 9,
-    "requests": 44,
-    "dependencyResolutions": 24
+    "requests": 38,
+    "dependencyResolutions": 35,
+    "dependencyAdditions": 1,
+    "sourceIssues": 0,
+    "inheritedSourceIssues": 10
+  },
+  "inheritedSourceIssues": [
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E1",
+      "kind": "error",
+      "locator": "Gross–Zagier (1986), Chapter III Proposition (1.4), p.255, published scan sha256 8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
+      "affects": "a stated result",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E1"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E2",
+      "kind": "error",
+      "locator": "Bakker–Tsimerman (2016), §2.1–2.2, pp.713–715 (fine-moduli assertion on p.715), published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "affects": "the proof",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E2"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E3",
+      "kind": "error",
+      "locator": "Bakker–Tsimerman (2016), §2.5, p.717, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "affects": "a stated result",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E3"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E4",
+      "kind": "misprint",
+      "locator": "Bakker–Tsimerman (2016), §2.5, pp.716–717, two smooth-locus polygon domains, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "affects": "the proof",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E4"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E5",
+      "kind": "error",
+      "locator": "Bakker–Tsimerman (2016), §2.2, p.715, published PDF sha256 814976eeb93367cf0810bb0f9c514709a6474bfb7202ddb2834d33dd6a25f40a",
+      "affects": "the proof",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E5"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E6",
+      "kind": "error",
+      "locator": "Conrad, author PDF dated 18 July 2006, Theorem 4.3.4 p.38 and the final component clause of Theorem 4.3.6 p.40, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "affects": "a stated result",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E6"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "id": "ModularCurvesPartII/E7",
+      "kind": "error",
+      "locator": "Conrad, author PDF dated 18 July 2006, Example 2.5.1, p.18, sha256 f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "affects": "a stated result",
+      "canonicalReview": "REV-ModularCurvesPartII--R13.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E7"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+      "id": "ModularCurvesPartII/E1",
+      "kind": "misprint",
+      "locator": "Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120",
+      "affects": "nothing",
+      "canonicalReview": "REV-ModularCurvesPartII--R14.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E8"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+      "id": "ModularCurvesPartII/E2",
+      "kind": "misprint",
+      "locator": "Lemma 9.6 proof, arXiv author preprint p. 89; author-hosted Springer-layout PDF p. 122",
+      "affects": "the proof",
+      "canonicalReview": "REV-ModularCurvesPartII--R14.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E9"
+    },
+    {
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R14.3.json",
+      "id": "ModularCurvesPartII/E3",
+      "kind": "misprint",
+      "locator": "Lemma 4.5.11, second displayed invariant dimension and ensuing semisimplification claim: author preprint p. 31; published JAMS offprint p. 663, proof p. 664 and application pp. 664–665",
+      "affects": "a stated result",
+      "canonicalReview": "REV-ModularCurvesPartII--R14.3",
+      "verdict": "confirmed",
+      "formerIdHere": "ModularCurvesPartII/E10"
+    }
+  ],
+  "dependencyAdditions": [
+    {
+      "consumer": "ModularCurvesPartII:R14.4/modular-amalgam",
+      "add": [
+        "ReductiveGroupsPartII:RG2.2/sl2-tree",
+        "ReductiveGroupsPartII:RG2.2/ihara-amalgam",
+        "AdelicAlgebraicGroups:AA.4/strong-approximation-sufficiency",
+        "AdelicAlgebraicGroups:AA.4/strong-approximation-finite-places"
+      ],
+      "replaces": "Proof steps 1–2 (construct the lattice tree, prove it is a tree, identify the adjacent-lattice stabilizers) and the strong-approximation input of step 3.",
+      "reason": "ReductiveGroupsPartII, now a TauCetiRoadmap roadmap (README RG2.2.4, sl2-tree and ihara-amalgam), owns the Bruhat–Tits tree of SL₂ over a nonarchimedean local field, its type-preserving action without inversion and the local amalgam SL₂(ℚ_p)=SL₂(ℤ_p)*_I gSL₂(ℤ_p)g⁻¹. AdelicAlgebraicGroups AA.4 owns strong approximation for simply connected groups with S noncompact. The node keeps only the arithmetic step: density of Γ_N(ℤ[1/p]) in SL₂(ℚ_p) and surjectivity of reduction prime to p give an edge as fundamental domain, and the segment-amalgam theorem presents Γ_N(ℤ[1/p]). Both suppliers are in lower tiers (1 and 2); the same imports are already used by AutomorphyLiftingBeyondTaylorWiles BT.3/global-ihara-amalgam.",
+      "addedBy": "REV-ModularCurvesPartII--R13.4b"
+    }
+  ],
+  "assemblyNotes": [
+    "The accepted RS-06 dependency order R13.4a→R12.3→R12.6→R13.4b is retained; R13.4 is a process aggregate, never a supplier.",
+    "R13.6 imports the exact lower LPV.7 semistable-curve nodes. R14.6 imports lower R11.3/R11.4 for Tate/graph interfaces. No Weights R34.3 prerequisite is introduced.",
+    "SF.2 is the exact lower finite/local-coefficient étale–Betti comparison request corresponding to the unresolved RS-06 upstream label. DifferentialGeometry’s real de Rham comparison is not that theorem.",
+    "Canonical source nodes remain in their accepted packets. During assembly, apply dependencyResolutions and dependencyAdditions and use this synchronized reader rather than the earlier pre-review reader prose.",
+    "The R14.6→R19.1 weight-two transfer is scoped in links. The R19 owner must import it as an input and retain only the genuinely higher-weight congruence argument.",
+    "The two-added-prime R20 case uses the R13.6 component maps, but the actual quaternionic J′_(pq) character exact sequence remains the R14.6 gap; a rational old/new isogeny cannot fill it.",
+    "Own-roadmap stage citations of R12.3, R12.5, R12.6 and R13.2 are resolved to exact nodes of the accepted R12.1 packet; R14.2/rational-coefficient-pairing imports the perfection of the first-coefficient pairing from R12.5/perfect-hecke-pairing and adds only the Jacobian-image identification.",
+    "Source mistakes found in these targets are registered once, in the R13.3 packet (E1–E7) and the R14.3 packet (E1–E3); inheritedSourceIssues lists them. The two packets reuse E1–E3 for different findings; renumbering one set is for their owners."
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ModularCurvesPartII--R13.4b",
+    "date": "2026-10-13",
+    "notes": "This packet owns no nodes: its nine stages are realised by 75 nodes of the accepted R13.3 and R14.3 packets, whose recorded SHA-256 hashes match the current files. Checked: every import ID, stage and kind; the reader against every canonical statement, hypothesis, proof step, acceptance check, API item, test, locator and prerequisite (whitespace-normalized match, all present); all 24 original dependency resolutions against consumer and supplier statements; every request supplier; the nine gaps against the canonical packets; the 19 baseline declarations at Mathlib 082e2d3 and Tau Ceti f790474 (all present with the stated content); the stage texts against the imported targets; RT-AREA-langlands-2/9 on both sides; a node-level cycle scan over all research packets; current TauCetiRoadmap main 0d144d0 and current Tau Ceti a91d3aa for duplication; the reader examples (HNF counts, exact divisors, degeneracy degrees, component counts, the Baran quartic smoothness argument at 2 and the K_(1,3) split-Cartan graph against BDMTV arXiv:1711.05846 Theorems 6.6–6.7 and Corollary 6.8). Corrected: (1) own-roadmap stage citations of R12.3, R12.5, R12.6 and R13.2 resolved to exact nodes of the accepted R12.1 packet (11 new resolutions), withdrawing those four requests; (2) two requests whose supplier was a node the consumer already cites withdrawn; (3) the ordinary-locus inputs of the Eichler–Shimura proof moved from R13.2 to ModularCurves 7E; (4) R14.4/modular-amalgam re-planned the SL₂ tree and local Ihara amalgam that ReductiveGroupsPartII owns: imported with AdelicAlgebraicGroups strong approximation through dependencyAdditions, and the gap narrowed; (5) the ten source-issue records duplicated the canonical R13.3 E1–E7 and R14.3 E1–E3 findings (three under new numbers), so they are listed in inheritedSourceIssues and not registered a second time; (6) upstreamNotes, which concern atlas roadmaps, renamed assemblyNotes; (7) the suggested file’s hollow numeral examples replaced by light definitions with tests. The reader is synchronized with every correction. Requests: 44 to 38; resolutions: 24 to 35.",
+    "checked": [],
+    "importedTargetsChecked": [
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.3 and R12.6 stage citations are resolved to the accepted R12.1 nodes compact-modular-uniformization, tate-and-cusp-parameter-agreement, cusp-fields-and-component-labels, canonical-generic-fibre-descent, component-fields-and-twisted-descent and generic-base-change-and-level-compatibility; the R12.3/R12.6 requests are withdrawn. The level-5 component count (4, then 2 after scalars, 1 after fixing the pairing) was rechecked."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/compactified-map-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.4b/hecke-normalization-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/igusa-components",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/gamma-zero-prime-power-local-model",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/corrected-coarse-singular-locus",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/tame-regular-resolution",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/one-factor-mixed-level-model",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/prime-square-semistable-model",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/split-cartan-semistable-model",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.5/split-cartan-thirteen-good-reduction",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-dual-graphs",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-character-group-interface",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/modular-nearby-cycle-interface",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R13.6/degeneracy-on-components",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/degeneracy-maps-and-hecke-correspondence",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R13.2 citation resolves to gamma-level-structures (mixed Γ₁(N;n) with the disjointness condition), moduli-stacks-are-proper-flat-artin, small-level-and-dm-boundaries and contraction-maps-between-levels. Degrees p+1 and p (N=11,p=2 gives 3; N=10,p=5 gives 5) rechecked."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/diamond-operators",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/atkin-lehner-involution",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/exact-divisor-atkin-lehner",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/full-and-cyclic-correspondences",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/composition-relations-of-correspondences",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/analytic-comparison-of-correspondences",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.6 citation resolves to canonical-generic-fibre-descent and generic-base-change-and-level-compatibility."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/coherent-hecke-trace",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/integral-etale-trace",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.1/projective-boundary-hecke-and-degree",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/jacobian-and-functoriality",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/integral-hecke-algebra",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/weil-pairing-adjointness",
+        "verdict": "corrected",
+        "note": "The node cites AbelianSchemesAndArithmeticModuli:A3/polarized-weil-pairing directly and that accepted node states the alternating, perfect and pullback properties needed, so the duplicate request was withdrawn."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/tate-module-with-galois-and-hecke-actions",
+        "verdict": "corrected",
+        "note": "The node cites ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization directly and that accepted node states exactly the needed implication, so the duplicate request to the node was withdrawn."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/rational-coefficient-pairing",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.5 citation resolves to weight-two-regular-differentials, first-coefficient-hecke-pairing, perfect-hecke-pairing and R12.6/canonical-generic-fibre-descent. The perfection argument duplicates R12.5/perfect-hecke-pairing and is imported; the consumer adds only the Jacobian-image identification."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.2/integral-hecke-realization-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.5 citation resolves to weight-two-regular-differentials and hodge-line-automorphy. The R14.1/R14.2 resolutions use no rank-two input; the node-level graph is acyclic."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/cup-product-petersson",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.5 citation resolves to weight-two-regular-differentials."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/betti-free-rank-two",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/relative-coefficient-system",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R13.2 citation resolves to moduli-stacks-are-proper-flat-artin, small-level-and-dm-boundaries and agreement-with-katz-mazur-schemes (fine Γ₁(N), N≥5, with its universal curve)."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/parabolic-cohomology",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/boundary-exact-sequence",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/integral-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/geometric-hecke-coefficients",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/parabolic-duality",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/boundary-non-eisenstein",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/localized-freeness",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/symbols-geometric-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.3/weight-two-tate-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/degeneracy-cohomology",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/modular-amalgam",
+        "verdict": "corrected",
+        "note": "Duplication corrected by assembly contract: proof steps 1–2 constructed the SL₂ lattice tree and adjacent stabilizers, which ReductiveGroupsPartII (now on TauCetiRoadmap main) owns as RG2.2/sl2-tree and RG2.2/ihara-amalgam; strong approximation is AdelicAlgebraicGroups AA.4. dependencyAdditions imports them and the gap is narrowed to the segment-amalgam theorem and the arithmetic fundamental-edge step. Γ(3) free of rank 3 (index 24, Euler characteristic −2) rechecked for the reader example."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/congruence-subgroup-property",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/lyndon-exact-sequence",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/congruence-classes",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/principal-ihara",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/enhanced-ihara",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/compact-ihara",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/taylor-wiles-root-control",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/newform-hecke-prime",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/modular-quotient",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/quotient-tate-exact",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/modular-quotient-differentials",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/trivial-character-J0",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/oldform-comparison",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/neron-hecke-extension",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+        "verdict": "corrected",
+        "note": "Statement checked against Ribet–Stein author PDF (SHA-256 e1bf2b5c…), Conrad appendix Theorem 5.16, printed p. 74 (PDF p. 78), and its ordinary-locus proof pp. 75–79: (T_p)_*=F+⟨p⟩_*F^∨ and w_ζ⁻¹Fw_ζ=⟨p⟩_*⁻¹F. Assembly contract corrected: the R13.2 citation resolves to the smooth fine X₁(N) nodes of R13.2 plus ModularCurves 7E (PD-2, PD-5), whose request now names this consumer; the ordinary-locus inputs were requested from the wrong owner. RT-AREA-langlands-2/9: AutomorphicGaloisRepresentations R19.1 imports this node and keeps only the Sym^r congruence."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+        "verdict": "corrected",
+        "note": "Assembly contract corrected: the R12.3 and R13.2 citations resolve to cusp-fields-and-component-labels, R12.6/canonical-generic-fibre-descent, gamma-level-structures and agreement-with-katz-mazur-schemes."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/supersingular-character-lattice",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/modular-monodromy",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/character-degeneracy-sequences",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/semistable-tate-interface",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/taylor-wiles-cover",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/taylor-wiles-freeness",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/augmentation-control",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.6/diamond-group-ring-local",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      },
+      {
+        "nodeId": "ModularCurvesPartII:R14.4/congruence-invariance",
+        "verdict": "verified",
+        "note": "Identity, kind, title and unchecked status match the accepted canonical packet at the recorded hash; the reader states its statement, hypotheses, proof route, acceptance checks, API, tests and locators verbatim from that packet; every prerequisite ends in a canonical node, a baseline declaration read at the pins, a resolved exact node, a recorded request or a recorded gap."
+      }
+    ]
   }
 }

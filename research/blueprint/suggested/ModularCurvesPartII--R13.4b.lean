@@ -41,14 +41,34 @@ The component and cusp-field comparisons are geometric reader targets.
 
 /-! ## Layer R13.5: bad fibres and regular/semistable models -/
 
-/-- Ramification in the stated prime-square nodal extension at level 13. -/
-example : ((13 : ℕ) ^ 2 - 1) / 2 = 84 := by decide
+/-- Ramification index of the extension over which Edixhoven's model of X₀(ℓ²), and its
+quotient X_s(ℓ), become semistable: ϖ^(ℓ²−1)=ℓ² (BDMTV Theorem 6.7). -/
+def splitCartanRamificationIndex (ℓ : ℕ) : ℕ := (ℓ ^ 2 - 1) / 2
 
-/-- The K_(1,3) split-Cartan graph has no independent cycle. -/
-example : 1 * 3 + 1 - (1 + 3) = (0 : ℕ) := by decide
+/-- For ℓ=12k+1 this is Edixhoven's exponent 12k(6k+1) (BDMTV Theorem 6.6). -/
+theorem splitCartanRamificationIndex_eq (k : ℕ) :
+    splitCartanRamificationIndex (12 * k + 1) = 12 * k * (6 * k + 1) := by
+  sorry
 
-/-- Its surviving central component has genus three. -/
-example : ((1 : ℕ) - 1) * (3 * 1 - 2) / 2 + 3 * 1 = 3 := by decide
+/-- Level 13: the extension has ramification index 84 (BDMTV Corollary 6.8). -/
+example : splitCartanRamificationIndex 13 = 84 := by decide
+
+/-- Arithmetic genus of the semistable fibre of X_s(ℓ), ℓ=12k+1 (BDMTV Theorem 6.7): k horizontal
+components of genus 3k, two Ig(ℓ)/C₄ components of genus (k−1)(3k−2)/2, one rational component,
+and the dual graph K_(k,3), whose first Betti number is 3k−(k+3)+1. -/
+def splitCartanFibreGenus (k : ℕ) : ℕ :=
+  k * (3 * k) + 2 * ((k - 1) * (3 * k - 2) / 2) + (3 * k + 1 - (k + 3))
+
+/-- The fibre genus is the genus 6k²−3k of X_s(ℓ). -/
+theorem splitCartanFibreGenus_eq (k : ℕ) (hk : 1 ≤ k) :
+    splitCartanFibreGenus k = 6 * k ^ 2 - 3 * k := by
+  sorry
+
+/-- Level 13: one genus-3 component on the tree K_(1,3) and three rational leaves, so genus 3. -/
+example : splitCartanFibreGenus 1 = 3 := by decide
+
+/-- ℓ=37 (k=3): genus 45; dropping the four independent cycles of K_(3,3) would give 41. -/
+example : splitCartanFibreGenus 3 = 45 := by decide
 
 /-! ## Layer R13.6: boundary and degeneration outputs
 
