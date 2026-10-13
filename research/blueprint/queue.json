@@ -32053,8 +32053,9 @@
    ],
    "avoidAccountOf": "BP-HeightsRationalPointsAndObstructions",
    "prompt": "research/blueprint/prompts/REV-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #539"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #539",
+   "finishedAt": "2026-10-13T10:26:34Z"
   },
   {
    "id": "BP-LogicAndDefinabilityInNumberTheory",
@@ -52314,7 +52315,8 @@
     "PKG-DeformationAndDerivedPatchingAlgebraPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9208"
   },
   {
    "id": "PKG-DeligneWeightsAndPurity",
@@ -55274,8 +55276,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9184"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9184",
+   "finishedAt": "2026-10-13T10:26:37Z"
   },
   {
    "id": "REV-PKG-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -55890,7 +55893,8 @@
     "PKG-SelmerIwasawaCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SelmerIwasawaCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #8897"
   },
   {
    "id": "PKG-SemisimpleAlgebrasPartII",
