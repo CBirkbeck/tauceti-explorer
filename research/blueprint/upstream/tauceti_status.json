@@ -188,11 +188,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "ec1358d",
       "review": {
-        "recommendation": "approve",
-        "head": "88de410",
+        "recommendation": "changes",
+        "head": "ec1358d",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head ec1358d differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     }
   }
