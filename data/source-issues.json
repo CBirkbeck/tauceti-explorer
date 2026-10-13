@@ -198571,6 +198571,63 @@
    "reviewReason": null
   },
   {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E15",
+   "kind": "misprint",
+   "locator": "§5, p. 14 (arXiv v3)",
+   "printed": "The group law on G^L_{a,b}(A) = {f ∈ L ⊗ A : f^{⊗2} = a ⊗ f} is printed as f₁ ⋆ f₂ = f₁ + f₂ + b ⊗ f₁ ⊗ f₂.",
+   "correction": "f₁ ⋆ f₂ = f₁ + f₂ − b ⊗ f₁ ⊗ f₂, as in Oort–Tate.",
+   "reason": "With a = 1, b = 2 over ℤ and f = g = 1 the printed law gives 4, which is not idempotent; with the minus sign f ⋆ f = 0.",
+   "affects": "a stated result",
+   "known": "recorded in the paper extraction PAPER-SCHROER-23 (E5)",
+   "searched": [
+    "https://arxiv.org/abs/2004.07025"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "Stefan Schröer, There is no Enriques surface over the integers, Ann. of Math. 197 (2023), no. 1; arXiv:2004.07025v3, accessed 2026-10-13",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E16",
+   "kind": "misprint",
+   "locator": "§2.1, Theorem 2.1.1, first sentence, p. 10 (arXiv v3)",
+   "printed": "The equivalence is written H ↦ M(T_p(H^∨)), and then abbreviated M(H) := M(T_p(H)^∨).",
+   "correction": "H ↦ M(T_p(H)^∨) throughout; T_p(H^∨) ≅ T_p(H)^∨(1) differs by a Tate twist.",
+   "reason": "Only M(T_p(H)^∨) lands in Breuil–Kisin modules of E-height 1 (for H = ℚ_p/ℤ_p the other choice gives 𝔖{1}). The same proof notes that Kisin 2010, Theorem 1.4.2, is off by a twist.",
+   "affects": "a stated result",
+   "known": "recorded in the paper extraction PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 (issue E9)",
+   "searched": [
+    "https://arxiv.org/abs/1508.00178v3"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "Fabrizio Andreatta, Eyal Z. Goren, Benjamin Howard, Keerthi Madapusi Pera, Faltings heights of abelian varieties with complex multiplication, Ann. of Math. 187 (2018), no. 2; arXiv:1508.00178v3, accessed 2026-10-13",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E17",
+   "kind": "gap",
+   "locator": "§6.3.3, proof of Lemma 6.3.3.1, pp. 31–32",
+   "printed": "The proof takes the long exact cohomology sequence of a short exact sequence of complexes relating V*_G and V*_{G^D}.",
+   "correction": "State that the middle row (ω_{G^D}^∨)^{(p)} → 𝓔 → ω_G^{(p)} is exact (ker F* = ω_G^{(p)} = im V*, ker V* = im F*), which identifies the cohomology of the outer rows.",
+   "reason": "Without the exactness of the middle row the long exact sequence does not relate the two Hasse–Witt maps.",
+   "affects": "the proof",
+   "known": "recorded in the paper extraction PAPER-PILLONI-20",
+   "searched": [
+    "the author's copy of the paper"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "Vincent Pilloni, Higher coherent cohomology and p-adic modular forms of singular weights, Duke Math. J. 169 (2020); author's copy (cleared copy in the maintainer's library), read 2026-10-13",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FunctionFieldArithmetic/E1",
    "kind": "misprint",
    "locator": "arXiv:1011.3392v1, §2.2, p.9, displayed pairing; printed page image checked",
