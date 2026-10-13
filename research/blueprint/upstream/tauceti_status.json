@@ -48,13 +48,13 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "f68f3bc",
+      "head": "792f649",
       "review": {
-        "recommendation": "changes",
-        "head": "70542d8",
-        "current": false,
+        "recommendation": "approve",
+        "head": "f68f3bc",
+        "current": true,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 70542d8: one finding (B1), repaired at f68f3bc and re-stacked on #785; awaiting re-review"
+        "note": "maintainer re-review at f68f3bc: B1 resolved, no substantive blocker; wording note applied at 792f649"
       }
     },
     "SmoothRepresentationsOfLocalGroups": {
@@ -115,7 +115,7 @@
         "head": "9fd29bb",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 9fd29bb: two findings (G01, G02), repaired at 48ec6c1; awaiting re-review"
+        "note": "maintainer (GPT-assisted) review at 9fd29bb: two findings (G01, G02), repaired at 48ec6c1; awaiting re-review | re-review 07:17Z: further findings, fix in progress"
       }
     },
     "DiamondsAndVStacks": {
@@ -131,7 +131,7 @@
         "head": "9d958d1",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer review repairs at 5255043; head 4a6c8e2 differs only by re-stacks on the parents"
+        "note": "maintainer review repairs at 5255043; head 4a6c8e2 differs only by re-stacks on the parents | re-review 07:17Z: further findings, fix in progress"
       }
     },
     "PerfectoidSpaces": {
