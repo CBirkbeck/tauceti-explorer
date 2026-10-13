@@ -488,6 +488,30 @@
         "date": null,
         "note": "opened 2026-10-13 13:45Z; awaiting first review"
       }
+    },
+    "LefschetzPencilsAndVanishingCycles": {
+      "stage": "pr",
+      "pr": 873,
+      "head": "4050684",
+      "depends_on": [
+        779,
+        792,
+        856,
+        853,
+        850,
+        858,
+        852,
+        849,
+        848
+      ],
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 13:55Z; awaiting first review"
+      }
     }
   }
 }

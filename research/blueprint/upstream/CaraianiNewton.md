@@ -81,7 +81,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
   - **AdicCoefficientsAndComparisons** — Adic coefficients and comparison with schemes. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: DiamondSixOperations (13), DiamondEtaleCohomology (12)
   - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 5/5 accepted · package not yet · CN needs 10/10 layers · cites outside the 94: TropicalAndBerkovichArithmetic (20)
   - **EtaleDualityAndPerverseSheaves** — Étale duality, cycle classes and perverse sheaves. Plan 1/2 accepted · package not yet · CN needs 13/13 layers · move down: DeligneWeightsAndPurity (15)
-  - **LefschetzPencilsAndVanishingCycles** — Lefschetz pencils, nearby cycles and vanishing cycles. Plan 2/2 accepted · package not yet · CN needs 9/10 layers · move down: DeligneWeightsAndPurity (13), IgusaVarietiesAndTorsionConcentration (2) · cites outside the 94: FunctionFieldArithmetic (2)
+  - **LefschetzPencilsAndVanishingCycles** — Lefschetz pencils, nearby cycles and vanishing cycles. Plan 2/2 accepted · package not yet · CN needs 9/10 layers · **Tau Ceti: pull request #873 open** · move down: DeligneWeightsAndPurity (13), IgusaVarietiesAndTorsionConcentration (2) · cites outside the 94: FunctionFieldArithmetic (2)
 
 ## Tier 11
 
