@@ -109,7 +109,7 @@
         "ref": "mathlib:groupHomologyIsoTor",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
-        "provides": "Discrete group homology is Tor over the ordinary group ring; not completed tensor over an Iwasawa ring.",
+        "provides": "Discrete group homology is Tor in Rep with its tensor product; the ordinary group-ring interpretation requires its standard adapter, and this is not continuous completed Tor.",
         "checked": "Statement and relevant type hypotheses read at the pinned commit on 2026-10-13; checked against declarations.tsv."
       },
       {
@@ -200,7 +200,7 @@
     },
     {
       "id": "Marshall",
-      "title": "Bounds for the multiplicities of cohomological automorphic forms on GL₂",
+      "title": "Bounds for the multiplicities of cohomological automorphic forms on SL₂",
       "authors": "Simon Marshall",
       "edition": "Annals175 (2012),1629–1651; published PDF",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v175-n3-p13-p.pdf",
@@ -219,7 +219,7 @@
       "url": "https://arxiv.org/pdf/2201.11190v2",
       "accessed": "2026-10-13",
       "readSections": [
-        "§7, equations (37)–(39), pp.23–24"
+        "§7, equations (37)–(38) and the completed-homology torsion bullet, pp.23–24"
       ],
       "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614"
     },
@@ -227,14 +227,14 @@
       "id": "BP",
       "title": "Higher Hida theory for Siegel modular forms",
       "authors": "George Boxer and Vincent Pilloni",
-      "edition": "HAL published version, Inventiones244 (2026); cite printed author pagination",
-      "url": "https://hal.science/hal-05409187/document",
+      "edition": "65-page author PDF fetched 13 October 2026; cite its printed pages",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf",
       "accessed": "2026-10-13",
       "readSections": [
         "§1.4, Definition 1.4.1 and Remark 1.4.2, pp.4–5",
         "§5.4, Lemmas 5.4.1–5.4.2 and their proofs; Theorem 5.5.2 twist, pp.56–57"
       ],
-      "sha256": "8dbee1257b5fc93160e2c0dd9b7b8afafe12dca009d9174d72272d6d5d4651d6"
+      "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6"
     },
     {
       "id": "Nakamura",
@@ -326,10 +326,10 @@
       ],
       "kind": "definition",
       "title": "Arithmetic level index",
-      "statement": "Use the compact opens K_p of H=G(F_p), ordered by refinement: an arrow K→L means K⊂L, and the cohomology diagram is on the opposite category. Include transport arrows K→gKg⁻¹ labelled by g, with their composition law. At fixed compact K_0 choose a descending countable normal open basis U_r; after passing to an open uniform subgroup it can be pro-p. A sequence is cofinal only inside its compact open, while full H-actions use all levels and conjugation.",
+      "statement": "Use the compact opens K_p of H=G(F_p), ordered by refinement: an arrow K→L means K⊂L, and the cohomology diagram is on the opposite category. Include geometric transport arrows K→gKg⁻¹ labelled by g, with their composition law. A fixed coefficient lattice has same-lattice transport only for H_int; other g transport W_0 to g⁻¹W_0 and act on the rational coefficient tower after lattice comparison. At fixed compact K_0 choose a descending countable normal open basis U_r; after passing to an open uniform subgroup it can be pro-p. A sequence is cofinal only inside its compact open, while full H-actions use all levels and conjugation.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.0",
@@ -417,7 +417,7 @@
       "statement": "Assemble the ALS finite-level ordinary C_{K,s}, compact-support C^c_{K,s} and boundary B_{K,s} into one diagram of complexes with pullback in p-level and coefficient reduction in s. The ALS boundary triangle is part of this diagram, including its connecting arrow. Keep trace as a separate reverse-level natural system. Ordinary homology uses covering pushforward; compact support uses proper pullback and trace. These actual diagrams retain coefficient lattices, real component groups and orientation systems.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/arithmetic-level-index",
@@ -512,10 +512,10 @@
       ],
       "kind": "theorem",
       "title": "Conjugation and tame coherence",
-      "statement": "The ALS pullback, trace and conjugation maps on the actual tower satisfy identity and composition, commute with coefficient reduction and support maps, and commute with tame Hecke operators when tame levels agree at their support. For a tame level change use the common correspondence refinement, without identifying different spherical Hecke generators at ramified levels.",
+      "statement": "The ALS pullback, trace and permitted coefficient-transport/conjugation maps on the actual tower satisfy identity and composition, commute with coefficient reduction and support maps, and commute with tame Hecke operators when tame levels agree at their support. Same-lattice integral conjugation uses H_int; translations outside it are maps between transported lattices, not endomorphisms of the fixed integral system. For a tame level change use the common correspondence refinement, without identifying different spherical Hecke generators at ramified levels.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -536,7 +536,7 @@
       ],
       "proofSteps": [
         "Apply the imported ALS correspondence composition to each (K,s).",
-        "Check a common intersection for every conjugation/trace square, using the same integral coefficient action.",
+        "Check a common intersection for every conjugation/trace square. Preserve the chosen lattice for H_int, and explicitly transport it to g⁻¹W_0 for other g before rational comparison.",
         "Retain this natural transformation on the enhanced tower."
       ],
       "acceptance": [
@@ -560,7 +560,7 @@
       "statement": "At a level with torsion stabilizers, assemble the supplied ALS groupoid or derived group-cohomology model. A neat normal refinement with deck group Q descends by RΓ(Q,−), including Q-torsion cohomology. Coarse quotient cohomology is substituted only under the supplied comparison hypotheses; a cofinal neat tower does not remove stabilizers from a fixed non-neat level.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -605,7 +605,7 @@
       "statement": "Construct the assembled tower on neat modular curves using R14.3 and on an anisotropic compact arithmetic quotient using ALS.0–ALS.2. Check pullback, trace, conjugation, supports and orientation against their finite-level maps. At a regular degree-d cover the composite trace after pullback is d; on the modular curve the boundary is the actual cusp incidence diagram; on the anisotropic quotient it is empty.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -652,7 +652,7 @@
       "statement": "For s≥1 and support *=ordinary,c,boundary define A^n_{*,s}=colim_K H^n(C^*_{K,s}) under pullback, and A^•_{*,s}=colim_K C^*_{K,s} in complexes. Exact filtered colimits identify H^n(A^•_{*,s}) with A^n_{*,s}. Give the former cohomology modules the discrete topology at fixed exponent; finite exponent does not mean finite cardinality.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -747,10 +747,10 @@
       ],
       "kind": "theorem",
       "title": "Smooth local-group action",
-      "statement": "Transport representatives by g and the CC.0 conjugation dictionary to define a left H-action on A^n_{*,s}; right geometric translation is converted using g⁻¹. Every class coming from level K is fixed by a compact open subgroup contained in K and in the stabilizer of its finite coefficient data. Thus A^n_{*,s} is smooth for the full H, independently of the chosen normal basis.",
+      "statement": "For a specified coherent full-H-equivariant integral coefficient system, transport representatives by g and the CC.0 conjugation dictionary to define a left H-action on A^n_{*,s}; right geometric translation is converted using g⁻¹. Every finite-level class has an open stabilizer after shrinking to fix its finite coefficient data, so this action is smooth independently of a normal basis. For a fixed K_0-stable algebraic lattice W_0 the same argument gives only a smooth H_int=Stab_H(W_0) action on the fixed integral colimit. General g change the lattice; CC.2/CC.6 supply the full-H action only after rational lattice comparison.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -760,13 +760,13 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "§2.2, Lemmas 2.2.4,2.2.10 and Theorem 2.2.11, pp.28–32",
-          "match": "Untwisting coefficients and translating levels give the arithmetic action."
+          "locator": "§2.2, Lemmas 2.2.4,2.2.8–2.2.10 and Theorem 2.2.11, pp.28–32",
+          "match": "The integral stabilizer preserves its lattice; other translations vary the lattice and give the rational action."
         },
         {
           "sourceId": "CE",
           "locator": "§1.5, p.7",
-          "match": "The completed objects have the full local-group action, not just K_0."
+          "match": "The trivial-coefficient completed objects have the full local-group action, not just K_0."
         }
       ],
       "proofSteps": [
@@ -776,7 +776,8 @@
       ],
       "acceptance": [
         "For the regular-function model (g f)(x)=f(xg) is a left action.",
-        "A coefficient action may require a smaller stabilizer than the level subgroup."
+        "A coefficient action may require a smaller stabilizer than the level subgroup.",
+        "For H=Q_p^× and W_0=O with the standard character, p does not act on W_0/varpi^s by a lattice automorphism; the fixed integral colimit has no such full-H action."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -798,7 +799,7 @@
       "statement": "The ALS tame double-correspondence maps induce O/varpi^s-linear endomorphisms of A^n_{*,s} and of its actual complex, commute with the H-action, and obey the imported convolution/composition law. These are transported actions; the completed Hecke image algebra and its residual factors belong to the accepted CC.8 packet.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -843,7 +844,7 @@
       "statement": "On the tower, res followed by cor at a finite covering U⊂K gives cor∘res=[K:U]; when U is normal, res∘cor=Σ_{a∈K/U}a. The corresponding maps induced on fixed-exponent colimits and descent diagrams use these same formulas. No division by [K:U] is made over O/varpi^s or O; Mackey compatibility is inherited with the supplied coefficients.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -888,7 +889,7 @@
       "statement": "For K^{p′}⊂K^p assemble pullback A_{s}(K^p)→A_s(K^{p′}) and trace in reverse. Form the filtered tame colimit when a consumer requests it, retaining smoothness away from p and its component convention. Changing tame level is a different diagram from completion in s; interchange with inverse limit in s requires its own comparison.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -979,7 +980,7 @@
       "statement": "Define H̃^n_*(K^p,O)=lim_{s≥1} A^n_{*,s} with coefficient-reduction transitions, as the existing topological-module limit of discrete A^n_{*,s}. It is a compatible-family module with projection-induced topology. Do not assert yet that this topology is the varpi-adic topology, or that its reduction is A^n_{*,s}.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -1073,7 +1074,7 @@
       "statement": "For the enhanced ordinary, compact-support and boundary complex diagram define 𝒞_*=Rlim_s A^•_{*,s} in D(O). Use the supplied countable homotopy-limit model Cone(1−shift:∏_s A^•_{*,s}→∏_s A^•_{*,s})[−1], with its projection cone and coherent actions. This is a derived object distinct from H̃^n_*.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -1167,7 +1168,7 @@
       "statement": "For each n the supplied countable derived limit gives 0→lim¹_s A^{n−1}_{*,s}→H^n(𝒞_*)→H̃^n_*→0, naturally for support, Hecke, conjugation and coefficients. The last arrow is an isomorphism when {A^{n−1}_{*,s}} is ML. For a degreewise-surjective complex representative this specializes to R02.1/milnor-sequence; ML of terms alone does not imply ML of cohomology.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/derived-completed-tower",
@@ -1211,7 +1212,7 @@
       "statement": "For a bounded cochain complex S^• of Emerton-admissible integral K_0-modules (complete separated varpi-adic modules, bounded varpi-torsion, rationalization admissible), the system {H^n(S)/varpi^s}→{H^n(S/varpi^s)} has essentially-null kernel and cokernel: each fixed target index is killed by a sufficiently subsequent transition. Hence H^n(S)≅lim_s H^n(S/varpi^s) as integral topological modules; the tower constructed from finite lifted cells has such a model by CC.4. This is not a fixed-s reduction isomorphism.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/derived-completed-tower",
@@ -1247,10 +1248,10 @@
       ],
       "kind": "theorem",
       "title": "Adic topology and continuous actions",
-      "statement": "When the coefficient system comes from the CC.4 finite-cell admissible model and the preceding strict pro-system control applies, H̃^n_* is varpi-adically separated and complete with bounded varpi-torsion, and its coefficient projection topology agrees with its varpi-adic topology. The H-action and transported Hecke endomorphisms are continuous; joint H×H̃ continuity follows from smoothness of every discrete coefficient quotient and the topology comparison.",
+      "statement": "When the coefficient system comes from the CC.4 finite-cell admissible model and the preceding strict pro-system control applies, H̃^n_* is varpi-adically separated and complete with bounded varpi-torsion, and its coefficient projection topology agrees with its varpi-adic topology. The H_int-action and transported Hecke endomorphisms are continuous; for a coherent full-H-equivariant integral system H_int may be replaced by H. Joint H_int×H̃ continuity follows from smoothness of every discrete coefficient quotient and the topology comparison.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
@@ -1296,7 +1297,7 @@
       "statement": "Put B^n_*=colim_K H^n(C^*_{K,O}) under pullback. Define Ĥ^n_*=lim_s B^n_*/varpi^s and T_varpi B^n_*=lim_s B^n_*[varpi^s] with transition multiplication by varpi, not inclusion or reduction. These modules are separate from H̃. The Tate module is varpi-torsion-free; a divisible part of B is killed by completion but its divisible torsion may contribute to T_varpi.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -1390,7 +1391,7 @@
       "statement": "For the finite-projective coefficient lattice and actual finite-cell UCT tower, 0→Ĥ^n_*→H̃^n_*→T_varpi B^{n+1}_*→0 is exact and natural for the supplied support/Hecke maps. If the varpi-torsion exponents of all finite-level H^{n+1} are uniformly bounded, the last term vanishes. No boundedness conclusion follows from each individual level being finite.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/completion-and-tate-module",
@@ -1437,7 +1438,7 @@
       "statement": "After the integral admissible-complex comparison identifies H̃^n with H^n(S), derived reduction gives 0→H̃^n/varpi^s→A^n_s→H̃^{n+1}[varpi^s]→0. The reduction map is an isomorphism only when the next-degree torsion term vanishes. For an arbitrary coefficient tower lacking that comparison, use 𝒞⊗ᴸ O/varpi^s and its separate base-change map to A^•_s, with the Milnor error retained.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra.",
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients).",
         "The controlled integral cochain model S is O-flat and its derived reduction S⊗ᴸ_O O/varpi^s identifies with the actual fixed-exponent tower cochain complex, compatibly for all s. These comparisons are proved using CC.4, not inferred from cohomological completeness."
       ],
       "prerequisites": [
@@ -1481,10 +1482,10 @@
       ],
       "kind": "construction",
       "title": "Unitary Banach completion",
-      "statement": "Under the topology and bounded-torsion theorem put L=H̃^n_*/H̃^n_*[varpi^∞] with its complete separated varpi-adic topology and B=L⊗_O E. The gauge norm with unit ball L makes B a unitary E-Banach representation for trivial coefficient action, or for a specified full-H-stable lattice. For algebraic nonunitary coefficients assert continuity and compact-open admissibility, not full-H unitarity. General Banach and Schikhof categories are imported from the foundational owner.",
+      "statement": "Under the topology and bounded-torsion theorem put L=H̃^n_*/H̃^n_*[varpi^∞] with its complete separated varpi-adic topology and B=L⊗_O E. The gauge norm with unit ball L makes B a unitary E-Banach representation for trivial coefficient action, or for a specified full-H-stable lattice. For algebraic coefficients the full-H action is constructed by maps between commensurable transported lattices, using E06 Lemmas 2.2.8–2.2.10; the resulting rational representation is continuous and compact-open admissible once CC.5 applies. Full-H unitarity still requires a full-H-stable lattice. General Banach and Schikhof categories are imported from the foundational owner.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions",
@@ -1493,7 +1494,7 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Lemma 2.1.4, Theorem 2.1.5 and §2.2 Theorem 2.2.11, pp.21–24,31–32",
+          "locator": "Lemma 2.1.4, Theorem 2.1.5, pp.21–24; Lemmas 2.2.8–2.2.10 and Theorem 2.2.11, pp.30–32",
           "match": "The complete torsion-free lattice gives the Banach space; algebraic coefficient translations require lattice transport."
         },
         {
@@ -1505,7 +1506,7 @@
       "proofSteps": [
         "Quotient by bounded torsion and use completeness of the torsion-free lattice.",
         "Apply the supplied nonarchimedean gauge completion theorem and stable-lattice unitary criterion.",
-        "For coefficient twists check which group preserves the chosen lattice."
+        "For algebraic coefficients use E06 Lemmas 2.2.8–2.2.10: inclusions between commensurable lattices induce bounded maps and inverse rational isomorphisms. Transport W_0 to g⁻¹W_0, check the group law and continuity near the identity in H_int, and only then obtain the full-H rational action."
       ],
       "acceptance": [
         "Unitarity is conditional on a stable lattice.",
@@ -1535,7 +1536,7 @@
         {
           "name": "banach_change_lattice",
           "role": "equivalence",
-          "statement": "Commensurable lattices give equivalent norms and the same rational topological representation."
+          "statement": "Commensurable lattices give inverse rational comparison maps and equivalent norms by E06 Lemmas 2.2.8–2.2.10. Combining these with g-induced lattice transport gives the same rational topological H-representation."
         }
       ],
       "tests": [
@@ -1577,7 +1578,7 @@
       "statement": "For a compact Hausdorff linearly topologized O-module M set D_t(M)=Hom_cont,O(M,E/O), with discrete topology, and D_O(M)=Hom_cont,O(M,O), with the uniform varpi-adic topology. For a discrete varpi-primary torsion module V, D_t(V)=Hom_O(V,E/O) has pointwise compact topology. For a complete separated torsion-free varpi-adic lattice L, D_O(L)=Hom_O(L,O) has pointwise compact topology. A left action on the source gives a right transpose action (f·g)(m)=f(gm); applying inversion gives the left contragredient (g f)(m)=f(g⁻¹m). Never identify these two conventions without the anti-involution.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
@@ -1606,7 +1607,8 @@
       "proofSteps": [
         "Specialize native continuous linear maps and characters to the coefficient targets.",
         "Use finite quotients to put the compact/discrete dual topologies on the torsion pair.",
-        "Compare additive E/O-valued O-characters with the native Circle-valued Pontryagin carrier through a specified additive character; keep the O-linear structure separately."
+        "Compare additive E/O-valued O-characters with the native Circle-valued Pontryagin carrier through a specified additive character; keep the O-linear structure separately.",
+        "Compare inverse precomposition with Representation.dual on the O-valued algebraic dual, restricting to continuous maps; do not identify the E/O-valued carrier with that O-valued dual."
       ],
       "acceptance": [
         "A direct transpose action is right-handed.",
@@ -1636,7 +1638,7 @@
         {
           "name": "towerDual_native",
           "role": "compatibility",
-          "statement": "Its underlying algebraic left representation agrees with Representation.dual; its continuous subspace and topology are additional data."
+          "statement": "The O-valued continuous dual embeds equivariantly in Module.Dual O M with the inverse-precomposition action of Representation.dual. The E/O-valued dual shares this action formula but is not Module.Dual O M; its coefficient target and topology require a separate adapter."
         }
       ],
       "tests": [
@@ -1675,10 +1677,10 @@
       ],
       "kind": "theorem",
       "title": "Qualified tower biduality",
-      "statement": "Evaluation identifies M≅D_tD_tM for compact Hausdorff linearly topologized varpi-primary inverse limits of finite O-modules, and V≅D_tD_tV for discrete varpi-primary torsion modules. It also identifies M≅D_OD_OM for torsion-free compact O-modules and L≅D_OD_OL for complete separated torsion-free varpi-adic O-lattices, with the two dual topologies of the definition. No O-dual biduality is asserted for a module with torsion or with a different topology.",
+      "statement": "Evaluation identifies M≅D_tD_tM for compact Hausdorff linearly topologized inverse limits of finite varpi-primary O-modules, and V≅D_tD_tV for discrete varpi-primary torsion modules. It also identifies M≅D_OD_OM for torsion-free compact O-modules and L≅D_OD_OL for complete separated torsion-free varpi-adic O-lattices, with the two dual topologies of the definition. No O-dual biduality is asserted for a module with torsion or with a different topology.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
@@ -1725,7 +1727,7 @@
       "statement": "Define H̃_n=lim_U H_n(Y_{UK^p},O) under covering pushforward, and H̃_n^{BM}=lim_U H_n^{BM}(Y_{UK^p},O) under proper pushforward, with their compact projective-limit topologies at finite-type neat levels. At fixed s put H̃_{n,s}=lim_U H_n(Y_{UK^p},O/varpi^s), with the BM variant. These are separate from reductions H̃_n/varpi^s until the Bockstein theorem is applied. Over a Borel–Serre pair, BM is computed by its relative chains, not by forgetting the boundary.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -1823,15 +1825,15 @@
       ],
       "kind": "theorem",
       "title": "Completed group-algebra action",
-      "statement": "The continuous K_0-action on each completed homology module extends uniquely to a continuous left action of Λ_O(K_0)=O[[K_0]], supplied by L1. On the compact dual of a cohomology lattice use the right transpose action and the inversion anti-isomorphism Λ→Λ^op to obtain this left convention. At quotient (U,s), [g] acts by the actual deck transformation g. This is an action on the existing inverse-limit carrier, not a new completed group algebra.",
+      "statement": "For completed homology with its compact Hausdorff totally disconnected topological O-module structure and continuous O-linear K_0-action, import TauCeti.IsCompactModule.completedGroupAlgebraModule to obtain the continuous left action of Λ=TauCeti.completedGroupAlgebra O K_0. This existing current-library construction is not planned again. Identify Λ=lim_U O[K_0/U] with lim_{U,s}(O/varpi^s)[K_0/U] using completeness of O and the finite free coefficient modules, compatibly with the normal basis and its topology. On the compact dual use the right transpose action and the inversion anti-isomorphism Λ→Λ^op. At quotient (U,s), [g] acts by the actual deck transformation g. Uniqueness among continuous O-linear extensions follows by the density of finite O-linear combinations of group elements.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
       ],
       "sources": [
         {
@@ -1846,9 +1848,9 @@
         }
       ],
       "proofSteps": [
-        "Use continuous compact module actions and the universal completed-ring action from L1.",
-        "Verify each finite group-ring quotient by the actual deck map.",
-        "Check the anti-involution square for paired cochains and chains."
+        "Verify the arithmetic inverse limit satisfies TauCeti.IsCompactModule O M and that the K_0-action is jointly continuous and commutes with O-scalars; install the existing structure with letI := hM.completedGroupAlgebraModule K_0.",
+        "Use completedSMul_of, mkQ_completedSMul and continuousSMul_completedGroupAlgebraModule for the finite action and continuity. Compare the single-index native ring with the two-index coefficient presentation by finite-rank O-adic completeness and commuting compatible limits.",
+        "Use completedGroupAlgebra.dense_span_range_of to prove uniqueness of continuous extensions. Check inversion and the paired chain/cochain deck actions; no generic completed-ring or compact-module constructor is added."
       ],
       "acceptance": [
         "For S₃, the product [g][h] acts in the order gh.",
@@ -1874,7 +1876,7 @@
       "statement": "For finite-cell towers with compatible finite-projective coefficients and their duals, evaluation identifies A^n_k≅Hom_cont,k(H̃_{n,k},k) and H̃_{n,k}≅Hom_k(A^n_k,k), including compact-support/BM. The coefficient triangle and completed chain comparison give 0→H̃_n/varpi→H̃_{n,k}→H̃_{n−1}[varpi]→0. With nontrivial coefficient lattice replace one coefficient system by its O-linear dual. This is algebraic UCT duality, not dimension-shifting Poincaré duality.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
@@ -1922,7 +1924,7 @@
       "statement": "For the finite-cell completed chain model over noetherian Λ with the strict integral control established in CC.2, there are natural exact sequences 0→Hom_cont,O(H̃_{n−1}[varpi^∞],E/O)→H̃^n→Hom_cont,O(H̃_n,O)→0 and 0→Hom_O(H̃^{n+1}[varpi^∞],E/O)→H̃_n→Hom_O(H̃^n,O)→0, with the compact-support/BM analogues and dual coefficient lattice when needed. The first E/O-dual takes the torsion submodule, correcting CE Theorem 1.1(3). Each cohomology lattice uses varpi-adic topology; compact homology uses its canonical topology.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
@@ -1974,7 +1976,7 @@
       "statement": "Under the strict complete-lattice hypotheses of the integral completed UCT, dualizing 0→Ĥ^n→H̃^n→T_varpi B^{n+1}→0 gives 0→D_O(T_varpi B^{n+1})→H̃_n/H̃_n[varpi^∞]→D_O(Ĥ^n)→0. Surjectivity of the last map uses the complete torsion-free quotient and the qualified Schikhof duality; it is not exactness of Hom(−,O) on arbitrary O-modules.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.2/completion-and-tate-module",
@@ -2015,7 +2017,7 @@
       "statement": "For a profinite K_0, an integral admissible complex of amplitude [a,b] means a complex represented in degrees [a,b] by finite direct summands of C(K_0,O)^{n_i}, with uniform varpi-adic topology and the continuous regular action. Duals are compact Λ-modules with transpose right action; convert by inversion when a left category is desired. If K_0 is pro-p and Λ is local, finite projectives are free and these terms may be taken as C(K_0,O)^{n_i}. This termwise notion is stronger than admissibility of cohomology.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
@@ -2105,7 +2107,7 @@
       "statement": "Degreewise continuous O-duality induces an anti-equivalence between the integral admissible complexes just defined and perfect complexes of compact right Λ-modules, changing amplitude [a,b] to [−b,−a]. Inversion transports the latter to left modules. Its Λ-linear dual is RHom_Λ(P,Λ), naturally right-handed for P left-handed. For the torus instance, with t acting on Λ by left multiplication [t], the diagonal-action completed tensor model RΓ(K_0,M⊗̂_OΛ) realizes this dual after the prescribed inversion/opposite conversion. BP’s Serre adjoint uses the additional automorphism t↦w₀t⁻¹; it is recorded as a twist, not absorbed into the untwisted action.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
@@ -2148,7 +2150,7 @@
       "statement": "For a complete noetherian local O-algebra A with finite residue field and maximal ideal m, V is orthonormalizable if it is m-adically complete separated and V/m^rV is free over A/m^r for every r≥1. A compact A-module is pro-free if it is a product A^I with the product m-adic topology. Put V*=Hom_A(V,A) with pointwise topology. Cofinitely generated X means varpi-complete separated, O-torsion-free, continuous for m-adic A and varpi-adic X, with (X/varpi X)[m] finite dimensional over k. These three notions are named separately.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
@@ -2238,7 +2240,7 @@
       "statement": "For A as in the preceding definition, V↦V* anti-equivalently identifies orthonormalizable modules with pro-free compact modules, inverse Hom_cont,A(−,A). For O-torsion-free A, X↦Hom_O(X,O) anti-equivalently identifies cofinitely generated modules with O-torsion-free finite A-modules with their m-adic topology. Orthonormalizable V is A-flat; tensor with a finite local A-algebra is orthonormalizable, without a claim for arbitrary base change.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
@@ -2284,7 +2286,7 @@
       "statement": "For O-torsion-free complete noetherian local A, orthonormalizable V and cofinitely generated X, define V⊗̂_A X=lim_n V⊗_A(X/varpi^nX), with varpi-adic topology. Separately, for compact M,N define their compact tensor by lim_{U,W}(M/U)⊗_A(N/W) with finite quotient topology. These limits share a symbol in Nakamura but are different constructions. Use the supplied generic completed tensor carriers and name the mixed realization comparison here.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
@@ -2294,7 +2296,7 @@
       "sources": [
         {
           "sourceId": "Nakamura",
-          "locator": "Definition B.2 and preceding Lemma B.5, pp.90–91",
+          "locator": "Definition B.2 and Lemma B.5, pp.90–91",
           "match": "The compact quotient tensor and mixed varpi completion are distinguished."
         }
       ],
@@ -2370,7 +2372,7 @@
       "statement": "Under the mixed tensor hypotheses, with D=Hom_O(X,O) finite over A, evaluation induces a topological A-linear isomorphism V*⊗_A D≅Hom_O(V⊗̂_A X,O), sending f⊗d to (v⊗x↦d(f(v)x)). On the left algebraic tensor agrees with compact completed tensor because D is finitely presented over noetherian A; this agreement is not asserted for an arbitrary compact second factor.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.3/mixed-completed-tensor",
@@ -2417,7 +2419,7 @@
       "statement": "For the finite definite unitary double-coset tower of LLHLM §5.3, its fixed-exponent functions and completed lattice are the CC.1 and CC.2 carriers. Their Pontryagin and Schikhof duals use the CC.3 conventions. Formula (5.8) pairs the localized mod-residual representation with the Pontryagin dual of the patched quotient; it is not an O-linear Schikhof dual of a torsion module. Actual unitary geometry and patched-module existence remain in the accepted CC.8 adapter and the patching supplier.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -2458,7 +2460,7 @@
       "statement": "Choose a finite CW pair (Z_0,∂Z_0) from the supplied neat ALS Borel–Serre model and a regular K_0/U_r covering tower of that pair, with finite free O-local system pulled back from Z_0. Lift each cell with its boundary attaching maps compatibly through the covers. Finite-level absolute and relative cellular chains are bounded finite free O[K_0/U_r]-modules, with quotient/pushforward transitions, and their specified homotopy-coherent singular comparisons are compatible with supports, coefficients and the transported Hecke maps.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -2553,17 +2555,19 @@
       ],
       "kind": "construction",
       "title": "Completed equivariant chain complex",
-      "statement": "For the lifted pair define 𝒫_•=lim_{r,s} C_•(Z_r,O/varpi^s) with quotient/pushforward transitions, and its relative counterpart 𝒫^{BM}. The coefficient and normal-level systems are jointly cofinal in finite quotients of Λ=O[[K_0]]. Each term is Λ^{c_i d}, where c_i is the number of base cells and d the coefficient rank, with differential the compatible limit of actual attaching matrices. It is a bounded complex of compact left Λ-modules; its dual continuous-function complex computes the cohomological tower. Bases are auxiliary; the resulting object and comparisons are independent up to specified quasi-isomorphism.",
+      "statement": "For the lifted pair define 𝒫_•=lim_{r,s} C_•(Z_r,O/varpi^s) with quotient/pushforward transitions, and its relative counterpart 𝒫^{BM}. Use the existing Λ=TauCeti.completedGroupAlgebra O K_0. The coefficient and normal-level systems compute its two-index finite quotient presentation by CC.3, not a new ring construction. Each term is Λ^{c_i d}, where c_i is the number of base cells and d the coefficient rank, with differential the compatible limit of actual attaching matrices. It is a bounded complex of compact left Λ-modules; its dual continuous-function complex computes the cohomological tower. Bases are auxiliary; the resulting object and comparisons are independent up to specified quasi-isomorphism.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/lifted-cellular-tower",
         "PadicMeasuresIwasawaAlgebras:L1",
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
         "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
-        "DeformationAndDerivedPatchingAlgebra:P7"
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+        "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology"
       ],
       "sources": [
         {
@@ -2578,7 +2582,7 @@
         }
       ],
       "proofSteps": [
-        "Identify the inverse limit of each lifted free group-ring term with the supplied Λ finite power.",
+        "Identify the inverse limit of each lifted free group-ring term with a finite power of the existing TauCeti.completedGroupAlgebra using its proj, mk and ext API and CC.3’s two-index comparison.",
         "Take the compatible differential matrices and their square-zero equations by joint projection injectivity.",
         "Use exactness of compact inverse limits, with compact closed kernels and images, to identify H_n(𝒫) with lim_r H_n(Z_r,O).",
         "Dualize the actual matrix complex to continuous-function cochains; establish its strict integral/pro-system comparison under G2/G3."
@@ -2653,7 +2657,7 @@
       "statement": "Under the lifted finite-cell regular tower hypotheses, 𝒫 and 𝒫^{BM} are perfect compact Λ-complexes, finite free in the chosen lifted model. A finite prime-to-p quotient descent or idempotent summand gives finite projective terms, not necessarily free terms. Their continuous O-duals are the integral admissible cochain models, and the comparisons identify conventional H̃^n and H̃_n via CC.2 strict pro-system control. The degree bounds are cell bounds; no assertion of projective homology or concentration follows.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -2703,7 +2707,7 @@
       "statement": "For U normal open in K_0, (O/varpi^s)[K_0/U]⊗ᴸ_Λ𝒫≅C_•(Z_U,O/varpi^s), naturally for quotient levels, coefficients and tame correspondences. More generally O, as a right O[[U]]-module by augmentation, satisfies O⊗ᴸ_{O[[U]]}𝒫≅C_•(Z_U,O); with algebraic coefficient lattice W_0 replace 𝒫 by its finite-rank diagonal coefficient twist. Compute on the finite projective terms; underived coinvariants of H_n need not equal H_n of the finite-level complex.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -2752,7 +2756,7 @@
       "statement": "When cell stabilizers are nontrivial, replace a free cell orbit by its induced derived stabilizer complex, retaining the stabilizer group cohomology/homology. A bounded finite projective Λ model follows only after finite projective resolutions and a uniform bound on stabilizer contributions are proved, or when finite stabilizer orders are invertible in O. For noncompact arithmetic quotients use the compact Borel–Serre pair and relative chains for BM; use its boundary subcomplex for absolute/compact support maps. The non-neat stack model is the ALS model, not a new coarse quotient construction.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -2798,7 +2802,7 @@
       "statement": "For the specific Gee–Newton patched complex C̃_∞ with O_∞=O[[x₁,…,x_g]], coherent open ideals J and normal levels U_p, import Proposition 3.4.16: its terms are O_∞[[K_0]]-flat, it is perfect over that ring, and O_∞/J⊗_{O_∞[[U_p]]}C̃_∞≅C(U_p,J,∞). Keep the patching construction, ultrafilter, compatible minimal resolutions and uniform rank bounds in P8. Proposition 3.4.19 supplies the separate augmentation/cohomology comparison. This result is never cited as perfectness of an arbitrary unpatched inverse-limit tower.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -2838,7 +2842,7 @@
       "statement": "For the actual lifted finite-cell tower over compact p-adic analytic K_0, H̃_n and H̃_n^{BM} are finitely generated left Λ=O[[K_0]]-modules. The topology inherited from the compact chain complex agrees with the canonical finite-module topology. Kernels and images of its continuous differentials are closed. This asserts neither freeness of homology nor degree concentration, and does not cover arbitrary profinite groups.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -2886,7 +2890,7 @@
       "statement": "The varpi-power torsion in each finitely generated completed homology module is killed by one varpi^a. For completed cohomology computed by a bounded integral admissible model, its varpi-power torsion is likewise bounded, its quotient by torsion is varpi-adically complete, and rationalization is unchanged by taking that quotient. The cohomological assertion uses strict integral control, not the finite generation of a Banach-space dual alone.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
@@ -2901,7 +2905,7 @@
         },
         {
           "sourceId": "CE",
-          "locator": "Theorem 1.16(1)–(3), pp.12–13",
+          "locator": "Theorem 1.1(1)–(2), pp.3–4",
           "match": "Integral bounded torsion is separate from rational duality."
         }
       ],
@@ -2931,7 +2935,7 @@
       "statement": "For a compact finitely generated Ω=k[[K_0]]-module M, its continuous k-linear dual to discrete k is a smooth admissible K_0-representation: for every open U its U-invariants are the dual of M_U and have finite k-dimension. Apply this to completed homology modulo varpi. The reduction of H̃^n is identified with such a dual only by the CC.3 Bockstein comparison, retaining its adjacent-degree torsion term.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
@@ -2947,8 +2951,8 @@
         },
         {
           "sourceId": "E11",
-          "locator": "Appendix C, Lemma C.5, pp.103–104",
-          "match": "Compact Nakayama identifies finite socle/admissibility with finite generation of the appropriate dual."
+          "locator": "Appendix C, Proposition C.5, pp.103–104",
+          "match": "This is the integral finite-socle/dual-finiteness analogue. The stated residual k-module criterion follows from finite Ω-generators and finite U-coinvariants, with CE Theorem 1.16 supplying the arithmetic application."
         }
       ],
       "proofSteps": [
@@ -2977,7 +2981,7 @@
       "statement": "For trivial coefficients, or coefficients with a specified full-H-stable unit ball, the rational completed cohomology of an actual finite-cell arithmetic tower, with either support, is an admissible unitary E-Banach H-representation. For a compact open K_0 the Schikhof dual of a torsion-free stable unit ball is a finitely generated Λ-module, up to isogeny, and its rational dual is a finitely generated E[[K_0]]-module. This is the arithmetic application of the general Schneider–Teitelbaum anti-equivalence and abelian category supplied after L1; independence of compact open is imported from that supplier. General nonunitary algebraic coefficient twists instead have continuous H-action and the compact-open admissibility statement.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
@@ -2988,7 +2992,7 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Theorem 2.1.5(iii), pp.22–24; Theorem 2.1.12, pp.26–27",
+          "locator": "Theorem 2.1.5(i), pp.22–24; Theorem 2.1.12, pp.26–27",
           "match": "Completed ordinary and compact-support cohomology are admissible Banach representations."
         },
         {
@@ -3026,7 +3030,7 @@
       "statement": "For a torsion-free uniform open U of analytic dimension d, use the supplied Auslander regular rings Λ_U=O[[U]] and Ω_U=k[[U]], with global dimensions d+1 and d. For a nonzero finite module M, set j_R(M)=min{i:Ext_R^i(M,R)≠0} and δ_R(M)=gldim(R)−j_R(M); these are imported notions. If varpi M=0 then j_Λ(M)=j_Ω(M)+1. If M is varpi-torsion-free, reducing a finite free resolution gives 0→Ext_Λ^i(M,Λ)/varpi→Ext_Ω^i(M/varpi,Ω)→Ext_Λ^{i+1}(M,Λ)[varpi]→0. Equality of the two grades in the torsion-free case additionally uses the supplier’s Auslander purity/grade argument; it does not follow from an all-degree Ext isomorphism. For Λ_U over a uniform domain, rank zero is equivalent to positive grade; pass to a general compact analytic K_0 by finite-index restriction with the supplied dimension comparison.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
@@ -3072,7 +3076,7 @@
       "statement": "In the semisimple arithmetic setting and congruence p-power tower of CEbounds §3, with a fixed finite-dimensional algebraic coefficient representation and analytic local dimension d>0, dim_E H^n(Y_r,V)/[K_0:U_r] tends to zero if the real group has no discrete series or n is not half the real symmetric-space dimension. The tower is the regular congruence filtration of that source. This target owns the exact normalized-growth input needed for the completed torsion application; its classical multiplicity and noncuspidal estimates remain proof leaves G5, rather than a citation upward to AutomorphicSpectra.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra.",
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients).",
         "G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗_Q F) and K_∞ is a maximal compact subgroup.",
         "Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ_r is torsion-free.",
         "The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r.",
@@ -3116,7 +3120,7 @@
       "statement": "In the same semisimple congruence tower, H̃_n is Λ-torsion if there is no real discrete series or n differs from half the real symmetric-space dimension. Here torsion means rank zero after restriction to a torsion-free uniform open domain, not every element being varpi-torsion. The conclusion follows by duality, the normalized classical growth target and the supplied leading-rank asymptotic for admissible Banach invariants plus derived descent. It asserts neither integral vanishing nor a conjectural single-degree concentration theorem.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra.",
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients).",
         "G is a connected semisimple linear algebraic group over a number field F, embedded in GL_N; G_∞=G(R⊗_Q F) and K_∞ is a maximal compact subgroup.",
         "Γ is an arithmetic lattice commensurable with full-level congruence subgroups for this embedding; fix a prime ideal 𝔭 above p with ramification index e and set Γ_r=Γ∩G(𝔭^{er}). Discard initial terms so that Γ_r is torsion-free.",
         "The closure K_0 of Γ in G(F_𝔭), after restriction of scalars and an initial congruence shrink, is a compact analytic pro-p group; U_r is the specified congruence filtration K_0∩(1+p^r M_{e f N}(Z_p)), of analytic dimension d>0 and index c p^{dr} for large r.",
@@ -3142,7 +3146,7 @@
         },
         {
           "sourceId": "Fu",
-          "locator": "§7, p.24, immediately following (39)",
+          "locator": "§7, p.23, completed-homology torsion bullet before (38)",
           "match": "The non-totally-real SL₂ example uses completed-homology Iwasawa torsion."
         }
       ],
@@ -3176,7 +3180,7 @@
       "statement": "For torsion-free uniform U of dimension d>0, its power subgroups U_r=U^{p^r}, a nonzero finite Ω_U-module M of canonical dimension δ, and V=D_k(M), dim_k V^{U_r} is bounded above and below by positive constants times [U:U_r]^{δ/d}. This target imports the uniform filtered-ring/Hilbert-growth theorem from NE.0. It does not assert this exponent for an arbitrary descending normal neighbourhood basis; CE/E3 exhibits a counterexample.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
@@ -3215,7 +3219,7 @@
       "statement": "For the actual neat regular finite-cell tower and a compact open U, continuous group cohomology in the specified integral admissible category gives a functorial first-quadrant spectral sequence H^i_cts(U,H̃^j_*)⇒H^{i+j}_*(Y_U,O), for *=ordinary,c, with the coefficient system and support hypotheses of CC.4. Rationalization gives the E version. The identification with conventional H̃^j uses CC.2 strict integral control; for a general tower replace it by the derived completed complex and retain its Milnor errors. Non-neat fixed levels use the ALS derived stabilizer interpretation.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -3229,8 +3233,8 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Theorem 2.1.5(iv), p.22; proof pp.23–24; Theorem 2.1.12, p.26",
-          "match": "Continuous cohomology of completed coefficients recovers ordinary and compact-support finite levels."
+          "locator": "Proposition 2.1.11 and proof, pp.24–26; Theorem 2.1.12, pp.26–27",
+          "match": "The finite-level integral continuous descent sequence is Proposition 2.1.11; compact support is included in Theorem 2.1.12. Theorem 2.1.5(ii) instead gives rational stable cohomology after taking the level colimit."
         },
         {
           "sourceId": "CE",
@@ -3268,7 +3272,7 @@
       "statement": "At each s≥1, H^i_cts(U,A^j_{*,s})⇒H^{i+j}_*(Y_U,O/varpi^s), using discrete smooth continuous group cohomology and the actual tower’s regular-cover model. The inverse coefficient limit of this spectral sequence cannot be identified with the integral spectral sequence by merely discarding lim¹; CC.2 integral control supplies that comparison under its hypotheses.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
@@ -3278,7 +3282,7 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Theorem 2.1.5 proof, pp.23–24",
+          "locator": "Proposition 2.1.11 proof, pp.24–25",
           "match": "The fixed-exponent smooth modules are computed before applying coefficient inverse limits."
         }
       ],
@@ -3308,7 +3312,7 @@
       "statement": "Let W_0 be a finite free O-module with continuous algebraic U-action and the corresponding local system on Y_U. Give 𝒫⊗_O W_0 the diagonal action, with the inversion fixed by CC.3. Then O⊗ᴸ_{O[[U]]}(𝒫⊗_O W_0)≅C_•(Y_U,W_0), where O is the right augmentation module, and H_i_cts(U,H̃_j⊗_O W_0)⇒H_{i+j}(Y_U,W_0). Here H_i_cts is completed Tor, not ordinary group-ring Tor. The rational E version uses flat rationalization and the appropriate completed locally analytic/continuous coefficient category.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -3360,24 +3364,25 @@
       "statement": "For a finite-dimensional algebraic E-representation W with a K_0-stable finite free lattice W_0, each reduction W_0/varpi^s is trivial on some open U_s. The arithmetic tower with its associated local system therefore has a compatible fixed-exponent untwisting, and after completion/rationalization its completed cohomology with W identifies with H̃^n(E)⊗_E W in the diagonal H-action convention specified by (w,g)↦(g_p⁻¹w,g). Commensurable lattices give the same rational result; this does not make the algebraic factor a unitary representation of the full noncompact H.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
         "CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence",
-        "CompletedCohomologyPartII:CC.2/coefficient-limit-completion"
+        "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+        "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower"
       ],
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Lemma 2.2.4, pp.28–29; Theorem 2.2.17, pp.33–34",
-          "match": "Untwisting algebraic coefficients is performed at each finite exponent and is compatible with the tower action."
+          "locator": "Lemma 2.2.4, pp.28–29; Lemmas 2.2.8–2.2.10, pp.30–31; Theorem 2.2.17, pp.33–34",
+          "match": "Fixed-exponent untwisting first uses the lattice stabilizer; commensurable-lattice transport gives the full rational action and tensor comparison."
         }
       ],
       "proofSteps": [
         "Choose U_s acting trivially modulo varpi^s and pass to its cofinal tower.",
         "Use the explicit inverse-action untwisting on adelic representatives and verify lattice transport.",
-        "Compare reduction squares, take the ordered limits, then invert varpi."
+        "Compare reduction squares and take the ordered limits on the fixed lattice. Then invert varpi and use Lemmas 2.2.8–2.2.10 to transport between commensurable lattices, checking the full-H action and the diagonal tensor comparison."
       ],
       "acceptance": [
         "The character W=E with action χ produces the expected inverse in the geometric untwisting and diagonal action after transport.",
@@ -3400,7 +3405,7 @@
       "statement": "Define the descent edge map H^n_*(Y_U,W)→(H̃^n_*(E)⊗_E W)^U by the actual completed descent and coefficient comparison. Its tower colimit maps into the corresponding smooth vectors. In general it has kernels or cokernels controlled by the other spectral-sequence terms; it is not an isomorphism by definition. The locally analytic classical edge map is the separate CC.6 analytic target.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
@@ -3409,8 +3414,8 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Corollary 2.2.18 and Remark 2.2.19, pp.34–35",
-          "match": "Classical coefficient cohomology is recovered through a spectral sequence, with edge comparison rather than unconditional equality."
+          "locator": "Proposition 2.1.11, pp.24–26; Theorem 2.2.11(v), pp.31–32",
+          "match": "Finite-level integral descent gives the edge map; after rational lattice comparison its level colimit maps to smooth coefficient vectors. Corollary 2.2.18 is the separate locally analytic spectral sequence."
         }
       ],
       "proofSteps": [
@@ -3488,7 +3493,7 @@
       "statement": "If H̃^j_*=0 for all j<n in the completed descent model, then the edge H^n_*(Y_U,O)→(H̃^n_*)^U is an isomorphism. In other degrees recovery is the spectral sequence, and higher continuous U-cohomology terms need not vanish. The analogous rational and algebraic-coefficient statements require their same comparison hypotheses.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
@@ -3497,8 +3502,8 @@
       "sources": [
         {
           "sourceId": "E06",
-          "locator": "Theorem 2.1.5(iv), p.22; Corollary 2.2.18, p.34",
-          "match": "The spectral-sequence comparison specializes to an edge isomorphism only under degree control."
+          "locator": "Proposition 2.1.11, pp.24–26; Theorem 2.1.12, pp.26–27",
+          "match": "The first-quadrant finite-level descent sequence gives an edge isomorphism when all lower completed rows vanish."
         }
       ],
       "proofSteps": [
@@ -3527,7 +3532,7 @@
       "statement": "For the locally symmetric arithmetic tower with algebraic coefficient local system W, state the derived comparison between classical cohomology and Lie-algebra derived Hom from W∨ into derived locally analytic vectors of the rational completed cochain object, in the source’s Q_p-local analytic convention. In the GSp₄ instance of BCGP Theorem 4.8.3 this is RΓ(Y,W)≅RHom_{𝔤}(W∨,RΓ_completed,la). The generic derived-locally-analytic and Lie-cohomology functors, including exactness hypotheses and the Q_p versus F_v restriction-of-scalars convention, come from LocallyAnalyticDistributions:L0. The ordinary underived H̃^j_la Ext spectral sequence of E06 Corollary 2.2.18 is a cohomological consequence and does not by itself specify the derived comparison or justify replacing derived vectors by underived ones.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
@@ -3576,7 +3581,7 @@
       "statement": "For the CC.0 support diagram, exact filtered colimit and derived coefficient inverse limit give a natural triangle RΓ̃_c→RΓ̃→RΓ̃_∂→RΓ̃_c[1]. It commutes with full local actions, tame correspondences, coefficient changes and level conjugation. Its long exact sequence uses the cohomology of the derived objects; the conventional modules enter only through their Milnor comparison. There is no claim that a bare inverse limit preserves a long exact sequence of discrete modules.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -3625,7 +3630,7 @@
       "statement": "Under the actual finite-cell strict admissible control for all three support complexes, the triangle identifies with conventional completed modules and yields …→H̃_c^n→H̃^n→H̃_∂^n→H̃_c^{n+1}→…. Alternatively impose and verify lim¹_s A^{n-1}_{*,s}=0 in every relevant degree. Without either hypothesis use the derived support sequence and its Milnor errors. All support arrows and connecting maps are equivariant with the CC.0 actions.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
@@ -3665,7 +3670,7 @@
       "statement": "For the actual compact completed chain models, 𝒫_∂→𝒫→𝒫^{BM} is their relative chain triangle, and its long exact sequence identifies with H̃_n(∂)→H̃_n→H̃_n^{BM}→H̃_{n-1}(∂). Exactness uses the compact closed-image inverse-limit category and the actual finite-cell comparison; it is not the unrestricted exactness of limits of discrete modules.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -3713,7 +3718,7 @@
       "statement": "Define completed interior cohomology I^n as im(H̃_c^n→H̃^n) in the specified topological module category, with its quotient/image topology and the induced actions. Separately define I_s^n=im(A^n_{c,s}→A^n_s) and I_lim^n=lim_s I_s^n. There is a canonical map I^n→I_lim^n. These two constructions are not identified in the definition; closedness and comparison use the strict model or the kernel-system condition below.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
@@ -3801,7 +3806,7 @@
       "statement": "Let K_s=ker(A^n_{c,s}→I_s^n). The short exact systems 0→K_s→A^n_{c,s}→I_s^n→0 give coker(lim A^n_{c,s}→lim I_s^n)=ker(lim¹ K_s→lim¹ A^n_{c,s}). Hence I^n=I_lim^n if lim¹ K_s=0, with topology comparison requiring strictness/closedness. The finite-cell strict model must establish this kernel-system control when using conventional completed interior cohomology; the equality is not automatic from ML of the source and target systems separately.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.7/completed-interior-image",
@@ -3841,7 +3846,7 @@
       "statement": "For an oriented neat arithmetic d-manifold tower and dual coefficient local systems, the actual Λ-cellular duality comparison induces Ext^i_Λ(H̃_j,Λ)⇒H̃_{d-i-j}^{BM} with the orientation twist and opposite-ring action converted by g↦g⁻¹; swapping supports gives the reverse comparison. It is obtained from the chain-level Poincaré–Lefschetz pairing and RHom_Λ(𝒫,Λ), not the continuous O-dual alone. For O[[U]] with torsion-free uniform U, the unrestricted Ext amplitude is dim(U)+1; the smaller dim(U) bound requires O-torsion-free input and the supplier’s coefficient argument. The arithmetic chain pairing is proof leaf G7.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
@@ -3892,7 +3897,7 @@
       "statement": "Apply the imported ALS boundary incidence diagram to completed towers. For a proper rational parabolic, the completed contribution retains the Levi arithmetic cohomology and continuous parabolic induction, with orientation and incidence shifts. The nilpotent-radical positive-degree contribution collapses only after proving its actual congruence-tower fixed-exponent colimit is zero (G8); finite component/stabilizer terms remain, especially at p=2. No new Borel–Serre compactification or generic continuous-induction category is constructed here.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
@@ -3932,7 +3937,7 @@
       "statement": "If a compatible central residual Hecke projector e acts on the completed support triangle and eRΓ̃_∂=0, then eRΓ̃_c→eRΓ̃ is a quasi-isomorphism, with all local actions and dual comparisons retained. This generic implication is the interface for BCGP Theorem 4.9.4. Proving boundary vanishing for its GSp₄ residual Galois hypotheses belongs to that arithmetic consumer and is not deduced from a GL₂ example or from the generic projector construction.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
@@ -3971,7 +3976,7 @@
       "statement": "For the selected modular/Siegel, PEL unitary and Hilbert Shimura data of the CC.8 adapter, construct the minimal characteristic-zero canonical-model input: varieties Sh_K over the reflex field, compatible finite étale level maps at neat inclusions, Hecke correspondences, and the complex analytic identification with the connected arithmetic locally symmetric quotient including component labels. The relevant data are of PEL/Hodge or abelian type under Milne’s criteria; central quotients and chosen level conditions are retained. This supplies only the input consumed by the completed tower, not integral models, all Shimura data, compactifications or a new completed object. Its canonical-existence proof leaves are G9.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space",
@@ -4013,7 +4018,7 @@
       "statement": "For the Hilbert datum Res_{F/Q}GL₂ with F totally real and the selected neat level, specialize the canonical tower input and the lower-tier étale/Betti comparison to each O/varpi^s local system attached to the specified algebraic representation. Identify its complex connected component cochains with the actual ALS finite-level tower, compatibly with tame Hecke, level maps and coefficient reduction. The full level tower, central units and finite components must be retained. This is the narrow input needed by CC.8; the wider Hilbert modular geometry stays with R18.4 as a consumer. Include selected quaternionic Shimura curves (quaternion algebra split at exactly one real place) via the abelian-type canonical input. Coefficients satisfy the central descent condition of arithmetic-shimura-central-quotient; no PEL moduli assertion is made for every quaternionic datum.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input",
@@ -4065,7 +4070,7 @@
       "statement": "For a selected neat characteristic-zero Shimura variety X at finite level, a complex embedding, and a finite locally constant O/varpi^s sheaf F, construct the comparison RΓ_et(X_C,F)≅RΓ(X(C),F_an), and the compact-support comparison via a proper algebraic compactification j:X→Xbar and j!F. Compare the boundary support triangle with the ALS topological boundary model through its supplied compact-support comparison. Naturality in finite étale level maps and coefficient reduction is part of the named map. This moves only the consumed complex analytic EDC.6 contract into CC.0; it does not construct diamond operations or all étale six functors. Constructible comparison and compact-support proof leaves are G10.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison",
@@ -4107,7 +4112,7 @@
       "statement": "For the same finite-level smooth d-dimensional complex varieties, finite étale f:Y→X and finite coefficient F, the Betti comparison intertwines pullback and the unnormalized finite-cover trace. Under the chosen root-of-unity/orientation dictionary, O/varpi^s(d)[2d] becomes the complex manifold orientation dualizing system. It intertwines the finite-level Poincaré pairings and support connecting arrows, with trace after pullback equal to deg(f). For noncomplex real arithmetic components the ALS orientation local system is retained rather than replaced by a trivial sheaf. This is the second narrow EDC.6 contract moved to CC.0; it does not assert any completed duality.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
@@ -4148,7 +4153,7 @@
       "statement": "Distinguish E06’s arithmetic Y_K, finite-volume Y_K°=Y_K/S_∞°, and Shimura quotient Ỹ_K=Y_K/Z_∞°. The first quotient has contractible fiber S_∞°≅R^a, hence ordinary coefficient cohomology is unchanged but compact-support cohomology has the real dimension a shift and its orientation factor. The second quotient has a t-dimensional compact torus fiber; its Leray sequence has fiber H^j((S¹)^t,O)≅∧^jO^t, so it is not an unconditional cohomology isomorphism. An algebraic coefficient representation descends to Ỹ only when the indicated Z_∞¹ action is trivial. At the finite adelic levels retain the closure of rational central units in the effective deck action; verify the actual deck quotient rather than inferring K_0/U from neatness. The Hilbert and selected quaternionic Shimura curves need this comparison, since E06 §2.4’s simplifying equality Y°=Ỹ excludes these general examples. Finite-cell/perfect/descent targets apply only to their verified regular tower, or to the explicit central/stabilizer replacement G12.",
       "hypotheses": [
         "O is a complete DVR of integers of a finite extension E/Q_p, with uniformizer varpi and finite residue field k.",
-        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra."
+        "Fix tame level K^p and the specified compatible integral local system; no assertion for an arbitrary complete local coefficient algebra. For a fixed algebraic lattice W_0, integral local actions are restricted to H_int=Stab_H(W_0); a full-H integral action requires a specified coherent full-H-equivariant integral system (as for trivial coefficients)."
       ],
       "prerequisites": [
         "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
@@ -4524,7 +4529,7 @@
     },
     {
       "title": "G11: accepted CC.8 supplier migration",
-      "detail": "The immutable accepted part still names V8, R18.4 and two EDC.6 nodes. Under the current tier instructions its arithmetic-tower-realisation must instead import the new CC.8 selected canonical/Hilbert inputs and CC.0 finite étale Betti/trace comparisons. Apply this precise migration when assembling the reviewed whole packet; no part file is changed by this job.",
+      "detail": "The immutable accepted part still names V8, R18.4 and two EDC.6 nodes. Under the current tier instructions its arithmetic-tower-realisation must instead import the new CC.8 selected canonical/Hilbert inputs and CC.0 finite étale Betti/trace comparisons. Apply this precise migration when assembling the reviewed whole packet; no part file is changed by this job. The migration must also specialize the imported arithmetic realization to the central/effective-quotient hypotheses of G12; its displayed arithmetic/complex-space identification is conditional, not a universal identification of the different quotients.",
       "neededBy": [
         "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
         "CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero",
@@ -4554,13 +4559,12 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L1",
-      "need": "Extend immediately after L1 with general compact/profinite continuous-function versus measure duality, compact-discrete O/E/O duality and Schikhof duality; strict integral admissible complexes and Emerton Proposition1.2.4 control; continuous completed tensor/coinduced acyclicity; the general unitary E-Banach category with stable lattice, Schneider–Teitelbaum Theorems2.3,3.5 and abelianness for compact analytic groups, and compact-open testing for local groups. Supply the regular congruence-filtration leading-rank/continuous-cohomology error estimates used by CEbounds Theorem3.2. R30.2 consumes this category for GL₂. This is a foundational extension, not a new category in CC.2.",
+      "need": "Extend immediately after L1 with general compact/profinite continuous-function versus measure duality, compact-discrete O/E/O duality and Schikhof duality; strict integral admissible complexes and Emerton Proposition1.2.4 control; continuous completed tensor/coinduced acyclicity; the general unitary E-Banach category with stable lattice, Schneider–Teitelbaum Theorems2.3,3.5 and abelianness for compact analytic groups, and compact-open testing for local groups. Supply the regular congruence-filtration leading-rank/continuous-cohomology error estimates used by CEbounds Theorem3.2. R30.2 consumes this category for GL₂. This is a foundational extension, not a new category in CC.2. Reuse the current Tau Ceti completedGroupAlgebra and IsCompactModule action declarations; L1 extends the measure/dual/strict-complex interfaces, not those existing ring/action constructors.",
       "neededBy": [
         "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control",
         "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower",
         "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
         "CompletedCohomologyPartII:CC.3/qualified-biduality",
-        "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
         "CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein",
         "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
         "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence",
@@ -4701,6 +4705,14 @@
       "neededBy": [
         "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+      "need": "Import only the current-library completed-group-algebra and compact-module receipt in the Layer 9 prerequisites, not Demushkin classification: TauCeti.completedGroupAlgebra (Basic.lean) with proj, mk, ext and dense_span_range_of; TauCeti.IsCompactModule (Compact.lean); IsCompactModule.completedGroupAlgebraModule, completedSMul_of, mkQ_completedSMul and continuousSMul_completedGroupAlgebraModule (Module.lean). These exist at Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, not at the fixed sketch pin. O must be a compact commutative topological ring and M a compact totally disconnected topological O-module with continuous K_0-action commuting with scalars. CC.3 supplies only the arithmetic specialization and two-index coefficient comparison; no generic constructor is requested.",
+      "neededBy": [
+        "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
+        "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex"
+      ]
     }
   ],
   "sourceIssues": [
@@ -4719,7 +4731,12 @@
         "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
         "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
         "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CE Theorem 1.1(3), p.3. In the degree-p circle tower the free H̃_0=O would contribute a nonzero Hom_cont(O,E/O) to a zero H̃^1. Restricting the term to its varpi-power torsion removes this contradiction.",
+        "by": "REV-CompletedCohomologyPartII"
+      }
     },
     {
       "id": "CompletedCohomologyPartII/E2",
@@ -4736,7 +4753,12 @@
         "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
         "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
         "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof error at CE Lemma 1.17, p.14. For R=Z_p[[T]] and M=(p,T), Ext^1_R(M,R)=F_p; the degree-zero reduction map therefore has the adjacent-Ext torsion cokernel. This does not reject the grade equality, which needs a separate purity argument.",
+        "by": "REV-CompletedCohomologyPartII"
+      }
     },
     {
       "id": "CompletedCohomologyPartII/E3",
@@ -4753,7 +4775,12 @@
         "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
         "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
         "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CE Theorem 1.18, p.14. For U=Z_p^2, M=k[[T_1]] with T_2 acting as zero and U_r=p^r Z_p×p^{2r} Z_p, invariant dimension is p^r while the proposed index exponent gives p^{3r/2}. The regular uniform-power formulation is retained only through its qualified supplier.",
+        "by": "REV-CompletedCohomologyPartII"
+      }
     },
     {
       "id": "CompletedCohomologyPartII/E4",
@@ -4770,7 +4797,12 @@
         "Emerton papers/preprints index https://www.math.uchicago.edu/~emerton/preprints.html and Calegari research index https://math.uchicago.edu/~fcale/research.html; no correction of these statements identified.",
         "Web searches13October2026 for Calegari Emerton completed cohomology survey erratum Theorem1.18 Lemma1.17.",
         "Existing reviewed decomposition and accepted CC.8 packet; their known corrections distinguished from new findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CE §1.3, p.6. Integral coefficients add one to the regular uniform Iwasawa global dimension. For the trivial group, Ext^1_O(k,O) is already nonzero; a bound by analytic dimension zero fails. The smaller bound needs a torsion-free qualification and separate proof.",
+        "by": "REV-CompletedCohomologyPartII"
+      }
     }
   ],
   "restructure": [
@@ -4827,7 +4859,415 @@
         "CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility",
         "CompletedCohomologyPartII:CC.8/derived-cohomological-residual-comparison"
       ],
-      "note": "Reuse all twelve accepted nodes, 31 API items and 15 tests. The three local CC.8 endpoint nodes below move only its higher-tier supplier contracts down under the current WORKERS tier rule. Their migration into the accepted part is a recorded gap, not an edit or a second completed carrier. The arithmetic–Shimura central comparison is also required for the general Hilbert/quaternionic instance."
+      "note": "Reuse all twelve accepted nodes, 31 API items and 15 tests. The three local CC.8 endpoint nodes below move only its higher-tier supplier contracts down under the current WORKERS tier rule. Their migration into the accepted part is a recorded gap, not an edit or a second completed carrier. The arithmetic–Shimura central comparison is also required for the general Hilbert/quaternionic instance. In this whole plan, arithmetic-tower-realisation is conditional on CC.8/arithmetic-shimura-central-quotient: identify the geometric quotient, coefficient descent, support shifts and effective deck group before using any CC.4/CC.6 comparison. The imported Y_K=X_K(C) notation does not assert that a central bundle or ineffective kernel is trivial."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-CompletedCohomologyPartII",
+    "date": "2026-10-13",
+    "notes": "Independent target-level review by Codex — codex-SLcPAe, issue #9378; distinct from the author session. Checked all 68 local and 12 immutable imported nodes, all 15 local baseline citations and seven additional inherited baseline declarations, source locators, supplier contracts, AUDIT-14, current read-only upstream/library, and confirmed red-team findings 3/15/16/17/18. Nineteen local nodes corrected; 61 nodes verified, none added or unverifiable. Clarified the common integral lattice-action hypothesis for every local node; corrected source locators, dual carrier conventions and current completed group-algebra reuse, and confirmed CE sourceIssues E1–E4. Reader, APIs, tests and sketch comments reconciled. All nine stages remain planned with 15 explicit gaps and 17 supplier requests, no closed stage and no implemented claims. Immutable CC.8 integration is conditional on G11/G12 migration and central/effective quotient comparisons. Packet checker has zero errors/warnings; the 193-line suggested file elaborates at the pins with six admitted-proof warnings only. Acceptance certifies a sound target-level plan with recorded proof leaves, not formal proof closure. See the review report and handoff.",
+    "checked": [
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/arithmetic-level-index",
+        "verdict": "corrected",
+        "note": "E06 §2.1 p.20 and §2.2 pp.27–32 distinguish a compact cofinal basis from full local-group transport. Corrected same-lattice transport to its integral stabilizer; other elements change the lattice."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/tower-axioms-and-the-standing-hypotheses",
+        "verdict": "verified",
+        "note": "E06 §2.1–2.2 pp.20–29 and GN §2.1.1–2.1.4 pp.7–8 justify actual coefficient/covering diagrams. ALS supplies finite complexes, support triangles and separate trace; the node does not replace them by abstract cohomology functions."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/conjugation-and-tame-coherence",
+        "verdict": "corrected",
+        "note": "E06 Lemma 2.2.10/Theorem 2.2.11 pp.30–32 and GN §2.1.4 pp.8–9 give transport coherence. Corrected fixed integral lattice endomorphisms to H_int, retaining transported lattices and common tame refinements."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/non-neat-tower-realisation",
+        "verdict": "verified",
+        "note": "GN §2.1.1–2.1.3 pp.7–8 and E06 §2.2 p.27 require smallness for manifold covers. The ALS derived stabilizer input correctly replaces coarse descent; taking a neat cofinal tower does not erase a fixed bad level."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/arithmetic-tower-tests",
+        "verdict": "verified",
+        "note": "CE §1.5 pp.7–8 and GN §2.1.1–2.1.4 pp.7–8 match the examples. Read modular/ALS and upstream finite-cover inputs; degree times identity, actual cusp boundary and empty compact boundary distinguish the maps."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.1/fixed-exponent-smooth-colimit",
+        "verdict": "verified",
+        "note": "E06 §2.1 pp.20–23 and LLHLM §5.3 p.121 use this order of limits. The directed representative and exact filtered-colimit declarations provide the native carrier and cohomology comparison, not finite cardinality."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.1/full-local-group-smooth-action",
+        "verdict": "corrected",
+        "note": "E06 Lemmas 2.2.4, 2.2.8–2.2.10 pp.28–31 require lattice transport. Corrected unconditional full-H integral action; fixed W_0 has H_int action and full H requires a coherent integral system or rational comparison. The Q_p multiplicative-character test catches the former error."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.1/tame-hecke-on-colimits",
+        "verdict": "verified",
+        "note": "GN §2.1.4 pp.8–9 and CE §1.5 p.7 justify the unnormalized correspondence action. CC.0 coherence makes the action descend to representatives and commute with permitted local actions; finite images remain in CC.8."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.1/restriction-corestriction-normalisation",
+        "verdict": "verified",
+        "note": "E06 Proposition 2.1.11 proof pp.24–26 and GN §2.1.4 p.8 match the covering convention. Read upstream finite-cover descent: cor res is the index, res cor is the deck sum, with no division by a p-power."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.1/tame-level-variation",
+        "verdict": "verified",
+        "note": "E06 Theorems 2.2.11/2.2.17 pp.31–35 and CE (1.4) p.9 distinguish this diagram from coefficient completion. The node preserves tame components and requires a separate inverse-limit interchange."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/coefficient-limit-completion",
+        "verdict": "verified",
+        "note": "CE §1.1 pp.2–4 and E06 Lemma 2.1.4 pp.21–22 match the definition. Native sections and TopModuleCat.isLimit supply projection topology only; reduction and adic identification are properly deferred."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/derived-completed-tower",
+        "verdict": "verified",
+        "note": "E06 Propositions 1.2.12/2.1.11 pp.16,24–26 do not justify naive cohomology/limit interchange. The R02.1 enhanced countable homotopy-limit contract supplies the separate derived carrier."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/milnor-and-mittag-leffler-control",
+        "verdict": "verified",
+        "note": "The R02.1 Milnor and ML statements have the needed countable-system hypotheses. E06 pp.16,24–26 supplies the application mechanism; the prior-degree lim-one term and cohomology ML qualification remain explicit."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/integral-admissible-complex-control",
+        "verdict": "verified",
+        "note": "E06 Definitions 1.2.1/1.2.8 and Propositions 1.2.4,1.2.10–1.2.12 pp.13–16 supply strictness and essentially-null pro-system control. G2 records this nonroutine input; no fixed-exponent reduction isomorphism is inferred."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/adic-topology-and-continuous-actions",
+        "verdict": "corrected",
+        "note": "E06 Lemma 2.1.4/Theorem 2.1.5 proof pp.21–24 and CE Theorem 1.1(2) pp.3–4 require the finite admissible model. Corrected continuous integral action to H_int, with full H conditional on the integral system."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/completion-and-tate-module",
+        "verdict": "verified",
+        "note": "CE definitions before (1.1) pp.4–5 and E06 §2.1 pp.20–22 distinguish the integral-colimit completion from conventional completion. Tate transitions multiply by varpi; divisible and torsion tests catch reduction/inclusion substitutes."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/the-four-completed-modules-and-the-p-adic-completion-versus-tate-module-splitting",
+        "verdict": "verified",
+        "note": "E06 UCT/Lemma 2.1.4 pp.20–22 and CE (1.1)/Remark 1.15 pp.4–5,12 justify the exact sequence using the surjective quotient system. Uniform next-degree torsion, rather than individual finite-level finiteness, kills its Tate term."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/coefficient-bockstein-comparison",
+        "verdict": "verified",
+        "note": "CE Theorem 1.16(5) p.13 and E06 Proposition 1.2.12 p.16 require the prior integral comparison. The adjacent-degree torsion term survives; arbitrary towers keep a derived base-change map and Milnor errors."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.2/rational-unitary-banach-tower",
+        "verdict": "corrected",
+        "note": "E06 pp.21–24 and Lemmas 2.2.8–2.2.10 pp.30–31 justify a complete torsion-free lattice and rational lattice comparison. Added bounded lattice-change API/proof and qualified full-H unitarity by a stable unit ball; ST Theorem 2.3 pp.11–12 remains a foundational import."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/continuous-dual-conventions",
+        "verdict": "corrected",
+        "note": "CE pp.3–5, ST §2 and E11 Appendix C distinguish compact/discrete and complete-lattice duals. Corrected the native O-dual carrier to a continuous equivariant subspace; Representation.dual provides the inverse-action convention, not an E/O-valued carrier."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/qualified-biduality",
+        "verdict": "corrected",
+        "note": "ST Propositions 1.2–1.6/Theorem 2.3 pp.3–12 and E11 (C.3)–(C.4) pp.103–104 require qualified categories. Clarified compact inverse limits of finite primary modules: the compact limit itself need not be torsion."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/completed-homology-and-borel-moore",
+        "verdict": "verified",
+        "note": "CE §1.1 pp.2–4 and GN §2.1.1 pp.7–8 use pushforward for homology and the compactified relative chain model for BM. The two-index compact construction, orientation and coefficient tests agree with the API."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/iwasawa-action-on-homology",
+        "verdict": "corrected",
+        "note": "Read current TauCeti completedGroupAlgebra and IsCompactModule.completedGroupAlgebraModule signatures. Replaced re-planning their ring/action by a narrow upstream library receipt; only arithmetic compactness, coefficient-limit presentation and deck/dual inversion remain new. CE §1.1 and GN §2.1.1 match the application."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/finite-coefficient-duality-and-bockstein",
+        "verdict": "verified",
+        "note": "Finite-cell UCT plus coefficient transition maps yields the adjacent torsion term before either limit. CE Theorem 1.16(5) p.13 and E06 §2.1 pp.20–24 are consistent; no mod-varpi duality without its Bockstein correction is asserted."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+        "verdict": "verified",
+        "note": "CE Theorem 1.1(3) pp.3–4 needs the E1 torsion correction. E06 lifted-cell proof pp.22–24 gives a route through G2/G3 strict duality, not a proof from generic ContinuousLinearMap or PontryaginDual alone."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/dual-completion-tate-sequence",
+        "verdict": "verified",
+        "note": "CE (1.1) and Theorem 1.1 pp.3–5 plus qualified exact O-duality give the contravariant completion–Tate sequence. Its right/left conversion uses inversion and its Tate term is not silently zero."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/admissible-complex-convention",
+        "verdict": "verified",
+        "note": "E06 Definitions 1.2.1/1.2.8 pp.13,15 and ST §3 pp.12–15 distinguish integral admissible complexes from the rational category. Strict images, bounded torsion and the noncommutative/opposite convention are explicit foundational inputs."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/admissible-perfect-anti-equivalence",
+        "verdict": "verified",
+        "note": "BP §§5.4–5.5 pp.21–24 supplies the torus mixed-coefficient route; the noncommutative completed tensor/contraction extension is correctly G4. Termwise duality does not by itself prove the invariant RHom realization."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/orthonormalizable-and-profree-modules",
+        "verdict": "verified",
+        "note": "Nakamura Definitions B.1–B.4 pp.90–91 and E11 B.1/B.10/C.1 pp.99,102–103 specify complete noetherian local coefficients and distinct topologies. Basis, finite-product and nonflat-base-change tests enforce the qualifications."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/coefficient-module-duality",
+        "verdict": "verified",
+        "note": "E11 B.2/B.5/B.6/B.11 and Proposition C.5 pp.99–104, with Nakamura Appendix B.1, justify the qualified anti-equivalences. Finite local base change and finite dual modules are retained; arbitrary base change is excluded."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/mixed-completed-tensor",
+        "verdict": "corrected",
+        "note": "Nakamura Definition B.5/Lemma B.6 pp.91–92 distinguishes mixed varpi-completion from compact finite-quotient tensor. Corrected the locator description because B.5 follows B.2. The carriers, finite-factor API and discriminating topology tests remain sound."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/mixed-tensor-dual-comparison",
+        "verdict": "verified",
+        "note": "Nakamura Lemma B.6 pp.91–92 and E11 B.7/C.5 pp.101,104 justify evaluation with finite-presentation control. Algebraic and compact tensor agree only for the specified finite dual factor, not an arbitrary compact factor."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.3/definite-degree-zero-dual-interface",
+        "verdict": "verified",
+        "note": "LLHLM §5.3 pp.120–122 and (5.8) distinguish residual Pontryagin duality from integral Schikhof duality. The accepted CC.8 discrete quotient and patching inputs remain owners; no new geometry or patched module is planned here."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/lifted-cellular-tower",
+        "verdict": "verified",
+        "note": "GN §2.1.1–2.1.3 pp.7–8 and E06 pp.22–24 support regular finite-cell models. Read ALS and upstream cellular/cover stages: actual attaching maps and compatible singular comparisons are required, with coefficient rank and regular deck hypotheses."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/completed-equivariant-cell-complex",
+        "verdict": "corrected",
+        "note": "GN §2.1.1–2.1.3 pp.7–8 supports finite free terms on lifted cells. Added direct CC.3 action dependency and reuse of native completedGroupAlgebra with proj/mk/ext; the two-index presentation is an arithmetic comparison, not another ring."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/perfectness-and-cochain-comparison",
+        "verdict": "verified",
+        "note": "E06 finite lifted-cochain proof pp.22–24 and GN finite chain model pp.7–8 justify perfection under regular tower hypotheses. Finite projective summands need not be free and homology need not be projective or concentrated; G2/G3 retain the cochain comparison."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/derived-finite-level-coinvariants",
+        "verdict": "verified",
+        "note": "GN §2.1 and the actual lifted cellular complex give derived coefficient/level recovery on finite projective terms. The circle test detects the lost Tor degree if one substitutes coinvariants of homology; completed tensor remains a P7/NE input."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/stabilizers-and-boundary-replacements",
+        "verdict": "verified",
+        "note": "The ALS derived stabilizer and Borel–Serre pair statements supply the replacements. GN small-level hypotheses pp.7–8 do not prove arbitrary nonneat perfection; finite resolutions, uniform bounds or invertible stabilizer orders are correctly required."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.4/patched-perfect-model-import",
+        "verdict": "verified",
+        "note": "Read GN Proposition 3.4.16 and its proof, plus Proposition 3.4.19: patched flatness/perfection and augmentation are separate. P8 owns ultrafilters/minimal resolutions/rank bounds; this does not confer perfection on any unpatched inverse limit."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
+        "verdict": "verified",
+        "note": "CE Theorem 1.1 pp.3–4 and the finite perfect chain model yield arithmetic finite generation once analytic noetherianity is supplied. Native compact FG submodules help closedness; NE.0 proof leaves remain G1 and arbitrary profinite groups are excluded."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/bounded-integral-torsion",
+        "verdict": "corrected",
+        "note": "Corrected CE citation from residual Theorem 1.16 to integral Theorem 1.1(1)–(2) pp.3–4. Noetherian homology torsion and E06 strict integral cohomology control are distinct arguments; Banach dual finite generation alone does not prove the latter."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/smooth-dual-admissibility",
+        "verdict": "corrected",
+        "note": "Corrected E11 Appendix C locator to Proposition C.5 pp.103–104 and its match to the integral analogue. The residual criterion follows from finite Omega generators/finite coinvariants; CE Theorem 1.16 pp.12–14 retains arithmetic Bockstein qualifications."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/banach-admissibility",
+        "verdict": "corrected",
+        "note": "Corrected nonexistent E06 Theorem 2.1.5(iii) to (i) pp.22–24. ST §3 pp.12–15 supplies the general anti-equivalence through L1; algebraic twists have compact-open admissibility and require a stable lattice for full-H unitarity."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/codimension-iwasawa-dimension-and-the-torsion-theorem",
+        "verdict": "verified",
+        "note": "CE §1.3/Lemma 1.17 pp.6,14 requires E2/E4 corrections. NE supplies d+1 versus d dimensions, grade purity and finite-index comparison; the retained Bockstein sequence prevents an invalid all-degree reduction isomorphism."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/normalized-classical-growth",
+        "verdict": "verified",
+        "note": "Read CEbounds Theorem 3.4 and its proof: regular congruence powers, semisimplicity and the discrete-series/degree alternatives are essential. G5 names limit-multiplicity and noncuspidal proof leaves now owned below the former higher-tier consumer."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/semisimple-homology-torsion",
+        "verdict": "corrected",
+        "note": "CE Theorem 1.4/CEbounds Theorem 3.4 support rank-zero completed homology under the precise growth alternatives. Corrected Fu locator to the §7 p.23 torsion bullet before (38), with no equation (39). Neither vanishing nor single-degree concentration follows."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/uniform-filtration-growth",
+        "verdict": "verified",
+        "note": "CE Theorem 1.18 p.14 is qualified by confirmed E3. The NE extension requests regular uniform-power filtered growth for nonzero finite Omega modules and d>0; a weighted arbitrary cofinal basis is not covered."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/hochschild-serre-descent-to-finite-level",
+        "verdict": "corrected",
+        "note": "Corrected nonexistent E06 Theorem 2.1.5(iv) to Proposition 2.1.11 pp.24–26 and compact-support Theorem 2.1.12 pp.26–27. Fixed-U integral descent uses strict control; 2.1.5(ii) is a different rational stable-colimit statement."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/fixed-exponent-descent",
+        "verdict": "corrected",
+        "note": "Corrected E06 locator to Proposition 2.1.11 proof pp.24–25. Actual regular covers give smooth continuous fixed-exponent descent; passing to integral coefficients still requires G2 and retains possible lim-one errors."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/homological-hyperTor-descent",
+        "verdict": "verified",
+        "note": "The CC.4 derived coinvariant identity and GN equivariant chain model give the hyper-Tor route. Completed continuous Tor, diagonal coefficient action and right augmentation are explicit; native discrete Rep Tor is only a comparison convention."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/algebraic-coefficient-untwisting",
+        "verdict": "corrected",
+        "note": "E06 Lemmas 2.2.8–2.2.10/Theorem 2.2.11 pp.30–32 justify trivialization on the tower and lattice variation. Added rational tower dependency and bounded transported-lattice step; integral fixed-lattice action retains H_int."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/classical-evaluation-map",
+        "verdict": "corrected",
+        "note": "Corrected direct source to E06 Proposition 2.1.11 and Theorem 2.2.11(v) pp.24–26,31–32. Edge evaluation is distinct from locally analytic Corollary 2.2.18 pp.34–35; no automatic invariants isomorphism is claimed."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/lowest-degree-recovery",
+        "verdict": "corrected",
+        "note": "Corrected descent locators to E06 Proposition 2.1.11/Theorem 2.1.12 pp.24–27. Prior-degree vanishing yields the edge isomorphism; the circle example shows it fails without the hypothesis."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.6/analytic-classical-comparison",
+        "verdict": "verified",
+        "note": "E06 Corollary 2.2.18/Remark 2.2.19 pp.34–35 gives a spectral sequence. BCGP Theorem 4.8.3 gives the stronger derived comparison with its coefficient and analytic conventions; L0 machinery and G6 are explicitly needed."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
+        "verdict": "verified",
+        "note": "ALS supplies the enhanced finite support triangle and R02.1 supplies exact derived coefficient limit. E06/CE support conventions match; this produces a derived triangle before any conventional-degree identification."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/boundary-long-exact-sequences-and-the-borel-serre-tower",
+        "verdict": "verified",
+        "note": "CE §1.5 pp.7–9 and E06 §2.1–2.2 retain actual Borel–Serre boundary maps. Conventional long exactness uses all three G2 comparisons; otherwise the derived triangle keeps Milnor errors."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/completed-homological-support-sequence",
+        "verdict": "verified",
+        "note": "The absolute/boundary/relative compact cellular pair and its closed images give the support sequence. This is qualified compact inverse-limit exactness, not exactness for arbitrary inverse systems of discrete modules."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/completed-interior-image",
+        "verdict": "verified",
+        "note": "The image of the completed map and the inverse limit of fixed-exponent images are separately defined with their topologies. The API/range prototype and the kernel-system counterexample tests prevent an automatic interchange."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/interior-image-comparison",
+        "verdict": "verified",
+        "note": "The R02.1 lim-one six-term sequence gives precisely the stated cokernel kernel. Source and target ML alone do not imply the needed kernel-system condition; strictness is separately required for topology."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/completed-iwasawa-poincare-duality",
+        "verdict": "verified",
+        "note": "CE §1.3 pp.5–6 supplies the target, not its arithmetic chain proof. ALS finite duality plus G7 must build RHom over Lambda, orientation and inverse deck action; confirmed E4 corrects unrestricted integral amplitude to analytic dimension plus one."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/boundary-strata-and-completed-induction",
+        "verdict": "verified",
+        "note": "CE §1.5 pp.8–9, including (1.4), retains tame variation and Levi induction. ALS owns boundary incidence and SR owns induction; G8 qualifies nilpotent colimit collapse and preserves p=2 component/stabilizer terms."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.7/boundary-vanishing-support-comparison",
+        "verdict": "verified",
+        "note": "BCGP Theorem 4.9.4 supports this consumer interface. Projecting an equivariant triangle with zero boundary gives the comparison; the specific GSp_4 residual boundary-vanishing proof stays with its arithmetic consumer."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/canonical-four-family-tower-input",
+        "verdict": "verified",
+        "note": "Read MilneSV criteria Theorems 5.24,5.28–5.29 and §§12–14: selected PEL/Hodge/abelian-type canonical input is narrower than all Shimura geometry. G9 records its existence leaves and central quotient conditions are retained."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/hilbert-finite-local-system-input",
+        "verdict": "verified",
+        "note": "MilneSV type A1 discussion and canonical criteria support the selected Hilbert/quaternionic input. Infinite central units and coefficient descent remain explicit with G12; no universal PEL moduli assertion is inferred."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/finite-etale-betti-support-comparison",
+        "verdict": "verified",
+        "note": "MilneEC Theorems 21.1,21.3,21.5–21.6,21.8 pp.130–133 supplies finite locally constant comparison and the constructible extension. G10 explicitly retains j!-support, compactification independence and boundary comparison proof leaves."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.0/finite-etale-trace-orientation-comparison",
+        "verdict": "verified",
+        "note": "MilneEC finite-cover trace and duality §§21,24 match unnormalized degree and the complex orientation/Tate dictionary. Naturality in all degrees and support connecting maps remain G10 obligations; ALS real orientation is not discarded."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/arithmetic-shimura-central-quotient",
+        "verdict": "verified",
+        "note": "Read E06 §2.4 pp.40–42: split contractible and compact torus fibers have different support/cohomology consequences. Coefficient descent and effective central deck groups are required; G12 correctly prohibits full-U descent for an ineffective Shimura tower."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.5/classical-middle-rank-and-tate-torsion",
+        "verdict": "verified",
+        "note": "CE Theorem 1.4 discussion and CEbounds leading-rank argument require middle degree and discrete series. G5 explicitly retains positive formal-degree and integral completion/Tate rank separation; positive rank is neither freeness nor concentration."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/arithmetic-tower-realisation",
+        "verdict": "verified",
+        "note": "Read CE §1.5 pp.7–8, Scholze Theorem 4.2.1 proof p.1021, MilneEC §21 and the accepted part. Verified only under the whole-plan central/effective quotient conditions. G11 migrates selected canonical/Hilbert and finite support inputs down; G12 forbids an unconditional arithmetic/complex quotient identification."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/definite-unitary-degree-zero",
+        "verdict": "verified",
+        "note": "LLHLM §5.3 pp.120–122 matches finite double-coset functions, coefficient limit order and covariance. Stabilizer-invariant fibers and the discrete CC.0 input are correct; all API/tests checked and patching remains separate."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/scholze-4-2-convention-and-the-perfectoid-comparison",
+        "verdict": "verified",
+        "note": "Published Scholze §4.1–4.2 pp.1017–1024 requires Hodge type, the fixed symplectic embedding, tame level N at least 3 prime to p and fixed positive exponent. Perfectoid/almost outputs stay in TC.2; arbitrary O coefficients need an adapter."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/transported-arithmetic-actions",
+        "verdict": "verified",
+        "note": "The accepted part transports actual coherent level actions, uses inverse geometric translation and the existing topological limit cone. Full-H integral claims inherit the whole-plan coefficient qualification; the open-stabilizer and projection-continuity tests apply."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/compatible-derived-hecke-images",
+        "verdict": "verified",
+        "note": "GN Definition 2.1.11/Remark 2.1.12 p.10 uses genuine derived finite group-ring images. Coherent coefficient change is essential; IHG noncommutative equivariant extension remains an explicit gap rather than a claimed commutative-base import."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/residual-support-stability",
+        "verdict": "verified",
+        "note": "GN Lemma 2.1.14 p.11 and minimal models §§2.1.6–2.1.9 pp.9–10 require pro-p detection and derived finite coinvariants. P7 noncommutative derived Nakayama remains open; the prime-to-p sign test catches a false extension."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/completed-hecke-algebra",
+        "verdict": "verified",
+        "note": "GN Definition 2.1.11/Remark 2.1.13 pp.10–11 matches compatible finite images and their limit topology. Compact finite fibers give projection surjectivity and dense abstract image; scalar, constant and zero tests distinguish the carrier."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/completed-semilocal-product",
+        "verdict": "verified",
+        "note": "GN Lemma 2.1.14 p.11 matches residual finite support. Coordinate inverse and compatible idempotents yield the finite product and algebraic localization property; no noetherianity or radical-adic topology is inferred."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/residual-hecke-projector",
+        "verdict": "verified",
+        "note": "GN Definition 2.1.11/Lemma 2.1.14 pp.10–11 plus native compatible sections gives uniquely labelled orthogonal factor idempotents. Congruent characters share a residual label; all three tests and finite-factor functorial API checked."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/completed-residual-localisation",
+        "verdict": "verified",
+        "note": "GN Lemma 2.1.14 p.11, Definition 3.3.5 p.18 and Proposition 3.4.19 p.24 match the application. Native idempotent ranges apply under T1/continuity; dual labels use the adjoint and no patched augmentation theorem is imported."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/localisation-limit-support-dual-compatibility",
+        "verdict": "verified",
+        "note": "Split compatible projectors commute with the designated diagrams using actual support maps. GN Remark 2.1.13/Proposition 3.4.19 and LLHLM §5.3 support the conventions; ordinary limit exactness and same-label duality are not assumed."
+      },
+      {
+        "nodeId": "CompletedCohomologyPartII:CC.8/derived-cohomological-residual-comparison",
+        "verdict": "verified",
+        "note": "GN Remark 2.1.12/Lemma 2.1.14 supports the bounded ghost argument. Uniform amplitude gives nilpotence, and compact finite fibers give quotient surjectivity; this identifies residual spectra/idempotents, not the two image rings."
+      }
+    ]
+  }
 }

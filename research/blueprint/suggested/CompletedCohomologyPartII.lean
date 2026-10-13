@@ -14,7 +14,10 @@ appear here. The README carries every arithmetic target, API and definition test
 In particular, the arithmetic level/local-system diagram, continuous O/E/O dual
 category, Iwasawa ring, strict admissible complexes, enhanced Rlim, continuous
 completed Tor, derived analytic vectors and canonical-model comparisons do not
-have their required carriers at the pins. They remain exact README targets.
+have their required carriers at the pins. Their arithmetic interfaces remain exact
+README targets. Current Tau Ceti already supplies completedGroupAlgebra and
+IsCompactModule.completedGroupAlgebraModule; the reader imports these newer
+declarations and plans only their arithmetic specialization and limit comparison.
 Neither arbitrary module diagrams nor Prop fields stand in for those objects.
 
 The diagram sections below check the native limit/colimit operations that the
