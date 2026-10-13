@@ -48,13 +48,16 @@ theorem symmetricLogSeminorm_eq_zero (g : ι → V →ₗ[ℝ] ℝ) (x : V) :
     symmetricLogSeminorm g x = 0 ↔ ∀ j, g j x = 0 := by
   sorry
 
+-- test_symmetric_log_seminorm_1: the factor 1/2 is essential.
 example (x : ℝ) :
     symmetricLogSeminorm ![LinearMap.id, -LinearMap.id] x = |x| := by
   sorry
 
+-- test_symmetric_log_seminorm_2: the empty family gives zero.
 example (x : V) : symmetricLogSeminorm (fun j : Fin 0 => Fin.elim0 j) x = 0 := by
   sorry
 
+-- test_symmetric_log_seminorm_3: a common kernel prevents positive definiteness.
 example (g : Fin 2 → (Fin 2 → ℝ) →ₗ[ℝ] ℝ)
     (hg : ∀ j x, g j x = if j = 0 then x 0 else -x 0) :
     symmetricLogSeminorm g ![0, 1] = 0 := by
@@ -102,6 +105,23 @@ theorem blockConstantAlgebra_inf (P Q : Setoid ι) :
       blockConstantAlgebra (P ⊔ Q) := by
   sorry
 
+theorem blockConstantAlgebra_ext (P : Setoid ι)
+    (f g : blockConstantAlgebra (F := F) P) (h : ∀ i, f.val i = g.val i) :
+    f = g := by
+  sorry
+
+theorem blockConstantAlgebra_isUnit_iff (P : Setoid ι)
+    (f : blockConstantAlgebra (F := F) P) :
+    IsUnit f ↔ ∀ i, f.val i ≠ 0 := by
+  sorry
+
+-- test_block_constant_algebra_1: the two-block relation gives (a,a,b).
+example (P : Setoid (Fin 3))
+    (hP : ∀ i j, P.r i j ↔ (i = 2 ↔ j = 2)) (a b : ℚ) :
+    ![a, a, b] ∈ blockConstantAlgebra P := by
+  sorry
+
+-- test_block_constant_algebra_2: equality gives the full product algebra.
 example (f : Fin 3 → ℚ) : f ∈ blockConstantAlgebra (⊥ : Setoid (Fin 3)) := by
   sorry
 
@@ -109,7 +129,14 @@ example (f : Fin 3 → ℚ) :
     f ∈ blockConstantAlgebra (⊤ : Setoid (Fin 3)) ↔ ∀ i, f i = f 0 := by
   sorry
 
-example : ![(1 : ℚ), 2] ∉ blockConstantAlgebra (⊤ : Setoid (Fin 2)) := by
+-- test_block_constant_algebra_3: unequal values in one block are excluded.
+example (P : Setoid (Fin 3))
+    (hP : ∀ i j, P.r i j ↔ (i = 2 ↔ j = 2)) :
+    ![(1 : ℚ), 2, 0] ∉ blockConstantAlgebra P := by
+  sorry
+
+-- The empty index set is allowed; its function algebra is the zero ring.
+example (f : Fin 0 → ℚ) : f ∈ blockConstantAlgebra (⊤ : Setoid (Fin 0)) := by
   sorry
 
 end BlockAlgebra
