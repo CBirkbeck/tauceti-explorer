@@ -1,0 +1,286 @@
+{
+  "roadmapId": "ModularCurvesPartII",
+  "protocol": "blueprint-v1",
+  "part": "R13.4",
+  "scope": [
+    "ModularCurvesPartII:R13.4"
+  ],
+  "status": "complete",
+  "summary": "R13.4 is the retained process interface of R13.4a and R13.4b. The reviewed AUDIT-10 verdict, accepted RS-06 decision and accepted R13.3 packet agree that it owns no mathematical target. This complete pass records exact supplier-node imports and the construction-before-comparison boundary, with no duplicate definitions, declarations or planets. Closed coverage applies only to the process aggregate; the mathematical suppliers remain planned with their existing unresolved contracts.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": []
+  },
+  "sources": [
+    {
+      "id": "conrad07",
+      "title": "Arithmetic moduli of generalized elliptic curves",
+      "authors": "Brian Conrad",
+      "edition": "Author PDF dated 18 July 2006; published J. Inst. Math. Jussieu 6 (2007), 209–278; locators use the author PDF’s printed pages.",
+      "readSections": [
+        "Theorem 4.4.3 and its boundary extension argument, pp.43–46; equation (4.5.1), Theorem 4.5.1, and Example 4.5.3, pp.46–48"
+      ],
+      "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+      "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+      "bytes": 551325,
+      "accessed": "2026-10-13"
+    },
+    {
+      "id": "ces17",
+      "title": "A modular description of X₀(n)",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "arXiv:1511.07475v2, header 5 October 2017, text dated 6 October 2017; printed pp.1–67.",
+      "readSections": [
+        "§6.1, p.62; Lemma 6.2 and Proposition 6.3, p.63; Proposition 6.4, pp.63–64; Remark 6.6 and Theorem 6.7, pp.64–65; Proposition 6.9, p.65"
+      ],
+      "url": "https://arxiv.org/pdf/1511.07475v2",
+      "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd",
+      "bytes": 953080,
+      "accessed": "2026-10-13"
+    }
+  ],
+  "nodes": [],
+  "requests": [],
+  "gaps": [],
+  "sourceIssues": [],
+  "coverage": [
+    {
+      "stageId": "ModularCurvesPartII:R13.4",
+      "status": "closed",
+      "remaining": [],
+      "notes": "Process coverage only. R13.4 has no mathematical target to formalize. R13.4a/integral-coarse-curves and R13.4b/hecke-normalization-comparison already realise this aggregate in the independently accepted R13.3 packet. Their parents, mathematical coverage and open supplier contracts remain unchanged."
+    }
+  ],
+  "scopeEvidence": [
+    {
+      "path": "data/library-coverage.json",
+      "record": "layers.ModularCurvesPartII:R13.4",
+      "verdict": "process",
+      "detail": "AUDIT-10 identifies the layer as the combined interface of R13.4a and R13.4b, with no mathematics of its own."
+    },
+    {
+      "path": "research/blueprint/restructure/RS-06.result.json",
+      "record": "layers.ModularCurvesPartII:R13.4",
+      "verdict": "keep",
+      "detail": "Accepted review independent-review-REV-FIX-RT-RS-06 retains the stable ID solely for the combined interface; R12.3 must not depend on the whole aggregate."
+    },
+    {
+      "path": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+      "record": "scope and coverage",
+      "detail": "The accepted predecessor now covers R12.1–R12.6 and R13.1–R13.2. It contains no R13.4 coverage record or remaining list to extend."
+    },
+    {
+      "path": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "record": "coverage.ModularCurvesPartII:R13.4",
+      "verdict": "closed",
+      "detail": "Independent review independent-review-REV-ModularCurvesPartII--R13.3 accepted process-only closure on 2026-10-13. R13.4a and R13.4b remain planned, not closed."
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
+      "record": "Layer 9D and Layer 10 links to R13.4a",
+      "detail": "The reviewed links assign the affine coarse and prime-level normalization comparisons to R13.4a, not a third construction at R13.4."
+    }
+  ],
+  "importedTargets": [
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Integral coarse modular curves",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Coarse normalization comparisons",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Base change for coarse modular curves",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/coarse-cusp-regularity",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Regularity at integral Γ₀ cusps",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/modular-polynomial",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "The cyclic modular polynomial",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/projective-scalar-coarse-quotient",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Projective scalar level quotients",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4a/split-cartan-quotient",
+      "ownerStageId": "ModularCurvesPartII:R13.4a",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "The split Cartan normalizer quotient",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4b/generic-component-comparison",
+      "ownerStageId": "ModularCurvesPartII:R13.4b",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Generic components and cusp fields",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4b/compactified-map-comparison",
+      "ownerStageId": "ModularCurvesPartII:R13.4b",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Compactified map comparison",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "nodeId": "ModularCurvesPartII:R13.4b/hecke-normalization-comparison",
+      "ownerStageId": "ModularCurvesPartII:R13.4b",
+      "packet": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "title": "Hecke normalization and descent",
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "interfaceOrder": [
+    {
+      "from": "ModularCurvesPartII:R13.4a",
+      "to": "ModularCurvesPartII:R12.3",
+      "detail": "Use the algebraically constructed coarse curve. Do not require R13.4b or R12.6 to construct it or to start its analytic uniformization."
+    },
+    {
+      "from": "ModularCurvesPartII:R12.3",
+      "to": "ModularCurvesPartII:R12.6",
+      "detail": "The earlier analytic comparison and its component conventions supply the analytic Hecke theory."
+    },
+    {
+      "from": "ModularCurvesPartII:R13.4a",
+      "to": "ModularCurvesPartII:R13.4b",
+      "detail": "The late comparison uses the same integral coarse curve, without constructing a replacement."
+    },
+    {
+      "from": "ModularCurvesPartII:R12.6",
+      "to": "ModularCurvesPartII:R13.4b",
+      "detail": "The late comparison checks generic-fibre components, compactified maps and Hecke normalization against the earlier analytic action."
+    }
+  ],
+  "interfaceChecks": [
+    {
+      "name": "level-problem-and-components",
+      "imports": [
+        "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+        "ModularCurvesPartII:R13.4b/generic-component-comparison"
+      ],
+      "check": "Use open H containing Γ(n); level one is H=GL₂(Ẑ). Honest full level 5 has four complex determinant components; fixed pairing selects one. Compare every component of the same algebraic object."
+    },
+    {
+      "name": "existing-compactification-range",
+      "imports": [
+        "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons"
+      ],
+      "check": "Reuse upstream Layer 10 only for prime N≥5 diamond quotients over ℤ[1/N]. A comparison candidate must be finite over the j-line, normal, and contain the common affine open schematically densely, with every component meeting it."
+    },
+    {
+      "name": "separate-base-change-claims",
+      "imports": [
+        "ModularCurvesPartII:R13.4a/legal-coarse-base-change"
+      ],
+      "check": "Coarse formation commutes with arbitrary base change over ℤ[1/gcd(6,n)]; smoothness holds over ℤ[1/n]. Thus n=5 permits all ℤ-bases, while n=4 excludes characteristic 2 from the general arbitrary-base-change claim. Neither statement says that relative normalization commutes with arbitrary base change.",
+      "sources": [
+        {
+          "sourceId": "ces17",
+          "locator": "Proposition 6.4, pp.63–64; Remark 6.6, p.64"
+        }
+      ]
+    },
+    {
+      "name": "coarse-versus-stack",
+      "imports": [
+        "ModularCurvesPartII:R13.4a/coarse-cusp-regularity",
+        "ModularCurvesPartII:R13.4b/compactified-map-comparison"
+      ],
+      "check": "All integral Γ₀(N) cusps are regular, but this does not prove whole-fibre smoothness at a level-dividing prime. Naive and refined Γ₀ stacks have the same coarse curve; retain the refined stack for the boundary construction and check finite-flat descent separately.",
+      "sources": [
+        {
+          "sourceId": "ces17",
+          "locator": "Theorem 6.7, pp.64–65; Proposition 6.9, p.65"
+        },
+        {
+          "sourceId": "conrad07",
+          "locator": "Theorem 4.4.3, pp.43–46"
+        }
+      ]
+    },
+    {
+      "name": "boundary-map-and-differential",
+      "imports": [
+        "ModularCurvesPartII:R13.4b/compactified-map-comparison"
+      ],
+      "check": "Compare both degeneracy maps on completed cusp rings and the invariant differential. A categorical map on coarse spaces does not itself transport the finite-flat stack trace.",
+      "sources": [
+        {
+          "sourceId": "conrad07",
+          "locator": "Theorem 4.4.3 and boundary extension proof, pp.43–46"
+        }
+      ]
+    },
+    {
+      "name": "hecke-trace-scaling",
+      "imports": [
+        "ModularCurvesPartII:R13.4b/hecke-normalization-comparison"
+      ],
+      "check": "The coherent pullback-isogeny-trace construction gives pT_p. Division by p requires the local integral theorem; Picard and étale push–pull use their own integral conventions. In weight 2 with p∤N the normalized coefficient is a_(np)+p·a_(n/p)(⟨p⟩f), with the second term zero if p∤n.",
+      "sources": [
+        {
+          "sourceId": "conrad07",
+          "locator": "equation (4.5.1), p.46; Theorem 4.5.1, pp.46–47; Example 4.5.3, p.48"
+        }
+      ]
+    }
+  ],
+  "supplierCoverage": [
+    {
+      "stageId": "ModularCurvesPartII:R13.4a",
+      "status": "planned",
+      "coveragePacket": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "remainingOwner": "Coarse finite-inertia/completion, refined-stack comparison contracts and the componentwise finite-normal comparison stay with R13.4a."
+    },
+    {
+      "stageId": "ModularCurvesPartII:R13.4b",
+      "status": "planned",
+      "coveragePacket": "research/blueprint/packets/ModularCurvesPartII--R13.3.json",
+      "remainingOwner": "Generic component/cusp-field conventions, compactified map descent and integral trace comparisons stay with R13.4b and its exact suppliers."
+    }
+  ],
+  "currentOwnershipAudit": {
+    "roadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "documentsRead": [
+      "TauCetiRoadmap/ModularCurves/README.md",
+      "TauCetiRoadmap/JacobianChallenge/README.md"
+    ],
+    "statementScreen": "ModularCurves Suggested Layer 10 uses Mathlib relative normalization infrastructure; its modular compactification milestones remain in the README. The nine post-snapshot roadmaps and four Completed roadmaps supply no replacement owner for this modular coarse interface. Current Tau Ceti screening adds no modular coarse construction. These ownership checks are distinct from the pinned elaboration baseline."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ModularCurvesPartII"
+      ],
+      "detail": "The follow-up queue treats R13.4 as a mathematical blueprint stage although the reviewed audit marks it process-only and accepted RS-06 retains it only as an aggregate. A new construction here would duplicate the accepted R13.4a/R13.4b targets.",
+      "proposal": "Remove R13.4 from separate mathematical planning and planet allocation, retaining its stable ID and interface links as required by accepted RS-06. R13.4a owns the algebraic coarse construction and upstream comparison; R13.4b owns the late generic-fibre/correspondence comparison. Preserve all supplier nodes, requests, gaps and mathematical coverage. R12.3 depends on R13.4a, not the combined interface. The maintainer applies queue or atlas changes; this packet changes none."
+    }
+  ]
+}
