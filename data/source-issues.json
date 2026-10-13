@@ -187071,6 +187071,292 @@
    "reviewReason": "Added by the review from the rendered pages 12–13 (PDF pp. 13–14)."
   },
   {
+   "id": "DiophantineApproximationAndTranscendence/E601",
+   "kind": "misprint",
+   "locator": "Author PDF, §9.2.3, proof of Lemma 9.17, Step 1, p.281",
+   "printed": "The injectivity argument asks to conclude s≠0 from sy=0.",
+   "correction": "The required conclusion is s=0.",
+   "reason": "Injectivity of s↦sy requires a zero kernel. The following p.282 calculation proves s=0, contradicting the nonzero sign on p.281.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+    "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+    "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E602",
+   "kind": "misprint",
+   "locator": "Author PDF, §9.2.3, remark immediately before Proposition 9.18, p.286",
+   "printed": "The exclusion of an integer multiple in the indicated direction is attached to β0≠0.",
+   "correction": "Use the homogeneous β0=0 case for that implication.",
+   "reason": "Proposition 9.16 on p.281 assumes β0≠0 or the direction-exclusion condition. That exclusion is therefore required in its β0=0 branch, not in the first branch.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+    "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+    "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E603",
+   "kind": "gap",
+   "locator": "Author PDF, §9.3.3, Corollary 9.20, p.294 and its proof p.297",
+   "printed": "The statement and proof give different M*>1 factors, 2^(m+3)M² and 2^(m+4)M².",
+   "correction": "Reconcile the two factors or verify the stronger one in the optimized M>1 proof. The selected M=1 route has M*=1 in both places.",
+   "reason": "The factors differ by 2. No unverified reduction of the larger factor is made in this packet; this discrepancy is bypassed by M=1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+    "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+    "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E604",
+   "kind": "gap",
+   "locator": "Author PDF, §9.1 Theorem 9.1, pp.251–252; §9.3.4 final normalization, pp.298–302",
+   "printed": "The final argument returns from the weighted sum-size criterion to pointwise size assumptions while retaining the stated C(m).",
+   "correction": "Account explicitly for the sum normalization in the parameter budget or constant. The explicit rescaling here gives Csafe=C(m)m^(m+1).",
+   "reason": "For m terms, the separate inequalities only give Σ|λj|/logAj≤mD/E. Replacing logAj by mlogAj repairs the sum condition but changes the product and coefficient logarithm; retaining the sharper C requires another justified step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+    "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+    "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups, Springer Grundlehren 326 (2000), author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E605",
+   "kind": "misprint",
+   "locator": "Published introduction, p.20, line 14",
+   "printed": "The order of the integer coefficient bj is indexed by the prime ideal P.",
+   "correction": "Use the rational-prime order ordp(bj) in this comparison.",
+   "reason": "The published correction p.307 changes the subscript. The least-coefficient-order normalization uses analytic p-order, not the ramification-scaled prime-ideal order.",
+   "affects": "the proof",
+   "known": "Yu, Correction to Linear forms in p-adic logarithms. II, Compositio Mathematica 76 (1990), p.307, https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
+    "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
+    "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E606",
+   "kind": "misprint",
+   "locator": "Published §4, p.97, formula between (4.81) and (4.82)",
+   "printed": "The multiplicative product is followed by a ramification-index factor rather than raised to it.",
+   "correction": "Raise the multiplicative product to the ramification-index power.",
+   "reason": "The following identity and nonunit replacement require a power of the product; multiplication by the index is not the same algebraic operation. Confirmed against correction p.307.",
+   "affects": "the proof",
+   "known": "Yu, Correction to Linear forms in p-adic logarithms. II, Compositio Mathematica 76 (1990), p.307, https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
+    "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
+    "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E607",
+   "kind": "misprint",
+   "locator": "Published §2.1, p.35, lines 13–14",
+   "printed": "The parameter row for p>2,n≥8 has incorrect ranges.",
+   "correction": "Use c0=17, 3/4≤c1≤3, c2=5, 124≤c3≤160 and 200≤c4≤230.",
+   "reason": "These are the ranges supplied by the published correction p.307. The selected improved 1994 route recalibrates its own parameters rather than using this uncorrected row.",
+   "affects": "the proof",
+   "known": "Yu, Correction to Linear forms in p-adic logarithms. II, Compositio Mathematica 76 (1990), p.307, https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
+    "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
+    "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E608",
+   "kind": "misprint",
+   "locator": "Published §2, p.34, choice before equation (2.23); correction noted in Yu 1994, pp.252–253",
+   "printed": "The compatible q-th root is placed in the complex field C.",
+   "correction": "Place this root in Cp, the p-adic algebraic-closure completion used by the surrounding construction.",
+   "reason": "The compatibility involves the local torsion root ξ and the p-adic exp/log identities. Yu 1994 p.253 explicitly replaces C by Cp in the older text.",
+   "affects": "the proof",
+   "known": "Yu 1994, Linear forms in p-adic logarithms. III, p.253, https://www.numdam.org/item/CM_1994__91_3_241_0.pdf",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
+    "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
+    "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. II, Compositio Mathematica 74 (1990), pp.15–113",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E609",
+   "kind": "error",
+   "locator": "Published §4, equation (4.4), p.271; actual f0 convention in remark p.247",
+   "printed": "After adjoining ζ3 at p=2 the residue degree is stated as f=max(f0,2).",
+   "correction": "The unramified local compositum has f=lcm(f0,2): f=f0 for even f0 and f=2f0 for odd f0. Recheck the bound comparison with this value.",
+   "reason": "An unramified cubic 2-adic field has residue field F8, which has no nontrivial cube root of unity. Adjoining ζ3 gives residue field F64 and degree 6, whereas max(3,2)=3. A global example is Q(root of X³+X+1), whose discriminant is −31 and whose reduction modulo 2 is irreducible. This refutes the displayed proof formula, not the final bound.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
+    "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
+    "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.3.json",
+   "citation": "Kunrui Yu, Linear forms in p-adic logarithms. III, Compositio Mathematica 91 (1994), pp.241–276",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E701",
+   "kind": "error",
+   "locator": "§5, completion of the proof of Theorem 2.3, estimate (5.19), p. 28 (arXiv v1)",
+   "printed": "The height of ξ_1/ξ_2 is bounded by (2/m)(X + C_2) + ½(t_1 + t_2 − 2)C_1, with X = max_i h(x − α_i).",
+   "correction": "h(ξ_1/ξ_2) ≤ (2/m)(h_{L_1}h_{L_2}·X + C_2) + ½(t_1 + t_2 − 2)C_1. The extra factor r = h_{L_1}h_{L_2} ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n} then multiplies C_4 in (5.20), and BEG's final computation gives m ≤ (10n²s)^{46ns}|D_K|^{8n}P_S^{n²}e^{15ndĥ} instead of the printed (2.7).",
+   "reason": "Lemma 5.1 decomposes (x − α_i)^{h_{L_1}h_{L_2}}, not x − α_i; so m·h(ξ_i) ≤ h_{L_1}h_{L_2}·h(x − α_i) + h(γ_i) + Σ_j|b_ij|h(η_ij), and the first term carries the class-number factor. Already for K = ℚ, S = ∅ the fields L_i = ℚ(α_i) can have class number > 1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1301.7168 (only v1, no replacement)",
+    "Evertse's publication list, pub.math.leidenuniv.nl/~evertsejh/publications.shtml (lists the paper; no erratum or correction)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E702",
+   "kind": "misprint",
+   "locator": "§5, first paragraph, p. 22 (arXiv v1)",
+   "printed": "The fields of the roots are introduced as L_i = ℚ(α_i).",
+   "correction": "L_i = K(α_i), as in §4.",
+   "reason": "T_i is defined as the set of places of L_i above the places of S, which requires K ⊆ L_i; the degree bound d_{L_i} ≤ nd used in (5.3) is that of K(α_i).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1301.7168 (only v1)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E703",
+   "kind": "misprint",
+   "locator": "§3.1, Lemma 3.4, p. 7 (arXiv v1)",
+   "printed": "The exponent of the Kummer extension is taken in ℤ_{≥0}.",
+   "correction": "m ≥ 1 (in the applications m ≥ 2).",
+   "reason": "For m = 0 neither γ^{1/m} nor the congruence modulo m makes sense.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1301.7168 (only v1)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E704",
+   "kind": "misprint",
+   "locator": "§5, Lemma 5.1, p. 23 (arXiv v1)",
+   "printed": "The lemma provides integers b_{i1}, …, b_{i,t_i}.",
+   "correction": "b_{i1}, …, b_{i,t_i−1}, one for each element of the fundamental system η_{i1}, …, η_{i,t_i−1}, as in formula (5.8).",
+   "reason": "A fundamental system of T_i-units has t_i − 1 elements; (5.8) uses exactly these exponents.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv abstract page of 1301.7168 (only v1)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E705",
+   "kind": "gap",
+   "locator": "§5, end of the proof of Theorem 1, p. 208",
+   "printed": "Only the case p > q is carried out; the case q > p is said to lead similarly to effective bounds.",
+   "correction": "In the case q > p the comparison uses x > y, which gives p^{δ₁}ρ^q ≥ q^{δ₂}σ^p − 1, so the upper bound for the three-logarithm form becomes at most 4q²/σ^p; the rest of the argument goes through with the roles of (p, ρ, δ₁) and (q, σ, δ₂) exchanged and slightly larger constants.",
+   "reason": "The equation is not symmetric under exchanging the two sides (x − 1 versus y + 1), so the inequalities used for p > q (y > x, q^{δ₂}σ^p > p^{δ₁}ρ^q) must be replaced by their mirror versions; the mirror argument is routine but is not written.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the paper itself (no erratum in Acta Arith. 29–31 tables of contents)",
+    "Evertse's lecture notes, Chapter 5 (reports the result only)"
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "R. Tijdeman, On the equation of Catalan, Acta Arith. 29 (1976) 197–209 (scan; DOI 10.4064/aa-29-2-197-209)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DiophantineApproximationAndTranscendence/E1",
    "kind": "misprint",
    "locator": "Chapter 1, Corollary 1.2, display (1.1), printed p. 2 (dio19-1.pdf, 2019 edition as served in September 2026)",
@@ -219222,6 +219508,73 @@
    "status": "confirmed",
    "reviewedBy": "REV-LocalGaloisDeformationRings~2",
    "reviewReason": "Found in this review and read at the locator in the author's DVI. The node L7/height-lattice-moduli (4) states the module as projective and records the difference."
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E101",
+   "kind": "gap",
+   "locator": "Appendix A, proof of Proposition A.4, printed p. 59 (author PDF; the same in arXiv:2108.12785v4)",
+   "printed": "To see that the dual W* of the middle term is nuclear, the proof cites Dierolf–Roelcke, Proposition 3.8, for p-adic (nonarchimedean) nuclear Fréchet spaces.",
+   "correction": "Dierolf–Roelcke prove that nuclearity is a three-space property for real and complex locally convex spaces; the nonarchimedean case needs its own argument. It holds over every nonarchimedean field by the lattice proof of LocallyAnalyticDistributions:L0/nuclear-three-space.",
+   "reason": "Dierolf–Roelcke's proof (printed p. 30) works with summable and absolutely summable sequences in the sense of Pietsch, i.e. the Grothendieck–Pietsch characterisation of nuclearity over ℝ or ℂ, and lifts summable sequences through the quotient using quotient seminorms; that characterisation is not available for nonarchimedean scalars as used. The nonarchimedean statement follows instead by choosing lattices M_A, L′, M_C as in the node and absorbing finitely many lifted vectors.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author PDF CN5.pdf on W. Nizioł's page, read 2026-10-13 (the text cited)",
+    "arXiv:2108.12785 listing (versions v1–v4); v4 read 2026-10-13: Appendix A has the same statements and proofs",
+    "research/errata/REGISTER.md and data/source-issues.json of this repository: no entry for this paper's Appendix A",
+    "The Duke Mathematical Journal version of record was not read (not openly available); the findings are scoped to the author PDF and arXiv v4",
+    "Dierolf–Roelcke, Collect. Math. 32 (1981), read in the DML-E scan: the paper treats real or complex scalars only"
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E102",
+   "kind": "gap",
+   "locator": "Appendix A, proof of Proposition A.4, printed p. 59 (author PDF; the same in arXiv:2108.12785v4)",
+   "printed": "The proof passes to stereotype duals of 0 → W1 → W → W2 → 0 and asserts an exact sequence 0 → W2* → W* → W1* → Ext¹(W2, K) in LH(C_K); it then applies Proposition A.3 to conclude that W* is Fréchet, and finally compares W with its double dual by the five lemma in LH(C_K).",
+   "correction": "Exactness of the dual sequence as vector spaces follows from Hahn–Banach, but its exactness in LH(C_K), i.e. strictness for the stereotype (here equal to strong) topologies, is not justified when W is not yet known to be of compact type, and Proposition A.3 needs it; the final step also needs the canonical map W → W** to be continuous. A complete proof must supply (H1) strictness of the dual sequence and (H2) continuity of W → W**; with them the argument goes through (LocallyAnalyticDistributions:L0/compact-type-extension-duality).",
+   "reason": "No derived Hom functor of C_K with values in LH(C_K) carrying the stereotype topology is constructed in the paper, and topological exactness of duals is not a formal consequence of strictness of the original sequence: the known case, a closed subspace of a space of compact type (Schneider–Teitelbaum 1999, Proposition 1.2(i)), is proved through the compact-type structure of the middle term, which is what Proposition A.4 is to establish.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author PDF CN5.pdf on W. Nizioł's page, read 2026-10-13 (the text cited)",
+    "arXiv:2108.12785 listing (versions v1–v4); v4 read 2026-10-13: Appendix A has the same statements and proofs",
+    "research/errata/REGISTER.md and data/source-issues.json of this repository: no entry for this paper's Appendix A",
+    "The Duke Mathematical Journal version of record was not read (not openly available); the findings are scoped to the author PDF and arXiv v4"
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "LocallyAnalyticDistributions/E103",
+   "kind": "gap",
+   "locator": "Appendix A, Remark A.2, printed p. 58 (author PDF; the same in arXiv:2108.12785v4)",
+   "printed": "The remark asserts without proof that a strict extension of Banach spaces splits if K is spherically complete or if both outer spaces have a dense subspace of countable dimension.",
+   "correction": "Schneider, Nonarchimedean Functional Analysis, Proposition 10.5 proves the splitting when K is discretely valued or when the quotient is of countable type. The case of a spherically complete K with dense value group is not covered by that proof and is not used in this roadmap, whose coefficient fields are finite over ℚ_p.",
+   "reason": "Schneider's proof identifies the quotient with c₀(X) (Proposition 10.1 needs a discrete valuation, Proposition 10.4 countable type) and lifts its unit vectors boundedly. An Ingleton-type extension of the identity of W1 would need W1 to be spherically complete as a normed space, which fails for c₀(ℕ, K) when |K^×| is dense: nested balls around Σ_{i≤n} a_i e_i with radii r_n decreasing to r > 0 and |a_i| = r_{i−1} have no common point in c₀.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Author PDF CN5.pdf on W. Nizioł's page, read 2026-10-13 (the text cited)",
+    "arXiv:2108.12785 listing (versions v1–v4); v4 read 2026-10-13: Appendix A has the same statements and proofs",
+    "research/errata/REGISTER.md and data/source-issues.json of this repository: no entry for this paper's Appendix A",
+    "The Duke Mathematical Journal version of record was not read (not openly available); the findings are scoped to the author PDF and arXiv v4"
+   ],
+   "owner": "LocallyAnalyticDistributions",
+   "file": "research/blueprint/packets/LocallyAnalyticDistributions--L0.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Author PDF (CN5.pdf) of the Duke Math. J. 2025 article, compared for Appendix A with arXiv:2108.12785v4; printed page numbers of the author PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "LocallyAnalyticDistributions/E7",
