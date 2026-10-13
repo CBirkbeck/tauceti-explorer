@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-12",
+  "updated": "2026-10-13T16:45Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "pr",
@@ -47,8 +47,8 @@
       "depends_on": [
         785
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "792f649",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13",
+      "head": "d781655",
       "review": {
         "recommendation": "approve",
         "head": "f68f3bc",
@@ -169,8 +169,8 @@
       "depends_on": [
         814
       ],
-      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "059fd15",
+      "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13",
+      "head": "e4962b8",
       "review": {
         "recommendation": "changes",
         "head": "e0de4ab",
@@ -198,89 +198,89 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "eafe802",
+      "head": "bcbbf76",
       "depends_on": [
         779,
         853
       ],
-      "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
+      "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "eafe802",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 09:20Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at eafe802, all findings repaired and answered at bcbbf76; awaiting re-review"
       }
     },
     "AbelianSchemesAndArithmeticModuli": {
       "stage": "pr",
       "pr": 849,
-      "head": "d0a1810",
+      "head": "5c5dac0",
       "depends_on": [
         779,
         848,
         853
       ],
-      "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
+      "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "d0a1810",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 09:35Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at d0a1810, all findings repaired and answered at 5c5dac0; awaiting re-review"
       }
     },
     "InverseGaloisAndArithmeticFundamentalGroups": {
       "stage": "pr",
       "pr": 850,
-      "head": "08193c6",
+      "head": "0a3bfd5",
       "depends_on": [
         779,
         785,
         848,
         853
       ],
-      "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name",
+      "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "08193c6",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 09:35Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 08193c6, all findings repaired and answered at 0a3bfd5; awaiting re-review"
       }
     },
     "GeometryOfNumbersAndQuadraticArithmetic": {
       "stage": "pr",
       "pr": 851,
-      "head": "c8e327f",
+      "head": "5770dfd",
       "depends_on": [
         792,
         785
       ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines",
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 3,024 lines (from 5,458), README 3,400 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "c8e327f",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 09:55Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at c8e327f, all findings repaired and answered at 5770dfd; awaiting re-review"
       }
     },
     "NeronModelsAndSemistableAbelianVarieties": {
       "stage": "pr",
       "pr": 852,
-      "head": "4d84f14",
+      "head": "089bedd",
       "depends_on": [
         779,
         785
       ],
-      "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines",
+      "note": "ported 2026-10-13 (Codex); Lean 594 lines, README 2,751 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "4d84f14",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 10:00Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 4d84f14, all findings repaired and answered at 089bedd; awaiting re-review"
       }
     },
     "AlgebraicModuliForArithmeticGeometry": {
@@ -295,29 +295,29 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines",
       "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 10:05Z; awaiting first review"
+        "recommendation": "changes",
+        "head": "be92167",
+        "current": true,
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at be92167; repair in progress"
       }
     },
     "LocallyAnalyticDistributions": {
       "stage": "pr",
       "pr": 854,
-      "head": "513dd50",
+      "head": "b48bd12",
       "depends_on": [
         780,
         813,
         785
       ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines",
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 1,642 lines (from 3,807), README 2,242 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "513dd50",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 10:30Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 513dd50, all findings repaired and answered at b48bd12; awaiting re-review"
       }
     },
     "DiophantineApproximationAndTranscendence": {
@@ -327,28 +327,28 @@
       "depends_on": [],
       "note": "ported 2026-10-13 (Codex) with a Codex review pass before opening (21 corrections); Lean 3,045 lines (from 6,064), README 2,080 lines",
       "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 11:00Z; awaiting first review"
+        "recommendation": "changes",
+        "head": "1a5785e",
+        "current": true,
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 1a5785e; repair in progress"
       }
     },
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "0636ba9",
+      "head": "35f01a2",
       "depends_on": [
         789,
         785
       ],
-      "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines",
+      "note": "ported 2026-10-13 (Opus, claude1); Lean 3,657 lines (from 11,966), README 3,550 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "0636ba9",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 11:30Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 0636ba9, all findings repaired and answered at 35f01a2; awaiting re-review"
       }
     },
     "CrystallineCohomology": {
@@ -370,11 +370,11 @@
       ],
       "note": "ported 2026-10-13 (Codex); Lean 735 lines, README 11,562 lines; bundle partner DerivedDeRhamCohomology ported in parallel",
       "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 11:50Z; awaiting first review"
+        "recommendation": "changes",
+        "head": "15888a4",
+        "current": true,
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 15888a4; repair in progress"
       }
     },
     "ArithmeticGaloisDuality": {
@@ -391,11 +391,11 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 11:55Z; awaiting first review"
+        "recommendation": "changes",
+        "head": "21649c7",
+        "current": true,
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 21649c7; repair in progress"
       }
     },
     "DerivedDeRhamCohomology": {
@@ -410,43 +410,43 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude1); Lean 591 lines, README 4,400 lines; the package review open items were settled in the port",
       "review": {
-        "recommendation": null,
-        "head": null,
-        "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 12:35Z; awaiting first review"
+        "recommendation": "changes",
+        "head": "10a113c",
+        "current": true,
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 10a113c; repair in progress"
       }
     },
     "SelmerIwasawaCohomology": {
       "stage": "pr",
       "pr": 869,
-      "head": "7a61ea8",
+      "head": "c15b1b1",
       "depends_on": [
         858,
         779,
         780,
         818
       ],
-      "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13)",
+      "note": "ported 2026-10-13 (Opus, claude5); Lean 987 lines, README 2,295 lines; §4.28 keeps the Selmer-complex half, the full congruence is a target of HeegnerPointEulerSystems HE.8 (user decision 2026-10-13); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": null,
-        "head": null,
+        "recommendation": "changes",
+        "head": "7a61ea8",
         "current": false,
-        "date": null,
-        "note": "opened 2026-10-13 12:40Z; awaiting first review"
+        "date": "2026-10-13",
+        "note": "author-requested ChatGPT Pro review at 7a61ea8, all findings repaired and answered at c15b1b1; awaiting re-review"
       }
     },
     "NeronModelsAndSemistableAbelianVarietiesPartII": {
       "stage": "pr",
       "pr": 870,
-      "head": "1dbb678",
+      "head": "11e34ea",
       "depends_on": [
         852,
         779,
         785,
         853
       ],
-      "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split)",
+      "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": null,
         "head": null,
@@ -458,13 +458,13 @@
     "ArithmeticLocallySymmetricSpaces": {
       "stage": "pr",
       "pr": 871,
-      "head": "92a5253",
+      "head": "8286a0a",
       "depends_on": [
         792,
         793,
         785
       ],
-      "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines",
+      "note": "ported 2026-10-13 (Opus, claude1); Lean 497 lines, README 3,522 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": null,
         "head": null,
@@ -476,11 +476,11 @@
     "DeformationAndDerivedPatchingAlgebraPartII": {
       "stage": "pr",
       "pr": 872,
-      "head": "c7fa231",
+      "head": "ded2643",
       "depends_on": [
         779
       ],
-      "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream",
+      "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": null,
         "head": null,
@@ -492,7 +492,7 @@
     "LefschetzPencilsAndVanishingCycles": {
       "stage": "pr",
       "pr": 873,
-      "head": "4050684",
+      "head": "1cc3c29",
       "depends_on": [
         779,
         792,
@@ -504,7 +504,7 @@
         849,
         848
       ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines",
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 419 lines, README 3,472 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": null,
         "head": null,
@@ -516,7 +516,7 @@
     "ClassicalAdicEtaleCohomology": {
       "stage": "pr",
       "pr": 875,
-      "head": "f2d7b51",
+      "head": "4afa4fd",
       "depends_on": [
         817,
         813,
@@ -530,13 +530,37 @@
         858,
         856
       ],
-      "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines",
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": null,
         "head": null,
         "current": false,
         "date": null,
         "note": "opened 2026-10-13 15:00Z; awaiting first review"
+      }
+    },
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
+      "stage": "pr",
+      "pr": 879,
+      "head": "a0abe46",
+      "depends_on": [
+        849,
+        857,
+        869,
+        852,
+        868,
+        779,
+        850,
+        856,
+        793
+      ],
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 841 lines, README 6,532 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 16:30Z as a draft; awaiting first review"
       }
     }
   }
