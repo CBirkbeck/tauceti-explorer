@@ -213,15 +213,6 @@ example :
     (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = (F2Model 2).pointCount :=
   by sorry
 
-/-! ## Layer 3: multiple fibers and local isogenies -/
-
-/-- An isogeny preserves counts over all finite extensions; the existing trace
-normalization turns equal counts into equal traces. The geometric isogeny is a
-README target, whereas this implication uses the native equation-count carrier. -/
-theorem trace_eq_of_count_eq {k : Type u} [Field k] [Fintype k]
-    (E F : WeierstrassCurve k) (h : E.pointCount = F.pointCount) :
-    E.frobeniusTrace = F.frobeniusTrace := by sorry
-
 /-! ## Layer 4: canonical bundles, Picard lattices and global equations -/
 
 /-- The native equation plus its five polynomial degree bounds. -/
@@ -251,6 +242,15 @@ theorem reverseWeight_bound {k : Type u} [CommRing k] (i : ℕ) (p : k[X]) :
 theorem reverseWeight_involutive {k : Type u} [CommRing k]
     (i : ℕ) (p : k[X]) (hp : p.natDegree ≤ i) :
     reverseWeight i (reverseWeight i p) = p := by sorry
+
+/-- On polynomials of degree at most `i`, weight reversal is Mathlib's `Polynomial.reflect`;
+above that weight `reflect` keeps a coefficient that `reverseWeight` drops. -/
+theorem reverseWeight_eq_reflect {k : Type u} [CommRing k]
+    (i : ℕ) (p : k[X]) (hp : p.natDegree ≤ i) :
+    reverseWeight i p = Polynomial.reflect i p := by sorry
+
+/-- The two reversals differ above the weight: `reflect` keeps `X ^ 7` at weight six. -/
+example : reverseWeight 6 (X ^ 7 : ℤ[X]) ≠ Polynomial.reflect 6 (X ^ 7 : ℤ[X]) := by sorry
 
 /-- The global discriminant transforms with weight twelve. -/
 theorem inverseChart_discriminant {k : Type u} [CommRing k] (W : BoundedWeierstrass k) :
@@ -439,8 +439,9 @@ example : (admissibleChange (0, (![0, 1, 0] : Fin 3 → ZMod 2), 0)).r = X ∧
     (admissibleChange (0, (![0, 1, 0] : Fin 3 → ZMod 2), 0)).s = 0 := by sorry
 
 /-
-The README also defines the following objects whose geometric or comparison
-constructions are not represented here:
+The Layer 3 targets (multiple-fiber isogenies and the local LLR comparison) have no
+carriers at the pins and live in the README. The README also defines the following
+objects whose geometric or comparison constructions are not represented here:
 GeometricPushout, FerrandPushout, GenusOneFibration, FiberTypeDivisor, HasGeometricKodairaFiber,
 DegenerateFiber, CandidateEquation, conductorIdealSheaf, conductorMap,
 QuadraticPinch.coordinates, QuadraticPinch.presentationEquiv,
