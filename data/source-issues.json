@@ -162215,9 +162215,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, Publ. Math. IHES 128 (2018), 219–397; online January 2019",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. Take I=(2), n=1 and C=Z in degree0 with zero differential. The printed left quotient is Z/2, while H^1(C)[2]=0. The corrected boundary argument still constructs the lower-truncation comparison, so the theorem remains valid."
   },
   {
    "id": "AInfCohomology/E2",
@@ -162237,9 +162237,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Public December 2019 author copy; published Asterisque 424 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. B^n was defined as the image of d:X^(n−1)→X^n; a nonzero two-term differential has B^n nonzero and B^(n−1)=0."
   },
   {
    "id": "AInfCohomology/E3",
@@ -162259,9 +162259,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Public December 2019 author copy; published Asterisque 424 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. As printed the premise is satisfied by any map into a p-complete N. For M=0 and N=Z_p it would incorrectly say Lη_p Z_p completes zero; the proof uses the corrected premise."
   },
   {
    "id": "AInfCohomology/E4",
@@ -162281,9 +162281,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Public December 2019 author copy; published Asterisque 424 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. For the p-power filtration of Z[1/p], taking the inverse direction cannot recover the underlying localization; the preceding definition and decreasing-filtration transitions already use minus infinity."
   },
   {
    "id": "AInfCohomology/E5",
@@ -162303,9 +162303,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Jacob Lurie, Akhil Mathew, Revisiting the de Rham-Witt complex, Public December 2019 author copy; published Asterisque 424 (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The filtration is decreasing, so the printed quotient is not in that order. A filtered complex with two nonzero graded pieces shows that one graded quotient cannot be the truncation of the entire underlying M. The corrected formula follows term by term from the displayed F′ definition."
   },
   {
    "id": "AInfCohomology/E6",
@@ -162323,9 +162323,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, Publ. Math. IHES 128 (2018), 219–397; online January 2019",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The following comparison E1 to E2 and Example 7.7 use the decalage of group cohomology; applying the functor to E1 itself would be circular."
   },
   {
    "id": "AInfCohomology/E7",
@@ -162343,17 +162343,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow, Peter Scholze, Integral p-adic Hodge theory, Publ. Math. IHES 128 (2018), 219–397; online January 2019",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The second differential component has degree n; g*y has degree n-1. The differential displayed immediately before the tests and the intervening divisibility argument both use g*x."
   },
   {
    "id": "AInfCohomology/E-AI6-1",
    "kind": "misprint",
    "locator": "Published §4.4 opening, p.280, immediately before Lemma 4.30",
-   "printed": "The source equips S = W(k)[[T]] with ϕ, described as a Frobenius automorphism.",
-   "correction": "Frobenius endomorphism of 𝔖=W(k)[[T]]: the Witt vector Frobenius on W(k) and T↦T^p (BMS1 writes T for the variable this packet calls u).",
-   "reason": "The image of ϕ lies in W(k)[[T^p]], so T is not in it and ϕ is not surjective. BMS1 §4.1 (p.262) defines ϕ as 'the Frobenius on W(k), and sends T to T^p', and BMS2 Notation 11.1 calls it an endomorphism; nothing in §4.4 uses surjectivity.",
+   "printed": "The power-series coefficient Frobenius is described as invertible.",
+   "correction": "Use an endomorphism: Witt Frobenius on W(k) and T↦T^p.",
+   "reason": "Every image series has exponents divisible by p, so T has no preimage. The earlier coefficient definition and BMS2 Notation 11.1 use this endomorphism, and §4.4 does not need surjectivity.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -162365,9 +162365,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 128 (2018), 219–397; DOI 10.1007/s10240-019-00102-z",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. Every image series has exponents divisible by p, so T has no preimage. The earlier coefficient definition and BMS2 Notation 11.1 use this endomorphism, and §4.4 does not need surjectivity."
   },
   {
    "id": "AInfCohomology/E-AI6-2",
@@ -162386,9 +162386,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The referenced Proposition 11.15 is relative, and both the following Frobenius composite and the 𝔖-module structure require the same relative spectrum; absolute TC⁻ cannot supply that base."
   },
   {
    "id": "AInfCohomology/E-AI6-3",
@@ -162407,9 +162407,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The ring concerned is D_{Ψ,Ξ,n}(A), defined two lines earlier as a quotient of B_dR⁺⟨(X_u^{±1})_{u∈Ψ},(X_a)_{a∈Ξ}⟩; Σ is the index set of the formal torus of §5.17 and does not occur in §6.3. In the typeset text the expression is (A_inf/ξⁿ)⟨(X_u^{±1})_{u∈Σ},(X_a)_{a∈Ξ}⟩; the text extraction drops the angle brackets."
   },
   {
    "id": "AInfCohomology/E-AI6-4",
@@ -162428,16 +162428,16 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The relation T_0⋯T_r−p^q involves T_0, and the chart (6.3.1) on the same page has the variables T_0,…,T_r,T_{r+1}^{±1},…,T_d^{±1}. The overline on W(k) is lost in the text extraction."
   },
   {
    "id": "AInfCohomology/E-AI6-5",
    "kind": "misprint",
    "locator": "§7.2, sentence introducing (7.2.1), p.68, arXiv:1710.06145v3",
    "printed": "The source attributes the subsequent identifications to (2.3), (4.18.1), and (5.43.2).",
-   "correction": "by (2.3.1), (4.18.1), and (5.43.2)",
+   "correction": "Replace the reference (2.3) by (2.3.1); retain (4.18.1) and (5.43.2).",
    "reason": "The paper has no display numbered (2.3); the étale identification in the first line of (7.2.1) is display (2.3.1) of Theorem 2.3.",
    "affects": "nothing",
    "known": "new",
@@ -162449,9 +162449,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The paper has no display numbered (2.3); the étale identification in the first line of (7.2.1) is display (2.3.1) of Theorem 2.3."
   },
   {
    "id": "AInfCohomology/E-AI6-6",
@@ -162470,17 +162470,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. Logarithmic crystalline cohomology over W(k) is that of the special fibre 𝔛_k everywhere else in §7 ((7.2.1), (7.6.4), (7.8.1), (7.9.1)), and the question is prompted by (7.8.1) and Theorems 7.9 and 7.12. In the extracted text '6=' stands for ≠."
   },
   {
    "id": "AInfCohomology/E-AI6-7",
    "kind": "misprint",
    "locator": "Proof of Proposition 3.33, first line of p.24, arXiv:1710.06145v3",
-   "printed": "The source asserts that A_inf is flat over Z[[T]].",
-   "correction": "for which A_inf is Z_p[[T]]-flat",
-   "reason": "The morphism just defined is Z_p[[T]]→A_inf, T↦[ε]^{1/p^j}−1 (last line of p.23), and the flatness meant is the one invoked in the proof of Proposition 3.29 (p.21: by [BMS18, 4.31], A_inf is a faithfully flat Z_p[[T]]-algebra); the next sentence again writes Z_p[[T]]. The subscript p is missing in the PDF itself (checked on PDF p.24), not only in the extracted text.",
+   "printed": "The flat coefficient base is written with integer, rather than p-adic integer, power series.",
+   "correction": "The intended base in this step is Z_p[[T]].",
+   "reason": "The morphism on p.23 has source Z_p[[T]], with T mapped to the cyclotomic coefficient. Proposition 3.29 on p.21 and the next sentence on p.24 use that same p-adic base; the missing subscript occurs in the rendered PDF.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -162491,9 +162491,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The morphism on p.23 has source Z_p[[T]], with T mapped to the cyclotomic coefficient. Proposition 3.29 on p.21 and the next sentence on p.24 use that same p-adic base; the missing subscript occurs in the rendered PDF."
   },
   {
    "id": "AInfCohomology/E-AI6-8",
@@ -162512,17 +162512,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. 𝒳 is introduced on p.29 as a proper flat scheme over the integral closure of W(k), which is not p-adically complete; Theorem 4.12 requires a proper finitely presented scheme over an a-adically complete valuation ring, and Ω¹_{𝒳/O_C} has no meaning for a scheme that is not over O_C. Remark 4.19 (p.31) writes 𝒳_{O_C} for the same object. Checked on PDF p.30. The intended meaning is clear and the argument is unaffected."
   },
   {
    "id": "AInfCohomology/E-AI6-9",
    "kind": "misprint",
    "locator": "§15.2, last paragraph, p.105 (arXiv:1905.08229v4)",
-   "printed": "The source refers to [BMS19, Proposition 11.5].",
-   "correction": "cf. [BMS19, Proposition 11.15] (with the proof of Theorem 11.2 there).",
-   "reason": "The sentence says 'This is how RΓ_𝔖(X) was defined in [BMS19]', through the Nygaard filtration found on the higher homotopy groups of TC⁻. In BMS2 that definition is Proposition 11.15 (the u-inverted gr⁰TC⁻(−/𝕊[z]; Z_p), p.305) together with the proof of Theorem 11.2 (p.306). Item 11.5 of BMS2 is 'Construction 11.5 (Construction of the cyclotomic structure on THH(−/𝕊[z]))', p.300: it is not a proposition and does not define RΓ_𝔖.",
+   "printed": "The trace definition is attributed to a proposition numbered 11.5 in BMS2.",
+   "correction": "Refer to BMS2 Proposition 11.15 and the proof of Theorem 11.2.",
+   "reason": "BMS2 item 11.5, p.300, constructs a relative cyclotomic structure. The Bott-inverted degree-zero definition occurs in Proposition 11.15, p.305, and its use to define cohomology in Theorem 11.2, p.306.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -162532,17 +162532,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022; §18 paper pp.122–123",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. BMS2 item 11.5, p.300, constructs a relative cyclotomic structure. The Bott-inverted degree-zero definition occurs in Proposition 11.15, p.305, and its use to define cohomology in Theorem 11.2, p.306."
   },
   {
    "id": "AInfCohomology/E-AI6-10",
    "kind": "misprint",
    "locator": "Notation 11.1, p.298 (the same wording in the abstract and in §1, p.199)",
    "printed": "The source takes K to be an extension of Qp with a discrete valuation and perfect residue field k.",
-   "correction": "Let K be a complete discretely valued extension of Q_p with perfect residue field k.",
-   "reason": "The next sentence uses a surjection θ̃ : W(k)[[z]] → O_K, which requires O_K to be p-adically complete and to contain W(k): the maximal unramified extension of Q_p is a discretely valued extension of Q_p with perfect residue field whose ring of integers does not contain W(F̄_p). BMS1 §4.1 and BS22 Example 1.3(3) say 'complete discretely valued'.",
+   "correction": "Add completeness to the discretely valued mixed-characteristic field hypothesis.",
+   "reason": "The coefficient-ring surjection requires a complete O_K containing W(k). The maximal unramified algebraic extension of Q_p has perfect residue field but is not complete and does not contain W(F̄_p). BMS1 §4.1 and BS22 Example 1.3(3) impose completeness.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -162552,17 +162552,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. The coefficient-ring surjection requires a complete O_K containing W(k). The maximal unramified algebraic extension of Q_p has perfect residue field but is not complete and does not contain W(F̄_p). BMS1 §4.1 and BS22 Example 1.3(3) impose completeness."
   },
   {
    "id": "AInfCohomology/E-AI6-11",
    "kind": "misprint",
    "locator": "§4.1, paragraph before Theorem 4.4, p.265",
-   "printed": "The source sends T to [π^♭]^p in a map 𝔖 → A_inf. It declares the square with 𝔖 → O on top and A_inf → O_C below to commute, with θ̃ labeling each horizontal arrow.",
-   "correction": "We have a map 𝔖 → A_inf which sends T to [π^♭]^p and is the Frobenius on W(k).",
-   "reason": "The sentence continues '[π^♭]^p. Thus, the diagram … commutes', the diagram having θ̃ : 𝔖 → O on top and θ̃ : A_inf → O_C below. On A_inf, θ̃ = θ∘φ^{-1}; for a ∈ W(k) a W(k)-linear map would give θ̃(a) = φ^{-1}(a), which differs from a unless k = F_p, so the square commutes only for the map that is the Frobenius on W(k). The action on W(k) is not specified on p.265; it is specified in §4.4, pp.280–281 ('sends T to [π^♭]^p and is the Frobenius on W(k)').",
+   "printed": "The coefficient map specifies T↦[π^♭]^p and asserts compatibility with both shifted Fontaine maps, without specifying its action on W(k).",
+   "correction": "The map must act on W(k) through Witt Frobenius.",
+   "reason": "For a∈W(k), shifted theta applies φ_W⁻¹. A W(k)-linear assignment therefore gives φ_W⁻¹(a), whereas the upper shifted coefficient map gives a. Commutativity requires φ_W on coefficients, which BMS1 §4.4, pp.280–281 specifies.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -162572,9 +162572,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 128 (2018), 219–397; DOI 10.1007/s10240-019-00102-z",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. For a∈W(k), shifted theta applies φ_W⁻¹. A W(k)-linear assignment therefore gives φ_W⁻¹(a), whereas the upper shifted coefficient map gives a. Commutativity requires φ_W on coefficients, which BMS1 §4.4, pp.280–281 specifies."
   },
   {
    "id": "AInfCohomology/E-AI6-12",
@@ -162593,17 +162593,17 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case, arXiv:1710.06145v3, 4 October 2018; paper pagination 1–78",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. For M=H^i_cont(Δ,R)⊕H^i_cont(Δ,M_∞) the quotient M/M[ζ_p−1] is the image of the first summand, whereas M/(ζ_p−1)M is H^i_cont(Δ,R)/(ζ_p−1) plus the whole second summand; a module without 𝔪-torsion always has M/M[f] without 𝔪-torsion, so the check made is not the hypothesis of the lemma. The theorem is correct."
   },
   {
    "id": "AInfCohomology/E-AI6-13",
    "kind": "gap",
    "locator": "Remark 11.16, p.307 (Publ. math. IHÉS 129)",
-   "printed": "The source claims globalization would give canonical descent of every smooth formal scheme X/O_K to W(k)[π^p] ⊂ O_K, the θ-image of 𝔖 → O_K. It calls this impossible, citing as a counterexample elliptic curves having good reduction and j invariant in O_K − W(k)[π^p].",
+   "printed": "The obstruction to functorial Frobenius descent is illustrated for general K by an elliptic j-invariant outside W(k)[π^p].",
    "correction": "A descent along φ of the projection for A=O_K is a quotient 𝔖/J with φ(J)𝔖=(E). If no such J exists, which is so whenever p does not divide the degree e of E (in particular for K unramified, where moreover W(k)[π^p]=O_K and no elliptic curve as described exists), there is no descent already for A=O_K, for a different reason. If it exists, J=ker θ, 𝔖/J≅W(k)[π^p], O_K is free of rank p over it, and the elliptic-curve argument applies.",
-   "reason": "K=Q_p, π=p, E=z−p: W(k)[π^p]=Z_p=O_K, so the set O_K−W(k)[π^p] is empty and the printed counterexample does not exist; and (z−p) is not generated by a power series in z^p, so the projection for A=O_K has no descent at all. For p∤e, e>1, O_K is not the base change along φ of any quotient of 𝔖, so 'descends to W(k)[π^p]' is not what a descent along φ would give. The conclusion of the remark, that no functorial descent exists, is true in every case.",
+   "reason": "For K=Q_p and π=p, W(k)[π^p]=O_K, so the suggested j-invariant cannot exist. The ideal (z−p) cannot be extended from a series ideal in z^p. More generally p∤e obstructs coefficient-ideal descent already for O_K. The conclusion about absence of functorial descent survives with these separate cases.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -162613,9 +162613,9 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. For K=Q_p and π=p, W(k)[π^p]=O_K, so the suggested j-invariant cannot exist. The ideal (z−p) cannot be extended from a series ideal in z^p. More generally p∤e obstructs coefficient-ideal descent already for O_K. The conclusion about absence of functorial descent survives with these separate cases."
   },
   {
    "id": "AInfCohomology/E-AI6-14",
@@ -162623,7 +162623,7 @@
    "locator": "Notation 11.1, p.298 (Publ. math. IHÉS 129)",
    "printed": "The source claims faithful flatness and topological freeness for the resulting map 𝔖 → A_inf, citing [BMS18, Lemma 4.30 and its proof].",
    "correction": "BMS1 Lemma 4.30 and its proof give flatness only. Faithful flatness follows because the map is a flat local homomorphism of local rings. Topological freeness follows by lifting a basis of A_inf/(p,[π^♭]^p) over k that contains 1 and applying derived Nakayama for the regular sequence (p,z); this argument is in neither paper.",
-   "reason": "BMS1 Lemma 4.30 (p.281) states 'The map 𝔖 → A_inf above is flat', and its proof shows that M⊗^L_𝔖 A_inf is concentrated in degree 0; neither faithful flatness nor a topological basis occurs in the statement or the proof. BMS2 uses topological freeness in the proof of Corollary 11.12(4) and in Remark 11.17.",
+   "reason": "BMS1 Lemma 4.30, p.281, proves flatness by concentration of derived scalar extension in degree zero. It supplies neither the local-ring argument for faithful flatness nor a lifted topological basis. BMS2 Corollary 11.12(4) and Remark 11.17 use the stronger topological statement.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -162633,9 +162633,91 @@
    "owner": "AInfCohomology",
    "file": "research/blueprint/packets/AInfCohomology.json",
    "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently checked the specified edition at this locator. BMS1 Lemma 4.30, p.281, proves flatness by concentration of derived scalar extension in degree zero. It supplies neither the local-ring argument for faithful flatness nor a lifted topological basis. BMS2 Corollary 11.12(4) and Remark 11.17 use the stronger topological statement."
+  },
+  {
+   "id": "AInfCohomology/E8",
+   "kind": "misprint",
+   "locator": "Definition 5.1 and following graded-piece convention, published p.233; arXiv v2 printed p.28",
+   "printed": "The decreasing-filtration quotient uses the preceding index.",
+   "correction": "Use gr^i(F)=cofib(F(i+1)→F(i)).",
+   "reason": "A Z^op filtration has an arrow F(i+1)→F(i). The step filtration F(0)=A, F(1)=0 must have gr^0=A.",
+   "affects": "a stated result",
+   "known": "DerivedDeRhamCohomology/E5 and the corresponding PrismaticCohomology finding",
+   "searched": [
+    "https://arxiv.org/abs/1802.03261: version history and affected latest PDF passages",
+    "https://numdam.org/articles/10.1007/s10240-019-00106-9/: publisher record and version-of-record pp.233,239–240",
+    "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/: publication listing",
+    "Targeted title/errata/Corollary 5.10 search and existing atlas source register, 2026-10-13; no separate correction identified for Corollary 5.10; novelty is not established."
+   ],
+   "owner": "AInfCohomology",
+   "file": "research/blueprint/packets/AInfCohomology.json",
+   "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently read the locator. A Z^op filtration has an arrow F(i+1)→F(i). The step filtration F(0)=A, F(1)=0 must have gr^0=A."
+  },
+  {
+   "id": "AInfCohomology/E9",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 5.10, third functor, published p.239; its verification on p.240; arXiv v2 printed p.33",
+   "printed": "The third functor takes the positive-infinity limit of the filtration.",
+   "correction": "Use F↦colim_(i→−∞)F(i)=F(−∞).",
+   "reason": "Proposition 5.8 identifies the underlying object of the connective cover with Lη_I K. The next page proves monoidality for the negative-infinity colimit. A complete nonzero step filtration has positive-infinity limit zero, so that limit cannot return its underlying object.",
+   "affects": "the proof",
+   "known": "No separate correction identified in the recorded search; novelty is not established.",
+   "searched": [
+    "https://arxiv.org/abs/1802.03261: version history and affected latest PDF passages",
+    "https://numdam.org/articles/10.1007/s10240-019-00106-9/: publisher record and version-of-record pp.233,239–240",
+    "https://www.imo.universite-paris-saclay.fr/~matthew.morrow/: publication listing",
+    "Targeted title/errata/Corollary 5.10 search and existing atlas source register, 2026-10-13; no separate correction identified for Corollary 5.10; novelty is not established."
+   ],
+   "owner": "AInfCohomology",
+   "file": "research/blueprint/packets/AInfCohomology.json",
+   "citation": "Bhargav Bhatt, Matthew Morrow and Peter Scholze, Topological Hochschild homology and integral p-adic Hodge theory, Published, Publications Mathématiques de l’IHÉS 129 (2019), 199–310; DOI 10.1007/s10240-019-00106-9",
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently read the locator. Proposition 5.8 identifies the underlying object of the connective cover with Lη_I K. The next page proves monoidality for the negative-infinity colimit. A complete nonzero step filtration has positive-infinity limit zero, so that limit cannot return its underlying object."
+  },
+  {
+   "id": "AInfCohomology/E10",
+   "kind": "misprint",
+   "locator": "Corollary 15.5, final cohomology display, arXiv:1905.08229v4 printed p.104",
+   "printed": "The induced inverse-to-Frobenius map has the Frobenius direction after its source and target are interchanged.",
+   "correction": "Use V_i:H^i(Δ)⊗I^i→H^i(Δ^(1)), inverse to φ up to I^i.",
+   "reason": "Taking cohomology of the truncation map V_i in the opening sentence gives this direction. It agrees with Theorem 1.8(6), and the composites with φ are multiplication by I^i.",
+   "affects": "a stated result",
+   "known": "PrismaticCohomology:PR.3/image-of-frobenius; PAPER-BHATT-SCHOLZE-22/E25",
+   "searched": [
+    "Read the v4 locator and the accepted PR.3 supplier correction; scoped to the preprint edition recorded in sourceVersions."
+   ],
+   "owner": "AInfCohomology",
+   "file": "research/blueprint/packets/AInfCohomology.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022; §18 paper pp.122–123",
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently read the locator. Taking cohomology of the truncation map V_i in the opening sentence gives this direction. It agrees with Theorem 1.8(6), and the composites with φ are multiplication by I^i."
+  },
+  {
+   "id": "AInfCohomology/E11",
+   "kind": "misprint",
+   "locator": "Corollary 15.4, arXiv:1905.08229v4 printed p.104",
+   "printed": "The de Rham target is indexed by an undeclared affine ring R in a statement about a formal scheme X.",
+   "correction": "Use the sheaf de Rham complex Ω^•_(X/(A/I)).",
+   "reason": "The corollary starts with X and states an equivalence of complexes on its étale site. Its affine formula is recovered on X=Spf R, rather than defining R for general X.",
+   "affects": "a stated result",
+   "known": "PrismaticCohomology:PR.3/de-rham-comparison-general; PAPER-BHATT-SCHOLZE-22/E1",
+   "searched": [
+    "Read the v4 locator and the accepted PR.3 supplier correction; scoped to the preprint edition recorded in sourceVersions."
+   ],
+   "owner": "AInfCohomology",
+   "file": "research/blueprint/packets/AInfCohomology.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, 12 January 2022; §18 paper pp.122–123",
+   "status": "confirmed",
+   "reviewedBy": "REV-AInfCohomology",
+   "reviewReason": "Independently read the locator. The corollary starts with X and states an equivalence of complexes on its étale site. Its affine formula is recovered on X=Spf R, rather than defining R for general X."
   },
   {
    "id": "AbelianSchemesAndArithmeticModuli/E1",
@@ -230290,6 +230372,1125 @@
    "owner": "PadicHodgeTheory",
    "file": "research/blueprint/packets/PadicHodgeTheory--R06.5.json",
    "citation": "T. Saito, Hilbert modular forms and p-adic Hodge theory, arXiv:math/0612077v2 (11 Dec 2006); published in Compositio Math. 145 (2009), 1081–1113 (not seen).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E1",
+   "kind": "error",
+   "locator": "Section 2, p. 13 (and Proposition 1.4, p. 12; Proposition 2.31, p. 27), arXiv v3",
+   "printed": "The annular coordinate identification uses the original unramified coefficient field rather than the constants of the cyclotomic tower.",
+   "correction": "The coefficients lie in F' = K_0', the maximal unramified extension of F contained in K_infinity, which can be larger than F.",
+   "reason": "For p odd, y in Z_p^x a non-square mod p and K = Q_p(sqrt(y p*)), K is totally ramified over F = Q_p but K(zeta_p) contains sqrt(y), so ker(partial) on B^dagger_{rig,K} contains Q_p(sqrt y) (P7/robba-ring-of-p-adic-field, test robbaK.test_coefficients_Fprime).",
+   "affects": "a stated result",
+   "known": "Berger 2008 (arXiv:math/0406601v1) Appendice B, 'L’anneau B†K', and Berger's errata (2026), Section 1: the results of the 2002 paper are unaffected since (B^dagger_K)^{Gamma_K} = F.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E2",
+   "kind": "error",
+   "locator": "Introduction 0.3, p. 4-5, and Proposition 2.31, p. 27: alpha(K, r) = p^{-1/(e_K r)} with e_K = [K_infinity : F_infinity]",
+   "printed": "The annular radius uses the total extension degree where its ramification index is required.",
+   "correction": "In the radius alpha(K, r) = p^{-1/(e_K r)} of Propositions 1.4 and 2.31, e_K must be the ramification index of K_infinity/F_infinity (so [K_infinity : F_infinity] = e_K [F' : F]), as in Berger 2008 Section I.2; the two agree exactly when F' = F.",
+   "reason": "pi is pi_K^{e} times a unit with e the ramification index of E_K/E_F, so the annulus p^{-1/r} <= |pi| < 1 corresponds to p^{-1/(e r)} <= |pi_K| < 1; with e replaced by e f (f = [F' : F] > 1) Proposition 2.31 would identify B^{dagger,r}_{rig,K} with functions on a strictly thinner annulus, which is false for fixed r (the union over r is unaffected).",
+   "affects": "a stated result",
+   "known": "new as an explicit correction: Berger 2008 Section I.2 states the corrected radius ('de degré de ramification eK ⩽ [K∞ : F∞ ]') without listing it in Appendice B, and Berger's 2026 errata does not list it.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E3",
+   "kind": "error",
+   "locator": "Section 2.4, p. 25 (and Section 1.2, p. 11): monodromy operator on B~^dagger_log",
+   "printed": "The logarithmic coordinate is assigned unit monodromy without the valuation scaling needed to recover Fontaine monodromy.",
+   "correction": "To recover Fontaine's (phi, N)-module D_st (N = -d/du, u = log[p~]) one must take N(log(pi)) = -p/(p-1).",
+   "reason": "v_E(epsilon - 1) = p/(p-1) = (p/(p-1)) v_E(p~), so log[epsilon - 1] = (p/(p-1)) log[p~] + (element of B~^+_rig) and Fontaine's N takes the value -p/(p-1) on it (P7/extended-localisation-maps, log_eq).",
+   "affects": "a stated result",
+   "known": "Berger 2008 Appendice B ('Monodromie') and Berger's errata (2026), Section 1.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E4",
+   "kind": "gap",
+   "locator": "Proposition 2.24, p. 24",
+   "printed": "The logarithm is presented on the positive Witt carrier, although subsequent logarithmic periods require its overconvergent extension and exclusion of zero.",
+   "correction": "log is not defined at 0, and it is later used on A~^dagger (e.g. log(pi_K)); the extension to A~^dagger is needed (done by Colmez, Espaces vectoriels de dimension finie et représentations de de Rham).",
+   "reason": "log(pi_K) appears in B^dagger_{log,K} = B^dagger_{rig,K}[log pi_K] (Proposition 4.4) while pi_K is not in A~^+.",
+   "affects": "the proof",
+   "known": "Berger 2008 Appendice B and Berger's errata (2026), Section 1.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E5",
+   "kind": "error",
+   "locator": "Propositions 2.11 and 2.12, p. 17-19",
+   "printed": "The integral specialization and kernel formulas are stated without requiring the proposed kernel generator to belong to the integral annular ring.",
+   "correction": "The statements on A~_I hold only if [p~]/p - 1 (resp. [p~^{p^n}]/p - 1) belongs to A~_I; otherwise replace A~_I by B~_I.",
+   "reason": "The kernel description uses the element [p~]/p - 1, which need not be integral on A~_I.",
+   "affects": "a stated result",
+   "known": "Berger's errata (2026), Section 1, 'Propositions 2.11 and 2.12'.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E6",
+   "kind": "misprint",
+   "locator": "Corollaire 2.20, p. 23",
+   "printed": "The maximum-principle interval condition does not ensure that the entire closed annulus is inside the convergence domain.",
+   "correction": "The condition on r should be r <= s, t, i.e. [s; t] contained in [r; +infinity[.",
+   "reason": "As printed  the interval need not lie in the domain of convergence.",
+   "affects": "nothing",
+   "known": "Berger's errata (2026), Section 1, 'Corollary 2.20'.",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E7",
+   "kind": "error",
+   "locator": "Proof of Proposition 5.15, p. 54",
+   "printed": "The differential-lattice argument identifies a specialization image with its completed local module rather than asserting the density actually used.",
+   "correction": "Only density of the image of iota_n for the t-adic topology holds, which is what the rest of the proof uses.",
+   "reason": "As recorded by the author.",
+   "affects": "the proof",
+   "known": "Berger 2008 Appendice B ('Démonstration de la proposition 5.15') and Berger's errata (2026).",
+   "searched": [
+    "Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, dated May 5, 2026)",
+    "Berger 2008 (arXiv:math/0406601v1) Appendice B, Erratum à [Ber02]",
+    "arXiv version list of math/0102179 (v1-v3)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E8",
+   "kind": "misprint",
+   "locator": "Proof of Théorème III.4.4, p. 22 (author PDF)",
+   "printed": "The Wach filtration argument applies the inverse cyclotomic power to a term divisible by the positive j-th parameter power.",
+   "correction": "gamma(x) - chi(gamma)^j x lies in pi^{j+1} B^+_{rig,F} tensor N(V).",
+   "reason": "Modulo the next parameter power, Γ acts on π^j by χ_p^j. Combining this with the trivial action on N/πN gives the positive exponent; the iterative filtration argument uses distinct eigencharacters and survives the sign correction.",
+   "affects": "nothing",
+   "known": "No published correction identified in the searches listed; Berger's 2026 errata corrects a missing step of this proof but not the exponent)",
+   "searched": [
+    "Berger, Errata for my articles (2026), Section 2",
+    "Compositio Mathematica 140 (2004) article page (no corrigendum listed)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E9",
+   "kind": "gap",
+   "locator": "Proof of Théorème III.4.4, last two lines, p. 22",
+   "printed": "The argument for the Wach quotient filtration omits the step removing the extra parameter-divisible term.",
+   "correction": "One only has y in Fil^i N(V) + pi N(V) a priori; applying gamma - chi(gamma)^j for j = 1, ..., i-1 (gamma non-torsion) shows y in Fil^i N(V).",
+   "reason": "The step identifying the preimage filtration is not justified as printed.",
+   "affects": "the proof",
+   "known": "Berger's errata (2026), Section 2, 'Theorem III.4.4'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E10",
+   "kind": "gap",
+   "locator": "Définition III.4.1, p. 21",
+   "printed": "The rational Wach definition omits the étale condition on its extension to the full arithmetic period ring.",
+   "correction": "Over B^+_F (where p is a unit) one must add that B_F tensor_{B^+_F} N is an etale (phi, Gamma)-module over B_F.",
+   "reason": "Without it the definition does not force N to come from a representation.",
+   "affects": "a stated result",
+   "known": "Berger's errata (2026), Section 2, 'Definition III.4.1'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Limites de représentations cristallines, Compos. Math. 140 (2004) 1473-1498; author PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E11",
+   "kind": "gap",
+   "locator": "Théorème I.3.3 (2), p. 8",
+   "printed": "The radius-descent theorem does not explicitly require the Frobenius images to generate the enlarged-radius module.",
+   "correction": "Require that B^{dagger,pr}_{rig,K} tensor D_r is the B^{dagger,pr}_{rig,K}-module generated by phi(D_r), which gives Mat(phi) in GL_d(B^{dagger,pr}_{rig,K}) as used later.",
+   "reason": "The weaker condition as printed does not give the invertibility used in the proof.",
+   "affects": "the proof",
+   "known": "Berger's errata (2026), Section 4, 'Theorem I.3.3'.",
+   "searched": [
+    "Berger, Errata for my articles (2026)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E12",
+   "kind": "error",
+   "locator": "Section 8, Proposition 8.5, p. 49 (author's version of 3 Nov 2012; the same text in arXiv:1205.3463v2)",
+   "printed": "The relative de Rham Poincaré sequence begins with an algebraic tensor product although its horizontal kernel contains completed series.",
+   "correction": "The first term must be the completed tensor product B+dR,X ⊗̂_{f^{-1}B+dR,Y} f^{-1}OB+dR,Y (completion for the filtration; over the toric covers it is B+dR,X[[X_1, …, X_m]] in the base coordinates). With it the sequence is exact and strict exact.",
+   "reason": "Take X = T² → Y = T¹. Over X̃_K, OB+dR,X = B+dR,X[[X_1, X_2]] and ∇_{X/Y} = ∂/∂X_2 ⊗ dT_2, whose kernel is B+dR,X[[X_1]]. The section Σ_k [T_2♭]^k X_1^k lies in this kernel, but every element of the image of the uncompleted tensor product has X_1-coefficients in a finitely generated f^{-1}B+dR,Y-submodule, while the θ-images T_2^k of the coefficients [T_2♭]^k are linearly independent over the functions pulled back from Y; so exactness fails at OB+dR,X.",
+   "affects": "the proof",
+   "known": "No published correction identified in the searches listed; the crystalline analogue, Tan–Tong Proposition 5.1 (1), is printed with a completed tensor product; the erratum does not mention Proposition 8.5)",
+   "searched": [
+    "Scholze's erratum (Forum Math. Pi 4 (2016) e6), items (1)-(3)",
+    "arXiv:1205.3463v2 (same wording)",
+    "Tan–Tong arXiv:1510.05543v2, Proposition 5.1",
+    "the published Forum of Mathematics, Pi version could not be opened (the publisher page served only the abstract)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E13",
+   "kind": "misprint",
+   "locator": "Section 7, proof of Theorem 7.6 (i), p. 43 (author's version; the same text in arXiv:1205.3463v2)",
+   "printed": "The reconstruction proof cites the structural-period pushforward result under the wrong statement type.",
+   "correction": "Use Corollary 6.19 for ν_*OB_dR=O_{X_et}.",
+   "reason": "There is no Lemma 6.19; the cited fact ν_*OB_dR = O_{X_ét} is Corollary 6.19.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E14",
+   "kind": "misprint",
+   "locator": "Section 6, Theorem 6.5, statement, p. 36 (author's version; the same text in arXiv:1205.3463v2)",
+   "printed": "The perfectoid acyclicity theorem describes its perfectoid object with arrow notation into a site.",
+   "correction": "Assume that U ∈ Xproét is affinoid perfectoid, with Û = Spa(R, R+).",
+   "reason": "U is an object of the site, as in Lemma 4.10 ; an arrow into a site is meaningless here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E15",
+   "kind": "misprint",
+   "locator": "Section 2.2, proof of Lemma 2.18, p. 18 (arXiv:1510.05543v2)",
+   "printed": "A filtered crystalline cohomology calculation changes the reduction exponent from the fixed modulus to the filtration index.",
+   "correction": "… ≃ ⊕ H^i(V, Fil^{r−i_1−…−i_d} Acris/p^n)",
+   "reason": "The reduction is modulo p^n throughout the proof; r is the filtration index.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2 (v1 and the published Algebra & Number Theory version not read)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E16",
+   "kind": "misprint",
+   "locator": "Section 2.2, proof of Corollary 2.17, p. 16 (arXiv:1510.05543v2)",
+   "printed": "The completed divided-power filtration formula includes an index absent from its summation variables.",
+   "correction": "Fil^{i−(i_1+…+i_d)} (there is no index i_0)",
+   "reason": "The sum runs over i_1, …, i_d, and Definition 2.12 has Fil^{r−(i_1+…+i_d)}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E17",
+   "kind": "gap",
+   "locator": "Section 2.4, proof of Proposition 2.23 (1), p. 22 (arXiv:1510.05543v2)",
+   "printed": "The perfectoid crystalline embedding is justified by analogy with the relative smooth-ring proof without checking the adaptation.",
+   "correction": "An argument for the injectivity of A_cris(R, R^+) → B_dR^+(R, R^+) for perfectoid (R, R^+) over the completion of k̄ is needed (see the gap entry of this packet).",
+   "reason": "The injectivity is used for Corollaries 2.24-2.26 (no t-torsion, B_cris ⊂ B_dR, w_*OB_cris = O[1/p]); the cited proof is in Brinon's memoir for his rings, not for the pro-étale sheaf.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E18",
+   "kind": "misprint",
+   "locator": "Section 1, p. 3, and Section 3.2, p. 30 (arXiv:1510.05543v2)",
+   "printed": "The crystalline Poincaré statement is cited as a proposition although it is numbered as a corollary.",
+   "correction": "Corollary 2.17",
+   "reason": "The crystalline Poincaré lemma is numbered Corollary 2.17 on p. 16 and is cited as Corollary 2.17 on p. 36.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1510.05543 v2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Fucheng Tan and Jilong Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, arXiv:1510.05543v2 (8 June 2019); published in Algebra & Number Theory 13 (2019), no. 7, 1509-1581; printed page numbers of the arXiv copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E19",
+   "kind": "gap",
+   "locator": "Section 6, proof of Corollary 6.19, p. 41 (author's version)",
+   "printed": "The structural de Rham pushforward is concluded without accounting for the incomplete filtration on the localized sheaf.",
+   "correction": "ν_*OB_dR = O_{X_ét} needs an argument: the filtration of OB_dR is not complete, so one works with the complete filtrations of t^{-j}OB_dR^+ and the invariants of the degree-bounded polynomial pieces (node pushforward-of-structural-de-rham-sheaf).",
+   "reason": "OB_dR is the union of the ker θ-complete t^{-j}OB_dR^+ but is not complete for Fil^•, so vanishing of ν_* on the graded pieces gr^i OB_dR (i ≠ 0) does not directly give ν_*Fil¹OB_dR = 0.",
+   "affects": "the proof",
+   "known": "The missing passage was also noticed by the earlier decomposition.",
+   "searched": [
+    "Scholze's erratum",
+    "arXiv:1205.3463v2 (same wording)"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Author's version dated 3 November 2012 (published in Forum of Mathematics, Pi 1 (2013), e1); printed page numbers of that copy",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E20",
+   "kind": "misprint",
+   "locator": "Example 8.1.3 (Katz), p. 104",
+   "printed": "The Katz matrix example gives the opposite sign for its determinant polynomial.",
+   "correction": "The characteristic polynomial of [[p − 1, (p + 1)i], [(p + 1)i, −(p − 1)]] (i^2 = −1) is X^2 + 4p, with roots ±2i√p = ±2√(−p).",
+   "reason": "Trace 0 and determinant −(p − 1)^2 − (p + 1)^2i^2 = 4p; PARI charpoly for p = 3 gives x^2 + 12. The roots still have p-adic valuation 1/2, so the point of the example (eigenvalue valuations are not basis-invariant; slopes are 0 and 1) is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E21",
+   "kind": "gap",
+   "locator": "Lemma 8.1.8 and its footnote 1, p. 106",
+   "printed": "The isoclinic tensor argument stops after passage to an algebraically closed residue field.",
+   "correction": "After passing to an algebraically closed residue field, compute a common Frobenius iterate on the cyclic bases of the two standard slope objects. Its valuation is the sum of the two slopes. The determinant tensor identity used here also follows directly without this classification argument.",
+   "reason": "The printed proof stops after the reduction, with the authors' footnote. The packet does not use the lemma: t_N(D ⊗ D') is computed with determinants (Fontaine–Ouyang Proposition 6.42).",
+   "affects": "the proof",
+   "known": "No published correction identified in the searches listed; noted by the authors themselves)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E22",
+   "kind": "gap",
+   "locator": "Theorem 9.1.8, p. 133",
+   "printed": "The injectivity theorem for crystalline Frobenius has no proof in these preliminary notes.",
+   "correction": "Injectivity of φ on A_cris is not needed for D_cris(V) and D_st(V) to be isocrystals: for admissible V the bijectivity of φ on D follows from the rank-one case of regularity (a period b of det V is a unit, so φ(b) ≠ 0) and B-C Exercise 7.4.10.",
+   "reason": "B-C use Theorem 9.1.8 to make φ on D_cris(V) injective (§8 introduction); the packet replaces this use (R06.2/dcris-dst-filtered-phi-n-modules).",
+   "affects": "the proof",
+   "known": "No published correction identified in the searches listed; noted by the authors)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E23",
+   "kind": "gap",
+   "locator": "§9.1, after display (9.1.2), p. 129; and Fontaine–Ouyang §6.1.1, Exercise 6.3, p. 114",
+   "printed": "The construction does not supply the completed crystalline-to-de-Rham injectivity argument.",
+   "correction": "A proof of injectivity of A_cris → B_dR^+ is needed; everything identifying A_cris, B_cris with subrings of B_dR^+, B_dR depends on it.",
+   "reason": "Completion requires an injective map, rather than a formally extended map alone. Brinon §6.2 supplies a relevant primary argument; its field case and its perfectoid adaptation have different hypotheses.",
+   "affects": "the proof",
+   "known": "No published correction identified in the searches listed; the omission is acknowledged by B-C)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E24",
+   "kind": "misprint",
+   "locator": "Example 6.3.6, pp. 78–79",
+   "printed": "The extension example switches the sign convention for Hodge–Tate weights within its inequality.",
+   "correction": "In B-C's own convention (§2.3: C_K(q) has Hodge–Tate weight −q, equal to the degrees of D_HT and the jumps of D_dR) the hypothesis must read: the Hodge–Tate weights of V′ are all strictly smaller than those of V′′. The printed inequality is correct in the opposite (contravariant, HT(χ) = +1) convention, which is the one the example and proof use.",
+   "reason": "The example has subrepresentation Q_p(r), r>0, and quotient Q_p. Their covariant de Rham jumps are −r and 0. Reversing this ordering would also include the nonsplit extension with subrepresentation Q_p and quotient Q_p(1), which is not de Rham.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E25",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 14.3.4, pp. 253–254 (with footnote 8)",
+   "printed": "The Tate cohomology proof describes the untwisted first cohomology group as zero although its following calculation gives dimension one.",
+   "correction": "The untwisted H^1_cont(G_K,C) is a one-dimensional K-space. The cyclotomic tower calculation identifies it with Hom_cont(Z_p,K).",
+   "reason": "The statement being proved (Theorem 2.2.7) says H^1_cont(G_K, C_K) is 1-dimensional, and the paragraph concludes exactly that. The same proof carries the authors' footnote 'need to finish writing the argument' at the H^0 step, which is nevertheless complete as printed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E26",
+   "kind": "gap",
+   "locator": "Proposition 9.3.9 (Colmez–Fontaine), footnote 2, p. 151",
+   "printed": "The notes leave the converse part of the period-complex criterion without its Colmez–Fontaine argument.",
+   "correction": "Use the primary Colmez–Fontaine proof of the converse and weak-admissibility criterion; the independent admissibility target includes this argument.",
+   "reason": "The preliminary notes identify the missing argument in a footnote. The primary article is now read, so its historical omission does not become an assumption of the general theorem.",
+   "affects": "nothing",
+   "known": "No published correction identified in the searches listed; noted by the authors)",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E27",
+   "kind": "gap",
+   "locator": "Theorem 9.1.5 and its proof, p. 131",
+   "printed": "The referenced proof of the crystalline embedding after ramified scalar extension does not provide the required kernel calculation.",
+   "correction": "A complete proof of injectivity of K ⊗_{K_0} B_cris → B_dR is needed; the packet derives it from Colmez 2002 Proposition 8.14 (K ⊗_{K_0} B_max^+ ↪ B_dR^+) and B_cris^+ ⊆ B_max^+.",
+   "reason": "Ramified scalar extension changes the theta kernel. The proof must control the K-algebra kernel or instead use the injective maximal-period embedding and the crystalline inclusion.",
+   "affects": "the proof",
+   "known": "known to B-C (they point out the incompleteness in Fontaine's Astérisque 223 paper); repair available in Colmez 2002, Proposition 8.14",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "Colmez 2002 (author's PDF) §8.5 read",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E28",
+   "kind": "gap",
+   "locator": "Proof of Theorem 6.14(2), p. 121",
+   "printed": "The logarithmic transcendence argument takes a fraction field of the ramified crystalline tensor product before proving that its period map is injective.",
+   "correction": "The argument presupposes that K ⊗_{K_0} B_cris → B_dR is injective (so that Frac(K ⊗ B_cris) is a field inside B_dR); this must be proved first (Colmez 2002, Proposition 8.14 route).",
+   "reason": "Without injectivity, K ⊗_{K_0} B_cris need not be a domain and 'Frac' is undefined; the same injectivity is the statement whose earlier proof Brinon–Conrad call incomplete (E27). Theorem 6.14(1) and Proposition 6.28 inherit the dependence.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E29",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.12, p. 120",
+   "printed": "The bounded-coefficient logarithmic argument assumes separation for its p-adic filtration without proving it.",
+   "correction": "Prove p-adic separation for the bounded A_inf-coefficient power-series ring S used in this transcendence argument. Any coefficient expansion used for this purpose must preserve boundedness and the p-adic recursion; a bare theta section does not suffice.",
+   "reason": "The claim is asserted without proof; Brinon–Conrad (proof sketch of Theorem 9.2.10) single it out as the delicate point.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E30",
+   "kind": "error",
+   "locator": "Exercise 5.18(3), p. 93",
+   "printed": "The algebraic section into de Rham periods is claimed continuous on the entire valued algebraic closure.",
+   "correction": "There is a unique G_K-equivariant homomorphism s: K̄ → B_dR^+ with θ∘s = id (Hensel lifting); its restriction to each finite extension of K is continuous, but s is not continuous on K̄ for the valuation topology.",
+   "reason": "If s were continuous, it would extend (B_dR^+ is complete for its natural topology) to a continuous G_K-equivariant ring section C → B_dR^+, which Exercise 5.18(2) itself says does not exist; Brinon–Conrad Remark 4.4.11 states the non-continuity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E31",
+   "kind": "misprint",
+   "locator": "Corollary 6.46, p. 137",
+   "printed": "An additivity identity for a filtered vector space is labeled with the Newton invariant.",
+   "correction": "t_H(Δ) = t_H(Δ′) + t_H(Δ′′) for a short exact sequence of filtered K-vector spaces.",
+   "reason": "The corollary is about filtered vector spaces and follows Proposition 6.45 on t_H; t_N is not defined for filtered vector spaces.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E32",
+   "kind": "gap",
+   "locator": "Remarque V.2.2, p. 22, with Proposition IV.2.2 (p. 18) and Corollaire III.2.5 (p. 17)",
+   "printed": "The claim that the differential proof avoids local monodromy is not supported by the chain of intermediate results it invokes.",
+   "correction": "As written, the proof of Théorème V.2.1 does use the essential image: it invokes Proposition IV.2.2, whose proof uses Corollaire III.2.5, which is proved from Théorème III.2.4 (equivalence onto modules with locally trivial connection), whose essential-surjectivity part (Théorème III.2.3) uses Théorème III.2.1, the p-adic monodromy theorem of André–Kedlaya–Mebkhout. For sub-objects of M(D) the needed solutions can probably be obtained from those of M(D) directly, but the text does not do this.",
+   "reason": "Follow the chain of references in the proofs of IV.2.2 → III.2.5 → III.2.4 → III.2.3 → III.2.1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0406601 has a single version (v1); Berger's web page lists the Astérisque 319 version, not compared; Berger's own appendix B is an erratum to [Ber02] only"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Équations différentielles p-adiques et (φ,N)-modules filtrés, arXiv:math/0406601v1 (29 Jun 2004); Astérisque 319 (2008)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E33",
+   "kind": "gap",
+   "locator": "Theorem 9.1.10, p. 134",
+   "printed": "The fundamental crystalline fixed-point theorem is stated by reference rather than proved in the notes.",
+   "correction": "A proof of (Fil^0 B_cris)^{φ=1} = Q_p is needed; Fontaine–Ouyang Theorems 6.25–6.26 give one (via Propositions 6.18–6.24), which the packet uses.",
+   "reason": "The notes refer to Fontaine’s original theorem. Fontaine–Ouyang §§6.2 and Fontaine (1994) §5 supply the period fixed-point argument, with its prerequisite injectivity and separation obligations retained.",
+   "affects": "the proof",
+   "known": "known: proved in Fontaine–Ouyang §6.2",
+   "searched": [
+    "Brinon–Conrad's web page (math.stanford.edu/~conrad/papers/notes.pdf): only the preliminary version of June 24, 2009 is posted; no corrected or final version located (web search 2026-09-25)",
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E34",
+   "kind": "gap",
+   "locator": "Proposition 5.31(3) and its proof, p. 100",
+   "printed": "The reverse-weight nonsplit extension example has no proof in the cited proposition.",
+   "correction": "A proof that a non-split extension 0 → Q_p → V → Q_p(1) → 0 is not de Rham; Brinon–Conrad Example 6.3.5 derive it from de Rham ⇒ potentially semistable plus an Ext computation in weakly admissible modules.",
+   "reason": "No proof is given; the packet places this example as an acceptance item of R06.3, after the p-adic monodromy theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J.-M. Fontaine's Paris-Saclay page and Y. Ouyang's USTC page host the same draft (galoisrep.pdf); no errata list found; the published book was not available"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E35",
+   "kind": "misprint",
+   "locator": "Exemple 2.8 (1), p. 17 (arXiv v3)",
+   "printed": "The annular example uses a superscript naming a different maximal-period carrier.",
+   "correction": "Ã_[0;r_0] = A_max.",
+   "reason": "Ã+{[p̃]/p} is the p-adic completion defining A_max.",
+   "affects": "nothing",
+   "known": "Berger 2008, Appendice B",
+   "searched": [
+    "Berger 2008 Appendice B"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E36",
+   "kind": "gap",
+   "locator": "Proposition 5.15, p. 54, with Lemme 4.6, p. 41 (arXiv v3)",
+   "printed": "The finite-radius differential lattice is claimed stable under division of its connection by t before its radius is enlarged sufficiently.",
+   "correction": "∇_V(N_s) ⊂ tN_s holds after replacing s by s' = r_{n_0} (and N_s by B†,s'_rig,K ⊗ N_s); for the original s it can fail when n_0 > n(s).",
+   "reason": "Lemma 4.6 concludes x ∈ tB†_rig,K on the annulus of r_{n_0}, not of s. For V = Q_p(−1) and n_0 > n(s), N_s = (t/h)B†,s_rig,K·e_{−1} with h = Π_{n(s)≤n<n_0}φ^{n−1}(q)/p, and ∇_V((t/h)e_{−1}) = −(t²∂h/h²)e_{−1} ∉ tN_s since ∂h/h has poles at the zeros of h. Theorem 5.10 is unaffected because N_dR(V) is formed over B†_rig,K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Berger 2008 Appendice B (lists a different correction to the proof of Proposition 5.15)",
+    "berger-intro IV.4.1"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E37",
+   "kind": "misprint",
+   "locator": "§1.3.3, p. 16 (book draft read)",
+   "printed": "The geometric Frobenius scalar on the negative Tate twist is inverted in the Weil–Deligne definition.",
+   "correction": "On E(−1) the geometric Frobenius acts by q (equivalently the arithmetic Frobenius by q^{−1}); with that twist the condition 'N: D → D(−1) is W_K-equivariant' gives ρ(τ_k)Nρ(τ_k)^{−1} = q^{−1}N, Deligne's relation.",
+   "reason": "As printed, N∘ρ(τ_k) = q^{−1}ρ(τ_k)∘N, i.e. ρ(τ_k)Nρ(τ_k)^{−1} = qN for the geometric Frobenius, contradicting Deligne 8.4.1 and FO's own §1.3.2, where Q_ℓ(−1) = Hom(Q_ℓ(1), Q_ℓ) carries the geometric Frobenius as q; the functor V ↦ (D_ℓ(V), N) would not land in Rep_E(WD_K) as printed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the Fontaine–Ouyang draft supplied (no errata list found)",
+    "Deligne 1973 via ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+    "Brinon–Conrad §8.2"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "J.-M. Fontaine and Y. Ouyang, Theory of p-adic Galois representations, book draft (Université Paris-Saclay page)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E38",
+   "kind": "gap",
+   "locator": "Theorem 12.4.8 and Theorem 12.4.12, pp. 194–195 (version of 24 June 2009)",
+   "printed": "The strongly divisible lattice classification has proof steps explicitly left incomplete by the preliminary notes.",
+   "correction": "Supply the integral classification and its endpoint or nilpotence restrictions from R07.3/R07.4. The one-step-filtration result is insufficient for the general integral essential image.",
+   "reason": "The authors flag unfinished integral proof steps. Rational weak admissibility and the general Colmez–Fontaine theorem do not determine the essential image of every stable lattice.",
+   "affects": "the proof",
+   "known": "the authors' footnotes in the preliminary version",
+   "searched": [
+    "Brinon–Conrad notes, version of 24 June 2009",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E39",
+   "kind": "misprint",
+   "locator": "III.1.1, p. 21 (arXiv v1)",
+   "printed": "The Cohen-ring coefficient formula uses the residue field of the original unramified base instead of that of the cyclotomic norm field.",
+   "correction": "a_k ∈ O_{F'_K} with F'_K = K_∞ ∩ F^nr; with a_k ∈ O_F the reduction would be k((π_K)), not k_K((π_K)).",
+   "reason": "Same phenomenon as PadicHodgeTheory/E1 (the residue field of E_K is that of K_∞).",
+   "affects": "nothing",
+   "known": "Berger 2008, Appendice B (the corresponding correction to [Ber02])",
+   "searched": [
+    "Berger 2008 Appendice B"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E40",
+   "kind": "error",
+   "locator": "Example 4.4.4, p. 59, author PDF dated 24 June 2009",
+   "printed": "The example identifies the cyclotomic element itself with a generator of the integral theta kernel at the prime two.",
+   "correction": "μ does not generate ker θ for any prime, including p = 2.",
+   "reason": "BMS1 Example 3.16 gives μ = ξ_ε φ⁻¹(μ), with ξ_ε a nonzero generator. The multiplier reduces modulo p to ε^(1/p) − 1, whose tilt valuation is 1/(p−1) > 0. It is a nonunit, so cancellation rules out μ being a generator.",
+   "affects": "a stated result",
+   "known": "Verified here from the cyclotomic factorization; no assertion is made about publication of an erratum.",
+   "searched": [
+    "Brinon–Conrad author notes, Proposition 4.4.3 and Example 4.4.4, pp. 58–59",
+    "BMS1 arXiv:1602.03148v3, Example 3.16, pp. 25–26",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E51",
+   "kind": "misprint",
+   "locator": "II.3.3, p. 14 (arXiv v1); checked on the page image",
+   "printed": "The survey assigns polynomial p-th-power Frobenius to an additive logarithmic variable.",
+   "correction": "φ(Y) = pY.",
+   "reason": "Y is mapped to log[p̃] and φ(log[x]) = p·log[x] (Berger's own p. 18: φ(t) = pt, φ(u) = pu). With φ(Y) = Y^p the relation Nφ = pφN fails on Y: for N = −d/dY, N(φ(Y)) = −pY^{p−1} while pφ(N(Y)) = −p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 is the only version (abstract page, 2026-09-29)",
+    "L. Berger, Errata for my articles (perso.ens-lyon.fr/laurent.berger/articles/errata.pdf, SHA-256 3a8db18e…, read 2026-09-29): no section for this survey",
+    "PadicHodgeTheory--P7 sourceIssues (E39 is its only entry on this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E41",
+   "kind": "misprint",
+   "locator": "II.3.3, p. 15 (arXiv v1); checked on the page image",
+   "printed": "The logarithmic series starts each power one degree too early.",
+   "correction": "The exponent is n: log[p̃] = log_p(p) − Σ_{n≥1} (1 − [p̃]/p)^n/n.",
+   "reason": "log(1 − z) = −Σ z^n/n; as printed the n = 1 term is the constant 1, so θ(log[p̃]) would be log_p(p) − 1 instead of log_p(p). The analogous series for u on p. 18 has exponent n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 only",
+    "Berger's errata list (no section for this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E42",
+   "kind": "misprint",
+   "locator": "II.4.2, p. 17 (arXiv v1); checked on the page image",
+   "printed": "The representative ranges for Tate-curve p-power torsion omit their final residues.",
+   "correction": "0 ≤ i, j ≤ p^n − 1 (equivalently 0 ≤ i, j < p^n).",
+   "reason": "E_q[p^n](F̄) has p^{2n} elements; the printed range lists only (p^n − 1)^2 of them.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 only",
+    "Berger's errata list (no section for this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E43",
+   "kind": "error",
+   "locator": "II.4.1, p. 17 (arXiv v1); checked on the page image",
+   "printed": "The uniformization statement identifies every multiplicative curve with a split Tate curve over its base field.",
+   "correction": "This holds iff E has split multiplicative reduction. If the reduction is non-split multiplicative, E is the quadratic twist of E_q by the unramified quadratic character, isomorphic to E_q only over the unramified quadratic extension of F.",
+   "reason": "E_q has split multiplicative reduction (its reduction y² + xy = x³ has node tangents y = 0 and y = −x, both rational), and the reduction type of the minimal model is an isomorphism invariant. For example 15a1 over Q_3 has non-split multiplicative reduction (a_3 = −1, point count mod 3), so it is isomorphic over Q_3 to no E_q. The conclusion of II.4 (V semistable) survives, since the twist is by an unramified character (PadicHodgeTheory:R06.6/multiplicative-reduction-elliptic-curves (b)).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 only",
+    "Berger's errata list (no section for this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E44",
+   "kind": "error",
+   "locator": "II.4.3, p. 18 (arXiv v1); checked on the page image",
+   "printed": "The Tate representation parameter omits the valuation denominator needed for isogeny invariance.",
+   "correction": "The isomorphism invariant of V is log_p(q)/v_p(q) (with log_p(p) = 0, equal to log_p(q/p^{v_p(q)})/v_p(q)), the Mazur–Tate–Teitelbaum L-invariant; log_p(q/p^{v_p(q)}) itself depends on q, not only on V.",
+   "reason": "E_q and E_{q²} are isogenous (x ↦ x² on F̄^×), so V_p(E_q) ≅ V_p(E_{q²}), but log_p(q²/p^{2v_p(q)}) = 2 log_p(q/p^{v_p(q)}). In D_st(V) the rescaling y ↦ ay (and hence N(y) ↦ aN(y)) keeps only the ratio of log_p(q) to v_p(q) (PadicHodgeTheory:R06.6/tate-curve-l-invariant).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 only",
+    "Berger's errata list (no section for this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E45",
+   "kind": "misprint",
+   "locator": "II.5.1, p. 19 (arXiv v1); checked on the page image",
+   "printed": "The displayed abelian cohomology identification combines equivariant Hom notation and a Tate twist with untwisted degree-one cohomology.",
+   "correction": "Hom_{Z_p}(T_pA, Z_p) ≃ H^1_ét(A_K̄, Z_p), equivalently Hom_{Z_p}(T_pA, Z_p(1)) ≃ H^1_ét(A_K̄, Z_p(1)).",
+   "reason": "Degree-one étale cohomology is the full Z_p-dual of the Tate module. A Tate twist changes its determinant and weights; passing to equivariant Hom instead changes the carrier to invariant homomorphisms.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0210184: v1 only",
+    "Berger's errata list (no section for this survey)",
+    "The de Gruyter 2004 version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Laurent Berger, An introduction to the theory of p-adic representations, author survey, printed folios 21–25",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E46",
+   "kind": "error",
+   "locator": "§8.3, last paragraph, pp. 125–126 (2009 preliminary version); checked on the page image",
+   "printed": "The contravariant Tate filtered-module parameter omits the valuation denominator and excludes its possible zero value.",
+   "correction": "c_q = −λ(q)/ord_p(q), an element of Q_p that can be 0 (for q = p when λ(p) = 0).",
+   "reason": "By Brinon–Conrad's own proof of Proposition 8.3.8 (p. 124) c is intrinsic to D, hence an isomorphism invariant of V_p(E_q). E_q and E_{q²} are isogenous, so V_p(E_q) ≅ V_p(E_{q²}), whereas −λ(q²) = −2λ(q). Directly: with their N = v_0·d/dX (p. 139) the covariant D_st(V_p(E_q)) has N(y) = −ord_p(q)x and Fil^0 = Q_p(y + λ(q)x); in the dual, e_2 = x^*, e_1 = N(e_2) = ord_p(q)y^* and Fil^1 = Q_p(x^* − λ(q)y^*) = Q_p(ce_1 + e_2) with c = −λ(q)/ord_p(q).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Conrad's web page: only the June 2009 preliminary version is posted (as recorded by PadicHodgeTheory--P7, web search 2026-09-25)",
+    "PadicHodgeTheory--P7 sourceIssues E20, E24, E25 (other Brinon–Conrad misprints, none on this passage)",
+    "Conrad author paper directory, https://math.stanford.edu/~conrad/papers/, read 2026-10-13; still links the June 2009 notes; no dedicated correction to this passage listed."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E47",
+   "kind": "misprint",
+   "locator": "Introduction, p. 3 (arXiv v1)",
+   "printed": "The introductory attribution interchanges the two implications in the good-reduction criterion.",
+   "correction": "Attribute good reduction implying crystallinity to Fontaine and crystallinity implying good reduction to the converse conjecture discussed in the introduction.",
+   "reason": "The established implication is good reduction implying crystallinity. The new converse is crystallinity implying good reduction; the cited low-ramification proof concerns that converse. The introductory attribution must distinguish those directions, as explained by Brinon–Conrad on p.84.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/9701229: v1 only (the file has the Introduction and Chapter I)",
+    "The Duke Math. J. 97 (1999) version was not seen"
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "R. Coleman and A. Iovita, The Frobenius and monodromy operators for curves and abelian varieties, arXiv:math/9701229v1 (2 Jan 1997), 22 pages: the Introduction and Chapter I only (Chapter II, with the proof of the good-reduction theorem, is not in this file); published in Duke Math. J. 97 (1999), 171–215 (not seen).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E52",
+   "kind": "misprint",
+   "locator": "Proposition B.4, p.35",
+   "printed": "The extension criterion uses a uniformizer symbol with the coefficient-field subscript in place of the local base-field subscript.",
+   "correction": "The unit character is extended using a uniformizer π_K of the local field K.",
+   "reason": "The parameter is an element of the local multiplicative group in the Artin correspondence; the coefficient field need not even embed in K.",
+   "affects": "nothing",
+   "known": "No correction to this passage found on the author directory.",
+   "searched": [
+    "https://math.stanford.edu/~conrad/papers/, read 2026-10-13; locchar.pdf linked."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Brian Conrad, Lifting global representations with local properties, author copy, Appendix B, printed pp.32–36",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E53",
+   "kind": "error",
+   "locator": "§5.1, definition of MT(ρ) following Lemma 5.1.2, pp.27–28",
+   "printed": "The fiber-functor automorphism group is identified with the identity component of the algebraic image closure.",
+   "correction": "For the full tensor subcategory generated by ρ, the automorphism group is the full algebraic image closure H. Its identity component H° is a distinct connected monodromy group; it can be recovered after an appropriate finite-index restriction.",
+   "reason": "A nontrivial finite-image representation has H finite and nontrivial but H° trivial. The tensor category generated by it retains that finite image.",
+   "affects": "a stated result",
+   "known": "No published correction found in the checked arXiv version.",
+   "searched": [
+    "https://arxiv.org/abs/2208.07195, version history checked 2026-10-13; v3 read."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Ian Gleason, Dong Gyu Lim, Yujie Xu, The connected components of affine Deligne–Lusztig varieties, version identified by sourceVersions; use the locators of the version read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E54",
+   "kind": "misprint",
+   "locator": "§5.1.2, Definition 5.1 and Lemmas 5.3–5.4, pp.32–33",
+   "printed": "The degree is printed as t_N−t_H while its acyclicity inequalities and filtration-shrinking argument use the opposite sign.",
+   "correction": "For the stated nonnegative acyclic slopes and subobject semistability convention use deg=t_H−t_N.",
+   "reason": "For φ(e)=e and Fil^1D=D, the fundamental quotient is B_dR/tB_dR^+, and B_e maps onto it. Its acyclic degree must be +1. Shrinking Fil^1 to zero decreases this corrected degree by one, exactly as the proof requires.",
+   "affects": "a stated result",
+   "known": "No separate correction found on the author publication page.",
+   "searched": [
+    "https://webusers.imj-prg.fr/~wieslawa.niziol/, read 2026-10-13; CN5.pdf linked as the C_st article; pp.32–33 reread."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, On the cohomology of p-adic analytic spaces, II: The C_st-conjecture, Duke Math. J. 174 (2025), 2203-2301. Read from the authors' copy CN5.pdf (61 pp., compiled 2024-11-24, sha256 bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a), which is textually identical, up to glyph rendering and line breaking, to arXiv:2108.12785v4 (25 Nov 2024, sha256 83c6afdc8a377e38dced9dd8b400cb3461a2d47de2664a094e81a04332051361); page numbers below are the printed folios of that 61-page preprint, not the Duke pagination. The published Duke version is paywalled and was not consulted.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E55",
+   "kind": "error",
+   "locator": "Lemma 2.3.2, bound on the ordinary crystalline lifting valuation, pp.7–8",
+   "printed": "The valuation expression takes a maximum over an integer variable without the finite range needed by the invoked lemma.",
+   "correction": "Use 0≤j≤n−1, retaining the strict residual-weight separation and all labeled-embedding inequalities of BLGHT Lemma 2.2(2).",
+   "reason": "Without a bounded index range the claimed maximum is not defined; the primary ordinary-lifting lemma supplies the range.",
+   "affects": "a stated result",
+   "known": "This issue is recorded in the accepted Qian extraction; no independent published correction identified.",
+   "searched": [
+    "PAPER-QIAN-23 source issue E11; source and BLGHT Lemma 2.2(2) read 2026-10-13."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Lie Qian, Potential automorphy for GL_n, version identified by sourceVersions; use the locators of the version read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E56",
+   "kind": "misprint",
+   "locator": "Appendix A, filtered quotient preceding Lemma A.3, pp.57–58",
+   "printed": "For a descending filtration and j≤k, the displayed quotient cone uses an arrow from F^j to F^k.",
+   "correction": "Use the actual inclusion F^k→F^j and quotient cone Cone(F^k→F^j), with the conventional cohomological cone.",
+   "reason": "F^k⊆F^j for a descending filtration. The reversed arrow is unavailable even for a strict filtration with distinct consecutive pieces.",
+   "affects": "nothing",
+   "known": "No second arXiv version or published correction found in the checked history.",
+   "searched": [
+    "https://arxiv.org/abs/2204.13674, history checked 2026-10-13: v1 only; Appendix A read."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Alexander Betts and Jakob Stix, Galois sections and p-adic period mappings, version identified by sourceVersions; use the locators of the version read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E57",
+   "kind": "error",
+   "locator": "Lemma 9.3.4, p.196; Remark 9.3.17, p.198",
+   "printed": "The local ordinary-acyclicity assertion includes the integral positive Witt-vector period sheaf.",
+   "correction": "For Ã^+=W(Ô^+) retain only almost acyclicity; ordinary acyclicity belongs to the explicitly proved rational/radius variants. Restrict arbitrary perfectoid evaluation accordingly.",
+   "reason": "A ramified Artin–Schreier degree-p extension of the completed perfection of F̄_p((t)) has trace of integral elements contained in the maximal ideal. Its cyclic H^2 of integral elements is nonzero. If W(Ô^+) were acyclic on every perfectoid object, its p-torsion-free reduction and the Čech spectral sequence would force the contrary.",
+   "affects": "a stated result",
+   "known": "Accepted extraction E85 confirms this correction; it is absent from the checked author Appendix A.",
+   "searched": [
+    "Kedlaya–Liu II, arXiv:1602.06899, cleared copy Appendix A pp.189–191 read 2026-10-13.",
+    "https://kskedlaya.org/papers/, checked 2026-10-13: author refers Foundations corrections to updated KL II."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: Foundations, version identified by sourceVersions; use the locators of the version read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E58",
+   "kind": "gap",
+   "locator": "Definition 3.1 and Remark 3.2, p.15",
+   "printed": "The derived endomorphism-module category is given a compact-object description by bounded finite-dimensional coefficients without specifying the finite invertible-Frobenius enhancement.",
+   "correction": "Choose the bounded finite-isocrystal enhancement, idempotent-complete it, and take Ind. Prove the finite-unramified comparison and realization factorization in that chosen category.",
+   "reason": "Free modules are compact in an unrestricted module-derived category and need not be finite-dimensional over the coefficient field. Invertibility of Frobenius is also not part of the literal endomorphism-module carrier.",
+   "affects": "the proof",
+   "known": "Accepted extraction item 139/G11 supplies this correction; no automatic equivalence is asserted.",
+   "searched": [
+    "arXiv:2207.00369v2, Definition 3.1/Remark 3.2 read 2026-10-13."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "Federico Binda, Hiroki Kato and Alberto Vezzani, On the p-adic weight-monodromy conjecture for complete intersections in toric varieties, version identified by sourceVersions; use the locators of the version read",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeTheory/E59",
+   "kind": "error",
+   "locator": "Lemma A.2, p.57",
+   "printed": "The boundedness phrase for a descending filtration does not explicitly say which end of the filtration vanishes.",
+   "correction": "Require F^pA^n=0 for sufficiently large p in each degree, or the specified finite-filtration version. Under this condition E_1 degeneration gives injective cohomology transition maps.",
+   "reason": "The proof uses vanishing at the high-index end to start the descending argument. Exhaustiveness at low indices does not provide that start.",
+   "affects": "a stated result",
+   "known": "Accepted extraction source issue E7 distinguishes the two readings.",
+   "searched": [
+    "arXiv:2204.13674v1 Appendix A read; history checked 2026-10-13, v1 only."
+   ],
+   "owner": "PadicHodgeTheory",
+   "file": "research/blueprint/packets/PadicHodgeTheory.json",
+   "citation": "L. Alexander Betts and Jakob Stix, Galois sections and p-adic period mappings, version identified by sourceVersions; use the locators of the version read",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
