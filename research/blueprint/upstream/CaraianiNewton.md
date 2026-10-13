@@ -42,8 +42,8 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 - **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 2/2 accepted · package not yet · CN needs 7/11 layers · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
 - **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 8/10 accepted · package not yet · CN needs 10/12 layers · **Tau Ceti: pull request #853 open**
-- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 1/2 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: pull request #854 open** · move down: PadicDifferentialEquationsAndRigidCohomology (1)
-- **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 1/1 accepted · package not yet · CN needs 2/6 layers · **Tau Ceti: pull request #855 open** · move down: ClassicalArithmeticCompletion (1)
+- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 2/2 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: pull request #854 open** · move down: PadicDifferentialEquationsAndRigidCohomology (1)
+- **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 1/2 accepted · package not yet · CN needs 2/6 layers · **Tau Ceti: pull request #855 open** · move down: ClassicalArithmeticCompletion (1)
 
 ## Tier 5
 
@@ -88,7 +88,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **Merged package:** ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups
   - **ArithmeticLocallySymmetricSpaces** — Arithmetic locally symmetric spaces and their cohomology. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · move down: AutomorphicSpectralTheory (5), CompletedCohomologyPartII (3), AutomorphicGaloisRepresentationsPartII (3) · cites outside the 94: AdditiveCombinatorics (2)
   - **AutomorphicFormsOnReductiveGroups** — Automorphic forms on reductive groups. Plan 0/1 accepted · package not yet · CN needs 6/7 layers · move down: ShimuraData (5), AutomorphicLFunctionsAndLocalFactors (2), AutomorphicSpectralTheory (2), ModularCurvesPartII (1)
-- **ModularCurvesPartII** — Modular Curves PartII. Plan 1/3 accepted · package not yet · CN needs 20/20 layers · move down: EtaleDualityAndPerverseSheaves (9), WeightsInEtaleCohomology (1)
+- **ModularCurvesPartII** — Modular Curves PartII. Plan 1/3 accepted · package not yet · CN needs 20/20 layers · move down: EtaleDualityAndPerverseSheaves (13), LefschetzPencilsAndVanishingCycles (4), WeightsInEtaleCohomology (1)
 - **DiamondEtaleCohomology** — Étale cohomology of diamonds and its four operations. Plan 2/2 accepted · package accepted · CN needs 10/10 layers · cites outside the 94: SchemeKTheoryOperations (1)
 - **DeligneWeightsAndPurity** — Deligne weights, purity and the Weil bounds. Plan 2/2 accepted · package not yet · CN needs 10/11 layers · cites outside the 94: WeilConjectures (10), FunctionFieldArithmetic (3)
 
