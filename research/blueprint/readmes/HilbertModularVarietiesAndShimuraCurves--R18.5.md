@@ -4,7 +4,7 @@ This part constructs the local geometry used to uniformise compact quaternionic 
 
 R18.5 owns these arithmetic identifications. It imports the Bruhat–Tits tree from `ReductiveGroupsPartII:RG2.2`, generic formal/rigid machinery from `AdicSpacesPartII:R2`, generic curve and model theory from StableReduction, and generic Jacobian character/monodromy theory from `NeronModelsAndSemistableAbelianVarieties:R11.4`. A quaternionic quotient is an application of those theories, not a second construction of them. R18.6 is an export index: it introduces no object, theorem or planet.
 
-The twelve underlying R18.5 targets belong to the [R18.2 specification](HilbertModularVarietiesAndShimuraCurves--R18.2.md). They are restated below to make the mathematical specification readable on its own; their IDs and ownership remain there. This continuation owns exactly eight refinements: `PelHeightLattice`, `VeryFreeChartAction`, `VeryFreeDrinfeldQuotient`, `AuxiliaryPelLocalFactors`, `QuaternionicPelUniformisationTransfer`, `SplitPlaceDescentBoundary`, `DrinfeldLevelStructureComparison` and `WeightedArithmeticQuotientGraph`. Each target below distinguishes its owner. The division-prime transfer route supplies the source-specific refinement of the existing totally-real theorem. It does not assume the split-place comparison.
+The twelve underlying R18.5 targets belong to the [R18.2 specification](HilbertModularVarietiesAndShimuraCurves--R18.2.md). They are restated below to make the mathematical specification readable on its own; their IDs and ownership remain there. This continuation owns exactly nine refinements: `PelHeightLattice`, `VeryFreeChartAction`, `VeryFreeChartAction.smallTameLevel` (added by the independent review), `VeryFreeDrinfeldQuotient`, `AuxiliaryPelLocalFactors`, `QuaternionicPelUniformisationTransfer`, `SplitPlaceDescentBoundary`, `DrinfeldLevelStructureComparison` and `WeightedArithmeticQuotientGraph`. Each target below distinguishes its owner. The division-prime transfer route supplies the source-specific refinement of the existing totally-real theorem. It does not assume the split-place comparison.
 
 ## Conventions and common hypotheses
 
@@ -12,7 +12,7 @@ Let K be a finite extension of Q_p, O its ring of integers, π a uniformizer, k 
 
 The local division quaternion algebra is D/K, with maximal order O_D and division uniformizer Π; Π² is a unit times π. The unramified quadratic order O₂ is embedded in O_D. A strict O-module has structural O action on its Lie algebra. Relative O-height is used throughout; absolute p-height multiplies it by [K:Q_p]. The chosen framing arrow follows Boutot–Zink: a special-fibre quasi-isogeny from the variable object to the fixed object. Boutot–Carayol reverses that arrow. Comparisons invert it and change height signs accordingly.
 
-Globally, F is totally real, B/F is split at exactly one real place τ and division at v|p. Its invariant exchange B̌ is definite at every real place and split at v, and agrees with B elsewhere. We use the fixed local and away-v identifications of the sources. The reflex field is E=τ(F), and the relevant completion E_ν is identified with F_v. The distinguished local level for the formal theorem is O_B,v×. Other places over p must have the Boutot–Zink levels (6.29)–(6.31), pp.47–48. Statements with these hypotheses do not quantify over arbitrary p-adic levels.
+Globally, F is totally real, B/F is split at exactly one real place τ and division at v|p. Its invariant exchange B̌ is definite at every real place and split at v, and agrees with B elsewhere. We use the fixed local and away-v identifications of the sources. The reflex field is E=τ(F), and the relevant completion E_ν is identified with F_v. The distinguished local level for the formal theorem is O_B,v×, and statements with these hypotheses do not quantify over other levels at v. At the other places p_i over p the quaternionic levels are arbitrary open compact subgroups of the units of the chosen maximal orders (Boutot–Zink p.3 and (6.29), p.46), and the auxiliary PEL level is built from them in the form (4.6), with multiplier groups O^×_{F,p_i}, as in (6.31), p.46.
 
 All quotient group actions in the geometry are effective. Central scalars act trivially on P¹ and on the tree; they are removed before testing vertex freeness or chart separation. A dual graph is a multigraph with branches: distinct edges and loops are retained. An edge fixed by reversal in a finite arithmetic quotient is treated by Kurihara's deletion operation, not turned into a loop. Choose one orientation per retained unoriented edge when writing a cycle pairing.
 
@@ -299,7 +299,7 @@ The order below is a construction order. Local objects precede quotient geometry
 2. Apply the height translations in BZ (5.15) to identify the components with the height-zero component times Lambda.
 3. Check the diagonal embedding in (6.39). For the quotient description, use a-b even; (r,-r) maps to r and zero difference forces a=b.
 
-**Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), §5, (5.13), (5.15), (5.23), Proposition 5.11, pp.36–40; §6, (6.39), p.49. Parity-constrained labels of the auxiliary local RZ factor and the diagonal quaternionic inclusion; the difference-character quotient is an elementary consequence.
+**Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), §5, (5.10) and (5.12), pp.36–37; (5.13), (5.15), (5.23), Proposition 5.11, pp.37–40; §6, (6.39), p.48. (5.10) labels the open and closed pieces RZ(a,b) by half the relative heights of the two quasi-isogeny components, (5.12) shows a+b is even, (5.23) writes RZ as RZ(0,0) times Lambda, and (6.39) maps the quaternionic heights diagonally into Lambda; the difference-character quotient is an elementary consequence.
 
 **Uses.**
 
@@ -324,7 +324,7 @@ The order below is a construction order. Local objects precede quotient geometry
 
 **Check.** Parity of a+b equals parity of a−b, so the displayed difference is an integer on Λ. For addition it is the ordinary additive difference divided by two, hence additive on Λ. For any r, (r,−r) is in Λ and maps to r; its kernel consists of pairs (m,m). This proves the quotient description without identifying Λ with just the diagonal. The pair (1,−1) has difference one; adding the descent shift (1,1) gives (2,0), also of difference one. Adding only (1,0) would give (2,−1), whose odd sum is forbidden. Negative diagonal labels are essential, because quasi-isogenies need not have nonnegative height.
 
-**Signature correspondence.** The suggested file gives the real set of integer pairs, its diagonal map and integer-division difference. Its terminal `difference_contract` groups the additive, surjective, kernel and diagonal assertions. It does not construct a PEL moduli carrier. The additive-subgroup API is imported from Mathlib rather than reconstructed.
+**Signature correspondence.** The suggested file gives Λ as Mathlib's additive subgroup of ℤ×ℤ (an `AddSubgroup` with its closure proofs written out), its diagonal map and integer-division difference. Its terminal `difference_contract` groups the additive, surjective, kernel and diagonal assertions. It does not construct a PEL moduli carrier. The additive-subgroup API is imported from Mathlib rather than reconstructed.
 
 **Acceptance.**
 
@@ -340,7 +340,7 @@ The order below is a construction order. Local objects precede quotient geometry
 **Hypotheses.**
 
 - K is a finite extension of Q_p, with integers O, uniformizer pi, residue field k of size q, and completed maximal unramified extension Kcheck. Formal and rigid carriers are imported, not supplied by an algebraic scheme carrier.
-- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local-level restrictions (6.29)–(6.31), not an arbitrary PEL datum.
+- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local levels (6.29)–(6.31), p.46: maximal level O_B,v^× at v, arbitrary open compact levels at the other places over p, and the PEL level of the form (4.6) with multiplier groups O^× there, not an arbitrary PEL datum.
 - Distinguished level is maximal and its multiplier subgroup is O_K units; other local factors obey BZ (4.6) and (6.31). Preserve the polarization classes and rigidifications in Definitions 5.3 and 5.6.
 
 **Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/pel-height-lattice`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-representability`, `HilbertModularVarietiesAndShimuraCurves:R18.5/height-and-descent`, `PELModuli:M2`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
@@ -378,7 +378,7 @@ The order below is a construction order. Local objects precede quotient geometry
 
 1. Import the tree, its action and edge-count distance from ReductiveGroupsPartII:RG2.2.
 2. Apply BC Part III 5.3.1 to the effective arithmetic group and retain the strict bound greater than 2.
-3. Shrinking the tame level eliminates the finitely many short displacement classes in a compact fundamental domain; the arithmetic smallness argument is part of the quotient theorem.
+3. Small tame level produces this condition for the arithmetic groups of /arithmetic-quotient; that is the separate theorem /very-free-small-level, not part of this definition or of the quotient theorem.
 
 **Source.** [Jean-François Boutot and Henri Carayol, Uniformisation p-adique des courbes de Shimura: les théorèmes de Cerednik et de Drinfeld](https://www.numdam.org/item/AST_1991__196-197__1_0.pdf), Part III §5.3.1, pp.141–142. Strict displacement greater than two allows standard formal vertex charts to descend and glue.
 
@@ -386,6 +386,7 @@ The order below is a construction order. Local objects precede quotient geometry
 
 - `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`: Provides formal vertex charts with embedded radius-one neighbourhoods.
 - `BC Part III §5.3.1`: Justifies a concrete gluing construction of the sufficiently small arithmetic quotient.
+- `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-small-level`: the property that sufficiently small tame level achieves for every projected arithmetic stabilizer.
 
 **API.**
 
@@ -412,7 +413,38 @@ The order below is a construction order. Local objects precede quotient geometry
 - A translation by 2 on an integer line acts freely but fails this condition.
 - Central scalars must be removed before imposing this condition.
 
-### 10. Separated Drinfeld quotient charts — `VeryFreeDrinfeldQuotient`
+### 10. Very free arithmetic stabilizers at small tame level — `VeryFreeChartAction.smallTameLevel`
+
+**Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-small-level`. **Owner:** this continuation (added by the independent review).
+
+**Statement.** In the setting of /arithmetic-quotient (B/F with B_v division, Bcheck totally definite and split at v, U_v = O_B,v^×), fix a tame level U^v_0. There is an open compact U^v_1 ⊂ U^v_0 such that for every open compact U^v ⊂ U^v_1 and every g in the finite adelic group away from v, the image in PGL2(F_v) of Γ_g = {b in Bcheck^× ∩ gU^v g^{-1} : ord_v Nrd b = 0} acts very freely on the Bruhat–Tits tree: every nonidentity element moves every vertex a distance greater than 2. Since ord_v Nrd b = 0, these displacements are even, so the condition says that no nonidentity element has displacement 0 or 2.
+
+**Hypotheses.**
+
+- F totally real; B/F split at exactly one real place and division at v above p; B̌ exchanges the invariants at that real place and at v; the fixed away-v identification of B̌ with B.
+- Γ_g is projected to PGL₂(F_v) after removing the central kernel; the tree is the imported Bruhat–Tits tree of PGL₂(F_v) with edge-count distance.
+
+**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-chart-action`, `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`, `ReductiveGroupsPartII:RG2.2`.
+
+**Construction or proof.**
+
+1. Let J be the adjoint group of B̌. It is anisotropic at every real place, so J(F) is discrete in J(A_F,f), and the image of each Γ_g in J(F_v) is discrete and cocompact (BZ, proof of Proposition 6.6, p.48).
+2. For the finitely many double-coset representatives at level U^v_0 and a finite set of vertex representatives modulo each image, the elements moving some representative vertex by at most 2 lie in a compact subset of J(F_v), hence form a finite set S by discreteness.
+3. Every nonidentity element of S is nontrivial in J(A^v_F,f), because J(F) → J(A^v_F,f) is injective; choose U^v_1 normal in U^v_0 whose images avoid the finitely many elements of S other than 1. Every double coset at a smaller level U^v ⊂ U^v_1 is represented by δgk with δ ∈ B̌^×, g a representative at level U^v_0 and k ∈ U^v_0; Γ_{gk} at level U^v lies in Γ_g at level U^v_1 because U^v_1 is normal in U^v_0, and conjugation by δ is an isometry of the tree, so the bound persists for all of them.
+
+**Source.** [Jean-François Boutot and Henri Carayol, Uniformisation p-adique des courbes de Shimura: les théorèmes de Cerednik et de Drinfeld](https://www.numdam.org/item/AST_1991__196-197__1_0.pdf), Part III §5.3.1, pp.141–142. Asserts that the stabilizers act very freely on the tree once the tame level is small enough, and uses this to glue the standard vertex charts.
+
+**Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), §6, proof of Proposition 6.6, p.48. The discreteness and smallness argument, there given for fixed-point-free action of the projected groups on the building; the same argument with displacement at most 2 gives very freeness.
+
+**Check.** Elements of determinant valuation zero preserve the parity of vertices, so every displacement is even: a free action excludes displacement 0, and very freeness additionally excludes displacement 2. The bound is about the projected groups; central elements of B̌^× act trivially on the tree and are discarded before testing it.
+
+**Acceptance.**
+
+- For every sufficiently small tame level, every projected Γ_g satisfies /very-free-chart-action.
+- The statement is about the projected groups after the scalar kernel is removed; central elements of B̌^× act trivially on the tree and are not counted.
+- Freeness on vertices (no nonidentity element with displacement 0) is weaker and is the condition used in BZ's proof of Proposition 6.6; very freeness additionally excludes displacement 2.
+
+### 11. Separated Drinfeld quotient charts — `VeryFreeDrinfeldQuotient`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`. **Owner:** this continuation.
 
@@ -421,21 +453,21 @@ The order below is a construction order. Local objects precede quotient geometry
 **Hypotheses.**
 
 - K is a finite extension of Q_p, with integers O, uniformizer pi, residue field k of size q, and completed maximal unramified extension Kcheck. Formal and rigid carriers are imported, not supplied by an algebraic scheme carrier.
-- The effective Gamma action satisfies VeryFreeChartAction; import the formal quotient gluing and proper algebraisation supplier. This theorem uses no general finite-stabilizer quotient assertion.
+- The effective Gamma action satisfies VeryFreeChartAction; import the formal quotient gluing from the requested AdicSpacesPartII extension and Grothendieck's algebraization theorem from AdicSpacesPartII:F0/grothendieck-algebraization. This theorem uses no general finite-stabilizer quotient assertion.
 
-**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-chart-action`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model`, `AdicSpacesPartII:R2`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
+**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-chart-action`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model`, `AdicSpacesPartII:R2`, `AdicSpacesPartII:F0/grothendieck-algebraization`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`.
 
 **Construction or proof.**
 
 1. If two vertices in one radius-one ball were identified, a nonidentity translate would move a vertex by at most two. Use very freeness to rule this out.
-2. Glue the actual BC Part I charts along edge charts, then take a finite fundamental domain for cocompactness; obtain properness and use the requested algebraisation theorem.
+2. Glue the actual BC Part I charts along edge charts, then take a finite fundamental domain for cocompactness to obtain a proper formal curve over O. Algebraize it with Grothendieck's algebraization theorem (AdicSpacesPartII:F0/grothendieck-algebraization), given a line bundle whose reduction to the special fibre is ample; producing that line bundle on the quotient is part of the requested AdicSpacesPartII extension.
 3. Read the local equations xy=pi, identify component and node orbits, and count the q+1 distinct branches on each normalized P1. Since q is at least 2, every rational component has at least three special points.
 
 **Source.** [Jean-François Boutot and Henri Carayol, Uniformisation p-adique des courbes de Shimura: les théorèmes de Cerednik et de Drinfeld](https://www.numdam.org/item/AST_1991__196-197__1_0.pdf), Part I §§2–3, pp.51–56; Part III §5.3.1, pp.141–142. Standard vertex and edge charts and the sufficient smallness condition for gluing their quotient.
 
 **Source.** [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://arxiv.org/pdf/1704.08928v2), §1.2, pp.12–13. The blow-up union has reduced tree-indexed rational components and original node charts.
 
-**Check.** If two vertices in a radius-one neighbourhood were identified, the triangle inequality would give a nonidentity displacement at most two. Strict separation therefore preserves every attaching branch of a vertex chart. There are q+1≥3 distinct attaching points on each normalized rational component, which proves stability. This condition also prevents short cycles in this particular quotient; it is sufficient and is not a classification of every stable Mumford curve. The model is regular over the unramified coefficient ring where its charts are xy=π. Ramified base change requires the node-resolution supplier. Proper algebraisation of the quotient is a separate requested theorem, not a consequence of naming a generic-fibre functor.
+**Check.** If two vertices in a radius-one neighbourhood were identified, the triangle inequality would give a nonidentity displacement at most two. Strict separation therefore preserves every attaching branch of a vertex chart. There are q+1≥3 distinct attaching points on each normalized rational component, which proves stability. This condition also prevents short cycles in this particular quotient; it is sufficient and is not a classification of every stable Mumford curve. The model is regular over the unramified coefficient ring where its charts are xy=π. Ramified base change requires the node-resolution supplier. Algebraisation uses Grothendieck's algebraization theorem (AdicSpacesPartII:F0/grothendieck-algebraization) once the quotient and a line bundle with ample reduction on it are supplied; those two inputs are the requested extension, not a consequence of naming a generic-fibre functor.
 
 **Acceptance.**
 
@@ -443,7 +475,7 @@ The order below is a construction order. Local objects precede quotient geometry
 - No assertion of regularity survives arbitrary ramified base change: xy=pi becomes xy=u times pi_L^e.
 - The unramified local charts have thickness one.
 
-### 11. Arithmetic Drinfeld quotient — `ArithmeticDrinfeldQuotient`
+### 12. Arithmetic Drinfeld quotient — `ArithmeticDrinfeldQuotient`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`. **Owner:** the R18.2 specification; imported here.
 
@@ -493,29 +525,29 @@ The order below is a construction order. Local objects precede quotient geometry
 - The quotient by full B̌× includes the valuation component; a single Γ_g quotient is only one component after the specified unramified base change.
 - Removing the tame-smallness hypothesis yields a coarse finite quotient and loses automatic regularity.
 
-### 12. Quaternionic transfer from basic PEL uniformisation — `QuaternionicPelUniformisationTransfer`
+### 13. Quaternionic transfer from basic PEL uniformisation — `QuaternionicPelUniformisationTransfer`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`. **Owner:** this continuation.
 
-**Statement.** At maximal division-prime level and the other p-adic levels of BZ (6.31), the formal quaternionic uniformisation map factors through the selected open-and-closed quaternionic components of the auxiliary PEL model of Definition 6.5 and is an isomorphism onto those components. The inclusion on local labels is m maps to (m,m). The rational automorphism group inclusion is controlled by the exact central sequence 1 to F times to Bcheck times times L times to I(Q) to 1, where L/F is the auxiliary CM extension, with kernel c maps to (c,c inverse). After a cofinal tame shrinking, the induced quotient inclusion is open and closed and hits every selected component. Transporting the PEL uniformisation and its corrected twist gives the quaternionic formal completion with right Pi-inverse descent, compatibly with tame Hecke correspondences. This division-prime proof route does not use Carayol's split-place connected comparison.
+**Statement.** At maximal division-prime level and the other p-adic levels of BZ (6.31), the formal quaternionic uniformisation map factors through the selected open-and-closed quaternionic components of the auxiliary PEL model of Definition 6.5 and is an isomorphism onto those components. The inclusion on local labels is m maps to (m,m). The rational automorphism group inclusion is controlled by the exact central sequence 1 to F times to Bcheck times times L times to I(Q) to 1, where L/F is the auxiliary CM extension, with kernel c maps to (c,c inverse). After a cofinal tame shrinking, the induced quotient inclusion is open and closed and hits every selected component. Transporting the PEL uniformisation and its corrected twist gives the quaternionic formal completion with right Pi-inverse descent, compatibly with the Hecke operators of B^×(A_f) for varying levels of the permitted form (BZ Theorem 6.7). This division-prime proof route does not use Carayol's split-place connected comparison.
 
 **Hypotheses.**
 
 - K is a finite extension of Q_p, with integers O, uniformizer pi, residue field k of size q, and completed maximal unramified extension Kcheck. Formal and rigid carriers are imported, not supplied by an algebraic scheme carrier.
-- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local-level restrictions (6.29)–(6.31), not an arbitrary PEL datum.
+- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local levels (6.29)–(6.31), p.46: maximal level O_B,v^× at v, arbitrary open compact levels at the other places over p, and the PEL level of the form (4.6) with multiplier groups O^× there, not an arbitrary PEL datum.
 - Choose auxiliary CM/tame levels as in BZ Definition 6.5 and (6.31). Retain the central kernel and all components of the selected canonical quaternionic tower.
 - The basic PEL uniformisation of BZ Proposition 6.2, including deformation-theoretic etaleness, polarized Hasse-principle surjectivity and Weil equivariance, is a supplier contract, not a consequence of PEL representability or complex uniformisation.
 
-**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/auxiliary-pel-local-factors`, `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum`, `PELModuli:M2`, `PELModuli:M4`, `AdicSpacesPartII:R2`, `mathlib:DoubleCoset.Quotient`, `mathlib:DoubleCoset.eq`, `mathlib:groupCohomology.H1ofAutOnUnitsUnique`.
+**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/auxiliary-pel-local-factors`, `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-datum`, `PELModuli:M2`, `PELModuli:M4`, `AdicSpacesPartII:R2`, `mathlib:DoubleCoset.Quotient`, `mathlib:DoubleCoset.eq`, `mathlib:groupCohomology.H1ofAutOnUnitsUnique`, `mathlib:groupCohomology.exists_div_of_norm_eq_one`.
 
 **Construction or proof.**
 
-1. Identify Bcheck using (6.22) and compute the central exact sequence by Hilbert 90. In Proposition 6.6 the torus L times/F times is anisotropic at infinity; shrink the auxiliary level using the finite relevant unit classes and the congruence argument so that no extra CM translate identifies two quaternionic points.
+1. Identify Bcheck using (6.22) and compute the central exact sequence (6.34). Its sequence of rational points is exact by Hilbert 90 for the CM extension L/F: for x in I(Q) with x'x = f in F^×, the element f/Nrd(x) of L^× has norm 1 to F because Nrd(x')Nrd(x) = f², so it equals σ(k)/k for some k in L^× (mathlib:groupCohomology.exists_div_of_norm_eq_one), and then x k^{-1} lies in Bcheck^×. In Proposition 6.6 the torus L times/F times is anisotropic at infinity; shrink the auxiliary level using the finite relevant unit classes and the congruence argument so that no extra CM translate identifies two quaternionic points.
 2. Insert /auxiliary-pel-local-factors into Proposition 6.2, then use the diagonal height embedding (6.39) and Proposition 6.6 to obtain an open-and-closed immersion of the arithmetic formal quotients.
 3. Follow the proof of Theorem 6.7: take compatible special-fibre points over a cofinal system of levels, use properness to choose a compatible framing, and use Hecke transitivity to meet every selected component. Open-and-closed immersion plus surjectivity gives the isomorphism.
 4. Convert the corrected PEL Weil datum using Theorem 6.3; the quaternionic formula is id on OmegaHat and right multiplication by Pi inverse on the adelic quotient, together with tau_c=Spf(tau inverse).
 
-**Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), §6, Proposition 6.2 and Theorem 6.3, pp.43–45; (6.22), pp.45–46; Definition 6.5, Proposition 6.6 and Theorem 6.7 proof, pp.48–51. Source-specific quaternionic inclusion, central-kernel injectivity, complete component coverage, and descent transport.
+**Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), §6, Proposition 6.2 and Theorem 6.3, pp.43–45; (6.22), p.45; (6.29)–(6.31), p.46; Definition 6.5, Proposition 6.6 and Theorem 6.7 with its proof, pp.47–51. Source-specific quaternionic inclusion, central-kernel injectivity, complete component coverage, and descent transport.
 
 **Source.** [Stephen Kudla, Michael Rapoport and Thomas Zink, On the p-adic uniformization of unitary Shimura curves](https://arxiv.org/pdf/2007.05211v1), Proposition 7.1.11 and proof, pp.115–116; Lemma 7.3.1, p.120; Proposition 7.3.2, p.121 (arXiv v1). The cited polarized Hasse-principle and Weil-descent arguments underlying BZ Proposition 6.2; transferring them to BZ's actual group remains part of the explicit PEL supplier contract.
 
@@ -529,7 +561,7 @@ The order below is a construction order. Local objects precede quotient geometry
 - A raw inclusion of Bcheck times in I(Q) is insufficient without the inverse-diagonal central kernel.
 - The division-prime theorem is independent of the unresolved arbitrary-ramification YZ determinant repair.
 
-### 13. Čerednik–Drinfeld uniformisation — `TotallyRealUniformisation`
+### 14. Čerednik–Drinfeld uniformisation — `TotallyRealUniformisation`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation`. **Owner:** the R18.2 specification; imported here.
 
@@ -551,14 +583,14 @@ The order below is a construction order. Local objects precede quotient geometry
 
 **Source.** [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1), Theorem 6.7 and Corollary 6.8, pp.49–50. Totally real theorem with exact level and descent data.
 
-**Check.** Boutot–Zink Theorem 6.7 and Corollary 6.8 are on printed pp.49–50. The auxiliary levels are fixed on pp.47–48, and the proof's framing/component argument continues through pp.50–51. Its formal base and inverse Frobenius convention are part of the statement. The canonical quotient must hit every chosen component. Smallness is required for the stable regular model; coarse finite quotients are handled by the weighted graph target. Boutot–Carayol Part III alone is a source for F=Q, not for arbitrary totally real F.
+**Check.** Boutot–Zink Theorem 6.7 and Corollary 6.8 are on printed pp.49–50. The auxiliary levels are fixed in (6.29)–(6.31) on p.46, and the proof's framing/component argument continues through pp.50–51. Its formal base and inverse Frobenius convention are part of the statement. The canonical quotient must hit every chosen component. Smallness is required for the stable regular model; coarse finite quotients are handled by the weighted graph target. Boutot–Carayol Part III alone is a source for F=Q, not for arbitrary totally real F.
 
 **Acceptance.**
 
 - This is over the completed maximal unramified local field, not a finite extension substituted for it.
 - BC III proves the arithmetic theorem over Q; it is not the citation for arbitrary F.
 
-### 14. Rational-field comparison — `RationalUniformisation`
+### 15. Rational-field comparison — `RationalUniformisation`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/rational-uniformisation`. **Owner:** the R18.2 specification; imported here.
 
@@ -586,11 +618,11 @@ The order below is a construction order. Local objects precede quotient geometry
 - The arithmetic base is Q_p here; BC’s local Parts I–II permit general K.
 - The rational split modular curve uses the ModularCurves supplier, not this compact theorem.
 
-### 15. Split-place comparison and its finite-level fields — `SplitPlaceDescentBoundary`
+### 16. Split-place comparison and its finite-level fields — `SplitPlaceDescentBoundary`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/split-place-descent-boundary`. **Owner:** this continuation.
 
-**Statement.** For Carayol's split finite-place quaternionic and auxiliary PEL towers, with the fixed neutral-component identifications and sufficiently small compatible tame levels, Proposition 4.4.3 gives an isomorphism of level-zero neutral components and their O_p-linear p-divisible groups over F_p^nr, equivariant for the indicated inclusion of effective extension groups Delta0/SL2(O_p) into Delta0-prime/SL2(O_p). Section 4.5.1 lifts it to the unions of p-power level structures above these level-zero components over F_p^nr. For each finite n, Section 4.5.5 compares the chosen neutral connected components over F_p^n, the abelian extension defined by units congruent to 1 modulo pi^n; n=0 means F_p^nr. The compatible auxiliary tame level can depend on n. Comparison of a full union over F_p^nr and comparison of one selected component over F_p^n are different contracts. No division-prime or all-n common-tame conclusion follows from these split-place statements.
+**Statement.** For Carayol's split finite-place quaternionic and auxiliary PEL towers, with the fixed neutral-component identifications and sufficiently small compatible tame levels, Proposition 4.4.3 gives an isomorphism of level-zero neutral components and their O_p-linear p-divisible groups over F_p^nr, equivariant for the indicated inclusion of effective extension groups Delta0/SL2(O_p) into Delta0-prime/SL2(O_p). Section 4.5.1 lifts it to the unions of p-power level structures above these level-zero components over F_p^nr. For each finite n, Section 4.5.5 compares the chosen neutral connected components over F_p^n, the abelian extension of F_p^nr inside F_p^ab that corresponds under local class field theory to the group U_p^n of units congruent to 1 modulo p^n (Carayol's notations, p.155); U_p^0 is all units, so F_p^0 = F_p^nr. The compatible auxiliary tame level can depend on n. Comparison of a full union over F_p^nr and comparison of one selected component over F_p^n are different contracts. No division-prime or all-n common-tame conclusion follows from these split-place statements.
 
 **Hypotheses.**
 
@@ -616,8 +648,9 @@ An equality of geometric component sets, such as the superspecial indexing in Yu
 - The theorem never assumes B_p division.
 - F_p^0 is F_p^nr; for n positive F_p^n can be ramified over it.
 - The statement gives an auxiliary level for each fixed n, not one small tame level working uniformly at all n.
+- This node is the source-pinned form of the split-place comparisons R18.2/connected-pel-comparison and R18.2/finite-pel-comparison; at assembly those targets take its fields (F_p^nr at level zero and for the union of level structures, F_p^n for a selected level-n component), so the comparison keeps one owner. It also supplies, at split places, the descent field left open by the H0 gap on Yuan–Zhang Proposition 4.4.
 
-### 16. Compatible Drinfeld level structures on the uniformized tower — `DrinfeldLevelStructureComparison`
+### 17. Compatible Drinfeld level structures on the uniformized tower — `DrinfeldLevelStructureComparison`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-level-structure-comparison`. **Owner:** this continuation.
 
@@ -626,17 +659,18 @@ An equality of geometric component sets, such as the superspecial indexing in Yu
 **Hypotheses.**
 
 - K is a finite extension of Q_p, with integers O, uniformizer pi, residue field k of size q, and completed maximal unramified extension Kcheck. Formal and rigid carriers are imported, not supplied by an algebraic scheme carrier.
-- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local-level restrictions (6.29)–(6.31), not an arbitrary PEL datum.
+- F is totally real; B is split at exactly one real place tau and division at v above p. Bcheck exchanges the invariants at tau and v and agrees elsewhere. Use the BZ auxiliary CM extension, hermitian datum, embeddings and local levels (6.29)–(6.31), p.46: maximal level O_B,v^× at v, arbitrary open compact levels at the other places over p, and the PEL level of the form (4.6) with multiplier groups O^× there, not an arbitrary PEL datum.
 - Translate CDN's B (definite) to this document's Bcheck, CDN's Bcheck (indefinite) to B, and CDN's local F to K. Use its exact division congruence subgroup Gcheck_n=1+varpi_D^n O_D for n at least 1, where varpi_D is a division-algebra uniformizer.
 - At each actual finite moduli level take a fine tame cover on which the universal special formal module exists. Quotient equivariance of this module is part of the theorem, not assumed from a coarse universal family.
 
-**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`, `HilbertModularVarietiesAndShimuraCurves:R18.5/special-formal-moduli`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-representability`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`.
+**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`, `HilbertModularVarietiesAndShimuraCurves:R18.2/quaternion-pdiv-tower`, `HilbertModularVarietiesAndShimuraCurves:R18.5/special-formal-moduli`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-representability`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`.
 
 **Construction or proof.**
 
 1. Use the uniformisation with the universal special formal module in BC Part III Theorem 5.2 and the BZ moduli-compatible construction (6.2)–(6.7), transported to the quaternionic selected components.
-2. Apply the same finite torsion-level functor on both actual modules and the exact Gcheck_n division congruence convention. The forgetful maps commute because they are restrictions of compatible trivializations.
-3. Descend along the effective arithmetic action and compare with CDN Proposition 5.4. Keep rigid generic fibres throughout the higher-level conclusion.
+2. Identify the canonical-model tower at v with torsion-level spaces of the generic p-divisible group H of R18.2/quaternion-pdiv-tower. Its ideal-indexed levels U_p(n) = 1 + nO_B,p give, at v, only the levels 1 + π^m O_D = 1 + Π^{2m} O_D; the odd division levels Gcheck_{2m+1} need the Π-torsion X[Π^{2m+1}] of the module itself.
+3. Apply the same finite torsion-level functor on both actual modules and the exact Gcheck_n division congruence convention. The forgetful maps commute because they are restrictions of compatible trivializations.
+4. Descend along the effective arithmetic action and compare with CDN Proposition 5.4. Keep rigid generic fibres throughout the higher-level conclusion.
 
 **Source.** [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://arxiv.org/pdf/1704.08928v2), §4.1, p.34 (division congruence convention); §5.2.1–5.2.2, Proposition 5.4 and Remark 5.5, pp.40–43. Congruence-level rigid tower and simultaneous transition compatibility.
 
@@ -654,7 +688,7 @@ The division congruence group is 1+Π^n O_D for n≥1, as fixed in CDN §4.1, p.
 - The assertion is functorial in n and U, not merely levelwise existence.
 - Dropping smallness can remove the natural universal formal-module datum on a coarse quotient.
 
-### 17. All-level Drinfeld tower uniformisation — `TowerUniformisation`
+### 18. All-level Drinfeld tower uniformisation — `TowerUniformisation`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/tower-uniformisation`. **Owner:** the R18.2 specification; imported here.
 
@@ -685,11 +719,11 @@ The division congruence group is 1+Π^n O_D for n≥1, as fixed in CDN §4.1, p.
 - The n-level source and target use the same local congruence subgroup.
 - Compatibility in n is part of the theorem, not a consequence of unrelated levelwise isomorphisms.
 
-### 18. Kurihara graph with lengths for arithmetic quotients — `WeightedArithmeticQuotientGraph`
+### 19. Kurihara graph with lengths for arithmetic quotients — `WeightedArithmeticQuotientGraph`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`. **Owner:** this continuation.
 
-**Statement.** Let Gamma be a discrete cocompact subgroup of PGL2(K). Form the formal/algebraic Mumford quotient by first using a normal finite-index Schottky subgroup and then its effective finite quotient. Its dual graph with lengths is (Gamma backslash T)*: take orbits of vertices and oriented edges, delete the edge orbits fixed by reversal, and retain loops and repeated edges among the rest. The length of a retained edge is the order of the stabilizer in Gamma of any lifted oriented edge. The algebraic model is normal, proper and flat, its generic fibre is smooth, and its reduced connected special fibre has split ordinary nodes and rational normalizations of components. At an edge of length m the completed local equation is xy=pi^m. Resolution replaces it by a path of m unit-length edges; it preserves cycle homology and the weighted cycle pairing. For positive generic genus, obtaining the minimal regular model also successively contracts rational components of valence one, as in Kurihara Proposition 3-4; valence-two components are not contracted merely for failing stability.
+**Statement.** Let Gamma be a discrete cocompact subgroup of PGL2(K). Form the formal/algebraic Mumford quotient by first using a normal finite-index Schottky subgroup and then its effective finite quotient. Its dual graph with lengths is (Gamma backslash T)*: take orbits of vertices and oriented edges, delete the edge orbits fixed by reversal, and retain loops and repeated edges among the rest. The length of a retained edge is the order of the stabilizer in Gamma of any lifted oriented edge. The algebraic model is normal, proper and flat, its generic fibre is smooth of genus 1 + #edges − #vertices of (Gamma backslash T)* (Kurihara Proposition 3-2, p.286), and its reduced connected special fibre has split ordinary nodes and rational normalizations of components. At an edge of length m the completed local equation is xy=pi^m. Resolution replaces it by a path of m unit-length edges; it preserves cycle homology and the weighted cycle pairing. For positive generic genus, obtaining the minimal regular model also successively contracts rational components of valence one, as in Kurihara Proposition 3-4; valence-two components are not contracted merely for failing stability.
 
 **Hypotheses.**
 
@@ -697,13 +731,14 @@ The division congruence group is 1+Π^n O_D for n≥1, as fixed in CDN §4.1, p.
 - Gamma acts effectively in PGL2(K); all oriented-edge stabilizers are finite. Construct the quotient using the actual Drinfeld/Mumford model and a finite-index normal Schottky subgroup. Minimal regular-model statements require generic genus greater than zero.
 - This is an arithmetic quotient comparison; the generic graph-with-lengths, resolution, Jacobian character lattice and monodromy theorem belong to StableReduction and R11.4.
 
-**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model`, `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`, `AdicSpacesPartII:R2`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`, `NeronModelsAndSemistableAbelianVarieties:R11.4/characters-graph-homology`, `NeronModelsAndSemistableAbelianVarieties:R11.4/graph-monodromy`, `mathlib:LinearMap`.
+**Prerequisites.** `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-formal-model`, `HilbertModularVarietiesAndShimuraCurves:R18.5/arithmetic-quotient`, `AdicSpacesPartII:R2`, `AdicSpacesPartII:F0/grothendieck-algebraization`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`, `tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`, `tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`, `NeronModelsAndSemistableAbelianVarieties:R11.4/characters-graph-homology`, `NeronModelsAndSemistableAbelianVarieties:R11.4/graph-monodromy`, `mathlib:LinearMap`.
 
 **Construction or proof.**
 
-1. Use Kurihara Proposition 3-2 to identify components, split branches, length and the local ring. Edge inversions identify two branches and remove that node; BC Part III §5.4.3 explains the deletion.
-2. Use Kurihara Lemma 3-3 for the local finite quotient and the subsequent blow-up description on p.288. A thickness-m edge subdivides to m unit edges after resolving the xy=pi^m singularity.
-3. Apply the existing normalization and regular-model suppliers, then the R11.4 graph/character-lattice theorem. Under subdivision a cycle has the same coefficient on every new segment, hence contributes m times the original edge coefficient product. The generic weighted extension is a recorded supplier gap, not re-owned here.
+1. Construct the Mumford quotient by a finite-index normal Schottky subgroup Γ1 with det Γ1 trivial modulo squares (Kurihara §3, p.284), algebraize it with AdicSpacesPartII:F0/grothendieck-algebraization, and divide by the finite group Γ/Γ1, which acts effectively on the projective model (Kurihara p.285).
+2. Use Kurihara Proposition 3-2 to identify components, split branches, length and the local ring. Edge inversions identify two branches and remove that node; BC Part III §5.4.3 explains the deletion.
+3. Use Kurihara Lemma 3-3 for the local finite quotient and the subsequent blow-up description on p.288. A thickness-m edge subdivides to m unit edges after resolving the xy=pi^m singularity.
+4. Apply the existing normalization and regular-model suppliers, then the R11.4 graph/character-lattice theorem. Under subdivision a cycle has the same coefficient on every new segment, hence contributes m times the original edge coefficient product. The generic weighted extension is a recorded supplier gap, not re-owned here.
 
 **Source.** [Akira Kurihara, On some examples of equations defining Shimura curves and the Mumford uniformization](https://repository.dl.itc.u-tokyo.ac.jp/record/39680/files/jfs250303.pdf), §3, Definition 3-1, pp.285–286; Proposition 3-2, pp.286–287; Lemma 3-3 and blow-up discussion, p.288; Proposition 3-4, p.289. Arithmetic quotient graph including inversions, edge stabilizer lengths, node local rings and regularization.
 
@@ -718,8 +753,9 @@ Resolving thickness m replaces one edge by m unit segments. A cycle coefficient 
 - If Gamma is Schottky, there are no reversed fixed edge orbits, stabilizers are trivial and every length is one, recovering /tree-dual-graph.
 - An inverted edge must disappear; treating it as a retained loop is wrong.
 - A node of thickness m>1 is not regular and cannot be fed to an unweighted regular-model formula without resolution.
+- Genus check: the generic genus is the first Betti number of (Gamma backslash T)*, so a quotient whose reduced graph is a tree has genus zero and no minimal regular model statement applies.
 
-### 19. Quaternionic dual graph identification — `TreeDualGraph`
+### 20. Quaternionic dual graph identification — `TreeDualGraph`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/tree-dual-graph`. **Owner:** the R18.2 specification; imported here.
 
@@ -750,7 +786,7 @@ Resolving thickness m replaces one edge by m unit segments. A cycle coefficient 
 - The quotient graph need not be a tree although T_K is a tree.
 - Over an unramified base every node has thickness 1.
 
-### 20. Quaternionic character lattice and monodromy — `CharacterMonodromy`
+### 21. Quaternionic character lattice and monodromy — `CharacterMonodromy`
 
 **Target:** `HilbertModularVarietiesAndShimuraCurves:R18.5/character-monodromy`. **Owner:** the R18.2 specification; imported here.
 
@@ -824,6 +860,12 @@ Effective canonical finite-level tower and its actual normal integral models. Pe
 
 H6 supplies paired Hilbert and Allen elliptic torsion twists, component descent and prescribed local-open targets. The Taylor structured-realization and Allen finite-local pairing gaps remain conditions on this export. R23.1–R23.2 proves Moret–Bailly and potential modularity; it does not construct these moduli inputs.
 
+### Export 7: `SerreWeightAndLevelOptimisation:R20.2`
+
+**Supplied by:** `HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation`, `HilbertModularVarietiesAndShimuraCurves:R18.5/rational-uniformisation`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`, `HilbertModularVarietiesAndShimuraCurves:R18.5/tree-dual-graph`, `HilbertModularVarietiesAndShimuraCurves:R18.5/character-monodromy`.
+
+For the Shimura curve over Q of discriminant pq with Γ0(M)-type level, at each of p and q: the formal completion of the integral model as the arithmetic quotient at that (not necessarily small) tame level, the Kurihara graph with lengths giving an admissible model with rational components (so the Jacobian's reduction is a torus extended by a finite component group), the character group as H_1 of the reduced quotient graph, and the transported Hecke and Frobenius actions. Ribet's exact sequences are proved by the consumer (SerreWeightAndLevelOptimisation:R20.2/ribet-exact-sequence, whose request names this layer); the atlas's stage link from R18.6 to that roadmap is to R20.1.
+
 **Consumer check.** Khare–Wintenberger §7, author pp.57–60, defines definite quaternionic coefficient modules with central-character compatibility and computes them as stabilizer-invariant summands. Lemma 7.1, p.60, controls the kernel of the definite degeneracy map at non-Eisenstein ideals. The neatness use in the proof surrounding Lemma 8.3, p.73, and the coefficient pairing/control use on p.77 are genuine extra conditions of the R18.3 exports. They are not consequences of Drinfeld uniformisation and give no indefinite integral Ihara theorem. H6's paired torsion-twist moduli and local opens are supplied to the Moret–Bailly consumer; uniformisation alone cannot produce those inputs.
 
 **Acceptance.** A consumer must name a supplying target, verify its level and coefficient hypotheses, and preserve its Hecke and descent actions. A geometric component-group computation must pass to Frobenius invariants before claiming an arithmetic component group. An n-level theorem must carry the same torsion-level convention on both sides and commute with transition maps. A reader must be able to distinguish the formal maximal-level output from the rigid all-level output.
@@ -835,7 +877,7 @@ The roadmap is at upstream tier 14. The PEL, formal/rigid, strict-group, buildin
 
 ### `AdicSpacesPartII:R2`
 
-Extend as Part II with gluing and separated representable quotients of the locally finite-type semistable formal Drinfeld curve by discrete effective arithmetic groups, algebraisation of proper formal curves, and effective finite quotients. Existing generic-fibre/properness comparison is imported exactly; it is not this theorem.
+Extend as Part II with the separated quotient of the locally finite-type semistable formal Drinfeld curve by a discrete cocompact effective arithmetic group (gluing of the standard charts under very freeness, and the quotient by a finite group acting on a Schottky quotient), and with a line bundle on the resulting proper formal curve whose reduction is ample (lifting from the special fibre, whose obstructions lie in H² of coherent sheaves on a curve and vanish). Grothendieck's algebraization theorem itself is imported from `AdicSpacesPartII:F0/grothendieck-algebraization`; the generic-fibre comparison for a proper model is imported from R2.
 
 Required by `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`.
 
@@ -898,7 +940,7 @@ Required by `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-qu
 Each target has a route to an existing declaration, an imported target, a requested supplier contract or the explicit condition below. The target-level pass is complete; mathematical closure is conditional on these six items. Neither a source theorem in an unavailable formal carrier nor elaboration of an elementary signature resolves them.
 
 
-1. **Formal arithmetic quotient and algebraisation.** AdicSpacesPartII:R2 supplies formal and generic-fibre machinery, but no target for the needed separated arithmetic quotient and proper algebraisation was found. Add the precise theorem in AdicSpacesPartII Part II; do not infer algebraisation from Raynaud equivalence alone. This includes effective finite quotients used for nonsmall levels. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`.
+1. **Formal arithmetic quotient and ample line bundle for algebraisation.** AdicSpacesPartII supplies formal schemes, generic fibres and Grothendieck's algebraization theorem (AdicSpacesPartII:F0/grothendieck-algebraization, under the hypothesis of a line bundle with ample reduction), but no target constructs the separated quotient of the formal Drinfeld curve by a discrete arithmetic group, the effective finite quotient used at nonsmall levels, or the line bundle with ample reduction on that quotient. Add these to AdicSpacesPartII Part II; do not infer algebraisation from Raynaud equivalence alone. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`.
 
 2. **Basic PEL uniformisation carrier and hypotheses.** PELModuli:M2 does not currently supply basic RZ uniformisation. Its Part II extension must state BZ Proposition 6.2 for the actual quaternionic auxiliary datum and polarized quasi-isogeny group, including Serre–Tate deformation etaleness, Hasse-principle coverage of all special-fibre points and Weil equivariance. KRZ provides the cited argument in its own unitary setting; no automatic equivalence of that setting with BZ is claimed. Rapoport–Zink Period Spaces, Theorem 6.30, is cited by those sources but was not independently read; it is not in the cleared library. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/auxiliary-pel-local-factors`, `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`.
 
@@ -908,7 +950,9 @@ Each target has a route to an existing declaration, an imported target, a reques
 
 5. **Cross-part finite-component descent reconciliation.** Carayol Proposition 4.4.3 and §§4.5.1–4.5.5 have now been collated at a split place. The older R18.2/finite-pel-comparison must distinguish a union of level structures over F_p^nr from a selected connected component over F_p^n. Its all-n uniform tame or division-place interpretation is unsupported. The prior broader connected-comparison gap is narrowed by this source boundary but not marked solved in another packet. YZ ramified determinant and integral transfer repairs remain owned by R18.2 and are not prerequisites of the BZ division theorem. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/split-place-descent-boundary`.
 
-6. **Typed formal and moduli signatures.** The pins have no formal Drinfeld scheme, strict special quaternionic moduli, auxiliary PEL universal family or tower carriers. The suggested file contains only the real height-label set, light chart-action predicate and their statable terminal properties/examples. Every unavailable target is stated fully in the reader. Compilation does not elaborate any uniformisation theorem. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/auxiliary-pel-local-factors`, `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`, `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-level-structure-comparison`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`.
+6. **Typed formal and moduli signatures.** The pins have no Bruhat–Tits tree, quaternionic adelic quotient, formal Drinfeld scheme, strict special quaternionic moduli, auxiliary PEL universal family or tower carriers. The suggested file contains only the height-label additive subgroup, light chart-action predicate and their statable terminal properties/examples. Every unavailable target is stated fully in the reader. Compilation does not elaborate any uniformisation theorem. Needed by `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-small-level`, `HilbertModularVarietiesAndShimuraCurves:R18.5/auxiliary-pel-local-factors`, `HilbertModularVarietiesAndShimuraCurves:R18.5/quaternionic-pel-uniformisation-transfer`, `HilbertModularVarietiesAndShimuraCurves:R18.5/very-free-drinfeld-quotient`, `HilbertModularVarietiesAndShimuraCurves:R18.5/drinfeld-level-structure-comparison`, `HilbertModularVarietiesAndShimuraCurves:R18.5/weighted-arithmetic-quotient-graph`.
+
+**Incoming requests that remain follow-ups of this stage.** Two requests from consumers name this layer and are not planned by any R18 target. AutomorphicGaloisRepresentations:R19.2/carayol-local-fundamental-representation asks for the supersingular locus of Carayol's curves at a split prime through Drinfeld's height-2 formal O_p-modules with level structure (Carayol §§7–9) and Brylinski's identification of the vanishing cycles. GrossZagierAndArithmeticHeights:GZ.0 and HeegnerPointEulerSystems:HE.0 ask for the fixed points of a CM torus on the Drinfeld half-plane, their reduction to the tree and the CM specialization with the Frobenius and Atkin–Lehner convention. Both are recorded in this stage's remaining list: they are planned as follow-ups here or rerouted to their consumers, and no target above claims them.
 
 ### Baseline and existing upstream material
 
@@ -916,18 +960,17 @@ The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Ta
 
 | Declaration | Existing input |
 | --- | --- |
-
 | `mathlib:DoubleCoset.Quotient` | Existing double-coset quotient; specialized, never reconstructed. Module: `Mathlib/GroupTheory/DoubleCoset.lean`. |
 | `mathlib:DoubleCoset.eq` | Equality is witnessed by left and right subgroup multiplication. Module: `Mathlib/GroupTheory/DoubleCoset.lean`. |
-| `mathlib:AlgebraicGeometry.Scheme` | Schemes with affine open covers. Module: `Mathlib/AlgebraicGeometry/Scheme.lean`. |
 | `mathlib:LinearMap` | Actual linear maps on integer cycle lattices, imported for monodromy and its cokernel. Module: `Mathlib/Algebra/Module/LinearMap/Defs.lean`. |
 | `mathlib:AddSubgroup` | Existing additive-subgroup carrier and closure fields; no new general subgroup theory is planned. Module: `Mathlib/Algebra/Group/Subgroup/Defs.lean`. |
 | `mathlib:MulAction` | Actual monoid/group actions, including identity and multiplication laws; used by the chart predicate. Module: `Mathlib/Algebra/Group/Action/Defs.lean`. |
 | `mathlib:groupCohomology.H1ofAutOnUnitsUnique` | For a finite field extension L/K, H1 of its automorphism group acting on L units is unique; for the auxiliary CM quadratic extension this is Hilbert 90, used to obtain rational-point surjectivity of the central quotient. Module: `Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean`. |
+| `mathlib:groupCohomology.exists_div_of_norm_eq_one` | Hilbert 90 in norm form for a finite cyclic Galois extension with a chosen generator: an element of norm 1 is y/g(y) for a unit y. Applied to the CM extension L/F it gives the surjectivity of B̌^× × L^× → I(Q) in BZ (6.34). Module: `Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean`. |
 
-The current read-only upstream StableReduction roadmap supplies node charts, normalization/dual graphs, node blow-ups and regular/minimal models. The current Tau Ceti node algebra has the actual statements `TauCeti.NodeAlgebra.flat_spec`, `locallyOfFinitePresentation_spec`, `fiberIso` and `pureRelativeDimension_spec`. They are existing generic geometry, not new targets in this part. Current AdicSpaces formal/generic-fibre material does not by itself supply the required separated arithmetic quotient and algebraisation theorem. ReductiveGroupsPartII supplies `BTTree.Vertex`, adjacency, the tree theorem and q+1 valence. The nine newer upstream roadmaps were checked for overlapping targets; none supplies the arithmetic Drinfeld or special-formal-module comparisons owned here.
+The current read-only upstream StableReduction roadmap supplies node charts, normalization/dual graphs, node blow-ups and regular/minimal models. The current Tau Ceti node algebra has the actual statements `TauCeti.NodeAlgebra.flat_spec`, `locallyOfFinitePresentation_spec`, `fiberIso` and `pureRelativeDimension_spec`. They are existing generic geometry, not new targets in this part. AdicSpacesPartII F0 already plans Grothendieck's algebraization theorem (`AdicSpacesPartII:F0/grothendieck-algebraization`); it does not supply the separated arithmetic quotient or the line bundle with ample reduction on it. ReductiveGroupsPartII supplies `BTTree.Vertex`, adjacency, the tree theorem and q+1 valence. The nine newer upstream roadmaps were checked for overlapping targets; none supplies the arithmetic Drinfeld or special-formal-module comparisons owned here.
 
-The suggested file is a representative set of statements, not an exhaustive declaration checklist. It contains the real integer height set, diagonal/difference maps, the chart-action predicate, terminal elementary properties and discriminating examples. The formal scheme, universal special module, PEL and tower carriers needed for the other targets are not available at the pins, so those targets are specified in this document rather than represented by arbitrary proposition-valued data. Elaborating the suggested file establishes no uniformisation theorem.
+The suggested file is a representative set of statements, not an exhaustive declaration checklist. It contains the height labels as a Mathlib additive subgroup of ℤ×ℤ, diagonal/difference maps, the chart-action predicate, terminal elementary properties and discriminating examples. The formal scheme, universal special module, PEL and tower carriers needed for the other targets are not available at the pins, so those targets are specified in this document rather than represented by arbitrary proposition-valued data. Elaborating the suggested file establishes no uniformisation theorem.
 
 ## Planets
 
@@ -968,7 +1011,7 @@ File SHA-256: `2a9aa0b0a046cb37e4d6b6ccc06dfaa00f10d90223ac9d2cb94918d069295119`
 
 [Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves](https://arxiv.org/pdf/2212.06886v1). Version: arXiv:2212.06886v1, 13 December 2022 (text dated 15 December). Read 13 October 2026.
 
-Reading scope: §5.2–5.11, pp.34–40; §6.1–6.8, pp.40–51; source-specific levels (6.29)–(6.31), pp.47–48; inverse descent convention in §7, p.52.
+Reading scope: §5.2–5.11, pp.34–40; §6.1–6.8, pp.40–51; source-specific levels (6.29)–(6.31), p.46; §4, (4.1)–(4.6), pp.17–18, and Lemma 2.1, p.6, checked by the review; inverse descent convention in §7, p.52.
 
 File SHA-256: `89efb1ef16c2f7704d7f375f7aca4a2a5bcf81053211035b8c09d037545060dd`.
 
@@ -1006,4 +1049,4 @@ File SHA-256: `a290c15734beb918b552ac1caa89069bc8ccb2569ac881b54120df10598c6ef7`
 
 Rapoport–Zink, *Period Spaces for p-divisible Groups*, Theorem 6.30, is cited by the uniformisation sources but was not independently read: that book is not in the cleared source list. The public Kudla–Rapoport–Zink preprint was read for the indicated polarized Hasse and descent arguments. It does not automatically supply Boutot–Zink's source-specific auxiliary group or all the hypotheses of a generic RZ uniformisation theorem. Those obligations are explicitly assigned to PELModuli Part II.
 
-No new source erratum is asserted by this part. The finite-component field distinction follows Carayol's actual statement and repairs the interpretation of an imported roadmap interface; it is not an accusation against the paper. The inherited Yuan–Zhang integral determinant concerns remain attached to their owning targets.
+The independent review recorded one misprint in Boutot–Zink: the proof of Theorem 6.7 on p.51 cites Proposition 6.6 three times as 'Lemma 6.6'; the intended result is clear and nothing is affected. The finite-component field distinction follows Carayol's actual statement and repairs the interpretation of an imported roadmap interface; it is not an accusation against the paper. The inherited Yuan–Zhang integral determinant concerns remain attached to their owning targets.

@@ -15,7 +15,7 @@ Proving the statements here finishes neither R18.5 nor the roadmap.
 Only light definitions on existing integer, set, group and action carriers are stated here.
 There are no formal Drinfeld, special formal-module, PEL or tower carriers at the pinned baseline.
 Those targets remain in the reader; arbitrary proposition fields cannot stand for them.
-The height set and chart-separation predicate are exact elementary interfaces to those targets,
+The height-label subgroup and chart-separation predicate are exact elementary interfaces to those targets,
 not Lean statements of representability, algebraisation or uniformisation.
 
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
@@ -24,8 +24,24 @@ Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369; no Tau Ceti module is im
 
 namespace TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurves.BadPrime
 
-/-- BZ's paired half-height labels, not all of `ℤ × ℤ` and not just the diagonal. -/
-def PelHeightLattice : Set (ℤ × ℤ) := {p | (2 : ℤ) ∣ p.1 + p.2}
+/-- BZ's paired half-height labels, not all of `ℤ × ℤ` and not just the diagonal.
+It is Mathlib's additive subgroup of pairs with even sum, so the subgroup API applies directly. -/
+def PelHeightLattice : AddSubgroup (ℤ × ℤ) where
+  carrier := {p | (2 : ℤ) ∣ p.1 + p.2}
+  zero_mem' := by
+    change (2 : ℤ) ∣ 0 + 0
+    omega
+  add_mem' := by
+    rintro ⟨a, b⟩ ⟨c, d⟩ h₁ h₂
+    change (2 : ℤ) ∣ a + b at h₁
+    change (2 : ℤ) ∣ c + d at h₂
+    change (2 : ℤ) ∣ (a + c) + (b + d)
+    omega
+  neg_mem' := by
+    rintro ⟨a, b⟩ h
+    change (2 : ℤ) ∣ a + b at h
+    change (2 : ℤ) ∣ -a + -b
+    omega
 
 namespace PelHeightLattice
 
@@ -129,10 +145,10 @@ example : ¬ VeryFreeChartAction (fun (_ : Multiplicative ℤ) (v : ℤ) => v)
 end VeryFreeChartAction
 
 /-!
-The reader targets VeryFreeDrinfeldQuotient, AuxiliaryPelLocalFactors,
-QuaternionicPelUniformisationTransfer, SplitPlaceDescentBoundary,
+The reader targets VeryFreeChartAction.smallTameLevel, VeryFreeDrinfeldQuotient,
+AuxiliaryPelLocalFactors, QuaternionicPelUniformisationTransfer, SplitPlaceDescentBoundary,
 DrinfeldLevelStructureComparison and WeightedArithmeticQuotientGraph require unavailable
-formal/moduli/tower carriers. They are not encoded as propositions about an arbitrary type.
+tree, adelic, formal, moduli or tower carriers. They are not encoded as propositions about an arbitrary type.
 The twelve imported targets retain their original ownership in the accepted R18.2 packet.
 R18.6 is an export index and has no new declaration here.
 -/
