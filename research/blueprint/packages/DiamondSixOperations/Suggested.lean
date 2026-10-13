@@ -155,6 +155,23 @@ example (h : IsUnit (Fintype.card (Fin 2) : ZMod 5)) :
     normalizedTrace (ZMod 5) (Fin 2) h ≠ finiteTrace (ZMod 5) (Fin 2) := by
   sorry
 
+/-- The empty finite fibre has zero trace. -/
+example : finiteTrace Λ (Fin 0) = 0 := by
+  simp [finiteTrace]
+
+/-- The diagonal on a one-point fibre returns the coefficient itself. -/
+example (a : Λ) : finiteUnit Λ (Fin 1) a 0 = a := by
+  rfl
+
+/-- An empty fibre cannot be normalised over a nonzero ring: its degree is zero. -/
+example [Nontrivial Λ] : ¬ IsUnit (Fintype.card (Fin 0) : Λ) := by
+  simp
+
+/-- On a two-point fibre over `𝔽₅`, averaging a single basis vector gives `2⁻¹ = 3`. -/
+example (h : IsUnit (Fintype.card (Fin 2) : ZMod 5)) :
+    normalizedTrace (ZMod 5) (Fin 2) h (Pi.single 0 1) = 3 := by
+  sorry
+
 end FiniteModel
 
 /-! ## Layer S4: Cohomologically smooth morphisms -/
@@ -177,6 +194,11 @@ noncomputable def unitComplex : DerivedCategory (ModuleCat.{u} Λ) :=
 (Section S4.2). -/
 theorem shift_unitComplex_injective [Nontrivial Λ] {m n : ℤ}
     (e : (unitComplex Λ)⟦m⟧ ≅ (unitComplex Λ)⟦n⟧) : m = n := by
+  sorry
+
+/-- The positive shift places the unit in cohomological degree minus one. -/
+example : Nonempty ((DerivedCategory.homologyFunctor (ModuleCat.{u} Λ) (-1)).obj
+    ((unitComplex Λ)⟦(1 : ℤ)⟧) ≅ ModuleCat.of Λ Λ) := by
   sorry
 
 /-- Over the zero ring every shift of the unit complex is zero, so no degree is defined. -/
@@ -208,6 +230,11 @@ example (ℓ r : ℕ) [Fact ℓ.Prime] [Fact r.Prime] :
     ¬ Nonempty (Module.Dual (ZMod ℓ) (LocallyConstant ℤ_[r] (ZMod ℓ)) ≃ₗ[ZMod ℓ]
       LocallyConstant ℤ_[r] (ZMod ℓ)) := by
   sorry
+
+/-- Over the zero ring the locally constant function module is zero for every profinite set. -/
+example (S : Profinite.{u}) : Subsingleton (LocallyConstant S (ZMod 1)) := by
+  refine ⟨fun f g => LocallyConstant.ext fun _ => ?_⟩
+  exact Subsingleton.elim _ _
 
 end ProfiniteSets
 
