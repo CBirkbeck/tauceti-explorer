@@ -220124,6 +220124,289 @@
   },
   {
    "id": "ModularCurvesPartII/E1",
+   "kind": "error",
+   "locator": "Author copy, Example 2.1.2, p.5",
+   "printed": "The plane cubic used for the split one-gon over Z is y²z=x³−x²z.",
+   "correction": "Use the split nodal model y²z+xyz=x³, with distinct normalization node preimages in every characteristic.",
+   "reason": "The asserted model has tangent cone y²+x² and is not split over Z; in characteristic two the tangent cone is a repeated line. The replacement has tangent cone y(y+x).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E2",
+   "kind": "error",
+   "locator": "Author copy, Theorem 2.2.2, pp.7–8, automorphism conclusion",
+   "printed": "An automorphism commuting with the given translation action is declared to be a translation without a condition on its Pic⁰ action.",
+   "correction": "Require that automorphism to act trivially on Pic⁰, as in DR II Proposition 3.2, pp.193–194.",
+   "reason": "On a smooth elliptic curve, take G=1. Inversion commutes with G and fixes the identity, yet is not a translation in characteristic zero.",
+   "affects": "a stated result",
+   "known": "The original DR II Proposition 3.2 supplies the missing condition; the author-copy formulation drops it.",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy.",
+    "DR II Proposition 3.2 read in the public IAS scan on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E3",
+   "kind": "misprint",
+   "locator": "Author copy, Theorem 2.4.5, p.16, proof for the generator map",
+   "printed": "After choosing Q′ with p^(r−e)Q′=Q, the proof assigns the lifted Z/p^r structure to Q.",
+   "correction": "Assign that Z/p^r structure to Q′; Q retains the reduced Z/p^e structure.",
+   "reason": "The immediately preceding lift equation and the subsequent full-basis argument use Q′ at level p^r. Q only generates the smaller subgroup when r>e.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E4",
+   "kind": "misprint",
+   "locator": "Author copy, p.21, frame atlas after Theorem 3.1.6",
+   "printed": "The bundle of frames in the Hilbert-atlas argument is identified as a projective-space bundle.",
+   "correction": "It is the frame bundle, a GL_r torsor. Its smooth surjectivity is the property used.",
+   "reason": "A frame is an ordered basis and has GL_r choices; a projective-space point gives only a line. The atlas argument remains valid with the corrected smooth cover.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E5",
+   "kind": "error",
+   "locator": "Author copy, Theorem 3.2.7, pp.25–26",
+   "printed": "The mixed Γ₁(N;n) stack is characterized as DM exactly when n is squarefree in the admissible range.",
+   "correction": "Use the valuation criterion of Česnavičius Proposition 4.6.5(b), published pp.2063–2064: v_p(n)≤v_p(N)+1 gives the global representable/DM range.",
+   "reason": "For N=n=p² the complementary full torsion data eliminate the μ_p polygon inertia; this mixed stack is DM even though n is nonsquarefree.",
+   "affects": "a stated result",
+   "known": "Česnavičius Proposition 4.6.5(b) supplies the corrected unrestricted criterion.",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy.",
+    "Česnavičius published pp.2063–2064 read and collated on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E6",
+   "kind": "error",
+   "locator": "Math 248B modularcurves.pdf, Proposition 2.9, p.4",
+   "printed": "The relative ℘ function is treated as holomorphic into C on the entire product parameter domain.",
+   "correction": "Remove the relative lattice for the affine function; the projective Weierstrass map extends over that lattice with value O.",
+   "reason": "℘ has a double pole at every lattice point, so it cannot be a holomorphic C-valued function there.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Conrad Math 248B handout index and author publication page, opened 2026-10-13; no correction to this assertion found.",
+    "The handout at its recorded URL was read visually at the locator on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E7",
+   "kind": "misprint",
+   "locator": "Math 248B modularcurves.pdf, proof of Theorem 17.1, p.37",
+   "printed": "The Tate-normal-form discriminant on that page is expressed as (a₁³−27a₃)a₁³.",
+   "correction": "It is a₃³(a₁³−27a₃), as computed from the native Weierstrass discriminant and as used on p.38.",
+   "reason": "Set a₁=0,a₃=1: the printed expression is zero while the discriminant is −27.",
+   "affects": "the proof",
+   "known": "The following page uses the correct a₃ factor; the local misprint remains in the served copy.",
+   "searched": [
+    "Conrad Math 248B handout index and author publication page, opened 2026-10-13; no correction to this assertion found.",
+    "The handout at its recorded URL was read visually at the locator on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E8",
+   "kind": "error",
+   "locator": "Math 248B classical.pdf, Proposition 3.1(1), p.3",
+   "printed": "The whole projection H→Γ\\H is described as proper and finite.",
+   "correction": "Restrict that assertion to the local finite stabilizer quotient U→U/Γ_y. The global quotient by an infinite Γ is neither finite nor proper.",
+   "reason": "A generic orbit of an infinite finite-index congruence group has infinitely many points, while the fibres of a finite analytic map are finite.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Conrad Math 248B handout index and author publication page, opened 2026-10-13; no correction to this assertion found.",
+    "The handout at its recorded URL was read visually at the locator on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E9",
+   "kind": "error",
+   "locator": "MF v1.31, proof of Theorem 6.1, p.89, integer-coefficient step",
+   "printed": "The proof selects the smallest index with a nonintegral coefficient in a polynomial in j and extracts that coefficient from its Laurent expansion.",
+   "correction": "Select the largest nonintegral index after removing higher integral terms, then use the leading Laurent coefficient.",
+   "reason": "For a nonintegral scalar c, P=cj²−1488cj has q⁻¹ coefficient zero although its coefficient of j is nonintegral. The highest index instead gives the q⁻² coefficient c.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Milne CourseNotes/mf.html opened 2026-10-13: v1.31 and revision history; no correction of this assertion found.",
+    "A fresh attempt to open the MF errata URL failed (HTTP 406); targeted searches for the assertion and corrections found none. The recorded finding is scoped to MF v1.31."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E10",
+   "kind": "error",
+   "locator": "MF v1.31, Example 8.9, p.100",
+   "printed": "The Legendre parameter is presented as a fine full-level-two moduli scheme with a universal family.",
+   "correction": "It gives the coarse curve A¹\\{0,1}; the level stack retains inversion and has twists.",
+   "reason": "Over C(t), a generic Legendre curve and a nonsquare quadratic twist have the same parameter and rational two-torsion labels but need not be isomorphic.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Milne CourseNotes/mf.html opened 2026-10-13: v1.31 and revision history; no correction of this assertion found.",
+    "A fresh attempt to open the MF errata URL failed (HTTP 406); targeted searches for the assertion and corrections found none. The recorded finding is scoped to MF v1.31."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E11",
+   "kind": "error",
+   "locator": "Published Annals paper, §2.1, p.715, projective framing and cusp automorphisms",
+   "printed": "Scalar-equivalence full p-frames are treated as fine, and the bare p-gon automorphism count used at the cusp is p.",
+   "correction": "The scalar-frame stack retains central inversion. Use its coarse curve or specify μ₂-rigidification; the bare p-gon has automorphism scheme μ_p×Z/2, of order 2p in characteristic zero.",
+   "reason": "Inversion multiplies a frame by −1 and therefore fixes its scalar class. The two polygon factors act independently; an effective cusp order p follows only with the quotient/rigidification convention.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Bakker author publication page and Annals 184(3) article page opened 2026-10-13; published paper and linked erratum identified.",
+    "All five pages of the author-hosted erratum were read; its corrections to Propositions 14 and 26 do not address this assertion."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E12",
+   "kind": "error",
+   "locator": "Published Annals paper, §2.5, pp.716–717, Hecke definition and degree",
+   "printed": "The cyclic-kernel closure definition is combined with the σ₁(m) degree used for the full Hecke correspondence at arbitrary m.",
+   "correction": "Distinguish the cyclic correspondence of degree ψ(m) from the all-subgroup correspondence of degree σ₁(m).",
+   "reason": "At m=4 there are six cyclic order-four subgroups and one further order-four subgroup E[2]. Thus the two source degrees are six and seven.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Bakker author publication page and Annals 184(3) article page opened 2026-10-13; published paper and linked erratum identified.",
+    "All five pages of the author-hosted erratum were read; its corrections to Propositions 14 and 26 do not address this assertion."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E13",
+   "kind": "error",
+   "locator": "Published Proposition 4.3.6, pp.2052–2053",
+   "printed": "The fine-scheme criterion at N≥1 omits N=1 from the exceptional levels, retaining only prime powers and twice prime powers.",
+   "correction": "Add N=1 as nonfine, or state the criterion for N≥2.",
+   "reason": "At level one there is no rigidifying frame: Xfull(1)=X(1) has generic inversion inertia and cannot be represented by a scheme.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Česnavičius author publication page and arXiv:1511.07475v2, checked 2026-10-13.",
+    "MSP published Proposition 4.3.6, pp.2052–2053, was visually collated against the preprint; both omit the level-one exception. No correction found."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E14",
+   "kind": "gap",
+   "locator": "Author copy, proof of Theorem 2.4.5, p.16",
+   "printed": "The deformation reduction invokes DR III 1.2 while the mixed-level argument allows polygon count divisible by the residue characteristic.",
+   "correction": "Use Česnavičius Proposition 4.2.11 and the preceding torsion congruence results for the mixed/bad-characteristic case.",
+   "reason": "DR’s cited smoothing reduction has a prime-to-characteristic polygon-count restriction. Ampleness of the mixed point/subgroup data does not impose that restriction.",
+   "affects": "the proof",
+   "known": "Česnavičius Proposition 4.2.11, preprint pp.33–34, explicitly supplies the replacement argument.",
+   "searched": [
+    "Conrad author publication list and Math 248B handout index, opened 2026-10-13; no correction linked for this assertion.",
+    "Cambridge DOI 10.1017/S1474748006000089 opened 2026-10-13: abstract/access controls only, so the finding is restricted to the author copy.",
+    "Česnavičius §4.2 read in full, including the discussion of Conrad’s proof, on 2026-10-13."
+   ],
+   "owner": "ModularCurvesPartII",
+   "file": "research/blueprint/packets/ModularCurvesPartII--R12.1.json",
+   "citation": "Sources of the blueprint of ModularCurvesPartII",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularCurvesPartII/E1",
    "kind": "misprint",
    "locator": "Lemma 9.6 proof, arXiv author preprint p. 88; author-hosted Springer-layout PDF p. 120",
    "printed": "For the matrix with diagonal entries q+1 and off-diagonal entries T_q, the displayed determinant is T_q²−(q+1)².",
