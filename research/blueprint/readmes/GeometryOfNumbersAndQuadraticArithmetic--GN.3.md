@@ -5,7 +5,7 @@ This document plans the layer GN.3 of the roadmap: reduction domains, local repr
 ## Boundaries
 
 - **AdelicAlgebraicGroups** (Tau Ceti roadmap) owns Haar and Tamagawa measures and the Tamagawa number τ(G) with τ(G_m) = 1 (AA.0, AA.2), and reduction theory: Siegel sets, (e,C)-reduced positive forms, class-number finiteness and finite volume (AA.3). This layer uses them through requests and plans only Minkowski reduction of real lattices and its containment in a Siegel set.
-- **IntegralLattices** (Tau Ceti roadmap) owns, over ℤ and ℤ_p, finiteness of bounded-norm sets (2A), shells and representation numbers (2B), finite automorphism groups (2C), Minkowski-reduced bases of integral lattices and finiteness of classes (2G), Jordan splittings (3B–3C), binary forms with the form–ideal bijection, automorphs and reduction cycles (B2–B5), the two masses and m⁺ = 2m (7A), the automorphism density α_p(L) with stabilization and odd-p values (7C), and the archimedean volume of SO(n) (7E). It names further roadmaps (Theta Series; OrthogonalTamagawaAndLatticeMass over TamagawaMeasures) for the theta series, the adelic decomposition, τ(SO_Q) = 2 and the Smith–Minkowski–Siegel formula; none of them exists, so this layer plans the theta series of a definite lattice, Siegel's main theorem, Weil's Siegel formula for dimension > 4 and τ(SO_Q) = 2, for lattices over ℤ and over number rings.
+- **IntegralLattices** (Tau Ceti roadmap) owns, over ℤ and ℤ_p, finiteness of bounded-norm sets (2A), shells and representation numbers (2B), finite automorphism groups (2C), Minkowski-reduced bases of integral lattices and finiteness of classes (2G), Jordan splittings (3B–3C), binary forms with the form–ideal bijection, automorphs and reduction cycles (B2–B5), the two masses and m⁺ = 2m (7A), the automorphism density α_p(L) with stabilization and odd-p values (7C), and the archimedean volume of SO(n) (7E). It names further roadmaps (Theta Series; OrthogonalTamagawaAndLatticeMass over TamagawaMeasures, which OrthogonalSpinGroups also names as the owner of the orthogonal Tamagawa number) for the theta series, the adelic decomposition, τ(SO_Q) = 2 and the Smith–Minkowski–Siegel formula; none of them exists, so this layer plans the theta series of a definite lattice, Siegel's main theorem, Weil's Siegel formula for dimension > 4 and τ(SO_Q) = 2, for lattices over ℤ and over number rings.
 - **ReductiveGroupsPartII** RG2.3 supplies smooth affine models of stabilizers of points of the building with their special fibres; 3E specializes them to maximal lattices.
 - Lattices, genera and hermitian lattices over Dedekind domains are GN.2; successive minima and finiteness of bounded gauge sets are GN.1.
 
@@ -14,7 +14,7 @@ This document plans the layer GN.3 of the roadmap: reduction domains, local repr
 - A quadratic lattice carries its quadratic map Q; the polar form is B(x,y) = Q(x+y) − Q(x) − Q(y), and Q(x) = B(x,x)/2 is written out wherever a bilinear and a quadratic convention meet. Representations preserve Q, which is stronger than preserving B at p = 2.
 - At a nonarchimedean place, q is the residue cardinality of the base field. For an unramified quadratic extension F/F_0 the residue field of F has q² elements and every hermitian density is normalized with q, and the Siegel series is evaluated at (−q)^{−k}. For a ramified extension the residue form is alternating and the series is evaluated at q^{−s}.
 - Densities are eventual values of normalized finite counts, with the empty generic fibre giving 0; Haar measures give the integral coordinate lattice volume 1 before any self-dual normalization.
-- The mass of a genus is Σ 1/|O(M)| over its classes; the proper mass uses SO. Siegel-type averages are mass-weighted, never uniform over classes.
+- The mass of a genus is Σ 1/|O(M)| over its classes; the proper mass uses SO. Siegel-type averages are mass-weighted, never uniform over classes. Theta series are indexed by B(x,x) at exp(πiτ·); with Q = B(x,x)/2 the coefficient of exp(2πiτm) counts Q(x) = m, which is the indexing of Siegel's theorem.
 - The local type and the local mass factor of a quadratic space use the signed discriminant (−1)^{m(m−1)/2}det Q and the Witt invariant obtained from the Hasse invariant by the rank modulo 8.
 - Zeta and L-values in mass formulas are taken at integers ≥ 2, where their Euler products converge absolutely.
 
@@ -98,7 +98,7 @@ For every n ≥ 1 there are constants C_n > 1 and t_n > 0 such that the Gram mat
 **Proof outline.**
 
 1. Write B = Uᵀ D U with U unipotent upper triangular and D diagonal (the Gram–Schmidt/Cholesky decomposition; Tau Ceti cholesky).
-2. From reducedness, ‖b_i‖² ≤ ‖b_{i+1}‖² and the Minkowski inequality ∏‖b_i‖² ≤ c_n det B give d_i/d_{i+1} bounded below and |u_ij| bounded, with constants depending on n (the reduced-diagonal bound of IntegralLattices 2G in its real form).
+2. From reducedness, ‖b_i‖² ≤ ‖b_j‖² and |2⟨b_i,b_j⟩| ≤ ‖b_i‖² for i < j, and Minkowski's product inequality ∏‖b_i‖² ≤ c_n det B for reduced bases (the comparison of ‖b_i‖ with the i-th successive minimum, then Minkowski's second theorem, GN.1 minkowski-second-upper; over Z this is the reduced-diagonal bound of IntegralLattices 2G) give the three conditions of (e, C_n)-reduced forms in AA.3.2: |B_ij| < C_n B_ii, B_ii < C_n B_jj for i < j, and ∏_i B_ii < C_n det B. Equivalently, in the Cholesky form B = UᵀDU the entries of U and the adjacent ratios d_i/d_{i+1} are bounded above in terms of n.
 3. These are exactly the (e, C)-reduced conditions of AA.3.2; AA.3.2 'Reduced forms and Siegel sets' gives the Siegel-set containment and the determinant-one version.
 
 **Checks.**
@@ -107,9 +107,9 @@ For every n ≥ 1 there are constants C_n > 1 and t_n > 0 such that the Gram mat
 - diag(1, t) is reduced exactly when t ≥ 1; the matrices diag(1, t) with 0 < t < 1, normalized, leave every fixed Siegel set as t → 0, so the containment genuinely uses reducedness.
 - Rank 1: every positive 1×1 matrix is reduced and the normalized matrix is (1).
 
-**Direct prerequisites.** [Minkowski-reduced bases of a Euclidean lattice](#minkowski-reduced-basis); `AdelicAlgebraicGroups:AA.3`; `Matrix.PosDef` (Mathlib).
+**Direct prerequisites.** [Minkowski-reduced bases of a Euclidean lattice](#minkowski-reduced-basis); base packet `GN.1/minkowski-second-upper`; `AdelicAlgebraicGroups:AA.3`; `Matrix.PosDef` (Mathlib).
 
-**Source.** Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants I*, §5, footnote 1, p.24 (arXiv:1611.09806v3): States that the Gram matrices of Minkowski-reduced bases of covolume-normalized lattices lie in a Siegel set, which is how the paper parametrizes lattices; the paper does not give a proof and refers to reduction theory. Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants II*, §7, p.52: Same use for the quasi-reduced bases.
+**Source.** Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants I*, §5, footnote 1, p.24, and proof of Lemma 5.2, p.25 (arXiv:1611.09806v3): Footnote 1 defines Minkowski-reduced bases. The proof of Lemma 5.2 writes a positive form as γI_nγᵀ with γ = ντκ and asserts, without proof, that Minkowski reduction is equivalent to γ lying in a fundamental domain whose torus part satisfies t_i ≤ c·t_{i+1}, a Siegel-type set; the containment planned here is the half of that assertion that the paper uses. Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants II*, §7, p.52: Same use for the quasi-reduced bases.
 
 <a id="minus-continued-fraction"></a>
 
@@ -186,7 +186,7 @@ Let K be a real quadratic field of fundamental discriminant D > 0 with conjugati
 
 **Direct prerequisites.** [Minus continued fractions and reduced quadratic irrationals](#minus-continued-fraction); [Automorphs of indefinite binary forms and the fundamental unit](#pell-automorph); `NumberField.RingOfIntegers` (Mathlib).
 
-**Source.** W. Duke, Ö. Imamoḡlu and Á. Tóth, *Geometric invariants for real quadratic fields*, §2, p.951, (2.2), and p.954 (after (2.11)), Ann. of Math. 184 (2016): States the reduction theory of narrow classes by minus continued fractions (cited to Zagier), the reversal (2.2), and identifies the cycle product with ε_D. W. Duke, Ö. Imamoḡlu and Á. Tóth, *Geometric invariants for real quadratic fields*, §6, (6.3)–(6.4), p.967: The bounds w < √D + 1 and ℓ_A > log ε_D / log(√D + 1).
+**Source.** W. Duke, Ö. Imamoḡlu and Á. Tóth, *Geometric invariants for real quadratic fields*, §2, p.951, (2.2), and p.954 (after (2.11)), Ann. of Math. 184 (2016): Defines minus continued fractions with digits ≥ 2 and reduced numbers 0 < w^σ < 1 < w, and states (citing Zagier) that the primitive cycle is a complete invariant of the narrow class, that its length is the number of reduced w, and the reversal (2.2) for A^{−1}; (2.9)–(2.11) give the automorph of w and ε_D = (t + u√D)/2. W. Duke, Ö. Imamoḡlu and Á. Tóth, *Geometric invariants for real quadratic fields*, §6, (6.3)–(6.4), p.967: The product of the reduced w of a class is ε_D, cited to Zagier (6.3); every reduced w is < √D + 1, which gives the length bound (6.4).
 
 <a id="pell-automorph"></a>
 
@@ -204,7 +204,8 @@ Let Q = [a,b,c] be a primitive integral binary form of nonsquare discriminant d 
 
 1. Solve the automorph equation: g fixes Q iff g = [[(t − bu)/2, −cu],[au, (t + bu)/2]] with t² − du² = 4 (direct computation with the adjoint of the Gram matrix).
 2. The solutions form a group isomorphic to the norm-one units of the order of discriminant d, which is infinite cyclic generated by (t + u√d)/2 for the least u (IntegralLattices B4 gives SO(L) ≅ norm-one units).
-3. Fixed points: the eigenvector computation gives (−b ± √d)/(2a), the attracting one for the eigenvalue (t + u√d)/2 > 1 being (−b + √d)/(2a).
+3. Mathlib's Pell.Solution₁ d′ parametrizes x² − d′y² = 1. For d = 4d′ the solutions of t² − du² = 4 are (t, u) = (2x, y); for d ≡ 1 mod 4 they contain the (2x, 2y) with (x, y) a solution for d, with index 1 or 3: t and u are even when d ≡ 1 mod 8, and the cube of (t + u√d)/2 lies in ℤ[√d] when d ≡ 5 mod 8.
+4. Fixed points: the eigenvector computation gives (−b ± √d)/(2a), the attracting one for the eigenvalue (t + u√d)/2 > 1 being (−b + √d)/(2a).
 
 **Checks.**
 
@@ -237,7 +238,7 @@ For an integer q and natural numbers n, k, the Gaussian binomial [n choose k]_q 
 
 1. Define by the Pascal-type recursion on (n, k) in Z, so no division is needed.
 2. Subspace count: count ordered bases of k-dimensional subspaces and divide by |GL_k(F_q)|; the recursion follows by splitting on whether the subspace lies in a fixed hyperplane.
-3. The q-binomial theorem is proved by induction on n from the recursion; the alternating identity follows by applying it at X = −q^{−j}·(…) to the basis of polynomials ∏_{ℓ<j}(1 + q^{−ℓ}X) (HLSY Lemma 5.26 and Corollary 5.25).
+3. The q-binomial theorem is proved by induction on n from the recursion. Evaluating it at X = −q^{−s} for 0 ≤ s ≤ n − 1 kills the product (its factor i = s vanishes), which is the alternating identity for f = x^s, and linearity gives every f of degree ≤ n − 1 (HLSY Corollary 5.25); HLSY Lemma 5.26 is the companion expansion of (−X)^n in the basis ∏_{ℓ<i}(1 + q^{−ℓ}X).
 
 **Uses.** HLSY2023 §§5–7: subspace counts, the primitive-density decomposition and the alternating sums in the proof of Theorem 7.1; GN.3 orthogonal-isometry-count: counts of totally isotropic subspaces are q-binomial expressions.
 
@@ -285,7 +286,7 @@ Let q be an odd prime power and V a nondegenerate quadratic space of dimension m
 
 1. Induction on m by orbit–stabilizer for the action on vectors of a fixed nonzero norm (Witt's theorem), counting such vectors by Gauss sums: an m-dimensional nondegenerate form takes each nonzero value q^{m−1} − sgn·q^{(m−2)/2} times (m even) or q^{m−1} + χ(…)q^{(m−1)/2} times (m odd).
 2. Collect the factors into the displayed product; the index [O:SO] = 2 in dimension ≥ 1.
-3. For characteristic 2 cite the order formula of the finite groups of Lie type through the root datum (ReductiveGroups Layer 9 gives the split groups; the orders are Steinberg's formula).
+3. For q a power of 2 the same orbit–stabilizer induction applies to the quadratic form itself (Witt's theorem holds for nondefective quadratic spaces, and the numbers of vectors of a given nonzero value are the same). In odd dimension 2r + 1 the polar form has a one-dimensional radical and the orthogonal group maps isomorphically onto Sp_{2r}(F_q), so |SO_{2r+1}(F_q)| = q^{r²}∏_{i=1}^r(q^{2i} − 1); in even dimension SO is the kernel of the Dickson invariant. No roadmap supplies Steinberg's general order formula (ReductiveGroups Layer 9 constructs the pinned Chevalley groups only), so the counts are made directly.
 
 **Checks.**
 
@@ -295,7 +296,7 @@ Let q be an odd prime power and V a nondegenerate quadratic space of dimension m
 
 **Direct prerequisites.** `QuadraticMap` (Mathlib); `Matrix.orthogonalGroup` (Mathlib); `GaloisField` (Mathlib).
 
-**Source.** Chao Li and Wei Zhang, *On the arithmetic Siegel–Weil formula for GSpin Shimura varieties*, §3.2, (3.2.0.1)–(3.2.0.2), p.11 (arXiv:2106.15038, authors' final version of 2 March 2022): States the order of O(V) over a finite field of odd characteristic with the sign of V and the boundary convention in dimension 0. Wee Teck Gan, Jonathan Hanke and Jiu-Kang Yu, *On an exact mass formula of Shimura*, Tables 3–4, pp.115–116 (Duke Math. J. 107 (2001), authors' copy): Lists the orders of the reductive quotients, including the dyadic cases, used for the local mass factors. Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, *A proof of the Kudla–Rapoport conjecture for Krämer models*, Corollary 5.17, p.37: Records Den(I_n, I_n) as twice a normalized finite orthogonal group order, in agreement with these orders.
+**Source.** Chao Li and Wei Zhang, *On the arithmetic Siegel–Weil formula for GSpin Shimura varieties*, §3.2, (3.2.0.1)–(3.2.0.2), p.11 (arXiv:2106.15038, authors' final version of 2 March 2022): States the order of O(V) over a finite field of odd characteristic with the sign of V and the boundary convention in dimension 0. Wee Teck Gan, Jonathan Hanke and Jiu-Kang Yu, *On an exact mass formula of Shimura*, Tables 3–4, pp.115–116 (Duke Math. J. 107 (2001), authors' copy): Lists the orders of the reductive quotients, including the dyadic cases, used for the local mass factors. Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, *A proof of the Kudla–Rapoport conjecture for Krämer models*, Corollary 5.17, p.37: Records Den(I_n, I_n) = 2q^{n(n−1)/2}∏(1 − q^{−2s}) (with the factor (1 + ϵq^{−n/2}) for even n), the order of the orthogonal group of the residue quadratic space, in agreement with these orders.
 
 <a id="orthogonal-isometry-count"></a>
 
@@ -303,7 +304,7 @@ Let q be an odd prime power and V a nondegenerate quadratic space of dimension m
 
 *Theorem* `orthogonal-isometry-count`
 
-Let q be odd, U a quadratic space of dimension n over F_q whose radical has dimension t, and V nondegenerate of dimension m ≥ n. The number #O(U,V) of injective isometries U → V is given by orbit–stabilizer from Witt's theorem: it is zero when U does not embed in V and otherwise equals, in the form of Li–Zhang Lemma 3.2.1, q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 − χ(V)sgn_m(U)q^{−(m−n−t)/2})^{−1}∏_{(m−n−t)/2 ≤ i < m/2}(1 − q^{−2i}), read as the orbit–stabilizer count wherever the displayed rational expression is 0/0 (in particular U = 0 with m even, where the count is 1). The number S_b(V) of totally isotropic b-dimensional subspaces of V and the numbers m(U,V) of subspaces of V isometric to U are given by the same orbit–stabilizer argument (Li–Zhang Lemma 3.2.2; HLSY Lemmas 5.18–5.22).
+Let q be odd, U a quadratic space of dimension n over F_q whose radical has dimension t, and V nondegenerate of dimension m ≥ n. The number #O(U,V) of injective isometries U → V is given by orbit–stabilizer from Witt's theorem: it is zero when U does not embed in V and otherwise equals, in the form of Li–Zhang Lemma 3.2.1, q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 − χ(V)sgn_m(U)q^{−(m−n−t)/2})^{−1}∏_{(m−n−t)/2 ≤ i < m/2}(1 − q^{−2i}), and for U = 0 with m even the count is 1: the displayed expression then reduces to 1 (it is 0/0 only at m = 0, read as 1), while the simplified 'Namely' form of the lemma gives 1 − q^{−m} (GN/E302). The number S_b(V) of totally isotropic b-dimensional subspaces of V and the numbers m(U,V) of subspaces of V isometric to U are given by the same orbit–stabilizer argument (Li–Zhang Lemma 3.2.2; HLSY Lemmas 5.18–5.22).
 
 **Hypotheses and conventions.**
 
@@ -319,7 +320,7 @@ Let q be odd, U a quadratic space of dimension n over F_q whose radical has dime
 **Checks.**
 
 - Isotropic vectors: for the split plane over F_q the number of nonzero isotropic vectors is 2(q − 1).
-- For U = 0 and m even the count is 1, while the printed rational expression of Li–Zhang Lemma 3.2.1 evaluates to 0/0 or a wrong value (their erratum E1).
+- For U = 0 and m even the count is 1; the first display of Li–Zhang Lemma 3.2.1 gives (1 − sgn(V)q^{−m/2})/(1 − sgn(V)q^{−m/2}) = 1 (0/0 at m = 0), while its simplified 'Namely' form gives 1 − q^{−m} (erratum E302).
 - For m = n = t = 1 (U a degenerate line, V a line) there is no embedding: a nondegenerate line has no isotropic vector.
 
 **Direct prerequisites.** [Orders of finite orthogonal groups](#finite-orthogonal-group-order); [Gaussian binomial coefficients](#gaussian-binomial).
@@ -604,7 +605,7 @@ Let L be a positive definite maximal Z-lattice of rank r ≥ 5. (1) There is C >
 
 **Hypotheses and conventions.**
 
-- r ≥ 5 and L maximal for (2); (1) needs only p ∤ 2 det L.
+- Both parts are proved under the standing hypotheses of SSTT §4: L maximal of rank r ≥ 5; part (1) concerns the primes p ∤ 2 det L. The rank hypothesis matters in (1): for Q = x² and p ∤ 2m, μ_p(m,1) is 0 or 2.
 
 **Proof outline.**
 
@@ -646,7 +647,7 @@ Let L be a positive definite maximal Z-lattice of rank r ≥ 5. (1) If m is repr
 
 **Direct prerequisites.** [Densities near one at good primes and a uniform lower bound](#density-good-prime-bounds); [Stabilization of quadratic representation counts](#quadratic-density-stabilization); [Hanke's reduction maps for local densities](#hanke-reduction-maps).
 
-**Source.** Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*, Proposition 4.1, p.15, proof p.19: Bounds the local term of the Bruinier–Kühn formula by O(1/p). Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*, Lemma 7.9 and proof, pp.39–42: Proves the discriminant-sensitive bound by induction on the level using Hanke's decomposition.
+**Source.** Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*, Proposition 4.1, p.15, proof p.19: Bounds the local term of the Bruinier–Kühn formula by O(1/p). Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*, Lemma 7.9 and proof, p.39: Proves the discriminant-sensitive bound by induction on the level using Hanke's decomposition.
 
 <a id="orthogonal-cho-yamauchi"></a>
 
@@ -732,7 +733,7 @@ For a quadratic O_F-lattice L of rank n (odd residue characteristic): Den^ε(X,L
 
 **Hypotheses and conventions.**
 
-- Odd residue characteristic; val(L) is the valuation of the determinant; u a fixed nonsquare unit as in the source.
+- Odd residue characteristic; val(L) is the valuation of the determinant; u ∈ O_F^× is a unit with χ(u) = ε (a square for ε = +1, a nonsquare for ε = −1), as in Li–Zhang (3.4.6.1).
 
 **Proof outline.**
 
@@ -792,7 +793,7 @@ Let V^ε_m be the quadratic space of dimension m = n + 1 attached to ε and L^�
 **Proof outline.**
 
 1. Define the predicates from the invariants χ, t and sgn of the reduction.
-2. Corollary 3.8.3 of Li–Zhang: for co-isotropic L^♭, Den^{♭ε}(1,L^♭) = 0 and Hor^ε(L^♭) = ∅; for co-anisotropic L^♭ the derivative difference of orthogonal-induction-formula is a weighted count of Hor^ε(L^♭) with weights q^{⌊val(M^♭)/2⌋}·(1, 1 + q^{−1}, 2(1 + q^{−1})) by type 0, 1, 2.
+2. Corollary 3.8.3 of Li–Zhang: for co-isotropic L^♭, Den^{♭ε}(1,L^♭) = 0 and Hor^ε(L^♭) = ∅; for co-anisotropic L^♭ the derivative difference of orthogonal-induction-formula is a weighted count of Hor^ε(L^♭), with weights q^{⌊val(M^♭)/2⌋}·(1, 1 + q^{−1}, 2(1 + q^{−1})) by type 0, 1, 2 when χ(L^♭) ≠ 0, and 2q^{⌊val(M^♭)/2⌋}·(1, 2) by type 1, 2 when χ(L^♭) = 0 (then L^♭_F has no self-dual lattice).
 3. Lemma 3.8.4: a lattice embedding in both V^ε_m and H^ε_m with M^♭ = M^♭_F ∩ H^ε_m is horizontal.
 
 **Uses.** LiZhangGSpin §3.8 and §9: horizontal lattices index the horizontal part of the special cycles; their weighted count is the derivative difference; GN.3 orthogonal-valuation-reduction: the induction on val(L^♭).
@@ -870,7 +871,7 @@ Let L be a quadratic O_F-lattice of rank t and full type t > 1 (t(L) = t, i.e. e
 
 **Checks.**
 
-- At the maximal lattices the identities reduce to (1 − qa)(1 + a) + (1 + a)(q − 1) + q^t − q = 0 with a² = q^{t−1}.
+- Base cases (Li–Zhang Propositions 8.2.5 and 8.2.7): a vertex lattice of type t (val(L) = t) has μ_+ = 1 and μ_0 = 0; for t even and invariants (1,…,1,2), μ_+ = 1, μ_0 = q − 1 and μ_− = q^{t−1} − q (the source prints q^t − q, E311), and the identity reads (1 − qa)(1 + a) + (1 + a)(q − 1) + q^{t−1} − q = 0 with a = sq^{t/2−1}.
 - For t = 2, χ(L) = 0 and s = ±1 both identities hold, checked by brute force over Z_3.
 - The relative identity holds for every L ⊆ M ⊆ ϖ^{−1}L, but the existence of an M with μ_{0,+}(L,M) = μ_{0,−}(L,M) fails for diag(3,3,9) over Z_3.
 
@@ -884,18 +885,19 @@ Let L be a quadratic O_F-lattice of rank t and full type t > 1 (t(L) = t, i.e. e
 
 *Theorem* `siegel-main-theorem` — planet: **Siegel's main theorem**
 
-Let L be a positive definite integral Z-lattice of rank n ≥ 5 with quadratic form Q (Q(x) = B(x,x)/2 integral). Then for every integer m ≥ 1 the genus representation number of genus-theta-average satisfies r_gen(L,m) = β_∞(L,m)·∏_p β(L ⊗ Z_p, m), where β(L ⊗ Z_p, m) are the local representation densities of quadratic-local-density and β_∞(L,m) = (π^{n/2}/Γ(n/2)) m^{n/2−1} det(L)^{−1/2} is the archimedean density (with det taken for the Gram matrix of Q's polar form divided by 2). The Euler product converges absolutely. Equivalently, the genus theta average is the Eisenstein part of Θ_L.
+Let L be a positive definite integral Z-lattice of rank n ≥ 5 whose bilinear form B is even, so that Q(x) = B(x,x)/2 is integral. For an integer m ≥ 1 write r_gen,Q(L,m) for the coefficient of exp(2πiτm) in the genus theta average of genus-theta-average, that is r_gen(L, 2m) in its exp(πiτ·) indexing: the mass-weighted average over the classes L_j of the genus of #{x ∈ L_j : Q(x) = m}. Then r_gen,Q(L,m) = β_∞(L,m)·∏_p β(L ⊗ Z_p, m), where β(L ⊗ Z_p, m) are the local representation densities of Q from quadratic-local-density and β_∞(L,m) = (π^{n/2}/Γ(n/2)) m^{n/2−1} det(A)^{−1/2}, with A the Gram matrix of B divided by 2 (so that Q(x) = xᵀAx), is the archimedean density. The Euler product converges absolutely. Equivalently, the genus theta average is the Eisenstein part of Θ_L.
 
 **Hypotheses and conventions.**
 
 - n ≥ 5 (absolute convergence of the Euler product and of the Eisenstein series); positive definite.
 - The left side is the mass-weighted genus average, not the representation number of L itself.
+- Indexing: definite-lattice-theta-series and genus-theta-average count B(x,x) = 2Q(x) at exp(πiτ·), so the coefficient of exp(2πiτm) counts Q(x) = m, as in Hanke's Θ_Q(z) = Σ_x e^{2πiQ(x)z}.
 
 **Proof outline.**
 
 1. Proved by Siegel (1935) through the circle method and, in the representation-theoretic form, by Weil's Siegel–Weil formula; here the route is rank-one-siegel-weil applied to the characteristic function of the adelic closure of L, unfolded over the finite class set (adelic-mass-identity of the parent packet).
 2. The Fourier coefficient of the Eisenstein distribution at m is the product of the local fibre integrals, which are the densities β_p and β_∞.
-3. Absolute convergence: density-good-prime-bounds gives β_p = 1 + O(p^{−3/2})·… for p ∤ 2 det L and n ≥ 5.
+3. Absolute convergence: for p ∤ 2m det L the lattice L ⊗ Z_p is unimodular, so odd-prime-density-formula gives β_p = μ^good_p(m,1), the normalized number of solutions of Q(x) = m over F_p, and the Gauss-sum counts behind finite-orthogonal-group-order make it 1 + O(p^{1−n/2}) = 1 + O(p^{−3/2}) for n ≥ 5. The O(1/p) of density-good-prime-bounds (1) alone would not give absolute convergence.
 
 **Checks.**
 
@@ -903,7 +905,7 @@ Let L be a positive definite integral Z-lattice of rank n ≥ 5 with quadratic f
 - For the sum of four squares (n = 4, outside the hypothesis) Jacobi's formula r(m) = 8Σ_{4∤d|m} d agrees with the product of local densities computed in Hanke's §2.7.
 - For a two-class genus in rank ≥ 5 the identity holds for the weighted average and generally fails for each class separately.
 
-**Direct prerequisites.** [Mass-weighted genus average of theta series](#genus-theta-average); [Local representation densities of quadratic lattices](#quadratic-local-density); [Densities near one at good primes and a uniform lower bound](#density-good-prime-bounds); [Siegel–Weil formula for quadratic spaces of dimension > 4](#rank-one-siegel-weil); base packet `GN.3/adelic-mass-identity`.
+**Direct prerequisites.** [Mass-weighted genus average of theta series](#genus-theta-average); [Local representation densities of quadratic lattices](#quadratic-local-density); [Closed formulas for densities at odd primes](#odd-prime-density-formula); [Orders of finite orthogonal groups](#finite-orthogonal-group-order); [Siegel–Weil formula for quadratic spaces of dimension > 4](#rank-one-siegel-weil); base packet `GN.3/adelic-mass-identity`.
 
 **Source.** Jonathan Hanke, *Quadratic forms and automorphic forms (notes from the 2009 Arizona Winter School)*, Theorem 2.5.1 with (2.5)–(2.7), p.33, and §2.7, pp.35–39: States Siegel's theorem for positive definite forms in n ≥ 5 variables: the Eisenstein part is the mass-weighted genus average and its coefficients are products of local densities; §2.7 works the sum of four squares. Davesh Maulik, Ananth N. Shankar and Yunqing Tang, *Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture*, Theorem 7.15 (accepted version, 25 December 2021): Applies the formula to the auxiliary lattices with explicit L-values; see mst-auxiliary-mass-formula.
 
@@ -1013,7 +1015,7 @@ For integral nondegenerate hermitian lattices L, M of ranks n ≤ m over an unra
 
 **Direct prerequisites.** [The hermitian representation scheme and its primitive open](#hermitian-representation-scheme); base packet `GN.3/normalized-hermitian-count`; base packet `GN.3/empty-generic-density-zero`.
 
-**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, §3.1, p.15: Defines the density as a limit and records the generic dimension; stabilization is the input that makes the limit an eventual value. Sungmun Cho and Takuya Yamauchi, *A reformulation of the Siegel series and intersection numbers*, §3.1, Definition 3.1 and Corollary 3.5, pp.11–13; locator carried from the GN package, not re-read in this job: The fibre-measure normalization and lattice-coordinate argument for the quadratic case, adapted here to the hermitian functor.
+**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, §3.1, p.15: Defines the density as a limit and records the generic dimension; stabilization is the input that makes the limit an eventual value. Sungmun Cho and Takuya Yamauchi, *A reformulation of the Siegel series and intersection numbers*, §3.1, pp.11–13, with Corollary 3.5 and Proposition 3.7, (3.2), p.13 (arXiv:1805.01666v2): Defines the local and primitive densities by integration over the representation scheme (§3.1), characterizes when a primitive isometry exists (Corollary 3.5) and decomposes the density over integral overlattices (Proposition 3.7); this node adapts the lattice-coordinate argument to the hermitian functor and to the stabilization of counts.
 
 <a id="primitive-hermitian-smooth-count"></a>
 
@@ -1042,7 +1044,7 @@ For the self-dual target I_m = ⟨1⟩^m and an integral hermitian lattice L of 
 
 **Direct prerequisites.** [The hermitian representation scheme and its primitive open](#hermitian-representation-scheme); base packet `GN.3/hermitian-embedding-count`; base packet `GN.3/finite-hermitian-isometry-formula`.
 
-**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, Proof of Theorem 3.5.1, pp.17–18: Computes the primitive local density by the finite-field isometry count. Sungmun Cho and Takuya Yamauchi, *A reformulation of the Siegel series and intersection numbers*, Theorem 3.9, Lemma 3.10, Corollary 3.11, pp.15–16; carried from the GN package, not re-read: The smoothness/primitive-count step in the quadratic case.
+**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, Proof of Theorem 3.5.1, pp.17–18: Computes the primitive local density by the finite-field isometry count. Sungmun Cho and Takuya Yamauchi, *A reformulation of the Siegel series and intersection numbers*, Theorem 3.9, Lemma 3.10, Corollary 3.11 and Theorem 3.12, p.15 (arXiv:1805.01666v2): In the quadratic case: the morphism defining primitive representations is smooth (Theorem 3.9, through Lemma 3.10 and Gan–Yu Lemmas 5.5.1–5.5.2), the primitive scheme is open and smooth over o (Corollary 3.11), and the primitive density is f^{−dim} times the residual primitive isometry count (Theorem 3.12).
 
 <a id="hermitian-saturation-density-sum"></a>
 
@@ -1079,7 +1081,7 @@ For the self-dual target I_m and an integral hermitian lattice L of rank n ≤ m
 
 *Theorem* `hermitian-cancellation-law`
 
-For a self-dual hermitian lattice M of rank m and an integral hermitian lattice L^♭ of rank n over an unramified F/F_0: Den(⟨1⟩^{n+m+k}, L^♭ ⊕ M) = Den(⟨1⟩^{n+k}, L^♭) for all k ≥ 0, hence the normalized Siegel polynomials agree: D_{L^♭ ⊕ M}(X) = D_{L^♭}(X).
+For a self-dual hermitian lattice M of rank m and an integral hermitian lattice L^♭ of rank n over an unramified F/F_0: Den(⟨1⟩^{n+m+k}, L^♭ ⊕ M) = Den(⟨1⟩^{n+m+k}, M)·Den(⟨1⟩^{n+k}, L^♭) and Den(⟨1⟩^{n+m+k}, ⟨1⟩^{n+m}) = Den(⟨1⟩^{n+m+k}, M)·Den(⟨1⟩^{n+k}, ⟨1⟩^n) for all k ≥ 0, hence the normalized Siegel polynomials agree: D_{L^♭ ⊕ M}(X) = D_{L^♭}(X). The unnormalized equality Den(⟨1⟩^{n+m+k}, L^♭ ⊕ M) = Den(⟨1⟩^{n+k}, L^♭) stated before Li–Zhang (3.2.1.1) is false (GN/E312).
 
 **Hypotheses and conventions.**
 
@@ -1088,7 +1090,7 @@ For a self-dual hermitian lattice M of rank m and an integral hermitian lattice 
 
 **Proof outline.**
 
-1. Representations of M into a self-dual target split off: the orthogonal complement of the image of M is self-dual of rank n + k, and the stabilizer count cancels against the self-dual denominator.
+1. Representations of M into a self-dual target split off: the orthogonal complement of the image of M is self-dual of rank n + k, so restriction to M has fibres of constant size, the representations of L^♭ into that complement, and the counts multiply (the argument of Li–Zhang Lemma 9.1.1 with a self-dual line); the factor Den(⟨1⟩^{n+m+k}, M) cancels against the same factor of the self-dual normalization.
 2. Alternatively, the overlattices of L^♭ ⊕ M are L′ ⊕ M (M self-dual), with the same type and length, so the Cho–Yamauchi sums agree.
 
 **Checks.**
@@ -1096,10 +1098,11 @@ For a self-dual hermitian lattice M of rank m and an integral hermitian lattice 
 - L^♭ = 0: D_M(X) = 1 for every self-dual M.
 - L^♭ = ⟨ϖ⟩: D_{⟨ϖ⟩ ⊕ ⟨1⟩}(X) = 1 − X.
 - The cancellation fails for a non-self-dual M: D_{⟨ϖ⟩⊕⟨ϖ⟩}(X) ≠ D_{⟨ϖ⟩}(X).
+- n = 0, M = ⟨1⟩, k = 0: Den(⟨1⟩, ⟨1⟩) = 1 + q^{−1} while Den(⟨1⟩^0, 0) = 1, so the densities themselves do not cancel; only the normalized series do.
 
 **Direct prerequisites.** base packet `GN.3/cho-yamauchi-overlattice-formula`; base packet `GN.3/normalized-siegel-polynomial`.
 
-**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, §3.2, (3.2.1.1), p.16: States the cancellation law for densities against self-dual targets and for the normalized Siegel series.
+**Source.** Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*, §3.2, (3.2.1.1), p.16: States the cancellation law (3.2.1.1) for the normalized Siegel series; the sentence before it states the equality of the unnormalized densities without the factor Den(⟨1⟩^{n+m+k}, M) (E312).
 
 <a id="hermitian-central-derivative"></a>
 
@@ -1154,7 +1157,7 @@ For an integral nondegenerate hermitian lattice L over an unramified F/F_0 with 
 
 *Theorem* `hermitian-special-values`
 
-For an integral nondegenerate hermitian lattice L over an unramified F/F_0 and k ≥ 0: D_L((−q)^{−k}) = Σ_{L ⊆ L′ ⊆ L′^∨, t(L′) ≤ k} q^{−2ℓ(L′/L)k}m(t(L′);(−q)^{−k}). In particular Den(L) = D_L(1) is the number of self-dual lattices containing L, and D_L(−q) = Σ_{L ⊆ L′ ⊆ L′^∨}[L′:L]·m(t(L′) + 1) = vol(L)^{−1}D_L((−q)^{−1}). For T = xx^τ and L = x^τΛ_n with Λ_n self-dual, Leslie's orbital-integral constant m_0(T) equals Den(L) and vanishes unless L ⊆ Λ_n ⊆ L^∨.
+For an integral nondegenerate hermitian lattice L over an unramified F/F_0 and k ≥ 0: D_L((−q)^{−k}) = Σ_{L ⊆ L′ ⊆ L′^∨, t(L′) ≤ k} q^{−2ℓ(L′/L)k}m(t(L′);(−q)^{−k}). In particular Den(L) = D_L(1) is the number of self-dual lattices containing L, and D_L(−q) = Σ_{L ⊆ L′ ⊆ L′^∨}[L′:L]·m(t(L′) + 1) = vol(L)^{−1}D_L((−q)^{−1}). For T = xx^τ and the lattice L = x^τΛ_n with moment matrix T (Λ_n self-dual), Leslie's orbital-integral constant m_0(T) equals Den(L), the number of self-dual lattices L′ with L ⊆ L′ ⊆ L^∨; it vanishes unless T is integral.
 
 **Hypotheses and conventions.**
 
@@ -1250,7 +1253,7 @@ Let V be a nondegenerate hermitian space of dimension n over an unramified F/F_0
 **Proof outline.**
 
 1. (1)–(2): elementary module theory of a lattice and its rank-(n−1) intersection; the volume formula from the block-triangular Gram matrix.
-2. (3): the sum a′_1 + … + a′_{n−1} − (n−1) is the minimal valuation of (n−1)-minors of the moment matrix; compute these minors for x inside and outside M(L^♭).
+2. (3): the sum a′_1 + … + a′_{n−1} is the minimal valuation of the (n−1)-minors of the moment matrix (Smith normal form; no shift by n − 1 in the unramified case, unlike ramified-lattice-lemmas (1)); compute these minors for x inside and outside M(L^♭) (Li–Zhang Lemma 8.2.2).
 
 **Checks.**
 
@@ -1382,7 +1385,7 @@ Over an unramified F/F_0 with additive character ψ of conductor O_{F_0}: (1) fo
 
 **Proof outline.**
 
-1. (1): e = 0 trivial; e = 1 by norm fibres (finite-hermitian-norm-fiber): Σ_x ψ(uN(x)/ϖ) = 1 − q over F_{q²}, divided by q²; e ≥ 2 by splitting residue classes: nonzero classes contribute 0 (the norm's derivative is the surjective trace), the zero class gives q^{−2} times the case e − 2.
+1. (1): e = 0 trivial; e = 1 by norm fibres (finite-hermitian-norm-fiber): Σ_{x∈F_{q²}} ψ(uN(x)/ϖ) = 1 + (q + 1)Σ_{c∈F_q^×}ψ(uc/ϖ) = −q, divided by q² gives −q^{−1}; e ≥ 2 by splitting residue classes: nonzero classes contribute 0 (the norm's derivative is the surjective trace), the zero class gives q^{−2} times the case e − 2.
 2. (2): orthogonality of characters on the self-dual lattice Herm_n(O_F) (the trace pairing is self-dual because the different of F/F_0 is trivial); diagonalize R by integral congruence and apply (1) row by row.
 
 **Checks.**
@@ -1469,20 +1472,20 @@ In the setting of He–Li–Shi–Yang (E/F ramified quadratic, p odd, V an n-di
 - `ramifiedDensity_eq_sum_primitive` (characterisation): Den(M,L,X) = Σ_{L′}(q^{n−m}X)^{ℓ(L′/L)}Pden(M,L′,X).
 - `ramifiedPrimitiveDensity_inversion` (characterisation): The Möbius inversion formula.
 - `ramifiedDerivative_eq_sum` (characterisation): ∂Den(L) = Σ_{L′ ⊇ L}∂Pden(L′).
-- `ramifiedPrimitiveDensity_hyperbolic` (simp): Pden(H^k,L) = ∏_{ℓ<n}(1 − q^{−2k+2ℓ}).
+- `ramifiedPrimitiveDensity_hyperbolic` (simp): Pden(H^k,L) = ∏_{ℓ<n}(1 − q^{−2k+2ℓ}) for integral L of rank n.
 
 **Unit tests.**
 
 - `ramifiedPrimitiveDensity_nonIntegral` (degenerate): If L contains a vector of valuation ≤ −1, ∂Pden(L) = 0.
 - `ramifiedPrimitiveDensity_equalRank` (non-example): For M, L of the same rank with M ≇ L, Pden(M,L) = 0 although Den(M,L) may be nonzero.
-- `ramifiedPrimitiveDensity_hyperbolic_rankOne` (computation): For n = 1, Pden(H^k, L) = 1 − q^{−2k}.
+- `ramifiedPrimitiveDensity_hyperbolic_rankOne` (computation): For an integral lattice L of rank one, Pden(H^k, L) = 1 − q^{−2k}.
 - `ramifiedDensity_inversion_roundtrip` (characterisation): Applying the decomposition and then the inversion returns Pden(M,L,X).
 
 **Checks.**
 
 - If some x ∈ L has val(x) ≤ −1 then ∂Den(L) = Den′(L) = ∂Pden(L) = Pden′(L) = 0.
 - For equal ranks, Pden(M,L) = 0 unless M ≅ L.
-- For L of rank n, Pden(H^k, L) = ∏_{ℓ=0}^{n−1}(1 − q^{−2k+2ℓ}).
+- For integral L of rank n, Pden(H^k, L) = ∏_{ℓ=0}^{n−1}(1 − q^{−2k+2ℓ}) (He–Li–Shi–Yang Lemma 5.12, from Li–Liu Lemma 2.15); for non-integral L it is 0.
 
 **Direct prerequisites.** [Hermitian densities and Siegel series over a ramified extension](#ramified-hermitian-density); [Gaussian binomial coefficients](#gaussian-binomial); [Isometries and isotropic subspaces of finite quadratic spaces](#orthogonal-isometry-count).
 
@@ -1535,7 +1538,7 @@ In the Krämer setting, for L of full type t with L° = {val ≥ 0}, L°° = {va
 
 **Checks.**
 
-- At maximal lattices: (1 − qa)(1 + a) + (1 + a)(q − 1) + q^t − q = 0 with a² = q^{t−1}.
+- At maximal lattices of odd type t (He–Li–Shi–Yang Proposition 8.7): μ_+ = 1, μ_0 = q − 1, μ_− = q^t − q, and (1 − qa)(1 + a) + (1 + a)(q − 1) + q^t − q = 0 with a = χq^{(t−1)/2}; at maximal lattices of even type in case (i) of Proposition 8.9: μ_+ = 1, μ_{0,±1} = (q² − 1)/2 and μ_− = q^t − q² ((8.9)–(8.10)).
 - The identities were checked by brute force at q = 3, 5 for both signs χ.
 - The orthogonal analogue is full-type-weighted-identities.
 
@@ -1620,7 +1623,7 @@ For an integral quadratic O_K-lattice L in a totally positive (V,Q), the trace f
 
 **Direct prerequisites.** base packet `GN.2/integral-quadratic-lattice`; `Algebra.trace` (Mathlib); `NumberField.InfinitePlace` (Mathlib); `IsZLattice` (Mathlib).
 
-**Source.** Rainer Schulze-Pillot, *Lecture notes on quadratic forms and their arithmetic*, Theorem 6.10 and Remarks 6.11, 6.13, pp.77–78 (arXiv:2008.12847v2): Proves finiteness of class numbers of definite lattices over totally real fields, using the restriction of scalars to Z. Markus Kirschmer, *One-class genera of maximal integral quadratic forms*, §2, p.3 (author preprint, June 2013): Defines lattices, isometry, the automorphism group and the mass over a totally real field.
+**Source.** Rainer Schulze-Pillot, *Lecture notes on quadratic forms and their arithmetic*, Theorem 6.10 and Remarks 6.11, 6.13, pp.77–78 (arXiv:2008.12847v2): Theorem 6.10 (p.77) proves that there are finitely many classes of integral Z-lattices of given rank and determinant; Remarks 6.11 and 6.13 (pp.77–78) extend this and the finiteness of classes in a genus to lattices over rings of integers of number fields, citing Humbert. The restriction of scalars to Z is this node's own route. Markus Kirschmer, *One-class genera of maximal integral quadratic forms*, §2, p.3 (author preprint, June 2013): Defines lattices, isometry, the automorphism group and the mass over a totally real field.
 
 <a id="finite-bounded-integral-endomorphisms"></a>
 
@@ -1648,7 +1651,7 @@ Let (M, Q_Z) be a positive definite integral quadratic Z-lattice of finite rank 
 
 **Direct prerequisites.** [The trace Z-lattice of a lattice over a totally real field](#number-ring-trace-lattice); `TauCeti.IntegralLattice` (Tau Ceti).
 
-**Source.** Rainer Schulze-Pillot, *Lecture notes on quadratic forms and their arithmetic*, Remarks 6.11 and 6.13, pp.77–78: The restriction-of-scalars argument for finiteness over number rings.
+**Source.** Rainer Schulze-Pillot, *Lecture notes on quadratic forms and their arithmetic*, Remarks 6.11 and 6.13, pp.77–78: Remarks 6.11 and 6.13 state finiteness of classes over rings of integers (Humbert), which this node recovers by restriction of scalars and bounded endomorphisms.
 
 <a id="proper-ordinary-mass-doubling"></a>
 
@@ -1837,7 +1840,7 @@ In the setting of smooth-maximal-orthogonal-model, let H be the quasi-split inne
 **Checks.**
 
 - Good split rank 3 at q = 3: N = 1 and order 24 on both sides, ratio 1.
-- Anisotropic rank-3 quotient at q = 3 against the split one: ratio 2, so μ_v(K_v) = 1/2.
+- Type II+ in rank 3 at q = 3 (v_p(d) odd, ω = +1): the reductive quotient is the split O_2, of order 2(q − 1) = 4 with N = 0, against H̄⁰ = SO_3 of order 24 with N = 1, so λ = (24/3)/4 = 2 and μ_v(K_v) = 1/2; the anisotropic quotient ²O_2 of types I and II− gives λ = 1 at q = 3 (GHY Table 4).
 - A local volume can exceed 1: at q = 2, r = 1, odd type II− gives λ = 1/2 and μ_v(K_v) = 2.
 
 **Direct prerequisites.** [Smooth integral models of maximal-lattice stabilizers](#smooth-maximal-orthogonal-model); [Local mass factors of maximal lattices](#maximal-local-mass-factor); [Orders of finite orthogonal groups](#finite-orthogonal-group-order); `AdelicAlgebraicGroups:AA.2`.
@@ -1878,7 +1881,7 @@ For m ≥ 3, r = ⌊m/2⌋ and G = SO(m): dim G = r(2r − (−1)^m), and the ar
 
 *Theorem* `good-place-volume-euler-product`
 
-For a totally positive (V,Q) of dimension m ≥ 3 over a totally real K and a maximal lattice Λ, at every finite place p of type 0 the stabilizer volume for the unnormalized Tamagawa gauge is vol(K_p) = q^{−dim G}|Ḡ(k_p)| = ∏_{i=1}^r(1 − q^{−2i}) for m = 2r + 1, and (1 − χ(p)q^{−r})∏_{i=1}^{r−1}(1 − q^{−2i}) for m = 2r, where χ is the quadratic character of K(√disc Q)/K (χ = 1 when disc Q is a square). The products over p converge absolutely and ∏_p vol(K_p)^{−1}·∏_p λ_p^{−1}-corrections give L(G) = ∏_{i=1}^r ζ_K(2i) (m odd), ζ_K(r)∏_{i=1}^{r−1}ζ_K(2i) (m even, square discriminant), and (ζ_E(r)/ζ_K(r))∏_{i=1}^{r−1}ζ_K(2i) (otherwise), all at integers ≥ 2, so no analytic continuation is needed.
+For a totally positive (V,Q) of dimension m ≥ 3 over a totally real K and a maximal lattice Λ, at every finite place p of type 0 the stabilizer volume for the unnormalized Tamagawa gauge is vol(K_p) = q^{−dim G}|Ḡ(k_p)| = ∏_{i=1}^r(1 − q^{−2i}) for m = 2r + 1, and (1 − χ(p)q^{−r})∏_{i=1}^{r−1}(1 − q^{−2i}) for m = 2r, where χ is the quadratic character of K(√disc Q)/K (χ = 1 when disc Q is a square). The products over p converge absolutely. The Euler products of the reciprocal type-0 volumes, completed by the same Euler factors at the finitely many places of nonzero type (whose actual volumes the factors λ_p correct), are ∏_{i=1}^r ζ_K(2i) (m odd), ζ_K(r)∏_{i=1}^{r−1}ζ_K(2i) (m even, square discriminant) and (ζ_E(r)/ζ_K(r))∏_{i=1}^{r−1}ζ_K(2i) (otherwise, E = K(√disc Q)), all at integers ≥ 2, so no analytic continuation is needed. In the last case Kirschmer's L(G) also carries the factor N_{K/Q}(d_{E/K})^{r−1/2}; it is not produced by this Euler product and enters, with d_K^{dim G/2}, through the comparison of the global Tamagawa measure with the local gauges (orthogonal-canonical-local-volume, AdelicAlgebraicGroups AA.2).
 
 **Hypotheses and conventions.**
 
@@ -1898,7 +1901,7 @@ For a totally positive (V,Q) of dimension m ≥ 3 over a totally real K and a ma
 
 **Direct prerequisites.** [Orders of finite orthogonal groups](#finite-orthogonal-group-order); [Local mass factors of maximal lattices](#maximal-local-mass-factor); `TauCeti.dedekindZeta_eulerProduct_hasProd` (Tau Ceti).
 
-**Source.** Markus Kirschmer, *One-class genera of maximal integral quadratic forms*, Theorem 3.3, p.4, and the remark after it: States L(G) with zeta values at positive integers and notes the GHY form at negative integers. Wee Teck Gan, Jonathan Hanke and Jiu-Kang Yu, *On an exact mass formula of Shimura*, §7, pp.118–120 (no numbered Propositions 7.4–7.5 exist in this paper; the GN package's citation of them is corrected here): The Euler-product evaluation of the local volumes.
+**Source.** Markus Kirschmer, *One-class genera of maximal integral quadratic forms*, Theorem 3.3, p.4, and the remark after it: States L(G) with zeta values at positive integers and notes the GHY form at negative integers. Wee Teck Gan, Jonathan Hanke and Jiu-Kang Yu, *On an exact mass formula of Shimura*, §7, (7.2)–(7.3) and Propositions 7.4–7.5, pp.118–119: Expresses the mass of the maximal lattices through Proposition 2.13, with L(M) given by zeta and L-values at negative integers (7.2), τ(G) = 2 (7.3) and the local factors λ_v (Propositions 7.4 for odd and 7.5 for even rank); Kirschmer's Theorem 3.3 restates the formula with values at integers ≥ 2.
 
 <a id="quadratic-weil-operators"></a>
 
@@ -1944,7 +1947,7 @@ For a nondegenerate quadratic space (V,Q) of dimension m over a number field K, 
 
 **Direct prerequisites.** `QuadraticMap` (Mathlib); `AdelicAlgebraicGroups:AA.0`.
 
-**Source.** André Weil, *Sur certains groupes d'opérateurs unitaires*, §13, p.160; Theorem 2 with Corollaries 1–2, §14, pp.161–162; §40 (38), pp.191–193; Theorem 6, §41, pp.193–194; Proposition 9, §51, p.210 (Acta Math. 111, 1964); locator carried from the GN package Layer 3, not re-read in this job: Constructs the operators, the central extension and its splitting over the rational group.
+**Source.** André Weil, *Sur certains groupes d'opérateurs unitaires*, §13, p.160; Theorem 2 with Corollaries 1–2, §14, pp.161–162; §40 (38), pp.191–193; Theorem 6, §41, pp.193–194; Proposition 9, §51, p.210 (Acta Math. 111, 1964); re-read in this review in the scanned journal pages: Constructs the operators of multiplication, dilation and Fourier transform and the metaplectic extension for a vector space over a local field and over the adeles (§§13–14, Theorem 2 with its corollaries), and proves (Theorem 6) that the theta function Σ_{ξ∈X_k}(SΦ)(ξ) is continuous on the adelic metaplectic group and invariant under the rational elements; the operators of this node are the restriction to SL_2 × O(Q).
 
 <a id="quadratic-fiber-distribution"></a>
 
@@ -2073,7 +2076,7 @@ For a quaternion algebra D over a number field, τ(SL_1(D)) = 1 and τ(PGL_1(D))
 
 **Direct prerequisites.** base packet `GN.2/quaternionic-integral-hermitian-data`; `AdelicAlgebraicGroups:AA.2`.
 
-**Source.** John Voight, *Quaternion algebras*, Theorems 29.10.1 and 29.10.20, pp.516–521; Theorem 29.11.3 and proof, pp.524–525; Main Theorem 14.7.4, pp.225–227; locator carried from the GN package Layer 3, not re-read in this job: Computes the Tamagawa numbers of the norm-one and adjoint quaternion groups and the reduced norm image.
+**Source.** John Voight, *Quaternion algebras*, Main Theorem 29.10.1, p.516; Theorem 29.10.20, p.520; Theorem 29.11.3 and proof, pp.524–525; Main Theorem 14.7.4, pp.226–227: Main Theorem 29.10.1 and Theorem 29.10.20 give the residues of the idelic zeta functions of a division algebra and of M_2(F); Theorem 29.11.3 deduces τ^{(1)}(B^×\B^{(1)}) = ζ*_F(1) and τ(SL_1(B)) = 1; Main Theorem 14.7.4 is the Hasse–Schilling norm theorem. The value τ(PGL_1(B)) = 2 is not stated there; it is the deduction of the proof outline (open input).
 
 <a id="orthogonal-tamagawa-two"></a>
 
@@ -2089,7 +2092,7 @@ For every nondegenerate quadratic space of dimension m ≥ 3 over a number field
 
 **Proof outline.**
 
-1. m = 3: SO(Q) ≅ PGL_1 of the even Clifford algebra (QuadraticFormInvariants Layer 2), so quaternion-adjoint-tamagawa gives 2.
+1. m = 3: SO(Q) is the adjoint group of the quaternion algebra C_0(Q): Spin(Q) = SL_1(C_0(Q)) (OrthogonalSpinGroups 1F identifies Spin(Q) with the unitary group of C_0(Q) for its canonical involution in dimension ≤ 5) and SO(Q) = Spin(Q)/μ_2 ≅ PGL_1(C_0(Q)), so quaternion-adjoint-tamagawa gives 2.
 2. m = 4: for Q = Q_3 ⊕ ⟨a⟩, the rank-5 form Q ⊕ ⟨−a⟩ ≅ Q_3 ⊕ H has a nonisotropic vector with complement Q and an isotropic one with residual form Q_3; orthogonal-tamagawa-stabilizer identifies both Tamagawa numbers with the rank-5 value.
 3. m ≥ 5: descend by nonisotropic vectors with orthogonal-tamagawa-stabilizer.
 
@@ -2154,7 +2157,7 @@ Let L/K be a CM extension with K totally real and (W, h) a totally positive defi
 
 *Theorem* `unitary-tamagawa-mass-formula`
 
-For a definite unitary group U of a nondegenerate hermitian space over a CM extension L/K and a lattice M with stabilizer K_M (archimedean compact factors included), mass(genus of M) = τ(U)/vol_Tam(K_M) with τ(U) = 2. For self-dual M, the inverse stabilizer volume is c(M)·|D_{K/Q}|^{n²/2}·∏_{v finite}β_{M_v}^{−1}-type local factors with c(M) = (∏_{d=1}^n (d−1)!/(2π)^d)^{[K:Q]}, the local factors being normalized unitary or orthogonal reductive-quotient orders (Gan–Yu Theorem 10.20).
+For a definite unitary group U of a nondegenerate hermitian space over a CM extension L/K and a lattice M with stabilizer K_M (archimedean compact factors included), mass(genus of M) = τ(U)/vol_Tam(K_M) with τ(U) = 2. For self-dual M, the inverse stabilizer volume is c(M)·|D_{K/Q}|^{n²/2}·∏_{v finite}β_{M_v}^{−1}-type local factors with c(M) = (∏_{d=1}^n (d−1)!/(2π)^d)^{[K:Q]}·|N_{K/Q}(D_{L/K})|^{n(n+1)/4}, the local factors β_{M_v} being the normalized unitary (L_v/K_v unramified) or orthogonal (ramified) reductive-quotient orders (Lipnowski–Tsimerman (39), from Gan–Yu Theorem 10.20).
 
 **Hypotheses and conventions.**
 
@@ -2237,7 +2240,7 @@ For a finite nonempty genus C of definite lattices with 1 ≤ |Aut(M)| ≤ H for
 
 *Theorem* `unimodular-hermitian-mass-asymptotic`
 
-Let p be a prime, L a CM field generated by a p-Weil number with totally real subfield K, n ≥ 1, and C_σ a genus of unimodular hermitian O_L-lattices of rank n. Then log mass(C_σ) = (1/2)[K:Q]n² log n + O_p([K:Q]²n²), and log|C_σ| satisfies the same estimate. The coefficient is 1/2, not the printed [K:Q]: Σ_{d=1}^n log((d−1)!) = (1/2)n² log n − (3/4)n² + O(n log n).
+Let p be a prime, L a CM field generated by a p-Weil number with totally real subfield K, n ≥ 1, and C_σ a genus of unimodular hermitian O_L-lattices of rank n. Then log mass(C_σ) = (1/2)[K:Q]n² log n + O_p([K:Q]²n²), and log|C_σ| satisfies the same estimate. The coefficient is (1/2)[K:Q], not the printed [K:Q]: Σ_{d=1}^n log((d−1)!) = (1/2)n² log n − (3/4)n² + O(n log n).
 
 **Hypotheses and conventions.**
 
@@ -2345,7 +2348,7 @@ For a complete discrete valuation ring O with residue field F_q, Hilb^j(O[[X]]) 
 
 **Direct prerequisites.** `IsDiscreteValuationRing` (Mathlib); `PowerSeries` (Mathlib); `Module.length` (Mathlib).
 
-**Source.** Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*, §3.1.5, pp.9–10 (arXiv:1511.02212v1): Bounds the number of local orders/ideals through Yun's partition formula; the weak-composition estimate (13) there is replaced by the bound above. Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*, Lemma 4.9, pp.14–15, §§4.12–4.13 and Proposition 4.13, pp.16–17; locator carried from the GN package Layer 3, not re-read in this job: Proves the partition formula for finite-colength ideals of O[[X]].
+**Source.** Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*, §3.1.5, pp.9–10 (arXiv:1511.02212v1): Bounds the number of local orders/ideals through Yun's partition formula; the weak-composition estimate (13) there is replaced by the bound above. Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*, Lemma 4.9, p.15; §4.12 and Proposition 4.13 with proof, pp.16–17 (arXiv:1303.2420v2), checked in this review: Proves #Hilb^j(O_F[[X]]) = Σ_{|λ|=j} q^{j−ℓ(λ)} through initial ideals (Proposition 4.13) and uses #Hilb^j_R ≤ #Hilb^j(O_F[[X]]) for the quotient R (§4.12), after reducing to elliptic γ with residue field that of O_F.
 
 <a id="local-lattice-orbit-bounds"></a>
 
@@ -2372,11 +2375,11 @@ Let ℓ be prime, O = Z_ℓ, γ an integral semisimple endomorphism of K^N (K = 
 
 - δ = 0 (étale R): every count is 1.
 - N = 1, γ = a scalar: one orbit.
-- For f = X² + ℓ² with ℓ ≡ 3 mod 4 (f irreducible, δ = v_ℓ(−4ℓ²) = 2), R = Z_ℓ[ℓi] and the F^×-orbits of R-lattices are the classes of the three orders Z_ℓ[ℓ^ji], j = 0, 1, 2, within the bound ℓ^4.
+- For f = X² + ℓ² with ℓ ≡ 3 mod 4 (f irreducible, δ = v_ℓ(−4ℓ²) = 2), R = Z_ℓ[ℓi] has exactly two overorders, Z_ℓ[i] and R itself (Z_ℓ[ℓ²i] is not an R-module), and every R-lattice is principal for its multiplier ring, so there are two F^×-orbits, within the bound ℓ^4.
 
 **Direct prerequisites.** [Finite-colength ideals of a power series ring (Yun)](#punctual-hilbert-count).
 
-**Source.** Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*, §§3.1.1–3.1.6 and §3.2.1, (13)–(20), pp.5–12: Counts local orbits of lattices stable under a semisimple endomorphism and bounds integral stabilizers; the literal estimates are replaced by the corrected ones above. Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*, Lemma 4.9, pp.14–15; locator carried from the GN package Layer 3, not re-read in this job: The resultant formula for the disjoint-spectrum flag fibre.
+**Source.** Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*, §§3.1.1–3.1.6 and §3.2.1, (13)–(20), pp.5–12: Counts local orbits of lattices stable under a semisimple endomorphism and bounds integral stabilizers; the literal estimates are replaced by the corrected ones above. Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*, Lemma 4.9, p.15 (arXiv:1303.2420v2), checked in this review: The fibres of the map from γ-stable lattices to their graded pieces along a flag have cardinality q^{ρ}, the resultant exponent of the disjoint spectra.
 
 ## 3F. Theta series
 
@@ -2502,7 +2505,7 @@ Let F be a totally real field and P a totally positive even Z-unimodular O_F-lat
 
 **Direct prerequisites.** [Siegel–Weil formula for quadratic spaces of dimension > 4](#rank-one-siegel-weil); [Theta series of a positive definite lattice](#definite-lattice-theta-series); [Mass-weighted genus average of theta series](#genus-theta-average); base packet `GN.3/adelic-mass-identity`.
 
-**Source.** Yingkun Li, *Algebraicity of higher Green functions at a CM point*, §3.2, (3.23)–(3.24), pp.399–400 (Invent. Math. 2023; arXiv:2106.13653v2): States the mass-normalized theta average of definite even unimodular lattices over a totally real field as the Hecke Eisenstein series, citing Bogo–Li §2.
+**Source.** Yingkun Li, *Algebraicity of higher Green functions at a CM point*, §3.2, (3.23)–(3.24), pp.399–400 (Invent. Math. 2023); (3.2.7)–(3.2.8), p.25 of arXiv:2106.13653v2: States the Siegel–Weil formula for a totally positive definite lattice P as E_P = c_K^{−1}Σ_h θ_P(·,h) over H(Q)\H(Q̂)/K with H = GSpin(V), printed with c_K the number of double cosets rather than with mass weights, and identifies E_P with the Hecke Eisenstein series of parallel weight r for P of rank 2r in U_F^+, citing Bogo–Li §2; the mass weights of this node come from rank-one-siegel-weil.
 
 ## Dependencies on other roadmaps
 
@@ -2515,15 +2518,16 @@ Let F be a totally real field and P a totally positive even Z-unimodular O_F-lat
 
 - **Full induction for the full-type weighted identities without a_t ≥ 3.** Li–Zhang's Propositions 8.2.5 and 8.2.7 rely on existence lemmas (8.2.4, 8.2.6) that fail without a_t ≥ 3 (E303). A complete induction covering a_t ≤ 2 is not available from the source; the identities themselves were checked by brute force in small cases.
 - **Dyadic and ramified local factors of the unitary mass formula.** Lipnowski–Tsimerman's (39) quotes Gan–Yu, Theorem 10.20 and §10.9, for the stabilizer volume of self-dual hermitian lattices at dyadic and ramified places. Gan–Yu's 'Group schemes and local densities' (Duke 2000) was not acquired in this job; the local factors at those places are taken from that theorem, unverified here.
-- **Weil's Siegel formula and the Tamagawa chain not re-read.** The locators in Weil 1964 and Weil 1965 are carried from the GN package Layer 3 (2026-10-09 fix pass); this job did not re-read those papers. A follow-up must check the numbered statements and the m > 4 hypotheses at those locators.
-- **Cho–Yamauchi primary statements not re-read.** Cho–Yamauchi arXiv:1805.01666v2, §3.1 and Theorem 3.9 to Corollary 3.11, is cited with the GN package's locators. Li–Zhang's proof of Theorem 3.5.1 (read) refers to it; the stabilization and primitive-smoothness steps are planned from that proof and need a check against Cho–Yamauchi.
+- **Weil's Siegel formula and the Tamagawa chain not re-read in Weil 1965.** The locators in Weil 1965 are carried from the GN package Layer 3 (2026-10-09 fix pass); the publisher refuses scripted access and the paper was not re-read. The Weil 1964 locators (§13, p.160; §14, Theorem 2 with Corollaries 1–2, pp.161–162; §§40–41, (38) and Theorem 6, pp.191–194; §51, Proposition 9, p.210) were checked in the review. A follow-up must check the numbered statements of Weil 1965 and the m > 4 hypotheses at those locators.
 - **Generic uniqueness of Minkowski-reduced bases.** Bhargava–Shankar–Wang use that a Minkowski-reduced basis of a generic lattice is unique up to signs. No primary proof was acquired; the node plans existence, sign invariance and the Siegel containment only, and the uniqueness statement is not a target until a source is fixed.
+- **Minkowski's product inequality for reduced bases of real lattices.** The third condition of (e,C)-reduced forms needs ∏‖b_i‖² ≤ c_n det B for a Minkowski-reduced basis of a real lattice: the comparison of ‖b_i‖ with the i-th successive minimum (Minkowski, van der Waerden), followed by Minkowski's second theorem (GN.1 minkowski-second-upper). IntegralLattices 2G proves the bound for integral lattices; no node plans the real comparison and no primary source for it was read (Bhargava–Shankar–Wang assert the Siegel-set containment without proof).
+- **The Tamagawa number of PGL_1 of a quaternion algebra is not sourced.** Voight Theorem 29.11.3 gives τ(SL_1(D)) = 1 and the volume of D^×\D^{(1)}; the passage to the adjoint group, τ(PGL_1(D)) = 2 (Ono's formula, or Weil's computation in Adeles and algebraic groups), is sketched in the proof outline and was not checked against a source.
 
 ## Misprints and errors in the sources
 
 - **E301** (error; Chao Li and Wei Zhang, Corollary 3.6.2, p.20, authors' final version (arXiv:2106.15038)). The source asserts: The derivative difference ∂Den^ε(L) − ∂Den^ε(L̃) is given by a multiple of Den^{♭ε}(1,L^♭) in each case of χ(L^♭), including c = εχ(L^♭) = +1. Correction: For c = +1 the difference is −2(Den^{♭ε})′(1,L^♭); for c = 0 it is 2Den^{♭ε}(1,L^♭) and for c = −1 it is Den^{♭ε}(1,L^♭). Reason: Differentiating A(X) = X²B(X) + (1 − X²)D(X)/(1 − cX) at X = 1 with A(1) = B(1) = 0: for c = +1 the quotient is (1 + X)D(X) with D(1) = 0, whose derivative at 1 is 2D′(1), so the printed term (a multiple of D(1) = 0) loses it. (Recorded in the extraction of this paper as PAPER-LI-ZHANG-22/E8; no published correction found.)
 - **E302** (error; Chao Li and Wei Zhang, Lemma 3.2.1, p.11 (simplified form)). The source asserts: The simplified closed formula for #O(U,V) is asserted for all U of dimension n ≤ m. Correction: Use the orbit–stabilizer count; the simplified expression fails for U = 0 with m even, where the count is 1. Reason: Brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3): 160 of 166 configurations agree, the six exceptions being U = 0 with m even. (Recorded as PAPER-LI-ZHANG-22/E1; no published correction found.)
-- **E303** (error; Chao Li and Wei Zhang, Lemmas 8.2.4 and 8.2.6, pp.56–59). The source asserts: For every non-maximal full-type L there is an index-q overlattice M with the relative identity μ_{0,+}(L,M) = μ_{0,−}(L,M) (t odd) or μ_+(L,M) + μ_0(L,M) = qμ_+(L,M) (t even). Correction: The existence holds under the additional hypothesis a_t ≥ 3; in general it fails. Reason: Counterexamples over Z_3: diag(3,3,9), diag(3,3) and diag(9,9) have no such index-3 full-type overlattice. (Recorded as PAPER-LI-ZHANG-22/E10; no published correction found.)
+- **E303** (error; Chao Li and Wei Zhang, Lemmas 8.2.4 and 8.2.6, pp.56–59). The source asserts: For every non-maximal full-type L there is an index-q overlattice M with the relative identity μ_{0,+}(L,M) = μ_{0,−}(L,M) (t odd) or μ_+(L,M) + μ_0(L,M) = qμ_+(L,M) (t even). Correction: The existence holds when a_t ≥ 3 (case (i) of the proofs); case (ii), a_t = a_{t−1} = 2, needs the invariant-2 binary block to be isotropic modulo ϖ and fails otherwise; in general the claim fails. Reason: Counterexamples over Z_3: diag(3,3,9), diag(3,3) and diag(9,9) have no such index-3 full-type overlattice. (Recorded as PAPER-LI-ZHANG-22/E10; no published correction found.)
 - **E304** (error; Michael Lipnowski and Jacob Tsimerman, §5.4.3, (51), p.30, and §5.4.5, (55), p.31 (arXiv:1511.02212v1)). The source asserts: The logarithm of the mass of unimodular hermitian lattices grows like [K:Q]n² log n, and n_{L,n} is bounded with leading coefficient 1. Correction: The leading coefficient is (1/2)[K:Q], and (55) bounds log n_{L,n}. Reason: The factorial product displayed in (39) gives Σ_{d=1}^n log((d−1)!) = (1/2)n² log n − (3/4)n² + O(n log n). (Recorded as PAPER-LIPNOWSKI-TSIMERMAN-18/E13; the published version was not collated.)
 - **E305** (misprint; Michael Lipnowski and Jacob Tsimerman, §5.4.1, (41), p.27). The source asserts: The real absolute values of the discriminant of (1, π) are p sin²θ. Correction: They are 4p sin²θ, so N_{K/Q}(D_{L/K}) ≤ (4p)^{[K:Q]}. Reason: disc(1,π) = (π − π̄)² and |π − π̄| = 2√p|sin θ|. (Recorded in PAPER-LIPNOWSKI-TSIMERMAN-18 (relative-discriminant item); no published correction found.)
 - **E306** (error; Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, Lemma 9.6, pp.74–75, authors' final version). The source asserts: For L^♭ of rank n − 1 and x ∉ L^♭ ⊥ W there are L′^♭ and x′ with smaller val(L′^♭) and the same span. Correction: True when the top invariant a′_n of L^♭ + ⟨x⟩ is even; when a′_n is odd and a′_1 + … + a′_{n−1} = val(L^♭) − 1 every rank-(n−1) summand has even valuation ≥ val(L^♭). Reason: The proof shows a′_1 + … + a′_{n−1} < val(L^♭) via minors, which does not produce a summand of smaller valuation in a hyperbolic block of odd invariant. (Recorded as PAPER-HE-LI-SHI-ETAL-23/E7; no published correction found.)
@@ -2531,6 +2535,9 @@ Let F be a totally real field and P a totally positive even Z-unimodular O_F-lat
 - **E308** (misprint; Tony Feng, Zhiwei Yun and Wei Zhang, Remark 2.4, p.581 (published version)). The source asserts: In the torsion-module form of the Cho–Yamauchi formula the weight is m(t′(Q′);T). Correction: The weight is m(t′(Q′^⊥/Q′);T). Reason: Q′ corresponds to L′/L and the type is that of the dual quotient L′^∨/L′ = Q′^⊥/Q′. (Recorded as PAPER-FENG-YUN-ZHANG-24/E4; no published correction found.)
 - **E309** (error; Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, §4.1, (4.2), pp.15–16, and Lemma 4.2, p.16 (arXiv:1909.07473)). The source asserts: s_i is the number of Jordan blocks with ν_j = i. Correction: s_i is the total rank Σ_{j:ν_j=i} rank L_j, as in Hanke p.360; at p = 2 rank-two blocks count twice. Reason: For Q = ab + cd + 2t² and m = 2 at p = 2, the reduction factor 2^{5−s_0} matches the counts 32/16 and 640/320 only with s_0 = 4. (Recorded as PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E7; odd-prime formulas unaffected.)
 - **E310** (misprint; Chao Li and Wei Zhang, Example 3.5.2, p.18 (arXiv:1908.01701v3)). The source asserts: The rank-one derivative formula is conditioned on val(L^♭) being odd. Correction: The condition is that val(L) is odd. Reason: In rank one there is no L^♭; the formula ∂Den(L) = (val(L) + 1)/2 follows from Theorem 3.5.1 for odd val(L). (Recorded as PAPER-LI-ZHANG-22-B/E4.)
+- **E311** (misprint; Chao Li and Wei Zhang, Proof of Proposition 8.2.7, base case (2), p.60, authors' final version (arXiv:2106.15038)). The source asserts: For t even and fundamental invariants (1,…,1,2) the proof concludes μ_−(L) = q^t − q. Correction: μ_−(L) = q^{t−1} − q, the value the displayed identity of the same paragraph uses. Reason: The proof computes #(L^∨)°/L = q^{t−1} and #(ϖL^∨)°/L = q, so μ_− = q^{t−1} − q; with μ_+ = 1 and μ_0 = q − 1 the identity (1 − sq^{t/2})(1 + sq^{t/2−1}) + (1 + sq^{t/2−1})(q − 1) + μ_− = 0 holds exactly for this value. (Recorded as PAPER-LI-ZHANG-22/E6; no published correction found.)
+- **E312** (error; Chao Li and Wei Zhang, §3.2, the sentence before (3.2.1.1), p.16 (arXiv:1908.01701v3)). The source asserts: For a self-dual M of rank m and an integral L^♭ of rank n, the density of L^♭ ⊕ M in ⟨1⟩^{n+m+k} is asserted to equal the density of L^♭ in ⟨1⟩^{n+k}. Correction: Den(⟨1⟩^{n+m+k}, L^♭ ⊕ M) = Den(⟨1⟩^{n+m+k}, M)·Den(⟨1⟩^{n+k}, L^♭); the extra factor cancels in the normalized series, so (3.2.1.1) is correct. Reason: For n = 0, M = ⟨1⟩ and k = 0 the left side is Den(⟨1⟩, ⟨1⟩) = 1 + q^{−1} by (3.2.0.1) and the right side is 1. In general the orthogonal complement of the image of M in a self-dual target is self-dual, so restriction to M has fibres of constant size and the densities multiply, as in the proof of Lemma 9.1.1. (new.)
+- **E313** (error; Michael Lipnowski and Jacob Tsimerman, §3.1.5, (13), p.10 (arXiv:1511.02212v1)). The source asserts: The number of tuples (a_1,…,a_n) of nonnegative integers with a_1 + … + a_n ≤ δn is bounded by (nδ)^n/n!, and the chain continues with 2^{nδ}e^{nδ} ≤ 2^{2nδ}. Correction: The number of tuples is C(δn + n, n) ≤ 2^{δn+n}, and e^{nδ} ≤ 2^{nδ} is false, so the bound ℓ^{4nδ} of (13) is not justified as written; the packet replaces the chain by the weighted-partition bound of punctual-hilbert-count in local-lattice-orbit-bounds. Reason: For n = 1 the tuples are a_1 = 0, …, δ, which are δ + 1 > δ = (1·δ)^1/1!; and e > 2. (Recorded as PAPER-LIPNOWSKI-TSIMERMAN-18/E1; the published version was not collated.)
 
 ## Acceptance tests of the layer
 
@@ -2544,7 +2551,7 @@ Let F be a totally real field and P a totally positive even Z-unimodular O_F-lat
 - **LiZhangDensity** — Chao Li and Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*. arXiv:1908.01701v3 (J. Amer. Math. Soc. 35 (2022)); arXiv pages. https://arxiv.org/pdf/1908.01701v3
 - **LiZhangGSpin** — Chao Li and Wei Zhang, *On the arithmetic Siegel–Weil formula for GSpin Shimura varieties*. arXiv:2106.15038 (authors' final version of 2 March 2022; Invent. Math. 228 (2022)). https://arxiv.org/pdf/2106.15038
 - **HLSY2023** — Qiao He, Chao Li, Yousheng Shi and Tonghai Yang, *A proof of the Kudla–Rapoport conjecture for Krämer models*. arXiv:2208.07988, authors' final version of 21 July 2023 (Invent. Math. 2023). https://arxiv.org/pdf/2208.07988
-- **LiLiu2022** — Chao Li and Yifeng Liu, *Chow groups and L-derivatives of automorphic motives for unitary groups, II*. Forum Math. Pi 10 (2022), e5; arXiv:2101.09485. https://arxiv.org/pdf/2101.09485
+- **LiLiu2022** — Chao Li and Yifeng Liu, *Chow groups and L-derivatives of automorphic motives for unitary groups, II*. Forum Math. Pi 10 (2022), e5, open access; the packet cites the numbering and pages of this published version (arXiv:2101.09485v2 numbers its statements one higher from Lemma 2.12 on). https://doi.org/10.1017/fmp.2022.2
 - **FYZ2024** — Tony Feng, Zhiwei Yun and Wei Zhang, *Higher Siegel–Weil formula for unitary groups: the non-singular terms*. Invent. Math. 236 (2024); arXiv:2103.11514. https://arxiv.org/pdf/2103.11514
 - **SSTT2022** — Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou, *Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields*. Forum Math. Pi 10 (2022), e21; arXiv:1909.07473 (pages of the arXiv version). https://arxiv.org/pdf/1909.07473
 - **MST2022** — Davesh Maulik, Ananth N. Shankar and Yunqing Tang, *Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture*. Invent. Math. 228 (2022); accepted version of 25 December 2021 from the author's page. https://math.berkeley.edu/~ytang/GSpincharp.pdf
@@ -2561,7 +2568,7 @@ Let F be a totally real field and P a totally positive even Z-unimodular O_F-lat
 - **Weil1965** — André Weil, *Sur la formule de Siegel dans la théorie des groupes classiques*. Acta Math. 113 (1965), 1–87. https://doi.org/10.1007/BF02391774
 - **Voight2026** — John Voight, *Quaternion algebras*. Author post-publication v.1.0.7u, 5 August 2026. https://jvoight.github.io/quat-book.pdf
 - **LT2018** — Michael Lipnowski and Jacob Tsimerman, *How large is A_g(F_q)?*. arXiv:1511.02212v1 (Duke Math. J. 167 (2018)). https://arxiv.org/pdf/1511.02212v1
-- **Yun2013** — Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*. In: The legacy of Srinivasa Ramanujan (2013); arXiv:1107.0333. https://arxiv.org/abs/1107.0333
+- **Yun2013** — Zhiwei Yun, *Orbital integrals and Dedekind zeta functions*. In: The legacy of Srinivasa Ramanujan (2013); arXiv:1303.2420v2. https://arxiv.org/abs/1303.2420v2
 - **Li2023** — Yingkun Li, *Algebraicity of higher Green functions at a CM point*. Invent. Math. 234 (2023); arXiv:2106.13653v2. https://arxiv.org/pdf/2106.13653v2
 - **BSW2022** — Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants I*. arXiv:1611.09806v3 (Invent. Math. 228 (2022)). https://arxiv.org/abs/1611.09806v3
 - **BSW2025** — Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants II*. Forum Math. Pi 13 (2025), e17; arXiv:2207.05592. https://doi.org/10.1017/fmp.2025.9

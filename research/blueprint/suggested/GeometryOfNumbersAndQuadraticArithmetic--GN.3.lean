@@ -72,8 +72,25 @@ theorem MinkowskiReduced.gram_iff {n : ℕ} (L L' : Submodule ℤ E) (b : Module
 
 end Reduction
 
-/-- Test `MinkowskiReduced.std_Z2` and `MinkowskiReduced.not_shear` are stated on the standard
-lattice `ℤ² ⊂ EuclideanSpace ℝ (Fin 2)`; `MinkowskiReduced.rank_zero`: -/
+/-- Test `MinkowskiReduced.std_Z2`: the standard basis of `ℤ² ⊂ ℝ²` is Minkowski-reduced. -/
+example (hv : LinearIndependent ℤ
+      (fun i : Fin 2 => (EuclideanSpace.single i (1 : ℝ) : EuclideanSpace ℝ (Fin 2)))) :
+    MinkowskiReduced
+      (Submodule.span ℤ (Set.range fun i : Fin 2 =>
+        (EuclideanSpace.single i (1 : ℝ) : EuclideanSpace ℝ (Fin 2))))
+      (Module.Basis.span hv) := sorry
+
+/-- Test `MinkowskiReduced.not_shear`: the basis `((1,0),(1,1))` of `ℤ²` is not Minkowski-reduced,
+since `e₂` extends `e₁` to a basis and is shorter than `e₁ + e₂`. -/
+example (hw : LinearIndependent ℤ
+      ![(EuclideanSpace.single 0 (1 : ℝ) : EuclideanSpace ℝ (Fin 2)),
+        EuclideanSpace.single 0 1 + EuclideanSpace.single 1 1]) :
+    ¬ MinkowskiReduced
+      (Submodule.span ℤ (Set.range ![(EuclideanSpace.single 0 (1 : ℝ) : EuclideanSpace ℝ (Fin 2)),
+        EuclideanSpace.single 0 1 + EuclideanSpace.single 1 1]))
+      (Module.Basis.span hw) := sorry
+
+/-- Test `MinkowskiReduced.rank_zero`. -/
 example (L : Submodule ℤ (EuclideanSpace ℝ (Fin 0))) (b : Module.Basis (Fin 0) ℤ L) :
     MinkowskiReduced L b := fun i => i.elim0
 
@@ -245,7 +262,8 @@ theorem genusThetaAverage_oneClass (Θ : Unit → ℂ → ℂ) (aut : Unit → �
 /-! ## 3C. Quadratic local densities -/
 
 /-- `quadratic-local-density` (finite level): the number of `x ∈ (ℤ/p^n)^r` with
-`∑ S i j x_i x_j ≡ m`, for an integral symmetric matrix `S` (so `Q(x) = xᵀ S x`). -/
+`∑ S i j x_i x_j ≡ m`, for an integral matrix `S` (so `Q(x) = xᵀ S x`; a non-symmetric `S` gives
+odd cross terms). -/
 def quadraticRepCount {r : ℕ} (S : Matrix (Fin r) (Fin r) ℤ) (p n : ℕ) (m : ℤ) : ℕ :=
   Nat.card {x : Fin r → ZMod (p ^ n) // ∑ i, ∑ j, (S i j : ZMod (p ^ n)) * x i * x j = m}
 
@@ -253,9 +271,10 @@ def quadraticRepCount {r : ℕ} (S : Matrix (Fin r) (Fin r) ℤ) (p n : ℕ) (m 
 def normalizedRepCount {r : ℕ} (S : Matrix (Fin r) (Fin r) ℤ) (p n : ℕ) (m : ℤ) : ℚ :=
   (quadraticRepCount S p n m : ℚ) / (p : ℚ) ^ (n * (r - 1))
 
-/-- `quadratic-density-stabilization`: the normalized counts are eventually constant. -/
+/-- `quadratic-density-stabilization`: the normalized counts are eventually constant. The form
+`x ↦ xᵀ S x` is nondegenerate when its polar matrix `S + Sᵀ` is invertible over `ℚ`. -/
 theorem normalizedRepCount_eventually_const {r : ℕ} (S : Matrix (Fin r) (Fin r) ℤ)
-    (hS : S.det ≠ 0) (p : ℕ) [Fact p.Prime] (m : ℤ) (hm : m ≠ 0) :
+    (hS : (S + S.transpose).det ≠ 0) (p : ℕ) [Fact p.Prime] (m : ℤ) (hm : m ≠ 0) :
     ∃ N₀, ∀ n ≥ N₀, normalizedRepCount S p n m = normalizedRepCount S p N₀ m := sorry
 
 /-- The stabilization index `w_p(m)` of Shankar–Shankar–Tang–Tayou. -/
