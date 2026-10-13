@@ -34767,8 +34767,9 @@
    ],
    "followUpOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9409"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9409",
+   "finishedAt": "2026-10-13T15:12:19Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.5",
@@ -34812,8 +34813,9 @@
    ],
    "followUpOf": "BP-EtaleDualityAndPerverseSheaves--EDC.0",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9410"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9410",
+   "finishedAt": "2026-10-13T15:12:20Z"
   },
   {
    "id": "REV-EtaleDualityAndPerverseSheaves--EDC.6",
@@ -36484,7 +36486,8 @@
    ],
    "avoidAccountOf": "BP-ModularCurvesPartII--R13.4",
    "prompt": "research/blueprint/prompts/REV-ModularCurvesPartII--R13.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9395"
   },
   {
    "id": "BP-ModularCurvesPartII--R13.4a",
@@ -48949,7 +48952,8 @@
     "PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9376"
   },
   {
    "id": "PKG-GL2AutomorphicRepresentationsAndTransfer",
