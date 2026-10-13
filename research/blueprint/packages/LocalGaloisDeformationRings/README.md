@@ -37,7 +37,7 @@ The following external interfaces are needed:
 - **Family admissibility**, `PadicHodgeTheory:R06.3`: Colmez–Fontaine realization, inertia-type projection and deformation-groupoid compatibility for completed potentially semistable families.
 - **Relative Borels**, `ReductiveGroups`: for split G/𝒪 and local A, represent Borels by G/B₀ and prove G(A)-conjugacy to B₀ with canonical torus quotient (SGA3 XXII 5.8.3, XXVI 3.3). Explicit GL_d/GSp₄ flags supply their applications.
 - **Division-algebra types**: characteristic-zero Jacquet–Langlands transfer, compatible mod-p cycles for p≠2 and level-zero type comparison.
-- **GL₃ weak patching**, `PotentialAutomorphyInfrastructure`, polarized definite-unitary application: the weak minimal patching functor for 10-generic semisimple ρ̄, e(M∞(σ))=1 exactly for σ∈W?(ρ̄), globalization and weight elimination (LLHLM Definition 3.5.1, Theorem 3.5.2, Proposition 3.5.15; Emerton–Gee Corollary A.7). All-shape components and uniform prime assignment use this; the length->1 chart calculations are local.
+- **GL₃ weak patching**, Layer 6: construct the local weak minimal patching interface for 10-generic semisimple ρ̄ and prove e(M∞(σ))=1 exactly for σ∈W?(ρ̄) (LLHLM Definition 3.5.1, Theorem 3.5.2, Proposition 3.5.15; Emerton–Gee Corollary A.7). All-shape components and prime assignment use this interface; `PotentialAutomorphyInfrastructure` imports it for polarized definite-unitary applications.
 
 ## Layer 1: Universal lifting rings and coefficient infrastructure
 
@@ -512,14 +512,14 @@ Sources: [TaylorII], §3, definition of D^{Stein,1} and D^{Stein} before Proposi
 
 ### 2.6 The q-tame group
 
-For p∤q, T_q=ℤ_p⋊ℤ̂ with φtφ⁻¹=t^q; ⟨t,φ^b⟩≅T_{q^b} and G_K/P≅T_q. In maximal-ideal-topological coefficients, tame matrices with pro-p inertia and BAB⁻¹=A^q give a unique continuous representation. Dense generators detect equality. The abelianisation is ℤ_p/(q−1)×ℤ̂.
+For p∤q, T_q=ℤ_p⋊ℤ̂ with φtφ⁻¹=t^q; ⟨t,φ^b⟩≅T_{q^b} and G_K/J_{K,p}≅T_q, where J_{K,p} kills wild inertia and the prime-to-p tame factors. In maximal-ideal-topological coefficients, tame matrices with pro-p inertia and BAB⁻¹=A^q give a unique continuous representation. Dense generators detect equality. The abelianisation is ℤ_p/(q−1)×ℤ̂.
 
 API:
 
 - `TameGroup`: T_q as a profinite group with generators t, φ_q.
 - `TameGroup.conj_t`: φ_q t φ_q^{-1} = t^q.
 - `TameGroup.lift`: A pair (A, B) in GL_n(R) with B A B^{-1} = A^q and A of pro-p order (for R ∈ C_𝒪: the reduction of A unipotent) defines a unique continuous representation of T_q.
-- `TameGroup.ofLocalField`: G_K/P_K ≅ T_q for K/ℚ_ℓ with residue field 𝔽_q, given the choices.
+- `TameGroup.ofLocalField`: G_K/J_{K,p} ≅ T_q for K/ℚ_ℓ with residue field 𝔽_q, given Frobenius and a p-primary tame generator.
 - `TameGroup.lift_ext`: Agreement on dense generators t,φ determines a continuous representation; tame-pair lifting commutes with coefficient maps.
 
 Worked checks:
@@ -1000,11 +1000,11 @@ Sources: [KisinPST], (2.7.5), p. 534.
 
 ### 3.8 Rings of fixed Weil–Deligne type cut out of pseudo-character deformation rings (R_{B,M})
 
-For supercuspidal full WD parameter M, define R_{B,M} by the weight-two de Rham point-kernel intersection in the fixed-determinant block pseudocharacter ring, and R⁺ as its integral image. The reduced Jacobson ring is a finite product of the specified bounded-function PIDs on opens of ℙ¹; its trace gives a unique representation up to isomorphism. Full Frobenius data are needed; empty blocks give zero and special parameters require separate L-invariants.
+For supercuspidal full WD parameter M, define R_{B,M} by the weight-two de Rham point-kernel intersection in the fixed-determinant block pseudocharacter ring, and R⁺ as its integral image. The reduced Jacobson ring is a finite product of the specified bounded-function PIDs on opens of ℙ¹; its trace gives a unique representation up to isomorphism. The block residue field is k(B); the determinant is δ_Mε for central character δ_M. Full Frobenius data remain fixed; empty blocks give zero.
 
 API:
 
-- `WDTypeRing`: R_{B,M} = R^{ps,δ_M}_B[1/p]/I_{B,M} and its integral model R^+_{B,M}.
+- `WDTypeRing`: R_{B,M} = R^{ps,δ_M}_B[1/p]/I_{B,M} and its integral model R^+_{B,M}; δ_M in this superscript denotes the central character.
 - `WDTypeRing.points`: Maximal ideals containing I_{B,M} correspond to de Rham traces of weights {0,1}, full WD type M and determinant δ_Mε; the reverse implication uses the cited local Langlands theorem.
 - `WDTypeRing.reduced`: R_{B,M} is reduced and Jacobson.
 - `WDTypeRing.pid`: R_{B,M} is a finite product of principal ideal domains (bounded analytic functions on an open of ℙ¹).
@@ -1018,7 +1018,7 @@ Worked checks:
 - If no de Rham representation of type M has reduction in B, I_{B,M} is the unit ideal and R_{B,M} = 0.
 - Tr ∘ ρ_{B,M} equals the image of the universal pseudo-character of R^{ps,δ_M}_B.
 
-Prerequisites: [3.5](#t3-5); [3.1](#t3-1); `GlobalGaloisDeformations:R04.1/lifting-functor`; `PadicLocalLanglandsForGL2Qp:R30.5`.
+Prerequisites: [3.5](#t3-5); [3.1](#t3-1); `GlobalGaloisDeformations:R04.1/lifting-functor`; `R08.3 block/pseudo-character construction`.
 
 Sources: [CDN23], §5.2, arXiv p. 66; [CDN23], Théorème 5.11, arXiv p. 66.
 
@@ -2265,7 +2265,7 @@ For a Schur residual module V, let S(ρ̄) consist of finite-length coefficient 
 
 API:
 
-- `CategoryCondition`: A full subcategory S ⊂ S(ρ̄) closed under isomorphism, finite products, subobjects and quotients, containing V.
+- `CategoryCondition`: A full subcategory S ⊂ S(ρ̄) closed under isomorphism, finite products, S(ρ̄)-subobjects and S(ρ̄)-quotients, containing V.
 - `CategoryCondition.defFunctor`: D^S_{V,𝒪} and D^{ψ,S}_{V,𝒪}.
 - `CategoryCondition.ring`: R^S_{V,𝒪}, R^{ψ,S}_{V,𝒪}, quotients of R_{V,𝒪}, R^ψ_{V,𝒪}.
 - `CategoryCondition.tangent`: Tangent space of D^{ψ,S} is H¹_S(G_ℓ, ad⁰ρ̄) ⊂ H¹(G_ℓ, ad⁰ρ̄).
