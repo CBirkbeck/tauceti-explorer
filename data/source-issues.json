@@ -188460,9 +188460,9 @@
   {
    "id": "DiophantineApproximationAndTranscendence/E701",
    "kind": "error",
-   "locator": "§5, completion of the proof of Theorem 2.3, estimate (5.19), p. 28 (arXiv v1)",
+   "locator": "§5, completion of the proof of Theorem 2.3, estimate (5.19), p. 28 (arXiv v1); also present in the published version (pagination adds 726).",
    "printed": "The height of ξ_1/ξ_2 is bounded by (2/m)(X + C_2) + ½(t_1 + t_2 − 2)C_1, with X = max_i h(x − α_i).",
-   "correction": "h(ξ_1/ξ_2) ≤ (2/m)(h_{L_1}h_{L_2}·X + C_2) + ½(t_1 + t_2 − 2)C_1. The extra factor r = h_{L_1}h_{L_2} ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n} then multiplies C_4 in (5.20), and BEG's final computation gives m ≤ (10n²s)^{46ns}|D_K|^{8n}P_S^{n²}e^{15ndĥ} instead of the printed (2.7).",
+   "correction": "h(ξ_1/ξ_2) ≤ (2/m)(h_{L_1}h_{L_2}·X + C_2) + ½(t_1 + t_2 − 2)C_1. The extra factor r = h_{L_1}h_{L_2} ≤ (2n³s)^{4ns}e^{4ndĥ}|D_K|^{2n} multiplies C₄ in (5.20). After also retaining the factor n from (5.12), using N(v)/log N(v) ≤ 3P_S^{n(n−1)}, and the full absorption proved in beg-schinzel-tijdeman-bound, this gives m ≤ (10n²s)^{46ns}|D_K|^{8n}P_S^{n²}e^{15ndĥ} instead of the printed (2.7).",
    "reason": "Lemma 5.1 decomposes (x − α_i)^{h_{L_1}h_{L_2}}, not x − α_i; so m·h(ξ_i) ≤ h_{L_1}h_{L_2}·h(x − α_i) + h(γ_i) + Σ_j|b_ij|h(η_ij), and the first term carries the class-number factor. Already for K = ℚ, S = ∅ the fields L_i = ℚ(α_i) can have class number > 1.",
    "affects": "a stated result",
    "known": "new",
@@ -188473,14 +188473,14 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
    "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E702",
    "kind": "misprint",
-   "locator": "§5, first paragraph, p. 22 (arXiv v1)",
+   "locator": "§5, first paragraph, p. 22 (arXiv v1); also present in the published version (pagination adds 726).",
    "printed": "The fields of the roots are introduced as L_i = ℚ(α_i).",
    "correction": "L_i = K(α_i), as in §4.",
    "reason": "T_i is defined as the set of places of L_i above the places of S, which requires K ⊆ L_i; the degree bound d_{L_i} ≤ nd used in (5.3) is that of K(α_i).",
@@ -188492,14 +188492,14 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
    "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E703",
    "kind": "misprint",
-   "locator": "§3.1, Lemma 3.4, p. 7 (arXiv v1)",
+   "locator": "§3.1, Lemma 3.4, p. 7 (arXiv v1); also present in the published version (pagination adds 726).",
    "printed": "The exponent of the Kummer extension is taken in ℤ_{≥0}.",
    "correction": "m ≥ 1 (in the applications m ≥ 2).",
    "reason": "For m = 0 neither γ^{1/m} nor the congruence modulo m makes sense.",
@@ -188511,14 +188511,14 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
    "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E704",
    "kind": "misprint",
-   "locator": "§5, Lemma 5.1, p. 23 (arXiv v1)",
+   "locator": "§5, Lemma 5.1, p. 23 (arXiv v1); also present in the published version (pagination adds 726).",
    "printed": "The lemma provides integers b_{i1}, …, b_{i,t_i}.",
    "correction": "b_{i1}, …, b_{i,t_i−1}, one for each element of the fundamental system η_{i1}, …, η_{i,t_i−1}, as in formula (5.8).",
    "reason": "A fundamental system of T_i-units has t_i − 1 elements; (5.8) uses exactly these exponents.",
@@ -188530,9 +188530,9 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
    "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "Checked against the arXiv passage and the corresponding published BEG passage; the corrected interface is used by the packet."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E705",
@@ -188550,9 +188550,66 @@
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
    "citation": "R. Tijdeman, On the equation of Catalan, Acta Arith. 29 (1976) 197–209 (scan; DOI 10.4064/aa-29-2-197-209)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "The omitted mirror case is routine and does not invalidate Tijdeman’s assertion. The reviewed proof supplies both its three-logarithm comparison and its distinct two-logarithm normalization; this is a roadmap proof expansion, not a source error."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E706",
+   "kind": "error",
+   "locator": "§5, (5.12), arXiv p. 25; published p. 751",
+   "printed": "The lower estimate for X uses m/(4d(log 3d)³).",
+   "correction": "Retain n: X ≥ m/(4nd(log 3d)³) once X ≥ 2ĥ/n.",
+   "reason": "The preceding bound is m ≤ 2d(log 3d)³(nX+2ĥ); replacing 2ĥ by nX leaves 4nd(log 3d)³X, not 4d(log 3d)³X.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "The preceding bound is m ≤ 2d(log 3d)³(nX+2ĥ); replacing 2ĥ by nX leaves 4nd(log 3d)³X, not 4d(log 3d)³X."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E707",
+   "kind": "error",
+   "locator": "§3.6, proofs of Propositions 3.11–3.12, arXiv pp. 13–14; published p. 739",
+   "printed": "The comparison uses the products c₁c₃ with Győry–Yu’s c₃.",
+   "correction": "Handle unit rank zero separately, or use max(1,c₃), and justify the remaining numerical absorption.",
+   "reason": "Győry–Yu define c₃ = 0 when the ordinary unit rank is zero (p. 11), so the printed comparison would give a zero coordinate bound. Their theorem retains other positive height terms. The BEG statement is preserved with a precise comparison gap.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "Győry–Yu define c₃ = 0 when the ordinary unit rank is zero (p. 11), so the printed comparison would give a zero coordinate bound. Their theorem retains other positive height terms. The BEG statement is preserved with a precise comparison gap."
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E708",
+   "kind": "error",
+   "locator": "§5, after (5.21), arXiv p. 28; published p. 753",
+   "printed": "N(v₀) is bounded by P_T and then by P_S^{[L:K]} without separating the infinite places.",
+   "correction": "Use N(v₀)/log N(v₀) ≤ 3P_S^{n(n−1)}, covering both infinite and finite places.",
+   "reason": "If S has no finite primes, P_T = P_S = 1 but N(v₀) = 2. The revised bound also retains the denominator log N(v₀); the final corrected constant absorbs the factor 3.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "ArXiv version history (v1 only), published article and journal record; no linked correction found."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence--DT.4.json",
+   "citation": "A. Bérczes, J.-H. Evertse, K. Győry, Effective results for hyper- and superelliptic equations over number fields, arXiv:1301.7168v1 (30 Jan 2013); Publ. Math. Debrecen 82 (2013) 727–756",
+   "status": "confirmed",
+   "reviewedBy": "REV-DiophantineApproximationAndTranscendence--DT.4",
+   "reviewReason": "If S has no finite primes, P_T = P_S = 1 but N(v₀) = 2. The revised bound also retains the denominator log N(v₀); the final corrected constant absorbs the factor 3."
   },
   {
    "id": "DiophantineApproximationAndTranscendence/E1",
@@ -212091,7 +212148,7 @@
    "correction": "Use an algebra split at exactly one real place, ramified at the other real places, with the total ramification set of even cardinality.",
    "reason": "The §2.2 uniformization has one upper-half-plane factor precisely under this split-place condition. Over F=Q a real-ramified algebra is definite, so the printed condition cannot give the curve used in §6.",
    "affects": "a stated result",
-   "known": "No correction located; the author and journal versions inspected retain this wording.",
+   "known": "No correction located. The independent review confirms arXiv v2 and the accessible author copy at this locator; the published PDF was unavailable to the reviewer.",
    "searched": [
     "arXiv v2 of MS",
     "Jack Shotton author PDF quaternion.pdf",
@@ -212101,9 +212158,9 @@
    "owner": "HilbertModularVarietiesAndShimuraCurves",
    "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
    "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "reviewReason": "The one upper-half-plane uniformization in §2.2 requires one split real place, as opposed to the ramification condition printed at the §6 locator."
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-02",
@@ -212113,7 +212170,7 @@
    "correction": "Both global functors use θ=ψε⁻¹, agreeing with §3’s fixed determinant and allowing the framed-to-unframed forgetful map.",
    "reason": "Forgetting a frame cannot change the determinant of a lift. The two different determinant conditions would not define the asserted formally smooth forgetful map or its j=4|Σ|−1 relative dimension.",
    "affects": "the proof",
-   "known": "No correction located in the versions consulted.",
+   "known": "No correction located. The independent review confirms arXiv v2 and the accessible author copy at this locator; the published PDF was unavailable to the reviewer.",
    "searched": [
     "arXiv v2, §§3 and 4.2",
     "Jack Shotton author page and published version",
@@ -212122,9 +212179,73 @@
    "owner": "HilbertModularVarietiesAndShimuraCurves",
    "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
    "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "reviewReason": "The framed and unframed functors must impose the same θ=ψε⁻¹ determinant for their stated forgetful map. The p.23 definitions impose different determinants."
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-03",
+   "kind": "misprint",
+   "locator": "Fixed-determinant local-ring displays before Proposition 6.11, p.37, arXiv v2",
+   "printed": "Both residual fixed-determinant rings are displayed with five variables X,Y,P,Q,R.",
+   "correction": "Use the four coordinates X,Y,P,R of Propositions 3.5–3.7, retaining X²Y and XY respectively; no extra free Q occurs in this fixed-determinant local core.",
+   "reason": "The earlier fixed-determinant presentations have four coordinates. Adding an independent Q raises the Krull dimension by one and contradicts the local dimension used in the patching equality.",
+   "affects": "the proof",
+   "known": "No correction located in the texts accessible to this reviewer; scoped to arXiv v2.",
+   "searched": [
+    "arXiv v2 §§3.3 and 6, including Propositions 3.5–3.7 and 6.10–6.12",
+    "Accessible author quaternion.pdf at pp.37–38 (same slips)",
+    "Publisher/MPI version-of-record endpoint and browser access attempted: unavailable",
+    "Search for Manning–Shotton Ihara erratum/corrigendum, 2026-10-13: none located"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
+   "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "reviewReason": "Compared the p.37 displays with the four-variable fixed-determinant presentations in §3.3. The free Q cannot be present in both presentations of the same ring."
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.4-04",
+   "kind": "misprint",
+   "locator": "Proofs of Propositions 6.11–6.12, p.38, arXiv v2",
+   "printed": "The proof of 6.11 chooses the residual unipotent patched ambient ring for the X²Y lemma; the proof of 6.12 chooses the residual ps patched ring for the XY lemma.",
+   "correction": "Use residual R_ps,∞ for 6.11, before quotienting by XY; use residual R_unip,∞ for 6.12, on which the Steinberg module acts.",
+   "reason": "M(σ_ps) has an R_ps action and need not factor through R_unip before the first flatness-transfer lemma. In the second step XY is nonzero in k[[X,Y]]/(X²Y), so the stated coordinate-preserving map from k[[X,Y]]/(XY) into the ps ring is not defined. Swapping the ambient labels restores both applications.",
+   "affects": "the proof",
+   "known": "No correction located in the texts accessible to this reviewer; scoped to arXiv v2.",
+   "searched": [
+    "arXiv v2 §§3.3 and 6, including Propositions 3.5–3.7 and 6.10–6.12",
+    "Accessible author quaternion.pdf at pp.37–38 (same slips)",
+    "Publisher/MPI version-of-record endpoint and browser access attempted: unavailable",
+    "Search for Manning–Shotton Ihara erratum/corrigendum, 2026-10-13: none located"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.4.json",
+   "citation": "Jeffrey Manning and Jack Shotton, Ihara’s lemma for Shimura curves over totally real fields via patching, arXiv:1907.06043v2, 27 July 2020; internal pages 1–40",
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.4",
+   "reviewReason": "Read both nodal lemmas and both applications. Their module actions and required defining relations select R_ps first and R_unip second."
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurves/E40",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.7, p.51 (three times: after (6.53), in the surjectivity sentence, and in the final reduction to K_t), arXiv:2212.06886v1",
+   "printed": "The proof invokes a 'Lemma 6.6' for the open and closed immersion of the quaternionic quotient into the PEL quotient; the paper has no Lemma 6.6.",
+   "correction": "The cited result is Proposition 6.6, p.47, which states that the quaternionic quotient maps by an open and closed immersion into the PEL quotient.",
+   "reason": "The numbered statements of §6 are Proposition 6.1, Proposition 6.2, Theorem 6.3, Lemma 6.4, Definition 6.5, Proposition 6.6, Theorem 6.7 and Corollary 6.8; the property used at each of the three places is exactly the conclusion of Proposition 6.6.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2212.06886 (only v1, 13 December 2022, no journal reference), checked 2026-10-13",
+    "the atlas source-issue register and the HilbertModularVarietiesAndShimuraCurves packets (no Boutot–Zink finding recorded)"
+   ],
+   "owner": "HilbertModularVarietiesAndShimuraCurves",
+   "file": "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--R18.5.json",
+   "citation": "Jean-François Boutot and Thomas Zink, On the p-adic uniformization of quaternionic Shimura curves, arXiv:2212.06886v1, 13 December 2022 (text dated 15 December)",
+   "status": "confirmed",
+   "reviewedBy": "REV-HilbertModularVarietiesAndShimuraCurves--R18.5",
+   "reviewReason": "Read at p.51 of the v1 PDF (SHA-256 89efb1ef…): the three citations are to 'Lemma 6.6' and the only §6 statement numbered 6.6 is Proposition 6.6 on p.47."
   },
   {
    "id": "HodgeStructuresPartII/EG20-E10-H1",
