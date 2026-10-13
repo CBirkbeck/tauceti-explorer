@@ -7,6 +7,7 @@ import Mathlib.LinearAlgebra.BilinearForm.DualLattice
 import Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient
 import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
 import Mathlib.Algebra.Module.ZLattice.Covolume
+import Mathlib.Algebra.Module.Torsion.Basic
 
 /-!
 This file is not the roadmap and is not exhaustive. The companion roadmap document is
@@ -138,6 +139,8 @@ lemma saturation_mono {N : ℕ} {L M : IntLat N} (h : L ≤ M) :
     saturation L ≤ saturation M := by sorry
 lemma saturation_idem {N : ℕ} (L : IntLat N) :
     saturation (saturation L) = saturation L := by sorry
+lemma saturation_eq_comap_torsion {N : ℕ} (L : IntLat N) :
+    saturation L = (Submodule.torsion ℤ (IntVec N ⧸ L)).comap L.mkQ := by sorry
 
 -- Unit test: TauCeti.ArithmeticLattice.saturation_even_line
 example : saturation (Submodule.span ℤ ({![2, 2]} : Set (IntVec 2))) =
@@ -157,6 +160,10 @@ lemma exactKernel_smul {N : ℕ} (c : IntVec N) (m : ℤ) (hm : m ≠ 0) :
     exactKernel (m • c) = exactKernel c := by sorry
 lemma exactKernel_eq_orthogonal {N : ℕ} (c : IntVec N) :
     exactKernel c = integralPerp (Submodule.span ℤ ({c} : Set (IntVec N))) := by sorry
+lemma saturation_exactKernel {N : ℕ} (c : IntVec N) :
+    saturation (exactKernel c) = exactKernel c := by sorry
+lemma finrank_exactKernel {N : ℕ} (c : IntVec N) (hc : c ≠ 0) :
+    Module.finrank ℤ (exactKernel c) = N - 1 := by sorry
 
 -- Unit test: TauCeti.ArithmeticLattice.exactKernel_diagonal
 example : exactKernel (![1, 1] : IntVec 2) =
@@ -178,6 +185,10 @@ lemma exactKernel_le_congruenceKernel {N : ℕ} (c : IntVec N) (Q : ℕ) :
 lemma congruenceKernel_index {N Q : ℕ} (c : IntVec N) (hQ : 0 < Q) :
     (congruenceKernel c Q).toAddSubgroup.index =
       Q / Nat.gcd (Finset.univ.gcd fun i => (c i).natAbs) Q := by sorry
+lemma smul_mem_congruenceKernel {N : ℕ} (c x : IntVec N) (Q : ℕ) :
+    (Q : ℤ) • x ∈ congruenceKernel c Q := by sorry
+lemma finrank_congruenceKernel {N Q : ℕ} (c : IntVec N) (hQ : 0 < Q) :
+    Module.finrank ℤ (congruenceKernel c Q) = N := by sorry
 
 -- Unit test: TauCeti.ArithmeticLattice.congruenceKernel_even_coordinate
 example : congruenceKernel (![1, 0] : IntVec 2) 6 =
@@ -203,6 +214,12 @@ lemma maximalMinorGCD_zero_iff {N k : ℕ} (C : Matrix (Fin N) (Fin k) ℤ) :
 lemma maximalMinorGCD_mul_right {N k : ℕ} (C : Matrix (Fin N) (Fin k) ℤ)
     (V : Matrix (Fin k) (Fin k) ℤ) :
     maximalMinorGCD (C * V) = maximalMinorGCD C * V.det.natAbs := by sorry
+lemma maximalMinorGCD_single_column {N : ℕ} (C : Matrix (Fin N) (Fin 1) ℤ) :
+    maximalMinorGCD C = Finset.univ.gcd fun i => (C i 0).natAbs := by sorry
+lemma maximalMinorGCD_square {N : ℕ} (C : Matrix (Fin N) (Fin N) ℤ) :
+    maximalMinorGCD C = C.det.natAbs := by sorry
+lemma maximalMinorGCD_eq_zero_of_lt {N k : ℕ} (C : Matrix (Fin N) (Fin k) ℤ) (h : N < k) :
+    maximalMinorGCD C = 0 := by sorry
 
 -- Unit test: TauCeti.ArithmeticLattice.maximalMinorGCD_rectangular
 example : maximalMinorGCD (!![2, 0; 0, 3; 0, 0] : Matrix (Fin 3) (Fin 2) ℤ) = 6 := by sorry
@@ -210,5 +227,15 @@ example : maximalMinorGCD (!![2, 0; 0, 3; 0, 0] : Matrix (Fin 3) (Fin 2) ℤ) = 
 example : maximalMinorGCD (0 : Matrix (Fin 0) (Fin 0) ℤ) = 1 := by sorry
 -- Unit test: TauCeti.ArithmeticLattice.maximalMinorGCD_dependent
 example : maximalMinorGCD (!![1, 2; 2, 4] : Matrix (Fin 2) (Fin 2) ℤ) = 0 := by sorry
+-- Unit test: TauCeti.ArithmeticLattice.maximalMinorGCD_skew_pair
+example : maximalMinorGCD (pairMatrix (![1, 1, 1] : IntVec 3) ![1, -1, 1]) = 2 := by sorry
+
+/-! ## Statements not typed at the pins
+
+* `TauCeti.ArithmeticLattice.maximalMinorGCD_span_eq_minorsIdeal`: for every integer `N × k`
+  matrix `C`, `Ideal.span {(maximalMinorGCD C : ℤ)} = (columnLattice C).minorsIdeal k`. Its
+  carrier `Submodule.minorsIdeal` is in current Tau Ceti
+  (`TauCeti/RingTheory/FittingIdeal/Basic.lean`) but not at f790474.
+-/
 
 end TauCeti.ArithmeticLattice

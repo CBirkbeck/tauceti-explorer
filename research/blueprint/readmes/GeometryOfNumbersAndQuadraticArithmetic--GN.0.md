@@ -32,9 +32,9 @@ The accepted parent packet supplies the following precise contracts. Each name b
 | primitive-orthogonal-covolume | Primitive rational orthogonal intersections in a self-dual ambient lattice have equal intrinsic covolumes. |
 | mixed-embedding-normalization | The native number-field product-volume factor is 2^(−r₂) times the square root of the absolute discriminant, with each complex coordinate counting as two real dimensions. |
 
-The four accepted Couveignes source routes are retained: primitive-orthogonal-covolume and hermitian-gram-hadamard in GN.0, ordered-product-root-bound and intrinsic-ball-lower-bound in GN.1. None receives a duplicate node here. The weighted arithmetic metric belongs to EffectiveBoundsCompactModels. Its accepted CM.0/canonical-measure defines μcan=2^r₂ times native mixed-space product measure, equivalently the Euclidean volume after multiplying each complex real coordinate by √2. CM.0/canonical-covolume obtains √|disc K|. CM.0/first-half-minima uses that actual transport for the supremum-gauge body and retains the arithmetic house lower bound. Its independent review of 11 October 2026 checks these conventions explicitly. This resolves the parent's outstanding owner-adapter question. The present integral kernel theorems do not depend on that consumer and acquire no reverse dependency on it.
+The four accepted Couveignes source routes are retained: primitive-orthogonal-covolume and hermitian-gram-hadamard in GN.0, ordered-product-root-bound and intrinsic-ball-lower-bound in GN.1. None receives a duplicate node here. The weighted arithmetic metric belongs to EffectiveBoundsCompactModels. Its accepted CM.0/canonical-measure defines μcan=2^r₂ times native mixed-space product measure, equivalently the Euclidean volume after multiplying each complex real coordinate by √2. CM.0/canonical-covolume obtains √|disc K|. CM.0/first-half-minima uses that actual transport for the supremum-gauge body and retains the arithmetic house lower bound. Its independent review of 11 October 2026 checks these conventions explicitly. This resolves the parent's outstanding owner-adapter question: at assembly the base packet's gap on the consumer weighted metric is closed by these consumer-owned nodes, and since EffectiveBoundsCompactModels consumes this roadmap, no request or link from GN.0 to it is created. The present integral kernel theorems do not depend on that consumer and acquire no reverse dependency on it.
 
-The current upstream IntegralLattices README, §5F, already plans the general equivalence between torsion-free cokernel and a direct-summand image for injections of finite free integer modules. This document does not re-plan that theorem. It only states the concrete comparison of rational-coordinate saturation, denominator witnesses and real-span intersection. Completed/IntegralLattices remains the owner of integral forms, discriminant modules and gluing used by GN.2. Current TauCeti also proves the general covolume-square/Gram identity and the positive-definite integral realization comparison; those current results are excluded from the new targets even though the parent was written at older pins. Current square Smith-normal-form theorems do not by themselves supply the rectangular maximal-minor or paired-congruence interfaces here.
+The current upstream IntegralLattices README, §5F, already plans the general equivalence between torsion-free cokernel and a direct-summand image for injections of finite free integer modules. This document does not re-plan that theorem. It only states the concrete comparison of rational-coordinate saturation, denominator witnesses and real-span intersection. Completed/IntegralLattices remains the owner of integral forms, discriminant modules and gluing used by GN.2. Current TauCeti also proves the general covolume-square/Gram identity and the positive-definite integral realization comparison; those current results are excluded from the new targets even though the parent was written at older pins. Current square Smith-normal-form theorems do not by themselves supply the rectangular maximal-minor or paired-congruence interfaces here. Current Tau Ceti also has Submodule.minorsIdeal (the ideal of p×p minors of a submodule, invariant under linear equivalences, in TauCeti/RingTheory/FittingIdeal/Basic.lean; not at the pin), which IntegralHeckeAndGaloisDeterminants uses for its maximal-minor ideal. It is not planned again here: the content G(C) is the nonnegative generator of the minors ideal of the column lattice over ℤ, recorded as a compatibility item, and this part adds the natural-number content with its saturation-index and determinant theorems.
 
 ## Source and route ledger
 
@@ -59,7 +59,7 @@ These additions belong to GN.0. Counting errors, successive-minimum estimates, V
 
 ## GN.0 declaration targets
 
-All new node ids below have prefix GeometryOfNumbersAndQuadraticArithmetic:GN.0/. All proposed new library names have namespace TauCeti.ArithmeticLattice. Definitions carry the API and three precise tests. The shared ambient, metric and dimension conventions above apply to every target. Proof routes operate at target level: small determinant expansions and integer manipulations remain within the proof of the named theorem.
+All new node ids below have prefix GeometryOfNumbersAndQuadraticArithmetic:GN.0/. All proposed new library names have namespace TauCeti.ArithmeticLattice. Definitions carry the API and at least three precise tests. The shared ambient, metric and dimension conventions above apply to every target. Proof routes operate at target level: small determinant expansions and integer manipulations remain within the proof of the named theorem.
 
 ### Coordinate saturation
 
@@ -86,6 +86,7 @@ For L≤A_N, sat(L) is the inverse image in A_N of span_Q(L) under coordinate ca
 | `TauCeti.ArithmeticLattice.le_saturation` | relation | L≤sat(L). |
 | `TauCeti.ArithmeticLattice.saturation_mono` | functoriality | L≤M implies sat(L)≤sat(M). |
 | `TauCeti.ArithmeticLattice.saturation_idem` | simp | sat(sat(L))=sat(L). |
+| `TauCeti.ArithmeticLattice.saturation_eq_comap_torsion` | compatibility | sat(L) is the preimage under the quotient map A_N→A_N/L of the torsion submodule of A_N/L (Mathlib's Submodule.torsion); hence L is primitive iff A_N/L is torsion-free. Supplied by arithmetic-saturation-characterisation. |
 
 **Unit tests.**
 
@@ -99,7 +100,7 @@ For L≤A_N, sat(L) is the inverse image in A_N of span_Q(L) under coordinate ca
 
 Node `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation-characterisation` (comparison).
 
-For every L≤A_N and x∈A_N, x∈sat(L) iff there is a nonzero integer m with mx∈L, and iff the real coordinate vector of x belongs to span_R L. Consequently sat(L) has the same rank and real span as L.
+For every L≤A_N and x∈A_N, x∈sat(L) iff there is a nonzero integer m with mx∈L, and iff the real coordinate vector of x belongs to span_R L. Consequently sat(L) has the same rank and real span as L. Equivalently, sat(L) is the preimage in A_N of the torsion submodule of A_N/L, so L is primitive exactly when A_N/L is torsion-free.
 
 **Proof route.**
 
@@ -107,10 +108,11 @@ For every L≤A_N and x∈A_N, x∈sat(L) iff there is a nonzero integer m with 
 2. An integral basis of A_N has unimodular coordinate matrix; casting it to Q and R gives a basis in each field. Thus both rational and real membership are vanishing of the coordinates outside the initial r positions.
 3. For an integral vector with those coordinates zero, the product of the nonzero a_i clears all denominators, including the empty product 1 when r=0. Conversely a nonzero integer scalar is invertible over both fields.
 4. The first r ambient vectors span the saturation and both field spans, proving rank agreement without importing or reproving the general direct-summand dictionary.
+5. The denominator criterion says exactly that the class of x in A_N/L is killed by a nonzero integer, i.e. lies in Mathlib's torsion submodule of the quotient; this gives the torsion description. It is the concrete torsion-free-cokernel form of primitivity and does not re-plan the general direct-summand criterion of IntegralLattices §5F.
 
 **Source.** BLS2020v1, §3.1, p.8, primitive convention. Worker comparison between the source real-span convention and the concrete rational-coordinate definition. MathlibPinGN0, exists_smith_normal_form_of_le, FreeModule/PID.lean. Diagonal bases provide the denominator argument without an unread book.
 
-**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation`, `mathlib:Submodule.exists_smith_normal_form_of_le`, `mathlib:Matrix.isUnit_iff_isUnit_det`.
+**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation`, `mathlib:Submodule.exists_smith_normal_form_of_le`, `mathlib:Matrix.isUnit_iff_isUnit_det`, `mathlib:Submodule.torsion`.
 
 **Check.** For L=Z(2,2), (1,1) has denominator witness m=2. For L=0, only the zero vector has a nonzero scalar multiple in L.
 
@@ -123,12 +125,12 @@ Use the existing integral orthogonal submodule L⊥ for the coordinate dot produ
 **Proof route.**
 
 1. Integer dot-product equations survive division by a nonzero integer, so the denominator criterion makes L⊥ saturated.
-2. Apply the parent orthogonal-intersection-basis to the standard self-dual lattice Z^N and the rational real span of L, using saturation-characterisation to supply the full intersection. This gives a full intrinsic lattice in the real orthogonal subspace.
+2. Apply the parent orthogonal-intersection-basis to the standard self-dual lattice Z^N and the rational real span of L, using saturation-characterisation to supply the full intersection. This gives a full intrinsic lattice in the real orthogonal subspace. The standard basis is orthonormal for the coordinate pairing, so dualBasis_eq_iff makes it its own dual basis and dualSubmodule_span_of_basis gives A_N*=A_N, the self-duality the parent nodes assume.
 3. Use the pinned complementary-dimension identity for the rank sum. Apply the pinned real double-orthogonal identity and saturation-characterisation to obtain (L⊥)⊥=sat(L).
 
 **Source.** BLS2020v1, §3.1, p.8, orthogonal integral lattice discussion. States primitive orthogonals, complementary rank and the primitive double-orthogonal criterion. LeBoudec2020v1, §2.2, p.8, before Lemma 4. Explains full rank by rational orthogonal equations.
 
-**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation-characterisation`, `mathlib:LinearMap.BilinForm.orthogonal`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis`, `mathlib:Submodule.finrank_add_finrank_orthogonal`, `mathlib:Submodule.orthogonal_orthogonal`.
+**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation-characterisation`, `mathlib:LinearMap.BilinForm.orthogonal`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis`, `mathlib:Submodule.finrank_add_finrank_orthogonal`, `mathlib:Submodule.orthogonal_orthogonal`, `mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis`, `mathlib:LinearMap.BilinForm.dualBasis_eq_iff`.
 
 **Check.** Z(2,2) has orthogonal Z(1,−1), but its double orthogonal is Z(1,1). The zero and full submodules exchange under integral orthogonal, in all dimensions.
 
@@ -158,6 +160,8 @@ For c∈A_N let K(c)=ker(x↦Σ_i c_i x_i), a native integer linear-map kernel. 
 | `TauCeti.ArithmeticLattice.exactKernel_zero` | simp | K(0)=A_N. |
 | `TauCeti.ArithmeticLattice.exactKernel_smul` | functoriality | For m∈Z with m≠0, K(mc)=K(c). |
 | `TauCeti.ArithmeticLattice.exactKernel_eq_orthogonal` | compatibility | K(c) equals the native integral orthogonal of span_Z{c}. |
+| `TauCeti.ArithmeticLattice.saturation_exactKernel` | relation | sat(K(c))=K(c): every exact kernel is primitive, including K(0)=A_N. |
+| `TauCeti.ArithmeticLattice.finrank_exactKernel` | structure | For c≠0, rank_Z K(c)=N−1. |
 
 **Unit tests.**
 
@@ -194,6 +198,8 @@ For c∈A_N and a natural Q let K_Q(c)=ker(A_N→ZMod Q, x↦Σ_i c_i x_i mod Q)
 | `TauCeti.ArithmeticLattice.congruenceKernel_modulus_zero` | compatibility | K_0(c)=K(c), using native ZMod 0. |
 | `TauCeti.ArithmeticLattice.exactKernel_le_congruenceKernel` | relation | K(c)≤K_Q(c) for every Q. |
 | `TauCeti.ArithmeticLattice.congruenceKernel_index` | data | For Q>0, [A_N:K_Q(c)]=Q/gcd(content(c),Q), where content(c)=gcd_i \|c_i\|. |
+| `TauCeti.ArithmeticLattice.smul_mem_congruenceKernel` | relation | Q·x∈K_Q(c) for every x∈A_N and every natural Q, i.e. QA_N≤K_Q(c). |
+| `TauCeti.ArithmeticLattice.finrank_congruenceKernel` | structure | For Q>0, rank_Z K_Q(c)=N: a positive-modulus kernel has full rank. |
 
 **Unit tests.**
 
@@ -232,12 +238,17 @@ For every integer N×k matrix C let G(C) be the natural gcd of |det C_e| over al
 | `TauCeti.ArithmeticLattice.maximalMinorGCD_empty` | simp | An N×0 integer matrix has G=1. |
 | `TauCeti.ArithmeticLattice.maximalMinorGCD_zero_iff` | characterisation | G(C)=0 iff its columns are not linearly independent over Q; supplied by arithmetic-minor-gcd-rank. |
 | `TauCeti.ArithmeticLattice.maximalMinorGCD_mul_right` | functoriality | For integer k×k V, G(CV)=G(C)\|det V\|, without an independence assumption. |
+| `TauCeti.ArithmeticLattice.maximalMinorGCD_single_column` | simp | For an N×1 matrix, G is the natural gcd of the absolute values of its entries (the content of the column); used for the one-equation kernel covolume. |
+| `TauCeti.ArithmeticLattice.maximalMinorGCD_square` | simp | For a square N×N matrix C, G(C)=\|det C\|: the row embeddings are permutations, which change the determinant only by sign. Includes N=0. |
+| `TauCeti.ArithmeticLattice.maximalMinorGCD_eq_zero_of_lt` | simp | If N<k then G(C)=0, since there is no row embedding Fin k→Fin N. |
+| `TauCeti.ArithmeticLattice.maximalMinorGCD_span_eq_minorsIdeal` | compatibility | For every integer N×k matrix C, the ideal of Z generated by G(C) is the ideal of k×k minors of its column lattice, (span_Z of the columns).minorsIdeal k, in current Tau Ceti's Submodule.minorsIdeal (TauCeti/RingTheory/FittingIdeal/Basic.lean); G(C) is its nonnegative generator. No independence is assumed: dependent columns and k>N give the zero ideal, k=0 the unit ideal. minorsIdeal is in current Tau Ceti but not at the pin, so this item is untyped in the suggested file; once the baseline moves, minorsIdeal_comap_equiv also yields the ambient unimodular invariance. |
 
 **Unit tests.**
 
 - `TauCeti.ArithmeticLattice.maximalMinorGCD_rectangular` (computation): For columns (2,0,0),(0,3,0) in Z³, G=6.
 - `TauCeti.ArithmeticLattice.maximalMinorGCD_empty_test` (degenerate): The unique 0×0 matrix has G=1.
 - `TauCeti.ArithmeticLattice.maximalMinorGCD_dependent` (non-example): For columns (1,2),(2,4) in Z², G=0.
+- `TauCeti.ArithmeticLattice.maximalMinorGCD_skew_pair` (computation): For columns (1,1,1),(1,−1,1) in Z³, G=2: the minors on the row pairs {1,2},{1,3},{2,3} are −2, 0 and 2. The tempting wrong values √det(CᵀC)=2√2, the product of the column contents 1 and the gcd of all entries 1 all differ.
 
 **Check.** Do not confuse the gcd with a selected minor, its sign, or the determinant of the Gram matrix.
 
@@ -346,13 +357,13 @@ If L≤A_N is primitive, W=span_R L, and π projects orthogonally onto W⊥, the
 
 **Proof route.**
 
-1. Use saturation-characterisation to identify L with A_N∩W. Apply the parent projected-adapted-basis to conclude π(A_N) is discrete and full in W⊥.
-2. Standard A_N is self-dual for the coordinate inner pairing. The parent dual-projection-comap gives (π(A_N))*=L⊥ inside W⊥.
+1. Use saturation-characterisation to identify L with A_N∩W. The parent saturated-adapted-basis gives an integral basis of A_N whose first block is a basis of L; the parent projected-adapted-basis then shows that the projections of the remaining block form a real basis of W⊥ with integral span π(A_N), so π(A_N) is discrete and full in W⊥.
+2. Standard A_N is self-dual for the coordinate inner pairing: its standard basis is orthonormal, so dualBasis_eq_iff makes it its own dual basis and dualSubmodule_span_of_basis gives A_N*=A_N. The parent dual-projection-comap gives (π(A_N))*=A_N∩W⊥=L⊥ inside W⊥.
 3. The pinned symmetric-nondegenerate double-dual theorem applies to the integral span of the projected real basis; dualizing again gives the stated equality. The parent orthogonal-intersection-basis supplies the rank/fullness of L⊥ independently.
 
-**Source.** BLS2020v1, Lemma 3.1 and definitions preceding it, p.8. States the equality between the intrinsic dual of the integral orthogonal lattice and the projected quotient. The proof here terminates in the accepted parent projection bridge and pinned biduality rather than unread Schmidt.
+**Source.** BLS2020v1, Lemma 3.1, p.8; quotient lattice Λ/Γ=π(Λ), §3.1, p.7; intrinsic dual (3.4), p.8. States the equality between the intrinsic dual of the integral orthogonal lattice and the projected quotient. The proof here terminates in the accepted parent projection bridge and pinned biduality rather than unread Schmidt.
 
-**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation-characterisation`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-orthogonal-saturation`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis`, `mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_of_basis`.
+**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-saturation-characterisation`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-orthogonal-saturation`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/projected-adapted-basis`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/dual-projection-comap`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/orthogonal-intersection-basis`, `mathlib:LinearMap.BilinForm.dualSubmodule_dualSubmodule_of_basis`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/saturated-adapted-basis`, `mathlib:LinearMap.BilinForm.dualSubmodule_span_of_basis`, `mathlib:LinearMap.BilinForm.dualBasis_eq_iff`.
 
 **Check.** For L=Z(1,1), both sides are generated by (1/2,−1/2) in the antidiagonal line. For L=A_N both sides are the zero lattice in dimension zero. For L=0 both sides are the standard self-dual lattice.
 
@@ -385,12 +396,12 @@ Let N≥2, Q≥1, and primitive independent integer c,d. The full-rank lattice H
 
 1. Use pair-triangularisation with integer coordinates x=Tz. The first congruence is Q|z₁. With it imposed, the second is Q|Gz₂, because fz₁ is already divisible by Q.
 2. Set g=gcd(G,Q). Elementary integer Bezout gives Q|Gz₂ iff (Q/g)|z₂. Thus in z-coordinates H has basis Qe₁,(Q/g)e₂,e₃,…,e_N.
-3. Unimodular T preserves the additive index and full lattice covolume. The pinned determinant/index theorem gives Q(Q/g); the standard lattice has covolume one, and the pinned intrinsic ratio theorem identifies this index with cov(H).
+3. Unimodular T preserves the additive index and full lattice covolume. The pinned determinant/index theorem gives Q(Q/g); the standard lattice has covolume one (its standard basis has identity Gram matrix, so the parent covolume-square-gram and positivity of covolume give one), and the pinned intrinsic ratio theorem identifies this index with cov(H).
 4. The resulting positive finite index proves fullness. The original definitions also show QA_N≤H, making the conclusion independent of the calculation.
 
 **Source.** BLS2020v1, Lemma 3.9, first formula and proof (3.6)–(3.7), pp.11–12. The two modular equations become diagonal divisibility conditions, yielding the full-rank determinant.
 
-**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-congruence-kernel`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-pair-triangularisation`, `mathlib:Submodule.natAbs_det_basis_change`, `mathlib:ZLattice.covolume_div_covolume_eq_relIndex'`.
+**Direct prerequisites.** `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-congruence-kernel`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/arithmetic-pair-triangularisation`, `mathlib:Submodule.natAbs_det_basis_change`, `mathlib:ZLattice.covolume_div_covolume_eq_relIndex'`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/covolume-square-gram`, `mathlib:ZLattice.covolume_pos`.
 
 **Check.** c=(1,0), d=(1,2), Q=6 give G=2 and covolume 18, not 36. For Q=1 every congruence kernel is A_N and the formula gives one. For c=e₁,d=e₂ the index is Q².
 
@@ -431,11 +442,11 @@ For two dependent columns (1,2) and (2,4), G is zero. This is a defined value ev
 
 ArithmeticStatistics:ST.5/two-point-incidence-count requests the two-congruence formula. It consumes arithmetic-two-congruence-covolume with actual primitive independent coefficient rows and positive modulus. ST.5/coefficient-vector-form consumes the exact integer kernel, and ST.5/veronese-minor-valuation consumes the total gcd convention, including dependent columns. The paper-specific Veronese valuation comparison stays with that consumer. The generic saturation and content objects are planned here once, and those nodes can be referenced directly when the consumer request is reconciled.
 
-The prerequisite chains here terminate in the 23 recorded baseline declarations or accepted parent nodes. There are no stage-level requests or mathematical gaps. GN.0 is **closed at target level** and the packet's pass status is **complete**, ready for independent review. Every implementationStatus remains unchecked. Complete coverage refers to the original audited targets plus the imported parent targets and this follow-up's source routes; it does not mean all prerequisites have been formally proved.
+The prerequisite chains here terminate in the 26 recorded baseline declarations or accepted parent nodes. There are no stage-level requests or mathematical gaps. GN.0 is **closed at target level** and the packet's pass status is **complete**, ready for independent review. Every implementationStatus remains unchecked. Complete coverage refers to the original audited targets plus the imported parent targets and this follow-up's source routes; it does not mean all prerequisites have been formally proved.
 
-The six planets for this part are Primitive lattice, Gcd of maximal minors, Orthogonal lattice determinant, Schmidt dual lattice, Two-congruence determinant and Mixed kernel determinant. The additions form one coherent arithmetic layer; no extra sublayer is proposed solely to increase the planet allowance. Assembly must retain the parent node ids and the supplied imports, without adding their existing declarations a second time.
+The six planets for this part are Primitive lattice, Gcd of maximal minors, Orthogonal lattice determinant, Schmidt dual lattice, Two-congruence determinant and Mixed kernel determinant. The base packet already shows three planets on GN.0 (Gram–Hadamard inequality, Factor-lattice covolume, Primitive orthogonal covolumes), and a layer shows at most six. The packet therefore proposes dividing GN.0 for the atlas into GN.0a, metric lattices: Gram determinants, projections and duality (the base packet's nodes and three planets), and GN.0b, integral saturation and kernel determinants (the fifteen nodes here and their six planets), with GN.0a before GN.0b. Assembly must retain the parent node ids and the supplied imports, without adding their existing declarations a second time.
 
-Confirmed finding RT-AREA-algebraicnt-1/1 concerns roadmap metadata outside this issue's writable deliverables. The packet records its exact additive integration correction: GeometryOfNumbersAndQuadraticArithmetic gains roadmap prerequisites tauceti:TauCetiRoadmap/QuadraticFormInvariants, tauceti:TauCetiRoadmap/GlobalQuadraticForms, AdelicAlgebraicGroups and tauceti:Completed/IntegralLattices; each of these four owners gains GeometryOfNumbersAndQuadraticArithmetic as a consumer. Existing entries must be preserved. The parent already records the concrete GN.2 supplier contracts. No unrelated stage dependency is added to GN.0. This proposal handles the confirmed finding within the permitted scope and does not report the atlas snapshot as changed.
+Confirmed finding RT-AREA-algebraicnt-1/1 says that the roadmap names QuadraticFormInvariants, GlobalQuadraticForms, AdelicAlgebraicGroups and Completed/IntegralLattices as owners in prose but records no direct supplier contract with them. Its verifier confirmed it narrowly and fixed the remedy: quoted supplier-stage to consumer-stage links in the link workflow, with full tauceti: identifiers, from which assembly derives the roadmap-level prerequisites and the suppliers' consumers; roadmap metadata, generated exports and Tau Ceti documents are not edited by hand. No GN.0 node uses any of the four suppliers, so this part adds no link into GN.0. The links belong to the layers that consume them: the QuadraticFormInvariants field-invariant layers, GlobalQuadraticForms Layers 5–6 and Completed IntegralLattices Layers 1–4 into GN.2, and AdelicAlgebraicGroups AA.2 and AA.3 into GN.3, as the GN.2 and GN.3 parts record. The packet's restructure field states this proposal.
 
 ## Source access
 
