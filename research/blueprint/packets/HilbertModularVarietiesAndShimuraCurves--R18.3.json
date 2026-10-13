@@ -16,70 +16,119 @@
         "kind": "def",
         "module": "Mathlib/GroupTheory/DoubleCoset.lean",
         "provides": "Existing double-coset quotient; specialized, never reconstructed.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:DoubleCoset.eq",
         "kind": "lemma",
         "module": "Mathlib/GroupTheory/DoubleCoset.lean",
         "provides": "Equality is witnessed by left and right subgroup multiplication.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Monoid homomorphism into linear endomorphisms.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:MonoidAlgebra",
         "kind": "structure",
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "Group-algebra substrate for diamond actions.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:Module.Free",
         "kind": "class",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "Freeness via existence of a basis, not just finiteness.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:Module.Finite",
         "kind": "class",
         "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
         "provides": "Finite generation over a specified scalar ring.",
-        "checked": "Full statement read at the pinned commit; declaration-index name checked."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:LinearEquiv",
         "kind": "structure",
         "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
         "provides": "Invertible linear map on actual coefficient-function spaces.",
-        "checked": "Full statement read at the pinned Mathlib commit."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "The actual fixed-vector submodule; no second invariants carrier.",
-        "checked": "Definition and membership statement read at the pin."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "tauceti:QuaternionAlgebra.normForm_coe",
         "kind": "lemma",
         "module": "TauCeti/Algebra/Quaternion/NormForm.lean",
         "provides": "A central scalar has reduced norm its square.",
-        "checked": "Statement read in the shared pinned source."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
       },
       {
         "ref": "tauceti:NumberField.card_elementaryTwoQuotient_units",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Units/ElementaryTwoQuotient.lean",
         "provides": "The unit square-class group has cardinality 2 to the units rank plus one; no new unit-square theory.",
-        "checked": "Statement read in the shared pinned source."
+        "checked": "Independent review confirmed the declaration and full statement; the shared source was checked against the raw file at the cited pinned commit."
+      },
+      {
+        "ref": "tauceti:TauCeti.SU2.symPower",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/SU2/SymmetricPower.lean",
+        "provides": "The actual SU(2) action on Symᵈ(C²), restricted from the existing GL₂ symmetric power.",
+        "checked": "Independent review read the full statement and surrounding hypotheses; the shared source is byte-identical to the raw file at f790474821cf4256814db967cb154e7af3d0c369."
+      },
+      {
+        "ref": "tauceti:TauCeti.SU2.finrank_symPower",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/SU2/SymmetricPower.lean",
+        "provides": "The complex symmetric-power carrier has dimension d+1.",
+        "checked": "Independent review read the full statement and surrounding hypotheses; the shared source is byte-identical to the raw file at f790474821cf4256814db967cb154e7af3d0c369."
+      },
+      {
+        "ref": "tauceti:TauCeti.SU2.isIrreducible_symPower",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/SU2/Irreducible.lean",
+        "provides": "Each existing SU(2) symmetric power is irreducible.",
+        "checked": "Independent review read the full statement and surrounding hypotheses; the shared source is byte-identical to the raw file at f790474821cf4256814db967cb154e7af3d0c369."
+      },
+      {
+        "ref": "tauceti:TauCeti.SU2.existsUnique_nonempty_equiv_symPower",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/SU2/Exhaustion.lean",
+        "provides": "Every finite-dimensional irreducible continuous complex SU(2) representation is equivalent to exactly one symmetric power; continuity and finite-dimensional hypotheses are retained.",
+        "checked": "Independent review read the full statement and surrounding hypotheses; the shared source is byte-identical to the raw file at f790474821cf4256814db967cb154e7af3d0c369."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "kind": "def",
+        "provides": "Polynomial evaluation from a coefficient ring homomorphism and chosen generator values.",
+        "checked": "Independent review read the full statement and hypotheses; shared source byte-identical to the raw Mathlib file at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:RingHom.ker",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "kind": "def",
+        "provides": "The actual ideal kernel of a ring homomorphism.",
+        "checked": "Independent review read the full statement and hypotheses; shared source byte-identical to the raw Mathlib file at 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:RingHom.ker_isMaximal_of_surjective",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "kind": "theorem",
+        "provides": "A surjective ring homomorphism to a division ring has maximal kernel; coefficient surjectivity provides the surjectivity of the polynomial evaluation.",
+        "checked": "Independent review read the full statement and hypotheses; shared source byte-identical to the raw Mathlib file at 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -105,7 +154,8 @@
       "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c",
       "accessed": "2026-10-13",
       "readSections": [
-        "§1, pp.737–742, Lemmas 1.1 and 1.3, Corollary 1.2 and pairings; Lemma 1.6(2), pp.744–745; §2, Lemmas 2.2–2.3 and Corollary 2.4, pp.746–748"
+        "§1, pp.737–742, Lemmas 1.1 and 1.3, Corollary 1.2 and pairings; Lemma 1.6(2), pp.744–745; §2, Lemmas 2.2–2.3 and Corollary 2.4, pp.746–748",
+        "Arithmetic reciprocity p.731; Lemma 1.7(1), pp.744–745"
       ]
     },
     {
@@ -117,6 +167,7 @@
       "sha256": "af59ea2a6d9060853483b7a21cc2b4ca3d2c9a8c4e9d5ae1547ca4bb186b655a",
       "accessed": "2026-10-13",
       "readSections": [
+        "Theorem 4.3(i),(v), degree-one special case, p.66; Proposition 15.5, pp.246–248 and Theorem 15.1 proof, p.248",
         "Theorem 14.2, p.232; Corollary 14.3 and Theorem 14.4, pp.237–238; §15, Theorem 15.1, p.239; §16, Theorem 16.1 and its stated proof limitation, pp.252–254"
       ]
     },
@@ -154,6 +205,18 @@
       "accessed": "2026-10-13",
       "readSections": [
         "§1.4.2, pp.31–33, valuation formula (1.16), unramified maximal subfield and uniformiser; Theorem 1.22"
+      ]
+    },
+    {
+      "id": "cdn23",
+      "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+      "authors": "Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł",
+      "edition": "arXiv:2204.11214v2; Forum of Mathematics, Pi 11 (2023), e16; locators refer to v2",
+      "url": "https://arxiv.org/pdf/2204.11214v2",
+      "sha256": "c5711666b845a48f6fc2cd944b22bbde0c45567fe29dacb00a3429619baecbee",
+      "accessed": "2026-10-13",
+      "readSections": [
+        "§§4.1.1–4.1.3, pp.47–49, especially the abstract polynomial Hecke kernel on p.49; its geometric Frobenius convention is not substituted for this layer’s arithmetic normalization"
       ]
     }
   ],
@@ -251,7 +314,7 @@
       ],
       "prerequisites": [
         "tauceti:QuaternionAlgebra.normForm_coe",
-        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-character",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-weight"
       ],
       "sources": [
@@ -356,12 +419,13 @@
         "Haar measures and the unnormalized split double-coset action are fixed; the elliptic character relation identifies corresponding representations."
       ],
       "proofSteps": [
-        "Use the elliptic character construction and orthogonality/injectivity in JL Theorem 15.1 to classify the image.",
+        "Use the local construction of Theorem 4.3 and the character relation of Proposition 15.5; apply Theorem 15.1 and its proof to identify exactly the essentially square-integrable image.",
         "Match one-dimensional division characters with the special representation, and transport arbitrary κ by the twist identity.",
         "Restrict to split places through the fixed algebra identification; no local Langlands parametrisation is reconstructed."
       ],
       "prerequisites": [
-        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/admissible",
         "SmoothRepresentationsOfLocalGroups:SR.3",
         "SmoothRepresentationsOfLocalGroups:SR.3/steinberg",
         "SmoothRepresentationsOfLocalGroups:SR.3/square-integrable-tempered"
@@ -369,8 +433,8 @@
       "sources": [
         {
           "sourceId": "jl70",
-          "locator": "Theorem 15.1, p.239; Theorems 14.2 and 14.4, pp.232,238",
-          "match": "Classifies the finite-place image and supplies the character transfer used in the global construction."
+          "locator": "Theorem 4.3(i),(v) and the degree-one special-representation paragraph, p.66; Theorem 15.1, p.239 and its proof, p.248; Proposition 15.5, pp.246–248",
+          "match": "The local correspondence preserves central characters and twists; the degree-one case gives Steinberg. Proposition 15.5 proves the opposite elliptic-character relation, and Theorem 15.1 classifies the local image. Theorems 14.2 and 14.4 are global statements and do not supply this local character identity."
         }
       ],
       "acceptance": [
@@ -394,14 +458,18 @@
         "Complexification is via a fixed embedding K→C; p-adic algebraic norm factors are transported with ψ, not erased."
       ],
       "proofSteps": [
-        "Read the SU(2) highest weight and the H× norm character from the existing algebraic-weight representation.",
+        "Import Tau Ceti’s existing SU(2) symmetric powers, dimensions, irreducibility and classification. Extend the existing type by the specified real norm character, using AF.4 algebraic-weight transport; do not plan SU(2) representation theory again.",
         "Match the parameters η(x,y) and η′(x,y) in BR Remark 9.6; their difference gives k−1 and their central characters determine the norm twist.",
         "Use the evaluation functional on the dual coefficient type in Taylor’s construction to pin the inverse action."
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-weight",
-        "AutomorphicFormsOnReductiveGroups:AF.1",
-        "AutomorphicFormsOnReductiveGroups:AF.4"
+        "AutomorphicFormsOnReductiveGroups:AF.1/gl2-real-discrete-series",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "tauceti:TauCeti.SU2.symPower",
+        "tauceti:TauCeti.SU2.finrank_symPower",
+        "tauceti:TauCeti.SU2.isIrreducible_symPower",
+        "tauceti:TauCeti.SU2.existsUnique_nonempty_equiv_symPower"
       ],
       "sources": [
         {
@@ -436,12 +504,13 @@
       ],
       "title": "Degree-two global inner-form spectral transfer",
       "kind": "comparison",
-      "statement": "For a quaternion algebra B over a number field, classical global transfer identifies automorphic representations of B× of dimension greater than one with cuspidal GL₂ representations essentially square-integrable at every ramified place, with matching local classical transfer and identical split components. It preserves multiplicity one. The one-dimensional B× norm-character branch is excluded. For the definite D and the weight/central character above, this gives a split-Hecke-equivariant characteristic-zero spectral decomposition of S modulo its norm branch, with the weight spaces and U-fixed multiplicity spaces obtained from AF.5. No equality of integral lattices follows.",
+      "statement": "For a quaternion division algebra B over a number field, with nonempty ramification set, classical global transfer identifies automorphic representations of B× of dimension greater than one with cuspidal GL₂ representations essentially square-integrable at every ramified place, with matching local classical transfer and identical split components. It preserves multiplicity one. The one-dimensional B× norm-character branch is excluded. For the definite D and the weight/central character above, this gives a split-Hecke-equivariant characteristic-zero spectral decomposition of S modulo its norm branch, with the weight spaces and U-fixed multiplicity spaces obtained from AF.5. No equality of integral lattices follows.",
       "hypotheses": [
         "F is totally real of even degree; D/F is ramified at every real place; O is a finite extension of Z_p, with fraction field K and residue field k.",
         "U is compact open, or has the KW weight-two dyadic full division factors explicitly specified; the central character and coefficient action agree on U∩Z.",
         "Algebraic weights and central character are transported to C using AF.4 and the real-weight target; unitarise by the appropriate norm twist before applying the unitary theorem.",
-        "Only the classical square-integrable local image is included: the extended discrete transfer in BR also handles GL₂ residual representations and cannot alone justify calling every image cuspidal."
+        "Only the classical square-integrable local image is included: the extended discrete transfer in BR also handles GL₂ residual representations and cannot alone justify calling every image cuspidal.",
+        "The general inner-form assertion concerns a global division algebra B. For globally split B=M₂(F), use identity on the cuspidal spectrum; dimension greater than one alone does not exclude Eisenstein representations."
       ],
       "proofSteps": [
         "Apply the lower-tier discrete-spectrum and trace-comparison input with degree-two quaternionic matching; BR Theorem 18.1 establishes the global multiplicity-one comparison, including ramified real places.",
@@ -453,7 +522,8 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.3/real-quaternion-weight-transfer",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/norm-branch",
-        "AutomorphicSpectralTheory:AS.4",
+        "AutomorphicSpectralTheory:AS.4/discrete-finite-multiplicity",
+        "AutomorphicSpectralTheory:AS.4/compact-quotient-spectrum",
         "AutomorphicSpectralTheory:AS.6",
         "AutomorphicFormsOnReductiveGroups:AF.4"
       ],
@@ -477,7 +547,8 @@
       "acceptance": [
         "At weight two with trivial ψ the constant norm form is removed.",
         "At a split good place the polynomial remains X²−T_v X+q_v S_v.",
-        "An integral congruence between cusp and norm branches does not imply an integral direct-sum decomposition."
+        "An integral congruence between cusp and norm branches does not imply an integral direct-sum decomposition.",
+        "The globally split algebra is not an instance of the division-spectrum assertion; its noncuspidal Eisenstein representations are not silently called cuspidal."
       ],
       "declaration": "quaternionicSpectralTransfer",
       "implementationStatus": "unchecked"
@@ -650,7 +721,6 @@
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-level",
-        "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-norm-twist",
         "tauceti:QuaternionAlgebra.normForm_coe"
       ],
       "sources": [
@@ -730,16 +800,21 @@
         "The stable lattice has the residual eigensystem under discussion; realization of an arbitrary residual polynomial system as an acting eigensystem is not asserted."
       ],
       "proofSteps": [
-        "Extract the rank-two Hecke eigensummand from actual early quaternionic curve cohomology in the finite-discrete-series case and use Carayol Theorem A for local compatibility away from p. Translate geometric Frobenius/contragredient conventions explicitly.",
+        "Use the actual automorphic/cohomological isotypic comparison, not finiteness of H¹ alone. In the finite-discrete-series case, isolate the Galois multiplicity factor after accounting for the finite-level automorphic factor; its rank-two identification is part of Carayol’s construction, §§0.3–0.11. Apply Theorem A away from p and translate geometric Frobenius/contragredient conventions. The whole Hecke-isotypic H¹ need not have rank two.",
         "For even degree with no finite discrete-series component implement the congruence/pseudorepresentation extension cited by KW; this component remains a recorded source and construction gap.",
         "Use the lower-tier stable lattice and Weil–Deligne APIs. For v|p and weight two require the semistable comparison input with the exact central determinant; this also remains an explicit gap."
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-spectral-transfer",
         "HilbertModularVarietiesAndShimuraCurves:R18.4/finite-cohomology",
-        "ArithmeticGaloisRepresentations:R01.1",
-        "ArithmeticGaloisRepresentations:R01.2",
-        "PadicHodgeTheory:R06.5"
+        "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-eigenspaces",
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representations-have-stable-lattices",
+        "ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface",
+        "ArithmeticGaloisRepresentations:R01.1/refined-lattice-reduction",
+        "ArithmeticGaloisRepresentations:R01.1/refined-lattice-independence-by-determinants",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification-construction",
+        "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "PadicHodgeTheory:R06.5/proper-semistable-model-comparison"
       ],
       "sources": [
         {
@@ -756,7 +831,8 @@
       "acceptance": [
         "For v∤p Steinberg, the two diagonal Frobenius eigenvalues differ by the cyclotomic q_v factor.",
         "The determinant at a good split place is q_v S_v, not S_v.",
-        "This construction must precede tw-localised-control; no occurrence of that target is allowed in its supplier proof."
+        "This construction must precede tw-localised-control; no occurrence of that target is allowed in its supplier proof.",
+        "If the finite-level automorphic factor has dimension two and the Galois multiplicity factor dimension two, the isotypic cohomology has dimension four; extract the multiplicity factor rather than declaring all of it rank two."
       ],
       "declaration": "quaternionEigenformGaloisCompatibility",
       "implementationStatus": "unchecked"
@@ -782,7 +858,8 @@
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/iwahori-selected-root",
-        "ArithmeticGaloisRepresentations:R01.2"
+        "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "ArithmeticGaloisRepresentations:R01.1/refined-lattice-reduction"
       ],
       "sources": [
         {
@@ -811,7 +888,7 @@
       ],
       "title": "Fixed ramified signs throughout a localized eigensystem",
       "kind": "theorem",
-      "statement": "Assume the early Galois/local compatibility target. At each finite v∈Σ, with U_v=O_Dv× for p>2 and U_v=D_v× for p=2, the representations attached to all eigenforms in S_{k₀,ψ}(U,O)_m have a common unramified character γ_v and shape [[ε_p γ_v,*],[0,γ_v]], with γ_v²=ψ_v. For p>2, under the residual-sign identifiability hypotheses below, the common residual system distinguishes the two square roots; for p=2 the full division-level coefficient extension fixes the actual uniformiser eigenvalue and hence the lift. Its value γ_v(Frob_v) is the inverse uniformiser eigenvalue. The extension class need not be independent of the eigenform.",
+      "statement": "Assume the early Galois/local compatibility target. At each finite v∈Σ, with U_v=O_Dv× for p>2 and U_v=D_v× for p=2, the representations attached to all eigenforms in S_{k₀,ψ}(U,O)_m have a common unramified character γ_v and shape [[ε_p γ_v,*],[0,γ_v]], with γ_v²=ψ_v. For p>2, under the residual-sign identifiability hypotheses below, the common residual system distinguishes the two square roots; for p=2 the full division-level coefficient extension fixes the actual uniformiser eigenvalue and hence the lift. In the stated arithmetic Frobenius and right-translation conventions, γ_v(Frob_v) equals the eigenvalue λ_v of R_Π, where ν_D(Π)=1. At a full division factor λ_v=r_v⁻¹, so γ_v(Frob_v) is the inverse coefficient-action value, not the inverse of λ_v. The extension class need not be independent of the eigenform.",
       "hypotheses": [
         "F is totally real of even degree; D/F is ramified at every real place; O is a finite extension of Z_p, with fraction field K and residue field k.",
         "U is compact open, or has the KW weight-two dyadic full division factors explicitly specified; the central character and coefficient action agree on U∩Z.",
@@ -823,7 +900,7 @@
       "proofSteps": [
         "The finite local transfer identifies compact-fixed division components with unramified Steinberg twists. Apply the early compatibility target to obtain γ_{v,f}²=ψ_v.",
         "For odd p at v∤p, if 1+q_v is nonzero the common residual trace (1+q_v)γ_v(Frob_v) distinguishes the roots. If the residual representation is ramified, its nonzero unipotent inertia has a unique invariant line, distinguishing the unramified quotient character. At v|p use the nontrivial residual cyclotomic inertia character under the unramified-field hypothesis. Opposite roots in characteristic zero have distinct reductions for odd p.",
-        "For p=2 the full division-level character fixes the local component over O, so the inverse uniformiser value determines γ independent of f."
+        "For p=2 the full division-level coefficient character τ_r(Π)=r fixes R_Π=r⁻¹. Local transfer sends that right-action character to the Steinberg twist κ with κ(Nrd Π)=r⁻¹. Arithmetic local compatibility gives γ(Frob_v)=r⁻¹, independently of f."
       ],
       "prerequisites": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/division-parity-character",
@@ -835,14 +912,20 @@
         {
           "sourceId": "kw",
           "locator": "Lemma 7.2 and remark, pp.60–61",
-          "match": "Gives the level hypotheses and separates the odd-prime residual argument from the dyadic full-level argument."
+          "match": "Gives the level hypotheses and separates the odd-prime residual argument from the dyadic full-level argument. Its author-copy remark requires a normalization correction when the uniformizer acts by R_Π; see E-R18.3-2. The local inference qualification is E-R18.3-1."
+        },
+        {
+          "sourceId": "taylor",
+          "locator": "Lemma 1.7(1), pp.744–745; arithmetic reciprocity convention, p.731",
+          "match": "For the corresponding Steinberg quotient character away from p, its arithmetic uniformizer value equals the U eigenvalue, consistent with the direct right-translation value after local transfer."
         }
       ],
       "acceptance": [
         "At p=2 the two integral roots reduce equally, so residual data alone cannot fix the sign.",
         "Fixing U_v=D_v× and its coefficient character fixes the local lift even at p=2.",
         "The upper-right extension class may vary while γ_v is fixed.",
-        "At p=3, q_v≡−1, γ(Frob_v)=1 or −1 gives the same unordered local residual pair {1,−1}; an unramified residual representation does not identify the sign."
+        "At p=3, q_v≡−1, γ(Frob_v)=1 or −1 gives the same unordered local residual pair {1,−1}; an unramified residual representation does not identify the sign.",
+        "For ψ_v(Nrd Π)=4 and coefficient root r=1/2, R_Π has eigenvalue 2 and γ(Frob_v)=2, whose square is 4. Taking the inverse right-action eigenvalue would give 1/2 and square 1/4, contradicting γ²=ψ."
       ],
       "declaration": "ramifiedSign_independentOfEigenform",
       "implementationStatus": "unchecked"
@@ -851,7 +934,7 @@
   "requests": [
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.5",
-      "need": "Extend the existing generic coefficient-function and Hecke/level API to fixed central character modulo the finite-adelic centre, with effective Γ_t=(UZ∩t⁻¹D×t)/F×. The discrete-centre version excludes totally real fields with positive unit rank. Include semigroup coefficients, invariant evaluation, quotient level traces and reduction images. Retain the accepted nineteen targets as specializations; do not introduce another generic form carrier.",
+      "need": "Use the existing AF.5/central-character-algebraic-modular-forms target, together with AF.5/algebraic-modular-forms: it already defines fixed-central-character forms, effective stabilizers and invariant evaluation for positive unit rank. Instantiate its exact finiteness hypotheses for D/F. Supply the actual semigroup coefficient action, quotient-level traces and reduction-image compatibility in that same API. Retain the nineteen specializations, without a second generic carrier.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/liftable-reduction-image",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-spectral-transfer"
@@ -859,7 +942,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.0",
-      "need": "Supply smooth/admissible local representation carriers for the coefficient characters and local transfer. The valuation, maximal compact and parity quotient are constructed in division-parity-character; no valued-division theory is attributed to the smooth category.",
+      "need": "Supply smooth/admissible local representation carriers for the coefficient characters and local transfer. The valuation, maximal compact and parity quotient are constructed in division-parity-character; no valued-division theory is attributed to the smooth category. Existing smooth-character, smooth-rep-category and admissible nodes are cited directly.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/division-parity-character",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/finite-quaternion-transfer"
@@ -875,7 +958,7 @@
     },
     {
       "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
-      "need": "Supply real Harish–Chandra modules and the Sym^{k−2} quaternion type with its real norm twist, for the explicitly matched real transfer.",
+      "need": "Supply real Harish–Chandra modules and essentially discrete series for the real comparison. SU(2) symmetric powers, irreducibility and classification already belong to Tau Ceti at the pin; import them, and retain the real norm twist and dual coefficient convention in the comparison. The existing gl2-real-discrete-series node is the exact split-real supplier.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/real-quaternion-weight-transfer"
       ]
@@ -890,7 +973,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.4",
-      "need": "Supply the discrete automorphic spectrum with multiplicity spaces, separately from its residual and cuspidal subspaces, in the quaternionic degree-two comparison.",
+      "need": "Supply the discrete automorphic spectrum with multiplicity spaces, separately from its residual and cuspidal subspaces, in the quaternionic degree-two comparison. Existing discrete-finite-multiplicity and compact-quotient-spectrum nodes supply these parts and are cited directly; multiplicity one and global transfer are R18.3 conclusions.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-spectral-transfer"
       ]
@@ -904,14 +987,14 @@
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.1",
-      "need": "Supply continuous rank-two representations, stable lattices, coefficient extension and residual semisimplification. It does not assert eigenform realization.",
+      "need": "Supply continuous rank-two representations, stable lattices, coefficient extension and residual semisimplification. It does not assert eigenform realization. Existing stable-lattice, scalar-extension, lattice-reduction and lattice-independence nodes are cited directly.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility"
       ]
     },
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.2",
-      "need": "Supply arithmetic Frobenius and Frobenius-semisimplified Weil–Deligne comparison, with the cyclotomic character and reduction of characteristic polynomials.",
+      "need": "Supply arithmetic Frobenius and Frobenius-semisimplified Weil–Deligne comparison, with the cyclotomic character and reduction of characteristic polynomials. Use its unnormalised-special-object and frobenius-semisimplification-construction nodes, whose arithmetic degree convention is explicit.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/steinberg-residual-obstruction"
@@ -919,7 +1002,7 @@
     },
     {
       "supplier": "PadicHodgeTheory:R06.5",
-      "need": "Supply the weight-two semistable comparison at v|p for the local triangular representation consumed by KW Lemma 7.2; this is not supplied by Carayol Theorem A, which treats v∤p.",
+      "need": "Use the existing proper-semistable-model-comparison on an actual proper semistable model, with compatible Hecke projectors and coefficient local system. For the weight-two eigenfactor at a division place v|p, additionally compute its filtered (φ,N)-module and identify the unramified character γ, special triangular shape εγ⊕γ and determinant εγ²=εψ. General semistability alone does not identify this local type; Carayol Theorem A treats only v∤p. This geometric computation remains an explicit gap.",
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility"
       ]
@@ -945,7 +1028,7 @@
       "neededBy": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility"
       ],
-      "detail": "Carayol §§0.3–0.7 establish the finite-discrete-series case at even degree and compatibility only away from p. Collate Taylor, Inventiones 98 (1989), 265–280, for the even-degree no-finite-discrete-series extension and construct its congruence/pseudorepresentation argument on the early cohomology carrier. Also supply the weight-two semistable comparison at v|p. KW identifies these needs but its citation alone does not constitute the missing construction. Control and ramified-sign results have this explicit prerequisite."
+      "detail": "Carayol §§0.3–0.7 establish the finite-discrete-series case at even degree and compatibility only away from p. Collate Taylor, Inventiones 98 (1989), 265–280, for the even-degree no-finite-discrete-series extension and construct its congruence/pseudorepresentation argument on the early cohomology carrier. Also supply the weight-two semistable comparison at v|p. KW identifies these needs but its citation alone does not constitute the missing construction. Control and ramified-sign results have this explicit prerequisite. The cohomological eigenspace comparison is a direct prerequisite; rank two belongs to its Galois multiplicity factor, not to all fixed-level H¹. General R06.5 semistability must be supplemented by a Hecke-compatible model/local-system comparison and the explicit special (φ,N)-module computation."
     },
     {
       "title": "Typed integral adelic carriers",
@@ -964,7 +1047,7 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility",
         "HilbertModularVarietiesAndShimuraCurves:R18.3/ramified-unramified-sign-control"
       ],
-      "detail": "The nineteen imported stable targets still have higher-tier edges in the read-only accepted R18.2 packet. The dependencyReplacements table below specifies their replacements. This packet does not mutate that packet or pretend that an extra JSON field changes the graph. Assembly must apply the edits and audit the resulting transitive graph before marking R18.3 closed; retain the six accepted planets."
+      "detail": "The nineteen imported stable targets still have higher-tier edges in the read-only accepted R18.2 packet. The dependencyReplacements table below specifies their replacements. This packet does not mutate that packet or pretend that an extra JSON field changes the graph. Assembly must apply the edits and audit the resulting transitive graph before marking R18.3 closed; retain the six accepted planets. Apply importRefinements as well, including the effective isotropy proof and central-compatible sign extensions. Route square norms before norm twist, and cohomological multiplicity comparison before early Galois and then TW control. A node-level walk after these substitutions found no cycle reachable from the twelve new targets; stage-level references and every requested extension still require assembly closure."
     },
     {
       "title": "Exceptional odd-prime ramified-sign inference",
@@ -1082,6 +1165,16 @@
         "HilbertModularVarietiesAndShimuraCurves:R18.3/split-hecke-normalisation"
       ],
       "reason": "The twist identities and preservation of the residual ideal follow from double-coset sums and reduction, with no Galois or localized-control input."
+    },
+    {
+      "consumers": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-norm-twist"
+      ],
+      "remove": [],
+      "add": [
+        "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-level-norm-squares"
+      ],
+      "reason": "Square norms establish the level-preservation hypothesis of the twist. The supporting square-norm theorem uses only the level quotient and scalar norm, not the twist it justifies."
     }
   ],
   "owners": [
@@ -1152,7 +1245,7 @@
       "consumers": [
         "HilbertModularVarietiesAndShimuraCurves:R18.3"
       ],
-      "reason": "Accepted RS-23; the fixed-central-character extension is requested above.",
+      "reason": "Accepted RS-23; the existing AF.5/central-character-algebraic-modular-forms target now supplies the generic central-character extension, with its explicit supplier hypotheses.",
       "target": "Generic coefficient-function algebraic modular forms, Hecke action and change level"
     }
   ],
@@ -1162,39 +1255,117 @@
       "status": "planned",
       "remaining": [
         "Exact Khare field-degree/smallness lemma: The auxiliary projective neat-level argument above proves actual smallness but no field-degree assertion. The old neatness-base-change obligation still needs Lemma 2.2 in Khare, Duke 134 (2006), 557–589, DOI 10.1215/S0012-7094-06-13434-8. The available math/0504080v1 does not have that lemma; the journal PDF was not obtained. Do not replace it by Taylor Lemma 2.2, an unrelated degeneracy result, or assert a degree bound from neatness.",
-        "Early eigensystem construction beyond Carayol’s finite-discrete-series case: Carayol §§0.3–0.7 establish the finite-discrete-series case at even degree and compatibility only away from p. Collate Taylor, Inventiones 98 (1989), 265–280, for the even-degree no-finite-discrete-series extension and construct its congruence/pseudorepresentation argument on the early cohomology carrier. Also supply the weight-two semistable comparison at v|p. KW identifies these needs but its citation alone does not constitute the missing construction. Control and ramified-sign results have this explicit prerequisite.",
+        "Early eigensystem construction beyond Carayol’s finite-discrete-series case: Carayol §§0.3–0.7 establish the finite-discrete-series case at even degree and compatibility only away from p. Collate Taylor, Inventiones 98 (1989), 265–280, for the even-degree no-finite-discrete-series extension and construct its congruence/pseudorepresentation argument on the early cohomology carrier. Also supply the weight-two semistable comparison at v|p. KW identifies these needs but its citation alone does not constitute the missing construction. Control and ramified-sign results have this explicit prerequisite. The cohomological eigenspace comparison is a direct prerequisite; rank two belongs to its Galois multiplicity factor, not to all fixed-level H¹. General R06.5 semistability must be supplemented by a Hecke-compatible model/local-system comparison and the explicit special (φ,N)-module computation.",
         "Typed integral adelic carriers: The pins provide representations, invariant submodules, double cosets and modules but not the fixed-central-character adelic form carrier, division valuation/characters, smooth or Harish–Chandra modules, or actual Galois eigensummands. The README gives their full contracts. Suggested Lean tests only concrete function, invariant and cyclic quotient consequences on existing carriers.",
-        "Assembly must apply lower-tier dependency replacements: The nineteen imported stable targets still have higher-tier edges in the read-only accepted R18.2 packet. The dependencyReplacements table below specifies their replacements. This packet does not mutate that packet or pretend that an extra JSON field changes the graph. Assembly must apply the edits and audit the resulting transitive graph before marking R18.3 closed; retain the six accepted planets.",
+        "Assembly must apply lower-tier dependency replacements: The nineteen imported stable targets still have higher-tier edges in the read-only accepted R18.2 packet. The dependencyReplacements table below specifies their replacements. This packet does not mutate that packet or pretend that an extra JSON field changes the graph. Assembly must apply the edits and audit the resulting transitive graph before marking R18.3 closed; retain the six accepted planets. Apply importRefinements as well, including the effective isotropy proof and central-compatible sign extensions. Route square norms before norm twist, and cohomological multiplicity comparison before early Galois and then TW control. A node-level walk after these substitutions found no cycle reachable from the twelve new targets; stage-level references and every requested extension still require assembly closure.",
         "Exceptional odd-prime ramified-sign inference: KW Lemma 7.2 claims sign independence using the common residual representation for odd p without an explicit exceptional-place qualification. When v∤p, q_v≡−1 mod p and the residual local representation is unramified, the two roots ±γ give the same local residual representation. The scoped target adds 1+q_v nonzero or residual ramification (and uses cyclotomic inertia at v|p). Determine whether a global hypothesis or extra ramified Hecke operator in the intended application resolves this case; do not infer the unrestricted statement from the cited local residual argument. This is a candidate proof gap, not a claimed global counterexample."
       ],
-      "note": "All nineteen accepted stage targets are imported and refined; twelve additional supporting targets complete this pass at target level. Requests name precise lower-tier extensions. No higher-tier stage is a prerequisite of a new node. The old edges require assembly edits, so this stage is not closed."
+      "note": "All nineteen accepted targets and twelve supporting targets are specified, with prerequisite chains ending in pinned declarations, existing supplier nodes, precise requested extensions or the five recorded gaps. This is planned coverage under Protocol section 0, not closed coverage. Imported targets require the explicit assembly refinements and edge replacements; retain their six planets."
     }
   ],
   "sourceIssues": [
     {
       "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.3-1",
-      "sourceId": "kw",
       "kind": "gap",
       "locator": "Author copy proofs.pdf dated 30 May 2009, Lemma 7.2 proof (i), p.61",
       "printed": "In our own words: the proof infers independence of the odd-prime unramified local character from independence of the residual Galois representation.",
       "correction": "Provide the missing sign-identification argument at unramified residual places with q_v≡−1 mod p, or impose a hypothesis such as 1+q_v nonzero or residual local ramification. The packet proves only the explicitly scoped interface pending this check.",
       "reason": "For p=3 and q_v≡−1, the unramified residual diagonal pairs (q_v·1,1) and (q_v·(−1),−1) are {−1,1} and {1,−1}, hence isomorphic. Opposite square roots are different but unordered residual data need not distinguish them. This shows the local inference alone is insufficient; no global automorphic counterexample is alleged.",
       "affects": "the proof",
-      "known": "Candidate gap; no correction located in the searches listed, requiring independent review.",
+      "known": "No correction located in the checked author version, author papers page or publisher article listing. Confirmed as a gap in the local inference, without a global automorphic counterexample; the publisher text was not obtained.",
       "searched": [
         "The author copy §7 opening and Lemma 7.2, pp.57–61, including the definition of the away-place Hecke algebra",
         "Public searches for Khare–Wintenberger Lemma 7.2 sign errata and Serre modularity II corrections on 2026-10-13"
-      ]
+      ],
+      "source": "kw",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the author-copy proof at p.61. At an unramified residual place with p=3 and q≡−1, the opposite choices yield the same unordered Frobenius roots. The source’s cited local residual independence alone does not select one sign. This verdict concerns that inference, not a false global theorem.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3"
+      }
+    },
+    {
+      "id": "HilbertModularVarietiesAndShimuraCurves/E-R18.3-2",
+      "source": "kw",
+      "kind": "misprint",
+      "locator": "Author copy proofs.pdf dated 30 May 2009, remark following Lemma 7.2, p.61; compare the transformation law, pp.58–59, and γ²=ψ in the proof on p.61",
+      "printed": "In our own words: the remark identifies γ_v(Frob_v) with the inverse of the eigenvalue of a division uniformizer acting on the forms.",
+      "correction": "When the action is R_Π f(g)=f(gΠ) and reciprocity is arithmetic, γ_v(Frob_v) is the R_Π eigenvalue λ_v. It is the inverse of the coefficient-action value τ(Π), since λ_v=τ(Π)⁻¹. If the remark instead intended coefficient action, that interpretation must be specified.",
+      "reason": "For an unramified central character, ν_D(Π)=1 and ν_D(z)=2v(z). With coefficient root r²=ψ_v(Nrd Π)⁻¹, the right-action eigenvalue is λ=r⁻¹ and λ²=ψ_v(Nrd Π). Local JL gives the Steinberg twist κ with κ(Nrd Π)=λ, and arithmetic compatibility gives γ(Frob)=λ. Inverting λ would give square ψ⁻¹, contrary to γ²=ψ unless ψ²=1. The local example ψ=4, r=1/2 gives λ=γ(Frob)=2. Taylor Lemma 1.7(1), pp.744–745, has the direct arithmetic operator value.",
+      "affects": "a stated result",
+      "known": "New normalization correction scoped to the checked author copy. No correction was located in the searches below; the published text could not be obtained, so no claim is made about its wording.",
+      "searched": [
+        "Khare’s public papers page, https://www.math.ucla.edu/~shekhar/papers/papers.html, on 2026-10-13",
+        "Publisher article listing at DOI 10.1007/s00222-009-0206-6 and attempted publisher PDF access; only subscription preview was available",
+        "Public searches on 2026-10-13 for the title with erratum/corrigendum and for Lemma 7.2 uniformizer inversion",
+        "Taylor 2006, arithmetic reciprocity convention p.731 and Lemma 1.7(1), pp.744–745"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The square relation with the central character and the local JL twist identify the direct R_Π value. The opposite convention is valid for coefficient action, which the roadmap now distinguishes explicitly. Scope is the author-copy remark interpreted as the stated right action; no published-text collation or global automorphic counterexample is asserted.",
+        "by": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3"
+      }
     }
   ],
   "sourceVersions": [
     {
+      "sourceId": "kw",
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "citation": "Serre’s modularity conjecture (II); Author copy proofs.pdf, 98 pages, dated 30 May 2009; published Inventiones 178 (2009), 505–586",
+      "read": "2026-10-13",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "note": "Both findings are scoped to this dated author copy. Attempted https://link.springer.com/content/pdf/10.1007/s00222-009-0206-6.pdf; the publisher served subscription preview, so the version of record was not collated."
+    },
+    {
+      "sourceId": "taylor",
+      "kind": "published",
+      "url": "https://ems.press/content/book-chapter-files/27484?nt=1",
+      "citation": "On the Meromorphic Continuation of Degree Two L-Functions; Documenta Mathematica Extra Volume Coates (2006), 729–779; revised 28 June 2006",
+      "read": "2026-10-13",
+      "sha256": "6ec26bfc12e1cf38d410b36c18f985e2fb26c1cb1bb03d6e5197ccf58f92c51c"
+    },
+    {
       "sourceId": "jl70",
+      "kind": "author copy",
+      "url": "https://publications.ias.edu/sites/default/files/automorphic-forms-on-gl2-rpl_1.pdf",
+      "citation": "Automorphic Forms on GL(2); Lecture Notes in Mathematics 114 (1970); author-hosted typed reproduction",
+      "read": "2026-10-13",
+      "sha256": "af59ea2a6d9060853483b7a21cc2b4ca3d2c9a8c4e9d5ae1547ca4bb186b655a",
       "note": "Theorem 16.1 describes a converse with a conjectural proof sketch. The global converse here relies on BR Theorem 18.1 together with the classical-local restriction; this is a limitation of that source, not a newly alleged mathematical error."
     },
     {
+      "sourceId": "br10",
+      "kind": "author copy",
+      "url": "https://imag.umontpellier.fr/~ioan-badulescu/Files/br_jl.pdf",
+      "citation": "Unitary Dual of GL(n) at Archimedean Places and Global Jacquet–Langlands Correspondence; Author preprint dated 16 November 2009; Duke Mathematical Journal 154 (2010), 427–508; locators use preprint pages",
+      "read": "2026-10-13",
+      "sha256": "dc3aad1d249fda35f40f33f7b688537f226e509ed6879fe36dd5d07a15839c88"
+    },
+    {
       "sourceId": "carayol-galois",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.24033/asens.1512.pdf",
+      "citation": "Sur les représentations l-adiques associées aux formes modulaires de Hilbert; Annales scientifiques de l’École Normale Supérieure, série 4, 19 (1986), 409–468; published Numdam scan",
+      "read": "2026-10-13",
+      "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
       "note": "Its Theorem A assumes a finite discrete-series component when [F:Q] is even and states local compatibility away from the coefficient characteristic. Those hypotheses are retained rather than silently extended."
+    },
+    {
+      "sourceId": "prr23",
+      "kind": "published",
+      "url": "https://doi.org/10.1017/9781139017756.004",
+      "citation": "Algebraic Groups and Number Theory, Volume 1; Second edition, Cambridge Studies in Advanced Mathematics 205 (2023); maintainer-cleared reading copy",
+      "read": "2026-10-13",
+      "sha256": "3a53310f50322744901dd0fa36709aaf4a6eb2ed1e53ec38be44e3fcbf840fdd"
+    },
+    {
+      "sourceId": "cdn23",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2204.11214v2",
+      "citation": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld; arXiv:2204.11214v2; Forum of Mathematics, Pi 11 (2023), e16; locators refer to v2",
+      "read": "2026-10-13",
+      "sha256": "c5711666b845a48f6fc2cd944b22bbde0c45567fe29dacb00a3429619baecbee"
     }
   ],
   "upstreamNotes": [
@@ -1202,5 +1373,234 @@
     "Current TauCeti contains the generic Hecke-sum action beyond the pinned source; it should be imported when packaging. The integral fixed-central-character extension is still an AF.5 supplier obligation.",
     "Current roadmap environment revision 0d144d044dacebca17b654695b6f1ad58f159b27; current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Pins above govern elaboration and baseline statements.",
     "No new planets: keep the accepted six R18.3 planets (definite class set, neat-level base change, TW level, TW freeness, dyadic norm twist, residual Hecke ideal)."
-  ]
+  ],
+  "currentLibrary": {
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "declarations": [
+      {
+        "ref": "tauceti:HeckeCoset.heckeSum",
+        "module": "TauCeti/NumberTheory/HeckeRing/Representation.lean",
+        "provides": "Finite sum of q composed with representation actions; no adelic coefficient-function carrier is asserted."
+      },
+      {
+        "ref": "tauceti:HeckeCoset.heckeSum_eq_sum_of_rightCosets",
+        "module": "TauCeti/NumberTheory/HeckeRing/Representation.lean",
+        "provides": "Representative independence under the explicit Γ₁-invariance hypothesis on q."
+      }
+    ],
+    "note": "Read the current library and the CompactGroups and CharacterTheory roadmap documents. SU(2) theory is already present at the older pin and is cited above. The generic Hecke-sum file is a current-library supplement, absent at f790474, and is not used by the suggested file or asserted to elaborate at that pin."
+  },
+  "importRefinements": [
+    {
+      "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/isotropy-exponent",
+      "correction": "Only finite p-subgroups, not the entire finite norm-one group, inject through reduction at the auxiliary place of residue characteristic different from p. The reduction kernel is pro-residue-characteristic. The norm sequence is left exact, with no surjectivity assertion onto its final square-class term.",
+      "reason": "KW §7.2, pp.61–62; this is the exact argument needed for the p-exponent bound."
+    },
+    {
+      "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-sign-extension",
+      "correction": "Extend at an explicitly specified finite set of full division factors using chosen roots r_v²=ψ_v(Nrd Π_v)⁻¹. Changing signs gives 2^{|Σ′|} extensions with identical dyadic reductions. For KW sign control take Σ′=Σ, including division places away from two. Values ±1 alone suffice only when the unramified central character value is one.",
+      "apiAdditions": [
+        "restriction to the compact action; central compatibility; changeSign with identity/composition; reduction identified through the identity coefficient map"
+      ],
+      "testsAdditions": [
+        "Empty Σ′ gives one extension.",
+        "One factor gives two distinct integral actions with equal dyadic reduction.",
+        "For ψ_v(Nrd Π_v)=4, roots ±1/2 work and ±1 fail the scalar compatibility."
+      ],
+      "reason": "KW §7 opening, pp.57–59, and Lemma 7.2(ii), pp.60–61; the new DivisionParityCharacter supplies the exact local extension."
+    },
+    {
+      "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation",
+      "apiAdditions": [
+        "evaluate and recover are inverse linear maps; invariance characterizes allowable values",
+        "representative transport and coefficient intertwiners commute with evaluation, with identity/composition laws"
+      ],
+      "testsAdditions": [
+        "Trivial effective stabilizers give unrestricted coefficients at every class.",
+        "For the sign C₂-action over Z₂, the integral evaluation component is zero while the mod-two invariant component is F₂.",
+        "Replacing t by dtu z transports both stabilizer and coefficient value and preserves the recovered function."
+      ],
+      "reason": "KW formula (5), pp.58–59, and Taylor pp.737–738. These tests distinguish evaluation from a product of unrestricted coefficients and from a representative-dependent map."
+    },
+    {
+      "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.4/cohomological-eigenspaces",
+      "correction": "Supply the automorphic/cohomological isotypic comparison and its Galois multiplicity factor. The early rank-two Galois identification is owned by R18.3/early-eigenform-galois-compatibility; it is not an R19 prerequisite and is not a claim that all isotypic H¹ has rank two.",
+      "reason": "The curve comparison and finite cohomology precede the early Galois target; that target precedes TW control. Apply the existing edge replacements without introducing a dependency from the cohomological comparison back to early Galois or TW control."
+    },
+    {
+      "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal",
+      "correction": "The polynomial kernel construction uses the layer’s arithmetic Frobenius dictionary and surjective coefficient reduction. CDN §4.1.3 motivates the abstract kernel, but its geometric reciprocity and ψ=χ_cyc det ρ convention are different; do not describe its displayed values as a verbatim arithmetic normalization. ActingFactor requires that the acting quotient relations map to zero, with no R19 existence theorem used as a prerequisite.",
+      "apiAdditions": [
+        "actingFactor is defined under the explicit relation-kernel inclusion, with uniqueness and commutation with polynomial evaluation"
+      ],
+      "testsAdditions": [
+        "In the acting quotient with relation T_v=0, a proposed trace value one prevents descent."
+      ],
+      "reason": "Read CDN v2 §§4.1.1–4.1.3, pp.47–49, and KW §7.4, pp.65–66. The three existing Mathlib evaluation/kernel declarations are additionally confirmed at the pin."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
+    "date": "2026-10-13",
+    "notes": "Independent Codex/GPT-6 review of twelve new targets and nineteen imported targets, seventeen pinned declarations and the current library/roadmaps. Corrected local JL locators, real-type library imports, the division-spectrum scope, multiplicity-factor extraction, square-norm dependency direction, and arithmetic/right-action sign normalization. Confirmed two source findings against the author copy, without alleging a global counterexample or publisher-text collation. Stage coverage is planned with five precise remaining obligations under Protocol section 0; this accepts the corrected planning pass, not completed closure or formalization. Suggested-file and checker results are recorded in the review report.",
+    "checked": [
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/effective-neat-level",
+        "verdict": "verified",
+        "note": "AA.4 neat levels and torsion-freeness applied to PGL₁(D) kill the finite effective stabilizers without changing F; no degree bound is inferred."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/division-parity-character",
+        "verdict": "verified",
+        "note": "Checked the cleared PRR valuation formula and the two-root central relation; distinguished division valuation one from scalar valuation two and coefficient action from right translation."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/finite-quaternion-transfer",
+        "verdict": "corrected",
+        "note": "Replaced global Theorems 14.2/14.4 by local Theorem 4.3, Proposition 15.5 and Theorem 15.1; checked Steinberg and twist conventions."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/real-quaternion-weight-transfer",
+        "verdict": "corrected",
+        "note": "Imported the four existing pinned SU(2) declarations; retained the BR real norm twist and Taylor dual coefficient realization."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-spectral-transfer",
+        "verdict": "corrected",
+        "note": "Restricted the general statement to a global division algebra; retained BR’s classical local restriction, exclusion of norm characters and distinction from residual GL₂ spectrum."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/liftable-reduction-image",
+        "verdict": "verified",
+        "note": "Saturation gives reduction injectivity; the sign/trivial/averaging/direct-sum controls distinguish the liftable image from all residual invariants."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-twist-reduction-image",
+        "verdict": "verified",
+        "note": "Stabilizer annihilation identifies integral evaluation factors; reduction identifies their Hecke-stable images, without an integral Hecke intertwiner claim."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-level-norm-squares",
+        "verdict": "corrected",
+        "note": "Removed the reverse dependency on norm twist and added the square-norm prerequisite to its consumer; checked strict a>b and the edge cases."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/iwahori-selected-root",
+        "verdict": "verified",
+        "note": "Checked normalized induction, the polynomial and the actual selected-root map; unit root difference is essential for integral projectors."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/early-eigenform-galois-compatibility",
+        "verdict": "corrected",
+        "note": "Added the actual cohomological eigenspace comparison and multiplicity-factor qualification; retained Carayol’s finite-discrete-series restriction and exact-source/p-adic type obligations."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/steinberg-residual-obstruction",
+        "verdict": "verified",
+        "note": "With q≡1 mod p, special diagonal factors have the same residual Frobenius root; a stable lattice and early local compatibility are explicit inputs."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/ramified-unramified-sign-control",
+        "verdict": "corrected",
+        "note": "Corrected the Frobenius value to the direct R_Π eigenvalue; verified the scoped odd-prime inference and full-division-level dyadic character control; confirmed both author-copy source findings."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-class-set",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/quaternion-weight",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-specialisation",
+        "verdict": "corrected",
+        "note": "Added evaluation/recovery, transport and coefficient-map API and three discriminating tests as assembly refinements."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/neatness-base-change",
+        "verdict": "verified",
+        "note": "Averaging under unit effective isotropy is sound. The automatic source hypotheses are retained; exact Khare degree/smallness remains an explicit gap."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/integral-pairing",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/split-hecke-normalisation",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/norm-branch",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-degeneracy",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/definite-jl",
+        "verdict": "verified",
+        "note": "Uses corrected classical division-spectrum comparison in characteristic zero; no integral lattice equality or norm/cusp direct sum is claimed."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/isotropy-exponent",
+        "verdict": "corrected",
+        "note": "Use the explicit refinement: only p-subgroups inject through auxiliary reduction; the norm sequence is left exact."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/base-change-annihilator",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-level",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-stabilisers",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-freeness",
+        "verdict": "verified",
+        "note": "Checked the accepted target, its KW/Taylor locator, hypotheses and assembly specialization; retain its existing owner, API/tests and planet where present."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/tw-localised-control",
+        "verdict": "verified",
+        "note": "Uses selected-root calculation, definite degeneracy and early Galois/Steinberg exclusion in that order; no patching input is used."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-norm-twist",
+        "verdict": "corrected",
+        "note": "Square norms precede level-preserving twist; its quadratic scalar and dyadic reduction controls are retained."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-hecke-twist",
+        "verdict": "verified",
+        "note": "Direct right-translation identity suffices. Twisted diamond coinvariants are transported with their character, not identified with augmentation without proof."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/dyadic-sign-extension",
+        "verdict": "corrected",
+        "note": "Use chosen central-compatible roots at every full division factor; the refinement corrects the old dyadic-only/sign-only wording."
+      },
+      {
+        "nodeId": "HilbertModularVarietiesAndShimuraCurves:R18.3/residual-hecke-ideal",
+        "verdict": "corrected",
+        "note": "Coefficient-surjective polynomial evaluation has maximal kernel; descent to the acting quotient is conditional on its relations, not automatic automorphy. Corrected the imported source-convention match and the old R19-dependent ActingFactor wording via importRefinements."
+      }
+    ]
+  }
 }
