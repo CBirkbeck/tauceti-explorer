@@ -200,7 +200,7 @@ Proof or construction:
 
 Prerequisites: `DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow`, `DiophantineApproximationAndTranscendence:DT.0/mul-height-algebra-map`, `mathlib:Height.logHeight₁_inv`, `mathlib:Height.logHeight₁_zpow`, `mathlib:Height.logHeight₁_mul_le`, `mathlib:Height.logHeight₁_add_le`, `mathlib:NumberField.totalWeight_eq_finrank`, `mathlib:Rat.logHeight₁_eq_log_max`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.2.3, Proposition 3.3, pp.75–76. The absolute logarithmic height has the inverse, power, product and sum inequalities used to normalize coefficients.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.2, Property 3.3, pp.75–76. The absolute logarithmic height has the inverse, power, product and sum inequalities used to normalize coefficients.
 
 Acceptance:
 
@@ -235,7 +235,7 @@ Proof or construction:
 
 Prerequisites: `DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow`, `DiophantineApproximationAndTranscendence:DT.0/mul-height-algebra-map`, [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter), `mathlib:NumberField.mulHeight₁_eq`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.2.3, equation (3.4), pp.75–76. The product-formula height bounds the size and reciprocal size at any chosen complex embedding.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.5.1, equation (3.13), pp.82–83. The product-formula height bounds the size and reciprocal size at any chosen complex embedding.
 
 Acceptance:
 
@@ -281,7 +281,7 @@ Proof or construction:
 
 Prerequisites: `mathlib:MvPolynomial`, `mathlib:AddMonoidAlgebra`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.3.2, Proposition 3.14 and Lemma 3.15, pp.84–86. These coefficient sums and block bounds give the arithmetic cost of a determinant.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.2, p.76; §3.5.2, Proposition 3.14, pp.83–84; §3.5.5, Lemma 3.15, pp.85–86. These coefficient sums and block bounds give the arithmetic cost of a determinant.
 
 Acceptance:
 
@@ -309,7 +309,7 @@ Proof or construction:
 
 Prerequisites: [Polynomial length and block degrees](#polynomial-length-and-block-degree), [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter), `DiophantineApproximationAndTranscendence:DT.3/liouville-size-inequality`, `DiophantineApproximationAndTranscendence:DT.0/mul-height-algebra-map`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.3.2, Proposition 3.14, pp.84–85. The blockwise product-formula estimate retains the factor D−1 on log length.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.5.2, Proposition 3.14, pp.83–84. The blockwise product-formula estimate retains the factor D−1 on log length.
 
 Acceptance:
 
@@ -409,7 +409,7 @@ Proof or construction:
 
 Prerequisites: [Filtered coordinates on an additive group times a torus](#filtered-additive-torus-coordinate-model), `SchemeAndStackFoundations:SF.0`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §5.2.2–§5.2.3, Proposition 5.2, pp.151–153; §5.3, Lemmas 5.9–5.10, pp.160–161; §8.2.2, Proposition 8.3, p.235. Eventual polynomiality and component additivity, specialized to the coordinate model.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §5.2.2–§5.2.3, Proposition 5.2, pp.151–153; §5.3, Lemmas 5.9–5.10, pp.160–161; §8.2.2, Proposition 8.3, p.236. Eventual polynomiality and component additivity, specialized to the coordinate model.
 
 Acceptance:
 
@@ -437,7 +437,7 @@ Proof or construction:
 
 Prerequisites: [Filtered coordinates on an additive group times a torus](#filtered-additive-torus-coordinate-model), [Leading form of the filtered Hilbert polynomial](#laurent-hilbert-leading-form), `SchemeAndStackFoundations:SF.0`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §5.3, Propositions 5.6–5.7 and Theorem 5.13, pp.157–163; §8.3.2, Lemma 8.13, p.240. Only the d1=1 case is needed for the selected interpolation determinant proof.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §5.3, Propositions 5.6–5.7, pp.157–159, and Theorem 5.13, pp.161–163; §8.3.2, Lemma 8.13, p.241. Only the d1=1 case is needed for the selected interpolation determinant proof.
 
 Acceptance:
 
@@ -465,7 +465,7 @@ Proof or construction:
 
 Prerequisites: [Subgroups, tangent spaces and dimensions in the one-torus case](#additive-one-torus-subgroups), [Leading form of the filtered Hilbert polynomial](#laurent-hilbert-leading-form), `SchemeAndStackFoundations:SF.0`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.2.3, Theorem 8.4, pp.235–237; §8.3.1, Lemma 8.7 and Theorem 8.8, pp.238–239. The complete-intersection argument supplies the upper bound for the later multiplicity ideal.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.2.3, Theorem 8.4, pp.236–238; §8.3.1, Lemma 8.7, p.239, and Theorem 8.8, pp.239–240. The complete-intersection argument supplies the upper bound for the later multiplicity ideal.
 
 Acceptance:
 
@@ -514,7 +514,7 @@ Proof or construction:
 
 Prerequisites: [Filtered coordinates on an additive group times a torus](#filtered-additive-torus-coordinate-model), [Subgroups, tangent spaces and dimensions in the one-torus case](#additive-one-torus-subgroups), `DiophantineApproximationAndTranscendence:DT.3/multi-index-partial-derivative`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.1, pp.231–232; §8.3.2, Lemmas 8.10–8.13, pp.239–240. Invariant derivatives encode multiplicity and tangent directions.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.1, pp.231–232; §8.3.2, equation (8.10) and Lemma 8.11, pp.240–241; Lemma 8.13, p.241. Invariant derivatives encode multiplicity and tangent directions.
 
 Acceptance:
 
@@ -543,7 +543,7 @@ Proof or construction:
 
 Prerequisites: [Invariant derivatives and vanishing along a tangent subspace](#invariant-jets-and-transverse-jet-coordinates), [Subgroups, tangent spaces and dimensions in the one-torus case](#additive-one-torus-subgroups), [Leading form of the filtered Hilbert polynomial](#laurent-hilbert-leading-form), `SchemeAndStackFoundations:SF.0`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.3.3, Lemmas 8.14–8.16 and Theorem 8.18, pp.240–244. The transverse-coordinate argument proves the binomial multiplicity factor.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §8.3.3, Lemmas 8.14–8.16 and Theorem 8.18, pp.242–245. The transverse-coordinate argument proves the binomial multiplicity factor.
 
 Acceptance:
 
@@ -630,7 +630,7 @@ Prerequisites: `mathlib:MvPolynomial`.
 
 Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §9.2.1(d), pp.269–270, and Lemma 9.8, pp.270–272. The bounded-block rising factorial replaces monomials in the interpolation columns.
 
-Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, Lemma 1.6, pp.26–27. Yu’s factors start at z+1, rather than z.
+Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, equation (1.9), p.25, and Lemma 1.6, pp.26–27. Yu’s factors start at z+1, rather than z.
 
 Acceptance:
 
@@ -654,13 +654,13 @@ Proof or construction:
 
 1. Count prime powers in factorial denominators and in every product remaining after differentiation; use Legendre’s formula.
 2. Clear νb^C and bound derivative coefficient sums by a finite binomial expansion.
-3. Use the elementary lcm bound and the shifted-polynomial prime-power count for Yu’s refinement.
+3. Use the elementary lcm bound and the shifted-polynomial prime-power count for Yu’s refinement. Yu 1994 Lemma 1.3 states J≥1; for J=0, x is a positive integer and Yu 1990 Lemma 1.6 gives νk^m Δ(x;k,l,m)∈ℤ, so multiplying by the extra integer q^(l·ordq(k!)) proves the displayed extension.
 
 Prerequisites: [The delta polynomials and their normalized derivatives](#delta-polynomial-adapter).
 
 Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §9.2.1, Lemma 9.8, pp.270–272. The proof includes the denominator calculation and the growth bound.
 
-Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, Lemma 1.6, pp.26–27. Contains the integer-value, lcm and derivative estimates.
+Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, equation (1.9), p.25, and Lemma 1.6, pp.26–27. Contains the integer-value, lcm and derivative estimates.
 
 Source: [Kunrui Yu, Linear forms in p-adic logarithms. III](https://www.numdam.org/item/CM_1994__91_3_241_0.pdf), §1, Lemma 1.3, p.249. Sharpens the q-power denominator for rational inputs with a prime-power denominator.
 
@@ -688,7 +688,7 @@ The interface exposes:
 | `LogarithmicForms.theta_zero` | simp | Θ(n,T0,0)=0. |
 | `LogarithmicForms.theta_one_variable` | compatibility | Θ(1,T0,L)=L(L−1)/2. |
 | `LogarithmicForms.theta_monotone_L` | relation | Θ(n,T0,L) is nondecreasing in L. |
-| `LogarithmicForms.theta_lower_bound` | other | For n≥2, Θ≥(L/2)((L+1)/binom(T0+n−1,n−1)−T0/n−1). |
+| `LogarithmicForms.theta_lower_bound` | other | For n≥2,T0≥1,L≥1, Θ≥(L/2)((L+1)/binom(T0+n−1,n−1)−T0/n−1). |
 
 Checks of the definition or construction:
 
@@ -696,6 +696,7 @@ Checks of the definition or construction:
 - **`LogarithmicForms.theta_two_small`** (computed): Θ(2,1,3)=2, using (0,0),(1,0),(0,1).
 - **`LogarithmicForms.theta_zero_size`** (degenerate): Θ(2,0,0)=0.
 - **`LogarithmicForms.theta_zero_transverse`** (compatibility): Θ(n,0,L)=L(L−1)/2.
+- **`LogarithmicForms.theta_lower_bound_positive_transverse`** (non-example): Θ(2,0,3)=3, whereas the lower-bound expression at these excluded inputs is 9/2. The hypothesis T0≥1 is necessary.
 
 Uses:
 
@@ -737,7 +738,7 @@ Proof or construction:
 
 Prerequisites: [Minimum total degree of distinct Taylor monomials](#theta-minimal-degree-sum), `DiophantineApproximationAndTranscendence:DT.3/multi-index-partial-derivative`, `mathlib:AnalyticAt.exists_eventuallyEq_sum_add_pow_mul`, `mathlib:Complex.dist_le_mul_div_pow_of_mapsTo_ball_of_isLittleO`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §7.2, Lemmas 7.2 and 7.5, pp.192–195; §9.2.2, Lemmas 9.14–9.15, pp.277–279. The derivative and rectangular-column version accounts for the loss L S0.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §7.2, Lemma 7.2, pp.192–193; §7.3, Lemma 7.5, pp.196–197; §9.2.2, Lemmas 9.14–9.15, pp.277–278. The derivative and rectangular-column version accounts for the loss L S0.
 
 Acceptance:
 
@@ -765,7 +766,7 @@ Proof or construction:
 
 Prerequisites: [Vanishing order of a partially analytic alternant](#partial-alternant-order-and-schwarz).
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §7.2, Lemma 7.4, pp.193–194. The mixed-row expansion converts a small entry error into a determinant estimate.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §7.3, Lemma 7.4, pp.195–196. The mixed-row expansion converts a small entry error into a determinant estimate.
 
 Acceptance:
 
@@ -837,7 +838,7 @@ Hypotheses and conventions:
 Proof or construction:
 
 1. A rank failure gives a nonzero bounded-degree Laurent polynomial with the specified invariant-jet zeros.
-2. Apply Roy’s relative estimate to Ga^d×Gm; injectivity of s↦sy follows from the stated β-direction condition.
+2. Apply Roy’s relative estimate to Ga^d×Gm; injectivity of s↦sy follows from the stated β-direction condition. For D=∂X0+Y∂Y use W=K·(1,0,…,0,1). Its torus coordinate is 1; the direction printed in the author PDF p.282 has an erroneous final 0 (E610), while p.283 uses the required final 1.
 3. Classify the obstruction subgroup. A finite torus obstruction contradicts multiplicative rank and the box bound; a full torus obstruction gives a proper V′ with the forbidden quotient cardinality.
 4. A largest fiber of S→K^m/V supplies the needed # (S̃∩V) inequality.
 
@@ -872,7 +873,7 @@ Proof or construction:
 
 Prerequisites: [The algebraic interpolation matrix](#modified-interpolation-matrix), [Denominators and growth of delta jets](#delta-denominators-and-growth), [Multiblock Liouville inequality in absolute height](#multiblock-liouville-height-adapter), [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter).
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.3.2, Lemma 3.15, pp.85–86; §9.2.1, Lemma 9.11, pp.273–274; §9.3.2, Step 3, pp.290–291. The cleared determinant has a controlled arithmetic cost before numerical specialization.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §3.5.5, Lemma 3.15, pp.85–86; §9.2.1, Lemma 9.11, pp.273–274; §9.3.2, Step 3, pp.290–291. The cleared determinant has a controlled arithmetic cost before numerical specialization.
 
 Acceptance:
 
@@ -889,7 +890,7 @@ Put Ld=binom(T0+d,d)(2T1+1), Vd=(T0+d)(2T1+1)log E/(2d), E>1. Let the selected m
 
 Hypotheses and conventions:
 
-- All columns have derivative order≤S0, and there are exactly Ld selected rows and columns.
+- d≥1,T0≥1,T1≥1. All columns have derivative order≤S0, and there are exactly Ld selected rows and columns.
 - The row majorants Mτt are positive.
 
 Proof or construction:
@@ -968,7 +969,7 @@ The interface exposes:
 
 Checks of the definition or construction:
 
-- **`LogarithmicForms.wald_rounding_boundary`** (computed): For a real x≥2, floor x≥x/2; at x=2 equality is checked.
+- **`LogarithmicForms.wald_rounding_boundary`** (computed): For a real x≥2, floor x≥x/2. At x=2 this reads 2≥1; at x=5/2 it reads 2≥5/4. Equality at x=2 is not asserted.
 - **`LogarithmicForms.wald_M_one`** (degenerate): For M=1 the auxiliary factor M* is 1.
 - **`LogarithmicForms.wald_box_cardinality`** (compatibility): The selected box has exactly ∏j(2Sj+1) points.
 
@@ -1019,7 +1020,7 @@ Proof or construction:
 
 Prerequisites: [Rounded parameters for the explicit determinant criterion](#waldschmidt-rounded-parameter-selection), [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter), [Absolute height and a chosen conjugate](#absolute-height-conjugate-size-adapter), `DiophantineApproximationAndTranscendence:DT.3/baker-linear-independence-of-logarithms`.
 
-Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §9.1, Theorem 9.1, pp.251–252; §9.3.4, Proposition 9.18 and proof of Theorem 9.1, pp.286–288 and 298–302. The M=1 argument proves the displayed all-m constant; the smaller large-m optimization is not needed.
+Source: [Michel Waldschmidt, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), §9.3, Proposition 9.18, p.286; §9.3.4, proof, pp.298–302; §9.1, Theorem 9.1, pp.251–252. The M=1 argument proves the displayed all-m constant; the smaller large-m optimization is not needed.
 
 Acceptance:
 
@@ -1091,7 +1092,7 @@ Acceptance:
 
 Target `DiophantineApproximationAndTranscendence:DT.3/two-logarithm-matveev-replacement` (comparison).
 
-For positive rationals a1,a2≠1 and integers b1,b2, set Λ=b1 log a1−b2 log a2≠0, Aj=max(log Habs(aj),0.16), B=max(1,|b1|,|b2|). The existing Matveev Corollary 2.3 target with n=2,D=1,κ=1 gives log|Λ|>−C2 A1A2 log(eB), where C2=min(e·30^5·2^(7/2),2^32). A consumer may use this explicit replacement wherever the old two-log consumer only needs an effective coefficient bound; it must retain this formula and credit Matveev, rather than the LMN constant 24.34.
+For positive rationals a1,a2≠1 and integers b1,b2, set Λ=b1 log a1−b2 log a2≠0, Aj=max(log Habs(aj),0.16), B=max(1,|b1|,|b2|). The existing Matveev Corollary 2.3 target with n=2,D=1,κ=1 gives log|Λ|>−C2 A1A2 log(eB), where C2=min(e·30^5·2^(7/2),2^32). Assembly may use this explicit replacement wherever the old two-log consumer only needs an effective coefficient bound; it must retain this formula and credit Matveev, rather than the LMN constant 24.34.
 
 Hypotheses and conventions:
 
@@ -1102,7 +1103,7 @@ Proof or construction:
 
 1. Specialize the imported Matveev integer-coefficient corollary to n=2 and a real number field of degree 1.
 2. For positive rationals, |log aj|≤log Habs(aj), so the Aj satisfy the corollary’s size conditions.
-3. Use B to dominate its weighted coefficient parameter.
+3. Use the corollary’s explicit B* option, B*=max(|b1|,|b2|), and then the larger B=max(1,B*). Alternatively permute the two inputs so A2≥A1; only with that ordering does B automatically dominate the weighted parameter max(1,|bj|Aj/A2).
 4. Record the replacement in assembly and preserve the unresolved sharp-proof dependency.
 
 Prerequisites: `DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound`, [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter).
@@ -1319,7 +1320,7 @@ Proof or construction:
 
 Prerequisites: [Hermite interpolation with a p-adic denominator bound](#hermite-interpolation-denominator-bound), [Yu’s normal functions on the existing restricted-series carrier](#normal-series-adapter).
 
-Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, Lemma 1.2, p.22. The exact factorial and logarithmic losses in the jet hypothesis.
+Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §1, Lemma 1.2, p.23. The exact factorial and logarithmic losses in the jet hypothesis.
 
 Source: [Kunrui Yu, Linear forms in p-adic logarithms](https://archive.mpim-bonn.mpg.de/id/eprint/3587/1/preprint_1987_20.pdf), Chapter I §4, Lemma 1.4 and its proof, pp.18–26. Constructs Q and factors the normal remainder to reach the fractional grid.
 
@@ -1569,7 +1570,7 @@ Hypotheses and conventions:
 Proof or construction:
 
 1. Use the discrete lattice generated by logarithmic images modulo torsion and its rank-deficient relation map.
-2. The effective-house input bounds the least nonzero height contribution to the determinant/covolume calculation.
+2. For a nonzero non-torsion algebraic integer, the effective-house input gives h>1/(2d³). For a nonintegral algebraic number of degree d, its primitive integer minimal polynomial has leading coefficient at least 2, hence h≥log 2/d>1/(2d³). Here d≤D. A torsion logarithm instead has zero height and its nonzero 2πi branch contribution must be retained explicitly in the logarithmic lattice.
 3. Apply the geometry-of-numbers relation argument with the separate Vj weights; primitive scaling gives integer coefficients.
 4. The cited Waldschmidt relation proof and Yu’s improved 2D² input have not been fully independently traced; record the exact missing supplier proof.
 
@@ -1592,7 +1593,7 @@ Torsion classes split the finite coefficient box before Siegel is applied. Analy
 
 Target `DiophantineApproximationAndTranscendence:DT.3/yu-torsion-and-deep-unit-coordinates` (definition).
 
-In the Yu unit setup put G=p^f−1, μ=ordq(G), G0=G/q^u, G1=G/q^μ, so G0=q^(μ−u)G1 and gcd(G1,q)=1. In K_P choose a primitive G-th root ζ with ζ^G0=α0^(p^v), and a q-th root ξ of ζ in an algebraic closure of K_P. Choose κ≥0 and residues 0≤rj<G with δj=αj^(p^κ)ζ^rj satisfying vp(δj−1)>θ+1/(p−1), θ>0 rational. Then log δj and exp(z log δj) are defined for integral z, and δj^(1/q)=exp(q⁻¹log δj). Choose compatible q-th roots of αj so δj^(1/q)=(αj^(1/q))^(p^κ)ξ^rj.
+In the Yu unit setup put G=p^f−1, μ=ordq(G), G0=G/q^u, G1=G/q^μ, so G0=q^(μ−u)G1 and gcd(G1,q)=1. In K_P choose a primitive G-th root ζ with ζ^G0=α0^(p^v), and a q-th root ξ of ζ in an algebraic closure of K_P. Choose κ≥0 and residues 0≤rj<G with δj=αj^(p^κ)ζ^rj satisfying vp(δj−1)>θ+1/(p−1), θ>0 rational. Then log δj and exp(z log δj) are defined for integral z, and δj^(1/q)=exp(q⁻¹log δj). Choose compatible q-th roots of αj so δj^(1/q)=(αj^(1/q))^(p^κ)ξ^rj. For the analytic rescaling choose a finite complete extension E/K_P containing ξ, the compatible roots and an element aθ with vp(aθ)=θ. Such an element can be adjoined since θ is rational. Then exp(aθ⁻¹z log δj) is defined and normal on E’s closed unit disc.
 
 Hypotheses and conventions:
 
@@ -1608,7 +1609,7 @@ The interface exposes:
 | `LogarithmicForms.yu_G0_eq` | characterisation | G0=q^(μ−u)G1. |
 | `LogarithmicForms.yu_G1_coprime` | characterisation | gcd(G1,q)=1. |
 | `LogarithmicForms.yu_deep_unit_root` | compatibility | exp(q⁻¹log δj)=(αj^(1/q))^(p^κ)ξ^rj. |
-| `LogarithmicForms.yu_deep_unit_normal` | compatibility | exp(p^(−θ)z log δj) is normal. |
+| `LogarithmicForms.yu_deep_unit_normal` | compatibility | In the specified finite complete extension E, exp(aθ⁻¹z log δj) is normal, where vp(aθ)=θ. The symbol p^(−θ) abbreviates this chosen scalar inverse, not an arbitrary rational power in K_P. |
 
 Checks of the definition or construction:
 
@@ -1627,7 +1628,7 @@ Proof or construction:
 1. Use the residue-field multiplicative group and LocalFieldsRamification’s Teichmüller lift to choose ζ; match its q-primary part with α0^(p^v).
 2. First multiply αj by a residue root to obtain a principal unit. Repeated p-th powering raises its order until it exceeds the chosen sharp threshold.
 3. Apply the imported exponential/logarithm equivalence. Since q≠p, division by q preserves the analytic domain.
-4. Adjust the chosen algebraic q-th roots by μq to match the analytic roots. The G0 and G1 definitions are checked before residue-class calculations.
+4. Adjust the chosen algebraic q-th roots by μq to match the analytic roots. Adjoin aθ with vp(aθ)=θ in a finite complete extension, so the strict inequality makes exp(aθ⁻¹z log δj) normal by the factorial valuation bound. The G0 and G1 definitions are checked before residue-class calculations. The extra analytic extension does not replace K in any arithmetic height or degree count.
 
 Prerequisites: `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group`, [Prime-ideal order and the local analytic normalization](#finite-place-normalization-adapter), [Sharp deep-unit exponential and logarithm interface](#deep-unit-exp-log-adapter), [Prime-power binomials with the dyadic hypothesis](#dyadic-binomial-irreducibility-adapter).
 
@@ -1680,7 +1681,7 @@ Proof or construction:
 1. Use finite sums, the existing number-field basis and the Delta polynomial adapter.
 2. Restrict the finite box by the two congruences; G0=q^(μ−u)G1 makes Ct a disjoint partition.
 3. Interpret all local powers via exp(z log δj) on the integral disc.
-4. The least-order condition makes bj/bn integral; the resulting exponential factors are normal after the p^(−θ) rescaling.
+4. The least-order condition makes bj/bn integral; the resulting exponential factors are normal after the aθ⁻¹ rescaling in the finite complete extension specified by the torsion/deep-unit target.
 
 Prerequisites: [Torsion and deep-unit coordinates for Yu interpolation](#yu-torsion-and-deep-unit-coordinates), [The delta polynomials and their normalized derivatives](#delta-polynomial-adapter), [A monomial basis with bounded total degree](#bounded-total-degree-field-basis), [Yu’s normal functions on the existing restricted-series carrier](#normal-series-adapter).
 
@@ -1697,7 +1698,7 @@ Acceptance:
 
 Target `DiophantineApproximationAndTranscendence:DT.3/yu-small-coefficient-auxiliary-function` (construction).
 
-For each nonempty initial class Ct, take the algebraic equations φ0,t(s,τ)=0 with 1≤s≤S, q∤s, |τ|≤T. There are M0=(1−1/q)S binom(T+n,n) equations over K. With N0=D#Ct integer unknowns and N0>M0D, the relative Siegel polynomial-row bound gives a nonzero integer coefficient family of magnitude at most Xrow^(D/(N0−M0D)), where Xrow is the product of the Euclidean row-length and monomial-height bounds. If N0≥c0 M0D and Xrow≤X0^M0, its magnitude is at most X0^(1/(c0−1)). Join the independently solved Ct families to obtain the nonzero φ0 vanishing grid.
+For each nonempty initial class Ct, take the algebraic equations φ0,t(s,τ)=0 with 1≤s≤S, q∤s, |τ|≤T. There are M0=(1−1/q)S binom(T+n,n) equations over K after dividing each row by its common local root-of-unity factor ζ^((r+tG1)s). With N0=D#Ct integer unknowns and N0>M0D, the relative Siegel polynomial-row bound gives a nonzero integer coefficient family of magnitude at most Xrow^(D/(N0−M0D)), where Xrow is the product of the Euclidean row-length and monomial-height bounds. If N0≥c0 M0D and Xrow≤X0^M0, its magnitude is at most X0^(1/(c0−1)). Join the independently solved Ct families to obtain the nonzero φ0 vanishing grid.
 
 Hypotheses and conventions:
 
@@ -1729,7 +1730,7 @@ Uses:
 
 Proof or construction:
 
-1. The basis coefficients give integer unknowns. Split the algebraic rows by the Ct classes; the powers of ζ^(G1 s) are linearly independent over K by the prime-power binomial criterion.
+1. The basis coefficients give integer unknowns. In Ct, write Σrjλj=r+tG1+G0kλ. At an integer grid point s, the factor ζ^(sΣrjλj) equals the common unit ζ^((r+tG1)s) times (α0^(p^v))^(skλ), which belongs to K. Divide by the common unit before treating these as K-valued rows. Powers of ζ^(G1s) give the separate class independence by the prime-power binomial criterion.
 2. Use the bounded monomial basis and Delta denominator bounds to express every row by integer polynomials after common denominator clearing.
 3. Apply the relative Siegel row adapter to each class separately. Retain the exact product of row bounds instead of replacing it by the worst row.
 4. Average the derivative index: Σ|τ|≤T τ0=binom(T+n,n+1). This is the saving in Yu 1994, Lemma 2.1.
@@ -1762,7 +1763,7 @@ Hypotheses and conventions:
 - Each αj, 1≤j≤n, is nonzero and a P-unit; bj∈ℤ, bn≠0 and vp(bn)=minj vp(bj); Θ=∏j αj^bj−1≠0.
 - Vj≥max(h(αj),f log p/D); V1≤⋯≤Vn−1; no ordering of Vn is required.
 - The chosen q-th roots satisfy [K(α0^(1/q),…,αn^(1/q)):K]=q^(n+1).
-- The parameters satisfy the budget inequalities: at every J and k=0,…,n, set R=q^(J+k)S, M=floor((1−1/q)q^(−J)T/(n+1))+1, A=(L−1+1)(L0+1)(θ+1/(p−1)). The normalized jets of FJ,t(z,τ)=p^A fJ,t(p^(−θ)z,τ) have minimum order plus mθ at least (1−1/q)RMθ+Mvp(R!)+(M−1)log R/log p.
+- The parameters satisfy the budget inequalities: at every J and k=0,…,n, set R=q^(J+k)S, M=floor((1−1/q)q^(−J)T/(n+1))+1, A=(L−1+1)(L0+1)(θ+1/(p−1)). In a finite complete extension containing aθ and a scalar cA with vp(cA)=A, the normalized jets of FJ,t(z,τ)=cA fJ,t(aθ⁻¹z,τ) have minimum order plus mθ at least (1−1/q)RMθ+Mvp(R!)+(M−1)log R/log p.
 - The difference φJ,t(y,τ)−fJ,t(y,τ) has order at least U−T log(L−1+1)/log p−vp(bn), for positive p-integral rational y. This lower bound and (1−1/q)RMθ−A both exceed the finite-place Liouville upper bound on each cleared nonzero algebraic evaluation, including evaluations in K(α0^(1/q),…,αn^(1/q)).
 - Ln≥1 for the displayed logarithmic terminal index. An initial Ln=0 box is treated directly by the terminal polynomial argument, whose precise grid/degree condition is recorded as a gap.
 
@@ -1770,7 +1771,7 @@ Proof or construction:
 
 1. Induct on J. Within one J, extend the grid n times while reducing the derivative budget by (1−1/q)q^(−J)T/(n+1) at each step.
 2. Differentiate the projected fJ,t and use the finite-difference identity for Delta: each normalized derivative is a controlled combination of nearby τ-indices. The normal-function Schwarz theorem applies with the displayed R,M,A.
-3. Compare fJ,t to φJ,t using the small multiplicative form. Clear the integer and q-power denominators using Yu 1994, Lemma 1.3, including its factorial q-order term. Finite-place Liouville forces the algebraic grid values to vanish exactly.
+3. Compare fJ,t to φJ,t using the small multiplicative form. At integer grid points first divide φJ,t by the common torsion unit ζ^((rJ+tG1)s); the remaining expression is a polynomial in α0,…,αn over K. At s/q use ξ^((rJ+tG1)s) instead, leaving a polynomial in the compatible q-th roots of α0,…,αn, of field degree q^(n+1)D. Clear the integer and q-power denominators using Yu 1994 Lemma 1.3, including its factorial q-order term. These root-of-unity factors have order zero. Finite-place Liouville applied in these arithmetic fields forces the grid values to vanish; the larger analytic field used to choose aθ,cA is not charged to those polynomial degrees.
 4. At the fractional grid use the full radical monomial basis over K(ξ^G1). Its independence follows by the tower degree identity and the prime-power irreducibility of X^(q^(μ−u+1))−ζ_(q^u).
 5. Write each exponent σj=λj*+qλj. Select a residue vector with a nonzero coefficient, retain that coefficient subfamily, and use the invertibility of q modulo G1 to define the next congruence. The bounds shrink by q while coefficient magnitudes do not grow.
 6. At the terminal J, Ln^(J)=0. The finite-difference polynomial identities and the long grid force every retained coefficient to be zero, contradicting nonzero initialization. The untraced terminal argument imported from Yu 1989 is recorded as a gap.
@@ -1826,7 +1827,7 @@ Uses:
 
 Proof or construction:
 
-1. Use the improved U and X0 formulas in Yu 1994, equations (2.30)–(2.31), and the four p/e regimes in §2.6; these replace the older constants.
+1. Use the improved U formula in Yu 1994 equation (2.30), p.255, the rounded lengths in equation (2.31), p.256, and the four p/e regimes in §2.6, pp.265–266. Equations (2.28)–(2.29), pp.254–255, state the budget requirements; they replace the older constants.
 2. Prove the feasibility count, the Delta row product estimate and the normalized-jet budget from the rounded lengths. Floor losses are retained at every step.
 3. Check the cases n=2,…,7 separately from n≥8; no replacement by a large-n table row is accepted without domination proof.
 4. Recheck the q-denominator contribution Jkl+l vpq(k!) at fractional grid arguments; the q and p orders are distinct.
@@ -1834,7 +1835,7 @@ Proof or construction:
 
 Prerequisites: [Torsion and deep-unit coordinates for Yu interpolation](#yu-torsion-and-deep-unit-coordinates), [A nonzero auxiliary function with small integer coefficients](#yu-small-coefficient-auxiliary-function), [Grid extrapolation and contraction of the auxiliary box](#yu-grid-extrapolation-and-contraction).
 
-Source: [Kunrui Yu, Linear forms in p-adic logarithms. III](https://www.numdam.org/item/CM_1994__91_3_241_0.pdf), §2.1, pp.253–259; §2.4, equations (2.28)–(2.29), pp.262–263; §2.6, pp.263–266. Supplies the rounded lengths and numerical inequalities for the improved conditional estimate.
+Source: [Kunrui Yu, Linear forms in p-adic logarithms. III](https://www.numdam.org/item/CM_1994__91_3_241_0.pdf), §2.1, equations (2.28)–(2.30), pp.254–255; §2.2, equation (2.31), p.256; §2.4, pp.262–263; §2.5–§2.6, pp.263–266. Supplies the rounded lengths and numerical inequalities for the improved conditional estimate.
 
 Acceptance:
 
@@ -1865,7 +1866,7 @@ Proof or construction:
 2. Multiply by e to return to ordP. Compare the exact parameter U to the displayed c a^n factor.
 3. For a field K larger than Q(α0,…,αn), restrict the prime and compare D/f, e and p^f−1 using finite-place-normalization-adapter and the monotonic function (p^x−1)/x.
 4. The arithmetic calibration gap covers the exact numeric comparisons, including the finite small-n cases.
-5. For each regime compare csmall·asmall^n with cuniform·auniform^n. The ratio increases with n on each finite row; thus check n=7 at p=2, and n=4 and n=7 in the two finite rows for the other regimes. Exact decimal-rational checks give ratios below 0.976, 0.635 and 0.875, respectively; the η factors cancel. This removes the small-n table-row import without verifying the interpolation budgets themselves.
+5. For each regime compare csmall·asmall^n with cuniform·auniform^n. The ratio increases with n on each finite row; check n=7 at p=2, and n=4 and n=7 for the other regimes. Exact decimal-rational computations give endpoint ratios below 0.976 at p=2; below 0.635 and 0.875 at p=3 or p=5,e≥2; below 0.583 and 0.863 at p≥7,e≥2; and below 0.620 and 0.872 at p≥5,e=1. The η factors cancel. This verifies table domination without verifying the interpolation budgets. The displayed W assumption uses 1/(ρn), a conservative strengthening of the source’s (n−1)/(ρn²) coefficient in (2.12), p.250.
 
 Prerequisites: [Improved integer parameters for Yu interpolation](#yu-improved-parameter-selection), [Grid extrapolation and contraction of the auxiliary box](#yu-grid-extrapolation-and-contraction), [Prime-ideal order and the local analytic normalization](#finite-place-normalization-adapter).
 
@@ -2045,7 +2046,7 @@ Acceptance:
 
 Target `DiophantineApproximationAndTranscendence:DT.3/yu-generated-field-general-bound` (theorem).
 
-Let K0=Q(α1,…,αn) have degree D0, αj≠0, n≥2, P0 above p with ramification e0 and actual residue degree f0. Let b∈ℤ^n be nonzero, Θ=∏αj^bj−1≠0 and B≥max(3,max|bj|). Take sorted Vj≥max(hαj,|principal log αj|/(10D0),f0 log p/(2D0)), V=maxj Vj. The target is ordP0 Θ < C′(n+1)^(2n+4)((p^f0−1)/(log p)^(n+2))(D0/f0)^(2n+2)(∏Vj)log(4D0²B)max(log(2^13·3n(n+1)D0³V),f0 log p/n), with C′=14860·96^n at p=2; C′=9649·80^n at p=3 or p=5,e0≥2; C′=26065·80^n at p≥7,e0≥2; C′=4861η·40^n at p≥5,e0=1, η=η1η2^n as in the unit bound. The numeric theorem is retained as a target with an explicit correction/comparison gap, not treated as a proved import.
+Let K0=Q(α1,…,αn) have degree D0, αj≠0, n≥2, P0 above p with ramification e0 and actual residue degree f0. Let b∈ℤ^n be nonzero, Θ=∏αj^bj−1≠0 and B≥max(3,max|bj|). Take sorted Vj≥max(hαj,|principal log αj|/(10D0),(1/2)(f0/D0)^2 log p), V=maxj Vj. The target is ordP0 Θ < C′(n+1)^(2n+4)((p^f0−1)/(log p)^(n+2))(D0/f0)^(2n+2)(∏Vj)log(4D0²B)max(log(2^13·3n(n+1)D0³V),f0 log p/n), with C′=14860·96^n at p=2; C′=9649·80^n at p=3 or p=5,e0≥2; C′=26065·80^n at p≥7,e0≥2; C′=4861η·40^n at p≥5,e0=1, η=η1η2^n as in the unit bound. The numeric theorem is retained as a target with an explicit correction/comparison gap, not treated as a proved import.
 
 Hypotheses and conventions:
 
@@ -2090,14 +2091,14 @@ Proof or construction:
 1. In the generated-field bound set Vj=hj and sort the pairs (αj,bj,hj). Bound the four C′ regimes by the simplified numerical expression, retaining h′≥1 and hj≥log p.
 2. Use f≤d, positive logarithms and elementary monotonicity to obtain the stated Φ bound. The exact numeric comparison is retained in the general-bound calibration gap.
 3. Apply the finite-place restriction formula in a consumer field; divide by absolute e to obtain the same analytic vp on K0.
-4. For d=1, |Θ|p=p^(−ordp Θ)>B^(−Φ log p), and log B≤2log(eB) gives the displayed conservative exponent.
+4. For d=1, |Θ|p=p^(−ordp Θ)>B^(−Φ log p). For a consumer input Binput≥1 with |bj|≤Binput, use B=max(3,Binput) and log(max(3,Binput))≤2log(eBinput), giving the conservative exponent C=2Φ log p in its own coefficient parameter.
 5. For n=1 use the already planned one-power estimate; padding is legitimate only after the general bound is available.
 
 Prerequisites: [Yu’s generated-field bound with the residue-degree correction](#yu-generated-field-general-bound), [An explicit one-power bound over a number field](#yu-one-power-explicit-bound), [Prime-ideal order and the local analytic normalization](#finite-place-normalization-adapter), [Absolute-height calculus from relative heights](#absolute-height-calculus-adapter).
 
 Source: [Kunrui Yu, Linear forms in p-adic logarithms. III](https://www.numdam.org/item/CM_1994__91_3_241_0.pdf), §0.1, equations (0.1)–(0.2), pp.241–242; §0.2, Theorem 1′, p.246. The simplified inequality is expressed in absolute heights and the generated-field degree.
 
-Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §4, proof of Theorem 2.2, pp.64–66. Prime restriction preserves p-normalized local order while the integer prime-ideal order scales by relative ramification.
+Source: [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), §2.6, proof of Theorem 2.2, pp.64–66. Prime restriction preserves p-normalized local order while the integer prime-ideal order scales by relative ramification.
 
 Acceptance:
 
@@ -2164,7 +2165,7 @@ Affected targets: [Grid extrapolation and contraction of the auxiliary box](#yu-
 
 ### G6. Yu improved parameter budgets
 
-The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 equations (2.28)–(2.31), pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.
+The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 budget equations (2.28)–(2.30), pp.254–255, rounded parameters (2.31), p.256, and their induction on pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.
 
 Affected targets: [Improved integer parameters for Yu interpolation](#yu-improved-parameter-selection), [Yu’s estimate under the full Kummer condition](#yu-full-kummer-conditional-bound).
 
@@ -2176,7 +2177,7 @@ Affected targets: [A saturated basis of unit logarithms](#yu-saturated-logarithm
 
 ### G8. Generated-field and Phi constant comparison
 
-Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof.
+Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof. The same parity error occurs in the older Yu 1990 Appendix lemma, pp.111–112 (E611); that lemma cannot supply the missing comparison.
 
 Affected targets: [Eliminating nonunits without changing the multiplicative form](#yu-nonunit-elimination), [Yu’s generated-field bound with the residue-degree correction](#yu-generated-field-general-bound), [The absolute-height Φ estimate and algebraic-field consumer](#yu-absolute-height-phi-adapter).
 
@@ -2184,7 +2185,7 @@ Affected targets: [Eliminating nonunits without changing the multiplicative form
 
 These findings describe the assertions in our own words. An author copy is
 not treated as a collated version of record. Known published corrections are
-distinguished from findings requiring independent confirmation. In particular,
+distinguished from new findings. The independent review confirms E601–E611; findings in the author copy remain scoped to that copy. In particular,
 the dyadic residue-degree example refutes a step in the proof, not Yu's final
 theorem.
 
@@ -2260,6 +2261,24 @@ An unramified cubic 2-adic field has residue field F8, which has no nontrivial c
 
 Correction search: Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13); Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13); Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located.
 
+
+### E610. Author PDF, §9.2.3, proof of Lemma 9.17, Step 3, p.282; following tangent calculation p.283
+
+**Misprint.** The direction W for ∂X0+Y∂Y has its torus coordinate set to zero. Use W=K·(1,0,…,0,1), retaining torus coordinate 1.
+
+The invariant derivation attached to (1,0,…,0,0) is only ∂X0. The displayed operator includes Y∂Y, and the following tangent-space argument on p.283 itself uses final coordinate 1. Reach: nothing. Known correction: new.
+
+Correction search: Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links; Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located; Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation; Web search for Waldschmidt Diophantine Approximation Linear Algebraic Groups errata 9.17 282 (2026-10-13); no correction located.
+
+
+### E611. Published Appendix, Lemma, pp.111–112; convention (0.20), p.21
+
+**Error.** The Appendix lemma gives residue degree max(fP0,2) after adjoining ζ3 at p=2 or i at p≡3 mod4, and its proof treats every fP0≥2 as a splitting case. Replace this by lcm(fP0,2) in these cases. The quadratic residue polynomial splits precisely for even fP0, and for odd fP0 the residue degree doubles. The p≡1 mod4 case is unchanged.
+
+A degree-two finite field embeds in F_(p^fP0) only when 2 divides fP0. At p=2 the unramified cubic example in E609 gives degree 6. At p=3 and fP0=3, F27 has multiplicative order 26, so it has no primitive fourth root; adjoining i gives residue field F729. The claimed Appendix lemma itself is false; this is not a counterexample to the final linear-form bounds. Reach: the Appendix lemma as stated. Known correction: new.
+
+Correction search: Numdam version-of-record item https://www.numdam.org/item/CM_1990__74_1_15_0/ and its erratum link (2026-10-13); Published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf, p.307 (2026-10-13); its three entries do not correct the Appendix; Yu 1994 pp.247 and 271: actual-residue convention clarified but the dyadic max formula remains (E609); Web search for Kunrui Yu linear forms p-adic logarithms II 1990 Appendix residue degree correction erratum (2026-10-13); no Appendix correction located.
+
 ## Sources and versions
 
 All statements and proof outlines above are written in our own words. Source
@@ -2267,11 +2286,11 @@ locators refer to printed pagination; the MPIM precursor has its own preprint
 pagination. The precursor's analytic proof is not a claim that the unread
 terminal lemma in the journal version has been checked.
 
-- [Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), Springer Grundlehren 326 (2000), author PDF. Read 2026-10-13: Chapter 3, §§3.2–3.4, pp.73–86; Chapter 5, §§5.2–5.3, pp.150–165; Chapter 7, §§7.2–7.3, pp.192–198; Chapter 8, §§8.1–8.4, pp.231–247; Chapter 9, §§9.1–9.4, pp.251–255 and 269–312. SHA-256 `e04a822f5b5d61be78c290f508ee7c8a28766e060ef4ec62377d068a942e3d59`.
+- [Michel Waldschmidt; Chapters 5 and 8 by Damien Roy, Diophantine Approximation on Linear Algebraic Groups](https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf), Springer Grundlehren 326 (2000), author PDF. Read 2026-10-13: Chapter 3, §§3.2–3.5, pp.73–86; Chapter 5, §§5.2–5.3, pp.150–165; Chapter 7, §§7.2–7.3, pp.192–198; Chapter 8, §§8.1–8.4, pp.231–247; Chapter 9, §§9.1–9.4, pp.251–255 and 269–312. SHA-256 `e04a822f5b5d61be78c290f508ee7c8a28766e060ef4ec62377d068a942e3d59`.
 - [Kunrui Yu, Linear forms in p-adic logarithms. II](https://www.numdam.org/item/CM_1990__74_1_15_0.pdf), Compositio Mathematica 74 (1990), pp.15–113. Read 2026-10-13: §1, pp.22–30; §2, pp.30–67; §3, pp.67–81; §4 and Appendix, pp.81–98 and 111–112. SHA-256 `953caea45f0bd7935e67f1c1b00e79a71001c66ce6e79e2c24460cf989dfd45b`.
 - [Kunrui Yu, Linear forms in p-adic logarithms. III](https://www.numdam.org/item/CM_1994__91_3_241_0.pdf), Compositio Mathematica 91 (1994), pp.241–276. Read 2026-10-13: §0, pp.241–247; §1–§4, pp.248–272; §5–§6, pp.272–276 (scope check only). SHA-256 `caea575fec7e5abb1fc7c4397cbd7a5f0f76e2b81a30aeb275b7c60ad8a1d846`.
-- [Kunrui Yu, Correction to “Linear forms in p-adic logarithms. II”](https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf), Compositio Mathematica 76 (1990), p.307. Read 2026-10-13: Entire correction, p.307.
-- [E. M. Matveev, An explicit lower bound for a homogeneous rational linear form in logarithms of algebraic numbers. II](https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=314&what=fullteng&option_lang=eng), Izvestiya: Mathematics 64 (2000), pp.1217–1269, English version of record. Read 2026-10-13: §1, notation, pp.1217–1218; §2, Corollary 2.3, p.1219; statement only; §§3–21 not decomposed.
+- [Kunrui Yu, Correction to “Linear forms in p-adic logarithms. II”](https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf), Compositio Mathematica 76 (1990), p.307. Read 2026-10-13: Entire correction, p.307. SHA-256 `691a9bf832f8b97ee251cd9cdfc2d3313f28d4eb4f2afd3a3c1fe6a8ed8ef4fd`.
+- [E. M. Matveev, An explicit lower bound for a homogeneous rational linear form in logarithms of algebraic numbers. II](https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=314&what=fullteng&option_lang=eng), Izvestiya: Mathematics 64 (2000), pp.1217–1269, English version of record. Read 2026-10-13: §1, notation, pp.1217–1218; §2, Corollary 2.3, p.1219; statement only; §§3–21 not decomposed. SHA-256 `e395e4698837950b683362558441e1e75298ad28cb0cc8cf260a556c93093574`.
 - [Kunrui Yu, Linear forms in p-adic logarithms](https://archive.mpim-bonn.mpg.de/id/eprint/3587/1/preprint_1987_20.pdf), MPIM preprint 1987-20; precursor to Acta Arithmetica 53 (1989). Read 2026-10-13: Chapter I §§2 and 4, pp.12–14 and 18–26; Appendix, Theorem A and construction, pp.144–149; locators are preprint pages. SHA-256 `9a8f69d791d9dc9fa7e16ec344a141b65a8ca6109c3c8cf742e0a0bbd8bedc1d`.
 
 ## Suggested declarations

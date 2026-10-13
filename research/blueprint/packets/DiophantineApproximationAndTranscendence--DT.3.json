@@ -183,7 +183,7 @@
       "url": "https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf",
       "sha256": "e04a822f5b5d61be78c290f508ee7c8a28766e060ef4ec62377d068a942e3d59",
       "readSections": [
-        "Chapter 3, §§3.2–3.4, pp.73–86",
+        "Chapter 3, §§3.2–3.5, pp.73–86",
         "Chapter 5, §§5.2–5.3, pp.150–165",
         "Chapter 7, §§7.2–7.3, pp.192–198",
         "Chapter 8, §§8.1–8.4, pp.231–247",
@@ -225,7 +225,8 @@
       "url": "https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf",
       "readSections": [
         "Entire correction, p.307"
-      ]
+      ],
+      "sha256": "691a9bf832f8b97ee251cd9cdfc2d3313f28d4eb4f2afd3a3c1fe6a8ed8ef4fd"
     },
     {
       "id": "mat2000",
@@ -236,7 +237,8 @@
       "readSections": [
         "§1, notation, pp.1217–1218",
         "§2, Corollary 2.3, p.1219; statement only; §§3–21 not decomposed"
-      ]
+      ],
+      "sha256": "e395e4698837950b683362558441e1e75298ad28cb0cc8cf260a556c93093574"
     },
     {
       "id": "yu1987",
@@ -283,7 +285,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§3.2.3, Proposition 3.3, pp.75–76",
+          "locator": "§3.2, Property 3.3, pp.75–76",
           "match": "The absolute logarithmic height has the inverse, power, product and sum inequalities used to normalize coefficients."
         }
       ],
@@ -384,7 +386,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§3.2.3, equation (3.4), pp.75–76",
+          "locator": "§3.5.1, equation (3.13), pp.82–83",
           "match": "The product-formula height bounds the size and reciprocal size at any chosen complex embedding."
         }
       ],
@@ -436,7 +438,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§3.3.2, Proposition 3.14 and Lemma 3.15, pp.84–86",
+          "locator": "§3.2, p.76; §3.5.2, Proposition 3.14, pp.83–84; §3.5.5, Lemma 3.15, pp.85–86",
           "match": "These coefficient sums and block bounds give the arithmetic cost of a determinant."
         }
       ],
@@ -527,7 +529,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§3.3.2, Proposition 3.14, pp.84–85",
+          "locator": "§3.5.2, Proposition 3.14, pp.83–84",
           "match": "The blockwise product-formula estimate retains the factor D−1 on log length."
         }
       ],
@@ -665,7 +667,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§5.2.2–§5.2.3, Proposition 5.2, pp.151–153; §5.3, Lemmas 5.9–5.10, pp.160–161; §8.2.2, Proposition 8.3, p.235",
+          "locator": "§5.2.2–§5.2.3, Proposition 5.2, pp.151–153; §5.3, Lemmas 5.9–5.10, pp.160–161; §8.2.2, Proposition 8.3, p.236",
           "match": "Eventual polynomiality and component additivity, specialized to the coordinate model."
         }
       ],
@@ -750,7 +752,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§5.3, Propositions 5.6–5.7 and Theorem 5.13, pp.157–163; §8.3.2, Lemma 8.13, p.240",
+          "locator": "§5.3, Propositions 5.6–5.7, pp.157–159, and Theorem 5.13, pp.161–163; §8.3.2, Lemma 8.13, p.241",
           "match": "Only the d1=1 case is needed for the selected interpolation determinant proof."
         }
       ],
@@ -794,7 +796,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§8.2.3, Theorem 8.4, pp.235–237; §8.3.1, Lemma 8.7 and Theorem 8.8, pp.238–239",
+          "locator": "§8.2.3, Theorem 8.4, pp.236–238; §8.3.1, Lemma 8.7, p.239, and Theorem 8.8, pp.239–240",
           "match": "The complete-intersection argument supplies the upper bound for the later multiplicity ideal."
         }
       ],
@@ -838,7 +840,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§8.1, pp.231–232; §8.3.2, Lemmas 8.10–8.13, pp.239–240",
+          "locator": "§8.1, pp.231–232; §8.3.2, equation (8.10) and Lemma 8.11, pp.240–241; Lemma 8.13, p.241",
           "match": "Invariant derivatives encode multiplicity and tangent directions."
         }
       ],
@@ -935,7 +937,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§8.3.3, Lemmas 8.14–8.16 and Theorem 8.18, pp.240–244",
+          "locator": "§8.3.3, Lemmas 8.14–8.16 and Theorem 8.18, pp.242–245",
           "match": "The transverse-coordinate argument proves the binomial multiplicity factor."
         }
       ],
@@ -1028,7 +1030,7 @@
         },
         {
           "sourceId": "yu1990",
-          "locator": "§1, Lemma 1.6, pp.26–27",
+          "locator": "§1, equation (1.9), p.25, and Lemma 1.6, pp.26–27",
           "match": "Yu’s factors start at z+1, rather than z."
         }
       ],
@@ -1128,7 +1130,7 @@
       "proofSteps": [
         "Count prime powers in factorial denominators and in every product remaining after differentiation; use Legendre’s formula.",
         "Clear νb^C and bound derivative coefficient sums by a finite binomial expansion.",
-        "Use the elementary lcm bound and the shifted-polynomial prime-power count for Yu’s refinement."
+        "Use the elementary lcm bound and the shifted-polynomial prime-power count for Yu’s refinement. Yu 1994 Lemma 1.3 states J≥1; for J=0, x is a positive integer and Yu 1990 Lemma 1.6 gives νk^m Δ(x;k,l,m)∈ℤ, so multiplying by the extra integer q^(l·ordq(k!)) proves the displayed extension."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/delta-polynomial-adapter"
@@ -1141,7 +1143,7 @@
         },
         {
           "sourceId": "yu1990",
-          "locator": "§1, Lemma 1.6, pp.26–27",
+          "locator": "§1, equation (1.9), p.25, and Lemma 1.6, pp.26–27",
           "match": "Contains the integer-value, lcm and derivative estimates."
         },
         {
@@ -1213,7 +1215,7 @@
         {
           "name": "LogarithmicForms.theta_lower_bound",
           "role": "other",
-          "statement": "For n≥2, Θ≥(L/2)((L+1)/binom(T0+n−1,n−1)−T0/n−1)."
+          "statement": "For n≥2,T0≥1,L≥1, Θ≥(L/2)((L+1)/binom(T0+n−1,n−1)−T0/n−1)."
         }
       ],
       "tests": [
@@ -1236,6 +1238,11 @@
           "name": "LogarithmicForms.theta_zero_transverse",
           "kind": "compatibility",
           "statement": "Θ(n,0,L)=L(L−1)/2."
+        },
+        {
+          "name": "LogarithmicForms.theta_lower_bound_positive_transverse",
+          "kind": "non-example",
+          "statement": "Θ(2,0,3)=3, whereas the lower-bound expression at these excluded inputs is 9/2. The hypothesis T0≥1 is necessary."
         }
       ],
       "uses": [
@@ -1279,7 +1286,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§7.2, Lemmas 7.2 and 7.5, pp.192–195; §9.2.2, Lemmas 9.14–9.15, pp.277–279",
+          "locator": "§7.2, Lemma 7.2, pp.192–193; §7.3, Lemma 7.5, pp.196–197; §9.2.2, Lemmas 9.14–9.15, pp.277–278",
           "match": "The derivative and rectangular-column version accounts for the loss L S0."
         }
       ],
@@ -1321,7 +1328,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§7.2, Lemma 7.4, pp.193–194",
+          "locator": "§7.3, Lemma 7.4, pp.195–196",
           "match": "The mixed-row expansion converts a small entry error into a determinant estimate."
         }
       ],
@@ -1448,7 +1455,7 @@
       ],
       "proofSteps": [
         "A rank failure gives a nonzero bounded-degree Laurent polynomial with the specified invariant-jet zeros.",
-        "Apply Roy’s relative estimate to Ga^d×Gm; injectivity of s↦sy follows from the stated β-direction condition.",
+        "Apply Roy’s relative estimate to Ga^d×Gm; injectivity of s↦sy follows from the stated β-direction condition. For D=∂X0+Y∂Y use W=K·(1,0,…,0,1). Its torus coordinate is 1; the direction printed in the author PDF p.282 has an erroneous final 0 (E610), while p.283 uses the required final 1.",
         "Classify the obstruction subgroup. A finite torus obstruction contradicts multiplicative rank and the box bound; a full torus obstruction gives a proper V′ with the forbidden quotient cardinality.",
         "A largest fiber of S→K^m/V supplies the needed # (S̃∩V) inequality."
       ],
@@ -1506,7 +1513,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§3.3.2, Lemma 3.15, pp.85–86; §9.2.1, Lemma 9.11, pp.273–274; §9.3.2, Step 3, pp.290–291",
+          "locator": "§3.5.5, Lemma 3.15, pp.85–86; §9.2.1, Lemma 9.11, pp.273–274; §9.3.2, Step 3, pp.290–291",
           "match": "The cleared determinant has a controlled arithmetic cost before numerical specialization."
         }
       ],
@@ -1534,7 +1541,7 @@
       "kind": "theorem",
       "statement": "Put Ld=binom(T0+d,d)(2T1+1), Vd=(T0+d)(2T1+1)log E/(2d), E>1. Let the selected matrix entries be Φ(σμ)τt(ζμ)+εbτtμ, where Φ is the modified derivative-basis entire function, |ε|≤exp(−Vd), and Mτt bounds both log sup|z|=E,maxμ |Φ(σμ)τt(zζμ)| and log maxμ |bτtμ|. Then |Δ|≤exp(−LdVd/2+Ld S0 log E+Ld log(2Ld)+Στ,t Mτt).",
       "hypotheses": [
-        "All columns have derivative order≤S0, and there are exactly Ld selected rows and columns.",
+        "d≥1,T0≥1,T1≥1. All columns have derivative order≤S0, and there are exactly Ld selected rows and columns.",
         "The row majorants Mτt are positive."
       ],
       "proofSteps": [
@@ -1675,7 +1682,7 @@
         {
           "name": "LogarithmicForms.wald_rounding_boundary",
           "kind": "computed",
-          "statement": "For a real x≥2, floor x≥x/2; at x=2 equality is checked."
+          "statement": "For a real x≥2, floor x≥x/2. At x=2 this reads 2≥1; at x=5/2 it reads 2≥5/4. Equality at x=2 is not asserted."
         },
         {
           "name": "LogarithmicForms.wald_M_one",
@@ -1734,7 +1741,7 @@
       "sources": [
         {
           "sourceId": "wald2000",
-          "locator": "§9.1, Theorem 9.1, pp.251–252; §9.3.4, Proposition 9.18 and proof of Theorem 9.1, pp.286–288 and 298–302",
+          "locator": "§9.3, Proposition 9.18, p.286; §9.3.4, proof, pp.298–302; §9.1, Theorem 9.1, pp.251–252",
           "match": "The M=1 argument proves the displayed all-m constant; the smaller large-m optimization is not needed."
         }
       ],
@@ -1860,7 +1867,7 @@
       "proofSteps": [
         "Specialize the imported Matveev integer-coefficient corollary to n=2 and a real number field of degree 1.",
         "For positive rationals, |log aj|≤log Habs(aj), so the Aj satisfy the corollary’s size conditions.",
-        "Use B to dominate its weighted coefficient parameter.",
+        "Use the corollary’s explicit B* option, B*=max(|b1|,|b2|), and then the larger B=max(1,B*). Alternatively permute the two inputs so A2≥A1; only with that ordering does B automatically dominate the weighted parameter max(1,|bj|Aj/A2).",
         "Record the replacement in assembly and preserve the unresolved sharp-proof dependency."
       ],
       "prerequisites": [
@@ -2219,7 +2226,7 @@
       "sources": [
         {
           "sourceId": "yu1990",
-          "locator": "§1, Lemma 1.2, p.22",
+          "locator": "§1, Lemma 1.2, p.23",
           "match": "The exact factorial and logarithmic losses in the jet hypothesis."
         },
         {
@@ -2572,7 +2579,7 @@
       "proofSteps": [
         "Use DT.0’s Mahler-measure/height comparison to get hα≥log house(α)/d.",
         "Yu’s cited large-degree estimate handles d≥21; the remaining degrees use nonreciprocal and reciprocal estimates with explicit constants.",
-        "The original sources for the small-degree numerical verification and its refinement at d=18,20 are not read in this pass and are a recorded gap."
+        "The original sources for the small-degree numerical verification and its refinement at d=18,20 are not read in this proof decomposition and are a recorded gap."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.0/height-comparisons",
@@ -2615,9 +2622,9 @@
       ],
       "proofSteps": [
         "Use the discrete lattice generated by logarithmic images modulo torsion and its rank-deficient relation map.",
-        "The effective-house input bounds the least nonzero height contribution to the determinant/covolume calculation.",
+        "For a nonzero non-torsion algebraic integer, the effective-house input gives h>1/(2d³). For a nonintegral algebraic number of degree d, its primitive integer minimal polynomial has leading coefficient at least 2, hence h≥log 2/d>1/(2d³). Here d≤D. A torsion logarithm instead has zero height and its nonzero 2πi branch contribution must be retained explicitly in the logarithmic lattice.",
         "Apply the geometry-of-numbers relation argument with the separate Vj weights; primitive scaling gives integer coefficients.",
-        "The cited Waldschmidt relation proof and Yu’s improved 2D² input have not yet been fully independently traced; record the exact missing supplier proof."
+        "The cited Waldschmidt relation proof and Yu’s improved 2D² input have not been fully independently traced; record the exact missing supplier proof."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/effective-house-input-adapter",
@@ -2653,7 +2660,7 @@
       ],
       "title": "Torsion and deep-unit coordinates for Yu interpolation",
       "kind": "definition",
-      "statement": "In the Yu unit setup put G=p^f−1, μ=ordq(G), G0=G/q^u, G1=G/q^μ, so G0=q^(μ−u)G1 and gcd(G1,q)=1. In K_P choose a primitive G-th root ζ with ζ^G0=α0^(p^v), and a q-th root ξ of ζ in an algebraic closure of K_P. Choose κ≥0 and residues 0≤rj<G with δj=αj^(p^κ)ζ^rj satisfying vp(δj−1)>θ+1/(p−1), θ>0 rational. Then log δj and exp(z log δj) are defined for integral z, and δj^(1/q)=exp(q⁻¹log δj). Choose compatible q-th roots of αj so δj^(1/q)=(αj^(1/q))^(p^κ)ξ^rj.",
+      "statement": "In the Yu unit setup put G=p^f−1, μ=ordq(G), G0=G/q^u, G1=G/q^μ, so G0=q^(μ−u)G1 and gcd(G1,q)=1. In K_P choose a primitive G-th root ζ with ζ^G0=α0^(p^v), and a q-th root ξ of ζ in an algebraic closure of K_P. Choose κ≥0 and residues 0≤rj<G with δj=αj^(p^κ)ζ^rj satisfying vp(δj−1)>θ+1/(p−1), θ>0 rational. Then log δj and exp(z log δj) are defined for integral z, and δj^(1/q)=exp(q⁻¹log δj). Choose compatible q-th roots of αj so δj^(1/q)=(αj^(1/q))^(p^κ)ξ^rj. For the analytic rescaling choose a finite complete extension E/K_P containing ξ, the compatible roots and an element aθ with vp(aθ)=θ. Such an element can be adjoined since θ is rational. Then exp(aθ⁻¹z log δj) is defined and normal on E’s closed unit disc.",
       "hypotheses": [
         "K is a number field of degree D; P lies above p with ramification index e and residue degree f; n≥2.",
         "Put q=3 when p=2 and q=2 otherwise. At p=2 assume ζ3∈K; at p≡1 mod4 assume i∈K; at p≡3 mod4 assume f odd or i∈K.",
@@ -2664,7 +2671,7 @@
         "Use the residue-field multiplicative group and LocalFieldsRamification’s Teichmüller lift to choose ζ; match its q-primary part with α0^(p^v).",
         "First multiply αj by a residue root to obtain a principal unit. Repeated p-th powering raises its order until it exceeds the chosen sharp threshold.",
         "Apply the imported exponential/logarithm equivalence. Since q≠p, division by q preserves the analytic domain.",
-        "Adjust the chosen algebraic q-th roots by μq to match the analytic roots. The G0 and G1 definitions are checked before residue-class calculations."
+        "Adjust the chosen algebraic q-th roots by μq to match the analytic roots. Adjoin aθ with vp(aθ)=θ in a finite complete extension, so the strict inequality makes exp(aθ⁻¹z log δj) normal by the factorial valuation bound. The G0 and G1 definitions are checked before residue-class calculations. The extra analytic extension does not replace K in any arithmetic height or degree count."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
@@ -2707,7 +2714,7 @@
         {
           "name": "LogarithmicForms.yu_deep_unit_normal",
           "role": "compatibility",
-          "statement": "exp(p^(−θ)z log δj) is normal."
+          "statement": "In the specified finite complete extension E, exp(aθ⁻¹z log δj) is normal, where vp(aθ)=θ. The symbol p^(−θ) abbreviates this chosen scalar inverse, not an arbitrary rational power in K_P."
         }
       ],
       "tests": [
@@ -2767,7 +2774,7 @@
         "Use finite sums, the existing number-field basis and the Delta polynomial adapter.",
         "Restrict the finite box by the two congruences; G0=q^(μ−u)G1 makes Ct a disjoint partition.",
         "Interpret all local powers via exp(z log δj) on the integral disc.",
-        "The least-order condition makes bj/bn integral; the resulting exponential factors are normal after the p^(−θ) rescaling."
+        "The least-order condition makes bj/bn integral; the resulting exponential factors are normal after the aθ⁻¹ rescaling in the finite complete extension specified by the torsion/deep-unit target."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/yu-torsion-and-deep-unit-coordinates",
@@ -2855,7 +2862,7 @@
       ],
       "title": "A nonzero auxiliary function with small integer coefficients",
       "kind": "construction",
-      "statement": "For each nonempty initial class Ct, take the algebraic equations φ0,t(s,τ)=0 with 1≤s≤S, q∤s, |τ|≤T. There are M0=(1−1/q)S binom(T+n,n) equations over K. With N0=D#Ct integer unknowns and N0>M0D, the relative Siegel polynomial-row bound gives a nonzero integer coefficient family of magnitude at most Xrow^(D/(N0−M0D)), where Xrow is the product of the Euclidean row-length and monomial-height bounds. If N0≥c0 M0D and Xrow≤X0^M0, its magnitude is at most X0^(1/(c0−1)). Join the independently solved Ct families to obtain the nonzero φ0 vanishing grid.",
+      "statement": "For each nonempty initial class Ct, take the algebraic equations φ0,t(s,τ)=0 with 1≤s≤S, q∤s, |τ|≤T. There are M0=(1−1/q)S binom(T+n,n) equations over K after dividing each row by its common local root-of-unity factor ζ^((r+tG1)s). With N0=D#Ct integer unknowns and N0>M0D, the relative Siegel polynomial-row bound gives a nonzero integer coefficient family of magnitude at most Xrow^(D/(N0−M0D)), where Xrow is the product of the Euclidean row-length and monomial-height bounds. If N0≥c0 M0D and Xrow≤X0^M0, its magnitude is at most X0^(1/(c0−1)). Join the independently solved Ct families to obtain the nonzero φ0 vanishing grid.",
       "hypotheses": [
         "K is a number field of degree D; P lies above p with ramification index e and residue degree f; n≥2.",
         "Put q=3 when p=2 and q=2 otherwise. At p=2 assume ζ3∈K; at p≡1 mod4 assume i∈K; at p≡3 mod4 assume f odd or i∈K.",
@@ -2865,7 +2872,7 @@
         "S≥1 is divisible by q, T≥0, c0>1, and the displayed unknown-count and row-product inequalities hold in every nonempty Ct."
       ],
       "proofSteps": [
-        "The basis coefficients give integer unknowns. Split the algebraic rows by the Ct classes; the powers of ζ^(G1 s) are linearly independent over K by the prime-power binomial criterion.",
+        "The basis coefficients give integer unknowns. In Ct, write Σrjλj=r+tG1+G0kλ. At an integer grid point s, the factor ζ^(sΣrjλj) equals the common unit ζ^((r+tG1)s) times (α0^(p^v))^(skλ), which belongs to K. Divide by the common unit before treating these as K-valued rows. Powers of ζ^(G1s) give the separate class independence by the prime-power binomial criterion.",
         "Use the bounded monomial basis and Delta denominator bounds to express every row by integer polynomials after common denominator clearing.",
         "Apply the relative Siegel row adapter to each class separately. Retain the exact product of row bounds instead of replacing it by the worst row.",
         "Average the derivative index: Σ|τ|≤T τ0=binom(T+n,n+1). This is the saving in Yu 1994, Lemma 2.1.",
@@ -2961,14 +2968,14 @@
         "Each αj, 1≤j≤n, is nonzero and a P-unit; bj∈ℤ, bn≠0 and vp(bn)=minj vp(bj); Θ=∏j αj^bj−1≠0.",
         "Vj≥max(h(αj),f log p/D); V1≤⋯≤Vn−1; no ordering of Vn is required.",
         "The chosen q-th roots satisfy [K(α0^(1/q),…,αn^(1/q)):K]=q^(n+1).",
-        "The parameters satisfy the budget inequalities: at every J and k=0,…,n, set R=q^(J+k)S, M=floor((1−1/q)q^(−J)T/(n+1))+1, A=(L−1+1)(L0+1)(θ+1/(p−1)). The normalized jets of FJ,t(z,τ)=p^A fJ,t(p^(−θ)z,τ) have minimum order plus mθ at least (1−1/q)RMθ+Mvp(R!)+(M−1)log R/log p.",
+        "The parameters satisfy the budget inequalities: at every J and k=0,…,n, set R=q^(J+k)S, M=floor((1−1/q)q^(−J)T/(n+1))+1, A=(L−1+1)(L0+1)(θ+1/(p−1)). In a finite complete extension containing aθ and a scalar cA with vp(cA)=A, the normalized jets of FJ,t(z,τ)=cA fJ,t(aθ⁻¹z,τ) have minimum order plus mθ at least (1−1/q)RMθ+Mvp(R!)+(M−1)log R/log p.",
         "The difference φJ,t(y,τ)−fJ,t(y,τ) has order at least U−T log(L−1+1)/log p−vp(bn), for positive p-integral rational y. This lower bound and (1−1/q)RMθ−A both exceed the finite-place Liouville upper bound on each cleared nonzero algebraic evaluation, including evaluations in K(α0^(1/q),…,αn^(1/q)).",
         "Ln≥1 for the displayed logarithmic terminal index. An initial Ln=0 box is treated directly by the terminal polynomial argument, whose precise grid/degree condition is recorded as a gap."
       ],
       "proofSteps": [
         "Induct on J. Within one J, extend the grid n times while reducing the derivative budget by (1−1/q)q^(−J)T/(n+1) at each step.",
         "Differentiate the projected fJ,t and use the finite-difference identity for Delta: each normalized derivative is a controlled combination of nearby τ-indices. The normal-function Schwarz theorem applies with the displayed R,M,A.",
-        "Compare fJ,t to φJ,t using the small multiplicative form. Clear the integer and q-power denominators using Yu 1994, Lemma 1.3, including its factorial q-order term. Finite-place Liouville forces the algebraic grid values to vanish exactly.",
+        "Compare fJ,t to φJ,t using the small multiplicative form. At integer grid points first divide φJ,t by the common torsion unit ζ^((rJ+tG1)s); the remaining expression is a polynomial in α0,…,αn over K. At s/q use ξ^((rJ+tG1)s) instead, leaving a polynomial in the compatible q-th roots of α0,…,αn, of field degree q^(n+1)D. Clear the integer and q-power denominators using Yu 1994 Lemma 1.3, including its factorial q-order term. These root-of-unity factors have order zero. Finite-place Liouville applied in these arithmetic fields forces the grid values to vanish; the larger analytic field used to choose aθ,cA is not charged to those polynomial degrees.",
         "At the fractional grid use the full radical monomial basis over K(ξ^G1). Its independence follows by the tower degree identity and the prime-power irreducibility of X^(q^(μ−u+1))−ζ_(q^u).",
         "Write each exponent σj=λj*+qλj. Select a residue vector with a nonzero coefficient, retain that coefficient subfamily, and use the invertibility of q modulo G1 to define the next congruence. The bounds shrink by q while coefficient magnitudes do not grow.",
         "At the terminal J, Ln^(J)=0. The finite-difference polynomial identities and the long grid force every retained coefficient to be zero, contradicting nonzero initialization. The untraced terminal argument imported from Yu 1989 is recorded as a gap."
@@ -3027,11 +3034,11 @@
         "B≥max(3,maxj|bj|); W*,V* are as defined in yu-full-kummer-conditional-bound; κ and θ satisfy the strict deep-unit inequality."
       ],
       "proofSteps": [
-        "Use the improved U and X0 formulas in Yu 1994, equations (2.30)–(2.31), and the four p/e regimes in §2.6; these replace the older constants.",
+        "Use the improved U formula in Yu 1994 equation (2.30), p.255, the rounded lengths in equation (2.31), p.256, and the four p/e regimes in §2.6, pp.265–266. Equations (2.28)–(2.29), pp.254–255, state the budget requirements; they replace the older constants.",
         "Prove the feasibility count, the Delta row product estimate and the normalized-jet budget from the rounded lengths. Floor losses are retained at every step.",
         "Check the cases n=2,…,7 separately from n≥8; no replacement by a large-n table row is accepted without domination proof.",
         "Recheck the q-denominator contribution Jkl+l vpq(k!) at fractional grid arguments; the q and p orders are distinct.",
-        "The complete interval verification, inherited terminal polynomial argument and the source’s exact special-parameter tables have not been independently validated in this pass; their necessary inequalities and numeric end bound are recorded as a gap."
+        "The complete interval verification, inherited terminal polynomial argument and the source’s exact special-parameter tables have not been independently validated in this proof decomposition; their necessary inequalities and numeric end bound are recorded as a gap."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/yu-torsion-and-deep-unit-coordinates",
@@ -3041,7 +3048,7 @@
       "sources": [
         {
           "sourceId": "yu1994",
-          "locator": "§2.1, pp.253–259; §2.4, equations (2.28)–(2.29), pp.262–263; §2.6, pp.263–266",
+          "locator": "§2.1, equations (2.28)–(2.30), pp.254–255; §2.2, equation (2.31), p.256; §2.4, pp.262–263; §2.5–§2.6, pp.263–266",
           "match": "Supplies the rounded lengths and numerical inequalities for the improved conditional estimate."
         }
       ],
@@ -3124,7 +3131,7 @@
         "Multiply by e to return to ordP. Compare the exact parameter U to the displayed c a^n factor.",
         "For a field K larger than Q(α0,…,αn), restrict the prime and compare D/f, e and p^f−1 using finite-place-normalization-adapter and the monotonic function (p^x−1)/x.",
         "The arithmetic calibration gap covers the exact numeric comparisons, including the finite small-n cases.",
-        "For each regime compare csmall·asmall^n with cuniform·auniform^n. The ratio increases with n on each finite row; thus check n=7 at p=2, and n=4 and n=7 in the two finite rows for the other regimes. Exact decimal-rational checks give ratios below 0.976, 0.635 and 0.875, respectively; the η factors cancel. This removes the small-n table-row import without verifying the interpolation budgets themselves."
+        "For each regime compare csmall·asmall^n with cuniform·auniform^n. The ratio increases with n on each finite row; check n=7 at p=2, and n=4 and n=7 for the other regimes. Exact decimal-rational computations give endpoint ratios below 0.976 at p=2; below 0.635 and 0.875 at p=3 or p=5,e≥2; below 0.583 and 0.863 at p≥7,e≥2; and below 0.620 and 0.872 at p≥5,e=1. The η factors cancel. This verifies table domination without verifying the interpolation budgets. The displayed W assumption uses 1/(ρn), a conservative strengthening of the source’s (n−1)/(ρn²) coefficient in (2.12), p.250."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/yu-improved-parameter-selection",
@@ -3416,7 +3423,7 @@
       ],
       "title": "Yu’s generated-field bound with the residue-degree correction",
       "kind": "theorem",
-      "statement": "Let K0=Q(α1,…,αn) have degree D0, αj≠0, n≥2, P0 above p with ramification e0 and actual residue degree f0. Let b∈ℤ^n be nonzero, Θ=∏αj^bj−1≠0 and B≥max(3,max|bj|). Take sorted Vj≥max(hαj,|principal log αj|/(10D0),f0 log p/(2D0)), V=maxj Vj. The target is ordP0 Θ < C′(n+1)^(2n+4)((p^f0−1)/(log p)^(n+2))(D0/f0)^(2n+2)(∏Vj)log(4D0²B)max(log(2^13·3n(n+1)D0³V),f0 log p/n), with C′=14860·96^n at p=2; C′=9649·80^n at p=3 or p=5,e0≥2; C′=26065·80^n at p≥7,e0≥2; C′=4861η·40^n at p≥5,e0=1, η=η1η2^n as in the unit bound. The numeric theorem is retained as a target with an explicit correction/comparison gap, not treated as a proved import.",
+      "statement": "Let K0=Q(α1,…,αn) have degree D0, αj≠0, n≥2, P0 above p with ramification e0 and actual residue degree f0. Let b∈ℤ^n be nonzero, Θ=∏αj^bj−1≠0 and B≥max(3,max|bj|). Take sorted Vj≥max(hαj,|principal log αj|/(10D0),(1/2)(f0/D0)^2 log p), V=maxj Vj. The target is ordP0 Θ < C′(n+1)^(2n+4)((p^f0−1)/(log p)^(n+2))(D0/f0)^(2n+2)(∏Vj)log(4D0²B)max(log(2^13·3n(n+1)D0³V),f0 log p/n), with C′=14860·96^n at p=2; C′=9649·80^n at p=3 or p=5,e0≥2; C′=26065·80^n at p≥7,e0≥2; C′=4861η·40^n at p≥5,e0=1, η=η1η2^n as in the unit bound. The numeric theorem is retained as a target with an explicit correction/comparison gap, not treated as a proved import.",
       "hypotheses": [
         "K0 is the field generated by the original αj; a larger field has a different D and residue-degree factor.",
         "No assumption ordP0 αj=0 is made.",
@@ -3426,7 +3433,7 @@
         "Apply nonunit elimination or the small-order alternative. Adjoin ζ3 at p=2, adjoin i at p≡1 mod4 or p≡3 mod4 with even f0, and otherwise keep K0.",
         "These prime-to-p roots give an unramified local extension, so e=e0. At odd p the prescribed cases give f=f0. At p=2 the correct value is f=lcm(f0,2), equal to f0 for even f0 and 2f0 for odd f0. The printed max(f0,2) is false when f0 is odd and greater than 1.",
         "Apply the unit estimate to the transformed αj′ and restrict the prime-ideal order back to P0. Keep the actual local field extension degree, the global degree ≤2D0 and each transformed height.",
-        "Redo the constant comparison to p^f0−1, particularly the odd f0>1 dyadic case. This necessary comparison has not been established in this pass and is a recorded gap.",
+        "Redo the constant comparison to p^f0−1, particularly the odd f0>1 dyadic case. This necessary comparison has not been established in this proof decomposition and is a recorded gap.",
         "Only after this comparison is verified can the simplified Φ estimate be deduced from this theorem."
       ],
       "prerequisites": [
@@ -3477,7 +3484,7 @@
         "In the generated-field bound set Vj=hj and sort the pairs (αj,bj,hj). Bound the four C′ regimes by the simplified numerical expression, retaining h′≥1 and hj≥log p.",
         "Use f≤d, positive logarithms and elementary monotonicity to obtain the stated Φ bound. The exact numeric comparison is retained in the general-bound calibration gap.",
         "Apply the finite-place restriction formula in a consumer field; divide by absolute e to obtain the same analytic vp on K0.",
-        "For d=1, |Θ|p=p^(−ordp Θ)>B^(−Φ log p), and log B≤2log(eB) gives the displayed conservative exponent.",
+        "For d=1, |Θ|p=p^(−ordp Θ)>B^(−Φ log p). For a consumer input Binput≥1 with |bj|≤Binput, use B=max(3,Binput) and log(max(3,Binput))≤2log(eBinput), giving the conservative exponent C=2Φ log p in its own coefficient parameter.",
         "For n=1 use the already planned one-power estimate; padding is legitimate only after the general bound is available."
       ],
       "prerequisites": [
@@ -3494,7 +3501,7 @@
         },
         {
           "sourceId": "yu1990",
-          "locator": "§4, proof of Theorem 2.2, pp.64–66",
+          "locator": "§2.6, proof of Theorem 2.2, pp.64–66",
           "match": "Prime restriction preserves p-normalized local order while the integer prime-ideal order scales by relative ramification."
         }
       ],
@@ -3586,9 +3593,9 @@
         "Effective house numerical inputs: Read Yu 1990 Lemma 1.10, pp.28–29, but not the original Dobrowolski, Smyth and Boyd proofs and small-degree checks cited there. The requested ArithmeticHeights Part II must prove the exact strict 1/(2d²) constant, including degrees 18 and 20, rather than infer a numerical bound from Northcott/Kronecker.",
         "Short relation determinant argument: Yu 1990 Lemma 1.11, p.29, cites Waldschmidt’s earlier bounded-relation proof and changes 9D² to 2D². Trace its covolume argument and primitive relation, including logarithmic branch/torsion factors, to justify the exact coordinatewise bound [2(m−1)D³]^(m−1)∏Vj/Vk.",
         "Yu terminal polynomial nonvanishing: Yu 1990 §2.5, p.60, invokes Lemma 2.5 of Yu 1989 for the final contradiction after Ln^(J)=0. The normal-function precursor was read, but this terminal lemma’s precise polynomial-degree/grid inequalities and proof have not been traced in the journal version. State and prove those inequalities in the parameter output; contracting one box coordinate to zero alone is not a contradiction.",
-        "Yu improved parameter budgets: The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 equations (2.28)–(2.31), pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.",
+        "Yu improved parameter budgets: The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 budget equations (2.28)–(2.30), pp.254–255, rounded parameters (2.31), p.256, and their induction on pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.",
         "Yu descent calibration: The independent and dependent triangular reductions are specified; the stronger large-last-height estimates in Yu 1990 Propositions 3.2 and 3.4, pp.77 and 81, and the final eight-case comparisons in §4, pp.81–94, remain unverified with the improved Yu 1994 constants. In each case check the transformed product of heights, coefficient bounds and least-p-order pivot before asserting the numeric unit end theorem.",
-        "Generated-field and Phi constant comparison: Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof.",
+        "Generated-field and Phi constant comparison: Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof. The same parity error occurs in the older Yu 1990 Appendix lemma, pp.111–112 (E611); that lemma cannot supply the missing comparison.",
         "Discharge the seven supplier requests using their owners’ reviewed nodes and preserve the sharper quantitative targets at assembly."
       ]
     }
@@ -3633,7 +3640,7 @@
     },
     {
       "title": "Yu improved parameter budgets",
-      "detail": "The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 equations (2.28)–(2.31), pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.",
+      "detail": "The floor formulas and the analytic/arithmetic inequalities needed by the induction are stated, but Yu 1994 budget equations (2.28)–(2.30), pp.254–255, rounded parameters (2.31), p.256, and their induction on pp.262–263, and the four numeric regimes, pp.263–266, require a complete checked implication from the rounded parameters to the simultaneous initial row count, coefficient bound and jet/Liouville budgets. Small-n row domination was separately checked and is not this gap.",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.3/yu-improved-parameter-selection",
         "DiophantineApproximationAndTranscendence:DT.3/yu-full-kummer-conditional-bound"
@@ -3650,7 +3657,7 @@
     },
     {
       "title": "Generated-field and Phi constant comparison",
-      "detail": "Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof.",
+      "detail": "Correct Yu 1994 §4 equation (4.4), p.271, to f=lcm(f0,2) at p=2 after adjoining ζ3; its max(f0,2) fails for odd f0>1. Recompute the unit-to-general height, residue and coefficient comparison with this actual f, and then the four-regime comparison from Theorem 1′ to Φ. This packet does not infer that the final stated theorem is false; it records a missing corrected proof. The same parity error occurs in the older Yu 1990 Appendix lemma, pp.111–112 (E611); that lemma cannot supply the missing comparison.",
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.3/yu-nonunit-elimination",
         "DiophantineApproximationAndTranscendence:DT.3/yu-generated-field-general-bound",
@@ -3673,7 +3680,12 @@
         "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
         "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
         "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The next-page zero-kernel calculation confirms the sign correction.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E602",
@@ -3689,7 +3701,12 @@
         "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
         "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
         "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The homogeneous branch requires the direction-exclusion condition in Proposition 9.16.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E603",
@@ -3705,7 +3722,12 @@
         "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
         "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
         "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two displayed factors differ; M=1 bypasses the discrepancy exactly.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E604",
@@ -3721,7 +3743,12 @@
         "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
         "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
         "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The criterion uses a weighted sum; pointwise bounds introduce m, and the stated rescaling pays m^(m+1). The sharp theorem is not refuted.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E605",
@@ -3737,7 +3764,12 @@
         "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
         "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
         "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published correction p.307 changes the prime-order subscript.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E606",
@@ -3753,7 +3785,12 @@
         "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
         "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
         "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published correction p.307 changes the product to an e-th power.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E607",
@@ -3769,7 +3806,12 @@
         "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
         "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
         "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published correction p.307 supplies all five corrected parameter ranges.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E608",
@@ -3785,7 +3827,12 @@
         "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
         "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
         "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Yu 1994 p.253 explicitly places the root in Cp.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     },
     {
       "id": "DiophantineApproximationAndTranscendence/E609",
@@ -3801,7 +3848,56 @@
         "Numdam version-of-record item https://www.numdam.org/item/CM_1994__91_3_241_0/ (2026-10-13)",
         "Numdam published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0/ (2026-10-13)",
         "Web search for Kunrui Yu Linear forms in p-adic logarithms III correction/erratum (2026-10-13); no correction of the dyadic residue-degree formula located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The F8 to F64 example and unramified compositum law confirm the faulty step; the final numerical inequality remains a target.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E610",
+      "source": "wald2000",
+      "kind": "misprint",
+      "locator": "Author PDF, §9.2.3, proof of Lemma 9.17, Step 3, p.282; following tangent calculation p.283",
+      "printed": "The direction W for ∂X0+Y∂Y has its torus coordinate set to zero.",
+      "correction": "Use W=K·(1,0,…,0,1), retaining torus coordinate 1.",
+      "reason": "The invariant derivation attached to (1,0,…,0,0) is only ∂X0. The displayed operator includes Y∂Y, and the following tangent-space argument on p.283 itself uses final coordinate 1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Waldschmidt publications page https://webusers.imj-prg.fr/~michel.waldschmidt/texts.html (2026-10-13), book entry and links",
+        "Springer book page https://link.springer.com/book/10.1007/978-3-662-11569-5 (2026-10-13); no erratum located",
+        "Author PDF used here, pp.281–302; finding scoped to this copy, without a published-version collation",
+        "Web search for Waldschmidt Diophantine Approximation Linear Algebraic Groups errata 9.17 282 (2026-10-13); no correction located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read both adjacent proof pages and compared the direction to the invariant-derivation definition; the intended direction is unambiguous.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
+    },
+    {
+      "id": "DiophantineApproximationAndTranscendence/E611",
+      "source": "yu1990",
+      "kind": "error",
+      "locator": "Published Appendix, Lemma, pp.111–112; convention (0.20), p.21",
+      "printed": "The Appendix lemma gives residue degree max(fP0,2) after adjoining ζ3 at p=2 or i at p≡3 mod4, and its proof treats every fP0≥2 as a splitting case.",
+      "correction": "Replace this by lcm(fP0,2) in these cases. The quadratic residue polynomial splits precisely for even fP0, and for odd fP0 the residue degree doubles. The p≡1 mod4 case is unchanged.",
+      "reason": "A degree-two finite field embeds in F_(p^fP0) only when 2 divides fP0. At p=2 the unramified cubic example in E609 gives degree 6. At p=3 and fP0=3, F27 has multiplicative order 26, so it has no primitive fourth root; adjoining i gives residue field F729. The claimed Appendix lemma itself is false; this is not a counterexample to the final linear-form bounds.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Numdam version-of-record item https://www.numdam.org/item/CM_1990__74_1_15_0/ and its erratum link (2026-10-13)",
+        "Published correction https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf, p.307 (2026-10-13); its three entries do not correct the Appendix",
+        "Yu 1994 pp.247 and 271: actual-residue convention clarified but the dyadic max formula remains (E609)",
+        "Web search for Kunrui Yu linear forms p-adic logarithms II 1990 Appendix residue degree correction erratum (2026-10-13); no Appendix correction located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the rendered Appendix statement and both parity arguments. The finite-field embedding criterion and residue-order examples refute precisely its odd-degree branch.",
+        "by": "REV-DiophantineApproximationAndTranscendence--DT.3"
+      }
     }
   ],
   "sourceVersions": [
@@ -3830,13 +3926,15 @@
       "kind": "published",
       "url": "https://www.numdam.org/item/CM_1990__76_1-2_307_0.pdf",
       "citation": "Compositio Mathematica 76 (1990), p.307",
-      "read": "2026-10-13"
+      "read": "2026-10-13",
+      "sha256": "691a9bf832f8b97ee251cd9cdfc2d3313f28d4eb4f2afd3a3c1fe6a8ed8ef4fd"
     },
     {
       "kind": "published",
       "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=314&what=fullteng&option_lang=eng",
       "citation": "Izvestiya: Mathematics 64 (2000), pp.1217–1269, English version of record",
-      "read": "2026-10-13"
+      "read": "2026-10-13",
+      "sha256": "e395e4698837950b683362558441e1e75298ad28cb0cc8cf260a556c93093574"
     },
     {
       "kind": "preprint",
@@ -3991,5 +4089,273 @@
       "name": "Yu's p-adic lower bound"
     }
   ],
-  "planetPolicy": "Retain the original six DT.3 headline planets. New multiplicity, interpolation, Schwarz and descent targets are internal proof machinery, not additional planets in this layer."
+  "planetPolicy": "Retain the original six DT.3 headline planets. New multiplicity, interpolation, Schwarz and descent targets are internal proof machinery, not additional planets in this layer.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DiophantineApproximationAndTranscendence--DT.3",
+    "date": "2026-10-13",
+    "notes": "Accepted as a quantitative plan after in-place corrections, with all eight explicit proof/calibration gaps and seven supplier requests retained. Acceptance verifies the statements, planned proof interfaces and honest coverage status; it does not certify the unresolved sharp constants or numerical Yu proofs as closed. Independent session codex-JBRvYx reviewed BP-DiophantineApproximationAndTranscendence--DT.3 (PR #9436).",
+    "checked": [
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/absolute-height-calculus-adapter",
+        "verdict": "corrected",
+        "note": "Absolute normalization and all pinned height identities checked; corrected Property 3.3 locator."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/absolute-height-conjugate-size-adapter",
+        "verdict": "corrected",
+        "note": "Product height and inversion give the conjugate bounds; corrected equation/section locator."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/polynomial-length-and-block-degree",
+        "verdict": "corrected",
+        "note": "Coefficient sum, cancellation test and absolute Laurent exponents checked; corrected source sections."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/multiblock-liouville-height-adapter",
+        "verdict": "corrected",
+        "note": "Retains D−1 on log length and projective block heights; corrected Proposition 3.14 locator."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/filtered-additive-torus-coordinate-model",
+        "verdict": "verified",
+        "note": "Laurent quotient, filtration dimension and translation API checked on the existing carriers."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/laurent-hilbert-leading-form",
+        "verdict": "corrected",
+        "note": "Hilbert leading multiplicities and the full-group/double-point examples checked; corrected Proposition 8.3 page. Generic theory remains a supplier request."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/additive-one-torus-subgroups",
+        "verdict": "corrected",
+        "note": "One-torus subgroup classification and tangent/leading forms checked; corrected Lemma 8.13 page."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/laurent-complete-intersection-degree-bound",
+        "verdict": "corrected",
+        "note": "Properness, regular-sequence argument and retained primary multiplicities checked; corrected source pages."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/invariant-jets-and-transverse-jet-coordinates",
+        "verdict": "corrected",
+        "note": "Commuting invariant jets include order zero and differentiate inverses correctly; corrected equation-versus-lemma locator."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/transverse-jet-multiplicity-bound",
+        "verdict": "corrected",
+        "note": "Transverse coordinate length produces the binomial multiplicity; corrected source pages."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/roy-relative-multiplicity-estimate-one-torus",
+        "verdict": "verified",
+        "note": "Compared the relative estimate and its exact binomial/coset inequality to Theorem 8.1 and proof."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/delta-polynomial-adapter",
+        "verdict": "corrected",
+        "note": "Both shifted factorial conventions and six real-bodied Lean examples checked; added the defining Yu equation locator."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/delta-denominators-and-growth",
+        "verdict": "corrected",
+        "note": "Denominator, derivative-growth and lcm estimates checked; supplied the J=0 argument separately from the source’s J≥1 lemma."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/theta-minimal-degree-sum",
+        "verdict": "corrected",
+        "note": "Definition remains valid at T0=0; corrected the counting-bound domain and added a counterexample test."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/partial-alternant-order-and-schwarz",
+        "verdict": "corrected",
+        "note": "Alternant order and derivative loss checked; corrected Lemmas 7.2/7.5 locations."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/perturbed-determinant-upper-bound",
+        "verdict": "corrected",
+        "note": "Mixed-row expansion and error exponent checked; corrected Lemma 7.4 location."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/modified-interpolation-matrix",
+        "verdict": "verified",
+        "note": "Compared both changes of interpolation basis and the algebraic entries with the source."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/interpolation-minimal-subspace-rank",
+        "verdict": "corrected",
+        "note": "Checked rank obstruction and minimal-subspace argument; corrected the missing torus component and recorded E610."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/interpolation-determinant-arithmetic-bound",
+        "verdict": "corrected",
+        "note": "Arithmetic cost keeps denominator and polynomial-length contributions; corrected Lemma 3.15 section."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/interpolation-determinant-analytic-bound",
+        "verdict": "corrected",
+        "note": "Checked the analytic bound for the same selected minor; added positive d,T0,T1 hypotheses."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/waldschmidt-parameter-inequality",
+        "verdict": "verified",
+        "note": "All M=1 feasibility/budget conditions compared to Theorem 9.19; weighted sum retained."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/waldschmidt-rounded-parameter-selection",
+        "verdict": "corrected",
+        "note": "Rounded parameters and N0,C0,C1 checked; corrected the false equality assertion in the rounding test."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/waldschmidt-independent-estimate-proof",
+        "verdict": "corrected",
+        "note": "Checked sum-normalized estimate and constants; corrected the Proposition 9.18 locator. Sharp pointwise normalization remains G1."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/baker-fixed-logarithm-coefficient-adapter",
+        "verdict": "verified",
+        "note": "Coefficient degree/height control and qualitative Baker independence give the fixed-logarithm interface; branches retained."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/complex-multiplicative-form-adapter",
+        "verdict": "verified",
+        "note": "Nearest 2πi correction and small/large logarithmic-form alternatives checked."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/two-logarithm-matveev-replacement",
+        "verdict": "corrected",
+        "note": "Read Matveev Corollary 2.3 in the English primary source; made B* specialization explicit. Proof decomposition remains G2."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/waldschmidt-pointwise-conservative-estimate",
+        "verdict": "verified",
+        "note": "Verified sum repair with scaled logarithmic heights and Csafe=C(m)m^(m+1); does not assert the sharper constant."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/finite-place-normalization-adapter",
+        "verdict": "verified",
+        "note": "Checked integer order, p-normalized order, height-place norm and ramification restriction against owner contracts."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/deep-unit-exp-log-adapter",
+        "verdict": "verified",
+        "note": "Strict threshold, order isometry and dyadic boundary example checked; uses existing exp/log."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/normal-series-adapter",
+        "verdict": "verified",
+        "note": "Gauss-normal series and Hasse-jet API checked against source and restricted-series carriers."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/hermite-interpolation-denominator-bound",
+        "verdict": "verified",
+        "note": "Hermite denominator and normalized-jet costs checked against the MPIM precursor, preserving factorial terms."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-normal-schwarz-extrapolation",
+        "verdict": "corrected",
+        "note": "Normal Schwarz assumptions and extrapolation conclusion checked; corrected Yu Lemma 1.2 page."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/finite-place-liouville-adapter",
+        "verdict": "verified",
+        "note": "Product formula gives separate height costs and the D/(f log p) conversion; zero excluded."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-one-power-explicit-bound",
+        "verdict": "verified",
+        "note": "One-power constant and deep-unit reduction compared to Lemma 1.4; no full-Kummer input used."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/relative-siegel-polynomial-row-adapter",
+        "verdict": "verified",
+        "note": "Relative Siegel bound uses rational-integer unknowns and product row lengths; current ArithmeticHeights 5.6 supplier checked."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/dyadic-binomial-irreducibility-adapter",
+        "verdict": "verified",
+        "note": "Dyadic binomial exception and norm argument checked against Yu Lemma 1.8 and pinned irreducibility inputs."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/multi-radical-relation-adapter",
+        "verdict": "verified",
+        "note": "Radical-degree relation alternative checked with μq and compatible roots; both directions keep the full degree."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/bounded-total-degree-field-basis",
+        "verdict": "verified",
+        "note": "Finite field-span stabilization bounds monomial total degree by d−1; basis example and index counts checked."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/effective-house-input-adapter",
+        "verdict": "corrected",
+        "note": "Exact house/height implication compared to Lemma 1.10; original small-degree proof remains G3. Synchronized the proof-gap wording with the reader."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/short-logarithmic-relation",
+        "verdict": "corrected",
+        "note": "Short-relation target matches Lemma 1.11; separated integer, nonintegral and torsion inputs. Covolume proof remains G4."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-torsion-and-deep-unit-coordinates",
+        "verdict": "corrected",
+        "note": "Torsion quotients and compatible roots checked; made rational-value analytic rescaling a scalar in a finite complete extension."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-auxiliary-interpolation-functions",
+        "verdict": "corrected",
+        "note": "Auxiliary box, split congruences, normalized Delta and p-integral projection checked; rescaling field clarified."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-small-coefficient-auxiliary-function",
+        "verdict": "corrected",
+        "note": "Corrected row field by removing the common torsion factor before relative Siegel; counts and row averaging checked."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-grid-extrapolation-and-contraction",
+        "verdict": "corrected",
+        "note": "Checked the induction/contraction structure; corrected analytic scalar choices and torsion clearing for both grid fields. Terminal proof remains G5."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-improved-parameter-selection",
+        "verdict": "corrected",
+        "note": "Rounded formulas and budget targets compared to 1994 §§2.1–2.4; corrected locators. Full numeric implication remains G6."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-full-kummer-conditional-bound",
+        "verdict": "corrected",
+        "note": "All four constant regimes and seven endpoint ratios independently computed; clarified conservative W strengthening. Parameter proof remains G6."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-saturated-logarithm-basis",
+        "verdict": "verified",
+        "note": "Triangular q-saturation, torsion pivot and p-unit diagonal compared to Proposition 3.1; refinement calibration remains G7."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-dependent-logarithm-reduction",
+        "verdict": "verified",
+        "note": "p,q saturation and last q-only direction compared to Proposition 3.3; refined estimates remain G7."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-unit-bound-after-descent",
+        "verdict": "verified",
+        "note": "Checked statement and eight-case architecture with improved constants; numerical descent calibration remains G7."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-nonunit-elimination",
+        "verdict": "verified",
+        "note": "Verified nonunit elimination identities, integral exponents and deep-unit nonvanishing; final comparison remains G8."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-generated-field-general-bound",
+        "verdict": "corrected",
+        "note": "Corrected height threshold to the source’s squared f0/D0 normalization; verified E609 and retained G8 rather than claiming closure."
+      },
+      {
+        "nodeId": "DiophantineApproximationAndTranscendence:DT.3/yu-absolute-height-phi-adapter",
+        "verdict": "corrected",
+        "note": "Generated-field/consumer ramification distinction checked; corrected proof locator and Binput≥1 to max(3,Binput) conversion. Numeric comparison remains G8."
+      }
+    ]
+  }
 }
