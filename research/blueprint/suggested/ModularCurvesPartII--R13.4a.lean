@@ -250,8 +250,8 @@ example (n : ℕ) : Nat.card (Cusps (⊤ : Subgroup (GL2 n))) = 1 := sorry
 
 open AlgebraicGeometry CategoryTheory in
 /-- If `T` is integral over `J`, locally noetherian and normal, and `Y` is a dense open of `T`,
-then `T` is the relative normalization of `J` in `Y`. All three hypotheses are needed: a spare
-component, a non-normal `T`, or a non-dense `Y` break the conclusion. -/
+then `T` is the relative normalization of `J` in `Y`. Density and normality are needed: a spare
+component of `T` (so that `Y` is not dense) or a non-normal `T` breaks the conclusion. -/
 theorem finiteNormalRecognition {Y J T : Scheme.{0}} (f : Y ⟶ J) [QuasiCompact f]
     [QuasiSeparated f] (u : Y ⟶ T) (g : T ⟶ J) [IsIntegralHom g] [IsOpenImmersion u]
     (h : f = u ≫ g) [IsLocallyNoetherian T]
