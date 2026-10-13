@@ -194656,6 +194656,48 @@
    "reviewReason": "For the k-linear relative Frobenius of P¹, pullback sends O(1) to O(p) and multiplies H²(P¹,Qbar_ell(1)) by p. Its perfection is an automorphism, so changing the model by this automorphism changes the transferred trace by a nontrivial p-power. Ordinary scheme trace has the correct degree-scaling law and is unaffected. Independently checked against published A.3.3, p.480 and the preprint pp.55–56 on 2026-10-09, using the degree-p action on top cohomology of P¹."
   },
   {
+   "id": "EtaleDualityAndPerverseSheaves/E16",
+   "kind": "misprint",
+   "locator": "Proof of Corollaire 4.1.3, p.103 (Numdam scan of Astérisque 100, first edition; checked on the page image)",
+   "printed": "The proof says that f_* is t-exact on the right by reference to 4.1.7.",
+   "correction": "The right t-exactness of f_* for affine f is Théorème 4.1.1; the reference should read 4.1.1.",
+   "reason": "4.1.7 is the lemma producing a nonvanishing H^d on an open affine of a smooth affine variety (p.104), which says nothing about t-exactness; 4.1.1 (p.102) is the statement that Rf_* is right t-exact for affine f, exactly what the corollary needs together with 2.2.5 for the left half.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam first-edition scan, pp.102–104 (4.1.1–4.1.7)",
+    "sourceIssues of EtaleDualityAndPerverseSheaves--EDC.0 and --EDC.4 (E1–E15) and data/source-issues.json entries for BBD",
+    "SMF metadata for the 2018 second edition (errata announced; not collated with the first edition)"
+   ],
+   "owner": "EtaleDualityAndPerverseSheaves",
+   "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.5.json",
+   "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR (printed page = PDF page − 1), read 2026-10-13; statements checked on page images where the OCR is unclear",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E17",
+   "kind": "misprint",
+   "locator": "Proof of Lemme 4.3.3 and 4.3.4, p.113 (Numdam scan; checked on the page image)",
+   "printed": "Both proofs invoke the absence of subobjects and quotients supported on the boundary by citing (1.4.2.5).",
+   "correction": "The intended reference is Corollaire 1.4.25 (p.55): j_!*B is the unique extension without nonzero sub- or quotient objects from the closed part.",
+   "reason": "There is no statement numbered 1.4.2.5 in §1.4 (it runs 1.4.1, 1.4.2.1, 1.4.2.3, 1.4.3, …, 1.4.26); 1.4.25 is the characterisation the argument uses, and 4.3.4 applies it to the open and closed embeddings exactly as 1.4.25–1.4.26 allow.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam first-edition scan, pp.43–55 and 112–113",
+    "sourceIssues of EtaleDualityAndPerverseSheaves--EDC.0 and --EDC.4 (E1–E15)",
+    "SMF metadata for the 2018 second edition (not collated)"
+   ],
+   "owner": "EtaleDualityAndPerverseSheaves",
+   "file": "research/blueprint/packets/EtaleDualityAndPerverseSheaves--EDC.5.json",
+   "citation": "A. A. Beilinson, J. Bernstein, P. Deligne, Faisceaux pervers, Astérisque 100 (1982), pp. 5–171; Numdam scan with OCR (printed page = PDF page − 1), read 2026-10-13; statements checked on page images where the OCR is unclear",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "EulerSystemsAndKolyvaginSystems/E1",
    "kind": "misprint",
    "locator": "Hypothesis 4.7(ii), p. 22 of arXiv:1805.08448v1",
