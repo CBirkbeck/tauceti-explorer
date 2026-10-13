@@ -200,7 +200,8 @@
       "pr": 848,
       "head": "eafe802",
       "depends_on": [
-        779
+        779,
+        853
       ],
       "note": "ported 2026-10-13 from the explorer package (Codex); Lean 522 lines, README 2,160 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
       "review": {
@@ -217,7 +218,8 @@
       "head": "d0a1810",
       "depends_on": [
         779,
-        848
+        848,
+        853
       ],
       "note": "ported 2026-10-13 (Codex); Lean 558 lines, README 2,584 lines; also depends on AlgebraicModuliForArithmeticGeometry (port in progress)",
       "review": {
@@ -235,7 +237,8 @@
       "depends_on": [
         779,
         785,
-        848
+        848,
+        853
       ],
       "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name",
       "review": {
@@ -278,6 +281,25 @@
         "current": false,
         "date": null,
         "note": "opened 2026-10-13 10:00Z; awaiting first review"
+      }
+    },
+    "AlgebraicModuliForArithmeticGeometry": {
+      "stage": "pr",
+      "pr": 853,
+      "head": "be92167",
+      "depends_on": [
+        779,
+        785,
+        817,
+        813
+      ],
+      "note": "ported 2026-10-13 (Opus, claude3); Lean 983 lines (from 12,644; sorry-bodied constructions moved to the README), README 10,469 lines",
+      "review": {
+        "recommendation": null,
+        "head": null,
+        "current": false,
+        "date": null,
+        "note": "opened 2026-10-13 10:05Z; awaiting first review"
       }
     }
   }
