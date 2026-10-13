@@ -96,7 +96,7 @@
   "statement": "Pushouts of schemes along closed immersions (pinching, conductor squares): the key definition algebraicgeometry/ferrand-pushouts, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  },
  "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity": {
-  "job": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+  "job": "BP-DeformationAndDerivedPatchingAlgebra",
   "statement": "Hilbert–Samuel function and multiplicity of a local ring or module: the key definition algebraicgeometry/hilbert-samuel-multiplicity, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  }
 }

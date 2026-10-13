@@ -3,11 +3,11 @@
   "algebraicgeometry/coherent-duality": {
    "importers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
-    "BP-DeformationAndDerivedPatchingAlgebra--P7",
+    "BP-DeformationAndDerivedPatchingAlgebra",
     "DESIGN-ClassicalAdicEtaleCohomologyPartII",
     "DESIGN-PadicFamiliesPartII"
    ],
-   "items": 2,
+   "items": 3,
    "name": "Coherent dualizing complexes and exceptional inverse image",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the maintainer decided on SchemeAndStackFoundations",
@@ -15,7 +15,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 13
+   "unrouted": 12
   },
   "algebraicgeometry/equivariant-sheaf-cohomology": {
    "importers": [
@@ -45,10 +45,10 @@
   },
   "algebraicgeometry/excellent-schemes": {
    "importers": [
-    "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
+    "BP-LefschetzPencilsAndVanishingCycles",
     "DESIGN-SchemeAndStackFoundationsPartII"
    ],
-   "items": 10,
+   "items": 11,
    "name": "Excellent rings and schemes (G-rings, J-2, universal catenarity)",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 3 queued jobs its items go to",
@@ -56,7 +56,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 8
+   "unrouted": 7
   },
   "algebraicgeometry/ferrand-pushouts": {
    "importers": [],
@@ -128,7 +128,7 @@
    "importers": [],
    "items": 0,
    "name": "Hilbert–Samuel function and multiplicity of a local ring or module",
-   "owner": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "owner": "BP-DeformationAndDerivedPatchingAlgebra",
    "reason": "the maintainer decided on DeformationAndDerivedPatchingAlgebra",
    "reserved": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
    "roadmap": "DeformationAndDerivedPatchingAlgebra",
