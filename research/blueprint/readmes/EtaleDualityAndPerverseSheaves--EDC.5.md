@@ -2,13 +2,13 @@
 
 This part plans stage `EtaleDualityAndPerverseSheaves:EDC.5` at target level: the abstract theory of t-structures and recollement that Mathlib does not have, the middle perverse t-structure on constructible étale complexes over a field, perverse sheaves, the exactness of the six operations, intermediate extension and intersection complexes, Verdier self-duality with its integral replacement p/p⁺, and semismall and small pushforward. The [packet](../packets/EtaleDualityAndPerverseSheaves--EDC.5.json) fixes the identifiers; this document follows it node by node. The [suggested Lean file](../suggested/EtaleDualityAndPerverseSheaves--EDC.5.lean) states what the pinned libraries can already type.
 
-The pass is complete: 29 target nodes, 117 API entries, 64 unit tests and 6 planets. The stage is planned; its remaining items are supplier replacements and lemma-level splitting. No purity, semisimplicity or decomposition statement is made here: those are EDC.7, which imports this stage.
+The pass is complete: 29 target nodes, 119 API entries, 64 unit tests and 6 planets. The stage is planned; its remaining items are supplier replacements and lemma-level splitting. No purity, semisimplicity or decomposition statement is made here: those are EDC.7, which imports this stage.
 
 ## Ownership, inputs and boundaries
 
 Mathlib at the pin has `CategoryTheory.Triangulated.TStructure` with its truncation functors and the heart as an object property, the canonical t-structure on a derived category, and the `AbelianSubcategory` criterion. It has no abelian instance on hearts, no t-cohomology functors, no t-exactness predicate and no recollement. Tau Ceti and the current TauCetiRoadmap checkout have nothing on t-structures, recollement or perverse sheaves, and no other atlas roadmap plans them in the abstract; so the abstract layer is owned here, once, and the Beilinson, good-filtration and motivic t-structures of other roadmaps can cite it.
 
-The étale inputs are the accepted nodes of part EDC.0: the derived category D(X, Λ) and its stalks, constructible complexes, cohomology with supports, coefficient change, compact support with its amplitude, f^! and the local cohomology identification, dualizing complexes, Verdier duality, constructible biduality, the exchange formulas, the étale recollement, smooth purity, top-degree compact cohomology and smooth-pair purity (EDC.3). Using EDC.3's smooth-pair purity adds a same-roadmap dependency EDC.3 → EDC.5 that the atlas graph does not draw.
+The étale inputs are the accepted nodes of part EDC.0: the derived category D(X, Λ) and its stalks, constructible complexes, cohomology with supports, coefficient change, compact support with its amplitude, f^! and the local cohomology identification, dualizing complexes, Verdier duality, constructible biduality, the exchange formulas, the étale recollement (stated there for self-injective Λ; for any noetherian Λ killed by n the same data come from cohomology with supports, the local cohomology identification and the finiteness theorem), smooth purity, top-degree compact cohomology and smooth-pair purity (EDC.3). Using EDC.3's smooth-pair purity adds a same-roadmap dependency EDC.3 → EDC.5 that the atlas graph does not draw.
 
 Five supplier contracts go to SchemeAndStackFoundations SF.2, which integrates CohomologicalPointCounting: Artin's affine theorem, topological invariance of the étale site, surjectivity of π₁ for open subschemes of unibranch schemes, the ℓ-adic constructible formalism with its duality, and the base-change, finiteness and Künneth inputs EDC.0 also imports. The ℓ-adic formalism is requested from SF.2 rather than from EDC.6, because EDC.6 lies downstream of EDC.5 in the atlas. The filtered-colimit cohomology statement is cited from the SF.2 node `SchemeAndStackFoundations:SF.2/cohomology-filtered-colimits`.
 
@@ -39,6 +39,39 @@ An earlier draft of this stage sits inside the EDC.4-part packet (which also cov
 | `EtaleDualityAndPerverseSheaves:EDC.5/small-map-intersection-complex` | `EtaleDualityAndPerverseSheaves:EDC.5/small-pushforward-intersection-complex` |
 | `EtaleDualityAndPerverseSheaves:EDC.5/integral-perverse-torsion-pair` | `EtaleDualityAndPerverseSheaves:EDC.5/integral-dual-perversity` |
 
+The draft also promoted 28 of its API items to lemma nodes; here they are API items again (or, in one case, the statement of a node):
+
+| Draft id (EDC.4 packet) | Replacement |
+| --- | --- |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-homology-zero-is-homological` | `EtaleDualityAndPerverseSheaves:EDC.5/t-structure-cohomology`, API item `TauCeti.EtaleDuality.TStructure.homologyZero_isHomological` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-is-zero-of-homology-is-zero` | `EtaleDualityAndPerverseSheaves:EDC.5/t-structure-cohomology`, API item `TauCeti.EtaleDuality.TStructure.isZero_of_homology_isZero` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-is-l-e-iff-homology` | `EtaleDualityAndPerverseSheaves:EDC.5/t-structure-cohomology`, API item `TauCeti.EtaleDuality.TStructure.isLE_iff_homology` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-functor--is-right-t-exact-comp` | `EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors`, API item `TauCeti.EtaleDuality.Functor.IsRightTExact.comp` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-functor--is-left-t-exact-comp` | `EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors`, API item `TauCeti.EtaleDuality.Functor.IsLeftTExact.comp` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-functor-is-right-t-exact-iff-is-left-t-exact-of-adjunction` | `EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors`, API item `TauCeti.EtaleDuality.Functor.isRightTExact_iff_isLeftTExact_of_adjunction` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-functor-heart-functor-preserves-finite-colimits` | `EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors`, API item `TauCeti.EtaleDuality.Functor.heartFunctor_preservesFiniteColimits` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-functor-heart-functor-preserves-finite-limits` | `EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functors`, API item `TauCeti.EtaleDuality.Functor.heartFunctor_preservesFiniteLimits` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-triangle-lower-shriek-distinguished` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation`, API item `TauCeti.EtaleDuality.Recollement.triangleLowerShriek` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-triangle-upper-shriek-distinguished` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation`, API item `TauCeti.EtaleDuality.Recollement.triangleUpperShriek` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-upper-star-lower-shriek-eq-zero` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation`, API item `TauCeti.EtaleDuality.Recollement.upperStar_lowerShriek_isZero` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-upper-star-intermediate-extension` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, API item `TauCeti.EtaleDuality.Recollement.upperStar_intermediateExtension` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-no-sub-quotient` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, API item `TauCeti.EtaleDuality.Recollement.intermediateExtension_no_sub_quotient` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-unique` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, API item `TauCeti.EtaleDuality.Recollement.intermediateExtension_unique` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-fully-faithful` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, API item `TauCeti.EtaleDuality.Recollement.intermediateExtension_fullyFaithful` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-simple-classification` | `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, API item `TauCeti.EtaleDuality.Recollement.simple_classification` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-le-iff` | `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, API item `TauCeti.EtaleDuality.perverseTStructure_le_iff_support` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-ge-iff-verdier-dual` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-verdier-self-duality` (its statement) |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-bounded` | `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, API item `TauCeti.EtaleDuality.perverseTStructure_bounded` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-glue` | `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, API item `TauCeti.EtaleDuality.perverseTStructure_glue` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-sheaf-hom-is-sheaf` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-sheaf-category`, API item `TauCeti.EtaleDuality.PerverseSheaf.hom_isSheaf` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-eq-image` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, API item `TauCeti.EtaleDuality.intermediateExtension_eq_image` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-restrict-intermediate-extension` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, API item `TauCeti.EtaleDuality.restrict_intermediateExtension` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-stalk-bound` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, API item `TauCeti.EtaleDuality.intermediateExtension_stalk_bound` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-costalk-bound` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, API item `TauCeti.EtaleDuality.intermediateExtension_costalk_bound` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-comp` | `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, API item `TauCeti.EtaleDuality.intermediateExtension_comp` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intersection-complex-restrict` | `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex-of-local-system`, API item `TauCeti.EtaleDuality.intersectionComplex_restrict` |
+| `EtaleDualityAndPerverseSheaves:EDC.5/api-intersection-complex-simple` | `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex-of-local-system`, API item `TauCeti.EtaleDuality.intersectionComplex_simple` |
+
 The draft's semismall target was left unverified by its review: its costalk argument used product charts and lisse stalks only. Here the support condition is proved stratum by stratum with compact-support bounds, and the cosupport condition by Verdier duality, under the explicit hypothesis that K and D_X K have locally constant cohomology on the source strata; no local triviality is needed. The draft's ℓ-adic prerequisites pointed into EDC.6; they now go to SF.2.
 
 ## Conventions
@@ -55,7 +88,7 @@ Coefficient regimes, used consistently in the hypotheses:
 | --- | --- |
 | Λ noetherian, nΛ = 0, n invertible in k | t-structure, heart, recollement, j_!*, IC, quasi-finite and fibre-dimension exactness, enlarged conditions |
 | Λ self-injective (finite field, O/λ^m, ℤ/ℓ^m) | Verdier self-duality, Rf_! halves deduced by duality, semismall and small pushforward |
-| Λ a finite ring | left t-exactness of Rf_! for affine f, by restriction of scalars to ℤ/n |
+| Λ a finite ring | left t-exactness of Rf_! for affine f, by restriction of scalars to ℤ/n, and with it the perversity of j_!G for an affine open immersion j |
 | Λ a field | finite length and simple objects, t-exactness of ⊠, thick image of smooth pullback |
 | O, E (ℓ-adic, k with finite Galois cohomology) | ℓ-adic perverse t-structures; E self-dual, O exchanged with p⁺ |
 
@@ -224,7 +257,7 @@ Let (C₁, t₁), (C₂, t₂) be pretriangulated categories with t-structures a
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation` · definition.
 
-A recollement D_F → D → D_U consists of pretriangulated categories D_F, D, D_U, triangulated functors i_* : D_F → D and j^* : D → D_U, triangulated adjoints i^* ⊣ i_* ⊣ i^! and j_! ⊣ j^* ⊣ j_* (all six triangulated, with the four adjunctions given), such that (a) j^* ∘ i_* ≅ 0; (b) for every K in D the adjunction maps extend to distinguished triangles j_!j^*K → K → i_*i^*K → (j_!j^*K)[1] and i_*i^!K → K → j_*j^*K → (i_*i^!K)[1]; (c) the adjunction maps i^*i_* → 1, 1 → i^!i_*, 1 → j^*j_!, j^*j_* → 1 are isomorphisms, so i_*, j_! and j_* are fully faithful (BBD 1.4.3). Consequences: i^*j_! ≅ 0, i^!j_* ≅ 0, Hom(j_!B, i_*A) = 0 = Hom(i_*A, j_*B); the connecting maps of the triangles in (b) are unique; i_* identifies D_F with the full subcategory of D on which j^* vanishes. The basic instance is constructible étale sheaves on X with a closed subscheme Z and open complement U, with i_* = i_! and j^! = j^* (EDC.1:biduality/recollement-adjunctions).
+A recollement D_F → D → D_U consists of pretriangulated categories D_F, D, D_U, triangulated functors i_* : D_F → D and j^* : D → D_U, triangulated adjoints i^* ⊣ i_* ⊣ i^! and j_! ⊣ j^* ⊣ j_* (all six triangulated, with the four adjunctions given), such that (a) j^* ∘ i_* ≅ 0; (b) for every K in D the adjunction maps extend to distinguished triangles j_!j^*K → K → i_*i^*K → (j_!j^*K)[1] and i_*i^!K → K → j_*j^*K → (i_*i^!K)[1]; (c) the adjunction maps i^*i_* → 1, 1 → i^!i_*, 1 → j^*j_!, j^*j_* → 1 are isomorphisms, so i_*, j_! and j_* are fully faithful (BBD 1.4.3). Consequences: i^*j_! ≅ 0, i^!j_* ≅ 0, Hom(j_!B, i_*A) = 0 = Hom(i_*A, j_*B); the connecting maps of the triangles in (b) are unique; i_* identifies D_F with the full subcategory of D on which j^* vanishes. The basic instance is constructible étale sheaves on X with a closed subscheme Z and open complement U, with i_* = i_! and j^! = j^* (EDC.1:biduality/recollement-adjunctions for self-injective Λ; for any noetherian Λ killed by n invertible, the same data from EDC.0/cohomology-with-supports and EDC.1:adjoint/local-cohomology-identification, with the finiteness theorem for Rj_* and i^!).
 
 **Hypotheses.**
 
@@ -246,7 +279,7 @@ A recollement D_F → D → D_U consists of pretriangulated categories D_F, D, D
 | `TauCeti.EtaleDuality.Recollement.upperStar_lowerShriek_isZero` | relation | i^* ∘ j_! ≅ 0 and i^! ∘ j_* ≅ 0. |
 | `TauCeti.EtaleDuality.Recollement.essImage_lowerStar` | characterisation | K is in the essential image of i_* iff j^*K ≅ 0. |
 | `TauCeti.EtaleDuality.Recollement.op` | other | The opposite recollement of D_F^op → D^op → D_U^op, exchanging j_! with j_* and i^* with i^!. |
-| `TauCeti.EtaleDuality.Recollement.ofClosedOpen` | constructor | The constructible étale recollement of D^b_c(Z, Λ) → D^b_c(X, Λ) → D^b_c(U, Λ) for Z ⊂ X closed with open complement U (EDC.1:biduality/recollement-adjunctions). |
+| `TauCeti.EtaleDuality.Recollement.ofClosedOpen` | constructor | The constructible étale recollement of D^b_c(Z, Λ) → D^b_c(X, Λ) → D^b_c(U, Λ) for Z ⊂ X closed with open complement U and Λ noetherian killed by n invertible (EDC.1:biduality/recollement-adjunctions; EDC.0/cohomology-with-supports and EDC.1:adjoint/local-cohomology-identification when Λ is not self-injective). |
 | `TauCeti.EtaleDuality.Recollement.ofClosedOpen_upperStar` | compatibility | In ofClosedOpen, j^* is restriction to U and i_* is pushforward along the closed immersion. |
 
 **Unit tests.**
@@ -268,7 +301,7 @@ A recollement D_F → D → D_U consists of pretriangulated categories D_F, D, D
 - GeometricSatakeAndFusion:GS1: the relative perverse t-structure is glued along Schubert strata.
 - EDC.5/recollement-intermediate-extension: j_!* is the image of pj_! → pj_*.
 
-**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions`, `mathlib:CategoryTheory.Functor.IsTriangulated`, `mathlib:CategoryTheory.Adjunction`
+**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions`, `EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports`, `EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification`, `mathlib:CategoryTheory.Functor.IsTriangulated`, `mathlib:CategoryTheory.Adjunction`
 
 **Used by.** `gluing-t-structures`, `middle-perverse-t-structure`, `open-closed-perverse-recollement`, `enlarged-perversity-conditions`
 
@@ -470,7 +503,7 @@ Let X be a scheme locally of finite type over a field k. For a point x of X put 
 - `TauCeti.EtaleDuality.pointDim_affineSpace_closed` (computation): Every closed point of 𝔸^n_k has pointDim 0.
 - `TauCeti.EtaleDuality.pointDim_affineSpace_generic` (computation): The generic point of 𝔸^n_k has pointDim n.
 - `TauCeti.EtaleDuality.pointDim_spec_field` (degenerate): The unique point of Spec k has pointDim 0.
-- `TauCeti.EtaleDuality.pointDim_eq_coheight_compat` (compatibility): pointDim X x equals the Krull dimension of the reduced closed subscheme {x}^− (Mathlib topologicalKrullDim of its underlying space).
+- `TauCeti.EtaleDuality.pointDim_eq_coheight_compat` (compatibility): pointDim X x equals the coheight of x for the specialization order: the supremum of the lengths r of chains x = x₀ ⤳ x₁ ⤳ … ⤳ x_r of distinct points (on a scheme, irreducible closed subsets of the closure of x are closures of points).
 - `TauCeti.EtaleDuality.not_pointDim_eq_codim` (non-example): On 𝔸² ⊔ 𝔸¹ the closed points have pointDim 0 but codimension 2 and 1: a perversity defined through codimension would give these points different cutoffs.
 
 **Acceptance.**
@@ -514,7 +547,7 @@ Let k be a field, n invertible in k, X separated of finite type over k and Λ a 
 
 - Reduce to k perfect: X_{k^perf} → X is a universal homeomorphism, so it induces an equivalence of étale sites (requested from SchemeAndStackFoundations:SF.2, Stacks Tag 04DY), preserving stalks, costalks, constructibility and dim(x) (EDC.5/point-dimension-function).
 - On a smooth equidimensional stratum S of dimension e, for complexes with locally constant cohomology the pointwise conditions are the natural t-structure shifted by e: the stalk condition at the generic point gives D^{≤−e}, and smooth-pair purity (EDC.3/smooth-pair-purity) gives i_x^!L ≅ i_x^*L(−c)[−2c] for c = e − dim(x), so the costalk condition is implied by the one at the generic point (EDC.5/shifted-local-systems-perverse).
-- Construction of the truncation triangle of a given K by noetherian induction on X: take a dense open U on which the cohomology sheaves of K are lisse and U is smooth equidimensional, truncate there with the shifted natural truncation, glue with the perverse t-structure of the closed complement (induction) along the recollement EDC.1:biduality/recollement-adjunctions by the octahedral argument of EDC.5/gluing-t-structures (BBD 1.4.10 and 2.1.3); the finiteness theorem (Rj_* and i^! preserve D^b_c, EDC.0/constructible-ctf-complexes with its SF.2 import) keeps every object constructible.
+- Construction of the truncation triangle of a given K by noetherian induction on X: take a dense open U on which the cohomology sheaves of K are lisse and U is smooth equidimensional, truncate there with the shifted natural truncation, glue with the perverse t-structure of the closed complement (induction) along the open–closed recollement by the octahedral argument of EDC.5/gluing-t-structures (BBD 1.4.10 and 2.1.3). EDC.1:biduality/recollement-adjunctions states the recollement for self-injective Λ; for a general noetherian Λ killed by n the same adjunctions and triangles hold on D(X, Λ) by EDC.0/cohomology-with-supports and EDC.1:adjoint/local-cohomology-identification, Rj_* preserves D^b_c by the finiteness theorem requested from SF.2, and then i^! does by the localization triangle; the finiteness theorem (Rj_* and i^! preserve D^b_c, EDC.0/constructible-ctf-complexes with its SF.2 import) keeps every object constructible.
 - Orthogonality Hom(pD^{≤0}, pD^{≥1}) = 0 by dévissage along the same stratification: for i_S the stratum inclusions, Hom(i_{S!}i_S^*K, L) = Hom(i_S^*K, i_S^!L) vanishes by the shifted natural bounds on S (BBD 2.1.4).
 - Independence of choices and the stratum criterion: refining the stratification does not change the conditions, by purity (BBD 2.2.11, citing SGA 4 XVI 3.7 for the analogue of 2.1.14) and the pointwise form 2.2.12 with the corrected inequalities of EtaleDualityAndPerverseSheaves/E11; the stratum criterion is the one used in the proof of BBD 4.2.8, p.112.
 - Bounds (2.1.2.1); étale locality from the pointwise form and the quasi-finite invariance of dim(x); restriction of scalars commutes with stalks and with i^! (EDC.0/coefficient-change); base-field extension: BBD 4.2.9; the point: dim(x) = 0 and costalk = stalk.
@@ -560,7 +593,7 @@ Let k be a field, n invertible in k, X separated of finite type over k and Λ a 
 - IgusaVarietiesAndTorsionConcentration:IG.4: the lower bound pD^{≥d} after nearby cycles.
 - EndoscopicTransferAndUnitaryTraceComparison:ET.2a:duality-perversity: re-exported middle perverse truncations.
 
-**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/gluing-t-structures`, `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation`, `EtaleDualityAndPerverseSheaves:EDC.5/point-dimension-function`, `EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes`, `EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category`, `EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change`, `EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification`, `EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions`, `EtaleDualityAndPerverseSheaves:EDC.3/smooth-pair-purity`, `mathlib:CategoryTheory.Triangulated.TStructure`, `mathlib:CategoryTheory.Triangulated.TStructure.bounded`, `SchemeAndStackFoundations:SF.2`
+**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/gluing-t-structures`, `EtaleDualityAndPerverseSheaves:EDC.5/recollement-situation`, `EtaleDualityAndPerverseSheaves:EDC.5/point-dimension-function`, `EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes`, `EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category`, `EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change`, `EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports`, `EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification`, `EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions`, `EtaleDualityAndPerverseSheaves:EDC.3/smooth-pair-purity`, `mathlib:CategoryTheory.Triangulated.TStructure`, `mathlib:CategoryTheory.Triangulated.TStructure.bounded`, `SchemeAndStackFoundations:SF.2`
 
 **Used by.** `perverse-sheaf-category`, `shifted-local-systems-perverse`, `open-closed-perverse-recollement`, `perverse-verdier-self-duality`, `quasi-finite-perverse-exactness`, `fibre-dimension-perverse-amplitude`, `perverse-artin-vanishing`, `external-product-t-exact`, `perverse-intermediate-extension`, `deligne-truncation-formula`, `intermediate-extension-low-degree-cohomology`, `intersection-complex-of-local-system`, `simple-perverse-sheaves-classification`, `adic-perverse-t-structures`, `enlarged-perversity-conditions`, `semismall-pushforward-perversity`
 
@@ -713,7 +746,7 @@ Let i : Z → X be a closed immersion with open complement j : U → X. The midd
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/adic-perverse-t-structures` · construction.
 
-Assume the ℓ-adic hypotheses: E/ℚ_ℓ finite with ring of integers O and uniformizer λ, and k with finite H^i(Gal(k^sep/k′), ℤ/ℓ) for all finite k′/k. On the ℓ-adic constructible categories D^b_c(X, O) (constructible complexes of finite Tor-dimension at each level λ^m, as a 2-limit) and D^b_c(X, E) := D^b_c(X, O) ⊗_O E, the middle perverse t-structures are defined by the stalk and costalk conditions (4.0.1)–(4.0.2) on the cohomology sheaves ℋ^m (constructible O- and E-sheaves), equivalently by gluing as in EDC.5/middle-perverse-t-structure. Then: K ∈ pD^{≤0}(X, O) iff K ⊗^L_O O/λ ∈ pD^{≤0}(X, O/λ) (BBD 2.2.17); for every interval [a, b] the functor pD^{[a,b]}(X, O) ⊗ E → pD^{[a,b]}(X, E) is an equivalence, so Perv(X, E) = Perv(X, O) ⊗_O E (BBD 2.2.18); the results of EDC.5 stated for torsion coefficients (recollement, intermediate extension, quasi-finite, affine, smooth and fibre-dimension exactness) hold for O and E coefficients (BBD 2.2.19, 4.0); for E the perverse t-structure is self-dual (EDC.5/perverse-verdier-self-duality), for O it is not (EDC.5/integral-dual-perversity).
+Assume the ℓ-adic hypotheses: E/ℚ_ℓ finite with ring of integers O and uniformizer λ, and k with finite H^i(Gal(k^sep/k′), ℤ/ℓ) for all finite k′/k. On the ℓ-adic constructible categories D^b_c(X, O) (constructible complexes of finite Tor-dimension at each level λ^m, as a 2-limit) and D^b_c(X, E) := D^b_c(X, O) ⊗_O E, the middle perverse t-structures are defined by the stalk and costalk conditions (4.0.1)–(4.0.2) on the cohomology sheaves ℋ^m (constructible O- and E-sheaves), equivalently by gluing as in EDC.5/middle-perverse-t-structure. Then: K ∈ pD^{≤0}(X, O) iff K ⊗^L_O O/λ ∈ pD^{≤0}(X, O/λ) (BBD 2.2.17); for every interval [a, b] the functor pD^{[a,b]}(X, O) ⊗ E → pD^{[a,b]}(X, E) is an equivalence, so Perv(X, E) = Perv(X, O) ⊗_O E (BBD 2.2.18); the results of EDC.5 stated for torsion coefficients (recollement, intermediate extension, quasi-finite, affine, smooth and fibre-dimension exactness) hold for O and E coefficients (BBD 2.2.19, 4.0); for E the perverse t-structure is self-dual (EDC.5/perverse-verdier-self-duality), for O it is not (EDC.5/integral-dual-perversity). Finally D^b_c(X, ℚ̄_ℓ) is the 2-colimit of the D^b_c(X, E) over finite E ⊂ ℚ̄_ℓ, with the perverse t-structure whose aisles are the unions of those over E (BBD 2.2.18, last paragraph).
 
 **Hypotheses.**
 
@@ -738,6 +771,7 @@ Assume the ℓ-adic hypotheses: E/ℚ_ℓ finite with ring of integers O and uni
 | `TauCeti.EtaleDuality.adicPerverse_rationalize_tExact` | functoriality | K ↦ K ⊗_O E is t-exact from p on O to the perverse t-structure on E. |
 | `TauCeti.EtaleDuality.adicPerverse_reduction_rightTExact` | functoriality | K ↦ K ⊗^L_O O/λ^m is right t-exact from p on O to the perverse t-structure on O/λ^m. |
 | `TauCeti.EtaleDuality.adicPerverse_point` | compatibility | For X = Spec Ω, Ω separably closed, the perverse t-structure on D^b_c(X, O) is the natural one on D^b_fg(O). |
+| `TauCeti.EtaleDuality.adicPerverse_algebraicClosure` | other | D^b_c(X, ℚ̄_ℓ) := the 2-colimit of D^b_c(X, E) over finite E ⊂ ℚ̄_ℓ, with the perverse t-structure whose aisles are the unions of those over E; Perv(X, ℚ̄_ℓ) is the colimit of the Perv(X, E). |
 
 **Unit tests.**
 
@@ -760,11 +794,11 @@ Assume the ℓ-adic hypotheses: E/ℚ_ℓ finite with ring of integers O and uni
 
 **Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, `EtaleDualityAndPerverseSheaves:EDC.5/gluing-t-structures`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-sheaf-category`, `EtaleDualityAndPerverseSheaves:EDC.0/coefficient-change`, `SchemeAndStackFoundations:SF.2`
 
-**Used by.** `integral-dual-perversity`
+**Used by.** `simple-perverse-sheaves-classification`, `integral-dual-perversity`
 
 **Sources.**
 
-- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.2.14–2.2.18, pp.71–74: ℤ_ℓ-sheaves via the 2-limit of D^b_ctf(X, ℤ/ℓ^n) under the Galois-finiteness hypothesis; the natural and perverse t-structures on D^b_c(X, ℤ_ℓ), perversity tested modulo ℓ; ℚ_ℓ and finite extensions E by tensoring, with perverse ℚ_ℓ-sheaves obtained from perverse ℤ_ℓ-sheaves.
+- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.2.14–2.2.18, pp.71–74: ℤ_ℓ-sheaves via the 2-limit of D^b_ctf(X, ℤ/ℓ^n) under the Galois-finiteness hypothesis; the natural and perverse t-structures on D^b_c(X, ℤ_ℓ), perversity tested modulo ℓ; ℚ_ℓ and finite extensions E by tensoring, with perverse ℚ_ℓ-sheaves obtained from perverse ℤ_ℓ-sheaves, and ℚ̄_ℓ by passing to the limit over E.
 - [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 4.0, p.101: Section 4 works with ℚ̄_ℓ-coefficients for fields k with finite Galois cohomology; most results hold for ℤ_ℓ, ℚ_ℓ, ℤ/ℓ^n, E, O and finite quotients of O, by reduction to ℤ/ℓ-coefficients.
 
 **Suggested declarations.** `TauCeti.EtaleDuality.adicPerverseTStructure`
@@ -773,17 +807,18 @@ Assume the ℓ-adic hypotheses: E/ℚ_ℓ finite with ring of integers O and uni
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/enlarged-perversity-conditions` · definition.
 
-Let X be separated of finite type over k and Λ torsion (nΛ = 0, n invertible in k). For a ∈ ℤ and K in the unbounded derived category D(X, Λ) (EDC.0/etale-derived-category), say K ∈ pD^{≤a}_{ext}(X, Λ) if ℋ^m(i_x^*K) = 0 for m > a − dim(x) at every point x, and K ∈ pD^{≥a}_{ext}(X, Λ) if K is bounded below and ℋ^m(i_x^!K) = 0 for m < a − dim(x) at every point x (i_x^! := restriction of i^! along {x}^− → X to x, EDC.1:adjoint/local-cohomology-identification). Then: (a) on D^b_c(X, Λ) these are the aisles of the middle perverse t-structure; (b) pD^{≤a}_{ext} is closed under extensions, arbitrary direct sums and filtered colimits; (c) pD^{≥a}_{ext} is closed under extensions and under filtered colimits of systems that are uniformly bounded below (all K_α ∈ D^{≥b} for one b), because for such systems geometric costalks commute with the colimit; (d) for j : U → X open, Rj_* preserves pD^{≥a}_{ext} and j^* preserves both conditions; for f : X → Y finite, f_* preserves both; for u étale, u^* preserves both and detects them when surjective. No t-structure on D(X, Λ) and no constructibility of filtered colimits is asserted.
+Let X be separated of finite type over k and Λ torsion (nΛ = 0, n invertible in k). For a ∈ ℤ and K in the unbounded derived category D(X, Λ) (EDC.0/etale-derived-category), say K ∈ pD^{≤a}_{ext}(X, Λ) if ℋ^m(i_x^*K) = 0 for m > a − dim(x) at every point x, and K ∈ pD^{≥a}_{ext}(X, Λ) if K is bounded below and ℋ^m(i_x^!K) = 0 for m < a − dim(x) at every point x (i_x^! := restriction of i^! along {x}^− → X to x, EDC.1:adjoint/local-cohomology-identification). Then: (a) on D^b_c(X, Λ) these are the aisles of the middle perverse t-structure; (b) pD^{≤a}_{ext} is closed under extensions, arbitrary direct sums and filtered colimits; (c) pD^{≥a}_{ext} ⊆ D^{≥a−dim X}, so every family in it is uniformly bounded below (BBD 2.1.2, remark after the definition), and pD^{≥a}_{ext} is closed under extensions and under filtered colimits, because for systems uniformly bounded below (all K_α ∈ D^{≥b} for one b) geometric costalks commute with the colimit; (d) for j : U → X open, Rj_* preserves pD^{≥a}_{ext} and j^* preserves both conditions; for f : X → Y finite, f_* preserves both; for u étale, u^* preserves both and detects them when surjective. No t-structure on D(X, Λ) and no constructibility of filtered colimits is asserted.
 
 **Hypotheses.**
 
 - k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U are separated schemes of finite type over k; every point x has dim(x) := dim of its closure (EDC.5/point-dimension-function).
-- Λ torsion with nΛ = 0; X noetherian (separated of finite type over k); the lower condition includes bounded-belowness so that the costalk of a filtered colimit is computed by the colimit of costalks.
+- Λ torsion with nΛ = 0; X noetherian (separated of finite type over k); the lower condition includes bounded-belowness so that i_x^! is the derived functor on D⁺; together with the costalk vanishing it then forces the bound K ∈ D^{≥a−dim X}, which is what makes the costalk of a filtered colimit the colimit of the costalks.
 
 **Construction and proof.**
 
 - (a): definitions agree with (4.0.1)–(4.0.2) (EDC.5/middle-perverse-t-structure).
 - (b): stalks are exact and commute with all colimits.
+- Lower bound in (c): if K ∈ D^{≥b} with ℋ^b(K) ≠ 0 and b < a − dim X, take a nonzero section s of ℋ^b(K) over some étale V and a generic point v of an irreducible component of its support, lying over x ∈ X; near v the section is supported on the preimage of {x}^−, so it gives a nonzero element of ℋ^b(i_x^!K) (the lowest cohomology of i_x^!K is the sheaf of sections of ℋ^b(K) supported on {x}^−), although b < a − dim X ≤ a − dim(x). This is the pointwise form of BBD's remark after 2.1.2.
 - (c): ℋ^m(i_x^!K) is the colimit over étale neighbourhoods V of x and closed W = {x}^− ∩ V of H^m_W(V, K); with a uniform lower bound b, H^m_W(V, −) depends only on τ_{≤m+1}, a bounded complex in [b, m+1], and étale cohomology with supports of the qcqs V commutes with filtered colimits of sheaves (SF.2/cohomology-filtered-colimits via the localization triangle of EDC.0/cohomology-with-supports); induct on the length.
 - (d): for x ∉ U, {x}^− ⊆ X ∖ U and i^!Rj_* = 0 (EDC.5/recollement-situation), so the costalk of Rj_*K at x vanishes; for x ∈ U it is that of K. Finite f: f_* is exact, stalks of f_*K at y are the sums of stalks over the finitely many points above y, and i_y^!f_*K = f′_*i′^!K by base change for the closed immersion; dim is preserved by quasi-finite maps (EDC.5/point-dimension-function). Étale u: stalks and costalks are preserved.
 
@@ -795,7 +830,8 @@ Let X be separated of finite type over k and Λ torsion (nΛ = 0, n invertible i
 | `TauCeti.EtaleDuality.perverseGEExt` | constructor | K ∈ D⁺(X, Λ) with ℋ^m(i_x^!K) = 0 for m < a − dim(x) at every point. |
 | `TauCeti.EtaleDuality.perverseLEExt_iff_of_constructible` | compatibility | On D^b_c(X, Λ), perverseLEExt a and perverseGEExt a are pD^{≤a} and pD^{≥a}. |
 | `TauCeti.EtaleDuality.perverseLEExt_colimit` | other | perverseLEExt a is closed under filtered colimits and direct sums. |
-| `TauCeti.EtaleDuality.perverseGEExt_colimit` | other | perverseGEExt a is closed under filtered colimits of systems uniformly bounded below. |
+| `TauCeti.EtaleDuality.perverseGEExt_isGE` | relation | If K ∈ perverseGEExt a then K ∈ D^{≥a−dim X}; in particular every family in perverseGEExt a is uniformly bounded below. |
+| `TauCeti.EtaleDuality.perverseGEExt_colimit` | other | perverseGEExt a is closed under filtered colimits; the uniform lower bound the costalk comparison needs is supplied by perverseGEExt_isGE. |
 | `TauCeti.EtaleDuality.costalk_colimit_iso` | relation | For a filtered system K_α in D^{≥b}(X, Λ), colim ℋ^m(i_x^!K_α) ≅ ℋ^m(i_x^! colim K_α). |
 | `TauCeti.EtaleDuality.perverseGEExt_pushforward_open` | functoriality | For j : U → X open, Rj_* preserves perverseGEExt a. |
 | `TauCeti.EtaleDuality.perverseExt_finite_pushforward` | functoriality | For f finite, f_* preserves perverseLEExt a and perverseGEExt a. |
@@ -806,7 +842,7 @@ Let X be separated of finite type over k and Λ torsion (nΛ = 0, n invertible i
 - `TauCeti.EtaleDuality.perverseExt_skyscraper_sum` (computation): On a smooth curve C, ⊕_{x closed} i_{x*}Λ[0] satisfies both perverseLEExt 0 and perverseGEExt 0.
 - `TauCeti.EtaleDuality.perverseExt_empty` (degenerate): On X = ∅ every complex satisfies both conditions.
 - `TauCeti.EtaleDuality.perverseExt_constructible_compat` (compatibility): For K ∈ D^b_c(X, Λ), K ∈ perverseLEExt 0 ∩ perverseGEExt 0 iff K ∈ Perv(X, Λ).
-- `TauCeti.EtaleDuality.not_perverseGEExt_colimit_unbounded` (non-example): The uniform lower bound cannot be dropped: on X = Spec Ω the system K_N := ⊕_{0 ≤ m ≤ N} Λ[m] (cohomology Λ in degrees −N, …, 0) with the split inclusions is filtered, each K_N is bounded below but no single bound works, and colim K_N = ⊕_{m ≥ 0} Λ[m] is not bounded below, so it lies in no perverseGEExt a.
+- `TauCeti.EtaleDuality.not_perverseGEExt_lowerShriek_open` (non-example): For j : 𝔸² ∖ {0} → 𝔸² over k̄ and Λ = ℤ/ℓ, Λ[2] satisfies perverseGEExt 0 on the open but j_!Λ[2] does not satisfy it on 𝔸²: its costalk at the origin is (i^*Rj_*Λ[2])[−1] ≅ Λ[1] ⊕ Λ(−2)[−2], nonzero in degree −1 < 0. So the list in (d) contains Rj_* and not j_!.
 
 **Acceptance.**
 
@@ -881,9 +917,9 @@ Let f : X → Y be a morphism of separated schemes of finite type over k whose f
 
 **Proof.**
 
-- f^*: by (4.0.1) and dim(x) ≤ dim f(x) + d (EDC.5/point-dimension-function), ℋ^m(f^*K)_x = ℋ^m(K)_{f(x)} vanishes for m > −dim f(x) ≥ −dim(x) + d (BBD 4.2.4).
+- f^*: for K ∈ pD^{≤0}(Y), ℋ^m(f^*K)_x̄ = ℋ^m(K)_{f(x̄)} vanishes for m > −dim f(x) by (4.0.1); since dim(x) ≤ dim f(x) + d (EDC.5/point-dimension-function), −dim f(x) ≤ d − dim(x), so it vanishes for m > d − dim(x), which is (4.0.1) for (f^*K)[d] (BBD 4.2.4).
 - Rf_*: adjoint to f^*[d] up to shift (EDC.5/t-exact-functors (iii)).
-- Rf_! and f^!: duality exchanges each pair for self-injective coefficients (EDC.5/perverse-verdier-self-duality); for a general noetherian Λ use instead the stalk formula of Rf_! (compact-support cohomology of fibres vanishing above 2·dim, EDC.0/compact-pushforward-amplitude-and-colimits) with (4.0.1′), and adjunction for f^!.
+- Rf_! and f^!: duality exchanges each pair for self-injective coefficients (EDC.5/perverse-verdier-self-duality); for a general noetherian Λ use instead the stalk formula of Rf_! (compact-support cohomology of fibres vanishing above 2·dim, EDC.0/compact-pushforward-amplitude-and-colimits) with (4.0.1′): at a point y of dimension e, the part of the fibre over y meeting Supp ℋ^qK has dimension δ ≤ min(d, −q − e), and H^{m−q}_c of it vanishes unless m − q ≤ 2δ ≤ d − q − e, so ℋ^m(Rf_!K)_ȳ = 0 for m > d − e; then adjunction for f^!.
 - The adjunctions on perverse sheaves follow from BBD 1.3.17 (iii) applied to (Rf_![d], f^![−d]) and (f^*[d], Rf_*[−d]).
 
 **Acceptance.**
@@ -978,7 +1014,7 @@ Let j : U → X be an affine open immersion (for example the complement of an ef
 
 - k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U are separated schemes of finite type over k; every point x has dim(x) := dim of its closure (EDC.5/point-dimension-function).
 - Λ is a noetherian commutative ring with nΛ = 0; D^b_c(X, Λ) is the bounded constructible category of EDC.0/constructible-ctf-complexes.
-- j an affine open immersion; Λ self-injective where the left t-exactness of j_! is deduced by duality.
+- j an affine open immersion; Λ a finite ring killed by n, as in EDC.5/perverse-artin-vanishing, whose left t-exactness of Rj_! (deduced by duality after restriction of scalars to the self-injective ℤ/ℓ^a) gives the perversity of j_!G; the O- and E-coefficient versions follow by EDC.5/adic-perverse-t-structures.
 
 **Proof.**
 
@@ -1003,7 +1039,7 @@ Let j : U → X be an affine open immersion (for example the complement of an ef
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/external-product-t-exact` · theorem.
 
-For X₁, X₂ separated of finite type over k and Λ a field (finite of characteristic ℓ, or E under the ℓ-adic hypotheses), the external tensor product K ⊠ L := pr₁^*K ⊗ pr₂^*L : D^b_c(X₁, Λ) × D^b_c(X₂, Λ) → D^b_c(X₁ ×_k X₂, Λ) is t-exact in each variable for the middle perverse t-structures; in particular the external product of perverse sheaves is perverse and IC_{X₁}(L₁) ⊠ IC_{X₂}(L₂) ≅ IC_{X₁×X₂}(L₁ ⊠ L₂). It commutes with Rf_*, Rf_!, f^*, f^! for products of morphisms and with Verdier duality (BBD 4.2.7).
+For X₁, X₂ separated of finite type over k and Λ a field (finite of characteristic ℓ, or E under the ℓ-adic hypotheses), the external tensor product K ⊠ L := pr₁^*K ⊗ pr₂^*L : D^b_c(X₁, Λ) × D^b_c(X₂, Λ) → D^b_c(X₁ ×_k X₂, Λ) is t-exact in each variable for the middle perverse t-structures; in particular the external product of perverse sheaves is perverse, and IC_{X₁}(L₁) ⊠ IC_{X₂}(L₂) ≅ IC_{X₁×X₂}(L₁ ⊠ L₂) when X₁ ×_k X₂ is irreducible (for instance when X₁ is geometrically irreducible), IC being formed on the smooth dense open U₁ × U₂. It commutes with Rf_*, Rf_!, f^*, f^! for products of morphisms and with Verdier duality (BBD 4.2.7).
 
 **Hypotheses.**
 
@@ -1019,7 +1055,7 @@ For X₁, X₂ separated of finite type over k and Λ a field (finite of charact
 **Acceptance.**
 
 - Λ_{C₁}[1] ⊠ Λ_{C₂}[1] ≅ Λ_{C₁×C₂}[2] for smooth curves C₁, C₂.
-- For Λ = ℤ/ℓ²: (ℤ/ℓ)_{pt} ⊠ (ℤ/ℓ)_{pt} = ℤ/ℓ ⊗^L ℤ/ℓ has cohomology in degrees −1 and 0, so it is not perverse.
+- Over Λ = ℤ_ℓ (that is O): on a point, ℤ/ℓ ⊠ ℤ/ℓ = ℤ/ℓ ⊗^L ℤ/ℓ has cohomology ℤ/ℓ in degrees −1 and 0, so the external product of two perverse objects is not perverse; over Λ = ℤ/ℓ² the same product has ℤ/ℓ in every degree ≤ 0 (the 2-periodic resolution by multiplication by ℓ) and is not even bounded.
 
 **Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/perverse-verdier-self-duality`, `EtaleDualityAndPerverseSheaves:EDC.1:biduality/duality-exchange-isomorphisms`, `SchemeAndStackFoundations:SF.2`
 
@@ -1075,7 +1111,7 @@ Let j : U → X be a locally closed immersion of separated schemes of finite typ
 - `TauCeti.EtaleDuality.intermediateExtension_kummer` (computation): For j : 𝔾_m → 𝔸¹ over k̄ and L a nontrivial Kummer local system of rank one, j_!*(L[1]) ≅ j_!L[1] ≅ Rj_*L[1].
 - `TauCeti.EtaleDuality.intermediateExtension_closed_compat` (compatibility): For a closed immersion ī, ī_!* = ī_* on perverse sheaves (the pushforward of EDC.5/quasi-finite-perverse-exactness).
 - `TauCeti.EtaleDuality.not_intermediateExtension_eq_lowerShriek` (non-example): For j : 𝔾_m → 𝔸¹ and Λ a field, pH⁰(j_!Λ[1]) = j_!Λ[1] is not isomorphic to j_!*(Λ[1]): it has the subobject i_*Λ_0.
-- `TauCeti.EtaleDuality.not_unrestricted_standard_truncation` (non-example): For U = 𝔾_m ⊂ 𝔸¹ and A the skyscraper Λ at 1 in degree 0, j_!*A ≅ A while τ_{≤−1}Rj_*A = 0: the truncation formula of EDC.5/deligne-truncation-formula needs its degree hypothesis.
+- `TauCeti.EtaleDuality.not_unrestricted_standard_truncation` (non-example): For U = 𝔾_m ⊂ 𝔸¹ and A the skyscraper Λ at the point 1 of U in degree 0, j_!*A is the skyscraper at 1 on 𝔸¹ while the natural truncation τ_{≤−1}Rj_*A is 0: the absolute form of EDC.5/deligne-truncation-formula needs its degree condition A ∈ D^{≤−1}(U), and only the truncation relative to the boundary computes j_!*A here.
 
 **Acceptance.**
 
@@ -1105,24 +1141,26 @@ Let j : U → X be a locally closed immersion of separated schemes of finite typ
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/deligne-truncation-formula` · theorem.
 
-Let j : U → X be an open immersion whose closed complement F is smooth over k (after passing to k^perf) of pure dimension d, and A perverse on U. If ℋ^m(Rj_*A)|_F is locally constant for every m ≥ −d, then j_!*A ≅ τ_{≤−d−1}Rj_*A for the natural truncation (BBD 2.2.4.1); if the local constancy holds for m ≥ −d − 1 (resp. m ≥ −d + 1) then pH⁰(j_!A) ≅ τ_{≤−d−2}Rj_*A (resp. pH⁰(Rj_*A) ≅ τ_{≤−d}Rj_*A). More generally, for a filtration X = U_N ⊃ … ⊃ U_k = U by opens such that each U_{m+1} ∖ U_m is smooth of pure dimension −m − 1 and the hypothesis holds at each step, j_!*A ≅ τ_{≤ N−1}Rj_{N*} ∘ … ∘ τ_{≤ k}Rj_{k+1,*}A, with j_{m+1} : U_m → U_{m+1} (BBD 2.1.11).
+Let j : U → X be an open immersion whose closed complement i : F → X is smooth over k (after passing to k^perf) of pure dimension d, and A perverse on U. For an integer a write τ^F_{≤a} for the truncation relative to F for the natural t-structure of F (BBD 1.4.13): τ^F_{≤a}M is the fibre of M → i_*τ_{≥a+1}i^*M, so it agrees with M on U and restricts on F to τ_{≤a}i^*M. If ℋ^m(i^*Rj_*A) is locally constant on F for every m ≥ −d, then j_!*A ≅ τ^F_{≤−d−1}Rj_*A (BBD (2.2.4.1)); if the local constancy holds for m ≥ −d − 1 (resp. m ≥ −d + 1) then pH⁰(j_!A) ≅ τ^F_{≤−d−2}Rj_*A (resp. pH⁰(Rj_*A) ≅ τ^F_{≤−d}Rj_*A) (BBD (2.2.4.2)–(2.2.4.3)). If moreover A ∈ D^{≤−d−1}(U) for the natural t-structure (for instance A = L[e] with L locally constant on U smooth of pure dimension e > d), the relative truncation is the natural one of X: j_!*A ≅ τ_{≤−d−1}Rj_*A. More generally (BBD 2.1.11), for a filtration U = U_k ⊂ U_{k+1} ⊂ … ⊂ U_N = X by opens with each U_{m+1} ∖ U_m smooth of pure dimension −m − 1, A ∈ D^{≤k}(U_k), and the local-constancy hypothesis at each step, j_!*A ≅ τ_{≤N−1}Rj_{N*} ∘ … ∘ τ_{≤k}Rj_{k+1,*}A with natural truncations, where j_{m+1} : U_m → U_{m+1}. Without the degree condition on A the natural truncation is wrong: for A a skyscraper at a closed point of U, j_!*A = j_*A while τ_{≤−d−1}Rj_*A = 0.
 
 **Hypotheses.**
 
 - k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U are separated schemes of finite type over k; every point x has dim(x) := dim of its closure (EDC.5/point-dimension-function).
 - Λ is a noetherian commutative ring with nΛ = 0; D^b_c(X, Λ) is the bounded constructible category of EDC.0/constructible-ctf-complexes.
-- The local constancy hypothesis on ℋ^m(Rj_*A)|_F is part of the statement; it fails in general (wild ramification), and without it the natural truncation does not compute j_!* in the étale setting.
+- The local constancy of ℋ^m(i^*Rj_*A) on F is part of the statement; it fails in general (wild ramification), and without it neither formula need hold in the étale setting. The natural (absolute) truncation needs in addition A ∈ D^{≤−d−1}(U); the iterated formula needs A ∈ D^{≤k}(U_k).
 
 **Proof.**
 
-- By EDC.5/recollement-intermediate-extension (b) (BBD 1.4.23), j_!*A ≅ τ^F_{≤−1}Rj_*A for the perverse truncation relative to F (BBD (2.2.3.1)).
-- On F, smooth of pure dimension d, complexes with locally constant cohomology sheaves have the perverse t-structure equal to the natural one shifted by d (EDC.5/shifted-local-systems-perverse), so for the part of Rj_*A in degrees ≥ −d the relative perverse truncation is τ_{≤−d−1} (BBD 2.2.4 with the stratum criterion 2.2.2 (iii)).
-- Iterate along the filtration using transitivity (EDC.5/perverse-intermediate-extension), as in BBD 2.1.11.
+- By EDC.5/recollement-intermediate-extension (b) (BBD 1.4.23), j_!*A ≅ pτ^F_{≤−1}Rj_*A, the truncation relative to F for the perverse t-structure of F (BBD (2.2.3.1)).
+- The natural triangle τ_{≤−d−1}i^*Rj_*A → i^*Rj_*A → τ_{≥−d}i^*Rj_*A has first term in D^{≤−d−1}(F) ⊆ pD^{≤−1}(F) (bounds of EDC.5/middle-perverse-t-structure) and, under the local-constancy hypothesis, third term with locally constant cohomology in degrees ≥ −d on F smooth of pure dimension d, hence in pD^{≥0}(F) (EDC.5/shifted-local-systems-perverse). So it is the perverse truncation triangle of i^*Rj_*A, and the two relative truncations of Rj_*A agree (BBD 2.2.3–2.2.4, with the stratum criterion 2.2.2 (iii)); the shifted hypotheses give (2.2.4.2)–(2.2.4.3) in the same way.
+- If A ∈ D^{≤−d−1}(U), the natural triangle τ_{≤−d−1}Rj_*A → Rj_*A → τ_{≥−d}Rj_*A has third term supported on F (its restriction to U is τ_{≥−d}A = 0), so it is the relative truncation triangle and τ^F_{≤−d−1}Rj_*A = τ_{≤−d−1}Rj_*A.
+- Iterate along the filtration using transitivity (EDC.5/perverse-intermediate-extension), as in BBD 2.1.11: A ∈ D^{≤k}(U_k), and the output of each step lies in D^{≤m}(U_{m+1}) ⊆ D^{≤m+1}(U_{m+1}), so the degree condition propagates.
 
 **Acceptance.**
 
 - For j : 𝔾_m → 𝔸¹ and Λ[1] (d = 0): τ_{≤−1}Rj_*Λ[1] = (j_*Λ)[1] = Λ_{𝔸¹}[1] = j_!*Λ[1].
 - For a smooth curve C, an open dense j : U → C and L locally constant on U (the hypothesis holds at the finitely many points of F), j_!*(L[1]) ≅ (j_*L)[1] with j_* the underived direct image.
+- Degree condition: for U = 𝔾_m ⊂ 𝔸¹ (F = {0}, d = 0) and A the skyscraper Λ at the point 1 of U, j_!*A = j_*A is the skyscraper at 1 on 𝔸¹ and equals τ^F_{≤−1}Rj_*A, while the natural truncation τ_{≤−1}Rj_*A is 0.
 
 **Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/shifted-local-systems-perverse`, `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`
 
@@ -1130,8 +1168,8 @@ Let j : U → X be an open immersion whose closed complement F is smooth over k 
 
 **Sources.**
 
-- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.2.3, (2.2.3.1), and Proposition 2.2.4, (2.2.4.1)–(2.2.4.3), p.68: For F smooth of dimension d with ℋ^ij_*A locally constant on F for i ≥ p(2d) = −d, j_!*A is the natural truncation τ_{≤−d−1}j_*A; similar formulas for pj_! and pj_* under the shifted hypotheses.
-- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.1.10, p.59; Proposition 2.1.11, p.60: For a perversity decreasing under specialization, j_!*A is the iterated composite of direct images and natural truncations along the filtration by unions of strata of bounded perversity.
+- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.2.3, (2.2.3.1), and Proposition 2.2.4, (2.2.4.1)–(2.2.4.3), p.68: For F smooth of dimension d with ℋ^ii^*j_*A locally constant on F for i ≥ t = p(2d) = −d, j_!*A is τ^F_{≤t−1}j_*A, the truncation relative to F for the natural t-structure of F (BBD 1.4.13 notation); similar formulas for pj_! and pj_* under the shifted hypotheses.
+- [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), 2.1.10, p.59; Proposition 2.1.11, p.60: For a perversity decreasing under specialization, j_!*A is the iterated composite of direct images and natural truncations along the filtration by unions of strata of bounded perversity; the natural truncations work because A lies in D^{≤k} on U_k, where the perversity is ≤ k.
 
 **Suggested declarations.** `TauCeti.EtaleDuality.intermediateExtension_eq_truncation`
 
@@ -1237,7 +1275,7 @@ Let X be a separated scheme of finite type over k, irreducible of dimension d, U
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/simple-perverse-sheaves-classification` · theorem.
 
-Let Λ be a field (finite of characteristic ℓ ≠ char k, or E/ℚ_ℓ finite under the ℓ-adic hypotheses, or its algebraic closure). Every perverse sheaf on X has finite length in Perv(X, Λ): the category is artinian and noetherian. The simple perverse sheaves are exactly the objects i_{V̄*}IC_{V̄}(L) = j_{V!*}(L[dim V]), where j_V : V → X is the inclusion of an irreducible locally closed subscheme smooth over k (after passage to k^perf) and L is an irreducible locally constant sheaf of Λ-modules on V; two such are isomorphic iff the closures of the V agree and the L agree on a common dense open. For Λ = O/λ^m every perverse sheaf has finite length (its simple constituents are those of the λ-adic graded pieces, which are O/λ-perverse); for Λ = O the category is only noetherian and its dual p⁺-category only artinian.
+Let Λ be a field (finite of characteristic ℓ ≠ char k, or E/ℚ_ℓ finite under the ℓ-adic hypotheses, or ℚ̄_ℓ as the colimit over such E, EDC.5/adic-perverse-t-structures). Every perverse sheaf on X has finite length in Perv(X, Λ): the category is artinian and noetherian. The simple perverse sheaves are exactly the objects i_{V̄*}IC_{V̄}(L) = j_{V!*}(L[dim V]), where j_V : V → X is the inclusion of an irreducible locally closed subscheme smooth over k (after passage to k^perf) and L is an irreducible locally constant sheaf of Λ-modules on V; two such are isomorphic iff the closures of the V agree and the L agree on a common dense open. For Λ = O/λ^m (or ℤ/ℓ^m) every perverse sheaf has finite length, by the same noetherian induction (lisse sheaves of finitely generated O/λ^m-modules have finite length), and since λ acts nilpotently every simple object is killed by λ: it is j_{V!*}(L[dim V]) for an irreducible locally constant sheaf L of O/λ-modules; for Λ = O the category is only noetherian and its dual p⁺-category only artinian.
 
 **Hypotheses.**
 
@@ -1250,14 +1288,14 @@ Let Λ be a field (finite of characteristic ℓ ≠ char k, or E/ℚ_ℓ finite 
 - Simplicity of L[dim V] on smooth irreducible V for irreducible L: a perverse subobject is M[dim V] on a dense open for a lisse subsheaf M; irreducibility persists on dense opens because π₁(U) → π₁(V) is surjective for V normal irreducible (Stacks Tag 0BQI, requested from SF.2); then the no-sub/quotient characterisation of j_!* (BBD 4.3.3, citing 1.4.25: EtaleDualityAndPerverseSheaves/E17).
 - Simplicity of i_{V̄*}j_!*: twice EDC.5/recollement-intermediate-extension (d) (BBD 4.3.4).
 - Finite length by noetherian induction: a perverse F is L[dim U] on a smooth irreducible dense open U of its support with L lisse of finite length, so the four-term sequences of EDC.5/open-closed-perverse-recollement reduce to intermediate extensions of the constituents of L and to perverse sheaves on smaller supports (BBD 4.3.4); the classification is EDC.5/recollement-intermediate-extension (e).
-- O/λ^m: filter by λ^iF; O: BBD 4.0 (b) and Juteau §1.1.
+- O/λ^m: the noetherian induction of the previous step applies verbatim, lisse O/λ^m-sheaves having finite length; λ is nilpotent on every object, hence zero on a simple one. O: BBD 4.0 (b) and Juteau §1.1.
 
 **Acceptance.**
 
 - On 𝔸¹ over k̄ with Λ a field, Rj_*Λ[1] for j : 𝔾_m → 𝔸¹ has length 2, with constituents Λ_{𝔸¹}[1] and i_*Λ_0(−1).
 - Over Λ = ℤ_ℓ on a point, ℤ_ℓ has the infinite descending chain ℤ_ℓ ⊃ ℓℤ_ℓ ⊃ …, so Perv(pt, ℤ_ℓ) is not artinian.
 
-**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex-of-local-system`, `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/open-closed-perverse-recollement`, `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, `mathlib:CategoryTheory.Simple`, `mathlib:CategoryTheory.IsArtinianObject`, `mathlib:CategoryTheory.IsNoetherianObject`, `SchemeAndStackFoundations:SF.2`
+**Depends on.** `EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex-of-local-system`, `EtaleDualityAndPerverseSheaves:EDC.5/recollement-intermediate-extension`, `EtaleDualityAndPerverseSheaves:EDC.5/open-closed-perverse-recollement`, `EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure`, `EtaleDualityAndPerverseSheaves:EDC.5/adic-perverse-t-structures`, `mathlib:CategoryTheory.Simple`, `mathlib:CategoryTheory.IsArtinianObject`, `mathlib:CategoryTheory.IsNoetherianObject`, `SchemeAndStackFoundations:SF.2`
 
 **Used by.** `smooth-pullback-perverse-exactness`
 
@@ -1283,7 +1321,7 @@ Let Λ be self-injective (a finite field of characteristic ℓ ≠ char k, O/λ^
 
 - k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U are separated schemes of finite type over k; every point x has dim(x) := dim of its closure (EDC.5/point-dimension-function).
 - For duality statements Λ is moreover self-injective (a finite field of characteristic ℓ ≠ char k, or O_E/λ^m, or ℤ/ℓ^m; EDC.1:biduality/self-injective-coefficients), the setting of EDC.1:biduality/constructible-biduality.
-- For ℓ-adic coefficients (E/ℚ_ℓ finite, ring of integers O, uniformizer λ, ℓ ≠ char k) the base field satisfies BBD's finiteness condition: H^i(Gal(k^sep/k′), ℤ/ℓ) is finite for every finite k′/k and every i (BBD 2.2.14 and 4.0; for example k finite or separably closed). The categories D^b_c(X, O) and D^b_c(X, E) and their operations are the ℓ-adic formalism requested from SchemeAndStackFoundations:SF.2. (only for the E-coefficient case).
+- For the E-coefficient case (E/ℚ_ℓ finite, ring of integers O, uniformizer λ, ℓ ≠ char k) the base field satisfies BBD's finiteness condition: H^i(Gal(k^sep/k′), ℤ/ℓ) is finite for every finite k′/k and every i (BBD 2.2.14 and 4.0; for example k finite or separably closed). The categories D^b_c(X, O) and D^b_c(X, E) and their operations are the ℓ-adic formalism requested from SchemeAndStackFoundations:SF.2.
 
 **Proof.**
 
@@ -1390,7 +1428,7 @@ Let f : X → Y be a proper morphism of separated schemes of finite type over k 
 **Proof.**
 
 - Support: for ȳ in Y_β, (Rf_*K)_ȳ ≅ RΓ(f^{−1}(ȳ), K) by proper base change (imported through SF.2), and RΓ(f^{−1}(ȳ), K) = RΓ_c because the fibre is proper. Filter the fibre by the locally closed pieces Z_α := f^{−1}(ȳ) ∩ X_α (compact-support localization sequences, EDC.0/compact-pushforward-amplitude-and-colimits).
-- On X_α the cohomology sheaves of K are locally constant, so the stalk condition at the generic points of X_α gives ℋ^m(K|_{X_α}) = 0 for m > −dim X_α everywhere on X_α (EDC.5/middle-perverse-t-structure). Since H^q_c(Z, F) = 0 for q > 2·dim Z and every torsion sheaf F (EDC.2:trace-purity/top-degree-compact-cohomology), the hypercohomology spectral sequence gives H^m_c(Z_α, K) = 0 for m > 2·dim Z_α − dim X_α ≤ −dim Y_β. Hence ℋ^m(Rf_*K)_ȳ = 0 for m > −dim Y_β ≥ −dim(y), which is (4.0.1) at y; so Rf_*K ∈ pD^{≤0}(Y).
+- On X_α the cohomology sheaves of K are locally constant, so the stalk condition at the generic points of X_α gives ℋ^m(K|_{X_α}) = 0 for m > −dim X_α everywhere on X_α (EDC.5/middle-perverse-t-structure). Since H^q_c(Z, F) = 0 for q > 2·dim Z and every torsion sheaf F (EDC.2:trace-purity/top-degree-compact-cohomology), the hypercohomology spectral sequence gives H^m_c(Z_α, K) = 0 for m > 2·dim Z_α − dim X_α ≤ −dim Y_β. Hence ℋ^m(Rf_*K)_ȳ = 0 for m > −dim Y_β; since y ∈ Y_β, dim(y) ≤ dim Y_β, so −dim Y_β ≤ −dim(y) and the stalk vanishes for m > −dim(y), which is (4.0.1) at y; so Rf_*K ∈ pD^{≤0}(Y).
 - Cosupport: D_X K is perverse (EDC.5/perverse-verdier-self-duality) and satisfies the same stratum hypotheses, so Rf_*D_X K ∈ pD^{≤0}(Y); D_Y Rf_*K ≅ Rf_!D_X K = Rf_*D_X K (EDC.1:adjoint/formal-duality-exchange, f proper), hence Rf_*K ∈ pD^{≥0}(Y) by self-duality.
 - Smooth source: take one stratum X; K = L[n] and D_X K = L^∨(n)[n] have locally constant cohomology; dim(X ×_Y X) ≤ n is the stated inequality summed over the strata of a partition of Y by fibre dimension (de Cataldo–Migliorini Prop. 4.2.1, there over ℂ with a topologically locally trivial stratification, which this étale argument does not need).
 
@@ -1414,18 +1452,18 @@ Let f : X → Y be a proper morphism of separated schemes of finite type over k 
 
 Node `EtaleDualityAndPerverseSheaves:EDC.5/small-pushforward-intersection-complex` · theorem.
 
-Let f : X → Y be a proper surjective morphism of irreducible separated schemes of finite type over k, X smooth of pure dimension n, Λ self-injective (or E), L locally constant on X, and suppose f is small: there is a partition Y = ⊔ Y_β into locally closed subsets with a dense open stratum Y_0 such that 2·dim f^{−1}(ȳ) + dim Y_β < n for every β ≠ 0 and ȳ ∈ Y_β. Assume moreover that f is finite étale over a dense open V ⊂ Y_0 smooth over k (generic étaleness is a hypothesis: smallness does not imply it in characteristic p). Then dim Y = n and Rf_*(L[n]) ≅ IC_Y((f_*L)|_V).
+Let f : X → Y be a proper surjective morphism of irreducible separated schemes of finite type over k, X smooth of pure dimension n, Λ self-injective (or E), L locally constant on X, and suppose f is small: there is a partition Y = ⊔ Y_β into locally closed subsets with a dense open stratum Y_0 such that f is semismall for it, 2·dim f^{−1}(ȳ) + dim Y_β ≤ n for every β and ȳ ∈ Y_β (on Y_0 this says that f is finite over Y_0, since dim Y_0 = n), and the inequality is strict, 2·dim f^{−1}(ȳ) + dim Y_β < n, for every β ≠ 0 (de Cataldo–Migliorini Remark 4.2.4). The semismall inequality on Y_0 cannot be dropped: with the single stratum Y_0 = 𝔸² the blow-up of the origin would satisfy the strict condition vacuously. Assume moreover that f is finite étale over a dense open V ⊂ Y_0 smooth over k (generic étaleness is a hypothesis: smallness does not imply it in characteristic p). Then dim Y = n and Rf_*(L[n]) ≅ IC_Y((f_*L)|_V).
 
 **Hypotheses.**
 
 - k is a field, n ≥ 1 an integer invertible in k, and X, Y, Z, U are separated schemes of finite type over k; every point x has dim(x) := dim of its closure (EDC.5/point-dimension-function).
 - For duality statements Λ is moreover self-injective (a finite field of characteristic ℓ ≠ char k, or O_E/λ^m, or ℤ/ℓ^m; EDC.1:biduality/self-injective-coefficients), the setting of EDC.1:biduality/constructible-biduality.
-- f proper surjective, X smooth of pure dimension n, f small, f finite étale over a dense smooth open V.
+- f proper surjective, X smooth of pure dimension n, f small (semismall for the partition, with strict inequalities off the dense stratum Y_0), f finite étale over a dense smooth open V ⊂ Y_0.
 
 **Proof.**
 
-- Rf_*(L[n]) is perverse by EDC.5/semismall-pushforward-perversity (small implies semismall).
-- Strict support: for ȳ ∉ V in Y_β of dimension b, the support computation of the semismall proof gives ℋ^m(Rf_*L[n])_ȳ = 0 for m > 2·dim f^{−1}(ȳ) − n, and smallness makes this < −b, including the zero-dimensional fibres over strata with b < n (where −n < −b). Strict cosupport by duality: D_Y Rf_*(L[n]) ≅ Rf_*(L^∨(n)[n]).
+- Rf_*(L[n]) is perverse by EDC.5/semismall-pushforward-perversity (smallness includes the semismall inequalities for the partition, the dense stratum included).
+- Strict support: for ȳ ∉ V in Y_β of dimension b, the support computation of the semismall proof gives ℋ^m(Rf_*L[n])_ȳ = 0 for m > 2·dim f^{−1}(ȳ) − n, and smallness makes this < −b, including the zero-dimensional fibres over strata with b < n (where −n < −b); for ȳ ∈ Y_0 ∖ V the fibre is finite and dim(y) ≤ n − 1, so the stalk, concentrated in degree −n, vanishes for m ≥ −dim(y). Strict cosupport by duality: D_Y Rf_*(L[n]) ≅ Rf_*(L^∨(n)[n]).
 - These are the strict bounds of EDC.5/perverse-intermediate-extension along Y ∖ V, so Rf_*(L[n]) ≅ j_!*((Rf_*L[n])|_V) = IC_Y((f_*L)|_V) (EDC.5/intersection-complex-of-local-system).
 
 **Acceptance.**
@@ -1496,6 +1534,12 @@ Zhu's perverse t-structure and IC on perfect pfp spaces, equivariant perverse sh
 
 Needed by: `GeometricSatakeAndFusion:GS1`, `GeometricSatakeAndFusion:GS3`, `GeometricSatakeAndFusion:GS4`.
 
+### Non-noetherian torsion and derived-complete adic coefficients (GS0 request, partly supplied)
+
+GeometricSatakeAndFusion--GS0 requests from EDC.5 the early perverse and recollement construction for the torsion and derived-complete adic coefficient rings of Fargues–Scholze, with coefficient change and the integral torsion-pair conventions. This packet supplies every noetherian Λ killed by an integer invertible on the base (with restriction and reduction of scalars, EDC.0/coefficient-change), the ℓ-adic O and E categories of the 2-limit formalism under the Galois-finiteness hypothesis on k (EDC.5/adic-perverse-t-structures), and the p/p⁺ conventions (EDC.5/integral-dual-perversity). Torsion rings that are not noetherian and derived-complete (solid) ℤ_ℓ-algebras need the pro-étale or condensed coefficient formalism, which is not an EDC.5 target; GS0 records the same boundary in its own gap on the early coefficient scope.
+
+Needed by: `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `GeometricSatakeAndFusion:GS1/standard-costandard-objects`, `GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor`.
+
 ## Restructuring
 
 - **rescope** (EtaleDualityAndPerverseSheaves, GlobalShtukasAndFunctionFieldLanglands, GeometricSatakeAndFusion). Confirmed findings RT-AREA-etale/3 and RT-AREA-etale/16, as they bear on EDC.5: consumers apply EDC.5's perverse t-structure and IC on Artin stacks and on perfect pfp spaces, which this scheme-level stage does not plan. Endorse the two Part IIs proposed in EtaleDualityAndPerverseSheaves--EDC.0 and give them their EDC.5 inputs: the stacks Part II's layer (3) (perverse t-structure and IC on Artin stacks) starts from EDC.5/middle-perverse-t-structure, EDC.5/smooth-pullback-perverse-exactness (smooth descent of perversity with the shift by relative dimension), EDC.5/perverse-intermediate-extension and EDC.5/intersection-complex-of-local-system; the perfect-schemes Part II transports EDC.5/middle-perverse-t-structure, EDC.5/perverse-intermediate-extension, EDC.5/intersection-complex-of-local-system and EDC.5/semismall-pushforward-perversity along finite-type models and perfection, using topological invariance of the étale site. Neither Part II redefines these scheme-level notions.
@@ -1514,6 +1558,8 @@ The right t-exactness of f_* for affine f is Théorème 4.1.1; the reference sho
 
 **Affects.** nothing. **Known.** new.
 
+**Review.** Confirmed: Checked on the page image of the Numdam scan, p.103: the proof of Corollaire 4.1.3 justifies the right t-exactness of f_* by (4.1.7), which is the lemma on nonvanishing H^d of an affine open of a smooth affine variety (p.104); the statement needed is Théorème 4.1.1 (p.102). Intended meaning clear; nothing downstream affected.
+
 ### EtaleDualityAndPerverseSheaves/E17 — misprint
 
 [Faisceaux pervers](https://www.numdam.org/item/AST_1982__100__1_0.pdf), Proof of Lemme 4.3.3 and 4.3.4, p.113 (Numdam scan; checked on the page image).
@@ -1526,6 +1572,8 @@ The intended reference is Corollaire 1.4.25 (p.55): j_!*B is the unique extensio
 
 **Affects.** nothing. **Known.** new.
 
+**Review.** Confirmed: Checked on the page image, p.113: the proofs of Lemme 4.3.3 and of 4.3.1 in 4.3.4 cite (1.4.2.5) for the absence of sub- and quotient objects supported on the boundary; §1.4 has no such number, and the characterisation used is Corollaire 1.4.25 (p.55). Misprint; nothing affected.
+
 Three confirmed findings recorded with the earlier draft apply to statements planned here and are used in their corrected form; they are not recorded twice:
 
 - `EtaleDualityAndPerverseSheaves/E11` (EtaleDualityAndPerverseSheaves--EDC.4.json): BBD 2.2.12 prints the two pointwise inequalities reversed; EDC.5/middle-perverse-t-structure uses the corrected form (4.0.1)–(4.0.2).
@@ -1534,7 +1582,7 @@ Three confirmed findings recorded with the earlier draft apply to statements pla
 
 ## Suggested Lean file
 
-The suggested file follows the 12 October shape: it imports individual Mathlib modules, has no data definition without a real body, and states only what the pinned Mathlib can type; it elaborates at the pins with unproved theorem statements as its only warnings. It contains, for EDC.5a, the t-exactness predicates with the adjoint criterion and composition, the heart's abelian structure through Mathlib's admissible-subcategory criterion, the t-cohomology functors H⁰_t and H^m_t with detection on bounded objects, the induced heart functors and their exactness and adjunction, the recollement structure, the glued t-structure (real aisles, axioms left as propositions) with its exactness statements and the converse criterion, the abstract intermediate extension as an image in the glued heart with its characterisations and the classification of simple objects, and the tilt along a torsion theory; for EDC.5b, the dimension of a point, the middle cutoff, and the pointwise upper perverse condition on Mathlib's étale derived category with its natural bounds. The lower aisle needs costalks i_x^!, and the perverse t-structure on D^b_c, perverse sheaves, j_!* on schemes, IC, the exactness theorems and the ℓ-adic categories need carriers the pins do not have (i^!, Rf_!, constructibility); they are targets of this document only, and the file's closing comment lists them by name.
+The suggested file follows the 12 October shape: it imports individual Mathlib modules, has no data definition without a real body, and states only what the pinned Mathlib can type; it elaborates at the pins with unproved theorem statements as its only warnings. It contains, for EDC.5a, the t-exactness predicates with the adjoint criterion and composition, the heart's abelian structure through Mathlib's admissible-subcategory criterion, the t-cohomology functors H⁰_t and H^m_t with detection on bounded objects, the induced heart functors and their exactness and adjunction, the recollement structure, the glued t-structure (real aisles, axioms left as propositions) with its exactness statements and the converse criterion, the abstract intermediate extension as an image in the glued heart with its characterisations and the classification of simple objects, and the tilt along a torsion theory whose two classes are closed under isomorphism; for EDC.5b, the dimension of a point, the middle cutoff, and the pointwise upper perverse condition on Mathlib's étale derived category with its natural bounds. The lower aisle needs costalks i_x^!, and the perverse t-structure on D^b_c, perverse sheaves, j_!* on schemes, IC, the exactness theorems and the ℓ-adic categories need carriers the pins do not have (i^!, Rf_!, constructibility); they are targets of this document only, and the file's closing comment lists them by name.
 
 ## Coverage and validation
 

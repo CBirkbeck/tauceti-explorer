@@ -249,7 +249,8 @@ variable {C : Type*} [Category C] [Preadditive C] [HasZeroObject C] [HasShift C 
   [∀ n : ℤ, (shiftFunctor C n).Additive] [Pretriangulated C]
 
 /-- A torsion theory on the heart of `t`, recorded on objects of `C` lying in the heart:
-`Hom(T, F) = 0`, and every object of the heart sits in a triangle `T → A → F → T[1]`. -/
+`Hom(T, F) = 0`, and every object of the heart sits in a triangle `T → A → F → T[1]`. Both classes
+are closed under isomorphism, so that the tilted aisles are. -/
 structure TStructure.TorsionTheory (t : TStructure C) where
   /-- The torsion objects. -/
   torsion : ObjectProperty C
@@ -257,6 +258,8 @@ structure TStructure.TorsionTheory (t : TStructure C) where
   free : ObjectProperty C
   torsion_le_heart : torsion ≤ t.heart
   free_le_heart : free ≤ t.heart
+  torsion_isClosedUnderIsomorphisms : torsion.IsClosedUnderIsomorphisms
+  free_isClosedUnderIsomorphisms : free.IsClosedUnderIsomorphisms
   hom_eq_zero ⦃T F : C⦄ (hT : torsion T) (hF : free F) (f : T ⟶ F) : f = 0
   exists_triangle (A : C) (hA : t.heart A) :
     ∃ (T F : C) (_ : torsion T) (_ : free F) (a : T ⟶ A) (b : A ⟶ F) (c : F ⟶ T⟦(1 : ℤ)⟧),
@@ -677,9 +680,10 @@ variable {C : Type*} [Category C] [Preadditive C] [HasZeroObject C] [HasShift C 
   {E : Type*} [Category E] [Preadditive E] [HasZeroObject E] [HasShift E ℤ]
   [∀ n : ℤ, (shiftFunctor E n).Additive] [Pretriangulated E]
 
-/-- `p(U ∘ T) ≅ pU ∘ pT` for left t-exact `T`, `U` (BBD 1.3.17 (iv)). -/
+/-- `p(U ∘ T) ≅ pU ∘ pT` for left t-exact triangulated `T`, `U` (BBD 1.3.17 (iv)). -/
 theorem Functor.heartFunctorComp {t₁ : TStructure C} {t₂ : TStructure D} {t₃ : TStructure E}
-    {T : C ⥤ D} {U : D ⥤ E} (hT : Functor.IsLeftTExact t₁ t₂ T)
+    {T : C ⥤ D} {U : D ⥤ E} [T.CommShift ℤ] [T.IsTriangulated] [U.CommShift ℤ]
+    [U.IsTriangulated] (hT : Functor.IsLeftTExact t₁ t₂ T)
     (hU : Functor.IsLeftTExact t₂ t₃ U) :
     Nonempty (Functor.heartFunctor t₁ t₃ (T ⋙ U) ≅
       Functor.heartFunctor t₁ t₂ T ⋙ Functor.heartFunctor t₂ t₃ U) := by
@@ -760,8 +764,8 @@ Finite length and the simple perverse sheaves: perverseSheaf_finiteLength,
 Perverse t-structures with ℓ-adic coefficients: adicPerverseTStructure,
   adicPerverse_le_iff_reduction, adicPerverse_rationalize_equiv,
   adicPerverse_rationalize_tExact, adicPerverse_reduction_rightTExact, adicPerverse_point,
-  adicPerverse_point_integral, adicPerverse_empty, adicPerverse_reduction_compat,
-  not_adicPerverse_reduction_tExact.
+  adicPerverse_algebraicClosure, adicPerverse_point_integral, adicPerverse_empty,
+  adicPerverse_reduction_compat, not_adicPerverse_reduction_tExact.
 The dual integral perversity p⁺ and its exchange with p: perversePlusTStructure,
   perversePlus_le_iff, perversePlus_ge_iff, perverse_le_perversePlus_le,
   verdierDual_perverse_le_iff, perversePlus_rationalize_tExact,
@@ -769,10 +773,10 @@ The dual integral perversity p⁺ and its exchange with p: perversePlusTStructur
   perversePlus_point_torsion, perversePlus_point_free, perversePlus_empty,
   perversePlus_rationalize_compat, not_perverse_eq_perversePlus.
 Perversity conditions on nonconstructible complexes: perverseLEExt, perverseGEExt,
-  perverseLEExt_iff_of_constructible, perverseLEExt_colimit, perverseGEExt_colimit,
-  costalk_colimit_iso, perverseGEExt_pushforward_open, perverseExt_finite_pushforward,
-  perverseExt_etale_local, perverseExt_skyscraper_sum, perverseExt_empty,
-  perverseExt_constructible_compat, not_perverseGEExt_colimit_unbounded.
+  perverseLEExt_iff_of_constructible, perverseLEExt_colimit, perverseGEExt_isGE,
+  perverseGEExt_colimit, costalk_colimit_iso, perverseGEExt_pushforward_open,
+  perverseExt_finite_pushforward, perverseExt_etale_local, perverseExt_skyscraper_sum,
+  perverseExt_empty, perverseExt_constructible_compat, not_perverseGEExt_lowerShriek_open.
 Proper semismall pushforward preserves perversity: semismall_pushforward_perverse.
 Small maps push intersection complexes to intersection complexes:
   small_pushforward_intersectionComplex.
