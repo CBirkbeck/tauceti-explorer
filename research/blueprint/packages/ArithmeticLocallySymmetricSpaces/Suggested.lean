@@ -2,6 +2,7 @@ import Mathlib
 import TauCeti.NumberTheory.HeckeRing.Associativity
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.AlgebraicTopology.Singular.Relative
+import TauCeti.AlgebraicTopology.EilenbergMacLane.TopologicalVectorSpace
 
 /-!
 # ArithmeticLocallySymmetricSpaces: representative target signatures
@@ -79,6 +80,8 @@ noncomputable section
 #check @HeckeCosetModule.single
 #check @HeckeCosetModule.instRingHeckeRing
 #check @HeckeCoset.degree_eq_relIndex
+-- A free properly discontinuous action on a real vector space has a `K(Γ, 1)` quotient (ALS.0.9).
+#check @IsQuotientCoveringMap.isEilenbergMacLaneSpaceOne_realTopologicalVectorSpace
 -- Local coefficient systems, their monodromy and relative singular chains (ALS.1).
 #check @TauCeti.LocalCoefficientSystem
 #check @TauCeti.LocalCoefficientSystem.monodromyRepresentation
@@ -148,12 +151,15 @@ def unipotentMod (I : Ideal R) : Subgroup (GL n R) where
   mul_mem' := by sorry
   inv_mem' := by sorry
 
-/-- **ALS.0.10, `LocallySymmetric.iwahori`.** The Iwahori subgroup of `GL_n` over a local ring. -/
+/-- **ALS.0.10, `LocallySymmetric.iwahori`.** The Iwahori subgroup of `GL_n` over a local ring: the
+group that ReductiveGroupsPartII's `LevelSubgroups.iwahori` describes inside `GL_n(K)`, here inside
+`GL_n(O)` as the case `I = 𝔪` of `upperTriangularMod`. -/
 def iwahori (R : Type*) [CommRing R] [IsLocalRing R] (n : Type*) [Fintype n] [DecidableEq n]
     [LinearOrder n] : Subgroup (GL n R) :=
   upperTriangularMod (IsLocalRing.maximalIdeal R)
 
-/-- **ALS.0.10, `LocallySymmetric.iwahoriOne`.** The pro-`v` Iwahori subgroup. -/
+/-- **ALS.0.10, `LocallySymmetric.iwahoriOne`.** The pro-`v` Iwahori subgroup, ReductiveGroupsPartII's
+`LevelSubgroups.proPIwahori` inside `GL_n(O)`. -/
 def iwahoriOne (R : Type*) [CommRing R] [IsLocalRing R] (n : Type*) [Fintype n] [DecidableEq n]
     [LinearOrder n] : Subgroup (GL n R) :=
   unipotentMod (IsLocalRing.maximalIdeal R)
@@ -178,7 +184,7 @@ def gammaPMod (I : Ideal R) (p : ℕ) : Subgroup (GL (Fin 2) R) where
   inv_mem' := by sorry
 
 /-- **ALS.0.10, `iwahori_index_GL2`.** `[GL_2(ℤ_p) : Iw_p] = p + 1`, the number of lines in
-`F_p²`. -/
+`F_p²`; the `ℤ_p` case of ReductiveGroupsPartII's check `iwahori_relIndex_two`. -/
 theorem iwahori_index_GL2 (p : ℕ) [Fact p.Prime] : (iwahori ℤ_[p] (Fin 2)).index = p + 1 := by
   sorry
 
@@ -315,9 +321,15 @@ def geodesicActionSL2 (t : ℝ) (z : ℍ) : ℍ :=
     exact h⟩
 
 /-- **ALS.2.1, `LocallySymmetric.BorelSerre.geodesicAction_free`.** The geodesic action is an
-action of `ℝ`, and it commutes with the unipotent translations `z ↦ z + b` of `N_B(ℝ)`. -/
+action of the additive group `ℝ`. -/
 theorem geodesicActionSL2_add (s t : ℝ) (z : ℍ) :
     geodesicActionSL2 (s + t) z = geodesicActionSL2 s (geodesicActionSL2 t z) := by
+  sorry
+
+/-- **ALS.2.1.** The geodesic action commutes with the unipotent radical `N_B(ℝ)` of the upper
+Borel, acting by the translations `z ↦ b + z`. -/
+theorem geodesicActionSL2_vadd (t b : ℝ) (z : ℍ) :
+    geodesicActionSL2 t (b +ᵥ z) = b +ᵥ geodesicActionSL2 t z := by
   sorry
 
 /-- The geodesic action fixes real parts. -/
@@ -405,7 +417,8 @@ theorem twistHecke_exists [IsHeckeTriple (⊤ : Submonoid G) U U] (χ : G →* R
   sorry
 
 /-- **ALS.3.12, `LocallySymmetric.twistCoefficients`.** The coefficient module with `g` acting
-additionally by `χ(g)⁻¹`. -/
+additionally by `χ(g)⁻¹`. It agrees with Tau Ceti's later `Representation.charTwist` at the inverse
+character. -/
 def twistCoefficients {N : Type*} [AddCommGroup N] [Module R N] (χ : G →* Rˣ)
     (ρ : Representation R G N) : Representation R G N where
   toFun g := (((χ g)⁻¹ : Rˣ) : R) • ρ g
