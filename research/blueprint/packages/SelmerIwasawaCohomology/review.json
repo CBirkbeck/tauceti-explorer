@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-SelmerIwasawaCohomology",
+    "date": "2026-10-13",
+    "notes": "Fixing review complete. Corrected duplicate Mathlib annihilator/completion APIs, twist proof and citations, DVR finite-residue hypotheses, and negative controls. Remaining: arithmetic K(pi,1) proof/real-place/derived-lattice comparison (\u00a73.15); C_p completion and exact Tate\u2013Sen cohomology inputs (\u00a7\u00a74.1,4.4); ordinary-family/rank-one proof inputs for modular parity (\u00a74.28); Monsky two-primary parity proof decomposition (\u00a74.29). See REV-PKG-SelmerIwasawaCohomology.md. Revised Suggested.lean: lean-check exit 0, 97 sorry warnings only; packet and five-file intake checks pass."
+  }
+}
