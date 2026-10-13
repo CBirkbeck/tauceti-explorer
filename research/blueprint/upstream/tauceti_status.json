@@ -96,26 +96,26 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "11225f3",
+      "head": "1e08962",
       "review": {
         "recommendation": "changes",
         "head": "765202a",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer review repairs at d26e262; head 11225f3 differs only by re-stacks on the parents"
+        "note": "maintainer review repairs at d26e262; head 11225f3 differs only by re-stacks on the parents | re-stacked on #817 b45e54c at 1e08962"
       }
     },
     "AdicSpacesPartII": {
       "stage": "pr",
       "pr": 817,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "48ec6c1",
+      "head": "b45e54c",
       "review": {
         "recommendation": "changes",
-        "head": "9fd29bb",
+        "head": "48ec6c1",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 9fd29bb: two findings (G01, G02), repaired at 48ec6c1; awaiting re-review | re-review 07:17Z: further findings, fix in progress"
+        "note": "maintainer re-review at 48ec6c1: H01–H04, repaired at b45e54c; awaiting re-review"
       }
     },
     "DiamondsAndVStacks": {
@@ -138,13 +138,13 @@
       "stage": "pr",
       "pr": 818,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "b018ac1",
+      "head": "adedb3c",
       "review": {
         "recommendation": "changes",
         "head": "6ac92c6",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 6ac92c6: one finding, repaired at b018ac1 (re-stacked on #813); awaiting re-review"
+        "note": "maintainer (GPT-assisted) review at 6ac92c6: one finding, repaired at b018ac1 (re-stacked on #813); awaiting re-review | re-stacked on #817 b45e54c at adedb3c"
       }
     },
     "AdicSpacesPartIII": {
@@ -154,13 +154,13 @@
         817
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "21e1000",
+      "head": "ae824af",
       "review": {
         "recommendation": "changes",
         "head": "292dfc0",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer (GPT-assisted) review at 292dfc0: two findings, repaired at 21e1000 (re-stacked on #817); awaiting re-review"
+        "note": "maintainer (GPT-assisted) review at 292dfc0: two findings, repaired at 21e1000 (re-stacked on #817); awaiting re-review | re-stacked on #817 b45e54c at ae824af"
       }
     },
     "AdicSpacesPartIV": {
@@ -170,13 +170,13 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "2e14090",
+      "head": "059fd15",
       "review": {
         "recommendation": "changes",
         "head": "e0de4ab",
         "current": false,
         "date": "2026-10-13",
-        "note": "maintainer review repairs at 1d1ab33; head 2e14090 differs only by re-stacks on the parents"
+        "note": "maintainer review repairs at 1d1ab33; head 2e14090 differs only by re-stacks on the parents | re-stacked on #817 b45e54c at 059fd15"
       }
     },
     "PerfectoidTowers": {
@@ -186,13 +186,13 @@
         818
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
-      "head": "85bd1be",
+      "head": "29f15fb",
       "review": {
         "recommendation": "changes",
         "head": "ec1358d",
         "current": false,
         "date": "2026-10-12",
-        "note": "maintainer: \"GPT found no issues; waiting on dependencies\"; head 85bd1be differs only by re-stacks on the parents"
+        "note": "maintainer: \"GPT found no issues; waiting on dependencies\"; head 85bd1be differs only by re-stacks on the parents | re-stacked on #817 b45e54c at 29f15fb"
       }
     }
   }
