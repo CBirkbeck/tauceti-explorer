@@ -28345,7 +28345,8 @@
    ],
    "avoidAccountOf": "BP-ShimuraVarieties",
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9403"
   },
   {
    "id": "BP-SmallRamificationAndAbelianVarietyBaseCases",
