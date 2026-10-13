@@ -14991,8 +14991,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphyLiftingBeyondTaylorWiles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7060"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7060",
+   "finishedAt": "2026-10-13T00:01:00Z"
   },
   {
    "id": "REV-DESIGN-AutomorphyLiftingBeyondTaylorWiles",
@@ -39360,7 +39361,8 @@
    ],
    "avoidAccountOf": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.3",
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic--GN.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9285"
   },
   {
    "id": "BP-GeometryOfNumbersAndQuadraticArithmetic--GN.4",
