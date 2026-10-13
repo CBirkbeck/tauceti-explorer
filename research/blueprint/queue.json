@@ -21525,7 +21525,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9373"
   },
   {
    "id": "BP-FoundationsAndLibraryIntegration",
@@ -23440,8 +23441,9 @@
    ],
    "avoidAccountOf": "BP-CompletedCohomologyPartII",
    "prompt": "research/blueprint/prompts/REV-CompletedCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9378"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9378",
+   "finishedAt": "2026-10-13T17:02:38Z"
   },
   {
    "id": "BP-ComplexComparisonPartII",
