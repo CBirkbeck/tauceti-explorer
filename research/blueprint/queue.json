@@ -28264,9 +28264,10 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9431"
+   "note": "deliverables arrived from an external worker on issue #9431",
+   "finishedAt": "2026-10-13T19:12:19Z"
   },
   {
    "id": "REV-ShimuraCompactifications",
@@ -35583,8 +35584,9 @@
    ],
    "followUpOf": "BP-HilbertModularVarietiesAndShimuraCurves--H0",
    "prompt": "research/blueprint/prompts/BP-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9420"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9420",
+   "finishedAt": "2026-10-13T19:12:21Z"
   },
   {
    "id": "REV-HilbertModularVarietiesAndShimuraCurves--R18.3",
@@ -38175,7 +38177,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.3",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9279"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.4",
