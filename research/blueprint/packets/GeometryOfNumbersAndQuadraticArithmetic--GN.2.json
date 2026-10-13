@@ -6,7 +6,7 @@
   "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
  ],
  "status": "complete",
- "summary": "Follow-up plan for Layer GN.2 (quadratic and hermitian local-global theory), extending the accepted base packet, whose 55 GN.2 nodes (integral quadratic and hermitian lattices, localization and completion descent, genus and proper spinor genus, invariant factors, Voight's atomic forms, quaternionic hermitian data and the signed hermitian theory of Kurinczuk–Skodlerack–Stevens) are cited by id and not re-planned. It plans what that pass left open. (1) Lattices over a Dedekind domain: pseudobases, invariant factors and the Steinitz class; completion at a finite place; Voight's local-global dictionary; the R-index and the discriminant ideal. (2) Quaternion orders (the order notion moved down from ClassicalArithmeticCompletion), reduced discriminants, the maximality criterion and the Hasse–Schilling–Eichler norm theorem. (3) Finite fields: classification of quadratic forms in all characteristics with the Arf invariant, and the three quadric surfaces. (4) Local classifiers and their consumers: the genus character χ_d of a binary form with its local factors and the exponent-two genus theory; the local normal form of a binary form; odd unimodular representation of units; eigenspaces of isometries, the Cayley discriminant, Zassenhaus's spinor norm formula, integral spinor norms of regular quadratic modules through GSpin and the Chenevier–Taïbi constraint on characteristic polynomials; unimodular spinor images at all places. (5) Hermitian forms: the trace form and Jacobson's theorem, local and global classification, Jacobowitz's diagonalization over unramified extensions, scale and norm ideals, unimodular classification, hermitian genera, and Lipnowski–Tsimerman's model rings, unit labels and Gram-orbit bijection with their local lattice lemmas. (6) The complete signed hermitian transfer theory: unitary groups, equivariant linear forms, Witt parity, the determinant and standard values of the transfer, and the Skodlerack–Stevens theorem that the transfer preserves the maximal Witt element. (7) Routed paper items: Li's trace-unimodular O_F-lattices with a self-contained existence proof, Charles's Λ_{2d} transport and explicit plane, Lieblich–Maulik–Snowden's discriminant and norm-selection lemmas, and the signature splitting of Witt groups of Dedekind rings.",
+ "summary": "Follow-up plan for Layer GN.2 (quadratic and hermitian local-global theory), extending the accepted base packet, whose 55 GN.2 nodes (integral quadratic and hermitian lattices, localization and completion descent, genus and proper spinor genus, invariant factors, Voight's atomic forms, quaternionic hermitian data and the signed hermitian theory of Kurinczuk–Skodlerack–Stevens) are cited by id and not re-planned. It plans what that pass left open. (1) Lattices over a Dedekind domain: pseudobases, invariant factors and the Steinitz class; completion at a finite place; Voight's local-global dictionary; the R-index and the discriminant ideal. (2) Quaternion orders (the order notion moved down from ClassicalArithmeticCompletion), reduced discriminants, the maximality criterion and the Hasse–Schilling–Eichler norm theorem. (3) Finite fields: classification of quadratic forms in all characteristics with the Arf invariant, and the three geometrically irreducible quadric-surface types. (4) Local classifiers and their consumers: the genus character χ_d of a binary form with its local factors and the exponent-two genus theory; genus-character compatibility with imported binary local normal forms; odd unimodular representation of units; eigenspaces of isometries, the Cayley discriminant, Zassenhaus's spinor norm formula, integral spinor norms of regular quadratic modules through GSpin and the Chenevier–Taïbi constraint on characteristic polynomials; regular rank-at-least-three unimodular spinor images at nondyadic or hyperbolic-split places, with the general nonsplit dyadic case recorded as a gap. (5) Hermitian forms: the trace form and Jacobson's theorem, local and global classification, Jacobowitz's diagonalization over unramified extensions, scale and norm ideals, unimodular classification, hermitian genera, and Lipnowski–Tsimerman's model rings, unit labels and Gram-orbit bijection with their local lattice lemmas. (6) The complete signed hermitian transfer theory: unitary groups, equivariant linear forms, Witt parity, the determinant and standard values of the transfer, and the Skodlerack–Stevens theorem that the transfer preserves the maximal Witt element. (7) Routed paper items: Li's trace-unimodular O_F-lattices with a self-contained existence proof, Charles's Λ_{2d} transport and explicit plane, Lieblich–Maulik–Snowden's discriminant and norm-selection lemmas, and untwisted signature splitting and the line-valued direct-summand consequence with its localization input recorded as a gap.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,427 +16,441 @@
     "kind": "def",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "The norm of a finite free algebra as a monoid hom S →* R.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Algebra.trace",
     "kind": "def",
     "module": "Mathlib/RingTheory/Trace/Defs.lean",
     "provides": "The trace of a finite free algebra as an R-linear map S →ₗ[R] R.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:ClassGroup",
     "kind": "def",
     "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
     "provides": "The ideal class group of a domain.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:ClassGroup.mk0",
     "kind": "def",
     "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
     "provides": "The class of a nonzero ideal of a Dedekind domain, a monoid hom (Ideal R)⁰ →* ClassGroup R.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:ClassGroup.mk0_eq_one_iff",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
     "provides": "A nonzero ideal has trivial class iff it is principal.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:CliffordAlgebra.even",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Even.lean",
     "provides": "The even subalgebra of a Clifford algebra.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:FiniteField.card",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/Finite/Basic.lean",
     "provides": "A finite field of characteristic p has p^n elements.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:FiniteField.exists_root_sum_quadratic",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/Finite/Basic.lean",
     "provides": "Over a finite field of odd characteristic, two quadratic polynomials f, g have a with f(a) + g(b) = 0 for some b (sums of squares statements).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:FiniteField.isSquare_iff",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/Finite/Basic.lean",
     "provides": "In a finite field of odd characteristic, a nonzero a is a square iff a^{(q−1)/2} = 1.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:FractionalIdeal",
     "kind": "def",
     "module": "Mathlib/RingTheory/FractionalIdeal/Basic.lean",
     "provides": "Fractional ideals of a domain in a localization.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:FractionalIdeal.mul_inv_cancel_iff",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/FractionalIdeal/Inverse.lean",
     "provides": "A fractional ideal I satisfies I·I⁻¹ = 1 iff it is invertible.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:HenselianLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/Henselian.lean",
     "provides": "Henselian local rings: simple roots of monic polynomials modulo the maximal ideal lift.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
     "kind": "structure",
     "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
     "provides": "The height-one primes (finite places) of a Dedekind domain.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion",
     "kind": "structure",
     "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
     "provides": "The completion of the fraction field at a height-one prime.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
     "kind": "def",
     "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
     "provides": "The valuation ring of the completion at a height-one prime.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsDedekindDomain.exists_sup_span_eq",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/DedekindDomain/Factorization.lean",
     "provides": "For nonzero I ≤ J in a Dedekind domain there is x with I ⊔ span{x} = J (two-generation of ideals).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsDiscreteValuationRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
     "provides": "Discrete valuation rings.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:IsLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "provides": "Local rings.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:LinearMap.IsAdjointPair",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
     "provides": "Adjoint pairs of maps for two sesquilinear forms.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:LinearMap.IsSymm",
     "kind": "structure",
     "module": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
     "provides": "Symmetry (hermitian symmetry for a ring involution) of a sesquilinear form.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:LinearMap.det",
     "kind": "irreducible_def",
     "module": "Mathlib/LinearAlgebra/Determinant.lean",
     "provides": "The determinant of an endomorphism of a module.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Matrix.charpoly",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
     "provides": "The characteristic polynomial of a square matrix.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Matrix.det",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
     "provides": "The determinant of a square matrix.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Module.Projective",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/Projective.lean",
     "provides": "Projective modules.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Module.free_of_finite_type_torsion_free'",
     "kind": "instance",
     "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
     "provides": "A finitely generated torsion-free module over a PID is free.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Module.torsion_by_prime_power_decomposition",
     "kind": "theorem",
     "module": "Mathlib/Algebra/Module/PID.lean",
     "provides": "A finitely generated module over a PID killed by a power of a prime is a direct sum of cyclic modules R/p^{e_i}.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Nat.infinite_setOfPred_prime_and_eq_mod",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
     "provides": "Dirichlet: for a unit a mod q there are infinitely many primes p ≡ a mod q.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:NumberField.InfinitePlace",
     "kind": "def",
     "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
     "provides": "Infinite places of a number field.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:NumberField.RingOfIntegers",
     "kind": "def",
     "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
     "provides": "The ring of integers of a number field.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:PadicInt",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
     "provides": "The p-adic integers ℤ_p.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:QuadraticMap.polarBilin",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
     "provides": "The polar bilinear map of a quadratic map, b(x, y) = Q(x+y) − Q(x) − Q(y).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:QuaternionAlgebra",
     "kind": "structure",
     "module": "Mathlib/Algebra/Quaternion.lean",
     "provides": "Quaternion algebras ℍ[R, c₁, c₂, c₃] over a commutative ring.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Submodule.IsLattice",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/Lattice.lean",
     "provides": "An R-submodule of an A-module that is finitely generated and spans over A (a full lattice).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:Submodule.exists_smith_normal_form_of_le",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
     "provides": "Smith normal form of a pair of nested submodules of a free module over a PID.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:ZMod.exists_sq_eq_neg_one_iff",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
     "provides": "−1 is a square mod an odd prime p iff p ≢ 3 mod 4.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:char_dvd_card_solutions_of_sum_lt",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/ChevalleyWarning.lean",
     "provides": "Chevalley–Warning: if the total degree is less than the number of variables, the characteristic divides the number of common zeros.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:conductor_mul_differentIdeal",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
     "provides": "For B = A[x] generically, conductor(A[x])·𝔡_{B/A} = (f′(x)), f the minimal polynomial of x.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:differentIdeal",
     "kind": "def",
     "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
     "provides": "The different ideal of an extension of Dedekind domains.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:hensels_lemma",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/Padics/Hensel.lean",
     "provides": "Hensel’s lemma over ℤ_p: an approximate root a with ‖F(a)‖ < ‖F′(a)‖² lifts to a unique nearby root.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:jacobiSym",
     "kind": "def",
     "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
     "provides": "The Jacobi symbol (a/b) for odd b (Kronecker symbols are built from it and the symbols at 2).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:jacobiSym.quadratic_reciprocity",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
     "provides": "Quadratic reciprocity for Jacobi symbols of odd positive integers.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:legendreSym",
     "kind": "def",
     "module": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
     "provides": "The Legendre symbol (a/p).",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:legendreSym.quadratic_reciprocity",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
     "provides": "Quadratic reciprocity for distinct odd primes.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:orderOf",
     "kind": "def",
     "module": "Mathlib/GroupTheory/OrderOfElement.lean",
     "provides": "The order of an element of a monoid.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "mathlib:traceForm_dualSubmodule_adjoin",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
     "provides": "Euler’s lemma: the trace dual of A[x] is f′(x)^{−1}A[x] for a generator x with minimal polynomial f.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:CliffordAlgebra.spinorNorm",
     "kind": "def",
     "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
-    "provides": "The spinor norm O(Q) → K^×/K^{×2} of a nondegenerate quadratic form over a field with 2 invertible, θ(τ_v) = [Q(v)].",
-    "checked": "statement read at the pinned commit"
+    "provides": "The spinor norm on the special orthogonal group SO(Q), valued in Multiplicative (SquareClassGroup K). The orthogonal-group extension is orthogonalSpinorNorm.",
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:QuadraticForm.LocallyRepresentsScalar",
     "kind": "def",
     "module": "TauCeti/NumberTheory/QuadraticForm/Global/Predicates.lean",
     "provides": "A quadratic form over a number field represents a scalar at every finite and every real place.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:QuadraticForm.atFinitePlace",
     "kind": "def",
     "module": "TauCeti/NumberTheory/QuadraticForm/Global/Localization.lean",
     "provides": "Base change of a quadratic form over a number field to the completion at a finite place.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:QuadraticMap.Represents",
     "kind": "def",
     "module": "TauCeti/LinearAlgebra/QuadraticForm/Representation.lean",
     "provides": "Q represents a: there is v with Q v = a.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:QuaternionAlgebra.normForm",
     "kind": "def",
     "module": "TauCeti/Algebra/Quaternion/NormForm.lean",
     "provides": "The reduced norm of a quaternion algebra as a quadratic form, x ↦ x·x̄.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.IntegralLattice.natCard_discriminantGroup_eq_natAbs_gramDet",
     "kind": "theorem",
     "module": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Cardinality.lean",
     "provides": "For a nondegenerate integral ℤ-lattice, the order of the discriminant group is |det of the Gram matrix|.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.IntegralLattice.ofGramMatrix",
     "kind": "def",
     "module": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
     "provides": "The integral ℤ-lattice with a given symmetric integer Gram matrix in a basis of a rational space.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun",
     "kind": "def",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
     "provides": "The genus character attached to a finite set s of prime discriminants: n ↦ ∏_{P ∈ s} χ_P(n), the Kronecker character of ∏P.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom",
     "kind": "def",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/NarrowClassGroup.lean",
     "provides": "The genus character of a sub-factorization as a homomorphism on the narrow class group of a quadratic field.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_one_of_four_mul_eq_sq_sub_mul_sq",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
-    "provides": "If 4n = x² − Dy² with n coprime to the sub-factor, the corresponding genus character is 1 at n.",
-    "checked": "statement read at the pinned commit"
+    "provides": "The represented-value norm identity for a product of distinct prime discriminants with at most one even prime discriminant, and a subset of its factors. This is a fundamental-discriminant theorem, not well-definedness for arbitrary nonfundamental dd′.",
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_one_or_eq_neg_one",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
     "provides": "Genus characters take values ±1 at integers coprime to the discriminant.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_zero_iff",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
     "provides": "A genus character vanishes at n iff n is not coprime to the product of its prime discriminants.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.genusCharFun_mul_right",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/Basic.lean",
     "provides": "Genus characters are completely multiplicative in the integer argument.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/PrincipalGenus.lean",
     "provides": "Principal genus theorem: a narrow ideal class of a quadratic field is a square iff every genus character is trivial on it.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.Multiquadratic.twoRank_eq_ncard_ramifiedPrimes_sub_one",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Quadratic/TwoRank.lean",
     "provides": "For an imaginary quadratic field the 2-rank of the class group is (number of ramified primes) − 1.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
    },
    {
     "ref": "tauceti:TauCeti.QuadraticMap.orthogonalGroup",
     "kind": "def",
     "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
     "provides": "The orthogonal group of a quadratic map, as a subgroup of the linear automorphisms.",
-    "checked": "statement read at the pinned commit"
+    "checked": "Independent review: declaration and surrounding hypotheses read at the recorded pin, 2026-10-13."
+   },
+   {
+    "ref": "tauceti:TauCeti.Multiquadratic.isGenusField_candidateGenusField",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/Multiquadratic/GenusField.lean",
+    "provides": "For squarefree d < 0, the candidate multiquadratic field is the genus field of the quadratic field: abelian over ℚ, unramified over its embedded quadratic subfield at all places, with root-preserving maximality.",
+    "checked": "Independent review: full statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, 2026-10-13."
+   },
+   {
+    "ref": "tauceti:TauCeti.Multiquadratic.finrank_candidateGenusField_over_candidateGenusFieldBase_eq_two_pow_ncard_ramifiedPrimes",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/Multiquadratic/CandidateGenusField/RamifiedPrimes.lean",
+    "provides": "For a squarefree quadratic radicand d, a generator θ with minpoly ℤ θ = X² − C d and ℚ[θ] = K, the candidate genus field has relative degree 2^(ncard (ramifiedPrimes K) − 1).",
+    "checked": "Independent review: full statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, 2026-10-13."
    }
   ]
  },
@@ -445,10 +459,10 @@
    "id": "Voight2026",
    "title": "Quaternion algebras",
    "authors": "John Voight",
-   "edition": "Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 in Chapters 9–13 and physical − 28 in Chapters 14–15",
+   "edition": "Author post-publication v1.0.7u, 5 August 2026, 883 physical pages; printed = physical − 20 throughout the Chapter 9–15 passages used here.",
    "url": "https://jvoight.github.io/quat-book.pdf",
    "sha256": "a9316b834dbd500c52cd3a981c3205c9f4145b217042b213d23f696aee84b0f0",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§9.3 Theorems 9.3.6, 9.3.9 and 9.3.10, printed pp.138–139",
     "§9.4 Lemma 9.4.6 to Theorem 9.4.9 with proof, pp.140–142",
@@ -464,26 +478,26 @@
    "id": "BEY2021",
    "title": "CM values of higher automorphic Green functions for orthogonal groups",
    "authors": "Jan Hendrik Bruinier, Stephan Ehlen, Tonghai Yang",
-   "edition": "arXiv:1912.12084v2, 71 pages (printed = physical); published Invent. Math. 225 (2021) not collated",
-   "url": "https://arxiv.org/pdf/1912.12084v2",
-   "sha256": "9270640ef8510e9f309a6ce1a488e55bffff2efbacf4cc99b7b71eb38473c2c7",
-   "accessed": "2026-10-12",
+   "edition": "Published Invent. Math. 225 (2021), 693–785, 93 physical pages; printed = physical + 692. Independently collated with arXiv:1912.12084v2 at §7.1 and Corollary 7.18.",
+   "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01038-0.pdf",
+   "sha256": "729e4f9daff82e8e98ae27bcd8084c4e89c8a08b91f2b5106c048ab35cda4160",
+   "accessed": "2026-10-13",
    "readSections": [
-    "§7.1, Definition 7.1, Lemmas 7.2–7.3 with the proof of 7.3, pp.44–45",
-    "Corollary 7.18 and its proof, pp.56–57",
-    "§6.2 (the lattice of trace-zero matrices), pp.28–29"
+    "§7.1, Definition 7.1 and Lemmas 7.2–7.3 including proof, printed pp.752–754 (physical pp.60–62).",
+    "Corollary 7.18 and proof, printed pp.767–768 (physical pp.75–76).",
+    "The previously cited v2 passages at pp.44–45 and 56–57 were also read; the unramified-prime clause changes in the published definition."
    ]
   },
   {
    "id": "Khayutin2019",
    "title": "Joint equidistribution of CM points",
    "authors": "Ilya Khayutin",
-   "edition": "arXiv:1710.04557v3, 118 pages; Annals of Math. 189 (2019), Appendix B.2 (Lemma B.1 = arXiv Lemma 168)",
+   "edition": "arXiv:1710.04557v3, 118 pages; Appendix B.2 uses the labels Lemma B.1 and Remark B.2.",
    "url": "https://arxiv.org/pdf/1710.04557v3",
    "sha256": "f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "Appendix B.2, Lemma 168 (B.1) and Remark 169 (B.2)"
+    "Appendix B.2, Lemma B.1 and Remark B.2, p.109 (physical p.109), read in full."
    ]
   },
   {
@@ -493,7 +507,7 @@
    "edition": "arXiv:1611.02667v3, 81 pages (printed = physical)",
    "url": "https://arxiv.org/pdf/1611.02667v3",
    "sha256": "1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§3.1 Lemma 3.1 with proof, p.10",
     "§§3.2–3.5, Remarks 3.7–3.11, Proposition 3.12, Propositions 3.13–3.15 with proofs, Remark 3.16, pp.12–16"
@@ -506,7 +520,7 @@
    "edition": "arXiv:1503.08882v3, 41 pages; published Nagoya Math. J. 238 (2020) 137–205 not collated",
    "url": "https://arxiv.org/pdf/1503.08882v3",
    "sha256": "44c72c5f74c760805adf1046974ff49b9f8e2ae1cb052f4c75799e70593b1efc",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§4 (Witt groups): Theorem 4.1, Definitions 4.2 and 4.5, Example 4.3, Theorem 4.4, Proposition 4.6, Lemma 4.7, the proof of Theorem 4.4, pp.8–11"
    ]
@@ -518,7 +532,7 @@
    "edition": "arXiv:1511.02212v1, 38 pages",
    "url": "https://arxiv.org/pdf/1511.02212v1",
    "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§3.1–3.2.1, pp.7–13 (including Lemma 3.1)",
     "§5.1–5.3, Definition 5.1 to Remark 5.7, pp.24–27"
@@ -528,24 +542,24 @@
    "id": "Zhang2021",
    "title": "Weil representation and arithmetic fundamental lemma",
    "authors": "Wei Zhang",
-   "edition": "arXiv:1909.02697, 79 pages; Annals of Math. 193 (2021), §1.2 pp.869–870 cited through the arXiv text",
+   "edition": "arXiv:1909.02697, 79 pages; published Annals of Math. 193 (2021). Locators below refer to the arXiv text; no published-page collation is claimed.",
    "url": "https://arxiv.org/pdf/1909.02697",
    "sha256": "f58b275c97b2675123f44994c91fde9406d6928f6d659b7b8a0f196112d3f61c",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "§1.2, (1.2)–(1.4)"
+    "§1.2, displays (1.2)–(1.4), arXiv physical pp.4–5; the definitions themselves are on p.5. No collation with Annals pagination is claimed."
    ]
   },
   {
    "id": "Leslie2019",
    "title": "The endoscopic fundamental lemma for unitary Friedberg–Jacquet periods",
    "authors": "Spencer Leslie",
-   "edition": "arXiv:1911.07907v3 (maintainer-cleared copy, free on arXiv)",
+   "edition": "arXiv:1911.07907v3, 12 March 2025, maintainer-cleared author copy; the source id retains the initial submission year.",
    "url": "https://arxiv.org/pdf/1911.07907v3",
    "sha256": "167574c84c7a7e9bed4be72ca08be2769dd1442741fe7ffa6d1024627b682b76",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "§3.2, (3.5)–(3.7), pp.25–26; §3.3, Remark 3.9, p.29"
+    "§3.2, displays (3.5)–(3.7), physical/printed pp.25–26, read in the cleared original."
    ]
   },
   {
@@ -555,7 +569,7 @@
    "edition": "arXiv:1908.01701v3, 92 pages",
    "url": "https://arxiv.org/pdf/1908.01701v3",
    "sha256": "7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§1.7, physical pp.8–9"
    ]
@@ -567,10 +581,10 @@
    "edition": "AMS Colloquium Publications 56 (2008), authors’ free copy, 443 physical pages; printed = physical − 8 in Chapter II",
    "url": "https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf",
    "sha256": "0b547b09ee83c370a932e2c2117fe1757bb8b342ca0af9d73526b5edffb842e6",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "§12–§13 (quadratic algebras, the discriminant and the Arf invariant), printed pp.60–62",
-    "§35 opening (u-invariant; finite fields via Chevalley–Warning), printed p.161"
+    "§§12–13, Propositions 12.1 and 13.2 and Examples 13.5, printed pp.60–62 (physical pp.68–70).",
+    "§36 opening, finite-field u-invariant via Chevalley–Warning, printed p.161 (physical p.169)."
    ]
   },
   {
@@ -580,7 +594,7 @@
    "edition": "arXiv:2206.07759v2, 31 pages",
    "url": "https://arxiv.org/pdf/2206.07759v2",
    "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§6, quadric surfaces and display (6), pp.9–10"
    ]
@@ -592,7 +606,7 @@
    "edition": "arXiv:1907.08783, 62 pages (printed = physical); Publ. Math. IHÉS 131 (2020) not collated",
    "url": "https://arxiv.org/pdf/1907.08783",
    "sha256": "81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "Section 3.2: regular forms over rings, GSpin and Spin, (3.2.1), Theorem 3.5 with proof, Corollary 3.6, Proposition 3.7 with proof, pp.28–30"
    ]
@@ -604,7 +618,7 @@
    "edition": "Annals of Math. 184 (2016) 487–526, published PDF from the Annals site (printed = physical + 486)",
    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
    "sha256": "3425f2697b3600f7920f1bdce67681339d06a20dfaf39ea4fdc2a0baebc940e2",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§2.2 and Proposition 2.9 with proof, pp.500–502; Theorem 2.10, pp.502–503",
     "Proposition 4.3 proof, p.520; Lemmas 4.5–4.6, pp.520–521; proof of Theorem 1.3, p.523"
@@ -617,10 +631,10 @@
    "edition": "arXiv:1107.1221, 20 pages (printed = physical); Ann. Sci. ÉNS 47 (2014) not collated",
    "url": "https://arxiv.org/pdf/1107.1221",
    "sha256": "66ee971cf9449a7e76ca9a1a2f7332b54ec86330476ba115b08ab7670baa22d5",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "§2.1, Lemma 2.1.1 and Proposition 2.1.2 with proof, p.3",
-    "§3.5, Lemmas 3.5.1–3.5.2 and Proposition 3.5.3, pp.15–16"
+    "§2.1, Lemma 2.1.1 and Proposition 2.1.2 including proof, pp.3–4.",
+    "§3.5, Lemmas 3.5.1–3.5.2 including proofs and Definition 3.5.3, pp.15–16."
    ]
   },
   {
@@ -630,7 +644,7 @@
    "edition": "arXiv:2106.13653v2, 42 pages (printed = physical); Invent. Math. 234 (2023) not collated",
    "url": "https://arxiv.org/pdf/2106.13653v2",
    "sha256": "8111a1ba6f3f6ab3702cf10cdc068ce369890b1d3ed381e6d61a3d2f47d94882",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§2.4, (2.4.1)–(2.4.6) and Proposition 2.6 with proof, pp.16–17"
    ]
@@ -642,7 +656,7 @@
    "edition": "arXiv:2009.07225v4, 63 pages",
    "url": "https://arxiv.org/pdf/2009.07225v4",
    "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§3.1, Theorem 3.1.7 to Remark 3.1.9, pp.52–53"
    ]
@@ -654,7 +668,7 @@
    "edition": "arXiv:2008.12847v2",
    "url": "https://arxiv.org/pdf/2008.12847v2",
    "sha256": "2f678d04ac611de3de3cfb08e1286a9560e40d02e23470668c44d56ba6e6f48e",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
     "§9.2, Lemma 9.19, Definition/Lemma 9.20, printed pp.126–127"
    ]
@@ -666,9 +680,22 @@
    "edition": "Autour des schémas en groupes I, Panoramas et Synthèses 42–43 (2014); author’s free copy (maintainer-cleared, printed = physical)",
    "url": "http://math.stanford.edu/~conrad/papers/luminysga3.pdf",
    "sha256": "1a63a17e4ccb7e23263d65f05d93a6651262861e978e9eb0c1c53a01fd59140a",
-   "accessed": "2026-10-12",
+   "accessed": "2026-10-13",
    "readSections": [
-    "Appendix C: C.1–C.2 (pp.302–318) and C.4–C.5 (spin groups, Clifford norm, Pin groups and spinor norm, pp.336–356), read for statements"
+    "Lemma C.2.8, pp.316–317 (GSpin/Gₘ and the orthogonal group).",
+    "Clifford norm (C.4.2), p.337; Proposition C.4.6, p.340; (C.4.4), p.343; Corollary C.4.10, p.344; beginning of C.5, p.346. Read in the cleared original; no claim to reading the entire appendix."
+   ]
+  },
+  {
+   "id": "GKZ1987",
+   "title": "Heegner points and derivatives of L-series II",
+   "authors": "Benedict Gross, Winfried Kohnen, Don Zagier",
+   "edition": "Published Math. Ann. 278 (1987), 497–562; author-hosted PDF, 66 physical pages; printed = physical + 496.",
+   "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01458081/fulltext.pdf",
+   "sha256": "81f70261d4a2d1904bf86a6a960627f06378c0af19340e1c2d5838a329565b48",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "Chapter I §2, Proposition 1 and its proof, printed pp.508–510 (physical pp.12–14), including the dyadic discriminant condition."
    ]
   }
  ],
@@ -780,6 +807,18 @@
    "url": "http://math.stanford.edu/~conrad/papers/luminysga3.pdf",
    "read": "2026-10-12",
    "sha256": "1a63a17e4ccb7e23263d65f05d93a6651262861e978e9eb0c1c53a01fd59140a"
+  },
+  {
+   "kind": "published",
+   "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01038-0.pdf",
+   "read": "2026-10-13",
+   "sha256": "729e4f9daff82e8e98ae27bcd8084c4e89c8a08b91f2b5106c048ab35cda4160"
+  },
+  {
+   "kind": "published author copy",
+   "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01458081/fulltext.pdf",
+   "read": "2026-10-13",
+   "sha256": "81f70261d4a2d1904bf86a6a960627f06378c0af19340e1c2d5838a329565b48"
   }
  ],
  "sourceIssues": [
@@ -787,7 +826,7 @@
    "id": "GeometryOfNumbersAndQuadraticArithmetic/E201",
    "source": "Voight2026",
    "kind": "error",
-   "locator": "15.4.5 and Lemma 15.4.7, printed p.239, in the post-publication v1.0.7u (5 August 2026); the same statements are in the 2021 Springer edition",
+   "locator": "15.4.5 and Lemma 15.4.7, printed p.239 (physical p.259), post-publication v1.0.7u, 5 August 2026; no collation with the 2021 edition claimed.",
    "printed": "For projective R-lattices I ⊆ J in a quaternion algebra, 15.4.5 deduces discrd(I) = [J : I]·discrd(J), and Lemma 15.4.7 asserts disc(I) = discrd(I)² for every projective R-lattice I.",
    "correction": "Both hold for R-orders (more generally for lattices containing R·1 as a saturated direct summand, so that the index can be computed in B/F); for general lattices discrd(I)² = disc(I) fails. The packet states them for orders.",
    "reason": "For I = 2M₂(ℤ) ⊆ J = M₂(ℤ): m is trilinear, so discrd(I) = 2³discrd(J) = 8ℤ, while [J : I] = 2⁴ and disc(I) = 2⁸disc(J) = 256ℤ ≠ 64ℤ = discrd(I)². The proof of 15.4.7 uses m(α_1, α_2, α_3)² = −d(1, α_1, α_2, α_3), and the values d(1, α_1, α_2, α_3) generate disc(I) only when 1 ∈ I behaves as for an order.",
@@ -796,7 +835,132 @@
    "searched": [
     "Voight’s errata list at quatalg.org as reflected in the post-publication v1.0.7u (which incorporates the errata)",
     "the text of v1.0.7u itself (statements unchanged)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently read the stated scope and computed I=2M₂(ℤ): ordinary discriminant 256ℤ, reduced discriminant 8ℤ and index 16ℤ, which disprove the unrestricted lattice identities. The order restriction restores the targets.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   }
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E202",
+   "source": "BEY2021",
+   "kind": "error",
+   "locator": "Published Definition 7.1 and Lemma 7.2, pp.752–753; also arXiv v2 pp.44–45.",
+   "printed": "At p|Δ the definition checks divisibility of D by Δ and primitivity against Δ, but has no dyadic quotient-discriminant condition; Lemma 7.2 claims the represented-unit Hilbert value is well defined.",
+   "correction": "At p=2 dividing Δ additionally require D/Δ∈4ℤ₂∪(1+4ℤ₂), and set the character to zero off this support. At p∤Δ use the published characteristic function of L′_p.",
+   "reason": "For Δ=−4, p=2 and Q=[1,0,2], D=−8 satisfies the printed support conditions, but Q represents 1 and 3, with Hilbert symbols (1,−4)₂=1 and (3,−4)₂=−1. The quotient D/Δ=2 fails the missing condition. GKZ I.2 Proposition 1 explicitly includes the quotient-discriminant restriction.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For Δ=−4, p=2 and Q=[1,0,2], D=−8 satisfies the printed support conditions, but Q represents 1 and 3, with Hilbert symbols (1,−4)₂=1 and (3,−4)₂=−1. The quotient D/Δ=2 fails the missing condition. GKZ I.2 Proposition 1 explicitly includes the quotient-discriminant restriction.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E203",
+   "source": "BFP2024",
+   "kind": "error",
+   "locator": "arXiv:2206.07759v2, §6, pp.9–10, the three-orbit quadric-surface classification.",
+   "printed": "The classification is phrased for reduced irreducible quadric surfaces and lists only the cone and the two smooth types.",
+   "correction": "Require geometric irreducibility. A nonsplit binary norm equation gives another irreducible-over-𝔽_q surface of geometric rank two.",
+   "reason": "For odd q and nonsquare d, x²−dy² is irreducible in 𝔽_q[x,y,z,w], so it defines a reduced irreducible surface in ℙ³ over 𝔽_q. Over 𝔽_{q²} it is the union of two conjugate planes and is none of the three listed geometric types. The correction preserves the rank-three/four application.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For odd q and nonsquare d, x²−dy² is irreducible in 𝔽_q[x,y,z,w], so it defines a reduced irreducible surface in ℙ³ over 𝔽_q. Over 𝔽_{q²} it is the union of two conjugate planes and is none of the three listed geometric types. The correction preserves the rank-three/four application.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E204",
+   "source": "Charles2016",
+   "kind": "error",
+   "locator": "Published Proposition 2.9, p.500, and proof pp.500–502.",
+   "printed": "The hypothesis allows an arbitrary positive definite rank-two sublattice, while the proof starts with a primitive embedding and the conclusion is primitive.",
+   "correction": "Assume the initial embedding is primitive, as already recorded in PAPER-CHARLES-16/E2.",
+   "reason": "The sublattice diag(8,8) generated by 2h and 2(e+f) in Λ₂ has no primitive embedding into Λ₂. Modulo 2 a primitive embedding would give a two-dimensional zero subspace for q=x²+yz on 𝔽₂³. Its three nonzero zeros are (0,0,1),(0,1,0),(1,1,1), and the sum of any two is not a zero. Taking m=1 disproves the unrestricted target.",
+   "affects": "a stated result",
+   "known": "Already recorded and independently confirmed as PAPER-CHARLES-16/E2; this entry links the GN.2 dependency to that existing finding.",
+   "searched": [
+    "PAPER-CHARLES-16.result.json and the independently reviewed research/blueprint/errata/PAPER-CHARLES-16.json, E2; published Proposition 2.9 read directly."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The sublattice diag(8,8) generated by 2h and 2(e+f) in Λ₂ has no primitive embedding into Λ₂. Modulo 2 a primitive embedding would give a two-dimensional zero subspace for q=x²+yz on 𝔽₂³. Its three nonzero zeros are (0,0,1),(0,1,0),(1,1,1), and the sum of any two is not a zero. Taking m=1 disproves the unrestricted target.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E205",
+   "source": "Voight2026",
+   "kind": "error",
+   "locator": "Example 9.6.5, printed p.144 (physical p.164), under the noetherian-domain hypotheses at the start of §9.6, p.143; v1.0.7u.",
+   "printed": "The scalar-index example gives [M:rM]_R=r^nR for a general lattice over the stated noetherian domain.",
+   "correction": "Require M projective (in particular R Dedekind), or retain [M:rM]_R=r^n[M:M]_R rather than identifying the self-index with R.",
+   "reason": "Take R=k[t²,t³], F=k(t), M=k[t] and r=1. M is generated over R by 1,t and spans F. Rank-one endomorphisms preserving M are multiplication by exactly k[t], so [M:M]_R=k[t]≠R.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: Voight v1.0.7u §9.6 including Proposition 9.6.8, which explicitly requires projectivity; existing atlas Voight source findings and searches for this example’s correction. No separate correction identified."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Take R=k[t²,t³], F=k(t), M=k[t] and r=1. M is generated over R by 1,t and spans F. Rank-one endomorphisms preserving M are multiplication by exactly k[t], so [M:M]_R=k[t]≠R.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E206",
+   "source": "BEY2021",
+   "kind": "misprint",
+   "locator": "Published proof of Corollary 7.18, p.768; arXiv v2 pp.56–57.",
+   "printed": "The proof counts the sign-selected fundamental-discriminant splittings by s, the number of distinct prime factors, and indexes all characters with that count.",
+   "correction": "The count and indexing bound are 2^{s−1}, equal to the genus quotient order and, under exponent two, the class number.",
+   "reason": "For D=−84, s=3 but the four genus characters correspond to the four sign-selected splittings. The proof’s own class-number formula gives 2^{s−1}; the count s is inconsistent.",
+   "affects": "the proof",
+   "known": "Already recorded and confirmed as PAPER-BRUINIER-EHLEN-YANG-21/E4.",
+   "searched": [
+    "Existing atlas PAPER-BRUINIER-EHLEN-YANG-21.result.json source issue E4 and its independent review; the published p.768 passage was read directly."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For D=−84, s=3 but the four genus characters correspond to the four sign-selected splittings. The proof’s own class-number formula gives 2^{s−1}; the count s is inconsistent.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+  },
+  {
+   "id": "GeometryOfNumbersAndQuadraticArithmetic/E207",
+   "source": "LMS2018",
+   "kind": "error",
+   "locator": "arXiv:1107.1221, Proposition 2.1.2 and proof, pp.3–4.",
+   "printed": "The proposition lists lattice, integrality, Weil-root and semisimple-eigenvalue conditions without stating that φ preserves the pairing up to q^w, but its proof uses orthogonal primary summands.",
+   "correction": "Add (φx,φy)=q^w(x,y). Also interpret integral characteristic polynomial as one in ℤ[T] for the uniform finite-polynomial argument.",
+   "reason": "For any odd ℓ, let M=ℤ_ℓ² with pairing diag(1,−1), v=(1,1+ℓ), w=(0,1), and let φ act as +1 on v and −1 on w. This is an integral endomorphism since v,w form a basis; its characteristic polynomial X²−1 has Weil weight zero and semisimple eigenvalue 1. The ambient discriminant is a unit while the fixed-line discriminant is −ℓ(2+ℓ), of valuation 1. This violates the large-ℓ bound for arbitrarily large ℓ. It is not an isometry, exactly the missing condition.",
+   "affects": "a stated result",
+   "known": "new; no correction found in the bounded search recorded below",
+   "searched": [
+    "2026-10-13: relevant source passages, the existing atlas paper sourceIssues, and title/theorem-number searches for an erratum or correction; no applicable correction located. This is a bounded search."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For any odd ℓ, let M=ℤ_ℓ² with pairing diag(1,−1), v=(1,1+ℓ), w=(0,1), and let φ act as +1 on v and −1 on w. This is an integral endomorphism since v,w form a basis; its characteristic polynomial X²−1 has Weil weight zero and semisimple eigenvalue 1. The ambient discriminant is a unit while the fixed-line discriminant is −ℓ(2+ℓ), of valuation 1. This violates the large-ℓ bound for arbitrarily large ℓ. It is not an isometry, exactly the missing condition.",
+    "by": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
+   },
+   "addedBy": "REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2"
   }
  ],
  "nodes": [
@@ -808,15 +972,15 @@
    ],
    "title": "Pseudobases and invariant factors of lattices over a Dedekind domain",
    "kind": "theorem",
-   "statement": "Let R be a Dedekind domain with fraction field F, V an n-dimensional F-vector space and M ⊆ V an R-lattice (a finitely generated R-submodule spanning V; Mathlib's Submodule.IsLattice F M). (a) For every F-basis y_1,…,y_n of V there are x_1,…,x_n ∈ M and nonzero fractional ideals 𝔞_1,…,𝔞_n of R with M = 𝔞_1x_1 ⊕ ⋯ ⊕ 𝔞_nx_n and x_j ∈ Fy_1 + ⋯ + Fy_j for every j (a pseudobasis with coefficient ideals 𝔞_j). (b) Dropping the triangularity condition, one may take 𝔞_1 = ⋯ = 𝔞_{n−1} = R, so M ≅ R^{n−1} ⊕ 𝔞 as R-modules. (c) For two R-lattices M, N ⊆ V there is a common pseudobasis x_1,…,x_n with M = ⊕𝔞_ix_i and N = ⊕𝔟_ix_i such that the ideals 𝔡_i = 𝔟_i𝔞_i^{−1} satisfy 𝔡_1 | 𝔡_2 | ⋯ | 𝔡_n; these invariant factors of N relative to M are unique. In particular every R-lattice is a finitely generated projective R-module, free exactly when it has a pseudobasis with all coefficient ideals principal.",
+   "statement": "Let R be a Dedekind domain with fraction field F, V an n-dimensional F-vector space and M ⊆ V an R-lattice (a finitely generated R-submodule spanning V; Mathlib's Submodule.IsLattice F M). (a) For every F-basis y_1,…,y_n of V there are x_1,…,x_n ∈ M and nonzero fractional ideals 𝔞_1,…,𝔞_n of R with M = 𝔞_1x_1 ⊕ ⋯ ⊕ 𝔞_nx_n and x_j ∈ Fy_1 + ⋯ + Fy_j for every j (a pseudobasis with coefficient ideals 𝔞_j). (b) For n ≥ 1, dropping the triangularity condition, one may take 𝔞_1 = ⋯ = 𝔞_{n−1} = R, so M ≅ R^{n−1} ⊕ 𝔞 as R-modules. (c) For two R-lattices M, N ⊆ V there is a common pseudobasis x_1,…,x_n with M = ⊕𝔞_ix_i and N = ⊕𝔟_ix_i such that the ideals 𝔡_i = 𝔟_i𝔞_i^{−1} satisfy 𝔡_1 | 𝔡_2 | ⋯ | 𝔡_n; these invariant factors of N relative to M are unique. In particular every R-lattice is a finitely generated projective R-module, free exactly when it has a pseudobasis with all coefficient ideals principal.",
    "hypotheses": [
     "R a Dedekind domain (not a field), F = Frac R, V finite-dimensional over F; n = 0 allowed (empty pseudobasis).",
     "Fractional ideals are nonzero R-submodules of F; Mathlib's FractionalIdeal R⁰ F."
    ],
    "proofSteps": [
-    "(a) Induction on n. Put W = Fy_1 + ⋯ + Fy_{n−1} and N = M ∩ W, an R-lattice in W. The coordinate of y_n maps M onto a nonzero finitely generated R-submodule 𝔞_n of F, a fractional ideal, which is invertible because R is Dedekind (FractionalIdeal.mul_inv_cancel_iff); an invertible ideal is projective, so M → 𝔞_n splits and M = N ⊕ 𝔞_nx_n for a lift x_n. Apply induction to N.",
-    "(b) Steinitz's lemma 𝔞 ⊕ 𝔟 ≅ R ⊕ 𝔞𝔟 for nonzero fractional ideals (choose 𝔞' in the class of 𝔞 coprime to 𝔟 by IsDedekindDomain.exists_sup_span_eq and use 𝔞' + 𝔟 = R), applied n − 1 times.",
-    "(c) Apply (a) to M with a basis adapted to N and run the elementary-divisor argument prime by prime: at every localization R_(𝔭), a PID, Smith normal form (Submodule.exists_smith_normal_form_of_le) gives the local exponents, and the global 𝔡_i are reassembled by unique factorization; uniqueness is the uniqueness of the local exponents."
+    "(a) Induct on n, with the zero-dimensional case empty. Intersect M with the first n−1 coordinate spaces. The last-coordinate image is a nonzero fractional ideal, hence an invertible projective module; the coordinate map splits. Its section extends over F to multiplication by a vector x_n. Rescale x_n and its coefficient ideal inversely to arrange x_n ∈ M. Induct on the kernel.",
+    "(b) For n ≥ 1 use the coprime-ideal form of Steinitz’s lemma: replace a fractional ideal by an equivalent ideal coprime to the other, using ideal approximation/two-generation, and split 𝔞 ⊕ 𝔟 as R ⊕ 𝔞𝔟. Iterate n−1 times.",
+    "(c) Local Smith normal form determines ordered exponents at each height-one prime; all but finitely many vanish, so unique ideal factorization reconstructs the invariant ideals and proves uniqueness. Existence of a single global pseudobasis simultaneously realizing them is a separate assertion of Voight Theorem 9.3.9: local bases cannot simply be glued. Its global elementary-divisor proof is the recorded common-pseudobasis gap; subsequent index computations use only the proved local exponents."
    ],
    "acceptance": [
     "R = ℤ: every lattice is free and (a) is the Hermite normal form of a basis.",
@@ -972,7 +1136,7 @@
     "No freeness of L is assumed; L_v is free because R_v is a DVR."
    ],
    "proofSteps": [
-    "L is flat over R (torsion-free over a Dedekind domain) and R_v is flat over R, so R_v ⊗_R L → R_v ⊗_R V = V_v is injective.",
+    "A torsion-free module over a Dedekind domain is flat, so R_v is flat over R. Tensor the injection L → V with R_v. Since every nonzero element of R becomes invertible in F_v and Frac(R_v)=F_v, R_v ⊗_R V identifies with F_v ⊗_F V; the injection has image the R_v-span of L.",
     "The image is finitely generated over R_v and spans V_v, so it is a full lattice; it is the R_v-span of L by construction.",
     "Since L_(v) = R_(v)L and R_(v) → R_v, the completion of L equals that of L_(v); combine with completed-lattice-descent (R_(v) a DVR) to get L_v ∩ V = L_(v).",
     "Integrality: q_v(Σ a_ix_i) = Σ a_i²q(x_i) + Σ_{i<j} a_ia_j polar(x_i,x_j) with a_i ∈ R_v and q(x_i), polar(x_i,x_j) ∈ R."
@@ -1014,8 +1178,8 @@
      "how": "the completed form of the dictionary"
     },
     {
-     "where": "genus-adelic-double-coset (this packet)",
-     "how": "the stabilizers of the L_v are the compact open subgroups of the adelic orthogonal group"
+     "where": "integral-genus (base packet) and trace-unimodular-lattice (this packet)",
+     "how": "local integral stabilizers are compact open subgroups for the adelic genus dictionary"
     },
     {
      "where": "Li, Algebraicity of higher Green functions, §2.4 (2.28)",
@@ -1078,7 +1242,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.completion_two_int_at_three",
      "kind": "computation",
-     "statement": "For L = 2ℤ, the completion at (3) is the full ring ℤ_3 and at (2) it is 2ℤ_2."
+     "statement": "For L = 2ℤ, completion at (3) is ℤ₃ and at (2) is 2ℤ₂. In particular the completions of ℤ and 2ℤ at 2 are unequal; using the ℚ₂-span would wrongly make both equal to ℚ₂."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.completion_ne_of_ne_at",
@@ -1121,7 +1285,8 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-inclusion-localizations",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-completion",
-    "mathlib:Submodule.IsLattice"
+    "mathlib:Submodule.IsLattice",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-index-ideal"
    ],
    "sources": [
     {
@@ -1194,7 +1359,7 @@
     },
     {
      "where": "Voight, Quaternion algebras, Lemma 15.2.15 (printed p.237) and 15.4.6",
-     "how": "disc(I) = [J : I]²disc(J) and discrd(I) = [J : I]discrd(J) compare discriminants of lattices in a quaternion algebra"
+     "how": "disc(I) = [J : I]²disc(J) for full lattices; the reduced-discriminant relation discrd(I) = [J : I]discrd(J) is restricted to orders (source issue E201)"
     }
    ],
    "api": [
@@ -1226,7 +1391,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_eq_top_iff",
      "role": "characterisation",
-     "statement": "For projective N ⊆ M: [M : N]_R = R iff M = N."
+     "statement": "For projective full lattices M and N with N ⊆ M, [M:N]_R = R iff M = N."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_trans",
@@ -1236,14 +1401,14 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_int",
      "role": "compatibility",
-     "statement": "For R = ℤ and N ⊆ M, [M : N]_ℤ = ℤ·#(M/N), Mathlib’s AddSubgroup.index of N in M."
+     "statement": "For full ℤ-lattices N ⊆ M in a finite-dimensional ℚ-space, [M:N]_ℤ = ℤ·#(M/N); the quotient is finite."
     }
    ],
    "tests": [
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_smul",
      "kind": "computation",
-     "statement": "For r ∈ R nonzero and V of dimension n, [M : rM]_R = r^n·R."
+     "statement": "For a projective full R-lattice M and nonzero r ∈ R, [M:rM]_R = r^nR; in particular this holds over a Dedekind domain."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_int_example",
@@ -1253,12 +1418,17 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_self",
      "kind": "degenerate",
-     "statement": "[M : M]_R = R, and in dimension 0 every index is R."
+     "statement": "For a projective full R-lattice M, [M:M]_R = R; in dimension zero every index is R. For a general lattice over a nonnormal domain this equality is not asserted."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_not_card",
      "kind": "non-example",
      "statement": "The index is a determinant ideal, not a module length: for R = ℤ[i] and M = R, N = (1+i)R, [M : N] = (1+i), whose norm 2 is #(M/N); the ideal itself is not (2)."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.latticeIndex_nonnormal",
+     "kind": "non-example",
+     "statement": "For R = k[t²,t³] ⊂ F = k(t) and M = k[t], a finite full R-lattice of rank one, [M:M]_R = k[t] ≠ R; taking M = R would give R. The definition must preserve this distinction."
     }
    ]
   },
@@ -1392,14 +1562,15 @@
    ],
    "title": "The genus character of a binary quadratic form",
    "kind": "definition",
-   "statement": "Let d be a fundamental discriminant, d′ a discriminant (d′ ≡ 0, 1 mod 4, possibly a square) and D = dd′. For an integral binary quadratic form Q = [a, b, c] (Q(x, y) = ax² + bxy + cy²) of discriminant b² − 4ac = D, possibly imprimitive and taken positive definite when D < 0, put χ_d(Q) = 0 if gcd(a, b, c, d) > 1, and otherwise χ_d(Q) = χ_d(m) := (d/m), the Kronecker symbol, for any integer m ≠ 0 represented by Q with gcd(m, d) = 1. Here χ_d(m) is Tau Ceti's genus character TauCeti.Multiquadratic.genusCharFun s m for the prime-discriminant factorization s of d. The value lies in {0, ±1}.",
+   "statement": "Let d be a fundamental discriminant, d′ a discriminant (d′ ≡ 0, 1 mod 4, possibly a square) and D = dd′. For an integral binary quadratic form Q = [a, b, c] (Q(x, y) = ax² + bxy + cy²) of discriminant b² − 4ac = D, possibly imprimitive; both definite signs are allowed when D < 0, put χ_d(Q) = 0 if gcd(a, b, c, d) > 1, and otherwise χ_d(Q) = χ_d(m) := (d/m), the Kronecker symbol, for any integer m ≠ 0 represented by Q with gcd(m, d) = 1. Here χ_d(m) is Tau Ceti's genus character TauCeti.Multiquadratic.genusCharFun s m for the factorization s of d into distinct prime discriminants, with at most one even factor. The value lies in {0, ±1}.",
    "hypotheses": [
     "d fundamental (d = 1 allowed, giving the trivial character); Q integral with discriminant dd′.",
-    "The form carrier and proper equivalence are those of IntegralLattices Layer B (milestones B1–B2) for the binary lattice with polar Gram [[2a, b], [b, 2c]]; no second carrier is introduced."
+    "The form carrier and proper equivalence are those of IntegralLattices Layer B (milestones B1–B2) for the binary lattice with polar Gram [[2a, b], [b, 2c]]; no second carrier is introduced.",
+    "D ≠ 0 and d′ = D/d is 0 or 1 modulo 4. Negative definite forms are admitted so that negation is an operation on the domain."
    ],
    "proofSteps": [
-    "The represented set of a form with gcd(a, b, c, d) = 1 contains integers prime to d: Q represents a, c and a + b + c, and if a prime p | d divided all three it would divide a, b, c.",
-    "The value is defined through any such m; that it does not depend on m is binary-form-genus-character-invariance."
+    "For each prime p dividing d choose one of (1,0), (0,1), (1,1) with Q-value nonzero modulo p; otherwise a,c,a+b+c would all vanish modulo p. Choose a single pair (x,y) meeting these choices by CRT. Its value is coprime to d. Perturb the pair by multiples of the product of those primes if necessary to make the value nonzero; a nonzero binary polynomial cannot vanish on the entire resulting integer grid.",
+    "Use binary-form-genus-character-invariance, with GKZ’s quotient-discriminant condition, to prove independence of the represented value."
    ],
    "acceptance": [
     "d = −4, Q = x² + y² (D = −4): χ_{−4}(Q) = χ_{−4}(1) = 1.",
@@ -1411,13 +1582,14 @@
     "tauceti:QuadraticMap.Represents",
     "mathlib:jacobiSym",
     "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_zero_iff",
-    "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_one_or_eq_neg_one"
+    "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_one_or_eq_neg_one",
+    "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms"
    ],
    "sources": [
     {
-     "sourceId": "BEY2021",
-     "locator": "Definition 7.1 and Lemma 7.2 with the paragraph after it, pp.44–45 (arXiv:1912.12084v2; published Invent. Math. 226, pp.752–753)",
-     "match": "Defines the local characters χ_{Δ,p} on trace-zero matrices through represented values coprime to Δ and the Hilbert symbol, and observes that on the global lattice the product of the local characters is the generalized genus character of Gross–Kohnen–Zagier: (Δ/n) for n represented and coprime to Δ when gcd(a,b,c,Δ) = 1, and 0 otherwise."
+     "sourceId": "GKZ1987",
+     "locator": "Chapter I §2, Proposition 1 and proof, printed pp.508–510; specialize level N = 1.",
+     "match": "Defines the generalized genus character, including d′ ≡ 0 or 1 mod 4, and proves independence from the represented integer; imprimitive forms and scaling are included. BEY Definition 7.1, published pp.752–753, gives its trace-zero-matrix application."
     }
    ],
    "library": {
@@ -1447,7 +1619,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.BinaryForm.genusChar",
      "role": "constructor",
-     "statement": "χ_d(Q) ∈ ℤ for a fundamental discriminant d and an integral binary form Q with d ∣ disc Q."
+     "statement": "χ_d(Q) ∈ ℤ for d fundamental (including 1), disc Q = dd′ ≠ 0 and d′ ≡ 0 or 1 mod 4, with either definite sign admitted."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.BinaryForm.genusChar_eq_zero_iff",
@@ -1499,7 +1671,14 @@
    ],
    "planet": {
     "name": "Genus character of a binary form"
-   }
+   },
+   "upstreamPrerequisites": [
+    {
+     "roadmap": "IntegralLattices",
+     "contract": "B1–B2 supply integral binary forms, proper substitutions and the primitive proper-form/ideal-class correspondence for nonsquare discriminants. GN.2 adds genus-character evaluation on this existing carrier.",
+     "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md"
+    }
+   ]
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character-invariance",
@@ -1511,14 +1690,14 @@
    "kind": "theorem",
    "statement": "In the setting of binary-form-genus-character: (a) χ_d(Q) does not depend on the represented integer m coprime to d; (b) χ_d(Q ∘ g) = χ_d(Q) for every g ∈ GL₂(ℤ), in particular for proper (SL₂(ℤ)) equivalence; (c) χ_d(−Q) = sgn(d)·χ_d(Q); (d) if D = dd′ with d′ also fundamental then χ_d(Q) = χ_{d′}(Q) whenever both are nonzero and Q is primitive; (e) for p | d and Q with gcd(a, b, c, d) = 1, the p-part of χ_d(Q) is (a, d)_p if p ∤ a and (c, d)_p if p ∤ c (Hilbert symbols), so χ_d(Q) = ∏_p χ_{d,p}(Q) with the local characters of local-genus-character.",
    "hypotheses": [
-    "d fundamental, Q integral of discriminant dd′; for D < 0 forms are positive definite, so −Q is not in the domain when D < 0 and (c) is stated for D > 0."
+    "d fundamental (1 allowed), disc Q = dd′ ≠ 0, d′ ≡ 0 or 1 mod 4; both signs of a definite form are in the domain. In (d), both factors d,d′ are fundamental."
    ],
    "proofSteps": [
-    "(a) If Q represents m and m′ prime to d, then mm′ is a norm from ℚ(√D) up to the factor of the content, and for each prime discriminant P | d, χ_P(m) = χ_P(m′) because Q's values prime to P lie in a single class of (ℤ/P)^×/squares (4am = (2ax + by)² − Dy² ≡ square mod P); multiply over P (Tau Ceti genusCharFun_eq_one_of_four_mul_eq_sq_sub_mul_sq).",
-    "(b) Q ∘ g represents exactly the integers Q represents.",
-    "(c) −Q represents −m, and χ_d(−1) = sgn(d) for a fundamental discriminant.",
-    "(d) For primitive Q, χ_d(m)χ_{d′}(m) = χ_D(m) = 1 for m represented and prime to D (m is a norm locally).",
-    "(e) is Bruinier–Ehlen–Yang Lemma 7.2: at p | d the Hilbert symbol (n, d)_p only depends on n modulo squares and equals (a, d)_p by (a)."
+    "(a) Use GKZ I.2 Proposition 1 at level one. At an odd prime-discriminant factor of d, choose a represented unit leading coefficient after an integral change of coordinates, then complete the square; all represented units have the same quadratic-residue character. At 2, the quotient d′ being 0 or 1 modulo 4 is needed: GKZ’s residue calculation for the even prime-discriminant factors −4, 8, −8 gives the same character for every represented odd value. Multiply the prime-discriminant characters. The pinned norm-identity lemma only covers fundamental D and cannot replace this dyadic calculation for arbitrary dd′.",
+    "(b) A unimodular integral substitution Q ∘ g preserves the represented set and coefficient content. This is the congruence action on binary forms, rather than the determinant-twisted conjugation action on trace-zero matrices.",
+    "(c) Negation replaces each represented value m by −m; the Kronecker character at −1 is sgn(d).",
+    "(d) Use CRT to choose a represented m coprime to D. For fundamental D and primitive Q, the represented-value norm identity makes χ_D(m)=1, and multiplicativity gives χ_d(m)χ_d′(m)=1.",
+    "(e) The local computations in (a), with the Hilbert-symbol formulas for the Kronecker factors, give χ_{d,p}(Q). At p|d, one of a,c is a unit: for odd p, divisibility of D forces b divisible if a,c are; for p=2 the discriminant condition forces b even."
    ],
    "acceptance": [
     "Over D = −15 the two genera {[1,1,4]} and {[2,1,2]} have χ_{−3} = 1, −1 and χ_5 = 1, −1, with χ_{−3}χ_5 = χ_{−15} = 1 on both.",
@@ -1526,21 +1705,15 @@
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character",
-    "tauceti:TauCeti.Multiquadratic.genusCharFun_eq_one_of_four_mul_eq_sq_sub_mul_sq",
     "tauceti:TauCeti.Multiquadratic.genusCharFun_mul_right",
     "mathlib:jacobiSym.quadratic_reciprocity",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-genus-character"
    ],
    "sources": [
     {
-     "sourceId": "BEY2021",
-     "locator": "Lemma 7.2 and the paragraph after it, p.45 (arXiv v2)",
-     "match": "States well-definedness of the local characters and the explicit formula (a, Δ)_p or (c, Δ)_p at p | Δ, and deduces the global formula through represented values; the proof is said to follow Gross–Kohnen–Zagier I.2, Proposition 1."
-    },
-    {
-     "sourceId": "BEY2021",
-     "locator": "Lemma 7.3 with proof, p.45 (arXiv v2)",
-     "match": "Shows that the GL₂ action changes the local character by (det h, Δ)_p; over ℤ, det g = ±1 and (−1, Δ) contributes the sign sgn(Δ) of (c)."
+     "sourceId": "GKZ1987",
+     "locator": "Chapter I §2, Proposition 1 and proof, pp.508–510 (level N = 1); compare BEY Lemma 7.2, published p.753.",
+     "match": "Supports represented-value independence, proper invariance, scaling and the odd/dyadic character calculations. The GL₂(ℤ) invariance follows from equality of represented sets. The BEY local application requires the added dyadic support condition in local-genus-character."
     }
    ],
    "library": {
@@ -1558,14 +1731,14 @@
    ],
    "title": "Local genus characters on trace-zero matrices",
    "kind": "definition",
-   "statement": "Let Δ be a fundamental discriminant and p a prime. On the lattice L′_p = L′ ⊗ ℤ_p, where L′ is the dual of the lattice of integral trace-zero matrices λ = [[b/2, −a], [c, −b/2]] with Q(λ) = det λ (so 4Q(λ) = 4ac − b² = −disc[a, b, c]), define χ_{Δ,p}(λ) = (n, Δ)_p (p-adic Hilbert symbol) if 4Q(λ) ∈ Δℤ_p, gcd(a, b, c, Δ) is a unit in ℤ_p and [a, b, c] represents some n ∈ ℤ_p with (n, Δ) coprime, and χ_{Δ,p}(λ) = 0 otherwise; extend by 0 off L′_p and set χ_Δ(λ) = ∏_p χ_{Δ,p}(λ_p) on V(𝔸_f). Then χ_{Δ,p} is well defined, equals 1 for p ∤ Δ on the relevant set, equals (a, Δ)_p or (c, Δ)_p for p | Δ, satisfies χ_{Δ,p}(hλh^{−1}) = (det h, Δ)_p χ_{Δ,p}(λ) for h ∈ GL₂(ℤ_p), and on the global lattice χ_Δ is the genus character of binary-form-genus-character.",
+   "statement": "Let Δ be a fundamental discriminant (1 allowed), p a prime, and V the trace-zero matrices with Q(λ)=det λ. Write λ=[[b/2,−a],[c,−b/2]], with a,b,c ∈ ℤ_p exactly when λ ∈ L′_p, and D=b²−4ac. If p∤Δ define χ_{Δ,p} as the characteristic function of L′_p, including zero and imprimitive matrices. If p|Δ it is zero unless λ∈L′_p, D∈Δℤ_p, gcd(a,b,c,Δ) is a unit, and, when p=2, D/Δ belongs to 4ℤ₂ ∪ (1+4ℤ₂). On that support define it by (n,Δ)_p for any represented unit n of [a,b,c]. It is well defined, takes values 0,±1, and at p|Δ equals (a,Δ)_p when a is a unit or (c,Δ)_p when c is a unit. For h∈GL₂(ℤ_p), χ_{Δ,p}(hλh⁻¹)=(det h,Δ)_pχ_{Δ,p}(λ). The product on V(𝔸_f) is defined since almost all factors are 1; on a global form with disc=Δd′≠0, d′≡0,1 mod4, it equals the binary genus character.",
    "hypotheses": [
     "Δ fundamental; V = trace-zero 2×2 rational matrices with Q = det, of signature (1,2); L′ the dual of the integral trace-zero matrices."
    ],
    "proofSteps": [
-    "Well-definedness is the local form of binary-form-genus-character-invariance (a): two values n, n′ prime to Δ represented by the form differ by a local norm from ℚ_p(√Δ), and (·, Δ)_p is trivial on norms.",
-    "At p ∤ Δ every unit of ℤ_p has (n, Δ)_p = 1 when Δ is a unit; at p | Δ use n = a or n = c.",
-    "Equivariance: with S = [[0,1],[−1,0]], λ ↦ λS turns conjugation into the congruence action h·λ̃ = det(h)·(hλ̃h^t), and congruence preserves the represented values (Bruinier–Ehlen–Yang Lemma 7.3)."
+    "At p|Δ, apply the local residue calculation of GKZ I.2 Proposition 1. For p=2 it uses precisely the local quotient-discriminant condition D/Δ∈4ℤ₂∪(1+4ℤ₂). Existence of a represented unit follows from the three values a,c,a+b+c; D∈Δℤ_p then guarantees a or c is a unit.",
+    "At p∤Δ the published definition is the characteristic function of L′_p, with no primitivity requirement. This also covers λ=0. For an adele, λ_p∈L′_p at almost all p, and only finitely many p divide Δ, so the product is finite.",
+    "For S=[[0,1],[−1,0]], one has (hλh⁻¹)S=(det h)⁻¹h(λS)hᵀ. The congruence preserves represented values and multiplies the resulting binary form by (det h)⁻¹; its Hilbert character equals that of det h. Unit-square multiplication preserves the added dyadic support."
    ],
    "acceptance": [
     "Δ = −4, p = 2, λ for [1, 0, 1]: χ_{−4,2} = (1, −4)_2 = 1.",
@@ -1579,8 +1752,8 @@
    "sources": [
     {
      "sourceId": "BEY2021",
-     "locator": "Definition 7.1 and Lemmas 7.2–7.3 with the proof of 7.3, pp.44–45 (arXiv:1912.12084v2)",
-     "match": "Defines χ_{Δ,p} on V(ℚ_p) through the Hilbert symbol of a represented value, gives the explicit formula at p | Δ, the product χ_Δ over all primes, and the transformation rule under GSpin(L_p) ≅ GL₂(ℤ_p)."
+     "locator": "Published Definition 7.1 and Lemmas 7.2–7.3, pp.752–754; collated with v2 pp.44–45. The dyadic correction uses GKZ I.2 Proposition 1, pp.508–510.",
+     "match": "The published definition uses 1_{L′_p} at p∤Δ, correcting the v2 clause. At ramified p the asserted well-definedness needs the extra quotient-discriminant condition at 2; source issue E202 records the counterexample. The conjugation identity is verified directly."
     }
    ],
    "library": {
@@ -1607,12 +1780,12 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_of_not_dvd",
      "role": "simp",
-     "statement": "For p ∤ Δ and λ ∈ L′_p with 4Q(λ) ∈ Δℤ_p primitive at p, χ_{Δ,p}(λ) = 1."
+     "statement": "For p∤Δ, χ_{Δ,p}=1_{L′_p}, with no discriminant or primitivity test; in particular χ_{Δ,p}(0)=1."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_of_dvd",
      "role": "characterisation",
-     "statement": "For p | Δ: χ_{Δ,p}(λ) = (a, Δ)_p if p ∤ a, (c, Δ)_p if p ∤ c, and 0 if p divides a and c."
+     "statement": "For p|Δ, on the stated support including the dyadic quotient-discriminant condition, use (a,Δ)_p or (c,Δ)_p for a unit coefficient; off that support the value is zero."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_conj",
@@ -1622,7 +1795,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.genusChar_eq_prod_localGenusChar",
      "role": "compatibility",
-     "statement": "For λ ∈ L′ corresponding to Q, ∏_p χ_{Δ,p}(λ) = χ_Δ(Q) of binary-form-genus-character."
+     "statement": "For a global Q with disc=Δd′≠0 and d′≡0,1 mod4, the product of local characters equals χ_Δ(Q)."
     }
    ],
    "tests": [
@@ -1634,7 +1807,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_unit_prime",
      "kind": "degenerate",
-     "statement": "For Δ = 1 (trivial character) χ_{1,p} = 1 on every primitive λ ∈ L′_p."
+     "statement": "For Δ=1 the value is 1 for every λ∈L′_p, including 0 and matrices all of whose coefficients are divisible by p; outside L′_p it is 0."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_det_sign",
@@ -1645,6 +1818,11 @@
      "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_not_on_nonintegral",
      "kind": "non-example",
      "statement": "For λ ∉ L′_p (for example a/p, b/p, c/p with p ∤ a) the value is 0, not (a, Δ)_p."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.localGenusChar_dyadic_support",
+     "kind": "non-example",
+     "statement": "For Δ=−4 and p=2, [1,0,2] has D/Δ=2, so the corrected character is zero. Omitting that condition gives inconsistent values: the represented units 1 and 3 have (1,−4)₂=1 and (3,−4)₂=−1."
     }
    ]
   },
@@ -1654,42 +1832,49 @@
    "realises": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
    ],
-   "title": "Local normal form of a binary quadratic form",
+   "title": "Genus characters evaluated through imported binary local normal forms",
    "kind": "theorem",
-   "statement": "Let q = [a, b, c] be a primitive integral binary quadratic form of discriminant D ≠ 0 and p a prime. (a) If p is odd, or p = 2 and D ≡ 0 mod 4, then q is GL₂(ℤ_p)-equivalent to ux² + Ay² with u ∈ ℤ_p^×; writing A = u_A p^l, D = −4uA up to squares of units. (b) If p = 2 and D ≡ 1 mod 4 then q is GL₂(ℤ_2)-equivalent to xy when D ≡ 1 mod 8 and to x² + xy + y² when D ≡ 5 mod 8. (c) For odd p | D with D < 0 and q corresponding to the class [𝔰] of the Picard group of the order of discriminant D, (u/p) = χ_p(Nr[𝔰]) = χ_{p*,p}(q), the local genus character at p, so it depends only on the genus of q.",
+   "statement": "Let Q be a primitive integral positive definite binary form of fundamental discriminant D<0. Import the ℤ_p normal-form classification from IntegralLattices 3C and 3D (and the base packet’s dyadic atomic form), rather than constructing it here. At an odd p|D, write its imported diagonal form as ux²+(D/u)vy² with u,v∈ℤ_p^×; then the p-part of its genus character is χ_{p*}(Q)=(u/p), where p*=(-1)^((p−1)/2)p. This value is independent of the chosen normal-form isometry. At 2 use local-genus-character with its corrected support and the imported even binary constituents.",
    "hypotheses": [
-    "q primitive; ℤ_p-equivalence means GL₂(ℤ_p); the dyadic forms xy and x² + xy + y² are the two unimodular even binary ℤ_2-forms."
+    "Q primitive, D<0 fundamental; Khayutin Lemma B.1 is used only in this definite setting. IntegralLattices owns the full odd and dyadic normal-form theorems."
    ],
    "proofSteps": [
-    "(a) Some coefficient of q is a unit or b is: if p is odd one of a, c, a + b + c is a unit; move it to the leading coefficient and complete the square (division by 2a is allowed). If p = 2 and D ≡ 0 mod 4 then b is even and a or c is odd by primitivity; complete the square with b/2a ∈ ℤ_2.",
-    "(b) If D ≡ 1 mod 4 then b is odd, the polar Gram matrix [[2a, b], [b, 2c]] is even unimodular over ℤ_2, and the unimodular even binary ℤ_2-lattices are the hyperbolic plane and the anisotropic plane, distinguished by the square class of −D (IntegralLattices milestone 3D; the atomic dyadic forms of the base packet's dyadic-atomic-form).",
-    "(c) u is a value of q prime to p, so (u/p) = χ_{p*}(u) for the prime discriminant p* = ±p, which is the local genus character (local-genus-character)."
+    "Import the normal-form existence and classification from IntegralLattices 3C/3D. Khayutin Lemma B.1 and Remark B.2 identify the same odd-prime coordinates.",
+    "The diagonal coefficient u is a represented unit, so local-genus-character gives (u,p*)_p=(u/p). Two normal-form choices give the same value by represented-value independence. The dyadic factors are evaluated by local-genus-character, without re-planning the upstream classification."
    ],
    "acceptance": [
-    "[1, 1, 1], D = −3 ≡ 5 mod 8, is ℤ_2-equivalent to x² + xy + y².",
-    "[1, 1, −2], D = 9 ≡ 1 mod 8, is ℤ_2-equivalent to xy.",
-    "[1, 0, 1] at p = 2 (D = −4): already ux² + Ay² with u = A = 1."
+    "For D=−15, Q=[2,1,2], p=5, the represented unit u=2 gives χ₅(Q)=−1.",
+    "For D=−15, Q=[1,1,4], p=5, u=1 gives χ₅(Q)=1.",
+    "For D=−4, Q=[1,0,1], the dyadic local character equals 1, whereas [1,0,2] is excluded by the support test."
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-genus-character",
     "mathlib:PadicInt",
-    "mathlib:legendreSym"
+    "mathlib:legendreSym",
+    "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms"
    ],
    "sources": [
     {
      "sourceId": "Khayutin2019",
-     "locator": "Appendix B.2, Lemma B.1 and Remark B.2, p.265 of the Annals version (arXiv:1710.04557v3, Lemma 168 and Remark 169)",
-     "match": "States the ℤ_p-normal forms of a primitive binary form of negative discriminant, including the two dyadic unimodular forms according to D mod 8, and identifies the Legendre symbol of the unit coefficient with the genus character of the class."
+     "locator": "arXiv:1710.04557v3, Appendix B.2, Lemma B.1 and Remark B.2, p.109.",
+     "match": "Lemma B.1 treats primitive positive definite fundamental-discriminant forms and Remark B.2 evaluates the odd ramified genus factor from a unit coefficient. The normal forms themselves are imported from the current IntegralLattices roadmap."
     }
    ],
    "library": {
     "module": "TauCeti/GeometryOfNumbers/GN2",
     "namespace": "TauCeti.GeometryOfNumbersPlan",
-    "name": "BinaryForm.exists_localNormalForm"
+    "name": "binaryGenusChar_of_localNormalForm"
    },
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    {
+     "roadmap": "IntegralLattices",
+     "contract": "Milestones 3C and 3D: classification and normal forms of odd and dyadic ℤ_p-lattices. GN.2 imports these for binary character evaluation; it does not own another normal-form theory.",
+     "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md"
+    }
+   ]
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/exponent-two-genus-theory",
@@ -1704,9 +1889,9 @@
     "D′ < 0 fundamental. The binary-form side is binary-form-genus-character through IntegralLattices B2 (forms ↔ classes)."
    ],
    "proofSteps": [
-    "Tau Ceti's principal genus theorem (isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one) identifies Cl⁺² with the common kernel of the genus characters, and the two-rank formula (twoRank_eq_ncard_ramifiedPrimes_sub_one) gives 2^{s−1}.",
-    "If Cl has exponent ≤ 2 then Cl² = 1, so Cl = Cl/Cl² and h = 2^{s−1}.",
-    "The genus field K(√Δ_1, …, √Δ_{s−1}) is unramified over K (Tau Ceti Multiquadratic.Unramified) of degree 2^{s−1} = h, and is contained in the Hilbert class field, whose Galois group is Cl (ClassFieldTheory Layer 13); degrees force equality."
+    "Import Tau Ceti’s principal genus theorem and twoRank_eq_ncard_ramifiedPrimes_sub_one to identify the genus quotient and its order 2^{s−1}. Use IntegralLattices B2 only to translate ideal classes to primitive proper form classes.",
+    "Exponent at most two means Cl²=1, hence h=2^{s−1} and every class-group character is a genus character. There are 2^{s−1} sign-selected factorizations, not s (BEY’s proof typo is also recorded as PAPER-BRUINIER-EHLEN-YANG-21/E4).",
+    "Import isGenusField_candidateGenusField and finrank_candidateGenusField_over_candidateGenusFieldBase_eq_two_pow_ncard_ramifiedPrimes at the packet pin. They already supply the multiquadratic genus field, its everywhere-unramified property and degree 2^{s−1}. ClassFieldTheory 13 supplies the Hilbert class field and class-group degree; the genus field is contained in it and equal degrees force equality. No genus-field construction is planned here."
    ],
    "acceptance": [
     "D′ = −84 = (−3)(−4)(−7) (s = 3): Cl ≅ (ℤ/2)², h = 4 = 2², and the Hilbert class field of K = ℚ(√−21) is K(√−3, √−7), of degree 4 over K.",
@@ -1717,12 +1902,15 @@
     "tauceti:TauCeti.Multiquadratic.isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one",
     "tauceti:TauCeti.Multiquadratic.twoRank_eq_ncard_ramifiedPrimes_sub_one",
     "tauceti:TauCeti.Multiquadratic.genusCharFunNarrowClassGroupHom",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+    "tauceti:TauCeti.Multiquadratic.isGenusField_candidateGenusField",
+    "tauceti:TauCeti.Multiquadratic.finrank_candidateGenusField_over_candidateGenusFieldBase_eq_two_pow_ncard_ramifiedPrimes",
+    "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms"
    ],
    "sources": [
     {
      "sourceId": "BEY2021",
-     "locator": "Corollary 7.18 and its proof, pp.56–57 (arXiv:1912.12084v2; published pp.767–768)",
+     "locator": "Corollary 7.18 and proof, published pp.767–768; arXiv v2 pp.56–57.",
      "match": "Uses that the genus characters are the characters of Cl/Cl², so that a class group of exponent at most 2 has order 2^{s−1}, all its characters are genus characters, and the Hilbert class field is generated by the square roots of the prime discriminants."
     }
    ],
@@ -1731,7 +1919,14 @@
     "namespace": "TauCeti.GeometryOfNumbersPlan",
     "name": "exponentTwo_genusTheory"
    },
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    {
+     "roadmap": "IntegralLattices",
+     "contract": "B1–B2 supply integral binary forms, proper substitutions and the primitive proper-form/ideal-class correspondence for nonsquare discriminants. GN.2 adds genus-character evaluation on this existing carrier.",
+     "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md"
+    }
+   ]
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-hermitian-space",
@@ -1741,10 +1936,10 @@
    ],
    "title": "Signed hermitian spaces, their determinant and unitary group",
    "kind": "definition",
-   "statement": "An ε-hermitian space over F/F_o is a finite-dimensional F-vector space V with a nondegenerate sesquilinear form h, conjugate-linear in the first variable, with h(w, v) = ε·h(v, w)‾. Its Gram matrix J in a basis satisfies J̄ᵀ = εJ and changes to B̄ᵀJB; det(V) is the class of det J in F^×/N_F, where N_F = N_{F/F_o}(F^×) if F/F_o is quadratic and (F^×)² if F = F_o. The adjoint anti-involution a ↦ ā of End_F(V) is defined by h(av, w) = h(v, āw), and U(V, h) = {a ∈ Aut_F(V) : āa = 1} is the isometry group: a unitary group if F ≠ F_o, a symplectic group if F = F_o and ε = −1, a full orthogonal group if F = F_o and ε = 1. An isometry (V, h) ≅ (V′, h′) induces U(V, h) ≅ U(V′, h′), but not conversely: for F ≠ F_o and odd n there are two isometry classes of n-dimensional hermitian spaces with isomorphic unitary groups.",
+   "statement": "An ε-hermitian space over F/F_o is a finite-dimensional F-vector space V with a nondegenerate sesquilinear form h, conjugate-linear in the first variable, with h(w, v) = ε·h(v, w)‾. Its Gram matrix J in a basis satisfies J̄ᵀ = εJ and changes to B̄ᵀJB; det(V) is the class of det J in F^×/N_F, where N_F = N_{F/F_o}(F^×) if F/F_o is quadratic and (F^×)² if F = F_o. The adjoint anti-involution a ↦ ā of End_F(V) is defined by h(av, w) = h(v, āw), and U(V, h) = {a ∈ Aut_F(V) : āa = 1} is the isometry group: a unitary group if F ≠ F_o, a symplectic group if F = F_o and ε = −1, a full orthogonal group if F = F_o and ε = 1. An isometry (V, h) ≅ (V′, h′) induces U(V, h) ≅ U(V′, h′), but not conversely: over a nonarchimedean local quadratic extension of odd residue characteristic, odd-dimensional hermitian spaces have two isometry classes with isomorphic unitary groups.",
    "hypotheses": [
-    "Nonarchimedean local fields of odd residue characteristic; F/F_o quadratic or F = F_o, with the Galois involution x ↦ x̄; ε = ±1; h is sesquilinear, conjugate-linear in the first and linear in the second variable, with h(w, v) = ε·h(v, w)‾ (Mathlib's convention and that of Kurinczuk–Skodlerack–Stevens §3.2).",
-    "The base packet's integral-hermitian-lattice carries the same sesquilinear convention; the classification theorems need the local-field hypotheses, the definition does not."
+    "For the definitions, a field of characteristic ≠2 with an involution of order at most two, finite-dimensional V, ε=±1 and a nondegenerate ε-hermitian form, conjugate-linear first.",
+    "The carrier and determinant are imported from the base packet’s signed-hermitian-witt-comparison and signed-hermitian-determinant-comparison. This node supplies the adjoint and unitary-group API. The assertion of exactly two odd-rank unitary isometry classes requires a nonarchimedean local quadratic extension of odd residue characteristic."
    ],
    "proofSteps": [
     "The adjoint exists and is unique by finite-dimensional duality: v ↦ h(v, ·) is a bijective semilinear map V → V^*.",
@@ -1792,7 +1987,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.SignedHermitianSpace",
      "role": "structure",
-     "statement": "A finite-dimensional F-space with ε and a nondegenerate ε-hermitian sesquilinear form."
+     "statement": "Use the base packet’s signed-hermitian space carrier; add the adjoint and unitary-group API here, with no second structure."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.SignedHermitianSpace.adjoint",
@@ -1916,9 +2111,9 @@
     "E/F finite with an extending involution; for β = 0 the extension is E = F and λ_β = id."
    ],
    "proofSteps": [
-    "Nondegeneracy of the trace-like pairing (x, y) ↦ λ_β(xy): its Gram matrix in the basis 1, β, …, β^{n−1} is triangular with unit anti-diagonal pattern, so x ↦ λ_β(x·) is an isomorphism E ≅ Hom_F(E, F).",
-    "Equivariance of λ_β: the involution sends β^i to (−β)^i, and λ_β((−β)^i) = 0 = λ_β(β^i)‾ for 1 ≤ i ≤ n − 1.",
-    "λ_β(γ·) is equivariant iff λ_β(γ̄x̄) = λ_β(γx)‾ = λ_β(γ̄ x̄)·… reduces to γ̄ = γ by nondegeneracy."
+    "The standard functional is nonzero because λ_β(1)=1. For x≠0 choose z with λ_β(z)≠0 and put y=x⁻¹z; then λ_β(xy)≠0. Thus x↦λ_β(x·) is injective and, by equal finite dimensions, an isomorphism E→Hom_F(E,F). This argument does not require a triangular Gram matrix.",
+    "Equivariance of λ_β follows on the power basis: conjugation sends β^i to (−β)^i, and the coefficients are conjugated.",
+    "For f_γ(x)=λ_β(γx), one has overline(f_γ(x))=λ_β(overline(γ) overline(x)), whereas f_γ(overline(x))=λ_β(γ overline(x)). Equality for all x is equivalent to λ_β((γ−overline(γ))y)=0 for all y, hence to γ=overline(γ) by nondegeneracy."
    ],
    "acceptance": [
     "E = F, β = 0: λ_β = id, γ ∈ F_o^×.",
@@ -1996,7 +2191,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.stdForm_mul_beta_not_equivariant",
      "kind": "non-example",
-     "statement": "x ↦ λ_β(βx) is a nonzero F-linear form but not Galois-equivariant, since β̄ = −β ≠ β."
+     "statement": "For β≠0 with overline(β)=−β and characteristic ≠2, x↦λ_β(βx) is a nonzero functional which is not equivariant. The test excludes the β=0 identity extension."
     }
    ]
   },
@@ -2071,7 +2266,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.SignedWitt.maximal_mem_even",
      "role": "other",
-     "statement": "The maximal element has even anisotropic dimension (2 in the unitary case, 4 in the orthogonal case)."
+     "statement": "The maximal element has even anisotropic dimension: 2 in the unitary case, 4 in the orthogonal case, and 0 in the symplectic case."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.SignedWitt.twist_fixed_iff",
@@ -2096,9 +2291,9 @@
      "statement": "The class of n hyperbolic planes is 0 ∈ W_even, whatever n."
     },
     {
-     "name": "TauCeti.GeometryOfNumbersPlan.signedWitt_parity_not_dim",
+     "name": "TauCeti.GeometryOfNumbersPlan.signedWitt_parity_not_integer_dimension",
      "kind": "non-example",
-     "statement": "Parity is that of the anisotropic dimension, not of dim V: ⟨1⟩ ⊕ H has odd dimension 3 and odd class, but ⟨1⟩ ⊕ ⟨−1⟩ has even dimension and class 0 (for −1 ∈ N_F in the unitary case)."
+     "statement": "Parity is not the integer dimension: the zero space and a hyperbolic plane have dimensions 0 and 2 but the same zero Witt class and parity 0. For every representative V, dim_an(V) ≡ dim(V) mod2. A unitary maximal anisotropic plane is nonzero in W_even, so parity does not detect the zero class."
     }
    ],
    "uses": [
@@ -2120,13 +2315,13 @@
    ],
    "title": "Transfer preserves the maximal Witt element (Skodlerack–Stevens)",
    "kind": "theorem",
-   "statement": "Let E/F be a finite extension of nonarchimedean local fields of odd residue characteristic, ρ an involution of F with fixed field F_o (possibly trivial), ρ′ an involution of E extending it, ε = ±1, and λ : E → F a nonzero ρ′-ρ-equivariant F-linear map. Then the transfer Tr_λ : W^ε(E/E_o) → W^ε(F/F_o), ⟨h̃⟩ ↦ ⟨λ ∘ h̃⟩, sends the maximal element X_{ρ′,ε,E} to the maximal element X_{ρ,ε,F}. In addition Tr_λ is bijective when [E : F] is odd, and for [E : F] = 2 with F = F_o its image has at least four elements, it is injective when E ≠ E_o, and its kernel has exactly four elements, all of anisotropic dimension at most 2, when E = E_o.",
+   "statement": "Let E/F be a finite extension of nonarchimedean local fields of odd residue characteristic, ρ an involution of F with fixed field F_o (possibly trivial), ρ′ an involution of E extending it, ε = ±1, and λ : E → F a nonzero ρ′-ρ-equivariant F-linear map. Then the transfer Tr_λ : W^ε(E/E_o) → W^ε(F/F_o), ⟨h̃⟩ ↦ ⟨λ ∘ h̃⟩, sends the maximal element X_{ρ′,ε,E} to the maximal element X_{ρ,ε,F}. In addition Tr_λ is bijective when [E : F] is odd, and for ε = +1 and [E : F] = 2 with F = F_o its image has at least four elements, it is injective when E ≠ E_o, and its kernel has exactly four elements, all of anisotropic dimension at most 2, when E = E_o.",
    "hypotheses": [
     "Nonarchimedean local fields of odd residue characteristic; F/F_o quadratic or F = F_o, with the Galois involution x ↦ x̄; ε = ±1; h is sesquilinear, conjugate-linear in the first and linear in the second variable, with h(w, v) = ε·h(v, w)‾ (Mathlib's convention and that of Kurinczuk–Skodlerack–Stevens §3.2).",
     "This is the input cited as [39, Theorem 4.4] in Kurinczuk–Skodlerack–Stevens Proposition 3.13(ii)."
    ],
    "proofSteps": [
-    "Reduce to ε = 1 by a skew-symmetric twist (when F ≠ F_o it commutes with transfer); reduce to one λ, since two equivariant forms differ by a symmetric twist.",
+    "First handle the symplectic case of trivial involutions and ε=−1: both Witt groups are zero and the maximal element is zero. When the involution is nontrivial, a skew scalar identifies the two signs and commutes with transfer. Change of an equivariant functional is a symmetric twist (equivariant-linear-form).",
     "The image of the maximal element is fixed by all symmetric twists by elements of F_o^× (they commute with Tr_λ), hence is 0 or the maximal element (signed-witt-parity); it suffices to show it is nonzero.",
     "Odd degree: Tr_λ⟨1⟩ has odd anisotropic dimension and its twists generate, so Tr_λ is surjective, hence bijective by counting (Proposition 4.6).",
     "Transitivity in towers reduces to quadratic E/F; with λ = Tr_{E/F} compute Gram matrices in the basis 1, α (α a skew-symmetric uniformizer) and choose δ with −det not a square to get a nonzero image (Lemma 4.7); conclude in the remaining quadratic cases."
@@ -2163,14 +2358,13 @@
    ],
    "title": "Determinant of a transferred signed hermitian space",
    "kind": "theorem",
-   "statement": "Let (E, β) be a self-dual extension of F/F_o, n = [E : F], and λ a nonzero Galois-equivariant F-linear form on E. For every ε-hermitian space (V, h) over E/E_o, det(λ_*V) = det(λ_*⟨1⟩)^{dim_E V}·N_{E/F}(det V) in F^×/N_F. For F = F_o and ε = 1 (quadratic forms, trivial involution) this is Scharlau's determinant formula for the transfer s_*(q).",
+   "statement": "Let (E, β) be a self-dual extension of F/F_o, n = [E : F], and λ a nonzero Galois-equivariant F-linear form on E. For every ε-hermitian space (V, h) over E/E_o, det(λ_*V) = det(λ_*⟨1⟩_{+})^{dim_E V}·N_{E/F}(det V) in F^×/N_F. The auxiliary line ⟨1⟩_{+} always has sign +1, regardless of the sign of V. For F = F_o and ε = 1 (quadratic forms, trivial involution) this is Scharlau's determinant formula for the transfer s_*(q).",
    "hypotheses": [
     "Nonarchimedean local fields of odd residue characteristic; F/F_o quadratic or F = F_o, with the Galois involution x ↦ x̄; ε = ±1; h is sesquilinear, conjugate-linear in the first and linear in the second variable, with h(w, v) = ε·h(v, w)‾ (Mathlib's convention and that of Kurinczuk–Skodlerack–Stevens §3.2)."
    ],
    "proofSteps": [
-    "Diagonalize (V, h) ≅ ⟨α_1⟩ ⊕ ⋯ ⊕ ⟨α_m⟩ (possible outside the symplectic case; the symplectic case reduces by a twist).",
-    "λ_*⟨α⟩ ≅ λ_*(α·⟨1⟩): in the F-basis {α^{−1}·b_j} of E its Gram matrix is that of λ_*⟨1⟩ twisted by multiplication by α, whose F-determinant is N_{E/F}(α); hence det λ_*⟨α⟩ = det λ_*⟨1⟩·N_{E/F}(α).",
-    "Multiply over the orthogonal summands, using det_orthogonalSum."
+    "Choose an F-basis of E and an E-basis of V. Let C be the Gram matrix of (x,y)↦λ(overline(x)y), namely the transferred +1 line. The matrix of the transferred form is a block matrix with baseline determinant (det C)^m and an E-linear Gram change of determinant det_E J. Its F-determinant is N_{E/F}(det_E J), yielding (det C)^mN(det J). This uses restriction-of-scalars determinants and works for alternating forms too.",
+    "A change of E-basis multiplies det J by a norm, and the corresponding F-basis change multiplies the transferred determinant by a square/norm. Thus the identity descends to F^×/N_F. No one-dimensional alternating line is introduced."
    ],
    "acceptance": [
     "n = 1 (E = F, λ = id): det(V) = det(V).",
@@ -2206,7 +2400,8 @@
    "kind": "theorem",
    "statement": "Let (E, β) be a self-dual extension of F/F_o with n = [E : F] and λ_β the standard form. In W^1(F/F_o): λ_{β*}⟨1⟩ ≅ ((n−1)/2)H ⊕ ⟨1⟩ if n is odd and ≅ ((n−2)/2)H ⊕ ⟨1⟩ ⊕ ⟨(−1)^{n/2+1}N_{E/F}(β)⟩ if n is even. In W^{−1}(F/F_o): λ_{β*}⟨β⟩ = ⟨(−1)^{(n−1)/2}N_{E/F}(β)⟩ if n is odd and 0 if n is even. Consequently, when F/F_o is quadratic, λ_{β*} is determined on all of W^ε(E/E_o) by these values, signed-transfer-determinant and the classification by dimension and determinant.",
    "hypotheses": [
-    "Nonarchimedean local fields of odd residue characteristic; F/F_o quadratic or F = F_o, with the Galois involution x ↦ x̄; ε = ±1; h is sesquilinear, conjugate-linear in the first and linear in the second variable, with h(w, v) = ε·h(v, w)‾ (Mathlib's convention and that of Kurinczuk–Skodlerack–Stevens §3.2)."
+    "Nonarchimedean local fields of odd residue characteristic; F/F_o quadratic or F = F_o, with the Galois involution x ↦ x̄; ε = ±1; h is sesquilinear, conjugate-linear in the first and linear in the second variable, with h(w, v) = ε·h(v, w)‾ (Mathlib's convention and that of Kurinczuk–Skodlerack–Stevens §3.2).",
+    "The ⟨β⟩ statement requires β≠0. For β=0 one has E=F and only the +1 line ⟨1⟩ and identity transfer are asserted."
    ],
    "proofSteps": [
     "Let X^n + b_{n−1}X^{n−1} + ⋯ + b_0 be the minimal polynomial of β. In the basis 1, β, …, β^{n−1} the Gram matrix of λ_{β*}⟨1⟩ has entries (−1)^i λ_β(β^{i+j}), which vanish for 1 ≤ i + j ≤ n − 1; its first row and column are (1, 0, …, 0), and the anti-diagonal below is ±b_0.",
@@ -2254,7 +2449,7 @@
    "proofSteps": [
     "q_h is quadratic: q_h(cv) = N(c)q_h(v) and its polar form is Tr∘h, F-bilinear and symmetric.",
     "A hermitian space has an orthogonal basis (char ≠ 2), and q_{⟨a⟩}(x) = a·N_{E/F}(x) = a(x_1² − δx_2²).",
-    "Jacobson: if q_h ≅ q_{h′} then q_h represents c = h′(e, e) for an anisotropic e, so h represents c (q_h(v) = h(v, v)); split h = ⟨c⟩ ⊥ h_1 and h′ = ⟨c⟩ ⊥ h′_1 and cancel ⟨c⟩⊗⟨1, −δ⟩ by Witt cancellation for quadratic forms (QuadraticFormInvariants Layer 1); induct on n."
+    "Jacobson: choose a nonzero-norm vector e in h′ (an orthogonal basis exists). A trace-form isometry shows that q_h represents c=h′(e,e), so split the hermitian line ⟨c⟩ from h and h′. Their trace forms split the common regular binary norm form cN_{E/F}; quadratic Witt cancellation gives isometric trace forms of the complements. Induct on the E-dimension; dimension zero is immediate. Conversely a hermitian isometry preserves the trace form."
    ],
    "acceptance": [
     "E = ℂ, F = ℝ, h = ⟨1⟩: q_h = x² + y², positive definite of rank 2.",
@@ -2270,7 +2465,7 @@
    "sources": [
     {
      "sourceId": "Zhang2021",
-     "locator": "§1.2, displays (1.2)–(1.4), pp.869–870 of the Annals version (arXiv:1909.02697, §1.2)",
+     "locator": "arXiv:1909.02697, §1.2, displays (1.2)–(1.4), physical p.5 (context p.4); no Annals-page collation claimed.",
      "match": "Fixes hermitian forms linear in the first variable over a quadratic extension of local fields of characteristic zero, the quadratic form q(u) = h(u, u) on the underlying F_0-space with bilinear form the trace of h, and the norm fibres V_ξ."
     },
     {
@@ -2339,7 +2534,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.traceForm_scale_nonnorm",
      "kind": "non-example",
-     "statement": "For a ∈ F^× not a norm from E, ⟨1⟩ and ⟨a⟩ are not isometric hermitian lines although both trace forms have discriminant −δ mod squares; they differ in the Hasse invariant, so the trace form, not its discriminant alone, is the invariant."
+     "statement": "For F=ℚ₃, E=ℚ₃(√5) unramified, 3 is not a norm (its valuation is odd). The lines ⟨1⟩ and ⟨3⟩ have trace forms ⟨1,−5⟩ and ⟨3,−15⟩ with the same determinant square class, but Hasse invariants +1 and −1. They are not isometric. The trace form itself, rather than its determinant alone, detects the distinction."
     }
    ]
   },
@@ -2361,7 +2556,7 @@
    ],
    "acceptance": [
     "Over ℚ_p with E unramified: ⟨1⟩ and ⟨p⟩ are the two hermitian lines.",
-    "Over ℚ(i)/ℚ: ⟨1, 1⟩ and ⟨1, −1⟩ differ in signature at ∞, while their determinants 1 and −1 are both norms (−1 = N(i))."
+    "For ℂ/ℝ, ⟨1,1⟩ and ⟨−1,−1⟩ have determinant 1 modulo norms but signatures (2,0) and (0,2), hence are not isometric. N(i)=1, so i cannot turn a positive line into a negative line."
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-trace-form",
@@ -2396,12 +2591,12 @@
    ],
    "title": "Hermitian lattices over an unramified extension have orthogonal bases",
    "kind": "theorem",
-   "statement": "Let E/F be an unramified quadratic extension of nonarchimedean local fields (any residue characteristic) with uniformizer ϖ ∈ F, and L a nondegenerate hermitian O_E-lattice of rank n. Then L has an orthogonal O_E-basis with Gram matrix diag(ϖ^{λ_1}, …, ϖ^{λ_n}), λ_1 ≥ ⋯ ≥ λ_n, and the tuple λ is unique: it is the tuple of base packet hermitian-lattice-invariants (after reordering and shifting by the scale). Equivalently, the space X_n of nondegenerate hermitian matrices in M_n(E) ∩ GL_n(E) with integral entries decomposes as ⊔_{λ ∈ P_n} GL_n(O_E)·ϖ^λ under X ↦ gXḡᵀ, with P_n the nonincreasing integer tuples; integral X correspond to λ_n ≥ 0.",
+   "statement": "Let E/F be an unramified quadratic extension of nonarchimedean local fields (any residue characteristic) with uniformizer ϖ ∈ F, and L a nondegenerate hermitian O_E-lattice of rank n. Then L has an orthogonal O_E-basis with Gram matrix diag(ϖ^{λ_1}, …, ϖ^{λ_n}), λ_1 ≥ ⋯ ≥ λ_n, and the tuple λ is unique: it is the tuple of base packet hermitian-lattice-invariants (after reordering and shifting by the scale). Equivalently, the space X_n of nondegenerate hermitian matrices in GL_n(E) decomposes as ⊔_{λ ∈ P_n} GL_n(O_E)·ϖ^λ under X ↦ gXḡᵀ, with P_n the nonincreasing integer tuples; the subset whose entries lie in O_E corresponds to λ_n ≥ 0. This integral-entry subset is not the scheme-theoretic GL_n(O_E) condition, which would require unit determinant.",
    "hypotheses": [
     "E/F unramified, so Tr_{E/F} : O_E → O_F and N_{E/F} : O_E^× → O_F^× are surjective (also when the residue characteristic is 2)."
    ],
    "proofSteps": [
-    "Let ϖ^m be the scale: the minimum valuation of h(x, y) on L. Choose x, y with h(x, y) = ϖ^m u, u ∈ O_E^×. Since the trace is surjective on units, some unit t makes h(x + ty, x + ty) = h(x, x) + Tr(t̄ϖ^m u) + N(t)h(y, y) have valuation exactly m; this vector splits off orthogonally (its Gram entry divides all pairings).",
+    "Unramifiedness makes the residue extension separable quadratic; its trace is onto the residue field. Reduction of the integral trace and Nakayama show Tr(O_E)=O_F, and one can choose a unit with unit trace. If a diagonal pairing already realizes the minimal scale valuation m, split it. Otherwise choose x,y with h(x,y)=ϖ^m u and both diagonal entries of strictly larger valuation. Choose a unit t with Tr(overline(t)u) a unit; the cross term makes h(x+ty,x+ty) have valuation m, including residue characteristic two. The resulting Gram entry divides all pairings, so this rank-one summand splits integrally.",
     "Normalize the diagonal unit to 1 using surjectivity of the norm on units; induct on the rank.",
     "Uniqueness: L^∨/L ≅ ⊕ O_E/ϖ^{λ_i} after scaling, so λ is determined by the invariant factors (base packet dvr-ordered-exponent-uniqueness)."
    ],
@@ -2492,7 +2687,8 @@
    ],
    "proofSteps": [
     "Invariance under isometry is immediate from the definitions.",
-    "Tr(h(x, y)) = h(x + y, x + y) − h(x, x) − h(y, y) gives Tr(𝔰) ⊆ 𝔫; if the trace O_E → O_F is surjective (unramified or odd), Tr(𝔰) = 𝔰 ∩ F."
+    "Tr(h(x, y)) = h(x + y, x + y) − h(x, x) − h(y, y) gives Tr(𝔰) ⊆ 𝔫; if the trace O_E → O_F is surjective (unramified or odd), Tr(𝔰) = 𝔰 ∩ F.",
+    "Lipnowski–Tsimerman generate their norm ideal over O_E. Its relation to this O_F-valued convention is extension of ideals: 𝔫_LT(L)=𝔫(L)O_E. State this adapter explicitly before using determinant/norm-ideal labels from that paper."
    ],
    "acceptance": [
     "L = O_E with h = ⟨1⟩: 𝔰 = O_E, 𝔫 = O_F.",
@@ -2539,6 +2735,11 @@
      "name": "TauCeti.GeometryOfNumbersPlan.HermitianLattice.normIdeal_map",
      "role": "functoriality",
      "statement": "Isometric lattices have equal scale and norm ideals."
+    },
+    {
+     "name": "TauCeti.GeometryOfNumbersPlan.LocalHermitianLattice.normIdeal_extend",
+     "role": "compatibility",
+     "statement": "The O_E-ideal generated by h(x,x) is normIdeal(L)·O_E, agreeing with Lipnowski–Tsimerman Definition 5.5."
     }
    ],
    "tests": [
@@ -2640,9 +2841,9 @@
      "statement": "For ℚ(i)/ℚ and V = ℚ(i)² standard, O² and O·(1, 1)/(1+i) ⊕ O·(1, −1)/(1+i) are distinct lattices in one genus and one class."
     },
     {
-     "name": "TauCeti.GeometryOfNumbersPlan.hermitianGenus_not_class",
+     "name": "TauCeti.GeometryOfNumbersPlan.hermitianGenus_normIdeal_separates",
      "kind": "non-example",
-     "statement": "One genus can contain several classes; the genus relation does not give a global isometry (the class set is a double coset space, not a point)."
+     "statement": "For E=ℚ(i), h=diag(1,−1), let M=O_E² and M′=O_E(1,1)+O_E(1/2,−1/2). Both are integral unimodular lattices in the same rational space. At 2 their Gram matrices are diag(1,−1) and [[0,1],[1,0]]; their norm ideals are ℤ₂ and 2ℤ₂. They are not in the same genus: ambient space and unimodularity alone do not determine genus."
     }
    ],
    "uses": [
@@ -2664,9 +2865,10 @@
    ],
    "title": "Unit-norm labels and the hermitian forms ⟨·,·⟩_σ",
    "kind": "definition",
-   "statement": "Let L be a CM field with totally real subfield K, Σ = O_K^{×,+}/N_{L/K}(O_L^×) the finite group of totally positive units modulo norms of units, and ε_σ a chosen representative of σ ∈ Σ (ε_1 = 1). On L^n put ⟨z, w⟩_σ = ε_σ z_1 w̄_1 + Σ_{i≥2} z_i w̄_i (Lipnowski–Tsimerman's convention, linear in the first variable). It is a totally positive definite hermitian form with determinant ε_σ, and the free unimodular O_L-lattices of determinant class σ lie in the space of ⟨·,·⟩_σ.",
+   "statement": "Let L be a CM field with totally real subfield K, Σ = O_K^{×,+}/N_{L/K}(O_L^×) the finite group of totally positive units modulo norms of units, and ε_σ a chosen representative of σ ∈ Σ (ε_1 = 1). For n≥1, on L^n put ⟨z, w⟩_σ = ε_σ z_1 w̄_1 + Σ_{i≥2} z_i w̄_i (Lipnowski–Tsimerman's convention, linear in the first variable). It is a totally positive definite hermitian form with determinant ε_σ, and the free unimodular O_L-lattices of determinant class σ lie in the space of ⟨·,·⟩_σ.",
    "hypotheses": [
-    "L CM over K; Σ is finite because N(O_L^×) ⊇ (O_K^×)² (Dirichlet's unit theorem gives [O_K^{×}: (O_K^×)²] finite)."
+    "L CM over K; Σ is finite because N(O_L^×) ⊇ (O_K^×)² (Dirichlet's unit theorem gives [O_K^{×}: (O_K^×)²] finite).",
+    "The labelled n-dimensional form requires n≥1; the zero-dimensional form has no nontrivial determinant label."
    ],
    "proofSteps": [
     "Σ is a quotient of O_K^{×,+}/(O_K^×)², which is a finite elementary abelian 2-group.",
@@ -2703,7 +2905,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.unitNormLabel.form",
      "role": "data",
-     "statement": "⟨·,·⟩_σ for a chosen representative ε_σ."
+     "statement": "For n≥1 and a chosen representative ε_σ, the diagonal form ⟨ε_σ,1,…,1⟩ on L^n."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.unitNormLabel.form_det",
@@ -2799,9 +3001,9 @@
    ],
    "title": "Free versus projective unimodular hermitian lattices",
    "kind": "theorem",
-   "statement": "In the setting of free-unimodular-gram-orbits, the isometry classes of free unimodular lattices form a subset of the classes of projective unimodular lattices of the same rank, determinant label and norm ideal; the subset is everything when the class group Cl(O_L) is trivial, since then every finitely generated projective O_L-module is free. In general a projective unimodular lattice is free iff its Steinitz class is trivial.",
+   "statement": "Fix a labelled positive hermitian space V_σ and a local norm-ideal profile as in free-unimodular-gram-orbits. The classes of free unimodular O_L-lattices in this fixed space and profile form a subset of the classes of projective unimodular lattices there. A projective lattice is free exactly when its Steinitz class is trivial; consequently the subsets agree when Cl(O_L)=1. For a general projective lattice, there is no chosen global basis or canonical unit Gram determinant: one first fixes the rational hermitian space and then uses its determinant class and local norm ideals.",
    "hypotheses": [
-    "Class number one is sufficient, not necessary."
+    "The rank n is positive; the hermitian space and norm-ideal profile are fixed before making the comparison. Class number one is sufficient, not necessary."
    ],
    "proofSteps": [
     "Free lattices are projective. A projective lattice is free iff its Steinitz class is trivial (lattice-steinitz-class), which is automatic when Cl(O_L) = 1."
@@ -2935,7 +3137,8 @@
    "kind": "definition",
    "statement": "Let f ∈ ℤ_ℓ[x] be monic irreducible with separable root field F = ℚ_ℓ[x]/(f), R = ℤ_ℓ[x]/(f) ⊆ O_F the monogenic order and δ = v_ℓ(disc f). An R-lattice of rank n is a full ℤ_ℓ-lattice in F^n stable under R. Its O_F-saturation is O_F·M. By Euler's lemma the trace dual of R is f′(θ)^{−1}R, so R ⊆ O_F ⊆ R^∨ = f′(θ)^{−1}R and [R^∨ : R] = ℓ^δ; the conductor 𝔣 = {x : xO_F ⊆ R} satisfies 𝔣·𝔡_{O_F} = f′(θ)O_F.",
    "hypotheses": [
-    "ℓ prime; F a field (f irreducible); R need not be Dedekind and R-lattices need not be free."
+    "ℓ prime; F a field (f irreducible); R need not be Dedekind and R-lattices need not be free.",
+    "For the different/conductor identity, O_F is the integral closure of ℤ_ℓ in F and F/ℚ_ℓ is finite separable; f is the monic minimal polynomial of the integral generator θ."
    ],
    "proofSteps": [
     "Euler's lemma is Mathlib's traceForm_dualSubmodule_adjoin; the conductor-different identity is conductor_mul_differentIdeal; disc f = ±N(f′(θ))."
@@ -3062,7 +3265,7 @@
    ],
    "title": "Stable lattices with prescribed flag quotients",
    "kind": "theorem",
-   "statement": "Let γ be a semisimple endomorphism of a finite-dimensional ℚ_ℓ-space V with a γ-stable subspace V_1, π : V → V/V_1, and fix γ-stable lattices U_1 ⊆ V_1 and U_2 ⊆ V/V_1. For a γ-equivariant projection p : V → V_1, the assignment L ↦ φ_L (u ↦ p(any lift of u to L) mod U_1) is a well-defined map from γ-stable lattices L with L ∩ V_1 = U_1 and π(L) = U_2 to Hom_{ℤ_ℓ[γ]}(U_2, V_1/U_1)/Hom_{ℤ_ℓ[γ]}(U_2, V_1), independent of p; its fibres lie in single orbits of the unipotent part of the centralizer of γ.",
+   "statement": "Let γ be a semisimple endomorphism of a finite-dimensional ℚ_ℓ-space V with a γ-stable subspace V_1, π : V → V/V_1, and fix γ-stable lattices U_1 ⊆ V_1 and U_2 ⊆ V/V_1. For a γ-equivariant projection p : V → V_1, the assignment L ↦ φ_L (u ↦ p(any lift of u to L) mod U_1) is a well-defined map from γ-stable lattices L with L ∩ V_1 = U_1 and π(L) = U_2 to Hom_{ℤ_ℓ[γ]}(U_2, V_1/U_1)/Hom_{ℤ_ℓ[γ]}(U_2, V_1), independent of p; its fibres lie in single orbits of the subgroup of the centralizer of γ acting identically on V₁ and V/V₁.",
    "hypotheses": [
     "γ semisimple, so γ-equivariant projections onto V_1 exist."
    ],
@@ -3311,7 +3514,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.algebraOrder_field",
      "kind": "compatibility",
-     "statement": "For B = F a field extension of degree 1 the only order is R; for B a number field the maximal order is the ring of integers (Mathlib NumberField.RingOfIntegers)."
+     "statement": "For a Dedekind domain R and its fraction field F, the only R-order in F is R, because R is integrally closed. For a number field B over ℚ, its maximal ℤ-order is the ring of integers. This does not assert that a nonnormal R is its own maximal order."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.algebraOrder_not_lattice",
@@ -3482,7 +3685,8 @@
     "nrd is the norm form of B (Tau Ceti QuaternionAlgebra.normForm), a 4-dimensional quadratic form; x ∈ B^× has nrd(x) = c iff the norm form represents c.",
     "Local: if B_v is split the norm form is hyperbolic, hence universal; if B_v is a division algebra over a nonarchimedean field, ⟨−c⟩ ⊥ nrd is 5-dimensional and therefore isotropic, so nrd represents c; at a real ramified place nrd is positive definite (Voight Lemma 13.4.9).",
     "Global: by the Hasse principle for representations of scalars (GlobalQuadraticForms Layer 6), c is represented globally iff it is represented at every place.",
-    "Units of a maximal order: nrd(O_v^×) = R_v^× from the explicit maximal orders (Voight Lemma 13.4.9)."
+    "Units of a maximal order: nrd(O_v^×) = R_v^× from the explicit maximal orders (Voight Lemma 13.4.9).",
+    "If B is split, det diag(c,1)=c gives the norm directly. In the division case, isotropy of nrd(x)−cz² forces z≠0, so nrd(x/z)=c. This is the point at which division, rather than just regularity, is used."
    ],
    "acceptance": [
     "B = (−1, −1 | ℚ) (ramified at 2 and ∞): nrd(B^×) = ℚ_{>0}, and 3 = nrd(1 + i + j).",
@@ -3530,14 +3734,15 @@
    ],
    "title": "Quadratic forms over a finite field",
    "kind": "theorem",
-   "statement": "Let F = 𝔽_q. (a) Every quadratic form of dimension ≥ 3 is isotropic, and every nondegenerate form of dimension ≥ 2 represents every element of F^×. (b) For q odd, nondegenerate quadratic forms are classified by dimension and discriminant in F^×/F^{×2} (two classes in each positive dimension). (c) For q even, nondegenerate (nonsingular) forms of even dimension 2m are classified by dimension and Arf invariant (arf-invariant): the hyperbolic form mH and the form (m−1)H ⊥ [1, c] with c ∉ ℘(F); in each odd dimension there is one nondegenerate form up to isometry.",
+   "statement": "Let F = 𝔽_q. (a) Every quadratic form of dimension ≥ 3 is isotropic, and every nondegenerate form of dimension ≥ 2 represents every element of F^×. (b) For q odd, nondegenerate quadratic forms are classified by dimension and discriminant in F^×/F^{×2} (two classes in each positive dimension). (c) For q even, nondegenerate (nonsingular) forms of even dimension 2m are classified by dimension and Arf invariant (arf-invariant): the hyperbolic form mH and the form (m−1)H ⊥ [1, c] with c ∉ ℘(F); in each odd dimension there is one regular odd-dimensional form up to isometry.",
    "hypotheses": [
     "Nondegenerate in characteristic 2 means the polar form has radical of dimension ≤ 1 and q is anisotropic on it (EKM's convention)."
    ],
    "proofSteps": [
     "(a) Chevalley–Warning (Mathlib char_dvd_card_solutions_of_sum_lt) gives a nontrivial zero in dimension ≥ 3; a nondegenerate binary form ⊥ ⟨−c⟩ (or [·,·] ⊥ ⟨c⟩) is isotropic, so the binary form represents c.",
     "(b) Split off hyperbolic planes (Witt decomposition, QuadraticFormInvariants Layer 1) down to an anisotropic part of dimension ≤ 2; binary forms are classified by the discriminant (EKM Proposition 13.2), and F^×/F^{×2} has order 2.",
-    "(c) The same reduction with the Arf invariant as discriminant: Ét₂(𝔽_q) ≅ F/℘(F) ≅ ℤ/2 (EKM §13, Example 13.5)."
+    "(c) For a perfect field of characteristic two, a regular odd-dimensional form has a one-dimensional polar radical on which q is nonzero. Normalize that radical line to ⟨1⟩ since every element is a square. In rank at least three, Chevalley–Warning supplies a nonzero isotropic vector; it cannot lie in the radical. Pair it with a vector having polar pairing 1, then add a multiple of the isotropic vector to make that partner isotropic. Split off a hyperbolic plane and induct to get H^m⊥⟨1⟩. Even-dimensional forms instead have perfect alternating polarization; split hyperbolic planes to the binary remainder, classified by F/℘(F) and the Arf invariant.",
+    "For regularity in characteristic two, a radical line with q zero is excluded. The perfect-polar Witt decomposition imported from QuadraticFormInvariants is used only in characteristic ≠2; the characteristic-two splitting argument is supplied here."
    ],
    "acceptance": [
     "q odd, n = 2: x² + y² is hyperbolic iff −1 is a square iff q ≡ 1 mod 4.",
@@ -3553,7 +3758,7 @@
    "sources": [
     {
      "sourceId": "EKM2008",
-     "locator": "§13, Proposition 13.2 and Example 13.5, printed pp.61–62; §35 (p.161), consequence of Chevalley–Warning",
+     "locator": "§13, Proposition 13.2 and Example 13.5, printed pp.61–62; §36 (p.161), consequence of Chevalley–Warning",
      "match": "Defines the discriminant of an even-dimensional nondegenerate form as the class of the centre of its even Clifford algebra (the Arf invariant in characteristic 2), shows binary forms are similar iff their discriminants agree, and records that three-dimensional forms over finite fields are isotropic."
     }
    ],
@@ -3681,16 +3886,17 @@
    ],
    "title": "Quadric surfaces over a finite field",
    "kind": "theorem",
-   "statement": "Over 𝔽_q there are exactly three PGL₄(𝔽_q)-orbits of reduced irreducible quadric surfaces in ℙ³: the cone Q^con ≅ ℙ(1, 1, 2) (rank 3), the nonsplit smooth quadric Q^nsp (rank 4, isomorphic to ℙ¹ × ℙ¹ over 𝔽_{q²} with Frobenius swapping the rulings, Picard rank 1) and the split quadric Q^spl ≅ ℙ¹ × ℙ¹. Their automorphism groups have orders #Aut(Q^con) = q⁷ − q⁶ − q⁵ + q⁴ = #GL₂(𝔽_q)·q³, #Aut(Q^nsp) = 2(q⁶ − q²) = 2#PGL₂(𝔽_{q²}) and #Aut(Q^spl) = 2(q³ − q)² = 2#PGL₂(𝔽_q)².",
+   "statement": "Over 𝔽_q there are exactly three PGL₄(𝔽_q)-orbits of geometrically irreducible quadric surfaces in ℙ³: the cone Q^con ≅ ℙ(1, 1, 2) (rank 3), the nonsplit smooth quadric Q^nsp (rank 4, isomorphic to ℙ¹ × ℙ¹ over 𝔽_{q²} with Frobenius swapping the rulings, Picard rank 1) and the split quadric Q^spl ≅ ℙ¹ × ℙ¹. Their automorphism groups have orders #Aut(Q^con) = q⁷ − q⁶ − q⁵ + q⁴ = #GL₂(𝔽_q)·q³, #Aut(Q^nsp) = 2(q⁶ − q²) = 2#PGL₂(𝔽_{q²}) and #Aut(Q^spl) = 2(q³ − q)² = 2#PGL₂(𝔽_q)².",
    "hypotheses": [
-    "Reduced irreducible quadrics are those of rank 3 or 4 (rank ≤ 2 gives pairs of planes or a double plane)."
+    "The quadric is geometrically irreducible and reduced: geometric quadratic rank 3 or 4. A nonsplit rank-two binary norm equation is irreducible over 𝔽_q but splits into conjugate planes over 𝔽_{q²}; it is excluded. In characteristic two, quadratic rank here is not the rank of the polar bilinear form."
    ],
    "proofSteps": [
-    "Rank 3 forms are unique up to scaling (finite-field-quadratic-classification), giving the cone; rank 4 forms split into two classes (discriminant or Arf), the hyperbolic one giving ℙ¹ × ℙ¹ and the other its Galois twist.",
-    "Automorphisms: every automorphism extends to PGL₄ (the hyperplane series is complete); compute Aut(ℙ¹ × ℙ¹) = (PGL₂ × PGL₂) ⋊ ℤ/2, its twist PGL₂(𝔽_{q²}) ⋊ Gal, and the cone's automorphisms GL₂(𝔽_q) ⋉ 𝔽_q³."
+    "Finite-field classification, including the regular odd-rank characteristic-two argument, gives the cone q=xz+y² and the two smooth rank-four classes up to scaling. The split class is ℙ¹×ℙ¹; the nonsplit class is its twist with exchanged rulings.",
+    "For smooth quadrics, the complete hyperplane series identifies geometric automorphisms with (PGL₂×PGL₂)⋊C₂; Frobenius-fixed points give the stated split and nonsplit orders. For the cone, use its weighted model ℙ(1,1,2). The map to PGL₂ on the ruling has kernel z↦αz+f₂(x,y), of order (q−1)q³; multiplying by #PGL₂(𝔽_q)=q(q²−1) yields q⁷−q⁶−q⁵+q⁴. Only this order and exact kernel description are asserted; an isomorphism GL₂⋉𝔽_q³ is not needed."
    ],
    "acceptance": [
-    "q = 2: #Aut(Q^spl) = 2·36 = 72, #Aut(Q^nsp) = 2·60 = 120, #Aut(Q^con) = 128 − 64 − 32 + 16 = 48 = 6·8."
+    "q = 2: #Aut(Q^spl) = 2·36 = 72, #Aut(Q^nsp) = 2·60 = 120, #Aut(Q^con) = 128 − 64 − 32 + 16 = 48 = 6·8.",
+    "For a nonsquare d over odd 𝔽_q, x²−dy² in ℙ³ is irreducible over 𝔽_q but geometrically reducible of rank two, and is not one of the three surfaces. This separates irreducibility from geometric irreducibility."
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/finite-field-quadratic-classification",
@@ -3700,7 +3906,7 @@
     {
      "sourceId": "BFP2024",
      "locator": "§6, the classification of quadric surfaces and display (6), pp.9–10 (arXiv:2206.07759v2)",
-     "match": "Lists the three orbits of reduced irreducible quadric surfaces over 𝔽_q with their geometric descriptions and the orders of their automorphism groups, used in a point count of a moduli space."
+     "match": "The source gives the three geometric types and their automorphism orders. Its irreducibility wording needs the geometric restriction recorded in E203; the cone order is retained without asserting an unsupported semidirect-product isomorphism."
     }
    ],
    "library": {
@@ -3718,9 +3924,9 @@
    ],
    "title": "Odd unimodular lattices represent units primitively",
    "kind": "theorem",
-   "statement": "Let O be a complete DVR with finite residue field of odd characteristic (for example ℤ_ℓ, ℓ odd) and M a unimodular quadratic O-lattice of rank ≥ 2. Then every t ∈ O^× is Q(v) for some primitive v ∈ M. In rank 1, with generator e of norm u ∈ O^×, M represents t ∈ O^× primitively iff t/u is a square in O^× (equivalently, for O = ℤ_ℓ, iff t/u is a square mod ℓ).",
+   "statement": "Let R be a henselian DVR (in particular, a complete DVR) with finite residue field k of odd characteristic and let M be a regular unimodular quadratic R-lattice of rank at least two. Every t∈R^× is represented by a primitive v∈M. In rank one, with generator e of norm u∈R^×, a unit t is represented primitively exactly when t/u is a square in R^×, equivalently a square in k^×. The ℤ_p specialization is imported from IntegralLattices 3C; this node supplies the general henselian-DVR version.",
    "hypotheses": [
-    "Unimodular for the polar form (2 is a unit, so the half-Gram and the Gram differ by a unit)."
+    "R a henselian DVR (complete DVRs are included) with finite residue field of odd characteristic, L a regular unimodular quadratic R-lattice. The ℤ_p specialization is imported from IntegralLattices 3C, rather than owned again."
    ],
    "proofSteps": [
     "The reduction M/𝔪M is a nondegenerate quadratic space over the residue field of dimension ≥ 2, so it represents t̄ by a nonzero vector (finite-field-quadratic-classification (a)).",
@@ -3741,7 +3947,7 @@
    "sources": [
     {
      "sourceId": "LMS2018",
-     "locator": "§3.5, Lemmas 3.5.1–3.5.2, p.15 (arXiv:1107.1221)",
+     "locator": "§3.5, proof of Lemma 3.5.2, pp.15–16 (arXiv:1107.1221); the henselian-DVR statement is derived by the same residue-field/Hensel proof.",
      "match": "Proves that a unimodular quadratic lattice over ℤ_ℓ of rank at least two whose reduction represents a unit admits a vector of that norm, by Hensel."
     },
     {
@@ -3815,8 +4021,8 @@
     "Spinor norm of Tau Ceti/OrthogonalSpinGroups 1D (CliffordAlgebra.spinorNorm), with the reflection normalization θ(τ_v) = [q(v)]."
    ],
    "proofSteps": [
-    "Decompose V = V_+ ⊥ V_− ⊥ V′ (isometry-eigenspace-decomposition) and use multiplicativity of sn on orthogonal sums.",
-    "sn(γ|V_+) = 1 (unipotent part: a product of an even number of reflections with trivial total norm), sn(−1_W) = 2^{dim W}disc(q|W) = disc(q|W) for W = V_− of even dimension, and on V′ sn = Q(−1)·Q(1)^{…} computed in the graded tensor product of Clifford algebras of hyperbolic planes (Chenevier–Taïbi's proof)."
+    "Use the orthogonal primary decomposition V=V_+⊥V_-⊥V′. On V_+, γ is unipotent and a square in SO: in positive odd characteristic its finite odd-order unipotent group gives a square root, and in characteristic zero the finite binomial polynomial gives one. A square has trivial spinor norm. On V_-, write γ=(-1)u with u unipotent; its norm is therefore that of −1, the determinant class of q|V_- because this dimension is even.",
+    "On the summand V′ with 1+γ invertible, the Cayley/Clifford identity gives θ(γ)=det((1+γ)/2) modulo squares (Chenevier–Taïbi Theorem 3.5). Its dimension is even, so 2^dim V′ is a square and det(1+γ)=Q(−1). Multiplicativity yields the stated formula. This does not assume the eigenvalues split over k."
    ],
    "acceptance": [
     "γ = −1 on a 2-dimensional space: sn = disc(q).",
@@ -3849,9 +4055,10 @@
    ],
    "title": "Integral spinor norms of regular quadratic modules",
    "kind": "theorem",
-   "statement": "Let R be a local ring (or any ring with Pic R = 1) with 2 not necessarily invertible, and (V, q) a regular quadratic R-module of rank n ≥ 1: q nondegenerate (perfect polar pairing), or n odd with invertible half-discriminant. Then GSpin(V, q) → SO(V, q) is surjective on R-points with kernel R^×, the Clifford norm ν of a lift defines the spinor norm sn : SO(V, q)(R) → R^×/R^{×2}, and over a DVR R with fraction field K this is the restriction of the field spinor norm: θ(SO(V)(R)) ⊆ R^×K^{×2}/K^{×2}. In particular for a unimodular lattice L_v over the integers of a local field, also at dyadic places, the spinor norms of proper integral isometries are units modulo squares.",
+   "statement": "Let R be a local ring (or any ring with Pic R = 1) with 2 not necessarily invertible, and (V, q) a regular quadratic R-module of rank n ≥ 3: q nondegenerate (perfect polar pairing), or n odd with invertible half-discriminant. Then GSpin(V, q) → SO(V, q) is surjective on R-points with kernel R^×, the Clifford norm ν of a lift defines the spinor norm sn : SO(V, q)(R) → R^×/R^{×2}, and over a DVR R with fraction field K of characteristic ≠ 2 this is the restriction of the field spinor norm: θ(SO(V)(R)) ⊆ R^×K^{×2}/K^{×2}. In particular for a unimodular lattice L_v over the integers of a local field, also at dyadic places, the spinor norms of proper integral isometries are units modulo squares.",
    "hypotheses": [
-    "R local (Zariski-local triviality of G_m-torsors gives the lift); regularity as in Knus IV §3 ('semi-regular' in odd rank)."
+    "R local (Zariski-local triviality of G_m-torsors gives the lift); regularity as in Knus IV §3 ('semi-regular' in odd rank).",
+    "Rank n≥3 for the GSpin/SO statement in this node. The fraction-field comparison assumes char K≠2; residue characteristic two remains allowed. Regular odd rank means invertible half-discriminant, rather than perfect polarization."
    ],
    "proofSteps": [
     "The sequence 1 → G_m → GSpin → SO → 1 is exact as Zariski sheaves for regular (V, q) (Conrad, Reductive group schemes, Appendix C); H¹_Zar(R, G_m) = Pic R = 1 gives surjectivity on R-points.",
@@ -3877,8 +4084,8 @@
     },
     {
      "sourceId": "ConradRGS",
-     "locator": "Appendix C (quadratic spaces, Clifford algebras, GSpin and the spinor norm over rings)",
-     "match": "Constructs Clifford algebras, GSpin and Spin of regular quadratic spaces over arbitrary rings and the exact sequences relating them to SO."
+     "locator": "Lemma C.2.8, pp.316–317; Clifford norm (C.4.2), p.337; Proposition C.4.6, p.340; (C.4.4), p.343; Corollary C.4.10, p.344.",
+     "match": "GSpin→SO is a smooth Zariski-locally split Gₘ quotient for regular quadratic modules; the Clifford norm on central scalars is their square. The Spin→SO kernel is μ₂ and its exactness is interpreted in the fppf topology. Pic R=0 turns the Gₘ torsor into a lift on R-points."
     }
    ],
    "library": {
@@ -3935,14 +4142,15 @@
    ],
    "title": "Local spinor images of unimodular stabilizers at all places",
    "kind": "theorem",
-   "statement": "Let K be a nonarchimedean local field with ring of integers R and L a unimodular quadratic R-lattice (regular in the sense of regular-quadratic-module-spinor-norm) of rank n ≥ 2 in V = KL. Then θ(SO(L)) ⊆ R^×K^{×2}/K^{×2}; if moreover K is nondyadic, or L contains a hyperbolic plane over R, equality holds. In particular the adelic spinor norm of an adelic proper isometry is a unit at almost all places (the base packet's spinor-adelic-norm) and the reference groups θ_v(SO(L_v)) are R_v^×K_v^{×2} at every place where L_v is regular of rank ≥ 2 and contains a hyperbolic plane.",
+   "statement": "Let K be a nonarchimedean local field with ring of integers R and L a unimodular quadratic R-lattice (regular in the sense of regular-quadratic-module-spinor-norm) of rank n ≥ 3 in V = KL. Then θ(SO(L)) ⊆ R^×K^{×2}/K^{×2}; if moreover K is nondyadic, or L contains a hyperbolic plane over R, equality holds. In particular the adelic spinor norm of an adelic proper isometry is a unit at almost all places (the base packet's spinor-adelic-norm) and the reference groups θ_v(SO(L_v)) are R_v^×K_v^{×2} at every place where L_v is regular of rank ≥ 3 and contains a hyperbolic plane.",
    "hypotheses": [
-    "The general dyadic image for non-split unimodular or non-unimodular lattices is not claimed (Beli's theory of integral spinor norms over dyadic fields); see the gap recorded for it."
+    "The general dyadic image for non-split unimodular or non-unimodular lattices is not claimed (Beli's theory of integral spinor norms over dyadic fields); see the gap recorded for it.",
+    "K has characteristic ≠2. This node extends the reference-stabilizer result to finite extensions of ℚ_p; the ℚ_p/ℤ_p specialization and its proper spinor-genus machinery remain IntegralLattices 4C and OrthogonalSpinGroups 3C. Rank-two torus and rank-one adelic quotients are not asserted."
    ],
    "proofSteps": [
-    "Inclusion: regular-quadratic-module-spinor-norm.",
-    "Equality, nondyadic: the base packet's spinor-unimodular-stabilizer.",
-    "Equality with a hyperbolic plane H = Re + Rf: for u ∈ R^× the integral isometry diag(u, u^{−1}) of H (extended by the identity) has spinor norm [u] (base packet spinor-reflection-product with a = u)."
+    "Inclusion for n≥3 follows from regular-quadratic-module-spinor-norm, including dyadic residue characteristic.",
+    "At odd residue characteristic, the complete-DVR unit-representation theorem gives vectors with arbitrary prescribed unit norms. Reflections in unit-norm vectors are integral; products of two reflections are proper and attain every unit square class. This extends the imported ℤ_p result without duplicating its ownership.",
+    "If L contains H=Re+Rf with q(xe+yf)=xy, reflections in e+f and e+uf are integral even when 2 is not a unit, because their norms are units. Their product is proper with spinor norm [u], proving equality in the dyadic split case."
    ],
    "acceptance": [
     "K = ℚ_2, L = H ⊥ H: θ(SO(L)) = ℤ_2^×ℚ_2^{×2}.",
@@ -3981,14 +4189,15 @@
    ],
    "title": "Trace-even and trace-unimodular lattices over a totally real field",
    "kind": "definition",
-   "statement": "Let F be a totally real number field with different 𝔡_F, (V, Q) a nondegenerate quadratic space over F with bilinear form (x, y), Q(x) = (x, x)/2, and L ⊆ V an O_F-lattice. L is even if Q(L) ⊆ 𝔡_F^{−1}, its trace dual is L′ = {y ∈ V : (y, L) ⊆ 𝔡_F^{−1}} (the ℤ-dual of L for Q_ℤ = Tr_{F/ℚ}∘Q), and L is ℤ-unimodular if L′ = L. U_F is the commutative monoid of even ℤ-unimodular lattices under ⊥ and U_F^+ its subsemigroup of nonzero totally positive definite ones. For even L, L′/L is finite with the quadratic form Q mod 𝔡_F^{−1}; for h in the adelic orthogonal (or GSpin) group, L_h = V ∩ h^{−1}L̂ is in the genus of L and h^{−1} identifies L′/L with L_h′/L_h.",
+   "statement": "Let F be a totally real number field with different 𝔡_F, (V, Q) a nondegenerate quadratic space over F with bilinear form (x, y), Q(x) = (x, x)/2, and L ⊆ V an O_F-lattice. L is even if Q(L) ⊆ 𝔡_F^{−1}, its trace dual is L′ = {y ∈ V : (y, L) ⊆ 𝔡_F^{−1}} (the ℤ-dual of L for Q_ℤ = Tr_{F/ℚ}∘Q), and L is ℤ-unimodular if L′ = L. U_F is the commutative monoid of even ℤ-unimodular lattices under ⊥ and U_F^+ its subsemigroup of nonzero totally positive definite ones. For even L, L′/L is finite with the quadratic form Q mod 𝔡_F^{−1}; for h in the adelic orthogonal (or GSpin) group, L_h = V ∩ h^{−1}L̂ is in the genus of L and the map h^{−1} on finite completed quotients identifies L′/L with L_h′/L_h (after the canonical completion identifications).",
    "hypotheses": [
     "F totally real; 𝔡_F^{−1} the inverse different, so Tr_{F/ℚ}(𝔡_F^{−1}) ⊆ ℤ (Mathlib differentIdeal)."
    ],
    "proofSteps": [
     "L′ = 𝔡_F^{−1}·L^♯ with L^♯ the O_F-dual (lattice-discriminant-ideal), so L′ is a lattice and L′ = L can be checked place by place.",
     "Q_ℤ(L) ⊆ Tr(𝔡_F^{−1}) ⊆ ℤ for even L; L′ is the ℤ-dual of L for the trace form by nondegeneracy of the trace pairing.",
-    "L_h is defined through lattice-local-global-dictionary from the completions h^{−1}L̂_v."
+    "L_h is defined through lattice-local-global-dictionary from the completions h^{−1}L̂_v.",
+    "Because the discriminant quotients are finite, completion identifies L′/L with the direct sum of its local quotients. Apply h⁻¹ to these completed quotients and use local-global descent for L_h. This does not apply h⁻¹ to a rational vector in V."
    ],
    "acceptance": [
     "F = ℚ: even ℤ-unimodular means even unimodular in the usual sense (E₈ ∈ U_ℚ^+).",
@@ -4042,7 +4251,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.TraceLattice.adelicTranslate",
      "role": "functoriality",
-     "statement": "L_h = V ∩ h^{−1}L̂ with L′/L ≃ L_h′/L_h induced by h^{−1}; L_{hh′} = (L_h)_{h′}."
+     "statement": "L_h=V∩h⁻¹L̂. Identify L′/L with the finite completed quotient L̂′/L̂, apply h⁻¹ there, and descend to L_h′/L_h. The rational map h⁻¹ on V is not asserted; for successive right actions L_{hh′}=(L_h)_{h′}."
     },
     {
      "name": "TauCeti.GeometryOfNumbersPlan.TraceLattice.zunimodular_int",
@@ -4064,7 +4273,7 @@
     {
      "name": "TauCeti.GeometryOfNumbersPlan.traceLattice_not_OF_unimodular",
      "kind": "non-example",
-     "statement": "For F = ℚ(√5) (𝔡_F = (√5)), the O_F-lattice O_F with Q(x) = x² satisfies L^♯ = (1/2)O_F but L′ = (1/(2√5))O_F ≠ L: O_F-unimodularity and ℤ-unimodularity differ."
+     "statement": "For F=ℚ(√5), 𝔡_F=(√5), take L=O_F e⊕O_F f with Q(xe+yf)=xy. Its polar dual is L^♯=L, so it is O_F-unimodular, while its trace dual is 𝔡_F⁻¹L≠L. This is an actual example where the two unimodularity conditions differ."
     }
    ],
    "uses": [
@@ -4147,7 +4356,7 @@
     {
      "sourceId": "Charles2016",
      "locator": "§2.2, the lattices Λ_{2d}, pp.500–501 (Annals 184)",
-     "match": "Introduces ⟨2d⟩ ⊕ U as the primitive cohomology lattice of a polarized K3 surface of degree 2d and uses its discriminant form in Proposition 2.9."
+     "match": "Charles defines the rank-three auxiliary lattice ⟨2d⟩⊕U used in the embedding argument. It is not the full primitive cohomology lattice of a degree-2d polarized K3 surface."
     }
    ],
    "library": {
@@ -4215,7 +4424,7 @@
    "kind": "theorem",
    "statement": "Let d > 0 and S an even positive definite lattice of rank 2 with a primitive embedding S ↪ Λ_{2d}. There are N > 0 and nonzero integers a, b such that for every m > 0 with m ≡ 1 mod N, gcd(m, ab) = 1 and a, b squares modulo m, S admits a primitive embedding into Λ_{2md}. Primitivity of the initial embedding is necessary: in Λ_2 the sublattice spanned by 2h and 2(e + f) is isometric to diag(8, 8) but the abstract lattice diag(8, 8) has no primitive embedding into Λ_2, so the statement for arbitrary rank-2 sublattices fails already at m = 1.",
    "hypotheses": [
-    "The initial embedding is primitive (corrected statement; source issue E201)."
+    "d>0; S even, positive definite of rank two, with a primitive initial embedding. The source correction is PAPER-CHARLES-16/E2, also tracked here as E204."
    ],
    "proofSteps": [
     "Nikulin's criterion (IntegralLattices 5I, Proposition 1.15.1): a primitive embedding S ↪ Λ exists iff there are subgroups H_S ⊆ A_S, H ⊆ A_Λ, an isometry γ of the restricted forms and a negative definite rank-one even lattice K = ⟨−2t⟩ with q_K ≅ −δ, δ = (q_S ⊕ −q_Λ)|Γ_γ^⊥/Γ_γ.",
@@ -4243,7 +4452,14 @@
     "namespace": "TauCeti.GeometryOfNumbersPlan",
     "name": "primitiveEmbedding_lambda_transport"
    },
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "upstreamPrerequisites": [
+    {
+     "roadmap": "IntegralLattices",
+     "contract": "Milestone 5I, Nikulin Proposition 1.15.1: primitive embeddings into an arbitrary even target lattice via the graph quotient δ and a complement with discriminant form −δ. Layer 4 overlattice gluing alone does not supply this converse.",
+     "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md"
+    }
+   ]
   },
   {
    "id": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/zarhin-explicit-plane",
@@ -4368,14 +4584,14 @@
    ],
    "title": "Selecting a vector of prescribed norm in compatible ℓ-adic systems",
    "kind": "theorem",
-   "statement": "For every sufficiently large odd prime ℓ let M_ℓ be a unimodular ℤ_ℓ-lattice with a semisimple isometry φ_ℓ whose characteristic polynomial is a fixed P ∈ ℚ[T], with disc(M_ℓ ⊗ ℚ_ℓ) a fixed rational square class δ. Put N_ℓ = M_ℓ ∩ ker(φ_ℓ² − 1), assume N_ℓ unimodular, let A_ℓ ⊆ N_ℓ be isometric to A ⊗ ℤ_ℓ for a fixed nondegenerate integral lattice A, and suppose T_ℓ = A_ℓ^⊥ ∩ N_ℓ has positive rank. Fix t ∈ ℚ^×. If ℓ avoids the primes in the numerators and denominators of t, δ and disc A, and the splitting field of P together with √−1, √δ, √disc A and √t embeds into ℚ_ℓ, then T_ℓ contains a primitive vector of norm t. Moreover a vector γ ∈ T_ℓ of unit norm is primitive in A_ℓ^⊥ and its image in (M_ℓ/A_ℓ) ⊗ ℚ_ℓ/ℤ_ℓ divided by ℓ^n has exact order ℓ^n.",
+   "statement": "For every sufficiently large odd prime ℓ, let M_ℓ be a unimodular ℤ_ℓ-lattice with semisimple isometry φ_ℓ and common characteristic polynomial P∈ℚ[T]; let the determinant of M_ℓ⊗ℚ_ℓ have fixed rational square class δ. Put N_ℓ=M_ℓ∩ker(φ_ℓ²−1), assumed unimodular, and let a fixed nondegenerate integral lattice A embed isometrically as A_ℓ⊆N_ℓ. Suppose T_ℓ=A_ℓ^⊥∩N_ℓ has positive rank. Write P=(T−1)^a(T+1)^bP_* with P_*(±1)≠0. Fix t∈ℚ^×. For infinitely many odd primes ℓ, all of −1, δ, disc A, t and P_*(1)P_*(−1) are nonzero squares in ℚ_ℓ and all relevant coefficients are integral units. At every such sufficiently large prime, T_ℓ contains a vector γ of norm t. It is primitive in A_ℓ^⊥, and γ/ℓ^n has exact order ℓ^n in the torsion group (M_ℓ/A_ℓ)⊗ℚ_ℓ/ℤ_ℓ. No splitting of the full polynomial P over ℚ_ℓ is required.",
    "hypotheses": [
-    "ℓ in the infinite set given by prime-power-square-lift (c) for the finitely many constants."
+    "The finitely many primes dividing the numerators or denominators of the stated rational constants, the denominators of P, or disc A are excluded. Convert each rational square class to a nonzero integer representative for prime-power-square-lift(c)."
    ],
    "proofSteps": [
-    "disc N_ℓ = (−1)^{n/2}δ (isometry-eigenspace-decomposition (d)) is a unit square class; A_ℓ splits off N_ℓ integrally (IntegralLattices 0F over ℤ_ℓ), so T_ℓ is unimodular with square-class determinant disc N_ℓ/disc A.",
-    "If rank T_ℓ ≥ 2 apply odd-unimodular-unit-representation; in rank 1 the determinant and t are squares in ℚ_ℓ by the choice of ℓ, so the rank-one case of that node applies.",
-    "Unit norm forces primitivity; the order statement is the elementary divisor computation in M_ℓ/A_ℓ."
+    "The orthogonal complement of N_ℓ has no eigenvalues ±1, so the nonsplit Cayley determinant identity makes its determinant square class P_*(1)P_*(−1). Hence disc N_ℓ=δ/(P_*(1)P_*(−1)) modulo squares. A_ℓ is unimodular at these primes and splits integrally, so disc T_ℓ=disc N_ℓ/disc A is a square.",
+    "Use prime-power-square-lift(c) and Hensel for the finite list of rational square classes; this gives infinitely many allowed ℓ. If rank T_ℓ≥2, apply odd-unimodular-unit-representation. If its rank is one, its Gram coefficient and t are units with the same square class, so it represents t.",
+    "A vector of unit norm cannot lie in ℓ times its lattice. Integral orthogonal splitting makes A_ℓ^⊥ a direct summand of M_ℓ, so its primitivity remains true in M_ℓ/A_ℓ; division by ℓ^n has exact order ℓ^n."
    ],
    "acceptance": [
     "P = (T − 1)^r: N_ℓ = M_ℓ and the statement is odd-unimodular-unit-representation for A^⊥."
@@ -4389,8 +4605,8 @@
    "sources": [
     {
      "sourceId": "LMS2018",
-     "locator": "§3.5, Lemmas 3.5.1–3.5.2 and the proof of Proposition 3.5.3, pp.15–16 (arXiv:1107.1221)",
-     "match": "Selects primes where a Frobenius-stable unimodular lattice has an orthogonal complement representing a prescribed norm, using the discriminant of the fixed part and Hensel."
+     "locator": "§3.5, Lemma 3.5.2 and proof, pp.15–16 (arXiv:1107.1221); 3.5.3 is a definition.",
+     "match": "Supplies the compatible-lattice norm-selection argument. The present version replaces complete splitting by the Cayley determinant identity and finitely many square-class conditions, so the prime supplier really proves what is requested."
     },
     {
      "sourceId": "Charles2016",
@@ -4413,13 +4629,14 @@
    ],
    "title": "Discriminants of Frobenius eigenlattices",
    "kind": "theorem",
-   "statement": "Fix r > 0, an even w ≥ 0 and q. Let O be the ring of integers of a finite unramified extension of ℚ_ℓ and M a nondegenerate O-lattice of rank r with an endomorphism φ such that (φx, φy) = q^w(x, y), whose characteristic polynomial is integral with all roots Weil q-integers of weight w and for which q^{w/2} is a semisimple eigenvalue. Let M_0 = M ∩ ker(φ − q^{w/2}). Then v_ℓ(disc M_0) ≤ v_ℓ(disc M) for ℓ > C(r, w, q), and v_ℓ(disc M_0) ≤ C′(r, w, q) + v_ℓ(disc M) for all ℓ.",
+   "statement": "Fix r > 0, an even w ≥ 0 and a positive prime power q. Let O be the ring of integers of a finite unramified extension of ℚ_ℓ and M a nondegenerate O-lattice of rank r with an endomorphism φ such that (φx, φy) = q^w(x, y), whose characteristic polynomial lies in ℤ[T] with all roots Weil q-integers of weight w and for which q^{w/2} is a semisimple eigenvalue. Let M_0 = M ∩ ker(φ − q^{w/2}). Then v_ℓ(disc M_0) ≤ v_ℓ(disc M) for ℓ > C(r, w, q), and v_ℓ(disc M_0) ≤ C′(r, w, q) + v_ℓ(disc M) for all ℓ.",
    "hypotheses": [
-    "The similitude relation (φx, φy) = q^w(x, y) is a hypothesis; the conclusion bounds valuations only, not a rational square class."
+    "The similitude relation (φx, φy) = q^w(x, y) is a hypothesis; the conclusion bounds valuations only, not a rational square class.",
+    "The common characteristic polynomial has coefficients in ℤ, not merely in the varying coefficient ring O. All Weil roots have complex absolute value q^{w/2}. The eigenvalue q^{w/2} is semisimple; full semisimplicity is not required."
    ],
    "proofSteps": [
-    "The characteristic polynomial lies in a finite set of polynomials f_i = g_ih_i (g_i a power of T − q^{w/2}, h_i(q^{w/2}) ≠ 0) determined by (r, w, q); fix Bézout identities a_ig_i + b_ih_i = 1 with denominators dividing a fixed Q, and let C be the largest prime dividing Q and C′ = 2rs with ℓ^s ∥ Q.",
-    "M_1 = h(φ)M ⊆ M_0 and M_2 = g(φ)M are orthogonal by the similitude relation; for ℓ > C, M = M_1 ⊕ M_2 and M_1 = M_0 (both saturated), so disc M_0 divides disc M; in general ℓ^sM ⊆ M_1 ⊕ M_2 and the length comparison (lattice-discriminant-ideal) gives the bound C′ + v_ℓ(disc M)."
+    "The fixed degree, integer coefficients and Weil absolute values bound every coefficient by a binomial expression, giving a finite set of polynomials. Factor each as g_i=(T−q^{w/2})^{a_i} and h_i with h_i(q^{w/2})≠0. Clear denominators in Bézout identities a_i g_i+b_i h_i=1 using a single positive integer Q. Take C at least the largest prime factor of Q and C′=2r·max_ℓ v_ℓ(Q), an integer independent of ℓ.",
+    "The similitude relation makes the q^{w/2}-eigenspace orthogonal to the other primary summands: their eigenvalues cannot pair to q^w with q^{w/2}. Semisimplicity of this eigenvalue ensures h_i(φ)M⊆M_0. For ℓ∤Q the Bézout projector is integral and gives M=M_0⊥M_2, so the integral complementary determinant has nonnegative valuation. In general ℓ^{v_ℓ(Q)}M⊆h_i(φ)M⊕g_i(φ)M; its index has length ≤r v_ℓ(Q). The index-square discriminant formula then bounds v_ℓ(disc M_0) by v_ℓ(disc M)+2r v_ℓ(Q)."
    ],
    "acceptance": [
     "φ = q^{w/2}·id: M_0 = M and the bound is equality."
@@ -4456,13 +4673,15 @@
    ],
    "title": "Signatures split off the Witt group of a Dedekind ring",
    "kind": "theorem",
-   "statement": "Let R be a Dedekind domain whose fraction field K is a global field of characteristic ≠ 2, and M an invertible R-module with involution ±1. If K is not formally real (−1 is a sum of squares: positive characteristic, or a totally imaginary number field), the symmetric Witt group W(K) is 2-primary torsion of bounded exponent. If K has a real embedding σ, the signature W(R; M) → W(K) → W(ℝ) ≅ ℤ at σ is surjective and splits, so ℤ is a direct summand of W(R; M) and W(R; M) is not 2-adically complete.",
+   "statement": "Let R be a Dedekind domain with global fraction field K of characteristic ≠2. Use symmetric bilinear Witt groups and an invertible coefficient module M with +1 involution. If K is nonreal, W(K) is 2-primary torsion of bounded exponent (indeed killed by 8). If K has a real embedding σ, the untwisted signature W(R)→W(ℝ)≅ℤ is onto and splits by ⟨1⟩. For line-valued coefficients, choose a trivialization M⊗K≅K. The comparison W(R;M)[1/2]→W(K)[1/2] is an isomorphism; hence the signature composite is nonzero, with image dℤ for some d>0. Choosing a preimage of d splits the surjection onto dℤ≅ℤ, so ℤ is a direct summand of W(R;M). In particular it is not 2-adically complete. Surjectivity onto the chosen signature ℤ is not asserted for arbitrary M, and alternating (−1) coefficients are excluded.",
    "hypotheses": [
-    "The classical Witt group of symmetric bilinear forms; the L-theoretic consequences are Layer 6's."
+    "The Witt group is the classical group of nondegenerate symmetric bilinear forms on finite projective modules, with values in M. The line coefficient has +1 involution. The L-theory consequences belong to Layer 6.",
+    "The line-valued comparison after inverting 2 is a named source input, with its localization proof recorded as a gap rather than inferred from a generator at one real place."
    ],
    "proofSteps": [
-    "Nonreal K: W(K) → ⊕_v W(K_v) is injective (GlobalQuadraticForms 8.3) and every W(K_v) at a nonarchimedean or complex place has exponent dividing 8 (QuadraticFormInvariants Layer 4), so W(K) is killed by 8.",
-    "Real σ: the form ⟨1⟩ on R (or on M with a generator at σ) has signature 1, giving a splitting of the signature homomorphism."
+    "For nonreal K, the global-to-local Witt map is injective and each nonarchimedean or complex local Witt group is killed by 8; therefore so is W(K).",
+    "For real σ and M=R, the class ⟨1⟩ maps to signature 1 and gives an explicit section. For general M, use the localization comparison after inverting 2 stated in Calmès et al. Remark 3.1.9; signature on W(K)[1/2] is onto ℤ[1/2], so the composite cannot be zero. Its nonzero subgroup of ℤ is dℤ. Lift d and extend by integer multiples to split onto this image, which is abstractly ℤ.",
+    "A direct summand ℤ prevents 2-adic completeness, since its completion is ℤ₂ and the natural map ℤ→ℤ₂ is not onto. The exact line-valued localization theorem required for the second step is listed in gaps."
    ],
    "acceptance": [
     "K = ℚ(i): ⟨1⟩ ⊥ ⟨1⟩ is hyperbolic since −1 is a square, so ⟨1⟩ has order 2 in W(K).",
@@ -4499,20 +4718,22 @@
     "Integral means integer coefficients a_{ij}; the half-discriminant convention 4det(A_f) is the one of Bhargava and Wood for ternary forms."
    ],
    "proofSteps": [
-    "4det A_f = ±1 means f is regular over ℤ (odd rank, unit half-discriminant), so at every p its reduction is nondegenerate; over ℚ_p it is isotropic (regular ternary forms over ℤ_p are isotropic: the reduction is isotropic by Chevalley–Warning and Hensel lifts a smooth zero).",
-    "A positive definite integral ternary form has 4det A_f ≥ 2 (Hermite's bound for the minimum), so f is indefinite; hence isotropic over ℝ and, by Hasse–Minkowski (GlobalQuadraticForms Layer 5), over ℚ.",
-    "Take a primitive isotropic vector, complete it to a basis (f = xL(x, y, z) + g(y, z) form with first coefficient 0) and reduce: the conditions force f ∼ y² − xz by elementary row operations on the binary form g and the linear form."
+    "For odd p, the polar Gram determinant is 8det A_f=±2, hence a unit; finite-field classification gives a nonzero isotropic vector and perfect polarization makes it smooth. At p=2 the reduction is a regular ternary form with a one-dimensional polar radical, and q is nonzero on that line. The characteristic-two result of finite-field-quadratic-classification gives a nonzero isotropic vector outside the radical, hence a smooth zero. Hensel lifts these vectors to ℚ_p-isotropy.",
+    "If f or −f were positive definite, its integer minimum would be at least 1. IntegralLattices 2E gives min f≤(4/3)(det A_f)^{1/3}=(4/3)(1/4)^{1/3}<1, a contradiction. Thus f is indefinite and isotropic over ℝ; Hasse–Minkowski gives a rational isotropic vector. Clear denominators and divide by the coordinate gcd to obtain a primitive v∈ℤ³.",
+    "The ideal b(v,L) is ℤ. At odd p, unimodularity and v primitive imply it has a unit value. At 2, v mod2 is a nonzero isotropic vector and cannot be in the radical, so again a unit value occurs. Choose w with b(v,w)=1 and replace w by w−q(w)v, making q(w)=0. The span of v,w is an integral hyperbolic plane and splits because its polar determinant is −1.",
+    "The orthogonal rank-one complement has q(z)=az² for a∈ℤ. Its polar determinant is 2a, so 8det A_f=−2a forces a=−1 when 4det A_f=+1 and a=1 when 4det A_f=−1. Therefore f is equivalent to xy−z² or xy+z², and a permutation/sign change gives exactly the two stated models."
    ],
    "acceptance": [
     "y² − xz: A_f = [[0, 0, −1/2], [0, 1, 0], [−1/2, 0, 0]], 4det = −1.",
-    "xy + yz + zx has 4det = 4·(1/4) = 1·… = +1/…? (det [[0, 1/2, 1/2], [1/2, 0, 1/2], [1/2, 1/2, 0]] = 1/4, so 4det = 1) and is equivalent to xz − y²."
+    "For f=xy+yz+zx, 4det A_f=+1. The unimodular change X=x+y, Y=y, Z=y+z has f=XZ−Y², exhibiting the required model and determinant-one change directly."
    ],
    "prerequisites": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/finite-field-quadratic-classification",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/odd-unimodular-unit-representation",
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/regular-quadratic-module-spinor-norm",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice",
+    "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group"
    ],
    "sources": [
     {
@@ -4545,21 +4766,25 @@
   },
   {
    "supplier": "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
-   "need": "The ℤ-lattice carrier with a rational symmetric form and its Gram determinant, for isotropic-quotient-discriminant.",
+   "need": "The integral ℤ-lattice carrier and rational form, including the imported binary carrier. Current-main binary normal forms (3C/3D), forms/classes (B1/B2) and Nikulin (5I) have separate exact contracts in upstreamRequests, since their present sections are absent from the atlas snapshot.",
    "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/isotropic-quotient-discriminant"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/isotropic-quotient-discriminant",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-local-normal-form",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/exponent-two-genus-theory"
    ]
   },
   {
    "supplier": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group",
-   "need": "The discriminant group of an integral lattice and its cardinality |det|, for Λ_{2d}.",
+   "need": "Layer 2 supplies the discriminant group and its cardinality for Λ_{2d}; milestone 2E also supplies min L≤(4/3)^((n−1)/2)(det L)^(1/n) for a positive definite rank-n lattice, used with n=3 to rule out a definite ternary form of determinant 1/4.",
    "neededBy": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lambda-2d-lattice"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lambda-2d-lattice",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/ternary-unit-half-discriminant-classification"
    ]
   },
   {
    "supplier": "tauceti:Completed/IntegralLattices#layer-4-overlattices-and-isotropic-subgroups",
-   "need": "Gluing of a sublattice and its complement through isotropic subgroups of discriminant groups, used in the primitive-embedding transport.",
+   "need": "The discriminant-group graph gluing calculation for a sublattice and complement. The converse primitive-embedding criterion is imported specifically from current-main IntegralLattices 5I, recorded separately in upstreamRequests; Layer 4 is not claimed to prove that converse.",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/primitive-embedding-congruence-transport"
    ]
@@ -4609,7 +4834,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
-   "need": "Surjectivity of norm and trace on units for an unramified quadratic extension.",
+   "need": "Surjectivity of N:O_E^×→O_F^× for an unramified quadratic extension (map_norm_unitFiltration_zero). Integral trace surjectivity is derived in GN.2 from residue-field trace and Nakayama; trace is not claimed to map units onto all units.",
    "neededBy": [
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/unramified-hermitian-lattice-diagonalization"
    ]
@@ -4670,10 +4895,11 @@
   {
    "stageId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
    "status": "planned",
-   "note": "Follow-up of the accepted base packet (55 GN.2 nodes, cited by id and not re-planned). Every item its coverage record left open is planned here or routed: the Dedekind-lattice adapters (pseudobasis/Steinitz, completion, local-global dictionary, index and discriminant ideals), the dyadic spinor input for unimodular stabilizers (through GSpin over rings), quaternion orders with discriminants, maximality and the Hasse–Schilling norm theorem, finite-field forms with the Arf invariant and quadric surfaces, the local-classifier consumers (binary normal forms, odd unimodular representation, Jacobowitz diagonalization, unimodular hermitian classification), the complete Kurinczuk–Skodlerack–Stevens §§3.3–3.5 including Proposition 3.15 and the Skodlerack–Stevens maximal-element theorem, and the per-paper routed worklist (routing).",
+   "note": "Follow-up of the accepted base packet (55 GN.2 nodes, cited by id and not re-planned). Every item its coverage record left open is planned here or routed: the Dedekind-lattice adapters (pseudobasis/Steinitz, completion, local-global dictionary, index and discriminant ideals), the dyadic spinor input for unimodular stabilizers (through GSpin over rings), quaternion orders with discriminants, maximality and the Hasse–Schilling norm theorem, finite-field forms with the Arf invariant and quadric surfaces, the local-classifier consumers (genus-character evaluation through imported binary normal forms, odd unimodular representation, Jacobowitz diagonalization, unimodular hermitian classification), the complete Kurinczuk–Skodlerack–Stevens §§3.3–3.5 including Proposition 3.15 and the Skodlerack–Stevens maximal-element theorem, and the per-paper routed worklist (routing).",
    "remaining": [
-    "Lemma-level split of lattice-pseudobasis, hermitian-space-classification (Jacobson’s theorem) and regular-quadratic-module-spinor-norm once the roadmap moves to lemma level.",
-    "The dyadic ramified hermitian classification and the general dyadic integral spinor image (see gaps); planned here only in the cases whose proofs are written out."
+    "The global simultaneous-pseudobasis proof and the line-valued symmetric Witt localization comparison after inverting 2, recorded as precise gaps; local invariant ideals, Steinitz classification and untwisted signature splitting are closed at target level.",
+    "Dyadic ramified unimodular hermitian classification and arbitrary nonsplit dyadic spinor images remain the two explicitly recorded inherited gaps. No unread source is represented as checked.",
+    "During packaging, preserve the upstream ownership of binary normal forms, ℚ_p spinor images and the pinned genus-field construction. Heavy carriers and all detailed APIs/tests remain README targets; Suggested.lean contains only statements and light definitions over existing carriers."
    ]
   }
  ],
@@ -4691,6 +4917,20 @@
     "GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-unimodular-spinor-image"
    ],
    "detail": "The node proves θ(SO(L)) ⊆ R^×K^{×2} for every regular unimodular lattice and equality when L is nondyadic or contains a hyperbolic plane. The full computation of θ(SO(L_v)) for arbitrary dyadic lattices (Beli, Integral spinor norm groups over dyadic local fields, J. Number Theory 2003, and Earnest–Hsia) was not acquired; no target of the atlas uses it beyond these cases, but the proper spinor genus count of a general lattice over a number field with dyadic places of non-split type needs it."
+  },
+  {
+   "title": "Global simultaneous pseudobasis over a Dedekind domain",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis"
+   ],
+   "detail": "Voight Theorem 9.3.9, printed p.139, states the common-pseudobasis theorem but omits its proof. Supply the global elementary-divisor argument for two projective full lattices, including the passage from local Smith exponents to vectors and coefficient ideals. Local Smith normal form and unique ideal factorization prove existence/uniqueness of invariant ideals, but do not alone construct a global simultaneous pseudobasis. Steinitz classification and the index/discriminant nodes do not use this missing step."
+  },
+  {
+   "title": "Line-valued symmetric Witt localization away from 2",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/witt-group-signature-splitting"
+   ],
+   "detail": "Supply the isomorphism W^s(R;M)[1/2]→W^s(K)[1/2] after trivializing M over K, for a Dedekind domain with global fraction field and symmetric +1 line coefficient M. Calmès et al. Remark 3.1.9, p.52, explicitly states this input and uses it to prove the signature composite nonzero. The proof requires the line-valued localization/residue theory; it does not follow from quadratic-field Witt cancellation or from choosing a generator at a single real embedding. The untwisted splitting is closed independently by ⟨1⟩."
   }
  ],
  "restructure": [
@@ -4731,7 +4971,7 @@
     "tauceti:TauCetiRoadmap/OrthogonalSpinGroups",
     "tauceti:TauCetiRoadmap/IntegralLattices"
    ],
-   "note": "OrthogonalSpinGroups 2F tabulates local spinor-norm images over ℚ_p and ℝ only, and IntegralLattices 4C computes θ_p(K_p⁺(L)) over ℤ_p. Over a number field these local tables, and the integral images at dyadic places, are planned in GeometryOfNumbersAndQuadraticArithmetic GN.2 (dyadic-unimodular-spinor-image, regular-quadratic-module-spinor-norm); IntegralLattices 4C may cite the latter for the inclusion θ_2(SO(L_2)) ⊆ ℤ_2^×ℚ_2^{×2} of regular lattices."
+   "note": "Current main inspected read-only on 2026-10-13. IntegralLattices 3C/3D owns ℤ_p classification and binary normal forms; 4C owns the ℚ/ℤ_p proper-stabilizer and spinor-genus machinery. OrthogonalSpinGroups owns field spinor norms and its cofinite reference images. GN.2 imports these and supplies complete-DVR/number-field-local extensions and the Pic-trivial regular-ring GSpin input only. The arbitrary-compatible-family statement is openness, not automatic equality with unit classes. Rank-two torus corrections remain upstream’s own scope."
   }
  ],
  "routing": [
@@ -5118,6 +5358,334 @@
   {
    "finding": "RT-AREA-algebraicnt-1/1",
    "handling": "Roadmap-level prerequisites and consumers are atlas metadata outside this job’s files. The third restructure entry records the reciprocal relations the finding prescribes, with the stage-level edges that this packet’s requests realise (QuadraticFormInvariants, GlobalQuadraticForms, Completed IntegralLattices and AdelicAlgebraicGroups → GN.2); every GN.2 use of those suppliers in this packet is a prerequisite with a request entry, and the uses of TauCetiRoadmap IntegralLattices milestones (0F, 3A–3D, 4C, 5D, 5I, B1–B3), which the atlas snapshot does not register as stages, are named in the proof steps."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-GeometryOfNumbersAndQuadraticArithmetic--GN.2",
+  "date": "2026-10-13",
+  "notes": "All 58 nodes checked independently against the sources and pinned declarations. Mathematical errors corrected in place; current upstream ownership imported. Acceptance is for a planned target-level pass, not for closed coverage: four precise gaps and remaining refinements are explicit. The suggested file follows the binding 2026-10-12 statement-only shape. See the review report for validation and source-finding scope.",
+  "checked": [
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-pseudobasis",
+    "verdict": "corrected",
+    "note": "Added the positive-rank restriction to Steinitz normal form; separated local invariant ideals from the unresolved global common-pseudobasis argument."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-steinitz-class",
+    "verdict": "verified",
+    "note": "Checked exterior-power independence, positive-rank Steinitz classification and all four ideal-class tests."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-completion",
+    "verdict": "corrected",
+    "note": "Corrected the Lean completion ring to R_v and clarified flat base change and the distinguishing ℤ₂ versus 2ℤ₂ test."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-local-global-dictionary",
+    "verdict": "corrected",
+    "note": "Added the direct index prerequisite used by the local-global dictionary; verified the finite-support gluing and membership contracts."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-index-ideal",
+    "verdict": "corrected",
+    "note": "Restricted self/scalar index formulas to projective lattices; retained the noetherian-domain definition and recorded its normalization counterexample."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-discriminant-ideal",
+    "verdict": "verified",
+    "note": "Checked the polar-Gram discriminant convention, determinant-square index change, dual-lattice formula and dyadic warning."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character",
+    "verdict": "corrected",
+    "note": "Restored the quotient-discriminant condition in the constructor API, allowed both signs, and supplied CRT existence of a represented coprime integer."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character-invariance",
+    "verdict": "corrected",
+    "note": "Replaced an inapplicable fundamental-discriminant baseline proof by the full GKZ proof, separated congruence from conjugation, and restored dyadic restrictions."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-genus-character",
+    "verdict": "corrected",
+    "note": "Corrected the unramified-prime characteristic function, added the missing dyadic quotient-discriminant support, and fixed the conjugation identity."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-local-normal-form",
+    "verdict": "corrected",
+    "note": "Imported upstream binary local normal forms and retained only their genus-character compatibility; corrected Khayutin’s actual v3 lemma/page labels."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/exponent-two-genus-theory",
+    "verdict": "corrected",
+    "note": "Added the existing pinned genus-field construction and degree as inputs; the target is only its exponent-two Hilbert-class-field consequence."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-hermitian-space",
+    "verdict": "corrected",
+    "note": "Kept the base packet’s signed-hermitian carrier and added its adjoint/unitary API; separated general definitions from odd-local classification."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/quadratic-norm-squares",
+    "verdict": "verified",
+    "note": "Read KSS Lemma 3.1 and its proof; checked the ramified/unramified norm-square intersection and fixed-field-unit restrictions."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/equivariant-linear-form",
+    "verdict": "corrected",
+    "note": "Replaced the false triangular-Gram argument by field duality and wrote the precise equivariance comparison."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-witt-parity",
+    "verdict": "corrected",
+    "note": "Corrected the parity non-example: total and anisotropic dimension have the same parity; included the zero symplectic case."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/skodlerack-stevens-maximal-transfer",
+    "verdict": "corrected",
+    "note": "Restricted Lemma 4.7’s quadratic image/kernel assertions to ε=+1 and separated the symplectic zero-group case."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-transfer-determinant",
+    "verdict": "corrected",
+    "note": "Identified the auxiliary ⟨1⟩ transfer as +1-hermitian and replaced the invalid symplectic diagonalization by a block determinant argument."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/standard-transfer-values",
+    "verdict": "corrected",
+    "note": "Required β≠0 for the skew-hermitian line and restricted β=0 to the ordinary identity transfer."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-trace-form",
+    "verdict": "corrected",
+    "note": "Verified Jacobson’s induction and corrected the nonnorm test to an explicit local example with a Hasse invariant."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-space-classification",
+    "verdict": "corrected",
+    "note": "Verified local/global classification through the trace form; replaced the mistaken norm-of-i/signature example."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/unramified-hermitian-lattice-diagonalization",
+    "verdict": "corrected",
+    "note": "Corrected X_n’s domain and supplied the dyadic-safe trace argument without claiming trace is surjective on all units."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-unimodular-hermitian-classification",
+    "verdict": "verified",
+    "note": "Verified unramified and odd ramified unimodular classification; the unread dyadic ramified case is explicitly a gap, not a proved target."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-norm-ideal",
+    "verdict": "corrected",
+    "note": "Checked the scale/norm distinction and added the conversion between the source’s O_E norm ideal and this node’s O_F norm ideal."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-genus",
+    "verdict": "corrected",
+    "note": "Replaced the uninstantiated genus/class warning by two explicit unimodular lattices separated by the dyadic norm ideal."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/unit-norm-label",
+    "verdict": "corrected",
+    "note": "Added n≥1 for the unit-labelled form’s first coefficient and retained the representative-independence tests."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/free-unimodular-gram-orbits",
+    "verdict": "verified",
+    "note": "Checked positive Gram matrices modulo conjugate congruence, unit determinant labels and their free-lattice orbit dictionary."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/free-projective-hermitian-comparison",
+    "verdict": "corrected",
+    "note": "Fixed the ambient labelled space before comparing projective/free lattices; projective modules do not have a canonical unit determinant label."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/model-ring-positive-involution",
+    "verdict": "verified",
+    "note": "Read LT §3.1–3.2.1; checked the positive involution and dimension condition Σn_i[L_i:ℚ]=2g, not Σn_i²[L_i:ℚ]."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/local-monogenic-order",
+    "verdict": "corrected",
+    "note": "Checked the monogenic trace-dual and conductor identities at the pin and made their integral-closure/separability hypotheses explicit."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/normalized-lattice-sandwich",
+    "verdict": "verified",
+    "note": "Checked saturation, Nakayama choice of an O_F-basis and the conductor/different lattice sandwich."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/stable-lattice-flag-fiber",
+    "verdict": "corrected",
+    "note": "Replaced the reductive centralizer’s nonexistent unipotent radical by the subgroup acting trivially on all associated graded pieces."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/finite-dvr-determinant-index",
+    "verdict": "verified",
+    "note": "Checked determinant valuation equals quotient length, including noninvertible-map and zero-rank boundaries."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/isotypic-stabilizer-congruence-bound",
+    "verdict": "verified",
+    "note": "Checked βO_F⊆R, the resulting congruence kernel and valuation bound by the defining polynomial discriminant."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/good-prime-lattice-orbit",
+    "verdict": "verified",
+    "note": "Checked good-prime maximality of the monogenic order and its unique lattice orbit after saturation."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternion-order",
+    "verdict": "corrected",
+    "note": "Restricted the only-order-in-the-fraction-field test to normal R; kept the general order notion in GN.2 as the approved downward move."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternion-order-discriminant",
+    "verdict": "corrected",
+    "note": "Confirmed E201 by 2M₂(ℤ); order-only identities are retained, and Lean quaternion statements require a,b≠0 and characteristic ≠2."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/maximal-quaternion-order-criterion",
+    "verdict": "verified",
+    "note": "Read Voight 15.5; checked local split/division maximal orders, reduced discriminant maximality and global localization."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hasse-schilling-norm-theorem",
+    "verdict": "corrected",
+    "note": "Verified the Hasse–Schilling proof, with split algebra and division algebra separated in the five-variable isotropy argument."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/finite-field-quadratic-classification",
+    "verdict": "corrected",
+    "note": "Completed the characteristic-two odd-dimensional radical argument and kept its regularity distinct from perfect polarization."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/arf-invariant",
+    "verdict": "verified",
+    "note": "Read EKM §13; checked symplectic-basis independence, the Artin–Schreier quotient and the 𝔽₂/𝔽₄ distinguishing tests."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/quadric-surface-classification",
+    "verdict": "corrected",
+    "note": "Restricted the three-orbit classification to geometrically irreducible quadrics and replaced an unjustified cone-group isomorphism by an order calculation."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/odd-unimodular-unit-representation",
+    "verdict": "corrected",
+    "note": "Imported the existing ℤ_p theorem and stated only the extension to henselian DVRs with finite odd residue field, using the residue-field/simple-root proof."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/isometry-eigenspace-decomposition",
+    "verdict": "corrected",
+    "note": "Verified generalized-eigenspace orthogonality and the Cayley alternating-form determinant argument without a splitting assumption."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/zassenhaus-spinor-norm",
+    "verdict": "corrected",
+    "note": "Replaced the incomplete spinor formula sketch by the unipotent-square and det((1+γ)/2) arguments."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/regular-quadratic-module-spinor-norm",
+    "verdict": "corrected",
+    "note": "Added characteristic ≠2 for field comparison and n≥3 for the uniform ring theorem used here; supplied exact Conrad locators."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-isometry-charpoly-constraint",
+    "verdict": "verified",
+    "note": "Read CT Proposition 3.7 proof; checked the characteristic-polynomial congruence, sign factors and finite-place/global unit argument."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-unimodular-spinor-image",
+    "verdict": "corrected",
+    "note": "Kept ℚ_p images with their upstream owners and limited this number-field-local extension to rank≥3 and fraction characteristic ≠2."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/trace-unimodular-lattice",
+    "verdict": "corrected",
+    "note": "Fixed the O_F-versus-trace-unimodularity witness and interpreted the adelic discriminant-module map via finite completed quotients."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/trace-unimodular-existence",
+    "verdict": "verified",
+    "note": "Read Li §2.4; verified the alternate rank-eight construction, finite-place hyperbolicity, different-dual local lattice and global gluing."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/lambda-2d-lattice",
+    "verdict": "corrected",
+    "note": "Verified the rank-three auxiliary lattice and corrected its identification: it is not the rank-21 primitive K3 cohomology lattice."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/primitive-embedding-congruence-transport",
+    "verdict": "corrected",
+    "note": "Confirmed the corrected primitive-initial-embedding target and its counterexample, linked the existing Charles E2 finding, and requested the actual general Nikulin criterion."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/zarhin-explicit-plane",
+    "verdict": "verified",
+    "note": "Read Charles Theorem 2.10 proof; checked the explicit retraction, Gram determinant 4dk²−1, positivity and primitive orthogonal vector."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/isotropic-quotient-discriminant",
+    "verdict": "verified",
+    "note": "Read LMS Lemma 2.1.1; checked the primitive isotropic quotient discriminant formula through basis and divisibility."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/prime-power-square-lift",
+    "verdict": "verified",
+    "note": "Verified Hensel square lifting, dyadic depth condition, CRT/Dirichlet simultaneous square-class primes and the excluded-zero case."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/compatible-system-norm-selection",
+    "verdict": "corrected",
+    "note": "Removed an unjustified arbitrary splitting-field prime condition and used only finitely many rational square classes plus the Cayley identity."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/frobenius-eigenlattice-discriminant-bound",
+    "verdict": "corrected",
+    "note": "Made integer characteristic polynomial and the uniform denominator bound precise; recorded the source’s missing similitude hypothesis."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/witt-group-signature-splitting",
+    "verdict": "corrected",
+    "note": "Restricted to symmetric +1 coefficients and changed the twisted real-signature claim from onto ℤ to a nonzero image dℤ; recorded its exact localization input."
+   },
+   {
+    "nodeId": "GeometryOfNumbersAndQuadraticArithmetic:GN.2/ternary-unit-half-discriminant-classification",
+    "verdict": "corrected",
+    "note": "Provided the full Hermite/Hasse–Minkowski and primitive hyperbolic-splitting proof, including the smooth dyadic zero."
+   }
+  ]
+ },
+ "upstreamRequests": [
+  {
+   "roadmap": "IntegralLattices",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md",
+   "need": "Milestones 3C and 3D: classification and normal forms of odd and dyadic ℤ_p-lattices. GN.2 imports these for binary character evaluation; it does not own another normal-form theory.",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-local-normal-form"
+   ],
+   "note": "The current upstream section is absent from the atlas snapshot. The exact imported contract is recorded here; no nonexistent atlas stage or baseline declaration is invented."
+  },
+  {
+   "roadmap": "IntegralLattices",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md",
+   "need": "B1–B2 supply integral binary forms, proper substitutions and the primitive proper-form/ideal-class correspondence for nonsquare discriminants. GN.2 adds genus-character evaluation on this existing carrier.",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/binary-form-genus-character",
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/exponent-two-genus-theory"
+   ],
+   "note": "The current upstream section is absent from the atlas snapshot. The exact imported contract is recorded here; no nonexistent atlas stage or baseline declaration is invented."
+  },
+  {
+   "roadmap": "IntegralLattices",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/IntegralLattices/README.md",
+   "need": "Milestone 5I, Nikulin Proposition 1.15.1: primitive embeddings into an arbitrary even target lattice via the graph quotient δ and a complement with discriminant form −δ. Layer 4 overlattice gluing alone does not supply this converse.",
+   "neededBy": [
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.2/primitive-embedding-congruence-transport"
+   ],
+   "note": "The current upstream section is absent from the atlas snapshot. The exact imported contract is recorded here; no nonexistent atlas stage or baseline declaration is invented."
   }
  ]
 }
