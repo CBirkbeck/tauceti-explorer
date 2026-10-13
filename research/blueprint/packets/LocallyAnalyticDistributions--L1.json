@@ -23,77 +23,92 @@
       {
         "ref": "mathlib:PowerSeries.IsRestricted",
         "module": "Mathlib.RingTheory.PowerSeries.Restricted",
-        "provides": "Native radius-restrictedness predicate; no new power-series carrier."
+        "provides": "Native radius-restrictedness predicate; no new power-series carrier.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.isRestricted_iff'",
         "module": "Mathlib.RingTheory.PowerSeries.Restricted",
-        "provides": "Coefficient norm decay under atTop exactly matches the open-disc membership condition."
+        "provides": "Coefficient norm decay under atTop exactly matches the open-disc membership condition.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.gaussNorm",
         "module": "Mathlib.RingTheory.PowerSeries.GaussNorm",
-        "provides": "Native real coefficient supremum, used only on restricted series where it is bounded."
+        "provides": "Native real coefficient supremum, used only on restricted series where it is bounded.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.HasGaussNorm",
         "module": "Mathlib.RingTheory.PowerSeries.GaussNorm",
-        "provides": "Explicit boundedness condition for the native conditional real supremum."
+        "provides": "Explicit boundedness condition for the native conditional real supremum.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.derivative",
         "module": "Mathlib.RingTheory.PowerSeries.Derivative",
-        "provides": "Existing formal derivative as a Derivation over a commutative semiring."
+        "provides": "Existing formal derivative as a Derivation over a commutative semiring.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.coeff_derivative",
         "module": "Mathlib.RingTheory.PowerSeries.Derivative",
-        "provides": "Coefficient n is (n+1) times coefficient n+1."
+        "provides": "Coefficient n is (n+1) times coefficient n+1.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.derivative.ext",
         "module": "Mathlib.RingTheory.PowerSeries.Derivative",
-        "provides": "Over a torsion-free commutative ring, equal derivatives and equal constant coefficients imply equality."
+        "provides": "Over a torsion-free commutative ring, equal derivatives and equal constant coefficients imply equality.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.log",
         "module": "Mathlib.RingTheory.PowerSeries.Log",
-        "provides": "Native characteristic-zero formal series log(1+T); analytic convergence is new, not its coefficients."
+        "provides": "Native characteristic-zero formal series log(1+T); analytic convergence is new, not its coefficients.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.derivative_log_mul_one_add_X",
         "module": "Mathlib.RingTheory.PowerSeries.Log",
-        "provides": "Formal identity D_T(log)(1+T)=1, over a commutative Q-algebra."
+        "provides": "Formal identity D_T(log)(1+T)=1, over a commutative Q-algebra.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:PowerSeries.mk",
         "module": "Mathlib.RingTheory.PowerSeries.Basic",
-        "provides": "Native coefficient constructor for the light normalized primitive formula."
+        "provides": "Native coefficient constructor for the light normalized primitive formula.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:AbstractMeasure.amiceTransform",
         "module": "Mathlib.NumberTheory.Padics.Measure.AmiceTransform",
-        "provides": "Existing bounded-measure coefficient transform; its carrier is not the strong locally analytic dual."
+        "provides": "Existing bounded-measure coefficient transform; its carrier is not the strong locally analytic dual.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:AbstractMeasure.coeff_amiceTransform",
         "module": "Mathlib.NumberTheory.Padics.Measure.AmiceTransform",
-        "provides": "Bounded transform coefficients evaluate Mahler functions, matching the unbounded inclusion."
+        "provides": "Bounded transform coefficients evaluate Mahler functions, matching the unbounded inclusion.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:Padic.norm_int_le_one",
         "module": "Mathlib.NumberTheory.Padics.PadicNumbers",
-        "provides": "Integers in Q_p have norm at most one; normalized coefficient fields inherit this estimate."
+        "provides": "Integers in Q_p have norm at most one; normalized coefficient fields inherit this estimate.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one",
         "module": "Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean",
-        "provides": "Source declaration for the complete nonarchimedean summability criterion, with the generated additive theorem NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero. The source-based index lists the multiplicative declaration; the additive generated form is used for scalar pairings."
+        "provides": "Source declaration for the complete nonarchimedean summability criterion, with the generated additive theorem NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero. The source-based index lists the multiplicative declaration; the additive generated form is used for scalar pairings.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       },
       {
         "ref": "mathlib:AbstractMeasure.injective_amiceTransform",
         "module": "Mathlib.NumberTheory.Padics.Measure.AmiceTransform",
-        "provides": "Injectivity of the bounded transform over a complete ultrametric normed Z_p-algebra with bounded scalar action; its native source statement was read and applies to normalized finite coefficient fields."
+        "provides": "Injectivity of the bounded transform over a complete ultrametric normed Z_p-algebra with bounded scalar action; its native source statement was read and applies to normalized finite coefficient fields.",
+        "checked": "Statement and enclosing hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent review codex-ZSqvgp, 2026-10-13."
       }
     ]
   },
@@ -234,6 +249,16 @@
           "name": "TauCeti.AnalyticDistributions.openDiscSeries_complete",
           "role": "instance",
           "statement": "The Gauss topology is complete; it is not the ambient coefficient topology."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.openDiscSeries_ext",
+          "role": "extensionality",
+          "statement": "Equality of every native coefficient implies equality in R+(K)."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.openDiscSeries_cofinalTopology",
+          "role": "characterisation",
+          "statement": "For any sequence 0<r_j<1 increasing to 1, the seminorms q_(r_j) generate the same topology as all q_r; polynomial truncations converge in this topology."
         }
       ],
       "uses": [
@@ -249,7 +274,7 @@
       "tests": [
         {
           "name": "L1Tests.geometric_open",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Σ_(n≥0)T^n lies in R+; it is not restricted at r=1."
         },
         {
@@ -266,6 +291,11 @@
           "name": "L1Tests.monomial_topology",
           "kind": "characterisation",
           "statement": "q_r(T^n)=r^n for every 0<r<1, hence T^n→0 in R+."
+        },
+        {
+          "name": "L1Tests.coefficient_topology_counter",
+          "kind": "non-example",
+          "statement": "The polynomial sequence p^(-n)T^n tends coefficientwise to zero, but does not converge to zero in R+: for any 1/p<r<1 its q_r norm is (pr)^n."
         }
       ],
       "planet": {
@@ -337,6 +367,11 @@
           "name": "TauCeti.AnalyticDistributions.inverseAmice_radius",
           "role": "structure",
           "statement": "With u_h=1/((p−1)p^h), the imported Amice inequalities v_(p^(-u_h))(Aμ)≥v_h(μ)≥v_(p^(-u_(h+1)))(Aμ)−1 give continuity of the pairing inverse and forward transform. These are the inherited theorem’s estimates, not a second theorem."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.inverseAmice_linear",
+          "role": "functoriality",
+          "statement": "For c∈K and F,G∈R+, inverseAmice(cF+G)=c inverseAmice(F)+inverseAmice(G); together with inverseAmice_radius this is a continuous K-linear map."
         }
       ],
       "uses": [
@@ -454,7 +489,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
-          "locator": "§II.4.3 and Proposition II.4.1, p. 35",
+          "locator": "§II.4.3, pp. 34–35; Proposition II.4.1, p. 35",
           "match": "The character-twist and restriction substitutions; the general affine Gauss bound is a worker deduction supplying their convergence."
         }
       ],
@@ -479,6 +514,16 @@
           "name": "TauCeti.AnalyticDistributions.analyticAffineSubstitution_continuous",
           "role": "structure",
           "statement": "q_r(CF)≤q_s(F) for the specified intermediate radius."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.analyticAffineSubstitution_id",
+          "role": "simp",
+          "statement": "C_(0,1) is the identity continuous K-algebra homomorphism."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.analyticAffineSubstitution_comp",
+          "role": "functoriality",
+          "statement": "If |a|,|c|<1 and |b|,|d|≤1, then C_(c,d)(C_(a,b)(F))=C_(a+bc,bd)(F); the composite parameters again satisfy the domain conditions."
         }
       ],
       "uses": [
@@ -525,7 +570,7 @@
       ],
       "title": "Finite coefficient extension and descent",
       "kind": "comparison",
-      "statement": "For a finite extension L/K, scalar extension gives D(Z_p,L)≅L⊗_K D(Z_p,K) and R+(L)≅L⊗_K R+(K) as topological L-vector spaces, with Amice commuting with coefficient inclusion. These are finite-dimensional coefficient comparisons using a finite K-basis of L, not arbitrary completed tensor identities. If L/K is Galois, an element with invariant coefficients descends uniquely to K. Thus the finite root averages in inherited ball restriction descend to K even when individual roots are not in K.",
+      "statement": "For a finite extension L/K, scalar extension gives D(Z_p,L)≅L⊗_K D(Z_p,K) and R+(L)≅L⊗_K R+(K) as topological L-vector spaces, with L⊗_K V given the finite-product topology transported through any K-basis of L (independent of that basis), with Amice commuting with coefficient inclusion. These are finite-dimensional coefficient comparisons using a finite K-basis of L, not arbitrary completed tensor identities. If L/K is Galois, an element with invariant coefficients descends uniquely to K. Thus the finite root averages in inherited ball restriction descend to K even when individual roots are not in K.",
       "hypotheses": [
         "Standing normalized finite-extension field, radius and topology conventions."
       ],
@@ -665,6 +710,16 @@
           "name": "TauCeti.AnalyticDistributions.normalizedSeriesPrimitive_unique",
           "role": "universal-property",
           "statement": "D_TG=F and G(0)=0 imply G=IF."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.normalizedSeriesPrimitive_coeff",
+          "role": "projection",
+          "statement": "The constant coefficient of IF is zero and coefficient n+1 is coeff n F/(n+1), for every n≥0."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.normalizedSeriesPrimitive_linear",
+          "role": "functoriality",
+          "statement": "For c∈K and F,G∈R+, I(cF+G)=c IF+IG; combined with the radius-loss estimate, I is continuous K-linear."
         }
       ],
       "uses": [
@@ -775,8 +830,8 @@
       "sources": [
         {
           "sourceId": "COLMEZ-FONCTIONS-2010",
-          "locator": "Lemma II.4.2 and Proposition II.4.3, p. 36",
-          "match": "Analytic intermediate evaluation and multiplication of transforms; the stage inequalities are read from that proof."
+          "locator": "§II.4.6, Lemma II.4.2 and its proof, pp. 36–37; Proposition II.4.3, p. 37",
+          "match": "The analytic intermediate evaluation and convolution transform occur in §II.4.6, with the stage inequalities obtained from that proof. Proposition II.4.3 supplies the bounded-measure and growth-order compatibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -893,6 +948,26 @@
           "name": "TauCeti.AnalyticDistributions.analyticUnitInverse_bounded",
           "role": "compatibility",
           "statement": "Underlying continuous function agrees with the supplier PadicInt.inv."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.analyticUnitInverse_apply",
+          "role": "simp",
+          "statement": "For x∈Z_p, ι(x)=x^(-1) in K if x is a unit, and ι(x)=0 otherwise, including every nonzero nonunit."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.analyticUnitInverse_stageNorm",
+          "role": "relation",
+          "statement": "ι∈LA_1 and ||ι||_h≤1 for every h≥1; hence ||Jμ||_h≤||μ||_h on unit-supported distributions."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.unitDistributionDivision_apply",
+          "role": "projection",
+          "statement": "For a unit-supported μ and f∈LA, (Jμ)(f)=μ(ιf); J is continuous K-linear on the closed unit-supported subspace."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.unitDistributionDivision_unique",
+          "role": "universal-property",
+          "statement": "If λ and μ are unit-supported and xλ=μ then λ=Jμ."
         }
       ],
       "uses": [
@@ -1043,6 +1118,21 @@
           "name": "TauCeti.AnalyticDistributions.localPrimitive_difference",
           "role": "characterisation",
           "statement": "Equal derivatives on LA imply that the difference lies in LC."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.ballPrimitive_normalized",
+          "role": "simp",
+          "statement": "I_(a;R,r)(f)(a)=0. It is the unique primitive on B(a,r) with that value at the centre."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.ballPrimitive_restrict",
+          "role": "functoriality",
+          "statement": "For 0<r_1≤r_2<R, restriction of I_(a;R,r_2)(f) to B(a,r_1) equals I_(a;R,r_1)(f); all centres and input f are fixed."
+        },
+        {
+          "name": "TauCeti.AnalyticDistributions.stagePrimitive_norm",
+          "role": "relation",
+          "statement": "With fixed representatives for the finer residue discs, stagePrimitive is K-linear and ||stagePrimitive(f)||_(h+1)≤p^(-(h+1))(1-p^(-1))^(-2)||f||_h; no compatibility between different h is asserted."
         }
       ],
       "uses": [
@@ -1276,7 +1366,7 @@
         "Standing normalized finite-extension field, radius and topology conventions."
       ],
       "proofSteps": [
-        "Expand both analytic functions in the local coordinate T−T_0. The logarithm is (T−T_0) times a local unit with constant coefficient ξ^(-1).",
+        "Expand both analytic functions in the local coordinate T−T_0. The logarithm is (T−T_0) times a local unit with constant coefficient ξ^(-1). Recenter with analyticAffineSubstitution_(T_0,1), then restrict to a sufficiently small disc.",
         "A zero value of F makes its local expansion divisible by T−T_0; the converse follows by evaluation. This local unit inversion can be obtained by a smaller-disc geometric series, without an unproved global Weierstrass divisor theorem.",
         "For ν=dμ use the inherited exact transform identity, so Aμ is already the analytic extension globally. Descent uses the finite coefficient comparison."
       ],
@@ -1288,9 +1378,10 @@
       "prerequisites": [
         "LocallyAnalyticDistributions:L1/torsion-log-domain",
         "LocallyAnalyticDistributions:L1/amice-derivative",
-        "LocallyAnalyticDistributions:L1/logarithm-apparent-poles",
         "LocallyAnalyticDistributions:L1/open-disc-evaluation-mul",
-        "LocallyAnalyticDistributions:L0/disc-analytic-functions"
+        "LocallyAnalyticDistributions:L0/disc-analytic-functions",
+        "LocallyAnalyticDistributions:L1/analytic-affine-substitution",
+        "LocallyAnalyticDistributions:L1/finite-coefficient-descent"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/AnalyticDistributions",
@@ -1314,7 +1405,7 @@
       ],
       "title": "Negative moments and primitive ambiguity",
       "kind": "theorem",
-      "statement": "For m≥1, k≥1, and b∉p^mZ_p, let U=b+p^mZ_p. If H is any k-fold ∂-primitive of Aμ in R+ (∂^kH=Aμ), then μ(1_U x^(−k))=p^(−m)Σ_(η^(p^m)=1)η^(−b)E(H,η−1). The test 1_U x^(−k) is extended by zero off U and is locally analytic, even when U consists of nonzero nonunits. Any two choices of H differ by a polynomial of degree ≤k−1 in t=log(1+T); the root average annihilates this ambiguity. The formula is not asserted for a ball containing zero.",
+      "statement": "For m≥1, k≥1, and b∈Z_p with b∉p^mZ_p, let U=b+p^mZ_p. If H is any k-fold ∂-primitive of Aμ in R+ (∂^kH=Aμ), then μ(1_U x^(−k))=p^(−m)Σ_(η^(p^m)=1)η^(−b)E(H,η−1). The exponent η^(-b) means the residue-class exponent modulo p^m, independent of its integer representative. The test 1_U x^(−k) is extended by zero off U and is locally analytic, even when U consists of nonzero nonunits. Any two choices of H differ by a polynomial of degree ≤k−1 in t=log(1+T); the root average annihilates this ambiguity. The formula is not asserted for a ball containing zero.",
       "hypotheses": [
         "Standing normalized finite-extension field, radius and topology conventions."
       ],
@@ -1639,8 +1730,8 @@
   },
   "checks": {
     "blueprint": "Zero errors and zero warnings against the unchanged pinned declaration index.",
-    "lean": "lean-check exited 0; 128 lines; 13 intended theorem/example placeholder warnings, no other warnings. The generated additive summability example resolves without a placeholder.",
-    "shape": "Two light real-bodied definitions, eight native scalar milestones and six examples; no placeholder data, LF scaffolding or theory development. All heavy-carrier APIs and discriminating tests are explicit README targets.",
+    "lean": "Independent lean-check exited 0, 137 lines, 13 intended theorem/example theorem-placeholder warnings and no other warnings; three examples have actual proofs, including two new native coefficient checks.",
+    "shape": "Two light real-bodied definitions, eight native scalar milestones and eight examples; no placeholder data, LF scaffolding or theory development. All heavy-carrier APIs and discriminating tests are explicit README targets.",
     "prototypeDeclarations": [
       {
         "name": "TauCeti.AnalyticDistributions.openDiscMem",
@@ -1699,13 +1790,16 @@
         "apiNames": [
           "TauCeti.AnalyticDistributions.openDiscSeries",
           "TauCeti.AnalyticDistributions.openDiscSeries_coeff",
-          "TauCeti.AnalyticDistributions.openDiscSeries_complete"
+          "TauCeti.AnalyticDistributions.openDiscSeries_complete",
+          "TauCeti.AnalyticDistributions.openDiscSeries_ext",
+          "TauCeti.AnalyticDistributions.openDiscSeries_cofinalTopology"
         ],
         "testNames": [
           "L1Tests.geometric_open",
           "L1Tests.shrinking_radius_counter",
           "L1Tests.log_unbounded",
-          "L1Tests.monomial_topology"
+          "L1Tests.monomial_topology",
+          "L1Tests.coefficient_topology_counter"
         ],
         "reason": "Heavy carrier or normalized finite-extension/global interface absent at the pins; exact API and tests are README targets. The compiled scalar examples are stated separately."
       },
@@ -1716,7 +1810,8 @@
           "TauCeti.AnalyticDistributions.inverseAmice_apply",
           "TauCeti.AnalyticDistributions.inverseAmice_mahler",
           "TauCeti.AnalyticDistributions.inverseAmice_unique",
-          "TauCeti.AnalyticDistributions.inverseAmice_radius"
+          "TauCeti.AnalyticDistributions.inverseAmice_radius",
+          "TauCeti.AnalyticDistributions.inverseAmice_linear"
         ],
         "testNames": [
           "L1Tests.inverse_constant",
@@ -1732,7 +1827,9 @@
           "TauCeti.AnalyticDistributions.analyticAffineSubstitution",
           "TauCeti.AnalyticDistributions.analyticAffineSubstitution_coeff",
           "TauCeti.AnalyticDistributions.analyticAffineSubstitution_eval",
-          "TauCeti.AnalyticDistributions.analyticAffineSubstitution_continuous"
+          "TauCeti.AnalyticDistributions.analyticAffineSubstitution_continuous",
+          "TauCeti.AnalyticDistributions.analyticAffineSubstitution_id",
+          "TauCeti.AnalyticDistributions.analyticAffineSubstitution_comp"
         ],
         "testNames": [
           "L1Tests.affine_identity",
@@ -1744,7 +1841,10 @@
       },
       {
         "node": "LocallyAnalyticDistributions:L1/normalized-series-primitive",
-        "apiNames": [],
+        "apiNames": [
+          "TauCeti.AnalyticDistributions.normalizedSeriesPrimitive_coeff",
+          "TauCeti.AnalyticDistributions.normalizedSeriesPrimitive_linear"
+        ],
         "testNames": [
           "L1Tests.primitive_one",
           "L1Tests.primitive_linear_two",
@@ -1760,7 +1860,11 @@
           "TauCeti.AnalyticDistributions.analyticUnitInverse_mul_coordinate",
           "TauCeti.AnalyticDistributions.unitDistributionDivision",
           "TauCeti.AnalyticDistributions.unitDistributionDivision_inverse",
-          "TauCeti.AnalyticDistributions.analyticUnitInverse_bounded"
+          "TauCeti.AnalyticDistributions.analyticUnitInverse_bounded",
+          "TauCeti.AnalyticDistributions.analyticUnitInverse_apply",
+          "TauCeti.AnalyticDistributions.analyticUnitInverse_stageNorm",
+          "TauCeti.AnalyticDistributions.unitDistributionDivision_apply",
+          "TauCeti.AnalyticDistributions.unitDistributionDivision_unique"
         ],
         "testNames": [
           "L1Tests.unit_inverse_one",
@@ -1777,7 +1881,10 @@
           "TauCeti.AnalyticDistributions.ballPrimitive_derivative",
           "TauCeti.AnalyticDistributions.ballPrimitive_norm",
           "TauCeti.AnalyticDistributions.stagePrimitive",
-          "TauCeti.AnalyticDistributions.localPrimitive_difference"
+          "TauCeti.AnalyticDistributions.localPrimitive_difference",
+          "TauCeti.AnalyticDistributions.ballPrimitive_normalized",
+          "TauCeti.AnalyticDistributions.ballPrimitive_restrict",
+          "TauCeti.AnalyticDistributions.stagePrimitive_norm"
         ],
         "testNames": [
           "L1Tests.ball_primitive_constant",
@@ -1804,6 +1911,130 @@
       },
       "method": "Exact rational arithmetic and cyclotomic quotient polynomials; no numerical p-adic or floating-point root approximations."
     },
-    "graph": "No repeated node ids or own prerequisite cycles; the unit-division and local-primitive constructions do not assume the inherited targets they supply. All nineteen new nodes and twenty-five parent imports are identified."
+    "graph": "Own prerequisites and the parent/part supplier links were checked together. Removed the log-local-cancellation prerequisite on its downstream logarithm-apparent-poles target; recentering and finite descent are explicit inputs. No cycle remains in the combined L1 dependency graph.",
+    "independentReview": {
+      "job": "REV-LocallyAnalyticDistributions--L1",
+      "session": "codex-ZSqvgp",
+      "date": "2026-10-13",
+      "sourceHashes": "All six freshly retrieved public PDFs match the packet SHA-256 records.",
+      "baseline": "All fifteen entries confirmed by source statement and enclosing hypotheses at the exact Mathlib pin; checker uses a freshly scanned full pinned Mathlib declaration index. No Tau Ceti library declaration is cited.",
+      "graph": {
+        "nodes": 44,
+        "edges": 87,
+        "acyclic": true,
+        "scope": "Parent and part L1 prerequisites plus both packets’ explicit supplier links."
+      },
+      "arithmetic": {
+        "assertions": 7074,
+        "method": "Independent exact Fraction arithmetic at p=2,3,5; polynomial affine composition and identity, reciprocal-integer and primitive-radius inequalities, sparse primitive/logarithm coefficients, unit reciprocal coefficients, root averages as traces in Q[X]/(X^N-1), and the coefficient-topology counterexample. Finite checks do not prove topology or infinite convergence."
+      },
+      "blueprint": "0 errors, 0 warnings at the pinned declaration index.",
+      "sorryData": "Pass.",
+      "readerSync": "Every new node statement, prerequisite, API item and test is synchronized with the reader.",
+      "sourceIssues": "Empty; no new source error alleged."
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LocallyAnalyticDistributions--L1",
+    "date": "2026-10-13",
+    "notes": "Independent session codex-ZSqvgp reviewed every node/source locator, all fifteen exact-pin Mathlib declarations, inherited suppliers, the reviewed audit and current upstream ownership. Corrected a parent/part supplier cycle, convolution pagination, tensor topology, API laws, one test kind and the negative-moment exponent domain. All nineteen nodes are verified or corrected; no node added and no baseline citation removed. Both explicit implementation gaps and the L0 topology request remain. Complete planning pass, L1 planned, implementation unchecked. Lean elaborates with only intended theorem-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-frechet-carrier",
+        "verdict": "corrected",
+        "note": "Added native coefficient extensionality and the cofinal seminorm/truncation API. Reclassified the geometric test and added a sequence separating Gauss from coefficient topology; the inverse-limit proof uses L0 Banach discs."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/inverse-amice-stage-pairing",
+        "verdict": "corrected",
+        "note": "Factorial-normalized test coefficients tend to zero, while Banach dual values need only be bounded. The strict interior valuation radius supplies boundedness and the converse uses a finer stage. Added the continuous-linear API law."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/bounded-inclusion-topology",
+        "verdict": "verified",
+        "note": "The norm-decreasing analytic-test inclusion gives continuity; native bounded-transform injectivity and the PMIA inverse identify the bounded image. Dirac density and the unbounded logarithm prove the image is dense and nonclosed."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/analytic-affine-substitution",
+        "verdict": "corrected",
+        "note": "The strict intermediate radius makes the nonzero-constant substitution converge. Added identity and correctly ordered composition laws and widened the character-twist locator to cover its discussion."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/finite-coefficient-descent",
+        "verdict": "corrected",
+        "note": "Finite K-basis bounds prove the stage, dual and Gauss comparisons; Galois invariants descend coefficientwise. Specified the finite-product topology on the algebraic tensor explicitly."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/derivative-gauss-control",
+        "verdict": "verified",
+        "note": "Integral derivative factors and binomial coefficients give the stated Gauss bounds. The zero constant permits native substitution for dilation; the prime binomial estimate includes p=2."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/normalized-series-primitive",
+        "verdict": "corrected",
+        "note": "The reciprocal-integer bound and a larger input radius prove restrictedness and continuity. Added coefficient normalization and linearity contracts; two native coefficient examples elaborate with actual proofs."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/hasse-stage-estimate",
+        "verdict": "verified",
+        "note": "In normalized disc coordinates Hasse derivatives are bounded by coefficient tails, which also tend to zero. Transpose estimates respect the positive derivative convention."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/convolution-banach-control",
+        "verdict": "corrected",
+        "note": "Colmez §II.4.6 proves intermediate analyticity on pp. 36–37 and the stage product bound. Proposition II.4.3 is on p. 37, rather than p. 36; corrected the locator and distinguished its bounded/growth compatibility role."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/operator-stage-control",
+        "verdict": "verified",
+        "note": "Resolved masks and fixed analytic multipliers satisfy Banach estimates; unit affine pullbacks are isometries. The masked inverse dilation genuinely shifts the input seminorm from h to h+1."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/analytic-unit-inverse",
+        "verdict": "corrected",
+        "note": "The geometric reciprocal series is analytic on every unit residue disc and zero on all nonunits. Added evaluation, norm, transpose-evaluation/linearity and unique supported-solution API laws; the PMIA bounded comparison remains an import."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/coordinate-division-ambiguity",
+        "verdict": "verified",
+        "note": "A normalized primitive of F/(1+T) gives coordinate surjectivity, while native derivative extensionality gives precisely Kδ_0 ambiguity. The supported inverse does not assume the target it supplies."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/local-ball-primitive-map",
+        "verdict": "corrected",
+        "note": "Smaller-ball coefficient integration is valid with its coordinate factor. Added centre normalization/uniqueness, same-centre restriction functoriality and the finer-stage linear norm bound; no global compatibility is inferred."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/locally-constant-topology-input",
+        "verdict": "verified",
+        "note": "The induced LC topology and strict duality are mathematical targets conditional on the explicit L0 request. The packet does not claim that its existing compact-type statement alone supplies the kernel-limit comparison."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/bounded-total-obstruction",
+        "verdict": "verified",
+        "note": "The finite-K Mahler basis makes LA_0’s bounded unit ball total. Finite-level boundedness in LC then rules out every continuous surjection and hence a derivative section; no general completed coefficient extension is needed."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/dual-log-exact-sequence",
+        "verdict": "verified",
+        "note": "Strict compact-type duality identifies the closed logarithm range and quotient; reflexive transpose transfers a hypothetical splitting to the excluded LC projection. The L0 dependency remains explicit."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/torsion-log-domain",
+        "verdict": "verified",
+        "note": "Logarithm coefficients have subexponential reciprocal growth, p-power roots lie in 1+the maximal ideal, and characteristic zero kills their logarithms. Convergent affine recentering gives derivative ξ^(-1) at each torsion zero."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/log-local-cancellation",
+        "verdict": "corrected",
+        "note": "Removed the dependency on the downstream inherited apparent-poles target, which closed a supplier cycle. Added explicit affine recentering and finite descent. Local unit inversion gives the iff criterion; the guaranteed global case follows directly from amice-derivative."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/negative-moment-independence",
+        "verdict": "corrected",
+        "note": "Specified b∈Z_p and its residue-class root exponent. Repeated coordinate division has polynomial-in-log ambiguity; root orthogonality kills it precisely off the zero residue. Nonunit balls avoiding zero remain admitted."
+      }
+    ]
   }
 }

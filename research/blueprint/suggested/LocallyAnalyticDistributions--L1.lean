@@ -104,6 +104,15 @@ open TauCeti.AnalyticDistributions
 
 variable {p : ℕ} [Fact p.Prime]
 
+-- The native coefficient formula is the reader API's normalization contract.
+example (F : PowerSeries ℚ_[p]) :
+    (normalizedSeriesPrimitive F).coeff 0 = 0 := by
+  simp [normalizedSeriesPrimitive]
+
+example (F : PowerSeries ℚ_[p]) (n : ℕ) :
+    (normalizedSeriesPrimitive F).coeff (n + 1) = F.coeff n / (n + 1 : ℚ_[p]) := by
+  simp [normalizedSeriesPrimitive]
+
 example : normalizedSeriesPrimitive (1 : PowerSeries ℚ_[p]) = PowerSeries.X := by
   sorry
 

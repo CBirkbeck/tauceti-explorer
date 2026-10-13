@@ -2,7 +2,7 @@
 
 This part plans **Amice’s unbounded transform** and the analytic operations that use it. It continues the [parent packet](../packets/LocallyAnalyticDistributions.json), whose accepted L1 declarations retain their identifiers and ownership. The new [part packet](../packets/LocallyAnalyticDistributions--L1.json) supplies 19 necessary definitions, constructions, comparisons and key estimates. A target already in the parent is imported, rather than assigned another copy of its node.
 
-The planning pass is complete and L1 is **planned**, with implementation unchecked. Two recorded gaps concern native analytic carriers and the precise L0 topology interface. They do not become assumptions hidden in an ersatz distribution structure. In particular, the topology of the locally constant kernel is an explicit supplier request; general compact-type functional analysis remains in L0. The [suggested Lean file](../suggested/LocallyAnalyticDistributions--L1.lean) has 128 lines and elaborates at the pins with only its intended theorem-placeholder warnings. It states native scalar milestones and light real-bodied definitions, following WORKERS.md’s 12 October 2026 shape. The global definitions, APIs and tests below are the definitive targets.
+The independent review is **accepted** after corrections ([review report](../reviews/REV-LocallyAnalyticDistributions--L1.md)). The planning pass is complete and L1 is **planned**, with implementation unchecked. Two recorded gaps concern native analytic carriers and the precise L0 topology interface. They do not become assumptions hidden in an ersatz distribution structure. In particular, the topology of the locally constant kernel is an explicit supplier request; general compact-type functional analysis remains in L0. The [suggested Lean file](../suggested/LocallyAnalyticDistributions--L1.lean) has 137 lines and elaborates at the pins with only its intended theorem-placeholder warnings. It states native scalar milestones and light real-bodied definitions, following WORKERS.md’s 12 October 2026 shape. The global definitions, APIs and tests below are the definitive targets.
 
 ## Fields, radii and ownership
 
@@ -109,13 +109,16 @@ Define R+(K) as the subalgebra of native PowerSeries K with IsRestricted r F for
 | `openDiscMem` | Membership iff ∀0<r<1, IsRestricted r F. |
 | `openDiscSeries_coeff` | Coefficient projections are continuous and bounded by r^(-n)q_r. |
 | `openDiscSeries_complete` | The Gauss topology is complete; it is not the ambient coefficient topology. |
+| `openDiscSeries_ext` | Equality of every native coefficient implies equality in R+(K). |
+| `openDiscSeries_cofinalTopology` | For any sequence 0<r_j<1 increasing to 1, the seminorms q_(r_j) generate the same topology as all q_r; polynomial truncations converge in this topology. |
 
 **Checks.**
 
-- `geometric_open` (example): Σ_(n≥0)T^n lies in R+; it is not restricted at r=1.
+- `geometric_open` (computation): Σ_(n≥0)T^n lies in R+; it is not restricted at r=1.
 - `shrinking_radius_counter` (non-example): Σ_(n≥0)p^(-n)T^n does not lie in R+.
 - `log_unbounded` (compatibility): Native PowerSeries.log K lies in R+ but has unbounded coefficients, witnessed by n=p^m.
 - `monomial_topology` (characterisation): q_r(T^n)=r^n for every 0<r<1, hence T^n→0 in R+.
+- `coefficient_topology_counter` (non-example): The polynomial sequence p^(-n)T^n tends coefficientwise to zero, but does not converge to zero in R+: for any 1/p<r<1 its q_r norm is (pr)^n.
 
 **Acceptance:** The geometric series belongs to R+ but is not restricted at radius one. Convergence of T^n to zero in each q_r is compatible with dense polynomials; it gives no uniform radius-one convergence.
 
@@ -149,6 +152,7 @@ For F=Σb_nT^n∈R+, construct μ_F(f)=Σa_n(f)b_n on LA(Z_p,K). At stage h, put
 | `inverseAmice_mahler` | Its nth Mahler value is coeff n F. |
 | `inverseAmice_unique` | A distribution with the same Mahler values is equal to inverseAmice F. |
 | `inverseAmice_radius` | With u_h=1/((p−1)p^h), the imported Amice inequalities v_(p^(-u_h))(Aμ)≥v_h(μ)≥v_(p^(-u_(h+1)))(Aμ)−1 give continuity of the pairing inverse and forward transform. These are the inherited theorem’s estimates, not a second theorem. |
+| `inverseAmice_linear` | For c∈K and F,G∈R+, inverseAmice(cF+G)=c inverseAmice(F)+inverseAmice(G); together with inverseAmice_radius this is a continuous K-linear map. |
 
 **Checks.**
 
@@ -207,6 +211,8 @@ For F=Σb_nT^n∈R+, a,b∈K with |a|<1 and |b|≤1, define C_(a,b)(F)=Σ_n b_n(
 | `analyticAffineSubstitution_coeff` | The coefficient is the convergent binomial coefficient sum. |
 | `analyticAffineSubstitution_eval` | Analytic evaluation equals E(F,a+bt) on the open disc. |
 | `analyticAffineSubstitution_continuous` | q_r(CF)≤q_s(F) for the specified intermediate radius. |
+| `analyticAffineSubstitution_id` | C_(0,1) is the identity continuous K-algebra homomorphism. |
+| `analyticAffineSubstitution_comp` | If |a|,|c|<1 and |b|,|d|≤1, then C_(c,d)(C_(a,b)(F))=C_(a+bc,bd)(F); the composite parameters again satisfy the domain conditions. |
 
 **Checks.**
 
@@ -217,13 +223,13 @@ For F=Σb_nT^n∈R+, a,b∈K with |a|<1 and |b|≤1, define C_(a,b)(F)=Σ_n b_n(
 
 **Acceptance:** For character twist use a=z−1,b=z with |z−1|<1; then |z|=1 and all stated domains hold. No map is asserted if |a|=1.
 
-**Sources:** [COLMEZ-FONCTIONS-2010](https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf), §II.4.3 and Proposition II.4.1, p. 35. The character-twist and restriction substitutions; the general affine Gauss bound is a worker deduction supplying their convergence.
+**Sources:** [COLMEZ-FONCTIONS-2010](https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf), §II.4.3, pp. 34–35; Proposition II.4.1, p. 35. The character-twist and restriction substitutions; the general affine Gauss bound is a worker deduction supplying their convergence.
 
 ### 5. Finite coefficient extension and descent
 
 **Node:** `finite-coefficient-descent` (comparison). Named declaration: `finiteCoefficientDescent`.
 
-For a finite extension L/K, scalar extension gives D(Z_p,L)≅L⊗_K D(Z_p,K) and R+(L)≅L⊗_K R+(K) as topological L-vector spaces, with Amice commuting with coefficient inclusion. These are finite-dimensional coefficient comparisons using a finite K-basis of L, not arbitrary completed tensor identities. If L/K is Galois, an element with invariant coefficients descends uniquely to K. Thus the finite root averages in inherited ball restriction descend to K even when individual roots are not in K.
+For a finite extension L/K, scalar extension gives D(Z_p,L)≅L⊗_K D(Z_p,K) and R+(L)≅L⊗_K R+(K) as topological L-vector spaces, with L⊗_K V given the finite-product topology transported through any K-basis of L (independent of that basis), with Amice commuting with coefficient inclusion. These are finite-dimensional coefficient comparisons using a finite K-basis of L, not arbitrary completed tensor identities. If L/K is Galois, an element with invariant coefficients descends uniquely to K. Thus the finite root averages in inherited ball restriction descend to K even when individual roots are not in K.
 
 **Hypotheses:** Standing normalized finite-extension field, radius and topology conventions.
 
@@ -285,6 +291,8 @@ Define normalizedSeriesPrimitive F by constant coefficient zero and coefficient 
 | `normalizedSeriesPrimitive_derivative` | D_T(IF)=F. |
 | `normalizedSeriesPrimitive_radius` | The stated r<s Gauss estimate and R+ membership. |
 | `normalizedSeriesPrimitive_unique` | D_TG=F and G(0)=0 imply G=IF. |
+| `normalizedSeriesPrimitive_coeff` | The constant coefficient of IF is zero and coefficient n+1 is coeff n F/(n+1), for every n≥0. |
+| `normalizedSeriesPrimitive_linear` | For c∈K and F,G∈R+, I(cF+G)=c IF+IG; combined with the radius-loss estimate, I is continuous K-linear. |
 
 **Checks.**
 
@@ -335,7 +343,7 @@ For f∈LA_h and λ∈D, y↦λ(x↦f(x+y)) is in LA_h with norm at most ||λ||_
 
 **Acceptance:** δ_a*δ_b=δ_(a+b); δ_0 is the additive unit. For dδ_0*dδ_0 the transform is log(1+T)^2, which is outside the bounded-measure subcase.
 
-**Sources:** [COLMEZ-FONCTIONS-2010](https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf), Lemma II.4.2 and Proposition II.4.3, p. 36. Analytic intermediate evaluation and multiplication of transforms; the stage inequalities are read from that proof.
+**Sources:** [COLMEZ-FONCTIONS-2010](https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf), §II.4.6, Lemma II.4.2 and its proof, pp. 36–37; Proposition II.4.3, p. 37. The analytic intermediate evaluation and convolution transform occur in §II.4.6, with the stage inequalities obtained from that proof. Proposition II.4.3 supplies the bounded-measure and growth-order compatibility.
 
 ### 10. Restriction, twist, dilation and psi continuity
 
@@ -384,6 +392,10 @@ Let ι(x)=x^(-1) for x∈Z_p^× and ι(x)=0 for x∈pZ_p. This is in LA_1, with 
 | `unitDistributionDivision` | Multiply a unit-supported distribution by ι. |
 | `unitDistributionDivision_inverse` | It inverts coordinate multiplication on unit-supported distributions. |
 | `analyticUnitInverse_bounded` | Underlying continuous function agrees with the supplier PadicInt.inv. |
+| `analyticUnitInverse_apply` | For x∈Z_p, ι(x)=x^(-1) in K if x is a unit, and ι(x)=0 otherwise, including every nonzero nonunit. |
+| `analyticUnitInverse_stageNorm` | ι∈LA_1 and ||ι||_h≤1 for every h≥1; hence ||Jμ||_h≤||μ||_h on unit-supported distributions. |
+| `unitDistributionDivision_apply` | For a unit-supported μ and f∈LA, (Jμ)(f)=μ(ιf); J is continuous K-linear on the closed unit-supported subspace. |
+| `unitDistributionDivision_unique` | If λ and μ are unit-supported and xλ=μ then λ=Jμ. |
 
 **Checks.**
 
@@ -443,6 +455,9 @@ For a closed disc B(a,R) and a chosen strictly smaller concentric norm radius 0<
 | `ballPrimitive_norm` | The exact r<R estimate including the actual coordinate scale. |
 | `stagePrimitive` | A finite-residue stage map LA_h→LA_(h+1), normalized separately on the finer discs. |
 | `localPrimitive_difference` | Equal derivatives on LA imply that the difference lies in LC. |
+| `ballPrimitive_normalized` | I_(a;R,r)(f)(a)=0. It is the unique primitive on B(a,r) with that value at the centre. |
+| `ballPrimitive_restrict` | For 0<r_1≤r_2<R, restriction of I_(a;R,r_2)(f) to B(a,r_1) equals I_(a;R,r_1)(f); all centres and input f are fixed. |
+| `stagePrimitive_norm` | With fixed representatives for the finer residue discs, stagePrimitive is K-linear and ||stagePrimitive(f)||_(h+1)≤p^(-(h+1))(1-p^(-1))^(-2)||f||_h; no compatibility between different h is asserted. |
 
 **Checks.**
 
@@ -545,11 +560,11 @@ For F∈R+(K), after a finite extension containing ξ of p-power order, let T_0=
 
 **Proof contract.**
 
-1. Expand both analytic functions in the local coordinate T−T_0. The logarithm is (T−T_0) times a local unit with constant coefficient ξ^(-1).
+1. Expand both analytic functions in the local coordinate T−T_0. The logarithm is (T−T_0) times a local unit with constant coefficient ξ^(-1). Recenter with analyticAffineSubstitution_(T_0,1), then restrict to a sufficiently small disc.
 2. A zero value of F makes its local expansion divisible by T−T_0; the converse follows by evaluation. This local unit inversion can be obtained by a smaller-disc geometric series, without an unproved global Weierstrass divisor theorem.
 3. For ν=dμ use the inherited exact transform identity, so Aμ is already the analytic extension globally. Descent uses the finite coefficient comparison.
 
-**Direct inputs:** `LocallyAnalyticDistributions:L1/torsion-log-domain`, `LocallyAnalyticDistributions:L1/amice-derivative`, `LocallyAnalyticDistributions:L1/logarithm-apparent-poles`, `LocallyAnalyticDistributions:L1/open-disc-evaluation-mul`, `LocallyAnalyticDistributions:L0/disc-analytic-functions`.
+**Direct inputs:** `LocallyAnalyticDistributions:L1/torsion-log-domain`, `LocallyAnalyticDistributions:L1/amice-derivative`, `LocallyAnalyticDistributions:L1/open-disc-evaluation-mul`, `LocallyAnalyticDistributions:L0/disc-analytic-functions`, `LocallyAnalyticDistributions:L1/analytic-affine-substitution`, `LocallyAnalyticDistributions:L1/finite-coefficient-descent`.
 
 **Acceptance:** F=t has quotient 1 and extended value 1 at every torsion zero. F=1 has a pole at T=0. F=T has local quotient value 1 at zero but, for p=2, is nonzero at T=−2 and cannot have a global quotient in R+.
 
@@ -559,7 +574,7 @@ For F∈R+(K), after a finite extension containing ξ of p-power order, let T_0=
 
 **Node:** `negative-moment-independence` (theorem). Named declaration: `negativeMoment_primitiveIndependent`.
 
-For m≥1, k≥1, and b∉p^mZ_p, let U=b+p^mZ_p. If H is any k-fold ∂-primitive of Aμ in R+ (∂^kH=Aμ), then μ(1_U x^(−k))=p^(−m)Σ_(η^(p^m)=1)η^(−b)E(H,η−1). The test 1_U x^(−k) is extended by zero off U and is locally analytic, even when U consists of nonzero nonunits. Any two choices of H differ by a polynomial of degree ≤k−1 in t=log(1+T); the root average annihilates this ambiguity. The formula is not asserted for a ball containing zero.
+For m≥1, k≥1, and b∈Z_p with b∉p^mZ_p, let U=b+p^mZ_p. If H is any k-fold ∂-primitive of Aμ in R+ (∂^kH=Aμ), then μ(1_U x^(−k))=p^(−m)Σ_(η^(p^m)=1)η^(−b)E(H,η−1). The exponent η^(-b) means the residue-class exponent modulo p^m, independent of its integer representative. The test 1_U x^(−k) is extended by zero off U and is locally analytic, even when U consists of nonzero nonunits. Any two choices of H differ by a polynomial of degree ≤k−1 in t=log(1+T); the root average annihilates this ambiguity. The formula is not asserted for a ball containing zero.
 
 **Hypotheses:** Standing normalized finite-extension field, radius and topology conventions.
 
@@ -590,7 +605,7 @@ For local integration, take f(T)=Σ_(m≥1)pᵐT^(pᵐ−1). Its nonzero coeffic
 L1 is **planned**, and the packet is **complete**, meaning that every stage target has a target-level contract and a backward chain to native facts, inherited nodes or an exact request. It is not marked closed. The two gaps are:
 
 1. **L0 topology interface.** Supply the native closed-kernel comparison identifying the induced topology on LC=ker(d_x) with strict ind_h LC_h, bounded-set confinement to one finite level, strictness/open mapping for d_x:LA→LA, and strict strong-dual exactness and reflexive transpose of splittings. The parent L0 compact-type dual node gives the surrounding theory, but its statement alone does not prove the kernel-limit comparison. Kohlhaase Proposition 4.2, pp. 20–21, and Schneider–Teitelbaum Theorem 1.1/Proposition 1.2, p. 3, and Corollary 1.4, p. 4, identify the necessary supplier contracts. General nonarchimedean functional analysis is imported from L0, rather than assigned to another new layer here.
-2. **Global signatures.** Native power series and scalar evaluation exist at the pins, but the glued LA stages, their LF/strong-dual carriers and the R⁺ Gauss Fréchet topology do not. The global constructor APIs and their 24 discriminating tests stay in this definitive reader. They require those actual carriers before they can become Lean statements. The current real/complex locally convex framework is not substituted for them.
+2. **Global signatures.** Native power series and scalar evaluation exist at the pins, but the glued LA stages, their LF/strong-dual carriers and the R⁺ Gauss Fréchet topology do not. The global constructor APIs and their 25 discriminating tests stay in this definitive reader. They require those actual carriers before they can become Lean statements. The current real/complex locally convex framework is not substituted for them.
 
 The finite-K, Z_p nonsplitting proof deliberately uses the ordinary Mahler basis: LA_0’s unit ball has dense K-span in LA, whereas every bounded subset of LC lies in a finite conductor level. It does not invoke Kohlhaase’s general-group reduction via completed coefficient extension to a field containing C_p. No source error is asserted, and no restricted textbook was used.
 
@@ -609,6 +624,8 @@ All source statements above are in the worker’s own words and organized by the
 - Jan Kohlhaase, *The cohomology of locally analytic representations*, author PDF, §4, pp. 19–22, particularly Proposition 4.2 and Corollary 4.3 with their proofs.
 - Pierre Colmez and Wiesława Nizioł, *On the cohomology of p-adic analytic spaces, II: The C_st-conjecture*, author PDF, Appendix A, pp. 58–59, particularly Remark A.6.
 
-Local validation: the blueprint checker reports zero errors and zero warnings against the pinned declaration index. The 128-line suggested file exits successfully through `lean-check`, with 13 intended theorem/example placeholder warnings and no other warnings. Its final native summability example uses the actual imported proof. Compilation establishes signature elaboration, not the planned mathematics or the remaining global topology input.
+Local validation: the blueprint checker reports zero errors and zero warnings against the pinned declaration index. The 137-line suggested file exits successfully through `lean-check`, with 13 intended theorem/example placeholder warnings and no other warnings. Its final native summability example uses the actual imported proof. Compilation establishes signature elaboration, not the planned mathematics or the remaining global topology input.
 
-Exact-arithmetic verification also passed 11,958 checks over p=2,3,5: factorial/Gauss bounds, reciprocal-integer growth, normalized primitives, unit reciprocal expansions, the positive transpose coefficients of the logarithm, and finite-root Dirac moment averages in cyclotomic quotient rings. These checks validate the finite examples and estimates; they do not replace the L0 topology proof.
+The original planning pass reported 11,958 exact-arithmetic checks over p=2,3,5: factorial/Gauss bounds, reciprocal-integer growth, normalized primitives, unit reciprocal expansions, the positive transpose coefficients of the logarithm, and finite-root Dirac moment averages in cyclotomic quotient rings. These checks validate the finite examples and estimates; they do not replace the L0 topology proof.
+
+Independent review repeated the six source retrievals and every pinned baseline statement read. It added 14 API laws and one topology counterexample, corrected the geometric test kind and source pagination, specified finite-tensor topology and root exponents, and removed the cancellation target’s circular supplier dependency. The combined 44-node L1 graph, including parent/part supplier links, has 87 edges and is acyclic. A separate exact-arithmetic pass made 7,074 assertions at p=2,3,5, including the order of affine composition and the finite-root Dirac averages. The two new native coefficient examples have actual proofs; all 19 planned nodes remain implementation unchecked.
