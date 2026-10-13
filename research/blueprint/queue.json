@@ -27811,9 +27811,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R12.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #773"
+   "note": "deliverables arrived from an external worker on issue #773",
+   "finishedAt": "2026-10-13T12:01:20Z"
   },
   {
    "id": "REV-ModularCurvesPartII--R12.1",
@@ -35120,8 +35121,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L2",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9250"
+   "state": "external",
+   "note": "claimed on GitHub issue #9250"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L3",
@@ -54808,8 +54809,9 @@
     "PKG-LefschetzPencilsAndVanishingCycles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LefschetzPencilsAndVanishingCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9223"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9223",
+   "finishedAt": "2026-10-13T12:01:22Z"
   },
   {
    "id": "PKG-LocalGaloisDeformationRings",
