@@ -29,9 +29,9 @@ Suggested.lean was rewritten directly to the new shape, with one import block,
 one opening module note, namespace
 `TauCetiRoadmap.EllipticCurveModularityImaginaryQuadratic`, and layers in README
 order. Its executable inventory is **19 real-bodied definitions, 20 theorems,
-five instances and 40 examples**, in **467 lines**. Three ellipticity instances
-are propositions with proposed proofs; two local base-change instances reuse
-Mathlib's existing instances. There is no sorry'd data definition, auxiliary
+five instances and 40 examples**, in **476 lines**. Three ellipticity instances
+are proved directly by computing the literal discriminants; two local
+base-change instances reuse Mathlib's existing instances. There is no sorry'd data definition, auxiliary
 API development, fabricated carrier, axiom or embedded README catalogue.
 
 The arithmetic statements use existing coefficient, rational-function,
@@ -126,9 +126,10 @@ of future geometric certificates.
 
 ## Validation and next step
 
-- `lean-check research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean`: **exit 0, zero errors, 64 warnings, all `declaration uses sorry`**. The file imports only Mathlib. Mathlib's checkout was verified at `082e2d37e8b0463410cdb532e111cd43d5a66174`; the shared wrapper identifies Tau Ceti's pin as `f790474821cf4256814db967cb154e7af3d0c369`. No independent Git HEAD verification of the extracted shared Tau Ceti build is claimed.
+- `lean-check research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean`: **exit 0, zero errors, 60 warnings, all `declaration uses sorry`**. The file imports only Mathlib. Mathlib's checkout was verified at `082e2d37e8b0463410cdb532e111cd43d5a66174`; the shared wrapper identifies Tau Ceti's pin as `f790474821cf4256814db967cb154e7af3d0c369`. No independent Git HEAD verification of the extracted shared Tau Ceti build is claimed.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/EllipticCurveModularityImaginaryQuadratic.json --json`: **zero errors and zero warnings**. All 68 nodes, 69 APIs, 69 tests, 16 accepted planning gaps and 36 supplier requests remain unchanged. This read-only check does not claim the planned mathematics is implemented.
 - `python3 research/blueprint/intake.py check-files` on the package and handoff: **zero problems**.
+- `python3 scripts/check_sorry_data.py research/blueprint/packages/EllipticCurveModularityImaginaryQuadratic/Suggested.lean`: **passed**. The first CI run flagged the two digit-bearing instance names despite their proposition-valued type; all three literal ellipticity instances now have direct proofs, and Lean was rerun successfully.
 - `git diff --check`: **passed**. Mechanical inventory verified the original target/API/Check names and full API/Check bodies; prerequisites are preserved with the layer labels presented in upstream form.
 
 Next is independent package review under the 12 October shape, followed by

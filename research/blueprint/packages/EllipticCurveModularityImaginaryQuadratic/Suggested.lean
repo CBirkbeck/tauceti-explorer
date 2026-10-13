@@ -184,7 +184,10 @@ p.94). Modular identification is the separate mixed_elliptic_model target. -/
 def B : WeierstrassCurve ℚ := ⟨0, 0, -1, 0, 1⟩
 
 /-- The fixed model has nonzero discriminant −675. -/
-instance B_elliptic : B.IsElliptic := by sorry
+instance B_elliptic : B.IsElliptic := by
+  constructor
+  norm_num [isUnit_iff_ne_zero, B, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
 /-- B(ℚ) is infinite cyclic. A bijective integer-multiple map gives a saturated
 generator, rank one and trivial torsion (CN Proposition 7.1.3(5), p.94). -/
@@ -212,10 +215,16 @@ discriminant 921600 (CN Corollary 7.1.2 proof, p.93). -/
 def Es35 : WeierstrassCurve ℚ := ⟨0, 17, 0, 16, 0⟩
 
 /-- The displayed characteristic-zero model has nonzero discriminant. -/
-instance E15_elliptic : E15.IsElliptic := by sorry
+instance E15_elliptic : E15.IsElliptic := by
+  constructor
+  norm_num [isUnit_iff_ne_zero, E15, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
 /-- The displayed characteristic-zero model has nonzero discriminant. -/
-instance Es35_elliptic : Es35.IsElliptic := by sorry
+instance Es35_elliptic : Es35.IsElliptic := by
+  constructor
+  norm_num [isUnit_iff_ne_zero, Es35, WeierstrassCurve.Δ, WeierstrassCurve.b₂,
+    WeierstrassCurve.b₄, WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
 /-- Coefficientwise field extension transports the existing ellipticity instance. -/
 local instance E15_baseChange_elliptic (F : Type*) [Field F] [Algebra ℚ F] :
