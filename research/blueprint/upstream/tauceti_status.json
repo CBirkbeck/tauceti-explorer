@@ -127,11 +127,10 @@
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only)",
       "head": "8e10039",
       "review": {
-        "recommendation": "approve",
-        "head": "6f237d3",
+        "recommendation": "changes",
+        "head": "8e10039",
         "current": true,
-        "date": "2026-10-12",
-        "note": "head 8e10039 differs only by re-stacks on the parent"
+        "date": "2026-10-12"
       }
     },
     "PerfectoidSpaces": {
