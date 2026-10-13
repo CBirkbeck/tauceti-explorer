@@ -113,7 +113,7 @@ I compared all 14 signatures with the README, exceeding the required sample of t
 | `finiteTrace` | Real finite sum; empty sum is zero and two-coordinate (1,0) sums to 1. |
 | `finiteUnit` | Real diagonal; one point returns the argument, and two points send 1 to (1,1). |
 | `normalizedTrace` | Uses an explicit `IsUnit` cardinality witness and its inverse; F_5 cardinality two gives 3 on (1,0). Cardinality zero is excluded over a nonzero ring. |
-| `unitComplex` | Real degree-zero single complex in the existing derived category; the added H⁰ target identifies it with Λ, fixing the shift convention. |
+| `unitComplex` | Real degree-zero single complex in the existing derived category; the added H⁻¹ target for Λ[1] identifies it with Λ, fixing the shift convention. |
 | `shift_unitComplex_injective` | Nontrivial Λ is present. Cohomology singles out degree −n; the zero-ring example permits shifts 0 and 1 to be isomorphic. |
 | `LocallyConstant.free_of_profinite` | General commutative Λ rather than only integers; freeness includes the zero ring. Infinite nonfinite generation and the distribution counterexample separately require nonzero coefficients. |
 | `isUnit_card_quotient_of_profiniteOrder` | Compactness, total disconnectedness, continuous multiplication, prime ℓ, zero ℓ-exponent and ℓ-power nilpotence are all present. Discrete noncompact ℤ cannot enter the theorem. |

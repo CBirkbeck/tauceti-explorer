@@ -196,9 +196,9 @@ theorem shift_unitComplex_injective [Nontrivial Λ] {m n : ℤ}
     (e : (unitComplex Λ)⟦m⟧ ≅ (unitComplex Λ)⟦n⟧) : m = n := by
   sorry
 
-/-- The unit complex has degree-zero cohomology equal to the coefficient module. -/
-example : Nonempty ((DerivedCategory.homologyFunctor (ModuleCat.{u} Λ) 0).obj
-    (unitComplex Λ) ≅ ModuleCat.of Λ Λ) := by
+/-- The positive shift places the unit in cohomological degree minus one. -/
+example : Nonempty ((DerivedCategory.homologyFunctor (ModuleCat.{u} Λ) (-1)).obj
+    ((unitComplex Λ)⟦(1 : ℤ)⟧) ≅ ModuleCat.of Λ Λ) := by
   sorry
 
 /-- Over the zero ring every shift of the unit complex is zero, so no degree is defined. -/
