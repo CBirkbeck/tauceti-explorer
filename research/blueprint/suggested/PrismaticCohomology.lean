@@ -1,4 +1,10 @@
-import Mathlib
+import Mathlib.Algebra.Algebra.Equiv
+import Mathlib.Algebra.Ring.NonZeroDivisors
+import Mathlib.RingTheory.Ideal.Span
+import Mathlib.RingTheory.Jacobson.Ideal
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.Data.Nat.Choose.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 
 /-!
 # PrismaticCohomology: representative target signatures
@@ -16,7 +22,7 @@ Design choices made explicit here:
 * Prisms, derived completeness, the prismatic site, the Cartier–Witt stack, quasi-coherent
   complexes on prestacks (∞-categorical), syntomic complexes and the Fargues–Fontaine bundles have
   no carriers at the pins; they are targets of the document and are absent here.
-* The q-derivative is stated for a `QFraming`: a ring with an element `q`, coordinates `X s` and
+* The q-derivative is stated for a `QFraming`: a D-algebra with an element `q` of D, coordinates `X s` and D-algebra
   commuting automorphisms `γ s` scaling the `s`-th coordinate by `q`, with `γ s f - f` divisible by
   the regular element `(q - 1) * X s`. The completeness and étaleness of the framing, which produce
   the `γ s`, cannot be stated at the pins (derived completeness is missing) and are not fields.
@@ -107,7 +113,8 @@ end Delta
 
 /-! ## Layer PR.6: q-crystalline charts and the AΩ comparison
 
-The framed q-automorphisms and the q-derivatives are owned here. A `QFraming` records the data the
+The finite and sufficiently complete framed q-automorphisms and q-derivatives are planned here.
+The general-base and infinite-coordinate extensions are open interfaces in the reviewed document. A `QFraming` records the data the
 q-derivative uses; the framed algebra `FramedAlgebra` of the document, whose completely étale framing
 produces the automorphisms, is a target without carrier at the pins. -/
 
@@ -153,6 +160,13 @@ theorem qDeriv_add (s : S) (f g : E) : F.qDeriv s (f + g) = F.qDeriv s f + F.qDe
   sorry
 
 theorem qDeriv_one (s : S) : F.qDeriv s 1 = 0 := by
+  sorry
+
+theorem qDeriv_algebraMap (s : S) (a : D) : F.qDeriv s (algebraMap D E a) = 0 := by
+  sorry
+
+theorem qDeriv_smul (s : S) (a : D) (f : E) :
+    F.qDeriv s (algebraMap D E a * f) = algebraMap D E a * F.qDeriv s f := by
   sorry
 
 /-- The twisted Leibniz rule. -/
@@ -223,9 +237,10 @@ stated there only.
   `FramedAlgebra.gamma`, `FramedAlgebra.gamma_X`, `FramedAlgebra.gamma_comm`,
   `FramedAlgebra.gamma_sub_mem`, `FramedAlgebra.gamma_unique`, `FramedAlgebra.gamma_map`,
   `FramedAlgebra.frobenius`, `FramedAlgebra.gamma_mod`, `FramedAlgebra.toQFraming`; tests
-  `FramedAlgebra.gamma_pow`, `FramedAlgebra.gamma_at_one`, `FramedAlgebra.gamma_toric_inv`,
+  `FramedAlgebra.gamma_pow`, `FramedAlgebra.gamma_reduction`, `FramedAlgebra.gamma_toric_inv`,
   `FramedAlgebra.not_p_complete_only`, `FramedAlgebra.frobenius_gamma`.
-* Needing Koszul complexes of commuting operators (PR.6): `QFraming.qDeRhamComplex`,
+* Needing finite Koszul complexes of commuting operators (PR.6), with a separate convergence
+  interface for infinite completed coordinate families: `QFraming.qDeRhamComplex`,
   `QFraming.qDeRhamComplex_map`, `QFraming.qDeRhamComplex_mod`, `QFraming.qDeRhamComplex_toric`;
   tests `QFraming.qDeRham_empty`, `QFraming.qDeRham_not_functorial_diagonal`.
 * Needing syntomic complexes, period rings and the Fargues–Fontaine curve's bundles (PR.7): the named

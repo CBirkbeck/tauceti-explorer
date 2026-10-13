@@ -2,6 +2,8 @@
 
 **Summary.** This roadmap builds prismatic cohomology from δ-rings. It starts with δ-rings, prisms and prismatic envelopes (PR.0) and the relative prismatic site of a bounded prism (A, I), with the Hodge–Tate, crystalline and de Rham comparisons (PR.1). It then extends to derived prismatic cohomology and perfectoidization (PR.2), the Nygaard filtration, divided Frobenius and Breuil–Kisin twists (PR.3), and syntomic complexes with the étale comparison of Bhatt–Scholze, Theorem 9.1 (PR.4). It continues with absolute prismatic cohomology, the Cartier–Witt stack and its quasi-coherent complexes (PR.5), and q-crystalline cohomology with the AΩ comparison (PR.6). It ends at prismatic F-crystals and the classification of crystalline lattices (PR.7) and at logarithmic prismatic cohomology with its comparisons (PR.8). The end theorems are Bhatt–Scholze, Theorem 1.8 (the Hodge–Tate, crystalline, de Rham and étale comparisons), Theorem 1.16 (the Lη_I factorisation of Frobenius) and Theorem 1.18 (the syntomic complexes of Bhatt–Morrow–Scholze as prismatic syntomic complexes), with the q-crystalline and A_inf comparisons of their §§16–17; Bhatt–Lurie's absolute comparisons and syntomic complexes; Bhatt–Scholze's equivalence between prismatic F-crystals over O_K and crystalline Z_p-lattices; and Koshikawa–Yao's logarithmic comparisons.
 
+**Independent review (2026-10-13): needs changes.** The packet is a partial assembly, with seven serialized additional targets. The 369 targets reproduced below retain their earlier part reviews; their source issues are not recertified by this review. The atlas importer does not expand the packet’s imports or apply the replacement tables. The formal-QCoh, general completed framing, infinite-coordinate convergence and nonregular prelog envelope interfaces remain open. A revised effective graph is required before this can be packaged as the whole roadmap.
+
 The plan of this roadmap has three pieces. The accepted plan of layers PR.0–PR.7 (290 targets) and the accepted plan of PR.8 (79 targets) are both carried in full in the layer sections below. Seven further targets follow from the upstream order. Each layer section first gives these new targets and then the accepted ones.
 
 ## Scope and ownership
@@ -26,13 +28,13 @@ The plan of this roadmap has three pieces. The accepted plan of layers PR.0–PR
 - Prismatic crystals and F-crystals with their étale and crystalline realisations (PR.7).
 - The logarithmic theory (PR.8).
 
-**What moved down into this roadmap.** The accepted plan cited four roadmaps that are not in the Caraiani–Newton order: LanglandsParameterStacks, QWittVectors, RefinedTraceMethods and VectorBundlesAndIsocrystals. Under the upstream rule each such notion is either planned here or stated as a named input. The four cases go as follows.
-- **PR.5: quasi-coherent complexes.** PR.5 now owns quasi-coherent complexes on prestacks: the limit D(X) over the points of X, faithfully flat descent, and direct image along affine morphisms. These replace the ten citations of LanglandsParameterStacks LP1, which now imports D(X) from here. Groupoid stacks and stackification remain with DiamondsAndVStacks D0 and SchemeAndStackFoundations SF.1.
-- **PR.6: framed q-de Rham machinery.** PR.6 now owns the framed q-automorphisms and the q-derivatives with their Koszul complex, in the generality of both I = (q − 1) and I = (p, q − 1). This replaces the four citations of QWittVectors QW.6. QW.6 and HabiroCohomologyFoundations HQ.1 import these targets from PR.6.
-- **PR.7: the Beilinson fibre square.** The analytic continuation of Tate twists, Bhatt–Scholze F-crystals Proposition 6.8, rests on the Beilinson fibre square of Antieau–Mathew–Morrow–Nikolaus. Its only known proof goes through topological cyclic homology. PR.7 states the square as a named input for the prismatic syntomic complexes of PR.4; RefinedTraceMethods RT.3b proves it.
-- **PR.7: the Fargues–Fontaine slope-zero input.** Essential surjectivity onto crystalline lattices (§6.4 of the same paper) rests on three results of Fargues–Fontaine on vector bundles on their curve. PR.7 states them as a named input over Tau Ceti's adic curve (AdicSpaces, Layer 6).
+**Proposed ownership moves.** The accepted plan cited four roadmaps that are not in the Caraiani–Newton order: LanglandsParameterStacks, QWittVectors, RefinedTraceMethods and VectorBundlesAndIsocrystals. Under the upstream rule each such notion is either planned here or stated as a named input. The four cases go as follows.
+- **PR.5: quasi-coherent complexes.** PR.5 now owns quasi-coherent complexes on prestacks: the limit D(X) over the points of X, faithfully flat descent, and direct image along flat affine morphisms. These are proposed replacements for the ten LP1 citations. Flat ordinary-ring pushforward alone does not supply the missing formal complete-module interface, and the replacements have not been applied. Groupoid stacks and stackification remain with DiamondsAndVStacks D0 and SchemeAndStackFoundations SF.1.
+- **PR.6: framed q-de Rham machinery.** PR.6 now owns the framed q-automorphisms and the q-derivatives with their Koszul complex, under the sufficient completed finite-coordinate hypotheses stated below, for I = (q − 1) or I = (p, q − 1). The broader consumers still need the recorded extensions. The four QW.6 replacements remain conditional on the completed-framing and infinite-coordinate interfaces. The intended single owner is PR.6; consumer graph edits have not been applied.
+- **PR.7: the Beilinson fibre square.** The analytic continuation of Tate twists, Bhatt–Scholze F-crystals Proposition 6.8, rests on the Beilinson fibre square of Antieau–Mathew–Morrow–Nikolaus. The cited source proves it through topological cyclic homology; this plan supplies no proof independent of that input. PR.7 states the square as a named input for the prismatic syntomic complexes of PR.4; RefinedTraceMethods RT.3b proves it.
+- **PR.7: the Fargues–Fontaine slope-zero input.** Essential surjectivity onto crystalline lattices (§6.4 of the same paper) rests on three results of Fargues–Fontaine on vector bundles on their curve. PR.7 states the schematic slope results, GAGA and the Robba dictionary as a named input. AdicSpaces Layer 6 supplies the adic quotient; the untilt point, bundle dictionary and construction matching remain separate gaps.
 
-The stage edges from RefinedTraceMethods RT.3b and RT.6 to PR.7, and from HodgeTateAndCanonicalSubgroups T6:log-sites to PR.8, carry no node prerequisite and are removed. PR.8 already plans the log adic foundations it needs.
+The stage edges from RefinedTraceMethods RT.3b and RT.6 to PR.7, and from HodgeTateAndCanonicalSubgroups T6:log-sites to PR.8, are proposed for removal after their consuming dependencies are reconciled. The existing part still contains the RT.3b and RT.6 node prerequisites; no atlas edge is changed by this review. PR.8 already plans the log adic foundations it needs.
 
 **What this roadmap leaves to others.**
 - **The arc topology.** The arc and arc_p topologies and the arc-descent of étale cohomology of the generic fibre (Bhatt–Mathew, The arc-topology, Corollary 6.17) are recorded gaps of PR.4 and PR.8. So are the arc-descent of perfectoidization (Bhatt–Scholze Proposition 8.10) and Corollaries 8.11–8.12. They have no planned owner in the atlas yet.
@@ -59,7 +61,7 @@ The conventions of each part are repeated, in full, in the appendices.
   - Algebra isomorphisms, Kähler differentials and exterior algebras.
 
   The declarations each target uses are listed with it and, for the accepted plans, in the appendices.
-- **From Tau Ceti (pinned f790474).** The AdicSpaces roadmap, Layer 6, supplies the adic Fargues–Fontaine curve. The PR.7 named input on slope-zero bundles lives on that curve.
+- **From Tau Ceti (pinned f790474).** The AdicSpaces roadmap, Layer 6, supplies the adic Fargues–Fontaine curve. The PR.7 named input distinguishes the schematic curve and the required analytic dictionary; these are not declarations supplied by AdicSpaces.
 - **From lower tiers.**
   - SchemeAndStackFoundations SF.1 supplies fpqc descent of modules and stackification, and SF.2 supplies étale cohomology of schemes.
   - DiamondsAndVStacks D0 supplies groupoid-valued prestacks and stackification.
@@ -5908,11 +5910,11 @@ For each n ≥ 0 the sheaf of complexes Z_p(n) on the quasisyntomic site is disc
 <a id="layer-pr-5"></a>
 ## Layer PR.5: Absolute prismatics and geometric coefficient packages
 
-Absolute prismatic cohomology and the absolute Nygaard filtration (Bhatt–Lurie §§4–5). The geometric side is generalized Cartier divisors and the Cartier–Witt stack WCart, with its quotient presentation, the points ρ_A of prisms and the Hodge–Tate divisor with its Sen operator. This layer now also owns the quasi-coherent complexes these stacks carry: D(X) for any prestack X as the limit of the D(R) over its points, faithfully flat descent, and affine direct image with base change. D(WCart) and its comparison with prismatic crystals (Bhatt–Lurie §3.3) are instances.
+Absolute prismatic cohomology and the absolute Nygaard filtration (Bhatt–Lurie §§4–5). The geometric side is generalized Cartier divisors and the Cartier–Witt stack WCart, with its quotient presentation, the points ρ_A of prisms and the Hodge–Tate divisor with its Sen operator. This layer now also owns the quasi-coherent complexes these stacks carry: D(X) for any prestack X as the limit of the D(R) over its points, faithfully flat descent, and flat affine direct image with base change. D(WCart) and its comparison with prismatic crystals (Bhatt–Lurie §3.3) are instances.
 
 ### Targets added to PR.5 by the whole-roadmap plan
 
-These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first because the accepted targets below cite them after the re-pointing of "Re-pointed prerequisites".
+These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first as proposed suppliers. The inherited targets below still carry their original citations; the replacement table is a pending reconciliation, not an applied graph edit.
 
 <a id="prismaticcohomology-pr-5-quasi-coherent-complexes-on-prestacks"></a>
 #### Quasi-coherent complexes on a prestack
@@ -5923,23 +5925,24 @@ Let CRing be the category of commutative rings, and let X be a prestack: a funct
 
 **Hypotheses.**
 
-- Rings are ordinary commutative rings; X may take values in large groupoids, so D(X) is a large ∞-category in general (Lurie's convention of not necessarily small spaces).
+- Fix nested universes and an essentially small ring/point indexing category in the universe used to form the limit. For a large prestack enlarge the universe; presentability is asserted in that universe only for a small colimit of representables. All rings in this node are ordinary commutative rings.
 - The limit is a limit of ∞-categories, not of the triangulated homotopy categories: gluing data must include all higher coherences, and the homotopy category of D(X) is not the limit of the homotopy categories of the D(R).
 - For a functor X defined only on rings in which p is nilpotent (a formal prestack over Spf Z_p, such as WCart), Pt(X) is formed over those rings; this is the same as D of the extension of X by the empty groupoid on the other rings, since the empty prestack has D = 0 (test below).
 
-**Construction.**
+**Construction or proof.**
 
 1. Construction: apply the straightening of the coCartesian fibration of pairs (R, M ∈ D(R)) over CRing to Pt(X), and take the ∞-category of coCartesian sections; equivalently the right Kan extension of R ↦ D(R) along the Yoneda embedding (Lurie, SAG Definition 6.2.2.1 and Remark 6.2.2.2, with Remark 6.2.2.7 for the pointwise description). The limits of presentable symmetric monoidal ∞-categories used are those of EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories.
 2. (1): Pt(Spec R) has the initial object (R, id), so the limit is evaluation there (SAG Remark 6.2.2.5); Spec Z is the terminal prestack because every ring receives a unique map from Z.
 3. (2): precomposition of the limit diagram along Pt(X) → Pt(Y) (SAG Notation 6.2.2.6); (3): every D(R) is stable with colimits and every base change preserves them, so the limit is computed in the subcategory of stable ∞-categories with colimits and colimit-preserving functors (SAG Proposition 6.2.3.4 (1)–(3)).
 4. (4): the right Kan extension of a functor turns colimits of presheaves into limits (SAG Lemma 6.2.1.12 as used in Proposition 6.2.3.1). (5): equivalences in a limit of ∞-categories are detected on the components.
-5. (6): dualizability in a limit of symmetric monoidal ∞-categories along symmetric monoidal functors is detected on the components, and the dualizable objects of D(R) are the perfect complexes (Lurie, HA Proposition 7.2.4.4); invertibility likewise.
+5. Dualizability is detected componentwise in a limit of monoidal infinity-categories (HA Proposition 4.6.1.11, p.620). In D(R), finite sums, shifts, cones and retracts of R are dualizable. Conversely the duality formula for mapping out of M makes a dualizable M compact, and HA Proposition 7.2.4.4, p.1263 identifies compact modules with perfect modules. The module enhancement and scalar-change action are supplied by E1; its explicit duality comparison is a requested interface, not a consequence of the ordinary DerivedCategory name alone. Invertibility is likewise detected componentwise.
 
 **Sources.**
 
-- Jacob Lurie, *Spectral Algebraic Geometry*, Definition 6.2.2.1, Remarks 6.2.2.2, 6.2.2.5, 6.2.2.7, Notation 6.2.2.6 (§6.2.2, pp. 490–492 of the February 2018 version): Defines the ∞-category of quasi-coherent sheaves on an arbitrary functor from (connective E∞-)rings to spaces as a limit over its points, identifies it with module ∞-categories on corepresentable functors, describes its objects pointwise with base-change equivalences, and introduces pullback along a natural transformation.
-- Jacob Lurie, *Spectral Algebraic Geometry*, Proposition 6.2.3.4 (§6.2.3, pp. 492–493): Stability, colimits and presentability of the quasi-coherent ∞-category of a functor; pullback preserves colimits.
-- Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*, Definition 3.3.1, Remark 3.3.2, Example 3.3.3 (§3.3, p. 43 of arXiv v1): The instance used in this roadmap: quasi-coherent complexes on the Cartier–Witt stack as the limit of D(R) over its points, with the structure sheaf as unit.
+- [Jacob Lurie, *Spectral Algebraic Geometry*](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf), Definition 6.2.2.1, Remarks 6.2.2.2, 6.2.2.5, 6.2.2.7, Notation 6.2.2.6 (§6.2.2, pp. 490–492 of the February 2018 version): Defines the ∞-category of quasi-coherent sheaves on an arbitrary functor from (connective E∞-)rings to spaces as a limit over its points, identifies it with module ∞-categories on corepresentable functors, describes its objects pointwise with base-change equivalences, and introduces pullback along a natural transformation.
+- [Jacob Lurie, *Spectral Algebraic Geometry*](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf), Proposition 6.2.3.4 (§6.2.3, pp. 492–493): Stability, colimits and presentability of the quasi-coherent ∞-category of a functor; pullback preserves colimits.
+- [Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*](https://arxiv.org/abs/2201.06120v1), Definition 3.3.1, Remark 3.3.2, Example 3.3.3 (§3.3, p. 43 of arXiv v1): The instance used in this roadmap: quasi-coherent complexes on the Cartier–Witt stack as the limit of D(R) over its points, with the structure sheaf as unit.
+- [Jacob Lurie, *Higher Algebra*](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 4.6.1.11 and Remark 4.6.1.12, p.620; Proposition 7.2.4.4, p.1263: Componentwise detection of monoidal duality, and the perfect/compact module equivalence with its duality description; these support the commutative-ring specialization.
 
 **Uses.**
 
@@ -5973,25 +5976,25 @@ Let CRing be the category of commutative rings, and let X be a prestack: a funct
 **Acceptance.**
 
 - For X = Spec R the construction returns D(R), and pullback along Spec R′ → Spec R is derived base change.
-- For X = WCart it returns Bhatt–Lurie's D(WCart) of Definition 3.3.1 verbatim, with O_WCart the unit of Example 3.3.3.
+- For X = WCart it returns Bhatt–Lurie's D(WCart) of Definition 3.3.1, with O_WCart the unit of Example 3.3.3.
 - For the classifying stack B(Z/2) over F_2 (the quotient of Spec F_2 by the trivial action of the constant group Z/2), Hom_{D(B(Z/2))}(O, O[1]) ≅ H^1(Z/2, F_2) = F_2, while the pullback to the atlas Spec F_2 kills it.
 
-*Needs:* `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`; `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`; `EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change`; `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`; `DiamondsAndVStacks:D0/stackification`; `mathlib:DerivedCategory`; `mathlib:ModuleCat`.
+*Needs:* `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`; `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`; `EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change`; `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`; `mathlib:DerivedCategory`; `mathlib:ModuleCat`; `EnhancedDerivedSheaves:E1/coefficient-change-and-perfect-action`; `EnhancedDerivedSheaves:E1`.
 
 <a id="prismaticcohomology-pr-5-flat-descent-for-quasi-coherent-complexes"></a>
 #### Faithfully flat descent for quasi-coherent complexes
 
 `PR.5/flat-descent-for-quasi-coherent-complexes` (theorem).
 
-(1) Let R → S be a faithfully flat map of commutative rings, with Čech nerve S^• (S^n = S ⊗_R ⋯ ⊗_R S, n + 1 factors). Base change gives an equivalence of symmetric monoidal ∞-categories D(R) ≃ Tot(D(S^•)) = lim_{[n] ∈ Δ} D(S^n). (2) Consequently, for a morphism of prestacks u : X′ → X that becomes an equivalence after fpqc sheafification (for example X′ → X its fpqc stackification), u^* : D(X) → D(X′) is an equivalence. (3) If X is an fpqc stack and U → X is a morphism of prestacks that is an effective epimorphism of fpqc sheaves (surjective fpqc-locally), with Čech nerve U_• (U_n the (n + 1)-fold fibre power over X), then D(X) ≃ Tot(D(U_•)); the same holds with the Zariski topology in place of the fpqc topology when U → X is a Zariski-local surjection. (4) On the hearts, (1) restricts to faithfully flat descent of modules.
+(1) Let R → S be a faithfully flat map of commutative rings, with Čech nerve S^• (S^n = S ⊗_R ⋯ ⊗_R S, n + 1 factors). Base change gives an equivalence of symmetric monoidal ∞-categories D(R) ≃ Tot(D(S^•)) = lim_{[n] ∈ Δ} D(S^n). (2) Consequently, for a morphism of prestacks u : X′ → X that becomes an equivalence after fpqc sheafification (in particular the canonical map X′ → (X′)^fpqc, with X = (X′)^fpqc), u^* : D(X) → D(X′) is an equivalence. (3) If X is an fpqc stack and U → X is a morphism of prestacks that is an effective epimorphism of fpqc sheaves (surjective fpqc-locally), with Čech nerve U_• (U_n the (n + 1)-fold fibre power over X), then D(X) ≃ Tot(D(U_•)); the same holds with the Zariski topology in place of the fpqc topology when U → X is a Zariski-local surjection. (4) On the hearts, (1) restricts to faithfully flat descent of modules.
 
 **Hypotheses.**
 
 - (1): R → S faithfully flat, so every S^n is a discrete ring and every coface map is flat; for non-flat R → S the statement is false (test: Z → F_p).
 - (3): X is an fpqc (respectively Zariski) stack of ∞-groupoids on commutative rings; the fibre powers U_n need not be affine.
-- Large prestacks are allowed, as in the construction node.
+- Use the universe convention of the construction node. Sheafification and effective epimorphisms of space-valued prestacks require the infinity-categorical extension requested from D0; its present groupoid stackification alone does not supply it.
 
-**Proof sketch.**
+**Construction or proof.**
 
 1. (1) is the case of discrete rings and flat maps of Lurie's fpqc descent for module ∞-categories (SAG Corollary D.6.3.3); flatness keeps the Čech nerve discrete, so the relative tensor products agree with the ordinary ones.
 2. (2): D sends colimits of prestacks to limits (PR.5/quasi-coherent-complexes-on-prestacks (4)); by (1) the functor Spec R ↦ D(R) is an fpqc sheaf of ∞-categories, so D factors through fpqc sheafification (the argument of SAG Proposition 6.2.3.1 and Remark 6.2.3.2).
@@ -6000,48 +6003,50 @@ Let CRing be the category of commutative rings, and let X be a prestack: a funct
 
 **Sources.**
 
-- Jacob Lurie, *Spectral Algebraic Geometry*, Corollary D.6.3.3 (Appendix D.6.3, p. 1943 of the February 2018 version): Module ∞-categories satisfy descent for the fpqc topology on E∞-rings; the discrete flat case is statement (1).
-- Jacob Lurie, *Spectral Algebraic Geometry*, Proposition 6.2.3.1 and Remark 6.2.3.2 (§6.2.3, p. 492): The quasi-coherent ∞-category of a functor is unchanged by fpqc sheafification and turns limits of fpqc sheaves into limits.
-- Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*, Lemma 3.3.10 with its proof, and the proof of Proposition 3.3.5 (§3.3, p. 44): Zariski and flat cohomological descent compute D(WCart) on the Čech nerve of the universal oriented prism.
+- [Jacob Lurie, *Spectral Algebraic Geometry*](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf), Corollary D.6.3.3 (Appendix D.6.3, p. 2177 of the February 2018 version): Module ∞-categories satisfy descent for the fpqc topology on E∞-rings; the discrete flat case is statement (1).
+- [Jacob Lurie, *Spectral Algebraic Geometry*](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf), Proposition 6.2.3.1 and Remark 6.2.3.2 (§6.2.3, p. 492): Fpqc sheafification leaves the quasi-coherent infinity-category unchanged; small colimits in fpqc sheaves are carried contravariantly to limits of categories.
+- [Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*](https://arxiv.org/abs/2201.06120v1), Lemma 3.3.10 with its proof, and the proof of Proposition 3.3.5 (§3.3, p. 44): Zariski and flat cohomological descent compute D(WCart) on the Čech nerve of the universal oriented prism.
 
 **Acceptance.**
 
-- For X = WCart and the Zariski surjection Spf(A^0) → WCart with fibre powers Spf(A^n), (3) gives Bhatt–Lurie's equivalence D(WCart) ≃ Tot(D̂(A^•)) (Lemma 3.3.10).
+- For X = WCart and the Zariski surjection Spf(A^0) → WCart with fibre powers Spf(A^n), (3) gives Bhatt–Lurie's equivalence D(WCart) ≃ Tot(D̂(A^•)) (Lemma 3.3.10). Here D(Spf A) is the derived (p,I)-complete module category, not D(A). The formal-affine identification and completed scalar change are the explicit formal-QCoh gap of this review.
 - For a finite Galois extension of fields K → L with group G, (1) and (3) give D(K) ≃ D(L)^{hG}, the ∞-categorical form of Galois descent.
 - Non-example: for Z → F_p (not flat), Tot(D(F_p^{⊗•})) is not D(Z); for instance Q is killed by base change.
 
-*Needs:* `PR.5/quasi-coherent-complexes-on-prestacks`; `SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent`; `SchemeAndStackFoundations:SF.1/stackification`; `DiamondsAndVStacks:D0/stackification`; `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`; `mathlib:Module.FaithfullyFlat`.
+*Needs:* `PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks`; `SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent`; `DiamondsAndVStacks:D0/stackification`; `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`; `mathlib:Module.FaithfullyFlat`; `DiamondsAndVStacks:D0`; `DerivedDeRhamCohomology:DD.1`.
 
 <a id="prismaticcohomology-pr-5-affine-direct-image-and-base-change"></a>
-#### Direct image along affine morphisms of prestacks, base change and projection formula
+#### Flat affine direct image, base change and projection formula
 
 `PR.5/affine-direct-image-and-base-change` (theorem).
 
-Let f : Y → X be an affine morphism of prestacks: for every point η : Spec R → X the fibre product Y ×_X Spec R is equivalent to Spec B_η for an R-algebra B_η, compatibly with base change. Then: (a) f^* : D(X) → D(Y) has a right adjoint f_* : D(Y) → D(X), computed pointwise, (f_*G)_η = G restricted to Spec B_η and regarded as an R-complex by restriction of scalars along R → B_η; (b) base change: for every g : X′ → X with pullback f′ : Y′ → X′ and g′ : Y′ → Y, the canonical map g^* f_* → f′_* g′^* is an equivalence; (c) f_* preserves small colimits and satisfies the projection formula F ⊗ f_*G ≃ f_*(f^*F ⊗ G) for F ∈ D(X), G ∈ D(Y); (d) for any prestack X the functor D(Z) → D(X), M ↦ M ⊗ O_X, has a right adjoint RΓ(X, −), and when X ≃ |U_•| with U_n = Spf or Spec of rings as in the descent node, RΓ(X, F) ≃ Tot(RΓ(U_•, F|U_•)).
+Let f : Y → X be a flat affine morphism of prestacks on ordinary commutative rings: each fibre Y ×_X Spec R is Spec B_η with B_η flat over R, and ordinary pullback gives B_η ⊗_R R′. Then (a) f^* has a right adjoint f_*, whose value at η is the restriction to Spec B_η regarded as an R-complex; (b) g^* f_* ≃ f′_* g′^* for every base change g : X′ → X; and (c) f_* preserves small colimits and F ⊗ f_*G ≃ f_*(f^*F ⊗ G). These three assertions are about flat affine maps in this discrete-prestack setting. Independently, (d) if D(X) is presentable in the chosen universe, M ↦ M ⊗ O_X from D(Z) to D(X) has a right adjoint RΓ(X,−). For an effective fpqc or Zariski Čech presentation, RΓ(X,F) is the totalization of the global sections of its restrictions. On formal affine charts, use derived complete module categories and completed tensor products under the separately recorded formal-QCoh interface.
 
 **Hypotheses.**
 
-- Affineness is the hypothesis of (a)–(c): for non-affine f the pointwise formula fails and f_* is in general not compatible with base change.
-- In (d) RΓ exists for every prestack because M ↦ M ⊗ O_X preserves colimits between presentable ∞-categories; presentability of D(X) uses that X is a small colimit of corepresentables, which holds for the stacks used here (they have Čech atlases by affine formal schemes).
+- Each B_η is flat over R. Without this, an ordinary pullback B ⊗_R R′ need not compute B ⊗^L_R R′. SAG uses spectral prestacks and derived fibre products, so its arbitrary base-change theorem is not an arbitrary ordinary-ring base-change theorem.
+- For (d), presentability and the universe bound are hypotheses, not automatic assertions for every large prestack. On the formal Čech presentation of WCart, use the complete module categories of BL22 Lemma 3.3.10 and Corollary 3.3.11.
 
-**Proof sketch.**
+**Construction or proof.**
 
-1. (a), (b): for X = Spec R this is restriction of scalars along R → B, right adjoint to base change, and the base change map is the associativity equivalence R′ ⊗^L_R M ≃ (R′ ⊗^L_R B) ⊗^L_B M; in general define f_* pointwise and check, using base change for affine schemes, that the pointwise objects form a compatible family (Lurie, SAG Proposition 6.3.4.1, which treats the more general quasi-compact quasi-separated relative algebraic spaces).
-2. (c): reduce by (b) to X = Spec R, where f_* is restriction of scalars and both claims are elementary (SAG Corollary 6.3.4.3).
-3. (d): adjoint functor theorem for presentable ∞-categories; on a Čech atlas combine the descent node (3) with (a) for the affine maps U_n → X. This is Bhatt–Lurie Corollary 3.3.11 for WCart.
+1. For R → B flat, B ⊗^L_R R′ = B ⊗_R R′, so associativity identifies R′ ⊗^L_R M with (B ⊗_R R′) ⊗^L_B M. The restrictions of G to affine fibres therefore form a Cartesian family of R-complexes. The adjunction is the limit of these coherent pointwise scalar-extension/restriction adjunctions.
+2. Pointwise restriction of scalars preserves colimits and satisfies the projection formula. Evaluation detects the resulting equivalences. SAG Proposition 6.3.4.1 and Corollary 6.3.4.3, pp.505–507, supply the derived setting; flatness permits this discrete specialization.
+3. For (d), apply the presentable adjoint theorem to the colimit-preserving tensor-with-unit functor. Under Čech descent mapping spaces and the pointwise global-section adjunctions identify its right adjoint with the totalization. This argument does not require the atlas maps U_n → X themselves to be affine. BL22 Corollary 3.3.11 gives the WCart instance.
 
 **Sources.**
 
-- Jacob Lurie, *Spectral Algebraic Geometry*, Proposition 6.3.4.1 and Corollary 6.3.4.3 (§6.3.4, pp. 505–507): Existence of the direct image right adjoint, base change for quasi-compact quasi-separated relative algebraic spaces, colimit preservation and the projection formula.
-- Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*, Corollary 3.3.11 (§3.3, p. 44): Global sections on the Cartier–Witt stack as right adjoint, computed as a totalization on the Čech nerve.
+- [Jacob Lurie, *Spectral Algebraic Geometry*](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf), Proposition 6.3.4.1 and Corollary 6.3.4.3 (§6.3.4, pp. 505–507): The source works on connective E-infinity rings with derived pullbacks. This node uses only its flat affine discrete specialization; it does not transfer arbitrary derived base change to ordinary fibre products.
+- [Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*](https://arxiv.org/abs/2201.06120v1), Corollary 3.3.11 (§3.3, p. 44): Global sections on the Cartier–Witt stack as right adjoint, computed as a totalization on the Čech nerve.
+- [Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*](https://arxiv.org/abs/2201.06120v1), Corollaries 3.2.9–3.2.10, pp.42–43: Prism charts are affine, and for bounded prisms flatness is equivalent to transversality.
 
 **Acceptance.**
 
-- For ρ_A : Spf(A) → WCart of a bounded prism (affine by PR.5/wcart-fibre-products-of-prisms (2)), ρ_{A*} exists and commutes with base change along any point of WCart.
-- For X = WCart, RΓ(WCart, F) = Tot(F(A^•)) on the Čech nerve of the universal oriented prism, with values in derived p-complete complexes (Bhatt–Lurie Corollary 3.3.11).
-- Non-example: for the non-affine projection P^1_Z → Spec Z, the pointwise formula is wrong: H^1 contributions of O(−2) are invisible to restriction of scalars of global sections.
+- For a bounded transversal prism, ρ_A : Spf(A) → WCart is flat affine (BL22 Corollary 3.2.10, pp.42–43). The flat affine theorem applies on ordinary-ring points; its expression in complete A-modules additionally uses the formal-QCoh interface. Affineness of an arbitrary bounded prism is insufficient for the pointwise base-change claim.
+- For WCart, BL22 Corollary 3.3.11 computes RΓ as Tot(M^•) on its universal oriented-prism Čech presentation, with a derived p-complete result.
+- Tor counterexample to the discarded nonflat assertion: R = Z, B = R′ = F_p and M = F_p. The ordinary fibre algebra is F_p; the left side F_p ⊗^L_Z F_p has H^(−1) = F_p while the right side F_p ⊗^L_F_p F_p does not.
+- Flat check: Z → Z[1/ℓ] and R′ = F_p give restriction/base-change compatibility, including zero when ℓ = p.
 
-*Needs:* `PR.5/quasi-coherent-complexes-on-prestacks`; `PR.5/flat-descent-for-quasi-coherent-complexes`; `SchemeAndStackFoundations:SF.1/affine-fpqc-descent`; `EnhancedDerivedSheaves:E5:presentability/presentable-categories`.
+*Needs:* `PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks`; `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`; `SchemeAndStackFoundations:SF.1/affine-fpqc-descent`; `EnhancedDerivedSheaves:E5:presentability/presentable-categories`; `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`; `DerivedDeRhamCohomology:DD.1`.
 
 ### The accepted targets of PR.5
 
@@ -7057,32 +7062,33 @@ q-PD pairs and envelopes, the q-crystalline site and its comparison with prismat
 
 ### Targets added to PR.6 by the whole-roadmap plan
 
-These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first because the accepted targets below cite them after the re-pointing of "Re-pointed prerequisites".
+These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first as proposed suppliers. The inherited targets below still carry their original citations; the replacement table is a pending reconciliation, not an applied graph edit.
 
 <a id="prismaticcohomology-pr-6-framed-q-automorphisms"></a>
 #### Framed algebras and their q-automorphisms
 
 `PR.6/framed-q-automorphisms` (construction).
 
-Let D be a commutative ring with an element q, and let I = (q − 1) or I = (p, q − 1). Let P be a derived I-complete D-algebra and (X_s)_{s ∈ S} elements of P such that the framing □ : D[X_s : s ∈ S]^∧_I → P is I-completely ind-étale (an étale framing; a toric framing has the X_s units and D[X_s^{±1}]^∧_I as source). Assume P is (q − 1)-torsion-free and each X_s is a nonzerodivisor on P (as for the framed q-PD data of PR.6, where P is flat over Z_p[[q − 1]]). Then: (1) there are unique D-algebra automorphisms γ_s (s ∈ S) of P with γ_s(□(X_t)) = q^{δ_{st}} X_t and γ_s ≡ id modulo (q − 1); they commute pairwise, and γ_s(f) − f ∈ (q − 1)X_s P for every f ∈ P; (2) they are functorial for maps of framed algebras (P, S) → (P′, S′) given by a D-algebra map and an injective map S → S′ compatible with the coordinates; (3) if D is a δ-ring with δ(q) = 0, I = (p, q − 1), and D is p-torsion-free, there is a unique δ-D-algebra structure on P with δ(X_s) = 0 (Frobenius φ_□ with φ_□(X_s) = X_s^p), and φ_□ ∘ γ_s = γ_s ∘ φ_□.
+Put t = q − 1 in a commutative coefficient ring D and I = (t) or (p,t). Let P be an ordinary D-algebra, classically and derived I-complete, with an I-completely ind-étale polynomial or toric framing D[X_s]^∧_I → P. Require that the completed framing source is discrete, that P/tP and P/(tX_s)P are classically I-complete, and that every tX_s is a nonzerodivisor. Then there are unique D-algebra automorphisms γ_s that scale X_s by q, fix the other coordinates and reduce to the identity modulo t. They commute, and γ_s(f) − f belongs to tX_sP. Continuous D-algebra maps with an injective coordinate map intertwine these automorphisms; automorphisms in extra target directions fix the image. If D and P are p-torsion-free, P/pP is classically I-complete, D is a δ-ring with δ(q)=0, and I=(p,t), P has the unique compatible δ-structure with δ(X_s)=0, and its Frobenius commutes with the γ_s. These are sufficient hypotheses for the completed variant, rather than a claim about all merely p-completely ind-étale framings.
 
 **Hypotheses.**
 
-- Completeness is for the I-adic topology with q − 1 ∈ I: the extension of γ_s uses that γ_s on D[X_s]^∧ is congruent to the identity modulo the topologically nilpotent q − 1; it fails for a framing that is only p-completely étale with I = (p) (source issue PrismaticCohomology/E65 of the accepted part records the same point for BS22 §16).
-- Nonzerodivisor hypotheses: (q − 1)X_s is a nonzerodivisor on P, so the quotients in the next node are unique.
-- (3) needs the Frobenius lift of D to fix q up to φ(q) = q^p, which δ(q) = 0 gives.
+- All coefficient automorphisms are D-linear and hence fix q. Polynomial completion is taken at I; in the toric variant the coordinates are units. Modulo every I^n the framing is ind-étale.
+- Classical completeness of P and the listed quotients is imposed so reduction and compatible infinitesimal lifts recover actual maps and principal-ideal divisibility. It is not inferred from the words derived complete alone. Extending this sufficient formulation to every general-base consumer remains a gap.
+- The parameter q is a unit in the I-completed framing source and in P because t ∈ I; D itself need not be complete or contain q^(−1).
+- The δ assertion needs p-torsion-freeness of P as well as D; I contains p and φ(t)=q^p−1 belongs to I.
 
-**Construction.**
+**Construction or proof.**
 
-1. Polynomial case: on D[X_s]^∧ define γ_s by X_s ↦ qX_s and X_t ↦ X_t; it is congruent to the identity modulo (q − 1) and γ_s(X^m) − X^m = (q^{m_s} − 1)X^m ∈ (q − 1)X_s D[X]^∧.
-2. Extension: γ_s ∘ □ and □ agree modulo (q − 1); since □ is I-completely ind-étale and P is derived (q − 1)-complete (as q − 1 ∈ I), the map γ_s ∘ □ extends uniquely to an endomorphism of P lifting the identity modulo (q − 1) (Bhatt–Scholze Construction 16.19; Scholze, Canonical q-deformations §3, p. 6, for D = Z[[q − 1]] and §4, p. 8, for A_inf with q = [ε]); uniqueness gives γ_s γ_t = γ_t γ_s and invertibility (γ_s^{-1} is the extension of X_s ↦ q^{-1}X_s when q is a unit, which it is in the I-complete ring D).
-3. Divisibility by (q − 1)X_s: the endomorphism f ↦ γ_s(f) − f is a γ_s-twisted derivation; it vanishes on the coordinates X_t (t ≠ s) and sends X_s to (q − 1)X_s, so on D[X]^∧ it takes values in (q − 1)X_s; on P use that γ_s and the identity induce two D[X]^∧-algebra maps P → P/(q − 1)X_sP that agree modulo q − 1, and uniqueness of lifts along the I-completely ind-étale framing (P being derived (q − 1)-complete) makes them equal (Bhatt–Scholze Construction 16.20 uses this divisibility to define the q-derivatives).
-4. (3): extend δ(X_s) = 0 along the I-completely ind-étale framing (Bhatt–Scholze Lemma 2.18 through PR.0/delta-etale-extension); γ_s is a δ-map on D[X]^∧ since δ(qX_s) = 0, hence on P by uniqueness.
+1. On the completed polynomial algebra scale one coordinate by q. The inverse scales it by q^(−1), which exists in the completed source. The difference on a monomial is divisible by tX_s; the same formula holds on toric monomials.
+2. For each n, ind-étaleness modulo I^n lifts the identity modulo I uniquely along the nilpotent I/I^n thickening, with the changed polynomial structure map. Take the compatible limit in the classically I-complete algebra P. Applying the same uniqueness modulo t proves reduction to the identity. Uniqueness proves commutation and the inverse formula. This is the completed-lifting argument of SQDEF §3, pp.6–7, with the extra quotient-completeness hypotheses stated here.
+3. To obtain divisibility, repeat uniqueness in P/(tX_s,I^n), where the altered coordinate map is the identity. Completeness of P/(tX_s) identifies the inverse limit with this quotient, so γ_s acts as the identity there. For coordinate-injective maps compare the two induced lifts; an extra target direction has the unchanged polynomial map, hence fixes the image.
+4. For the δ assertion use PR.0/delta-etale-extension at I=(p,t) after putting δ(X_s)=0 on the framing source. Its compatibility follows from δ(q)=0 and δ(X_s)=0. The two Frobenius composites agree on the source and hence on P by unique infinitesimal lifting.
 
 **Sources.**
 
-- Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*, Construction 16.19 (§16.3): For a framed algebra over a q-PD pair, the automorphisms scaling one coordinate by q extend uniquely along the completely étale framing and commute.
-- Peter Scholze, *Canonical q-deformations in arithmetic geometry*, §3, pp. 6–7, and §4, p. 8 (arXiv v2): Defines the automorphisms γ_i of the (q−1)-completed polynomial ring scaling T_i by q, lifts them along an étale framing using (q−1)-adic completeness, and does the same over A_inf with q = [ε].
+- [Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*](https://arxiv.org/pdf/1905.08229v4), Construction 16.19 and footnote 21, §16.3, p.114 of arXiv:1905.08229v4: The source treats A-flat q-PD bases and p-complete framed algebras. It motivates the operators, but its stated p-only extension is not the proof of this strengthened I-complete variant; inherited source issue E65 and the p-only counterexample remain relevant.
+- [Peter Scholze, *Canonical q-deformations in arithmetic geometry*](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7; §4, p.9 of arXiv:1606.01796v1: The t-adic framing gives unique q-automorphisms by formal étale lifting. The A_inf example instead completes at (p,ξ); relating its topology and this general-base interface requires the recorded comparison, not a claim that every p-complete framing works.
 
 **Uses.**
 
@@ -7093,24 +7099,25 @@ Let D be a commutative ring with an element q, and let I = (q − 1) or I = (p, 
 
 **API.**
 
-- `FramedAlgebra` (structure): A derived I-complete D-algebra P with coordinates X : S → P whose framing D[X_s]^∧ → P is I-completely ind-étale (or toric).
+- `FramedAlgebra` (structure): The framed ordinary I-complete D-algebra with ind-étale reductions, discrete completed source, complete quotients P/tP and P/(tX_s)P, and regular tX_s, as in the statement.
 - `FramedAlgebra.gamma` (data): The automorphism γ_s of P for s ∈ S.
 - `FramedAlgebra.gamma_X` (simp): γ_s(X_t) = q^{δ_st} X_t.
 - `FramedAlgebra.gamma_comm` (relation): γ_s ∘ γ_t = γ_t ∘ γ_s.
 - `FramedAlgebra.gamma_sub_mem` (characterisation): γ_s(f) − f ∈ (q − 1)X_s P for all f.
-- `FramedAlgebra.gamma_unique` (extensionality): An endomorphism of P agreeing with γ_s on the coordinates and congruent to the identity modulo q − 1 equals γ_s.
+- `FramedAlgebra.gamma_unique` (extensionality): A continuous D-algebra endomorphism with the indicated polynomial structure map and the identity reduction modulo t is the uniquely lifted γ_s.
 - `FramedAlgebra.gamma_map` (functoriality): A map of framed algebras injective on coordinates commutes with γ_s for s in the source and with the identity in the target's other directions.
-- `FramedAlgebra.frobenius` (data): When D is a p-torsion-free δ-ring with δ(q) = 0 and I = (p, q − 1): the framed Frobenius φ_□ with φ_□(X_s) = X_s^p, a δ-structure, commuting with every γ_s.
+- `FramedAlgebra.frobenius` (data): For p-torsion-free D and P, δ(q)=0 and I=(p,t), the uniquely extended framed Frobenius sends X_s to X_s^p and commutes with γ_s.
 - `FramedAlgebra.gamma_mod` (compatibility): Reduction modulo q − 1 sends γ_s to the identity of P/(q − 1).
 - `FramedAlgebra.toQFraming` (data): The q-derivation datum (P, q, X, γ) of a framed algebra: the input of PR.6/q-derivations-and-their-koszul-complex.
+- `FramedAlgebra.gamma_inverse` (simp): γ_s^(−1)(X_s)=q^(−1)X_s and γ_s^(−1)(X_t)=X_t for t≠s; q^(−1) is in P, without requiring it in D.
 
 **Checks.**
 
 - `FramedAlgebra.gamma_pow` (computation): For P = Z[q][X] (one coordinate, I = (q − 1), after completion) γ(X^3) = q^3X^3 and γ(X^3) − X^3 = (q − 1)X·(1 + q + q^2)X^2.
-- `FramedAlgebra.gamma_at_one` (degenerate): If q = 1 in D (for example D = F_p with I = (p)), every γ_s is the identity.
+- `FramedAlgebra.gamma_reduction` (degenerate): Reduce a regular framed algebra modulo t=q−1: every γ_s induces the identity on P/tP. The quotient is not itself asserted to satisfy the regular tX_s hypotheses; setting q=1 in the input would violate those hypotheses in a nonzero ring.
 - `FramedAlgebra.gamma_toric_inv` (computation): For the toric framing D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1}.
 - `FramedAlgebra.not_p_complete_only` (non-example): Over D = Z_p[[q − 1]] with only the p-adic topology, the p-completed localization P = D[X][1/(X − 1)]^∧_p is p-completely étale over D⟨X⟩, but X ↦ qX does not extend to P: it would send 1/(X − 1) to an inverse of qX − 1, and qX − 1 is not a unit of P (modulo p it generates the prime of F_p[[q − 1]][X, 1/(X − 1)] where X = q^{-1}, which does not contain X − 1). With the (p, q − 1)-adic completion qX − 1 = (X − 1)(1 + (q − 1)X/(X − 1)) is a unit and γ exists.
-- `FramedAlgebra.frobenius_gamma` (compatibility): For D = Z_p[[q − 1]] with φ(q) = q^p and P = D⟨X⟩, φ_□(γ(X)) = q^pX^p = γ(φ_□(X)).
+- `FramedAlgebra.frobenius_gamma` (compatibility): For D=Z_p[[t]], q=1+t, φ(q)=q^p and P=D[X]^∧_(p,t), φ(γ(X))=q^pX^p=γ(φ(X)).
 
 **Acceptance.**
 
@@ -7118,33 +7125,33 @@ Let D be a commutative ring with an element q, and let I = (q − 1) or I = (p, 
 - For the toric framing P = D[X^{±1}]^∧, γ(X^{-1}) = q^{-1}X^{-1} and γ(X^{-1}) − X^{-1} = −q^{-1}(q − 1)X^{-1}.
 - Modulo q − 1 every γ_s is the identity, so all structure collapses to the plain framed algebra P/(q − 1).
 
-*Needs:* `PR.0/delta-etale-extension`; `PR.0/delta-ring-category`; `DerivedDeRhamCohomology:DD.1/derived-completeness`; `DerivedDeRhamCohomology:DD.1/complete-flatness`; `mathlib:AlgEquiv`; `mathlib:Algebra.FormallyEtale`.
+*Needs:* `PrismaticCohomology:PR.0/delta-etale-extension`; `PrismaticCohomology:PR.0/delta-ring-category`; `DerivedDeRhamCohomology:DD.1/derived-completeness`; `DerivedDeRhamCohomology:DD.1/complete-flatness`; `mathlib:AlgEquiv`; `mathlib:Algebra.FormallyEtale`.
 
 <a id="prismaticcohomology-pr-6-q-derivations-and-their-koszul-complex"></a>
 #### q-derivatives and the framed q-de Rham Koszul complex
 
 `PR.6/q-derivations-and-their-koszul-complex` (construction).
 
-Let E be a commutative ring with an element q, elements X_s (s ∈ S) and pairwise commuting ring automorphisms γ_s with γ_s(X_t) = q^{δ_st}X_t, such that γ_s(f) − f ∈ (q − 1)X_s E for all f and every (q − 1)X_s is a nonzerodivisor (for instance E = P a framed algebra of the previous node, or its q-PD envelope). (1) The q-derivative ∇_{q,s}(f) is the unique element with (q − 1)X_s·∇_{q,s}(f) = γ_s(f) − f. It is additive, kills the elements fixed by γ_s, satisfies the twisted Leibniz rule ∇_{q,s}(fg) = ∇_{q,s}(f)g + γ_s(f)∇_{q,s}(g), ∇_{q,s}(X_s^n) = [n]_q X_s^{n−1} with [n]_q = 1 + q + ⋯ + q^{n−1}, and ∇_{q,s}∇_{q,t} = ∇_{q,t}∇_{q,s}. (2) The framed q-de Rham complex qΩ^{•,□}_E is the Koszul complex of the commuting endomorphisms (∇_{q,s})_{s ∈ S}: qΩ^i = E ⊗ Λ^i(⊕_s Z·dX_s) with differential f·ω ↦ Σ_s ∇_{q,s}(f) dX_s ∧ ω (completed when S is infinite); it is a complex of modules over the γ-invariants of E. (3) Functoriality for ring maps E → E′ commuting with the γ_s and carrying X_s to coordinates of E′ injectively. (4) Reduction: if E = P is a framed algebra over D, the complex modulo q − 1 is the completed de Rham complex Ω^•_{(P/(q−1))/(D/(q−1))}. (5) Toric form: if the X_s are units, qΩ^{•,□} is isomorphic to the Koszul complex of the logarithmic q-derivatives (γ_s − 1)/(q − 1), that is to η_{(q−1)} of the Koszul complex of the γ_s − 1. (6) Frobenius: if E carries an endomorphism φ commuting with the γ_s, with φ(X_s) = X_s^p and φ(q) = q^p, then ∇_{q,s} ∘ φ = [p]_q X_s^{p−1}·φ ∘ ∇_{q,s}.
+Let D → E be a map of commutative rings, q ∈ D, X_s ∈ E and γ_s commuting D-algebra automorphisms with γ_s(X_t)=q^(δ_st)X_t, γ_s(f)−f ∈ (q−1)X_sE, and each (q−1)X_s a nonzerodivisor. For any set S, the unique quotients ∇_(q,s) defined by (q−1)X_s∇_(q,s)(f)=γ_s(f)−f are D-linear, obey the twisted Leibniz law, satisfy ∇_(q,s)(X_s^n)=[n]_q X_s^(n−1) for n≥1 and commute pairwise. For finite S their cochain Koszul complex has qΩ^i = E ⊗_D Λ^i(D^S), in degrees 0 through |S|, and differential fω ↦ Σ_s ∇_(q,s)(f)dX_s∧ω. It is linear over the common γ-invariants. For an infinite S the completed version is asserted only after specifying continuous operators and a topology in which this sum converges for every input; the unrestricted extension remains a gap. A coordinate-injective D-algebra map gives a chain map if it intertwines matching γ_s and all extra target directions fix its image. For a finite complete étale framing as in the previous node, with flat coefficients and the completed reduction identified with the framed special fibre, reduction modulo q−1 is its continuous relative de Rham complex. For unit coordinates the change of basis dX_s = X_s dlog X_s identifies the complex with the Koszul complex of (γ_s−1)/(q−1), hence with η_(q−1) of the complex of γ_s−1. Finally, if φ commutes with γ_s, φ(q)=q^p and φ(X_s)=X_s^p, then ∇_(q,s)φ=[p]_q X_s^(p−1)φ∇_(q,s).
 
 **Hypotheses.**
 
-- (q − 1)X_s is a nonzerodivisor on E for every s; without this ∇_{q,s} is not well defined.
-- (3) requires injectivity on coordinates: identifying two coordinates does not commute with q-derivatives (test below).
-- (4) uses that P is flat over D and D is (q − 1)-torsion-free, so reduction commutes with the Koszul construction.
+- The automorphisms fix the coefficient ring D, including q. For qΩ impose finite S, or the separately specified continuity and summability conditions; the exact quotient operators alone impose no summability.
+- For a map with coordinate injection j:S→S′, require hγ_s=γ′_(j(s))h and γ′_u h=h for u outside j(S). Injectivity alone is insufficient for arbitrary q-derivation data.
+- For reduction use finite completely étale framed algebras flat over a t-torsion-free coefficient ring. The differential forms are continuous and completed at the image of I; when I=(p,t), the special-fibre forms are p-completed. The complete formal differential interface is requested explicitly.
 
-**Construction.**
+**Construction or proof.**
 
-1. (1): uniqueness and existence from the divisibility hypothesis and the nonzerodivisor; the Leibniz rule from γ_s(fg) − fg = (γ_s(f) − f)g + γ_s(f)(γ_s(g) − g); the monomial formula from γ_s(X_s^n) − X_s^n = (q^n − 1)X_s^n; commutation from the symmetric formula (γ_sγ_t − γ_s − γ_t + 1)(f) = (q − 1)^2 X_s X_t ∇_{q,s}∇_{q,t}(f), using that γ_s fixes X_t for t ≠ s (Scholze, Canonical q-deformations §3, p. 6).
-2. (2): the Koszul complex of commuting endomorphisms of a module (AInfCohomology:AI.1/koszul-products-and-cohomology), applied to the ∇_{q,s}.
-3. (3): a map commuting with γ_s and preserving X_s commutes with ∇_{q,s} by uniqueness in (1).
-4. (4): modulo q − 1, γ_s = 1 + (q − 1)X_s∇_{q,s} shows ∇_{q,s} reduces to a derivation with ∇(X_s) = 1, the partial derivative ∂/∂X_s, which on an étale framing is the de Rham differential (Scholze §3: the q-de Rham complex reduces to the de Rham complex).
-5. (5): multiply the s-th operator by the unit X_s, then apply the décalage identity η_f Kos(g_s) ≅ Kos(g_s/f) (AInfCohomology:AI.1/ideal-decalage-complex). (6): apply φ to (q − 1)X_s∇_{q,s}(f) = γ_s(f) − f and cancel the nonzerodivisor (q − 1)X_s using φ((q − 1)X_s) = [p]_q (q − 1) X_s^p.
+1. Divide by the regular element tX_s to get the unique quotient. D-linearity uses γ_s(a)=a for a∈D. Expand γ_s(fg)−fg to prove twisted Leibniz. The monomial formula follows from q^n−1=t[n]_q. For s≠u, both γ_s and γ_u fix t and the other coordinate; multiply the two iterated derivatives by t^2X_sX_u, use commutation of γ_s and γ_u, and cancel this regular product. For equal indices commutation is tautological.
+2. For finite S form the finite cochain Koszul complex of these commuting D-linear endomorphisms; paired wedge signs give d²=0. This is the commuting-endomorphism interface requested from AI.1, not the existing scalar-sequence Koszul DGA and not an automatic ordinary commutative DGA product. Infinite completed sums require the separate summability gap.
+3. Use uniqueness of the regular quotient to intertwine the matching derivatives. The extra-direction fixed-image condition kills all additional differential terms, so the induced wedge map is a chain map.
+4. Check the infinitesimal automorphism modulo t²: it induces X_s times the ordinary partial derivation. Unique infinitesimal lifting along the étale framing identifies this on P. Dividing first and then reducing gives the continuous partial derivatives and the completed de Rham complex. The identity γ_s≡1 modulo t by itself does not identify the divided quotient; use the first-order calculation (BS22 Construction 16.19, footnote 21, p.114).
+5. For unit coordinates use dX_s=X_s dlog X_s. The differential γ_s−1 is divisible by t, so the degree-i submodule of η_t of its Koszul complex is exactly t^i times the degree-i term; multiplication by t^i identifies the divided-operator complex with it. This directly establishes the required special case of the AI.1 décalage construction. For Frobenius apply φ to the quotient equation and cancel tX_s, using φ(tX_s)=t[p]_q X_s^p.
 
 **Sources.**
 
-- Peter Scholze, *Canonical q-deformations in arithmetic geometry*, §3, pp. 6–7 (arXiv v2): Defines the q-derivative as the finite q-difference quotient (γ_i(f) − f)/(qT_i − T_i), computes it on monomials as the q-integer times the lower power, forms the framed q-de Rham complex, and records that it reduces modulo q − 1 to the de Rham complex.
-- Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*, Construction 16.20 (§16.3): The q-de Rham complex of a framed q-PD datum as the Koszul complex of the commuting q-derivations.
+- [Peter Scholze, *Canonical q-deformations in arithmetic geometry*](https://arxiv.org/pdf/1606.01796v1), §3, pp.6–7 of arXiv:1606.01796v1: Defines the q-derivative as the finite q-difference quotient (γ_i(f) − f)/(qT_i − T_i), computes it on monomials as the q-integer times the lower power, forms the framed q-de Rham complex, and records that it reduces modulo q − 1 to the de Rham complex.
+- [Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*](https://arxiv.org/pdf/1905.08229v4), Constructions 16.19–16.20 and footnote 21, §16.3, pp.114–115 of arXiv:1905.08229v4: The q-de Rham complex of a framed q-PD datum as the Koszul complex of the commuting q-derivations.
 
 **Uses.**
 
@@ -7158,30 +7165,32 @@ Let E be a commutative ring with an element q, elements X_s (s ∈ S) and pairwi
 - `QFraming.qDeriv` (data): The q-derivative ∇_{q,s} : E → E.
 - `QFraming.qDeriv_spec` (characterisation): (q − 1)X_s ∇_{q,s}(f) = γ_s(f) − f, and ∇_{q,s}(f) is the unique element with this property.
 - `QFraming.qDeriv_add` (simp): ∇_{q,s}(f + g) = ∇_{q,s}(f) + ∇_{q,s}(g); ∇_{q,s}(1) = 0.
+- `QFraming.qDeriv_smul` (compatibility): For a∈D, ∇_(q,s)(a f)=a ∇_(q,s)(f); in particular ∇_(q,s)(a)=0.
 - `QFraming.qDeriv_mul` (relation): Twisted Leibniz: ∇_{q,s}(fg) = ∇_{q,s}(f)g + γ_s(f)∇_{q,s}(g).
 - `QFraming.qDeriv_X_pow` (simp): ∇_{q,s}(X_s^{n+1}) = [n + 1]_q X_s^n and ∇_{q,s}(X_t) = 0 for t ≠ s.
 - `QFraming.qDeriv_comm` (relation): ∇_{q,s}∇_{q,t} = ∇_{q,t}∇_{q,s}.
-- `QFraming.qDeRhamComplex` (constructor): The Koszul complex of the commuting ∇_{q,s}.
-- `QFraming.qDeRhamComplex_map` (functoriality): Maps commuting with γ and injective on coordinates induce maps of complexes.
-- `QFraming.qDeRhamComplex_mod` (compatibility): Modulo q − 1 the complex is the completed de Rham complex of P/(q − 1) over D/(q − 1).
+- `QFraming.qDeRhamComplex` (constructor): For finite S, the cochain Koszul complex of the commuting D-linear q-derivatives. For infinite S a completed construction additionally requires specified continuous summable operators.
+- `QFraming.qDeRhamComplex_map` (functoriality): A coordinate-injective map intertwining matching automorphisms, with every extra target automorphism fixing its image, induces a map of complexes.
+- `QFraming.qDeRhamComplex_mod` (compatibility): Under the finite flat completely étale framing and reduction hypotheses, derived reduction modulo t is the continuous completed relative de Rham complex; for I=(p,t), the remaining completion is p-adic.
 - `QFraming.qDeRhamComplex_toric` (equivalence): For unit coordinates, the complex is η_{(q−1)} of the Koszul complex of the γ_s − 1.
 - `QFraming.qDeriv_frobenius` (relation): ∇_{q,s} ∘ φ = [p]_q X_s^{p−1} φ ∘ ∇_{q,s}.
 
 **Checks.**
 
-- `QFraming.qDeriv_X_cube` (computation): In Z[q][X], ∇_q(X^3) = (1 + q + q^2)X^2.
+- `QFraming.qDeriv_X_cube` (computation): In Z[q,q^(−1)][X], ∇_q(X^3) = (1 + q + q^2)X^2.
 - `QFraming.qDeRham_empty` (degenerate): For S empty there are no q-derivatives and the complex is E in degree 0; for one coordinate it has length one, E → E·dX.
 - `QFraming.qDeriv_leibniz_check` (computation): ∇_q(X·X) = ∇_q(X)X + γ(X)∇_q(X) = X + qX = (1 + q)X, which is ∇_q(X^2).
-- `QFraming.qDeriv_not_untwisted` (non-example): The untwisted Leibniz rule fails: ∇_q(X)X + X∇_q(X) = 2X ≠ (1 + q)X = ∇_q(X^2) in Z[q][X].
+- `QFraming.qDeriv_not_untwisted` (non-example): The untwisted Leibniz rule fails: ∇_q(X)X + X∇_q(X) = 2X ≠ (1 + q)X = ∇_q(X^2) in Z[q,q^(−1)][X].
 - `QFraming.qDeRham_not_functorial_diagonal` (non-example): The map D[X_0, X_1] → D[X] sending both coordinates to X (not injective on coordinates) does not commute with q-derivatives: ∇_{q,0}(X_0X_1) = X_1 and ∇_{q,1}(X_0X_1) = X_0, so the image of ∇_q(X_0X_1) is 2X dX, while ∇_q(X^2) = (1 + q)X dX.
+- `QFraming.qDeriv_coefficients` (compatibility): In Z[q,q^(−1)][X], ∇_q(q)=0 and ∇_q(qX²)=q(1+q)X; a ring automorphism allowed to move q does not satisfy this coefficient-linearity contract.
 
 **Acceptance.**
 
-- For E = Z[T^{±1}][[q − 1]] with γ(T) = qT: H^0 = Z[[q − 1]] and H^1 is Z[[q − 1]] (the class of T^{-1}dT) plus the (q − 1)-completed sum over n ∈ Z, n ≠ −1, of Z[[q − 1]]/[n + 1]_q (Scholze §3, p. 6).
-- Reduction modulo q − 1 of qΩ^{•,□}_{Z[[q−1]][X]} is the de Rham complex Z[X] → Z[X]dX.
+- For the Laurent chart E=Z[T^(±1)][[t]], q=1+t, use the logarithmic basis and the derived t-completion of the direct sum of two-term blocks Z[q,q^(−1)] --[n]_q--> Z[q,q^(−1)] indexed by n∈Z. The n=0 block has zero differential and contributes the constant and dlog T classes. For n<0 define [n]_q=(q^n−1)/(q−1). This is an equality of completed complexes; no interchange of H¹ with ordinary completion of a direct sum of torsion modules is asserted.
+- For P=Z[X][[t]] with its t-complete framing, reduction gives Z[X] → Z[X]dX with the ordinary derivative. For an I=(p,t) framing use continuous p-completed special-fibre forms.
 - The Frobenius identity (6) for f = X: ∇(X^p) = [p]_q X^{p−1}.
 
-*Needs:* `PR.6/framed-q-automorphisms`; `AInfCohomology:AI.1/koszul-products-and-cohomology`; `AInfCohomology:AI.1/ideal-decalage-complex`; `mathlib:KaehlerDifferential`; `mathlib:ExteriorAlgebra`.
+*Needs:* `PrismaticCohomology:PR.6/framed-q-automorphisms`; `AInfCohomology:AI.1/koszul-products-and-cohomology`; `AInfCohomology:AI.1/ideal-decalage-complex`; `mathlib:KaehlerDifferential`; `mathlib:ExteriorAlgebra`; `AInfCohomology:AI.1`; `DerivedDeRhamCohomology:DD.2/formal-ordinary-derham`; `DerivedDeRhamCohomology:DD.1`; `DerivedDeRhamCohomology:DD.2`.
 
 ### The accepted targets of PR.6
 
@@ -7997,7 +8006,7 @@ Prismatic crystals and F-crystals on the absolute site, Laurent F-crystals and t
 
 ### Targets added to PR.7 by the whole-roadmap plan
 
-These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first because the accepted targets below cite them after the re-pointing of "Re-pointed prerequisites".
+These targets replace citations of roadmaps that this one cannot build on (see "Scope and ownership"). They come first as proposed suppliers. The inherited targets below still carry their original citations; the replacement table is a pending reconciliation, not an applied graph edit.
 
 <a id="prismaticcohomology-pr-7-beilinson-fibre-square-input"></a>
 #### The Beilinson fibre square on syntomic complexes (named input)
@@ -8011,17 +8020,18 @@ For a commutative ring R write Q_p(n)(R) = Z_p(n)(R)[1/p] for the syntomic compl
 - R p-torsion-free and quasisyntomic in (i); quasiregular semiperfectoid in (ii); n ≥ 0 in (i), n > 0 in (ii).
 - The order of operations in (−)_{Q_p} matters: complete first, then invert p.
 - This roadmap does not prove the statement: the proof constructs the square from the pullback square TC(R; Q_p) → TC(R/p; Q_p) over HC^-(R; Q_p) → HP(R; Q_p) and the motivic filtrations of Bhatt–Morrow–Scholze, which no roadmap below this one in the upstream order provides; the gap 'Trace-theoretic proof of the Beilinson fibre square' records it.
+- Quasisyntomic includes p-adic completeness and bounded torsion as in DD.5. AMMN qSyn_Zp here is the p-torsion-free subcategory. A_crys(R/p) ≃ LΩ_R and the comparison between trace-defined and prismatic syntomic objects are interfaces recorded as gaps until supplied in this tier.
 
-**Proof sketch.**
+**Construction or proof.**
 
 1. Outline of the source proof, for the record of the named input: for R quasiregular semiperfectoid the bottom row of the TC/HC^-/HP square is even, so τ_{[2n−1, 2n]} of the square is again a pullback; by the definition of Z_p(n) through the motivic filtration and the description of π_{2n}HC^- and π_{2n}HP by Hodge-completed derived de Rham cohomology this gives a Hodge-completed version of the square; Hodge completion is removed by left Kan extension from polynomial algebras; general quasisyntomic R follows by unfolding (Antieau–Mathew–Morrow–Nikolaus, Theorem 6.17 with proof).
-2. (ii): Proposition 6.18 of the same paper, using Corollary 6.20 and the Frobenius action of Lemma 6.19; the identification of their Z_p(n) (defined with topological cyclic homology) with the prismatic syntomic complex is Bhatt–Scholze Theorem 14.1 with Bhatt–Morrow–Scholze Theorem 1.12.
+2. (ii): Proposition 6.18 of the same paper, using Corollary 6.20, the Frobenius action of Lemma 6.19 and the scalar-endomorphism argument of Proposition 6.21; the identification of their Z_p(n) (defined with topological cyclic homology) with the prismatic syntomic complex is Bhatt–Scholze Theorem 14.1 with Bhatt–Morrow–Scholze Theorem 1.12.
 3. (iii): for R = O_C, Q_p(n)(O_C) = Q_p(n)[0] by the étale comparison PR.4/syntomic-etale-comparison, Q_p(n)(O_C/p) has H^0 = (A_crys(O_C/p)[1/p])^{φ = p^n} = (B_crys^+)^{φ = p^n} and LΩ_{O_C}/Fil^n ⊗ Q = B_dR^+/Fil^n (DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison).
 
 **Sources.**
 
-- Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, *On the Beilinson fiber square*, Theorem 6.17 with proof, Proposition 6.18, Lemma 6.19, Corollary 6.20 (§6, pp. 44–46 of the arXiv version): Constructs the natural map from the rationalized weight-n syntomic complex of R/p to rationalized derived de Rham cohomology and the pullback square on graded pieces, for p-torsion-free quasisyntomic R; identifies the image of that map for quasiregular semiperfectoid R as the Frobenius eigenspace of slope n.
-- Bhargav Bhatt and Peter Scholze, *Prismatic F-crystals and crystalline Galois representations*, Proposition 6.8, proof: Uses the fibre square of graded pieces and the description of the map as the input of the analytic continuation of Tate twists.
+- [Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, *On the Beilinson fiber square*](https://arxiv.org/abs/2003.12541), §6.3, Theorem 6.17, Proposition 6.18, Lemma 6.19, Corollary 6.20 and Proposition 6.21, pp.44–46 of arXiv:2003.12541v2: Constructs the natural map from the rationalized weight-n syntomic complex of R/p to rationalized derived de Rham cohomology and the pullback square on graded pieces, for p-torsion-free quasisyntomic R; identifies the image of that map for quasiregular semiperfectoid R as the Frobenius eigenspace of slope n.
+- [Bhargav Bhatt and Peter Scholze, *Prismatic F-crystals and crystalline Galois representations*](https://arxiv.org/abs/2106.14735v2), Proposition 6.8 and proof, pp.22–24 of arXiv:2106.14735v2: Uses the fibre square of graded pieces and the description of the map as the input of the analytic continuation of Tate twists.
 
 **Acceptance.**
 
@@ -8029,30 +8039,31 @@ For a commutative ring R write Q_p(n)(R) = Z_p(n)(R)[1/p] for the syntomic compl
 - For n = 0 the third term vanishes and the square says Q_p(0)(R) ≃ Q_p(0)(R/p).
 - Consumed exactly once: PR.7/tate-twist-analytic-continuation, steps 2–3.
 
-*Needs:* `PR.4/syntomic-complex`; `PR.4/syntomic-etale-comparison`; `PR.2/qrsp-prism`; `DerivedDeRhamCohomology:DD.4/qrsp-pd-derham`; `DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison`.
+*Needs:* `PrismaticCohomology:PR.4/syntomic-complex`; `PrismaticCohomology:PR.4/syntomic-etale-comparison`; `PrismaticCohomology:PR.2/qrsp-prism`; `DerivedDeRhamCohomology:DD.4/qrsp-pd-derham`; `DerivedDeRhamCohomology:DD.4/rational-hodge-period-comparison`.
 
 <a id="prismaticcohomology-pr-7-fargues-fontaine-slope-zero-input"></a>
 #### Triviality of the slope-zero bundle of a weakly admissible module (named input)
 
 `PR.7/fargues-fontaine-slope-zero-input` (theorem).
 
-Let C be a complete algebraically closed extension of Q_p, A_inf = W(O_C^♭), X_FF the Fargues–Fontaine curve of C^♭ (the adic curve of Tau Ceti's AdicSpaces roadmap, Layer 6) and ℛ the Robba ring of A_inf (the extended Robba ring of the Berkeley lectures). (i) The category of φ-modules over ℛ is equivalent to the category of vector bundles on X_FF, compatibly with tensor products and duals. (ii) For a weakly admissible filtered φ-module (D, φ_D, Fil^•) over a complete discretely valued K ⊂ C with perfect residue field, the bundle E(D, φ_D, Fil^•) obtained from E(D, φ_D) by modification at ∞ along the B_dR^+-lattice Fil^0(D_K ⊗_K B_dR) is semistable of slope 0. (iii) A semistable vector bundle of slope 0 on X_FF is trivial, i.e. isomorphic to O_X^r. Consequently the φ-module over ℛ attached to a weakly admissible (D, φ_D, Fil^•) is trivial: it has a φ-fixed basis. Within this roadmap the statement is a named input of PR.7/weakly-admissible-extension-over-ainf; its proof (the classification of vector bundles on X_FF) lies outside the roadmaps this roadmap builds on.
+Let K be complete discretely valued of characteristic zero with perfect residue field k, C the completion of a chosen algebraic closure of K, F=C^♭ and E=Q_p. Let X_sch be the schematic Fargues–Fontaine curve of F with the untilt point ∞ determined by C, and ℛ the Robba ring of FF Definition 1.8.1. The named input comprises: (i) vector bundles on X_sch correspond to Frobenius-equivariant analytic bundles on Y through GAGA (FF Theorem 11.3.1), and these correspond to finite free ℛ-modules with invertible semilinear φ (Corollary 11.2.22); (ii) for a weakly admissible filtered φ-module D over K_0=W(k)[1/p], with D_K=D⊗_(K_0)K, the modification of E(D) at ∞ defined by the B_dR^+-lattice Fil^0(D_K⊗_K B_dR) is semistable of slope zero (Proposition 10.5.6); and (iii) every slope-zero semistable bundle on X_sch is O_(X_sch)^r (Theorem 8.2.10(1)). Consequently its Robba φ-module has a φ-fixed basis. Transport to the adic quotient curve supplied by AdicSpaces requires the analytic/schematic dictionary, point ∞, Robba-ring normalization and construction matching specified in the gap. These are named inputs for PR.7/weakly-admissible-extension-over-ainf, rather than a supplied classification theorem of AdicSpaces.
 
 **Hypotheses.**
 
-- C algebraically closed: (iii) fails over a non-algebraically-closed perfectoid field without Galois descent.
-- Weak admissibility in the sense of PadicHodgeTheory:R06.2/weak-admissibility, with the filtration on D ⊗_{W(k), φ} K as in the consumer.
-- This roadmap does not prove the statement; the gap 'Classification of vector bundles on the Fargues–Fontaine curve' records it.
+- C is the completed algebraic closure of K in the source of the weak-admissibility assertion; the algebraically closed tilt is essential for the slope classification.
+- Use the usual filtered φ-module convention D_K=D⊗_(K_0)K and N=0. The Frobenius-twisted scalar convention of the prismatic consumer must be matched explicitly, not identified silently. R06.2 presently has a finite-extension field range; its perfect-residue-field extension is a precise supplier request.
+- The schematic curve, its untilt point and bundles are part of this named interface. AdicSpaces supplies only the adic quotient construction. GAGA and compatibility of the period modification with the particular Robba module of the consumer remain recorded proof/construction gaps.
 
-**Proof sketch.**
+**Construction or proof.**
 
-1. Outline of the source proofs, for the record of the named input: (i) by Fargues–Fontaine Corollary 11.2.22, gluing φ-modules over the Robba ring along the Frobenius quotient of the punctured open disc; (ii) by Proposition 10.5.6, computing degrees of sub-bundles through the Hodge and Newton polygons; (iii) by Theorem 8.2.10 (1), the slope-zero case of the classification of vector bundles by slopes.
-2. Consequence: combine (i)–(iii); the φ-fixed basis of the trivial bundle is a φ-fixed basis of the φ-module.
+1. Use FF Theorem 11.3.1 (pp.330–331) to pass from schematic bundles to analytic Frobenius-equivariant bundles, then Corollary 11.2.22 (p.328) for the Robba-module equivalence. Specify the radius normalization and tensor-compatible dictionary in the supplier interface.
+2. FF Proposition 10.5.6 (p.290), under the Chapter 10 setup (p.264), identifies the Harder–Narasimhan filtrations of the filtered module and its modified bundle. Weak admissibility gives slope zero. FF Theorem 8.2.10(1) (p.238) then trivializes this schematic bundle.
+3. Under the equivalence the trivial rank-r bundle is the rank-r module with its standard φ, so it has a φ-fixed basis. To use this on PR.7/weakly-admissible-extension-over-ainf one must identify that consumer’s analytic continuation with this modification; BS23-FCRYS §6.4 p.26 asserts the matching and the inherited packet already records its proof as a gap.
 
 **Sources.**
 
-- Laurent Fargues and Jean-Marc Fontaine, *Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Corollary 11.2.22, Proposition 10.5.6, Theorem 8.2.10 (1), as cited in Bhatt–Scholze, Prismatic F-crystals, §6.4: The φ-module/vector bundle dictionary over the Robba ring, the slope-zero semistability of the bundle of a weakly admissible filtered φ-module, and the triviality of semistable slope-zero bundles; the locators are those the F-crystals paper prints.
-- Bhargav Bhatt and Peter Scholze, *Prismatic F-crystals and crystalline Galois representations*, Section 6.4, proof of essential surjectivity, second paragraph: Applies the three results to show that the φ-module over the Robba ring attached to a weakly admissible module is trivial.
+- [Laurent Fargues and Jean-Marc Fontaine, *Courbes et fibrés vectoriels en théorie de Hodge p-adique*](https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf), Theorem 8.2.10(1), p.238; Chapter 10 setup, p.264; Proposition 10.5.6, p.290; Corollary 11.2.22, pp.327–328; Theorem 11.3.1, pp.330–331 (free author manuscript): The first two slope statements concern the schematic curve. GAGA supplies the missing bridge to the analytic Frobenius-equivariant bundle category used by the Robba dictionary. The perfect-residue-field hypothesis is explicitly in the Chapter 10 setup.
+- [Bhargav Bhatt and Peter Scholze, *Prismatic F-crystals and crystalline Galois representations*](https://arxiv.org/abs/2106.14735v2), §6.4, proof of essential surjectivity, second paragraph and footnotes 12–13, p.26 of arXiv:2106.14735v2: Applies the three results to show that the φ-module over the Robba ring attached to a weakly admissible module is trivial.
 
 **Acceptance.**
 
@@ -8060,7 +8071,7 @@ Let C be a complete algebraically closed extension of Q_p, A_inf = W(O_C^♭), X
 - For D = D_cris(V) of a crystalline representation V (for instance V = Q_p(1), D = K_0 e with φ(e) = p^{-1}e and Fil^{-1} = D_K, Fil^0 = 0), the modified bundle is V ⊗_{Q_p} O_X, trivial of slope 0, as (ii)–(iii) predict.
 - Consumed exactly once: PR.7/weakly-admissible-extension-over-ainf, steps 1–2.
 
-*Needs:* `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`; `PadicHodgeTheory:R06.2/weak-admissibility`; `PadicHodgeTheory:P7/extended-robba-ring-with-galois-action`.
+*Needs:* `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`; `PadicHodgeTheory:R06.2/weak-admissibility`; `PadicHodgeTheory:P7/extended-robba-ring-with-galois-action`; `PadicHodgeTheory:R06.2`; `PadicHodgeTheory:P7`.
 
 ### The accepted targets of PR.7
 
@@ -11664,76 +11675,92 @@ Direct prerequisites: `PrismaticCohomology:PR.8/log-hodge-tate-comparison`, `Pri
 Sources: K1, Appendix A.1, Example (2) (p. 50) (Cartier type of semistable models.); K1, §8, Theorem 8.1 (p. 45) (The semistable chart over O_C.).
 
 
-## Re-pointed prerequisites and layer edges
+## Proposed prerequisite and layer-edge replacements
 
-The accepted targets keep their statements. Their prerequisites change as follows, and the layer edges of the atlas follow.
+The following tables are proposals, not changes to the retained packets or the atlas. Replacements must be consumer-specific and meet the corrected hypotheses. R1 requires the formal-QCoh interface; R2 requires the completed and infinite-coordinate framing interfaces; R3–R4 retain named proof and construction-matching gaps. No claim of dependency closure follows from replacing a roadmap name by a named input.
 
-- **R1.** PR.5 cites LanglandsParameterStacks:LP1 ten times for quasi-coherent and perfect complexes on stacks, pullback, affine direct image and descent. LanglandsParameterStacks is outside the Caraiani–Newton order, so a tier-13 roadmap cannot build on it (WORKERS.md, Upstream tiers). PR.5 owns the generic notion: PR.5/quasi-coherent-complexes-on-prestacks, PR.5/flat-descent-for-quasi-coherent-complexes and PR.5/affine-direct-image-and-base-change. In the accepted part, replace LanglandsParameterStacks:LP1 by these three nodes in the prerequisites of PR.5/generalized-cartier-divisor, cartier-witt-stack, wcart-quotient-presentation, prism-point-of-wcart, wcart-fibre-products-of-prisms, quasi-coherent-complexes-on-wcart, prismatic-crystals-on-wcart, hodge-tate-divisor, sen-operator and sen-operator-classification, and drop the request to LP1. Groupoid stacks and stackification stay with DiamondsAndVStacks:D0 and SchemeAndStackFoundations:SF.1 (lower tiers). LP1 and LP4 import D(X) from PR.5.
-- **R2.** PR.6 cites QWittVectors:QW.6 four times for the framed q-automorphisms, q-derivatives and their Koszul complex (RT-AREA-etale/28 asked for one owner). QWittVectors is outside the Caraiani–Newton order. PR.6 is the single owner of the framed q-de Rham machinery, in the general form over I = (q − 1) or (p, q − 1): PR.6/framed-q-automorphisms and PR.6/q-derivations-and-their-koszul-complex. Replace QWittVectors:QW.6 by these nodes in PR.6/framed-q-pd-datum, gamma-extension-to-q-pd-envelope, framed-q-de-rham-complex and q-de-rham-prismatic-comparison-zp, and drop the request to QW.6. QWittVectors QW.6 (the Λ-ring case D = A[[q − 1]], I = (q − 1)) and HabiroCohomologyFoundations HQ.1 import from PR.6. This replaces the accepted part's proposal to split a framing prefix out of QW.6.
-- **R3.** PR.7/tate-twist-analytic-continuation cites RefinedTraceMethods:RT.3b and RT.6 for the Beilinson fibre square, and the atlas draws the stage edges RT.3b → PR.7 and RT.6 → PR.7. RefinedTraceMethods is outside the Caraiani–Newton order, and its proof of the square needs topological cyclic homology. Replace both citations by the named input PR.7/beilinson-fibre-square-input (stated for the prismatic syntomic complexes of PR.4, with the gap recording the trace-theoretic proof), drop the two requests and remove the stage edges RT.3b → PR.7 and RT.6 → PR.7 from PR.7's requires. RT.3b proves the named input and imports PR.4's syntomic complexes for it.
-- **R4.** PR.7/weakly-admissible-extension-over-ainf cites VectorBundlesAndIsocrystals:VB2:classification and its Dieudonné–Manin node for three Fargues–Fontaine results. VectorBundlesAndIsocrystals is outside the Caraiani–Newton order and FarguesFontaineDiamonds is a higher tier; Tau Ceti's AdicSpaces Layer 6 constructs only the curve. Replace both citations by the named input PR.7/fargues-fontaine-slope-zero-input, with the gap recording the classification of vector bundles on the curve, and drop the request to VB2:classification.
+- **R1.** PR.5 cites LanglandsParameterStacks:LP1 ten times for quasi-coherent and perfect complexes on stacks, pullback, affine direct image and descent. LanglandsParameterStacks is outside the Caraiani–Newton order, so a tier-13 roadmap cannot build on it (WORKERS.md, Upstream tiers). PR.5 owns the generic notion: PR.5/quasi-coherent-complexes-on-prestacks, PR.5/flat-descent-for-quasi-coherent-complexes and PR.5/affine-direct-image-and-base-change. In the accepted part, replace LanglandsParameterStacks:LP1 by these three nodes in the prerequisites of PR.5/generalized-cartier-divisor, cartier-witt-stack, wcart-quotient-presentation, prism-point-of-wcart, wcart-fibre-products-of-prisms, quasi-coherent-complexes-on-wcart, prismatic-crystals-on-wcart, hodge-tate-divisor, sen-operator and sen-operator-classification, and drop the request to LP1. Groupoid stacks and stackification stay with DiamondsAndVStacks:D0 and SchemeAndStackFoundations:SF.1 (lower tiers). LP1 and LP4 import D(X) from PR.5. The replacement must be consumer-specific: the flat affine node is not an arbitrary nonflat formal pushforward theorem. Preserve the formal-QCoh gap until its interface is supplied.
+
+- **R2.** PR.6 cites QWittVectors:QW.6 four times for the framed q-automorphisms, q-derivatives and their Koszul complex (RT-AREA-etale/28 asked for one owner). QWittVectors is outside the Caraiani–Newton order. PR.6 is the single owner of the framed q-de Rham machinery, in the general form over I = (q − 1) or (p, q − 1): PR.6/framed-q-automorphisms and PR.6/q-derivations-and-their-koszul-complex. Replace QWittVectors:QW.6 by these nodes in PR.6/framed-q-pd-datum, gamma-extension-to-q-pd-envelope, framed-q-de-rham-complex and q-de-rham-prismatic-comparison-zp, and drop the request to QW.6. QWittVectors QW.6 (the Λ-ring case D = A[[q − 1]], I = (q − 1)) and HabiroCohomologyFoundations HQ.1 import from PR.6. This replaces the accepted part's proposal to split a framing prefix out of QW.6. This replacement is conditional on the completed-topology, quotient-completeness and infinite-coordinate interfaces; do not withdraw QW.6’s old request before checking each consumer range.
+
+- **R3.** PR.7/tate-twist-analytic-continuation cites RefinedTraceMethods:RT.3b and RT.6 for the Beilinson fibre square, and the atlas draws the stage edges RT.3b → PR.7 and RT.6 → PR.7. RefinedTraceMethods is outside the Caraiani–Newton order, and its proof of the square needs topological cyclic homology. Replace both citations by the named input PR.7/beilinson-fibre-square-input (stated for the prismatic syntomic complexes of PR.4, with the gap recording the trace-theoretic proof), drop the two requests and remove the stage edges RT.3b → PR.7 and RT.6 → PR.7 from PR.7's requires. RT.3b proves the named input and imports PR.4's syntomic complexes for it. Naming a sourced theorem does not supply its proof in the allowed upstream tier; retain its named-input proof and construction-matching gaps.
+
+- **R4.** PR.7/weakly-admissible-extension-over-ainf cites VectorBundlesAndIsocrystals:VB2:classification and its Dieudonné–Manin node for three Fargues–Fontaine results. VectorBundlesAndIsocrystals is outside the Caraiani–Newton order and FarguesFontaineDiamonds is a higher tier; Tau Ceti's AdicSpaces Layer 6 constructs only the curve. Replace both citations by the named input PR.7/fargues-fontaine-slope-zero-input, with the gap recording the classification of vector bundles on the curve, and drop the request to VB2:classification. Naming a sourced theorem does not supply its proof in the allowed upstream tier; retain its named-input proof and construction-matching gaps.
+
 - **R5.** The atlas draws the stage edge HodgeTateAndCanonicalSubgroups:T6:log-sites → PR.8 (tier 16 → tier 13). No node of the accepted PR.8 packet cites T6: its revision planned the noetherian fs log adic foundations it needs inside PR.8 (gap "Supplier hypotheses and interface extensions" of that packet). Remove T6:log-sites from PR.8's requires; T6:log-sites imports the log adic foundations from PR.8 instead.
-- **R6.** The accepted PR.8 packet cites the stages PR.0–PR.7 by 39 bare stage ids, where protocol section 3 wants node ids wherever a node exists. Rows 1–40 are the assembly table (rows 37 and 40 are already resolved in the accepted revision), and row 41 adds the one citation that table missed. Every proposed replacement id exists in the accepted PR.0–PR.7 packet; rows 27 and 31 are decided here, and row 5 has no supplying node. Apply the map below to the prerequisites of the PR.8 nodes when the PR.8 packet is next revised.
+
+- **R6.** The retained PR.8 packet has 39 bare PR.0–PR.7 prerequisite occurrences. This is a candidate replacement table, not an applied or fully justified graph. Rows 37 and 40 are already resolved; row 41 supplies the omitted PR.5 occurrence. Row 5 has no ordinary nonregular envelope supplier, and rows 27 and 31 require corrections described in their confidence fields. Apply only consumer-specific justified replacements. Row 5 remains blocked. Rows 27 and 31 were corrected in review: ordinary QRSP is not a replacement for the existing log-QRSP adapter, and initial-log-prism-qrsp actually uses envelopes and BS22 Proposition 7.10. All other entries are candidates; no entries have been applied to the retained packet.
+
+| Row | Consumer | Stage | Candidate supplier nodes | Boundary |
+| --- | --- | --- | --- | --- |
+| 1 | `PrismaticCohomology:PR.8/delta-log-free` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/delta-ring-category`; `PrismaticCohomology:PR.0/free-delta-ring`; `PrismaticCohomology:PR.0/delta-localization-criterion`; `PrismaticCohomology:PR.0/delta-completion-unique-fg` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 2 | `PrismaticCohomology:PR.8/delta-log-completion-etale` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/delta-etale-extension` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 3 | `PrismaticCohomology:PR.8/prelog-prism` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/prism`; `PrismaticCohomology:PR.0/prism-category`; `PrismaticCohomology:PR.0/rigidity-prism-ideal`; `PrismaticCohomology:PR.0/bounded-prism-complete-flatness` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 4 | `PrismaticCohomology:PR.8/standard-log-prisms` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/prism-category`; `PrismaticCohomology:PR.0/ainf-prism`; `PrismaticCohomology:PR.0/perfect-prism-properties`; `PrismaticCohomology:PR.0/crystalline-prism`; `PrismaticCohomology:PR.0/breuil-kisin-prism`; `PrismaticCohomology:PR.0/rank-one-elements` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 5 | `PrismaticCohomology:PR.8/prelog-prismatic-envelope` | `PrismaticCohomology:PR.0` | No supplier | blocked: nonregular envelope existence is not supplied by the regular envelope theorem or by animated delta-ring carriers alone |
+| 6 | `PrismaticCohomology:PR.8/envelope-flatness-smooth` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/regular-prismatic-envelopes`; `PrismaticCohomology:PR.0/complete-regular-sequence`; `PrismaticCohomology:PR.0/bounded-prism-complete-flatness` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 7 | `PrismaticCohomology:PR.8/perfectoid-monoid` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/ainf-prism` | probable |
+| 8 | `PrismaticCohomology:PR.8/perfect-log-prism` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/prism-category`; `PrismaticCohomology:PR.0/prism-perfection`; `PrismaticCohomology:PR.0/ainf-prism`; `PrismaticCohomology:PR.0/rank-one-elements` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 9 | `PrismaticCohomology:PR.8/perfect-log-prisms-perfectoid` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings`; `PrismaticCohomology:PR.0/ainf-prism`; `PrismaticCohomology:PR.0/perfect-delta-rings`; `PrismaticCohomology:PR.0/p-torsion-freeness-criteria` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 10 | `PrismaticCohomology:PR.8/smooth-chart-covers` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/regular-prismatic-envelopes`; `PrismaticCohomology:PR.0/bounded-prism-complete-flatness` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 11 | `PrismaticCohomology:PR.8/hodge-tate-group-lemma` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/hodge-tate-comparison`; `PrismaticCohomology:PR.1/cech-alexander-computes-cohomology` | probable |
+| 12 | `PrismaticCohomology:PR.8/hodge-tate-group-lemma` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/regular-prismatic-envelopes`; `PrismaticCohomology:PR.0/bounded-prism-complete-flatness` | probable |
+| 13 | `PrismaticCohomology:PR.8/delta-log-crystalline-vs-log-crystalline` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/pd-envelope-complete-flatness`; `PrismaticCohomology:PR.0/pd-envelope-as-delta-envelope` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 14 | `PrismaticCohomology:PR.8/log-prismatic-site` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/relative-prismatic-site`; `PrismaticCohomology:PR.1/change-of-topology` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 15 | `PrismaticCohomology:PR.8/log-prismatic-cohomology` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/prismatic-to-etale-morphism`; `PrismaticCohomology:PR.1/relative-prismatic-cohomology`; `PrismaticCohomology:PR.1/hodge-tate-cohomology`; `PrismaticCohomology:PR.1/frobenius-on-prismatic-cohomology` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 16 | `PrismaticCohomology:PR.8/absolute-log-prismatic-site` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/prismatic-structure-sheaf`; `PrismaticCohomology:PR.5/absolute-prismatic-site` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 17 | `PrismaticCohomology:PR.8/log-prismatic-weak-base-change` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/base-change-finite-tor-amplitude` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 18 | `PrismaticCohomology:PR.8/log-prismatic-etale-localization` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/etale-localization` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 19 | `PrismaticCohomology:PR.8/log-hodge-tate-map` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/hodge-tate-cohomology`; `PrismaticCohomology:PR.1/bockstein-differential`; `PrismaticCohomology:PR.1/hodge-tate-comparison-map` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 20 | `PrismaticCohomology:PR.8/cartier-type-cosimplicial-frobenius` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma` | probable |
+| 21 | `PrismaticCohomology:PR.8/local-crystalline-comparison` | `PrismaticCohomology:PR.1` | `PrismaticCohomology:PR.1/relative-frobenius-cosimplicial-lemma`; `PrismaticCohomology:PR.1/crystalline-comparison`; `PrismaticCohomology:PR.0/pd-envelope-as-delta-envelope` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 22 | `PrismaticCohomology:PR.8/log-q-pd-triple` | `PrismaticCohomology:PR.6` | `PrismaticCohomology:PR.6/q-divided-power-operation`; `PrismaticCohomology:PR.6/q-pd-pair`; `PrismaticCohomology:PR.6/q-pd-homological-properties`; `PrismaticCohomology:PR.6/q-pd-envelope`; `PrismaticCohomology:PR.6/q-pd-envelope-base-change`; `PrismaticCohomology:PR.6/ainf-q-pd-pair` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 23 | `PrismaticCohomology:PR.8/log-q-crystalline-site` | `PrismaticCohomology:PR.6` | `PrismaticCohomology:PR.6/q-crystalline-site`; `PrismaticCohomology:PR.6/q-crystalline-cech-alexander` | probable |
+| 24 | `PrismaticCohomology:PR.8/log-q-crystalline-vs-crystalline` | `PrismaticCohomology:PR.6` | `PrismaticCohomology:PR.6/q-pd-homological-properties`; `PrismaticCohomology:PR.6/q-crystalline-crystalline-comparison` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 25 | `PrismaticCohomology:PR.8/log-q-de-rham-complex` | `PrismaticCohomology:PR.6` | `PrismaticCohomology:PR.6/framed-q-pd-datum`; `PrismaticCohomology:PR.6/gamma-extension-to-q-pd-envelope`; `PrismaticCohomology:PR.6/framed-q-de-rham-complex`; `PrismaticCohomology:PR.6/q-de-rham-comparison` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 26 | `PrismaticCohomology:PR.8/semistable-aomega-comparison` | `PrismaticCohomology:PR.6` | `PrismaticCohomology:PR.6/ainf-q-pd-pair`; `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; `PrismaticCohomology:PR.6/ainf-omega-comparison` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 27 | `PrismaticCohomology:PR.8/log-qrsp` | `PrismaticCohomology:PR.2` | No supplier | redundant candidate: the node is already an adapter importing DD.6/log-quasiregular-semiperfectoid; DD.5 supplies only the ordinary notion. Trace the ordinary input through DD.6 before removing the old PR.2 stage citation. |
+| 28 | `PrismaticCohomology:PR.8/derived-log-prismatic` | `PrismaticCohomology:PR.2` | `PrismaticCohomology:PR.2/derived-prismatic-cohomology`; `PrismaticCohomology:PR.2/conjugate-filtration`; `PrismaticCohomology:PR.2/derived-prismatic-etale-descent` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 29 | `PrismaticCohomology:PR.8/derived-log-properties` | `PrismaticCohomology:PR.2` | `PrismaticCohomology:PR.2/derived-prismatic-cohomology`; `PrismaticCohomology:PR.2/derived-hodge-tate-comparison`; `PrismaticCohomology:PR.2/derived-prismatic-base-change`; `PrismaticCohomology:PR.2/kunneth-formula` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 30 | `PrismaticCohomology:PR.8/initial-log-prism-qrsp` | `PrismaticCohomology:PR.2` | `PrismaticCohomology:PR.2/qrsp-prism`; `PrismaticCohomology:PR.2/perfectoidization-coconnective`; `PrismaticCohomology:PR.2/perfection-of-prismatic-cohomology`; `PrismaticCohomology:PR.2/connective-perfectoidization-perfectoid` | conditional candidate: these PR.2 nodes supply QRSP and perfection comparisons, but do not alone justify the log envelope construction or its regular-sequence reduction; reconcile with row 31 and the row-5 gap. |
+| 31 | `PrismaticCohomology:PR.8/initial-log-prism-qrsp` | `PrismaticCohomology:PR.0` | `PrismaticCohomology:PR.0/regular-prismatic-envelopes` | conditional candidate, not a complete replacement: the consumer explicitly constructs an envelope and invokes BS22 Proposition 7.10, not only Proposition 7.2. The QRSP regular-sequence reduction must establish this supplier’s complete-flatness/regular-kernel hypotheses; its general semiperfectoid envelope existence also needs the row-5 gap. |
+| 32 | `PrismaticCohomology:PR.8/log-nygaard-filtration` | `PrismaticCohomology:PR.3` | `PrismaticCohomology:PR.3/relative-nygaard-large-quasisyntomic`; `PrismaticCohomology:PR.3/relative-nygaard-filtration`; `PrismaticCohomology:PR.3/nygaard-filtration` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 33 | `PrismaticCohomology:PR.8/log-nygaard-graded` | `PrismaticCohomology:PR.3` | `PrismaticCohomology:PR.3/relative-nygaard-graded-pieces`; `PrismaticCohomology:PR.3/relative-nygaard-large-quasisyntomic` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 34 | `PrismaticCohomology:PR.8/nygaard-hodge-fiber-sequence` | `PrismaticCohomology:PR.5` | `PrismaticCohomology:PR.3/nygaard-hodge-comparison`; `PrismaticCohomology:PR.3/nygaard-completeness` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 35 | `PrismaticCohomology:PR.8/log-l-eta-factorization` | `PrismaticCohomology:PR.3` | `PrismaticCohomology:PR.3/leta-frobenius-factorisation`; `PrismaticCohomology:PR.3/de-rham-comparison-general`; `PrismaticCohomology:PR.0/universal-oriented-prism`; `PrismaticCohomology:PR.1/crystallization-of-oriented-prism` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 36 | `PrismaticCohomology:PR.8/log-frobenius-isogeny` | `PrismaticCohomology:PR.3` | `PrismaticCohomology:PR.3/image-of-frobenius` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 37 | `PrismaticCohomology:PR.8/affine-kummer-etale-comparison` | `PrismaticCohomology:PR.4` | `PrismaticCohomology:PR.4/etale-comparison`; `PrismaticCohomology:PR.4/perfectoid-artin-schreier-witt`; `PrismaticCohomology:PR.4/frobenius-fixed-points` | already resolved: the accepted PR.8 revision no longer cites this stage from this node |
+| 38 | `PrismaticCohomology:PR.8/global-etale-comparison` | `PrismaticCohomology:PR.4` | `PrismaticCohomology:PR.4/etale-comparison-smooth`; `PrismaticCohomology:PR.4/etale-comparison-coefficients`; `PrismaticCohomology:PR.7/laurent-f-crystals-local-systems`; `PrismaticCohomology:PR.7/artin-schreier-riemann-hilbert` | probable |
+| 39 | `PrismaticCohomology:PR.8/laurent-f-crystal` | `PrismaticCohomology:PR.7` | `PrismaticCohomology:PR.7/prismatic-crystal`; `PrismaticCohomology:PR.7/laurent-f-crystal`; `PrismaticCohomology:PR.7/crystal-descent` | candidate supplier; apply only after checking the log consumer proof and all supplier hypotheses |
+| 40 | `PrismaticCohomology:PR.8/laurent-f-crystals-local-systems` | `PrismaticCohomology:PR.7` | `PrismaticCohomology:PR.7/laurent-f-crystals-local-systems`; `PrismaticCohomology:PR.7/crystal-descent`; `PrismaticCohomology:PR.7/artin-schreier-riemann-hilbert` | already resolved: the accepted PR.8 revision no longer cites this stage from this node |
+| 41 | `PrismaticCohomology:PR.8/absolute-log-prismatic-site` | `PrismaticCohomology:PR.5` | `PrismaticCohomology:PR.5/absolute-prismatic-site` | clear (the second stage citation of the node in row 16, not in the assembly table) |
+
 - **R7.** Intra-roadmap layer edges used by node prerequisites but not drawn in the atlas: PR.5 → PR.4, PR.6 → PR.4, PR.4 → PR.8, PR.5 → PR.8, PR.6 → PR.8, PR.7 → PR.8 (all acyclic, as the assembly checked). Declare these six edges in the stages' requires.
-
-The citations of PR.0–PR.7 by PR.8 targets, replaced by targets:
-
-| Row | PR.8 target | Stage cited | Replace by | Confidence |
-| ---: | --- | --- | --- | --- |
-| 1 | `PR.8/delta-log-free` | `PR.0` | `PR.0/delta-ring-category`, `PR.0/free-delta-ring`, `PR.0/delta-localization-criterion`, `PR.0/delta-completion-unique-fg` | clear |
-| 2 | `PR.8/delta-log-completion-etale` | `PR.0` | `PR.0/delta-etale-extension` | clear |
-| 3 | `PR.8/prelog-prism` | `PR.0` | `PR.0/prism`, `PR.0/prism-category`, `PR.0/rigidity-prism-ideal`, `PR.0/bounded-prism-complete-flatness` | clear |
-| 4 | `PR.8/standard-log-prisms` | `PR.0` | `PR.0/prism-category`, `PR.0/ainf-prism`, `PR.0/perfect-prism-properties`, `PR.0/crystalline-prism`, `PR.0/breuil-kisin-prism`, `PR.0/rank-one-elements` | clear |
-| 5 | `PR.8/prelog-prismatic-envelope` | `PR.0` | `PR.0/regular-prismatic-envelopes` | none: no node of PR.0 states prismatic envelopes of non-regular ideals; see the PR.8 coverage record |
-| 6 | `PR.8/envelope-flatness-smooth` | `PR.0` | `PR.0/regular-prismatic-envelopes`, `PR.0/complete-regular-sequence`, `PR.0/bounded-prism-complete-flatness` | clear |
-| 7 | `PR.8/perfectoid-monoid` | `PR.0` | `PR.0/ainf-prism` | probable |
-| 8 | `PR.8/perfect-log-prism` | `PR.0` | `PR.0/prism-category`, `PR.0/prism-perfection`, `PR.0/ainf-prism`, `PR.0/rank-one-elements` | clear |
-| 9 | `PR.8/perfect-log-prisms-perfectoid` | `PR.0` | `PR.0/perfect-prisms-perfectoid-rings`, `PR.0/ainf-prism`, `PR.0/perfect-delta-rings`, `PR.0/p-torsion-freeness-criteria` | clear |
-| 10 | `PR.8/smooth-chart-covers` | `PR.0` | `PR.0/regular-prismatic-envelopes`, `PR.0/bounded-prism-complete-flatness` | clear |
-| 11 | `PR.8/hodge-tate-group-lemma` | `PR.1` | `PR.1/hodge-tate-comparison`, `PR.1/cech-alexander-computes-cohomology` | probable |
-| 12 | `PR.8/hodge-tate-group-lemma` | `PR.0` | `PR.0/regular-prismatic-envelopes`, `PR.0/bounded-prism-complete-flatness` | probable |
-| 13 | `PR.8/delta-log-crystalline-vs-log-crystalline` | `PR.0` | `PR.0/pd-envelope-complete-flatness`, `PR.0/pd-envelope-as-delta-envelope` | clear |
-| 14 | `PR.8/log-prismatic-site` | `PR.1` | `PR.1/relative-prismatic-site`, `PR.1/change-of-topology` | clear |
-| 15 | `PR.8/log-prismatic-cohomology` | `PR.1` | `PR.1/prismatic-to-etale-morphism`, `PR.1/relative-prismatic-cohomology`, `PR.1/hodge-tate-cohomology`, `PR.1/frobenius-on-prismatic-cohomology` | clear |
-| 16 | `PR.8/absolute-log-prismatic-site` | `PR.1` | `PR.1/prismatic-structure-sheaf`, `PR.5/absolute-prismatic-site` | clear |
-| 17 | `PR.8/log-prismatic-weak-base-change` | `PR.1` | `PR.1/base-change-finite-tor-amplitude` | clear |
-| 18 | `PR.8/log-prismatic-etale-localization` | `PR.1` | `PR.1/etale-localization` | clear |
-| 19 | `PR.8/log-hodge-tate-map` | `PR.1` | `PR.1/hodge-tate-cohomology`, `PR.1/bockstein-differential`, `PR.1/hodge-tate-comparison-map` | clear |
-| 20 | `PR.8/cartier-type-cosimplicial-frobenius` | `PR.1` | `PR.1/relative-frobenius-cosimplicial-lemma` | probable |
-| 21 | `PR.8/local-crystalline-comparison` | `PR.1` | `PR.1/relative-frobenius-cosimplicial-lemma`, `PR.1/crystalline-comparison`, `PR.0/pd-envelope-as-delta-envelope` | clear |
-| 22 | `PR.8/log-q-pd-triple` | `PR.6` | `PR.6/q-divided-power-operation`, `PR.6/q-pd-pair`, `PR.6/q-pd-homological-properties`, `PR.6/q-pd-envelope`, `PR.6/q-pd-envelope-base-change`, `PR.6/ainf-q-pd-pair` | clear |
-| 23 | `PR.8/log-q-crystalline-site` | `PR.6` | `PR.6/q-crystalline-site`, `PR.6/q-crystalline-cech-alexander` | probable |
-| 24 | `PR.8/log-q-crystalline-vs-crystalline` | `PR.6` | `PR.6/q-pd-homological-properties`, `PR.6/q-crystalline-crystalline-comparison` | clear |
-| 25 | `PR.8/log-q-de-rham-complex` | `PR.6` | `PR.6/framed-q-pd-datum`, `PR.6/gamma-extension-to-q-pd-envelope`, `PR.6/framed-q-de-rham-complex`, `PR.6/q-de-rham-comparison` | clear |
-| 26 | `PR.8/semistable-aomega-comparison` | `PR.6` | `PR.6/ainf-q-pd-pair`, `PR.6/ainf-omega-comparison-map`, `PR.6/ainf-omega-comparison` | clear |
-| 27 | `PR.8/log-qrsp` | `PR.2` | `DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings` | clear (quasiregular semiperfectoid rings are DD.5's, a lower tier) |
-| 28 | `PR.8/derived-log-prismatic` | `PR.2` | `PR.2/derived-prismatic-cohomology`, `PR.2/conjugate-filtration`, `PR.2/derived-prismatic-etale-descent` | clear |
-| 29 | `PR.8/derived-log-properties` | `PR.2` | `PR.2/derived-prismatic-cohomology`, `PR.2/derived-hodge-tate-comparison`, `PR.2/derived-prismatic-base-change`, `PR.2/kunneth-formula` | clear |
-| 30 | `PR.8/initial-log-prism-qrsp` | `PR.2` | `PR.2/qrsp-prism`, `PR.2/perfectoidization-coconnective`, `PR.2/perfection-of-prismatic-cohomology`, `PR.2/connective-perfectoidization-perfectoid` | clear |
-| 31 | `PR.8/initial-log-prism-qrsp` | `PR.0` | `PR.2/qrsp-prism` | clear (the initial prism of a quasiregular semiperfectoid ring, Bhatt–Scholze Proposition 7.2, is PR.2's; no envelope of PR.0 is used) |
-| 32 | `PR.8/log-nygaard-filtration` | `PR.3` | `PR.3/relative-nygaard-large-quasisyntomic`, `PR.3/relative-nygaard-filtration`, `PR.3/nygaard-filtration` | clear |
-| 33 | `PR.8/log-nygaard-graded` | `PR.3` | `PR.3/relative-nygaard-graded-pieces`, `PR.3/relative-nygaard-large-quasisyntomic` | clear |
-| 34 | `PR.8/nygaard-hodge-fiber-sequence` | `PR.5` | `PR.3/nygaard-hodge-comparison`, `PR.3/nygaard-completeness` | clear |
-| 35 | `PR.8/log-l-eta-factorization` | `PR.3` | `PR.3/leta-frobenius-factorisation`, `PR.3/de-rham-comparison-general`, `PR.0/universal-oriented-prism`, `PR.1/crystallization-of-oriented-prism` | clear |
-| 36 | `PR.8/log-frobenius-isogeny` | `PR.3` | `PR.3/image-of-frobenius` | clear |
-| 37 | `PR.8/affine-kummer-etale-comparison` | `PR.4` | `PR.4/etale-comparison`, `PR.4/perfectoid-artin-schreier-witt`, `PR.4/frobenius-fixed-points` | already resolved: the accepted PR.8 revision no longer cites this stage from this node |
-| 38 | `PR.8/global-etale-comparison` | `PR.4` | `PR.4/etale-comparison-smooth`, `PR.4/etale-comparison-coefficients`, `PR.7/laurent-f-crystals-local-systems`, `PR.7/artin-schreier-riemann-hilbert` | probable |
-| 39 | `PR.8/laurent-f-crystal` | `PR.7` | `PR.7/prismatic-crystal`, `PR.7/laurent-f-crystal`, `PR.7/crystal-descent` | clear |
-| 40 | `PR.8/laurent-f-crystals-local-systems` | `PR.7` | `PR.7/laurent-f-crystals-local-systems`, `PR.7/crystal-descent`, `PR.7/artin-schreier-riemann-hilbert` | already resolved: the accepted PR.8 revision no longer cites this stage from this node |
-| 41 | `PR.8/absolute-log-prismatic-site` | `PR.5` | `PR.5/absolute-prismatic-site` | clear (the second stage citation of the node in row 16, not in the assembly table) |
 
 ## Named inputs and open boundaries
 
-- **Trace-theoretic proof of the Beilinson fibre square** (needed by `PR.7/beilinson-fibre-square-input`). Antieau–Mathew–Morrow–Nikolaus prove Theorem 6.17 and Proposition 6.18 through the pullback square TC → TC(R/p) over HC^- → HP and the motivic filtrations of Bhatt–Morrow–Scholze; in the atlas these belong to RefinedTraceMethods RT.3b and RT.6, which are not among the roadmaps this one may build on (they are outside the Caraiani–Newton order). No prismatic proof is known to this plan. The statement is therefore a named input of PR.7/tate-twist-analytic-continuation; RT.3b proves it, and imports the syntomic complexes of PR.4 to do so.
-- **Classification of vector bundles on the Fargues–Fontaine curve** (needed by `PR.7/fargues-fontaine-slope-zero-input`). Fargues–Fontaine Corollary 11.2.22, Proposition 10.5.6 and Theorem 8.2.10 (1) are owned by VectorBundlesAndIsocrystals VB2:classification (outside the Caraiani–Newton order) and by FarguesFontaineDiamonds (a higher tier). Tau Ceti's AdicSpaces Layer 6 constructs the adic curve but not its vector bundles. The three statements are therefore a named input of PR.7/weakly-admissible-extension-over-ainf.
+- **Trace-theoretic proof of the Beilinson fibre square** (needed by `PrismaticCohomology:PR.7/beilinson-fibre-square-input`). Antieau–Mathew–Morrow–Nikolaus prove Theorem 6.17 and Proposition 6.18 through the pullback square TC → TC(R/p) over HC^- → HP and the motivic filtrations of Bhatt–Morrow–Scholze; in the atlas these belong to RefinedTraceMethods RT.3b and RT.6, which are not among the roadmaps this one may build on (they are outside the Caraiani–Newton order). No prismatic proof is known to this plan. The statement is therefore a named input of PR.7/tate-twist-analytic-continuation; RT.3b proves it, and imports the syntomic complexes of PR.4 to do so.
+- **Classification of vector bundles on the Fargues–Fontaine curve** (needed by `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`). The named input uses the schematic curve, FF Theorem 8.2.10(1) and Proposition 10.5.6, as well as the Robba/analytic dictionary of Corollary 11.2.22 and GAGA Theorem 11.3.1. AdicSpaces Layer 6 supplies an adic quotient, not this classification, the untilt point, GAGA or its bundle API. Supply the tensor-compatible schematic/analytic dictionary and identify the Robba module used by the consumer with the modification of its filtered module at ∞; match Frobenius-twisted scalar conventions and Robba-radius conventions. The consumer construction matching was already an inherited gap. These interfaces and the classification proof have no completed lower-tier owner here.
+- **Executable whole-roadmap assembly** (needed by `PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks`, `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`, `PrismaticCohomology:PR.5/affine-direct-image-and-base-change`, `PrismaticCohomology:PR.6/framed-q-automorphisms`, `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`, `PrismaticCohomology:PR.7/beilinson-fibre-square-input`, `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`). The top packet has seven serialized nodes. Its imports field is provenance only: scripts/blueprints.py merge_blueprints and scripts/promote.py do not expand it. A packageable whole-roadmap artifact must serialize or otherwise explicitly consolidate the 369 retained declarations, source/baseline metadata, planets, requests, gaps and source issues. Replacements R1–R7 must be applied to the effective graph and reader; the proposals are not graph mutations.
+- **Formal affine quasi-coherent complexes** (needed by `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`, `PrismaticCohomology:PR.5/affine-direct-image-and-base-change`). For every bounded prism (A,I), supply the equivalence between D(Spf A) defined on ordinary nilpotent test rings and derived (p,I)-complete D(A), compatible with completed scalar change, complete-category colimits and its tensor unit. Then prove pointwise pushforward/base change for flat affine formal charts, including transversal prism charts. Do not infer this from an ordinary DerivedCategory, a completion predicate or all bounded prism charts being affine.
+- **Complete framed and infinite-coordinate q interfaces** (needed by `PrismaticCohomology:PR.6/framed-q-automorphisms`, `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`). The sufficient completed framing hypotheses in framed-q-automorphisms do not establish all the inherited merely p-completely ind-étale cases. Identify the consumer topology (including A_inf (p,ξ) versus (p,q−1)), verify completeness of the quotients used for divisibility, and prove continuity and summability for infinite coordinate sets in completed differential modules. Without these, R2 is conditional and cannot remove the existing supplier request wholesale.
+- **Nonregular prelog prismatic envelopes**. The original R6 row 5 proposed regular-prismatic-envelopes, whose hypotheses require a bounded prism, complete flatness and a completely regular kernel. PR.8/prelog-prismatic-envelope asserts a general nonregular exactified kernel. Neither animated-delta-rings alone nor the regular envelope theorem gives that ordinary envelope and its universal property. Supply a separately justified general envelope target, or change the consumer range and propagate the restriction through its uses; row 5 has no valid replacement. The general semiperfectoid existence in PR.8/initial-log-prism-qrsp is another consumer; its QRSP specialization additionally requires the regular-sequence reduction to meet the regular envelope theorem’s hypotheses.
+- **Beilinson syntomic and derived de Rham interface** (needed by `PrismaticCohomology:PR.7/beilinson-fibre-square-input`). Supply the coherent comparison of the source trace-defined syntomic functor with PR.4’s prismatic syntomic complex and the integral p-completed identification A_crys(R/p)≃LΩ_R for p-torsion-free quasiregular semiperfectoid R. DD.4/qrsp-pd-derham only states the mod-p characteristic-p comparison; it does not itself supply this integral mixed-characteristic identification.
 
-The accepted plans record their own boundaries in full: the 25 of PR.0–PR.7 in Appendix A and the 3 of PR.8 in Appendix B. The arc-topology boundary is among them.
+The earlier part gaps and source issues are retained in Appendices A and B with their historical reviews. They are not discharged by these proposals.
 
 ## Supplier requests of the added targets
 
-- `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`, for `PR.7/fargues-fontaine-slope-zero-input`: The adic Fargues–Fontaine curve X_FF of C^♭ as an adic space with its point ∞ (Layer 6 of the Tau Ceti roadmap), the space on which the bundles of the named input live. Nothing about its vector bundles is requested.
+- `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Use AdicSpaces Layer 6 only for the E=Q_p adic Frobenius quotient curve of C^♭. The point ∞, schematic curve, bundle dictionary and slope classification are separate named-input gaps; they are not claimed to be supplied by this roadmap.
+- `EnhancedDerivedSheaves:E1`, for `PrismaticCohomology:PR.5/quasi-coherent-complexes-on-prestacks`: For the enhanced derived category of modules, identify perfect modules with monoidally dualizable modules, compatible with scalar change and the homotopy-category comparison. The existing enhancement and Perf-action nodes alone do not state this equivalence.
+- `DiamondsAndVStacks:D0`, for `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`: Extend the groupoid stackification interface to space-valued prestacks on ordinary rings, with fpqc sheafification and effective epimorphisms realized by their coherent Čech nerves; or explicitly restrict the consuming descent statements to the already supplied range.
+- `DerivedDeRhamCohomology:DD.1`, for `PrismaticCohomology:PR.5/flat-descent-for-quasi-coherent-complexes`, `PrismaticCohomology:PR.5/affine-direct-image-and-base-change`: For every bounded prism (A,I), supply the equivalence between D(Spf A) defined on ordinary nilpotent test rings and derived (p,I)-complete D(A), compatible with completed scalar change, complete-category colimits and its tensor unit. Then prove pointwise pushforward/base change for flat affine formal charts, including transversal prism charts. Do not infer this from an ordinary DerivedCategory, a completion predicate or all bounded prism charts being affine.
+- `AInfCohomology:AI.1`, for `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`: Finite cochain Koszul complexes of commuting D-linear endomorphisms of a D-module E, in degrees 0 through the number of operators, with coordinate-injective maps and the divided-operator décalage identity. Infinite completed families require separately established summability. The present koszul-products-and-cohomology statement treats automorphisms and scalar-sequence formulas, not arbitrary divided operators.
+- `PadicHodgeTheory:R06.2`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Filtered φ-modules with N=0 and weak admissibility for K complete discretely valued of characteristic zero with arbitrary perfect residue field, with D_K=D⊗_(W(k)[1/p])K; compare the Frobenius-twisted scalar convention of the prismatic consumer. The presently read supplier packet has finite-extension range.
+- `PadicHodgeTheory:P7`, for `PrismaticCohomology:PR.7/fargues-fontaine-slope-zero-input`: Identify the extended Robba ring with FF Definition 1.8.1 for E=Q_p and F=(completed Kbar)^♭, including radius normalization, invertible Frobenius and the tensor-compatible module dictionary; its citation of another Robba owner is not itself the construction-matching proof.
+- `DerivedDeRhamCohomology:DD.2`, for `PrismaticCohomology:PR.6/q-derivations-and-their-koszul-complex`: Continuous relative de Rham forms and their scalar reduction for finite completely étale framed algebras completed at t=q−1 or (p,t); the p-complete smooth interface is used only in its supplied range.
 
-The accepted plans' requests are in the appendices. Under the re-pointing above, their requests to LanglandsParameterStacks LP1, QWittVectors QW.6, RefinedTraceMethods RT.3b and RT.6 and VectorBundlesAndIsocrystals VB2:classification are withdrawn.
+The retained parts’ requests remain in their packets and appendices. Requests to LP1, QW.6, RT.3b/RT.6 and VB2 are candidates for replacement; they have not been withdrawn by this review.
 
 ## The added sources and the red-team findings
 
@@ -11778,7 +11805,7 @@ The sources added to this roadmap (Bhatt–Scholze 2022, Bhatt–Mathew, Anschü
 | PAPER-BHATT-MORROW-SCHOLZE-19/013 | PR.4/log-de-rham-witt-comparison |
 | PAPER-BHATT-MORROW-SCHOLZE-19/014 | PR.4/nearby-cycles-comparison |
 
-Ten red-team findings concern this roadmap. Each is handled in the accepted plan of PR.0–PR.7 (Appendix A, "Ownership decisions and structural proposals", and the targets it names):
+Ten red-team findings concern this roadmap. Each has a historical handling record in the accepted plan of PR.0–PR.7 (Appendix A, "Ownership decisions and structural proposals", and the targets it names):
 
 - RT-AREA-padic-2/4 (high): layers PR.7.
 - RT-AREA-padic-2/6 (high): layers PR.4.
@@ -11791,10 +11818,10 @@ Ten red-team findings concern this roadmap. Each is handled in the accepted plan
 - RT-AREA-padic-2/30 (medium): layers PR.7.
 - RT-AREA-etale/28 (medium): layers PR.6.
 
-Two of these findings are resolved differently here, because the upstream order changed after they were written:
+Two ownership changes are proposed here because of the upstream order; neither is yet applied to the retained graph:
 
-- RT-AREA-etale/28 asked for one owner of the framed q-de Rham machinery, proposing a prefix of QWittVectors QW.6. That owner is now PR.6 (R2).
-- RT-AREA-padic-2/30 (b) asked for a request to the owner of the Fargues–Fontaine dictionary. That request becomes the named input of R4.
+- RT-AREA-etale/28 asked for one owner of the framed q-de Rham machinery, proposing a prefix of QWittVectors QW.6. The intended new owner is PR.6 (R2), pending the completed-framing interface.
+- RT-AREA-padic-2/30 (b) asked for a request to the owner of the Fargues–Fontaine dictionary. R4 proposes a named input; classification and construction-matching proof gaps remain.
 
 ## Downstream consumers
 
@@ -11806,14 +11833,16 @@ Two of these findings are resolved differently here, because the upstream order 
 
 ## References
 
-- Jacob Lurie, *Spectral Algebraic Geometry*, Book manuscript, version of February 2018 (SAG-rootfile.pdf). https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf
-- Bhargav Bhatt and Jacob Lurie, *Absolute prismatic cohomology*, arXiv:2201.06120v1, 16 January 2022 (TeX source read). https://arxiv.org/abs/2201.06120v1
-- Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*, arXiv:1905.08229v4, 12 January 2022, 125 pages; not a freshly acquired publisher PDF. https://arxiv.org/pdf/1905.08229v4
-- Peter Scholze, *Canonical q-deformations in arithmetic geometry*, arXiv:1606.01796 (PDF of the current version); published in Ann. Fac. Sci. Toulouse Math. (6) 26 (2017), no. 5. https://arxiv.org/abs/1606.01796
-- Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, *On the Beilinson fiber square*, arXiv:2003.12541 (TeX source of the current arXiv version, file dated 29 September 2021, read); published in Duke Math. J. 171 (2022). https://arxiv.org/abs/2003.12541
-- Bhargav Bhatt and Peter Scholze, *Prismatic F-crystals and crystalline Galois representations*, arXiv:2106.14735v2 (TeX source read). https://arxiv.org/abs/2106.14735v2
-- Laurent Fargues and Jean-Marc Fontaine, *Courbes et fibrés vectoriels en théorie de Hodge p-adique*, Astérisque 406 (2018); cited through the locators printed in Bhatt–Scholze, Prismatic F-crystals, §6.4 (the book itself was not reopened for this packet). https://webusers.imj-prg.fr/~laurent.fargues/Prepublications.html
-- The further sources of the accepted plans are listed in the appendices, with their versions and the sections read.
+The eight sources below were read at the new targets’ locators in this review. Exact reading scope and file hashes are recorded in the packet. The inherited appendices retain earlier part-review provenance.
+
+- Jacob Lurie, [Spectral Algebraic Geometry](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf). Book manuscript, version of February 2018 (SAG-rootfile.pdf). §§6.2.2–6.2.3, pp.490–493; §6.3.4, pp.505–507, especially Proposition 6.3.4.1 and Corollary 6.3.4.3; Appendix D, Corollary D.6.3.3, p.2177.
+- Bhargav Bhatt and Jacob Lurie, [Absolute prismatic cohomology](https://arxiv.org/abs/2201.06120v1). arXiv:2201.06120v1, 16 January 2022; PDF read in this review. Corollaries 3.2.9–3.2.10 and proof, pp.42–43; §3.3, pp.43–44, including Definitions 3.3.1–3.3.3, Proposition 3.3.5, Lemma 3.3.10 and Corollary 3.3.11. Earlier part readings are historical provenance only.
+- Bhargav Bhatt and Peter Scholze, [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4). arXiv:1905.08229v4, 12 January 2022, 125 pages; not a freshly acquired publisher PDF. Constructions 16.19–16.20, pp.114–115, including footnote 21; the framing, automorphism and divided-derivative arguments. The retained sourceIssues and other part readings are historical provenance.
+- Peter Scholze, [Canonical q-deformations in arithmetic geometry](https://arxiv.org/pdf/1606.01796v1). arXiv:1606.01796v1, 6 June 2016, 18 pages. §3, pp.6–8, and §4, pp.8–9; the framing construction and A_inf example, not certification of the conjectural coordinate-independent theory.
+- Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2). arXiv:2003.12541v2, 29 September 2021; PDF read in this review. §6.3: Construction 6.16, Theorem 6.17 and proof, Proposition 6.18 and proof, Lemma 6.19, Corollary 6.20 and Proposition 6.21, pp.44–46.
+- Bhargav Bhatt and Peter Scholze, [Prismatic F-crystals and crystalline Galois representations](https://arxiv.org/abs/2106.14735v2). arXiv:2106.14735v2; PDF read in this review. Proposition 6.8 with proof, pp.22–24; §6.4, p.26, the essential-surjectivity paragraph and footnotes 12–13 naming the Fargues–Fontaine inputs and construction-matching qualification.
+- Laurent Fargues and Jean-Marc Fontaine, [Courbes et fibrés vectoriels en théorie de Hodge p-adique](https://webusers.imj-prg.fr/~laurent.fargues/Courbe_fichier_principal.pdf). Freely accessible author manuscript; page numbers below are its printed pagination, rather than a certification of the publisher edition.. Definition 1.8.1, p.37 (Robba-ring convention). Theorem 8.2.10(1), p.238; Chapter 10 hypotheses, p.264; Proposition 10.5.6 and its proof, p.290; Corollary 11.2.22 and preceding dictionary, pp.327–328; Theorem 11.3.1 and its proof, pp.330–331.
+- Jacob Lurie, [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf). 18 September 2017 manuscript. Proposition 4.6.1.11 and Remark 4.6.1.12, p.620; Proposition 7.2.4.4 and proof, p.1263.
 
 ## Appendix A. Records of the accepted plan of PR.0–PR.7
 
