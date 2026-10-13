@@ -25908,7 +25908,8 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.5",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9393"
   },
   {
    "id": "BP-HodgeTateAndCanonicalSubgroups",
@@ -28290,8 +28291,9 @@
    ],
    "avoidAccountOf": "BP-ShimuraCompactifications",
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9402"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9402",
+   "finishedAt": "2026-10-13T19:57:18Z"
   },
   {
    "id": "BP-ShimuraData",
@@ -32682,8 +32684,9 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L0",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9248"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9248",
+   "finishedAt": "2026-10-13T19:57:20Z"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L1",
@@ -32729,8 +32732,9 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions--L1",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions--L1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9249"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9249",
+   "finishedAt": "2026-10-13T19:57:23Z"
   },
   {
    "id": "BP-LocallyAnalyticDistributions--L2",
@@ -35612,8 +35616,9 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.3",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9391"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9391",
+   "finishedAt": "2026-10-13T19:57:26Z"
   },
   {
    "id": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
@@ -35659,7 +35664,8 @@
    ],
    "avoidAccountOf": "BP-HilbertModularVarietiesAndShimuraCurves--R18.4",
    "prompt": "research/blueprint/prompts/REV-HilbertModularVarietiesAndShimuraCurves--R18.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9392"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1-2",
@@ -38138,7 +38144,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.2",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9278"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.3",
@@ -38184,8 +38191,9 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.3",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9279"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9279",
+   "finishedAt": "2026-10-13T19:57:29Z"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.4",
@@ -38231,7 +38239,8 @@
    ],
    "avoidAccountOf": "BP-DiophantineApproximationAndTranscendence--DT.4",
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence--DT.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9280"
   },
   {
    "id": "BP-DiophantineApproximationAndTranscendence--DT.5",
@@ -47265,8 +47274,9 @@
     "PKG-AutomorphicSpectralTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7921"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7921",
+   "finishedAt": "2026-10-13T19:57:31Z"
   },
   {
    "id": "PKG-ClassicalAdicEtaleCohomology",
@@ -48276,7 +48286,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondSixOperations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9165"
   },
   {
    "id": "REV-PKG-DiamondSixOperations",
@@ -51856,7 +51867,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ShimuraVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9194"
   },
   {
    "id": "REV-PKG-ShimuraVarieties",
