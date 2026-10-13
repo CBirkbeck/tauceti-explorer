@@ -216519,6 +216519,27 @@
    "reviewReason": null
   },
   {
+   "id": "K2SymbolsBrauer/E-field-symbol-factor-order",
+   "kind": "misprint",
+   "locator": "Exercise III.5.9, printed p.46/PDF page46, author-hosted separate Chapter III PDF (metadata creation 2012-10-10); scoped to this author copy only",
+   "printed": "The exercise identifies the commutator symbol with h(rs)h(s)⁻¹h(r)⁻¹.",
+   "correction": "With {r,s}=[h_ij(r),h_ik(s)] and commutator aba⁻¹b⁻¹, use h(rs)h(r)⁻¹h(s)⁻¹, equivalently h(r)h(s)h(rs)⁻¹. The printed expression is the inverse symbol.",
+   "reason": "Conjugation by h_ik(r) sends w_ij(s)w_ij(−1) to w_ij(rs)w_ij(−r), hence its commutator with h_ij(s) is h(rs)h(r)⁻¹h(s)⁻¹={r,s}. Skew-symmetry and swapping r,s give the equivalent torus cocycle. Matsumoto Lemma5.4(c), p26, independently gives the same positive cocycle for roots e_i−e_j and e_i−e_k whose Cartan pairing is +1. Same-root h(r),h(s) need not commute. As a concrete distinction, Weibel LemmaIII6.3 (printed p51) normalizes the t-adic tame symbol on Q(t) by ∂{t,2}=2; the inverse class maps to1/2, so the reversed expression is not merely an equal 2-torsion class.",
+   "affects": "a stated result",
+   "known": "No verified published correction found; no novelty claim. The author copy was inspected both as text and as a rendered PDF page. The version-of-record exercise was not obtained, so the finding is restricted to the identified author copy.",
+   "searched": [
+    "Author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html opened2026-10-13; its errata link targets Kbook/Kbook.errata.pdf.",
+    "Author-linked https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf opened2026-10-13: HTTP404.",
+    "Author-domain and general web searches for Exercise5.9 and Steinberg torus-factor order, 2026-10-13; no correction established."
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.2-symbols.json",
+   "citation": "Charles A. Weibel, The K-book, Chapter III: K₁ and K₂ of a ring, Author-hosted separate Chapter III PDF, read 2026-10-13; printed chapter pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "K2SymbolsBrauer/E1",
    "kind": "misprint",
    "locator": "III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013",
