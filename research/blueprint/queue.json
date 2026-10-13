@@ -25592,9 +25592,10 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #731"
+   "note": "deliverables arrived from an external worker on issue #731",
+   "finishedAt": "2026-10-13T10:06:20Z"
   },
   {
    "id": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -27808,9 +27809,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R12.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #773"
+   "note": "claimed on GitHub issue #773"
   },
   {
    "id": "REV-ModularCurvesPartII--R12.1",
@@ -51118,7 +51119,8 @@
    ],
    "revisionOf": "PKG-ArithmeticLocallySymmetricSpaces",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticLocallySymmetricSpaces~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9158"
   },
   {
    "id": "REV-PKG-ArithmeticLocallySymmetricSpaces~2",
@@ -51535,7 +51537,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalAdicEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9159"
   },
   {
    "id": "REV-PKG-ClassicalAdicEtaleCohomology",
@@ -52220,8 +52223,9 @@
     "PKG-CrystallineCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CrystallineCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9207"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9207",
+   "finishedAt": "2026-10-13T10:06:21Z"
   },
   {
    "id": "PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -52283,8 +52287,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DeformationAndDerivedPatchingAlgebraPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9164"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9164",
+   "finishedAt": "2026-10-13T10:06:25Z"
   },
   {
    "id": "REV-PKG-DeformationAndDerivedPatchingAlgebraPartII",
@@ -54769,7 +54774,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LefschetzPencilsAndVanishingCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9179"
   },
   {
    "id": "REV-PKG-LefschetzPencilsAndVanishingCycles",
@@ -55857,8 +55863,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SelmerIwasawaCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #8892"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #8892",
+   "finishedAt": "2026-10-13T10:06:30Z"
   },
   {
    "id": "REV-PKG-SelmerIwasawaCohomology",
