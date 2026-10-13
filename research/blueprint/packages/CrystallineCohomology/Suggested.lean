@@ -29,6 +29,10 @@ open Finset
 
 universe u v
 
+#check Perfection.teichmuller₀
+#check Perfection.mk_teichmuller₀
+#check PerfectionMap.id
+
 /-! ## Layer CR.0: Divided powers and universal thickenings -/
 
 namespace PD
@@ -371,6 +375,20 @@ example {p : ℕ} (M : DieudonneComplex.{u} p)
 
 end Crystalline
 
+/-! ## Layer CR.3:duality: Trace and Poincaré duality -/
+
+namespace Crystalline
+
+/-- The trace-normalization sign for the Čech differential `δ + (−1)^r d` and cup
+sign `(−1)^(s t)` on bidegrees `(r,s)` and `(t,u)`: `h^d = cechTraceSign d • [ω]`. -/
+def cechTraceSign (d : ℕ) : ℤ := (-1) ^ (d * (d - 1) / 2)
+
+example : cechTraceSign 0 = 1 := by norm_num [cechTraceSign]
+example : cechTraceSign 1 = 1 := by norm_num [cechTraceSign]
+example : cechTraceSign 2 = -1 := by norm_num [cechTraceSign]
+
+end Crystalline
+
 /-! ## Layer CR.5:log-algebra: Logarithmic structures -/
 
 namespace LogCrystalline
@@ -390,7 +408,7 @@ def IsSaturatedMonoid (P : Type*) [CommMonoid P] : Prop :=
 
 /-- A Kummer homomorphism of integral monoids: injective, and every element of the target has a
 positive power in the image. -/
-def IsKummerHom {P Q : Type*} [CommMonoid P] [CommMonoid Q] (f : P →* Q) : Prop :=
+def IsKummerHom {P Q : Type*} [CommMonoid P] [CommMonoid Q] [IsCancelMul P] [IsCancelMul Q] (f : P →* Q) : Prop :=
   Function.Injective f ∧ ∀ q : Q, ∃ n : ℕ, n ≠ 0 ∧ q ^ n ∈ Set.range f
 
 /-- A prelog ring: a commutative ring `A`, a commutative monoid `P` and a monoid homomorphism
@@ -410,12 +428,14 @@ example (A : Type u) [CommRing A] :
     (⟨CommMonCat.of Aˣ, Units.coeHom A⟩ : PrelogRing.{u, u} A).IsLog := by
   sorry
 
-/-- The prelog ring `ℕ → A`, `n ↦ aⁿ`, attached to an element `a` (the chart of the log structure
-of `a`), is not a log ring when `a` is a unit other than `1` of infinite order. -/
+/-- The prelog chart `n ↦ (−1)ⁿ` is not a log ring, including in characteristic two:
+`0` and `2` are distinct monoid elements with the same unit image `1`. -/
 example (A : Type u) [CommRing A] :
-    ¬ (⟨CommMonCat.of (Multiplicative ℕ), powersHom A (-1 : A)⟩ : PrelogRing.{u, 0} A).IsLog ∨
-      (2 : A) = 0 := by
+    ¬ (⟨CommMonCat.of (Multiplicative ℕ), powersHom A (-1 : A)⟩ : PrelogRing.{u, 0} A).IsLog := by
   sorry
+
+/-- The collision in the preceding negative control persists in characteristic two. -/
+example : (-1 : ZMod 2) ^ 0 = (-1 : ZMod 2) ^ 2 := by norm_num
 
 /-- The free monoid on one generator (written `Multiplicative ℕ`) is fine and saturated. -/
 example : IsFineMonoid (Multiplicative ℕ) ∧ IsSaturatedMonoid (Multiplicative ℕ) := by
@@ -432,6 +452,13 @@ example : IsFineMonoid (Submonoid.closure
 /-- The `n`-th power map of `ℕ` is Kummer for `n ≠ 0`; Kummer fails for the zero map. -/
 example (n : ℕ) (hn : n ≠ 0) : IsKummerHom (powMonoidHom n : Multiplicative ℕ →* Multiplicative ℕ) := by
   sorry
+
+/-- The zero power map fails injectivity on the free monoid, so it is not Kummer. -/
+example : ¬ IsKummerHom (powMonoidHom 0 : Multiplicative ℕ →* Multiplicative ℕ) := by
+  intro h
+  have heq : Multiplicative.ofAdd 0 = Multiplicative.ofAdd 1 := h.1 (by simp)
+  have hnat : (0 : ℕ) = 1 := congrArg Multiplicative.toAdd heq
+  norm_num at hnat
 
 end LogCrystalline
 
@@ -465,26 +492,103 @@ theorem PhiNModule.N_pow_finrank_eq_zero {V : Type*} [AddCommGroup V] [Isocrysta
     D.N ^ Module.finrank K(p, k) V = 0 := by
   sorry
 
+/-- Coefficients of the two-term witness `x ↦ dx` for the signed inclusion
+`C[−1] → C̃`: the two negative signs cancel. Raw right wedge fails this equality. -/
+example : (1 : ℚ) = (-1) * (-1) ∧ (1 : ℚ) ≠ 1 * (-1) := by norm_num
+
+/-- A rational coefficient witness for the direction `N φ = p φ N` at `p=2`:
+`φ(a,b)=(a,2b)`, `N(a,b)=(b,0)`. -/
+example (a b : ℚ) :
+    let φ : ℚ × ℚ → ℚ × ℚ := fun x ↦ (x.1, 2 * x.2)
+    let N : ℚ × ℚ → ℚ × ℚ := fun x ↦ (x.2, 0)
+    N (φ (a, b)) = 2 • φ (N (a, b)) := by
+  simp
+
+/-- The reversed relation fails on the vector `(0,1)` of the same block. -/
+example :
+    let φ : ℚ × ℚ → ℚ × ℚ := fun x ↦ (x.1, 2 * x.2)
+    let N : ℚ × ℚ → ℚ × ℚ := fun x ↦ (x.2, 0)
+    φ (N (0, 1)) ≠ 2 • N (φ (0, 1)) := by
+  norm_num
+
 end LogCrystalline
 
 /-!
-## Targets stated in the README only
+## Definitions and constructions stated in the README
 
-The following targets need carriers that do not exist at the pins and are specified in the
-README with their intended signatures: the universal divided power envelope as a ring, its
-completion and `A_cris` (Layer CR.0); PD schemes, the small, big and étale crystalline sites,
-crystals, isocrystals and F-crystals, PD stratifications and quasi-nilpotent connections
-(Layer CR.1); `Ru_{X/S,*}`, linearization, the PD Poincaré lemma and the de Rham computation
-(Layer CR.2); descent, base change, perfectness, cup products, Künneth, Chern classes, Frobenius
-and weak Lefschetz (Layers CR.3 and CR.3:Frobenius-isogeny); saturation as a functor, strict
-completion, `W_r(M)`, Dieudonné algebras and the saturated, classical and relative de Rham–Witt
-complexes, the crystalline comparison, slope spectral sequence, Nygaard filtration and
-logarithmic Hodge–Witt sheaves (Layer CR.4); the crystalline trace and duality (Layer
-CR.3:duality); log structures on schemes, charts, log smoothness, divisorial log structures and
-log regularity (Layer CR.5:log-algebra); log differentials, log PD envelopes, the log crystalline
-site and log crystalline cohomology (Layer CR.5); Hyodo–Kato complexes, the Hyodo–Kato map,
-convergent and log rigid complexes (Layer CR.6); crystalline coefficients, the Dieudonné crystal,
-Grothendieck–Messing, relative direct images and Gauss–Manin (Layer CR.7).
+The sites, coefficient categories, envelopes, completions and cohomology functors below have their
+intended signatures and APIs in the README. Their carriers are supplied by the mathematical
+constructions there; this file records only the light definitions statable at the pins.
+
+
+Layer CR.0: Additive divided-power candidates; Divided powers from identities on generators;
+Convolution of two divided-power systems; The candidate on the sum of compatible ideals; Divided
+powers on a compatible sum of ideals; Extension of divided powers on a principal ideal; The
+scalar-extension coefficient formula; The additive candidate on a flat extension; Flat extension
+of divided powers; Augmentation of the divided power algebra; Augmentation ideal; Scalar and
+augmentation splitting; Divided power filtration; PD-nilpotent divided power ideals and ordinary
+nilpotence; Canonical divided powers on the ideal generated by p; Compatibility of divided powers
+with a base; Canonical divided powers on the augmentation ideal; Relative divided power polynomial
+algebras; Divided powers on a square-zero extension; Universal base-compatible divided power
+envelope; Completed PD envelopes and the derived-completion comparison; The crystalline period
+ring A_cris of a p-adically complete ring.
+
+Layer CR.1: Schemes with a quasi-coherent PD ideal; Small and big crystalline sites; Morphisms and
+comparisons of crystalline sites; The étale crystalline sites; Structure, quotient and PD-ideal
+sheaves; Quasi-coherent and finite locally free crystals; Rational crystals and nondegenerate
+F-crystals; Universal PD differentials and the PD de Rham complex; Modules with integrable
+connection and their de Rham complexes; PD stratifications on a smooth lift; Integrable
+topologically quasi-nilpotent connections.
+
+Layer CR.2: Enhanced crystalline direct image and global sections; Crystalline linearization along
+a smooth embedding; Linearization in a smooth ambient scheme.
+
+Layer CR.3: The crystalline first Chern class and the hyperplane class; Crystalline cup products;
+Semilinear crystalline Frobenius and linearization.
+
+Layer CR.4: Principal p-décalage on torsion-free complexes; Dieudonné complexes; Saturated
+Frobenius; Verschiebung and the differential; Morphisms of Dieudonné complexes; Bockstein
+reduction of principal p-décalage; Derived p-décalage and completion; Saturation by iterated
+décalage; The Verschiebung filtration; Finite Verschiebung quotient complex; Projection to the
+finite quotient; Restriction between finite quotients; Frobenius on finite quotients; Verschiebung
+on finite quotients; Functorial finite quotients; Completion of a saturated Dieudonné complex;
+Strict Dieudonné complexes; Strict Dieudonné towers; Canonical divided powers on the Verschiebung
+ideal of W_r(R); Dieudonné algebras and multiplicative quotients; Universal saturated de Rham–Witt
+complex; Relative Frobenius–Verschiebung procomplexes; Initial relative de Rham–Witt complex;
+Classical de Rham–Witt complex as the initial V-pro-complex; Continuous relative de Rham–Witt
+complex; Nygaard filtration and divided Frobenius; Logarithmic Hodge–Witt sheaves.
+
+Layer CR.3:duality: Proper smooth crystalline trace; Finite étale crystalline transfer and trace;
+Proper smooth crystalline Gysin maps; Diagonal class and crystalline coevaluation.
+
+Layer CR.5:log-algebra: Prelog rings; Étale log structures; Associated log structures; Inverse
+image log structures; Characteristic monoids; Integral monoids; Fine monoids; Saturated monoids;
+Log charts; Strict morphisms; Exact morphisms; Integral morphisms; Kummer morphisms; Log fiber
+products; Log smooth morphisms; Divisorial log structures; Log regular schemes; Integral
+quasi-coherent log schemes; Vertical logarithmic morphisms; Log smoothness by fine models;
+Valuation log structures and tilt charts; Log structures on semistable formal charts.
+
+Layer CR.5: Logarithmic differentials; Log de Rham complexes; Absolute semistable residue maps;
+Morphisms of Cartier type; Exactification of log immersions; Fine log PD envelopes; Quasi-coherent
+log PD envelopes; Exact log PD thickenings; PD smooth log thickenings; Log crystalline sites;
+Logarithmic crystals; Log PD stratifications; Integrable logarithmic connections; Logarithmic
+quasi-nilpotence; Filtered logarithmic PD de Rham complexes; Derived p-adic log crystalline
+cohomology; The induced log structure on A_cris.
+
+Layer CR.6: Standard log Witt bases; Integral Hyodo–Kato complexes; Rational Hyodo–Kato complexes;
+Hyodo–Kato Frobenius; Hyodo–Kato monodromy; Normalized logarithms of units; Uniformizer-dependent
+Hyodo–Kato maps; Convergent logarithmic embedding complexes; Proper support on open analytic
+tubes; Semistable logarithmic Witt models; Witt comparison maps with proper support; Hyodo–Kato
+cohomology of Stein curves; Hyodo–Kato cohomology of semistable curve towers.
+
+Layer CR.7: Finite projective crystalline coefficients; Filtered Frobenius coefficients on
+semistable models; The crystalline Dieudonné crystal of a Barsotti–Tate group; Relative
+crystalline direct images; Relative Gauss–Manin connections.
+
+Layer CR.1 also includes `Crystalline.CrisFppfSite`, `Crystalline.CrisCompatibleSite`,
+`Crystalline.CrisCompatibleEtaleSite` and `Crystalline.CrisCompatibleFppfSite`.
+Layer CR.6 includes log rigid Hyodo–Kato cohomology; Layer CR.5:log-algebra includes the classical
+normalization and tame Kummer comparison used in the logarithmic Abhyankar lemma.
 -/
 
 end TauCetiRoadmap.CrystallineCohomology

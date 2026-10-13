@@ -143,12 +143,14 @@ roadmap of that comparison, which builds on this one.
   powers on `(p) ⊂ ℤ_p`, on ideals of `ℚ`-algebras and on square-zero ideals, the divided power
   algebra `DividedPowerAlgebra` with `dp`, `lift` and `map`, Witt vectors with Frobenius,
   Verschiebung, Teichmüller and truncations, `PreTilt` and `fontaineTheta`, `BDeRhamPlus`,
+  `Perfection.teichmuller₀` for an ideal-adically complete ring with characteristic-p quotient,
   Kähler differentials, `IsCancelMul`, `GrothendieckGroup` and `IsAffineMonoid`, and isocrystals
   with the classification in dimension one; it has no divided power envelope, no augmentation ideal
   of `Γ`, no crystalline site, no de Rham complex beyond `Ω¹`, no log structure. Tau Ceti has
   `TauCeti.teichmuller` for local fields with finite residue field and, at the current head (newer
-  than the pin), completeness and Teichmüller–Frobenius lemmas for Witt vectors; no target of this
-  roadmap is in Tau Ceti or a current TauCetiRoadmap roadmap.
+  than the pin), completeness and Teichmüller–Frobenius lemmas for Witt vectors. The unit-logarithm
+  target uses these existing multiplicative representatives and adds the convergent logarithm;
+  it does not construct Teichmüller lifts.
 - **Not here.** Prisms, δ-rings and prismatic and q-crystalline cohomology; `A_inf`-cohomology and
   Breuil–Kisin–Fargues modules; the rational period rings `B_cris`, `B_st`, `B_dR` and Fontaine's
   period functors; the crystalline, semistable and de Rham comparison theorems with étale
@@ -236,8 +238,16 @@ log structure.
 
 **Hyodo–Kato theory.** `O_K` is a complete discrete valuation ring of mixed characteristic with
 perfect residue field `k`, `K₀ = W(k)[1/p]`, and `K̆₀ = W(k̄)[1/p]` the completion of the maximal
-unramified extension of `K₀`. Monodromy is the connecting map of the triangle defined by right
-wedge with `θ = dlog t`, which fixes its sign; then `Nφ = pφN`, and the change of uniformizer is
+unramified extension of `K₀`. For cochain complexes use `d_{C[−1]} = −d_C`. The parameter
+inclusion `ι_θ : C[−1] → C̃` has degree-q component
+`ι_θ^q(a) = (−1)^{q−1} a ∧ θ = θ ∧ a`, for `a ∈ C^{q−1}` and `θ = dlog t`.
+Every triangle below labelled `∧θ` or `∧dlog t` uses this signed inclusion; the raw
+right-wedge operation alone is only a degree-one graded map. Monodromy is the connecting
+map of this triangle, with its identification with the first logarithmic PD Taylor coefficient
+made using the same shift convention. For the two-term complex `x ↦ dx`,
+`ι_θ^1(x)=xθ`, `ι_θ^2(dx)=−dx∧θ`, and
+`dι_θ^1(x)=dx∧θ=ι_θ^2(−dx)`. Omitting the degree sign reverses the latter coefficient.
+Then `Nφ = pφN`, and the change of uniformizer is
 `ρ_{πu} = ρ_π ∘ exp(log_K(u)N)` with the normalised unit logarithm. The Hyodo–Kato map `ρ_π`
 depends on the uniformizer `π`.
 
@@ -245,6 +255,18 @@ depends on the uniformizer `π`.
 whose Appendix B is on pp. 79–84; the convergent targets of Layer CR.6 cite the 2024
 publisher-formatted author copy, where Appendix B is on PDF pp. 113–118. Equation and lemma
 numbers agree; page numbers do not.
+
+**Čech products and trace signs.** On `C^r(Ω^s)` use the total differential
+`δ + (−1)^r d` and the product of bidegrees `(r,s)` and `(t,u)` with sign
+`(−1)^{st}` before the Čech cup product and exterior product. On projective space
+use the increasing order `U₀,…,U_d`, coordinates `t_i=X_i/X₀` and the positive
+Chern cocycle `dlog(X_j/X_i)` on `U_i∩U_j`. Thus
+`h^d = ε_d [dlog t₁∧…∧dlog t_d]`, where
+`ε_d=(−1)^{d(d−1)/2}`. In dimensions 0, 1 and 2 the values are 1, 1 and −1:
+on `U₀∩U₁∩U₂`, the product is
+`−dlog t₁∧dlog(t₂/t₁)=−dlog t₁∧dlog t₂`.
+In particular the sign remains part of the integral convention at `p=2`.
+`Suggested.lean` declares `Crystalline.cechTraceSign` and computes these three values.
 
 **Names.** Lean names in this README are relative to the namespace
 `TauCetiRoadmap.CrystallineCohomology`
@@ -280,6 +302,13 @@ material, `LogCrystalline.*` the logarithmic material, and `PD.*` the divided po
   `mk_fontaineTheta`, `surjective_fontaineTheta`; `WittVector.Isocrystal`,
   `StandardOneDimIsocrystal`
   and `isocrystal_classification` (dimension one over an algebraically closed field).
+- **Multiplicative representatives.** `Perfection.teichmuller₀ p I`, for a commutative ring
+  complete for the I-adic topology with characteristic-p quotient, is a multiplicative map
+  `Perfection (R ⧸ I) p →*₀ R`. `Perfection.mk_teichmuller₀` identifies its reduction with
+  the zeroth coefficient. For perfect `R ⧸ I`, compose with
+  `(PerfectionMap.id p (R ⧸ I)).equiv` to obtain the multiplicative section of reduction.
+  `Perfection.teichmuller₀_spec` gives uniqueness from compatible p-power lifts. This supplies
+  the representatives used in the unit logarithm for ramified as well as unramified O_K.
 - **Commutative algebra.** `KaehlerDifferential` with `D`, `linearMapEquivDerivation`,
   `mvPolynomialBasis` and `isLocalizedModule_map`; `ExteriorAlgebra`; `Algebra.Etale`;
   `IsAdicComplete`, `AdicCompletion`; `IsLocalization`; `Module.Flat`;
@@ -2310,8 +2339,7 @@ Cohomology, Section 60.5 (07HL): Remark 60.5.4 (07KH) and Lemma 60.5.5 (07KG) wi
 Project](https://stacks.math.columbia.edu), Divided Power Algebra, Section 23.4, Lemma 23.4.5 (tag
 07KD) with proof.) *Needs:* *Universal base-compatible divided power envelope*;
 DerivedDeRhamCohomology Layer 1 (§1.2 *The derived completion reflector*); DerivedDeRhamCohomology
-Layer 1 (§1.4 *When ordinary quotient towers compute completion*); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic system*); Mathlib `AdicCompletion`;
+Layer 1 (§1.4 *When ordinary quotient towers compute completion*); EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic system*); Mathlib `AdicCompletion`;
 Mathlib `DividedPowers.Quotient.dividedPowers`.
 
 **Checks.**
@@ -2526,13 +2554,54 @@ CRIS(X/S); for every object, p is locally nilpotent on T. A family {(U_a,T_a,δ_
 Zariski covering if U_a=U×_TT_a for all a and {T_a→T} is a Zariski covering. The big crystalline
 site of X over (S,I,γ) is CRIS(X/S) with the Zariski topology. The small crystalline site Cris(X/S)
 is the full subcategory of the objects (U,T,δ) for which U→X is an open immersion, with the Zariski
-topology.
+topology. Also define CRIS_fppf(X/S) on the same big objects, with covers
+U_a=U×_T T_a and a jointly surjective family of flat finitely presented
+maps T_a→T. The divided powers on each T_a are the unique flat extensions.
+Its structure sheaf is O_crys(U,T)=Γ(T,O_T); a group scheme G/X defines the
+abelian sheaf G_crys(U,T)=G(U), sheafified for this topology. The internal
+Ext used in Layer CR.7 is computed in this fppf topos, then restricted to
+Zariski or étale crystalline objects. Changing topology is part of that
+restriction; no equivalence of all sheaves or all Ext functors is asserted.
+
+For Dieudonné crystals on a general p-nilpotent X, also define the
+base-compatible variant `Crystalline.CrisCompatibleFppfSite`. Here X is an
+S-scheme to which γ extends, rather than necessarily an S₀-scheme.
+An object has U→X, a p-nilpotent ambient S-scheme T and a closed immersion
+U→T with PD ideal (J,δ), where δ and γ extend to a common divided-power
+structure on J+IO_T (*Compatibility of divided powers with a base*, Layer CR.0).
+Morphisms preserve δ and the structural maps. Use the Zariski, étale
+or fppf topology with cartesian closed fibres and the corresponding
+covering families on T; write `CrisCompatibleSite` for the small
+Zariski version (U open in X) and `CrisCompatibleEtaleSite` for its
+étale analogue. The big fppf version is `CrisCompatibleFppfSite`. Flat extension and gluing on the sum of ideals
+make these covers stable under pullback and composition. When X→S₀,
+IO_T⊂J, so compatibility says exactly that T→S is a PD morphism;
+this variant then agrees with CRIS_fppf(X/S). Over (ℤ_p,(p),γ) every
+p-nilpotent scheme has the canonical divided powers on pO_X from Layer CR.0.
+The base-compatible site therefore supplies the general-base D(G) of Layer CR.7.
+This ordinary variant uses Beilinson's compatible PD-base convention with
+trivial log structures (§1.2, pp.3–4; §1.5, pp.6–7; the p-adic base is the
+union of finite levels as in §1.12, pp.16–17).
 
 *Hypotheses.* p is a prime number; (S,I,γ) is a PD scheme over ℤ_(p) and S₀=V(I). X→S₀ is a morphism
-of schemes and p is locally nilpotent on X; no nilpotence of p on S is assumed.
+of schemes and p is locally nilpotent on X; no nilpotence of p on S is assumed. For the
+base-compatible variants replace X→S₀ by X→S with γ extending to IO_X.
 
 The API:
 
+- `Crystalline.CrisCompatibleFppfSite.object`: A thickening with a common
+  extension on J+IO_T is an object, without requiring IO_X=0.
+- `Crystalline.CrisCompatibleFppfSite.special_fibre`: If IO_X=0,
+  this category and its topology agree with CRIS_fppf(X/S).
+- `Crystalline.CrisCompatibleFppfSite.flat_cover`: Compatible flat extensions
+  give the stated fppf covers and their pullbacks.
+- `Crystalline.CrisFppfSite.flat_cover`: Cartesian closed fibres and a jointly
+  surjective fppf family of ambient schemes give a cover; flat extension
+  supplies the PD structures and is compatible with composition and pullback.
+- `Crystalline.CrisFppfSite.group_sections`: On (U,T) the group sheaf is G(U),
+  with its usual fppf descent, whereas the structure sheaf evaluates on T.
+- `Crystalline.CrisFppfSite.restrict`: The topology-change restriction sends
+  the structure sheaf to the Zariski crystalline structure sheaf.
 - `Crystalline.CrisSite.object`: A compatible p-nilpotent PD thickening with U→X gives a big object;
   U open gives a small object.
 - `Crystalline.CrisSite.cover_pullback`: The pullback of a jointly surjective family of opens of T
@@ -2567,9 +2636,36 @@ Definitions 60.8.1 and 60.8.4, Lemmas 60.8.2–60.8.3; §60.9, Definition 60.9.1
 with a quasi-coherent PD ideal*; *Universal base-compatible divided power envelope* (Layer CR.0);
 *Pushouts of divided power rings* (Layer CR.0); *Flat extension of divided powers* (Layer CR.0);
 Mathlib `CategoryTheory.ObjectProperty.FullSubcategory`; Mathlib `CategoryTheory.ObjectProperty.ι`.
+For the fppf variant, use the same flat fibre-square calculation and the
+base-change/composition axioms for fppf covers (SchemeAndStackFoundations
+Layer SF.2). The topology for the Dieudonné Ext is specified explicitly in
+[Madapusi–Mondal, *Perfect F-gauges and finite flat group schemes*](https://www.keerthimadapusi.com/assets/preprints/fflat.pdf),
+Remark 4.3.3, printed pp.13–14, immediately before Proposition 4.3.4.
 
 **Checks.**
 
+- `test_compatible_mixed_identity`: X=Spec ℤ/p² over (ℤ_p,(p),γ)
+  has the identity object J=0 in the compatible site: the common extension
+  is the canonical structure on (p). It is not an object of the
+  S₀-scheme version, since pO_X≠0.
+- `test_compatible_special_fibre`: On X=Spec F_p, compatibility on
+  J+pO_T is exactly δ|_(p)=γ, since pO_T⊂J. The W_n(k) object
+  is therefore the same in both versions.
+- `test_compatible_conflict`: For p=2, U=Spec F₂⊂T=Spec ℤ/4,
+  δ₂(2)=0 is incompatible with the canonical base structure γ₂(2)=2.
+  The compatible site rejects it even though its ideal has square zero.
+- `test_fppf_cover`: Over F_p with trivial PD ideals,
+  Spec F_p[s]→Spec F_p[t], t↦s^p, is an fppf cover, finite free of rank p;
+  it is not an étale cover. Taking the closed fibres equal to the ambient
+  schemes gives a cover of the big fppf crystalline site.
+- `test_fppf_group`: On the trivial object Spec F_p[t], the constant
+  group Q_p/Z_p has its usual constant sections, while μ_p has only the
+  identity section. On Spec F_p[ε]/(ε²), μ_p has the nonidentity
+  section 1+ε, whose p-th power is 1.
+- `test_fppf_structure`: On (Spec F_p,Spec F_p[ε]/(ε²)) the structure
+  sheaf is F_p[ε]/(ε²) but G_crys sees the closed fibre, so
+  μ_p,crys has only the identity section. Replacing G(U) by G(T)
+  changes the Ext input and fails this test.
 - `test_crisSite_identity`: If I=0, X=S₀=S and p is locally nilpotent on S, then (S,S,∅) is an
   object of Cris(X/S) whose map to X is an isomorphism.
 - `test_crisSite_Wn`: For k a perfect field of characteristic p, n≥1 and S=Spec W_n(k) with the
@@ -3412,9 +3508,9 @@ Cohomology, §60.24, Remark 60.24.10 (Rlim; a remark with a hint of proof); see 
 60.9.4 and 60.9.6; [Stacks Project](https://stacks.math.columbia.edu), Crystalline Cohomology,
 §60.9, Remark 60.9.4 (Comparison with Zariski site).) *Needs:* *Structure, quotient and PD-ideal
 sheaves* (Layer CR.1); *Morphisms and comparisons of crystalline sites* (Layer CR.1);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*);
+EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
+EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic
 system*).
 
 **Checks.**
@@ -3545,9 +3641,7 @@ Poincaré lemma*; *Differentials of a smooth envelope* (Layer CR.1); *Universal 
 the PD de Rham complex* (Layer CR.1); *Crystals, stratifications and quasi-nilpotent connections*
 (Layer CR.1); *PD stratifications on a smooth lift* (Layer CR.1); *Modules with integrable
 connection and their de Rham complexes* (Layer CR.1); *Morphisms and comparisons of crystalline
-sites* (Layer CR.1); *Structure, quotient and PD-ideal sheaves* (Layer CR.1); EnhancedDerivedSheaves
-Layer EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*); ArithmeticGaloisDuality Layer
+sites* (Layer CR.1); *Structure, quotient and PD-ideal sheaves* (Layer CR.1); EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*); ArithmeticGaloisDuality Layer
 R02.2 (*The spectral sequence of a first-quadrant double complex*).
 
 **Checks.**
@@ -3674,7 +3768,7 @@ level*](https://arxiv.org/abs/math/0409564v1), §3, Definition 3.3 and Propositi
 with m=0.) *Needs:* *Crystalline linearization along a smooth embedding*; *Étale extension of PD
 envelopes* (Layer CR.0); *The relative PD Poincaré lemma*; *Quasi-coherent and finite locally free
 crystals* (Layer CR.1); *Universal PD differentials and the PD de Rham complex* (Layer CR.1);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic
+EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic
 system*).
 
 **Checks.**
@@ -3766,7 +3860,7 @@ Theorem 3.6 with proof, pp.8–9; [Le Stum–Quirós, *The filtered Poincaré le
 level*](https://arxiv.org/abs/math/0409564v1), §3, Corollaries 3.10–3.11, p.12, level m=0.) *Needs:*
 *Linearization in a smooth ambient scheme*; *Crystalline cohomology from an embedding*;
 *Independence of the presentation and of the embedding*; *Étale extension of PD envelopes* (Layer
-CR.0); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover
+CR.0); EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover
 descent*).
 
 **Checks.**
@@ -3803,8 +3897,8 @@ category. Derived inverse limit preserves the compatible comparison equivalences
 Project](https://stacks.math.columbia.edu), Crystalline Cohomology, §60.24, Remarks
 60.24.3–60.24.4.) *Needs:* *Crystalline cohomology from an embedding*; *De Rham computation in a
 smooth ambient embedding*; *Enhanced crystalline direct image and global sections*;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*).
+EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*);
+EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*).
 
 **Checks.**
 
@@ -3866,7 +3960,7 @@ Theorem 59.22.4 and proof; [Stacks Project](https://stacks.math.columbia.edu), C
 Cohomology, §60.17, Lemmas 60.17.2–60.17.3; §60.21, Proposition 60.21.1.) *Needs:* *The étale
 crystalline sites* (Layer CR.1); *Quasi-coherent and finite locally free crystals* (Layer CR.1);
 *Crystalline cohomology from an embedding*; *Étale extension of PD envelopes* (Layer CR.0);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*);
+EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*);
 SchemeAndStackFoundations Layer SF.2.
 
 **Checks.**
@@ -3963,8 +4057,7 @@ Example 4.2.3 and Propositions 4.2.4–4.2.5, printed pp.90–91; §1.1, Definit
 pp.72–73.) *Needs:* *Divided power filtration* (Layer CR.0); *Divided power stability of the
 weighted filtration* (Layer CR.0); *Universal PD differentials and the PD de Rham complex* (Layer
 CR.1); *Linearization in a smooth ambient scheme*; *De Rham computation in a smooth ambient
-embedding*; *Smooth-lift comparison and PD filtration*; EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic system*).
+embedding*; *Smooth-lift comparison and PD filtration*; EnhancedDerivedSheaves Layer E2 (*Derived limit of an epimorphic system*).
 
 **Checks.**
 
@@ -4082,9 +4175,7 @@ such a covering computes the cohomology of a bounded-below complex of sheaves wh
 every finite intersection. ([Stacks Project](https://stacks.math.columbia.edu), Crystalline
 Cohomology, §60.24, Remark 60.24.4 (tag 07MN), Alternating Čech complex; notation from Remark
 60.24.3 (tag 07MM).) *Needs:* *Crystalline cohomology from an embedding* (Layer CR.2); *Morphisms
-and comparisons of crystalline sites* (Layer CR.1); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*); EnhancedDerivedSheaves Layer
+and comparisons of crystalline sites* (Layer CR.1); EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*); EnhancedDerivedSheaves Layer
 E2.
 
 **Checks.**
@@ -4112,7 +4203,7 @@ sections turn this resolution into the distinguished triangle. Functoriality of 
 all compatibilities. ([Stacks Project](https://stacks.math.columbia.edu), Crystalline Cohomology,
 §60.24, Remark 60.24.2; §60.9, Lemma 60.9.5.) *Needs:* *Morphisms and comparisons of crystalline
 sites* (Layer CR.1); *Enhanced crystalline direct image and global sections* (Layer CR.2);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
 
 **Checks.**
 
@@ -4139,9 +4230,7 @@ in the complete case; homotopy limits commute with homotopy limits. ([Stacks
 Project](https://stacks.math.columbia.edu), Étale Cohomology, §59.22, Theorem 59.22.4; [Bhatt–de
 Jong, *Crystalline cohomology and de Rham cohomology*](https://arxiv.org/abs/1110.5001v1), §3, proof
 of Theorem 3.6, pp.8–9.) *Needs:* *Change of topology for quasi-coherent crystals* (Layer CR.2);
-*Enhanced crystalline direct image and global sections* (Layer CR.2); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*).
+*Enhanced crystalline direct image and global sections* (Layer CR.2); EnhancedDerivedSheaves Layer E2 (*Hypercover in a topos*); EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*).
 
 **Checks.**
 
@@ -4214,7 +4303,7 @@ on Sites, Remark 07A7 (base change map for a commutative square of ringed topoi)
 *Crystalline cohomology from a finite affine cover: the alternating Čech complex*; *Envelopes of
 regular immersions* (Layer CR.0); *Exact base change of divided power envelopes* (Layer CR.0);
 *Crystalline cohomology from an embedding* (Layer CR.2); *Differentials of a smooth envelope* (Layer
-CR.1); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
+CR.1); EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
 EnhancedDerivedSheaves Layer E3 (*Coherent Beck–Chevalley comparisons*); DerivedDeRhamCohomology
 Layer 1; *Mayer–Vietoris for crystalline cohomology*.
 
@@ -4438,7 +4527,7 @@ product" (tag 0FPJ); Lemmas 0FPL (associativity), 0FPM (commutativity) and 0H9A 
 *Needs:* *Enhanced crystalline direct image and global sections* (Layer CR.2); *Crystalline
 cohomology from an embedding* (Layer CR.2); *Smooth-lift comparison and PD filtration* (Layer CR.2);
 *Derived crystalline base change*; *The crystalline first Chern class and the hyperplane class*;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
+EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*);
 EnhancedDerivedSheaves Layer E1.
 
 **Checks.**
@@ -6473,7 +6562,7 @@ Proposition 7.5.3, Corollary 7.5.4, Lemma 7.5.6 and the proof of Theorem 7.4.7, 
 *Dieudonné complexes*; *Saturated Frobenius*; *Saturation by iterated décalage*; *Strict completion
 and its adjunction*; *Derived p-décalage and completion*; DerivedDeRhamCohomology Layer 1 (§1.1
 *Derived ideal completeness*); DerivedDeRhamCohomology Layer 1 (§1.2 *The derived completion
-reflector*); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived
+reflector*); EnhancedDerivedSheaves Layer E1 (*The enhanced derived
 category*); EnhancedDerivedSheaves Layer E0 (*Dold–Kan mapping-space comparison*); *The finite
 quotients compute cohomology modulo p^r*.
 
@@ -8103,8 +8192,7 @@ H^(2d)_crys(X/W_n)→W_n. These maps are compatible with reduction from W_n to W
 Tr^Ek_(X,1):H^(2d)_dR(X/k)=H^d(X,Ω^d_X)→k is the trace of coherent duality. (3) Normalisation. For
 X=P^d, Tr^Ek_(X,n) sends to 1 the class [ω] of the Čech d-cocycle ω=dlog[t₁]∧…∧dlog[t_d] of the
 standard covering, [t_i]∈W_nO the Teichmüller representative of the coordinate t_i; and h^d=ε_d·[ω]
-in H^(2d)_crys(P^d/W_n) for a sign ε_d∈{1,−1} which depends only on d and on the sign conventions
-for products of Čech cochains. The crystalline trace is Tr_(X,n)=ε_d·Tr^Ek_(X,n), and Tr_X=Rlim_n
+in H^(2d)_crys(P^d/W_n), with ε_d=(−1)^{d(d−1)/2} for the Čech convention above. The crystalline trace is Tr_(X,n)=ε_d·Tr^Ek_(X,n), and Tr_X=Rlim_n
 Tr_(X,n):RΓ_crys(X/W)→W[−2d]; thus Tr_(P^d)(h^d)=1.
 
 *Hypotheses.* k is a perfect field of characteristic p; X is a proper smooth k-scheme of pure
@@ -8116,6 +8204,9 @@ products* (Layer CR.3).
 
 The API:
 
+- `Crystalline.cechTraceSign`: The integer (−1)^{d(d−1)/2};
+  `cechTraceSign_zero=1`, `cechTraceSign_one=1`, `cechTraceSign_two=−1`,
+  and `cechTraceSign_add` gives ε_(d+e)=(−1)^{de}ε_dε_e.
 - `Crystalline.crysTrace_projective`: Tr_(P^d)(h^d)=1 in W(k), for h=c₁(O(1)) and every d≥0; the
   same holds over W_n(k).
 - `Crystalline.crysTrace_reduction`: Tr_X⊗^L_W W_n=Tr_(X,n) under RΓ_crys(X/W)⊗^L_W
@@ -8127,7 +8218,7 @@ The API:
   X smooth of pure dimension d over k (Ekedahl I, Theorem 4.1).
 - `Crystalline.crysTrace_ekedahl`: Tr_(X,n)=ε_d·Tr^Ek_(X,n), where Tr^Ek is induced by Ekedahl's map
   (2.11), Tr^Ek_(P^d,n)([ω])=1 for the Čech class [ω] of dlog[t₁]∧…∧dlog[t_d], and ε_d∈{1,−1} is
-  defined by h^d=ε_d·[ω].
+  given by ε_d=(−1)^{d(d−1)/2}, so h^d=ε_d·[ω].
 - `Crystalline.crysTrace_frobenius`: Tr_X(F(x))=p^d·σ(Tr_X(x)) for x∈H^(2d)_crys(X/W), F the
   semilinear Frobenius of *Semilinear crystalline Frobenius and linearization* (Layer CR.3) and σ
   the Frobenius of W(k); equivalently Tr_X is a map RΓ_crys(X/W)→W(−d)[−2d] compatible with
@@ -8153,7 +8244,7 @@ RΓ_crys(X/W_n)≅RΓ(X,W_nΩ^•)→RΓ(X,H^d(W_nΩ^•))[−d]≅RΓ(X,W_nΩ^d
 last map by adjunction for the proper map f_n; compatibility with reduction and the identification
 of Tr^Ek_(X,1) with the de Rham trace follow from Lemma 3.4 and the proof of Theorem 4.1. Sign: h^d
 and [ω] are both bases of H^(2d)_crys(P^d/W_n)≅W_n, and the Čech cocycle of the d-th power of the
-Hodge class of O(1) is ±dlog t₁∧…∧dlog t_d on U₀∩…∩U_d; hence h^d=ε_d·[ω] with ε_d=±1. Frobenius:
+Hodge class of O(1) is (−1)^{d(d−1)/2}dlog t₁∧…∧dlog t_d on U₀∩…∩U_d: each multiplication of a form-degree-one, Čech-degree-one factor contributes the totalization sign. Hence h^d=ε_d·[ω] with the stated ε_d. Frobenius:
 under RΓ_crys(X/W_n)≅RΓ(X,W_nΩ^•_X) the crystalline Frobenius of *Semilinear crystalline Frobenius
 and linearization* (Layer CR.3) is p^q·F in degree q (*Graded and crystalline Frobenius conventions*
 (Layer CR.4)), so on H^d(X,W_nΩ^d_X) it is p^d·F; and Tr^Ek carries F:W_nΩ^d_X→W_(n−1)Ω^d_X to the
@@ -8163,7 +8254,7 @@ compatibility, compare the local construction with the external product of coher
 complexes and their counits, using the product compatibility of coherent duality, which is part of
 *Diagonal class and crystalline coevaluation*. Carry this equality through the de Rham–Witt
 comparison and the Künneth totalization. Check the Čech product and shift signs together with ε_d,
-ε_e and ε_(d+e), so the hyperplane-normalized traces satisfy the derived product identity. This sign
+ε_e and ε_(d+e), using ε_(d+e)=(−1)^{de}ε_dε_e, so the hyperplane-normalized traces satisfy the derived product identity. This sign
 and residue comparison is part of *Diagonal class and crystalline coevaluation*; Ekedahl I.5 alone
 does not assert it. The identification of Tr_X with Berthelot’s crystalline trace (LNM 407, VII
 1.4.9) is not part of this target; the construction of the trace and duality do not depend on it.
@@ -8174,7 +8265,7 @@ multiplicative properties of the de Rham–Witt complex I*, Ark. Mat. 22
 Chapter I, pp. 192–198: I.2 with (2.7) and (2.11); Lemmas 3.2, 3.3, 3.4; Theorem 4.1; I.5.) *Needs:*
 *Finite and infinite crystalline de Rham–Witt comparison* (Layer CR.4); *Semilinear crystalline
 Frobenius and linearization* (Layer CR.3); *Graded and crystalline Frobenius conventions* (Layer
-CR.4); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived
+CR.4); EnhancedDerivedSheaves Layer E1 (*The enhanced derived
 category*); SchemeAndStackFoundations Layer SF.2 (*Coherent Grothendieck duality*);
 SchemeAndStackFoundations Layer SF.2 (*Coherent Grothendieck duality*: f^! ≅ f^*(−) ⊗ Ω^d[d] for
 smooth f); SchemeAndStackFoundations Layer SF.2 (*Proper coherent trace*); SchemeAndStackFoundations
@@ -8187,6 +8278,9 @@ CR.3).
 
 - `test_crysTrace_point`: For X=Spec k (d=0): Tr_X is the identity of W(k)=H⁰_crys(Spec k/W(k)).
 - `test_crysTrace_P1`: For P¹ over k: Tr(h)=1 for h=c₁(O(1))∈H²_crys(P¹/W(k)).
+- `test_crysTrace_P2_sign`: In Čech bidegree (1,1), the product sign is −1,
+  so h²=−[dlog t₁∧dlog t₂]. Thus Tr^Ek(h²)=−1 and ε₂Tr^Ek(h²)=1;
+  omitting ε₂ fails already over W(F₂), where −1 differs from 1.
 - `test_crysTrace_finite_extension`: For X=Spec k′ with k′/k a finite extension (d=0):
   Tr_X:W(k′)→W(k) is the trace of the finite étale W(k)-algebra W(k′).
 - On P^d: Tr(h^d)=1, and Tr^Ek([ω])=1 for the Čech class of dlog[t₁]∧…∧dlog[t_d] (Ekedahl I, Lemma
@@ -8338,7 +8432,7 @@ Lemma 0FGT (pushforward defined by Poincaré duality).) *Needs:* *Derived crysta
 duality*; *Proper smooth crystalline trace*; *Crystalline cup products* (Layer CR.3); *The
 crystalline first Chern class and the hyperplane class* (Layer CR.3); *Semilinear crystalline
 Frobenius and linearization* (Layer CR.3); *Finite étale crystalline transfer and trace*;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
+EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
 
 **Checks.**
 
@@ -8396,7 +8490,7 @@ Lemma 0FGZ (class of the diagonal), and Lemma 0FH0.) *Needs:* *Proper smooth cry
 maps*; *Derived crystalline Poincaré duality*; *Proper smooth crystalline Künneth formula* (Layer
 CR.3); *Crystalline cup products* (Layer CR.3); *Proper smooth crystalline trace*; *The crystalline
 first Chern class and the hyperplane class* (Layer CR.3); SchemeAndStackFoundations Layer SF.2;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
+EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
 
 **Checks.**
 
@@ -8473,8 +8567,7 @@ The API:
 *Proof sketch.* Form the multiplicative monoid sheaf of the étale structure sheaf. Impose the
 inverse-image-of-units isomorphism stalkwise; use sheaf descent. ([Kato, *Logarithmic structures of
 Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf),
-§1.2, p.193; trivial example §1.5(2), p.194.) *Needs:* *Prelog rings*; EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E1 (*DG comparison for complexes of module sheaves*); Mathlib
+§1.2, p.193; trivial example §1.5(2), p.194.) *Needs:* *Prelog rings*; EnhancedDerivedSheaves Layer E1 (*DG comparison for complexes of module sheaves*); Mathlib
 `AlgebraicGeometry.Scheme.smallEtaleTopology`.
 
 **Checks.**
@@ -8757,9 +8850,12 @@ p-alterations*](https://annals.math.princeton.edu/wp-content/uploads/annals-v186
 
 **Checks.**
 
-- `root_prime_to_p`: ℕ→ℕ, 1↦n is Kummer and its root-cover chart is log étale if n is invertible.
+- `root_prime_to_p`: For n≥1, ℕ→ℕ, 1↦n is Kummer and its root-cover chart is log étale
+  if n is invertible on the base.
 - `identity`: The identity is Kummer.
 - `p_root`: The p-th-root boundary chart in characteristic p is Kummer but not log étale.
+- `zero_power`: The map ℕ→ℕ, 1↦0 sends 0 and 1 to the same element, so it is not Kummer.
+  `Suggested.lean` proves this failure of injectivity.
 - An n-th root of a boundary parameter is Kummer étale when n is invertible.
 
 **Log fiber products.** An ordinary log fiber product uses the underlying scheme fiber product with
@@ -9249,7 +9345,7 @@ characteristics. Extend d by the graded Leibniz rule and check d²=0 on ring ele
 generators. ([Kato, *Logarithmic structures of
 Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf),
 §1.9, p.196; coefficient complex Theorem 6.4, p.219.) *Needs:* *Logarithmic differentials*;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*);
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*);
 Mathlib `ExteriorAlgebra`; Mathlib `ExteriorAlgebra.ι_sq_zero`.
 
 **Checks.**
@@ -9538,8 +9634,11 @@ envelopes*; *Log smooth morphisms* (Layer CR.5:log-algebra); Mathlib
 - `base_object`: The base PD thickening S₀→S is PD smooth: every test thickening already has its
   structural map to S.
 - `coordinate_envelope`: The PD envelope of an affine coordinate embedding is PD smooth.
-- `locality_caveat`: A lift into an affine coordinate PD envelope is determined by the images of its
-  ordinary and logarithmic coordinate generators, satisfying the base structural equations.
+- `singular_identity`: Over F₃ with trivial logs the identity thickening of
+  Z=Spec F₃[x]/(x²) is not PD smooth. Test against
+  Z′=Spec F₃[t]/(t²)⊂T′=Spec F₃[t]/(t³), with square-zero PD ideal (t²)
+  and x↦t on Z′. Every putative lift sends x to t+a t² and has x²↦t²≠0.
+  This distinguishes the lifting property from merely having a zero PD ideal.
 - A coordinate PD envelope has the affine lifting property.
 
 ### CR.5.3 The log crystalline site and its crystals
@@ -9565,7 +9664,7 @@ structure sheaf and functoriality under log PD base maps. ([Beilinson, *On the c
 map*](https://arxiv.org/abs/1111.3316v4), §1.5, pp.6–7; [Kato, *Logarithmic structures of
 Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §5.2
 and §5.9, fine log crystalline site, pp.215–217.) *Needs:* *Exact log PD thickenings*;
-*Quasi-coherent log PD envelopes*; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*DG
+*Quasi-coherent log PD envelopes*; EnhancedDerivedSheaves Layer E1 (*DG
 comparison for complexes of module sheaves*); Mathlib `AlgebraicGeometry.Scheme.smallEtaleTopology`;
 Mathlib `CategoryTheory.GrothendieckTopology`.
 
@@ -9606,9 +9705,8 @@ structures of
 Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf),
 Definition 6.1, p.218; [Beilinson, *On the crystalline period
 map*](https://arxiv.org/abs/1111.3316v4), §1.7, crystals and log connections, pp.8–11.) *Needs:*
-*Log crystalline sites*; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*DG
-comparison for complexes of module sheaves*); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves
-Layer E1 (*Derived sheaf tensor*); Mathlib `ModuleCat`; Mathlib `PresheafOfModulesOfCommRing`;
+*Log crystalline sites*; EnhancedDerivedSheaves Layer E1 (*DG
+comparison for complexes of module sheaves*); EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*); Mathlib `ModuleCat`; Mathlib `PresheafOfModulesOfCommRing`;
 Mathlib `ModuleCat.extendScalars`; Mathlib `SheafOfModules`; Mathlib `SheafOfModules.pullback`;
 Mathlib `PresheafOfModules.sheafification`; Mathlib `ModuleCat.restrictScalars`.
 
@@ -9616,8 +9714,11 @@ Mathlib `PresheafOfModules.sheafification`; Mathlib `ModuleCat.restrictScalars`.
 
 - `structure_sheaf`: O_crys has its canonical cartesian transitions.
 - `zero`: The zero sheaf is a crystal.
-- `arbitrary_sheaf`: A crystalline module sheaf whose canonical ambient sheaf-pullback transition
-  fails to be invertible is not a crystal, even if it is a sheaf.
+- `closed_fibre_sheaf`: With trivial logs on X=Spec F_p, the quotient module
+  O_X^crys(U,T)=O_U is a sheaf but is not a crystal. Along the map from
+  (X,Spec F_p[ε]/(ε²)) to (X,X), its cartesian comparison is
+  F_p[ε]/(ε²)⊗_{F_p}F_p→F_p; its kernel is the nonzero ideal (ε).
+  The structure sheaf, by contrast, has the identity comparison on the same object.
 
 **Log PD stratifications.** For a log PD envelope D of a closed embedding into a log smooth ambient
 over the compatible PD base, a log PD stratification on an O_D-module sheaf M is an isomorphism
@@ -9649,8 +9750,12 @@ cohomology with logarithmic poles*](https://www.numdam.org/item/AST_1994__223__2
 
 - `structure`: The structure crystal has the canonical multiplication-compatible stratification.
 - `zero`: The zero module has its unique stratification.
-- `missing_cocycle`: An isomorphism on the double diagonal without the triple cocycle is not a PD
-  stratification.
+- `failed_cocycle`: On the trivial-log affine line over F₃, a rank-one
+  double-diagonal isomorphism given by multiplication by 1+γ₂(ξ) restricts
+  to 1 on the diagonal. On the triple PD diagonal set ξ=x₁−x₀ and η=x₂−x₁.
+  Modulo total PD degree 3, its composite is 1+γ₂(ξ)+γ₂(η), whereas
+  its direct map is 1+γ₂(ξ+η)=1+γ₂(ξ)+ξη+γ₂(η).
+  The surviving ξη coefficient is 1, so diagonal normalization alone fails.
 
 **Integrable logarithmic connections.** A log connection on an O_D-module M over a log smooth
 ambient Y/S is an additive map ∇:M→M⊗_O_D Ω¹_{Y/S,log}|_D satisfying ∇(am)=a∇m+m⊗da. Integrability
@@ -9710,8 +9815,11 @@ stratifications*.
 - `zero_residue`: The constant zero logarithmic operator is quasi-nilpotent.
 - `integer_residue`: A scalar operator λ=1 has ∇(∇−1)=0, though its positive powers are not zero in
   characteristic zero.
-- `nonintegral_residue`: For a rank-one logarithmic operator with residue λ not in ℤ_p, the falling
-  factorials need not converge p-adically; for p=2, λ=1/2 fails.
+- `unramified_residue`: Take O=W(F₄), p=2 and λ=[a] with a²+a+1=0.
+  On the rank-one module over O with logarithmic residue λ, each factor λ−j
+  reduces to either a or a−1, both nonzero in F₄. Every falling factorial
+  is a unit, so the connection fails formal log quasi-nilpotence even though
+  its residue is integral. The same test modulo 2 fails finite-level quasi-nilpotence.
 - For a constant residue λ∈ℤ≥0, the falling factorial vanishes once the index exceeds λ.
 
 **Crystals and log connections.** For a fine closed log embedding X→Y with Y log smooth over a
@@ -9806,8 +9914,8 @@ Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log
 Theorem 6.4, p.219; Proposition 6.5 and proof §6.9, pp.219–221; [Beilinson, *On the crystalline
 period map*](https://arxiv.org/abs/1111.3316v4), §1.6 acyclicity, pp.7–8; §1.8 comparison theorem,
 pp.11–12.) *Needs:* *Crystals and log connections*; *Filtered logarithmic PD de Rham complexes*; *PD
-smooth log thickenings*; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2
-(*Bounded-below hypercover descent*); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1
+smooth log thickenings*; EnhancedDerivedSheaves Layer E2
+(*Bounded-below hypercover descent*); EnhancedDerivedSheaves Layer E1
 (*The enhanced derived category*).
 
 **Checks.**
@@ -9828,8 +9936,8 @@ reduction and crystalline cohomology with logarithmic
 poles*](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.18–2.21, pp.236–239; [Beilinson,
 *On the crystalline period map*](https://arxiv.org/abs/1111.3316v4), §1.8, embedding-system
 comparison, pp.11–12.) *Needs:* *Log PD Poincaré lemma*; *Quasi-coherent log PD envelopes*;
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
+EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*);
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
 
 **Checks.**
 
@@ -9862,8 +9970,7 @@ completion only under its regularity hypotheses. ([Beilinson, *On the crystallin
 map*](https://arxiv.org/abs/1111.3316v4), §1.12, pp.16–17; [Česnavičius–Koshikawa, *The
 A_inf-cohomology in the semistable case*](https://arxiv.org/abs/1710.06145v3), §5.13, finite-level
 inverse-limit comparison, pp.37–38.) *Needs:* *Logarithmic embedding-system descent*; *Log
-structures under reduction and completion*; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves
-Layer E1 (*The enhanced derived category*); DerivedDeRhamCohomology Layer 1 (§1.2 *The derived
+structures under reduction and completion*; EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*); DerivedDeRhamCohomology Layer 1 (§1.2 *The derived
 completion reflector*); DerivedDeRhamCohomology Layer 1; Mathlib `DerivedCategory`.
 
 **Checks.**
@@ -10011,7 +10118,11 @@ on semistable formal charts* (Layer CR.5:log-algebra); Layer CR.3; Mathlib `Deri
 
 - `point`: The relative log point has integral HK=W(k) in degree zero.
 - `zero_cohomology`: Its positive-degree cohomology vanishes.
-- `torsion_retained`: Integral HK is not defined by first killing p-torsion.
+- `projective_line`: For the good-reduction model P¹_{O_K}, integral HK has
+  H⁰=W(k), H²=W(k)(−1) and all other cohomology zero. In degree 2,
+  Frobenius is pσ, so this integral module cannot be replaced by K₀(−1).
+- `two_points`: A disjoint union of two good-reduction points has H⁰=W(k)²,
+  distinguishing the construction from an always-rank-one object.
 - For Y the log point over itself, C_HK,ℤ=W(k).
 
 **Rational Hyodo–Kato complexes.** With the same proper semistable hypotheses let K₀=Frac
@@ -10030,8 +10141,7 @@ The API:
 operators and their coherent identities to the rational complex. ([Hyodo–Kato, *Semi-stable
 reduction and crystalline cohomology with logarithmic
 poles*](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.2, p.243; Theorem 5.1,
-pp.262–263.) *Needs:* *Integral Hyodo–Kato complexes*; EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
+pp.262–263.) *Needs:* *Integral Hyodo–Kato complexes*; EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*).
 
 **Checks.**
 
@@ -10075,38 +10185,38 @@ Hyodo–Kato complexes*; *Rational Hyodo–Kato complexes*; *Logarithmic embeddi
 
 **Hyodo–Kato monodromy.** Embed the special log fiber over the log parameter base W_n(k)[t]^log,
 then use its PD t-envelope and specialize t=0 in the derived category. Let C be the relative log
-complex and C̃ the complex relative to the trivial Witt log structure. With θ=dlog t and right wedge
-by θ, 0→C[−1]→C̃→C→0 defines the connecting endomorphism N:C→C. The equivalent PD logarithmic
+complex and C̃ the complex relative to the trivial Witt log structure. With θ=dlog t and the signed inclusion ι_θ specified in Conventions, 0→C[−1]→C̃→C→0 defines the connecting endomorphism N:C→C. The equivalent PD logarithmic
 diagonal Taylor description takes the first coefficient of the unit-ratio parameter. Fix this
 convention throughout.
 
 The API:
 
-- `LogCrystalline.hkMonodromy.boundary`: N is the connecting morphism of the fixed right-wedge θ
-  triangle.
+- `LogCrystalline.hkMonodromy.boundary`: N is the connecting morphism of the signed θ triangle, with d_{C[−1]}=−d_C.
 - `LogCrystalline.hkMonodromy.linear`: N is W(k)-linear integrally and K₀-linear rationally.
 - `LogCrystalline.hkMonodromy.embedding_independence`: Common embedding refinements preserve the
   connecting endomorphism.
 
 *Proof sketch.* Use the embedding system over W_n[t]^log and form absolute and relative PD log
-complexes. Take the connecting map of the right-wedge θ short exact sequence after derived t=0
-specialization. Identify it with the first logarithmic PD Taylor coefficient and pass through Rlim
+complexes. Take the connecting map of the signed θ short exact sequence after derived t=0 specialization. In degree q identify right wedge with left wedge by (−1)^{q−1}; include this identification when comparing the source triangle and its boundary with the first logarithmic PD Taylor coefficient and pass through Rlim
 and rationalization. ([Hyodo–Kato, *Semi-stable reduction and crystalline cohomology with
 logarithmic poles*](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.5–3.6, pp.244–246;
 §4.20.) *Needs:* *Integral Hyodo–Kato complexes*; *Fine log PD envelopes* (Layer CR.5); *Filtered
 logarithmic PD de Rham complexes* (Layer CR.5); *Logarithmic embedding-system descent* (Layer CR.5);
-EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
 
 **Checks.**
 
 - `point`: For the relative log point N=0.
 - `tate_block`: In the geometric Tate model’s unscaled slope basis, N(e₁)=v_K(q)e₀ and N(e₀)=0.
   Scaling e₁ by v_K(q)⁻¹ gives the normalized unit block.
+- `shift_chain_map`: For x↦dx, the coefficients in dι_θ^1(x) and
+  ι_θ^2(d_{C[−1]}x) are both +1; raw right wedge gives +1 and −1.
+  `Suggested.lean` computes these coefficients over ℚ.
 - `wedge_sign`: On the normalized Tate block, reversing the connecting-map sign gives N′(e₁)=−e₀,
   whereas the fixed convention gives N(e₁)=e₀.
 - N vanishes on the relative log point and is compatible with base change.
 
-**Frobenius–monodromy relation.** For the HK operators in the right-wedge convention, Nφ=pφN as
+**Frobenius–monodromy relation.** For the HK operators in the signed θ convention, Nφ=pφN as
 semilinear maps on the rational complex and on finite-level/coherent integral models wherever
 defined. Equivalently N∘φ_lin=p φ_lin∘σ*N. The factor comes from Frobenius(θ)=pθ in the defining
 triangle.
@@ -10184,9 +10294,8 @@ logarithmic poles*](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §4.1
 ### CR.6.2 The Hyodo–Kato comparison
 
 **Normalized logarithms of units.** Let O_K be a complete discrete valuation ring of mixed
-characteristic (0, p) with perfect residue field k and Teichmüller section [·] : k → O_K, the unique
-multiplicative section of reduction, [x] = lim_n x̃_nᵖⁿ with x̃_n any lift of x^{p^{−n}} (for finite
-k this is Tau Ceti’s `TauCeti.teichmuller`). Write a unit as u = [ū](1 + a) with a ∈ m_K and define
+characteristic (0, p) with perfect residue field k. Using the multiplicative representatives
+from the supplier contract, write a unit as u = [ū](1 + a) with a ∈ m_K and define
 log_K(u) = Σ_{n≥1} (−1)^{n+1}aⁿ/n, the convergent p-adic series. It kills Teichmüller units and
 torsion units and is additive under multiplication. Only units are needed for changes of
 uniformizer; no value log(π) is prescribed by this definition.
@@ -10197,20 +10306,23 @@ The API:
 - `LogCrystalline.unitLog.teichmuller`: log_K([a])=0 for a∈k×.
 - `LogCrystalline.unitLog.principal_series`: On 1+m_K the value is the displayed convergent series.
 
-*Proof sketch.* Divide the unit by its Teichmüller lift to obtain a principal unit; existence and
-uniqueness of the Teichmüller section for perfect k is the limit construction above. Use convergence
+*Proof sketch.* Divide the unit by its supplied multiplicative representative to obtain a
+principal unit. Use convergence
 of the p-adic logarithm series on 1 + m_K and its multiplicativity on principal units, including
 torsion; extend by zero on Teichmüller units. ([Hyodo–Kato, *Semi-stable reduction and crystalline
 cohomology with logarithmic poles*](https://www.numdam.org/item/AST_1994__223__221_0.pdf), Proof
-§5.5, pp.265–266; Serre, *Local Fields*, GTM 67, Chapter II, §4, Proposition 8 (multiplicative
-representatives).) *Needs:* Tau Ceti `TauCeti.teichmuller`; Mathlib `WittVector.teichmuller`.
+§5.5, pp.265–266, the unit logarithm.) *Needs:* Mathlib
+`Perfection.teichmuller₀`, `Perfection.mk_teichmuller₀` and `PerfectionMap.id`.
 
 **Checks.**
 
 - `one`: log_K(1)=0.
 - `torsion`: For a torsion unit ζ, log_K(ζ)=0.
-- `branch_warning`: For c≠0 and a valuation v:K×→ℤ with v(π)=1, the values ℓ(π)+c v(π) and ℓ(π)
-  differ. On O_K× the valuation is zero, so adding c v does not change the specified unit logarithm.
+- `principal_unit`: In Q₃, log_K(4)=3−3²/2+3³/3−⋯ has valuation 1:
+  after division by 3 its residue modulo 3 is 1. Thus the unit logarithm
+  does not vanish on all units.
+- `branch_warning`: Adding c v to an extension of the logarithm changes its value on
+  a uniformizer by c and leaves its values on units unchanged, since v(u)=0.
 - log_K(uv)=log_K(u)+log_K(v).
 
 **Uniformizer-dependent Hyodo–Kato maps.** For proper semistable X/O_K, K₀=Frac W(k) and chosen
@@ -10303,7 +10415,7 @@ argument, p.18; [Kato, *Logarithmic structures of
 Fontaine–Illusie*](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf),
 Final Künneth theorem, printed Theorem 6.12 and announced as 6.11, p.222.) *Needs:* *Hyodo–Kato
 comparison theorem*; *Hyodo–Kato monodromy*; *Frobenius–monodromy relation*; *Log fiber products*
-(Layer CR.5:log-algebra); Layer CR.3; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1
+(Layer CR.5:log-algebra); Layer CR.3; EnhancedDerivedSheaves Layer E1
 (*The enhanced derived category*).
 
 **Checks.**
@@ -10461,10 +10573,10 @@ complexes*; AdicSpacesPartII Layer R4 (*The étale site on the analytic carriers
 
 - `whole_space`: Taking U=X recovers the unsupported complex.
 - `empty_open`: Taking U empty gives the zero support kernel.
-- `wrong_order`: In the source bounded-below derived categories there is a tube embedding and open
-  for which supported specialization cannot factor through specialization via a
-  bounded-below-preserving special-fibre endofunctor. The support kernel must be taken on the tube
-  before pushforward; no assertion about arbitrary unbounded endofunctors is made.
+- `two_components`: For X=X₁⊔X₂ consisting of two smooth points, U=X₁
+  and the constant coefficient K₀, restriction to the complementary tube is
+  the projection K₀²→K₀ onto the second factor. Its kernel is K₀⊕0.
+  The full complex K₀² and the zero complex both give the wrong support.
 - For U=X the support kernel is the identity.
 
 **Semistable logarithmic Witt models.** Let κ be a perfect field of characteristic p, W=W(κ),
@@ -10585,9 +10697,7 @@ arithmetic inner product formula*, arXiv v3](https://arxiv.org/abs/2204.09239v3)
 Definition B.1, Remark B.2 and Lemma B.3 with proof, p.80; B.2, the definitions of ω_(U,X), ω̃_(U,X)
 (p.81) and (B.6)–(B.9), p.83; [Disegni–Liu, *A p-adic arithmetic inner product formula*, arXiv
 v3](https://arxiv.org/abs/2204.09239v3), Appendix B.2, diagrams (B.7), (B.8) and (B.10), p.83.)
-*Needs:* *Semistable logarithmic Witt models*; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves
-Layer E1 (*The enhanced derived category*); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves
-Layer E1 (*Derived sheaf tensor*); SchemeAndStackFoundations Layer SF.2; *Proper support on open
+*Needs:* *Semistable logarithmic Witt models*; EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*); EnhancedDerivedSheaves Layer E1 (*Derived sheaf tensor*); SchemeAndStackFoundations Layer SF.2; *Proper support on open
 analytic tubes*.
 
 **Checks.**
@@ -10603,7 +10713,7 @@ analytic tubes*.
   replacing support by the full complex or by zero fails this test.
 
 **Convergent monodromy triangles.** For the relative and absolute convergent log complexes with the
-stated analytic proper support, right wedge by θ=dlog t yields ω_(U,X)[−1]→ω̃_(U,X)→ω_(U,X)→^N
+stated analytic proper support, the signed inclusion ι_θ for θ=dlog t yields ω_(U,X)[−1]→ω̃_(U,X)→ω_(U,X)→^N
 ω_(U,X), compatibly with the Frobenius factor p. Thus Nφ=pφN in the same convention as the
 crystalline embedding model. Apply the source exact support functor on tubes before taking derived
 pushforwards.
@@ -10927,7 +11037,7 @@ reduction isomorphisms before rationalization. ([de Jong, *Crystalline Dieudonn�
 formal and rigid geometry*](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §§2.2.1–2.2.4,
 pp.18–21; formal crystals and completed evaluation.) *Needs:* Layer CR.1; *Logarithmic crystals*
 (Layer CR.5); *Crystals and log connections* (Layer CR.5); *Derived p-adic log crystalline
-cohomology* (Layer CR.5); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived
+cohomology* (Layer CR.5); EnhancedDerivedSheaves Layer E1 (*Derived
 sheaf tensor*); Mathlib `ModuleCat`; Mathlib `SheafOfModules`; Mathlib `SheafOfModules.pullback`.
 
 **Checks.**
@@ -11000,17 +11110,20 @@ pp.262–263.) *Needs:* *Finite projective crystalline coefficients*; *Frobenius
 
 ### CR.7.2 Crystalline Dieudonné theory
 
-**The crystalline Dieudonné crystal of a Barsotti–Tate group.** Let S be a scheme of characteristic
-p and G a Barsotti–Tate (p-divisible) group over S (AbelianSchemesAndArithmeticModuli §A4.5). Its
+**The crystalline Dieudonné crystal of a Barsotti–Tate group.** Let S be a scheme on which p is locally nilpotent and G a Barsotti–Tate (p-divisible) group over S (AbelianSchemesAndArithmeticModuli §A4.5). Its
 contravariant crystalline Dieudonné crystal is D(G) = 𝓔xt¹(G, O_{S/ℤ_p}) on the big crystalline site
-of S over (ℤ_p, (p), γ), with G viewed as a sheaf on that site. Construct D, contravariant in G and
+of S over (ℤ_p, (p), γ), using the base-compatible fppf site
+`Crystalline.CrisCompatibleFppfSite` of *Small and big crystalline sites*
+(Layer CR.1), and with G_crys(U,T)=G(U). In characteristic p this is
+CRIS_fppf(S/ℤ_p). Construct D, contravariant in G and
 compatible with base change S′ → S; prove that D(G) is a crystal of finite locally free modules of
-rank the height of G; and let Frobenius and Verschiebung of G induce F : σ*D(G) → D(G) and V : D(G)
-→ σ*D(G) with FV = VF = p, so that D(G) is a Dieudonné crystal. Its evaluation D(G)_T on a PD
-thickening T of an open of S is a finite locally free O_T-module, with horizontal F and V and
-base-change isomorphisms for morphisms of thickenings. A homomorphism G → H induces D(H) → D(G). For
+rank the height of G. When S has characteristic p, its relative Frobenius and
+Verschiebung induce F : σ*D(G) → D(G) and V : D(G) → σ*D(G) with FV = VF = p;
+here σ is the absolute Frobenius of S. On a general p-nilpotent base use
+D(G) and its Hodge filtration without presupposing an absolute Frobenius of S. Its evaluation D(G)_T on a PD
+thickening T of an open of S is a finite locally free O_T-module, with horizontal F and V in the characteristic-p case and base-change isomorphisms for morphisms of thickenings. A homomorphism G → H induces D(H) → D(G). For
 an abelian scheme A/S, D(A[p^∞]) is identified with the realization of
-AbelianSchemesAndArithmeticModuli §A4.6, the first de Rham cohomology of any lift.
+AbelianSchemesAndArithmeticModuli §A4.6 on its stated PD-nilpotent thickenings, with the first de Rham cohomology of any abelian-scheme lift on those thickenings.
 
 The API:
 
@@ -11019,7 +11132,7 @@ The API:
 - `LogCrystalline.dieudonneEvaluation.fv`: The linearizations satisfy FV=p and VF=p on their
   respective domains.
 
-*Proof sketch.* Construct D(G) as the sheaf 𝓔xt¹ on the big crystalline site (Layer CR.1); local
+*Proof sketch.* Construct D(G) as internal 𝓔xt¹ in the big fppf crystalline topos (Layer CR.1), and restrict the resulting crystal to the small Zariski or étale site; local
 freeness of rank h is Berthelot–Breen–Messing 3.3.10, proved by reducing to truncated Barsotti–Tate
 groups and the exact sequences 0 → G[pⁿ] → G → G → 0. Apply the general coefficient evaluation maps
 of *Finite projective crystalline coefficients* and transport F and V through the PD pullback
@@ -11027,8 +11140,14 @@ isomorphisms. Check FV and VF on the appropriately Frobenius-twisted modules, an
 for abelian schemes through the universal vector extension. ([de Jong, *Crystalline Dieudonné module
 theory via formal and rigid geometry*](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf),
 Definition 2.3.2 and construction 2.3.3, pp.21–22; Berthelot–Breen–Messing, *Théorie de Dieudonné
-cristalline II*, Lecture Notes in Math. 930 (1982), 3.3.6 (definition of D) and 3.3.10 (local
-freeness of rank equal to the height).) *Needs:* *Finite projective crystalline coefficients*;
+cristalline II*, Lecture Notes in Math. 930 (1982), 3.3.6 and 3.3.10 as cited in de Jong §2.3.3;
+[Panny–Robert–Sferlazza, *Hensel-lifting black-box algorithms and fast trace computation
+for elliptic-curve endomorphisms*](https://www.math.u-bordeaux.fr/~damienrobert/pro/publications/articles/lifting_traces.pdf),
+Appendix B, printed pp.35–36 in the 28 September 2026 author version: the Ext
+construction over a p-nilpotent base, citing BBM Theorem 3.3.3; the Hodge
+sequence, citing BBM Corollary 3.3.5; and the abelian realization, citing BBM
+Theorem 2.5.6 and Proposition 3.3.7. The fppf topology is explicit in
+Madapusi–Mondal, Remark 4.3.3, pp.13–14.) *Needs:* *Finite projective crystalline coefficients*;
 *Filtered Frobenius coefficients on semistable models*; AbelianSchemesAndArithmeticModuli Layer A4
 (§A4.5 *Barsotti–Tate groups*); AbelianSchemesAndArithmeticModuli Layer A4 (§A4.6 *The degree-one
 divided-power realization*); *Quasi-coherent and finite locally free crystals* (Layer CR.1).
@@ -11053,8 +11172,13 @@ Frobenius/Verschiebung and the contravariant group-map direction. Apply Cartier 
 declared twist convention to identify the rank-one rational modules. ([de Jong, *Crystalline
 Dieudonné module theory via formal and rigid
 geometry*](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.2–2.3.3, pp.21–22,
-contravariant crystal convention; Demazure, *Lectures on p-divisible groups*, Lecture Notes in Math.
-302 (1972), Chapter III, §8 (contravariant Dieudonné modules of ℚ_p/ℤ_p and μ_{p^∞}).) *Needs:* *The
+contravariant crystal convention;
+[Scholze–Weinstein, *Berkeley lectures on p-adic geometry*](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf),
+Lecture 12, printed p.99, footnote 1 in the March 2020 version: their covariant
+normalization is the naive dual of the contravariant one. Dualizing its
+Frobenius σ for Q_p/Z_p and p⁻¹σ for μ_{p∞} gives exactly σ and pσ here.
+[Illusie, *Grothendieck and the theory of crystals*](https://www.imo.universite-paris-saclay.fr/~luc.illusie/Illusie-Pisa5.pdf),
+§2.2, pp.3–5, fixes contravariance, FV=VF=p and Cartier duality.) *Needs:* *The
 crystalline Dieudonné crystal of a Barsotti–Tate group*; *Filtered Frobenius coefficients on
 semistable models*.
 
@@ -11073,14 +11197,21 @@ AbelianSchemesAndArithmeticModuli §A4.7 under the identification of *The crysta
 crystal of a Barsotti–Tate group*.
 
 *Proof sketch.* Construct the Hodge filtration from the universal vector extension of G and identify
-its Lie algebra with D(G₀)_S (Messing). Prove the deformation theorem by the exponential on the
+the dual of its Lie algebra with the contravariant D(G₀)_S;
+Lie E(G) itself is the covariant realization. Dualize the universal-extension
+exact sequence to obtain 0→ω_G→D(G₀)_S→Lie(G∨)→0. For an abelian scheme
+this agrees with Lie E(A)=H¹_dR(A/S)∨ (Illusie §4.2(iv), pp.16–17). Prove the deformation theorem by the exponential on the
 nilpotent divided power ideal: lifts of G₀ correspond to lifts of the universal extension, and these
 to filtrations (Messing, Chapter V). Transport the evaluation and Hodge inclusion through the
 crystalline coefficients, and verify base change and duality compatibility of the inclusion and
 quotient maps. ([de Jong, *Crystalline Dieudonné module theory via formal and rigid
 geometry*](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §3.1, pp.28–32; Proposition
 3.2.1 and proof, pp.32–34, using the Messing deformation theorem; Messing, *The crystals associated
-to Barsotti–Tate groups*, Lecture Notes in Math. 264 (1972), Chapter V, Theorem 1.6.) *Needs:* *The
+to Barsotti–Tate groups*, Lecture Notes in Math. 264 (1972), Chapter V, Theorem 1.6,
+as stated with the admissibility condition of Definition V.1.4 in
+Panny–Robert–Sferlazza, Appendix B, p.35, and used in de Jong's proof;
+Illusie, *Grothendieck and the theory of crystals*, §4.2(v), pp.17–18,
+for the p-nilpotent base and locally nilpotent divided-power hypotheses.) *Needs:* *The
 crystalline Dieudonné crystal of a Barsotti–Tate group*; AbelianSchemesAndArithmeticModuli Layer A4
 (§A4.7 *Grothendieck–Messing for abelian schemes*).
 
@@ -11091,58 +11222,79 @@ crystalline Dieudonné crystal of a Barsotti–Tate group*; AbelianSchemesAndAri
 
 ### CR.7.3 Relative crystalline cohomology and the Gauss–Manin connection
 
-**Relative crystalline direct images.** For a proper smooth f:X→Y over a p-nilpotent PD base S, with
-Y quasi-compact and F a flat quasi-coherent finite locally free crystal on X/S, construct Rf_crys,*F
-as a derived crystal on Y/S and its evaluation on PD objects T as RΓ_crys(X_T/T,F_T), interpreted by
-the source cartesian diagram. The object is derived before any cohomology sheaf is called a locally
-free crystal. Properness supplies coherent finiteness through Layer CR.3; individual H^i require the
-extra hypotheses stated in *Relative Gauss–Manin connections*.
+**Relative crystalline direct images.** For proper smooth f:X→Y over a p-nilpotent PD base
+(S,I,γ), with Y quasi-compact and F a finite locally free quasi-coherent crystal on X/S,
+construct K=Rf_crys,*F as a derived crystal on Y/S. Ordinary sites use Y→S₀=V(I);
+if γ merely extends to IO_Y, use the base-compatible small sites of Layer CR.1.
+For an object (V,T,δ), put X_V=X×_Y V and T♯=(T,J+IO_T,δ+γ), with the unique
+common extension of the powers. The evaluation K_T is the O_T-complex
+Rπ_(X_V/T♯),*F|_(X_V/T♯), where π is the crystalline structure map to T_Zar.
+For affine T=Spec B its derived sections are RΓ_crys(X_V/T♯,F|_(X_V/T♯)) in D(B).
+No morphism T→Y or scheme X×_Y T is required. Perfectness is derived;
+individual H^i require the extra hypotheses of *Relative Gauss–Manin connections*.
 
 The API:
 
-- `LogCrystalline.relativeCrystallineImage.evaluate`: Evaluation on a compatible PD object T gives
-  the indicated derived crystalline cohomology.
+- `LogCrystalline.relativeCrystallineImage.evaluate`: On (V,T), evaluation is the displayed
+  sheaf-valued crystalline direct image; its derived global sections give crystalline cohomology.
 - `LogCrystalline.relativeCrystallineImage.base_change_map`: A PD map T′→T gives the canonical
-  derived tensor-to-evaluation arrow.
-- `LogCrystalline.relativeCrystallineImage.identity`: For f the identity, the derived image is the
-  original coefficient crystal.
+  derived tensor-to-evaluation arrow, compatible with composition.
+- `LogCrystalline.relativeCrystallineImage.identity`: For f=id, K_T=F_T in degree zero.
 
-*Proof sketch.* Construct the actual derived crystalline pushforward using the derived sheaf
-functors of EnhancedDerivedSheaves Layer E1. Use the smooth flat-coefficient de Rham model and its
-derived PD base-change arrow on a finite affine cover. Transport the cartesian derived evaluation
-isomorphisms and proper coherent finiteness; do not claim all H^i are locally free. (Berthelot–Ogus,
-*Notes on crystalline cohomology*, Princeton Mathematical Notes 21 (1978), Chapter 7, §7.8 and
-Corollaries 7.11–7.13, pp.7.12–7.18.) *Needs:* *Finite projective crystalline coefficients*; Layer
-CR.3; Layer CR.1; EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*The enhanced
-derived category*); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E1 (*Derived sheaf
-tensor*); Mathlib `DerivedCategory`.
+*Proof sketch.* Localize the crystalline topos over (V,T) and derive its structure-map
+pushforward using EnhancedDerivedSheaves Layer E1. Apply *Proper smooth crystalline base change*
+to each affine evaluation to establish the derived cartesian property. Obtain perfectness by
+the proper smooth finite-projective coefficient argument of Layer CR.3; its local Frobenius
+factorization and finite affine-cover Tor-amplitude calculation also apply to the compatible
+PD-base convention. The relevant public references are
+[Stacks Project](https://stacks.math.columbia.edu/tag/07MJ), Remark 60.24.1 (tag 07MJ),
+and [Du–Moon–Shimizu, *On log crystalline higher direct image*](https://arxiv.org/abs/2603.00559v1),
+Lemma 5.9, pp.13–14; Theorems 8.1–8.2, pp.31–35; Theorem 9.1 and Proposition 9.2,
+pp.35–38, specialized to trivial log structures. *Needs:* *Finite projective crystalline coefficients*;
+Layer CR.3; Layer CR.1; *Proper smooth crystalline base change*;
+EnhancedDerivedSheaves Layer E1 (*The enhanced derived category* and *Derived sheaf tensor*);
+Mathlib `DerivedCategory`.
 
 **Checks.**
 
-- `identity`: The identity morphism has no positive derived image degrees.
+- `identity`: For f=id and any (V,T), the evaluated image is F_T concentrated in degree zero.
+  For nonaffine T this assertion concerns the module sheaf; RΓ(T,F_T) may have positive degrees.
+- `closed_fibre`: For Y=Spec F_p, T=Spec ℤ/p² and V=Y, no T→Y exists. The formula still gives
+  X_V=X, and for f=id and structure coefficients the evaluation is ℤ/p² in degree zero.
 - `point`: A proper point over itself gives the coefficient module in degree zero.
 - `no_local_freeness`: The bounded perfect complex [ℤ_p --p→ ℤ_p] has cohomology ℤ_p/pℤ_p, which is
   not locally free; perfectness alone does not make its individual cohomology finite projective.
 - The structure coefficient pushforward of the identity morphism is its original coefficient.
 
-**Proper smooth crystalline base change.** In a cartesian base diagram X′=X×_{S₀}S₀′, assume S
-quasi-compact, f₀:X→S₀ smooth quasi-compact quasi-separated, u:(S′,I′,γ′)→(S,I,γ) a PD map, S₀⊂S and
-S₀′⊂S′ defined by sub-PD ideals of I,I′, and F flat quasi-coherent. Then the actual arrow
-Lu*Rf_{X/S,*}F→Rf_{X′/S′,*}g_crys*F is an isomorphism (BO Theorem 7.8). For relative proper smooth
-coefficients apply this locally on PD objects; formal versions use derived completion and the
-corrected inverse-system projective replacement, not an unproved underived limit.
+**Proper smooth crystalline base change.** In a cartesian base diagram X′=X×_{S₀}S₀′,
+let u:(S′,I′,γ′)→(S,I,γ) be a PD map of p-nilpotent bases, S quasi-compact,
+and S₀⊂S and S₀′⊂S′ be defined by sub-PD ideals of I and I′. Give these fibres
+the induced compatible base powers and use the base-compatible crystalline sites of Layer CR.1.
+Assume f₀:X→S₀ smooth quasi-compact quasi-separated and F flat quasi-coherent.
+For π:(X/S)_crys→S_Zar the structure map, the actual arrow
+Lu*Rπ_*F→Rπ′_*g_crys*F is an isomorphism. For I₀=I this is the ordinary crystalline
+base change of Layer CR.3. Relative proper smooth coefficient base change follows by applying this
+statement on (V,T). For p-adically complete bases, use the corresponding compatible finite
+p-power quotients and derived inverse limits, with the perfectness hypotheses of Layer CR.3
+when asserting an uncompleted tensor comparison.
 
-*Proof sketch.* In a smooth affine lift identify the actual base-change arrow with the tensor
-comparison of flat coefficient de Rham complexes. Use finite affine intersections and bounded-below
-cohomological descent to preserve the arrow while gluing. For compatible complete bases apply
-derived inverse limits with the corrected projective-resolution theorem of Layer CR.3 and
-DerivedDeRhamCohomology Layer 1. (Berthelot–Ogus, *Notes on crystalline cohomology*, Princeton
-Mathematical Notes 21 (1978), Theorem 7.8 and proof, pp.7.12–7.15; [Berthelot–Ogus, erratum to
-*Notes on crystalline cohomology*](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf),
-Entire official correction, pp.1–2, 21 August 2013.) *Needs:* *Relative crystalline direct images*;
-*Log PD Poincaré lemma* (Layer CR.5); EnhancedDerivedSheaves Layer EnhancedDerivedSheaves Layer E2
-(*Bounded-below hypercover descent*); DerivedDeRhamCohomology Layer 1 (§1.2 *The derived completion
-reflector*); Layer CR.3.
+*Proof sketch.* Lift the smooth closed fibre locally to the ambient base, identify the two
+crystalline complexes with the coefficient de Rham complexes of those lifts, and compare the
+actual arrows. Their terms are flat over the base. Glue with finite affine-cover descent;
+quasi-separatedness permits a second finite cover of the intersections. At complete bases apply
+derived inverse limits and the corrected projective-resolution theorem of Layer CR.3, never
+an unproved underived limit. A public source covering sub-PD ideals is
+[Du–Moon–Shimizu, *On log crystalline higher direct image*](https://arxiv.org/abs/2603.00559v1),
+Theorem 8.1 and proof, pp.31–34, with trivial log structures. For the ordinary case see
+[Stacks Project](https://stacks.math.columbia.edu/tag/07MU), Remarks 60.24.8–60.24.9
+(tags 07MS, 07MU), conditions (1)–(7). The relative derived-crystal and p-adic variants
+are Du–Moon–Shimizu, Theorems 10.11–10.12, pp.43–44.
+The inverse-system correction is [Berthelot–Ogus, erratum to *Notes on crystalline
+cohomology*](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf), pp.1–2,
+21 August 2013. *Needs:* Layer CR.1; *Derived crystalline base change* (Layer CR.3);
+*Log PD Poincaré lemma* (Layer CR.5), with trivial log structures and compatible base powers;
+EnhancedDerivedSheaves Layer E2 (*Bounded-below hypercover descent*);
+DerivedDeRhamCohomology Layer 1 (§1.2 *The derived completion reflector*).
 
 **Checks.**
 
@@ -11168,11 +11320,14 @@ The API:
 *Proof sketch.* Use the derived crystal evaluation over the base PD diagonal. Under the explicit
 finite locally free/cohomology base-change assumptions, extract the H^i cartesian module and
 differentiate its PD stratification. Identify the connection with the boundary map from the
-base-form filtration and prove integrability by the PD cocycle. (Berthelot–Ogus, *Notes on
-crystalline cohomology*, Princeton Mathematical Notes 21 (1978), Corollary 7.11 and following
-paragraph, pp.7.16–7.17.) *Needs:* *Proper smooth crystalline base change*; *Integrable logarithmic
-connections* (Layer CR.5); Layer CR.1; Layer CR.3; EnhancedDerivedSheaves Layer
-EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
+base-form filtration and prove integrability by the PD cocycle. This is the
+cohomology-level consequence, under the stated cohomology base-change hypotheses,
+of the derived crystal just constructed and the crystal–connection equivalence of Layer CR.1
+([Stacks Project](https://stacks.math.columbia.edu/tag/07JH), §60.17,
+Proposition 60.17.4; [Du–Moon–Shimizu](https://arxiv.org/abs/2603.00559v1),
+Theorem 10.11, p.43). The identification with the base-form boundary is obtained by
+differentiating the first PD-diagonal coordinate; it is part of this target. *Needs:* *Proper smooth crystalline base change*; *Integrable logarithmic
+connections* (Layer CR.5); Layer CR.1; Layer CR.3; EnhancedDerivedSheaves Layer E1 (*The enhanced derived category*).
 
 **Checks.**
 
@@ -11196,8 +11351,9 @@ stacky theorem is included.
 *Proof sketch.* Use the naturality of the PD-diagonal cartesian isomorphism under g. Differentiate
 that commuting diagram to prove horizontality; extract H^i using the explicit cohomology base-change
 assumptions. Transport only the additional structures actually given on the coefficients.
-(Berthelot–Ogus, *Notes on crystalline cohomology*, Princeton Mathematical Notes 21 (1978),
-Corollaries 7.11–7.12, pp.7.16–7.17.) *Needs:* *Relative Gauss–Manin connections*; *Proper smooth
+This is a deduction from the composition-compatible PD cartesian maps and the
+stratification–connection equivalence ([Stacks Project](https://stacks.math.columbia.edu),
+§60.17, Proposition 60.17.4), rather than a stronger base-change theorem. *Needs:* *Relative Gauss–Manin connections*; *Proper smooth
 crystalline base change*; *Filtered Frobenius coefficients on semistable models*.
 
 **Checks.**
@@ -11268,6 +11424,10 @@ AbelianSchemesAndArithmeticModuli (Layer A4); DerivedDeRhamCohomology (Layer 1);
   documents.
 
 ## References
+
+- [Du–Moon–Shimizu, *On log crystalline higher direct image*](https://arxiv.org/abs/2603.00559v1),
+  28 February 2026, Lemma 5.9 and Theorems 8.1–9.1, 10.11–10.13;
+  only their ordinary trivial-log specializations are used for relative cohomology here.
 
 The Stacks Project chapters are cited by section, lemma and tag; other sources by numbered statement
 and printed page (or PDF page where stated).
@@ -11342,6 +11502,11 @@ and printed page (or PDF page where stated).
 - [Thompson, *Toric singularities revisited*](https://arxiv.org/abs/math/0305441v2).
 - [SGA 1] A. Grothendieck, M. Raynaud, *Revêtements étales et groupe fondamental (SGA 1)*, Documents
   Mathématiques 3, SMF 2003; [arXiv:math/0206203](https://arxiv.org/abs/math/0206203).
+- [Illusie, *Grothendieck and the theory of crystals*](https://www.imo.universite-paris-saclay.fr/~luc.illusie/Illusie-Pisa5.pdf).
+- [Scholze–Weinstein, *Berkeley lectures on p-adic geometry*](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), March 2020 author version.
+- [Panny–Robert–Sferlazza, *Hensel-lifting black-box algorithms and fast trace computation
+  for elliptic-curve endomorphisms*](https://www.math.u-bordeaux.fr/~damienrobert/pro/publications/articles/lifting_traces.pdf), 28 September 2026 author version.
+- [Madapusi–Mondal, *Perfect F-gauges and finite flat group schemes*](https://www.keerthimadapusi.com/assets/preprints/fflat.pdf), Remark 4.3.3.
 - [BBM] P. Berthelot, L. Breen, W. Messing, *Théorie de Dieudonné cristalline II*, Lecture Notes in
   Math. 930, Springer 1982.
 - [Messing] W. Messing, *The crystals associated to Barsotti–Tate groups, with applications to

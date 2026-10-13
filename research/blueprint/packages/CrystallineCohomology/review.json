@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-CrystallineCohomology",
+    "date": "2026-10-13",
+    "notes": "Accepted after fixing shifted HK and Cech trace signs, discriminating negative controls, Kummer integrality and zero-power scope, the compatible big fppf Dieudonne site and contravariant Hodge realization, sheaf-valued relative evaluation and proper smooth base-change sources. Removed the duplicate perfect-residue-field Teichmuller construction in favor of pinned Mathlib. All 274 plan targets retained; all 127 definitions/constructions have at least three Checks and are named in Lean or its closing block. Flagged locators checked through permitted public alternatives or exact suppliers; random 15 locators and current upstream/library overlap audited. Suggested.lean has 594 lines and lean-check exits 0 with 28 warnings, all sorry. See REV-PKG-CrystallineCohomology.md for the mathematics pass, source limits, validation and handoff."
+  }
+}
