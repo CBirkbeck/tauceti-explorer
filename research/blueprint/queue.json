@@ -35920,8 +35920,9 @@
    ],
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.2-symbols.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9310"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9310",
+   "finishedAt": "2026-10-13T23:41:16Z"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.2-symbols",
@@ -46938,8 +46939,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47060,7 +47061,8 @@
     "PKG-AutomorphicBundles~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7917"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -47128,8 +47130,9 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7891"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7891",
+   "finishedAt": "2026-10-13T23:41:18Z"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~2",
@@ -50093,7 +50096,8 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9219"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -50339,8 +50343,9 @@
     "PKG-IgusaVarietiesAndTorsionConcentration~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9221"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9221",
+   "finishedAt": "2026-10-13T23:41:24Z"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -50804,8 +50809,9 @@
     "PKG-LocalGaloisDeformationRings~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7938"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7938",
+   "finishedAt": "2026-10-13T23:41:28Z"
   },
   {
    "id": "PKG-LogarithmicPotentialTheoryAndAlgebraicIntegers",
@@ -50983,7 +50989,8 @@
     "PKG-ModularityAndLanglandsExtensions"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ModularityAndLanglandsExtensions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9226"
   },
   {
    "id": "PKG-MordellLawrenceVenkatesh",
@@ -51500,7 +51507,8 @@
     "PKG-PotentialAutomorphyInfrastructure~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialAutomorphyInfrastructure~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9231"
   },
   {
    "id": "PKG-PotentialModularityAndCompatibleSystems",
@@ -51640,7 +51648,8 @@
     "PKG-PrismaticCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PrismaticCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9233"
   },
   {
    "id": "PKG-QuiverRepresentationsPartII",
@@ -88644,8 +88653,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
