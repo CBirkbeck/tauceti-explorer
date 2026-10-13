@@ -29,9 +29,18 @@ import Mathlib.RepresentationTheory.Basic
 import Mathlib.RingTheory.SimpleModule.Basic
 import Mathlib.LinearAlgebra.Trace
 import Mathlib.GroupTheory.SemidirectProduct
+import Mathlib.GroupTheory.Commutator.Basic
+import Mathlib.GroupTheory.Index
+import Mathlib.FieldTheory.Fixed
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import TauCeti.LinearAlgebra.BilinearForm.Isometry
+import Mathlib.Topology.Algebra.ContinuousMonoidHom
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.LinearAlgebra.Matrix.Notation
 
 noncomputable section
 open scoped Affine
+open scoped TensorProduct
 
 namespace TauCeti.LawrenceVenkatesh
 
@@ -63,6 +72,24 @@ def linearPart : affineGroup q →* (ZMod q)ˣ := by sorry
 theorem linearPart_mk (a : (ZMod q)ˣ) (b : ZMod q) :
     linearPart (mk a b) = a := by sorry
 
+theorem linearPart_surjective : Function.Surjective (linearPart (q := q)) := by sorry
+
+def translation : Multiplicative (ZMod q) →* affineGroup q := by sorry
+
+theorem translation_apply (b : Multiplicative (ZMod q)) :
+    translation b = mk 1 b.toAdd := by sorry
+
+def translations : Subgroup (affineGroup q) := translation.range
+
+theorem translations_eq_ker : translations (q := q) = linearPart.ker := by sorry
+
+instance translations_normal : (translations (q := q)).Normal := by sorry
+
+def translationsEquiv : Multiplicative (ZMod q) ≃* translations (q := q) := by sorry
+
+theorem translationsEquiv_apply (b : Multiplicative (ZMod q)) :
+    (translationsEquiv b).val = mk 1 b.toAdd := by sorry
+
 theorem ker_linearPart (f : affineGroup q) :
     f ∈ linearPart.ker ↔ ∃ b, f = mk 1 b := by sorry
 
@@ -77,9 +104,50 @@ theorem card : Nat.card (affineGroup q) = q * (q - 1) := by sorry
 theorem stabilizer_zero (f : affineGroup q) :
     f.val 0 = 0 ↔ ∃ a, f = mk a 0 := by sorry
 
+def zeroStabilizer : Subgroup (affineGroup q) where
+  carrier := {f | f.val 0 = 0}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+def zeroStabilizerEquiv : zeroStabilizer (q := q) ≃* (ZMod q)ˣ := by sorry
+
+theorem zeroStabilizerEquiv_apply (g : zeroStabilizer (q := q)) :
+    zeroStabilizerEquiv g = linearPart g.val := by sorry
+
+theorem zeroStabilizer_index : (zeroStabilizer (q := q)).index = q := by sorry
+
+def cosetEquiv : (affineGroup q ⧸ zeroStabilizer) ≃ ZMod q := by sorry
+
+theorem cosetEquiv_mk (g : affineGroup q) :
+    cosetEquiv (QuotientGroup.mk g) = g.val 0 := by sorry
+
+theorem cosetEquiv_action (g h : affineGroup q) :
+    cosetEquiv (QuotientGroup.mk (g * h)) = g.val (cosetEquiv (QuotientGroup.mk h)) :=
+  by sorry
+
 theorem commutator_eq (a a' : (ZMod q)ˣ) (b b' : ZMod q) :
     mk a b * mk a' b' * (mk a b)⁻¹ * (mk a' b')⁻¹ =
       mk 1 (b * (1 - (a' : ZMod q)) - b' * (1 - (a : ZMod q))) := by sorry
+
+theorem commutator_eq_translations (hq : 3 ≤ q) :
+    commutator (affineGroup q) = translations := by sorry
+
+theorem mulEquivAffineEquiv_apply (g : affineGroup q) (x : ZMod q) :
+    mulEquivAffineEquiv g x = g.val x := by sorry
+
+theorem mulEquivAffineEquiv_linear (g : affineGroup q) (x : ZMod q) :
+    (mulEquivAffineEquiv g).linear x = (linearPart g : ZMod q) * x := by sorry
+
+theorem mulEquivAffineEquiv_mk (a : (ZMod q)ˣ) (b x : ZMod q) :
+    mulEquivAffineEquiv (mk a b) x = (a : ZMod q) * x + b := by sorry
+
+-- LV §2.6, pp. 14–15: q = 2 explains the derived-group lower bound.
+example [Fact (Nat.Prime 2)] : commutator (affineGroup 2) = ⊥ ∧
+    translations (q := 2) ≠ ⊥ := by sorry
+
+example : (zeroStabilizer (q := 3)).index = 3 ∧
+    Nat.card (zeroStabilizer (q := 3)) = 2 := by sorry
 
 theorem example_three : affineGroup 3 = ⊤ := by sorry
 
@@ -160,26 +228,68 @@ theorem semilinearCentralizer_le_pow (m : ℕ) (f : Module.End E V)
     (hf : f ∈ semilinearCentralizer σ hσ φ) :
     ∀ v, f ((φ : V → V)^[m] v) = (φ : V → V)^[m] (f v) := by sorry
 
-def units_semilinearCentralizer (u : (semilinearCentralizer σ hσ φ)ˣ) :
-    V ≃ₗ[E] V := by sorry
+def commutingAutomorphisms : Subgroup (V ≃ₗ[E] V) where
+  carrier := {e | ∀ v, e (φ v) = φ (e v)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+def units_semilinearCentralizer : (semilinearCentralizer σ hσ φ)ˣ ≃*
+    commutingAutomorphisms σ φ := by sorry
 
 theorem units_semilinearCentralizer_apply (u : (semilinearCentralizer σ hσ φ)ˣ) (v : V) :
-    units_semilinearCentralizer σ hσ φ u v = u.val.val v := by sorry
+    (units_semilinearCentralizer σ hσ φ u).val v = u.val.val v := by sorry
+
+theorem units_semilinearCentralizer_symm_apply (e : commutingAutomorphisms σ φ) (v : V) :
+    ((units_semilinearCentralizer σ hσ φ).symm e).val.val v = e.val v := by sorry
+
+@[instance_reducible]
+def centralizerSubmoduleAction : MulAction (commutingAutomorphisms σ φ) (Submodule E V) :=
+  by sorry
+
+theorem centralizerSubmoduleAction_smul (e : commutingAutomorphisms σ φ) (N : Submodule E V) :
+    @SMul.smul _ _ (centralizerSubmoduleAction σ φ).toSMul e N = N.map e.val.toLinearMap :=
+  by sorry
+
+theorem commutingAutomorphisms_map_stable (e : commutingAutomorphisms σ φ)
+    (N : Submodule E V) (hN : ∀ v ∈ N, φ v ∈ N) :
+    ∀ v ∈ N.map e.val.toLinearMap, φ v ∈ N.map e.val.toLinearMap := by sorry
 
 theorem semilinearCentralizer_fixedScalar (a : F) :
     algebraMap F (Module.End E V) a ∈ semilinearCentralizer σ hσ φ := by sorry
 
-theorem semilinearCentralizer_conj (e : V ≃ₗ[E] V) (ψ : V →ₛₗ[σ.toRingHom] V)
+theorem semilinearCentralizer_conj {W : Type*} [AddCommGroup W]
+    [Module E W] [Module F W] [IsScalarTower F E W]
+    (e : V ≃ₗ[E] W) (ψ : W →ₛₗ[σ.toRingHom] W)
     (h : ∀ v, ψ (e v) = e (φ v)) (f : Module.End E V) :
     f ∈ semilinearCentralizer σ hσ φ ↔
       e.toLinearMap ∘ₗ f ∘ₗ e.symm.toLinearMap ∈ semilinearCentralizer σ hσ ψ := by sorry
 
 theorem semilinearCentralizer_linear (φ : Module.End E V) :
     semilinearCentralizer (F := F) (RingEquiv.refl E) (fun _ => rfl) φ =
-      { carrier := {f | f * φ = φ * f}
-        mul_mem' := by sorry
-        add_mem' := by sorry
-        algebraMap_mem' := by sorry } := by sorry
+      Subalgebra.centralizer F {φ} := by sorry
+
+-- The scalar action is on the actual tensor product, not an abstract carrier.
+def scalarTensorSemilinear (σ : E ≃+* E)
+    (_hσ : ∀ a : F, σ (algebraMap F E a) = algebraMap F E a) {V₀ : Type*} [AddCommGroup V₀] [Module F V₀] :
+    E ⊗[F] V₀ →ₛₗ[σ.toRingHom] E ⊗[F] V₀ := by sorry
+
+theorem scalarTensorSemilinear_tmul {V₀ : Type*} [AddCommGroup V₀] [Module F V₀]
+    (a : E) (v : V₀) :
+    scalarTensorSemilinear σ hσ (a ⊗ₜ[F] v) = σ a ⊗ₜ[F] v := by sorry
+
+theorem semilinearCentralizer_scalar {V₀ : Type*} [AddCommGroup V₀] [Module F V₀]
+    [FiniteDimensional F V₀]
+    (hfixed : ∀ a : E, σ a = a ↔ ∃ c : F, algebraMap F E c = a)
+    (f : Module.End E (E ⊗[F] V₀)) :
+    f ∈ semilinearCentralizer σ hσ (scalarTensorSemilinear (V₀ := V₀) σ hσ) ↔
+      ∃ g : Module.End F V₀, f = g.baseChange E := by sorry
+
+example {V₀ : Type*} [AddCommGroup V₀] [Module F V₀]
+    [FiniteDimensional F V₀]
+    (hfixed : ∀ a : E, σ a = a ↔ ∃ c : F, algebraMap F E c = a)
+    (g : Module.End F V₀) :
+    g.baseChange E ∈ semilinearCentralizer σ hσ (scalarTensorSemilinear σ hσ) := by sorry
 
 -- semilinearCentralizer.reviewTest1: scalar semilinear action on E.
 def scalarSemilinear : E →ₛₗ[σ.toRingHom] E where
@@ -205,6 +315,23 @@ example (f : Module.End ℚ (ℚ × ℚ)) :
       (f (1,0)).2 = 0 ∧ (f (0,1)).1 = 0 := by sorry
 end Centralizer
 
+section FixedCentralizer
+variable {E V : Type*} [Field E] [AddCommGroup V] [Module E V]
+-- LV §2.1, p. 9: the coefficient field is the entire fixed field.
+def semilinearCentralizerFixed (σ : E ≃+* E)
+    (φ : V →ₛₗ[σ.toRingHom] V) :
+    Subalgebra (FixedBy.subfield E σ) (Module.End E V) where
+  carrier := {f | ∀ v, f (φ v) = φ (f v)}
+  mul_mem' := by sorry
+  add_mem' := by sorry
+  algebraMap_mem' := by sorry
+
+theorem semilinearCentralizerFixed_mem (σ : E ≃+* E)
+    (φ : V →ₛₗ[σ.toRingHom] V) (f : Module.End E V) :
+    f ∈ semilinearCentralizerFixed σ φ ↔ ∀ v, f (φ v) = φ (f v) := by sorry
+
+end FixedCentralizer
+
 -- semilinearCentralizer.reviewTest2: the identity on E² commutes with every matrix.
 example {E : Type*} [Field E] :
     semilinearCentralizer (F := E) (RingEquiv.refl E) (fun _ => rfl)
@@ -215,46 +342,47 @@ section Transvection
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
   (B : LinearMap.BilinForm K V) (hB : ∀ x, B x x = 0)
 
-def symplecticTransvection (B : LinearMap.BilinForm K V) (_hB : ∀ x, B x x = 0) (v : V) (r : K) : V ≃ₗ[K] V :=
-  LinearEquiv.transvection (f := r • B v) (v := v) (by sorry)
+def symplecticTransvection (B : LinearMap.BilinForm K V) (_hB : ∀ x, B x x = 0)
+    (v : V) (r : K) : TauCeti.BilinForm.isometryGroup B :=
+  ⟨LinearEquiv.transvection (f := r • B v) (v := v) (by sorry), by sorry⟩
 
 theorem symplecticTransvection_apply (v x : V) (r : K) :
-    symplecticTransvection B hB v r x = x + (r * B v x) • v := by sorry
+    (symplecticTransvection B hB v r).val x = x + (r * B v x) • v := by sorry
 
 theorem symplecticTransvection_preserves (v x y : V) (r : K) :
-    B (symplecticTransvection B hB v r x) (symplecticTransvection B hB v r y) = B x y := by sorry
+    B ((symplecticTransvection B hB v r).val x) ((symplecticTransvection B hB v r).val y) = B x y := by sorry
 
 theorem symplecticTransvection_add (v : V) (r s : K) :
-    (symplecticTransvection B hB v s).trans (symplecticTransvection B hB v r) =
+    symplecticTransvection B hB v r * symplecticTransvection B hB v s =
       symplecticTransvection B hB v (r+s) ∧
-      symplecticTransvection B hB v 0 = LinearEquiv.refl K V ∧
-      (symplecticTransvection B hB v r).symm = symplecticTransvection B hB v (-r) := by sorry
+      symplecticTransvection B hB v 0 = 1 ∧
+      (symplecticTransvection B hB v r)⁻¹ = symplecticTransvection B hB v (-r) := by sorry
 
 theorem symplecticTransvection_smul (v : V) (r c : K) :
     symplecticTransvection B hB (c • v) r = symplecticTransvection B hB v (r*c^2) := by sorry
 
-theorem conj_symplecticTransvection (e : V ≃ₗ[K] V)
-    (he : ∀ x y, B (e x) (e y) = B x y) (v : V) (r : K) :
-    e.symm.trans ((symplecticTransvection B hB v r).trans e) =
-      symplecticTransvection B hB (e v) r := by sorry
+theorem conj_symplecticTransvection (e : TauCeti.BilinForm.isometryGroup B)
+    (v : V) (r : K) :
+    e * symplecticTransvection B hB v r * e⁻¹ =
+      symplecticTransvection B hB (e.val v) r := by sorry
 
 theorem isUnipotent_symplecticTransvection (v : V) (r : K) :
-    ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id).comp
-      ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) = 0 := by sorry
+    ((symplecticTransvection B hB v r).val.toLinearMap - LinearMap.id).comp
+      ((symplecticTransvection B hB v r).val.toLinearMap - LinearMap.id) = 0 := by sorry
 
 theorem fixedPoints_symplecticTransvection_apply (v : V) (hv : v ≠ 0) (r : K) (hr : r ≠ 0) (x : V) :
-    symplecticTransvection B hB v r x = x ↔ B v x = 0 := by sorry
+    (symplecticTransvection B hB v r).val x = x ↔ B v x = 0 := by sorry
 
 theorem fixedPoints_symplecticTransvection [FiniteDimensional K V]
     (hnd : ∀ z, (∀ w, B z w = 0) → z = 0)
     (v : V) (hv : v ≠ 0) (r : K) (hr : r ≠ 0) :
-    LinearMap.ker ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) = (B v).ker ∧
+    LinearMap.ker ((symplecticTransvection B hB v r).val.toLinearMap - LinearMap.id) = (B v).ker ∧
       Module.finrank K (B v).ker + 1 = Module.finrank K V ∧
-      LinearMap.range ((symplecticTransvection B hB v r).toLinearMap - LinearMap.id) =
+      LinearMap.range ((symplecticTransvection B hB v r).val.toLinearMap - LinearMap.id) =
         Submodule.span K {v} := by sorry
 
 theorem symplecticTransvection_eq_transvection (v : V) (r : K) :
-    (symplecticTransvection B hB v r).toLinearMap = LinearMap.transvection (r • B v) v := by sorry
+    (symplecticTransvection B hB v r).val.toLinearMap = LinearMap.transvection (r • B v) v := by sorry
 
 -- Concrete rank-two tests retain the order B(v,x).
 def planeForm : LinearMap.BilinForm ℚ (ℚ × ℚ) where
@@ -266,21 +394,56 @@ def planeForm : LinearMap.BilinForm ℚ (ℚ × ℚ) where
   map_smul' := by sorry
 theorem planeForm_alt : ∀ v, planeForm v v = 0 := by sorry
 
-theorem symplecticTransvection_sl2 (r : ℚ) (x : ℚ × ℚ) :
-    symplecticTransvection planeForm planeForm_alt (1,0) r x = (x.1+r*x.2,x.2) := by sorry
+theorem symplecticTransvection_sl2_rat (r : ℚ) (x : ℚ × ℚ) :
+    (symplecticTransvection planeForm planeForm_alt (1,0) r).val x = (x.1+r*x.2,x.2) := by sorry
+
+def standardPlaneForm (K : Type*) [Field K] : LinearMap.BilinForm K (K × K) where
+  toFun v :=
+    { toFun := fun x => v.1 * x.2 - v.2 * x.1
+      map_add' := by sorry
+      map_smul' := by sorry }
+  map_add' := by sorry
+  map_smul' := by sorry
+
+theorem standardPlaneForm_alt (K : Type*) [Field K] :
+    ∀ v, standardPlaneForm K v v = 0 := by sorry
+
+theorem standardPlaneForm_rat : standardPlaneForm ℚ = planeForm := by sorry
+
+def symplecticPlaneEquivSL2 : TauCeti.BilinForm.isometryGroup (standardPlaneForm K) ≃*
+    Matrix.SpecialLinearGroup (Fin 2) K := by sorry
+
+theorem symplecticPlaneEquivSL2_transvections (r : K) :
+    (symplecticPlaneEquivSL2
+      (symplecticTransvection (standardPlaneForm K) (standardPlaneForm_alt K) (1,0) r) :
+      Matrix (Fin 2) (Fin 2) K) = !![1, r; 0, 1] ∧
+    (symplecticPlaneEquivSL2
+      (symplecticTransvection (standardPlaneForm K) (standardPlaneForm_alt K) (0,1) r) :
+      Matrix (Fin 2) (Fin 2) K) = !![1, 0; -r, 1] := by sorry
+
+-- LV §2.7, (2.4), p. 15: the second elementary matrix has parameter −r.
+theorem symplecticTransvection_sl2 (r : K) (x : K × K) :
+    (symplecticTransvection (standardPlaneForm K) (standardPlaneForm_alt K) (1,0) r).val x =
+      (x.1 + r * x.2, x.2) ∧
+    (symplecticTransvection (standardPlaneForm K) (standardPlaneForm_alt K) (0,1) r).val x =
+      (x.1, x.2 - r * x.1) := by sorry
+
+example (r : K) :
+    (symplecticTransvection (standardPlaneForm K) (standardPlaneForm_alt K) (0,1) r).val (1,0) =
+      (1,-r) := by sorry
 
 -- symplecticTransvection.reviewTest1
 example :
-    symplecticTransvection planeForm planeForm_alt (1,0) 2 (0,1) = (2,1) ∧
-    symplecticTransvection planeForm planeForm_alt (1,0) 2 (1,0) = (1,0) := by sorry
+    (symplecticTransvection planeForm planeForm_alt (1,0) 2).val (0,1) = (2,1) ∧
+    (symplecticTransvection planeForm planeForm_alt (1,0) 2).val (1,0) = (1,0) := by sorry
 -- symplecticTransvection.reviewTest2
 example (v x : ℚ × ℚ) (r : ℚ) :
-    symplecticTransvection planeForm planeForm_alt 0 r x = x ∧
-    symplecticTransvection planeForm planeForm_alt v 0 x = x := by sorry
+    (symplecticTransvection planeForm planeForm_alt 0 r).val x = x ∧
+    (symplecticTransvection planeForm planeForm_alt v 0).val x = x := by sorry
 -- symplecticTransvection.reviewTest3: inverse uses the negative parameter.
 example (v : V) (r : K) :
-    (symplecticTransvection B hB v r).toLinearMap = LinearMap.transvection (r • B v) v ∧
-    (symplecticTransvection B hB v r).symm = symplecticTransvection B hB v (-r) := by sorry
+    (symplecticTransvection B hB v r).val.toLinearMap = LinearMap.transvection (r • B v) v ∧
+    (symplecticTransvection B hB v r)⁻¹ = symplecticTransvection B hB v (-r) := by sorry
 end Transvection
 
 -- LV.1: an actual subfield, using Mathlib's existing CM predicate.
@@ -305,6 +468,24 @@ theorem le_largestCMSubfield_iff (L : Subfield K) :
 theorem isCMField_largestCMSubfield_iff :
     NumberField.IsCMField (largestCMSubfield K) ↔
       ∃ L : Subfield K, NumberField.IsCMField L := by sorry
+
+theorem isCMField_largestCMSubfield_iff_ne_real :
+    NumberField.IsCMField (largestCMSubfield K) ↔
+      largestCMSubfield K ≠ largestTotallyRealSubfield K := by sorry
+
+def largestCMIntermediateField : IntermediateField ℚ K := by sorry
+
+theorem largestCMIntermediateField_toSubfield :
+    (largestCMIntermediateField K).toSubfield = largestCMSubfield K := by sorry
+
+def realSubfieldToCM : largestTotallyRealSubfield K →+* largestCMSubfield K := by sorry
+
+theorem realSubfieldToCM_apply (x : largestTotallyRealSubfield K) :
+    (realSubfieldToCM K x : K) = (x : K) := by sorry
+
+-- A nontrivial cyclotomic extension is CM by the native CM-field API.
+theorem largestCMSubfield_cyclotomic (n : ℕ) (hn : 3 ≤ n)
+    [IsCyclotomicExtension {n} ℚ K] : largestCMSubfield K = ⊤ := by sorry
 
 theorem largestCMSubfield_map {K' : Type*} [Field K'] [NumberField K'] (e : K ≃+* K') :
     (largestCMSubfield K).map e.toRingHom = largestCMSubfield K' := by sorry
@@ -360,6 +541,10 @@ section Primitive
 variable {K Z Y : Type*} [Field K] [AddCommGroup Z] [Module K Z]
   [AddCommGroup Y] [Module K Y]
 def primitiveHomology (p : Z →ₗ[K] Y) : Submodule K Z := p.ker
+
+theorem primitiveHomology.baseChange {L : Type*} [Field L] [Algebra K L]
+    (p : Z →ₗ[K] Y) :
+    (primitiveHomology p).baseChange L = primitiveHomology (p.baseChange L) := by sorry
 
 def primitiveProjection (p : Z →ₗ[K] Y) (t : Y →ₗ[K] Z) (q : K) : Module.End K Z :=
   LinearMap.id - q⁻¹ • (t ∘ₗ p)
@@ -508,6 +693,35 @@ example : filtrationWeight (lineFiltration (-1)) = -1 ∧
     filtrationWeight ((lineFiltration (-1)).directSum (lineFiltration 1)) = 0 := by sorry
 end FiltrationWeight
 
+section CentralizerFiltration
+variable {E V : Type*} [Field E] [AddCommGroup V] [Module E V]
+  (σ : E ≃+* E) (φ : V →ₛₗ[σ.toRingHom] V)
+
+def commutingAutomorphisms.mapFiltration (e : commutingAutomorphisms σ φ)
+    (F : FiniteFiltration E V) : FiniteFiltration E V where
+  step j := (F.step j).map e.val.toLinearMap
+  antitone := by sorry
+  lower := F.lower
+  upper := F.upper
+  bounds := F.bounds
+  lower_full := by sorry
+  upper_zero := by sorry
+
+theorem commutingAutomorphisms.mapFiltration_stable (e : commutingAutomorphisms σ φ)
+    (F : FiniteFiltration E V) (hF : ∀ j v, v ∈ F.step j → φ v ∈ F.step j) :
+    ∀ j v, v ∈ (commutingAutomorphisms.mapFiltration σ φ e F).step j →
+      φ v ∈ (commutingAutomorphisms.mapFiltration σ φ e F).step j := by sorry
+
+theorem commutingAutomorphisms.mapFiltration_mul (e f : commutingAutomorphisms σ φ)
+    (F : FiniteFiltration E V) :
+    commutingAutomorphisms.mapFiltration σ φ (e * f) F =
+      commutingAutomorphisms.mapFiltration σ φ e
+        (commutingAutomorphisms.mapFiltration σ φ f F) := by sorry
+
+theorem commutingAutomorphisms.mapFiltration_one (F : FiniteFiltration E V) :
+    commutingAutomorphisms.mapFiltration σ φ 1 F = F := by sorry
+end CentralizerFiltration
+
 -- LV.8: abstract group carrier; continuity is the separately requested adapter.
 def singlyRamifiedSurjections (Γ G : Type*) [Group Γ] [Group G] (c : Set Γ) :=
   {φ : Γ →* G // Function.Surjective φ ∧ ∀ x ∈ c, φ x ≠ 1}
@@ -586,6 +800,107 @@ example (φ : singlyRamifiedSurjections Γ G c) (z : G) (hz : z ≠ 1)
     (hc : ∀ h : G, z*h=h*z) : actRight z φ = φ := by sorry
 end singlyRamifiedSurjections
 
+-- LV §7.3, proof of Lemma 7.4, p. 38: profinite sources use continuous maps.
+def continuousSinglyRamifiedSurjections (Γ G : Type*) [Group Γ] [Group G]
+    [TopologicalSpace Γ] [TopologicalSpace G] (c : Set Γ) :=
+  {φ : Γ →ₜ* G // Function.Surjective φ ∧ ∀ x ∈ c, φ x ≠ 1}
+
+namespace continuousSinglyRamifiedSurjections
+variable {Γ G : Type*} [Group Γ] [Group G] [TopologicalSpace Γ] [TopologicalSpace G]
+  [IsTopologicalGroup Γ] [IsTopologicalGroup G] {c : Set Γ}
+
+def forget (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    singlyRamifiedSurjections Γ G c := ⟨φ.val.toMonoidHom, φ.property⟩
+
+theorem forget_injective : Function.Injective (forget (Γ := Γ) (G := G) (c := c)) :=
+  by sorry
+
+def actLeft (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ : Γ)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    continuousSinglyRamifiedSurjections Γ G c := by sorry
+
+def actRight (h : G) (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    continuousSinglyRamifiedSurjections Γ G c := by sorry
+
+theorem actLeft_apply (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ x : Γ)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    (actLeft hc γ φ).val x = φ.val (γ⁻¹ * x * γ) := by sorry
+
+theorem actRight_apply (h : G) (x : Γ) (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    (actRight h φ).val x = h⁻¹ * φ.val x * h := by sorry
+
+theorem forget_actLeft (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ : Γ)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    forget (actLeft hc γ φ) = singlyRamifiedSurjections.actLeft hc γ (forget φ) := by sorry
+
+theorem forget_actRight (h : G) (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    forget (actRight h φ) = singlyRamifiedSurjections.actRight h (forget φ) := by sorry
+
+theorem actions_commute (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ : Γ) (h : G)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    actLeft hc γ (actRight h φ) = actRight h (actLeft hc γ φ) := by sorry
+
+theorem actLeft_one (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) : actLeft hc 1 φ = φ := by sorry
+
+theorem actLeft_mul (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ δ : Γ)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    actLeft hc γ (actLeft hc δ φ) = actLeft hc (γ * δ) φ := by sorry
+
+theorem actRight_one (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    actRight 1 φ = φ := by sorry
+
+theorem actRight_mul (h k : G) (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    actRight k (actRight h φ) = actRight (h * k) φ := by sorry
+
+def conjugacySetoid : Setoid (continuousSinglyRamifiedSurjections Γ G c) where
+  r φ ψ := ∃ h : G, actRight h φ = ψ
+  iseqv := by sorry
+
+def quotient := Quotient (conjugacySetoid (Γ := Γ) (G := G) (c := c))
+
+theorem quotient_mk_actLeft (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c) (γ : Γ)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    Quotient.mk conjugacySetoid (actLeft hc γ φ) = Quotient.mk conjugacySetoid φ := by sorry
+
+theorem stabilizer_eq (hc : ∀ a b, b ∈ c → a * b * a⁻¹ ∈ c)
+    (hcentre : ∀ g : G, (∀ h, g * h = h * g) → g = 1)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) (γ : Γ) (h : G) :
+    actRight h (actLeft hc γ φ) = φ ↔ h⁻¹ = φ.val γ := by sorry
+
+-- Compact-to-Hausdorff surjections are quotient maps, so descended maps are continuous.
+def comap {Γ' : Type*} [Group Γ'] [TopologicalSpace Γ'] [IsTopologicalGroup Γ']
+    [CompactSpace Γ'] [T2Space Γ] (f : Γ' →ₜ* Γ) (hf : Function.Surjective f)
+    (hfactor : ∀ φ : continuousSinglyRamifiedSurjections Γ' G (f ⁻¹' c),
+      ∀ x ∈ f.toMonoidHom.ker, φ.val x = 1) :
+    continuousSinglyRamifiedSurjections Γ G c ≃
+      continuousSinglyRamifiedSurjections Γ' G (f ⁻¹' c) := by sorry
+
+theorem comap_apply {Γ' : Type*} [Group Γ'] [TopologicalSpace Γ'] [IsTopologicalGroup Γ']
+    [CompactSpace Γ'] [T2Space Γ] (f : Γ' →ₜ* Γ) (hf : Function.Surjective f)
+    (hfactor : ∀ φ : continuousSinglyRamifiedSurjections Γ' G (f ⁻¹' c),
+      ∀ x ∈ f.toMonoidHom.ker, φ.val x = 1)
+    (φ : continuousSinglyRamifiedSurjections Γ G c) :
+    (comap f hf hfactor φ).val = φ.val.comp f := by sorry
+
+def discreteEquiv [DiscreteTopology Γ] :
+    continuousSinglyRamifiedSurjections Γ G c ≃ singlyRamifiedSurjections Γ G c := by sorry
+
+theorem discreteEquiv_apply [DiscreteTopology Γ]
+    (φ : continuousSinglyRamifiedSurjections Γ G c) : discreteEquiv φ = forget φ := by sorry
+
+example [TopologicalSpace (FreeGroup (Fin 4))] [DiscreteTopology (FreeGroup (Fin 4))]
+    [IsTopologicalGroup (FreeGroup (Fin 4))]
+    [TopologicalSpace (affineGroup 3)] [IsTopologicalGroup (affineGroup 3)] :
+    Nat.card (continuousSinglyRamifiedSurjections (FreeGroup (Fin 4)) (affineGroup 3)
+      singlyRamifiedSurjections.peripheralClass) = 810 := by sorry
+
+example : IsEmpty (continuousSinglyRamifiedSurjections Γ G ({1} : Set Γ)) := by sorry
+
+example (φ : continuousSinglyRamifiedSurjections Γ G c) (z : G) (hz : z ≠ 1)
+    (hcentral : ∀ h : G, z * h = h * z) : actRight z φ = φ := by sorry
+end continuousSinglyRamifiedSurjections
+
 theorem generatingPairs_mod_six :
     Nat.card {v : Fin 2 → ZMod 6 // AddSubgroup.closure (Set.range v) = ⊤} = 24 := by sorry
 
@@ -609,13 +924,22 @@ end MoreCentralizer
 
 section MoreTransvection
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-theorem eq_symplecticTransvection_of_codim_one
+theorem eq_symplecticTransvection_of_codim_one [CharZero K]
+    (B : LinearMap.BilinForm K V) (hB : ∀ x, B x x = 0)
+    (hnd : ∀ x, (∀ y, B x y = 0) → x = 0)
+    (e : TauCeti.BilinForm.isometryGroup B)
+    (hunip : IsNilpotent (e.val.toLinearMap - LinearMap.id))
+    (hcodim : Module.finrank K (e.val.toLinearMap - LinearMap.id).ker + 1 =
+      Module.finrank K V) :
+    ∃ (v : V) (r : K), v ≠ 0 ∧ r ≠ 0 ∧ e = symplecticTransvection B hB v r := by sorry
+
+theorem eq_symplecticTransvection_of_normal
     (B : LinearMap.BilinForm K V) (hB : ∀ x, B x x = 0)
     (hnd : ∀ x, (∀ y, B x y = 0) → x = 0)
     (v : V) (hv : v ≠ 0) (e : V ≃ₗ[K] V)
     (he : ∀ x y, B (e x) (e y) = B x y)
     (hfix : ∀ x, e x = x ↔ B v x = 0) :
-    ∃ r : K, r ≠ 0 ∧ e = symplecticTransvection B hB v r := by sorry
+    ∃ r : K, r ≠ 0 ∧ e = (symplecticTransvection B hB v r).val := by sorry
 end MoreTransvection
 
 namespace FiniteFiltration
@@ -686,7 +1010,8 @@ theorem primitiveHomology.symplectic {Z : Type*} [AddCommGroup Z] [Module K Z]
     (hproj : ∀ z y, BZ z (t y) = BY (p z) y) :
     (∀ z ∈ primitiveHomology p, BZ z z = 0) ∧
       ∀ z ∈ primitiveHomology p, (∀ w ∈ primitiveHomology p, BZ z w = 0) → z = 0 := by sorry
--- primitiveHomology.reviewTest3: the genus-two Aff(3) ranks and normalized transfer.
+-- primitiveHomology.rankSixAdapter: dimensions expected from the genus-two Aff(3) cover.
+-- This example does not construct a cover or check the required geometric reviewTest3.
 example {Z : Type*} [AddCommGroup Z] [Module ℚ Z] [FiniteDimensional ℚ Z]
     {Y : Type*} [AddCommGroup Y] [Module ℚ Y] [FiniteDimensional ℚ Y]
     (p : Z →ₗ[ℚ] Y) (t : Y →ₗ[ℚ] Z)
@@ -767,13 +1092,20 @@ end MoreCM
 end TauCeti.LawrenceVenkatesh
 
 /-
-Signatures requiring the supplier interfaces described in the roadmap.
-LV.0/affine-group: linearPart, ker_linearPart, stabilizer_zero, commutator_eq
-and mulEquivAffineEquiv state partial comparisons. Surjectivity, translation
-and stabilizer group equivalences, index/coset action, derived subgroup equality
-(q ≥ 3), and evaluation/linear-part compatibility remain as specified in the
-roadmap specification. Ordinary transitivity and sharp two-transitivity have separate signatures.
+Executable algebra comparisons use native carriers. The affine-group interfaces
+include the normal translation subgroup, the zero-stabilizer equivalence and
+coset action, and the derived subgroup for q ≥ 3. The q = 2 example retains the
+necessary lower bound. Centralizer units are multiplicatively equivalent to
+commuting linear automorphisms, acting on subspaces and finite filtrations.
+semilinearCentralizerFixed uses the entire native FixedBy.subfield; the general
+semilinearCentralizer also allows restriction to a smaller fixed base field.
+Scalar tensor descent assumes that this base is exactly the fixed field and
+that the descended vector space is finite dimensional. Transvections belong
+to TauCeti.BilinForm.isometryGroup; the codimension-one characterization uses
+nilpotence and the actual fixed-space dimension, and both rank-two elementary
+matrices are compared with Matrix.SpecialLinearGroup over any field.
 
+Signatures requiring the supplier interfaces described in the roadmap.
 The omitted LV.3 monodromy and period-map interfaces use backward transport
 on the opposite of Mathlib's fundamental group, with the left deck action by
 prepending loops. The underlying forward local-system representation is on
@@ -782,22 +1114,11 @@ The following entries are mathematical targets in the roadmap. They are omitted
 from executable Lean where their named owner interfaces are required. These comments
 are not declarations and do not certify the missing definitions or conditions.
 
-MordellLawrenceVenkatesh:LV.0/semilinear-centralizer
-Fixed-field module descent and the full unit-group/tensor-descent comparisons (LV.0 semilinear bound); no theorem result is included as a structure field.
-Gap: Suggested signatures — semilinear-centralizer
-Omitted: semilinearCentralizer_scalar
-Partial adapters: semilinearCentralizer, units_semilinearCentralizer, semilinearCentralizer_linear
-
-MordellLawrenceVenkatesh:LV.0/symplectic-transvection
-The pinned Tau isometry-group coercion and the full codimension-one/dual-hyperplane and arbitrary-field SL₂ comparisons for the explicit Mathlib linear-equivalence core.
-Gap: Suggested signatures — symplectic-transvection
-Partial adapters: symplecticTransvection, eq_symplecticTransvection_of_codim_one, symplecticTransvection_sl2
-
 MordellLawrenceVenkatesh:LV.1/largest-cm-subfield
-The absolute-closure embedding/orbit interface for H, and an explicit cyclotomic-field carrier connected to NumberField.IsCMField, including the real-subfield tower.
+The absolute-closure embedding/orbit interface for H remains. The concrete subfield has an IntermediateField comparison, the CM/non-real criterion, and a cyclotomic-extension specialization; the relative real-subfield tower still needs its full module comparison.
 Gap: Suggested signatures — largest-cm-subfield
-Omitted: embeddings_eq_on_largestCMSubfield_iff, largestCMSubfield_cyclotomic
-Partial adapters: isCMField_largestCMSubfield_iff
+Omitted: embeddings_eq_on_largestCMSubfield_iff
+Partial adapters: largestCMSubfield, finrank_largestCMSubfield_div
 
 MordellLawrenceVenkatesh:LV.1/friendly-place
 Finite places with unramified Galois closure, restriction to E_K and E_K⁺, inertness/splitting, and the Frobenius/complex-conjugation orbit criterion of LV Definition 2.7. This needs the ClassFieldTheory/Chebotarev and ArithmeticGalois place interfaces.
@@ -901,10 +1222,12 @@ Gap: Suggested signatures — size-v
 Omitted: sizeV_scheme, sizeV_eq_places
 Partial adapters: sizeV, sizeV_indep
 
-MordellLawrenceVenkatesh:LV.8/singly-ramified-surjections
-Profinite continuous homomorphism and quotient-factorization comparisons for the abstract-group carrier; the centreless stabilizer convention is already stated.
-Gap: Suggested signatures — singly-ramified-surjections
-Partial adapters: singlyRamifiedSurjections, singlyRamifiedSurjections.comap
+The abstract and continuous singly ramified surjection carriers have forgetful
+and discrete-source comparisons. Continuous conjugation, the commuting
+peripheral actions, their quotient and the centreless stabilizer use the same
+inverse convention. Continuous descent along a compact-to-Hausdorff group
+surjection uses the explicit common-kernel factorization hypothesis. These
+interfaces do not construct an arithmetic fundamental group or Hurwitz space.
 
 MordellLawrenceVenkatesh:LV.8/hurwitz-cover-complex
 Actual finite analytic covering of the base with surjection-class fibres and universal branched covering family, including local z↦z^n models, from the exact Riemann-existence/configuration interfaces.
@@ -927,7 +1250,7 @@ Gap: Suggested signatures — affine-cover
 Omitted: AffineCover, AffineCover.cov, AffineCover.iso_iff, AffineCover.cycleType, SinglyRamified, SinglyRamified.genus, SinglyRamified.finite, SinglyRamified.modAction, SinglyRamified.example, AffineCover.reviewTest1, AffineCover.reviewTest2, AffineCover.reviewTest3
 
 MordellLawrenceVenkatesh:LV.9/primitive-homology
-Singular H₁ pushforward and rational branched transfer with the projection formula, surface pairing and genus computation; linear-map kernels alone do not supply these identities.
+Singular H₁ pushforward and rational branched transfer with the projection formula, surface pairing and genus computation; linear-map kernels alone do not supply these identities. The kernel scalar-extension equality primitiveHomology.baseChange is an algebraic comparison, not a surface-homology identification.
 Gap: Suggested signatures — primitive-homology
 Omitted: transfer
 Partial adapters: primitiveHomology, isCompl_primitiveHomology, primitiveHomology_eq_orthogonal, primitiveHomology.symplectic, primitiveHomology.equivariant, primitiveHomology.finrank, primitiveHomology.trivialCover
