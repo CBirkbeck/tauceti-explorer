@@ -53,12 +53,13 @@ theorem mem_dualFiltration (F : ℤ → Submodule K V) (i : ℤ) (f : Module.Dua
     f ∈ dualFiltration F i ↔ ∀ v ∈ F (1 - i), f v = 0 := by
   sorry
 
-/-- R06.2 end theorem: recovery of a filtration under the evaluation into its double dual. -/
+/-- Proposed API `Filtration.dual_dual`: recovery of a filtration under the evaluation into its
+double dual. -/
 theorem dualFiltration_dual (F : ℤ → Submodule K V) (i : ℤ) :
     (dualFiltration (dualFiltration F) i).comap (Module.Dual.eval K V) = F i := by
   sorry
 
-/-- R06.2 end theorem: dualizing a Tate shift reverses its exponent. -/
+/-- Proposed API `Filtration.dual_shift`: dualizing a Tate shift reverses its exponent. -/
 theorem dualFiltration_shift (F : ℤ → Submodule K V) (n : ℤ) :
     dualFiltration (filtrationShift F n) = filtrationShift (dualFiltration F) (-n) := by
   sorry
@@ -124,7 +125,8 @@ section PeriodCompletion
 variable (R : Type*) [CommRing R] (p : ℕ) [Fact p.Prime]
     [Fact ¬IsUnit (p : R)] [IsAdicComplete (Ideal.span {(p : R)}) R]
 
-/-- R06.1 milestone over Mathlib's actual completed carrier: rationalization still inverts p. -/
+/-- R06.1 check on Mathlib's completed carrier: p stays invertible after completion
+(the completion is taken after inverting p). -/
 theorem bdRPlus_p_unit : IsUnit (p : BDeRhamPlus R p) := by
   sorry
 
