@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "date": "2026-10-13",
+    "notes": "Accepted with the fixes of this review applied. Lean: isEtale_of_isUnit_rank was false over a disconnected base (finrank is not the order; counterexample F2 x F2) and now assumes a local base; Eisenstein gains natDegree_pos (Mathlib's IsEisensteinAt accepts E = 1, which broke the height test); schematicClosure_flat and prolongation_unique_of_lt now state compatibility with the generic identifications (Raynaud 2.1, 3.3.3); rank_cartierDual removed as a duplicate of current Tau Ceti finrank_cartierDual; the axioms of the standard Dieudonne modules qpZp and muPInfty are proved. README: Raynaud's boundary case scoped to F-vector schemes (Prop. 3.3.2 3°), the filtration of the Fontaine-Laffaille ring S corrected to (ker theta)^i intersect {Phi x in p^i S} (FL 2.6-2.7, p. 561), Ramakrishna's flat ring scoped to q = p or irreducible, six wrong or garbled Checks corrected, implicit hypotheses restated, current Tau Ceti Tate modules, ramification groups and Mathlib FormalGroup cited, Downstream consumers moved out of References, dead Serre 1987 link replaced by its DOI. About 80 locators in 16 sources checked against the texts; all other pages and statements match. Serre 1987 and Kisin's DVI-only papers were not sampled. lean-check exit 0 with 29 sorry warnings only; check_sorry_data clean; intake check-files 0 problems."
+  }
+}
