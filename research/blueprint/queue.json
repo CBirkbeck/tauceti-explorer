@@ -23410,11 +23410,12 @@
     "REV-RS-09~2"
    ],
    "prompt": "research/blueprint/prompts/BP-CompletedCohomologyPartII.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #9407"
   },
   {
    "id": "REV-CompletedCohomologyPartII",
@@ -26715,8 +26716,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4b.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9426"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4b",
@@ -36459,8 +36461,9 @@
    ],
    "followUpOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9424"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9424",
+   "finishedAt": "2026-10-13T14:50:52Z"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4",
@@ -36504,7 +36507,8 @@
    ],
    "followUpOf": "BP-ModularCurvesPartII--R12.1",
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R13.4a.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9425"
   },
   {
    "id": "REV-ModularCurvesPartII--R13.4a",
@@ -38021,8 +38025,9 @@
    ],
    "followUpOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence--DT.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9320"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9320",
+   "finishedAt": "2026-10-13T14:50:54Z"
   },
   {
    "id": "REV-DiophantineApproximationAndTranscendence--DT.2",
@@ -48917,8 +48922,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9374"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9374",
+   "finishedAt": "2026-10-13T14:50:56Z"
   },
   {
    "id": "REV-PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
