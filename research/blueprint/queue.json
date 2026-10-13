@@ -21847,7 +21847,8 @@
    ],
    "avoidAccountOf": "BP-AInfCohomology",
    "prompt": "research/blueprint/prompts/REV-AInfCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #9377"
   },
   {
    "id": "BP-AbelianSchemesAndArithmeticModuli",
@@ -24492,8 +24493,9 @@
    ],
    "avoidAccountOf": "BP-EtaleDualityAndPerverseSheaves--EDC.7",
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9382"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #9382",
+   "finishedAt": "2026-10-13T17:23:18Z"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems",
@@ -28214,8 +28216,9 @@
     "REV-RS-32"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraCompactifications.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #9431"
   },
   {
    "id": "REV-ShimuraCompactifications",
@@ -28318,9 +28321,10 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #9432"
+   "note": "deliverables arrived from an external worker on issue #9432",
+   "finishedAt": "2026-10-13T17:23:22Z"
   },
   {
    "id": "REV-ShimuraVarieties",
