@@ -1,0 +1,2592 @@
+{
+ "roadmapId": "ModularCurvesPartII",
+ "protocol": "blueprint-v1",
+ "part": "R13.4a",
+ "scope": [
+  "ModularCurvesPartII:R13.4a"
+ ],
+ "status": "complete",
+ "summary": "Algebraic construction of the compactified coarse modular curves of every congruence level before any analytic comparison. For an open subgroup H of GL₂(Ẑ) (row-vector right action, standard levels Γ(N), Γ₁(N), Γ₁^μ(N), Γ₀(N), mixed and Cartan levels) the layer plans level-H structures away from the level, the Deligne–Rapoport stack 𝒳_H as the normalization of X(1)=Ell₁ along them, its geometry (finite flat of rank [GL₂(Ẑ):H] over X(1), normal Cohen–Macaulay, proper flat, smooth over ℤ[1/n] as [X(n)/H̄]), and the identification of R13.2's full-level, Γ₁ and refined Γ₀ moduli stacks with these normalizations. The coarse curves X_H (Keel–Mori) are projective normal ℤ-schemes, finite locally free over the compactified coarse j-line ℙ¹_ℤ of rank the projective index [GL₂(Ẑ):±H]; the layer gives their local structure (strict henselizations and completions as stabiliser invariants, line-bundle descent), cusp divisor and cusp double cosets away from the level, cyclotomic structure X_H→Spec O_H, the fixed-pairing curves X(N,ζ) over ℤ[ζ_N] and the compactified twisted curves X(ρ), level maps and quotients, the allowed base change (fibrewise criterion) and its failure for Γ₁(4) over 𝔽₂, the identification of the elliptic opens with Tau Ceti ModularCurves' Katz–Mazur level problems and coarse schemes, agreement with ModularCurves Layer 10 for prime N≥5 diamond quotients by a component-by-component recognition criterion, Cartan curves, the rational-point criterion, Atkin–Lehner quotients X₀⁺(N), and proper rigidifying covers with coherent finiteness. It builds on the first pass of this stage in the R13.3 packet (integral-coarse-curves, coarse-normalization-comparisons, legal-coarse-base-change, coarse-cusp-regularity, modular-polynomial, projective-scalar-coarse-quotient, split-cartan-quotient), which it cites. No analytic uniformisation, connectedness or R12.6 input is used.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AlgebraicGeometry.Flat",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
+    "provides": "Flat morphisms of schemes",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsFinite",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
+    "provides": "Finite morphisms of schemes",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsIntegralHom",
+    "kind": "class",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/Integral.lean",
+    "provides": "Integral morphisms of schemes",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
+    "kind": "abbrev",
+    "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
+    "provides": "Open immersions of schemes",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.finrank",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/Morphisms/FlatRank.lean",
+    "provides": "The locally constant rank of a finite locally free morphism",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+    "provides": "The relative normalization of the target in a quasi-compact quasi-separated morphism of schemes",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization.hom_ext",
+    "kind": "lemma",
+    "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+    "provides": "Uniqueness of morphisms out of the relative normalization over an affine morphism",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+    "provides": "The universal property of relative normalization: a morphism to any integral factorisation",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+    "provides": "Comparison of normalization with base change; an isomorphism for smooth base change",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ(N) in SL(2,ℤ): matrices ≡ identity mod N",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma0",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ₀(N) in SL(2,ℤ): lower-left entry ≡0 mod N",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma1",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ₁(N) in SL(2,ℤ): bottom row ≡(0,1) mod N",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsIntegrallyClosed",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
+    "provides": "Integrally closed commutative rings",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+    "provides": "Primitive roots of unity",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "The general linear group GL(n,R) as units of matrices",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup.det",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "The determinant homomorphism GL(n,R)→Rˣ",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Polynomial.cyclotomic",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Basic.lean",
+    "provides": "Cyclotomic polynomials",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Subgroup.index",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/Index.lean",
+    "provides": "The index of a subgroup",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "mathlib:Subgroup.normalizer",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+    "provides": "The normaliser of a subset in a group",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.eq_one_or_eq_negVariableChange_of_smul_eq",
+    "kind": "theorem",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+    "provides": "For an elliptic curve over a field with j∉{0,1728}, every automorphism is ±1",
+    "checked": "statement read at the pinned commit"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "ces17",
+   "title": "A modular description of 𝒳₀(n)",
+   "authors": "Kęstutis Česnavičius",
+   "edition": "arXiv:1511.07475v2 (5 October 2017; text dated 6 October 2017), printed pp.1–67 = PDF pages; published Algebra & Number Theory 11 (2017), 2001–2089.",
+   "url": "https://arxiv.org/pdf/1511.07475",
+   "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1.1–1.4, pp.1–3",
+    "§3.2 Lemma 3.2.2, p.20; §3.3, pp.23–25",
+    "§4.1, pp.27–29",
+    "§4.3, pp.37–39",
+    "§4.4 Theorem 4.4.4, pp.40–41",
+    "Theorem 5.13, p.60",
+    "§6, pp.62–65"
+   ]
+  },
+  {
+   "id": "ces16cb",
+   "title": "Coarse base change fails for some modular curves",
+   "authors": "Kęstutis Česnavičius",
+   "edition": "arXiv:1608.01249v2 (24 October 2016), printed pp.1–7; published Algebraic Geometry 4 (2017), no. 4, 444–451.",
+   "url": "https://arxiv.org/pdf/1608.01249",
+   "sha256": "c2f4a0311beff9b4a7a1f70dda989c5d1d52a1971bf69500317db2cac32bf5f7",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1, pp.1–2",
+    "§2, Theorem 2.1, Remark 2.2, Lemmas 2.4–2.5, pp.2–3",
+    "§3, Theorem 3.2, p.4",
+    "Theorems 4.2 and 5.2, statements, pp.5–6"
+   ]
+  },
+  {
+   "id": "conrad07",
+   "title": "Arithmetic moduli of generalized elliptic curves",
+   "authors": "Brian Conrad",
+   "edition": "Author PDF dated 18 July 2006; published J. Inst. Math. Jussieu 6 (2007), 209–278; locators use the author PDF's printed pages.",
+   "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+   "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1.1–1.2, pp.1–2",
+    "§4.1 Theorem 4.1.1 and proof, pp.31–34",
+    "§4.2 Theorem 4.2.1, Remark 4.2.2, Lemmas 4.2.3–4.2.4, pp.35–37",
+    "§4.3 Definition 4.3.1, Lemma 4.3.2, p.37"
+   ]
+  },
+  {
+   "id": "conrad05",
+   "title": "The Keel–Mori theorem via stacks",
+   "authors": "Brian Conrad",
+   "edition": "Author notes dated 27 November 2005, 12 pp.",
+   "url": "https://math.stanford.edu/~conrad/papers/coarsespace.pdf",
+   "sha256": "31535943dd0f1e8351046c4b842a65477ba6c22651c23324ef2bd451c93411d2",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1 Theorem 1.1, pp.1–2",
+    "§2 Lemmas 2.1–2.2, Remark 2.3, pp.2–4",
+    "§3 Theorem 3.1 and proof, pp.5–6",
+    "§4 Theorem 4.2, pp.8–9"
+   ]
+  },
+  {
+   "id": "av02",
+   "title": "Compactifying the space of stable maps",
+   "authors": "Dan Abramovich and Angelo Vistoli",
+   "edition": "arXiv:math/9908167v2 (12 March 2000); published J. Amer. Math. Soc. 15 (2002), 27–75.",
+   "url": "https://arxiv.org/pdf/math/9908167",
+   "sha256": "8b19db73bcdaa7ec4cd8ee22ca691aa46a0a06f3a9587501315a582fbeed4ce8",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§2.2, Lemma 2.2.3 with sketch of proof, p.4"
+   ]
+  },
+  {
+   "id": "zywina15",
+   "title": "On the possible images of the mod ℓ representations associated to elliptic curves over ℚ",
+   "authors": "David Zywina",
+   "edition": "arXiv:1508.07660 (PDF retrieved 2026-10-13), PDF page numbers.",
+   "url": "https://arxiv.org/pdf/1508.07660",
+   "sha256": "b3b747c876c47239fe5d2625ed54489b15eefb1221ac3d3a501e95cf13a37eb7",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1.2 (Cartan subgroups)",
+    "§3.1–3.3, pp.13–16 (Proposition 3.1, §3.2, Proposition 3.3, Lemmas 3.4–3.7)",
+    "§3.5 proof of Proposition 3.3, pp.17–19"
+   ]
+  },
+  {
+   "id": "gz86",
+   "title": "Heegner points and derivatives of L-series",
+   "authors": "Benedict H. Gross and Don B. Zagier",
+   "edition": "Published Invent. Math. 84 (1986), 225–320, MPIM author-hosted scan; journal pages.",
+   "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf",
+   "sha256": "8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "Chapter I, §1, p.226",
+    "Chapter III, §1, pp.254–255"
+   ]
+  },
+  {
+   "id": "bdmtv19",
+   "title": "Explicit Chabauty–Kim for the split Cartan modular curve of level 13",
+   "authors": "Jennifer S. Balakrishnan, Netan Dogra, J. Steffen Müller, Jan Tuitman and Jan Vonk",
+   "edition": "Published Ann. of Math. 189 (2019), 885–944; journal PDF, printed pages.",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+   "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "§1, pp.887–888",
+    "§6 opening, p.926",
+    "§6.2, pp.927–929",
+    "§6.3, pp.929–930"
+   ]
+  },
+  {
+   "id": "stacks",
+   "title": "The Stacks Project",
+   "authors": "The Stacks Project authors",
+   "edition": "Online version and morphisms.tex at the GitHub master branch, read 2026-10-13; cited by tag.",
+   "url": "https://stacks.math.columbia.edu",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "Morphisms, Section 29.54 (Relative normalization): tags 035I, 035J, 035K, 035L, 03GP, 03GR, 0AXP",
+    "More on Morphisms, tag 03GV",
+    "Algebra, tag 00R4"
+   ]
+  },
+  {
+   "id": "tc-modularcurves",
+   "title": "Roadmap: modular curves, following Katz–Mazur (Tau Ceti roadmap ModularCurves)",
+   "authors": "Tau Ceti contributors",
+   "edition": "TauCetiRoadmap main at commit 0d144d0, TauCetiRoadmap/ModularCurves/README.md and Suggested.lean.",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ModularCurves",
+   "accessed": "2026-10-13",
+   "readSections": [
+    "Scope and Conventions",
+    "§§5A–5C",
+    "§§9A–9E",
+    "Layer 10 and the Mazur interface",
+    "Suggested.lean, Layer 9D and Layer 10 sections"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ModularCurvesPartII:R13.4a/level-subgroups",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Open level subgroups and the standard levels",
+   "kind": "definition",
+   "statement": "An open level subgroup is an open subgroup H of GL₂(Ẑ). Its level is the least n≥1 with Γ(n)=ker(GL₂(Ẑ)→GL₂(ℤ/n)) contained in H; for any n with Γ(n)⊂H write H̄ for the image of H in GL₂(ℤ/n), so that H↦H̄ is a bijection between open subgroups containing Γ(n) and subgroups of GL₂(ℤ/n), and H̄ for a multiple m of n is the full preimage of H̄ for n. Matrices act on ordered bases on the right, (P,Q)·[[a,b],[c,d]]=(aP+cQ, bP+dQ), as in Tau Ceti ModularCurves Convention 5. The standard levels are the subgroups whose images are: Γ(N), the trivial group; Γ₁(N)={a≡1, c≡0 mod N}, the stabiliser of the first basis vector P; Γ₀(N)={c≡0 mod N}, the stabiliser of the line through P; the level Γ₁^μ(N)={c≡0, d≡1 mod N}, whose structures (P,Q)↦(⟨P⟩, Q mod ⟨P⟩) are the embeddings μ_N↪E[N] given by P′↦e_N(P′,Q); the mixed levels Γ₁(N)∩Γ₀(M) for N|M; for a prime ℓ the split Cartan C_s(ℓ) of diagonal matrices and its normaliser C_s⁺(ℓ) (diagonal or antidiagonal); for an odd prime ℓ and a fixed nonsquare ε∈𝔽_ℓ^× the nonsplit Cartan C_ns(ℓ)={[[a,εb],[b,a]] : (a,b)≠(0,0)}, the image of 𝔽_{ℓ²}^× acting on 𝔽_{ℓ²}=𝔽_ℓ⊕𝔽_ℓ√ε, and its normaliser C_ns⁺(ℓ); C_ns(2) is the cyclic subgroup of order 3 of GL₂(𝔽₂). The invariants of H are its index [GL₂(Ẑ):H]=[GL₂(ℤ/n):H̄], its projective index [GL₂(Ẑ):±H] where ±H is generated by H and −I, its determinant image det(H̄)⊂(ℤ/n)^×, and whether −I∈H. Conjugation by g∈GL₂(Ẑ) sends H to g⁻¹Hg and preserves all four invariants.",
+   "hypotheses": [
+    "n≥1 with Γ(n)⊂H; the nonsplit Cartan needs ℓ odd and ε a nonsquare, or ℓ=2.",
+    "The right-action convention is fixed once; the left action on column vectors of Česnavičius and Zywina gives the same subgroups because g acts on the frame φ:(ℤ/n)²→E[n] by φ↦φ∘g."
+   ],
+   "proofSteps": [
+    "Define each standard level by entry conditions in GL₂(ℤ/n); closure under products and inverses follows from the 2×2 product and adjugate formulas.",
+    "Define C_s⁺(ℓ) and C_ns⁺(ℓ) as the normalisers in GL₂(𝔽_ℓ) of C_s(ℓ) and C_ns(ℓ); each Cartan has index 2 in its normaliser for ℓ odd.",
+    "Compute orders from |GL₂(𝔽_ℓ)|=(ℓ²−1)(ℓ²−ℓ): |Γ₀(ℓ)‾|=ℓ(ℓ−1)², |C_s(ℓ)|=(ℓ−1)², |C_ns(ℓ)|=ℓ²−1, and for general N the indices [GL₂:Γ₀(N)]=ψ(N)=N∏_{p|N}(1+1/p) and [GL₂:Γ₁(N)]=φ(N)ψ(N).",
+    "The projective index is the index when −I∈H̄ and half the index otherwise; −I∉Γ₁(N)‾ and −I∉Γ(N)‾ for N≥3."
+   ],
+   "acceptance": [
+    "[GL₂(Ẑ):±Γ₀(ℓ)]=ℓ+1, [GL₂(Ẑ):±Γ₁(5)]=12, [GL₂(Ẑ):±C_s⁺(13)]=91, [GL₂(Ẑ):±C_ns⁺(13)]=78.",
+    "det is surjective onto (ℤ/n)^× for Γ₀(N), Γ₁(N), C_s(ℓ), C_s⁺(ℓ), C_ns(ℓ) and C_ns⁺(ℓ), and trivial for Γ(N)."
+   ],
+   "prerequisites": [
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:Matrix.GeneralLinearGroup.det",
+    "mathlib:Subgroup.index",
+    "mathlib:Subgroup.normalizer",
+    "mathlib:CongruenceSubgroup.Gamma0",
+    "mathlib:CongruenceSubgroup.Gamma1",
+    "mathlib:CongruenceSubgroup.Gamma",
+    "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§4.1.2, p.28; §4.4, p.39",
+     "match": "An open subgroup H of GL₂(Ẑ) is described by any n with Γ(n)⊂H and its image H̄ in GL₂(ℤ/n); Γ₁(n) is the subgroup a≡1, c≡0 mod n."
+    },
+    {
+     "sourceId": "zywina15",
+     "locator": "§3.2, p.15; §1.2, Cartan subgroups",
+     "match": "Modular curves X_G are attached to subgroups G of GL₂(ℤ/N) containing −I with surjective determinant, and the degree of the j-map is [GL₂(ℤ/N):G]; the split and nonsplit Cartan subgroups and their normalisers are fixed there."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "Conventions, item 5; §9B",
+     "match": "Ordered bases are row vectors with the right action (P,Q)g=(aP+cQ,bP+dQ); the standard quotient problems are taken by the upper-triangular subgroups."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelGroups",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "this layer, level-h-structures and deligne-rapoport-level-stack",
+     "how": "the level of every moduli problem and stack in R13.4a is an open subgroup in this convention"
+    },
+    {
+     "where": "this layer, coarse-degree-and-cusp-divisor",
+     "how": "the coarse degree over the j-line is the projective index"
+    },
+    {
+     "where": "Zywina 2015, Proposition 3.3",
+     "how": "the rational-point criterion is stated for subgroups containing −I with surjective determinant"
+    },
+    {
+     "where": "EffectiveDiophantineMethods ED.6 and BDMTV 2019 §6",
+     "how": "the Cartan normalisers C_s⁺(13), C_ns⁺(13) and the projective S₄ subgroup at 13 are levels in this sense"
+    },
+    {
+     "where": "Calegari–Geraghty 2018 §3.2",
+     "how": "Γ_H(N)={c≡0, d mod N∈H} and the levels U₀(Q), U₁(Q) are open level subgroups"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.levelGamma0",
+     "role": "constructor",
+     "statement": "The subgroup Γ₀(N)‾ of GL₂(ℤ/N) of matrices with lower-left entry 0."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelGamma1",
+     "role": "constructor",
+     "statement": "The subgroup Γ₁(N)‾ of matrices with upper-left entry 1 and lower-left entry 0; it is the stabiliser of the first basis vector under the right action."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelGamma1Mu",
+     "role": "constructor",
+     "statement": "The subgroup Γ₁^μ(N)‾={c=0, d=1}; its level structures are embeddings μ_N↪E[N], the convention of Calegari–Geraghty."
+    },
+    {
+     "name": "TauCeti.ModularCurves.splitCartan",
+     "role": "constructor",
+     "statement": "The diagonal subgroup C_s(ℓ), and splitCartanNormalizer its normaliser."
+    },
+    {
+     "name": "TauCeti.ModularCurves.nonsplitCartan",
+     "role": "constructor",
+     "statement": "For a nonsquare ε, the subgroup {[[a,εb],[b,a]]}, and nonsplitCartanNormalizer its normaliser."
+    },
+    {
+     "name": "TauCeti.ModularCurves.projectiveIndex",
+     "role": "data",
+     "statement": "The index in GL₂(ℤ/n) of the subgroup ±H̄ generated by H̄ and −I; it is the coarse degree of X_H over the j-line."
+    },
+    {
+     "name": "TauCeti.ModularCurves.projectiveIndex_eq_index",
+     "role": "characterisation",
+     "statement": "projectiveIndex H = index H when −I∈H̄, and 2·projectiveIndex H = index H otherwise."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelDet",
+     "role": "data",
+     "statement": "The image det(H̄)⊂(ℤ/n)^×; its fixed field in ℚ(ζ_n) is the field of definition of the components of X_H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelPullback",
+     "role": "functoriality",
+     "statement": "For n|m the preimage of H̄ under GL₂(ℤ/m)→GL₂(ℤ/n) has the same index, projective index and determinant image."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelGamma0_comap",
+     "role": "compatibility",
+     "statement": "The preimage in SL(2,ℤ) of levelGamma0 N is Mathlib's CongruenceSubgroup.Gamma0 N, of levelGamma1 N is CongruenceSubgroup.Gamma1 N, and of the trivial group is CongruenceSubgroup.Gamma N."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelConj",
+     "role": "functoriality",
+     "statement": "Conjugation H̄↦g⁻¹H̄g preserves index, projective index and determinant image."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.levelGamma0_projectiveIndex_prime",
+     "kind": "computation",
+     "statement": "For a prime p, projectiveIndex (levelGamma0 p) = p+1."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelGamma1_five_index",
+     "kind": "non-example",
+     "statement": "index (levelGamma1 5) = 24 but projectiveIndex (levelGamma1 5) = 12, because −I∉Γ₁(5)‾; a definition of the coarse degree as the plain index fails here."
+    },
+    {
+     "name": "TauCeti.ModularCurves.splitCartanNormalizer_thirteen",
+     "kind": "computation",
+     "statement": "projectiveIndex (splitCartanNormalizer 13) = 91 and projectiveIndex (nonsplitCartanNormalizer 13 ε) = 78 for a nonsquare ε."
+    },
+    {
+     "name": "TauCeti.ModularCurves.level_one",
+     "kind": "degenerate",
+     "statement": "For n=1 every subgroup is GL₂(ℤ/1), with index, projective index 1 and trivial determinant group."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelGamma1_comap",
+     "kind": "compatibility",
+     "statement": "The preimage of levelGamma1 N in SL(2,ℤ) is CongruenceSubgroup.Gamma1 N, whose bottom row is ≡(0,1); the upper-left condition a≡1 is forced there by the determinant."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/level-h-structures",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Level-H structures away from the level",
+   "kind": "definition",
+   "statement": "Let H be an open level subgroup, n with Γ(n)⊂H, S a ℤ[1/n]-scheme and E/S an elliptic curve. The scheme Isom_S((ℤ/n)²_S, E[n]) of frames is a finite étale right GL₂(ℤ/n)-torsor over S, for the action φ↦φ∘g. A level-H structure on E is a section over S of the finite étale quotient Isom_S((ℤ/n)²_S, E[n])/H̄. Level-H structures on elliptic curves over ℤ[1/n]-schemes form a stack Y_H[1/n], and the forgetful map Y_H[1/n]→Ell_{ℤ[1/n]} is representable, finite étale of degree [GL₂(ℤ/n):H̄]. For n|m reduction of frames modulo n identifies the stacks built from n and from m over ℤ[1/m]. An automorphism α of E fixes the structure φH̄ exactly when φ⁻¹∘α∘φ lies in H̄; in particular [−1] fixes every level-H structure if and only if −I∈H̄. Over ℤ[1/n] this stack is the stack over Ell of the Katz–Mazur quotient problem [Γ(n)]/H̄, which upstream 9A identifies with the fppf sheaf quotient of the naive full level problem.",
+   "hypotheses": [
+    "n is invertible on the base; H contains Γ(n).",
+    "The quotient is the étale-sheaf quotient; an S-point need not lift to an S-frame."
+   ],
+   "proofSteps": [
+    "E[n] is finite étale of rank n² and étale locally isomorphic to (ℤ/n)² over ℤ[1/n]-schemes (upstream 3N), so the frame scheme is a finite étale GL₂(ℤ/n)-torsor (upstream 5B).",
+    "A finite étale torsor has a finite étale quotient by any subgroup, formed étale locally as a disjoint union of copies of the base, and its formation commutes with base change (upstream 0C, 0D).",
+    "For n|m the reduction map GL₂(ℤ/m)→GL₂(ℤ/n) is surjective with kernel inside the preimage of H̄, which gives the change-of-level isomorphism.",
+    "The automorphism criterion is the torsor identity α∘φ=φ∘(φ⁻¹αφ); for α=[−1] one has φ⁻¹αφ=−I.",
+    "Stackify over the elliptic moduli stack as in AlgebraicModuli R09.5 and compare with the Katz–Mazur quotient problem by upstream 9A."
+   ],
+   "acceptance": [
+    "H=GL₂(Ẑ) gives one level structure on every curve; H=Γ(n) gives the frames themselves; H=Γ₀(p) over ℤ[1/p] gives étale-locally the p+1 subgroups of order p."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/level-subgroups",
+    "tauceti:TauCetiRoadmap/ModularCurves#3n-naive-level-structures",
+    "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+    "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+    "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+    "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/elliptic-coarse-recovery",
+    "ModularCurvesPartII:R13.1/polygon-count-stacks-and-decontractions",
+    "SchemeAndStackFoundations:SF.1/stack-in-groupoids"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§4.1.2, p.28",
+     "match": "For Γ(n)⊂H the stack Y_H[1/n] parametrises elliptic curves over ℤ[1/n]-schemes with a section of the finite étale scheme H̄\\Isom(E[n],(ℤ/n)²), finite étale over Y(1)[1/n]."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 6.3(a), p.63",
+     "match": "The Katz–Mazur quotient problem [Γ(n)]/H̄ is identified with this stack over ℤ[1/n] by Katz–Mazur 7.1.3(2)."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§9A, items 1–3 and the final paragraph",
+     "match": "After inverting n the Katz–Mazur full-level quotient problem is the fppf sheaf quotient of the naive ordered-basis problem, distinct from the orbit presheaf and from the coarse quotient."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelStack",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "this layer, deligne-rapoport-level-stack",
+     "how": "the stack is normalised over X(1) along this finite étale open"
+    },
+    {
+     "where": "this layer, coarse-rational-points",
+     "how": "K-points of Y_H over j≠0,1728 are read through Galois-stable classes of frames"
+    },
+    {
+     "where": "this layer, standard-level-stack-identifications",
+     "how": "the elliptic opens of R13.2's stacks are these stacks after inverting the level"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure",
+     "role": "constructor",
+     "statement": "Level-H structures on E/S over a ℤ[1/n]-scheme: sections of Isom((ℤ/n)²,E[n])/H̄."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.ofFrame",
+     "role": "constructor",
+     "statement": "The class φH̄ of a frame φ:(ℤ/n)²≅E[n]."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.ofFrame_eq_iff",
+     "role": "extensionality",
+     "statement": "φH̄=ψH̄ if and only if φ⁻¹∘ψ∈H̄."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.baseChange",
+     "role": "functoriality",
+     "statement": "Pullback along S′→S, compatible with composition."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.changeLevel",
+     "role": "equivalence",
+     "statement": "For n|m, reduction of frames gives a natural bijection between the structures built from m and from n."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.aut_fix_iff",
+     "role": "characterisation",
+     "statement": "An automorphism α of E fixes φH̄ iff φ⁻¹αφ∈H̄; [−1] fixes all level-H structures iff −I∈H̄."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelOpenStack_forget_finiteEtale",
+     "role": "structure",
+     "statement": "Y_H[1/n]→Ell_{ℤ[1/n]} is representable finite étale of degree [GL₂(ℤ/n):H̄]."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.conj",
+     "role": "functoriality",
+     "statement": "φH̄↦(φ∘g)(g⁻¹H̄g) identifies level-H and level-g⁻¹Hg structures."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.toKatzMazur",
+     "role": "compatibility",
+     "statement": "Over ℤ[1/n] the stack is that of the Katz–Mazur quotient problem [Γ(n)]/H̄ of upstream 9A."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.full_group",
+     "kind": "degenerate",
+     "statement": "For H̄=GL₂(ℤ/n) every elliptic curve over a ℤ[1/n]-scheme has exactly one level-H structure."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.gamma1_point",
+     "kind": "computation",
+     "statement": "For H=Γ₁(N) the map φH̄↦φ(e₁) identifies level-H structures with points of exact order N, and for H=Γ₀(N) with cyclic subgroups of order N."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.not_frame",
+     "kind": "non-example",
+     "statement": "For a prime p≥3, an elliptic curve over ℚ with a ℚ-rational subgroup of order p has a ℚ-rational Γ₀(p)-structure but no ℚ-rational frame of E[p], since the Weil pairing of a rational frame would be a rational primitive p-th root of unity: the quotient is a sheaf quotient, not the set of orbits of S-frames."
+    },
+    {
+     "name": "TauCeti.ModularCurves.LevelStructure.minusOne_gamma1",
+     "kind": "characterisation",
+     "statement": "For N≥3, [−1] moves every Γ₁(N)-structure, and fixes every Γ₀(N)-structure."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The Deligne–Rapoport level-H stack",
+   "kind": "construction",
+   "statement": "Let X(1)=Ell₁ be the proper smooth Deligne–Mumford stack over ℤ of generalized elliptic curves with irreducible geometric fibres (R13.1). For an open level subgroup H and n with Γ(n)⊂H, define 𝒳_H as the normalization of X(1) in the representable, quasi-compact and separated composite Y_H[1/n]→Ell_{ℤ[1/n]}⊂X(1). It carries a representable finite morphism 𝒳_H→X(1), the open substack Y_H:=𝒳_H×_{X(1)}Ell, whose restriction to ℤ[1/n] is Y_H[1/n], and the closed substack 𝒳_H^∞ over the boundary X(1)^∞. Up to unique isomorphism over X(1) it does not depend on n. For H′⊂H the map of level structures extends uniquely to a finite morphism 𝒳_{H′}→𝒳_H over X(1), compatibly with composition, and g∈GL₂(Ẑ) gives an isomorphism 𝒳_H≅𝒳_{g⁻¹Hg} over X(1). The universal property: for every representable integral 𝒯→X(1) and every factorisation of Y_H[1/n]→X(1) through 𝒯 there is a unique morphism 𝒳_H→𝒯 over X(1) extending it.",
+   "hypotheses": [
+    "H open, n with Γ(n)⊂H.",
+    "Normalization is relative normalization of a Deligne–Mumford stack in a quasi-compact separated representable morphism, formed on an étale atlas and descended."
+   ],
+   "proofSteps": [
+    "On an étale scheme atlas U→X(1) take the relative normalization of U in U×_{X(1)}Y_H[1/n]; relative normalization commutes with étale (indeed smooth) base change (Stacks 03GV; Mathlib normalizationPullback for smooth maps), so these descend to 𝒳_H (AlgebraicModuli R09.5 dm-normalization, applied relatively).",
+    "𝒳_H→X(1) is finite because X(1) is of finite type over the excellent ring ℤ, so relative normalization is finite (AlgebraicModuli R09.5 dm-normalization-finite; SchemeAndStackFoundations SF.0 nagata-normalization-finite; Stacks 03GR).",
+    "Independence of n: for n|m the normalizations along Y_H[1/n] and along its open part Y_H[1/m] agree, because a function on Y_H[1/m] integral over X(1) is regular in codimension one on the normal stack Y_H[1/n] and hence regular (Česnavičius p.28, citing Deligne–Rapoport IV.3.6).",
+    "Functoriality and the universal property are those of relative normalization (Stacks 035I, 035J; Mathlib normalizationDesc and normalization.hom_ext on charts).",
+    "For H=GL₂(Ẑ) the stack is X(1) itself, by the recognition criterion finite-normal-recognition applied on charts."
+   ],
+   "acceptance": [
+    "𝒳_{GL₂(Ẑ)}=X(1).",
+    "𝒳_{Γ₀(p)}→X(1) has rank p+1 and 𝒳_{Γ(N)}→X(1) has rank |GL₂(ℤ/N)| (level-stack-geometry)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "ModularCurvesPartII:R13.1/polygon-count-stacks-and-decontractions",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization-finite",
+    "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+    "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§4.1.2, p.28",
+     "match": "Following Deligne–Rapoport IV.3.3, 𝒳_H is the Deligne–Mumford X(1)-stack obtained by normalizing X(1) along the finite étale Y_H[1/n]→Y(1)[1/n]; different n give canonically isomorphic stacks (DR IV.3.6), and H′⊂H gives a finite X(1)-morphism."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "§1.1–1.2, pp.2–3",
+     "match": "𝒳₀(n) was defined by Deligne–Rapoport by normalization and has no a priori moduli interpretation; the naive Γ₀(p²) stack is not isomorphic to it over X(1)."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "§1.1, p.1",
+     "match": "Normalization of the Deligne–Rapoport stacks over Z[1/N] over the proper smooth stack M₁ gives proper normal flat stacks over Z, without a moduli interpretation in bad characteristic."
+    },
+    {
+     "sourceId": "stacks",
+     "locator": "Tags 035I, 035J, 03GV, 03GR",
+     "match": "Relative normalization has the integral-factorisation universal property, is functorial, commutes with smooth base change, and is finite over a Nagata base for a finite type source."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelStack",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "this layer, level-stack-geometry and the coarse curve integral-coarse-curves",
+     "how": "its Keel–Mori coarse space is the integral coarse curve X_H"
+    },
+    {
+     "where": "this layer, standard-level-stack-identifications",
+     "how": "R13.2's moduli stacks are recognised as these normalizations"
+    },
+    {
+     "where": "AlgebraicModularFormsAndSerreWeights R15.1–R15.2",
+     "how": "the Hodge bundle and modular forms of level H live on 𝒳_H, not on its coarse space"
+    },
+    {
+     "where": "R13.5 and R14.1",
+     "how": "bad fibres and Hecke correspondences are studied on these stacks and their coarse spaces"
+    },
+    {
+     "where": "Calegari–Geraghty 2018 §3.9",
+     "how": "the curves X_W with auxiliary level are these stacks or their coarse spaces"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.levelStack",
+     "role": "constructor",
+     "statement": "The stack 𝒳_H, for an open level subgroup H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.toX1",
+     "role": "projection",
+     "statement": "The representable finite morphism 𝒳_H→X(1)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.ellipticOpen",
+     "role": "projection",
+     "statement": "The open substack Y_H=𝒳_H×_{X(1)}Ell, equal to Y_H[1/n] over ℤ[1/n]."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.boundary",
+     "role": "projection",
+     "statement": "The closed substack 𝒳_H^∞ over the boundary of X(1)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.indepLevel",
+     "role": "equivalence",
+     "statement": "For n|m the stacks built from n and from m are canonically isomorphic over X(1)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.map",
+     "role": "functoriality",
+     "statement": "For H′⊂H the finite morphism 𝒳_{H′}→𝒳_H over X(1), with map_id and map_comp."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.conj",
+     "role": "functoriality",
+     "statement": "The isomorphism 𝒳_H≅𝒳_{g⁻¹Hg} over X(1) for g∈GL₂(Ẑ), multiplicative in g."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.lift",
+     "role": "universal-property",
+     "statement": "Every representable integral 𝒯→X(1) through which Y_H[1/n] factors receives a unique morphism from 𝒳_H over X(1) restricting to the given one."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack.lift_unique",
+     "role": "universal-property",
+     "statement": "Two morphisms 𝒳_H→𝒯 over X(1) agreeing on Y_H[1/n] are equal."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.levelStack_full_group",
+     "kind": "degenerate",
+     "statement": "levelStack GL₂(Ẑ) is X(1), with toX1 the identity."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack_gamma0_prime_rank",
+     "kind": "computation",
+     "statement": "levelStack (Γ₀ p)→X(1) is finite locally free of rank p+1, and levelStack (Γ N)→X(1) of rank |GL₂(ℤ/N)|."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack_not_naive",
+     "kind": "non-example",
+     "statement": "For a prime p the naive Γ₀(p²) stack is not levelStack Γ₀(p²): on the standard p-gon over ℂ the μ_p of automorphisms preserving ⟨(ζ_{p²},1)⟩ contract to the identity, so its map to X(1) is not representable."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelStack_gamma_compat",
+     "kind": "compatibility",
+     "statement": "levelStack (Γ N) is R13.2's full-level stack Xfull(N) over ℤ (standard-level-stack-identifications)."
+    }
+   ],
+   "planet": {
+    "name": "Deligne–Rapoport level stack"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/level-stack-geometry",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Geometry of the level-H stacks",
+   "kind": "theorem",
+   "statement": "For every open level subgroup H and n with Γ(n)⊂H: (a) 𝒳_H→X(1) is representable, finite, surjective and locally free of rank [GL₂(Ẑ):H]; (b) 𝒳_H is a normal, Cohen–Macaulay, Deligne–Mumford stack, proper and flat over ℤ, with all fibres of pure dimension one; (c) over ℤ[1/n] the quotient stack [X(n)_{ℤ[1/n]}/H̄], with H̄ acting on the full-level stack X(n)=𝒳_{Γ(n)} by right translation of frames, is 𝒳_H[1/n], and 𝒳_H is smooth over ℤ[1/n]; (d) for H′⊂H the morphism 𝒳_{H′}→𝒳_H is finite and surjective of degree [H:H′], and it is flat at every point where 𝒳_H is regular; (e) the open locus of 𝒳_H whose geometric points have trivial automorphism group is a quasi-projective ℤ-scheme, and 𝒳_H is a projective scheme when every geometric point has trivial automorphism group. Regularity of 𝒳_H at points of residue characteristic dividing n is not asserted for general H.",
+   "hypotheses": [
+    "H open; n with Γ(n)⊂H.",
+    "Statement (c) uses the full-level identification X(n)=𝒳_{Γ(n)} and its smoothness over ℤ[1/n]."
+   ],
+   "proofSteps": [
+    "(a) Finiteness is by construction; surjectivity because X(1) is irreducible (compactified-coarse-j-line); X(1) is regular of dimension two and 𝒳_H normal of dimension two, hence Cohen–Macaulay, so the finite map is flat (Stacks 00R4; EGA IV₂ 6.1.5 as cited by Česnavičius); its rank is read on the elliptic locus over ℤ[1/n].",
+    "(b) Normality is inherited from Y_H[1/n] by relative normalization; properness and flatness over ℤ come from X(1) through (a).",
+    "(c) [X(n)_{ℤ[1/n]}/H̄] is normal, finite over X(1)[1/n], and contains [Y(n)_{ℤ[1/n]}/H̄]=Y_H[1/n] as a dense open meeting every component, since the boundary of X(n) is a relative effective Cartier divisor; the recognition criterion identifies it with 𝒳_H[1/n]. X(n) is smooth over ℤ[1/n] and X(n)→[X(n)/H̄] is étale surjective, so the quotient is smooth.",
+    "(d) Normalization functoriality gives the finite map; miracle flatness at regular points of the target; the degree is computed on Y_{H′}[1/n]→Y_H[1/n].",
+    "(e) A Deligne–Mumford stack with trivial geometric automorphism groups and quasi-compact separated diagonal is an algebraic space (Česnavičius Lemma 3.2.2(a)); it is quasi-finite and separated over ℙ¹_ℤ through the coarse j-map, hence a quasi-projective scheme (Lemma 4.1.3 and Remark 4.1.4)."
+   ],
+   "acceptance": [
+    "rank 𝒳_{Γ₁(5)}→X(1) is 24 while the coarse degree of X₁(5)→ℙ¹ is 12.",
+    "𝒳_{Γ(N)} is a projective scheme for N≥2 not of the form p^s or 2p^s, and is not a scheme for N=p^s, 2p^s because supersingular points in characteristic p keep the automorphism −1, nor for N=1 (standard-level-stack-identifications)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+    "ModularCurvesPartII:R13.4a/compactified-coarse-j-line",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+    "ModularCurvesPartII:R13.1/polygon-count-stacks-and-decontractions",
+    "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "SchemeAndStackFoundations:SF.1/setoid-criterion",
+    "mathlib:AlgebraicGeometry.Flat",
+    "mathlib:AlgebraicGeometry.IsFinite"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§4.1.2, p.28",
+     "match": "The map 𝒳_H→X(1) is representable, finite and surjective, flat by EGA IV₂ 6.1.5, hence locally free of rank [GL₂(Ẑ):H]; 𝒳_H has relative dimension one, and by DR IV.6.7 it is smooth over ℤ[1/n]."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Lemma 4.1.3 and Remark 4.1.4, p.28; Lemma 3.2.2(a), p.20",
+     "match": "An open substack with trivial geometric automorphism groups is a quasi-projective ℤ-scheme, and 𝒳_H has a largest open subscheme; algebraic-space criterion by automorphisms of geometric points."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 4.3.2(a), p.37",
+     "match": "The full-level stack X(n) is Cohen–Macaulay, proper and flat of relative dimension one over ℤ and smooth over ℤ[1/n]."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Remark 4.1.4, pp.28–29",
+     "match": "Regularity of 𝒳_H is not known in general; through EGA IV₂ 6.1.5 it would give flatness of the maps 𝒳_H→𝒳_{H′}."
+    },
+    {
+     "sourceId": "stacks",
+     "locator": "Tag 00R4",
+     "match": "A finite module over a regular local ring which is Cohen–Macaulay of full dimension is flat (miracle flatness)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelStack",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The standard levels: moduli stacks as normalizations",
+   "kind": "comparison",
+   "statement": "Over ℤ, compatibly with the maps to X(1) and with the elliptic opens: (i) R13.2's stack Xfull(N) of generalized elliptic curves whose degenerate fibres are N-gons with a Drinfeld (ℤ/N)²-structure on E^sm[N] is 𝒳_{Γ(N)}; (ii) R13.2's stack X₁(N) of ample Drinfeld ℤ/N-structures, with the contraction to X(1), is 𝒳_{Γ₁(N)}; (iii) R13.2's refined Γ₀(N) stack is 𝒳_{Γ₀(N)}. In each case the moduli stack is regular, finite and flat over X(1) through the contraction, and its elliptic locus over ℤ[1/N] is Y_H[1/N]. Consequently 𝒳_{Γ(N)}, 𝒳_{Γ₁(N)} and 𝒳_{Γ₀(N)} are regular. The naive Γ₀(N) stack agrees with 𝒳_{Γ₀(N)} on the elliptic locus and, for squarefree N, everywhere; for N not squarefree the two stacks differ even over ℂ, although their coarse spaces agree (coarse-cusp-regularity). 𝒳_{Γ(N)} is a projective scheme over ℤ for N≥2 unless N=p^s or N=2p^s (s≥1); 𝒳_{Γ(1)}=X(1) is not a scheme (source issue ModularCurvesPartII/E113).",
+   "hypotheses": [
+    "N≥1.",
+    "The R13.2 stacks carry the regularity, finiteness over X(1) and Cartier boundary established in R13.2."
+   ],
+   "proofSteps": [
+    "Each R13.2 stack is regular, hence normal, and its contraction to X(1) is representable, finite and flat (R13.2 contraction-maps-between-levels and moduli-stacks-are-proper-flat-artin).",
+    "Its elliptic locus over ℤ[1/N] has the moduli interpretation of Y_H[1/N] (R13.2 agreement-with-katz-mazur-schemes; upstream 3D), and its boundary is a relative effective Cartier divisor, so the elliptic locus is dense and meets every component.",
+    "The recognition criterion (finite-normal-recognition, applied on an étale atlas of X(1)) identifies it with the normalization 𝒳_H.",
+    "The naive comparison and the scheme property are R13.2 refined-gamma-zero-moduli and small-level-and-dm-boundaries."
+   ],
+   "acceptance": [
+    "For N=p², the naive and refined Γ₀ stacks are different over ℂ while having the same coarse curve X₀(p²).",
+    "𝒳_{Γ(3)}, 𝒳_{Γ(4)} and 𝒳_{Γ(6)} are not schemes over ℤ (N=p^s or 2p^s), while 𝒳_{Γ(12)} and 𝒳_{Γ(15)} are projective schemes (N=n₁n₂ with coprime n₁,n₂≥3)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.2/moduli-stacks-are-proper-flat-artin",
+    "ModularCurvesPartII:R13.2/refined-gamma-zero-moduli",
+    "ModularCurvesPartII:R13.2/agreement-with-katz-mazur-schemes",
+    "ModularCurvesPartII:R13.2/contraction-maps-between-levels",
+    "ModularCurvesPartII:R13.2/small-level-and-dm-boundaries",
+    "tauceti:TauCetiRoadmap/ModularCurves#3d-comparison-with-naive-level-structures"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Theorem 4.3.5 and Proposition 4.3.6, p.39",
+     "match": "X(n) is regular and identified with 𝒳_{Γ(n)} as the normalization of X(1) in Y(n)[1/n]; it is a projective scheme unless n=p^s or 2p^s, to which n=1 must be added (E113)."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Theorem 4.4.4, pp.40–41",
+     "match": "h:X(n)→X₁(n) and the contraction X₁(n)→X(1) are representable finite locally free; X₁(n) is regular and identified with 𝒳_{Γ₁(n)}."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Theorem 5.13(a), p.60",
+     "match": "The refined X₀(n) is Deligne–Mumford and regular, and X₀(n) and 𝒳_{Γ₀(n)} are the normalizations of X(1) in Y₀(n)[1/n]."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "Theorem 4.1.1, p.31; Remark 4.2.2, p.36",
+     "match": "The contraction of M_{Γ(N)} to M₁ is finite flat, the boundary is a relative effective Cartier divisor and the stacks are regular; for large N the Katz–Mazur schemes coincide with these stacks."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelStack",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/compactified-coarse-j-line",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The compactified coarse j-line",
+   "kind": "theorem",
+   "statement": "The j-invariant extends to a morphism j:X(1)→ℙ¹_ℤ sending the boundary to ∞ (on generalized elliptic curves it is the ratio of the sections c₄³ and Δ of ω^{⊗12}, which have no common zero), and j is the coarse moduli space of X(1)=Ell₁. More generally, for every m≥1 the composite Ell_m→Ell₁→ℙ¹_ℤ is the coarse space of Ell_m, the open Ell⊂Ell_m has coarse space 𝔸¹_ℤ, and the formation of all these coarse spaces commutes with arbitrary base change S→Spec ℤ. On the elliptic locus this is the upstream coarse j-line over every ring (9E, coarseJLine). X(1) is irreducible with geometrically irreducible fibres over ℤ.",
+   "hypotheses": [
+    "m≥1; S an arbitrary scheme."
+   ],
+   "proofSteps": [
+    "On Ell use the upstream coarse j-line: M([Γ(1)]/R)=Spec R[j] for every ring R (Tau Ceti ModularCurves 9E, recovered as the stack coarse space by AlgebraicModuli R09.5 coarse-j-line-recovery).",
+    "On the preimage C of ℙ¹∖{0,1728} every object has automorphism group the constant {±1} (Deligne's lemma for elliptic curves; for the standard 1-gon the automorphism scheme is μ₁×ℤ/2, R13.1 neron-polygon-automorphisms). The rigidification C⫽{±1} has trivial inertia, so it is an algebraic space and its own coarse space; rigidification preserves coarse spaces and commutes with arbitrary base change (AlgebraicModuli R09.5).",
+    "At the cusp the Tate 1-gon over ℤ[[q]] (R13.3 generalized-tate-n-gon with n=1) is a formal chart on which inversion acts trivially on q, and j=1/q+744+⋯ identifies the completed coarse local ring with ℤ[[1/j]]; together with the elliptic locus this identifies the coarse space of X(1) over ℤ with ℙ¹_ℤ (Česnavičius takes this case from Deligne–Rapoport VI.1.1).",
+    "Over each 𝔽_p the coarse map of X(1)_{𝔽_p} to ℙ¹_{𝔽_p} is an isomorphism over a dense open and finite locally free because its source is normal, hence an isomorphism; fibrewise-coarse-base-change then gives every S.",
+    "For Ell_m rigidify by {±1} over C again and use flatness; the coarse map is a homeomorphism, so irreducibility of ℙ¹ gives that of Ell_m and its fibres."
+   ],
+   "acceptance": [
+    "Over 𝔽₂ the coarse space of X(1)_{𝔽₂} is ℙ¹_{𝔽₂} although the stabiliser at j=0 has order 24, which is not invertible.",
+    "X(1) is not ℙ¹_ℤ: every object has the automorphism −1, so there is no universal curve over ℙ¹."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/fibrewise-coarse-base-change",
+    "ModularCurvesPartII:R13.1/polygon-count-stacks-and-decontractions",
+    "ModularCurvesPartII:R13.1/neron-polygon-automorphisms",
+    "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/coarse-j-line-recovery",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-coarse",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-base-change",
+    "SchemeAndStackFoundations:SF.1/keel-mori",
+    "SchemeAndStackFoundations:SF.1/setoid-criterion",
+    "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 3.3.2 and proof, pp.24–25",
+     "match": "The coarse space of Ell_n (resp. Ell) is ℙ¹_ℤ (resp. 𝔸¹_ℤ via j) and its formation commutes with base change to any S; Ell_n is irreducible with geometrically irreducible fibres; the proof rigidifies by {±1} off j=0,1728 and reduces to the fibres over 𝔽_p via Lemma 3.3.1."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "proof of Theorem 4.2.1, p.36",
+     "match": "The map j:M₁→ℙ¹_ℤ is defined by the generating sections Δ and c₄³ of ω^{⊗12} of the universal generalized elliptic curve."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§9E, items 1–6",
+     "match": "The coarse j-line over ℤ and over every ring R, with Spec ℤ[j] the coarse space of [Γ(1)], proved without the general coarse base-change theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/fibrewise-coarse-base-change",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Coarse base change from the fibres over 𝔽_p",
+   "kind": "theorem",
+   "statement": "Let 𝒳 be a separated, flat Deligne–Mumford stack locally of finite type over ℤ with coarse space f:𝒳→X. If for every prime p the base change f_{𝔽_p}:𝒳_{𝔽_p}→X_{𝔽_p} is a coarse space of 𝒳_{𝔽_p}, then for every scheme S the base change f_S:𝒳_S→X_S is a coarse space of 𝒳_S. Equivalently, coarse formation commutes with all base change as soon as it commutes with base change to the prime fields of positive characteristic; it always commutes with flat base change.",
+   "hypotheses": [
+    "𝒳 separated, flat and locally of finite type over ℤ, Deligne–Mumford, so with finite inertia."
+   ],
+   "proofSteps": [
+    "Coarse formation commutes with flat base change on X and can be checked fppf locally on X_S (SchemeAndStackFoundations SF.1 keel-mori).",
+    "Étale locally on X, 𝒳=[Spec B/G] with G finite and X=Spec B^G (local-structure input coarse-local-structure, Abramovich–Vistoli Lemma 2.2.3); the coarse space of 𝒳_R is Spec (B⊗R)^G, so one must show B^G⊗R→(B⊗R)^G is an isomorphism for every ring R.",
+    "ℤ-flatness makes B and B/B^G torsion-free, so the map is injective for every ℤ-module R.",
+    "Surjectivity: pass to finitely generated R by a filtered colimit, the case R=ℤ is trivial, and dévissage along 0→R′→R→R″→0 with the five lemma reduces to R=ℤ/p, which is the hypothesis."
+   ],
+   "acceptance": [
+    "Applied to X(1) this gives compactified-coarse-j-line over every S; applied to 𝒳_H it reduces legal-coarse-base-change over ℤ[1/n] to the fibres 𝔽_p, p∤n."
+   ],
+   "prerequisites": [
+    "SchemeAndStackFoundations:SF.1/keel-mori",
+    "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+    "ModularCurvesPartII:R13.4a/coarse-local-structure"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Lemma 3.3.1 and proof, pp.23–24",
+     "match": "For a separated flat locally finite type Deligne–Mumford stack over ℤ, coarse base change to every 𝔽_p implies coarse base change to every scheme, by the torsion-freeness and dévissage argument on rings of invariants."
+    },
+    {
+     "sourceId": "ces16cb",
+     "locator": "§1.1, p.1",
+     "match": "The criterion is how coarse base change for X_H is established, and why failure must be exhibited over some 𝔽_p."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-local-structure",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Local structure of coarse level curves",
+   "kind": "theorem",
+   "statement": "Let H be an open level subgroup, π:𝒳_H→X_H the coarse space, x̄ a geometric point of 𝒳_H and Γ_x̄ its finite automorphism group. (a) There are an étale neighbourhood U→X_H of π(x̄) and a finite U-scheme V with a Γ_x̄-action such that 𝒳_H×_{X_H}U≅[V/Γ_x̄] and U=V/Γ_x̄. (b) The strict henselization of X_H at π(x̄) is the ring of Γ_x̄-invariants of the strict henselization of 𝒳_H at x̄, and the same holds after completion: Ô^{sh}_{X_H,π(x̄)}=(Ô^{sh}_{𝒳_H,x̄})^{Γ_x̄}. (c) Γ_x̄ acts through its effective quotient Γ_x̄^{eff}=Γ_x̄/(Γ_x̄∩{±1}) when −I∈H̄, and through Γ_x̄ itself otherwise; this quotient acts faithfully. (d) If x̄ lies over j(x̄)≠∞ in residue characteristic prime to n, then 𝒳_H→X(1) is étale at x̄, Γ_x̄ is the subgroup of Aut(E_x̄) fixing the level structure, and the ramification index of X_H→ℙ¹_j at π(x̄) is [Aut(E_x̄)/{±1} : Γ_x̄^{eff}], where Γ_x̄^{eff} denotes the image of Γ_x̄ in Aut(E_x̄)/{±1}. For H=Γ₀(N) and any geometric point x̄=(E,C), Γ_x̄=Aut(E,C) contains {±1}, and the strictly henselian local ring of X₀(N) is the invariant ring of that of the refined stack under Aut(E,C)/{±1}. (e) On the open of X_H over which every geometric stabiliser has invertible order, in particular over ℤ[1/6] (stabilisers have order dividing 24 because 𝒳_H→X(1) is representable), a line bundle L on 𝒳_H is the pullback of a line bundle on X_H if and only if every Γ_x̄ acts trivially on the fibre L(x̄), and then L≅π*π_*L; ω^{⊗12} on X(1) is the pullback of 𝒪_{ℙ¹}(1) through the section Δ, while ω itself does not descend because −1 acts on it by −1.",
+   "hypotheses": [
+    "H open; 𝒳_H as in deligne-rapoport-level-stack, a separated Deligne–Mumford stack of finite type over ℤ with finite inertia.",
+    "Statement (d) uses that Y_H[1/n]→Ell_{ℤ[1/n]} is finite étale; statement (b) for completions uses flatness of completion over the noetherian strictly henselian ring.",
+    "For Γ₀(N) the stack is the refined, Deligne–Mumford stack; the naive Γ₀(N) stack has non-étale automorphism groups at some cusps when N is not squarefree and is not used here."
+   ],
+   "proofSteps": [
+    "(a) is the étale local structure of separated Deligne–Mumford stacks with finite inertia over their coarse spaces (Abramovich–Vistoli Lemma 2.2.3), with V a component of an étale atlas over the strict henselization and Γ_x̄ the stabiliser.",
+    "(b) Strict henselization is ind-étale, hence flat, and taking invariants of a finite group commutes with flat base change; Conrad's proof of the Keel–Mori theorem gives exactly this invariant-subring description. Completion of a noetherian local ring is flat, so invariants also commute with completion.",
+    "(c) The generic automorphism group of 𝒳_H is {±1} if −I∈H̄ and trivial otherwise (level-h-structures), and it acts trivially on functions; the remaining group acts faithfully on the fraction field of the strictly henselian local ring because a generic deformation has no further automorphisms.",
+    "(d) Over ℤ[1/n] the strict henselization of 𝒳_H at x̄ is that of Ell at E_x̄, and the coarse local rings of X_H and ℙ¹_j are its invariants under Γ_x̄ and Aut(E_x̄); faithful action of the effective quotients and separably closed residue fields give a totally ramified extension of degree equal to the index.",
+    "For Γ₀(N) apply (a)–(c) to the refined stack, which is Deligne–Mumford and has the same coarse space as the naive stack (coarse-cusp-regularity).",
+    "(e) is finite flat descent through a tame coarse space (AlgebraicModuli R09.5 tame-finite-flat-descent) applied to the finite locally free algebra 𝒪⊕L with L·L=0, whose descent is that of L; Δ is a nowhere-vanishing section of ω^{⊗12} on Ell with a simple zero along the boundary of X(1)."
+   ],
+   "acceptance": [
+    "For X₀(N) at a point (E,C) with j(E)=1728 in characteristic prime to 6N: if C is stable under the automorphism of order 4, Γ^{eff} has order 2 and X₀(N)→ℙ¹ is unramified there; otherwise Γ^{eff} is trivial and the ramification index is 2.",
+    "For X₁(N) with N≥5 and residue characteristic prime to N, every Γ_x̄ is trivial and X₁(N) is étale locally the stack itself, a fine scheme."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "SchemeAndStackFoundations:SF.1/keel-mori",
+    "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+    "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+    "SchemeAndStackFoundations:SF.1/inertia",
+    "ModularCurvesPartII:R13.4a/coarse-cusp-regularity",
+    "ModularCurvesPartII:R13.2/refined-gamma-zero-moduli",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/tame-finite-flat-descent",
+    "ModularCurvesPartII:R13.3/boundary-carriers-and-hodge-evaluation"
+   ],
+   "sources": [
+    {
+     "sourceId": "av02",
+     "locator": "Lemma 2.2.3, p.4 (arXiv v2)",
+     "match": "For a separated Deligne–Mumford stack with coarse space X there is an étale covering of X over which the stack becomes a quotient [U/Γ] of a scheme by a finite group, Γ the stabiliser over the strict henselization."
+    },
+    {
+     "sourceId": "conrad05",
+     "locator": "Theorem 1.1, p.1; Theorem 3.1 and its proof, pp.5–6; Theorem 4.2, p.8",
+     "match": "The coarse space exists for finite inertia, is compatible with flat base change, and its strictly henselian local rings are the invariant subrings of those of the stack chart; a representable map inducing isomorphisms on stabilisers induces an étale map of coarse spaces."
+    },
+    {
+     "sourceId": "gz86",
+     "locator": "Chapter III, §1, (1.3) and the following paragraph, p.255",
+     "match": "For X₀(N), Aut_k(x) is the automorphism group of the pair (E,A), contains ±1, and the strict henselization of X at x is the quotient of that of the moduli stack by Aut_k(x)/{±1}; see source issue ModularCurvesPartII/E401 for the stack to which this applies."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "proof of Proposition 6.4(b), p.63; proof of Theorem 6.7, pp.64–65",
+     "match": "Étale locally on its coarse space 𝒳_H is a quotient of an affine scheme by a group of order dividing 24; on the locus j≠0,1728 the automorphism group of the universal object of 𝒳₀(n) is {±1} and the coarse space is the rigidification."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Degree of the j-map and the cusp divisor",
+   "kind": "theorem",
+   "statement": "For every open level subgroup H the coarse j-map X_H→ℙ¹_ℤ, induced from 𝒳_H→X(1) and compactified-coarse-j-line, is finite locally free of constant rank [GL₂(Ẑ):±H], the projective index. The scheme X_H is projective and flat over ℤ with all fibres of pure dimension one; Y_H:=X_H×_{ℙ¹}𝔸¹ is the coarse space of the elliptic open Y_H of 𝒳_H. The cusp divisor X_H^∞:=X_H×_{ℙ¹}{∞} is an effective Cartier divisor on X_H which is finite locally free over ℤ of rank [GL₂(Ẑ):±H]; it is the scheme-theoretic fibre, in general not reduced, and its multiplicities are the cusp widths (coarse-cusps-away-from-the-level). The stack 𝒳_H has rank [GL₂(Ẑ):H] over X(1); the two degrees agree exactly when −I∈H.",
+   "hypotheses": [
+    "H open; X_H the coarse space of 𝒳_H (integral-coarse-curves)."
+   ],
+   "proofSteps": [
+    "Finite locally free: integral-coarse-curves (Česnavičius §6.1: X_H is normal and finite over X(1)=ℙ¹_ℤ, so locally free by EGA IV₂ 6.1.5).",
+    "The rank is computed at a geometric point of 𝔸¹_ℚ with j≠0,1728: its preimages are the classes of level-H structures on one curve E modulo Aut(E)={±1}, i.e. the set {±1}\\GL₂(ℤ/n)/H̄, of cardinality [GL₂(ℤ/n):±H̄].",
+    "The coarse space of the open substack Y_H is the preimage of 𝔸¹ because coarse formation commutes with flat (here open) base change on X_H.",
+    "The pullback of the Cartier divisor ∞ along a flat morphism is Cartier, and finite locally free of the same rank over ∞≅Spec ℤ."
+   ],
+   "acceptance": [
+    "X₀(N)→ℙ¹ has degree ψ(N); X₁(N)→ℙ¹ has degree φ(N)ψ(N)/2 for N≥3, so 12 for N=5; X(N)→ℙ¹ has degree |GL₂(ℤ/N)|/2 for N≥3; X_{C_s⁺(13)} and X_{C_ns⁺(13)} have degrees 91 and 78.",
+    "For a prime p, X₀(p)^∞=[∞]+p·[0], of rank p+1 over ℤ, not reduced."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/compactified-coarse-j-line",
+    "ModularCurvesPartII:R13.4a/level-subgroups",
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+    "SchemeAndStackFoundations:SF.1/keel-mori",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.finrank"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§6.1, p.62",
+     "match": "X_H is a projective ℤ-scheme finite over X(1)=ℙ¹_ℤ, normal, and X_H→X(1) is locally free of constant rank; X_H is flat of relative dimension one over ℤ."
+    },
+    {
+     "sourceId": "zywina15",
+     "locator": "§3.2, p.15",
+     "match": "For G containing −I the j-map π_G:X_G→ℙ¹_ℚ has degree [GL₂(ℤ/N)/{±I}:G/{±I}]=[GL₂(ℤ/N):G]."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "Layer 10, item 2",
+     "match": "For prime level diamond quotients the cusp locus is the scheme-theoretic fibre over ∞, finite locally free of rank deg j, not reduced, a relative effective Cartier divisor."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-cusps-away-from-the-level",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Cusps of X_H away from the level",
+   "kind": "theorem",
+   "statement": "Let H be an open level subgroup, n with Γ(n)⊂H, and u=[[1,1],[0,1]]. Over every algebraically closed field k with char k∤n, the points of X_H^∞(k) are in bijection with the double cosets ⟨±u⟩\\GL₂(ℤ/n)/H̄: the coset of g is the Tate curve over k((q^{1/n})) with the level structure φ₀gH̄, where φ₀=(ζ,q^{1/n}) for a fixed primitive n-th root of unity ζ, the monodromy q^{1/n}↦ζq^{1/n} acting by left multiplication by u and inversion by −I. The width of the cusp of g, equal to its ramification index over ∞ and to its multiplicity in X_H^∞, is the least w≥1 with u^w∈±gH̄g⁻¹, and after base change to a strictly henselian base the completed local ring of X_H at it is a power series ring in a parameter t with t^w equal to q times a unit. The reduced cusp scheme (X_H^∞)_red is finite étale over ℤ[1/n] of rank #(⟨±u⟩\\GL₂(ℤ/n)/H̄), the sum of the widths is [GL₂(Ẑ):±H], and Gal(ℚ̄/ℚ) acts on the geometric cusps through Gal(ℚ(ζ_n)/ℚ)≅(ℤ/n)^×, the element d acting by left multiplication by [[d,0],[0,1]].",
+   "hypotheses": [
+    "k algebraically closed of characteristic prime to n; the bad-characteristic cusps are R13.3 and coarse-cusp-regularity."
+   ],
+   "proofSteps": [
+    "For full level the fibre of 𝒳_{Γ(n)}→X(1) over the Tate chart is a finite disjoint union of copies of Spec ℤ[ζ_n][[q^{1/n}]], compatibly with the cyclotomic structure; its components over k are the frames of the Tate curve modulo monodromy (Conrad (4.2.1); R13.3 formal-level-cusp-charts).",
+    "The coarse local ring at a cusp is the invariant ring of this formal chart under the stabiliser of the component in ⟨±u⟩×H̄ (coarse-local-structure (b)); u^b acts by q^{1/n}↦ζ^b q^{1/n} and −I acts trivially on q.",
+    "The stabiliser of the coset of g is ⟨±u⟩∩gH̄g⁻¹, whose image in the monodromy group is ⟨u^w⟩, so the invariants of k[[q^{1/n}]] are k[[q^{1/w}]] and the ramification index over q is w.",
+    "Over ℤ[1/n] the Galois group of ℤ[1/n,ζ_n] acts freely on the coefficients; the invariant ring of ℤ[1/n,ζ_n][[x]] under a group acting semilinearly in this way is R[[y]] with R finite étale over ℤ[1/n], which gives the finite étale reduced cusp scheme.",
+    "σ_d sends φ₀=(ζ,q^{1/n}) to (ζ^d,q^{1/n})=φ₀·[[d,0],[0,1]], hence acts on φ₀gH̄ by left multiplication by [[d,0],[0,1]]."
+   ],
+   "acceptance": [
+    "X₀(p): two cusps, of widths 1 and p, both ℚ-rational.",
+    "X₁(p) for p≥5 prime: (p−1)/2 cusps of width 1, conjugate over ℚ(ζ_p)⁺, and (p−1)/2 cusps of width p, each ℚ-rational; the widths sum to (p²−1)/2.",
+    "X(N,ζ) for N≥3: |SL₂(ℤ/N)|/(2N) cusps per component, each of width N (twelve cusps for N=5).",
+    "X₀(N): the cusps are the ⟨±u⟩-orbits on ℙ¹(ℤ/N), of number Σ_{d|N} φ(gcd(d,N/d))."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/coarse-local-structure",
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+    "ModularCurvesPartII:R13.3/formal-level-cusp-charts",
+    "ModularCurvesPartII:R13.3/generalized-tate-n-gon",
+    "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing"
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad07",
+     "locator": "(4.2.1) and proof of Lemma 4.2.4, p.37; proof of Theorem 4.1.1, pp.31–32",
+     "match": "M_{Γ(N)}×_{M₁}Spec ℤ[[q]] is a finite disjoint union of copies of Spec ℤ[ζ_N][[q^{1/N}]], compatibly with the ℤ[ζ_N]-structure defined by the Weil pairing on the Tate curve; the boundary lies in the smooth locus over ℤ[ζ_N]."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "Definition 4.3.1 and Lemma 4.3.2, p.37",
+     "match": "The d-gon strata of the boundary are open and closed and reduced."
+    },
+    {
+     "sourceId": "gz86",
+     "locator": "Chapter III, §1, p.255",
+     "match": "The cusps of X₀(N) have one component Cusp(d) for each d|N, with φ(gcd(d,N/d)) geometric points and Cusp(d)≅Spec ℤ[μ_f], f=gcd(d,N/d); ∞ and 0 are Cusp(N) and Cusp(1)."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "Layer 10, item 2",
+     "match": "For prime N≥5 and the diamond quotients, (Cusps_H)_red is finite étale over ℤ[1/N] with (N−1)/(2|H|) geometric cusps of each width 1 and N."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The cyclotomic structure of X_H",
+   "kind": "construction",
+   "statement": "Let H be an open level subgroup, n with Γ(n)⊂H, D_H=det(H̄)⊂(ℤ/n)^×, and O_H the ring of integers of the subfield ℚ(ζ_n)^{D_H} fixed by {σ_d : d∈D_H}, σ_d(ζ)=ζ^d. The Weil pairing gives a morphism det:Y_H[1/n]→Spec O_H[1/n], sending (E,φH̄) to the D_H-orbit of e_n(φ(e₁),φ(e₂)), well defined because e_n((P,Q)g)=e_n(P,Q)^{det g}; it extends uniquely to a morphism X_H→Spec O_H, proper and flat. For H′⊂H the level map X_{H′}→X_H lies over Spec O_{H′}→Spec O_H; for g normalising H̄ the automorphism of X_H induced by g lies over σ_{det g}. For H=Γ(N) this is the morphism X(N)→Spec ℤ[ζ_N] extending the Weil pairing. Whether the fibres of X_H→Spec O_H are geometrically connected is not part of this construction (R12.4 and R12.6).",
+   "hypotheses": [
+    "H open; n with Γ(n)⊂H.",
+    "X_H normal (integral-coarse-curves)."
+   ],
+   "proofSteps": [
+    "On Y(n)[1/n] the Weil pairing of the universal frame is a primitive n-th root of unity, a morphism to μ_n^{prim}=Spec ℤ[1/n][x]/(Φ_n) (upstream 5B), equivariant for the right action of GL₂(ℤ/n) on frames through σ_{det}.",
+    "Pass to the quotient by H̄: Y_H[1/n]=Y(n)[1/n]/H̄ maps to Spec of the D_H-invariants ℤ[1/n,ζ_n]^{D_H}=O_H[1/n].",
+    "Extension: O_H is finite over ℤ, and an element of O_H regular on the dense open Y_H[1/n] of the normal scheme X_H is integral over every local ring of X_H, hence regular; uniqueness by density and separatedness (Conrad's argument for Theorem 4.1.1(3)).",
+    "Flatness: X_H is flat over ℤ and Spec O_H is a Dedekind scheme; properness from X_H→Spec ℤ."
+   ],
+   "acceptance": [
+    "H=Γ₀(N), Γ₁(N), C_s(ℓ), C_ns⁺(ℓ): D_H=(ℤ/n)^× and O_H=ℤ.",
+    "H=Γ(N): O_H=ℤ[ζ_N], recovering the fixed-pairing base."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "ModularCurvesPartII:R13.4a/level-subgroups",
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+    "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+    "mathlib:IsPrimitiveRoot",
+    "mathlib:Polynomial.cyclotomic"
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad07",
+     "locator": "Theorem 4.1.1(3) and its proof, pp.31–32",
+     "match": "There is a unique Cohen–Macaulay morphism M_{Γ(N)}→Spec ℤ[ζ_N] extending the Weil-pairing morphism on M⁰_{Γ(N)}/ℤ[1/N]; the extension uses only ℤ-flatness, normality and the Cartier boundary."
+    },
+    {
+     "sourceId": "zywina15",
+     "locator": "§3.2, p.15; Proposition 3.1, p.14",
+     "match": "For det(G)=(ℤ/N)^× the field ℚ is algebraically closed in the function field of X_G, and θ_N(A)ζ_N=ζ_N^{det A}: the determinant governs the field of constants."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§5B",
+     "match": "The Weil-pairing determinant of Y_full(N) takes values in μ_N^{prim}; fixing ζ gives the fibre Y(N,ζ)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "this layer, fixed-pairing-coarse-curve",
+     "how": "X(N) is regarded over ℤ[ζ_N] through this morphism"
+    },
+    {
+     "where": "R12.3 cusp-fields-and-component-labels and R12.6 component-fields-and-twisted-descent",
+     "how": "the algebraic component and pairing labels compared with the analytic ones"
+    },
+    {
+     "where": "R13.4b generic-component-comparison",
+     "how": "the components of X_H over ℚ̄ are compared with the analytic components, indexed by (ℤ/n)^×/D_H"
+    },
+    {
+     "where": "Zywina 2015, §3.2",
+     "how": "a curve X_G with surjective determinant is defined over ℚ with ℚ algebraically closed in its function field"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.cyclotomicBase",
+     "role": "data",
+     "statement": "O_H, the ring of integers of ℚ(ζ_n)^{det H̄}."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase",
+     "role": "constructor",
+     "statement": "The morphism X_H→Spec O_H extending the Weil pairing."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_ellipticOpen",
+     "role": "characterisation",
+     "statement": "On Y_H[1/n] it sends (E,φH̄) to the det H̄-orbit of e_n(φ e₁, φ e₂)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_unique",
+     "role": "extensionality",
+     "statement": "Any two morphisms X_H→Spec O_H agreeing on Y_H[1/n] are equal."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_levelMap",
+     "role": "functoriality",
+     "statement": "For H′⊂H the square with Spec O_{H′}→Spec O_H commutes."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_normaliser",
+     "role": "compatibility",
+     "statement": "For g normalising H̄ the induced automorphism of X_H lies over σ_{det g} on Spec O_H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_flat",
+     "role": "structure",
+     "statement": "toCyclotomicBase is proper and flat."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.cyclotomicBase_gamma0",
+     "kind": "degenerate",
+     "statement": "cyclotomicBase (Γ₀ N) = ℤ, and toCyclotomicBase is the structure morphism."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cyclotomicBase_full",
+     "kind": "computation",
+     "statement": "cyclotomicBase (Γ N) = ℤ[ζ_N], with toCyclotomicBase the extended Weil pairing of Conrad Theorem 4.1.1(3)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.toCyclotomicBase_not_connected",
+     "kind": "non-example",
+     "statement": "For N≥3, X(N)_ℚ maps onto Spec ℚ(ζ_N), so X(N)_ℚ̄ has at least φ(N) connected components; X(N) over ℚ is not geometrically connected."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cyclotomicBase_kernelDet",
+     "kind": "computation",
+     "statement": "For H̄=SL₂(ℤ/n), cyclotomicBase = ℤ[ζ_n] although H̄ is large."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/fixed-pairing-coarse-curve",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The fixed-pairing compactified curve",
+   "kind": "construction",
+   "statement": "For N≥1 and a ring R with a ring map ζ:ℤ[ζ_N]→R, let 𝒳(N,ζ)_R:=𝒳_{Γ(N)}×_{Spec ℤ[ζ_N]}Spec R, using the extended Weil pairing 𝒳_{Γ(N)}→Spec ℤ[ζ_N] (Conrad Theorem 4.1.1(3)), and let X(N,ζ)_R be its coarse space. For R=ℤ[ζ_N], X(N,ζ)=X(N) with its cyclotomic structure. Its elliptic open over ℤ[1/N,ζ_N] is the coarse space of the stack of curves with full level structure of Weil pairing ζ, which for N≥3 is upstream's fine scheme Y(N,ζ). The formation of X(N,ζ)_R commutes with base change R→R′ when R′ is flat over R, when N≥3 and R is a ℤ[1/N]-algebra, and when N is not of the form p^s or 2p^s, because 𝒳_{Γ(N)} is then a scheme. Over ℤ[1/N,ζ_N] it is a smooth proper curve, and X(N)_{ℤ[1/N,ζ_N]} is the disjoint union over d∈(ℤ/N)^× of the curves X(N,ζ^d)_{ℤ[1/N,ζ_N]}. Geometric connectedness of its fibres is R12.4's theorem and is not used here.",
+   "hypotheses": [
+    "N≥1; R a ℤ[ζ_N]-algebra.",
+    "The listed base-change cases are the only ones asserted."
+   ],
+   "proofSteps": [
+    "Base change the full-level stack along ζ and take the Keel–Mori coarse space (SchemeAndStackFoundations SF.1 keel-mori).",
+    "For R=ℤ[ζ_N] the base change is the identity, so the coarse space is X(N) with coarse-cyclotomic-structure.",
+    "Base change: flat base change of coarse spaces; for N≥3 over ℤ[1/N] the stack is a fine scheme (Katz–Mazur rigidity, upstream 2F, 5B); for N not of the form p^s, 2p^s the stack is a projective scheme over ℤ (standard-level-stack-identifications).",
+    "Over ℤ[1/N] the ring ℤ[1/N,ζ_N]⊗_ℤℤ[ζ_N] is the product of copies of ℤ[1/N,ζ_N] indexed by σ_d, which splits X(N) after base change into the fibres X(N,ζ^d).",
+    "Smoothness over ℤ[1/N,ζ_N] from level-stack-geometry (c) and legal-coarse-base-change."
+   ],
+   "acceptance": [
+    "N=5 over ℚ(ζ₅): X(5,ζ) has degree 60 over ℙ¹ and twelve cusps of width 5, whereas X(5)_ℚ has degree 240."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure",
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+    "SchemeAndStackFoundations:SF.1/keel-mori",
+    "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+    "tauceti:TauCetiRoadmap/ModularCurves#2f-endomorphism-degree-trace-and-rigidity"
+   ],
+   "sources": [
+    {
+     "sourceId": "conrad07",
+     "locator": "Theorem 4.1.1(3), p.31; Lemma 4.2.4, p.37",
+     "match": "The full-level stack has a unique Cohen–Macaulay structure morphism to Spec ℤ[ζ_N] extending the Weil pairing, and its boundary is in the smooth locus over ℤ[ζ_N]."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 4.3.6, p.39",
+     "match": "X(n) is a projective scheme over ℤ unless n=p^s or 2p^s."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§5B and Convention 5",
+     "match": "Y_full(N) has a determinant to μ_N^{prim}; Y(N,ζ) is its fibre over a chosen primitive root, the curve to which connectedness statements refer."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "R12.3 and R12.4",
+     "how": "the compact fixed-pairing curve compared with Γ(N)\\(ℍ∪ℙ¹(ℚ)) and whose geometric connectedness is proved there"
+    },
+    {
+     "where": "ShimuraCompactifications C6",
+     "how": "the requested fixed-pairing compactification with its base"
+    },
+    {
+     "where": "this layer, twisted-coarse-curve",
+     "how": "the twisted curves are forms of X(N,ζ)"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve",
+     "role": "constructor",
+     "statement": "X(N,ζ)_R for a ring R with ζ:ℤ[ζ_N]→R."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve.toBase",
+     "role": "projection",
+     "statement": "The proper structure morphism X(N,ζ)_R→Spec R."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve.ellipticOpen",
+     "role": "compatibility",
+     "statement": "Over ℤ[1/N,ζ_N] and N≥3 its elliptic open is upstream's Y(N,ζ)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve.baseChange",
+     "role": "functoriality",
+     "statement": "The comparison X(N,ζ)_{R′}→X(N,ζ)_R×_R R′, an isomorphism in the three listed cases."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fullLevel_split",
+     "role": "equivalence",
+     "statement": "X(N)×_ℤℤ[1/N,ζ_N] ≅ ⊔_{d∈(ℤ/N)^×} X(N,ζ^d)_{ℤ[1/N,ζ_N]}."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve.galois",
+     "role": "functoriality",
+     "statement": "σ_d induces X(N,ζ)≅X(N,ζ^d) over σ_d, via the frame change by [[1,0],[0,d]]."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve_one",
+     "kind": "degenerate",
+     "statement": "For N=1 and N=2, ℤ[ζ_N]=ℤ and X(N,ζ)=X(N); X(1,ζ)=ℙ¹_ℤ and X(2) has degree 6 over ℙ¹."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve_five_cusps",
+     "kind": "computation",
+     "statement": "X(5,ζ) over ℚ(ζ₅) has degree 60 over the j-line and twelve cusps, each of width 5."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve_not_full",
+     "kind": "non-example",
+     "statement": "X(5) over ℚ is not X(5,ζ): it has degree 240 over ℙ¹_ℚ and maps onto Spec ℚ(ζ₅)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.fixedPairingCurve_fine",
+     "kind": "compatibility",
+     "statement": "For N≥3 over ℤ[1/N,ζ_N] the coarse map is an isomorphism from the stack, which is upstream's fine scheme Y(N,ζ) on the elliptic open."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/twisted-coarse-curve",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Compactified twisted curves X(ρ)",
+   "kind": "construction",
+   "statement": "Let N≥3 and let V_ρ/ℚ be a finite étale group scheme, étale locally isomorphic to (ℤ/N)², with a perfect alternating Galois-equivariant pairing V_ρ×V_ρ→μ_N, equivalently ρ:G_ℚ→GL₂(ℤ/N) with determinant the mod-N cyclotomic character and the pairing. Upstream 5C constructs the smooth affine curve Y(ρ)/ℚ whose T-points are pairs (E,ι) with ι:E[N]≅V_{ρ,T} preserving pairings. Define X(ρ) as the normalization of ℙ¹_{j,ℚ} in the composite Y(ρ)→𝔸¹_j⊂ℙ¹_j. Then X(ρ) is a smooth proper curve over ℚ, Y(ρ) is the preimage of 𝔸¹, and for every finite extension L/ℚ over which V_ρ acquires a symplectic frame of pairing value ζ∈μ_N^{prim}(L), X(ρ)_L≅X(N,ζ)_L compatibly with j; changing the frame changes this isomorphism by the action of SL₂(ℤ/N). The same construction applies after any base change of V_ρ to a field of characteristic zero. For V_ρ=E₀[N] with its Weil pairing, (E₀,id) is a ℚ-point of Y(ρ).",
+   "hypotheses": [
+    "N≥3; V_ρ over ℚ as in upstream 5C, with a perfect alternating pairing to μ_N.",
+    "Only pairing-preserving isomorphisms are parametrised; the unpaired GL₂-twist is a different moduli problem."
+   ],
+   "proofSteps": [
+    "Over a finite extension L trivialising V_ρ symplectically, Y(ρ)_L≅Y(N,ζ)_L as moduli problems (upstream 5C, steps 3–5).",
+    "Relative normalization commutes with the étale base change Spec L→Spec ℚ (Stacks 03GV; Mathlib normalizationPullback for smooth maps), so X(ρ)_L is the normalization of ℙ¹_L in Y(N,ζ)_L, which is X(N,ζ)_L by the recognition criterion applied to the normal proper curve of fixed-pairing-coarse-curve.",
+    "Properness and smoothness descend along Spec L→Spec ℚ.",
+    "Frame changes act through SL₂(ℤ/N) because they preserve the pairing value."
+   ],
+   "acceptance": [
+    "For a curve E₀/ℚ and N=5, X(E₀[5]) is a smooth proper curve over ℚ with the rational point (E₀,id); its genus and rationality are generic-fibre statements of R13.4b."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/fixed-pairing-coarse-curve",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.4a/compactified-coarse-j-line",
+    "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+    "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationPullback",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization"
+   ],
+   "sources": [
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§5C",
+     "match": "Y(ρ) for N≥3 parametrises elliptic curves with a pairing-compatible isomorphism of their N-torsion with V_ρ; the layer owns the algebraic reduction of its geometric irreducibility."
+    },
+    {
+     "sourceId": "stacks",
+     "locator": "Tag 03GV",
+     "match": "Relative normalization commutes with smooth, in particular étale, base change."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 6.4(a), p.63",
+     "match": "Coarse level curves are smooth over ℤ[1/n], which applies to the forms X(N,ζ) of X(ρ)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "R12.4 twisted-geometric-irreducibility and R12.6 component-fields-and-twisted-descent",
+     "how": "the canonical compact normalization of the twisted curve whose geometric connectedness and descent are proved there"
+    },
+    {
+     "where": "EllipticCurveModularityWild3Adic W3.6",
+     "how": "the compactification X_ρ(5) whose rationality over ℚ is used for the global companion"
+    },
+    {
+     "where": "R13.4b",
+     "how": "the generic-fibre genus and rationality of X(ρ) for N=3,4,5"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve",
+     "role": "constructor",
+     "statement": "X(ρ), the normalization of ℙ¹_j in Y(ρ)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve.ellipticOpen",
+     "role": "compatibility",
+     "statement": "Y(ρ)=X(ρ)×_{ℙ¹}𝔸¹, upstream's twisted curve."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve.frameIso",
+     "role": "equivalence",
+     "statement": "A symplectic frame of V over S′ of value ζ gives X(ρ)_{S′}≅X(N,ζ)_{S′} over ℙ¹."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve.frameIso_change",
+     "role": "relation",
+     "statement": "Changing the frame by γ∈SL₂(ℤ/N) composes the isomorphism with the action of γ on X(N,ζ)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve.smooth",
+     "role": "structure",
+     "statement": "X(ρ) is a smooth proper curve over ℚ."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve.baseChange",
+     "role": "functoriality",
+     "statement": "Formation of X(ρ) commutes with extension of the base field."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve_split",
+     "kind": "degenerate",
+     "statement": "For V_ρ=ℤ/N×μ_N with the pairing ⟨(a,x),(b,y)⟩=y^a/x^b, the frame ((1,1),(0,ζ_N)) over ℚ(ζ_N) has pairing value ζ_N and gives X(ρ)_{ℚ(ζ_N)}≅X(N,ζ_N)_{ℚ(ζ_N)}."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve_point",
+     "kind": "characterisation",
+     "statement": "For V_ρ=E₀[N] with the Weil pairing, (E₀,id) is a ℚ-point of Y(ρ) over j(E₀)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.twistedCurve_unpaired",
+     "kind": "non-example",
+     "statement": "Replacing pairing-preserving isomorphisms by all isomorphisms E[N]≅V gives a curve with φ(N) geometric components over a splitting field, not a form of X(N,ζ)."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Recognising a relative normalization",
+   "kind": "theorem",
+   "statement": "Let f:Y→J be a quasi-compact quasi-separated morphism of schemes, g:T→J an integral morphism and u:Y→T an open immersion with f=g∘u. Assume T is locally noetherian and normal (every local ring is an integrally closed domain) and that u(Y) is dense in T. Then the morphism normalizationDesc:Norm_J(Y)→T given by the universal property of the relative normalization is an isomorphism. All three hypotheses on T are needed: adjoining to T a disjoint copy of J keeps T integral over J and receiving Y but breaks density; a non-normal T (a cuspidal or nodal curve) receives a finite birational map from the normalization which is not an isomorphism; and for the qcqs open immersion D(t)⊂Spec k[t] the normalization of Spec k[t] in D(t) is Spec k[t], but after the base change t=0 the source is empty, so normalization does not commute with this base change. The same statement holds for representable morphisms of Deligne–Mumford stacks, checked on an étale atlas.",
+   "hypotheses": [
+    "f quasi-compact and quasi-separated; g integral; u an open immersion with dense image.",
+    "T locally noetherian with integrally closed local domains."
+   ],
+   "proofSteps": [
+    "Work over an affine open Spec A⊂J; then T is Spec C with C integral over A, Y∩Spec C=V is a dense open, and Norm is Spec A′ with A′ the integral closure of A in Γ(V,O) (Stacks 035I, 035K).",
+    "Since T is reduced and V dense, restriction C→Γ(V,O) is injective, and C lands in A′ because C is integral over A.",
+    "C is a finite product of normal domains C_i and Γ(V,O) embeds in the product of their fraction fields because V meets every component; an element of Γ(V,O) integral over A is integral over C, hence lies in C. So A′=C (Stacks 035L, 03GP).",
+    "The map normalizationDesc is the gluing of these identifications, hence an isomorphism; for stacks apply this to an étale atlas, using that normalization commutes with étale base change (Stacks 03GV)."
+   ],
+   "acceptance": [
+    "Applied with T=X(1), Y=Ell over ℤ[1/n] it gives levelStack GL₂(Ẑ)=X(1).",
+    "Applied to Tau Ceti ModularCurves Layer 10's X_H it is the agreement prime-diamond-agreement."
+   ],
+   "prerequisites": [
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization.hom_ext",
+    "mathlib:AlgebraicGeometry.IsIntegralHom",
+    "mathlib:AlgebraicGeometry.IsOpenImmersion",
+    "mathlib:IsIntegrallyClosed",
+    "SchemeAndStackFoundations:SF.0/nagata-normalization-finite"
+   ],
+   "sources": [
+    {
+     "sourceId": "stacks",
+     "locator": "Tags 035I, 035K, 035L, 03GP, 03GV, 0AXP",
+     "match": "The universal property and localization of relative normalization; normalization of a normal scheme in itself, normalization in an integral morphism is the source, compatibility with smooth base change, and generic points of the normalization come from those of the source."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "Layer 10, item 1",
+     "match": "The literal universal property of normalization does not characterise X_H up to isomorphism; an isomorphism characterisation needs T finite and normal, an open immersion with schematically dense image, and every irreducible component of T meeting Y_H; normalization does not commute with the base change t=0 for D(t)⊂Spec k[t]."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/affine-open-identification",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "The elliptic opens are the Katz–Mazur level problems",
+   "kind": "comparison",
+   "statement": "Let H be an open level subgroup and n with Γ(n)⊂H. (a) Over ℤ, the open substack Y_H=𝒳_H×_{X(1)}Ell is the stack over Ell of the Katz–Mazur quotient problem [Γ(n)]/H̄ of Tau Ceti ModularCurves 9A–9B: its objects over S are elliptic curves over S with a [Γ(n)]/H̄-structure. (b) The coarse space Y_H⊂X_H of Y_H is the Katz–Mazur coarse moduli scheme M([Γ(n)]/H̄) of upstream 9D, compatibly with the classifying maps, with the j-maps to the coarse j-line 𝔸¹_ℤ of 9E and with the maps induced by H′⊂H. (c) For the standard levels: Y_{Γ(N)} is upstream's integral [Γ(N)] of Layer 6, represented over ℤ[1/N] for N≥3 by Y_full(N) of 5B, and its fibres over μ_N^{prim} are Y(N,ζ); Y_{Γ₁(N)} is [Γ₁(N)] of Layer 6, represented over ℤ[1/N] for N≥4 by Y₁(N) of 5A (over ℤ it is not rigid: at a supersingular point in characteristic p|N the Drinfeld point P=0 is fixed by every automorphism); Y_{Γ₀(N)} is [Γ₀(N)] of Layer 8D, with coarse space upstream's Y₀(N) of 9E. (d) X_H is the normalization of ℙ¹_ℤ in M([Γ(n)]/H̄), i.e. the Katz–Mazur compactified coarse moduli scheme. No new affine level carrier is introduced: the affine curves are upstream's.",
+   "hypotheses": [
+    "H open; n with Γ(n)⊂H.",
+    "The identifications are of stacks over Ell and of their coarse spaces; no fine-moduli assertion is made outside the ranges stated."
+   ],
+   "proofSteps": [
+    "For H=Γ(n), the moduli interpretations of Y(n) and of upstream's [Γ(n)] agree by definition of Drinfeld full level structures, and Y(n)=Y_{Γ(n)} by standard-level-stack-identifications.",
+    "For general H̄, both sides are the quotient of the Γ(n) case by H̄: over ℤ[1/n] by level-h-structures and upstream 9A (sheaf quotient of the naive problem), and over ℤ by the integral Katz–Mazur quotient property (Katz–Mazur 7.1.3, as used in Česnavičius Proposition 6.3(a)).",
+    "(b): if [Γ(n)]/H̄ is representable the coarse statement is the definition of M; in general use coarse-level-quotients (X_H=X(n)/H̄) and upstream 9D's M(𝒫)/H≅M(𝒫/H), together with AlgebraicModuli R09.5 elliptic-coarse-recovery, which identifies upstream's coarse scheme with the stack coarse space.",
+    "(c) is the specialisation of (a)–(b) to the four standard levels, using upstream 5A, 5B, Layer 6, 8D and 9E.",
+    "(d): X_H is normal and finite over ℙ¹_ℤ with Y_H dense and meeting every component, so it is the normalization by finite-normal-recognition."
+   ],
+   "acceptance": [
+    "H=Γ₀(N), N≥3: Y₀(N)⊗ℤ[1/N] is upstream's Borel quotient Y_full(N)/B, the coarse open of X₀(N).",
+    "H=Γ₁(5): Y₁(5) over ℤ[1/5] is upstream's Tate-normal-form curve, a fine scheme, and X₁(5) is its normalization over ℙ¹."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+    "ModularCurvesPartII:R13.4a/coarse-level-quotients",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+    "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+    "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+    "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+    "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+    "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-6-the-three-elementary-integral-level-problems",
+    "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/elliptic-coarse-recovery",
+    "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 6.3 and proof, p.63",
+     "match": "The quotient moduli problem [Γ(n)]/H̄ of Katz–Mazur §7.1 is Y_H, its coarse scheme M([Γ(n)]/H̄) of §8.1 is the coarse space Y_H, and the compactified coarse scheme of §8.6 is X_H, the normalization of X(1) in Y_H."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Lemma 6.2, p.63",
+     "match": "For Γ(n)⊂H the coarse curve X_H is the categorical quotient X(n)/H̄ (Deligne–Rapoport IV.3.10(iii))."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§§5A, 5B, 6, 8D, 9A–9E",
+     "match": "The affine integral level problems [Γ(N)], [Γ₁(N)], [Γ₀(N)], their quotient problems and coarse schemes M(𝒫), the coarse j-line and Y₀(N), and the fine curves Y₁(N), Y_full(N), Y(N,ζ) after inverting N."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/Comparison",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/prime-diamond-agreement",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Agreement with the prime-level diamond quotients",
+   "kind": "comparison",
+   "statement": "Let N≥5 be prime, Δ=(ℤ/N)^×/{±1}, H≤Δ, and G_H⊂GL₂(Ẑ) the open subgroup whose image modulo N is {[[a,b],[0,d]] : a mod ±1 ∈ H}. Let X_H^{MC} be Tau Ceti ModularCurves Layer 10's compactified coarse curve over ℤ[1/N], the normalization of ℙ¹_{ℤ[1/N]} in Y₁(N)/H. Then the restriction of X_{G_H} to ℤ[1/N] is isomorphic to X_H^{MC} by a unique isomorphism over ℙ¹_{ℤ[1/N]} restricting on 𝔸¹ to the identification of Y_{G_H} with Y₁(N)/H. The isomorphism matches the cusp divisors, the diamond action of Δ/H, the map X₁(N)→X₀(N) (the cases H=1 and H=Δ) and the cyclotomic structure (both over ℤ). The proof checks the recognition hypotheses on X_{G_H}[1/N]: it is normal, finite over ℙ¹_{ℤ[1/N]}, contains Y_{G_H}[1/N] as a dense open, and each of its irreducible components meets it. No new compactification, cusp width or Shimura covering is built for this class; those stay Layer 10's.",
+   "hypotheses": [
+    "N≥5 prime; H≤(ℤ/N)^×/{±1}; base ℤ[1/N].",
+    "X_H^{MC} is the Layer 10 carrier, built on Mathlib's relative normalization."
+   ],
+   "proofSteps": [
+    "Upstream 9B (Katz–Mazur 7.4.2(3),(7)) and 9D (M(𝒫)/H≅M(𝒫/H)) identify Y_{G_H}[1/N] with Y₁(N)/H over 𝔸¹_{ℤ[1/N]}; by affine-open-identification this is the coarse open of X_{G_H}.",
+    "X_{G_H}[1/N] is normal and finite over ℙ¹ (integral-coarse-curves, coarse-degree-and-cusp-divisor).",
+    "Every irreducible component of X_{G_H}[1/N] is finite flat over ℙ¹_{ℤ[1/N]}, hence surjects onto it and meets the preimage of 𝔸¹; so Y_{G_H}[1/N] is dense in every component. This is the component-by-component check.",
+    "finite-normal-recognition gives the isomorphism; its uniqueness is normalization.hom_ext with the affine map to ℙ¹.",
+    "Compatibilities: the diamond action and X₁(N)→X₀(N) agree on the dense open and extend uniquely; cusp divisors are both the fibre over ∞."
+   ],
+   "acceptance": [
+    "N=5, H=Δ: X₀(5)[1/5] agrees with Layer 10's X₀(5), with cusp divisor [∞]+5[0] in both.",
+    "N=11, H=1: X₁(11)[1/11] agrees with Layer 10's X₁(11); both have five cusps of width 1 and five of width 11."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "ModularCurvesPartII:R13.4a/coarse-level-maps",
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "ModularCurvesPartII:R13.4a/coarse-normalization-comparisons",
+    "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+    "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+    "mathlib:AlgebraicGeometry.Scheme.Hom.normalization.hom_ext"
+   ],
+   "sources": [
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "Layer 10, items 1–2 and the close-out list",
+     "match": "For N≥5 prime and H≤Δ, X_H is the normalization of ℙ¹_j over ℤ[1/N] in Y_H=Y₁(N)/H, with cusps the scheme-theoretic fibre over ∞; the recognition criterion requires finiteness, normality, schematic density and every component meeting Y_H."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 6.3(c), p.63",
+     "match": "The Katz–Mazur compactified coarse moduli scheme is X_H, as both are the normalization of X(1)=ℙ¹_ℤ in Y_H."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/Comparison",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-level-maps",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Level maps between coarse curves",
+   "kind": "construction",
+   "statement": "For open level subgroups H′⊂H the finite morphism 𝒳_{H′}→𝒳_H induces f_{H′,H}:X_{H′}→X_H over ℙ¹_ℤ, finite and surjective of degree [±H:±H′], with f_{H,H}=id and f_{H′,H}∘f_{H″,H′}=f_{H″,H}. For g∈GL₂(Ẑ), conjugation gives c_g:X_H≅X_{g⁻¹Hg}. The normaliser N(H̄) of H̄ in GL₂(ℤ/n) acts on X_H on the right through N(H̄)/±H̄, by (E,φH̄)↦(E,φgH̄) on Y_H[1/n] extended by normalization; on X₁(N) the element [[d,0],[0,1]] acts as the diamond operator P↦dP and −I acts trivially. These maps are compatible with the cyclotomic structures, send the cusp of a double coset ⟨±u⟩g H̄′ to that of ⟨±u⟩g H̄, and multiply widths by the local degree. Over ℤ[1/n] each f_{H′,H} is finite flat between smooth curves; over ℤ it is flat at every point of X_{H′} over which X_H is regular. A coarse map is not a substitute for a stack correspondence: Hecke correspondences are R14.1's.",
+   "hypotheses": [
+    "H′⊂H open; n with Γ(n)⊂H′.",
+    "Flatness assertions at bad primes require regularity of X_H at the image point."
+   ],
+   "proofSteps": [
+    "The stack map is levelStack.map; the coarse universal property gives f_{H′,H} and the functor laws (SchemeAndStackFoundations SF.1 coarse-moduli-space).",
+    "The degree is the ratio of the j-degrees from coarse-degree-and-cusp-divisor.",
+    "The normaliser acts on Y_H[1/n] by right translation of frames; the action extends to X_H by the universal property of normalization over ℙ¹, and −I acts trivially on the coarse space because [−1] is an isomorphism (E,φH̄)≅(E,φ(−I)H̄).",
+    "Compatibility with the cyclotomic structure follows from e_n((P,Q)g)=e_n(P,Q)^{det g}; the cusp statement from coarse-cusps-away-from-the-level.",
+    "Flatness: finite morphisms from a Cohen–Macaulay scheme of pure dimension two to a regular one are flat (Stacks 00R4)."
+   ],
+   "acceptance": [
+    "f_{Γ₁(N),Γ₀(N)} has degree φ(N)/2 for N≥3.",
+    "On X₁(N), ⟨−1⟩ is the identity."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure",
+    "ModularCurvesPartII:R13.4a/coarse-cusps-away-from-the-level",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
+    "mathlib:Subgroup.normalizer"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "§4.1.2, p.28",
+     "match": "H′⊂H gives the finite X(1)-morphism 𝒳_{H′}→𝒳_H from the map of level structures; regularity of 𝒳_H would make these maps flat by EGA IV₂ 6.1.5."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§9B, last paragraph; Layer 10, item 3",
+     "match": "The diamond action on [Γ₁(N)] is P↦aP; the covering Y₁(N)→Y₀(N) is Galois with group (ℤ/N)^×/±1 and extends to X₁(N)→X₀(N) along the normalizations."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "Lemma 4.2.3, p.36",
+     "match": "Contraction maps between level stacks such as M_{Γ₁(N)}→M_{Γ₀(N)} are finite flat surjective of constant rank."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "R14.1 diamond-operators, degeneracy-maps-and-hecke-correspondence",
+     "how": "the coarse diamond automorphisms and the forgetful legs of Hecke correspondences"
+    },
+    {
+     "where": "R12.3 cusp-ramification-and-level-maps",
+     "how": "the algebraic level maps whose cusp ramification is compared with the analytic widths"
+    },
+    {
+     "where": "Calegari–Geraghty 2018 §§3.2, 3.9",
+     "how": "the covers X_{U₁(Q)}→X_{U_Δ(Q)}→X_{U₀(Q)} and X_V→X_U are level maps with Galois group a quotient of the normaliser"
+    },
+    {
+     "where": "this layer, coarse-level-quotients",
+     "how": "the quotient description of X_H uses the action of H/H′ on X_{H′}"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.levelMap",
+     "role": "constructor",
+     "statement": "f_{H′,H}:X_{H′}→X_H for H′⊂H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_id",
+     "role": "simp",
+     "statement": "levelMap H H = id."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_comp",
+     "role": "functoriality",
+     "statement": "levelMap H′ H ∘ levelMap H″ H′ = levelMap H″ H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_degree",
+     "role": "characterisation",
+     "statement": "levelMap H′ H is finite surjective of degree [±H:±H′]."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_j",
+     "role": "compatibility",
+     "statement": "j∘levelMap H′ H = j."
+    },
+    {
+     "name": "TauCeti.ModularCurves.conjIso",
+     "role": "constructor",
+     "statement": "c_g:X_H≅X_{g⁻¹Hg}, with c_{gh}=c_h∘c_g."
+    },
+    {
+     "name": "TauCeti.ModularCurves.normaliserAction",
+     "role": "instance",
+     "statement": "The right action of N(H̄)/±H̄ on X_H by automorphisms over ℙ¹_ℤ."
+    },
+    {
+     "name": "TauCeti.ModularCurves.normaliserAction_cyclotomic",
+     "role": "compatibility",
+     "statement": "The automorphism of g lies over σ_{det g} on Spec O_H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_flat_of_regular",
+     "role": "other",
+     "statement": "levelMap H′ H is flat at points of X_{H′} lying over regular points of X_H, in particular everywhere over ℤ[1/n]."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.levelMap_gamma1_gamma0_degree",
+     "kind": "computation",
+     "statement": "For N≥3 the degree of levelMap (Γ₁ N) (Γ₀ N) is φ(N)/2; for N=13 it is 6."
+    },
+    {
+     "name": "TauCeti.ModularCurves.levelMap_self",
+     "kind": "degenerate",
+     "statement": "levelMap H H is the identity of X_H."
+    },
+    {
+     "name": "TauCeti.ModularCurves.normaliserAction_minusOne",
+     "kind": "non-example",
+     "statement": "−I acts trivially on X₁(N), so the diamond group acting faithfully on X₁(N) is (ℤ/N)^×/{±1} and not (ℤ/N)^× (N≥3)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.normaliserAction_gamma1_diamond",
+     "kind": "compatibility",
+     "statement": "On Y₁(N)[1/N] the action of [[d,0],[0,1]] is (E,P)↦(E,dP), upstream's diamond action."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-level-quotients",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Coarse curves as quotients",
+   "kind": "theorem",
+   "statement": "Let H′⊂H be open level subgroups with H′ normal in H. Then H/H′ acts on X_{H′} over X_H through the normaliser action, and X_H is the categorical and geometric quotient X_{H′}/(H/H′); in particular X_H=X(n)/H̄ for Γ(n)⊂H. For a ring A the comparison (X_{H′}⊗A)/(H/H′)→X_{H′}/(H/H′)⊗A is an isomorphism if A is flat over ℤ or if the order of the image of H/H′ in Aut(X_{H′}) is invertible in A; in general it is a universal homeomorphism. Neither side need be the coarse space of the base-changed stack 𝒳_H⊗A when A is not flat (coarse-base-change-failure).",
+   "hypotheses": [
+    "H′⊴H open; A an arbitrary ring for the comparison map."
+   ],
+   "proofSteps": [
+    "The quotient X_{H′}/(H/H′) exists: X_{H′} is projective, so every finite orbit lies in an affine open (SchemeAndStackFoundations SF.1 finite-group-quotient).",
+    "Over ℤ[1/n] it is the coarse space of [𝒳_{H′}/(H/H′)]=𝒳_H (level-stack-geometry (c)); over ℤ both X_{H′}/(H/H′) and X_H are normal and finite over ℙ¹_ℤ and agree over 𝔸¹_{ℤ[1/n]}, so they coincide by finite-normal-recognition (Česnavičius Lemma 6.2, citing Deligne–Rapoport IV.3.10(iii)).",
+    "Formation of rings of invariants commutes with flat base change, and with every base change when the group order is invertible; in general the comparison is integral, surjective and radicial."
+   ],
+   "acceptance": [
+    "X₀(N)=X₁(N)/((ℤ/N)^×/±1) for N≥3.",
+    "X_{C_s⁺(ℓ)}=X_{C_s(ℓ)}/(ℤ/2)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/coarse-level-maps",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "SchemeAndStackFoundations:SF.1/finite-group-quotient",
+    "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+    "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Lemma 6.2, p.63",
+     "match": "For Γ(n)⊂H, X_H is the categorical quotient X(n)/H̄."
+    },
+    {
+     "sourceId": "ces16cb",
+     "locator": "§1.2, p.1",
+     "match": "The ring of invariants of a finite group commutes with arbitrary base change when the group order is invertible."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§9A, Remark 7.1.4 statement",
+     "match": "For a ring map R→R′ the comparison of quotients is an isomorphism for flat R′, for |H| invertible in R′, or for a free action, and is in general surjective and radicial."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-base-change-failure",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Failure of coarse base change at Γ₁(4) in characteristic 2",
+   "kind": "theorem",
+   "statement": "Let H be an open level subgroup for which there is an open substack U⊂(Y_H)_{ℤ_{(2)}} such that the geometric points of U_ℚ have trivial automorphism groups and some nonempty open U′⊂U_{𝔽₂} has inertia the constant group {±1}. Then the base change to 𝔽₂ of the coarse map π:𝒳_H→X_H is not the coarse map of (𝒳_H)_{𝔽₂}, and the failure persists on every ℤ_{(2)}-fibrewise dense open substack. This applies to H=Γ₁(4): on the open of Y₁(4)_{𝔽₂} where the subgroup generated by the point of order 4 is of multiplicative type and j≠0, the inversion [−1] fixes the Drinfeld ℤ/4-structure, while over ℚ the problem is rigid. Hence Proposition 6.4(b)'s requirement that gcd(6,n) be invertible cannot be dropped in general.",
+   "hypotheses": [
+    "The two conditions (i) generic rigidity over ℚ and (ii) constant inertia {±1} on a dense open of the 𝔽₂-fibre."
+   ],
+   "proofSteps": [
+    "Reduce to the regular part of U and pass to an auxiliary odd level p∤n where the stack becomes a scheme; the coarse space of U_{𝔽₂} is the quotient of a scheme by an action in which {±1} acts trivially, while the base change of the coarse space of U is computed from the rigid generic fibre, and the two differ (Česnavičius 2016, Theorem 2.1).",
+    "For Γ₁(4): over ℤ[1/2] the problem is rigid (Katz–Mazur 2.7.4); over the multiplicative-type locus in characteristic 2 the image of the generator in G/G₂ is a generator of a group of order 2 killed by 2, so 2·α(1)=0 and [−1] preserves α (Theorem 3.2)."
+   ],
+   "acceptance": [
+    "The same failure holds for Γ₁(4)∩Γ₀(4n) and for balanced Γ₁(4) (Česnavičius 2016, Theorems 4.2 and 5.2)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/fibrewise-coarse-base-change",
+    "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+    "ModularCurvesPartII:R13.4a/coarse-local-structure",
+    "SchemeAndStackFoundations:SF.1/keel-mori"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces16cb",
+     "locator": "Theorem 2.1 and Remark 2.2, pp.2–3; Theorem 3.2, p.4",
+     "match": "Under the rigidity and constant-{±1}-inertia hypotheses the 𝔽₂ base change of the coarse map of 𝒳_H is not a coarse map, even on any fibrewise dense open; Γ₁(4) satisfies them."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "Remark 6.6, p.64",
+     "match": "For some H the invertibility of gcd(6,n) in Proposition 6.4(b) cannot be removed, e.g. Γ₁(4) over 𝔽₂."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/CoarseCurves",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/cartan-level-curves",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Cartan modular curves",
+   "kind": "construction",
+   "statement": "Let ℓ be a prime and H̄⊂GL₂(𝔽_ℓ) a subgroup, with H⊂GL₂(Ẑ) its preimage. The coarse curve X_H is a normal projective curve over ℤ, smooth over ℤ[1/ℓ], of degree [GL₂(𝔽_ℓ):±H̄] over ℙ¹_ℤ, with cyclotomic base ℤ when det H̄=𝔽_ℓ^×. For the Cartan levels write X_s(ℓ)=X_{C_s(ℓ)}, X_s⁺(ℓ)=X_{C_s⁺(ℓ)}, X_ns(ℓ)=X_{C_ns(ℓ)}, X_ns⁺(ℓ)=X_{C_ns⁺(ℓ)}, of degrees ℓ(ℓ+1), ℓ(ℓ+1)/2, ℓ(ℓ−1) and ℓ(ℓ−1)/2 for ℓ odd. Over ℤ[1/ℓ], a level-C_s⁺(ℓ) structure on E is an unordered pair of distinct subgroups of order ℓ (equivalently a split Cartan subalgebra 𝔽_ℓ×𝔽_ℓ of End(E[ℓ])), a level-C_s(ℓ) structure an ordered such pair, a level-C_ns⁺(ℓ) structure a subalgebra of End(E[ℓ]) étale locally conjugate to 𝔽_{ℓ²}, and a level-C_ns(ℓ) structure such a subalgebra with a chosen isomorphism to 𝔽_{ℓ²}. The ordered split Cartan curve is identified with X₀(ℓ²) over ℤ[1/ℓ] by (E,C₁,C₂)↦(E/C₁, [ℓ]⁻¹(C₂)/C₁), and X_s⁺(ℓ) with X₀(ℓ²)/⟨w_{ℓ²}⟩ (split-cartan-quotient). Every other subgroup of GL₂(𝔽_ℓ), for example the preimage of an exceptional S₄⊂PGL₂(𝔽₁₃), gives its curve by the same construction. Notation: X_s(ℓ) is the ordered (diagonal) curve as in Zywina; Balakrishnan–Dogra–Müller–Tuitman–Vonk and the node split-cartan-quotient write X_s(ℓ) for the normaliser curve, which is X_s⁺(ℓ) here.",
+   "hypotheses": [
+    "ℓ prime; ℓ odd for the nonsplit Cartan description with a nonsquare ε, ℓ=2 using the order-3 subgroup.",
+    "The moduli descriptions hold over ℤ[1/ℓ]; over ℤ the curve is defined as X_H."
+   ],
+   "proofSteps": [
+    "Apply deligne-rapoport-level-stack and integral-coarse-curves to the preimage H.",
+    "Degrees from coarse-degree-and-cusp-divisor and the orders of the Cartan subgroups (level-subgroups); −I lies in each Cartan subgroup, so projective index equals index.",
+    "Moduli: a frame orbit φH̄ is determined by the subalgebra φAφ⁻¹⊂End(E[ℓ]) with A the Cartan algebra, since frames with the same subalgebra differ by an element of the normaliser of A^×; for C_s this subalgebra is the pair of eigenlines.",
+    "The ordered split Cartan identification: from complementary lines C₁,C₂, the quotient E/C₁ carries the cyclic subgroup [ℓ]⁻¹(C₂)/C₁ of order ℓ²; conversely a cyclic K of order ℓ² on E′ gives E=E′/K[ℓ] with C₂=K/K[ℓ] and C₁ the kernel of the dual isogeny; both are inverse on the elliptic opens over ℤ[1/ℓ], and they extend to the normal compactifications by finite-normal-recognition."
+   ],
+   "acceptance": [
+    "X_s(ℓ) has ℓ+1 cusps, all of width ℓ: two ℚ-rational and ℓ−1 conjugate over ℚ(ζ_ℓ); X_s⁺(ℓ) has (ℓ+1)/2 cusps, one ℚ-rational (the common image of 0 and ∞ of X₀(ℓ²)) and (ℓ−1)/2 conjugate over ℚ(ζ_ℓ)⁺.",
+    "X_ns⁺(ℓ) has (ℓ−1)/2 cusps, all conjugate over ℚ(ζ_ℓ)⁺, so no ℚ-rational cusp for ℓ≥5.",
+    "For ℓ=13, X_s⁺(13), X_ns⁺(13) and the exceptional S₄ curve have degrees 91, 78 and 91 over the j-line."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/level-subgroups",
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "ModularCurvesPartII:R13.4a/coarse-cusps-away-from-the-level",
+    "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure",
+    "ModularCurvesPartII:R13.4a/finite-normal-recognition",
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "ModularCurvesPartII:R13.4a/split-cartan-quotient",
+    "ModularCurvesPartII:R13.4a/legal-coarse-base-change",
+    "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients"
+   ],
+   "sources": [
+    {
+     "sourceId": "zywina15",
+     "locator": "§1.2 (Cartan groups); §3.2, p.15; Lemma 3.6, p.16",
+     "match": "Split and nonsplit Cartan subgroups and normalisers, the curves X_G with their degree [GL₂:G], and the identification of X₀(N²) with the split Cartan curve X_s(N) by f(τ)↦f(τ/N)."
+    },
+    {
+     "sourceId": "ces17",
+     "locator": "§6.1, p.62; Proposition 6.4(a), p.63",
+     "match": "For any open H the coarse X_H is a normal projective curve over ℤ, finite locally free over ℙ¹_ℤ and smooth over ℤ[1/n]."
+    },
+    {
+     "sourceId": "bdmtv19",
+     "locator": "§1, p.887; §6, p.926; §6.3, pp.929–930",
+     "match": "X_s(ℓ) there denotes X(ℓ)/C_s(ℓ)⁺, the normaliser curve, well defined up to ℚ-isomorphism; it is ℚ-isomorphic to X₀(ℓ²)/w_{ℓ²} by conjugation with diag(ℓ,1), has genus 3 for ℓ=13, and Baran's plane quartic model is used for its rational points."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/SpecialLevels",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "EffectiveDiophantineMethods ED.6 and BDMTV 2019",
+     "how": "the curves X_s⁺(13), X_ns⁺(13) and the exceptional S₄ curve at 13 and their rational points"
+    },
+    {
+     "where": "EllipticCurveModularityImaginaryQuadratic IQ.4",
+     "how": "the Cartan curves used in the switching arguments of Caraiani–Newton §7"
+    },
+    {
+     "where": "this layer, coarse-rational-points",
+     "how": "rational points of Cartan curves classify elliptic curves with image in a Cartan normaliser"
+    },
+    {
+     "where": "R13.5 split-cartan-semistable-model",
+     "how": "the integral split Cartan quotient whose semistable model is computed"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve",
+     "role": "constructor",
+     "statement": "X_H for a subgroup H̄⊂GL₂(𝔽_ℓ), and the four abbreviations X_s, X_s⁺, X_ns, X_ns⁺."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_degree",
+     "role": "characterisation",
+     "statement": "The j-degree of X_s, X_s⁺, X_ns, X_ns⁺ is ℓ(ℓ+1), ℓ(ℓ+1)/2, ℓ(ℓ−1), ℓ(ℓ−1)/2 for ℓ odd."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_moduli",
+     "role": "characterisation",
+     "statement": "Over ℤ[1/ℓ], level-Cartan structures are the Cartan subalgebras of End(E[ℓ]) of the given type, ordered for C_s and C_ns."
+    },
+    {
+     "name": "TauCeti.ModularCurves.splitCartanCurve_iso_gammaZero",
+     "role": "equivalence",
+     "statement": "X_s(ℓ)≅X₀(ℓ²) over ℤ[1/ℓ] by (E,C₁,C₂)↦(E/C₁,[ℓ]⁻¹(C₂)/C₁); it is not an isomorphism over the j-line."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_cusps",
+     "role": "characterisation",
+     "statement": "Cusp counts and fields: X_s⁺(ℓ) has one rational cusp and (ℓ−1)/2 cusps over ℚ(ζ_ℓ)⁺; X_ns⁺(ℓ) has (ℓ−1)/2 cusps over ℚ(ζ_ℓ)⁺ and none rational."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_quotient",
+     "role": "relation",
+     "statement": "X_s⁺(ℓ)=X_s(ℓ)/(ℤ/2), the involution swapping the two lines (coarse-level-quotients)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_splitPlus_thirteen_degree",
+     "kind": "computation",
+     "statement": "X_s⁺(13) has degree 91 and X_ns⁺(13) degree 78 over ℙ¹_j."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_split_two",
+     "kind": "degenerate",
+     "statement": "For ℓ=2, C_s(2) is trivial and X_s(2)=X(2), of degree 6."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_ordered_not_plus",
+     "kind": "non-example",
+     "statement": "The ordered split Cartan curve X_s(ℓ) has degree ℓ(ℓ+1), twice that of X_s⁺(ℓ) (182 against 91 for ℓ=13), and two rational cusps instead of one; it is not the normaliser curve."
+    },
+    {
+     "name": "TauCeti.ModularCurves.cartanCurve_nonsplitPlus_cusps",
+     "kind": "characterisation",
+     "statement": "X_ns⁺(13) has six cusps, permuted transitively by Gal(ℚ(ζ₁₃)⁺/ℚ)."
+    }
+   ],
+   "planet": {
+    "name": "Cartan modular curves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/coarse-rational-points",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Rational points of X_H and Galois images",
+   "kind": "theorem",
+   "statement": "Let H be an open level subgroup with −I∈H̄, n with Γ(n)⊂H, and K a field of characteristic not dividing n. If E/K is an elliptic curve whose mod-n image ρ̄_{E,n}(G_K)⊂GL₂(ℤ/n), computed in some frame, is conjugate into H̄, then j(E) is the image of a K-point of Y_H. Conversely, if x∈Y_H(K) has j(x)∉{0,1728} (j(x)≠0 when char K∈{2,3}), then every elliptic curve E/K with j(E)=j(x) has ρ̄_{E,n}(G_K) conjugate into H̄. Without −I∈H̄ the converse holds for a suitable quadratic twist of E only; at j=0 or 1728 a K-point need not come from a curve with image in H̄. For H=C_s⁺(ℓ) or C_ns⁺(ℓ) this gives the correspondence between non-cuspidal rational points of X_s⁺(ℓ), X_ns⁺(ℓ) with j∉{0,1728} and elliptic curves over ℚ with image in the Cartan normaliser, with no twist. In particular the fibres of X_s⁺(13) over j=0 and j=1728 contain ℚ-points, coming from y²=x³+1 and y²=x³−x, whose mod-13 images lie in a split Cartan normaliser because 13 splits in ℚ(√−3) and in ℚ(i).",
+   "hypotheses": [
+    "−I∈H̄ for the converse without twist; char K∤n; j(x)∉{0,1728}."
+   ],
+   "proofSteps": [
+    "The coarse map is bijective on K̄-points (SchemeAndStackFoundations SF.1 coarse-moduli-space) and Gal(K̄/K)-equivariant, so x∈Y_H(K) is a Galois-stable isomorphism class of pairs (E_{K̄},φH̄).",
+    "Given E/K with j(E)=j(x)∉{0,1728}, Aut(E_{K̄})={±1} (Tau Ceti WeierstrassCurve.eq_one_or_eq_negVariableChange_of_smul_eq); stability means σ(φ)H̄=±φH̄=φH̄ for every σ, using −I∈H̄, i.e. φ⁻¹∘σ∘φ=ρ̄_{E,n}(σ)∈H̄ in the frame φ.",
+    "Conversely, if ρ̄(G_K)⊂gH̄g⁻¹ in a frame φ, the class (φg)H̄ is Galois-stable, hence a K-point of the finite étale scheme Isom/H̄ (Galois descent for finite étale schemes, upstream 0D), i.e. a K-point of the stack Y_H over j(E), which maps to a K-point of Y_H.",
+    "Without −I∈H̄, stability up to ±1 defines a quadratic character by which E must be twisted.",
+    "For j=0,1728 the larger automorphism group allows Galois-stable classes not realised by a K-rational structure on any curve with that j-invariant; CM points are therefore checked separately, here by the splitting of 13 in the CM fields."
+   ],
+   "acceptance": [
+    "E: y²=x³−x has CM by ℤ[i] and 13=(3+2i)(3−2i), so ρ̄_{E,13}(G_ℚ) lies in the normaliser of the split Cartan with eigenlines E[3+2i] and E[3−2i], complex conjugation exchanging them: the j=1728 fibre of X_s⁺(13) has a ℚ-point.",
+    "An elliptic curve over ℚ with a rational 7-isogeny gives a ℚ-point of X₀(7) over its j-invariant."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/level-h-structures",
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/coarse-local-structure",
+    "ModularCurvesPartII:R13.4a/cartan-level-curves",
+    "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
+    "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+    "tauceti:WeierstrassCurve.eq_one_or_eq_negVariableChange_of_smul_eq"
+   ],
+   "sources": [
+    {
+     "sourceId": "zywina15",
+     "locator": "Proposition 3.3, p.15; proof in §3.5, pp.17–19",
+     "match": "For G containing −I with surjective determinant and E/ℚ with j_E∉{0,1728}, ρ_{E,N}(G_ℚ) is conjugate into G if and only if j_E∈π_G(X_G(ℚ))."
+    },
+    {
+     "sourceId": "bdmtv19",
+     "locator": "§1, pp.887–888, Theorem 1.2",
+     "match": "The rational points of the normaliser-of-split-Cartan curve decide which non-CM elliptic curves over ℚ have mod-ℓ image in a split Cartan normaliser; for ℓ=13 there are none."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/SpecialLevels",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/atkin-lehner-quotient-curves",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Atkin–Lehner quotient curves X₀⁺(N)",
+   "kind": "construction",
+   "statement": "For N≥2 let w_N be the Fricke involution of X₀(N) over ℤ (R14.1 exact-divisor-atkin-lehner with d=N). Define X₀⁺(N):=X₀(N)/⟨w_N⟩, the quotient of the projective normal ℤ-curve X₀(N) by the group of order two. It is a normal projective ℤ-curve, flat with fibres of pure dimension one, smooth over ℤ[1/N], with a finite surjective quotient map π_N:X₀(N)→X₀⁺(N) of degree 2 whose formation commutes with flat base change and with base change to ℤ[1/2]-algebras. Over ℤ[1/N] its elliptic part is the coarse space of unordered pairs {φ,φ^∨} of mutually dual cyclic N-isogenies. The j-map of X₀(N) does not descend: the functions j+j∘w_N and j·(j∘w_N) do, and the map X₀⁺(N)→ℙ¹ they define with the modular polynomial is not the j-line. For N=ℓ² it is X_s⁺(ℓ) (split-cartan-quotient).",
+   "hypotheses": [
+    "N≥2; w_N as in R14.1, an involution of X₀(N) over ℤ.",
+    "Base change beyond flat and ℤ[1/2]-algebras is not asserted."
+   ],
+   "proofSteps": [
+    "X₀(N) is projective, so ⟨w_N⟩-orbits lie in affine opens; the geometric quotient exists and π_N is finite surjective of degree 2 (SchemeAndStackFoundations SF.1 finite-group-quotient).",
+    "Normality and flatness pass to the invariant rings; smoothness over ℤ[1/N] of the quotient of a smooth relative curve by a finite group holds without invertibility of the order (upstream 9D, smoothness of finite quotients, applied on invariant affine opens).",
+    "Invariants commute with flat base change and with base change on which 2 is invertible.",
+    "Moduli over ℤ[1/N]: w_N sends (E,C) to (E/C,E[N]/C), i.e. φ to its dual up to the identification of E/C, so orbits are unordered dual pairs.",
+    "Symmetric functions of j and j∘w_N are invariant; j itself is not, since w_N swaps j and j′ and j≠j′ on the generic fibre."
+   ],
+   "acceptance": [
+    "X₀⁺(ℓ²)≅X_s⁺(ℓ) over ℚ; for ℓ=13 it has genus 3.",
+    "π_N has degree 2 and its fixed points over ℚ̄ are CM points (their count is a class-number formula in R13.4b)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.1/exact-divisor-atkin-lehner",
+    "ModularCurvesPartII:R13.4a/integral-coarse-curves",
+    "ModularCurvesPartII:R13.4a/split-cartan-quotient",
+    "ModularCurvesPartII:R13.4a/modular-polynomial",
+    "ModularCurvesPartII:R13.4a/coarse-level-quotients",
+    "SchemeAndStackFoundations:SF.1/finite-group-quotient",
+    "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients"
+   ],
+   "sources": [
+    {
+     "sourceId": "bdmtv19",
+     "locator": "§6, p.926; proof of Theorem 6.6, p.929",
+     "match": "X₀⁺(ℓ²), the quotient of X₀(ℓ²) by w_{ℓ²}, is ℚ-isomorphic to the normaliser-of-split-Cartan curve, and the quotient of a semistable model by w_{ℓ²} is used for it."
+    },
+    {
+     "sourceId": "gz86",
+     "locator": "Chapter I, §1, p.226",
+     "match": "Over a field of characteristic zero the points of X₀(N) are cyclic N-isogenies of (generalized) elliptic curves, and the function field is ℚ(j,j′) with Φ_N(j,j′)=0."
+    },
+    {
+     "sourceId": "tc-modularcurves",
+     "locator": "§9D, smoothness of finite quotients",
+     "match": "A finite quotient of a smooth affine relative curve over a regular base is a smooth relative curve, without invertibility of the group order."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/SpecialLevels",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "uses": [
+    {
+     "where": "EffectiveDiophantineMethods ED.6",
+     "how": "the genus-3 curves X₀⁺(p) for p∈{97,109,113,127,139,149,151,179,239} and their rational points"
+    },
+    {
+     "where": "R13.5 split-cartan-semistable-model",
+     "how": "the quotient X₀(ℓ²)/w_{ℓ²} whose semistable model is computed"
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus",
+     "role": "constructor",
+     "statement": "X₀⁺(N)=X₀(N)/⟨w_N⟩ with its quotient map."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus.quotientMap",
+     "role": "projection",
+     "statement": "π_N:X₀(N)→X₀⁺(N), finite surjective of degree 2 and w_N-invariant."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus.lift",
+     "role": "universal-property",
+     "statement": "Every w_N-invariant morphism from X₀(N) to a scheme factors uniquely through π_N."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus.smooth",
+     "role": "structure",
+     "statement": "X₀⁺(N) is smooth over ℤ[1/N]."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus.baseChange",
+     "role": "functoriality",
+     "statement": "Formation commutes with flat base change and with base change to ℤ[1/2]-algebras."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus.symmetricJ",
+     "role": "other",
+     "statement": "j+j∘w_N and j·(j∘w_N) descend to X₀⁺(N); j does not."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus_square",
+     "kind": "compatibility",
+     "statement": "gammaZeroPlus ℓ² ≅ X_s⁺(ℓ) over ℚ (split-cartan-quotient)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus_cusps",
+     "kind": "computation",
+     "statement": "For a prime p, w_p exchanges the two cusps 0 and ∞ of X₀(p), so X₀⁺(p) has exactly one cusp, and it is ℚ-rational."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus_noJ",
+     "kind": "non-example",
+     "statement": "j does not factor through π_N: for N=2 the values j(E) and j(E/C) differ for a generic pair."
+    },
+    {
+     "name": "TauCeti.ModularCurves.gammaZeroPlus_one",
+     "kind": "degenerate",
+     "statement": "For N=1 the Fricke map is the identity, so the quotient is X₀(1)=ℙ¹_ℤ and π₁ has degree 1, not 2; this is why the construction is stated for N≥2."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R13.4a/proper-rigidifying-covers",
+   "parentStageId": "ModularCurvesPartII:R13.4a",
+   "realises": [
+    "ModularCurvesPartII:R13.4a"
+   ],
+   "title": "Proper rigidifying covers and coherent finiteness",
+   "kind": "theorem",
+   "statement": "Let m=m₁m₂ with coprime m₁,m₂≥3. Then 𝒳_{Γ(m)} is a projective ℤ-scheme and its contraction to X(1) is representable, finite and locally free of rank |GL₂(ℤ/m)|. For every open level subgroup H the fibre product P_H:=𝒳_H×_{X(1)}𝒳_{Γ(m)} is a projective ℤ-scheme with a finite locally free surjection p:P_H→𝒳_H of rank |GL₂(ℤ/m)|, equivariant for GL₂(ℤ/m) acting on the second factor. Consequently: (a) for every quasi-coherent sheaf F on 𝒳_H, H⁰(𝒳_H,F) is the equaliser of the two pullback maps from H⁰(P_H,p*F) to the sections over P_H×_{𝒳_H}P_H, and over ℤ[1/m], where p is a GL₂(ℤ/m)-torsor, it is H⁰(P_H,p*F)^{GL₂(ℤ/m)}; (b) for coherent F, H⁰(𝒳_H,F) is a finitely generated ℤ-module whose formation commutes with flat base change ℤ→A, and over ℤ[1/m] every H^i(𝒳_H,F) is finitely generated over ℤ[1/m]; (c) for every ring A, a section of F over 𝒳_H⊗A is the same as a section of p*F over P_H⊗A whose two pullbacks agree (effective descent along the finite locally free p). No descent of F to the coarse space X_H is asserted: ω^{⊗k} for odd k and stabilisers acting nontrivially do not descend.",
+   "hypotheses": [
+    "m₁,m₂≥3 coprime; F quasi-coherent, coherent for finiteness.",
+    "The torsor descriptions hold over ℤ[1/m]; over ℤ the equaliser is used. Higher coherent cohomology over ℤ is not asserted here."
+   ],
+   "proofSteps": [
+    "𝒳_{Γ(m)} is a projective scheme because m is not of the form p^s or 2p^s (standard-level-stack-identifications), and its contraction to X(1) is representable finite locally free of rank |GL₂(ℤ/m)| (Česnavičius Proposition 4.3.4 with n=1).",
+    "P_H is finite over the projective scheme 𝒳_{Γ(m)} because 𝒳_H→X(1) is representable and finite, so P_H is a projective scheme; p is the base change of 𝒳_{Γ(m)}→X(1).",
+    "(a),(c): fpqc descent of quasi-coherent sheaves and their sections along the finite locally free surjection p (SchemeAndStackFoundations SF.1 qcoh-fpqc-descent, stack-quasi-coherent).",
+    "(b): H⁰(𝒳_H,F) is a submodule of the finitely generated H⁰(P_H,p*F) on a projective ℤ-scheme, and an equaliser of flat-base-change-compatible modules; over ℤ[1/m], H^i(𝒳_H,F) is computed by the Hochschild–Serre spectral sequence of the GL₂(ℤ/m)-torsor p, whose terms are group cohomology of a finite group with finitely generated coefficients.",
+    "Over ℤ[1/m], X(1)[1/m]=[X(m)[1/m]/GL₂(ℤ/m)] (level-stack-geometry (c) with H=GL₂(Ẑ)), so p is a torsor there."
+   ],
+   "acceptance": [
+    "For H=Γ₀(N), weight-k modular forms of level Γ₀(N) over ℤ form a finitely generated ℤ-module, computed as invariants on a projective scheme over ℤ[1/m].",
+    "Over ℤ the sheaf ω on X(1) has H⁰=0, since −1 acts on it by −1 and H⁰ is torsion-free; over 𝔽₂ the Hasse invariant is a nonzero section of ω, so H⁰ does not commute with the non-flat base change ℤ→𝔽₂. ω is a line bundle on the stack that does not come from ℙ¹_ℤ."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications",
+    "ModularCurvesPartII:R13.4a/level-stack-geometry",
+    "ModularCurvesPartII:R13.4a/deligne-rapoport-level-stack",
+    "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+    "SchemeAndStackFoundations:SF.1/stack-quasi-coherent",
+    "AlgebraicModuliForArithmeticGeometry:R09.5/tame-finite-flat-descent"
+   ],
+   "sources": [
+    {
+     "sourceId": "ces17",
+     "locator": "Proposition 4.3.4, p.38; Proposition 4.3.6, p.39",
+     "match": "The contraction X(nm)→X(n) is representable finite locally free of rank #GL₂(ℤ/nm)/#GL₂(ℤ/n); X(n) is a projective scheme unless n=p^s or 2p^s."
+    },
+    {
+     "sourceId": "conrad07",
+     "locator": "Theorem 4.2.1(2) and Remark 4.2.2, pp.35–36",
+     "match": "For enough level the moduli stacks are schemes and coincide with the Katz–Mazur projective schemes; for d|N with d≥3 invertible the full-level stack is a scheme with ample boundary."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/LevelStack",
+    "namespace": "TauCeti.ModularCurves"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9b-the-standard-quotient-problems",
+   "need": "The seven standard quotient identifications of Katz–Mazur 7.4.2 in the row-vector convention, in particular [Γ₁(N)] and [Γ₀(N)] as quotients of [Γ(N)], and the diamond action P↦aP.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/level-subgroups",
+    "ModularCurvesPartII:R13.4a/prime-diamond-agreement"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#3n-naive-level-structures",
+   "need": "Naive level structures and the finite étale N-torsion over ℤ[1/N].",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/level-h-structures"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing",
+   "need": "Y_full(N) for N≥3 over ℤ[1/N], its determinant to μ_N^{prim} and the fibres Y(N,ζ).",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure",
+    "ModularCurvesPartII:R13.4a/fixed-pairing-coarse-curve",
+    "ModularCurvesPartII:R13.4a/level-h-structures"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "need": "Finite group quotients of affine schemes and their base change.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/coarse-level-quotients",
+    "ModularCurvesPartII:R13.4a/level-h-structures"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions",
+   "need": "Finite étale schemes, Galois actions and Galois descent of their points.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/coarse-rational-points",
+    "ModularCurvesPartII:R13.4a/level-h-structures"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+   "need": "Katz–Mazur quotient problems [Γ(n)]/H̄ over ℤ with Q1–Q2, and after inverting n their identification with the fppf sheaf quotient of the naive full-level problem.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/level-h-structures"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#3d-comparison-with-naive-level-structures",
+   "need": "Comparison of Drinfeld and naive level structures after inverting N.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/standard-level-stack-identifications"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+   "need": "The coarse j-line Spec ℤ[j] over ℤ and over every ring (coarseJLine_int, coarseJLine) and the coarse curve Y₀(N).",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/compactified-coarse-j-line"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+   "need": "Relative effective Cartier divisors and their pullback along flat morphisms.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+   "need": "The prime N≥5 diamond quotients X_H over ℤ[1/N] as normalizations of ℙ¹_j in Y₁(N)/H with their cusp divisor; R13.4a proves agreement and builds nothing again on this class.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/coarse-degree-and-cusp-divisor",
+    "ModularCurvesPartII:R13.4a/prime-diamond-agreement"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2e-cartiernishi-duality-and-the-weil-pairing",
+   "need": "The Weil pairing e_N, alternating and perfect, with e_N((P,Q)g)=e_N(P,Q)^{det g}.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/coarse-cusps-away-from-the-level",
+    "ModularCurvesPartII:R13.4a/coarse-cyclotomic-structure"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2f-endomorphism-degree-trace-and-rigidity",
+   "need": "Rigidity of elliptic curves with full level N≥3 structure (Katz–Mazur 2.7).",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/fixed-pairing-coarse-curve"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#5c-the-twisted-curve-yρ",
+   "need": "The twisted curve Y(ρ)/ℚ for N≥3 and a symplectic Galois module V_ρ.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/twisted-coarse-curve"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "need": "Effective descent along étale coverings.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/twisted-coarse-curve"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+   "need": "Coarse moduli schemes M(𝒫) of affine moduli problems with M(𝒫)/H≅M(𝒫/H) (Katz–Mazur 8.1.5), base change 8.1.6, and the smoothness of finite quotients of smooth affine relative curves.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification",
+    "ModularCurvesPartII:R13.4a/atkin-lehner-quotient-curves",
+    "ModularCurvesPartII:R13.4a/prime-diamond-agreement"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#5a-tate-normal-form-and-y₁n-for-n4",
+   "need": "Y₁(N) for N≥4 over ℤ[1/N] via Tate normal form.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#layer-6-the-three-elementary-integral-level-problems",
+   "need": "The integral level problems [Γ(N)], [Γ₁(N)] and balanced [Γ₁(N)] over ℤ.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#8d-the-cyclicity-locus-and-γ₀n",
+   "need": "The cyclicity locus and the integral problem [Γ₀(N)].",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/affine-open-identification"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2b-isogenies-and-quotients",
+   "need": "Quotients of elliptic curves by finite locally free subgroups and the universal isogeny.",
+   "neededBy": [
+    "ModularCurvesPartII:R13.4a/cartan-level-curves"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ModularCurvesPartII:R13.4a",
+   "status": "planned",
+   "remaining": [
+    "Collate the cusp-label, compactification and coarse j-line statements against Katz–Mazur 8.6, 8.11 and 10.6 and Deligne–Rapoport IV.3, IV.6 and VI.1, which were not available; coarse-cusps-away-from-the-level derives the double-coset description from Conrad (4.2.1) and coarse-local-structure, and compactified-coarse-j-line takes the case S=Spec ℤ through Česnavičius Proposition 3.3.2.",
+    "At lemma level, split finite-normal-recognition into its affine statement and its descent to Deligne–Mumford stacks, and fibrewise-coarse-base-change into the invariant-ring dévissage and its globalisation."
+   ],
+   "notes": "Every target of R13.4a is a node of this packet or of the first pass in the R13.3 packet. This pass discharges that pass's remaining items: the coarse finite-inertia and completion input is coarse-local-structure, the refined-stack comparison is standard-level-stack-identifications, and the finite-normal comparison is checked on every component in prime-diamond-agreement. Requests made to R13.4a by ShimuraCompactifications C6, AlgebraicModularFormsAndSerreWeights R15.1–R15.2, GrossZagierAndArithmeticHeights, EffectiveDiophantineMethods ED.6, ShimuraVarieties V8, EllipticCurveModularityWild3Adic W3.6 and EllipticCurveModularityImaginaryQuadratic IQ.4 are answered by the nodes named in paperRouting and the handoff, except their generic-fibre parts, routed to R13.4b in restructure."
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "ModularCurvesPartII/E401",
+   "source": "gz86",
+   "kind": "gap",
+   "locator": "Chapter III, §1, the paragraph after (1.3), p.255; the stack defined on p.254; Invent. Math. 84 (1986), published version (MPIM scan)",
+   "printed": "The stack used is that of cyclic N-isogenies of generalized elliptic curves whose kernel meets every component of each geometric fibre, cyclic in the Cartier-divisor sense; the source then asserts that at every geometric point the strict henselization of the coarse scheme X is the quotient of the strict henselization of this stack by Aut_k(x)/{±1}, with Aut_k(x) the group of automorphisms of the pair, and derives Proposition (1.4) from it.",
+   "correction": "For N divisible by p² this is the naive Γ₀(N) stack, which is not Deligne–Mumford at the cusps of residue characteristic p, so it has no étale strict henselization there and the group Aut_k(x) of k-points misses its infinitesimal automorphisms. The statement holds for Česnavičius's refined stack 𝒳₀(N), which is Deligne–Mumford and regular and has the same coarse space; with that stack, Proposition (1.4) follows as stated (its conclusion is also Česnavičius Theorem 6.7 and Edixhoven 1990 §1.2).",
+   "reason": "On the standard p-gon over 𝔽_p the infinitesimal μ_p of automorphisms fixing the identity component stabilises suitable ample cyclic subgroups of order N whose p-part is non-étale and disconnected, so the automorphism group scheme of that point is not étale (Česnavičius arXiv:1511.07475v2 §1.2, p.2; Conrad 2007 §1.1, p.1). The coarse spaces of the naive and refined stacks coincide (Česnavičius Proposition 6.9), so the coarse scheme X and the conclusion of (1.4) are unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The atlas register research/errata/REGISTER.md, entries for Gross–Zagier 1986: none at p.255",
+    "Česnavičius arXiv:1511.07475v2 §§1, 6: it cites Gross–Zagier Proposition III.1.4 for cusp regularity without discussing the stack used",
+    "The MPIM-hosted published scan read at pp.254–255; no erratum to the paper located by the earlier GrossZagierAndArithmeticHeights errata work for this passage"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1511.07475",
+   "read": "2026-10-13",
+   "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1608.01249",
+   "read": "2026-10-13",
+   "sha256": "c2f4a0311beff9b4a7a1f70dda989c5d1d52a1971bf69500317db2cac32bf5f7"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+   "read": "2026-10-13",
+   "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.stanford.edu/~conrad/papers/coarsespace.pdf",
+   "read": "2026-10-13",
+   "sha256": "31535943dd0f1e8351046c4b842a65477ba6c22651c23324ef2bd451c93411d2"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/9908167",
+   "read": "2026-10-13",
+   "sha256": "8b19db73bcdaa7ec4cd8ee22ca691aa46a0a06f3a9587501315a582fbeed4ce8"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1508.07660",
+   "read": "2026-10-13",
+   "sha256": "b3b747c876c47239fe5d2625ed54489b15eefb1221ac3d3a501e95cf13a37eb7"
+  },
+  {
+   "kind": "published",
+   "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf",
+   "read": "2026-10-13",
+   "sha256": "8afee839cdc0e2056c6dcbe348e39c0a6aa27344125d8c3b80dd735f2e6d9521"
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+   "read": "2026-10-13",
+   "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8"
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "ModularCurvesPartII"
+   ],
+   "detail": "R13.2/fixed-pairing-integral-components combines the connectedness-free extension of the Weil pairing to Xfull(N)→Spec ℤ[ζ_N] (Conrad Theorem 4.1.1(3)) with geometric connectedness of the fibres, which it proves from R12.4. R13.4a must not use connectedness, so coarse-cyclotomic-structure and fixed-pairing-coarse-curve use only the first part, citing Conrad directly.",
+   "proposal": "When R13.2 is next revised, split that node into the determinant extension (R13.2, no R12 input) and the connectedness of the fibres (moved to R12.4 or R12.6, which already own the fixed-pairing connectedness). No R13.4a node changes."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "ModularCurvesPartII"
+   ],
+   "detail": "Several requests addressed to R13.4a ask for generic-fibre statements that need geometric connectedness (R12.4) or genus computations: the rationality X_ρ(5)≅ℙ¹_ℚ of Shepherd-Barron–Taylor Lemma 1.1 (EllipticCurveModularityWild3Adic W3.6), the genera of X₀(4), X₀(9), X₀(25), X₀(49) and the four fixed points of w₄₉ (EffectiveDiophantineMethods ED.6, item (e)), and the normalized genus-zero Borel and Cartan coordinates of Caraiani–Newton 7.1.3 (EllipticCurveModularityImaginaryQuadratic IQ.4).",
+   "proposal": "Plan these in R13.4b (generic-fibre and correspondence compatibility), which may use R12.4 and R12.6, on the carriers constructed here: twisted-coarse-curve, atkin-lehner-quotient-curves, cartan-level-curves and coarse-cusps-away-from-the-level. R13.4a supplies only the algebraic curves, their degrees, cusps and rational-point criterion."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "ModularCurvesPartII",
+    "SchemeAndStackFoundations"
+   ],
+   "detail": "Two general statements are planned here because no lower roadmap states them: the recognition criterion for relative normalization (finite-normal-recognition) and the fibrewise criterion for coarse base change of flat Deligne–Mumford stacks over ℤ (fibrewise-coarse-base-change). Both are scheme- and stack-theoretic, not modular.",
+   "proposal": "If SchemeAndStackFoundations gains a Part II on normalization and coarse spaces, move these two nodes there and cite them from R13.4a; until then they are owned here."
+  }
+ ],
+ "paperRouting": [
+  {
+   "paper": "Balakrishnan–Dogra–Müller–Tuitman–Vonk 2019 (items /1, /71)",
+   "inScope": "General mod-ℓ levels and Cartan normalisers are cartan-level-curves; the non-cuspidal j≠0,1728 rational-point criterion without twist is coarse-rational-points; X₀(ℓ²)/w_{ℓ²}≅X_s⁺(ℓ) remains split-cartan-quotient of the first pass; models and local heights are R13.5 and NonAbelianChabauty."
+  },
+  {
+   "paper": "Calegari–Geraghty 2018 (§§3.2, 3.9 items planned at R13.4a)",
+   "inScope": "X₁(N), X₁(N;Q), X₁(NQ) and the Γ_H(N) quotients are levels of level-subgroups (Γ₁^μ for the μ_N-embedding convention) with curves from deligne-rapoport-level-stack and integral-coarse-curves; the covers X_Δ(Q)→X₀(Q) and X_V→X_U are coarse-level-maps; X(V)_A/G≅X_A for O-algebras A, with |G| prime to p hence invertible in O, is coarse-level-quotients. Fineness of their auxiliary-level curves is level-stack-geometry (e)."
+  },
+  {
+   "paper": "Gross–Zagier 1986 (items 1, 120, 123, 124)",
+   "inScope": "The coarse X₀(N) over ℤ and ℚ is integral-coarse-curves with affine-open-identification; Aut_k(x) and the strict henselization are coarse-local-structure, with the stack correction ModularCurvesPartII/E401."
+  },
+  {
+   "paper": "Bakker–Tsimerman 2016 and Masser–Zannier 2020",
+   "inScope": "Unchanged from the first pass: projective-scalar-coarse-quotient and modular-polynomial."
+  }
+ ],
+ "upstreamNotes": []
+}
