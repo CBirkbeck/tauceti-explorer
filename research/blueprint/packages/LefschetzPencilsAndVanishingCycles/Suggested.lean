@@ -155,6 +155,11 @@ example : quadraticSeries (QuadraticMap.proj 0 1 : QuadraticForm ℚ (Fin 2 → 
     MvPowerSeries.X 0 * MvPowerSeries.X 1 := by
   sorry
 
+/-- The diagonal case: `x₀²` expands to `X 0 ^ 2`, with no factor of two. -/
+example : quadraticSeries (QuadraticMap.proj 0 0 : QuadraticForm ℚ (Fin 2 → ℚ)) =
+    MvPowerSeries.X 0 ^ 2 := by
+  sorry
+
 /-- The centre `Z(Q)` of the even Clifford algebra. README 2.2, `evenCliffordCentre`. -/
 abbrev evenCliffordCentre (Q : QuadraticForm K V) : Subalgebra K (CliffordAlgebra.even Q) :=
   Subalgebra.center K (CliffordAlgebra.even Q)
@@ -190,6 +195,14 @@ theorem fixedSpace_localTransvections {ι : Type*} [Finite ι] (B : LinearMap.Bi
 /-- On `ℚ²` with the dot product, the reflection in `δ = (1, -1)` swaps the coordinates. -/
 example : localTransvection (Matrix.toBilin' (1 : Matrix (Fin 2) (Fin 2) ℚ)) (-1) ![1, -1]
     ![1, 0] = ![0, 1] := by
+  sorry
+
+/-- Reflections in an `A₂` pair of roots of square two with pairing `-1`: the composite has trace
+`-1 = dim E - 4 + (δ, δ')²`, the identity used in README 5.10 (Weil II, p. 230, prints the
+constant `2` in place of `4`, which would give `1` here). -/
+example : LinearMap.trace ℚ (Fin 2 → ℚ)
+    (localTransvection (Matrix.toBilin' !![(2 : ℚ), -1; -1, 2]) (-1) ![1, 0] ∘ₗ
+      localTransvection (Matrix.toBilin' !![(2 : ℚ), -1; -1, 2]) (-1) ![0, 1]) = -1 := by
   sorry
 
 /-- The radical `E ∩ E^⊥` of the restriction of `B` to `E`, as a submodule of `E`. README 4.4. -/
