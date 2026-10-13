@@ -2,8 +2,10 @@
 Suggested statements for Modular curves, following Katz–Mazur, Part II:
 Uniformization, integral boundary and Hecke cohomology, part R13.3–R14.2.
 
-The roadmap is research/blueprint/readmes/ModularCurvesPartII--R13.3.md;
-this file is a compact selection of statements available at the pinned carriers.
+The reviewed targets are in research/blueprint/packets/ModularCurvesPartII--R13.3.json
+and research/blueprint/reviews/REV-ModularCurvesPartII--R13.3.md. The reader
+requires the synchronization recorded in that review before packaging.
+This file is a compact selection of statements available at the pinned carriers.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 Every packet node has implementationStatus = unchecked.
@@ -34,6 +36,24 @@ set_option maxRecDepth 4096
 namespace TauCeti.ModularCurves
 
 open scoped BigOperators
+
+/-! R13.3: the proper Tate power map fails flatness at a node for m>1. -/
+
+/-- Exponents of the basis of k[x,y]/(xy,x^m,y^m), for m>0.
+This finite enumeration is not a construction of a ring or a formal curve. -/
+def nodePowerFibreMonomials (m : ℕ) : Finset (ℕ × ℕ) :=
+  ((Finset.range m).product (Finset.range m)).filter
+    (fun ij => ij.1 = 0 ∨ ij.2 = 0)
+
+/-- The identity power map has node fibre of length one. -/
+example : (nodePowerFibreMonomials 1).card = 1 := by decide
+
+/-- The square map has fibre basis 1,x,y: length three, not generic degree two. -/
+example : nodePowerFibreMonomials 2 = {(0, 0), (1, 0), (0, 1)} ∧
+    (nodePowerFibreMonomials 2).card = 3 := by decide
+
+/-- The cube map has five basis monomials, not generic degree three. -/
+example : (nodePowerFibreMonomials 3).card = 5 := by decide
 
 /-! R14.1: degree arithmetic of the disjoint order-p correspondence. -/
 
@@ -107,6 +127,14 @@ theorem atkinLehnerAnalytic_involutive (N z : ℂ) (hN : N ≠ 0) (hz : z ≠ 0)
     atkinLehnerAnalytic N (atkinLehnerAnalytic N z) = z := by
   unfold atkinLehnerAnalytic
   field_simp
+
+/-- The sign and reciprocal are both detected by this value. -/
+example : atkinLehnerAnalytic 1 (2 : ℂ) = -1 / 2 := by
+  norm_num [atkinLehnerAnalytic]
+
+/-- The totalized formula at N=0 is zero; it is outside the Fricke domain. -/
+example (z : ℂ) : atkinLehnerAnalytic 0 z = 0 := by
+  simp [atkinLehnerAnalytic]
 
 /-- Test `diamond_group_order_11`: the effective coarse unit quotient. -/
 example : Nat.totient 11 / 2 = 5 := by decide
